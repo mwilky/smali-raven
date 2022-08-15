@@ -15,9 +15,6 @@
 
 
 # virtual methods
-.method public abstract onDisplayReparented(I)V
-.end method
-
 .method public abstract onWindowsForAccessibilityChanged(ZILandroid/os/IBinder;Ljava/util/List;)V
     .annotation system Ldalvik/annotation/Signature;
         value = {

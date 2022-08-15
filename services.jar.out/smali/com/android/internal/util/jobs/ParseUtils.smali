@@ -4,7 +4,7 @@
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,9 +43,9 @@
     :cond_1
     invoke-static {p0, p1}, Lcom/android/internal/util/jobs/ParseUtils;->parseInt(Ljava/lang/String;I)I
 
-    move-result v0
+    move-result p0
 
-    if-eqz v0, :cond_2
+    if-eqz p0, :cond_2
 
     goto :goto_0
 
@@ -57,7 +57,7 @@
 .end method
 
 .method public static parseDouble(Ljava/lang/String;D)D
-    .locals 2
+    .locals 0
 
     if-nez p0, :cond_0
 
@@ -67,20 +67,18 @@
     :try_start_0
     invoke-static {p0}, Ljava/lang/Double;->parseDouble(Ljava/lang/String;)D
 
-    move-result-wide v0
+    move-result-wide p0
     :try_end_0
     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-wide v0
+    return-wide p0
 
     :catch_0
-    move-exception v0
-
     return-wide p1
 .end method
 
 .method public static parseFloat(Ljava/lang/String;F)F
-    .locals 1
+    .locals 0
 
     if-nez p0, :cond_0
 
@@ -90,15 +88,13 @@
     :try_start_0
     invoke-static {p0}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
-    move-result v0
+    move-result p0
     :try_end_0
     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return v0
+    return p0
 
     :catch_0
-    move-exception v0
-
     return p1
 .end method
 
@@ -109,13 +105,13 @@
 
     invoke-static {p0, v0, p1}, Lcom/android/internal/util/jobs/ParseUtils;->parseIntWithBase(Ljava/lang/String;II)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public static parseIntWithBase(Ljava/lang/String;II)I
-    .locals 1
+    .locals 0
 
     if-nez p0, :cond_0
 
@@ -125,32 +121,30 @@
     :try_start_0
     invoke-static {p0, p1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;I)I
 
-    move-result v0
+    move-result p0
     :try_end_0
     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return v0
+    return p0
 
     :catch_0
-    move-exception v0
-
     return p2
 .end method
 
 .method public static parseLong(Ljava/lang/String;J)J
-    .locals 2
+    .locals 1
 
     const/16 v0, 0xa
 
     invoke-static {p0, v0, p1, p2}, Lcom/android/internal/util/jobs/ParseUtils;->parseLongWithBase(Ljava/lang/String;IJ)J
 
-    move-result-wide v0
+    move-result-wide p0
 
-    return-wide v0
+    return-wide p0
 .end method
 
 .method public static parseLongWithBase(Ljava/lang/String;IJ)J
-    .locals 2
+    .locals 0
 
     if-nez p0, :cond_0
 
@@ -160,14 +154,12 @@
     :try_start_0
     invoke-static {p0, p1}, Ljava/lang/Long;->parseLong(Ljava/lang/String;I)J
 
-    move-result-wide v0
+    move-result-wide p0
     :try_end_0
     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-wide v0
+    return-wide p0
 
     :catch_0
-    move-exception v0
-
     return-wide p2
 .end method

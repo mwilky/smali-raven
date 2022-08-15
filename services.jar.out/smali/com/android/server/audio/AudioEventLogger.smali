@@ -13,7 +13,7 @@
 
 
 # instance fields
-.field private final mEvents:Ljava/util/LinkedList;
+.field public final mEvents:Ljava/util/LinkedList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/LinkedList<",
@@ -23,9 +23,9 @@
     .end annotation
 .end field
 
-.field private final mMemSize:I
+.field public final mMemSize:I
 
-.field private final mTitle:Ljava/lang/String;
+.field public final mTitle:Ljava/lang/String;
 
 
 # direct methods
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public declared-synchronized dump(Ljava/io/PrintWriter;)V
-    .locals 3
+    .locals 2
 
     monitor-enter p0
 
@@ -94,9 +94,9 @@
 
     invoke-virtual {v1}, Lcom/android/server/audio/AudioEventLogger$Event;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {p1, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -139,6 +139,66 @@
     iget-object v0, p0, Lcom/android/server/audio/AudioEventLogger;->mEvents:Ljava/util/LinkedList;
 
     invoke-virtual {v0, p1}, Ljava/util/LinkedList;->add(Ljava/lang/Object;)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit p0
+
+    return-void
+
+    :catchall_0
+    move-exception p1
+
+    monitor-exit p0
+
+    throw p1
+.end method
+
+.method public declared-synchronized loglog(Ljava/lang/String;ILjava/lang/String;)V
+    .locals 1
+
+    monitor-enter p0
+
+    :try_start_0
+    new-instance v0, Lcom/android/server/audio/AudioEventLogger$StringEvent;
+
+    invoke-direct {v0, p1}, Lcom/android/server/audio/AudioEventLogger$StringEvent;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v0, p2, p3}, Lcom/android/server/audio/AudioEventLogger$Event;->printLog(ILjava/lang/String;)Lcom/android/server/audio/AudioEventLogger$Event;
+
+    move-result-object p1
+
+    invoke-virtual {p0, p1}, Lcom/android/server/audio/AudioEventLogger;->log(Lcom/android/server/audio/AudioEventLogger$Event;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit p0
+
+    return-void
+
+    :catchall_0
+    move-exception p1
+
+    monitor-exit p0
+
+    throw p1
+.end method
+
+.method public declared-synchronized loglogi(Ljava/lang/String;Ljava/lang/String;)V
+    .locals 1
+
+    monitor-enter p0
+
+    :try_start_0
+    new-instance v0, Lcom/android/server/audio/AudioEventLogger$StringEvent;
+
+    invoke-direct {v0, p1}, Lcom/android/server/audio/AudioEventLogger$StringEvent;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v0, p2}, Lcom/android/server/audio/AudioEventLogger$Event;->printLog(Ljava/lang/String;)Lcom/android/server/audio/AudioEventLogger$Event;
+
+    move-result-object p1
+
+    invoke-virtual {p0, p1}, Lcom/android/server/audio/AudioEventLogger;->log(Lcom/android/server/audio/AudioEventLogger$Event;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 

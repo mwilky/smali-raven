@@ -1,4 +1,4 @@
-.class Lcom/android/server/location/contexthub/AuthStateDenialTimer$CountDownHandler;
+.class public Lcom/android/server/location/contexthub/AuthStateDenialTimer$CountDownHandler;
 .super Landroid/os/Handler;
 .source "AuthStateDenialTimer.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "CountDownHandler"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/location/contexthub/AuthStateDenialTimer;
+.field public final synthetic this$0:Lcom/android/server/location/contexthub/AuthStateDenialTimer;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/location/contexthub/AuthStateDenialTimer;Landroid/os/Looper;)V
+.method public constructor <init>(Lcom/android/server/location/contexthub/AuthStateDenialTimer;Landroid/os/Looper;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/location/contexthub/AuthStateDenialTimer$CountDownHandler;->this$0:Lcom/android/server/location/contexthub/AuthStateDenialTimer;
@@ -32,70 +32,70 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 5
+    .locals 4
 
-    iget-object v0, p0, Lcom/android/server/location/contexthub/AuthStateDenialTimer$CountDownHandler;->this$0:Lcom/android/server/location/contexthub/AuthStateDenialTimer;
+    iget-object p1, p0, Lcom/android/server/location/contexthub/AuthStateDenialTimer$CountDownHandler;->this$0:Lcom/android/server/location/contexthub/AuthStateDenialTimer;
 
-    monitor-enter v0
+    monitor-enter p1
 
     :try_start_0
-    iget-object v1, p0, Lcom/android/server/location/contexthub/AuthStateDenialTimer$CountDownHandler;->this$0:Lcom/android/server/location/contexthub/AuthStateDenialTimer;
+    iget-object v0, p0, Lcom/android/server/location/contexthub/AuthStateDenialTimer$CountDownHandler;->this$0:Lcom/android/server/location/contexthub/AuthStateDenialTimer;
 
-    invoke-static {v1}, Lcom/android/server/location/contexthub/AuthStateDenialTimer;->access$000(Lcom/android/server/location/contexthub/AuthStateDenialTimer;)Z
+    invoke-static {v0}, Lcom/android/server/location/contexthub/AuthStateDenialTimer;->-$$Nest$fgetmCancelled(Lcom/android/server/location/contexthub/AuthStateDenialTimer;)Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    monitor-exit v0
+    monitor-exit p1
 
     return-void
 
     :cond_0
-    iget-object v1, p0, Lcom/android/server/location/contexthub/AuthStateDenialTimer$CountDownHandler;->this$0:Lcom/android/server/location/contexthub/AuthStateDenialTimer;
+    iget-object v0, p0, Lcom/android/server/location/contexthub/AuthStateDenialTimer$CountDownHandler;->this$0:Lcom/android/server/location/contexthub/AuthStateDenialTimer;
 
-    invoke-static {v1}, Lcom/android/server/location/contexthub/AuthStateDenialTimer;->access$100(Lcom/android/server/location/contexthub/AuthStateDenialTimer;)J
+    invoke-static {v0}, Lcom/android/server/location/contexthub/AuthStateDenialTimer;->-$$Nest$fgetmStopTimeInFuture(Lcom/android/server/location/contexthub/AuthStateDenialTimer;)J
 
-    move-result-wide v1
+    move-result-wide v0
 
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
-    move-result-wide v3
+    move-result-wide v2
 
-    sub-long/2addr v1, v3
+    sub-long/2addr v0, v2
 
-    const-wide/16 v3, 0x0
+    const-wide/16 v2, 0x0
 
-    cmp-long v3, v1, v3
+    cmp-long v2, v0, v2
 
-    if-gtz v3, :cond_1
+    if-gtz v2, :cond_1
 
-    iget-object v3, p0, Lcom/android/server/location/contexthub/AuthStateDenialTimer$CountDownHandler;->this$0:Lcom/android/server/location/contexthub/AuthStateDenialTimer;
+    iget-object p0, p0, Lcom/android/server/location/contexthub/AuthStateDenialTimer$CountDownHandler;->this$0:Lcom/android/server/location/contexthub/AuthStateDenialTimer;
 
-    invoke-virtual {v3}, Lcom/android/server/location/contexthub/AuthStateDenialTimer;->onFinish()V
+    invoke-virtual {p0}, Lcom/android/server/location/contexthub/AuthStateDenialTimer;->onFinish()V
 
     goto :goto_0
 
     :cond_1
-    const/4 v3, 0x1
+    const/4 v2, 0x1
 
-    invoke-virtual {p0, v3}, Lcom/android/server/location/contexthub/AuthStateDenialTimer$CountDownHandler;->obtainMessage(I)Landroid/os/Message;
+    invoke-virtual {p0, v2}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {p0, v3, v1, v2}, Lcom/android/server/location/contexthub/AuthStateDenialTimer$CountDownHandler;->sendMessageDelayed(Landroid/os/Message;J)Z
+    invoke-virtual {p0, v2, v0, v1}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
     :goto_0
-    monitor-exit v0
+    monitor-exit p1
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
-    monitor-exit v0
+    monitor-exit p1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method

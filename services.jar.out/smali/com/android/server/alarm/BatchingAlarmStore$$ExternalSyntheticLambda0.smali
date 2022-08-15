@@ -1,28 +1,13 @@
 .class public final synthetic Lcom/android/server/alarm/BatchingAlarmStore$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/ToLongFunction;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/alarm/BatchingAlarmStore$$ExternalSyntheticLambda0;
-
-
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/alarm/BatchingAlarmStore$$ExternalSyntheticLambda0;
-
-    invoke-direct {v0}, Lcom/android/server/alarm/BatchingAlarmStore$$ExternalSyntheticLambda0;-><init>()V
-
-    sput-object v0, Lcom/android/server/alarm/BatchingAlarmStore$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/server/alarm/BatchingAlarmStore$$ExternalSyntheticLambda0;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -33,13 +18,13 @@
 
 # virtual methods
 .method public final applyAsLong(Ljava/lang/Object;)J
-    .locals 2
+    .locals 0
 
-    check-cast p1, Lcom/android/server/alarm/Alarm;
+    check-cast p1, Lcom/android/server/alarm/BatchingAlarmStore$Batch;
 
-    invoke-virtual {p1}, Lcom/android/server/alarm/Alarm;->getWhenElapsed()J
+    invoke-static {p1}, Lcom/android/server/alarm/BatchingAlarmStore;->$r8$lambda$C4B0m32nDPh6fLbATXI2H_fQ9GU(Lcom/android/server/alarm/BatchingAlarmStore$Batch;)J
 
-    move-result-wide v0
+    move-result-wide p0
 
-    return-wide v0
+    return-wide p0
 .end method

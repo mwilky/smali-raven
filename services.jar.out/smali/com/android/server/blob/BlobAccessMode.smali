@@ -1,4 +1,4 @@
-.class Lcom/android/server/blob/BlobAccessMode;
+.class public Lcom/android/server/blob/BlobAccessMode;
 .super Ljava/lang/Object;
 .source "BlobAccessMode.java"
 
@@ -6,26 +6,15 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/server/blob/BlobAccessMode$PackageIdentifier;,
-        Lcom/android/server/blob/BlobAccessMode$AccessType;
+        Lcom/android/server/blob/BlobAccessMode$PackageIdentifier;
     }
 .end annotation
 
 
-# static fields
-.field public static final ACCESS_TYPE_ALLOWLIST:I = 0x8
-
-.field public static final ACCESS_TYPE_PRIVATE:I = 0x1
-
-.field public static final ACCESS_TYPE_PUBLIC:I = 0x2
-
-.field public static final ACCESS_TYPE_SAME_SIGNATURE:I = 0x4
-
-
 # instance fields
-.field private mAccessType:I
+.field public mAccessType:I
 
-.field private final mAllowedPackages:Landroid/util/ArraySet;
+.field public final mAllowedPackages:Landroid/util/ArraySet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/ArraySet<",
@@ -37,7 +26,7 @@
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -55,8 +44,8 @@
     return-void
 .end method
 
-.method static createFromXml(Lorg/xmlpull/v1/XmlPullParser;)Lcom/android/server/blob/BlobAccessMode;
-    .locals 5
+.method public static createFromXml(Lorg/xmlpull/v1/XmlPullParser;)Lcom/android/server/blob/BlobAccessMode;
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -78,41 +67,41 @@
 
     invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->getDepth()I
 
-    move-result v2
+    move-result v1
 
     :cond_0
     :goto_0
-    invoke-static {p0, v2}, Lcom/android/internal/util/XmlUtils;->nextElementWithin(Lorg/xmlpull/v1/XmlPullParser;I)Z
+    invoke-static {p0, v1}, Lcom/android/internal/util/XmlUtils;->nextElementWithin(Lorg/xmlpull/v1/XmlPullParser;I)Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_1
+    if-eqz v2, :cond_1
 
     invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
+    move-result-object v2
+
+    const-string/jumbo v3, "wl"
+
+    invoke-virtual {v3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    const-string/jumbo v2, "p"
+
+    invoke-static {p0, v2}, Lcom/android/internal/util/XmlUtils;->readStringAttribute(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string v3, "ct"
+
+    invoke-static {p0, v3}, Lcom/android/internal/util/XmlUtils;->readByteArrayAttribute(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)[B
+
     move-result-object v3
 
-    const-string/jumbo v4, "wl"
-
-    invoke-virtual {v4, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    const-string/jumbo v3, "p"
-
-    invoke-static {p0, v3}, Lcom/android/internal/util/XmlUtils;->readStringAttribute(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v3
-
-    const-string v4, "ct"
-
-    invoke-static {p0, v4}, Lcom/android/internal/util/XmlUtils;->readByteArrayAttribute(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)[B
-
-    move-result-object v4
-
-    invoke-virtual {v0, v3, v4}, Lcom/android/server/blob/BlobAccessMode;->allowPackageAccess(Ljava/lang/String;[B)V
+    invoke-virtual {v0, v2, v3}, Lcom/android/server/blob/BlobAccessMode;->allowPackageAccess(Ljava/lang/String;[B)V
 
     goto :goto_0
 
@@ -122,7 +111,7 @@
 
 
 # virtual methods
-.method allow(Lcom/android/server/blob/BlobAccessMode;)V
+.method public allow(Lcom/android/server/blob/BlobAccessMode;)V
     .locals 2
 
     iget v0, p1, Lcom/android/server/blob/BlobAccessMode;->mAccessType:I
@@ -140,17 +129,17 @@
     :cond_0
     iget v0, p0, Lcom/android/server/blob/BlobAccessMode;->mAccessType:I
 
-    iget v1, p1, Lcom/android/server/blob/BlobAccessMode;->mAccessType:I
+    iget p1, p1, Lcom/android/server/blob/BlobAccessMode;->mAccessType:I
 
-    or-int/2addr v0, v1
+    or-int/2addr p1, v0
 
-    iput v0, p0, Lcom/android/server/blob/BlobAccessMode;->mAccessType:I
+    iput p1, p0, Lcom/android/server/blob/BlobAccessMode;->mAccessType:I
 
     return-void
 .end method
 
-.method allowPackageAccess(Ljava/lang/String;[B)V
-    .locals 2
+.method public allowPackageAccess(Ljava/lang/String;[B)V
+    .locals 1
 
     iget v0, p0, Lcom/android/server/blob/BlobAccessMode;->mAccessType:I
 
@@ -158,18 +147,18 @@
 
     iput v0, p0, Lcom/android/server/blob/BlobAccessMode;->mAccessType:I
 
-    iget-object v0, p0, Lcom/android/server/blob/BlobAccessMode;->mAllowedPackages:Landroid/util/ArraySet;
+    iget-object p0, p0, Lcom/android/server/blob/BlobAccessMode;->mAllowedPackages:Landroid/util/ArraySet;
 
     invoke-static {p1, p2}, Lcom/android/server/blob/BlobAccessMode$PackageIdentifier;->create(Ljava/lang/String;[B)Lcom/android/server/blob/BlobAccessMode$PackageIdentifier;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v0, v1}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p1}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
 
     return-void
 .end method
 
-.method allowPublicAccess()V
+.method public allowPublicAccess()V
     .locals 1
 
     iget v0, p0, Lcom/android/server/blob/BlobAccessMode;->mAccessType:I
@@ -181,7 +170,7 @@
     return-void
 .end method
 
-.method allowSameSignatureAccess()V
+.method public allowSameSignatureAccess()V
     .locals 1
 
     iget v0, p0, Lcom/android/server/blob/BlobAccessMode;->mAccessType:I
@@ -193,8 +182,8 @@
     return-void
 .end method
 
-.method dump(Landroid/util/IndentingPrintWriter;)V
-    .locals 4
+.method public dump(Landroid/util/IndentingPrintWriter;)V
+    .locals 5
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -208,9 +197,11 @@
 
     iget v2, p0, Lcom/android/server/blob/BlobAccessMode;->mAccessType:I
 
-    const-string v3, "ACCESS_TYPE_"
+    int-to-long v2, v2
 
-    invoke-static {v1, v3, v2}, Landroid/util/DebugUtils;->flagsToString(Ljava/lang/Class;Ljava/lang/String;I)Ljava/lang/String;
+    const-string v4, "ACCESS_TYPE_"
+
+    invoke-static {v1, v4, v2, v3}, Landroid/util/DebugUtils;->flagsToString(Ljava/lang/Class;Ljava/lang/String;J)Ljava/lang/String;
 
     move-result-object v1
 
@@ -234,9 +225,9 @@
 
     if-eqz v0, :cond_0
 
-    const-string v0, " (Empty)"
+    const-string p0, " (Empty)"
 
-    invoke-virtual {p1, v0}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p1, p0}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
     goto :goto_1
 
@@ -279,28 +270,28 @@
     return-void
 .end method
 
-.method getAccessType()I
-    .locals 1
+.method public getAccessType()I
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/blob/BlobAccessMode;->mAccessType:I
+    iget p0, p0, Lcom/android/server/blob/BlobAccessMode;->mAccessType:I
 
-    return v0
+    return p0
 .end method
 
-.method getAllowedPackagesCount()I
-    .locals 1
+.method public getAllowedPackagesCount()I
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/blob/BlobAccessMode;->mAllowedPackages:Landroid/util/ArraySet;
+    iget-object p0, p0, Lcom/android/server/blob/BlobAccessMode;->mAllowedPackages:Landroid/util/ArraySet;
 
-    invoke-virtual {v0}, Landroid/util/ArraySet;->size()I
+    invoke-virtual {p0}, Landroid/util/ArraySet;->size()I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
-.method isAccessAllowedForCaller(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)Z
-    .locals 5
+.method public isAccessAllowedForCaller(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)Z
+    .locals 4
 
     iget v0, p0, Lcom/android/server/blob/BlobAccessMode;->mAccessType:I
 
@@ -315,79 +306,79 @@
     :cond_0
     invoke-virtual {p1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v0
+    move-result-object p1
 
-    iget v2, p0, Lcom/android/server/blob/BlobAccessMode;->mAccessType:I
+    iget v0, p0, Lcom/android/server/blob/BlobAccessMode;->mAccessType:I
 
-    and-int/lit8 v2, v2, 0x4
+    and-int/lit8 v0, v0, 0x4
 
-    if-eqz v2, :cond_1
+    if-eqz v0, :cond_1
 
-    invoke-virtual {v0, p3, p2}, Landroid/content/pm/PackageManager;->checkSignatures(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {p1, p3, p2}, Landroid/content/pm/PackageManager;->checkSignatures(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result v2
+    move-result p3
 
-    if-nez v2, :cond_1
+    if-nez p3, :cond_1
 
     return v1
 
     :cond_1
-    iget v2, p0, Lcom/android/server/blob/BlobAccessMode;->mAccessType:I
+    iget p3, p0, Lcom/android/server/blob/BlobAccessMode;->mAccessType:I
 
-    and-int/lit8 v2, v2, 0x8
+    and-int/lit8 p3, p3, 0x8
 
-    if-eqz v2, :cond_3
+    const/4 v0, 0x0
 
-    const/4 v2, 0x0
+    if-eqz p3, :cond_3
+
+    move p3, v0
 
     :goto_0
-    iget-object v3, p0, Lcom/android/server/blob/BlobAccessMode;->mAllowedPackages:Landroid/util/ArraySet;
+    iget-object v2, p0, Lcom/android/server/blob/BlobAccessMode;->mAllowedPackages:Landroid/util/ArraySet;
 
-    invoke-virtual {v3}, Landroid/util/ArraySet;->size()I
+    invoke-virtual {v2}, Landroid/util/ArraySet;->size()I
+
+    move-result v2
+
+    if-ge p3, v2, :cond_3
+
+    iget-object v2, p0, Lcom/android/server/blob/BlobAccessMode;->mAllowedPackages:Landroid/util/ArraySet;
+
+    invoke-virtual {v2, p3}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/server/blob/BlobAccessMode$PackageIdentifier;
+
+    iget-object v3, v2, Lcom/android/server/blob/BlobAccessMode$PackageIdentifier;->packageName:Ljava/lang/String;
+
+    invoke-virtual {v3, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-ge v2, v3, :cond_3
+    if-eqz v3, :cond_2
 
-    iget-object v3, p0, Lcom/android/server/blob/BlobAccessMode;->mAllowedPackages:Landroid/util/ArraySet;
+    iget-object v2, v2, Lcom/android/server/blob/BlobAccessMode$PackageIdentifier;->certificate:[B
 
-    invoke-virtual {v3, v2}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {p1, p2, v2, v1}, Landroid/content/pm/PackageManager;->hasSigningCertificate(Ljava/lang/String;[BI)Z
 
-    move-result-object v3
+    move-result v2
 
-    check-cast v3, Lcom/android/server/blob/BlobAccessMode$PackageIdentifier;
-
-    iget-object v4, v3, Lcom/android/server/blob/BlobAccessMode$PackageIdentifier;->packageName:Ljava/lang/String;
-
-    invoke-virtual {v4, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_2
-
-    iget-object v4, v3, Lcom/android/server/blob/BlobAccessMode$PackageIdentifier;->certificate:[B
-
-    invoke-virtual {v0, p2, v4, v1}, Landroid/content/pm/PackageManager;->hasSigningCertificate(Ljava/lang/String;[BI)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_2
+    if-eqz v2, :cond_2
 
     return v1
 
     :cond_2
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 p3, p3, 0x1
 
     goto :goto_0
 
     :cond_3
-    const/4 v1, 0x0
-
-    return v1
+    return v0
 .end method
 
-.method isPackageAccessAllowed(Ljava/lang/String;[B)Z
-    .locals 2
+.method public isPackageAccessAllowed(Ljava/lang/String;[B)Z
+    .locals 1
 
     iget v0, p0, Lcom/android/server/blob/BlobAccessMode;->mAccessType:I
 
@@ -395,65 +386,65 @@
 
     if-nez v0, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/blob/BlobAccessMode;->mAllowedPackages:Landroid/util/ArraySet;
+    iget-object p0, p0, Lcom/android/server/blob/BlobAccessMode;->mAllowedPackages:Landroid/util/ArraySet;
 
     invoke-static {p1, p2}, Lcom/android/server/blob/BlobAccessMode$PackageIdentifier;->create(Ljava/lang/String;[B)Lcom/android/server/blob/BlobAccessMode$PackageIdentifier;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v0, v1}, Landroid/util/ArraySet;->contains(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p1}, Landroid/util/ArraySet;->contains(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
-.method isPublicAccessAllowed()Z
-    .locals 1
+.method public isPublicAccessAllowed()Z
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/blob/BlobAccessMode;->mAccessType:I
+    iget p0, p0, Lcom/android/server/blob/BlobAccessMode;->mAccessType:I
 
-    and-int/lit8 v0, v0, 0x2
+    and-int/lit8 p0, p0, 0x2
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
-.method isSameSignatureAccessAllowed()Z
-    .locals 1
+.method public isSameSignatureAccessAllowed()Z
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/blob/BlobAccessMode;->mAccessType:I
+    iget p0, p0, Lcom/android/server/blob/BlobAccessMode;->mAccessType:I
 
-    and-int/lit8 v0, v0, 0x4
+    and-int/lit8 p0, p0, 0x4
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
-.method writeToXml(Lorg/xmlpull/v1/XmlSerializer;)V
+.method public writeToXml(Lorg/xmlpull/v1/XmlSerializer;)V
     .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -467,16 +458,16 @@
 
     invoke-static {p1, v1, v0}, Lcom/android/internal/util/XmlUtils;->writeIntAttribute(Lorg/xmlpull/v1/XmlSerializer;Ljava/lang/String;I)V
 
-    const/4 v0, 0x0
+    iget-object v0, p0, Lcom/android/server/blob/BlobAccessMode;->mAllowedPackages:Landroid/util/ArraySet;
 
-    iget-object v1, p0, Lcom/android/server/blob/BlobAccessMode;->mAllowedPackages:Landroid/util/ArraySet;
+    invoke-virtual {v0}, Landroid/util/ArraySet;->size()I
 
-    invoke-virtual {v1}, Landroid/util/ArraySet;->size()I
+    move-result v0
 
-    move-result v1
+    const/4 v1, 0x0
 
     :goto_0
-    if-ge v0, v1, :cond_0
+    if-ge v1, v0, :cond_0
 
     const/4 v2, 0x0
 
@@ -486,7 +477,7 @@
 
     iget-object v4, p0, Lcom/android/server/blob/BlobAccessMode;->mAllowedPackages:Landroid/util/ArraySet;
 
-    invoke-virtual {v4, v0}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {v4, v1}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
 
     move-result-object v4
 
@@ -498,15 +489,15 @@
 
     invoke-static {p1, v6, v5}, Lcom/android/internal/util/XmlUtils;->writeStringAttribute(Lorg/xmlpull/v1/XmlSerializer;Ljava/lang/String;Ljava/lang/CharSequence;)V
 
-    iget-object v5, v4, Lcom/android/server/blob/BlobAccessMode$PackageIdentifier;->certificate:[B
+    iget-object v4, v4, Lcom/android/server/blob/BlobAccessMode$PackageIdentifier;->certificate:[B
 
-    const-string v6, "ct"
+    const-string v5, "ct"
 
-    invoke-static {p1, v6, v5}, Lcom/android/internal/util/XmlUtils;->writeByteArrayAttribute(Lorg/xmlpull/v1/XmlSerializer;Ljava/lang/String;[B)V
+    invoke-static {p1, v5, v4}, Lcom/android/internal/util/XmlUtils;->writeByteArrayAttribute(Lorg/xmlpull/v1/XmlSerializer;Ljava/lang/String;[B)V
 
     invoke-interface {p1, v2, v3}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 

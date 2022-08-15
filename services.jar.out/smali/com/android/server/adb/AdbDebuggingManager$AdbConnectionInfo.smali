@@ -1,4 +1,4 @@
-.class Lcom/android/server/adb/AdbDebuggingManager$AdbConnectionInfo;
+.class public Lcom/android/server/adb/AdbDebuggingManager$AdbConnectionInfo;
 .super Ljava/lang/Object;
 .source "AdbDebuggingManager.java"
 
@@ -9,26 +9,22 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x9
     name = "AdbConnectionInfo"
 .end annotation
 
 
 # instance fields
-.field private mBssid:Ljava/lang/String;
+.field public mBssid:Ljava/lang/String;
 
-.field private mPort:I
+.field public mPort:I
 
-.field private mSsid:Ljava/lang/String;
-
-.field final synthetic this$0:Lcom/android/server/adb/AdbDebuggingManager;
+.field public mSsid:Ljava/lang/String;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/adb/AdbDebuggingManager;)V
+.method public constructor <init>()V
     .locals 1
-
-    iput-object p1, p0, Lcom/android/server/adb/AdbDebuggingManager$AdbConnectionInfo;->this$0:Lcom/android/server/adb/AdbDebuggingManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -45,38 +41,34 @@
     return-void
 .end method
 
-.method constructor <init>(Lcom/android/server/adb/AdbDebuggingManager;Lcom/android/server/adb/AdbDebuggingManager$AdbConnectionInfo;)V
+.method public constructor <init>(Lcom/android/server/adb/AdbDebuggingManager$AdbConnectionInfo;)V
     .locals 1
-
-    iput-object p1, p0, Lcom/android/server/adb/AdbDebuggingManager$AdbConnectionInfo;->this$0:Lcom/android/server/adb/AdbDebuggingManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iget-object v0, p2, Lcom/android/server/adb/AdbDebuggingManager$AdbConnectionInfo;->mBssid:Ljava/lang/String;
+    iget-object v0, p1, Lcom/android/server/adb/AdbDebuggingManager$AdbConnectionInfo;->mBssid:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/android/server/adb/AdbDebuggingManager$AdbConnectionInfo;->mBssid:Ljava/lang/String;
 
-    iget-object v0, p2, Lcom/android/server/adb/AdbDebuggingManager$AdbConnectionInfo;->mSsid:Ljava/lang/String;
+    iget-object v0, p1, Lcom/android/server/adb/AdbDebuggingManager$AdbConnectionInfo;->mSsid:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/android/server/adb/AdbDebuggingManager$AdbConnectionInfo;->mSsid:Ljava/lang/String;
 
-    iget v0, p2, Lcom/android/server/adb/AdbDebuggingManager$AdbConnectionInfo;->mPort:I
+    iget p1, p1, Lcom/android/server/adb/AdbDebuggingManager$AdbConnectionInfo;->mPort:I
 
-    iput v0, p0, Lcom/android/server/adb/AdbDebuggingManager$AdbConnectionInfo;->mPort:I
+    iput p1, p0, Lcom/android/server/adb/AdbDebuggingManager$AdbConnectionInfo;->mPort:I
 
     return-void
 .end method
 
-.method constructor <init>(Lcom/android/server/adb/AdbDebuggingManager;Ljava/lang/String;Ljava/lang/String;)V
+.method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-
-    iput-object p1, p0, Lcom/android/server/adb/AdbDebuggingManager$AdbConnectionInfo;->this$0:Lcom/android/server/adb/AdbDebuggingManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p2, p0, Lcom/android/server/adb/AdbDebuggingManager$AdbConnectionInfo;->mBssid:Ljava/lang/String;
+    iput-object p1, p0, Lcom/android/server/adb/AdbDebuggingManager$AdbConnectionInfo;->mBssid:Ljava/lang/String;
 
-    iput-object p3, p0, Lcom/android/server/adb/AdbDebuggingManager$AdbConnectionInfo;->mSsid:Ljava/lang/String;
+    iput-object p2, p0, Lcom/android/server/adb/AdbDebuggingManager$AdbConnectionInfo;->mSsid:Ljava/lang/String;
 
     return-void
 .end method
@@ -100,27 +92,27 @@
 .end method
 
 .method public getBSSID()Ljava/lang/String;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/adb/AdbDebuggingManager$AdbConnectionInfo;->mBssid:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/adb/AdbDebuggingManager$AdbConnectionInfo;->mBssid:Ljava/lang/String;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getPort()I
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/adb/AdbDebuggingManager$AdbConnectionInfo;->mPort:I
+    iget p0, p0, Lcom/android/server/adb/AdbDebuggingManager$AdbConnectionInfo;->mPort:I
 
-    return v0
+    return p0
 .end method
 
 .method public getSSID()Ljava/lang/String;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/adb/AdbDebuggingManager$AdbConnectionInfo;->mSsid:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/adb/AdbDebuggingManager$AdbConnectionInfo;->mSsid:Ljava/lang/String;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public setPort(I)V

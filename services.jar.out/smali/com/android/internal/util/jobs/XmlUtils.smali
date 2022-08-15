@@ -15,7 +15,7 @@
 
 
 # static fields
-.field private static final STRING_ARRAY_SEPARATOR:Ljava/lang/String; = ":"
+.field public static final STRING_ARRAY_SEPARATOR:Ljava/lang/String; = ":"
 
 
 # direct methods
@@ -28,7 +28,7 @@
 .end method
 
 .method public static final beginDocument(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)V
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -41,20 +41,18 @@
 
     move-result v0
 
-    move v1, v0
+    const/4 v1, 0x2
 
-    const/4 v2, 0x2
+    if-eq v0, v1, :cond_0
+
+    const/4 v2, 0x1
 
     if-eq v0, v2, :cond_0
-
-    const/4 v0, 0x1
-
-    if-eq v1, v0, :cond_0
 
     goto :goto_0
 
     :cond_0
-    if-ne v1, v2, :cond_2
+    if-ne v0, v1, :cond_2
 
     invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
@@ -71,87 +69,93 @@
     :cond_1
     new-instance v0, Lorg/xmlpull/v1/XmlPullParserException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "Unexpected start tag: found "
+    const-string v2, "Unexpected start tag: found "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p0
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, ", expected "
+    const-string p0, ", expected "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-direct {v0, v2}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p0}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
     :cond_2
-    new-instance v0, Lorg/xmlpull/v1/XmlPullParserException;
+    new-instance p0, Lorg/xmlpull/v1/XmlPullParserException;
 
-    const-string v2, "No start tag found"
+    const-string p1, "No start tag found"
 
-    invoke-direct {v0, v2}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static final convertValueToBoolean(Ljava/lang/CharSequence;Z)Z
-    .locals 2
-
-    const/4 v0, 0x0
+    .locals 1
 
     invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
     return p1
 
     :cond_0
-    const-string v1, "1"
+    const-string p1, "1"
 
-    invoke-virtual {p0, v1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result p1
 
-    if-nez v1, :cond_1
+    if-nez p1, :cond_2
 
-    const-string/jumbo v1, "true"
+    const-string/jumbo p1, "true"
 
-    invoke-virtual {p0, v1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result p1
 
-    if-nez v1, :cond_1
+    if-nez p1, :cond_2
 
-    const-string v1, "TRUE"
+    const-string p1, "TRUE"
 
-    invoke-virtual {p0, v1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result p0
 
-    if-eqz v1, :cond_2
+    if-eqz p0, :cond_1
+
+    goto :goto_0
 
     :cond_1
-    const/4 v0, 0x1
+    const/4 p0, 0x0
+
+    goto :goto_1
 
     :cond_2
-    return v0
+    :goto_0
+    const/4 p0, 0x1
+
+    :goto_1
+    return p0
 .end method
 
 .method public static final convertValueToInt(Ljava/lang/CharSequence;I)I
@@ -168,106 +172,111 @@
     :cond_0
     invoke-interface {p0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    const/4 v1, 0x1
+    invoke-virtual {p0}, Ljava/lang/String;->length()I
+
+    move-result p1
+
+    const/16 v0, 0xa
+
+    const/16 v1, 0x2d
 
     const/4 v2, 0x0
 
-    invoke-virtual {v0}, Ljava/lang/String;->length()I
+    invoke-virtual {p0, v2}, Ljava/lang/String;->charAt(I)C
 
     move-result v3
 
-    const/16 v4, 0xa
+    const/4 v4, 0x1
 
-    const/16 v5, 0x2d
-
-    const/4 v6, 0x0
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->charAt(I)C
-
-    move-result v7
-
-    if-ne v5, v7, :cond_1
+    if-ne v1, v3, :cond_1
 
     const/4 v1, -0x1
 
-    add-int/lit8 v2, v2, 0x1
-
-    :cond_1
-    const/16 v5, 0x30
-
-    invoke-virtual {v0, v2}, Ljava/lang/String;->charAt(I)C
-
-    move-result v7
-
-    if-ne v5, v7, :cond_5
-
-    add-int/lit8 v5, v3, -0x1
-
-    if-ne v2, v5, :cond_2
-
-    return v6
-
-    :cond_2
-    add-int/lit8 v5, v2, 0x1
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->charAt(I)C
-
-    move-result v5
-
-    const/16 v6, 0x78
-
-    if-eq v6, v5, :cond_4
-
-    const/16 v6, 0x58
-
-    if-ne v6, v5, :cond_3
+    move v3, v4
 
     goto :goto_0
 
-    :cond_3
-    add-int/lit8 v2, v2, 0x1
+    :cond_1
+    move v3, v2
 
-    const/16 v4, 0x8
+    move v1, v4
 
-    goto :goto_1
-
-    :cond_4
     :goto_0
-    add-int/lit8 v2, v2, 0x2
+    const/16 v5, 0x30
 
-    const/16 v4, 0x10
-
-    :goto_1
-    goto :goto_2
-
-    :cond_5
-    const/16 v5, 0x23
-
-    invoke-virtual {v0, v2}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {p0, v3}, Ljava/lang/String;->charAt(I)C
 
     move-result v6
 
-    if-ne v5, v6, :cond_6
+    const/16 v7, 0x10
 
-    add-int/lit8 v2, v2, 0x1
+    if-ne v5, v6, :cond_5
 
-    const/16 v4, 0x10
+    sub-int/2addr p1, v4
+
+    if-ne v3, p1, :cond_2
+
+    return v2
+
+    :cond_2
+    add-int/lit8 p1, v3, 0x1
+
+    invoke-virtual {p0, p1}, Ljava/lang/String;->charAt(I)C
+
+    move-result v0
+
+    const/16 v2, 0x78
+
+    if-eq v2, v0, :cond_4
+
+    const/16 v2, 0x58
+
+    if-ne v2, v0, :cond_3
+
+    goto :goto_1
+
+    :cond_3
+    const/16 v0, 0x8
+
+    move v3, p1
+
+    goto :goto_3
+
+    :cond_4
+    :goto_1
+    add-int/lit8 v3, v3, 0x2
+
+    goto :goto_2
+
+    :cond_5
+    const/16 p1, 0x23
+
+    invoke-virtual {p0, v3}, Ljava/lang/String;->charAt(I)C
+
+    move-result v2
+
+    if-ne p1, v2, :cond_6
+
+    add-int/lit8 v3, v3, 0x1
+
+    :goto_2
+    move v0, v7
 
     :cond_6
-    :goto_2
-    invoke-virtual {v0, v2}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+    :goto_3
+    invoke-virtual {p0, v3}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object p0
 
-    invoke-static {v5, v4}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;I)I
+    invoke-static {p0, v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;I)I
 
-    move-result v5
+    move-result p0
 
-    mul-int/2addr v5, v1
+    mul-int/2addr p0, v1
 
-    return v5
+    return p0
 .end method
 
 .method public static final convertValueToList(Ljava/lang/CharSequence;[Ljava/lang/String;I)I
@@ -319,9 +328,9 @@
     :cond_0
     invoke-static {p0}, Lcom/android/internal/util/jobs/XmlUtils;->parseUnsignedIntAttribute(Ljava/lang/CharSequence;)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public static makeTyped(Lorg/xmlpull/v1/XmlPullParser;)Landroid/util/TypedXmlPullParser;
@@ -331,11 +340,9 @@
 
     if-eqz v0, :cond_0
 
-    move-object v0, p0
+    check-cast p0, Landroid/util/TypedXmlPullParser;
 
-    check-cast v0, Landroid/util/TypedXmlPullParser;
-
-    return-object v0
+    return-object p0
 
     :cond_0
     new-instance v0, Lcom/android/internal/util/jobs/XmlUtils$ForcedTypedXmlPullParser;
@@ -352,11 +359,9 @@
 
     if-eqz v0, :cond_0
 
-    move-object v0, p0
+    check-cast p0, Landroid/util/TypedXmlSerializer;
 
-    check-cast v0, Landroid/util/TypedXmlSerializer;
-
-    return-object v0
+    return-object p0
 
     :cond_0
     new-instance v0, Lcom/android/internal/util/jobs/XmlUtils$ForcedTypedXmlSerializer;
@@ -367,7 +372,7 @@
 .end method
 
 .method public static final nextElement(Lorg/xmlpull/v1/XmlPullParser;)V
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -380,15 +385,13 @@
 
     move-result v0
 
-    move v1, v0
+    const/4 v1, 0x2
 
-    const/4 v2, 0x2
+    if-eq v0, v1, :cond_0
 
-    if-eq v0, v2, :cond_0
+    const/4 v1, 0x1
 
-    const/4 v0, 0x1
-
-    if-eq v1, v0, :cond_0
+    if-eq v0, v1, :cond_0
 
     goto :goto_0
 
@@ -397,7 +400,7 @@
 .end method
 
 .method public static nextElementWithin(Lorg/xmlpull/v1/XmlPullParser;I)Z
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -405,7 +408,7 @@
         }
     .end annotation
 
-    :goto_0
+    :cond_0
     invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
     move-result v0
@@ -416,39 +419,36 @@
 
     const/4 v2, 0x3
 
-    if-ne v0, v2, :cond_0
-
-    invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->getDepth()I
-
-    move-result v2
-
-    if-ne v2, p1, :cond_0
-
-    goto :goto_1
-
-    :cond_0
-    const/4 v2, 0x2
-
     if-ne v0, v2, :cond_1
 
     invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->getDepth()I
 
     move-result v2
 
-    add-int/lit8 v3, p1, 0x1
+    if-ne v2, p1, :cond_1
 
-    if-ne v2, v3, :cond_1
-
-    return v1
-
-    :cond_1
     goto :goto_0
 
-    :cond_2
-    :goto_1
-    const/4 v1, 0x0
+    :cond_1
+    const/4 v2, 0x2
+
+    if-ne v0, v2, :cond_0
+
+    invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->getDepth()I
+
+    move-result v0
+
+    add-int/lit8 v2, p1, 0x1
+
+    if-ne v0, v2, :cond_0
 
     return v1
+
+    :cond_2
+    :goto_0
+    const/4 p0, 0x0
+
+    return p0
 .end method
 
 .method public static parseUnsignedIntAttribute(Ljava/lang/CharSequence;)I
@@ -456,120 +456,116 @@
 
     invoke-interface {p0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/String;->length()I
+
+    move-result v0
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0}, Ljava/lang/String;->length()I
+    invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
 
     move-result v2
 
-    const/16 v3, 0xa
+    const/16 v3, 0x10
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->charAt(I)C
-
-    move-result v4
+    const/4 v4, 0x1
 
     const/16 v5, 0x30
 
-    if-ne v5, v4, :cond_3
+    if-ne v5, v2, :cond_3
 
-    add-int/lit8 v4, v2, -0x1
+    sub-int/2addr v0, v4
 
-    if-ne v1, v4, :cond_0
+    if-nez v0, :cond_0
 
-    const/4 v4, 0x0
-
-    return v4
+    return v1
 
     :cond_0
-    add-int/lit8 v4, v1, 0x1
+    invoke-virtual {p0, v4}, Ljava/lang/String;->charAt(I)C
 
-    invoke-virtual {v0, v4}, Ljava/lang/String;->charAt(I)C
+    move-result v0
 
-    move-result v4
+    const/16 v1, 0x78
 
-    const/16 v5, 0x78
+    if-eq v1, v0, :cond_2
 
-    if-eq v5, v4, :cond_2
+    const/16 v1, 0x58
 
-    const/16 v5, 0x58
-
-    if-ne v5, v4, :cond_1
+    if-ne v1, v0, :cond_1
 
     goto :goto_0
 
     :cond_1
-    add-int/lit8 v1, v1, 0x1
+    const/16 v0, 0x8
 
-    const/16 v3, 0x8
+    move v3, v0
 
     goto :goto_1
 
     :cond_2
     :goto_0
-    add-int/lit8 v1, v1, 0x2
+    const/4 v0, 0x2
 
-    const/16 v3, 0x10
+    move v1, v0
 
-    goto :goto_1
+    goto :goto_2
 
     :cond_3
-    const/16 v4, 0x23
+    const/16 v0, 0x23
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
 
-    move-result v5
+    move-result v2
 
-    if-ne v4, v5, :cond_4
+    if-ne v0, v2, :cond_4
 
-    add-int/lit8 v1, v1, 0x1
-
-    const/16 v3, 0x10
+    :goto_1
+    move v1, v4
 
     goto :goto_2
 
     :cond_4
-    :goto_1
-    nop
+    const/16 v3, 0xa
 
     :goto_2
-    invoke-virtual {v0, v1}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+    invoke-virtual {p0, v1}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object p0
 
-    invoke-static {v4, v3}, Ljava/lang/Long;->parseLong(Ljava/lang/String;I)J
+    invoke-static {p0, v3}, Ljava/lang/Long;->parseLong(Ljava/lang/String;I)J
 
-    move-result-wide v4
+    move-result-wide v0
 
-    long-to-int v4, v4
+    long-to-int p0, v0
 
-    return v4
+    return p0
 .end method
 
 .method public static readBitmapAttribute(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)Landroid/graphics/Bitmap;
-    .locals 3
+    .locals 1
 
     invoke-static {p0, p1}, Lcom/android/internal/util/jobs/XmlUtils;->readByteArrayAttribute(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)[B
 
-    move-result-object v0
+    move-result-object p0
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    array-length v2, v0
+    array-length v0, p0
 
-    invoke-static {v0, v1, v2}, Landroid/graphics/BitmapFactory;->decodeByteArray([BII)Landroid/graphics/Bitmap;
+    invoke-static {p0, p1, v0}, Landroid/graphics/BitmapFactory;->decodeByteArray([BII)Landroid/graphics/Bitmap;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 p0, 0x0
 
-    return-object v1
+    return-object p0
 .end method
 
 .method public static readBooleanAttribute(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)Z
@@ -579,9 +575,9 @@
 
     invoke-static {p0, p1, v0}, Lcom/android/internal/util/jobs/XmlUtils;->readBooleanAttribute(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;Z)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public static readBooleanAttribute(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;Z)Z
@@ -593,39 +589,37 @@
 
     if-eqz v0, :cond_0
 
-    move-object v0, p0
+    check-cast p0, Landroid/util/TypedXmlPullParser;
 
-    check-cast v0, Landroid/util/TypedXmlPullParser;
+    invoke-interface {p0, v1, p1, p2}, Landroid/util/TypedXmlPullParser;->getAttributeBoolean(Ljava/lang/String;Ljava/lang/String;Z)Z
 
-    invoke-interface {v0, v1, p1, p2}, Landroid/util/TypedXmlPullParser;->getAttributeBoolean(Ljava/lang/String;Ljava/lang/String;Z)Z
+    move-result p0
 
-    move-result v0
-
-    return v0
+    return p0
 
     :cond_0
     invoke-interface {p0, v1, p1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v1
+    move-result p1
 
-    if-eqz v1, :cond_1
+    if-eqz p1, :cond_1
 
     return p2
 
     :cond_1
-    invoke-static {v0}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
+    invoke-static {p0}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
 
-    move-result v1
+    move-result p0
 
-    return v1
+    return p0
 .end method
 
 .method public static readByteArrayAttribute(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)[B
-    .locals 3
+    .locals 2
 
     instance-of v0, p0, Landroid/util/TypedXmlPullParser;
 
@@ -634,48 +628,44 @@
     if-eqz v0, :cond_0
 
     :try_start_0
-    move-object v0, p0
+    check-cast p0, Landroid/util/TypedXmlPullParser;
 
-    check-cast v0, Landroid/util/TypedXmlPullParser;
+    invoke-interface {p0, v1, p1}, Landroid/util/TypedXmlPullParser;->getAttributeBytesBase64(Ljava/lang/String;Ljava/lang/String;)[B
 
-    invoke-interface {v0, v1, p1}, Landroid/util/TypedXmlPullParser;->getAttributeBytesBase64(Ljava/lang/String;Ljava/lang/String;)[B
-
-    move-result-object v0
+    move-result-object p0
     :try_end_0
     .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object p0
 
     :catch_0
-    move-exception v0
-
     return-object v1
 
     :cond_0
     invoke-interface {p0, v1, p1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v2
+    move-result p1
 
-    if-nez v2, :cond_1
+    if-nez p1, :cond_1
 
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    invoke-static {v0, v1}, Landroid/util/Base64;->decode(Ljava/lang/String;I)[B
+    invoke-static {p0, p1}, Landroid/util/Base64;->decode(Ljava/lang/String;I)[B
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 
     :cond_1
     return-object v1
 .end method
 
 .method public static readFloatAttribute(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)F
-    .locals 5
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -689,81 +679,77 @@
     if-eqz v0, :cond_0
 
     :try_start_0
-    move-object v0, p0
+    check-cast p0, Landroid/util/TypedXmlPullParser;
 
-    check-cast v0, Landroid/util/TypedXmlPullParser;
+    invoke-interface {p0, v1, p1}, Landroid/util/TypedXmlPullParser;->getAttributeFloat(Ljava/lang/String;Ljava/lang/String;)F
 
-    invoke-interface {v0, v1, p1}, Landroid/util/TypedXmlPullParser;->getAttributeFloat(Ljava/lang/String;Ljava/lang/String;)F
-
-    move-result v0
+    move-result p0
     :try_end_0
     .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return v0
+    return p0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    new-instance v1, Ljava/net/ProtocolException;
+    new-instance p1, Ljava/net/ProtocolException;
 
-    invoke-virtual {v0}, Lorg/xmlpull/v1/XmlPullParserException;->getMessage()Ljava/lang/String;
+    invoke-virtual {p0}, Lorg/xmlpull/v1/XmlPullParserException;->getMessage()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-direct {v1, v2}, Ljava/net/ProtocolException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p0}, Ljava/net/ProtocolException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p1
 
     :cond_0
     invoke-interface {p0, v1, p1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
     :try_start_1
-    invoke-static {v0}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+    invoke-static {p0}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
-    move-result v1
+    move-result p0
     :try_end_1
     .catch Ljava/lang/NumberFormatException; {:try_start_1 .. :try_end_1} :catch_1
 
-    return v1
+    return p0
 
     :catch_1
-    move-exception v1
+    new-instance v0, Ljava/net/ProtocolException;
 
-    new-instance v2, Ljava/net/ProtocolException;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v2, "problem parsing "
 
-    const-string/jumbo v4, "problem parsing "
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string p1, "="
 
-    const-string v4, "="
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string p0, " as long"
 
-    const-string v4, " as long"
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object v3
+    invoke-direct {v0, p0}, Ljava/net/ProtocolException;-><init>(Ljava/lang/String;)V
 
-    invoke-direct {v2, v3}, Ljava/net/ProtocolException;-><init>(Ljava/lang/String;)V
-
-    throw v2
+    throw v0
 .end method
 
 .method public static readIntAttribute(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)I
-    .locals 5
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -777,77 +763,73 @@
     if-eqz v0, :cond_0
 
     :try_start_0
-    move-object v0, p0
+    check-cast p0, Landroid/util/TypedXmlPullParser;
 
-    check-cast v0, Landroid/util/TypedXmlPullParser;
+    invoke-interface {p0, v1, p1}, Landroid/util/TypedXmlPullParser;->getAttributeInt(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-interface {v0, v1, p1}, Landroid/util/TypedXmlPullParser;->getAttributeInt(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-result v0
+    move-result p0
     :try_end_0
     .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return v0
+    return p0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    new-instance v1, Ljava/net/ProtocolException;
+    new-instance p1, Ljava/net/ProtocolException;
 
-    invoke-virtual {v0}, Lorg/xmlpull/v1/XmlPullParserException;->getMessage()Ljava/lang/String;
+    invoke-virtual {p0}, Lorg/xmlpull/v1/XmlPullParserException;->getMessage()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-direct {v1, v2}, Ljava/net/ProtocolException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p0}, Ljava/net/ProtocolException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p1
 
     :cond_0
     invoke-interface {p0, v1, p1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
     :try_start_1
-    invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static {p0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    move-result v1
+    move-result p0
     :try_end_1
     .catch Ljava/lang/NumberFormatException; {:try_start_1 .. :try_end_1} :catch_1
 
-    return v1
+    return p0
 
     :catch_1
-    move-exception v1
+    new-instance v0, Ljava/net/ProtocolException;
 
-    new-instance v2, Ljava/net/ProtocolException;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v2, "problem parsing "
 
-    const-string/jumbo v4, "problem parsing "
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string p1, "="
 
-    const-string v4, "="
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string p0, " as int"
 
-    const-string v4, " as int"
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object v3
+    invoke-direct {v0, p0}, Ljava/net/ProtocolException;-><init>(Ljava/lang/String;)V
 
-    invoke-direct {v2, v3}, Ljava/net/ProtocolException;-><init>(Ljava/lang/String;)V
-
-    throw v2
+    throw v0
 .end method
 
 .method public static readIntAttribute(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;I)I
@@ -859,42 +841,38 @@
 
     if-eqz v0, :cond_0
 
-    move-object v0, p0
+    check-cast p0, Landroid/util/TypedXmlPullParser;
 
-    check-cast v0, Landroid/util/TypedXmlPullParser;
+    invoke-interface {p0, v1, p1, p2}, Landroid/util/TypedXmlPullParser;->getAttributeInt(Ljava/lang/String;Ljava/lang/String;I)I
 
-    invoke-interface {v0, v1, p1, p2}, Landroid/util/TypedXmlPullParser;->getAttributeInt(Ljava/lang/String;Ljava/lang/String;I)I
+    move-result p0
 
-    move-result v0
-
-    return v0
+    return p0
 
     :cond_0
     invoke-interface {p0, v1, p1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v1
+    move-result p1
 
-    if-eqz v1, :cond_1
+    if-eqz p1, :cond_1
 
     return p2
 
     :cond_1
     :try_start_0
-    invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static {p0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    move-result v1
+    move-result p0
     :try_end_0
     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return v1
+    return p0
 
     :catch_0
-    move-exception v1
-
     return p2
 .end method
 
@@ -919,21 +897,21 @@
 
     invoke-interface {v0, p0, v1}, Landroid/util/TypedXmlPullParser;->setInput(Ljava/io/InputStream;Ljava/lang/String;)V
 
-    const/4 v1, 0x1
+    const/4 p0, 0x1
 
-    new-array v1, v1, [Ljava/lang/String;
+    new-array p0, p0, [Ljava/lang/String;
 
-    invoke-static {v0, v1}, Lcom/android/internal/util/jobs/XmlUtils;->readValueXml(Landroid/util/TypedXmlPullParser;[Ljava/lang/String;)Ljava/lang/Object;
+    invoke-static {v0, p0}, Lcom/android/internal/util/jobs/XmlUtils;->readValueXml(Landroid/util/TypedXmlPullParser;[Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p0
 
-    check-cast v1, Ljava/util/ArrayList;
+    check-cast p0, Ljava/util/ArrayList;
 
-    return-object v1
+    return-object p0
 .end method
 
 .method public static readLongAttribute(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)J
-    .locals 5
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -947,81 +925,77 @@
     if-eqz v0, :cond_0
 
     :try_start_0
-    move-object v0, p0
+    check-cast p0, Landroid/util/TypedXmlPullParser;
 
-    check-cast v0, Landroid/util/TypedXmlPullParser;
+    invoke-interface {p0, v1, p1}, Landroid/util/TypedXmlPullParser;->getAttributeLong(Ljava/lang/String;Ljava/lang/String;)J
 
-    invoke-interface {v0, v1, p1}, Landroid/util/TypedXmlPullParser;->getAttributeLong(Ljava/lang/String;Ljava/lang/String;)J
-
-    move-result-wide v0
+    move-result-wide p0
     :try_end_0
     .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-wide v0
+    return-wide p0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    new-instance v1, Ljava/net/ProtocolException;
+    new-instance p1, Ljava/net/ProtocolException;
 
-    invoke-virtual {v0}, Lorg/xmlpull/v1/XmlPullParserException;->getMessage()Ljava/lang/String;
+    invoke-virtual {p0}, Lorg/xmlpull/v1/XmlPullParserException;->getMessage()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-direct {v1, v2}, Ljava/net/ProtocolException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p0}, Ljava/net/ProtocolException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p1
 
     :cond_0
     invoke-interface {p0, v1, p1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
     :try_start_1
-    invoke-static {v0}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+    invoke-static {p0}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
-    move-result-wide v1
+    move-result-wide p0
     :try_end_1
     .catch Ljava/lang/NumberFormatException; {:try_start_1 .. :try_end_1} :catch_1
 
-    return-wide v1
+    return-wide p0
 
     :catch_1
-    move-exception v1
+    new-instance v0, Ljava/net/ProtocolException;
 
-    new-instance v2, Ljava/net/ProtocolException;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v2, "problem parsing "
 
-    const-string/jumbo v4, "problem parsing "
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string p1, "="
 
-    const-string v4, "="
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string p0, " as long"
 
-    const-string v4, " as long"
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object v3
+    invoke-direct {v0, p0}, Ljava/net/ProtocolException;-><init>(Ljava/lang/String;)V
 
-    invoke-direct {v2, v3}, Ljava/net/ProtocolException;-><init>(Ljava/lang/String;)V
-
-    throw v2
+    throw v0
 .end method
 
 .method public static readLongAttribute(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;J)J
-    .locals 3
+    .locals 2
 
     instance-of v0, p0, Landroid/util/TypedXmlPullParser;
 
@@ -1029,42 +1003,38 @@
 
     if-eqz v0, :cond_0
 
-    move-object v0, p0
+    check-cast p0, Landroid/util/TypedXmlPullParser;
 
-    check-cast v0, Landroid/util/TypedXmlPullParser;
+    invoke-interface {p0, v1, p1, p2, p3}, Landroid/util/TypedXmlPullParser;->getAttributeLong(Ljava/lang/String;Ljava/lang/String;J)J
 
-    invoke-interface {v0, v1, p1, p2, p3}, Landroid/util/TypedXmlPullParser;->getAttributeLong(Ljava/lang/String;Ljava/lang/String;J)J
+    move-result-wide p0
 
-    move-result-wide v0
-
-    return-wide v0
+    return-wide p0
 
     :cond_0
     invoke-interface {p0, v1, p1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v1
+    move-result p1
 
-    if-eqz v1, :cond_1
+    if-eqz p1, :cond_1
 
     return-wide p2
 
     :cond_1
     :try_start_0
-    invoke-static {v0}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+    invoke-static {p0}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
-    move-result-wide v1
+    move-result-wide p0
     :try_end_0
     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-wide v1
+    return-wide p0
 
     :catch_0
-    move-exception v1
-
     return-wide p2
 .end method
 
@@ -1100,17 +1070,17 @@
 
     invoke-interface {v0, p0, v1}, Landroid/util/TypedXmlPullParser;->setInput(Ljava/io/InputStream;Ljava/lang/String;)V
 
-    const/4 v1, 0x1
+    const/4 p0, 0x1
 
-    new-array v1, v1, [Ljava/lang/String;
+    new-array p0, p0, [Ljava/lang/String;
 
-    invoke-static {v0, v1}, Lcom/android/internal/util/jobs/XmlUtils;->readValueXml(Landroid/util/TypedXmlPullParser;[Ljava/lang/String;)Ljava/lang/Object;
+    invoke-static {v0, p0}, Lcom/android/internal/util/jobs/XmlUtils;->readValueXml(Landroid/util/TypedXmlPullParser;[Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p0
 
-    check-cast v1, Ljava/util/HashMap;
+    check-cast p0, Ljava/util/HashMap;
 
-    return-object v1
+    return-object p0
 .end method
 
 .method public static final readSetXml(Ljava/io/InputStream;)Ljava/util/HashSet;
@@ -1134,17 +1104,17 @@
 
     invoke-interface {v0, p0, v1}, Landroid/util/TypedXmlPullParser;->setInput(Ljava/io/InputStream;Ljava/lang/String;)V
 
-    const/4 v1, 0x1
+    const/4 p0, 0x1
 
-    new-array v1, v1, [Ljava/lang/String;
+    new-array p0, p0, [Ljava/lang/String;
 
-    invoke-static {v0, v1}, Lcom/android/internal/util/jobs/XmlUtils;->readValueXml(Landroid/util/TypedXmlPullParser;[Ljava/lang/String;)Ljava/lang/Object;
+    invoke-static {v0, p0}, Lcom/android/internal/util/jobs/XmlUtils;->readValueXml(Landroid/util/TypedXmlPullParser;[Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p0
 
-    check-cast v1, Ljava/util/HashSet;
+    check-cast p0, Ljava/util/HashSet;
 
-    return-object v1
+    return-object p0
 .end method
 
 .method public static readStringAttribute(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)Ljava/lang/String;
@@ -1154,13 +1124,13 @@
 
     invoke-interface {p0, v0, p1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static final readThisArrayMapXml(Landroid/util/TypedXmlPullParser;Ljava/lang/String;[Ljava/lang/String;Lcom/android/internal/util/jobs/XmlUtils$ReadMapCallback;)Landroid/util/ArrayMap;
-    .locals 5
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1200,13 +1170,13 @@
 
     invoke-static {p0, p2, p3, v3}, Lcom/android/internal/util/jobs/XmlUtils;->readThisValueXml(Landroid/util/TypedXmlPullParser;[Ljava/lang/String;Lcom/android/internal/util/jobs/XmlUtils$ReadMapCallback;Z)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
-    const/4 v4, 0x0
+    const/4 v2, 0x0
 
-    aget-object v4, p2, v4
+    aget-object v2, p2, v2
 
-    invoke-virtual {v0, v4, v2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, v2, v1}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_1
 
@@ -1217,51 +1187,49 @@
 
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p2
 
-    invoke-virtual {v2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result p2
 
-    if-eqz v2, :cond_1
+    if-eqz p2, :cond_1
 
     return-object v0
 
     :cond_1
-    new-instance v2, Lorg/xmlpull/v1/XmlPullParserException;
+    new-instance p2, Lorg/xmlpull/v1/XmlPullParserException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance p3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "Expected "
+    const-string v0, "Expected "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v4, " end tag at: "
+    const-string p1, " end tag at: "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object p0
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p0
 
-    invoke-direct {v2, v3}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p2, p0}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw p2
 
     :cond_2
     :goto_1
-    nop
-
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->next()I
 
     move-result v1
@@ -1271,33 +1239,33 @@
     goto :goto_0
 
     :cond_3
-    new-instance v2, Lorg/xmlpull/v1/XmlPullParserException;
+    new-instance p0, Lorg/xmlpull/v1/XmlPullParserException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "Document ended before "
+    const-string p3, "Document ended before "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v4, " end tag"
+    const-string p1, " end tag"
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-direct {v2, v3}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw p0
 .end method
 
 .method public static final readThisBooleanArrayXml(Landroid/util/TypedXmlPullParser;Ljava/lang/String;[Ljava/lang/String;)[Z
-    .locals 7
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -1305,338 +1273,338 @@
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const/4 p2, 0x0
 
-    const-string/jumbo v1, "num"
+    const-string/jumbo v0, "num"
 
-    invoke-interface {p0, v0, v1}, Landroid/util/TypedXmlPullParser;->getAttributeInt(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-result v1
-
-    invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->next()I
-
-    new-array v2, v1, [Z
-
-    const/4 v3, 0x0
-
-    invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getEventType()I
-
-    move-result v4
-
-    :goto_0
-    const/4 v5, 0x2
-
-    const-string/jumbo v6, "item"
-
-    if-ne v4, v5, :cond_1
-
-    invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_0
-
-    const-string/jumbo v5, "value"
-
-    invoke-interface {p0, v0, v5}, Landroid/util/TypedXmlPullParser;->getAttributeBoolean(Ljava/lang/String;Ljava/lang/String;)Z
-
-    move-result v5
-
-    aput-boolean v5, v2, v3
-
-    goto :goto_1
-
-    :cond_0
-    new-instance v0, Lorg/xmlpull/v1/XmlPullParserException;
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v6, "Expected item tag at: "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-direct {v0, v5}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    :cond_1
-    const/4 v5, 0x3
-
-    if-ne v4, v5, :cond_4
-
-    invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v5, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_2
-
-    return-object v2
-
-    :cond_2
-    invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_3
-
-    add-int/lit8 v3, v3, 0x1
-
-    goto :goto_1
-
-    :cond_3
-    new-instance v0, Lorg/xmlpull/v1/XmlPullParserException;
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v6, "Expected "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v6, " end tag at: "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-direct {v0, v5}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    :cond_4
-    :goto_1
-    invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->next()I
-
-    move-result v4
-
-    const/4 v5, 0x1
-
-    if-eq v4, v5, :cond_5
-
-    goto :goto_0
-
-    :cond_5
-    new-instance v0, Lorg/xmlpull/v1/XmlPullParserException;
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v6, "Document ended before "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v6, " end tag"
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-direct {v0, v5}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-.end method
-
-.method public static final readThisByteArrayXml(Landroid/util/TypedXmlPullParser;Ljava/lang/String;[Ljava/lang/String;)[B
-    .locals 7
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Lorg/xmlpull/v1/XmlPullParserException;,
-            Ljava/io/IOException;
-        }
-    .end annotation
-
-    const/4 v0, 0x0
-
-    const-string/jumbo v1, "num"
-
-    invoke-interface {p0, v0, v1}, Landroid/util/TypedXmlPullParser;->getAttributeInt(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-interface {p0, p2, v0}, Landroid/util/TypedXmlPullParser;->getAttributeInt(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v0
 
-    const/4 v1, 0x0
+    invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->next()I
 
-    new-array v1, v1, [B
+    new-array v0, v0, [Z
 
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getEventType()I
 
-    move-result v2
+    move-result v1
+
+    const/4 v2, 0x0
 
     :goto_0
-    const/4 v3, 0x4
+    const/4 v3, 0x2
 
-    if-ne v2, v3, :cond_1
+    const-string v4, "item"
 
-    if-lez v0, :cond_3
+    if-ne v1, v3, :cond_1
 
-    invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getText()Ljava/lang/String;
-
-    move-result-object v3
-
-    if-eqz v3, :cond_0
-
-    invoke-virtual {v3}, Ljava/lang/String;->length()I
-
-    move-result v4
-
-    mul-int/lit8 v5, v0, 0x2
-
-    if-ne v4, v5, :cond_0
-
-    invoke-static {v3}, Llibcore/util/HexEncoding;->decode(Ljava/lang/String;)[B
+    invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
 
     move-result-object v1
+
+    invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    const-string/jumbo v1, "value"
+
+    invoke-interface {p0, p2, v1}, Landroid/util/TypedXmlPullParser;->getAttributeBoolean(Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-result v1
+
+    aput-boolean v1, v0, v2
 
     goto :goto_1
 
     :cond_0
-    new-instance v4, Lorg/xmlpull/v1/XmlPullParserException;
+    new-instance p1, Lorg/xmlpull/v1/XmlPullParserException;
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v6, "Invalid value found in byte-array: "
+    const-string v0, "Expected item tag at: "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object v5
+    invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct {v4, v5}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    throw v4
+    move-result-object p0
+
+    invoke-direct {p1, p0}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+
+    throw p1
 
     :cond_1
     const/4 v3, 0x3
 
-    if-ne v2, v3, :cond_3
+    if-ne v1, v3, :cond_4
 
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-virtual {v3, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v1
 
-    if-eqz v3, :cond_2
+    if-eqz v1, :cond_2
 
-    return-object v1
+    return-object v0
 
     :cond_2
-    new-instance v3, Lorg/xmlpull/v1/XmlPullParserException;
+    invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    const-string v5, "Expected "
+    move-result v1
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    if-eqz v1, :cond_3
 
-    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    add-int/lit8 v2, v2, 0x1
 
-    const-string v5, " end tag at: "
+    goto :goto_1
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    :cond_3
+    new-instance p2, Lorg/xmlpull/v1/XmlPullParserException;
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "Expected "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string p1, " end tag at: "
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object p0
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object p0
 
-    invoke-direct {v3, v4}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p2, p0}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
 
-    throw v3
+    throw p2
 
-    :cond_3
+    :cond_4
     :goto_1
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->next()I
 
-    move-result v2
+    move-result v1
 
     const/4 v3, 0x1
 
-    if-eq v2, v3, :cond_4
+    if-eq v1, v3, :cond_5
+
+    goto :goto_0
+
+    :cond_5
+    new-instance p0, Lorg/xmlpull/v1/XmlPullParserException;
+
+    new-instance p2, Ljava/lang/StringBuilder;
+
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v0, "Document ended before "
+
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string p1, " end tag"
+
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-direct {p0, p1}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+.end method
+
+.method public static final readThisByteArrayXml(Landroid/util/TypedXmlPullParser;Ljava/lang/String;[Ljava/lang/String;)[B
+    .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/xmlpull/v1/XmlPullParserException;,
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    const/4 p2, 0x0
+
+    const-string/jumbo v0, "num"
+
+    invoke-interface {p0, p2, v0}, Landroid/util/TypedXmlPullParser;->getAttributeInt(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result p2
+
+    const/4 v0, 0x0
+
+    new-array v0, v0, [B
+
+    invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getEventType()I
+
+    move-result v1
+
+    :goto_0
+    const/4 v2, 0x4
+
+    if-ne v1, v2, :cond_1
+
+    if-lez p2, :cond_3
+
+    invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getText()Ljava/lang/String;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Ljava/lang/String;->length()I
+
+    move-result v1
+
+    mul-int/lit8 v2, p2, 0x2
+
+    if-ne v1, v2, :cond_0
+
+    invoke-static {v0}, Llibcore/util/HexEncoding;->decode(Ljava/lang/String;)[B
+
+    move-result-object v0
+
+    goto :goto_1
+
+    :cond_0
+    new-instance p0, Lorg/xmlpull/v1/XmlPullParserException;
+
+    new-instance p1, Ljava/lang/StringBuilder;
+
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string p2, "Invalid value found in byte-array: "
+
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-direct {p0, p1}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+
+    :cond_1
+    const/4 v2, 0x3
+
+    if-ne v1, v2, :cond_3
+
+    invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
+
+    move-result-object p2
+
+    invoke-virtual {p2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p2
+
+    if-eqz p2, :cond_2
+
+    return-object v0
+
+    :cond_2
+    new-instance p2, Lorg/xmlpull/v1/XmlPullParserException;
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "Expected "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string p1, " end tag at: "
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-direct {p2, p0}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+
+    throw p2
+
+    :cond_3
+    :goto_1
+    invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->next()I
+
+    move-result v1
+
+    const/4 v2, 0x1
+
+    if-eq v1, v2, :cond_4
 
     goto :goto_0
 
     :cond_4
-    new-instance v3, Lorg/xmlpull/v1/XmlPullParserException;
+    new-instance p0, Lorg/xmlpull/v1/XmlPullParserException;
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "Document ended before "
+    const-string v0, "Document ended before "
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v5, " end tag"
+    const-string p1, " end tag"
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object p1
 
-    invoke-direct {v3, v4}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
 
-    throw v3
+    throw p0
 .end method
 
 .method public static final readThisDoubleArrayXml(Landroid/util/TypedXmlPullParser;Ljava/lang/String;[Ljava/lang/String;)[D
-    .locals 7
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -1644,179 +1612,179 @@
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const/4 p2, 0x0
 
-    const-string/jumbo v1, "num"
+    const-string/jumbo v0, "num"
 
-    invoke-interface {p0, v0, v1}, Landroid/util/TypedXmlPullParser;->getAttributeInt(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-interface {p0, p2, v0}, Landroid/util/TypedXmlPullParser;->getAttributeInt(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result v1
+    move-result v0
 
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->next()I
 
-    new-array v2, v1, [D
-
-    const/4 v3, 0x0
+    new-array v0, v0, [D
 
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getEventType()I
 
-    move-result v4
+    move-result v1
+
+    const/4 v2, 0x0
 
     :goto_0
-    const/4 v5, 0x2
+    const/4 v3, 0x2
 
-    const-string/jumbo v6, "item"
+    const-string v4, "item"
 
-    if-ne v4, v5, :cond_1
+    if-ne v1, v3, :cond_1
 
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v1
 
-    if-eqz v5, :cond_0
+    if-eqz v1, :cond_0
 
-    const-string/jumbo v5, "value"
+    const-string/jumbo v1, "value"
 
-    invoke-interface {p0, v0, v5}, Landroid/util/TypedXmlPullParser;->getAttributeDouble(Ljava/lang/String;Ljava/lang/String;)D
+    invoke-interface {p0, p2, v1}, Landroid/util/TypedXmlPullParser;->getAttributeDouble(Ljava/lang/String;Ljava/lang/String;)D
 
-    move-result-wide v5
+    move-result-wide v3
 
-    aput-wide v5, v2, v3
+    aput-wide v3, v0, v2
 
     goto :goto_1
 
     :cond_0
-    new-instance v0, Lorg/xmlpull/v1/XmlPullParserException;
+    new-instance p1, Lorg/xmlpull/v1/XmlPullParserException;
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v6, "Expected item tag at: "
+    const-string v0, "Expected item tag at: "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object p0
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object p0
 
-    invoke-direct {v0, v5}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p0}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     :cond_1
-    const/4 v5, 0x3
+    const/4 v3, 0x3
 
-    if-ne v4, v5, :cond_4
+    if-ne v1, v3, :cond_4
 
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-virtual {v5, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v1
 
-    if-eqz v5, :cond_2
+    if-eqz v1, :cond_2
 
-    return-object v2
+    return-object v0
 
     :cond_2
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v1
 
-    if-eqz v5, :cond_3
+    if-eqz v1, :cond_3
 
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_1
 
     :cond_3
-    new-instance v0, Lorg/xmlpull/v1/XmlPullParserException;
+    new-instance p2, Lorg/xmlpull/v1/XmlPullParserException;
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v6, "Expected "
+    const-string v1, "Expected "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v6, " end tag at: "
+    const-string p1, " end tag at: "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object p0
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object p0
 
-    invoke-direct {v0, v5}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p2, p0}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p2
 
     :cond_4
     :goto_1
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->next()I
 
-    move-result v4
+    move-result v1
 
-    const/4 v5, 0x1
+    const/4 v3, 0x1
 
-    if-eq v4, v5, :cond_5
+    if-eq v1, v3, :cond_5
 
     goto :goto_0
 
     :cond_5
-    new-instance v0, Lorg/xmlpull/v1/XmlPullParserException;
+    new-instance p0, Lorg/xmlpull/v1/XmlPullParserException;
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v6, "Document ended before "
+    const-string v0, "Document ended before "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v6, " end tag"
+    const-string p1, " end tag"
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object p1
 
-    invoke-direct {v0, v5}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static final readThisIntArrayXml(Landroid/util/TypedXmlPullParser;Ljava/lang/String;[Ljava/lang/String;)[I
-    .locals 7
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -1824,175 +1792,175 @@
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const/4 p2, 0x0
 
-    const-string/jumbo v1, "num"
+    const-string/jumbo v0, "num"
 
-    invoke-interface {p0, v0, v1}, Landroid/util/TypedXmlPullParser;->getAttributeInt(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-interface {p0, p2, v0}, Landroid/util/TypedXmlPullParser;->getAttributeInt(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result v1
+    move-result v0
 
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->next()I
 
-    new-array v2, v1, [I
-
-    const/4 v3, 0x0
+    new-array v0, v0, [I
 
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getEventType()I
 
-    move-result v4
+    move-result v1
+
+    const/4 v2, 0x0
 
     :goto_0
-    const/4 v5, 0x2
+    const/4 v3, 0x2
 
-    const-string/jumbo v6, "item"
+    const-string v4, "item"
 
-    if-ne v4, v5, :cond_1
+    if-ne v1, v3, :cond_1
 
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v1
 
-    if-eqz v5, :cond_0
+    if-eqz v1, :cond_0
 
-    const-string/jumbo v5, "value"
+    const-string/jumbo v1, "value"
 
-    invoke-interface {p0, v0, v5}, Landroid/util/TypedXmlPullParser;->getAttributeInt(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-interface {p0, p2, v1}, Landroid/util/TypedXmlPullParser;->getAttributeInt(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result v5
+    move-result v1
 
-    aput v5, v2, v3
+    aput v1, v0, v2
 
     goto :goto_1
 
     :cond_0
-    new-instance v0, Lorg/xmlpull/v1/XmlPullParserException;
+    new-instance p1, Lorg/xmlpull/v1/XmlPullParserException;
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v6, "Expected item tag at: "
+    const-string v0, "Expected item tag at: "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object p0
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object p0
 
-    invoke-direct {v0, v5}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p0}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     :cond_1
-    const/4 v5, 0x3
+    const/4 v3, 0x3
 
-    if-ne v4, v5, :cond_4
+    if-ne v1, v3, :cond_4
 
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-virtual {v5, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v1
 
-    if-eqz v5, :cond_2
+    if-eqz v1, :cond_2
 
-    return-object v2
+    return-object v0
 
     :cond_2
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v1
 
-    if-eqz v5, :cond_3
+    if-eqz v1, :cond_3
 
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_1
 
     :cond_3
-    new-instance v0, Lorg/xmlpull/v1/XmlPullParserException;
+    new-instance p2, Lorg/xmlpull/v1/XmlPullParserException;
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v6, "Expected "
+    const-string v1, "Expected "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v6, " end tag at: "
+    const-string p1, " end tag at: "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object p0
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object p0
 
-    invoke-direct {v0, v5}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p2, p0}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p2
 
     :cond_4
     :goto_1
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->next()I
 
-    move-result v4
+    move-result v1
 
-    const/4 v5, 0x1
+    const/4 v3, 0x1
 
-    if-eq v4, v5, :cond_5
+    if-eq v1, v3, :cond_5
 
     goto :goto_0
 
     :cond_5
-    new-instance v0, Lorg/xmlpull/v1/XmlPullParserException;
+    new-instance p0, Lorg/xmlpull/v1/XmlPullParserException;
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v6, "Document ended before "
+    const-string v0, "Document ended before "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v6, " end tag"
+    const-string p1, " end tag"
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object p1
 
-    invoke-direct {v0, v5}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static final readThisListXml(Landroid/util/TypedXmlPullParser;Ljava/lang/String;[Ljava/lang/String;)Ljava/util/ArrayList;
@@ -2010,13 +1978,13 @@
 
     invoke-static {p0, p1, p2, v0, v1}, Lcom/android/internal/util/jobs/XmlUtils;->readThisListXml(Landroid/util/TypedXmlPullParser;Ljava/lang/String;[Ljava/lang/String;Lcom/android/internal/util/jobs/XmlUtils$ReadMapCallback;Z)Ljava/util/ArrayList;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
-.method private static final readThisListXml(Landroid/util/TypedXmlPullParser;Ljava/lang/String;[Ljava/lang/String;Lcom/android/internal/util/jobs/XmlUtils$ReadMapCallback;Z)Ljava/util/ArrayList;
-    .locals 5
+.method public static final readThisListXml(Landroid/util/TypedXmlPullParser;Ljava/lang/String;[Ljava/lang/String;Lcom/android/internal/util/jobs/XmlUtils$ReadMapCallback;Z)Ljava/util/ArrayList;
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -2039,9 +2007,9 @@
 
     invoke-static {p0, p2, p3, p4}, Lcom/android/internal/util/jobs/XmlUtils;->readThisValueXml(Landroid/util/TypedXmlPullParser;[Ljava/lang/String;Lcom/android/internal/util/jobs/XmlUtils$ReadMapCallback;Z)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_1
 
@@ -2052,51 +2020,49 @@
 
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p2
 
-    invoke-virtual {v2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result p2
 
-    if-eqz v2, :cond_1
+    if-eqz p2, :cond_1
 
     return-object v0
 
     :cond_1
-    new-instance v2, Lorg/xmlpull/v1/XmlPullParserException;
+    new-instance p2, Lorg/xmlpull/v1/XmlPullParserException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance p3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "Expected "
+    const-string p4, "Expected "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, p4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v4, " end tag at: "
+    const-string p1, " end tag at: "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object p0
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p0
 
-    invoke-direct {v2, v3}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p2, p0}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw p2
 
     :cond_2
     :goto_1
-    nop
-
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->next()I
 
     move-result v1
@@ -2108,33 +2074,33 @@
     goto :goto_0
 
     :cond_3
-    new-instance v2, Lorg/xmlpull/v1/XmlPullParserException;
+    new-instance p0, Lorg/xmlpull/v1/XmlPullParserException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "Document ended before "
+    const-string p3, "Document ended before "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v4, " end tag"
+    const-string p1, " end tag"
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-direct {v2, v3}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw p0
 .end method
 
 .method public static final readThisLongArrayXml(Landroid/util/TypedXmlPullParser;Ljava/lang/String;[Ljava/lang/String;)[J
-    .locals 7
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -2142,175 +2108,175 @@
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const/4 p2, 0x0
 
-    const-string/jumbo v1, "num"
+    const-string/jumbo v0, "num"
 
-    invoke-interface {p0, v0, v1}, Landroid/util/TypedXmlPullParser;->getAttributeInt(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-interface {p0, p2, v0}, Landroid/util/TypedXmlPullParser;->getAttributeInt(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result v1
+    move-result v0
 
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->next()I
 
-    new-array v2, v1, [J
-
-    const/4 v3, 0x0
+    new-array v0, v0, [J
 
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getEventType()I
 
-    move-result v4
+    move-result v1
+
+    const/4 v2, 0x0
 
     :goto_0
-    const/4 v5, 0x2
+    const/4 v3, 0x2
 
-    const-string/jumbo v6, "item"
+    const-string v4, "item"
 
-    if-ne v4, v5, :cond_1
+    if-ne v1, v3, :cond_1
 
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v1
 
-    if-eqz v5, :cond_0
+    if-eqz v1, :cond_0
 
-    const-string/jumbo v5, "value"
+    const-string/jumbo v1, "value"
 
-    invoke-interface {p0, v0, v5}, Landroid/util/TypedXmlPullParser;->getAttributeLong(Ljava/lang/String;Ljava/lang/String;)J
+    invoke-interface {p0, p2, v1}, Landroid/util/TypedXmlPullParser;->getAttributeLong(Ljava/lang/String;Ljava/lang/String;)J
 
-    move-result-wide v5
+    move-result-wide v3
 
-    aput-wide v5, v2, v3
+    aput-wide v3, v0, v2
 
     goto :goto_1
 
     :cond_0
-    new-instance v0, Lorg/xmlpull/v1/XmlPullParserException;
+    new-instance p1, Lorg/xmlpull/v1/XmlPullParserException;
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v6, "Expected item tag at: "
+    const-string v0, "Expected item tag at: "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object p0
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object p0
 
-    invoke-direct {v0, v5}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p0}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     :cond_1
-    const/4 v5, 0x3
+    const/4 v3, 0x3
 
-    if-ne v4, v5, :cond_4
+    if-ne v1, v3, :cond_4
 
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-virtual {v5, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v1
 
-    if-eqz v5, :cond_2
+    if-eqz v1, :cond_2
 
-    return-object v2
+    return-object v0
 
     :cond_2
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v1
 
-    if-eqz v5, :cond_3
+    if-eqz v1, :cond_3
 
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_1
 
     :cond_3
-    new-instance v0, Lorg/xmlpull/v1/XmlPullParserException;
+    new-instance p2, Lorg/xmlpull/v1/XmlPullParserException;
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v6, "Expected "
+    const-string v1, "Expected "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v6, " end tag at: "
+    const-string p1, " end tag at: "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object p0
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object p0
 
-    invoke-direct {v0, v5}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p2, p0}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p2
 
     :cond_4
     :goto_1
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->next()I
 
-    move-result v4
+    move-result v1
 
-    const/4 v5, 0x1
+    const/4 v3, 0x1
 
-    if-eq v4, v5, :cond_5
+    if-eq v1, v3, :cond_5
 
     goto :goto_0
 
     :cond_5
-    new-instance v0, Lorg/xmlpull/v1/XmlPullParserException;
+    new-instance p0, Lorg/xmlpull/v1/XmlPullParserException;
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v6, "Document ended before "
+    const-string v0, "Document ended before "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v6, " end tag"
+    const-string p1, " end tag"
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object p1
 
-    invoke-direct {v0, v5}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static final readThisMapXml(Landroid/util/TypedXmlPullParser;Ljava/lang/String;[Ljava/lang/String;)Ljava/util/HashMap;
@@ -2340,13 +2306,13 @@
 
     invoke-static {p0, p1, p2, v0}, Lcom/android/internal/util/jobs/XmlUtils;->readThisMapXml(Landroid/util/TypedXmlPullParser;Ljava/lang/String;[Ljava/lang/String;Lcom/android/internal/util/jobs/XmlUtils$ReadMapCallback;)Ljava/util/HashMap;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static final readThisMapXml(Landroid/util/TypedXmlPullParser;Ljava/lang/String;[Ljava/lang/String;Lcom/android/internal/util/jobs/XmlUtils$ReadMapCallback;)Ljava/util/HashMap;
-    .locals 5
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2382,15 +2348,15 @@
 
     if-ne v1, v2, :cond_0
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    invoke-static {p0, p2, p3, v2}, Lcom/android/internal/util/jobs/XmlUtils;->readThisValueXml(Landroid/util/TypedXmlPullParser;[Ljava/lang/String;Lcom/android/internal/util/jobs/XmlUtils$ReadMapCallback;Z)Ljava/lang/Object;
+    invoke-static {p0, p2, p3, v1}, Lcom/android/internal/util/jobs/XmlUtils;->readThisValueXml(Landroid/util/TypedXmlPullParser;[Ljava/lang/String;Lcom/android/internal/util/jobs/XmlUtils$ReadMapCallback;Z)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v2
 
-    aget-object v2, p2, v2
+    aget-object v1, p2, v1
 
-    invoke-virtual {v0, v2, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_1
 
@@ -2401,51 +2367,49 @@
 
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p2
 
-    invoke-virtual {v2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result p2
 
-    if-eqz v2, :cond_1
+    if-eqz p2, :cond_1
 
     return-object v0
 
     :cond_1
-    new-instance v2, Lorg/xmlpull/v1/XmlPullParserException;
+    new-instance p2, Lorg/xmlpull/v1/XmlPullParserException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance p3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "Expected "
+    const-string v0, "Expected "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v4, " end tag at: "
+    const-string p1, " end tag at: "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object p0
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p0
 
-    invoke-direct {v2, v3}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p2, p0}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw p2
 
     :cond_2
     :goto_1
-    nop
-
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->next()I
 
     move-result v1
@@ -2457,32 +2421,32 @@
     goto :goto_0
 
     :cond_3
-    new-instance v2, Lorg/xmlpull/v1/XmlPullParserException;
+    new-instance p0, Lorg/xmlpull/v1/XmlPullParserException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "Document ended before "
+    const-string p3, "Document ended before "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v4, " end tag"
+    const-string p1, " end tag"
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-direct {v2, v3}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw p0
 .end method
 
-.method private static final readThisPrimitiveValueXml(Landroid/util/TypedXmlPullParser;Ljava/lang/String;)Ljava/lang/Object;
+.method public static final readThisPrimitiveValueXml(Landroid/util/TypedXmlPullParser;Ljava/lang/String;)Ljava/lang/Object;
     .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2505,16 +2469,16 @@
 
     invoke-interface {p0, v2, v1}, Landroid/util/TypedXmlPullParser;->getAttributeInt(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result v0
+    move-result p0
 
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     :cond_0
-    const-string/jumbo v0, "long"
+    const-string v0, "long"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -2524,13 +2488,13 @@
 
     invoke-interface {p0, v2, v1}, Landroid/util/TypedXmlPullParser;->getAttributeLong(Ljava/lang/String;Ljava/lang/String;)J
 
-    move-result-wide v0
+    move-result-wide p0
 
-    invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    invoke-static {p0, p1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     :cond_1
     const-string v0, "float"
@@ -2543,13 +2507,13 @@
 
     invoke-interface {p0, v2, v1}, Landroid/util/TypedXmlPullParser;->getAttributeFloat(Ljava/lang/String;Ljava/lang/String;)F
 
-    move-result v0
+    move-result p0
 
-    invoke-static {v0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+    invoke-static {p0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     :cond_2
     const-string v0, "double"
@@ -2562,32 +2526,32 @@
 
     invoke-interface {p0, v2, v1}, Landroid/util/TypedXmlPullParser;->getAttributeDouble(Ljava/lang/String;Ljava/lang/String;)D
 
-    move-result-wide v0
+    move-result-wide p0
 
-    invoke-static {v0, v1}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
+    invoke-static {p0, p1}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     :cond_3
     const-string v0, "boolean"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_4
+    if-eqz p1, :cond_4
 
     invoke-interface {p0, v2, v1}, Landroid/util/TypedXmlPullParser;->getAttributeBoolean(Ljava/lang/String;Ljava/lang/String;)Z
 
-    move-result v0
+    move-result p0
 
-    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    invoke-static {p0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     :cond_4
     return-object v2
@@ -2608,13 +2572,13 @@
 
     invoke-static {p0, p1, p2, v0, v1}, Lcom/android/internal/util/jobs/XmlUtils;->readThisSetXml(Landroid/util/TypedXmlPullParser;Ljava/lang/String;[Ljava/lang/String;Lcom/android/internal/util/jobs/XmlUtils$ReadMapCallback;Z)Ljava/util/HashSet;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
-.method private static final readThisSetXml(Landroid/util/TypedXmlPullParser;Ljava/lang/String;[Ljava/lang/String;Lcom/android/internal/util/jobs/XmlUtils$ReadMapCallback;Z)Ljava/util/HashSet;
-    .locals 5
+.method public static final readThisSetXml(Landroid/util/TypedXmlPullParser;Ljava/lang/String;[Ljava/lang/String;Lcom/android/internal/util/jobs/XmlUtils$ReadMapCallback;Z)Ljava/util/HashSet;
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -2637,9 +2601,9 @@
 
     invoke-static {p0, p2, p3, p4}, Lcom/android/internal/util/jobs/XmlUtils;->readThisValueXml(Landroid/util/TypedXmlPullParser;[Ljava/lang/String;Lcom/android/internal/util/jobs/XmlUtils$ReadMapCallback;Z)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v0, v2}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
     goto :goto_1
 
@@ -2650,51 +2614,49 @@
 
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p2
 
-    invoke-virtual {v2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result p2
 
-    if-eqz v2, :cond_1
+    if-eqz p2, :cond_1
 
     return-object v0
 
     :cond_1
-    new-instance v2, Lorg/xmlpull/v1/XmlPullParserException;
+    new-instance p2, Lorg/xmlpull/v1/XmlPullParserException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance p3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "Expected "
+    const-string p4, "Expected "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, p4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v4, " end tag at: "
+    const-string p1, " end tag at: "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object p0
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p0
 
-    invoke-direct {v2, v3}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p2, p0}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw p2
 
     :cond_2
     :goto_1
-    nop
-
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->next()I
 
     move-result v1
@@ -2706,33 +2668,33 @@
     goto :goto_0
 
     :cond_3
-    new-instance v2, Lorg/xmlpull/v1/XmlPullParserException;
+    new-instance p0, Lorg/xmlpull/v1/XmlPullParserException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "Document ended before "
+    const-string p3, "Document ended before "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v4, " end tag"
+    const-string p1, " end tag"
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-direct {v2, v3}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw p0
 .end method
 
 .method public static final readThisStringArrayXml(Landroid/util/TypedXmlPullParser;Ljava/lang/String;[Ljava/lang/String;)[Ljava/lang/String;
-    .locals 7
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -2740,179 +2702,179 @@
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const/4 p2, 0x0
 
-    const-string/jumbo v1, "num"
+    const-string/jumbo v0, "num"
 
-    invoke-interface {p0, v0, v1}, Landroid/util/TypedXmlPullParser;->getAttributeInt(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-interface {p0, p2, v0}, Landroid/util/TypedXmlPullParser;->getAttributeInt(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result v1
+    move-result v0
 
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->next()I
 
-    new-array v2, v1, [Ljava/lang/String;
-
-    const/4 v3, 0x0
+    new-array v0, v0, [Ljava/lang/String;
 
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getEventType()I
 
-    move-result v4
+    move-result v1
+
+    const/4 v2, 0x0
 
     :goto_0
-    const/4 v5, 0x2
+    const/4 v3, 0x2
 
-    const-string/jumbo v6, "item"
+    const-string v4, "item"
 
-    if-ne v4, v5, :cond_1
+    if-ne v1, v3, :cond_1
 
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v1
 
-    if-eqz v5, :cond_0
+    if-eqz v1, :cond_0
 
-    const-string/jumbo v5, "value"
+    const-string/jumbo v1, "value"
 
-    invoke-interface {p0, v0, v5}, Landroid/util/TypedXmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {p0, p2, v1}, Landroid/util/TypedXmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v1
 
-    aput-object v5, v2, v3
+    aput-object v1, v0, v2
 
     goto :goto_1
 
     :cond_0
-    new-instance v0, Lorg/xmlpull/v1/XmlPullParserException;
+    new-instance p1, Lorg/xmlpull/v1/XmlPullParserException;
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v6, "Expected item tag at: "
+    const-string v0, "Expected item tag at: "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object p0
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object p0
 
-    invoke-direct {v0, v5}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p0}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     :cond_1
-    const/4 v5, 0x3
+    const/4 v3, 0x3
 
-    if-ne v4, v5, :cond_4
+    if-ne v1, v3, :cond_4
 
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-virtual {v5, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v1
 
-    if-eqz v5, :cond_2
+    if-eqz v1, :cond_2
 
-    return-object v2
+    return-object v0
 
     :cond_2
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v1
 
-    if-eqz v5, :cond_3
+    if-eqz v1, :cond_3
 
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_1
 
     :cond_3
-    new-instance v0, Lorg/xmlpull/v1/XmlPullParserException;
+    new-instance p2, Lorg/xmlpull/v1/XmlPullParserException;
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v6, "Expected "
+    const-string v1, "Expected "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v6, " end tag at: "
+    const-string p1, " end tag at: "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object p0
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object p0
 
-    invoke-direct {v0, v5}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p2, p0}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p2
 
     :cond_4
     :goto_1
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->next()I
 
-    move-result v4
+    move-result v1
 
-    const/4 v5, 0x1
+    const/4 v3, 0x1
 
-    if-eq v4, v5, :cond_5
+    if-eq v1, v3, :cond_5
 
     goto :goto_0
 
     :cond_5
-    new-instance v0, Lorg/xmlpull/v1/XmlPullParserException;
+    new-instance p0, Lorg/xmlpull/v1/XmlPullParserException;
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v6, "Document ended before "
+    const-string v0, "Document ended before "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v6, " end tag"
+    const-string p1, " end tag"
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object p1
 
-    invoke-direct {v0, v5}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
-.method private static final readThisValueXml(Landroid/util/TypedXmlPullParser;[Ljava/lang/String;Lcom/android/internal/util/jobs/XmlUtils$ReadMapCallback;Z)Ljava/lang/Object;
-    .locals 11
+.method public static final readThisValueXml(Landroid/util/TypedXmlPullParser;[Ljava/lang/String;Lcom/android/internal/util/jobs/XmlUtils$ReadMapCallback;Z)Ljava/lang/Object;
+    .locals 9
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -2926,414 +2888,404 @@
 
     invoke-interface {p0, v0, v1}, Landroid/util/TypedXmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    const-string/jumbo v2, "null"
+    const-string/jumbo v3, "null"
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v3
 
-    const/4 v3, 0x2
+    const/4 v4, 0x2
 
-    const/4 v4, 0x4
+    const/4 v5, 0x4
 
-    const/4 v5, 0x3
+    const/4 v6, 0x3
 
-    const/4 v6, 0x1
+    const/4 v7, 0x1
 
-    const/4 v7, 0x0
+    const/4 v8, 0x0
 
-    if-eqz v2, :cond_0
-
-    const/4 v2, 0x0
+    if-eqz v3, :cond_0
 
     goto/16 :goto_1
 
     :cond_0
-    const-string/jumbo v2, "string"
+    const-string/jumbo v0, "string"
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v8
+    move-result v3
 
-    if-eqz v8, :cond_6
+    if-eqz v3, :cond_6
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
     :goto_0
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->next()I
 
-    move-result v9
+    move-result p3
 
-    move v10, v9
+    if-eq p3, v7, :cond_5
 
-    if-eq v9, v6, :cond_5
-
-    if-ne v10, v5, :cond_2
+    if-ne p3, v6, :cond_2
 
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p3
 
-    invoke-virtual {v3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result p3
 
-    if-eqz v2, :cond_1
+    if-eqz p3, :cond_1
 
-    aput-object v0, p1, v7
+    aput-object v1, p1, v8
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p0
 
-    return-object v2
+    return-object p0
 
     :cond_1
-    new-instance v2, Lorg/xmlpull/v1/XmlPullParserException;
+    new-instance p1, Lorg/xmlpull/v1/XmlPullParserException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "Unexpected end tag in <string>: "
+    const-string p3, "Unexpected end tag in <string>: "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object p0
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p0
 
-    invoke-direct {v2, v3}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p0}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw p1
 
     :cond_2
-    if-ne v10, v4, :cond_3
+    if-ne p3, v5, :cond_3
 
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getText()Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object p3
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     goto :goto_0
 
     :cond_3
-    if-eq v10, v3, :cond_4
+    if-eq p3, v4, :cond_4
 
     goto :goto_0
 
     :cond_4
-    new-instance v2, Lorg/xmlpull/v1/XmlPullParserException;
+    new-instance p1, Lorg/xmlpull/v1/XmlPullParserException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "Unexpected start tag in <string>: "
+    const-string p3, "Unexpected start tag in <string>: "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object p0
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p0
 
-    invoke-direct {v2, v3}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p0}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw p1
 
     :cond_5
-    new-instance v2, Lorg/xmlpull/v1/XmlPullParserException;
+    new-instance p0, Lorg/xmlpull/v1/XmlPullParserException;
 
-    const-string v3, "Unexpected end of document in <string>"
+    const-string p1, "Unexpected end of document in <string>"
 
-    invoke-direct {v2, v3}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw p0
 
     :cond_6
-    invoke-static {p0, v1}, Lcom/android/internal/util/jobs/XmlUtils;->readThisPrimitiveValueXml(Landroid/util/TypedXmlPullParser;Ljava/lang/String;)Ljava/lang/Object;
+    invoke-static {p0, v2}, Lcom/android/internal/util/jobs/XmlUtils;->readThisPrimitiveValueXml(Landroid/util/TypedXmlPullParser;Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
-    move-object v8, v2
-
-    if-eqz v2, :cond_c
-
-    move-object v2, v8
+    if-eqz v0, :cond_c
 
     :goto_1
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->next()I
 
-    move-result v8
+    move-result p2
 
-    move v9, v8
+    if-eq p2, v7, :cond_b
 
-    if-eq v8, v6, :cond_b
+    const-string p3, ">: "
 
-    const-string v8, ">: "
-
-    if-ne v9, v5, :cond_8
+    if-ne p2, v6, :cond_8
 
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p2
 
-    invoke-virtual {v3, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result p2
 
-    if-eqz v3, :cond_7
+    if-eqz p2, :cond_7
 
-    aput-object v0, p1, v7
+    aput-object v1, p1, v8
 
-    return-object v2
+    return-object v0
 
     :cond_7
-    new-instance v3, Lorg/xmlpull/v1/XmlPullParserException;
+    new-instance p1, Lorg/xmlpull/v1/XmlPullParserException;
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "Unexpected end tag in <"
+    const-string v0, "Unexpected end tag in <"
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object p0
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object p0
 
-    invoke-direct {v3, v4}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p0}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
 
-    throw v3
+    throw p1
 
     :cond_8
-    if-eq v9, v4, :cond_a
+    if-eq p2, v5, :cond_a
 
-    if-eq v9, v3, :cond_9
+    if-eq p2, v4, :cond_9
 
     goto :goto_1
 
     :cond_9
-    new-instance v3, Lorg/xmlpull/v1/XmlPullParserException;
+    new-instance p1, Lorg/xmlpull/v1/XmlPullParserException;
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "Unexpected start tag in <"
+    const-string v0, "Unexpected start tag in <"
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object p0
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object p0
 
-    invoke-direct {v3, v4}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p0}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
 
-    throw v3
+    throw p1
 
     :cond_a
-    new-instance v3, Lorg/xmlpull/v1/XmlPullParserException;
+    new-instance p1, Lorg/xmlpull/v1/XmlPullParserException;
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "Unexpected text in <"
+    const-string v0, "Unexpected text in <"
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object p0
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object p0
 
-    invoke-direct {v3, v4}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p0}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
 
-    throw v3
+    throw p1
 
     :cond_b
-    new-instance v3, Lorg/xmlpull/v1/XmlPullParserException;
+    new-instance p0, Lorg/xmlpull/v1/XmlPullParserException;
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "Unexpected end of document in <"
+    const-string p2, "Unexpected end of document in <"
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v5, ">"
+    const-string p2, ">"
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object p1
 
-    invoke-direct {v3, v4}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
 
-    throw v3
+    throw p0
 
     :cond_c
-    const-string v2, "byte-array"
+    const-string v0, "byte-array"
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
     if-eqz v3, :cond_d
 
-    invoke-static {p0, v2, p1}, Lcom/android/internal/util/jobs/XmlUtils;->readThisByteArrayXml(Landroid/util/TypedXmlPullParser;Ljava/lang/String;[Ljava/lang/String;)[B
+    invoke-static {p0, v0, p1}, Lcom/android/internal/util/jobs/XmlUtils;->readThisByteArrayXml(Landroid/util/TypedXmlPullParser;Ljava/lang/String;[Ljava/lang/String;)[B
 
-    move-result-object v2
+    move-result-object p0
 
-    aput-object v0, p1, v7
+    aput-object v1, p1, v8
 
-    return-object v2
+    return-object p0
 
     :cond_d
-    const-string v2, "int-array"
+    const-string v0, "int-array"
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
     if-eqz v3, :cond_e
 
-    invoke-static {p0, v2, p1}, Lcom/android/internal/util/jobs/XmlUtils;->readThisIntArrayXml(Landroid/util/TypedXmlPullParser;Ljava/lang/String;[Ljava/lang/String;)[I
+    invoke-static {p0, v0, p1}, Lcom/android/internal/util/jobs/XmlUtils;->readThisIntArrayXml(Landroid/util/TypedXmlPullParser;Ljava/lang/String;[Ljava/lang/String;)[I
 
-    move-result-object v2
+    move-result-object p0
 
-    aput-object v0, p1, v7
+    aput-object v1, p1, v8
 
-    return-object v2
+    return-object p0
 
     :cond_e
-    const-string/jumbo v2, "long-array"
+    const-string v0, "long-array"
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
     if-eqz v3, :cond_f
 
-    invoke-static {p0, v2, p1}, Lcom/android/internal/util/jobs/XmlUtils;->readThisLongArrayXml(Landroid/util/TypedXmlPullParser;Ljava/lang/String;[Ljava/lang/String;)[J
+    invoke-static {p0, v0, p1}, Lcom/android/internal/util/jobs/XmlUtils;->readThisLongArrayXml(Landroid/util/TypedXmlPullParser;Ljava/lang/String;[Ljava/lang/String;)[J
 
-    move-result-object v2
+    move-result-object p0
 
-    aput-object v0, p1, v7
+    aput-object v1, p1, v8
 
-    return-object v2
+    return-object p0
 
     :cond_f
-    const-string v2, "double-array"
+    const-string v0, "double-array"
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
     if-eqz v3, :cond_10
 
-    invoke-static {p0, v2, p1}, Lcom/android/internal/util/jobs/XmlUtils;->readThisDoubleArrayXml(Landroid/util/TypedXmlPullParser;Ljava/lang/String;[Ljava/lang/String;)[D
+    invoke-static {p0, v0, p1}, Lcom/android/internal/util/jobs/XmlUtils;->readThisDoubleArrayXml(Landroid/util/TypedXmlPullParser;Ljava/lang/String;[Ljava/lang/String;)[D
 
-    move-result-object v2
+    move-result-object p0
 
-    aput-object v0, p1, v7
+    aput-object v1, p1, v8
 
-    return-object v2
+    return-object p0
 
     :cond_10
-    const-string/jumbo v2, "string-array"
+    const-string/jumbo v0, "string-array"
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
     if-eqz v3, :cond_11
 
-    invoke-static {p0, v2, p1}, Lcom/android/internal/util/jobs/XmlUtils;->readThisStringArrayXml(Landroid/util/TypedXmlPullParser;Ljava/lang/String;[Ljava/lang/String;)[Ljava/lang/String;
+    invoke-static {p0, v0, p1}, Lcom/android/internal/util/jobs/XmlUtils;->readThisStringArrayXml(Landroid/util/TypedXmlPullParser;Ljava/lang/String;[Ljava/lang/String;)[Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p0
 
-    aput-object v0, p1, v7
+    aput-object v1, p1, v8
 
-    return-object v2
+    return-object p0
 
     :cond_11
-    const-string v2, "boolean-array"
+    const-string v0, "boolean-array"
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
     if-eqz v3, :cond_12
 
-    invoke-static {p0, v2, p1}, Lcom/android/internal/util/jobs/XmlUtils;->readThisBooleanArrayXml(Landroid/util/TypedXmlPullParser;Ljava/lang/String;[Ljava/lang/String;)[Z
+    invoke-static {p0, v0, p1}, Lcom/android/internal/util/jobs/XmlUtils;->readThisBooleanArrayXml(Landroid/util/TypedXmlPullParser;Ljava/lang/String;[Ljava/lang/String;)[Z
 
-    move-result-object v2
+    move-result-object p0
 
-    aput-object v0, p1, v7
+    aput-object v1, p1, v8
 
-    return-object v2
+    return-object p0
 
     :cond_12
-    const-string/jumbo v2, "map"
+    const-string/jumbo v0, "map"
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
@@ -3343,28 +3295,26 @@
 
     if-eqz p3, :cond_13
 
-    invoke-static {p0, v2, p1, p2}, Lcom/android/internal/util/jobs/XmlUtils;->readThisArrayMapXml(Landroid/util/TypedXmlPullParser;Ljava/lang/String;[Ljava/lang/String;Lcom/android/internal/util/jobs/XmlUtils$ReadMapCallback;)Landroid/util/ArrayMap;
+    invoke-static {p0, v0, p1, p2}, Lcom/android/internal/util/jobs/XmlUtils;->readThisArrayMapXml(Landroid/util/TypedXmlPullParser;Ljava/lang/String;[Ljava/lang/String;Lcom/android/internal/util/jobs/XmlUtils$ReadMapCallback;)Landroid/util/ArrayMap;
 
-    move-result-object v2
+    move-result-object p0
 
     goto :goto_2
 
     :cond_13
-    invoke-static {p0, v2, p1, p2}, Lcom/android/internal/util/jobs/XmlUtils;->readThisMapXml(Landroid/util/TypedXmlPullParser;Ljava/lang/String;[Ljava/lang/String;Lcom/android/internal/util/jobs/XmlUtils$ReadMapCallback;)Ljava/util/HashMap;
+    invoke-static {p0, v0, p1, p2}, Lcom/android/internal/util/jobs/XmlUtils;->readThisMapXml(Landroid/util/TypedXmlPullParser;Ljava/lang/String;[Ljava/lang/String;Lcom/android/internal/util/jobs/XmlUtils$ReadMapCallback;)Ljava/util/HashMap;
 
-    move-result-object v2
+    move-result-object p0
 
     :goto_2
-    nop
+    aput-object v1, p1, v8
 
-    aput-object v0, p1, v7
-
-    return-object v2
+    return-object p0
 
     :cond_14
-    const-string/jumbo v2, "list"
+    const-string v0, "list"
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
@@ -3372,18 +3322,18 @@
 
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->next()I
 
-    invoke-static {p0, v2, p1, p2, p3}, Lcom/android/internal/util/jobs/XmlUtils;->readThisListXml(Landroid/util/TypedXmlPullParser;Ljava/lang/String;[Ljava/lang/String;Lcom/android/internal/util/jobs/XmlUtils$ReadMapCallback;Z)Ljava/util/ArrayList;
+    invoke-static {p0, v0, p1, p2, p3}, Lcom/android/internal/util/jobs/XmlUtils;->readThisListXml(Landroid/util/TypedXmlPullParser;Ljava/lang/String;[Ljava/lang/String;Lcom/android/internal/util/jobs/XmlUtils$ReadMapCallback;Z)Ljava/util/ArrayList;
 
-    move-result-object v2
+    move-result-object p0
 
-    aput-object v0, p1, v7
+    aput-object v1, p1, v8
 
-    return-object v2
+    return-object p0
 
     :cond_15
-    const-string/jumbo v2, "set"
+    const-string/jumbo v0, "set"
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
@@ -3391,59 +3341,59 @@
 
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->next()I
 
-    invoke-static {p0, v2, p1, p2, p3}, Lcom/android/internal/util/jobs/XmlUtils;->readThisSetXml(Landroid/util/TypedXmlPullParser;Ljava/lang/String;[Ljava/lang/String;Lcom/android/internal/util/jobs/XmlUtils$ReadMapCallback;Z)Ljava/util/HashSet;
+    invoke-static {p0, v0, p1, p2, p3}, Lcom/android/internal/util/jobs/XmlUtils;->readThisSetXml(Landroid/util/TypedXmlPullParser;Ljava/lang/String;[Ljava/lang/String;Lcom/android/internal/util/jobs/XmlUtils$ReadMapCallback;Z)Ljava/util/HashSet;
 
-    move-result-object v2
+    move-result-object p0
 
-    aput-object v0, p1, v7
+    aput-object v1, p1, v8
 
-    return-object v2
+    return-object p0
 
     :cond_16
     if-eqz p2, :cond_17
 
-    invoke-interface {p2, p0, v1}, Lcom/android/internal/util/jobs/XmlUtils$ReadMapCallback;->readThisUnknownObjectXml(Landroid/util/TypedXmlPullParser;Ljava/lang/String;)Ljava/lang/Object;
+    invoke-interface {p2, p0, v2}, Lcom/android/internal/util/jobs/XmlUtils$ReadMapCallback;->readThisUnknownObjectXml(Landroid/util/TypedXmlPullParser;Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p0
 
-    aput-object v0, p1, v7
+    aput-object v1, p1, v8
 
-    return-object v2
+    return-object p0
 
     :cond_17
-    new-instance v2, Lorg/xmlpull/v1/XmlPullParserException;
+    new-instance p0, Lorg/xmlpull/v1/XmlPullParserException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "Unknown tag: "
+    const-string p2, "Unknown tag: "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-direct {v2, v3}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw p0
 .end method
 
 .method public static readUriAttribute(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)Landroid/net/Uri;
-    .locals 2
+    .locals 1
 
     const/4 v0, 0x0
 
     invoke-interface {p0, v0, p1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    if-eqz v1, :cond_0
+    if-eqz p0, :cond_0
 
-    invoke-static {v1}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+    invoke-static {p0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v0
 
@@ -3452,7 +3402,7 @@
 .end method
 
 .method public static final readValueXml(Landroid/util/TypedXmlPullParser;[Ljava/lang/String;)Ljava/lang/Object;
-    .locals 4
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -3469,15 +3419,15 @@
 
     if-ne v0, v1, :cond_0
 
+    const/4 v0, 0x0
+
     const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    invoke-static {p0, p1, v0, v1}, Lcom/android/internal/util/jobs/XmlUtils;->readThisValueXml(Landroid/util/TypedXmlPullParser;[Ljava/lang/String;Lcom/android/internal/util/jobs/XmlUtils$ReadMapCallback;Z)Ljava/lang/Object;
 
-    invoke-static {p0, p1, v1, v2}, Lcom/android/internal/util/jobs/XmlUtils;->readThisValueXml(Landroid/util/TypedXmlPullParser;[Ljava/lang/String;Lcom/android/internal/util/jobs/XmlUtils$ReadMapCallback;Z)Ljava/lang/Object;
+    move-result-object p0
 
-    move-result-object v1
-
-    return-object v1
+    return-object p0
 
     :cond_0
     const/4 v1, 0x3
@@ -3499,67 +3449,67 @@
     goto :goto_0
 
     :cond_1
-    new-instance v1, Lorg/xmlpull/v1/XmlPullParserException;
+    new-instance p0, Lorg/xmlpull/v1/XmlPullParserException;
 
-    const-string v2, "Unexpected end of document"
+    const-string p1, "Unexpected end of document"
 
-    invoke-direct {v1, v2}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p0
 
     :cond_2
-    new-instance v1, Lorg/xmlpull/v1/XmlPullParserException;
+    new-instance p1, Lorg/xmlpull/v1/XmlPullParserException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "Unexpected text: "
+    const-string v1, "Unexpected text: "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getText()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p0
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-direct {v1, v2}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p0}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p1
 
     :cond_3
-    new-instance v1, Lorg/xmlpull/v1/XmlPullParserException;
+    new-instance p1, Lorg/xmlpull/v1/XmlPullParserException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "Unexpected end tag at: "
+    const-string v1, "Unexpected end tag at: "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-interface {p0}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p0
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-direct {v1, v2}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p0}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p1
 .end method
 
 .method public static skipCurrentTag(Lorg/xmlpull/v1/XmlPullParser;)V
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -3577,15 +3527,13 @@
 
     move-result v1
 
-    move v2, v1
+    const/4 v2, 0x1
 
-    const/4 v3, 0x1
+    if-eq v1, v2, :cond_1
 
-    if-eq v1, v3, :cond_1
+    const/4 v2, 0x3
 
-    const/4 v1, 0x3
-
-    if-ne v2, v1, :cond_0
+    if-ne v1, v2, :cond_0
 
     invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->getDepth()I
 
@@ -3624,16 +3572,16 @@
 
     invoke-virtual {v0}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-static {p0, p1, v1}, Lcom/android/internal/util/jobs/XmlUtils;->writeByteArrayAttribute(Lorg/xmlpull/v1/XmlSerializer;Ljava/lang/String;[B)V
+    invoke-static {p0, p1, p2}, Lcom/android/internal/util/jobs/XmlUtils;->writeByteArrayAttribute(Lorg/xmlpull/v1/XmlSerializer;Ljava/lang/String;[B)V
 
     :cond_0
     return-void
 .end method
 
 .method public static final writeBooleanArrayXml([ZLjava/lang/String;Landroid/util/TypedXmlSerializer;)V
-    .locals 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -3645,11 +3593,11 @@
 
     if-nez p0, :cond_0
 
-    const-string/jumbo v1, "null"
+    const-string/jumbo p0, "null"
 
-    invoke-interface {p2, v0, v1}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p2, v0, p0}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    invoke-interface {p2, v0, v1}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p2, v0, p0}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     return-void
 
@@ -3665,30 +3613,30 @@
     invoke-interface {p2, v0, v2, p1}, Landroid/util/TypedXmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     :cond_1
-    array-length v2, p0
+    array-length p1, p0
 
-    const-string/jumbo v3, "num"
+    const-string/jumbo v2, "num"
 
-    invoke-interface {p2, v0, v3, v2}, Landroid/util/TypedXmlSerializer;->attributeInt(Ljava/lang/String;Ljava/lang/String;I)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p2, v0, v2, p1}, Landroid/util/TypedXmlSerializer;->attributeInt(Ljava/lang/String;Ljava/lang/String;I)Lorg/xmlpull/v1/XmlSerializer;
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
     :goto_0
-    if-ge v3, v2, :cond_2
+    if-ge v2, p1, :cond_2
 
-    const-string/jumbo v4, "item"
+    const-string v3, "item"
 
-    invoke-interface {p2, v0, v4}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p2, v0, v3}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    aget-boolean v5, p0, v3
+    aget-boolean v4, p0, v2
 
-    const-string/jumbo v6, "value"
+    const-string/jumbo v5, "value"
 
-    invoke-interface {p2, v0, v6, v5}, Landroid/util/TypedXmlSerializer;->attributeBoolean(Ljava/lang/String;Ljava/lang/String;Z)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p2, v0, v5, v4}, Landroid/util/TypedXmlSerializer;->attributeBoolean(Ljava/lang/String;Ljava/lang/String;Z)Lorg/xmlpull/v1/XmlSerializer;
 
-    invoke-interface {p2, v0, v4}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p2, v0, v3}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
@@ -3712,20 +3660,18 @@
 
     if-eqz v0, :cond_0
 
-    move-object v0, p0
+    check-cast p0, Landroid/util/TypedXmlSerializer;
 
-    check-cast v0, Landroid/util/TypedXmlSerializer;
-
-    invoke-interface {v0, v1, p1, p2}, Landroid/util/TypedXmlSerializer;->attributeBoolean(Ljava/lang/String;Ljava/lang/String;Z)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p0, v1, p1, p2}, Landroid/util/TypedXmlSerializer;->attributeBoolean(Ljava/lang/String;Ljava/lang/String;Z)Lorg/xmlpull/v1/XmlSerializer;
 
     return-void
 
     :cond_0
     invoke-static {p2}, Ljava/lang/Boolean;->toString(Z)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p2
 
-    invoke-interface {p0, v1, p1, v0}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p0, v1, p1, p2}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     return-void
 .end method
@@ -3746,11 +3692,9 @@
 
     if-eqz v0, :cond_0
 
-    move-object v0, p0
+    check-cast p0, Landroid/util/TypedXmlSerializer;
 
-    check-cast v0, Landroid/util/TypedXmlSerializer;
-
-    invoke-interface {v0, v1, p1, p2}, Landroid/util/TypedXmlSerializer;->attributeBytesBase64(Ljava/lang/String;Ljava/lang/String;[B)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p0, v1, p1, p2}, Landroid/util/TypedXmlSerializer;->attributeBytesBase64(Ljava/lang/String;Ljava/lang/String;[B)Lorg/xmlpull/v1/XmlSerializer;
 
     return-void
 
@@ -3759,16 +3703,16 @@
 
     invoke-static {p2, v0}, Landroid/util/Base64;->encodeToString([BI)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p2
 
-    invoke-interface {p0, v1, p1, v0}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p0, v1, p1, p2}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     :cond_1
     return-void
 .end method
 
 .method public static final writeByteArrayXml([BLjava/lang/String;Landroid/util/TypedXmlSerializer;)V
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -3780,11 +3724,11 @@
 
     if-nez p0, :cond_0
 
-    const-string/jumbo v1, "null"
+    const-string/jumbo p0, "null"
 
-    invoke-interface {p2, v0, v1}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p2, v0, p0}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    invoke-interface {p2, v0, v1}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p2, v0, p0}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     return-void
 
@@ -3800,21 +3744,21 @@
     invoke-interface {p2, v0, v2, p1}, Landroid/util/TypedXmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     :cond_1
-    array-length v2, p0
+    array-length p1, p0
 
-    const-string/jumbo v3, "num"
+    const-string/jumbo v2, "num"
 
-    invoke-interface {p2, v0, v3, v2}, Landroid/util/TypedXmlSerializer;->attributeInt(Ljava/lang/String;Ljava/lang/String;I)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p2, v0, v2, p1}, Landroid/util/TypedXmlSerializer;->attributeInt(Ljava/lang/String;Ljava/lang/String;I)Lorg/xmlpull/v1/XmlSerializer;
 
     invoke-static {p0}, Llibcore/util/HexEncoding;->encodeToString([B)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p0
 
-    invoke-virtual {v3}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p0
 
-    invoke-interface {p2, v3}, Landroid/util/TypedXmlSerializer;->text(Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p2, p0}, Landroid/util/TypedXmlSerializer;->text(Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     invoke-interface {p2, v0, v1}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
@@ -3822,7 +3766,7 @@
 .end method
 
 .method public static final writeDoubleArrayXml([DLjava/lang/String;Landroid/util/TypedXmlSerializer;)V
-    .locals 8
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -3834,11 +3778,11 @@
 
     if-nez p0, :cond_0
 
-    const-string/jumbo v1, "null"
+    const-string/jumbo p0, "null"
 
-    invoke-interface {p2, v0, v1}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p2, v0, p0}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    invoke-interface {p2, v0, v1}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p2, v0, p0}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     return-void
 
@@ -3854,30 +3798,30 @@
     invoke-interface {p2, v0, v2, p1}, Landroid/util/TypedXmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     :cond_1
-    array-length v2, p0
+    array-length p1, p0
 
-    const-string/jumbo v3, "num"
+    const-string/jumbo v2, "num"
 
-    invoke-interface {p2, v0, v3, v2}, Landroid/util/TypedXmlSerializer;->attributeInt(Ljava/lang/String;Ljava/lang/String;I)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p2, v0, v2, p1}, Landroid/util/TypedXmlSerializer;->attributeInt(Ljava/lang/String;Ljava/lang/String;I)Lorg/xmlpull/v1/XmlSerializer;
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
     :goto_0
-    if-ge v3, v2, :cond_2
+    if-ge v2, p1, :cond_2
 
-    const-string/jumbo v4, "item"
+    const-string v3, "item"
 
-    invoke-interface {p2, v0, v4}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p2, v0, v3}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    aget-wide v5, p0, v3
+    aget-wide v4, p0, v2
 
-    const-string/jumbo v7, "value"
+    const-string/jumbo v6, "value"
 
-    invoke-interface {p2, v0, v7, v5, v6}, Landroid/util/TypedXmlSerializer;->attributeDouble(Ljava/lang/String;Ljava/lang/String;D)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p2, v0, v6, v4, v5}, Landroid/util/TypedXmlSerializer;->attributeDouble(Ljava/lang/String;Ljava/lang/String;D)Lorg/xmlpull/v1/XmlSerializer;
 
-    invoke-interface {p2, v0, v4}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p2, v0, v3}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
@@ -3901,26 +3845,24 @@
 
     if-eqz v0, :cond_0
 
-    move-object v0, p0
+    check-cast p0, Landroid/util/TypedXmlSerializer;
 
-    check-cast v0, Landroid/util/TypedXmlSerializer;
-
-    invoke-interface {v0, v1, p1, p2}, Landroid/util/TypedXmlSerializer;->attributeFloat(Ljava/lang/String;Ljava/lang/String;F)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p0, v1, p1, p2}, Landroid/util/TypedXmlSerializer;->attributeFloat(Ljava/lang/String;Ljava/lang/String;F)Lorg/xmlpull/v1/XmlSerializer;
 
     return-void
 
     :cond_0
     invoke-static {p2}, Ljava/lang/Float;->toString(F)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p2
 
-    invoke-interface {p0, v1, p1, v0}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p0, v1, p1, p2}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     return-void
 .end method
 
 .method public static final writeIntArrayXml([ILjava/lang/String;Landroid/util/TypedXmlSerializer;)V
-    .locals 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -3932,11 +3874,11 @@
 
     if-nez p0, :cond_0
 
-    const-string/jumbo v1, "null"
+    const-string/jumbo p0, "null"
 
-    invoke-interface {p2, v0, v1}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p2, v0, p0}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    invoke-interface {p2, v0, v1}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p2, v0, p0}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     return-void
 
@@ -3952,30 +3894,30 @@
     invoke-interface {p2, v0, v2, p1}, Landroid/util/TypedXmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     :cond_1
-    array-length v2, p0
+    array-length p1, p0
 
-    const-string/jumbo v3, "num"
+    const-string/jumbo v2, "num"
 
-    invoke-interface {p2, v0, v3, v2}, Landroid/util/TypedXmlSerializer;->attributeInt(Ljava/lang/String;Ljava/lang/String;I)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p2, v0, v2, p1}, Landroid/util/TypedXmlSerializer;->attributeInt(Ljava/lang/String;Ljava/lang/String;I)Lorg/xmlpull/v1/XmlSerializer;
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
     :goto_0
-    if-ge v3, v2, :cond_2
+    if-ge v2, p1, :cond_2
 
-    const-string/jumbo v4, "item"
+    const-string v3, "item"
 
-    invoke-interface {p2, v0, v4}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p2, v0, v3}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    aget v5, p0, v3
+    aget v4, p0, v2
 
-    const-string/jumbo v6, "value"
+    const-string/jumbo v5, "value"
 
-    invoke-interface {p2, v0, v6, v5}, Landroid/util/TypedXmlSerializer;->attributeInt(Ljava/lang/String;Ljava/lang/String;I)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p2, v0, v5, v4}, Landroid/util/TypedXmlSerializer;->attributeInt(Ljava/lang/String;Ljava/lang/String;I)Lorg/xmlpull/v1/XmlSerializer;
 
-    invoke-interface {p2, v0, v4}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p2, v0, v3}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
@@ -3999,26 +3941,24 @@
 
     if-eqz v0, :cond_0
 
-    move-object v0, p0
+    check-cast p0, Landroid/util/TypedXmlSerializer;
 
-    check-cast v0, Landroid/util/TypedXmlSerializer;
-
-    invoke-interface {v0, v1, p1, p2}, Landroid/util/TypedXmlSerializer;->attributeInt(Ljava/lang/String;Ljava/lang/String;I)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p0, v1, p1, p2}, Landroid/util/TypedXmlSerializer;->attributeInt(Ljava/lang/String;Ljava/lang/String;I)Lorg/xmlpull/v1/XmlSerializer;
 
     return-void
 
     :cond_0
     invoke-static {p2}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p2
 
-    invoke-interface {p0, v1, p1, v0}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p0, v1, p1, p2}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     return-void
 .end method
 
 .method public static final writeListXml(Ljava/util/List;Ljava/io/OutputStream;)V
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -4038,21 +3978,19 @@
 
     invoke-interface {v0, p1, v1}, Landroid/util/TypedXmlSerializer;->setOutput(Ljava/io/OutputStream;Ljava/lang/String;)V
 
-    const/4 v1, 0x1
+    sget-object p1, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
 
-    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    const/4 v1, 0x0
 
-    move-result-object v2
+    invoke-interface {v0, v1, p1}, Landroid/util/TypedXmlSerializer;->startDocument(Ljava/lang/String;Ljava/lang/Boolean;)V
 
-    const/4 v3, 0x0
+    const-string p1, "http://xmlpull.org/v1/doc/features.html#indent-output"
 
-    invoke-interface {v0, v3, v2}, Landroid/util/TypedXmlSerializer;->startDocument(Ljava/lang/String;Ljava/lang/Boolean;)V
+    const/4 v2, 0x1
 
-    const-string v2, "http://xmlpull.org/v1/doc/features.html#indent-output"
+    invoke-interface {v0, p1, v2}, Landroid/util/TypedXmlSerializer;->setFeature(Ljava/lang/String;Z)V
 
-    invoke-interface {v0, v2, v1}, Landroid/util/TypedXmlSerializer;->setFeature(Ljava/lang/String;Z)V
-
-    invoke-static {p0, v3, v0}, Lcom/android/internal/util/jobs/XmlUtils;->writeListXml(Ljava/util/List;Ljava/lang/String;Landroid/util/TypedXmlSerializer;)V
+    invoke-static {p0, v1, v0}, Lcom/android/internal/util/jobs/XmlUtils;->writeListXml(Ljava/util/List;Ljava/lang/String;Landroid/util/TypedXmlSerializer;)V
 
     invoke-interface {v0}, Landroid/util/TypedXmlSerializer;->endDocument()V
 
@@ -4060,7 +3998,7 @@
 .end method
 
 .method public static final writeListXml(Ljava/util/List;Ljava/lang/String;Landroid/util/TypedXmlSerializer;)V
-    .locals 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -4072,16 +4010,16 @@
 
     if-nez p0, :cond_0
 
-    const-string/jumbo v1, "null"
+    const-string/jumbo p0, "null"
 
-    invoke-interface {p2, v0, v1}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p2, v0, p0}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    invoke-interface {p2, v0, v1}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p2, v0, p0}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     return-void
 
     :cond_0
-    const-string/jumbo v1, "list"
+    const-string v1, "list"
 
     invoke-interface {p2, v0, v1}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
@@ -4094,20 +4032,20 @@
     :cond_1
     invoke-interface {p0}, Ljava/util/List;->size()I
 
-    move-result v2
+    move-result p1
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
     :goto_0
-    if-ge v3, v2, :cond_2
+    if-ge v2, p1, :cond_2
 
-    invoke-interface {p0, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {p0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v3
 
-    invoke-static {v4, v0, p2}, Lcom/android/internal/util/jobs/XmlUtils;->writeValueXml(Ljava/lang/Object;Ljava/lang/String;Landroid/util/TypedXmlSerializer;)V
+    invoke-static {v3, v0, p2}, Lcom/android/internal/util/jobs/XmlUtils;->writeValueXml(Ljava/lang/Object;Ljava/lang/String;Landroid/util/TypedXmlSerializer;)V
 
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
@@ -4118,7 +4056,7 @@
 .end method
 
 .method public static final writeLongArrayXml([JLjava/lang/String;Landroid/util/TypedXmlSerializer;)V
-    .locals 8
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -4130,16 +4068,16 @@
 
     if-nez p0, :cond_0
 
-    const-string/jumbo v1, "null"
+    const-string/jumbo p0, "null"
 
-    invoke-interface {p2, v0, v1}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p2, v0, p0}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    invoke-interface {p2, v0, v1}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p2, v0, p0}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     return-void
 
     :cond_0
-    const-string/jumbo v1, "long-array"
+    const-string v1, "long-array"
 
     invoke-interface {p2, v0, v1}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
@@ -4150,30 +4088,30 @@
     invoke-interface {p2, v0, v2, p1}, Landroid/util/TypedXmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     :cond_1
-    array-length v2, p0
+    array-length p1, p0
 
-    const-string/jumbo v3, "num"
+    const-string/jumbo v2, "num"
 
-    invoke-interface {p2, v0, v3, v2}, Landroid/util/TypedXmlSerializer;->attributeInt(Ljava/lang/String;Ljava/lang/String;I)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p2, v0, v2, p1}, Landroid/util/TypedXmlSerializer;->attributeInt(Ljava/lang/String;Ljava/lang/String;I)Lorg/xmlpull/v1/XmlSerializer;
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
     :goto_0
-    if-ge v3, v2, :cond_2
+    if-ge v2, p1, :cond_2
 
-    const-string/jumbo v4, "item"
+    const-string v3, "item"
 
-    invoke-interface {p2, v0, v4}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p2, v0, v3}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    aget-wide v5, p0, v3
+    aget-wide v4, p0, v2
 
-    const-string/jumbo v7, "value"
+    const-string/jumbo v6, "value"
 
-    invoke-interface {p2, v0, v7, v5, v6}, Landroid/util/TypedXmlSerializer;->attributeLong(Ljava/lang/String;Ljava/lang/String;J)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p2, v0, v6, v4, v5}, Landroid/util/TypedXmlSerializer;->attributeLong(Ljava/lang/String;Ljava/lang/String;J)Lorg/xmlpull/v1/XmlSerializer;
 
-    invoke-interface {p2, v0, v4}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p2, v0, v3}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
@@ -4197,26 +4135,24 @@
 
     if-eqz v0, :cond_0
 
-    move-object v0, p0
+    check-cast p0, Landroid/util/TypedXmlSerializer;
 
-    check-cast v0, Landroid/util/TypedXmlSerializer;
-
-    invoke-interface {v0, v1, p1, p2, p3}, Landroid/util/TypedXmlSerializer;->attributeLong(Ljava/lang/String;Ljava/lang/String;J)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p0, v1, p1, p2, p3}, Landroid/util/TypedXmlSerializer;->attributeLong(Ljava/lang/String;Ljava/lang/String;J)Lorg/xmlpull/v1/XmlSerializer;
 
     return-void
 
     :cond_0
     invoke-static {p2, p3}, Ljava/lang/Long;->toString(J)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p2
 
-    invoke-interface {p0, v1, p1, v0}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p0, v1, p1, p2}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     return-void
 .end method
 
 .method public static final writeMapXml(Ljava/util/Map;Landroid/util/TypedXmlSerializer;Lcom/android/internal/util/jobs/XmlUtils$WriteMapCallback;)V
-    .locals 5
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -4231,36 +4167,36 @@
     :cond_0
     invoke-interface {p0}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
+    move-result-object p0
+
+    invoke-interface {p0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object p0
+
+    :goto_0
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
     move-result-object v0
 
-    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    check-cast v0, Ljava/util/Map$Entry;
+
+    invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v1
 
-    :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
-    move-result v2
+    move-result-object v0
 
-    if-eqz v2, :cond_1
+    check-cast v0, Ljava/lang/String;
 
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Ljava/util/Map$Entry;
-
-    invoke-interface {v2}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
-
-    move-result-object v3
-
-    invoke-interface {v2}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Ljava/lang/String;
-
-    invoke-static {v3, v4, p1, p2}, Lcom/android/internal/util/jobs/XmlUtils;->writeValueXml(Ljava/lang/Object;Ljava/lang/String;Landroid/util/TypedXmlSerializer;Lcom/android/internal/util/jobs/XmlUtils$WriteMapCallback;)V
+    invoke-static {v1, v0, p1, p2}, Lcom/android/internal/util/jobs/XmlUtils;->writeValueXml(Ljava/lang/Object;Ljava/lang/String;Landroid/util/TypedXmlSerializer;Lcom/android/internal/util/jobs/XmlUtils$WriteMapCallback;)V
 
     goto :goto_0
 
@@ -4269,7 +4205,7 @@
 .end method
 
 .method public static final writeMapXml(Ljava/util/Map;Ljava/io/OutputStream;)V
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -4289,21 +4225,19 @@
 
     invoke-interface {v0, p1, v1}, Landroid/util/TypedXmlSerializer;->setOutput(Ljava/io/OutputStream;Ljava/lang/String;)V
 
-    const/4 v1, 0x1
+    sget-object p1, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
 
-    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    const/4 v1, 0x0
 
-    move-result-object v2
+    invoke-interface {v0, v1, p1}, Landroid/util/TypedXmlSerializer;->startDocument(Ljava/lang/String;Ljava/lang/Boolean;)V
 
-    const/4 v3, 0x0
+    const-string p1, "http://xmlpull.org/v1/doc/features.html#indent-output"
 
-    invoke-interface {v0, v3, v2}, Landroid/util/TypedXmlSerializer;->startDocument(Ljava/lang/String;Ljava/lang/Boolean;)V
+    const/4 v2, 0x1
 
-    const-string v2, "http://xmlpull.org/v1/doc/features.html#indent-output"
+    invoke-interface {v0, p1, v2}, Landroid/util/TypedXmlSerializer;->setFeature(Ljava/lang/String;Z)V
 
-    invoke-interface {v0, v2, v1}, Landroid/util/TypedXmlSerializer;->setFeature(Ljava/lang/String;Z)V
-
-    invoke-static {p0, v3, v0}, Lcom/android/internal/util/jobs/XmlUtils;->writeMapXml(Ljava/util/Map;Ljava/lang/String;Landroid/util/TypedXmlSerializer;)V
+    invoke-static {p0, v1, v0}, Lcom/android/internal/util/jobs/XmlUtils;->writeMapXml(Ljava/util/Map;Ljava/lang/String;Landroid/util/TypedXmlSerializer;)V
 
     invoke-interface {v0}, Landroid/util/TypedXmlSerializer;->endDocument()V
 
@@ -4339,11 +4273,11 @@
 
     if-nez p0, :cond_0
 
-    const-string/jumbo v1, "null"
+    const-string/jumbo p0, "null"
 
-    invoke-interface {p2, v0, v1}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p2, v0, p0}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    invoke-interface {p2, v0, v1}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p2, v0, p0}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     return-void
 
@@ -4367,7 +4301,7 @@
 .end method
 
 .method public static final writeSetXml(Ljava/util/Set;Ljava/lang/String;Landroid/util/TypedXmlSerializer;)V
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -4379,11 +4313,11 @@
 
     if-nez p0, :cond_0
 
-    const-string/jumbo v1, "null"
+    const-string/jumbo p0, "null"
 
-    invoke-interface {p2, v0, v1}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p2, v0, p0}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    invoke-interface {p2, v0, v1}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p2, v0, p0}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     return-void
 
@@ -4401,20 +4335,20 @@
     :cond_1
     invoke-interface {p0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    move-result-object v2
+    move-result-object p0
 
     :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v3
+    move-result p1
 
-    if-eqz v3, :cond_2
+    if-eqz p1, :cond_2
 
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-static {v3, v0, p2}, Lcom/android/internal/util/jobs/XmlUtils;->writeValueXml(Ljava/lang/Object;Ljava/lang/String;Landroid/util/TypedXmlSerializer;)V
+    invoke-static {p1, v0, p2}, Lcom/android/internal/util/jobs/XmlUtils;->writeValueXml(Ljava/lang/Object;Ljava/lang/String;Landroid/util/TypedXmlSerializer;)V
 
     goto :goto_0
 
@@ -4425,7 +4359,7 @@
 .end method
 
 .method public static final writeStringArrayXml([Ljava/lang/String;Ljava/lang/String;Landroid/util/TypedXmlSerializer;)V
-    .locals 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -4437,11 +4371,11 @@
 
     if-nez p0, :cond_0
 
-    const-string/jumbo v1, "null"
+    const-string/jumbo p0, "null"
 
-    invoke-interface {p2, v0, v1}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p2, v0, p0}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    invoke-interface {p2, v0, v1}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p2, v0, p0}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     return-void
 
@@ -4457,30 +4391,30 @@
     invoke-interface {p2, v0, v2, p1}, Landroid/util/TypedXmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     :cond_1
-    array-length v2, p0
+    array-length p1, p0
 
-    const-string/jumbo v3, "num"
+    const-string/jumbo v2, "num"
 
-    invoke-interface {p2, v0, v3, v2}, Landroid/util/TypedXmlSerializer;->attributeInt(Ljava/lang/String;Ljava/lang/String;I)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p2, v0, v2, p1}, Landroid/util/TypedXmlSerializer;->attributeInt(Ljava/lang/String;Ljava/lang/String;I)Lorg/xmlpull/v1/XmlSerializer;
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
     :goto_0
-    if-ge v3, v2, :cond_2
+    if-ge v2, p1, :cond_2
 
-    const-string/jumbo v4, "item"
+    const-string v3, "item"
 
-    invoke-interface {p2, v0, v4}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p2, v0, v3}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    aget-object v5, p0, v3
+    aget-object v4, p0, v2
 
-    const-string/jumbo v6, "value"
+    const-string/jumbo v5, "value"
 
-    invoke-interface {p2, v0, v6, v5}, Landroid/util/TypedXmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p2, v0, v5, v4}, Landroid/util/TypedXmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    invoke-interface {p2, v0, v4}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p2, v0, v3}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
@@ -4491,7 +4425,7 @@
 .end method
 
 .method public static writeStringAttribute(Lorg/xmlpull/v1/XmlSerializer;Ljava/lang/String;Ljava/lang/CharSequence;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -4504,16 +4438,16 @@
 
     invoke-interface {p2}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-interface {p0, v0, p1, v1}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p0, v0, p1, p2}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     :cond_0
     return-void
 .end method
 
 .method public static writeUriAttribute(Lorg/xmlpull/v1/XmlSerializer;Ljava/lang/String;Landroid/net/Uri;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -4526,9 +4460,9 @@
 
     invoke-virtual {p2}, Landroid/net/Uri;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-interface {p0, v0, p1, v1}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p0, v0, p1, p2}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     :cond_0
     return-void
@@ -4550,8 +4484,8 @@
     return-void
 .end method
 
-.method private static final writeValueXml(Ljava/lang/Object;Ljava/lang/String;Landroid/util/TypedXmlSerializer;Lcom/android/internal/util/jobs/XmlUtils$WriteMapCallback;)V
-    .locals 7
+.method public static final writeValueXml(Ljava/lang/Object;Ljava/lang/String;Landroid/util/TypedXmlSerializer;Lcom/android/internal/util/jobs/XmlUtils$WriteMapCallback;)V
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -4565,16 +4499,16 @@
 
     if-nez p0, :cond_1
 
-    const-string/jumbo v2, "null"
+    const-string/jumbo p0, "null"
 
-    invoke-interface {p2, v1, v2}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p2, v1, p0}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     if-eqz p1, :cond_0
 
     invoke-interface {p2, v1, v0, p1}, Landroid/util/TypedXmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     :cond_0
-    invoke-interface {p2, v1, v2}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p2, v1, p0}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     return-void
 
@@ -4594,9 +4528,9 @@
     :cond_2
     invoke-virtual {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-interface {p2, v0}, Landroid/util/TypedXmlSerializer;->text(Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p2, p0}, Landroid/util/TypedXmlSerializer;->text(Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     invoke-interface {p2, v1, v3}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
@@ -4609,54 +4543,50 @@
 
     if-eqz v2, :cond_5
 
-    const-string v2, "int"
+    const-string p3, "int"
 
-    invoke-interface {p2, v1, v2}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p2, v1, p3}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     if-eqz p1, :cond_4
 
     invoke-interface {p2, v1, v0, p1}, Landroid/util/TypedXmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     :cond_4
-    move-object v0, p0
+    check-cast p0, Ljava/lang/Integer;
 
-    check-cast v0, Ljava/lang/Integer;
+    invoke-virtual {p0}, Ljava/lang/Integer;->intValue()I
 
-    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+    move-result p0
 
-    move-result v0
+    invoke-interface {p2, v1, v4, p0}, Landroid/util/TypedXmlSerializer;->attributeInt(Ljava/lang/String;Ljava/lang/String;I)Lorg/xmlpull/v1/XmlSerializer;
 
-    invoke-interface {p2, v1, v4, v0}, Landroid/util/TypedXmlSerializer;->attributeInt(Ljava/lang/String;Ljava/lang/String;I)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p2, v1, p3}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    invoke-interface {p2, v1, v2}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
-
-    goto/16 :goto_0
+    goto :goto_0
 
     :cond_5
     instance-of v2, p0, Ljava/lang/Long;
 
     if-eqz v2, :cond_7
 
-    const-string/jumbo v2, "long"
+    const-string p3, "long"
 
-    invoke-interface {p2, v1, v2}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p2, v1, p3}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     if-eqz p1, :cond_6
 
     invoke-interface {p2, v1, v0, p1}, Landroid/util/TypedXmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     :cond_6
-    move-object v0, p0
+    check-cast p0, Ljava/lang/Long;
 
-    check-cast v0, Ljava/lang/Long;
+    invoke-virtual {p0}, Ljava/lang/Long;->longValue()J
 
-    invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
+    move-result-wide p0
 
-    move-result-wide v5
+    invoke-interface {p2, v1, v4, p0, p1}, Landroid/util/TypedXmlSerializer;->attributeLong(Ljava/lang/String;Ljava/lang/String;J)Lorg/xmlpull/v1/XmlSerializer;
 
-    invoke-interface {p2, v1, v4, v5, v6}, Landroid/util/TypedXmlSerializer;->attributeLong(Ljava/lang/String;Ljava/lang/String;J)Lorg/xmlpull/v1/XmlSerializer;
-
-    invoke-interface {p2, v1, v2}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p2, v1, p3}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     goto :goto_0
 
@@ -4665,26 +4595,24 @@
 
     if-eqz v2, :cond_9
 
-    const-string v2, "float"
+    const-string p3, "float"
 
-    invoke-interface {p2, v1, v2}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p2, v1, p3}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     if-eqz p1, :cond_8
 
     invoke-interface {p2, v1, v0, p1}, Landroid/util/TypedXmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     :cond_8
-    move-object v0, p0
+    check-cast p0, Ljava/lang/Float;
 
-    check-cast v0, Ljava/lang/Float;
+    invoke-virtual {p0}, Ljava/lang/Float;->floatValue()F
 
-    invoke-virtual {v0}, Ljava/lang/Float;->floatValue()F
+    move-result p0
 
-    move-result v0
+    invoke-interface {p2, v1, v4, p0}, Landroid/util/TypedXmlSerializer;->attributeFloat(Ljava/lang/String;Ljava/lang/String;F)Lorg/xmlpull/v1/XmlSerializer;
 
-    invoke-interface {p2, v1, v4, v0}, Landroid/util/TypedXmlSerializer;->attributeFloat(Ljava/lang/String;Ljava/lang/String;F)Lorg/xmlpull/v1/XmlSerializer;
-
-    invoke-interface {p2, v1, v2}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p2, v1, p3}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     goto :goto_0
 
@@ -4693,26 +4621,24 @@
 
     if-eqz v2, :cond_b
 
-    const-string v2, "double"
+    const-string p3, "double"
 
-    invoke-interface {p2, v1, v2}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p2, v1, p3}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     if-eqz p1, :cond_a
 
     invoke-interface {p2, v1, v0, p1}, Landroid/util/TypedXmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     :cond_a
-    move-object v0, p0
+    check-cast p0, Ljava/lang/Double;
 
-    check-cast v0, Ljava/lang/Double;
+    invoke-virtual {p0}, Ljava/lang/Double;->doubleValue()D
 
-    invoke-virtual {v0}, Ljava/lang/Double;->doubleValue()D
+    move-result-wide p0
 
-    move-result-wide v5
+    invoke-interface {p2, v1, v4, p0, p1}, Landroid/util/TypedXmlSerializer;->attributeDouble(Ljava/lang/String;Ljava/lang/String;D)Lorg/xmlpull/v1/XmlSerializer;
 
-    invoke-interface {p2, v1, v4, v5, v6}, Landroid/util/TypedXmlSerializer;->attributeDouble(Ljava/lang/String;Ljava/lang/String;D)Lorg/xmlpull/v1/XmlSerializer;
-
-    invoke-interface {p2, v1, v2}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p2, v1, p3}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     goto :goto_0
 
@@ -4721,26 +4647,24 @@
 
     if-eqz v2, :cond_d
 
-    const-string v2, "boolean"
+    const-string p3, "boolean"
 
-    invoke-interface {p2, v1, v2}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p2, v1, p3}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     if-eqz p1, :cond_c
 
     invoke-interface {p2, v1, v0, p1}, Landroid/util/TypedXmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     :cond_c
-    move-object v0, p0
+    check-cast p0, Ljava/lang/Boolean;
 
-    check-cast v0, Ljava/lang/Boolean;
+    invoke-virtual {p0}, Ljava/lang/Boolean;->booleanValue()Z
 
-    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
+    move-result p0
 
-    move-result v0
+    invoke-interface {p2, v1, v4, p0}, Landroid/util/TypedXmlSerializer;->attributeBoolean(Ljava/lang/String;Ljava/lang/String;Z)Lorg/xmlpull/v1/XmlSerializer;
 
-    invoke-interface {p2, v1, v4, v0}, Landroid/util/TypedXmlSerializer;->attributeBoolean(Ljava/lang/String;Ljava/lang/String;Z)Lorg/xmlpull/v1/XmlSerializer;
-
-    invoke-interface {p2, v1, v2}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p2, v1, p3}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     :goto_0
     return-void
@@ -4750,11 +4674,9 @@
 
     if-eqz v2, :cond_e
 
-    move-object v0, p0
+    check-cast p0, [B
 
-    check-cast v0, [B
-
-    invoke-static {v0, p1, p2}, Lcom/android/internal/util/jobs/XmlUtils;->writeByteArrayXml([BLjava/lang/String;Landroid/util/TypedXmlSerializer;)V
+    invoke-static {p0, p1, p2}, Lcom/android/internal/util/jobs/XmlUtils;->writeByteArrayXml([BLjava/lang/String;Landroid/util/TypedXmlSerializer;)V
 
     return-void
 
@@ -4763,11 +4685,9 @@
 
     if-eqz v2, :cond_f
 
-    move-object v0, p0
+    check-cast p0, [I
 
-    check-cast v0, [I
-
-    invoke-static {v0, p1, p2}, Lcom/android/internal/util/jobs/XmlUtils;->writeIntArrayXml([ILjava/lang/String;Landroid/util/TypedXmlSerializer;)V
+    invoke-static {p0, p1, p2}, Lcom/android/internal/util/jobs/XmlUtils;->writeIntArrayXml([ILjava/lang/String;Landroid/util/TypedXmlSerializer;)V
 
     return-void
 
@@ -4776,11 +4696,9 @@
 
     if-eqz v2, :cond_10
 
-    move-object v0, p0
+    check-cast p0, [J
 
-    check-cast v0, [J
-
-    invoke-static {v0, p1, p2}, Lcom/android/internal/util/jobs/XmlUtils;->writeLongArrayXml([JLjava/lang/String;Landroid/util/TypedXmlSerializer;)V
+    invoke-static {p0, p1, p2}, Lcom/android/internal/util/jobs/XmlUtils;->writeLongArrayXml([JLjava/lang/String;Landroid/util/TypedXmlSerializer;)V
 
     return-void
 
@@ -4789,11 +4707,9 @@
 
     if-eqz v2, :cond_11
 
-    move-object v0, p0
+    check-cast p0, [D
 
-    check-cast v0, [D
-
-    invoke-static {v0, p1, p2}, Lcom/android/internal/util/jobs/XmlUtils;->writeDoubleArrayXml([DLjava/lang/String;Landroid/util/TypedXmlSerializer;)V
+    invoke-static {p0, p1, p2}, Lcom/android/internal/util/jobs/XmlUtils;->writeDoubleArrayXml([DLjava/lang/String;Landroid/util/TypedXmlSerializer;)V
 
     return-void
 
@@ -4802,11 +4718,9 @@
 
     if-eqz v2, :cond_12
 
-    move-object v0, p0
+    check-cast p0, [Ljava/lang/String;
 
-    check-cast v0, [Ljava/lang/String;
-
-    invoke-static {v0, p1, p2}, Lcom/android/internal/util/jobs/XmlUtils;->writeStringArrayXml([Ljava/lang/String;Ljava/lang/String;Landroid/util/TypedXmlSerializer;)V
+    invoke-static {p0, p1, p2}, Lcom/android/internal/util/jobs/XmlUtils;->writeStringArrayXml([Ljava/lang/String;Ljava/lang/String;Landroid/util/TypedXmlSerializer;)V
 
     return-void
 
@@ -4815,11 +4729,9 @@
 
     if-eqz v2, :cond_13
 
-    move-object v0, p0
+    check-cast p0, [Z
 
-    check-cast v0, [Z
-
-    invoke-static {v0, p1, p2}, Lcom/android/internal/util/jobs/XmlUtils;->writeBooleanArrayXml([ZLjava/lang/String;Landroid/util/TypedXmlSerializer;)V
+    invoke-static {p0, p1, p2}, Lcom/android/internal/util/jobs/XmlUtils;->writeBooleanArrayXml([ZLjava/lang/String;Landroid/util/TypedXmlSerializer;)V
 
     return-void
 
@@ -4828,11 +4740,9 @@
 
     if-eqz v2, :cond_14
 
-    move-object v0, p0
+    check-cast p0, Ljava/util/Map;
 
-    check-cast v0, Ljava/util/Map;
-
-    invoke-static {v0, p1, p2}, Lcom/android/internal/util/jobs/XmlUtils;->writeMapXml(Ljava/util/Map;Ljava/lang/String;Landroid/util/TypedXmlSerializer;)V
+    invoke-static {p0, p1, p2}, Lcom/android/internal/util/jobs/XmlUtils;->writeMapXml(Ljava/util/Map;Ljava/lang/String;Landroid/util/TypedXmlSerializer;)V
 
     return-void
 
@@ -4841,11 +4751,9 @@
 
     if-eqz v2, :cond_15
 
-    move-object v0, p0
+    check-cast p0, Ljava/util/List;
 
-    check-cast v0, Ljava/util/List;
-
-    invoke-static {v0, p1, p2}, Lcom/android/internal/util/jobs/XmlUtils;->writeListXml(Ljava/util/List;Ljava/lang/String;Landroid/util/TypedXmlSerializer;)V
+    invoke-static {p0, p1, p2}, Lcom/android/internal/util/jobs/XmlUtils;->writeListXml(Ljava/util/List;Ljava/lang/String;Landroid/util/TypedXmlSerializer;)V
 
     return-void
 
@@ -4854,11 +4762,9 @@
 
     if-eqz v2, :cond_16
 
-    move-object v0, p0
+    check-cast p0, Ljava/util/Set;
 
-    check-cast v0, Ljava/util/Set;
-
-    invoke-static {v0, p1, p2}, Lcom/android/internal/util/jobs/XmlUtils;->writeSetXml(Ljava/util/Set;Ljava/lang/String;Landroid/util/TypedXmlSerializer;)V
+    invoke-static {p0, p1, p2}, Lcom/android/internal/util/jobs/XmlUtils;->writeSetXml(Ljava/util/Set;Ljava/lang/String;Landroid/util/TypedXmlSerializer;)V
 
     return-void
 
@@ -4876,9 +4782,9 @@
     :cond_17
     invoke-virtual {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-interface {p2, v0}, Landroid/util/TypedXmlSerializer;->text(Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p2, p0}, Landroid/util/TypedXmlSerializer;->text(Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     invoke-interface {p2, v1, v3}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
@@ -4892,29 +4798,29 @@
     return-void
 
     :cond_19
-    new-instance v0, Ljava/lang/RuntimeException;
+    new-instance p1, Ljava/lang/RuntimeException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v2, "writeValueXml: unable to write value "
+    const-string/jumbo p3, "writeValueXml: unable to write value "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public static final writeValueXml(Ljava/lang/Object;Ljava/lang/String;Lorg/xmlpull/v1/XmlSerializer;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -4927,9 +4833,9 @@
 
     invoke-static {p2}, Lcom/android/internal/util/jobs/XmlUtils;->makeTyped(Lorg/xmlpull/v1/XmlSerializer;)Landroid/util/TypedXmlSerializer;
 
-    move-result-object v0
+    move-result-object p2
 
-    invoke-static {p0, p1, v0}, Lcom/android/internal/util/jobs/XmlUtils;->writeValueXml(Ljava/lang/Object;Ljava/lang/String;Landroid/util/TypedXmlSerializer;)V
+    invoke-static {p0, p1, p2}, Lcom/android/internal/util/jobs/XmlUtils;->writeValueXml(Ljava/lang/Object;Ljava/lang/String;Landroid/util/TypedXmlSerializer;)V
 
     return-void
 .end method

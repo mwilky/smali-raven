@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/people/data/DataManager$$ExternalSyntheticLambda7;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -31,17 +32,17 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/people/data/DataManager$$ExternalSyntheticLambda7;->f$0:Lcom/android/server/people/data/DataManager;
 
     iget-object v1, p0, Lcom/android/server/people/data/DataManager$$ExternalSyntheticLambda7;->f$1:Landroid/os/CancellationSignal;
 
-    iget v2, p0, Lcom/android/server/people/data/DataManager$$ExternalSyntheticLambda7;->f$2:I
+    iget p0, p0, Lcom/android/server/people/data/DataManager$$ExternalSyntheticLambda7;->f$2:I
 
     check-cast p1, Lcom/android/server/people/data/PackageData;
 
-    invoke-virtual {v0, v1, v2, p1}, Lcom/android/server/people/data/DataManager;->lambda$pruneDataForUser$8$DataManager(Landroid/os/CancellationSignal;ILcom/android/server/people/data/PackageData;)V
+    invoke-static {v0, v1, p0, p1}, Lcom/android/server/people/data/DataManager;->$r8$lambda$Qh1t5aK9GRz_fp5tfjOuAeO9338(Lcom/android/server/people/data/DataManager;Landroid/os/CancellationSignal;ILcom/android/server/people/data/PackageData;)V
 
     return-void
 .end method

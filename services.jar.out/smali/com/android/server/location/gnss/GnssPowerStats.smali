@@ -4,64 +4,64 @@
 
 
 # instance fields
-.field private final mElapsedRealtimeFlags:I
+.field public final mElapsedRealtimeFlags:I
 
-.field private final mElapsedRealtimeNanos:J
+.field public final mElapsedRealtimeNanos:J
 
-.field private final mElapsedRealtimeUncertaintyNanos:D
+.field public final mElapsedRealtimeUncertaintyNanos:D
 
-.field private final mMultibandAcquisitionModeEnergyMilliJoule:D
+.field public final mMultibandAcquisitionModeEnergyMilliJoule:D
 
-.field private final mMultibandTrackingModeEnergyMilliJoule:D
+.field public final mMultibandTrackingModeEnergyMilliJoule:D
 
-.field private final mOtherModesEnergyMilliJoule:[D
+.field public final mOtherModesEnergyMilliJoule:[D
 
-.field private final mSinglebandAcquisitionModeEnergyMilliJoule:D
+.field public final mSinglebandAcquisitionModeEnergyMilliJoule:D
 
-.field private final mSinglebandTrackingModeEnergyMilliJoule:D
+.field public final mSinglebandTrackingModeEnergyMilliJoule:D
 
-.field private final mTotalEnergyMilliJoule:D
+.field public final mTotalEnergyMilliJoule:D
 
 
 # direct methods
 .method public constructor <init>(IJDDDDDD[D)V
-    .locals 16
+    .locals 3
 
-    move-object/from16 v0, p0
+    move-object v0, p0
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    move/from16 v1, p1
+    move v1, p1
 
     iput v1, v0, Lcom/android/server/location/gnss/GnssPowerStats;->mElapsedRealtimeFlags:I
 
-    move-wide/from16 v2, p2
+    move-wide v1, p2
 
-    iput-wide v2, v0, Lcom/android/server/location/gnss/GnssPowerStats;->mElapsedRealtimeNanos:J
+    iput-wide v1, v0, Lcom/android/server/location/gnss/GnssPowerStats;->mElapsedRealtimeNanos:J
 
-    move-wide/from16 v4, p4
+    move-wide v1, p4
 
-    iput-wide v4, v0, Lcom/android/server/location/gnss/GnssPowerStats;->mElapsedRealtimeUncertaintyNanos:D
+    iput-wide v1, v0, Lcom/android/server/location/gnss/GnssPowerStats;->mElapsedRealtimeUncertaintyNanos:D
 
-    move-wide/from16 v6, p6
+    move-wide v1, p6
 
-    iput-wide v6, v0, Lcom/android/server/location/gnss/GnssPowerStats;->mTotalEnergyMilliJoule:D
+    iput-wide v1, v0, Lcom/android/server/location/gnss/GnssPowerStats;->mTotalEnergyMilliJoule:D
 
-    move-wide/from16 v8, p8
+    move-wide v1, p8
 
-    iput-wide v8, v0, Lcom/android/server/location/gnss/GnssPowerStats;->mSinglebandTrackingModeEnergyMilliJoule:D
+    iput-wide v1, v0, Lcom/android/server/location/gnss/GnssPowerStats;->mSinglebandTrackingModeEnergyMilliJoule:D
 
-    move-wide/from16 v10, p10
+    move-wide v1, p10
 
-    iput-wide v10, v0, Lcom/android/server/location/gnss/GnssPowerStats;->mMultibandTrackingModeEnergyMilliJoule:D
+    iput-wide v1, v0, Lcom/android/server/location/gnss/GnssPowerStats;->mMultibandTrackingModeEnergyMilliJoule:D
 
-    move-wide/from16 v12, p12
+    move-wide v1, p12
 
-    iput-wide v12, v0, Lcom/android/server/location/gnss/GnssPowerStats;->mSinglebandAcquisitionModeEnergyMilliJoule:D
+    iput-wide v1, v0, Lcom/android/server/location/gnss/GnssPowerStats;->mSinglebandAcquisitionModeEnergyMilliJoule:D
 
-    move-wide/from16 v14, p14
+    move-wide/from16 v1, p14
 
-    iput-wide v14, v0, Lcom/android/server/location/gnss/GnssPowerStats;->mMultibandAcquisitionModeEnergyMilliJoule:D
+    iput-wide v1, v0, Lcom/android/server/location/gnss/GnssPowerStats;->mMultibandAcquisitionModeEnergyMilliJoule:D
 
     move-object/from16 v1, p16
 
@@ -77,53 +77,51 @@
 
     invoke-virtual {p0}, Lcom/android/server/location/gnss/GnssPowerStats;->hasElapsedRealtimeNanos()Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    const-string/jumbo v0, "time: "
+    const-string/jumbo p1, "time: "
 
-    invoke-virtual {p2, v0}, Landroid/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
+    invoke-virtual {p2, p1}, Landroid/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
 
-    sget-object v0, Ljava/util/concurrent/TimeUnit;->NANOSECONDS:Ljava/util/concurrent/TimeUnit;
+    sget-object p1, Ljava/util/concurrent/TimeUnit;->NANOSECONDS:Ljava/util/concurrent/TimeUnit;
 
-    iget-wide v1, p0, Lcom/android/server/location/gnss/GnssPowerStats;->mElapsedRealtimeNanos:J
+    iget-wide v0, p0, Lcom/android/server/location/gnss/GnssPowerStats;->mElapsedRealtimeNanos:J
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/concurrent/TimeUnit;->toMillis(J)J
+    invoke-virtual {p1, v0, v1}, Ljava/util/concurrent/TimeUnit;->toMillis(J)J
 
     move-result-wide v0
 
     invoke-static {v0, v1}, Landroid/util/TimeUtils;->formatRealtime(J)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p3
 
-    invoke-virtual {p2, v0}, Landroid/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
+    invoke-virtual {p2, p3}, Landroid/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Lcom/android/server/location/gnss/GnssPowerStats;->hasElapsedRealtimeUncertaintyNanos()Z
 
-    move-result v0
+    move-result p3
 
-    if-eqz v0, :cond_0
+    if-eqz p3, :cond_0
 
     iget-wide v0, p0, Lcom/android/server/location/gnss/GnssPowerStats;->mElapsedRealtimeUncertaintyNanos:D
 
     const-wide/16 v2, 0x0
 
-    cmpl-double v0, v0, v2
+    cmpl-double p3, v0, v2
 
-    if-eqz v0, :cond_0
+    if-eqz p3, :cond_0
 
-    const-string v0, " +/- "
+    const-string p3, " +/- "
 
-    invoke-virtual {p2, v0}, Landroid/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
+    invoke-virtual {p2, p3}, Landroid/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
 
-    sget-object v0, Ljava/util/concurrent/TimeUnit;->NANOSECONDS:Ljava/util/concurrent/TimeUnit;
+    iget-wide v0, p0, Lcom/android/server/location/gnss/GnssPowerStats;->mElapsedRealtimeUncertaintyNanos:D
 
-    iget-wide v1, p0, Lcom/android/server/location/gnss/GnssPowerStats;->mElapsedRealtimeUncertaintyNanos:D
+    double-to-long v0, v0
 
-    double-to-long v1, v1
-
-    invoke-virtual {v0, v1, v2}, Ljava/util/concurrent/TimeUnit;->toMillis(J)J
+    invoke-virtual {p1, v0, v1}, Ljava/util/concurrent/TimeUnit;->toMillis(J)J
 
     move-result-wide v0
 
@@ -132,135 +130,135 @@
     :cond_0
     invoke-virtual {p4}, Landroid/location/GnssCapabilities;->hasPowerTotal()Z
 
-    move-result v0
+    move-result p1
 
-    const-string/jumbo v1, "mJ"
+    const-string/jumbo p3, "mJ"
 
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_1
 
-    const-string/jumbo v0, "total power: "
+    const-string/jumbo p1, "total power: "
 
-    invoke-virtual {p2, v0}, Landroid/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
+    invoke-virtual {p2, p1}, Landroid/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
 
-    iget-wide v2, p0, Lcom/android/server/location/gnss/GnssPowerStats;->mTotalEnergyMilliJoule:D
+    iget-wide v0, p0, Lcom/android/server/location/gnss/GnssPowerStats;->mTotalEnergyMilliJoule:D
 
-    invoke-virtual {p2, v2, v3}, Landroid/util/IndentingPrintWriter;->print(D)V
+    invoke-virtual {p2, v0, v1}, Landroid/util/IndentingPrintWriter;->print(D)V
 
-    invoke-virtual {p2, v1}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p2, p3}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
     :cond_1
     invoke-virtual {p4}, Landroid/location/GnssCapabilities;->hasPowerSinglebandTracking()Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_2
+    if-eqz p1, :cond_2
 
-    const-string/jumbo v0, "single-band tracking power: "
+    const-string/jumbo p1, "single-band tracking power: "
 
-    invoke-virtual {p2, v0}, Landroid/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
+    invoke-virtual {p2, p1}, Landroid/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
 
-    iget-wide v2, p0, Lcom/android/server/location/gnss/GnssPowerStats;->mSinglebandTrackingModeEnergyMilliJoule:D
+    iget-wide v0, p0, Lcom/android/server/location/gnss/GnssPowerStats;->mSinglebandTrackingModeEnergyMilliJoule:D
 
-    invoke-virtual {p2, v2, v3}, Landroid/util/IndentingPrintWriter;->print(D)V
+    invoke-virtual {p2, v0, v1}, Landroid/util/IndentingPrintWriter;->print(D)V
 
-    invoke-virtual {p2, v1}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p2, p3}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
     :cond_2
     invoke-virtual {p4}, Landroid/location/GnssCapabilities;->hasPowerMultibandTracking()Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_3
+    if-eqz p1, :cond_3
 
-    const-string/jumbo v0, "multi-band tracking power: "
+    const-string/jumbo p1, "multi-band tracking power: "
 
-    invoke-virtual {p2, v0}, Landroid/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
+    invoke-virtual {p2, p1}, Landroid/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
 
-    iget-wide v2, p0, Lcom/android/server/location/gnss/GnssPowerStats;->mMultibandTrackingModeEnergyMilliJoule:D
+    iget-wide v0, p0, Lcom/android/server/location/gnss/GnssPowerStats;->mMultibandTrackingModeEnergyMilliJoule:D
 
-    invoke-virtual {p2, v2, v3}, Landroid/util/IndentingPrintWriter;->print(D)V
+    invoke-virtual {p2, v0, v1}, Landroid/util/IndentingPrintWriter;->print(D)V
 
-    invoke-virtual {p2, v1}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p2, p3}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
     :cond_3
     invoke-virtual {p4}, Landroid/location/GnssCapabilities;->hasPowerSinglebandAcquisition()Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_4
+    if-eqz p1, :cond_4
 
-    const-string/jumbo v0, "single-band acquisition power: "
+    const-string/jumbo p1, "single-band acquisition power: "
 
-    invoke-virtual {p2, v0}, Landroid/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
+    invoke-virtual {p2, p1}, Landroid/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
 
-    iget-wide v2, p0, Lcom/android/server/location/gnss/GnssPowerStats;->mSinglebandAcquisitionModeEnergyMilliJoule:D
+    iget-wide v0, p0, Lcom/android/server/location/gnss/GnssPowerStats;->mSinglebandAcquisitionModeEnergyMilliJoule:D
 
-    invoke-virtual {p2, v2, v3}, Landroid/util/IndentingPrintWriter;->print(D)V
+    invoke-virtual {p2, v0, v1}, Landroid/util/IndentingPrintWriter;->print(D)V
 
-    invoke-virtual {p2, v1}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p2, p3}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
     :cond_4
     invoke-virtual {p4}, Landroid/location/GnssCapabilities;->hasPowerMultibandAcquisition()Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_5
+    if-eqz p1, :cond_5
 
-    const-string/jumbo v0, "multi-band acquisition power: "
+    const-string/jumbo p1, "multi-band acquisition power: "
 
-    invoke-virtual {p2, v0}, Landroid/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
+    invoke-virtual {p2, p1}, Landroid/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
 
-    iget-wide v2, p0, Lcom/android/server/location/gnss/GnssPowerStats;->mMultibandAcquisitionModeEnergyMilliJoule:D
+    iget-wide v0, p0, Lcom/android/server/location/gnss/GnssPowerStats;->mMultibandAcquisitionModeEnergyMilliJoule:D
 
-    invoke-virtual {p2, v2, v3}, Landroid/util/IndentingPrintWriter;->print(D)V
+    invoke-virtual {p2, v0, v1}, Landroid/util/IndentingPrintWriter;->print(D)V
 
-    invoke-virtual {p2, v1}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p2, p3}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
     :cond_5
     invoke-virtual {p4}, Landroid/location/GnssCapabilities;->hasPowerOtherModes()Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_6
+    if-eqz p1, :cond_6
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    iget-object v2, p0, Lcom/android/server/location/gnss/GnssPowerStats;->mOtherModesEnergyMilliJoule:[D
+    iget-object p4, p0, Lcom/android/server/location/gnss/GnssPowerStats;->mOtherModesEnergyMilliJoule:[D
 
-    array-length v2, v2
+    array-length p4, p4
 
-    if-ge v0, v2, :cond_6
+    if-ge p1, p4, :cond_6
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance p4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v3, "other mode ["
+    const-string/jumbo v0, "other mode ["
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {p4, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v3, "] power: "
+    const-string v0, "] power: "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p4
 
-    invoke-virtual {p2, v2}, Landroid/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
+    invoke-virtual {p2, p4}, Landroid/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
 
-    iget-object v2, p0, Lcom/android/server/location/gnss/GnssPowerStats;->mOtherModesEnergyMilliJoule:[D
+    iget-object p4, p0, Lcom/android/server/location/gnss/GnssPowerStats;->mOtherModesEnergyMilliJoule:[D
 
-    aget-wide v2, v2, v0
+    aget-wide v0, p4, p1
 
-    invoke-virtual {p2, v2, v3}, Landroid/util/IndentingPrintWriter;->print(D)V
+    invoke-virtual {p2, v0, v1}, Landroid/util/IndentingPrintWriter;->print(D)V
 
-    invoke-virtual {p2, v1}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p2, p3}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 p1, p1, 0x1
 
     goto :goto_0
 
@@ -301,11 +299,11 @@
 .end method
 
 .method public getOtherModesEnergyMilliJoule()[D
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/location/gnss/GnssPowerStats;->mOtherModesEnergyMilliJoule:[D
+    iget-object p0, p0, Lcom/android/server/location/gnss/GnssPowerStats;->mOtherModesEnergyMilliJoule:[D
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getSinglebandAcquisitionModeEnergyMilliJoule()D
@@ -333,35 +331,15 @@
 .end method
 
 .method public hasElapsedRealtimeNanos()Z
-    .locals 2
-
-    iget v0, p0, Lcom/android/server/location/gnss/GnssPowerStats;->mElapsedRealtimeFlags:I
-
-    const/4 v1, 0x1
-
-    and-int/2addr v0, v1
-
-    if-eqz v0, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v1, 0x0
-
-    :goto_0
-    return v1
-.end method
-
-.method public hasElapsedRealtimeUncertaintyNanos()Z
     .locals 1
 
-    iget v0, p0, Lcom/android/server/location/gnss/GnssPowerStats;->mElapsedRealtimeFlags:I
-
-    and-int/lit8 v0, v0, 0x2
-
-    if-eqz v0, :cond_0
+    iget p0, p0, Lcom/android/server/location/gnss/GnssPowerStats;->mElapsedRealtimeFlags:I
 
     const/4 v0, 0x1
+
+    and-int/2addr p0, v0
+
+    if-eqz p0, :cond_0
 
     goto :goto_0
 
@@ -372,14 +350,34 @@
     return v0
 .end method
 
+.method public hasElapsedRealtimeUncertaintyNanos()Z
+    .locals 0
+
+    iget p0, p0, Lcom/android/server/location/gnss/GnssPowerStats;->mElapsedRealtimeFlags:I
+
+    and-int/lit8 p0, p0, 0x2
+
+    if-eqz p0, :cond_0
+
+    const/4 p0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    :goto_0
+    return p0
+.end method
+
 .method public validate()V
-    .locals 1
+    .locals 0
 
     invoke-virtual {p0}, Lcom/android/server/location/gnss/GnssPowerStats;->hasElapsedRealtimeNanos()Z
 
-    move-result v0
+    move-result p0
 
-    invoke-static {v0}, Lcom/android/internal/util/Preconditions;->checkArgument(Z)V
+    invoke-static {p0}, Lcom/android/internal/util/Preconditions;->checkArgument(Z)V
 
     return-void
 .end method

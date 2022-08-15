@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/autofill/RemoteFillService$$ExternalSyntheticLambda4;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -39,7 +40,7 @@
 
 # virtual methods
 .method public final run()V
-    .locals 5
+    .locals 4
 
     iget-object v0, p0, Lcom/android/server/autofill/RemoteFillService$$ExternalSyntheticLambda4;->f$0:Lcom/android/server/autofill/RemoteFillService;
 
@@ -49,9 +50,9 @@
 
     iget-object v3, p0, Lcom/android/server/autofill/RemoteFillService$$ExternalSyntheticLambda4;->f$3:Landroid/service/autofill/FillResponse;
 
-    iget-object v4, p0, Lcom/android/server/autofill/RemoteFillService$$ExternalSyntheticLambda4;->f$4:Ljava/util/concurrent/atomic/AtomicReference;
+    iget-object p0, p0, Lcom/android/server/autofill/RemoteFillService$$ExternalSyntheticLambda4;->f$4:Ljava/util/concurrent/atomic/AtomicReference;
 
-    invoke-virtual {v0, v1, v2, v3, v4}, Lcom/android/server/autofill/RemoteFillService;->lambda$onFillRequest$1$RemoteFillService(Ljava/lang/Throwable;Landroid/service/autofill/FillRequest;Landroid/service/autofill/FillResponse;Ljava/util/concurrent/atomic/AtomicReference;)V
+    invoke-static {v0, v1, v2, v3, p0}, Lcom/android/server/autofill/RemoteFillService;->$r8$lambda$gnlMp01HzSOYQxSGAOFPCIAy6-Q(Lcom/android/server/autofill/RemoteFillService;Ljava/lang/Throwable;Landroid/service/autofill/FillRequest;Landroid/service/autofill/FillResponse;Ljava/util/concurrent/atomic/AtomicReference;)V
 
     return-void
 .end method

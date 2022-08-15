@@ -49,21 +49,21 @@
 .end method
 
 .method public constructor <init>(Landroid/net/NetworkStats;[IZZZILcom/android/server/stats/pull/netstats/SubInfo;I)V
-    .locals 1
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/server/stats/pull/netstats/NetworkStatsExt;->stats:Landroid/net/NetworkStats;
 
-    array-length v0, p2
+    array-length p1, p2
 
-    invoke-static {p2, v0}, Ljava/util/Arrays;->copyOf([II)[I
+    invoke-static {p2, p1}, Ljava/util/Arrays;->copyOf([II)[I
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/android/server/stats/pull/netstats/NetworkStatsExt;->transports:[I
+    iput-object p1, p0, Lcom/android/server/stats/pull/netstats/NetworkStatsExt;->transports:[I
 
-    invoke-static {v0}, Ljava/util/Arrays;->sort([I)V
+    invoke-static {p1}, Ljava/util/Arrays;->sort([I)V
 
     iput-boolean p3, p0, Lcom/android/server/stats/pull/netstats/NetworkStatsExt;->slicedByFgbg:Z
 
@@ -129,19 +129,19 @@
 
     if-eqz v0, :cond_0
 
-    iget v0, p0, Lcom/android/server/stats/pull/netstats/NetworkStatsExt;->oemManaged:I
+    iget p0, p0, Lcom/android/server/stats/pull/netstats/NetworkStatsExt;->oemManaged:I
 
-    iget v1, p1, Lcom/android/server/stats/pull/netstats/NetworkStatsExt;->oemManaged:I
+    iget p1, p1, Lcom/android/server/stats/pull/netstats/NetworkStatsExt;->oemManaged:I
 
-    if-ne v0, v1, :cond_0
+    if-ne p0, p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method

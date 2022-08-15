@@ -15,7 +15,7 @@
 
 
 # instance fields
-.field private mRecoverySystemService:Lcom/android/server/recoverysystem/RecoverySystemService;
+.field public mRecoverySystemService:Lcom/android/server/recoverysystem/RecoverySystemService;
 
 
 # direct methods
@@ -36,9 +36,9 @@
 
     if-ne p1, v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/recoverysystem/RecoverySystemService$Lifecycle;->mRecoverySystemService:Lcom/android/server/recoverysystem/RecoverySystemService;
+    iget-object p0, p0, Lcom/android/server/recoverysystem/RecoverySystemService$Lifecycle;->mRecoverySystemService:Lcom/android/server/recoverysystem/RecoverySystemService;
 
-    invoke-virtual {v0}, Lcom/android/server/recoverysystem/RecoverySystemService;->onSystemServicesReady()V
+    invoke-virtual {p0}, Lcom/android/server/recoverysystem/RecoverySystemService;->onSystemServicesReady()V
 
     :cond_0
     return-void
@@ -49,19 +49,19 @@
 
     new-instance v0, Lcom/android/server/recoverysystem/RecoverySystemService;
 
-    invoke-virtual {p0}, Lcom/android/server/recoverysystem/RecoverySystemService$Lifecycle;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Lcom/android/server/SystemService;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
     const/4 v2, 0x0
 
-    invoke-direct {v0, v1, v2}, Lcom/android/server/recoverysystem/RecoverySystemService;-><init>(Landroid/content/Context;Lcom/android/server/recoverysystem/RecoverySystemService$1;)V
+    invoke-direct {v0, v1, v2}, Lcom/android/server/recoverysystem/RecoverySystemService;-><init>(Landroid/content/Context;Lcom/android/server/recoverysystem/RecoverySystemService-IA;)V
 
     iput-object v0, p0, Lcom/android/server/recoverysystem/RecoverySystemService$Lifecycle;->mRecoverySystemService:Lcom/android/server/recoverysystem/RecoverySystemService;
 
     const-string v1, "recovery"
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/server/recoverysystem/RecoverySystemService$Lifecycle;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
+    invoke-virtual {p0, v1, v0}, Lcom/android/server/SystemService;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
 
     return-void
 .end method

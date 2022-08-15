@@ -1,4 +1,4 @@
-.class final Lcom/android/server/midi/MidiService$DeviceConnection;
+.class public final Lcom/android/server/midi/MidiService$DeviceConnection;
 .super Ljava/lang/Object;
 .source "MidiService.java"
 
@@ -9,21 +9,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "DeviceConnection"
 .end annotation
 
 
 # instance fields
-.field private mCallback:Landroid/media/midi/IMidiDeviceOpenCallback;
+.field public mCallback:Landroid/media/midi/IMidiDeviceOpenCallback;
 
-.field private final mClient:Lcom/android/server/midi/MidiService$Client;
+.field public final mClient:Lcom/android/server/midi/MidiService$Client;
 
-.field private final mDevice:Lcom/android/server/midi/MidiService$Device;
+.field public final mDevice:Lcom/android/server/midi/MidiService$Device;
 
-.field private final mToken:Landroid/os/IBinder;
+.field public final mToken:Landroid/os/IBinder;
 
-.field final synthetic this$0:Lcom/android/server/midi/MidiService;
+.field public final synthetic this$0:Lcom/android/server/midi/MidiService;
 
 
 # direct methods
@@ -52,31 +52,37 @@
 
 # virtual methods
 .method public getClient()Lcom/android/server/midi/MidiService$Client;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/midi/MidiService$DeviceConnection;->mClient:Lcom/android/server/midi/MidiService$Client;
+    iget-object p0, p0, Lcom/android/server/midi/MidiService$DeviceConnection;->mClient:Lcom/android/server/midi/MidiService$Client;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getDevice()Lcom/android/server/midi/MidiService$Device;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/midi/MidiService$DeviceConnection;->mDevice:Lcom/android/server/midi/MidiService$Device;
+    iget-object p0, p0, Lcom/android/server/midi/MidiService$DeviceConnection;->mDevice:Lcom/android/server/midi/MidiService$Device;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getToken()Landroid/os/IBinder;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/midi/MidiService$DeviceConnection;->mToken:Landroid/os/IBinder;
+    iget-object p0, p0, Lcom/android/server/midi/MidiService$DeviceConnection;->mToken:Landroid/os/IBinder;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public notifyClient(Landroid/media/midi/IMidiDeviceServer;)V
     .locals 3
+
+    const-string v0, "MidiService.DeviceConnection"
+
+    const-string/jumbo v1, "notifyClient"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v0, p0, Lcom/android/server/midi/MidiService$DeviceConnection;->mCallback:Landroid/media/midi/IMidiDeviceOpenCallback;
 
@@ -99,12 +105,7 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_1
-
     :catch_0
-    move-exception v0
-
-    :goto_1
     iput-object v1, p0, Lcom/android/server/midi/MidiService$DeviceConnection;->mCallback:Landroid/media/midi/IMidiDeviceOpenCallback;
 
     :cond_1
@@ -114,29 +115,45 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
+    iget-object v0, p0, Lcom/android/server/midi/MidiService$DeviceConnection;->mDevice:Lcom/android/server/midi/MidiService$Device;
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Lcom/android/server/midi/MidiService$Device;->getDeviceInfo()Landroid/media/midi/MidiDeviceInfo;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "DeviceConnection Device ID: "
+    const-string v1, ""
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lcom/android/server/midi/MidiService$DeviceConnection;->mDevice:Lcom/android/server/midi/MidiService$Device;
+    iget-object p0, p0, Lcom/android/server/midi/MidiService$DeviceConnection;->mDevice:Lcom/android/server/midi/MidiService$Device;
 
-    invoke-virtual {v1}, Lcom/android/server/midi/MidiService$Device;->getDeviceInfo()Landroid/media/midi/MidiDeviceInfo;
+    invoke-virtual {p0}, Lcom/android/server/midi/MidiService$Device;->getDeviceInfo()Landroid/media/midi/MidiDeviceInfo;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v1}, Landroid/media/midi/MidiDeviceInfo;->getId()I
+    invoke-virtual {p0}, Landroid/media/midi/MidiDeviceInfo;->getId()I
 
-    move-result v1
+    move-result p0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    goto :goto_0
+
+    :cond_0
+    const-string/jumbo p0, "null"
+
+    :goto_0
+    return-object p0
 .end method

@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/server/broadcastradio/hal2/Utils$VoidFuncThrowingRemoteException;
+.class public interface abstract Lcom/android/server/broadcastradio/hal2/Utils$VoidFuncThrowingRemoteException;
 .super Ljava/lang/Object;
 .source "Utils.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
+    accessFlags = 0x609
     name = "VoidFuncThrowingRemoteException"
 .end annotation
 

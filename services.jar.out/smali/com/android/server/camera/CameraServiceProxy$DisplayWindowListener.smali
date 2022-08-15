@@ -1,4 +1,4 @@
-.class final Lcom/android/server/camera/CameraServiceProxy$DisplayWindowListener;
+.class public final Lcom/android/server/camera/CameraServiceProxy$DisplayWindowListener;
 .super Landroid/view/IDisplayWindowListener$Stub;
 .source "CameraServiceProxy.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "DisplayWindowListener"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/camera/CameraServiceProxy;
+.field public final synthetic this$0:Lcom/android/server/camera/CameraServiceProxy;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/server/camera/CameraServiceProxy;)V
+.method public constructor <init>(Lcom/android/server/camera/CameraServiceProxy;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/camera/CameraServiceProxy$DisplayWindowListener;->this$0:Lcom/android/server/camera/CameraServiceProxy;
@@ -29,7 +29,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/camera/CameraServiceProxy;Lcom/android/server/camera/CameraServiceProxy$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/camera/CameraServiceProxy;Lcom/android/server/camera/CameraServiceProxy$DisplayWindowListener-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/camera/CameraServiceProxy$DisplayWindowListener;-><init>(Lcom/android/server/camera/CameraServiceProxy;)V
@@ -46,46 +46,46 @@
 .end method
 
 .method public onDisplayConfigurationChanged(ILandroid/content/res/Configuration;)V
-    .locals 4
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/camera/CameraServiceProxy$DisplayWindowListener;->this$0:Lcom/android/server/camera/CameraServiceProxy;
+    iget-object p0, p0, Lcom/android/server/camera/CameraServiceProxy$DisplayWindowListener;->this$0:Lcom/android/server/camera/CameraServiceProxy;
 
-    invoke-static {v0}, Lcom/android/server/camera/CameraServiceProxy;->access$000(Lcom/android/server/camera/CameraServiceProxy;)Landroid/hardware/ICameraService;
+    invoke-static {p0}, Lcom/android/server/camera/CameraServiceProxy;->-$$Nest$mgetCameraServiceRawLocked(Lcom/android/server/camera/CameraServiceProxy;)Landroid/hardware/ICameraService;
 
-    move-result-object v0
+    move-result-object p0
 
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
     return-void
 
     :cond_0
     :try_start_0
-    invoke-interface {v0}, Landroid/hardware/ICameraService;->notifyDisplayConfigurationChange()V
+    invoke-interface {p0}, Landroid/hardware/ICameraService;->notifyDisplayConfigurationChange()V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
     :catch_0
-    move-exception v1
+    move-exception p0
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "Could not notify cameraserver, remote exception: "
+    const-string p2, "Could not notify cameraserver, remote exception: "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p0
 
-    const-string v3, "CameraService_proxy"
+    const-string p1, "CameraService_proxy"
 
-    invoke-static {v3, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p1, p0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     :goto_0
     return-void
@@ -105,6 +105,23 @@
 
 .method public onFixedRotationStarted(II)V
     .locals 0
+
+    return-void
+.end method
+
+.method public onKeepClearAreasChanged(ILjava/util/List;Ljava/util/List;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(I",
+            "Ljava/util/List<",
+            "Landroid/graphics/Rect;",
+            ">;",
+            "Ljava/util/List<",
+            "Landroid/graphics/Rect;",
+            ">;)V"
+        }
+    .end annotation
 
     return-void
 .end method

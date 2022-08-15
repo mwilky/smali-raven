@@ -1,4 +1,4 @@
-.class Lcom/android/server/backup/UserBackupManagerService$4;
+.class public Lcom/android/server/backup/UserBackupManagerService$4;
 .super Ljava/lang/Object;
 .source "UserBackupManagerService.java"
 
@@ -12,21 +12,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/backup/UserBackupManagerService;
+.field public final synthetic this$0:Lcom/android/server/backup/UserBackupManagerService;
 
-.field final synthetic val$packageName:Ljava/lang/String;
+.field public final synthetic val$packageName:Ljava/lang/String;
 
-.field final synthetic val$targets:Ljava/util/HashSet;
+.field public final synthetic val$targets:Ljava/util/HashSet;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/backup/UserBackupManagerService;Ljava/lang/String;Ljava/util/HashSet;)V
+.method public constructor <init>(Lcom/android/server/backup/UserBackupManagerService;Ljava/lang/String;Ljava/util/HashSet;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/backup/UserBackupManagerService$4;->this$0:Lcom/android/server/backup/UserBackupManagerService;
@@ -43,15 +43,15 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/backup/UserBackupManagerService$4;->this$0:Lcom/android/server/backup/UserBackupManagerService;
 
     iget-object v1, p0, Lcom/android/server/backup/UserBackupManagerService$4;->val$packageName:Ljava/lang/String;
 
-    iget-object v2, p0, Lcom/android/server/backup/UserBackupManagerService$4;->val$targets:Ljava/util/HashSet;
+    iget-object p0, p0, Lcom/android/server/backup/UserBackupManagerService$4;->val$targets:Ljava/util/HashSet;
 
-    invoke-static {v0, v1, v2}, Lcom/android/server/backup/UserBackupManagerService;->access$1600(Lcom/android/server/backup/UserBackupManagerService;Ljava/lang/String;Ljava/util/HashSet;)V
+    invoke-static {v0, v1, p0}, Lcom/android/server/backup/UserBackupManagerService;->-$$Nest$mdataChangedImpl(Lcom/android/server/backup/UserBackupManagerService;Ljava/lang/String;Ljava/util/HashSet;)V
 
     return-void
 .end method

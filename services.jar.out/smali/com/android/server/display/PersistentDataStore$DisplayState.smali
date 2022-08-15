@@ -1,4 +1,4 @@
-.class final Lcom/android/server/display/PersistentDataStore$DisplayState;
+.class public final Lcom/android/server/display/PersistentDataStore$DisplayState;
 .super Ljava/lang/Object;
 .source "PersistentDataStore.java"
 
@@ -9,21 +9,27 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "DisplayState"
 .end annotation
 
 
 # instance fields
-.field private mBrightness:F
+.field public mBrightness:F
 
-.field private mColorMode:I
+.field public mColorMode:I
 
-.field private mDisplayBrightnessConfigurations:Lcom/android/server/display/PersistentDataStore$BrightnessConfigurations;
+.field public mDisplayBrightnessConfigurations:Lcom/android/server/display/PersistentDataStore$BrightnessConfigurations;
+
+.field public mHeight:I
+
+.field public mRefreshRate:F
+
+.field public mWidth:I
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,7 +43,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/display/PersistentDataStore$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/display/PersistentDataStore$DisplayState-IA;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/display/PersistentDataStore$DisplayState;-><init>()V
@@ -106,45 +112,67 @@
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    iget-object v0, p0, Lcom/android/server/display/PersistentDataStore$DisplayState;->mDisplayBrightnessConfigurations:Lcom/android/server/display/PersistentDataStore$BrightnessConfigurations;
+    iget-object p0, p0, Lcom/android/server/display/PersistentDataStore$DisplayState;->mDisplayBrightnessConfigurations:Lcom/android/server/display/PersistentDataStore$BrightnessConfigurations;
 
-    invoke-virtual {v0, p1, p2}, Lcom/android/server/display/PersistentDataStore$BrightnessConfigurations;->dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/display/PersistentDataStore$BrightnessConfigurations;->dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
 
     return-void
 .end method
 
 .method public getBrightness()F
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/display/PersistentDataStore$DisplayState;->mBrightness:F
+    iget p0, p0, Lcom/android/server/display/PersistentDataStore$DisplayState;->mBrightness:F
 
-    return v0
+    return p0
 .end method
 
 .method public getBrightnessConfiguration(I)Landroid/hardware/display/BrightnessConfiguration;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/display/PersistentDataStore$DisplayState;->mDisplayBrightnessConfigurations:Lcom/android/server/display/PersistentDataStore$BrightnessConfigurations;
+    iget-object p0, p0, Lcom/android/server/display/PersistentDataStore$DisplayState;->mDisplayBrightnessConfigurations:Lcom/android/server/display/PersistentDataStore$BrightnessConfigurations;
 
-    invoke-static {v0}, Lcom/android/server/display/PersistentDataStore$BrightnessConfigurations;->access$400(Lcom/android/server/display/PersistentDataStore$BrightnessConfigurations;)Landroid/util/SparseArray;
+    invoke-static {p0}, Lcom/android/server/display/PersistentDataStore$BrightnessConfigurations;->-$$Nest$fgetmConfigurations(Lcom/android/server/display/PersistentDataStore$BrightnessConfigurations;)Landroid/util/SparseArray;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Landroid/hardware/display/BrightnessConfiguration;
+    check-cast p0, Landroid/hardware/display/BrightnessConfiguration;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getColorMode()I
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/display/PersistentDataStore$DisplayState;->mColorMode:I
+    iget p0, p0, Lcom/android/server/display/PersistentDataStore$DisplayState;->mColorMode:I
 
-    return v0
+    return p0
+.end method
+
+.method public getRefreshRate()F
+    .locals 0
+
+    iget p0, p0, Lcom/android/server/display/PersistentDataStore$DisplayState;->mRefreshRate:F
+
+    return p0
+.end method
+
+.method public getResolution()Landroid/graphics/Point;
+    .locals 2
+
+    new-instance v0, Landroid/graphics/Point;
+
+    iget v1, p0, Lcom/android/server/display/PersistentDataStore$DisplayState;->mWidth:I
+
+    iget p0, p0, Lcom/android/server/display/PersistentDataStore$DisplayState;->mHeight:I
+
+    invoke-direct {v0, v1, p0}, Landroid/graphics/Point;-><init>(II)V
+
+    return-object v0
 .end method
 
 .method public loadFromXml(Landroid/util/TypedXmlPullParser;)V
@@ -165,11 +193,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_3
 
     invoke-interface {p1}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
 
     move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/String;->hashCode()I
 
     const/4 v2, -0x1
 
@@ -179,7 +209,6 @@
 
     sparse-switch v3, :sswitch_data_0
 
-    :cond_0
     goto :goto_1
 
     :sswitch_0
@@ -189,9 +218,12 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-nez v1, :cond_0
 
-    const/4 v2, 0x0
+    goto :goto_1
+
+    :cond_0
+    const/4 v2, 0x2
 
     goto :goto_1
 
@@ -202,8 +234,11 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-nez v1, :cond_1
 
+    goto :goto_1
+
+    :cond_1
     const/4 v2, 0x1
 
     goto :goto_1
@@ -215,21 +250,30 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-nez v1, :cond_2
 
-    const/4 v2, 0x2
+    goto :goto_1
+
+    :cond_2
+    const/4 v2, 0x0
 
     :goto_1
     packed-switch v2, :pswitch_data_0
 
-    goto :goto_2
+    goto :goto_0
 
     :pswitch_0
-    iget-object v1, p0, Lcom/android/server/display/PersistentDataStore$DisplayState;->mDisplayBrightnessConfigurations:Lcom/android/server/display/PersistentDataStore$BrightnessConfigurations;
+    invoke-interface {p1}, Landroid/util/TypedXmlPullParser;->nextText()Ljava/lang/String;
 
-    invoke-virtual {v1, p1}, Lcom/android/server/display/PersistentDataStore$BrightnessConfigurations;->loadFromXml(Landroid/util/TypedXmlPullParser;)V
+    move-result-object v1
 
-    goto :goto_2
+    invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v1
+
+    iput v1, p0, Lcom/android/server/display/PersistentDataStore$DisplayState;->mColorMode:I
+
+    goto :goto_0
 
     :pswitch_1
     invoke-interface {p1}, Landroid/util/TypedXmlPullParser;->nextText()Ljava/lang/String;
@@ -238,30 +282,23 @@
 
     invoke-static {v1}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
-    move-result v2
+    move-result v1
 
-    iput v2, p0, Lcom/android/server/display/PersistentDataStore$DisplayState;->mBrightness:F
+    iput v1, p0, Lcom/android/server/display/PersistentDataStore$DisplayState;->mBrightness:F
 
-    goto :goto_2
-
-    :pswitch_2
-    invoke-interface {p1}, Landroid/util/TypedXmlPullParser;->nextText()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-
-    move-result v2
-
-    iput v2, p0, Lcom/android/server/display/PersistentDataStore$DisplayState;->mColorMode:I
-
-    nop
-
-    :goto_2
     goto :goto_0
 
-    :cond_1
+    :pswitch_2
+    iget-object v1, p0, Lcom/android/server/display/PersistentDataStore$DisplayState;->mDisplayBrightnessConfigurations:Lcom/android/server/display/PersistentDataStore$BrightnessConfigurations;
+
+    invoke-virtual {v1, p1}, Lcom/android/server/display/PersistentDataStore$BrightnessConfigurations;->loadFromXml(Landroid/util/TypedXmlPullParser;)V
+
+    goto :goto_0
+
+    :cond_3
     return-void
+
+    nop
 
     :sswitch_data_0
     .sparse-switch
@@ -320,9 +357,9 @@
 
     invoke-interface {p1, v0, v1}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    iget-object v2, p0, Lcom/android/server/display/PersistentDataStore$DisplayState;->mDisplayBrightnessConfigurations:Lcom/android/server/display/PersistentDataStore$BrightnessConfigurations;
+    iget-object p0, p0, Lcom/android/server/display/PersistentDataStore$DisplayState;->mDisplayBrightnessConfigurations:Lcom/android/server/display/PersistentDataStore$BrightnessConfigurations;
 
-    invoke-virtual {v2, p1}, Lcom/android/server/display/PersistentDataStore$BrightnessConfigurations;->saveToXml(Landroid/util/TypedXmlSerializer;)V
+    invoke-virtual {p0, p1}, Lcom/android/server/display/PersistentDataStore$BrightnessConfigurations;->saveToXml(Landroid/util/TypedXmlSerializer;)V
 
     invoke-interface {p1, v0, v1}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
@@ -338,28 +375,28 @@
 
     if-nez v0, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 
     :cond_0
     iput p1, p0, Lcom/android/server/display/PersistentDataStore$DisplayState;->mBrightness:F
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 .end method
 
 .method public setBrightnessConfiguration(Landroid/hardware/display/BrightnessConfiguration;ILjava/lang/String;)Z
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/display/PersistentDataStore$DisplayState;->mDisplayBrightnessConfigurations:Lcom/android/server/display/PersistentDataStore$BrightnessConfigurations;
+    iget-object p0, p0, Lcom/android/server/display/PersistentDataStore$DisplayState;->mDisplayBrightnessConfigurations:Lcom/android/server/display/PersistentDataStore$BrightnessConfigurations;
 
-    invoke-static {v0, p1, p2, p3}, Lcom/android/server/display/PersistentDataStore$BrightnessConfigurations;->access$200(Lcom/android/server/display/PersistentDataStore$BrightnessConfigurations;Landroid/hardware/display/BrightnessConfiguration;ILjava/lang/String;)Z
+    invoke-static {p0, p1, p2, p3}, Lcom/android/server/display/PersistentDataStore$BrightnessConfigurations;->-$$Nest$msetBrightnessConfigurationForUser(Lcom/android/server/display/PersistentDataStore$BrightnessConfigurations;Landroid/hardware/display/BrightnessConfiguration;ILjava/lang/String;)Z
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 .end method
 
 .method public setColorMode(I)Z
@@ -369,14 +406,60 @@
 
     if-ne p1, v0, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 
     :cond_0
     iput p1, p0, Lcom/android/server/display/PersistentDataStore$DisplayState;->mColorMode:I
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
+.end method
+
+.method public setRefreshRate(F)Z
+    .locals 1
+
+    iget v0, p0, Lcom/android/server/display/PersistentDataStore$DisplayState;->mRefreshRate:F
+
+    cmpl-float v0, p1, v0
+
+    if-nez v0, :cond_0
+
+    const/4 p0, 0x0
+
+    return p0
+
+    :cond_0
+    iput p1, p0, Lcom/android/server/display/PersistentDataStore$DisplayState;->mRefreshRate:F
+
+    const/4 p0, 0x1
+
+    return p0
+.end method
+
+.method public setResolution(II)Z
+    .locals 1
+
+    iget v0, p0, Lcom/android/server/display/PersistentDataStore$DisplayState;->mWidth:I
+
+    if-ne p1, v0, :cond_0
+
+    iget v0, p0, Lcom/android/server/display/PersistentDataStore$DisplayState;->mHeight:I
+
+    if-ne p2, v0, :cond_0
+
+    const/4 p0, 0x0
+
+    return p0
+
+    :cond_0
+    iput p1, p0, Lcom/android/server/display/PersistentDataStore$DisplayState;->mWidth:I
+
+    iput p2, p0, Lcom/android/server/display/PersistentDataStore$DisplayState;->mHeight:I
+
+    const/4 p0, 0x1
+
+    return p0
 .end method

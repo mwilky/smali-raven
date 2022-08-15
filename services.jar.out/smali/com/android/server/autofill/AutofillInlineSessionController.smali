@@ -1,28 +1,40 @@
-.class final Lcom/android/server/autofill/AutofillInlineSessionController;
+.class public final Lcom/android/server/autofill/AutofillInlineSessionController;
 .super Ljava/lang/Object;
 .source "AutofillInlineSessionController.java"
 
 
 # instance fields
-.field private final mComponentName:Landroid/content/ComponentName;
+.field public final mComponentName:Landroid/content/ComponentName;
 
-.field private final mHandler:Landroid/os/Handler;
+.field public final mHandler:Landroid/os/Handler;
 
-.field private mInlineFillUi:Lcom/android/server/autofill/ui/InlineFillUi;
+.field public mInlineFillUi:Lcom/android/server/autofill/ui/InlineFillUi;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
+.end field
 
-.field private final mInputMethodManagerInternal:Lcom/android/server/inputmethod/InputMethodManagerInternal;
+.field public final mInputMethodManagerInternal:Lcom/android/server/inputmethod/InputMethodManagerInternal;
 
-.field private final mLock:Ljava/lang/Object;
+.field public final mLock:Ljava/lang/Object;
 
-.field private mSession:Lcom/android/server/autofill/AutofillInlineSuggestionsRequestSession;
+.field public mSession:Lcom/android/server/autofill/AutofillInlineSuggestionsRequestSession;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
+.end field
 
-.field private final mUiCallback:Lcom/android/server/autofill/ui/InlineFillUi$InlineUiEventCallback;
+.field public final mUiCallback:Lcom/android/server/autofill/ui/InlineFillUi$InlineUiEventCallback;
 
-.field private final mUserId:I
+.field public final mUserId:I
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/inputmethod/InputMethodManagerInternal;ILandroid/content/ComponentName;Landroid/os/Handler;Ljava/lang/Object;Lcom/android/server/autofill/ui/InlineFillUi$InlineUiEventCallback;)V
+.method public constructor <init>(Lcom/android/server/inputmethod/InputMethodManagerInternal;ILandroid/content/ComponentName;Landroid/os/Handler;Ljava/lang/Object;Lcom/android/server/autofill/ui/InlineFillUi$InlineUiEventCallback;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,33 +54,15 @@
     return-void
 .end method
 
-.method private requestImeToShowInlineSuggestionsLocked()Z
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/server/autofill/AutofillInlineSessionController;->mSession:Lcom/android/server/autofill/AutofillInlineSuggestionsRequestSession;
-
-    if-eqz v0, :cond_0
-
-    iget-object v1, p0, Lcom/android/server/autofill/AutofillInlineSessionController;->mInlineFillUi:Lcom/android/server/autofill/ui/InlineFillUi;
-
-    if-eqz v1, :cond_0
-
-    invoke-virtual {v0, v1}, Lcom/android/server/autofill/AutofillInlineSuggestionsRequestSession;->onInlineSuggestionsResponseLocked(Lcom/android/server/autofill/ui/InlineFillUi;)Z
-
-    move-result v0
-
-    return v0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    return v0
-.end method
-
 
 # virtual methods
-.method destroyLocked(Landroid/view/autofill/AutofillId;)V
-    .locals 3
+.method public destroyLocked(Landroid/view/autofill/AutofillId;)V
+    .locals 2
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
 
     iget-object v0, p0, Lcom/android/server/autofill/AutofillInlineSessionController;->mSession:Lcom/android/server/autofill/AutofillInlineSuggestionsRequestSession;
 
@@ -78,13 +72,13 @@
 
     invoke-static {p1}, Lcom/android/server/autofill/ui/InlineFillUi;->emptyUi(Landroid/view/autofill/AutofillId;)Lcom/android/server/autofill/ui/InlineFillUi;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {v0, v2}, Lcom/android/server/autofill/AutofillInlineSuggestionsRequestSession;->onInlineSuggestionsResponseLocked(Lcom/android/server/autofill/ui/InlineFillUi;)Z
+    invoke-virtual {v0, p1}, Lcom/android/server/autofill/AutofillInlineSuggestionsRequestSession;->onInlineSuggestionsResponseLocked(Lcom/android/server/autofill/ui/InlineFillUi;)Z
 
-    iget-object v0, p0, Lcom/android/server/autofill/AutofillInlineSessionController;->mSession:Lcom/android/server/autofill/AutofillInlineSuggestionsRequestSession;
+    iget-object p1, p0, Lcom/android/server/autofill/AutofillInlineSessionController;->mSession:Lcom/android/server/autofill/AutofillInlineSuggestionsRequestSession;
 
-    invoke-virtual {v0}, Lcom/android/server/autofill/AutofillInlineSuggestionsRequestSession;->destroySessionLocked()V
+    invoke-virtual {p1}, Lcom/android/server/autofill/AutofillInlineSuggestionsRequestSession;->destroySessionLocked()V
 
     iput-object v1, p0, Lcom/android/server/autofill/AutofillInlineSessionController;->mSession:Lcom/android/server/autofill/AutofillInlineSuggestionsRequestSession;
 
@@ -94,8 +88,13 @@
     return-void
 .end method
 
-.method disableFilterMatching(Landroid/view/autofill/AutofillId;)V
+.method public disableFilterMatching(Landroid/view/autofill/AutofillId;)V
     .locals 1
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
 
     iget-object v0, p0, Lcom/android/server/autofill/AutofillInlineSessionController;->mInlineFillUi:Lcom/android/server/autofill/ui/InlineFillUi;
 
@@ -107,20 +106,25 @@
 
     invoke-virtual {v0, p1}, Landroid/view/autofill/AutofillId;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/autofill/AutofillInlineSessionController;->mInlineFillUi:Lcom/android/server/autofill/ui/InlineFillUi;
+    iget-object p0, p0, Lcom/android/server/autofill/AutofillInlineSessionController;->mInlineFillUi:Lcom/android/server/autofill/ui/InlineFillUi;
 
-    invoke-virtual {v0}, Lcom/android/server/autofill/ui/InlineFillUi;->disableFilterMatching()V
+    invoke-virtual {p0}, Lcom/android/server/autofill/ui/InlineFillUi;->disableFilterMatching()V
 
     :cond_0
     return-void
 .end method
 
-.method filterInlineFillUiLocked(Landroid/view/autofill/AutofillId;Ljava/lang/String;)Z
+.method public filterInlineFillUiLocked(Landroid/view/autofill/AutofillId;Ljava/lang/String;)Z
     .locals 1
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
 
     iget-object v0, p0, Lcom/android/server/autofill/AutofillInlineSessionController;->mInlineFillUi:Lcom/android/server/autofill/ui/InlineFillUi;
 
@@ -132,28 +136,34 @@
 
     invoke-virtual {v0, p1}, Landroid/view/autofill/AutofillId;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/autofill/AutofillInlineSessionController;->mInlineFillUi:Lcom/android/server/autofill/ui/InlineFillUi;
+    iget-object p1, p0, Lcom/android/server/autofill/AutofillInlineSessionController;->mInlineFillUi:Lcom/android/server/autofill/ui/InlineFillUi;
 
-    invoke-virtual {v0, p2}, Lcom/android/server/autofill/ui/InlineFillUi;->setFilterText(Ljava/lang/String;)V
+    invoke-virtual {p1, p2}, Lcom/android/server/autofill/ui/InlineFillUi;->setFilterText(Ljava/lang/String;)V
 
-    invoke-direct {p0}, Lcom/android/server/autofill/AutofillInlineSessionController;->requestImeToShowInlineSuggestionsLocked()Z
+    invoke-virtual {p0}, Lcom/android/server/autofill/AutofillInlineSessionController;->requestImeToShowInlineSuggestionsLocked()Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
-.method getInlineSuggestionsRequestLocked()Ljava/util/Optional;
-    .locals 1
+.method public getInlineSuggestionsRequestLocked()Ljava/util/Optional;
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -163,49 +173,60 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/android/server/autofill/AutofillInlineSessionController;->mSession:Lcom/android/server/autofill/AutofillInlineSuggestionsRequestSession;
+    iget-object p0, p0, Lcom/android/server/autofill/AutofillInlineSessionController;->mSession:Lcom/android/server/autofill/AutofillInlineSuggestionsRequestSession;
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    invoke-virtual {v0}, Lcom/android/server/autofill/AutofillInlineSuggestionsRequestSession;->getInlineSuggestionsRequestLocked()Ljava/util/Optional;
+    invoke-virtual {p0}, Lcom/android/server/autofill/AutofillInlineSuggestionsRequestSession;->getInlineSuggestionsRequestLocked()Ljava/util/Optional;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     :cond_0
     invoke-static {}, Ljava/util/Optional;->empty()Ljava/util/Optional;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
-.method hideInlineSuggestionsUiLocked(Landroid/view/autofill/AutofillId;)Z
-    .locals 2
+.method public hideInlineSuggestionsUiLocked(Landroid/view/autofill/AutofillId;)Z
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
 
-    iget-object v0, p0, Lcom/android/server/autofill/AutofillInlineSessionController;->mSession:Lcom/android/server/autofill/AutofillInlineSuggestionsRequestSession;
+    iget-object p0, p0, Lcom/android/server/autofill/AutofillInlineSessionController;->mSession:Lcom/android/server/autofill/AutofillInlineSuggestionsRequestSession;
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
     invoke-static {p1}, Lcom/android/server/autofill/ui/InlineFillUi;->emptyUi(Landroid/view/autofill/AutofillId;)Lcom/android/server/autofill/ui/InlineFillUi;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v0, v1}, Lcom/android/server/autofill/AutofillInlineSuggestionsRequestSession;->onInlineSuggestionsResponseLocked(Lcom/android/server/autofill/ui/InlineFillUi;)Z
+    invoke-virtual {p0, p1}, Lcom/android/server/autofill/AutofillInlineSuggestionsRequestSession;->onInlineSuggestionsResponseLocked(Lcom/android/server/autofill/ui/InlineFillUi;)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
-.method onCreateInlineSuggestionsRequestLocked(Landroid/view/autofill/AutofillId;Ljava/util/function/Consumer;Landroid/os/Bundle;)V
+.method public onCreateInlineSuggestionsRequestLocked(Landroid/view/autofill/AutofillId;Ljava/util/function/Consumer;Landroid/os/Bundle;)V
     .locals 11
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -260,31 +281,69 @@
     return-void
 .end method
 
-.method resetInlineFillUiLocked()V
+.method public final requestImeToShowInlineSuggestionsLocked()Z
     .locals 1
-
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/android/server/autofill/AutofillInlineSessionController;->mInlineFillUi:Lcom/android/server/autofill/ui/InlineFillUi;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
 
     iget-object v0, p0, Lcom/android/server/autofill/AutofillInlineSessionController;->mSession:Lcom/android/server/autofill/AutofillInlineSuggestionsRequestSession;
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {v0}, Lcom/android/server/autofill/AutofillInlineSuggestionsRequestSession;->resetInlineFillUiLocked()V
+    iget-object p0, p0, Lcom/android/server/autofill/AutofillInlineSessionController;->mInlineFillUi:Lcom/android/server/autofill/ui/InlineFillUi;
+
+    if-eqz p0, :cond_0
+
+    invoke-virtual {v0, p0}, Lcom/android/server/autofill/AutofillInlineSuggestionsRequestSession;->onInlineSuggestionsResponseLocked(Lcom/android/server/autofill/ui/InlineFillUi;)Z
+
+    move-result p0
+
+    return p0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    return p0
+.end method
+
+.method public resetInlineFillUiLocked()V
+    .locals 1
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
+
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/android/server/autofill/AutofillInlineSessionController;->mInlineFillUi:Lcom/android/server/autofill/ui/InlineFillUi;
+
+    iget-object p0, p0, Lcom/android/server/autofill/AutofillInlineSessionController;->mSession:Lcom/android/server/autofill/AutofillInlineSuggestionsRequestSession;
+
+    if-eqz p0, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/server/autofill/AutofillInlineSuggestionsRequestSession;->resetInlineFillUiLocked()V
 
     :cond_0
     return-void
 .end method
 
-.method setInlineFillUiLocked(Lcom/android/server/autofill/ui/InlineFillUi;)Z
-    .locals 1
+.method public setInlineFillUiLocked(Lcom/android/server/autofill/ui/InlineFillUi;)Z
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
 
     iput-object p1, p0, Lcom/android/server/autofill/AutofillInlineSessionController;->mInlineFillUi:Lcom/android/server/autofill/ui/InlineFillUi;
 
-    invoke-direct {p0}, Lcom/android/server/autofill/AutofillInlineSessionController;->requestImeToShowInlineSuggestionsLocked()Z
+    invoke-virtual {p0}, Lcom/android/server/autofill/AutofillInlineSessionController;->requestImeToShowInlineSuggestionsLocked()Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method

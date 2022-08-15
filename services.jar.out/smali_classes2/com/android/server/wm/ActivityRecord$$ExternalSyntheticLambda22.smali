@@ -1,28 +1,13 @@
 .class public final synthetic Lcom/android/server/wm/ActivityRecord$$ExternalSyntheticLambda22;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Predicate;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/wm/ActivityRecord$$ExternalSyntheticLambda22;
-
-
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/wm/ActivityRecord$$ExternalSyntheticLambda22;
-
-    invoke-direct {v0}, Lcom/android/server/wm/ActivityRecord$$ExternalSyntheticLambda22;-><init>()V
-
-    sput-object v0, Lcom/android/server/wm/ActivityRecord$$ExternalSyntheticLambda22;->INSTANCE:Lcom/android/server/wm/ActivityRecord$$ExternalSyntheticLambda22;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,9 +22,9 @@
 
     check-cast p1, Lcom/android/server/wm/WindowState;
 
-    invoke-virtual {p1}, Lcom/android/server/wm/WindowState;->canBeImeTarget()Z
+    invoke-static {p1}, Lcom/android/server/wm/ActivityRecord;->$r8$lambda$r96B8UKd3qQff-16FjZY1hJcS5Q(Lcom/android/server/wm/WindowState;)Z
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method

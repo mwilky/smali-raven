@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/server/location/gnss/GnssConfiguration$SetCarrierProperty;
+.class public interface abstract Lcom/android/server/location/gnss/GnssConfiguration$SetCarrierProperty;
 .super Ljava/lang/Object;
 .source "GnssConfiguration.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
+    accessFlags = 0x609
     name = "SetCarrierProperty"
 .end annotation
 

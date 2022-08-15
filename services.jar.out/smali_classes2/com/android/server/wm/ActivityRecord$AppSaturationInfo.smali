@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/ActivityRecord$AppSaturationInfo;
+.class public Lcom/android/server/wm/ActivityRecord$AppSaturationInfo;
 .super Ljava/lang/Object;
 .source "ActivityRecord.java"
 
@@ -9,19 +9,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "AppSaturationInfo"
 .end annotation
 
 
 # instance fields
-.field mMatrix:[F
+.field public mMatrix:[F
 
-.field mTranslation:[F
+.field public mTranslation:[F
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/wm/ActivityRecord$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/wm/ActivityRecord$AppSaturationInfo-IA;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/wm/ActivityRecord$AppSaturationInfo;-><init>()V
@@ -51,7 +51,7 @@
 
 
 # virtual methods
-.method setSaturation([F[F)V
+.method public setSaturation([F[F)V
     .locals 3
 
     iget-object v0, p0, Lcom/android/server/wm/ActivityRecord$AppSaturationInfo;->mMatrix:[F
@@ -62,11 +62,11 @@
 
     invoke-static {p1, v2, v0, v2, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    iget-object v0, p0, Lcom/android/server/wm/ActivityRecord$AppSaturationInfo;->mTranslation:[F
+    iget-object p0, p0, Lcom/android/server/wm/ActivityRecord$AppSaturationInfo;->mTranslation:[F
 
-    array-length v1, v0
+    array-length p1, p0
 
-    invoke-static {p2, v2, v0, v2, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {p2, v2, p0, v2, p1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     return-void
 .end method

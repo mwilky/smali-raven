@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/wm/Session$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/BiConsumer;
@@ -27,17 +28,17 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 2
+    .locals 1
 
     iget v0, p0, Lcom/android/server/wm/Session$$ExternalSyntheticLambda2;->f$0:I
 
-    iget v1, p0, Lcom/android/server/wm/Session$$ExternalSyntheticLambda2;->f$1:I
+    iget p0, p0, Lcom/android/server/wm/Session$$ExternalSyntheticLambda2;->f$1:I
 
     check-cast p1, Lcom/android/server/wm/WallpaperController;
 
     check-cast p2, Lcom/android/server/wm/WindowState;
 
-    invoke-static {v0, v1, p1, p2}, Lcom/android/server/wm/Session;->lambda$setWallpaperDisplayOffset$4(IILcom/android/server/wm/WallpaperController;Lcom/android/server/wm/WindowState;)V
+    invoke-static {v0, p0, p1, p2}, Lcom/android/server/wm/Session;->$r8$lambda$dLH86fawkEx6SYT9olm1mvPTp1Q(IILcom/android/server/wm/WallpaperController;Lcom/android/server/wm/WindowState;)V
 
     return-void
 .end method

@@ -1,4 +1,4 @@
-.class Lcom/android/server/graphics/fonts/FontManagerService$FsverityUtilImpl;
+.class public Lcom/android/server/graphics/fonts/FontManagerService$FsverityUtilImpl;
 .super Ljava/lang/Object;
 .source "FontManagerService.java"
 
@@ -12,13 +12,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "FsverityUtilImpl"
 .end annotation
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/graphics/fonts/FontManagerService$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/graphics/fonts/FontManagerService$FsverityUtilImpl-IA;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/graphics/fonts/FontManagerService$FsverityUtilImpl;-><init>()V
@@ -37,23 +37,23 @@
 
 # virtual methods
 .method public hasFsverity(Ljava/lang/String;)Z
-    .locals 1
+    .locals 0
 
     invoke-static {p1}, Lcom/android/internal/security/VerityUtils;->hasFsverity(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public rename(Ljava/io/File;Ljava/io/File;)Z
-    .locals 1
+    .locals 0
 
     invoke-virtual {p1, p2}, Ljava/io/File;->renameTo(Ljava/io/File;)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public setUpFsverity(Ljava/lang/String;[B)V

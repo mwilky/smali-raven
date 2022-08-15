@@ -7,24 +7,27 @@
 
 
 # annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/android/server/locksettings/LockSettingsStrongAuth;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x4
+    accessFlags = 0x1
     name = "NonStrongBiometricTimeoutAlarmListener"
 .end annotation
 
 
 # instance fields
-.field private final mUserId:I
+.field public final mUserId:I
 
-.field final synthetic this$0:Lcom/android/server/locksettings/LockSettingsStrongAuth;
+.field public final synthetic this$0:Lcom/android/server/locksettings/LockSettingsStrongAuth;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/locksettings/LockSettingsStrongAuth;I)V
+.method public constructor <init>(Lcom/android/server/locksettings/LockSettingsStrongAuth;I)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/locksettings/LockSettingsStrongAuth$NonStrongBiometricTimeoutAlarmListener;->this$0:Lcom/android/server/locksettings/LockSettingsStrongAuth;
@@ -39,15 +42,15 @@
 
 # virtual methods
 .method public onAlarm()V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/locksettings/LockSettingsStrongAuth$NonStrongBiometricTimeoutAlarmListener;->this$0:Lcom/android/server/locksettings/LockSettingsStrongAuth;
 
-    iget v1, p0, Lcom/android/server/locksettings/LockSettingsStrongAuth$NonStrongBiometricTimeoutAlarmListener;->mUserId:I
+    iget p0, p0, Lcom/android/server/locksettings/LockSettingsStrongAuth$NonStrongBiometricTimeoutAlarmListener;->mUserId:I
 
-    const/16 v2, 0x80
+    const/16 v1, 0x80
 
-    invoke-virtual {v0, v2, v1}, Lcom/android/server/locksettings/LockSettingsStrongAuth;->requireStrongAuth(II)V
+    invoke-virtual {v0, v1, p0}, Lcom/android/server/locksettings/LockSettingsStrongAuth;->requireStrongAuth(II)V
 
     return-void
 .end method

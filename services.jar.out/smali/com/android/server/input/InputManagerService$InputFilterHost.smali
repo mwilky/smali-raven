@@ -1,4 +1,4 @@
-.class final Lcom/android/server/input/InputManagerService$InputFilterHost;
+.class public final Lcom/android/server/input/InputManagerService$InputFilterHost;
 .super Landroid/view/IInputFilterHost$Stub;
 .source "InputManagerService.java"
 
@@ -9,19 +9,25 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "InputFilterHost"
 .end annotation
 
 
 # instance fields
-.field private mDisconnected:Z
+.field public mDisconnected:Z
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mInputFilterLock"
+        }
+    .end annotation
+.end field
 
-.field final synthetic this$0:Lcom/android/server/input/InputManagerService;
+.field public final synthetic this$0:Lcom/android/server/input/InputManagerService;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/server/input/InputManagerService;)V
+.method public constructor <init>(Lcom/android/server/input/InputManagerService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/input/InputManagerService$InputFilterHost;->this$0:Lcom/android/server/input/InputManagerService;
@@ -31,7 +37,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/input/InputManagerService;Lcom/android/server/input/InputManagerService$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/input/InputManagerService;Lcom/android/server/input/InputManagerService$InputFilterHost-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/input/InputManagerService$InputFilterHost;-><init>(Lcom/android/server/input/InputManagerService;)V
@@ -43,6 +49,11 @@
 # virtual methods
 .method public disconnectLocked()V
     .locals 1
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mInputFilterLock"
+        }
+    .end annotation
 
     const/4 v0, 0x1
 
@@ -52,9 +63,23 @@
 .end method
 
 .method public sendInputEvent(Landroid/view/InputEvent;I)V
-    .locals 10
+    .locals 8
 
-    if-eqz p1, :cond_1
+    iget-object v0, p0, Lcom/android/server/input/InputManagerService$InputFilterHost;->this$0:Lcom/android/server/input/InputManagerService;
+
+    const-string v1, "android.permission.INJECT_EVENTS"
+
+    const-string/jumbo v2, "sendInputEvent()"
+
+    invoke-static {v0, v1, v2}, Lcom/android/server/input/InputManagerService;->-$$Nest$mcheckCallingPermission(Lcom/android/server/input/InputManagerService;Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    const-string v0, "event must not be null"
+
+    invoke-static {p1, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     iget-object v0, p0, Lcom/android/server/input/InputManagerService$InputFilterHost;->this$0:Lcom/android/server/input/InputManagerService;
 
@@ -67,27 +92,27 @@
 
     if-nez v1, :cond_0
 
-    iget-object v1, p0, Lcom/android/server/input/InputManagerService$InputFilterHost;->this$0:Lcom/android/server/input/InputManagerService;
+    iget-object p0, p0, Lcom/android/server/input/InputManagerService$InputFilterHost;->this$0:Lcom/android/server/input/InputManagerService;
 
-    invoke-static {v1}, Lcom/android/server/input/InputManagerService;->access$2000(Lcom/android/server/input/InputManagerService;)J
+    invoke-static {p0}, Lcom/android/server/input/InputManagerService;->-$$Nest$fgetmNative(Lcom/android/server/input/InputManagerService;)Lcom/android/server/input/NativeInputManagerService;
 
-    move-result-wide v2
+    move-result-object v1
+
+    const/4 v3, 0x0
+
+    const/4 v4, -0x1
 
     const/4 v5, 0x0
 
     const/4 v6, 0x0
 
-    const/4 v7, 0x0
+    const/high16 p0, 0x4000000
 
-    const/4 v8, 0x0
+    or-int v7, p2, p0
 
-    const/high16 v1, 0x4000000
+    move-object v2, p1
 
-    or-int v9, p2, v1
-
-    move-object v4, p1
-
-    invoke-static/range {v2 .. v9}, Lcom/android/server/input/InputManagerService;->access$2100(JLandroid/view/InputEvent;IIIII)I
+    invoke-interface/range {v1 .. v7}, Lcom/android/server/input/NativeInputManagerService;->injectInputEvent(Landroid/view/InputEvent;ZIIII)I
 
     :cond_0
     monitor-exit v0
@@ -95,20 +120,20 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/SecurityException;
 
-    const-string v1, "event must not be null"
+    const-string p1, "The INJECT_EVENTS permission is required for injecting input events."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method

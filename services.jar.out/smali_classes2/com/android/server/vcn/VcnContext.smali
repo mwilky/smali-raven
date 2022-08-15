@@ -4,13 +4,13 @@
 
 
 # instance fields
-.field private final mContext:Landroid/content/Context;
+.field public final mContext:Landroid/content/Context;
 
-.field private final mIsInTestMode:Z
+.field public final mIsInTestMode:Z
 
-.field private final mLooper:Landroid/os/Looper;
+.field public final mLooper:Landroid/os/Looper;
 
-.field private final mVcnNetworkProvider:Lcom/android/server/vcn/VcnNetworkProvider;
+.field public final mVcnNetworkProvider:Lcom/android/server/vcn/VcnNetworkProvider;
 
 
 # direct methods
@@ -27,27 +27,27 @@
 
     check-cast v0, Landroid/content/Context;
 
-    iput-object v0, p0, Lcom/android/server/vcn/VcnContext;->mContext:Landroid/content/Context;
+    iput-object p1, p0, Lcom/android/server/vcn/VcnContext;->mContext:Landroid/content/Context;
 
-    const-string v0, "Missing looper"
+    const-string p1, "Missing looper"
 
-    invoke-static {p2, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    invoke-static {p2, p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    move-object v0, p2
+    move-object p1, p2
 
-    check-cast v0, Landroid/os/Looper;
+    check-cast p1, Landroid/os/Looper;
 
-    iput-object v0, p0, Lcom/android/server/vcn/VcnContext;->mLooper:Landroid/os/Looper;
+    iput-object p2, p0, Lcom/android/server/vcn/VcnContext;->mLooper:Landroid/os/Looper;
 
-    const-string v0, "Missing networkProvider"
+    const-string p1, "Missing networkProvider"
 
-    invoke-static {p3, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    invoke-static {p3, p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    move-object v0, p3
+    move-object p1, p3
 
-    check-cast v0, Lcom/android/server/vcn/VcnNetworkProvider;
+    check-cast p1, Lcom/android/server/vcn/VcnNetworkProvider;
 
-    iput-object v0, p0, Lcom/android/server/vcn/VcnContext;->mVcnNetworkProvider:Lcom/android/server/vcn/VcnNetworkProvider;
+    iput-object p3, p0, Lcom/android/server/vcn/VcnContext;->mVcnNetworkProvider:Lcom/android/server/vcn/VcnNetworkProvider;
 
     iput-boolean p4, p0, Lcom/android/server/vcn/VcnContext;->mIsInTestMode:Z
 
@@ -57,62 +57,62 @@
 
 # virtual methods
 .method public ensureRunningOnLooperThread()V
-    .locals 2
+    .locals 1
 
     invoke-virtual {p0}, Lcom/android/server/vcn/VcnContext;->getLooper()Landroid/os/Looper;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Landroid/os/Looper;->getThread()Ljava/lang/Thread;
+    invoke-virtual {p0}, Landroid/os/Looper;->getThread()Ljava/lang/Thread;
 
-    move-result-object v0
+    move-result-object p0
 
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
-    move-result-object v1
+    move-result-object v0
 
-    if-ne v0, v1, :cond_0
+    if-ne p0, v0, :cond_0
 
     return-void
 
     :cond_0
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p0, Ljava/lang/IllegalStateException;
 
-    const-string v1, "Not running on VcnMgmtSvc thread"
+    const-string v0, "Not running on VcnMgmtSvc thread"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public getContext()Landroid/content/Context;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/vcn/VcnContext;->mContext:Landroid/content/Context;
+    iget-object p0, p0, Lcom/android/server/vcn/VcnContext;->mContext:Landroid/content/Context;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getLooper()Landroid/os/Looper;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/vcn/VcnContext;->mLooper:Landroid/os/Looper;
+    iget-object p0, p0, Lcom/android/server/vcn/VcnContext;->mLooper:Landroid/os/Looper;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getVcnNetworkProvider()Lcom/android/server/vcn/VcnNetworkProvider;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/vcn/VcnContext;->mVcnNetworkProvider:Lcom/android/server/vcn/VcnNetworkProvider;
+    iget-object p0, p0, Lcom/android/server/vcn/VcnContext;->mVcnNetworkProvider:Lcom/android/server/vcn/VcnNetworkProvider;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public isInTestMode()Z
-    .locals 1
+    .locals 0
 
-    iget-boolean v0, p0, Lcom/android/server/vcn/VcnContext;->mIsInTestMode:Z
+    iget-boolean p0, p0, Lcom/android/server/vcn/VcnContext;->mIsInTestMode:Z
 
-    return v0
+    return p0
 .end method

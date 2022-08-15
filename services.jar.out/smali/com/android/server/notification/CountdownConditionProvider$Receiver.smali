@@ -1,4 +1,4 @@
-.class final Lcom/android/server/notification/CountdownConditionProvider$Receiver;
+.class public final Lcom/android/server/notification/CountdownConditionProvider$Receiver;
 .super Landroid/content/BroadcastReceiver;
 .source "CountdownConditionProvider.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "Receiver"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/notification/CountdownConditionProvider;
+.field public final synthetic this$0:Lcom/android/server/notification/CountdownConditionProvider;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/server/notification/CountdownConditionProvider;)V
+.method public constructor <init>(Lcom/android/server/notification/CountdownConditionProvider;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/notification/CountdownConditionProvider$Receiver;->this$0:Lcom/android/server/notification/CountdownConditionProvider;
@@ -29,7 +29,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/notification/CountdownConditionProvider;Lcom/android/server/notification/CountdownConditionProvider$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/notification/CountdownConditionProvider;Lcom/android/server/notification/CountdownConditionProvider$Receiver-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/notification/CountdownConditionProvider$Receiver;-><init>(Lcom/android/server/notification/CountdownConditionProvider;)V
@@ -40,78 +40,78 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 6
+    .locals 4
 
-    invoke-static {}, Lcom/android/server/notification/CountdownConditionProvider;->access$100()Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/notification/CountdownConditionProvider;->-$$Nest$sfgetACTION()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    const-string v0, "condition_id"
-
-    invoke-virtual {p2, v0}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
-
     move-result-object v0
 
-    check-cast v0, Landroid/net/Uri;
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-static {v0}, Landroid/service/notification/ZenModeConfig;->isValidCountdownToAlarmConditionId(Landroid/net/Uri;)Z
+    move-result p1
 
-    move-result v1
+    if-eqz p1, :cond_1
 
-    invoke-static {v0}, Landroid/service/notification/ZenModeConfig;->tryParseCountdownConditionId(Landroid/net/Uri;)J
+    const-string p1, "condition_id"
 
-    move-result-wide v2
+    invoke-virtual {p2, p1}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
 
-    invoke-static {}, Lcom/android/server/notification/CountdownConditionProvider;->access$200()Z
+    move-result-object p1
 
-    move-result v4
+    check-cast p1, Landroid/net/Uri;
 
-    if-eqz v4, :cond_0
+    invoke-static {p1}, Landroid/service/notification/ZenModeConfig;->isValidCountdownToAlarmConditionId(Landroid/net/Uri;)Z
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    move-result p2
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {p1}, Landroid/service/notification/ZenModeConfig;->tryParseCountdownConditionId(Landroid/net/Uri;)J
 
-    const-string v5, "Countdown condition fired: "
+    move-result-wide v0
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {}, Lcom/android/server/notification/CountdownConditionProvider;->-$$Nest$sfgetDEBUG()Z
 
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result v2
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    if-eqz v2, :cond_0
 
-    move-result-object v4
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    const-string v5, "ConditionProviders.CCP"
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-static {v5, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const-string v3, "Countdown condition fired: "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    const-string v2, "ConditionProviders.CCP"
+
+    invoke-static {v2, p1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    const-wide/16 v4, 0x0
+    const-wide/16 v2, 0x0
 
-    cmp-long v4, v2, v4
+    cmp-long p1, v0, v2
 
-    if-lez v4, :cond_1
+    if-lez p1, :cond_1
 
-    iget-object v4, p0, Lcom/android/server/notification/CountdownConditionProvider$Receiver;->this$0:Lcom/android/server/notification/CountdownConditionProvider;
+    iget-object p0, p0, Lcom/android/server/notification/CountdownConditionProvider$Receiver;->this$0:Lcom/android/server/notification/CountdownConditionProvider;
 
-    const/4 v5, 0x0
+    const/4 p1, 0x0
 
-    invoke-static {v2, v3, v1, v5}, Lcom/android/server/notification/CountdownConditionProvider;->access$300(JZI)Landroid/service/notification/Condition;
+    invoke-static {v0, v1, p2, p1}, Lcom/android/server/notification/CountdownConditionProvider;->-$$Nest$smnewCondition(JZI)Landroid/service/notification/Condition;
 
-    move-result-object v5
+    move-result-object p1
 
-    invoke-virtual {v4, v5}, Lcom/android/server/notification/CountdownConditionProvider;->notifyCondition(Landroid/service/notification/Condition;)V
+    invoke-virtual {p0, p1}, Landroid/service/notification/ConditionProviderService;->notifyCondition(Landroid/service/notification/Condition;)V
 
     :cond_1
     return-void

@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/people/data/DataManager$MmsSmsContentObserver$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -27,15 +28,15 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/people/data/DataManager$MmsSmsContentObserver$$ExternalSyntheticLambda0;->f$0:Ljava/lang/String;
 
-    iget-object v1, p0, Lcom/android/server/people/data/DataManager$MmsSmsContentObserver$$ExternalSyntheticLambda0;->f$1:Lcom/android/server/people/data/Event;
+    iget-object p0, p0, Lcom/android/server/people/data/DataManager$MmsSmsContentObserver$$ExternalSyntheticLambda0;->f$1:Lcom/android/server/people/data/Event;
 
     check-cast p1, Lcom/android/server/people/data/UserData;
 
-    invoke-static {v0, v1, p1}, Lcom/android/server/people/data/DataManager$MmsSmsContentObserver;->lambda$accept$0(Ljava/lang/String;Lcom/android/server/people/data/Event;Lcom/android/server/people/data/UserData;)V
+    invoke-static {v0, p0, p1}, Lcom/android/server/people/data/DataManager$MmsSmsContentObserver;->$r8$lambda$xaovfQH9yaX-FbCifpovOzC94OQ(Ljava/lang/String;Lcom/android/server/people/data/Event;Lcom/android/server/people/data/UserData;)V
 
     return-void
 .end method

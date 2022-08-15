@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/pm/CrossProfileAppsServiceImpl$$ExternalSyntheticLambda15;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Consumer;
+.implements Lcom/android/internal/util/FunctionalUtils$ThrowingSupplier;
 
 
 # instance fields
@@ -26,16 +27,16 @@
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
-    .locals 2
+.method public final getOrThrow()Ljava/lang/Object;
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/pm/CrossProfileAppsServiceImpl$$ExternalSyntheticLambda15;->f$0:Lcom/android/server/pm/CrossProfileAppsServiceImpl;
 
-    iget v1, p0, Lcom/android/server/pm/CrossProfileAppsServiceImpl$$ExternalSyntheticLambda15;->f$1:I
+    iget p0, p0, Lcom/android/server/pm/CrossProfileAppsServiceImpl$$ExternalSyntheticLambda15;->f$1:I
 
-    check-cast p1, Ljava/lang/String;
+    invoke-static {v0, p0}, Lcom/android/server/pm/CrossProfileAppsServiceImpl;->$r8$lambda$VXfrnxJWFyfUEVNAnvVVr-6GawA(Lcom/android/server/pm/CrossProfileAppsServiceImpl;I)Ljava/lang/Boolean;
 
-    invoke-virtual {v0, v1, p1}, Lcom/android/server/pm/CrossProfileAppsServiceImpl;->lambda$clearInteractAcrossProfilesAppOps$11$CrossProfileAppsServiceImpl(ILjava/lang/String;)V
+    move-result-object p0
 
-    return-void
+    return-object p0
 .end method

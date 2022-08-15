@@ -15,7 +15,7 @@
 
 
 # instance fields
-.field private final mService:Lcom/android/server/accessibility/AccessibilityManagerService;
+.field public final mService:Lcom/android/server/accessibility/AccessibilityManagerService;
 
 
 # direct methods
@@ -36,23 +36,33 @@
 
 # virtual methods
 .method public onBootPhase(I)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityManagerService$Lifecycle;->mService:Lcom/android/server/accessibility/AccessibilityManagerService;
+    iget-object p0, p0, Lcom/android/server/accessibility/AccessibilityManagerService$Lifecycle;->mService:Lcom/android/server/accessibility/AccessibilityManagerService;
 
-    invoke-static {v0, p1}, Lcom/android/server/accessibility/AccessibilityManagerService;->access$000(Lcom/android/server/accessibility/AccessibilityManagerService;I)V
+    invoke-static {p0, p1}, Lcom/android/server/accessibility/AccessibilityManagerService;->-$$Nest$monBootPhase(Lcom/android/server/accessibility/AccessibilityManagerService;I)V
 
     return-void
 .end method
 
 .method public onStart()V
-    .locals 2
+    .locals 3
+
+    const-class v0, Lcom/android/server/AccessibilityManagerInternal;
+
+    new-instance v1, Lcom/android/server/accessibility/AccessibilityManagerService$LocalServiceImpl;
+
+    iget-object v2, p0, Lcom/android/server/accessibility/AccessibilityManagerService$Lifecycle;->mService:Lcom/android/server/accessibility/AccessibilityManagerService;
+
+    invoke-direct {v1, v2}, Lcom/android/server/accessibility/AccessibilityManagerService$LocalServiceImpl;-><init>(Lcom/android/server/accessibility/AccessibilityManagerService;)V
+
+    invoke-static {v0, v1}, Lcom/android/server/LocalServices;->addService(Ljava/lang/Class;Ljava/lang/Object;)V
 
     iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityManagerService$Lifecycle;->mService:Lcom/android/server/accessibility/AccessibilityManagerService;
 
     const-string v1, "accessibility"
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/server/accessibility/AccessibilityManagerService$Lifecycle;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
+    invoke-virtual {p0, v1, v0}, Lcom/android/server/SystemService;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
 
     return-void
 .end method

@@ -26,14 +26,6 @@
     .end annotation
 .end method
 
-.method public abstract attribute(Ljava/lang/String;J)Lcom/android/server/pm/SettingsXml$WriteSection;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
-.end method
-
 .method public abstract attribute(Ljava/lang/String;Ljava/lang/String;)Lcom/android/server/pm/SettingsXml$WriteSection;
     .annotation system Ldalvik/annotation/Throws;
         value = {

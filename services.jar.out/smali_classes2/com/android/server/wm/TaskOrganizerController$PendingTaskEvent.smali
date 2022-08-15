@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/TaskOrganizerController$PendingTaskEvent;
+.class public Lcom/android/server/wm/TaskOrganizerController$PendingTaskEvent;
 .super Ljava/lang/Object;
 .source "TaskOrganizerController.java"
 
@@ -9,33 +9,23 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "PendingTaskEvent"
 .end annotation
 
 
-# static fields
-.field static final EVENT_APPEARED:I = 0x0
-
-.field static final EVENT_INFO_CHANGED:I = 0x2
-
-.field static final EVENT_ROOT_BACK_PRESSED:I = 0x3
-
-.field static final EVENT_VANISHED:I = 0x1
-
-
 # instance fields
-.field final mEventType:I
+.field public final mEventType:I
 
-.field mForce:Z
+.field public mForce:Z
 
-.field final mTask:Lcom/android/server/wm/Task;
+.field public final mTask:Lcom/android/server/wm/Task;
 
-.field final mTaskOrg:Landroid/window/ITaskOrganizer;
+.field public final mTaskOrg:Landroid/window/ITaskOrganizer;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/wm/Task;I)V
+.method public constructor <init>(Lcom/android/server/wm/Task;I)V
     .locals 1
 
     iget-object v0, p1, Lcom/android/server/wm/Task;->mTaskOrganizer:Landroid/window/ITaskOrganizer;
@@ -45,7 +35,7 @@
     return-void
 .end method
 
-.method constructor <init>(Lcom/android/server/wm/Task;Landroid/window/ITaskOrganizer;I)V
+.method public constructor <init>(Lcom/android/server/wm/Task;Landroid/window/ITaskOrganizer;I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -61,27 +51,27 @@
 
 
 # virtual methods
-.method isLifecycleEvent()Z
-    .locals 3
+.method public isLifecycleEvent()Z
+    .locals 2
 
-    iget v0, p0, Lcom/android/server/wm/TaskOrganizerController$PendingTaskEvent;->mEventType:I
+    iget p0, p0, Lcom/android/server/wm/TaskOrganizerController$PendingTaskEvent;->mEventType:I
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    if-eqz v0, :cond_1
+    if-eqz p0, :cond_1
 
-    if-eq v0, v1, :cond_1
+    if-eq p0, v0, :cond_1
 
-    const/4 v2, 0x2
+    const/4 v1, 0x2
 
-    if-ne v0, v2, :cond_0
+    if-ne p0, v1, :cond_0
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     :cond_1
     :goto_0
-    return v1
+    return v0
 .end method

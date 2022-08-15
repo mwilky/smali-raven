@@ -15,11 +15,11 @@
 
 
 # instance fields
-.field private mChannel:Ljava/lang/String;
+.field public mChannel:Ljava/lang/String;
 
-.field private mNotificationCount:I
+.field public mNotificationCount:I
 
-.field private mPackage:Ljava/lang/String;
+.field public mPackage:Ljava/lang/String;
 
 
 # direct methods
@@ -50,45 +50,19 @@
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, v1}, Lcom/android/server/notification/NotificationHistoryFilter;-><init>(Lcom/android/server/notification/NotificationHistoryFilter$1;)V
+    invoke-direct {v0, v1}, Lcom/android/server/notification/NotificationHistoryFilter;-><init>(Lcom/android/server/notification/NotificationHistoryFilter-IA;)V
 
     iget-object v1, p0, Lcom/android/server/notification/NotificationHistoryFilter$Builder;->mPackage:Ljava/lang/String;
 
-    invoke-static {v0, v1}, Lcom/android/server/notification/NotificationHistoryFilter;->access$102(Lcom/android/server/notification/NotificationHistoryFilter;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v0, v1}, Lcom/android/server/notification/NotificationHistoryFilter;->-$$Nest$fputmPackage(Lcom/android/server/notification/NotificationHistoryFilter;Ljava/lang/String;)V
 
     iget-object v1, p0, Lcom/android/server/notification/NotificationHistoryFilter$Builder;->mChannel:Ljava/lang/String;
 
-    invoke-static {v0, v1}, Lcom/android/server/notification/NotificationHistoryFilter;->access$202(Lcom/android/server/notification/NotificationHistoryFilter;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v0, v1}, Lcom/android/server/notification/NotificationHistoryFilter;->-$$Nest$fputmChannel(Lcom/android/server/notification/NotificationHistoryFilter;Ljava/lang/String;)V
 
-    iget v1, p0, Lcom/android/server/notification/NotificationHistoryFilter$Builder;->mNotificationCount:I
+    iget p0, p0, Lcom/android/server/notification/NotificationHistoryFilter$Builder;->mNotificationCount:I
 
-    invoke-static {v0, v1}, Lcom/android/server/notification/NotificationHistoryFilter;->access$302(Lcom/android/server/notification/NotificationHistoryFilter;I)I
+    invoke-static {v0, p0}, Lcom/android/server/notification/NotificationHistoryFilter;->-$$Nest$fputmNotificationCount(Lcom/android/server/notification/NotificationHistoryFilter;I)V
 
     return-object v0
-.end method
-
-.method public setChannel(Ljava/lang/String;Ljava/lang/String;)Lcom/android/server/notification/NotificationHistoryFilter$Builder;
-    .locals 0
-
-    invoke-virtual {p0, p1}, Lcom/android/server/notification/NotificationHistoryFilter$Builder;->setPackage(Ljava/lang/String;)Lcom/android/server/notification/NotificationHistoryFilter$Builder;
-
-    iput-object p2, p0, Lcom/android/server/notification/NotificationHistoryFilter$Builder;->mChannel:Ljava/lang/String;
-
-    return-object p0
-.end method
-
-.method public setMaxNotifications(I)Lcom/android/server/notification/NotificationHistoryFilter$Builder;
-    .locals 0
-
-    iput p1, p0, Lcom/android/server/notification/NotificationHistoryFilter$Builder;->mNotificationCount:I
-
-    return-object p0
-.end method
-
-.method public setPackage(Ljava/lang/String;)Lcom/android/server/notification/NotificationHistoryFilter$Builder;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/server/notification/NotificationHistoryFilter$Builder;->mPackage:Ljava/lang/String;
-
-    return-object p0
 .end method

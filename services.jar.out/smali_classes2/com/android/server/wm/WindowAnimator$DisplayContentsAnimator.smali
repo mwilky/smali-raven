@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/WindowAnimator$DisplayContentsAnimator;
+.class public Lcom/android/server/wm/WindowAnimator$DisplayContentsAnimator;
 .super Ljava/lang/Object;
 .source "WindowAnimator.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "DisplayContentsAnimator"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/wm/WindowAnimator;
+.field public final synthetic this$0:Lcom/android/server/wm/WindowAnimator;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/server/wm/WindowAnimator;)V
+.method public constructor <init>(Lcom/android/server/wm/WindowAnimator;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/wm/WindowAnimator$DisplayContentsAnimator;->this$0:Lcom/android/server/wm/WindowAnimator;
@@ -29,7 +29,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/wm/WindowAnimator;Lcom/android/server/wm/WindowAnimator$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/wm/WindowAnimator;Lcom/android/server/wm/WindowAnimator$DisplayContentsAnimator-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/wm/WindowAnimator$DisplayContentsAnimator;-><init>(Lcom/android/server/wm/WindowAnimator;)V

@@ -1,4 +1,4 @@
-.class Lcom/android/server/soundtrigger_middleware/SoundTriggerMiddlewareLogging$Event;
+.class public Lcom/android/server/soundtrigger_middleware/SoundTriggerMiddlewareLogging$Event;
 .super Ljava/lang/Object;
 .source "SoundTriggerMiddlewareLogging.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "Event"
 .end annotation
 
@@ -21,7 +21,7 @@
 
 
 # direct methods
-.method private constructor <init>(Ljava/lang/String;)V
+.method public constructor <init>(Ljava/lang/String;)V
     .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,7 +37,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Ljava/lang/String;Lcom/android/server/soundtrigger_middleware/SoundTriggerMiddlewareLogging$1;)V
+.method public synthetic constructor <init>(Ljava/lang/String;Lcom/android/server/soundtrigger_middleware/SoundTriggerMiddlewareLogging$Event-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/soundtrigger_middleware/SoundTriggerMiddlewareLogging$Event;-><init>(Ljava/lang/String;)V

@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/rollback/RollbackPackageHealthObserver$$ExternalSyntheticLambda5;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -27,15 +28,15 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/rollback/RollbackPackageHealthObserver$$ExternalSyntheticLambda5;->f$0:Lcom/android/server/rollback/RollbackPackageHealthObserver;
 
-    iget-object v1, p0, Lcom/android/server/rollback/RollbackPackageHealthObserver$$ExternalSyntheticLambda5;->f$1:Ljava/util/function/Consumer;
+    iget-object p0, p0, Lcom/android/server/rollback/RollbackPackageHealthObserver$$ExternalSyntheticLambda5;->f$1:Ljava/util/function/Consumer;
 
     check-cast p1, Landroid/content/Intent;
 
-    invoke-virtual {v0, v1, p1}, Lcom/android/server/rollback/RollbackPackageHealthObserver;->lambda$rollbackPackage$5$RollbackPackageHealthObserver(Ljava/util/function/Consumer;Landroid/content/Intent;)V
+    invoke-static {v0, p0, p1}, Lcom/android/server/rollback/RollbackPackageHealthObserver;->$r8$lambda$kStGuZ40fNjAhoNA1qyHamSTmIQ(Lcom/android/server/rollback/RollbackPackageHealthObserver;Ljava/util/function/Consumer;Landroid/content/Intent;)V
 
     return-void
 .end method

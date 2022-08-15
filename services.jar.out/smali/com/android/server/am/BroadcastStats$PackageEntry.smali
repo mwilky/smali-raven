@@ -1,4 +1,4 @@
-.class final Lcom/android/server/am/BroadcastStats$PackageEntry;
+.class public final Lcom/android/server/am/BroadcastStats$PackageEntry;
 .super Ljava/lang/Object;
 .source "BroadcastStats.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = "PackageEntry"
 .end annotation
 
 
 # instance fields
-.field mSendCount:I
+.field public mSendCount:I
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

@@ -7,8 +7,6 @@
 
 
 # static fields
-.field private static final ATTR_NAME:Ljava/lang/String; = "name"
-
 .field public static final FACTORY:Lcom/android/server/firewall/FilterFactory;
 
 
@@ -17,7 +15,7 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 2
 
     new-instance v0, Lcom/android/server/firewall/SenderPackageFilter$1;
@@ -44,45 +42,41 @@
 
 # virtual methods
 .method public matches(Lcom/android/server/firewall/IntentFirewall;Landroid/content/ComponentName;Landroid/content/Intent;IILjava/lang/String;I)Z
-    .locals 5
+    .locals 0
 
     invoke-static {}, Landroid/app/AppGlobals;->getPackageManager()Landroid/content/pm/IPackageManager;
 
-    move-result-object v0
+    move-result-object p1
 
-    const/4 v1, -0x1
+    const/4 p2, 0x0
 
-    const/4 v2, 0x0
+    const/4 p3, -0x1
 
     :try_start_0
-    iget-object v3, p0, Lcom/android/server/firewall/SenderPackageFilter;->mPackageName:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/firewall/SenderPackageFilter;->mPackageName:Ljava/lang/String;
 
-    const/high16 v4, 0x400000
+    const-wide/32 p5, 0x400000
 
-    invoke-interface {v0, v3, v4, v2}, Landroid/content/pm/IPackageManager;->getPackageUid(Ljava/lang/String;II)I
+    invoke-interface {p1, p0, p5, p6, p2}, Landroid/content/pm/IPackageManager;->getPackageUid(Ljava/lang/String;JI)I
 
-    move-result v3
+    move-result p0
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move v1, v3
 
     goto :goto_0
 
     :catch_0
-    move-exception v3
+    move p0, p3
 
     :goto_0
-    const/4 v3, -0x1
+    if-ne p0, p3, :cond_0
 
-    if-ne v1, v3, :cond_0
-
-    return v2
+    return p2
 
     :cond_0
-    invoke-static {v1, p4}, Landroid/os/UserHandle;->isSameApp(II)Z
+    invoke-static {p0, p4}, Landroid/os/UserHandle;->isSameApp(II)Z
 
-    move-result v2
+    move-result p0
 
-    return v2
+    return p0
 .end method

@@ -1,35 +1,38 @@
 .class public final synthetic Lcom/android/server/alarm/AlarmManagerService$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/server/alarm/AlarmStore$AlarmDeliveryCalculator;
+.implements Landroid/util/SparseArrayMap$TriConsumer;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/server/alarm/AlarmManagerService;
+.field public final synthetic f$0:Landroid/util/IndentingPrintWriter;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/alarm/AlarmManagerService;)V
+.method public synthetic constructor <init>(Landroid/util/IndentingPrintWriter;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/alarm/AlarmManagerService$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/alarm/AlarmManagerService;
+    iput-object p1, p0, Lcom/android/server/alarm/AlarmManagerService$$ExternalSyntheticLambda1;->f$0:Landroid/util/IndentingPrintWriter;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final updateAlarmDelivery(Lcom/android/server/alarm/Alarm;)Z
-    .locals 1
+.method public final accept(ILjava/lang/Object;Ljava/lang/Object;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/alarm/AlarmManagerService$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/alarm/AlarmManagerService;
+    iget-object p0, p0, Lcom/android/server/alarm/AlarmManagerService$$ExternalSyntheticLambda1;->f$0:Landroid/util/IndentingPrintWriter;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/alarm/AlarmManagerService;->lambda$reevaluateRtcAlarms$2$AlarmManagerService(Lcom/android/server/alarm/Alarm;)Z
+    check-cast p2, Ljava/lang/String;
 
-    move-result p1
+    check-cast p3, Landroid/util/ArrayMap;
 
-    return p1
+    invoke-static {p0, p1, p2, p3}, Lcom/android/server/alarm/AlarmManagerService;->$r8$lambda$cXQZ9G6Tx5ME3iXOwvtwKoAjKvg(Landroid/util/IndentingPrintWriter;ILjava/lang/String;Landroid/util/ArrayMap;)V
+
+    return-void
 .end method

@@ -1,22 +1,20 @@
-.class Lcom/android/server/people/data/UserData;
+.class public Lcom/android/server/people/data/UserData;
 .super Ljava/lang/Object;
 .source "UserData.java"
 
 
 # static fields
-.field private static final CONVERSATIONS_END_TOKEN:I = -0x1
-
-.field private static final TAG:Ljava/lang/String;
+.field public static final TAG:Ljava/lang/String; = "UserData"
 
 
 # instance fields
-.field private mDefaultDialer:Ljava/lang/String;
+.field public mDefaultDialer:Ljava/lang/String;
 
-.field private mDefaultSmsApp:Ljava/lang/String;
+.field public mDefaultSmsApp:Ljava/lang/String;
 
-.field private mIsUnlocked:Z
+.field public mIsUnlocked:Z
 
-.field private mPackageDataMap:Ljava/util/Map;
+.field public mPackageDataMap:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Map<",
@@ -27,18 +25,18 @@
     .end annotation
 .end field
 
-.field private final mPerUserPeopleDataDir:Ljava/io/File;
+.field public final mPerUserPeopleDataDir:Ljava/io/File;
 
-.field private final mScheduledExecutorService:Ljava/util/concurrent/ScheduledExecutorService;
+.field public final mScheduledExecutorService:Ljava/util/concurrent/ScheduledExecutorService;
 
-.field private final mUserId:I
+.field public final mUserId:I
 
 
 # direct methods
 .method public static synthetic $r8$lambda$6PdLrJGHlGwu_DoqTJnYEj3j0A0(Lcom/android/server/people/data/UserData;Ljava/lang/String;)Z
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/server/people/data/UserData;->isDefaultDialer(Ljava/lang/String;)Z
+    invoke-virtual {p0, p1}, Lcom/android/server/people/data/UserData;->isDefaultDialer(Ljava/lang/String;)Z
 
     move-result p0
 
@@ -48,29 +46,31 @@
 .method public static synthetic $r8$lambda$E9kRsu8W7Qd6P0oUxGlw7eA69Og(Lcom/android/server/people/data/UserData;Ljava/lang/String;)Z
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/server/people/data/UserData;->isDefaultSmsApp(Ljava/lang/String;)Z
+    invoke-virtual {p0, p1}, Lcom/android/server/people/data/UserData;->isDefaultSmsApp(Ljava/lang/String;)Z
 
     move-result p0
 
     return p0
 .end method
 
-.method static constructor <clinit>()V
-    .locals 1
+.method public static synthetic $r8$lambda$fRv0KWM-vYJR6qhMuctjGxFSiLo(Lcom/android/server/people/data/UserData;Ljava/lang/String;Ljava/lang/String;)Lcom/android/server/people/data/PackageData;
+    .locals 0
 
-    const-class v0, Lcom/android/server/people/data/UserData;
+    invoke-direct {p0, p1, p2}, Lcom/android/server/people/data/UserData;->lambda$getOrCreatePackageData$0(Ljava/lang/String;Ljava/lang/String;)Lcom/android/server/people/data/PackageData;
 
-    invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object v0
+    return-object p0
+.end method
 
-    sput-object v0, Lcom/android/server/people/data/UserData;->TAG:Ljava/lang/String;
+.method public static constructor <clinit>()V
+    .locals 0
 
     return-void
 .end method
 
-.method constructor <init>(ILjava/util/concurrent/ScheduledExecutorService;)V
-    .locals 3
+.method public constructor <init>(ILjava/util/concurrent/ScheduledExecutorService;)V
+    .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -86,11 +86,11 @@
 
     invoke-static {p1}, Landroid/os/Environment;->getDataSystemCeDirectory(I)Ljava/io/File;
 
-    move-result-object v1
+    move-result-object p1
 
-    const-string v2, "people"
+    const-string v1, "people"
 
-    invoke-direct {v0, v1, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    invoke-direct {v0, p1, v1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
     iput-object v0, p0, Lcom/android/server/people/data/UserData;->mPerUserPeopleDataDir:Ljava/io/File;
 
@@ -99,7 +99,19 @@
     return-void
 .end method
 
-.method private createPackageData(Ljava/lang/String;)Lcom/android/server/people/data/PackageData;
+.method private synthetic lambda$getOrCreatePackageData$0(Ljava/lang/String;Ljava/lang/String;)Lcom/android/server/people/data/PackageData;
+    .locals 0
+
+    invoke-virtual {p0, p1}, Lcom/android/server/people/data/UserData;->createPackageData(Ljava/lang/String;)Lcom/android/server/people/data/PackageData;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+
+# virtual methods
+.method public final createPackageData(Ljava/lang/String;)Lcom/android/server/people/data/PackageData;
     .locals 8
 
     new-instance v7, Lcom/android/server/people/data/PackageData;
@@ -127,53 +139,27 @@
     return-object v7
 .end method
 
-.method private isDefaultDialer(Ljava/lang/String;)Z
-    .locals 1
+.method public deletePackageData(Ljava/lang/String;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/people/data/UserData;->mDefaultDialer:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/people/data/UserData;->mPackageDataMap:Ljava/util/Map;
 
-    invoke-static {v0, p1}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+    invoke-interface {p0, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result v0
+    move-result-object p0
 
-    return v0
-.end method
+    check-cast p0, Lcom/android/server/people/data/PackageData;
 
-.method private isDefaultSmsApp(Ljava/lang/String;)Z
-    .locals 1
+    if-eqz p0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/people/data/UserData;->mDefaultSmsApp:Ljava/lang/String;
-
-    invoke-static {v0, p1}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
-
-    move-result v0
-
-    return v0
-.end method
-
-
-# virtual methods
-.method deletePackageData(Ljava/lang/String;)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/people/data/UserData;->mPackageDataMap:Ljava/util/Map;
-
-    invoke-interface {v0, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/server/people/data/PackageData;
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {v0}, Lcom/android/server/people/data/PackageData;->onDestroy()V
+    invoke-virtual {p0}, Lcom/android/server/people/data/PackageData;->onDestroy()V
 
     :cond_0
     return-void
 .end method
 
-.method forAllPackages(Ljava/util/function/Consumer;)V
-    .locals 2
+.method public forAllPackages(Ljava/util/function/Consumer;)V
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -183,30 +169,30 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/android/server/people/data/UserData;->mPackageDataMap:Ljava/util/Map;
+    iget-object p0, p0, Lcom/android/server/people/data/UserData;->mPackageDataMap:Ljava/util/Map;
 
-    invoke-interface {v0}, Ljava/util/Map;->values()Ljava/util/Collection;
+    invoke-interface {p0}, Ljava/util/Map;->values()Ljava/util/Collection;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+    invoke-interface {p0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p0
 
     :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Lcom/android/server/people/data/PackageData;
+    check-cast v0, Lcom/android/server/people/data/PackageData;
 
-    invoke-interface {p1, v1}, Ljava/util/function/Consumer;->accept(Ljava/lang/Object;)V
+    invoke-interface {p1, v0}, Ljava/util/function/Consumer;->accept(Ljava/lang/Object;)V
 
     goto :goto_0
 
@@ -214,8 +200,8 @@
     return-void
 .end method
 
-.method getBackupPayload()[B
-    .locals 7
+.method public getBackupPayload()[B
+    .locals 6
 
     new-instance v0, Ljava/io/ByteArrayOutputStream;
 
@@ -225,100 +211,94 @@
 
     invoke-direct {v1, v0}, Ljava/io/DataOutputStream;-><init>(Ljava/io/OutputStream;)V
 
-    iget-object v2, p0, Lcom/android/server/people/data/UserData;->mPackageDataMap:Ljava/util/Map;
+    iget-object p0, p0, Lcom/android/server/people/data/UserData;->mPackageDataMap:Ljava/util/Map;
 
-    invoke-interface {v2}, Ljava/util/Map;->values()Ljava/util/Collection;
+    invoke-interface {p0}, Ljava/util/Map;->values()Ljava/util/Collection;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-interface {v2}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+    invoke-interface {p0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
-    move-result-object v2
+    move-result-object p0
 
     :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v3
+    move-result v2
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    if-eqz v3, :cond_0
+    if-eqz v2, :cond_0
 
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v2
 
-    check-cast v3, Lcom/android/server/people/data/PackageData;
-
-    nop
+    check-cast v2, Lcom/android/server/people/data/PackageData;
 
     :try_start_0
-    invoke-virtual {v3}, Lcom/android/server/people/data/PackageData;->getConversationStore()Lcom/android/server/people/data/ConversationStore;
+    invoke-virtual {v2}, Lcom/android/server/people/data/PackageData;->getConversationStore()Lcom/android/server/people/data/ConversationStore;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-virtual {v5}, Lcom/android/server/people/data/ConversationStore;->getBackupPayload()[B
+    invoke-virtual {v4}, Lcom/android/server/people/data/ConversationStore;->getBackupPayload()[B
 
-    move-result-object v5
+    move-result-object v4
 
-    array-length v6, v5
+    array-length v5, v4
 
-    invoke-virtual {v1, v6}, Ljava/io/DataOutputStream;->writeInt(I)V
+    invoke-virtual {v1, v5}, Ljava/io/DataOutputStream;->writeInt(I)V
 
-    invoke-virtual {v1, v5}, Ljava/io/DataOutputStream;->write([B)V
+    invoke-virtual {v1, v4}, Ljava/io/DataOutputStream;->write([B)V
 
-    invoke-virtual {v3}, Lcom/android/server/people/data/PackageData;->getPackageName()Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/android/server/people/data/PackageData;->getPackageName()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v2
 
-    invoke-virtual {v1, v6}, Ljava/io/DataOutputStream;->writeUTF(Ljava/lang/String;)V
+    invoke-virtual {v1, v2}, Ljava/io/DataOutputStream;->writeUTF(Ljava/lang/String;)V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
-
-    nop
 
     goto :goto_0
 
     :catch_0
-    move-exception v2
+    move-exception p0
 
-    sget-object v5, Lcom/android/server/people/data/UserData;->TAG:Ljava/lang/String;
+    sget-object v0, Lcom/android/server/people/data/UserData;->TAG:Ljava/lang/String;
 
-    const-string v6, "Failed to write conversations to backup payload."
+    const-string v1, "Failed to write conversations to backup payload."
 
-    invoke-static {v5, v6, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v0, v1, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    return-object v4
+    return-object v3
 
     :cond_0
-    const/4 v2, -0x1
+    const/4 p0, -0x1
 
     :try_start_1
-    invoke-virtual {v1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
+    invoke-virtual {v1, p0}, Ljava/io/DataOutputStream;->writeInt(I)V
     :try_end_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
 
-    nop
-
     invoke-virtual {v0}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
 
-    move-result-object v2
+    move-result-object p0
 
-    return-object v2
+    return-object p0
 
     :catch_1
-    move-exception v2
+    move-exception p0
 
-    sget-object v3, Lcom/android/server/people/data/UserData;->TAG:Ljava/lang/String;
+    sget-object v0, Lcom/android/server/people/data/UserData;->TAG:Ljava/lang/String;
 
-    const-string v5, "Failed to write conversations end token to backup payload."
+    const-string v1, "Failed to write conversations end token to backup payload."
 
-    invoke-static {v3, v5, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v0, v1, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    return-object v4
+    return-object v3
 .end method
 
-.method getDefaultDialer()Lcom/android/server/people/data/PackageData;
+.method public getDefaultDialer()Lcom/android/server/people/data/PackageData;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/people/data/UserData;->mDefaultDialer:Ljava/lang/String;
@@ -327,18 +307,18 @@
 
     invoke-virtual {p0, v0}, Lcom/android/server/people/data/UserData;->getPackageData(Ljava/lang/String;)Lcom/android/server/people/data/PackageData;
 
-    move-result-object v0
+    move-result-object p0
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return-object v0
+    return-object p0
 .end method
 
-.method getDefaultSmsApp()Lcom/android/server/people/data/PackageData;
+.method public getDefaultSmsApp()Lcom/android/server/people/data/PackageData;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/people/data/UserData;->mDefaultSmsApp:Ljava/lang/String;
@@ -347,18 +327,18 @@
 
     invoke-virtual {p0, v0}, Lcom/android/server/people/data/UserData;->getPackageData(Ljava/lang/String;)Lcom/android/server/people/data/PackageData;
 
-    move-result-object v0
+    move-result-object p0
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return-object v0
+    return-object p0
 .end method
 
-.method getOrCreatePackageData(Ljava/lang/String;)Lcom/android/server/people/data/PackageData;
+.method public getOrCreatePackageData(Ljava/lang/String;)Lcom/android/server/people/data/PackageData;
     .locals 2
 
     iget-object v0, p0, Lcom/android/server/people/data/UserData;->mPackageDataMap:Ljava/util/Map;
@@ -369,54 +349,68 @@
 
     invoke-interface {v0, p1, v1}, Ljava/util/Map;->computeIfAbsent(Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/android/server/people/data/PackageData;
+    check-cast p0, Lcom/android/server/people/data/PackageData;
 
-    return-object v0
+    return-object p0
 .end method
 
-.method getPackageData(Ljava/lang/String;)Lcom/android/server/people/data/PackageData;
-    .locals 1
+.method public getPackageData(Ljava/lang/String;)Lcom/android/server/people/data/PackageData;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/people/data/UserData;->mPackageDataMap:Ljava/util/Map;
+    iget-object p0, p0, Lcom/android/server/people/data/UserData;->mPackageDataMap:Ljava/util/Map;
 
-    invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/android/server/people/data/PackageData;
+    check-cast p0, Lcom/android/server/people/data/PackageData;
 
-    return-object v0
+    return-object p0
 .end method
 
-.method getUserId()I
-    .locals 1
+.method public getUserId()I
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/people/data/UserData;->mUserId:I
+    iget p0, p0, Lcom/android/server/people/data/UserData;->mUserId:I
 
-    return v0
+    return p0
 .end method
 
-.method isUnlocked()Z
-    .locals 1
+.method public final isDefaultDialer(Ljava/lang/String;)Z
+    .locals 0
 
-    iget-boolean v0, p0, Lcom/android/server/people/data/UserData;->mIsUnlocked:Z
+    iget-object p0, p0, Lcom/android/server/people/data/UserData;->mDefaultDialer:Ljava/lang/String;
 
-    return v0
+    invoke-static {p0, p1}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+
+    move-result p0
+
+    return p0
 .end method
 
-.method public synthetic lambda$getOrCreatePackageData$0$UserData(Ljava/lang/String;Ljava/lang/String;)Lcom/android/server/people/data/PackageData;
-    .locals 1
+.method public final isDefaultSmsApp(Ljava/lang/String;)Z
+    .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/server/people/data/UserData;->createPackageData(Ljava/lang/String;)Lcom/android/server/people/data/PackageData;
+    iget-object p0, p0, Lcom/android/server/people/data/UserData;->mDefaultSmsApp:Ljava/lang/String;
 
-    move-result-object v0
+    invoke-static {p0, p1}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
 
-    return-object v0
+    move-result p0
+
+    return p0
 .end method
 
-.method loadUserData()V
+.method public isUnlocked()Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/server/people/data/UserData;->mIsUnlocked:Z
+
+    return p0
+.end method
+
+.method public loadUserData()V
     .locals 5
 
     iget-object v0, p0, Lcom/android/server/people/data/UserData;->mPerUserPeopleDataDir:Ljava/io/File;
@@ -441,15 +435,15 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/server/people/data/UserData;->mPackageDataMap:Ljava/util/Map;
+    iget-object p0, p0, Lcom/android/server/people/data/UserData;->mPackageDataMap:Ljava/util/Map;
 
-    invoke-interface {v1, v0}, Ljava/util/Map;->putAll(Ljava/util/Map;)V
+    invoke-interface {p0, v0}, Ljava/util/Map;->putAll(Ljava/util/Map;)V
 
     return-void
 .end method
 
-.method restore([B)V
-    .locals 5
+.method public restore([B)V
+    .locals 3
 
     new-instance v0, Ljava/io/DataInputStream;
 
@@ -462,60 +456,55 @@
     :try_start_0
     invoke-virtual {v0}, Ljava/io/DataInputStream;->readInt()I
 
-    move-result v1
+    move-result p1
 
     :goto_0
-    const/4 v2, -0x1
+    const/4 v1, -0x1
 
-    if-eq v1, v2, :cond_0
+    if-eq p1, v1, :cond_0
 
-    new-array v2, v1, [B
+    new-array v1, p1, [B
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    invoke-virtual {v0, v2, v3, v1}, Ljava/io/DataInputStream;->readFully([BII)V
+    invoke-virtual {v0, v1, v2, p1}, Ljava/io/DataInputStream;->readFully([BII)V
 
     invoke-virtual {v0}, Ljava/io/DataInputStream;->readUTF()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-virtual {p0, v3}, Lcom/android/server/people/data/UserData;->getOrCreatePackageData(Ljava/lang/String;)Lcom/android/server/people/data/PackageData;
+    invoke-virtual {p0, p1}, Lcom/android/server/people/data/UserData;->getOrCreatePackageData(Ljava/lang/String;)Lcom/android/server/people/data/PackageData;
 
-    move-result-object v4
+    move-result-object p1
 
-    invoke-virtual {v4}, Lcom/android/server/people/data/PackageData;->getConversationStore()Lcom/android/server/people/data/ConversationStore;
+    invoke-virtual {p1}, Lcom/android/server/people/data/PackageData;->getConversationStore()Lcom/android/server/people/data/ConversationStore;
 
-    move-result-object v4
+    move-result-object p1
 
-    invoke-virtual {v4, v2}, Lcom/android/server/people/data/ConversationStore;->restore([B)V
+    invoke-virtual {p1, v1}, Lcom/android/server/people/data/ConversationStore;->restore([B)V
 
     invoke-virtual {v0}, Ljava/io/DataInputStream;->readInt()I
 
-    move-result v2
+    move-result p1
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move v1, v2
-
     goto :goto_0
 
-    :cond_0
-    goto :goto_1
-
     :catch_0
-    move-exception v1
+    move-exception p0
 
-    sget-object v2, Lcom/android/server/people/data/UserData;->TAG:Ljava/lang/String;
+    sget-object p1, Lcom/android/server/people/data/UserData;->TAG:Ljava/lang/String;
 
-    const-string v3, "Failed to restore conversations from backup payload."
+    const-string v0, "Failed to restore conversations from backup payload."
 
-    invoke-static {v2, v3, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {p1, v0, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    :goto_1
+    :cond_0
     return-void
 .end method
 
-.method setDefaultDialer(Ljava/lang/String;)V
+.method public setDefaultDialer(Ljava/lang/String;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/people/data/UserData;->mDefaultDialer:Ljava/lang/String;
@@ -523,7 +512,7 @@
     return-void
 .end method
 
-.method setDefaultSmsApp(Ljava/lang/String;)V
+.method public setDefaultSmsApp(Ljava/lang/String;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/people/data/UserData;->mDefaultSmsApp:Ljava/lang/String;
@@ -531,7 +520,7 @@
     return-void
 .end method
 
-.method setUserStopped()V
+.method public setUserStopped()V
     .locals 1
 
     const/4 v0, 0x0
@@ -541,7 +530,7 @@
     return-void
 .end method
 
-.method setUserUnlocked()V
+.method public setUserUnlocked()V
     .locals 1
 
     const/4 v0, 0x1

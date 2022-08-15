@@ -17,19 +17,13 @@
 
 
 # static fields
-.field private static final DATE_FORMAT:Ljava/text/SimpleDateFormat;
+.field public static final DATE_FORMAT:Ljava/text/SimpleDateFormat;
 
-.field private static final INSTANCE:Lcom/android/server/power/ShutdownCheckPoints;
-
-.field private static final MAX_CHECK_POINTS:I = 0x64
-
-.field private static final MAX_DUMP_FILES:I = 0x14
-
-.field private static final TAG:Ljava/lang/String; = "ShutdownCheckPoints"
+.field public static final INSTANCE:Lcom/android/server/power/ShutdownCheckPoints;
 
 
 # instance fields
-.field private final mCheckPoints:Ljava/util/LinkedList;
+.field public final mCheckPoints:Ljava/util/LinkedList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/LinkedList<",
@@ -39,11 +33,19 @@
     .end annotation
 .end field
 
-.field private final mInjector:Lcom/android/server/power/ShutdownCheckPoints$Injector;
+.field public final mInjector:Lcom/android/server/power/ShutdownCheckPoints$Injector;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static bridge synthetic -$$Nest$sfgetDATE_FORMAT()Ljava/text/SimpleDateFormat;
+    .locals 1
+
+    sget-object v0, Lcom/android/server/power/ShutdownCheckPoints;->DATE_FORMAT:Ljava/text/SimpleDateFormat;
+
+    return-object v0
+.end method
+
+.method public static constructor <clinit>()V
     .locals 2
 
     new-instance v0, Lcom/android/server/power/ShutdownCheckPoints;
@@ -63,7 +65,7 @@
     return-void
 .end method
 
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 1
 
     new-instance v0, Lcom/android/server/power/ShutdownCheckPoints$1;
@@ -75,8 +77,10 @@
     return-void
 .end method
 
-.method constructor <init>(Lcom/android/server/power/ShutdownCheckPoints$Injector;)V
+.method public constructor <init>(Lcom/android/server/power/ShutdownCheckPoints$Injector;)V
     .locals 1
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -91,24 +95,6 @@
     return-void
 .end method
 
-.method static synthetic access$000()Ljava/text/SimpleDateFormat;
-    .locals 1
-
-    sget-object v0, Lcom/android/server/power/ShutdownCheckPoints;->DATE_FORMAT:Ljava/text/SimpleDateFormat;
-
-    return-object v0
-.end method
-
-.method public static dump(Ljava/io/PrintWriter;)V
-    .locals 1
-
-    sget-object v0, Lcom/android/server/power/ShutdownCheckPoints;->INSTANCE:Lcom/android/server/power/ShutdownCheckPoints;
-
-    invoke-virtual {v0, p0}, Lcom/android/server/power/ShutdownCheckPoints;->dumpInternal(Ljava/io/PrintWriter;)V
-
-    return-void
-.end method
-
 .method public static newDumpThread(Ljava/io/File;)Ljava/lang/Thread;
     .locals 1
 
@@ -116,9 +102,9 @@
 
     invoke-virtual {v0, p0}, Lcom/android/server/power/ShutdownCheckPoints;->newDumpThreadInternal(Ljava/io/File;)Ljava/lang/Thread;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static recordCheckPoint(ILjava/lang/String;)V
@@ -151,55 +137,12 @@
     return-void
 .end method
 
-.method private recordCheckPointInternal(Lcom/android/server/power/ShutdownCheckPoints$CheckPoint;)V
-    .locals 3
-
-    iget-object v0, p0, Lcom/android/server/power/ShutdownCheckPoints;->mCheckPoints:Ljava/util/LinkedList;
-
-    monitor-enter v0
-
-    :try_start_0
-    iget-object v1, p0, Lcom/android/server/power/ShutdownCheckPoints;->mCheckPoints:Ljava/util/LinkedList;
-
-    invoke-virtual {v1, p1}, Ljava/util/LinkedList;->addLast(Ljava/lang/Object;)V
-
-    iget-object v1, p0, Lcom/android/server/power/ShutdownCheckPoints;->mCheckPoints:Ljava/util/LinkedList;
-
-    invoke-virtual {v1}, Ljava/util/LinkedList;->size()I
-
-    move-result v1
-
-    iget-object v2, p0, Lcom/android/server/power/ShutdownCheckPoints;->mInjector:Lcom/android/server/power/ShutdownCheckPoints$Injector;
-
-    invoke-interface {v2}, Lcom/android/server/power/ShutdownCheckPoints$Injector;->maxCheckPoints()I
-
-    move-result v2
-
-    if-le v1, v2, :cond_0
-
-    iget-object v1, p0, Lcom/android/server/power/ShutdownCheckPoints;->mCheckPoints:Ljava/util/LinkedList;
-
-    invoke-virtual {v1}, Ljava/util/LinkedList;->removeFirst()Ljava/lang/Object;
-
-    :cond_0
-    monitor-exit v0
-
-    return-void
-
-    :catchall_0
-    move-exception v1
-
-    monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v1
-.end method
-
 
 # virtual methods
-.method dumpInternal(Ljava/io/PrintWriter;)V
-    .locals 3
+.method public dumpInternal(Ljava/io/PrintWriter;)V
+    .locals 2
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
 
     iget-object v0, p0, Lcom/android/server/power/ShutdownCheckPoints;->mCheckPoints:Ljava/util/LinkedList;
 
@@ -208,9 +151,9 @@
     :try_start_0
     new-instance v1, Ljava/util/ArrayList;
 
-    iget-object v2, p0, Lcom/android/server/power/ShutdownCheckPoints;->mCheckPoints:Ljava/util/LinkedList;
+    iget-object p0, p0, Lcom/android/server/power/ShutdownCheckPoints;->mCheckPoints:Ljava/util/LinkedList;
 
-    invoke-direct {v1, v2}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+    invoke-direct {v1, p0}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
     monitor-exit v0
     :try_end_0
@@ -218,22 +161,22 @@
 
     invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p0
 
     :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_0
+    if-eqz v0, :cond_0
 
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
-    check-cast v2, Lcom/android/server/power/ShutdownCheckPoints$CheckPoint;
+    check-cast v0, Lcom/android/server/power/ShutdownCheckPoints$CheckPoint;
 
-    invoke-virtual {v2, p1}, Lcom/android/server/power/ShutdownCheckPoints$CheckPoint;->dump(Ljava/io/PrintWriter;)V
+    invoke-virtual {v0, p1}, Lcom/android/server/power/ShutdownCheckPoints$CheckPoint;->dump(Ljava/io/PrintWriter;)V
 
     invoke-virtual {p1}, Ljava/io/PrintWriter;->println()V
 
@@ -243,18 +186,20 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     :try_start_1
     monitor-exit v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
-.method newDumpThreadInternal(Ljava/io/File;)Ljava/lang/Thread;
+.method public newDumpThreadInternal(Ljava/io/File;)Ljava/lang/Thread;
     .locals 2
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
 
     new-instance v0, Lcom/android/server/power/ShutdownCheckPoints$FileDumperThread;
 
@@ -269,8 +214,10 @@
     return-object v0
 .end method
 
-.method recordCheckPointInternal(ILjava/lang/String;)V
+.method public recordCheckPointInternal(ILjava/lang/String;)V
     .locals 2
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
 
     invoke-static {}, Landroid/os/Process;->myPid()I
 
@@ -294,31 +241,78 @@
     invoke-direct {v0, v1, p1, p2}, Lcom/android/server/power/ShutdownCheckPoints$BinderCheckPoint;-><init>(Lcom/android/server/power/ShutdownCheckPoints$Injector;ILjava/lang/String;)V
 
     :goto_0
-    invoke-direct {p0, v0}, Lcom/android/server/power/ShutdownCheckPoints;->recordCheckPointInternal(Lcom/android/server/power/ShutdownCheckPoints$CheckPoint;)V
+    invoke-virtual {p0, v0}, Lcom/android/server/power/ShutdownCheckPoints;->recordCheckPointInternal(Lcom/android/server/power/ShutdownCheckPoints$CheckPoint;)V
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance p0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "Binder shutdown checkpoint recorded with pid="
+    const-string p2, "Binder shutdown checkpoint recorded with pid="
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    const-string v1, "ShutdownCheckPoints"
+    const-string p1, "ShutdownCheckPoints"
 
-    invoke-static {v1, v0}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p1, p0}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 .end method
 
-.method recordCheckPointInternal(Ljava/lang/String;)V
+.method public final recordCheckPointInternal(Lcom/android/server/power/ShutdownCheckPoints$CheckPoint;)V
     .locals 2
+
+    iget-object v0, p0, Lcom/android/server/power/ShutdownCheckPoints;->mCheckPoints:Ljava/util/LinkedList;
+
+    monitor-enter v0
+
+    :try_start_0
+    iget-object v1, p0, Lcom/android/server/power/ShutdownCheckPoints;->mCheckPoints:Ljava/util/LinkedList;
+
+    invoke-virtual {v1, p1}, Ljava/util/LinkedList;->addLast(Ljava/lang/Object;)V
+
+    iget-object p1, p0, Lcom/android/server/power/ShutdownCheckPoints;->mCheckPoints:Ljava/util/LinkedList;
+
+    invoke-virtual {p1}, Ljava/util/LinkedList;->size()I
+
+    move-result p1
+
+    iget-object v1, p0, Lcom/android/server/power/ShutdownCheckPoints;->mInjector:Lcom/android/server/power/ShutdownCheckPoints$Injector;
+
+    invoke-interface {v1}, Lcom/android/server/power/ShutdownCheckPoints$Injector;->maxCheckPoints()I
+
+    move-result v1
+
+    if-le p1, v1, :cond_0
+
+    iget-object p0, p0, Lcom/android/server/power/ShutdownCheckPoints;->mCheckPoints:Ljava/util/LinkedList;
+
+    invoke-virtual {p0}, Ljava/util/LinkedList;->removeFirst()Ljava/lang/Object;
+
+    :cond_0
+    monitor-exit v0
+
+    return-void
+
+    :catchall_0
+    move-exception p0
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw p0
+.end method
+
+.method public recordCheckPointInternal(Ljava/lang/String;)V
+    .locals 2
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
 
     new-instance v0, Lcom/android/server/power/ShutdownCheckPoints$SystemServerCheckPoint;
 
@@ -326,19 +320,21 @@
 
     invoke-direct {v0, v1, p1}, Lcom/android/server/power/ShutdownCheckPoints$SystemServerCheckPoint;-><init>(Lcom/android/server/power/ShutdownCheckPoints$Injector;Ljava/lang/String;)V
 
-    invoke-direct {p0, v0}, Lcom/android/server/power/ShutdownCheckPoints;->recordCheckPointInternal(Lcom/android/server/power/ShutdownCheckPoints$CheckPoint;)V
+    invoke-virtual {p0, v0}, Lcom/android/server/power/ShutdownCheckPoints;->recordCheckPointInternal(Lcom/android/server/power/ShutdownCheckPoints$CheckPoint;)V
 
-    const-string v0, "ShutdownCheckPoints"
+    const-string p0, "ShutdownCheckPoints"
 
-    const-string v1, "System server shutdown checkpoint recorded"
+    const-string p1, "System server shutdown checkpoint recorded"
 
-    invoke-static {v0, v1}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, p1}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 .end method
 
-.method recordCheckPointInternal(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+.method public recordCheckPointInternal(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 2
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
 
     const-string v0, "android"
 
@@ -364,29 +360,29 @@
     invoke-direct {v0, v1, p1, p2, p3}, Lcom/android/server/power/ShutdownCheckPoints$IntentCheckPoint;-><init>(Lcom/android/server/power/ShutdownCheckPoints$Injector;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     :goto_0
-    invoke-direct {p0, v0}, Lcom/android/server/power/ShutdownCheckPoints;->recordCheckPointInternal(Lcom/android/server/power/ShutdownCheckPoints$CheckPoint;)V
+    invoke-virtual {p0, v0}, Lcom/android/server/power/ShutdownCheckPoints;->recordCheckPointInternal(Lcom/android/server/power/ShutdownCheckPoints$CheckPoint;)V
 
-    const/4 v0, 0x2
+    const/4 p0, 0x2
 
-    new-array v0, v0, [Ljava/lang/Object;
+    new-array p0, p0, [Ljava/lang/Object;
 
-    const/4 v1, 0x0
+    const/4 p3, 0x0
 
-    aput-object p1, v0, v1
+    aput-object p1, p0, p3
 
-    const/4 v1, 0x1
+    const/4 p1, 0x1
 
-    aput-object p2, v0, v1
+    aput-object p2, p0, p1
 
-    const-string v1, "Shutdown intent checkpoint recorded intent=%s from package=%s"
+    const-string p1, "Shutdown intent checkpoint recorded intent=%s from package=%s"
 
-    invoke-static {v1, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p1, p0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    const-string v1, "ShutdownCheckPoints"
+    const-string p1, "ShutdownCheckPoints"
 
-    invoke-static {v1, v0}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p1, p0}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 .end method

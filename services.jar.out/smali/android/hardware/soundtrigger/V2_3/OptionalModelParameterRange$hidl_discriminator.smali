@@ -14,43 +14,27 @@
 .end annotation
 
 
-# static fields
-.field public static final noinit:B = 0x0t
-
-.field public static final range:B = 0x1t
-
-
 # direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
 .method public static final getName(B)Ljava/lang/String;
     .locals 1
 
-    packed-switch p0, :pswitch_data_0
+    if-eqz p0, :cond_1
 
-    const-string v0, "Unknown"
+    const/4 v0, 0x1
 
-    return-object v0
+    if-eq p0, v0, :cond_0
 
-    :pswitch_0
-    const-string/jumbo v0, "range"
+    const-string p0, "Unknown"
 
-    return-object v0
+    return-object p0
 
-    :pswitch_1
-    const-string/jumbo v0, "noinit"
+    :cond_0
+    const-string/jumbo p0, "range"
 
-    return-object v0
+    return-object p0
 
-    :pswitch_data_0
-    .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
+    :cond_1
+    const-string/jumbo p0, "noinit"
+
+    return-object p0
 .end method

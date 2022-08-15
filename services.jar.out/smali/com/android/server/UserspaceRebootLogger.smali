@@ -3,28 +3,16 @@
 .source "UserspaceRebootLogger.java"
 
 
-# static fields
-.field private static final LAST_BOOT_REASON_PROPERTY:Ljava/lang/String; = "sys.boot.reason.last"
-
-.field private static final TAG:Ljava/lang/String; = "UserspaceRebootLogger"
-
-.field private static final USERSPACE_REBOOT_LAST_FINISHED_PROPERTY:Ljava/lang/String; = "sys.userspace_reboot.log.last_finished"
-
-.field private static final USERSPACE_REBOOT_LAST_STARTED_PROPERTY:Ljava/lang/String; = "sys.userspace_reboot.log.last_started"
-
-.field private static final USERSPACE_REBOOT_SHOULD_LOG_PROPERTY:Ljava/lang/String; = "persist.sys.userspace_reboot.log.should_log"
-
-
 # direct methods
-.method private constructor <init>()V
+.method public static synthetic $r8$lambda$Q-q8TcwFv6lwM8NPogx0A-QnwQY(IJI)V
     .locals 0
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-static {p0, p1, p2, p3}, Lcom/android/server/UserspaceRebootLogger;->lambda$logEventAsync$0(IJI)V
 
     return-void
 .end method
 
-.method private static computeOutcome()I
+.method public static computeOutcome()I
     .locals 5
 
     const-string/jumbo v0, "sys.userspace_reboot.log.last_started"
@@ -64,11 +52,7 @@
 
     if-eqz v1, :cond_1
 
-    const-string/jumbo v1, "reboot"
-
-    invoke-virtual {v1}, Ljava/lang/String;->length()I
-
-    move-result v1
+    const/4 v1, 0x6
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
@@ -138,21 +122,21 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_7
+    if-eqz v0, :cond_7
 
-    const/4 v1, 0x4
+    const/4 v0, 0x4
 
-    return v1
+    return v0
 
     :cond_7
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    return v1
+    return v0
 .end method
 
-.method static synthetic lambda$logEventAsync$0(IJI)V
+.method public static synthetic lambda$logEventAsync$0(IJI)V
     .locals 2
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -193,11 +177,11 @@
 
     invoke-static {v0, p0, p1, p2, p3}, Lcom/android/internal/util/FrameworkStatsLog;->write(IIJI)V
 
-    const-string/jumbo v0, "persist.sys.userspace_reboot.log.should_log"
+    const-string/jumbo p0, "persist.sys.userspace_reboot.log.should_log"
 
-    const-string v1, ""
+    const-string p1, ""
 
-    invoke-static {v0, v1}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {p0, p1}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -211,11 +195,11 @@
 
     if-nez v0, :cond_0
 
-    const-string v0, "UserspaceRebootLogger"
+    const-string p0, "UserspaceRebootLogger"
 
-    const-string/jumbo v1, "logEventAsync: Userspace reboot is not supported."
+    const-string p1, "logEventAsync: Userspace reboot is not supported."
 
-    invoke-static {v0, v1}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, p1}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
@@ -226,45 +210,38 @@
 
     const/4 v1, 0x1
 
+    const-wide/16 v2, 0x0
+
     if-ne v0, v1, :cond_1
 
-    const-string/jumbo v2, "sys.userspace_reboot.log.last_finished"
+    const-string/jumbo v4, "sys.userspace_reboot.log.last_finished"
 
-    const-wide/16 v3, 0x0
+    invoke-static {v4, v2, v3}, Landroid/os/SystemProperties;->getLong(Ljava/lang/String;J)J
 
-    invoke-static {v2, v3, v4}, Landroid/os/SystemProperties;->getLong(Ljava/lang/String;J)J
+    move-result-wide v4
 
-    move-result-wide v5
+    const-string/jumbo v6, "sys.userspace_reboot.log.last_started"
 
-    const-string/jumbo v2, "sys.userspace_reboot.log.last_started"
-
-    invoke-static {v2, v3, v4}, Landroid/os/SystemProperties;->getLong(Ljava/lang/String;J)J
+    invoke-static {v6, v2, v3}, Landroid/os/SystemProperties;->getLong(Ljava/lang/String;J)J
 
     move-result-wide v2
 
-    sub-long/2addr v5, v2
-
-    goto :goto_0
+    sub-long v2, v4, v2
 
     :cond_1
-    const-wide/16 v5, 0x0
-
-    :goto_0
     if-eqz p0, :cond_2
 
-    goto :goto_1
+    goto :goto_0
 
     :cond_2
     const/4 v1, 0x2
 
-    :goto_1
-    nop
+    :goto_0
+    new-instance p0, Lcom/android/server/UserspaceRebootLogger$$ExternalSyntheticLambda0;
 
-    new-instance v2, Lcom/android/server/UserspaceRebootLogger$$ExternalSyntheticLambda0;
+    invoke-direct {p0, v0, v2, v3, v1}, Lcom/android/server/UserspaceRebootLogger$$ExternalSyntheticLambda0;-><init>(IJI)V
 
-    invoke-direct {v2, v0, v5, v6, v1}, Lcom/android/server/UserspaceRebootLogger$$ExternalSyntheticLambda0;-><init>(IJI)V
-
-    invoke-interface {p1, v2}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
+    invoke-interface {p1, p0}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
     return-void
 .end method
@@ -287,8 +264,6 @@
     return-void
 
     :cond_0
-    nop
-
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v0
@@ -327,8 +302,6 @@
     const-string v1, "1"
 
     invoke-static {v0, v1}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
-
-    nop
 
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 

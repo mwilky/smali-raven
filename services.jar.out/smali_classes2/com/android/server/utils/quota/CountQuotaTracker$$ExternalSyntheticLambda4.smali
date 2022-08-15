@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/utils/quota/CountQuotaTracker$$ExternalSyntheticLambda4;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/server/utils/quota/UptcMap$UptcDataConsumer;
@@ -8,18 +9,18 @@
 # instance fields
 .field public final synthetic f$0:Lcom/android/server/utils/quota/CountQuotaTracker;
 
-.field public final synthetic f$1:Lcom/android/server/utils/quota/UptcMap;
+.field public final synthetic f$1:Landroid/util/proto/ProtoOutputStream;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/utils/quota/CountQuotaTracker;Lcom/android/server/utils/quota/UptcMap;)V
+.method public synthetic constructor <init>(Lcom/android/server/utils/quota/CountQuotaTracker;Landroid/util/proto/ProtoOutputStream;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/server/utils/quota/CountQuotaTracker$$ExternalSyntheticLambda4;->f$0:Lcom/android/server/utils/quota/CountQuotaTracker;
 
-    iput-object p2, p0, Lcom/android/server/utils/quota/CountQuotaTracker$$ExternalSyntheticLambda4;->f$1:Lcom/android/server/utils/quota/UptcMap;
+    iput-object p2, p0, Lcom/android/server/utils/quota/CountQuotaTracker$$ExternalSyntheticLambda4;->f$1:Landroid/util/proto/ProtoOutputStream;
 
     return-void
 .end method
@@ -31,11 +32,11 @@
 
     iget-object v0, p0, Lcom/android/server/utils/quota/CountQuotaTracker$$ExternalSyntheticLambda4;->f$0:Lcom/android/server/utils/quota/CountQuotaTracker;
 
-    iget-object v1, p0, Lcom/android/server/utils/quota/CountQuotaTracker$$ExternalSyntheticLambda4;->f$1:Lcom/android/server/utils/quota/UptcMap;
+    iget-object v1, p0, Lcom/android/server/utils/quota/CountQuotaTracker$$ExternalSyntheticLambda4;->f$1:Landroid/util/proto/ProtoOutputStream;
 
     move-object v5, p4
 
-    check-cast v5, Landroid/util/LongArrayQueue;
+    check-cast v5, Lcom/android/server/utils/quota/CountQuotaTracker$ExecutionStats;
 
     move v2, p1
 
@@ -43,7 +44,7 @@
 
     move-object v4, p3
 
-    invoke-virtual/range {v0 .. v5}, Lcom/android/server/utils/quota/CountQuotaTracker;->lambda$maybeUpdateAllQuotaStatusLocked$1$CountQuotaTracker(Lcom/android/server/utils/quota/UptcMap;ILjava/lang/String;Ljava/lang/String;Landroid/util/LongArrayQueue;)V
+    invoke-static/range {v0 .. v5}, Lcom/android/server/utils/quota/CountQuotaTracker;->$r8$lambda$hG6G_5prAkJGQ9XCVWl45u5nF4w(Lcom/android/server/utils/quota/CountQuotaTracker;Landroid/util/proto/ProtoOutputStream;ILjava/lang/String;Ljava/lang/String;Lcom/android/server/utils/quota/CountQuotaTracker$ExecutionStats;)V
 
     return-void
 .end method

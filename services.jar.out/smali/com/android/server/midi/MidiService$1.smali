@@ -1,4 +1,4 @@
-.class Lcom/android/server/midi/MidiService$1;
+.class public Lcom/android/server/midi/MidiService$1;
 .super Lcom/android/internal/content/PackageMonitor;
 .source "MidiService.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/midi/MidiService;
+.field public final synthetic this$0:Lcom/android/server/midi/MidiService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/midi/MidiService;)V
+.method public constructor <init>(Lcom/android/server/midi/MidiService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/midi/MidiService$1;->this$0:Lcom/android/server/midi/MidiService;
@@ -32,11 +32,11 @@
 
 # virtual methods
 .method public onPackageAdded(Ljava/lang/String;I)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/midi/MidiService$1;->this$0:Lcom/android/server/midi/MidiService;
+    iget-object p0, p0, Lcom/android/server/midi/MidiService$1;->this$0:Lcom/android/server/midi/MidiService;
 
-    invoke-static {v0, p1}, Lcom/android/server/midi/MidiService;->access$100(Lcom/android/server/midi/MidiService;Ljava/lang/String;)V
+    invoke-static {p0, p1}, Lcom/android/server/midi/MidiService;->-$$Nest$maddPackageDeviceServers(Lcom/android/server/midi/MidiService;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -46,21 +46,21 @@
 
     iget-object v0, p0, Lcom/android/server/midi/MidiService$1;->this$0:Lcom/android/server/midi/MidiService;
 
-    invoke-static {v0, p1}, Lcom/android/server/midi/MidiService;->access$200(Lcom/android/server/midi/MidiService;Ljava/lang/String;)V
+    invoke-static {v0, p1}, Lcom/android/server/midi/MidiService;->-$$Nest$mremovePackageDeviceServers(Lcom/android/server/midi/MidiService;Ljava/lang/String;)V
 
-    iget-object v0, p0, Lcom/android/server/midi/MidiService$1;->this$0:Lcom/android/server/midi/MidiService;
+    iget-object p0, p0, Lcom/android/server/midi/MidiService$1;->this$0:Lcom/android/server/midi/MidiService;
 
-    invoke-static {v0, p1}, Lcom/android/server/midi/MidiService;->access$100(Lcom/android/server/midi/MidiService;Ljava/lang/String;)V
+    invoke-static {p0, p1}, Lcom/android/server/midi/MidiService;->-$$Nest$maddPackageDeviceServers(Lcom/android/server/midi/MidiService;Ljava/lang/String;)V
 
     return-void
 .end method
 
 .method public onPackageRemoved(Ljava/lang/String;I)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/midi/MidiService$1;->this$0:Lcom/android/server/midi/MidiService;
+    iget-object p0, p0, Lcom/android/server/midi/MidiService$1;->this$0:Lcom/android/server/midi/MidiService;
 
-    invoke-static {v0, p1}, Lcom/android/server/midi/MidiService;->access$200(Lcom/android/server/midi/MidiService;Ljava/lang/String;)V
+    invoke-static {p0, p1}, Lcom/android/server/midi/MidiService;->-$$Nest$mremovePackageDeviceServers(Lcom/android/server/midi/MidiService;Ljava/lang/String;)V
 
     return-void
 .end method

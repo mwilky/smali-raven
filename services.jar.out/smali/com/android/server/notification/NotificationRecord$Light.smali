@@ -4,12 +4,15 @@
 
 
 # annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/android/server/notification/NotificationRecord;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = "Light"
 .end annotation
 
@@ -40,7 +43,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .locals 4
 
     const/4 v0, 0x1
 
@@ -53,9 +56,7 @@
 
     if-eqz p1, :cond_5
 
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    move-result-object v2
+    const-class v2, Lcom/android/server/notification/NotificationRecord$Light;
 
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -66,33 +67,31 @@
     goto :goto_1
 
     :cond_1
-    move-object v2, p1
+    check-cast p1, Lcom/android/server/notification/NotificationRecord$Light;
 
-    check-cast v2, Lcom/android/server/notification/NotificationRecord$Light;
+    iget v2, p0, Lcom/android/server/notification/NotificationRecord$Light;->color:I
 
-    iget v3, p0, Lcom/android/server/notification/NotificationRecord$Light;->color:I
+    iget v3, p1, Lcom/android/server/notification/NotificationRecord$Light;->color:I
 
-    iget v4, v2, Lcom/android/server/notification/NotificationRecord$Light;->color:I
-
-    if-eq v3, v4, :cond_2
+    if-eq v2, v3, :cond_2
 
     return v1
 
     :cond_2
-    iget v3, p0, Lcom/android/server/notification/NotificationRecord$Light;->onMs:I
+    iget v2, p0, Lcom/android/server/notification/NotificationRecord$Light;->onMs:I
 
-    iget v4, v2, Lcom/android/server/notification/NotificationRecord$Light;->onMs:I
+    iget v3, p1, Lcom/android/server/notification/NotificationRecord$Light;->onMs:I
 
-    if-eq v3, v4, :cond_3
+    if-eq v2, v3, :cond_3
 
     return v1
 
     :cond_3
-    iget v3, p0, Lcom/android/server/notification/NotificationRecord$Light;->offMs:I
+    iget p0, p0, Lcom/android/server/notification/NotificationRecord$Light;->offMs:I
 
-    iget v4, v2, Lcom/android/server/notification/NotificationRecord$Light;->offMs:I
+    iget p1, p1, Lcom/android/server/notification/NotificationRecord$Light;->offMs:I
 
-    if-ne v3, v4, :cond_4
+    if-ne p0, p1, :cond_4
 
     goto :goto_0
 
@@ -108,21 +107,21 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .locals 2
 
     iget v0, p0, Lcom/android/server/notification/NotificationRecord$Light;->color:I
 
-    mul-int/lit8 v1, v0, 0x1f
+    mul-int/lit8 v0, v0, 0x1f
 
-    iget v2, p0, Lcom/android/server/notification/NotificationRecord$Light;->onMs:I
+    iget v1, p0, Lcom/android/server/notification/NotificationRecord$Light;->onMs:I
 
-    add-int/2addr v1, v2
+    add-int/2addr v0, v1
 
-    mul-int/lit8 v0, v1, 0x1f
+    mul-int/lit8 v0, v0, 0x1f
 
-    iget v2, p0, Lcom/android/server/notification/NotificationRecord$Light;->offMs:I
+    iget p0, p0, Lcom/android/server/notification/NotificationRecord$Light;->offMs:I
 
-    add-int/2addr v0, v2
+    add-int/2addr v0, p0
 
     return v0
 .end method
@@ -154,17 +153,17 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v1, p0, Lcom/android/server/notification/NotificationRecord$Light;->offMs:I
+    iget p0, p0, Lcom/android/server/notification/NotificationRecord$Light;->offMs:I
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const/16 v1, 0x7d
+    const/16 p0, 0x7d
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

@@ -1,4 +1,4 @@
-.class Lcom/android/server/job/controllers/TimeController$1;
+.class public Lcom/android/server/job/controllers/TimeController$1;
 .super Ljava/lang/Object;
 .source "TimeController.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/job/controllers/TimeController;
+.field public final synthetic this$0:Lcom/android/server/job/controllers/TimeController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/job/controllers/TimeController;)V
+.method public constructor <init>(Lcom/android/server/job/controllers/TimeController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/job/controllers/TimeController$1;->this$0:Lcom/android/server/job/controllers/TimeController;
@@ -37,7 +37,7 @@
 .method public onAlarm()V
     .locals 2
 
-    invoke-static {}, Lcom/android/server/job/controllers/TimeController;->access$000()Z
+    invoke-static {}, Lcom/android/server/job/controllers/TimeController;->-$$Nest$sfgetDEBUG()Z
 
     move-result v0
 
@@ -50,9 +50,9 @@
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/job/controllers/TimeController$1;->this$0:Lcom/android/server/job/controllers/TimeController;
+    iget-object p0, p0, Lcom/android/server/job/controllers/TimeController$1;->this$0:Lcom/android/server/job/controllers/TimeController;
 
-    invoke-virtual {v0}, Lcom/android/server/job/controllers/TimeController;->checkExpiredDeadlinesAndResetAlarm()V
+    invoke-virtual {p0}, Lcom/android/server/job/controllers/TimeController;->checkExpiredDeadlinesAndResetAlarm()V
 
     return-void
 .end method

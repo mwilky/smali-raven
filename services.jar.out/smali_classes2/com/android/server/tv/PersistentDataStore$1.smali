@@ -1,4 +1,4 @@
-.class Lcom/android/server/tv/PersistentDataStore$1;
+.class public Lcom/android/server/tv/PersistentDataStore$1;
 .super Ljava/lang/Object;
 .source "PersistentDataStore.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/tv/PersistentDataStore;
+.field public final synthetic this$0:Lcom/android/server/tv/PersistentDataStore;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/tv/PersistentDataStore;)V
+.method public constructor <init>(Lcom/android/server/tv/PersistentDataStore;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/tv/PersistentDataStore$1;->this$0:Lcom/android/server/tv/PersistentDataStore;
@@ -35,11 +35,11 @@
 
 # virtual methods
 .method public run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/tv/PersistentDataStore$1;->this$0:Lcom/android/server/tv/PersistentDataStore;
+    iget-object p0, p0, Lcom/android/server/tv/PersistentDataStore$1;->this$0:Lcom/android/server/tv/PersistentDataStore;
 
-    invoke-static {v0}, Lcom/android/server/tv/PersistentDataStore;->access$000(Lcom/android/server/tv/PersistentDataStore;)V
+    invoke-static {p0}, Lcom/android/server/tv/PersistentDataStore;->-$$Nest$msave(Lcom/android/server/tv/PersistentDataStore;)V
 
     return-void
 .end method

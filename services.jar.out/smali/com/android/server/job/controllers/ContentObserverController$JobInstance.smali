@@ -1,4 +1,4 @@
-.class final Lcom/android/server/job/controllers/ContentObserverController$JobInstance;
+.class public final Lcom/android/server/job/controllers/ContentObserverController$JobInstance;
 .super Ljava/lang/Object;
 .source "ContentObserverController.java"
 
@@ -9,13 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x10
+    accessFlags = 0x11
     name = "JobInstance"
 .end annotation
 
 
 # instance fields
-.field mChangedAuthorities:Landroid/util/ArraySet;
+.field public mChangedAuthorities:Landroid/util/ArraySet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/ArraySet<",
@@ -25,7 +25,7 @@
     .end annotation
 .end field
 
-.field mChangedUris:Landroid/util/ArraySet;
+.field public mChangedUris:Landroid/util/ArraySet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/ArraySet<",
@@ -35,11 +35,11 @@
     .end annotation
 .end field
 
-.field final mExecuteRunner:Ljava/lang/Runnable;
+.field public final mExecuteRunner:Ljava/lang/Runnable;
 
-.field final mJobStatus:Lcom/android/server/job/controllers/JobStatus;
+.field public final mJobStatus:Lcom/android/server/job/controllers/JobStatus;
 
-.field final mMyObservers:Ljava/util/ArrayList;
+.field public final mMyObservers:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/ArrayList<",
@@ -49,15 +49,15 @@
     .end annotation
 .end field
 
-.field final mTimeoutRunner:Ljava/lang/Runnable;
+.field public final mTimeoutRunner:Ljava/lang/Runnable;
 
-.field mTriggerPending:Z
+.field public mTriggerPending:Z
 
-.field final synthetic this$0:Lcom/android/server/job/controllers/ContentObserverController;
+.field public final synthetic this$0:Lcom/android/server/job/controllers/ContentObserverController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/job/controllers/ContentObserverController;Lcom/android/server/job/controllers/JobStatus;)V
+.method public constructor <init>(Lcom/android/server/job/controllers/ContentObserverController;Lcom/android/server/job/controllers/JobStatus;)V
     .locals 16
 
     move-object/from16 v0, p0
@@ -112,11 +112,9 @@
 
     if-nez v5, :cond_0
 
-    new-instance v6, Landroid/util/ArrayMap;
+    new-instance v5, Landroid/util/ArrayMap;
 
-    invoke-direct {v6}, Landroid/util/ArrayMap;-><init>()V
-
-    move-object v5, v6
+    invoke-direct {v5}, Landroid/util/ArrayMap;-><init>()V
 
     iget-object v6, v1, Lcom/android/server/job/controllers/ContentObserverController;->mObservers:Landroid/util/SparseArray;
 
@@ -146,19 +144,19 @@
 
     const-string v13, "JobScheduler.ContentObserver"
 
+    const/4 v14, 0x1
+
     if-nez v10, :cond_3
 
-    new-instance v15, Lcom/android/server/job/controllers/ContentObserverController$ObserverInstance;
+    new-instance v10, Lcom/android/server/job/controllers/ContentObserverController$ObserverInstance;
 
-    iget-object v7, v1, Lcom/android/server/job/controllers/ContentObserverController;->mHandler:Landroid/os/Handler;
+    iget-object v15, v1, Lcom/android/server/job/controllers/ContentObserverController;->mHandler:Landroid/os/Handler;
 
     invoke-virtual/range {p2 .. p2}, Lcom/android/server/job/controllers/JobStatus;->getSourceUserId()I
 
-    move-result v14
+    move-result v7
 
-    invoke-direct {v15, v1, v7, v9, v14}, Lcom/android/server/job/controllers/ContentObserverController$ObserverInstance;-><init>(Lcom/android/server/job/controllers/ContentObserverController;Landroid/os/Handler;Landroid/app/job/JobInfo$TriggerContentUri;I)V
-
-    move-object v10, v15
+    invoke-direct {v10, v1, v15, v9, v7}, Lcom/android/server/job/controllers/ContentObserverController$ObserverInstance;-><init>(Lcom/android/server/job/controllers/ContentObserverController;Landroid/os/Handler;Landroid/app/job/JobInfo$TriggerContentUri;I)V
 
     invoke-virtual {v5, v9, v10}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -166,13 +164,9 @@
 
     move-result v7
 
-    const/4 v14, 0x1
-
     and-int/2addr v7, v14
 
     if-eqz v7, :cond_1
-
-    const/4 v14, 0x1
 
     goto :goto_1
 
@@ -180,65 +174,63 @@
     const/4 v14, 0x0
 
     :goto_1
-    move v7, v14
+    invoke-static {}, Lcom/android/server/job/controllers/ContentObserverController;->-$$Nest$sfgetDEBUG()Z
 
-    invoke-static {}, Lcom/android/server/job/controllers/ContentObserverController;->access$000()Z
+    move-result v7
 
-    move-result v14
+    if-eqz v7, :cond_2
 
-    if-eqz v14, :cond_2
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    new-instance v14, Ljava/lang/StringBuilder;
-
-    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string v15, "New observer "
 
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v14, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v14, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v9}, Landroid/app/job/JobInfo$TriggerContentUri;->getUri()Landroid/net/Uri;
 
     move-result-object v12
 
-    invoke-virtual {v14, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v14, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v14, v7}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v14}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
     const-string v11, " sourceUserId="
 
-    invoke-virtual {v14, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v14, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v11
+    move-result-object v7
 
-    invoke-static {v13, v11}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v13, v7}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_2
-    iget-object v11, v1, Lcom/android/server/job/controllers/ContentObserverController;->mContext:Landroid/content/Context;
+    iget-object v7, v1, Lcom/android/server/job/controllers/StateController;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v11}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v7}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v11
+    move-result-object v7
 
     invoke-virtual {v9}, Landroid/app/job/JobInfo$TriggerContentUri;->getUri()Landroid/net/Uri;
 
-    move-result-object v12
+    move-result-object v9
 
-    invoke-virtual {v11, v12, v7, v10, v4}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
+    invoke-virtual {v7, v9, v14, v10, v4}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
 
     goto :goto_3
 
     :cond_3
-    invoke-static {}, Lcom/android/server/job/controllers/ContentObserverController;->access$000()Z
+    invoke-static {}, Lcom/android/server/job/controllers/ContentObserverController;->-$$Nest$sfgetDEBUG()Z
 
     move-result v7
 
@@ -247,8 +239,6 @@
     invoke-virtual {v9}, Landroid/app/job/JobInfo$TriggerContentUri;->getFlags()I
 
     move-result v7
-
-    const/4 v14, 0x1
 
     and-int/2addr v7, v14
 
@@ -260,35 +250,33 @@
     const/4 v14, 0x0
 
     :goto_2
-    move v7, v14
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    new-instance v14, Ljava/lang/StringBuilder;
-
-    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string v15, "Reusing existing observer "
 
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v14, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v14, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v9}, Landroid/app/job/JobInfo$TriggerContentUri;->getUri()Landroid/net/Uri;
 
-    move-result-object v12
+    move-result-object v9
 
-    invoke-virtual {v14, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v14, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v14, v7}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v14}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v11
+    move-result-object v7
 
-    invoke-static {v13, v11}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v13, v7}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_5
     :goto_3
@@ -310,7 +298,7 @@
 
 
 # virtual methods
-.method detachLocked()V
+.method public detachLocked()V
     .locals 5
 
     iget-object v0, p0, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->mMyObservers:Ljava/util/ArrayList;
@@ -344,7 +332,7 @@
 
     if-nez v3, :cond_1
 
-    invoke-static {}, Lcom/android/server/job/controllers/ContentObserverController;->access$000()Z
+    invoke-static {}, Lcom/android/server/job/controllers/ContentObserverController;->-$$Nest$sfgetDEBUG()Z
 
     move-result v3
 
@@ -383,7 +371,7 @@
     :cond_0
     iget-object v3, p0, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->this$0:Lcom/android/server/job/controllers/ContentObserverController;
 
-    iget-object v3, v3, Lcom/android/server/job/controllers/ContentObserverController;->mContext:Landroid/content/Context;
+    iget-object v3, v3, Lcom/android/server/job/controllers/StateController;->mContext:Landroid/content/Context;
 
     invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -405,9 +393,9 @@
 
     if-eqz v3, :cond_1
 
-    iget-object v4, v2, Lcom/android/server/job/controllers/ContentObserverController$ObserverInstance;->mUri:Landroid/app/job/JobInfo$TriggerContentUri;
+    iget-object v2, v2, Lcom/android/server/job/controllers/ContentObserverController$ObserverInstance;->mUri:Landroid/app/job/JobInfo$TriggerContentUri;
 
-    invoke-virtual {v3, v4}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v3, v2}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     :cond_1
     add-int/lit8 v1, v1, 0x1
@@ -418,7 +406,7 @@
     return-void
 .end method
 
-.method scheduleLocked()V
+.method public scheduleLocked()V
     .locals 4
 
     iget-boolean v0, p0, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->mTriggerPending:Z
@@ -466,9 +454,9 @@
 
     iget-object v0, v0, Lcom/android/server/job/controllers/ContentObserverController;->mHandler:Landroid/os/Handler;
 
-    iget-object v1, p0, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->mExecuteRunner:Ljava/lang/Runnable;
+    iget-object p0, p0, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->mExecuteRunner:Ljava/lang/Runnable;
 
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {v0, p0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     goto :goto_0
 
@@ -479,9 +467,9 @@
 
     iget-object v1, p0, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->mExecuteRunner:Ljava/lang/Runnable;
 
-    iget-object v2, p0, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->mJobStatus:Lcom/android/server/job/controllers/JobStatus;
+    iget-object p0, p0, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->mJobStatus:Lcom/android/server/job/controllers/JobStatus;
 
-    invoke-virtual {v2}, Lcom/android/server/job/controllers/JobStatus;->getTriggerContentUpdateDelay()J
+    invoke-virtual {p0}, Lcom/android/server/job/controllers/JobStatus;->getTriggerContentUpdateDelay()J
 
     move-result-wide v2
 
@@ -491,71 +479,77 @@
     return-void
 .end method
 
-.method trigger()V
-    .locals 6
+.method public trigger()V
+    .locals 5
 
-    const/4 v0, 0x0
+    iget-object v0, p0, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->this$0:Lcom/android/server/job/controllers/ContentObserverController;
 
-    iget-object v1, p0, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->this$0:Lcom/android/server/job/controllers/ContentObserverController;
+    iget-object v0, v0, Lcom/android/server/job/controllers/StateController;->mLock:Ljava/lang/Object;
 
-    iget-object v1, v1, Lcom/android/server/job/controllers/ContentObserverController;->mLock:Ljava/lang/Object;
-
-    monitor-enter v1
+    monitor-enter v0
 
     :try_start_0
-    iget-boolean v2, p0, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->mTriggerPending:Z
+    iget-boolean v1, p0, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->mTriggerPending:Z
 
-    if-eqz v2, :cond_1
+    if-eqz v1, :cond_0
 
-    sget-object v2, Lcom/android/server/job/JobSchedulerService;->sElapsedRealtimeClock:Ljava/time/Clock;
+    sget-object v1, Lcom/android/server/job/JobSchedulerService;->sElapsedRealtimeClock:Ljava/time/Clock;
 
-    invoke-virtual {v2}, Ljava/time/Clock;->millis()J
+    invoke-virtual {v1}, Ljava/time/Clock;->millis()J
 
-    move-result-wide v2
+    move-result-wide v1
 
-    iget-object v4, p0, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->mJobStatus:Lcom/android/server/job/controllers/JobStatus;
+    iget-object v3, p0, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->mJobStatus:Lcom/android/server/job/controllers/JobStatus;
 
-    const/4 v5, 0x1
+    const/4 v4, 0x1
 
-    invoke-virtual {v4, v2, v3, v5}, Lcom/android/server/job/controllers/JobStatus;->setContentTriggerConstraintSatisfied(JZ)Z
+    invoke-virtual {v3, v1, v2, v4}, Lcom/android/server/job/controllers/JobStatus;->setContentTriggerConstraintSatisfied(JZ)Z
 
-    move-result v4
+    move-result v1
 
-    if-eqz v4, :cond_0
-
-    const/4 v0, 0x1
-
-    :cond_0
     invoke-virtual {p0}, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->unscheduleLocked()V
 
-    :cond_1
-    monitor-exit v1
+    goto :goto_0
+
+    :cond_0
+    const/4 v1, 0x0
+
+    :goto_0
+    monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-eqz v0, :cond_2
+    if-eqz v1, :cond_1
 
-    iget-object v1, p0, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->this$0:Lcom/android/server/job/controllers/ContentObserverController;
+    new-instance v0, Landroid/util/ArraySet;
 
-    iget-object v1, v1, Lcom/android/server/job/controllers/ContentObserverController;->mStateChangedListener:Lcom/android/server/job/StateChangedListener;
+    invoke-direct {v0}, Landroid/util/ArraySet;-><init>()V
 
-    invoke-interface {v1}, Lcom/android/server/job/StateChangedListener;->onControllerStateChanged()V
+    iget-object v1, p0, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->mJobStatus:Lcom/android/server/job/controllers/JobStatus;
 
-    :cond_2
+    invoke-virtual {v0, v1}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
+
+    iget-object p0, p0, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->this$0:Lcom/android/server/job/controllers/ContentObserverController;
+
+    iget-object p0, p0, Lcom/android/server/job/controllers/StateController;->mStateChangedListener:Lcom/android/server/job/StateChangedListener;
+
+    invoke-interface {p0, v0}, Lcom/android/server/job/StateChangedListener;->onControllerStateChanged(Landroid/util/ArraySet;)V
+
+    :cond_1
     return-void
 
     :catchall_0
-    move-exception v2
+    move-exception p0
 
     :try_start_1
-    monitor-exit v1
+    monitor-exit v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v2
+    throw p0
 .end method
 
-.method unscheduleLocked()V
+.method public unscheduleLocked()V
     .locals 2
 
     iget-boolean v0, p0, Lcom/android/server/job/controllers/ContentObserverController$JobInstance;->mTriggerPending:Z

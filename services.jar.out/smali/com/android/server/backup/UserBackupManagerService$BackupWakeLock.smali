@@ -15,14 +15,22 @@
 
 
 # instance fields
-.field private mHasQuit:Z
+.field public mHasQuit:Z
 
-.field private final mPowerManagerWakeLock:Landroid/os/PowerManager$WakeLock;
+.field public final mPowerManagerWakeLock:Landroid/os/PowerManager$WakeLock;
 
-.field private mUserId:I
+.field public mUserId:I
 
 
 # direct methods
+.method public static bridge synthetic -$$Nest$fgetmPowerManagerWakeLock(Lcom/android/server/backup/UserBackupManagerService$BackupWakeLock;)Landroid/os/PowerManager$WakeLock;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/backup/UserBackupManagerService$BackupWakeLock;->mPowerManagerWakeLock:Landroid/os/PowerManager$WakeLock;
+
+    return-object p0
+.end method
+
 .method public constructor <init>(Landroid/os/PowerManager$WakeLock;I)V
     .locals 1
 
@@ -37,14 +45,6 @@
     iput p2, p0, Lcom/android/server/backup/UserBackupManagerService$BackupWakeLock;->mUserId:I
 
     return-void
-.end method
-
-.method static synthetic access$100(Lcom/android/server/backup/UserBackupManagerService$BackupWakeLock;)Landroid/os/PowerManager$WakeLock;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/backup/UserBackupManagerService$BackupWakeLock;->mPowerManagerWakeLock:Landroid/os/PowerManager$WakeLock;
-
-    return-object v0
 .end method
 
 
@@ -83,7 +83,7 @@
 
     move-result-object v2
 
-    invoke-static {v1, v2}, Lcom/android/server/backup/UserBackupManagerService;->access$000(ILjava/lang/String;)Ljava/lang/String;
+    invoke-static {v1, v2}, Lcom/android/server/backup/UserBackupManagerService;->-$$Nest$smaddUserIdToLogMessage(ILjava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -125,7 +125,7 @@
 
     move-result-object v2
 
-    invoke-static {v1, v2}, Lcom/android/server/backup/UserBackupManagerService;->access$000(ILjava/lang/String;)Ljava/lang/String;
+    invoke-static {v1, v2}, Lcom/android/server/backup/UserBackupManagerService;->-$$Nest$smaddUserIdToLogMessage(ILjava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -136,32 +136,6 @@
     monitor-exit p0
 
     return-void
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit p0
-
-    throw v0
-.end method
-
-.method public declared-synchronized isHeld()Z
-    .locals 1
-
-    monitor-enter p0
-
-    :try_start_0
-    iget-object v0, p0, Lcom/android/server/backup/UserBackupManagerService$BackupWakeLock;->mPowerManagerWakeLock:Landroid/os/PowerManager$WakeLock;
-
-    invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->isHeld()Z
-
-    move-result v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    monitor-exit p0
-
-    return v0
 
     :catchall_0
     move-exception v0
@@ -210,7 +184,7 @@
 
     move-result-object v2
 
-    invoke-static {v1, v2}, Lcom/android/server/backup/UserBackupManagerService;->access$000(ILjava/lang/String;)Ljava/lang/String;
+    invoke-static {v1, v2}, Lcom/android/server/backup/UserBackupManagerService;->-$$Nest$smaddUserIdToLogMessage(ILjava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -275,7 +249,7 @@
 
     move-result-object v2
 
-    invoke-static {v1, v2}, Lcom/android/server/backup/UserBackupManagerService;->access$000(ILjava/lang/String;)Ljava/lang/String;
+    invoke-static {v1, v2}, Lcom/android/server/backup/UserBackupManagerService;->-$$Nest$smaddUserIdToLogMessage(ILjava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -317,7 +291,7 @@
 
     move-result-object v2
 
-    invoke-static {v1, v2}, Lcom/android/server/backup/UserBackupManagerService;->access$000(ILjava/lang/String;)Ljava/lang/String;
+    invoke-static {v1, v2}, Lcom/android/server/backup/UserBackupManagerService;->-$$Nest$smaddUserIdToLogMessage(ILjava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 

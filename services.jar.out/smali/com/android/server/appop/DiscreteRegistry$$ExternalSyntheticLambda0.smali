@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/appop/DiscreteRegistry$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/provider/DeviceConfig$OnPropertiesChangedListener;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final onPropertiesChanged(Landroid/provider/DeviceConfig$Properties;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/appop/DiscreteRegistry$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/appop/DiscreteRegistry;
+    iget-object p0, p0, Lcom/android/server/appop/DiscreteRegistry$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/appop/DiscreteRegistry;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/appop/DiscreteRegistry;->lambda$systemReady$0$DiscreteRegistry(Landroid/provider/DeviceConfig$Properties;)V
+    invoke-static {p0, p1}, Lcom/android/server/appop/DiscreteRegistry;->$r8$lambda$SjeSeQ_a7HiztqnB4BFEGNosG2g(Lcom/android/server/appop/DiscreteRegistry;Landroid/provider/DeviceConfig$Properties;)V
 
     return-void
 .end method

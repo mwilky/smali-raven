@@ -6,12 +6,6 @@
 .implements Lcom/android/server/notification/NotificationSignalExtractor;
 
 
-# static fields
-.field private static final DBG:Z = false
-
-.field private static final TAG:Ljava/lang/String; = "AdjustmentExtractor"
-
-
 # direct methods
 .method public constructor <init>()V
     .locals 0
@@ -30,28 +24,26 @@
 .end method
 
 .method public process(Lcom/android/server/notification/NotificationRecord;)Lcom/android/server/notification/RankingReconsideration;
-    .locals 2
+    .locals 1
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     if-eqz p1, :cond_1
 
     invoke-virtual {p1}, Lcom/android/server/notification/NotificationRecord;->getNotification()Landroid/app/Notification;
 
-    move-result-object v1
+    move-result-object v0
 
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
     goto :goto_0
 
     :cond_0
     invoke-virtual {p1}, Lcom/android/server/notification/NotificationRecord;->applyAdjustments()V
 
-    return-object v0
-
     :cond_1
     :goto_0
-    return-object v0
+    return-object p0
 .end method
 
 .method public setConfig(Lcom/android/server/notification/RankingConfig;)V

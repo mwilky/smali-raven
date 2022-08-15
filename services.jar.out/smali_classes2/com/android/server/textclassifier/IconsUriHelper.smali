@@ -4,6 +4,10 @@
 
 
 # annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    visibility = .enum Lcom/android/internal/annotations/VisibleForTesting$Visibility;->PACKAGE:Lcom/android/internal/annotations/VisibleForTesting$Visibility;
+.end annotation
+
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/android/server/textclassifier/IconsUriHelper$ResourceInfo;
@@ -12,9 +16,7 @@
 
 
 # static fields
-.field public static final AUTHORITY:Ljava/lang/String; = "com.android.textclassifier.icons"
-
-.field private static final DEFAULT_ID_SUPPLIER:Ljava/util/function/Supplier;
+.field public static final DEFAULT_ID_SUPPLIER:Ljava/util/function/Supplier;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/function/Supplier<",
@@ -24,13 +26,11 @@
     .end annotation
 .end field
 
-.field private static final TAG:Ljava/lang/String; = "IconsUriHelper"
-
-.field private static final sSingleton:Lcom/android/server/textclassifier/IconsUriHelper;
+.field public static final sSingleton:Lcom/android/server/textclassifier/IconsUriHelper;
 
 
 # instance fields
-.field private final mIdSupplier:Ljava/util/function/Supplier;
+.field public final mIdSupplier:Ljava/util/function/Supplier;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/function/Supplier<",
@@ -40,7 +40,13 @@
     .end annotation
 .end field
 
-.field private final mPackageIds:Ljava/util/Map;
+.field public final mPackageIds:Ljava/util/Map;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mPackageIds"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Map<",
@@ -53,10 +59,22 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static synthetic $r8$lambda$XBms8Xe-RBU7GqcU8VdyTW9Tt9A()Ljava/lang/String;
+    .locals 1
+
+    invoke-static {}, Lcom/android/server/textclassifier/IconsUriHelper;->lambda$static$0()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public static constructor <clinit>()V
     .locals 2
 
-    sget-object v0, Lcom/android/server/textclassifier/IconsUriHelper$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/server/textclassifier/IconsUriHelper$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/android/server/textclassifier/IconsUriHelper$$ExternalSyntheticLambda0;
+
+    invoke-direct {v0}, Lcom/android/server/textclassifier/IconsUriHelper$$ExternalSyntheticLambda0;-><init>()V
 
     sput-object v0, Lcom/android/server/textclassifier/IconsUriHelper;->DEFAULT_ID_SUPPLIER:Ljava/util/function/Supplier;
 
@@ -71,8 +89,8 @@
     return-void
 .end method
 
-.method private constructor <init>(Ljava/util/function/Supplier;)V
-    .locals 2
+.method public constructor <init>(Ljava/util/function/Supplier;)V
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -92,24 +110,22 @@
 
     if-eqz p1, :cond_0
 
-    move-object v1, p1
-
     goto :goto_0
 
     :cond_0
-    sget-object v1, Lcom/android/server/textclassifier/IconsUriHelper;->DEFAULT_ID_SUPPLIER:Ljava/util/function/Supplier;
+    sget-object p1, Lcom/android/server/textclassifier/IconsUriHelper;->DEFAULT_ID_SUPPLIER:Ljava/util/function/Supplier;
 
     :goto_0
-    iput-object v1, p0, Lcom/android/server/textclassifier/IconsUriHelper;->mIdSupplier:Ljava/util/function/Supplier;
+    iput-object p1, p0, Lcom/android/server/textclassifier/IconsUriHelper;->mIdSupplier:Ljava/util/function/Supplier;
 
-    const-string v1, "android"
+    const-string p0, "android"
 
-    invoke-interface {v0, v1, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, p0, p0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     return-void
 .end method
 
-.method static getInstance()Lcom/android/server/textclassifier/IconsUriHelper;
+.method public static getInstance()Lcom/android/server/textclassifier/IconsUriHelper;
     .locals 1
 
     sget-object v0, Lcom/android/server/textclassifier/IconsUriHelper;->sSingleton:Lcom/android/server/textclassifier/IconsUriHelper;
@@ -117,7 +133,7 @@
     return-object v0
 .end method
 
-.method static synthetic lambda$static$0()Ljava/lang/String;
+.method public static synthetic lambda$static$0()Ljava/lang/String;
     .locals 1
 
     invoke-static {}, Ljava/util/UUID;->randomUUID()Ljava/util/UUID;
@@ -127,25 +143,6 @@
     invoke-virtual {v0}, Ljava/util/UUID;->toString()Ljava/lang/String;
 
     move-result-object v0
-
-    return-object v0
-.end method
-
-.method public static newInstanceForTesting(Ljava/util/function/Supplier;)Lcom/android/server/textclassifier/IconsUriHelper;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/function/Supplier<",
-            "Ljava/lang/String;",
-            ">;)",
-            "Lcom/android/server/textclassifier/IconsUriHelper;"
-        }
-    .end annotation
-
-    new-instance v0, Lcom/android/server/textclassifier/IconsUriHelper;
-
-    invoke-direct {v0, p0}, Lcom/android/server/textclassifier/IconsUriHelper;-><init>(Ljava/util/function/Supplier;)V
 
     return-object v0
 .end method
@@ -199,46 +196,46 @@
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/android/server/textclassifier/IconsUriHelper;->mPackageIds:Ljava/util/Map;
+    iget-object p0, p0, Lcom/android/server/textclassifier/IconsUriHelper;->mPackageIds:Ljava/util/Map;
 
-    invoke-interface {v2, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p0
 
-    check-cast v2, Ljava/lang/String;
+    check-cast p0, Ljava/lang/String;
 
-    invoke-virtual {v1, v2}, Landroid/net/Uri$Builder;->path(Ljava/lang/String;)Landroid/net/Uri$Builder;
+    invoke-virtual {v1, p0}, Landroid/net/Uri$Builder;->path(Ljava/lang/String;)Landroid/net/Uri$Builder;
 
-    move-result-object v1
+    move-result-object p0
 
     invoke-static {p2}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {v1, v2}, Landroid/net/Uri$Builder;->appendPath(Ljava/lang/String;)Landroid/net/Uri$Builder;
+    invoke-virtual {p0, p1}, Landroid/net/Uri$Builder;->appendPath(Ljava/lang/String;)Landroid/net/Uri$Builder;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v1}, Landroid/net/Uri$Builder;->build()Landroid/net/Uri;
+    invoke-virtual {p0}, Landroid/net/Uri$Builder;->build()Landroid/net/Uri;
 
-    move-result-object v1
+    move-result-object p0
 
     monitor-exit v0
 
-    return-object v1
+    return-object p0
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
 .method public getResourceInfo(Landroid/net/Uri;)Lcom/android/server/textclassifier/IconsUriHelper$ResourceInfo;
-    .locals 8
+    .locals 6
 
     const-string v0, "content"
 
@@ -274,124 +271,121 @@
     :cond_1
     invoke-virtual {p1}, Landroid/net/Uri;->getPathSegments()Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p1
 
     :try_start_0
-    iget-object v2, p0, Lcom/android/server/textclassifier/IconsUriHelper;->mPackageIds:Ljava/util/Map;
+    iget-object v0, p0, Lcom/android/server/textclassifier/IconsUriHelper;->mPackageIds:Ljava/util/Map;
 
-    monitor-enter v2
+    monitor-enter v0
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
     :try_start_1
-    invoke-interface {v0, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {p1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/lang/String;
+
+    const/4 v3, 0x1
+
+    invoke-interface {p1, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Ljava/lang/String;
+
+    invoke-static {p1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result p1
+
+    iget-object v3, p0, Lcom/android/server/textclassifier/IconsUriHelper;->mPackageIds:Ljava/util/Map;
+
+    invoke-interface {v3}, Ljava/util/Map;->keySet()Ljava/util/Set;
 
     move-result-object v3
 
-    check-cast v3, Ljava/lang/String;
+    invoke-interface {v3}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    const/4 v4, 0x1
+    move-result-object v3
 
-    invoke-interface {v0, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    :cond_2
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_3
+
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v4
 
     check-cast v4, Ljava/lang/String;
 
-    invoke-static {v4}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-
-    move-result v4
-
     iget-object v5, p0, Lcom/android/server/textclassifier/IconsUriHelper;->mPackageIds:Ljava/util/Map;
 
-    invoke-interface {v5}, Ljava/util/Map;->keySet()Ljava/util/Set;
+    invoke-interface {v5, v4}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v5
 
-    invoke-interface {v5}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v2, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result-object v5
+    move-result v5
 
-    :goto_0
-    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
+    if-eqz v5, :cond_2
 
-    move-result v6
+    new-instance p0, Lcom/android/server/textclassifier/IconsUriHelper$ResourceInfo;
 
-    if-eqz v6, :cond_3
+    invoke-direct {p0, v4, p1, v1}, Lcom/android/server/textclassifier/IconsUriHelper$ResourceInfo;-><init>(Ljava/lang/String;ILcom/android/server/textclassifier/IconsUriHelper$ResourceInfo-IA;)V
 
-    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    monitor-exit v0
 
-    move-result-object v6
-
-    check-cast v6, Ljava/lang/String;
-
-    iget-object v7, p0, Lcom/android/server/textclassifier/IconsUriHelper;->mPackageIds:Ljava/util/Map;
-
-    invoke-interface {v7, v6}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v7
-
-    invoke-virtual {v3, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_2
-
-    new-instance v5, Lcom/android/server/textclassifier/IconsUriHelper$ResourceInfo;
-
-    invoke-direct {v5, v6, v4, v1}, Lcom/android/server/textclassifier/IconsUriHelper$ResourceInfo;-><init>(Ljava/lang/String;ILcom/android/server/textclassifier/IconsUriHelper$1;)V
-
-    monitor-exit v2
-
-    return-object v5
-
-    :cond_2
-    goto :goto_0
+    return-object p0
 
     :cond_3
-    monitor-exit v2
+    monitor-exit v0
 
-    goto :goto_1
+    goto :goto_0
 
     :catchall_0
-    move-exception v3
+    move-exception p0
 
-    monitor-exit v2
+    monitor-exit v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     :try_start_2
-    throw v3
+    throw p0
     :try_end_2
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
 
     :catch_0
-    move-exception v2
+    move-exception p0
 
-    const-string v3, "IconsUriHelper"
+    const-string p1, "IconsUriHelper"
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "Could not get resource info. Reason: "
+    const-string v2, "Could not get resource info. Reason: "
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object p0
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object p0
 
-    invoke-static {v3, v4}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p1, p0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    :goto_1
+    :goto_0
     return-object v1
 .end method

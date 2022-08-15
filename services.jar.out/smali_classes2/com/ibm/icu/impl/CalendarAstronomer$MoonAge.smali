@@ -1,4 +1,4 @@
-.class Lcom/ibm/icu/impl/CalendarAstronomer$MoonAge;
+.class public Lcom/ibm/icu/impl/CalendarAstronomer$MoonAge;
 .super Ljava/lang/Object;
 .source "CalendarAstronomer.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "MoonAge"
 .end annotation
 
 
 # instance fields
-.field value:D
+.field public value:D
 
 
 # direct methods
-.method constructor <init>(D)V
+.method public constructor <init>(D)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

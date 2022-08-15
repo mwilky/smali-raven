@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/NetworkScoreService$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/server/pm/permission/LegacyPermissionManagerInternal$PackagesProvider;
@@ -23,13 +24,13 @@
 
 # virtual methods
 .method public final getPackages(I)[Ljava/lang/String;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/NetworkScoreService$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/NetworkScoreService;
+    iget-object p0, p0, Lcom/android/server/NetworkScoreService$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/NetworkScoreService;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/NetworkScoreService;->lambda$new$0$NetworkScoreService(I)[Ljava/lang/String;
+    invoke-static {p0, p1}, Lcom/android/server/NetworkScoreService;->$r8$lambda$_c6Oc0XDUETS7rKJh93oRJuo5C0(Lcom/android/server/NetworkScoreService;I)[Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method

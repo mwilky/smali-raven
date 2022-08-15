@@ -1,9 +1,10 @@
-.class Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;
+.class public Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;
 .super Ljava/lang/Object;
 .source "SoundTriggerModule.java"
 
 # interfaces
-.implements Landroid/os/IHwBinder$DeathRecipient;
+.implements Landroid/os/IBinder$DeathRecipient;
+.implements Lcom/android/server/soundtrigger_middleware/ISoundTriggerHal$GlobalCallback;
 
 
 # annotations
@@ -15,14 +16,8 @@
 .end annotation
 
 
-# static fields
-.field static final synthetic $assertionsDisabled:Z = false
-
-.field private static final TAG:Ljava/lang/String; = "SoundTriggerModule"
-
-
 # instance fields
-.field private final mActiveSessions:Ljava/util/Set;
+.field public final mActiveSessions:Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Set<",
@@ -32,27 +27,49 @@
     .end annotation
 .end field
 
-.field private final mAudioSessionProvider:Lcom/android/server/soundtrigger_middleware/SoundTriggerMiddlewareImpl$AudioSessionProvider;
+.field public final mAudioSessionProvider:Lcom/android/server/soundtrigger_middleware/SoundTriggerMiddlewareImpl$AudioSessionProvider;
 
-.field private mHalFactory:Lcom/android/server/soundtrigger_middleware/HalFactory;
+.field public final mHalFactory:Lcom/android/server/soundtrigger_middleware/HalFactory;
 
-.field private mHalService:Lcom/android/server/soundtrigger_middleware/ISoundTriggerHw2;
+.field public mHalService:Lcom/android/server/soundtrigger_middleware/ISoundTriggerHal;
 
-.field private mNumLoadedModels:I
-
-.field private mProperties:Landroid/media/soundtrigger_middleware/SoundTriggerModuleProperties;
-
-.field private mRecognitionAvailable:Z
+.field public mProperties:Landroid/media/soundtrigger/Properties;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static bridge synthetic -$$Nest$fgetmAudioSessionProvider(Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;)Lcom/android/server/soundtrigger_middleware/SoundTriggerMiddlewareImpl$AudioSessionProvider;
     .locals 0
+
+    iget-object p0, p0, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;->mAudioSessionProvider:Lcom/android/server/soundtrigger_middleware/SoundTriggerMiddlewareImpl$AudioSessionProvider;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmHalService(Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;)Lcom/android/server/soundtrigger_middleware/ISoundTriggerHal;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;->mHalService:Lcom/android/server/soundtrigger_middleware/ISoundTriggerHal;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$mremoveSession(Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;Lcom/android/server/soundtrigger_middleware/SoundTriggerModule$Session;)V
+    .locals 0
+
+    invoke-virtual {p0, p1}, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;->removeSession(Lcom/android/server/soundtrigger_middleware/SoundTriggerModule$Session;)V
 
     return-void
 .end method
 
-.method constructor <init>(Lcom/android/server/soundtrigger_middleware/HalFactory;Lcom/android/server/soundtrigger_middleware/SoundTriggerMiddlewareImpl$AudioSessionProvider;)V
+.method public static constructor <clinit>()V
+    .locals 1
+
+    const-class v0, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;
+
+    return-void
+.end method
+
+.method public constructor <init>(Lcom/android/server/soundtrigger_middleware/HalFactory;Lcom/android/server/soundtrigger_middleware/SoundTriggerMiddlewareImpl$AudioSessionProvider;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -63,228 +80,18 @@
 
     iput-object v0, p0, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;->mActiveSessions:Ljava/util/Set;
 
-    const/4 v0, 0x0
-
-    iput v0, p0, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;->mNumLoadedModels:I
-
-    nop
-
     iput-object p1, p0, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;->mHalFactory:Lcom/android/server/soundtrigger_middleware/HalFactory;
 
     iput-object p2, p0, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;->mAudioSessionProvider:Lcom/android/server/soundtrigger_middleware/SoundTriggerMiddlewareImpl$AudioSessionProvider;
 
-    invoke-direct {p0}, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;->attachToHal()V
-
-    iget-object v0, p0, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;->mHalService:Lcom/android/server/soundtrigger_middleware/ISoundTriggerHw2;
-
-    invoke-interface {v0}, Lcom/android/server/soundtrigger_middleware/ISoundTriggerHw2;->getProperties()Landroid/hardware/soundtrigger/V2_3/Properties;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/android/server/soundtrigger_middleware/ConversionUtil;->hidl2aidlProperties(Landroid/hardware/soundtrigger/V2_3/Properties;)Landroid/media/soundtrigger_middleware/SoundTriggerModuleProperties;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;->mProperties:Landroid/media/soundtrigger_middleware/SoundTriggerModuleProperties;
-
-    iget-boolean v0, v0, Landroid/media/soundtrigger_middleware/SoundTriggerModuleProperties;->concurrentCapture:Z
-
-    iput-boolean v0, p0, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;->mRecognitionAvailable:Z
-
-    return-void
-.end method
-
-.method static synthetic access$1900(Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;->mRecognitionAvailable:Z
-
-    return v0
-.end method
-
-.method static synthetic access$2000(Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;)Lcom/android/server/soundtrigger_middleware/ISoundTriggerHw2;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;->mHalService:Lcom/android/server/soundtrigger_middleware/ISoundTriggerHw2;
-
-    return-object v0
-.end method
-
-.method static synthetic access$2200()Landroid/media/soundtrigger_middleware/RecognitionEvent;
-    .locals 1
-
-    invoke-static {}, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;->newEmptyRecognitionEvent()Landroid/media/soundtrigger_middleware/RecognitionEvent;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method static synthetic access$2400()Landroid/media/soundtrigger_middleware/PhraseRecognitionEvent;
-    .locals 1
-
-    invoke-static {}, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;->newEmptyPhraseRecognitionEvent()Landroid/media/soundtrigger_middleware/PhraseRecognitionEvent;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method static synthetic access$400(Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;Lcom/android/server/soundtrigger_middleware/SoundTriggerModule$Session;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;->removeSession(Lcom/android/server/soundtrigger_middleware/SoundTriggerModule$Session;)V
-
-    return-void
-.end method
-
-.method static synthetic access$500(Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;)Lcom/android/server/soundtrigger_middleware/SoundTriggerMiddlewareImpl$AudioSessionProvider;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;->mAudioSessionProvider:Lcom/android/server/soundtrigger_middleware/SoundTriggerMiddlewareImpl$AudioSessionProvider;
-
-    return-object v0
-.end method
-
-.method static synthetic access$600(Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;->mNumLoadedModels:I
-
-    return v0
-.end method
-
-.method static synthetic access$604(Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;->mNumLoadedModels:I
-
-    add-int/lit8 v0, v0, 0x1
-
-    iput v0, p0, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;->mNumLoadedModels:I
-
-    return v0
-.end method
-
-.method static synthetic access$606(Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;->mNumLoadedModels:I
-
-    add-int/lit8 v0, v0, -0x1
-
-    iput v0, p0, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;->mNumLoadedModels:I
-
-    return v0
-.end method
-
-.method static synthetic access$700(Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;)Landroid/media/soundtrigger_middleware/SoundTriggerModuleProperties;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;->mProperties:Landroid/media/soundtrigger_middleware/SoundTriggerModuleProperties;
-
-    return-object v0
-.end method
-
-.method private attachToHal()V
-    .locals 4
-
-    new-instance v0, Lcom/android/server/soundtrigger_middleware/SoundTriggerHw2Enforcer;
-
-    new-instance v1, Lcom/android/server/soundtrigger_middleware/SoundTriggerHw2Watchdog;
-
-    new-instance v2, Lcom/android/server/soundtrigger_middleware/SoundTriggerHw2Compat;
-
-    iget-object v3, p0, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;->mHalFactory:Lcom/android/server/soundtrigger_middleware/HalFactory;
-
-    invoke-interface {v3}, Lcom/android/server/soundtrigger_middleware/HalFactory;->create()Landroid/hardware/soundtrigger/V2_0/ISoundTriggerHw;
-
-    move-result-object v3
-
-    invoke-direct {v2, v3}, Lcom/android/server/soundtrigger_middleware/SoundTriggerHw2Compat;-><init>(Landroid/hardware/soundtrigger/V2_0/ISoundTriggerHw;)V
-
-    invoke-direct {v1, v2}, Lcom/android/server/soundtrigger_middleware/SoundTriggerHw2Watchdog;-><init>(Lcom/android/server/soundtrigger_middleware/ISoundTriggerHw2;)V
-
-    invoke-direct {v0, v1}, Lcom/android/server/soundtrigger_middleware/SoundTriggerHw2Enforcer;-><init>(Lcom/android/server/soundtrigger_middleware/ISoundTriggerHw2;)V
-
-    iput-object v0, p0, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;->mHalService:Lcom/android/server/soundtrigger_middleware/ISoundTriggerHw2;
-
-    const-wide/16 v1, 0x0
-
-    invoke-interface {v0, p0, v1, v2}, Lcom/android/server/soundtrigger_middleware/ISoundTriggerHw2;->linkToDeath(Landroid/os/IHwBinder$DeathRecipient;J)Z
-
-    return-void
-.end method
-
-.method private static newEmptyPhraseRecognitionEvent()Landroid/media/soundtrigger_middleware/PhraseRecognitionEvent;
-    .locals 2
-
-    new-instance v0, Landroid/media/soundtrigger_middleware/PhraseRecognitionEvent;
-
-    invoke-direct {v0}, Landroid/media/soundtrigger_middleware/PhraseRecognitionEvent;-><init>()V
-
-    invoke-static {}, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;->newEmptyRecognitionEvent()Landroid/media/soundtrigger_middleware/RecognitionEvent;
-
-    move-result-object v1
-
-    iput-object v1, v0, Landroid/media/soundtrigger_middleware/PhraseRecognitionEvent;->common:Landroid/media/soundtrigger_middleware/RecognitionEvent;
-
-    const/4 v1, 0x0
-
-    new-array v1, v1, [Landroid/media/soundtrigger_middleware/PhraseRecognitionExtra;
-
-    iput-object v1, v0, Landroid/media/soundtrigger_middleware/PhraseRecognitionEvent;->phraseExtras:[Landroid/media/soundtrigger_middleware/PhraseRecognitionExtra;
-
-    return-object v0
-.end method
-
-.method private static newEmptyRecognitionEvent()Landroid/media/soundtrigger_middleware/RecognitionEvent;
-    .locals 2
-
-    new-instance v0, Landroid/media/soundtrigger_middleware/RecognitionEvent;
-
-    invoke-direct {v0}, Landroid/media/soundtrigger_middleware/RecognitionEvent;-><init>()V
-
-    const/4 v1, 0x0
-
-    new-array v1, v1, [B
-
-    iput-object v1, v0, Landroid/media/soundtrigger_middleware/RecognitionEvent;->data:[B
-
-    return-object v0
-.end method
-
-.method private removeSession(Lcom/android/server/soundtrigger_middleware/SoundTriggerModule$Session;)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;->mActiveSessions:Ljava/util/Set;
-
-    invoke-interface {v0, p1}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
-
-    return-void
-.end method
-
-.method private reset()V
-    .locals 1
-
-    invoke-direct {p0}, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;->attachToHal()V
-
-    iget-object v0, p0, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;->mProperties:Landroid/media/soundtrigger_middleware/SoundTriggerModuleProperties;
-
-    iget-boolean v0, v0, Landroid/media/soundtrigger_middleware/SoundTriggerModuleProperties;->concurrentCapture:Z
-
-    iput-boolean v0, p0, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;->mRecognitionAvailable:Z
-
-    const/4 v0, 0x0
-
-    iput v0, p0, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;->mNumLoadedModels:I
+    invoke-virtual {p0}, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;->attachToHal()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method declared-synchronized attach(Landroid/media/soundtrigger_middleware/ISoundTriggerCallback;)Landroid/media/soundtrigger_middleware/ISoundTriggerModule;
+.method public declared-synchronized attach(Landroid/media/soundtrigger_middleware/ISoundTriggerCallback;)Landroid/media/soundtrigger_middleware/ISoundTriggerModule;
     .locals 2
 
     monitor-enter p0
@@ -294,11 +101,11 @@
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, p0, p1, v1}, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule$Session;-><init>(Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;Landroid/media/soundtrigger_middleware/ISoundTriggerCallback;Lcom/android/server/soundtrigger_middleware/SoundTriggerModule$1;)V
+    invoke-direct {v0, p0, p1, v1}, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule$Session;-><init>(Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;Landroid/media/soundtrigger_middleware/ISoundTriggerCallback;Lcom/android/server/soundtrigger_middleware/SoundTriggerModule$Session-IA;)V
 
-    iget-object v1, p0, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;->mActiveSessions:Ljava/util/Set;
+    iget-object p1, p0, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;->mActiveSessions:Ljava/util/Set;
 
-    invoke-interface {v1, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -314,42 +121,48 @@
     throw p1
 .end method
 
-.method declared-synchronized getProperties()Landroid/media/soundtrigger_middleware/SoundTriggerModuleProperties;
-    .locals 1
+.method public final attachToHal()V
+    .locals 3
 
-    monitor-enter p0
+    new-instance v0, Lcom/android/server/soundtrigger_middleware/SoundTriggerHalEnforcer;
 
-    :try_start_0
-    iget-object v0, p0, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;->mProperties:Landroid/media/soundtrigger_middleware/SoundTriggerModuleProperties;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    new-instance v1, Lcom/android/server/soundtrigger_middleware/SoundTriggerHalWatchdog;
 
-    monitor-exit p0
+    iget-object v2, p0, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;->mHalFactory:Lcom/android/server/soundtrigger_middleware/HalFactory;
 
-    return-object v0
+    invoke-interface {v2}, Lcom/android/server/soundtrigger_middleware/HalFactory;->create()Lcom/android/server/soundtrigger_middleware/ISoundTriggerHal;
 
-    :catchall_0
-    move-exception v0
+    move-result-object v2
 
-    monitor-exit p0
+    invoke-direct {v1, v2}, Lcom/android/server/soundtrigger_middleware/SoundTriggerHalWatchdog;-><init>(Lcom/android/server/soundtrigger_middleware/ISoundTriggerHal;)V
 
-    throw v0
+    invoke-direct {v0, v1}, Lcom/android/server/soundtrigger_middleware/SoundTriggerHalEnforcer;-><init>(Lcom/android/server/soundtrigger_middleware/ISoundTriggerHal;)V
+
+    iput-object v0, p0, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;->mHalService:Lcom/android/server/soundtrigger_middleware/ISoundTriggerHal;
+
+    invoke-interface {v0, p0}, Lcom/android/server/soundtrigger_middleware/ISoundTriggerHal;->linkToDeath(Landroid/os/IBinder$DeathRecipient;)V
+
+    iget-object v0, p0, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;->mHalService:Lcom/android/server/soundtrigger_middleware/ISoundTriggerHal;
+
+    invoke-interface {v0, p0}, Lcom/android/server/soundtrigger_middleware/ISoundTriggerHal;->registerCallback(Lcom/android/server/soundtrigger_middleware/ISoundTriggerHal$GlobalCallback;)V
+
+    iget-object v0, p0, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;->mHalService:Lcom/android/server/soundtrigger_middleware/ISoundTriggerHal;
+
+    invoke-interface {v0}, Lcom/android/server/soundtrigger_middleware/ISoundTriggerHal;->getProperties()Landroid/media/soundtrigger/Properties;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;->mProperties:Landroid/media/soundtrigger/Properties;
+
+    return-void
 .end method
 
-.method public serviceDied(J)V
-    .locals 4
+.method public binderDied()V
+    .locals 3
 
     const-string v0, "SoundTriggerModule"
 
     const-string v1, "Underlying HAL driver died."
-
-    const/4 v2, 0x0
-
-    new-array v2, v2, [Ljava/lang/Object;
-
-    invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v1
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -385,13 +198,11 @@
 
     check-cast v2, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule$Session;
 
-    invoke-static {v2}, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule$Session;->access$300(Lcom/android/server/soundtrigger_middleware/SoundTriggerModule$Session;)Landroid/media/soundtrigger_middleware/ISoundTriggerCallback;
+    invoke-static {v2}, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule$Session;->-$$Nest$mmoduleDied(Lcom/android/server/soundtrigger_middleware/SoundTriggerModule$Session;)Landroid/media/soundtrigger_middleware/ISoundTriggerCallback;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-interface {v0, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    nop
+    invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
@@ -400,7 +211,7 @@
 
     invoke-interface {v1}, Ljava/util/Set;->clear()V
 
-    invoke-direct {p0}, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;->reset()V
+    invoke-virtual {p0}, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;->reset()V
 
     monitor-exit p0
     :try_end_0
@@ -408,38 +219,36 @@
 
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v1
+    move-result-object p0
 
     :goto_1
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_1
+    if-eqz v0, :cond_1
 
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
-    check-cast v2, Landroid/media/soundtrigger_middleware/ISoundTriggerCallback;
+    check-cast v0, Landroid/media/soundtrigger_middleware/ISoundTriggerCallback;
 
     :try_start_1
-    invoke-interface {v2}, Landroid/media/soundtrigger_middleware/ISoundTriggerCallback;->onModuleDied()V
+    invoke-interface {v0}, Landroid/media/soundtrigger_middleware/ISoundTriggerCallback;->onModuleDied()V
     :try_end_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
-
-    nop
 
     goto :goto_1
 
     :catch_0
-    move-exception v1
+    move-exception p0
 
-    invoke-virtual {v1}, Landroid/os/RemoteException;->rethrowAsRuntimeException()Ljava/lang/RuntimeException;
+    invoke-virtual {p0}, Landroid/os/RemoteException;->rethrowAsRuntimeException()Ljava/lang/RuntimeException;
 
-    move-result-object v3
+    move-result-object p0
 
-    throw v3
+    throw p0
 
     :cond_1
     return-void
@@ -455,40 +264,43 @@
     throw v0
 .end method
 
-.method setExternalCaptureState(Z)V
-    .locals 3
-
-    new-instance v0, Ljava/util/LinkedList;
-
-    invoke-direct {v0}, Ljava/util/LinkedList;-><init>()V
+.method public declared-synchronized getProperties()Landroid/media/soundtrigger/Properties;
+    .locals 1
 
     monitor-enter p0
 
     :try_start_0
-    iget-object v1, p0, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;->mProperties:Landroid/media/soundtrigger_middleware/SoundTriggerModuleProperties;
-
-    iget-boolean v1, v1, Landroid/media/soundtrigger_middleware/SoundTriggerModuleProperties;->concurrentCapture:Z
-
-    if-eqz v1, :cond_0
+    iget-object v0, p0, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;->mProperties:Landroid/media/soundtrigger/Properties;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
-    return-void
+    return-object v0
 
-    :cond_0
-    if-nez p1, :cond_1
+    :catchall_0
+    move-exception v0
 
-    const/4 v1, 0x1
+    monitor-exit p0
 
-    goto :goto_0
+    throw v0
+.end method
 
-    :cond_1
-    const/4 v1, 0x0
+.method public onResourcesAvailable()V
+    .locals 3
 
-    :goto_0
-    iput-boolean v1, p0, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;->mRecognitionAvailable:Z
+    monitor-enter p0
 
-    if-nez v1, :cond_2
+    :try_start_0
+    new-instance v0, Ljava/util/ArrayList;
+
+    iget-object v1, p0, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;->mActiveSessions:Ljava/util/Set;
+
+    invoke-interface {v1}, Ljava/util/Set;->size()I
+
+    move-result v1
+
+    invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(I)V
 
     iget-object v1, p0, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;->mActiveSessions:Ljava/util/Set;
 
@@ -496,12 +308,12 @@
 
     move-result-object v1
 
-    :goto_1
+    :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_0
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -509,70 +321,84 @@
 
     check-cast v2, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule$Session;
 
-    invoke-static {v2, v0}, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule$Session;->access$100(Lcom/android/server/soundtrigger_middleware/SoundTriggerModule$Session;Ljava/util/List;)V
+    invoke-static {v2}, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule$Session;->-$$Nest$fgetmCallback(Lcom/android/server/soundtrigger_middleware/SoundTriggerModule$Session;)Landroid/media/soundtrigger_middleware/ISoundTriggerCallback;
 
-    goto :goto_1
+    move-result-object v2
 
-    :cond_2
+    invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    goto :goto_0
+
+    :cond_0
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v1
+    move-result-object p0
 
-    :goto_2
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    :goto_1
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_3
+    if-eqz v0, :cond_1
 
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
-    check-cast v2, Ljava/lang/Runnable;
+    check-cast v0, Landroid/media/soundtrigger_middleware/ISoundTriggerCallback;
 
-    invoke-interface {v2}, Ljava/lang/Runnable;->run()V
+    :try_start_1
+    invoke-interface {v0}, Landroid/media/soundtrigger_middleware/ISoundTriggerCallback;->onResourcesAvailable()V
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
 
-    goto :goto_2
+    goto :goto_1
 
-    :cond_3
-    iget-object v1, p0, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;->mActiveSessions:Ljava/util/Set;
+    :catch_0
+    move-exception p0
 
-    invoke-interface {v1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-virtual {p0}, Landroid/os/RemoteException;->rethrowAsRuntimeException()Ljava/lang/RuntimeException;
 
-    move-result-object v1
+    move-result-object p0
 
-    :goto_3
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    throw p0
 
-    move-result v2
-
-    if-eqz v2, :cond_4
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule$Session;
-
-    invoke-static {v2}, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule$Session;->access$200(Lcom/android/server/soundtrigger_middleware/SoundTriggerModule$Session;)V
-
-    goto :goto_3
-
-    :cond_4
+    :cond_1
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception v0
 
-    :try_start_1
+    :try_start_2
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    throw v1
+    throw v0
+.end method
+
+.method public final removeSession(Lcom/android/server/soundtrigger_middleware/SoundTriggerModule$Session;)V
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;->mActiveSessions:Ljava/util/Set;
+
+    invoke-interface {p0, p1}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
+
+    return-void
+.end method
+
+.method public final reset()V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;->mHalService:Lcom/android/server/soundtrigger_middleware/ISoundTriggerHal;
+
+    invoke-interface {v0}, Lcom/android/server/soundtrigger_middleware/ISoundTriggerHal;->detach()V
+
+    invoke-virtual {p0}, Lcom/android/server/soundtrigger_middleware/SoundTriggerModule;->attachToHal()V
+
+    return-void
 .end method

@@ -1,41 +1,44 @@
 .class public final synthetic Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda14;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Consumer;
+.implements Lcom/android/internal/util/ToBooleanFunction;
 
 
 # instance fields
-.field public final synthetic f$0:Landroid/util/ArraySet;
+.field public final synthetic f$0:I
 
-.field public final synthetic f$1:Z
+.field public final synthetic f$1:[Z
 
 
 # direct methods
-.method public synthetic constructor <init>(Landroid/util/ArraySet;Z)V
+.method public synthetic constructor <init>(I[Z)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda14;->f$0:Landroid/util/ArraySet;
+    iput p1, p0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda14;->f$0:I
 
-    iput-boolean p2, p0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda14;->f$1:Z
+    iput-object p2, p0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda14;->f$1:[Z
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
-    .locals 2
+.method public final apply(Ljava/lang/Object;)Z
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda14;->f$0:Landroid/util/ArraySet;
+    iget v0, p0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda14;->f$0:I
 
-    iget-boolean v1, p0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda14;->f$1:Z
+    iget-object p0, p0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda14;->f$1:[Z
 
     check-cast p1, Lcom/android/server/wm/WindowState;
 
-    invoke-static {v0, v1, p1}, Lcom/android/server/wm/RootWindowContainer;->lambda$updateHiddenWhileSuspendedState$4(Landroid/util/ArraySet;ZLcom/android/server/wm/WindowState;)V
+    invoke-static {v0, p0, p1}, Lcom/android/server/wm/RootWindowContainer;->$r8$lambda$ZkXQ9yxHUB6T38H0slloJdKlgMA(I[ZLcom/android/server/wm/WindowState;)Z
 
-    return-void
+    move-result p0
+
+    return p0
 .end method

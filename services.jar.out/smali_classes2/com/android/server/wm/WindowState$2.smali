@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/WindowState$2;
+.class public Lcom/android/server/wm/WindowState$2;
 .super Ljava/lang/Object;
 .source "WindowState.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic val$service:Lcom/android/server/wm/WindowManagerService;
+.field public final synthetic val$service:Lcom/android/server/wm/WindowManagerService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/wm/WindowManagerService;)V
+.method public constructor <init>(Lcom/android/server/wm/WindowManagerService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/wm/WindowState$2;->val$service:Lcom/android/server/wm/WindowManagerService;
@@ -35,27 +35,27 @@
 
 # virtual methods
 .method public isInteractive()Z
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/WindowState$2;->val$service:Lcom/android/server/wm/WindowManagerService;
+    iget-object p0, p0, Lcom/android/server/wm/WindowState$2;->val$service:Lcom/android/server/wm/WindowManagerService;
 
-    iget-object v0, v0, Lcom/android/server/wm/WindowManagerService;->mPowerManager:Landroid/os/PowerManager;
+    iget-object p0, p0, Lcom/android/server/wm/WindowManagerService;->mPowerManager:Landroid/os/PowerManager;
 
-    invoke-virtual {v0}, Landroid/os/PowerManager;->isInteractive()Z
+    invoke-virtual {p0}, Landroid/os/PowerManager;->isInteractive()Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public wakeUp(JILjava/lang/String;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/WindowState$2;->val$service:Lcom/android/server/wm/WindowManagerService;
+    iget-object p0, p0, Lcom/android/server/wm/WindowState$2;->val$service:Lcom/android/server/wm/WindowManagerService;
 
-    iget-object v0, v0, Lcom/android/server/wm/WindowManagerService;->mPowerManager:Landroid/os/PowerManager;
+    iget-object p0, p0, Lcom/android/server/wm/WindowManagerService;->mPowerManager:Landroid/os/PowerManager;
 
-    invoke-virtual {v0, p1, p2, p3, p4}, Landroid/os/PowerManager;->wakeUp(JILjava/lang/String;)V
+    invoke-virtual {p0, p1, p2, p3, p4}, Landroid/os/PowerManager;->wakeUp(JILjava/lang/String;)V
 
     return-void
 .end method

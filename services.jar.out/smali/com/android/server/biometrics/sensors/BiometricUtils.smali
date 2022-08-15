@@ -37,16 +37,7 @@
     .end annotation
 .end method
 
-.method public abstract getUniqueName(Landroid/content/Context;I)Ljava/lang/CharSequence;
-.end method
-
-.method public abstract isInvalidationInProgress(Landroid/content/Context;I)Z
-.end method
-
 .method public abstract removeBiometricForUser(Landroid/content/Context;II)V
-.end method
-
-.method public abstract renameBiometricForUser(Landroid/content/Context;IILjava/lang/CharSequence;)V
 .end method
 
 .method public abstract setInvalidationInProgress(Landroid/content/Context;IZ)V

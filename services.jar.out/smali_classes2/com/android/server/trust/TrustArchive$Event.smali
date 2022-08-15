@@ -1,4 +1,4 @@
-.class Lcom/android/server/trust/TrustArchive$Event;
+.class public Lcom/android/server/trust/TrustArchive$Event;
 .super Ljava/lang/Object;
 .source "TrustArchive.java"
 
@@ -9,32 +9,32 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "Event"
 .end annotation
 
 
 # instance fields
-.field final agent:Landroid/content/ComponentName;
+.field public final agent:Landroid/content/ComponentName;
 
-.field final duration:J
+.field public final duration:J
 
-.field final elapsedTimestamp:J
+.field public final elapsedTimestamp:J
 
-.field final flags:I
+.field public final flags:I
 
-.field final managingTrust:Z
+.field public final managingTrust:Z
 
-.field final message:Ljava/lang/String;
+.field public final message:Ljava/lang/String;
 
-.field final type:I
+.field public final type:I
 
-.field final userId:I
+.field public final userId:I
 
 
 # direct methods
-.method private constructor <init>(IILandroid/content/ComponentName;Ljava/lang/String;JIZ)V
-    .locals 2
+.method public constructor <init>(IILandroid/content/ComponentName;Ljava/lang/String;JIZ)V
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -46,9 +46,9 @@
 
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
-    move-result-wide v0
+    move-result-wide p1
 
-    iput-wide v0, p0, Lcom/android/server/trust/TrustArchive$Event;->elapsedTimestamp:J
+    iput-wide p1, p0, Lcom/android/server/trust/TrustArchive$Event;->elapsedTimestamp:J
 
     iput-object p4, p0, Lcom/android/server/trust/TrustArchive$Event;->message:Ljava/lang/String;
 
@@ -61,7 +61,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(IILandroid/content/ComponentName;Ljava/lang/String;JIZLcom/android/server/trust/TrustArchive$1;)V
+.method public synthetic constructor <init>(IILandroid/content/ComponentName;Ljava/lang/String;JIZLcom/android/server/trust/TrustArchive$Event-IA;)V
     .locals 0
 
     invoke-direct/range {p0 .. p8}, Lcom/android/server/trust/TrustArchive$Event;-><init>(IILandroid/content/ComponentName;Ljava/lang/String;JIZ)V

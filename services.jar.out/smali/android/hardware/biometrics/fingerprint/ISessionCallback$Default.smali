@@ -29,60 +29,11 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .locals 1
-
-    const/4 v0, 0x0
-
-    return-object v0
-.end method
-
-.method public getInterfaceHash()Ljava/lang/String;
-    .locals 1
-
-    const-string v0, ""
-
-    return-object v0
-.end method
-
-.method public getInterfaceVersion()I
-    .locals 1
-
-    const/4 v0, 0x0
-
-    return v0
-.end method
-
-.method public onAcquired(BI)V
     .locals 0
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
 
-    return-void
-.end method
+    const/4 p0, 0x0
 
-.method public onAuthenticationFailed()V
-    .locals 0
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    return-void
-.end method
-
-.method public onAuthenticationSucceeded(ILandroid/hardware/keymaster/HardwareAuthToken;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    return-void
+    return-object p0
 .end method
 
 .method public onAuthenticatorIdInvalidated(J)V
@@ -129,17 +80,6 @@
     return-void
 .end method
 
-.method public onEnrollmentProgress(II)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    return-void
-.end method
-
 .method public onEnrollmentsEnumerated([I)V
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
@@ -173,40 +113,7 @@
     return-void
 .end method
 
-.method public onInteractionDetected()V
-    .locals 0
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    return-void
-.end method
-
 .method public onLockoutCleared()V
-    .locals 0
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    return-void
-.end method
-
-.method public onLockoutPermanent()V
-    .locals 0
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    return-void
-.end method
-
-.method public onLockoutTimed(J)V
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {

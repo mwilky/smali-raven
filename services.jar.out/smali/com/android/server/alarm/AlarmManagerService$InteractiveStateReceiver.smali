@@ -1,4 +1,4 @@
-.class Lcom/android/server/alarm/AlarmManagerService$InteractiveStateReceiver;
+.class public Lcom/android/server/alarm/AlarmManagerService$InteractiveStateReceiver;
 .super Landroid/content/BroadcastReceiver;
 .source "AlarmManagerService.java"
 
@@ -9,13 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = "InteractiveStateReceiver"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/alarm/AlarmManagerService;
+.field public final synthetic this$0:Lcom/android/server/alarm/AlarmManagerService;
 
 
 # direct methods
@@ -42,11 +42,11 @@
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->setPriority(I)V
 
-    invoke-virtual {p1}, Lcom/android/server/alarm/AlarmManagerService;->getContext()Landroid/content/Context;
+    invoke-virtual {p1}, Lcom/android/server/SystemService;->getContext()Landroid/content/Context;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v1, p0, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+    invoke-virtual {p1, p0, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
     return-void
 .end method
@@ -54,39 +54,39 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 4
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/alarm/AlarmManagerService$InteractiveStateReceiver;->this$0:Lcom/android/server/alarm/AlarmManagerService;
+    iget-object p1, p0, Lcom/android/server/alarm/AlarmManagerService$InteractiveStateReceiver;->this$0:Lcom/android/server/alarm/AlarmManagerService;
 
-    iget-object v0, v0, Lcom/android/server/alarm/AlarmManagerService;->mLock:Ljava/lang/Object;
+    iget-object p1, p1, Lcom/android/server/alarm/AlarmManagerService;->mLock:Ljava/lang/Object;
 
-    monitor-enter v0
+    monitor-enter p1
 
     :try_start_0
-    iget-object v1, p0, Lcom/android/server/alarm/AlarmManagerService$InteractiveStateReceiver;->this$0:Lcom/android/server/alarm/AlarmManagerService;
+    iget-object p0, p0, Lcom/android/server/alarm/AlarmManagerService$InteractiveStateReceiver;->this$0:Lcom/android/server/alarm/AlarmManagerService;
 
-    const-string v2, "android.intent.action.SCREEN_ON"
+    const-string v0, "android.intent.action.SCREEN_ON"
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p2
 
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result p2
 
-    invoke-virtual {v1, v2}, Lcom/android/server/alarm/AlarmManagerService;->interactiveStateChangedLocked(Z)V
+    invoke-virtual {p0, p2}, Lcom/android/server/alarm/AlarmManagerService;->interactiveStateChangedLocked(Z)V
 
-    monitor-exit v0
+    monitor-exit p1
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
-    monitor-exit v0
+    monitor-exit p1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method

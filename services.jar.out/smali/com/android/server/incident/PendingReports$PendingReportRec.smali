@@ -1,4 +1,4 @@
-.class final Lcom/android/server/incident/PendingReports$PendingReportRec;
+.class public final Lcom/android/server/incident/PendingReports$PendingReportRec;
 .super Ljava/lang/Object;
 .source "PendingReports.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "PendingReportRec"
 .end annotation
 
@@ -31,22 +31,26 @@
 
 .field public reportId:Ljava/lang/String;
 
-.field final synthetic this$0:Lcom/android/server/incident/PendingReports;
+.field public final synthetic this$0:Lcom/android/server/incident/PendingReports;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/incident/PendingReports;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILandroid/os/IIncidentAuthListener;)V
+.method public constructor <init>(Lcom/android/server/incident/PendingReports;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILandroid/os/IIncidentAuthListener;)V
     .locals 2
 
     iput-object p1, p0, Lcom/android/server/incident/PendingReports$PendingReportRec;->this$0:Lcom/android/server/incident/PendingReports;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    invoke-static {p1}, Lcom/android/server/incident/PendingReports;->access$008(Lcom/android/server/incident/PendingReports;)I
+    invoke-static {p1}, Lcom/android/server/incident/PendingReports;->-$$Nest$fgetmNextPendingId(Lcom/android/server/incident/PendingReports;)I
 
-    move-result p1
+    move-result v0
 
-    iput p1, p0, Lcom/android/server/incident/PendingReports$PendingReportRec;->id:I
+    add-int/lit8 v1, v0, 0x1
+
+    invoke-static {p1, v1}, Lcom/android/server/incident/PendingReports;->-$$Nest$fputmNextPendingId(Lcom/android/server/incident/PendingReports;I)V
+
+    iput v0, p0, Lcom/android/server/incident/PendingReports$PendingReportRec;->id:I
 
     iput-object p2, p0, Lcom/android/server/incident/PendingReports$PendingReportRec;->callingPackage:Ljava/lang/String;
 
@@ -56,15 +60,15 @@
 
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
-    move-result-wide v0
+    move-result-wide p1
 
-    iput-wide v0, p0, Lcom/android/server/incident/PendingReports$PendingReportRec;->addedRealtime:J
+    iput-wide p1, p0, Lcom/android/server/incident/PendingReports$PendingReportRec;->addedRealtime:J
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v0
+    move-result-wide p1
 
-    iput-wide v0, p0, Lcom/android/server/incident/PendingReports$PendingReportRec;->addedWalltime:J
+    iput-wide p1, p0, Lcom/android/server/incident/PendingReports$PendingReportRec;->addedWalltime:J
 
     iput-object p3, p0, Lcom/android/server/incident/PendingReports$PendingReportRec;->receiverClass:Ljava/lang/String;
 
@@ -75,7 +79,7 @@
 
 
 # virtual methods
-.method getUri()Landroid/net/Uri;
+.method public getUri()Landroid/net/Uri;
     .locals 3
 
     new-instance v0, Landroid/net/Uri$Builder;
@@ -171,16 +175,16 @@
 
     if-lez v1, :cond_1
 
-    iget-object v1, p0, Lcom/android/server/incident/PendingReports$PendingReportRec;->reportId:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/incident/PendingReports$PendingReportRec;->reportId:Ljava/lang/String;
 
-    const-string/jumbo v2, "r"
+    const-string/jumbo v1, "r"
 
-    invoke-virtual {v0, v2, v1}, Landroid/net/Uri$Builder;->appendQueryParameter(Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri$Builder;
+    invoke-virtual {v0, v1, p0}, Landroid/net/Uri$Builder;->appendQueryParameter(Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri$Builder;
 
     :cond_1
     invoke-virtual {v0}, Landroid/net/Uri$Builder;->build()Landroid/net/Uri;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method

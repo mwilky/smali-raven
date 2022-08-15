@@ -1,4 +1,4 @@
-.class final Lcom/android/server/am/LowMemDetector$LowMemThread;
+.class public final Lcom/android/server/am/LowMemDetector$LowMemThread;
 .super Ljava/lang/Thread;
 .source "LowMemDetector.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "LowMemThread"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/am/LowMemDetector;
+.field public final synthetic this$0:Lcom/android/server/am/LowMemDetector;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/server/am/LowMemDetector;)V
+.method public constructor <init>(Lcom/android/server/am/LowMemDetector;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/am/LowMemDetector$LowMemThread;->this$0:Lcom/android/server/am/LowMemDetector;
@@ -29,7 +29,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/am/LowMemDetector;Lcom/android/server/am/LowMemDetector$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/am/LowMemDetector;Lcom/android/server/am/LowMemDetector$LowMemThread-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/am/LowMemDetector$LowMemThread;-><init>(Lcom/android/server/am/LowMemDetector;)V
@@ -45,7 +45,7 @@
     :goto_0
     iget-object v0, p0, Lcom/android/server/am/LowMemDetector$LowMemThread;->this$0:Lcom/android/server/am/LowMemDetector;
 
-    invoke-static {v0}, Lcom/android/server/am/LowMemDetector;->access$100(Lcom/android/server/am/LowMemDetector;)I
+    invoke-static {v0}, Lcom/android/server/am/LowMemDetector;->-$$Nest$mwaitForPressure(Lcom/android/server/am/LowMemDetector;)I
 
     move-result v0
 
@@ -53,20 +53,18 @@
 
     if-ne v0, v1, :cond_0
 
-    iget-object v1, p0, Lcom/android/server/am/LowMemDetector$LowMemThread;->this$0:Lcom/android/server/am/LowMemDetector;
+    iget-object p0, p0, Lcom/android/server/am/LowMemDetector$LowMemThread;->this$0:Lcom/android/server/am/LowMemDetector;
 
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
-    invoke-static {v1, v2}, Lcom/android/server/am/LowMemDetector;->access$202(Lcom/android/server/am/LowMemDetector;Z)Z
-
-    nop
+    invoke-static {p0, v0}, Lcom/android/server/am/LowMemDetector;->-$$Nest$fputmAvailable(Lcom/android/server/am/LowMemDetector;Z)V
 
     return-void
 
     :cond_0
     iget-object v1, p0, Lcom/android/server/am/LowMemDetector$LowMemThread;->this$0:Lcom/android/server/am/LowMemDetector;
 
-    invoke-static {v1}, Lcom/android/server/am/LowMemDetector;->access$300(Lcom/android/server/am/LowMemDetector;)Ljava/lang/Object;
+    invoke-static {v1}, Lcom/android/server/am/LowMemDetector;->-$$Nest$fgetmPressureStateLock(Lcom/android/server/am/LowMemDetector;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -75,18 +73,18 @@
     :try_start_0
     iget-object v2, p0, Lcom/android/server/am/LowMemDetector$LowMemThread;->this$0:Lcom/android/server/am/LowMemDetector;
 
-    invoke-static {v2, v0}, Lcom/android/server/am/LowMemDetector;->access$402(Lcom/android/server/am/LowMemDetector;I)I
+    invoke-static {v2, v0}, Lcom/android/server/am/LowMemDetector;->-$$Nest$fputmPressureState(Lcom/android/server/am/LowMemDetector;I)V
 
     monitor-exit v1
 
     goto :goto_0
 
     :catchall_0
-    move-exception v2
+    move-exception p0
 
     monitor-exit v1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v2
+    throw p0
 .end method

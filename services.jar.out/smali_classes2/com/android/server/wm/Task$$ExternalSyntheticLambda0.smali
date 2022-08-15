@@ -1,28 +1,13 @@
 .class public final synthetic Lcom/android/server/wm/Task$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/internal/util/function/TriConsumer;
-
-
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/wm/Task$$ExternalSyntheticLambda0;
+.implements Lcom/android/internal/util/function/TriPredicate;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda0;
-
-    invoke-direct {v0}, Lcom/android/server/wm/Task$$ExternalSyntheticLambda0;-><init>()V
-
-    sput-object v0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/server/wm/Task$$ExternalSyntheticLambda0;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,16 +17,22 @@
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+.method public final test(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z
     .locals 0
 
     check-cast p1, Lcom/android/server/wm/ActivityRecord;
 
-    check-cast p2, Landroid/graphics/Rect;
+    check-cast p2, Ljava/lang/Integer;
 
-    check-cast p3, [Z
+    invoke-virtual {p2}, Ljava/lang/Integer;->intValue()I
 
-    invoke-static {p1, p2, p3}, Lcom/android/server/wm/Task;->$r8$lambda$qjBpDLSo_osTHUebmVR0R-BqIrQ(Lcom/android/server/wm/ActivityRecord;Landroid/graphics/Rect;[Z)V
+    move-result p0
 
-    return-void
+    check-cast p3, Landroid/os/IBinder;
+
+    invoke-static {p1, p0, p3}, Lcom/android/server/wm/Task;->$r8$lambda$I3V5t7ZX1Ip_YH884BnxvjqYRZw(Lcom/android/server/wm/ActivityRecord;ILandroid/os/IBinder;)Z
+
+    move-result p0
+
+    return p0
 .end method

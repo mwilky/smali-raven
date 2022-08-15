@@ -4,40 +4,43 @@
 
 
 # annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/android/server/pm/UserManagerService;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "UserData"
 .end annotation
 
 
 # instance fields
-.field account:Ljava/lang/String;
+.field public account:Ljava/lang/String;
 
-.field info:Landroid/content/pm/UserInfo;
+.field public info:Landroid/content/pm/UserInfo;
 
-.field private mIgnorePrepareStorageErrors:Z
+.field public mIgnorePrepareStorageErrors:Z
 
-.field private mLastRequestQuietModeEnabledMillis:J
+.field public mLastRequestQuietModeEnabledMillis:J
 
-.field persistSeedData:Z
+.field public persistSeedData:Z
 
-.field seedAccountName:Ljava/lang/String;
+.field public seedAccountName:Ljava/lang/String;
 
-.field seedAccountOptions:Landroid/os/PersistableBundle;
+.field public seedAccountOptions:Landroid/os/PersistableBundle;
 
-.field seedAccountType:Ljava/lang/String;
+.field public seedAccountType:Ljava/lang/String;
 
-.field startRealtime:J
+.field public startRealtime:J
 
-.field unlockRealtime:J
+.field public unlockRealtime:J
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -47,7 +50,7 @@
 
 
 # virtual methods
-.method clearSeedAccountData()V
+.method public clearSeedAccountData()V
     .locals 1
 
     const/4 v0, 0x0
@@ -65,15 +68,15 @@
     return-void
 .end method
 
-.method getIgnorePrepareStorageErrors()Z
-    .locals 1
+.method public getIgnorePrepareStorageErrors()Z
+    .locals 0
 
-    iget-boolean v0, p0, Lcom/android/server/pm/UserManagerService$UserData;->mIgnorePrepareStorageErrors:Z
+    iget-boolean p0, p0, Lcom/android/server/pm/UserManagerService$UserData;->mIgnorePrepareStorageErrors:Z
 
-    return v0
+    return p0
 .end method
 
-.method getLastRequestQuietModeEnabledMillis()J
+.method public getLastRequestQuietModeEnabledMillis()J
     .locals 2
 
     iget-wide v0, p0, Lcom/android/server/pm/UserManagerService$UserData;->mLastRequestQuietModeEnabledMillis:J
@@ -81,17 +84,32 @@
     return-wide v0
 .end method
 
-.method setIgnorePrepareStorageErrors()V
-    .locals 1
+.method public setIgnorePrepareStorageErrors()V
+    .locals 2
+
+    sget v0, Landroid/os/Build$VERSION;->DEVICE_INITIAL_SDK_INT:I
+
+    const/16 v1, 0x21
+
+    if-ge v0, v1, :cond_0
 
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/server/pm/UserManagerService$UserData;->mIgnorePrepareStorageErrors:Z
 
     return-void
+
+    :cond_0
+    const-string p0, "UserManagerService"
+
+    const-string v0, "Not setting mIgnorePrepareStorageErrors to true since this is a new device"
+
+    invoke-static {p0, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
 .end method
 
-.method setLastRequestQuietModeEnabledMillis(J)V
+.method public setLastRequestQuietModeEnabledMillis(J)V
     .locals 0
 
     iput-wide p1, p0, Lcom/android/server/pm/UserManagerService$UserData;->mLastRequestQuietModeEnabledMillis:J

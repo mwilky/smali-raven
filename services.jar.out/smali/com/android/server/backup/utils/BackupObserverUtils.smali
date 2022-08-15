@@ -4,16 +4,8 @@
 
 
 # direct methods
-.method public constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
 .method public static sendBackupFinished(Landroid/app/backup/IBackupObserver;I)V
-    .locals 3
+    .locals 0
 
     if-eqz p0, :cond_0
 
@@ -25,13 +17,11 @@
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    const-string p0, "BackupManagerService"
 
-    const-string v1, "BackupManagerService"
+    const-string p1, "Backup observer went away: backupFinished"
 
-    const-string v2, "Backup observer went away: backupFinished"
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, p1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
     :goto_0
@@ -39,7 +29,7 @@
 .end method
 
 .method public static sendBackupOnPackageResult(Landroid/app/backup/IBackupObserver;Ljava/lang/String;I)V
-    .locals 3
+    .locals 0
 
     if-eqz p0, :cond_0
 
@@ -51,13 +41,11 @@
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    const-string p0, "BackupManagerService"
 
-    const-string v1, "BackupManagerService"
+    const-string p1, "Backup observer went away: onResult"
 
-    const-string v2, "Backup observer went away: onResult"
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, p1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
     :goto_0
@@ -65,7 +53,7 @@
 .end method
 
 .method public static sendBackupOnUpdate(Landroid/app/backup/IBackupObserver;Ljava/lang/String;Landroid/app/backup/BackupProgress;)V
-    .locals 3
+    .locals 0
 
     if-eqz p0, :cond_0
 
@@ -77,13 +65,11 @@
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    const-string p0, "BackupManagerService"
 
-    const-string v1, "BackupManagerService"
+    const-string p1, "Backup observer went away: onUpdate"
 
-    const-string v2, "Backup observer went away: onUpdate"
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, p1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
     :goto_0

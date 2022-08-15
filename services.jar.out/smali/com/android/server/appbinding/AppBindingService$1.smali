@@ -1,4 +1,4 @@
-.class Lcom/android/server/appbinding/AppBindingService$1;
+.class public Lcom/android/server/appbinding/AppBindingService$1;
 .super Landroid/database/ContentObserver;
 .source "AppBindingService.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/appbinding/AppBindingService;
+.field public final synthetic this$0:Lcom/android/server/appbinding/AppBindingService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/appbinding/AppBindingService;Landroid/os/Handler;)V
+.method public constructor <init>(Lcom/android/server/appbinding/AppBindingService;Landroid/os/Handler;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/appbinding/AppBindingService$1;->this$0:Lcom/android/server/appbinding/AppBindingService;
@@ -32,11 +32,11 @@
 
 # virtual methods
 .method public onChange(Z)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/appbinding/AppBindingService$1;->this$0:Lcom/android/server/appbinding/AppBindingService;
+    iget-object p0, p0, Lcom/android/server/appbinding/AppBindingService$1;->this$0:Lcom/android/server/appbinding/AppBindingService;
 
-    invoke-static {v0}, Lcom/android/server/appbinding/AppBindingService;->access$500(Lcom/android/server/appbinding/AppBindingService;)V
+    invoke-static {p0}, Lcom/android/server/appbinding/AppBindingService;->-$$Nest$mrefreshConstants(Lcom/android/server/appbinding/AppBindingService;)V
 
     return-void
 .end method

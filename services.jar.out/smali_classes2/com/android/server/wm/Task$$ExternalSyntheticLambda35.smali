@@ -1,45 +1,62 @@
 .class public final synthetic Lcom/android/server/wm/Task$$ExternalSyntheticLambda35;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Predicate;
+.implements Ljava/util/function/Consumer;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/wm/Task$$ExternalSyntheticLambda35;
+# instance fields
+.field public final synthetic f$0:Lcom/android/server/wm/TaskFragment;
+
+.field public final synthetic f$1:[Z
+
+.field public final synthetic f$2:Lcom/android/server/wm/ActivityRecord;
+
+.field public final synthetic f$3:Landroid/app/ActivityOptions;
+
+.field public final synthetic f$4:Z
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda35;
-
-    invoke-direct {v0}, Lcom/android/server/wm/Task$$ExternalSyntheticLambda35;-><init>()V
-
-    sput-object v0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda35;->INSTANCE:Lcom/android/server/wm/Task$$ExternalSyntheticLambda35;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Lcom/android/server/wm/TaskFragment;[ZLcom/android/server/wm/ActivityRecord;Landroid/app/ActivityOptions;Z)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda35;->f$0:Lcom/android/server/wm/TaskFragment;
+
+    iput-object p2, p0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda35;->f$1:[Z
+
+    iput-object p3, p0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda35;->f$2:Lcom/android/server/wm/ActivityRecord;
+
+    iput-object p4, p0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda35;->f$3:Landroid/app/ActivityOptions;
+
+    iput-boolean p5, p0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda35;->f$4:Z
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final test(Ljava/lang/Object;)Z
-    .locals 0
+.method public final accept(Ljava/lang/Object;)V
+    .locals 6
 
-    check-cast p1, Lcom/android/server/wm/ActivityRecord;
+    iget-object v0, p0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda35;->f$0:Lcom/android/server/wm/TaskFragment;
 
-    invoke-virtual {p1}, Lcom/android/server/wm/ActivityRecord;->canBeTopRunning()Z
+    iget-object v1, p0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda35;->f$1:[Z
 
-    move-result p1
+    iget-object v2, p0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda35;->f$2:Lcom/android/server/wm/ActivityRecord;
 
-    return p1
+    iget-object v3, p0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda35;->f$3:Landroid/app/ActivityOptions;
+
+    iget-boolean v4, p0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda35;->f$4:Z
+
+    move-object v5, p1
+
+    check-cast v5, Lcom/android/server/wm/TaskFragment;
+
+    invoke-static/range {v0 .. v5}, Lcom/android/server/wm/Task;->$r8$lambda$7rzMBK7dZjxheu15ls7540pwKAE(Lcom/android/server/wm/TaskFragment;[ZLcom/android/server/wm/ActivityRecord;Landroid/app/ActivityOptions;ZLcom/android/server/wm/TaskFragment;)V
+
+    return-void
 .end method

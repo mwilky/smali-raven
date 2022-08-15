@@ -1,4 +1,4 @@
-.class abstract Lcom/android/server/usage/AppTimeLimitController$UsageGroup;
+.class public abstract Lcom/android/server/usage/AppTimeLimitController$UsageGroup;
 .super Ljava/lang/Object;
 .source "AppTimeLimitController.java"
 
@@ -9,23 +9,23 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x400
+    accessFlags = 0x401
     name = "UsageGroup"
 .end annotation
 
 
 # instance fields
-.field protected mActives:I
+.field public mActives:I
 
-.field protected mLastKnownUsageTimeMs:J
+.field public mLastKnownUsageTimeMs:J
 
-.field protected mLastUsageEndTimeMs:J
+.field public mLastUsageEndTimeMs:J
 
-.field protected mLimitReachedCallback:Landroid/app/PendingIntent;
+.field public mLimitReachedCallback:Landroid/app/PendingIntent;
 
-.field protected mObserved:[Ljava/lang/String;
+.field public mObserved:[Ljava/lang/String;
 
-.field protected mObserverAppRef:Ljava/lang/ref/WeakReference;
+.field public mObserverAppRef:Ljava/lang/ref/WeakReference;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/lang/ref/WeakReference<",
@@ -35,13 +35,13 @@
     .end annotation
 .end field
 
-.field protected mObserverId:I
+.field public mObserverId:I
 
-.field protected mTimeLimitMs:J
+.field public mTimeLimitMs:J
 
-.field protected mUsageTimeMs:J
+.field public mUsageTimeMs:J
 
-.field protected mUserRef:Ljava/lang/ref/WeakReference;
+.field public mUserRef:Ljava/lang/ref/WeakReference;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/lang/ref/WeakReference<",
@@ -51,28 +51,28 @@
     .end annotation
 .end field
 
-.field final synthetic this$0:Lcom/android/server/usage/AppTimeLimitController;
+.field public final synthetic this$0:Lcom/android/server/usage/AppTimeLimitController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/usage/AppTimeLimitController;Lcom/android/server/usage/AppTimeLimitController$UserData;Lcom/android/server/usage/AppTimeLimitController$ObserverAppData;I[Ljava/lang/String;JLandroid/app/PendingIntent;)V
-    .locals 1
+.method public constructor <init>(Lcom/android/server/usage/AppTimeLimitController;Lcom/android/server/usage/AppTimeLimitController$UserData;Lcom/android/server/usage/AppTimeLimitController$ObserverAppData;I[Ljava/lang/String;JLandroid/app/PendingIntent;)V
+    .locals 0
 
     iput-object p1, p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->this$0:Lcom/android/server/usage/AppTimeLimitController;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v0, Ljava/lang/ref/WeakReference;
+    new-instance p1, Ljava/lang/ref/WeakReference;
 
-    invoke-direct {v0, p2}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
+    invoke-direct {p1, p2}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
-    iput-object v0, p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->mUserRef:Ljava/lang/ref/WeakReference;
+    iput-object p1, p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->mUserRef:Ljava/lang/ref/WeakReference;
 
-    new-instance v0, Ljava/lang/ref/WeakReference;
+    new-instance p1, Ljava/lang/ref/WeakReference;
 
-    invoke-direct {v0, p3}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
+    invoke-direct {p1, p3}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
-    iput-object v0, p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->mObserverAppRef:Ljava/lang/ref/WeakReference;
+    iput-object p1, p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->mObserverAppRef:Ljava/lang/ref/WeakReference;
 
     iput p4, p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->mObserverId:I
 
@@ -87,8 +87,13 @@
 
 
 # virtual methods
-.method checkTimeout(J)V
-    .locals 8
+.method public checkTimeout(J)V
+    .locals 5
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
 
     iget-object v0, p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->mUserRef:Ljava/lang/ref/WeakReference;
 
@@ -122,38 +127,38 @@
 
     invoke-virtual {v0, v3}, Lcom/android/server/usage/AppTimeLimitController$UserData;->isActive([Ljava/lang/String;)Z
 
-    move-result v3
+    move-result v0
 
-    if-eqz v3, :cond_3
+    if-eqz v0, :cond_3
 
     iget-wide v3, p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->mLastKnownUsageTimeMs:J
 
     sub-long v3, p1, v3
 
-    cmp-long v5, v1, v3
+    cmp-long v0, v1, v3
 
-    if-gtz v5, :cond_2
+    if-gtz v0, :cond_2
 
-    iget-wide v5, p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->mUsageTimeMs:J
+    iget-wide v0, p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->mUsageTimeMs:J
 
-    add-long/2addr v5, v3
+    add-long/2addr v0, v3
 
-    iput-wide v5, p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->mUsageTimeMs:J
+    iput-wide v0, p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->mUsageTimeMs:J
 
     iput-wide p1, p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->mLastKnownUsageTimeMs:J
 
-    iget-object v5, p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->this$0:Lcom/android/server/usage/AppTimeLimitController;
+    iget-object p1, p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->this$0:Lcom/android/server/usage/AppTimeLimitController;
 
-    invoke-static {v5, p0}, Lcom/android/server/usage/AppTimeLimitController;->access$200(Lcom/android/server/usage/AppTimeLimitController;Lcom/android/server/usage/AppTimeLimitController$UsageGroup;)V
+    invoke-static {p1, p0}, Lcom/android/server/usage/AppTimeLimitController;->-$$Nest$mpostInformLimitReachedListenerLocked(Lcom/android/server/usage/AppTimeLimitController;Lcom/android/server/usage/AppTimeLimitController$UsageGroup;)V
 
     goto :goto_0
 
     :cond_2
-    iget-object v5, p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->this$0:Lcom/android/server/usage/AppTimeLimitController;
+    iget-object p1, p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->this$0:Lcom/android/server/usage/AppTimeLimitController;
 
-    sub-long v6, v1, v3
+    sub-long/2addr v1, v3
 
-    invoke-static {v5, p0, v6, v7}, Lcom/android/server/usage/AppTimeLimitController;->access$100(Lcom/android/server/usage/AppTimeLimitController;Lcom/android/server/usage/AppTimeLimitController$UsageGroup;J)V
+    invoke-static {p1, p0, v1, v2}, Lcom/android/server/usage/AppTimeLimitController;->-$$Nest$mpostCheckTimeoutLocked(Lcom/android/server/usage/AppTimeLimitController;Lcom/android/server/usage/AppTimeLimitController$UsageGroup;J)V
 
     :cond_3
     :goto_0
@@ -162,6 +167,11 @@
 
 .method dump(Ljava/io/PrintWriter;)V
     .locals 2
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
 
     const-string v0, "        Group id="
 
@@ -207,43 +217,37 @@
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    iget-object v0, p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->mObserved:[Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->mObserved:[Ljava/lang/String;
 
-    invoke-static {v0}, Ljava/util/Arrays;->toString([Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p0}, Ljava/util/Arrays;->toString([Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+    invoke-virtual {p1, p0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     return-void
 .end method
 
-.method public getTimeLimitMs()J
-    .locals 2
-
-    iget-wide v0, p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->mTimeLimitMs:J
-
-    return-wide v0
-.end method
-
-.method public getUsageTimeMs()J
-    .locals 2
-
-    iget-wide v0, p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->mUsageTimeMs:J
-
-    return-wide v0
-.end method
-
-.method noteUsageStart(J)V
+.method public noteUsageStart(J)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
 
     invoke-virtual {p0, p1, p2, p1, p2}, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->noteUsageStart(JJ)V
 
     return-void
 .end method
 
-.method noteUsageStart(JJ)V
+.method public noteUsageStart(JJ)V
     .locals 4
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
 
     iget v0, p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->mActives:I
 
@@ -251,7 +255,7 @@
 
     iput v1, p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->mActives:I
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_1
 
     iget-wide v0, p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->mLastUsageEndTimeMs:J
 
@@ -259,14 +263,9 @@
 
     if-lez v2, :cond_0
 
-    goto :goto_0
-
-    :cond_0
-    move-wide v0, p1
-
-    :goto_0
     move-wide p1, v0
 
+    :cond_0
     iput-wide p1, p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->mLastKnownUsageTimeMs:J
 
     iget-wide v0, p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->mTimeLimitMs:J
@@ -279,94 +278,98 @@
 
     add-long/2addr v0, p1
 
-    const-wide/16 v2, 0x0
+    const-wide/16 p1, 0x0
 
-    cmp-long v2, v0, v2
+    cmp-long p1, v0, p1
 
-    if-lez v2, :cond_1
+    if-lez p1, :cond_3
 
-    iget-object v2, p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->this$0:Lcom/android/server/usage/AppTimeLimitController;
+    iget-object p1, p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->this$0:Lcom/android/server/usage/AppTimeLimitController;
 
-    invoke-static {v2, p0, v0, v1}, Lcom/android/server/usage/AppTimeLimitController;->access$100(Lcom/android/server/usage/AppTimeLimitController;Lcom/android/server/usage/AppTimeLimitController$UsageGroup;J)V
+    invoke-static {p1, p0, v0, v1}, Lcom/android/server/usage/AppTimeLimitController;->-$$Nest$mpostCheckTimeoutLocked(Lcom/android/server/usage/AppTimeLimitController;Lcom/android/server/usage/AppTimeLimitController$UsageGroup;J)V
+
+    goto :goto_0
 
     :cond_1
-    goto :goto_1
+    iget-object p1, p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->mObserved:[Ljava/lang/String;
 
-    :cond_2
-    iget-object v0, p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->mObserved:[Ljava/lang/String;
+    array-length p2, p1
 
-    array-length v2, v0
+    if-le v1, p2, :cond_3
 
-    if-le v1, v2, :cond_4
+    array-length p1, p1
 
-    array-length v0, v0
+    iput p1, p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->mActives:I
 
-    iput v0, p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->mActives:I
+    iget-object p1, p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->mUserRef:Ljava/lang/ref/WeakReference;
 
-    iget-object v0, p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->mUserRef:Ljava/lang/ref/WeakReference;
+    invoke-virtual {p1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
-    invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+    move-result-object p1
 
-    move-result-object v0
+    check-cast p1, Lcom/android/server/usage/AppTimeLimitController$UserData;
 
-    check-cast v0, Lcom/android/server/usage/AppTimeLimitController$UserData;
-
-    if-nez v0, :cond_3
+    if-nez p1, :cond_2
 
     return-void
 
+    :cond_2
+    iget-object p1, p1, Lcom/android/server/usage/AppTimeLimitController$UserData;->currentlyActive:Landroid/util/ArrayMap;
+
+    invoke-virtual {p1}, Landroid/util/ArrayMap;->keySet()Ljava/util/Set;
+
+    move-result-object p1
+
+    invoke-interface {p1}, Ljava/util/Set;->toArray()[Ljava/lang/Object;
+
+    move-result-object p1
+
+    new-instance p2, Ljava/lang/StringBuilder;
+
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string p3, "Too many noted usage starts! Observed entities: "
+
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object p0, p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->mObserved:[Ljava/lang/String;
+
+    invoke-static {p0}, Ljava/util/Arrays;->toString([Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string p0, "   Active Entities: "
+
+    invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-static {p1}, Ljava/util/Arrays;->toString([Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    const-string p1, "AppTimeLimitController"
+
+    invoke-static {p1, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+
     :cond_3
-    iget-object v1, v0, Lcom/android/server/usage/AppTimeLimitController$UserData;->currentlyActive:Landroid/util/ArrayMap;
-
-    invoke-virtual {v1}, Landroid/util/ArrayMap;->keySet()Ljava/util/Set;
-
-    move-result-object v1
-
-    invoke-interface {v1}, Ljava/util/Set;->toArray()[Ljava/lang/Object;
-
-    move-result-object v1
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "Too many noted usage starts! Observed entities: "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v3, p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->mObserved:[Ljava/lang/String;
-
-    invoke-static {v3}, Ljava/util/Arrays;->toString([Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v3, "   Active Entities: "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-static {v1}, Ljava/util/Arrays;->toString([Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    const-string v3, "AppTimeLimitController"
-
-    invoke-static {v3, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_4
-    :goto_1
+    :goto_0
     return-void
 .end method
 
-.method noteUsageStop(J)V
-    .locals 7
+.method public noteUsageStop(J)V
+    .locals 9
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
 
     iget v0, p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->mActives:I
 
@@ -394,32 +397,30 @@
     move v1, v2
 
     :goto_0
-    move v0, v1
+    iget-wide v7, p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->mLastKnownUsageTimeMs:J
 
-    iget-wide v1, p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->mLastKnownUsageTimeMs:J
+    sub-long v7, p1, v7
 
-    sub-long v1, p1, v1
-
-    add-long/2addr v3, v1
+    add-long/2addr v3, v7
 
     iput-wide v3, p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->mUsageTimeMs:J
 
     iput-wide p1, p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->mLastUsageEndTimeMs:J
 
-    if-eqz v0, :cond_1
+    if-eqz v1, :cond_1
 
-    cmp-long v1, v3, v5
+    cmp-long p1, v3, v5
 
-    if-ltz v1, :cond_1
+    if-ltz p1, :cond_1
 
-    iget-object v1, p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->this$0:Lcom/android/server/usage/AppTimeLimitController;
+    iget-object p1, p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->this$0:Lcom/android/server/usage/AppTimeLimitController;
 
-    invoke-static {v1, p0}, Lcom/android/server/usage/AppTimeLimitController;->access$200(Lcom/android/server/usage/AppTimeLimitController;Lcom/android/server/usage/AppTimeLimitController$UsageGroup;)V
+    invoke-static {p1, p0}, Lcom/android/server/usage/AppTimeLimitController;->-$$Nest$mpostInformLimitReachedListenerLocked(Lcom/android/server/usage/AppTimeLimitController;Lcom/android/server/usage/AppTimeLimitController$UsageGroup;)V
 
     :cond_1
-    iget-object v1, p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->this$0:Lcom/android/server/usage/AppTimeLimitController;
+    iget-object p1, p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->this$0:Lcom/android/server/usage/AppTimeLimitController;
 
-    invoke-static {v1, p0}, Lcom/android/server/usage/AppTimeLimitController;->access$300(Lcom/android/server/usage/AppTimeLimitController;Lcom/android/server/usage/AppTimeLimitController$UsageGroup;)V
+    invoke-static {p1, p0}, Lcom/android/server/usage/AppTimeLimitController;->-$$Nest$mcancelCheckTimeoutLocked(Lcom/android/server/usage/AppTimeLimitController;Lcom/android/server/usage/AppTimeLimitController$UsageGroup;)V
 
     goto :goto_1
 
@@ -428,62 +429,62 @@
 
     iput v2, p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->mActives:I
 
-    iget-object v0, p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->mUserRef:Ljava/lang/ref/WeakReference;
+    iget-object p1, p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->mUserRef:Ljava/lang/ref/WeakReference;
 
-    invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+    invoke-virtual {p1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/android/server/usage/AppTimeLimitController$UserData;
+    check-cast p1, Lcom/android/server/usage/AppTimeLimitController$UserData;
 
-    if-nez v0, :cond_3
+    if-nez p1, :cond_3
 
     return-void
 
     :cond_3
-    iget-object v1, v0, Lcom/android/server/usage/AppTimeLimitController$UserData;->currentlyActive:Landroid/util/ArrayMap;
+    iget-object p1, p1, Lcom/android/server/usage/AppTimeLimitController$UserData;->currentlyActive:Landroid/util/ArrayMap;
 
-    invoke-virtual {v1}, Landroid/util/ArrayMap;->keySet()Ljava/util/Set;
+    invoke-virtual {p1}, Landroid/util/ArrayMap;->keySet()Ljava/util/Set;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-interface {v1}, Ljava/util/Set;->toArray()[Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Set;->toArray()[Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "Too many noted usage stops! Observed entities: "
+    const-string v0, "Too many noted usage stops! Observed entities: "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v3, p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->mObserved:[Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->mObserved:[Ljava/lang/String;
 
-    invoke-static {v3}, Ljava/util/Arrays;->toString([Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p0}, Ljava/util/Arrays;->toString([Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p0
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, "   Active Entities: "
+    const-string p0, "   Active Entities: "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {v1}, Ljava/util/Arrays;->toString([Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p1}, Ljava/util/Arrays;->toString([Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p0
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p0
 
-    const-string v3, "AppTimeLimitController"
+    const-string p1, "AppTimeLimitController"
 
-    invoke-static {v3, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p1, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_4
     :goto_1
@@ -492,6 +493,11 @@
 
 .method public onLimitReached()V
     .locals 10
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
 
     iget-object v0, p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->mUserRef:Ljava/lang/ref/WeakReference;
 
@@ -508,7 +514,7 @@
     :cond_0
     iget-object v1, p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->this$0:Lcom/android/server/usage/AppTimeLimitController;
 
-    invoke-static {v1}, Lcom/android/server/usage/AppTimeLimitController;->access$400(Lcom/android/server/usage/AppTimeLimitController;)Lcom/android/server/usage/AppTimeLimitController$TimeLimitCallbackListener;
+    invoke-static {v1}, Lcom/android/server/usage/AppTimeLimitController;->-$$Nest$fgetmListener(Lcom/android/server/usage/AppTimeLimitController;)Lcom/android/server/usage/AppTimeLimitController$TimeLimitCallbackListener;
 
     move-result-object v1
 
@@ -516,13 +522,13 @@
 
     iget-object v1, p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->this$0:Lcom/android/server/usage/AppTimeLimitController;
 
-    invoke-static {v1}, Lcom/android/server/usage/AppTimeLimitController;->access$400(Lcom/android/server/usage/AppTimeLimitController;)Lcom/android/server/usage/AppTimeLimitController$TimeLimitCallbackListener;
+    invoke-static {v1}, Lcom/android/server/usage/AppTimeLimitController;->-$$Nest$fgetmListener(Lcom/android/server/usage/AppTimeLimitController;)Lcom/android/server/usage/AppTimeLimitController$TimeLimitCallbackListener;
 
     move-result-object v2
 
     iget v3, p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->mObserverId:I
 
-    invoke-static {v0}, Lcom/android/server/usage/AppTimeLimitController$UserData;->access$500(Lcom/android/server/usage/AppTimeLimitController$UserData;)I
+    invoke-static {v0}, Lcom/android/server/usage/AppTimeLimitController$UserData;->-$$Nest$fgetuserId(Lcom/android/server/usage/AppTimeLimitController$UserData;)I
 
     move-result v4
 
@@ -539,7 +545,12 @@
 .end method
 
 .method public remove()V
-    .locals 2
+    .locals 1
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
 
     iget-object v0, p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->mUserRef:Ljava/lang/ref/WeakReference;
 
@@ -554,9 +565,9 @@
     invoke-virtual {v0, p0}, Lcom/android/server/usage/AppTimeLimitController$UserData;->removeUsageGroup(Lcom/android/server/usage/AppTimeLimitController$UsageGroup;)V
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    iput-object v1, p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->mLimitReachedCallback:Landroid/app/PendingIntent;
+    iput-object v0, p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->mLimitReachedCallback:Landroid/app/PendingIntent;
 
     return-void
 .end method

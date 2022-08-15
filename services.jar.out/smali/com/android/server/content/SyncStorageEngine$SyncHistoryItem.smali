@@ -15,31 +15,31 @@
 
 
 # instance fields
-.field authorityId:I
+.field public authorityId:I
 
-.field downstreamActivity:J
+.field public downstreamActivity:J
 
-.field elapsedTime:J
+.field public elapsedTime:J
 
-.field event:I
+.field public event:I
 
-.field eventTime:J
+.field public eventTime:J
 
-.field extras:Landroid/os/Bundle;
+.field public extras:Landroid/os/Bundle;
 
-.field historyId:I
+.field public historyId:I
 
-.field initialization:Z
+.field public initialization:Z
 
-.field mesg:Ljava/lang/String;
+.field public mesg:Ljava/lang/String;
 
-.field reason:I
+.field public reason:I
 
-.field source:I
+.field public source:I
 
-.field syncExemptionFlag:I
+.field public syncExemptionFlag:I
 
-.field upstreamActivity:J
+.field public upstreamActivity:J
 
 
 # direct methods

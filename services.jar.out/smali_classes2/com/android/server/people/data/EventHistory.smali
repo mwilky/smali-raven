@@ -18,17 +18,3 @@
         }
     .end annotation
 .end method
-
-.method public abstract queryEvents(Ljava/util/Set;JJ)Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/Set<",
-            "Ljava/lang/Integer;",
-            ">;JJ)",
-            "Ljava/util/List<",
-            "Lcom/android/server/people/data/Event;",
-            ">;"
-        }
-    .end annotation
-.end method

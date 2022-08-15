@@ -1,41 +1,40 @@
 .class public final synthetic Lcom/android/server/notification/NotificationManagerService$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/internal/util/function/TriPredicate;
+.implements Ljava/lang/Runnable;
 
 
 # instance fields
 .field public final synthetic f$0:Lcom/android/server/notification/NotificationManagerService;
 
+.field public final synthetic f$1:Lcom/android/server/SystemService$TargetUser;
+
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/notification/NotificationManagerService;)V
+.method public synthetic constructor <init>(Lcom/android/server/notification/NotificationManagerService;Lcom/android/server/SystemService$TargetUser;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/server/notification/NotificationManagerService$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/notification/NotificationManagerService;
 
+    iput-object p2, p0, Lcom/android/server/notification/NotificationManagerService$$ExternalSyntheticLambda2;->f$1:Lcom/android/server/SystemService$TargetUser;
+
     return-void
 .end method
 
 
 # virtual methods
-.method public final test(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z
+.method public final run()V
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/notification/NotificationManagerService;
 
-    check-cast p1, Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/notification/NotificationManagerService$$ExternalSyntheticLambda2;->f$1:Lcom/android/server/SystemService$TargetUser;
 
-    check-cast p2, Ljava/lang/Integer;
+    invoke-static {v0, p0}, Lcom/android/server/notification/NotificationManagerService;->$r8$lambda$ayW9y1IhPKXCMYdpHXGzbm4jhiU(Lcom/android/server/notification/NotificationManagerService;Lcom/android/server/SystemService$TargetUser;)V
 
-    check-cast p3, Ljava/lang/String;
-
-    invoke-virtual {v0, p1, p2, p3}, Lcom/android/server/notification/NotificationManagerService;->canUseManagedServices(Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/String;)Z
-
-    move-result p1
-
-    return p1
+    return-void
 .end method

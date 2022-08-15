@@ -7,6 +7,7 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/android/server/location/eventlog/LocationEventLog$AggregateStats;,
+        Lcom/android/server/location/eventlog/LocationEventLog$LocationsEventLog;,
         Lcom/android/server/location/eventlog/LocationEventLog$LocationAdasEnabledEvent;,
         Lcom/android/server/location/eventlog/LocationEventLog$LocationEnabledEvent;,
         Lcom/android/server/location/eventlog/LocationEventLog$UserSwitchedEvent;,
@@ -24,45 +25,27 @@
     }
 .end annotation
 
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Lcom/android/server/location/eventlog/LocalEventLog<",
+        "Ljava/lang/Object;",
+        ">;"
+    }
+.end annotation
+
 
 # static fields
-.field private static final EVENT_ADAS_LOCATION_ENABLED:I = 0x3
-
-.field private static final EVENT_LOCATION_ENABLED:I = 0x2
-
-.field private static final EVENT_LOCATION_POWER_SAVE_MODE_CHANGE:I = 0x10
-
 .field public static final EVENT_LOG:Lcom/android/server/location/eventlog/LocationEventLog;
-
-.field private static final EVENT_PROVIDER_CLIENT_BACKGROUND:I = 0x9
-
-.field private static final EVENT_PROVIDER_CLIENT_FOREGROUND:I = 0x8
-
-.field private static final EVENT_PROVIDER_CLIENT_PERMITTED:I = 0xa
-
-.field private static final EVENT_PROVIDER_CLIENT_REGISTER:I = 0x6
-
-.field private static final EVENT_PROVIDER_CLIENT_UNPERMITTED:I = 0xb
-
-.field private static final EVENT_PROVIDER_CLIENT_UNREGISTER:I = 0x7
-
-.field private static final EVENT_PROVIDER_DELIVER_LOCATION:I = 0xe
-
-.field private static final EVENT_PROVIDER_ENABLED:I = 0x4
-
-.field private static final EVENT_PROVIDER_MOCKED:I = 0x5
-
-.field private static final EVENT_PROVIDER_RECEIVE_LOCATION:I = 0xd
-
-.field private static final EVENT_PROVIDER_STATIONARY_THROTTLED:I = 0xf
-
-.field private static final EVENT_PROVIDER_UPDATE_REQUEST:I = 0xc
-
-.field private static final EVENT_USER_SWITCHED:I = 0x1
 
 
 # instance fields
-.field private final mAggregateStats:Landroid/util/ArrayMap;
+.field public final mAggregateStats:Landroid/util/ArrayMap;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mAggregateStats"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/ArrayMap<",
@@ -75,9 +58,25 @@
     .end annotation
 .end field
 
+.field public final mLocationsLog:Lcom/android/server/location/eventlog/LocationEventLog$LocationsEventLog;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "this"
+        }
+    .end annotation
+.end field
+
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static synthetic $r8$lambda$dhWOzPpo6Y2c9IX-81RpvYKL4Q8(Ljava/lang/String;Ljava/lang/StringBuilder;JLjava/util/function/Consumer;JLjava/lang/Object;)V
+    .locals 0
+
+    invoke-static/range {p0 .. p7}, Lcom/android/server/location/eventlog/LocationEventLog;->lambda$iterate$0(Ljava/lang/String;Ljava/lang/StringBuilder;JLjava/util/function/Consumer;JLjava/lang/Object;)V
+
+    return-void
+.end method
+
+.method public static constructor <clinit>()V
     .locals 1
 
     new-instance v0, Lcom/android/server/location/eventlog/LocationEventLog;
@@ -96,7 +95,9 @@
 
     move-result v0
 
-    invoke-direct {p0, v0}, Lcom/android/server/location/eventlog/LocalEventLog;-><init>(I)V
+    const-class v1, Ljava/lang/Object;
+
+    invoke-direct {p0, v0, v1}, Lcom/android/server/location/eventlog/LocalEventLog;-><init>(ILjava/lang/Class;)V
 
     new-instance v0, Landroid/util/ArrayMap;
 
@@ -106,76 +107,37 @@
 
     iput-object v0, p0, Lcom/android/server/location/eventlog/LocationEventLog;->mAggregateStats:Landroid/util/ArrayMap;
 
+    new-instance v0, Lcom/android/server/location/eventlog/LocationEventLog$LocationsEventLog;
+
+    invoke-static {}, Lcom/android/server/location/eventlog/LocationEventLog;->getLocationsLogSize()I
+
+    move-result v1
+
+    invoke-direct {v0, v1}, Lcom/android/server/location/eventlog/LocationEventLog$LocationsEventLog;-><init>(I)V
+
+    iput-object v0, p0, Lcom/android/server/location/eventlog/LocationEventLog;->mLocationsLog:Lcom/android/server/location/eventlog/LocationEventLog$LocationsEventLog;
+
     return-void
 .end method
 
-.method private getAggregateStats(Ljava/lang/String;Landroid/location/util/identity/CallerIdentity;)Lcom/android/server/location/eventlog/LocationEventLog$AggregateStats;
-    .locals 5
+.method public static getLocationsLogSize()I
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/location/eventlog/LocationEventLog;->mAggregateStats:Landroid/util/ArrayMap;
+    sget-boolean v0, Lcom/android/server/location/LocationManagerService;->D:Z
 
-    monitor-enter v0
+    if-eqz v0, :cond_0
 
-    :try_start_0
-    iget-object v1, p0, Lcom/android/server/location/eventlog/LocationEventLog;->mAggregateStats:Landroid/util/ArrayMap;
+    const/16 v0, 0xc8
 
-    invoke-virtual {v1, p1}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/util/ArrayMap;
-
-    if-nez v1, :cond_0
-
-    new-instance v2, Landroid/util/ArrayMap;
-
-    const/4 v3, 0x2
-
-    invoke-direct {v2, v3}, Landroid/util/ArrayMap;-><init>(I)V
-
-    move-object v1, v2
-
-    iget-object v2, p0, Lcom/android/server/location/eventlog/LocationEventLog;->mAggregateStats:Landroid/util/ArrayMap;
-
-    invoke-virtual {v2, p1, v1}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    return v0
 
     :cond_0
-    invoke-static {p2}, Landroid/location/util/identity/CallerIdentity;->forAggregation(Landroid/location/util/identity/CallerIdentity;)Landroid/location/util/identity/CallerIdentity;
+    const/16 v0, 0x64
 
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Lcom/android/server/location/eventlog/LocationEventLog$AggregateStats;
-
-    if-nez v3, :cond_1
-
-    new-instance v4, Lcom/android/server/location/eventlog/LocationEventLog$AggregateStats;
-
-    invoke-direct {v4}, Lcom/android/server/location/eventlog/LocationEventLog$AggregateStats;-><init>()V
-
-    move-object v3, v4
-
-    invoke-virtual {v1, v2, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    :cond_1
-    monitor-exit v0
-
-    return-object v3
-
-    :catchall_0
-    move-exception v1
-
-    monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v1
+    return v0
 .end method
 
-.method private static getLogSize()I
+.method public static getLogSize()I
     .locals 1
 
     sget-boolean v0, Lcom/android/server/location/LocationManagerService;->D:Z
@@ -187,15 +149,90 @@
     return v0
 
     :cond_0
-    const/16 v0, 0xc8
+    const/16 v0, 0x12c
 
     return v0
 .end method
 
+.method public static synthetic lambda$iterate$0(Ljava/lang/String;Ljava/lang/StringBuilder;JLjava/util/function/Consumer;JLjava/lang/Object;)V
+    .locals 2
+
+    const/4 v0, 0x0
+
+    if-eqz p0, :cond_1
+
+    instance-of v1, p7, Lcom/android/server/location/eventlog/LocationEventLog$ProviderEvent;
+
+    if-eqz v1, :cond_0
+
+    move-object v1, p7
+
+    check-cast v1, Lcom/android/server/location/eventlog/LocationEventLog$ProviderEvent;
+
+    iget-object v1, v1, Lcom/android/server/location/eventlog/LocationEventLog$ProviderEvent;->mProvider:Ljava/lang/String;
+
+    invoke-virtual {p0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-eqz p0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    move p0, v0
+
+    goto :goto_1
+
+    :cond_1
+    :goto_0
+    const/4 p0, 0x1
+
+    :goto_1
+    if-eqz p0, :cond_2
+
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->setLength(I)V
+
+    add-long/2addr p5, p2
+
+    invoke-static {p5, p6}, Landroid/util/TimeUtils;->logTimeOfDay(J)Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string p0, ": "
+
+    invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p1, p7}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-interface {p4, p0}, Ljava/util/function/Consumer;->accept(Ljava/lang/Object;)V
+
+    :cond_2
+    return-void
+.end method
+
 
 # virtual methods
+.method public final addLog(Ljava/lang/Object;)V
+    .locals 2
+
+    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+
+    move-result-wide v0
+
+    invoke-virtual {p0, v0, v1, p1}, Lcom/android/server/location/eventlog/LocalEventLog;->addLog(JLjava/lang/Object;)V
+
+    return-void
+.end method
+
 .method public copyAggregateStats()Landroid/util/ArrayMap;
-    .locals 5
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -215,32 +252,32 @@
     :try_start_0
     new-instance v1, Landroid/util/ArrayMap;
 
-    iget-object v2, p0, Lcom/android/server/location/eventlog/LocationEventLog;->mAggregateStats:Landroid/util/ArrayMap;
+    iget-object p0, p0, Lcom/android/server/location/eventlog/LocationEventLog;->mAggregateStats:Landroid/util/ArrayMap;
 
-    invoke-direct {v1, v2}, Landroid/util/ArrayMap;-><init>(Landroid/util/ArrayMap;)V
+    invoke-direct {v1, p0}, Landroid/util/ArrayMap;-><init>(Landroid/util/ArrayMap;)V
 
-    const/4 v2, 0x0
+    const/4 p0, 0x0
 
     :goto_0
     invoke-virtual {v1}, Landroid/util/ArrayMap;->size()I
 
-    move-result v3
+    move-result v2
 
-    if-ge v2, v3, :cond_0
+    if-ge p0, v2, :cond_0
 
-    new-instance v3, Landroid/util/ArrayMap;
+    new-instance v2, Landroid/util/ArrayMap;
 
-    invoke-virtual {v1, v2}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {v1, p0}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v3
 
-    check-cast v4, Landroid/util/ArrayMap;
+    check-cast v3, Landroid/util/ArrayMap;
 
-    invoke-direct {v3, v4}, Landroid/util/ArrayMap;-><init>(Landroid/util/ArrayMap;)V
+    invoke-direct {v2, v3}, Landroid/util/ArrayMap;-><init>(Landroid/util/ArrayMap;)V
 
-    invoke-virtual {v1, v2, v3}, Landroid/util/ArrayMap;->setValueAt(ILjava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, p0, v2}, Landroid/util/ArrayMap;->setValueAt(ILjava/lang/Object;)Ljava/lang/Object;
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 p0, p0, 0x1
 
     goto :goto_0
 
@@ -250,936 +287,489 @@
     return-object v1
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
-.method protected varargs createLogEvent(JI[Ljava/lang/Object;)Lcom/android/server/location/eventlog/LocalEventLog$LogEvent;
-    .locals 8
+.method public final getAggregateStats(Ljava/lang/String;Landroid/location/util/identity/CallerIdentity;)Lcom/android/server/location/eventlog/LocationEventLog$AggregateStats;
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/server/location/eventlog/LocationEventLog;->mAggregateStats:Landroid/util/ArrayMap;
+
+    monitor-enter v0
+
+    :try_start_0
+    iget-object v1, p0, Lcom/android/server/location/eventlog/LocationEventLog;->mAggregateStats:Landroid/util/ArrayMap;
+
+    invoke-virtual {v1, p1}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/util/ArrayMap;
+
+    if-nez v1, :cond_0
+
+    new-instance v1, Landroid/util/ArrayMap;
+
+    const/4 v2, 0x2
+
+    invoke-direct {v1, v2}, Landroid/util/ArrayMap;-><init>(I)V
+
+    iget-object p0, p0, Lcom/android/server/location/eventlog/LocationEventLog;->mAggregateStats:Landroid/util/ArrayMap;
+
+    invoke-virtual {p0, p1, v1}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    :cond_0
+    invoke-static {p2}, Landroid/location/util/identity/CallerIdentity;->forAggregation(Landroid/location/util/identity/CallerIdentity;)Landroid/location/util/identity/CallerIdentity;
+
+    move-result-object p0
+
+    invoke-virtual {v1, p0}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Lcom/android/server/location/eventlog/LocationEventLog$AggregateStats;
+
+    if-nez p1, :cond_1
+
+    new-instance p1, Lcom/android/server/location/eventlog/LocationEventLog$AggregateStats;
+
+    invoke-direct {p1}, Lcom/android/server/location/eventlog/LocationEventLog$AggregateStats;-><init>()V
+
+    invoke-virtual {v1, p0, p1}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    :cond_1
+    monitor-exit v0
+
+    return-object p1
+
+    :catchall_0
+    move-exception p0
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw p0
+.end method
+
+.method public declared-synchronized iterate(Lcom/android/server/location/eventlog/LocalEventLog$LogConsumer;)V
+    .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/android/server/location/eventlog/LocalEventLog$LogConsumer<",
+            "-",
+            "Ljava/lang/Object;",
+            ">;)V"
+        }
+    .end annotation
+
+    monitor-enter p0
 
     const/4 v0, 0x2
+
+    :try_start_0
+    new-array v0, v0, [Lcom/android/server/location/eventlog/LocalEventLog;
+
+    const/4 v1, 0x0
+
+    aput-object p0, v0, v1
 
     const/4 v1, 0x1
 
-    const/4 v2, 0x0
+    iget-object v2, p0, Lcom/android/server/location/eventlog/LocationEventLog;->mLocationsLog:Lcom/android/server/location/eventlog/LocationEventLog$LocationsEventLog;
 
-    packed-switch p3, :pswitch_data_0
+    aput-object v2, v0, v1
 
-    new-instance v0, Ljava/lang/AssertionError;
+    invoke-static {p1, v0}, Lcom/android/server/location/eventlog/LocalEventLog;->iterate(Lcom/android/server/location/eventlog/LocalEventLog$LogConsumer;[Lcom/android/server/location/eventlog/LocalEventLog;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
+    monitor-exit p0
 
-    throw v0
+    return-void
 
-    :pswitch_0
-    new-instance v0, Lcom/android/server/location/eventlog/LocationEventLog$LocationPowerSaveModeEvent;
+    :catchall_0
+    move-exception p1
 
-    aget-object v1, p4, v2
+    monitor-exit p0
 
-    check-cast v1, Ljava/lang/Integer;
+    throw p1
+.end method
 
-    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
+.method public iterate(Ljava/util/function/Consumer;)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/function/Consumer<",
+            "Ljava/lang/String;",
+            ">;)V"
+        }
+    .end annotation
 
-    move-result v1
+    const/4 v0, 0x0
 
-    invoke-direct {v0, p1, p2, v1}, Lcom/android/server/location/eventlog/LocationEventLog$LocationPowerSaveModeEvent;-><init>(JI)V
+    invoke-virtual {p0, p1, v0}, Lcom/android/server/location/eventlog/LocationEventLog;->iterate(Ljava/util/function/Consumer;Ljava/lang/String;)V
 
-    return-object v0
+    return-void
+.end method
 
-    :pswitch_1
-    new-instance v6, Lcom/android/server/location/eventlog/LocationEventLog$ProviderStationaryThrottledEvent;
+.method public iterate(Ljava/util/function/Consumer;Ljava/lang/String;)V
+    .locals 10
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/function/Consumer<",
+            "Ljava/lang/String;",
+            ">;",
+            "Ljava/lang/String;",
+            ")V"
+        }
+    .end annotation
 
-    aget-object v2, p4, v2
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-object v3, v2
+    move-result-wide v0
 
-    check-cast v3, Ljava/lang/String;
+    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
-    aget-object v1, p4, v1
+    move-result-wide v2
 
-    check-cast v1, Ljava/lang/Boolean;
+    sub-long v7, v0, v2
 
-    invoke-virtual {v1}, Ljava/lang/Boolean;->booleanValue()Z
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    move-result v4
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    aget-object v0, p4, v0
+    new-instance v0, Lcom/android/server/location/eventlog/LocationEventLog$$ExternalSyntheticLambda0;
 
-    move-object v5, v0
+    move-object v4, v0
 
-    check-cast v5, Landroid/location/provider/ProviderRequest;
+    move-object v5, p2
 
-    move-object v0, v6
+    move-object v9, p1
 
-    move-wide v1, p1
+    invoke-direct/range {v4 .. v9}, Lcom/android/server/location/eventlog/LocationEventLog$$ExternalSyntheticLambda0;-><init>(Ljava/lang/String;Ljava/lang/StringBuilder;JLjava/util/function/Consumer;)V
 
-    invoke-direct/range {v0 .. v5}, Lcom/android/server/location/eventlog/LocationEventLog$ProviderStationaryThrottledEvent;-><init>(JLjava/lang/String;ZLandroid/location/provider/ProviderRequest;)V
+    invoke-virtual {p0, v0}, Lcom/android/server/location/eventlog/LocationEventLog;->iterate(Lcom/android/server/location/eventlog/LocalEventLog$LogConsumer;)V
 
-    return-object v6
-
-    :pswitch_2
-    new-instance v6, Lcom/android/server/location/eventlog/LocationEventLog$ProviderDeliverLocationEvent;
-
-    aget-object v2, p4, v2
-
-    move-object v3, v2
-
-    check-cast v3, Ljava/lang/String;
-
-    aget-object v1, p4, v1
-
-    check-cast v1, Ljava/lang/Integer;
-
-    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
-
-    move-result v4
-
-    aget-object v0, p4, v0
-
-    move-object v5, v0
-
-    check-cast v5, Landroid/location/util/identity/CallerIdentity;
-
-    move-object v0, v6
-
-    move-wide v1, p1
-
-    invoke-direct/range {v0 .. v5}, Lcom/android/server/location/eventlog/LocationEventLog$ProviderDeliverLocationEvent;-><init>(JLjava/lang/String;ILandroid/location/util/identity/CallerIdentity;)V
-
-    return-object v6
-
-    :pswitch_3
-    new-instance v0, Lcom/android/server/location/eventlog/LocationEventLog$ProviderReceiveLocationEvent;
-
-    aget-object v2, p4, v2
-
-    check-cast v2, Ljava/lang/String;
-
-    aget-object v1, p4, v1
-
-    check-cast v1, Ljava/lang/Integer;
-
-    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
-
-    move-result v1
-
-    invoke-direct {v0, p1, p2, v2, v1}, Lcom/android/server/location/eventlog/LocationEventLog$ProviderReceiveLocationEvent;-><init>(JLjava/lang/String;I)V
-
-    return-object v0
-
-    :pswitch_4
-    new-instance v0, Lcom/android/server/location/eventlog/LocationEventLog$ProviderUpdateEvent;
-
-    aget-object v2, p4, v2
-
-    check-cast v2, Ljava/lang/String;
-
-    aget-object v1, p4, v1
-
-    check-cast v1, Landroid/location/provider/ProviderRequest;
-
-    invoke-direct {v0, p1, p2, v2, v1}, Lcom/android/server/location/eventlog/LocationEventLog$ProviderUpdateEvent;-><init>(JLjava/lang/String;Landroid/location/provider/ProviderRequest;)V
-
-    return-object v0
-
-    :pswitch_5
-    new-instance v6, Lcom/android/server/location/eventlog/LocationEventLog$ProviderClientPermittedEvent;
-
-    aget-object v0, p4, v2
-
-    move-object v3, v0
-
-    check-cast v3, Ljava/lang/String;
-
-    const/4 v4, 0x0
-
-    aget-object v0, p4, v1
-
-    move-object v5, v0
-
-    check-cast v5, Landroid/location/util/identity/CallerIdentity;
-
-    move-object v0, v6
-
-    move-wide v1, p1
-
-    invoke-direct/range {v0 .. v5}, Lcom/android/server/location/eventlog/LocationEventLog$ProviderClientPermittedEvent;-><init>(JLjava/lang/String;ZLandroid/location/util/identity/CallerIdentity;)V
-
-    return-object v6
-
-    :pswitch_6
-    new-instance v6, Lcom/android/server/location/eventlog/LocationEventLog$ProviderClientPermittedEvent;
-
-    aget-object v0, p4, v2
-
-    move-object v3, v0
-
-    check-cast v3, Ljava/lang/String;
-
-    const/4 v4, 0x1
-
-    aget-object v0, p4, v1
-
-    move-object v5, v0
-
-    check-cast v5, Landroid/location/util/identity/CallerIdentity;
-
-    move-object v0, v6
-
-    move-wide v1, p1
-
-    invoke-direct/range {v0 .. v5}, Lcom/android/server/location/eventlog/LocationEventLog$ProviderClientPermittedEvent;-><init>(JLjava/lang/String;ZLandroid/location/util/identity/CallerIdentity;)V
-
-    return-object v6
-
-    :pswitch_7
-    new-instance v6, Lcom/android/server/location/eventlog/LocationEventLog$ProviderClientForegroundEvent;
-
-    aget-object v0, p4, v2
-
-    move-object v3, v0
-
-    check-cast v3, Ljava/lang/String;
-
-    const/4 v4, 0x0
-
-    aget-object v0, p4, v1
-
-    move-object v5, v0
-
-    check-cast v5, Landroid/location/util/identity/CallerIdentity;
-
-    move-object v0, v6
-
-    move-wide v1, p1
-
-    invoke-direct/range {v0 .. v5}, Lcom/android/server/location/eventlog/LocationEventLog$ProviderClientForegroundEvent;-><init>(JLjava/lang/String;ZLandroid/location/util/identity/CallerIdentity;)V
-
-    return-object v6
-
-    :pswitch_8
-    new-instance v6, Lcom/android/server/location/eventlog/LocationEventLog$ProviderClientForegroundEvent;
-
-    aget-object v0, p4, v2
-
-    move-object v3, v0
-
-    check-cast v3, Ljava/lang/String;
-
-    const/4 v4, 0x1
-
-    aget-object v0, p4, v1
-
-    move-object v5, v0
-
-    check-cast v5, Landroid/location/util/identity/CallerIdentity;
-
-    move-object v0, v6
-
-    move-wide v1, p1
-
-    invoke-direct/range {v0 .. v5}, Lcom/android/server/location/eventlog/LocationEventLog$ProviderClientForegroundEvent;-><init>(JLjava/lang/String;ZLandroid/location/util/identity/CallerIdentity;)V
-
-    return-object v6
-
-    :pswitch_9
-    new-instance v7, Lcom/android/server/location/eventlog/LocationEventLog$ProviderClientRegisterEvent;
-
-    aget-object v0, p4, v2
-
-    move-object v3, v0
-
-    check-cast v3, Ljava/lang/String;
-
-    const/4 v4, 0x0
-
-    aget-object v0, p4, v1
-
-    move-object v5, v0
-
-    check-cast v5, Landroid/location/util/identity/CallerIdentity;
-
-    const/4 v6, 0x0
-
-    move-object v0, v7
-
-    move-wide v1, p1
-
-    invoke-direct/range {v0 .. v6}, Lcom/android/server/location/eventlog/LocationEventLog$ProviderClientRegisterEvent;-><init>(JLjava/lang/String;ZLandroid/location/util/identity/CallerIdentity;Landroid/location/LocationRequest;)V
-
-    return-object v7
-
-    :pswitch_a
-    new-instance v7, Lcom/android/server/location/eventlog/LocationEventLog$ProviderClientRegisterEvent;
-
-    aget-object v2, p4, v2
-
-    move-object v3, v2
-
-    check-cast v3, Ljava/lang/String;
-
-    const/4 v4, 0x1
-
-    aget-object v1, p4, v1
-
-    move-object v5, v1
-
-    check-cast v5, Landroid/location/util/identity/CallerIdentity;
-
-    aget-object v0, p4, v0
-
-    move-object v6, v0
-
-    check-cast v6, Landroid/location/LocationRequest;
-
-    move-object v0, v7
-
-    move-wide v1, p1
-
-    invoke-direct/range {v0 .. v6}, Lcom/android/server/location/eventlog/LocationEventLog$ProviderClientRegisterEvent;-><init>(JLjava/lang/String;ZLandroid/location/util/identity/CallerIdentity;Landroid/location/LocationRequest;)V
-
-    return-object v7
-
-    :pswitch_b
-    new-instance v0, Lcom/android/server/location/eventlog/LocationEventLog$ProviderMockedEvent;
-
-    aget-object v2, p4, v2
-
-    check-cast v2, Ljava/lang/String;
-
-    aget-object v1, p4, v1
-
-    check-cast v1, Ljava/lang/Boolean;
-
-    invoke-virtual {v1}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v1
-
-    invoke-direct {v0, p1, p2, v2, v1}, Lcom/android/server/location/eventlog/LocationEventLog$ProviderMockedEvent;-><init>(JLjava/lang/String;Z)V
-
-    return-object v0
-
-    :pswitch_c
-    new-instance v6, Lcom/android/server/location/eventlog/LocationEventLog$ProviderEnabledEvent;
-
-    aget-object v2, p4, v2
-
-    move-object v3, v2
-
-    check-cast v3, Ljava/lang/String;
-
-    aget-object v1, p4, v1
-
-    check-cast v1, Ljava/lang/Integer;
-
-    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
-
-    move-result v4
-
-    aget-object v0, p4, v0
-
-    check-cast v0, Ljava/lang/Boolean;
-
-    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v5
-
-    move-object v0, v6
-
-    move-wide v1, p1
-
-    invoke-direct/range {v0 .. v5}, Lcom/android/server/location/eventlog/LocationEventLog$ProviderEnabledEvent;-><init>(JLjava/lang/String;IZ)V
-
-    return-object v6
-
-    :pswitch_d
-    new-instance v0, Lcom/android/server/location/eventlog/LocationEventLog$LocationAdasEnabledEvent;
-
-    aget-object v2, p4, v2
-
-    check-cast v2, Ljava/lang/Integer;
-
-    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
-
-    move-result v2
-
-    aget-object v1, p4, v1
-
-    check-cast v1, Ljava/lang/Boolean;
-
-    invoke-virtual {v1}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v1
-
-    invoke-direct {v0, p1, p2, v2, v1}, Lcom/android/server/location/eventlog/LocationEventLog$LocationAdasEnabledEvent;-><init>(JIZ)V
-
-    return-object v0
-
-    :pswitch_e
-    new-instance v0, Lcom/android/server/location/eventlog/LocationEventLog$LocationEnabledEvent;
-
-    aget-object v2, p4, v2
-
-    check-cast v2, Ljava/lang/Integer;
-
-    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
-
-    move-result v2
-
-    aget-object v1, p4, v1
-
-    check-cast v1, Ljava/lang/Boolean;
-
-    invoke-virtual {v1}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v1
-
-    invoke-direct {v0, p1, p2, v2, v1}, Lcom/android/server/location/eventlog/LocationEventLog$LocationEnabledEvent;-><init>(JIZ)V
-
-    return-object v0
-
-    :pswitch_f
-    new-instance v0, Lcom/android/server/location/eventlog/LocationEventLog$UserSwitchedEvent;
-
-    aget-object v2, p4, v2
-
-    check-cast v2, Ljava/lang/Integer;
-
-    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
-
-    move-result v2
-
-    aget-object v1, p4, v1
-
-    check-cast v1, Ljava/lang/Integer;
-
-    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
-
-    move-result v1
-
-    invoke-direct {v0, p1, p2, v2, v1}, Lcom/android/server/location/eventlog/LocationEventLog$UserSwitchedEvent;-><init>(JII)V
-
-    return-object v0
-
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_f
-        :pswitch_e
-        :pswitch_d
-        :pswitch_c
-        :pswitch_b
-        :pswitch_a
-        :pswitch_9
-        :pswitch_8
-        :pswitch_7
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
+    return-void
 .end method
 
 .method public logAdasLocationEnabled(IZ)V
-    .locals 3
+    .locals 1
 
-    const/4 v0, 0x2
+    new-instance v0, Lcom/android/server/location/eventlog/LocationEventLog$LocationAdasEnabledEvent;
 
-    new-array v0, v0, [Ljava/lang/Object;
+    invoke-direct {v0, p1, p2}, Lcom/android/server/location/eventlog/LocationEventLog$LocationAdasEnabledEvent;-><init>(IZ)V
 
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    const/4 v2, 0x0
-
-    aput-object v1, v0, v2
-
-    invoke-static {p2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v1
-
-    const/4 v2, 0x1
-
-    aput-object v1, v0, v2
-
-    const/4 v1, 0x3
-
-    invoke-virtual {p0, v1, v0}, Lcom/android/server/location/eventlog/LocationEventLog;->addLogEvent(I[Ljava/lang/Object;)V
+    invoke-virtual {p0, v0}, Lcom/android/server/location/eventlog/LocationEventLog;->addLog(Ljava/lang/Object;)V
 
     return-void
 .end method
 
 .method public logLocationEnabled(IZ)V
-    .locals 4
+    .locals 1
 
-    const/4 v0, 0x2
+    new-instance v0, Lcom/android/server/location/eventlog/LocationEventLog$LocationEnabledEvent;
 
-    new-array v1, v0, [Ljava/lang/Object;
+    invoke-direct {v0, p1, p2}, Lcom/android/server/location/eventlog/LocationEventLog$LocationEnabledEvent;-><init>(IZ)V
 
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    const/4 v3, 0x0
-
-    aput-object v2, v1, v3
-
-    invoke-static {p2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v2
-
-    const/4 v3, 0x1
-
-    aput-object v2, v1, v3
-
-    invoke-virtual {p0, v0, v1}, Lcom/android/server/location/eventlog/LocationEventLog;->addLogEvent(I[Ljava/lang/Object;)V
+    invoke-virtual {p0, v0}, Lcom/android/server/location/eventlog/LocationEventLog;->addLog(Ljava/lang/Object;)V
 
     return-void
 .end method
 
 .method public logLocationPowerSaveMode(I)V
-    .locals 3
+    .locals 1
 
-    const/4 v0, 0x1
+    new-instance v0, Lcom/android/server/location/eventlog/LocationEventLog$LocationPowerSaveModeEvent;
 
-    new-array v0, v0, [Ljava/lang/Object;
+    invoke-direct {v0, p1}, Lcom/android/server/location/eventlog/LocationEventLog$LocationPowerSaveModeEvent;-><init>(I)V
 
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    const/4 v2, 0x0
-
-    aput-object v1, v0, v2
-
-    const/16 v1, 0x10
-
-    invoke-virtual {p0, v1, v0}, Lcom/android/server/location/eventlog/LocationEventLog;->addLogEvent(I[Ljava/lang/Object;)V
+    invoke-virtual {p0, v0}, Lcom/android/server/location/eventlog/LocationEventLog;->addLog(Ljava/lang/Object;)V
 
     return-void
 .end method
 
 .method public logProviderClientActive(Ljava/lang/String;Landroid/location/util/identity/CallerIdentity;)V
-    .locals 1
+    .locals 0
 
-    invoke-direct {p0, p1, p2}, Lcom/android/server/location/eventlog/LocationEventLog;->getAggregateStats(Ljava/lang/String;Landroid/location/util/identity/CallerIdentity;)Lcom/android/server/location/eventlog/LocationEventLog$AggregateStats;
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/location/eventlog/LocationEventLog;->getAggregateStats(Ljava/lang/String;Landroid/location/util/identity/CallerIdentity;)Lcom/android/server/location/eventlog/LocationEventLog$AggregateStats;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Lcom/android/server/location/eventlog/LocationEventLog$AggregateStats;->markRequestActive()V
+    invoke-virtual {p0}, Lcom/android/server/location/eventlog/LocationEventLog$AggregateStats;->markRequestActive()V
 
     return-void
 .end method
 
 .method public logProviderClientBackground(Ljava/lang/String;Landroid/location/util/identity/CallerIdentity;)V
-    .locals 3
+    .locals 2
 
     sget-boolean v0, Lcom/android/server/location/LocationManagerService;->D:Z
 
     if-eqz v0, :cond_0
 
-    const/16 v0, 0x9
+    new-instance v0, Lcom/android/server/location/eventlog/LocationEventLog$ProviderClientForegroundEvent;
 
-    const/4 v1, 0x2
+    const/4 v1, 0x0
 
-    new-array v1, v1, [Ljava/lang/Object;
+    invoke-direct {v0, p1, v1, p2}, Lcom/android/server/location/eventlog/LocationEventLog$ProviderClientForegroundEvent;-><init>(Ljava/lang/String;ZLandroid/location/util/identity/CallerIdentity;)V
 
-    const/4 v2, 0x0
-
-    aput-object p1, v1, v2
-
-    const/4 v2, 0x1
-
-    aput-object p2, v1, v2
-
-    invoke-virtual {p0, v0, v1}, Lcom/android/server/location/eventlog/LocationEventLog;->addLogEvent(I[Ljava/lang/Object;)V
+    invoke-virtual {p0, v0}, Lcom/android/server/location/eventlog/LocationEventLog;->addLog(Ljava/lang/Object;)V
 
     :cond_0
-    invoke-direct {p0, p1, p2}, Lcom/android/server/location/eventlog/LocationEventLog;->getAggregateStats(Ljava/lang/String;Landroid/location/util/identity/CallerIdentity;)Lcom/android/server/location/eventlog/LocationEventLog$AggregateStats;
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/location/eventlog/LocationEventLog;->getAggregateStats(Ljava/lang/String;Landroid/location/util/identity/CallerIdentity;)Lcom/android/server/location/eventlog/LocationEventLog$AggregateStats;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Lcom/android/server/location/eventlog/LocationEventLog$AggregateStats;->markRequestBackground()V
+    invoke-virtual {p0}, Lcom/android/server/location/eventlog/LocationEventLog$AggregateStats;->markRequestBackground()V
 
     return-void
 .end method
 
 .method public logProviderClientForeground(Ljava/lang/String;Landroid/location/util/identity/CallerIdentity;)V
-    .locals 3
+    .locals 2
 
     sget-boolean v0, Lcom/android/server/location/LocationManagerService;->D:Z
 
     if-eqz v0, :cond_0
 
-    const/16 v0, 0x8
+    new-instance v0, Lcom/android/server/location/eventlog/LocationEventLog$ProviderClientForegroundEvent;
 
-    const/4 v1, 0x2
+    const/4 v1, 0x1
 
-    new-array v1, v1, [Ljava/lang/Object;
+    invoke-direct {v0, p1, v1, p2}, Lcom/android/server/location/eventlog/LocationEventLog$ProviderClientForegroundEvent;-><init>(Ljava/lang/String;ZLandroid/location/util/identity/CallerIdentity;)V
 
-    const/4 v2, 0x0
-
-    aput-object p1, v1, v2
-
-    const/4 v2, 0x1
-
-    aput-object p2, v1, v2
-
-    invoke-virtual {p0, v0, v1}, Lcom/android/server/location/eventlog/LocationEventLog;->addLogEvent(I[Ljava/lang/Object;)V
+    invoke-virtual {p0, v0}, Lcom/android/server/location/eventlog/LocationEventLog;->addLog(Ljava/lang/Object;)V
 
     :cond_0
-    invoke-direct {p0, p1, p2}, Lcom/android/server/location/eventlog/LocationEventLog;->getAggregateStats(Ljava/lang/String;Landroid/location/util/identity/CallerIdentity;)Lcom/android/server/location/eventlog/LocationEventLog$AggregateStats;
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/location/eventlog/LocationEventLog;->getAggregateStats(Ljava/lang/String;Landroid/location/util/identity/CallerIdentity;)Lcom/android/server/location/eventlog/LocationEventLog$AggregateStats;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Lcom/android/server/location/eventlog/LocationEventLog$AggregateStats;->markRequestForeground()V
+    invoke-virtual {p0}, Lcom/android/server/location/eventlog/LocationEventLog$AggregateStats;->markRequestForeground()V
 
     return-void
 .end method
 
 .method public logProviderClientInactive(Ljava/lang/String;Landroid/location/util/identity/CallerIdentity;)V
-    .locals 1
+    .locals 0
 
-    invoke-direct {p0, p1, p2}, Lcom/android/server/location/eventlog/LocationEventLog;->getAggregateStats(Ljava/lang/String;Landroid/location/util/identity/CallerIdentity;)Lcom/android/server/location/eventlog/LocationEventLog$AggregateStats;
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/location/eventlog/LocationEventLog;->getAggregateStats(Ljava/lang/String;Landroid/location/util/identity/CallerIdentity;)Lcom/android/server/location/eventlog/LocationEventLog$AggregateStats;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Lcom/android/server/location/eventlog/LocationEventLog$AggregateStats;->markRequestInactive()V
+    invoke-virtual {p0}, Lcom/android/server/location/eventlog/LocationEventLog$AggregateStats;->markRequestInactive()V
 
     return-void
 .end method
 
 .method public logProviderClientPermitted(Ljava/lang/String;Landroid/location/util/identity/CallerIdentity;)V
-    .locals 3
+    .locals 2
 
     sget-boolean v0, Lcom/android/server/location/LocationManagerService;->D:Z
 
     if-eqz v0, :cond_0
 
-    const/16 v0, 0xa
+    new-instance v0, Lcom/android/server/location/eventlog/LocationEventLog$ProviderClientPermittedEvent;
 
-    const/4 v1, 0x2
+    const/4 v1, 0x1
 
-    new-array v1, v1, [Ljava/lang/Object;
+    invoke-direct {v0, p1, v1, p2}, Lcom/android/server/location/eventlog/LocationEventLog$ProviderClientPermittedEvent;-><init>(Ljava/lang/String;ZLandroid/location/util/identity/CallerIdentity;)V
 
-    const/4 v2, 0x0
-
-    aput-object p1, v1, v2
-
-    const/4 v2, 0x1
-
-    aput-object p2, v1, v2
-
-    invoke-virtual {p0, v0, v1}, Lcom/android/server/location/eventlog/LocationEventLog;->addLogEvent(I[Ljava/lang/Object;)V
+    invoke-virtual {p0, v0}, Lcom/android/server/location/eventlog/LocationEventLog;->addLog(Ljava/lang/Object;)V
 
     :cond_0
     return-void
 .end method
 
 .method public logProviderClientRegistered(Ljava/lang/String;Landroid/location/util/identity/CallerIdentity;Landroid/location/LocationRequest;)V
-    .locals 3
+    .locals 2
 
-    const/4 v0, 0x3
-
-    new-array v0, v0, [Ljava/lang/Object;
-
-    const/4 v1, 0x0
-
-    aput-object p1, v0, v1
+    new-instance v0, Lcom/android/server/location/eventlog/LocationEventLog$ProviderClientRegisterEvent;
 
     const/4 v1, 0x1
 
-    aput-object p2, v0, v1
+    invoke-direct {v0, p1, v1, p2, p3}, Lcom/android/server/location/eventlog/LocationEventLog$ProviderClientRegisterEvent;-><init>(Ljava/lang/String;ZLandroid/location/util/identity/CallerIdentity;Landroid/location/LocationRequest;)V
 
-    const/4 v1, 0x2
+    invoke-virtual {p0, v0}, Lcom/android/server/location/eventlog/LocationEventLog;->addLog(Ljava/lang/Object;)V
 
-    aput-object p3, v0, v1
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/location/eventlog/LocationEventLog;->getAggregateStats(Ljava/lang/String;Landroid/location/util/identity/CallerIdentity;)Lcom/android/server/location/eventlog/LocationEventLog$AggregateStats;
 
-    const/4 v1, 0x6
-
-    invoke-virtual {p0, v1, v0}, Lcom/android/server/location/eventlog/LocationEventLog;->addLogEvent(I[Ljava/lang/Object;)V
-
-    invoke-direct {p0, p1, p2}, Lcom/android/server/location/eventlog/LocationEventLog;->getAggregateStats(Ljava/lang/String;Landroid/location/util/identity/CallerIdentity;)Lcom/android/server/location/eventlog/LocationEventLog$AggregateStats;
-
-    move-result-object v0
+    move-result-object p0
 
     invoke-virtual {p3}, Landroid/location/LocationRequest;->getIntervalMillis()J
 
-    move-result-wide v1
+    move-result-wide p1
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/location/eventlog/LocationEventLog$AggregateStats;->markRequestAdded(J)V
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/location/eventlog/LocationEventLog$AggregateStats;->markRequestAdded(J)V
 
     return-void
 .end method
 
 .method public logProviderClientUnpermitted(Ljava/lang/String;Landroid/location/util/identity/CallerIdentity;)V
-    .locals 3
+    .locals 2
 
     sget-boolean v0, Lcom/android/server/location/LocationManagerService;->D:Z
 
     if-eqz v0, :cond_0
 
-    const/16 v0, 0xb
+    new-instance v0, Lcom/android/server/location/eventlog/LocationEventLog$ProviderClientPermittedEvent;
 
-    const/4 v1, 0x2
+    const/4 v1, 0x0
 
-    new-array v1, v1, [Ljava/lang/Object;
+    invoke-direct {v0, p1, v1, p2}, Lcom/android/server/location/eventlog/LocationEventLog$ProviderClientPermittedEvent;-><init>(Ljava/lang/String;ZLandroid/location/util/identity/CallerIdentity;)V
 
-    const/4 v2, 0x0
-
-    aput-object p1, v1, v2
-
-    const/4 v2, 0x1
-
-    aput-object p2, v1, v2
-
-    invoke-virtual {p0, v0, v1}, Lcom/android/server/location/eventlog/LocationEventLog;->addLogEvent(I[Ljava/lang/Object;)V
+    invoke-virtual {p0, v0}, Lcom/android/server/location/eventlog/LocationEventLog;->addLog(Ljava/lang/Object;)V
 
     :cond_0
     return-void
 .end method
 
 .method public logProviderClientUnregistered(Ljava/lang/String;Landroid/location/util/identity/CallerIdentity;)V
-    .locals 2
+    .locals 3
 
-    const/4 v0, 0x2
-
-    new-array v0, v0, [Ljava/lang/Object;
+    new-instance v0, Lcom/android/server/location/eventlog/LocationEventLog$ProviderClientRegisterEvent;
 
     const/4 v1, 0x0
 
-    aput-object p1, v0, v1
+    const/4 v2, 0x0
 
-    const/4 v1, 0x1
+    invoke-direct {v0, p1, v1, p2, v2}, Lcom/android/server/location/eventlog/LocationEventLog$ProviderClientRegisterEvent;-><init>(Ljava/lang/String;ZLandroid/location/util/identity/CallerIdentity;Landroid/location/LocationRequest;)V
 
-    aput-object p2, v0, v1
+    invoke-virtual {p0, v0}, Lcom/android/server/location/eventlog/LocationEventLog;->addLog(Ljava/lang/Object;)V
 
-    const/4 v1, 0x7
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/location/eventlog/LocationEventLog;->getAggregateStats(Ljava/lang/String;Landroid/location/util/identity/CallerIdentity;)Lcom/android/server/location/eventlog/LocationEventLog$AggregateStats;
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/server/location/eventlog/LocationEventLog;->addLogEvent(I[Ljava/lang/Object;)V
+    move-result-object p0
 
-    invoke-direct {p0, p1, p2}, Lcom/android/server/location/eventlog/LocationEventLog;->getAggregateStats(Ljava/lang/String;Landroid/location/util/identity/CallerIdentity;)Lcom/android/server/location/eventlog/LocationEventLog$AggregateStats;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/server/location/eventlog/LocationEventLog$AggregateStats;->markRequestRemoved()V
+    invoke-virtual {p0}, Lcom/android/server/location/eventlog/LocationEventLog$AggregateStats;->markRequestRemoved()V
 
     return-void
 .end method
 
 .method public logProviderDeliveredLocations(Ljava/lang/String;ILandroid/location/util/identity/CallerIdentity;)V
-    .locals 4
+    .locals 1
 
-    sget-boolean v0, Lcom/android/server/location/LocationManagerService;->D:Z
+    monitor-enter p0
 
-    if-eqz v0, :cond_0
+    :try_start_0
+    iget-object v0, p0, Lcom/android/server/location/eventlog/LocationEventLog;->mLocationsLog:Lcom/android/server/location/eventlog/LocationEventLog$LocationsEventLog;
 
-    const/16 v0, 0xe
+    invoke-virtual {v0, p1, p2, p3}, Lcom/android/server/location/eventlog/LocationEventLog$LocationsEventLog;->logProviderDeliveredLocations(Ljava/lang/String;ILandroid/location/util/identity/CallerIdentity;)V
 
-    const/4 v1, 0x3
+    monitor-exit p0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    new-array v1, v1, [Ljava/lang/Object;
+    invoke-virtual {p0, p1, p3}, Lcom/android/server/location/eventlog/LocationEventLog;->getAggregateStats(Ljava/lang/String;Landroid/location/util/identity/CallerIdentity;)Lcom/android/server/location/eventlog/LocationEventLog$AggregateStats;
 
-    const/4 v2, 0x0
+    move-result-object p0
 
-    aput-object p1, v1, v2
-
-    const/4 v2, 0x1
-
-    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    aput-object v3, v1, v2
-
-    const/4 v2, 0x2
-
-    aput-object p3, v1, v2
-
-    invoke-virtual {p0, v0, v1}, Lcom/android/server/location/eventlog/LocationEventLog;->addLogEvent(I[Ljava/lang/Object;)V
-
-    :cond_0
-    invoke-direct {p0, p1, p3}, Lcom/android/server/location/eventlog/LocationEventLog;->getAggregateStats(Ljava/lang/String;Landroid/location/util/identity/CallerIdentity;)Lcom/android/server/location/eventlog/LocationEventLog$AggregateStats;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/server/location/eventlog/LocationEventLog$AggregateStats;->markLocationDelivered()V
+    invoke-virtual {p0}, Lcom/android/server/location/eventlog/LocationEventLog$AggregateStats;->markLocationDelivered()V
 
     return-void
+
+    :catchall_0
+    move-exception p1
+
+    :try_start_1
+    monitor-exit p0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    throw p1
 .end method
 
 .method public logProviderEnabled(Ljava/lang/String;IZ)V
-    .locals 3
+    .locals 1
 
-    const/4 v0, 0x3
+    new-instance v0, Lcom/android/server/location/eventlog/LocationEventLog$ProviderEnabledEvent;
 
-    new-array v0, v0, [Ljava/lang/Object;
+    invoke-direct {v0, p1, p2, p3}, Lcom/android/server/location/eventlog/LocationEventLog$ProviderEnabledEvent;-><init>(Ljava/lang/String;IZ)V
 
-    const/4 v1, 0x0
-
-    aput-object p1, v0, v1
-
-    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    const/4 v2, 0x1
-
-    aput-object v1, v0, v2
-
-    invoke-static {p3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v1
-
-    const/4 v2, 0x2
-
-    aput-object v1, v0, v2
-
-    const/4 v1, 0x4
-
-    invoke-virtual {p0, v1, v0}, Lcom/android/server/location/eventlog/LocationEventLog;->addLogEvent(I[Ljava/lang/Object;)V
+    invoke-virtual {p0, v0}, Lcom/android/server/location/eventlog/LocationEventLog;->addLog(Ljava/lang/Object;)V
 
     return-void
 .end method
 
 .method public logProviderMocked(Ljava/lang/String;Z)V
-    .locals 3
+    .locals 1
 
-    const/4 v0, 0x2
+    new-instance v0, Lcom/android/server/location/eventlog/LocationEventLog$ProviderMockedEvent;
 
-    new-array v0, v0, [Ljava/lang/Object;
+    invoke-direct {v0, p1, p2}, Lcom/android/server/location/eventlog/LocationEventLog$ProviderMockedEvent;-><init>(Ljava/lang/String;Z)V
 
-    const/4 v1, 0x0
-
-    aput-object p1, v0, v1
-
-    invoke-static {p2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v1
-
-    const/4 v2, 0x1
-
-    aput-object v1, v0, v2
-
-    const/4 v1, 0x5
-
-    invoke-virtual {p0, v1, v0}, Lcom/android/server/location/eventlog/LocationEventLog;->addLogEvent(I[Ljava/lang/Object;)V
+    invoke-virtual {p0, v0}, Lcom/android/server/location/eventlog/LocationEventLog;->addLog(Ljava/lang/Object;)V
 
     return-void
 .end method
 
 .method public logProviderReceivedLocations(Ljava/lang/String;I)V
-    .locals 3
+    .locals 1
 
-    const/4 v0, 0x2
+    monitor-enter p0
 
-    new-array v0, v0, [Ljava/lang/Object;
+    :try_start_0
+    iget-object v0, p0, Lcom/android/server/location/eventlog/LocationEventLog;->mLocationsLog:Lcom/android/server/location/eventlog/LocationEventLog$LocationsEventLog;
 
-    const/4 v1, 0x0
+    invoke-virtual {v0, p1, p2}, Lcom/android/server/location/eventlog/LocationEventLog$LocationsEventLog;->logProviderReceivedLocations(Ljava/lang/String;I)V
 
-    aput-object p1, v0, v1
-
-    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    const/4 v2, 0x1
-
-    aput-object v1, v0, v2
-
-    const/16 v1, 0xd
-
-    invoke-virtual {p0, v1, v0}, Lcom/android/server/location/eventlog/LocationEventLog;->addLogEvent(I[Ljava/lang/Object;)V
+    monitor-exit p0
 
     return-void
+
+    :catchall_0
+    move-exception p1
+
+    monitor-exit p0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw p1
 .end method
 
 .method public logProviderStationaryThrottled(Ljava/lang/String;ZLandroid/location/provider/ProviderRequest;)V
-    .locals 3
+    .locals 1
 
-    const/4 v0, 0x3
+    new-instance v0, Lcom/android/server/location/eventlog/LocationEventLog$ProviderStationaryThrottledEvent;
 
-    new-array v0, v0, [Ljava/lang/Object;
+    invoke-direct {v0, p1, p2, p3}, Lcom/android/server/location/eventlog/LocationEventLog$ProviderStationaryThrottledEvent;-><init>(Ljava/lang/String;ZLandroid/location/provider/ProviderRequest;)V
 
-    const/4 v1, 0x0
-
-    aput-object p1, v0, v1
-
-    invoke-static {p2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v1
-
-    const/4 v2, 0x1
-
-    aput-object v1, v0, v2
-
-    const/4 v1, 0x2
-
-    aput-object p3, v0, v1
-
-    const/16 v1, 0xf
-
-    invoke-virtual {p0, v1, v0}, Lcom/android/server/location/eventlog/LocationEventLog;->addLogEvent(I[Ljava/lang/Object;)V
+    invoke-virtual {p0, v0}, Lcom/android/server/location/eventlog/LocationEventLog;->addLog(Ljava/lang/Object;)V
 
     return-void
 .end method
 
 .method public logProviderUpdateRequest(Ljava/lang/String;Landroid/location/provider/ProviderRequest;)V
-    .locals 2
+    .locals 1
 
-    const/4 v0, 0x2
+    new-instance v0, Lcom/android/server/location/eventlog/LocationEventLog$ProviderUpdateEvent;
 
-    new-array v0, v0, [Ljava/lang/Object;
+    invoke-direct {v0, p1, p2}, Lcom/android/server/location/eventlog/LocationEventLog$ProviderUpdateEvent;-><init>(Ljava/lang/String;Landroid/location/provider/ProviderRequest;)V
 
-    const/4 v1, 0x0
-
-    aput-object p1, v0, v1
-
-    const/4 v1, 0x1
-
-    aput-object p2, v0, v1
-
-    const/16 v1, 0xc
-
-    invoke-virtual {p0, v1, v0}, Lcom/android/server/location/eventlog/LocationEventLog;->addLogEvent(I[Ljava/lang/Object;)V
+    invoke-virtual {p0, v0}, Lcom/android/server/location/eventlog/LocationEventLog;->addLog(Ljava/lang/Object;)V
 
     return-void
 .end method
 
 .method public logUserSwitched(II)V
-    .locals 3
+    .locals 1
 
-    const/4 v0, 0x2
+    new-instance v0, Lcom/android/server/location/eventlog/LocationEventLog$UserSwitchedEvent;
 
-    new-array v0, v0, [Ljava/lang/Object;
+    invoke-direct {v0, p1, p2}, Lcom/android/server/location/eventlog/LocationEventLog$UserSwitchedEvent;-><init>(II)V
 
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    const/4 v2, 0x0
-
-    aput-object v1, v0, v2
-
-    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    const/4 v2, 0x1
-
-    aput-object v1, v0, v2
-
-    invoke-virtual {p0, v2, v0}, Lcom/android/server/location/eventlog/LocationEventLog;->addLogEvent(I[Ljava/lang/Object;)V
+    invoke-virtual {p0, v0}, Lcom/android/server/location/eventlog/LocationEventLog;->addLog(Ljava/lang/Object;)V
 
     return-void
 .end method

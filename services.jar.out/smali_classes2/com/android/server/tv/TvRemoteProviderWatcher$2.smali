@@ -1,4 +1,4 @@
-.class Lcom/android/server/tv/TvRemoteProviderWatcher$2;
+.class public Lcom/android/server/tv/TvRemoteProviderWatcher$2;
 .super Ljava/lang/Object;
 .source "TvRemoteProviderWatcher.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/tv/TvRemoteProviderWatcher;
+.field public final synthetic this$0:Lcom/android/server/tv/TvRemoteProviderWatcher;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/tv/TvRemoteProviderWatcher;)V
+.method public constructor <init>(Lcom/android/server/tv/TvRemoteProviderWatcher;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/tv/TvRemoteProviderWatcher$2;->this$0:Lcom/android/server/tv/TvRemoteProviderWatcher;
@@ -35,11 +35,11 @@
 
 # virtual methods
 .method public run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/tv/TvRemoteProviderWatcher$2;->this$0:Lcom/android/server/tv/TvRemoteProviderWatcher;
+    iget-object p0, p0, Lcom/android/server/tv/TvRemoteProviderWatcher$2;->this$0:Lcom/android/server/tv/TvRemoteProviderWatcher;
 
-    invoke-static {v0}, Lcom/android/server/tv/TvRemoteProviderWatcher;->access$300(Lcom/android/server/tv/TvRemoteProviderWatcher;)V
+    invoke-static {p0}, Lcom/android/server/tv/TvRemoteProviderWatcher;->-$$Nest$mscanPackages(Lcom/android/server/tv/TvRemoteProviderWatcher;)V
 
     return-void
 .end method

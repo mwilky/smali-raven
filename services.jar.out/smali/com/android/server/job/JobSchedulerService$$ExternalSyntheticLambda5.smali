@@ -1,41 +1,28 @@
 .class public final synthetic Lcom/android/server/job/JobSchedulerService$$ExternalSyntheticLambda5;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Predicate;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/android/server/job/JobSchedulerService;
+.implements Lcom/android/server/utils/quota/Categorizer;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/job/JobSchedulerService;)V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/server/job/JobSchedulerService$$ExternalSyntheticLambda5;->f$0:Lcom/android/server/job/JobSchedulerService;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final test(Ljava/lang/Object;)Z
-    .locals 1
+.method public final getCategory(ILjava/lang/String;Ljava/lang/String;)Lcom/android/server/utils/quota/Category;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/job/JobSchedulerService$$ExternalSyntheticLambda5;->f$0:Lcom/android/server/job/JobSchedulerService;
+    invoke-static {p1, p2, p3}, Lcom/android/server/job/JobSchedulerService;->$r8$lambda$fy4dseMOOYc2DsUmak_zC6LSTc4(ILjava/lang/String;Ljava/lang/String;)Lcom/android/server/utils/quota/Category;
 
-    check-cast p1, Ljava/lang/Integer;
+    move-result-object p0
 
-    invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
-
-    move-result p1
-
-    invoke-static {v0, p1}, Lcom/android/server/job/JobSchedulerService;->$r8$lambda$TQG23Ovctx1aIo09D7L3AX_yNAM(Lcom/android/server/job/JobSchedulerService;I)Z
-
-    move-result p1
-
-    return p1
+    return-object p0
 .end method

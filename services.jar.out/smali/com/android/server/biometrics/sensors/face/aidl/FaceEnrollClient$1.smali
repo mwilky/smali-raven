@@ -1,9 +1,9 @@
-.class Lcom/android/server/biometrics/sensors/face/aidl/FaceEnrollClient$1;
+.class public Lcom/android/server/biometrics/sensors/face/aidl/FaceEnrollClient$1;
 .super Ljava/lang/Object;
 .source "FaceEnrollClient.java"
 
 # interfaces
-.implements Lcom/android/server/biometrics/sensors/BaseClientMonitor$Callback;
+.implements Lcom/android/server/biometrics/sensors/ClientMonitorCallback;
 
 
 # annotations
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/biometrics/sensors/face/aidl/FaceEnrollClient;
+.field public final synthetic this$0:Lcom/android/server/biometrics/sensors/face/aidl/FaceEnrollClient;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/biometrics/sensors/face/aidl/FaceEnrollClient;)V
+.method public constructor <init>(Lcom/android/server/biometrics/sensors/face/aidl/FaceEnrollClient;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceEnrollClient$1;->this$0:Lcom/android/server/biometrics/sensors/face/aidl/FaceEnrollClient;
@@ -35,11 +35,11 @@
 
 # virtual methods
 .method public onClientFinished(Lcom/android/server/biometrics/sensors/BaseClientMonitor;Z)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceEnrollClient$1;->this$0:Lcom/android/server/biometrics/sensors/face/aidl/FaceEnrollClient;
+    iget-object p0, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceEnrollClient$1;->this$0:Lcom/android/server/biometrics/sensors/face/aidl/FaceEnrollClient;
 
-    invoke-static {v0}, Lcom/android/server/biometrics/sensors/face/aidl/FaceEnrollClient;->access$000(Lcom/android/server/biometrics/sensors/face/aidl/FaceEnrollClient;)V
+    invoke-static {p0}, Lcom/android/server/biometrics/sensors/face/aidl/FaceEnrollClient;->-$$Nest$mreleaseSurfaceHandlesIfNeeded(Lcom/android/server/biometrics/sensors/face/aidl/FaceEnrollClient;)V
 
     return-void
 .end method

@@ -1,28 +1,13 @@
 .class public final synthetic Lcom/android/server/appop/AppOpsService$$ExternalSyntheticLambda9;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/internal/util/function/TriConsumer;
-
-
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/appop/AppOpsService$$ExternalSyntheticLambda9;
+.implements Lcom/android/internal/util/function/QuintConsumer;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/appop/AppOpsService$$ExternalSyntheticLambda9;
-
-    invoke-direct {v0}, Lcom/android/server/appop/AppOpsService$$ExternalSyntheticLambda9;-><init>()V
-
-    sput-object v0, Lcom/android/server/appop/AppOpsService$$ExternalSyntheticLambda9;->INSTANCE:Lcom/android/server/appop/AppOpsService$$ExternalSyntheticLambda9;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,20 +17,28 @@
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+.method public final accept(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
     .locals 0
 
-    check-cast p1, Lcom/android/server/appop/HistoricalRegistry;
+    check-cast p1, Lcom/android/server/appop/AppOpsService;
 
-    check-cast p2, Ljava/lang/Integer;
+    check-cast p2, Landroid/util/ArraySet;
 
-    invoke-virtual {p2}, Ljava/lang/Integer;->intValue()I
+    check-cast p3, Ljava/lang/Integer;
 
-    move-result p2
+    invoke-virtual {p3}, Ljava/lang/Integer;->intValue()I
 
-    check-cast p3, Ljava/lang/String;
+    move-result p0
 
-    invoke-virtual {p1, p2, p3}, Lcom/android/server/appop/HistoricalRegistry;->clearHistory(ILjava/lang/String;)V
+    check-cast p4, Ljava/lang/Integer;
+
+    invoke-virtual {p4}, Ljava/lang/Integer;->intValue()I
+
+    move-result p3
+
+    check-cast p5, Ljava/lang/String;
+
+    invoke-static {p1, p2, p0, p3, p5}, Lcom/android/server/appop/AppOpsService;->$r8$lambda$PKLfueNQM1N0Jpnmxcaqqma0eNY(Lcom/android/server/appop/AppOpsService;Landroid/util/ArraySet;IILjava/lang/String;)V
 
     return-void
 .end method

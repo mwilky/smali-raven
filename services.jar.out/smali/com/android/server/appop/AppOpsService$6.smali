@@ -1,4 +1,4 @@
-.class Lcom/android/server/appop/AppOpsService$6;
+.class public Lcom/android/server/appop/AppOpsService$6;
 .super Ljava/lang/Object;
 .source "AppOpsService.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/appop/AppOpsService;
+.field public final synthetic this$0:Lcom/android/server/appop/AppOpsService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/appop/AppOpsService;)V
+.method public constructor <init>(Lcom/android/server/appop/AppOpsService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/appop/AppOpsService$6;->this$0:Lcom/android/server/appop/AppOpsService;
@@ -35,39 +35,31 @@
 
 # virtual methods
 .method public getPackageTrustedToInstallApps(Ljava/lang/String;I)I
-    .locals 2
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/appop/AppOpsService$6;->this$0:Lcom/android/server/appop/AppOpsService;
+    iget-object p0, p0, Lcom/android/server/appop/AppOpsService$6;->this$0:Lcom/android/server/appop/AppOpsService;
 
-    const/16 v1, 0x42
+    const/16 v0, 0x42
 
-    invoke-virtual {v0, v1, p2, p1}, Lcom/android/server/appop/AppOpsService;->checkOperation(IILjava/lang/String;)I
+    invoke-virtual {p0, v0, p2, p1}, Lcom/android/server/appop/AppOpsService;->checkOperation(IILjava/lang/String;)I
 
-    move-result v0
+    move-result p0
 
-    packed-switch v0, :pswitch_data_0
+    if-eqz p0, :cond_1
 
-    :pswitch_0
-    const/4 v1, 0x2
+    const/4 p1, 0x2
 
-    return v1
+    if-eq p0, p1, :cond_0
 
-    :pswitch_1
-    const/4 v1, 0x1
+    return p1
 
-    return v1
+    :cond_0
+    const/4 p0, 0x1
 
-    :pswitch_2
-    const/4 v1, 0x0
+    return p0
 
-    return v1
+    :cond_1
+    const/4 p0, 0x0
 
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0x0
-        :pswitch_2
-        :pswitch_0
-        :pswitch_1
-    .end packed-switch
+    return p0
 .end method

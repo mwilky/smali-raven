@@ -1,4 +1,4 @@
-.class Lcom/android/server/VcnManagementService$VcnSubscriptionTrackerCallback;
+.class public Lcom/android/server/VcnManagementService$VcnSubscriptionTrackerCallback;
 .super Ljava/lang/Object;
 .source "VcnManagementService.java"
 
@@ -12,17 +12,25 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "VcnSubscriptionTrackerCallback"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/VcnManagementService;
+.field public final synthetic this$0:Lcom/android/server/VcnManagementService;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/server/VcnManagementService;)V
+.method public static synthetic $r8$lambda$qd7by0Lv2EUgCZv5qTqXzF7V1_4(Lcom/android/server/VcnManagementService$VcnSubscriptionTrackerCallback;Landroid/os/ParcelUuid;Lcom/android/server/vcn/Vcn;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/server/VcnManagementService$VcnSubscriptionTrackerCallback;->lambda$onNewSnapshot$0(Landroid/os/ParcelUuid;Lcom/android/server/vcn/Vcn;)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Lcom/android/server/VcnManagementService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/VcnManagementService$VcnSubscriptionTrackerCallback;->this$0:Lcom/android/server/VcnManagementService;
@@ -32,7 +40,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/VcnManagementService;Lcom/android/server/VcnManagementService$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/VcnManagementService;Lcom/android/server/VcnManagementService$VcnSubscriptionTrackerCallback-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/VcnManagementService$VcnSubscriptionTrackerCallback;-><init>(Lcom/android/server/VcnManagementService;)V
@@ -40,14 +48,12 @@
     return-void
 .end method
 
-
-# virtual methods
-.method public synthetic lambda$onNewSnapshot$0$VcnManagementService$VcnSubscriptionTrackerCallback(Landroid/os/ParcelUuid;Lcom/android/server/vcn/Vcn;)V
-    .locals 3
+.method private synthetic lambda$onNewSnapshot$0(Landroid/os/ParcelUuid;Lcom/android/server/vcn/Vcn;)V
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/VcnManagementService$VcnSubscriptionTrackerCallback;->this$0:Lcom/android/server/VcnManagementService;
 
-    invoke-static {v0}, Lcom/android/server/VcnManagementService;->access$400(Lcom/android/server/VcnManagementService;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/server/VcnManagementService;->-$$Nest$fgetmLock(Lcom/android/server/VcnManagementService;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -56,7 +62,7 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/server/VcnManagementService$VcnSubscriptionTrackerCallback;->this$0:Lcom/android/server/VcnManagementService;
 
-    invoke-static {v1}, Lcom/android/server/VcnManagementService;->access$900(Lcom/android/server/VcnManagementService;)Ljava/util/Map;
+    invoke-static {v1}, Lcom/android/server/VcnManagementService;->-$$Nest$fgetmVcns(Lcom/android/server/VcnManagementService;)Ljava/util/Map;
 
     move-result-object v1
 
@@ -66,15 +72,15 @@
 
     if-ne v1, p2, :cond_0
 
-    iget-object v1, p0, Lcom/android/server/VcnManagementService$VcnSubscriptionTrackerCallback;->this$0:Lcom/android/server/VcnManagementService;
+    iget-object p2, p0, Lcom/android/server/VcnManagementService$VcnSubscriptionTrackerCallback;->this$0:Lcom/android/server/VcnManagementService;
 
-    invoke-static {v1, p1}, Lcom/android/server/VcnManagementService;->access$1400(Lcom/android/server/VcnManagementService;Landroid/os/ParcelUuid;)V
+    invoke-static {p2, p1}, Lcom/android/server/VcnManagementService;->-$$Nest$mstopVcnLocked(Lcom/android/server/VcnManagementService;Landroid/os/ParcelUuid;)V
 
-    iget-object v1, p0, Lcom/android/server/VcnManagementService$VcnSubscriptionTrackerCallback;->this$0:Lcom/android/server/VcnManagementService;
+    iget-object p0, p0, Lcom/android/server/VcnManagementService$VcnSubscriptionTrackerCallback;->this$0:Lcom/android/server/VcnManagementService;
 
-    const/4 v2, 0x1
+    const/4 p2, 0x1
 
-    invoke-static {v1, p1, v2}, Lcom/android/server/VcnManagementService;->access$1500(Lcom/android/server/VcnManagementService;Landroid/os/ParcelUuid;I)V
+    invoke-static {p0, p1, p2}, Lcom/android/server/VcnManagementService;->-$$Nest$mnotifyAllPermissionedStatusCallbacksLocked(Lcom/android/server/VcnManagementService;Landroid/os/ParcelUuid;I)V
 
     :cond_0
     monitor-exit v0
@@ -82,21 +88,23 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
+
+# virtual methods
 .method public onNewSnapshot(Lcom/android/server/vcn/TelephonySubscriptionTracker$TelephonySubscriptionSnapshot;)V
-    .locals 14
+    .locals 9
 
     iget-object v0, p0, Lcom/android/server/VcnManagementService$VcnSubscriptionTrackerCallback;->this$0:Lcom/android/server/VcnManagementService;
 
-    invoke-static {v0}, Lcom/android/server/VcnManagementService;->access$400(Lcom/android/server/VcnManagementService;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/server/VcnManagementService;->-$$Nest$fgetmLock(Lcom/android/server/VcnManagementService;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -105,13 +113,13 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/server/VcnManagementService$VcnSubscriptionTrackerCallback;->this$0:Lcom/android/server/VcnManagementService;
 
-    invoke-static {v1}, Lcom/android/server/VcnManagementService;->access$500(Lcom/android/server/VcnManagementService;)Lcom/android/server/vcn/TelephonySubscriptionTracker$TelephonySubscriptionSnapshot;
+    invoke-static {v1}, Lcom/android/server/VcnManagementService;->-$$Nest$fgetmLastSnapshot(Lcom/android/server/VcnManagementService;)Lcom/android/server/vcn/TelephonySubscriptionTracker$TelephonySubscriptionSnapshot;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/android/server/VcnManagementService$VcnSubscriptionTrackerCallback;->this$0:Lcom/android/server/VcnManagementService;
 
-    invoke-static {v2, p1}, Lcom/android/server/VcnManagementService;->access$502(Lcom/android/server/VcnManagementService;Lcom/android/server/vcn/TelephonySubscriptionTracker$TelephonySubscriptionSnapshot;)Lcom/android/server/vcn/TelephonySubscriptionTracker$TelephonySubscriptionSnapshot;
+    invoke-static {v2, p1}, Lcom/android/server/VcnManagementService;->-$$Nest$fputmLastSnapshot(Lcom/android/server/VcnManagementService;Lcom/android/server/vcn/TelephonySubscriptionTracker$TelephonySubscriptionSnapshot;)V
 
     iget-object v2, p0, Lcom/android/server/VcnManagementService$VcnSubscriptionTrackerCallback;->this$0:Lcom/android/server/VcnManagementService;
 
@@ -125,7 +133,7 @@
 
     iget-object v4, p0, Lcom/android/server/VcnManagementService$VcnSubscriptionTrackerCallback;->this$0:Lcom/android/server/VcnManagementService;
 
-    invoke-static {v4}, Lcom/android/server/VcnManagementService;->access$500(Lcom/android/server/VcnManagementService;)Lcom/android/server/vcn/TelephonySubscriptionTracker$TelephonySubscriptionSnapshot;
+    invoke-static {v4}, Lcom/android/server/VcnManagementService;->-$$Nest$fgetmLastSnapshot(Lcom/android/server/VcnManagementService;)Lcom/android/server/vcn/TelephonySubscriptionTracker$TelephonySubscriptionSnapshot;
 
     move-result-object v4
 
@@ -135,11 +143,11 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Lcom/android/server/VcnManagementService;->access$600(Lcom/android/server/VcnManagementService;Ljava/lang/String;)V
+    invoke-static {v2, v3}, Lcom/android/server/VcnManagementService;->-$$Nest$mlogInfo(Lcom/android/server/VcnManagementService;Ljava/lang/String;)V
 
     iget-object v2, p0, Lcom/android/server/VcnManagementService$VcnSubscriptionTrackerCallback;->this$0:Lcom/android/server/VcnManagementService;
 
-    invoke-static {v2}, Lcom/android/server/VcnManagementService;->access$700(Lcom/android/server/VcnManagementService;)Ljava/util/Map;
+    invoke-static {v2}, Lcom/android/server/VcnManagementService;->-$$Nest$fgetmConfigs(Lcom/android/server/VcnManagementService;)Ljava/util/Map;
 
     move-result-object v2
 
@@ -151,6 +159,7 @@
 
     move-result-object v2
 
+    :cond_0
     :goto_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
@@ -170,8 +179,6 @@
 
     check-cast v4, Landroid/os/ParcelUuid;
 
-    nop
-
     invoke-interface {v3}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v5
@@ -186,19 +193,19 @@
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_0
 
     iget-object v5, p0, Lcom/android/server/VcnManagementService$VcnSubscriptionTrackerCallback;->this$0:Lcom/android/server/VcnManagementService;
 
-    invoke-static {v5, v4, p1}, Lcom/android/server/VcnManagementService;->access$800(Lcom/android/server/VcnManagementService;Landroid/os/ParcelUuid;Lcom/android/server/vcn/TelephonySubscriptionTracker$TelephonySubscriptionSnapshot;)Z
+    invoke-static {v5, v4, p1}, Lcom/android/server/VcnManagementService;->-$$Nest$misActiveSubGroup(Lcom/android/server/VcnManagementService;Landroid/os/ParcelUuid;Lcom/android/server/vcn/TelephonySubscriptionTracker$TelephonySubscriptionSnapshot;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_0
 
     iget-object v5, p0, Lcom/android/server/VcnManagementService$VcnSubscriptionTrackerCallback;->this$0:Lcom/android/server/VcnManagementService;
 
-    invoke-static {v5}, Lcom/android/server/VcnManagementService;->access$900(Lcom/android/server/VcnManagementService;)Ljava/util/Map;
+    invoke-static {v5}, Lcom/android/server/VcnManagementService;->-$$Nest$fgetmVcns(Lcom/android/server/VcnManagementService;)Ljava/util/Map;
 
     move-result-object v5
 
@@ -206,44 +213,43 @@
 
     move-result v5
 
-    if-nez v5, :cond_0
+    if-nez v5, :cond_1
 
     iget-object v5, p0, Lcom/android/server/VcnManagementService$VcnSubscriptionTrackerCallback;->this$0:Lcom/android/server/VcnManagementService;
 
     invoke-interface {v3}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v6
+    move-result-object v3
 
-    check-cast v6, Landroid/net/vcn/VcnConfig;
+    check-cast v3, Landroid/net/vcn/VcnConfig;
 
-    invoke-static {v5, v4, v6}, Lcom/android/server/VcnManagementService;->access$1000(Lcom/android/server/VcnManagementService;Landroid/os/ParcelUuid;Landroid/net/vcn/VcnConfig;)V
+    invoke-static {v5, v4, v3}, Lcom/android/server/VcnManagementService;->-$$Nest$mstartVcnLocked(Lcom/android/server/VcnManagementService;Landroid/os/ParcelUuid;Landroid/net/vcn/VcnConfig;)V
 
-    :cond_0
+    :cond_1
+    iget-object v3, p0, Lcom/android/server/VcnManagementService$VcnSubscriptionTrackerCallback;->this$0:Lcom/android/server/VcnManagementService;
+
+    invoke-static {v3}, Lcom/android/server/VcnManagementService;->-$$Nest$fgetmHandler(Lcom/android/server/VcnManagementService;)Landroid/os/Handler;
+
+    move-result-object v3
+
     iget-object v5, p0, Lcom/android/server/VcnManagementService$VcnSubscriptionTrackerCallback;->this$0:Lcom/android/server/VcnManagementService;
 
-    invoke-static {v5}, Lcom/android/server/VcnManagementService;->access$1100(Lcom/android/server/VcnManagementService;)Landroid/os/Handler;
+    invoke-static {v5}, Lcom/android/server/VcnManagementService;->-$$Nest$fgetmVcns(Lcom/android/server/VcnManagementService;)Ljava/util/Map;
 
     move-result-object v5
 
-    iget-object v6, p0, Lcom/android/server/VcnManagementService$VcnSubscriptionTrackerCallback;->this$0:Lcom/android/server/VcnManagementService;
+    invoke-interface {v5, v4}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-static {v6}, Lcom/android/server/VcnManagementService;->access$900(Lcom/android/server/VcnManagementService;)Ljava/util/Map;
+    move-result-object v4
 
-    move-result-object v6
+    invoke-virtual {v3, v4}, Landroid/os/Handler;->removeCallbacksAndMessages(Ljava/lang/Object;)V
 
-    invoke-interface {v6, v4}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Landroid/os/Handler;->removeCallbacksAndMessages(Ljava/lang/Object;)V
-
-    :cond_1
     goto :goto_0
 
     :cond_2
     iget-object v2, p0, Lcom/android/server/VcnManagementService$VcnSubscriptionTrackerCallback;->this$0:Lcom/android/server/VcnManagementService;
 
-    invoke-static {v2}, Lcom/android/server/VcnManagementService;->access$900(Lcom/android/server/VcnManagementService;)Ljava/util/Map;
+    invoke-static {v2}, Lcom/android/server/VcnManagementService;->-$$Nest$fgetmVcns(Lcom/android/server/VcnManagementService;)Ljava/util/Map;
 
     move-result-object v2
 
@@ -276,7 +282,7 @@
 
     iget-object v5, p0, Lcom/android/server/VcnManagementService$VcnSubscriptionTrackerCallback;->this$0:Lcom/android/server/VcnManagementService;
 
-    invoke-static {v5}, Lcom/android/server/VcnManagementService;->access$700(Lcom/android/server/VcnManagementService;)Ljava/util/Map;
+    invoke-static {v5}, Lcom/android/server/VcnManagementService;->-$$Nest$fgetmConfigs(Lcom/android/server/VcnManagementService;)Ljava/util/Map;
 
     move-result-object v5
 
@@ -288,11 +294,9 @@
 
     iget-object v6, p0, Lcom/android/server/VcnManagementService$VcnSubscriptionTrackerCallback;->this$0:Lcom/android/server/VcnManagementService;
 
-    invoke-static {v6, v4, p1}, Lcom/android/server/VcnManagementService;->access$800(Lcom/android/server/VcnManagementService;Landroid/os/ParcelUuid;Lcom/android/server/vcn/TelephonySubscriptionTracker$TelephonySubscriptionSnapshot;)Z
+    invoke-static {v6, v4, p1}, Lcom/android/server/VcnManagementService;->-$$Nest$misActiveSubGroup(Lcom/android/server/VcnManagementService;Landroid/os/ParcelUuid;Lcom/android/server/vcn/TelephonySubscriptionTracker$TelephonySubscriptionSnapshot;)Z
 
     move-result v6
-
-    nop
 
     invoke-virtual {p1}, Lcom/android/server/vcn/TelephonySubscriptionTracker$TelephonySubscriptionSnapshot;->getActiveDataSubscriptionId()I
 
@@ -306,7 +310,7 @@
 
     iget-object v7, p0, Lcom/android/server/VcnManagementService$VcnSubscriptionTrackerCallback;->this$0:Lcom/android/server/VcnManagementService;
 
-    invoke-static {v7, v4, p1}, Lcom/android/server/VcnManagementService;->access$800(Lcom/android/server/VcnManagementService;Landroid/os/ParcelUuid;Lcom/android/server/vcn/TelephonySubscriptionTracker$TelephonySubscriptionSnapshot;)Z
+    invoke-static {v7, v4, p1}, Lcom/android/server/VcnManagementService;->-$$Nest$misActiveSubGroup(Lcom/android/server/VcnManagementService;Landroid/os/ParcelUuid;Lcom/android/server/vcn/TelephonySubscriptionTracker$TelephonySubscriptionSnapshot;)Z
 
     move-result v7
 
@@ -324,13 +328,13 @@
 
     invoke-virtual {v5}, Landroid/net/vcn/VcnConfig;->getProvisioningPackageName()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v5
 
-    invoke-virtual {p1, v4, v8}, Lcom/android/server/vcn/TelephonySubscriptionTracker$TelephonySubscriptionSnapshot;->packageHasPermissionsForSubscriptionGroup(Landroid/os/ParcelUuid;Ljava/lang/String;)Z
+    invoke-virtual {p1, v4, v5}, Lcom/android/server/vcn/TelephonySubscriptionTracker$TelephonySubscriptionSnapshot;->packageHasPermissionsForSubscriptionGroup(Landroid/os/ParcelUuid;Ljava/lang/String;)Z
 
-    move-result v8
+    move-result v5
 
-    if-eqz v8, :cond_5
+    if-eqz v5, :cond_5
 
     if-nez v6, :cond_4
 
@@ -339,85 +343,82 @@
     :cond_4
     invoke-interface {v3}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v8
+    move-result-object v3
 
-    check-cast v8, Lcom/android/server/vcn/Vcn;
+    check-cast v3, Lcom/android/server/vcn/Vcn;
 
-    iget-object v9, p0, Lcom/android/server/VcnManagementService$VcnSubscriptionTrackerCallback;->this$0:Lcom/android/server/VcnManagementService;
+    iget-object v4, p0, Lcom/android/server/VcnManagementService$VcnSubscriptionTrackerCallback;->this$0:Lcom/android/server/VcnManagementService;
 
-    invoke-static {v9}, Lcom/android/server/VcnManagementService;->access$500(Lcom/android/server/VcnManagementService;)Lcom/android/server/vcn/TelephonySubscriptionTracker$TelephonySubscriptionSnapshot;
+    invoke-static {v4}, Lcom/android/server/VcnManagementService;->-$$Nest$fgetmLastSnapshot(Lcom/android/server/VcnManagementService;)Lcom/android/server/vcn/TelephonySubscriptionTracker$TelephonySubscriptionSnapshot;
 
-    move-result-object v9
+    move-result-object v4
 
-    invoke-virtual {v8, v9}, Lcom/android/server/vcn/Vcn;->updateSubscriptionSnapshot(Lcom/android/server/vcn/TelephonySubscriptionTracker$TelephonySubscriptionSnapshot;)V
+    invoke-virtual {v3, v4}, Lcom/android/server/vcn/Vcn;->updateSubscriptionSnapshot(Lcom/android/server/vcn/TelephonySubscriptionTracker$TelephonySubscriptionSnapshot;)V
 
-    goto :goto_5
+    goto :goto_1
 
     :cond_5
     :goto_3
-    move-object v8, v4
-
     invoke-interface {v3}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v9
+    move-result-object v3
 
-    check-cast v9, Lcom/android/server/vcn/Vcn;
+    check-cast v3, Lcom/android/server/vcn/Vcn;
 
     if-eqz v7, :cond_6
 
-    const-wide/16 v10, 0x0
+    const-wide/16 v5, 0x0
 
     goto :goto_4
 
     :cond_6
-    sget-wide v10, Lcom/android/server/VcnManagementService;->CARRIER_PRIVILEGES_LOST_TEARDOWN_DELAY_MS:J
+    sget-wide v5, Lcom/android/server/VcnManagementService;->CARRIER_PRIVILEGES_LOST_TEARDOWN_DELAY_MS:J
 
     :goto_4
-    nop
+    iget-object v7, p0, Lcom/android/server/VcnManagementService$VcnSubscriptionTrackerCallback;->this$0:Lcom/android/server/VcnManagementService;
 
-    iget-object v12, p0, Lcom/android/server/VcnManagementService$VcnSubscriptionTrackerCallback;->this$0:Lcom/android/server/VcnManagementService;
+    invoke-static {v7}, Lcom/android/server/VcnManagementService;->-$$Nest$fgetmHandler(Lcom/android/server/VcnManagementService;)Landroid/os/Handler;
 
-    invoke-static {v12}, Lcom/android/server/VcnManagementService;->access$1100(Lcom/android/server/VcnManagementService;)Landroid/os/Handler;
+    move-result-object v7
 
-    move-result-object v12
+    new-instance v8, Lcom/android/server/VcnManagementService$VcnSubscriptionTrackerCallback$$ExternalSyntheticLambda0;
 
-    new-instance v13, Lcom/android/server/VcnManagementService$VcnSubscriptionTrackerCallback$$ExternalSyntheticLambda0;
+    invoke-direct {v8, p0, v4, v3}, Lcom/android/server/VcnManagementService$VcnSubscriptionTrackerCallback$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/VcnManagementService$VcnSubscriptionTrackerCallback;Landroid/os/ParcelUuid;Lcom/android/server/vcn/Vcn;)V
 
-    invoke-direct {v13, p0, v8, v9}, Lcom/android/server/VcnManagementService$VcnSubscriptionTrackerCallback$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/VcnManagementService$VcnSubscriptionTrackerCallback;Landroid/os/ParcelUuid;Lcom/android/server/vcn/Vcn;)V
+    invoke-virtual {v7, v8, v3, v5, v6}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;Ljava/lang/Object;J)Z
 
-    invoke-virtual {v12, v13, v9, v10, v11}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;Ljava/lang/Object;J)Z
-
-    nop
-
-    :goto_5
     goto :goto_1
 
     :cond_7
-    iget-object v2, p0, Lcom/android/server/VcnManagementService$VcnSubscriptionTrackerCallback;->this$0:Lcom/android/server/VcnManagementService;
+    iget-object p1, p0, Lcom/android/server/VcnManagementService$VcnSubscriptionTrackerCallback;->this$0:Lcom/android/server/VcnManagementService;
 
-    invoke-static {v2, v1}, Lcom/android/server/VcnManagementService;->access$1200(Lcom/android/server/VcnManagementService;Lcom/android/server/vcn/TelephonySubscriptionTracker$TelephonySubscriptionSnapshot;)Ljava/util/Map;
+    invoke-static {p1, v1}, Lcom/android/server/VcnManagementService;->-$$Nest$mgetSubGroupToSubIdMappings(Lcom/android/server/VcnManagementService;Lcom/android/server/vcn/TelephonySubscriptionTracker$TelephonySubscriptionSnapshot;)Ljava/util/Map;
+
+    move-result-object p1
+
+    iget-object v1, p0, Lcom/android/server/VcnManagementService$VcnSubscriptionTrackerCallback;->this$0:Lcom/android/server/VcnManagementService;
+
+    invoke-static {v1}, Lcom/android/server/VcnManagementService;->-$$Nest$fgetmLastSnapshot(Lcom/android/server/VcnManagementService;)Lcom/android/server/vcn/TelephonySubscriptionTracker$TelephonySubscriptionSnapshot;
 
     move-result-object v2
 
-    iget-object v3, p0, Lcom/android/server/VcnManagementService$VcnSubscriptionTrackerCallback;->this$0:Lcom/android/server/VcnManagementService;
+    invoke-static {v1, v2}, Lcom/android/server/VcnManagementService;->-$$Nest$mgetSubGroupToSubIdMappings(Lcom/android/server/VcnManagementService;Lcom/android/server/vcn/TelephonySubscriptionTracker$TelephonySubscriptionSnapshot;)Ljava/util/Map;
 
-    invoke-static {v3}, Lcom/android/server/VcnManagementService;->access$500(Lcom/android/server/VcnManagementService;)Lcom/android/server/vcn/TelephonySubscriptionTracker$TelephonySubscriptionSnapshot;
+    move-result-object v1
 
-    move-result-object v4
+    invoke-interface {v1, p1}, Ljava/util/Map;->equals(Ljava/lang/Object;)Z
 
-    invoke-static {v3, v4}, Lcom/android/server/VcnManagementService;->access$1200(Lcom/android/server/VcnManagementService;Lcom/android/server/vcn/TelephonySubscriptionTracker$TelephonySubscriptionSnapshot;)Ljava/util/Map;
+    move-result p1
 
-    move-result-object v3
+    if-nez p1, :cond_8
 
-    invoke-interface {v3, v2}, Ljava/util/Map;->equals(Ljava/lang/Object;)Z
+    iget-object p1, p0, Lcom/android/server/VcnManagementService$VcnSubscriptionTrackerCallback;->this$0:Lcom/android/server/VcnManagementService;
 
-    move-result v4
+    invoke-static {p1}, Lcom/android/server/VcnManagementService;->-$$Nest$mgarbageCollectAndWriteVcnConfigsLocked(Lcom/android/server/VcnManagementService;)V
 
-    if-nez v4, :cond_8
+    iget-object p0, p0, Lcom/android/server/VcnManagementService$VcnSubscriptionTrackerCallback;->this$0:Lcom/android/server/VcnManagementService;
 
-    iget-object v4, p0, Lcom/android/server/VcnManagementService$VcnSubscriptionTrackerCallback;->this$0:Lcom/android/server/VcnManagementService;
-
-    invoke-static {v4}, Lcom/android/server/VcnManagementService;->access$1300(Lcom/android/server/VcnManagementService;)V
+    invoke-static {p0}, Lcom/android/server/VcnManagementService;->-$$Nest$mnotifyAllPolicyListenersLocked(Lcom/android/server/VcnManagementService;)V
 
     :cond_8
     monitor-exit v0
@@ -425,11 +426,11 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method

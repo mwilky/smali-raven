@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/server/location/provider/LocationProviderController;
+.class public interface abstract Lcom/android/server/location/provider/LocationProviderController;
 .super Ljava/lang/Object;
 .source "LocationProviderController.java"
 

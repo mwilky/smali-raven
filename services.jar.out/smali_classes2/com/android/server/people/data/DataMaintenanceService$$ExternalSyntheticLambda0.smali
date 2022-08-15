@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/people/data/DataMaintenanceService$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -31,15 +32,15 @@
 
 # virtual methods
 .method public final run()V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/people/data/DataMaintenanceService$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/people/data/DataMaintenanceService;
 
     iget v1, p0, Lcom/android/server/people/data/DataMaintenanceService$$ExternalSyntheticLambda0;->f$1:I
 
-    iget-object v2, p0, Lcom/android/server/people/data/DataMaintenanceService$$ExternalSyntheticLambda0;->f$2:Landroid/app/job/JobParameters;
+    iget-object p0, p0, Lcom/android/server/people/data/DataMaintenanceService$$ExternalSyntheticLambda0;->f$2:Landroid/app/job/JobParameters;
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/people/data/DataMaintenanceService;->lambda$onStartJob$0$DataMaintenanceService(ILandroid/app/job/JobParameters;)V
+    invoke-static {v0, v1, p0}, Lcom/android/server/people/data/DataMaintenanceService;->$r8$lambda$UHvqdJZVtPi8AE47j_OZg20tbV4(Lcom/android/server/people/data/DataMaintenanceService;ILandroid/app/job/JobParameters;)V
 
     return-void
 .end method

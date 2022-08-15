@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/pm/UserManagerService$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/server/pm/UserManagerInternal$UserRestrictionsListener;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final onUserRestrictionsChanged(ILandroid/os/Bundle;Landroid/os/Bundle;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/pm/UserManagerService$$ExternalSyntheticLambda1;->f$0:Landroid/os/IUserRestrictionsListener;
+    iget-object p0, p0, Lcom/android/server/pm/UserManagerService$$ExternalSyntheticLambda1;->f$0:Landroid/os/IUserRestrictionsListener;
 
-    invoke-static {v0, p1, p2, p3}, Lcom/android/server/pm/UserManagerService;->lambda$addUserRestrictionsListener$1(Landroid/os/IUserRestrictionsListener;ILandroid/os/Bundle;Landroid/os/Bundle;)V
+    invoke-static {p0, p1, p2, p3}, Lcom/android/server/pm/UserManagerService;->$r8$lambda$fIk7HY6Rb7kc_b9wEf70etZcb94(Landroid/os/IUserRestrictionsListener;ILandroid/os/Bundle;Landroid/os/Bundle;)V
 
     return-void
 .end method

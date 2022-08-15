@@ -10,9 +10,6 @@
 .method public abstract adjustVolume(Ljava/lang/String;Ljava/lang/String;IIZIIZ)V
 .end method
 
-.method public abstract canHandleVolumeKey()Z
-.end method
-
 .method public abstract checkPlaybackActiveState(Z)Z
 .end method
 
@@ -40,14 +37,5 @@
 .method public abstract isClosed()Z
 .end method
 
-.method public abstract isPlaybackTypeLocal()Z
-.end method
-
 .method public abstract isSystemPriority()Z
-.end method
-
-.method public abstract sendMediaButton(Ljava/lang/String;IIZLandroid/view/KeyEvent;ILandroid/os/ResultReceiver;)Z
-.end method
-
-.method public abstract setSessionPolicies(I)V
 .end method

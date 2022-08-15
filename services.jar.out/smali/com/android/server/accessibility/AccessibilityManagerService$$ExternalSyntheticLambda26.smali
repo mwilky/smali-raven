@@ -1,28 +1,13 @@
 .class public final synthetic Lcom/android/server/accessibility/AccessibilityManagerService$$ExternalSyntheticLambda26;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Function;
-
-
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/accessibility/AccessibilityManagerService$$ExternalSyntheticLambda26;
+.implements Ljava/util/function/BiConsumer;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/accessibility/AccessibilityManagerService$$ExternalSyntheticLambda26;
-
-    invoke-direct {v0}, Lcom/android/server/accessibility/AccessibilityManagerService$$ExternalSyntheticLambda26;-><init>()V
-
-    sput-object v0, Lcom/android/server/accessibility/AccessibilityManagerService$$ExternalSyntheticLambda26;->INSTANCE:Lcom/android/server/accessibility/AccessibilityManagerService$$ExternalSyntheticLambda26;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,14 +17,14 @@
 
 
 # virtual methods
-.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
+.method public final accept(Ljava/lang/Object;Ljava/lang/Object;)V
     .locals 0
 
-    check-cast p1, Ljava/lang/String;
+    check-cast p1, Lcom/android/server/accessibility/AccessibilityManagerService;
 
-    invoke-static {p1}, Lcom/android/server/accessibility/AccessibilityManagerService;->lambda$readComponentNamesFromSettingLocked$7(Ljava/lang/String;)Landroid/content/ComponentName;
+    check-cast p2, Landroid/util/ArraySet;
 
-    move-result-object p1
+    invoke-static {p1, p2}, Lcom/android/server/accessibility/AccessibilityManagerService;->$r8$lambda$BvinDUj28r6jV35YiZTLPSNK1cs(Lcom/android/server/accessibility/AccessibilityManagerService;Landroid/util/ArraySet;)V
 
-    return-object p1
+    return-void
 .end method

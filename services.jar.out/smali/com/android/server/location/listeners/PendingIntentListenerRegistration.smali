@@ -30,7 +30,7 @@
 
 
 # direct methods
-.method protected constructor <init>(Ljava/lang/Object;Landroid/location/util/identity/CallerIdentity;Ljava/lang/Object;)V
+.method public constructor <init>(Ljava/lang/Object;Landroid/location/util/identity/CallerIdentity;Ljava/lang/Object;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -47,105 +47,101 @@
     return-void
 .end method
 
-.method private getPendingIntentFromKey(Ljava/lang/Object;)Landroid/app/PendingIntent;
-    .locals 2
-
-    instance-of v0, p1, Landroid/app/PendingIntent;
-
-    if-eqz v0, :cond_0
-
-    move-object v0, p1
-
-    check-cast v0, Landroid/app/PendingIntent;
-
-    return-object v0
-
-    :cond_0
-    instance-of v0, p1, Lcom/android/server/location/listeners/PendingIntentListenerRegistration$PendingIntentKey;
-
-    if-eqz v0, :cond_1
-
-    move-object v0, p1
-
-    check-cast v0, Lcom/android/server/location/listeners/PendingIntentListenerRegistration$PendingIntentKey;
-
-    invoke-interface {v0}, Lcom/android/server/location/listeners/PendingIntentListenerRegistration$PendingIntentKey;->getPendingIntent()Landroid/app/PendingIntent;
-
-    move-result-object v0
-
-    return-object v0
-
-    :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
-
-    const-string/jumbo v1, "key must be PendingIntent or PendingIntentKey"
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-.end method
-
 
 # virtual methods
-.method public onCancelled(Landroid/app/PendingIntent;)V
-    .locals 3
+.method public final getPendingIntentFromKey(Ljava/lang/Object;)Landroid/app/PendingIntent;
+    .locals 0
 
-    invoke-virtual {p0}, Lcom/android/server/location/listeners/PendingIntentListenerRegistration;->getOwner()Lcom/android/server/location/listeners/ListenerMultiplexer;
+    instance-of p0, p1, Landroid/app/PendingIntent;
 
-    move-result-object v0
+    if-eqz p0, :cond_0
 
-    invoke-virtual {v0}, Lcom/android/server/location/listeners/ListenerMultiplexer;->getTag()Ljava/lang/String;
+    check-cast p1, Landroid/app/PendingIntent;
 
-    move-result-object v0
+    return-object p1
 
-    const/4 v1, 0x3
+    :cond_0
+    instance-of p0, p1, Lcom/android/server/location/listeners/PendingIntentListenerRegistration$PendingIntentKey;
 
-    invoke-static {v0, v1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
+    if-eqz p0, :cond_1
 
-    move-result v0
+    check-cast p1, Lcom/android/server/location/listeners/PendingIntentListenerRegistration$PendingIntentKey;
 
-    if-eqz v0, :cond_0
+    invoke-interface {p1}, Lcom/android/server/location/listeners/PendingIntentListenerRegistration$PendingIntentKey;->getPendingIntent()Landroid/app/PendingIntent;
 
-    invoke-virtual {p0}, Lcom/android/server/location/listeners/PendingIntentListenerRegistration;->getOwner()Lcom/android/server/location/listeners/ListenerMultiplexer;
+    move-result-object p0
 
-    move-result-object v0
+    return-object p0
 
-    invoke-virtual {v0}, Lcom/android/server/location/listeners/ListenerMultiplexer;->getTag()Ljava/lang/String;
+    :cond_1
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    move-result-object v0
+    const-string p1, "key must be PendingIntent or PendingIntentKey"
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    throw p0
+.end method
 
-    const-string/jumbo v2, "pending intent registration "
+.method public onCanceled(Landroid/app/PendingIntent;)V
+    .locals 2
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0}, Lcom/android/server/location/listeners/RemovableListenerRegistration;->getOwner()Lcom/android/server/location/listeners/ListenerMultiplexer;
 
-    invoke-virtual {p0}, Lcom/android/server/location/listeners/PendingIntentListenerRegistration;->getIdentity()Landroid/location/util/identity/CallerIdentity;
+    move-result-object p1
 
-    move-result-object v2
+    invoke-virtual {p1}, Lcom/android/server/location/listeners/ListenerMultiplexer;->getTag()Ljava/lang/String;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    const-string v2, " canceled"
+    const/4 v0, 0x3
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {p1, v0}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result p1
+
+    if-eqz p1, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/server/location/listeners/RemovableListenerRegistration;->getOwner()Lcom/android/server/location/listeners/ListenerMultiplexer;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Lcom/android/server/location/listeners/ListenerMultiplexer;->getTag()Ljava/lang/String;
+
+    move-result-object p1
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "pending intent registration "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0}, Lcom/android/server/location/listeners/RemoteListenerRegistration;->getIdentity()Landroid/location/util/identity/CallerIdentity;
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string v1, " canceled"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {p1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    invoke-virtual {p0}, Lcom/android/server/location/listeners/PendingIntentListenerRegistration;->remove()V
+    invoke-virtual {p0}, Lcom/android/server/location/listeners/RemovableListenerRegistration;->remove()V
 
     return-void
 .end method
 
-.method protected onOperationFailure(Lcom/android/internal/listeners/ListenerExecutor$ListenerOperation;Ljava/lang/Exception;)V
-    .locals 3
+.method public onOperationFailure(Lcom/android/internal/listeners/ListenerExecutor$ListenerOperation;Ljava/lang/Exception;)V
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -162,65 +158,62 @@
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {p0}, Lcom/android/server/location/listeners/PendingIntentListenerRegistration;->getOwner()Lcom/android/server/location/listeners/ListenerMultiplexer;
+    invoke-virtual {p0}, Lcom/android/server/location/listeners/RemovableListenerRegistration;->getOwner()Lcom/android/server/location/listeners/ListenerMultiplexer;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Lcom/android/server/location/listeners/ListenerMultiplexer;->getTag()Ljava/lang/String;
+
+    move-result-object p1
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "registration "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string v1, " removed"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/server/location/listeners/ListenerMultiplexer;->getTag()Ljava/lang/String;
+    invoke-static {p1, v0, p2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    move-result-object v0
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "registration "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    const-string v2, " removed"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1, p2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    invoke-virtual {p0}, Lcom/android/server/location/listeners/PendingIntentListenerRegistration;->remove()V
+    invoke-virtual {p0}, Lcom/android/server/location/listeners/RemovableListenerRegistration;->remove()V
 
     goto :goto_0
 
     :cond_0
-    invoke-super {p0, p1, p2}, Lcom/android/server/location/listeners/RemoteListenerRegistration;->onOperationFailure(Lcom/android/internal/listeners/ListenerExecutor$ListenerOperation;Ljava/lang/Exception;)V
+    invoke-super {p0, p1, p2}, Lcom/android/server/location/listeners/ListenerRegistration;->onOperationFailure(Lcom/android/internal/listeners/ListenerExecutor$ListenerOperation;Ljava/lang/Exception;)V
 
     :goto_0
     return-void
 .end method
 
-.method protected onPendingIntentListenerRegister()V
+.method public abstract onPendingIntentListenerRegister()V
+.end method
+
+.method public onPendingIntentListenerUnregister()V
     .locals 0
 
     return-void
 .end method
 
-.method protected onPendingIntentListenerUnregister()V
-    .locals 0
-
-    return-void
-.end method
-
-.method protected final onRemovableListenerRegister()V
+.method public final onRemovableListenerRegister()V
     .locals 1
 
-    invoke-virtual {p0}, Lcom/android/server/location/listeners/PendingIntentListenerRegistration;->getKey()Ljava/lang/Object;
+    invoke-virtual {p0}, Lcom/android/server/location/listeners/RemovableListenerRegistration;->getKey()Ljava/lang/Object;
 
     move-result-object v0
 
-    invoke-direct {p0, v0}, Lcom/android/server/location/listeners/PendingIntentListenerRegistration;->getPendingIntentFromKey(Ljava/lang/Object;)Landroid/app/PendingIntent;
+    invoke-virtual {p0, v0}, Lcom/android/server/location/listeners/PendingIntentListenerRegistration;->getPendingIntentFromKey(Ljava/lang/Object;)Landroid/app/PendingIntent;
 
     move-result-object v0
 
@@ -231,16 +224,16 @@
     return-void
 .end method
 
-.method protected final onRemovableListenerUnregister()V
+.method public final onRemovableListenerUnregister()V
     .locals 1
 
     invoke-virtual {p0}, Lcom/android/server/location/listeners/PendingIntentListenerRegistration;->onPendingIntentListenerUnregister()V
 
-    invoke-virtual {p0}, Lcom/android/server/location/listeners/PendingIntentListenerRegistration;->getKey()Ljava/lang/Object;
+    invoke-virtual {p0}, Lcom/android/server/location/listeners/RemovableListenerRegistration;->getKey()Ljava/lang/Object;
 
     move-result-object v0
 
-    invoke-direct {p0, v0}, Lcom/android/server/location/listeners/PendingIntentListenerRegistration;->getPendingIntentFromKey(Ljava/lang/Object;)Landroid/app/PendingIntent;
+    invoke-virtual {p0, v0}, Lcom/android/server/location/listeners/PendingIntentListenerRegistration;->getPendingIntentFromKey(Ljava/lang/Object;)Landroid/app/PendingIntent;
 
     move-result-object v0
 

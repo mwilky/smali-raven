@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/wm/WindowToken$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -27,15 +28,15 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/wm/WindowToken$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/wm/WindowToken;
 
-    iget-boolean v1, p0, Lcom/android/server/wm/WindowToken$$ExternalSyntheticLambda1;->f$1:Z
+    iget-boolean p0, p0, Lcom/android/server/wm/WindowToken$$ExternalSyntheticLambda1;->f$1:Z
 
     check-cast p1, Lcom/android/server/wm/WindowState;
 
-    invoke-virtual {v0, v1, p1}, Lcom/android/server/wm/WindowToken;->lambda$setInsetsFrozen$1$WindowToken(ZLcom/android/server/wm/WindowState;)V
+    invoke-static {v0, p0, p1}, Lcom/android/server/wm/WindowToken;->$r8$lambda$hNPCvBwKqRe9wZ7nz7IlpshKxBg(Lcom/android/server/wm/WindowToken;ZLcom/android/server/wm/WindowState;)V
 
     return-void
 .end method

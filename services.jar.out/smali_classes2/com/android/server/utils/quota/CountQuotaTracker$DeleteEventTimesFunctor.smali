@@ -1,4 +1,4 @@
-.class final Lcom/android/server/utils/quota/CountQuotaTracker$DeleteEventTimesFunctor;
+.class public final Lcom/android/server/utils/quota/CountQuotaTracker$DeleteEventTimesFunctor;
 .super Ljava/lang/Object;
 .source "CountQuotaTracker.java"
 
@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "DeleteEventTimesFunctor"
 .end annotation
 
@@ -27,13 +27,29 @@
 
 
 # instance fields
-.field private mMaxPeriodMs:J
+.field public mMaxPeriodMs:J
 
-.field final synthetic this$0:Lcom/android/server/utils/quota/CountQuotaTracker;
+.field public final synthetic this$0:Lcom/android/server/utils/quota/CountQuotaTracker;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/server/utils/quota/CountQuotaTracker;)V
+.method public static bridge synthetic -$$Nest$fgetmMaxPeriodMs(Lcom/android/server/utils/quota/CountQuotaTracker$DeleteEventTimesFunctor;)J
+    .locals 2
+
+    iget-wide v0, p0, Lcom/android/server/utils/quota/CountQuotaTracker$DeleteEventTimesFunctor;->mMaxPeriodMs:J
+
+    return-wide v0
+.end method
+
+.method public static bridge synthetic -$$Nest$mupdateMaxPeriod(Lcom/android/server/utils/quota/CountQuotaTracker$DeleteEventTimesFunctor;)V
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/server/utils/quota/CountQuotaTracker$DeleteEventTimesFunctor;->updateMaxPeriod()V
+
+    return-void
+.end method
+
+.method public constructor <init>(Lcom/android/server/utils/quota/CountQuotaTracker;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/utils/quota/CountQuotaTracker$DeleteEventTimesFunctor;->this$0:Lcom/android/server/utils/quota/CountQuotaTracker;
@@ -43,76 +59,10 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/utils/quota/CountQuotaTracker;Lcom/android/server/utils/quota/CountQuotaTracker$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/utils/quota/CountQuotaTracker;Lcom/android/server/utils/quota/CountQuotaTracker$DeleteEventTimesFunctor-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/utils/quota/CountQuotaTracker$DeleteEventTimesFunctor;-><init>(Lcom/android/server/utils/quota/CountQuotaTracker;)V
-
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/server/utils/quota/CountQuotaTracker$DeleteEventTimesFunctor;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/server/utils/quota/CountQuotaTracker$DeleteEventTimesFunctor;->updateMaxPeriod()V
-
-    return-void
-.end method
-
-.method static synthetic access$100(Lcom/android/server/utils/quota/CountQuotaTracker$DeleteEventTimesFunctor;)J
-    .locals 2
-
-    iget-wide v0, p0, Lcom/android/server/utils/quota/CountQuotaTracker$DeleteEventTimesFunctor;->mMaxPeriodMs:J
-
-    return-wide v0
-.end method
-
-.method private updateMaxPeriod()V
-    .locals 5
-
-    const-wide/16 v0, 0x0
-
-    iget-object v2, p0, Lcom/android/server/utils/quota/CountQuotaTracker$DeleteEventTimesFunctor;->this$0:Lcom/android/server/utils/quota/CountQuotaTracker;
-
-    invoke-static {v2}, Lcom/android/server/utils/quota/CountQuotaTracker;->access$300(Lcom/android/server/utils/quota/CountQuotaTracker;)Landroid/util/ArrayMap;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroid/util/ArrayMap;->size()I
-
-    move-result v2
-
-    add-int/lit8 v2, v2, -0x1
-
-    :goto_0
-    if-ltz v2, :cond_0
-
-    iget-object v3, p0, Lcom/android/server/utils/quota/CountQuotaTracker$DeleteEventTimesFunctor;->this$0:Lcom/android/server/utils/quota/CountQuotaTracker;
-
-    invoke-static {v3}, Lcom/android/server/utils/quota/CountQuotaTracker;->access$300(Lcom/android/server/utils/quota/CountQuotaTracker;)Landroid/util/ArrayMap;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v2}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Ljava/lang/Long;
-
-    invoke-virtual {v3}, Ljava/lang/Long;->longValue()J
-
-    move-result-wide v3
-
-    invoke-static {v0, v1, v3, v4}, Ljava/lang/Long;->max(JJ)J
-
-    move-result-wide v0
-
-    add-int/lit8 v2, v2, -0x1
-
-    goto :goto_0
-
-    :cond_0
-    iput-wide v0, p0, Lcom/android/server/utils/quota/CountQuotaTracker$DeleteEventTimesFunctor;->mMaxPeriodMs:J
 
     return-void
 .end method
@@ -137,7 +87,7 @@
 
     iget-object v2, p0, Lcom/android/server/utils/quota/CountQuotaTracker$DeleteEventTimesFunctor;->this$0:Lcom/android/server/utils/quota/CountQuotaTracker;
 
-    iget-object v2, v2, Lcom/android/server/utils/quota/CountQuotaTracker;->mInjector:Lcom/android/server/utils/quota/QuotaTracker$Injector;
+    iget-object v2, v2, Lcom/android/server/utils/quota/QuotaTracker;->mInjector:Lcom/android/server/utils/quota/QuotaTracker$Injector;
 
     invoke-virtual {v2}, Lcom/android/server/utils/quota/QuotaTracker$Injector;->getElapsedRealtime()J
 
@@ -165,6 +115,56 @@
     check-cast p1, Landroid/util/LongArrayQueue;
 
     invoke-virtual {p0, p1}, Lcom/android/server/utils/quota/CountQuotaTracker$DeleteEventTimesFunctor;->accept(Landroid/util/LongArrayQueue;)V
+
+    return-void
+.end method
+
+.method public final updateMaxPeriod()V
+    .locals 5
+
+    iget-object v0, p0, Lcom/android/server/utils/quota/CountQuotaTracker$DeleteEventTimesFunctor;->this$0:Lcom/android/server/utils/quota/CountQuotaTracker;
+
+    invoke-static {v0}, Lcom/android/server/utils/quota/CountQuotaTracker;->-$$Nest$fgetmCategoryCountWindowSizesMs(Lcom/android/server/utils/quota/CountQuotaTracker;)Landroid/util/ArrayMap;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/util/ArrayMap;->size()I
+
+    move-result v0
+
+    add-int/lit8 v0, v0, -0x1
+
+    const-wide/16 v1, 0x0
+
+    :goto_0
+    if-ltz v0, :cond_0
+
+    iget-object v3, p0, Lcom/android/server/utils/quota/CountQuotaTracker$DeleteEventTimesFunctor;->this$0:Lcom/android/server/utils/quota/CountQuotaTracker;
+
+    invoke-static {v3}, Lcom/android/server/utils/quota/CountQuotaTracker;->-$$Nest$fgetmCategoryCountWindowSizesMs(Lcom/android/server/utils/quota/CountQuotaTracker;)Landroid/util/ArrayMap;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v0}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Ljava/lang/Long;
+
+    invoke-virtual {v3}, Ljava/lang/Long;->longValue()J
+
+    move-result-wide v3
+
+    invoke-static {v1, v2, v3, v4}, Ljava/lang/Long;->max(JJ)J
+
+    move-result-wide v1
+
+    add-int/lit8 v0, v0, -0x1
+
+    goto :goto_0
+
+    :cond_0
+    iput-wide v1, p0, Lcom/android/server/utils/quota/CountQuotaTracker$DeleteEventTimesFunctor;->mMaxPeriodMs:J
 
     return-void
 .end method

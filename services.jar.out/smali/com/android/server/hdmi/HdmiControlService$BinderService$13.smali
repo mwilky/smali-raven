@@ -1,4 +1,4 @@
-.class Lcom/android/server/hdmi/HdmiControlService$BinderService$13;
+.class public Lcom/android/server/hdmi/HdmiControlService$BinderService$13;
 .super Ljava/lang/Object;
 .source "HdmiControlService.java"
 
@@ -12,19 +12,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$1:Lcom/android/server/hdmi/HdmiControlService$BinderService;
+.field public final synthetic this$1:Lcom/android/server/hdmi/HdmiControlService$BinderService;
 
-.field final synthetic val$mute:Z
+.field public final synthetic val$mute:Z
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/hdmi/HdmiControlService$BinderService;Z)V
+.method public constructor <init>(Lcom/android/server/hdmi/HdmiControlService$BinderService;Z)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService$13;->this$1:Lcom/android/server/hdmi/HdmiControlService$BinderService;
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService$13;->this$1:Lcom/android/server/hdmi/HdmiControlService$BinderService;
 
@@ -51,18 +51,18 @@
 
     if-nez v0, :cond_0
 
-    const-string v1, "HdmiControlService"
+    const-string p0, "HdmiControlService"
 
-    const-string v2, "Local tv device not available"
+    const-string v0, "Local tv device not available"
 
-    invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
     :cond_0
-    iget-boolean v1, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService$13;->val$mute:Z
+    iget-boolean p0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService$13;->val$mute:Z
 
-    invoke-virtual {v0, v1}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->changeMute(Z)V
+    invoke-virtual {v0, p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->changeMute(Z)V
 
     return-void
 .end method

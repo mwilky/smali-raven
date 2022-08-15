@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/am/ActiveUids$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -23,13 +24,13 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/am/ActiveUids$$ExternalSyntheticLambda0;->f$0:Ljava/io/PrintWriter;
+    iget-object p0, p0, Lcom/android/server/am/ActiveUids$$ExternalSyntheticLambda0;->f$0:Ljava/io/PrintWriter;
 
     check-cast p1, Lcom/android/server/am/ProcessRecord;
 
-    invoke-static {v0, p1}, Lcom/android/server/am/ActiveUids;->lambda$dump$0(Ljava/io/PrintWriter;Lcom/android/server/am/ProcessRecord;)V
+    invoke-static {p0, p1}, Lcom/android/server/am/ActiveUids;->$r8$lambda$G_7-jFL0r5ri3SJ6Mg5gotLMr8Y(Ljava/io/PrintWriter;Lcom/android/server/am/ProcessRecord;)V
 
     return-void
 .end method

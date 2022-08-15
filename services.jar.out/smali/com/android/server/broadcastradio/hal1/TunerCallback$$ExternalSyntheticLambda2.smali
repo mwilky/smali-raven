@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/broadcastradio/hal1/TunerCallback$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/server/broadcastradio/hal1/TunerCallback$RunnableThrowingRemoteException;
@@ -8,18 +9,18 @@
 # instance fields
 .field public final synthetic f$0:Lcom/android/server/broadcastradio/hal1/TunerCallback;
 
-.field public final synthetic f$1:I
+.field public final synthetic f$1:Landroid/hardware/radio/RadioManager$ProgramInfo;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/broadcastradio/hal1/TunerCallback;I)V
+.method public synthetic constructor <init>(Lcom/android/server/broadcastradio/hal1/TunerCallback;Landroid/hardware/radio/RadioManager$ProgramInfo;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/server/broadcastradio/hal1/TunerCallback$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/broadcastradio/hal1/TunerCallback;
 
-    iput p2, p0, Lcom/android/server/broadcastradio/hal1/TunerCallback$$ExternalSyntheticLambda2;->f$1:I
+    iput-object p2, p0, Lcom/android/server/broadcastradio/hal1/TunerCallback$$ExternalSyntheticLambda2;->f$1:Landroid/hardware/radio/RadioManager$ProgramInfo;
 
     return-void
 .end method
@@ -27,13 +28,13 @@
 
 # virtual methods
 .method public final run()V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/broadcastradio/hal1/TunerCallback$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/broadcastradio/hal1/TunerCallback;
 
-    iget v1, p0, Lcom/android/server/broadcastradio/hal1/TunerCallback$$ExternalSyntheticLambda2;->f$1:I
+    iget-object p0, p0, Lcom/android/server/broadcastradio/hal1/TunerCallback$$ExternalSyntheticLambda2;->f$1:Landroid/hardware/radio/RadioManager$ProgramInfo;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/broadcastradio/hal1/TunerCallback;->lambda$onError$0$TunerCallback(I)V
+    invoke-static {v0, p0}, Lcom/android/server/broadcastradio/hal1/TunerCallback;->$r8$lambda$5hesvq8nb-utdVySwN4nMy4e62o(Lcom/android/server/broadcastradio/hal1/TunerCallback;Landroid/hardware/radio/RadioManager$ProgramInfo;)V
 
     return-void
 .end method

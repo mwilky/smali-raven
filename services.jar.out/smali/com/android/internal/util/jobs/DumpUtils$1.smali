@@ -1,4 +1,4 @@
-.class Lcom/android/internal/util/jobs/DumpUtils$1;
+.class public Lcom/android/internal/util/jobs/DumpUtils$1;
 .super Ljava/lang/Object;
 .source "DumpUtils.java"
 
@@ -12,21 +12,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic val$dump:Lcom/android/internal/util/jobs/DumpUtils$Dump;
+.field public final synthetic val$dump:Lcom/android/internal/util/jobs/DumpUtils$Dump;
 
-.field final synthetic val$prefix:Ljava/lang/String;
+.field public final synthetic val$prefix:Ljava/lang/String;
 
-.field final synthetic val$sw:Ljava/io/StringWriter;
+.field public final synthetic val$sw:Ljava/io/StringWriter;
 
 
 # direct methods
-.method constructor <init>(Ljava/io/StringWriter;Lcom/android/internal/util/jobs/DumpUtils$Dump;Ljava/lang/String;)V
+.method public constructor <init>(Ljava/io/StringWriter;Lcom/android/internal/util/jobs/DumpUtils$Dump;Ljava/lang/String;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/internal/util/jobs/DumpUtils$1;->val$sw:Ljava/io/StringWriter;
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .locals 2
 
     new-instance v0, Lcom/android/internal/util/jobs/FastPrintWriter;
 
@@ -53,9 +53,9 @@
 
     iget-object v1, p0, Lcom/android/internal/util/jobs/DumpUtils$1;->val$dump:Lcom/android/internal/util/jobs/DumpUtils$Dump;
 
-    iget-object v2, p0, Lcom/android/internal/util/jobs/DumpUtils$1;->val$prefix:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/internal/util/jobs/DumpUtils$1;->val$prefix:Ljava/lang/String;
 
-    invoke-interface {v1, v0, v2}, Lcom/android/internal/util/jobs/DumpUtils$Dump;->dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
+    invoke-interface {v1, v0, p0}, Lcom/android/internal/util/jobs/DumpUtils$Dump;->dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
 
     invoke-virtual {v0}, Ljava/io/PrintWriter;->close()V
 

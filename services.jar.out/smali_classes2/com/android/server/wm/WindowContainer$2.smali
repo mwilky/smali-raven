@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/WindowContainer$2;
+.class public Lcom/android/server/wm/WindowContainer$2;
 .super Ljava/lang/Object;
 .source "WindowContainer.java"
 
@@ -12,21 +12,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic val$listener:Lcom/android/server/wm/ConfigurationContainerListener;
+.field public final synthetic val$listener:Lcom/android/server/wm/ConfigurationContainerListener;
 
-.field final synthetic val$receiver:Lcom/android/server/wm/WindowContainer;
+.field public final synthetic val$receiver:Lcom/android/server/wm/WindowContainer;
 
-.field final synthetic val$supplier:Lcom/android/server/wm/WindowContainer;
+.field public final synthetic val$supplier:Lcom/android/server/wm/WindowContainer;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/wm/WindowContainer;Lcom/android/server/wm/WindowContainer;Lcom/android/server/wm/ConfigurationContainerListener;)V
+.method public constructor <init>(Lcom/android/server/wm/WindowContainer;Lcom/android/server/wm/WindowContainer;Lcom/android/server/wm/ConfigurationContainerListener;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/wm/WindowContainer$2;->val$receiver:Lcom/android/server/wm/WindowContainer;
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public onRemoved()V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/wm/WindowContainer$2;->val$receiver:Lcom/android/server/wm/WindowContainer;
 
@@ -51,9 +51,9 @@
 
     iget-object v0, p0, Lcom/android/server/wm/WindowContainer$2;->val$supplier:Lcom/android/server/wm/WindowContainer;
 
-    iget-object v1, p0, Lcom/android/server/wm/WindowContainer$2;->val$listener:Lcom/android/server/wm/ConfigurationContainerListener;
+    iget-object p0, p0, Lcom/android/server/wm/WindowContainer$2;->val$listener:Lcom/android/server/wm/ConfigurationContainerListener;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/wm/WindowContainer;->unregisterConfigurationChangeListener(Lcom/android/server/wm/ConfigurationContainerListener;)V
+    invoke-virtual {v0, p0}, Lcom/android/server/wm/ConfigurationContainer;->unregisterConfigurationChangeListener(Lcom/android/server/wm/ConfigurationContainerListener;)V
 
     return-void
 .end method

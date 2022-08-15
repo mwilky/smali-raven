@@ -1,4 +1,4 @@
-.class final Lcom/android/server/policy/keyguard/KeyguardServiceDelegate$KeyguardState;
+.class public final Lcom/android/server/policy/keyguard/KeyguardServiceDelegate$KeyguardState;
 .super Ljava/lang/Object;
 .source "KeyguardServiceDelegate.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "KeyguardState"
 .end annotation
 
@@ -19,51 +19,53 @@
 
 .field public currentUser:I
 
-.field deviceHasKeyguard:Z
+.field public deviceHasKeyguard:Z
 
-.field dreaming:Z
+.field public dreaming:Z
 
 .field public enabled:Z
 
-.field inputRestricted:Z
+.field public inputRestricted:Z
 
 .field public interactiveState:I
 
-.field volatile occluded:Z
+.field public volatile occluded:Z
 
 .field public offReason:I
 
 .field public screenState:I
 
-.field secure:Z
+.field public secure:Z
 
-.field showing:Z
+.field public showing:Z
 
-.field showingAndNotOccluded:Z
+.field public showingAndNotOccluded:Z
 
-.field systemIsReady:Z
+.field public systemIsReady:Z
 
 
 # direct methods
-.method constructor <init>()V
+.method public static bridge synthetic -$$Nest$mreset(Lcom/android/server/policy/keyguard/KeyguardServiceDelegate$KeyguardState;)V
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/server/policy/keyguard/KeyguardServiceDelegate$KeyguardState;->reset()V
+
+    return-void
+.end method
+
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    invoke-direct {p0}, Lcom/android/server/policy/keyguard/KeyguardServiceDelegate$KeyguardState;->reset()V
+    invoke-virtual {p0}, Lcom/android/server/policy/keyguard/KeyguardServiceDelegate$KeyguardState;->reset()V
 
     return-void
 .end method
 
-.method static synthetic access$400(Lcom/android/server/policy/keyguard/KeyguardServiceDelegate$KeyguardState;)V
-    .locals 0
 
-    invoke-direct {p0}, Lcom/android/server/policy/keyguard/KeyguardServiceDelegate$KeyguardState;->reset()V
-
-    return-void
-.end method
-
-.method private reset()V
+# virtual methods
+.method public final reset()V
     .locals 1
 
     const/4 v0, 0x1

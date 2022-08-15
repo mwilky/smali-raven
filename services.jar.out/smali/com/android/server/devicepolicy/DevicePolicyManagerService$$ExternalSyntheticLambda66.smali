@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda66;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/internal/util/FunctionalUtils$ThrowingSupplier;
+.implements Lcom/android/internal/util/FunctionalUtils$ThrowingRunnable;
 
 
 # instance fields
@@ -22,14 +23,12 @@
 
 
 # virtual methods
-.method public final getOrThrow()Ljava/lang/Object;
-    .locals 1
+.method public final runOrThrow()V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda66;->f$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
+    iget-object p0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda66;->f$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
 
-    invoke-virtual {v0}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$getSecondaryUsers$80$DevicePolicyManagerService()Ljava/util/List;
+    invoke-static {p0}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->$r8$lambda$dhIcS5mi3X2nav86uISqNf5aWQQ(Lcom/android/server/devicepolicy/DevicePolicyManagerService;)V
 
-    move-result-object v0
-
-    return-object v0
+    return-void
 .end method

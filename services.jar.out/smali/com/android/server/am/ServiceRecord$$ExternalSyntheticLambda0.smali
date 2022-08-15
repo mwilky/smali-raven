@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/am/ServiceRecord$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/am/ServiceRecord$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/am/ServiceRecord;
+    iget-object p0, p0, Lcom/android/server/am/ServiceRecord$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/am/ServiceRecord;
 
-    invoke-virtual {v0}, Lcom/android/server/am/ServiceRecord;->lambda$allowBgActivityStartsOnServiceStart$0$ServiceRecord()V
+    invoke-static {p0}, Lcom/android/server/am/ServiceRecord;->$r8$lambda$nAQIb51kQiu1uSwcVuTz7LaRGa8(Lcom/android/server/am/ServiceRecord;)V
 
     return-void
 .end method

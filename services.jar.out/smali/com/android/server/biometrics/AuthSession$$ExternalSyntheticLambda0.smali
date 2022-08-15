@@ -1,31 +1,22 @@
 .class public final synthetic Lcom/android/server/biometrics/AuthSession$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Function;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/biometrics/AuthSession$$ExternalSyntheticLambda0;
+# instance fields
+.field public final synthetic f$0:I
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/biometrics/AuthSession$$ExternalSyntheticLambda0;
-
-    invoke-direct {v0}, Lcom/android/server/biometrics/AuthSession$$ExternalSyntheticLambda0;-><init>()V
-
-    sput-object v0, Lcom/android/server/biometrics/AuthSession$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/server/biometrics/AuthSession$$ExternalSyntheticLambda0;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput p1, p0, Lcom/android/server/biometrics/AuthSession$$ExternalSyntheticLambda0;->f$0:I
 
     return-void
 .end method
@@ -35,11 +26,13 @@
 .method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
 
+    iget p0, p0, Lcom/android/server/biometrics/AuthSession$$ExternalSyntheticLambda0;->f$0:I
+
     check-cast p1, Lcom/android/server/biometrics/BiometricSensor;
 
-    invoke-static {p1}, Lcom/android/server/biometrics/AuthSession;->lambda$cancelAllSensors$2(Lcom/android/server/biometrics/BiometricSensor;)Ljava/lang/Boolean;
+    invoke-static {p0, p1}, Lcom/android/server/biometrics/AuthSession;->$r8$lambda$bwoIMl8e8OQYRgU0LoBUpbdFLNc(ILcom/android/server/biometrics/BiometricSensor;)Ljava/lang/Boolean;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method

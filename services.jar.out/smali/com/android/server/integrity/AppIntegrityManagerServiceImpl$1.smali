@@ -1,4 +1,4 @@
-.class Lcom/android/server/integrity/AppIntegrityManagerServiceImpl$1;
+.class public Lcom/android/server/integrity/AppIntegrityManagerServiceImpl$1;
 .super Landroid/content/BroadcastReceiver;
 .source "AppIntegrityManagerServiceImpl.java"
 
@@ -9,17 +9,25 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/integrity/AppIntegrityManagerServiceImpl;
+.field public final synthetic this$0:Lcom/android/server/integrity/AppIntegrityManagerServiceImpl;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/integrity/AppIntegrityManagerServiceImpl;)V
+.method public static synthetic $r8$lambda$D-6BanMaetK6OzqqHwb9xKEKfbs(Lcom/android/server/integrity/AppIntegrityManagerServiceImpl$1;Landroid/content/Intent;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/integrity/AppIntegrityManagerServiceImpl$1;->lambda$onReceive$0(Landroid/content/Intent;)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Lcom/android/server/integrity/AppIntegrityManagerServiceImpl;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/integrity/AppIntegrityManagerServiceImpl$1;->this$0:Lcom/android/server/integrity/AppIntegrityManagerServiceImpl;
@@ -29,49 +37,47 @@
     return-void
 .end method
 
+.method private synthetic lambda$onReceive$0(Landroid/content/Intent;)V
+    .locals 0
 
-# virtual methods
-.method public synthetic lambda$onReceive$0$AppIntegrityManagerServiceImpl$1(Landroid/content/Intent;)V
-    .locals 1
+    iget-object p0, p0, Lcom/android/server/integrity/AppIntegrityManagerServiceImpl$1;->this$0:Lcom/android/server/integrity/AppIntegrityManagerServiceImpl;
 
-    iget-object v0, p0, Lcom/android/server/integrity/AppIntegrityManagerServiceImpl$1;->this$0:Lcom/android/server/integrity/AppIntegrityManagerServiceImpl;
-
-    invoke-static {v0, p1}, Lcom/android/server/integrity/AppIntegrityManagerServiceImpl;->access$100(Lcom/android/server/integrity/AppIntegrityManagerServiceImpl;Landroid/content/Intent;)V
+    invoke-static {p0, p1}, Lcom/android/server/integrity/AppIntegrityManagerServiceImpl;->-$$Nest$mhandleIntegrityVerification(Lcom/android/server/integrity/AppIntegrityManagerServiceImpl;Landroid/content/Intent;)V
 
     return-void
 .end method
 
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 2
 
-    nop
+# virtual methods
+.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+    .locals 1
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v1, "android.intent.action.PACKAGE_NEEDS_INTEGRITY_VERIFICATION"
+    const-string v0, "android.intent.action.PACKAGE_NEEDS_INTEGRITY_VERIFICATION"
 
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
     return-void
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/integrity/AppIntegrityManagerServiceImpl$1;->this$0:Lcom/android/server/integrity/AppIntegrityManagerServiceImpl;
+    iget-object p1, p0, Lcom/android/server/integrity/AppIntegrityManagerServiceImpl$1;->this$0:Lcom/android/server/integrity/AppIntegrityManagerServiceImpl;
 
-    invoke-static {v0}, Lcom/android/server/integrity/AppIntegrityManagerServiceImpl;->access$000(Lcom/android/server/integrity/AppIntegrityManagerServiceImpl;)Landroid/os/Handler;
+    invoke-static {p1}, Lcom/android/server/integrity/AppIntegrityManagerServiceImpl;->-$$Nest$fgetmHandler(Lcom/android/server/integrity/AppIntegrityManagerServiceImpl;)Landroid/os/Handler;
 
-    move-result-object v0
+    move-result-object p1
 
-    new-instance v1, Lcom/android/server/integrity/AppIntegrityManagerServiceImpl$1$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/android/server/integrity/AppIntegrityManagerServiceImpl$1$$ExternalSyntheticLambda0;
 
-    invoke-direct {v1, p0, p2}, Lcom/android/server/integrity/AppIntegrityManagerServiceImpl$1$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/integrity/AppIntegrityManagerServiceImpl$1;Landroid/content/Intent;)V
+    invoke-direct {v0, p0, p2}, Lcom/android/server/integrity/AppIntegrityManagerServiceImpl$1$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/integrity/AppIntegrityManagerServiceImpl$1;Landroid/content/Intent;)V
 
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {p1, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     return-void
 .end method

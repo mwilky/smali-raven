@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/policy/DisplayFoldController$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -23,13 +24,13 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/policy/DisplayFoldController$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/policy/DisplayFoldController;
+    iget-object p0, p0, Lcom/android/server/policy/DisplayFoldController$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/policy/DisplayFoldController;
 
     check-cast p1, Ljava/lang/Boolean;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/policy/DisplayFoldController;->lambda$new$0$DisplayFoldController(Ljava/lang/Boolean;)V
+    invoke-static {p0, p1}, Lcom/android/server/policy/DisplayFoldController;->$r8$lambda$oSfPwfFebSlf2AzSy4qMIMhkmbE(Lcom/android/server/policy/DisplayFoldController;Ljava/lang/Boolean;)V
 
     return-void
 .end method

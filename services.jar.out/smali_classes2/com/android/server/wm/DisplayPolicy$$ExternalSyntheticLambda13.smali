@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/wm/DisplayPolicy$$ExternalSyntheticLambda13;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Lcom/android/internal/util/function/TriConsumer;
 
 
 # instance fields
@@ -22,12 +23,18 @@
 
 
 # virtual methods
-.method public final run()V
-    .locals 1
+.method public final accept(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/DisplayPolicy$$ExternalSyntheticLambda13;->f$0:Lcom/android/server/wm/DisplayPolicy;
+    iget-object p0, p0, Lcom/android/server/wm/DisplayPolicy$$ExternalSyntheticLambda13;->f$0:Lcom/android/server/wm/DisplayPolicy;
 
-    invoke-virtual {v0}, Lcom/android/server/wm/DisplayPolicy;->lambda$new$0$DisplayPolicy()V
+    check-cast p1, Lcom/android/server/wm/DisplayFrames;
+
+    check-cast p2, Lcom/android/server/wm/WindowContainer;
+
+    check-cast p3, Landroid/graphics/Rect;
+
+    invoke-static {p0, p1, p2, p3}, Lcom/android/server/wm/DisplayPolicy;->$r8$lambda$gVW7GdxQ61-SVDApmBPK-hXtY5M(Lcom/android/server/wm/DisplayPolicy;Lcom/android/server/wm/DisplayFrames;Lcom/android/server/wm/WindowContainer;Landroid/graphics/Rect;)V
 
     return-void
 .end method

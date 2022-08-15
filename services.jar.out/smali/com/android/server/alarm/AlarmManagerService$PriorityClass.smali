@@ -1,4 +1,4 @@
-.class final Lcom/android/server/alarm/AlarmManagerService$PriorityClass;
+.class public final Lcom/android/server/alarm/AlarmManagerService$PriorityClass;
 .super Ljava/lang/Object;
 .source "AlarmManagerService.java"
 
@@ -9,36 +9,36 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x10
+    accessFlags = 0x11
     name = "PriorityClass"
 .end annotation
 
 
 # instance fields
-.field priority:I
+.field public priority:I
 
-.field seq:I
+.field public seq:I
 
-.field final synthetic this$0:Lcom/android/server/alarm/AlarmManagerService;
+.field public final synthetic this$0:Lcom/android/server/alarm/AlarmManagerService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/alarm/AlarmManagerService;)V
-    .locals 1
+.method public constructor <init>(Lcom/android/server/alarm/AlarmManagerService;)V
+    .locals 0
 
     iput-object p1, p0, Lcom/android/server/alarm/AlarmManagerService$PriorityClass;->this$0:Lcom/android/server/alarm/AlarmManagerService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iget v0, p1, Lcom/android/server/alarm/AlarmManagerService;->mCurrentSeq:I
+    iget p1, p1, Lcom/android/server/alarm/AlarmManagerService;->mCurrentSeq:I
 
-    add-int/lit8 v0, v0, -0x1
+    add-int/lit8 p1, p1, -0x1
 
-    iput v0, p0, Lcom/android/server/alarm/AlarmManagerService$PriorityClass;->seq:I
+    iput p1, p0, Lcom/android/server/alarm/AlarmManagerService$PriorityClass;->seq:I
 
-    const/4 v0, 0x2
+    const/4 p1, 0x2
 
-    iput v0, p0, Lcom/android/server/alarm/AlarmManagerService$PriorityClass;->priority:I
+    iput p1, p0, Lcom/android/server/alarm/AlarmManagerService$PriorityClass;->priority:I
 
     return-void
 .end method

@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/wm/InsetsSourceProvider$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -23,13 +24,13 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/InsetsSourceProvider$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/wm/InsetsSourceProvider;
+    iget-object p0, p0, Lcom/android/server/wm/InsetsSourceProvider$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/wm/InsetsSourceProvider;
 
     check-cast p1, Landroid/view/SurfaceControl$Transaction;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/wm/InsetsSourceProvider;->lambda$new$0$InsetsSourceProvider(Landroid/view/SurfaceControl$Transaction;)V
+    invoke-static {p0, p1}, Lcom/android/server/wm/InsetsSourceProvider;->$r8$lambda$A-bhFv7ipn_mv60gW-T4zEwJ36A(Lcom/android/server/wm/InsetsSourceProvider;Landroid/view/SurfaceControl$Transaction;)V
 
     return-void
 .end method

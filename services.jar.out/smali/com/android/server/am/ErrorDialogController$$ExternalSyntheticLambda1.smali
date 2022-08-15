@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/am/ErrorDialogController$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/am/ErrorDialogController$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/am/ErrorDialogController;
+    iget-object p0, p0, Lcom/android/server/am/ErrorDialogController$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/am/ErrorDialogController;
 
-    invoke-virtual {v0}, Lcom/android/server/am/ErrorDialogController;->lambda$showDebugWaitingDialogs$2$ErrorDialogController()V
+    invoke-static {p0}, Lcom/android/server/am/ErrorDialogController;->$r8$lambda$ABsEUCt2XojhUzaRyYI6sYJ5q_w(Lcom/android/server/am/ErrorDialogController;)V
 
     return-void
 .end method

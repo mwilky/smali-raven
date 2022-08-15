@@ -1,4 +1,4 @@
-.class final Lcom/android/server/appop/AppOpsService$Ops;
+.class public final Lcom/android/server/appop/AppOpsService$Ops;
 .super Landroid/util/SparseArray;
 .source "AppOpsService.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = "Ops"
 .end annotation
 
@@ -23,9 +23,9 @@
 
 
 # instance fields
-.field bypass:Landroid/app/AppOpsManager$RestrictionBypass;
+.field public bypass:Landroid/app/AppOpsManager$RestrictionBypass;
 
-.field final knownAttributionTags:Landroid/util/ArraySet;
+.field public final knownAttributionTags:Landroid/util/ArraySet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/ArraySet<",
@@ -35,11 +35,11 @@
     .end annotation
 .end field
 
-.field final packageName:Ljava/lang/String;
+.field public final packageName:Ljava/lang/String;
 
-.field final uidState:Lcom/android/server/appop/AppOpsService$UidState;
+.field public final uidState:Lcom/android/server/appop/AppOpsService$UidState;
 
-.field final validAttributionTags:Landroid/util/ArraySet;
+.field public final validAttributionTags:Landroid/util/ArraySet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/ArraySet<",
@@ -51,7 +51,7 @@
 
 
 # direct methods
-.method constructor <init>(Ljava/lang/String;Lcom/android/server/appop/AppOpsService$UidState;)V
+.method public constructor <init>(Ljava/lang/String;Lcom/android/server/appop/AppOpsService$UidState;)V
     .locals 1
 
     invoke-direct {p0}, Landroid/util/SparseArray;-><init>()V

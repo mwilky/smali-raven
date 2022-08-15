@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/power/batterysaver/BatterySaverStateMachine$$ExternalSyntheticLambda4;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -27,13 +28,13 @@
 
 # virtual methods
 .method public final run()V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/power/batterysaver/BatterySaverStateMachine$$ExternalSyntheticLambda4;->f$0:Lcom/android/server/power/batterysaver/BatterySaverStateMachine;
 
-    iget v1, p0, Lcom/android/server/power/batterysaver/BatterySaverStateMachine$$ExternalSyntheticLambda4;->f$1:I
+    iget p0, p0, Lcom/android/server/power/batterysaver/BatterySaverStateMachine$$ExternalSyntheticLambda4;->f$1:I
 
-    invoke-virtual {v0, v1}, Lcom/android/server/power/batterysaver/BatterySaverStateMachine;->lambda$hideNotification$4$BatterySaverStateMachine(I)V
+    invoke-static {v0, p0}, Lcom/android/server/power/batterysaver/BatterySaverStateMachine;->$r8$lambda$LslWh4hhYFjFFwmSSc2-r8ZXWXk(Lcom/android/server/power/batterysaver/BatterySaverStateMachine;I)V
 
     return-void
 .end method

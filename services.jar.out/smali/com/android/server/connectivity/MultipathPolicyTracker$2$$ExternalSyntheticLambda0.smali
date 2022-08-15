@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/connectivity/MultipathPolicyTracker$2$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/connectivity/MultipathPolicyTracker$2$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/connectivity/MultipathPolicyTracker$2;
+    iget-object p0, p0, Lcom/android/server/connectivity/MultipathPolicyTracker$2$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/connectivity/MultipathPolicyTracker$2;
 
-    invoke-virtual {v0}, Lcom/android/server/connectivity/MultipathPolicyTracker$2;->lambda$onMeteredIfacesChanged$0$MultipathPolicyTracker$2()V
+    invoke-static {p0}, Lcom/android/server/connectivity/MultipathPolicyTracker$2;->$r8$lambda$sUU5FFg76pbe5evfR-W7OYARfmE(Lcom/android/server/connectivity/MultipathPolicyTracker$2;)V
 
     return-void
 .end method

@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda7;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -10,88 +11,24 @@
 
 .field public final synthetic f$1:I
 
-.field public final synthetic f$10:J
+.field public final synthetic f$2:J
 
-.field public final synthetic f$11:J
-
-.field public final synthetic f$12:J
-
-.field public final synthetic f$2:I
-
-.field public final synthetic f$3:I
-
-.field public final synthetic f$4:I
-
-.field public final synthetic f$5:I
-
-.field public final synthetic f$6:I
-
-.field public final synthetic f$7:I
-
-.field public final synthetic f$8:I
-
-.field public final synthetic f$9:J
+.field public final synthetic f$3:J
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/am/BatteryStatsService;IIIIIIIIJJJJ)V
-    .locals 3
-
-    move-object v0, p0
+.method public synthetic constructor <init>(Lcom/android/server/am/BatteryStatsService;IJJ)V
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    move-object v1, p1
+    iput-object p1, p0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda7;->f$0:Lcom/android/server/am/BatteryStatsService;
 
-    iput-object v1, v0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda7;->f$0:Lcom/android/server/am/BatteryStatsService;
+    iput p2, p0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda7;->f$1:I
 
-    move v1, p2
+    iput-wide p3, p0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda7;->f$2:J
 
-    iput v1, v0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda7;->f$1:I
-
-    move v1, p3
-
-    iput v1, v0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda7;->f$2:I
-
-    move v1, p4
-
-    iput v1, v0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda7;->f$3:I
-
-    move v1, p5
-
-    iput v1, v0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda7;->f$4:I
-
-    move v1, p6
-
-    iput v1, v0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda7;->f$5:I
-
-    move v1, p7
-
-    iput v1, v0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda7;->f$6:I
-
-    move v1, p8
-
-    iput v1, v0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda7;->f$7:I
-
-    move v1, p9
-
-    iput v1, v0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda7;->f$8:I
-
-    move-wide v1, p10
-
-    iput-wide v1, v0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda7;->f$9:J
-
-    move-wide v1, p12
-
-    iput-wide v1, v0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda7;->f$10:J
-
-    move-wide/from16 v1, p14
-
-    iput-wide v1, v0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda7;->f$11:J
-
-    move-wide/from16 v1, p16
-
-    iput-wide v1, v0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda7;->f$12:J
+    iput-wide p5, p0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda7;->f$3:J
 
     return-void
 .end method
@@ -99,43 +36,17 @@
 
 # virtual methods
 .method public final run()V
-    .locals 19
+    .locals 6
 
-    move-object/from16 v0, p0
+    iget-object v0, p0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda7;->f$0:Lcom/android/server/am/BatteryStatsService;
 
-    iget-object v1, v0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda7;->f$0:Lcom/android/server/am/BatteryStatsService;
+    iget v1, p0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda7;->f$1:I
 
-    iget v2, v0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda7;->f$1:I
+    iget-wide v2, p0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda7;->f$2:J
 
-    iget v3, v0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda7;->f$2:I
+    iget-wide v4, p0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda7;->f$3:J
 
-    iget v4, v0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda7;->f$3:I
-
-    iget v5, v0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda7;->f$4:I
-
-    iget v6, v0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda7;->f$5:I
-
-    iget v7, v0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda7;->f$6:I
-
-    iget v8, v0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda7;->f$7:I
-
-    iget v9, v0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda7;->f$8:I
-
-    iget-wide v10, v0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda7;->f$9:J
-
-    iget-wide v12, v0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda7;->f$10:J
-
-    iget-wide v14, v0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda7;->f$11:J
-
-    move-object/from16 v18, v1
-
-    iget-wide v0, v0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda7;->f$12:J
-
-    move-wide/from16 v16, v0
-
-    move-object/from16 v1, v18
-
-    invoke-virtual/range {v1 .. v17}, Lcom/android/server/am/BatteryStatsService;->lambda$setBatteryState$96$BatteryStatsService(IIIIIIIIJJJJ)V
+    invoke-static/range {v0 .. v5}, Lcom/android/server/am/BatteryStatsService;->$r8$lambda$RLHywBxP00bKeWA8j95Q9VkciKE(Lcom/android/server/am/BatteryStatsService;IJJ)V
 
     return-void
 .end method

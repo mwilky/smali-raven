@@ -4,7 +4,7 @@
 
 
 # static fields
-.field private static final DOWNSCALE_CHANGE_IDS:Landroid/util/ArraySet;
+.field public static final DOWNSCALE_CHANGE_IDS:Landroid/util/ArraySet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/ArraySet<",
@@ -16,7 +16,7 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 4
 
     new-instance v0, Landroid/util/ArraySet;
@@ -180,40 +180,272 @@
     return-void
 .end method
 
-.method static synthetic lambda$onCommand$0(JLjava/lang/Long;)Z
-    .locals 4
 
-    invoke-virtual {p2}, Ljava/lang/Long;->longValue()J
+# virtual methods
+.method public onCommand(Ljava/lang/String;)I
+    .locals 6
 
-    move-result-wide v0
+    if-nez p1, :cond_0
 
-    const-wide/32 v2, 0xa09e1d7
+    invoke-virtual {p0, p1}, Landroid/os/ShellCommand;->handleDefaultCommands(Ljava/lang/String;)I
 
-    cmp-long v0, v0, v2
+    move-result p0
 
-    if-eqz v0, :cond_0
+    return p0
 
-    invoke-virtual {p2}, Ljava/lang/Long;->longValue()J
+    :cond_0
+    invoke-virtual {p0}, Landroid/os/ShellCommand;->getOutPrintWriter()Ljava/io/PrintWriter;
 
-    move-result-wide v0
+    move-result-object v0
 
-    cmp-long v0, v0, p0
+    const/4 v1, -0x1
 
-    if-eqz v0, :cond_0
+    :try_start_0
+    invoke-virtual {p1}, Ljava/lang/String;->hashCode()I
 
-    const/4 v0, 0x1
+    move-result v2
+
+    const/4 v3, 0x3
+
+    const/4 v4, 0x2
+
+    const/4 v5, 0x1
+
+    sparse-switch v2, :sswitch_data_0
 
     goto :goto_0
 
-    :cond_0
-    const/4 v0, 0x0
+    :sswitch_0
+    const-string/jumbo v2, "reset"
 
+    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    move v2, v5
+
+    goto :goto_1
+
+    :sswitch_1
+    const-string/jumbo v2, "mode"
+
+    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    move v2, v4
+
+    goto :goto_1
+
+    :sswitch_2
+    const-string v2, "list"
+
+    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    move v2, v3
+
+    goto :goto_1
+
+    :sswitch_3
+    const-string/jumbo v2, "set"
+
+    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    const/4 v2, 0x0
+
+    goto :goto_1
+
+    :cond_1
     :goto_0
-    return v0
+    move v2, v1
+
+    :goto_1
+    if-eqz v2, :cond_5
+
+    if-eq v2, v5, :cond_4
+
+    if-eq v2, v4, :cond_3
+
+    if-eq v2, v3, :cond_2
+
+    invoke-virtual {p0, p1}, Landroid/os/ShellCommand;->handleDefaultCommands(Ljava/lang/String;)I
+
+    move-result p0
+
+    return p0
+
+    :cond_2
+    invoke-virtual {p0, v0}, Lcom/android/server/app/GameManagerShellCommand;->runGameList(Ljava/io/PrintWriter;)I
+
+    move-result p0
+
+    return p0
+
+    :cond_3
+    invoke-virtual {p0, v0}, Lcom/android/server/app/GameManagerShellCommand;->runGameMode(Ljava/io/PrintWriter;)I
+
+    move-result p0
+
+    return p0
+
+    :cond_4
+    invoke-virtual {p0, v0}, Lcom/android/server/app/GameManagerShellCommand;->runResetGameMode(Ljava/io/PrintWriter;)I
+
+    move-result p0
+
+    return p0
+
+    :cond_5
+    invoke-virtual {p0, v0}, Lcom/android/server/app/GameManagerShellCommand;->runSetGameMode(Ljava/io/PrintWriter;)I
+
+    move-result p0
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    return p0
+
+    :catch_0
+    move-exception p0
+
+    new-instance p1, Ljava/lang/StringBuilder;
+
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "Error: "
+
+    invoke-virtual {p1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {v0, p0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    return v1
+
+    :sswitch_data_0
+    .sparse-switch
+        0x1bc62 -> :sswitch_3
+        0x32b09e -> :sswitch_2
+        0x3339a3 -> :sswitch_1
+        0x6761d4f -> :sswitch_0
+    .end sparse-switch
 .end method
 
-.method private runGameMode(Ljava/io/PrintWriter;)I
-    .locals 17
+.method public onHelp()V
+    .locals 3
+
+    invoke-virtual {p0}, Landroid/os/ShellCommand;->getOutPrintWriter()Ljava/io/PrintWriter;
+
+    move-result-object p0
+
+    const-string v0, "Game manager (game) commands:"
+
+    invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const-string v0, "  help"
+
+    invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const-string v0, "      Print this help text."
+
+    invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const-string v0, "  downscale"
+
+    invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const-string v0, "      Deprecated. Please use `set` command."
+
+    invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const-string v0, "  mode [--user <USER_ID>] [1|2|3|standard|performance|battery] <PACKAGE_NAME>"
+
+    invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const-string v0, "      Set app to run in the specified game mode, if supported."
+
+    invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const-string v0, "      --user <USER_ID>: apply for the given user,"
+
+    invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const-string v1, "                        the current user is used when unspecified."
+
+    invoke-virtual {p0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const-string v2, "  set --mode [2|3|performance|battery] [intervention configs] <PACKAGE_NAME>"
+
+    invoke-virtual {p0, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const-string v2, "      Set app to run at given game mode with configs, if supported."
+
+    invoke-virtual {p0, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const-string v2, "      Intervention configs consists of:"
+
+    invoke-virtual {p0, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const-string v2, "      --downscale [0.3|0.35|0.4|0.45|0.5|0.55|0.6|0.65"
+
+    invoke-virtual {p0, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const-string v2, "                  |0.7|0.75|0.8|0.85|0.9|disable]"
+
+    invoke-virtual {p0, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const-string v2, "      Set app to run at the specified scaling ratio."
+
+    invoke-virtual {p0, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const-string v2, "      --fps [30|45|60|90|120|disable]"
+
+    invoke-virtual {p0, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const-string v2, "      Set app to run at the specified fps, if supported."
+
+    invoke-virtual {p0, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const-string v2, "  reset [--mode [2|3|performance|battery] --user <USER_ID>] <PACKAGE_NAME>"
+
+    invoke-virtual {p0, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const-string v2, "      Resets the game mode of the app to device configuration."
+
+    invoke-virtual {p0, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const-string v2, "      --mode [2|3|performance|battery]: apply for the given mode,"
+
+    invoke-virtual {p0, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const-string v2, "                                        resets all modes when unspecified."
+
+    invoke-virtual {p0, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    invoke-virtual {p0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method public final runGameList(Ljava/io/PrintWriter;)I
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/ServiceManager$ServiceNotFoundException;,
@@ -221,319 +453,376 @@
         }
     .end annotation
 
-    move-object/from16 v0, p1
+    invoke-virtual {p0}, Landroid/os/ShellCommand;->getNextArgRequired()Ljava/lang/String;
 
-    invoke-virtual/range {p0 .. p0}, Lcom/android/server/app/GameManagerShellCommand;->getNextOption()Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object v1
+    const-string v0, "game"
 
-    const/4 v2, 0x0
+    invoke-static {v0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
-    if-eqz v1, :cond_0
+    move-result-object v0
 
-    const-string v3, "--user"
+    check-cast v0, Lcom/android/server/app/GameManagerService;
 
-    invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p0}, Lcom/android/server/app/GameManagerService;->getInterventionList(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result v3
+    move-result-object v0
 
-    if-eqz v3, :cond_0
+    if-nez v0, :cond_0
 
-    invoke-virtual/range {p0 .. p0}, Lcom/android/server/app/GameManagerShellCommand;->getNextArgRequired()Ljava/lang/String;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    :cond_0
-    invoke-virtual/range {p0 .. p0}, Lcom/android/server/app/GameManagerShellCommand;->getNextArgRequired()Ljava/lang/String;
+    const-string v1, "No interventions found for "
 
-    move-result-object v3
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {p0 .. p0}, Lcom/android/server/app/GameManagerShellCommand;->getNextArgRequired()Ljava/lang/String;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    nop
+    move-result-object p0
 
-    const-string v5, "game"
-
-    invoke-static {v5}, Landroid/os/ServiceManager;->getServiceOrThrow(Ljava/lang/String;)Landroid/os/IBinder;
-
-    move-result-object v5
-
-    invoke-static {v5}, Landroid/app/IGameManagerService$Stub;->asInterface(Landroid/os/IBinder;)Landroid/app/IGameManagerService;
-
-    move-result-object v5
-
-    const/4 v6, 0x0
-
-    const/4 v7, 0x0
-
-    invoke-interface {v5, v4}, Landroid/app/IGameManagerService;->getAvailableGameModes(Ljava/lang/String;)[I
-
-    move-result-object v8
-
-    array-length v9, v8
-
-    const/4 v11, 0x0
-
-    :goto_0
-    const/4 v12, 0x3
-
-    const/4 v13, 0x2
-
-    if-ge v11, v9, :cond_3
-
-    aget v14, v8, v11
-
-    if-ne v14, v13, :cond_1
-
-    const/4 v7, 0x1
-
-    goto :goto_1
-
-    :cond_1
-    if-ne v14, v12, :cond_2
-
-    const/4 v6, 0x1
-
-    :cond_2
-    :goto_1
-    add-int/lit8 v11, v11, 0x1
+    invoke-virtual {p1, p0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     goto :goto_0
 
-    :cond_3
-    if-eqz v2, :cond_4
+    :cond_0
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-static {v2}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result v9
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string p0, " interventions: "
+
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {p1, p0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    :goto_0
+    const/4 p0, 0x0
+
+    return p0
+.end method
+
+.method public final runGameMode(Ljava/io/PrintWriter;)I
+    .locals 13
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;,
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    invoke-virtual {p0}, Landroid/os/ShellCommand;->getNextOption()Ljava/lang/String;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    const-string v1, "--user"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Landroid/os/ShellCommand;->getNextArgRequired()Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    invoke-virtual {p0}, Landroid/os/ShellCommand;->getNextArgRequired()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {p0}, Landroid/os/ShellCommand;->getNextArgRequired()Ljava/lang/String;
+
+    move-result-object p0
+
+    const-string v2, "game"
+
+    invoke-static {v2}, Landroid/os/ServiceManager;->getServiceOrThrow(Ljava/lang/String;)Landroid/os/IBinder;
+
+    move-result-object v2
+
+    invoke-static {v2}, Landroid/app/IGameManagerService$Stub;->asInterface(Landroid/os/IBinder;)Landroid/app/IGameManagerService;
+
+    move-result-object v2
+
+    invoke-interface {v2, p0}, Landroid/app/IGameManagerService;->getAvailableGameModes(Ljava/lang/String;)[I
+
+    move-result-object v3
+
+    array-length v4, v3
+
+    const/4 v5, 0x0
+
+    move v6, v5
+
+    move v7, v6
+
+    move v8, v7
+
+    :goto_1
+    const/4 v9, 0x3
+
+    const/4 v10, 0x2
+
+    const/4 v11, 0x1
+
+    if-ge v6, v4, :cond_3
+
+    aget v12, v3, v6
+
+    if-ne v12, v10, :cond_1
+
+    move v8, v11
 
     goto :goto_2
+
+    :cond_1
+    if-ne v12, v9, :cond_2
+
+    move v7, v11
+
+    :cond_2
+    :goto_2
+    add-int/lit8 v6, v6, 0x1
+
+    goto :goto_1
+
+    :cond_3
+    if-eqz v0, :cond_4
+
+    invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v0
+
+    goto :goto_3
 
     :cond_4
     invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
 
-    move-result v9
-
-    :goto_2
-    nop
-
-    invoke-virtual {v3}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
-
-    move-result-object v11
-
-    invoke-virtual {v11}, Ljava/lang/String;->hashCode()I
-
-    move-result v14
-
-    const/4 v15, 0x1
-
-    const/16 v16, -0x1
-
-    sparse-switch v14, :sswitch_data_0
-
-    :cond_5
-    goto :goto_3
-
-    :sswitch_0
-    const-string/jumbo v14, "standard"
-
-    invoke-virtual {v11, v14}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v11
-
-    if-eqz v11, :cond_5
-
-    move v11, v15
-
-    goto :goto_4
-
-    :sswitch_1
-    const-string v14, "3"
-
-    invoke-virtual {v11, v14}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v11
-
-    if-eqz v11, :cond_5
-
-    const/4 v11, 0x4
-
-    goto :goto_4
-
-    :sswitch_2
-    const-string v14, "2"
-
-    invoke-virtual {v11, v14}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v11
-
-    if-eqz v11, :cond_5
-
-    move v11, v13
-
-    goto :goto_4
-
-    :sswitch_3
-    const-string v14, "1"
-
-    invoke-virtual {v11, v14}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v11
-
-    if-eqz v11, :cond_5
-
-    const/4 v11, 0x0
-
-    goto :goto_4
-
-    :sswitch_4
-    const-string v14, "battery"
-
-    invoke-virtual {v11, v14}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v11
-
-    if-eqz v11, :cond_5
-
-    const/4 v11, 0x5
-
-    goto :goto_4
-
-    :sswitch_5
-    const-string/jumbo v14, "performance"
-
-    invoke-virtual {v11, v14}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v11
-
-    if-eqz v11, :cond_5
-
-    move v11, v12
-
-    goto :goto_4
+    move-result v0
 
     :goto_3
-    move/from16 v11, v16
+    invoke-virtual {v1}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/String;->hashCode()I
+
+    invoke-virtual {v3}, Ljava/lang/String;->hashCode()I
+
+    move-result v4
+
+    const/4 v6, -0x1
+
+    sparse-switch v4, :sswitch_data_0
 
     :goto_4
-    const-string v14, " not supported by "
-
-    const-string v10, "Game mode: "
-
-    packed-switch v11, :pswitch_data_0
-
-    new-instance v10, Ljava/lang/StringBuilder;
-
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v11, "Invalid game mode: "
-
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v10, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v10
-
-    invoke-virtual {v0, v10}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    return v16
-
-    :pswitch_0
-    if-eqz v6, :cond_6
-
-    invoke-interface {v5, v4, v12, v9}, Landroid/app/IGameManagerService;->setGameMode(Ljava/lang/String;II)V
-
-    goto :goto_6
-
-    :cond_6
-    new-instance v11, Ljava/lang/StringBuilder;
-
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v11, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v11, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v11, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v11, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v10
-
-    invoke-virtual {v0, v10}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    return v16
-
-    :pswitch_1
-    if-eqz v7, :cond_7
-
-    invoke-interface {v5, v4, v13, v9}, Landroid/app/IGameManagerService;->setGameMode(Ljava/lang/String;II)V
-
-    goto :goto_6
-
-    :cond_7
-    new-instance v11, Ljava/lang/StringBuilder;
-
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v11, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v11, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v11, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v11, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v10
-
-    invoke-virtual {v0, v10}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    return v16
-
-    :pswitch_2
-    if-nez v6, :cond_9
-
-    if-eqz v7, :cond_8
+    move v3, v6
 
     goto :goto_5
 
+    :sswitch_0
+    const-string/jumbo v4, "standard"
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_5
+
+    goto :goto_4
+
+    :cond_5
+    const/4 v3, 0x5
+
+    goto :goto_5
+
+    :sswitch_1
+    const-string v4, "3"
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_6
+
+    goto :goto_4
+
+    :cond_6
+    const/4 v3, 0x4
+
+    goto :goto_5
+
+    :sswitch_2
+    const-string v4, "2"
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_7
+
+    goto :goto_4
+
+    :cond_7
+    move v3, v9
+
+    goto :goto_5
+
+    :sswitch_3
+    const-string v4, "1"
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_8
+
+    goto :goto_4
+
     :cond_8
-    new-instance v11, Ljava/lang/StringBuilder;
+    move v3, v10
 
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+    goto :goto_5
 
-    invoke-virtual {v11, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    :sswitch_4
+    const-string v4, "battery"
 
-    invoke-virtual {v11, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v11, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result v3
 
-    invoke-virtual {v11, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    if-nez v3, :cond_9
 
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v10
-
-    invoke-virtual {v0, v10}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    return v16
+    goto :goto_4
 
     :cond_9
+    move v3, v11
+
+    goto :goto_5
+
+    :sswitch_5
+    const-string/jumbo v4, "performance"
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_a
+
+    goto :goto_4
+
+    :cond_a
+    move v3, v5
+
     :goto_5
-    invoke-interface {v5, v4, v15, v9}, Landroid/app/IGameManagerService;->setGameMode(Ljava/lang/String;II)V
+    const-string v4, " not supported by "
+
+    const-string v12, "Game mode: "
+
+    packed-switch v3, :pswitch_data_0
+
+    new-instance p0, Ljava/lang/StringBuilder;
+
+    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v0, "Invalid game mode: "
+
+    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {p1, p0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    return v6
+
+    :pswitch_0
+    invoke-interface {v2, p0, v11, v0}, Landroid/app/IGameManagerService;->setGameMode(Ljava/lang/String;II)V
+
+    goto :goto_6
+
+    :pswitch_1
+    if-eqz v7, :cond_b
+
+    invoke-interface {v2, p0, v9, v0}, Landroid/app/IGameManagerService;->setGameMode(Ljava/lang/String;II)V
+
+    goto :goto_6
+
+    :cond_b
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v0, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {p1, p0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    return v6
+
+    :pswitch_2
+    if-eqz v8, :cond_c
+
+    invoke-interface {v2, p0, v10, v0}, Landroid/app/IGameManagerService;->setGameMode(Ljava/lang/String;II)V
 
     :goto_6
-    const/4 v10, 0x0
+    return v5
 
-    return v10
+    :cond_c
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v0, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {p1, p0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    return v6
+
+    nop
 
     :sswitch_data_0
     .sparse-switch
@@ -548,345 +837,875 @@
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_2
-        :pswitch_2
-        :pswitch_1
         :pswitch_1
         :pswitch_0
+        :pswitch_2
+        :pswitch_1
         :pswitch_0
     .end packed-switch
 .end method
 
+.method public final runResetGameMode(Ljava/io/PrintWriter;)I
+    .locals 9
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;,
+            Landroid/os/RemoteException;
+        }
+    .end annotation
 
-# virtual methods
-.method public onCommand(Ljava/lang/String;)I
-    .locals 14
+    const/4 v0, 0x0
 
-    if-nez p1, :cond_0
-
-    invoke-virtual {p0, p1}, Lcom/android/server/app/GameManagerShellCommand;->handleDefaultCommands(Ljava/lang/String;)I
-
-    move-result v0
-
-    return v0
-
-    :cond_0
-    invoke-virtual {p0}, Lcom/android/server/app/GameManagerShellCommand;->getOutPrintWriter()Ljava/io/PrintWriter;
-
-    move-result-object v0
-
-    const/4 v1, -0x1
-
-    :try_start_0
-    invoke-virtual {p1}, Ljava/lang/String;->hashCode()I
-
-    move-result v2
-
-    const/4 v3, 0x0
-
-    sparse-switch v2, :sswitch_data_0
-
-    :cond_1
-    goto :goto_0
-
-    :sswitch_0
-    const-string v2, "downscale"
-
-    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    move v2, v3
-
-    goto :goto_1
-
-    :sswitch_1
-    const-string/jumbo v2, "mode"
-
-    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    const/4 v2, 0x1
-
-    goto :goto_1
+    move-object v1, v0
 
     :goto_0
-    move v2, v1
-
-    :goto_1
-    packed-switch v2, :pswitch_data_0
-
-    invoke-virtual {p0, p1}, Lcom/android/server/app/GameManagerShellCommand;->handleDefaultCommands(Ljava/lang/String;)I
-
-    move-result v1
-
-    goto/16 :goto_4
-
-    :pswitch_0
-    invoke-direct {p0, v0}, Lcom/android/server/app/GameManagerShellCommand;->runGameMode(Ljava/io/PrintWriter;)I
-
-    move-result v1
-
-    return v1
-
-    :pswitch_1
-    invoke-virtual {p0}, Lcom/android/server/app/GameManagerShellCommand;->getNextArgRequired()Ljava/lang/String;
+    invoke-virtual {p0}, Landroid/os/ShellCommand;->getNextOption()Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-virtual {p0}, Lcom/android/server/app/GameManagerShellCommand;->getNextArgRequired()Ljava/lang/String;
+    const/4 v3, -0x1
 
-    move-result-object v4
+    if-eqz v2, :cond_4
 
-    invoke-static {v2}, Lcom/android/server/app/GameManagerService;->getCompatChangeId(Ljava/lang/String;)J
+    const-string v4, "--mode"
 
-    move-result-wide v5
+    invoke-virtual {v2, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    const-wide/16 v7, 0x0
+    move-result v4
 
-    cmp-long v9, v5, v7
+    const-string v5, "Duplicate option \'"
 
-    if-nez v9, :cond_2
+    const-string v6, "\'"
 
-    const-string v9, "disable"
+    if-nez v4, :cond_2
 
-    invoke-virtual {v2, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const-string v4, "--user"
 
-    move-result v9
+    invoke-virtual {v2, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    if-nez v9, :cond_2
+    move-result v4
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    if-nez v4, :cond_0
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    new-instance p0, Ljava/lang/StringBuilder;
 
-    const-string v7, "Invalid scaling ratio \'"
+    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v3, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, "Invalid option \'"
 
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v7, "\'"
+    invoke-virtual {p0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p0
 
-    invoke-virtual {v0, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p1, p0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    nop
+    return v3
 
-    goto/16 :goto_5
+    :cond_0
+    if-nez v0, :cond_1
+
+    invoke-virtual {p0}, Landroid/os/ShellCommand;->getNextArgRequired()Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :cond_1
+    new-instance p0, Ljava/lang/StringBuilder;
+
+    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {p0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {p1, p0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    return v3
 
     :cond_2
-    new-instance v9, Landroid/util/ArraySet;
+    if-nez v1, :cond_3
 
-    invoke-direct {v9}, Landroid/util/ArraySet;-><init>()V
+    invoke-virtual {p0}, Landroid/os/ShellCommand;->getNextArgRequired()Ljava/lang/String;
 
-    cmp-long v10, v5, v7
+    move-result-object v1
 
-    if-nez v10, :cond_3
-
-    sget-object v10, Lcom/android/server/app/GameManagerShellCommand;->DOWNSCALE_CHANGE_IDS:Landroid/util/ArraySet;
-
-    goto :goto_2
+    goto :goto_0
 
     :cond_3
-    const-wide/32 v10, 0xa09e1d7
+    new-instance p0, Ljava/lang/StringBuilder;
 
-    invoke-static {v10, v11}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object v10
+    invoke-virtual {p0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-interface {v9, v10}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {v5, v6}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    invoke-virtual {p0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-interface {v9, v10}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    move-result-object p0
 
-    sget-object v10, Lcom/android/server/app/GameManagerShellCommand;->DOWNSCALE_CHANGE_IDS:Landroid/util/ArraySet;
+    invoke-virtual {p1, p0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    invoke-virtual {v10}, Landroid/util/ArraySet;->stream()Ljava/util/stream/Stream;
+    return v3
 
-    move-result-object v10
+    :cond_4
+    invoke-virtual {p0}, Landroid/os/ShellCommand;->getNextArgRequired()Ljava/lang/String;
 
-    new-instance v11, Lcom/android/server/app/GameManagerShellCommand$$ExternalSyntheticLambda0;
+    move-result-object p0
 
-    invoke-direct {v11, v5, v6}, Lcom/android/server/app/GameManagerShellCommand$$ExternalSyntheticLambda0;-><init>(J)V
+    const-string v2, "game"
 
-    invoke-interface {v10, v11}, Ljava/util/stream/Stream;->filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
+    invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
-    move-result-object v10
+    move-result-object v2
 
-    invoke-static {}, Ljava/util/stream/Collectors;->toSet()Ljava/util/stream/Collector;
+    check-cast v2, Lcom/android/server/app/GameManagerService;
 
-    move-result-object v11
+    if-eqz v0, :cond_5
 
-    invoke-interface {v10, v11}, Ljava/util/stream/Stream;->collect(Ljava/util/stream/Collector;)Ljava/lang/Object;
+    invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    move-result-object v10
+    move-result v0
 
-    check-cast v10, Ljava/util/Set;
+    goto :goto_1
+
+    :cond_5
+    invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
+
+    move-result v0
+
+    :goto_1
+    const/4 v4, 0x0
+
+    if-nez v1, :cond_6
+
+    invoke-virtual {v2, p0, v0, v3}, Lcom/android/server/app/GameManagerService;->resetGameModeConfigOverride(Ljava/lang/String;II)V
+
+    return v4
+
+    :cond_6
+    invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
+
+    move-result-object v5
+
+    invoke-virtual {v1, v5}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/String;->hashCode()I
+
+    invoke-virtual {v5}, Ljava/lang/String;->hashCode()I
+
+    move-result v6
+
+    const/4 v7, 0x3
+
+    const/4 v8, 0x2
+
+    sparse-switch v6, :sswitch_data_0
 
     :goto_2
-    const-string/jumbo v11, "platform_compat"
-
-    invoke-static {v11}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
-
-    move-result-object v11
-
-    check-cast v11, Lcom/android/server/compat/PlatformCompat;
-
-    new-instance v12, Lcom/android/internal/compat/CompatibilityChangeConfig;
-
-    new-instance v13, Landroid/compat/Compatibility$ChangeConfig;
-
-    invoke-direct {v13, v9, v10}, Landroid/compat/Compatibility$ChangeConfig;-><init>(Ljava/util/Set;Ljava/util/Set;)V
-
-    invoke-direct {v12, v13}, Lcom/android/internal/compat/CompatibilityChangeConfig;-><init>(Landroid/compat/Compatibility$ChangeConfig;)V
-
-    invoke-virtual {v11, v12, v4}, Lcom/android/server/compat/PlatformCompat;->setOverrides(Lcom/android/internal/compat/CompatibilityChangeConfig;Ljava/lang/String;)V
-
-    cmp-long v7, v5, v7
-
-    if-nez v7, :cond_4
-
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v8, "Disable downscaling for "
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v7, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v8, "."
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v0, v7}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    move v5, v3
 
     goto :goto_3
 
-    :cond_4
-    new-instance v7, Ljava/lang/StringBuilder;
+    :sswitch_0
+    const-string v6, "3"
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    const-string v8, "Enable downscaling ratio for "
+    move-result v5
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    if-nez v5, :cond_7
 
-    invoke-virtual {v7, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    goto :goto_2
 
-    const-string v8, " to "
+    :cond_7
+    move v5, v7
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    goto :goto_3
 
-    invoke-virtual {v7, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    :sswitch_1
+    const-string v6, "2"
 
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result-object v7
+    move-result v5
 
-    invoke-virtual {v0, v7}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    if-nez v5, :cond_8
+
+    goto :goto_2
+
+    :cond_8
+    move v5, v8
+
+    goto :goto_3
+
+    :sswitch_2
+    const-string v6, "battery"
+
+    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_9
+
+    goto :goto_2
+
+    :cond_9
+    const/4 v5, 0x1
+
+    goto :goto_3
+
+    :sswitch_3
+    const-string/jumbo v6, "performance"
+
+    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_a
+
+    goto :goto_2
+
+    :cond_a
+    move v5, v4
 
     :goto_3
+    packed-switch v5, :pswitch_data_0
+
+    new-instance p0, Ljava/lang/StringBuilder;
+
+    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v0, "Invalid game mode: "
+
+    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {p1, p0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
     return v3
 
+    :pswitch_0
+    invoke-virtual {v2, p0, v0, v7}, Lcom/android/server/app/GameManagerService;->resetGameModeConfigOverride(Ljava/lang/String;II)V
+
+    goto :goto_4
+
+    :pswitch_1
+    invoke-virtual {v2, p0, v0, v8}, Lcom/android/server/app/GameManagerService;->resetGameModeConfigOverride(Ljava/lang/String;II)V
+
     :goto_4
-    return v1
-
-    :catch_0
-    move-exception v2
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "Error: "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v0, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    :goto_5
-    return v1
+    return v4
 
     nop
 
     :sswitch_data_0
     .sparse-switch
-        0x3339a3 -> :sswitch_1
-        0x4e9b79e8 -> :sswitch_0
+        -0x583cefd0 -> :sswitch_3
+        -0x13be51f3 -> :sswitch_2
+        0x32 -> :sswitch_1
+        0x33 -> :sswitch_0
     .end sparse-switch
 
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_1
         :pswitch_0
+        :pswitch_1
+        :pswitch_0
     .end packed-switch
 .end method
 
-.method public onHelp()V
-    .locals 2
+.method public final runSetGameMode(Ljava/io/PrintWriter;)I
+    .locals 16
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/ServiceManager$ServiceNotFoundException;,
+            Landroid/os/RemoteException;
+        }
+    .end annotation
 
-    invoke-virtual {p0}, Lcom/android/server/app/GameManagerShellCommand;->getOutPrintWriter()Ljava/io/PrintWriter;
+    move-object/from16 v0, p1
 
-    move-result-object v0
+    invoke-virtual/range {p0 .. p0}, Landroid/os/ShellCommand;->getNextArgRequired()Ljava/lang/String;
 
-    const-string v1, "Game manager (game) commands:"
+    move-result-object v1
+
+    const-string v2, "--mode"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    const-string v3, "Invalid option \'"
+
+    const-string v4, "\'"
+
+    const/4 v5, -0x1
+
+    if-nez v2, :cond_0
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
 
     invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    const-string v1, "  help"
+    return v5
+
+    :cond_0
+    invoke-virtual/range {p0 .. p0}, Landroid/os/ShellCommand;->getNextArgRequired()Ljava/lang/String;
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    move-object v10, v2
+
+    move-object v11, v10
+
+    :goto_0
+    invoke-virtual/range {p0 .. p0}, Landroid/os/ShellCommand;->getNextOption()Ljava/lang/String;
+
+    move-result-object v6
+
+    const/4 v7, 0x2
+
+    if-eqz v6, :cond_9
+
+    invoke-virtual {v6}, Ljava/lang/String;->hashCode()I
+
+    move-result v9
+
+    sparse-switch v9, :sswitch_data_0
+
+    :goto_1
+    move v7, v5
+
+    goto :goto_2
+
+    :sswitch_0
+    const-string v8, "--downscale"
+
+    invoke-virtual {v6, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-nez v8, :cond_3
+
+    goto :goto_1
+
+    :sswitch_1
+    const-string v7, "--user"
+
+    invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v7
+
+    if-nez v7, :cond_1
+
+    goto :goto_1
+
+    :cond_1
+    const/4 v7, 0x1
+
+    goto :goto_2
+
+    :sswitch_2
+    const-string v7, "--fps"
+
+    invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v7
+
+    if-nez v7, :cond_2
+
+    goto :goto_1
+
+    :cond_2
+    const/4 v7, 0x0
+
+    :cond_3
+    :goto_2
+    const-string v8, "Duplicate option \'"
+
+    packed-switch v7, :pswitch_data_0
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
 
     invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    const-string v1, "      Print this help text."
+    return v5
+
+    :pswitch_0
+    if-nez v11, :cond_5
+
+    invoke-virtual/range {p0 .. p0}, Landroid/os/ShellCommand;->getNextArgRequired()Ljava/lang/String;
+
+    move-result-object v6
+
+    if-eqz v6, :cond_4
+
+    invoke-static {v6}, Lcom/android/server/app/GameManagerService;->getCompatChangeId(Ljava/lang/String;)J
+
+    move-result-wide v7
+
+    const-wide/16 v11, 0x0
+
+    cmp-long v7, v7, v11
+
+    if-nez v7, :cond_4
+
+    const-string v7, "disable"
+
+    invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v7
+
+    if-nez v7, :cond_4
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "Invalid scaling ratio \'"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
 
     invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    const-string v1, "  downscale [0.3|0.35|0.4|0.45|0.5|0.55|0.6|0.65|0.7|0.75|0.8|0.85|0.9|disable] <PACKAGE_NAME>"
+    return v5
+
+    :cond_4
+    move-object v11, v6
+
+    goto :goto_0
+
+    :cond_5
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v1, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
 
     invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    const-string v1, "      Force app to run at the specified scaling ratio."
+    return v5
+
+    :pswitch_1
+    if-nez v2, :cond_6
+
+    invoke-virtual/range {p0 .. p0}, Landroid/os/ShellCommand;->getNextArgRequired()Ljava/lang/String;
+
+    move-result-object v2
+
+    goto/16 :goto_0
+
+    :cond_6
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v1, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
 
     invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    const-string v1, "  mode [--user <USER_ID>] [1|2|3|standard|performance|battery] <PACKAGE_NAME>"
+    return v5
+
+    :pswitch_2
+    if-nez v10, :cond_8
+
+    invoke-virtual/range {p0 .. p0}, Landroid/os/ShellCommand;->getNextArgRequired()Ljava/lang/String;
+
+    move-result-object v6
+
+    if-eqz v6, :cond_7
+
+    invoke-static {v6}, Lcom/android/server/app/GameManagerService;->getFpsInt(Ljava/lang/String;)I
+
+    move-result v7
+
+    if-ne v7, v5, :cond_7
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "Invalid frame rate \'"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
 
     invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    const-string v1, "      Force app to run in the specified game mode, if supported."
+    return v5
+
+    :cond_7
+    move-object v10, v6
+
+    goto/16 :goto_0
+
+    :cond_8
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v1, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
 
     invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    const-string v1, "      --user <USER_ID>: apply for the given user, the current user is used when unspecified."
+    return v5
+
+    :cond_9
+    invoke-virtual/range {p0 .. p0}, Landroid/os/ShellCommand;->getNextArgRequired()Ljava/lang/String;
+
+    move-result-object v3
+
+    if-eqz v2, :cond_a
+
+    invoke-static {v2}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v2
+
+    goto :goto_3
+
+    :cond_a
+    invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
+
+    move-result v2
+
+    :goto_3
+    const-string v4, "game"
+
+    invoke-static {v4}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+
+    move-result-object v4
+
+    move-object v6, v4
+
+    check-cast v6, Lcom/android/server/app/GameManagerService;
+
+    invoke-virtual {v6, v3}, Lcom/android/server/app/GameManagerService;->getAvailableGameModes(Ljava/lang/String;)[I
+
+    move-result-object v4
+
+    array-length v9, v4
+
+    const/4 v13, 0x0
+
+    const/4 v14, 0x0
+
+    const/4 v15, 0x0
+
+    :goto_4
+    const/4 v8, 0x3
+
+    if-ge v13, v9, :cond_d
+
+    aget v12, v4, v13
+
+    if-ne v12, v7, :cond_b
+
+    const/4 v15, 0x1
+
+    goto :goto_5
+
+    :cond_b
+    if-ne v12, v8, :cond_c
+
+    const/4 v14, 0x1
+
+    :cond_c
+    :goto_5
+    add-int/lit8 v13, v13, 0x1
+
+    goto :goto_4
+
+    :cond_d
+    invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
+
+    move-result-object v4
+
+    invoke-virtual {v1, v4}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/String;->hashCode()I
+
+    invoke-virtual {v4}, Ljava/lang/String;->hashCode()I
+
+    move-result v9
+
+    sparse-switch v9, :sswitch_data_1
+
+    :goto_6
+    move v7, v5
+
+    goto :goto_7
+
+    :sswitch_3
+    const-string v7, "3"
+
+    invoke-virtual {v4, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_e
+
+    goto :goto_6
+
+    :cond_e
+    move v7, v8
+
+    goto :goto_7
+
+    :sswitch_4
+    const-string v8, "2"
+
+    invoke-virtual {v4, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_11
+
+    goto :goto_6
+
+    :sswitch_5
+    const-string v7, "battery"
+
+    invoke-virtual {v4, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_f
+
+    goto :goto_6
+
+    :cond_f
+    const/4 v7, 0x1
+
+    goto :goto_7
+
+    :sswitch_6
+    const-string/jumbo v7, "performance"
+
+    invoke-virtual {v4, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_10
+
+    goto :goto_6
+
+    :cond_10
+    const/4 v7, 0x0
+
+    :cond_11
+    :goto_7
+    const-string v4, " not supported by "
+
+    const-string v8, "Game mode: "
+
+    packed-switch v7, :pswitch_data_1
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "Invalid game mode: "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
 
     invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    return-void
+    return v5
+
+    :pswitch_3
+    if-eqz v14, :cond_12
+
+    const/4 v9, 0x3
+
+    move-object v7, v3
+
+    move v8, v2
+
+    invoke-virtual/range {v6 .. v11}, Lcom/android/server/app/GameManagerService;->setGameModeConfigOverride(Ljava/lang/String;IILjava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_8
+
+    :cond_12
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v2, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    return v5
+
+    :pswitch_4
+    if-eqz v15, :cond_13
+
+    const/4 v9, 0x2
+
+    move-object v7, v3
+
+    move v8, v2
+
+    invoke-virtual/range {v6 .. v11}, Lcom/android/server/app/GameManagerService;->setGameModeConfigOverride(Ljava/lang/String;IILjava/lang/String;Ljava/lang/String;)V
+
+    :goto_8
+    const/4 v0, 0x0
+
+    return v0
+
+    :cond_13
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v2, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    return v5
+
+    :sswitch_data_0
+    .sparse-switch
+        0x2902349 -> :sswitch_2
+        0x4f7b216b -> :sswitch_1
+        0x6bb7c848 -> :sswitch_0
+    .end sparse-switch
+
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_2
+        :pswitch_1
+        :pswitch_0
+    .end packed-switch
+
+    :sswitch_data_1
+    .sparse-switch
+        -0x583cefd0 -> :sswitch_6
+        -0x13be51f3 -> :sswitch_5
+        0x32 -> :sswitch_4
+        0x33 -> :sswitch_3
+    .end sparse-switch
+
+    :pswitch_data_1
+    .packed-switch 0x0
+        :pswitch_4
+        :pswitch_3
+        :pswitch_4
+        :pswitch_3
+    .end packed-switch
 .end method

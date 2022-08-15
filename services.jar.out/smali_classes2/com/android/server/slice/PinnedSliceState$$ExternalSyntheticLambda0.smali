@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/slice/PinnedSliceState$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/os/IBinder$DeathRecipient;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final binderDied()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/slice/PinnedSliceState$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/slice/PinnedSliceState;
+    iget-object p0, p0, Lcom/android/server/slice/PinnedSliceState$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/slice/PinnedSliceState;
 
-    invoke-static {v0}, Lcom/android/server/slice/PinnedSliceState;->$r8$lambda$GPHzsVzQrFovXYdDpqangr_EisQ(Lcom/android/server/slice/PinnedSliceState;)V
+    invoke-static {p0}, Lcom/android/server/slice/PinnedSliceState;->$r8$lambda$GPHzsVzQrFovXYdDpqangr_EisQ(Lcom/android/server/slice/PinnedSliceState;)V
 
     return-void
 .end method

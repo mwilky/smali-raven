@@ -7,12 +7,15 @@
 
 
 # annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/android/server/NetworkScoreService;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "CurrentNetworkScoreCacheFilter"
 .end annotation
 
@@ -28,12 +31,12 @@
 
 
 # instance fields
-.field private final mCurrentNetwork:Landroid/net/NetworkKey;
+.field public final mCurrentNetwork:Landroid/net/NetworkKey;
 
 
 # direct methods
-.method constructor <init>(Ljava/util/function/Supplier;)V
-    .locals 1
+.method public constructor <init>(Ljava/util/function/Supplier;)V
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -47,15 +50,15 @@
 
     invoke-interface {p1}, Ljava/util/function/Supplier;->get()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Landroid/net/wifi/WifiInfo;
+    check-cast p1, Landroid/net/wifi/WifiInfo;
 
-    invoke-static {v0}, Landroid/net/NetworkKey;->createFromWifiInfo(Landroid/net/wifi/WifiInfo;)Landroid/net/NetworkKey;
+    invoke-static {p1}, Landroid/net/NetworkKey;->createFromWifiInfo(Landroid/net/wifi/WifiInfo;)Landroid/net/NetworkKey;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/android/server/NetworkScoreService$CurrentNetworkScoreCacheFilter;->mCurrentNetwork:Landroid/net/NetworkKey;
+    iput-object p1, p0, Lcom/android/server/NetworkScoreService$CurrentNetworkScoreCacheFilter;->mCurrentNetwork:Landroid/net/NetworkKey;
 
     return-void
 .end method
@@ -69,9 +72,9 @@
 
     invoke-virtual {p0, p1}, Lcom/android/server/NetworkScoreService$CurrentNetworkScoreCacheFilter;->apply(Ljava/util/List;)Ljava/util/List;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method
 
 .method public apply(Ljava/util/List;)Ljava/util/List;
@@ -128,9 +131,9 @@
 
     invoke-static {v1}, Ljava/util/Collections;->singletonList(Ljava/lang/Object;)Ljava/util/List;
 
-    move-result-object v2
+    move-result-object p0
 
-    return-object v2
+    return-object p0
 
     :cond_1
     add-int/lit8 v0, v0, 0x1
@@ -140,15 +143,15 @@
     :cond_2
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     :cond_3
     :goto_1
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

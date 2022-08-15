@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/people/data/DataManager$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -27,13 +28,13 @@
 
 # virtual methods
 .method public final run()V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/people/data/DataManager$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/people/data/DataManager;
 
-    iget v1, p0, Lcom/android/server/people/data/DataManager$$ExternalSyntheticLambda1;->f$1:I
+    iget p0, p0, Lcom/android/server/people/data/DataManager$$ExternalSyntheticLambda1;->f$1:I
 
-    invoke-virtual {v0, v1}, Lcom/android/server/people/data/DataManager;->lambda$onUserUnlocked$0$DataManager(I)V
+    invoke-static {v0, p0}, Lcom/android/server/people/data/DataManager;->$r8$lambda$yYOf7ncikrEx7w6Ob4gTKo8SsHc(Lcom/android/server/people/data/DataManager;I)V
 
     return-void
 .end method

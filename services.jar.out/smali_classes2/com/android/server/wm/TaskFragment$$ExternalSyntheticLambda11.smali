@@ -1,45 +1,70 @@
 .class public final synthetic Lcom/android/server/wm/TaskFragment$$ExternalSyntheticLambda11;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Predicate;
+.implements Ljava/lang/Runnable;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/wm/TaskFragment$$ExternalSyntheticLambda11;
+# instance fields
+.field public final synthetic f$0:Lcom/android/server/wm/TaskFragment;
+
+.field public final synthetic f$1:Z
+
+.field public final synthetic f$2:Ljava/io/PrintWriter;
+
+.field public final synthetic f$3:Ljava/lang/Runnable;
+
+.field public final synthetic f$4:Ljava/lang/String;
+
+.field public final synthetic f$5:Z
+
+.field public final synthetic f$6:Ljava/lang/String;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/wm/TaskFragment$$ExternalSyntheticLambda11;
-
-    invoke-direct {v0}, Lcom/android/server/wm/TaskFragment$$ExternalSyntheticLambda11;-><init>()V
-
-    sput-object v0, Lcom/android/server/wm/TaskFragment$$ExternalSyntheticLambda11;->INSTANCE:Lcom/android/server/wm/TaskFragment$$ExternalSyntheticLambda11;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Lcom/android/server/wm/TaskFragment;ZLjava/io/PrintWriter;Ljava/lang/Runnable;Ljava/lang/String;ZLjava/lang/String;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/wm/TaskFragment$$ExternalSyntheticLambda11;->f$0:Lcom/android/server/wm/TaskFragment;
+
+    iput-boolean p2, p0, Lcom/android/server/wm/TaskFragment$$ExternalSyntheticLambda11;->f$1:Z
+
+    iput-object p3, p0, Lcom/android/server/wm/TaskFragment$$ExternalSyntheticLambda11;->f$2:Ljava/io/PrintWriter;
+
+    iput-object p4, p0, Lcom/android/server/wm/TaskFragment$$ExternalSyntheticLambda11;->f$3:Ljava/lang/Runnable;
+
+    iput-object p5, p0, Lcom/android/server/wm/TaskFragment$$ExternalSyntheticLambda11;->f$4:Ljava/lang/String;
+
+    iput-boolean p6, p0, Lcom/android/server/wm/TaskFragment$$ExternalSyntheticLambda11;->f$5:Z
+
+    iput-object p7, p0, Lcom/android/server/wm/TaskFragment$$ExternalSyntheticLambda11;->f$6:Ljava/lang/String;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final test(Ljava/lang/Object;)Z
-    .locals 0
+.method public final run()V
+    .locals 7
 
-    check-cast p1, Lcom/android/server/wm/ActivityRecord;
+    iget-object v0, p0, Lcom/android/server/wm/TaskFragment$$ExternalSyntheticLambda11;->f$0:Lcom/android/server/wm/TaskFragment;
 
-    invoke-static {p1}, Lcom/android/server/wm/TaskFragment;->lambda$topRunningActivity$4(Lcom/android/server/wm/ActivityRecord;)Z
+    iget-boolean v1, p0, Lcom/android/server/wm/TaskFragment$$ExternalSyntheticLambda11;->f$1:Z
 
-    move-result p1
+    iget-object v2, p0, Lcom/android/server/wm/TaskFragment$$ExternalSyntheticLambda11;->f$2:Ljava/io/PrintWriter;
 
-    return p1
+    iget-object v3, p0, Lcom/android/server/wm/TaskFragment$$ExternalSyntheticLambda11;->f$3:Ljava/lang/Runnable;
+
+    iget-object v4, p0, Lcom/android/server/wm/TaskFragment$$ExternalSyntheticLambda11;->f$4:Ljava/lang/String;
+
+    iget-boolean v5, p0, Lcom/android/server/wm/TaskFragment$$ExternalSyntheticLambda11;->f$5:Z
+
+    iget-object v6, p0, Lcom/android/server/wm/TaskFragment$$ExternalSyntheticLambda11;->f$6:Ljava/lang/String;
+
+    invoke-static/range {v0 .. v6}, Lcom/android/server/wm/TaskFragment;->$r8$lambda$tSzipEZKEZCVoi57D7Ust6GNpwA(Lcom/android/server/wm/TaskFragment;ZLjava/io/PrintWriter;Ljava/lang/Runnable;Ljava/lang/String;ZLjava/lang/String;)V
+
+    return-void
 .end method

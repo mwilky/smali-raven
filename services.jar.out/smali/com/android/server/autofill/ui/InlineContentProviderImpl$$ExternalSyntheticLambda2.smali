@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/autofill/ui/InlineContentProviderImpl$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -35,7 +36,7 @@
 
 # virtual methods
 .method public final run()V
-    .locals 4
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/autofill/ui/InlineContentProviderImpl$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/autofill/ui/InlineContentProviderImpl;
 
@@ -43,9 +44,9 @@
 
     iget v2, p0, Lcom/android/server/autofill/ui/InlineContentProviderImpl$$ExternalSyntheticLambda2;->f$2:I
 
-    iget-object v3, p0, Lcom/android/server/autofill/ui/InlineContentProviderImpl$$ExternalSyntheticLambda2;->f$3:Lcom/android/internal/view/inline/IInlineContentCallback;
+    iget-object p0, p0, Lcom/android/server/autofill/ui/InlineContentProviderImpl$$ExternalSyntheticLambda2;->f$3:Lcom/android/internal/view/inline/IInlineContentCallback;
 
-    invoke-virtual {v0, v1, v2, v3}, Lcom/android/server/autofill/ui/InlineContentProviderImpl;->lambda$provideContent$0$InlineContentProviderImpl(IILcom/android/internal/view/inline/IInlineContentCallback;)V
+    invoke-static {v0, v1, v2, p0}, Lcom/android/server/autofill/ui/InlineContentProviderImpl;->$r8$lambda$BjZkCdsCkOipPWFspXcidnMzdKI(Lcom/android/server/autofill/ui/InlineContentProviderImpl;IILcom/android/internal/view/inline/IInlineContentCallback;)V
 
     return-void
 .end method

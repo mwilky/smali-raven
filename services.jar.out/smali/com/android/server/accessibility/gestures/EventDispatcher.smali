@@ -1,38 +1,28 @@
-.class Lcom/android/server/accessibility/gestures/EventDispatcher;
+.class public Lcom/android/server/accessibility/gestures/EventDispatcher;
 .super Ljava/lang/Object;
 .source "EventDispatcher.java"
 
 
-# static fields
-.field private static final CLICK_LOCATION_ACCESSIBILITY_FOCUS:I = 0x1
-
-.field private static final CLICK_LOCATION_LAST_TOUCH_EXPLORED:I = 0x2
-
-.field private static final CLICK_LOCATION_NONE:I = 0x0
-
-.field private static final LOG_TAG:Ljava/lang/String; = "EventDispatcher"
-
-
 # instance fields
-.field private final mAms:Lcom/android/server/accessibility/AccessibilityManagerService;
+.field public final mAms:Lcom/android/server/accessibility/AccessibilityManagerService;
 
-.field private mContext:Landroid/content/Context;
+.field public mContext:Landroid/content/Context;
 
-.field private mLongPressingPointerDeltaX:I
+.field public mLongPressingPointerDeltaX:I
 
-.field private mLongPressingPointerDeltaY:I
+.field public mLongPressingPointerDeltaY:I
 
-.field private mLongPressingPointerId:I
+.field public mLongPressingPointerId:I
 
-.field private mReceiver:Lcom/android/server/accessibility/EventStreamTransformation;
+.field public mReceiver:Lcom/android/server/accessibility/EventStreamTransformation;
 
-.field private mState:Lcom/android/server/accessibility/gestures/TouchState;
+.field public mState:Lcom/android/server/accessibility/gestures/TouchState;
 
-.field private final mTempPoint:Landroid/graphics/Point;
+.field public final mTempPoint:Landroid/graphics/Point;
 
 
 # direct methods
-.method constructor <init>(Landroid/content/Context;Lcom/android/server/accessibility/AccessibilityManagerService;Lcom/android/server/accessibility/EventStreamTransformation;Lcom/android/server/accessibility/gestures/TouchState;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/android/server/accessibility/AccessibilityManagerService;Lcom/android/server/accessibility/EventStreamTransformation;Lcom/android/server/accessibility/gestures/TouchState;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -58,8 +48,155 @@
     return-void
 .end method
 
-.method private computeClickLocation(Landroid/graphics/Point;)I
-    .locals 4
+
+# virtual methods
+.method public clear()V
+    .locals 1
+
+    const/4 v0, -0x1
+
+    iput v0, p0, Lcom/android/server/accessibility/gestures/EventDispatcher;->mLongPressingPointerId:I
+
+    const/4 v0, 0x0
+
+    iput v0, p0, Lcom/android/server/accessibility/gestures/EventDispatcher;->mLongPressingPointerDeltaX:I
+
+    iput v0, p0, Lcom/android/server/accessibility/gestures/EventDispatcher;->mLongPressingPointerDeltaY:I
+
+    return-void
+.end method
+
+.method public clickWithTouchEvents(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
+    .locals 24
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p1
+
+    invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getActionIndex()I
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Landroid/view/MotionEvent;->getPointerId(I)I
+
+    iget-object v3, v0, Lcom/android/server/accessibility/gestures/EventDispatcher;->mTempPoint:Landroid/graphics/Point;
+
+    invoke-virtual {v0, v3}, Lcom/android/server/accessibility/gestures/EventDispatcher;->computeClickLocation(Landroid/graphics/Point;)I
+
+    move-result v4
+
+    if-nez v4, :cond_0
+
+    const-string v0, "EventDispatcher"
+
+    const-string v1, "Unable to compute click location."
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_0
+    const/4 v5, 0x1
+
+    new-array v6, v5, [Landroid/view/MotionEvent$PointerProperties;
+
+    move-object v12, v6
+
+    new-instance v7, Landroid/view/MotionEvent$PointerProperties;
+
+    invoke-direct {v7}, Landroid/view/MotionEvent$PointerProperties;-><init>()V
+
+    const/16 v23, 0x0
+
+    aput-object v7, v6, v23
+
+    invoke-virtual {v1, v2, v7}, Landroid/view/MotionEvent;->getPointerProperties(ILandroid/view/MotionEvent$PointerProperties;)V
+
+    new-array v2, v5, [Landroid/view/MotionEvent$PointerCoords;
+
+    move-object v13, v2
+
+    new-instance v6, Landroid/view/MotionEvent$PointerCoords;
+
+    invoke-direct {v6}, Landroid/view/MotionEvent$PointerCoords;-><init>()V
+
+    aput-object v6, v2, v23
+
+    iget v2, v3, Landroid/graphics/Point;->x:I
+
+    int-to-float v2, v2
+
+    iput v2, v6, Landroid/view/MotionEvent$PointerCoords;->x:F
+
+    iget v2, v3, Landroid/graphics/Point;->y:I
+
+    int-to-float v2, v2
+
+    iput v2, v6, Landroid/view/MotionEvent$PointerCoords;->y:F
+
+    invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getDownTime()J
+
+    move-result-wide v6
+
+    invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getEventTime()J
+
+    move-result-wide v8
+
+    const/4 v10, 0x0
+
+    const/4 v11, 0x1
+
+    const/4 v14, 0x0
+
+    const/4 v15, 0x0
+
+    const/high16 v16, 0x3f800000    # 1.0f
+
+    const/high16 v17, 0x3f800000    # 1.0f
+
+    invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getDeviceId()I
+
+    move-result v18
+
+    const/16 v19, 0x0
+
+    invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getSource()I
+
+    move-result v20
+
+    invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getDisplayId()I
+
+    move-result v21
+
+    invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getFlags()I
+
+    move-result v22
+
+    invoke-static/range {v6 .. v22}, Landroid/view/MotionEvent;->obtain(JJII[Landroid/view/MotionEvent$PointerProperties;[Landroid/view/MotionEvent$PointerCoords;IIFFIIIII)Landroid/view/MotionEvent;
+
+    move-result-object v1
+
+    move-object/from16 v2, p2
+
+    move/from16 v3, p3
+
+    if-ne v4, v5, :cond_1
+
+    goto :goto_0
+
+    :cond_1
+    move/from16 v5, v23
+
+    :goto_0
+    invoke-virtual {v0, v1, v2, v3, v5}, Lcom/android/server/accessibility/gestures/EventDispatcher;->sendActionDownAndUp(Landroid/view/MotionEvent;Landroid/view/MotionEvent;IZ)V
+
+    invoke-virtual {v1}, Landroid/view/MotionEvent;->recycle()V
+
+    return-void
+.end method
+
+.method public final computeClickLocation(Landroid/graphics/Point;)I
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/accessibility/gestures/EventDispatcher;->mState:Lcom/android/server/accessibility/gestures/TouchState;
 
@@ -103,130 +240,124 @@
 
     invoke-virtual {v2, v0}, Landroid/view/MotionEvent;->getY(I)F
 
-    move-result v2
+    move-result v0
 
-    float-to-int v2, v2
+    float-to-int v0, v0
 
-    iput v2, p1, Landroid/graphics/Point;->y:I
+    iput v0, p1, Landroid/graphics/Point;->y:I
+
+    iget-object v0, p0, Lcom/android/server/accessibility/gestures/EventDispatcher;->mAms:Lcom/android/server/accessibility/AccessibilityManagerService;
+
+    invoke-virtual {v0}, Lcom/android/server/accessibility/AccessibilityManagerService;->accessibilityFocusOnlyInActiveWindow()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/accessibility/gestures/EventDispatcher;->mState:Lcom/android/server/accessibility/gestures/TouchState;
+
+    invoke-virtual {v0}, Lcom/android/server/accessibility/gestures/TouchState;->getLastTouchedWindowId()I
+
+    move-result v0
 
     iget-object v2, p0, Lcom/android/server/accessibility/gestures/EventDispatcher;->mAms:Lcom/android/server/accessibility/AccessibilityManagerService;
 
-    invoke-virtual {v2}, Lcom/android/server/accessibility/AccessibilityManagerService;->accessibilityFocusOnlyInActiveWindow()Z
+    invoke-virtual {v2}, Lcom/android/server/accessibility/AccessibilityManagerService;->getActiveWindowId()I
 
     move-result v2
 
-    if-eqz v2, :cond_0
-
-    iget-object v2, p0, Lcom/android/server/accessibility/gestures/EventDispatcher;->mState:Lcom/android/server/accessibility/gestures/TouchState;
-
-    invoke-virtual {v2}, Lcom/android/server/accessibility/gestures/TouchState;->getLastTouchedWindowId()I
-
-    move-result v2
-
-    iget-object v3, p0, Lcom/android/server/accessibility/gestures/EventDispatcher;->mAms:Lcom/android/server/accessibility/AccessibilityManagerService;
-
-    invoke-virtual {v3}, Lcom/android/server/accessibility/AccessibilityManagerService;->getActiveWindowId()I
-
-    move-result v3
-
-    if-ne v2, v3, :cond_2
+    if-ne v0, v2, :cond_2
 
     :cond_0
-    iget-object v2, p0, Lcom/android/server/accessibility/gestures/EventDispatcher;->mAms:Lcom/android/server/accessibility/AccessibilityManagerService;
+    iget-object p0, p0, Lcom/android/server/accessibility/gestures/EventDispatcher;->mAms:Lcom/android/server/accessibility/AccessibilityManagerService;
 
-    invoke-virtual {v2, p1}, Lcom/android/server/accessibility/AccessibilityManagerService;->getAccessibilityFocusClickPointInScreen(Landroid/graphics/Point;)Z
+    invoke-virtual {p0, p1}, Lcom/android/server/accessibility/AccessibilityManagerService;->getAccessibilityFocusClickPointInScreen(Landroid/graphics/Point;)Z
 
-    move-result v2
+    move-result p0
 
-    if-eqz v2, :cond_1
+    if-eqz p0, :cond_1
 
     return v1
 
     :cond_1
-    const/4 v1, 0x2
+    const/4 p0, 0x2
 
-    return v1
+    return p0
 
     :cond_2
-    iget-object v0, p0, Lcom/android/server/accessibility/gestures/EventDispatcher;->mAms:Lcom/android/server/accessibility/AccessibilityManagerService;
+    iget-object p0, p0, Lcom/android/server/accessibility/gestures/EventDispatcher;->mAms:Lcom/android/server/accessibility/AccessibilityManagerService;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/accessibility/AccessibilityManagerService;->getAccessibilityFocusClickPointInScreen(Landroid/graphics/Point;)Z
+    invoke-virtual {p0, p1}, Lcom/android/server/accessibility/AccessibilityManagerService;->getAccessibilityFocusClickPointInScreen(Landroid/graphics/Point;)Z
 
-    move-result v0
+    move-result p0
 
-    if-eqz v0, :cond_3
+    if-eqz p0, :cond_3
 
     return v1
 
     :cond_3
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
-.method private computeInjectionAction(II)I
-    .locals 2
+.method public final computeInjectionAction(II)I
+    .locals 1
 
-    sparse-switch p1, :sswitch_data_0
+    const/4 v0, 0x5
+
+    if-eqz p1, :cond_2
+
+    if-eq p1, v0, :cond_2
+
+    const/4 v0, 0x6
+
+    if-eq p1, v0, :cond_0
 
     return p1
 
-    :sswitch_0
-    iget-object v0, p0, Lcom/android/server/accessibility/gestures/EventDispatcher;->mState:Lcom/android/server/accessibility/gestures/TouchState;
-
-    invoke-virtual {v0}, Lcom/android/server/accessibility/gestures/TouchState;->getInjectedPointerDownCount()I
-
-    move-result v0
-
-    const/4 v1, 0x1
-
-    if-ne v0, v1, :cond_0
-
-    return v1
-
     :cond_0
-    shl-int/lit8 v0, p2, 0x8
+    iget-object p0, p0, Lcom/android/server/accessibility/gestures/EventDispatcher;->mState:Lcom/android/server/accessibility/gestures/TouchState;
 
-    or-int/lit8 v0, v0, 0x6
+    invoke-virtual {p0}, Lcom/android/server/accessibility/gestures/TouchState;->getInjectedPointerDownCount()I
 
-    return v0
+    move-result p0
 
-    :sswitch_1
-    iget-object v0, p0, Lcom/android/server/accessibility/gestures/EventDispatcher;->mState:Lcom/android/server/accessibility/gestures/TouchState;
+    const/4 p1, 0x1
 
-    invoke-virtual {v0}, Lcom/android/server/accessibility/gestures/TouchState;->getInjectedPointerDownCount()I
+    if-ne p0, p1, :cond_1
 
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    const/4 v0, 0x0
-
-    return v0
+    return p1
 
     :cond_1
-    shl-int/lit8 v0, p2, 0x8
+    shl-int/lit8 p0, p2, 0x8
 
-    or-int/lit8 v0, v0, 0x5
+    or-int/2addr p0, v0
 
-    return v0
+    return p0
 
-    :sswitch_data_0
-    .sparse-switch
-        0x0 -> :sswitch_1
-        0x5 -> :sswitch_1
-        0x6 -> :sswitch_0
-    .end sparse-switch
+    :cond_2
+    iget-object p0, p0, Lcom/android/server/accessibility/gestures/EventDispatcher;->mState:Lcom/android/server/accessibility/gestures/TouchState;
+
+    invoke-virtual {p0}, Lcom/android/server/accessibility/gestures/TouchState;->getInjectedPointerDownCount()I
+
+    move-result p0
+
+    if-nez p0, :cond_1
+
+    const/4 p0, 0x0
+
+    return p0
 .end method
 
-.method private computeInjectionDownEvent(Landroid/view/MotionEvent;)Landroid/view/MotionEvent;
-    .locals 22
+.method public final computeInjectionDownEvent(Landroid/view/MotionEvent;)Landroid/view/MotionEvent;
+    .locals 17
 
     move-object/from16 v0, p0
 
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getPointerCount()I
 
-    move-result v15
+    move-result v5
 
     iget-object v1, v0, Lcom/android/server/accessibility/gestures/EventDispatcher;->mState:Lcom/android/server/accessibility/gestures/TouchState;
 
@@ -238,43 +369,33 @@
 
     move-result v1
 
-    if-eq v15, v1, :cond_0
+    if-eq v5, v1, :cond_0
 
-    const-string v1, "EventDispatcher"
+    const-string v0, "EventDispatcher"
 
-    const-string v2, "The pointer count doesn\'t match the received count."
+    const-string v1, "The pointer count doesn\'t match the received count."
 
-    invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-static/range {p1 .. p1}, Landroid/view/MotionEvent;->obtain(Landroid/view/MotionEvent;)Landroid/view/MotionEvent;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 
     :cond_0
-    new-array v14, v15, [Landroid/view/MotionEvent$PointerCoords;
+    new-array v7, v5, [Landroid/view/MotionEvent$PointerCoords;
 
-    new-array v13, v15, [Landroid/view/MotionEvent$PointerProperties;
+    new-array v6, v5, [Landroid/view/MotionEvent$PointerProperties;
 
     const/4 v1, 0x0
 
     :goto_0
-    if-ge v1, v15, :cond_1
+    if-ge v1, v5, :cond_1
 
-    move-object/from16 v12, p1
+    move-object/from16 v2, p1
 
-    invoke-virtual {v12, v1}, Landroid/view/MotionEvent;->getPointerId(I)I
-
-    move-result v2
-
-    iget-object v3, v0, Lcom/android/server/accessibility/gestures/EventDispatcher;->mState:Lcom/android/server/accessibility/gestures/TouchState;
-
-    invoke-virtual {v3}, Lcom/android/server/accessibility/gestures/TouchState;->getReceivedPointerTracker()Lcom/android/server/accessibility/gestures/TouchState$ReceivedPointerTracker;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v2}, Lcom/android/server/accessibility/gestures/TouchState$ReceivedPointerTracker;->getReceivedPointerDownX(I)F
+    invoke-virtual {v2, v1}, Landroid/view/MotionEvent;->getPointerId(I)I
 
     move-result v3
 
@@ -284,52 +405,52 @@
 
     move-result-object v4
 
-    invoke-virtual {v4, v2}, Lcom/android/server/accessibility/gestures/TouchState$ReceivedPointerTracker;->getReceivedPointerDownY(I)F
+    invoke-virtual {v4, v3}, Lcom/android/server/accessibility/gestures/TouchState$ReceivedPointerTracker;->getReceivedPointerDownX(I)F
 
     move-result v4
 
-    new-instance v5, Landroid/view/MotionEvent$PointerCoords;
+    iget-object v8, v0, Lcom/android/server/accessibility/gestures/EventDispatcher;->mState:Lcom/android/server/accessibility/gestures/TouchState;
 
-    invoke-direct {v5}, Landroid/view/MotionEvent$PointerCoords;-><init>()V
+    invoke-virtual {v8}, Lcom/android/server/accessibility/gestures/TouchState;->getReceivedPointerTracker()Lcom/android/server/accessibility/gestures/TouchState$ReceivedPointerTracker;
 
-    aput-object v5, v14, v1
+    move-result-object v8
 
-    aget-object v5, v14, v1
+    invoke-virtual {v8, v3}, Lcom/android/server/accessibility/gestures/TouchState$ReceivedPointerTracker;->getReceivedPointerDownY(I)F
 
-    iput v3, v5, Landroid/view/MotionEvent$PointerCoords;->x:F
+    move-result v8
 
-    aget-object v5, v14, v1
+    new-instance v9, Landroid/view/MotionEvent$PointerCoords;
 
-    iput v4, v5, Landroid/view/MotionEvent$PointerCoords;->y:F
+    invoke-direct {v9}, Landroid/view/MotionEvent$PointerCoords;-><init>()V
 
-    new-instance v5, Landroid/view/MotionEvent$PointerProperties;
+    aput-object v9, v7, v1
 
-    invoke-direct {v5}, Landroid/view/MotionEvent$PointerProperties;-><init>()V
+    iput v4, v9, Landroid/view/MotionEvent$PointerCoords;->x:F
 
-    aput-object v5, v13, v1
+    iput v8, v9, Landroid/view/MotionEvent$PointerCoords;->y:F
 
-    aget-object v5, v13, v1
+    new-instance v4, Landroid/view/MotionEvent$PointerProperties;
 
-    iput v2, v5, Landroid/view/MotionEvent$PointerProperties;->id:I
+    invoke-direct {v4}, Landroid/view/MotionEvent$PointerProperties;-><init>()V
 
-    aget-object v5, v13, v1
+    aput-object v4, v6, v1
 
-    const/4 v6, 0x1
+    iput v3, v4, Landroid/view/MotionEvent$PointerProperties;->id:I
 
-    iput v6, v5, Landroid/view/MotionEvent$PointerProperties;->toolType:I
+    const/4 v3, 0x1
+
+    iput v3, v4, Landroid/view/MotionEvent$PointerProperties;->toolType:I
 
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     :cond_1
-    move-object/from16 v12, p1
-
-    nop
+    move-object/from16 v2, p1
 
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getDownTime()J
 
-    move-result-wide v1
+    move-result-wide v0
 
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getDownTime()J
 
@@ -337,7 +458,7 @@
 
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getAction()I
 
-    move-result v5
+    move-result v8
 
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getMetaState()I
 
@@ -353,55 +474,115 @@
 
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getYPrecision()F
 
-    move-result v16
+    move-result v12
 
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getDeviceId()I
 
-    move-result v17
+    move-result v13
 
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getEdgeFlags()I
 
-    move-result v18
+    move-result v14
 
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getSource()I
 
-    move-result v19
+    move-result v15
 
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getFlags()I
 
-    move-result v20
+    move-result v16
 
-    move v6, v15
+    move-wide v2, v3
 
-    move-object v7, v13
+    move v4, v8
 
-    move-object v8, v14
+    move v8, v9
 
-    move/from16 v12, v16
+    move v9, v10
 
-    move-object/from16 v21, v13
+    move v10, v11
 
-    move/from16 v13, v17
+    move v11, v12
 
-    move-object/from16 v17, v14
+    move v12, v13
 
-    move/from16 v14, v18
+    move v13, v14
 
-    move/from16 v18, v15
+    move v14, v15
 
-    move/from16 v15, v19
+    move/from16 v15, v16
 
-    move/from16 v16, v20
+    invoke-static/range {v0 .. v15}, Landroid/view/MotionEvent;->obtain(JJII[Landroid/view/MotionEvent$PointerProperties;[Landroid/view/MotionEvent$PointerCoords;IIFFIIII)Landroid/view/MotionEvent;
 
-    invoke-static/range {v1 .. v16}, Landroid/view/MotionEvent;->obtain(JJII[Landroid/view/MotionEvent$PointerProperties;[Landroid/view/MotionEvent$PointerCoords;IIFFIIII)Landroid/view/MotionEvent;
+    move-result-object v0
 
-    move-result-object v1
-
-    return-object v1
+    return-object v0
 .end method
 
-.method private offsetEvent(Landroid/view/MotionEvent;II)Landroid/view/MotionEvent;
-    .locals 25
+.method public longPressWithTouchEvents(Landroid/view/MotionEvent;I)Z
+    .locals 4
+
+    iget-object v0, p0, Lcom/android/server/accessibility/gestures/EventDispatcher;->mTempPoint:Landroid/graphics/Point;
+
+    invoke-virtual {p0, v0}, Lcom/android/server/accessibility/gestures/EventDispatcher;->computeClickLocation(Landroid/graphics/Point;)I
+
+    move-result v1
+
+    const/4 v2, 0x0
+
+    if-nez v1, :cond_0
+
+    return v2
+
+    :cond_0
+    if-eqz p1, :cond_1
+
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionIndex()I
+
+    move-result v1
+
+    invoke-virtual {p1, v1}, Landroid/view/MotionEvent;->getPointerId(I)I
+
+    move-result v2
+
+    iput v2, p0, Lcom/android/server/accessibility/gestures/EventDispatcher;->mLongPressingPointerId:I
+
+    invoke-virtual {p1, v1}, Landroid/view/MotionEvent;->getX(I)F
+
+    move-result v2
+
+    float-to-int v2, v2
+
+    iget v3, v0, Landroid/graphics/Point;->x:I
+
+    sub-int/2addr v2, v3
+
+    iput v2, p0, Lcom/android/server/accessibility/gestures/EventDispatcher;->mLongPressingPointerDeltaX:I
+
+    invoke-virtual {p1, v1}, Landroid/view/MotionEvent;->getY(I)F
+
+    move-result v1
+
+    float-to-int v1, v1
+
+    iget v0, v0, Landroid/graphics/Point;->y:I
+
+    sub-int/2addr v1, v0
+
+    iput v1, p0, Lcom/android/server/accessibility/gestures/EventDispatcher;->mLongPressingPointerDeltaY:I
+
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/accessibility/gestures/EventDispatcher;->sendDownForAllNotInjectedPointers(Landroid/view/MotionEvent;I)V
+
+    const/4 p0, 0x1
+
+    return p0
+
+    :cond_1
+    return v2
+.end method
+
+.method public final offsetEvent(Landroid/view/MotionEvent;II)Landroid/view/MotionEvent;
+    .locals 22
 
     move-object/from16 v0, p1
 
@@ -418,387 +599,119 @@
     :cond_0
     move-object/from16 v3, p0
 
-    iget v4, v3, Lcom/android/server/accessibility/gestures/EventDispatcher;->mLongPressingPointerId:I
+    iget v3, v3, Lcom/android/server/accessibility/gestures/EventDispatcher;->mLongPressingPointerId:I
 
-    invoke-virtual {v0, v4}, Landroid/view/MotionEvent;->findPointerIndex(I)I
+    invoke-virtual {v0, v3}, Landroid/view/MotionEvent;->findPointerIndex(I)I
 
-    move-result v4
+    move-result v3
 
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getPointerCount()I
 
-    move-result v5
+    move-result v4
 
-    invoke-static {v5}, Landroid/view/MotionEvent$PointerProperties;->createArray(I)[Landroid/view/MotionEvent$PointerProperties;
+    invoke-static {v4}, Landroid/view/MotionEvent$PointerProperties;->createArray(I)[Landroid/view/MotionEvent$PointerProperties;
 
-    move-result-object v23
+    move-result-object v11
 
-    invoke-static {v5}, Landroid/view/MotionEvent$PointerCoords;->createArray(I)[Landroid/view/MotionEvent$PointerCoords;
+    invoke-static {v4}, Landroid/view/MotionEvent$PointerCoords;->createArray(I)[Landroid/view/MotionEvent$PointerCoords;
 
-    move-result-object v24
+    move-result-object v12
 
-    const/4 v6, 0x0
+    const/4 v5, 0x0
 
     :goto_0
-    if-ge v6, v5, :cond_2
+    if-ge v5, v4, :cond_2
 
-    aget-object v7, v23, v6
+    aget-object v6, v11, v5
 
-    invoke-virtual {v0, v6, v7}, Landroid/view/MotionEvent;->getPointerProperties(ILandroid/view/MotionEvent$PointerProperties;)V
+    invoke-virtual {v0, v5, v6}, Landroid/view/MotionEvent;->getPointerProperties(ILandroid/view/MotionEvent$PointerProperties;)V
 
-    aget-object v7, v24, v6
+    aget-object v6, v12, v5
 
-    invoke-virtual {v0, v6, v7}, Landroid/view/MotionEvent;->getPointerCoords(ILandroid/view/MotionEvent$PointerCoords;)V
+    invoke-virtual {v0, v5, v6}, Landroid/view/MotionEvent;->getPointerCoords(ILandroid/view/MotionEvent$PointerCoords;)V
 
-    if-ne v6, v4, :cond_1
+    if-ne v5, v3, :cond_1
 
-    aget-object v7, v24, v6
+    aget-object v6, v12, v5
 
-    iget v8, v7, Landroid/view/MotionEvent$PointerCoords;->x:F
+    iget v7, v6, Landroid/view/MotionEvent$PointerCoords;->x:F
 
-    int-to-float v9, v1
+    int-to-float v8, v1
 
-    add-float/2addr v8, v9
+    add-float/2addr v7, v8
 
-    iput v8, v7, Landroid/view/MotionEvent$PointerCoords;->x:F
+    iput v7, v6, Landroid/view/MotionEvent$PointerCoords;->x:F
 
-    aget-object v7, v24, v6
+    iget v7, v6, Landroid/view/MotionEvent$PointerCoords;->y:F
 
-    iget v8, v7, Landroid/view/MotionEvent$PointerCoords;->y:F
+    int-to-float v8, v2
 
-    int-to-float v9, v2
+    add-float/2addr v7, v8
 
-    add-float/2addr v8, v9
-
-    iput v8, v7, Landroid/view/MotionEvent$PointerCoords;->y:F
+    iput v7, v6, Landroid/view/MotionEvent$PointerCoords;->y:F
 
     :cond_1
-    add-int/lit8 v6, v6, 0x1
+    add-int/lit8 v5, v5, 0x1
 
     goto :goto_0
 
     :cond_2
-    nop
-
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getDownTime()J
 
-    move-result-wide v6
+    move-result-wide v5
 
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getEventTime()J
-
-    move-result-wide v8
-
-    invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getAction()I
-
-    move-result v10
-
-    invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getPointerCount()I
-
-    move-result v11
-
-    invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getMetaState()I
-
-    move-result v14
-
-    invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getButtonState()I
-
-    move-result v15
-
-    const/high16 v16, 0x3f800000    # 1.0f
-
-    const/high16 v17, 0x3f800000    # 1.0f
-
-    invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getDeviceId()I
-
-    move-result v18
-
-    invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getEdgeFlags()I
-
-    move-result v19
-
-    invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getSource()I
-
-    move-result v20
-
-    invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getDisplayId()I
-
-    move-result v21
-
-    invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getFlags()I
-
-    move-result v22
-
-    move-object/from16 v12, v23
-
-    move-object/from16 v13, v24
-
-    invoke-static/range {v6 .. v22}, Landroid/view/MotionEvent;->obtain(JJII[Landroid/view/MotionEvent$PointerProperties;[Landroid/view/MotionEvent$PointerCoords;IIFFIIIII)Landroid/view/MotionEvent;
-
-    move-result-object v6
-
-    return-object v6
-.end method
-
-.method private sendActionDownAndUp(Landroid/view/MotionEvent;Landroid/view/MotionEvent;IZ)V
-    .locals 8
-
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionIndex()I
-
-    move-result v0
-
-    invoke-virtual {p1, v0}, Landroid/view/MotionEvent;->getPointerId(I)I
-
-    move-result v0
-
-    const/4 v1, 0x1
-
-    shl-int/2addr v1, v0
-
-    invoke-virtual {p1, p4}, Landroid/view/MotionEvent;->setTargetAccessibilityFocus(Z)V
-
-    const/4 v4, 0x0
-
-    move-object v2, p0
-
-    move-object v3, p1
-
-    move-object v5, p2
-
-    move v6, v1
-
-    move v7, p3
-
-    invoke-virtual/range {v2 .. v7}, Lcom/android/server/accessibility/gestures/EventDispatcher;->sendMotionEvent(Landroid/view/MotionEvent;ILandroid/view/MotionEvent;II)V
-
-    invoke-virtual {p1, p4}, Landroid/view/MotionEvent;->setTargetAccessibilityFocus(Z)V
-
-    const/4 v4, 0x1
-
-    invoke-virtual/range {v2 .. v7}, Lcom/android/server/accessibility/gestures/EventDispatcher;->sendMotionEvent(Landroid/view/MotionEvent;ILandroid/view/MotionEvent;II)V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method clear()V
-    .locals 1
-
-    const/4 v0, -0x1
-
-    iput v0, p0, Lcom/android/server/accessibility/gestures/EventDispatcher;->mLongPressingPointerId:I
-
-    const/4 v0, 0x0
-
-    iput v0, p0, Lcom/android/server/accessibility/gestures/EventDispatcher;->mLongPressingPointerDeltaX:I
-
-    iput v0, p0, Lcom/android/server/accessibility/gestures/EventDispatcher;->mLongPressingPointerDeltaY:I
-
-    return-void
-.end method
-
-.method public clickWithTouchEvents(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
-    .locals 27
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, p1
-
-    invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getActionIndex()I
-
-    move-result v2
-
-    invoke-virtual {v1, v2}, Landroid/view/MotionEvent;->getPointerId(I)I
-
-    move-result v3
-
-    iget-object v4, v0, Lcom/android/server/accessibility/gestures/EventDispatcher;->mTempPoint:Landroid/graphics/Point;
-
-    invoke-direct {v0, v4}, Lcom/android/server/accessibility/gestures/EventDispatcher;->computeClickLocation(Landroid/graphics/Point;)I
-
-    move-result v5
-
-    if-nez v5, :cond_0
-
-    const-string v6, "EventDispatcher"
-
-    const-string v7, "Unable to compute click location."
-
-    invoke-static {v6, v7}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-
-    :cond_0
-    const/4 v6, 0x1
-
-    new-array v15, v6, [Landroid/view/MotionEvent$PointerProperties;
-
-    move-object v13, v15
-
-    new-instance v7, Landroid/view/MotionEvent$PointerProperties;
-
-    invoke-direct {v7}, Landroid/view/MotionEvent$PointerProperties;-><init>()V
-
-    const/16 v24, 0x0
-
-    aput-object v7, v15, v24
-
-    aget-object v7, v15, v24
-
-    invoke-virtual {v1, v2, v7}, Landroid/view/MotionEvent;->getPointerProperties(ILandroid/view/MotionEvent$PointerProperties;)V
-
-    new-array v12, v6, [Landroid/view/MotionEvent$PointerCoords;
-
-    move-object v14, v12
-
-    new-instance v7, Landroid/view/MotionEvent$PointerCoords;
-
-    invoke-direct {v7}, Landroid/view/MotionEvent$PointerCoords;-><init>()V
-
-    aput-object v7, v12, v24
-
-    aget-object v7, v12, v24
-
-    iget v8, v4, Landroid/graphics/Point;->x:I
-
-    int-to-float v8, v8
-
-    iput v8, v7, Landroid/view/MotionEvent$PointerCoords;->x:F
-
-    aget-object v7, v12, v24
-
-    iget v8, v4, Landroid/graphics/Point;->y:I
-
-    int-to-float v8, v8
-
-    iput v8, v7, Landroid/view/MotionEvent$PointerCoords;->y:F
-
-    nop
-
-    invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getDownTime()J
 
     move-result-wide v7
 
-    invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getEventTime()J
+    invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getAction()I
 
-    move-result-wide v9
+    move-result v9
 
-    const/4 v11, 0x0
+    invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getPointerCount()I
 
-    const/16 v16, 0x1
+    move-result v10
 
-    move-object/from16 v25, v12
+    invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getMetaState()I
 
-    move/from16 v12, v16
+    move-result v13
 
-    const/16 v16, 0x0
+    invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getButtonState()I
 
-    move-object/from16 v26, v15
+    move-result v14
 
-    move/from16 v15, v16
+    const/high16 v15, 0x3f800000    # 1.0f
 
-    const/high16 v17, 0x3f800000    # 1.0f
-
-    const/high16 v18, 0x3f800000    # 1.0f
+    const/high16 v16, 0x3f800000    # 1.0f
 
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getDeviceId()I
 
-    move-result v19
+    move-result v17
 
-    const/16 v20, 0x0
+    invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getEdgeFlags()I
+
+    move-result v18
 
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getSource()I
 
-    move-result v21
+    move-result v19
 
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getDisplayId()I
 
-    move-result v22
+    move-result v20
 
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getFlags()I
 
-    move-result v23
+    move-result v21
 
-    invoke-static/range {v7 .. v23}, Landroid/view/MotionEvent;->obtain(JJII[Landroid/view/MotionEvent$PointerProperties;[Landroid/view/MotionEvent$PointerCoords;IIFFIIIII)Landroid/view/MotionEvent;
+    invoke-static/range {v5 .. v21}, Landroid/view/MotionEvent;->obtain(JJII[Landroid/view/MotionEvent$PointerProperties;[Landroid/view/MotionEvent$PointerCoords;IIFFIIIII)Landroid/view/MotionEvent;
 
-    move-result-object v7
+    move-result-object v0
 
-    if-ne v5, v6, :cond_1
-
-    goto :goto_0
-
-    :cond_1
-    move/from16 v6, v24
-
-    :goto_0
-    move-object/from16 v8, p2
-
-    move/from16 v9, p3
-
-    invoke-direct {v0, v7, v8, v9, v6}, Lcom/android/server/accessibility/gestures/EventDispatcher;->sendActionDownAndUp(Landroid/view/MotionEvent;Landroid/view/MotionEvent;IZ)V
-
-    invoke-virtual {v7}, Landroid/view/MotionEvent;->recycle()V
-
-    return-void
+    return-object v0
 .end method
 
-.method public longPressWithTouchEvents(Landroid/view/MotionEvent;I)Z
-    .locals 6
-
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionIndex()I
-
-    move-result v0
-
-    invoke-virtual {p1, v0}, Landroid/view/MotionEvent;->getPointerId(I)I
-
-    move-result v1
-
-    iget-object v2, p0, Lcom/android/server/accessibility/gestures/EventDispatcher;->mTempPoint:Landroid/graphics/Point;
-
-    invoke-direct {p0, v2}, Lcom/android/server/accessibility/gestures/EventDispatcher;->computeClickLocation(Landroid/graphics/Point;)I
-
-    move-result v3
-
-    if-nez v3, :cond_0
-
-    const/4 v4, 0x0
-
-    return v4
-
-    :cond_0
-    iput v1, p0, Lcom/android/server/accessibility/gestures/EventDispatcher;->mLongPressingPointerId:I
-
-    invoke-virtual {p1, v0}, Landroid/view/MotionEvent;->getX(I)F
-
-    move-result v4
-
-    float-to-int v4, v4
-
-    iget v5, v2, Landroid/graphics/Point;->x:I
-
-    sub-int/2addr v4, v5
-
-    iput v4, p0, Lcom/android/server/accessibility/gestures/EventDispatcher;->mLongPressingPointerDeltaX:I
-
-    invoke-virtual {p1, v0}, Landroid/view/MotionEvent;->getY(I)F
-
-    move-result v4
-
-    float-to-int v4, v4
-
-    iget v5, v2, Landroid/graphics/Point;->y:I
-
-    sub-int/2addr v4, v5
-
-    iput v4, p0, Lcom/android/server/accessibility/gestures/EventDispatcher;->mLongPressingPointerDeltaY:I
-
-    invoke-virtual {p0, p1, p2}, Lcom/android/server/accessibility/gestures/EventDispatcher;->sendDownForAllNotInjectedPointers(Landroid/view/MotionEvent;I)V
-
-    const/4 v4, 0x1
-
-    return v4
-.end method
-
-.method sendAccessibilityEvent(I)V
+.method public sendAccessibilityEvent(I)V
     .locals 3
 
     iget-object v0, p0, Lcom/android/server/accessibility/gestures/EventDispatcher;->mContext:Landroid/content/Context;
@@ -828,54 +741,94 @@
     invoke-virtual {v0, v1}, Landroid/view/accessibility/AccessibilityManager;->sendAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
 
     :cond_0
-    iget-object v1, p0, Lcom/android/server/accessibility/gestures/EventDispatcher;->mState:Lcom/android/server/accessibility/gestures/TouchState;
+    iget-object p0, p0, Lcom/android/server/accessibility/gestures/EventDispatcher;->mState:Lcom/android/server/accessibility/gestures/TouchState;
 
-    invoke-virtual {v1, p1}, Lcom/android/server/accessibility/gestures/TouchState;->onInjectedAccessibilityEvent(I)V
+    invoke-virtual {p0, p1}, Lcom/android/server/accessibility/gestures/TouchState;->onInjectedAccessibilityEvent(I)V
 
     return-void
 .end method
 
-.method sendDownForAllNotInjectedPointers(Landroid/view/MotionEvent;I)V
-    .locals 11
+.method public final sendActionDownAndUp(Landroid/view/MotionEvent;Landroid/view/MotionEvent;IZ)V
+    .locals 8
 
-    const/4 v0, 0x0
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionIndex()I
 
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getPointerCount()I
+    move-result v0
 
-    move-result v1
+    invoke-virtual {p1, v0}, Landroid/view/MotionEvent;->getPointerId(I)I
 
-    const/4 v2, 0x0
+    move-result v0
 
-    :goto_0
-    if-ge v2, v1, :cond_1
+    const/4 v1, 0x1
 
-    invoke-virtual {p1, v2}, Landroid/view/MotionEvent;->getPointerId(I)I
+    shl-int v0, v1, v0
 
-    move-result v3
-
-    iget-object v4, p0, Lcom/android/server/accessibility/gestures/EventDispatcher;->mState:Lcom/android/server/accessibility/gestures/TouchState;
-
-    invoke-virtual {v4, v3}, Lcom/android/server/accessibility/gestures/TouchState;->isInjectedPointerDown(I)Z
-
-    move-result v4
-
-    if-nez v4, :cond_0
-
-    const/4 v4, 0x1
-
-    shl-int/2addr v4, v3
-
-    or-int/2addr v0, v4
+    invoke-virtual {p1, p4}, Landroid/view/MotionEvent;->setTargetAccessibilityFocus(Z)V
 
     const/4 v4, 0x0
 
-    invoke-direct {p0, v4, v2}, Lcom/android/server/accessibility/gestures/EventDispatcher;->computeInjectionAction(II)I
+    move-object v2, p0
+
+    move-object v3, p1
+
+    move-object v5, p2
+
+    move v6, v0
+
+    move v7, p3
+
+    invoke-virtual/range {v2 .. v7}, Lcom/android/server/accessibility/gestures/EventDispatcher;->sendMotionEvent(Landroid/view/MotionEvent;ILandroid/view/MotionEvent;II)V
+
+    invoke-virtual {p1, p4}, Landroid/view/MotionEvent;->setTargetAccessibilityFocus(Z)V
+
+    const/4 v4, 0x1
+
+    invoke-virtual/range {v2 .. v7}, Lcom/android/server/accessibility/gestures/EventDispatcher;->sendMotionEvent(Landroid/view/MotionEvent;ILandroid/view/MotionEvent;II)V
+
+    return-void
+.end method
+
+.method public sendDownForAllNotInjectedPointers(Landroid/view/MotionEvent;I)V
+    .locals 11
+
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getPointerCount()I
+
+    move-result v0
+
+    const/4 v1, 0x0
+
+    move v2, v1
+
+    move v3, v2
+
+    :goto_0
+    if-ge v2, v0, :cond_1
+
+    invoke-virtual {p1, v2}, Landroid/view/MotionEvent;->getPointerId(I)I
 
     move-result v4
 
     iget-object v5, p0, Lcom/android/server/accessibility/gestures/EventDispatcher;->mState:Lcom/android/server/accessibility/gestures/TouchState;
 
-    invoke-virtual {v5}, Lcom/android/server/accessibility/gestures/TouchState;->getLastReceivedEvent()Landroid/view/MotionEvent;
+    invoke-virtual {v5, v4}, Lcom/android/server/accessibility/gestures/TouchState;->isInjectedPointerDown(I)Z
+
+    move-result v5
+
+    if-nez v5, :cond_0
+
+    const/4 v5, 0x1
+
+    shl-int v4, v5, v4
+
+    or-int/2addr v3, v4
+
+    invoke-virtual {p0, v1, v2}, Lcom/android/server/accessibility/gestures/EventDispatcher;->computeInjectionAction(II)I
+
+    move-result v7
+
+    iget-object v4, p0, Lcom/android/server/accessibility/gestures/EventDispatcher;->mState:Lcom/android/server/accessibility/gestures/TouchState;
+
+    invoke-virtual {v4}, Lcom/android/server/accessibility/gestures/TouchState;->getLastReceivedEvent()Landroid/view/MotionEvent;
 
     move-result-object v8
 
@@ -883,9 +836,7 @@
 
     move-object v6, p1
 
-    move v7, v4
-
-    move v9, v0
+    move v9, v3
 
     move v10, p2
 
@@ -900,67 +851,65 @@
     return-void
 .end method
 
-.method sendDownForAllNotInjectedPointersWithOriginalDown(Landroid/view/MotionEvent;I)V
-    .locals 12
-
-    const/4 v0, 0x0
+.method public sendDownForAllNotInjectedPointersWithOriginalDown(Landroid/view/MotionEvent;I)V
+    .locals 11
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getPointerCount()I
 
-    move-result v1
+    move-result v0
 
-    invoke-direct {p0, p1}, Lcom/android/server/accessibility/gestures/EventDispatcher;->computeInjectionDownEvent(Landroid/view/MotionEvent;)Landroid/view/MotionEvent;
+    invoke-virtual {p0, p1}, Lcom/android/server/accessibility/gestures/EventDispatcher;->computeInjectionDownEvent(Landroid/view/MotionEvent;)Landroid/view/MotionEvent;
 
-    move-result-object v8
+    move-result-object v7
 
-    const/4 v2, 0x0
+    const/4 v8, 0x0
 
-    move v9, v2
+    move v1, v8
+
+    move v9, v1
 
     :goto_0
-    if-ge v9, v1, :cond_1
+    if-ge v9, v0, :cond_1
 
     invoke-virtual {p1, v9}, Landroid/view/MotionEvent;->getPointerId(I)I
 
-    move-result v10
-
-    iget-object v2, p0, Lcom/android/server/accessibility/gestures/EventDispatcher;->mState:Lcom/android/server/accessibility/gestures/TouchState;
-
-    invoke-virtual {v2, v10}, Lcom/android/server/accessibility/gestures/TouchState;->isInjectedPointerDown(I)Z
-
     move-result v2
 
-    if-nez v2, :cond_0
+    iget-object v3, p0, Lcom/android/server/accessibility/gestures/EventDispatcher;->mState:Lcom/android/server/accessibility/gestures/TouchState;
 
-    const/4 v2, 0x1
+    invoke-virtual {v3, v2}, Lcom/android/server/accessibility/gestures/TouchState;->isInjectedPointerDown(I)Z
 
-    shl-int/2addr v2, v10
+    move-result v3
 
-    or-int/2addr v0, v2
+    if-nez v3, :cond_0
 
-    const/4 v2, 0x0
+    const/4 v3, 0x1
 
-    invoke-direct {p0, v2, v9}, Lcom/android/server/accessibility/gestures/EventDispatcher;->computeInjectionAction(II)I
+    shl-int v2, v3, v2
 
-    move-result v11
+    or-int v10, v1, v2
 
-    iget-object v2, p0, Lcom/android/server/accessibility/gestures/EventDispatcher;->mState:Lcom/android/server/accessibility/gestures/TouchState;
+    invoke-virtual {p0, v8, v9}, Lcom/android/server/accessibility/gestures/EventDispatcher;->computeInjectionAction(II)I
 
-    invoke-virtual {v2}, Lcom/android/server/accessibility/gestures/TouchState;->getLastReceivedEvent()Landroid/view/MotionEvent;
+    move-result v3
 
-    move-result-object v5
+    iget-object v1, p0, Lcom/android/server/accessibility/gestures/EventDispatcher;->mState:Lcom/android/server/accessibility/gestures/TouchState;
 
-    move-object v2, p0
+    invoke-virtual {v1}, Lcom/android/server/accessibility/gestures/TouchState;->getLastReceivedEvent()Landroid/view/MotionEvent;
 
-    move-object v3, v8
+    move-result-object v4
 
-    move v4, v11
+    move-object v1, p0
 
-    move v6, v0
+    move-object v2, v7
 
-    move v7, p2
+    move v5, v10
 
-    invoke-virtual/range {v2 .. v7}, Lcom/android/server/accessibility/gestures/EventDispatcher;->sendMotionEvent(Landroid/view/MotionEvent;ILandroid/view/MotionEvent;II)V
+    move v6, p2
+
+    invoke-virtual/range {v1 .. v6}, Lcom/android/server/accessibility/gestures/EventDispatcher;->sendMotionEvent(Landroid/view/MotionEvent;ILandroid/view/MotionEvent;II)V
+
+    move v1, v10
 
     :cond_0
     add-int/lit8 v9, v9, 0x1
@@ -971,20 +920,18 @@
     return-void
 .end method
 
-.method sendMotionEvent(Landroid/view/MotionEvent;ILandroid/view/MotionEvent;II)V
-    .locals 5
+.method public sendMotionEvent(Landroid/view/MotionEvent;ILandroid/view/MotionEvent;II)V
+    .locals 3
 
     invoke-virtual {p1, p2}, Landroid/view/MotionEvent;->setAction(I)V
 
-    const/4 v0, 0x0
+    const-string v0, "EventDispatcher"
 
-    const-string v1, "EventDispatcher"
+    const/4 v1, -0x1
 
-    const/4 v2, -0x1
+    if-ne p4, v1, :cond_0
 
-    if-ne p4, v2, :cond_0
-
-    move-object v0, p1
+    move-object p4, p1
 
     goto :goto_0
 
@@ -992,105 +939,101 @@
     :try_start_0
     invoke-virtual {p1, p4}, Landroid/view/MotionEvent;->split(I)Landroid/view/MotionEvent;
 
-    move-result-object v2
+    move-result-object p4
     :try_end_0
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-object v0, v2
-
-    nop
 
     :goto_0
     if-nez p2, :cond_1
 
-    invoke-virtual {v0}, Landroid/view/MotionEvent;->getEventTime()J
+    invoke-virtual {p4}, Landroid/view/MotionEvent;->getEventTime()J
 
-    move-result-wide v2
+    move-result-wide v1
 
-    invoke-virtual {v0, v2, v3}, Landroid/view/MotionEvent;->setDownTime(J)V
+    invoke-virtual {p4, v1, v2}, Landroid/view/MotionEvent;->setDownTime(J)V
 
     goto :goto_1
 
     :cond_1
-    iget-object v2, p0, Lcom/android/server/accessibility/gestures/EventDispatcher;->mState:Lcom/android/server/accessibility/gestures/TouchState;
+    iget-object p2, p0, Lcom/android/server/accessibility/gestures/EventDispatcher;->mState:Lcom/android/server/accessibility/gestures/TouchState;
 
-    invoke-virtual {v2}, Lcom/android/server/accessibility/gestures/TouchState;->getLastInjectedDownEventTime()J
+    invoke-virtual {p2}, Lcom/android/server/accessibility/gestures/TouchState;->getLastInjectedDownEventTime()J
 
-    move-result-wide v2
+    move-result-wide v1
 
-    invoke-virtual {v0, v2, v3}, Landroid/view/MotionEvent;->setDownTime(J)V
+    invoke-virtual {p4, v1, v2}, Landroid/view/MotionEvent;->setDownTime(J)V
 
     :goto_1
-    iget v2, p0, Lcom/android/server/accessibility/gestures/EventDispatcher;->mLongPressingPointerId:I
+    iget p2, p0, Lcom/android/server/accessibility/gestures/EventDispatcher;->mLongPressingPointerId:I
 
-    if-ltz v2, :cond_2
+    if-ltz p2, :cond_2
 
-    iget v2, p0, Lcom/android/server/accessibility/gestures/EventDispatcher;->mLongPressingPointerDeltaX:I
+    iget p2, p0, Lcom/android/server/accessibility/gestures/EventDispatcher;->mLongPressingPointerDeltaX:I
 
-    neg-int v2, v2
+    neg-int p2, p2
 
-    iget v3, p0, Lcom/android/server/accessibility/gestures/EventDispatcher;->mLongPressingPointerDeltaY:I
+    iget v1, p0, Lcom/android/server/accessibility/gestures/EventDispatcher;->mLongPressingPointerDeltaY:I
 
-    neg-int v3, v3
+    neg-int v1, v1
 
-    invoke-direct {p0, v0, v2, v3}, Lcom/android/server/accessibility/gestures/EventDispatcher;->offsetEvent(Landroid/view/MotionEvent;II)Landroid/view/MotionEvent;
+    invoke-virtual {p0, p4, p2, v1}, Lcom/android/server/accessibility/gestures/EventDispatcher;->offsetEvent(Landroid/view/MotionEvent;II)Landroid/view/MotionEvent;
 
-    move-result-object v0
+    move-result-object p4
 
     :cond_2
-    const/high16 v2, 0x40000000    # 2.0f
+    const/high16 p2, 0x40000000    # 2.0f
 
-    or-int/2addr p5, v2
+    or-int/2addr p2, p5
 
-    iget-object v2, p0, Lcom/android/server/accessibility/gestures/EventDispatcher;->mReceiver:Lcom/android/server/accessibility/EventStreamTransformation;
+    iget-object p5, p0, Lcom/android/server/accessibility/gestures/EventDispatcher;->mReceiver:Lcom/android/server/accessibility/EventStreamTransformation;
 
-    if-eqz v2, :cond_3
+    if-eqz p5, :cond_3
 
-    invoke-interface {v2, v0, p3, p5}, Lcom/android/server/accessibility/EventStreamTransformation;->onMotionEvent(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
+    invoke-interface {p5, p4, p3, p2}, Lcom/android/server/accessibility/EventStreamTransformation;->onMotionEvent(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
 
     goto :goto_2
 
     :cond_3
-    const-string v2, "Error sending event: no receiver specified."
+    const-string p2, "Error sending event: no receiver specified."
 
-    invoke-static {v1, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, p2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     :goto_2
-    iget-object v1, p0, Lcom/android/server/accessibility/gestures/EventDispatcher;->mState:Lcom/android/server/accessibility/gestures/TouchState;
+    iget-object p0, p0, Lcom/android/server/accessibility/gestures/EventDispatcher;->mState:Lcom/android/server/accessibility/gestures/TouchState;
 
-    invoke-virtual {v1, v0}, Lcom/android/server/accessibility/gestures/TouchState;->onInjectedMotionEvent(Landroid/view/MotionEvent;)V
+    invoke-virtual {p0, p4}, Lcom/android/server/accessibility/gestures/TouchState;->onInjectedMotionEvent(Landroid/view/MotionEvent;)V
 
-    if-eq v0, p1, :cond_4
+    if-eq p4, p1, :cond_4
 
-    invoke-virtual {v0}, Landroid/view/MotionEvent;->recycle()V
+    invoke-virtual {p4}, Landroid/view/MotionEvent;->recycle()V
 
     :cond_4
     return-void
 
     :catch_0
-    move-exception v2
+    move-exception p0
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "sendMotionEvent: Failed to split motion event: "
+    const-string/jumbo p2, "sendMotionEvent: Failed to split motion event: "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p0
 
-    invoke-static {v1, v3}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 .end method
 
-.method sendUpForInjectedDownPointers(Landroid/view/MotionEvent;I)V
-    .locals 11
+.method public sendUpForInjectedDownPointers(Landroid/view/MotionEvent;I)V
+    .locals 10
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getPointerIdBits()I
 
@@ -1122,9 +1065,9 @@
     :cond_0
     const/4 v3, 0x6
 
-    invoke-direct {p0, v3, v2}, Lcom/android/server/accessibility/gestures/EventDispatcher;->computeInjectionAction(II)I
+    invoke-virtual {p0, v3, v2}, Lcom/android/server/accessibility/gestures/EventDispatcher;->computeInjectionAction(II)I
 
-    move-result v10
+    move-result v5
 
     iget-object v3, p0, Lcom/android/server/accessibility/gestures/EventDispatcher;->mState:Lcom/android/server/accessibility/gestures/TouchState;
 
@@ -1135,8 +1078,6 @@
     move-object v3, p0
 
     move-object v4, p1
-
-    move v5, v10
 
     move v7, v0
 
@@ -1227,17 +1168,17 @@
     goto :goto_0
 
     :cond_1
-    const-string v1, "]"
+    const-string p0, "]"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "\n========================="
+    const-string p0, "\n========================="
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method

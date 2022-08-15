@@ -4,9 +4,7 @@
 
 
 # instance fields
-.field private final mDisplayContent:Lcom/android/server/wm/DisplayContent;
-
-.field private final mListeners:Ljava/util/ArrayList;
+.field public final mListeners:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/ArrayList<",
@@ -16,13 +14,11 @@
     .end annotation
 .end field
 
-.field private mListenersArray:[Landroid/view/WindowManagerPolicyConstants$PointerEventListener;
-
-.field private final mTmpSize:Landroid/graphics/Point;
+.field public mListenersArray:[Landroid/view/WindowManagerPolicyConstants$PointerEventListener;
 
 
 # direct methods
-.method public constructor <init>(Landroid/view/InputChannel;Lcom/android/server/wm/DisplayContent;)V
+.method public constructor <init>(Landroid/view/InputChannel;)V
     .locals 1
 
     invoke-static {}, Lcom/android/server/UiThread;->getHandler()Landroid/os/Handler;
@@ -35,25 +31,17 @@
 
     invoke-direct {p0, p1, v0}, Landroid/view/InputEventReceiver;-><init>(Landroid/view/InputChannel;Landroid/os/Looper;)V
 
-    new-instance v0, Ljava/util/ArrayList;
+    new-instance p1, Ljava/util/ArrayList;
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v0, p0, Lcom/android/server/wm/PointerEventDispatcher;->mListeners:Ljava/util/ArrayList;
+    iput-object p1, p0, Lcom/android/server/wm/PointerEventDispatcher;->mListeners:Ljava/util/ArrayList;
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    new-array v0, v0, [Landroid/view/WindowManagerPolicyConstants$PointerEventListener;
+    new-array p1, p1, [Landroid/view/WindowManagerPolicyConstants$PointerEventListener;
 
-    iput-object v0, p0, Lcom/android/server/wm/PointerEventDispatcher;->mListenersArray:[Landroid/view/WindowManagerPolicyConstants$PointerEventListener;
-
-    new-instance v0, Landroid/graphics/Point;
-
-    invoke-direct {v0}, Landroid/graphics/Point;-><init>()V
-
-    iput-object v0, p0, Lcom/android/server/wm/PointerEventDispatcher;->mTmpSize:Landroid/graphics/Point;
-
-    iput-object p2, p0, Lcom/android/server/wm/PointerEventDispatcher;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
+    iput-object p1, p0, Lcom/android/server/wm/PointerEventDispatcher;->mListenersArray:[Landroid/view/WindowManagerPolicyConstants$PointerEventListener;
 
     return-void
 .end method
@@ -83,13 +71,13 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
 .method public onInputEvent(Landroid/view/InputEvent;)V
@@ -100,7 +88,7 @@
     :try_start_0
     instance-of v1, p1, Landroid/view/MotionEvent;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_1
 
     invoke-virtual {p1}, Landroid/view/InputEvent;->getSource()I
 
@@ -108,55 +96,12 @@
 
     and-int/lit8 v1, v1, 0x2
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_1
 
     move-object v1, p1
 
     check-cast v1, Landroid/view/MotionEvent;
 
-    sget-boolean v2, Lcom/android/server/input/InputManagerService;->ENABLE_PER_WINDOW_INPUT_ROTATION:Z
-
-    if-eqz v2, :cond_0
-
-    iget-object v2, p0, Lcom/android/server/wm/PointerEventDispatcher;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
-
-    invoke-virtual {v2}, Lcom/android/server/wm/DisplayContent;->getRotation()I
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    iget-object v3, p0, Lcom/android/server/wm/PointerEventDispatcher;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
-
-    invoke-virtual {v3}, Lcom/android/server/wm/DisplayContent;->getDisplay()Landroid/view/Display;
-
-    move-result-object v3
-
-    iget-object v4, p0, Lcom/android/server/wm/PointerEventDispatcher;->mTmpSize:Landroid/graphics/Point;
-
-    invoke-virtual {v3, v4}, Landroid/view/Display;->getRealSize(Landroid/graphics/Point;)V
-
-    invoke-static {v1}, Landroid/view/MotionEvent;->obtain(Landroid/view/MotionEvent;)Landroid/view/MotionEvent;
-
-    move-result-object v3
-
-    move-object v1, v3
-
-    iget-object v3, p0, Lcom/android/server/wm/PointerEventDispatcher;->mTmpSize:Landroid/graphics/Point;
-
-    iget v3, v3, Landroid/graphics/Point;->x:I
-
-    iget-object v4, p0, Lcom/android/server/wm/PointerEventDispatcher;->mTmpSize:Landroid/graphics/Point;
-
-    iget v4, v4, Landroid/graphics/Point;->y:I
-
-    invoke-static {v2, v3, v4}, Landroid/view/MotionEvent;->createRotateMatrix(III)Landroid/graphics/Matrix;
-
-    move-result-object v3
-
-    invoke-virtual {v1, v3}, Landroid/view/MotionEvent;->transform(Landroid/graphics/Matrix;)V
-
-    :cond_0
     iget-object v2, p0, Lcom/android/server/wm/PointerEventDispatcher;->mListeners:Ljava/util/ArrayList;
 
     monitor-enter v2
@@ -166,7 +111,7 @@
     :try_start_1
     iget-object v3, p0, Lcom/android/server/wm/PointerEventDispatcher;->mListenersArray:[Landroid/view/WindowManagerPolicyConstants$PointerEventListener;
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_0
 
     iget-object v3, p0, Lcom/android/server/wm/PointerEventDispatcher;->mListeners:Ljava/util/ArrayList;
 
@@ -182,20 +127,20 @@
 
     invoke-virtual {v4, v3}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
-    :cond_1
+    :cond_0
     iget-object v3, p0, Lcom/android/server/wm/PointerEventDispatcher;->mListenersArray:[Landroid/view/WindowManagerPolicyConstants$PointerEventListener;
 
     monitor-exit v2
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    const/4 v2, 0x0
+    move v2, v0
 
     :goto_0
     :try_start_2
     array-length v4, v3
 
-    if-ge v2, v4, :cond_2
+    if-ge v2, v4, :cond_1
 
     aget-object v4, v3, v2
 
@@ -208,7 +153,7 @@
     goto :goto_0
 
     :catchall_0
-    move-exception v3
+    move-exception v1
 
     :try_start_3
     monitor-exit v2
@@ -216,27 +161,25 @@
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     :try_start_4
-    throw v3
+    throw v1
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
-    :cond_2
-    invoke-virtual {p0, p1, v0}, Lcom/android/server/wm/PointerEventDispatcher;->finishInputEvent(Landroid/view/InputEvent;Z)V
-
-    nop
+    :cond_1
+    invoke-virtual {p0, p1, v0}, Landroid/view/InputEventReceiver;->finishInputEvent(Landroid/view/InputEvent;Z)V
 
     return-void
 
     :catchall_1
     move-exception v1
 
-    invoke-virtual {p0, p1, v0}, Lcom/android/server/wm/PointerEventDispatcher;->finishInputEvent(Landroid/view/InputEvent;Z)V
+    invoke-virtual {p0, p1, v0}, Landroid/view/InputEventReceiver;->finishInputEvent(Landroid/view/InputEvent;Z)V
 
     throw v1
 .end method
 
 .method public registerInputEventListener(Landroid/view/WindowManagerPolicyConstants$PointerEventListener;)V
-    .locals 4
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/wm/PointerEventDispatcher;->mListeners:Ljava/util/ArrayList;
 
@@ -255,51 +198,51 @@
 
     invoke-virtual {v1, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    iput-object v1, p0, Lcom/android/server/wm/PointerEventDispatcher;->mListenersArray:[Landroid/view/WindowManagerPolicyConstants$PointerEventListener;
+    iput-object p1, p0, Lcom/android/server/wm/PointerEventDispatcher;->mListenersArray:[Landroid/view/WindowManagerPolicyConstants$PointerEventListener;
 
     monitor-exit v0
 
     return-void
 
     :cond_0
-    new-instance v1, Ljava/lang/IllegalStateException;
+    new-instance p0, Ljava/lang/IllegalStateException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "registerInputEventListener: trying to register"
+    const-string v2, "registerInputEventListener: trying to register"
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string v3, " twice."
+    const-string p1, " twice."
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p0
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
 .method public unregisterInputEventListener(Landroid/view/WindowManagerPolicyConstants$PointerEventListener;)V
-    .locals 4
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/wm/PointerEventDispatcher;->mListeners:Ljava/util/ArrayList;
 
@@ -318,45 +261,45 @@
 
     invoke-virtual {v1, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    iput-object v1, p0, Lcom/android/server/wm/PointerEventDispatcher;->mListenersArray:[Landroid/view/WindowManagerPolicyConstants$PointerEventListener;
+    iput-object p1, p0, Lcom/android/server/wm/PointerEventDispatcher;->mListenersArray:[Landroid/view/WindowManagerPolicyConstants$PointerEventListener;
 
     monitor-exit v0
 
     return-void
 
     :cond_0
-    new-instance v1, Ljava/lang/IllegalStateException;
+    new-instance p0, Ljava/lang/IllegalStateException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "registerInputEventListener: "
+    const-string v2, "registerInputEventListener: "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string v3, " not registered."
+    const-string p1, " not registered."
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p0
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method

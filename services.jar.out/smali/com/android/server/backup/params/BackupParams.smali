@@ -30,24 +30,24 @@
 
 .field public mBackupEligibilityRules:Lcom/android/server/backup/utils/BackupEligibilityRules;
 
+.field public mTransportConnection:Lcom/android/server/backup/transport/TransportConnection;
+
 .field public monitor:Landroid/app/backup/IBackupManagerMonitor;
 
 .field public nonIncrementalBackup:Z
 
 .field public observer:Landroid/app/backup/IBackupObserver;
 
-.field public transportClient:Lcom/android/server/backup/transport/TransportClient;
-
 .field public userInitiated:Z
 
 
 # direct methods
-.method public constructor <init>(Lcom/android/server/backup/transport/TransportClient;Ljava/lang/String;Ljava/util/ArrayList;Ljava/util/ArrayList;Landroid/app/backup/IBackupObserver;Landroid/app/backup/IBackupManagerMonitor;Lcom/android/server/backup/internal/OnTaskFinishedListener;ZZLcom/android/server/backup/utils/BackupEligibilityRules;)V
+.method public constructor <init>(Lcom/android/server/backup/transport/TransportConnection;Ljava/lang/String;Ljava/util/ArrayList;Ljava/util/ArrayList;Landroid/app/backup/IBackupObserver;Landroid/app/backup/IBackupManagerMonitor;Lcom/android/server/backup/internal/OnTaskFinishedListener;ZZLcom/android/server/backup/utils/BackupEligibilityRules;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/android/server/backup/transport/TransportClient;",
+            "Lcom/android/server/backup/transport/TransportConnection;",
             "Ljava/lang/String;",
             "Ljava/util/ArrayList<",
             "Ljava/lang/String;",
@@ -66,7 +66,7 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/backup/params/BackupParams;->transportClient:Lcom/android/server/backup/transport/TransportClient;
+    iput-object p1, p0, Lcom/android/server/backup/params/BackupParams;->mTransportConnection:Lcom/android/server/backup/transport/TransportConnection;
 
     iput-object p2, p0, Lcom/android/server/backup/params/BackupParams;->dirName:Ljava/lang/String;
 

@@ -1,41 +1,30 @@
 .class public final synthetic Lcom/android/server/pm/CrossProfileAppsServiceImpl$$ExternalSyntheticLambda4;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/internal/util/FunctionalUtils$ThrowingSupplier;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/android/server/pm/CrossProfileAppsServiceImpl;
-
-.field public final synthetic f$1:I
+.implements Ljava/util/function/Function;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/pm/CrossProfileAppsServiceImpl;I)V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/server/pm/CrossProfileAppsServiceImpl$$ExternalSyntheticLambda4;->f$0:Lcom/android/server/pm/CrossProfileAppsServiceImpl;
-
-    iput p2, p0, Lcom/android/server/pm/CrossProfileAppsServiceImpl$$ExternalSyntheticLambda4;->f$1:I
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final getOrThrow()Ljava/lang/Object;
-    .locals 2
+.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/pm/CrossProfileAppsServiceImpl$$ExternalSyntheticLambda4;->f$0:Lcom/android/server/pm/CrossProfileAppsServiceImpl;
+    check-cast p1, Landroid/content/pm/ApplicationInfo;
 
-    iget v1, p0, Lcom/android/server/pm/CrossProfileAppsServiceImpl$$ExternalSyntheticLambda4;->f$1:I
+    invoke-static {p1}, Lcom/android/server/pm/CrossProfileAppsServiceImpl;->$r8$lambda$Js8McVb1iwPQRJox6p-TMGl4bAg(Landroid/content/pm/ApplicationInfo;)Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/pm/CrossProfileAppsServiceImpl;->lambda$isProfileOwner$15$CrossProfileAppsServiceImpl(I)Landroid/content/ComponentName;
+    move-result-object p0
 
-    move-result-object v0
-
-    return-object v0
+    return-object p0
 .end method

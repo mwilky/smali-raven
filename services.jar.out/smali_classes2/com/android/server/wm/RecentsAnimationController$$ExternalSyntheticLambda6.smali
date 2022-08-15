@@ -1,25 +1,22 @@
 .class public final synthetic Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda6;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
 
 
 # instance fields
-.field public final synthetic f$0:I
-
-.field public final synthetic f$1:Lcom/android/server/wm/AnimationAdapter;
+.field public final synthetic f$0:Lcom/android/server/wm/RecentsAnimationController;
 
 
 # direct methods
-.method public synthetic constructor <init>(ILcom/android/server/wm/AnimationAdapter;)V
+.method public synthetic constructor <init>(Lcom/android/server/wm/RecentsAnimationController;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput p1, p0, Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda6;->f$0:I
-
-    iput-object p2, p0, Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda6;->f$1:Lcom/android/server/wm/AnimationAdapter;
+    iput-object p1, p0, Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda6;->f$0:Lcom/android/server/wm/RecentsAnimationController;
 
     return-void
 .end method
@@ -27,15 +24,13 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 2
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda6;->f$0:I
+    iget-object p0, p0, Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda6;->f$0:Lcom/android/server/wm/RecentsAnimationController;
 
-    iget-object v1, p0, Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda6;->f$1:Lcom/android/server/wm/AnimationAdapter;
+    check-cast p1, Lcom/android/server/wm/WallpaperAnimationAdapter;
 
-    check-cast p1, Lcom/android/server/wm/WindowState;
-
-    invoke-static {v0, v1, p1}, Lcom/android/server/wm/RecentsAnimationController;->lambda$initialize$1(ILcom/android/server/wm/AnimationAdapter;Lcom/android/server/wm/WindowState;)V
+    invoke-static {p0, p1}, Lcom/android/server/wm/RecentsAnimationController;->$r8$lambda$420-KwIxmNwr-l0Y-S4X7RXTUpk(Lcom/android/server/wm/RecentsAnimationController;Lcom/android/server/wm/WallpaperAnimationAdapter;)V
 
     return-void
 .end method

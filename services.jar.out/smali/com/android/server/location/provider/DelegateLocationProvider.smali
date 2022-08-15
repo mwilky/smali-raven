@@ -1,4 +1,4 @@
-.class Lcom/android/server/location/provider/DelegateLocationProvider;
+.class public Lcom/android/server/location/provider/DelegateLocationProvider;
 .super Lcom/android/server/location/provider/AbstractLocationProvider;
 .source "DelegateLocationProvider.java"
 
@@ -7,15 +7,35 @@
 
 
 # instance fields
-.field protected final mDelegate:Lcom/android/server/location/provider/AbstractLocationProvider;
+.field public final mDelegate:Lcom/android/server/location/provider/AbstractLocationProvider;
 
-.field private final mInitializationLock:Ljava/lang/Object;
+.field public final mInitializationLock:Ljava/lang/Object;
 
-.field private mInitialized:Z
+.field public mInitialized:Z
 
 
 # direct methods
-.method constructor <init>(Ljava/util/concurrent/Executor;Lcom/android/server/location/provider/AbstractLocationProvider;)V
+.method public static synthetic $r8$lambda$IKKYeG5_gaJ76mwSBDV3w5L2Dw8(Lcom/android/server/location/provider/DelegateLocationProvider;Lcom/android/server/location/provider/AbstractLocationProvider$State;)Lcom/android/server/location/provider/AbstractLocationProvider$State;
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/location/provider/DelegateLocationProvider;->lambda$initializeDelegate$0(Lcom/android/server/location/provider/AbstractLocationProvider$State;)Lcom/android/server/location/provider/AbstractLocationProvider$State;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic $r8$lambda$TqAFbBo8CtMGUp4wkhnbnR8IVMU(Lcom/android/server/location/provider/AbstractLocationProvider$State;Lcom/android/server/location/provider/AbstractLocationProvider$State;)Lcom/android/server/location/provider/AbstractLocationProvider$State;
+    .locals 0
+
+    invoke-static {p0, p1}, Lcom/android/server/location/provider/DelegateLocationProvider;->lambda$onStateChanged$1(Lcom/android/server/location/provider/AbstractLocationProvider$State;Lcom/android/server/location/provider/AbstractLocationProvider$State;)Lcom/android/server/location/provider/AbstractLocationProvider$State;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public constructor <init>(Ljava/util/concurrent/Executor;Lcom/android/server/location/provider/AbstractLocationProvider;)V
     .locals 2
 
     invoke-static {}, Ljava/util/Collections;->emptySet()Ljava/util/Set;
@@ -26,22 +46,38 @@
 
     invoke-direct {p0, p1, v1, v1, v0}, Lcom/android/server/location/provider/AbstractLocationProvider;-><init>(Ljava/util/concurrent/Executor;Landroid/location/util/identity/CallerIdentity;Landroid/location/provider/ProviderProperties;Ljava/util/Set;)V
 
-    new-instance v0, Ljava/lang/Object;
+    new-instance p1, Ljava/lang/Object;
 
-    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p1}, Ljava/lang/Object;-><init>()V
 
-    iput-object v0, p0, Lcom/android/server/location/provider/DelegateLocationProvider;->mInitializationLock:Ljava/lang/Object;
+    iput-object p1, p0, Lcom/android/server/location/provider/DelegateLocationProvider;->mInitializationLock:Ljava/lang/Object;
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput-boolean v0, p0, Lcom/android/server/location/provider/DelegateLocationProvider;->mInitialized:Z
+    iput-boolean p1, p0, Lcom/android/server/location/provider/DelegateLocationProvider;->mInitialized:Z
 
     iput-object p2, p0, Lcom/android/server/location/provider/DelegateLocationProvider;->mDelegate:Lcom/android/server/location/provider/AbstractLocationProvider;
 
     return-void
 .end method
 
-.method static synthetic lambda$onStateChanged$1(Lcom/android/server/location/provider/AbstractLocationProvider$State;Lcom/android/server/location/provider/AbstractLocationProvider$State;)Lcom/android/server/location/provider/AbstractLocationProvider$State;
+.method private synthetic lambda$initializeDelegate$0(Lcom/android/server/location/provider/AbstractLocationProvider$State;)Lcom/android/server/location/provider/AbstractLocationProvider$State;
+    .locals 0
+
+    iget-object p1, p0, Lcom/android/server/location/provider/DelegateLocationProvider;->mDelegate:Lcom/android/server/location/provider/AbstractLocationProvider;
+
+    invoke-virtual {p1}, Lcom/android/server/location/provider/AbstractLocationProvider;->getController()Lcom/android/server/location/provider/LocationProviderController;
+
+    move-result-object p1
+
+    invoke-interface {p1, p0}, Lcom/android/server/location/provider/LocationProviderController;->setListener(Lcom/android/server/location/provider/AbstractLocationProvider$Listener;)Lcom/android/server/location/provider/AbstractLocationProvider$State;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic lambda$onStateChanged$1(Lcom/android/server/location/provider/AbstractLocationProvider$State;Lcom/android/server/location/provider/AbstractLocationProvider$State;)Lcom/android/server/location/provider/AbstractLocationProvider$State;
     .locals 0
 
     return-object p0
@@ -49,21 +85,7 @@
 
 
 # virtual methods
-.method protected dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/server/location/provider/DelegateLocationProvider;->mInitialized:Z
-
-    invoke-static {v0}, Lcom/android/internal/util/Preconditions;->checkState(Z)V
-
-    iget-object v0, p0, Lcom/android/server/location/provider/DelegateLocationProvider;->mDelegate:Lcom/android/server/location/provider/AbstractLocationProvider;
-
-    invoke-virtual {v0, p1, p2, p3}, Lcom/android/server/location/provider/AbstractLocationProvider;->dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method protected initializeDelegate()V
+.method public initializeDelegate()V
     .locals 3
 
     iget-object v0, p0, Lcom/android/server/location/provider/DelegateLocationProvider;->mInitializationLock:Ljava/lang/Object;
@@ -87,11 +109,11 @@
     :goto_0
     invoke-static {v1}, Lcom/android/internal/util/Preconditions;->checkState(Z)V
 
-    new-instance v1, Lcom/android/server/location/provider/DelegateLocationProvider$$ExternalSyntheticLambda1;
+    new-instance v1, Lcom/android/server/location/provider/DelegateLocationProvider$$ExternalSyntheticLambda0;
 
-    invoke-direct {v1, p0}, Lcom/android/server/location/provider/DelegateLocationProvider$$ExternalSyntheticLambda1;-><init>(Lcom/android/server/location/provider/DelegateLocationProvider;)V
+    invoke-direct {v1, p0}, Lcom/android/server/location/provider/DelegateLocationProvider$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/location/provider/DelegateLocationProvider;)V
 
-    invoke-virtual {p0, v1}, Lcom/android/server/location/provider/DelegateLocationProvider;->setState(Ljava/util/function/UnaryOperator;)V
+    invoke-virtual {p0, v1}, Lcom/android/server/location/provider/AbstractLocationProvider;->setState(Ljava/util/function/UnaryOperator;)V
 
     iput-boolean v2, p0, Lcom/android/server/location/provider/DelegateLocationProvider;->mInitialized:Z
 
@@ -100,63 +122,47 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
-.method public synthetic lambda$initializeDelegate$0$DelegateLocationProvider(Lcom/android/server/location/provider/AbstractLocationProvider$State;)Lcom/android/server/location/provider/AbstractLocationProvider$State;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/location/provider/DelegateLocationProvider;->mDelegate:Lcom/android/server/location/provider/AbstractLocationProvider;
-
-    invoke-virtual {v0}, Lcom/android/server/location/provider/AbstractLocationProvider;->getController()Lcom/android/server/location/provider/LocationProviderController;
-
-    move-result-object v0
-
-    invoke-interface {v0, p0}, Lcom/android/server/location/provider/LocationProviderController;->setListener(Lcom/android/server/location/provider/AbstractLocationProvider$Listener;)Lcom/android/server/location/provider/AbstractLocationProvider$State;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method protected onExtraCommand(IILjava/lang/String;Landroid/os/Bundle;)V
+.method public onExtraCommand(IILjava/lang/String;Landroid/os/Bundle;)V
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/server/location/provider/DelegateLocationProvider;->mInitialized:Z
 
     invoke-static {v0}, Lcom/android/internal/util/Preconditions;->checkState(Z)V
 
-    iget-object v0, p0, Lcom/android/server/location/provider/DelegateLocationProvider;->mDelegate:Lcom/android/server/location/provider/AbstractLocationProvider;
+    iget-object p0, p0, Lcom/android/server/location/provider/DelegateLocationProvider;->mDelegate:Lcom/android/server/location/provider/AbstractLocationProvider;
 
-    invoke-virtual {v0}, Lcom/android/server/location/provider/AbstractLocationProvider;->getController()Lcom/android/server/location/provider/LocationProviderController;
+    invoke-virtual {p0}, Lcom/android/server/location/provider/AbstractLocationProvider;->getController()Lcom/android/server/location/provider/LocationProviderController;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-interface {v0, p1, p2, p3, p4}, Lcom/android/server/location/provider/LocationProviderController;->sendExtraCommand(IILjava/lang/String;Landroid/os/Bundle;)V
+    invoke-interface {p0, p1, p2, p3, p4}, Lcom/android/server/location/provider/LocationProviderController;->sendExtraCommand(IILjava/lang/String;Landroid/os/Bundle;)V
 
     return-void
 .end method
 
-.method protected onFlush(Ljava/lang/Runnable;)V
+.method public onFlush(Ljava/lang/Runnable;)V
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/server/location/provider/DelegateLocationProvider;->mInitialized:Z
 
     invoke-static {v0}, Lcom/android/internal/util/Preconditions;->checkState(Z)V
 
-    iget-object v0, p0, Lcom/android/server/location/provider/DelegateLocationProvider;->mDelegate:Lcom/android/server/location/provider/AbstractLocationProvider;
+    iget-object p0, p0, Lcom/android/server/location/provider/DelegateLocationProvider;->mDelegate:Lcom/android/server/location/provider/AbstractLocationProvider;
 
-    invoke-virtual {v0}, Lcom/android/server/location/provider/AbstractLocationProvider;->getController()Lcom/android/server/location/provider/LocationProviderController;
+    invoke-virtual {p0}, Lcom/android/server/location/provider/AbstractLocationProvider;->getController()Lcom/android/server/location/provider/LocationProviderController;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-interface {v0, p1}, Lcom/android/server/location/provider/LocationProviderController;->flush(Ljava/lang/Runnable;)V
+    invoke-interface {p0, p1}, Lcom/android/server/location/provider/LocationProviderController;->flush(Ljava/lang/Runnable;)V
 
     return-void
 .end method
@@ -166,101 +172,47 @@
 
     invoke-virtual {p0}, Lcom/android/server/location/provider/DelegateLocationProvider;->waitForInitialization()V
 
-    invoke-virtual {p0, p1}, Lcom/android/server/location/provider/DelegateLocationProvider;->reportLocation(Landroid/location/LocationResult;)V
-
-    return-void
-.end method
-
-.method protected onSetRequest(Landroid/location/provider/ProviderRequest;)V
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/server/location/provider/DelegateLocationProvider;->mInitialized:Z
-
-    invoke-static {v0}, Lcom/android/internal/util/Preconditions;->checkState(Z)V
-
-    iget-object v0, p0, Lcom/android/server/location/provider/DelegateLocationProvider;->mDelegate:Lcom/android/server/location/provider/AbstractLocationProvider;
-
-    invoke-virtual {v0}, Lcom/android/server/location/provider/AbstractLocationProvider;->getController()Lcom/android/server/location/provider/LocationProviderController;
-
-    move-result-object v0
-
-    invoke-interface {v0, p1}, Lcom/android/server/location/provider/LocationProviderController;->setRequest(Landroid/location/provider/ProviderRequest;)V
-
-    return-void
-.end method
-
-.method protected onStart()V
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/server/location/provider/DelegateLocationProvider;->mInitialized:Z
-
-    invoke-static {v0}, Lcom/android/internal/util/Preconditions;->checkState(Z)V
-
-    iget-object v0, p0, Lcom/android/server/location/provider/DelegateLocationProvider;->mDelegate:Lcom/android/server/location/provider/AbstractLocationProvider;
-
-    invoke-virtual {v0}, Lcom/android/server/location/provider/AbstractLocationProvider;->getController()Lcom/android/server/location/provider/LocationProviderController;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Lcom/android/server/location/provider/LocationProviderController;->start()V
+    invoke-virtual {p0, p1}, Lcom/android/server/location/provider/AbstractLocationProvider;->reportLocation(Landroid/location/LocationResult;)V
 
     return-void
 .end method
 
 .method public onStateChanged(Lcom/android/server/location/provider/AbstractLocationProvider$State;Lcom/android/server/location/provider/AbstractLocationProvider$State;)V
-    .locals 1
+    .locals 0
 
     invoke-virtual {p0}, Lcom/android/server/location/provider/DelegateLocationProvider;->waitForInitialization()V
 
-    new-instance v0, Lcom/android/server/location/provider/DelegateLocationProvider$$ExternalSyntheticLambda0;
+    new-instance p1, Lcom/android/server/location/provider/DelegateLocationProvider$$ExternalSyntheticLambda1;
 
-    invoke-direct {v0, p2}, Lcom/android/server/location/provider/DelegateLocationProvider$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/location/provider/AbstractLocationProvider$State;)V
+    invoke-direct {p1, p2}, Lcom/android/server/location/provider/DelegateLocationProvider$$ExternalSyntheticLambda1;-><init>(Lcom/android/server/location/provider/AbstractLocationProvider$State;)V
 
-    invoke-virtual {p0, v0}, Lcom/android/server/location/provider/DelegateLocationProvider;->setState(Ljava/util/function/UnaryOperator;)V
+    invoke-virtual {p0, p1}, Lcom/android/server/location/provider/AbstractLocationProvider;->setState(Ljava/util/function/UnaryOperator;)V
 
     return-void
 .end method
 
-.method protected onStop()V
+.method public final waitForInitialization()V
     .locals 1
-
-    iget-boolean v0, p0, Lcom/android/server/location/provider/DelegateLocationProvider;->mInitialized:Z
-
-    invoke-static {v0}, Lcom/android/internal/util/Preconditions;->checkState(Z)V
-
-    iget-object v0, p0, Lcom/android/server/location/provider/DelegateLocationProvider;->mDelegate:Lcom/android/server/location/provider/AbstractLocationProvider;
-
-    invoke-virtual {v0}, Lcom/android/server/location/provider/AbstractLocationProvider;->getController()Lcom/android/server/location/provider/LocationProviderController;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Lcom/android/server/location/provider/LocationProviderController;->stop()V
-
-    return-void
-.end method
-
-.method protected final waitForInitialization()V
-    .locals 2
 
     iget-object v0, p0, Lcom/android/server/location/provider/DelegateLocationProvider;->mInitializationLock:Ljava/lang/Object;
 
     monitor-enter v0
 
     :try_start_0
-    iget-boolean v1, p0, Lcom/android/server/location/provider/DelegateLocationProvider;->mInitialized:Z
+    iget-boolean p0, p0, Lcom/android/server/location/provider/DelegateLocationProvider;->mInitialized:Z
 
-    invoke-static {v1}, Lcom/android/internal/util/Preconditions;->checkState(Z)V
+    invoke-static {p0}, Lcom/android/internal/util/Preconditions;->checkState(Z)V
 
     monitor-exit v0
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method

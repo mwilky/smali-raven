@@ -3,16 +3,12 @@
 .source "UsbACTerminal.java"
 
 
-# static fields
-.field private static final TAG:Ljava/lang/String; = "UsbACTerminal"
-
-
 # instance fields
-.field protected mAssocTerminal:B
+.field public mAssocTerminal:B
 
-.field protected mTerminalID:B
+.field public mTerminalID:B
 
-.field protected mTerminalType:I
+.field public mTerminalType:I
 
 
 # direct methods
@@ -27,27 +23,27 @@
 
 # virtual methods
 .method public getAssocTerminal()B
-    .locals 1
+    .locals 0
 
-    iget-byte v0, p0, Lcom/android/server/usb/descriptors/UsbACTerminal;->mAssocTerminal:B
+    iget-byte p0, p0, Lcom/android/server/usb/descriptors/UsbACTerminal;->mAssocTerminal:B
 
-    return v0
+    return p0
 .end method
 
 .method public getTerminalID()B
-    .locals 1
+    .locals 0
 
-    iget-byte v0, p0, Lcom/android/server/usb/descriptors/UsbACTerminal;->mTerminalID:B
+    iget-byte p0, p0, Lcom/android/server/usb/descriptors/UsbACTerminal;->mTerminalID:B
 
-    return v0
+    return p0
 .end method
 
 .method public getTerminalType()I
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/usb/descriptors/UsbACTerminal;->mTerminalType:I
+    iget p0, p0, Lcom/android/server/usb/descriptors/UsbACTerminal;->mTerminalType:I
 
-    return v0
+    return p0
 .end method
 
 .method public parseRawDescriptors(Lcom/android/server/usb/descriptors/ByteStream;)I
@@ -67,13 +63,13 @@
 
     invoke-virtual {p1}, Lcom/android/server/usb/descriptors/ByteStream;->getByte()B
 
-    move-result v0
+    move-result p1
 
-    iput-byte v0, p0, Lcom/android/server/usb/descriptors/UsbACTerminal;->mAssocTerminal:B
+    iput-byte p1, p0, Lcom/android/server/usb/descriptors/UsbACTerminal;->mAssocTerminal:B
 
-    iget v0, p0, Lcom/android/server/usb/descriptors/UsbACTerminal;->mLength:I
+    iget p0, p0, Lcom/android/server/usb/descriptors/UsbDescriptor;->mLength:I
 
-    return v0
+    return p0
 .end method
 
 .method public report(Lcom/android/server/usb/descriptors/report/ReportCanvas;)V
@@ -107,39 +103,39 @@
 
     invoke-static {v0}, Lcom/android/server/usb/descriptors/report/UsbStrings;->getTerminalName(I)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {p1, v1}, Lcom/android/server/usb/descriptors/report/ReportCanvas;->writeListItem(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Lcom/android/server/usb/descriptors/report/ReportCanvas;->writeListItem(Ljava/lang/String;)V
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "ID: "
+    const-string v1, "ID: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {p0}, Lcom/android/server/usb/descriptors/UsbACTerminal;->getTerminalID()B
 
-    move-result v2
+    move-result p0
 
-    invoke-static {v2}, Lcom/android/server/usb/descriptors/report/ReportCanvas;->getHexString(B)Ljava/lang/String;
+    invoke-static {p0}, Lcom/android/server/usb/descriptors/report/ReportCanvas;->getHexString(B)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {p1, v1}, Lcom/android/server/usb/descriptors/report/ReportCanvas;->writeListItem(Ljava/lang/String;)V
+    invoke-virtual {p1, p0}, Lcom/android/server/usb/descriptors/report/ReportCanvas;->writeListItem(Ljava/lang/String;)V
 
     invoke-virtual {p1}, Lcom/android/server/usb/descriptors/report/ReportCanvas;->closeList()V
 

@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/people/PeopleService$LocalService$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -23,13 +24,13 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/people/PeopleService$LocalService$$ExternalSyntheticLambda1;->f$0:Landroid/app/prediction/IPredictionCallback;
+    iget-object p0, p0, Lcom/android/server/people/PeopleService$LocalService$$ExternalSyntheticLambda1;->f$0:Landroid/app/prediction/IPredictionCallback;
 
     check-cast p1, Lcom/android/server/people/SessionInfo;
 
-    invoke-static {v0, p1}, Lcom/android/server/people/PeopleService$LocalService;->lambda$registerPredictionUpdates$4(Landroid/app/prediction/IPredictionCallback;Lcom/android/server/people/SessionInfo;)V
+    invoke-static {p0, p1}, Lcom/android/server/people/PeopleService$LocalService;->$r8$lambda$iu-MRQKF4hNJqU_uYSnVeZ9XB8g(Landroid/app/prediction/IPredictionCallback;Lcom/android/server/people/SessionInfo;)V
 
     return-void
 .end method

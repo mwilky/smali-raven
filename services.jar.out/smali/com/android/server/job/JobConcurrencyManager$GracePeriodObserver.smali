@@ -4,31 +4,40 @@
 
 
 # annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/android/server/job/JobConcurrencyManager;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "GracePeriodObserver"
 .end annotation
 
 
 # instance fields
-.field private mCurrentUserId:I
+.field public mCurrentUserId:I
 
-.field mGracePeriod:I
+.field public mGracePeriod:I
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+.end field
 
-.field final mGracePeriodExpiration:Landroid/util/SparseLongArray;
+.field public final mGracePeriodExpiration:Landroid/util/SparseLongArray;
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+.end field
 
-.field final mLock:Ljava/lang/Object;
+.field public final mLock:Ljava/lang/Object;
 
-.field private final mUserManagerInternal:Lcom/android/server/pm/UserManagerInternal;
+.field public final mUserManagerInternal:Lcom/android/server/pm/UserManagerInternal;
 
 
 # direct methods
-.method constructor <init>(Landroid/content/Context;)V
-    .locals 2
+.method public constructor <init>(Landroid/content/Context;)V
+    .locals 1
 
     invoke-direct {p0}, Landroid/app/UserSwitchObserver;-><init>()V
 
@@ -70,21 +79,21 @@
 
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v0
+    move-result-object p1
 
-    const v1, 0x10e006f
+    const v0, 0x10e0078
 
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
+    invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getInteger(I)I
 
-    move-result v0
+    move-result p1
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    invoke-static {v1, v0}, Ljava/lang/Math;->max(II)I
+    invoke-static {v0, p1}, Ljava/lang/Math;->max(II)I
 
-    move-result v0
+    move-result p1
 
-    iput v0, p0, Lcom/android/server/job/JobConcurrencyManager$GracePeriodObserver;->mGracePeriod:I
+    iput p1, p0, Lcom/android/server/job/JobConcurrencyManager$GracePeriodObserver;->mGracePeriod:I
 
     return-void
 .end method
@@ -92,7 +101,9 @@
 
 # virtual methods
 .method public isWithinGracePeriodForUser(I)Z
-    .locals 6
+    .locals 5
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
 
     iget-object v0, p0, Lcom/android/server/job/JobConcurrencyManager$GracePeriodObserver;->mLock:Ljava/lang/Object;
 
@@ -109,68 +120,68 @@
 
     move-result-wide v1
 
-    iget-object v3, p0, Lcom/android/server/job/JobConcurrencyManager$GracePeriodObserver;->mGracePeriodExpiration:Landroid/util/SparseLongArray;
+    iget-object p0, p0, Lcom/android/server/job/JobConcurrencyManager$GracePeriodObserver;->mGracePeriodExpiration:Landroid/util/SparseLongArray;
 
-    const-wide v4, 0x7fffffffffffffffL
+    const-wide v3, 0x7fffffffffffffffL
 
-    invoke-virtual {v3, p1, v4, v5}, Landroid/util/SparseLongArray;->get(IJ)J
+    invoke-virtual {p0, p1, v3, v4}, Landroid/util/SparseLongArray;->get(IJ)J
 
-    move-result-wide v3
+    move-result-wide p0
 
-    cmp-long v1, v1, v3
+    cmp-long p0, v1, p0
 
-    if-gez v1, :cond_0
+    if-gez p0, :cond_0
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 p0, 0x0
 
     goto :goto_1
 
     :cond_1
     :goto_0
-    const/4 v1, 0x1
+    const/4 p0, 0x1
 
     :goto_1
     monitor-exit v0
 
-    return v1
+    return p0
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
-.method onUserRemoved(I)V
-    .locals 2
+.method public onUserRemoved(I)V
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/job/JobConcurrencyManager$GracePeriodObserver;->mLock:Ljava/lang/Object;
 
     monitor-enter v0
 
     :try_start_0
-    iget-object v1, p0, Lcom/android/server/job/JobConcurrencyManager$GracePeriodObserver;->mGracePeriodExpiration:Landroid/util/SparseLongArray;
+    iget-object p0, p0, Lcom/android/server/job/JobConcurrencyManager$GracePeriodObserver;->mGracePeriodExpiration:Landroid/util/SparseLongArray;
 
-    invoke-virtual {v1, p1}, Landroid/util/SparseLongArray;->delete(I)V
+    invoke-virtual {p0, p1}, Landroid/util/SparseLongArray;->delete(I)V
 
     monitor-exit v0
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
 .method public onUserSwitchComplete(I)V
@@ -214,9 +225,9 @@
     invoke-virtual {v3, v4, v0, v1}, Landroid/util/SparseLongArray;->append(IJ)V
 
     :cond_0
-    iget-object v3, p0, Lcom/android/server/job/JobConcurrencyManager$GracePeriodObserver;->mGracePeriodExpiration:Landroid/util/SparseLongArray;
+    iget-object v0, p0, Lcom/android/server/job/JobConcurrencyManager$GracePeriodObserver;->mGracePeriodExpiration:Landroid/util/SparseLongArray;
 
-    invoke-virtual {v3, p1}, Landroid/util/SparseLongArray;->delete(I)V
+    invoke-virtual {v0, p1}, Landroid/util/SparseLongArray;->delete(I)V
 
     iput p1, p0, Lcom/android/server/job/JobConcurrencyManager$GracePeriodObserver;->mCurrentUserId:I
 
@@ -225,11 +236,11 @@
     return-void
 
     :catchall_0
-    move-exception v3
+    move-exception p0
 
     monitor-exit v2
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v3
+    throw p0
 .end method

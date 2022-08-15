@@ -1,4 +1,4 @@
-.class final Lcom/android/server/gpu/GpuService$PackageReceiver;
+.class public final Lcom/android/server/gpu/GpuService$PackageReceiver;
 .super Landroid/content/BroadcastReceiver;
 .source "GpuService.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "PackageReceiver"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/gpu/GpuService;
+.field public final synthetic this$0:Lcom/android/server/gpu/GpuService;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/server/gpu/GpuService;)V
+.method public constructor <init>(Lcom/android/server/gpu/GpuService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/gpu/GpuService$PackageReceiver;->this$0:Lcom/android/server/gpu/GpuService;
@@ -29,7 +29,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/gpu/GpuService;Lcom/android/server/gpu/GpuService$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/gpu/GpuService;Lcom/android/server/gpu/GpuService$PackageReceiver-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/gpu/GpuService$PackageReceiver;-><init>(Lcom/android/server/gpu/GpuService;)V
@@ -40,127 +40,133 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 7
+    .locals 3
 
     invoke-virtual {p2}, Landroid/content/Intent;->getData()Landroid/net/Uri;
 
+    move-result-object p1
+
+    invoke-virtual {p1}, Landroid/net/Uri;->getSchemeSpecificPart()Ljava/lang/String;
+
+    move-result-object p1
+
+    iget-object v0, p0, Lcom/android/server/gpu/GpuService$PackageReceiver;->this$0:Lcom/android/server/gpu/GpuService;
+
+    invoke-static {v0}, Lcom/android/server/gpu/GpuService;->-$$Nest$fgetmProdDriverPackageName(Lcom/android/server/gpu/GpuService;)Ljava/lang/String;
+
     move-result-object v0
 
-    nop
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v0}, Landroid/net/Uri;->getSchemeSpecificPart()Ljava/lang/String;
+    move-result v0
+
+    iget-object v1, p0, Lcom/android/server/gpu/GpuService$PackageReceiver;->this$0:Lcom/android/server/gpu/GpuService;
+
+    invoke-static {v1}, Lcom/android/server/gpu/GpuService;->-$$Nest$fgetmDevDriverPackageName(Lcom/android/server/gpu/GpuService;)Ljava/lang/String;
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/android/server/gpu/GpuService$PackageReceiver;->this$0:Lcom/android/server/gpu/GpuService;
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-static {v2}, Lcom/android/server/gpu/GpuService;->access$700(Lcom/android/server/gpu/GpuService;)Ljava/lang/String;
+    move-result p1
 
-    move-result-object v2
+    if-nez v0, :cond_0
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    iget-object v3, p0, Lcom/android/server/gpu/GpuService$PackageReceiver;->this$0:Lcom/android/server/gpu/GpuService;
-
-    invoke-static {v3}, Lcom/android/server/gpu/GpuService;->access$800(Lcom/android/server/gpu/GpuService;)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-nez v2, :cond_0
-
-    if-nez v3, :cond_0
+    if-nez p1, :cond_0
 
     return-void
 
     :cond_0
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object p2
 
-    const/4 v5, -0x1
+    invoke-virtual {p2}, Ljava/lang/String;->hashCode()I
 
-    invoke-virtual {v4}, Ljava/lang/String;->hashCode()I
+    const/4 v1, -0x1
 
-    move-result v6
+    invoke-virtual {p2}, Ljava/lang/String;->hashCode()I
 
-    sparse-switch v6, :sswitch_data_0
+    move-result v2
 
-    :cond_1
+    sparse-switch v2, :sswitch_data_0
+
     goto :goto_0
 
     :sswitch_0
-    const-string v6, "android.intent.action.PACKAGE_ADDED"
+    const-string v2, "android.intent.action.PACKAGE_ADDED"
 
-    invoke-virtual {v4, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result p2
 
-    if-eqz v4, :cond_1
+    if-nez p2, :cond_1
 
-    const/4 v5, 0x0
+    goto :goto_0
+
+    :cond_1
+    const/4 v1, 0x2
 
     goto :goto_0
 
     :sswitch_1
-    const-string v6, "android.intent.action.PACKAGE_REMOVED"
+    const-string v2, "android.intent.action.PACKAGE_REMOVED"
 
-    invoke-virtual {v4, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result p2
 
-    if-eqz v4, :cond_1
+    if-nez p2, :cond_2
 
-    const/4 v5, 0x2
+    goto :goto_0
+
+    :cond_2
+    const/4 v1, 0x1
 
     goto :goto_0
 
     :sswitch_2
-    const-string v6, "android.intent.action.PACKAGE_CHANGED"
+    const-string v2, "android.intent.action.PACKAGE_CHANGED"
 
-    invoke-virtual {v4, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result p2
 
-    if-eqz v4, :cond_1
+    if-nez p2, :cond_3
 
-    const/4 v5, 0x1
+    goto :goto_0
+
+    :cond_3
+    const/4 v1, 0x0
 
     :goto_0
-    packed-switch v5, :pswitch_data_0
+    packed-switch v1, :pswitch_data_0
 
     goto :goto_1
 
     :pswitch_0
-    if-eqz v2, :cond_2
+    if-eqz v0, :cond_4
 
-    iget-object v4, p0, Lcom/android/server/gpu/GpuService$PackageReceiver;->this$0:Lcom/android/server/gpu/GpuService;
+    iget-object p1, p0, Lcom/android/server/gpu/GpuService$PackageReceiver;->this$0:Lcom/android/server/gpu/GpuService;
 
-    invoke-static {v4}, Lcom/android/server/gpu/GpuService;->access$900(Lcom/android/server/gpu/GpuService;)V
+    invoke-static {p1}, Lcom/android/server/gpu/GpuService;->-$$Nest$mfetchProductionDriverPackageProperties(Lcom/android/server/gpu/GpuService;)V
 
-    iget-object v4, p0, Lcom/android/server/gpu/GpuService$PackageReceiver;->this$0:Lcom/android/server/gpu/GpuService;
+    iget-object p0, p0, Lcom/android/server/gpu/GpuService$PackageReceiver;->this$0:Lcom/android/server/gpu/GpuService;
 
-    invoke-static {v4}, Lcom/android/server/gpu/GpuService;->access$300(Lcom/android/server/gpu/GpuService;)V
+    invoke-static {p0}, Lcom/android/server/gpu/GpuService;->-$$Nest$msetDenylist(Lcom/android/server/gpu/GpuService;)V
 
     goto :goto_1
 
-    :cond_2
-    if-eqz v3, :cond_3
+    :cond_4
+    if-eqz p1, :cond_5
 
-    iget-object v4, p0, Lcom/android/server/gpu/GpuService$PackageReceiver;->this$0:Lcom/android/server/gpu/GpuService;
+    iget-object p0, p0, Lcom/android/server/gpu/GpuService$PackageReceiver;->this$0:Lcom/android/server/gpu/GpuService;
 
-    invoke-static {v4}, Lcom/android/server/gpu/GpuService;->access$1000(Lcom/android/server/gpu/GpuService;)V
+    invoke-static {p0}, Lcom/android/server/gpu/GpuService;->-$$Nest$mfetchPrereleaseDriverPackageProperties(Lcom/android/server/gpu/GpuService;)V
 
-    :cond_3
+    :cond_5
     :goto_1
     return-void
-
-    nop
 
     :sswitch_data_0
     .sparse-switch

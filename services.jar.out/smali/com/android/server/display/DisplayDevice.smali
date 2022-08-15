@@ -1,35 +1,55 @@
-.class abstract Lcom/android/server/display/DisplayDevice;
+.class public abstract Lcom/android/server/display/DisplayDevice;
 .super Ljava/lang/Object;
 .source "DisplayDevice.java"
 
 
+# static fields
+.field public static final EMPTY_DISPLAY_MODE:Landroid/view/Display$Mode;
+
+
 # instance fields
-.field private final mContext:Landroid/content/Context;
+.field public final mContext:Landroid/content/Context;
 
-.field private mCurrentDisplayRect:Landroid/graphics/Rect;
+.field public mCurrentDisplayRect:Landroid/graphics/Rect;
 
-.field private mCurrentFlags:I
+.field public mCurrentFlags:I
 
-.field private mCurrentLayerStack:I
+.field public mCurrentLayerStack:I
 
-.field private mCurrentLayerStackRect:Landroid/graphics/Rect;
+.field public mCurrentLayerStackRect:Landroid/graphics/Rect;
 
-.field private mCurrentOrientation:I
+.field public mCurrentOrientation:I
 
-.field private mCurrentSurface:Landroid/view/Surface;
+.field public mCurrentSurface:Landroid/view/Surface;
 
-.field mDebugLastLoggedDeviceInfo:Lcom/android/server/display/DisplayDeviceInfo;
+.field public mDebugLastLoggedDeviceInfo:Lcom/android/server/display/DisplayDeviceInfo;
 
-.field private final mDisplayAdapter:Lcom/android/server/display/DisplayAdapter;
+.field public final mDisplayAdapter:Lcom/android/server/display/DisplayAdapter;
 
-.field protected mDisplayDeviceConfig:Lcom/android/server/display/DisplayDeviceConfig;
+.field public mDisplayDeviceConfig:Lcom/android/server/display/DisplayDeviceConfig;
 
-.field private final mDisplayToken:Landroid/os/IBinder;
+.field public final mDisplayToken:Landroid/os/IBinder;
 
-.field private final mUniqueId:Ljava/lang/String;
+.field public final mUniqueId:Ljava/lang/String;
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    new-instance v0, Landroid/view/Display$Mode$Builder;
+
+    invoke-direct {v0}, Landroid/view/Display$Mode$Builder;-><init>()V
+
+    invoke-virtual {v0}, Landroid/view/Display$Mode$Builder;->build()Landroid/view/Display$Mode;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/android/server/display/DisplayDevice;->EMPTY_DISPLAY_MODE:Landroid/view/Display$Mode;
+
+    return-void
+.end method
+
 .method public constructor <init>(Lcom/android/server/display/DisplayAdapter;Landroid/os/IBinder;Ljava/lang/String;Landroid/content/Context;)V
     .locals 2
 
@@ -51,27 +71,13 @@
 
     iput-object p3, p0, Lcom/android/server/display/DisplayDevice;->mUniqueId:Ljava/lang/String;
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput-object v0, p0, Lcom/android/server/display/DisplayDevice;->mDisplayDeviceConfig:Lcom/android/server/display/DisplayDeviceConfig;
+    iput-object p1, p0, Lcom/android/server/display/DisplayDevice;->mDisplayDeviceConfig:Lcom/android/server/display/DisplayDeviceConfig;
 
     iput-object p4, p0, Lcom/android/server/display/DisplayDevice;->mContext:Landroid/content/Context;
 
     return-void
-.end method
-
-.method private loadDisplayDeviceConfig()Lcom/android/server/display/DisplayDeviceConfig;
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/server/display/DisplayDevice;->mContext:Landroid/content/Context;
-
-    const/4 v1, 0x0
-
-    invoke-static {v0, v1}, Lcom/android/server/display/DisplayDeviceConfig;->create(Landroid/content/Context;Z)Lcom/android/server/display/DisplayDeviceConfig;
-
-    move-result-object v0
-
-    return-object v0
 .end method
 
 
@@ -89,7 +95,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v1, "mAdapter="
+    const-string v1, "mAdapter="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -241,25 +247,25 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lcom/android/server/display/DisplayDevice;->mCurrentSurface:Landroid/view/Surface;
+    iget-object p0, p0, Lcom/android/server/display/DisplayDevice;->mCurrentSurface:Landroid/view/Surface;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p1, p0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     return-void
 .end method
 
-.method public final getAdapterLocked()Lcom/android/server/display/DisplayAdapter;
-    .locals 1
+.method public getActiveDisplayModeAtStartLocked()Landroid/view/Display$Mode;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/display/DisplayDevice;->mDisplayAdapter:Lcom/android/server/display/DisplayAdapter;
+    sget-object p0, Lcom/android/server/display/DisplayDevice;->EMPTY_DISPLAY_MODE:Landroid/view/Display$Mode;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getDisplayDeviceConfig()Lcom/android/server/display/DisplayDeviceConfig;
@@ -269,74 +275,104 @@
 
     if-nez v0, :cond_0
 
-    invoke-direct {p0}, Lcom/android/server/display/DisplayDevice;->loadDisplayDeviceConfig()Lcom/android/server/display/DisplayDeviceConfig;
+    invoke-virtual {p0}, Lcom/android/server/display/DisplayDevice;->loadDisplayDeviceConfig()Lcom/android/server/display/DisplayDeviceConfig;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/server/display/DisplayDevice;->mDisplayDeviceConfig:Lcom/android/server/display/DisplayDeviceConfig;
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/display/DisplayDevice;->mDisplayDeviceConfig:Lcom/android/server/display/DisplayDeviceConfig;
+    iget-object p0, p0, Lcom/android/server/display/DisplayDevice;->mDisplayDeviceConfig:Lcom/android/server/display/DisplayDeviceConfig;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public abstract getDisplayDeviceInfoLocked()Lcom/android/server/display/DisplayDeviceInfo;
 .end method
 
 .method public getDisplayIdToMirrorLocked()I
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
-.method public getDisplaySurfaceDefaultSize()Landroid/graphics/Point;
-    .locals 1
+.method public getDisplaySurfaceDefaultSizeLocked()Landroid/graphics/Point;
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public final getDisplayTokenLocked()Landroid/os/IBinder;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/display/DisplayDevice;->mDisplayToken:Landroid/os/IBinder;
+    iget-object p0, p0, Lcom/android/server/display/DisplayDevice;->mDisplayToken:Landroid/os/IBinder;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public final getNameLocked()Ljava/lang/String;
-    .locals 1
+    .locals 0
 
     invoke-virtual {p0}, Lcom/android/server/display/DisplayDevice;->getDisplayDeviceInfoLocked()Lcom/android/server/display/DisplayDeviceInfo;
 
-    move-result-object v0
+    move-result-object p0
 
-    iget-object v0, v0, Lcom/android/server/display/DisplayDeviceInfo;->name:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/display/DisplayDeviceInfo;->name:Ljava/lang/String;
 
-    return-object v0
+    return-object p0
+.end method
+
+.method public getSystemPreferredDisplayModeLocked()Landroid/view/Display$Mode;
+    .locals 0
+
+    sget-object p0, Lcom/android/server/display/DisplayDevice;->EMPTY_DISPLAY_MODE:Landroid/view/Display$Mode;
+
+    return-object p0
 .end method
 
 .method public final getUniqueId()Ljava/lang/String;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/display/DisplayDevice;->mUniqueId:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/display/DisplayDevice;->mUniqueId:Ljava/lang/String;
 
-    return-object v0
+    return-object p0
 .end method
 
-.method public getWindowTokenClientToMirrorLocked()Landroid/os/IBinder;
-    .locals 1
+.method public getUserPreferredDisplayModeLocked()Landroid/view/Display$Mode;
+    .locals 0
 
-    const/4 v0, 0x0
+    sget-object p0, Lcom/android/server/display/DisplayDevice;->EMPTY_DISPLAY_MODE:Landroid/view/Display$Mode;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public abstract hasStableUniqueId()Z
+.end method
+
+.method public isWindowManagerMirroringLocked()Z
+    .locals 0
+
+    const/4 p0, 0x0
+
+    return p0
+.end method
+
+.method public final loadDisplayDeviceConfig()Lcom/android/server/display/DisplayDeviceConfig;
+    .locals 1
+
+    iget-object p0, p0, Lcom/android/server/display/DisplayDevice;->mContext:Landroid/content/Context;
+
+    const/4 v0, 0x0
+
+    invoke-static {p0, v0}, Lcom/android/server/display/DisplayDeviceConfig;->create(Landroid/content/Context;Z)Lcom/android/server/display/DisplayDeviceConfig;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method public onOverlayChangedLocked()V
@@ -362,11 +398,9 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p1, Landroid/hardware/display/DisplayViewport;->logicalFrame:Landroid/graphics/Rect;
+    iget-object v1, p1, Landroid/hardware/display/DisplayViewport;->logicalFrame:Landroid/graphics/Rect;
 
-    iget-object v1, p0, Lcom/android/server/display/DisplayDevice;->mCurrentLayerStackRect:Landroid/graphics/Rect;
-
-    invoke-virtual {v0, v1}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
+    invoke-virtual {v1, v0}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
 
     goto :goto_0
 
@@ -380,11 +414,9 @@
 
     if-eqz v0, :cond_1
 
-    iget-object v0, p1, Landroid/hardware/display/DisplayViewport;->physicalFrame:Landroid/graphics/Rect;
+    iget-object v1, p1, Landroid/hardware/display/DisplayViewport;->physicalFrame:Landroid/graphics/Rect;
 
-    iget-object v1, p0, Lcom/android/server/display/DisplayDevice;->mCurrentDisplayRect:Landroid/graphics/Rect;
-
-    invoke-virtual {v0, v1}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
+    invoke-virtual {v1, v0}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
 
     goto :goto_1
 
@@ -411,77 +443,73 @@
 
     :cond_3
     :goto_2
-    move v0, v1
-
     invoke-virtual {p0}, Lcom/android/server/display/DisplayDevice;->getDisplayDeviceInfoLocked()Lcom/android/server/display/DisplayDeviceInfo;
 
-    move-result-object v1
+    move-result-object p0
 
-    if-eqz v0, :cond_4
+    if-eqz v1, :cond_4
 
-    iget v2, v1, Lcom/android/server/display/DisplayDeviceInfo;->height:I
+    iget v0, p0, Lcom/android/server/display/DisplayDeviceInfo;->height:I
 
     goto :goto_3
 
     :cond_4
-    iget v2, v1, Lcom/android/server/display/DisplayDeviceInfo;->width:I
+    iget v0, p0, Lcom/android/server/display/DisplayDeviceInfo;->width:I
 
     :goto_3
-    iput v2, p1, Landroid/hardware/display/DisplayViewport;->deviceWidth:I
+    iput v0, p1, Landroid/hardware/display/DisplayViewport;->deviceWidth:I
 
-    if-eqz v0, :cond_5
+    if-eqz v1, :cond_5
 
-    iget v2, v1, Lcom/android/server/display/DisplayDeviceInfo;->width:I
+    iget v0, p0, Lcom/android/server/display/DisplayDeviceInfo;->width:I
 
     goto :goto_4
 
     :cond_5
-    iget v2, v1, Lcom/android/server/display/DisplayDeviceInfo;->height:I
+    iget v0, p0, Lcom/android/server/display/DisplayDeviceInfo;->height:I
 
     :goto_4
-    iput v2, p1, Landroid/hardware/display/DisplayViewport;->deviceHeight:I
+    iput v0, p1, Landroid/hardware/display/DisplayViewport;->deviceHeight:I
 
-    iget-object v2, v1, Lcom/android/server/display/DisplayDeviceInfo;->uniqueId:Ljava/lang/String;
+    iget-object v0, p0, Lcom/android/server/display/DisplayDeviceInfo;->uniqueId:Ljava/lang/String;
 
-    iput-object v2, p1, Landroid/hardware/display/DisplayViewport;->uniqueId:Ljava/lang/String;
+    iput-object v0, p1, Landroid/hardware/display/DisplayViewport;->uniqueId:Ljava/lang/String;
 
-    iget-object v2, v1, Lcom/android/server/display/DisplayDeviceInfo;->address:Landroid/view/DisplayAddress;
+    iget-object p0, p0, Lcom/android/server/display/DisplayDeviceInfo;->address:Landroid/view/DisplayAddress;
 
-    instance-of v2, v2, Landroid/view/DisplayAddress$Physical;
+    instance-of v0, p0, Landroid/view/DisplayAddress$Physical;
 
-    if-eqz v2, :cond_6
+    if-eqz v0, :cond_6
 
-    iget-object v2, v1, Lcom/android/server/display/DisplayDeviceInfo;->address:Landroid/view/DisplayAddress;
+    check-cast p0, Landroid/view/DisplayAddress$Physical;
 
-    check-cast v2, Landroid/view/DisplayAddress$Physical;
+    invoke-virtual {p0}, Landroid/view/DisplayAddress$Physical;->getPort()I
 
-    invoke-virtual {v2}, Landroid/view/DisplayAddress$Physical;->getPort()I
+    move-result p0
 
-    move-result v2
+    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object p0
 
-    move-result-object v2
-
-    iput-object v2, p1, Landroid/hardware/display/DisplayViewport;->physicalPort:Ljava/lang/Integer;
+    iput-object p0, p1, Landroid/hardware/display/DisplayViewport;->physicalPort:Ljava/lang/Integer;
 
     goto :goto_5
 
     :cond_6
-    const/4 v2, 0x0
+    const/4 p0, 0x0
 
-    iput-object v2, p1, Landroid/hardware/display/DisplayViewport;->physicalPort:Ljava/lang/Integer;
+    iput-object p0, p1, Landroid/hardware/display/DisplayViewport;->physicalPort:Ljava/lang/Integer;
 
     :goto_5
     return-void
 .end method
 
 .method public requestDisplayStateLocked(IFF)Ljava/lang/Runnable;
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public setAutoLowLatencyModeLocked(Z)V
@@ -505,9 +533,9 @@
 
     iput p2, p0, Lcom/android/server/display/DisplayDevice;->mCurrentFlags:I
 
-    iget-object v0, p0, Lcom/android/server/display/DisplayDevice;->mDisplayToken:Landroid/os/IBinder;
+    iget-object p0, p0, Lcom/android/server/display/DisplayDevice;->mDisplayToken:Landroid/os/IBinder;
 
-    invoke-virtual {p1, v0, p2}, Landroid/view/SurfaceControl$Transaction;->setDisplayFlags(Landroid/os/IBinder;I)Landroid/view/SurfaceControl$Transaction;
+    invoke-virtual {p1, p0, p2}, Landroid/view/SurfaceControl$Transaction;->setDisplayFlags(Landroid/os/IBinder;I)Landroid/view/SurfaceControl$Transaction;
 
     :cond_0
     return-void
@@ -528,9 +556,9 @@
 
     iput p2, p0, Lcom/android/server/display/DisplayDevice;->mCurrentLayerStack:I
 
-    iget-object v0, p0, Lcom/android/server/display/DisplayDevice;->mDisplayToken:Landroid/os/IBinder;
+    iget-object p0, p0, Lcom/android/server/display/DisplayDevice;->mDisplayToken:Landroid/os/IBinder;
 
-    invoke-virtual {p1, v0, p2}, Landroid/view/SurfaceControl$Transaction;->setDisplayLayerStack(Landroid/os/IBinder;I)Landroid/view/SurfaceControl$Transaction;
+    invoke-virtual {p1, p0, p2}, Landroid/view/SurfaceControl$Transaction;->setDisplayLayerStack(Landroid/os/IBinder;I)Landroid/view/SurfaceControl$Transaction;
 
     :cond_0
     return-void
@@ -596,9 +624,9 @@
 
     invoke-virtual {v0, p4}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
 
-    iget-object v0, p0, Lcom/android/server/display/DisplayDevice;->mDisplayToken:Landroid/os/IBinder;
+    iget-object p0, p0, Lcom/android/server/display/DisplayDevice;->mDisplayToken:Landroid/os/IBinder;
 
-    invoke-virtual {p1, v0, p2, p3, p4}, Landroid/view/SurfaceControl$Transaction;->setDisplayProjection(Landroid/os/IBinder;ILandroid/graphics/Rect;Landroid/graphics/Rect;)Landroid/view/SurfaceControl$Transaction;
+    invoke-virtual {p1, p0, p2, p3, p4}, Landroid/view/SurfaceControl$Transaction;->setDisplayProjection(Landroid/os/IBinder;ILandroid/graphics/Rect;Landroid/graphics/Rect;)Landroid/view/SurfaceControl$Transaction;
 
     :cond_3
     return-void
@@ -619,15 +647,21 @@
 
     iput-object p2, p0, Lcom/android/server/display/DisplayDevice;->mCurrentSurface:Landroid/view/Surface;
 
-    iget-object v0, p0, Lcom/android/server/display/DisplayDevice;->mDisplayToken:Landroid/os/IBinder;
+    iget-object p0, p0, Lcom/android/server/display/DisplayDevice;->mDisplayToken:Landroid/os/IBinder;
 
-    invoke-virtual {p1, v0, p2}, Landroid/view/SurfaceControl$Transaction;->setDisplaySurface(Landroid/os/IBinder;Landroid/view/Surface;)Landroid/view/SurfaceControl$Transaction;
+    invoke-virtual {p1, p0, p2}, Landroid/view/SurfaceControl$Transaction;->setDisplaySurface(Landroid/os/IBinder;Landroid/view/Surface;)Landroid/view/SurfaceControl$Transaction;
 
     :cond_0
     return-void
 .end method
 
-.method public setWindowTokenClientToMirrorLocked(Landroid/os/IBinder;)V
+.method public setUserPreferredDisplayModeLocked(Landroid/view/Display$Mode;)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public setWindowManagerMirroringLocked(Z)V
     .locals 0
 
     return-void

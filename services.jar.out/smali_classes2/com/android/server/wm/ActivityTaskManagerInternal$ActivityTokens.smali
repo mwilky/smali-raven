@@ -15,19 +15,21 @@
 
 
 # instance fields
-.field private final mActivityToken:Landroid/os/IBinder;
+.field public final mActivityToken:Landroid/os/IBinder;
 
-.field private final mAppThread:Landroid/app/IApplicationThread;
+.field public final mAppThread:Landroid/app/IApplicationThread;
 
-.field private final mAssistToken:Landroid/os/IBinder;
+.field public final mAssistToken:Landroid/os/IBinder;
 
-.field private final mShareableActivityToken:Landroid/os/IBinder;
+.field public final mShareableActivityToken:Landroid/os/IBinder;
 
-.field final synthetic this$0:Lcom/android/server/wm/ActivityTaskManagerInternal;
+.field public final mUid:I
+
+.field public final synthetic this$0:Lcom/android/server/wm/ActivityTaskManagerInternal;
 
 
 # direct methods
-.method public constructor <init>(Lcom/android/server/wm/ActivityTaskManagerInternal;Landroid/os/IBinder;Landroid/os/IBinder;Landroid/app/IApplicationThread;Landroid/os/IBinder;)V
+.method public constructor <init>(Lcom/android/server/wm/ActivityTaskManagerInternal;Landroid/os/IBinder;Landroid/os/IBinder;Landroid/app/IApplicationThread;Landroid/os/IBinder;I)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/wm/ActivityTaskManagerInternal$ActivityTokens;->this$0:Lcom/android/server/wm/ActivityTaskManagerInternal;
@@ -42,39 +44,41 @@
 
     iput-object p5, p0, Lcom/android/server/wm/ActivityTaskManagerInternal$ActivityTokens;->mShareableActivityToken:Landroid/os/IBinder;
 
+    iput p6, p0, Lcom/android/server/wm/ActivityTaskManagerInternal$ActivityTokens;->mUid:I
+
     return-void
 .end method
 
 
 # virtual methods
 .method public getActivityToken()Landroid/os/IBinder;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/ActivityTaskManagerInternal$ActivityTokens;->mActivityToken:Landroid/os/IBinder;
+    iget-object p0, p0, Lcom/android/server/wm/ActivityTaskManagerInternal$ActivityTokens;->mActivityToken:Landroid/os/IBinder;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getApplicationThread()Landroid/app/IApplicationThread;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/ActivityTaskManagerInternal$ActivityTokens;->mAppThread:Landroid/app/IApplicationThread;
+    iget-object p0, p0, Lcom/android/server/wm/ActivityTaskManagerInternal$ActivityTokens;->mAppThread:Landroid/app/IApplicationThread;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getAssistToken()Landroid/os/IBinder;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/ActivityTaskManagerInternal$ActivityTokens;->mAssistToken:Landroid/os/IBinder;
+    iget-object p0, p0, Lcom/android/server/wm/ActivityTaskManagerInternal$ActivityTokens;->mAssistToken:Landroid/os/IBinder;
 
-    return-object v0
+    return-object p0
 .end method
 
-.method public getShareableActivityToken()Landroid/os/IBinder;
-    .locals 1
+.method public getUid()I
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/ActivityTaskManagerInternal$ActivityTokens;->mShareableActivityToken:Landroid/os/IBinder;
+    iget p0, p0, Lcom/android/server/wm/ActivityTaskManagerInternal$ActivityTokens;->mUid:I
 
-    return-object v0
+    return p0
 .end method

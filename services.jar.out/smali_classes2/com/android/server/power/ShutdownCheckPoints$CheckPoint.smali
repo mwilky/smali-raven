@@ -1,4 +1,4 @@
-.class abstract Lcom/android/server/power/ShutdownCheckPoints$CheckPoint;
+.class public abstract Lcom/android/server/power/ShutdownCheckPoints$CheckPoint;
 .super Ljava/lang/Object;
 .source "ShutdownCheckPoints.java"
 
@@ -9,19 +9,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x40a
+    accessFlags = 0x409
     name = "CheckPoint"
 .end annotation
 
 
 # instance fields
-.field private final mReason:Ljava/lang/String;
+.field public final mReason:Ljava/lang/String;
 
-.field private final mTimestamp:J
+.field public final mTimestamp:J
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/power/ShutdownCheckPoints$Injector;Ljava/lang/String;)V
+.method public constructor <init>(Lcom/android/server/power/ShutdownCheckPoints$Injector;Ljava/lang/String;)V
     .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,7 +39,7 @@
 
 
 # virtual methods
-.method final dump(Ljava/io/PrintWriter;)V
+.method public final dump(Ljava/io/PrintWriter;)V
     .locals 4
 
     const-string v0, "Shutdown request from "
@@ -69,7 +69,7 @@
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    invoke-static {}, Lcom/android/server/power/ShutdownCheckPoints;->access$000()Ljava/text/SimpleDateFormat;
+    invoke-static {}, Lcom/android/server/power/ShutdownCheckPoints;->-$$Nest$sfgetDATE_FORMAT()Ljava/text/SimpleDateFormat;
 
     move-result-object v0
 
@@ -112,8 +112,8 @@
     return-void
 .end method
 
-.method abstract dumpDetails(Ljava/io/PrintWriter;)V
+.method public abstract dumpDetails(Ljava/io/PrintWriter;)V
 .end method
 
-.method abstract getOrigin()Ljava/lang/String;
+.method public abstract getOrigin()Ljava/lang/String;
 .end method

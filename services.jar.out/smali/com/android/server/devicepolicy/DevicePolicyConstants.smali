@@ -3,24 +3,6 @@
 .source "DevicePolicyConstants.java"
 
 
-# static fields
-.field private static final BATTERY_THRESHOLD_CHARGING_KEY:Ljava/lang/String; = "battery_threshold_charging"
-
-.field private static final BATTERY_THRESHOLD_NOT_CHARGING_KEY:Ljava/lang/String; = "battery_threshold_not_charging"
-
-.field private static final DAS_DIED_SERVICE_RECONNECT_BACKOFF_INCREASE_KEY:Ljava/lang/String; = "das_died_service_reconnect_backoff_increase"
-
-.field private static final DAS_DIED_SERVICE_RECONNECT_BACKOFF_SEC_KEY:Ljava/lang/String; = "das_died_service_reconnect_backoff_sec"
-
-.field private static final DAS_DIED_SERVICE_RECONNECT_MAX_BACKOFF_SEC_KEY:Ljava/lang/String; = "das_died_service_reconnect_max_backoff_sec"
-
-.field private static final DAS_DIED_SERVICE_STABLE_CONNECTION_THRESHOLD_SEC_KEY:Ljava/lang/String; = "das_died_service_stable_connection_threshold_sec"
-
-.field private static final TAG:Ljava/lang/String; = "DevicePolicyManager"
-
-.field private static final USE_TEST_ADMIN_AS_SUPERVISION_COMPONENT_KEY:Ljava/lang/String; = "use_test_admin_as_supervision_component"
-
-
 # instance fields
 .field public final BATTERY_THRESHOLD_CHARGING:I
 
@@ -38,8 +20,8 @@
 
 
 # direct methods
-.method private constructor <init>(Ljava/lang/String;)V
-    .locals 14
+.method public constructor <init>(Ljava/lang/String;)V
+    .locals 13
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -59,122 +41,120 @@
     goto :goto_0
 
     :catch_0
-    move-exception v2
+    const/4 v2, 0x1
 
-    const/4 v3, 0x1
+    new-array v2, v2, [Ljava/lang/Object;
 
-    new-array v3, v3, [Ljava/lang/Object;
+    aput-object p1, v2, v1
 
-    aput-object p1, v3, v1
+    const-string p1, "DevicePolicyManager"
 
-    const-string v4, "DevicePolicyManager"
+    const-string v3, "Bad device policy settings: %s"
 
-    const-string v5, "Bad device policy settings: %s"
-
-    invoke-static {v4, v5, v3}, Lcom/android/server/utils/Slogf;->e(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {p1, v3, v2}, Lcom/android/server/utils/Slogf;->e(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
 
     :goto_0
-    sget-object v2, Ljava/util/concurrent/TimeUnit;->HOURS:Ljava/util/concurrent/TimeUnit;
+    sget-object p1, Ljava/util/concurrent/TimeUnit;->HOURS:Ljava/util/concurrent/TimeUnit;
 
-    const-wide/16 v3, 0x1
+    const-wide/16 v2, 0x1
 
-    invoke-virtual {v2, v3, v4}, Ljava/util/concurrent/TimeUnit;->toSeconds(J)J
+    invoke-virtual {p1, v2, v3}, Ljava/util/concurrent/TimeUnit;->toSeconds(J)J
 
-    move-result-wide v5
+    move-result-wide v4
 
-    const-string v2, "das_died_service_reconnect_backoff_sec"
+    const-string p1, "das_died_service_reconnect_backoff_sec"
 
-    invoke-virtual {v0, v2, v5, v6}, Landroid/util/KeyValueListParser;->getLong(Ljava/lang/String;J)J
+    invoke-virtual {v0, p1, v4, v5}, Landroid/util/KeyValueListParser;->getLong(Ljava/lang/String;J)J
 
-    move-result-wide v5
+    move-result-wide v4
 
-    const/high16 v2, 0x40000000    # 2.0f
+    const/high16 p1, 0x40000000    # 2.0f
 
-    const-string v7, "das_died_service_reconnect_backoff_increase"
+    const-string v6, "das_died_service_reconnect_backoff_increase"
 
-    invoke-virtual {v0, v7, v2}, Landroid/util/KeyValueListParser;->getFloat(Ljava/lang/String;F)F
+    invoke-virtual {v0, v6, p1}, Landroid/util/KeyValueListParser;->getFloat(Ljava/lang/String;F)F
 
-    move-result v2
+    move-result p1
 
-    float-to-double v7, v2
+    float-to-double v6, p1
 
-    sget-object v2, Ljava/util/concurrent/TimeUnit;->DAYS:Ljava/util/concurrent/TimeUnit;
+    sget-object p1, Ljava/util/concurrent/TimeUnit;->DAYS:Ljava/util/concurrent/TimeUnit;
 
-    invoke-virtual {v2, v3, v4}, Ljava/util/concurrent/TimeUnit;->toSeconds(J)J
-
-    move-result-wide v2
-
-    const-string v4, "das_died_service_reconnect_max_backoff_sec"
-
-    invoke-virtual {v0, v4, v2, v3}, Landroid/util/KeyValueListParser;->getLong(Ljava/lang/String;J)J
+    invoke-virtual {p1, v2, v3}, Ljava/util/concurrent/TimeUnit;->toSeconds(J)J
 
     move-result-wide v2
 
-    sget-object v4, Ljava/util/concurrent/TimeUnit;->MINUTES:Ljava/util/concurrent/TimeUnit;
+    const-string p1, "das_died_service_reconnect_max_backoff_sec"
 
-    const-wide/16 v9, 0x2
-
-    invoke-virtual {v4, v9, v10}, Ljava/util/concurrent/TimeUnit;->toSeconds(J)J
-
-    move-result-wide v9
-
-    const-string v4, "das_died_service_stable_connection_threshold_sec"
-
-    invoke-virtual {v0, v4, v9, v10}, Landroid/util/KeyValueListParser;->getLong(Ljava/lang/String;J)J
-
-    move-result-wide v9
-
-    const/16 v4, 0x28
-
-    const-string v11, "battery_threshold_not_charging"
-
-    invoke-virtual {v0, v11, v4}, Landroid/util/KeyValueListParser;->getInt(Ljava/lang/String;I)I
-
-    move-result v4
-
-    const/16 v11, 0x14
-
-    const-string v12, "battery_threshold_charging"
-
-    invoke-virtual {v0, v12, v11}, Landroid/util/KeyValueListParser;->getInt(Ljava/lang/String;I)I
-
-    move-result v11
-
-    const-string/jumbo v12, "use_test_admin_as_supervision_component"
-
-    invoke-virtual {v0, v12, v1}, Landroid/util/KeyValueListParser;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v1
-
-    const-wide/16 v12, 0x5
-
-    invoke-static {v12, v13, v5, v6}, Ljava/lang/Math;->max(JJ)J
-
-    move-result-wide v5
-
-    const-wide/high16 v12, 0x3ff0000000000000L    # 1.0
-
-    invoke-static {v12, v13, v7, v8}, Ljava/lang/Math;->max(DD)D
-
-    move-result-wide v7
-
-    invoke-static {v5, v6, v2, v3}, Ljava/lang/Math;->max(JJ)J
+    invoke-virtual {v0, p1, v2, v3}, Landroid/util/KeyValueListParser;->getLong(Ljava/lang/String;J)J
 
     move-result-wide v2
 
-    iput-wide v5, p0, Lcom/android/server/devicepolicy/DevicePolicyConstants;->DAS_DIED_SERVICE_RECONNECT_BACKOFF_SEC:J
+    sget-object p1, Ljava/util/concurrent/TimeUnit;->MINUTES:Ljava/util/concurrent/TimeUnit;
 
-    iput-wide v7, p0, Lcom/android/server/devicepolicy/DevicePolicyConstants;->DAS_DIED_SERVICE_RECONNECT_BACKOFF_INCREASE:D
+    const-wide/16 v8, 0x2
 
-    iput-wide v2, p0, Lcom/android/server/devicepolicy/DevicePolicyConstants;->DAS_DIED_SERVICE_RECONNECT_MAX_BACKOFF_SEC:J
+    invoke-virtual {p1, v8, v9}, Ljava/util/concurrent/TimeUnit;->toSeconds(J)J
 
-    iput-wide v9, p0, Lcom/android/server/devicepolicy/DevicePolicyConstants;->DAS_DIED_SERVICE_STABLE_CONNECTION_THRESHOLD_SEC:J
+    move-result-wide v8
 
-    iput v4, p0, Lcom/android/server/devicepolicy/DevicePolicyConstants;->BATTERY_THRESHOLD_NOT_CHARGING:I
+    const-string p1, "das_died_service_stable_connection_threshold_sec"
 
-    iput v11, p0, Lcom/android/server/devicepolicy/DevicePolicyConstants;->BATTERY_THRESHOLD_CHARGING:I
+    invoke-virtual {v0, p1, v8, v9}, Landroid/util/KeyValueListParser;->getLong(Ljava/lang/String;J)J
 
-    iput-boolean v1, p0, Lcom/android/server/devicepolicy/DevicePolicyConstants;->USE_TEST_ADMIN_AS_SUPERVISION_COMPONENT:Z
+    move-result-wide v8
+
+    const/16 p1, 0x28
+
+    const-string v10, "battery_threshold_not_charging"
+
+    invoke-virtual {v0, v10, p1}, Landroid/util/KeyValueListParser;->getInt(Ljava/lang/String;I)I
+
+    move-result p1
+
+    const/16 v10, 0x14
+
+    const-string v11, "battery_threshold_charging"
+
+    invoke-virtual {v0, v11, v10}, Landroid/util/KeyValueListParser;->getInt(Ljava/lang/String;I)I
+
+    move-result v10
+
+    const-string/jumbo v11, "use_test_admin_as_supervision_component"
+
+    invoke-virtual {v0, v11, v1}, Landroid/util/KeyValueListParser;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v0
+
+    const-wide/16 v11, 0x5
+
+    invoke-static {v11, v12, v4, v5}, Ljava/lang/Math;->max(JJ)J
+
+    move-result-wide v4
+
+    const-wide/high16 v11, 0x3ff0000000000000L    # 1.0
+
+    invoke-static {v11, v12, v6, v7}, Ljava/lang/Math;->max(DD)D
+
+    move-result-wide v6
+
+    invoke-static {v4, v5, v2, v3}, Ljava/lang/Math;->max(JJ)J
+
+    move-result-wide v1
+
+    iput-wide v4, p0, Lcom/android/server/devicepolicy/DevicePolicyConstants;->DAS_DIED_SERVICE_RECONNECT_BACKOFF_SEC:J
+
+    iput-wide v6, p0, Lcom/android/server/devicepolicy/DevicePolicyConstants;->DAS_DIED_SERVICE_RECONNECT_BACKOFF_INCREASE:D
+
+    iput-wide v1, p0, Lcom/android/server/devicepolicy/DevicePolicyConstants;->DAS_DIED_SERVICE_RECONNECT_MAX_BACKOFF_SEC:J
+
+    iput-wide v8, p0, Lcom/android/server/devicepolicy/DevicePolicyConstants;->DAS_DIED_SERVICE_STABLE_CONNECTION_THRESHOLD_SEC:J
+
+    iput p1, p0, Lcom/android/server/devicepolicy/DevicePolicyConstants;->BATTERY_THRESHOLD_NOT_CHARGING:I
+
+    iput v10, p0, Lcom/android/server/devicepolicy/DevicePolicyConstants;->BATTERY_THRESHOLD_CHARGING:I
+
+    iput-boolean v0, p0, Lcom/android/server/devicepolicy/DevicePolicyConstants;->USE_TEST_ADMIN_AS_SUPERVISION_COMPONENT:Z
 
     return-void
 .end method

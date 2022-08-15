@@ -3,18 +3,14 @@
 .source "UsbACMixerUnit.java"
 
 
-# static fields
-.field private static final TAG:Ljava/lang/String; = "UsbACMixerUnit"
-
-
 # instance fields
-.field protected mInputIDs:[B
+.field public mInputIDs:[B
 
-.field protected mNumInputs:B
+.field public mNumInputs:B
 
-.field protected mNumOutputs:B
+.field public mNumOutputs:B
 
-.field protected mUnitID:B
+.field public mUnitID:B
 
 
 # direct methods
@@ -26,50 +22,50 @@
     return-void
 .end method
 
-.method protected static calcControlArraySize(II)I
-    .locals 2
+.method public static calcControlArraySize(II)I
+    .locals 0
 
-    mul-int v0, p0, p1
+    mul-int/2addr p0, p1
 
-    add-int/lit8 v1, v0, 0x7
+    add-int/lit8 p0, p0, 0x7
 
-    div-int/lit8 v1, v1, 0x8
+    div-int/lit8 p0, p0, 0x8
 
-    return v1
+    return p0
 .end method
 
 
 # virtual methods
 .method public getInputIDs()[B
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/usb/descriptors/UsbACMixerUnit;->mInputIDs:[B
+    iget-object p0, p0, Lcom/android/server/usb/descriptors/UsbACMixerUnit;->mInputIDs:[B
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getNumInputs()B
-    .locals 1
+    .locals 0
 
-    iget-byte v0, p0, Lcom/android/server/usb/descriptors/UsbACMixerUnit;->mNumInputs:B
+    iget-byte p0, p0, Lcom/android/server/usb/descriptors/UsbACMixerUnit;->mNumInputs:B
 
-    return v0
+    return p0
 .end method
 
 .method public getNumOutputs()B
-    .locals 1
+    .locals 0
 
-    iget-byte v0, p0, Lcom/android/server/usb/descriptors/UsbACMixerUnit;->mNumOutputs:B
+    iget-byte p0, p0, Lcom/android/server/usb/descriptors/UsbACMixerUnit;->mNumOutputs:B
 
-    return v0
+    return p0
 .end method
 
 .method public getUnitID()B
-    .locals 1
+    .locals 0
 
-    iget-byte v0, p0, Lcom/android/server/usb/descriptors/UsbACMixerUnit;->mUnitID:B
+    iget-byte p0, p0, Lcom/android/server/usb/descriptors/UsbACMixerUnit;->mUnitID:B
 
-    return v0
+    return p0
 .end method
 
 .method public parseRawDescriptors(Lcom/android/server/usb/descriptors/ByteStream;)I
@@ -113,11 +109,11 @@
     :cond_0
     invoke-virtual {p1}, Lcom/android/server/usb/descriptors/ByteStream;->getByte()B
 
-    move-result v0
+    move-result p1
 
-    iput-byte v0, p0, Lcom/android/server/usb/descriptors/UsbACMixerUnit;->mNumOutputs:B
+    iput-byte p1, p0, Lcom/android/server/usb/descriptors/UsbACMixerUnit;->mNumOutputs:B
 
-    iget v0, p0, Lcom/android/server/usb/descriptors/UsbACMixerUnit;->mLength:I
+    iget p0, p0, Lcom/android/server/usb/descriptors/UsbDescriptor;->mLength:I
 
-    return v0
+    return p0
 .end method

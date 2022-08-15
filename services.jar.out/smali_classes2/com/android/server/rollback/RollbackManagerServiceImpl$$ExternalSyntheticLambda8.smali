@@ -1,39 +1,36 @@
 .class public final synthetic Lcom/android/server/rollback/RollbackManagerServiceImpl$$ExternalSyntheticLambda8;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Ljava/util/function/Supplier;
 
 
 # instance fields
 .field public final synthetic f$0:Lcom/android/server/rollback/RollbackManagerServiceImpl;
 
-.field public final synthetic f$1:J
-
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/rollback/RollbackManagerServiceImpl;J)V
+.method public synthetic constructor <init>(Lcom/android/server/rollback/RollbackManagerServiceImpl;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/server/rollback/RollbackManagerServiceImpl$$ExternalSyntheticLambda8;->f$0:Lcom/android/server/rollback/RollbackManagerServiceImpl;
 
-    iput-wide p2, p0, Lcom/android/server/rollback/RollbackManagerServiceImpl$$ExternalSyntheticLambda8;->f$1:J
-
     return-void
 .end method
 
 
 # virtual methods
-.method public final run()V
-    .locals 3
+.method public final get()Ljava/lang/Object;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/rollback/RollbackManagerServiceImpl$$ExternalSyntheticLambda8;->f$0:Lcom/android/server/rollback/RollbackManagerServiceImpl;
+    iget-object p0, p0, Lcom/android/server/rollback/RollbackManagerServiceImpl$$ExternalSyntheticLambda8;->f$0:Lcom/android/server/rollback/RollbackManagerServiceImpl;
 
-    iget-wide v1, p0, Lcom/android/server/rollback/RollbackManagerServiceImpl$$ExternalSyntheticLambda8;->f$1:J
+    invoke-static {p0}, Lcom/android/server/rollback/RollbackManagerServiceImpl;->$r8$lambda$M06rMb-Fp2NMnqkrNkxASgAG7eQ(Lcom/android/server/rollback/RollbackManagerServiceImpl;)Landroid/content/pm/ParceledListSlice;
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/rollback/RollbackManagerServiceImpl;->lambda$queueSleepIfNeeded$7$RollbackManagerServiceImpl(J)V
+    move-result-object p0
 
-    return-void
+    return-object p0
 .end method

@@ -1,4 +1,4 @@
-.class Lcom/android/server/print/RemotePrintService$7;
+.class public Lcom/android/server/print/RemotePrintService$7;
 .super Ljava/lang/Object;
 .source "RemotePrintService.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/print/RemotePrintService;
+.field public final synthetic this$0:Lcom/android/server/print/RemotePrintService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/print/RemotePrintService;)V
+.method public constructor <init>(Lcom/android/server/print/RemotePrintService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/print/RemotePrintService$7;->this$0:Lcom/android/server/print/RemotePrintService;
@@ -35,11 +35,11 @@
 
 # virtual methods
 .method public run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/print/RemotePrintService$7;->this$0:Lcom/android/server/print/RemotePrintService;
+    iget-object p0, p0, Lcom/android/server/print/RemotePrintService$7;->this$0:Lcom/android/server/print/RemotePrintService;
 
-    invoke-static {v0}, Lcom/android/server/print/RemotePrintService;->access$700(Lcom/android/server/print/RemotePrintService;)V
+    invoke-static {p0}, Lcom/android/server/print/RemotePrintService;->-$$Nest$mhandleStopPrinterDiscovery(Lcom/android/server/print/RemotePrintService;)V
 
     return-void
 .end method

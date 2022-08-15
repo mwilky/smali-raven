@@ -9,67 +9,63 @@
 
 
 # static fields
-.field private static final ACTION_BURN_IN_PROTECTION:Ljava/lang/String; = "android.internal.policy.action.BURN_IN_PROTECTION"
+.field public static final BURNIN_PROTECTION_FIRST_WAKEUP_INTERVAL_MS:J
 
-.field private static final BURNIN_PROTECTION_FIRST_WAKEUP_INTERVAL_MS:J
+.field public static final BURNIN_PROTECTION_MINIMAL_INTERVAL_MS:J
 
-.field private static final BURNIN_PROTECTION_MINIMAL_INTERVAL_MS:J
-
-.field private static final BURNIN_PROTECTION_SUBSEQUENT_WAKEUP_INTERVAL_MS:J
-
-.field public static final BURN_IN_MAX_RADIUS_DEFAULT:I = -0x1
-
-.field private static final BURN_IN_SHIFT_STEP:I = 0x2
-
-.field private static final CENTERING_ANIMATION_DURATION_MS:J = 0x64L
-
-.field private static final DEBUG:Z = false
-
-.field private static final TAG:Ljava/lang/String; = "BurnInProtection"
+.field public static final BURNIN_PROTECTION_SUBSEQUENT_WAKEUP_INTERVAL_MS:J
 
 
 # instance fields
-.field private final mAlarmManager:Landroid/app/AlarmManager;
+.field public final mAlarmManager:Landroid/app/AlarmManager;
 
-.field private mAppliedBurnInXOffset:I
+.field public mAppliedBurnInXOffset:I
 
-.field private mAppliedBurnInYOffset:I
+.field public mAppliedBurnInYOffset:I
 
-.field private mBurnInProtectionActive:Z
+.field public mBurnInProtectionActive:Z
 
-.field private final mBurnInProtectionIntent:Landroid/app/PendingIntent;
+.field public final mBurnInProtectionIntent:Landroid/app/PendingIntent;
 
-.field private mBurnInProtectionReceiver:Landroid/content/BroadcastReceiver;
+.field public mBurnInProtectionReceiver:Landroid/content/BroadcastReceiver;
 
-.field private final mBurnInRadiusMaxSquared:I
+.field public final mBurnInRadiusMaxSquared:I
 
-.field private final mCenteringAnimator:Landroid/animation/ValueAnimator;
+.field public final mCenteringAnimator:Landroid/animation/ValueAnimator;
 
-.field private final mDisplay:Landroid/view/Display;
+.field public final mDisplay:Landroid/view/Display;
 
-.field private final mDisplayManagerInternal:Landroid/hardware/display/DisplayManagerInternal;
+.field public final mDisplayManagerInternal:Landroid/hardware/display/DisplayManagerInternal;
 
-.field private mFirstUpdate:Z
+.field public mFirstUpdate:Z
 
-.field private mLastBurnInXOffset:I
+.field public mLastBurnInXOffset:I
 
-.field private mLastBurnInYOffset:I
+.field public mLastBurnInYOffset:I
 
-.field private final mMaxHorizontalBurnInOffset:I
+.field public final mMaxHorizontalBurnInOffset:I
 
-.field private final mMaxVerticalBurnInOffset:I
+.field public final mMaxVerticalBurnInOffset:I
 
-.field private final mMinHorizontalBurnInOffset:I
+.field public final mMinHorizontalBurnInOffset:I
 
-.field private final mMinVerticalBurnInOffset:I
+.field public final mMinVerticalBurnInOffset:I
 
-.field private mXOffsetDirection:I
+.field public mXOffsetDirection:I
 
-.field private mYOffsetDirection:I
+.field public mYOffsetDirection:I
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static bridge synthetic -$$Nest$mupdateBurnInProtection(Lcom/android/server/policy/BurnInProtectionHelper;)V
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/server/policy/BurnInProtectionHelper;->updateBurnInProtection()V
+
+    return-void
+.end method
+
+.method public static constructor <clinit>()V
     .locals 3
 
     sget-object v0, Ljava/util/concurrent/TimeUnit;->MINUTES:Ljava/util/concurrent/TimeUnit;
@@ -78,11 +74,9 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/concurrent/TimeUnit;->toMillis(J)J
 
-    move-result-wide v0
+    move-result-wide v1
 
-    sput-wide v0, Lcom/android/server/policy/BurnInProtectionHelper;->BURNIN_PROTECTION_FIRST_WAKEUP_INTERVAL_MS:J
-
-    sget-object v0, Ljava/util/concurrent/TimeUnit;->MINUTES:Ljava/util/concurrent/TimeUnit;
+    sput-wide v1, Lcom/android/server/policy/BurnInProtectionHelper;->BURNIN_PROTECTION_FIRST_WAKEUP_INTERVAL_MS:J
 
     const-wide/16 v1, 0x2
 
@@ -106,7 +100,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;IIIII)V
-    .locals 5
+    .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -140,117 +134,115 @@
 
     iput p5, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mMaxVerticalBurnInOffset:I
 
-    const/4 v1, -0x1
+    const/4 p2, -0x1
 
-    if-eq p6, v1, :cond_0
+    if-eq p6, p2, :cond_0
 
-    mul-int v1, p6, p6
+    mul-int/2addr p6, p6
 
-    iput v1, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mBurnInRadiusMaxSquared:I
+    iput p6, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mBurnInRadiusMaxSquared:I
 
     goto :goto_0
 
     :cond_0
-    iput v1, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mBurnInRadiusMaxSquared:I
+    iput p2, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mBurnInRadiusMaxSquared:I
 
     :goto_0
-    const-class v1, Landroid/hardware/display/DisplayManagerInternal;
+    const-class p2, Landroid/hardware/display/DisplayManagerInternal;
 
-    invoke-static {v1}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-static {p2}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p2
 
-    check-cast v1, Landroid/hardware/display/DisplayManagerInternal;
+    check-cast p2, Landroid/hardware/display/DisplayManagerInternal;
 
-    iput-object v1, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mDisplayManagerInternal:Landroid/hardware/display/DisplayManagerInternal;
+    iput-object p2, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mDisplayManagerInternal:Landroid/hardware/display/DisplayManagerInternal;
 
-    const-string v1, "alarm"
+    const-string p2, "alarm"
 
-    invoke-virtual {p1, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p1, p2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p2
 
-    check-cast v1, Landroid/app/AlarmManager;
+    check-cast p2, Landroid/app/AlarmManager;
 
-    iput-object v1, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mAlarmManager:Landroid/app/AlarmManager;
+    iput-object p2, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mAlarmManager:Landroid/app/AlarmManager;
 
-    iget-object v1, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mBurnInProtectionReceiver:Landroid/content/BroadcastReceiver;
+    iget-object p2, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mBurnInProtectionReceiver:Landroid/content/BroadcastReceiver;
 
-    new-instance v2, Landroid/content/IntentFilter;
+    new-instance p3, Landroid/content/IntentFilter;
 
-    const-string v3, "android.internal.policy.action.BURN_IN_PROTECTION"
+    const-string p4, "android.internal.policy.action.BURN_IN_PROTECTION"
 
-    invoke-direct {v2, v3}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
+    invoke-direct {p3, p4}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {p1, v1, v2}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+    invoke-virtual {p1, p2, p3}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    new-instance v1, Landroid/content/Intent;
+    new-instance p2, Landroid/content/Intent;
 
-    invoke-direct {v1, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-direct {p2, p4}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {p1}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p3
 
-    invoke-virtual {v1, v2}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {p2, p3}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
 
-    const/high16 v2, 0x40000000    # 2.0f
+    const/high16 p3, 0x40000000    # 2.0f
 
-    invoke-virtual {v1, v2}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
+    invoke-virtual {p2, p3}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
-    const/high16 v2, 0xa000000
+    const/high16 p3, 0xa000000
 
-    invoke-static {p1, v0, v1, v2}, Landroid/app/PendingIntent;->getBroadcast(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
+    invoke-static {p1, v0, p2, p3}, Landroid/app/PendingIntent;->getBroadcast(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
 
-    move-result-object v2
+    move-result-object p2
 
-    iput-object v2, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mBurnInProtectionIntent:Landroid/app/PendingIntent;
+    iput-object p2, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mBurnInProtectionIntent:Landroid/app/PendingIntent;
 
-    nop
+    const-string p2, "display"
 
-    const-string v2, "display"
+    invoke-virtual {p1, p2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    invoke-virtual {p1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    move-result-object p1
 
-    move-result-object v2
+    check-cast p1, Landroid/hardware/display/DisplayManager;
 
-    check-cast v2, Landroid/hardware/display/DisplayManager;
+    invoke-virtual {p1, v0}, Landroid/hardware/display/DisplayManager;->getDisplay(I)Landroid/view/Display;
 
-    invoke-virtual {v2, v0}, Landroid/hardware/display/DisplayManager;->getDisplay(I)Landroid/view/Display;
+    move-result-object p2
 
-    move-result-object v0
+    iput-object p2, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mDisplay:Landroid/view/Display;
 
-    iput-object v0, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mDisplay:Landroid/view/Display;
+    const/4 p2, 0x0
 
-    const/4 v0, 0x0
+    invoke-virtual {p1, p0, p2}, Landroid/hardware/display/DisplayManager;->registerDisplayListener(Landroid/hardware/display/DisplayManager$DisplayListener;Landroid/os/Handler;)V
 
-    invoke-virtual {v2, p0, v0}, Landroid/hardware/display/DisplayManager;->registerDisplayListener(Landroid/hardware/display/DisplayManager$DisplayListener;Landroid/os/Handler;)V
+    const/4 p1, 0x2
 
-    const/4 v0, 0x2
+    new-array p1, p1, [F
 
-    new-array v0, v0, [F
+    fill-array-data p1, :array_0
 
-    fill-array-data v0, :array_0
+    invoke-static {p1}, Landroid/animation/ValueAnimator;->ofFloat([F)Landroid/animation/ValueAnimator;
 
-    invoke-static {v0}, Landroid/animation/ValueAnimator;->ofFloat([F)Landroid/animation/ValueAnimator;
+    move-result-object p1
 
-    move-result-object v0
+    iput-object p1, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mCenteringAnimator:Landroid/animation/ValueAnimator;
 
-    iput-object v0, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mCenteringAnimator:Landroid/animation/ValueAnimator;
+    const-wide/16 p2, 0x64
 
-    const-wide/16 v3, 0x64
+    invoke-virtual {p1, p2, p3}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
 
-    invoke-virtual {v0, v3, v4}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
+    new-instance p2, Landroid/view/animation/LinearInterpolator;
 
-    new-instance v3, Landroid/view/animation/LinearInterpolator;
+    invoke-direct {p2}, Landroid/view/animation/LinearInterpolator;-><init>()V
 
-    invoke-direct {v3}, Landroid/view/animation/LinearInterpolator;-><init>()V
+    invoke-virtual {p1, p2}, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
 
-    invoke-virtual {v0, v3}, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+    invoke-virtual {p1, p0}, Landroid/animation/ValueAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
-    invoke-virtual {v0, p0}, Landroid/animation/ValueAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
-
-    invoke-virtual {v0, p0}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
+    invoke-virtual {p1, p0}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
 
     return-void
 
@@ -261,16 +253,10 @@
     .end array-data
 .end method
 
-.method static synthetic access$000(Lcom/android/server/policy/BurnInProtectionHelper;)V
-    .locals 0
 
-    invoke-direct {p0}, Lcom/android/server/policy/BurnInProtectionHelper;->updateBurnInProtection()V
-
-    return-void
-.end method
-
-.method private adjustOffsets()V
-    .locals 5
+# virtual methods
+.method public final adjustOffsets()V
+    .locals 4
 
     :cond_0
     iget v0, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mXOffsetDirection:I
@@ -302,26 +288,26 @@
 
     iget v0, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mYOffsetDirection:I
 
-    mul-int/lit8 v2, v0, 0x2
+    mul-int/lit8 v1, v0, 0x2
 
-    iget v3, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mLastBurnInYOffset:I
+    iget v2, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mLastBurnInYOffset:I
 
-    add-int/2addr v3, v2
+    add-int/2addr v2, v1
 
-    iput v3, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mLastBurnInYOffset:I
+    iput v2, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mLastBurnInYOffset:I
 
-    iget v4, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mMaxVerticalBurnInOffset:I
+    iget v3, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mMaxVerticalBurnInOffset:I
 
-    if-gt v3, v4, :cond_2
+    if-gt v2, v3, :cond_2
 
-    iget v4, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mMinVerticalBurnInOffset:I
+    iget v3, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mMinVerticalBurnInOffset:I
 
-    if-ge v3, v4, :cond_3
+    if-ge v2, v3, :cond_3
 
     :cond_2
-    sub-int/2addr v3, v2
+    sub-int/2addr v2, v1
 
-    iput v3, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mLastBurnInYOffset:I
+    iput v2, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mLastBurnInYOffset:I
 
     mul-int/lit8 v0, v0, -0x1
 
@@ -350,110 +336,6 @@
     return-void
 .end method
 
-.method private updateBurnInProtection()V
-    .locals 13
-
-    iget-boolean v0, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mBurnInProtectionActive:Z
-
-    if-eqz v0, :cond_2
-
-    iget-boolean v0, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mFirstUpdate:Z
-
-    if-eqz v0, :cond_0
-
-    sget-wide v1, Lcom/android/server/policy/BurnInProtectionHelper;->BURNIN_PROTECTION_FIRST_WAKEUP_INTERVAL_MS:J
-
-    goto :goto_0
-
-    :cond_0
-    sget-wide v1, Lcom/android/server/policy/BurnInProtectionHelper;->BURNIN_PROTECTION_SUBSEQUENT_WAKEUP_INTERVAL_MS:J
-
-    :goto_0
-    nop
-
-    if-eqz v0, :cond_1
-
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mFirstUpdate:Z
-
-    goto :goto_1
-
-    :cond_1
-    invoke-direct {p0}, Lcom/android/server/policy/BurnInProtectionHelper;->adjustOffsets()V
-
-    iget v0, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mLastBurnInXOffset:I
-
-    iput v0, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mAppliedBurnInXOffset:I
-
-    iget v0, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mLastBurnInYOffset:I
-
-    iput v0, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mAppliedBurnInYOffset:I
-
-    iget-object v0, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mDisplayManagerInternal:Landroid/hardware/display/DisplayManagerInternal;
-
-    iget-object v3, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mDisplay:Landroid/view/Display;
-
-    invoke-virtual {v3}, Landroid/view/Display;->getDisplayId()I
-
-    move-result v3
-
-    iget v4, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mLastBurnInXOffset:I
-
-    iget v5, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mLastBurnInYOffset:I
-
-    invoke-virtual {v0, v3, v4, v5}, Landroid/hardware/display/DisplayManagerInternal;->setDisplayOffsets(III)V
-
-    :goto_1
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
-
-    move-result-wide v3
-
-    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
-
-    move-result-wide v5
-
-    sget-wide v7, Lcom/android/server/policy/BurnInProtectionHelper;->BURNIN_PROTECTION_MINIMAL_INTERVAL_MS:J
-
-    add-long/2addr v7, v3
-
-    rem-long v9, v7, v1
-
-    sub-long v9, v7, v9
-
-    add-long/2addr v9, v1
-
-    sub-long v7, v9, v3
-
-    add-long/2addr v7, v5
-
-    iget-object v0, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mAlarmManager:Landroid/app/AlarmManager;
-
-    const/4 v11, 0x3
-
-    iget-object v12, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mBurnInProtectionIntent:Landroid/app/PendingIntent;
-
-    invoke-virtual {v0, v11, v7, v8, v12}, Landroid/app/AlarmManager;->setExact(IJLandroid/app/PendingIntent;)V
-
-    goto :goto_2
-
-    :cond_2
-    iget-object v0, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mAlarmManager:Landroid/app/AlarmManager;
-
-    iget-object v1, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mBurnInProtectionIntent:Landroid/app/PendingIntent;
-
-    invoke-virtual {v0, v1}, Landroid/app/AlarmManager;->cancel(Landroid/app/PendingIntent;)V
-
-    iget-object v0, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mCenteringAnimator:Landroid/animation/ValueAnimator;
-
-    invoke-virtual {v0}, Landroid/animation/ValueAnimator;->start()V
-
-    :goto_2
-    return-void
-.end method
-
-
-# virtual methods
 .method public cancelBurnInProtection()V
     .locals 1
 
@@ -465,7 +347,7 @@
 
     iput-boolean v0, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mBurnInProtectionActive:Z
 
-    invoke-direct {p0}, Lcom/android/server/policy/BurnInProtectionHelper;->updateBurnInProtection()V
+    invoke-virtual {p0}, Lcom/android/server/policy/BurnInProtectionHelper;->updateBurnInProtection()V
 
     :cond_0
     return-void
@@ -496,9 +378,9 @@
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "  "
+    const-string p1, "  "
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -638,27 +520,27 @@
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, "mOfsetChangeDirections=("
+    const-string p1, "mOfsetChangeDirections=("
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v3, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mXOffsetDirection:I
+    iget p1, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mXOffsetDirection:I
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v1, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mYOffsetDirection:I
+    iget p0, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mYOffsetDirection:I
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p2, p0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     return-void
 .end method
@@ -670,31 +552,31 @@
 .end method
 
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 3
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mCenteringAnimator:Landroid/animation/ValueAnimator;
 
     if-ne p1, v0, :cond_0
 
-    iget-boolean v0, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mBurnInProtectionActive:Z
+    iget-boolean p1, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mBurnInProtectionActive:Z
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput v0, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mAppliedBurnInXOffset:I
+    iput p1, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mAppliedBurnInXOffset:I
 
-    iput v0, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mAppliedBurnInYOffset:I
+    iput p1, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mAppliedBurnInYOffset:I
 
-    iget-object v1, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mDisplayManagerInternal:Landroid/hardware/display/DisplayManagerInternal;
+    iget-object v0, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mDisplayManagerInternal:Landroid/hardware/display/DisplayManagerInternal;
 
-    iget-object v2, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mDisplay:Landroid/view/Display;
+    iget-object p0, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mDisplay:Landroid/view/Display;
 
-    invoke-virtual {v2}, Landroid/view/Display;->getDisplayId()I
+    invoke-virtual {p0}, Landroid/view/Display;->getDisplayId()I
 
-    move-result v2
+    move-result p0
 
-    invoke-virtual {v1, v2, v0, v0}, Landroid/hardware/display/DisplayManagerInternal;->setDisplayOffsets(III)V
+    invoke-virtual {v0, p0, p1, p1}, Landroid/hardware/display/DisplayManagerInternal;->setDisplayOffsets(III)V
 
     :cond_0
     return-void
@@ -713,7 +595,7 @@
 .end method
 
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 5
+    .locals 3
 
     iget-boolean v0, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mBurnInProtectionActive:Z
 
@@ -721,39 +603,39 @@
 
     invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/lang/Float;
+    check-cast p1, Ljava/lang/Float;
 
-    invoke-virtual {v0}, Ljava/lang/Float;->floatValue()F
+    invoke-virtual {p1}, Ljava/lang/Float;->floatValue()F
 
-    move-result v0
+    move-result p1
 
-    iget-object v1, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mDisplayManagerInternal:Landroid/hardware/display/DisplayManagerInternal;
+    iget-object v0, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mDisplayManagerInternal:Landroid/hardware/display/DisplayManagerInternal;
 
-    iget-object v2, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mDisplay:Landroid/view/Display;
+    iget-object v1, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mDisplay:Landroid/view/Display;
 
-    invoke-virtual {v2}, Landroid/view/Display;->getDisplayId()I
+    invoke-virtual {v1}, Landroid/view/Display;->getDisplayId()I
 
-    move-result v2
+    move-result v1
 
-    iget v3, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mAppliedBurnInXOffset:I
+    iget v2, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mAppliedBurnInXOffset:I
 
-    int-to-float v3, v3
+    int-to-float v2, v2
 
-    mul-float/2addr v3, v0
+    mul-float/2addr v2, p1
 
-    float-to-int v3, v3
+    float-to-int v2, v2
 
-    iget v4, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mAppliedBurnInYOffset:I
+    iget p0, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mAppliedBurnInYOffset:I
 
-    int-to-float v4, v4
+    int-to-float p0, p0
 
-    mul-float/2addr v4, v0
+    mul-float/2addr p0, p1
 
-    float-to-int v4, v4
+    float-to-int p0, p0
 
-    invoke-virtual {v1, v2, v3, v4}, Landroid/hardware/display/DisplayManagerInternal;->setDisplayOffsets(III)V
+    invoke-virtual {v0, v1, v2, p0}, Landroid/hardware/display/DisplayManagerInternal;->setDisplayOffsets(III)V
 
     :cond_0
     return-void
@@ -766,7 +648,7 @@
 .end method
 
 .method public onDisplayChanged(I)V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mDisplay:Landroid/view/Display;
 
@@ -776,35 +658,35 @@
 
     if-ne p1, v0, :cond_2
 
-    iget-object v0, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mDisplay:Landroid/view/Display;
+    iget-object p1, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mDisplay:Landroid/view/Display;
 
-    invoke-virtual {v0}, Landroid/view/Display;->getState()I
+    invoke-virtual {p1}, Landroid/view/Display;->getState()I
 
-    move-result v0
+    move-result p1
 
-    const/4 v1, 0x3
+    const/4 v0, 0x3
 
-    if-eq v0, v1, :cond_1
+    if-eq p1, v0, :cond_1
 
-    iget-object v0, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mDisplay:Landroid/view/Display;
+    iget-object p1, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mDisplay:Landroid/view/Display;
 
-    invoke-virtual {v0}, Landroid/view/Display;->getState()I
+    invoke-virtual {p1}, Landroid/view/Display;->getState()I
 
-    move-result v0
+    move-result p1
 
-    const/4 v1, 0x4
+    const/4 v0, 0x4
 
-    if-eq v0, v1, :cond_1
+    if-eq p1, v0, :cond_1
 
-    iget-object v0, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mDisplay:Landroid/view/Display;
+    iget-object p1, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mDisplay:Landroid/view/Display;
 
-    invoke-virtual {v0}, Landroid/view/Display;->getState()I
+    invoke-virtual {p1}, Landroid/view/Display;->getState()I
 
-    move-result v0
+    move-result p1
 
-    const/4 v1, 0x6
+    const/4 v0, 0x6
 
-    if-ne v0, v1, :cond_0
+    if-ne p1, v0, :cond_0
 
     goto :goto_0
 
@@ -845,8 +727,108 @@
 
     invoke-virtual {v0}, Landroid/animation/ValueAnimator;->cancel()V
 
-    invoke-direct {p0}, Lcom/android/server/policy/BurnInProtectionHelper;->updateBurnInProtection()V
+    invoke-virtual {p0}, Lcom/android/server/policy/BurnInProtectionHelper;->updateBurnInProtection()V
 
     :cond_0
+    return-void
+.end method
+
+.method public final updateBurnInProtection()V
+    .locals 11
+
+    iget-boolean v0, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mBurnInProtectionActive:Z
+
+    if-eqz v0, :cond_2
+
+    iget-boolean v0, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mFirstUpdate:Z
+
+    if-eqz v0, :cond_0
+
+    sget-wide v1, Lcom/android/server/policy/BurnInProtectionHelper;->BURNIN_PROTECTION_FIRST_WAKEUP_INTERVAL_MS:J
+
+    goto :goto_0
+
+    :cond_0
+    sget-wide v1, Lcom/android/server/policy/BurnInProtectionHelper;->BURNIN_PROTECTION_SUBSEQUENT_WAKEUP_INTERVAL_MS:J
+
+    :goto_0
+    if-eqz v0, :cond_1
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mFirstUpdate:Z
+
+    goto :goto_1
+
+    :cond_1
+    invoke-virtual {p0}, Lcom/android/server/policy/BurnInProtectionHelper;->adjustOffsets()V
+
+    iget v0, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mLastBurnInXOffset:I
+
+    iput v0, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mAppliedBurnInXOffset:I
+
+    iget v0, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mLastBurnInYOffset:I
+
+    iput v0, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mAppliedBurnInYOffset:I
+
+    iget-object v0, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mDisplayManagerInternal:Landroid/hardware/display/DisplayManagerInternal;
+
+    iget-object v3, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mDisplay:Landroid/view/Display;
+
+    invoke-virtual {v3}, Landroid/view/Display;->getDisplayId()I
+
+    move-result v3
+
+    iget v4, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mLastBurnInXOffset:I
+
+    iget v5, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mLastBurnInYOffset:I
+
+    invoke-virtual {v0, v3, v4, v5}, Landroid/hardware/display/DisplayManagerInternal;->setDisplayOffsets(III)V
+
+    :goto_1
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v3
+
+    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+
+    move-result-wide v5
+
+    sget-wide v7, Lcom/android/server/policy/BurnInProtectionHelper;->BURNIN_PROTECTION_MINIMAL_INTERVAL_MS:J
+
+    add-long/2addr v7, v3
+
+    rem-long v9, v7, v1
+
+    sub-long/2addr v7, v9
+
+    add-long/2addr v7, v1
+
+    sub-long/2addr v7, v3
+
+    add-long/2addr v5, v7
+
+    iget-object v0, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mAlarmManager:Landroid/app/AlarmManager;
+
+    const/4 v1, 0x3
+
+    iget-object p0, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mBurnInProtectionIntent:Landroid/app/PendingIntent;
+
+    invoke-virtual {v0, v1, v5, v6, p0}, Landroid/app/AlarmManager;->setExact(IJLandroid/app/PendingIntent;)V
+
+    goto :goto_2
+
+    :cond_2
+    iget-object v0, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mAlarmManager:Landroid/app/AlarmManager;
+
+    iget-object v1, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mBurnInProtectionIntent:Landroid/app/PendingIntent;
+
+    invoke-virtual {v0, v1}, Landroid/app/AlarmManager;->cancel(Landroid/app/PendingIntent;)V
+
+    iget-object p0, p0, Lcom/android/server/policy/BurnInProtectionHelper;->mCenteringAnimator:Landroid/animation/ValueAnimator;
+
+    invoke-virtual {p0}, Landroid/animation/ValueAnimator;->start()V
+
+    :goto_2
     return-void
 .end method

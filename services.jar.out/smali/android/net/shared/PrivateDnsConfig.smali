@@ -35,9 +35,9 @@
 
     iput-object v0, p0, Landroid/net/shared/PrivateDnsConfig;->hostname:Ljava/lang/String;
 
-    iget-object v0, p1, Landroid/net/shared/PrivateDnsConfig;->ips:[Ljava/net/InetAddress;
+    iget-object p1, p1, Landroid/net/shared/PrivateDnsConfig;->ips:[Ljava/net/InetAddress;
 
-    iput-object v0, p0, Landroid/net/shared/PrivateDnsConfig;->ips:[Ljava/net/InetAddress;
+    iput-object p1, p0, Landroid/net/shared/PrivateDnsConfig;->ips:[Ljava/net/InetAddress;
 
     return-void
 .end method
@@ -57,49 +57,45 @@
 
     if-eqz v0, :cond_0
 
-    move-object v0, p1
-
     goto :goto_0
 
     :cond_0
-    const-string v0, ""
+    const-string p1, ""
 
     :goto_0
-    iput-object v0, p0, Landroid/net/shared/PrivateDnsConfig;->hostname:Ljava/lang/String;
+    iput-object p1, p0, Landroid/net/shared/PrivateDnsConfig;->hostname:Ljava/lang/String;
 
     if-eqz p2, :cond_1
-
-    move-object v0, p2
 
     goto :goto_1
 
     :cond_1
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    new-array v0, v0, [Ljava/net/InetAddress;
+    new-array p2, p1, [Ljava/net/InetAddress;
 
     :goto_1
-    iput-object v0, p0, Landroid/net/shared/PrivateDnsConfig;->ips:[Ljava/net/InetAddress;
+    iput-object p2, p0, Landroid/net/shared/PrivateDnsConfig;->ips:[Ljava/net/InetAddress;
 
     return-void
 .end method
 
 .method public constructor <init>(Z)V
-    .locals 1
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-boolean p1, p0, Landroid/net/shared/PrivateDnsConfig;->useTls:Z
 
-    const-string v0, ""
+    const-string p1, ""
 
-    iput-object v0, p0, Landroid/net/shared/PrivateDnsConfig;->hostname:Ljava/lang/String;
+    iput-object p1, p0, Landroid/net/shared/PrivateDnsConfig;->hostname:Ljava/lang/String;
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    new-array v0, v0, [Ljava/net/InetAddress;
+    new-array p1, p1, [Ljava/net/InetAddress;
 
-    iput-object v0, p0, Landroid/net/shared/PrivateDnsConfig;->ips:[Ljava/net/InetAddress;
+    iput-object p1, p0, Landroid/net/shared/PrivateDnsConfig;->ips:[Ljava/net/InetAddress;
 
     return-void
 .end method
@@ -109,31 +105,29 @@
 
     iget-object v0, p0, Landroid/net/PrivateDnsConfigParcel;->ips:[Ljava/lang/String;
 
-    array-length v0, v0
+    array-length v1, v0
 
-    new-array v0, v0, [Ljava/net/InetAddress;
+    new-array v1, v1, [Ljava/net/InetAddress;
 
-    iget-object v1, p0, Landroid/net/PrivateDnsConfigParcel;->ips:[Ljava/lang/String;
+    new-instance v2, Landroid/net/shared/InitialConfiguration$$ExternalSyntheticLambda0;
 
-    sget-object v2, Landroid/net/shared/InitialConfiguration$$ExternalSyntheticLambda0;->INSTANCE:Landroid/net/shared/InitialConfiguration$$ExternalSyntheticLambda0;
+    invoke-direct {v2}, Landroid/net/shared/InitialConfiguration$$ExternalSyntheticLambda0;-><init>()V
 
-    invoke-static {v1, v2}, Landroid/net/shared/ParcelableUtil;->fromParcelableArray([Ljava/lang/Object;Ljava/util/function/Function;)Ljava/util/ArrayList;
+    invoke-static {v0, v2}, Landroid/net/shared/ParcelableUtil;->fromParcelableArray([Ljava/lang/Object;Ljava/util/function/Function;)Ljava/util/ArrayList;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
-    move-result-object v1
-
-    move-object v0, v1
+    move-result-object v0
 
     check-cast v0, [Ljava/net/InetAddress;
 
     new-instance v1, Landroid/net/shared/PrivateDnsConfig;
 
-    iget-object v2, p0, Landroid/net/PrivateDnsConfigParcel;->hostname:Ljava/lang/String;
+    iget-object p0, p0, Landroid/net/PrivateDnsConfigParcel;->hostname:Ljava/lang/String;
 
-    invoke-direct {v1, v2, v0}, Landroid/net/shared/PrivateDnsConfig;-><init>(Ljava/lang/String;[Ljava/net/InetAddress;)V
+    invoke-direct {v1, p0, v0}, Landroid/net/shared/PrivateDnsConfig;-><init>(Ljava/lang/String;[Ljava/net/InetAddress;)V
 
     return-object v1
 .end method
@@ -147,27 +141,27 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Landroid/net/shared/PrivateDnsConfig;->hostname:Ljava/lang/String;
+    iget-object p0, p0, Landroid/net/shared/PrivateDnsConfig;->hostname:Ljava/lang/String;
 
-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v0
+    move-result p0
 
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method public toParcel()Landroid/net/PrivateDnsConfigParcel;
-    .locals 4
+    .locals 3
 
     new-instance v0, Landroid/net/PrivateDnsConfigParcel;
 
@@ -177,23 +171,25 @@
 
     iput-object v1, v0, Landroid/net/PrivateDnsConfigParcel;->hostname:Ljava/lang/String;
 
-    iget-object v1, p0, Landroid/net/shared/PrivateDnsConfig;->ips:[Ljava/net/InetAddress;
+    iget-object p0, p0, Landroid/net/shared/PrivateDnsConfig;->ips:[Ljava/net/InetAddress;
 
-    invoke-static {v1}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+    invoke-static {p0}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
-    move-result-object v1
+    move-result-object p0
 
-    sget-object v2, Landroid/net/shared/InitialConfiguration$$ExternalSyntheticLambda1;->INSTANCE:Landroid/net/shared/InitialConfiguration$$ExternalSyntheticLambda1;
+    new-instance v1, Landroid/net/shared/InitialConfiguration$$ExternalSyntheticLambda1;
 
-    const-class v3, Ljava/lang/String;
+    invoke-direct {v1}, Landroid/net/shared/InitialConfiguration$$ExternalSyntheticLambda1;-><init>()V
 
-    invoke-static {v1, v2, v3}, Landroid/net/shared/ParcelableUtil;->toParcelableArray(Ljava/util/Collection;Ljava/util/function/Function;Ljava/lang/Class;)[Ljava/lang/Object;
+    const-class v2, Ljava/lang/String;
 
-    move-result-object v1
+    invoke-static {p0, v1, v2}, Landroid/net/shared/ParcelableUtil;->toParcelableArray(Ljava/util/Collection;Ljava/util/function/Function;Ljava/lang/Class;)[Ljava/lang/Object;
 
-    check-cast v1, [Ljava/lang/String;
+    move-result-object p0
 
-    iput-object v1, v0, Landroid/net/PrivateDnsConfigParcel;->ips:[Ljava/lang/String;
+    check-cast p0, [Ljava/lang/String;
+
+    iput-object p0, v0, Landroid/net/PrivateDnsConfigParcel;->ips:[Ljava/lang/String;
 
     return-object v0
 .end method
@@ -233,21 +229,21 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Landroid/net/shared/PrivateDnsConfig;->ips:[Ljava/net/InetAddress;
+    iget-object p0, p0, Landroid/net/shared/PrivateDnsConfig;->ips:[Ljava/net/InetAddress;
 
-    invoke-static {v1}, Ljava/util/Arrays;->toString([Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p0}, Ljava/util/Arrays;->toString([Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v1, "}"
+    const-string/jumbo p0, "}"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

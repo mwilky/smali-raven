@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/dreams/DreamManagerService$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -63,7 +64,7 @@
 
     iget-object v6, p0, Lcom/android/server/dreams/DreamManagerService$$ExternalSyntheticLambda0;->f$6:Landroid/os/PowerManager$WakeLock;
 
-    invoke-virtual/range {v0 .. v6}, Lcom/android/server/dreams/DreamManagerService;->lambda$startDreamLocked$0$DreamManagerService(Landroid/os/Binder;Landroid/content/ComponentName;ZZILandroid/os/PowerManager$WakeLock;)V
+    invoke-static/range {v0 .. v6}, Lcom/android/server/dreams/DreamManagerService;->$r8$lambda$7fsbHggt18AiNDHG2sShSOLJWe8(Lcom/android/server/dreams/DreamManagerService;Landroid/os/Binder;Landroid/content/ComponentName;ZZILandroid/os/PowerManager$WakeLock;)V
 
     return-void
 .end method

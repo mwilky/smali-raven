@@ -20,15 +20,41 @@
 .end annotation
 
 
-# static fields
-.field private static final TIMEOUT_REMOTE_REQUEST_MILLIS:J = 0x7d0L
-
-
 # direct methods
-.method constructor <init>(Landroid/content/Context;Landroid/content/ComponentName;ILcom/android/server/contentsuggestions/RemoteContentSuggestionsService$Callbacks;ZZ)V
-    .locals 10
+.method public static synthetic $r8$lambda$FdTUPx3CZQ_9EDWfXe13q3KpnMA(Landroid/app/contentsuggestions/SelectionsRequest;Landroid/app/contentsuggestions/ISelectionsCallback;Landroid/service/contentsuggestions/IContentSuggestionsService;)V
+    .locals 0
 
-    nop
+    invoke-static {p0, p1, p2}, Lcom/android/server/contentsuggestions/RemoteContentSuggestionsService;->lambda$suggestContentSelections$1(Landroid/app/contentsuggestions/SelectionsRequest;Landroid/app/contentsuggestions/ISelectionsCallback;Landroid/service/contentsuggestions/IContentSuggestionsService;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$SErRG9sWLxtuVobBFXVDjzp_-1A(Landroid/app/contentsuggestions/ClassificationsRequest;Landroid/app/contentsuggestions/IClassificationsCallback;Landroid/service/contentsuggestions/IContentSuggestionsService;)V
+    .locals 0
+
+    invoke-static {p0, p1, p2}, Lcom/android/server/contentsuggestions/RemoteContentSuggestionsService;->lambda$classifyContentSelections$2(Landroid/app/contentsuggestions/ClassificationsRequest;Landroid/app/contentsuggestions/IClassificationsCallback;Landroid/service/contentsuggestions/IContentSuggestionsService;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$whKyeLxY5tWY-LMAZ8qFoLGpF80(ILandroid/hardware/HardwareBuffer;ILandroid/os/Bundle;Landroid/service/contentsuggestions/IContentSuggestionsService;)V
+    .locals 0
+
+    invoke-static {p0, p1, p2, p3, p4}, Lcom/android/server/contentsuggestions/RemoteContentSuggestionsService;->lambda$provideContextImage$0(ILandroid/hardware/HardwareBuffer;ILandroid/os/Bundle;Landroid/service/contentsuggestions/IContentSuggestionsService;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$ya6fPEJyZ4_xMsUZzzCr2wjP0TA(Ljava/lang/String;Landroid/os/Bundle;Landroid/service/contentsuggestions/IContentSuggestionsService;)V
+    .locals 0
+
+    invoke-static {p0, p1, p2}, Lcom/android/server/contentsuggestions/RemoteContentSuggestionsService;->lambda$notifyInteraction$3(Ljava/lang/String;Landroid/os/Bundle;Landroid/service/contentsuggestions/IContentSuggestionsService;)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/content/Context;Landroid/content/ComponentName;ILcom/android/server/contentsuggestions/RemoteContentSuggestionsService$Callbacks;ZZ)V
+    .locals 10
 
     invoke-virtual {p1}, Landroid/content/Context;->getMainThreadHandler()Landroid/os/Handler;
 
@@ -67,7 +93,7 @@
     return-void
 .end method
 
-.method static synthetic lambda$classifyContentSelections$2(Landroid/app/contentsuggestions/ClassificationsRequest;Landroid/app/contentsuggestions/IClassificationsCallback;Landroid/service/contentsuggestions/IContentSuggestionsService;)V
+.method public static synthetic lambda$classifyContentSelections$2(Landroid/app/contentsuggestions/ClassificationsRequest;Landroid/app/contentsuggestions/IClassificationsCallback;Landroid/service/contentsuggestions/IContentSuggestionsService;)V
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -80,7 +106,7 @@
     return-void
 .end method
 
-.method static synthetic lambda$notifyInteraction$3(Ljava/lang/String;Landroid/os/Bundle;Landroid/service/contentsuggestions/IContentSuggestionsService;)V
+.method public static synthetic lambda$notifyInteraction$3(Ljava/lang/String;Landroid/os/Bundle;Landroid/service/contentsuggestions/IContentSuggestionsService;)V
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -93,7 +119,7 @@
     return-void
 .end method
 
-.method static synthetic lambda$provideContextImage$0(ILandroid/hardware/HardwareBuffer;ILandroid/os/Bundle;Landroid/service/contentsuggestions/IContentSuggestionsService;)V
+.method public static synthetic lambda$provideContextImage$0(ILandroid/hardware/HardwareBuffer;ILandroid/os/Bundle;Landroid/service/contentsuggestions/IContentSuggestionsService;)V
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -106,7 +132,7 @@
     return-void
 .end method
 
-.method static synthetic lambda$suggestContentSelections$1(Landroid/app/contentsuggestions/SelectionsRequest;Landroid/app/contentsuggestions/ISelectionsCallback;Landroid/service/contentsuggestions/IContentSuggestionsService;)V
+.method public static synthetic lambda$suggestContentSelections$1(Landroid/app/contentsuggestions/SelectionsRequest;Landroid/app/contentsuggestions/ISelectionsCallback;Landroid/service/contentsuggestions/IContentSuggestionsService;)V
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -121,19 +147,19 @@
 
 
 # virtual methods
-.method classifyContentSelections(Landroid/app/contentsuggestions/ClassificationsRequest;Landroid/app/contentsuggestions/IClassificationsCallback;)V
+.method public classifyContentSelections(Landroid/app/contentsuggestions/ClassificationsRequest;Landroid/app/contentsuggestions/IClassificationsCallback;)V
     .locals 1
 
-    new-instance v0, Lcom/android/server/contentsuggestions/RemoteContentSuggestionsService$$ExternalSyntheticLambda1;
+    new-instance v0, Lcom/android/server/contentsuggestions/RemoteContentSuggestionsService$$ExternalSyntheticLambda0;
 
-    invoke-direct {v0, p1, p2}, Lcom/android/server/contentsuggestions/RemoteContentSuggestionsService$$ExternalSyntheticLambda1;-><init>(Landroid/app/contentsuggestions/ClassificationsRequest;Landroid/app/contentsuggestions/IClassificationsCallback;)V
+    invoke-direct {v0, p1, p2}, Lcom/android/server/contentsuggestions/RemoteContentSuggestionsService$$ExternalSyntheticLambda0;-><init>(Landroid/app/contentsuggestions/ClassificationsRequest;Landroid/app/contentsuggestions/IClassificationsCallback;)V
 
-    invoke-virtual {p0, v0}, Lcom/android/server/contentsuggestions/RemoteContentSuggestionsService;->scheduleAsyncRequest(Lcom/android/internal/infra/AbstractRemoteService$AsyncRequest;)V
+    invoke-virtual {p0, v0}, Lcom/android/internal/infra/AbstractMultiplePendingRequestsRemoteService;->scheduleAsyncRequest(Lcom/android/internal/infra/AbstractRemoteService$AsyncRequest;)V
 
     return-void
 .end method
 
-.method protected getRemoteRequestMillis()J
+.method public getRemoteRequestMillis()J
     .locals 2
 
     const-wide/16 v0, 0x7d0
@@ -141,27 +167,27 @@
     return-wide v0
 .end method
 
-.method protected bridge synthetic getServiceInterface(Landroid/os/IBinder;)Landroid/os/IInterface;
+.method public bridge synthetic getServiceInterface(Landroid/os/IBinder;)Landroid/os/IInterface;
     .locals 0
 
     invoke-virtual {p0, p1}, Lcom/android/server/contentsuggestions/RemoteContentSuggestionsService;->getServiceInterface(Landroid/os/IBinder;)Landroid/service/contentsuggestions/IContentSuggestionsService;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method
 
-.method protected getServiceInterface(Landroid/os/IBinder;)Landroid/service/contentsuggestions/IContentSuggestionsService;
-    .locals 1
+.method public getServiceInterface(Landroid/os/IBinder;)Landroid/service/contentsuggestions/IContentSuggestionsService;
+    .locals 0
 
     invoke-static {p1}, Landroid/service/contentsuggestions/IContentSuggestionsService$Stub;->asInterface(Landroid/os/IBinder;)Landroid/service/contentsuggestions/IContentSuggestionsService;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
-.method protected getTimeoutIdleBindMillis()J
+.method public getTimeoutIdleBindMillis()J
     .locals 2
 
     const-wide/16 v0, 0x0
@@ -169,38 +195,38 @@
     return-wide v0
 .end method
 
-.method notifyInteraction(Ljava/lang/String;Landroid/os/Bundle;)V
+.method public notifyInteraction(Ljava/lang/String;Landroid/os/Bundle;)V
+    .locals 1
+
+    new-instance v0, Lcom/android/server/contentsuggestions/RemoteContentSuggestionsService$$ExternalSyntheticLambda1;
+
+    invoke-direct {v0, p1, p2}, Lcom/android/server/contentsuggestions/RemoteContentSuggestionsService$$ExternalSyntheticLambda1;-><init>(Ljava/lang/String;Landroid/os/Bundle;)V
+
+    invoke-virtual {p0, v0}, Lcom/android/internal/infra/AbstractMultiplePendingRequestsRemoteService;->scheduleAsyncRequest(Lcom/android/internal/infra/AbstractRemoteService$AsyncRequest;)V
+
+    return-void
+.end method
+
+.method public provideContextImage(ILandroid/hardware/HardwareBuffer;ILandroid/os/Bundle;)V
     .locals 1
 
     new-instance v0, Lcom/android/server/contentsuggestions/RemoteContentSuggestionsService$$ExternalSyntheticLambda3;
 
-    invoke-direct {v0, p1, p2}, Lcom/android/server/contentsuggestions/RemoteContentSuggestionsService$$ExternalSyntheticLambda3;-><init>(Ljava/lang/String;Landroid/os/Bundle;)V
+    invoke-direct {v0, p1, p2, p3, p4}, Lcom/android/server/contentsuggestions/RemoteContentSuggestionsService$$ExternalSyntheticLambda3;-><init>(ILandroid/hardware/HardwareBuffer;ILandroid/os/Bundle;)V
 
-    invoke-virtual {p0, v0}, Lcom/android/server/contentsuggestions/RemoteContentSuggestionsService;->scheduleAsyncRequest(Lcom/android/internal/infra/AbstractRemoteService$AsyncRequest;)V
-
-    return-void
-.end method
-
-.method provideContextImage(ILandroid/hardware/HardwareBuffer;ILandroid/os/Bundle;)V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/contentsuggestions/RemoteContentSuggestionsService$$ExternalSyntheticLambda0;
-
-    invoke-direct {v0, p1, p2, p3, p4}, Lcom/android/server/contentsuggestions/RemoteContentSuggestionsService$$ExternalSyntheticLambda0;-><init>(ILandroid/hardware/HardwareBuffer;ILandroid/os/Bundle;)V
-
-    invoke-virtual {p0, v0}, Lcom/android/server/contentsuggestions/RemoteContentSuggestionsService;->scheduleAsyncRequest(Lcom/android/internal/infra/AbstractRemoteService$AsyncRequest;)V
+    invoke-virtual {p0, v0}, Lcom/android/internal/infra/AbstractMultiplePendingRequestsRemoteService;->scheduleAsyncRequest(Lcom/android/internal/infra/AbstractRemoteService$AsyncRequest;)V
 
     return-void
 .end method
 
-.method suggestContentSelections(Landroid/app/contentsuggestions/SelectionsRequest;Landroid/app/contentsuggestions/ISelectionsCallback;)V
+.method public suggestContentSelections(Landroid/app/contentsuggestions/SelectionsRequest;Landroid/app/contentsuggestions/ISelectionsCallback;)V
     .locals 1
 
     new-instance v0, Lcom/android/server/contentsuggestions/RemoteContentSuggestionsService$$ExternalSyntheticLambda2;
 
     invoke-direct {v0, p1, p2}, Lcom/android/server/contentsuggestions/RemoteContentSuggestionsService$$ExternalSyntheticLambda2;-><init>(Landroid/app/contentsuggestions/SelectionsRequest;Landroid/app/contentsuggestions/ISelectionsCallback;)V
 
-    invoke-virtual {p0, v0}, Lcom/android/server/contentsuggestions/RemoteContentSuggestionsService;->scheduleAsyncRequest(Lcom/android/internal/infra/AbstractRemoteService$AsyncRequest;)V
+    invoke-virtual {p0, v0}, Lcom/android/internal/infra/AbstractMultiplePendingRequestsRemoteService;->scheduleAsyncRequest(Lcom/android/internal/infra/AbstractRemoteService$AsyncRequest;)V
 
     return-void
 .end method

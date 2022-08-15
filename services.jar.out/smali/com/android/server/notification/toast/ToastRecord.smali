@@ -8,9 +8,9 @@
 
 .field public final isSystemToast:Z
 
-.field private mDuration:I
+.field public mDuration:I
 
-.field protected final mNotificationManager:Lcom/android/server/notification/NotificationManagerService;
+.field public final mNotificationManager:Lcom/android/server/notification/NotificationManagerService;
 
 .field public final pid:I
 
@@ -24,7 +24,7 @@
 
 
 # direct methods
-.method protected constructor <init>(Lcom/android/server/notification/NotificationManagerService;IILjava/lang/String;ZLandroid/os/IBinder;ILandroid/os/Binder;I)V
+.method public constructor <init>(Lcom/android/server/notification/NotificationManagerService;IILjava/lang/String;ZLandroid/os/IBinder;ILandroid/os/Binder;I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -61,36 +61,36 @@
 
     invoke-virtual {p3, v0}, Lcom/android/server/notification/NotificationManagerService$DumpFilter;->matches(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result p3
 
-    if-nez v0, :cond_0
+    if-nez p3, :cond_0
 
     return-void
 
     :cond_0
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance p3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p1, p0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     return-void
 .end method
 
 .method public getDuration()I
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/notification/toast/ToastRecord;->mDuration:I
+    iget p0, p0, Lcom/android/server/notification/toast/ToastRecord;->mDuration:I
 
-    return v0
+    return p0
 .end method
 
 .method public abstract hide()V
@@ -100,11 +100,11 @@
 .end method
 
 .method public keepProcessAlive()Z
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
 .method public abstract show()Z

@@ -1,4 +1,4 @@
-.class Lcom/android/server/am/LmkdConnection$1;
+.class public Lcom/android/server/am/LmkdConnection$1;
 .super Ljava/lang/Object;
 .source "LmkdConnection.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/am/LmkdConnection;
+.field public final synthetic this$0:Lcom/android/server/am/LmkdConnection;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/LmkdConnection;)V
+.method public constructor <init>(Lcom/android/server/am/LmkdConnection;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/am/LmkdConnection$1;->this$0:Lcom/android/server/am/LmkdConnection;
@@ -35,13 +35,13 @@
 
 # virtual methods
 .method public onFileDescriptorEvents(Ljava/io/FileDescriptor;I)I
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/am/LmkdConnection$1;->this$0:Lcom/android/server/am/LmkdConnection;
+    iget-object p0, p0, Lcom/android/server/am/LmkdConnection$1;->this$0:Lcom/android/server/am/LmkdConnection;
 
-    invoke-static {v0, p1, p2}, Lcom/android/server/am/LmkdConnection;->access$000(Lcom/android/server/am/LmkdConnection;Ljava/io/FileDescriptor;I)I
+    invoke-static {p0, p1, p2}, Lcom/android/server/am/LmkdConnection;->-$$Nest$mfileDescriptorEventHandler(Lcom/android/server/am/LmkdConnection;Ljava/io/FileDescriptor;I)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method

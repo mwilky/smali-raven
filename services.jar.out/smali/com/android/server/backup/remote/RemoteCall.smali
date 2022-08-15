@@ -4,7 +4,7 @@
 
 
 # instance fields
-.field private final mCallable:Lcom/android/server/backup/remote/RemoteCallable;
+.field public final mCallable:Lcom/android/server/backup/remote/RemoteCallable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/android/server/backup/remote/RemoteCallable<",
@@ -14,7 +14,7 @@
     .end annotation
 .end field
 
-.field private final mFuture:Ljava/util/concurrent/CompletableFuture;
+.field public final mFuture:Ljava/util/concurrent/CompletableFuture;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/concurrent/CompletableFuture<",
@@ -24,14 +24,14 @@
     .end annotation
 .end field
 
-.field private final mTimeoutMs:J
+.field public final mTimeoutMs:J
 
 
 # direct methods
 .method public static synthetic $r8$lambda$KU79zXZdYj-XIeuWevlfe_nSw5Y(Lcom/android/server/backup/remote/RemoteCall;)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/server/backup/remote/RemoteCall;->timeOut()V
+    invoke-virtual {p0}, Lcom/android/server/backup/remote/RemoteCall;->timeOut()V
 
     return-void
 .end method
@@ -55,7 +55,7 @@
 .end method
 
 .method public constructor <init>(ZLcom/android/server/backup/remote/RemoteCallable;J)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(Z",
@@ -71,11 +71,11 @@
 
     iput-wide p3, p0, Lcom/android/server/backup/remote/RemoteCall;->mTimeoutMs:J
 
-    new-instance v0, Ljava/util/concurrent/CompletableFuture;
+    new-instance p2, Ljava/util/concurrent/CompletableFuture;
 
-    invoke-direct {v0}, Ljava/util/concurrent/CompletableFuture;-><init>()V
+    invoke-direct {p2}, Ljava/util/concurrent/CompletableFuture;-><init>()V
 
-    iput-object v0, p0, Lcom/android/server/backup/remote/RemoteCall;->mFuture:Ljava/util/concurrent/CompletableFuture;
+    iput-object p2, p0, Lcom/android/server/backup/remote/RemoteCall;->mFuture:Ljava/util/concurrent/CompletableFuture;
 
     if-eqz p1, :cond_0
 
@@ -109,21 +109,9 @@
 
     invoke-virtual {v0}, Lcom/android/server/backup/remote/RemoteCall;->call()Lcom/android/server/backup/remote/RemoteResult;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
-.end method
-
-.method private timeOut()V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/server/backup/remote/RemoteCall;->mFuture:Ljava/util/concurrent/CompletableFuture;
-
-    sget-object v1, Lcom/android/server/backup/remote/RemoteResult;->FAILED_TIMED_OUT:Lcom/android/server/backup/remote/RemoteResult;
-
-    invoke-virtual {v0, v1}, Ljava/util/concurrent/CompletableFuture;->complete(Ljava/lang/Object;)Z
-
-    return-void
+    return-object p0
 .end method
 
 
@@ -166,7 +154,7 @@
 
     if-nez v0, :cond_0
 
-    invoke-direct {p0}, Lcom/android/server/backup/remote/RemoteCall;->timeOut()V
+    invoke-virtual {p0}, Lcom/android/server/backup/remote/RemoteCall;->timeOut()V
 
     goto :goto_0
 
@@ -196,46 +184,54 @@
     :cond_1
     :goto_0
     :try_start_0
-    iget-object v0, p0, Lcom/android/server/backup/remote/RemoteCall;->mFuture:Ljava/util/concurrent/CompletableFuture;
+    iget-object p0, p0, Lcom/android/server/backup/remote/RemoteCall;->mFuture:Ljava/util/concurrent/CompletableFuture;
 
-    invoke-virtual {v0}, Ljava/util/concurrent/CompletableFuture;->get()Ljava/lang/Object;
+    invoke-virtual {p0}, Ljava/util/concurrent/CompletableFuture;->get()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/android/server/backup/remote/RemoteResult;
+    check-cast p0, Lcom/android/server/backup/remote/RemoteResult;
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object p0
 
     :catch_0
-    move-exception v0
+    new-instance p0, Ljava/lang/IllegalStateException;
 
-    new-instance v1, Ljava/lang/IllegalStateException;
+    const-string v0, "Future unexpectedly completed with an exception"
 
-    const-string v2, "Future unexpectedly completed with an exception"
+    invoke-direct {p0, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    throw v1
+    throw p0
 
     :catch_1
-    move-exception v0
+    sget-object p0, Lcom/android/server/backup/remote/RemoteResult;->FAILED_THREAD_INTERRUPTED:Lcom/android/server/backup/remote/RemoteResult;
 
-    sget-object v1, Lcom/android/server/backup/remote/RemoteResult;->FAILED_THREAD_INTERRUPTED:Lcom/android/server/backup/remote/RemoteResult;
-
-    return-object v1
+    return-object p0
 .end method
 
 .method public cancel()V
-    .locals 2
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/backup/remote/RemoteCall;->mFuture:Ljava/util/concurrent/CompletableFuture;
+    iget-object p0, p0, Lcom/android/server/backup/remote/RemoteCall;->mFuture:Ljava/util/concurrent/CompletableFuture;
 
-    sget-object v1, Lcom/android/server/backup/remote/RemoteResult;->FAILED_CANCELLED:Lcom/android/server/backup/remote/RemoteResult;
+    sget-object v0, Lcom/android/server/backup/remote/RemoteResult;->FAILED_CANCELLED:Lcom/android/server/backup/remote/RemoteResult;
 
-    invoke-virtual {v0, v1}, Ljava/util/concurrent/CompletableFuture;->complete(Ljava/lang/Object;)Z
+    invoke-virtual {p0, v0}, Ljava/util/concurrent/CompletableFuture;->complete(Ljava/lang/Object;)Z
+
+    return-void
+.end method
+
+.method public final timeOut()V
+    .locals 1
+
+    iget-object p0, p0, Lcom/android/server/backup/remote/RemoteCall;->mFuture:Ljava/util/concurrent/CompletableFuture;
+
+    sget-object v0, Lcom/android/server/backup/remote/RemoteResult;->FAILED_TIMED_OUT:Lcom/android/server/backup/remote/RemoteResult;
+
+    invoke-virtual {p0, v0}, Ljava/util/concurrent/CompletableFuture;->complete(Ljava/lang/Object;)Z
 
     return-void
 .end method

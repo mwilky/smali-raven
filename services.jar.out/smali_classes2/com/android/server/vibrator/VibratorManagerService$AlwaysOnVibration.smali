@@ -1,4 +1,4 @@
-.class final Lcom/android/server/vibrator/VibratorManagerService$AlwaysOnVibration;
+.class public final Lcom/android/server/vibrator/VibratorManagerService$AlwaysOnVibration;
 .super Ljava/lang/Object;
 .source "VibratorManagerService.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "AlwaysOnVibration"
 .end annotation
 
@@ -35,7 +35,7 @@
 
 
 # direct methods
-.method constructor <init>(IILjava/lang/String;Landroid/os/VibrationAttributes;Landroid/util/SparseArray;)V
+.method public constructor <init>(IILjava/lang/String;Landroid/os/VibrationAttributes;Landroid/util/SparseArray;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {

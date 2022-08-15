@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/backup/fullbackup/FullBackupEngine$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/server/backup/remote/RemoteCallable;
@@ -43,7 +44,7 @@
 
     check-cast v5, Landroid/app/backup/IBackupCallback;
 
-    invoke-virtual/range {v0 .. v5}, Lcom/android/server/backup/fullbackup/FullBackupEngine;->lambda$sendQuotaExceeded$0$FullBackupEngine(JJLandroid/app/backup/IBackupCallback;)V
+    invoke-static/range {v0 .. v5}, Lcom/android/server/backup/fullbackup/FullBackupEngine;->$r8$lambda$5C9QHzTUUVvzmUMxjpVqc5wgArc(Lcom/android/server/backup/fullbackup/FullBackupEngine;JJLandroid/app/backup/IBackupCallback;)V
 
     return-void
 .end method

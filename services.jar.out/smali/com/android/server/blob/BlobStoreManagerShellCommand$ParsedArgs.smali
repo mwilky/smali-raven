@@ -1,4 +1,4 @@
-.class Lcom/android/server/blob/BlobStoreManagerShellCommand$ParsedArgs;
+.class public Lcom/android/server/blob/BlobStoreManagerShellCommand$ParsedArgs;
 .super Ljava/lang/Object;
 .source "BlobStoreManagerShellCommand.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "ParsedArgs"
 .end annotation
 
@@ -31,7 +31,7 @@
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -47,7 +47,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/blob/BlobStoreManagerShellCommand$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/blob/BlobStoreManagerShellCommand$ParsedArgs-IA;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/blob/BlobStoreManagerShellCommand$ParsedArgs;-><init>()V
@@ -72,7 +72,7 @@
 
     invoke-static/range {v0 .. v5}, Landroid/app/blob/BlobHandle;->create(Ljava/lang/String;[BLjava/lang/CharSequence;JLjava/lang/String;)Landroid/app/blob/BlobHandle;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

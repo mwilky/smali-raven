@@ -1,37 +1,38 @@
 .class public final synthetic Lcom/android/server/wm/DisplayAreaOrganizerController$$ExternalSyntheticLambda3;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Function;
+.implements Ljava/util/function/Predicate;
 
 
 # instance fields
-.field public final synthetic f$0:I
+.field public final synthetic f$0:Landroid/window/IDisplayAreaOrganizer;
 
 
 # direct methods
-.method public synthetic constructor <init>(I)V
+.method public synthetic constructor <init>(Landroid/window/IDisplayAreaOrganizer;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput p1, p0, Lcom/android/server/wm/DisplayAreaOrganizerController$$ExternalSyntheticLambda3;->f$0:I
+    iput-object p1, p0, Lcom/android/server/wm/DisplayAreaOrganizerController$$ExternalSyntheticLambda3;->f$0:Landroid/window/IDisplayAreaOrganizer;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+.method public final test(Ljava/lang/Object;)Z
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/wm/DisplayAreaOrganizerController$$ExternalSyntheticLambda3;->f$0:I
+    iget-object p0, p0, Lcom/android/server/wm/DisplayAreaOrganizerController$$ExternalSyntheticLambda3;->f$0:Landroid/window/IDisplayAreaOrganizer;
 
-    check-cast p1, Lcom/android/server/wm/TaskDisplayArea;
+    check-cast p1, Ljava/util/Map$Entry;
 
-    invoke-static {v0, p1}, Lcom/android/server/wm/DisplayAreaOrganizerController;->lambda$createTaskDisplayArea$4(ILcom/android/server/wm/TaskDisplayArea;)Lcom/android/server/wm/TaskDisplayArea;
+    invoke-static {p0, p1}, Lcom/android/server/wm/DisplayAreaOrganizerController;->$r8$lambda$dyID58NTPV1AoOl4VRX1Xc6T5lM(Landroid/window/IDisplayAreaOrganizer;Ljava/util/Map$Entry;)Z
 
-    move-result-object p1
+    move-result p0
 
-    return-object p1
+    return p0
 .end method

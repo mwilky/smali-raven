@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/hdmi/HdmiControlService$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/hdmi/HdmiControlService;
+    iget-object p0, p0, Lcom/android/server/hdmi/HdmiControlService$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/hdmi/HdmiControlService;
 
-    invoke-static {v0}, Lcom/android/server/hdmi/HdmiControlService;->$r8$lambda$KZAwVHsDjIYwp0ydzfuqedDp5D0(Lcom/android/server/hdmi/HdmiControlService;)V
+    invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiControlService;->checkAndUpdateAbsoluteVolumeControlState()V
 
     return-void
 .end method

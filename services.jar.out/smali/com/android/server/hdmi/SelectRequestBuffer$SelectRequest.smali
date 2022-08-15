@@ -15,11 +15,11 @@
 
 
 # instance fields
-.field protected final mCallback:Landroid/hardware/hdmi/IHdmiControlCallback;
+.field public final mCallback:Landroid/hardware/hdmi/IHdmiControlCallback;
 
-.field protected final mId:I
+.field public final mId:I
 
-.field protected final mService:Lcom/android/server/hdmi/HdmiControlService;
+.field public final mService:Lcom/android/server/hdmi/HdmiControlService;
 
 
 # direct methods
@@ -37,61 +37,61 @@
     return-void
 .end method
 
-.method private invokeCallback(I)V
-    .locals 3
+
+# virtual methods
+.method public audioSystem()Lcom/android/server/hdmi/HdmiCecLocalDeviceAudioSystem;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/hdmi/SelectRequestBuffer$SelectRequest;->mService:Lcom/android/server/hdmi/HdmiControlService;
+
+    invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiControlService;->audioSystem()Lcom/android/server/hdmi/HdmiCecLocalDeviceAudioSystem;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public final invokeCallback(I)V
+    .locals 1
 
     :try_start_0
-    iget-object v0, p0, Lcom/android/server/hdmi/SelectRequestBuffer$SelectRequest;->mCallback:Landroid/hardware/hdmi/IHdmiControlCallback;
+    iget-object p0, p0, Lcom/android/server/hdmi/SelectRequestBuffer$SelectRequest;->mCallback:Landroid/hardware/hdmi/IHdmiControlCallback;
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    invoke-interface {v0, p1}, Landroid/hardware/hdmi/IHdmiControlCallback;->onComplete(I)V
+    invoke-interface {p0, p1}, Landroid/hardware/hdmi/IHdmiControlCallback;->onComplete(I)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    :cond_0
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "Invoking callback failed:"
+    const-string v0, "Invoking callback failed:"
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    const-string v2, "SelectRequestBuffer"
+    const-string p1, "SelectRequestBuffer"
 
-    invoke-static {v2, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p1, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    :cond_0
     :goto_0
     return-void
 .end method
 
-
-# virtual methods
-.method protected audioSystem()Lcom/android/server/hdmi/HdmiCecLocalDeviceAudioSystem;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/hdmi/SelectRequestBuffer$SelectRequest;->mService:Lcom/android/server/hdmi/HdmiControlService;
-
-    invoke-virtual {v0}, Lcom/android/server/hdmi/HdmiControlService;->audioSystem()Lcom/android/server/hdmi/HdmiCecLocalDeviceAudioSystem;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method protected isLocalDeviceReady()Z
+.method public isLocalDeviceReady()Z
     .locals 2
 
     invoke-virtual {p0}, Lcom/android/server/hdmi/SelectRequestBuffer$SelectRequest;->tv()Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;
@@ -108,29 +108,29 @@
 
     const/4 v0, 0x2
 
-    invoke-direct {p0, v0}, Lcom/android/server/hdmi/SelectRequestBuffer$SelectRequest;->invokeCallback(I)V
+    invoke-virtual {p0, v0}, Lcom/android/server/hdmi/SelectRequestBuffer$SelectRequest;->invokeCallback(I)V
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 
     :cond_0
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 .end method
 
 .method public abstract process()V
 .end method
 
-.method protected tv()Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;
-    .locals 1
+.method public tv()Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/hdmi/SelectRequestBuffer$SelectRequest;->mService:Lcom/android/server/hdmi/HdmiControlService;
+    iget-object p0, p0, Lcom/android/server/hdmi/SelectRequestBuffer$SelectRequest;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
-    invoke-virtual {v0}, Lcom/android/server/hdmi/HdmiControlService;->tv()Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;
+    invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiControlService;->tv()Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

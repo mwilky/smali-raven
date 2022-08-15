@@ -1,4 +1,4 @@
-.class Lcom/android/server/display/color/ColorDisplayService$ColorMatrixEvaluator;
+.class public Lcom/android/server/display/color/ColorDisplayService$ColorMatrixEvaluator;
 .super Ljava/lang/Object;
 .source "ColorDisplayService.java"
 
@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "ColorMatrixEvaluator"
 .end annotation
 
@@ -26,11 +26,11 @@
 
 
 # instance fields
-.field private final mResultMatrix:[F
+.field public final mResultMatrix:[F
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -44,7 +44,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/display/color/ColorDisplayService$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/display/color/ColorDisplayService$ColorMatrixEvaluator-IA;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/display/color/ColorDisplayService$ColorMatrixEvaluator;-><init>()V
@@ -63,9 +63,9 @@
 
     invoke-virtual {p0, p1, p2, p3}, Lcom/android/server/display/color/ColorDisplayService$ColorMatrixEvaluator;->evaluate(F[F[F)[F
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method
 
 .method public evaluate(F[F[F)[F

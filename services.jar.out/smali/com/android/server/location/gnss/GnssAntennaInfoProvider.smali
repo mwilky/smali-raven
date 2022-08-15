@@ -31,7 +31,7 @@
 
 
 # instance fields
-.field private volatile mAntennaInfos:Ljava/util/List;
+.field public volatile mAntennaInfos:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -41,11 +41,19 @@
     .end annotation
 .end field
 
-.field private final mGnssNative:Lcom/android/server/location/gnss/hal/GnssNative;
+.field public final mGnssNative:Lcom/android/server/location/gnss/hal/GnssNative;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/location/gnss/hal/GnssNative;)V
+.method public static synthetic $r8$lambda$aI8m2GsJ28YOCuy_3oZOdDjuy5Y(Ljava/util/List;Landroid/location/IGnssAntennaInfoListener;)V
+    .locals 0
+
+    invoke-static {p0, p1}, Lcom/android/server/location/gnss/GnssAntennaInfoProvider;->lambda$onReportAntennaInfo$0(Ljava/util/List;Landroid/location/IGnssAntennaInfoListener;)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Lcom/android/server/location/gnss/hal/GnssNative;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/location/listeners/ListenerMultiplexer;-><init>()V
@@ -59,7 +67,7 @@
     return-void
 .end method
 
-.method static synthetic lambda$onReportAntennaInfo$0(Ljava/util/List;Landroid/location/IGnssAntennaInfoListener;)V
+.method public static synthetic lambda$onReportAntennaInfo$0(Ljava/util/List;Landroid/location/IGnssAntennaInfoListener;)V
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -90,26 +98,24 @@
 
     invoke-direct {v3, p0, p1, p2}, Lcom/android/server/location/gnss/GnssAntennaInfoProvider$AntennaInfoListenerRegistration;-><init>(Lcom/android/server/location/gnss/GnssAntennaInfoProvider;Landroid/location/util/identity/CallerIdentity;Landroid/location/IGnssAntennaInfoListener;)V
 
-    invoke-virtual {p0, v2, v3}, Lcom/android/server/location/gnss/GnssAntennaInfoProvider;->putRegistration(Ljava/lang/Object;Lcom/android/server/location/listeners/ListenerRegistration;)V
+    invoke-virtual {p0, v2, v3}, Lcom/android/server/location/listeners/ListenerMultiplexer;->putRegistration(Ljava/lang/Object;Lcom/android/server/location/listeners/ListenerRegistration;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    nop
-
     return-void
 
     :catchall_0
-    move-exception v2
+    move-exception p0
 
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    throw v2
+    throw p0
 .end method
 
-.method getAntennaInfos()Ljava/util/List;
-    .locals 1
+.method public getAntennaInfos()Ljava/util/List;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -119,21 +125,21 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/android/server/location/gnss/GnssAntennaInfoProvider;->mAntennaInfos:Ljava/util/List;
+    iget-object p0, p0, Lcom/android/server/location/gnss/GnssAntennaInfoProvider;->mAntennaInfos:Ljava/util/List;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getTag()Ljava/lang/String;
-    .locals 1
+    .locals 0
 
-    const-string v0, "GnssManager"
+    const-string p0, "GnssManager"
 
-    return-object v0
+    return-object p0
 .end method
 
-.method protected isActive(Lcom/android/server/location/listeners/ListenerRegistration;)Z
-    .locals 1
+.method public isActive(Lcom/android/server/location/listeners/ListenerRegistration;)Z
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -143,35 +149,35 @@
         }
     .end annotation
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 .end method
 
 .method public isSupported()Z
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/location/gnss/GnssAntennaInfoProvider;->mGnssNative:Lcom/android/server/location/gnss/hal/GnssNative;
+    iget-object p0, p0, Lcom/android/server/location/gnss/GnssAntennaInfoProvider;->mGnssNative:Lcom/android/server/location/gnss/hal/GnssNative;
 
-    invoke-virtual {v0}, Lcom/android/server/location/gnss/hal/GnssNative;->isAntennaInfoSupported()Z
+    invoke-virtual {p0}, Lcom/android/server/location/gnss/hal/GnssNative;->isAntennaInfoSupported()Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
-.method protected bridge synthetic mergeRegistrations(Ljava/util/Collection;)Ljava/lang/Object;
+.method public bridge synthetic mergeRegistrations(Ljava/util/Collection;)Ljava/lang/Object;
     .locals 0
 
     invoke-virtual {p0, p1}, Lcom/android/server/location/gnss/GnssAntennaInfoProvider;->mergeRegistrations(Ljava/util/Collection;)Ljava/lang/Void;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method
 
-.method protected mergeRegistrations(Ljava/util/Collection;)Ljava/lang/Void;
-    .locals 1
+.method public mergeRegistrations(Ljava/util/Collection;)Ljava/lang/Void;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -183,27 +189,27 @@
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public onHalRestarted()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/location/gnss/GnssAntennaInfoProvider;->mGnssNative:Lcom/android/server/location/gnss/hal/GnssNative;
+    iget-object p0, p0, Lcom/android/server/location/gnss/GnssAntennaInfoProvider;->mGnssNative:Lcom/android/server/location/gnss/hal/GnssNative;
 
-    invoke-virtual {v0}, Lcom/android/server/location/gnss/hal/GnssNative;->startAntennaInfoListening()Z
+    invoke-virtual {p0}, Lcom/android/server/location/gnss/hal/GnssNative;->startAntennaInfoListening()Z
 
     return-void
 .end method
 
 .method public onHalStarted()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/location/gnss/GnssAntennaInfoProvider;->mGnssNative:Lcom/android/server/location/gnss/hal/GnssNative;
+    iget-object p0, p0, Lcom/android/server/location/gnss/GnssAntennaInfoProvider;->mGnssNative:Lcom/android/server/location/gnss/hal/GnssNative;
 
-    invoke-virtual {v0}, Lcom/android/server/location/gnss/hal/GnssNative;->startAntennaInfoListening()Z
+    invoke-virtual {p0}, Lcom/android/server/location/gnss/hal/GnssNative;->startAntennaInfoListening()Z
 
     return-void
 .end method
@@ -236,25 +242,25 @@
 
     invoke-direct {v0, p1}, Lcom/android/server/location/gnss/GnssAntennaInfoProvider$$ExternalSyntheticLambda0;-><init>(Ljava/util/List;)V
 
-    invoke-virtual {p0, v0}, Lcom/android/server/location/gnss/GnssAntennaInfoProvider;->deliverToListeners(Lcom/android/internal/listeners/ListenerExecutor$ListenerOperation;)V
+    invoke-virtual {p0, v0}, Lcom/android/server/location/listeners/ListenerMultiplexer;->deliverToListeners(Lcom/android/internal/listeners/ListenerExecutor$ListenerOperation;)V
 
     return-void
 .end method
 
-.method protected bridge synthetic registerWithService(Ljava/lang/Object;Ljava/util/Collection;)Z
+.method public bridge synthetic registerWithService(Ljava/lang/Object;Ljava/util/Collection;)Z
     .locals 0
 
     check-cast p1, Ljava/lang/Void;
 
     invoke-virtual {p0, p1, p2}, Lcom/android/server/location/gnss/GnssAntennaInfoProvider;->registerWithService(Ljava/lang/Void;Ljava/util/Collection;)Z
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method
 
-.method protected registerWithService(Ljava/lang/Void;Ljava/util/Collection;)Z
-    .locals 1
+.method public registerWithService(Ljava/lang/Void;Ljava/util/Collection;)Z
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -266,13 +272,13 @@
         }
     .end annotation
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 .end method
 
 .method public removeListener(Landroid/location/IGnssAntennaInfoListener;)V
-    .locals 3
+    .locals 2
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
@@ -281,27 +287,25 @@
     :try_start_0
     invoke-interface {p1}, Landroid/location/IGnssAntennaInfoListener;->asBinder()Landroid/os/IBinder;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {p0, v2}, Lcom/android/server/location/gnss/GnssAntennaInfoProvider;->removeRegistration(Ljava/lang/Object;)V
+    invoke-virtual {p0, p1}, Lcom/android/server/location/listeners/ListenerMultiplexer;->removeRegistration(Ljava/lang/Object;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    nop
-
     return-void
 
     :catchall_0
-    move-exception v2
+    move-exception p0
 
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    throw v2
+    throw p0
 .end method
 
-.method protected unregisterWithService()V
+.method public unregisterWithService()V
     .locals 0
 
     return-void

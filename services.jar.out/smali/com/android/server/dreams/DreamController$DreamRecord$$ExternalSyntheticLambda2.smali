@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/dreams/DreamController$DreamRecord$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/dreams/DreamController$DreamRecord$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/dreams/DreamController$DreamRecord;
+    iget-object p0, p0, Lcom/android/server/dreams/DreamController$DreamRecord$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/dreams/DreamController$DreamRecord;
 
-    invoke-virtual {v0}, Lcom/android/server/dreams/DreamController$DreamRecord;->releaseWakeLockIfNeeded()V
+    invoke-static {p0}, Lcom/android/server/dreams/DreamController$DreamRecord;->$r8$lambda$Y3DRxTJC650L8E248dHxzKkP3ec(Lcom/android/server/dreams/DreamController$DreamRecord;)V
 
     return-void
 .end method

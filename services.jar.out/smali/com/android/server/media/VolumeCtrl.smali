@@ -4,27 +4,11 @@
 
 
 # static fields
-.field private static final ADJUST_LOWER:Ljava/lang/String; = "lower"
-
-.field private static final ADJUST_RAISE:Ljava/lang/String; = "raise"
-
-.field private static final ADJUST_SAME:Ljava/lang/String; = "same"
-
-.field private static final LOG_E:Ljava/lang/String; = "[E]"
-
-.field private static final LOG_V:Ljava/lang/String; = "[V]"
-
-.field private static final TAG:Ljava/lang/String; = "VolumeCtrl"
-
 .field public static final USAGE:Ljava/lang/String;
-
-.field private static final VOLUME_CONTROL_MODE_ADJUST:I = 0x2
-
-.field private static final VOLUME_CONTROL_MODE_SET:I = 0x1
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 2
 
     new-instance v0, Ljava/lang/String;
@@ -38,16 +22,8 @@
     return-void
 .end method
 
-.method public constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
 .method public static run(Lcom/android/server/media/MediaShellCommand;)V
-    .locals 17
+    .locals 16
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -56,536 +32,535 @@
 
     move-object/from16 v0, p0
 
-    const/4 v1, 0x3
+    const/4 v2, 0x0
 
-    const/4 v2, 0x5
+    const/4 v3, 0x5
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    const/4 v4, 0x1
+    move v5, v2
 
-    const/4 v5, 0x0
+    move v7, v5
 
-    const/4 v6, 0x0
+    move v8, v7
 
-    const/4 v7, 0x0
+    const/4 v6, 0x3
 
     :goto_0
-    invoke-virtual/range {p0 .. p0}, Lcom/android/server/media/MediaShellCommand;->getNextOption()Ljava/lang/String;
+    invoke-virtual/range {p0 .. p0}, Landroid/os/ShellCommand;->getNextOption()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v9
 
-    move-object v9, v8
-
-    const/4 v11, 0x4
-
-    const/4 v14, 0x1
-
-    const/4 v15, 0x2
+    const/4 v10, 0x4
 
     const-string v12, "[V]"
 
-    if-eqz v8, :cond_1
+    const/4 v13, 0x2
+
+    const/4 v14, 0x1
+
+    if-eqz v9, :cond_5
 
     invoke-virtual {v9}, Ljava/lang/String;->hashCode()I
 
-    move-result v8
+    move-result v15
 
-    sparse-switch v8, :sswitch_data_0
+    sparse-switch v15, :sswitch_data_0
 
-    :cond_0
-    goto :goto_1
+    :goto_1
+    const/4 v10, -0x1
+
+    goto :goto_2
 
     :sswitch_0
-    const-string v8, "--stream"
+    const-string v15, "--stream"
 
-    invoke-virtual {v9, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v9, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v8
+    move-result v15
 
-    if-eqz v8, :cond_0
+    if-nez v15, :cond_4
 
-    move v10, v15
-
-    goto :goto_2
+    goto :goto_1
 
     :sswitch_1
-    const-string v8, "--show"
+    const-string v10, "--show"
 
-    invoke-virtual {v9, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v9, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v8
+    move-result v10
 
-    if-eqz v8, :cond_0
+    if-nez v10, :cond_0
 
-    const/4 v10, 0x0
+    goto :goto_1
 
-    goto :goto_2
-
-    :sswitch_2
-    const-string v8, "--set"
-
-    invoke-virtual {v9, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v8
-
-    if-eqz v8, :cond_0
-
+    :cond_0
     const/4 v10, 0x3
 
     goto :goto_2
 
+    :sswitch_2
+    const-string v10, "--set"
+
+    invoke-virtual {v9, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v10
+
+    if-nez v10, :cond_1
+
+    goto :goto_1
+
+    :cond_1
+    move v10, v13
+
+    goto :goto_2
+
     :sswitch_3
-    const-string v8, "--get"
+    const-string v10, "--get"
 
-    invoke-virtual {v9, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v9, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v8
+    move-result v10
 
-    if-eqz v8, :cond_0
+    if-nez v10, :cond_2
 
+    goto :goto_1
+
+    :cond_2
     move v10, v14
 
     goto :goto_2
 
     :sswitch_4
-    const-string v8, "--adj"
+    const-string v10, "--adj"
 
-    invoke-virtual {v9, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v9, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v8
+    move-result v10
 
-    if-eqz v8, :cond_0
+    if-nez v10, :cond_3
 
-    move v10, v11
+    goto :goto_1
 
-    goto :goto_2
+    :cond_3
+    move v10, v2
 
-    :goto_1
-    const/4 v10, -0x1
-
+    :cond_4
     :goto_2
     packed-switch v10, :pswitch_data_0
 
-    new-instance v8, Ljava/lang/IllegalArgumentException;
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v10, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v11, "Unknown argument "
+    const-string v2, "Unknown argument "
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v10, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v1
 
-    invoke-direct {v8, v10}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v8
+    throw v0
 
     :pswitch_0
-    const/4 v3, 0x2
+    invoke-virtual/range {p0 .. p0}, Landroid/os/ShellCommand;->getNextArgRequired()Ljava/lang/String;
 
-    invoke-virtual/range {p0 .. p0}, Lcom/android/server/media/MediaShellCommand;->getNextArgRequired()Ljava/lang/String;
+    move-result-object v6
 
-    move-result-object v7
+    invoke-static {v6}, Ljava/lang/Integer;->decode(Ljava/lang/String;)Ljava/lang/Integer;
 
-    const-string/jumbo v8, "will adjust volume"
+    move-result-object v6
 
-    invoke-virtual {v0, v12, v8}, Lcom/android/server/media/MediaShellCommand;->log(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v6}, Ljava/lang/Integer;->intValue()I
 
-    goto :goto_3
+    move-result v6
 
-    :pswitch_1
-    invoke-virtual/range {p0 .. p0}, Lcom/android/server/media/MediaShellCommand;->getNextArgRequired()Ljava/lang/String;
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    move-result-object v8
-
-    invoke-static {v8}, Ljava/lang/Integer;->decode(Ljava/lang/String;)Ljava/lang/Integer;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/Integer;->intValue()I
-
-    move-result v2
-
-    const/4 v3, 0x1
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v10, "will set volume to index="
-
-    invoke-virtual {v8, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v8, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-virtual {v0, v12, v8}, Lcom/android/server/media/MediaShellCommand;->log(Ljava/lang/String;Ljava/lang/String;)V
-
-    goto :goto_3
-
-    :pswitch_2
-    invoke-virtual/range {p0 .. p0}, Lcom/android/server/media/MediaShellCommand;->getNextArgRequired()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v8}, Ljava/lang/Integer;->decode(Ljava/lang/String;)Ljava/lang/Integer;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/Integer;->intValue()I
-
-    move-result v1
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string/jumbo v10, "will control stream="
 
-    invoke-virtual {v8, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v8, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     const-string v10, " ("
 
-    invoke-virtual {v8, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {v1}, Lcom/android/server/media/VolumeCtrl;->streamName(I)Ljava/lang/String;
+    invoke-static {v6}, Lcom/android/server/media/VolumeCtrl;->streamName(I)Ljava/lang/String;
 
     move-result-object v10
 
-    invoke-virtual {v8, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     const-string v10, ")"
 
-    invoke-virtual {v8, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-virtual {v0, v12, v8}, Lcom/android/server/media/MediaShellCommand;->log(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, v12, v9}, Lcom/android/server/media/MediaShellCommand;->log(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_3
+    goto/16 :goto_0
+
+    :pswitch_1
+    move v7, v14
+
+    goto/16 :goto_0
+
+    :pswitch_2
+    invoke-virtual/range {p0 .. p0}, Landroid/os/ShellCommand;->getNextArgRequired()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v3}, Ljava/lang/Integer;->decode(Ljava/lang/String;)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/Integer;->intValue()I
+
+    move-result v3
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v9, "will set volume to index="
+
+    invoke-virtual {v5, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v0, v12, v5}, Lcom/android/server/media/MediaShellCommand;->log(Ljava/lang/String;Ljava/lang/String;)V
+
+    move v5, v14
+
+    goto/16 :goto_0
 
     :pswitch_3
-    const/4 v6, 0x1
-
     const-string/jumbo v8, "will get volume"
 
     invoke-virtual {v0, v12, v8}, Lcom/android/server/media/MediaShellCommand;->log(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_3
+    move v8, v14
 
-    :pswitch_4
-    const/4 v5, 0x1
-
-    nop
-
-    :goto_3
     goto/16 :goto_0
 
-    :cond_1
-    if-ne v3, v15, :cond_4
+    :pswitch_4
+    invoke-virtual/range {p0 .. p0}, Landroid/os/ShellCommand;->getNextArgRequired()Ljava/lang/String;
 
-    if-nez v7, :cond_2
+    move-result-object v4
 
-    const-string v8, "Error: no valid volume adjustment (null)"
+    const-string/jumbo v5, "will adjust volume"
 
-    invoke-virtual {v0, v8}, Lcom/android/server/media/MediaShellCommand;->showError(Ljava/lang/String;)V
+    invoke-virtual {v0, v12, v5}, Lcom/android/server/media/MediaShellCommand;->log(Ljava/lang/String;Ljava/lang/String;)V
 
-    return-void
+    move v5, v13
 
-    :cond_2
-    invoke-virtual {v7}, Ljava/lang/String;->hashCode()I
-
-    move-result v8
-
-    const-string/jumbo v10, "raise"
-
-    const-string/jumbo v15, "lower"
-
-    const-string/jumbo v13, "same"
-
-    sparse-switch v8, :sswitch_data_1
-
-    :cond_3
-    goto :goto_4
-
-    :sswitch_5
-    invoke-virtual {v7, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v8
-
-    if-eqz v8, :cond_3
-
-    const/16 v16, 0x0
-
-    goto :goto_5
-
-    :sswitch_6
-    invoke-virtual {v7, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v8
-
-    if-eqz v8, :cond_3
-
-    const/16 v16, 0x2
-
-    goto :goto_5
-
-    :sswitch_7
-    invoke-virtual {v7, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v8
-
-    if-eqz v8, :cond_3
-
-    move/from16 v16, v14
-
-    goto :goto_5
-
-    :goto_4
-    const/16 v16, -0x1
-
-    :goto_5
-    packed-switch v16, :pswitch_data_1
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v11, "Error: no valid volume adjustment, was "
-
-    invoke-virtual {v8, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v8, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v11, ", expected "
-
-    invoke-virtual {v8, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v8, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string/jumbo v11, "|"
-
-    invoke-virtual {v8, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v8, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v8, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v8, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-virtual {v0, v8}, Lcom/android/server/media/MediaShellCommand;->showError(Ljava/lang/String;)V
-
-    return-void
-
-    :pswitch_5
-    const/4 v4, -0x1
-
-    goto :goto_6
-
-    :pswitch_6
-    const/4 v4, 0x0
-
-    goto :goto_6
-
-    :pswitch_7
-    const/4 v4, 0x1
-
-    :cond_4
-    :goto_6
-    const-string v8, "Connecting to AudioService"
-
-    invoke-virtual {v0, v12, v8}, Lcom/android/server/media/MediaShellCommand;->log(Ljava/lang/String;Ljava/lang/String;)V
-
-    const-string v8, "audio"
-
-    invoke-static {v8}, Landroid/os/ServiceManager;->checkService(Ljava/lang/String;)Landroid/os/IBinder;
-
-    move-result-object v8
-
-    invoke-static {v8}, Landroid/media/IAudioService$Stub;->asInterface(Landroid/os/IBinder;)Landroid/media/IAudioService;
-
-    move-result-object v8
-
-    if-eqz v8, :cond_a
-
-    if-ne v3, v14, :cond_6
-
-    invoke-interface {v8, v1}, Landroid/media/IAudioService;->getStreamMaxVolume(I)I
-
-    move-result v10
-
-    if-gt v2, v10, :cond_5
-
-    invoke-interface {v8, v1}, Landroid/media/IAudioService;->getStreamMinVolume(I)I
-
-    move-result v10
-
-    if-ge v2, v10, :cond_6
+    goto/16 :goto_0
 
     :cond_5
-    new-array v10, v11, [Ljava/lang/Object;
+    if-ne v5, v13, :cond_a
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    if-nez v4, :cond_6
 
-    move-result-object v11
+    const-string v1, "Error: no valid volume adjustment (null)"
 
-    const/4 v12, 0x0
-
-    aput-object v11, v10, v12
-
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v11
-
-    aput-object v11, v10, v14
-
-    invoke-interface {v8, v1}, Landroid/media/IAudioService;->getStreamMinVolume(I)I
-
-    move-result v11
-
-    invoke-static {v11}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v11
-
-    const/4 v12, 0x2
-
-    aput-object v11, v10, v12
-
-    invoke-interface {v8, v1}, Landroid/media/IAudioService;->getStreamMaxVolume(I)I
-
-    move-result v11
-
-    invoke-static {v11}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v11
-
-    const/4 v12, 0x3
-
-    aput-object v11, v10, v12
-
-    const-string v11, "Error: invalid volume index %d for stream %d (should be in [%d..%d])"
-
-    invoke-static {v11, v10}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v10
-
-    invoke-virtual {v0, v10}, Lcom/android/server/media/MediaShellCommand;->showError(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Lcom/android/server/media/MediaShellCommand;->showError(Ljava/lang/String;)V
 
     return-void
 
     :cond_6
-    move v10, v5
+    invoke-virtual {v4}, Ljava/lang/String;->hashCode()I
 
-    invoke-virtual/range {p0 .. p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    move-result v9
 
-    move-result-object v11
+    const-string/jumbo v15, "raise"
 
-    invoke-virtual {v11}, Ljava/lang/Class;->getPackage()Ljava/lang/Package;
+    const-string v11, "lower"
 
-    move-result-object v11
+    const-string/jumbo v1, "same"
 
-    invoke-virtual {v11}, Ljava/lang/Package;->getName()Ljava/lang/String;
+    sparse-switch v9, :sswitch_data_1
 
-    move-result-object v11
+    :goto_3
+    const/4 v9, -0x1
 
-    if-ne v3, v14, :cond_7
+    goto :goto_4
 
-    invoke-interface {v8, v1, v2, v10, v11}, Landroid/media/IAudioService;->setStreamVolume(IIILjava/lang/String;)V
+    :sswitch_5
+    invoke-virtual {v4, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    goto :goto_7
+    move-result v9
+
+    if-nez v9, :cond_7
+
+    goto :goto_3
 
     :cond_7
-    const/4 v13, 0x2
+    move v9, v13
 
-    if-ne v3, v13, :cond_8
+    goto :goto_4
 
-    invoke-interface {v8, v1, v4, v10, v11}, Landroid/media/IAudioService;->adjustStreamVolume(IIILjava/lang/String;)V
+    :sswitch_6
+    invoke-virtual {v4, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v9
+
+    if-nez v9, :cond_8
+
+    goto :goto_3
 
     :cond_8
-    :goto_7
-    if-eqz v6, :cond_9
+    move v9, v14
 
-    new-instance v13, Ljava/lang/StringBuilder;
+    goto :goto_4
 
-    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+    :sswitch_7
+    invoke-virtual {v4, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    const-string/jumbo v14, "volume is "
+    move-result v9
 
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    if-nez v9, :cond_9
 
-    invoke-interface {v8, v1}, Landroid/media/IAudioService;->getStreamVolume(I)I
-
-    move-result v14
-
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v14, " in range ["
-
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-interface {v8, v1}, Landroid/media/IAudioService;->getStreamMinVolume(I)I
-
-    move-result v14
-
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v14, ".."
-
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-interface {v8, v1}, Landroid/media/IAudioService;->getStreamMaxVolume(I)I
-
-    move-result v14
-
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v14, "]"
-
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v13
-
-    invoke-virtual {v0, v12, v13}, Lcom/android/server/media/MediaShellCommand;->log(Ljava/lang/String;Ljava/lang/String;)V
+    goto :goto_3
 
     :cond_9
+    move v9, v2
+
+    :goto_4
+    packed-switch v9, :pswitch_data_1
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "Error: no valid volume adjustment, was "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v3, ", expected "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string/jumbo v3, "|"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/android/server/media/MediaShellCommand;->showError(Ljava/lang/String;)V
+
     return-void
 
+    :pswitch_5
+    const/4 v11, -0x1
+
+    goto :goto_5
+
+    :pswitch_6
+    move v11, v2
+
+    goto :goto_5
+
     :cond_a
-    const-string v10, "[E]"
+    :pswitch_7
+    move v11, v14
 
-    const-string v11, "Error type 2"
+    :goto_5
+    const-string v1, "Connecting to AudioService"
 
-    invoke-virtual {v0, v10, v11}, Lcom/android/server/media/MediaShellCommand;->log(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, v12, v1}, Lcom/android/server/media/MediaShellCommand;->log(Ljava/lang/String;Ljava/lang/String;)V
 
-    new-instance v10, Landroid/util/AndroidException;
+    const-string v1, "audio"
 
-    const-string v11, "Can\'t connect to audio service; is the system running?"
+    invoke-static {v1}, Landroid/os/ServiceManager;->checkService(Ljava/lang/String;)Landroid/os/IBinder;
 
-    invoke-direct {v10, v11}, Landroid/util/AndroidException;-><init>(Ljava/lang/String;)V
+    move-result-object v1
 
-    throw v10
+    invoke-static {v1}, Landroid/media/IAudioService$Stub;->asInterface(Landroid/os/IBinder;)Landroid/media/IAudioService;
 
-    nop
+    move-result-object v1
+
+    if-eqz v1, :cond_10
+
+    if-ne v5, v14, :cond_c
+
+    invoke-interface {v1, v6}, Landroid/media/IAudioService;->getStreamMaxVolume(I)I
+
+    move-result v4
+
+    if-gt v3, v4, :cond_b
+
+    invoke-interface {v1, v6}, Landroid/media/IAudioService;->getStreamMinVolume(I)I
+
+    move-result v4
+
+    if-ge v3, v4, :cond_c
+
+    :cond_b
+    new-array v4, v10, [Ljava/lang/Object;
+
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    aput-object v3, v4, v2
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    aput-object v2, v4, v14
+
+    invoke-interface {v1, v6}, Landroid/media/IAudioService;->getStreamMinVolume(I)I
+
+    move-result v2
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    aput-object v2, v4, v13
+
+    invoke-interface {v1, v6}, Landroid/media/IAudioService;->getStreamMaxVolume(I)I
+
+    move-result v1
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const/4 v2, 0x3
+
+    aput-object v1, v4, v2
+
+    const-string v1, "Error: invalid volume index %d for stream %d (should be in [%d..%d])"
+
+    invoke-static {v1, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/android/server/media/MediaShellCommand;->showError(Ljava/lang/String;)V
+
+    return-void
+
+    :cond_c
+    invoke-virtual/range {p0 .. p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/Class;->getPackage()Ljava/lang/Package;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/Package;->getName()Ljava/lang/String;
+
+    move-result-object v2
+
+    if-ne v5, v14, :cond_d
+
+    invoke-interface {v1, v6, v3, v7, v2}, Landroid/media/IAudioService;->setStreamVolume(IIILjava/lang/String;)V
+
+    goto :goto_6
+
+    :cond_d
+    if-ne v5, v13, :cond_e
+
+    invoke-interface {v1, v6, v11, v7, v2}, Landroid/media/IAudioService;->adjustStreamVolume(IIILjava/lang/String;)V
+
+    :cond_e
+    :goto_6
+    if-eqz v8, :cond_f
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "volume is "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-interface {v1, v6}, Landroid/media/IAudioService;->getStreamVolume(I)I
+
+    move-result v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v3, " in range ["
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-interface {v1, v6}, Landroid/media/IAudioService;->getStreamMinVolume(I)I
+
+    move-result v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v3, ".."
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-interface {v1, v6}, Landroid/media/IAudioService;->getStreamMaxVolume(I)I
+
+    move-result v1
+
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v1, "]"
+
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v12, v1}, Lcom/android/server/media/MediaShellCommand;->log(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_f
+    return-void
+
+    :cond_10
+    const-string v1, "[E]"
+
+    const-string v2, "Error type 2"
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/media/MediaShellCommand;->log(Ljava/lang/String;Ljava/lang/String;)V
+
+    new-instance v0, Landroid/util/AndroidException;
+
+    const-string v1, "Can\'t connect to audio service; is the system running?"
+
+    invoke-direct {v0, v1}, Landroid/util/AndroidException;-><init>(Ljava/lang/String;)V
+
+    throw v0
 
     :sswitch_data_0
     .sparse-switch
@@ -614,28 +589,26 @@
 
     :pswitch_data_1
     .packed-switch 0x0
-        :pswitch_7
         :pswitch_6
         :pswitch_5
+        :pswitch_7
     .end packed-switch
 .end method
 
-.method static streamName(I)Ljava/lang/String;
-    .locals 2
+.method public static streamName(I)Ljava/lang/String;
+    .locals 1
 
     :try_start_0
     sget-object v0, Landroid/media/AudioSystem;->STREAM_NAMES:[Ljava/lang/String;
 
-    aget-object v0, v0, p0
+    aget-object p0, v0, p0
     :try_end_0
     .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object p0
 
     :catch_0
-    move-exception v0
+    const-string p0, "invalid stream"
 
-    const-string v1, "invalid stream"
-
-    return-object v1
+    return-object p0
 .end method

@@ -1,4 +1,4 @@
-.class Lcom/android/server/content/SyncManager$9;
+.class public Lcom/android/server/content/SyncManager$9;
 .super Ljava/lang/Object;
 .source "SyncManager.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/content/SyncManager;
+.field public final synthetic this$0:Lcom/android/server/content/SyncManager;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/content/SyncManager;)V
+.method public constructor <init>(Lcom/android/server/content/SyncManager;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/content/SyncManager$9;->this$0:Lcom/android/server/content/SyncManager;
@@ -35,13 +35,13 @@
 
 # virtual methods
 .method public onAuthorityRemoved(Lcom/android/server/content/SyncStorageEngine$EndPoint;)V
-    .locals 2
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/content/SyncManager$9;->this$0:Lcom/android/server/content/SyncManager;
+    iget-object p0, p0, Lcom/android/server/content/SyncManager$9;->this$0:Lcom/android/server/content/SyncManager;
 
-    const-string/jumbo v1, "onAuthorityRemoved"
+    const-string/jumbo v0, "onAuthorityRemoved"
 
-    invoke-static {v0, p1, v1}, Lcom/android/server/content/SyncManager;->access$1200(Lcom/android/server/content/SyncManager;Lcom/android/server/content/SyncStorageEngine$EndPoint;Ljava/lang/String;)V
+    invoke-static {p0, p1, v0}, Lcom/android/server/content/SyncManager;->-$$Nest$mremoveSyncsForAuthority(Lcom/android/server/content/SyncManager;Lcom/android/server/content/SyncStorageEngine$EndPoint;Ljava/lang/String;)V
 
     return-void
 .end method

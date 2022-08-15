@@ -25,31 +25,31 @@
 
 
 # virtual methods
-.method onAutomaticRuleStatusChanged(ILjava/lang/String;Ljava/lang/String;I)V
+.method public onAutomaticRuleStatusChanged(ILjava/lang/String;Ljava/lang/String;I)V
     .locals 0
 
     return-void
 .end method
 
-.method onConfigChanged()V
+.method public onConfigChanged()V
     .locals 0
 
     return-void
 .end method
 
-.method onConsolidatedPolicyChanged()V
+.method public onConsolidatedPolicyChanged()V
     .locals 0
 
     return-void
 .end method
 
-.method onPolicyChanged()V
+.method public onPolicyChanged()V
     .locals 0
 
     return-void
 .end method
 
-.method onZenModeChanged()V
+.method public onZenModeChanged()V
     .locals 0
 
     return-void

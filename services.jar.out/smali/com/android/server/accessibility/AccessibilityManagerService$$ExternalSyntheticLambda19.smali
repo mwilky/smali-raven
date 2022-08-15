@@ -1,53 +1,40 @@
 .class public final synthetic Lcom/android/server/accessibility/AccessibilityManagerService$$ExternalSyntheticLambda19;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Consumer;
-
-
-# instance fields
-.field public final synthetic f$0:Ljava/lang/String;
-
-.field public final synthetic f$1:Lcom/android/server/accessibility/AccessibilityUserState;
-
-.field public final synthetic f$2:Ljava/util/Set;
-
-.field public final synthetic f$3:Ljava/util/Set;
+.implements Lcom/android/internal/util/function/TriConsumer;
 
 
 # direct methods
-.method public synthetic constructor <init>(Ljava/lang/String;Lcom/android/server/accessibility/AccessibilityUserState;Ljava/util/Set;Ljava/util/Set;)V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/server/accessibility/AccessibilityManagerService$$ExternalSyntheticLambda19;->f$0:Ljava/lang/String;
-
-    iput-object p2, p0, Lcom/android/server/accessibility/AccessibilityManagerService$$ExternalSyntheticLambda19;->f$1:Lcom/android/server/accessibility/AccessibilityUserState;
-
-    iput-object p3, p0, Lcom/android/server/accessibility/AccessibilityManagerService$$ExternalSyntheticLambda19;->f$2:Ljava/util/Set;
-
-    iput-object p4, p0, Lcom/android/server/accessibility/AccessibilityManagerService$$ExternalSyntheticLambda19;->f$3:Ljava/util/Set;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
-    .locals 4
+.method public final accept(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityManagerService$$ExternalSyntheticLambda19;->f$0:Ljava/lang/String;
+    check-cast p1, Lcom/android/server/accessibility/AccessibilityManagerService;
 
-    iget-object v1, p0, Lcom/android/server/accessibility/AccessibilityManagerService$$ExternalSyntheticLambda19;->f$1:Lcom/android/server/accessibility/AccessibilityUserState;
+    check-cast p2, Ljava/lang/Integer;
 
-    iget-object v2, p0, Lcom/android/server/accessibility/AccessibilityManagerService$$ExternalSyntheticLambda19;->f$2:Ljava/util/Set;
+    invoke-virtual {p2}, Ljava/lang/Integer;->intValue()I
 
-    iget-object v3, p0, Lcom/android/server/accessibility/AccessibilityManagerService$$ExternalSyntheticLambda19;->f$3:Ljava/util/Set;
+    move-result p0
 
-    check-cast p1, Landroid/content/ComponentName;
+    check-cast p3, Ljava/lang/Integer;
 
-    invoke-static {v0, v1, v2, v3, p1}, Lcom/android/server/accessibility/AccessibilityManagerService;->lambda$migrateAccessibilityButtonSettingsIfNecessaryLocked$19(Ljava/lang/String;Lcom/android/server/accessibility/AccessibilityUserState;Ljava/util/Set;Ljava/util/Set;Landroid/content/ComponentName;)V
+    invoke-virtual {p3}, Ljava/lang/Integer;->intValue()I
+
+    move-result p2
+
+    invoke-static {p1, p0, p2}, Lcom/android/server/accessibility/AccessibilityManagerService;->$r8$lambda$AVXjUInSbI3Q3J_0C4y8f60_AgU(Lcom/android/server/accessibility/AccessibilityManagerService;II)V
 
     return-void
 .end method

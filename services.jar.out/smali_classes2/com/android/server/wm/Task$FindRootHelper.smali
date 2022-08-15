@@ -1,6 +1,9 @@
-.class Lcom/android/server/wm/Task$FindRootHelper;
+.class public Lcom/android/server/wm/Task$FindRootHelper;
 .super Ljava/lang/Object;
 .source "Task.java"
+
+# interfaces
+.implements Ljava/util/function/Predicate;
 
 
 # annotations
@@ -9,29 +12,32 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "FindRootHelper"
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Ljava/lang/Object;",
+        "Ljava/util/function/Predicate<",
+        "Lcom/android/server/wm/ActivityRecord;",
+        ">;"
+    }
 .end annotation
 
 
 # instance fields
-.field private mRoot:Lcom/android/server/wm/ActivityRecord;
+.field public mIgnoreRelinquishIdentity:Z
 
-.field final synthetic this$0:Lcom/android/server/wm/Task;
+.field public mRoot:Lcom/android/server/wm/ActivityRecord;
+
+.field public mSetToBottomIfNone:Z
+
+.field public final synthetic this$0:Lcom/android/server/wm/Task;
 
 
 # direct methods
-.method public static synthetic $r8$lambda$ixIRM-eYupN5xaEgr6PXDn2j7Aw(Lcom/android/server/wm/Task$FindRootHelper;Lcom/android/server/wm/ActivityRecord;ZZ)Z
-    .locals 0
-
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/wm/Task$FindRootHelper;->processActivity(Lcom/android/server/wm/ActivityRecord;ZZ)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method private constructor <init>(Lcom/android/server/wm/Task;)V
+.method public constructor <init>(Lcom/android/server/wm/Task;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/wm/Task$FindRootHelper;->this$0:Lcom/android/server/wm/Task;
@@ -41,7 +47,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/wm/Task;Lcom/android/server/wm/Task$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/wm/Task;Lcom/android/server/wm/Task$FindRootHelper-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/wm/Task$FindRootHelper;-><init>(Lcom/android/server/wm/Task;)V
@@ -49,24 +55,40 @@
     return-void
 .end method
 
-.method private clear()V
-    .locals 1
 
-    const/4 v0, 0x0
+# virtual methods
+.method public findRoot(ZZ)Lcom/android/server/wm/ActivityRecord;
+    .locals 0
 
-    iput-object v0, p0, Lcom/android/server/wm/Task$FindRootHelper;->mRoot:Lcom/android/server/wm/ActivityRecord;
+    iput-boolean p1, p0, Lcom/android/server/wm/Task$FindRootHelper;->mIgnoreRelinquishIdentity:Z
 
-    return-void
+    iput-boolean p2, p0, Lcom/android/server/wm/Task$FindRootHelper;->mSetToBottomIfNone:Z
+
+    iget-object p1, p0, Lcom/android/server/wm/Task$FindRootHelper;->this$0:Lcom/android/server/wm/Task;
+
+    const/4 p2, 0x0
+
+    invoke-virtual {p1, p0, p2}, Lcom/android/server/wm/WindowContainer;->forAllActivities(Ljava/util/function/Predicate;Z)Z
+
+    iget-object p1, p0, Lcom/android/server/wm/Task$FindRootHelper;->mRoot:Lcom/android/server/wm/ActivityRecord;
+
+    const/4 p2, 0x0
+
+    iput-object p2, p0, Lcom/android/server/wm/Task$FindRootHelper;->mRoot:Lcom/android/server/wm/ActivityRecord;
+
+    return-object p1
 .end method
 
-.method private processActivity(Lcom/android/server/wm/ActivityRecord;ZZ)Z
-    .locals 4
+.method public test(Lcom/android/server/wm/ActivityRecord;)Z
+    .locals 5
 
     iget-object v0, p0, Lcom/android/server/wm/Task$FindRootHelper;->mRoot:Lcom/android/server/wm/ActivityRecord;
 
     if-nez v0, :cond_0
 
-    if-eqz p3, :cond_0
+    iget-boolean v0, p0, Lcom/android/server/wm/Task$FindRootHelper;->mSetToBottomIfNone:Z
+
+    if-eqz v0, :cond_0
 
     iput-object p1, p0, Lcom/android/server/wm/Task$FindRootHelper;->mRoot:Lcom/android/server/wm/ActivityRecord;
 
@@ -96,65 +118,55 @@
 
     if-ne v0, p1, :cond_4
 
-    iget-object v0, p0, Lcom/android/server/wm/Task$FindRootHelper;->this$0:Lcom/android/server/wm/Task;
+    iget-object v2, p0, Lcom/android/server/wm/Task$FindRootHelper;->this$0:Lcom/android/server/wm/Task;
 
-    iget v0, v0, Lcom/android/server/wm/Task;->effectiveUid:I
+    iget v2, v2, Lcom/android/server/wm/Task;->effectiveUid:I
 
     goto :goto_0
 
     :cond_4
-    iget-object v0, p1, Lcom/android/server/wm/ActivityRecord;->info:Landroid/content/pm/ActivityInfo;
+    iget-object v2, p1, Lcom/android/server/wm/ActivityRecord;->info:Landroid/content/pm/ActivityInfo;
+
+    iget-object v2, v2, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    iget v2, v2, Landroid/content/pm/ApplicationInfo;->uid:I
+
+    :goto_0
+    iget-boolean v3, p0, Lcom/android/server/wm/Task$FindRootHelper;->mIgnoreRelinquishIdentity:Z
+
+    if-nez v3, :cond_6
+
+    iget-object v0, v0, Lcom/android/server/wm/ActivityRecord;->info:Landroid/content/pm/ActivityInfo;
+
+    iget v3, v0, Landroid/content/pm/ActivityInfo;->flags:I
+
+    and-int/lit16 v3, v3, 0x1000
+
+    if-eqz v3, :cond_6
+
+    iget-object v0, v0, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    iget v3, v0, Landroid/content/pm/ApplicationInfo;->uid:I
+
+    const/16 v4, 0x3e8
+
+    if-eq v3, v4, :cond_5
+
+    invoke-virtual {v0}, Landroid/content/pm/ApplicationInfo;->isSystemApp()Z
+
+    move-result v0
+
+    if-nez v0, :cond_5
+
+    iget-object v0, p0, Lcom/android/server/wm/Task$FindRootHelper;->mRoot:Lcom/android/server/wm/ActivityRecord;
+
+    iget-object v0, v0, Lcom/android/server/wm/ActivityRecord;->info:Landroid/content/pm/ActivityInfo;
 
     iget-object v0, v0, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
     iget v0, v0, Landroid/content/pm/ApplicationInfo;->uid:I
 
-    :goto_0
-    if-nez p2, :cond_6
-
-    iget-object v2, p0, Lcom/android/server/wm/Task$FindRootHelper;->mRoot:Lcom/android/server/wm/ActivityRecord;
-
-    iget-object v2, v2, Lcom/android/server/wm/ActivityRecord;->info:Landroid/content/pm/ActivityInfo;
-
-    iget v2, v2, Landroid/content/pm/ActivityInfo;->flags:I
-
-    and-int/lit16 v2, v2, 0x1000
-
-    if-eqz v2, :cond_6
-
-    iget-object v2, p0, Lcom/android/server/wm/Task$FindRootHelper;->mRoot:Lcom/android/server/wm/ActivityRecord;
-
-    iget-object v2, v2, Lcom/android/server/wm/ActivityRecord;->info:Landroid/content/pm/ActivityInfo;
-
-    iget-object v2, v2, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
-
-    iget v2, v2, Landroid/content/pm/ApplicationInfo;->uid:I
-
-    const/16 v3, 0x3e8
-
-    if-eq v2, v3, :cond_5
-
-    iget-object v2, p0, Lcom/android/server/wm/Task$FindRootHelper;->mRoot:Lcom/android/server/wm/ActivityRecord;
-
-    iget-object v2, v2, Lcom/android/server/wm/ActivityRecord;->info:Landroid/content/pm/ActivityInfo;
-
-    iget-object v2, v2, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
-
-    invoke-virtual {v2}, Landroid/content/pm/ApplicationInfo;->isSystemApp()Z
-
-    move-result v2
-
-    if-nez v2, :cond_5
-
-    iget-object v2, p0, Lcom/android/server/wm/Task$FindRootHelper;->mRoot:Lcom/android/server/wm/ActivityRecord;
-
-    iget-object v2, v2, Lcom/android/server/wm/ActivityRecord;->info:Landroid/content/pm/ActivityInfo;
-
-    iget-object v2, v2, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
-
-    iget v2, v2, Landroid/content/pm/ApplicationInfo;->uid:I
-
-    if-eq v2, v0, :cond_5
+    if-eq v0, v2, :cond_5
 
     goto :goto_1
 
@@ -165,47 +177,19 @@
 
     :cond_6
     :goto_1
-    const/4 v1, 0x1
+    const/4 p0, 0x1
 
-    return v1
+    return p0
 .end method
 
+.method public bridge synthetic test(Ljava/lang/Object;)Z
+    .locals 0
 
-# virtual methods
-.method findRoot(ZZ)Lcom/android/server/wm/ActivityRecord;
-    .locals 4
+    check-cast p1, Lcom/android/server/wm/ActivityRecord;
 
-    sget-object v0, Lcom/android/server/wm/Task$FindRootHelper$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/server/wm/Task$FindRootHelper$$ExternalSyntheticLambda0;
+    invoke-virtual {p0, p1}, Lcom/android/server/wm/Task$FindRootHelper;->test(Lcom/android/server/wm/ActivityRecord;)Z
 
-    const-class v1, Lcom/android/server/wm/ActivityRecord;
+    move-result p0
 
-    invoke-static {v1}, Lcom/android/internal/util/function/pooled/PooledLambda;->__(Ljava/lang/Class;)Lcom/android/internal/util/function/pooled/ArgumentPlaceholder;
-
-    move-result-object v1
-
-    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v2
-
-    invoke-static {p2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v3
-
-    invoke-static {v0, p0, v1, v2, v3}, Lcom/android/internal/util/function/pooled/PooledLambda;->obtainFunction(Lcom/android/internal/util/function/QuadFunction;Ljava/lang/Object;Lcom/android/internal/util/function/pooled/ArgumentPlaceholder;Ljava/lang/Object;Ljava/lang/Object;)Lcom/android/internal/util/function/pooled/PooledFunction;
-
-    move-result-object v0
-
-    invoke-direct {p0}, Lcom/android/server/wm/Task$FindRootHelper;->clear()V
-
-    iget-object v1, p0, Lcom/android/server/wm/Task$FindRootHelper;->this$0:Lcom/android/server/wm/Task;
-
-    const/4 v2, 0x0
-
-    invoke-virtual {v1, v0, v2}, Lcom/android/server/wm/Task;->forAllActivities(Ljava/util/function/Function;Z)Z
-
-    invoke-interface {v0}, Lcom/android/internal/util/function/pooled/PooledFunction;->recycle()V
-
-    iget-object v1, p0, Lcom/android/server/wm/Task$FindRootHelper;->mRoot:Lcom/android/server/wm/ActivityRecord;
-
-    return-object v1
+    return p0
 .end method

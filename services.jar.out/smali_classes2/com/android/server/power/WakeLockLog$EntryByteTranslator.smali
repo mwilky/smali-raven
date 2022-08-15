@@ -1,4 +1,4 @@
-.class Lcom/android/server/power/WakeLockLog$EntryByteTranslator;
+.class public Lcom/android/server/power/WakeLockLog$EntryByteTranslator;
 .super Ljava/lang/Object;
 .source "WakeLockLog.java"
 
@@ -9,23 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "EntryByteTranslator"
 .end annotation
 
 
-# static fields
-.field static final ERROR_TIME_IS_NEGATIVE:I = -0x1
-
-.field static final ERROR_TIME_TOO_LARGE:I = -0x2
-
-
 # instance fields
-.field private final mTagDatabase:Lcom/android/server/power/WakeLockLog$TagDatabase;
+.field public final mTagDatabase:Lcom/android/server/power/WakeLockLog$TagDatabase;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/power/WakeLockLog$TagDatabase;)V
+.method public constructor <init>(Lcom/android/server/power/WakeLockLog$TagDatabase;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -35,605 +29,566 @@
     return-void
 .end method
 
-.method private getRelativeTime(JJ)I
-    .locals 4
-
-    cmp-long v0, p3, p1
-
-    if-gez v0, :cond_0
-
-    const/4 v0, -0x1
-
-    return v0
-
-    :cond_0
-    sub-long v0, p3, p1
-
-    const-wide/16 v2, 0xff
-
-    cmp-long v2, v0, v2
-
-    if-lez v2, :cond_1
-
-    const/4 v2, -0x2
-
-    return v2
-
-    :cond_1
-    long-to-int v2, v0
-
-    return v2
-.end method
-
 
 # virtual methods
-.method fromBytes([BJLcom/android/server/power/WakeLockLog$LogEntry;)Lcom/android/server/power/WakeLockLog$LogEntry;
-    .locals 15
+.method public fromBytes([BJLcom/android/server/power/WakeLockLog$LogEntry;)Lcom/android/server/power/WakeLockLog$LogEntry;
+    .locals 7
 
-    move-object v0, p0
+    const/4 v0, 0x0
 
-    move-object/from16 v1, p1
+    if-eqz p1, :cond_9
 
-    const/4 v2, 0x0
+    array-length v1, p1
 
-    if-eqz v1, :cond_6
+    if-nez v1, :cond_0
 
-    array-length v3, v1
-
-    if-nez v3, :cond_0
-
-    goto/16 :goto_3
+    goto/16 :goto_2
 
     :cond_0
     if-eqz p4, :cond_1
 
-    move-object/from16 v3, p4
-
     goto :goto_0
 
     :cond_1
-    new-instance v3, Lcom/android/server/power/WakeLockLog$LogEntry;
+    new-instance p4, Lcom/android/server/power/WakeLockLog$LogEntry;
 
-    invoke-direct {v3}, Lcom/android/server/power/WakeLockLog$LogEntry;-><init>()V
+    invoke-direct {p4}, Lcom/android/server/power/WakeLockLog$LogEntry;-><init>()V
 
     :goto_0
-    const/4 v4, 0x0
+    const/4 v1, 0x0
 
-    aget-byte v5, v1, v4
+    aget-byte v1, p1, v1
 
-    const/4 v6, 0x6
+    shr-int/lit8 v2, v1, 0x6
 
-    shr-int/2addr v5, v6
+    const/4 v3, 0x3
 
-    const/4 v7, 0x3
+    and-int/2addr v2, v3
 
-    and-int/2addr v5, v7
-
-    and-int/lit8 v8, v5, 0x2
-
-    const/4 v9, 0x2
-
-    if-ne v8, v9, :cond_2
+    and-int/lit8 v4, v2, 0x2
 
     const/4 v5, 0x2
 
-    move v10, v5
+    if-ne v4, v5, :cond_2
+
+    move v2, v5
+
+    :cond_2
+    const/4 v4, 0x1
+
+    if-eqz v2, :cond_7
+
+    if-eq v2, v4, :cond_5
+
+    if-eq v2, v5, :cond_3
+
+    new-instance p0, Ljava/lang/StringBuilder;
+
+    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string p1, "Type not recognized ["
+
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string p1, "]"
+
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    new-instance p1, Ljava/lang/Exception;
+
+    invoke-direct {p1}, Ljava/lang/Exception;-><init>()V
+
+    const-string p2, "PowerManagerService.WLLog"
+
+    invoke-static {p2, p0, p1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_1
 
-    :cond_2
-    move v10, v5
-
-    :goto_1
-    const/4 v5, 0x1
-
-    packed-switch v10, :pswitch_data_0
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v5, "Type not recognized ["
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v4, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v5, "]"
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    new-instance v5, Ljava/lang/Exception;
-
-    invoke-direct {v5}, Ljava/lang/Exception;-><init>()V
-
-    const-string v6, "PowerManagerService.WLLog"
-
-    invoke-static {v6, v4, v5}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto/16 :goto_2
-
-    :pswitch_0
-    array-length v6, v1
-
-    if-ge v6, v9, :cond_3
-
-    goto/16 :goto_2
-
     :cond_3
-    const/4 v2, 0x0
+    array-length v2, p1
 
-    aget-byte v4, v1, v4
+    if-ge v2, v5, :cond_4
 
-    and-int/lit8 v11, v4, 0x7f
-
-    iget-object v4, v0, Lcom/android/server/power/WakeLockLog$EntryByteTranslator;->mTagDatabase:Lcom/android/server/power/WakeLockLog$TagDatabase;
-
-    invoke-virtual {v4, v11}, Lcom/android/server/power/WakeLockLog$TagDatabase;->getTag(I)Lcom/android/server/power/WakeLockLog$TagData;
-
-    move-result-object v12
-
-    aget-byte v4, v1, v5
-
-    and-int/lit16 v4, v4, 0xff
-
-    int-to-long v4, v4
-
-    add-long v13, v4, p2
-
-    const/4 v7, 0x2
-
-    move-object v4, v3
-
-    move-wide v5, v13
-
-    move-object v8, v12
-
-    move v9, v2
-
-    invoke-virtual/range {v4 .. v9}, Lcom/android/server/power/WakeLockLog$LogEntry;->set(JILcom/android/server/power/WakeLockLog$TagData;I)V
-
-    return-object v3
-
-    :pswitch_1
-    array-length v6, v1
-
-    if-ge v6, v7, :cond_4
-
-    goto/16 :goto_2
+    goto :goto_1
 
     :cond_4
-    aget-byte v2, v1, v4
+    const/4 v6, 0x0
 
-    and-int/lit8 v2, v2, 0x3f
+    and-int/lit8 v0, v1, 0x7f
 
-    aget-byte v4, v1, v5
+    iget-object p0, p0, Lcom/android/server/power/WakeLockLog$EntryByteTranslator;->mTagDatabase:Lcom/android/server/power/WakeLockLog$TagDatabase;
 
-    and-int/lit8 v11, v4, 0x7f
+    invoke-virtual {p0, v0}, Lcom/android/server/power/WakeLockLog$TagDatabase;->getTag(I)Lcom/android/server/power/WakeLockLog$TagData;
 
-    iget-object v4, v0, Lcom/android/server/power/WakeLockLog$EntryByteTranslator;->mTagDatabase:Lcom/android/server/power/WakeLockLog$TagDatabase;
+    move-result-object v5
 
-    invoke-virtual {v4, v11}, Lcom/android/server/power/WakeLockLog$TagDatabase;->getTag(I)Lcom/android/server/power/WakeLockLog$TagData;
+    aget-byte p0, p1, v4
 
-    move-result-object v12
+    and-int/lit16 p0, p0, 0xff
 
-    aget-byte v4, v1, v9
+    int-to-long p0, p0
 
-    and-int/lit16 v4, v4, 0xff
+    add-long v2, p0, p2
 
-    int-to-long v4, v4
+    const/4 v4, 0x2
 
-    add-long v13, v4, p2
+    move-object v1, p4
 
-    const/4 v7, 0x1
+    invoke-virtual/range {v1 .. v6}, Lcom/android/server/power/WakeLockLog$LogEntry;->set(JILcom/android/server/power/WakeLockLog$TagData;I)V
 
-    move-object v4, v3
-
-    move-wide v5, v13
-
-    move-object v8, v12
-
-    move v9, v2
-
-    invoke-virtual/range {v4 .. v9}, Lcom/android/server/power/WakeLockLog$LogEntry;->set(JILcom/android/server/power/WakeLockLog$TagData;I)V
-
-    return-object v3
-
-    :pswitch_2
-    array-length v4, v1
-
-    const/16 v8, 0x9
-
-    if-ge v4, v8, :cond_5
-
-    goto :goto_2
+    return-object p4
 
     :cond_5
-    aget-byte v2, v1, v5
+    array-length v2, p1
 
-    int-to-long v4, v2
+    if-ge v2, v3, :cond_6
 
-    const-wide/16 v11, 0xff
-
-    and-long/2addr v4, v11
-
-    const/16 v2, 0x38
-
-    shl-long/2addr v4, v2
-
-    aget-byte v2, v1, v9
-
-    int-to-long v8, v2
-
-    and-long/2addr v8, v11
-
-    const/16 v2, 0x30
-
-    shl-long/2addr v8, v2
-
-    or-long/2addr v4, v8
-
-    aget-byte v2, v1, v7
-
-    int-to-long v7, v2
-
-    and-long/2addr v7, v11
-
-    const/16 v2, 0x28
-
-    shl-long/2addr v7, v2
-
-    or-long/2addr v4, v7
-
-    const/4 v2, 0x4
-
-    aget-byte v2, v1, v2
-
-    int-to-long v7, v2
-
-    and-long/2addr v7, v11
-
-    const/16 v2, 0x20
-
-    shl-long/2addr v7, v2
-
-    or-long/2addr v4, v7
-
-    const/4 v2, 0x5
-
-    aget-byte v2, v1, v2
-
-    int-to-long v7, v2
-
-    and-long/2addr v7, v11
-
-    const/16 v2, 0x18
-
-    shl-long/2addr v7, v2
-
-    or-long/2addr v4, v7
-
-    aget-byte v2, v1, v6
-
-    int-to-long v6, v2
-
-    and-long/2addr v6, v11
-
-    const/16 v2, 0x10
-
-    shl-long/2addr v6, v2
-
-    or-long/2addr v4, v6
-
-    const/4 v2, 0x7
-
-    aget-byte v2, v1, v2
-
-    int-to-long v6, v2
-
-    and-long/2addr v6, v11
-
-    const/16 v2, 0x8
-
-    shl-long/2addr v6, v2
-
-    or-long/2addr v4, v6
-
-    aget-byte v2, v1, v2
-
-    int-to-long v6, v2
-
-    and-long/2addr v6, v11
-
-    or-long v11, v4, v6
-
-    const/4 v7, 0x0
-
-    const/4 v8, 0x0
-
-    const/4 v9, 0x0
-
-    move-object v4, v3
-
-    move-wide v5, v11
-
-    invoke-virtual/range {v4 .. v9}, Lcom/android/server/power/WakeLockLog$LogEntry;->set(JILcom/android/server/power/WakeLockLog$TagData;I)V
-
-    return-object v3
-
-    :goto_2
-    return-object v2
+    goto :goto_1
 
     :cond_6
-    :goto_3
-    return-object v2
+    and-int/lit8 v6, v1, 0x3f
 
-    nop
+    aget-byte v0, p1, v4
 
-    :pswitch_data_0
-    .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
+    and-int/lit8 v0, v0, 0x7f
+
+    iget-object p0, p0, Lcom/android/server/power/WakeLockLog$EntryByteTranslator;->mTagDatabase:Lcom/android/server/power/WakeLockLog$TagDatabase;
+
+    invoke-virtual {p0, v0}, Lcom/android/server/power/WakeLockLog$TagDatabase;->getTag(I)Lcom/android/server/power/WakeLockLog$TagData;
+
+    move-result-object p0
+
+    aget-byte p1, p1, v5
+
+    and-int/lit16 p1, p1, 0xff
+
+    int-to-long v0, p1
+
+    add-long v2, v0, p2
+
+    const/4 v4, 0x1
+
+    move-object v1, p4
+
+    move-object v5, p0
+
+    invoke-virtual/range {v1 .. v6}, Lcom/android/server/power/WakeLockLog$LogEntry;->set(JILcom/android/server/power/WakeLockLog$TagData;I)V
+
+    return-object p4
+
+    :cond_7
+    array-length p0, p1
+
+    const/16 p2, 0x9
+
+    if-ge p0, p2, :cond_8
+
+    :goto_1
+    return-object v0
+
+    :cond_8
+    aget-byte p0, p1, v4
+
+    int-to-long p2, p0
+
+    const-wide/16 v0, 0xff
+
+    and-long/2addr p2, v0
+
+    const/16 p0, 0x38
+
+    shl-long/2addr p2, p0
+
+    aget-byte p0, p1, v5
+
+    int-to-long v4, p0
+
+    and-long/2addr v4, v0
+
+    const/16 p0, 0x30
+
+    shl-long/2addr v4, p0
+
+    or-long/2addr p2, v4
+
+    aget-byte p0, p1, v3
+
+    int-to-long v2, p0
+
+    and-long/2addr v2, v0
+
+    const/16 p0, 0x28
+
+    shl-long/2addr v2, p0
+
+    or-long/2addr p2, v2
+
+    const/4 p0, 0x4
+
+    aget-byte p0, p1, p0
+
+    int-to-long v2, p0
+
+    and-long/2addr v2, v0
+
+    const/16 p0, 0x20
+
+    shl-long/2addr v2, p0
+
+    or-long/2addr p2, v2
+
+    const/4 p0, 0x5
+
+    aget-byte p0, p1, p0
+
+    int-to-long v2, p0
+
+    and-long/2addr v2, v0
+
+    const/16 p0, 0x18
+
+    shl-long/2addr v2, p0
+
+    or-long/2addr p2, v2
+
+    const/4 p0, 0x6
+
+    aget-byte p0, p1, p0
+
+    int-to-long v2, p0
+
+    and-long/2addr v2, v0
+
+    const/16 p0, 0x10
+
+    shl-long/2addr v2, p0
+
+    or-long/2addr p2, v2
+
+    const/4 p0, 0x7
+
+    aget-byte p0, p1, p0
+
+    int-to-long v2, p0
+
+    and-long/2addr v2, v0
+
+    const/16 p0, 0x8
+
+    shl-long/2addr v2, p0
+
+    or-long/2addr p2, v2
+
+    aget-byte p0, p1, p0
+
+    int-to-long p0, p0
+
+    and-long/2addr p0, v0
+
+    or-long v2, p2, p0
+
+    const/4 v4, 0x0
+
+    const/4 v5, 0x0
+
+    const/4 v6, 0x0
+
+    move-object v1, p4
+
+    invoke-virtual/range {v1 .. v6}, Lcom/android/server/power/WakeLockLog$LogEntry;->set(JILcom/android/server/power/WakeLockLog$TagData;I)V
+
+    return-object p4
+
+    :cond_9
+    :goto_2
+    return-object v0
 .end method
 
-.method toBytes(Lcom/android/server/power/WakeLockLog$LogEntry;[BJ)I
-    .locals 10
+.method public final getRelativeTime(JJ)I
+    .locals 0
+
+    cmp-long p0, p3, p1
+
+    if-gez p0, :cond_0
+
+    const/4 p0, -0x1
+
+    return p0
+
+    :cond_0
+    sub-long/2addr p3, p1
+
+    const-wide/16 p0, 0xff
+
+    cmp-long p0, p3, p0
+
+    if-lez p0, :cond_1
+
+    const/4 p0, -0x2
+
+    return p0
+
+    :cond_1
+    long-to-int p0, p3
+
+    return p0
+.end method
+
+.method public toBytes(Lcom/android/server/power/WakeLockLog$LogEntry;[BJ)I
+    .locals 9
 
     iget v0, p1, Lcom/android/server/power/WakeLockLog$LogEntry;->type:I
 
-    const/4 v1, 0x2
+    const/4 v1, 0x3
 
-    const/4 v2, 0x1
+    const/4 v2, 0x0
 
-    const/4 v3, 0x0
+    const/4 v3, 0x2
 
-    packed-switch v0, :pswitch_data_0
+    const/4 v4, 0x1
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    if-eqz v0, :cond_5
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    if-eq v0, v4, :cond_3
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    if-ne v0, v3, :cond_2
 
-    const-string v2, "Unknown type "
+    if-eqz p2, :cond_1
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    array-length v0, p2
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    if-lt v0, v3, :cond_1
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    iget-wide v0, p1, Lcom/android/server/power/WakeLockLog$LogEntry;->time:J
 
-    move-result-object v1
+    invoke-virtual {p0, p3, p4, v0, v1}, Lcom/android/server/power/WakeLockLog$EntryByteTranslator;->getRelativeTime(JJ)I
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    move-result p3
 
-    throw v0
+    if-gez p3, :cond_0
 
-    :pswitch_0
-    const/4 v0, 0x2
-
-    if-eqz p2, :cond_2
-
-    array-length v1, p2
-
-    if-lt v1, v0, :cond_2
-
-    iget-wide v4, p1, Lcom/android/server/power/WakeLockLog$LogEntry;->time:J
-
-    invoke-direct {p0, p3, p4, v4, v5}, Lcom/android/server/power/WakeLockLog$EntryByteTranslator;->getRelativeTime(JJ)I
-
-    move-result v1
-
-    if-gez v1, :cond_0
-
-    return v1
+    return p3
 
     :cond_0
-    iget-object v4, p0, Lcom/android/server/power/WakeLockLog$EntryByteTranslator;->mTagDatabase:Lcom/android/server/power/WakeLockLog$TagDatabase;
+    iget-object p0, p0, Lcom/android/server/power/WakeLockLog$EntryByteTranslator;->mTagDatabase:Lcom/android/server/power/WakeLockLog$TagDatabase;
 
-    iget-object v5, p1, Lcom/android/server/power/WakeLockLog$LogEntry;->tag:Lcom/android/server/power/WakeLockLog$TagData;
+    iget-object p1, p1, Lcom/android/server/power/WakeLockLog$LogEntry;->tag:Lcom/android/server/power/WakeLockLog$TagData;
 
-    invoke-virtual {v4, v5}, Lcom/android/server/power/WakeLockLog$TagDatabase;->getTagIndex(Lcom/android/server/power/WakeLockLog$TagData;)I
+    invoke-virtual {p0, p1}, Lcom/android/server/power/WakeLockLog$TagDatabase;->getTagIndex(Lcom/android/server/power/WakeLockLog$TagData;)I
 
-    move-result v4
+    move-result p0
 
-    or-int/lit16 v4, v4, 0x80
+    or-int/lit16 p0, p0, 0x80
 
-    int-to-byte v4, v4
+    int-to-byte p0, p0
 
-    aput-byte v4, p2, v3
+    aput-byte p0, p2, v2
 
-    and-int/lit16 v3, v1, 0xff
+    and-int/lit16 p0, p3, 0xff
 
-    int-to-byte v3, v3
+    int-to-byte p0, p0
 
-    aput-byte v3, p2, v2
+    aput-byte p0, p2, v4
+
+    :cond_1
+    move v1, v3
 
     goto/16 :goto_0
 
-    :pswitch_1
-    const/4 v0, 0x3
+    :cond_2
+    new-instance p0, Ljava/lang/RuntimeException;
 
-    if-eqz p2, :cond_2
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    array-length v4, p2
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    if-lt v4, v0, :cond_2
+    const-string p3, "Unknown type "
 
-    iget-wide v4, p1, Lcom/android/server/power/WakeLockLog$LogEntry;->time:J
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct {p0, p3, p4, v4, v5}, Lcom/android/server/power/WakeLockLog$EntryByteTranslator;->getRelativeTime(JJ)I
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result v4
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    if-gez v4, :cond_1
+    move-result-object p1
 
-    return v4
+    invoke-direct {p0, p1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    :cond_1
-    iget v5, p1, Lcom/android/server/power/WakeLockLog$LogEntry;->flags:I
+    throw p0
 
-    and-int/lit8 v5, v5, 0x3f
+    :cond_3
+    if-eqz p2, :cond_7
 
-    or-int/lit8 v5, v5, 0x40
+    array-length v0, p2
 
-    int-to-byte v5, v5
+    if-lt v0, v1, :cond_7
 
-    aput-byte v5, p2, v3
+    iget-wide v5, p1, Lcom/android/server/power/WakeLockLog$LogEntry;->time:J
 
-    iget-object v3, p0, Lcom/android/server/power/WakeLockLog$EntryByteTranslator;->mTagDatabase:Lcom/android/server/power/WakeLockLog$TagDatabase;
+    invoke-virtual {p0, p3, p4, v5, v6}, Lcom/android/server/power/WakeLockLog$EntryByteTranslator;->getRelativeTime(JJ)I
 
-    iget-object v5, p1, Lcom/android/server/power/WakeLockLog$LogEntry;->tag:Lcom/android/server/power/WakeLockLog$TagData;
+    move-result p3
 
-    invoke-virtual {v3, v5}, Lcom/android/server/power/WakeLockLog$TagDatabase;->getTagIndex(Lcom/android/server/power/WakeLockLog$TagData;)I
+    if-gez p3, :cond_4
 
-    move-result v3
+    return p3
 
-    int-to-byte v3, v3
+    :cond_4
+    iget p4, p1, Lcom/android/server/power/WakeLockLog$LogEntry;->flags:I
 
-    aput-byte v3, p2, v2
+    and-int/lit8 p4, p4, 0x3f
 
-    and-int/lit16 v2, v4, 0xff
+    or-int/lit8 p4, p4, 0x40
 
-    int-to-byte v2, v2
+    int-to-byte p4, p4
 
-    aput-byte v2, p2, v1
+    aput-byte p4, p2, v2
+
+    iget-object p0, p0, Lcom/android/server/power/WakeLockLog$EntryByteTranslator;->mTagDatabase:Lcom/android/server/power/WakeLockLog$TagDatabase;
+
+    iget-object p1, p1, Lcom/android/server/power/WakeLockLog$LogEntry;->tag:Lcom/android/server/power/WakeLockLog$TagData;
+
+    invoke-virtual {p0, p1}, Lcom/android/server/power/WakeLockLog$TagDatabase;->getTagIndex(Lcom/android/server/power/WakeLockLog$TagData;)I
+
+    move-result p0
+
+    int-to-byte p0, p0
+
+    aput-byte p0, p2, v4
+
+    and-int/lit16 p0, p3, 0xff
+
+    int-to-byte p0, p0
+
+    aput-byte p0, p2, v3
 
     goto :goto_0
 
-    :pswitch_2
-    const/16 v0, 0x9
+    :cond_5
+    const/16 p0, 0x9
 
-    iget-wide v4, p1, Lcom/android/server/power/WakeLockLog$LogEntry;->time:J
+    iget-wide p3, p1, Lcom/android/server/power/WakeLockLog$LogEntry;->time:J
 
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_6
 
-    array-length v6, p2
+    array-length p1, p2
 
-    if-lt v6, v0, :cond_2
+    if-lt p1, p0, :cond_6
 
-    aput-byte v3, p2, v3
+    aput-byte v2, p2, v2
 
-    const/16 v3, 0x38
+    const/16 p1, 0x38
 
-    shr-long v6, v4, v3
+    shr-long v5, p3, p1
 
-    const-wide/16 v8, 0xff
+    const-wide/16 v7, 0xff
 
-    and-long/2addr v6, v8
+    and-long/2addr v5, v7
 
-    long-to-int v3, v6
+    long-to-int p1, v5
 
-    int-to-byte v3, v3
+    int-to-byte p1, p1
 
-    aput-byte v3, p2, v2
+    aput-byte p1, p2, v4
 
-    const/16 v2, 0x30
+    const/16 p1, 0x30
 
-    shr-long v2, v4, v2
+    shr-long v4, p3, p1
 
-    and-long/2addr v2, v8
+    and-long/2addr v4, v7
 
-    long-to-int v2, v2
+    long-to-int p1, v4
 
-    int-to-byte v2, v2
+    int-to-byte p1, p1
 
-    aput-byte v2, p2, v1
+    aput-byte p1, p2, v3
 
-    const/4 v1, 0x3
+    const/16 p1, 0x28
 
-    const/16 v2, 0x28
+    shr-long v2, p3, p1
 
-    shr-long v2, v4, v2
+    and-long/2addr v2, v7
 
-    and-long/2addr v2, v8
+    long-to-int p1, v2
 
-    long-to-int v2, v2
+    int-to-byte p1, p1
 
-    int-to-byte v2, v2
+    aput-byte p1, p2, v1
 
-    aput-byte v2, p2, v1
+    const/4 p1, 0x4
 
-    const/4 v1, 0x4
+    const/16 v0, 0x20
 
-    const/16 v2, 0x20
+    shr-long v0, p3, v0
 
-    shr-long v2, v4, v2
+    and-long/2addr v0, v7
 
-    and-long/2addr v2, v8
+    long-to-int v0, v0
 
-    long-to-int v2, v2
+    int-to-byte v0, v0
 
-    int-to-byte v2, v2
+    aput-byte v0, p2, p1
 
-    aput-byte v2, p2, v1
+    const/4 p1, 0x5
 
-    const/4 v1, 0x5
+    const/16 v0, 0x18
 
-    const/16 v2, 0x18
+    shr-long v0, p3, v0
 
-    shr-long v2, v4, v2
+    and-long/2addr v0, v7
 
-    and-long/2addr v2, v8
+    long-to-int v0, v0
 
-    long-to-int v2, v2
+    int-to-byte v0, v0
 
-    int-to-byte v2, v2
+    aput-byte v0, p2, p1
 
-    aput-byte v2, p2, v1
+    const/4 p1, 0x6
 
-    const/4 v1, 0x6
+    const/16 v0, 0x10
 
-    const/16 v2, 0x10
+    shr-long v0, p3, v0
 
-    shr-long v2, v4, v2
+    and-long/2addr v0, v7
 
-    and-long/2addr v2, v8
+    long-to-int v0, v0
 
-    long-to-int v2, v2
+    int-to-byte v0, v0
 
-    int-to-byte v2, v2
+    aput-byte v0, p2, p1
 
-    aput-byte v2, p2, v1
+    const/4 p1, 0x7
 
-    const/4 v1, 0x7
+    const/16 v0, 0x8
 
-    const/16 v2, 0x8
+    shr-long v1, p3, v0
 
-    shr-long v6, v4, v2
+    and-long/2addr v1, v7
 
-    and-long/2addr v6, v8
-
-    long-to-int v3, v6
-
-    int-to-byte v3, v3
-
-    aput-byte v3, p2, v1
-
-    and-long v6, v4, v8
-
-    long-to-int v1, v6
+    long-to-int v1, v1
 
     int-to-byte v1, v1
 
-    aput-byte v1, p2, v2
+    aput-byte v1, p2, p1
 
-    :cond_2
+    and-long/2addr p3, v7
+
+    long-to-int p1, p3
+
+    int-to-byte p1, p1
+
+    aput-byte p1, p2, v0
+
+    :cond_6
+    move v1, p0
+
+    :cond_7
     :goto_0
-    return v0
-
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
+    return v1
 .end method

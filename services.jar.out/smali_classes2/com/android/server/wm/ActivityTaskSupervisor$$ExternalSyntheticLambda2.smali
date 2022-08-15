@@ -1,33 +1,30 @@
 .class public final synthetic Lcom/android/server/wm/ActivityTaskSupervisor$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/lang/Runnable;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/android/server/wm/ActivityTaskSupervisor;
+.implements Ljava/util/function/BiConsumer;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/wm/ActivityTaskSupervisor;)V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/server/wm/ActivityTaskSupervisor$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/wm/ActivityTaskSupervisor;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final run()V
-    .locals 1
+.method public final accept(Ljava/lang/Object;Ljava/lang/Object;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/ActivityTaskSupervisor$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/wm/ActivityTaskSupervisor;
+    check-cast p1, Landroid/app/ActivityManagerInternal;
 
-    invoke-virtual {v0}, Lcom/android/server/wm/ActivityTaskSupervisor;->lambda$activityIdleInternal$0$ActivityTaskSupervisor()V
+    check-cast p2, Ljava/util/ArrayList;
+
+    invoke-virtual {p1, p2}, Landroid/app/ActivityManagerInternal;->killProcessesForRemovedTask(Ljava/util/ArrayList;)V
 
     return-void
 .end method

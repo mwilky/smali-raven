@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/ContextHubSystemService$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -27,13 +28,13 @@
 
 # virtual methods
 .method public final run()V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/ContextHubSystemService$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/ContextHubSystemService;
 
-    iget-object v1, p0, Lcom/android/server/ContextHubSystemService$$ExternalSyntheticLambda0;->f$1:Landroid/content/Context;
+    iget-object p0, p0, Lcom/android/server/ContextHubSystemService$$ExternalSyntheticLambda0;->f$1:Landroid/content/Context;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/ContextHubSystemService;->lambda$new$0$ContextHubSystemService(Landroid/content/Context;)V
+    invoke-static {v0, p0}, Lcom/android/server/ContextHubSystemService;->$r8$lambda$holR3HvtZa3riYs7PkDas5SvJIU(Lcom/android/server/ContextHubSystemService;Landroid/content/Context;)V
 
     return-void
 .end method

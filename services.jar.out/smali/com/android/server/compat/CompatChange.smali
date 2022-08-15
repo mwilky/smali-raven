@@ -11,14 +11,8 @@
 .end annotation
 
 
-# static fields
-.field static final CTS_SYSTEM_API_CHANGEID:J = 0x8e787b1L
-
-.field static final CTS_SYSTEM_API_OVERRIDABLE_CHANGEID:J = 0xa5faf9fL
-
-
 # instance fields
-.field private mEvaluatedOverrides:Ljava/util/concurrent/ConcurrentHashMap;
+.field public mEvaluatedOverrides:Ljava/util/concurrent/ConcurrentHashMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/concurrent/ConcurrentHashMap<",
@@ -29,9 +23,9 @@
     .end annotation
 .end field
 
-.field mListener:Lcom/android/server/compat/CompatChange$ChangeListener;
+.field public mListener:Lcom/android/server/compat/CompatChange$ChangeListener;
 
-.field private mRawOverrides:Ljava/util/concurrent/ConcurrentHashMap;
+.field public mRawOverrides:Ljava/util/concurrent/ConcurrentHashMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/concurrent/ConcurrentHashMap<",
@@ -158,106 +152,15 @@
     return-void
 .end method
 
-.method private addPackageOverrideInternal(Ljava/lang/String;Z)V
-    .locals 3
-
-    invoke-virtual {p0}, Lcom/android/server/compat/CompatChange;->getLoggingOnly()Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/server/compat/CompatChange;->mEvaluatedOverrides:Ljava/util/concurrent/ConcurrentHashMap;
-
-    invoke-static {p2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v1
-
-    invoke-virtual {v0, p1, v1}, Ljava/util/concurrent/ConcurrentHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    invoke-direct {p0, p1}, Lcom/android/server/compat/CompatChange;->notifyListener(Ljava/lang/String;)V
-
-    return-void
-
-    :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "Can\'t add overrides for a logging only change "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p0}, Lcom/android/server/compat/CompatChange;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-.end method
-
-.method private declared-synchronized notifyListener(Ljava/lang/String;)V
-    .locals 1
-
-    monitor-enter p0
-
-    :try_start_0
-    iget-object v0, p0, Lcom/android/server/compat/CompatChange;->mListener:Lcom/android/server/compat/CompatChange$ChangeListener;
-
-    if-eqz v0, :cond_0
-
-    invoke-interface {v0, p1}, Lcom/android/server/compat/CompatChange$ChangeListener;->onCompatChange(Ljava/lang/String;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    :cond_0
-    monitor-exit p0
-
-    return-void
-
-    :catchall_0
-    move-exception p1
-
-    monitor-exit p0
-
-    throw p1
-.end method
-
-.method private removePackageOverrideInternal(Ljava/lang/String;)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/compat/CompatChange;->mEvaluatedOverrides:Ljava/util/concurrent/ConcurrentHashMap;
-
-    invoke-virtual {v0, p1}, Ljava/util/concurrent/ConcurrentHashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    invoke-direct {p0, p1}, Lcom/android/server/compat/CompatChange;->notifyListener(Ljava/lang/String;)V
-
-    :cond_0
-    return-void
-.end method
-
 
 # virtual methods
-.method declared-synchronized addPackageOverride(Ljava/lang/String;Landroid/app/compat/PackageOverride;Lcom/android/internal/compat/OverrideAllowedState;Ljava/lang/Long;)V
-    .locals 3
+.method public declared-synchronized addPackageOverride(Ljava/lang/String;Landroid/app/compat/PackageOverride;Lcom/android/internal/compat/OverrideAllowedState;Ljava/lang/Long;)V
+    .locals 1
 
     monitor-enter p0
 
     :try_start_0
-    invoke-virtual {p0}, Lcom/android/server/compat/CompatChange;->getLoggingOnly()Z
+    invoke-virtual {p0}, Lcom/android/internal/compat/CompatibilityChangeInfo;->getLoggingOnly()Z
 
     move-result v0
 
@@ -277,29 +180,29 @@
 
     :cond_0
     :try_start_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "Can\'t add overrides for a logging only change "
+    const-string p3, "Can\'t add overrides for a logging only change "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {p0}, Lcom/android/server/compat/CompatChange;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p3
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -311,7 +214,54 @@
     throw p1
 .end method
 
-.method declared-synchronized clearOverrides()V
+.method public final addPackageOverrideInternal(Ljava/lang/String;Z)V
+    .locals 1
+
+    invoke-virtual {p0}, Lcom/android/internal/compat/CompatibilityChangeInfo;->getLoggingOnly()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/compat/CompatChange;->mEvaluatedOverrides:Ljava/util/concurrent/ConcurrentHashMap;
+
+    invoke-static {p2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object p2
+
+    invoke-virtual {v0, p1, p2}, Ljava/util/concurrent/ConcurrentHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    invoke-virtual {p0, p1}, Lcom/android/server/compat/CompatChange;->notifyListener(Ljava/lang/String;)V
+
+    return-void
+
+    :cond_0
+    new-instance p1, Ljava/lang/IllegalArgumentException;
+
+    new-instance p2, Ljava/lang/StringBuilder;
+
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v0, "Can\'t add overrides for a logging only change "
+
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0}, Lcom/android/server/compat/CompatChange;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-direct {p1, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p1
+.end method
+
+.method public declared-synchronized clearOverrides()V
     .locals 1
 
     monitor-enter p0
@@ -339,39 +289,37 @@
     throw v0
 .end method
 
-.method defaultValue()Z
-    .locals 1
+.method public defaultValue()Z
+    .locals 0
 
-    invoke-virtual {p0}, Lcom/android/server/compat/CompatChange;->getDisabled()Z
+    invoke-virtual {p0}, Lcom/android/internal/compat/CompatibilityChangeInfo;->getDisabled()Z
 
-    move-result v0
+    move-result p0
 
-    xor-int/lit8 v0, v0, 0x1
+    xor-int/lit8 p0, p0, 0x1
 
-    return v0
+    return p0
 .end method
 
-.method isEnabled(Landroid/content/pm/ApplicationInfo;Lcom/android/internal/compat/AndroidBuildClassifier;)Z
+.method public isEnabled(Landroid/content/pm/ApplicationInfo;Lcom/android/internal/compat/AndroidBuildClassifier;)Z
     .locals 4
 
     if-nez p1, :cond_0
 
     invoke-virtual {p0}, Lcom/android/server/compat/CompatChange;->defaultValue()Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 
     :cond_0
     iget-object v0, p1, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
     if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/android/server/compat/CompatChange;->mEvaluatedOverrides:Ljava/util/concurrent/ConcurrentHashMap;
+    iget-object v1, p0, Lcom/android/server/compat/CompatChange;->mEvaluatedOverrides:Ljava/util/concurrent/ConcurrentHashMap;
 
-    iget-object v1, p1, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Ljava/util/concurrent/ConcurrentHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, v0}, Ljava/util/concurrent/ConcurrentHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -381,12 +329,12 @@
 
     invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
 
-    move-result v1
+    move-result p0
 
-    return v1
+    return p0
 
     :cond_1
-    invoke-virtual {p0}, Lcom/android/server/compat/CompatChange;->getDisabled()Z
+    invoke-virtual {p0}, Lcom/android/internal/compat/CompatibilityChangeInfo;->getDisabled()Z
 
     move-result v0
 
@@ -397,7 +345,7 @@
     return v1
 
     :cond_2
-    invoke-virtual {p0}, Lcom/android/server/compat/CompatChange;->getEnableSinceTargetSdk()I
+    invoke-virtual {p0}, Lcom/android/internal/compat/CompatibilityChangeInfo;->getEnableSinceTargetSdk()I
 
     move-result v0
 
@@ -411,24 +359,24 @@
 
     invoke-virtual {p2}, Lcom/android/internal/compat/AndroidBuildClassifier;->platformTargetSdk()I
 
-    move-result v2
+    move-result p2
 
-    invoke-static {v0, v2}, Ljava/lang/Math;->min(II)I
+    invoke-static {v0, p2}, Ljava/lang/Math;->min(II)I
 
-    move-result v0
+    move-result p2
 
-    iget v2, p1, Landroid/content/pm/ApplicationInfo;->targetSdkVersion:I
+    iget p1, p1, Landroid/content/pm/ApplicationInfo;->targetSdkVersion:I
 
-    if-eq v0, v2, :cond_3
+    if-eq p2, p1, :cond_3
 
-    iget v0, p1, Landroid/content/pm/ApplicationInfo;->targetSdkVersion:I
+    move p2, p1
 
     :cond_3
-    invoke-virtual {p0}, Lcom/android/server/compat/CompatChange;->getEnableSinceTargetSdk()I
+    invoke-virtual {p0}, Lcom/android/internal/compat/CompatibilityChangeInfo;->getEnableSinceTargetSdk()I
 
-    move-result v2
+    move-result p0
 
-    if-lt v0, v2, :cond_4
+    if-lt p2, p0, :cond_4
 
     move v1, v3
 
@@ -439,8 +387,8 @@
     return v3
 .end method
 
-.method declared-synchronized loadOverrides(Lcom/android/server/compat/overrides/ChangeOverrides;)V
-    .locals 6
+.method public declared-synchronized loadOverrides(Lcom/android/server/compat/overrides/ChangeOverrides;)V
+    .locals 5
 
     monitor-enter p0
 
@@ -488,19 +436,17 @@
 
     invoke-virtual {v1}, Lcom/android/server/compat/overrides/OverrideValue;->getEnabled()Z
 
-    move-result v5
+    move-result v1
 
-    invoke-virtual {v4, v5}, Landroid/app/compat/PackageOverride$Builder;->setEnabled(Z)Landroid/app/compat/PackageOverride$Builder;
+    invoke-virtual {v4, v1}, Landroid/app/compat/PackageOverride$Builder;->setEnabled(Z)Landroid/app/compat/PackageOverride$Builder;
 
-    move-result-object v4
+    move-result-object v1
 
-    invoke-virtual {v4}, Landroid/app/compat/PackageOverride$Builder;->build()Landroid/app/compat/PackageOverride;
+    invoke-virtual {v1}, Landroid/app/compat/PackageOverride$Builder;->build()Landroid/app/compat/PackageOverride;
 
-    move-result-object v4
+    move-result-object v1
 
-    invoke-virtual {v2, v3, v4}, Ljava/util/concurrent/ConcurrentHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    nop
+    invoke-virtual {v2, v3, v1}, Ljava/util/concurrent/ConcurrentHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_0
 
@@ -564,19 +510,17 @@
 
     invoke-virtual {v1}, Lcom/android/server/compat/overrides/OverrideValue;->getEnabled()Z
 
-    move-result v5
+    move-result v1
 
-    invoke-virtual {v4, v5}, Landroid/app/compat/PackageOverride$Builder;->setEnabled(Z)Landroid/app/compat/PackageOverride$Builder;
+    invoke-virtual {v4, v1}, Landroid/app/compat/PackageOverride$Builder;->setEnabled(Z)Landroid/app/compat/PackageOverride$Builder;
 
-    move-result-object v4
+    move-result-object v1
 
-    invoke-virtual {v4}, Landroid/app/compat/PackageOverride$Builder;->build()Landroid/app/compat/PackageOverride;
+    invoke-virtual {v1}, Landroid/app/compat/PackageOverride$Builder;->build()Landroid/app/compat/PackageOverride;
 
-    move-result-object v4
+    move-result-object v1
 
-    invoke-virtual {v2, v3, v4}, Ljava/util/concurrent/ConcurrentHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    nop
+    invoke-virtual {v2, v3, v1}, Ljava/util/concurrent/ConcurrentHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_1
 
@@ -589,72 +533,70 @@
 
     invoke-virtual {p1}, Lcom/android/server/compat/overrides/ChangeOverrides;->getRaw()Lcom/android/server/compat/overrides/ChangeOverrides$Raw;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Lcom/android/server/compat/overrides/ChangeOverrides$Raw;->getRawOverrideValue()Ljava/util/List;
+    invoke-virtual {p1}, Lcom/android/server/compat/overrides/ChangeOverrides$Raw;->getRawOverrideValue()Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p1
 
     :goto_2
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_2
+    if-eqz v0, :cond_2
 
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/server/compat/overrides/RawOverrideValue;
+
+    new-instance v1, Landroid/app/compat/PackageOverride$Builder;
+
+    invoke-direct {v1}, Landroid/app/compat/PackageOverride$Builder;-><init>()V
+
+    invoke-virtual {v0}, Lcom/android/server/compat/overrides/RawOverrideValue;->getMinVersionCode()J
+
+    move-result-wide v2
+
+    invoke-virtual {v1, v2, v3}, Landroid/app/compat/PackageOverride$Builder;->setMinVersionCode(J)Landroid/app/compat/PackageOverride$Builder;
 
     move-result-object v1
 
-    check-cast v1, Lcom/android/server/compat/overrides/RawOverrideValue;
+    invoke-virtual {v0}, Lcom/android/server/compat/overrides/RawOverrideValue;->getMaxVersionCode()J
 
-    new-instance v2, Landroid/app/compat/PackageOverride$Builder;
+    move-result-wide v2
 
-    invoke-direct {v2}, Landroid/app/compat/PackageOverride$Builder;-><init>()V
+    invoke-virtual {v1, v2, v3}, Landroid/app/compat/PackageOverride$Builder;->setMaxVersionCode(J)Landroid/app/compat/PackageOverride$Builder;
 
-    invoke-virtual {v1}, Lcom/android/server/compat/overrides/RawOverrideValue;->getMinVersionCode()J
+    move-result-object v1
 
-    move-result-wide v3
+    invoke-virtual {v0}, Lcom/android/server/compat/overrides/RawOverrideValue;->getEnabled()Z
 
-    invoke-virtual {v2, v3, v4}, Landroid/app/compat/PackageOverride$Builder;->setMinVersionCode(J)Landroid/app/compat/PackageOverride$Builder;
+    move-result v2
 
-    move-result-object v2
+    invoke-virtual {v1, v2}, Landroid/app/compat/PackageOverride$Builder;->setEnabled(Z)Landroid/app/compat/PackageOverride$Builder;
 
-    invoke-virtual {v1}, Lcom/android/server/compat/overrides/RawOverrideValue;->getMaxVersionCode()J
+    move-result-object v1
 
-    move-result-wide v3
+    invoke-virtual {v1}, Landroid/app/compat/PackageOverride$Builder;->build()Landroid/app/compat/PackageOverride;
 
-    invoke-virtual {v2, v3, v4}, Landroid/app/compat/PackageOverride$Builder;->setMaxVersionCode(J)Landroid/app/compat/PackageOverride$Builder;
+    move-result-object v1
 
-    move-result-object v2
+    iget-object v2, p0, Lcom/android/server/compat/CompatChange;->mRawOverrides:Ljava/util/concurrent/ConcurrentHashMap;
 
-    invoke-virtual {v1}, Lcom/android/server/compat/overrides/RawOverrideValue;->getEnabled()Z
+    invoke-virtual {v0}, Lcom/android/server/compat/overrides/RawOverrideValue;->getPackageName()Ljava/lang/String;
 
-    move-result v3
+    move-result-object v0
 
-    invoke-virtual {v2, v3}, Landroid/app/compat/PackageOverride$Builder;->setEnabled(Z)Landroid/app/compat/PackageOverride$Builder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroid/app/compat/PackageOverride$Builder;->build()Landroid/app/compat/PackageOverride;
-
-    move-result-object v2
-
-    iget-object v3, p0, Lcom/android/server/compat/CompatChange;->mRawOverrides:Ljava/util/concurrent/ConcurrentHashMap;
-
-    invoke-virtual {v1}, Lcom/android/server/compat/overrides/RawOverrideValue;->getPackageName()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4, v2}, Ljava/util/concurrent/ConcurrentHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v0, v1}, Ljava/util/concurrent/ConcurrentHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    nop
 
     goto :goto_2
 
@@ -671,8 +613,35 @@
     throw p1
 .end method
 
-.method declared-synchronized recheckOverride(Ljava/lang/String;Lcom/android/internal/compat/OverrideAllowedState;Ljava/lang/Long;)Z
-    .locals 6
+.method public final declared-synchronized notifyListener(Ljava/lang/String;)V
+    .locals 1
+
+    monitor-enter p0
+
+    :try_start_0
+    iget-object v0, p0, Lcom/android/server/compat/CompatChange;->mListener:Lcom/android/server/compat/CompatChange$ChangeListener;
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {v0, p1}, Lcom/android/server/compat/CompatChange$ChangeListener;->onCompatChange(Ljava/lang/String;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :cond_0
+    monitor-exit p0
+
+    return-void
+
+    :catchall_0
+    move-exception p1
+
+    monitor-exit p0
+
+    throw p1
+.end method
+
+.method public declared-synchronized recheckOverride(Ljava/lang/String;Lcom/android/internal/compat/OverrideAllowedState;Ljava/lang/Long;)Z
+    .locals 4
 
     monitor-enter p0
 
@@ -686,81 +655,85 @@
 
     :cond_0
     :try_start_0
-    iget v1, p2, Lcom/android/internal/compat/OverrideAllowedState;->state:I
+    iget p2, p2, Lcom/android/internal/compat/OverrideAllowedState;->state:I
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    if-nez v1, :cond_1
+    if-nez p2, :cond_1
 
-    move v1, v2
+    move p2, v1
 
     goto :goto_0
 
     :cond_1
-    move v1, v0
+    move p2, v0
 
     :goto_0
-    if-eqz p3, :cond_3
+    if-eqz p3, :cond_6
 
-    iget-object v3, p0, Lcom/android/server/compat/CompatChange;->mRawOverrides:Ljava/util/concurrent/ConcurrentHashMap;
+    iget-object v2, p0, Lcom/android/server/compat/CompatChange;->mRawOverrides:Ljava/util/concurrent/ConcurrentHashMap;
 
-    invoke-virtual {v3, p1}, Ljava/util/concurrent/ConcurrentHashMap;->containsKey(Ljava/lang/Object;)Z
+    invoke-virtual {v2, p1}, Ljava/util/concurrent/ConcurrentHashMap;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_3
+    if-eqz v2, :cond_6
 
-    if-nez v1, :cond_2
+    if-nez p2, :cond_2
 
     goto :goto_2
 
     :cond_2
-    iget-object v3, p0, Lcom/android/server/compat/CompatChange;->mRawOverrides:Ljava/util/concurrent/ConcurrentHashMap;
+    iget-object p2, p0, Lcom/android/server/compat/CompatChange;->mRawOverrides:Ljava/util/concurrent/ConcurrentHashMap;
 
-    invoke-virtual {v3, p1}, Ljava/util/concurrent/ConcurrentHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p2, p1}, Ljava/util/concurrent/ConcurrentHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object p2
 
-    check-cast v3, Landroid/app/compat/PackageOverride;
+    check-cast p2, Landroid/app/compat/PackageOverride;
 
     invoke-virtual {p3}, Ljava/lang/Long;->longValue()J
 
-    move-result-wide v4
+    move-result-wide v2
 
-    invoke-virtual {v3, v4, v5}, Landroid/app/compat/PackageOverride;->evaluate(J)I
+    invoke-virtual {p2, v2, v3}, Landroid/app/compat/PackageOverride;->evaluate(J)I
 
-    move-result v3
+    move-result p2
 
-    packed-switch v3, :pswitch_data_0
+    if-eqz p2, :cond_5
 
-    goto :goto_1
+    if-eq p2, v1, :cond_4
 
-    :pswitch_0
-    invoke-direct {p0, p1, v0}, Lcom/android/server/compat/CompatChange;->addPackageOverrideInternal(Ljava/lang/String;Z)V
+    const/4 p3, 0x2
 
-    goto :goto_1
-
-    :pswitch_1
-    invoke-direct {p0, p1, v2}, Lcom/android/server/compat/CompatChange;->addPackageOverrideInternal(Ljava/lang/String;Z)V
+    if-eq p2, p3, :cond_3
 
     goto :goto_1
 
-    :pswitch_2
-    invoke-direct {p0, p1}, Lcom/android/server/compat/CompatChange;->removePackageOverrideInternal(Ljava/lang/String;)V
+    :cond_3
+    invoke-virtual {p0, p1, v0}, Lcom/android/server/compat/CompatChange;->addPackageOverrideInternal(Ljava/lang/String;Z)V
+
+    goto :goto_1
+
+    :cond_4
+    invoke-virtual {p0, p1, v1}, Lcom/android/server/compat/CompatChange;->addPackageOverrideInternal(Ljava/lang/String;Z)V
+
+    goto :goto_1
+
+    :cond_5
+    invoke-virtual {p0, p1}, Lcom/android/server/compat/CompatChange;->removePackageOverrideInternal(Ljava/lang/String;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    nop
 
     :goto_1
     monitor-exit p0
 
-    return v2
+    return v1
 
-    :cond_3
+    :cond_6
     :goto_2
     :try_start_1
-    invoke-direct {p0, p1}, Lcom/android/server/compat/CompatChange;->removePackageOverrideInternal(Ljava/lang/String;)V
+    invoke-virtual {p0, p1}, Lcom/android/server/compat/CompatChange;->removePackageOverrideInternal(Ljava/lang/String;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -774,19 +747,10 @@
     monitor-exit p0
 
     throw p1
-
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
 .end method
 
-.method declared-synchronized registerListener(Lcom/android/server/compat/CompatChange$ChangeListener;)V
-    .locals 3
+.method public declared-synchronized registerListener(Lcom/android/server/compat/CompatChange$ChangeListener;)V
+    .locals 2
 
     monitor-enter p0
 
@@ -805,33 +769,33 @@
 
     :cond_0
     :try_start_1
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "Listener for change "
+    const-string v1, "Listener for change "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {p0}, Lcom/android/server/compat/CompatChange;->toString()Ljava/lang/String;
 
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v2, " already registered."
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
     move-result-object v1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    throw v0
+    const-string v1, " already registered."
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw p1
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -843,7 +807,7 @@
     throw p1
 .end method
 
-.method declared-synchronized removePackageOverride(Ljava/lang/String;Lcom/android/internal/compat/OverrideAllowedState;Ljava/lang/Long;)Z
+.method public declared-synchronized removePackageOverride(Ljava/lang/String;Lcom/android/internal/compat/OverrideAllowedState;Ljava/lang/Long;)Z
     .locals 2
 
     monitor-enter p0
@@ -857,7 +821,7 @@
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {p0}, Lcom/android/server/compat/CompatChange;->getId()J
+    invoke-virtual {p0}, Lcom/android/internal/compat/CompatibilityChangeInfo;->getId()J
 
     move-result-wide v0
 
@@ -871,18 +835,18 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     monitor-exit p0
 
-    return v0
+    return p1
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     monitor-exit p0
 
-    return v0
+    return p1
 
     :catchall_0
     move-exception p1
@@ -892,8 +856,25 @@
     throw p1
 .end method
 
-.method declared-synchronized saveOverrides()Lcom/android/server/compat/overrides/ChangeOverrides;
-    .locals 9
+.method public final removePackageOverrideInternal(Ljava/lang/String;)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/compat/CompatChange;->mEvaluatedOverrides:Ljava/util/concurrent/ConcurrentHashMap;
+
+    invoke-virtual {v0, p1}, Ljava/util/concurrent/ConcurrentHashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0, p1}, Lcom/android/server/compat/CompatChange;->notifyListener(Ljava/lang/String;)V
+
+    :cond_0
+    return-void
+.end method
+
+.method public declared-synchronized saveOverrides()Lcom/android/server/compat/overrides/ChangeOverrides;
+    .locals 8
 
     monitor-enter p0
 
@@ -920,7 +901,7 @@
 
     invoke-direct {v0}, Lcom/android/server/compat/overrides/ChangeOverrides;-><init>()V
 
-    invoke-virtual {p0}, Lcom/android/server/compat/CompatChange;->getId()J
+    invoke-virtual {p0}, Lcom/android/internal/compat/CompatibilityChangeInfo;->getId()J
 
     move-result-wide v1
 
@@ -995,88 +976,84 @@
 
     invoke-interface {v4}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v6
+    move-result-object v4
 
-    check-cast v6, Landroid/app/compat/PackageOverride;
+    check-cast v4, Landroid/app/compat/PackageOverride;
 
-    invoke-virtual {v6}, Landroid/app/compat/PackageOverride;->isEnabled()Z
+    invoke-virtual {v4}, Landroid/app/compat/PackageOverride;->isEnabled()Z
 
-    move-result v6
+    move-result v4
 
-    invoke-virtual {v5, v6}, Lcom/android/server/compat/overrides/RawOverrideValue;->setEnabled(Z)V
+    invoke-virtual {v5, v4}, Lcom/android/server/compat/overrides/RawOverrideValue;->setEnabled(Z)V
 
     invoke-interface {v2, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    nop
 
     goto :goto_0
 
     :cond_1
     invoke-virtual {v0, v1}, Lcom/android/server/compat/overrides/ChangeOverrides;->setRaw(Lcom/android/server/compat/overrides/ChangeOverrides$Raw;)V
 
-    new-instance v3, Lcom/android/server/compat/overrides/ChangeOverrides$Validated;
+    new-instance v1, Lcom/android/server/compat/overrides/ChangeOverrides$Validated;
 
-    invoke-direct {v3}, Lcom/android/server/compat/overrides/ChangeOverrides$Validated;-><init>()V
+    invoke-direct {v1}, Lcom/android/server/compat/overrides/ChangeOverrides$Validated;-><init>()V
 
-    invoke-virtual {v3}, Lcom/android/server/compat/overrides/ChangeOverrides$Validated;->getOverrideValue()Ljava/util/List;
+    invoke-virtual {v1}, Lcom/android/server/compat/overrides/ChangeOverrides$Validated;->getOverrideValue()Ljava/util/List;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lcom/android/server/compat/CompatChange;->mEvaluatedOverrides:Ljava/util/concurrent/ConcurrentHashMap;
+
+    invoke-virtual {v3}, Ljava/util/concurrent/ConcurrentHashMap;->entrySet()Ljava/util/Set;
+
+    move-result-object v3
+
+    invoke-interface {v3}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object v3
+
+    :goto_1
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_2
+
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v4
 
-    iget-object v5, p0, Lcom/android/server/compat/CompatChange;->mEvaluatedOverrides:Ljava/util/concurrent/ConcurrentHashMap;
+    check-cast v4, Ljava/util/Map$Entry;
 
-    invoke-virtual {v5}, Ljava/util/concurrent/ConcurrentHashMap;->entrySet()Ljava/util/Set;
+    new-instance v5, Lcom/android/server/compat/overrides/OverrideValue;
 
-    move-result-object v5
+    invoke-direct {v5}, Lcom/android/server/compat/overrides/OverrideValue;-><init>()V
 
-    invoke-interface {v5}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
-
-    move-result-object v5
-
-    :goto_1
-    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v6
-
-    if-eqz v6, :cond_2
-
-    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v4}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v6
 
-    check-cast v6, Ljava/util/Map$Entry;
+    check-cast v6, Ljava/lang/String;
 
-    new-instance v7, Lcom/android/server/compat/overrides/OverrideValue;
+    invoke-virtual {v5, v6}, Lcom/android/server/compat/overrides/OverrideValue;->setPackageName(Ljava/lang/String;)V
 
-    invoke-direct {v7}, Lcom/android/server/compat/overrides/OverrideValue;-><init>()V
+    invoke-interface {v4}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    invoke-interface {v6}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+    move-result-object v4
 
-    move-result-object v8
+    check-cast v4, Ljava/lang/Boolean;
 
-    check-cast v8, Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/Boolean;->booleanValue()Z
 
-    invoke-virtual {v7, v8}, Lcom/android/server/compat/overrides/OverrideValue;->setPackageName(Ljava/lang/String;)V
+    move-result v4
 
-    invoke-interface {v6}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+    invoke-virtual {v5, v4}, Lcom/android/server/compat/overrides/OverrideValue;->setEnabled(Z)V
 
-    move-result-object v8
-
-    check-cast v8, Ljava/lang/Boolean;
-
-    invoke-virtual {v8}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v8
-
-    invoke-virtual {v7, v8}, Lcom/android/server/compat/overrides/OverrideValue;->setEnabled(Z)V
-
-    invoke-interface {v4, v7}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    nop
+    invoke-interface {v2, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_1
 
     :cond_2
-    invoke-virtual {v0, v3}, Lcom/android/server/compat/overrides/ChangeOverrides;->setValidated(Lcom/android/server/compat/overrides/ChangeOverrides$Validated;)V
+    invoke-virtual {v0, v1}, Lcom/android/server/compat/overrides/ChangeOverrides;->setValidated(Lcom/android/server/compat/overrides/ChangeOverrides$Validated;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -1101,15 +1078,13 @@
 
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {p0}, Lcom/android/server/compat/CompatChange;->getId()J
+    invoke-virtual {p0}, Lcom/android/internal/compat/CompatibilityChangeInfo;->getId()J
 
     move-result-wide v1
 
     invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    move-result-object v0
-
-    invoke-virtual {p0}, Lcom/android/server/compat/CompatChange;->getName()Ljava/lang/String;
+    invoke-virtual {p0}, Lcom/android/internal/compat/CompatibilityChangeInfo;->getName()Ljava/lang/String;
 
     move-result-object v1
 
@@ -1119,14 +1094,14 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Lcom/android/server/compat/CompatChange;->getName()Ljava/lang/String;
+    invoke-virtual {p0}, Lcom/android/internal/compat/CompatibilityChangeInfo;->getName()Ljava/lang/String;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_0
-    invoke-virtual {p0}, Lcom/android/server/compat/CompatChange;->getEnableSinceTargetSdk()I
+    invoke-virtual {p0}, Lcom/android/internal/compat/CompatibilityChangeInfo;->getEnableSinceTargetSdk()I
 
     move-result v1
 
@@ -1138,14 +1113,14 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Lcom/android/server/compat/CompatChange;->getEnableSinceTargetSdk()I
+    invoke-virtual {p0}, Lcom/android/internal/compat/CompatibilityChangeInfo;->getEnableSinceTargetSdk()I
 
     move-result v1
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     :cond_1
-    invoke-virtual {p0}, Lcom/android/server/compat/CompatChange;->getDisabled()Z
+    invoke-virtual {p0}, Lcom/android/internal/compat/CompatibilityChangeInfo;->getDisabled()Z
 
     move-result v1
 
@@ -1156,7 +1131,7 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_2
-    invoke-virtual {p0}, Lcom/android/server/compat/CompatChange;->getLoggingOnly()Z
+    invoke-virtual {p0}, Lcom/android/internal/compat/CompatibilityChangeInfo;->getLoggingOnly()Z
 
     move-result v1
 
@@ -1201,89 +1176,86 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     :cond_5
-    invoke-virtual {p0}, Lcom/android/server/compat/CompatChange;->getOverridable()Z
+    invoke-virtual {p0}, Lcom/android/internal/compat/CompatibilityChangeInfo;->getOverridable()Z
 
-    move-result v1
+    move-result p0
 
-    if-eqz v1, :cond_6
+    if-eqz p0, :cond_6
 
-    const-string v1, "; overridable"
+    const-string p0, "; overridable"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_6
-    const-string v1, ")"
+    const-string p0, ")"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method
 
-.method willBeEnabled(Ljava/lang/String;)Z
-    .locals 2
+.method public willBeEnabled(Ljava/lang/String;)Z
+    .locals 1
 
     if-nez p1, :cond_0
 
     invoke-virtual {p0}, Lcom/android/server/compat/CompatChange;->defaultValue()Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 
     :cond_0
     iget-object v0, p0, Lcom/android/server/compat/CompatChange;->mRawOverrides:Ljava/util/concurrent/ConcurrentHashMap;
 
     invoke-virtual {v0, p1}, Ljava/util/concurrent/ConcurrentHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Landroid/app/compat/PackageOverride;
+    check-cast p1, Landroid/app/compat/PackageOverride;
 
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_4
 
-    invoke-virtual {v0}, Landroid/app/compat/PackageOverride;->evaluateForAllVersions()I
+    invoke-virtual {p1}, Landroid/app/compat/PackageOverride;->evaluateForAllVersions()I
 
-    move-result v1
+    move-result p1
 
-    packed-switch v1, :pswitch_data_0
+    if-eqz p1, :cond_3
+
+    const/4 v0, 0x1
+
+    if-eq p1, v0, :cond_2
+
+    const/4 v0, 0x2
+
+    if-eq p1, v0, :cond_1
 
     goto :goto_0
 
-    :pswitch_0
-    const/4 v1, 0x0
+    :cond_1
+    const/4 p0, 0x0
 
-    return v1
+    return p0
 
-    :pswitch_1
-    const/4 v1, 0x1
+    :cond_2
+    return v0
 
-    return v1
-
-    :pswitch_2
+    :cond_3
     invoke-virtual {p0}, Lcom/android/server/compat/CompatChange;->defaultValue()Z
 
-    move-result v1
+    move-result p0
 
-    return v1
+    return p0
 
-    :cond_1
+    :cond_4
     :goto_0
     invoke-virtual {p0}, Lcom/android/server/compat/CompatChange;->defaultValue()Z
 
-    move-result v1
+    move-result p0
 
-    return v1
-
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
+    return p0
 .end method

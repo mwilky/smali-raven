@@ -1,4 +1,4 @@
-.class final Lcom/android/server/textclassifier/TextClassificationManagerService$CallbackWrapper;
+.class public final Lcom/android/server/textclassifier/TextClassificationManagerService$CallbackWrapper;
 .super Landroid/service/textclassifier/ITextClassifierCallback$Stub;
 .source "TextClassificationManagerService.java"
 
@@ -9,34 +9,32 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "CallbackWrapper"
 .end annotation
 
 
 # instance fields
-.field private final mWrapped:Landroid/service/textclassifier/ITextClassifierCallback;
+.field public final mWrapped:Landroid/service/textclassifier/ITextClassifierCallback;
 
 
 # direct methods
-.method constructor <init>(Landroid/service/textclassifier/ITextClassifierCallback;)V
-    .locals 1
+.method public constructor <init>(Landroid/service/textclassifier/ITextClassifierCallback;)V
+    .locals 0
 
     invoke-direct {p0}, Landroid/service/textclassifier/ITextClassifierCallback$Stub;-><init>()V
 
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-object v0, p1
+    check-cast p1, Landroid/service/textclassifier/ITextClassifierCallback;
 
-    check-cast v0, Landroid/service/textclassifier/ITextClassifierCallback;
-
-    iput-object v0, p0, Lcom/android/server/textclassifier/TextClassificationManagerService$CallbackWrapper;->mWrapped:Landroid/service/textclassifier/ITextClassifierCallback;
+    iput-object p1, p0, Lcom/android/server/textclassifier/TextClassificationManagerService$CallbackWrapper;->mWrapped:Landroid/service/textclassifier/ITextClassifierCallback;
 
     return-void
 .end method
 
-.method private static changeIcon(Landroid/graphics/drawable/Icon;)Landroid/graphics/drawable/Icon;
-    .locals 3
+.method public static changeIcon(Landroid/graphics/drawable/Icon;)Landroid/graphics/drawable/Icon;
+    .locals 2
 
     invoke-static {}, Lcom/android/server/textclassifier/IconsUriHelper;->getInstance()Lcom/android/server/textclassifier/IconsUriHelper;
 
@@ -48,21 +46,21 @@
 
     invoke-virtual {p0}, Landroid/graphics/drawable/Icon;->getResId()I
 
-    move-result v2
+    move-result p0
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/textclassifier/IconsUriHelper;->getContentUri(Ljava/lang/String;I)Landroid/net/Uri;
+    invoke-virtual {v0, v1, p0}, Lcom/android/server/textclassifier/IconsUriHelper;->getContentUri(Ljava/lang/String;I)Landroid/net/Uri;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0}, Landroid/graphics/drawable/Icon;->createWithContentUri(Landroid/net/Uri;)Landroid/graphics/drawable/Icon;
+    invoke-static {p0}, Landroid/graphics/drawable/Icon;->createWithContentUri(Landroid/net/Uri;)Landroid/graphics/drawable/Icon;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method
 
-.method private static rewriteConversationActionsIcons(Landroid/os/Bundle;)V
-    .locals 9
+.method public static rewriteConversationActionsIcons(Landroid/os/Bundle;)V
+    .locals 8
 
     invoke-static {p0}, Landroid/service/textclassifier/TextClassifierService;->getResponse(Landroid/os/Bundle;)Landroid/os/Parcelable;
 
@@ -70,26 +68,26 @@
 
     check-cast v0, Landroid/view/textclassifier/ConversationActions;
 
-    const/4 v1, 0x0
-
     invoke-virtual {v0}, Landroid/view/textclassifier/ConversationActions;->getConversationActions()Ljava/util/List;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-interface {v2}, Ljava/util/List;->size()I
+    invoke-interface {v1}, Ljava/util/List;->size()I
 
-    move-result v3
+    move-result v2
 
-    new-instance v4, Ljava/util/ArrayList;
+    new-instance v3, Ljava/util/ArrayList;
 
-    invoke-direct {v4, v3}, Ljava/util/ArrayList;-><init>(I)V
+    invoke-direct {v3, v2}, Ljava/util/ArrayList;-><init>(I)V
 
-    const/4 v5, 0x0
+    const/4 v4, 0x0
+
+    move v5, v4
 
     :goto_0
-    if-ge v5, v3, :cond_1
+    if-ge v4, v2, :cond_1
 
-    invoke-interface {v2, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v1, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v6
 
@@ -105,80 +103,75 @@
 
     if-eqz v7, :cond_0
 
-    const/4 v1, 0x1
-
     invoke-virtual {v6}, Landroid/view/textclassifier/ConversationAction;->toBuilder()Landroid/view/textclassifier/ConversationAction$Builder;
 
-    move-result-object v7
+    move-result-object v5
 
     invoke-virtual {v6}, Landroid/view/textclassifier/ConversationAction;->getAction()Landroid/app/RemoteAction;
 
-    move-result-object v8
+    move-result-object v6
 
-    invoke-static {v8}, Lcom/android/server/textclassifier/TextClassificationManagerService$CallbackWrapper;->validAction(Landroid/app/RemoteAction;)Landroid/app/RemoteAction;
+    invoke-static {v6}, Lcom/android/server/textclassifier/TextClassificationManagerService$CallbackWrapper;->validAction(Landroid/app/RemoteAction;)Landroid/app/RemoteAction;
 
-    move-result-object v8
+    move-result-object v6
 
-    invoke-virtual {v7, v8}, Landroid/view/textclassifier/ConversationAction$Builder;->setAction(Landroid/app/RemoteAction;)Landroid/view/textclassifier/ConversationAction$Builder;
+    invoke-virtual {v5, v6}, Landroid/view/textclassifier/ConversationAction$Builder;->setAction(Landroid/app/RemoteAction;)Landroid/view/textclassifier/ConversationAction$Builder;
 
-    move-result-object v7
+    move-result-object v5
 
-    invoke-virtual {v7}, Landroid/view/textclassifier/ConversationAction$Builder;->build()Landroid/view/textclassifier/ConversationAction;
+    invoke-virtual {v5}, Landroid/view/textclassifier/ConversationAction$Builder;->build()Landroid/view/textclassifier/ConversationAction;
 
-    move-result-object v7
+    move-result-object v6
 
-    goto :goto_1
+    const/4 v5, 0x1
 
     :cond_0
-    move-object v7, v6
+    invoke-interface {v3, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    :goto_1
-    invoke-interface {v4, v7}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    add-int/lit8 v5, v5, 0x1
+    add-int/lit8 v4, v4, 0x1
 
     goto :goto_0
 
     :cond_1
-    if-eqz v1, :cond_2
+    if-eqz v5, :cond_2
 
-    new-instance v5, Landroid/view/textclassifier/ConversationActions;
+    new-instance v1, Landroid/view/textclassifier/ConversationActions;
 
     invoke-virtual {v0}, Landroid/view/textclassifier/ConversationActions;->getId()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v0
 
-    invoke-direct {v5, v4, v6}, Landroid/view/textclassifier/ConversationActions;-><init>(Ljava/util/List;Ljava/lang/String;)V
+    invoke-direct {v1, v3, v0}, Landroid/view/textclassifier/ConversationActions;-><init>(Ljava/util/List;Ljava/lang/String;)V
 
-    invoke-static {p0, v5}, Landroid/service/textclassifier/TextClassifierService;->putResponse(Landroid/os/Bundle;Landroid/os/Parcelable;)V
+    invoke-static {p0, v1}, Landroid/service/textclassifier/TextClassifierService;->putResponse(Landroid/os/Bundle;Landroid/os/Parcelable;)V
 
     :cond_2
     return-void
 .end method
 
-.method private static rewriteTextClassificationIcons(Landroid/view/textclassifier/TextClassification;)Landroid/view/textclassifier/TextClassification;
+.method public static rewriteTextClassificationIcons(Landroid/view/textclassifier/TextClassification;)Landroid/view/textclassifier/TextClassification;
     .locals 7
-
-    const/4 v0, 0x0
 
     invoke-virtual {p0}, Landroid/view/textclassifier/TextClassification;->getActions()Ljava/util/List;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-interface {v1}, Ljava/util/List;->size()I
+    invoke-interface {v0}, Ljava/util/List;->size()I
 
-    move-result v2
+    move-result v1
 
-    new-instance v3, Ljava/util/ArrayList;
+    new-instance v2, Ljava/util/ArrayList;
 
-    invoke-direct {v3, v2}, Ljava/util/ArrayList;-><init>(I)V
+    invoke-direct {v2, v1}, Ljava/util/ArrayList;-><init>(I)V
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
+
+    move v4, v3
 
     :goto_0
-    if-ge v4, v2, :cond_1
+    if-ge v3, v1, :cond_1
 
-    invoke-interface {v1, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v0, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v5
 
@@ -190,56 +183,49 @@
 
     if-eqz v6, :cond_0
 
-    const/4 v0, 0x1
-
     invoke-static {v5}, Lcom/android/server/textclassifier/TextClassificationManagerService$CallbackWrapper;->validAction(Landroid/app/RemoteAction;)Landroid/app/RemoteAction;
 
-    move-result-object v6
+    move-result-object v5
 
-    goto :goto_1
+    const/4 v4, 0x1
 
     :cond_0
-    move-object v6, v5
+    invoke-interface {v2, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    :goto_1
-    invoke-interface {v3, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
     :cond_1
-    if-eqz v0, :cond_2
-
-    nop
+    if-eqz v4, :cond_2
 
     invoke-virtual {p0}, Landroid/view/textclassifier/TextClassification;->toBuilder()Landroid/view/textclassifier/TextClassification$Builder;
 
-    move-result-object v4
+    move-result-object p0
 
-    invoke-virtual {v4}, Landroid/view/textclassifier/TextClassification$Builder;->clearActions()Landroid/view/textclassifier/TextClassification$Builder;
+    invoke-virtual {p0}, Landroid/view/textclassifier/TextClassification$Builder;->clearActions()Landroid/view/textclassifier/TextClassification$Builder;
 
-    move-result-object v4
+    move-result-object p0
 
-    invoke-virtual {v4, v3}, Landroid/view/textclassifier/TextClassification$Builder;->addActions(Ljava/util/Collection;)Landroid/view/textclassifier/TextClassification$Builder;
+    invoke-virtual {p0, v2}, Landroid/view/textclassifier/TextClassification$Builder;->addActions(Ljava/util/Collection;)Landroid/view/textclassifier/TextClassification$Builder;
 
-    move-result-object v4
+    move-result-object p0
 
-    invoke-virtual {v4}, Landroid/view/textclassifier/TextClassification$Builder;->build()Landroid/view/textclassifier/TextClassification;
+    invoke-virtual {p0}, Landroid/view/textclassifier/TextClassification$Builder;->build()Landroid/view/textclassifier/TextClassification;
 
-    move-result-object v4
+    move-result-object p0
 
-    goto :goto_2
+    goto :goto_1
 
     :cond_2
-    const/4 v4, 0x0
+    const/4 p0, 0x0
 
-    :goto_2
-    return-object v4
+    :goto_1
+    return-object p0
 .end method
 
-.method private static rewriteTextClassificationIcons(Landroid/os/Bundle;)V
-    .locals 2
+.method public static rewriteTextClassificationIcons(Landroid/os/Bundle;)V
+    .locals 1
 
     invoke-static {p0}, Landroid/service/textclassifier/TextClassifierService;->getResponse(Landroid/os/Bundle;)Landroid/os/Parcelable;
 
@@ -249,18 +235,18 @@
 
     invoke-static {v0}, Lcom/android/server/textclassifier/TextClassificationManagerService$CallbackWrapper;->rewriteTextClassificationIcons(Landroid/view/textclassifier/TextClassification;)Landroid/view/textclassifier/TextClassification;
 
-    move-result-object v1
+    move-result-object v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    invoke-static {p0, v1}, Landroid/service/textclassifier/TextClassifierService;->putResponse(Landroid/os/Bundle;Landroid/os/Parcelable;)V
+    invoke-static {p0, v0}, Landroid/service/textclassifier/TextClassifierService;->putResponse(Landroid/os/Bundle;Landroid/os/Parcelable;)V
 
     :cond_0
     return-void
 .end method
 
-.method private static rewriteTextSelectionIcons(Landroid/os/Bundle;)V
-    .locals 3
+.method public static rewriteTextSelectionIcons(Landroid/os/Bundle;)V
+    .locals 2
 
     invoke-static {p0}, Landroid/service/textclassifier/TextClassifierService;->getResponse(Landroid/os/Bundle;)Landroid/os/Parcelable;
 
@@ -277,8 +263,6 @@
     return-void
 
     :cond_0
-    nop
-
     invoke-virtual {v0}, Landroid/view/textclassifier/TextSelection;->getTextClassification()Landroid/view/textclassifier/TextClassification;
 
     move-result-object v1
@@ -292,54 +276,52 @@
     return-void
 
     :cond_1
-    nop
-
     invoke-virtual {v0}, Landroid/view/textclassifier/TextSelection;->toBuilder()Landroid/view/textclassifier/TextSelection$Builder;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v2, v1}, Landroid/view/textclassifier/TextSelection$Builder;->setTextClassification(Landroid/view/textclassifier/TextClassification;)Landroid/view/textclassifier/TextSelection$Builder;
+    invoke-virtual {v0, v1}, Landroid/view/textclassifier/TextSelection$Builder;->setTextClassification(Landroid/view/textclassifier/TextClassification;)Landroid/view/textclassifier/TextSelection$Builder;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v2}, Landroid/view/textclassifier/TextSelection$Builder;->build()Landroid/view/textclassifier/TextSelection;
+    invoke-virtual {v0}, Landroid/view/textclassifier/TextSelection$Builder;->build()Landroid/view/textclassifier/TextSelection;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-static {p0, v2}, Landroid/service/textclassifier/TextClassifierService;->putResponse(Landroid/os/Bundle;Landroid/os/Parcelable;)V
+    invoke-static {p0, v0}, Landroid/service/textclassifier/TextClassifierService;->putResponse(Landroid/os/Bundle;Landroid/os/Parcelable;)V
 
     return-void
 .end method
 
-.method private static shouldRewriteIcon(Landroid/app/RemoteAction;)Z
-    .locals 2
+.method public static shouldRewriteIcon(Landroid/app/RemoteAction;)Z
+    .locals 1
 
     if-eqz p0, :cond_0
 
     invoke-virtual {p0}, Landroid/app/RemoteAction;->getIcon()Landroid/graphics/drawable/Icon;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Landroid/graphics/drawable/Icon;->getType()I
+    invoke-virtual {p0}, Landroid/graphics/drawable/Icon;->getType()I
 
-    move-result v0
+    move-result p0
 
-    const/4 v1, 0x2
+    const/4 v0, 0x2
 
-    if-ne v0, v1, :cond_0
+    if-ne p0, v0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
-.method private static validAction(Landroid/app/RemoteAction;)Landroid/app/RemoteAction;
+.method public static validAction(Landroid/app/RemoteAction;)Landroid/app/RemoteAction;
     .locals 5
 
     new-instance v0, Landroid/app/RemoteAction;
@@ -374,9 +356,9 @@
 
     invoke-virtual {p0}, Landroid/app/RemoteAction;->shouldShowIcon()Z
 
-    move-result v1
+    move-result p0
 
-    invoke-virtual {v0, v1}, Landroid/app/RemoteAction;->setShouldShowIcon(Z)V
+    invoke-virtual {v0, p0}, Landroid/app/RemoteAction;->setShouldShowIcon(Z)V
 
     return-object v0
 .end method
@@ -384,32 +366,32 @@
 
 # virtual methods
 .method public onFailure()V
-    .locals 3
+    .locals 2
 
     :try_start_0
-    iget-object v0, p0, Lcom/android/server/textclassifier/TextClassificationManagerService$CallbackWrapper;->mWrapped:Landroid/service/textclassifier/ITextClassifierCallback;
+    iget-object p0, p0, Lcom/android/server/textclassifier/TextClassificationManagerService$CallbackWrapper;->mWrapped:Landroid/service/textclassifier/ITextClassifierCallback;
 
-    invoke-interface {v0}, Landroid/service/textclassifier/ITextClassifierCallback;->onFailure()V
+    invoke-interface {p0}, Landroid/service/textclassifier/ITextClassifierCallback;->onFailure()V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    const-string v1, "TextClassificationManagerService"
+    const-string v0, "TextClassificationManagerService"
 
-    const-string v2, "Callback error"
+    const-string v1, "Callback error"
 
-    invoke-static {v1, v2, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v0, v1, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_0
     return-void
 .end method
 
 .method public onSuccess(Landroid/os/Bundle;)V
-    .locals 4
+    .locals 2
 
     invoke-static {p1}, Landroid/service/textclassifier/TextClassifierService;->getResponse(Landroid/os/Bundle;)Landroid/os/Parcelable;
 
@@ -433,31 +415,31 @@
     goto :goto_0
 
     :cond_1
-    instance-of v1, v0, Landroid/view/textclassifier/TextSelection;
+    instance-of v0, v0, Landroid/view/textclassifier/TextSelection;
 
-    if-eqz v1, :cond_2
+    if-eqz v0, :cond_2
 
     invoke-static {p1}, Lcom/android/server/textclassifier/TextClassificationManagerService$CallbackWrapper;->rewriteTextSelectionIcons(Landroid/os/Bundle;)V
 
     :cond_2
     :goto_0
     :try_start_0
-    iget-object v1, p0, Lcom/android/server/textclassifier/TextClassificationManagerService$CallbackWrapper;->mWrapped:Landroid/service/textclassifier/ITextClassifierCallback;
+    iget-object p0, p0, Lcom/android/server/textclassifier/TextClassificationManagerService$CallbackWrapper;->mWrapped:Landroid/service/textclassifier/ITextClassifierCallback;
 
-    invoke-interface {v1, p1}, Landroid/service/textclassifier/ITextClassifierCallback;->onSuccess(Landroid/os/Bundle;)V
+    invoke-interface {p0, p1}, Landroid/service/textclassifier/ITextClassifierCallback;->onSuccess(Landroid/os/Bundle;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_1
 
     :catch_0
-    move-exception v1
+    move-exception p0
 
-    const-string v2, "TextClassificationManagerService"
+    const-string p1, "TextClassificationManagerService"
 
-    const-string v3, "Callback error"
+    const-string v0, "Callback error"
 
-    invoke-static {v2, v3, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {p1, v0, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_1
     return-void

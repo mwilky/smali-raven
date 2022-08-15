@@ -1,4 +1,4 @@
-.class Lcom/android/server/firewall/CategoryFilter$1;
+.class public Lcom/android/server/firewall/CategoryFilter$1;
 .super Lcom/android/server/firewall/FilterFactory;
 .source "CategoryFilter.java"
 
@@ -9,13 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # direct methods
-.method constructor <init>(Ljava/lang/String;)V
+.method public constructor <init>(Ljava/lang/String;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/firewall/FilterFactory;-><init>(Ljava/lang/String;)V
@@ -26,7 +26,7 @@
 
 # virtual methods
 .method public newFilter(Lorg/xmlpull/v1/XmlPullParser;)Lcom/android/server/firewall/Filter;
-    .locals 4
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -34,28 +34,28 @@
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    const-string/jumbo v1, "name"
+    const-string/jumbo v0, "name"
 
-    invoke-interface {p1, v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {p1, p0, v0}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    new-instance v2, Lcom/android/server/firewall/CategoryFilter;
+    new-instance p1, Lcom/android/server/firewall/CategoryFilter;
 
-    invoke-direct {v2, v1, v0}, Lcom/android/server/firewall/CategoryFilter;-><init>(Ljava/lang/String;Lcom/android/server/firewall/CategoryFilter$1;)V
+    invoke-direct {p1, v0, p0}, Lcom/android/server/firewall/CategoryFilter;-><init>(Ljava/lang/String;Lcom/android/server/firewall/CategoryFilter-IA;)V
 
-    return-object v2
+    return-object p1
 
     :cond_0
-    new-instance v2, Lorg/xmlpull/v1/XmlPullParserException;
+    new-instance v0, Lorg/xmlpull/v1/XmlPullParserException;
 
-    const-string v3, "Category name must be specified."
+    const-string v1, "Category name must be specified."
 
-    invoke-direct {v2, v3, p1, v0}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/Throwable;)V
+    invoke-direct {v0, v1, p1, p0}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/Throwable;)V
 
-    throw v2
+    throw v0
 .end method

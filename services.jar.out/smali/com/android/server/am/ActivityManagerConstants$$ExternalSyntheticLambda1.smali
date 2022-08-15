@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/am/ActivityManagerConstants$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -23,13 +24,13 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/am/ActivityManagerConstants$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/am/ActivityManagerConstants;
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerConstants$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/am/ActivityManagerConstants;
 
     check-cast p1, Ljava/lang/String;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/am/ActivityManagerConstants;->lambda$updateImperceptibleKillExemptions$0$ActivityManagerConstants(Ljava/lang/String;)V
+    invoke-static {p0, p1}, Lcom/android/server/am/ActivityManagerConstants;->$r8$lambda$0DBjyy0QB0UncDBdDd4ncVQegAs(Lcom/android/server/am/ActivityManagerConstants;Ljava/lang/String;)V
 
     return-void
 .end method

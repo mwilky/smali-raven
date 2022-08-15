@@ -1,49 +1,36 @@
 .class public final synthetic Lcom/android/server/wm/WindowManagerService$$ExternalSyntheticLambda6;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/BiConsumer;
+.implements Ljava/util/function/Consumer;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/wm/WindowManagerService$$ExternalSyntheticLambda6;
+# instance fields
+.field public final synthetic f$0:Z
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/wm/WindowManagerService$$ExternalSyntheticLambda6;
-
-    invoke-direct {v0}, Lcom/android/server/wm/WindowManagerService$$ExternalSyntheticLambda6;-><init>()V
-
-    sput-object v0, Lcom/android/server/wm/WindowManagerService$$ExternalSyntheticLambda6;->INSTANCE:Lcom/android/server/wm/WindowManagerService$$ExternalSyntheticLambda6;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Z)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-boolean p1, p0, Lcom/android/server/wm/WindowManagerService$$ExternalSyntheticLambda6;->f$0:Z
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;Ljava/lang/Object;)V
+.method public final accept(Ljava/lang/Object;)V
     .locals 0
 
-    check-cast p1, Lcom/android/server/wm/DisplayPolicy;
+    iget-boolean p0, p0, Lcom/android/server/wm/WindowManagerService$$ExternalSyntheticLambda6;->f$0:Z
 
-    check-cast p2, Ljava/lang/Boolean;
+    check-cast p1, Lcom/android/server/wm/WindowState;
 
-    invoke-virtual {p2}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result p2
-
-    invoke-virtual {p1, p2}, Lcom/android/server/wm/DisplayPolicy;->onPowerKeyDown(Z)V
+    invoke-static {p0, p1}, Lcom/android/server/wm/WindowManagerService;->$r8$lambda$WLTZgnrZM-FW0I08OX1fN8-xCd8(ZLcom/android/server/wm/WindowState;)V
 
     return-void
 .end method

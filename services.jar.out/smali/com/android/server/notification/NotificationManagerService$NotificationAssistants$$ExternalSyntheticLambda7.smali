@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/notification/NotificationManagerService$NotificationAssistants$$ExternalSyntheticLambda7;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/BiConsumer;
@@ -27,17 +28,17 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$NotificationAssistants$$ExternalSyntheticLambda7;->f$0:Lcom/android/server/notification/NotificationManagerService$NotificationAssistants;
 
-    iget-object v1, p0, Lcom/android/server/notification/NotificationManagerService$NotificationAssistants$$ExternalSyntheticLambda7;->f$1:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/notification/NotificationManagerService$NotificationAssistants$$ExternalSyntheticLambda7;->f$1:Ljava/lang/String;
 
     check-cast p1, Landroid/service/notification/INotificationListener;
 
     check-cast p2, Lcom/android/server/notification/NotificationManagerService$StatusBarNotificationHolder;
 
-    invoke-virtual {v0, v1, p1, p2}, Lcom/android/server/notification/NotificationManagerService$NotificationAssistants;->lambda$notifyAssistantNotificationDirectReplyLocked$7$NotificationManagerService$NotificationAssistants(Ljava/lang/String;Landroid/service/notification/INotificationListener;Lcom/android/server/notification/NotificationManagerService$StatusBarNotificationHolder;)V
+    invoke-static {v0, p0, p1, p2}, Lcom/android/server/notification/NotificationManagerService$NotificationAssistants;->$r8$lambda$GFQMD8QE3JzHrKIWFYwKLLFSTHc(Lcom/android/server/notification/NotificationManagerService$NotificationAssistants;Ljava/lang/String;Landroid/service/notification/INotificationListener;Lcom/android/server/notification/NotificationManagerService$StatusBarNotificationHolder;)V
 
     return-void
 .end method

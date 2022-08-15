@@ -4,9 +4,7 @@
 
 
 # static fields
-.field private static final TAG:Ljava/lang/String; = "UsbStrings"
-
-.field private static sACControlInterfaceNames:Ljava/util/HashMap;
+.field public static sACControlInterfaceNames:Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/HashMap<",
@@ -17,7 +15,7 @@
     .end annotation
 .end field
 
-.field private static sACStreamingInterfaceNames:Ljava/util/HashMap;
+.field public static sACStreamingInterfaceNames:Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/HashMap<",
@@ -28,7 +26,7 @@
     .end annotation
 .end field
 
-.field private static sAudioEncodingNames:Ljava/util/HashMap;
+.field public static sAudioEncodingNames:Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/HashMap<",
@@ -39,7 +37,7 @@
     .end annotation
 .end field
 
-.field private static sAudioSubclassNames:Ljava/util/HashMap;
+.field public static sAudioSubclassNames:Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/HashMap<",
@@ -50,7 +48,7 @@
     .end annotation
 .end field
 
-.field private static sClassNames:Ljava/util/HashMap;
+.field public static sClassNames:Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/HashMap<",
@@ -61,7 +59,7 @@
     .end annotation
 .end field
 
-.field private static sDescriptorNames:Ljava/util/HashMap;
+.field public static sDescriptorNames:Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/HashMap<",
@@ -72,7 +70,7 @@
     .end annotation
 .end field
 
-.field private static sFormatNames:Ljava/util/HashMap;
+.field public static sFormatNames:Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/HashMap<",
@@ -83,7 +81,7 @@
     .end annotation
 .end field
 
-.field private static sTerminalNames:Ljava/util/HashMap;
+.field public static sTerminalNames:Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/HashMap<",
@@ -96,7 +94,7 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 0
 
     invoke-static {}, Lcom/android/server/usb/descriptors/report/UsbStrings;->allocUsbStrings()V
@@ -104,15 +102,7 @@
     return-void
 .end method
 
-.method public constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-.method private static allocUsbStrings()V
+.method public static allocUsbStrings()V
     .locals 0
 
     invoke-static {}, Lcom/android/server/usb/descriptors/report/UsbStrings;->initDescriptorNames()V
@@ -135,7 +125,7 @@
 .end method
 
 .method public static getACControlInterfaceName(B)Ljava/lang/String;
-    .locals 4
+    .locals 2
 
     sget-object v0, Lcom/android/server/usb/descriptors/report/UsbStrings;->sACControlInterfaceNames:Ljava/util/HashMap;
 
@@ -149,45 +139,43 @@
 
     check-cast v0, Ljava/lang/String;
 
-    and-int/lit16 v1, p0, 0xff
+    and-int/lit16 p0, p0, 0xff
 
     if-eqz v0, :cond_0
-
-    move-object v2, v0
 
     goto :goto_0
 
     :cond_0
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "Unknown subtype [0x"
+    const-string v1, "Unknown subtype [0x"
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {v1}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+    invoke-static {p0}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, ":"
+    const-string v1, ":"
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v3, "]"
+    const-string p0, "]"
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
     :goto_0
-    return-object v2
+    return-object v0
 .end method
 
 .method public static getACInterfaceSubclassName(I)Ljava/lang/String;
@@ -197,75 +185,19 @@
 
     if-ne p0, v0, :cond_0
 
-    const-string v0, "AC Control"
+    const-string p0, "AC Control"
 
     goto :goto_0
 
     :cond_0
-    const-string v0, "AC Streaming"
+    const-string p0, "AC Streaming"
 
     :goto_0
-    return-object v0
-.end method
-
-.method public static getACStreamingInterfaceName(B)Ljava/lang/String;
-    .locals 4
-
-    sget-object v0, Lcom/android/server/usb/descriptors/report/UsbStrings;->sACStreamingInterfaceNames:Ljava/util/HashMap;
-
-    invoke-static {p0}, Ljava/lang/Byte;->valueOf(B)Ljava/lang/Byte;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/String;
-
-    and-int/lit16 v1, p0, 0xff
-
-    if-eqz v0, :cond_0
-
-    move-object v2, v0
-
-    goto :goto_0
-
-    :cond_0
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "Unknown Subtype [0x"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-static {v1}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v3, ":"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v3, "]"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    :goto_0
-    return-object v2
+    return-object p0
 .end method
 
 .method public static getAudioFormatName(I)Ljava/lang/String;
-    .locals 3
+    .locals 2
 
     sget-object v0, Lcom/android/server/usb/descriptors/report/UsbStrings;->sAudioEncodingNames:Ljava/util/HashMap;
 
@@ -281,45 +213,43 @@
 
     if-eqz v0, :cond_0
 
-    move-object v1, v0
-
     goto :goto_0
 
     :cond_0
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "Unknown Format (encoding) ID [0x"
+    const-string v1, "Unknown Format (encoding) ID [0x"
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-static {p0}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
 
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v2, ":"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v2, "]"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
     move-result-object v1
 
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v1, ":"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string p0, "]"
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
     :goto_0
-    return-object v1
+    return-object v0
 .end method
 
 .method public static getAudioSubclassName(I)Ljava/lang/String;
-    .locals 4
+    .locals 2
 
     sget-object v0, Lcom/android/server/usb/descriptors/report/UsbStrings;->sAudioSubclassNames:Ljava/util/HashMap;
 
@@ -333,49 +263,47 @@
 
     check-cast v0, Ljava/lang/String;
 
-    and-int/lit16 v1, p0, 0xff
+    and-int/lit16 p0, p0, 0xff
 
     if-eqz v0, :cond_0
-
-    move-object v2, v0
 
     goto :goto_0
 
     :cond_0
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "Unknown Audio Subclass [0x"
+    const-string v1, "Unknown Audio Subclass [0x"
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {v1}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+    invoke-static {p0}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, ":"
+    const-string v1, ":"
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v3, "]"
+    const-string p0, "]"
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
     :goto_0
-    return-object v2
+    return-object v0
 .end method
 
 .method public static getClassName(I)Ljava/lang/String;
-    .locals 4
+    .locals 2
 
     sget-object v0, Lcom/android/server/usb/descriptors/report/UsbStrings;->sClassNames:Ljava/util/HashMap;
 
@@ -389,49 +317,47 @@
 
     check-cast v0, Ljava/lang/String;
 
-    and-int/lit16 v1, p0, 0xff
+    and-int/lit16 p0, p0, 0xff
 
     if-eqz v0, :cond_0
-
-    move-object v2, v0
 
     goto :goto_0
 
     :cond_0
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "Unknown Class ID [0x"
+    const-string v1, "Unknown Class ID [0x"
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {v1}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+    invoke-static {p0}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, ":"
+    const-string v1, ":"
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v3, "]"
+    const-string p0, "]"
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
     :goto_0
-    return-object v2
+    return-object v0
 .end method
 
 .method public static getDescriptorName(B)Ljava/lang/String;
-    .locals 4
+    .locals 2
 
     sget-object v0, Lcom/android/server/usb/descriptors/report/UsbStrings;->sDescriptorNames:Ljava/util/HashMap;
 
@@ -445,49 +371,47 @@
 
     check-cast v0, Ljava/lang/String;
 
-    and-int/lit16 v1, p0, 0xff
+    and-int/lit16 p0, p0, 0xff
 
     if-eqz v0, :cond_0
-
-    move-object v2, v0
 
     goto :goto_0
 
     :cond_0
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "Unknown Descriptor [0x"
+    const-string v1, "Unknown Descriptor [0x"
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {v1}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+    invoke-static {p0}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, ":"
+    const-string v1, ":"
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v3, "]"
+    const-string p0, "]"
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
     :goto_0
-    return-object v2
+    return-object v0
 .end method
 
 .method public static getFormatName(I)Ljava/lang/String;
-    .locals 3
+    .locals 2
 
     sget-object v0, Lcom/android/server/usb/descriptors/report/UsbStrings;->sFormatNames:Ljava/util/HashMap;
 
@@ -503,35 +427,33 @@
 
     if-eqz v0, :cond_0
 
-    move-object v1, v0
-
     goto :goto_0
 
     :cond_0
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "Unknown Format Type 0x"
+    const-string v1, "Unknown Format Type 0x"
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-static {p0}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
     :goto_0
-    return-object v1
+    return-object v0
 .end method
 
 .method public static getTerminalName(I)Ljava/lang/String;
-    .locals 3
+    .locals 2
 
     sget-object v0, Lcom/android/server/usb/descriptors/report/UsbStrings;->sTerminalNames:Ljava/util/HashMap;
 
@@ -547,34 +469,32 @@
 
     if-eqz v0, :cond_0
 
-    move-object v1, v0
-
     goto :goto_0
 
     :cond_0
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "Unknown Terminal Type 0x"
+    const-string v1, "Unknown Terminal Type 0x"
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-static {p0}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
     :goto_0
-    return-object v1
+    return-object v0
 .end method
 
-.method private static initACControlInterfaceNames()V
+.method public static initACControlInterfaceNames()V
     .locals 3
 
     new-instance v0, Ljava/util/HashMap;
@@ -740,7 +660,7 @@
     return-void
 .end method
 
-.method private static initACStreamingInterfaceNames()V
+.method public static initACStreamingInterfaceNames()V
     .locals 3
 
     new-instance v0, Ljava/util/HashMap;
@@ -798,7 +718,7 @@
     return-void
 .end method
 
-.method private static initAudioEncodingNames()V
+.method public static initAudioEncodingNames()V
     .locals 3
 
     new-instance v0, Ljava/util/HashMap;
@@ -988,7 +908,7 @@
     return-void
 .end method
 
-.method private static initAudioSubclassNames()V
+.method public static initAudioSubclassNames()V
     .locals 3
 
     new-instance v0, Ljava/util/HashMap;
@@ -1046,7 +966,7 @@
     return-void
 .end method
 
-.method private static initClassNames()V
+.method public static initClassNames()V
     .locals 3
 
     new-instance v0, Ljava/util/HashMap;
@@ -1320,7 +1240,7 @@
     return-void
 .end method
 
-.method private static initDescriptorNames()V
+.method public static initDescriptorNames()V
     .locals 3
 
     new-instance v0, Ljava/util/HashMap;
@@ -1522,7 +1442,7 @@
     return-void
 .end method
 
-.method private static initFormatNames()V
+.method public static initFormatNames()V
     .locals 3
 
     new-instance v0, Ljava/util/HashMap;
@@ -1616,7 +1536,7 @@
     return-void
 .end method
 
-.method private static initTerminalNames()V
+.method public static initTerminalNames()V
     .locals 4
 
     new-instance v0, Ljava/util/HashMap;

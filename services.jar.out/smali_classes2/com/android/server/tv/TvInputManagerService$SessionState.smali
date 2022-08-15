@@ -1,4 +1,4 @@
-.class final Lcom/android/server/tv/TvInputManagerService$SessionState;
+.class public final Lcom/android/server/tv/TvInputManagerService$SessionState;
 .super Ljava/lang/Object;
 .source "TvInputManagerService.java"
 
@@ -12,49 +12,225 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "SessionState"
 .end annotation
 
 
 # instance fields
-.field private final callingPid:I
+.field public final callingPid:I
 
-.field private final callingUid:I
+.field public final callingUid:I
 
-.field private final client:Landroid/media/tv/ITvInputClient;
+.field public final client:Landroid/media/tv/ITvInputClient;
 
-.field private final componentName:Landroid/content/ComponentName;
+.field public final componentName:Landroid/content/ComponentName;
 
-.field private currentChannel:Landroid/net/Uri;
+.field public currentChannel:Landroid/net/Uri;
 
-.field private hardwareSessionToken:Landroid/os/IBinder;
+.field public hardwareSessionToken:Landroid/os/IBinder;
 
-.field private final inputId:Ljava/lang/String;
+.field public final inputId:Ljava/lang/String;
 
-.field private isCurrent:Z
+.field public isCurrent:Z
 
-.field private isMainSession:Z
+.field public isMainSession:Z
 
-.field private final isRecordingSession:Z
+.field public final isRecordingSession:Z
 
-.field private isVisible:Z
+.field public isVisible:Z
 
-.field private final seq:I
+.field public final seq:I
 
-.field private session:Landroid/media/tv/ITvInputSession;
+.field public session:Landroid/media/tv/ITvInputSession;
 
-.field private final sessionId:Ljava/lang/String;
+.field public final sessionId:Ljava/lang/String;
 
-.field private final sessionToken:Landroid/os/IBinder;
+.field public final sessionToken:Landroid/os/IBinder;
 
-.field final synthetic this$0:Lcom/android/server/tv/TvInputManagerService;
+.field public final synthetic this$0:Lcom/android/server/tv/TvInputManagerService;
 
-.field private final userId:I
+.field public final userId:I
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/server/tv/TvInputManagerService;Landroid/os/IBinder;Ljava/lang/String;Landroid/content/ComponentName;ZLandroid/media/tv/ITvInputClient;IIIILjava/lang/String;)V
+.method public static bridge synthetic -$$Nest$fgetcallingPid(Lcom/android/server/tv/TvInputManagerService$SessionState;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/server/tv/TvInputManagerService$SessionState;->callingPid:I
+
+    return p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetcallingUid(Lcom/android/server/tv/TvInputManagerService$SessionState;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/server/tv/TvInputManagerService$SessionState;->callingUid:I
+
+    return p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetclient(Lcom/android/server/tv/TvInputManagerService$SessionState;)Landroid/media/tv/ITvInputClient;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/tv/TvInputManagerService$SessionState;->client:Landroid/media/tv/ITvInputClient;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetcomponentName(Lcom/android/server/tv/TvInputManagerService$SessionState;)Landroid/content/ComponentName;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/tv/TvInputManagerService$SessionState;->componentName:Landroid/content/ComponentName;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetcurrentChannel(Lcom/android/server/tv/TvInputManagerService$SessionState;)Landroid/net/Uri;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/tv/TvInputManagerService$SessionState;->currentChannel:Landroid/net/Uri;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgethardwareSessionToken(Lcom/android/server/tv/TvInputManagerService$SessionState;)Landroid/os/IBinder;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/tv/TvInputManagerService$SessionState;->hardwareSessionToken:Landroid/os/IBinder;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetinputId(Lcom/android/server/tv/TvInputManagerService$SessionState;)Ljava/lang/String;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/tv/TvInputManagerService$SessionState;->inputId:Ljava/lang/String;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetisCurrent(Lcom/android/server/tv/TvInputManagerService$SessionState;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/server/tv/TvInputManagerService$SessionState;->isCurrent:Z
+
+    return p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetisMainSession(Lcom/android/server/tv/TvInputManagerService$SessionState;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/server/tv/TvInputManagerService$SessionState;->isMainSession:Z
+
+    return p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetisRecordingSession(Lcom/android/server/tv/TvInputManagerService$SessionState;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/server/tv/TvInputManagerService$SessionState;->isRecordingSession:Z
+
+    return p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetisVisible(Lcom/android/server/tv/TvInputManagerService$SessionState;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/server/tv/TvInputManagerService$SessionState;->isVisible:Z
+
+    return p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetseq(Lcom/android/server/tv/TvInputManagerService$SessionState;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/server/tv/TvInputManagerService$SessionState;->seq:I
+
+    return p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetsession(Lcom/android/server/tv/TvInputManagerService$SessionState;)Landroid/media/tv/ITvInputSession;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/tv/TvInputManagerService$SessionState;->session:Landroid/media/tv/ITvInputSession;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetsessionId(Lcom/android/server/tv/TvInputManagerService$SessionState;)Ljava/lang/String;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/tv/TvInputManagerService$SessionState;->sessionId:Ljava/lang/String;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetsessionToken(Lcom/android/server/tv/TvInputManagerService$SessionState;)Landroid/os/IBinder;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/tv/TvInputManagerService$SessionState;->sessionToken:Landroid/os/IBinder;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetuserId(Lcom/android/server/tv/TvInputManagerService$SessionState;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/server/tv/TvInputManagerService$SessionState;->userId:I
+
+    return p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fputcurrentChannel(Lcom/android/server/tv/TvInputManagerService$SessionState;Landroid/net/Uri;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/server/tv/TvInputManagerService$SessionState;->currentChannel:Landroid/net/Uri;
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$fputhardwareSessionToken(Lcom/android/server/tv/TvInputManagerService$SessionState;Landroid/os/IBinder;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/server/tv/TvInputManagerService$SessionState;->hardwareSessionToken:Landroid/os/IBinder;
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$fputisCurrent(Lcom/android/server/tv/TvInputManagerService$SessionState;Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/server/tv/TvInputManagerService$SessionState;->isCurrent:Z
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$fputisMainSession(Lcom/android/server/tv/TvInputManagerService$SessionState;Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/server/tv/TvInputManagerService$SessionState;->isMainSession:Z
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$fputisVisible(Lcom/android/server/tv/TvInputManagerService$SessionState;Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/server/tv/TvInputManagerService$SessionState;->isVisible:Z
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$fputsession(Lcom/android/server/tv/TvInputManagerService$SessionState;Landroid/media/tv/ITvInputSession;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/server/tv/TvInputManagerService$SessionState;->session:Landroid/media/tv/ITvInputSession;
+
+    return-void
+.end method
+
+.method public constructor <init>(Lcom/android/server/tv/TvInputManagerService;Landroid/os/IBinder;Ljava/lang/String;Landroid/content/ComponentName;ZLandroid/media/tv/ITvInputClient;IIIILjava/lang/String;)V
     .locals 1
 
     iput-object p1, p0, Lcom/android/server/tv/TvInputManagerService$SessionState;->this$0:Lcom/android/server/tv/TvInputManagerService;
@@ -96,188 +272,12 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/tv/TvInputManagerService;Landroid/os/IBinder;Ljava/lang/String;Landroid/content/ComponentName;ZLandroid/media/tv/ITvInputClient;IIIILjava/lang/String;Lcom/android/server/tv/TvInputManagerService$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/tv/TvInputManagerService;Landroid/os/IBinder;Ljava/lang/String;Landroid/content/ComponentName;ZLandroid/media/tv/ITvInputClient;IIIILjava/lang/String;Lcom/android/server/tv/TvInputManagerService$SessionState-IA;)V
     .locals 0
 
     invoke-direct/range {p0 .. p11}, Lcom/android/server/tv/TvInputManagerService$SessionState;-><init>(Lcom/android/server/tv/TvInputManagerService;Landroid/os/IBinder;Ljava/lang/String;Landroid/content/ComponentName;ZLandroid/media/tv/ITvInputClient;IIIILjava/lang/String;)V
 
     return-void
-.end method
-
-.method static synthetic access$2200(Lcom/android/server/tv/TvInputManagerService$SessionState;)Landroid/media/tv/ITvInputSession;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/tv/TvInputManagerService$SessionState;->session:Landroid/media/tv/ITvInputSession;
-
-    return-object v0
-.end method
-
-.method static synthetic access$2202(Lcom/android/server/tv/TvInputManagerService$SessionState;Landroid/media/tv/ITvInputSession;)Landroid/media/tv/ITvInputSession;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/server/tv/TvInputManagerService$SessionState;->session:Landroid/media/tv/ITvInputSession;
-
-    return-object p1
-.end method
-
-.method static synthetic access$2300(Lcom/android/server/tv/TvInputManagerService$SessionState;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/server/tv/TvInputManagerService$SessionState;->isRecordingSession:Z
-
-    return v0
-.end method
-
-.method static synthetic access$2400(Lcom/android/server/tv/TvInputManagerService$SessionState;)Landroid/net/Uri;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/tv/TvInputManagerService$SessionState;->currentChannel:Landroid/net/Uri;
-
-    return-object v0
-.end method
-
-.method static synthetic access$2402(Lcom/android/server/tv/TvInputManagerService$SessionState;Landroid/net/Uri;)Landroid/net/Uri;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/server/tv/TvInputManagerService$SessionState;->currentChannel:Landroid/net/Uri;
-
-    return-object p1
-.end method
-
-.method static synthetic access$2500(Lcom/android/server/tv/TvInputManagerService$SessionState;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/server/tv/TvInputManagerService$SessionState;->isCurrent:Z
-
-    return v0
-.end method
-
-.method static synthetic access$2502(Lcom/android/server/tv/TvInputManagerService$SessionState;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/server/tv/TvInputManagerService$SessionState;->isCurrent:Z
-
-    return p1
-.end method
-
-.method static synthetic access$3000(Lcom/android/server/tv/TvInputManagerService$SessionState;)Landroid/media/tv/ITvInputClient;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/tv/TvInputManagerService$SessionState;->client:Landroid/media/tv/ITvInputClient;
-
-    return-object v0
-.end method
-
-.method static synthetic access$3100(Lcom/android/server/tv/TvInputManagerService$SessionState;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/server/tv/TvInputManagerService$SessionState;->seq:I
-
-    return v0
-.end method
-
-.method static synthetic access$3200(Lcom/android/server/tv/TvInputManagerService$SessionState;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/server/tv/TvInputManagerService$SessionState;->userId:I
-
-    return v0
-.end method
-
-.method static synthetic access$3300(Lcom/android/server/tv/TvInputManagerService$SessionState;)Landroid/os/IBinder;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/tv/TvInputManagerService$SessionState;->sessionToken:Landroid/os/IBinder;
-
-    return-object v0
-.end method
-
-.method static synthetic access$3400(Lcom/android/server/tv/TvInputManagerService$SessionState;)Landroid/os/IBinder;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/tv/TvInputManagerService$SessionState;->hardwareSessionToken:Landroid/os/IBinder;
-
-    return-object v0
-.end method
-
-.method static synthetic access$3402(Lcom/android/server/tv/TvInputManagerService$SessionState;Landroid/os/IBinder;)Landroid/os/IBinder;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/server/tv/TvInputManagerService$SessionState;->hardwareSessionToken:Landroid/os/IBinder;
-
-    return-object p1
-.end method
-
-.method static synthetic access$3900(Lcom/android/server/tv/TvInputManagerService$SessionState;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/server/tv/TvInputManagerService$SessionState;->callingUid:I
-
-    return v0
-.end method
-
-.method static synthetic access$4300(Lcom/android/server/tv/TvInputManagerService$SessionState;)Ljava/lang/String;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/tv/TvInputManagerService$SessionState;->inputId:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method static synthetic access$4500(Lcom/android/server/tv/TvInputManagerService$SessionState;)Ljava/lang/String;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/tv/TvInputManagerService$SessionState;->sessionId:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method static synthetic access$4700(Lcom/android/server/tv/TvInputManagerService$SessionState;)Landroid/content/ComponentName;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/tv/TvInputManagerService$SessionState;->componentName:Landroid/content/ComponentName;
-
-    return-object v0
-.end method
-
-.method static synthetic access$4800(Lcom/android/server/tv/TvInputManagerService$SessionState;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/server/tv/TvInputManagerService$SessionState;->isMainSession:Z
-
-    return v0
-.end method
-
-.method static synthetic access$4802(Lcom/android/server/tv/TvInputManagerService$SessionState;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/server/tv/TvInputManagerService$SessionState;->isMainSession:Z
-
-    return p1
-.end method
-
-.method static synthetic access$7000(Lcom/android/server/tv/TvInputManagerService$SessionState;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/server/tv/TvInputManagerService$SessionState;->isVisible:Z
-
-    return v0
-.end method
-
-.method static synthetic access$7002(Lcom/android/server/tv/TvInputManagerService$SessionState;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/server/tv/TvInputManagerService$SessionState;->isVisible:Z
-
-    return p1
-.end method
-
-.method static synthetic access$7900(Lcom/android/server/tv/TvInputManagerService$SessionState;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/server/tv/TvInputManagerService$SessionState;->callingPid:I
-
-    return v0
 .end method
 
 
@@ -287,7 +287,7 @@
 
     iget-object v0, p0, Lcom/android/server/tv/TvInputManagerService$SessionState;->this$0:Lcom/android/server/tv/TvInputManagerService;
 
-    invoke-static {v0}, Lcom/android/server/tv/TvInputManagerService;->access$200(Lcom/android/server/tv/TvInputManagerService;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/server/tv/TvInputManagerService;->-$$Nest$fgetmLock(Lcom/android/server/tv/TvInputManagerService;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -300,18 +300,18 @@
 
     iget-object v1, p0, Lcom/android/server/tv/TvInputManagerService$SessionState;->this$0:Lcom/android/server/tv/TvInputManagerService;
 
-    invoke-static {v1, p0}, Lcom/android/server/tv/TvInputManagerService;->access$8700(Lcom/android/server/tv/TvInputManagerService;Lcom/android/server/tv/TvInputManagerService$SessionState;)V
+    invoke-static {v1, p0}, Lcom/android/server/tv/TvInputManagerService;->-$$Nest$mclearSessionAndNotifyClientLocked(Lcom/android/server/tv/TvInputManagerService;Lcom/android/server/tv/TvInputManagerService$SessionState;)V
 
     monitor-exit v0
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method

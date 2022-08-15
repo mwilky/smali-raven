@@ -1,4 +1,4 @@
-.class Lcom/android/server/usage/UsageStatsService$H;
+.class public Lcom/android/server/usage/UsageStatsService$H;
 .super Landroid/os/Handler;
 .source "UsageStatsService.java"
 
@@ -9,13 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = "H"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/usage/UsageStatsService;
+.field public final synthetic this$0:Lcom/android/server/usage/UsageStatsService;
 
 
 # direct methods
@@ -36,266 +36,433 @@
 
     iget v0, p1, Landroid/os/Message;->what:I
 
+    const/4 v1, 0x1
+
     packed-switch v0, :pswitch_data_0
 
     invoke-super {p0, p1}, Landroid/os/Handler;->handleMessage(Landroid/os/Message;)V
 
-    goto/16 :goto_2
+    goto/16 :goto_4
 
     :pswitch_0
+    const/16 p1, 0x9
+
+    invoke-virtual {p0, p1}, Landroid/os/Handler;->removeMessages(I)V
+
+    new-instance p1, Landroid/util/ArraySet;
+
+    invoke-direct {p1}, Landroid/util/ArraySet;-><init>()V
+
     iget-object v0, p0, Lcom/android/server/usage/UsageStatsService$H;->this$0:Lcom/android/server/usage/UsageStatsService;
 
-    invoke-static {v0}, Lcom/android/server/usage/UsageStatsService;->access$1300(Lcom/android/server/usage/UsageStatsService;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/server/usage/UsageStatsService;->-$$Nest$fgetmPendingLaunchTimeChangePackages(Lcom/android/server/usage/UsageStatsService;)Landroid/util/SparseSetArray;
 
     move-result-object v0
 
     monitor-enter v0
 
     :try_start_0
-    iget-object v1, p0, Lcom/android/server/usage/UsageStatsService$H;->this$0:Lcom/android/server/usage/UsageStatsService;
+    iget-object v2, p0, Lcom/android/server/usage/UsageStatsService$H;->this$0:Lcom/android/server/usage/UsageStatsService;
 
-    invoke-static {v1}, Lcom/android/server/usage/UsageStatsService;->access$1400(Lcom/android/server/usage/UsageStatsService;)V
+    invoke-static {v2}, Lcom/android/server/usage/UsageStatsService;->-$$Nest$fgetmPendingLaunchTimeChangePackages(Lcom/android/server/usage/UsageStatsService;)Landroid/util/SparseSetArray;
 
-    monitor-exit v0
+    move-result-object v2
 
-    goto/16 :goto_2
+    invoke-virtual {v2}, Landroid/util/SparseSetArray;->size()I
 
-    :catchall_0
-    move-exception v1
+    move-result v2
 
     monitor-exit v0
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
-    throw v1
+    sub-int/2addr v2, v1
+
+    :goto_0
+    if-ltz v2, :cond_5
+
+    invoke-virtual {p1}, Landroid/util/ArraySet;->clear()V
+
+    iget-object v0, p0, Lcom/android/server/usage/UsageStatsService$H;->this$0:Lcom/android/server/usage/UsageStatsService;
+
+    invoke-static {v0}, Lcom/android/server/usage/UsageStatsService;->-$$Nest$fgetmPendingLaunchTimeChangePackages(Lcom/android/server/usage/UsageStatsService;)Landroid/util/SparseSetArray;
+
+    move-result-object v0
+
+    monitor-enter v0
+
+    :try_start_1
+    iget-object v3, p0, Lcom/android/server/usage/UsageStatsService$H;->this$0:Lcom/android/server/usage/UsageStatsService;
+
+    invoke-static {v3}, Lcom/android/server/usage/UsageStatsService;->-$$Nest$fgetmPendingLaunchTimeChangePackages(Lcom/android/server/usage/UsageStatsService;)Landroid/util/SparseSetArray;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v2}, Landroid/util/SparseSetArray;->keyAt(I)I
+
+    move-result v3
+
+    iget-object v4, p0, Lcom/android/server/usage/UsageStatsService$H;->this$0:Lcom/android/server/usage/UsageStatsService;
+
+    invoke-static {v4}, Lcom/android/server/usage/UsageStatsService;->-$$Nest$fgetmPendingLaunchTimeChangePackages(Lcom/android/server/usage/UsageStatsService;)Landroid/util/SparseSetArray;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v3}, Landroid/util/SparseSetArray;->get(I)Landroid/util/ArraySet;
+
+    move-result-object v4
+
+    invoke-virtual {p1, v4}, Landroid/util/ArraySet;->addAll(Landroid/util/ArraySet;)V
+
+    iget-object v4, p0, Lcom/android/server/usage/UsageStatsService$H;->this$0:Lcom/android/server/usage/UsageStatsService;
+
+    invoke-static {v4}, Lcom/android/server/usage/UsageStatsService;->-$$Nest$fgetmPendingLaunchTimeChangePackages(Lcom/android/server/usage/UsageStatsService;)Landroid/util/SparseSetArray;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v3}, Landroid/util/SparseSetArray;->remove(I)V
+
+    monitor-exit v0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    invoke-virtual {p1}, Landroid/util/ArraySet;->size()I
+
+    move-result v0
+
+    sub-int/2addr v0, v1
+
+    :goto_1
+    if-ltz v0, :cond_1
+
+    invoke-virtual {p1, v0}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Ljava/lang/String;
+
+    iget-object v5, p0, Lcom/android/server/usage/UsageStatsService$H;->this$0:Lcom/android/server/usage/UsageStatsService;
+
+    invoke-virtual {v5, v3, v4}, Lcom/android/server/usage/UsageStatsService;->getEstimatedPackageLaunchTime(ILjava/lang/String;)J
+
+    move-result-wide v5
+
+    iget-object v7, p0, Lcom/android/server/usage/UsageStatsService$H;->this$0:Lcom/android/server/usage/UsageStatsService;
+
+    invoke-static {v7}, Lcom/android/server/usage/UsageStatsService;->-$$Nest$fgetmEstimatedLaunchTimeChangedListeners(Lcom/android/server/usage/UsageStatsService;)Ljava/util/concurrent/CopyOnWriteArraySet;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/util/concurrent/CopyOnWriteArraySet;->iterator()Ljava/util/Iterator;
+
+    move-result-object v7
+
+    :goto_2
+    invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v8
+
+    if-eqz v8, :cond_0
+
+    invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v8
+
+    check-cast v8, Landroid/app/usage/UsageStatsManagerInternal$EstimatedLaunchTimeChangedListener;
+
+    invoke-interface {v8, v3, v4, v5, v6}, Landroid/app/usage/UsageStatsManagerInternal$EstimatedLaunchTimeChangedListener;->onEstimatedLaunchTimeChanged(ILjava/lang/String;J)V
+
+    goto :goto_2
+
+    :cond_0
+    add-int/lit8 v0, v0, -0x1
+
+    goto :goto_1
+
+    :cond_1
+    add-int/lit8 v2, v2, -0x1
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception p0
+
+    :try_start_2
+    monitor-exit v0
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    throw p0
+
+    :catchall_1
+    move-exception p0
+
+    :try_start_3
+    monitor-exit v0
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+
+    throw p0
 
     :pswitch_1
-    iget-object v0, p0, Lcom/android/server/usage/UsageStatsService$H;->this$0:Lcom/android/server/usage/UsageStatsService;
+    iget p1, p1, Landroid/os/Message;->arg1:I
 
-    iget v1, p1, Landroid/os/Message;->arg1:I
+    iget-object p0, p0, Lcom/android/server/usage/UsageStatsService$H;->this$0:Lcom/android/server/usage/UsageStatsService;
 
-    iget-object v2, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+    invoke-static {p0, p1}, Lcom/android/server/usage/UsageStatsService;->-$$Nest$mhandleEstimatedLaunchTimesOnUserUnlock(Lcom/android/server/usage/UsageStatsService;I)V
 
-    check-cast v2, Ljava/lang/String;
-
-    invoke-static {v0, v1, v2}, Lcom/android/server/usage/UsageStatsService;->access$1000(Lcom/android/server/usage/UsageStatsService;ILjava/lang/String;)V
-
-    goto/16 :goto_2
+    goto/16 :goto_4
 
     :pswitch_2
-    :try_start_1
+    iget-object p1, p0, Lcom/android/server/usage/UsageStatsService$H;->this$0:Lcom/android/server/usage/UsageStatsService;
+
+    invoke-static {p1}, Lcom/android/server/usage/UsageStatsService;->-$$Nest$fgetmLock(Lcom/android/server/usage/UsageStatsService;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    monitor-enter v0
+
+    :try_start_4
+    iget-object p0, p0, Lcom/android/server/usage/UsageStatsService$H;->this$0:Lcom/android/server/usage/UsageStatsService;
+
+    invoke-static {p0}, Lcom/android/server/usage/UsageStatsService;->-$$Nest$mloadGlobalComponentUsageLocked(Lcom/android/server/usage/UsageStatsService;)V
+
+    monitor-exit v0
+
+    goto/16 :goto_4
+
+    :catchall_2
+    move-exception p0
+
+    monitor-exit v0
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_2
+
+    throw p0
+
+    :pswitch_3
+    iget-object p0, p0, Lcom/android/server/usage/UsageStatsService$H;->this$0:Lcom/android/server/usage/UsageStatsService;
+
+    iget v0, p1, Landroid/os/Message;->arg1:I
+
+    iget-object p1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    check-cast p1, Ljava/lang/String;
+
+    invoke-static {p0, v0, p1}, Lcom/android/server/usage/UsageStatsService;->-$$Nest$monPackageRemoved(Lcom/android/server/usage/UsageStatsService;ILjava/lang/String;)V
+
+    goto/16 :goto_4
+
+    :pswitch_4
+    :try_start_5
     iget-object v0, p0, Lcom/android/server/usage/UsageStatsService$H;->this$0:Lcom/android/server/usage/UsageStatsService;
 
     iget v1, p1, Landroid/os/Message;->arg1:I
 
-    invoke-static {v0, v1}, Lcom/android/server/usage/UsageStatsService;->access$900(Lcom/android/server/usage/UsageStatsService;I)V
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+    invoke-static {v0, v1}, Lcom/android/server/usage/UsageStatsService;->-$$Nest$monUserUnlocked(Lcom/android/server/usage/UsageStatsService;I)V
+    :try_end_5
+    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_0
 
-    goto/16 :goto_2
+    goto/16 :goto_4
 
     :catch_0
     move-exception v0
 
-    iget-object v1, p0, Lcom/android/server/usage/UsageStatsService$H;->this$0:Lcom/android/server/usage/UsageStatsService;
+    iget-object p0, p0, Lcom/android/server/usage/UsageStatsService$H;->this$0:Lcom/android/server/usage/UsageStatsService;
 
-    iget-object v1, v1, Lcom/android/server/usage/UsageStatsService;->mUserManager:Landroid/os/UserManager;
+    iget-object p0, p0, Lcom/android/server/usage/UsageStatsService;->mUserManager:Landroid/os/UserManager;
 
-    iget v2, p1, Landroid/os/Message;->arg1:I
+    iget v1, p1, Landroid/os/Message;->arg1:I
 
-    invoke-virtual {v1, v2}, Landroid/os/UserManager;->isUserUnlocked(I)Z
+    invoke-virtual {p0, v1}, Landroid/os/UserManager;->isUserUnlocked(I)Z
 
-    move-result v1
+    move-result p0
 
-    if-nez v1, :cond_0
+    if-nez p0, :cond_2
 
-    const-string v1, "UsageStatsService"
+    const-string p0, "UsageStatsService"
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "Attempted to unlock stopped or removed user "
+    const-string v1, "Attempted to unlock stopped or removed user "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v3, p1, Landroid/os/Message;->arg1:I
+    iget p1, p1, Landroid/os/Message;->arg1:I
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, p1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_2
+    goto/16 :goto_4
 
-    :cond_0
+    :cond_2
     throw v0
 
-    :pswitch_3
-    iget-object v0, p0, Lcom/android/server/usage/UsageStatsService$H;->this$0:Lcom/android/server/usage/UsageStatsService;
+    :pswitch_5
+    iget-object p0, p0, Lcom/android/server/usage/UsageStatsService$H;->this$0:Lcom/android/server/usage/UsageStatsService;
 
-    iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+    iget-object p1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    check-cast v1, Landroid/app/usage/UsageEvents$Event;
+    check-cast p1, Landroid/app/usage/UsageEvents$Event;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/usage/UsageStatsService;->reportEventToAllUserId(Landroid/app/usage/UsageEvents$Event;)V
+    invoke-virtual {p0, p1}, Lcom/android/server/usage/UsageStatsService;->reportEventToAllUserId(Landroid/app/usage/UsageEvents$Event;)V
 
-    goto/16 :goto_2
+    goto/16 :goto_4
 
-    :pswitch_4
+    :pswitch_6
     iget v0, p1, Landroid/os/Message;->arg1:I
 
-    iget v1, p1, Landroid/os/Message;->arg2:I
+    iget p1, p1, Landroid/os/Message;->arg2:I
 
     const/4 v2, 0x2
 
     const/4 v3, 0x0
 
-    if-gt v1, v2, :cond_1
+    if-gt p1, v2, :cond_3
 
-    move v2, v3
+    move v1, v3
 
-    goto :goto_0
+    :cond_3
+    iget-object p1, p0, Lcom/android/server/usage/UsageStatsService$H;->this$0:Lcom/android/server/usage/UsageStatsService;
 
-    :cond_1
-    const/4 v2, 0x1
+    invoke-static {p1}, Lcom/android/server/usage/UsageStatsService;->-$$Nest$fgetmUidToKernelCounter(Lcom/android/server/usage/UsageStatsService;)Landroid/util/SparseIntArray;
 
-    :goto_0
-    iget-object v4, p0, Lcom/android/server/usage/UsageStatsService$H;->this$0:Lcom/android/server/usage/UsageStatsService;
+    move-result-object v2
 
-    invoke-static {v4}, Lcom/android/server/usage/UsageStatsService;->access$1100(Lcom/android/server/usage/UsageStatsService;)Landroid/util/SparseIntArray;
+    monitor-enter v2
 
-    move-result-object v4
+    :try_start_6
+    iget-object p1, p0, Lcom/android/server/usage/UsageStatsService$H;->this$0:Lcom/android/server/usage/UsageStatsService;
 
-    monitor-enter v4
+    invoke-static {p1}, Lcom/android/server/usage/UsageStatsService;->-$$Nest$fgetmUidToKernelCounter(Lcom/android/server/usage/UsageStatsService;)Landroid/util/SparseIntArray;
 
-    :try_start_2
-    iget-object v5, p0, Lcom/android/server/usage/UsageStatsService$H;->this$0:Lcom/android/server/usage/UsageStatsService;
+    move-result-object p1
 
-    invoke-static {v5}, Lcom/android/server/usage/UsageStatsService;->access$1100(Lcom/android/server/usage/UsageStatsService;)Landroid/util/SparseIntArray;
+    invoke-virtual {p1, v0, v3}, Landroid/util/SparseIntArray;->get(II)I
 
-    move-result-object v5
+    move-result p1
 
-    invoke-virtual {v5, v0, v3}, Landroid/util/SparseIntArray;->get(II)I
+    if-eq v1, p1, :cond_4
 
-    move-result v3
+    iget-object p0, p0, Lcom/android/server/usage/UsageStatsService$H;->this$0:Lcom/android/server/usage/UsageStatsService;
 
-    if-eq v2, v3, :cond_2
+    invoke-static {p0}, Lcom/android/server/usage/UsageStatsService;->-$$Nest$fgetmUidToKernelCounter(Lcom/android/server/usage/UsageStatsService;)Landroid/util/SparseIntArray;
 
-    iget-object v5, p0, Lcom/android/server/usage/UsageStatsService$H;->this$0:Lcom/android/server/usage/UsageStatsService;
+    move-result-object p0
 
-    invoke-static {v5}, Lcom/android/server/usage/UsageStatsService;->access$1100(Lcom/android/server/usage/UsageStatsService;)Landroid/util/SparseIntArray;
+    invoke-virtual {p0, v0, v1}, Landroid/util/SparseIntArray;->put(II)V
+    :try_end_6
+    .catchall {:try_start_6 .. :try_end_6} :catchall_3
 
-    move-result-object v5
+    :try_start_7
+    invoke-static {}, Lcom/android/server/usage/UsageStatsService;->-$$Nest$sfgetKERNEL_COUNTER_FILE()Ljava/io/File;
 
-    invoke-virtual {v5, v0, v2}, Landroid/util/SparseIntArray;->put(II)V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    move-result-object p0
 
-    :try_start_3
-    invoke-static {}, Lcom/android/server/usage/UsageStatsService;->access$1200()Ljava/io/File;
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v0, " "
 
-    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v7, " "
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {p0, p1}, Landroid/os/FileUtils;->stringToFile(Ljava/io/File;Ljava/lang/String;)V
+    :try_end_7
+    .catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_1
+    .catchall {:try_start_7 .. :try_end_7} :catchall_3
 
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/os/FileUtils;->stringToFile(Ljava/io/File;Ljava/lang/String;)V
-    :try_end_3
-    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_1
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
-
-    goto :goto_1
+    goto :goto_3
 
     :catch_1
-    move-exception v5
+    move-exception p0
 
-    :try_start_4
-    const-string v6, "UsageStatsService"
+    :try_start_8
+    const-string p1, "UsageStatsService"
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v8, "Failed to update counter set: "
+    const-string v1, "Failed to update counter set: "
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v7, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object p0
 
-    invoke-static {v6, v7}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p1, p0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_2
-    :goto_1
-    monitor-exit v4
+    :cond_4
+    :goto_3
+    monitor-exit v2
 
-    goto :goto_2
+    goto :goto_4
 
-    :catchall_1
-    move-exception v3
+    :catchall_3
+    move-exception p0
 
-    monitor-exit v4
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_1
+    monitor-exit v2
+    :try_end_8
+    .catchall {:try_start_8 .. :try_end_8} :catchall_3
 
-    throw v3
-
-    :pswitch_5
-    iget-object v0, p0, Lcom/android/server/usage/UsageStatsService$H;->this$0:Lcom/android/server/usage/UsageStatsService;
-
-    iget v1, p1, Landroid/os/Message;->arg1:I
-
-    invoke-virtual {v0, v1}, Lcom/android/server/usage/UsageStatsService;->onUserRemoved(I)V
-
-    goto :goto_2
-
-    :pswitch_6
-    iget-object v0, p0, Lcom/android/server/usage/UsageStatsService$H;->this$0:Lcom/android/server/usage/UsageStatsService;
-
-    invoke-virtual {v0}, Lcom/android/server/usage/UsageStatsService;->flushToDisk()V
-
-    goto :goto_2
+    throw p0
 
     :pswitch_7
-    iget-object v0, p0, Lcom/android/server/usage/UsageStatsService$H;->this$0:Lcom/android/server/usage/UsageStatsService;
+    iget-object p0, p0, Lcom/android/server/usage/UsageStatsService$H;->this$0:Lcom/android/server/usage/UsageStatsService;
 
-    iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+    iget p1, p1, Landroid/os/Message;->arg1:I
 
-    check-cast v1, Landroid/app/usage/UsageEvents$Event;
+    invoke-virtual {p0, p1}, Lcom/android/server/usage/UsageStatsService;->onUserRemoved(I)V
 
-    iget v2, p1, Landroid/os/Message;->arg1:I
+    goto :goto_4
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/usage/UsageStatsService;->reportEvent(Landroid/app/usage/UsageEvents$Event;I)V
+    :pswitch_8
+    iget-object p0, p0, Lcom/android/server/usage/UsageStatsService$H;->this$0:Lcom/android/server/usage/UsageStatsService;
 
-    nop
+    invoke-virtual {p0}, Lcom/android/server/usage/UsageStatsService;->flushToDisk()V
 
-    :goto_2
+    goto :goto_4
+
+    :pswitch_9
+    iget-object p0, p0, Lcom/android/server/usage/UsageStatsService$H;->this$0:Lcom/android/server/usage/UsageStatsService;
+
+    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    check-cast v0, Landroid/app/usage/UsageEvents$Event;
+
+    iget p1, p1, Landroid/os/Message;->arg1:I
+
+    invoke-virtual {p0, v0, p1}, Lcom/android/server/usage/UsageStatsService;->reportEvent(Landroid/app/usage/UsageEvents$Event;I)V
+
+    :cond_5
+    :goto_4
     return-void
 
     nop
 
     :pswitch_data_0
     .packed-switch 0x0
+        :pswitch_9
+        :pswitch_8
         :pswitch_7
         :pswitch_6
         :pswitch_5

@@ -1,4 +1,4 @@
-.class Lcom/android/server/pm/KeySetManagerService$PublicKeyHandle;
+.class public Lcom/android/server/pm/KeySetManagerService$PublicKeyHandle;
 .super Ljava/lang/Object;
 .source "KeySetManagerService.java"
 
@@ -9,23 +9,23 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = "PublicKeyHandle"
 .end annotation
 
 
 # instance fields
-.field private final mId:J
+.field public final mId:J
 
-.field private final mKey:Ljava/security/PublicKey;
+.field public final mKey:Ljava/security/PublicKey;
 
-.field private mRefCount:I
+.field public mRefCount:I
 
-.field final synthetic this$0:Lcom/android/server/pm/KeySetManagerService;
+.field public final synthetic this$0:Lcom/android/server/pm/KeySetManagerService;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/server/pm/KeySetManagerService;JILjava/security/PublicKey;)V
+.method public constructor <init>(Lcom/android/server/pm/KeySetManagerService;JILjava/security/PublicKey;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/pm/KeySetManagerService$PublicKeyHandle;->this$0:Lcom/android/server/pm/KeySetManagerService;
@@ -41,7 +41,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/pm/KeySetManagerService;JILjava/security/PublicKey;Lcom/android/server/pm/KeySetManagerService$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/pm/KeySetManagerService;JILjava/security/PublicKey;Lcom/android/server/pm/KeySetManagerService$PublicKeyHandle-IA;)V
     .locals 0
 
     invoke-direct/range {p0 .. p5}, Lcom/android/server/pm/KeySetManagerService$PublicKeyHandle;-><init>(Lcom/android/server/pm/KeySetManagerService;JILjava/security/PublicKey;)V
@@ -50,7 +50,7 @@
 .end method
 
 .method public constructor <init>(Lcom/android/server/pm/KeySetManagerService;JLjava/security/PublicKey;)V
-    .locals 1
+    .locals 0
 
     iput-object p1, p0, Lcom/android/server/pm/KeySetManagerService$PublicKeyHandle;->this$0:Lcom/android/server/pm/KeySetManagerService;
 
@@ -58,9 +58,9 @@
 
     iput-wide p2, p0, Lcom/android/server/pm/KeySetManagerService$PublicKeyHandle;->mId:J
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    iput v0, p0, Lcom/android/server/pm/KeySetManagerService$PublicKeyHandle;->mRefCount:I
+    iput p1, p0, Lcom/android/server/pm/KeySetManagerService$PublicKeyHandle;->mRefCount:I
 
     iput-object p4, p0, Lcom/android/server/pm/KeySetManagerService$PublicKeyHandle;->mKey:Ljava/security/PublicKey;
 
@@ -83,28 +83,12 @@
     return-wide v0
 .end method
 
-.method public getId()J
-    .locals 2
-
-    iget-wide v0, p0, Lcom/android/server/pm/KeySetManagerService$PublicKeyHandle;->mId:J
-
-    return-wide v0
-.end method
-
 .method public getKey()Ljava/security/PublicKey;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/pm/KeySetManagerService$PublicKeyHandle;->mKey:Ljava/security/PublicKey;
+    iget-object p0, p0, Lcom/android/server/pm/KeySetManagerService$PublicKeyHandle;->mKey:Ljava/security/PublicKey;
 
-    return-object v0
-.end method
-
-.method public getRefCountLPr()I
-    .locals 1
-
-    iget v0, p0, Lcom/android/server/pm/KeySetManagerService$PublicKeyHandle;->mRefCount:I
-
-    return v0
+    return-object p0
 .end method
 
 .method public incrRefCountLPw()V

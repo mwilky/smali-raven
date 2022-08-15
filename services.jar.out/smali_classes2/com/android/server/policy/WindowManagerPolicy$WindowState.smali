@@ -16,27 +16,15 @@
 
 # virtual methods
 .method public canAddInternalSystemWindow()Z
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
-.end method
-
-.method public abstract canShowWhenLocked()Z
-.end method
-
-.method public abstract getAppToken()Landroid/view/IApplicationToken;
-.end method
-
-.method public abstract getAttrs()Landroid/view/WindowManager$LayoutParams;
+    return p0
 .end method
 
 .method public abstract getBaseType()I
 .end method
 
 .method public abstract getOwningPackage()Ljava/lang/String;
-.end method
-
-.method public abstract isAnimatingLw()Z
 .end method

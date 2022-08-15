@@ -1,43 +1,34 @@
 .class public final synthetic Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda22;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/IntPredicate;
+.implements Landroid/os/IBinder$DeathRecipient;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda22;
+# instance fields
+.field public final synthetic f$0:Lcom/android/server/stats/pull/StatsPullAtomService;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda22;
-
-    invoke-direct {v0}, Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda22;-><init>()V
-
-    sput-object v0, Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda22;->INSTANCE:Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda22;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Lcom/android/server/stats/pull/StatsPullAtomService;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda22;->f$0:Lcom/android/server/stats/pull/StatsPullAtomService;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final test(I)Z
+.method public final binderDied()V
     .locals 0
 
-    invoke-static {p1}, Lcom/android/server/stats/pull/StatsPullAtomService;->lambda$countAccessibilityServices$23(I)Z
+    iget-object p0, p0, Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda22;->f$0:Lcom/android/server/stats/pull/StatsPullAtomService;
 
-    move-result p1
+    invoke-static {p0}, Lcom/android/server/stats/pull/StatsPullAtomService;->$r8$lambda$NbrAlAghYL73c1UOsMHAAIIsktk(Lcom/android/server/stats/pull/StatsPullAtomService;)V
 
-    return p1
+    return-void
 .end method

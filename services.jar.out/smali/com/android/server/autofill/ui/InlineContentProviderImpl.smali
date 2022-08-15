@@ -1,27 +1,35 @@
-.class final Lcom/android/server/autofill/ui/InlineContentProviderImpl;
+.class public final Lcom/android/server/autofill/ui/InlineContentProviderImpl;
 .super Lcom/android/internal/view/inline/IInlineContentProvider$Stub;
 .source "InlineContentProviderImpl.java"
 
 
 # static fields
-.field private static final TAG:Ljava/lang/String;
+.field public static final TAG:Ljava/lang/String;
 
 
 # instance fields
-.field private final mHandler:Landroid/os/Handler;
+.field public final mHandler:Landroid/os/Handler;
 
-.field private mProvideContentCalled:Z
+.field public mProvideContentCalled:Z
 
-.field private mRemoteInlineSuggestionUi:Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;
+.field public mRemoteInlineSuggestionUi:Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;
 
-.field private final mRemoteInlineSuggestionViewConnector:Lcom/android/server/autofill/ui/RemoteInlineSuggestionViewConnector;
+.field public final mRemoteInlineSuggestionViewConnector:Lcom/android/server/autofill/ui/RemoteInlineSuggestionViewConnector;
 
 
 # direct methods
+.method public static synthetic $r8$lambda$BjZkCdsCkOipPWFspXcidnMzdKI(Lcom/android/server/autofill/ui/InlineContentProviderImpl;IILcom/android/internal/view/inline/IInlineContentCallback;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/autofill/ui/InlineContentProviderImpl;->lambda$provideContent$0(IILcom/android/internal/view/inline/IInlineContentCallback;)V
+
+    return-void
+.end method
+
 .method public static synthetic $r8$lambda$UJ9Me98vkLkpMX54UCQ58cg4p34(Lcom/android/server/autofill/ui/InlineContentProviderImpl;)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/server/autofill/ui/InlineContentProviderImpl;->handleGetSurfacePackage()V
+    invoke-virtual {p0}, Lcom/android/server/autofill/ui/InlineContentProviderImpl;->handleGetSurfacePackage()V
 
     return-void
 .end method
@@ -29,12 +37,12 @@
 .method public static synthetic $r8$lambda$v48Do4L1mg7cec4s91jTuKeui3Y(Lcom/android/server/autofill/ui/InlineContentProviderImpl;)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/server/autofill/ui/InlineContentProviderImpl;->handleOnSurfacePackageReleased()V
+    invoke-virtual {p0}, Lcom/android/server/autofill/ui/InlineContentProviderImpl;->handleOnSurfacePackageReleased()V
 
     return-void
 .end method
 
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 1
 
     const-class v0, Lcom/android/server/autofill/ui/InlineContentProviderImpl;
@@ -48,7 +56,7 @@
     return-void
 .end method
 
-.method constructor <init>(Lcom/android/server/autofill/ui/RemoteInlineSuggestionViewConnector;Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;)V
+.method public constructor <init>(Lcom/android/server/autofill/ui/RemoteInlineSuggestionViewConnector;Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;)V
     .locals 1
 
     invoke-direct {p0}, Lcom/android/internal/view/inline/IInlineContentProvider$Stub;-><init>()V
@@ -70,7 +78,31 @@
     return-void
 .end method
 
-.method private handleGetSurfacePackage()V
+.method private synthetic lambda$provideContent$0(IILcom/android/internal/view/inline/IInlineContentCallback;)V
+    .locals 0
+
+    invoke-virtual {p0, p1, p2, p3}, Lcom/android/server/autofill/ui/InlineContentProviderImpl;->handleProvideContent(IILcom/android/internal/view/inline/IInlineContentCallback;)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public copy()Lcom/android/server/autofill/ui/InlineContentProviderImpl;
+    .locals 2
+
+    new-instance v0, Lcom/android/server/autofill/ui/InlineContentProviderImpl;
+
+    iget-object v1, p0, Lcom/android/server/autofill/ui/InlineContentProviderImpl;->mRemoteInlineSuggestionViewConnector:Lcom/android/server/autofill/ui/RemoteInlineSuggestionViewConnector;
+
+    iget-object p0, p0, Lcom/android/server/autofill/ui/InlineContentProviderImpl;->mRemoteInlineSuggestionUi:Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;
+
+    invoke-direct {v0, v1, p0}, Lcom/android/server/autofill/ui/InlineContentProviderImpl;-><init>(Lcom/android/server/autofill/ui/RemoteInlineSuggestionViewConnector;Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;)V
+
+    return-object v0
+.end method
+
+.method public final handleGetSurfacePackage()V
     .locals 2
 
     sget-boolean v0, Lcom/android/server/autofill/Helper;->sVerbose:Z
@@ -88,23 +120,21 @@
 
     if-eqz v0, :cond_2
 
-    iget-object v0, p0, Lcom/android/server/autofill/ui/InlineContentProviderImpl;->mRemoteInlineSuggestionUi:Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;
+    iget-object p0, p0, Lcom/android/server/autofill/ui/InlineContentProviderImpl;->mRemoteInlineSuggestionUi:Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;
 
-    if-nez v0, :cond_1
+    if-nez p0, :cond_1
 
     goto :goto_0
 
     :cond_1
-    invoke-virtual {v0}, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->requestSurfacePackage()V
-
-    return-void
+    invoke-virtual {p0}, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->requestSurfacePackage()V
 
     :cond_2
     :goto_0
     return-void
 .end method
 
-.method private handleOnSurfacePackageReleased()V
+.method public final handleOnSurfacePackageReleased()V
     .locals 2
 
     sget-boolean v0, Lcom/android/server/autofill/Helper;->sVerbose:Z
@@ -122,23 +152,21 @@
 
     if-eqz v0, :cond_2
 
-    iget-object v0, p0, Lcom/android/server/autofill/ui/InlineContentProviderImpl;->mRemoteInlineSuggestionUi:Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;
+    iget-object p0, p0, Lcom/android/server/autofill/ui/InlineContentProviderImpl;->mRemoteInlineSuggestionUi:Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;
 
-    if-nez v0, :cond_1
+    if-nez p0, :cond_1
 
     goto :goto_0
 
     :cond_1
-    invoke-virtual {v0}, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->surfacePackageReleased()V
-
-    return-void
+    invoke-virtual {p0}, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->surfacePackageReleased()V
 
     :cond_2
     :goto_0
     return-void
 .end method
 
-.method private handleProvideContent(IILcom/android/internal/view/inline/IInlineContentCallback;)V
+.method public final handleProvideContent(IILcom/android/internal/view/inline/IInlineContentCallback;)V
     .locals 3
 
     sget-boolean v0, Lcom/android/server/autofill/Helper;->sVerbose:Z
@@ -185,37 +213,13 @@
     iput-object v0, p0, Lcom/android/server/autofill/ui/InlineContentProviderImpl;->mRemoteInlineSuggestionUi:Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;
 
     :cond_3
-    iget-object v0, p0, Lcom/android/server/autofill/ui/InlineContentProviderImpl;->mRemoteInlineSuggestionUi:Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;
+    iget-object p1, p0, Lcom/android/server/autofill/ui/InlineContentProviderImpl;->mRemoteInlineSuggestionUi:Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;
 
-    invoke-virtual {v0, p3}, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->setInlineContentCallback(Lcom/android/internal/view/inline/IInlineContentCallback;)V
+    invoke-virtual {p1, p3}, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->setInlineContentCallback(Lcom/android/internal/view/inline/IInlineContentCallback;)V
 
-    iget-object v0, p0, Lcom/android/server/autofill/ui/InlineContentProviderImpl;->mRemoteInlineSuggestionUi:Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;
+    iget-object p0, p0, Lcom/android/server/autofill/ui/InlineContentProviderImpl;->mRemoteInlineSuggestionUi:Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;
 
-    invoke-virtual {v0}, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->requestSurfacePackage()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public copy()Lcom/android/server/autofill/ui/InlineContentProviderImpl;
-    .locals 3
-
-    new-instance v0, Lcom/android/server/autofill/ui/InlineContentProviderImpl;
-
-    iget-object v1, p0, Lcom/android/server/autofill/ui/InlineContentProviderImpl;->mRemoteInlineSuggestionViewConnector:Lcom/android/server/autofill/ui/RemoteInlineSuggestionViewConnector;
-
-    iget-object v2, p0, Lcom/android/server/autofill/ui/InlineContentProviderImpl;->mRemoteInlineSuggestionUi:Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;
-
-    invoke-direct {v0, v1, v2}, Lcom/android/server/autofill/ui/InlineContentProviderImpl;-><init>(Lcom/android/server/autofill/ui/RemoteInlineSuggestionViewConnector;Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;)V
-
-    return-object v0
-.end method
-
-.method public synthetic lambda$provideContent$0$InlineContentProviderImpl(IILcom/android/internal/view/inline/IInlineContentCallback;)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/autofill/ui/InlineContentProviderImpl;->handleProvideContent(IILcom/android/internal/view/inline/IInlineContentCallback;)V
+    invoke-virtual {p0}, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->requestSurfacePackage()V
 
     return-void
 .end method
@@ -225,9 +229,9 @@
 
     iget-object v0, p0, Lcom/android/server/autofill/ui/InlineContentProviderImpl;->mHandler:Landroid/os/Handler;
 
-    new-instance v1, Lcom/android/server/autofill/ui/InlineContentProviderImpl$$ExternalSyntheticLambda1;
+    new-instance v1, Lcom/android/server/autofill/ui/InlineContentProviderImpl$$ExternalSyntheticLambda0;
 
-    invoke-direct {v1, p0}, Lcom/android/server/autofill/ui/InlineContentProviderImpl$$ExternalSyntheticLambda1;-><init>(Lcom/android/server/autofill/ui/InlineContentProviderImpl;)V
+    invoke-direct {v1, p0}, Lcom/android/server/autofill/ui/InlineContentProviderImpl$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/autofill/ui/InlineContentProviderImpl;)V
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
@@ -253,9 +257,9 @@
 
     iget-object v0, p0, Lcom/android/server/autofill/ui/InlineContentProviderImpl;->mHandler:Landroid/os/Handler;
 
-    new-instance v1, Lcom/android/server/autofill/ui/InlineContentProviderImpl$$ExternalSyntheticLambda0;
+    new-instance v1, Lcom/android/server/autofill/ui/InlineContentProviderImpl$$ExternalSyntheticLambda1;
 
-    invoke-direct {v1, p0}, Lcom/android/server/autofill/ui/InlineContentProviderImpl$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/autofill/ui/InlineContentProviderImpl;)V
+    invoke-direct {v1, p0}, Lcom/android/server/autofill/ui/InlineContentProviderImpl$$ExternalSyntheticLambda1;-><init>(Lcom/android/server/autofill/ui/InlineContentProviderImpl;)V
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 

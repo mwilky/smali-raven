@@ -14,14 +14,6 @@
 .end annotation
 
 
-# static fields
-.field public static final FAILURE_BIND:I = 0x1
-
-.field public static final FAILURE_CALL:I = 0x2
-
-.field public static final FAILURE_INTERRUPTED:I = 0x3
-
-
 # instance fields
 .field public final failure:I
 

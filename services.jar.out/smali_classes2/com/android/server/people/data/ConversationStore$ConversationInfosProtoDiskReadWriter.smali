@@ -1,4 +1,4 @@
-.class Lcom/android/server/people/data/ConversationStore$ConversationInfosProtoDiskReadWriter;
+.class public Lcom/android/server/people/data/ConversationStore$ConversationInfosProtoDiskReadWriter;
 .super Lcom/android/server/people/data/AbstractProtoDiskReadWriter;
 .source "ConversationStore.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "ConversationInfosProtoDiskReadWriter"
 .end annotation
 
@@ -24,11 +24,29 @@
 
 
 # instance fields
-.field private final mConversationInfoFileName:Ljava/lang/String;
+.field public final mConversationInfoFileName:Ljava/lang/String;
 
 
 # direct methods
-.method constructor <init>(Ljava/io/File;Ljava/lang/String;Ljava/util/concurrent/ScheduledExecutorService;)V
+.method public static synthetic $r8$lambda$Hi0eZ12O-IOCYVO2Q42v1BVP_40(Landroid/util/proto/ProtoOutputStream;Ljava/util/List;)V
+    .locals 0
+
+    invoke-static {p0, p1}, Lcom/android/server/people/data/ConversationStore$ConversationInfosProtoDiskReadWriter;->lambda$protoStreamWriter$0(Landroid/util/proto/ProtoOutputStream;Ljava/util/List;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$TqdwZbBmjHKbgTlS-HsEOIeIR9g(Landroid/util/proto/ProtoInputStream;)Ljava/util/List;
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/server/people/data/ConversationStore$ConversationInfosProtoDiskReadWriter;->lambda$protoStreamReader$1(Landroid/util/proto/ProtoInputStream;)Ljava/util/List;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public constructor <init>(Ljava/io/File;Ljava/lang/String;Ljava/util/concurrent/ScheduledExecutorService;)V
     .locals 0
 
     invoke-direct {p0, p1, p3}, Lcom/android/server/people/data/AbstractProtoDiskReadWriter;-><init>(Ljava/io/File;Ljava/util/concurrent/ScheduledExecutorService;)V
@@ -38,7 +56,7 @@
     return-void
 .end method
 
-.method static synthetic lambda$protoStreamReader$1(Landroid/util/proto/ProtoInputStream;)Ljava/util/List;
+.method public static synthetic lambda$protoStreamReader$1(Landroid/util/proto/ProtoInputStream;)Ljava/util/List;
     .locals 4
 
     invoke-static {}, Lcom/google/android/collect/Lists;->newArrayList()Ljava/util/ArrayList;
@@ -82,57 +100,52 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    nop
-
     goto :goto_0
 
-    :cond_1
-    goto :goto_1
-
     :catch_0
-    move-exception v1
+    move-exception p0
 
-    invoke-static {}, Lcom/android/server/people/data/ConversationStore;->access$000()Ljava/lang/String;
-
-    move-result-object v2
-
-    const-string v3, "Failed to read protobuf input stream."
-
-    invoke-static {v2, v3, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    :goto_1
-    return-object v0
-.end method
-
-.method static synthetic lambda$protoStreamWriter$0(Landroid/util/proto/ProtoOutputStream;Ljava/util/List;)V
-    .locals 4
-
-    invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v0
-
-    :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-static {}, Lcom/android/server/people/data/ConversationStore;->-$$Nest$sfgetTAG()Ljava/lang/String;
 
     move-result-object v1
 
-    check-cast v1, Lcom/android/server/people/data/ConversationInfo;
+    const-string v2, "Failed to read protobuf input stream."
 
-    const-wide v2, 0x20b00000001L
+    invoke-static {v1, v2, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    invoke-virtual {p0, v2, v3}, Landroid/util/proto/ProtoOutputStream;->start(J)J
+    :cond_1
+    return-object v0
+.end method
 
-    move-result-wide v2
+.method public static synthetic lambda$protoStreamWriter$0(Landroid/util/proto/ProtoOutputStream;Ljava/util/List;)V
+    .locals 3
 
-    invoke-virtual {v1, p0}, Lcom/android/server/people/data/ConversationInfo;->writeToProto(Landroid/util/proto/ProtoOutputStream;)V
+    invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    invoke-virtual {p0, v2, v3}, Landroid/util/proto/ProtoOutputStream;->end(J)V
+    move-result-object p1
+
+    :goto_0
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/server/people/data/ConversationInfo;
+
+    const-wide v1, 0x20b00000001L
+
+    invoke-virtual {p0, v1, v2}, Landroid/util/proto/ProtoOutputStream;->start(J)J
+
+    move-result-wide v1
+
+    invoke-virtual {v0, p0}, Lcom/android/server/people/data/ConversationInfo;->writeToProto(Landroid/util/proto/ProtoOutputStream;)V
+
+    invoke-virtual {p0, v1, v2}, Landroid/util/proto/ProtoOutputStream;->end(J)V
 
     goto :goto_0
 
@@ -142,18 +155,18 @@
 
 
 # virtual methods
-.method deleteConversationsFile()V
+.method public deleteConversationsFile()V
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/people/data/ConversationStore$ConversationInfosProtoDiskReadWriter;->mConversationInfoFileName:Ljava/lang/String;
 
-    invoke-virtual {p0, v0}, Lcom/android/server/people/data/ConversationStore$ConversationInfosProtoDiskReadWriter;->delete(Ljava/lang/String;)V
+    invoke-virtual {p0, v0}, Lcom/android/server/people/data/AbstractProtoDiskReadWriter;->delete(Ljava/lang/String;)V
 
     return-void
 .end method
 
-.method protoStreamReader()Lcom/android/server/people/data/AbstractProtoDiskReadWriter$ProtoStreamReader;
-    .locals 1
+.method public protoStreamReader()Lcom/android/server/people/data/AbstractProtoDiskReadWriter$ProtoStreamReader;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -164,13 +177,15 @@
         }
     .end annotation
 
-    sget-object v0, Lcom/android/server/people/data/ConversationStore$ConversationInfosProtoDiskReadWriter$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/server/people/data/ConversationStore$ConversationInfosProtoDiskReadWriter$$ExternalSyntheticLambda0;
+    new-instance p0, Lcom/android/server/people/data/ConversationStore$ConversationInfosProtoDiskReadWriter$$ExternalSyntheticLambda1;
 
-    return-object v0
+    invoke-direct {p0}, Lcom/android/server/people/data/ConversationStore$ConversationInfosProtoDiskReadWriter$$ExternalSyntheticLambda1;-><init>()V
+
+    return-object p0
 .end method
 
-.method protoStreamWriter()Lcom/android/server/people/data/AbstractProtoDiskReadWriter$ProtoStreamWriter;
-    .locals 1
+.method public protoStreamWriter()Lcom/android/server/people/data/AbstractProtoDiskReadWriter$ProtoStreamWriter;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -181,12 +196,14 @@
         }
     .end annotation
 
-    sget-object v0, Lcom/android/server/people/data/ConversationStore$ConversationInfosProtoDiskReadWriter$$ExternalSyntheticLambda1;->INSTANCE:Lcom/android/server/people/data/ConversationStore$ConversationInfosProtoDiskReadWriter$$ExternalSyntheticLambda1;
+    new-instance p0, Lcom/android/server/people/data/ConversationStore$ConversationInfosProtoDiskReadWriter$$ExternalSyntheticLambda0;
 
-    return-object v0
+    invoke-direct {p0}, Lcom/android/server/people/data/ConversationStore$ConversationInfosProtoDiskReadWriter$$ExternalSyntheticLambda0;-><init>()V
+
+    return-object p0
 .end method
 
-.method saveConversationsImmediately(Ljava/util/List;)V
+.method public saveConversationsImmediately(Ljava/util/List;)V
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -199,12 +216,12 @@
 
     iget-object v0, p0, Lcom/android/server/people/data/ConversationStore$ConversationInfosProtoDiskReadWriter;->mConversationInfoFileName:Ljava/lang/String;
 
-    invoke-virtual {p0, v0, p1}, Lcom/android/server/people/data/ConversationStore$ConversationInfosProtoDiskReadWriter;->saveImmediately(Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-virtual {p0, v0, p1}, Lcom/android/server/people/data/AbstractProtoDiskReadWriter;->saveImmediately(Ljava/lang/String;Ljava/lang/Object;)V
 
     return-void
 .end method
 
-.method scheduleConversationsSave(Ljava/util/List;)V
+.method public scheduleConversationsSave(Ljava/util/List;)V
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -217,7 +234,7 @@
 
     iget-object v0, p0, Lcom/android/server/people/data/ConversationStore$ConversationInfosProtoDiskReadWriter;->mConversationInfoFileName:Ljava/lang/String;
 
-    invoke-virtual {p0, v0, p1}, Lcom/android/server/people/data/ConversationStore$ConversationInfosProtoDiskReadWriter;->scheduleSave(Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-virtual {p0, v0, p1}, Lcom/android/server/people/data/AbstractProtoDiskReadWriter;->scheduleSave(Ljava/lang/String;Ljava/lang/Object;)V
 
     return-void
 .end method

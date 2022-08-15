@@ -1,4 +1,4 @@
-.class Lcom/android/server/display/DisplayManagerService$SettingsObserver;
+.class public Lcom/android/server/display/DisplayManagerService$SettingsObserver;
 .super Landroid/database/ContentObserver;
 .source "DisplayManagerService.java"
 
@@ -9,28 +9,28 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "SettingsObserver"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/display/DisplayManagerService;
+.field public final synthetic this$0:Lcom/android/server/display/DisplayManagerService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/display/DisplayManagerService;)V
+.method public constructor <init>(Lcom/android/server/display/DisplayManagerService;)V
     .locals 2
 
     iput-object p1, p0, Lcom/android/server/display/DisplayManagerService$SettingsObserver;->this$0:Lcom/android/server/display/DisplayManagerService;
 
-    invoke-static {p1}, Lcom/android/server/display/DisplayManagerService;->access$600(Lcom/android/server/display/DisplayManagerService;)Lcom/android/server/display/DisplayManagerService$DisplayManagerHandler;
+    invoke-static {p1}, Lcom/android/server/display/DisplayManagerService;->-$$Nest$fgetmHandler(Lcom/android/server/display/DisplayManagerService;)Lcom/android/server/display/DisplayManagerService$DisplayManagerHandler;
 
     move-result-object v0
 
     invoke-direct {p0, v0}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
-    invoke-static {p1}, Lcom/android/server/display/DisplayManagerService;->access$700(Lcom/android/server/display/DisplayManagerService;)Landroid/content/Context;
+    invoke-static {p1}, Lcom/android/server/display/DisplayManagerService;->-$$Nest$fgetmContext(Lcom/android/server/display/DisplayManagerService;)Landroid/content/Context;
 
     move-result-object p1
 
@@ -54,11 +54,11 @@
 
 # virtual methods
 .method public onChange(ZLandroid/net/Uri;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/display/DisplayManagerService$SettingsObserver;->this$0:Lcom/android/server/display/DisplayManagerService;
+    iget-object p0, p0, Lcom/android/server/display/DisplayManagerService$SettingsObserver;->this$0:Lcom/android/server/display/DisplayManagerService;
 
-    invoke-static {v0}, Lcom/android/server/display/DisplayManagerService;->access$800(Lcom/android/server/display/DisplayManagerService;)V
+    invoke-static {p0}, Lcom/android/server/display/DisplayManagerService;->-$$Nest$mhandleSettingsChange(Lcom/android/server/display/DisplayManagerService;)V
 
     return-void
 .end method

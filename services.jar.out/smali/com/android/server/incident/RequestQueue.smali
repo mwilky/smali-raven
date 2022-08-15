@@ -1,4 +1,4 @@
-.class Lcom/android/server/incident/RequestQueue;
+.class public Lcom/android/server/incident/RequestQueue;
 .super Ljava/lang/Object;
 .source "RequestQueue.java"
 
@@ -12,9 +12,9 @@
 
 
 # instance fields
-.field private final mHandler:Landroid/os/Handler;
+.field public final mHandler:Landroid/os/Handler;
 
-.field private mPending:Ljava/util/ArrayList;
+.field public mPending:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/ArrayList<",
@@ -24,13 +24,21 @@
     .end annotation
 .end field
 
-.field private mStarted:Z
+.field public mStarted:Z
 
-.field private final mWorker:Ljava/lang/Runnable;
+.field public final mWorker:Ljava/lang/Runnable;
 
 
 # direct methods
-.method constructor <init>(Landroid/os/Handler;)V
+.method public static bridge synthetic -$$Nest$fgetmPending(Lcom/android/server/incident/RequestQueue;)Ljava/util/ArrayList;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/incident/RequestQueue;->mPending:Ljava/util/ArrayList;
+
+    return-object p0
+.end method
+
+.method public constructor <init>(Landroid/os/Handler;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -52,18 +60,10 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/server/incident/RequestQueue;)Ljava/util/ArrayList;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/incident/RequestQueue;->mPending:Ljava/util/ArrayList;
-
-    return-object v0
-.end method
-
 
 # virtual methods
 .method public enqueue(Landroid/os/IBinder;ZLjava/lang/Runnable;)V
-    .locals 5
+    .locals 6
 
     iget-object v0, p0, Lcom/android/server/incident/RequestQueue;->mPending:Ljava/util/ArrayList;
 
@@ -71,51 +71,53 @@
 
     const/4 v1, 0x0
 
+    const/4 v2, 0x1
+
     if-nez p2, :cond_1
 
     :try_start_0
-    iget-object v2, p0, Lcom/android/server/incident/RequestQueue;->mPending:Ljava/util/ArrayList;
-
-    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
-
-    move-result v2
-
-    add-int/lit8 v2, v2, -0x1
-
-    :goto_0
-    if-ltz v2, :cond_1
-
     iget-object v3, p0, Lcom/android/server/incident/RequestQueue;->mPending:Ljava/util/ArrayList;
 
-    invoke-virtual {v3, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
 
-    move-result-object v3
+    move-result v3
 
-    check-cast v3, Lcom/android/server/incident/RequestQueue$Rec;
+    sub-int/2addr v3, v2
 
-    iget-object v4, v3, Lcom/android/server/incident/RequestQueue$Rec;->key:Landroid/os/IBinder;
-
-    if-ne v4, p1, :cond_0
-
-    iget-boolean v4, v3, Lcom/android/server/incident/RequestQueue$Rec;->value:Z
-
-    if-eqz v4, :cond_0
-
-    const/4 v1, 0x1
+    :goto_0
+    if-ltz v3, :cond_1
 
     iget-object v4, p0, Lcom/android/server/incident/RequestQueue;->mPending:Ljava/util/ArrayList;
 
-    invoke-virtual {v4, v2}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
+    invoke-virtual {v4, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Lcom/android/server/incident/RequestQueue$Rec;
+
+    iget-object v5, v4, Lcom/android/server/incident/RequestQueue$Rec;->key:Landroid/os/IBinder;
+
+    if-ne v5, p1, :cond_0
+
+    iget-boolean v4, v4, Lcom/android/server/incident/RequestQueue$Rec;->value:Z
+
+    if-eqz v4, :cond_0
+
+    iget-object v1, p0, Lcom/android/server/incident/RequestQueue;->mPending:Ljava/util/ArrayList;
+
+    invoke-virtual {v1, v3}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
+
+    move v1, v2
 
     goto :goto_1
 
     :cond_0
-    add-int/lit8 v2, v2, -0x1
+    add-int/lit8 v3, v3, -0x1
 
     goto :goto_0
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     goto :goto_2
 
@@ -123,24 +125,24 @@
     :goto_1
     if-nez v1, :cond_2
 
-    iget-object v2, p0, Lcom/android/server/incident/RequestQueue;->mPending:Ljava/util/ArrayList;
+    iget-object v1, p0, Lcom/android/server/incident/RequestQueue;->mPending:Ljava/util/ArrayList;
 
-    new-instance v3, Lcom/android/server/incident/RequestQueue$Rec;
+    new-instance v2, Lcom/android/server/incident/RequestQueue$Rec;
 
-    invoke-direct {v3, p0, p1, p2, p3}, Lcom/android/server/incident/RequestQueue$Rec;-><init>(Lcom/android/server/incident/RequestQueue;Landroid/os/IBinder;ZLjava/lang/Runnable;)V
+    invoke-direct {v2, p0, p1, p2, p3}, Lcom/android/server/incident/RequestQueue$Rec;-><init>(Lcom/android/server/incident/RequestQueue;Landroid/os/IBinder;ZLjava/lang/Runnable;)V
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     :cond_2
-    iget-boolean v2, p0, Lcom/android/server/incident/RequestQueue;->mStarted:Z
+    iget-boolean p1, p0, Lcom/android/server/incident/RequestQueue;->mStarted:Z
 
-    if-eqz v2, :cond_3
+    if-eqz p1, :cond_3
 
-    iget-object v2, p0, Lcom/android/server/incident/RequestQueue;->mHandler:Landroid/os/Handler;
+    iget-object p1, p0, Lcom/android/server/incident/RequestQueue;->mHandler:Landroid/os/Handler;
 
-    iget-object v3, p0, Lcom/android/server/incident/RequestQueue;->mWorker:Ljava/lang/Runnable;
+    iget-object p0, p0, Lcom/android/server/incident/RequestQueue;->mWorker:Ljava/lang/Runnable;
 
-    invoke-virtual {v2, v3}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {p1, p0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     :cond_3
     monitor-exit v0
@@ -152,7 +154,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
 .method public start()V
@@ -192,11 +194,11 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method

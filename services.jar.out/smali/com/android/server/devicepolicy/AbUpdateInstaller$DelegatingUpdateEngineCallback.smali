@@ -1,4 +1,4 @@
-.class Lcom/android/server/devicepolicy/AbUpdateInstaller$DelegatingUpdateEngineCallback;
+.class public Lcom/android/server/devicepolicy/AbUpdateInstaller$DelegatingUpdateEngineCallback;
 .super Landroid/os/UpdateEngineCallback;
 .source "AbUpdateInstaller.java"
 
@@ -9,19 +9,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "DelegatingUpdateEngineCallback"
 .end annotation
 
 
 # instance fields
-.field private mUpdateEngine:Landroid/os/UpdateEngine;
+.field public mUpdateEngine:Landroid/os/UpdateEngine;
 
-.field private mUpdateInstaller:Lcom/android/server/devicepolicy/UpdateInstaller;
+.field public mUpdateInstaller:Lcom/android/server/devicepolicy/UpdateInstaller;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/devicepolicy/UpdateInstaller;Landroid/os/UpdateEngine;)V
+.method public constructor <init>(Lcom/android/server/devicepolicy/UpdateInstaller;Landroid/os/UpdateEngine;)V
     .locals 0
 
     invoke-direct {p0}, Landroid/os/UpdateEngineCallback;-><init>()V
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public onPayloadApplicationComplete(I)V
-    .locals 6
+    .locals 5
 
     iget-object v0, p0, Lcom/android/server/devicepolicy/AbUpdateInstaller$DelegatingUpdateEngineCallback;->mUpdateEngine:Landroid/os/UpdateEngine;
 
@@ -44,16 +44,40 @@
 
     if-nez p1, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/devicepolicy/AbUpdateInstaller$DelegatingUpdateEngineCallback;->mUpdateInstaller:Lcom/android/server/devicepolicy/UpdateInstaller;
+    iget-object p0, p0, Lcom/android/server/devicepolicy/AbUpdateInstaller$DelegatingUpdateEngineCallback;->mUpdateInstaller:Lcom/android/server/devicepolicy/UpdateInstaller;
 
-    invoke-virtual {v0}, Lcom/android/server/devicepolicy/UpdateInstaller;->notifyCallbackOnSuccess()V
+    invoke-virtual {p0}, Lcom/android/server/devicepolicy/UpdateInstaller;->notifyCallbackOnSuccess()V
 
     goto :goto_0
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/devicepolicy/AbUpdateInstaller$DelegatingUpdateEngineCallback;->mUpdateInstaller:Lcom/android/server/devicepolicy/UpdateInstaller;
+    iget-object p0, p0, Lcom/android/server/devicepolicy/AbUpdateInstaller$DelegatingUpdateEngineCallback;->mUpdateInstaller:Lcom/android/server/devicepolicy/UpdateInstaller;
 
-    invoke-static {}, Lcom/android/server/devicepolicy/AbUpdateInstaller;->access$000()Ljava/util/Map;
+    invoke-static {}, Lcom/android/server/devicepolicy/AbUpdateInstaller;->-$$Nest$sfgeterrorCodesMap()Ljava/util/Map;
+
+    move-result-object v0
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const/4 v2, 0x1
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->getOrDefault(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/Integer;
+
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+
+    move-result v0
+
+    invoke-static {}, Lcom/android/server/devicepolicy/AbUpdateInstaller;->-$$Nest$sfgeterrorStringsMap()Ljava/util/Map;
 
     move-result-object v1
 
@@ -61,51 +85,27 @@
 
     move-result-object v2
 
-    const/4 v3, 0x1
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object v3
+    const-string v4, "Unknown error with error code = "
 
-    invoke-interface {v1, v2, v3}, Ljava/util/Map;->getOrDefault(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    check-cast v1, Ljava/lang/Integer;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
+    move-result-object p1
 
-    move-result v1
+    invoke-interface {v1, v2, p1}, Ljava/util/Map;->getOrDefault(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-static {}, Lcom/android/server/devicepolicy/AbUpdateInstaller;->access$100()Ljava/util/Map;
+    move-result-object p1
 
-    move-result-object v2
+    check-cast p1, Ljava/lang/String;
 
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v5, "Unknown error with error code = "
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-interface {v2, v3, v4}, Ljava/util/Map;->getOrDefault(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Ljava/lang/String;
-
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/devicepolicy/UpdateInstaller;->notifyCallbackOnError(ILjava/lang/String;)V
+    invoke-virtual {p0, v0, p1}, Lcom/android/server/devicepolicy/UpdateInstaller;->notifyCallbackOnError(ILjava/lang/String;)V
 
     :goto_0
     return-void

@@ -1,4 +1,4 @@
-.class final Lcom/android/server/hdmi/HdmiCecController$HdmiCecCallback11;
+.class public final Lcom/android/server/hdmi/HdmiCecController$HdmiCecCallback11;
 .super Landroid/hardware/tv/cec/V1_1/IHdmiCecCallback$Stub;
 .source "HdmiCecController.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "HdmiCecCallback11"
 .end annotation
 
 
 # instance fields
-.field private final mHdmiCecCallback:Lcom/android/server/hdmi/HdmiCecController$HdmiCecCallback;
+.field public final mHdmiCecCallback:Lcom/android/server/hdmi/HdmiCecController$HdmiCecCallback;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/hdmi/HdmiCecController$HdmiCecCallback;)V
+.method public constructor <init>(Lcom/android/server/hdmi/HdmiCecController$HdmiCecCallback;)V
     .locals 0
 
     invoke-direct {p0}, Landroid/hardware/tv/cec/V1_1/IHdmiCecCallback$Stub;-><init>()V
@@ -32,7 +32,7 @@
 
 # virtual methods
 .method public onCecMessage(Landroid/hardware/tv/cec/V1_0/CecMessage;)V
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -77,19 +77,19 @@
     goto :goto_0
 
     :cond_0
-    iget-object v1, p0, Lcom/android/server/hdmi/HdmiCecController$HdmiCecCallback11;->mHdmiCecCallback:Lcom/android/server/hdmi/HdmiCecController$HdmiCecCallback;
+    iget-object p0, p0, Lcom/android/server/hdmi/HdmiCecController$HdmiCecCallback11;->mHdmiCecCallback:Lcom/android/server/hdmi/HdmiCecController$HdmiCecCallback;
 
-    iget v2, p1, Landroid/hardware/tv/cec/V1_0/CecMessage;->initiator:I
+    iget v1, p1, Landroid/hardware/tv/cec/V1_0/CecMessage;->initiator:I
 
-    iget v3, p1, Landroid/hardware/tv/cec/V1_0/CecMessage;->destination:I
+    iget p1, p1, Landroid/hardware/tv/cec/V1_0/CecMessage;->destination:I
 
-    invoke-virtual {v1, v2, v3, v0}, Lcom/android/server/hdmi/HdmiCecController$HdmiCecCallback;->onCecMessage(II[B)V
+    invoke-virtual {p0, v1, p1, v0}, Lcom/android/server/hdmi/HdmiCecController$HdmiCecCallback;->onCecMessage(II[B)V
 
     return-void
 .end method
 
 .method public onCecMessage_1_1(Landroid/hardware/tv/cec/V1_1/CecMessage;)V
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -134,32 +134,32 @@
     goto :goto_0
 
     :cond_0
-    iget-object v1, p0, Lcom/android/server/hdmi/HdmiCecController$HdmiCecCallback11;->mHdmiCecCallback:Lcom/android/server/hdmi/HdmiCecController$HdmiCecCallback;
+    iget-object p0, p0, Lcom/android/server/hdmi/HdmiCecController$HdmiCecCallback11;->mHdmiCecCallback:Lcom/android/server/hdmi/HdmiCecController$HdmiCecCallback;
 
-    iget v2, p1, Landroid/hardware/tv/cec/V1_1/CecMessage;->initiator:I
+    iget v1, p1, Landroid/hardware/tv/cec/V1_1/CecMessage;->initiator:I
 
-    iget v3, p1, Landroid/hardware/tv/cec/V1_1/CecMessage;->destination:I
+    iget p1, p1, Landroid/hardware/tv/cec/V1_1/CecMessage;->destination:I
 
-    invoke-virtual {v1, v2, v3, v0}, Lcom/android/server/hdmi/HdmiCecController$HdmiCecCallback;->onCecMessage(II[B)V
+    invoke-virtual {p0, v1, p1, v0}, Lcom/android/server/hdmi/HdmiCecController$HdmiCecCallback;->onCecMessage(II[B)V
 
     return-void
 .end method
 
 .method public onHotplugEvent(Landroid/hardware/tv/cec/V1_0/HotplugEvent;)V
-    .locals 3
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecController$HdmiCecCallback11;->mHdmiCecCallback:Lcom/android/server/hdmi/HdmiCecController$HdmiCecCallback;
+    iget-object p0, p0, Lcom/android/server/hdmi/HdmiCecController$HdmiCecCallback11;->mHdmiCecCallback:Lcom/android/server/hdmi/HdmiCecController$HdmiCecCallback;
 
-    iget v1, p1, Landroid/hardware/tv/cec/V1_0/HotplugEvent;->portId:I
+    iget v0, p1, Landroid/hardware/tv/cec/V1_0/HotplugEvent;->portId:I
 
-    iget-boolean v2, p1, Landroid/hardware/tv/cec/V1_0/HotplugEvent;->connected:Z
+    iget-boolean p1, p1, Landroid/hardware/tv/cec/V1_0/HotplugEvent;->connected:Z
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/hdmi/HdmiCecController$HdmiCecCallback;->onHotplugEvent(IZ)V
+    invoke-virtual {p0, v0, p1}, Lcom/android/server/hdmi/HdmiCecController$HdmiCecCallback;->onHotplugEvent(IZ)V
 
     return-void
 .end method

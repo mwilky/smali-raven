@@ -1,4 +1,4 @@
-.class final Lcom/android/server/DropBoxManagerService$FileList;
+.class public final Lcom/android/server/DropBoxManagerService$FileList;
 .super Ljava/lang/Object;
 .source "DropBoxManagerService.java"
 
@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "FileList"
 .end annotation
 
@@ -41,7 +41,7 @@
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -59,7 +59,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/DropBoxManagerService$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/DropBoxManagerService$FileList-IA;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/DropBoxManagerService$FileList;-><init>()V
@@ -100,24 +100,24 @@
 
     if-ge v1, v2, :cond_2
 
-    const/4 v0, -0x1
+    const/4 p0, -0x1
 
-    return v0
+    return p0
 
     :cond_2
     invoke-virtual {p0}, Ljava/lang/Object;->hashCode()I
 
-    move-result v1
+    move-result p0
 
     invoke-virtual {p1}, Ljava/lang/Object;->hashCode()I
 
-    move-result v2
+    move-result p1
 
-    if-le v1, v2, :cond_3
+    if-le p0, p1, :cond_3
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 
     :cond_3
     return v0
@@ -130,7 +130,7 @@
 
     invoke-virtual {p0, p1}, Lcom/android/server/DropBoxManagerService$FileList;->compareTo(Lcom/android/server/DropBoxManagerService$FileList;)I
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method

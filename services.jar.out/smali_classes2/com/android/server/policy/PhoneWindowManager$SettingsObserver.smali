@@ -1,4 +1,4 @@
-.class Lcom/android/server/policy/PhoneWindowManager$SettingsObserver;
+.class public Lcom/android/server/policy/PhoneWindowManager$SettingsObserver;
 .super Landroid/database/ContentObserver;
 .source "PhoneWindowManager.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = "SettingsObserver"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/policy/PhoneWindowManager;
+.field public final synthetic this$0:Lcom/android/server/policy/PhoneWindowManager;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/policy/PhoneWindowManager;Landroid/os/Handler;)V
+.method public constructor <init>(Lcom/android/server/policy/PhoneWindowManager;Landroid/os/Handler;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/policy/PhoneWindowManager$SettingsObserver;->this$0:Lcom/android/server/policy/PhoneWindowManager;
@@ -31,7 +31,7 @@
 
 
 # virtual methods
-.method observe()V
+.method public observe()V
     .locals 4
 
     iget-object v0, p0, Lcom/android/server/policy/PhoneWindowManager$SettingsObserver;->this$0:Lcom/android/server/policy/PhoneWindowManager;
@@ -150,25 +150,25 @@
 
     invoke-virtual {v0, v1, v2, p0, v3}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
 
-    iget-object v1, p0, Lcom/android/server/policy/PhoneWindowManager$SettingsObserver;->this$0:Lcom/android/server/policy/PhoneWindowManager;
+    iget-object p0, p0, Lcom/android/server/policy/PhoneWindowManager$SettingsObserver;->this$0:Lcom/android/server/policy/PhoneWindowManager;
 
-    invoke-virtual {v1}, Lcom/android/server/policy/PhoneWindowManager;->updateSettings()V
+    invoke-virtual {p0}, Lcom/android/server/policy/PhoneWindowManager;->updateSettings()V
 
     return-void
 .end method
 
 .method public onChange(Z)V
-    .locals 2
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/policy/PhoneWindowManager$SettingsObserver;->this$0:Lcom/android/server/policy/PhoneWindowManager;
+    iget-object p1, p0, Lcom/android/server/policy/PhoneWindowManager$SettingsObserver;->this$0:Lcom/android/server/policy/PhoneWindowManager;
 
-    invoke-virtual {v0}, Lcom/android/server/policy/PhoneWindowManager;->updateSettings()V
+    invoke-virtual {p1}, Lcom/android/server/policy/PhoneWindowManager;->updateSettings()V
 
-    iget-object v0, p0, Lcom/android/server/policy/PhoneWindowManager$SettingsObserver;->this$0:Lcom/android/server/policy/PhoneWindowManager;
+    iget-object p0, p0, Lcom/android/server/policy/PhoneWindowManager$SettingsObserver;->this$0:Lcom/android/server/policy/PhoneWindowManager;
 
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    invoke-virtual {v0, v1}, Lcom/android/server/policy/PhoneWindowManager;->updateRotation(Z)V
+    invoke-virtual {p0, p1}, Lcom/android/server/policy/PhoneWindowManager;->updateRotation(Z)V
 
     return-void
 .end method

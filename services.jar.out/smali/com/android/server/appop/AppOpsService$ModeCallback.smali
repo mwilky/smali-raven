@@ -1,4 +1,4 @@
-.class final Lcom/android/server/appop/AppOpsService$ModeCallback;
+.class public final Lcom/android/server/appop/AppOpsService$ModeCallback;
 .super Ljava/lang/Object;
 .source "AppOpsService.java"
 
@@ -12,34 +12,30 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x10
+    accessFlags = 0x11
     name = "ModeCallback"
 .end annotation
 
 
-# static fields
-.field public static final ALL_OPS:I = -0x2
-
-
 # instance fields
-.field final mCallback:Lcom/android/internal/app/IAppOpsCallback;
+.field public final mCallback:Lcom/android/internal/app/IAppOpsCallback;
 
-.field final mCallingPid:I
+.field public final mCallingPid:I
 
-.field final mCallingUid:I
+.field public final mCallingUid:I
 
-.field final mFlags:I
+.field public final mFlags:I
 
-.field final mWatchedOpCode:I
+.field public final mWatchedOpCode:I
 
-.field final mWatchingUid:I
+.field public final mWatchingUid:I
 
-.field final synthetic this$0:Lcom/android/server/appop/AppOpsService;
+.field public final synthetic this$0:Lcom/android/server/appop/AppOpsService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/appop/AppOpsService;Lcom/android/internal/app/IAppOpsCallback;IIIII)V
-    .locals 2
+.method public constructor <init>(Lcom/android/server/appop/AppOpsService;Lcom/android/internal/app/IAppOpsCallback;IIIII)V
+    .locals 0
 
     iput-object p1, p0, Lcom/android/server/appop/AppOpsService$ModeCallback;->this$0:Lcom/android/server/appop/AppOpsService;
 
@@ -60,33 +56,28 @@
     :try_start_0
     invoke-interface {p2}, Lcom/android/internal/app/IAppOpsCallback;->asBinder()Landroid/os/IBinder;
 
-    move-result-object v0
+    move-result-object p1
 
-    const/4 v1, 0x0
+    const/4 p2, 0x0
 
-    invoke-interface {v0, p0, v1}, Landroid/os/IBinder;->linkToDeath(Landroid/os/IBinder$DeathRecipient;I)V
+    invoke-interface {p1, p0, p2}, Landroid/os/IBinder;->linkToDeath(Landroid/os/IBinder$DeathRecipient;I)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
-
     :catch_0
-    move-exception v0
-
-    :goto_0
     return-void
 .end method
 
 
 # virtual methods
 .method public binderDied()V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/appop/AppOpsService$ModeCallback;->this$0:Lcom/android/server/appop/AppOpsService;
 
-    iget-object v1, p0, Lcom/android/server/appop/AppOpsService$ModeCallback;->mCallback:Lcom/android/internal/app/IAppOpsCallback;
+    iget-object p0, p0, Lcom/android/server/appop/AppOpsService$ModeCallback;->mCallback:Lcom/android/internal/app/IAppOpsCallback;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/appop/AppOpsService;->stopWatchingMode(Lcom/android/internal/app/IAppOpsCallback;)V
+    invoke-virtual {v0, p0}, Lcom/android/server/appop/AppOpsService;->stopWatchingMode(Lcom/android/internal/app/IAppOpsCallback;)V
 
     return-void
 .end method
@@ -98,29 +89,29 @@
 
     if-eq p1, v0, :cond_1
 
-    iget v0, p0, Lcom/android/server/appop/AppOpsService$ModeCallback;->mWatchingUid:I
+    iget p0, p0, Lcom/android/server/appop/AppOpsService$ModeCallback;->mWatchingUid:I
 
-    if-ltz v0, :cond_1
+    if-ltz p0, :cond_1
 
-    if-ne v0, p1, :cond_0
+    if-ne p0, p1, :cond_0
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     goto :goto_1
 
     :cond_1
     :goto_0
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     :goto_1
-    return v0
+    return p0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .locals 3
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -164,7 +155,13 @@
 
     iget v1, p0, Lcom/android/server/appop/AppOpsService$ModeCallback;->mWatchedOpCode:I
 
-    packed-switch v1, :pswitch_data_0
+    const/4 v2, -0x2
+
+    if-eq v1, v2, :cond_0
+
+    const/4 v2, -0x1
+
+    if-eq v1, v2, :cond_1
 
     const-string v1, " op="
 
@@ -180,16 +177,12 @@
 
     goto :goto_0
 
-    :pswitch_0
-    goto :goto_0
-
-    :pswitch_1
+    :cond_0
     const-string v1, " op=(all)"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    nop
-
+    :cond_1
     :goto_0
     const-string v1, " from uid="
 
@@ -203,28 +196,22 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v1, p0, Lcom/android/server/appop/AppOpsService$ModeCallback;->mCallingPid:I
+    iget p0, p0, Lcom/android/server/appop/AppOpsService$ModeCallback;->mCallingPid:I
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const/16 v1, 0x7d
+    const/16 p0, 0x7d
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
-
-    :pswitch_data_0
-    .packed-switch -0x2
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
+    return-object p0
 .end method
 
-.method unlinkToDeath()V
+.method public unlinkToDeath()V
     .locals 2
 
     iget-object v0, p0, Lcom/android/server/appop/AppOpsService$ModeCallback;->mCallback:Lcom/android/internal/app/IAppOpsCallback;

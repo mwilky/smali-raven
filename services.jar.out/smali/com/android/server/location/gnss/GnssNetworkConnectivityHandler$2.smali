@@ -1,4 +1,4 @@
-.class Lcom/android/server/location/gnss/GnssNetworkConnectivityHandler$2;
+.class public Lcom/android/server/location/gnss/GnssNetworkConnectivityHandler$2;
 .super Landroid/net/ConnectivityManager$NetworkCallback;
 .source "GnssNetworkConnectivityHandler.java"
 
@@ -9,13 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field private mAvailableNetworkCapabilities:Ljava/util/HashMap;
+.field public mAvailableNetworkCapabilities:Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/HashMap<",
@@ -26,24 +26,24 @@
     .end annotation
 .end field
 
-.field final synthetic this$0:Lcom/android/server/location/gnss/GnssNetworkConnectivityHandler;
+.field public final synthetic this$0:Lcom/android/server/location/gnss/GnssNetworkConnectivityHandler;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/location/gnss/GnssNetworkConnectivityHandler;)V
-    .locals 2
+.method public constructor <init>(Lcom/android/server/location/gnss/GnssNetworkConnectivityHandler;)V
+    .locals 1
 
     iput-object p1, p0, Lcom/android/server/location/gnss/GnssNetworkConnectivityHandler$2;->this$0:Lcom/android/server/location/gnss/GnssNetworkConnectivityHandler;
 
     invoke-direct {p0}, Landroid/net/ConnectivityManager$NetworkCallback;-><init>()V
 
-    new-instance v0, Ljava/util/HashMap;
+    new-instance p1, Ljava/util/HashMap;
 
-    const/4 v1, 0x5
+    const/4 v0, 0x5
 
-    invoke-direct {v0, v1}, Ljava/util/HashMap;-><init>(I)V
+    invoke-direct {p1, v0}, Ljava/util/HashMap;-><init>(I)V
 
-    iput-object v0, p0, Lcom/android/server/location/gnss/GnssNetworkConnectivityHandler$2;->mAvailableNetworkCapabilities:Ljava/util/HashMap;
+    iput-object p1, p0, Lcom/android/server/location/gnss/GnssNetworkConnectivityHandler$2;->mAvailableNetworkCapabilities:Ljava/util/HashMap;
 
     return-void
 .end method
@@ -61,7 +61,7 @@
 
     check-cast v0, Landroid/net/NetworkCapabilities;
 
-    invoke-static {v0, p2}, Lcom/android/server/location/gnss/GnssNetworkConnectivityHandler$NetworkAttributes;->access$400(Landroid/net/NetworkCapabilities;Landroid/net/NetworkCapabilities;)Z
+    invoke-static {v0, p2}, Lcom/android/server/location/gnss/GnssNetworkConnectivityHandler$NetworkAttributes;->-$$Nest$smhasCapabilitiesChanged(Landroid/net/NetworkCapabilities;Landroid/net/NetworkCapabilities;)Z
 
     move-result v0
 
@@ -69,27 +69,27 @@
 
     if-nez v0, :cond_1
 
-    invoke-static {}, Lcom/android/server/location/gnss/GnssNetworkConnectivityHandler;->access$500()Z
+    invoke-static {}, Lcom/android/server/location/gnss/GnssNetworkConnectivityHandler;->-$$Nest$sfgetVERBOSE()Z
 
-    move-result v0
+    move-result p0
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance p0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "Relevant network capabilities unchanged. Capabilities: "
+    const-string p1, "Relevant network capabilities unchanged. Capabilities: "
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v1, v0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, p0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
     return-void
@@ -99,7 +99,7 @@
 
     invoke-virtual {v0, p1, p2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-static {}, Lcom/android/server/location/gnss/GnssNetworkConnectivityHandler;->access$100()Z
+    invoke-static {}, Lcom/android/server/location/gnss/GnssNetworkConnectivityHandler;->-$$Nest$sfgetDEBUG()Z
 
     move-result v0
 
@@ -130,17 +130,17 @@
     :cond_2
     iget-object v0, p0, Lcom/android/server/location/gnss/GnssNetworkConnectivityHandler$2;->this$0:Lcom/android/server/location/gnss/GnssNetworkConnectivityHandler;
 
-    invoke-static {v0}, Lcom/android/server/location/gnss/GnssNetworkConnectivityHandler;->access$600(Lcom/android/server/location/gnss/GnssNetworkConnectivityHandler;)Lcom/android/server/location/gnss/GnssNetworkConnectivityHandler$GnssNetworkListener;
+    invoke-static {v0}, Lcom/android/server/location/gnss/GnssNetworkConnectivityHandler;->-$$Nest$fgetmGnssNetworkListener(Lcom/android/server/location/gnss/GnssNetworkConnectivityHandler;)Lcom/android/server/location/gnss/GnssNetworkConnectivityHandler$GnssNetworkListener;
 
     move-result-object v0
 
     invoke-interface {v0}, Lcom/android/server/location/gnss/GnssNetworkConnectivityHandler$GnssNetworkListener;->onNetworkAvailable()V
 
-    iget-object v0, p0, Lcom/android/server/location/gnss/GnssNetworkConnectivityHandler$2;->this$0:Lcom/android/server/location/gnss/GnssNetworkConnectivityHandler;
+    iget-object p0, p0, Lcom/android/server/location/gnss/GnssNetworkConnectivityHandler$2;->this$0:Lcom/android/server/location/gnss/GnssNetworkConnectivityHandler;
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    invoke-static {v0, p1, v1, p2}, Lcom/android/server/location/gnss/GnssNetworkConnectivityHandler;->access$700(Lcom/android/server/location/gnss/GnssNetworkConnectivityHandler;Landroid/net/Network;ZLandroid/net/NetworkCapabilities;)V
+    invoke-static {p0, p1, v0, p2}, Lcom/android/server/location/gnss/GnssNetworkConnectivityHandler;->-$$Nest$mhandleUpdateNetworkState(Lcom/android/server/location/gnss/GnssNetworkConnectivityHandler;Landroid/net/Network;ZLandroid/net/NetworkCapabilities;)V
 
     return-void
 .end method
@@ -158,21 +158,21 @@
 
     if-nez v0, :cond_0
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance p0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "Incorrectly received network callback onLost() before onCapabilitiesChanged() for network: "
+    const-string v0, "Incorrectly received network callback onLost() before onCapabilitiesChanged() for network: "
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v1, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
@@ -199,13 +199,13 @@
 
     invoke-static {v1, v0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v0, p0, Lcom/android/server/location/gnss/GnssNetworkConnectivityHandler$2;->this$0:Lcom/android/server/location/gnss/GnssNetworkConnectivityHandler;
+    iget-object p0, p0, Lcom/android/server/location/gnss/GnssNetworkConnectivityHandler$2;->this$0:Lcom/android/server/location/gnss/GnssNetworkConnectivityHandler;
+
+    const/4 v0, 0x0
 
     const/4 v1, 0x0
 
-    const/4 v2, 0x0
-
-    invoke-static {v0, p1, v1, v2}, Lcom/android/server/location/gnss/GnssNetworkConnectivityHandler;->access$700(Lcom/android/server/location/gnss/GnssNetworkConnectivityHandler;Landroid/net/Network;ZLandroid/net/NetworkCapabilities;)V
+    invoke-static {p0, p1, v0, v1}, Lcom/android/server/location/gnss/GnssNetworkConnectivityHandler;->-$$Nest$mhandleUpdateNetworkState(Lcom/android/server/location/gnss/GnssNetworkConnectivityHandler;Landroid/net/Network;ZLandroid/net/NetworkCapabilities;)V
 
     return-void
 .end method

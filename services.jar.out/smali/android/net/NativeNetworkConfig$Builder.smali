@@ -15,6 +15,8 @@
 
 
 # instance fields
+.field private excludeLocalRoutes:Z
+
 .field private netId:I
 
 .field private networkType:I
@@ -28,7 +30,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -42,9 +44,11 @@
 
     iput-boolean v0, p0, Landroid/net/NativeNetworkConfig$Builder;->secure:Z
 
-    const/4 v0, 0x2
+    const/4 v1, 0x2
 
-    iput v0, p0, Landroid/net/NativeNetworkConfig$Builder;->vpnType:I
+    iput v1, p0, Landroid/net/NativeNetworkConfig$Builder;->vpnType:I
+
+    iput-boolean v0, p0, Landroid/net/NativeNetworkConfig$Builder;->excludeLocalRoutes:Z
 
     return-void
 .end method
@@ -52,9 +56,9 @@
 
 # virtual methods
 .method public build()Landroid/net/NativeNetworkConfig;
-    .locals 7
+    .locals 8
 
-    new-instance v6, Landroid/net/NativeNetworkConfig;
+    new-instance v7, Landroid/net/NativeNetworkConfig;
 
     iget v1, p0, Landroid/net/NativeNetworkConfig$Builder;->netId:I
 
@@ -66,11 +70,21 @@
 
     iget v5, p0, Landroid/net/NativeNetworkConfig$Builder;->vpnType:I
 
-    move-object v0, v6
+    iget-boolean v6, p0, Landroid/net/NativeNetworkConfig$Builder;->excludeLocalRoutes:Z
 
-    invoke-direct/range {v0 .. v5}, Landroid/net/NativeNetworkConfig;-><init>(IIIZI)V
+    move-object v0, v7
 
-    return-object v6
+    invoke-direct/range {v0 .. v6}, Landroid/net/NativeNetworkConfig;-><init>(IIIZIZ)V
+
+    return-object v7
+.end method
+
+.method public setExcludeLocalRoutes(Z)Landroid/net/NativeNetworkConfig$Builder;
+    .locals 0
+
+    iput-boolean p1, p0, Landroid/net/NativeNetworkConfig$Builder;->excludeLocalRoutes:Z
+
+    return-object p0
 .end method
 
 .method public setNetId(I)Landroid/net/NativeNetworkConfig$Builder;

@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/wm/WindowManagerConstants$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/provider/DeviceConfig$OnPropertiesChangedListener;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final onPropertiesChanged(Landroid/provider/DeviceConfig$Properties;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/WindowManagerConstants$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/wm/WindowManagerConstants;
+    iget-object p0, p0, Lcom/android/server/wm/WindowManagerConstants$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/wm/WindowManagerConstants;
 
-    invoke-static {v0, p1}, Lcom/android/server/wm/WindowManagerConstants;->$r8$lambda$R6jJTtpKTNTeb3Af8P_LcxxZpgI(Lcom/android/server/wm/WindowManagerConstants;Landroid/provider/DeviceConfig$Properties;)V
+    invoke-static {p0, p1}, Lcom/android/server/wm/WindowManagerConstants;->$r8$lambda$R6jJTtpKTNTeb3Af8P_LcxxZpgI(Lcom/android/server/wm/WindowManagerConstants;Landroid/provider/DeviceConfig$Properties;)V
 
     return-void
 .end method

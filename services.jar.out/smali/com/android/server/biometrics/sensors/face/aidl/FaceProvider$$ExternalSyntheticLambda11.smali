@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda11;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -45,7 +46,7 @@
 
     iget-wide v3, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda11;->f$3:J
 
-    invoke-virtual {v0, v1, v2, v3, v4}, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;->lambda$cancelEnrollment$6$FaceProvider(ILandroid/os/IBinder;J)V
+    invoke-static {v0, v1, v2, v3, v4}, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;->$r8$lambda$206G5-EQ7Up49DiIxGlkwk1lhik(Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;ILandroid/os/IBinder;J)V
 
     return-void
 .end method

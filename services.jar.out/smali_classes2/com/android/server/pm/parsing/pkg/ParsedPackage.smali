@@ -43,10 +43,7 @@
 .method public abstract setAllComponentsDirectBootAware(Z)Lcom/android/server/pm/parsing/pkg/ParsedPackage;
 .end method
 
-.method public abstract setBaseCodePath(Ljava/lang/String;)Lcom/android/server/pm/parsing/pkg/ParsedPackage;
-.end method
-
-.method public abstract setCodePath(Ljava/lang/String;)Lcom/android/server/pm/parsing/pkg/ParsedPackage;
+.method public abstract setBaseApkPath(Ljava/lang/String;)Lcom/android/server/pm/parsing/pkg/ParsedPackage;
 .end method
 
 .method public abstract setCoreApp(Z)Lcom/android/server/pm/parsing/pkg/ParsedPackage;
@@ -79,6 +76,9 @@
 .method public abstract setPackageName(Ljava/lang/String;)Lcom/android/server/pm/parsing/pkg/ParsedPackage;
 .end method
 
+.method public abstract setPath(Ljava/lang/String;)Lcom/android/server/pm/parsing/pkg/ParsedPackage;
+.end method
+
 .method public abstract setPersistent(Z)Lcom/android/server/pm/parsing/pkg/ParsedPackage;
 .end method
 
@@ -91,16 +91,10 @@
 .method public abstract setProduct(Z)Lcom/android/server/pm/parsing/pkg/ParsedPackage;
 .end method
 
-.method public abstract setRealPackage(Ljava/lang/String;)Lcom/android/server/pm/parsing/pkg/ParsedPackage;
-.end method
-
 .method public abstract setRestrictUpdateHash([B)Lcom/android/server/pm/parsing/pkg/ParsedPackage;
 .end method
 
 .method public abstract setSeInfo(Ljava/lang/String;)Lcom/android/server/pm/parsing/pkg/ParsedPackage;
-.end method
-
-.method public abstract setSeInfoUser(Ljava/lang/String;)Lcom/android/server/pm/parsing/pkg/ParsedPackage;
 .end method
 
 .method public abstract setSecondaryCpuAbi(Ljava/lang/String;)Lcom/android/server/pm/parsing/pkg/ParsedPackage;
@@ -112,7 +106,7 @@
 .method public abstract setSignedWithPlatformKey(Z)Lcom/android/server/pm/parsing/pkg/ParsedPackage;
 .end method
 
-.method public abstract setSigningDetails(Landroid/content/pm/PackageParser$SigningDetails;)Lcom/android/server/pm/parsing/pkg/ParsedPackage;
+.method public abstract setSigningDetails(Landroid/content/pm/SigningDetails;)Lcom/android/server/pm/parsing/pkg/ParsedPackage;
 .end method
 
 .method public abstract setSplitCodePaths([Ljava/lang/String;)Lcom/android/server/pm/parsing/pkg/ParsedPackage;

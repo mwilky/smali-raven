@@ -5,58 +5,102 @@
 
 # static fields
 .field public static final BACKUP_FINISHED_NOTIFICATION_RECEIVERS:Ljava/lang/String; = "backup_finished_notification_receivers"
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+.end field
 
 .field public static final DEFAULT_BACKUP_FINISHED_NOTIFICATION_RECEIVERS:Ljava/lang/String; = ""
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+.end field
 
 .field public static final DEFAULT_FULL_BACKUP_INTERVAL_MILLISECONDS:J = 0x5265c00L
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+.end field
 
 .field public static final DEFAULT_FULL_BACKUP_REQUIRED_NETWORK_TYPE:I = 0x2
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+.end field
 
 .field public static final DEFAULT_FULL_BACKUP_REQUIRE_CHARGING:Z = true
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+.end field
 
 .field public static final DEFAULT_KEY_VALUE_BACKUP_FUZZ_MILLISECONDS:J = 0x927c0L
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+.end field
 
 .field public static final DEFAULT_KEY_VALUE_BACKUP_INTERVAL_MILLISECONDS:J = 0xdbba00L
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+.end field
 
 .field public static final DEFAULT_KEY_VALUE_BACKUP_REQUIRED_NETWORK_TYPE:I = 0x1
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+.end field
 
 .field public static final DEFAULT_KEY_VALUE_BACKUP_REQUIRE_CHARGING:Z = true
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+.end field
 
 .field public static final FULL_BACKUP_INTERVAL_MILLISECONDS:Ljava/lang/String; = "full_backup_interval_milliseconds"
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+.end field
 
 .field public static final FULL_BACKUP_REQUIRED_NETWORK_TYPE:Ljava/lang/String; = "full_backup_required_network_type"
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+.end field
 
 .field public static final FULL_BACKUP_REQUIRE_CHARGING:Ljava/lang/String; = "full_backup_require_charging"
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+.end field
 
 .field public static final KEY_VALUE_BACKUP_FUZZ_MILLISECONDS:Ljava/lang/String; = "key_value_backup_fuzz_milliseconds"
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+.end field
 
 .field public static final KEY_VALUE_BACKUP_INTERVAL_MILLISECONDS:Ljava/lang/String; = "key_value_backup_interval_milliseconds"
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+.end field
 
 .field public static final KEY_VALUE_BACKUP_REQUIRED_NETWORK_TYPE:Ljava/lang/String; = "key_value_backup_required_network_type"
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+.end field
 
 .field public static final KEY_VALUE_BACKUP_REQUIRE_CHARGING:Ljava/lang/String; = "key_value_backup_require_charging"
-
-.field private static final SETTING:Ljava/lang/String; = "backup_manager_constants"
-
-.field private static final TAG:Ljava/lang/String; = "BackupManagerConstants"
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+.end field
 
 
 # instance fields
-.field private mBackupFinishedNotificationReceivers:[Ljava/lang/String;
+.field public mBackupFinishedNotificationReceivers:[Ljava/lang/String;
 
-.field private mFullBackupIntervalMilliseconds:J
+.field public mFullBackupIntervalMilliseconds:J
 
-.field private mFullBackupRequireCharging:Z
+.field public mFullBackupRequireCharging:Z
 
-.field private mFullBackupRequiredNetworkType:I
+.field public mFullBackupRequiredNetworkType:I
 
-.field private mKeyValueBackupFuzzMilliseconds:J
+.field public mKeyValueBackupFuzzMilliseconds:J
 
-.field private mKeyValueBackupIntervalMilliseconds:J
+.field public mKeyValueBackupIntervalMilliseconds:J
 
-.field private mKeyValueBackupRequireCharging:Z
+.field public mKeyValueBackupRequireCharging:Z
 
-.field private mKeyValueBackupRequiredNetworkType:I
+.field public mKeyValueBackupRequiredNetworkType:I
 
 
 # direct methods
@@ -419,19 +463,19 @@
 .end method
 
 .method public getSettingValue(Landroid/content/ContentResolver;)Ljava/lang/String;
-    .locals 2
+    .locals 1
 
     invoke-virtual {p1}, Landroid/content/ContentResolver;->getUserId()I
 
-    move-result v0
+    move-result p0
 
-    const-string v1, "backup_manager_constants"
+    const-string v0, "backup_manager_constants"
 
-    invoke-static {p1, v1, v0}, Landroid/provider/Settings$Secure;->getStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;I)Ljava/lang/String;
+    invoke-static {p1, v0, p0}, Landroid/provider/Settings$Secure;->getStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;I)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public declared-synchronized update(Landroid/util/KeyValueListParser;)V
@@ -440,7 +484,7 @@
     monitor-enter p0
 
     :try_start_0
-    const-string/jumbo v0, "key_value_backup_interval_milliseconds"
+    const-string v0, "key_value_backup_interval_milliseconds"
 
     const-wide/32 v1, 0xdbba00
 
@@ -450,7 +494,7 @@
 
     iput-wide v0, p0, Lcom/android/server/backup/BackupManagerConstants;->mKeyValueBackupIntervalMilliseconds:J
 
-    const-string/jumbo v0, "key_value_backup_fuzz_milliseconds"
+    const-string v0, "key_value_backup_fuzz_milliseconds"
 
     const-wide/32 v1, 0x927c0
 
@@ -460,7 +504,7 @@
 
     iput-wide v0, p0, Lcom/android/server/backup/BackupManagerConstants;->mKeyValueBackupFuzzMilliseconds:J
 
-    const-string/jumbo v0, "key_value_backup_require_charging"
+    const-string v0, "key_value_backup_require_charging"
 
     const/4 v1, 0x1
 
@@ -470,7 +514,7 @@
 
     iput-boolean v0, p0, Lcom/android/server/backup/BackupManagerConstants;->mKeyValueBackupRequireCharging:Z
 
-    const-string/jumbo v0, "key_value_backup_required_network_type"
+    const-string v0, "key_value_backup_required_network_type"
 
     invoke-virtual {p1, v0, v1}, Landroid/util/KeyValueListParser;->getInt(Ljava/lang/String;I)I
 
@@ -512,30 +556,30 @@
 
     invoke-virtual {p1, v0, v1}, Landroid/util/KeyValueListParser;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Ljava/lang/String;->isEmpty()Z
+    invoke-virtual {p1}, Ljava/lang/String;->isEmpty()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    new-array v1, v1, [Ljava/lang/String;
+    new-array p1, p1, [Ljava/lang/String;
 
-    iput-object v1, p0, Lcom/android/server/backup/BackupManagerConstants;->mBackupFinishedNotificationReceivers:[Ljava/lang/String;
+    iput-object p1, p0, Lcom/android/server/backup/BackupManagerConstants;->mBackupFinishedNotificationReceivers:[Ljava/lang/String;
 
     goto :goto_0
 
     :cond_0
-    const-string v1, ":"
+    const-string v0, ":"
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+    invoke-virtual {p1, v0}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    iput-object v1, p0, Lcom/android/server/backup/BackupManagerConstants;->mBackupFinishedNotificationReceivers:[Ljava/lang/String;
+    iput-object p1, p0, Lcom/android/server/backup/BackupManagerConstants;->mBackupFinishedNotificationReceivers:[Ljava/lang/String;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 

@@ -1,4 +1,4 @@
-.class Lcom/android/server/hdmi/HdmiCecLocalDevice$2;
+.class public Lcom/android/server/hdmi/HdmiCecLocalDevice$2;
 .super Ljava/lang/Object;
 .source "HdmiCecLocalDevice.java"
 
@@ -12,19 +12,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/hdmi/HdmiCecLocalDevice;
+.field public final synthetic this$0:Lcom/android/server/hdmi/HdmiCecLocalDevice;
 
-.field final synthetic val$cecMessage:Lcom/android/server/hdmi/HdmiCecMessage;
+.field public final synthetic val$cecMessage:Lcom/android/server/hdmi/HdmiCecMessage;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/hdmi/HdmiCecLocalDevice;Lcom/android/server/hdmi/HdmiCecMessage;)V
+.method public constructor <init>(Lcom/android/server/hdmi/HdmiCecLocalDevice;Lcom/android/server/hdmi/HdmiCecMessage;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/hdmi/HdmiCecLocalDevice$2;->this$0:Lcom/android/server/hdmi/HdmiCecLocalDevice;
@@ -39,31 +39,31 @@
 
 # virtual methods
 .method public onSendCompleted(I)V
-    .locals 2
+    .locals 1
 
     if-eqz p1, :cond_0
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "Failed to send cec command "
+    const-string v0, "Failed to send cec command "
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lcom/android/server/hdmi/HdmiCecLocalDevice$2;->val$cecMessage:Lcom/android/server/hdmi/HdmiCecMessage;
+    iget-object p0, p0, Lcom/android/server/hdmi/HdmiCecLocalDevice$2;->val$cecMessage:Lcom/android/server/hdmi/HdmiCecMessage;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    new-array v1, v1, [Ljava/lang/Object;
+    new-array p1, p1, [Ljava/lang/Object;
 
-    invoke-static {v0, v1}, Lcom/android/server/hdmi/HdmiLogger;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {p0, p1}, Lcom/android/server/hdmi/HdmiLogger;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
     :cond_0
     return-void

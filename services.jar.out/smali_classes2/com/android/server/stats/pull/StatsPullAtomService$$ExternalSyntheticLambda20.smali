@@ -1,35 +1,28 @@
 .class public final synthetic Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda20;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Consumer;
-
-
-# instance fields
-.field public final synthetic f$0:Landroid/util/SparseArray;
+.implements Ljava/util/function/IntPredicate;
 
 
 # direct methods
-.method public synthetic constructor <init>(Landroid/util/SparseArray;)V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda20;->f$0:Landroid/util/SparseArray;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
-    .locals 1
+.method public final test(I)Z
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda20;->f$0:Landroid/util/SparseArray;
+    invoke-static {p1}, Lcom/android/server/stats/pull/StatsPullAtomService;->$r8$lambda$yoS8A9QQejGxc4XFM828SHdVJ50(I)Z
 
-    check-cast p1, Landroid/app/ProcessMemoryState;
+    move-result p0
 
-    invoke-static {v0, p1}, Lcom/android/server/stats/pull/StatsPullAtomService;->lambda$pullProcessMemorySnapshotLocked$18(Landroid/util/SparseArray;Landroid/app/ProcessMemoryState;)V
-
-    return-void
+    return p0
 .end method

@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/am/UserController$$ExternalSyntheticLambda8;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -35,7 +36,7 @@
 
 # virtual methods
 .method public final run()V
-    .locals 4
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/am/UserController$$ExternalSyntheticLambda8;->f$0:Lcom/android/server/am/UserController;
 
@@ -43,9 +44,9 @@
 
     iget-boolean v2, p0, Lcom/android/server/am/UserController$$ExternalSyntheticLambda8;->f$2:Z
 
-    iget-object v3, p0, Lcom/android/server/am/UserController$$ExternalSyntheticLambda8;->f$3:Landroid/os/IProgressListener;
+    iget-object p0, p0, Lcom/android/server/am/UserController$$ExternalSyntheticLambda8;->f$3:Landroid/os/IProgressListener;
 
-    invoke-virtual {v0, v1, v2, v3}, Lcom/android/server/am/UserController;->lambda$startUserInternal$13$UserController(IZLandroid/os/IProgressListener;)V
+    invoke-static {v0, v1, v2, p0}, Lcom/android/server/am/UserController;->$r8$lambda$rFmiaVKO64aPIl-CPx0iaYqPPLM(Lcom/android/server/am/UserController;IZLandroid/os/IProgressListener;)V
 
     return-void
 .end method

@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/media/MediaRoute2ProviderWatcher$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/media/MediaRoute2ProviderWatcher$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/media/MediaRoute2ProviderWatcher;
+    iget-object p0, p0, Lcom/android/server/media/MediaRoute2ProviderWatcher$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/media/MediaRoute2ProviderWatcher;
 
-    invoke-static {v0}, Lcom/android/server/media/MediaRoute2ProviderWatcher;->$r8$lambda$Nfz82wY_Gt3q9B21gdjfRv58tcI(Lcom/android/server/media/MediaRoute2ProviderWatcher;)V
+    invoke-static {p0}, Lcom/android/server/media/MediaRoute2ProviderWatcher;->$r8$lambda$Nfz82wY_Gt3q9B21gdjfRv58tcI(Lcom/android/server/media/MediaRoute2ProviderWatcher;)V
 
     return-void
 .end method

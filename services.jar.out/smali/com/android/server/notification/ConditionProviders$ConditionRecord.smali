@@ -1,4 +1,4 @@
-.class Lcom/android/server/notification/ConditionProviders$ConditionRecord;
+.class public Lcom/android/server/notification/ConditionProviders$ConditionRecord;
 .super Ljava/lang/Object;
 .source "ConditionProviders.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "ConditionRecord"
 .end annotation
 
@@ -27,7 +27,7 @@
 
 
 # direct methods
-.method private constructor <init>(Landroid/net/Uri;Landroid/content/ComponentName;)V
+.method public constructor <init>(Landroid/net/Uri;Landroid/content/ComponentName;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,7 +39,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Landroid/net/Uri;Landroid/content/ComponentName;Lcom/android/server/notification/ConditionProviders$1;)V
+.method public synthetic constructor <init>(Landroid/net/Uri;Landroid/content/ComponentName;Lcom/android/server/notification/ConditionProviders$ConditionRecord-IA;)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/notification/ConditionProviders$ConditionRecord;-><init>(Landroid/net/Uri;Landroid/content/ComponentName;)V
@@ -74,19 +74,17 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-boolean v1, p0, Lcom/android/server/notification/ConditionProviders$ConditionRecord;->subscribed:Z
+    iget-boolean p0, p0, Lcom/android/server/notification/ConditionProviders$ConditionRecord;->subscribed:Z
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    const/16 p0, 0x5d
 
-    const/16 v1, 0x5d
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method

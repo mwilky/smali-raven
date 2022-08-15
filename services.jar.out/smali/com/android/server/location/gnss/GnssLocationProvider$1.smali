@@ -1,4 +1,4 @@
-.class Lcom/android/server/location/gnss/GnssLocationProvider$1;
+.class public Lcom/android/server/location/gnss/GnssLocationProvider$1;
 .super Landroid/content/BroadcastReceiver;
 .source "GnssLocationProvider.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/location/gnss/GnssLocationProvider;
+.field public final synthetic this$0:Lcom/android/server/location/gnss/GnssLocationProvider;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/location/gnss/GnssLocationProvider;)V
+.method public constructor <init>(Lcom/android/server/location/gnss/GnssLocationProvider;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/location/gnss/GnssLocationProvider$1;->this$0:Lcom/android/server/location/gnss/GnssLocationProvider;
@@ -32,25 +32,25 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 2
+    .locals 0
 
-    invoke-virtual {p0}, Lcom/android/server/location/gnss/GnssLocationProvider$1;->getSendingUserId()I
+    invoke-virtual {p0}, Landroid/content/BroadcastReceiver;->getSendingUserId()I
 
-    move-result v0
+    move-result p1
 
-    const/4 v1, -0x1
+    const/4 p2, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne p1, p2, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/location/gnss/GnssLocationProvider$1;->this$0:Lcom/android/server/location/gnss/GnssLocationProvider;
+    iget-object p1, p0, Lcom/android/server/location/gnss/GnssLocationProvider$1;->this$0:Lcom/android/server/location/gnss/GnssLocationProvider;
 
-    const/4 v1, 0x1
+    const/4 p2, 0x1
 
-    invoke-static {v0, v1}, Lcom/android/server/location/gnss/GnssLocationProvider;->access$002(Lcom/android/server/location/gnss/GnssLocationProvider;Z)Z
+    invoke-static {p1, p2}, Lcom/android/server/location/gnss/GnssLocationProvider;->-$$Nest$fputmShutdown(Lcom/android/server/location/gnss/GnssLocationProvider;Z)V
 
-    iget-object v0, p0, Lcom/android/server/location/gnss/GnssLocationProvider$1;->this$0:Lcom/android/server/location/gnss/GnssLocationProvider;
+    iget-object p0, p0, Lcom/android/server/location/gnss/GnssLocationProvider$1;->this$0:Lcom/android/server/location/gnss/GnssLocationProvider;
 
-    invoke-static {v0}, Lcom/android/server/location/gnss/GnssLocationProvider;->access$100(Lcom/android/server/location/gnss/GnssLocationProvider;)V
+    invoke-static {p0}, Lcom/android/server/location/gnss/GnssLocationProvider;->-$$Nest$mupdateEnabled(Lcom/android/server/location/gnss/GnssLocationProvider;)V
 
     :cond_0
     return-void

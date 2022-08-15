@@ -1,10 +1,17 @@
-.class final Lcom/android/server/am/ActiveUids;
+.class public final Lcom/android/server/am/ActiveUids;
 .super Ljava/lang/Object;
 .source "ActiveUids.java"
 
 
 # instance fields
-.field private final mActiveUids:Landroid/util/SparseArray;
+.field public final mActiveUids:Landroid/util/SparseArray;
+    .annotation build Lcom/android/internal/annotations/CompositeRWLock;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/SparseArray<",
@@ -14,15 +21,23 @@
     .end annotation
 .end field
 
-.field private final mPostChangesToAtm:Z
+.field public final mPostChangesToAtm:Z
 
-.field private final mProcLock:Lcom/android/server/am/ActivityManagerGlobalLock;
+.field public final mProcLock:Lcom/android/server/am/ActivityManagerGlobalLock;
 
-.field private final mService:Lcom/android/server/am/ActivityManagerService;
+.field public final mService:Lcom/android/server/am/ActivityManagerService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/ActivityManagerService;Z)V
+.method public static synthetic $r8$lambda$G_7-jFL0r5ri3SJ6Mg5gotLMr8Y(Ljava/io/PrintWriter;Lcom/android/server/am/ProcessRecord;)V
+    .locals 0
+
+    invoke-static {p0, p1}, Lcom/android/server/am/ActiveUids;->lambda$dump$0(Ljava/io/PrintWriter;Lcom/android/server/am/ProcessRecord;)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Lcom/android/server/am/ActivityManagerService;Z)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,22 +52,22 @@
 
     if-eqz p1, :cond_0
 
-    iget-object v0, p1, Lcom/android/server/am/ActivityManagerService;->mProcLock:Lcom/android/server/am/ActivityManagerGlobalLock;
+    iget-object p1, p1, Lcom/android/server/am/ActivityManagerService;->mProcLock:Lcom/android/server/am/ActivityManagerGlobalLock;
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    iput-object v0, p0, Lcom/android/server/am/ActiveUids;->mProcLock:Lcom/android/server/am/ActivityManagerGlobalLock;
+    iput-object p1, p0, Lcom/android/server/am/ActiveUids;->mProcLock:Lcom/android/server/am/ActivityManagerGlobalLock;
 
     iput-boolean p2, p0, Lcom/android/server/am/ActiveUids;->mPostChangesToAtm:Z
 
     return-void
 .end method
 
-.method static synthetic lambda$dump$0(Ljava/io/PrintWriter;Lcom/android/server/am/ProcessRecord;)V
+.method public static synthetic lambda$dump$0(Ljava/io/PrintWriter;Lcom/android/server/am/ProcessRecord;)V
     .locals 1
 
     const-string v0, "      proc="
@@ -66,22 +81,34 @@
 
 
 # virtual methods
-.method clear()V
-    .locals 1
+.method public clear()V
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
-    iget-object v0, p0, Lcom/android/server/am/ActiveUids;->mActiveUids:Landroid/util/SparseArray;
+    iget-object p0, p0, Lcom/android/server/am/ActiveUids;->mActiveUids:Landroid/util/SparseArray;
 
-    invoke-virtual {v0}, Landroid/util/SparseArray;->clear()V
+    invoke-virtual {p0}, Landroid/util/SparseArray;->clear()V
 
     return-void
 .end method
 
-.method dump(Ljava/io/PrintWriter;Ljava/lang/String;ILjava/lang/String;Z)Z
+.method public dump(Ljava/io/PrintWriter;Ljava/lang/String;ILjava/lang/String;Z)Z
     .locals 4
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        anyOf = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
     const/4 v0, 0x0
 
-    const/4 v1, 0x0
+    move v1, v0
 
     :goto_0
     iget-object v2, p0, Lcom/android/server/am/ActiveUids;->mActiveUids:Landroid/util/SparseArray;
@@ -90,11 +117,11 @@
 
     move-result v2
 
-    if-ge v1, v2, :cond_3
+    if-ge v0, v2, :cond_3
 
     iget-object v2, p0, Lcom/android/server/am/ActiveUids;->mActiveUids:Landroid/util/SparseArray;
 
-    invoke-virtual {v2, v1}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {v2, v0}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -115,20 +142,20 @@
     goto :goto_1
 
     :cond_0
-    if-nez v0, :cond_2
-
-    const/4 v0, 0x1
+    if-nez v1, :cond_2
 
     if-eqz p5, :cond_1
 
     invoke-virtual {p1}, Ljava/io/PrintWriter;->println()V
 
     :cond_1
-    const-string v3, "  "
+    const-string v1, "  "
 
-    invoke-virtual {p1, v3}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+    invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     invoke-virtual {p1, p4}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const/4 v1, 0x1
 
     :cond_2
     const-string v3, "    UID "
@@ -176,15 +203,15 @@
     invoke-virtual {v2, v3}, Lcom/android/server/am/UidRecord;->forEachProcess(Ljava/util/function/Consumer;)V
 
     :goto_1
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     :cond_3
-    return v0
+    return v1
 .end method
 
-.method dumpProto(Landroid/util/proto/ProtoOutputStream;Ljava/lang/String;IJ)V
+.method public dumpProto(Landroid/util/proto/ProtoOutputStream;Ljava/lang/String;IJ)V
     .locals 3
 
     const/4 v0, 0x0
@@ -232,46 +259,52 @@
     return-void
 .end method
 
-.method get(I)Lcom/android/server/am/UidRecord;
-    .locals 1
+.method public get(I)Lcom/android/server/am/UidRecord;
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        anyOf = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
-    iget-object v0, p0, Lcom/android/server/am/ActiveUids;->mActiveUids:Landroid/util/SparseArray;
+    iget-object p0, p0, Lcom/android/server/am/ActiveUids;->mActiveUids:Landroid/util/SparseArray;
 
-    invoke-virtual {v0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/android/server/am/UidRecord;
+    check-cast p0, Lcom/android/server/am/UidRecord;
 
-    return-object v0
+    return-object p0
 .end method
 
-.method indexOfKey(I)I
-    .locals 1
+.method public keyAt(I)I
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        anyOf = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
-    iget-object v0, p0, Lcom/android/server/am/ActiveUids;->mActiveUids:Landroid/util/SparseArray;
+    iget-object p0, p0, Lcom/android/server/am/ActiveUids;->mActiveUids:Landroid/util/SparseArray;
 
-    invoke-virtual {v0, p1}, Landroid/util/SparseArray;->indexOfKey(I)I
+    invoke-virtual {p0, p1}, Landroid/util/SparseArray;->keyAt(I)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
-.method keyAt(I)I
+.method public put(ILcom/android/server/am/UidRecord;)V
     .locals 1
-
-    iget-object v0, p0, Lcom/android/server/am/ActiveUids;->mActiveUids:Landroid/util/SparseArray;
-
-    invoke-virtual {v0, p1}, Landroid/util/SparseArray;->keyAt(I)I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method put(ILcom/android/server/am/UidRecord;)V
-    .locals 2
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
     iget-object v0, p0, Lcom/android/server/am/ActiveUids;->mActiveUids:Landroid/util/SparseArray;
 
@@ -281,22 +314,28 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/am/ActiveUids;->mService:Lcom/android/server/am/ActivityManagerService;
+    iget-object p0, p0, Lcom/android/server/am/ActiveUids;->mService:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mAtmInternal:Lcom/android/server/wm/ActivityTaskManagerInternal;
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService;->mAtmInternal:Lcom/android/server/wm/ActivityTaskManagerInternal;
 
     invoke-virtual {p2}, Lcom/android/server/am/UidRecord;->getCurProcState()I
 
-    move-result v1
+    move-result p2
 
-    invoke-virtual {v0, p1, v1}, Lcom/android/server/wm/ActivityTaskManagerInternal;->onUidActive(II)V
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/wm/ActivityTaskManagerInternal;->onUidActive(II)V
 
     :cond_0
     return-void
 .end method
 
-.method remove(I)V
+.method public remove(I)V
     .locals 1
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
     iget-object v0, p0, Lcom/android/server/am/ActiveUids;->mActiveUids:Landroid/util/SparseArray;
 
@@ -306,38 +345,50 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/am/ActiveUids;->mService:Lcom/android/server/am/ActivityManagerService;
+    iget-object p0, p0, Lcom/android/server/am/ActiveUids;->mService:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mAtmInternal:Lcom/android/server/wm/ActivityTaskManagerInternal;
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService;->mAtmInternal:Lcom/android/server/wm/ActivityTaskManagerInternal;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/wm/ActivityTaskManagerInternal;->onUidInactive(I)V
+    invoke-virtual {p0, p1}, Lcom/android/server/wm/ActivityTaskManagerInternal;->onUidInactive(I)V
 
     :cond_0
     return-void
 .end method
 
-.method size()I
-    .locals 1
+.method public size()I
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        anyOf = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
-    iget-object v0, p0, Lcom/android/server/am/ActiveUids;->mActiveUids:Landroid/util/SparseArray;
+    iget-object p0, p0, Lcom/android/server/am/ActiveUids;->mActiveUids:Landroid/util/SparseArray;
 
-    invoke-virtual {v0}, Landroid/util/SparseArray;->size()I
+    invoke-virtual {p0}, Landroid/util/SparseArray;->size()I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
-.method valueAt(I)Lcom/android/server/am/UidRecord;
-    .locals 1
+.method public valueAt(I)Lcom/android/server/am/UidRecord;
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        anyOf = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
-    iget-object v0, p0, Lcom/android/server/am/ActiveUids;->mActiveUids:Landroid/util/SparseArray;
+    iget-object p0, p0, Lcom/android/server/am/ActiveUids;->mActiveUids:Landroid/util/SparseArray;
 
-    invoke-virtual {v0, p1}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/android/server/am/UidRecord;
+    check-cast p0, Lcom/android/server/am/UidRecord;
 
-    return-object v0
+    return-object p0
 .end method

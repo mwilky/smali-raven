@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/DisplayAreaPolicyBuilder$Feature;
+.class public Lcom/android/server/wm/DisplayAreaPolicyBuilder$Feature;
 .super Ljava/lang/Object;
 .source "DisplayAreaPolicyBuilder.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "Feature"
 .end annotation
 
@@ -21,17 +21,49 @@
 
 
 # instance fields
-.field private final mId:I
+.field public final mId:I
 
-.field private final mName:Ljava/lang/String;
+.field public final mName:Ljava/lang/String;
 
-.field private final mNewDisplayAreaSupplier:Lcom/android/server/wm/DisplayAreaPolicyBuilder$NewDisplayAreaSupplier;
+.field public final mNewDisplayAreaSupplier:Lcom/android/server/wm/DisplayAreaPolicyBuilder$NewDisplayAreaSupplier;
 
-.field private final mWindowLayers:[Z
+.field public final mWindowLayers:[Z
 
 
 # direct methods
-.method private constructor <init>(Ljava/lang/String;I[ZLcom/android/server/wm/DisplayAreaPolicyBuilder$NewDisplayAreaSupplier;)V
+.method public static bridge synthetic -$$Nest$fgetmId(Lcom/android/server/wm/DisplayAreaPolicyBuilder$Feature;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/server/wm/DisplayAreaPolicyBuilder$Feature;->mId:I
+
+    return p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmName(Lcom/android/server/wm/DisplayAreaPolicyBuilder$Feature;)Ljava/lang/String;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/wm/DisplayAreaPolicyBuilder$Feature;->mName:Ljava/lang/String;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmNewDisplayAreaSupplier(Lcom/android/server/wm/DisplayAreaPolicyBuilder$Feature;)Lcom/android/server/wm/DisplayAreaPolicyBuilder$NewDisplayAreaSupplier;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/wm/DisplayAreaPolicyBuilder$Feature;->mNewDisplayAreaSupplier:Lcom/android/server/wm/DisplayAreaPolicyBuilder$NewDisplayAreaSupplier;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmWindowLayers(Lcom/android/server/wm/DisplayAreaPolicyBuilder$Feature;)[Z
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/wm/DisplayAreaPolicyBuilder$Feature;->mWindowLayers:[Z
+
+    return-object p0
+.end method
+
+.method public constructor <init>(Ljava/lang/String;I[ZLcom/android/server/wm/DisplayAreaPolicyBuilder$NewDisplayAreaSupplier;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -47,7 +79,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Ljava/lang/String;I[ZLcom/android/server/wm/DisplayAreaPolicyBuilder$NewDisplayAreaSupplier;Lcom/android/server/wm/DisplayAreaPolicyBuilder$1;)V
+.method public synthetic constructor <init>(Ljava/lang/String;I[ZLcom/android/server/wm/DisplayAreaPolicyBuilder$NewDisplayAreaSupplier;Lcom/android/server/wm/DisplayAreaPolicyBuilder$Feature-IA;)V
     .locals 0
 
     invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/server/wm/DisplayAreaPolicyBuilder$Feature;-><init>(Ljava/lang/String;I[ZLcom/android/server/wm/DisplayAreaPolicyBuilder$NewDisplayAreaSupplier;)V
@@ -55,46 +87,14 @@
     return-void
 .end method
 
-.method static synthetic access$1000(Lcom/android/server/wm/DisplayAreaPolicyBuilder$Feature;)Lcom/android/server/wm/DisplayAreaPolicyBuilder$NewDisplayAreaSupplier;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/wm/DisplayAreaPolicyBuilder$Feature;->mNewDisplayAreaSupplier:Lcom/android/server/wm/DisplayAreaPolicyBuilder$NewDisplayAreaSupplier;
-
-    return-object v0
-.end method
-
-.method static synthetic access$600(Lcom/android/server/wm/DisplayAreaPolicyBuilder$Feature;)[Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/wm/DisplayAreaPolicyBuilder$Feature;->mWindowLayers:[Z
-
-    return-object v0
-.end method
-
-.method static synthetic access$800(Lcom/android/server/wm/DisplayAreaPolicyBuilder$Feature;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/server/wm/DisplayAreaPolicyBuilder$Feature;->mId:I
-
-    return v0
-.end method
-
-.method static synthetic access$900(Lcom/android/server/wm/DisplayAreaPolicyBuilder$Feature;)Ljava/lang/String;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/wm/DisplayAreaPolicyBuilder$Feature;->mName:Ljava/lang/String;
-
-    return-object v0
-.end method
-
 
 # virtual methods
 .method public getId()I
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/wm/DisplayAreaPolicyBuilder$Feature;->mId:I
+    iget p0, p0, Lcom/android/server/wm/DisplayAreaPolicyBuilder$Feature;->mId:I
 
-    return v0
+    return p0
 .end method
 
 .method public toString()Ljava/lang/String;
@@ -116,17 +116,17 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v1, p0, Lcom/android/server/wm/DisplayAreaPolicyBuilder$Feature;->mId:I
+    iget p0, p0, Lcom/android/server/wm/DisplayAreaPolicyBuilder$Feature;->mId:I
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const/16 v1, 0x7d
+    const/16 p0, 0x7d
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

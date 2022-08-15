@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/display/DisplayAdapter$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -31,15 +32,15 @@
 
 # virtual methods
 .method public final run()V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/display/DisplayAdapter$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/display/DisplayAdapter;
 
     iget-object v1, p0, Lcom/android/server/display/DisplayAdapter$$ExternalSyntheticLambda1;->f$1:Lcom/android/server/display/DisplayDevice;
 
-    iget v2, p0, Lcom/android/server/display/DisplayAdapter$$ExternalSyntheticLambda1;->f$2:I
+    iget p0, p0, Lcom/android/server/display/DisplayAdapter$$ExternalSyntheticLambda1;->f$2:I
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/display/DisplayAdapter;->lambda$sendDisplayDeviceEventLocked$0$DisplayAdapter(Lcom/android/server/display/DisplayDevice;I)V
+    invoke-static {v0, v1, p0}, Lcom/android/server/display/DisplayAdapter;->$r8$lambda$es-VlBxFnF_XqNjOPaOpwTeiQr4(Lcom/android/server/display/DisplayAdapter;Lcom/android/server/display/DisplayDevice;I)V
 
     return-void
 .end method

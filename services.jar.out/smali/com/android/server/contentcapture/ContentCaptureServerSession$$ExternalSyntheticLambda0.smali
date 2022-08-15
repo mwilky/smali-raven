@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/contentcapture/ContentCaptureServerSession$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/os/IBinder$DeathRecipient;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final binderDied()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/contentcapture/ContentCaptureServerSession$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/contentcapture/ContentCaptureServerSession;
+    iget-object p0, p0, Lcom/android/server/contentcapture/ContentCaptureServerSession$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/contentcapture/ContentCaptureServerSession;
 
-    invoke-virtual {v0}, Lcom/android/server/contentcapture/ContentCaptureServerSession;->lambda$new$0$ContentCaptureServerSession()V
+    invoke-static {p0}, Lcom/android/server/contentcapture/ContentCaptureServerSession;->$r8$lambda$8PYHoEaJtPor36-x8eYP1nZRhNA(Lcom/android/server/contentcapture/ContentCaptureServerSession;)V
 
     return-void
 .end method

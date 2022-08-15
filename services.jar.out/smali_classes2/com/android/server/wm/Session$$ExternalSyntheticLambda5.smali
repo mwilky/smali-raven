@@ -1,21 +1,34 @@
 .class public final synthetic Lcom/android/server/wm/Session$$ExternalSyntheticLambda5;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/BiConsumer;
 
 
 # instance fields
-.field public final synthetic f$0:Z
+.field public final synthetic f$0:F
+
+.field public final synthetic f$1:F
+
+.field public final synthetic f$2:F
+
+.field public final synthetic f$3:F
 
 
 # direct methods
-.method public synthetic constructor <init>(Z)V
+.method public synthetic constructor <init>(FFFF)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-boolean p1, p0, Lcom/android/server/wm/Session$$ExternalSyntheticLambda5;->f$0:Z
+    iput p1, p0, Lcom/android/server/wm/Session$$ExternalSyntheticLambda5;->f$0:F
+
+    iput p2, p0, Lcom/android/server/wm/Session$$ExternalSyntheticLambda5;->f$1:F
+
+    iput p3, p0, Lcom/android/server/wm/Session$$ExternalSyntheticLambda5;->f$2:F
+
+    iput p4, p0, Lcom/android/server/wm/Session$$ExternalSyntheticLambda5;->f$3:F
 
     return-void
 .end method
@@ -23,15 +36,25 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 1
+    .locals 6
 
-    iget-boolean v0, p0, Lcom/android/server/wm/Session$$ExternalSyntheticLambda5;->f$0:Z
+    iget v0, p0, Lcom/android/server/wm/Session$$ExternalSyntheticLambda5;->f$0:F
 
-    check-cast p1, Lcom/android/server/wm/WallpaperController;
+    iget v1, p0, Lcom/android/server/wm/Session$$ExternalSyntheticLambda5;->f$1:F
 
-    check-cast p2, Lcom/android/server/wm/WindowState;
+    iget v2, p0, Lcom/android/server/wm/Session$$ExternalSyntheticLambda5;->f$2:F
 
-    invoke-static {v0, p1, p2}, Lcom/android/server/wm/Session;->lambda$setShouldZoomOutWallpaper$2(ZLcom/android/server/wm/WallpaperController;Lcom/android/server/wm/WindowState;)V
+    iget v3, p0, Lcom/android/server/wm/Session$$ExternalSyntheticLambda5;->f$3:F
+
+    move-object v4, p1
+
+    check-cast v4, Lcom/android/server/wm/WallpaperController;
+
+    move-object v5, p2
+
+    check-cast v5, Lcom/android/server/wm/WindowState;
+
+    invoke-static/range {v0 .. v5}, Lcom/android/server/wm/Session;->$r8$lambda$VeZ22s3C82nIzxmQtxNefR5W4g8(FFFFLcom/android/server/wm/WallpaperController;Lcom/android/server/wm/WindowState;)V
 
     return-void
 .end method

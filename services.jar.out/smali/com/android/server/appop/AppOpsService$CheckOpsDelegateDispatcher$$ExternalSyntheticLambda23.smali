@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/appop/AppOpsService$CheckOpsDelegateDispatcher$$ExternalSyntheticLambda23;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/internal/util/function/UndecFunction;
+.implements Lcom/android/internal/util/function/QuintConsumer;
 
 
 # instance fields
@@ -22,10 +23,10 @@
 
 
 # virtual methods
-.method public final apply(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+.method public final accept(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/appop/AppOpsService$CheckOpsDelegateDispatcher$$ExternalSyntheticLambda23;->f$0:Lcom/android/server/appop/AppOpsService;
+    iget-object p0, p0, Lcom/android/server/appop/AppOpsService$CheckOpsDelegateDispatcher$$ExternalSyntheticLambda23;->f$0:Lcom/android/server/appop/AppOpsService;
 
     check-cast p1, Landroid/os/IBinder;
 
@@ -45,43 +46,7 @@
 
     check-cast p5, Ljava/lang/String;
 
-    check-cast p6, Ljava/lang/Boolean;
+    invoke-static/range {p0 .. p5}, Lcom/android/server/appop/AppOpsService$CheckOpsDelegateDispatcher;->$r8$lambda$wkM49F6LHRsxIlPbiyrH6FgkInI(Lcom/android/server/appop/AppOpsService;Landroid/os/IBinder;IILjava/lang/String;Ljava/lang/String;)V
 
-    invoke-virtual {p6}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result p6
-
-    check-cast p7, Ljava/lang/Boolean;
-
-    invoke-virtual {p7}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result p7
-
-    check-cast p8, Ljava/lang/String;
-
-    check-cast p9, Ljava/lang/Boolean;
-
-    invoke-virtual {p9}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result p9
-
-    check-cast p10, Ljava/lang/Integer;
-
-    invoke-virtual {p10}, Ljava/lang/Integer;->intValue()I
-
-    move-result p10
-
-    check-cast p11, Ljava/lang/Integer;
-
-    invoke-virtual {p11}, Ljava/lang/Integer;->intValue()I
-
-    move-result p11
-
-    move-object p0, v0
-
-    invoke-static/range {p0 .. p11}, Lcom/android/server/appop/AppOpsService$CheckOpsDelegateDispatcher;->lambda$startOperation$8(Lcom/android/server/appop/AppOpsService;Landroid/os/IBinder;IILjava/lang/String;Ljava/lang/String;ZZLjava/lang/String;ZII)Landroid/app/SyncNotedAppOp;
-
-    move-result-object p1
-
-    return-object p1
+    return-void
 .end method

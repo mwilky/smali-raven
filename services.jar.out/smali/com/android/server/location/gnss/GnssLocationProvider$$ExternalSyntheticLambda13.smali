@@ -1,45 +1,34 @@
 .class public final synthetic Lcom/android/server/location/gnss/GnssLocationProvider$$ExternalSyntheticLambda13;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/ToLongFunction;
+.implements Landroid/location/LocationListener;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/location/gnss/GnssLocationProvider$$ExternalSyntheticLambda13;
+# instance fields
+.field public final synthetic f$0:Lcom/android/server/location/gnss/GnssLocationProvider;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/location/gnss/GnssLocationProvider$$ExternalSyntheticLambda13;
-
-    invoke-direct {v0}, Lcom/android/server/location/gnss/GnssLocationProvider$$ExternalSyntheticLambda13;-><init>()V
-
-    sput-object v0, Lcom/android/server/location/gnss/GnssLocationProvider$$ExternalSyntheticLambda13;->INSTANCE:Lcom/android/server/location/gnss/GnssLocationProvider$$ExternalSyntheticLambda13;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Lcom/android/server/location/gnss/GnssLocationProvider;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/location/gnss/GnssLocationProvider$$ExternalSyntheticLambda13;->f$0:Lcom/android/server/location/gnss/GnssLocationProvider;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final applyAsLong(Ljava/lang/Object;)J
-    .locals 2
+.method public final onLocationChanged(Landroid/location/Location;)V
+    .locals 0
 
-    check-cast p1, Landroid/location/Location;
+    iget-object p0, p0, Lcom/android/server/location/gnss/GnssLocationProvider$$ExternalSyntheticLambda13;->f$0:Lcom/android/server/location/gnss/GnssLocationProvider;
 
-    invoke-virtual {p1}, Landroid/location/Location;->getElapsedRealtimeNanos()J
+    invoke-static {p0, p1}, Lcom/android/server/location/gnss/GnssLocationProvider;->$r8$lambda$Wg-yoEB-VMU5sJo1WeAMRYSmm_Y(Lcom/android/server/location/gnss/GnssLocationProvider;Landroid/location/Location;)V
 
-    move-result-wide v0
-
-    return-wide v0
+    return-void
 .end method

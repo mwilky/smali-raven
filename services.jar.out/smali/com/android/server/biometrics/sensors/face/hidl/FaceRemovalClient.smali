@@ -1,4 +1,4 @@
-.class Lcom/android/server/biometrics/sensors/face/hidl/FaceRemovalClient;
+.class public Lcom/android/server/biometrics/sensors/face/hidl/FaceRemovalClient;
 .super Lcom/android/server/biometrics/sensors/RemovalClient;
 .source "FaceRemovalClient.java"
 
@@ -14,22 +14,18 @@
 .end annotation
 
 
-# static fields
-.field private static final TAG:Ljava/lang/String; = "FaceRemovalClient"
-
-
 # instance fields
-.field private final mBiometricId:I
+.field public final mBiometricId:I
 
 
 # direct methods
-.method constructor <init>(Landroid/content/Context;Lcom/android/server/biometrics/sensors/HalClientMonitor$LazyDaemon;Landroid/os/IBinder;Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;IILjava/lang/String;Lcom/android/server/biometrics/sensors/BiometricUtils;ILjava/util/Map;)V
-    .locals 11
+.method public constructor <init>(Landroid/content/Context;Ljava/util/function/Supplier;Landroid/os/IBinder;Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;IILjava/lang/String;Lcom/android/server/biometrics/sensors/BiometricUtils;ILcom/android/server/biometrics/log/BiometricLogger;Lcom/android/server/biometrics/log/BiometricContext;Ljava/util/Map;)V
+    .locals 12
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Landroid/content/Context;",
-            "Lcom/android/server/biometrics/sensors/HalClientMonitor$LazyDaemon<",
+            "Ljava/util/function/Supplier<",
             "Landroid/hardware/biometrics/face/V1_0/IBiometricsFace;",
             ">;",
             "Landroid/os/IBinder;",
@@ -39,14 +35,14 @@
             "Lcom/android/server/biometrics/sensors/BiometricUtils<",
             "Landroid/hardware/face/Face;",
             ">;I",
+            "Lcom/android/server/biometrics/log/BiometricLogger;",
+            "Lcom/android/server/biometrics/log/BiometricContext;",
             "Ljava/util/Map<",
             "Ljava/lang/Integer;",
             "Ljava/lang/Long;",
             ">;)V"
         }
     .end annotation
-
-    const/4 v10, 0x4
 
     move-object v0, p0
 
@@ -56,7 +52,7 @@
 
     move-object v3, p3
 
-    move-object v4, p4
+    move-object/from16 v4, p4
 
     move/from16 v5, p6
 
@@ -68,7 +64,11 @@
 
     move-object/from16 v9, p10
 
-    invoke-direct/range {v0 .. v10}, Lcom/android/server/biometrics/sensors/RemovalClient;-><init>(Landroid/content/Context;Lcom/android/server/biometrics/sensors/HalClientMonitor$LazyDaemon;Landroid/os/IBinder;Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;ILjava/lang/String;Lcom/android/server/biometrics/sensors/BiometricUtils;ILjava/util/Map;I)V
+    move-object/from16 v10, p11
+
+    move-object/from16 v11, p12
+
+    invoke-direct/range {v0 .. v11}, Lcom/android/server/biometrics/sensors/RemovalClient;-><init>(Landroid/content/Context;Ljava/util/function/Supplier;Landroid/os/IBinder;Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;ILjava/lang/String;Lcom/android/server/biometrics/sensors/BiometricUtils;ILcom/android/server/biometrics/log/BiometricLogger;Lcom/android/server/biometrics/log/BiometricContext;Ljava/util/Map;)V
 
     move/from16 v1, p5
 
@@ -79,11 +79,11 @@
 
 
 # virtual methods
-.method protected startHalOperation()V
+.method public startHalOperation()V
     .locals 3
 
     :try_start_0
-    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/face/hidl/FaceRemovalClient;->getFreshDaemon()Ljava/lang/Object;
+    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/HalClientMonitor;->getFreshDaemon()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -106,11 +106,11 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    iget-object v1, p0, Lcom/android/server/biometrics/sensors/face/hidl/FaceRemovalClient;->mCallback:Lcom/android/server/biometrics/sensors/BaseClientMonitor$Callback;
+    iget-object v0, p0, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->mCallback:Lcom/android/server/biometrics/sensors/ClientMonitorCallback;
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    invoke-interface {v1, p0, v2}, Lcom/android/server/biometrics/sensors/BaseClientMonitor$Callback;->onClientFinished(Lcom/android/server/biometrics/sensors/BaseClientMonitor;Z)V
+    invoke-interface {v0, p0, v1}, Lcom/android/server/biometrics/sensors/ClientMonitorCallback;->onClientFinished(Lcom/android/server/biometrics/sensors/BaseClientMonitor;Z)V
 
     :goto_0
     return-void

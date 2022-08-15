@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/DeviceIdleController$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/app/AlarmManager$OnAlarmListener;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final onAlarm()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/DeviceIdleController$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/DeviceIdleController;
+    iget-object p0, p0, Lcom/android/server/DeviceIdleController$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/DeviceIdleController;
 
-    invoke-virtual {v0}, Lcom/android/server/DeviceIdleController;->lambda$new$0$DeviceIdleController()V
+    invoke-static {p0}, Lcom/android/server/DeviceIdleController;->$r8$lambda$FkxkAXhN9Fa2KY1SyIwJhs7Fs68(Lcom/android/server/DeviceIdleController;)V
 
     return-void
 .end method

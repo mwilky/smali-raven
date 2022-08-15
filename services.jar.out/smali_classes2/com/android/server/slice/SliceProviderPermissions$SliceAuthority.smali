@@ -18,9 +18,9 @@
 
 
 # instance fields
-.field private final mAuthority:Ljava/lang/String;
+.field public final mAuthority:Ljava/lang/String;
 
-.field private final mPkgs:Landroid/util/ArraySet;
+.field public final mPkgs:Landroid/util/ArraySet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/ArraySet<",
@@ -30,10 +30,18 @@
     .end annotation
 .end field
 
-.field private final mTracker:Lcom/android/server/slice/DirtyTracker;
+.field public final mTracker:Lcom/android/server/slice/DirtyTracker;
 
 
 # direct methods
+.method public static bridge synthetic -$$Nest$fgetmAuthority(Lcom/android/server/slice/SliceProviderPermissions$SliceAuthority;)Ljava/lang/String;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/slice/SliceProviderPermissions$SliceAuthority;->mAuthority:Ljava/lang/String;
+
+    return-object p0
+.end method
+
 .method public constructor <init>(Ljava/lang/String;Lcom/android/server/slice/DirtyTracker;)V
     .locals 1
 
@@ -52,14 +60,6 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/server/slice/SliceProviderPermissions$SliceAuthority;)Ljava/lang/String;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/slice/SliceProviderPermissions$SliceAuthority;->mAuthority:Ljava/lang/String;
-
-    return-object v0
-.end method
-
 
 # virtual methods
 .method public declared-synchronized addPkg(Lcom/android/server/slice/SlicePermissionManager$PkgUser;)V
@@ -72,13 +72,13 @@
 
     invoke-virtual {v0, p1}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/slice/SliceProviderPermissions$SliceAuthority;->mTracker:Lcom/android/server/slice/DirtyTracker;
+    iget-object p1, p0, Lcom/android/server/slice/SliceProviderPermissions$SliceAuthority;->mTracker:Lcom/android/server/slice/DirtyTracker;
 
-    invoke-interface {v0, p0}, Lcom/android/server/slice/DirtyTracker;->onPersistableDirty(Lcom/android/server/slice/DirtyTracker$Persistable;)V
+    invoke-interface {p1, p0}, Lcom/android/server/slice/DirtyTracker;->onPersistableDirty(Lcom/android/server/slice/DirtyTracker$Persistable;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -96,7 +96,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .locals 3
 
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -125,55 +125,48 @@
     return v1
 
     :cond_1
-    move-object v0, p1
+    check-cast p1, Lcom/android/server/slice/SliceProviderPermissions$SliceAuthority;
 
-    check-cast v0, Lcom/android/server/slice/SliceProviderPermissions$SliceAuthority;
+    iget-object v0, p0, Lcom/android/server/slice/SliceProviderPermissions$SliceAuthority;->mAuthority:Ljava/lang/String;
 
-    iget-object v2, p0, Lcom/android/server/slice/SliceProviderPermissions$SliceAuthority;->mAuthority:Ljava/lang/String;
+    iget-object v2, p1, Lcom/android/server/slice/SliceProviderPermissions$SliceAuthority;->mAuthority:Ljava/lang/String;
 
-    iget-object v3, v0, Lcom/android/server/slice/SliceProviderPermissions$SliceAuthority;->mAuthority:Ljava/lang/String;
+    invoke-static {v0, v2}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    invoke-static {v2, v3}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+    move-result v0
 
-    move-result v2
+    if-eqz v0, :cond_2
 
-    if-eqz v2, :cond_2
+    iget-object p0, p0, Lcom/android/server/slice/SliceProviderPermissions$SliceAuthority;->mPkgs:Landroid/util/ArraySet;
 
-    iget-object v2, p0, Lcom/android/server/slice/SliceProviderPermissions$SliceAuthority;->mPkgs:Landroid/util/ArraySet;
+    iget-object p1, p1, Lcom/android/server/slice/SliceProviderPermissions$SliceAuthority;->mPkgs:Landroid/util/ArraySet;
 
-    iget-object v3, v0, Lcom/android/server/slice/SliceProviderPermissions$SliceAuthority;->mPkgs:Landroid/util/ArraySet;
+    invoke-static {p0, p1}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    invoke-static {v2, v3}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+    move-result p0
 
-    move-result v2
-
-    if-eqz v2, :cond_2
+    if-eqz p0, :cond_2
 
     const/4 v1, 0x1
 
-    goto :goto_1
-
     :cond_2
-    nop
-
-    :goto_1
     return v1
 .end method
 
 .method public getAuthority()Ljava/lang/String;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/slice/SliceProviderPermissions$SliceAuthority;->mAuthority:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/slice/SliceProviderPermissions$SliceAuthority;->mAuthority:Ljava/lang/String;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getFileName()Ljava/lang/String;
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public declared-synchronized getPkgs()Ljava/util/Collection;
@@ -287,39 +280,6 @@
     throw p1
 .end method
 
-.method public declared-synchronized removePkg(Lcom/android/server/slice/SlicePermissionManager$PkgUser;)V
-    .locals 1
-
-    monitor-enter p0
-
-    :try_start_0
-    iget-object v0, p0, Lcom/android/server/slice/SliceProviderPermissions$SliceAuthority;->mPkgs:Landroid/util/ArraySet;
-
-    invoke-virtual {v0, p1}, Landroid/util/ArraySet;->remove(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/server/slice/SliceProviderPermissions$SliceAuthority;->mTracker:Lcom/android/server/slice/DirtyTracker;
-
-    invoke-interface {v0, p0}, Lcom/android/server/slice/DirtyTracker;->onPersistableDirty(Lcom/android/server/slice/DirtyTracker$Persistable;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    :cond_0
-    monitor-exit p0
-
-    return-void
-
-    :catchall_0
-    move-exception p1
-
-    monitor-exit p0
-
-    throw p1
-.end method
-
 .method public toString()Ljava/lang/String;
     .locals 3
 
@@ -333,23 +293,23 @@
 
     aput-object v1, v0, v2
 
-    iget-object v1, p0, Lcom/android/server/slice/SliceProviderPermissions$SliceAuthority;->mPkgs:Landroid/util/ArraySet;
+    iget-object p0, p0, Lcom/android/server/slice/SliceProviderPermissions$SliceAuthority;->mPkgs:Landroid/util/ArraySet;
 
-    invoke-virtual {v1}, Landroid/util/ArraySet;->toString()Ljava/lang/String;
+    invoke-virtual {p0}, Landroid/util/ArraySet;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    aput-object v1, v0, v2
+    aput-object p0, v0, v1
 
-    const-string v1, "(%s: %s)"
+    const-string p0, "(%s: %s)"
 
-    invoke-static {v1, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p0, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public declared-synchronized writeTo(Lorg/xmlpull/v1/XmlSerializer;)V
@@ -374,7 +334,7 @@
     :goto_0
     if-ge v1, v0, :cond_0
 
-    invoke-static {}, Lcom/android/server/slice/SliceProviderPermissions;->access$100()Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/slice/SliceProviderPermissions;->-$$Nest$sfgetNAMESPACE()Ljava/lang/String;
 
     move-result-object v2
 
@@ -396,7 +356,7 @@
 
     invoke-interface {p1, v2}, Lorg/xmlpull/v1/XmlSerializer;->text(Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    invoke-static {}, Lcom/android/server/slice/SliceProviderPermissions;->access$100()Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/slice/SliceProviderPermissions;->-$$Nest$sfgetNAMESPACE()Ljava/lang/String;
 
     move-result-object v2
 

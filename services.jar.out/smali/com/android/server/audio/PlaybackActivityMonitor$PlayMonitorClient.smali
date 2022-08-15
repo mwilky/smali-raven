@@ -1,4 +1,4 @@
-.class final Lcom/android/server/audio/PlaybackActivityMonitor$PlayMonitorClient;
+.class public final Lcom/android/server/audio/PlaybackActivityMonitor$PlayMonitorClient;
 .super Ljava/lang/Object;
 .source "PlaybackActivityMonitor.java"
 
@@ -12,27 +12,25 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "PlayMonitorClient"
 .end annotation
 
 
 # static fields
-.field static final MAX_ERRORS:I = 0x5
-
-.field static sListenerDeathMonitor:Lcom/android/server/audio/PlaybackActivityMonitor;
+.field public static sListenerDeathMonitor:Lcom/android/server/audio/PlaybackActivityMonitor;
 
 
 # instance fields
-.field final mDispatcherCb:Landroid/media/IPlaybackConfigDispatcher;
+.field public final mDispatcherCb:Landroid/media/IPlaybackConfigDispatcher;
 
-.field mErrorCount:I
+.field public mErrorCount:I
 
-.field final mIsPrivileged:Z
+.field public final mIsPrivileged:Z
 
 
 # direct methods
-.method constructor <init>(Landroid/media/IPlaybackConfigDispatcher;Z)V
+.method public constructor <init>(Landroid/media/IPlaybackConfigDispatcher;Z)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -61,15 +59,15 @@
 
     sget-object v0, Lcom/android/server/audio/PlaybackActivityMonitor$PlayMonitorClient;->sListenerDeathMonitor:Lcom/android/server/audio/PlaybackActivityMonitor;
 
-    iget-object v1, p0, Lcom/android/server/audio/PlaybackActivityMonitor$PlayMonitorClient;->mDispatcherCb:Landroid/media/IPlaybackConfigDispatcher;
+    iget-object p0, p0, Lcom/android/server/audio/PlaybackActivityMonitor$PlayMonitorClient;->mDispatcherCb:Landroid/media/IPlaybackConfigDispatcher;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/audio/PlaybackActivityMonitor;->unregisterPlaybackCallback(Landroid/media/IPlaybackConfigDispatcher;)V
+    invoke-virtual {v0, p0}, Lcom/android/server/audio/PlaybackActivityMonitor;->unregisterPlaybackCallback(Landroid/media/IPlaybackConfigDispatcher;)V
 
     return-void
 .end method
 
-.method init()Z
-    .locals 4
+.method public init()Z
+    .locals 3
 
     const/4 v0, 0x0
 
@@ -84,23 +82,23 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 
     :catch_0
-    move-exception v1
+    move-exception p0
 
-    const-string v2, "AudioService.PlaybackActivityMonitor"
+    const-string v1, "AudioService.PlaybackActivityMonitor"
 
-    const-string v3, "Could not link to client death"
+    const-string v2, "Could not link to client death"
 
-    invoke-static {v2, v3, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v1, v2, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     return v0
 .end method
 
-.method release()V
+.method public release()V
     .locals 2
 
     iget-object v0, p0, Lcom/android/server/audio/PlaybackActivityMonitor$PlayMonitorClient;->mDispatcherCb:Landroid/media/IPlaybackConfigDispatcher;

@@ -1,4 +1,4 @@
-.class Lcom/android/server/backup/UserBackupManagerService$2;
+.class public Lcom/android/server/backup/UserBackupManagerService$2;
 .super Landroid/content/BroadcastReceiver;
 .source "UserBackupManagerService.java"
 
@@ -9,17 +9,41 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/backup/UserBackupManagerService;
+.field public final synthetic this$0:Lcom/android/server/backup/UserBackupManagerService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/backup/UserBackupManagerService;)V
+.method public static synthetic $r8$lambda$BDvoFdX2tc58DuGaprVSobwAfeE(Lcom/android/server/backup/UserBackupManagerService$2;Ljava/lang/String;[Ljava/lang/String;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/server/backup/UserBackupManagerService$2;->lambda$onReceive$0(Ljava/lang/String;[Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$ZlwKjzcrcVwVFUpTR5wEnvQeDqk(Lcom/android/server/backup/UserBackupManagerService$2;Ljava/lang/String;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/backup/UserBackupManagerService$2;->lambda$onReceive$2(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$zkL4lkBVsrp0I18zMORcBirzgr4(Lcom/android/server/backup/UserBackupManagerService$2;Ljava/lang/String;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/backup/UserBackupManagerService$2;->lambda$onReceive$1(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Lcom/android/server/backup/UserBackupManagerService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/backup/UserBackupManagerService$2;->this$0:Lcom/android/server/backup/UserBackupManagerService;
@@ -29,586 +53,470 @@
     return-void
 .end method
 
+.method private synthetic lambda$onReceive$0(Ljava/lang/String;[Ljava/lang/String;)V
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/backup/UserBackupManagerService$2;->this$0:Lcom/android/server/backup/UserBackupManagerService;
+
+    invoke-static {p0}, Lcom/android/server/backup/UserBackupManagerService;->-$$Nest$fgetmTransportManager(Lcom/android/server/backup/UserBackupManagerService;)Lcom/android/server/backup/TransportManager;
+
+    move-result-object p0
+
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/backup/TransportManager;->onPackageChanged(Ljava/lang/String;[Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method private synthetic lambda$onReceive$1(Ljava/lang/String;)V
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/backup/UserBackupManagerService$2;->this$0:Lcom/android/server/backup/UserBackupManagerService;
+
+    invoke-static {p0}, Lcom/android/server/backup/UserBackupManagerService;->-$$Nest$fgetmTransportManager(Lcom/android/server/backup/UserBackupManagerService;)Lcom/android/server/backup/TransportManager;
+
+    move-result-object p0
+
+    invoke-virtual {p0, p1}, Lcom/android/server/backup/TransportManager;->onPackageAdded(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method private synthetic lambda$onReceive$2(Ljava/lang/String;)V
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/backup/UserBackupManagerService$2;->this$0:Lcom/android/server/backup/UserBackupManagerService;
+
+    invoke-static {p0}, Lcom/android/server/backup/UserBackupManagerService;->-$$Nest$fgetmTransportManager(Lcom/android/server/backup/UserBackupManagerService;)Lcom/android/server/backup/TransportManager;
+
+    move-result-object p0
+
+    invoke-virtual {p0, p1}, Lcom/android/server/backup/TransportManager;->onPackageRemoved(Ljava/lang/String;)V
+
+    return-void
+.end method
+
 
 # virtual methods
-.method public synthetic lambda$onReceive$0$UserBackupManagerService$2(Ljava/lang/String;[Ljava/lang/String;)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/backup/UserBackupManagerService$2;->this$0:Lcom/android/server/backup/UserBackupManagerService;
-
-    invoke-static {v0}, Lcom/android/server/backup/UserBackupManagerService;->access$1400(Lcom/android/server/backup/UserBackupManagerService;)Lcom/android/server/backup/TransportManager;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p1, p2}, Lcom/android/server/backup/TransportManager;->onPackageChanged(Ljava/lang/String;[Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method public synthetic lambda$onReceive$1$UserBackupManagerService$2(Ljava/lang/String;)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/backup/UserBackupManagerService$2;->this$0:Lcom/android/server/backup/UserBackupManagerService;
-
-    invoke-static {v0}, Lcom/android/server/backup/UserBackupManagerService;->access$1400(Lcom/android/server/backup/UserBackupManagerService;)Lcom/android/server/backup/TransportManager;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p1}, Lcom/android/server/backup/TransportManager;->onPackageAdded(Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method public synthetic lambda$onReceive$2$UserBackupManagerService$2(Ljava/lang/String;)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/backup/UserBackupManagerService$2;->this$0:Lcom/android/server/backup/UserBackupManagerService;
-
-    invoke-static {v0}, Lcom/android/server/backup/UserBackupManagerService;->access$1400(Lcom/android/server/backup/UserBackupManagerService;)Lcom/android/server/backup/TransportManager;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p1}, Lcom/android/server/backup/TransportManager;->onPackageRemoved(Ljava/lang/String;)V
-
-    return-void
-.end method
-
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 18
+    .locals 9
 
-    move-object/from16 v1, p0
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    move-object/from16 v2, p2
+    move-result-object p1
 
-    invoke-virtual/range {p2 .. p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+    invoke-virtual {p2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
-    move-result-object v3
+    move-result-object v0
 
-    const/4 v0, 0x0
+    const-string v1, "android.intent.action.PACKAGE_ADDED"
+
+    invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    const/4 v2, 0x1
+
+    const/4 v3, 0x0
 
     const/4 v4, 0x0
 
-    const/4 v5, 0x0
+    if-nez v1, :cond_3
 
-    invoke-virtual/range {p2 .. p2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
+    const-string v1, "android.intent.action.PACKAGE_REMOVED"
 
-    move-result-object v6
+    invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    const/4 v7, 0x0
+    move-result v1
 
-    const-string v8, "android.intent.action.PACKAGE_ADDED"
+    if-nez v1, :cond_3
 
-    invoke-virtual {v8, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const-string v1, "android.intent.action.PACKAGE_CHANGED"
 
-    move-result v8
+    invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    const/4 v9, 0x0
+    move-result v1
 
-    if-nez v8, :cond_3
-
-    const-string v8, "android.intent.action.PACKAGE_REMOVED"
-
-    invoke-virtual {v8, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v8
-
-    if-nez v8, :cond_3
-
-    const-string v8, "android.intent.action.PACKAGE_CHANGED"
-
-    invoke-virtual {v8, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v8
-
-    if-eqz v8, :cond_0
+    if-eqz v1, :cond_0
 
     goto :goto_0
 
     :cond_0
-    const-string v8, "android.intent.action.EXTERNAL_APPLICATIONS_AVAILABLE"
+    const-string v1, "android.intent.action.EXTERNAL_APPLICATIONS_AVAILABLE"
 
-    invoke-virtual {v8, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v8
+    move-result v1
 
-    if-eqz v8, :cond_1
+    if-eqz v1, :cond_1
 
-    const/4 v4, 0x1
+    const-string p1, "android.intent.extra.changed_package_list"
 
-    const-string v8, "android.intent.extra.changed_package_list"
+    invoke-virtual {p2, p1}, Landroid/content/Intent;->getStringArrayExtra(Ljava/lang/String;)[Ljava/lang/String;
 
-    invoke-virtual {v2, v8}, Landroid/content/Intent;->getStringArrayExtra(Ljava/lang/String;)[Ljava/lang/String;
+    move-result-object v4
 
-    move-result-object v7
-
-    move-object v8, v7
-
-    move v7, v5
-
-    move v5, v4
-
-    move v4, v0
+    move p1, v3
 
     goto :goto_1
 
     :cond_1
-    const-string v8, "android.intent.action.EXTERNAL_APPLICATIONS_UNAVAILABLE"
+    const-string v1, "android.intent.action.EXTERNAL_APPLICATIONS_UNAVAILABLE"
 
-    invoke-virtual {v8, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v8
+    move-result p1
 
-    if-eqz v8, :cond_2
+    if-eqz p1, :cond_2
 
-    const/4 v4, 0x0
+    const-string p1, "android.intent.extra.changed_package_list"
 
-    const-string v8, "android.intent.extra.changed_package_list"
+    invoke-virtual {p2, p1}, Landroid/content/Intent;->getStringArrayExtra(Ljava/lang/String;)[Ljava/lang/String;
 
-    invoke-virtual {v2, v8}, Landroid/content/Intent;->getStringArrayExtra(Ljava/lang/String;)[Ljava/lang/String;
-
-    move-result-object v7
-
-    move-object v8, v7
-
-    move v7, v5
-
-    move v5, v4
-
-    move v4, v0
-
-    goto :goto_1
+    move-result-object v4
 
     :cond_2
-    move-object v8, v7
+    move p1, v3
 
-    move v7, v5
-
-    move v5, v4
-
-    move v4, v0
+    move v2, p1
 
     goto :goto_1
 
     :cond_3
     :goto_0
-    invoke-virtual/range {p2 .. p2}, Landroid/content/Intent;->getData()Landroid/net/Uri;
+    invoke-virtual {p2}, Landroid/content/Intent;->getData()Landroid/net/Uri;
 
-    move-result-object v8
+    move-result-object v1
 
-    if-nez v8, :cond_4
+    if-nez v1, :cond_4
 
     return-void
 
     :cond_4
-    invoke-virtual {v8}, Landroid/net/Uri;->getSchemeSpecificPart()Ljava/lang/String;
+    invoke-virtual {v1}, Landroid/net/Uri;->getSchemeSpecificPart()Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v1
 
-    if-eqz v10, :cond_5
+    if-eqz v1, :cond_5
 
-    const/4 v11, 0x1
+    new-array v4, v2, [Ljava/lang/String;
 
-    new-array v11, v11, [Ljava/lang/String;
-
-    aput-object v10, v11, v9
-
-    move-object v7, v11
+    aput-object v1, v4, v3
 
     :cond_5
-    const-string v11, "android.intent.action.PACKAGE_CHANGED"
+    const-string v2, "android.intent.action.PACKAGE_CHANGED"
 
-    invoke-virtual {v11, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v2
 
-    if-eqz v5, :cond_6
+    if-eqz v2, :cond_6
 
-    const-string v9, "android.intent.extra.changed_component_name_list"
+    const-string p1, "android.intent.extra.changed_component_name_list"
 
-    invoke-virtual {v2, v9}, Landroid/content/Intent;->getStringArrayExtra(Ljava/lang/String;)[Ljava/lang/String;
+    invoke-virtual {p2, p1}, Landroid/content/Intent;->getStringArrayExtra(Ljava/lang/String;)[Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object p1
 
-    iget-object v11, v1, Lcom/android/server/backup/UserBackupManagerService$2;->this$0:Lcom/android/server/backup/UserBackupManagerService;
+    iget-object p2, p0, Lcom/android/server/backup/UserBackupManagerService$2;->this$0:Lcom/android/server/backup/UserBackupManagerService;
 
-    invoke-static {v11}, Lcom/android/server/backup/UserBackupManagerService;->access$600(Lcom/android/server/backup/UserBackupManagerService;)Lcom/android/server/backup/internal/BackupHandler;
+    invoke-static {p2}, Lcom/android/server/backup/UserBackupManagerService;->-$$Nest$fgetmBackupHandler(Lcom/android/server/backup/UserBackupManagerService;)Lcom/android/server/backup/internal/BackupHandler;
 
-    move-result-object v11
+    move-result-object p2
 
-    new-instance v12, Lcom/android/server/backup/UserBackupManagerService$2$$ExternalSyntheticLambda2;
+    new-instance v0, Lcom/android/server/backup/UserBackupManagerService$2$$ExternalSyntheticLambda0;
 
-    invoke-direct {v12, v1, v10, v9}, Lcom/android/server/backup/UserBackupManagerService$2$$ExternalSyntheticLambda2;-><init>(Lcom/android/server/backup/UserBackupManagerService$2;Ljava/lang/String;[Ljava/lang/String;)V
+    invoke-direct {v0, p0, v1, p1}, Lcom/android/server/backup/UserBackupManagerService$2$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/backup/UserBackupManagerService$2;Ljava/lang/String;[Ljava/lang/String;)V
 
-    invoke-virtual {v11, v12}, Lcom/android/server/backup/internal/BackupHandler;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {p2, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     return-void
 
     :cond_6
-    const-string v11, "android.intent.action.PACKAGE_ADDED"
+    const-string p2, "android.intent.action.PACKAGE_ADDED"
 
-    invoke-virtual {v11, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result v2
 
-    const-string v11, "android.intent.extra.REPLACING"
+    const-string p1, "android.intent.extra.REPLACING"
 
-    invoke-virtual {v6, v11, v9}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-virtual {v0, p1, v3}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
 
-    move-result v0
-
-    move-object v8, v7
-
-    move v7, v5
-
-    move v5, v4
-
-    move v4, v0
+    move-result p1
 
     :goto_1
-    if-eqz v8, :cond_f
+    if-eqz v4, :cond_d
 
-    array-length v0, v8
+    array-length p2, v4
 
-    if-nez v0, :cond_7
+    if-nez p2, :cond_7
 
-    move-object/from16 v16, v3
-
-    goto/16 :goto_c
+    goto/16 :goto_7
 
     :cond_7
-    const-string v0, "android.intent.extra.UID"
+    const-string p2, "android.intent.extra.UID"
 
-    invoke-virtual {v6, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
+    invoke-virtual {v0, p2}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
-    move-result v10
+    move-result p2
 
-    if-eqz v5, :cond_c
+    if-eqz v2, :cond_b
 
-    iget-object v0, v1, Lcom/android/server/backup/UserBackupManagerService$2;->this$0:Lcom/android/server/backup/UserBackupManagerService;
+    iget-object v0, p0, Lcom/android/server/backup/UserBackupManagerService$2;->this$0:Lcom/android/server/backup/UserBackupManagerService;
 
-    invoke-static {v0}, Lcom/android/server/backup/UserBackupManagerService;->access$700(Lcom/android/server/backup/UserBackupManagerService;)Landroid/util/SparseArray;
+    invoke-static {v0}, Lcom/android/server/backup/UserBackupManagerService;->-$$Nest$fgetmBackupParticipants(Lcom/android/server/backup/UserBackupManagerService;)Landroid/util/SparseArray;
 
-    move-result-object v11
+    move-result-object v0
 
-    monitor-enter v11
+    monitor-enter v0
 
-    if-eqz v4, :cond_8
+    if-eqz p1, :cond_8
 
     :try_start_0
-    iget-object v0, v1, Lcom/android/server/backup/UserBackupManagerService$2;->this$0:Lcom/android/server/backup/UserBackupManagerService;
+    iget-object p1, p0, Lcom/android/server/backup/UserBackupManagerService$2;->this$0:Lcom/android/server/backup/UserBackupManagerService;
 
-    invoke-static {v0, v8, v10}, Lcom/android/server/backup/UserBackupManagerService;->access$800(Lcom/android/server/backup/UserBackupManagerService;[Ljava/lang/String;I)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    goto :goto_2
-
-    :catchall_0
-    move-exception v0
-
-    move-object/from16 v16, v3
-
-    goto/16 :goto_8
+    invoke-static {p1, v4, p2}, Lcom/android/server/backup/UserBackupManagerService;->-$$Nest$mremovePackageParticipantsLocked(Lcom/android/server/backup/UserBackupManagerService;[Ljava/lang/String;I)V
 
     :cond_8
-    :goto_2
-    :try_start_1
-    iget-object v0, v1, Lcom/android/server/backup/UserBackupManagerService$2;->this$0:Lcom/android/server/backup/UserBackupManagerService;
+    iget-object p1, p0, Lcom/android/server/backup/UserBackupManagerService$2;->this$0:Lcom/android/server/backup/UserBackupManagerService;
 
-    invoke-static {v0, v8}, Lcom/android/server/backup/UserBackupManagerService;->access$900(Lcom/android/server/backup/UserBackupManagerService;[Ljava/lang/String;)V
+    invoke-static {p1, v4}, Lcom/android/server/backup/UserBackupManagerService;->-$$Nest$maddPackageParticipantsLocked(Lcom/android/server/backup/UserBackupManagerService;[Ljava/lang/String;)V
 
-    monitor-exit v11
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_2
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v11
+    move-result-wide p1
 
-    array-length v13, v8
+    array-length v0, v4
 
-    move v14, v9
+    move v1, v3
 
-    :goto_3
-    if-ge v14, v13, :cond_b
+    :goto_2
+    if-ge v1, v0, :cond_a
 
-    aget-object v15, v8, v14
+    aget-object v2, v4, v1
 
-    :try_start_2
-    iget-object v0, v1, Lcom/android/server/backup/UserBackupManagerService$2;->this$0:Lcom/android/server/backup/UserBackupManagerService;
+    :try_start_1
+    iget-object v5, p0, Lcom/android/server/backup/UserBackupManagerService$2;->this$0:Lcom/android/server/backup/UserBackupManagerService;
 
-    invoke-static {v0}, Lcom/android/server/backup/UserBackupManagerService;->access$1000(Lcom/android/server/backup/UserBackupManagerService;)Landroid/content/pm/PackageManager;
+    invoke-static {v5}, Lcom/android/server/backup/UserBackupManagerService;->-$$Nest$fgetmPackageManager(Lcom/android/server/backup/UserBackupManagerService;)Landroid/content/pm/PackageManager;
 
-    move-result-object v0
+    move-result-object v5
 
-    iget-object v9, v1, Lcom/android/server/backup/UserBackupManagerService$2;->this$0:Lcom/android/server/backup/UserBackupManagerService;
+    iget-object v6, p0, Lcom/android/server/backup/UserBackupManagerService$2;->this$0:Lcom/android/server/backup/UserBackupManagerService;
 
-    invoke-static {v9}, Lcom/android/server/backup/UserBackupManagerService;->access$500(Lcom/android/server/backup/UserBackupManagerService;)I
+    invoke-static {v6}, Lcom/android/server/backup/UserBackupManagerService;->-$$Nest$fgetmUserId(Lcom/android/server/backup/UserBackupManagerService;)I
 
-    move-result v9
+    move-result v6
 
-    const/4 v2, 0x0
+    invoke-virtual {v5, v2, v3, v6}, Landroid/content/pm/PackageManager;->getPackageInfoAsUser(Ljava/lang/String;II)Landroid/content/pm/PackageInfo;
 
-    invoke-virtual {v0, v15, v2, v9}, Landroid/content/pm/PackageManager;->getPackageInfoAsUser(Ljava/lang/String;II)Landroid/content/pm/PackageInfo;
+    move-result-object v5
 
-    move-result-object v0
+    iget-object v6, p0, Lcom/android/server/backup/UserBackupManagerService$2;->this$0:Lcom/android/server/backup/UserBackupManagerService;
 
-    move-object v9, v0
+    invoke-static {v6}, Lcom/android/server/backup/UserBackupManagerService;->-$$Nest$fgetmScheduledBackupEligibility(Lcom/android/server/backup/UserBackupManagerService;)Lcom/android/server/backup/utils/BackupEligibilityRules;
 
-    iget-object v0, v1, Lcom/android/server/backup/UserBackupManagerService$2;->this$0:Lcom/android/server/backup/UserBackupManagerService;
+    move-result-object v6
 
-    invoke-static {v0}, Lcom/android/server/backup/UserBackupManagerService;->access$1100(Lcom/android/server/backup/UserBackupManagerService;)Lcom/android/server/backup/utils/BackupEligibilityRules;
+    invoke-virtual {v6, v5}, Lcom/android/server/backup/utils/BackupEligibilityRules;->appGetsFullBackup(Landroid/content/pm/PackageInfo;)Z
 
-    move-result-object v0
+    move-result v6
 
-    invoke-virtual {v0, v9}, Lcom/android/server/backup/utils/BackupEligibilityRules;->appGetsFullBackup(Landroid/content/pm/PackageInfo;)Z
+    if-eqz v6, :cond_9
 
-    move-result v0
+    iget-object v6, p0, Lcom/android/server/backup/UserBackupManagerService$2;->this$0:Lcom/android/server/backup/UserBackupManagerService;
 
-    if-eqz v0, :cond_a
+    invoke-static {v6}, Lcom/android/server/backup/UserBackupManagerService;->-$$Nest$fgetmScheduledBackupEligibility(Lcom/android/server/backup/UserBackupManagerService;)Lcom/android/server/backup/utils/BackupEligibilityRules;
 
-    iget-object v0, v1, Lcom/android/server/backup/UserBackupManagerService$2;->this$0:Lcom/android/server/backup/UserBackupManagerService;
+    move-result-object v6
 
-    invoke-static {v0}, Lcom/android/server/backup/UserBackupManagerService;->access$1100(Lcom/android/server/backup/UserBackupManagerService;)Lcom/android/server/backup/utils/BackupEligibilityRules;
+    iget-object v5, v5, Landroid/content/pm/PackageInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
-    move-result-object v0
+    invoke-virtual {v6, v5}, Lcom/android/server/backup/utils/BackupEligibilityRules;->appIsEligibleForBackup(Landroid/content/pm/ApplicationInfo;)Z
 
-    iget-object v2, v9, Landroid/content/pm/PackageInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+    move-result v5
 
-    invoke-virtual {v0, v2}, Lcom/android/server/backup/utils/BackupEligibilityRules;->appIsEligibleForBackup(Landroid/content/pm/ApplicationInfo;)Z
+    if-eqz v5, :cond_9
 
-    move-result v0
+    iget-object v5, p0, Lcom/android/server/backup/UserBackupManagerService$2;->this$0:Lcom/android/server/backup/UserBackupManagerService;
 
-    if-eqz v0, :cond_9
+    invoke-virtual {v5, v2, p1, p2}, Lcom/android/server/backup/UserBackupManagerService;->enqueueFullBackup(Ljava/lang/String;J)V
 
-    iget-object v0, v1, Lcom/android/server/backup/UserBackupManagerService$2;->this$0:Lcom/android/server/backup/UserBackupManagerService;
+    iget-object v5, p0, Lcom/android/server/backup/UserBackupManagerService$2;->this$0:Lcom/android/server/backup/UserBackupManagerService;
 
-    invoke-virtual {v0, v15, v11, v12}, Lcom/android/server/backup/UserBackupManagerService;->enqueueFullBackup(Ljava/lang/String;J)V
+    const-wide/16 v6, 0x0
 
-    iget-object v0, v1, Lcom/android/server/backup/UserBackupManagerService$2;->this$0:Lcom/android/server/backup/UserBackupManagerService;
-    :try_end_2
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_2 .. :try_end_2} :catch_1
+    invoke-virtual {v5, v6, v7}, Lcom/android/server/backup/UserBackupManagerService;->scheduleNextFullBackupJob(J)V
 
-    move-object/from16 v16, v3
-
-    const-wide/16 v2, 0x0
-
-    :try_start_3
-    invoke-virtual {v0, v2, v3}, Lcom/android/server/backup/UserBackupManagerService;->scheduleNextFullBackupJob(J)V
-
-    goto :goto_5
+    goto :goto_3
 
     :cond_9
-    move-object/from16 v16, v3
+    iget-object v5, p0, Lcom/android/server/backup/UserBackupManagerService$2;->this$0:Lcom/android/server/backup/UserBackupManagerService;
 
-    goto :goto_4
+    invoke-static {v5}, Lcom/android/server/backup/UserBackupManagerService;->-$$Nest$fgetmQueueLock(Lcom/android/server/backup/UserBackupManagerService;)Ljava/lang/Object;
 
-    :cond_a
-    move-object/from16 v16, v3
+    move-result-object v5
 
-    :goto_4
-    iget-object v0, v1, Lcom/android/server/backup/UserBackupManagerService$2;->this$0:Lcom/android/server/backup/UserBackupManagerService;
+    monitor-enter v5
+    :try_end_1
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_1 .. :try_end_1} :catch_0
 
-    invoke-static {v0}, Lcom/android/server/backup/UserBackupManagerService;->access$200(Lcom/android/server/backup/UserBackupManagerService;)Ljava/lang/Object;
+    :try_start_2
+    iget-object v6, p0, Lcom/android/server/backup/UserBackupManagerService$2;->this$0:Lcom/android/server/backup/UserBackupManagerService;
 
-    move-result-object v2
+    invoke-static {v6, v2}, Lcom/android/server/backup/UserBackupManagerService;->-$$Nest$mdequeueFullBackupLocked(Lcom/android/server/backup/UserBackupManagerService;Ljava/lang/String;)V
 
-    monitor-enter v2
+    monitor-exit v5
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    :try_start_3
+    iget-object v5, p0, Lcom/android/server/backup/UserBackupManagerService$2;->this$0:Lcom/android/server/backup/UserBackupManagerService;
+
+    invoke-static {v5}, Lcom/android/server/backup/UserBackupManagerService;->-$$Nest$mwriteFullBackupScheduleAsync(Lcom/android/server/backup/UserBackupManagerService;)V
+
+    :goto_3
+    iget-object v5, p0, Lcom/android/server/backup/UserBackupManagerService$2;->this$0:Lcom/android/server/backup/UserBackupManagerService;
+
+    invoke-static {v5}, Lcom/android/server/backup/UserBackupManagerService;->-$$Nest$fgetmBackupHandler(Lcom/android/server/backup/UserBackupManagerService;)Lcom/android/server/backup/internal/BackupHandler;
+
+    move-result-object v5
+
+    new-instance v6, Lcom/android/server/backup/UserBackupManagerService$2$$ExternalSyntheticLambda1;
+
+    invoke-direct {v6, p0, v2}, Lcom/android/server/backup/UserBackupManagerService$2$$ExternalSyntheticLambda1;-><init>(Lcom/android/server/backup/UserBackupManagerService$2;Ljava/lang/String;)V
+
+    invoke-virtual {v5, v6}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
     :try_end_3
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_3 .. :try_end_3} :catch_0
 
+    goto :goto_4
+
+    :catchall_0
+    move-exception v6
+
     :try_start_4
-    iget-object v0, v1, Lcom/android/server/backup/UserBackupManagerService$2;->this$0:Lcom/android/server/backup/UserBackupManagerService;
-
-    invoke-static {v0, v15}, Lcom/android/server/backup/UserBackupManagerService;->access$1200(Lcom/android/server/backup/UserBackupManagerService;Ljava/lang/String;)V
-
-    monitor-exit v2
+    monitor-exit v5
     :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_1
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
     :try_start_5
-    iget-object v0, v1, Lcom/android/server/backup/UserBackupManagerService$2;->this$0:Lcom/android/server/backup/UserBackupManagerService;
-
-    invoke-static {v0}, Lcom/android/server/backup/UserBackupManagerService;->access$1300(Lcom/android/server/backup/UserBackupManagerService;)V
-
-    :goto_5
-    iget-object v0, v1, Lcom/android/server/backup/UserBackupManagerService$2;->this$0:Lcom/android/server/backup/UserBackupManagerService;
-
-    invoke-static {v0}, Lcom/android/server/backup/UserBackupManagerService;->access$600(Lcom/android/server/backup/UserBackupManagerService;)Lcom/android/server/backup/internal/BackupHandler;
-
-    move-result-object v0
-
-    new-instance v2, Lcom/android/server/backup/UserBackupManagerService$2$$ExternalSyntheticLambda0;
-
-    invoke-direct {v2, v1, v15}, Lcom/android/server/backup/UserBackupManagerService$2$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/backup/UserBackupManagerService$2;Ljava/lang/String;)V
-
-    invoke-virtual {v0, v2}, Lcom/android/server/backup/internal/BackupHandler;->post(Ljava/lang/Runnable;)Z
+    throw v6
     :try_end_5
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_5 .. :try_end_5} :catch_0
 
-    nop
+    :catch_0
+    const-string v5, "BackupManagerService"
+
+    iget-object v6, p0, Lcom/android/server/backup/UserBackupManagerService$2;->this$0:Lcom/android/server/backup/UserBackupManagerService;
+
+    invoke-static {v6}, Lcom/android/server/backup/UserBackupManagerService;->-$$Nest$fgetmUserId(Lcom/android/server/backup/UserBackupManagerService;)I
+
+    move-result v6
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v8, "Can\'t resolve new app "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v7, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v6, v2}, Lcom/android/server/backup/UserBackupManagerService;->-$$Nest$smaddUserIdToLogMessage(ILjava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v5, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    :goto_4
+    add-int/lit8 v1, v1, 0x1
+
+    goto/16 :goto_2
+
+    :cond_a
+    iget-object p0, p0, Lcom/android/server/backup/UserBackupManagerService$2;->this$0:Lcom/android/server/backup/UserBackupManagerService;
+
+    const-string p1, "@pm@"
+
+    invoke-virtual {p0, p1}, Lcom/android/server/backup/UserBackupManagerService;->dataChangedImpl(Ljava/lang/String;)V
 
     goto :goto_7
 
     :catchall_1
-    move-exception v0
+    move-exception p0
 
     :try_start_6
-    monitor-exit v2
+    monitor-exit v0
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_1
 
-    :try_start_7
-    throw v0
-    :try_end_7
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_7 .. :try_end_7} :catch_0
+    throw p0
 
-    :catch_0
-    move-exception v0
+    :cond_b
+    if-nez p1, :cond_c
+
+    iget-object p1, p0, Lcom/android/server/backup/UserBackupManagerService$2;->this$0:Lcom/android/server/backup/UserBackupManagerService;
+
+    invoke-static {p1}, Lcom/android/server/backup/UserBackupManagerService;->-$$Nest$fgetmBackupParticipants(Lcom/android/server/backup/UserBackupManagerService;)Landroid/util/SparseArray;
+
+    move-result-object p1
+
+    monitor-enter p1
+
+    :try_start_7
+    iget-object v0, p0, Lcom/android/server/backup/UserBackupManagerService$2;->this$0:Lcom/android/server/backup/UserBackupManagerService;
+
+    invoke-static {v0, v4, p2}, Lcom/android/server/backup/UserBackupManagerService;->-$$Nest$mremovePackageParticipantsLocked(Lcom/android/server/backup/UserBackupManagerService;[Ljava/lang/String;I)V
+
+    monitor-exit p1
+
+    goto :goto_5
+
+    :catchall_2
+    move-exception p0
+
+    monitor-exit p1
+    :try_end_7
+    .catchall {:try_start_7 .. :try_end_7} :catchall_2
+
+    throw p0
+
+    :cond_c
+    :goto_5
+    array-length p1, v4
+
+    :goto_6
+    if-ge v3, p1, :cond_d
+
+    aget-object p2, v4, v3
+
+    iget-object v0, p0, Lcom/android/server/backup/UserBackupManagerService$2;->this$0:Lcom/android/server/backup/UserBackupManagerService;
+
+    invoke-static {v0}, Lcom/android/server/backup/UserBackupManagerService;->-$$Nest$fgetmBackupHandler(Lcom/android/server/backup/UserBackupManagerService;)Lcom/android/server/backup/internal/BackupHandler;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/android/server/backup/UserBackupManagerService$2$$ExternalSyntheticLambda2;
+
+    invoke-direct {v1, p0, p2}, Lcom/android/server/backup/UserBackupManagerService$2$$ExternalSyntheticLambda2;-><init>(Lcom/android/server/backup/UserBackupManagerService$2;Ljava/lang/String;)V
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_6
 
-    :catch_1
-    move-exception v0
-
-    move-object/from16 v16, v3
-
-    :goto_6
-    const-string v2, "BackupManagerService"
-
-    iget-object v3, v1, Lcom/android/server/backup/UserBackupManagerService$2;->this$0:Lcom/android/server/backup/UserBackupManagerService;
-
-    invoke-static {v3}, Lcom/android/server/backup/UserBackupManagerService;->access$500(Lcom/android/server/backup/UserBackupManagerService;)I
-
-    move-result v3
-
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    move-object/from16 v17, v0
-
-    const-string v0, "Can\'t resolve new app "
-
-    invoke-virtual {v9, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v9, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v3, v0}, Lcom/android/server/backup/UserBackupManagerService;->access$000(ILjava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v2, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    :goto_7
-    add-int/lit8 v14, v14, 0x1
-
-    move-object/from16 v2, p2
-
-    move-object/from16 v3, v16
-
-    const/4 v9, 0x0
-
-    goto/16 :goto_3
-
-    :cond_b
-    move-object/from16 v16, v3
-
-    iget-object v0, v1, Lcom/android/server/backup/UserBackupManagerService$2;->this$0:Lcom/android/server/backup/UserBackupManagerService;
-
-    const-string v2, "@pm@"
-
-    invoke-virtual {v0, v2}, Lcom/android/server/backup/UserBackupManagerService;->dataChangedImpl(Ljava/lang/String;)V
-
-    goto :goto_b
-
-    :catchall_2
-    move-exception v0
-
-    move-object/from16 v16, v3
-
-    :goto_8
-    :try_start_8
-    monitor-exit v11
-    :try_end_8
-    .catchall {:try_start_8 .. :try_end_8} :catchall_3
-
-    throw v0
-
-    :catchall_3
-    move-exception v0
-
-    goto :goto_8
-
-    :cond_c
-    move-object/from16 v16, v3
-
-    if-nez v4, :cond_d
-
-    iget-object v0, v1, Lcom/android/server/backup/UserBackupManagerService$2;->this$0:Lcom/android/server/backup/UserBackupManagerService;
-
-    invoke-static {v0}, Lcom/android/server/backup/UserBackupManagerService;->access$700(Lcom/android/server/backup/UserBackupManagerService;)Landroid/util/SparseArray;
-
-    move-result-object v2
-
-    monitor-enter v2
-
-    :try_start_9
-    iget-object v0, v1, Lcom/android/server/backup/UserBackupManagerService$2;->this$0:Lcom/android/server/backup/UserBackupManagerService;
-
-    invoke-static {v0, v8, v10}, Lcom/android/server/backup/UserBackupManagerService;->access$800(Lcom/android/server/backup/UserBackupManagerService;[Ljava/lang/String;I)V
-
-    monitor-exit v2
-
-    goto :goto_9
-
-    :catchall_4
-    move-exception v0
-
-    monitor-exit v2
-    :try_end_9
-    .catchall {:try_start_9 .. :try_end_9} :catchall_4
-
-    throw v0
-
     :cond_d
-    :goto_9
-    array-length v0, v8
-
-    const/4 v9, 0x0
-
-    :goto_a
-    if-ge v9, v0, :cond_e
-
-    aget-object v2, v8, v9
-
-    iget-object v3, v1, Lcom/android/server/backup/UserBackupManagerService$2;->this$0:Lcom/android/server/backup/UserBackupManagerService;
-
-    invoke-static {v3}, Lcom/android/server/backup/UserBackupManagerService;->access$600(Lcom/android/server/backup/UserBackupManagerService;)Lcom/android/server/backup/internal/BackupHandler;
-
-    move-result-object v3
-
-    new-instance v11, Lcom/android/server/backup/UserBackupManagerService$2$$ExternalSyntheticLambda1;
-
-    invoke-direct {v11, v1, v2}, Lcom/android/server/backup/UserBackupManagerService$2$$ExternalSyntheticLambda1;-><init>(Lcom/android/server/backup/UserBackupManagerService$2;Ljava/lang/String;)V
-
-    invoke-virtual {v3, v11}, Lcom/android/server/backup/internal/BackupHandler;->post(Ljava/lang/Runnable;)Z
-
-    add-int/lit8 v9, v9, 0x1
-
-    goto :goto_a
-
-    :cond_e
-    :goto_b
-    return-void
-
-    :cond_f
-    move-object/from16 v16, v3
-
-    :goto_c
+    :goto_7
     return-void
 .end method

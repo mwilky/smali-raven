@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/server/hdmi/HdmiCecLocalDevicePlayback$ActiveWakeLock;
+.class public interface abstract Lcom/android/server/hdmi/HdmiCecLocalDevicePlayback$ActiveWakeLock;
 .super Ljava/lang/Object;
 .source "HdmiCecLocalDevicePlayback.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x60a
+    accessFlags = 0x609
     name = "ActiveWakeLock"
 .end annotation
 

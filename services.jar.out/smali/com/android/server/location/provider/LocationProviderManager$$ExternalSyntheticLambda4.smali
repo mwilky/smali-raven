@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/location/provider/LocationProviderManager$$ExternalSyntheticLambda4;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/server/location/injector/SettingsHelper$GlobalSettingChangedListener;
+.implements Lcom/android/server/location/injector/ScreenInteractiveHelper$ScreenInteractiveChangedListener;
 
 
 # instance fields
@@ -22,12 +23,12 @@
 
 
 # virtual methods
-.method public final onSettingChanged()V
-    .locals 1
+.method public final onScreenInteractiveChanged(Z)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/location/provider/LocationProviderManager$$ExternalSyntheticLambda4;->f$0:Lcom/android/server/location/provider/LocationProviderManager;
+    iget-object p0, p0, Lcom/android/server/location/provider/LocationProviderManager$$ExternalSyntheticLambda4;->f$0:Lcom/android/server/location/provider/LocationProviderManager;
 
-    invoke-static {v0}, Lcom/android/server/location/provider/LocationProviderManager;->$r8$lambda$93NUqXTfUSE5tZtsl_LWgfbHlOc(Lcom/android/server/location/provider/LocationProviderManager;)V
+    invoke-static {p0, p1}, Lcom/android/server/location/provider/LocationProviderManager;->$r8$lambda$tOu2N67zuUYfUXiymWsHUx8mz2o(Lcom/android/server/location/provider/LocationProviderManager;Z)V
 
     return-void
 .end method

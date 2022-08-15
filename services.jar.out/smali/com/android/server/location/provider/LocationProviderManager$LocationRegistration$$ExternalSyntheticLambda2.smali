@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/location/provider/LocationProviderManager$LocationRegistration$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Supplier;
+.implements Lcom/android/internal/listeners/ListenerExecutor$FailureCallback;
 
 
 # instance fields
@@ -22,14 +23,12 @@
 
 
 # virtual methods
-.method public final get()Ljava/lang/Object;
-    .locals 1
+.method public final onFailure(Lcom/android/internal/listeners/ListenerExecutor$ListenerOperation;Ljava/lang/Exception;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/location/provider/LocationProviderManager$LocationRegistration$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/location/provider/LocationProviderManager$LocationRegistration;
+    iget-object p0, p0, Lcom/android/server/location/provider/LocationProviderManager$LocationRegistration$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/location/provider/LocationProviderManager$LocationRegistration;
 
-    invoke-virtual {v0}, Lcom/android/server/location/provider/LocationProviderManager$LocationRegistration;->lambda$onProviderEnabledChanged$0$LocationProviderManager$LocationRegistration()Lcom/android/server/location/provider/LocationProviderManager$ProviderTransport;
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/location/provider/LocationProviderManager$LocationRegistration;->onProviderOperationFailure(Lcom/android/internal/listeners/ListenerExecutor$ListenerOperation;Ljava/lang/Exception;)V
 
-    move-result-object v0
-
-    return-object v0
+    return-void
 .end method

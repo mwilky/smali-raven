@@ -3,6 +3,11 @@
 .source "SystemPropertiesWrapper.java"
 
 
+# annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+.end annotation
+
+
 # virtual methods
 .method public abstract get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 .end method

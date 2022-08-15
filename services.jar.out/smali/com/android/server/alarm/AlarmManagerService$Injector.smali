@@ -4,24 +4,27 @@
 
 
 # annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/android/server/alarm/AlarmManagerService;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "Injector"
 .end annotation
 
 
 # instance fields
-.field private mContext:Landroid/content/Context;
+.field public mContext:Landroid/content/Context;
 
-.field private mNativeData:J
+.field public mNativeData:J
 
 
 # direct methods
-.method constructor <init>(Landroid/content/Context;)V
+.method public constructor <init>(Landroid/content/Context;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -33,81 +36,79 @@
 
 
 # virtual methods
-.method close()V
+.method public close()V
     .locals 2
 
     iget-wide v0, p0, Lcom/android/server/alarm/AlarmManagerService$Injector;->mNativeData:J
 
-    invoke-static {v0, v1}, Lcom/android/server/alarm/AlarmManagerService;->access$2200(J)V
+    invoke-static {v0, v1}, Lcom/android/server/alarm/AlarmManagerService;->-$$Nest$smclose(J)V
 
     return-void
 .end method
 
-.method getAlarmWakeLock()Landroid/os/PowerManager$WakeLock;
-    .locals 3
+.method public getAlarmWakeLock()Landroid/os/PowerManager$WakeLock;
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/server/alarm/AlarmManagerService$Injector;->mContext:Landroid/content/Context;
+    iget-object p0, p0, Lcom/android/server/alarm/AlarmManagerService$Injector;->mContext:Landroid/content/Context;
 
-    const-string/jumbo v1, "power"
+    const-string/jumbo v0, "power"
 
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Landroid/os/PowerManager;
+    check-cast p0, Landroid/os/PowerManager;
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    const-string v2, "*alarm*"
+    const-string v1, "*alarm*"
 
-    invoke-virtual {v0, v1, v2}, Landroid/os/PowerManager;->newWakeLock(ILjava/lang/String;)Landroid/os/PowerManager$WakeLock;
+    invoke-virtual {p0, v0, v1}, Landroid/os/PowerManager;->newWakeLock(ILjava/lang/String;)Landroid/os/PowerManager$WakeLock;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method
 
-.method getAppOpsService()Lcom/android/internal/app/IAppOpsService;
-    .locals 1
+.method public getAppOpsService()Lcom/android/internal/app/IAppOpsService;
+    .locals 0
 
-    nop
+    const-string p0, "appops"
 
-    const-string v0, "appops"
+    invoke-static {p0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
-    invoke-static {v0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+    move-result-object p0
 
-    move-result-object v0
+    invoke-static {p0}, Lcom/android/internal/app/IAppOpsService$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/app/IAppOpsService;
 
-    invoke-static {v0}, Lcom/android/internal/app/IAppOpsService$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/app/IAppOpsService;
+    move-result-object p0
 
-    move-result-object v0
-
-    return-object v0
+    return-object p0
 .end method
 
-.method getCallingUid()I
-    .locals 1
+.method public getCallingUid()I
+    .locals 0
 
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
-.method getClockReceiver(Lcom/android/server/alarm/AlarmManagerService;)Lcom/android/server/alarm/AlarmManagerService$ClockReceiver;
-    .locals 1
+.method public getClockReceiver(Lcom/android/server/alarm/AlarmManagerService;)Lcom/android/server/alarm/AlarmManagerService$ClockReceiver;
+    .locals 0
 
-    new-instance v0, Lcom/android/server/alarm/AlarmManagerService$ClockReceiver;
+    new-instance p0, Lcom/android/server/alarm/AlarmManagerService$ClockReceiver;
 
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-direct {v0, p1}, Lcom/android/server/alarm/AlarmManagerService$ClockReceiver;-><init>(Lcom/android/server/alarm/AlarmManagerService;)V
+    invoke-direct {p0, p1}, Lcom/android/server/alarm/AlarmManagerService$ClockReceiver;-><init>(Lcom/android/server/alarm/AlarmManagerService;)V
 
-    return-object v0
+    return-object p0
 .end method
 
-.method getCurrentTimeMillis()J
+.method public getCurrentTimeMillis()J
     .locals 2
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
@@ -117,7 +118,7 @@
     return-wide v0
 .end method
 
-.method getElapsedRealtime()J
+.method public getElapsedRealtime()J
     .locals 2
 
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
@@ -127,48 +128,48 @@
     return-wide v0
 .end method
 
-.method getNextAlarm(I)J
+.method public getNextAlarm(I)J
     .locals 2
 
     iget-wide v0, p0, Lcom/android/server/alarm/AlarmManagerService$Injector;->mNativeData:J
 
-    invoke-static {v0, v1, p1}, Lcom/android/server/alarm/AlarmManagerService;->access$1900(JI)J
+    invoke-static {v0, v1, p1}, Lcom/android/server/alarm/AlarmManagerService;->-$$Nest$smgetNextAlarm(JI)J
 
-    move-result-wide v0
+    move-result-wide p0
 
-    return-wide v0
+    return-wide p0
 .end method
 
-.method getSystemUiUid(Landroid/content/pm/PackageManagerInternal;)I
+.method public getSystemUiUid(Landroid/content/pm/PackageManagerInternal;)I
     .locals 3
 
     invoke-virtual {p1}, Landroid/content/pm/PackageManagerInternal;->getSystemUiServiceComponent()Landroid/content/ComponentName;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+    invoke-virtual {p0}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    const/high16 v1, 0x100000
+    const-wide/32 v0, 0x100000
 
     const/4 v2, 0x0
 
-    invoke-virtual {p1, v0, v1, v2}, Landroid/content/pm/PackageManagerInternal;->getPackageUid(Ljava/lang/String;II)I
+    invoke-virtual {p1, p0, v0, v1, v2}, Landroid/content/pm/PackageManagerInternal;->getPackageUid(Ljava/lang/String;JI)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
-.method init()V
+.method public init()V
     .locals 2
 
     const-string v0, "alarm_jni"
 
     invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
 
-    invoke-static {}, Lcom/android/server/alarm/AlarmManagerService;->access$1600()J
+    invoke-static {}, Lcom/android/server/alarm/AlarmManagerService;->-$$Nest$sminit()J
 
     move-result-wide v0
 
@@ -177,56 +178,52 @@
     return-void
 .end method
 
-.method isAlarmDriverPresent()Z
+.method public isAlarmDriverPresent()Z
     .locals 4
 
     iget-wide v0, p0, Lcom/android/server/alarm/AlarmManagerService$Injector;->mNativeData:J
 
     const-wide/16 v2, 0x0
 
-    cmp-long v0, v0, v2
+    cmp-long p0, v0, v2
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
-.method registerDeviceConfigListener(Landroid/provider/DeviceConfig$OnPropertiesChangedListener;)V
-    .locals 2
-
-    nop
+.method public registerDeviceConfigListener(Landroid/provider/DeviceConfig$OnPropertiesChangedListener;)V
+    .locals 1
 
     invoke-static {}, Lcom/android/server/JobSchedulerBackgroundThread;->getExecutor()Ljava/util/concurrent/Executor;
 
-    move-result-object v0
+    move-result-object p0
 
-    const-string v1, "alarm_manager"
+    const-string v0, "alarm_manager"
 
-    invoke-static {v1, v0, p1}, Landroid/provider/DeviceConfig;->addOnPropertiesChangedListener(Ljava/lang/String;Ljava/util/concurrent/Executor;Landroid/provider/DeviceConfig$OnPropertiesChangedListener;)V
+    invoke-static {v0, p0, p1}, Landroid/provider/DeviceConfig;->addOnPropertiesChangedListener(Ljava/lang/String;Ljava/util/concurrent/Executor;Landroid/provider/DeviceConfig$OnPropertiesChangedListener;)V
 
     return-void
 .end method
 
-.method setAlarm(IJ)V
-    .locals 14
+.method public setAlarm(IJ)V
+    .locals 11
 
     const-wide/16 v0, 0x0
 
-    cmp-long v0, p2, v0
+    cmp-long v2, p2, v0
 
-    if-gez v0, :cond_0
+    if-gez v2, :cond_0
 
-    const-wide/16 v0, 0x0
-
-    const-wide/16 v2, 0x0
+    move-wide p2, v0
 
     goto :goto_0
 
@@ -235,137 +232,126 @@
 
     div-long v2, p2, v0
 
-    rem-long v4, p2, v0
+    rem-long/2addr p2, v0
 
-    mul-long/2addr v4, v0
+    mul-long/2addr p2, v0
 
-    mul-long/2addr v0, v4
+    mul-long/2addr v0, p2
 
-    move-wide v12, v0
+    move-wide p2, v0
 
     move-wide v0, v2
 
-    move-wide v2, v12
-
     :goto_0
-    move-object v11, p0
-
-    iget-wide v4, v11, Lcom/android/server/alarm/AlarmManagerService$Injector;->mNativeData:J
+    iget-wide v4, p0, Lcom/android/server/alarm/AlarmManagerService$Injector;->mNativeData:J
 
     move v6, p1
 
     move-wide v7, v0
 
-    move-wide v9, v2
+    move-wide v9, p2
 
-    invoke-static/range {v4 .. v10}, Lcom/android/server/alarm/AlarmManagerService;->access$1800(JIJJ)I
+    invoke-static/range {v4 .. v10}, Lcom/android/server/alarm/AlarmManagerService;->-$$Nest$smset(JIJJ)I
 
-    move-result v4
+    move-result p0
 
-    if-eqz v4, :cond_1
+    if-eqz p0, :cond_1
 
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
-    move-result-wide v5
+    move-result-wide v2
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v8, "Unable to set kernel alarm, now="
+    const-string v5, "Unable to set kernel alarm, now="
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v7, v5, v6}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    const-string v8, " type="
+    const-string v2, " type="
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move v8, p1
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string p1, " @ ("
 
-    const-string v9, " @ ("
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v7, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v7, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    const-string p1, ","
 
-    const-string v9, ","
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v7, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, p2, p3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v7, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    const-string p1, "), ret = "
 
-    const-string v9, "), ret = "
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v7, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v7, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string p1, " = "
 
-    const-string v9, " = "
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v7, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {p0}, Landroid/system/Os;->strerror(I)Ljava/lang/String;
 
-    invoke-static {v4}, Landroid/system/Os;->strerror(I)Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object v9
+    invoke-virtual {v4, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v7, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object v7
+    const-string p1, "AlarmManager"
 
-    const-string v9, "AlarmManager"
-
-    invoke-static {v9, v7}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_1
+    invoke-static {p1, p0}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_1
-    move v8, p1
-
-    :goto_1
     return-void
 .end method
 
-.method setKernelTime(J)V
+.method public setKernelTime(J)V
     .locals 4
 
     iget-wide v0, p0, Lcom/android/server/alarm/AlarmManagerService$Injector;->mNativeData:J
 
     const-wide/16 v2, 0x0
 
-    cmp-long v2, v0, v2
+    cmp-long p0, v0, v2
 
-    if-eqz v2, :cond_0
+    if-eqz p0, :cond_0
 
-    invoke-static {v0, v1, p1, p2}, Lcom/android/server/alarm/AlarmManagerService;->access$2100(JJ)I
+    invoke-static {v0, v1, p1, p2}, Lcom/android/server/alarm/AlarmManagerService;->-$$Nest$smsetKernelTime(JJ)I
 
     :cond_0
     return-void
 .end method
 
-.method setKernelTimezone(I)V
+.method public setKernelTimezone(I)V
     .locals 2
 
     iget-wide v0, p0, Lcom/android/server/alarm/AlarmManagerService$Injector;->mNativeData:J
 
-    invoke-static {v0, v1, p1}, Lcom/android/server/alarm/AlarmManagerService;->access$2000(JI)I
+    invoke-static {v0, v1, p1}, Lcom/android/server/alarm/AlarmManagerService;->-$$Nest$smsetKernelTimezone(JI)I
 
     return-void
 .end method
 
-.method waitForAlarm()I
+.method public waitForAlarm()I
     .locals 2
 
     iget-wide v0, p0, Lcom/android/server/alarm/AlarmManagerService$Injector;->mNativeData:J
 
-    invoke-static {v0, v1}, Lcom/android/server/alarm/AlarmManagerService;->access$1700(J)I
+    invoke-static {v0, v1}, Lcom/android/server/alarm/AlarmManagerService;->-$$Nest$smwaitForAlarm(J)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method

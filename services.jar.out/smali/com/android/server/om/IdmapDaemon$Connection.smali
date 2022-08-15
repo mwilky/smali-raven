@@ -1,4 +1,4 @@
-.class Lcom/android/server/om/IdmapDaemon$Connection;
+.class public Lcom/android/server/om/IdmapDaemon$Connection;
 .super Ljava/lang/Object;
 .source "IdmapDaemon.java"
 
@@ -12,19 +12,29 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "Connection"
 .end annotation
 
 
 # instance fields
-.field private mOpened:Z
+.field public final mIdmap2:Landroid/os/IIdmap2;
 
-.field final synthetic this$0:Lcom/android/server/om/IdmapDaemon;
+.field public mOpened:Z
+
+.field public final synthetic this$0:Lcom/android/server/om/IdmapDaemon;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/server/om/IdmapDaemon;)V
+.method public static synthetic $r8$lambda$_2yCKbqx6LtMHdAep9W0ZgQ-ivk(Lcom/android/server/om/IdmapDaemon$Connection;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/server/om/IdmapDaemon$Connection;->lambda$close$0()V
+
+    return-void
+.end method
+
+.method public constructor <init>(Lcom/android/server/om/IdmapDaemon;Landroid/os/IIdmap2;)V
     .locals 1
 
     iput-object p1, p0, Lcom/android/server/om/IdmapDaemon$Connection;->this$0:Lcom/android/server/om/IdmapDaemon;
@@ -35,49 +45,114 @@
 
     iput-boolean v0, p0, Lcom/android/server/om/IdmapDaemon$Connection;->mOpened:Z
 
-    invoke-static {p1}, Lcom/android/server/om/IdmapDaemon;->access$000(Lcom/android/server/om/IdmapDaemon;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/android/server/om/IdmapDaemon;->-$$Nest$fgetmIdmapToken(Lcom/android/server/om/IdmapDaemon;)Ljava/lang/Object;
 
     move-result-object v0
 
     monitor-enter v0
 
     :try_start_0
-    invoke-static {p1}, Lcom/android/server/om/IdmapDaemon;->access$100(Lcom/android/server/om/IdmapDaemon;)Ljava/util/concurrent/atomic/AtomicInteger;
+    invoke-static {p1}, Lcom/android/server/om/IdmapDaemon;->-$$Nest$fgetmOpenedCount(Lcom/android/server/om/IdmapDaemon;)Ljava/util/concurrent/atomic/AtomicInteger;
 
     move-result-object p1
 
     invoke-virtual {p1}, Ljava/util/concurrent/atomic/AtomicInteger;->incrementAndGet()I
+
+    iput-object p2, p0, Lcom/android/server/om/IdmapDaemon$Connection;->mIdmap2:Landroid/os/IIdmap2;
 
     monitor-exit v0
 
     return-void
 
     :catchall_0
-    move-exception p1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw p1
+    throw p0
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/om/IdmapDaemon;Lcom/android/server/om/IdmapDaemon$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/om/IdmapDaemon;Landroid/os/IIdmap2;Lcom/android/server/om/IdmapDaemon$Connection-IA;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/server/om/IdmapDaemon$Connection;-><init>(Lcom/android/server/om/IdmapDaemon;)V
+    invoke-direct {p0, p1, p2}, Lcom/android/server/om/IdmapDaemon$Connection;-><init>(Lcom/android/server/om/IdmapDaemon;Landroid/os/IIdmap2;)V
 
     return-void
+.end method
+
+.method private synthetic lambda$close$0()V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/om/IdmapDaemon$Connection;->this$0:Lcom/android/server/om/IdmapDaemon;
+
+    invoke-static {v0}, Lcom/android/server/om/IdmapDaemon;->-$$Nest$fgetmIdmapToken(Lcom/android/server/om/IdmapDaemon;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    monitor-enter v0
+
+    :try_start_0
+    iget-object v1, p0, Lcom/android/server/om/IdmapDaemon$Connection;->this$0:Lcom/android/server/om/IdmapDaemon;
+
+    invoke-static {v1}, Lcom/android/server/om/IdmapDaemon;->-$$Nest$fgetmService(Lcom/android/server/om/IdmapDaemon;)Landroid/os/IIdmap2;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_1
+
+    iget-object v1, p0, Lcom/android/server/om/IdmapDaemon$Connection;->this$0:Lcom/android/server/om/IdmapDaemon;
+
+    invoke-static {v1}, Lcom/android/server/om/IdmapDaemon;->-$$Nest$fgetmOpenedCount(Lcom/android/server/om/IdmapDaemon;)Ljava/util/concurrent/atomic/AtomicInteger;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/util/concurrent/atomic/AtomicInteger;->get()I
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    invoke-static {}, Lcom/android/server/om/IdmapDaemon;->-$$Nest$smstopIdmapService()V
+
+    iget-object p0, p0, Lcom/android/server/om/IdmapDaemon$Connection;->this$0:Lcom/android/server/om/IdmapDaemon;
+
+    const/4 v1, 0x0
+
+    invoke-static {p0, v1}, Lcom/android/server/om/IdmapDaemon;->-$$Nest$fputmService(Lcom/android/server/om/IdmapDaemon;Landroid/os/IIdmap2;)V
+
+    monitor-exit v0
+
+    return-void
+
+    :cond_1
+    :goto_0
+    monitor-exit v0
+
+    return-void
+
+    :catchall_0
+    move-exception p0
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw p0
 .end method
 
 
 # virtual methods
 .method public close()V
-    .locals 6
+    .locals 5
 
     iget-object v0, p0, Lcom/android/server/om/IdmapDaemon$Connection;->this$0:Lcom/android/server/om/IdmapDaemon;
 
-    invoke-static {v0}, Lcom/android/server/om/IdmapDaemon;->access$000(Lcom/android/server/om/IdmapDaemon;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/server/om/IdmapDaemon;->-$$Nest$fgetmIdmapToken(Lcom/android/server/om/IdmapDaemon;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -99,7 +174,7 @@
 
     iget-object v1, p0, Lcom/android/server/om/IdmapDaemon$Connection;->this$0:Lcom/android/server/om/IdmapDaemon;
 
-    invoke-static {v1}, Lcom/android/server/om/IdmapDaemon;->access$100(Lcom/android/server/om/IdmapDaemon;)Ljava/util/concurrent/atomic/AtomicInteger;
+    invoke-static {v1}, Lcom/android/server/om/IdmapDaemon;->-$$Nest$fgetmOpenedCount(Lcom/android/server/om/IdmapDaemon;)Ljava/util/concurrent/atomic/AtomicInteger;
 
     move-result-object v1
 
@@ -122,89 +197,34 @@
 
     invoke-direct {v2, p0}, Lcom/android/server/om/IdmapDaemon$Connection$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/om/IdmapDaemon$Connection;)V
 
-    iget-object v3, p0, Lcom/android/server/om/IdmapDaemon$Connection;->this$0:Lcom/android/server/om/IdmapDaemon;
+    iget-object p0, p0, Lcom/android/server/om/IdmapDaemon$Connection;->this$0:Lcom/android/server/om/IdmapDaemon;
 
-    invoke-static {v3}, Lcom/android/server/om/IdmapDaemon;->access$000(Lcom/android/server/om/IdmapDaemon;)Ljava/lang/Object;
+    invoke-static {p0}, Lcom/android/server/om/IdmapDaemon;->-$$Nest$fgetmIdmapToken(Lcom/android/server/om/IdmapDaemon;)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object p0
 
-    const-wide/16 v4, 0x2710
+    const-wide/16 v3, 0x2710
 
-    invoke-virtual {v1, v2, v3, v4, v5}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;Ljava/lang/Object;J)Z
+    invoke-virtual {v1, v2, p0, v3, v4}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;Ljava/lang/Object;J)Z
 
     monitor-exit v0
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
-.method public synthetic lambda$close$0$IdmapDaemon$Connection()V
-    .locals 3
+.method public getIdmap2()Landroid/os/IIdmap2;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/om/IdmapDaemon$Connection;->this$0:Lcom/android/server/om/IdmapDaemon;
+    iget-object p0, p0, Lcom/android/server/om/IdmapDaemon$Connection;->mIdmap2:Landroid/os/IIdmap2;
 
-    invoke-static {v0}, Lcom/android/server/om/IdmapDaemon;->access$000(Lcom/android/server/om/IdmapDaemon;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    monitor-enter v0
-
-    :try_start_0
-    iget-object v1, p0, Lcom/android/server/om/IdmapDaemon$Connection;->this$0:Lcom/android/server/om/IdmapDaemon;
-
-    invoke-static {v1}, Lcom/android/server/om/IdmapDaemon;->access$200(Lcom/android/server/om/IdmapDaemon;)Landroid/os/IIdmap2;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_1
-
-    iget-object v1, p0, Lcom/android/server/om/IdmapDaemon$Connection;->this$0:Lcom/android/server/om/IdmapDaemon;
-
-    invoke-static {v1}, Lcom/android/server/om/IdmapDaemon;->access$100(Lcom/android/server/om/IdmapDaemon;)Ljava/util/concurrent/atomic/AtomicInteger;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/util/concurrent/atomic/AtomicInteger;->get()I
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    invoke-static {}, Lcom/android/server/om/IdmapDaemon;->access$300()V
-
-    iget-object v1, p0, Lcom/android/server/om/IdmapDaemon$Connection;->this$0:Lcom/android/server/om/IdmapDaemon;
-
-    const/4 v2, 0x0
-
-    invoke-static {v1, v2}, Lcom/android/server/om/IdmapDaemon;->access$202(Lcom/android/server/om/IdmapDaemon;Landroid/os/IIdmap2;)Landroid/os/IIdmap2;
-
-    monitor-exit v0
-
-    return-void
-
-    :cond_1
-    :goto_0
-    monitor-exit v0
-
-    return-void
-
-    :catchall_0
-    move-exception v1
-
-    monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v1
+    return-object p0
 .end method

@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/DisplayRotation$2;
+.class public Lcom/android/server/wm/DisplayRotation$2;
 .super Landroid/view/IDisplayWindowRotationCallback$Stub;
 .source "DisplayRotation.java"
 
@@ -9,17 +9,25 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/wm/DisplayRotation;
+.field public final synthetic this$0:Lcom/android/server/wm/DisplayRotation;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/wm/DisplayRotation;)V
+.method public static synthetic $r8$lambda$HRnOc5B33L_wXNCdOaZiBpzHkBk(Ljava/lang/Object;ILandroid/window/WindowContainerTransaction;)V
+    .locals 0
+
+    invoke-static {p0, p1, p2}, Lcom/android/server/wm/DisplayRotation$2;->lambda$continueRotateDisplay$0(Ljava/lang/Object;ILandroid/window/WindowContainerTransaction;)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Lcom/android/server/wm/DisplayRotation;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/wm/DisplayRotation$2;->this$0:Lcom/android/server/wm/DisplayRotation;
@@ -29,14 +37,12 @@
     return-void
 .end method
 
-.method static synthetic lambda$continueRotateDisplay$0(Ljava/lang/Object;ILandroid/window/WindowContainerTransaction;)V
-    .locals 1
+.method public static synthetic lambda$continueRotateDisplay$0(Ljava/lang/Object;ILandroid/window/WindowContainerTransaction;)V
+    .locals 0
 
-    move-object v0, p0
+    check-cast p0, Lcom/android/server/wm/DisplayRotation;
 
-    check-cast v0, Lcom/android/server/wm/DisplayRotation;
-
-    invoke-static {v0, p1, p2}, Lcom/android/server/wm/DisplayRotation;->access$200(Lcom/android/server/wm/DisplayRotation;ILandroid/window/WindowContainerTransaction;)V
+    invoke-static {p0, p1, p2}, Lcom/android/server/wm/DisplayRotation;->-$$Nest$mcontinueRotation(Lcom/android/server/wm/DisplayRotation;ILandroid/window/WindowContainerTransaction;)V
 
     return-void
 .end method
@@ -44,11 +50,11 @@
 
 # virtual methods
 .method public continueRotateDisplay(ILandroid/window/WindowContainerTransaction;)V
-    .locals 5
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/wm/DisplayRotation$2;->this$0:Lcom/android/server/wm/DisplayRotation;
 
-    invoke-static {v0}, Lcom/android/server/wm/DisplayRotation;->access$300(Lcom/android/server/wm/DisplayRotation;)Lcom/android/server/wm/WindowManagerService;
+    invoke-static {v0}, Lcom/android/server/wm/DisplayRotation;->-$$Nest$fgetmService(Lcom/android/server/wm/DisplayRotation;)Lcom/android/server/wm/WindowManagerService;
 
     move-result-object v0
 
@@ -61,36 +67,38 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/server/wm/DisplayRotation$2;->this$0:Lcom/android/server/wm/DisplayRotation;
 
-    invoke-static {v1}, Lcom/android/server/wm/DisplayRotation;->access$300(Lcom/android/server/wm/DisplayRotation;)Lcom/android/server/wm/WindowManagerService;
+    invoke-static {v1}, Lcom/android/server/wm/DisplayRotation;->-$$Nest$fgetmService(Lcom/android/server/wm/DisplayRotation;)Lcom/android/server/wm/WindowManagerService;
 
     move-result-object v1
 
     iget-object v1, v1, Lcom/android/server/wm/WindowManagerService;->mH:Lcom/android/server/wm/WindowManagerService$H;
 
-    sget-object v2, Lcom/android/server/wm/DisplayRotation$2$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/server/wm/DisplayRotation$2$$ExternalSyntheticLambda0;
+    new-instance v2, Lcom/android/server/wm/DisplayRotation$2$$ExternalSyntheticLambda0;
 
-    iget-object v3, p0, Lcom/android/server/wm/DisplayRotation$2;->this$0:Lcom/android/server/wm/DisplayRotation;
+    invoke-direct {v2}, Lcom/android/server/wm/DisplayRotation$2$$ExternalSyntheticLambda0;-><init>()V
+
+    iget-object p0, p0, Lcom/android/server/wm/DisplayRotation$2;->this$0:Lcom/android/server/wm/DisplayRotation;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v4
+    move-result-object p1
 
-    invoke-static {v2, v3, v4, p2}, Lcom/android/internal/util/function/pooled/PooledLambda;->obtainMessage(Lcom/android/internal/util/function/TriConsumer;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Landroid/os/Message;
+    invoke-static {v2, p0, p1, p2}, Lcom/android/internal/util/function/pooled/PooledLambda;->obtainMessage(Lcom/android/internal/util/function/TriConsumer;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Landroid/os/Message;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-virtual {v1, v2}, Lcom/android/server/wm/WindowManagerService$H;->sendMessage(Landroid/os/Message;)Z
+    invoke-virtual {v1, p0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
     monitor-exit v0
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method

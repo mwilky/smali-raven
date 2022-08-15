@@ -1,35 +1,34 @@
 .class public final synthetic Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda21;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Consumer;
+.implements Landroid/os/IBinder$DeathRecipient;
 
 
 # instance fields
-.field public final synthetic f$0:Ljava/util/concurrent/CompletableFuture;
+.field public final synthetic f$0:Lcom/android/server/stats/pull/StatsPullAtomService;
 
 
 # direct methods
-.method public synthetic constructor <init>(Ljava/util/concurrent/CompletableFuture;)V
+.method public synthetic constructor <init>(Lcom/android/server/stats/pull/StatsPullAtomService;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda21;->f$0:Ljava/util/concurrent/CompletableFuture;
+    iput-object p1, p0, Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda21;->f$0:Lcom/android/server/stats/pull/StatsPullAtomService;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
-    .locals 1
+.method public final binderDied()V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda21;->f$0:Ljava/util/concurrent/CompletableFuture;
+    iget-object p0, p0, Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda21;->f$0:Lcom/android/server/stats/pull/StatsPullAtomService;
 
-    check-cast p1, Landroid/app/AppOpsManager$HistoricalOps;
-
-    invoke-virtual {v0, p1}, Ljava/util/concurrent/CompletableFuture;->complete(Ljava/lang/Object;)Z
+    invoke-static {p0}, Lcom/android/server/stats/pull/StatsPullAtomService;->$r8$lambda$7ufbCUPIZ16j8363I6J8khpaPik(Lcom/android/server/stats/pull/StatsPullAtomService;)V
 
     return-void
 .end method

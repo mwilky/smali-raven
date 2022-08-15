@@ -1,22 +1,22 @@
-.class final Lcom/android/server/accessibility/magnification/TwoFingersDownOrSwipe;
+.class public final Lcom/android/server/accessibility/magnification/TwoFingersDownOrSwipe;
 .super Lcom/android/server/accessibility/gestures/GestureMatcher;
 .source "TwoFingersDownOrSwipe.java"
 
 
 # instance fields
-.field private final mDetectionDurationMillis:I
+.field public final mDetectionDurationMillis:I
 
-.field private final mDoubleTapTimeout:I
+.field public final mDoubleTapTimeout:I
 
-.field private mFirstPointerDown:Landroid/view/MotionEvent;
+.field public mFirstPointerDown:Landroid/view/MotionEvent;
 
-.field private mSecondPointerDown:Landroid/view/MotionEvent;
+.field public mSecondPointerDown:Landroid/view/MotionEvent;
 
-.field private final mSwipeMinDistance:I
+.field public final mSwipeMinDistance:I
 
 
 # direct methods
-.method constructor <init>(Landroid/content/Context;)V
+.method public constructor <init>(Landroid/content/Context;)V
     .locals 3
 
     new-instance v0, Landroid/os/Handler;
@@ -47,19 +47,19 @@
 
     invoke-static {p1}, Landroid/view/ViewConfiguration;->get(Landroid/content/Context;)Landroid/view/ViewConfiguration;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Landroid/view/ViewConfiguration;->getScaledTouchSlop()I
+    invoke-virtual {p1}, Landroid/view/ViewConfiguration;->getScaledTouchSlop()I
 
-    move-result v0
+    move-result p1
 
-    iput v0, p0, Lcom/android/server/accessibility/magnification/TwoFingersDownOrSwipe;->mSwipeMinDistance:I
+    iput p1, p0, Lcom/android/server/accessibility/magnification/TwoFingersDownOrSwipe;->mSwipeMinDistance:I
 
     return-void
 .end method
 
-.method private static distance(Landroid/view/MotionEvent;Landroid/view/MotionEvent;)D
-    .locals 7
+.method public static distance(Landroid/view/MotionEvent;Landroid/view/MotionEvent;)D
+    .locals 3
 
     invoke-virtual {p0}, Landroid/view/MotionEvent;->getActionIndex()I
 
@@ -71,38 +71,38 @@
 
     invoke-virtual {p1, v1}, Landroid/view/MotionEvent;->findPointerIndex(I)I
 
-    move-result v2
+    move-result v1
 
-    if-gez v2, :cond_0
+    if-gez v1, :cond_0
 
-    const-wide/high16 v3, -0x4010000000000000L    # -1.0
+    const-wide/high16 p0, -0x4010000000000000L    # -1.0
 
-    return-wide v3
+    return-wide p0
 
     :cond_0
     invoke-virtual {p0, v0}, Landroid/view/MotionEvent;->getX(I)F
 
-    move-result v3
+    move-result v2
 
     invoke-virtual {p0, v0}, Landroid/view/MotionEvent;->getY(I)F
 
-    move-result v4
+    move-result p0
 
-    invoke-virtual {p1, v2}, Landroid/view/MotionEvent;->getX(I)F
+    invoke-virtual {p1, v1}, Landroid/view/MotionEvent;->getX(I)F
 
-    move-result v5
+    move-result v0
 
-    invoke-virtual {p1, v2}, Landroid/view/MotionEvent;->getY(I)F
+    invoke-virtual {p1, v1}, Landroid/view/MotionEvent;->getY(I)F
 
-    move-result v6
+    move-result p1
 
-    invoke-static {v3, v4, v5, v6}, Landroid/util/MathUtils;->dist(FFFF)F
+    invoke-static {v2, p0, v0, p1}, Landroid/util/MathUtils;->dist(FFFF)F
 
-    move-result v3
+    move-result p0
 
-    float-to-double v3, v3
+    float-to-double p0, p0
 
-    return-wide v3
+    return-wide p0
 .end method
 
 
@@ -135,21 +135,19 @@
     return-void
 .end method
 
-.method protected getGestureName()Ljava/lang/String;
-    .locals 1
+.method public getGestureName()Ljava/lang/String;
+    .locals 0
 
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    const-class p0, Lcom/android/server/accessibility/magnification/TwoFingersDownOrSwipe;
 
-    move-result-object v0
+    invoke-virtual {p0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
 
-    invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object v0
-
-    return-object v0
+    return-object p0
 .end method
 
-.method protected onDown(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
+.method public onDown(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
     .locals 7
 
     invoke-static {p1}, Landroid/view/MotionEvent;->obtain(Landroid/view/MotionEvent;)Landroid/view/MotionEvent;
@@ -170,17 +168,17 @@
 
     move v6, p3
 
-    invoke-virtual/range {v1 .. v6}, Lcom/android/server/accessibility/magnification/TwoFingersDownOrSwipe;->cancelAfter(JLandroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
+    invoke-virtual/range {v1 .. v6}, Lcom/android/server/accessibility/gestures/GestureMatcher;->cancelAfter(JLandroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
 
     return-void
 .end method
 
-.method protected onMove(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
+.method public onMove(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
     .locals 4
 
     iget-object v0, p0, Lcom/android/server/accessibility/magnification/TwoFingersDownOrSwipe;->mFirstPointerDown:Landroid/view/MotionEvent;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2
 
     iget-object v1, p0, Lcom/android/server/accessibility/magnification/TwoFingersDownOrSwipe;->mSecondPointerDown:Landroid/view/MotionEvent;
 
@@ -201,7 +199,7 @@
 
     if-lez v0, :cond_1
 
-    invoke-virtual {p0, p1, p2, p3}, Lcom/android/server/accessibility/magnification/TwoFingersDownOrSwipe;->completeGesture(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
+    invoke-virtual {p0, p1, p2, p3}, Lcom/android/server/accessibility/gestures/GestureMatcher;->completeGesture(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
 
     return-void
 
@@ -220,24 +218,21 @@
 
     if-lez v0, :cond_2
 
-    invoke-virtual {p0, p1, p2, p3}, Lcom/android/server/accessibility/magnification/TwoFingersDownOrSwipe;->completeGesture(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
+    invoke-virtual {p0, p1, p2, p3}, Lcom/android/server/accessibility/gestures/GestureMatcher;->completeGesture(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
 
     :cond_2
-    return-void
-
-    :cond_3
     :goto_0
     return-void
 .end method
 
-.method protected onPointerDown(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
+.method public onPointerDown(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
     .locals 7
 
     iget-object v0, p0, Lcom/android/server/accessibility/magnification/TwoFingersDownOrSwipe;->mFirstPointerDown:Landroid/view/MotionEvent;
 
     if-nez v0, :cond_0
 
-    invoke-virtual {p0, p1, p2, p3}, Lcom/android/server/accessibility/magnification/TwoFingersDownOrSwipe;->cancelGesture(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
+    invoke-virtual {p0, p1, p2, p3}, Lcom/android/server/accessibility/gestures/GestureMatcher;->cancelGesture(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
 
     :cond_0
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getPointerCount()I
@@ -266,29 +261,29 @@
 
     move v6, p3
 
-    invoke-virtual/range {v1 .. v6}, Lcom/android/server/accessibility/magnification/TwoFingersDownOrSwipe;->completeAfter(JLandroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
+    invoke-virtual/range {v1 .. v6}, Lcom/android/server/accessibility/gestures/GestureMatcher;->completeAfter(JLandroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
 
     goto :goto_0
 
     :cond_1
-    invoke-virtual {p0, p1, p2, p3}, Lcom/android/server/accessibility/magnification/TwoFingersDownOrSwipe;->cancelGesture(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
+    invoke-virtual {p0, p1, p2, p3}, Lcom/android/server/accessibility/gestures/GestureMatcher;->cancelGesture(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
 
     :goto_0
     return-void
 .end method
 
-.method protected onPointerUp(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
+.method public onPointerUp(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
     .locals 0
 
-    invoke-virtual {p0, p1, p2, p3}, Lcom/android/server/accessibility/magnification/TwoFingersDownOrSwipe;->cancelGesture(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
+    invoke-virtual {p0, p1, p2, p3}, Lcom/android/server/accessibility/gestures/GestureMatcher;->cancelGesture(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
 
     return-void
 .end method
 
-.method protected onUp(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
+.method public onUp(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
     .locals 0
 
-    invoke-virtual {p0, p1, p2, p3}, Lcom/android/server/accessibility/magnification/TwoFingersDownOrSwipe;->cancelGesture(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
+    invoke-virtual {p0, p1, p2, p3}, Lcom/android/server/accessibility/gestures/GestureMatcher;->cancelGesture(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
 
     return-void
 .end method

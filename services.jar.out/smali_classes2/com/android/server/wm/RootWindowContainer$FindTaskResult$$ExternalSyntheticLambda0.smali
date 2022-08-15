@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/wm/RootWindowContainer$FindTaskResult$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Function;
+.implements Ljava/util/function/Predicate;
 
 
 # instance fields
@@ -22,20 +23,16 @@
 
 
 # virtual methods
-.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+.method public final test(Ljava/lang/Object;)Z
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/RootWindowContainer$FindTaskResult$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/wm/RootWindowContainer$FindTaskResult;
+    iget-object p0, p0, Lcom/android/server/wm/RootWindowContainer$FindTaskResult$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/wm/RootWindowContainer$FindTaskResult;
 
     check-cast p1, Lcom/android/server/wm/TaskFragment;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/wm/RootWindowContainer$FindTaskResult;->matchingCandidate(Lcom/android/server/wm/TaskFragment;)Z
+    invoke-virtual {p0, p1}, Lcom/android/server/wm/RootWindowContainer$FindTaskResult;->matchingCandidate(Lcom/android/server/wm/TaskFragment;)Z
 
-    move-result p1
+    move-result p0
 
-    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object p1
-
-    return-object p1
+    return p0
 .end method

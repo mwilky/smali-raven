@@ -1,4 +1,4 @@
-.class Lcom/android/server/UiModeManagerService$10;
+.class public Lcom/android/server/UiModeManagerService$10;
 .super Landroid/content/BroadcastReceiver;
 .source "UiModeManagerService.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/UiModeManagerService;
+.field public final synthetic this$0:Lcom/android/server/UiModeManagerService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/UiModeManagerService;)V
+.method public constructor <init>(Lcom/android/server/UiModeManagerService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/UiModeManagerService$10;->this$0:Lcom/android/server/UiModeManagerService;
@@ -32,23 +32,23 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 2
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/UiModeManagerService$10;->this$0:Lcom/android/server/UiModeManagerService;
+    iget-object p1, p0, Lcom/android/server/UiModeManagerService$10;->this$0:Lcom/android/server/UiModeManagerService;
 
-    invoke-static {v0}, Lcom/android/server/UiModeManagerService;->access$400(Lcom/android/server/UiModeManagerService;)I
+    invoke-static {p1}, Lcom/android/server/UiModeManagerService;->-$$Nest$fgetmNightMode(Lcom/android/server/UiModeManagerService;)I
 
-    move-result v0
+    move-result p1
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/UiModeManagerService$10;->this$0:Lcom/android/server/UiModeManagerService;
+    iget-object p0, p0, Lcom/android/server/UiModeManagerService$10;->this$0:Lcom/android/server/UiModeManagerService;
 
-    invoke-static {v0}, Lcom/android/server/UiModeManagerService;->access$1500(Lcom/android/server/UiModeManagerService;)I
+    invoke-static {p0}, Lcom/android/server/UiModeManagerService;->-$$Nest$fgetmCurrentUser(Lcom/android/server/UiModeManagerService;)I
 
-    move-result v1
+    move-result p1
 
-    invoke-static {v0, v1}, Lcom/android/server/UiModeManagerService;->access$1600(Lcom/android/server/UiModeManagerService;I)V
+    invoke-static {p0, p1}, Lcom/android/server/UiModeManagerService;->-$$Nest$mpersistComputedNightMode(Lcom/android/server/UiModeManagerService;I)V
 
     :cond_0
     return-void

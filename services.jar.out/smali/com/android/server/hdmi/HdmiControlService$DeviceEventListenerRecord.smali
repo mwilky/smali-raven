@@ -1,4 +1,4 @@
-.class final Lcom/android/server/hdmi/HdmiControlService$DeviceEventListenerRecord;
+.class public final Lcom/android/server/hdmi/HdmiControlService$DeviceEventListenerRecord;
 .super Ljava/lang/Object;
 .source "HdmiControlService.java"
 
@@ -12,18 +12,26 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "DeviceEventListenerRecord"
 .end annotation
 
 
 # instance fields
-.field private final mListener:Landroid/hardware/hdmi/IHdmiDeviceEventListener;
+.field public final mListener:Landroid/hardware/hdmi/IHdmiDeviceEventListener;
 
-.field final synthetic this$0:Lcom/android/server/hdmi/HdmiControlService;
+.field public final synthetic this$0:Lcom/android/server/hdmi/HdmiControlService;
 
 
 # direct methods
+.method public static bridge synthetic -$$Nest$fgetmListener(Lcom/android/server/hdmi/HdmiControlService$DeviceEventListenerRecord;)Landroid/hardware/hdmi/IHdmiDeviceEventListener;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/hdmi/HdmiControlService$DeviceEventListenerRecord;->mListener:Landroid/hardware/hdmi/IHdmiDeviceEventListener;
+
+    return-object p0
+.end method
+
 .method public constructor <init>(Lcom/android/server/hdmi/HdmiControlService;Landroid/hardware/hdmi/IHdmiDeviceEventListener;)V
     .locals 0
 
@@ -36,14 +44,6 @@
     return-void
 .end method
 
-.method static synthetic access$6100(Lcom/android/server/hdmi/HdmiControlService$DeviceEventListenerRecord;)Landroid/hardware/hdmi/IHdmiDeviceEventListener;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$DeviceEventListenerRecord;->mListener:Landroid/hardware/hdmi/IHdmiDeviceEventListener;
-
-    return-object v0
-.end method
-
 
 # virtual methods
 .method public binderDied()V
@@ -51,7 +51,7 @@
 
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$DeviceEventListenerRecord;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
-    invoke-static {v0}, Lcom/android/server/hdmi/HdmiControlService;->access$2200(Lcom/android/server/hdmi/HdmiControlService;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/server/hdmi/HdmiControlService;->-$$Nest$fgetmLock(Lcom/android/server/hdmi/HdmiControlService;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -60,7 +60,7 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/server/hdmi/HdmiControlService$DeviceEventListenerRecord;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
-    invoke-static {v1}, Lcom/android/server/hdmi/HdmiControlService;->access$2500(Lcom/android/server/hdmi/HdmiControlService;)Ljava/util/ArrayList;
+    invoke-static {v1}, Lcom/android/server/hdmi/HdmiControlService;->-$$Nest$fgetmDeviceEventListenerRecords(Lcom/android/server/hdmi/HdmiControlService;)Ljava/util/ArrayList;
 
     move-result-object v1
 
@@ -71,11 +71,11 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method

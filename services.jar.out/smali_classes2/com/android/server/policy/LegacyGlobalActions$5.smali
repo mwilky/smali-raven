@@ -1,4 +1,4 @@
-.class Lcom/android/server/policy/LegacyGlobalActions$5;
+.class public Lcom/android/server/policy/LegacyGlobalActions$5;
 .super Lcom/android/internal/globalactions/SinglePressAction;
 .source "LegacyGlobalActions.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/policy/LegacyGlobalActions;
+.field public final synthetic this$0:Lcom/android/server/policy/LegacyGlobalActions;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/policy/LegacyGlobalActions;II)V
+.method public constructor <init>(Lcom/android/server/policy/LegacyGlobalActions;II)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/policy/LegacyGlobalActions$5;->this$0:Lcom/android/server/policy/LegacyGlobalActions;
@@ -44,29 +44,29 @@
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    iget-object v1, p0, Lcom/android/server/policy/LegacyGlobalActions$5;->this$0:Lcom/android/server/policy/LegacyGlobalActions;
+    iget-object p0, p0, Lcom/android/server/policy/LegacyGlobalActions$5;->this$0:Lcom/android/server/policy/LegacyGlobalActions;
 
-    invoke-static {v1}, Lcom/android/server/policy/LegacyGlobalActions;->access$200(Lcom/android/server/policy/LegacyGlobalActions;)Landroid/content/Context;
+    invoke-static {p0}, Lcom/android/server/policy/LegacyGlobalActions;->-$$Nest$fgetmContext(Lcom/android/server/policy/LegacyGlobalActions;)Landroid/content/Context;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v1, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {p0, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
     return-void
 .end method
 
 .method public showBeforeProvisioning()Z
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 .end method
 
 .method public showDuringKeyguard()Z
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 .end method

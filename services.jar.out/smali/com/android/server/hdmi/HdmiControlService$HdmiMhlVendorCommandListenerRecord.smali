@@ -1,4 +1,4 @@
-.class Lcom/android/server/hdmi/HdmiControlService$HdmiMhlVendorCommandListenerRecord;
+.class public Lcom/android/server/hdmi/HdmiControlService$HdmiMhlVendorCommandListenerRecord;
 .super Ljava/lang/Object;
 .source "HdmiControlService.java"
 
@@ -12,15 +12,15 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "HdmiMhlVendorCommandListenerRecord"
 .end annotation
 
 
 # instance fields
-.field private final mListener:Landroid/hardware/hdmi/IHdmiMhlVendorCommandListener;
+.field public final mListener:Landroid/hardware/hdmi/IHdmiMhlVendorCommandListener;
 
-.field final synthetic this$0:Lcom/android/server/hdmi/HdmiControlService;
+.field public final synthetic this$0:Lcom/android/server/hdmi/HdmiControlService;
 
 
 # direct methods
@@ -36,14 +36,6 @@
     return-void
 .end method
 
-.method static synthetic access$6900(Lcom/android/server/hdmi/HdmiControlService$HdmiMhlVendorCommandListenerRecord;)Landroid/hardware/hdmi/IHdmiMhlVendorCommandListener;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$HdmiMhlVendorCommandListenerRecord;->mListener:Landroid/hardware/hdmi/IHdmiMhlVendorCommandListener;
-
-    return-object v0
-.end method
-
 
 # virtual methods
 .method public binderDied()V
@@ -51,7 +43,7 @@
 
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$HdmiMhlVendorCommandListenerRecord;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
-    invoke-static {v0}, Lcom/android/server/hdmi/HdmiControlService;->access$2100(Lcom/android/server/hdmi/HdmiControlService;)Ljava/util/ArrayList;
+    invoke-static {v0}, Lcom/android/server/hdmi/HdmiControlService;->-$$Nest$fgetmMhlVendorCommandListenerRecords(Lcom/android/server/hdmi/HdmiControlService;)Ljava/util/ArrayList;
 
     move-result-object v0
 

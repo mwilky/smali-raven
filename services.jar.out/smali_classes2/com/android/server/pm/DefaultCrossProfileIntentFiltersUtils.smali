@@ -4,45 +4,49 @@
 
 
 # static fields
-.field private static final ACTION_PICK_DATA:Lcom/android/server/pm/DefaultCrossProfileIntentFilter;
+.field public static final ACTION_PICK_DATA:Lcom/android/server/pm/DefaultCrossProfileIntentFilter;
 
-.field private static final ACTION_PICK_RAW:Lcom/android/server/pm/DefaultCrossProfileIntentFilter;
+.field public static final ACTION_PICK_IMAGES:Lcom/android/server/pm/DefaultCrossProfileIntentFilter;
 
-.field private static final ACTION_SEND:Lcom/android/server/pm/DefaultCrossProfileIntentFilter;
+.field public static final ACTION_PICK_IMAGES_WITH_DATA_TYPES:Lcom/android/server/pm/DefaultCrossProfileIntentFilter;
 
-.field private static final CALL_BUTTON:Lcom/android/server/pm/DefaultCrossProfileIntentFilter;
+.field public static final ACTION_PICK_RAW:Lcom/android/server/pm/DefaultCrossProfileIntentFilter;
 
-.field private static final DIAL_DATA:Lcom/android/server/pm/DefaultCrossProfileIntentFilter;
+.field public static final ACTION_SEND:Lcom/android/server/pm/DefaultCrossProfileIntentFilter;
 
-.field private static final DIAL_MIME:Lcom/android/server/pm/DefaultCrossProfileIntentFilter;
+.field public static final CALL_BUTTON:Lcom/android/server/pm/DefaultCrossProfileIntentFilter;
 
-.field private static final DIAL_RAW:Lcom/android/server/pm/DefaultCrossProfileIntentFilter;
+.field public static final DIAL_DATA:Lcom/android/server/pm/DefaultCrossProfileIntentFilter;
 
-.field private static final EMERGENCY_CALL_DATA:Lcom/android/server/pm/DefaultCrossProfileIntentFilter;
+.field public static final DIAL_MIME:Lcom/android/server/pm/DefaultCrossProfileIntentFilter;
 
-.field private static final EMERGENCY_CALL_MIME:Lcom/android/server/pm/DefaultCrossProfileIntentFilter;
+.field public static final DIAL_RAW:Lcom/android/server/pm/DefaultCrossProfileIntentFilter;
 
-.field private static final GET_CONTENT:Lcom/android/server/pm/DefaultCrossProfileIntentFilter;
+.field public static final EMERGENCY_CALL_DATA:Lcom/android/server/pm/DefaultCrossProfileIntentFilter;
 
-.field static final HOME:Lcom/android/server/pm/DefaultCrossProfileIntentFilter;
+.field public static final EMERGENCY_CALL_MIME:Lcom/android/server/pm/DefaultCrossProfileIntentFilter;
 
-.field private static final MEDIA_CAPTURE:Lcom/android/server/pm/DefaultCrossProfileIntentFilter;
+.field public static final GET_CONTENT:Lcom/android/server/pm/DefaultCrossProfileIntentFilter;
 
-.field private static final MOBILE_NETWORK_SETTINGS:Lcom/android/server/pm/DefaultCrossProfileIntentFilter;
+.field public static final HOME:Lcom/android/server/pm/DefaultCrossProfileIntentFilter;
 
-.field private static final OPEN_DOCUMENT:Lcom/android/server/pm/DefaultCrossProfileIntentFilter;
+.field public static final MEDIA_CAPTURE:Lcom/android/server/pm/DefaultCrossProfileIntentFilter;
 
-.field private static final RECOGNIZE_SPEECH:Lcom/android/server/pm/DefaultCrossProfileIntentFilter;
+.field public static final MOBILE_NETWORK_SETTINGS:Lcom/android/server/pm/DefaultCrossProfileIntentFilter;
 
-.field private static final SET_ALARM:Lcom/android/server/pm/DefaultCrossProfileIntentFilter;
+.field public static final OPEN_DOCUMENT:Lcom/android/server/pm/DefaultCrossProfileIntentFilter;
 
-.field private static final SMS_MMS:Lcom/android/server/pm/DefaultCrossProfileIntentFilter;
+.field public static final RECOGNIZE_SPEECH:Lcom/android/server/pm/DefaultCrossProfileIntentFilter;
 
-.field private static final USB_DEVICE_ATTACHED:Lcom/android/server/pm/DefaultCrossProfileIntentFilter;
+.field public static final SET_ALARM:Lcom/android/server/pm/DefaultCrossProfileIntentFilter;
+
+.field public static final SMS_MMS:Lcom/android/server/pm/DefaultCrossProfileIntentFilter;
+
+.field public static final USB_DEVICE_ATTACHED:Lcom/android/server/pm/DefaultCrossProfileIntentFilter;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 16
 
     new-instance v0, Lcom/android/server/pm/DefaultCrossProfileIntentFilter$Builder;
@@ -431,6 +435,56 @@
 
     invoke-direct {v0, v1, v1, v2}, Lcom/android/server/pm/DefaultCrossProfileIntentFilter$Builder;-><init>(IIZ)V
 
+    const-string v6, "android.provider.action.PICK_IMAGES"
+
+    invoke-virtual {v0, v6}, Lcom/android/server/pm/DefaultCrossProfileIntentFilter$Builder;->addAction(Ljava/lang/String;)Lcom/android/server/pm/DefaultCrossProfileIntentFilter$Builder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v5}, Lcom/android/server/pm/DefaultCrossProfileIntentFilter$Builder;->addCategory(Ljava/lang/String;)Lcom/android/server/pm/DefaultCrossProfileIntentFilter$Builder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/server/pm/DefaultCrossProfileIntentFilter$Builder;->build()Lcom/android/server/pm/DefaultCrossProfileIntentFilter;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/android/server/pm/DefaultCrossProfileIntentFiltersUtils;->ACTION_PICK_IMAGES:Lcom/android/server/pm/DefaultCrossProfileIntentFilter;
+
+    new-instance v0, Lcom/android/server/pm/DefaultCrossProfileIntentFilter$Builder;
+
+    invoke-direct {v0, v1, v1, v2}, Lcom/android/server/pm/DefaultCrossProfileIntentFilter$Builder;-><init>(IIZ)V
+
+    invoke-virtual {v0, v6}, Lcom/android/server/pm/DefaultCrossProfileIntentFilter$Builder;->addAction(Ljava/lang/String;)Lcom/android/server/pm/DefaultCrossProfileIntentFilter$Builder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v5}, Lcom/android/server/pm/DefaultCrossProfileIntentFilter$Builder;->addCategory(Ljava/lang/String;)Lcom/android/server/pm/DefaultCrossProfileIntentFilter$Builder;
+
+    move-result-object v0
+
+    const-string v6, "image/*"
+
+    invoke-virtual {v0, v6}, Lcom/android/server/pm/DefaultCrossProfileIntentFilter$Builder;->addDataType(Ljava/lang/String;)Lcom/android/server/pm/DefaultCrossProfileIntentFilter$Builder;
+
+    move-result-object v0
+
+    const-string v6, "video/*"
+
+    invoke-virtual {v0, v6}, Lcom/android/server/pm/DefaultCrossProfileIntentFilter$Builder;->addDataType(Ljava/lang/String;)Lcom/android/server/pm/DefaultCrossProfileIntentFilter$Builder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/server/pm/DefaultCrossProfileIntentFilter$Builder;->build()Lcom/android/server/pm/DefaultCrossProfileIntentFilter;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/android/server/pm/DefaultCrossProfileIntentFiltersUtils;->ACTION_PICK_IMAGES_WITH_DATA_TYPES:Lcom/android/server/pm/DefaultCrossProfileIntentFilter;
+
+    new-instance v0, Lcom/android/server/pm/DefaultCrossProfileIntentFilter$Builder;
+
+    invoke-direct {v0, v1, v1, v2}, Lcom/android/server/pm/DefaultCrossProfileIntentFilter$Builder;-><init>(IIZ)V
+
     const-string v6, "android.intent.action.OPEN_DOCUMENT"
 
     invoke-virtual {v0, v6}, Lcom/android/server/pm/DefaultCrossProfileIntentFilter$Builder;->addAction(Ljava/lang/String;)Lcom/android/server/pm/DefaultCrossProfileIntentFilter$Builder;
@@ -519,7 +573,7 @@
 
     new-instance v0, Lcom/android/server/pm/DefaultCrossProfileIntentFilter$Builder;
 
-    invoke-direct {v0, v1, v1, v2}, Lcom/android/server/pm/DefaultCrossProfileIntentFilter$Builder;-><init>(IIZ)V
+    invoke-direct {v0, v1, v13, v2}, Lcom/android/server/pm/DefaultCrossProfileIntentFilter$Builder;-><init>(IIZ)V
 
     const-string v3, "android.media.action.IMAGE_CAPTURE"
 
@@ -664,14 +718,6 @@
     return-void
 .end method
 
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
 .method public static getDefaultManagedProfileFilters()Ljava/util/List;
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
@@ -683,7 +729,7 @@
         }
     .end annotation
 
-    const/16 v0, 0x12
+    const/16 v0, 0x14
 
     new-array v0, v0, [Lcom/android/server/pm/DefaultCrossProfileIntentFilter;
 
@@ -759,39 +805,51 @@
 
     aput-object v1, v0, v2
 
-    sget-object v1, Lcom/android/server/pm/DefaultCrossProfileIntentFiltersUtils;->OPEN_DOCUMENT:Lcom/android/server/pm/DefaultCrossProfileIntentFilter;
+    sget-object v1, Lcom/android/server/pm/DefaultCrossProfileIntentFiltersUtils;->ACTION_PICK_IMAGES:Lcom/android/server/pm/DefaultCrossProfileIntentFilter;
 
     const/16 v2, 0xc
 
     aput-object v1, v0, v2
 
-    sget-object v1, Lcom/android/server/pm/DefaultCrossProfileIntentFiltersUtils;->GET_CONTENT:Lcom/android/server/pm/DefaultCrossProfileIntentFilter;
+    sget-object v1, Lcom/android/server/pm/DefaultCrossProfileIntentFiltersUtils;->ACTION_PICK_IMAGES_WITH_DATA_TYPES:Lcom/android/server/pm/DefaultCrossProfileIntentFilter;
 
     const/16 v2, 0xd
 
     aput-object v1, v0, v2
 
-    sget-object v1, Lcom/android/server/pm/DefaultCrossProfileIntentFiltersUtils;->USB_DEVICE_ATTACHED:Lcom/android/server/pm/DefaultCrossProfileIntentFilter;
+    sget-object v1, Lcom/android/server/pm/DefaultCrossProfileIntentFiltersUtils;->OPEN_DOCUMENT:Lcom/android/server/pm/DefaultCrossProfileIntentFilter;
 
     const/16 v2, 0xe
 
     aput-object v1, v0, v2
 
-    sget-object v1, Lcom/android/server/pm/DefaultCrossProfileIntentFiltersUtils;->ACTION_SEND:Lcom/android/server/pm/DefaultCrossProfileIntentFilter;
+    sget-object v1, Lcom/android/server/pm/DefaultCrossProfileIntentFiltersUtils;->GET_CONTENT:Lcom/android/server/pm/DefaultCrossProfileIntentFilter;
 
     const/16 v2, 0xf
 
     aput-object v1, v0, v2
 
-    sget-object v1, Lcom/android/server/pm/DefaultCrossProfileIntentFiltersUtils;->HOME:Lcom/android/server/pm/DefaultCrossProfileIntentFilter;
+    sget-object v1, Lcom/android/server/pm/DefaultCrossProfileIntentFiltersUtils;->USB_DEVICE_ATTACHED:Lcom/android/server/pm/DefaultCrossProfileIntentFilter;
 
     const/16 v2, 0x10
 
     aput-object v1, v0, v2
 
-    sget-object v1, Lcom/android/server/pm/DefaultCrossProfileIntentFiltersUtils;->MOBILE_NETWORK_SETTINGS:Lcom/android/server/pm/DefaultCrossProfileIntentFilter;
+    sget-object v1, Lcom/android/server/pm/DefaultCrossProfileIntentFiltersUtils;->ACTION_SEND:Lcom/android/server/pm/DefaultCrossProfileIntentFilter;
 
     const/16 v2, 0x11
+
+    aput-object v1, v0, v2
+
+    sget-object v1, Lcom/android/server/pm/DefaultCrossProfileIntentFiltersUtils;->HOME:Lcom/android/server/pm/DefaultCrossProfileIntentFilter;
+
+    const/16 v2, 0x12
+
+    aput-object v1, v0, v2
+
+    sget-object v1, Lcom/android/server/pm/DefaultCrossProfileIntentFiltersUtils;->MOBILE_NETWORK_SETTINGS:Lcom/android/server/pm/DefaultCrossProfileIntentFilter;
+
+    const/16 v2, 0x13
 
     aput-object v1, v0, v2
 

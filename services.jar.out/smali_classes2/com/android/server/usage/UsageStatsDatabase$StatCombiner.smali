@@ -24,14 +24,14 @@
 
 
 # virtual methods
-.method public abstract combine(Lcom/android/server/usage/IntervalStats;ZLjava/util/List;)V
+.method public abstract combine(Lcom/android/server/usage/IntervalStats;ZLjava/util/List;)Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Lcom/android/server/usage/IntervalStats;",
             "Z",
             "Ljava/util/List<",
-            "TT;>;)V"
+            "TT;>;)Z"
         }
     .end annotation
 .end method

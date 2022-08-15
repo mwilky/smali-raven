@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/TaskSnapshotLoader$PreRLegacySnapshotConfig;
+.class public Lcom/android/server/wm/TaskSnapshotLoader$PreRLegacySnapshotConfig;
 .super Ljava/lang/Object;
 .source "TaskSnapshotLoader.java"
 
@@ -9,19 +9,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "PreRLegacySnapshotConfig"
 .end annotation
 
 
 # instance fields
-.field final mForceLoadReducedJpeg:Z
+.field public final mForceLoadReducedJpeg:Z
 
-.field final mScale:F
+.field public final mScale:F
 
 
 # direct methods
-.method constructor <init>(FZ)V
+.method public constructor <init>(FZ)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

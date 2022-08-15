@@ -4,12 +4,15 @@
 
 
 # annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Landroid/net/NetworkStackClient;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x60c
+    accessFlags = 0x609
     name = "Dependencies"
 .end annotation
 

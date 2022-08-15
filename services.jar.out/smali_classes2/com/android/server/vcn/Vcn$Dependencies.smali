@@ -4,6 +4,10 @@
 
 
 # annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    visibility = .enum Lcom/android/internal/annotations/VisibleForTesting$Visibility;->PRIVATE:Lcom/android/internal/annotations/VisibleForTesting$Visibility;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/android/server/vcn/Vcn;
 .end annotation
@@ -26,21 +30,21 @@
 
 # virtual methods
 .method public newVcnContentResolver(Lcom/android/server/vcn/VcnContext;)Lcom/android/server/vcn/Vcn$VcnContentResolver;
-    .locals 1
+    .locals 0
 
-    new-instance v0, Lcom/android/server/vcn/Vcn$VcnContentResolver;
+    new-instance p0, Lcom/android/server/vcn/Vcn$VcnContentResolver;
 
-    invoke-direct {v0, p1}, Lcom/android/server/vcn/Vcn$VcnContentResolver;-><init>(Lcom/android/server/vcn/VcnContext;)V
+    invoke-direct {p0, p1}, Lcom/android/server/vcn/Vcn$VcnContentResolver;-><init>(Lcom/android/server/vcn/VcnContext;)V
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public newVcnGatewayConnection(Lcom/android/server/vcn/VcnContext;Landroid/os/ParcelUuid;Lcom/android/server/vcn/TelephonySubscriptionTracker$TelephonySubscriptionSnapshot;Landroid/net/vcn/VcnGatewayConnectionConfig;Lcom/android/server/vcn/Vcn$VcnGatewayStatusCallback;Z)Lcom/android/server/vcn/VcnGatewayConnection;
-    .locals 8
+    .locals 7
 
-    new-instance v7, Lcom/android/server/vcn/VcnGatewayConnection;
+    new-instance p0, Lcom/android/server/vcn/VcnGatewayConnection;
 
-    move-object v0, v7
+    move-object v0, p0
 
     move-object v1, p1
 
@@ -56,5 +60,5 @@
 
     invoke-direct/range {v0 .. v6}, Lcom/android/server/vcn/VcnGatewayConnection;-><init>(Lcom/android/server/vcn/VcnContext;Landroid/os/ParcelUuid;Lcom/android/server/vcn/TelephonySubscriptionTracker$TelephonySubscriptionSnapshot;Landroid/net/vcn/VcnGatewayConnectionConfig;Lcom/android/server/vcn/Vcn$VcnGatewayStatusCallback;Z)V
 
-    return-object v7
+    return-object p0
 .end method

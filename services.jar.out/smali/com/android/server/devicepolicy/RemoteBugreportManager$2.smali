@@ -1,4 +1,4 @@
-.class Lcom/android/server/devicepolicy/RemoteBugreportManager$2;
+.class public Lcom/android/server/devicepolicy/RemoteBugreportManager$2;
 .super Landroid/content/BroadcastReceiver;
 .source "RemoteBugreportManager.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/devicepolicy/RemoteBugreportManager;
+.field public final synthetic this$0:Lcom/android/server/devicepolicy/RemoteBugreportManager;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/devicepolicy/RemoteBugreportManager;)V
+.method public constructor <init>(Lcom/android/server/devicepolicy/RemoteBugreportManager;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/devicepolicy/RemoteBugreportManager$2;->this$0:Lcom/android/server/devicepolicy/RemoteBugreportManager;
@@ -32,70 +32,70 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 4
+    .locals 2
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    iget-object v1, p0, Lcom/android/server/devicepolicy/RemoteBugreportManager$2;->this$0:Lcom/android/server/devicepolicy/RemoteBugreportManager;
+    iget-object p2, p0, Lcom/android/server/devicepolicy/RemoteBugreportManager$2;->this$0:Lcom/android/server/devicepolicy/RemoteBugreportManager;
 
-    invoke-static {v1}, Lcom/android/server/devicepolicy/RemoteBugreportManager;->access$200(Lcom/android/server/devicepolicy/RemoteBugreportManager;)Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;
+    invoke-static {p2}, Lcom/android/server/devicepolicy/RemoteBugreportManager;->-$$Nest$fgetmInjector(Lcom/android/server/devicepolicy/RemoteBugreportManager;)Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-virtual {v1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;->getNotificationManager()Landroid/app/NotificationManager;
+    invoke-virtual {p2}, Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;->getNotificationManager()Landroid/app/NotificationManager;
 
-    move-result-object v1
+    move-result-object p2
 
-    const-string v2, "DevicePolicyManager"
+    const-string v0, "DevicePolicyManager"
 
-    const v3, 0x28700e57
+    const v1, 0x28700e57
 
-    invoke-virtual {v1, v2, v3}, Landroid/app/NotificationManager;->cancel(Ljava/lang/String;I)V
+    invoke-virtual {p2, v0, v1}, Landroid/app/NotificationManager;->cancel(Ljava/lang/String;I)V
 
-    const-string v1, "com.android.server.action.REMOTE_BUGREPORT_SHARING_ACCEPTED"
+    const-string p2, "com.android.server.action.REMOTE_BUGREPORT_SHARING_ACCEPTED"
 
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result p2
 
-    if-eqz v1, :cond_0
+    if-eqz p2, :cond_0
 
-    iget-object v1, p0, Lcom/android/server/devicepolicy/RemoteBugreportManager$2;->this$0:Lcom/android/server/devicepolicy/RemoteBugreportManager;
+    iget-object p1, p0, Lcom/android/server/devicepolicy/RemoteBugreportManager$2;->this$0:Lcom/android/server/devicepolicy/RemoteBugreportManager;
 
-    invoke-static {v1}, Lcom/android/server/devicepolicy/RemoteBugreportManager;->access$300(Lcom/android/server/devicepolicy/RemoteBugreportManager;)V
+    invoke-static {p1}, Lcom/android/server/devicepolicy/RemoteBugreportManager;->-$$Nest$monBugreportSharingAccepted(Lcom/android/server/devicepolicy/RemoteBugreportManager;)V
 
     goto :goto_0
 
     :cond_0
-    const-string v1, "com.android.server.action.REMOTE_BUGREPORT_SHARING_DECLINED"
+    const-string p2, "com.android.server.action.REMOTE_BUGREPORT_SHARING_DECLINED"
 
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result p1
 
-    if-eqz v1, :cond_1
+    if-eqz p1, :cond_1
 
-    iget-object v1, p0, Lcom/android/server/devicepolicy/RemoteBugreportManager$2;->this$0:Lcom/android/server/devicepolicy/RemoteBugreportManager;
+    iget-object p1, p0, Lcom/android/server/devicepolicy/RemoteBugreportManager$2;->this$0:Lcom/android/server/devicepolicy/RemoteBugreportManager;
 
-    invoke-static {v1}, Lcom/android/server/devicepolicy/RemoteBugreportManager;->access$400(Lcom/android/server/devicepolicy/RemoteBugreportManager;)V
+    invoke-static {p1}, Lcom/android/server/devicepolicy/RemoteBugreportManager;->-$$Nest$monBugreportSharingDeclined(Lcom/android/server/devicepolicy/RemoteBugreportManager;)V
 
     :cond_1
     :goto_0
-    iget-object v1, p0, Lcom/android/server/devicepolicy/RemoteBugreportManager$2;->this$0:Lcom/android/server/devicepolicy/RemoteBugreportManager;
+    iget-object p1, p0, Lcom/android/server/devicepolicy/RemoteBugreportManager$2;->this$0:Lcom/android/server/devicepolicy/RemoteBugreportManager;
 
-    invoke-static {v1}, Lcom/android/server/devicepolicy/RemoteBugreportManager;->access$600(Lcom/android/server/devicepolicy/RemoteBugreportManager;)Landroid/content/Context;
+    invoke-static {p1}, Lcom/android/server/devicepolicy/RemoteBugreportManager;->-$$Nest$fgetmContext(Lcom/android/server/devicepolicy/RemoteBugreportManager;)Landroid/content/Context;
 
-    move-result-object v1
+    move-result-object p1
 
-    iget-object v2, p0, Lcom/android/server/devicepolicy/RemoteBugreportManager$2;->this$0:Lcom/android/server/devicepolicy/RemoteBugreportManager;
+    iget-object p0, p0, Lcom/android/server/devicepolicy/RemoteBugreportManager$2;->this$0:Lcom/android/server/devicepolicy/RemoteBugreportManager;
 
-    invoke-static {v2}, Lcom/android/server/devicepolicy/RemoteBugreportManager;->access$500(Lcom/android/server/devicepolicy/RemoteBugreportManager;)Landroid/content/BroadcastReceiver;
+    invoke-static {p0}, Lcom/android/server/devicepolicy/RemoteBugreportManager;->-$$Nest$fgetmRemoteBugreportConsentReceiver(Lcom/android/server/devicepolicy/RemoteBugreportManager;)Landroid/content/BroadcastReceiver;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-virtual {v1, v2}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
+    invoke-virtual {p1, p0}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
     return-void
 .end method

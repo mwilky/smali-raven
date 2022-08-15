@@ -1,31 +1,26 @@
 .class public final synthetic Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda38;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda38;
+# instance fields
+.field public final synthetic f$0:Lcom/android/server/wm/RootWindowContainer;
+
+.field public final synthetic f$1:Ljava/lang/String;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda38;
-
-    invoke-direct {v0}, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda38;-><init>()V
-
-    sput-object v0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda38;->INSTANCE:Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda38;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Lcom/android/server/wm/RootWindowContainer;Ljava/lang/String;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda38;->f$0:Lcom/android/server/wm/RootWindowContainer;
+
+    iput-object p2, p0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda38;->f$1:Ljava/lang/String;
 
     return-void
 .end method
@@ -33,11 +28,15 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 0
+    .locals 1
 
-    check-cast p1, Lcom/android/server/wm/WindowState;
+    iget-object v0, p0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda38;->f$0:Lcom/android/server/wm/RootWindowContainer;
 
-    invoke-static {p1}, Lcom/android/server/wm/RootWindowContainer;->lambda$static$1(Lcom/android/server/wm/WindowState;)V
+    iget-object p0, p0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda38;->f$1:Ljava/lang/String;
+
+    check-cast p1, Lcom/android/server/wm/TaskDisplayArea;
+
+    invoke-static {v0, p0, p1}, Lcom/android/server/wm/RootWindowContainer;->$r8$lambda$w2uTYlwL-hJqpslfXKyteZvT-Tc(Lcom/android/server/wm/RootWindowContainer;Ljava/lang/String;Lcom/android/server/wm/TaskDisplayArea;)V
 
     return-void
 .end method

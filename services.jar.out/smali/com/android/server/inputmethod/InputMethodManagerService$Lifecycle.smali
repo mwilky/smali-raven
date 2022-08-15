@@ -15,7 +15,7 @@
 
 
 # instance fields
-.field private mService:Lcom/android/server/inputmethod/InputMethodManagerService;
+.field public final mService:Lcom/android/server/inputmethod/InputMethodManagerService;
 
 
 # direct methods
@@ -36,25 +36,23 @@
 
 # virtual methods
 .method public onBootPhase(I)V
-    .locals 2
+    .locals 1
 
     const/16 v0, 0x226
 
     if-ne p1, v0, :cond_0
 
-    nop
+    const-string/jumbo p1, "statusbar"
 
-    const-string/jumbo v0, "statusbar"
+    invoke-static {p1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
-    invoke-static {v0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+    move-result-object p1
 
-    move-result-object v0
+    check-cast p1, Lcom/android/server/statusbar/StatusBarManagerService;
 
-    check-cast v0, Lcom/android/server/statusbar/StatusBarManagerService;
+    iget-object p0, p0, Lcom/android/server/inputmethod/InputMethodManagerService$Lifecycle;->mService:Lcom/android/server/inputmethod/InputMethodManagerService;
 
-    iget-object v1, p0, Lcom/android/server/inputmethod/InputMethodManagerService$Lifecycle;->mService:Lcom/android/server/inputmethod/InputMethodManagerService;
-
-    invoke-virtual {v1, v0}, Lcom/android/server/inputmethod/InputMethodManagerService;->systemRunning(Lcom/android/server/statusbar/StatusBarManagerService;)V
+    invoke-virtual {p0, p1}, Lcom/android/server/inputmethod/InputMethodManagerService;->systemRunning(Lcom/android/server/statusbar/StatusBarManagerService;)V
 
     :cond_0
     return-void
@@ -63,15 +61,9 @@
 .method public onStart()V
     .locals 4
 
-    const-class v0, Lcom/android/server/inputmethod/InputMethodManagerInternal;
+    iget-object v0, p0, Lcom/android/server/inputmethod/InputMethodManagerService$Lifecycle;->mService:Lcom/android/server/inputmethod/InputMethodManagerService;
 
-    new-instance v1, Lcom/android/server/inputmethod/InputMethodManagerService$LocalServiceImpl;
-
-    iget-object v2, p0, Lcom/android/server/inputmethod/InputMethodManagerService$Lifecycle;->mService:Lcom/android/server/inputmethod/InputMethodManagerService;
-
-    invoke-direct {v1, v2}, Lcom/android/server/inputmethod/InputMethodManagerService$LocalServiceImpl;-><init>(Lcom/android/server/inputmethod/InputMethodManagerService;)V
-
-    invoke-static {v0, v1}, Lcom/android/server/LocalServices;->addService(Ljava/lang/Class;Ljava/lang/Object;)V
+    invoke-static {v0}, Lcom/android/server/inputmethod/InputMethodManagerService;->-$$Nest$mpublishLocalService(Lcom/android/server/inputmethod/InputMethodManagerService;)V
 
     iget-object v0, p0, Lcom/android/server/inputmethod/InputMethodManagerService$Lifecycle;->mService:Lcom/android/server/inputmethod/InputMethodManagerService;
 
@@ -81,69 +73,65 @@
 
     const/16 v3, 0x15
 
-    invoke-virtual {p0, v1, v0, v2, v3}, Lcom/android/server/inputmethod/InputMethodManagerService$Lifecycle;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;ZI)V
+    invoke-virtual {p0, v1, v0, v2, v3}, Lcom/android/server/SystemService;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;ZI)V
 
     return-void
 .end method
 
 .method public onUserSwitching(Lcom/android/server/SystemService$TargetUser;Lcom/android/server/SystemService$TargetUser;)V
-    .locals 4
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/inputmethod/InputMethodManagerService$Lifecycle;->mService:Lcom/android/server/inputmethod/InputMethodManagerService;
+    const-class p1, Lcom/android/server/inputmethod/ImfLock;
 
-    iget-object v0, v0, Lcom/android/server/inputmethod/InputMethodManagerService;->mMethodMap:Landroid/util/ArrayMap;
-
-    monitor-enter v0
+    monitor-enter p1
 
     :try_start_0
-    iget-object v1, p0, Lcom/android/server/inputmethod/InputMethodManagerService$Lifecycle;->mService:Lcom/android/server/inputmethod/InputMethodManagerService;
+    iget-object p0, p0, Lcom/android/server/inputmethod/InputMethodManagerService$Lifecycle;->mService:Lcom/android/server/inputmethod/InputMethodManagerService;
 
     invoke-virtual {p2}, Lcom/android/server/SystemService$TargetUser;->getUserIdentifier()I
 
-    move-result v2
+    move-result p2
 
-    const/4 v3, 0x0
+    const/4 v0, 0x0
 
-    invoke-virtual {v1, v2, v3}, Lcom/android/server/inputmethod/InputMethodManagerService;->scheduleSwitchUserTaskLocked(ILcom/android/internal/view/IInputMethodClient;)V
+    invoke-virtual {p0, p2, v0}, Lcom/android/server/inputmethod/InputMethodManagerService;->scheduleSwitchUserTaskLocked(ILcom/android/internal/view/IInputMethodClient;)V
 
-    monitor-exit v0
+    monitor-exit p1
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
-    monitor-exit v0
+    monitor-exit p1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
 .method public onUserUnlocking(Lcom/android/server/SystemService$TargetUser;)V
-    .locals 5
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/server/inputmethod/InputMethodManagerService$Lifecycle;->mService:Lcom/android/server/inputmethod/InputMethodManagerService;
+    iget-object p0, p0, Lcom/android/server/inputmethod/InputMethodManagerService$Lifecycle;->mService:Lcom/android/server/inputmethod/InputMethodManagerService;
 
-    iget-object v0, v0, Lcom/android/server/inputmethod/InputMethodManagerService;->mHandler:Landroid/os/Handler;
+    invoke-static {p0}, Lcom/android/server/inputmethod/InputMethodManagerService;->-$$Nest$fgetmHandler(Lcom/android/server/inputmethod/InputMethodManagerService;)Landroid/os/Handler;
 
-    iget-object v1, p0, Lcom/android/server/inputmethod/InputMethodManagerService$Lifecycle;->mService:Lcom/android/server/inputmethod/InputMethodManagerService;
-
-    iget-object v1, v1, Lcom/android/server/inputmethod/InputMethodManagerService;->mHandler:Landroid/os/Handler;
+    move-result-object p0
 
     invoke-virtual {p1}, Lcom/android/server/SystemService$TargetUser;->getUserIdentifier()I
 
-    move-result v2
+    move-result p1
 
-    const/16 v3, 0x1388
+    const/16 v0, 0x1388
 
-    const/4 v4, 0x0
+    const/4 v1, 0x0
 
-    invoke-virtual {v1, v3, v2, v4}, Landroid/os/Handler;->obtainMessage(III)Landroid/os/Message;
+    invoke-virtual {p0, v0, p1, v1}, Landroid/os/Handler;->obtainMessage(III)Landroid/os/Message;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
+    invoke-virtual {p0}, Landroid/os/Message;->sendToTarget()V
 
     return-void
 .end method

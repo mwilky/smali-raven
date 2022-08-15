@@ -1,4 +1,4 @@
-.class Lcom/android/server/pm/LauncherAppsService$LauncherAppsImpl$PackageCallbackList;
+.class public Lcom/android/server/pm/LauncherAppsService$LauncherAppsImpl$PackageCallbackList;
 .super Landroid/os/RemoteCallbackList;
 .source "LauncherAppsService.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = "PackageCallbackList"
 .end annotation
 
@@ -25,11 +25,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/pm/LauncherAppsService$LauncherAppsImpl;
+.field public final synthetic this$0:Lcom/android/server/pm/LauncherAppsService$LauncherAppsImpl;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/pm/LauncherAppsService$LauncherAppsImpl;)V
+.method public constructor <init>(Lcom/android/server/pm/LauncherAppsService$LauncherAppsImpl;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/pm/LauncherAppsService$LauncherAppsImpl$PackageCallbackList;->this$0:Lcom/android/server/pm/LauncherAppsService$LauncherAppsImpl;
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public onCallbackDied(Landroid/os/IInterface;Ljava/lang/Object;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;",
@@ -51,9 +51,9 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/android/server/pm/LauncherAppsService$LauncherAppsImpl$PackageCallbackList;->this$0:Lcom/android/server/pm/LauncherAppsService$LauncherAppsImpl;
+    iget-object p0, p0, Lcom/android/server/pm/LauncherAppsService$LauncherAppsImpl$PackageCallbackList;->this$0:Lcom/android/server/pm/LauncherAppsService$LauncherAppsImpl;
 
-    invoke-virtual {v0}, Lcom/android/server/pm/LauncherAppsService$LauncherAppsImpl;->checkCallbackCount()V
+    invoke-virtual {p0}, Lcom/android/server/pm/LauncherAppsService$LauncherAppsImpl;->checkCallbackCount()V
 
     return-void
 .end method

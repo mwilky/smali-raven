@@ -1,45 +1,42 @@
 .class public final synthetic Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda8;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/BiConsumer;
+.implements Ljava/util/function/Consumer;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda8;
+# instance fields
+.field public final synthetic f$0:Lcom/android/server/wm/RootWindowContainer;
+
+.field public final synthetic f$1:Landroid/util/SparseIntArray;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda8;
-
-    invoke-direct {v0}, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda8;-><init>()V
-
-    sput-object v0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda8;->INSTANCE:Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda8;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Lcom/android/server/wm/RootWindowContainer;Landroid/util/SparseIntArray;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda8;->f$0:Lcom/android/server/wm/RootWindowContainer;
+
+    iput-object p2, p0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda8;->f$1:Landroid/util/SparseIntArray;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 0
+.method public final accept(Ljava/lang/Object;)V
+    .locals 1
 
-    check-cast p1, Lcom/android/server/wm/ActivityRecord;
+    iget-object v0, p0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda8;->f$0:Lcom/android/server/wm/RootWindowContainer;
 
-    check-cast p2, Lcom/android/server/am/AppTimeTracker;
+    iget-object p0, p0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda8;->f$1:Landroid/util/SparseIntArray;
 
-    invoke-static {p1, p2}, Lcom/android/server/wm/RootWindowContainer;->$r8$lambda$4gCTEucWBVcwoFBz8ZTyncHFYkw(Lcom/android/server/wm/ActivityRecord;Lcom/android/server/am/AppTimeTracker;)V
+    check-cast p1, Lcom/android/server/wm/WindowState;
+
+    invoke-static {v0, p0, p1}, Lcom/android/server/wm/RootWindowContainer;->$r8$lambda$bUwDaDZvEvOXFr2zKiPmMNnolv0(Lcom/android/server/wm/RootWindowContainer;Landroid/util/SparseIntArray;Lcom/android/server/wm/WindowState;)V
 
     return-void
 .end method

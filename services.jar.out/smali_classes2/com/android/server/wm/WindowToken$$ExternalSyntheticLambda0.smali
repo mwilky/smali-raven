@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/wm/WindowToken$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/Comparator;
@@ -23,17 +24,17 @@
 
 # virtual methods
 .method public final compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/WindowToken$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/wm/WindowToken;
+    iget-object p0, p0, Lcom/android/server/wm/WindowToken$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/wm/WindowToken;
 
     check-cast p1, Lcom/android/server/wm/WindowState;
 
     check-cast p2, Lcom/android/server/wm/WindowState;
 
-    invoke-virtual {v0, p1, p2}, Lcom/android/server/wm/WindowToken;->lambda$new$0$WindowToken(Lcom/android/server/wm/WindowState;Lcom/android/server/wm/WindowState;)I
+    invoke-static {p0, p1, p2}, Lcom/android/server/wm/WindowToken;->$r8$lambda$scVcNWwh6MTtjrT5K8NFY-W2dPA(Lcom/android/server/wm/WindowToken;Lcom/android/server/wm/WindowState;Lcom/android/server/wm/WindowState;)I
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method

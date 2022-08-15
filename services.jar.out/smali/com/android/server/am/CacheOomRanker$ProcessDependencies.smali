@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/server/am/CacheOomRanker$ProcessDependencies;
+.class public interface abstract Lcom/android/server/am/CacheOomRanker$ProcessDependencies;
 .super Ljava/lang/Object;
 .source "CacheOomRanker.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
+    accessFlags = 0x609
     name = "ProcessDependencies"
 .end annotation
 

@@ -8,15 +8,15 @@
 
 .field public static final CMD_REQUEST_NETWORK:I = 0x1
 
-.field static final DBG:Z = true
+.field public static final DBG:Z = true
 
-.field static final VDBG:Z = false
+.field public static final VDBG:Z = false
 
 
 # instance fields
 .field private final LOG_TAG:Ljava/lang/String;
 
-.field final mImpl:Landroid/net/NetworkFactoryShim;
+.field public final mImpl:Landroid/net/NetworkFactoryShim;
 
 .field private mRefCount:I
 
@@ -35,24 +35,24 @@
 
     invoke-static {}, Lcom/android/modules/utils/build/SdkLevel;->isAtLeastS()Z
 
-    move-result v0
+    move-result p3
 
-    if-eqz v0, :cond_0
+    if-eqz p3, :cond_0
 
-    new-instance v0, Landroid/net/NetworkFactoryImpl;
+    new-instance p3, Landroid/net/NetworkFactoryImpl;
 
-    invoke-direct {v0, p0, p1, p2, p4}, Landroid/net/NetworkFactoryImpl;-><init>(Landroid/net/NetworkFactory;Landroid/os/Looper;Landroid/content/Context;Landroid/net/NetworkCapabilities;)V
+    invoke-direct {p3, p0, p1, p2, p4}, Landroid/net/NetworkFactoryImpl;-><init>(Landroid/net/NetworkFactory;Landroid/os/Looper;Landroid/content/Context;Landroid/net/NetworkCapabilities;)V
 
-    iput-object v0, p0, Landroid/net/NetworkFactory;->mImpl:Landroid/net/NetworkFactoryShim;
+    iput-object p3, p0, Landroid/net/NetworkFactory;->mImpl:Landroid/net/NetworkFactoryShim;
 
     goto :goto_0
 
     :cond_0
-    new-instance v0, Landroid/net/NetworkFactoryLegacyImpl;
+    new-instance p3, Landroid/net/NetworkFactoryLegacyImpl;
 
-    invoke-direct {v0, p0, p1, p2, p4}, Landroid/net/NetworkFactoryLegacyImpl;-><init>(Landroid/net/NetworkFactory;Landroid/os/Looper;Landroid/content/Context;Landroid/net/NetworkCapabilities;)V
+    invoke-direct {p3, p0, p1, p2, p4}, Landroid/net/NetworkFactoryLegacyImpl;-><init>(Landroid/net/NetworkFactory;Landroid/os/Looper;Landroid/content/Context;Landroid/net/NetworkCapabilities;)V
 
-    iput-object v0, p0, Landroid/net/NetworkFactory;->mImpl:Landroid/net/NetworkFactoryShim;
+    iput-object p3, p0, Landroid/net/NetworkFactory;->mImpl:Landroid/net/NetworkFactoryShim;
 
     :goto_0
     return-void
@@ -61,93 +61,95 @@
 
 # virtual methods
 .method public acceptRequest(Landroid/net/NetworkRequest;)Z
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 .end method
 
 .method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Landroid/net/NetworkFactory;->mImpl:Landroid/net/NetworkFactoryShim;
+    iget-object p0, p0, Landroid/net/NetworkFactory;->mImpl:Landroid/net/NetworkFactoryShim;
 
-    invoke-interface {v0, p1, p2, p3}, Landroid/net/NetworkFactoryShim;->dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
+    invoke-interface {p0, p1, p2, p3}, Landroid/net/NetworkFactoryShim;->dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
 
     return-void
 .end method
 
 .method public final getLooper()Landroid/os/Looper;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Landroid/net/NetworkFactory;->mImpl:Landroid/net/NetworkFactoryShim;
+    iget-object p0, p0, Landroid/net/NetworkFactory;->mImpl:Landroid/net/NetworkFactoryShim;
 
-    invoke-interface {v0}, Landroid/net/NetworkFactoryShim;->getLooper()Landroid/os/Looper;
+    invoke-interface {p0}, Landroid/net/NetworkFactoryShim;->getLooper()Landroid/os/Looper;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getProvider()Landroid/net/NetworkProvider;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Landroid/net/NetworkFactory;->mImpl:Landroid/net/NetworkFactoryShim;
+    iget-object p0, p0, Landroid/net/NetworkFactory;->mImpl:Landroid/net/NetworkFactoryShim;
 
-    invoke-interface {v0}, Landroid/net/NetworkFactoryShim;->getProvider()Landroid/net/NetworkProvider;
+    invoke-interface {p0}, Landroid/net/NetworkFactoryShim;->getProvider()Landroid/net/NetworkProvider;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
-.method protected getRequestCount()I
-    .locals 1
+.method public getRequestCount()I
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
 
-    iget-object v0, p0, Landroid/net/NetworkFactory;->mImpl:Landroid/net/NetworkFactoryShim;
+    iget-object p0, p0, Landroid/net/NetworkFactory;->mImpl:Landroid/net/NetworkFactoryShim;
 
-    invoke-interface {v0}, Landroid/net/NetworkFactoryShim;->getRequestCount()I
+    invoke-interface {p0}, Landroid/net/NetworkFactoryShim;->getRequestCount()I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public getSerialNumber()I
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Landroid/net/NetworkFactory;->mImpl:Landroid/net/NetworkFactoryShim;
+    iget-object p0, p0, Landroid/net/NetworkFactory;->mImpl:Landroid/net/NetworkFactoryShim;
 
-    invoke-interface {v0}, Landroid/net/NetworkFactoryShim;->getSerialNumber()I
+    invoke-interface {p0}, Landroid/net/NetworkFactoryShim;->getSerialNumber()I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
-.method protected log(Ljava/lang/String;)V
-    .locals 1
+.method public log(Ljava/lang/String;)V
+    .locals 0
 
-    iget-object v0, p0, Landroid/net/NetworkFactory;->LOG_TAG:Ljava/lang/String;
+    iget-object p0, p0, Landroid/net/NetworkFactory;->LOG_TAG:Ljava/lang/String;
 
-    invoke-static {v0, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 .end method
 
-.method protected needNetworkFor(Landroid/net/NetworkRequest;)V
-    .locals 2
+.method public needNetworkFor(Landroid/net/NetworkRequest;)V
+    .locals 1
 
-    iget v0, p0, Landroid/net/NetworkFactory;->mRefCount:I
+    iget p1, p0, Landroid/net/NetworkFactory;->mRefCount:I
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    add-int/2addr v0, v1
+    add-int/2addr p1, v0
 
-    iput v0, p0, Landroid/net/NetworkFactory;->mRefCount:I
+    iput p1, p0, Landroid/net/NetworkFactory;->mRefCount:I
 
-    if-ne v0, v1, :cond_0
+    if-ne p1, v0, :cond_0
 
     invoke-virtual {p0}, Landroid/net/NetworkFactory;->startNetwork()V
 
@@ -156,61 +158,63 @@
 .end method
 
 .method public obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
-    .locals 1
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
 
-    iget-object v0, p0, Landroid/net/NetworkFactory;->mImpl:Landroid/net/NetworkFactoryShim;
+    iget-object p0, p0, Landroid/net/NetworkFactory;->mImpl:Landroid/net/NetworkFactoryShim;
 
-    invoke-interface {v0, p1, p2, p3, p4}, Landroid/net/NetworkFactoryShim;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
+    invoke-interface {p0, p1, p2, p3, p4}, Landroid/net/NetworkFactoryShim;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
-.method protected final reevaluateAllRequests()V
-    .locals 1
+.method public final reevaluateAllRequests()V
+    .locals 0
 
-    iget-object v0, p0, Landroid/net/NetworkFactory;->mImpl:Landroid/net/NetworkFactoryShim;
+    iget-object p0, p0, Landroid/net/NetworkFactory;->mImpl:Landroid/net/NetworkFactoryShim;
 
-    invoke-interface {v0}, Landroid/net/NetworkFactoryShim;->reevaluateAllRequests()V
+    invoke-interface {p0}, Landroid/net/NetworkFactoryShim;->reevaluateAllRequests()V
 
     return-void
 .end method
 
 .method public register()V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Landroid/net/NetworkFactory;->mImpl:Landroid/net/NetworkFactoryShim;
 
-    iget-object v1, p0, Landroid/net/NetworkFactory;->LOG_TAG:Ljava/lang/String;
+    iget-object p0, p0, Landroid/net/NetworkFactory;->LOG_TAG:Ljava/lang/String;
 
-    invoke-interface {v0, v1}, Landroid/net/NetworkFactoryShim;->register(Ljava/lang/String;)V
+    invoke-interface {v0, p0}, Landroid/net/NetworkFactoryShim;->register(Ljava/lang/String;)V
 
     return-void
 .end method
 
 .method public registerIgnoringScore()V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Landroid/net/NetworkFactory;->mImpl:Landroid/net/NetworkFactoryShim;
 
-    iget-object v1, p0, Landroid/net/NetworkFactory;->LOG_TAG:Ljava/lang/String;
+    iget-object p0, p0, Landroid/net/NetworkFactory;->LOG_TAG:Ljava/lang/String;
 
-    invoke-interface {v0, v1}, Landroid/net/NetworkFactoryShim;->registerIgnoringScore(Ljava/lang/String;)V
+    invoke-interface {v0, p0}, Landroid/net/NetworkFactoryShim;->registerIgnoringScore(Ljava/lang/String;)V
 
     return-void
 .end method
 
-.method protected releaseNetworkFor(Landroid/net/NetworkRequest;)V
-    .locals 1
+.method public releaseNetworkFor(Landroid/net/NetworkRequest;)V
+    .locals 0
 
-    iget v0, p0, Landroid/net/NetworkFactory;->mRefCount:I
+    iget p1, p0, Landroid/net/NetworkFactory;->mRefCount:I
 
-    add-int/lit8 v0, v0, -0x1
+    add-int/lit8 p1, p1, -0x1
 
-    iput v0, p0, Landroid/net/NetworkFactory;->mRefCount:I
+    iput p1, p0, Landroid/net/NetworkFactory;->mRefCount:I
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
     invoke-virtual {p0}, Landroid/net/NetworkFactory;->stopNetwork()V
 
@@ -218,66 +222,66 @@
     return-void
 .end method
 
-.method protected releaseRequestAsUnfulfillableByAnyFactory(Landroid/net/NetworkRequest;)V
-    .locals 1
+.method public releaseRequestAsUnfulfillableByAnyFactory(Landroid/net/NetworkRequest;)V
+    .locals 0
 
-    iget-object v0, p0, Landroid/net/NetworkFactory;->mImpl:Landroid/net/NetworkFactoryShim;
+    iget-object p0, p0, Landroid/net/NetworkFactory;->mImpl:Landroid/net/NetworkFactoryShim;
 
-    invoke-interface {v0, p1}, Landroid/net/NetworkFactoryShim;->releaseRequestAsUnfulfillableByAnyFactory(Landroid/net/NetworkRequest;)V
+    invoke-interface {p0, p1}, Landroid/net/NetworkFactoryShim;->releaseRequestAsUnfulfillableByAnyFactory(Landroid/net/NetworkRequest;)V
 
     return-void
 .end method
 
 .method public setCapabilityFilter(Landroid/net/NetworkCapabilities;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Landroid/net/NetworkFactory;->mImpl:Landroid/net/NetworkFactoryShim;
+    iget-object p0, p0, Landroid/net/NetworkFactory;->mImpl:Landroid/net/NetworkFactoryShim;
 
-    invoke-interface {v0, p1}, Landroid/net/NetworkFactoryShim;->setCapabilityFilter(Landroid/net/NetworkCapabilities;)V
+    invoke-interface {p0, p1}, Landroid/net/NetworkFactoryShim;->setCapabilityFilter(Landroid/net/NetworkCapabilities;)V
 
     return-void
 .end method
 
 .method public setScoreFilter(I)V
-    .locals 1
+    .locals 0
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    iget-object v0, p0, Landroid/net/NetworkFactory;->mImpl:Landroid/net/NetworkFactoryShim;
+    iget-object p0, p0, Landroid/net/NetworkFactory;->mImpl:Landroid/net/NetworkFactoryShim;
 
-    invoke-interface {v0, p1}, Landroid/net/NetworkFactoryShim;->setScoreFilter(I)V
+    invoke-interface {p0, p1}, Landroid/net/NetworkFactoryShim;->setScoreFilter(I)V
 
     return-void
 .end method
 
 .method public setScoreFilter(Landroid/net/NetworkScore;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Landroid/net/NetworkFactory;->mImpl:Landroid/net/NetworkFactoryShim;
+    iget-object p0, p0, Landroid/net/NetworkFactory;->mImpl:Landroid/net/NetworkFactoryShim;
 
-    invoke-interface {v0, p1}, Landroid/net/NetworkFactoryShim;->setScoreFilter(Landroid/net/NetworkScore;)V
+    invoke-interface {p0, p1}, Landroid/net/NetworkFactoryShim;->setScoreFilter(Landroid/net/NetworkScore;)V
 
     return-void
 .end method
 
-.method protected startNetwork()V
+.method public startNetwork()V
     .locals 0
 
     return-void
 .end method
 
-.method protected stopNetwork()V
+.method public stopNetwork()V
     .locals 0
 
     return-void
 .end method
 
 .method public terminate()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Landroid/net/NetworkFactory;->mImpl:Landroid/net/NetworkFactoryShim;
+    iget-object p0, p0, Landroid/net/NetworkFactory;->mImpl:Landroid/net/NetworkFactoryShim;
 
-    invoke-interface {v0}, Landroid/net/NetworkFactoryShim;->terminate()V
+    invoke-interface {p0}, Landroid/net/NetworkFactoryShim;->terminate()V
 
     return-void
 .end method
@@ -301,21 +305,21 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Landroid/net/NetworkFactory;->mImpl:Landroid/net/NetworkFactoryShim;
+    iget-object p0, p0, Landroid/net/NetworkFactory;->mImpl:Landroid/net/NetworkFactoryShim;
 
-    invoke-virtual {v1}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v1, "}"
+    const-string/jumbo p0, "}"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

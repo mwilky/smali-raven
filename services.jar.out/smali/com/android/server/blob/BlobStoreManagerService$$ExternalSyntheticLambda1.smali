@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/blob/BlobStoreManagerService$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/internal/util/function/LongObjPredicate;
+.implements Ljava/util/function/Predicate;
 
 
 # instance fields
@@ -26,18 +27,18 @@
 
 
 # virtual methods
-.method public final test(JLjava/lang/Object;)Z
-    .locals 2
+.method public final test(Ljava/lang/Object;)Z
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/blob/BlobStoreManagerService$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/blob/BlobStoreManagerService;
 
-    iget-object v1, p0, Lcom/android/server/blob/BlobStoreManagerService$$ExternalSyntheticLambda1;->f$1:Ljava/util/ArrayList;
+    iget-object p0, p0, Lcom/android/server/blob/BlobStoreManagerService$$ExternalSyntheticLambda1;->f$1:Ljava/util/ArrayList;
 
-    check-cast p3, Lcom/android/server/blob/BlobStoreSession;
+    check-cast p1, Ljava/util/Map$Entry;
 
-    invoke-virtual {v0, v1, p1, p2, p3}, Lcom/android/server/blob/BlobStoreManagerService;->lambda$handleIdleMaintenanceLocked$15$BlobStoreManagerService(Ljava/util/ArrayList;JLcom/android/server/blob/BlobStoreSession;)Z
+    invoke-static {v0, p0, p1}, Lcom/android/server/blob/BlobStoreManagerService;->$r8$lambda$jvW9tJZMah9kvbAPtah0VnD9CgM(Lcom/android/server/blob/BlobStoreManagerService;Ljava/util/ArrayList;Ljava/util/Map$Entry;)Z
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method

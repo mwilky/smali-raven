@@ -1,4 +1,4 @@
-.class Lcom/android/server/soundtrigger/SoundTriggerService$SoundModelStatTracker$SoundModelStat;
+.class public Lcom/android/server/soundtrigger/SoundTriggerService$SoundModelStatTracker$SoundModelStat;
 .super Ljava/lang/Object;
 .source "SoundTriggerService.java"
 
@@ -9,27 +9,27 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "SoundModelStat"
 .end annotation
 
 
 # instance fields
-.field mIsStarted:Z
+.field public mIsStarted:Z
 
-.field mLastStartTimestampMsec:J
+.field public mLastStartTimestampMsec:J
 
-.field mLastStopTimestampMsec:J
+.field public mLastStopTimestampMsec:J
 
-.field mStartCount:J
+.field public mStartCount:J
 
-.field mTotalTimeMsec:J
+.field public mTotalTimeMsec:J
 
-.field final synthetic this$1:Lcom/android/server/soundtrigger/SoundTriggerService$SoundModelStatTracker;
+.field public final synthetic this$1:Lcom/android/server/soundtrigger/SoundTriggerService$SoundModelStatTracker;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/soundtrigger/SoundTriggerService$SoundModelStatTracker;)V
+.method public constructor <init>(Lcom/android/server/soundtrigger/SoundTriggerService$SoundModelStatTracker;)V
     .locals 2
 
     iput-object p1, p0, Lcom/android/server/soundtrigger/SoundTriggerService$SoundModelStatTracker$SoundModelStat;->this$1:Lcom/android/server/soundtrigger/SoundTriggerService$SoundModelStatTracker;

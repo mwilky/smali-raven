@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/blob/BlobStoreManagerService$Stub$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -27,13 +28,13 @@
 
 # virtual methods
 .method public final run()V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/blob/BlobStoreManagerService$Stub$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/blob/BlobStoreManagerService$Stub;
 
-    iget-object v1, p0, Lcom/android/server/blob/BlobStoreManagerService$Stub$$ExternalSyntheticLambda1;->f$1:Landroid/os/RemoteCallback;
+    iget-object p0, p0, Lcom/android/server/blob/BlobStoreManagerService$Stub$$ExternalSyntheticLambda1;->f$1:Landroid/os/RemoteCallback;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/blob/BlobStoreManagerService$Stub;->lambda$waitForIdle$1$BlobStoreManagerService$Stub(Landroid/os/RemoteCallback;)V
+    invoke-static {v0, p0}, Lcom/android/server/blob/BlobStoreManagerService$Stub;->$r8$lambda$mGMlMMm49totXfY3PLQf2SSLqF8(Lcom/android/server/blob/BlobStoreManagerService$Stub;Landroid/os/RemoteCallback;)V
 
     return-void
 .end method

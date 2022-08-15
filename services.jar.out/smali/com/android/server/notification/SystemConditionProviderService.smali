@@ -12,8 +12,8 @@
     return-void
 .end method
 
-.method protected static dumpUpcomingTime(Ljava/io/PrintWriter;Ljava/lang/String;JJ)V
-    .locals 4
+.method public static dumpUpcomingTime(Ljava/io/PrintWriter;Ljava/lang/String;JJ)V
+    .locals 2
 
     const-string v0, "      "
 
@@ -21,49 +21,49 @@
 
     invoke-virtual {p0, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    const/16 v0, 0x3d
+    const/16 p1, 0x3d
 
-    invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->print(C)V
+    invoke-virtual {p0, p1}, Ljava/io/PrintWriter;->print(C)V
 
     const-wide/16 v0, 0x0
 
-    cmp-long v0, p2, v0
+    cmp-long p1, p2, v0
 
-    if-lez v0, :cond_0
+    if-lez p1, :cond_0
 
-    const/4 v0, 0x3
+    const/4 p1, 0x3
 
-    new-array v0, v0, [Ljava/lang/Object;
+    new-array p1, p1, [Ljava/lang/Object;
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     invoke-static {p2, p3}, Lcom/android/server/notification/SystemConditionProviderService;->ts(J)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    aput-object v2, v0, v1
+    aput-object v1, p1, v0
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    sub-long v2, p2, p4
+    sub-long/2addr p2, p4
 
-    invoke-static {v2, v3}, Lcom/android/server/notification/SystemConditionProviderService;->formatDuration(J)Ljava/lang/String;
+    invoke-static {p2, p3}, Lcom/android/server/notification/SystemConditionProviderService;->formatDuration(J)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p2
 
-    aput-object v2, v0, v1
+    aput-object p2, p1, v0
 
-    const/4 v1, 0x2
+    const/4 p2, 0x2
 
     invoke-static {p4, p5}, Lcom/android/server/notification/SystemConditionProviderService;->ts(J)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p3
 
-    aput-object v2, v0, v1
+    aput-object p3, p1, p2
 
-    const-string v1, "%s, in %s, now=%s"
+    const-string p2, "%s, in %s, now=%s"
 
-    invoke-virtual {p0, v1, v0}, Ljava/io/PrintWriter;->printf(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintWriter;
+    invoke-virtual {p0, p2, p1}, Ljava/io/PrintWriter;->printf(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintWriter;
 
     goto :goto_0
 
@@ -76,8 +76,8 @@
     return-void
 .end method
 
-.method protected static formatDuration(J)Ljava/lang/String;
-    .locals 2
+.method public static formatDuration(J)Ljava/lang/String;
+    .locals 1
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -87,12 +87,12 @@
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method
 
-.method protected static ts(J)Ljava/lang/String;
+.method public static ts(J)Ljava/lang/String;
     .locals 2
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -111,15 +111,15 @@
 
     invoke-virtual {v0, p0, p1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    const-string v1, ")"
+    const-string p0, ")"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 

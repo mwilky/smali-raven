@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/hdmi/SystemAudioInitiationActionFromAvr$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/server/hdmi/HdmiControlService$SendMessageCallback;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final onSendCompleted(I)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/hdmi/SystemAudioInitiationActionFromAvr$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/hdmi/SystemAudioInitiationActionFromAvr;
+    iget-object p0, p0, Lcom/android/server/hdmi/SystemAudioInitiationActionFromAvr$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/hdmi/SystemAudioInitiationActionFromAvr;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/hdmi/SystemAudioInitiationActionFromAvr;->lambda$sendRequestActiveSource$0$SystemAudioInitiationActionFromAvr(I)V
+    invoke-static {p0, p1}, Lcom/android/server/hdmi/SystemAudioInitiationActionFromAvr;->$r8$lambda$g7RxMDJIknSFDuSIgKML4mC57hY(Lcom/android/server/hdmi/SystemAudioInitiationActionFromAvr;I)V
 
     return-void
 .end method

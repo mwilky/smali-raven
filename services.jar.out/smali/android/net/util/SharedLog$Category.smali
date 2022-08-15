@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x401a
+    accessFlags = 0x4019
     name = "Category"
 .end annotation
 
@@ -23,7 +23,7 @@
 
 
 # static fields
-.field private static final synthetic $VALUES:[Landroid/net/util/SharedLog$Category;
+.field public static final synthetic $VALUES:[Landroid/net/util/SharedLog$Category;
 
 .field public static final enum ERROR:Landroid/net/util/SharedLog$Category;
 
@@ -35,7 +35,7 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 9
 
     new-instance v0, Landroid/net/util/SharedLog$Category;
@@ -95,7 +95,7 @@
     return-void
 .end method
 
-.method private constructor <init>(Ljava/lang/String;I)V
+.method public constructor <init>(Ljava/lang/String;I)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -115,11 +115,11 @@
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Landroid/net/util/SharedLog$Category;
+    check-cast p0, Landroid/net/util/SharedLog$Category;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Landroid/net/util/SharedLog$Category;

@@ -1,4 +1,4 @@
-.class Lcom/android/server/location/GeocoderProxy$1;
+.class public Lcom/android/server/location/GeocoderProxy$1;
 .super Ljava/lang/Object;
 .source "GeocoderProxy.java"
 
@@ -12,27 +12,27 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/location/GeocoderProxy;
+.field public final synthetic this$0:Lcom/android/server/location/GeocoderProxy;
 
-.field final synthetic val$latitude:D
+.field public final synthetic val$latitude:D
 
-.field final synthetic val$listener:Landroid/location/IGeocodeListener;
+.field public final synthetic val$listener:Landroid/location/IGeocodeListener;
 
-.field final synthetic val$longitude:D
+.field public final synthetic val$longitude:D
 
-.field final synthetic val$maxResults:I
+.field public final synthetic val$maxResults:I
 
-.field final synthetic val$params:Landroid/location/GeocoderParams;
+.field public final synthetic val$params:Landroid/location/GeocoderParams;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/location/GeocoderProxy;DDILandroid/location/GeocoderParams;Landroid/location/IGeocodeListener;)V
+.method public constructor <init>(Lcom/android/server/location/GeocoderProxy;DDILandroid/location/GeocoderParams;Landroid/location/IGeocodeListener;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/location/GeocoderProxy$1;->this$0:Lcom/android/server/location/GeocoderProxy;
@@ -54,33 +54,30 @@
 
 
 # virtual methods
-.method public onError()V
-    .locals 3
+.method public onError(Ljava/lang/Throwable;)V
+    .locals 1
 
     :try_start_0
-    iget-object v0, p0, Lcom/android/server/location/GeocoderProxy$1;->val$listener:Landroid/location/IGeocodeListener;
+    iget-object p0, p0, Lcom/android/server/location/GeocoderProxy$1;->val$listener:Landroid/location/IGeocodeListener;
 
-    const-string v1, "Service not Available"
+    invoke-virtual {p1}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
+
+    move-result-object p1
 
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-interface {v0, v1, v2}, Landroid/location/IGeocodeListener;->onResults(Ljava/lang/String;Ljava/util/List;)V
+    invoke-interface {p0, p1, v0}, Landroid/location/IGeocodeListener;->onResults(Ljava/lang/String;Ljava/util/List;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
-
     :catch_0
-    move-exception v0
-
-    :goto_0
     return-void
 .end method
 
 .method public run(Landroid/os/IBinder;)V
-    .locals 9
+    .locals 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -89,7 +86,7 @@
 
     invoke-static {p1}, Landroid/location/IGeocodeProvider$Stub;->asInterface(Landroid/os/IBinder;)Landroid/location/IGeocodeProvider;
 
-    move-result-object v8
+    move-result-object v0
 
     iget-wide v1, p0, Lcom/android/server/location/GeocoderProxy$1;->val$latitude:D
 
@@ -100,8 +97,6 @@
     iget-object v6, p0, Lcom/android/server/location/GeocoderProxy$1;->val$params:Landroid/location/GeocoderParams;
 
     iget-object v7, p0, Lcom/android/server/location/GeocoderProxy$1;->val$listener:Landroid/location/IGeocodeListener;
-
-    move-object v0, v8
 
     invoke-interface/range {v0 .. v7}, Landroid/location/IGeocodeProvider;->getFromLocation(DDILandroid/location/GeocoderParams;Landroid/location/IGeocodeListener;)V
 

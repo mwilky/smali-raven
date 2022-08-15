@@ -15,34 +15,34 @@
 
 
 # instance fields
-.field private mExclusiveGroupId:I
+.field public mExclusiveGroupId:I
 
-.field private mType:I
+.field public mType:I
 
 
 # direct methods
-.method constructor <init>(I)V
+.method public static bridge synthetic -$$Nest$fgetmExclusiveGroupId(Lcom/android/server/tv/tunerresourcemanager/FrontendResource$Builder;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/server/tv/tunerresourcemanager/FrontendResource$Builder;->mExclusiveGroupId:I
+
+    return p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmType(Lcom/android/server/tv/tunerresourcemanager/FrontendResource$Builder;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/server/tv/tunerresourcemanager/FrontendResource$Builder;->mType:I
+
+    return p0
+.end method
+
+.method public constructor <init>(I)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/tv/tunerresourcemanager/TunerResourceBasic$Builder;-><init>(I)V
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/server/tv/tunerresourcemanager/FrontendResource$Builder;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/server/tv/tunerresourcemanager/FrontendResource$Builder;->mType:I
-
-    return v0
-.end method
-
-.method static synthetic access$100(Lcom/android/server/tv/tunerresourcemanager/FrontendResource$Builder;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/server/tv/tunerresourcemanager/FrontendResource$Builder;->mExclusiveGroupId:I
-
-    return v0
 .end method
 
 
@@ -54,17 +54,7 @@
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, p0, v1}, Lcom/android/server/tv/tunerresourcemanager/FrontendResource;-><init>(Lcom/android/server/tv/tunerresourcemanager/FrontendResource$Builder;Lcom/android/server/tv/tunerresourcemanager/FrontendResource$1;)V
-
-    return-object v0
-.end method
-
-.method public bridge synthetic build()Lcom/android/server/tv/tunerresourcemanager/TunerResourceBasic;
-    .locals 1
-
-    invoke-virtual {p0}, Lcom/android/server/tv/tunerresourcemanager/FrontendResource$Builder;->build()Lcom/android/server/tv/tunerresourcemanager/FrontendResource;
-
-    move-result-object v0
+    invoke-direct {v0, p0, v1}, Lcom/android/server/tv/tunerresourcemanager/FrontendResource;-><init>(Lcom/android/server/tv/tunerresourcemanager/FrontendResource$Builder;Lcom/android/server/tv/tunerresourcemanager/FrontendResource-IA;)V
 
     return-object v0
 .end method

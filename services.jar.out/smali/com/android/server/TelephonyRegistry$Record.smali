@@ -1,4 +1,4 @@
-.class Lcom/android/server/TelephonyRegistry$Record;
+.class public Lcom/android/server/TelephonyRegistry$Record;
 .super Ljava/lang/Object;
 .source "TelephonyRegistry.java"
 
@@ -9,29 +9,31 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "Record"
 .end annotation
 
 
 # instance fields
-.field binder:Landroid/os/IBinder;
+.field public binder:Landroid/os/IBinder;
 
-.field callback:Lcom/android/internal/telephony/IPhoneStateListener;
+.field public callback:Lcom/android/internal/telephony/IPhoneStateListener;
 
-.field callerPid:I
+.field public callerPid:I
 
-.field callerUid:I
+.field public callerUid:I
 
-.field callingFeatureId:Ljava/lang/String;
+.field public callingFeatureId:Ljava/lang/String;
 
-.field callingPackage:Ljava/lang/String;
+.field public callingPackage:Ljava/lang/String;
 
-.field context:Landroid/content/Context;
+.field public carrierPrivilegesCallback:Lcom/android/internal/telephony/ICarrierPrivilegesCallback;
 
-.field deathRecipient:Lcom/android/server/TelephonyRegistry$TelephonyRegistryDeathRecipient;
+.field public context:Landroid/content/Context;
 
-.field eventList:Ljava/util/Set;
+.field public deathRecipient:Lcom/android/server/TelephonyRegistry$TelephonyRegistryDeathRecipient;
+
+.field public eventList:Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Set<",
@@ -41,17 +43,21 @@
     .end annotation
 .end field
 
-.field onOpportunisticSubscriptionsChangedListenerCallback:Lcom/android/internal/telephony/IOnSubscriptionsChangedListener;
+.field public onOpportunisticSubscriptionsChangedListenerCallback:Lcom/android/internal/telephony/IOnSubscriptionsChangedListener;
 
-.field onSubscriptionsChangedListenerCallback:Lcom/android/internal/telephony/IOnSubscriptionsChangedListener;
+.field public onSubscriptionsChangedListenerCallback:Lcom/android/internal/telephony/IOnSubscriptionsChangedListener;
 
-.field phoneId:I
+.field public phoneId:I
 
-.field subId:I
+.field public renounceCoarseLocationAccess:Z
+
+.field public renounceFineLocationAccess:Z
+
+.field public subId:I
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -65,7 +71,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/TelephonyRegistry$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/TelephonyRegistry$Record-IA;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/TelephonyRegistry$Record;-><init>()V
@@ -75,7 +81,7 @@
 
 
 # virtual methods
-.method canReadCallLog()Z
+.method public canReadCallLog()Z
     .locals 6
 
     :try_start_0
@@ -93,84 +99,100 @@
 
     invoke-static/range {v0 .. v5}, Lcom/android/internal/telephony/TelephonyPermissions;->checkReadCallLog(Landroid/content/Context;IIILjava/lang/String;Ljava/lang/String;)Z
 
-    move-result v0
+    move-result p0
     :try_end_0
     .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return v0
+    return p0
 
     :catch_0
-    move-exception v0
+    const/4 p0, 0x0
 
-    const/4 v1, 0x0
-
-    return v1
+    return p0
 .end method
 
-.method matchOnOpportunisticSubscriptionsChangedListener()Z
-    .locals 1
+.method public matchCarrierPrivilegesCallback()Z
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/TelephonyRegistry$Record;->onOpportunisticSubscriptionsChangedListenerCallback:Lcom/android/internal/telephony/IOnSubscriptionsChangedListener;
+    iget-object p0, p0, Lcom/android/server/TelephonyRegistry$Record;->carrierPrivilegesCallback:Lcom/android/internal/telephony/ICarrierPrivilegesCallback;
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
-.method matchOnSubscriptionsChangedListener()Z
-    .locals 1
+.method public matchOnOpportunisticSubscriptionsChangedListener()Z
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/TelephonyRegistry$Record;->onSubscriptionsChangedListenerCallback:Lcom/android/internal/telephony/IOnSubscriptionsChangedListener;
+    iget-object p0, p0, Lcom/android/server/TelephonyRegistry$Record;->onOpportunisticSubscriptionsChangedListenerCallback:Lcom/android/internal/telephony/IOnSubscriptionsChangedListener;
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
-.method matchTelephonyCallbackEvent(I)Z
-    .locals 2
+.method public matchOnSubscriptionsChangedListener()Z
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/TelephonyRegistry$Record;->onSubscriptionsChangedListenerCallback:Lcom/android/internal/telephony/IOnSubscriptionsChangedListener;
+
+    if-eqz p0, :cond_0
+
+    const/4 p0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    :goto_0
+    return p0
+.end method
+
+.method public matchTelephonyCallbackEvent(I)Z
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/TelephonyRegistry$Record;->callback:Lcom/android/internal/telephony/IPhoneStateListener;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/TelephonyRegistry$Record;->eventList:Ljava/util/Set;
+    iget-object p0, p0, Lcom/android/server/TelephonyRegistry$Record;->eventList:Ljava/util/Set;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-interface {v0, v1}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
+    invoke-interface {p0, p1}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p0
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method public toString()Ljava/lang/String;
@@ -186,7 +208,7 @@
 
     iget-object v1, p0, Lcom/android/server/TelephonyRegistry$Record;->callingPackage:Ljava/lang/String;
 
-    invoke-static {v1}, Lcom/android/server/TelephonyRegistry;->access$000(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v1}, Lcom/android/server/TelephonyRegistry;->-$$Nest$smpii(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -232,6 +254,14 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    const-string v1, " carrierPrivilegesCallback="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v1, p0, Lcom/android/server/TelephonyRegistry$Record;->carrierPrivilegesCallback:Lcom/android/internal/telephony/ICarrierPrivilegesCallback;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
     const-string v1, " subId="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -252,17 +282,17 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lcom/android/server/TelephonyRegistry$Record;->eventList:Ljava/util/Set;
+    iget-object p0, p0, Lcom/android/server/TelephonyRegistry$Record;->eventList:Ljava/util/Set;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v1, "}"
+    const-string/jumbo p0, "}"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

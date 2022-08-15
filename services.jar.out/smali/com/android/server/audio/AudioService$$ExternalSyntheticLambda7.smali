@@ -1,28 +1,13 @@
 .class public final synthetic Lcom/android/server/audio/AudioService$$ExternalSyntheticLambda7;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/ToIntFunction;
-
-
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/audio/AudioService$$ExternalSyntheticLambda7;
+.implements Ljava/util/function/Predicate;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/audio/AudioService$$ExternalSyntheticLambda7;
-
-    invoke-direct {v0}, Lcom/android/server/audio/AudioService$$ExternalSyntheticLambda7;-><init>()V
-
-    sput-object v0, Lcom/android/server/audio/AudioService$$ExternalSyntheticLambda7;->INSTANCE:Lcom/android/server/audio/AudioService$$ExternalSyntheticLambda7;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,14 +17,14 @@
 
 
 # virtual methods
-.method public final applyAsInt(Ljava/lang/Object;)I
+.method public final test(Ljava/lang/Object;)Z
     .locals 0
 
-    check-cast p1, Ljava/lang/Integer;
+    check-cast p1, Landroid/media/AudioDeviceAttributes;
 
-    invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
+    invoke-static {p1}, Lcom/android/server/audio/AudioService;->$r8$lambda$GCvwRHP7-hq9j6sgzBNWCnnNcdg(Landroid/media/AudioDeviceAttributes;)Z
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method

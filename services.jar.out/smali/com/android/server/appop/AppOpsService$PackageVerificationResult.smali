@@ -1,4 +1,4 @@
-.class final Lcom/android/server/appop/AppOpsService$PackageVerificationResult;
+.class public final Lcom/android/server/appop/AppOpsService$PackageVerificationResult;
 .super Ljava/lang/Object;
 .source "AppOpsService.java"
 
@@ -9,19 +9,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "PackageVerificationResult"
 .end annotation
 
 
 # instance fields
-.field final bypass:Landroid/app/AppOpsManager$RestrictionBypass;
+.field public final bypass:Landroid/app/AppOpsManager$RestrictionBypass;
 
-.field final isAttributionTagValid:Z
+.field public final isAttributionTagValid:Z
 
 
 # direct methods
-.method constructor <init>(Landroid/app/AppOpsManager$RestrictionBypass;Z)V
+.method public constructor <init>(Landroid/app/AppOpsManager$RestrictionBypass;Z)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

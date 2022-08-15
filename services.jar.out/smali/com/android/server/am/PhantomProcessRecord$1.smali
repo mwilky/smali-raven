@@ -1,4 +1,4 @@
-.class Lcom/android/server/am/PhantomProcessRecord$1;
+.class public Lcom/android/server/am/PhantomProcessRecord$1;
 .super Ljava/lang/Object;
 .source "PhantomProcessRecord.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/am/PhantomProcessRecord;
+.field public final synthetic this$0:Lcom/android/server/am/PhantomProcessRecord;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/PhantomProcessRecord;)V
+.method public constructor <init>(Lcom/android/server/am/PhantomProcessRecord;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/am/PhantomProcessRecord$1;->this$0:Lcom/android/server/am/PhantomProcessRecord;
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .locals 5
 
     iget-object v0, p0, Lcom/android/server/am/PhantomProcessRecord$1;->this$0:Lcom/android/server/am/PhantomProcessRecord;
 
@@ -64,9 +64,15 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const/16 v3, 0x7d0
+    iget-object v3, p0, Lcom/android/server/am/PhantomProcessRecord$1;->this$0:Lcom/android/server/am/PhantomProcessRecord;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    iget-object v3, v3, Lcom/android/server/am/PhantomProcessRecord;->mService:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v3, v3, Lcom/android/server/am/ActivityManagerService;->mConstants:Lcom/android/server/am/ActivityManagerConstants;
+
+    iget-wide v3, v3, Lcom/android/server/am/ActivityManagerConstants;->mProcessKillTimeoutMs:J
+
+    invoke-virtual {v2, v3, v4}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
     const-string/jumbo v3, "ms"
 
@@ -78,28 +84,26 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v1, p0, Lcom/android/server/am/PhantomProcessRecord$1;->this$0:Lcom/android/server/am/PhantomProcessRecord;
+    iget-object p0, p0, Lcom/android/server/am/PhantomProcessRecord$1;->this$0:Lcom/android/server/am/PhantomProcessRecord;
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    iput-boolean v2, v1, Lcom/android/server/am/PhantomProcessRecord;->mZombie:Z
+    iput-boolean v1, p0, Lcom/android/server/am/PhantomProcessRecord;->mZombie:Z
 
-    iget-object v1, p0, Lcom/android/server/am/PhantomProcessRecord$1;->this$0:Lcom/android/server/am/PhantomProcessRecord;
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
-
-    invoke-virtual {v1, v2}, Lcom/android/server/am/PhantomProcessRecord;->onProcDied(Z)V
+    invoke-virtual {p0, v1}, Lcom/android/server/am/PhantomProcessRecord;->onProcDied(Z)V
 
     monitor-exit v0
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method

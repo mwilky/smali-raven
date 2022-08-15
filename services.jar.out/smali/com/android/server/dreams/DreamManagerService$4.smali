@@ -1,31 +1,39 @@
-.class Lcom/android/server/dreams/DreamManagerService$4;
+.class public Lcom/android/server/dreams/DreamManagerService$4;
 .super Ljava/lang/Object;
 .source "DreamManagerService.java"
 
 # interfaces
-.implements Lcom/android/server/dreams/DreamController$Listener;
+.implements Ljava/lang/Runnable;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/android/server/dreams/DreamManagerService;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/android/server/dreams/DreamManagerService;->stopDreamLocked(ZLjava/lang/String;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/dreams/DreamManagerService;
+.field public final synthetic this$0:Lcom/android/server/dreams/DreamManagerService;
+
+.field public final synthetic val$immediate:Z
+
+.field public final synthetic val$reason:Ljava/lang/String;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/dreams/DreamManagerService;)V
+.method public constructor <init>(Lcom/android/server/dreams/DreamManagerService;ZLjava/lang/String;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/dreams/DreamManagerService$4;->this$0:Lcom/android/server/dreams/DreamManagerService;
+
+    iput-boolean p2, p0, Lcom/android/server/dreams/DreamManagerService$4;->val$immediate:Z
+
+    iput-object p3, p0, Lcom/android/server/dreams/DreamManagerService$4;->val$reason:Ljava/lang/String;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -34,41 +42,26 @@
 
 
 # virtual methods
-.method public onDreamStopped(Landroid/os/Binder;)V
+.method public run()V
     .locals 2
+
+    const-string v0, "DreamManagerService"
+
+    const-string v1, "Performing gentle wake from dream."
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v0, p0, Lcom/android/server/dreams/DreamManagerService$4;->this$0:Lcom/android/server/dreams/DreamManagerService;
 
-    invoke-static {v0}, Lcom/android/server/dreams/DreamManagerService;->access$300(Lcom/android/server/dreams/DreamManagerService;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/server/dreams/DreamManagerService;->-$$Nest$fgetmController(Lcom/android/server/dreams/DreamManagerService;)Lcom/android/server/dreams/DreamController;
 
     move-result-object v0
 
-    monitor-enter v0
+    iget-boolean v1, p0, Lcom/android/server/dreams/DreamManagerService$4;->val$immediate:Z
 
-    :try_start_0
-    iget-object v1, p0, Lcom/android/server/dreams/DreamManagerService$4;->this$0:Lcom/android/server/dreams/DreamManagerService;
+    iget-object p0, p0, Lcom/android/server/dreams/DreamManagerService$4;->val$reason:Ljava/lang/String;
 
-    invoke-static {v1}, Lcom/android/server/dreams/DreamManagerService;->access$600(Lcom/android/server/dreams/DreamManagerService;)Landroid/os/Binder;
-
-    move-result-object v1
-
-    if-ne v1, p1, :cond_0
-
-    iget-object v1, p0, Lcom/android/server/dreams/DreamManagerService$4;->this$0:Lcom/android/server/dreams/DreamManagerService;
-
-    invoke-static {v1}, Lcom/android/server/dreams/DreamManagerService;->access$700(Lcom/android/server/dreams/DreamManagerService;)V
-
-    :cond_0
-    monitor-exit v0
+    invoke-virtual {v0, v1, p0}, Lcom/android/server/dreams/DreamController;->stopDream(ZLjava/lang/String;)V
 
     return-void
-
-    :catchall_0
-    move-exception v1
-
-    monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v1
 .end method

@@ -13,19 +13,23 @@
 
 
 # static fields
-.field private static final EMPTY_TRACKER_ARRAY:[Lcom/android/server/utils/quota/CountQuotaTracker;
-
-.field private static final TAG:Ljava/lang/String; = "MultiRateLimiter"
+.field public static final EMPTY_TRACKER_ARRAY:[Lcom/android/server/utils/quota/CountQuotaTracker;
 
 
 # instance fields
-.field private final mLock:Ljava/lang/Object;
+.field public final mLock:Ljava/lang/Object;
 
-.field private final mQuotaTrackers:[Lcom/android/server/utils/quota/CountQuotaTracker;
+.field public final mQuotaTrackers:[Lcom/android/server/utils/quota/CountQuotaTracker;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
+.end field
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 1
 
     const/4 v0, 0x0
@@ -37,7 +41,7 @@
     return-void
 .end method
 
-.method private constructor <init>(Ljava/util/List;)V
+.method public constructor <init>(Ljava/util/List;)V
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -60,16 +64,16 @@
 
     invoke-interface {p1, v0}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, [Lcom/android/server/utils/quota/CountQuotaTracker;
+    check-cast p1, [Lcom/android/server/utils/quota/CountQuotaTracker;
 
-    iput-object v0, p0, Lcom/android/server/utils/quota/MultiRateLimiter;->mQuotaTrackers:[Lcom/android/server/utils/quota/CountQuotaTracker;
+    iput-object p1, p0, Lcom/android/server/utils/quota/MultiRateLimiter;->mQuotaTrackers:[Lcom/android/server/utils/quota/CountQuotaTracker;
 
     return-void
 .end method
 
-.method synthetic constructor <init>(Ljava/util/List;Lcom/android/server/utils/quota/MultiRateLimiter$1;)V
+.method public synthetic constructor <init>(Ljava/util/List;Lcom/android/server/utils/quota/MultiRateLimiter-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/utils/quota/MultiRateLimiter;-><init>(Ljava/util/List;)V
@@ -77,23 +81,54 @@
     return-void
 .end method
 
-.method private clearLocked(ILjava/lang/String;)V
-    .locals 4
 
-    iget-object v0, p0, Lcom/android/server/utils/quota/MultiRateLimiter;->mQuotaTrackers:[Lcom/android/server/utils/quota/CountQuotaTracker;
+# virtual methods
+.method public clear(ILjava/lang/String;)V
+    .locals 1
 
-    array-length v1, v0
+    iget-object v0, p0, Lcom/android/server/utils/quota/MultiRateLimiter;->mLock:Ljava/lang/Object;
 
-    const/4 v2, 0x0
+    monitor-enter v0
+
+    :try_start_0
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/utils/quota/MultiRateLimiter;->clearLocked(ILjava/lang/String;)V
+
+    monitor-exit v0
+
+    return-void
+
+    :catchall_0
+    move-exception p0
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw p0
+.end method
+
+.method public final clearLocked(ILjava/lang/String;)V
+    .locals 3
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
+
+    iget-object p0, p0, Lcom/android/server/utils/quota/MultiRateLimiter;->mQuotaTrackers:[Lcom/android/server/utils/quota/CountQuotaTracker;
+
+    array-length v0, p0
+
+    const/4 v1, 0x0
 
     :goto_0
-    if-ge v2, v1, :cond_0
+    if-ge v1, v0, :cond_0
 
-    aget-object v3, v0, v2
+    aget-object v2, p0, v1
 
-    invoke-virtual {v3, p1, p2}, Lcom/android/server/utils/quota/CountQuotaTracker;->onAppRemovedLocked(ILjava/lang/String;)V
+    invoke-virtual {v2, p1, p2}, Lcom/android/server/utils/quota/QuotaTracker;->onAppRemovedLocked(ILjava/lang/String;)V
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
@@ -101,137 +136,121 @@
     return-void
 .end method
 
-.method private isWithinQuotaLocked(ILjava/lang/String;Ljava/lang/String;)Z
-    .locals 6
+.method public isWithinQuota(ILjava/lang/String;Ljava/lang/String;)Z
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/utils/quota/MultiRateLimiter;->mQuotaTrackers:[Lcom/android/server/utils/quota/CountQuotaTracker;
+    iget-object v0, p0, Lcom/android/server/utils/quota/MultiRateLimiter;->mLock:Ljava/lang/Object;
 
-    array-length v1, v0
+    monitor-enter v0
 
-    const/4 v2, 0x0
+    :try_start_0
+    invoke-virtual {p0, p1, p2, p3}, Lcom/android/server/utils/quota/MultiRateLimiter;->isWithinQuotaLocked(ILjava/lang/String;Ljava/lang/String;)Z
 
-    move v3, v2
+    move-result p0
+
+    monitor-exit v0
+
+    return p0
+
+    :catchall_0
+    move-exception p0
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw p0
+.end method
+
+.method public final isWithinQuotaLocked(ILjava/lang/String;Ljava/lang/String;)Z
+    .locals 4
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
+
+    iget-object p0, p0, Lcom/android/server/utils/quota/MultiRateLimiter;->mQuotaTrackers:[Lcom/android/server/utils/quota/CountQuotaTracker;
+
+    array-length v0, p0
+
+    const/4 v1, 0x0
+
+    move v2, v1
 
     :goto_0
-    if-ge v3, v1, :cond_1
+    if-ge v2, v0, :cond_1
 
-    aget-object v4, v0, v3
+    aget-object v3, p0, v2
 
-    invoke-virtual {v4, p1, p2, p3}, Lcom/android/server/utils/quota/CountQuotaTracker;->isWithinQuota(ILjava/lang/String;Ljava/lang/String;)Z
+    invoke-virtual {v3, p1, p2, p3}, Lcom/android/server/utils/quota/CountQuotaTracker;->isWithinQuota(ILjava/lang/String;Ljava/lang/String;)Z
 
-    move-result v5
+    move-result v3
 
-    if-nez v5, :cond_0
+    if-nez v3, :cond_0
 
-    return v2
+    return v1
 
     :cond_0
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     :cond_1
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 .end method
 
-.method private noteEventLocked(ILjava/lang/String;Ljava/lang/String;)V
-    .locals 4
+.method public noteEvent(ILjava/lang/String;Ljava/lang/String;)V
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/utils/quota/MultiRateLimiter;->mQuotaTrackers:[Lcom/android/server/utils/quota/CountQuotaTracker;
+    iget-object v0, p0, Lcom/android/server/utils/quota/MultiRateLimiter;->mLock:Ljava/lang/Object;
 
-    array-length v1, v0
+    monitor-enter v0
 
-    const/4 v2, 0x0
+    :try_start_0
+    invoke-virtual {p0, p1, p2, p3}, Lcom/android/server/utils/quota/MultiRateLimiter;->noteEventLocked(ILjava/lang/String;Ljava/lang/String;)V
+
+    monitor-exit v0
+
+    return-void
+
+    :catchall_0
+    move-exception p0
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw p0
+.end method
+
+.method public final noteEventLocked(ILjava/lang/String;Ljava/lang/String;)V
+    .locals 3
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
+
+    iget-object p0, p0, Lcom/android/server/utils/quota/MultiRateLimiter;->mQuotaTrackers:[Lcom/android/server/utils/quota/CountQuotaTracker;
+
+    array-length v0, p0
+
+    const/4 v1, 0x0
 
     :goto_0
-    if-ge v2, v1, :cond_0
+    if-ge v1, v0, :cond_0
 
-    aget-object v3, v0, v2
+    aget-object v2, p0, v1
 
-    invoke-virtual {v3, p1, p2, p3}, Lcom/android/server/utils/quota/CountQuotaTracker;->noteEvent(ILjava/lang/String;Ljava/lang/String;)Z
+    invoke-virtual {v2, p1, p2, p3}, Lcom/android/server/utils/quota/CountQuotaTracker;->noteEvent(ILjava/lang/String;Ljava/lang/String;)Z
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     :cond_0
     return-void
-.end method
-
-
-# virtual methods
-.method public clear(ILjava/lang/String;)V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/server/utils/quota/MultiRateLimiter;->mLock:Ljava/lang/Object;
-
-    monitor-enter v0
-
-    :try_start_0
-    invoke-direct {p0, p1, p2}, Lcom/android/server/utils/quota/MultiRateLimiter;->clearLocked(ILjava/lang/String;)V
-
-    monitor-exit v0
-
-    return-void
-
-    :catchall_0
-    move-exception v1
-
-    monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v1
-.end method
-
-.method public isWithinQuota(ILjava/lang/String;Ljava/lang/String;)Z
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/server/utils/quota/MultiRateLimiter;->mLock:Ljava/lang/Object;
-
-    monitor-enter v0
-
-    :try_start_0
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/utils/quota/MultiRateLimiter;->isWithinQuotaLocked(ILjava/lang/String;Ljava/lang/String;)Z
-
-    move-result v1
-
-    monitor-exit v0
-
-    return v1
-
-    :catchall_0
-    move-exception v1
-
-    monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v1
-.end method
-
-.method public noteEvent(ILjava/lang/String;Ljava/lang/String;)V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/server/utils/quota/MultiRateLimiter;->mLock:Ljava/lang/Object;
-
-    monitor-enter v0
-
-    :try_start_0
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/utils/quota/MultiRateLimiter;->noteEventLocked(ILjava/lang/String;Ljava/lang/String;)V
-
-    monitor-exit v0
-
-    return-void
-
-    :catchall_0
-    move-exception v1
-
-    monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v1
 .end method

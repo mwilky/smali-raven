@@ -6,16 +6,13 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/server/storage/FileCollector$MeasurementResult;,
-        Lcom/android/server/storage/FileCollector$FileTypes;
+        Lcom/android/server/storage/FileCollector$MeasurementResult;
     }
 .end annotation
 
 
 # static fields
-.field private static final AUDIO:I = 0x2
-
-.field private static final EXTENSION_MAP:Ljava/util/Map;
+.field public static final EXTENSION_MAP:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Map<",
@@ -26,15 +23,9 @@
     .end annotation
 .end field
 
-.field private static final IMAGES:I = 0x0
-
-.field private static final UNRECOGNIZED:I = -0x1
-
-.field private static final VIDEO:I = 0x1
-
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 3
 
     new-instance v0, Landroid/util/ArrayMap;
@@ -432,58 +423,48 @@
     return-void
 .end method
 
-.method public constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-.method private static collectFiles(Ljava/io/File;Lcom/android/server/storage/FileCollector$MeasurementResult;)Lcom/android/server/storage/FileCollector$MeasurementResult;
-    .locals 5
+.method public static collectFiles(Ljava/io/File;Lcom/android/server/storage/FileCollector$MeasurementResult;)Lcom/android/server/storage/FileCollector$MeasurementResult;
+    .locals 4
 
     invoke-virtual {p0}, Ljava/io/File;->listFiles()[Ljava/io/File;
 
-    move-result-object v0
+    move-result-object p0
 
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
     return-object p1
 
     :cond_0
-    array-length v1, v0
+    array-length v0, p0
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
     :goto_0
-    if-ge v2, v1, :cond_2
+    if-ge v1, v0, :cond_2
 
-    aget-object v3, v0, v2
+    aget-object v2, p0, v1
 
-    invoke-virtual {v3}, Ljava/io/File;->isDirectory()Z
+    invoke-virtual {v2}, Ljava/io/File;->isDirectory()Z
 
-    move-result v4
+    move-result v3
 
-    if-eqz v4, :cond_1
+    if-eqz v3, :cond_1
 
     :try_start_0
-    invoke-static {v3, p1}, Lcom/android/server/storage/FileCollector;->collectFiles(Ljava/io/File;Lcom/android/server/storage/FileCollector$MeasurementResult;)Lcom/android/server/storage/FileCollector$MeasurementResult;
+    invoke-static {v2, p1}, Lcom/android/server/storage/FileCollector;->collectFiles(Ljava/io/File;Lcom/android/server/storage/FileCollector$MeasurementResult;)Lcom/android/server/storage/FileCollector$MeasurementResult;
     :try_end_0
     .catch Ljava/lang/StackOverflowError; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_1
 
     :catch_0
-    move-exception v1
-
     return-object p1
 
     :cond_1
-    invoke-static {p1, v3}, Lcom/android/server/storage/FileCollector;->handleFile(Lcom/android/server/storage/FileCollector$MeasurementResult;Ljava/io/File;)V
+    invoke-static {p1, v2}, Lcom/android/server/storage/FileCollector;->handleFile(Lcom/android/server/storage/FileCollector$MeasurementResult;Ljava/io/File;)V
 
     :goto_1
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
@@ -491,49 +472,47 @@
     return-object p1
 .end method
 
-.method private static getExtensionForFile(Ljava/io/File;)Ljava/lang/String;
-    .locals 3
+.method public static getExtensionForFile(Ljava/io/File;)Ljava/lang/String;
+    .locals 2
 
     invoke-virtual {p0}, Ljava/io/File;->getName()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    const/16 v1, 0x2e
+    const/16 v0, 0x2e
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->lastIndexOf(I)I
+    invoke-virtual {p0, v0}, Ljava/lang/String;->lastIndexOf(I)I
 
-    move-result v1
+    move-result v0
 
-    const/4 v2, -0x1
+    const/4 v1, -0x1
 
-    if-ne v1, v2, :cond_0
+    if-ne v0, v1, :cond_0
 
-    const-string v2, ""
+    const-string p0, ""
 
-    return-object v2
+    return-object p0
 
     :cond_0
-    add-int/lit8 v2, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    invoke-virtual {v0, v2}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-virtual {v2}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p0
 
-    return-object v2
+    return-object p0
 .end method
 
 .method public static getMeasurementResult(Landroid/content/Context;)Lcom/android/server/storage/FileCollector$MeasurementResult;
-    .locals 7
+    .locals 5
 
     new-instance v0, Lcom/android/server/storage/FileCollector$MeasurementResult;
 
     invoke-direct {v0}, Lcom/android/server/storage/FileCollector$MeasurementResult;-><init>()V
-
-    nop
 
     const-string v1, "storagestats"
 
@@ -543,101 +522,91 @@
 
     check-cast v1, Landroid/app/usage/StorageStatsManager;
 
-    const/4 v2, 0x0
-
     :try_start_0
-    sget-object v3, Landroid/os/storage/StorageManager;->UUID_PRIVATE_INTERNAL:Ljava/lang/String;
+    sget-object v2, Landroid/os/storage/StorageManager;->UUID_PRIVATE_INTERNAL:Ljava/lang/String;
 
     invoke-virtual {p0}, Landroid/content/Context;->getUserId()I
 
-    move-result v4
+    move-result p0
 
-    invoke-static {v4}, Landroid/os/UserHandle;->of(I)Landroid/os/UserHandle;
+    invoke-static {p0}, Landroid/os/UserHandle;->of(I)Landroid/os/UserHandle;
 
-    move-result-object v4
+    move-result-object p0
 
-    invoke-virtual {v1, v3, v4}, Landroid/app/usage/StorageStatsManager;->queryExternalStatsForUser(Ljava/lang/String;Landroid/os/UserHandle;)Landroid/app/usage/ExternalStorageStats;
+    invoke-virtual {v1, v2, p0}, Landroid/app/usage/StorageStatsManager;->queryExternalStatsForUser(Ljava/lang/String;Landroid/os/UserHandle;)Landroid/app/usage/ExternalStorageStats;
 
-    move-result-object v3
+    move-result-object p0
 
-    move-object v2, v3
+    invoke-virtual {p0}, Landroid/app/usage/ExternalStorageStats;->getImageBytes()J
 
-    invoke-virtual {v2}, Landroid/app/usage/ExternalStorageStats;->getImageBytes()J
+    move-result-wide v1
 
-    move-result-wide v3
+    iput-wide v1, v0, Lcom/android/server/storage/FileCollector$MeasurementResult;->imagesSize:J
 
-    iput-wide v3, v0, Lcom/android/server/storage/FileCollector$MeasurementResult;->imagesSize:J
+    invoke-virtual {p0}, Landroid/app/usage/ExternalStorageStats;->getVideoBytes()J
 
-    invoke-virtual {v2}, Landroid/app/usage/ExternalStorageStats;->getVideoBytes()J
+    move-result-wide v1
 
-    move-result-wide v3
+    iput-wide v1, v0, Lcom/android/server/storage/FileCollector$MeasurementResult;->videosSize:J
 
-    iput-wide v3, v0, Lcom/android/server/storage/FileCollector$MeasurementResult;->videosSize:J
+    invoke-virtual {p0}, Landroid/app/usage/ExternalStorageStats;->getAudioBytes()J
 
-    invoke-virtual {v2}, Landroid/app/usage/ExternalStorageStats;->getAudioBytes()J
+    move-result-wide v1
 
-    move-result-wide v3
+    iput-wide v1, v0, Lcom/android/server/storage/FileCollector$MeasurementResult;->audioSize:J
 
-    iput-wide v3, v0, Lcom/android/server/storage/FileCollector$MeasurementResult;->audioSize:J
+    invoke-virtual {p0}, Landroid/app/usage/ExternalStorageStats;->getTotalBytes()J
 
-    nop
+    move-result-wide v1
 
-    invoke-virtual {v2}, Landroid/app/usage/ExternalStorageStats;->getTotalBytes()J
+    iget-wide v3, v0, Lcom/android/server/storage/FileCollector$MeasurementResult;->imagesSize:J
 
-    move-result-wide v3
+    sub-long/2addr v1, v3
 
-    iget-wide v5, v0, Lcom/android/server/storage/FileCollector$MeasurementResult;->imagesSize:J
+    iget-wide v3, v0, Lcom/android/server/storage/FileCollector$MeasurementResult;->videosSize:J
 
-    sub-long/2addr v3, v5
+    sub-long/2addr v1, v3
 
-    iget-wide v5, v0, Lcom/android/server/storage/FileCollector$MeasurementResult;->videosSize:J
+    iget-wide v3, v0, Lcom/android/server/storage/FileCollector$MeasurementResult;->audioSize:J
 
-    sub-long/2addr v3, v5
+    sub-long/2addr v1, v3
 
-    iget-wide v5, v0, Lcom/android/server/storage/FileCollector$MeasurementResult;->audioSize:J
-
-    sub-long/2addr v3, v5
-
-    iput-wide v3, v0, Lcom/android/server/storage/FileCollector$MeasurementResult;->miscSize:J
+    iput-wide v1, v0, Lcom/android/server/storage/FileCollector$MeasurementResult;->miscSize:J
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
-
-    nop
 
     return-object v0
 
     :catch_0
-    move-exception v3
+    new-instance p0, Ljava/lang/IllegalStateException;
 
-    new-instance v4, Ljava/lang/IllegalStateException;
+    const-string v0, "Could not query storage"
 
-    const-string v5, "Could not query storage"
+    invoke-direct {p0, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    invoke-direct {v4, v5}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    throw v4
+    throw p0
 .end method
 
 .method public static getMeasurementResult(Ljava/io/File;)Lcom/android/server/storage/FileCollector$MeasurementResult;
-    .locals 2
+    .locals 1
 
     invoke-static {p0}, Landroid/os/storage/StorageManager;->maybeTranslateEmulatedPathToInternal(Ljava/io/File;)Ljava/io/File;
 
-    move-result-object v0
+    move-result-object p0
 
-    new-instance v1, Lcom/android/server/storage/FileCollector$MeasurementResult;
+    new-instance v0, Lcom/android/server/storage/FileCollector$MeasurementResult;
 
-    invoke-direct {v1}, Lcom/android/server/storage/FileCollector$MeasurementResult;-><init>()V
+    invoke-direct {v0}, Lcom/android/server/storage/FileCollector$MeasurementResult;-><init>()V
 
-    invoke-static {v0, v1}, Lcom/android/server/storage/FileCollector;->collectFiles(Ljava/io/File;Lcom/android/server/storage/FileCollector$MeasurementResult;)Lcom/android/server/storage/FileCollector$MeasurementResult;
+    invoke-static {p0, v0}, Lcom/android/server/storage/FileCollector;->collectFiles(Ljava/io/File;Lcom/android/server/storage/FileCollector$MeasurementResult;)Lcom/android/server/storage/FileCollector$MeasurementResult;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static getSystemSize(Landroid/content/Context;)J
-    .locals 12
+    .locals 7
 
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
@@ -645,58 +614,58 @@
 
     invoke-virtual {v0}, Landroid/content/pm/PackageManager;->getPrimaryStorageCurrentVolume()Landroid/os/storage/VolumeInfo;
 
-    move-result-object v1
+    move-result-object v0
 
-    const-string v2, "storage"
+    const-string v1, "storage"
 
-    invoke-virtual {p0, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p0
 
-    check-cast v2, Landroid/os/storage/StorageManager;
+    check-cast p0, Landroid/os/storage/StorageManager;
 
-    invoke-virtual {v2, v1}, Landroid/os/storage/StorageManager;->findEmulatedForPrivate(Landroid/os/storage/VolumeInfo;)Landroid/os/storage/VolumeInfo;
+    invoke-virtual {p0, v0}, Landroid/os/storage/StorageManager;->findEmulatedForPrivate(Landroid/os/storage/VolumeInfo;)Landroid/os/storage/VolumeInfo;
 
-    move-result-object v3
+    move-result-object v0
 
-    const-wide/16 v4, 0x0
+    const-wide/16 v1, 0x0
 
-    if-nez v3, :cond_0
+    if-nez v0, :cond_0
 
-    return-wide v4
+    return-wide v1
 
     :cond_0
-    invoke-virtual {v3}, Landroid/os/storage/VolumeInfo;->getPath()Ljava/io/File;
+    invoke-virtual {v0}, Landroid/os/storage/VolumeInfo;->getPath()Ljava/io/File;
 
-    move-result-object v6
+    move-result-object v0
 
-    if-nez v6, :cond_1
+    if-nez v0, :cond_1
 
-    return-wide v4
+    return-wide v1
 
     :cond_1
-    invoke-virtual {v6}, Ljava/io/File;->getTotalSpace()J
+    invoke-virtual {v0}, Ljava/io/File;->getTotalSpace()J
 
-    move-result-wide v7
+    move-result-wide v3
 
-    invoke-virtual {v2}, Landroid/os/storage/StorageManager;->getPrimaryStorageSize()J
+    invoke-virtual {p0}, Landroid/os/storage/StorageManager;->getPrimaryStorageSize()J
 
-    move-result-wide v9
+    move-result-wide v5
 
-    sub-long/2addr v9, v7
+    sub-long/2addr v5, v3
 
-    cmp-long v11, v9, v4
+    cmp-long p0, v5, v1
 
-    if-gtz v11, :cond_2
+    if-gtz p0, :cond_2
 
-    return-wide v4
+    return-wide v1
 
     :cond_2
-    return-wide v9
+    return-wide v5
 .end method
 
-.method private static handleFile(Lcom/android/server/storage/FileCollector$MeasurementResult;Ljava/io/File;)V
-    .locals 5
+.method public static handleFile(Lcom/android/server/storage/FileCollector$MeasurementResult;Ljava/io/File;)V
+    .locals 4
 
     invoke-virtual {p1}, Ljava/io/File;->length()J
 
@@ -706,70 +675,67 @@
 
     invoke-static {p1}, Lcom/android/server/storage/FileCollector;->getExtensionForFile(Ljava/io/File;)Ljava/lang/String;
 
+    move-result-object p1
+
+    const/4 v3, -0x1
+
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
     move-result-object v3
 
-    const/4 v4, -0x1
+    invoke-interface {v2, p1, v3}, Ljava/util/Map;->getOrDefault(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object p1
 
-    move-result-object v4
+    check-cast p1, Ljava/lang/Integer;
 
-    invoke-interface {v2, v3, v4}, Ljava/util/Map;->getOrDefault(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
 
-    move-result-object v2
+    move-result p1
 
-    check-cast v2, Ljava/lang/Integer;
+    if-eqz p1, :cond_2
 
-    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
+    const/4 v2, 0x1
 
-    move-result v2
+    if-eq p1, v2, :cond_1
 
-    packed-switch v2, :pswitch_data_0
+    const/4 v2, 0x2
 
-    iget-wide v3, p0, Lcom/android/server/storage/FileCollector$MeasurementResult;->miscSize:J
+    if-eq p1, v2, :cond_0
 
-    add-long/2addr v3, v0
+    iget-wide v2, p0, Lcom/android/server/storage/FileCollector$MeasurementResult;->miscSize:J
 
-    iput-wide v3, p0, Lcom/android/server/storage/FileCollector$MeasurementResult;->miscSize:J
+    add-long/2addr v2, v0
 
-    goto :goto_0
-
-    :pswitch_0
-    iget-wide v3, p0, Lcom/android/server/storage/FileCollector$MeasurementResult;->audioSize:J
-
-    add-long/2addr v3, v0
-
-    iput-wide v3, p0, Lcom/android/server/storage/FileCollector$MeasurementResult;->audioSize:J
+    iput-wide v2, p0, Lcom/android/server/storage/FileCollector$MeasurementResult;->miscSize:J
 
     goto :goto_0
 
-    :pswitch_1
-    iget-wide v3, p0, Lcom/android/server/storage/FileCollector$MeasurementResult;->videosSize:J
+    :cond_0
+    iget-wide v2, p0, Lcom/android/server/storage/FileCollector$MeasurementResult;->audioSize:J
 
-    add-long/2addr v3, v0
+    add-long/2addr v2, v0
 
-    iput-wide v3, p0, Lcom/android/server/storage/FileCollector$MeasurementResult;->videosSize:J
+    iput-wide v2, p0, Lcom/android/server/storage/FileCollector$MeasurementResult;->audioSize:J
 
     goto :goto_0
 
-    :pswitch_2
-    iget-wide v3, p0, Lcom/android/server/storage/FileCollector$MeasurementResult;->imagesSize:J
+    :cond_1
+    iget-wide v2, p0, Lcom/android/server/storage/FileCollector$MeasurementResult;->videosSize:J
 
-    add-long/2addr v3, v0
+    add-long/2addr v2, v0
 
-    iput-wide v3, p0, Lcom/android/server/storage/FileCollector$MeasurementResult;->imagesSize:J
+    iput-wide v2, p0, Lcom/android/server/storage/FileCollector$MeasurementResult;->videosSize:J
 
-    nop
+    goto :goto_0
+
+    :cond_2
+    iget-wide v2, p0, Lcom/android/server/storage/FileCollector$MeasurementResult;->imagesSize:J
+
+    add-long/2addr v2, v0
+
+    iput-wide v2, p0, Lcom/android/server/storage/FileCollector$MeasurementResult;->imagesSize:J
 
     :goto_0
     return-void
-
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
 .end method

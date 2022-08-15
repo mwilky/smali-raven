@@ -1,75 +1,42 @@
 .class public final synthetic Lcom/android/server/pm/ShortcutService$$ExternalSyntheticLambda13;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Ljava/util/function/Consumer;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/server/pm/ShortcutService;
+.field public final synthetic f$0:Ljava/lang/String;
 
-.field public final synthetic f$1:Lcom/android/internal/infra/AndroidFuture;
-
-.field public final synthetic f$2:Ljava/lang/String;
-
-.field public final synthetic f$3:I
-
-.field public final synthetic f$4:Landroid/content/pm/ShortcutInfo;
-
-.field public final synthetic f$5:Landroid/content/IntentSender;
-
-.field public final synthetic f$6:I
-
-.field public final synthetic f$7:I
+.field public final synthetic f$1:I
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/pm/ShortcutService;Lcom/android/internal/infra/AndroidFuture;Ljava/lang/String;ILandroid/content/pm/ShortcutInfo;Landroid/content/IntentSender;II)V
+.method public synthetic constructor <init>(Ljava/lang/String;I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/pm/ShortcutService$$ExternalSyntheticLambda13;->f$0:Lcom/android/server/pm/ShortcutService;
+    iput-object p1, p0, Lcom/android/server/pm/ShortcutService$$ExternalSyntheticLambda13;->f$0:Ljava/lang/String;
 
-    iput-object p2, p0, Lcom/android/server/pm/ShortcutService$$ExternalSyntheticLambda13;->f$1:Lcom/android/internal/infra/AndroidFuture;
-
-    iput-object p3, p0, Lcom/android/server/pm/ShortcutService$$ExternalSyntheticLambda13;->f$2:Ljava/lang/String;
-
-    iput p4, p0, Lcom/android/server/pm/ShortcutService$$ExternalSyntheticLambda13;->f$3:I
-
-    iput-object p5, p0, Lcom/android/server/pm/ShortcutService$$ExternalSyntheticLambda13;->f$4:Landroid/content/pm/ShortcutInfo;
-
-    iput-object p6, p0, Lcom/android/server/pm/ShortcutService$$ExternalSyntheticLambda13;->f$5:Landroid/content/IntentSender;
-
-    iput p7, p0, Lcom/android/server/pm/ShortcutService$$ExternalSyntheticLambda13;->f$6:I
-
-    iput p8, p0, Lcom/android/server/pm/ShortcutService$$ExternalSyntheticLambda13;->f$7:I
+    iput p2, p0, Lcom/android/server/pm/ShortcutService$$ExternalSyntheticLambda13;->f$1:I
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final run()V
-    .locals 8
+.method public final accept(Ljava/lang/Object;)V
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/pm/ShortcutService$$ExternalSyntheticLambda13;->f$0:Lcom/android/server/pm/ShortcutService;
+    iget-object v0, p0, Lcom/android/server/pm/ShortcutService$$ExternalSyntheticLambda13;->f$0:Ljava/lang/String;
 
-    iget-object v1, p0, Lcom/android/server/pm/ShortcutService$$ExternalSyntheticLambda13;->f$1:Lcom/android/internal/infra/AndroidFuture;
+    iget p0, p0, Lcom/android/server/pm/ShortcutService$$ExternalSyntheticLambda13;->f$1:I
 
-    iget-object v2, p0, Lcom/android/server/pm/ShortcutService$$ExternalSyntheticLambda13;->f$2:Ljava/lang/String;
+    check-cast p1, Lcom/android/server/pm/ShortcutLauncher;
 
-    iget v3, p0, Lcom/android/server/pm/ShortcutService$$ExternalSyntheticLambda13;->f$3:I
-
-    iget-object v4, p0, Lcom/android/server/pm/ShortcutService$$ExternalSyntheticLambda13;->f$4:Landroid/content/pm/ShortcutInfo;
-
-    iget-object v5, p0, Lcom/android/server/pm/ShortcutService$$ExternalSyntheticLambda13;->f$5:Landroid/content/IntentSender;
-
-    iget v6, p0, Lcom/android/server/pm/ShortcutService$$ExternalSyntheticLambda13;->f$6:I
-
-    iget v7, p0, Lcom/android/server/pm/ShortcutService$$ExternalSyntheticLambda13;->f$7:I
-
-    invoke-virtual/range {v0 .. v7}, Lcom/android/server/pm/ShortcutService;->lambda$requestPinShortcut$10$ShortcutService(Lcom/android/internal/infra/AndroidFuture;Ljava/lang/String;ILandroid/content/pm/ShortcutInfo;Landroid/content/IntentSender;II)V
+    invoke-static {v0, p0, p1}, Lcom/android/server/pm/ShortcutService;->$r8$lambda$u3FOxqGBnNkJQphxurehYp7pJsw(Ljava/lang/String;ILcom/android/server/pm/ShortcutLauncher;)V
 
     return-void
 .end method

@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/content/SyncManager$SyncHandler$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/os/RemoteCallback$OnResultListener;
@@ -53,7 +54,7 @@
 
     move-object v7, p1
 
-    invoke-virtual/range {v0 .. v7}, Lcom/android/server/content/SyncManager$SyncHandler;->lambda$updateOrAddPeriodicSyncH$0$SyncManager$SyncHandler(Lcom/android/server/content/SyncStorageEngine$EndPoint;JJLandroid/os/Bundle;Landroid/os/Bundle;)V
+    invoke-static/range {v0 .. v7}, Lcom/android/server/content/SyncManager$SyncHandler;->$r8$lambda$PZ_zTiGnSiYTpeHD9MzpdgV8OWk(Lcom/android/server/content/SyncManager$SyncHandler;Lcom/android/server/content/SyncStorageEngine$EndPoint;JJLandroid/os/Bundle;Landroid/os/Bundle;)V
 
     return-void
 .end method

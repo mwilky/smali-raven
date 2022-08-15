@@ -1,4 +1,4 @@
-.class Lcom/android/server/vcn/VcnGatewayConnection$VcnNetworkAgent$1;
+.class public Lcom/android/server/vcn/VcnGatewayConnection$VcnNetworkAgent$1;
 .super Landroid/net/NetworkAgent;
 .source "VcnGatewayConnection.java"
 
@@ -9,38 +9,36 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/vcn/VcnGatewayConnection$VcnNetworkAgent;
+.field public final synthetic this$0:Lcom/android/server/vcn/VcnGatewayConnection$VcnNetworkAgent;
 
-.field final synthetic val$networkUnwantedCallback:Ljava/util/function/Consumer;
+.field public final synthetic val$networkUnwantedCallback:Ljava/util/function/Consumer;
 
-.field final synthetic val$validationStatusCallback:Ljava/util/function/Consumer;
+.field public final synthetic val$validationStatusCallback:Ljava/util/function/Consumer;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/vcn/VcnGatewayConnection$VcnNetworkAgent;Landroid/content/Context;Landroid/os/Looper;Ljava/lang/String;Landroid/net/NetworkCapabilities;Landroid/net/LinkProperties;Landroid/net/NetworkScore;Landroid/net/NetworkAgentConfig;Landroid/net/NetworkProvider;Ljava/util/function/Consumer;Ljava/util/function/Consumer;)V
-    .locals 11
-
-    move-object v9, p0
-
-    move-object v10, p1
-
-    iput-object v10, v9, Lcom/android/server/vcn/VcnGatewayConnection$VcnNetworkAgent$1;->this$0:Lcom/android/server/vcn/VcnGatewayConnection$VcnNetworkAgent;
-
-    move-object/from16 v0, p10
-
-    iput-object v0, v9, Lcom/android/server/vcn/VcnGatewayConnection$VcnNetworkAgent$1;->val$networkUnwantedCallback:Ljava/util/function/Consumer;
-
-    move-object/from16 v0, p11
-
-    iput-object v0, v9, Lcom/android/server/vcn/VcnGatewayConnection$VcnNetworkAgent$1;->val$validationStatusCallback:Ljava/util/function/Consumer;
+.method public constructor <init>(Lcom/android/server/vcn/VcnGatewayConnection$VcnNetworkAgent;Landroid/content/Context;Landroid/os/Looper;Ljava/lang/String;Landroid/net/NetworkCapabilities;Landroid/net/LinkProperties;Landroid/net/NetworkScore;Landroid/net/NetworkAgentConfig;Landroid/net/NetworkProvider;Ljava/util/function/Consumer;Ljava/util/function/Consumer;)V
+    .locals 9
 
     move-object v0, p0
+
+    move-object v1, p1
+
+    iput-object v1, v0, Lcom/android/server/vcn/VcnGatewayConnection$VcnNetworkAgent$1;->this$0:Lcom/android/server/vcn/VcnGatewayConnection$VcnNetworkAgent;
+
+    move-object/from16 v1, p10
+
+    iput-object v1, v0, Lcom/android/server/vcn/VcnGatewayConnection$VcnNetworkAgent$1;->val$networkUnwantedCallback:Ljava/util/function/Consumer;
+
+    move-object/from16 v1, p11
+
+    iput-object v1, v0, Lcom/android/server/vcn/VcnGatewayConnection$VcnNetworkAgent$1;->val$validationStatusCallback:Ljava/util/function/Consumer;
 
     move-object v1, p2
 
@@ -48,9 +46,9 @@
 
     move-object v3, p4
 
-    move-object/from16 v4, p5
+    move-object v4, p5
 
-    move-object/from16 v5, p6
+    move-object v5, p6
 
     move-object/from16 v6, p7
 
@@ -66,27 +64,27 @@
 
 # virtual methods
 .method public onNetworkUnwanted()V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/vcn/VcnGatewayConnection$VcnNetworkAgent$1;->val$networkUnwantedCallback:Ljava/util/function/Consumer;
 
-    iget-object v1, p0, Lcom/android/server/vcn/VcnGatewayConnection$VcnNetworkAgent$1;->this$0:Lcom/android/server/vcn/VcnGatewayConnection$VcnNetworkAgent;
+    iget-object p0, p0, Lcom/android/server/vcn/VcnGatewayConnection$VcnNetworkAgent$1;->this$0:Lcom/android/server/vcn/VcnGatewayConnection$VcnNetworkAgent;
 
-    invoke-interface {v0, v1}, Ljava/util/function/Consumer;->accept(Ljava/lang/Object;)V
+    invoke-interface {v0, p0}, Ljava/util/function/Consumer;->accept(Ljava/lang/Object;)V
 
     return-void
 .end method
 
 .method public onValidationStatus(ILandroid/net/Uri;)V
-    .locals 2
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/vcn/VcnGatewayConnection$VcnNetworkAgent$1;->val$validationStatusCallback:Ljava/util/function/Consumer;
+    iget-object p0, p0, Lcom/android/server/vcn/VcnGatewayConnection$VcnNetworkAgent$1;->val$validationStatusCallback:Ljava/util/function/Consumer;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-interface {v0, v1}, Ljava/util/function/Consumer;->accept(Ljava/lang/Object;)V
+    invoke-interface {p0, p1}, Ljava/util/function/Consumer;->accept(Ljava/lang/Object;)V
 
     return-void
 .end method

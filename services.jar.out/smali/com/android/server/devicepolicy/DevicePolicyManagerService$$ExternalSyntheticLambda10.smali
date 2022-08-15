@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda10;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/internal/util/FunctionalUtils$ThrowingRunnable;
@@ -27,13 +28,13 @@
 
 # virtual methods
 .method public final runOrThrow()V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda10;->f$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
 
-    iget v1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda10;->f$1:I
+    iget p0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda10;->f$1:I
 
-    invoke-virtual {v0, v1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$updateMaximumTimeToLockLocked$31$DevicePolicyManagerService(I)V
+    invoke-static {v0, p0}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->$r8$lambda$roIckl-OGzlxM_l20O9puUDnRic(Lcom/android/server/devicepolicy/DevicePolicyManagerService;I)V
 
     return-void
 .end method

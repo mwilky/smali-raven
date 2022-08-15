@@ -64,7 +64,7 @@
 
 # virtual methods
 .method public copyFrom(Lcom/android/server/display/DisplayModeDirector$DesiredDisplayModeSpecs;)V
-    .locals 2
+    .locals 3
 
     iget v0, p1, Lcom/android/server/display/DisplayModeDirector$DesiredDisplayModeSpecs;->baseModeId:I
 
@@ -78,39 +78,31 @@
 
     iget-object v1, p1, Lcom/android/server/display/DisplayModeDirector$DesiredDisplayModeSpecs;->primaryRefreshRateRange:Landroid/hardware/display/DisplayManagerInternal$RefreshRateRange;
 
-    iget v1, v1, Landroid/hardware/display/DisplayManagerInternal$RefreshRateRange;->min:F
+    iget v2, v1, Landroid/hardware/display/DisplayManagerInternal$RefreshRateRange;->min:F
 
-    iput v1, v0, Landroid/hardware/display/DisplayManagerInternal$RefreshRateRange;->min:F
-
-    iget-object v0, p0, Lcom/android/server/display/DisplayModeDirector$DesiredDisplayModeSpecs;->primaryRefreshRateRange:Landroid/hardware/display/DisplayManagerInternal$RefreshRateRange;
-
-    iget-object v1, p1, Lcom/android/server/display/DisplayModeDirector$DesiredDisplayModeSpecs;->primaryRefreshRateRange:Landroid/hardware/display/DisplayManagerInternal$RefreshRateRange;
+    iput v2, v0, Landroid/hardware/display/DisplayManagerInternal$RefreshRateRange;->min:F
 
     iget v1, v1, Landroid/hardware/display/DisplayManagerInternal$RefreshRateRange;->max:F
 
     iput v1, v0, Landroid/hardware/display/DisplayManagerInternal$RefreshRateRange;->max:F
 
-    iget-object v0, p0, Lcom/android/server/display/DisplayModeDirector$DesiredDisplayModeSpecs;->appRequestRefreshRateRange:Landroid/hardware/display/DisplayManagerInternal$RefreshRateRange;
+    iget-object p0, p0, Lcom/android/server/display/DisplayModeDirector$DesiredDisplayModeSpecs;->appRequestRefreshRateRange:Landroid/hardware/display/DisplayManagerInternal$RefreshRateRange;
 
-    iget-object v1, p1, Lcom/android/server/display/DisplayModeDirector$DesiredDisplayModeSpecs;->appRequestRefreshRateRange:Landroid/hardware/display/DisplayManagerInternal$RefreshRateRange;
+    iget-object p1, p1, Lcom/android/server/display/DisplayModeDirector$DesiredDisplayModeSpecs;->appRequestRefreshRateRange:Landroid/hardware/display/DisplayManagerInternal$RefreshRateRange;
 
-    iget v1, v1, Landroid/hardware/display/DisplayManagerInternal$RefreshRateRange;->min:F
+    iget v0, p1, Landroid/hardware/display/DisplayManagerInternal$RefreshRateRange;->min:F
 
-    iput v1, v0, Landroid/hardware/display/DisplayManagerInternal$RefreshRateRange;->min:F
+    iput v0, p0, Landroid/hardware/display/DisplayManagerInternal$RefreshRateRange;->min:F
 
-    iget-object v0, p0, Lcom/android/server/display/DisplayModeDirector$DesiredDisplayModeSpecs;->appRequestRefreshRateRange:Landroid/hardware/display/DisplayManagerInternal$RefreshRateRange;
+    iget p1, p1, Landroid/hardware/display/DisplayManagerInternal$RefreshRateRange;->max:F
 
-    iget-object v1, p1, Lcom/android/server/display/DisplayModeDirector$DesiredDisplayModeSpecs;->appRequestRefreshRateRange:Landroid/hardware/display/DisplayManagerInternal$RefreshRateRange;
-
-    iget v1, v1, Landroid/hardware/display/DisplayManagerInternal$RefreshRateRange;->max:F
-
-    iput v1, v0, Landroid/hardware/display/DisplayManagerInternal$RefreshRateRange;->max:F
+    iput p1, p0, Landroid/hardware/display/DisplayManagerInternal$RefreshRateRange;->max:F
 
     return-void
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .locals 4
 
     const/4 v0, 0x1
 
@@ -128,50 +120,48 @@
     return v2
 
     :cond_1
-    move-object v1, p1
+    check-cast p1, Lcom/android/server/display/DisplayModeDirector$DesiredDisplayModeSpecs;
 
-    check-cast v1, Lcom/android/server/display/DisplayModeDirector$DesiredDisplayModeSpecs;
+    iget v1, p0, Lcom/android/server/display/DisplayModeDirector$DesiredDisplayModeSpecs;->baseModeId:I
 
-    iget v3, p0, Lcom/android/server/display/DisplayModeDirector$DesiredDisplayModeSpecs;->baseModeId:I
+    iget v3, p1, Lcom/android/server/display/DisplayModeDirector$DesiredDisplayModeSpecs;->baseModeId:I
 
-    iget v4, v1, Lcom/android/server/display/DisplayModeDirector$DesiredDisplayModeSpecs;->baseModeId:I
-
-    if-eq v3, v4, :cond_2
+    if-eq v1, v3, :cond_2
 
     return v2
 
     :cond_2
-    iget-boolean v3, p0, Lcom/android/server/display/DisplayModeDirector$DesiredDisplayModeSpecs;->allowGroupSwitching:Z
+    iget-boolean v1, p0, Lcom/android/server/display/DisplayModeDirector$DesiredDisplayModeSpecs;->allowGroupSwitching:Z
 
-    iget-boolean v4, v1, Lcom/android/server/display/DisplayModeDirector$DesiredDisplayModeSpecs;->allowGroupSwitching:Z
+    iget-boolean v3, p1, Lcom/android/server/display/DisplayModeDirector$DesiredDisplayModeSpecs;->allowGroupSwitching:Z
 
-    if-eq v3, v4, :cond_3
+    if-eq v1, v3, :cond_3
 
     return v2
 
     :cond_3
-    iget-object v3, p0, Lcom/android/server/display/DisplayModeDirector$DesiredDisplayModeSpecs;->primaryRefreshRateRange:Landroid/hardware/display/DisplayManagerInternal$RefreshRateRange;
+    iget-object v1, p0, Lcom/android/server/display/DisplayModeDirector$DesiredDisplayModeSpecs;->primaryRefreshRateRange:Landroid/hardware/display/DisplayManagerInternal$RefreshRateRange;
 
-    iget-object v4, v1, Lcom/android/server/display/DisplayModeDirector$DesiredDisplayModeSpecs;->primaryRefreshRateRange:Landroid/hardware/display/DisplayManagerInternal$RefreshRateRange;
+    iget-object v3, p1, Lcom/android/server/display/DisplayModeDirector$DesiredDisplayModeSpecs;->primaryRefreshRateRange:Landroid/hardware/display/DisplayManagerInternal$RefreshRateRange;
 
-    invoke-virtual {v3, v4}, Landroid/hardware/display/DisplayManagerInternal$RefreshRateRange;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v3}, Landroid/hardware/display/DisplayManagerInternal$RefreshRateRange;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v1
 
-    if-nez v3, :cond_4
+    if-nez v1, :cond_4
 
     return v2
 
     :cond_4
-    iget-object v3, p0, Lcom/android/server/display/DisplayModeDirector$DesiredDisplayModeSpecs;->appRequestRefreshRateRange:Landroid/hardware/display/DisplayManagerInternal$RefreshRateRange;
+    iget-object p0, p0, Lcom/android/server/display/DisplayModeDirector$DesiredDisplayModeSpecs;->appRequestRefreshRateRange:Landroid/hardware/display/DisplayManagerInternal$RefreshRateRange;
 
-    iget-object v4, v1, Lcom/android/server/display/DisplayModeDirector$DesiredDisplayModeSpecs;->appRequestRefreshRateRange:Landroid/hardware/display/DisplayManagerInternal$RefreshRateRange;
+    iget-object p1, p1, Lcom/android/server/display/DisplayModeDirector$DesiredDisplayModeSpecs;->appRequestRefreshRateRange:Landroid/hardware/display/DisplayManagerInternal$RefreshRateRange;
 
-    invoke-virtual {v3, v4}, Landroid/hardware/display/DisplayManagerInternal$RefreshRateRange;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p1}, Landroid/hardware/display/DisplayManagerInternal$RefreshRateRange;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result p0
 
-    if-nez v3, :cond_5
+    if-nez p0, :cond_5
 
     return v2
 
@@ -212,17 +202,17 @@
 
     aput-object v1, v0, v2
 
-    iget-object v1, p0, Lcom/android/server/display/DisplayModeDirector$DesiredDisplayModeSpecs;->appRequestRefreshRateRange:Landroid/hardware/display/DisplayManagerInternal$RefreshRateRange;
+    iget-object p0, p0, Lcom/android/server/display/DisplayModeDirector$DesiredDisplayModeSpecs;->appRequestRefreshRateRange:Landroid/hardware/display/DisplayManagerInternal$RefreshRateRange;
 
-    const/4 v2, 0x3
+    const/4 v1, 0x3
 
-    aput-object v1, v0, v2
+    aput-object p0, v0, v1
 
     invoke-static {v0}, Ljava/util/Objects;->hash([Ljava/lang/Object;)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public toString()Ljava/lang/String;
@@ -288,23 +278,23 @@
 
     aput-object v1, v0, v2
 
-    iget-object v1, p0, Lcom/android/server/display/DisplayModeDirector$DesiredDisplayModeSpecs;->appRequestRefreshRateRange:Landroid/hardware/display/DisplayManagerInternal$RefreshRateRange;
+    iget-object p0, p0, Lcom/android/server/display/DisplayModeDirector$DesiredDisplayModeSpecs;->appRequestRefreshRateRange:Landroid/hardware/display/DisplayManagerInternal$RefreshRateRange;
 
-    iget v1, v1, Landroid/hardware/display/DisplayManagerInternal$RefreshRateRange;->max:F
+    iget p0, p0, Landroid/hardware/display/DisplayManagerInternal$RefreshRateRange;->max:F
 
-    invoke-static {v1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+    invoke-static {p0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
-    move-result-object v1
+    move-result-object p0
 
-    const/4 v2, 0x5
+    const/4 v1, 0x5
 
-    aput-object v1, v0, v2
+    aput-object p0, v0, v1
 
-    const-string v1, "baseModeId=%d allowGroupSwitching=%b primaryRefreshRateRange=[%.0f %.0f] appRequestRefreshRateRange=[%.0f %.0f]"
+    const-string p0, "baseModeId=%d allowGroupSwitching=%b primaryRefreshRateRange=[%.0f %.0f] appRequestRefreshRateRange=[%.0f %.0f]"
 
-    invoke-static {v1, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p0, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

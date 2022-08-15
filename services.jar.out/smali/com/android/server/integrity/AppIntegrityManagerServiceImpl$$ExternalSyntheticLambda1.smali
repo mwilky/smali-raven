@@ -1,45 +1,58 @@
 .class public final synthetic Lcom/android/server/integrity/AppIntegrityManagerServiceImpl$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Function;
+.implements Ljava/lang/Runnable;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/integrity/AppIntegrityManagerServiceImpl$$ExternalSyntheticLambda1;
+# instance fields
+.field public final synthetic f$0:Lcom/android/server/integrity/AppIntegrityManagerServiceImpl;
+
+.field public final synthetic f$1:Ljava/lang/String;
+
+.field public final synthetic f$2:Ljava/lang/String;
+
+.field public final synthetic f$3:Landroid/content/pm/ParceledListSlice;
+
+.field public final synthetic f$4:Landroid/content/IntentSender;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/integrity/AppIntegrityManagerServiceImpl$$ExternalSyntheticLambda1;
-
-    invoke-direct {v0}, Lcom/android/server/integrity/AppIntegrityManagerServiceImpl$$ExternalSyntheticLambda1;-><init>()V
-
-    sput-object v0, Lcom/android/server/integrity/AppIntegrityManagerServiceImpl$$ExternalSyntheticLambda1;->INSTANCE:Lcom/android/server/integrity/AppIntegrityManagerServiceImpl$$ExternalSyntheticLambda1;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Lcom/android/server/integrity/AppIntegrityManagerServiceImpl;Ljava/lang/String;Ljava/lang/String;Landroid/content/pm/ParceledListSlice;Landroid/content/IntentSender;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/integrity/AppIntegrityManagerServiceImpl$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/integrity/AppIntegrityManagerServiceImpl;
+
+    iput-object p2, p0, Lcom/android/server/integrity/AppIntegrityManagerServiceImpl$$ExternalSyntheticLambda1;->f$1:Ljava/lang/String;
+
+    iput-object p3, p0, Lcom/android/server/integrity/AppIntegrityManagerServiceImpl$$ExternalSyntheticLambda1;->f$2:Ljava/lang/String;
+
+    iput-object p4, p0, Lcom/android/server/integrity/AppIntegrityManagerServiceImpl$$ExternalSyntheticLambda1;->f$3:Landroid/content/pm/ParceledListSlice;
+
+    iput-object p5, p0, Lcom/android/server/integrity/AppIntegrityManagerServiceImpl$$ExternalSyntheticLambda1;->f$4:Landroid/content/IntentSender;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+.method public final run()V
+    .locals 4
 
-    check-cast p1, Ljava/nio/file/Path;
+    iget-object v0, p0, Lcom/android/server/integrity/AppIntegrityManagerServiceImpl$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/integrity/AppIntegrityManagerServiceImpl;
 
-    invoke-static {p1}, Lcom/android/server/integrity/AppIntegrityManagerServiceImpl;->lambda$extractSourceStamp$1(Ljava/nio/file/Path;)Ljava/lang/String;
+    iget-object v1, p0, Lcom/android/server/integrity/AppIntegrityManagerServiceImpl$$ExternalSyntheticLambda1;->f$1:Ljava/lang/String;
 
-    move-result-object p1
+    iget-object v2, p0, Lcom/android/server/integrity/AppIntegrityManagerServiceImpl$$ExternalSyntheticLambda1;->f$2:Ljava/lang/String;
 
-    return-object p1
+    iget-object v3, p0, Lcom/android/server/integrity/AppIntegrityManagerServiceImpl$$ExternalSyntheticLambda1;->f$3:Landroid/content/pm/ParceledListSlice;
+
+    iget-object p0, p0, Lcom/android/server/integrity/AppIntegrityManagerServiceImpl$$ExternalSyntheticLambda1;->f$4:Landroid/content/IntentSender;
+
+    invoke-static {v0, v1, v2, v3, p0}, Lcom/android/server/integrity/AppIntegrityManagerServiceImpl;->$r8$lambda$qEeMLWxAUapTLan209G5Rj7JRAs(Lcom/android/server/integrity/AppIntegrityManagerServiceImpl;Ljava/lang/String;Ljava/lang/String;Landroid/content/pm/ParceledListSlice;Landroid/content/IntentSender;)V
+
+    return-void
 .end method

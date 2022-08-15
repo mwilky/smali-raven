@@ -39,33 +39,33 @@
 
 # virtual methods
 .method public compareTo(Lcom/android/server/backup/fullbackup/FullBackupEntry;)I
-    .locals 5
+    .locals 3
 
     iget-wide v0, p0, Lcom/android/server/backup/fullbackup/FullBackupEntry;->lastBackup:J
 
-    iget-wide v2, p1, Lcom/android/server/backup/fullbackup/FullBackupEntry;->lastBackup:J
+    iget-wide p0, p1, Lcom/android/server/backup/fullbackup/FullBackupEntry;->lastBackup:J
 
-    cmp-long v4, v0, v2
+    cmp-long v2, v0, p0
 
-    if-gez v4, :cond_0
+    if-gez v2, :cond_0
 
-    const/4 v0, -0x1
+    const/4 p0, -0x1
 
-    return v0
+    return p0
 
     :cond_0
-    cmp-long v0, v0, v2
+    cmp-long p0, v0, p0
 
-    if-lez v0, :cond_1
+    if-lez p0, :cond_1
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 
     :cond_1
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
@@ -75,7 +75,7 @@
 
     invoke-virtual {p0, p1}, Lcom/android/server/backup/fullbackup/FullBackupEntry;->compareTo(Lcom/android/server/backup/fullbackup/FullBackupEntry;)I
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method

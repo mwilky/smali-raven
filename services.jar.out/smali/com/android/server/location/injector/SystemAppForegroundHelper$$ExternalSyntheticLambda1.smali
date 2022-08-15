@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/location/injector/SystemAppForegroundHelper$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -31,15 +32,15 @@
 
 # virtual methods
 .method public final run()V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/location/injector/SystemAppForegroundHelper$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/location/injector/SystemAppForegroundHelper;
 
     iget v1, p0, Lcom/android/server/location/injector/SystemAppForegroundHelper$$ExternalSyntheticLambda1;->f$1:I
 
-    iget-boolean v2, p0, Lcom/android/server/location/injector/SystemAppForegroundHelper$$ExternalSyntheticLambda1;->f$2:Z
+    iget-boolean p0, p0, Lcom/android/server/location/injector/SystemAppForegroundHelper$$ExternalSyntheticLambda1;->f$2:Z
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/location/injector/SystemAppForegroundHelper;->lambda$onAppForegroundChanged$0$SystemAppForegroundHelper(IZ)V
+    invoke-static {v0, v1, p0}, Lcom/android/server/location/injector/SystemAppForegroundHelper;->$r8$lambda$jfxw7iYvgyB4w8Fs_JJYhMU6Qj8(Lcom/android/server/location/injector/SystemAppForegroundHelper;IZ)V
 
     return-void
 .end method

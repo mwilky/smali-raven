@@ -15,7 +15,7 @@
 
 
 # instance fields
-.field private mStorageManagerService:Lcom/android/server/StorageManagerService;
+.field public mStorageManagerService:Lcom/android/server/StorageManagerService;
 
 
 # direct methods
@@ -36,9 +36,9 @@
 
     if-ne p1, v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/StorageManagerService$Lifecycle;->mStorageManagerService:Lcom/android/server/StorageManagerService;
+    iget-object p0, p0, Lcom/android/server/StorageManagerService$Lifecycle;->mStorageManagerService:Lcom/android/server/StorageManagerService;
 
-    invoke-static {v0}, Lcom/android/server/StorageManagerService;->access$100(Lcom/android/server/StorageManagerService;)V
+    invoke-static {p0}, Lcom/android/server/StorageManagerService;->-$$Nest$mservicesReady(Lcom/android/server/StorageManagerService;)V
 
     goto :goto_0
 
@@ -47,9 +47,9 @@
 
     if-ne p1, v0, :cond_1
 
-    iget-object v0, p0, Lcom/android/server/StorageManagerService$Lifecycle;->mStorageManagerService:Lcom/android/server/StorageManagerService;
+    iget-object p0, p0, Lcom/android/server/StorageManagerService$Lifecycle;->mStorageManagerService:Lcom/android/server/StorageManagerService;
 
-    invoke-static {v0}, Lcom/android/server/StorageManagerService;->access$200(Lcom/android/server/StorageManagerService;)V
+    invoke-static {p0}, Lcom/android/server/StorageManagerService;->-$$Nest$msystemReady(Lcom/android/server/StorageManagerService;)V
 
     goto :goto_0
 
@@ -58,9 +58,9 @@
 
     if-ne p1, v0, :cond_2
 
-    iget-object v0, p0, Lcom/android/server/StorageManagerService$Lifecycle;->mStorageManagerService:Lcom/android/server/StorageManagerService;
+    iget-object p0, p0, Lcom/android/server/StorageManagerService$Lifecycle;->mStorageManagerService:Lcom/android/server/StorageManagerService;
 
-    invoke-static {v0}, Lcom/android/server/StorageManagerService;->access$300(Lcom/android/server/StorageManagerService;)V
+    invoke-static {p0}, Lcom/android/server/StorageManagerService;->-$$Nest$mbootCompleted(Lcom/android/server/StorageManagerService;)V
 
     :cond_2
     :goto_0
@@ -72,7 +72,7 @@
 
     new-instance v0, Lcom/android/server/StorageManagerService;
 
-    invoke-virtual {p0}, Lcom/android/server/StorageManagerService$Lifecycle;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Lcom/android/server/SystemService;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
@@ -82,151 +82,151 @@
 
     const-string/jumbo v1, "mount"
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/server/StorageManagerService$Lifecycle;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
+    invoke-virtual {p0, v1, v0}, Lcom/android/server/SystemService;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
 
-    iget-object v0, p0, Lcom/android/server/StorageManagerService$Lifecycle;->mStorageManagerService:Lcom/android/server/StorageManagerService;
+    iget-object p0, p0, Lcom/android/server/StorageManagerService$Lifecycle;->mStorageManagerService:Lcom/android/server/StorageManagerService;
 
-    invoke-static {v0}, Lcom/android/server/StorageManagerService;->access$000(Lcom/android/server/StorageManagerService;)V
+    invoke-static {p0}, Lcom/android/server/StorageManagerService;->-$$Nest$mstart(Lcom/android/server/StorageManagerService;)V
 
     return-void
 .end method
 
 .method public onUserStarting(Lcom/android/server/SystemService$TargetUser;)V
-    .locals 2
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/StorageManagerService$Lifecycle;->mStorageManagerService:Lcom/android/server/StorageManagerService;
+    iget-object p0, p0, Lcom/android/server/StorageManagerService$Lifecycle;->mStorageManagerService:Lcom/android/server/StorageManagerService;
 
     invoke-virtual {p1}, Lcom/android/server/SystemService$TargetUser;->getUserHandle()Landroid/os/UserHandle;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-static {v0, v1}, Lcom/android/server/StorageManagerService;->access$1000(Lcom/android/server/StorageManagerService;Landroid/os/UserHandle;)V
+    invoke-static {p0, p1}, Lcom/android/server/StorageManagerService;->-$$Nest$msnapshotAndMonitorLegacyStorageAppOp(Lcom/android/server/StorageManagerService;Landroid/os/UserHandle;)V
 
     return-void
 .end method
 
 .method public onUserStopped(Lcom/android/server/SystemService$TargetUser;)V
-    .locals 2
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/StorageManagerService$Lifecycle;->mStorageManagerService:Lcom/android/server/StorageManagerService;
+    iget-object p0, p0, Lcom/android/server/StorageManagerService$Lifecycle;->mStorageManagerService:Lcom/android/server/StorageManagerService;
 
     invoke-virtual {p1}, Lcom/android/server/SystemService$TargetUser;->getUserIdentifier()I
 
-    move-result v1
+    move-result p1
 
-    invoke-static {v0, v1}, Lcom/android/server/StorageManagerService;->access$800(Lcom/android/server/StorageManagerService;I)V
+    invoke-static {p0, p1}, Lcom/android/server/StorageManagerService;->-$$Nest$monCleanupUser(Lcom/android/server/StorageManagerService;I)V
 
     return-void
 .end method
 
 .method public onUserStopping(Lcom/android/server/SystemService$TargetUser;)V
-    .locals 2
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/StorageManagerService$Lifecycle;->mStorageManagerService:Lcom/android/server/StorageManagerService;
+    iget-object p0, p0, Lcom/android/server/StorageManagerService$Lifecycle;->mStorageManagerService:Lcom/android/server/StorageManagerService;
 
     invoke-virtual {p1}, Lcom/android/server/SystemService$TargetUser;->getUserIdentifier()I
 
-    move-result v1
+    move-result p1
 
-    invoke-static {v0, v1}, Lcom/android/server/StorageManagerService;->access$900(Lcom/android/server/StorageManagerService;I)V
+    invoke-static {p0, p1}, Lcom/android/server/StorageManagerService;->-$$Nest$monStopUser(Lcom/android/server/StorageManagerService;I)V
 
     return-void
 .end method
 
 .method public onUserSwitching(Lcom/android/server/SystemService$TargetUser;Lcom/android/server/SystemService$TargetUser;)V
-    .locals 5
+    .locals 2
 
     invoke-virtual {p2}, Lcom/android/server/SystemService$TargetUser;->getUserIdentifier()I
 
-    move-result v0
+    move-result p1
 
-    iget-object v1, p0, Lcom/android/server/StorageManagerService$Lifecycle;->mStorageManagerService:Lcom/android/server/StorageManagerService;
+    iget-object p2, p0, Lcom/android/server/StorageManagerService$Lifecycle;->mStorageManagerService:Lcom/android/server/StorageManagerService;
 
-    invoke-static {v1, v0}, Lcom/android/server/StorageManagerService;->access$402(Lcom/android/server/StorageManagerService;I)I
+    invoke-static {p2, p1}, Lcom/android/server/StorageManagerService;->-$$Nest$fputmCurrentUserId(Lcom/android/server/StorageManagerService;I)V
 
-    const-class v1, Lcom/android/server/pm/UserManagerInternal;
+    const-class p2, Lcom/android/server/pm/UserManagerInternal;
 
-    invoke-static {v1}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-static {p2}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p2
 
-    check-cast v1, Lcom/android/server/pm/UserManagerInternal;
+    check-cast p2, Lcom/android/server/pm/UserManagerInternal;
 
-    invoke-virtual {v1, v0}, Lcom/android/server/pm/UserManagerInternal;->isUserUnlocked(I)Z
+    invoke-virtual {p2, p1}, Lcom/android/server/pm/UserManagerInternal;->isUserUnlocked(I)Z
 
-    move-result v2
+    move-result p2
 
-    const-string v3, "Attempt remount volumes for user: "
+    const-string v0, "Attempt remount volumes for user: "
 
-    const-string v4, "StorageManagerService"
+    const-string v1, "StorageManagerService"
 
-    if-eqz v2, :cond_0
+    if-eqz p2, :cond_0
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p2
 
-    invoke-static {v4, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, p2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v2, p0, Lcom/android/server/StorageManagerService$Lifecycle;->mStorageManagerService:Lcom/android/server/StorageManagerService;
+    iget-object p2, p0, Lcom/android/server/StorageManagerService$Lifecycle;->mStorageManagerService:Lcom/android/server/StorageManagerService;
 
-    invoke-static {v2, v0}, Lcom/android/server/StorageManagerService;->access$500(Lcom/android/server/StorageManagerService;I)V
+    invoke-static {p2, p1}, Lcom/android/server/StorageManagerService;->-$$Nest$mmaybeRemountVolumes(Lcom/android/server/StorageManagerService;I)V
 
-    iget-object v2, p0, Lcom/android/server/StorageManagerService$Lifecycle;->mStorageManagerService:Lcom/android/server/StorageManagerService;
+    iget-object p0, p0, Lcom/android/server/StorageManagerService$Lifecycle;->mStorageManagerService:Lcom/android/server/StorageManagerService;
 
-    const/4 v3, 0x0
+    const/4 p1, 0x0
 
-    invoke-static {v2, v3}, Lcom/android/server/StorageManagerService;->access$602(Lcom/android/server/StorageManagerService;Z)Z
+    invoke-static {p0, p1}, Lcom/android/server/StorageManagerService;->-$$Nest$fputmRemountCurrentUserVolumesOnUnlock(Lcom/android/server/StorageManagerService;Z)V
 
     goto :goto_0
 
     :cond_0
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v3, " on unlock"
+    const-string p1, " on unlock"
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-static {v4, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, p1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v2, p0, Lcom/android/server/StorageManagerService$Lifecycle;->mStorageManagerService:Lcom/android/server/StorageManagerService;
+    iget-object p0, p0, Lcom/android/server/StorageManagerService$Lifecycle;->mStorageManagerService:Lcom/android/server/StorageManagerService;
 
-    const/4 v3, 0x1
+    const/4 p1, 0x1
 
-    invoke-static {v2, v3}, Lcom/android/server/StorageManagerService;->access$602(Lcom/android/server/StorageManagerService;Z)Z
+    invoke-static {p0, p1}, Lcom/android/server/StorageManagerService;->-$$Nest$fputmRemountCurrentUserVolumesOnUnlock(Lcom/android/server/StorageManagerService;Z)V
 
     :goto_0
     return-void
 .end method
 
 .method public onUserUnlocking(Lcom/android/server/SystemService$TargetUser;)V
-    .locals 2
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/StorageManagerService$Lifecycle;->mStorageManagerService:Lcom/android/server/StorageManagerService;
+    iget-object p0, p0, Lcom/android/server/StorageManagerService$Lifecycle;->mStorageManagerService:Lcom/android/server/StorageManagerService;
 
     invoke-virtual {p1}, Lcom/android/server/SystemService$TargetUser;->getUserIdentifier()I
 
-    move-result v1
+    move-result p1
 
-    invoke-static {v0, v1}, Lcom/android/server/StorageManagerService;->access$700(Lcom/android/server/StorageManagerService;I)V
+    invoke-static {p0, p1}, Lcom/android/server/StorageManagerService;->-$$Nest$monUnlockUser(Lcom/android/server/StorageManagerService;I)V
 
     return-void
 .end method

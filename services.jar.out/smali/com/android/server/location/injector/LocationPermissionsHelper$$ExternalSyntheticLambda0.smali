@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/location/injector/LocationPermissionsHelper$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/server/location/injector/AppOpsHelper$LocationAppOpListener;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final onAppOpsChanged(Ljava/lang/String;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/location/injector/LocationPermissionsHelper$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/location/injector/LocationPermissionsHelper;
+    iget-object p0, p0, Lcom/android/server/location/injector/LocationPermissionsHelper$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/location/injector/LocationPermissionsHelper;
 
-    invoke-static {v0, p1}, Lcom/android/server/location/injector/LocationPermissionsHelper;->$r8$lambda$lKCg2BmNlpm5OljPVUK7TaO84ps(Lcom/android/server/location/injector/LocationPermissionsHelper;Ljava/lang/String;)V
+    invoke-static {p0, p1}, Lcom/android/server/location/injector/LocationPermissionsHelper;->$r8$lambda$lKCg2BmNlpm5OljPVUK7TaO84ps(Lcom/android/server/location/injector/LocationPermissionsHelper;Ljava/lang/String;)V
 
     return-void
 .end method

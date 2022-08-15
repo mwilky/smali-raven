@@ -1,4 +1,4 @@
-.class Lcom/android/server/content/SyncManager$ServiceConnectionData;
+.class public Lcom/android/server/content/SyncManager$ServiceConnectionData;
 .super Ljava/lang/Object;
 .source "SyncManager.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = "ServiceConnectionData"
 .end annotation
 
@@ -19,11 +19,11 @@
 
 .field public final adapter:Landroid/os/IBinder;
 
-.field final synthetic this$0:Lcom/android/server/content/SyncManager;
+.field public final synthetic this$0:Lcom/android/server/content/SyncManager;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/content/SyncManager;Lcom/android/server/content/SyncManager$ActiveSyncContext;Landroid/os/IBinder;)V
+.method public constructor <init>(Lcom/android/server/content/SyncManager;Lcom/android/server/content/SyncManager$ActiveSyncContext;Landroid/os/IBinder;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/content/SyncManager$ServiceConnectionData;->this$0:Lcom/android/server/content/SyncManager;

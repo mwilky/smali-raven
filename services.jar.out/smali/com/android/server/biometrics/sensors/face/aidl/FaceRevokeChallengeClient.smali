@@ -7,79 +7,82 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Lcom/android/server/biometrics/sensors/RevokeChallengeClient<",
-        "Landroid/hardware/biometrics/face/ISession;",
+        "Lcom/android/server/biometrics/sensors/face/aidl/AidlSession;",
         ">;"
     }
 .end annotation
 
 
-# static fields
-.field private static final TAG:Ljava/lang/String; = "FaceRevokeChallengeClient"
-
-
 # instance fields
-.field private final mChallenge:J
+.field public final mChallenge:J
 
 
 # direct methods
-.method constructor <init>(Landroid/content/Context;Lcom/android/server/biometrics/sensors/HalClientMonitor$LazyDaemon;Landroid/os/IBinder;ILjava/lang/String;IJ)V
+.method public constructor <init>(Landroid/content/Context;Ljava/util/function/Supplier;Landroid/os/IBinder;ILjava/lang/String;ILcom/android/server/biometrics/log/BiometricLogger;Lcom/android/server/biometrics/log/BiometricContext;J)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Landroid/content/Context;",
-            "Lcom/android/server/biometrics/sensors/HalClientMonitor$LazyDaemon<",
-            "Landroid/hardware/biometrics/face/ISession;",
+            "Ljava/util/function/Supplier<",
+            "Lcom/android/server/biometrics/sensors/face/aidl/AidlSession;",
             ">;",
             "Landroid/os/IBinder;",
             "I",
             "Ljava/lang/String;",
-            "IJ)V"
+            "I",
+            "Lcom/android/server/biometrics/log/BiometricLogger;",
+            "Lcom/android/server/biometrics/log/BiometricContext;",
+            "J)V"
         }
     .end annotation
 
-    invoke-direct/range {p0 .. p6}, Lcom/android/server/biometrics/sensors/RevokeChallengeClient;-><init>(Landroid/content/Context;Lcom/android/server/biometrics/sensors/HalClientMonitor$LazyDaemon;Landroid/os/IBinder;ILjava/lang/String;I)V
+    invoke-direct/range {p0 .. p8}, Lcom/android/server/biometrics/sensors/RevokeChallengeClient;-><init>(Landroid/content/Context;Ljava/util/function/Supplier;Landroid/os/IBinder;ILjava/lang/String;ILcom/android/server/biometrics/log/BiometricLogger;Lcom/android/server/biometrics/log/BiometricContext;)V
 
-    iput-wide p7, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceRevokeChallengeClient;->mChallenge:J
+    iput-wide p9, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceRevokeChallengeClient;->mChallenge:J
 
     return-void
 .end method
 
 
 # virtual methods
-.method onChallengeRevoked(IIJ)V
-    .locals 2
+.method public onChallengeRevoked(IIJ)V
+    .locals 0
 
-    iget-wide v0, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceRevokeChallengeClient;->mChallenge:J
+    iget-wide p1, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceRevokeChallengeClient;->mChallenge:J
 
-    cmp-long v0, p3, v0
+    cmp-long p1, p3, p1
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    iget-object v1, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceRevokeChallengeClient;->mCallback:Lcom/android/server/biometrics/sensors/BaseClientMonitor$Callback;
+    iget-object p2, p0, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->mCallback:Lcom/android/server/biometrics/sensors/ClientMonitorCallback;
 
-    invoke-interface {v1, p0, v0}, Lcom/android/server/biometrics/sensors/BaseClientMonitor$Callback;->onClientFinished(Lcom/android/server/biometrics/sensors/BaseClientMonitor;Z)V
+    invoke-interface {p2, p0, p1}, Lcom/android/server/biometrics/sensors/ClientMonitorCallback;->onClientFinished(Lcom/android/server/biometrics/sensors/BaseClientMonitor;Z)V
 
     return-void
 .end method
 
-.method protected startHalOperation()V
+.method public startHalOperation()V
     .locals 3
 
     :try_start_0
-    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/face/aidl/FaceRevokeChallengeClient;->getFreshDaemon()Ljava/lang/Object;
+    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/HalClientMonitor;->getFreshDaemon()Ljava/lang/Object;
 
     move-result-object v0
 
-    check-cast v0, Landroid/hardware/biometrics/face/ISession;
+    check-cast v0, Lcom/android/server/biometrics/sensors/face/aidl/AidlSession;
+
+    invoke-virtual {v0}, Lcom/android/server/biometrics/sensors/face/aidl/AidlSession;->getSession()Landroid/hardware/biometrics/face/ISession;
+
+    move-result-object v0
 
     iget-wide v1, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceRevokeChallengeClient;->mChallenge:J
 
@@ -98,11 +101,11 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    iget-object v1, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceRevokeChallengeClient;->mCallback:Lcom/android/server/biometrics/sensors/BaseClientMonitor$Callback;
+    iget-object v0, p0, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->mCallback:Lcom/android/server/biometrics/sensors/ClientMonitorCallback;
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    invoke-interface {v1, p0, v2}, Lcom/android/server/biometrics/sensors/BaseClientMonitor$Callback;->onClientFinished(Lcom/android/server/biometrics/sensors/BaseClientMonitor;Z)V
+    invoke-interface {v0, p0, v1}, Lcom/android/server/biometrics/sensors/ClientMonitorCallback;->onClientFinished(Lcom/android/server/biometrics/sensors/BaseClientMonitor;Z)V
 
     :goto_0
     return-void

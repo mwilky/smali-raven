@@ -1,45 +1,46 @@
 .class public final synthetic Lcom/android/server/wm/ActivityTaskManagerService$$ExternalSyntheticLambda16;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/BiConsumer;
+.implements Ljava/lang/Runnable;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/wm/ActivityTaskManagerService$$ExternalSyntheticLambda16;
+# instance fields
+.field public final synthetic f$0:Lcom/android/server/wm/ActivityTaskManagerService;
+
+.field public final synthetic f$1:Z
+
+.field public final synthetic f$2:Z
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/wm/ActivityTaskManagerService$$ExternalSyntheticLambda16;
-
-    invoke-direct {v0}, Lcom/android/server/wm/ActivityTaskManagerService$$ExternalSyntheticLambda16;-><init>()V
-
-    sput-object v0, Lcom/android/server/wm/ActivityTaskManagerService$$ExternalSyntheticLambda16;->INSTANCE:Lcom/android/server/wm/ActivityTaskManagerService$$ExternalSyntheticLambda16;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Lcom/android/server/wm/ActivityTaskManagerService;ZZ)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/wm/ActivityTaskManagerService$$ExternalSyntheticLambda16;->f$0:Lcom/android/server/wm/ActivityTaskManagerService;
+
+    iput-boolean p2, p0, Lcom/android/server/wm/ActivityTaskManagerService$$ExternalSyntheticLambda16;->f$1:Z
+
+    iput-boolean p3, p0, Lcom/android/server/wm/ActivityTaskManagerService$$ExternalSyntheticLambda16;->f$2:Z
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 0
+.method public final run()V
+    .locals 2
 
-    check-cast p1, Lcom/android/server/wm/ActivityTaskManagerService;
+    iget-object v0, p0, Lcom/android/server/wm/ActivityTaskManagerService$$ExternalSyntheticLambda16;->f$0:Lcom/android/server/wm/ActivityTaskManagerService;
 
-    check-cast p2, Landroid/os/IBinder;
+    iget-boolean v1, p0, Lcom/android/server/wm/ActivityTaskManagerService$$ExternalSyntheticLambda16;->f$1:Z
 
-    invoke-static {p1, p2}, Lcom/android/server/wm/ActivityTaskManagerService;->$r8$lambda$dxA3AJGAbbro1hTB9BKgVClj6pI(Lcom/android/server/wm/ActivityTaskManagerService;Landroid/os/IBinder;)V
+    iget-boolean p0, p0, Lcom/android/server/wm/ActivityTaskManagerService$$ExternalSyntheticLambda16;->f$2:Z
+
+    invoke-static {v0, v1, p0}, Lcom/android/server/wm/ActivityTaskManagerService;->$r8$lambda$66J0l7jUNvp5Oq0sLDSdFroSm90(Lcom/android/server/wm/ActivityTaskManagerService;ZZ)V
 
     return-void
 .end method

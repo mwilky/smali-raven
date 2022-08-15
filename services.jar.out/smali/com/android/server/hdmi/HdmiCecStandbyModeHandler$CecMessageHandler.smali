@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/server/hdmi/HdmiCecStandbyModeHandler$CecMessageHandler;
+.class public interface abstract Lcom/android/server/hdmi/HdmiCecStandbyModeHandler$CecMessageHandler;
 .super Ljava/lang/Object;
 .source "HdmiCecStandbyModeHandler.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x60a
+    accessFlags = 0x609
     name = "CecMessageHandler"
 .end annotation
 

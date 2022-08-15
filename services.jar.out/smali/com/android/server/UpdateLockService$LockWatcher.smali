@@ -1,4 +1,4 @@
-.class Lcom/android/server/UpdateLockService$LockWatcher;
+.class public Lcom/android/server/UpdateLockService$LockWatcher;
 .super Landroid/os/TokenWatcher;
 .source "UpdateLockService.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = "LockWatcher"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/UpdateLockService;
+.field public final synthetic this$0:Lcom/android/server/UpdateLockService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/UpdateLockService;Landroid/os/Handler;Ljava/lang/String;)V
+.method public constructor <init>(Lcom/android/server/UpdateLockService;Landroid/os/Handler;Ljava/lang/String;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/UpdateLockService$LockWatcher;->this$0:Lcom/android/server/UpdateLockService;
@@ -32,25 +32,25 @@
 
 # virtual methods
 .method public acquired()V
-    .locals 2
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/UpdateLockService$LockWatcher;->this$0:Lcom/android/server/UpdateLockService;
+    iget-object p0, p0, Lcom/android/server/UpdateLockService$LockWatcher;->this$0:Lcom/android/server/UpdateLockService;
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    invoke-virtual {v0, v1}, Lcom/android/server/UpdateLockService;->sendLockChangedBroadcast(Z)V
+    invoke-virtual {p0, v0}, Lcom/android/server/UpdateLockService;->sendLockChangedBroadcast(Z)V
 
     return-void
 .end method
 
 .method public released()V
-    .locals 2
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/UpdateLockService$LockWatcher;->this$0:Lcom/android/server/UpdateLockService;
+    iget-object p0, p0, Lcom/android/server/UpdateLockService$LockWatcher;->this$0:Lcom/android/server/UpdateLockService;
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    invoke-virtual {v0, v1}, Lcom/android/server/UpdateLockService;->sendLockChangedBroadcast(Z)V
+    invoke-virtual {p0, v0}, Lcom/android/server/UpdateLockService;->sendLockChangedBroadcast(Z)V
 
     return-void
 .end method

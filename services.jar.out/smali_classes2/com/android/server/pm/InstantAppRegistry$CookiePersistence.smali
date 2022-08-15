@@ -1,4 +1,4 @@
-.class final Lcom/android/server/pm/InstantAppRegistry$CookiePersistence;
+.class public final Lcom/android/server/pm/InstantAppRegistry$CookiePersistence;
 .super Landroid/os/Handler;
 .source "InstantAppRegistry.java"
 
@@ -9,17 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "CookiePersistence"
 .end annotation
 
 
-# static fields
-.field private static final PERSIST_COOKIE_DELAY_MILLIS:J = 0x3e8L
-
-
 # instance fields
-.field private final mPendingPersistCookies:Landroid/util/SparseArray;
+.field public final mPendingPersistCookies:Landroid/util/SparseArray;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/SparseArray<",
@@ -31,7 +27,7 @@
     .end annotation
 .end field
 
-.field final synthetic this$0:Lcom/android/server/pm/InstantAppRegistry;
+.field public final synthetic this$0:Lcom/android/server/pm/InstantAppRegistry;
 
 
 # direct methods
@@ -51,8 +47,10 @@
     return-void
 .end method
 
-.method private addPendingPersistCookieLPw(ILcom/android/server/pm/parsing/pkg/AndroidPackage;[BLjava/io/File;)V
-    .locals 3
+
+# virtual methods
+.method public final addPendingPersistCookieLPw(ILcom/android/server/pm/parsing/pkg/AndroidPackage;[BLjava/io/File;)V
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/pm/InstantAppRegistry$CookiePersistence;->mPendingPersistCookies:Landroid/util/SparseArray;
 
@@ -64,96 +62,127 @@
 
     if-nez v0, :cond_0
 
-    new-instance v1, Landroid/util/ArrayMap;
+    new-instance v0, Landroid/util/ArrayMap;
 
-    invoke-direct {v1}, Landroid/util/ArrayMap;-><init>()V
+    invoke-direct {v0}, Landroid/util/ArrayMap;-><init>()V
 
-    move-object v0, v1
+    iget-object p0, p0, Lcom/android/server/pm/InstantAppRegistry$CookiePersistence;->mPendingPersistCookies:Landroid/util/SparseArray;
 
-    iget-object v1, p0, Lcom/android/server/pm/InstantAppRegistry$CookiePersistence;->mPendingPersistCookies:Landroid/util/SparseArray;
-
-    invoke-virtual {v1, p1, v0}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    invoke-virtual {p0, p1, v0}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     :cond_0
     invoke-static {}, Lcom/android/internal/os/SomeArgs;->obtain()Lcom/android/internal/os/SomeArgs;
 
-    move-result-object v1
+    move-result-object p0
 
-    iput-object p3, v1, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
+    iput-object p3, p0, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
 
-    iput-object p4, v1, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
+    iput-object p4, p0, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
 
-    invoke-interface {p2}, Lcom/android/server/pm/parsing/pkg/AndroidPackage;->getPackageName()Ljava/lang/String;
+    invoke-interface {p2}, Lcom/android/server/pm/pkg/parsing/PkgWithoutStatePackageInfo;->getPackageName()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {v0, v2, v1}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, p1, p0}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     return-void
 .end method
 
-.method private removePendingPersistCookieLPr(Lcom/android/server/pm/parsing/pkg/AndroidPackage;I)Lcom/android/internal/os/SomeArgs;
-    .locals 3
-
-    iget-object v0, p0, Lcom/android/server/pm/InstantAppRegistry$CookiePersistence;->mPendingPersistCookies:Landroid/util/SparseArray;
-
-    invoke-virtual {v0, p2}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/util/ArrayMap;
-
-    const/4 v1, 0x0
-
-    if-eqz v0, :cond_0
-
-    invoke-interface {p1}, Lcom/android/server/pm/parsing/pkg/AndroidPackage;->getPackageName()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v2}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v2
-
-    move-object v1, v2
-
-    check-cast v1, Lcom/android/internal/os/SomeArgs;
-
-    invoke-virtual {v0}, Landroid/util/ArrayMap;->isEmpty()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    iget-object v2, p0, Lcom/android/server/pm/InstantAppRegistry$CookiePersistence;->mPendingPersistCookies:Landroid/util/SparseArray;
-
-    invoke-virtual {v2, p2}, Landroid/util/SparseArray;->remove(I)V
-
-    :cond_0
-    return-object v1
-.end method
-
-
-# virtual methods
 .method public cancelPendingPersistLPw(Lcom/android/server/pm/parsing/pkg/AndroidPackage;I)V
-    .locals 1
+    .locals 0
 
-    invoke-virtual {p0, p2, p1}, Lcom/android/server/pm/InstantAppRegistry$CookiePersistence;->removeMessages(ILjava/lang/Object;)V
+    invoke-virtual {p0, p2, p1}, Landroid/os/Handler;->removeMessages(ILjava/lang/Object;)V
 
-    invoke-direct {p0, p1, p2}, Lcom/android/server/pm/InstantAppRegistry$CookiePersistence;->removePendingPersistCookieLPr(Lcom/android/server/pm/parsing/pkg/AndroidPackage;I)Lcom/android/internal/os/SomeArgs;
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/pm/InstantAppRegistry$CookiePersistence;->removePendingPersistCookieLPr(Lcom/android/server/pm/parsing/pkg/AndroidPackage;I)Lcom/android/internal/os/SomeArgs;
 
-    move-result-object v0
+    move-result-object p0
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    invoke-virtual {v0}, Lcom/android/internal/os/SomeArgs;->recycle()V
+    invoke-virtual {p0}, Lcom/android/internal/os/SomeArgs;->recycle()V
 
     :cond_0
     return-void
 .end method
 
 .method public getPendingPersistCookieLPr(Lcom/android/server/pm/parsing/pkg/AndroidPackage;I)[B
-    .locals 3
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/pm/InstantAppRegistry$CookiePersistence;->mPendingPersistCookies:Landroid/util/SparseArray;
+
+    invoke-virtual {p0, p2}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Landroid/util/ArrayMap;
+
+    if-eqz p0, :cond_0
+
+    invoke-interface {p1}, Lcom/android/server/pm/pkg/parsing/PkgWithoutStatePackageInfo;->getPackageName()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {p0, p1}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Lcom/android/internal/os/SomeArgs;
+
+    if-eqz p0, :cond_0
+
+    iget-object p0, p0, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
+
+    check-cast p0, [B
+
+    return-object p0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    return-object p0
+.end method
+
+.method public handleMessage(Landroid/os/Message;)V
+    .locals 4
+
+    iget v0, p1, Landroid/os/Message;->what:I
+
+    iget-object p1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    check-cast p1, Lcom/android/server/pm/parsing/pkg/AndroidPackage;
+
+    invoke-virtual {p0, p1, v0}, Lcom/android/server/pm/InstantAppRegistry$CookiePersistence;->removePendingPersistCookieLPr(Lcom/android/server/pm/parsing/pkg/AndroidPackage;I)Lcom/android/internal/os/SomeArgs;
+
+    move-result-object v1
+
+    if-nez v1, :cond_0
+
+    return-void
+
+    :cond_0
+    iget-object v2, v1, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
+
+    check-cast v2, [B
+
+    iget-object v3, v1, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
+
+    check-cast v3, Ljava/io/File;
+
+    invoke-virtual {v1}, Lcom/android/internal/os/SomeArgs;->recycle()V
+
+    iget-object p0, p0, Lcom/android/server/pm/InstantAppRegistry$CookiePersistence;->this$0:Lcom/android/server/pm/InstantAppRegistry;
+
+    invoke-interface {p1}, Lcom/android/server/pm/pkg/parsing/PkgWithoutStatePackageInfo;->getPackageName()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-static {p0, v2, p1, v3, v0}, Lcom/android/server/pm/InstantAppRegistry;->-$$Nest$mpersistInstantApplicationCookie(Lcom/android/server/pm/InstantAppRegistry;[BLjava/lang/String;Ljava/io/File;I)V
+
+    return-void
+.end method
+
+.method public final removePendingPersistCookieLPr(Lcom/android/server/pm/parsing/pkg/AndroidPackage;I)Lcom/android/internal/os/SomeArgs;
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/pm/InstantAppRegistry$CookiePersistence;->mPendingPersistCookies:Landroid/util/SparseArray;
 
@@ -165,95 +194,64 @@
 
     if-eqz v0, :cond_0
 
-    invoke-interface {p1}, Lcom/android/server/pm/parsing/pkg/AndroidPackage;->getPackageName()Ljava/lang/String;
+    invoke-interface {p1}, Lcom/android/server/pm/pkg/parsing/PkgWithoutStatePackageInfo;->getPackageName()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v0, v1}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, p1}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    check-cast v1, Lcom/android/internal/os/SomeArgs;
+    check-cast p1, Lcom/android/internal/os/SomeArgs;
 
-    if-eqz v1, :cond_0
+    invoke-virtual {v0}, Landroid/util/ArrayMap;->isEmpty()Z
 
-    iget-object v2, v1, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
+    move-result v0
 
-    check-cast v2, [B
+    if-eqz v0, :cond_1
 
-    return-object v2
+    iget-object p0, p0, Lcom/android/server/pm/InstantAppRegistry$CookiePersistence;->mPendingPersistCookies:Landroid/util/SparseArray;
 
-    :cond_0
-    const/4 v1, 0x0
+    invoke-virtual {p0, p2}, Landroid/util/SparseArray;->remove(I)V
 
-    return-object v1
-.end method
-
-.method public handleMessage(Landroid/os/Message;)V
-    .locals 7
-
-    iget v0, p1, Landroid/os/Message;->what:I
-
-    iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v1, Lcom/android/server/pm/parsing/pkg/AndroidPackage;
-
-    invoke-direct {p0, v1, v0}, Lcom/android/server/pm/InstantAppRegistry$CookiePersistence;->removePendingPersistCookieLPr(Lcom/android/server/pm/parsing/pkg/AndroidPackage;I)Lcom/android/internal/os/SomeArgs;
-
-    move-result-object v2
-
-    if-nez v2, :cond_0
-
-    return-void
+    goto :goto_0
 
     :cond_0
-    iget-object v3, v2, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
+    const/4 p1, 0x0
 
-    check-cast v3, [B
-
-    iget-object v4, v2, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
-
-    check-cast v4, Ljava/io/File;
-
-    invoke-virtual {v2}, Lcom/android/internal/os/SomeArgs;->recycle()V
-
-    iget-object v5, p0, Lcom/android/server/pm/InstantAppRegistry$CookiePersistence;->this$0:Lcom/android/server/pm/InstantAppRegistry;
-
-    invoke-interface {v1}, Lcom/android/server/pm/parsing/pkg/AndroidPackage;->getPackageName()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v3, v6, v4, v0}, Lcom/android/server/pm/InstantAppRegistry;->access$500(Lcom/android/server/pm/InstantAppRegistry;[BLjava/lang/String;Ljava/io/File;I)V
-
-    return-void
+    :cond_1
+    :goto_0
+    return-object p1
 .end method
 
 .method public schedulePersistLPw(ILcom/android/server/pm/parsing/pkg/AndroidPackage;[B)V
-    .locals 5
+    .locals 3
 
-    invoke-interface {p2}, Lcom/android/server/pm/parsing/pkg/AndroidPackage;->getPackageName()Ljava/lang/String;
+    invoke-interface {p2}, Lcom/android/server/pm/pkg/parsing/PkgWithoutStatePackageInfo;->getPackageName()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-interface {p2}, Lcom/android/server/pm/parsing/pkg/AndroidPackage;->getSigningDetails()Landroid/content/pm/PackageParser$SigningDetails;
+    invoke-interface {p2}, Lcom/android/server/pm/pkg/parsing/ParsingPackageRead;->getSigningDetails()Landroid/content/pm/SigningDetails;
 
     move-result-object v1
 
-    iget-object v1, v1, Landroid/content/pm/PackageParser$SigningDetails;->signatures:[Landroid/content/pm/Signature;
+    invoke-virtual {v1}, Landroid/content/pm/SigningDetails;->getSignatures()[Landroid/content/pm/Signature;
+
+    move-result-object v1
 
     invoke-static {v1}, Landroid/util/PackageUtils;->computeSignaturesSha256Digest([Landroid/content/pm/Signature;)Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-static {v0, v1, p1}, Lcom/android/server/pm/InstantAppRegistry;->access$300(Ljava/lang/String;Ljava/lang/String;I)Ljava/io/File;
+    invoke-static {v0, v1, p1}, Lcom/android/server/pm/InstantAppRegistry;->-$$Nest$smcomputeInstantCookieFile(Ljava/lang/String;Ljava/lang/String;I)Ljava/io/File;
 
     move-result-object v0
 
-    invoke-interface {p2}, Lcom/android/server/pm/parsing/pkg/AndroidPackage;->getSigningDetails()Landroid/content/pm/PackageParser$SigningDetails;
+    invoke-interface {p2}, Lcom/android/server/pm/pkg/parsing/ParsingPackageRead;->getSigningDetails()Landroid/content/pm/SigningDetails;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/content/pm/PackageParser$SigningDetails;->hasSignatures()Z
+    invoke-virtual {v1}, Landroid/content/pm/SigningDetails;->hasSignatures()Z
 
     move-result v1
 
@@ -266,11 +264,11 @@
     invoke-static {v1, v2}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    invoke-interface {p2}, Lcom/android/server/pm/parsing/pkg/AndroidPackage;->getPackageName()Ljava/lang/String;
+    invoke-interface {p2}, Lcom/android/server/pm/pkg/parsing/PkgWithoutStatePackageInfo;->getPackageName()Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-static {v1, p1}, Lcom/android/server/pm/InstantAppRegistry;->access$400(Ljava/lang/String;I)Ljava/io/File;
+    invoke-static {v1, p1}, Lcom/android/server/pm/InstantAppRegistry;->-$$Nest$smpeekInstantCookieFile(Ljava/lang/String;I)Ljava/io/File;
 
     move-result-object v1
 
@@ -287,15 +285,15 @@
     :cond_1
     invoke-virtual {p0, p2, p1}, Lcom/android/server/pm/InstantAppRegistry$CookiePersistence;->cancelPendingPersistLPw(Lcom/android/server/pm/parsing/pkg/AndroidPackage;I)V
 
-    invoke-direct {p0, p1, p2, p3, v0}, Lcom/android/server/pm/InstantAppRegistry$CookiePersistence;->addPendingPersistCookieLPw(ILcom/android/server/pm/parsing/pkg/AndroidPackage;[BLjava/io/File;)V
+    invoke-virtual {p0, p1, p2, p3, v0}, Lcom/android/server/pm/InstantAppRegistry$CookiePersistence;->addPendingPersistCookieLPw(ILcom/android/server/pm/parsing/pkg/AndroidPackage;[BLjava/io/File;)V
 
-    invoke-virtual {p0, p1, p2}, Lcom/android/server/pm/InstantAppRegistry$CookiePersistence;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {p0, p1, p2}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
-    move-result-object v2
+    move-result-object p1
 
-    const-wide/16 v3, 0x3e8
+    const-wide/16 p2, 0x3e8
 
-    invoke-virtual {p0, v2, v3, v4}, Lcom/android/server/pm/InstantAppRegistry$CookiePersistence;->sendMessageDelayed(Landroid/os/Message;J)Z
+    invoke-virtual {p0, p1, p2, p3}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
     return-void
 .end method

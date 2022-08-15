@@ -4,9 +4,9 @@
 
 
 # instance fields
-.field private final mRuleProvider:Ljava/lang/String;
+.field public final mRuleProvider:Ljava/lang/String;
 
-.field private final mVersion:Ljava/lang/String;
+.field public final mVersion:Ljava/lang/String;
 
 
 # direct methods
@@ -25,17 +25,17 @@
 
 # virtual methods
 .method public getRuleProvider()Ljava/lang/String;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/integrity/model/RuleMetadata;->mRuleProvider:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/integrity/model/RuleMetadata;->mRuleProvider:Ljava/lang/String;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getVersion()Ljava/lang/String;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/integrity/model/RuleMetadata;->mVersion:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/integrity/model/RuleMetadata;->mVersion:Ljava/lang/String;
 
-    return-object v0
+    return-object p0
 .end method

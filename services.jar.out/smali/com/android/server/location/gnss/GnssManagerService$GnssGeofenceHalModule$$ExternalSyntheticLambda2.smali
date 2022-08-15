@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/location/gnss/GnssManagerService$GnssGeofenceHalModule$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -31,15 +32,15 @@
 
 # virtual methods
 .method public final run()V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/location/gnss/GnssManagerService$GnssGeofenceHalModule$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/location/gnss/GnssManagerService$GnssGeofenceHalModule;
 
     iget v1, p0, Lcom/android/server/location/gnss/GnssManagerService$GnssGeofenceHalModule$$ExternalSyntheticLambda2;->f$1:I
 
-    iget v2, p0, Lcom/android/server/location/gnss/GnssManagerService$GnssGeofenceHalModule$$ExternalSyntheticLambda2;->f$2:I
+    iget p0, p0, Lcom/android/server/location/gnss/GnssManagerService$GnssGeofenceHalModule$$ExternalSyntheticLambda2;->f$2:I
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/location/gnss/GnssManagerService$GnssGeofenceHalModule;->lambda$onReportGeofenceRemoveStatus$3$GnssManagerService$GnssGeofenceHalModule(II)V
+    invoke-static {v0, v1, p0}, Lcom/android/server/location/gnss/GnssManagerService$GnssGeofenceHalModule;->$r8$lambda$IW0lZlAGPIBNnzBWTX3IEuV2eEQ(Lcom/android/server/location/gnss/GnssManagerService$GnssGeofenceHalModule;II)V
 
     return-void
 .end method

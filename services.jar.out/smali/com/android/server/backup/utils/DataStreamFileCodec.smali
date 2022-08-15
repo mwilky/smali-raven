@@ -15,7 +15,7 @@
 
 
 # instance fields
-.field private final mCodec:Lcom/android/server/backup/utils/DataStreamCodec;
+.field public final mCodec:Lcom/android/server/backup/utils/DataStreamCodec;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/android/server/backup/utils/DataStreamCodec<",
@@ -24,7 +24,7 @@
     .end annotation
 .end field
 
-.field private final mFile:Ljava/io/File;
+.field public final mFile:Ljava/io/File;
 
 
 # direct methods
@@ -51,7 +51,7 @@
 
 # virtual methods
 .method public deserialize()Ljava/lang/Object;
-    .locals 4
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -78,11 +78,11 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_2
 
     :try_start_1
-    iget-object v2, p0, Lcom/android/server/backup/utils/DataStreamFileCodec;->mCodec:Lcom/android/server/backup/utils/DataStreamCodec;
+    iget-object p0, p0, Lcom/android/server/backup/utils/DataStreamFileCodec;->mCodec:Lcom/android/server/backup/utils/DataStreamCodec;
 
-    invoke-interface {v2, v1}, Lcom/android/server/backup/utils/DataStreamCodec;->deserialize(Ljava/io/DataInputStream;)Ljava/lang/Object;
+    invoke-interface {p0, v1}, Lcom/android/server/backup/utils/DataStreamCodec;->deserialize(Ljava/io/DataInputStream;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -93,10 +93,10 @@
 
     invoke-virtual {v0}, Ljava/io/FileInputStream;->close()V
 
-    return-object v2
+    return-object p0
 
     :catchall_0
-    move-exception v2
+    move-exception p0
 
     :try_start_3
     invoke-virtual {v1}, Ljava/io/DataInputStream;->close()V
@@ -106,18 +106,18 @@
     goto :goto_0
 
     :catchall_1
-    move-exception v3
+    move-exception v1
 
     :try_start_4
-    invoke-virtual {v2, v3}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
+    invoke-virtual {p0, v1}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
 
     :goto_0
-    throw v2
+    throw p0
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_2
 
     :catchall_2
-    move-exception v1
+    move-exception p0
 
     :try_start_5
     invoke-virtual {v0}, Ljava/io/FileInputStream;->close()V
@@ -127,16 +127,16 @@
     goto :goto_1
 
     :catchall_3
-    move-exception v2
+    move-exception v0
 
-    invoke-virtual {v1, v2}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
+    invoke-virtual {p0, v0}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
 
     :goto_1
-    throw v1
+    throw p0
 .end method
 
 .method public serialize(Ljava/lang/Object;)V
-    .locals 5
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -170,9 +170,9 @@
     .catchall {:try_start_1 .. :try_end_1} :catchall_2
 
     :try_start_2
-    iget-object v3, p0, Lcom/android/server/backup/utils/DataStreamFileCodec;->mCodec:Lcom/android/server/backup/utils/DataStreamCodec;
+    iget-object p0, p0, Lcom/android/server/backup/utils/DataStreamFileCodec;->mCodec:Lcom/android/server/backup/utils/DataStreamCodec;
 
-    invoke-interface {v3, p1, v2}, Lcom/android/server/backup/utils/DataStreamCodec;->serialize(Ljava/lang/Object;Ljava/io/DataOutputStream;)V
+    invoke-interface {p0, p1, v2}, Lcom/android/server/backup/utils/DataStreamCodec;->serialize(Ljava/lang/Object;Ljava/io/DataOutputStream;)V
 
     invoke-virtual {v2}, Ljava/io/DataOutputStream;->flush()V
     :try_end_2
@@ -193,7 +193,7 @@
     return-void
 
     :catchall_0
-    move-exception v3
+    move-exception p0
 
     :try_start_5
     invoke-virtual {v2}, Ljava/io/DataOutputStream;->close()V
@@ -203,18 +203,18 @@
     goto :goto_0
 
     :catchall_1
-    move-exception v4
+    move-exception p1
 
     :try_start_6
-    invoke-virtual {v3, v4}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
+    invoke-virtual {p0, p1}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
 
     :goto_0
-    throw v3
+    throw p0
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_2
 
     :catchall_2
-    move-exception v2
+    move-exception p0
 
     :try_start_7
     invoke-virtual {v1}, Ljava/io/BufferedOutputStream;->close()V
@@ -224,18 +224,18 @@
     goto :goto_1
 
     :catchall_3
-    move-exception v3
+    move-exception p1
 
     :try_start_8
-    invoke-virtual {v2, v3}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
+    invoke-virtual {p0, p1}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
 
     :goto_1
-    throw v2
+    throw p0
     :try_end_8
     .catchall {:try_start_8 .. :try_end_8} :catchall_4
 
     :catchall_4
-    move-exception v1
+    move-exception p0
 
     :try_start_9
     invoke-virtual {v0}, Ljava/io/FileOutputStream;->close()V
@@ -245,10 +245,10 @@
     goto :goto_2
 
     :catchall_5
-    move-exception v2
+    move-exception p1
 
-    invoke-virtual {v1, v2}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
+    invoke-virtual {p0, p1}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
 
     :goto_2
-    throw v1
+    throw p0
 .end method

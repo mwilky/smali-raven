@@ -1,28 +1,13 @@
 .class public final synthetic Lcom/android/server/wm/ActivityTaskManagerService$$ExternalSyntheticLambda18;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/BiConsumer;
-
-
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/wm/ActivityTaskManagerService$$ExternalSyntheticLambda18;
+.implements Lcom/android/internal/util/function/QuadConsumer;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/wm/ActivityTaskManagerService$$ExternalSyntheticLambda18;
-
-    invoke-direct {v0}, Lcom/android/server/wm/ActivityTaskManagerService$$ExternalSyntheticLambda18;-><init>()V
-
-    sput-object v0, Lcom/android/server/wm/ActivityTaskManagerService$$ExternalSyntheticLambda18;->INSTANCE:Lcom/android/server/wm/ActivityTaskManagerService$$ExternalSyntheticLambda18;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,18 +17,22 @@
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;Ljava/lang/Object;)V
+.method public final accept(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
     .locals 0
 
     check-cast p1, Lcom/android/server/wm/ActivityTaskManagerService;
 
-    check-cast p2, Ljava/lang/Integer;
+    check-cast p2, Lcom/android/server/wm/WindowProcessController;
 
-    invoke-virtual {p2}, Ljava/lang/Integer;->intValue()I
+    check-cast p3, Landroid/content/Intent;
 
-    move-result p2
+    check-cast p4, Ljava/lang/Integer;
 
-    invoke-static {p1, p2}, Lcom/android/server/wm/ActivityTaskManagerService;->$r8$lambda$0lt5hsgGpP8ewA1uu12UgfVfgEw(Lcom/android/server/wm/ActivityTaskManagerService;I)V
+    invoke-virtual {p4}, Ljava/lang/Integer;->intValue()I
+
+    move-result p0
+
+    invoke-static {p1, p2, p3, p0}, Lcom/android/server/wm/ActivityTaskManagerService;->$r8$lambda$cB4k8uAIgFV-rmxpnihi_DiMpv4(Lcom/android/server/wm/ActivityTaskManagerService;Lcom/android/server/wm/WindowProcessController;Landroid/content/Intent;I)V
 
     return-void
 .end method

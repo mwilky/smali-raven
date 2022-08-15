@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/Dimmer$AlphaAnimationSpec;
+.class public Lcom/android/server/wm/Dimmer$AlphaAnimationSpec;
 .super Ljava/lang/Object;
 .source "Dimmer.java"
 
@@ -12,21 +12,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "AlphaAnimationSpec"
 .end annotation
 
 
 # instance fields
-.field private final mDuration:J
+.field public final mDuration:J
 
-.field private final mFromAlpha:F
+.field public final mFromAlpha:F
 
-.field private final mToAlpha:F
+.field public final mToAlpha:F
 
 
 # direct methods
-.method constructor <init>(FFJ)V
+.method public constructor <init>(FFJ)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,25 +43,25 @@
 
 # virtual methods
 .method public apply(Landroid/view/SurfaceControl$Transaction;Landroid/view/SurfaceControl;J)V
-    .locals 3
+    .locals 0
 
-    long-to-float v0, p3
+    long-to-float p3, p3
 
-    invoke-virtual {p0, v0}, Lcom/android/server/wm/Dimmer$AlphaAnimationSpec;->getFraction(F)F
+    invoke-interface {p0, p3}, Lcom/android/server/wm/LocalAnimationAdapter$AnimationSpec;->getFraction(F)F
 
-    move-result v0
+    move-result p3
 
-    iget v1, p0, Lcom/android/server/wm/Dimmer$AlphaAnimationSpec;->mToAlpha:F
+    iget p4, p0, Lcom/android/server/wm/Dimmer$AlphaAnimationSpec;->mToAlpha:F
 
-    iget v2, p0, Lcom/android/server/wm/Dimmer$AlphaAnimationSpec;->mFromAlpha:F
+    iget p0, p0, Lcom/android/server/wm/Dimmer$AlphaAnimationSpec;->mFromAlpha:F
 
-    sub-float/2addr v1, v2
+    sub-float/2addr p4, p0
 
-    mul-float/2addr v1, v0
+    mul-float/2addr p3, p4
 
-    add-float/2addr v1, v2
+    add-float/2addr p3, p0
 
-    invoke-virtual {p1, p2, v1}, Landroid/view/SurfaceControl$Transaction;->setAlpha(Landroid/view/SurfaceControl;F)Landroid/view/SurfaceControl$Transaction;
+    invoke-virtual {p1, p2, p3}, Landroid/view/SurfaceControl$Transaction;->setAlpha(Landroid/view/SurfaceControl;F)Landroid/view/SurfaceControl$Transaction;
 
     return-void
 .end method
@@ -71,25 +71,25 @@
 
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    const-string v0, "from="
+    const-string p2, "from="
 
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+    invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    iget v0, p0, Lcom/android/server/wm/Dimmer$AlphaAnimationSpec;->mFromAlpha:F
+    iget p2, p0, Lcom/android/server/wm/Dimmer$AlphaAnimationSpec;->mFromAlpha:F
 
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(F)V
+    invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(F)V
 
-    const-string v0, " to="
+    const-string p2, " to="
 
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+    invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    iget v0, p0, Lcom/android/server/wm/Dimmer$AlphaAnimationSpec;->mToAlpha:F
+    iget p2, p0, Lcom/android/server/wm/Dimmer$AlphaAnimationSpec;->mToAlpha:F
 
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(F)V
+    invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(F)V
 
-    const-string v0, " duration="
+    const-string p2, " duration="
 
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+    invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     iget-wide v0, p0, Lcom/android/server/wm/Dimmer$AlphaAnimationSpec;->mDuration:J
 

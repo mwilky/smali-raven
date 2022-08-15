@@ -1,4 +1,4 @@
-.class final Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot;
+.class public final Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot;
 .super Ljava/lang/Object;
 .source "ActivityMetricsLogger.java"
 
@@ -9,55 +9,125 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = "TransitionInfoSnapshot"
 .end annotation
 
 
 # instance fields
-.field final activityRecordIdHashCode:I
+.field public final activityRecordIdHashCode:I
 
-.field private final applicationInfo:Landroid/content/pm/ApplicationInfo;
+.field public final applicationInfo:Landroid/content/pm/ApplicationInfo;
 
-.field private final bindApplicationDelayMs:I
+.field public final bindApplicationDelayMs:I
 
-.field private final launchedActivityAppRecordRequiredAbi:Ljava/lang/String;
+.field public final launchedActivityAppRecordRequiredAbi:Ljava/lang/String;
 
-.field private final launchedActivityLaunchToken:Ljava/lang/String;
+.field public final launchedActivityLaunchToken:Ljava/lang/String;
 
-.field private final launchedActivityLaunchedFromPackage:Ljava/lang/String;
+.field public final launchedActivityLaunchedFromPackage:Ljava/lang/String;
 
-.field final launchedActivityName:Ljava/lang/String;
+.field public final launchedActivityName:Ljava/lang/String;
 
-.field final launchedActivityShortComponentName:Ljava/lang/String;
+.field public final launchedActivityShortComponentName:Ljava/lang/String;
 
-.field final packageName:Ljava/lang/String;
+.field public final packageName:Ljava/lang/String;
 
-.field private final processName:Ljava/lang/String;
+.field public final processName:Ljava/lang/String;
 
-.field private final processRecord:Lcom/android/server/wm/WindowProcessController;
+.field public final processRecord:Lcom/android/server/wm/WindowProcessController;
 
-.field private final reason:I
+.field public final reason:I
 
-.field final relaunched:Z
+.field public final relaunched:Z
 
-.field final sourceEventDelayMs:I
+.field public final sourceEventDelayMs:I
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+.end field
 
-.field final sourceType:I
+.field public final sourceType:I
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+.end field
 
-.field private final startingWindowDelayMs:I
+.field public final startingWindowDelayMs:I
 
-.field final type:I
+.field public final type:I
 
-.field final userId:I
+.field public final userId:I
 
-.field final windowsDrawnDelayMs:I
+.field public final windowsDrawnDelayMs:I
 
-.field final windowsFullyDrawnDelayMs:I
+.field public final windowsFullyDrawnDelayMs:I
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfo;)V
+.method public static bridge synthetic -$$Nest$fgetapplicationInfo(Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot;)Landroid/content/pm/ApplicationInfo;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetbindApplicationDelayMs(Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot;->bindApplicationDelayMs:I
+
+    return p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetlaunchedActivityLaunchToken(Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot;)Ljava/lang/String;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot;->launchedActivityLaunchToken:Ljava/lang/String;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetlaunchedActivityLaunchedFromPackage(Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot;)Ljava/lang/String;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot;->launchedActivityLaunchedFromPackage:Ljava/lang/String;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetprocessName(Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot;)Ljava/lang/String;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot;->processName:Ljava/lang/String;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetprocessRecord(Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot;)Lcom/android/server/wm/WindowProcessController;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot;->processRecord:Lcom/android/server/wm/WindowProcessController;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetreason(Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot;->reason:I
+
+    return p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetstartingWindowDelayMs(Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot;->startingWindowDelayMs:I
+
+    return p0
+.end method
+
+.method public constructor <init>(Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfo;)V
     .locals 2
 
     iget-object v0, p1, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfo;->mLastLaunchedActivity:Lcom/android/server/wm/ActivityRecord;
@@ -69,7 +139,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfo;Lcom/android/server/wm/ActivityMetricsLogger$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfo;Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot;-><init>(Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfo;)V
@@ -77,32 +147,28 @@
     return-void
 .end method
 
-.method private constructor <init>(Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfo;Lcom/android/server/wm/ActivityRecord;I)V
-    .locals 1
+.method public constructor <init>(Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfo;Lcom/android/server/wm/ActivityRecord;I)V
+    .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iget-object v0, p2, Lcom/android/server/wm/ActivityRecord;->info:Landroid/content/pm/ActivityInfo;
 
-    iget-object v0, v0, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+    iget-object v1, v0, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
-    iput-object v0, p0, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+    iput-object v1, p0, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
-    iget-object v0, p2, Lcom/android/server/wm/ActivityRecord;->packageName:Ljava/lang/String;
+    iget-object v1, p2, Lcom/android/server/wm/ActivityRecord;->packageName:Ljava/lang/String;
 
-    iput-object v0, p0, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot;->packageName:Ljava/lang/String;
+    iput-object v1, p0, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot;->packageName:Ljava/lang/String;
 
-    iget-object v0, p2, Lcom/android/server/wm/ActivityRecord;->info:Landroid/content/pm/ActivityInfo;
+    iget-object v1, v0, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
 
-    iget-object v0, v0, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
+    iput-object v1, p0, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot;->launchedActivityName:Ljava/lang/String;
 
-    iput-object v0, p0, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot;->launchedActivityName:Ljava/lang/String;
+    iget-object v1, p2, Lcom/android/server/wm/ActivityRecord;->launchedFromPackage:Ljava/lang/String;
 
-    iget-object v0, p2, Lcom/android/server/wm/ActivityRecord;->launchedFromPackage:Ljava/lang/String;
-
-    iput-object v0, p0, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot;->launchedActivityLaunchedFromPackage:Ljava/lang/String;
-
-    iget-object v0, p2, Lcom/android/server/wm/ActivityRecord;->info:Landroid/content/pm/ActivityInfo;
+    iput-object v1, p0, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot;->launchedActivityLaunchedFromPackage:Ljava/lang/String;
 
     iget-object v0, v0, Landroid/content/pm/ActivityInfo;->launchToken:Ljava/lang/String;
 
@@ -117,8 +183,6 @@
     goto :goto_0
 
     :cond_0
-    iget-object v0, p2, Lcom/android/server/wm/ActivityRecord;->app:Lcom/android/server/wm/WindowProcessController;
-
     invoke-virtual {v0}, Lcom/android/server/wm/WindowProcessController;->getRequiredAbi()Ljava/lang/String;
 
     move-result-object v0
@@ -172,20 +236,20 @@
 
     invoke-static {p2}, Ljava/lang/System;->identityHashCode(Ljava/lang/Object;)I
 
-    move-result v0
+    move-result p2
 
-    iput v0, p0, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot;->activityRecordIdHashCode:I
+    iput p2, p0, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot;->activityRecordIdHashCode:I
 
     iput p3, p0, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot;->windowsFullyDrawnDelayMs:I
 
-    iget-boolean v0, p1, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfo;->mRelaunched:Z
+    iget-boolean p1, p1, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfo;->mRelaunched:Z
 
-    iput-boolean v0, p0, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot;->relaunched:Z
+    iput-boolean p1, p0, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot;->relaunched:Z
 
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfo;Lcom/android/server/wm/ActivityRecord;ILcom/android/server/wm/ActivityMetricsLogger$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfo;Lcom/android/server/wm/ActivityRecord;ILcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot-IA;)V
     .locals 0
 
     invoke-direct {p0, p1, p2, p3}, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot;-><init>(Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfo;Lcom/android/server/wm/ActivityRecord;I)V
@@ -193,120 +257,57 @@
     return-void
 .end method
 
-.method static synthetic access$1100(Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot;)Lcom/android/server/wm/WindowProcessController;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot;->processRecord:Lcom/android/server/wm/WindowProcessController;
-
-    return-object v0
-.end method
-
-.method static synthetic access$1200(Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot;)Ljava/lang/String;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot;->processName:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method static synthetic access$400(Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot;)Landroid/content/pm/ApplicationInfo;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot;->applicationInfo:Landroid/content/pm/ApplicationInfo;
-
-    return-object v0
-.end method
-
-.method static synthetic access$500(Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot;)Ljava/lang/String;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot;->launchedActivityLaunchedFromPackage:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method static synthetic access$600(Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot;)Ljava/lang/String;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot;->launchedActivityLaunchToken:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method static synthetic access$700(Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot;->reason:I
-
-    return v0
-.end method
-
-.method static synthetic access$800(Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot;->startingWindowDelayMs:I
-
-    return v0
-.end method
-
-.method static synthetic access$900(Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot;->bindApplicationDelayMs:I
-
-    return v0
-.end method
-
 
 # virtual methods
-.method getLaunchState()I
-    .locals 1
+.method public getLaunchState()I
+    .locals 2
 
     iget v0, p0, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot;->type:I
 
-    packed-switch v0, :pswitch_data_0
+    const/4 v1, 0x7
 
-    const/4 v0, -0x1
+    if-eq v0, v1, :cond_3
 
-    return v0
+    const/16 v1, 0x8
 
-    :pswitch_0
-    iget-boolean v0, p0, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot;->relaunched:Z
+    if-eq v0, v1, :cond_2
 
-    if-eqz v0, :cond_0
+    const/16 v1, 0x9
 
-    const/4 v0, 0x4
+    if-eq v0, v1, :cond_0
+
+    const/4 p0, -0x1
+
+    return p0
+
+    :cond_0
+    iget-boolean p0, p0, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot;->relaunched:Z
+
+    if-eqz p0, :cond_1
+
+    const/4 p0, 0x4
 
     goto :goto_0
 
-    :cond_0
-    const/4 v0, 0x3
+    :cond_1
+    const/4 p0, 0x3
 
     :goto_0
-    return v0
+    return p0
 
-    :pswitch_1
-    const/4 v0, 0x2
+    :cond_2
+    const/4 p0, 0x2
 
-    return v0
+    return p0
 
-    :pswitch_2
-    const/4 v0, 0x1
+    :cond_3
+    const/4 p0, 0x1
 
-    return v0
-
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0x7
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
+    return p0
 .end method
 
-.method getPackageOptimizationInfo(Landroid/content/pm/dex/ArtManagerInternal;)Landroid/content/pm/dex/PackageOptimizationInfo;
-    .locals 3
+.method public getPackageOptimizationInfo(Landroid/content/pm/dex/ArtManagerInternal;)Landroid/content/pm/dex/PackageOptimizationInfo;
+    .locals 2
 
     if-eqz p1, :cond_1
 
@@ -319,11 +320,11 @@
     :cond_0
     iget-object v1, p0, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
-    iget-object v2, p0, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot;->launchedActivityName:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot;->launchedActivityName:Ljava/lang/String;
 
-    invoke-virtual {p1, v1, v0, v2}, Landroid/content/pm/dex/ArtManagerInternal;->getPackageOptimizationInfo(Landroid/content/pm/ApplicationInfo;Ljava/lang/String;Ljava/lang/String;)Landroid/content/pm/dex/PackageOptimizationInfo;
+    invoke-virtual {p1, v1, v0, p0}, Landroid/content/pm/dex/ArtManagerInternal;->getPackageOptimizationInfo(Landroid/content/pm/ApplicationInfo;Ljava/lang/String;Ljava/lang/String;)Landroid/content/pm/dex/PackageOptimizationInfo;
 
-    move-result-object v0
+    move-result-object p0
 
     goto :goto_1
 
@@ -331,8 +332,8 @@
     :goto_0
     invoke-static {}, Landroid/content/pm/dex/PackageOptimizationInfo;->createWithNoInfo()Landroid/content/pm/dex/PackageOptimizationInfo;
 
-    move-result-object v0
+    move-result-object p0
 
     :goto_1
-    return-object v0
+    return-object p0
 .end method

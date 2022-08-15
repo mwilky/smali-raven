@@ -1,45 +1,54 @@
 .class public final synthetic Lcom/android/server/wm/ActivityTaskManagerService$$ExternalSyntheticLambda9;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/lang/Runnable;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/android/server/wm/ActivityTaskManagerService;
-
-.field public final synthetic f$1:Lcom/android/server/wm/ActivityRecord;
-
-.field public final synthetic f$2:Landroid/app/PictureInPictureParams;
+.implements Lcom/android/internal/util/function/HexConsumer;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/wm/ActivityTaskManagerService;Lcom/android/server/wm/ActivityRecord;Landroid/app/PictureInPictureParams;)V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/server/wm/ActivityTaskManagerService$$ExternalSyntheticLambda9;->f$0:Lcom/android/server/wm/ActivityTaskManagerService;
-
-    iput-object p2, p0, Lcom/android/server/wm/ActivityTaskManagerService$$ExternalSyntheticLambda9;->f$1:Lcom/android/server/wm/ActivityRecord;
-
-    iput-object p3, p0, Lcom/android/server/wm/ActivityTaskManagerService$$ExternalSyntheticLambda9;->f$2:Landroid/app/PictureInPictureParams;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final run()V
-    .locals 3
+.method public final accept(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/ActivityTaskManagerService$$ExternalSyntheticLambda9;->f$0:Lcom/android/server/wm/ActivityTaskManagerService;
+    move-object p0, p1
 
-    iget-object v1, p0, Lcom/android/server/wm/ActivityTaskManagerService$$ExternalSyntheticLambda9;->f$1:Lcom/android/server/wm/ActivityRecord;
+    check-cast p0, Landroid/app/ActivityManagerInternal;
 
-    iget-object v2, p0, Lcom/android/server/wm/ActivityTaskManagerService$$ExternalSyntheticLambda9;->f$2:Landroid/app/PictureInPictureParams;
+    move-object p1, p2
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/wm/ActivityTaskManagerService;->lambda$enterPictureInPictureMode$3$ActivityTaskManagerService(Lcom/android/server/wm/ActivityRecord;Landroid/app/PictureInPictureParams;)V
+    check-cast p1, Landroid/content/ComponentName;
+
+    check-cast p3, Ljava/lang/Integer;
+
+    invoke-virtual {p3}, Ljava/lang/Integer;->intValue()I
+
+    move-result p2
+
+    check-cast p4, Ljava/lang/Integer;
+
+    invoke-virtual {p4}, Ljava/lang/Integer;->intValue()I
+
+    move-result p3
+
+    move-object p4, p5
+
+    check-cast p4, Landroid/os/IBinder;
+
+    move-object p5, p6
+
+    check-cast p5, Landroid/content/ComponentName;
+
+    invoke-virtual/range {p0 .. p5}, Landroid/app/ActivityManagerInternal;->updateActivityUsageStats(Landroid/content/ComponentName;IILandroid/os/IBinder;Landroid/content/ComponentName;)V
 
     return-void
 .end method

@@ -1,30 +1,25 @@
 .class public final Lcom/android/server/policy/DeviceStatePolicyImpl;
-.super Ljava/lang/Object;
+.super Lcom/android/server/devicestate/DeviceStatePolicy;
 .source "DeviceStatePolicyImpl.java"
-
-# interfaces
-.implements Lcom/android/server/devicestate/DeviceStatePolicy;
 
 
 # instance fields
-.field private final mContext:Landroid/content/Context;
-
-.field private final mProvider:Lcom/android/server/devicestate/DeviceStateProvider;
+.field public final mProvider:Lcom/android/server/devicestate/DeviceStateProvider;
 
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .locals 0
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0, p1}, Lcom/android/server/devicestate/DeviceStatePolicy;-><init>(Landroid/content/Context;)V
 
-    iput-object p1, p0, Lcom/android/server/policy/DeviceStatePolicyImpl;->mContext:Landroid/content/Context;
+    iget-object p1, p0, Lcom/android/server/devicestate/DeviceStatePolicy;->mContext:Landroid/content/Context;
 
     invoke-static {p1}, Lcom/android/server/policy/DeviceStateProviderImpl;->create(Landroid/content/Context;)Lcom/android/server/policy/DeviceStateProviderImpl;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/android/server/policy/DeviceStatePolicyImpl;->mProvider:Lcom/android/server/devicestate/DeviceStateProvider;
+    iput-object p1, p0, Lcom/android/server/policy/DeviceStatePolicyImpl;->mProvider:Lcom/android/server/devicestate/DeviceStateProvider;
 
     return-void
 .end method
@@ -40,9 +35,9 @@
 .end method
 
 .method public getDeviceStateProvider()Lcom/android/server/devicestate/DeviceStateProvider;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/policy/DeviceStatePolicyImpl;->mProvider:Lcom/android/server/devicestate/DeviceStateProvider;
+    iget-object p0, p0, Lcom/android/server/policy/DeviceStatePolicyImpl;->mProvider:Lcom/android/server/devicestate/DeviceStateProvider;
 
-    return-object v0
+    return-object p0
 .end method

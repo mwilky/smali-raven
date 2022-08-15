@@ -7,20 +7,9 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/android/server/pm/UserManagerInternal$UserLifecycleListener;,
-        Lcom/android/server/pm/UserManagerInternal$UserRestrictionsListener;,
-        Lcom/android/server/pm/UserManagerInternal$OwnerType;
+        Lcom/android/server/pm/UserManagerInternal$UserRestrictionsListener;
     }
 .end annotation
-
-
-# static fields
-.field public static final OWNER_TYPE_DEVICE_OWNER:I = 0x0
-
-.field public static final OWNER_TYPE_NO_OWNER:I = 0x3
-
-.field public static final OWNER_TYPE_PROFILE_OWNER:I = 0x1
-
-.field public static final OWNER_TYPE_PROFILE_OWNER_OF_ORGANIZATION_OWNED_DEVICE:I = 0x2
 
 
 # direct methods
@@ -49,9 +38,6 @@
 .end method
 
 .method public abstract exists(I)Z
-.end method
-
-.method public abstract getBaseUserRestrictions(I)Landroid/os/Bundle;
 .end method
 
 .method public abstract getProfileParentId(I)I
@@ -100,12 +86,6 @@
 .method public abstract isProfileAccessible(IILjava/lang/String;Z)Z
 .end method
 
-.method public abstract isSettingRestrictedForUser(Ljava/lang/String;ILjava/lang/String;I)Z
-.end method
-
-.method public abstract isUserInitialized(I)Z
-.end method
-
 .method public abstract isUserManaged(I)Z
 .end method
 
@@ -121,22 +101,13 @@
 .method public abstract onEphemeralUserStop(I)V
 .end method
 
-.method public abstract removeAllUsers()V
-.end method
-
 .method public abstract removeUserEvenWhenDisallowed(I)Z
 .end method
 
 .method public abstract removeUserLifecycleListener(Lcom/android/server/pm/UserManagerInternal$UserLifecycleListener;)V
 .end method
 
-.method public abstract removeUserRestrictionsListener(Lcom/android/server/pm/UserManagerInternal$UserRestrictionsListener;)V
-.end method
-
 .method public abstract removeUserState(I)V
-.end method
-
-.method public abstract setBaseUserRestrictionsByDpmsForMigration(ILandroid/os/Bundle;)V
 .end method
 
 .method public abstract setDefaultCrossProfileIntentFilters(II)V

@@ -1,4 +1,4 @@
-.class Lcom/android/server/StorageManagerService$6;
+.class public Lcom/android/server/StorageManagerService$6;
 .super Lcom/android/internal/content/PackageMonitor;
 .source "StorageManagerService.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/StorageManagerService;
+.field public final synthetic this$0:Lcom/android/server/StorageManagerService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/StorageManagerService;)V
+.method public constructor <init>(Lcom/android/server/StorageManagerService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/StorageManagerService$6;->this$0:Lcom/android/server/StorageManagerService;
@@ -32,13 +32,13 @@
 
 # virtual methods
 .method public onPackageRemoved(Ljava/lang/String;I)V
-    .locals 2
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/StorageManagerService$6;->this$0:Lcom/android/server/StorageManagerService;
+    iget-object p0, p0, Lcom/android/server/StorageManagerService$6;->this$0:Lcom/android/server/StorageManagerService;
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    invoke-static {v0, p1, p2, v1}, Lcom/android/server/StorageManagerService;->access$4700(Lcom/android/server/StorageManagerService;Ljava/lang/String;IZ)V
+    invoke-static {p0, p1, p2, v0}, Lcom/android/server/StorageManagerService;->-$$Nest$mupdateLegacyStorageApps(Lcom/android/server/StorageManagerService;Ljava/lang/String;IZ)V
 
     return-void
 .end method

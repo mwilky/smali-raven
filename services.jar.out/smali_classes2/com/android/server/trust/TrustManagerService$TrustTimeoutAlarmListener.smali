@@ -1,4 +1,4 @@
-.class Lcom/android/server/trust/TrustManagerService$TrustTimeoutAlarmListener;
+.class public abstract Lcom/android/server/trust/TrustManagerService$TrustTimeoutAlarmListener;
 .super Ljava/lang/Object;
 .source "TrustManagerService.java"
 
@@ -12,21 +12,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x401
     name = "TrustTimeoutAlarmListener"
 .end annotation
 
 
 # instance fields
-.field private mIsQueued:Z
+.field public mIsQueued:Z
 
-.field private final mUserId:I
+.field public final mUserId:I
 
-.field final synthetic this$0:Lcom/android/server/trust/TrustManagerService;
+.field public final synthetic this$0:Lcom/android/server/trust/TrustManagerService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/trust/TrustManagerService;I)V
+.method public constructor <init>(Lcom/android/server/trust/TrustManagerService;I)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/trust/TrustManagerService$TrustTimeoutAlarmListener;->this$0:Lcom/android/server/trust/TrustManagerService;
@@ -44,80 +44,73 @@
 
 
 # virtual methods
+.method public abstract handleAlarm()V
+.end method
+
 .method public isQueued()Z
-    .locals 1
+    .locals 0
 
-    iget-boolean v0, p0, Lcom/android/server/trust/TrustManagerService$TrustTimeoutAlarmListener;->mIsQueued:Z
+    iget-boolean p0, p0, Lcom/android/server/trust/TrustManagerService$TrustTimeoutAlarmListener;->mIsQueued:Z
 
-    return v0
+    return p0
 .end method
 
 .method public onAlarm()V
-    .locals 4
+    .locals 3
 
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/server/trust/TrustManagerService$TrustTimeoutAlarmListener;->mIsQueued:Z
 
+    invoke-virtual {p0}, Lcom/android/server/trust/TrustManagerService$TrustTimeoutAlarmListener;->handleAlarm()V
+
     iget-object v0, p0, Lcom/android/server/trust/TrustManagerService$TrustTimeoutAlarmListener;->this$0:Lcom/android/server/trust/TrustManagerService;
 
-    invoke-static {v0}, Lcom/android/server/trust/TrustManagerService;->access$1200(Lcom/android/server/trust/TrustManagerService;)Lcom/android/server/trust/TrustManagerService$StrongAuthTracker;
+    invoke-static {v0}, Lcom/android/server/trust/TrustManagerService;->-$$Nest$fgetmStrongAuthTracker(Lcom/android/server/trust/TrustManagerService;)Lcom/android/server/trust/TrustManagerService$StrongAuthTracker;
 
     move-result-object v0
 
     iget v1, p0, Lcom/android/server/trust/TrustManagerService$TrustTimeoutAlarmListener;->mUserId:I
 
-    invoke-virtual {v0, v1}, Lcom/android/server/trust/TrustManagerService$StrongAuthTracker;->getStrongAuthForUser(I)I
+    invoke-virtual {v0, v1}, Lcom/android/internal/widget/LockPatternUtils$StrongAuthTracker;->isTrustAllowedForUser(I)Z
 
     move-result v0
 
-    iget-object v1, p0, Lcom/android/server/trust/TrustManagerService$TrustTimeoutAlarmListener;->this$0:Lcom/android/server/trust/TrustManagerService;
+    if-eqz v0, :cond_1
 
-    invoke-static {v1}, Lcom/android/server/trust/TrustManagerService;->access$1200(Lcom/android/server/trust/TrustManagerService;)Lcom/android/server/trust/TrustManagerService$StrongAuthTracker;
+    sget-boolean v0, Lcom/android/server/trust/TrustManagerService;->DEBUG:Z
 
-    move-result-object v1
+    if-eqz v0, :cond_0
 
-    iget v2, p0, Lcom/android/server/trust/TrustManagerService$TrustTimeoutAlarmListener;->mUserId:I
+    const-string v0, "TrustManagerService"
 
-    invoke-virtual {v1, v2}, Lcom/android/server/trust/TrustManagerService$StrongAuthTracker;->isTrustAllowedForUser(I)Z
+    const-string v1, "Revoking all trust because of trust timeout"
 
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    sget-boolean v1, Lcom/android/server/trust/TrustManagerService;->DEBUG:Z
-
-    if-eqz v1, :cond_0
-
-    const-string v1, "TrustManagerService"
-
-    const-string v2, "Revoking all trust because of trust timeout"
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
+    iget-object v0, p0, Lcom/android/server/trust/TrustManagerService$TrustTimeoutAlarmListener;->this$0:Lcom/android/server/trust/TrustManagerService;
+
+    invoke-static {v0}, Lcom/android/server/trust/TrustManagerService;->-$$Nest$fgetmLockPatternUtils(Lcom/android/server/trust/TrustManagerService;)Lcom/android/internal/widget/LockPatternUtils;
+
+    move-result-object v0
+
     iget-object v1, p0, Lcom/android/server/trust/TrustManagerService$TrustTimeoutAlarmListener;->this$0:Lcom/android/server/trust/TrustManagerService;
 
-    invoke-static {v1}, Lcom/android/server/trust/TrustManagerService;->access$400(Lcom/android/server/trust/TrustManagerService;)Lcom/android/internal/widget/LockPatternUtils;
+    invoke-static {v1}, Lcom/android/server/trust/TrustManagerService;->-$$Nest$fgetmStrongAuthTracker(Lcom/android/server/trust/TrustManagerService;)Lcom/android/server/trust/TrustManagerService$StrongAuthTracker;
 
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/android/server/trust/TrustManagerService$TrustTimeoutAlarmListener;->this$0:Lcom/android/server/trust/TrustManagerService;
-
-    invoke-static {v2}, Lcom/android/server/trust/TrustManagerService;->access$1200(Lcom/android/server/trust/TrustManagerService;)Lcom/android/server/trust/TrustManagerService$StrongAuthTracker;
-
-    const/4 v2, 0x4
-
-    iget v3, p0, Lcom/android/server/trust/TrustManagerService$TrustTimeoutAlarmListener;->mUserId:I
-
-    invoke-virtual {v1, v2, v3}, Lcom/android/internal/widget/LockPatternUtils;->requireStrongAuth(II)V
-
-    :cond_1
-    iget-object v1, p0, Lcom/android/server/trust/TrustManagerService$TrustTimeoutAlarmListener;->this$0:Lcom/android/server/trust/TrustManagerService;
+    const/4 v1, 0x4
 
     iget v2, p0, Lcom/android/server/trust/TrustManagerService$TrustTimeoutAlarmListener;->mUserId:I
 
-    invoke-static {v1, v2}, Lcom/android/server/trust/TrustManagerService;->access$3300(Lcom/android/server/trust/TrustManagerService;I)V
+    invoke-virtual {v0, v1, v2}, Lcom/android/internal/widget/LockPatternUtils;->requireStrongAuth(II)V
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/server/trust/TrustManagerService$TrustTimeoutAlarmListener;->this$0:Lcom/android/server/trust/TrustManagerService;
+
+    iget p0, p0, Lcom/android/server/trust/TrustManagerService$TrustTimeoutAlarmListener;->mUserId:I
+
+    invoke-static {v0, p0}, Lcom/android/server/trust/TrustManagerService;->-$$Nest$mmaybeLockScreen(Lcom/android/server/trust/TrustManagerService;I)V
 
     return-void
 .end method

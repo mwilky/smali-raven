@@ -1,28 +1,28 @@
-.class Lcom/android/server/hdmi/SetArcTransmissionStateAction$1;
+.class public Lcom/android/server/hdmi/SetArcTransmissionStateAction$1;
 .super Ljava/lang/Object;
 .source "SetArcTransmissionStateAction.java"
 
 # interfaces
-.implements Lcom/android/server/hdmi/HdmiControlService$SendMessageCallback;
+.implements Lcom/android/server/hdmi/RequestSadAction$RequestSadCallback;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/hdmi/SetArcTransmissionStateAction;->sendReportArcInitiated()V
+    value = Lcom/android/server/hdmi/SetArcTransmissionStateAction;->start()Z
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/hdmi/SetArcTransmissionStateAction;
+.field public final synthetic this$0:Lcom/android/server/hdmi/SetArcTransmissionStateAction;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/hdmi/SetArcTransmissionStateAction;)V
+.method public constructor <init>(Lcom/android/server/hdmi/SetArcTransmissionStateAction;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/hdmi/SetArcTransmissionStateAction$1;->this$0:Lcom/android/server/hdmi/SetArcTransmissionStateAction;
@@ -34,45 +34,43 @@
 
 
 # virtual methods
-.method public onSendCompleted(I)V
+.method public onRequestSadDone(Ljava/util/List;)V
     .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List<",
+            "[B>;)V"
+        }
+    .end annotation
 
-    packed-switch p1, :pswitch_data_0
+    const-string v0, "SetArcTransmissionStateAction"
 
-    goto :goto_0
+    const-string v1, "Enabling ARC"
 
-    :pswitch_0
-    iget-object v0, p0, Lcom/android/server/hdmi/SetArcTransmissionStateAction$1;->this$0:Lcom/android/server/hdmi/SetArcTransmissionStateAction;
-
-    const/4 v1, 0x0
-
-    invoke-static {v0, v1}, Lcom/android/server/hdmi/SetArcTransmissionStateAction;->access$000(Lcom/android/server/hdmi/SetArcTransmissionStateAction;Z)V
-
-    new-array v0, v1, [Ljava/lang/Object;
-
-    const-string v1, "Failed to send <Report Arc Initiated>."
-
-    invoke-static {v1, v0}, Lcom/android/server/hdmi/HdmiLogger;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v0, p0, Lcom/android/server/hdmi/SetArcTransmissionStateAction$1;->this$0:Lcom/android/server/hdmi/SetArcTransmissionStateAction;
 
-    invoke-virtual {v0}, Lcom/android/server/hdmi/SetArcTransmissionStateAction;->finish()V
+    invoke-virtual {v0}, Lcom/android/server/hdmi/HdmiCecFeatureAction;->tv()Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;
 
-    goto :goto_0
+    move-result-object v0
 
-    :pswitch_1
-    nop
+    invoke-virtual {v0, p1}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->enableArc(Ljava/util/List;)V
 
-    :goto_0
+    iget-object p1, p0, Lcom/android/server/hdmi/SetArcTransmissionStateAction$1;->this$0:Lcom/android/server/hdmi/SetArcTransmissionStateAction;
+
+    const/4 v0, 0x1
+
+    iput v0, p1, Lcom/android/server/hdmi/HdmiCecFeatureAction;->mState:I
+
+    const/16 v1, 0x7d0
+
+    invoke-virtual {p1, v0, v1}, Lcom/android/server/hdmi/HdmiCecFeatureAction;->addTimer(II)V
+
+    iget-object p0, p0, Lcom/android/server/hdmi/SetArcTransmissionStateAction$1;->this$0:Lcom/android/server/hdmi/SetArcTransmissionStateAction;
+
+    invoke-static {p0}, Lcom/android/server/hdmi/SetArcTransmissionStateAction;->-$$Nest$msendReportArcInitiated(Lcom/android/server/hdmi/SetArcTransmissionStateAction;)V
+
     return-void
-
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
-        :pswitch_1
-        :pswitch_1
-    .end packed-switch
 .end method

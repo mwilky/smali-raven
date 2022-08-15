@@ -3,18 +3,14 @@
 .source "CountryDetectorBase.java"
 
 
-# static fields
-.field private static final ATTRIBUTION_TAG:Ljava/lang/String; = "CountryDetector"
-
-
 # instance fields
-.field protected final mContext:Landroid/content/Context;
+.field public final mContext:Landroid/content/Context;
 
-.field protected mDetectedCountry:Landroid/location/Country;
+.field public mDetectedCountry:Landroid/location/Country;
 
-.field protected final mHandler:Landroid/os/Handler;
+.field public final mHandler:Landroid/os/Handler;
 
-.field protected mListener:Landroid/location/CountryListener;
+.field public mListener:Landroid/location/CountryListener;
 
 
 # direct methods
@@ -27,15 +23,15 @@
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->createAttributionContext(Ljava/lang/String;)Landroid/content/Context;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/android/server/location/countrydetector/CountryDetectorBase;->mContext:Landroid/content/Context;
+    iput-object p1, p0, Lcom/android/server/location/countrydetector/CountryDetectorBase;->mContext:Landroid/content/Context;
 
-    new-instance v0, Landroid/os/Handler;
+    new-instance p1, Landroid/os/Handler;
 
-    invoke-direct {v0}, Landroid/os/Handler;-><init>()V
+    invoke-direct {p1}, Landroid/os/Handler;-><init>()V
 
-    iput-object v0, p0, Lcom/android/server/location/countrydetector/CountryDetectorBase;->mHandler:Landroid/os/Handler;
+    iput-object p1, p0, Lcom/android/server/location/countrydetector/CountryDetectorBase;->mHandler:Landroid/os/Handler;
 
     return-void
 .end method
@@ -45,14 +41,14 @@
 .method public abstract detectCountry()Landroid/location/Country;
 .end method
 
-.method protected notifyListener(Landroid/location/Country;)V
-    .locals 1
+.method public notifyListener(Landroid/location/Country;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/location/countrydetector/CountryDetectorBase;->mListener:Landroid/location/CountryListener;
+    iget-object p0, p0, Lcom/android/server/location/countrydetector/CountryDetectorBase;->mListener:Landroid/location/CountryListener;
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    invoke-interface {v0, p1}, Landroid/location/CountryListener;->onCountryDetected(Landroid/location/Country;)V
+    invoke-interface {p0, p1}, Landroid/location/CountryListener;->onCountryDetected(Landroid/location/Country;)V
 
     :cond_0
     return-void

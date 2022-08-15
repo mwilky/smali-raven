@@ -15,17 +15,17 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 2
+    .locals 0
 
-    const-string v0, "BrickReceiver"
+    const-string p0, "BrickReceiver"
 
-    const-string v1, "!!! BRICKING DEVICE !!!"
+    const-string p1, "!!! BRICKING DEVICE !!!"
 
-    invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, p1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string v0, "brick"
+    const-string p0, "brick"
 
-    invoke-static {v0}, Landroid/os/SystemService;->start(Ljava/lang/String;)V
+    invoke-static {p0}, Landroid/os/SystemService;->start(Ljava/lang/String;)V
 
     return-void
 .end method

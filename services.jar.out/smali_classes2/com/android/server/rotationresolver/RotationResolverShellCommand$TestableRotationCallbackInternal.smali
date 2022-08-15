@@ -1,4 +1,4 @@
-.class Lcom/android/server/rotationresolver/RotationResolverShellCommand$TestableRotationCallbackInternal;
+.class public Lcom/android/server/rotationresolver/RotationResolverShellCommand$TestableRotationCallbackInternal;
 .super Ljava/lang/Object;
 .source "RotationResolverShellCommand.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "TestableRotationCallbackInternal"
 .end annotation
 
 
 # instance fields
-.field private mLastCallbackResultCode:I
+.field public mLastCallbackResultCode:I
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,11 +37,11 @@
 
 # virtual methods
 .method public getLastCallbackCode()I
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/rotationresolver/RotationResolverShellCommand$TestableRotationCallbackInternal;->mLastCallbackResultCode:I
+    iget p0, p0, Lcom/android/server/rotationresolver/RotationResolverShellCommand$TestableRotationCallbackInternal;->mLastCallbackResultCode:I
 
-    return v0
+    return p0
 .end method
 
 .method public onFailure(I)V
@@ -56,16 +56,6 @@
     .locals 0
 
     iput p1, p0, Lcom/android/server/rotationresolver/RotationResolverShellCommand$TestableRotationCallbackInternal;->mLastCallbackResultCode:I
-
-    return-void
-.end method
-
-.method public reset()V
-    .locals 1
-
-    const/4 v0, -0x1
-
-    iput v0, p0, Lcom/android/server/rotationresolver/RotationResolverShellCommand$TestableRotationCallbackInternal;->mLastCallbackResultCode:I
 
     return-void
 .end method

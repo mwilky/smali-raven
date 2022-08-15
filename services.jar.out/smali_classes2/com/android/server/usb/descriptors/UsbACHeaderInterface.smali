@@ -3,14 +3,10 @@
 .source "UsbACHeaderInterface.java"
 
 
-# static fields
-.field private static final TAG:Ljava/lang/String; = "UsbACHeaderInterface"
-
-
 # instance fields
-.field protected mADCRelease:I
+.field public mADCRelease:I
 
-.field protected mTotalLength:I
+.field public mTotalLength:I
 
 
 # direct methods
@@ -27,19 +23,19 @@
 
 # virtual methods
 .method public getADCRelease()I
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/usb/descriptors/UsbACHeaderInterface;->mADCRelease:I
+    iget p0, p0, Lcom/android/server/usb/descriptors/UsbACHeaderInterface;->mADCRelease:I
 
-    return v0
+    return p0
 .end method
 
 .method public getTotalLength()I
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/usb/descriptors/UsbACHeaderInterface;->mTotalLength:I
+    iget p0, p0, Lcom/android/server/usb/descriptors/UsbACHeaderInterface;->mTotalLength:I
 
-    return v0
+    return p0
 .end method
 
 .method public report(Lcom/android/server/usb/descriptors/report/ReportCanvas;)V
@@ -83,15 +79,15 @@
 
     invoke-virtual {p0}, Lcom/android/server/usb/descriptors/UsbACHeaderInterface;->getTotalLength()I
 
-    move-result v1
+    move-result p0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {p1, v0}, Lcom/android/server/usb/descriptors/report/ReportCanvas;->writeListItem(Ljava/lang/String;)V
+    invoke-virtual {p1, p0}, Lcom/android/server/usb/descriptors/report/ReportCanvas;->writeListItem(Ljava/lang/String;)V
 
     invoke-virtual {p1}, Lcom/android/server/usb/descriptors/report/ReportCanvas;->closeList()V
 

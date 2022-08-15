@@ -1,4 +1,4 @@
-.class final Lcom/android/server/gpu/GpuService$DeviceConfigListener;
+.class public final Lcom/android/server/gpu/GpuService$DeviceConfigListener;
 .super Ljava/lang/Object;
 .source "GpuService.java"
 
@@ -12,26 +12,24 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "DeviceConfigListener"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/gpu/GpuService;
+.field public final synthetic this$0:Lcom/android/server/gpu/GpuService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/gpu/GpuService;)V
+.method public constructor <init>(Lcom/android/server/gpu/GpuService;)V
     .locals 1
 
     iput-object p1, p0, Lcom/android/server/gpu/GpuService$DeviceConfigListener;->this$0:Lcom/android/server/gpu/GpuService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    nop
-
-    invoke-static {p1}, Lcom/android/server/gpu/GpuService;->access$400(Lcom/android/server/gpu/GpuService;)Landroid/content/Context;
+    invoke-static {p1}, Lcom/android/server/gpu/GpuService;->-$$Nest$fgetmContext(Lcom/android/server/gpu/GpuService;)Landroid/content/Context;
 
     move-result-object p1
 
@@ -53,7 +51,7 @@
 
     iget-object v0, p0, Lcom/android/server/gpu/GpuService$DeviceConfigListener;->this$0:Lcom/android/server/gpu/GpuService;
 
-    invoke-static {v0}, Lcom/android/server/gpu/GpuService;->access$500(Lcom/android/server/gpu/GpuService;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/server/gpu/GpuService;->-$$Nest$fgetmDeviceConfigLock(Lcom/android/server/gpu/GpuService;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -80,13 +78,13 @@
 
     invoke-virtual {p1, v2, v3}, Landroid/provider/DeviceConfig$Properties;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-static {v1, v2}, Lcom/android/server/gpu/GpuService;->access$600(Lcom/android/server/gpu/GpuService;Ljava/lang/String;)V
+    invoke-static {v1, p1}, Lcom/android/server/gpu/GpuService;->-$$Nest$mparseDenylists(Lcom/android/server/gpu/GpuService;Ljava/lang/String;)V
 
-    iget-object v1, p0, Lcom/android/server/gpu/GpuService$DeviceConfigListener;->this$0:Lcom/android/server/gpu/GpuService;
+    iget-object p0, p0, Lcom/android/server/gpu/GpuService$DeviceConfigListener;->this$0:Lcom/android/server/gpu/GpuService;
 
-    invoke-static {v1}, Lcom/android/server/gpu/GpuService;->access$300(Lcom/android/server/gpu/GpuService;)V
+    invoke-static {p0}, Lcom/android/server/gpu/GpuService;->-$$Nest$msetDenylist(Lcom/android/server/gpu/GpuService;)V
 
     :cond_0
     monitor-exit v0
@@ -94,11 +92,11 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method

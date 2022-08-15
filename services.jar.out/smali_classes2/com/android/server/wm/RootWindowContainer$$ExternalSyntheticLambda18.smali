@@ -1,25 +1,16 @@
 .class public final synthetic Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda18;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
 
 
-# instance fields
-.field public final synthetic f$0:Lcom/android/server/wm/RootWindowContainer;
-
-.field public final synthetic f$1:I
-
-
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/wm/RootWindowContainer;I)V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda18;->f$0:Lcom/android/server/wm/RootWindowContainer;
-
-    iput p2, p0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda18;->f$1:I
 
     return-void
 .end method
@@ -27,15 +18,11 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 2
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda18;->f$0:Lcom/android/server/wm/RootWindowContainer;
+    check-cast p1, Lcom/android/server/wm/TaskFragment;
 
-    iget v1, p0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda18;->f$1:I
-
-    check-cast p1, Lcom/android/server/wm/Task;
-
-    invoke-virtual {v0, v1, p1}, Lcom/android/server/wm/RootWindowContainer;->lambda$lockAllProfileTasks$37$RootWindowContainer(ILcom/android/server/wm/Task;)V
+    invoke-static {p1}, Lcom/android/server/wm/RootWindowContainer;->$r8$lambda$7pvQiYr75sfRAOG9gj3H86Zco4M(Lcom/android/server/wm/TaskFragment;)V
 
     return-void
 .end method

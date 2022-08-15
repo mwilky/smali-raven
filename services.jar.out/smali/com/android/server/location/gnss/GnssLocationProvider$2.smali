@@ -1,4 +1,4 @@
-.class Lcom/android/server/location/gnss/GnssLocationProvider$2;
+.class public Lcom/android/server/location/gnss/GnssLocationProvider$2;
 .super Landroid/database/ContentObserver;
 .source "GnssLocationProvider.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/location/gnss/GnssLocationProvider;
+.field public final synthetic this$0:Lcom/android/server/location/gnss/GnssLocationProvider;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/location/gnss/GnssLocationProvider;Landroid/os/Handler;)V
+.method public constructor <init>(Lcom/android/server/location/gnss/GnssLocationProvider;Landroid/os/Handler;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/location/gnss/GnssLocationProvider$2;->this$0:Lcom/android/server/location/gnss/GnssLocationProvider;
@@ -32,11 +32,11 @@
 
 # virtual methods
 .method public onChange(Z)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/location/gnss/GnssLocationProvider$2;->this$0:Lcom/android/server/location/gnss/GnssLocationProvider;
+    iget-object p0, p0, Lcom/android/server/location/gnss/GnssLocationProvider$2;->this$0:Lcom/android/server/location/gnss/GnssLocationProvider;
 
-    invoke-static {v0}, Lcom/android/server/location/gnss/GnssLocationProvider;->access$100(Lcom/android/server/location/gnss/GnssLocationProvider;)V
+    invoke-static {p0}, Lcom/android/server/location/gnss/GnssLocationProvider;->-$$Nest$mupdateEnabled(Lcom/android/server/location/gnss/GnssLocationProvider;)V
 
     return-void
 .end method

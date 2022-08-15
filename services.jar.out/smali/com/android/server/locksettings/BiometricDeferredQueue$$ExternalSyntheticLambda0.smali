@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/locksettings/BiometricDeferredQueue$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/server/locksettings/BiometricDeferredQueue$FaceResetLockoutTask$FinishCallback;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final onFinished()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/locksettings/BiometricDeferredQueue$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/locksettings/BiometricDeferredQueue;
+    iget-object p0, p0, Lcom/android/server/locksettings/BiometricDeferredQueue$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/locksettings/BiometricDeferredQueue;
 
-    invoke-virtual {v0}, Lcom/android/server/locksettings/BiometricDeferredQueue;->lambda$new$0$BiometricDeferredQueue()V
+    invoke-static {p0}, Lcom/android/server/locksettings/BiometricDeferredQueue;->$r8$lambda$pN5QSpeuHJelg-y54jRlG1BgjX4(Lcom/android/server/locksettings/BiometricDeferredQueue;)V
 
     return-void
 .end method

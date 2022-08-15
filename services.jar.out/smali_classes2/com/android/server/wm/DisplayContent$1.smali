@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/DisplayContent$1;
+.class public Lcom/android/server/wm/DisplayContent$1;
 .super Ljava/lang/Object;
 .source "DisplayContent.java"
 
@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
@@ -27,17 +27,17 @@
 
 
 # instance fields
-.field behindTopWindow:Z
+.field public behindTopWindow:Z
 
-.field final synthetic this$0:Lcom/android/server/wm/DisplayContent;
+.field public final synthetic this$0:Lcom/android/server/wm/DisplayContent;
 
-.field final synthetic val$searchBehind:Lcom/android/server/wm/WindowState;
+.field public final synthetic val$searchBehind:Lcom/android/server/wm/WindowState;
 
-.field final synthetic val$taskId:I
+.field public final synthetic val$taskId:I
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/wm/DisplayContent;Lcom/android/server/wm/WindowState;I)V
+.method public constructor <init>(Lcom/android/server/wm/DisplayContent;Lcom/android/server/wm/WindowState;I)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/wm/DisplayContent$1;->this$0:Lcom/android/server/wm/DisplayContent;
@@ -50,15 +50,15 @@
 
     if-nez p2, :cond_0
 
-    const/4 p2, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 p2, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    iput-boolean p2, p0, Lcom/android/server/wm/DisplayContent$1;->behindTopWindow:Z
+    iput-boolean p1, p0, Lcom/android/server/wm/DisplayContent$1;->behindTopWindow:Z
 
     return-void
 .end method
@@ -94,9 +94,9 @@
 
     invoke-virtual {p1}, Lcom/android/server/wm/WindowState;->canReceiveKeys()Z
 
-    move-result v0
+    move-result p0
 
-    if-nez v0, :cond_3
+    if-nez p0, :cond_3
 
     return v2
 
@@ -107,22 +107,22 @@
 
     if-eqz v0, :cond_5
 
-    iget v3, p0, Lcom/android/server/wm/DisplayContent$1;->val$taskId:I
+    iget p0, p0, Lcom/android/server/wm/DisplayContent$1;->val$taskId:I
 
-    invoke-virtual {v0, v3}, Lcom/android/server/wm/Task;->isTaskId(I)Z
+    invoke-virtual {v0, p0}, Lcom/android/server/wm/Task;->isTaskId(I)Z
 
-    move-result v3
+    move-result p0
 
-    if-nez v3, :cond_3
+    if-nez p0, :cond_3
 
     goto :goto_0
 
     :cond_3
     invoke-virtual {p1}, Lcom/android/server/wm/WindowState;->isSecureLocked()Z
 
-    move-result v0
+    move-result p0
 
-    if-eqz v0, :cond_4
+    if-eqz p0, :cond_4
 
     return v2
 
@@ -141,7 +141,7 @@
 
     invoke-virtual {p0, p1}, Lcom/android/server/wm/DisplayContent$1;->test(Lcom/android/server/wm/WindowState;)Z
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method

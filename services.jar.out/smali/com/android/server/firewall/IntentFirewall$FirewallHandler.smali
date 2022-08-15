@@ -1,4 +1,4 @@
-.class final Lcom/android/server/firewall/IntentFirewall$FirewallHandler;
+.class public final Lcom/android/server/firewall/IntentFirewall$FirewallHandler;
 .super Landroid/os/Handler;
 .source "IntentFirewall.java"
 
@@ -9,13 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "FirewallHandler"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/firewall/IntentFirewall;
+.field public final synthetic this$0:Lcom/android/server/firewall/IntentFirewall;
 
 
 # direct methods
@@ -36,15 +36,15 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 2
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/firewall/IntentFirewall$FirewallHandler;->this$0:Lcom/android/server/firewall/IntentFirewall;
+    iget-object p0, p0, Lcom/android/server/firewall/IntentFirewall$FirewallHandler;->this$0:Lcom/android/server/firewall/IntentFirewall;
 
     invoke-static {}, Lcom/android/server/firewall/IntentFirewall;->getRulesDir()Ljava/io/File;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-static {v0, v1}, Lcom/android/server/firewall/IntentFirewall;->access$300(Lcom/android/server/firewall/IntentFirewall;Ljava/io/File;)V
+    invoke-static {p0, p1}, Lcom/android/server/firewall/IntentFirewall;->-$$Nest$mreadRulesDir(Lcom/android/server/firewall/IntentFirewall;Ljava/io/File;)V
 
     return-void
 .end method

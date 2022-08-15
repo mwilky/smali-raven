@@ -14,19 +14,21 @@
 .end annotation
 
 
-# static fields
-.field private static final FORMAT:Ljava/lang/String; = "%s@%d"
-
-.field private static final SEPARATOR:Ljava/lang/String; = "@"
-
-
 # instance fields
-.field private final mPkg:Ljava/lang/String;
+.field public final mPkg:Ljava/lang/String;
 
-.field private final mUserId:I
+.field public final mUserId:I
 
 
 # direct methods
+.method public static bridge synthetic -$$Nest$fgetmPkg(Lcom/android/server/slice/SlicePermissionManager$PkgUser;)Ljava/lang/String;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/slice/SlicePermissionManager$PkgUser;->mPkg:Ljava/lang/String;
+
+    return-object p0
+.end method
+
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 2
     .annotation system Ldalvik/annotation/Throws;
@@ -44,38 +46,36 @@
 
     invoke-virtual {p1, v0, v1}, Ljava/lang/String;->split(Ljava/lang/String;I)[Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    aget-object v1, v0, v1
+    aget-object v0, p1, v0
 
-    iput-object v1, p0, Lcom/android/server/slice/SlicePermissionManager$PkgUser;->mPkg:Ljava/lang/String;
+    iput-object v0, p0, Lcom/android/server/slice/SlicePermissionManager$PkgUser;->mPkg:Ljava/lang/String;
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    aget-object v1, v0, v1
+    aget-object p1, p1, v0
 
-    invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static {p1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    move-result v1
+    move-result p1
 
-    iput v1, p0, Lcom/android/server/slice/SlicePermissionManager$PkgUser;->mUserId:I
+    iput p1, p0, Lcom/android/server/slice/SlicePermissionManager$PkgUser;->mUserId:I
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    nop
 
     return-void
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    new-instance v1, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    invoke-direct {v1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {p1, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v1
+    throw p1
 .end method
 
 .method public constructor <init>(Ljava/lang/String;I)V
@@ -90,18 +90,10 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/server/slice/SlicePermissionManager$PkgUser;)Ljava/lang/String;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/slice/SlicePermissionManager$PkgUser;->mPkg:Ljava/lang/String;
-
-    return-object v0
-.end method
-
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .locals 3
 
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -130,25 +122,23 @@
     return v1
 
     :cond_1
-    move-object v0, p1
+    check-cast p1, Lcom/android/server/slice/SlicePermissionManager$PkgUser;
 
-    check-cast v0, Lcom/android/server/slice/SlicePermissionManager$PkgUser;
+    iget-object v0, p1, Lcom/android/server/slice/SlicePermissionManager$PkgUser;->mPkg:Ljava/lang/String;
 
-    iget-object v2, v0, Lcom/android/server/slice/SlicePermissionManager$PkgUser;->mPkg:Ljava/lang/String;
+    iget-object v2, p0, Lcom/android/server/slice/SlicePermissionManager$PkgUser;->mPkg:Ljava/lang/String;
 
-    iget-object v3, p0, Lcom/android/server/slice/SlicePermissionManager$PkgUser;->mPkg:Ljava/lang/String;
+    invoke-static {v0, v2}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    invoke-static {v2, v3}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+    move-result v0
 
-    move-result v2
+    if-eqz v0, :cond_2
 
-    if-eqz v2, :cond_2
+    iget p1, p1, Lcom/android/server/slice/SlicePermissionManager$PkgUser;->mUserId:I
 
-    iget v2, v0, Lcom/android/server/slice/SlicePermissionManager$PkgUser;->mUserId:I
+    iget p0, p0, Lcom/android/server/slice/SlicePermissionManager$PkgUser;->mUserId:I
 
-    iget v3, p0, Lcom/android/server/slice/SlicePermissionManager$PkgUser;->mUserId:I
-
-    if-ne v2, v3, :cond_2
+    if-ne p1, p0, :cond_2
 
     const/4 v1, 0x1
 
@@ -157,23 +147,23 @@
 .end method
 
 .method public getPkg()Ljava/lang/String;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/slice/SlicePermissionManager$PkgUser;->mPkg:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/slice/SlicePermissionManager$PkgUser;->mPkg:Ljava/lang/String;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getUserId()I
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/slice/SlicePermissionManager$PkgUser;->mUserId:I
+    iget p0, p0, Lcom/android/server/slice/SlicePermissionManager$PkgUser;->mUserId:I
 
-    return v0
+    return p0
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/slice/SlicePermissionManager$PkgUser;->mPkg:Ljava/lang/String;
 
@@ -181,9 +171,9 @@
 
     move-result v0
 
-    iget v1, p0, Lcom/android/server/slice/SlicePermissionManager$PkgUser;->mUserId:I
+    iget p0, p0, Lcom/android/server/slice/SlicePermissionManager$PkgUser;->mUserId:I
 
-    add-int/2addr v0, v1
+    add-int/2addr v0, p0
 
     return v0
 .end method
@@ -201,21 +191,21 @@
 
     aput-object v1, v0, v2
 
-    iget v1, p0, Lcom/android/server/slice/SlicePermissionManager$PkgUser;->mUserId:I
+    iget p0, p0, Lcom/android/server/slice/SlicePermissionManager$PkgUser;->mUserId:I
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v1
+    move-result-object p0
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    aput-object v1, v0, v2
+    aput-object p0, v0, v1
 
-    const-string v1, "%s@%d"
+    const-string p0, "%s@%d"
 
-    invoke-static {v1, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p0, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

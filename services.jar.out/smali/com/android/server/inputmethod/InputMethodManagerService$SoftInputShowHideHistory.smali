@@ -1,4 +1,4 @@
-.class final Lcom/android/server/inputmethod/InputMethodManagerService$SoftInputShowHideHistory;
+.class public final Lcom/android/server/inputmethod/InputMethodManagerService$SoftInputShowHideHistory;
 .super Ljava/lang/Object;
 .source "InputMethodManagerService.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "SoftInputShowHideHistory"
 .end annotation
 
@@ -21,17 +21,25 @@
 
 
 # static fields
-.field private static final sSequenceNumber:Ljava/util/concurrent/atomic/AtomicInteger;
+.field public static final sSequenceNumber:Ljava/util/concurrent/atomic/AtomicInteger;
 
 
 # instance fields
-.field private mEntries:[Lcom/android/server/inputmethod/InputMethodManagerService$SoftInputShowHideHistory$Entry;
+.field public final mEntries:[Lcom/android/server/inputmethod/InputMethodManagerService$SoftInputShowHideHistory$Entry;
 
-.field private mNextIndex:I
+.field public mNextIndex:I
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static bridge synthetic -$$Nest$sfgetsSequenceNumber()Ljava/util/concurrent/atomic/AtomicInteger;
+    .locals 1
+
+    sget-object v0, Lcom/android/server/inputmethod/InputMethodManagerService$SoftInputShowHideHistory;->sSequenceNumber:Ljava/util/concurrent/atomic/AtomicInteger;
+
+    return-object v0
+.end method
+
+.method public static constructor <clinit>()V
     .locals 2
 
     new-instance v0, Ljava/util/concurrent/atomic/AtomicInteger;
@@ -45,7 +53,7 @@
     return-void
 .end method
 
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -63,7 +71,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/inputmethod/InputMethodManagerService$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/inputmethod/InputMethodManagerService$SoftInputShowHideHistory-IA;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/inputmethod/InputMethodManagerService$SoftInputShowHideHistory;-><init>()V
@@ -71,18 +79,10 @@
     return-void
 .end method
 
-.method static synthetic access$000()Ljava/util/concurrent/atomic/AtomicInteger;
-    .locals 1
-
-    sget-object v0, Lcom/android/server/inputmethod/InputMethodManagerService$SoftInputShowHideHistory;->sSequenceNumber:Ljava/util/concurrent/atomic/AtomicInteger;
-
-    return-object v0
-.end method
-
 
 # virtual methods
-.method addEntry(Lcom/android/server/inputmethod/InputMethodManagerService$SoftInputShowHideHistory$Entry;)V
-    .locals 3
+.method public addEntry(Lcom/android/server/inputmethod/InputMethodManagerService$SoftInputShowHideHistory$Entry;)V
+    .locals 2
 
     iget v0, p0, Lcom/android/server/inputmethod/InputMethodManagerService$SoftInputShowHideHistory;->mNextIndex:I
 
@@ -90,20 +90,18 @@
 
     aput-object p1, v1, v0
 
-    iget v2, p0, Lcom/android/server/inputmethod/InputMethodManagerService$SoftInputShowHideHistory;->mNextIndex:I
+    add-int/lit8 v0, v0, 0x1
 
-    add-int/lit8 v2, v2, 0x1
+    array-length p1, v1
 
-    array-length v1, v1
+    rem-int/2addr v0, p1
 
-    rem-int/2addr v2, v1
-
-    iput v2, p0, Lcom/android/server/inputmethod/InputMethodManagerService$SoftInputShowHideHistory;->mNextIndex:I
+    iput v0, p0, Lcom/android/server/inputmethod/InputMethodManagerService$SoftInputShowHideHistory;->mNextIndex:I
 
     return-void
 .end method
 
-.method dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
+.method public dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
     .locals 7
 
     new-instance v0, Ljava/text/SimpleDateFormat;
@@ -420,19 +418,19 @@
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v4, v2, Lcom/android/server/inputmethod/InputMethodManagerService$SoftInputShowHideHistory$Entry;->mFocusedWindowSoftInputMode:I
+    iget v2, v2, Lcom/android/server/inputmethod/InputMethodManagerService$SoftInputShowHideHistory$Entry;->mFocusedWindowSoftInputMode:I
 
-    invoke-static {v4}, Lcom/android/internal/inputmethod/InputMethodDebug;->softInputModeToString(I)Ljava/lang/String;
+    invoke-static {v2}, Lcom/android/internal/inputmethod/InputMethodDebug;->softInputModeToString(I)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v2
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {p1, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p1, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     :goto_1
     add-int/lit8 v1, v1, 0x1

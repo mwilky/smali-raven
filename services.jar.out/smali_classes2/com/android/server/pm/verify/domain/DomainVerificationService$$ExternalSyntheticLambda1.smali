@@ -1,41 +1,46 @@
 .class public final synthetic Lcom/android/server/pm/verify/domain/DomainVerificationService$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/internal/util/FunctionalUtils$ThrowingChecked2Consumer;
+.implements Ljava/util/Comparator;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/server/pm/verify/domain/DomainVerificationService;
+.field public final synthetic f$0:Lcom/android/server/pm/Computer;
 
-.field public final synthetic f$1:Landroid/util/TypedXmlPullParser;
+.field public final synthetic f$1:I
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/pm/verify/domain/DomainVerificationService;Landroid/util/TypedXmlPullParser;)V
+.method public synthetic constructor <init>(Lcom/android/server/pm/Computer;I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/pm/verify/domain/DomainVerificationService$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/pm/verify/domain/DomainVerificationService;
+    iput-object p1, p0, Lcom/android/server/pm/verify/domain/DomainVerificationService$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/pm/Computer;
 
-    iput-object p2, p0, Lcom/android/server/pm/verify/domain/DomainVerificationService$$ExternalSyntheticLambda1;->f$1:Landroid/util/TypedXmlPullParser;
+    iput p2, p0, Lcom/android/server/pm/verify/domain/DomainVerificationService$$ExternalSyntheticLambda1;->f$1:I
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
-    .locals 2
+.method public final compare(Ljava/lang/Object;Ljava/lang/Object;)I
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/pm/verify/domain/DomainVerificationService$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/pm/verify/domain/DomainVerificationService;
+    iget-object v0, p0, Lcom/android/server/pm/verify/domain/DomainVerificationService$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/pm/Computer;
 
-    iget-object v1, p0, Lcom/android/server/pm/verify/domain/DomainVerificationService$$ExternalSyntheticLambda1;->f$1:Landroid/util/TypedXmlPullParser;
+    iget p0, p0, Lcom/android/server/pm/verify/domain/DomainVerificationService$$ExternalSyntheticLambda1;->f$1:I
 
-    check-cast p1, Ljava/util/function/Function;
+    check-cast p1, Ljava/lang/String;
 
-    invoke-virtual {v0, v1, p1}, Lcom/android/server/pm/verify/domain/DomainVerificationService;->lambda$restoreSettings$12$DomainVerificationService(Landroid/util/TypedXmlPullParser;Ljava/util/function/Function;)V
+    check-cast p2, Ljava/lang/String;
 
-    return-void
+    invoke-static {v0, p0, p1, p2}, Lcom/android/server/pm/verify/domain/DomainVerificationService;->$r8$lambda$iyW6jE-1PNYJ8W0myEfpP49cIEo(Lcom/android/server/pm/Computer;ILjava/lang/String;Ljava/lang/String;)I
+
+    move-result p0
+
+    return p0
 .end method

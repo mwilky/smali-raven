@@ -1,47 +1,36 @@
 .class public final synthetic Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda38;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Consumer;
+.implements Ljava/util/function/Predicate;
 
 
 # instance fields
-.field public final synthetic f$0:[I
-
-.field public final synthetic f$1:[I
-
-.field public final synthetic f$2:Landroid/graphics/Region;
+.field public final synthetic f$0:Lcom/android/server/wm/DisplayContent;
 
 
 # direct methods
-.method public synthetic constructor <init>([I[ILandroid/graphics/Region;)V
+.method public synthetic constructor <init>(Lcom/android/server/wm/DisplayContent;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda38;->f$0:[I
-
-    iput-object p2, p0, Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda38;->f$1:[I
-
-    iput-object p3, p0, Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda38;->f$2:Landroid/graphics/Region;
+    iput-object p1, p0, Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda38;->f$0:Lcom/android/server/wm/DisplayContent;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
-    .locals 3
+.method public final test(Ljava/lang/Object;)Z
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda38;->f$0:[I
+    iget-object p0, p0, Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda38;->f$0:Lcom/android/server/wm/DisplayContent;
 
-    iget-object v1, p0, Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda38;->f$1:[I
+    invoke-static {p0, p1}, Lcom/android/server/wm/DisplayContent;->$r8$lambda$9tNIx9S4V0vGDTlQHmIUjsdrod4(Lcom/android/server/wm/DisplayContent;Ljava/lang/Object;)Z
 
-    iget-object v2, p0, Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda38;->f$2:Landroid/graphics/Region;
+    move-result p0
 
-    check-cast p1, Landroid/graphics/Rect;
-
-    invoke-static {v0, v1, v2, p1}, Lcom/android/server/wm/DisplayContent;->lambda$addToGlobalAndConsumeLimit$37([I[ILandroid/graphics/Region;Landroid/graphics/Rect;)V
-
-    return-void
+    return p0
 .end method

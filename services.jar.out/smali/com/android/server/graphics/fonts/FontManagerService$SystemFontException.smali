@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "SystemFontException"
 .end annotation
 
@@ -19,7 +19,7 @@
 
 
 # direct methods
-.method constructor <init>(ILjava/lang/String;)V
+.method public constructor <init>(ILjava/lang/String;)V
     .locals 0
 
     invoke-direct {p0, p2}, Landroid/util/AndroidException;-><init>(Ljava/lang/String;)V
@@ -29,7 +29,7 @@
     return-void
 .end method
 
-.method constructor <init>(ILjava/lang/String;Ljava/lang/Throwable;)V
+.method public constructor <init>(ILjava/lang/String;Ljava/lang/Throwable;)V
     .locals 0
 
     invoke-direct {p0, p2, p3}, Landroid/util/AndroidException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
@@ -41,10 +41,10 @@
 
 
 # virtual methods
-.method getErrorCode()I
-    .locals 1
+.method public getErrorCode()I
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/graphics/fonts/FontManagerService$SystemFontException;->mErrorCode:I
+    iget p0, p0, Lcom/android/server/graphics/fonts/FontManagerService$SystemFontException;->mErrorCode:I
 
-    return v0
+    return p0
 .end method

@@ -1,4 +1,4 @@
-.class Lcom/android/server/am/AppErrorDialog$Data;
+.class public Lcom/android/server/am/AppErrorDialog$Data;
 .super Ljava/lang/Object;
 .source "AppErrorDialog.java"
 
@@ -9,25 +9,25 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "Data"
 .end annotation
 
 
 # instance fields
-.field isRestartableForService:Z
+.field public isRestartableForService:Z
 
-.field proc:Lcom/android/server/am/ProcessRecord;
+.field public proc:Lcom/android/server/am/ProcessRecord;
 
-.field repeating:Z
+.field public repeating:Z
 
-.field result:Lcom/android/server/am/AppErrorResult;
+.field public result:Lcom/android/server/am/AppErrorResult;
 
-.field taskId:I
+.field public taskId:I
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

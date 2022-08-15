@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/WindowManagerService$1;
+.class public Lcom/android/server/wm/WindowManagerService$1;
 .super Landroid/service/vr/IVrStateCallbacks$Stub;
 .source "WindowManagerService.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/wm/WindowManagerService;
+.field public final synthetic this$0:Lcom/android/server/wm/WindowManagerService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/wm/WindowManagerService;)V
+.method public constructor <init>(Lcom/android/server/wm/WindowManagerService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/wm/WindowManagerService$1;->this$0:Lcom/android/server/wm/WindowManagerService;
@@ -32,7 +32,7 @@
 
 # virtual methods
 .method public onVrStateChanged(Z)V
-    .locals 4
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/wm/WindowManagerService$1;->this$0:Lcom/android/server/wm/WindowManagerService;
 
@@ -47,7 +47,9 @@
 
     iput-boolean p1, v1, Lcom/android/server/wm/WindowManagerService;->mVrModeEnabled:Z
 
-    sget-object v1, Lcom/android/server/wm/WindowManagerService$1$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/server/wm/WindowManagerService$1$$ExternalSyntheticLambda0;
+    new-instance v1, Lcom/android/server/wm/WindowManagerService$1$$ExternalSyntheticLambda0;
+
+    invoke-direct {v1}, Lcom/android/server/wm/WindowManagerService$1$$ExternalSyntheticLambda0;-><init>()V
 
     invoke-static {}, Lcom/android/internal/util/function/pooled/PooledLambda;->__()Lcom/android/internal/util/function/pooled/ArgumentPlaceholder;
 
@@ -55,19 +57,19 @@
 
     invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-static {v1, v2, v3}, Lcom/android/internal/util/function/pooled/PooledLambda;->obtainConsumer(Ljava/util/function/BiConsumer;Lcom/android/internal/util/function/pooled/ArgumentPlaceholder;Ljava/lang/Object;)Lcom/android/internal/util/function/pooled/PooledConsumer;
+    invoke-static {v1, v2, p1}, Lcom/android/internal/util/function/pooled/PooledLambda;->obtainConsumer(Ljava/util/function/BiConsumer;Lcom/android/internal/util/function/pooled/ArgumentPlaceholder;Ljava/lang/Object;)Lcom/android/internal/util/function/pooled/PooledConsumer;
 
-    move-result-object v1
+    move-result-object p1
 
-    iget-object v2, p0, Lcom/android/server/wm/WindowManagerService$1;->this$0:Lcom/android/server/wm/WindowManagerService;
+    iget-object p0, p0, Lcom/android/server/wm/WindowManagerService$1;->this$0:Lcom/android/server/wm/WindowManagerService;
 
-    iget-object v2, v2, Lcom/android/server/wm/WindowManagerService;->mRoot:Lcom/android/server/wm/RootWindowContainer;
+    iget-object p0, p0, Lcom/android/server/wm/WindowManagerService;->mRoot:Lcom/android/server/wm/RootWindowContainer;
 
-    invoke-virtual {v2, v1}, Lcom/android/server/wm/RootWindowContainer;->forAllDisplayPolicies(Ljava/util/function/Consumer;)V
+    invoke-virtual {p0, p1}, Lcom/android/server/wm/RootWindowContainer;->forAllDisplayPolicies(Ljava/util/function/Consumer;)V
 
-    invoke-interface {v1}, Lcom/android/internal/util/function/pooled/PooledConsumer;->recycle()V
+    invoke-interface {p1}, Lcom/android/internal/util/function/pooled/PooledConsumer;->recycle()V
 
     monitor-exit v0
     :try_end_0
@@ -78,7 +80,7 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     :try_start_1
     monitor-exit v0
@@ -87,5 +89,5 @@
 
     invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
 
-    throw v1
+    throw p0
 .end method

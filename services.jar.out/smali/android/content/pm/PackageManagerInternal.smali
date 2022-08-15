@@ -2,75 +2,15 @@
 .super Ljava/lang/Object;
 .source "PackageManagerInternal.java"
 
-# interfaces
-.implements Landroid/content/pm/PackageSettingsSnapshotProvider;
-
 
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroid/content/pm/PackageManagerInternal$InstalledLoadingProgressCallback;,
         Landroid/content/pm/PackageManagerInternal$ExternalSourcesPolicy;,
-        Landroid/content/pm/PackageManagerInternal$PackageListObserver;,
-        Landroid/content/pm/PackageManagerInternal$IntegrityVerificationResult;,
-        Landroid/content/pm/PackageManagerInternal$PrivateResolveFlags;,
-        Landroid/content/pm/PackageManagerInternal$KnownPackage;
+        Landroid/content/pm/PackageManagerInternal$PackageListObserver;
     }
 .end annotation
-
-
-# static fields
-.field public static final ENABLE_ROLLBACK_FAILED:I = -0x1
-
-.field public static final ENABLE_ROLLBACK_SUCCEEDED:I = 0x1
-
-.field public static final EXTRA_ENABLE_ROLLBACK_SESSION_ID:Ljava/lang/String; = "android.content.pm.extra.ENABLE_ROLLBACK_SESSION_ID"
-
-.field public static final EXTRA_ENABLE_ROLLBACK_TOKEN:Ljava/lang/String; = "android.content.pm.extra.ENABLE_ROLLBACK_TOKEN"
-
-.field public static final INTEGRITY_VERIFICATION_ALLOW:I = 0x1
-
-.field public static final INTEGRITY_VERIFICATION_REJECT:I = 0x0
-
-.field public static final LAST_KNOWN_PACKAGE:I = 0x10
-
-.field public static final PACKAGE_APP_PREDICTOR:I = 0xb
-
-.field public static final PACKAGE_BROWSER:I = 0x4
-
-.field public static final PACKAGE_COMPANION:I = 0xe
-
-.field public static final PACKAGE_CONFIGURATOR:I = 0x9
-
-.field public static final PACKAGE_DOCUMENTER:I = 0x8
-
-.field public static final PACKAGE_INCIDENT_REPORT_APPROVER:I = 0xa
-
-.field public static final PACKAGE_INSTALLER:I = 0x2
-
-.field public static final PACKAGE_OVERLAY_CONFIG_SIGNATURE:I = 0xc
-
-.field public static final PACKAGE_PERMISSION_CONTROLLER:I = 0x6
-
-.field public static final PACKAGE_RECENTS:I = 0x10
-
-.field public static final PACKAGE_RETAIL_DEMO:I = 0xf
-
-.field public static final PACKAGE_SETUP_WIZARD:I = 0x1
-
-.field public static final PACKAGE_SYSTEM:I = 0x0
-
-.field public static final PACKAGE_SYSTEM_TEXT_CLASSIFIER:I = 0x5
-
-.field public static final PACKAGE_VERIFIER:I = 0x3
-
-.field public static final PACKAGE_WELLBEING:I = 0x7
-
-.field public static final PACKAGE_WIFI:I = 0xd
-
-.field public static final RESOLVE_NON_BROWSER_ONLY:I = 0x1
-
-.field public static final RESOLVE_NON_RESOLVER_ONLY:I = 0x2
 
 
 # direct methods
@@ -80,124 +20,6 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
-.end method
-
-.method public static knownPackageToString(I)Ljava/lang/String;
-    .locals 1
-
-    packed-switch p0, :pswitch_data_0
-
-    const-string v0, "Unknown"
-
-    return-object v0
-
-    :pswitch_0
-    const-string v0, "Recents"
-
-    return-object v0
-
-    :pswitch_1
-    const-string v0, "Retail Demo"
-
-    return-object v0
-
-    :pswitch_2
-    const-string v0, "Companion"
-
-    return-object v0
-
-    :pswitch_3
-    const-string v0, "Wi-Fi"
-
-    return-object v0
-
-    :pswitch_4
-    const-string v0, "Overlay Config Signature"
-
-    return-object v0
-
-    :pswitch_5
-    const-string v0, "App Predictor"
-
-    return-object v0
-
-    :pswitch_6
-    const-string v0, "Incident Report Approver"
-
-    return-object v0
-
-    :pswitch_7
-    const-string v0, "Configurator"
-
-    return-object v0
-
-    :pswitch_8
-    const-string v0, "Documenter"
-
-    return-object v0
-
-    :pswitch_9
-    const-string v0, "Wellbeing"
-
-    return-object v0
-
-    :pswitch_a
-    const-string v0, "Permission Controller"
-
-    return-object v0
-
-    :pswitch_b
-    const-string v0, "System Text Classifier"
-
-    return-object v0
-
-    :pswitch_c
-    const-string v0, "Browser"
-
-    return-object v0
-
-    :pswitch_d
-    const-string v0, "Verifier"
-
-    return-object v0
-
-    :pswitch_e
-    const-string v0, "Installer"
-
-    return-object v0
-
-    :pswitch_f
-    const-string v0, "Setup Wizard"
-
-    return-object v0
-
-    :pswitch_10
-    const-string v0, "System"
-
-    return-object v0
-
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0x0
-        :pswitch_10
-        :pswitch_f
-        :pswitch_e
-        :pswitch_d
-        :pswitch_c
-        :pswitch_b
-        :pswitch_a
-        :pswitch_9
-        :pswitch_8
-        :pswitch_7
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
 .end method
 
 
@@ -211,13 +33,32 @@
 .method public abstract canAccessInstantApps(II)Z
 .end method
 
+.method public abstract canQueryPackage(ILjava/lang/String;)Z
+.end method
+
 .method public abstract clearBlockUninstallForUser(I)V
+.end method
+
+.method public abstract commitPackageStateMutation(Lcom/android/server/pm/pkg/mutate/PackageStateMutator$InitialState;Ljava/util/function/Consumer;)Lcom/android/server/pm/pkg/mutate/PackageStateMutator$Result;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/android/server/pm/pkg/mutate/PackageStateMutator$InitialState;",
+            "Ljava/util/function/Consumer<",
+            "Lcom/android/server/pm/pkg/mutate/PackageStateMutator;",
+            ">;)",
+            "Lcom/android/server/pm/pkg/mutate/PackageStateMutator$Result;"
+        }
+    .end annotation
 .end method
 
 .method public abstract compileLayouts(Ljava/lang/String;)Z
 .end method
 
 .method public abstract deleteOatArtifactsOfPackage(Ljava/lang/String;)J
+.end method
+
+.method public abstract filterAppAccess(II)Z
 .end method
 
 .method public abstract filterAppAccess(Lcom/android/server/pm/parsing/pkg/AndroidPackage;II)Z
@@ -265,6 +106,25 @@
     .end annotation
 .end method
 
+.method public abstract forEachPackageState(Ljava/util/function/Consumer;)V
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/function/Consumer<",
+            "Lcom/android/server/pm/pkg/PackageStateInternal;",
+            ">;)V"
+        }
+    .end annotation
+.end method
+
+.method public abstract freeAllAppCacheAboveQuota(Ljava/lang/String;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+.end method
+
 .method public abstract freeStorage(Ljava/lang/String;JI)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -273,7 +133,7 @@
     .end annotation
 .end method
 
-.method public abstract getActivityInfo(Landroid/content/ComponentName;III)Landroid/content/pm/ActivityInfo;
+.method public abstract getActivityInfo(Landroid/content/ComponentName;JII)Landroid/content/pm/ActivityInfo;
 .end method
 
 .method public abstract getApksInApex(Ljava/lang/String;)Ljava/util/List;
@@ -292,21 +152,7 @@
 .method public abstract getApplicationEnabledState(Ljava/lang/String;I)I
 .end method
 
-.method public abstract getApplicationInfo(Ljava/lang/String;III)Landroid/content/pm/ApplicationInfo;
-.end method
-
-.method public abstract getAppsWithSharedUserIds()Landroid/util/SparseArray;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Landroid/util/SparseArray<",
-            "Ljava/lang/String;",
-            ">;"
-        }
-    .end annotation
-.end method
-
-.method public abstract getCeDataInode(Ljava/lang/String;I)J
+.method public abstract getApplicationInfo(Ljava/lang/String;JII)Landroid/content/pm/ApplicationInfo;
 .end method
 
 .method public abstract getComponentEnabledSetting(Landroid/content/ComponentName;II)I
@@ -328,13 +174,16 @@
     .end annotation
 .end method
 
-.method public abstract getDisabledSystemPackage(Ljava/lang/String;)Lcom/android/server/pm/PackageSetting;
+.method public abstract getDisabledSystemPackage(Ljava/lang/String;)Lcom/android/server/pm/pkg/PackageStateInternal;
 .end method
 
 .method public abstract getDisabledSystemPackageName(Ljava/lang/String;)Ljava/lang/String;
 .end method
 
 .method public abstract getDistractingPackageRestrictions(Ljava/lang/String;I)I
+.end method
+
+.method public abstract getDynamicCodeLogger()Lcom/android/server/pm/dex/DynamicCodeLogger;
 .end method
 
 .method public abstract getEnabledComponents(Ljava/lang/String;I)Landroid/util/ArraySet;
@@ -365,10 +214,10 @@
 .method public abstract getIncrementalStatesInfo(Ljava/lang/String;II)Landroid/content/pm/IncrementalStatesInfo;
 .end method
 
-.method public abstract getInstalledApplications(III)Ljava/util/List;
+.method public abstract getInstalledApplications(JII)Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "(III)",
+            "(JII)",
             "Ljava/util/List<",
             "Landroid/content/pm/ApplicationInfo;",
             ">;"
@@ -382,32 +231,7 @@
 .method public abstract getKnownPackageNames(II)[Ljava/lang/String;
 .end method
 
-.method public abstract getMimeGroup(Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/lang/String;",
-            "Ljava/lang/String;",
-            ")",
-            "Ljava/util/List<",
-            "Ljava/lang/String;",
-            ">;"
-        }
-    .end annotation
-.end method
-
 .method public abstract getNameForUid(I)Ljava/lang/String;
-.end method
-
-.method public abstract getOverlayPackages(I)Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(I)",
-            "Ljava/util/List<",
-            "Landroid/content/pm/PackageInfo;",
-            ">;"
-        }
-    .end annotation
 .end method
 
 .method public abstract getPackage(I)Lcom/android/server/pm/parsing/pkg/AndroidPackage;
@@ -416,7 +240,7 @@
 .method public abstract getPackage(Ljava/lang/String;)Lcom/android/server/pm/parsing/pkg/AndroidPackage;
 .end method
 
-.method public abstract getPackageInfo(Ljava/lang/String;III)Landroid/content/pm/PackageInfo;
+.method public abstract getPackageInfo(Ljava/lang/String;JII)Landroid/content/pm/PackageInfo;
 .end method
 
 .method public getPackageList()Lcom/android/server/pm/PackageList;
@@ -426,21 +250,45 @@
 
     invoke-virtual {p0, v0}, Landroid/content/pm/PackageManagerInternal;->getPackageList(Landroid/content/pm/PackageManagerInternal$PackageListObserver;)Lcom/android/server/pm/PackageList;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public abstract getPackageList(Landroid/content/pm/PackageManagerInternal$PackageListObserver;)Lcom/android/server/pm/PackageList;
 .end method
 
-.method public abstract getPackageSetting(Ljava/lang/String;)Lcom/android/server/pm/PackageSetting;
+.method public abstract getPackageStateInternal(Ljava/lang/String;)Lcom/android/server/pm/pkg/PackageStateInternal;
+.end method
+
+.method public abstract getPackageStates()Landroid/util/ArrayMap;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Landroid/util/ArrayMap<",
+            "Ljava/lang/String;",
+            "+",
+            "Lcom/android/server/pm/pkg/PackageStateInternal;",
+            ">;"
+        }
+    .end annotation
 .end method
 
 .method public abstract getPackageTargetSdkVersion(Ljava/lang/String;)I
 .end method
 
-.method public abstract getPackageUid(Ljava/lang/String;II)I
+.method public abstract getPackageUid(Ljava/lang/String;JI)I
+.end method
+
+.method public abstract getPackagesForAppId(I)Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(I)",
+            "Ljava/util/List<",
+            "Lcom/android/server/pm/parsing/pkg/AndroidPackage;",
+            ">;"
+        }
+    .end annotation
 .end method
 
 .method public abstract getPermissionGids(Ljava/lang/String;I)[I
@@ -459,6 +307,20 @@
 .end method
 
 .method public abstract getSetupWizardPackageName()Ljava/lang/String;
+.end method
+
+.method public abstract getSharedUserApi(I)Lcom/android/server/pm/pkg/SharedUserApi;
+.end method
+
+.method public abstract getSharedUserPackages(I)Landroid/util/ArraySet;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(I)",
+            "Landroid/util/ArraySet<",
+            "Lcom/android/server/pm/pkg/PackageStateInternal;",
+            ">;"
+        }
+    .end annotation
 .end method
 
 .method public abstract getSharedUserPackagesForPackage(Ljava/lang/String;I)[Ljava/lang/String;
@@ -490,13 +352,23 @@
 .method public abstract getUidTargetSdkVersion(I)I
 .end method
 
+.method public abstract getVisibilityAllowList(Ljava/lang/String;I)[I
+.end method
+
 .method public abstract grantImplicitAccess(ILandroid/content/Intent;IIZ)V
+.end method
+
+.method public abstract grantImplicitAccess(ILandroid/content/Intent;IIZZ)V
 .end method
 
 .method public abstract hasInstantApplicationMetadata(Ljava/lang/String;I)Z
 .end method
 
 .method public abstract hasSignatureCapability(III)Z
+    .param p3    # I
+        .annotation build Landroid/content/pm/SigningDetails$CertCapabilities;
+        .end annotation
+    .end param
 .end method
 
 .method public abstract isApexPackage(Ljava/lang/String;)Z
@@ -509,9 +381,6 @@
 .end method
 
 .method public abstract isDataRestoreSafe([BLjava/lang/String;)Z
-.end method
-
-.method public abstract isEnabledAndMatches(Landroid/content/pm/parsing/component/ParsedMainComponent;II)Z
 .end method
 
 .method public abstract isInstantApp(Ljava/lang/String;I)Z
@@ -553,10 +422,16 @@
 .method public abstract isResolveActivityComponent(Landroid/content/pm/ComponentInfo;)Z
 .end method
 
+.method public abstract isSameApp(Ljava/lang/String;II)Z
+.end method
+
 .method public abstract isSuspendingAnyPackages(Ljava/lang/String;I)Z
 .end method
 
 .method public abstract isSystemPackage(Ljava/lang/String;)Z
+.end method
+
+.method public abstract isUidPrivileged(I)Z
 .end method
 
 .method public abstract migrateLegacyObbData()V
@@ -565,16 +440,7 @@
 .method public abstract notifyPackageUse(Ljava/lang/String;I)V
 .end method
 
-.method public onDefaultSimCallManagerAppChanged(Ljava/lang/String;I)V
-    .locals 0
-
-    return-void
-.end method
-
-.method public onDefaultSmsAppChanged(Ljava/lang/String;I)V
-    .locals 0
-
-    return-void
+.method public abstract onPackageProcessKilledForUninstall(Ljava/lang/String;)V
 .end method
 
 .method public abstract pruneCachedApksInApex(Ljava/util/List;)V
@@ -591,13 +457,13 @@
 .method public abstract pruneInstantApps()V
 .end method
 
-.method public abstract queryIntentActivities(Landroid/content/Intent;Ljava/lang/String;III)Ljava/util/List;
+.method public abstract queryIntentActivities(Landroid/content/Intent;Ljava/lang/String;JII)Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Landroid/content/Intent;",
             "Ljava/lang/String;",
-            "III)",
+            "JII)",
             "Ljava/util/List<",
             "Landroid/content/pm/ResolveInfo;",
             ">;"
@@ -605,17 +471,21 @@
     .end annotation
 .end method
 
-.method public abstract queryIntentServices(Landroid/content/Intent;III)Ljava/util/List;
+.method public abstract queryIntentReceivers(Landroid/content/Intent;Ljava/lang/String;JIIZ)Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Landroid/content/Intent;",
-            "III)",
+            "Ljava/lang/String;",
+            "JIIZ)",
             "Ljava/util/List<",
             "Landroid/content/pm/ResolveInfo;",
             ">;"
         }
     .end annotation
+.end method
+
+.method public abstract reconcileAppsData(IIZ)V
 .end method
 
 .method public abstract registerInstalledLoadingProgressCallback(Ljava/lang/String;Landroid/content/pm/PackageManagerInternal$InstalledLoadingProgressCallback;I)Z
@@ -648,16 +518,13 @@
 .method public abstract requestInstantAppResolutionPhaseTwo(Landroid/content/pm/AuxiliaryResolveInfo;Landroid/content/Intent;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLandroid/os/Bundle;I)V
 .end method
 
-.method public abstract resolveContentProvider(Ljava/lang/String;II)Landroid/content/pm/ProviderInfo;
+.method public abstract resolveContentProvider(Ljava/lang/String;JII)Landroid/content/pm/ProviderInfo;
 .end method
 
-.method public abstract resolveContentProvider(Ljava/lang/String;III)Landroid/content/pm/ProviderInfo;
+.method public abstract resolveIntent(Landroid/content/Intent;Ljava/lang/String;JJIZI)Landroid/content/pm/ResolveInfo;
 .end method
 
-.method public abstract resolveIntent(Landroid/content/Intent;Ljava/lang/String;IIIZI)Landroid/content/pm/ResolveInfo;
-.end method
-
-.method public abstract resolveService(Landroid/content/Intent;Ljava/lang/String;III)Landroid/content/pm/ResolveInfo;
+.method public abstract resolveService(Landroid/content/Intent;Ljava/lang/String;JII)Landroid/content/pm/ResolveInfo;
 .end method
 
 .method public abstract setDeviceAndProfileOwnerPackages(ILjava/lang/String;Landroid/util/SparseArray;)V
@@ -666,18 +533,6 @@
             "(I",
             "Ljava/lang/String;",
             "Landroid/util/SparseArray<",
-            "Ljava/lang/String;",
-            ">;)V"
-        }
-    .end annotation
-.end method
-
-.method public abstract setDeviceOwnerProtectedPackages(Ljava/lang/String;Ljava/util/List;)V
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/lang/String;",
-            "Ljava/util/List<",
             "Ljava/lang/String;",
             ">;)V"
         }
@@ -717,7 +572,24 @@
     .end annotation
 .end method
 
+.method public abstract setOwnerProtectedPackages(ILjava/util/List;)V
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(I",
+            "Ljava/util/List<",
+            "Ljava/lang/String;",
+            ">;)V"
+        }
+    .end annotation
+.end method
+
 .method public abstract setVisibilityLogging(Ljava/lang/String;Z)V
+.end method
+
+.method public abstract shutdown()V
+.end method
+
+.method public abstract snapshot()Lcom/android/server/pm/snapshot/PackageDataSnapshot;
 .end method
 
 .method public abstract uninstallApex(Ljava/lang/String;JILandroid/content/IntentSender;I)V
@@ -727,9 +599,6 @@
 .end method
 
 .method public abstract updateRuntimePermissionsFingerprint(I)V
-.end method
-
-.method public abstract userNeedsBadging(I)Z
 .end method
 
 .method public abstract wasPackageEverLaunched(Ljava/lang/String;I)Z

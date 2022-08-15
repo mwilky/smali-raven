@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/display/DisplayModeDirector$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/server/display/DisplayModeDirector$BallotBox;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final vote(IILcom/android/server/display/DisplayModeDirector$Vote;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/display/DisplayModeDirector$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/display/DisplayModeDirector;
+    iget-object p0, p0, Lcom/android/server/display/DisplayModeDirector$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/display/DisplayModeDirector;
 
-    invoke-virtual {v0, p1, p2, p3}, Lcom/android/server/display/DisplayModeDirector;->lambda$new$0$DisplayModeDirector(IILcom/android/server/display/DisplayModeDirector$Vote;)V
+    invoke-static {p0, p1, p2, p3}, Lcom/android/server/display/DisplayModeDirector;->$r8$lambda$5AVyPyjP6fzksJpmFihSQh10Vjg(Lcom/android/server/display/DisplayModeDirector;IILcom/android/server/display/DisplayModeDirector$Vote;)V
 
     return-void
 .end method

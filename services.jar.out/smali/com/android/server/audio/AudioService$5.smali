@@ -1,4 +1,4 @@
-.class Lcom/android/server/audio/AudioService$5;
+.class public Lcom/android/server/audio/AudioService$5;
 .super Ljava/lang/Object;
 .source "AudioService.java"
 
@@ -12,19 +12,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/audio/AudioService;
+.field public final synthetic this$0:Lcom/android/server/audio/AudioService;
 
-.field final synthetic val$controller:Landroid/media/IVolumeController;
+.field public final synthetic val$controller:Landroid/media/IVolumeController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/audio/AudioService;Landroid/media/IVolumeController;)V
+.method public constructor <init>(Lcom/android/server/audio/AudioService;Landroid/media/IVolumeController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/audio/AudioService$5;->this$0:Lcom/android/server/audio/AudioService;
@@ -43,7 +43,7 @@
 
     iget-object v0, p0, Lcom/android/server/audio/AudioService$5;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v0}, Lcom/android/server/audio/AudioService;->access$9600(Lcom/android/server/audio/AudioService;)Lcom/android/server/audio/AudioService$VolumeController;
+    invoke-static {v0}, Lcom/android/server/audio/AudioService;->-$$Nest$fgetmVolumeController(Lcom/android/server/audio/AudioService;)Lcom/android/server/audio/AudioService$VolumeController;
 
     move-result-object v0
 
@@ -61,11 +61,11 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v0, p0, Lcom/android/server/audio/AudioService$5;->this$0:Lcom/android/server/audio/AudioService;
+    iget-object p0, p0, Lcom/android/server/audio/AudioService$5;->this$0:Lcom/android/server/audio/AudioService;
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    invoke-virtual {v0, v1}, Lcom/android/server/audio/AudioService;->setVolumeController(Landroid/media/IVolumeController;)V
+    invoke-virtual {p0, v0}, Lcom/android/server/audio/AudioService;->setVolumeController(Landroid/media/IVolumeController;)V
 
     :cond_0
     return-void

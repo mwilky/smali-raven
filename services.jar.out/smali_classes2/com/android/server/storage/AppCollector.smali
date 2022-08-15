@@ -12,13 +12,13 @@
 
 
 # static fields
-.field private static TAG:Ljava/lang/String;
+.field public static TAG:Ljava/lang/String; = "AppCollector"
 
 
 # instance fields
-.field private final mBackgroundHandler:Lcom/android/server/storage/AppCollector$BackgroundHandler;
+.field public final mBackgroundHandler:Lcom/android/server/storage/AppCollector$BackgroundHandler;
 
-.field private mStats:Ljava/util/concurrent/CompletableFuture;
+.field public mStats:Ljava/util/concurrent/CompletableFuture;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/concurrent/CompletableFuture<",
@@ -31,12 +31,24 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static bridge synthetic -$$Nest$fgetmStats(Lcom/android/server/storage/AppCollector;)Ljava/util/concurrent/CompletableFuture;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/storage/AppCollector;->mStats:Ljava/util/concurrent/CompletableFuture;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$sfgetTAG()Ljava/lang/String;
     .locals 1
 
-    const-string v0, "AppCollector"
+    sget-object v0, Lcom/android/server/storage/AppCollector;->TAG:Ljava/lang/String;
 
-    sput-object v0, Lcom/android/server/storage/AppCollector;->TAG:Ljava/lang/String;
+    return-object v0
+.end method
+
+.method public static constructor <clinit>()V
+    .locals 0
 
     return-void
 .end method
@@ -76,9 +88,9 @@
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    move-object v6, v0
+    move-object v6, p1
 
     check-cast v6, Landroid/app/usage/StorageStatsManager;
 
@@ -95,26 +107,10 @@
     return-void
 .end method
 
-.method static synthetic access$000()Ljava/lang/String;
-    .locals 1
-
-    sget-object v0, Lcom/android/server/storage/AppCollector;->TAG:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method static synthetic access$100(Lcom/android/server/storage/AppCollector;)Ljava/util/concurrent/CompletableFuture;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/storage/AppCollector;->mStats:Ljava/util/concurrent/CompletableFuture;
-
-    return-object v0
-.end method
-
 
 # virtual methods
 .method public getPackageStats(J)Ljava/util/List;
-    .locals 4
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J)",
@@ -141,7 +137,7 @@
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Lcom/android/server/storage/AppCollector$BackgroundHandler;->sendEmptyMessage(I)Z
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
     :cond_0
     monitor-exit p0
@@ -151,57 +147,52 @@
     const/4 v0, 0x0
 
     :try_start_1
-    iget-object v1, p0, Lcom/android/server/storage/AppCollector;->mStats:Ljava/util/concurrent/CompletableFuture;
+    iget-object p0, p0, Lcom/android/server/storage/AppCollector;->mStats:Ljava/util/concurrent/CompletableFuture;
 
-    sget-object v2, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
+    sget-object v1, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
 
-    invoke-virtual {v1, p1, p2, v2}, Ljava/util/concurrent/CompletableFuture;->get(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
+    invoke-virtual {p0, p1, p2, v1}, Ljava/util/concurrent/CompletableFuture;->get(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p0
 
-    check-cast v1, Ljava/util/List;
+    check-cast p0, Ljava/util/List;
     :try_end_1
     .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_1
     .catch Ljava/util/concurrent/ExecutionException; {:try_start_1 .. :try_end_1} :catch_1
     .catch Ljava/util/concurrent/TimeoutException; {:try_start_1 .. :try_end_1} :catch_0
 
-    move-object v0, v1
-
-    :goto_0
-    goto :goto_1
-
-    :catch_0
-    move-exception v1
-
-    sget-object v2, Lcom/android/server/storage/AppCollector;->TAG:Ljava/lang/String;
-
-    const-string v3, "AppCollector timed out"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_1
-
-    :catch_1
-    move-exception v1
-
-    sget-object v2, Lcom/android/server/storage/AppCollector;->TAG:Ljava/lang/String;
-
-    const-string v3, "An exception occurred while getting app storage"
-
-    invoke-static {v2, v3, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    move-object v0, p0
 
     goto :goto_0
 
-    :goto_1
+    :catch_0
+    sget-object p0, Lcom/android/server/storage/AppCollector;->TAG:Ljava/lang/String;
+
+    const-string p1, "AppCollector timed out"
+
+    invoke-static {p0, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    :catch_1
+    move-exception p0
+
+    sget-object p1, Lcom/android/server/storage/AppCollector;->TAG:Ljava/lang/String;
+
+    const-string p2, "An exception occurred while getting app storage"
+
+    invoke-static {p1, p2, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    :goto_0
     return-object v0
 
     :catchall_0
-    move-exception v0
+    move-exception p1
 
     :try_start_2
     monitor-exit p0
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    throw v0
+    throw p1
 .end method

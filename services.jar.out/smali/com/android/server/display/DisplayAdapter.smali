@@ -1,4 +1,4 @@
-.class abstract Lcom/android/server/display/DisplayAdapter;
+.class public abstract Lcom/android/server/display/DisplayAdapter;
 .super Ljava/lang/Object;
 .source "DisplayAdapter.java"
 
@@ -12,29 +12,39 @@
 
 
 # static fields
-.field public static final DISPLAY_DEVICE_EVENT_ADDED:I = 0x1
-
-.field public static final DISPLAY_DEVICE_EVENT_CHANGED:I = 0x2
-
-.field public static final DISPLAY_DEVICE_EVENT_REMOVED:I = 0x3
-
-.field private static final NEXT_DISPLAY_MODE_ID:Ljava/util/concurrent/atomic/AtomicInteger;
+.field public static final NEXT_DISPLAY_MODE_ID:Ljava/util/concurrent/atomic/AtomicInteger;
 
 
 # instance fields
-.field private final mContext:Landroid/content/Context;
+.field public final mContext:Landroid/content/Context;
 
-.field private final mHandler:Landroid/os/Handler;
+.field public final mHandler:Landroid/os/Handler;
 
-.field private final mListener:Lcom/android/server/display/DisplayAdapter$Listener;
+.field public final mListener:Lcom/android/server/display/DisplayAdapter$Listener;
 
-.field private final mName:Ljava/lang/String;
+.field public final mName:Ljava/lang/String;
 
-.field private final mSyncRoot:Lcom/android/server/display/DisplayManagerService$SyncRoot;
+.field public final mSyncRoot:Lcom/android/server/display/DisplayManagerService$SyncRoot;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static synthetic $r8$lambda$es-VlBxFnF_XqNjOPaOpwTeiQr4(Lcom/android/server/display/DisplayAdapter;Lcom/android/server/display/DisplayDevice;I)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/server/display/DisplayAdapter;->lambda$sendDisplayDeviceEventLocked$0(Lcom/android/server/display/DisplayDevice;I)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$gNptJ3VqT17PBFZGevIT_ILClYs(Lcom/android/server/display/DisplayAdapter;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/server/display/DisplayAdapter;->lambda$sendTraversalRequestLocked$1()V
+
+    return-void
+.end method
+
+.method public static constructor <clinit>()V
     .locals 2
 
     new-instance v0, Ljava/util/concurrent/atomic/AtomicInteger;
@@ -75,9 +85,9 @@
 
     invoke-static {p0, p1, p2, v0}, Lcom/android/server/display/DisplayAdapter;->createMode(IIF[F)Landroid/view/Display$Mode;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static createMode(IIF[F)Landroid/view/Display$Mode;
@@ -106,6 +116,26 @@
     return-object v6
 .end method
 
+.method private synthetic lambda$sendDisplayDeviceEventLocked$0(Lcom/android/server/display/DisplayDevice;I)V
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/display/DisplayAdapter;->mListener:Lcom/android/server/display/DisplayAdapter$Listener;
+
+    invoke-interface {p0, p1, p2}, Lcom/android/server/display/DisplayAdapter$Listener;->onDisplayDeviceEvent(Lcom/android/server/display/DisplayDevice;I)V
+
+    return-void
+.end method
+
+.method private synthetic lambda$sendTraversalRequestLocked$1()V
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/display/DisplayAdapter;->mListener:Lcom/android/server/display/DisplayAdapter$Listener;
+
+    invoke-interface {p0}, Lcom/android/server/display/DisplayAdapter$Listener;->onTraversalRequested()V
+
+    return-void
+.end method
+
 
 # virtual methods
 .method public dumpLocked(Ljava/io/PrintWriter;)V
@@ -115,55 +145,35 @@
 .end method
 
 .method public final getContext()Landroid/content/Context;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/display/DisplayAdapter;->mContext:Landroid/content/Context;
+    iget-object p0, p0, Lcom/android/server/display/DisplayAdapter;->mContext:Landroid/content/Context;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public final getHandler()Landroid/os/Handler;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/display/DisplayAdapter;->mHandler:Landroid/os/Handler;
+    iget-object p0, p0, Lcom/android/server/display/DisplayAdapter;->mHandler:Landroid/os/Handler;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public final getName()Ljava/lang/String;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/display/DisplayAdapter;->mName:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/display/DisplayAdapter;->mName:Ljava/lang/String;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public final getSyncRoot()Lcom/android/server/display/DisplayManagerService$SyncRoot;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/display/DisplayAdapter;->mSyncRoot:Lcom/android/server/display/DisplayManagerService$SyncRoot;
+    iget-object p0, p0, Lcom/android/server/display/DisplayAdapter;->mSyncRoot:Lcom/android/server/display/DisplayManagerService$SyncRoot;
 
-    return-object v0
-.end method
-
-.method public synthetic lambda$sendDisplayDeviceEventLocked$0$DisplayAdapter(Lcom/android/server/display/DisplayDevice;I)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/display/DisplayAdapter;->mListener:Lcom/android/server/display/DisplayAdapter$Listener;
-
-    invoke-interface {v0, p1, p2}, Lcom/android/server/display/DisplayAdapter$Listener;->onDisplayDeviceEvent(Lcom/android/server/display/DisplayDevice;I)V
-
-    return-void
-.end method
-
-.method public synthetic lambda$sendTraversalRequestLocked$1$DisplayAdapter()V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/display/DisplayAdapter;->mListener:Lcom/android/server/display/DisplayAdapter$Listener;
-
-    invoke-interface {v0}, Lcom/android/server/display/DisplayAdapter$Listener;->onTraversalRequested()V
-
-    return-void
+    return-object p0
 .end method
 
 .method public registerLocked()V
@@ -172,7 +182,7 @@
     return-void
 .end method
 
-.method protected final sendDisplayDeviceEventLocked(Lcom/android/server/display/DisplayDevice;I)V
+.method public final sendDisplayDeviceEventLocked(Lcom/android/server/display/DisplayDevice;I)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/server/display/DisplayAdapter;->mHandler:Landroid/os/Handler;
@@ -186,7 +196,7 @@
     return-void
 .end method
 
-.method protected final sendTraversalRequestLocked()V
+.method public final sendTraversalRequestLocked()V
     .locals 2
 
     iget-object v0, p0, Lcom/android/server/display/DisplayAdapter;->mHandler:Landroid/os/Handler;

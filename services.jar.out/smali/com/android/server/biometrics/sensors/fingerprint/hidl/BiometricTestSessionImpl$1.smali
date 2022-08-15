@@ -1,4 +1,4 @@
-.class Lcom/android/server/biometrics/sensors/fingerprint/hidl/BiometricTestSessionImpl$1;
+.class public Lcom/android/server/biometrics/sensors/fingerprint/hidl/BiometricTestSessionImpl$1;
 .super Landroid/hardware/fingerprint/IFingerprintServiceReceiver$Stub;
 .source "BiometricTestSessionImpl.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/biometrics/sensors/fingerprint/hidl/BiometricTestSessionImpl;
+.field public final synthetic this$0:Lcom/android/server/biometrics/sensors/fingerprint/hidl/BiometricTestSessionImpl;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/biometrics/sensors/fingerprint/hidl/BiometricTestSessionImpl;)V
+.method public constructor <init>(Lcom/android/server/biometrics/sensors/fingerprint/hidl/BiometricTestSessionImpl;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/biometrics/sensors/fingerprint/hidl/BiometricTestSessionImpl$1;->this$0:Lcom/android/server/biometrics/sensors/fingerprint/hidl/BiometricTestSessionImpl;

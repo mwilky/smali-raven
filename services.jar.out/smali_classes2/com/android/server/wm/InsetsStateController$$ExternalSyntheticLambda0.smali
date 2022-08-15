@@ -1,63 +1,38 @@
 .class public final synthetic Lcom/android/server/wm/InsetsStateController$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/internal/util/ToBooleanFunction;
+.implements Ljava/util/function/Function;
 
 
 # instance fields
-.field public final synthetic f$0:[Z
-
-.field public final synthetic f$1:Lcom/android/server/wm/WindowState;
-
-.field public final synthetic f$2:Landroid/view/InsetsState;
-
-.field public final synthetic f$3:Ljava/util/ArrayList;
-
-.field public final synthetic f$4:Landroid/util/SparseArray;
+.field public final synthetic f$0:Lcom/android/server/wm/InsetsStateController;
 
 
 # direct methods
-.method public synthetic constructor <init>([ZLcom/android/server/wm/WindowState;Landroid/view/InsetsState;Ljava/util/ArrayList;Landroid/util/SparseArray;)V
+.method public synthetic constructor <init>(Lcom/android/server/wm/InsetsStateController;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/wm/InsetsStateController$$ExternalSyntheticLambda0;->f$0:[Z
-
-    iput-object p2, p0, Lcom/android/server/wm/InsetsStateController$$ExternalSyntheticLambda0;->f$1:Lcom/android/server/wm/WindowState;
-
-    iput-object p3, p0, Lcom/android/server/wm/InsetsStateController$$ExternalSyntheticLambda0;->f$2:Landroid/view/InsetsState;
-
-    iput-object p4, p0, Lcom/android/server/wm/InsetsStateController$$ExternalSyntheticLambda0;->f$3:Ljava/util/ArrayList;
-
-    iput-object p5, p0, Lcom/android/server/wm/InsetsStateController$$ExternalSyntheticLambda0;->f$4:Landroid/util/SparseArray;
+    iput-object p1, p0, Lcom/android/server/wm/InsetsStateController$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/wm/InsetsStateController;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final apply(Ljava/lang/Object;)Z
-    .locals 6
+.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/InsetsStateController$$ExternalSyntheticLambda0;->f$0:[Z
+    iget-object p0, p0, Lcom/android/server/wm/InsetsStateController$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/wm/InsetsStateController;
 
-    iget-object v1, p0, Lcom/android/server/wm/InsetsStateController$$ExternalSyntheticLambda0;->f$1:Lcom/android/server/wm/WindowState;
+    check-cast p1, Ljava/lang/Integer;
 
-    iget-object v2, p0, Lcom/android/server/wm/InsetsStateController$$ExternalSyntheticLambda0;->f$2:Landroid/view/InsetsState;
+    invoke-static {p0, p1}, Lcom/android/server/wm/InsetsStateController;->$r8$lambda$OATA6iKXtwvmUkVk7TE57vsp96A(Lcom/android/server/wm/InsetsStateController;Ljava/lang/Integer;)Lcom/android/server/wm/WindowContainerInsetsSourceProvider;
 
-    iget-object v3, p0, Lcom/android/server/wm/InsetsStateController$$ExternalSyntheticLambda0;->f$3:Ljava/util/ArrayList;
+    move-result-object p0
 
-    iget-object v4, p0, Lcom/android/server/wm/InsetsStateController$$ExternalSyntheticLambda0;->f$4:Landroid/util/SparseArray;
-
-    move-object v5, p1
-
-    check-cast v5, Lcom/android/server/wm/WindowState;
-
-    invoke-static/range {v0 .. v5}, Lcom/android/server/wm/InsetsStateController;->lambda$updateAboveInsetsState$3([ZLcom/android/server/wm/WindowState;Landroid/view/InsetsState;Ljava/util/ArrayList;Landroid/util/SparseArray;Lcom/android/server/wm/WindowState;)Z
-
-    move-result p1
-
-    return p1
+    return-object p0
 .end method

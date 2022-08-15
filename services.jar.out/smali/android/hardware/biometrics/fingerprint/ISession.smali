@@ -18,10 +18,6 @@
 # static fields
 .field public static final DESCRIPTOR:Ljava/lang/String;
 
-.field public static final HASH:Ljava/lang/String; = "3621eefdbae063097dad0037cd1f111792ff12ec"
-
-.field public static final VERSION:I = 0x1
-
 
 # direct methods
 .method static constructor <clinit>()V
@@ -52,6 +48,14 @@
     .end annotation
 .end method
 
+.method public abstract authenticateWithContext(JLandroid/hardware/biometrics/common/OperationContext;)Landroid/hardware/biometrics/common/ICancellationSignal;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract close()V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -68,7 +72,23 @@
     .end annotation
 .end method
 
+.method public abstract detectInteractionWithContext(Landroid/hardware/biometrics/common/OperationContext;)Landroid/hardware/biometrics/common/ICancellationSignal;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract enroll(Landroid/hardware/keymaster/HardwareAuthToken;)Landroid/hardware/biometrics/common/ICancellationSignal;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract enrollWithContext(Landroid/hardware/keymaster/HardwareAuthToken;Landroid/hardware/biometrics/common/OperationContext;)Landroid/hardware/biometrics/common/ICancellationSignal;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -124,6 +144,14 @@
     .end annotation
 .end method
 
+.method public abstract onContextChanged(Landroid/hardware/biometrics/common/OperationContext;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract onPointerDown(IIIFF)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -132,7 +160,23 @@
     .end annotation
 .end method
 
+.method public abstract onPointerDownWithContext(Landroid/hardware/biometrics/fingerprint/PointerContext;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract onPointerUp(I)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract onPointerUpWithContext(Landroid/hardware/biometrics/fingerprint/PointerContext;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

@@ -19,13 +19,13 @@
 
 
 # instance fields
-.field private final mFull:Z
+.field public final mFull:Z
 
-.field private final mManagedProfile:Z
+.field public final mManagedProfile:Z
 
-.field private final mPreCreated:Z
+.field public final mPreCreated:Z
 
-.field private final mUserId:I
+.field public final mUserId:I
 
 
 # direct methods
@@ -50,9 +50,9 @@
 
     iput-boolean v0, p0, Lcom/android/server/SystemService$TargetUser;->mManagedProfile:Z
 
-    iget-boolean v0, p1, Landroid/content/pm/UserInfo;->preCreated:Z
+    iget-boolean p1, p1, Landroid/content/pm/UserInfo;->preCreated:Z
 
-    iput-boolean v0, p0, Lcom/android/server/SystemService$TargetUser;->mPreCreated:Z
+    iput-boolean p1, p0, Lcom/android/server/SystemService$TargetUser;->mPreCreated:Z
 
     return-void
 .end method
@@ -60,7 +60,7 @@
 
 # virtual methods
 .method public dump(Ljava/io/PrintWriter;)V
-    .locals 2
+    .locals 1
 
     invoke-virtual {p0}, Lcom/android/server/SystemService$TargetUser;->getUserIdentifier()I
 
@@ -87,96 +87,87 @@
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(C)V
 
-    const/4 v0, 0x0
-
     invoke-virtual {p0}, Lcom/android/server/SystemService$TargetUser;->isFull()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
-    const-string v1, "full"
+    const-string v0, "full"
 
-    invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     :cond_1
     invoke-virtual {p0}, Lcom/android/server/SystemService$TargetUser;->isManagedProfile()Z
 
-    move-result v1
+    move-result p0
 
-    if-eqz v1, :cond_3
+    if-eqz p0, :cond_2
 
-    if-eqz v0, :cond_2
+    const-string/jumbo p0, "mp"
 
-    const/16 v1, 0x2c
-
-    invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(C)V
+    invoke-virtual {p1, p0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     :cond_2
-    const-string/jumbo v1, "mp"
+    const/16 p0, 0x29
 
-    invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    :cond_3
-    const/16 v1, 0x29
-
-    invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(C)V
+    invoke-virtual {p1, p0}, Ljava/io/PrintWriter;->print(C)V
 
     return-void
 .end method
 
 .method public getUserHandle()Landroid/os/UserHandle;
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/SystemService$TargetUser;->mUserId:I
+    iget p0, p0, Lcom/android/server/SystemService$TargetUser;->mUserId:I
 
-    invoke-static {v0}, Landroid/os/UserHandle;->of(I)Landroid/os/UserHandle;
+    invoke-static {p0}, Landroid/os/UserHandle;->of(I)Landroid/os/UserHandle;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getUserIdentifier()I
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/SystemService$TargetUser;->mUserId:I
+    iget p0, p0, Lcom/android/server/SystemService$TargetUser;->mUserId:I
 
-    return v0
+    return p0
 .end method
 
 .method public isFull()Z
-    .locals 1
+    .locals 0
 
-    iget-boolean v0, p0, Lcom/android/server/SystemService$TargetUser;->mFull:Z
+    iget-boolean p0, p0, Lcom/android/server/SystemService$TargetUser;->mFull:Z
 
-    return v0
+    return p0
 .end method
 
 .method public isManagedProfile()Z
-    .locals 1
+    .locals 0
 
-    iget-boolean v0, p0, Lcom/android/server/SystemService$TargetUser;->mManagedProfile:Z
+    iget-boolean p0, p0, Lcom/android/server/SystemService$TargetUser;->mManagedProfile:Z
 
-    return v0
+    return p0
 .end method
 
 .method public isPreCreated()Z
-    .locals 1
+    .locals 0
 
-    iget-boolean v0, p0, Lcom/android/server/SystemService$TargetUser;->mPreCreated:Z
+    iget-boolean p0, p0, Lcom/android/server/SystemService$TargetUser;->mPreCreated:Z
 
-    return v0
+    return p0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/SystemService$TargetUser;->mUserId:I
+    iget p0, p0, Lcom/android/server/SystemService$TargetUser;->mUserId:I
 
-    invoke-static {v0}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    invoke-static {p0}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

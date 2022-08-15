@@ -1,4 +1,4 @@
-.class Lcom/android/server/compat/OverrideValidatorImpl$SettingsObserver;
+.class public Lcom/android/server/compat/OverrideValidatorImpl$SettingsObserver;
 .super Landroid/database/ContentObserver;
 .source "OverrideValidatorImpl.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "SettingsObserver"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/compat/OverrideValidatorImpl;
+.field public final synthetic this$0:Lcom/android/server/compat/OverrideValidatorImpl;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/compat/OverrideValidatorImpl;)V
+.method public constructor <init>(Lcom/android/server/compat/OverrideValidatorImpl;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/compat/OverrideValidatorImpl$SettingsObserver;->this$0:Lcom/android/server/compat/OverrideValidatorImpl;
@@ -36,34 +36,34 @@
 
 # virtual methods
 .method public onChange(Z)V
-    .locals 4
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/server/compat/OverrideValidatorImpl$SettingsObserver;->this$0:Lcom/android/server/compat/OverrideValidatorImpl;
+    iget-object p0, p0, Lcom/android/server/compat/OverrideValidatorImpl$SettingsObserver;->this$0:Lcom/android/server/compat/OverrideValidatorImpl;
 
-    invoke-static {v0}, Lcom/android/server/compat/OverrideValidatorImpl;->access$100(Lcom/android/server/compat/OverrideValidatorImpl;)Landroid/content/Context;
+    invoke-static {p0}, Lcom/android/server/compat/OverrideValidatorImpl;->-$$Nest$fgetmContext(Lcom/android/server/compat/OverrideValidatorImpl;)Landroid/content/Context;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v1
+    move-result-object p1
 
-    const-string v2, "force_non_debuggable_final_build_for_compat"
+    const-string v0, "force_non_debuggable_final_build_for_compat"
 
-    const/4 v3, 0x0
+    const/4 v1, 0x0
 
-    invoke-static {v1, v2, v3}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {p1, v0, v1}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    move-result v1
+    move-result p1
 
-    const/4 v2, 0x1
+    const/4 v0, 0x1
 
-    if-ne v1, v2, :cond_0
+    if-ne p1, v0, :cond_0
 
-    move v3, v2
+    move v1, v0
 
     :cond_0
-    invoke-static {v0, v3}, Lcom/android/server/compat/OverrideValidatorImpl;->access$002(Lcom/android/server/compat/OverrideValidatorImpl;Z)Z
+    invoke-static {p0, v1}, Lcom/android/server/compat/OverrideValidatorImpl;->-$$Nest$fputmForceNonDebuggableFinalBuild(Lcom/android/server/compat/OverrideValidatorImpl;Z)V
 
     return-void
 .end method

@@ -1,4 +1,4 @@
-.class final Lcom/android/server/notification/NotificationManagerService$StatusBarNotificationHolder;
+.class public final Lcom/android/server/notification/NotificationManagerService$StatusBarNotificationHolder;
 .super Landroid/service/notification/IStatusBarNotificationHolder$Stub;
 .source "NotificationManagerService.java"
 
@@ -9,13 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "StatusBarNotificationHolder"
 .end annotation
 
 
 # instance fields
-.field private mValue:Landroid/service/notification/StatusBarNotification;
+.field public mValue:Landroid/service/notification/StatusBarNotification;
 
 
 # direct methods

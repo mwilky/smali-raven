@@ -13,13 +13,13 @@
 
 
 # instance fields
-.field protected final mRoot:Lcom/android/server/wm/RootDisplayArea;
+.field public final mRoot:Lcom/android/server/wm/RootDisplayArea;
 
-.field protected final mWmService:Lcom/android/server/wm/WindowManagerService;
+.field public final mWmService:Lcom/android/server/wm/WindowManagerService;
 
 
 # direct methods
-.method protected constructor <init>(Lcom/android/server/wm/WindowManagerService;Lcom/android/server/wm/RootDisplayArea;)V
+.method public constructor <init>(Lcom/android/server/wm/WindowManagerService;Lcom/android/server/wm/RootDisplayArea;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -33,9 +33,6 @@
 
 
 # virtual methods
-.method public abstract addWindow(Lcom/android/server/wm/WindowToken;)V
-.end method
-
 .method public abstract findAreaForWindowType(ILandroid/os/Bundle;ZZ)Lcom/android/server/wm/DisplayArea$Tokens;
 .end method
 
@@ -53,4 +50,7 @@
             ">;>;"
         }
     .end annotation
+.end method
+
+.method public abstract getTaskDisplayArea(Landroid/os/Bundle;)Lcom/android/server/wm/TaskDisplayArea;
 .end method

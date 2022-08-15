@@ -14,14 +14,6 @@
 .end annotation
 
 
-# static fields
-.field public static final USER_BLOCKED:I = 0x1
-
-.field public static final USER_DEFAULT:I = 0x2
-
-.field public static final USER_TRUSTED:I
-
-
 # virtual methods
 .method public abstract getPackageTrustedToInstallApps(Ljava/lang/String;I)I
 .end method

@@ -4,11 +4,11 @@
 
 
 # static fields
-.field private static final NOP:Lcom/android/server/textservices/TextServicesManagerInternal;
+.field public static final NOP:Lcom/android/server/textservices/TextServicesManagerInternal;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 1
 
     new-instance v0, Lcom/android/server/textservices/TextServicesManagerInternal$1;
@@ -29,7 +29,7 @@
 .end method
 
 .method public static get()Lcom/android/server/textservices/TextServicesManagerInternal;
-    .locals 2
+    .locals 1
 
     const-class v0, Lcom/android/server/textservices/TextServicesManagerInternal;
 
@@ -41,15 +41,13 @@
 
     if-eqz v0, :cond_0
 
-    move-object v1, v0
-
     goto :goto_0
 
     :cond_0
-    sget-object v1, Lcom/android/server/textservices/TextServicesManagerInternal;->NOP:Lcom/android/server/textservices/TextServicesManagerInternal;
+    sget-object v0, Lcom/android/server/textservices/TextServicesManagerInternal;->NOP:Lcom/android/server/textservices/TextServicesManagerInternal;
 
     :goto_0
-    return-object v1
+    return-object v0
 .end method
 
 

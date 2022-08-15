@@ -1,4 +1,4 @@
-.class final Lcom/android/server/audio/PlaybackActivityMonitor$NewPlayerEvent;
+.class public final Lcom/android/server/audio/PlaybackActivityMonitor$NewPlayerEvent;
 .super Lcom/android/server/audio/AudioEventLogger$Event;
 .source "PlaybackActivityMonitor.java"
 
@@ -9,27 +9,27 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "NewPlayerEvent"
 .end annotation
 
 
 # instance fields
-.field private final mClientPid:I
+.field public final mClientPid:I
 
-.field private final mClientUid:I
+.field public final mClientUid:I
 
-.field private final mPlayerAttr:Landroid/media/AudioAttributes;
+.field public final mPlayerAttr:Landroid/media/AudioAttributes;
 
-.field private final mPlayerIId:I
+.field public final mPlayerIId:I
 
-.field private final mPlayerType:I
+.field public final mPlayerType:I
 
-.field private final mSessionId:I
+.field public final mSessionId:I
 
 
 # direct methods
-.method constructor <init>(Landroid/media/AudioPlaybackConfiguration;)V
+.method public constructor <init>(Landroid/media/AudioPlaybackConfiguration;)V
     .locals 1
 
     invoke-direct {p0}, Lcom/android/server/audio/AudioEventLogger$Event;-><init>()V
@@ -66,9 +66,9 @@
 
     invoke-virtual {p1}, Landroid/media/AudioPlaybackConfiguration;->getSessionId()I
 
-    move-result v0
+    move-result p1
 
-    iput v0, p0, Lcom/android/server/audio/PlaybackActivityMonitor$NewPlayerEvent;->mSessionId:I
+    iput p1, p0, Lcom/android/server/audio/PlaybackActivityMonitor$NewPlayerEvent;->mSessionId:I
 
     return-void
 .end method
@@ -132,15 +132,15 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v2, p0, Lcom/android/server/audio/PlaybackActivityMonitor$NewPlayerEvent;->mSessionId:I
+    iget p0, p0, Lcom/android/server/audio/PlaybackActivityMonitor$NewPlayerEvent;->mSessionId:I
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-direct {v0, v1}, Ljava/lang/String;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p0}, Ljava/lang/String;-><init>(Ljava/lang/String;)V
 
     return-object v0
 .end method

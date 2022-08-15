@@ -1,4 +1,4 @@
-.class final Lcom/android/server/print/RemotePrintSpooler$OnCustomPrinterIconLoadedCaller;
+.class public final Lcom/android/server/print/RemotePrintSpooler$OnCustomPrinterIconLoadedCaller;
 .super Landroid/util/TimedRemoteCaller;
 .source "RemotePrintSpooler.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "OnCustomPrinterIconLoadedCaller"
 .end annotation
 
@@ -23,7 +23,7 @@
 
 
 # instance fields
-.field private final mCallback:Landroid/print/IPrintSpoolerCallbacks;
+.field public final mCallback:Landroid/print/IPrintSpoolerCallbacks;
 
 
 # direct methods
@@ -43,10 +43,10 @@
     return-void
 .end method
 
-.method static synthetic access$1000(Lcom/android/server/print/RemotePrintSpooler$OnCustomPrinterIconLoadedCaller;Ljava/lang/Object;I)V
+.method public static synthetic access$400(Lcom/android/server/print/RemotePrintSpooler$OnCustomPrinterIconLoadedCaller;Ljava/lang/Object;I)V
     .locals 0
 
-    invoke-virtual {p0, p1, p2}, Lcom/android/server/print/RemotePrintSpooler$OnCustomPrinterIconLoadedCaller;->onRemoteMethodResult(Ljava/lang/Object;I)V
+    invoke-virtual {p0, p1, p2}, Landroid/util/TimedRemoteCaller;->onRemoteMethodResult(Ljava/lang/Object;I)V
 
     return-void
 .end method
@@ -62,7 +62,7 @@
         }
     .end annotation
 
-    invoke-virtual {p0}, Lcom/android/server/print/RemotePrintSpooler$OnCustomPrinterIconLoadedCaller;->onBeforeRemoteCall()I
+    invoke-virtual {p0}, Landroid/util/TimedRemoteCaller;->onBeforeRemoteCall()I
 
     move-result v0
 
@@ -70,11 +70,11 @@
 
     invoke-interface {p1, p2, p3, v1, v0}, Landroid/print/IPrintSpooler;->onCustomPrinterIconLoaded(Landroid/print/PrinterId;Landroid/graphics/drawable/Icon;Landroid/print/IPrintSpoolerCallbacks;I)V
 
-    invoke-virtual {p0, v0}, Lcom/android/server/print/RemotePrintSpooler$OnCustomPrinterIconLoadedCaller;->getResultTimed(I)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Landroid/util/TimedRemoteCaller;->getResultTimed(I)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p0
 
-    check-cast v1, Ljava/lang/Void;
+    check-cast p0, Ljava/lang/Void;
 
-    return-object v1
+    return-object p0
 .end method

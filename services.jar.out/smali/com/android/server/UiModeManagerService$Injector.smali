@@ -4,6 +4,9 @@
 
 
 # annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/android/server/UiModeManagerService;
 .end annotation
@@ -26,11 +29,11 @@
 
 # virtual methods
 .method public getCallingUid()I
-    .locals 1
+    .locals 0
 
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method

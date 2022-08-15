@@ -1,4 +1,4 @@
-.class Lcom/android/server/usb/UsbDeviceManager$1;
+.class public Lcom/android/server/usb/UsbDeviceManager$1;
 .super Landroid/content/BroadcastReceiver;
 .source "UsbDeviceManager.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/usb/UsbDeviceManager;
+.field public final synthetic this$0:Lcom/android/server/usb/UsbDeviceManager;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/usb/UsbDeviceManager;)V
+.method public constructor <init>(Lcom/android/server/usb/UsbDeviceManager;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/usb/UsbDeviceManager$1;->this$0:Lcom/android/server/usb/UsbDeviceManager;
@@ -32,7 +32,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 4
+    .locals 2
 
     const-string v0, "port"
 
@@ -46,29 +46,29 @@
 
     invoke-virtual {p2, v1}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
 
-    move-result-object v1
+    move-result-object p2
 
-    check-cast v1, Landroid/hardware/usb/UsbPortStatus;
+    check-cast p2, Landroid/hardware/usb/UsbPortStatus;
 
-    iget-object v2, p0, Lcom/android/server/usb/UsbDeviceManager$1;->this$0:Lcom/android/server/usb/UsbDeviceManager;
+    iget-object p0, p0, Lcom/android/server/usb/UsbDeviceManager$1;->this$0:Lcom/android/server/usb/UsbDeviceManager;
 
-    invoke-static {v2}, Lcom/android/server/usb/UsbDeviceManager;->access$000(Lcom/android/server/usb/UsbDeviceManager;)Lcom/android/server/usb/UsbDeviceManager$UsbHandler;
+    invoke-static {p0}, Lcom/android/server/usb/UsbDeviceManager;->-$$Nest$fgetmHandler(Lcom/android/server/usb/UsbDeviceManager;)Lcom/android/server/usb/UsbDeviceManager$UsbHandler;
 
-    move-result-object v2
+    move-result-object p0
 
-    const-class v3, Landroid/hardware/usb/UsbManager;
+    const-class v1, Landroid/hardware/usb/UsbManager;
 
-    invoke-virtual {p1, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-virtual {p1, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object p1
 
-    check-cast v3, Landroid/hardware/usb/UsbManager;
+    check-cast p1, Landroid/hardware/usb/UsbManager;
 
-    invoke-virtual {v0, v3}, Landroid/hardware/usb/ParcelableUsbPort;->getUsbPort(Landroid/hardware/usb/UsbManager;)Landroid/hardware/usb/UsbPort;
+    invoke-virtual {v0, p1}, Landroid/hardware/usb/ParcelableUsbPort;->getUsbPort(Landroid/hardware/usb/UsbManager;)Landroid/hardware/usb/UsbPort;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-virtual {v2, v3, v1}, Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->updateHostState(Landroid/hardware/usb/UsbPort;Landroid/hardware/usb/UsbPortStatus;)V
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->updateHostState(Landroid/hardware/usb/UsbPort;Landroid/hardware/usb/UsbPortStatus;)V
 
     return-void
 .end method

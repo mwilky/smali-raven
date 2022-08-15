@@ -1,4 +1,4 @@
-.class final Lcom/android/server/wm/ActivityTaskManagerService$H;
+.class public final Lcom/android/server/wm/ActivityTaskManagerService$H;
 .super Landroid/os/Handler;
 .source "ActivityTaskManagerService.java"
 
@@ -9,31 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x10
+    accessFlags = 0x11
     name = "H"
 .end annotation
 
 
-# static fields
-.field static final END_POWER_MODE_UNKNOWN_VISIBILITY_MSG:I = 0x3
-
-.field static final FIRST_ACTIVITY_TASK_MSG:I = 0x64
-
-.field static final FIRST_SUPERVISOR_TASK_MSG:I = 0xc8
-
-.field static final REPORT_TIME_TRACKER_MSG:I = 0x1
-
-.field static final RESUME_FG_APP_SWITCH_MSG:I = 0x4
-
-.field static final UPDATE_PROCESS_ANIMATING_STATE:I = 0x2
-
-
 # instance fields
-.field final synthetic this$0:Lcom/android/server/wm/ActivityTaskManagerService;
+.field public final synthetic this$0:Lcom/android/server/wm/ActivityTaskManagerService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/wm/ActivityTaskManagerService;Landroid/os/Looper;)V
+.method public constructor <init>(Lcom/android/server/wm/ActivityTaskManagerService;Landroid/os/Looper;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/wm/ActivityTaskManagerService$H;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
@@ -46,40 +32,52 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 5
+    .locals 4
 
     iget v0, p1, Landroid/os/Message;->what:I
 
     const/4 v1, 0x1
 
-    packed-switch v0, :pswitch_data_0
+    if-eq v0, v1, :cond_5
+
+    const/4 v2, 0x2
+
+    if-eq v0, v2, :cond_4
+
+    const/4 p1, 0x3
+
+    const/4 v2, 0x4
+
+    if-eq v0, p1, :cond_2
+
+    if-eq v0, v2, :cond_0
 
     goto/16 :goto_0
 
-    :pswitch_0
-    iget-object v0, p0, Lcom/android/server/wm/ActivityTaskManagerService$H;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
+    :cond_0
+    iget-object p1, p0, Lcom/android/server/wm/ActivityTaskManagerService$H;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
 
-    iget-object v0, v0, Lcom/android/server/wm/ActivityTaskManagerService;->mGlobalLock:Lcom/android/server/wm/WindowManagerGlobalLock;
+    iget-object p1, p1, Lcom/android/server/wm/ActivityTaskManagerService;->mGlobalLock:Lcom/android/server/wm/WindowManagerGlobalLock;
 
-    monitor-enter v0
+    monitor-enter p1
 
     :try_start_0
     invoke-static {}, Lcom/android/server/wm/WindowManagerService;->boostPriorityForLockedSection()V
 
-    iget-object v2, p0, Lcom/android/server/wm/ActivityTaskManagerService$H;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
+    iget-object v0, p0, Lcom/android/server/wm/ActivityTaskManagerService$H;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
 
-    invoke-static {v2}, Lcom/android/server/wm/ActivityTaskManagerService;->access$600(Lcom/android/server/wm/ActivityTaskManagerService;)I
+    invoke-static {v0}, Lcom/android/server/wm/ActivityTaskManagerService;->-$$Nest$fgetmAppSwitchesState(Lcom/android/server/wm/ActivityTaskManagerService;)I
 
-    move-result v2
+    move-result v0
 
-    if-nez v2, :cond_0
+    if-nez v0, :cond_1
 
-    iget-object v2, p0, Lcom/android/server/wm/ActivityTaskManagerService$H;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
+    iget-object p0, p0, Lcom/android/server/wm/ActivityTaskManagerService$H;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
 
-    invoke-static {v2, v1}, Lcom/android/server/wm/ActivityTaskManagerService;->access$602(Lcom/android/server/wm/ActivityTaskManagerService;I)I
+    invoke-static {p0, v1}, Lcom/android/server/wm/ActivityTaskManagerService;->-$$Nest$fputmAppSwitchesState(Lcom/android/server/wm/ActivityTaskManagerService;I)V
 
-    :cond_0
-    monitor-exit v0
+    :cond_1
+    monitor-exit p1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -88,60 +86,58 @@
     goto :goto_0
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     :try_start_1
-    monitor-exit v0
+    monitor-exit p1
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
 
-    throw v1
+    throw p0
 
-    :pswitch_1
-    iget-object v0, p0, Lcom/android/server/wm/ActivityTaskManagerService$H;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
+    :cond_2
+    iget-object p1, p0, Lcom/android/server/wm/ActivityTaskManagerService$H;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
 
-    iget-object v0, v0, Lcom/android/server/wm/ActivityTaskManagerService;->mGlobalLock:Lcom/android/server/wm/WindowManagerGlobalLock;
+    iget-object v0, p1, Lcom/android/server/wm/ActivityTaskManagerService;->mGlobalLock:Lcom/android/server/wm/WindowManagerGlobalLock;
 
     monitor-enter v0
 
     :try_start_2
     invoke-static {}, Lcom/android/server/wm/WindowManagerService;->boostPriorityForLockedSection()V
 
-    iget-object v2, p0, Lcom/android/server/wm/ActivityTaskManagerService$H;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
+    iget-object p1, p0, Lcom/android/server/wm/ActivityTaskManagerService$H;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
 
     const/4 v3, 0x0
 
-    invoke-static {v2, v3}, Lcom/android/server/wm/ActivityTaskManagerService;->access$502(Lcom/android/server/wm/ActivityTaskManagerService;Z)Z
+    invoke-static {p1, v3}, Lcom/android/server/wm/ActivityTaskManagerService;->-$$Nest$fputmRetainPowerModeAndTopProcessState(Lcom/android/server/wm/ActivityTaskManagerService;Z)V
 
-    iget-object v2, p0, Lcom/android/server/wm/ActivityTaskManagerService$H;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
+    iget-object p1, p0, Lcom/android/server/wm/ActivityTaskManagerService$H;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
 
-    const/4 v4, 0x4
+    invoke-virtual {p1, v2}, Lcom/android/server/wm/ActivityTaskManagerService;->endLaunchPowerMode(I)V
 
-    invoke-virtual {v2, v4}, Lcom/android/server/wm/ActivityTaskManagerService;->endLaunchPowerMode(I)V
+    iget-object p1, p0, Lcom/android/server/wm/ActivityTaskManagerService$H;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
 
-    iget-object v2, p0, Lcom/android/server/wm/ActivityTaskManagerService$H;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
+    iget-object p1, p1, Lcom/android/server/wm/ActivityTaskManagerService;->mTopApp:Lcom/android/server/wm/WindowProcessController;
 
-    iget-object v2, v2, Lcom/android/server/wm/ActivityTaskManagerService;->mTopApp:Lcom/android/server/wm/WindowProcessController;
+    if-eqz p1, :cond_3
 
-    if-eqz v2, :cond_1
+    iget-object p1, p0, Lcom/android/server/wm/ActivityTaskManagerService$H;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
 
-    iget-object v2, p0, Lcom/android/server/wm/ActivityTaskManagerService$H;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
+    iget p1, p1, Lcom/android/server/wm/ActivityTaskManagerService;->mTopProcessState:I
 
-    iget v2, v2, Lcom/android/server/wm/ActivityTaskManagerService;->mTopProcessState:I
+    const/16 v2, 0xc
 
-    const/16 v4, 0xc
+    if-ne p1, v2, :cond_3
 
-    if-ne v2, v4, :cond_1
+    iget-object p0, p0, Lcom/android/server/wm/ActivityTaskManagerService$H;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
 
-    iget-object v2, p0, Lcom/android/server/wm/ActivityTaskManagerService$H;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
+    iget-object p0, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mTopApp:Lcom/android/server/wm/WindowProcessController;
 
-    iget-object v2, v2, Lcom/android/server/wm/ActivityTaskManagerService;->mTopApp:Lcom/android/server/wm/WindowProcessController;
+    invoke-virtual {p0, v3, v3, v1, v3}, Lcom/android/server/wm/WindowProcessController;->updateProcessInfo(ZZZZ)V
 
-    invoke-virtual {v2, v3, v3, v1, v3}, Lcom/android/server/wm/WindowProcessController;->updateProcessInfo(ZZZZ)V
-
-    :cond_1
+    :cond_3
     monitor-exit v0
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
@@ -151,7 +147,7 @@
     goto :goto_0
 
     :catchall_1
-    move-exception v1
+    move-exception p0
 
     :try_start_3
     monitor-exit v0
@@ -160,25 +156,25 @@
 
     invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
 
-    throw v1
+    throw p0
 
-    :pswitch_2
-    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+    :cond_4
+    iget-object p1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    check-cast v0, Lcom/android/server/wm/WindowProcessController;
+    check-cast p1, Lcom/android/server/wm/WindowProcessController;
 
-    iget-object v1, p0, Lcom/android/server/wm/ActivityTaskManagerService$H;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
+    iget-object p0, p0, Lcom/android/server/wm/ActivityTaskManagerService$H;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
 
-    iget-object v1, v1, Lcom/android/server/wm/ActivityTaskManagerService;->mGlobalLock:Lcom/android/server/wm/WindowManagerGlobalLock;
+    iget-object v0, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mGlobalLock:Lcom/android/server/wm/WindowManagerGlobalLock;
 
-    monitor-enter v1
+    monitor-enter v0
 
     :try_start_4
     invoke-static {}, Lcom/android/server/wm/WindowManagerService;->boostPriorityForLockedSection()V
 
-    invoke-virtual {v0}, Lcom/android/server/wm/WindowProcessController;->updateRunningRemoteOrRecentsAnimation()V
+    invoke-virtual {p1}, Lcom/android/server/wm/WindowProcessController;->updateRunningRemoteOrRecentsAnimation()V
 
-    monitor-exit v1
+    monitor-exit v0
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_2
 
@@ -187,40 +183,28 @@
     goto :goto_0
 
     :catchall_2
-    move-exception v2
+    move-exception p0
 
     :try_start_5
-    monitor-exit v1
+    monitor-exit v0
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_2
 
     invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
 
-    throw v2
+    throw p0
 
-    :pswitch_3
-    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+    :cond_5
+    iget-object p1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    check-cast v0, Lcom/android/server/am/AppTimeTracker;
+    check-cast p1, Lcom/android/server/am/AppTimeTracker;
 
-    iget-object v1, p0, Lcom/android/server/wm/ActivityTaskManagerService$H;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
+    iget-object p0, p0, Lcom/android/server/wm/ActivityTaskManagerService$H;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
 
-    iget-object v1, v1, Lcom/android/server/wm/ActivityTaskManagerService;->mContext:Landroid/content/Context;
+    iget-object p0, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/am/AppTimeTracker;->deliverResult(Landroid/content/Context;)V
-
-    nop
+    invoke-virtual {p1, p0}, Lcom/android/server/am/AppTimeTracker;->deliverResult(Landroid/content/Context;)V
 
     :goto_0
     return-void
-
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
 .end method

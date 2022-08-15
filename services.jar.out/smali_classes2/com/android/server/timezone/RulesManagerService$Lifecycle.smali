@@ -28,11 +28,11 @@
 .method public onStart()V
     .locals 2
 
-    invoke-virtual {p0}, Lcom/android/server/timezone/RulesManagerService$Lifecycle;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Lcom/android/server/SystemService;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/android/server/timezone/RulesManagerService;->access$000(Landroid/content/Context;)Lcom/android/server/timezone/RulesManagerService;
+    invoke-static {v0}, Lcom/android/server/timezone/RulesManagerService;->-$$Nest$smcreate(Landroid/content/Context;)Lcom/android/server/timezone/RulesManagerService;
 
     move-result-object v0
 
@@ -40,11 +40,11 @@
 
     const-string v1, "timezone"
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/server/timezone/RulesManagerService$Lifecycle;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
+    invoke-virtual {p0, v1, v0}, Lcom/android/server/SystemService;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
 
     const-class v1, Lcom/android/server/timezone/RulesManagerService;
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/server/timezone/RulesManagerService$Lifecycle;->publishLocalService(Ljava/lang/Class;Ljava/lang/Object;)V
+    invoke-virtual {p0, v1, v0}, Lcom/android/server/SystemService;->publishLocalService(Ljava/lang/Class;Ljava/lang/Object;)V
 
     return-void
 .end method

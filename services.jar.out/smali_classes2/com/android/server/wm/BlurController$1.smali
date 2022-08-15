@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/BlurController$1;
+.class public Lcom/android/server/wm/BlurController$1;
 .super Landroid/view/TunnelModeEnabledListener;
 .source "BlurController.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/wm/BlurController;
+.field public final synthetic this$0:Lcom/android/server/wm/BlurController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/wm/BlurController;Ljava/util/concurrent/Executor;)V
+.method public constructor <init>(Lcom/android/server/wm/BlurController;Ljava/util/concurrent/Executor;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/wm/BlurController$1;->this$0:Lcom/android/server/wm/BlurController;
@@ -36,11 +36,11 @@
 
     iget-object v0, p0, Lcom/android/server/wm/BlurController$1;->this$0:Lcom/android/server/wm/BlurController;
 
-    invoke-static {v0, p1}, Lcom/android/server/wm/BlurController;->access$002(Lcom/android/server/wm/BlurController;Z)Z
+    invoke-static {v0, p1}, Lcom/android/server/wm/BlurController;->-$$Nest$fputmTunnelModeEnabled(Lcom/android/server/wm/BlurController;Z)V
 
-    iget-object v0, p0, Lcom/android/server/wm/BlurController$1;->this$0:Lcom/android/server/wm/BlurController;
+    iget-object p0, p0, Lcom/android/server/wm/BlurController$1;->this$0:Lcom/android/server/wm/BlurController;
 
-    invoke-static {v0}, Lcom/android/server/wm/BlurController;->access$100(Lcom/android/server/wm/BlurController;)V
+    invoke-static {p0}, Lcom/android/server/wm/BlurController;->-$$Nest$mupdateBlurEnabled(Lcom/android/server/wm/BlurController;)V
 
     return-void
 .end method

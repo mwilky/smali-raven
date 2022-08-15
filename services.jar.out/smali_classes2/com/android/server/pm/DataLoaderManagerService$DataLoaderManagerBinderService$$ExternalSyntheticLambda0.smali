@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/pm/DataLoaderManagerService$DataLoaderManagerBinderService$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -39,7 +40,7 @@
 
 # virtual methods
 .method public final run()V
-    .locals 5
+    .locals 4
 
     iget-object v0, p0, Lcom/android/server/pm/DataLoaderManagerService$DataLoaderManagerBinderService$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/pm/DataLoaderManagerService$DataLoaderManagerBinderService;
 
@@ -49,9 +50,9 @@
 
     iget-object v3, p0, Lcom/android/server/pm/DataLoaderManagerService$DataLoaderManagerBinderService$$ExternalSyntheticLambda0;->f$3:Landroid/content/ComponentName;
 
-    iget v4, p0, Lcom/android/server/pm/DataLoaderManagerService$DataLoaderManagerBinderService$$ExternalSyntheticLambda0;->f$4:I
+    iget p0, p0, Lcom/android/server/pm/DataLoaderManagerService$DataLoaderManagerBinderService$$ExternalSyntheticLambda0;->f$4:I
 
-    invoke-virtual {v0, v1, v2, v3, v4}, Lcom/android/server/pm/DataLoaderManagerService$DataLoaderManagerBinderService;->lambda$bindToDataLoader$0$DataLoaderManagerService$DataLoaderManagerBinderService(Landroid/content/Intent;Lcom/android/server/pm/DataLoaderManagerService$DataLoaderServiceConnection;Landroid/content/ComponentName;I)V
+    invoke-static {v0, v1, v2, v3, p0}, Lcom/android/server/pm/DataLoaderManagerService$DataLoaderManagerBinderService;->$r8$lambda$SLCWo1g4Vx5lI9pvGZv5O_kZ4yk(Lcom/android/server/pm/DataLoaderManagerService$DataLoaderManagerBinderService;Landroid/content/Intent;Lcom/android/server/pm/DataLoaderManagerService$DataLoaderServiceConnection;Landroid/content/ComponentName;I)V
 
     return-void
 .end method

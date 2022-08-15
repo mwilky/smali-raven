@@ -1,43 +1,44 @@
 .class public final synthetic Lcom/android/server/wm/LockTaskController$$ExternalSyntheticLambda3;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Consumer;
+.implements Ljava/util/function/Predicate;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/wm/LockTaskController$$ExternalSyntheticLambda3;
+# instance fields
+.field public final synthetic f$0:Lcom/android/server/wm/ActivityRecord;
+
+.field public final synthetic f$1:Lcom/android/server/wm/TaskFragment;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/wm/LockTaskController$$ExternalSyntheticLambda3;
-
-    invoke-direct {v0}, Lcom/android/server/wm/LockTaskController$$ExternalSyntheticLambda3;-><init>()V
-
-    sput-object v0, Lcom/android/server/wm/LockTaskController$$ExternalSyntheticLambda3;->INSTANCE:Lcom/android/server/wm/LockTaskController$$ExternalSyntheticLambda3;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Lcom/android/server/wm/ActivityRecord;Lcom/android/server/wm/TaskFragment;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/wm/LockTaskController$$ExternalSyntheticLambda3;->f$0:Lcom/android/server/wm/ActivityRecord;
+
+    iput-object p2, p0, Lcom/android/server/wm/LockTaskController$$ExternalSyntheticLambda3;->f$1:Lcom/android/server/wm/TaskFragment;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
-    .locals 0
+.method public final test(Ljava/lang/Object;)Z
+    .locals 1
 
-    check-cast p1, Lcom/android/server/wm/Task;
+    iget-object v0, p0, Lcom/android/server/wm/LockTaskController$$ExternalSyntheticLambda3;->f$0:Lcom/android/server/wm/ActivityRecord;
 
-    invoke-virtual {p1}, Lcom/android/server/wm/Task;->setLockTaskAuth()V
+    iget-object p0, p0, Lcom/android/server/wm/LockTaskController$$ExternalSyntheticLambda3;->f$1:Lcom/android/server/wm/TaskFragment;
 
-    return-void
+    check-cast p1, Lcom/android/server/wm/ActivityRecord;
+
+    invoke-static {v0, p0, p1}, Lcom/android/server/wm/LockTaskController;->$r8$lambda$niFloFNpqVBPMVmDxamsVe_OxUU(Lcom/android/server/wm/ActivityRecord;Lcom/android/server/wm/TaskFragment;Lcom/android/server/wm/ActivityRecord;)Z
+
+    move-result p0
+
+    return p0
 .end method

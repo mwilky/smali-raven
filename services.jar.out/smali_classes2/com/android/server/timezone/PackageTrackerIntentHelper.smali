@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/server/timezone/PackageTrackerIntentHelper;
+.class public interface abstract Lcom/android/server/timezone/PackageTrackerIntentHelper;
 .super Ljava/lang/Object;
 .source "PackageTrackerIntentHelper.java"
 

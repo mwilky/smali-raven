@@ -1,25 +1,25 @@
-.class Lcom/android/server/wm/SystemGesturesPointerEventListener$1;
+.class public Lcom/android/server/wm/SystemGesturesPointerEventListener$1;
 .super Landroid/view/GestureDetector;
 .source "SystemGesturesPointerEventListener.java"
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/wm/SystemGesturesPointerEventListener;->lambda$systemReady$0$SystemGesturesPointerEventListener()V
+    value = Lcom/android/server/wm/SystemGesturesPointerEventListener;->lambda$systemReady$0()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/wm/SystemGesturesPointerEventListener;
+.field public final synthetic this$0:Lcom/android/server/wm/SystemGesturesPointerEventListener;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/wm/SystemGesturesPointerEventListener;Landroid/content/Context;Landroid/view/GestureDetector$OnGestureListener;Landroid/os/Handler;)V
+.method public constructor <init>(Lcom/android/server/wm/SystemGesturesPointerEventListener;Landroid/content/Context;Landroid/view/GestureDetector$OnGestureListener;Landroid/os/Handler;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/wm/SystemGesturesPointerEventListener$1;->this$0:Lcom/android/server/wm/SystemGesturesPointerEventListener;

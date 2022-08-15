@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/biometrics/sensors/AuthenticationClient$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/server/biometrics/sensors/CoexCoordinator$ErrorCallback;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final sendHapticFeedback()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/biometrics/sensors/AuthenticationClient$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/biometrics/sensors/AuthenticationClient;
+    iget-object p0, p0, Lcom/android/server/biometrics/sensors/AuthenticationClient$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/biometrics/sensors/AuthenticationClient;
 
-    invoke-virtual {v0}, Lcom/android/server/biometrics/sensors/AcquisitionClient;->vibrateError()V
+    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/AcquisitionClient;->vibrateError()V
 
     return-void
 .end method

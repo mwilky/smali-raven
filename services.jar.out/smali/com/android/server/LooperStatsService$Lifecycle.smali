@@ -15,46 +15,46 @@
 
 
 # instance fields
-.field private final mService:Lcom/android/server/LooperStatsService;
+.field public final mService:Lcom/android/server/LooperStatsService;
 
-.field private final mSettingsObserver:Lcom/android/server/LooperStatsService$SettingsObserver;
+.field public final mSettingsObserver:Lcom/android/server/LooperStatsService$SettingsObserver;
 
-.field private final mStats:Lcom/android/internal/os/LooperStats;
+.field public final mStats:Lcom/android/internal/os/LooperStats;
 
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 4
+    .locals 3
 
     invoke-direct {p0, p1}, Lcom/android/server/SystemService;-><init>(Landroid/content/Context;)V
 
-    new-instance v0, Lcom/android/internal/os/LooperStats;
+    new-instance p1, Lcom/android/internal/os/LooperStats;
 
-    const/16 v1, 0x3e8
+    const/16 v0, 0x3e8
 
-    const/16 v2, 0x5dc
+    const/16 v1, 0x5dc
 
-    invoke-direct {v0, v1, v2}, Lcom/android/internal/os/LooperStats;-><init>(II)V
+    invoke-direct {p1, v0, v1}, Lcom/android/internal/os/LooperStats;-><init>(II)V
 
-    iput-object v0, p0, Lcom/android/server/LooperStatsService$Lifecycle;->mStats:Lcom/android/internal/os/LooperStats;
+    iput-object p1, p0, Lcom/android/server/LooperStatsService$Lifecycle;->mStats:Lcom/android/internal/os/LooperStats;
 
-    new-instance v1, Lcom/android/server/LooperStatsService;
+    new-instance v0, Lcom/android/server/LooperStatsService;
 
-    invoke-virtual {p0}, Lcom/android/server/LooperStatsService$Lifecycle;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Lcom/android/server/SystemService;->getContext()Landroid/content/Context;
 
-    move-result-object v2
+    move-result-object v1
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    invoke-direct {v1, v2, v0, v3}, Lcom/android/server/LooperStatsService;-><init>(Landroid/content/Context;Lcom/android/internal/os/LooperStats;Lcom/android/server/LooperStatsService$1;)V
+    invoke-direct {v0, v1, p1, v2}, Lcom/android/server/LooperStatsService;-><init>(Landroid/content/Context;Lcom/android/internal/os/LooperStats;Lcom/android/server/LooperStatsService-IA;)V
 
-    iput-object v1, p0, Lcom/android/server/LooperStatsService$Lifecycle;->mService:Lcom/android/server/LooperStatsService;
+    iput-object v0, p0, Lcom/android/server/LooperStatsService$Lifecycle;->mService:Lcom/android/server/LooperStatsService;
 
-    new-instance v0, Lcom/android/server/LooperStatsService$SettingsObserver;
+    new-instance p1, Lcom/android/server/LooperStatsService$SettingsObserver;
 
-    invoke-direct {v0, v1}, Lcom/android/server/LooperStatsService$SettingsObserver;-><init>(Lcom/android/server/LooperStatsService;)V
+    invoke-direct {p1, v0}, Lcom/android/server/LooperStatsService$SettingsObserver;-><init>(Lcom/android/server/LooperStatsService;)V
 
-    iput-object v0, p0, Lcom/android/server/LooperStatsService$Lifecycle;->mSettingsObserver:Lcom/android/server/LooperStatsService$SettingsObserver;
+    iput-object p1, p0, Lcom/android/server/LooperStatsService$Lifecycle;->mSettingsObserver:Lcom/android/server/LooperStatsService$SettingsObserver;
 
     return-void
 .end method
@@ -62,47 +62,47 @@
 
 # virtual methods
 .method public onBootPhase(I)V
-    .locals 4
+    .locals 3
 
     const/16 v0, 0x1f4
 
     if-ne v0, p1, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/LooperStatsService$Lifecycle;->mService:Lcom/android/server/LooperStatsService;
+    iget-object p1, p0, Lcom/android/server/LooperStatsService$Lifecycle;->mService:Lcom/android/server/LooperStatsService;
 
-    invoke-static {v0}, Lcom/android/server/LooperStatsService;->access$200(Lcom/android/server/LooperStatsService;)V
+    invoke-static {p1}, Lcom/android/server/LooperStatsService;->-$$Nest$minitFromSettings(Lcom/android/server/LooperStatsService;)V
 
-    const-string/jumbo v0, "looper_stats"
+    const-string p1, "looper_stats"
 
-    invoke-static {v0}, Landroid/provider/Settings$Global;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+    invoke-static {p1}, Landroid/provider/Settings$Global;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object p1
+
+    invoke-virtual {p0}, Lcom/android/server/SystemService;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    invoke-virtual {p0}, Lcom/android/server/LooperStatsService$Lifecycle;->getContext()Landroid/content/Context;
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    iget-object v1, p0, Lcom/android/server/LooperStatsService$Lifecycle;->mSettingsObserver:Lcom/android/server/LooperStatsService$SettingsObserver;
 
-    move-result-object v1
+    const/4 v2, 0x0
 
-    iget-object v2, p0, Lcom/android/server/LooperStatsService$Lifecycle;->mSettingsObserver:Lcom/android/server/LooperStatsService$SettingsObserver;
+    invoke-virtual {v0, p1, v2, v1, v2}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
 
-    const/4 v3, 0x0
+    iget-object p1, p0, Lcom/android/server/LooperStatsService$Lifecycle;->mStats:Lcom/android/internal/os/LooperStats;
 
-    invoke-virtual {v1, v0, v3, v2, v3}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
+    const-class v0, Lcom/android/internal/os/CachedDeviceState$Readonly;
 
-    iget-object v1, p0, Lcom/android/server/LooperStatsService$Lifecycle;->mStats:Lcom/android/internal/os/LooperStats;
+    invoke-virtual {p0, v0}, Lcom/android/server/SystemService;->getLocalService(Ljava/lang/Class;)Ljava/lang/Object;
 
-    const-class v2, Lcom/android/internal/os/CachedDeviceState$Readonly;
+    move-result-object p0
 
-    invoke-virtual {p0, v2}, Lcom/android/server/LooperStatsService$Lifecycle;->getLocalService(Ljava/lang/Class;)Ljava/lang/Object;
+    check-cast p0, Lcom/android/internal/os/CachedDeviceState$Readonly;
 
-    move-result-object v2
-
-    check-cast v2, Lcom/android/internal/os/CachedDeviceState$Readonly;
-
-    invoke-virtual {v1, v2}, Lcom/android/internal/os/LooperStats;->setDeviceState(Lcom/android/internal/os/CachedDeviceState$Readonly;)V
+    invoke-virtual {p1, p0}, Lcom/android/internal/os/LooperStats;->setDeviceState(Lcom/android/internal/os/CachedDeviceState$Readonly;)V
 
     :cond_0
     return-void
@@ -115,13 +115,13 @@
 
     iget-object v1, p0, Lcom/android/server/LooperStatsService$Lifecycle;->mStats:Lcom/android/internal/os/LooperStats;
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/server/LooperStatsService$Lifecycle;->publishLocalService(Ljava/lang/Class;Ljava/lang/Object;)V
+    invoke-virtual {p0, v0, v1}, Lcom/android/server/SystemService;->publishLocalService(Ljava/lang/Class;Ljava/lang/Object;)V
 
     iget-object v0, p0, Lcom/android/server/LooperStatsService$Lifecycle;->mService:Lcom/android/server/LooperStatsService;
 
-    const-string/jumbo v1, "looper_stats"
+    const-string v1, "looper_stats"
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/server/LooperStatsService$Lifecycle;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
+    invoke-virtual {p0, v1, v0}, Lcom/android/server/SystemService;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
 
     return-void
 .end method

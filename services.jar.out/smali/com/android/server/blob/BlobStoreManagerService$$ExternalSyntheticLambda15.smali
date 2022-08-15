@@ -1,49 +1,44 @@
 .class public final synthetic Lcom/android/server/blob/BlobStoreManagerService$$ExternalSyntheticLambda15;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Function;
+.implements Ljava/util/function/Predicate;
 
 
 # instance fields
 .field public final synthetic f$0:Lcom/android/server/blob/BlobStoreManagerService;
 
-.field public final synthetic f$1:Landroid/util/ArrayMap;
-
-.field public final synthetic f$2:I
+.field public final synthetic f$1:I
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/blob/BlobStoreManagerService;Landroid/util/ArrayMap;I)V
+.method public synthetic constructor <init>(Lcom/android/server/blob/BlobStoreManagerService;I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/server/blob/BlobStoreManagerService$$ExternalSyntheticLambda15;->f$0:Lcom/android/server/blob/BlobStoreManagerService;
 
-    iput-object p2, p0, Lcom/android/server/blob/BlobStoreManagerService$$ExternalSyntheticLambda15;->f$1:Landroid/util/ArrayMap;
-
-    iput p3, p0, Lcom/android/server/blob/BlobStoreManagerService$$ExternalSyntheticLambda15;->f$2:I
+    iput p2, p0, Lcom/android/server/blob/BlobStoreManagerService$$ExternalSyntheticLambda15;->f$1:I
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
+.method public final test(Ljava/lang/Object;)Z
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/blob/BlobStoreManagerService$$ExternalSyntheticLambda15;->f$0:Lcom/android/server/blob/BlobStoreManagerService;
 
-    iget-object v1, p0, Lcom/android/server/blob/BlobStoreManagerService$$ExternalSyntheticLambda15;->f$1:Landroid/util/ArrayMap;
+    iget p0, p0, Lcom/android/server/blob/BlobStoreManagerService$$ExternalSyntheticLambda15;->f$1:I
 
-    iget v2, p0, Lcom/android/server/blob/BlobStoreManagerService$$ExternalSyntheticLambda15;->f$2:I
+    check-cast p1, Ljava/util/Map$Entry;
 
-    check-cast p1, Ljava/lang/String;
+    invoke-static {v0, p0, p1}, Lcom/android/server/blob/BlobStoreManagerService;->$r8$lambda$742KXJQS5y5y9vVuMACAI0mcWZE(Lcom/android/server/blob/BlobStoreManagerService;ILjava/util/Map$Entry;)Z
 
-    invoke-virtual {v0, v1, v2, p1}, Lcom/android/server/blob/BlobStoreManagerService;->lambda$queryBlobsForUserInternal$5$BlobStoreManagerService(Landroid/util/ArrayMap;ILjava/lang/String;)Landroid/content/res/Resources;
+    move-result p0
 
-    move-result-object p1
-
-    return-object p1
+    return p0
 .end method

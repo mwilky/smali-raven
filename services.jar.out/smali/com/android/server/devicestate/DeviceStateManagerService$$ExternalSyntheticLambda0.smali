@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/devicestate/DeviceStateManagerService$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/server/devicestate/DeviceStateManagerService$ProcessRecord$DeathListener;
+.implements Lcom/android/server/devicestate/OverrideRequestController$StatusChangeListener;
 
 
 # instance fields
@@ -22,12 +23,12 @@
 
 
 # virtual methods
-.method public final onProcessDied(Lcom/android/server/devicestate/DeviceStateManagerService$ProcessRecord;)V
-    .locals 1
+.method public final onStatusChanged(Lcom/android/server/devicestate/OverrideRequest;I)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/devicestate/DeviceStateManagerService$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/devicestate/DeviceStateManagerService;
+    iget-object p0, p0, Lcom/android/server/devicestate/DeviceStateManagerService$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/devicestate/DeviceStateManagerService;
 
-    invoke-static {v0, p1}, Lcom/android/server/devicestate/DeviceStateManagerService;->$r8$lambda$s8kEW-K3GJMb1y3UvMw1-_u88Uk(Lcom/android/server/devicestate/DeviceStateManagerService;Lcom/android/server/devicestate/DeviceStateManagerService$ProcessRecord;)V
+    invoke-static {p0, p1, p2}, Lcom/android/server/devicestate/DeviceStateManagerService;->$r8$lambda$UaA7yMWStQbVPF5T0N18j3gX22Q(Lcom/android/server/devicestate/DeviceStateManagerService;Lcom/android/server/devicestate/OverrideRequest;I)V
 
     return-void
 .end method

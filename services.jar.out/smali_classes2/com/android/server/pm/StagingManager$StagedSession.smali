@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/server/pm/StagingManager$StagedSession;
+.class public interface abstract Lcom/android/server/pm/StagingManager$StagedSession;
 .super Ljava/lang/Object;
 .source "StagingManager.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
+    accessFlags = 0x609
     name = "StagedSession"
 .end annotation
 
@@ -19,9 +19,6 @@
 .end method
 
 .method public abstract containsApexSession()Z
-.end method
-
-.method public abstract containsApkSession()Z
 .end method
 
 .method public abstract getChildSessions()Ljava/util/List;
@@ -47,7 +44,15 @@
 .method public abstract hasParentSessionId()Z
 .end method
 
-.method public abstract installSession(Landroid/content/IntentSender;)V
+.method public abstract installSession()Ljava/util/concurrent/CompletableFuture;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/concurrent/CompletableFuture<",
+            "Ljava/lang/Void;",
+            ">;"
+        }
+    .end annotation
 .end method
 
 .method public abstract isApexSession()Z
@@ -65,19 +70,10 @@
 .method public abstract isMultiPackage()Z
 .end method
 
-.method public abstract isSessionApplied()Z
-.end method
-
 .method public abstract isSessionFailed()Z
 .end method
 
 .method public abstract isSessionReady()Z
-.end method
-
-.method public abstract notifyEndPreRebootVerification()V
-.end method
-
-.method public abstract notifyStartPreRebootVerification()Z
 .end method
 
 .method public abstract sessionContains(Ljava/util/function/Predicate;)Z
@@ -95,9 +91,6 @@
 .end method
 
 .method public abstract sessionParams()Landroid/content/pm/PackageInstaller$SessionParams;
-.end method
-
-.method public abstract setSessionApplied()V
 .end method
 
 .method public abstract setSessionFailed(ILjava/lang/String;)V

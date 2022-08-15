@@ -1,4 +1,4 @@
-.class Lcom/android/server/pm/CrossProfileAppsServiceImpl$LocalService;
+.class public Lcom/android/server/pm/CrossProfileAppsServiceImpl$LocalService;
 .super Landroid/content/pm/CrossProfileAppsInternal;
 .source "CrossProfileAppsServiceImpl.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = "LocalService"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/pm/CrossProfileAppsServiceImpl;
+.field public final synthetic this$0:Lcom/android/server/pm/CrossProfileAppsServiceImpl;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/pm/CrossProfileAppsServiceImpl;)V
+.method public constructor <init>(Lcom/android/server/pm/CrossProfileAppsServiceImpl;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/pm/CrossProfileAppsServiceImpl$LocalService;->this$0:Lcom/android/server/pm/CrossProfileAppsServiceImpl;
@@ -32,7 +32,7 @@
 
 # virtual methods
 .method public getTargetUserProfiles(Ljava/lang/String;I)Ljava/util/List;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -44,27 +44,27 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/android/server/pm/CrossProfileAppsServiceImpl$LocalService;->this$0:Lcom/android/server/pm/CrossProfileAppsServiceImpl;
+    iget-object p0, p0, Lcom/android/server/pm/CrossProfileAppsServiceImpl$LocalService;->this$0:Lcom/android/server/pm/CrossProfileAppsServiceImpl;
 
-    invoke-static {v0, p1, p2}, Lcom/android/server/pm/CrossProfileAppsServiceImpl;->access$200(Lcom/android/server/pm/CrossProfileAppsServiceImpl;Ljava/lang/String;I)Ljava/util/List;
+    invoke-static {p0, p1, p2}, Lcom/android/server/pm/CrossProfileAppsServiceImpl;->-$$Nest$mgetTargetUserProfilesUnchecked(Lcom/android/server/pm/CrossProfileAppsServiceImpl;Ljava/lang/String;I)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public setInteractAcrossProfilesAppOp(Ljava/lang/String;II)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/pm/CrossProfileAppsServiceImpl$LocalService;->this$0:Lcom/android/server/pm/CrossProfileAppsServiceImpl;
+    iget-object p0, p0, Lcom/android/server/pm/CrossProfileAppsServiceImpl$LocalService;->this$0:Lcom/android/server/pm/CrossProfileAppsServiceImpl;
 
-    invoke-static {v0, p1, p2, p3}, Lcom/android/server/pm/CrossProfileAppsServiceImpl;->access$300(Lcom/android/server/pm/CrossProfileAppsServiceImpl;Ljava/lang/String;II)V
+    invoke-static {p0, p1, p2, p3}, Lcom/android/server/pm/CrossProfileAppsServiceImpl;->-$$Nest$msetInteractAcrossProfilesAppOpUnchecked(Lcom/android/server/pm/CrossProfileAppsServiceImpl;Ljava/lang/String;II)V
 
     return-void
 .end method
 
 .method public verifyPackageHasInteractAcrossProfilePermission(Ljava/lang/String;I)Z
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/pm/PackageManager$NameNotFoundException;
@@ -73,7 +73,7 @@
 
     iget-object v0, p0, Lcom/android/server/pm/CrossProfileAppsServiceImpl$LocalService;->this$0:Lcom/android/server/pm/CrossProfileAppsServiceImpl;
 
-    invoke-static {v0}, Lcom/android/server/pm/CrossProfileAppsServiceImpl;->access$000(Lcom/android/server/pm/CrossProfileAppsServiceImpl;)Lcom/android/server/pm/CrossProfileAppsServiceImpl$Injector;
+    invoke-static {v0}, Lcom/android/server/pm/CrossProfileAppsServiceImpl;->-$$Nest$fgetmInjector(Lcom/android/server/pm/CrossProfileAppsServiceImpl;)Lcom/android/server/pm/CrossProfileAppsServiceImpl$Injector;
 
     move-result-object v0
 
@@ -83,41 +83,39 @@
 
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-object v1, p1
+    const/4 v1, 0x0
 
-    check-cast v1, Ljava/lang/String;
+    invoke-virtual {v0, p1, v1, p2}, Landroid/content/pm/PackageManager;->getApplicationInfoAsUser(Ljava/lang/String;II)Landroid/content/pm/ApplicationInfo;
 
-    const/4 v2, 0x0
+    move-result-object p2
 
-    invoke-virtual {v0, v1, v2, p2}, Landroid/content/pm/PackageManager;->getApplicationInfoAsUser(Ljava/lang/String;II)Landroid/content/pm/ApplicationInfo;
+    invoke-static {p2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
-
-    invoke-static {v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+    move-object v0, p2
 
     check-cast v0, Landroid/content/pm/ApplicationInfo;
 
-    iget v0, v0, Landroid/content/pm/ApplicationInfo;->uid:I
+    iget p2, p2, Landroid/content/pm/ApplicationInfo;->uid:I
 
-    invoke-virtual {p0, p1, v0}, Lcom/android/server/pm/CrossProfileAppsServiceImpl$LocalService;->verifyUidHasInteractAcrossProfilePermission(Ljava/lang/String;I)Z
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/pm/CrossProfileAppsServiceImpl$LocalService;->verifyUidHasInteractAcrossProfilePermission(Ljava/lang/String;I)Z
 
-    move-result v1
+    move-result p0
 
-    return v1
+    return p0
 .end method
 
 .method public verifyUidHasInteractAcrossProfilePermission(Ljava/lang/String;I)Z
-    .locals 2
+    .locals 1
 
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lcom/android/server/pm/CrossProfileAppsServiceImpl$LocalService;->this$0:Lcom/android/server/pm/CrossProfileAppsServiceImpl;
+    iget-object p0, p0, Lcom/android/server/pm/CrossProfileAppsServiceImpl$LocalService;->this$0:Lcom/android/server/pm/CrossProfileAppsServiceImpl;
 
-    const/4 v1, -0x1
+    const/4 v0, -0x1
 
-    invoke-static {v0, p1, p2, v1}, Lcom/android/server/pm/CrossProfileAppsServiceImpl;->access$100(Lcom/android/server/pm/CrossProfileAppsServiceImpl;Ljava/lang/String;II)Z
+    invoke-static {p0, p1, p2, v0}, Lcom/android/server/pm/CrossProfileAppsServiceImpl;->-$$Nest$mhasInteractAcrossProfilesPermission(Lcom/android/server/pm/CrossProfileAppsServiceImpl;Ljava/lang/String;II)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method

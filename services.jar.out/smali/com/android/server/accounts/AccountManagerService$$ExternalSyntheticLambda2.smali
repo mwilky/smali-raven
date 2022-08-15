@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/accounts/AccountManagerService$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -31,15 +32,15 @@
 
 # virtual methods
 .method public final run()V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/accounts/AccountManagerService$$ExternalSyntheticLambda2;->f$0:Landroid/accounts/AccountManagerInternal$OnAppPermissionChangeListener;
 
     iget-object v1, p0, Lcom/android/server/accounts/AccountManagerService$$ExternalSyntheticLambda2;->f$1:Landroid/accounts/Account;
 
-    iget v2, p0, Lcom/android/server/accounts/AccountManagerService$$ExternalSyntheticLambda2;->f$2:I
+    iget p0, p0, Lcom/android/server/accounts/AccountManagerService$$ExternalSyntheticLambda2;->f$2:I
 
-    invoke-static {v0, v1, v2}, Lcom/android/server/accounts/AccountManagerService;->lambda$revokeAppPermission$4(Landroid/accounts/AccountManagerInternal$OnAppPermissionChangeListener;Landroid/accounts/Account;I)V
+    invoke-static {v0, v1, p0}, Lcom/android/server/accounts/AccountManagerService;->$r8$lambda$n0YCbAlSPVconhNIXq74l3EbBiM(Landroid/accounts/AccountManagerInternal$OnAppPermissionChangeListener;Landroid/accounts/Account;I)V
 
     return-void
 .end method

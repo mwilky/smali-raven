@@ -1,4 +1,4 @@
-.class Lcom/android/server/powerstats/BatteryTrigger$1;
+.class public Lcom/android/server/powerstats/BatteryTrigger$1;
 .super Landroid/content/BroadcastReceiver;
 .source "BatteryTrigger.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/powerstats/BatteryTrigger;
+.field public final synthetic this$0:Lcom/android/server/powerstats/BatteryTrigger;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/powerstats/BatteryTrigger;)V
+.method public constructor <init>(Lcom/android/server/powerstats/BatteryTrigger;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/powerstats/BatteryTrigger$1;->this$0:Lcom/android/server/powerstats/BatteryTrigger;
@@ -32,80 +32,50 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 3
+    .locals 1
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+    invoke-virtual {p1}, Ljava/lang/String;->hashCode()I
 
-    move-result v1
+    const-string v0, "android.intent.action.BATTERY_CHANGED"
 
-    const/4 v2, 0x0
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    packed-switch v1, :pswitch_data_0
+    move-result p1
 
-    :cond_0
+    if-nez p1, :cond_0
+
     goto :goto_0
 
-    :pswitch_0
-    const-string v1, "android.intent.action.BATTERY_CHANGED"
+    :cond_0
+    const-string p1, "level"
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const/4 v0, 0x0
 
-    move-result v0
+    invoke-virtual {p2, p1, v0}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    if-eqz v0, :cond_0
+    move-result p1
 
-    move v0, v2
+    iget-object p2, p0, Lcom/android/server/powerstats/BatteryTrigger$1;->this$0:Lcom/android/server/powerstats/BatteryTrigger;
 
-    goto :goto_1
+    invoke-static {p2}, Lcom/android/server/powerstats/BatteryTrigger;->-$$Nest$fgetmBatteryLevel(Lcom/android/server/powerstats/BatteryTrigger;)I
 
-    :goto_0
-    const/4 v0, -0x1
+    move-result p2
 
-    :goto_1
-    packed-switch v0, :pswitch_data_1
+    if-ge p1, p2, :cond_1
 
-    goto :goto_2
+    iget-object p2, p0, Lcom/android/server/powerstats/BatteryTrigger$1;->this$0:Lcom/android/server/powerstats/BatteryTrigger;
 
-    :pswitch_1
-    const-string v0, "level"
-
-    invoke-virtual {p2, v0, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
-
-    move-result v0
-
-    iget-object v1, p0, Lcom/android/server/powerstats/BatteryTrigger$1;->this$0:Lcom/android/server/powerstats/BatteryTrigger;
-
-    invoke-static {v1}, Lcom/android/server/powerstats/BatteryTrigger;->access$000(Lcom/android/server/powerstats/BatteryTrigger;)I
-
-    move-result v1
-
-    if-ge v0, v1, :cond_1
-
-    iget-object v1, p0, Lcom/android/server/powerstats/BatteryTrigger$1;->this$0:Lcom/android/server/powerstats/BatteryTrigger;
-
-    invoke-virtual {v1, v2}, Lcom/android/server/powerstats/BatteryTrigger;->logPowerStatsData(I)V
+    invoke-virtual {p2, v0}, Lcom/android/server/powerstats/PowerStatsLogTrigger;->logPowerStatsData(I)V
 
     :cond_1
-    iget-object v1, p0, Lcom/android/server/powerstats/BatteryTrigger$1;->this$0:Lcom/android/server/powerstats/BatteryTrigger;
+    iget-object p0, p0, Lcom/android/server/powerstats/BatteryTrigger$1;->this$0:Lcom/android/server/powerstats/BatteryTrigger;
 
-    invoke-static {v1, v0}, Lcom/android/server/powerstats/BatteryTrigger;->access$002(Lcom/android/server/powerstats/BatteryTrigger;I)I
+    invoke-static {p0, p1}, Lcom/android/server/powerstats/BatteryTrigger;->-$$Nest$fputmBatteryLevel(Lcom/android/server/powerstats/BatteryTrigger;I)V
 
-    :goto_2
+    :goto_0
     return-void
-
-    nop
-
-    :pswitch_data_0
-    .packed-switch -0x5bb23923
-        :pswitch_0
-    .end packed-switch
-
-    :pswitch_data_1
-    .packed-switch 0x0
-        :pswitch_1
-    .end packed-switch
 .end method

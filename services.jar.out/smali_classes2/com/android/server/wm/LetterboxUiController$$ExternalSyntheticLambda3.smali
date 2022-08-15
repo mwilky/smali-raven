@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/wm/LetterboxUiController$$ExternalSyntheticLambda3;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Supplier;
@@ -23,17 +24,17 @@
 
 # virtual methods
 .method public final get()Ljava/lang/Object;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/LetterboxUiController$$ExternalSyntheticLambda3;->f$0:Lcom/android/server/wm/LetterboxUiController;
+    iget-object p0, p0, Lcom/android/server/wm/LetterboxUiController$$ExternalSyntheticLambda3;->f$0:Lcom/android/server/wm/LetterboxUiController;
 
-    invoke-static {v0}, Lcom/android/server/wm/LetterboxUiController;->$r8$lambda$OsbEBblNbTAD_wdzLWiqz4azxxk(Lcom/android/server/wm/LetterboxUiController;)F
+    invoke-virtual {p0}, Lcom/android/server/wm/LetterboxUiController;->hasWallpaperBackgroudForLetterbox()Z
 
-    move-result v0
+    move-result p0
 
-    invoke-static {v0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+    invoke-static {p0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

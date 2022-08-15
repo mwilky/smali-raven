@@ -1,4 +1,4 @@
-.class final Lcom/android/server/textservices/TextServicesManagerService$InternalDeathRecipients;
+.class public final Lcom/android/server/textservices/TextServicesManagerService$InternalDeathRecipients;
 .super Landroid/os/RemoteCallbackList;
 .source "TextServicesManagerService.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "InternalDeathRecipients"
 .end annotation
 
@@ -23,7 +23,7 @@
 
 
 # instance fields
-.field private final mGroup:Lcom/android/server/textservices/TextServicesManagerService$SpellCheckerBindGroup;
+.field public final mGroup:Lcom/android/server/textservices/TextServicesManagerService$SpellCheckerBindGroup;
 
 
 # direct methods
@@ -50,11 +50,11 @@
 .end method
 
 .method public onCallbackDied(Lcom/android/internal/textservice/ISpellCheckerSessionListener;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/textservices/TextServicesManagerService$InternalDeathRecipients;->mGroup:Lcom/android/server/textservices/TextServicesManagerService$SpellCheckerBindGroup;
+    iget-object p0, p0, Lcom/android/server/textservices/TextServicesManagerService$InternalDeathRecipients;->mGroup:Lcom/android/server/textservices/TextServicesManagerService$SpellCheckerBindGroup;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/textservices/TextServicesManagerService$SpellCheckerBindGroup;->removeListener(Lcom/android/internal/textservice/ISpellCheckerSessionListener;)V
+    invoke-virtual {p0, p1}, Lcom/android/server/textservices/TextServicesManagerService$SpellCheckerBindGroup;->removeListener(Lcom/android/internal/textservice/ISpellCheckerSessionListener;)V
 
     return-void
 .end method

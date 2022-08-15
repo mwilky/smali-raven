@@ -1,4 +1,4 @@
-.class Lcom/android/server/biometrics/sensors/AuthenticationClient$3;
+.class public Lcom/android/server/biometrics/sensors/AuthenticationClient$3;
 .super Ljava/lang/Object;
 .source "AuthenticationClient.java"
 
@@ -12,19 +12,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/biometrics/sensors/AuthenticationClient;
+.field public final synthetic this$0:Lcom/android/server/biometrics/sensors/AuthenticationClient;
 
-.field final synthetic val$listener:Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;
+.field public final synthetic val$listener:Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/biometrics/sensors/AuthenticationClient;Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;)V
+.method public constructor <init>(Lcom/android/server/biometrics/sensors/AuthenticationClient;Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/biometrics/sensors/AuthenticationClient$3;->this$0:Lcom/android/server/biometrics/sensors/AuthenticationClient;
@@ -45,15 +45,13 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/biometrics/sensors/AuthenticationClient$3;->this$0:Lcom/android/server/biometrics/sensors/AuthenticationClient;
+    iget-object p0, p0, Lcom/android/server/biometrics/sensors/AuthenticationClient$3;->this$0:Lcom/android/server/biometrics/sensors/AuthenticationClient;
 
-    iget-boolean v0, v0, Lcom/android/server/biometrics/sensors/AuthenticationClient;->mShouldVibrate:Z
+    iget-boolean v0, p0, Lcom/android/server/biometrics/sensors/AcquisitionClient;->mShouldVibrate:Z
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/biometrics/sensors/AuthenticationClient$3;->this$0:Lcom/android/server/biometrics/sensors/AuthenticationClient;
-
-    invoke-virtual {v0}, Lcom/android/server/biometrics/sensors/AuthenticationClient;->vibrateError()V
+    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/AcquisitionClient;->vibrateError()V
 
     :cond_0
     return-void

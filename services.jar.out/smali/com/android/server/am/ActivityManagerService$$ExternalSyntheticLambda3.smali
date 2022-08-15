@@ -1,33 +1,68 @@
 .class public final synthetic Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda3;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/internal/os/BinderInternal$BinderProxyLimitListener;
+.implements Ljava/util/function/Consumer;
 
 
 # instance fields
 .field public final synthetic f$0:Lcom/android/server/am/ActivityManagerService;
 
+.field public final synthetic f$1:Z
+
+.field public final synthetic f$2:J
+
+.field public final synthetic f$3:J
+
+.field public final synthetic f$4:J
+
+.field public final synthetic f$5:J
+
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/am/ActivityManagerService;)V
+.method public synthetic constructor <init>(Lcom/android/server/am/ActivityManagerService;ZJJJJ)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda3;->f$0:Lcom/android/server/am/ActivityManagerService;
 
+    iput-boolean p2, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda3;->f$1:Z
+
+    iput-wide p3, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda3;->f$2:J
+
+    iput-wide p5, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda3;->f$3:J
+
+    iput-wide p7, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda3;->f$4:J
+
+    iput-wide p9, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda3;->f$5:J
+
     return-void
 .end method
 
 
 # virtual methods
-.method public final onLimitReached(I)V
-    .locals 1
+.method public final accept(Ljava/lang/Object;)V
+    .locals 11
 
     iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda3;->f$0:Lcom/android/server/am/ActivityManagerService;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/am/ActivityManagerService;->lambda$systemReady$8$ActivityManagerService(I)V
+    iget-boolean v1, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda3;->f$1:Z
+
+    iget-wide v2, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda3;->f$2:J
+
+    iget-wide v4, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda3;->f$3:J
+
+    iget-wide v6, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda3;->f$4:J
+
+    iget-wide v8, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda3;->f$5:J
+
+    move-object v10, p1
+
+    check-cast v10, Lcom/android/server/am/ProcessRecord;
+
+    invoke-static/range {v0 .. v10}, Lcom/android/server/am/ActivityManagerService;->$r8$lambda$jVJnC6_WHqGPyQX1dYjPUB1nDI0(Lcom/android/server/am/ActivityManagerService;ZJJJJLcom/android/server/am/ProcessRecord;)V
 
     return-void
 .end method

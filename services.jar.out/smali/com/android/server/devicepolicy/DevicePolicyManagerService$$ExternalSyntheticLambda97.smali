@@ -1,41 +1,44 @@
 .class public final synthetic Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda97;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/internal/util/FunctionalUtils$ThrowingSupplier;
+.implements Ljava/util/function/Predicate;
 
 
 # instance fields
 .field public final synthetic f$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
 
-.field public final synthetic f$1:Lcom/android/server/devicepolicy/CallerIdentity;
+.field public final synthetic f$1:I
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/devicepolicy/DevicePolicyManagerService;Lcom/android/server/devicepolicy/CallerIdentity;)V
+.method public synthetic constructor <init>(Lcom/android/server/devicepolicy/DevicePolicyManagerService;I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda97;->f$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
 
-    iput-object p2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda97;->f$1:Lcom/android/server/devicepolicy/CallerIdentity;
+    iput p2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda97;->f$1:I
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final getOrThrow()Ljava/lang/Object;
-    .locals 2
+.method public final test(Ljava/lang/Object;)Z
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda97;->f$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
 
-    iget-object v1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda97;->f$1:Lcom/android/server/devicepolicy/CallerIdentity;
+    iget p0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda97;->f$1:I
 
-    invoke-virtual {v0, v1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$getWifiMacAddress$103$DevicePolicyManagerService(Lcom/android/server/devicepolicy/CallerIdentity;)Ljava/lang/String;
+    check-cast p1, Landroid/content/pm/UserInfo;
 
-    move-result-object v0
+    invoke-static {v0, p0, p1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->$r8$lambda$PrQ5rvlyxtCxW4mY6aruajQ_HA8(Lcom/android/server/devicepolicy/DevicePolicyManagerService;ILandroid/content/pm/UserInfo;)Z
 
-    return-object v0
+    move-result p0
+
+    return p0
 .end method

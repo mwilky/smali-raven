@@ -1,53 +1,48 @@
-.class Lcom/android/server/people/data/Utils;
+.class public Lcom/android/server/people/data/Utils;
 .super Ljava/lang/Object;
 .source "Utils.java"
 
 
 # direct methods
-.method private constructor <init>()V
-    .locals 0
+.method public static getCurrentCountryIso(Landroid/content/Context;)Ljava/lang/String;
+    .locals 1
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    const-string v0, "country_detector"
 
-    return-void
-.end method
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-.method static getCurrentCountryIso(Landroid/content/Context;)Ljava/lang/String;
-    .locals 3
+    move-result-object p0
 
-    const/4 v0, 0x0
+    check-cast p0, Landroid/location/CountryDetector;
 
-    const-string v1, "country_detector"
+    if-eqz p0, :cond_0
 
-    invoke-virtual {p0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0}, Landroid/location/CountryDetector;->detectCountry()Landroid/location/Country;
 
-    move-result-object v1
+    move-result-object p0
 
-    check-cast v1, Landroid/location/CountryDetector;
+    if-eqz p0, :cond_0
 
-    if-eqz v1, :cond_0
+    invoke-virtual {p0}, Landroid/location/Country;->getCountryIso()Ljava/lang/String;
 
-    invoke-virtual {v1}, Landroid/location/CountryDetector;->detectCountry()Landroid/location/Country;
+    move-result-object p0
 
-    move-result-object v2
-
-    if-eqz v2, :cond_0
-
-    invoke-virtual {v2}, Landroid/location/Country;->getCountryIso()Ljava/lang/String;
-
-    move-result-object v0
+    goto :goto_0
 
     :cond_0
-    if-nez v0, :cond_1
+    const/4 p0, 0x0
+
+    :goto_0
+    if-nez p0, :cond_1
 
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-virtual {v2}, Ljava/util/Locale;->getCountry()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/util/Locale;->getCountry()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
     :cond_1
-    return-object v0
+    return-object p0
 .end method

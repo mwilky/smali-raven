@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/power/InattentiveSleepWarningController$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -27,13 +28,13 @@
 
 # virtual methods
 .method public final run()V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/power/InattentiveSleepWarningController$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/power/InattentiveSleepWarningController;
 
-    iget-boolean v1, p0, Lcom/android/server/power/InattentiveSleepWarningController$$ExternalSyntheticLambda1;->f$1:Z
+    iget-boolean p0, p0, Lcom/android/server/power/InattentiveSleepWarningController$$ExternalSyntheticLambda1;->f$1:Z
 
-    invoke-virtual {v0, v1}, Lcom/android/server/power/InattentiveSleepWarningController;->lambda$dismiss$0$InattentiveSleepWarningController(Z)V
+    invoke-static {v0, p0}, Lcom/android/server/power/InattentiveSleepWarningController;->$r8$lambda$MgsCyrP4jeDbkqDflWs-QQ3Ghgw(Lcom/android/server/power/InattentiveSleepWarningController;Z)V
 
     return-void
 .end method

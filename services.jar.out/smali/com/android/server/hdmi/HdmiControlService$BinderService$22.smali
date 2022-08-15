@@ -1,4 +1,4 @@
-.class Lcom/android/server/hdmi/HdmiControlService$BinderService$22;
+.class public Lcom/android/server/hdmi/HdmiControlService$BinderService$22;
 .super Ljava/lang/Object;
 .source "HdmiControlService.java"
 
@@ -12,19 +12,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$1:Lcom/android/server/hdmi/HdmiControlService$BinderService;
+.field public final synthetic this$1:Lcom/android/server/hdmi/HdmiControlService$BinderService;
 
-.field final synthetic val$isStandbyModeOn:Z
+.field public final synthetic val$isStandbyModeOn:Z
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/hdmi/HdmiControlService$BinderService;Z)V
+.method public constructor <init>(Lcom/android/server/hdmi/HdmiControlService$BinderService;Z)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService$22;->this$1:Lcom/android/server/hdmi/HdmiControlService$BinderService;
@@ -39,15 +39,15 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService$22;->this$1:Lcom/android/server/hdmi/HdmiControlService$BinderService;
 
     iget-object v0, v0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
-    iget-boolean v1, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService$22;->val$isStandbyModeOn:Z
+    iget-boolean p0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService$22;->val$isStandbyModeOn:Z
 
-    invoke-virtual {v0, v1}, Lcom/android/server/hdmi/HdmiControlService;->setStandbyMode(Z)V
+    invoke-virtual {v0, p0}, Lcom/android/server/hdmi/HdmiControlService;->setStandbyMode(Z)V
 
     return-void
 .end method

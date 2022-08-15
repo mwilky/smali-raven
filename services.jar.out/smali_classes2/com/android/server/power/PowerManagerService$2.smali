@@ -1,4 +1,4 @@
-.class Lcom/android/server/power/PowerManagerService$2;
+.class public Lcom/android/server/power/PowerManagerService$2;
 .super Ljava/lang/Object;
 .source "PowerManagerService.java"
 
@@ -12,23 +12,23 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/power/PowerManagerService;
+.field public final synthetic this$0:Lcom/android/server/power/PowerManagerService;
 
-.field final synthetic val$confirm:Z
+.field public final synthetic val$confirm:Z
 
-.field final synthetic val$haltMode:I
+.field public final synthetic val$haltMode:I
 
-.field final synthetic val$reason:Ljava/lang/String;
+.field public final synthetic val$reason:Ljava/lang/String;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/power/PowerManagerService;IZLjava/lang/String;)V
+.method public constructor <init>(Lcom/android/server/power/PowerManagerService;IZLjava/lang/String;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/power/PowerManagerService$2;->this$0:Lcom/android/server/power/PowerManagerService;
@@ -60,7 +60,7 @@
 
     iget-object v0, p0, Lcom/android/server/power/PowerManagerService$2;->this$0:Lcom/android/server/power/PowerManagerService;
 
-    invoke-virtual {v0}, Lcom/android/server/power/PowerManagerService;->getUiContext()Landroid/content/Context;
+    invoke-virtual {v0}, Lcom/android/server/SystemService;->getUiContext()Landroid/content/Context;
 
     move-result-object v0
 
@@ -77,7 +77,7 @@
 
     iget-object v0, p0, Lcom/android/server/power/PowerManagerService$2;->this$0:Lcom/android/server/power/PowerManagerService;
 
-    invoke-virtual {v0}, Lcom/android/server/power/PowerManagerService;->getUiContext()Landroid/content/Context;
+    invoke-virtual {v0}, Lcom/android/server/SystemService;->getUiContext()Landroid/content/Context;
 
     move-result-object v0
 
@@ -92,7 +92,7 @@
     :cond_1
     iget-object v0, p0, Lcom/android/server/power/PowerManagerService$2;->this$0:Lcom/android/server/power/PowerManagerService;
 
-    invoke-virtual {v0}, Lcom/android/server/power/PowerManagerService;->getUiContext()Landroid/content/Context;
+    invoke-virtual {v0}, Lcom/android/server/SystemService;->getUiContext()Landroid/content/Context;
 
     move-result-object v0
 

@@ -1,4 +1,4 @@
-.class Lcom/android/server/StorageManagerService$ObbState;
+.class public Lcom/android/server/StorageManagerService$ObbState;
 .super Ljava/lang/Object;
 .source "StorageManagerService.java"
 
@@ -12,30 +12,30 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = "ObbState"
 .end annotation
 
 
 # instance fields
-.field final canonicalPath:Ljava/lang/String;
+.field public final canonicalPath:Ljava/lang/String;
 
-.field final nonce:I
+.field public final nonce:I
 
-.field final ownerGid:I
+.field public final ownerGid:I
 
-.field final rawPath:Ljava/lang/String;
+.field public final rawPath:Ljava/lang/String;
 
-.field final synthetic this$0:Lcom/android/server/StorageManagerService;
+.field public final synthetic this$0:Lcom/android/server/StorageManagerService;
 
-.field final token:Landroid/os/storage/IObbActionListener;
+.field public final token:Landroid/os/storage/IObbActionListener;
 
-.field volId:Ljava/lang/String;
+.field public volId:Ljava/lang/String;
 
 
 # direct methods
 .method public constructor <init>(Lcom/android/server/StorageManagerService;Ljava/lang/String;Ljava/lang/String;ILandroid/os/storage/IObbActionListener;ILjava/lang/String;)V
-    .locals 1
+    .locals 0
 
     iput-object p1, p0, Lcom/android/server/StorageManagerService$ObbState;->this$0:Lcom/android/server/StorageManagerService;
 
@@ -47,9 +47,9 @@
 
     invoke-static {p4}, Landroid/os/UserHandle;->getSharedAppGid(I)I
 
-    move-result v0
+    move-result p1
 
-    iput v0, p0, Lcom/android/server/StorageManagerService$ObbState;->ownerGid:I
+    iput p1, p0, Lcom/android/server/StorageManagerService$ObbState;->ownerGid:I
 
     iput-object p5, p0, Lcom/android/server/StorageManagerService$ObbState;->token:Landroid/os/storage/IObbActionListener;
 
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method public binderDied()V
-    .locals 4
+    .locals 3
 
     new-instance v0, Lcom/android/server/StorageManagerService$UnmountObbAction;
 
@@ -75,35 +75,35 @@
 
     iget-object v1, p0, Lcom/android/server/StorageManagerService$ObbState;->this$0:Lcom/android/server/StorageManagerService;
 
-    invoke-static {v1}, Lcom/android/server/StorageManagerService;->access$1200(Lcom/android/server/StorageManagerService;)Lcom/android/server/StorageManagerService$ObbActionHandler;
+    invoke-static {v1}, Lcom/android/server/StorageManagerService;->-$$Nest$fgetmObbActionHandler(Lcom/android/server/StorageManagerService;)Lcom/android/server/StorageManagerService$ObbActionHandler;
 
     move-result-object v1
 
-    iget-object v3, p0, Lcom/android/server/StorageManagerService$ObbState;->this$0:Lcom/android/server/StorageManagerService;
+    iget-object p0, p0, Lcom/android/server/StorageManagerService$ObbState;->this$0:Lcom/android/server/StorageManagerService;
 
-    invoke-static {v3}, Lcom/android/server/StorageManagerService;->access$1200(Lcom/android/server/StorageManagerService;)Lcom/android/server/StorageManagerService$ObbActionHandler;
+    invoke-static {p0}, Lcom/android/server/StorageManagerService;->-$$Nest$fgetmObbActionHandler(Lcom/android/server/StorageManagerService;)Lcom/android/server/StorageManagerService$ObbActionHandler;
 
-    move-result-object v3
+    move-result-object p0
 
-    invoke-virtual {v3, v2, v0}, Lcom/android/server/StorageManagerService$ObbActionHandler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {p0, v2, v0}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-virtual {v1, v2}, Lcom/android/server/StorageManagerService$ObbActionHandler;->sendMessage(Landroid/os/Message;)Z
+    invoke-virtual {v1, p0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
     return-void
 .end method
 
 .method public getBinder()Landroid/os/IBinder;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/StorageManagerService$ObbState;->token:Landroid/os/storage/IObbActionListener;
+    iget-object p0, p0, Lcom/android/server/StorageManagerService$ObbState;->token:Landroid/os/storage/IObbActionListener;
 
-    invoke-interface {v0}, Landroid/os/storage/IObbActionListener;->asBinder()Landroid/os/IBinder;
+    invoke-interface {p0}, Landroid/os/storage/IObbActionListener;->asBinder()Landroid/os/IBinder;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public link()V
@@ -180,19 +180,19 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lcom/android/server/StorageManagerService$ObbState;->volId:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/StorageManagerService$ObbState;->volId:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const/16 v1, 0x7d
+    const/16 p0, 0x7d
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method
 
 .method public unlink()V

@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/StorageManagerService$$ExternalSyntheticLambda3;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/StorageManagerService$$ExternalSyntheticLambda3;->f$0:Lcom/android/server/StorageManagerService;
+    iget-object p0, p0, Lcom/android/server/StorageManagerService$$ExternalSyntheticLambda3;->f$0:Lcom/android/server/StorageManagerService;
 
-    invoke-virtual {v0}, Lcom/android/server/StorageManagerService;->lambda$resetIfBootedAndConnected$0$StorageManagerService()V
+    invoke-static {p0}, Lcom/android/server/StorageManagerService;->$r8$lambda$PsncAamugJUjaCupcZOytmohbT0(Lcom/android/server/StorageManagerService;)V
 
     return-void
 .end method

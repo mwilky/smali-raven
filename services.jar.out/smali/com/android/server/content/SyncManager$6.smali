@@ -1,4 +1,4 @@
-.class Lcom/android/server/content/SyncManager$6;
+.class public Lcom/android/server/content/SyncManager$6;
 .super Ljava/lang/Object;
 .source "SyncManager.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/content/SyncManager;
+.field public final synthetic this$0:Lcom/android/server/content/SyncManager;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/content/SyncManager;)V
+.method public constructor <init>(Lcom/android/server/content/SyncManager;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/content/SyncManager$6;->this$0:Lcom/android/server/content/SyncManager;
@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Lcom/android/server/content/SyncManager$6;->this$0:Lcom/android/server/content/SyncManager;
 
-    invoke-static {v0}, Lcom/android/server/content/SyncManager;->access$1000(Lcom/android/server/content/SyncManager;)Ljava/util/List;
+    invoke-static {v0}, Lcom/android/server/content/SyncManager;->-$$Nest$mgetAllPendingSyncs(Lcom/android/server/content/SyncManager;)Ljava/util/List;
 
     move-result-object v0
 
@@ -51,6 +51,7 @@
 
     move-result-object v2
 
+    :cond_0
     :goto_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
@@ -70,11 +71,11 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_1
 
     goto :goto_0
 
-    :cond_0
+    :cond_1
     iget-object v4, v3, Lcom/android/server/content/SyncOperation;->key:Ljava/lang/String;
 
     invoke-interface {v1, v4}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
@@ -83,12 +84,13 @@
 
     move-result-object v4
 
+    :cond_2
     :goto_1
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_0
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -96,11 +98,11 @@
 
     check-cast v5, Lcom/android/server/content/SyncOperation;
 
-    if-ne v3, v5, :cond_1
+    if-ne v3, v5, :cond_3
 
     goto :goto_1
 
-    :cond_1
+    :cond_3
     iget-object v6, v3, Lcom/android/server/content/SyncOperation;->key:Ljava/lang/String;
 
     iget-object v7, v5, Lcom/android/server/content/SyncOperation;->key:Ljava/lang/String;
@@ -113,7 +115,7 @@
 
     iget-object v6, p0, Lcom/android/server/content/SyncManager$6;->this$0:Lcom/android/server/content/SyncManager;
 
-    invoke-static {v6}, Lcom/android/server/content/SyncManager;->access$500(Lcom/android/server/content/SyncManager;)Lcom/android/server/content/SyncLogger;
+    invoke-static {v6}, Lcom/android/server/content/SyncManager;->-$$Nest$fgetmLogger(Lcom/android/server/content/SyncManager;)Lcom/android/server/content/SyncLogger;
 
     move-result-object v6
 
@@ -155,13 +157,9 @@
 
     move-result-object v7
 
-    invoke-static {v6, v5, v7}, Lcom/android/server/content/SyncManager;->access$1100(Lcom/android/server/content/SyncManager;Lcom/android/server/content/SyncOperation;Ljava/lang/String;)V
+    invoke-static {v6, v5, v7}, Lcom/android/server/content/SyncManager;->-$$Nest$mcancelJob(Lcom/android/server/content/SyncManager;Lcom/android/server/content/SyncOperation;Ljava/lang/String;)V
 
-    :cond_2
     goto :goto_1
-
-    :cond_3
-    goto :goto_0
 
     :cond_4
     return-void

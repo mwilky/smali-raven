@@ -1,4 +1,4 @@
-.class Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver;
+.class public Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver;
 .super Lcom/android/server/IntentResolver;
 .source "IntentFirewall.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "FirewallIntentResolver"
 .end annotation
 
@@ -24,7 +24,7 @@
 
 
 # instance fields
-.field private final mRulesByComponent:Landroid/util/ArrayMap;
+.field public final mRulesByComponent:Landroid/util/ArrayMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/ArrayMap<",
@@ -38,7 +38,7 @@
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 2
 
     invoke-direct {p0}, Lcom/android/server/IntentResolver;-><init>()V
@@ -54,7 +54,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/firewall/IntentFirewall$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver-IA;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver;-><init>()V
@@ -79,21 +79,19 @@
 
     invoke-static {v1, v0, p2}, Lcom/android/internal/util/ArrayUtils;->appendElement(Ljava/lang/Class;[Ljava/lang/Object;Ljava/lang/Object;)[Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p2
 
-    move-object v0, v1
+    check-cast p2, [Lcom/android/server/firewall/IntentFirewall$Rule;
 
-    check-cast v0, [Lcom/android/server/firewall/IntentFirewall$Rule;
+    iget-object p0, p0, Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver;->mRulesByComponent:Landroid/util/ArrayMap;
 
-    iget-object v1, p0, Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver;->mRulesByComponent:Landroid/util/ArrayMap;
-
-    invoke-virtual {v1, p1, v0}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, p1, p2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     return-void
 .end method
 
-.method protected allowFilterResult(Lcom/android/server/firewall/IntentFirewall$FirewallIntentFilter;Ljava/util/List;)Z
-    .locals 1
+.method public allowFilterResult(Lcom/android/server/firewall/IntentFirewall$FirewallIntentFilter;Ljava/util/List;)Z
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -104,111 +102,111 @@
         }
     .end annotation
 
-    invoke-static {p1}, Lcom/android/server/firewall/IntentFirewall$FirewallIntentFilter;->access$200(Lcom/android/server/firewall/IntentFirewall$FirewallIntentFilter;)Lcom/android/server/firewall/IntentFirewall$Rule;
+    invoke-static {p1}, Lcom/android/server/firewall/IntentFirewall$FirewallIntentFilter;->-$$Nest$fgetrule(Lcom/android/server/firewall/IntentFirewall$FirewallIntentFilter;)Lcom/android/server/firewall/IntentFirewall$Rule;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-interface {p2, v0}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+    invoke-interface {p2, p0}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p0
 
-    xor-int/lit8 v0, v0, 0x1
+    xor-int/lit8 p0, p0, 0x1
 
-    return v0
+    return p0
 .end method
 
-.method protected bridge synthetic allowFilterResult(Ljava/lang/Object;Ljava/util/List;)Z
+.method public bridge synthetic allowFilterResult(Ljava/lang/Object;Ljava/util/List;)Z
     .locals 0
 
     check-cast p1, Lcom/android/server/firewall/IntentFirewall$FirewallIntentFilter;
 
     invoke-virtual {p0, p1, p2}, Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver;->allowFilterResult(Lcom/android/server/firewall/IntentFirewall$FirewallIntentFilter;Ljava/util/List;)Z
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method
 
-.method protected getIntentFilter(Lcom/android/server/firewall/IntentFirewall$FirewallIntentFilter;)Landroid/content/IntentFilter;
+.method public getIntentFilter(Lcom/android/server/firewall/IntentFirewall$FirewallIntentFilter;)Landroid/content/IntentFilter;
     .locals 0
 
     return-object p1
 .end method
 
-.method protected bridge synthetic getIntentFilter(Ljava/lang/Object;)Landroid/content/IntentFilter;
+.method public bridge synthetic getIntentFilter(Ljava/lang/Object;)Landroid/content/IntentFilter;
     .locals 0
 
     check-cast p1, Lcom/android/server/firewall/IntentFirewall$FirewallIntentFilter;
 
     invoke-virtual {p0, p1}, Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver;->getIntentFilter(Lcom/android/server/firewall/IntentFirewall$FirewallIntentFilter;)Landroid/content/IntentFilter;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method
 
-.method protected isPackageForFilter(Ljava/lang/String;Lcom/android/server/firewall/IntentFirewall$FirewallIntentFilter;)Z
-    .locals 1
+.method public isPackageForFilter(Ljava/lang/String;Lcom/android/server/firewall/IntentFirewall$FirewallIntentFilter;)Z
+    .locals 0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 .end method
 
-.method protected bridge synthetic isPackageForFilter(Ljava/lang/String;Ljava/lang/Object;)Z
+.method public bridge synthetic isPackageForFilter(Ljava/lang/String;Ljava/lang/Object;)Z
     .locals 0
 
     check-cast p2, Lcom/android/server/firewall/IntentFirewall$FirewallIntentFilter;
 
     invoke-virtual {p0, p1, p2}, Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver;->isPackageForFilter(Ljava/lang/String;Lcom/android/server/firewall/IntentFirewall$FirewallIntentFilter;)Z
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method
 
-.method protected newArray(I)[Lcom/android/server/firewall/IntentFirewall$FirewallIntentFilter;
-    .locals 1
+.method public newArray(I)[Lcom/android/server/firewall/IntentFirewall$FirewallIntentFilter;
+    .locals 0
 
-    new-array v0, p1, [Lcom/android/server/firewall/IntentFirewall$FirewallIntentFilter;
+    new-array p0, p1, [Lcom/android/server/firewall/IntentFirewall$FirewallIntentFilter;
 
-    return-object v0
+    return-object p0
 .end method
 
-.method protected bridge synthetic newArray(I)[Ljava/lang/Object;
+.method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 0
 
     invoke-virtual {p0, p1}, Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver;->newArray(I)[Lcom/android/server/firewall/IntentFirewall$FirewallIntentFilter;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method
 
-.method protected newResult(Lcom/android/server/firewall/IntentFirewall$FirewallIntentFilter;II)Lcom/android/server/firewall/IntentFirewall$Rule;
-    .locals 1
-
-    invoke-static {p1}, Lcom/android/server/firewall/IntentFirewall$FirewallIntentFilter;->access$200(Lcom/android/server/firewall/IntentFirewall$FirewallIntentFilter;)Lcom/android/server/firewall/IntentFirewall$Rule;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method protected bridge synthetic newResult(Ljava/lang/Object;II)Ljava/lang/Object;
+.method public newResult(Lcom/android/server/pm/Computer;Lcom/android/server/firewall/IntentFirewall$FirewallIntentFilter;IIJ)Lcom/android/server/firewall/IntentFirewall$Rule;
     .locals 0
 
-    check-cast p1, Lcom/android/server/firewall/IntentFirewall$FirewallIntentFilter;
+    invoke-static {p2}, Lcom/android/server/firewall/IntentFirewall$FirewallIntentFilter;->-$$Nest$fgetrule(Lcom/android/server/firewall/IntentFirewall$FirewallIntentFilter;)Lcom/android/server/firewall/IntentFirewall$Rule;
 
-    invoke-virtual {p0, p1, p2, p3}, Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver;->newResult(Lcom/android/server/firewall/IntentFirewall$FirewallIntentFilter;II)Lcom/android/server/firewall/IntentFirewall$Rule;
+    move-result-object p0
 
-    move-result-object p1
+    return-object p0
+.end method
 
-    return-object p1
+.method public bridge synthetic newResult(Lcom/android/server/pm/Computer;Ljava/lang/Object;IIJ)Ljava/lang/Object;
+    .locals 0
+
+    check-cast p2, Lcom/android/server/firewall/IntentFirewall$FirewallIntentFilter;
+
+    invoke-virtual/range {p0 .. p6}, Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver;->newResult(Lcom/android/server/pm/Computer;Lcom/android/server/firewall/IntentFirewall$FirewallIntentFilter;IIJ)Lcom/android/server/firewall/IntentFirewall$Rule;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method public queryByComponent(Landroid/content/ComponentName;Ljava/util/List;)V
-    .locals 2
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -219,27 +217,27 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver;->mRulesByComponent:Landroid/util/ArrayMap;
+    iget-object p0, p0, Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver;->mRulesByComponent:Landroid/util/ArrayMap;
 
-    invoke-virtual {v0, p1}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, [Lcom/android/server/firewall/IntentFirewall$Rule;
+    check-cast p0, [Lcom/android/server/firewall/IntentFirewall$Rule;
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    invoke-static {v0}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+    invoke-static {p0}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-interface {p2, v1}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
+    invoke-interface {p2, p0}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
 
     :cond_0
     return-void
 .end method
 
-.method protected sortResults(Ljava/util/List;)V
+.method public sortResults(Ljava/util/List;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {

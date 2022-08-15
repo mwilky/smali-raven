@@ -1,31 +1,22 @@
 .class public final synthetic Lcom/android/server/wm/DisplayPolicy$$ExternalSyntheticLambda9;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/internal/util/function/TriConsumer;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/wm/DisplayPolicy$$ExternalSyntheticLambda9;
+# instance fields
+.field public final synthetic f$0:Lcom/android/server/wm/DisplayPolicy;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/wm/DisplayPolicy$$ExternalSyntheticLambda9;
-
-    invoke-direct {v0}, Lcom/android/server/wm/DisplayPolicy$$ExternalSyntheticLambda9;-><init>()V
-
-    sput-object v0, Lcom/android/server/wm/DisplayPolicy$$ExternalSyntheticLambda9;->INSTANCE:Lcom/android/server/wm/DisplayPolicy$$ExternalSyntheticLambda9;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Lcom/android/server/wm/DisplayPolicy;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/wm/DisplayPolicy$$ExternalSyntheticLambda9;->f$0:Lcom/android/server/wm/DisplayPolicy;
 
     return-void
 .end method
@@ -35,13 +26,15 @@
 .method public final accept(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
     .locals 0
 
+    iget-object p0, p0, Lcom/android/server/wm/DisplayPolicy$$ExternalSyntheticLambda9;->f$0:Lcom/android/server/wm/DisplayPolicy;
+
     check-cast p1, Lcom/android/server/wm/DisplayFrames;
 
-    check-cast p2, Lcom/android/server/wm/WindowState;
+    check-cast p2, Lcom/android/server/wm/WindowContainer;
 
     check-cast p3, Landroid/graphics/Rect;
 
-    invoke-static {p1, p2, p3}, Lcom/android/server/wm/DisplayPolicy;->lambda$addWindowLw$4(Lcom/android/server/wm/DisplayFrames;Lcom/android/server/wm/WindowState;Landroid/graphics/Rect;)V
+    invoke-static {p0, p1, p2, p3}, Lcom/android/server/wm/DisplayPolicy;->$r8$lambda$4FkMo0bjLTIdgDPM6sCgvcfbl94(Lcom/android/server/wm/DisplayPolicy;Lcom/android/server/wm/DisplayFrames;Lcom/android/server/wm/WindowContainer;Landroid/graphics/Rect;)V
 
     return-void
 .end method

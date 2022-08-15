@@ -1,33 +1,28 @@
 .class public final synthetic Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda12;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/lang/Runnable;
-
-
-# instance fields
-.field public final synthetic f$0:I
+.implements Lcom/android/internal/infra/ServiceConnector$VoidJob;
 
 
 # direct methods
-.method public synthetic constructor <init>(I)V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput p1, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda12;->f$0:I
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final run()V
-    .locals 1
+.method public final runNoResult(Ljava/lang/Object;)V
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda12;->f$0:I
+    check-cast p1, Landroid/service/voice/IHotwordDetectionService;
 
-    invoke-static {v0}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->lambda$updateServiceUidForAudioPolicy$14(I)V
+    invoke-interface {p1}, Landroid/service/voice/IHotwordDetectionService;->stopDetection()V
 
     return-void
 .end method

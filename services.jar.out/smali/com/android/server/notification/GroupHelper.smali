@@ -12,19 +12,15 @@
 
 
 # static fields
-.field protected static final AUTOGROUP_KEY:Ljava/lang/String; = "ranker_group"
-
-.field private static final DEBUG:Z
-
-.field private static final TAG:Ljava/lang/String; = "GroupHelper"
+.field public static final DEBUG:Z
 
 
 # instance fields
-.field private final mAutoGroupAtCount:I
+.field public final mAutoGroupAtCount:I
 
-.field private final mCallback:Lcom/android/server/notification/GroupHelper$Callback;
+.field public final mCallback:Lcom/android/server/notification/GroupHelper$Callback;
 
-.field final mOngoingGroupCount:Landroid/util/ArrayMap;
+.field public final mOngoingGroupCount:Landroid/util/ArrayMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/ArrayMap<",
@@ -36,7 +32,7 @@
     .end annotation
 .end field
 
-.field mUngroupedNotifications:Ljava/util/Map;
+.field public mUngroupedNotifications:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Map<",
@@ -52,7 +48,7 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 2
 
     const-string v0, "GroupHelper"
@@ -92,144 +88,44 @@
     return-void
 .end method
 
-.method private addToOngoingGroupCount(Landroid/service/notification/StatusBarNotification;Z)V
-    .locals 8
 
-    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getNotification()Landroid/app/Notification;
+# virtual methods
+.method public final adjustAutogroupingSummary(ILjava/lang/String;Ljava/lang/String;Z)V
+    .locals 0
 
-    move-result-object v0
+    if-eqz p4, :cond_1
 
-    invoke-virtual {v0}, Landroid/app/Notification;->isGroupSummary()Z
+    iget-object p4, p0, Lcom/android/server/notification/GroupHelper;->mCallback:Lcom/android/server/notification/GroupHelper$Callback;
 
-    move-result v0
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/notification/GroupHelper;->getOngoingGroupCount(ILjava/lang/String;)I
 
-    if-eqz v0, :cond_0
+    move-result p0
 
-    return-void
+    if-lez p0, :cond_0
+
+    const/4 p0, 0x1
+
+    goto :goto_0
 
     :cond_0
-    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->isOngoing()Z
+    const/4 p0, 0x0
 
-    move-result v0
+    :goto_0
+    invoke-interface {p4, p1, p2, p3, p0}, Lcom/android/server/notification/GroupHelper$Callback;->addAutoGroupSummary(ILjava/lang/String;Ljava/lang/String;Z)V
 
-    if-nez v0, :cond_1
-
-    if-eqz p2, :cond_1
-
-    return-void
+    goto :goto_1
 
     :cond_1
-    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getGroup()Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/notification/GroupHelper;->mCallback:Lcom/android/server/notification/GroupHelper$Callback;
 
-    move-result-object v0
+    invoke-interface {p0, p1, p2}, Lcom/android/server/notification/GroupHelper$Callback;->removeAutoGroupSummary(ILjava/lang/String;)V
 
-    if-nez v0, :cond_2
-
-    return-void
-
-    :cond_2
-    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getUser()Landroid/os/UserHandle;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/os/UserHandle;->getIdentifier()I
-
-    move-result v1
-
-    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getPackageName()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-direct {p0, v1, v2, v0}, Lcom/android/server/notification/GroupHelper;->generatePackageGroupKey(ILjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    iget-object v3, p0, Lcom/android/server/notification/GroupHelper;->mOngoingGroupCount:Landroid/util/ArrayMap;
-
-    new-instance v4, Landroid/util/ArraySet;
-
-    const/4 v5, 0x0
-
-    invoke-direct {v4, v5}, Landroid/util/ArraySet;-><init>(I)V
-
-    invoke-virtual {v3, v2, v4}, Landroid/util/ArrayMap;->getOrDefault(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/util/ArraySet;
-
-    if-eqz p2, :cond_3
-
-    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getKey()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
-
-    iget-object v4, p0, Lcom/android/server/notification/GroupHelper;->mOngoingGroupCount:Landroid/util/ArrayMap;
-
-    invoke-virtual {v4, v2, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    goto :goto_0
-
-    :cond_3
-    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getKey()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Landroid/util/ArraySet;->remove(Ljava/lang/Object;)Z
-
-    :goto_0
-    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getPackageName()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-direct {p0, v1, v4, v0}, Lcom/android/server/notification/GroupHelper;->generatePackageGroupKey(ILjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3}, Landroid/util/ArraySet;->size()I
-
-    move-result v6
-
-    if-lez v6, :cond_4
-
-    const/4 v5, 0x1
-
-    :cond_4
-    iget-object v6, p0, Lcom/android/server/notification/GroupHelper;->mCallback:Lcom/android/server/notification/GroupHelper$Callback;
-
-    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getKey()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-interface {v6, v7, v5}, Lcom/android/server/notification/GroupHelper$Callback;->updateAutogroupSummary(Ljava/lang/String;Z)V
-
+    :goto_1
     return-void
 .end method
 
-.method private adjustAutogroupingSummary(ILjava/lang/String;Ljava/lang/String;Z)V
-    .locals 1
-
-    if-eqz p4, :cond_0
-
-    iget-object v0, p0, Lcom/android/server/notification/GroupHelper;->mCallback:Lcom/android/server/notification/GroupHelper$Callback;
-
-    invoke-interface {v0, p1, p2, p3}, Lcom/android/server/notification/GroupHelper$Callback;->addAutoGroupSummary(ILjava/lang/String;Ljava/lang/String;)V
-
-    goto :goto_0
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/server/notification/GroupHelper;->mCallback:Lcom/android/server/notification/GroupHelper$Callback;
-
-    invoke-interface {v0, p1, p2}, Lcom/android/server/notification/GroupHelper$Callback;->removeAutoGroupSummary(ILjava/lang/String;)V
-
-    :goto_0
-    return-void
-.end method
-
-.method private adjustNotificationBundling(Ljava/util/List;Z)V
-    .locals 4
+.method public final adjustNotificationBundling(Ljava/util/List;Z)V
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -241,328 +137,314 @@
 
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p1
 
     :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_2
+    if-eqz v0, :cond_2
 
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/lang/String;
-
-    sget-boolean v2, Lcom/android/server/notification/GroupHelper;->DEBUG:Z
-
-    if-eqz v2, :cond_0
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "Sending grouping adjustment for: "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v3, " group? "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    const-string v3, "GroupHelper"
-
-    invoke-static {v3, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
-    if-eqz p2, :cond_1
-
-    iget-object v2, p0, Lcom/android/server/notification/GroupHelper;->mCallback:Lcom/android/server/notification/GroupHelper$Callback;
-
-    invoke-interface {v2, v1}, Lcom/android/server/notification/GroupHelper$Callback;->addAutoGroup(Ljava/lang/String;)V
-
-    goto :goto_1
-
-    :cond_1
-    iget-object v2, p0, Lcom/android/server/notification/GroupHelper;->mCallback:Lcom/android/server/notification/GroupHelper$Callback;
-
-    invoke-interface {v2, v1}, Lcom/android/server/notification/GroupHelper$Callback;->removeAutoGroup(Ljava/lang/String;)V
-
-    :goto_1
-    goto :goto_0
-
-    :cond_2
-    return-void
-.end method
-
-.method private generatePackageGroupKey(ILjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string/jumbo v1, "|"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
-    return-object v0
-.end method
+    check-cast v0, Ljava/lang/String;
 
-.method private maybeUngroup(Landroid/service/notification/StatusBarNotification;ZI)V
-    .locals 6
+    sget-boolean v1, Lcom/android/server/notification/GroupHelper;->DEBUG:Z
 
-    new-instance v0, Ljava/util/ArrayList;
-
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
-
-    const/4 v1, 0x0
-
-    iget-object v2, p0, Lcom/android/server/notification/GroupHelper;->mUngroupedNotifications:Ljava/util/Map;
-
-    monitor-enter v2
-
-    :try_start_0
-    iget-object v3, p0, Lcom/android/server/notification/GroupHelper;->mUngroupedNotifications:Ljava/util/Map;
-
-    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getUserId()I
-
-    move-result v4
-
-    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v4
-
-    invoke-interface {v3, v4}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Ljava/util/Map;
-
-    if-eqz v3, :cond_7
-
-    invoke-interface {v3}, Ljava/util/Map;->size()I
-
-    move-result v4
-
-    if-nez v4, :cond_0
-
-    goto :goto_1
-
-    :cond_0
-    nop
-
-    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getPackageName()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-interface {v3, v4}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Ljava/util/LinkedHashSet;
-
-    if-eqz v4, :cond_6
-
-    invoke-virtual {v4}, Ljava/util/LinkedHashSet;->size()I
-
-    move-result v5
-
-    if-nez v5, :cond_1
-
-    goto :goto_0
-
-    :cond_1
-    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getKey()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Ljava/util/LinkedHashSet;->remove(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_2
-
-    if-nez p2, :cond_2
-
-    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getKey()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-interface {v0, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    :cond_2
-    invoke-virtual {v4}, Ljava/util/LinkedHashSet;->size()I
-
-    move-result v5
-
-    if-nez v5, :cond_3
-
-    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getPackageName()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-interface {v3, v5}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
-
-    const/4 v1, 0x1
-
-    :cond_3
-    monitor-exit v2
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    const/4 v2, 0x0
-
-    if-eqz v1, :cond_4
-
-    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getPackageName()Ljava/lang/String;
-
-    move-result-object v3
-
-    const/4 v4, 0x0
-
-    invoke-direct {p0, p3, v3, v4, v2}, Lcom/android/server/notification/GroupHelper;->adjustAutogroupingSummary(ILjava/lang/String;Ljava/lang/String;Z)V
-
-    :cond_4
-    invoke-interface {v0}, Ljava/util/List;->size()I
-
-    move-result v3
-
-    if-lez v3, :cond_5
-
-    invoke-direct {p0, v0, v2}, Lcom/android/server/notification/GroupHelper;->adjustNotificationBundling(Ljava/util/List;Z)V
-
-    :cond_5
-    return-void
-
-    :cond_6
-    :goto_0
-    :try_start_1
-    monitor-exit v2
-
-    return-void
-
-    :cond_7
-    :goto_1
-    monitor-exit v2
-
-    return-void
-
-    :catchall_0
-    move-exception v3
-
-    monitor-exit v2
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    throw v3
-.end method
-
-
-# virtual methods
-.method protected getOngoingGroupCount(ILjava/lang/String;Ljava/lang/String;)I
-    .locals 4
-
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/notification/GroupHelper;->generatePackageGroupKey(ILjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/server/notification/GroupHelper;->mOngoingGroupCount:Landroid/util/ArrayMap;
-
-    new-instance v2, Landroid/util/ArraySet;
-
-    const/4 v3, 0x0
-
-    invoke-direct {v2, v3}, Landroid/util/ArraySet;-><init>(I)V
-
-    invoke-virtual {v1, v0, v2}, Landroid/util/ArrayMap;->getOrDefault(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/util/ArraySet;
-
-    invoke-virtual {v1}, Landroid/util/ArraySet;->size()I
-
-    move-result v1
-
-    return v1
-.end method
-
-.method public onNotificationPosted(Landroid/service/notification/StatusBarNotification;Z)V
-    .locals 8
-
-    sget-boolean v0, Lcom/android/server/notification/GroupHelper;->DEBUG:Z
-
-    if-eqz v0, :cond_0
-
-    const-string v0, "GroupHelper"
+    if-eqz v1, :cond_0
 
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "POSTED "
+    const-string v2, "Sending grouping adjustment for: "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getKey()Ljava/lang/String;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    const-string v2, " group? "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    const-string v2, "GroupHelper"
+
+    invoke-static {v2, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    :try_start_0
+    if-eqz p2, :cond_1
+
+    iget-object v1, p0, Lcom/android/server/notification/GroupHelper;->mCallback:Lcom/android/server/notification/GroupHelper$Callback;
+
+    invoke-interface {v1, v0}, Lcom/android/server/notification/GroupHelper$Callback;->addAutoGroup(Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :cond_1
+    iget-object v1, p0, Lcom/android/server/notification/GroupHelper;->mCallback:Lcom/android/server/notification/GroupHelper$Callback;
+
+    invoke-interface {v1, v0}, Lcom/android/server/notification/GroupHelper$Callback;->removeAutoGroup(Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :cond_2
+    return-void
+.end method
+
+.method public final generatePackageKey(ILjava/lang/String;)Ljava/lang/String;
+    .locals 0
+
+    new-instance p0, Ljava/lang/StringBuilder;
+
+    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string/jumbo p1, "|"
+
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public getOngoingGroupCount(ILjava/lang/String;)I
+    .locals 1
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/notification/GroupHelper;->generatePackageKey(ILjava/lang/String;)Ljava/lang/String;
+
+    move-result-object p1
+
+    iget-object p0, p0, Lcom/android/server/notification/GroupHelper;->mOngoingGroupCount:Landroid/util/ArrayMap;
+
+    new-instance p2, Landroid/util/ArraySet;
+
+    const/4 v0, 0x0
+
+    invoke-direct {p2, v0}, Landroid/util/ArraySet;-><init>(I)V
+
+    invoke-virtual {p0, p1, p2}, Landroid/util/ArrayMap;->getOrDefault(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Landroid/util/ArraySet;
+
+    invoke-virtual {p0}, Landroid/util/ArraySet;->size()I
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public final maybeUngroup(Landroid/service/notification/StatusBarNotification;ZI)V
+    .locals 5
+
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    const/4 v1, 0x1
+    iget-object v1, p0, Lcom/android/server/notification/GroupHelper;->mUngroupedNotifications:Ljava/util/Map;
 
-    if-eqz p2, :cond_1
+    monitor-enter v1
 
-    invoke-direct {p0, p1, v1}, Lcom/android/server/notification/GroupHelper;->addToOngoingGroupCount(Landroid/service/notification/StatusBarNotification;Z)V
+    :try_start_0
+    iget-object v2, p0, Lcom/android/server/notification/GroupHelper;->mUngroupedNotifications:Ljava/util/Map;
+
+    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getUserId()I
+
+    move-result v3
+
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    invoke-interface {v2, v3}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/util/Map;
+
+    if-eqz v2, :cond_7
+
+    invoke-interface {v2}, Ljava/util/Map;->size()I
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    goto :goto_2
+
+    :cond_0
+    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getPackageName()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-interface {v2, v3}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Ljava/util/LinkedHashSet;
+
+    if-eqz v3, :cond_6
+
+    invoke-virtual {v3}, Ljava/util/LinkedHashSet;->size()I
+
+    move-result v4
+
+    if-nez v4, :cond_1
+
+    goto :goto_1
 
     :cond_1
-    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->isAppGroup()Z
+    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getKey()Ljava/lang/String;
 
-    move-result v2
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/util/LinkedHashSet;->remove(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_2
+
+    if-nez p2, :cond_2
+
+    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getKey()Ljava/lang/String;
+
+    move-result-object p2
+
+    invoke-interface {v0, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    :cond_2
+    invoke-virtual {v3}, Ljava/util/LinkedHashSet;->size()I
+
+    move-result p2
 
     const/4 v3, 0x0
 
-    if-nez v2, :cond_6
+    if-nez p2, :cond_3
 
-    iget-object v2, p0, Lcom/android/server/notification/GroupHelper;->mUngroupedNotifications:Ljava/util/Map;
+    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getPackageName()Ljava/lang/String;
 
-    monitor-enter v2
+    move-result-object p2
+
+    invoke-interface {v2, p2}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+
+    const/4 p2, 0x1
+
+    goto :goto_0
+
+    :cond_3
+    move p2, v3
+
+    :goto_0
+    monitor-exit v1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    if-eqz p2, :cond_4
+
+    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getPackageName()Ljava/lang/String;
+
+    move-result-object p1
+
+    const/4 p2, 0x0
+
+    invoke-virtual {p0, p3, p1, p2, v3}, Lcom/android/server/notification/GroupHelper;->adjustAutogroupingSummary(ILjava/lang/String;Ljava/lang/String;Z)V
+
+    :cond_4
+    invoke-interface {v0}, Ljava/util/List;->size()I
+
+    move-result p1
+
+    if-lez p1, :cond_5
+
+    invoke-virtual {p0, v0, v3}, Lcom/android/server/notification/GroupHelper;->adjustNotificationBundling(Ljava/util/List;Z)V
+
+    :cond_5
+    return-void
+
+    :cond_6
+    :goto_1
+    :try_start_1
+    monitor-exit v1
+
+    return-void
+
+    :cond_7
+    :goto_2
+    monitor-exit v1
+
+    return-void
+
+    :catchall_0
+    move-exception p0
+
+    monitor-exit v1
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    throw p0
+.end method
+
+.method public onNotificationPosted(Landroid/service/notification/StatusBarNotification;Z)V
+    .locals 7
+
+    :try_start_0
+    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->isOngoing()Z
+
+    move-result v0
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->isAppGroup()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    move v0, v1
+
+    goto :goto_0
+
+    :cond_0
+    move v0, v2
+
+    :goto_0
+    invoke-virtual {p0, p1, v0}, Lcom/android/server/notification/GroupHelper;->updateOngoingGroupCount(Landroid/service/notification/StatusBarNotification;Z)V
+
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->isAppGroup()Z
+
+    move-result v3
+
+    if-nez v3, :cond_5
+
+    iget-object v3, p0, Lcom/android/server/notification/GroupHelper;->mUngroupedNotifications:Ljava/util/Map;
+
+    monitor-enter v3
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -583,15 +465,13 @@
 
     check-cast v4, Ljava/util/Map;
 
-    if-nez v4, :cond_2
+    if-nez v4, :cond_1
 
-    new-instance v5, Ljava/util/HashMap;
+    new-instance v4, Ljava/util/HashMap;
 
-    invoke-direct {v5}, Ljava/util/HashMap;-><init>()V
+    invoke-direct {v4}, Ljava/util/HashMap;-><init>()V
 
-    move-object v4, v5
-
-    :cond_2
+    :cond_1
     iget-object v5, p0, Lcom/android/server/notification/GroupHelper;->mUngroupedNotifications:Ljava/util/Map;
 
     invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getUserId()I
@@ -604,8 +484,6 @@
 
     invoke-interface {v5, v6, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    nop
-
     invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getPackageName()Ljava/lang/String;
 
     move-result-object v5
@@ -616,15 +494,13 @@
 
     check-cast v5, Ljava/util/LinkedHashSet;
 
-    if-nez v5, :cond_3
+    if-nez v5, :cond_2
 
-    new-instance v6, Ljava/util/LinkedHashSet;
+    new-instance v5, Ljava/util/LinkedHashSet;
 
-    invoke-direct {v6}, Ljava/util/LinkedHashSet;-><init>()V
+    invoke-direct {v5}, Ljava/util/LinkedHashSet;-><init>()V
 
-    move-object v5, v6
-
-    :cond_3
+    :cond_2
     invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getKey()Ljava/lang/String;
 
     move-result-object v6
@@ -639,95 +515,94 @@
 
     invoke-virtual {v5}, Ljava/util/LinkedHashSet;->size()I
 
-    move-result v6
+    move-result v4
 
-    iget v7, p0, Lcom/android/server/notification/GroupHelper;->mAutoGroupAtCount:I
+    iget v6, p0, Lcom/android/server/notification/GroupHelper;->mAutoGroupAtCount:I
 
-    if-ge v6, v7, :cond_4
+    if-ge v4, v6, :cond_3
 
-    if-eqz p2, :cond_5
+    if-eqz p2, :cond_4
 
-    :cond_4
+    :cond_3
     invoke-interface {v0, v5}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
 
-    :cond_5
-    monitor-exit v2
+    :cond_4
+    monitor-exit v3
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     :try_start_2
     invoke-interface {v0}, Ljava/util/List;->size()I
 
-    move-result v2
+    move-result p2
 
-    if-lez v2, :cond_7
+    if-lez p2, :cond_6
 
     invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getUserId()I
 
-    move-result v2
+    move-result p2
 
     invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getPackageName()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object p1
 
-    invoke-interface {v0, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v2
 
-    check-cast v3, Ljava/lang/String;
+    check-cast v2, Ljava/lang/String;
 
-    invoke-direct {p0, v2, v4, v3, v1}, Lcom/android/server/notification/GroupHelper;->adjustAutogroupingSummary(ILjava/lang/String;Ljava/lang/String;Z)V
+    invoke-virtual {p0, p2, p1, v2, v1}, Lcom/android/server/notification/GroupHelper;->adjustAutogroupingSummary(ILjava/lang/String;Ljava/lang/String;Z)V
 
-    invoke-direct {p0, v0, v1}, Lcom/android/server/notification/GroupHelper;->adjustNotificationBundling(Ljava/util/List;Z)V
+    invoke-virtual {p0, v0, v1}, Lcom/android/server/notification/GroupHelper;->adjustNotificationBundling(Ljava/util/List;Z)V
     :try_end_2
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
 
-    goto :goto_0
+    goto :goto_1
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     :try_start_3
-    monitor-exit v2
+    monitor-exit v3
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     :try_start_4
-    throw v1
+    throw p0
 
-    :cond_6
+    :cond_5
     invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getUserId()I
 
-    move-result v1
+    move-result p2
 
-    invoke-direct {p0, p1, v3, v1}, Lcom/android/server/notification/GroupHelper;->maybeUngroup(Landroid/service/notification/StatusBarNotification;ZI)V
+    invoke-virtual {p0, p1, v2, p2}, Lcom/android/server/notification/GroupHelper;->maybeUngroup(Landroid/service/notification/StatusBarNotification;ZI)V
     :try_end_4
     .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_0
 
-    :cond_7
-    :goto_0
     goto :goto_1
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    const-string v1, "GroupHelper"
+    const-string p1, "GroupHelper"
 
-    const-string v2, "Failure processing new notification"
+    const-string p2, "Failure processing new notification"
 
-    invoke-static {v1, v2, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {p1, p2, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
+    :cond_6
     :goto_1
     return-void
 .end method
 
 .method public onNotificationRemoved(Landroid/service/notification/StatusBarNotification;)V
-    .locals 3
+    .locals 2
 
     const/4 v0, 0x0
 
     :try_start_0
-    invoke-direct {p0, p1, v0}, Lcom/android/server/notification/GroupHelper;->addToOngoingGroupCount(Landroid/service/notification/StatusBarNotification;Z)V
+    invoke-virtual {p0, p1, v0}, Lcom/android/server/notification/GroupHelper;->updateOngoingGroupCount(Landroid/service/notification/StatusBarNotification;Z)V
 
     const/4 v0, 0x1
 
@@ -735,35 +610,55 @@
 
     move-result v1
 
-    invoke-direct {p0, p1, v0, v1}, Lcom/android/server/notification/GroupHelper;->maybeUngroup(Landroid/service/notification/StatusBarNotification;ZI)V
+    invoke-virtual {p0, p1, v0, v1}, Lcom/android/server/notification/GroupHelper;->maybeUngroup(Landroid/service/notification/StatusBarNotification;ZI)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    const-string v1, "GroupHelper"
+    const-string p1, "GroupHelper"
 
-    const-string v2, "Error processing canceled notification"
+    const-string v0, "Error processing canceled notification"
 
-    invoke-static {v1, v2, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {p1, v0, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_0
     return-void
 .end method
 
-.method public onNotificationUpdated(Landroid/service/notification/StatusBarNotification;Z)V
-    .locals 2
+.method public onNotificationUpdated(Landroid/service/notification/StatusBarNotification;)V
+    .locals 1
 
-    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getGroup()Ljava/lang/String;
+    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->isOngoing()Z
 
-    move-result-object v0
+    move-result v0
 
-    const-string/jumbo v1, "ranker_group"
+    if-eqz v0, :cond_0
 
-    if-ne v0, v1, :cond_2
+    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->isAppGroup()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    invoke-virtual {p0, p1, v0}, Lcom/android/server/notification/GroupHelper;->updateOngoingGroupCount(Landroid/service/notification/StatusBarNotification;Z)V
+
+    return-void
+.end method
+
+.method public final updateOngoingGroupCount(Landroid/service/notification/StatusBarNotification;Z)V
+    .locals 4
 
     invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getNotification()Landroid/app/Notification;
 
@@ -775,30 +670,77 @@
 
     if-eqz v0, :cond_0
 
-    goto :goto_1
+    return-void
 
     :cond_0
-    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->isOngoing()Z
+    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getUserId()I
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getPackageName()Ljava/lang/String;
 
-    const/4 v0, 0x1
+    move-result-object v1
 
-    invoke-direct {p0, p1, v0}, Lcom/android/server/notification/GroupHelper;->addToOngoingGroupCount(Landroid/service/notification/StatusBarNotification;Z)V
+    invoke-virtual {p0, v0, v1}, Lcom/android/server/notification/GroupHelper;->generatePackageKey(ILjava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/server/notification/GroupHelper;->mOngoingGroupCount:Landroid/util/ArrayMap;
+
+    new-instance v2, Landroid/util/ArraySet;
+
+    const/4 v3, 0x0
+
+    invoke-direct {v2, v3}, Landroid/util/ArraySet;-><init>(I)V
+
+    invoke-virtual {v1, v0, v2}, Landroid/util/ArrayMap;->getOrDefault(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/util/ArraySet;
+
+    if-eqz p2, :cond_1
+
+    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getKey()Ljava/lang/String;
+
+    move-result-object p2
+
+    invoke-virtual {v1, p2}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
+
+    iget-object p2, p0, Lcom/android/server/notification/GroupHelper;->mOngoingGroupCount:Landroid/util/ArrayMap;
+
+    invoke-virtual {p2, v0, v1}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_0
 
     :cond_1
-    const/4 v0, 0x0
+    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getKey()Ljava/lang/String;
 
-    invoke-direct {p0, p1, v0}, Lcom/android/server/notification/GroupHelper;->addToOngoingGroupCount(Landroid/service/notification/StatusBarNotification;Z)V
+    move-result-object p2
+
+    invoke-virtual {v1, p2}, Landroid/util/ArraySet;->remove(Ljava/lang/Object;)Z
 
     :goto_0
-    return-void
+    invoke-virtual {v1}, Landroid/util/ArraySet;->size()I
+
+    move-result p2
+
+    if-lez p2, :cond_2
+
+    const/4 v3, 0x1
 
     :cond_2
-    :goto_1
+    iget-object p0, p0, Lcom/android/server/notification/GroupHelper;->mCallback:Lcom/android/server/notification/GroupHelper$Callback;
+
+    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getUserId()I
+
+    move-result p2
+
+    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getPackageName()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-interface {p0, p2, p1, v3}, Lcom/android/server/notification/GroupHelper$Callback;->updateAutogroupSummary(ILjava/lang/String;Z)V
+
     return-void
 .end method

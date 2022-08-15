@@ -1,4 +1,4 @@
-.class Lcom/android/server/accounts/TokenCache$Value;
+.class public Lcom/android/server/accounts/TokenCache$Value;
 .super Ljava/lang/Object;
 .source "TokenCache.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "Value"
 .end annotation
 

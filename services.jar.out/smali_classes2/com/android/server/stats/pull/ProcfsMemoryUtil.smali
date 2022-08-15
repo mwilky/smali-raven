@@ -13,15 +13,15 @@
 
 
 # static fields
-.field private static final CMDLINE_OUT:[I
+.field public static final CMDLINE_OUT:[I
 
-.field private static final STATUS_KEYS:[Ljava/lang/String;
+.field public static final STATUS_KEYS:[Ljava/lang/String;
 
-.field private static final VMSTAT_KEYS:[Ljava/lang/String;
+.field public static final VMSTAT_KEYS:[Ljava/lang/String;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 5
 
     const/4 v0, 0x1
@@ -59,14 +59,6 @@
     move-result-object v0
 
     sput-object v0, Lcom/android/server/stats/pull/ProcfsMemoryUtil;->VMSTAT_KEYS:[Ljava/lang/String;
-
-    return-void
-.end method
-
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -138,7 +130,7 @@
 .end method
 
 .method public static readCmdlineFromProcfs(I)Ljava/lang/String;
-    .locals 4
+    .locals 3
 
     const/4 v0, 0x1
 
@@ -154,34 +146,34 @@
 
     invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v2, "/cmdline"
+    const-string p0, "/cmdline"
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    sget-object v2, Lcom/android/server/stats/pull/ProcfsMemoryUtil;->CMDLINE_OUT:[I
+    sget-object v1, Lcom/android/server/stats/pull/ProcfsMemoryUtil;->CMDLINE_OUT:[I
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    invoke-static {v1, v2, v0, v3, v3}, Landroid/os/Process;->readProcFile(Ljava/lang/String;[I[Ljava/lang/String;[J[F)Z
+    invoke-static {p0, v1, v0, v2, v2}, Landroid/os/Process;->readProcFile(Ljava/lang/String;[I[Ljava/lang/String;[J[F)Z
 
-    move-result v1
+    move-result p0
 
-    if-nez v1, :cond_0
+    if-nez p0, :cond_0
 
-    const-string v1, ""
+    const-string p0, ""
 
-    return-object v1
+    return-object p0
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 p0, 0x0
 
-    aget-object v1, v0, v1
+    aget-object p0, v0, p0
 
-    return-object v1
+    return-object p0
 .end method
 
 .method public static readMemorySnapshotFromProcfs(I)Lcom/android/server/stats/pull/ProcfsMemoryUtil$MemorySnapshot;
@@ -217,85 +209,85 @@
 
     invoke-virtual {v7, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v8, "/status"
+    const-string p0, "/status"
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object p0
 
-    invoke-static {v7, v0, v1}, Landroid/os/Process;->readProcLines(Ljava/lang/String;[Ljava/lang/String;[J)V
+    invoke-static {p0, v0, v1}, Landroid/os/Process;->readProcLines(Ljava/lang/String;[Ljava/lang/String;[J)V
 
     aget-wide v7, v1, v2
 
-    cmp-long v0, v7, v3
+    cmp-long p0, v7, v3
 
-    if-eqz v0, :cond_1
+    if-eqz p0, :cond_1
 
     aget-wide v7, v1, v5
 
-    cmp-long v0, v7, v3
+    cmp-long p0, v7, v3
 
-    if-eqz v0, :cond_1
+    if-eqz p0, :cond_1
 
     aget-wide v7, v1, v6
 
-    cmp-long v0, v7, v3
+    cmp-long p0, v7, v3
 
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
     goto :goto_0
 
     :cond_0
-    new-instance v0, Lcom/android/server/stats/pull/ProcfsMemoryUtil$MemorySnapshot;
+    new-instance p0, Lcom/android/server/stats/pull/ProcfsMemoryUtil$MemorySnapshot;
 
-    invoke-direct {v0}, Lcom/android/server/stats/pull/ProcfsMemoryUtil$MemorySnapshot;-><init>()V
-
-    aget-wide v2, v1, v2
-
-    long-to-int v2, v2
-
-    iput v2, v0, Lcom/android/server/stats/pull/ProcfsMemoryUtil$MemorySnapshot;->uid:I
-
-    const/4 v2, 0x1
+    invoke-direct {p0}, Lcom/android/server/stats/pull/ProcfsMemoryUtil$MemorySnapshot;-><init>()V
 
     aget-wide v2, v1, v2
 
-    long-to-int v2, v2
+    long-to-int v0, v2
 
-    iput v2, v0, Lcom/android/server/stats/pull/ProcfsMemoryUtil$MemorySnapshot;->rssHighWaterMarkInKilobytes:I
+    iput v0, p0, Lcom/android/server/stats/pull/ProcfsMemoryUtil$MemorySnapshot;->uid:I
 
-    const/4 v2, 0x2
+    const/4 v0, 0x1
 
-    aget-wide v2, v1, v2
+    aget-wide v2, v1, v0
 
-    long-to-int v2, v2
+    long-to-int v0, v2
 
-    iput v2, v0, Lcom/android/server/stats/pull/ProcfsMemoryUtil$MemorySnapshot;->rssInKilobytes:I
+    iput v0, p0, Lcom/android/server/stats/pull/ProcfsMemoryUtil$MemorySnapshot;->rssHighWaterMarkInKilobytes:I
+
+    const/4 v0, 0x2
+
+    aget-wide v2, v1, v0
+
+    long-to-int v0, v2
+
+    iput v0, p0, Lcom/android/server/stats/pull/ProcfsMemoryUtil$MemorySnapshot;->rssInKilobytes:I
 
     aget-wide v2, v1, v5
 
-    long-to-int v2, v2
+    long-to-int v0, v2
 
-    iput v2, v0, Lcom/android/server/stats/pull/ProcfsMemoryUtil$MemorySnapshot;->anonRssInKilobytes:I
+    iput v0, p0, Lcom/android/server/stats/pull/ProcfsMemoryUtil$MemorySnapshot;->anonRssInKilobytes:I
 
-    aget-wide v2, v1, v6
+    aget-wide v0, v1, v6
 
-    long-to-int v2, v2
+    long-to-int v0, v0
 
-    iput v2, v0, Lcom/android/server/stats/pull/ProcfsMemoryUtil$MemorySnapshot;->swapInKilobytes:I
+    iput v0, p0, Lcom/android/server/stats/pull/ProcfsMemoryUtil$MemorySnapshot;->swapInKilobytes:I
 
-    return-object v0
+    return-object p0
 
     :cond_1
     :goto_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return-object v0
+    return-object p0
 .end method
 
-.method static readVmStat()Lcom/android/server/stats/pull/ProcfsMemoryUtil$VmStat;
+.method public static readVmStat()Lcom/android/server/stats/pull/ProcfsMemoryUtil$VmStat;
     .locals 7
 
     sget-object v0, Lcom/android/server/stats/pull/ProcfsMemoryUtil;->VMSTAT_KEYS:[Ljava/lang/String;
@@ -329,11 +321,11 @@
 
     invoke-direct {v0}, Lcom/android/server/stats/pull/ProcfsMemoryUtil$VmStat;-><init>()V
 
-    aget-wide v2, v1, v2
+    aget-wide v1, v1, v2
 
-    long-to-int v2, v2
+    long-to-int v1, v1
 
-    iput v2, v0, Lcom/android/server/stats/pull/ProcfsMemoryUtil$VmStat;->oomKillCount:I
+    iput v1, v0, Lcom/android/server/stats/pull/ProcfsMemoryUtil$VmStat;->oomKillCount:I
 
     return-object v0
 .end method

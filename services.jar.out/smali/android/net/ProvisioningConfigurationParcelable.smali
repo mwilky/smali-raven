@@ -24,14 +24,24 @@
 .field public displayName:Ljava/lang/String;
 
 .field public enableIPv4:Z
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public enableIPv6:Z
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public enablePreconnection:Z
 
 .field public initialConfig:Landroid/net/InitialConfigurationParcelable;
 
+.field public ipv4ProvisioningMode:I
+
 .field public ipv6AddrGenMode:I
+
+.field public ipv6ProvisioningMode:I
 
 .field public layer2Info:Landroid/net/Layer2InformationParcelable;
 
@@ -61,7 +71,7 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 1
 
     new-instance v0, Landroid/net/ProvisioningConfigurationParcelable$1;
@@ -96,11 +106,15 @@
 
     iput-boolean v0, p0, Landroid/net/ProvisioningConfigurationParcelable;->enablePreconnection:Z
 
+    iput v0, p0, Landroid/net/ProvisioningConfigurationParcelable;->ipv4ProvisioningMode:I
+
+    iput v0, p0, Landroid/net/ProvisioningConfigurationParcelable;->ipv6ProvisioningMode:I
+
     return-void
 .end method
 
 .method private describeContents(Ljava/lang/Object;)I
-    .locals 4
+    .locals 2
 
     const/4 v0, 0x0
 
@@ -113,32 +127,28 @@
 
     if-eqz v1, :cond_2
 
-    const/4 v0, 0x0
+    check-cast p1, Ljava/util/Collection;
 
-    move-object v1, p1
+    invoke-interface {p1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
-    check-cast v1, Ljava/util/Collection;
+    move-result-object p1
 
-    invoke-interface {v1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+    :goto_0
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
 
-    :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-direct {p0, v1}, Landroid/net/ProvisioningConfigurationParcelable;->describeContents(Ljava/lang/Object;)I
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_1
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v2
-
-    invoke-direct {p0, v2}, Landroid/net/ProvisioningConfigurationParcelable;->describeContents(Ljava/lang/Object;)I
-
-    move-result v3
-
-    or-int/2addr v0, v3
+    or-int/2addr v0, v1
 
     goto :goto_0
 
@@ -146,19 +156,17 @@
     return v0
 
     :cond_2
-    instance-of v1, p1, Landroid/os/Parcelable;
+    instance-of p0, p1, Landroid/os/Parcelable;
 
-    if-eqz v1, :cond_3
+    if-eqz p0, :cond_3
 
-    move-object v0, p1
+    check-cast p1, Landroid/os/Parcelable;
 
-    check-cast v0, Landroid/os/Parcelable;
+    invoke-interface {p1}, Landroid/os/Parcelable;->describeContents()I
 
-    invoke-interface {v0}, Landroid/os/Parcelable;->describeContents()I
+    move-result p0
 
-    move-result v0
-
-    return v0
+    return p0
 
     :cond_3
     return v0
@@ -169,15 +177,13 @@
 .method public describeContents()I
     .locals 2
 
-    const/4 v0, 0x0
+    iget-object v0, p0, Landroid/net/ProvisioningConfigurationParcelable;->initialConfig:Landroid/net/InitialConfigurationParcelable;
 
-    iget-object v1, p0, Landroid/net/ProvisioningConfigurationParcelable;->initialConfig:Landroid/net/InitialConfigurationParcelable;
+    invoke-direct {p0, v0}, Landroid/net/ProvisioningConfigurationParcelable;->describeContents(Ljava/lang/Object;)I
 
-    invoke-direct {p0, v1}, Landroid/net/ProvisioningConfigurationParcelable;->describeContents(Ljava/lang/Object;)I
+    move-result v0
 
-    move-result v1
-
-    or-int/2addr v0, v1
+    or-int/lit8 v0, v0, 0x0
 
     iget-object v1, p0, Landroid/net/ProvisioningConfigurationParcelable;->staticIpConfig:Landroid/net/StaticIpConfiguration;
 
@@ -223,15 +229,15 @@
 
     invoke-direct {p0, v1}, Landroid/net/ProvisioningConfigurationParcelable;->describeContents(Ljava/lang/Object;)I
 
-    move-result v1
+    move-result p0
 
-    or-int/2addr v0, v1
+    or-int/2addr p0, v0
 
-    return v0
+    return p0
 .end method
 
 .method public final readFromParcel(Landroid/os/Parcel;)V
-    .locals 8
+    .locals 5
 
     invoke-virtual {p1}, Landroid/os/Parcel;->dataPosition()I
 
@@ -241,783 +247,657 @@
 
     move-result v1
 
-    const-string v2, "Overflow in the size of parcelable"
+    const/4 v2, 0x4
 
-    const v3, 0x7fffffff
+    const-string v3, "Overflow in the size of parcelable"
 
-    if-gez v1, :cond_1
+    const v4, 0x7fffffff
 
-    sub-int/2addr v3, v1
+    if-lt v1, v2, :cond_25
 
-    if-gt v0, v3, :cond_0
+    :try_start_0
+    invoke-virtual {p1}, Landroid/os/Parcel;->dataPosition()I
 
-    add-int v2, v0, v1
+    move-result v2
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->setDataPosition(I)V
+    sub-int/2addr v2, v0
+
+    if-lt v2, v1, :cond_1
+
+    sub-int/2addr v4, v1
+
+    if-gt v0, v4, :cond_0
+
+    :goto_0
+    add-int/2addr v0, v1
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->setDataPosition(I)V
 
     return-void
 
     :cond_0
-    new-instance v3, Landroid/os/BadParcelableException;
+    new-instance p0, Landroid/os/BadParcelableException;
 
-    invoke-direct {v3, v2}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v3}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
 
-    throw v3
+    throw p0
 
     :cond_1
-    :try_start_0
+    :try_start_1
+    invoke-virtual {p1}, Landroid/os/Parcel;->readBoolean()Z
+
+    move-result v2
+
+    iput-boolean v2, p0, Landroid/net/ProvisioningConfigurationParcelable;->enableIPv4:Z
+
     invoke-virtual {p1}, Landroid/os/Parcel;->dataPosition()I
 
-    move-result v4
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    move-result v2
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    sub-int/2addr v4, v0
+    sub-int/2addr v2, v0
 
-    if-lt v4, v1, :cond_3
+    if-lt v2, v1, :cond_3
 
-    sub-int/2addr v3, v1
+    sub-int/2addr v4, v1
 
-    if-gt v0, v3, :cond_2
+    if-gt v0, v4, :cond_2
 
-    add-int v2, v0, v1
-
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->setDataPosition(I)V
-
-    return-void
+    goto :goto_0
 
     :cond_2
-    new-instance v3, Landroid/os/BadParcelableException;
+    new-instance p0, Landroid/os/BadParcelableException;
 
-    invoke-direct {v3, v2}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v3}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
 
-    throw v3
+    throw p0
 
     :cond_3
-    :try_start_1
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+    :try_start_2
+    invoke-virtual {p1}, Landroid/os/Parcel;->readBoolean()Z
 
-    move-result v4
+    move-result v2
 
-    const/4 v5, 0x1
+    iput-boolean v2, p0, Landroid/net/ProvisioningConfigurationParcelable;->enableIPv6:Z
 
-    const/4 v6, 0x0
+    invoke-virtual {p1}, Landroid/os/Parcel;->dataPosition()I
 
-    if-eqz v4, :cond_4
+    move-result v2
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    move v4, v5
+    sub-int/2addr v2, v0
+
+    if-lt v2, v1, :cond_5
+
+    sub-int/2addr v4, v1
+
+    if-gt v0, v4, :cond_4
 
     goto :goto_0
 
     :cond_4
-    move v4, v6
+    new-instance p0, Landroid/os/BadParcelableException;
 
-    :goto_0
-    iput-boolean v4, p0, Landroid/net/ProvisioningConfigurationParcelable;->enableIPv4:Z
+    invoke-direct {p0, v3}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {p1}, Landroid/os/Parcel;->dataPosition()I
-
-    move-result v4
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    sub-int/2addr v4, v0
-
-    if-lt v4, v1, :cond_6
-
-    sub-int/2addr v3, v1
-
-    if-gt v0, v3, :cond_5
-
-    add-int v2, v0, v1
-
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->setDataPosition(I)V
-
-    return-void
+    throw p0
 
     :cond_5
-    new-instance v3, Landroid/os/BadParcelableException;
-
-    invoke-direct {v3, v2}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
-
-    throw v3
-
-    :cond_6
-    :try_start_2
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v4
-
-    if-eqz v4, :cond_7
-
-    move v4, v5
-
-    goto :goto_1
-
-    :cond_7
-    move v4, v6
-
-    :goto_1
-    iput-boolean v4, p0, Landroid/net/ProvisioningConfigurationParcelable;->enableIPv6:Z
-
-    invoke-virtual {p1}, Landroid/os/Parcel;->dataPosition()I
-
-    move-result v4
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
-
-    sub-int/2addr v4, v0
-
-    if-lt v4, v1, :cond_9
-
-    sub-int/2addr v3, v1
-
-    if-gt v0, v3, :cond_8
-
-    add-int v2, v0, v1
-
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->setDataPosition(I)V
-
-    return-void
-
-    :cond_8
-    new-instance v3, Landroid/os/BadParcelableException;
-
-    invoke-direct {v3, v2}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
-
-    throw v3
-
-    :cond_9
     :try_start_3
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+    invoke-virtual {p1}, Landroid/os/Parcel;->readBoolean()Z
 
-    move-result v4
+    move-result v2
 
-    if-eqz v4, :cond_a
-
-    move v4, v5
-
-    goto :goto_2
-
-    :cond_a
-    move v4, v6
-
-    :goto_2
-    iput-boolean v4, p0, Landroid/net/ProvisioningConfigurationParcelable;->usingMultinetworkPolicyTracker:Z
+    iput-boolean v2, p0, Landroid/net/ProvisioningConfigurationParcelable;->usingMultinetworkPolicyTracker:Z
 
     invoke-virtual {p1}, Landroid/os/Parcel;->dataPosition()I
 
-    move-result v4
+    move-result v2
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    sub-int/2addr v4, v0
+    sub-int/2addr v2, v0
 
-    if-lt v4, v1, :cond_c
+    if-lt v2, v1, :cond_7
 
-    sub-int/2addr v3, v1
+    sub-int/2addr v4, v1
 
-    if-gt v0, v3, :cond_b
+    if-gt v0, v4, :cond_6
 
-    add-int v2, v0, v1
+    goto :goto_0
 
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->setDataPosition(I)V
+    :cond_6
+    new-instance p0, Landroid/os/BadParcelableException;
 
-    return-void
+    invoke-direct {p0, v3}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
 
-    :cond_b
-    new-instance v3, Landroid/os/BadParcelableException;
+    throw p0
 
-    invoke-direct {v3, v2}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
-
-    throw v3
-
-    :cond_c
+    :cond_7
     :try_start_4
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+    invoke-virtual {p1}, Landroid/os/Parcel;->readBoolean()Z
 
-    move-result v4
+    move-result v2
 
-    if-eqz v4, :cond_d
-
-    move v4, v5
-
-    goto :goto_3
-
-    :cond_d
-    move v4, v6
-
-    :goto_3
-    iput-boolean v4, p0, Landroid/net/ProvisioningConfigurationParcelable;->usingIpReachabilityMonitor:Z
+    iput-boolean v2, p0, Landroid/net/ProvisioningConfigurationParcelable;->usingIpReachabilityMonitor:Z
 
     invoke-virtual {p1}, Landroid/os/Parcel;->dataPosition()I
 
-    move-result v4
+    move-result v2
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
-    sub-int/2addr v4, v0
+    sub-int/2addr v2, v0
 
-    if-lt v4, v1, :cond_f
+    if-lt v2, v1, :cond_9
 
-    sub-int/2addr v3, v1
+    sub-int/2addr v4, v1
 
-    if-gt v0, v3, :cond_e
+    if-gt v0, v4, :cond_8
 
-    add-int v2, v0, v1
+    goto :goto_0
 
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->setDataPosition(I)V
+    :cond_8
+    new-instance p0, Landroid/os/BadParcelableException;
 
-    return-void
+    invoke-direct {p0, v3}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
 
-    :cond_e
-    new-instance v3, Landroid/os/BadParcelableException;
+    throw p0
 
-    invoke-direct {v3, v2}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
-
-    throw v3
-
-    :cond_f
+    :cond_9
     :try_start_5
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result v4
+    move-result v2
 
-    iput v4, p0, Landroid/net/ProvisioningConfigurationParcelable;->requestedPreDhcpActionMs:I
+    iput v2, p0, Landroid/net/ProvisioningConfigurationParcelable;->requestedPreDhcpActionMs:I
 
     invoke-virtual {p1}, Landroid/os/Parcel;->dataPosition()I
 
-    move-result v4
+    move-result v2
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
-    sub-int/2addr v4, v0
+    sub-int/2addr v2, v0
 
-    if-lt v4, v1, :cond_11
+    if-lt v2, v1, :cond_b
 
-    sub-int/2addr v3, v1
+    sub-int/2addr v4, v1
 
-    if-gt v0, v3, :cond_10
+    if-gt v0, v4, :cond_a
 
-    add-int v2, v0, v1
+    goto :goto_0
 
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->setDataPosition(I)V
+    :cond_a
+    new-instance p0, Landroid/os/BadParcelableException;
 
-    return-void
+    invoke-direct {p0, v3}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
 
-    :cond_10
-    new-instance v3, Landroid/os/BadParcelableException;
+    throw p0
 
-    invoke-direct {v3, v2}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
-
-    throw v3
-
-    :cond_11
+    :cond_b
     :try_start_6
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+    sget-object v2, Landroid/net/InitialConfigurationParcelable;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    move-result v4
+    invoke-virtual {p1, v2}, Landroid/os/Parcel;->readTypedObject(Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
 
-    const/4 v7, 0x0
+    move-result-object v2
 
-    if-eqz v4, :cond_12
+    check-cast v2, Landroid/net/InitialConfigurationParcelable;
 
-    sget-object v4, Landroid/net/InitialConfigurationParcelable;->CREATOR:Landroid/os/Parcelable$Creator;
+    iput-object v2, p0, Landroid/net/ProvisioningConfigurationParcelable;->initialConfig:Landroid/net/InitialConfigurationParcelable;
 
-    invoke-interface {v4, p1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Landroid/net/InitialConfigurationParcelable;
-
-    iput-object v4, p0, Landroid/net/ProvisioningConfigurationParcelable;->initialConfig:Landroid/net/InitialConfigurationParcelable;
-
-    goto :goto_4
-
-    :cond_12
-    iput-object v7, p0, Landroid/net/ProvisioningConfigurationParcelable;->initialConfig:Landroid/net/InitialConfigurationParcelable;
-
-    :goto_4
     invoke-virtual {p1}, Landroid/os/Parcel;->dataPosition()I
 
-    move-result v4
+    move-result v2
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
-    sub-int/2addr v4, v0
+    sub-int/2addr v2, v0
 
-    if-lt v4, v1, :cond_14
+    if-lt v2, v1, :cond_d
 
-    sub-int/2addr v3, v1
+    sub-int/2addr v4, v1
 
-    if-gt v0, v3, :cond_13
+    if-gt v0, v4, :cond_c
 
-    add-int v2, v0, v1
+    goto/16 :goto_0
 
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->setDataPosition(I)V
+    :cond_c
+    new-instance p0, Landroid/os/BadParcelableException;
 
-    return-void
+    invoke-direct {p0, v3}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
 
-    :cond_13
-    new-instance v3, Landroid/os/BadParcelableException;
+    throw p0
 
-    invoke-direct {v3, v2}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
-
-    throw v3
-
-    :cond_14
+    :cond_d
     :try_start_7
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+    sget-object v2, Landroid/net/StaticIpConfiguration;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    move-result v4
+    invoke-virtual {p1, v2}, Landroid/os/Parcel;->readTypedObject(Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
 
-    if-eqz v4, :cond_15
+    move-result-object v2
 
-    sget-object v4, Landroid/net/StaticIpConfiguration;->CREATOR:Landroid/os/Parcelable$Creator;
+    check-cast v2, Landroid/net/StaticIpConfiguration;
 
-    invoke-interface {v4, p1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    iput-object v2, p0, Landroid/net/ProvisioningConfigurationParcelable;->staticIpConfig:Landroid/net/StaticIpConfiguration;
 
-    move-result-object v4
-
-    check-cast v4, Landroid/net/StaticIpConfiguration;
-
-    iput-object v4, p0, Landroid/net/ProvisioningConfigurationParcelable;->staticIpConfig:Landroid/net/StaticIpConfiguration;
-
-    goto :goto_5
-
-    :cond_15
-    iput-object v7, p0, Landroid/net/ProvisioningConfigurationParcelable;->staticIpConfig:Landroid/net/StaticIpConfiguration;
-
-    :goto_5
     invoke-virtual {p1}, Landroid/os/Parcel;->dataPosition()I
 
-    move-result v4
+    move-result v2
     :try_end_7
     .catchall {:try_start_7 .. :try_end_7} :catchall_0
 
-    sub-int/2addr v4, v0
+    sub-int/2addr v2, v0
 
-    if-lt v4, v1, :cond_17
+    if-lt v2, v1, :cond_f
 
-    sub-int/2addr v3, v1
+    sub-int/2addr v4, v1
 
-    if-gt v0, v3, :cond_16
+    if-gt v0, v4, :cond_e
 
-    add-int v2, v0, v1
+    goto/16 :goto_0
 
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->setDataPosition(I)V
+    :cond_e
+    new-instance p0, Landroid/os/BadParcelableException;
 
-    return-void
+    invoke-direct {p0, v3}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
 
-    :cond_16
-    new-instance v3, Landroid/os/BadParcelableException;
+    throw p0
 
-    invoke-direct {v3, v2}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
-
-    throw v3
-
-    :cond_17
+    :cond_f
     :try_start_8
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+    sget-object v2, Landroid/net/apf/ApfCapabilities;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    move-result v4
+    invoke-virtual {p1, v2}, Landroid/os/Parcel;->readTypedObject(Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
 
-    if-eqz v4, :cond_18
+    move-result-object v2
 
-    sget-object v4, Landroid/net/apf/ApfCapabilities;->CREATOR:Landroid/os/Parcelable$Creator;
+    check-cast v2, Landroid/net/apf/ApfCapabilities;
 
-    invoke-interface {v4, p1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    iput-object v2, p0, Landroid/net/ProvisioningConfigurationParcelable;->apfCapabilities:Landroid/net/apf/ApfCapabilities;
 
-    move-result-object v4
-
-    check-cast v4, Landroid/net/apf/ApfCapabilities;
-
-    iput-object v4, p0, Landroid/net/ProvisioningConfigurationParcelable;->apfCapabilities:Landroid/net/apf/ApfCapabilities;
-
-    goto :goto_6
-
-    :cond_18
-    iput-object v7, p0, Landroid/net/ProvisioningConfigurationParcelable;->apfCapabilities:Landroid/net/apf/ApfCapabilities;
-
-    :goto_6
     invoke-virtual {p1}, Landroid/os/Parcel;->dataPosition()I
 
-    move-result v4
+    move-result v2
     :try_end_8
     .catchall {:try_start_8 .. :try_end_8} :catchall_0
 
-    sub-int/2addr v4, v0
+    sub-int/2addr v2, v0
 
-    if-lt v4, v1, :cond_1a
+    if-lt v2, v1, :cond_11
 
-    sub-int/2addr v3, v1
+    sub-int/2addr v4, v1
 
-    if-gt v0, v3, :cond_19
+    if-gt v0, v4, :cond_10
 
-    add-int v2, v0, v1
+    goto/16 :goto_0
 
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->setDataPosition(I)V
+    :cond_10
+    new-instance p0, Landroid/os/BadParcelableException;
 
-    return-void
+    invoke-direct {p0, v3}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
 
-    :cond_19
-    new-instance v3, Landroid/os/BadParcelableException;
+    throw p0
 
-    invoke-direct {v3, v2}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
-
-    throw v3
-
-    :cond_1a
+    :cond_11
     :try_start_9
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result v4
+    move-result v2
 
-    iput v4, p0, Landroid/net/ProvisioningConfigurationParcelable;->provisioningTimeoutMs:I
+    iput v2, p0, Landroid/net/ProvisioningConfigurationParcelable;->provisioningTimeoutMs:I
 
     invoke-virtual {p1}, Landroid/os/Parcel;->dataPosition()I
 
-    move-result v4
+    move-result v2
     :try_end_9
     .catchall {:try_start_9 .. :try_end_9} :catchall_0
 
-    sub-int/2addr v4, v0
+    sub-int/2addr v2, v0
 
-    if-lt v4, v1, :cond_1c
+    if-lt v2, v1, :cond_13
 
-    sub-int/2addr v3, v1
+    sub-int/2addr v4, v1
 
-    if-gt v0, v3, :cond_1b
+    if-gt v0, v4, :cond_12
 
-    add-int v2, v0, v1
+    goto/16 :goto_0
 
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->setDataPosition(I)V
+    :cond_12
+    new-instance p0, Landroid/os/BadParcelableException;
 
-    return-void
+    invoke-direct {p0, v3}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
 
-    :cond_1b
-    new-instance v3, Landroid/os/BadParcelableException;
+    throw p0
 
-    invoke-direct {v3, v2}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
-
-    throw v3
-
-    :cond_1c
+    :cond_13
     :try_start_a
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result v4
+    move-result v2
 
-    iput v4, p0, Landroid/net/ProvisioningConfigurationParcelable;->ipv6AddrGenMode:I
+    iput v2, p0, Landroid/net/ProvisioningConfigurationParcelable;->ipv6AddrGenMode:I
 
     invoke-virtual {p1}, Landroid/os/Parcel;->dataPosition()I
 
-    move-result v4
+    move-result v2
     :try_end_a
     .catchall {:try_start_a .. :try_end_a} :catchall_0
 
-    sub-int/2addr v4, v0
+    sub-int/2addr v2, v0
 
-    if-lt v4, v1, :cond_1e
+    if-lt v2, v1, :cond_15
 
-    sub-int/2addr v3, v1
+    sub-int/2addr v4, v1
 
-    if-gt v0, v3, :cond_1d
+    if-gt v0, v4, :cond_14
 
-    add-int v2, v0, v1
+    goto/16 :goto_0
 
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->setDataPosition(I)V
+    :cond_14
+    new-instance p0, Landroid/os/BadParcelableException;
 
-    return-void
+    invoke-direct {p0, v3}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
 
-    :cond_1d
-    new-instance v3, Landroid/os/BadParcelableException;
+    throw p0
 
-    invoke-direct {v3, v2}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
-
-    throw v3
-
-    :cond_1e
+    :cond_15
     :try_start_b
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+    sget-object v2, Landroid/net/Network;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    move-result v4
+    invoke-virtual {p1, v2}, Landroid/os/Parcel;->readTypedObject(Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
 
-    if-eqz v4, :cond_1f
+    move-result-object v2
 
-    sget-object v4, Landroid/net/Network;->CREATOR:Landroid/os/Parcelable$Creator;
+    check-cast v2, Landroid/net/Network;
 
-    invoke-interface {v4, p1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    iput-object v2, p0, Landroid/net/ProvisioningConfigurationParcelable;->network:Landroid/net/Network;
 
-    move-result-object v4
-
-    check-cast v4, Landroid/net/Network;
-
-    iput-object v4, p0, Landroid/net/ProvisioningConfigurationParcelable;->network:Landroid/net/Network;
-
-    goto :goto_7
-
-    :cond_1f
-    iput-object v7, p0, Landroid/net/ProvisioningConfigurationParcelable;->network:Landroid/net/Network;
-
-    :goto_7
     invoke-virtual {p1}, Landroid/os/Parcel;->dataPosition()I
 
-    move-result v4
+    move-result v2
     :try_end_b
     .catchall {:try_start_b .. :try_end_b} :catchall_0
 
-    sub-int/2addr v4, v0
+    sub-int/2addr v2, v0
 
-    if-lt v4, v1, :cond_21
+    if-lt v2, v1, :cond_17
 
-    sub-int/2addr v3, v1
+    sub-int/2addr v4, v1
 
-    if-gt v0, v3, :cond_20
+    if-gt v0, v4, :cond_16
 
-    add-int v2, v0, v1
+    goto/16 :goto_0
 
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->setDataPosition(I)V
+    :cond_16
+    new-instance p0, Landroid/os/BadParcelableException;
 
-    return-void
+    invoke-direct {p0, v3}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
 
-    :cond_20
-    new-instance v3, Landroid/os/BadParcelableException;
+    throw p0
 
-    invoke-direct {v3, v2}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
-
-    throw v3
-
-    :cond_21
+    :cond_17
     :try_start_c
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v2
 
-    iput-object v4, p0, Landroid/net/ProvisioningConfigurationParcelable;->displayName:Ljava/lang/String;
+    iput-object v2, p0, Landroid/net/ProvisioningConfigurationParcelable;->displayName:Ljava/lang/String;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->dataPosition()I
 
-    move-result v4
+    move-result v2
     :try_end_c
     .catchall {:try_start_c .. :try_end_c} :catchall_0
 
-    sub-int/2addr v4, v0
+    sub-int/2addr v2, v0
 
-    if-lt v4, v1, :cond_23
+    if-lt v2, v1, :cond_19
 
-    sub-int/2addr v3, v1
+    sub-int/2addr v4, v1
 
-    if-gt v0, v3, :cond_22
+    if-gt v0, v4, :cond_18
 
-    add-int v2, v0, v1
+    goto/16 :goto_0
 
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->setDataPosition(I)V
+    :cond_18
+    new-instance p0, Landroid/os/BadParcelableException;
 
-    return-void
+    invoke-direct {p0, v3}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
 
-    :cond_22
-    new-instance v3, Landroid/os/BadParcelableException;
+    throw p0
 
-    invoke-direct {v3, v2}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
-
-    throw v3
-
-    :cond_23
+    :cond_19
     :try_start_d
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+    invoke-virtual {p1}, Landroid/os/Parcel;->readBoolean()Z
 
-    move-result v4
+    move-result v2
 
-    if-eqz v4, :cond_24
-
-    goto :goto_8
-
-    :cond_24
-    move v5, v6
-
-    :goto_8
-    iput-boolean v5, p0, Landroid/net/ProvisioningConfigurationParcelable;->enablePreconnection:Z
+    iput-boolean v2, p0, Landroid/net/ProvisioningConfigurationParcelable;->enablePreconnection:Z
 
     invoke-virtual {p1}, Landroid/os/Parcel;->dataPosition()I
 
-    move-result v4
+    move-result v2
     :try_end_d
     .catchall {:try_start_d .. :try_end_d} :catchall_0
 
-    sub-int/2addr v4, v0
+    sub-int/2addr v2, v0
 
-    if-lt v4, v1, :cond_26
+    if-lt v2, v1, :cond_1b
 
-    sub-int/2addr v3, v1
+    sub-int/2addr v4, v1
 
-    if-gt v0, v3, :cond_25
+    if-gt v0, v4, :cond_1a
 
-    add-int v2, v0, v1
+    goto/16 :goto_0
 
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->setDataPosition(I)V
+    :cond_1a
+    new-instance p0, Landroid/os/BadParcelableException;
 
-    return-void
+    invoke-direct {p0, v3}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
 
-    :cond_25
-    new-instance v3, Landroid/os/BadParcelableException;
+    throw p0
 
-    invoke-direct {v3, v2}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
-
-    throw v3
-
-    :cond_26
+    :cond_1b
     :try_start_e
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+    sget-object v2, Landroid/net/ScanResultInfoParcelable;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    move-result v4
+    invoke-virtual {p1, v2}, Landroid/os/Parcel;->readTypedObject(Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
 
-    if-eqz v4, :cond_27
+    move-result-object v2
 
-    sget-object v4, Landroid/net/ScanResultInfoParcelable;->CREATOR:Landroid/os/Parcelable$Creator;
+    check-cast v2, Landroid/net/ScanResultInfoParcelable;
 
-    invoke-interface {v4, p1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    iput-object v2, p0, Landroid/net/ProvisioningConfigurationParcelable;->scanResultInfo:Landroid/net/ScanResultInfoParcelable;
 
-    move-result-object v4
-
-    check-cast v4, Landroid/net/ScanResultInfoParcelable;
-
-    iput-object v4, p0, Landroid/net/ProvisioningConfigurationParcelable;->scanResultInfo:Landroid/net/ScanResultInfoParcelable;
-
-    goto :goto_9
-
-    :cond_27
-    iput-object v7, p0, Landroid/net/ProvisioningConfigurationParcelable;->scanResultInfo:Landroid/net/ScanResultInfoParcelable;
-
-    :goto_9
     invoke-virtual {p1}, Landroid/os/Parcel;->dataPosition()I
 
-    move-result v4
+    move-result v2
     :try_end_e
     .catchall {:try_start_e .. :try_end_e} :catchall_0
 
-    sub-int/2addr v4, v0
+    sub-int/2addr v2, v0
 
-    if-lt v4, v1, :cond_29
+    if-lt v2, v1, :cond_1d
 
-    sub-int/2addr v3, v1
+    sub-int/2addr v4, v1
 
-    if-gt v0, v3, :cond_28
+    if-gt v0, v4, :cond_1c
 
-    add-int v2, v0, v1
+    goto/16 :goto_0
 
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->setDataPosition(I)V
+    :cond_1c
+    new-instance p0, Landroid/os/BadParcelableException;
 
-    return-void
+    invoke-direct {p0, v3}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
 
-    :cond_28
-    new-instance v3, Landroid/os/BadParcelableException;
+    throw p0
 
-    invoke-direct {v3, v2}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
-
-    throw v3
-
-    :cond_29
+    :cond_1d
     :try_start_f
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+    sget-object v2, Landroid/net/Layer2InformationParcelable;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    move-result v4
+    invoke-virtual {p1, v2}, Landroid/os/Parcel;->readTypedObject(Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
 
-    if-eqz v4, :cond_2a
+    move-result-object v2
 
-    sget-object v4, Landroid/net/Layer2InformationParcelable;->CREATOR:Landroid/os/Parcelable$Creator;
+    check-cast v2, Landroid/net/Layer2InformationParcelable;
 
-    invoke-interface {v4, p1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    iput-object v2, p0, Landroid/net/ProvisioningConfigurationParcelable;->layer2Info:Landroid/net/Layer2InformationParcelable;
 
-    move-result-object v4
-
-    check-cast v4, Landroid/net/Layer2InformationParcelable;
-
-    iput-object v4, p0, Landroid/net/ProvisioningConfigurationParcelable;->layer2Info:Landroid/net/Layer2InformationParcelable;
-
-    goto :goto_a
-
-    :cond_2a
-    iput-object v7, p0, Landroid/net/ProvisioningConfigurationParcelable;->layer2Info:Landroid/net/Layer2InformationParcelable;
-
-    :goto_a
     invoke-virtual {p1}, Landroid/os/Parcel;->dataPosition()I
 
-    move-result v4
+    move-result v2
     :try_end_f
     .catchall {:try_start_f .. :try_end_f} :catchall_0
 
-    sub-int/2addr v4, v0
+    sub-int/2addr v2, v0
 
-    if-lt v4, v1, :cond_2c
+    if-lt v2, v1, :cond_1f
 
-    sub-int/2addr v3, v1
+    sub-int/2addr v4, v1
 
-    if-gt v0, v3, :cond_2b
+    if-gt v0, v4, :cond_1e
 
-    add-int v2, v0, v1
+    goto/16 :goto_0
 
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->setDataPosition(I)V
+    :cond_1e
+    new-instance p0, Landroid/os/BadParcelableException;
 
-    return-void
+    invoke-direct {p0, v3}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
 
-    :cond_2b
-    new-instance v3, Landroid/os/BadParcelableException;
+    throw p0
 
-    invoke-direct {v3, v2}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
-
-    throw v3
-
-    :cond_2c
+    :cond_1f
     :try_start_10
-    sget-object v4, Landroid/net/networkstack/aidl/dhcp/DhcpOption;->CREATOR:Landroid/os/Parcelable$Creator;
+    sget-object v2, Landroid/net/networkstack/aidl/dhcp/DhcpOption;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-virtual {p1, v4}, Landroid/os/Parcel;->createTypedArrayList(Landroid/os/Parcelable$Creator;)Ljava/util/ArrayList;
+    invoke-virtual {p1, v2}, Landroid/os/Parcel;->createTypedArrayList(Landroid/os/Parcelable$Creator;)Ljava/util/ArrayList;
 
-    move-result-object v4
+    move-result-object v2
 
-    iput-object v4, p0, Landroid/net/ProvisioningConfigurationParcelable;->options:Ljava/util/List;
+    iput-object v2, p0, Landroid/net/ProvisioningConfigurationParcelable;->options:Ljava/util/List;
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->dataPosition()I
+
+    move-result v2
     :try_end_10
     .catchall {:try_start_10 .. :try_end_10} :catchall_0
 
-    sub-int/2addr v3, v1
+    sub-int/2addr v2, v0
 
-    if-gt v0, v3, :cond_2d
+    if-lt v2, v1, :cond_21
 
-    add-int v2, v0, v1
+    sub-int/2addr v4, v1
 
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->setDataPosition(I)V
+    if-gt v0, v4, :cond_20
 
-    nop
+    goto/16 :goto_0
+
+    :cond_20
+    new-instance p0, Landroid/os/BadParcelableException;
+
+    invoke-direct {p0, v3}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+
+    :cond_21
+    :try_start_11
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v2
+
+    iput v2, p0, Landroid/net/ProvisioningConfigurationParcelable;->ipv4ProvisioningMode:I
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->dataPosition()I
+
+    move-result v2
+    :try_end_11
+    .catchall {:try_start_11 .. :try_end_11} :catchall_0
+
+    sub-int/2addr v2, v0
+
+    if-lt v2, v1, :cond_23
+
+    sub-int/2addr v4, v1
+
+    if-gt v0, v4, :cond_22
+
+    goto/16 :goto_0
+
+    :cond_22
+    new-instance p0, Landroid/os/BadParcelableException;
+
+    invoke-direct {p0, v3}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+
+    :cond_23
+    :try_start_12
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v2
+
+    iput v2, p0, Landroid/net/ProvisioningConfigurationParcelable;->ipv6ProvisioningMode:I
+    :try_end_12
+    .catchall {:try_start_12 .. :try_end_12} :catchall_0
+
+    sub-int/2addr v4, v1
+
+    if-gt v0, v4, :cond_24
+
+    add-int/2addr v0, v1
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->setDataPosition(I)V
 
     return-void
 
-    :cond_2d
-    new-instance v3, Landroid/os/BadParcelableException;
+    :cond_24
+    new-instance p0, Landroid/os/BadParcelableException;
 
-    invoke-direct {v3, v2}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v3}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
 
-    throw v3
+    throw p0
 
     :catchall_0
-    move-exception v4
+    move-exception p0
 
-    sub-int/2addr v3, v1
+    goto :goto_1
 
-    if-le v0, v3, :cond_2e
+    :cond_25
+    :try_start_13
+    new-instance p0, Landroid/os/BadParcelableException;
 
-    new-instance v3, Landroid/os/BadParcelableException;
+    const-string v2, "Parcelable too small"
 
-    invoke-direct {v3, v2}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v2}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
 
-    throw v3
+    throw p0
+    :try_end_13
+    .catchall {:try_start_13 .. :try_end_13} :catchall_0
 
-    :cond_2e
-    add-int v2, v0, v1
+    :goto_1
+    sub-int/2addr v4, v1
 
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->setDataPosition(I)V
+    if-le v0, v4, :cond_26
 
-    throw v4
+    new-instance p0, Landroid/os/BadParcelableException;
+
+    invoke-direct {p0, v3}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+
+    :cond_26
+    add-int/2addr v0, v1
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->setDataPosition(I)V
+
+    throw p0
 .end method
 
 .method public toString()Ljava/lang/String;
@@ -1313,7 +1193,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v2, "layer2Info: "
+    const-string v2, "layer2Info: "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1357,25 +1237,61 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "android.net.ProvisioningConfigurationParcelable"
+    const-string v2, "ipv4ProvisioningMode: "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/util/StringJoiner;->toString()Ljava/lang/String;
+    iget v2, p0, Landroid/net/ProvisioningConfigurationParcelable;->ipv4ProvisioningMode:I
 
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
 
-    return-object v1
+    invoke-virtual {v0, v1}, Ljava/util/StringJoiner;->add(Ljava/lang/CharSequence;)Ljava/util/StringJoiner;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "ipv6ProvisioningMode: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget p0, p0, Landroid/net/ProvisioningConfigurationParcelable;->ipv6ProvisioningMode:I
+
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {v0, p0}, Ljava/util/StringJoiner;->add(Ljava/lang/CharSequence;)Ljava/util/StringJoiner;
+
+    new-instance p0, Ljava/lang/StringBuilder;
+
+    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "android.net.ProvisioningConfigurationParcelable"
+
+    invoke-virtual {p0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/util/StringJoiner;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method public final writeToParcel(Landroid/os/Parcel;I)V
-    .locals 4
+    .locals 2
 
     invoke-virtual {p1}, Landroid/os/Parcel;->dataPosition()I
 
@@ -1385,155 +1301,89 @@
 
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    iget-boolean v2, p0, Landroid/net/ProvisioningConfigurationParcelable;->enableIPv4:Z
+    iget-boolean v1, p0, Landroid/net/ProvisioningConfigurationParcelable;->enableIPv4:Z
 
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeBoolean(Z)V
 
-    iget-boolean v2, p0, Landroid/net/ProvisioningConfigurationParcelable;->enableIPv6:Z
+    iget-boolean v1, p0, Landroid/net/ProvisioningConfigurationParcelable;->enableIPv6:Z
 
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeBoolean(Z)V
 
-    iget-boolean v2, p0, Landroid/net/ProvisioningConfigurationParcelable;->usingMultinetworkPolicyTracker:Z
+    iget-boolean v1, p0, Landroid/net/ProvisioningConfigurationParcelable;->usingMultinetworkPolicyTracker:Z
 
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeBoolean(Z)V
 
-    iget-boolean v2, p0, Landroid/net/ProvisioningConfigurationParcelable;->usingIpReachabilityMonitor:Z
+    iget-boolean v1, p0, Landroid/net/ProvisioningConfigurationParcelable;->usingIpReachabilityMonitor:Z
 
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeBoolean(Z)V
 
-    iget v2, p0, Landroid/net/ProvisioningConfigurationParcelable;->requestedPreDhcpActionMs:I
+    iget v1, p0, Landroid/net/ProvisioningConfigurationParcelable;->requestedPreDhcpActionMs:I
 
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
-
-    iget-object v2, p0, Landroid/net/ProvisioningConfigurationParcelable;->initialConfig:Landroid/net/InitialConfigurationParcelable;
-
-    const/4 v3, 0x1
-
-    if-eqz v2, :cond_0
-
-    invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V
-
-    iget-object v2, p0, Landroid/net/ProvisioningConfigurationParcelable;->initialConfig:Landroid/net/InitialConfigurationParcelable;
-
-    invoke-virtual {v2, p1, v1}, Landroid/net/InitialConfigurationParcelable;->writeToParcel(Landroid/os/Parcel;I)V
-
-    goto :goto_0
-
-    :cond_0
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    :goto_0
-    iget-object v2, p0, Landroid/net/ProvisioningConfigurationParcelable;->staticIpConfig:Landroid/net/StaticIpConfiguration;
+    iget-object v1, p0, Landroid/net/ProvisioningConfigurationParcelable;->initialConfig:Landroid/net/InitialConfigurationParcelable;
 
-    if-eqz v2, :cond_1
+    invoke-virtual {p1, v1, p2}, Landroid/os/Parcel;->writeTypedObject(Landroid/os/Parcelable;I)V
 
-    invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V
+    iget-object v1, p0, Landroid/net/ProvisioningConfigurationParcelable;->staticIpConfig:Landroid/net/StaticIpConfiguration;
 
-    iget-object v2, p0, Landroid/net/ProvisioningConfigurationParcelable;->staticIpConfig:Landroid/net/StaticIpConfiguration;
+    invoke-virtual {p1, v1, p2}, Landroid/os/Parcel;->writeTypedObject(Landroid/os/Parcelable;I)V
 
-    invoke-virtual {v2, p1, v1}, Landroid/net/StaticIpConfiguration;->writeToParcel(Landroid/os/Parcel;I)V
+    iget-object v1, p0, Landroid/net/ProvisioningConfigurationParcelable;->apfCapabilities:Landroid/net/apf/ApfCapabilities;
 
-    goto :goto_1
+    invoke-virtual {p1, v1, p2}, Landroid/os/Parcel;->writeTypedObject(Landroid/os/Parcelable;I)V
 
-    :cond_1
+    iget v1, p0, Landroid/net/ProvisioningConfigurationParcelable;->provisioningTimeoutMs:I
+
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    :goto_1
-    iget-object v2, p0, Landroid/net/ProvisioningConfigurationParcelable;->apfCapabilities:Landroid/net/apf/ApfCapabilities;
+    iget v1, p0, Landroid/net/ProvisioningConfigurationParcelable;->ipv6AddrGenMode:I
 
-    if-eqz v2, :cond_2
-
-    invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V
-
-    iget-object v2, p0, Landroid/net/ProvisioningConfigurationParcelable;->apfCapabilities:Landroid/net/apf/ApfCapabilities;
-
-    invoke-virtual {v2, p1, v1}, Landroid/net/apf/ApfCapabilities;->writeToParcel(Landroid/os/Parcel;I)V
-
-    goto :goto_2
-
-    :cond_2
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    :goto_2
-    iget v2, p0, Landroid/net/ProvisioningConfigurationParcelable;->provisioningTimeoutMs:I
+    iget-object v1, p0, Landroid/net/ProvisioningConfigurationParcelable;->network:Landroid/net/Network;
 
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v1, p2}, Landroid/os/Parcel;->writeTypedObject(Landroid/os/Parcelable;I)V
 
-    iget v2, p0, Landroid/net/ProvisioningConfigurationParcelable;->ipv6AddrGenMode:I
+    iget-object v1, p0, Landroid/net/ProvisioningConfigurationParcelable;->displayName:Ljava/lang/String;
 
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    iget-object v2, p0, Landroid/net/ProvisioningConfigurationParcelable;->network:Landroid/net/Network;
+    iget-boolean v1, p0, Landroid/net/ProvisioningConfigurationParcelable;->enablePreconnection:Z
 
-    if-eqz v2, :cond_3
+    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeBoolean(Z)V
 
-    invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V
+    iget-object v1, p0, Landroid/net/ProvisioningConfigurationParcelable;->scanResultInfo:Landroid/net/ScanResultInfoParcelable;
 
-    iget-object v2, p0, Landroid/net/ProvisioningConfigurationParcelable;->network:Landroid/net/Network;
+    invoke-virtual {p1, v1, p2}, Landroid/os/Parcel;->writeTypedObject(Landroid/os/Parcelable;I)V
 
-    invoke-virtual {v2, p1, v1}, Landroid/net/Network;->writeToParcel(Landroid/os/Parcel;I)V
+    iget-object v1, p0, Landroid/net/ProvisioningConfigurationParcelable;->layer2Info:Landroid/net/Layer2InformationParcelable;
 
-    goto :goto_3
+    invoke-virtual {p1, v1, p2}, Landroid/os/Parcel;->writeTypedObject(Landroid/os/Parcelable;I)V
 
-    :cond_3
-    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
+    iget-object p2, p0, Landroid/net/ProvisioningConfigurationParcelable;->options:Ljava/util/List;
 
-    :goto_3
-    iget-object v2, p0, Landroid/net/ProvisioningConfigurationParcelable;->displayName:Ljava/lang/String;
+    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeTypedList(Ljava/util/List;)V
 
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    iget p2, p0, Landroid/net/ProvisioningConfigurationParcelable;->ipv4ProvisioningMode:I
 
-    iget-boolean v2, p0, Landroid/net/ProvisioningConfigurationParcelable;->enablePreconnection:Z
+    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeInt(I)V
 
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
+    iget p0, p0, Landroid/net/ProvisioningConfigurationParcelable;->ipv6ProvisioningMode:I
 
-    iget-object v2, p0, Landroid/net/ProvisioningConfigurationParcelable;->scanResultInfo:Landroid/net/ScanResultInfoParcelable;
-
-    if-eqz v2, :cond_4
-
-    invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V
-
-    iget-object v2, p0, Landroid/net/ProvisioningConfigurationParcelable;->scanResultInfo:Landroid/net/ScanResultInfoParcelable;
-
-    invoke-virtual {v2, p1, v1}, Landroid/net/ScanResultInfoParcelable;->writeToParcel(Landroid/os/Parcel;I)V
-
-    goto :goto_4
-
-    :cond_4
-    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
-
-    :goto_4
-    iget-object v2, p0, Landroid/net/ProvisioningConfigurationParcelable;->layer2Info:Landroid/net/Layer2InformationParcelable;
-
-    if-eqz v2, :cond_5
-
-    invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V
-
-    iget-object v2, p0, Landroid/net/ProvisioningConfigurationParcelable;->layer2Info:Landroid/net/Layer2InformationParcelable;
-
-    invoke-virtual {v2, p1, v1}, Landroid/net/Layer2InformationParcelable;->writeToParcel(Landroid/os/Parcel;I)V
-
-    goto :goto_5
-
-    :cond_5
-    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
-
-    :goto_5
-    iget-object v1, p0, Landroid/net/ProvisioningConfigurationParcelable;->options:Ljava/util/List;
-
-    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeTypedList(Ljava/util/List;)V
+    invoke-virtual {p1, p0}, Landroid/os/Parcel;->writeInt(I)V
 
     invoke-virtual {p1}, Landroid/os/Parcel;->dataPosition()I
 
-    move-result v1
+    move-result p0
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->setDataPosition(I)V
 
-    sub-int v2, v1, v0
+    sub-int p2, p0, v0
 
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeInt(I)V
 
-    invoke-virtual {p1, v1}, Landroid/os/Parcel;->setDataPosition(I)V
+    invoke-virtual {p1, p0}, Landroid/os/Parcel;->setDataPosition(I)V
 
     return-void
 .end method

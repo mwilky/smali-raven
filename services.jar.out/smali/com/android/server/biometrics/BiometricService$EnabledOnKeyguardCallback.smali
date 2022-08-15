@@ -1,4 +1,4 @@
-.class final Lcom/android/server/biometrics/BiometricService$EnabledOnKeyguardCallback;
+.class public final Lcom/android/server/biometrics/BiometricService$EnabledOnKeyguardCallback;
 .super Ljava/lang/Object;
 .source "BiometricService.java"
 
@@ -12,20 +12,20 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x10
+    accessFlags = 0x11
     name = "EnabledOnKeyguardCallback"
 .end annotation
 
 
 # instance fields
-.field private final mCallback:Landroid/hardware/biometrics/IBiometricEnabledOnKeyguardCallback;
+.field public final mCallback:Landroid/hardware/biometrics/IBiometricEnabledOnKeyguardCallback;
 
-.field final synthetic this$0:Lcom/android/server/biometrics/BiometricService;
+.field public final synthetic this$0:Lcom/android/server/biometrics/BiometricService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/biometrics/BiometricService;Landroid/hardware/biometrics/IBiometricEnabledOnKeyguardCallback;)V
-    .locals 3
+.method public constructor <init>(Lcom/android/server/biometrics/BiometricService;Landroid/hardware/biometrics/IBiometricEnabledOnKeyguardCallback;)V
+    .locals 0
 
     iput-object p1, p0, Lcom/android/server/biometrics/BiometricService$EnabledOnKeyguardCallback;->this$0:Lcom/android/server/biometrics/BiometricService;
 
@@ -36,24 +36,24 @@
     :try_start_0
     invoke-interface {p2}, Landroid/hardware/biometrics/IBiometricEnabledOnKeyguardCallback;->asBinder()Landroid/os/IBinder;
 
-    move-result-object v0
+    move-result-object p1
 
-    const/4 v1, 0x0
+    const/4 p2, 0x0
 
-    invoke-interface {v0, p0, v1}, Landroid/os/IBinder;->linkToDeath(Landroid/os/IBinder$DeathRecipient;I)V
+    invoke-interface {p1, p0, p2}, Landroid/os/IBinder;->linkToDeath(Landroid/os/IBinder$DeathRecipient;I)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    const-string v1, "BiometricService"
+    const-string p1, "BiometricService"
 
-    const-string v2, "Unable to linkToDeath"
+    const-string p2, "Unable to linkToDeath"
 
-    invoke-static {v1, v2, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {p1, p2, p0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_0
     return-void
@@ -72,7 +72,7 @@
 
     iget-object v0, p0, Lcom/android/server/biometrics/BiometricService$EnabledOnKeyguardCallback;->this$0:Lcom/android/server/biometrics/BiometricService;
 
-    invoke-static {v0}, Lcom/android/server/biometrics/BiometricService;->access$1500(Lcom/android/server/biometrics/BiometricService;)Ljava/util/List;
+    invoke-static {v0}, Lcom/android/server/biometrics/BiometricService;->-$$Nest$fgetmEnabledOnKeyguardCallbacks(Lcom/android/server/biometrics/BiometricService;)Ljava/util/List;
 
     move-result-object v0
 
@@ -81,8 +81,8 @@
     return-void
 .end method
 
-.method notify(ZI)V
-    .locals 3
+.method public notify(ZI)V
+    .locals 2
 
     const-string v0, "BiometricService"
 
@@ -97,32 +97,29 @@
     goto :goto_0
 
     :catch_0
-    move-exception v1
+    move-exception p0
 
-    const-string v2, "Failed to invoke onChanged"
+    const-string p1, "Failed to invoke onChanged"
 
-    invoke-static {v0, v2, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v0, p1, p0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_1
+    goto :goto_0
 
     :catch_1
-    move-exception v1
+    move-exception p1
 
-    const-string v2, "Death while invoking notify"
+    const-string p2, "Death while invoking notify"
 
-    invoke-static {v0, v2, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v0, p2, p1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    iget-object v0, p0, Lcom/android/server/biometrics/BiometricService$EnabledOnKeyguardCallback;->this$0:Lcom/android/server/biometrics/BiometricService;
+    iget-object p1, p0, Lcom/android/server/biometrics/BiometricService$EnabledOnKeyguardCallback;->this$0:Lcom/android/server/biometrics/BiometricService;
 
-    invoke-static {v0}, Lcom/android/server/biometrics/BiometricService;->access$1500(Lcom/android/server/biometrics/BiometricService;)Ljava/util/List;
+    invoke-static {p1}, Lcom/android/server/biometrics/BiometricService;->-$$Nest$fgetmEnabledOnKeyguardCallbacks(Lcom/android/server/biometrics/BiometricService;)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-interface {v0, p0}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
+    invoke-interface {p1, p0}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
 
     :goto_0
-    nop
-
-    :goto_1
     return-void
 .end method

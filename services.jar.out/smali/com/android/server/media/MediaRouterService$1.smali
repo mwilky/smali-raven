@@ -1,4 +1,4 @@
-.class Lcom/android/server/media/MediaRouterService$1;
+.class public Lcom/android/server/media/MediaRouterService$1;
 .super Ljava/lang/Object;
 .source "MediaRouterService.java"
 
@@ -12,34 +12,30 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
-# static fields
-.field static final WAIT_MS:J = 0x1f4L
-
-
 # instance fields
-.field final mRestoreBluetoothA2dpRunnable:Ljava/lang/Runnable;
+.field public final mRestoreBluetoothA2dpRunnable:Ljava/lang/Runnable;
 
-.field final synthetic this$0:Lcom/android/server/media/MediaRouterService;
+.field public final synthetic this$0:Lcom/android/server/media/MediaRouterService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/media/MediaRouterService;)V
-    .locals 1
+.method public constructor <init>(Lcom/android/server/media/MediaRouterService;)V
+    .locals 0
 
     iput-object p1, p0, Lcom/android/server/media/MediaRouterService$1;->this$0:Lcom/android/server/media/MediaRouterService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v0, Lcom/android/server/media/MediaRouterService$1$1;
+    new-instance p1, Lcom/android/server/media/MediaRouterService$1$1;
 
-    invoke-direct {v0, p0}, Lcom/android/server/media/MediaRouterService$1$1;-><init>(Lcom/android/server/media/MediaRouterService$1;)V
+    invoke-direct {p1, p0}, Lcom/android/server/media/MediaRouterService$1$1;-><init>(Lcom/android/server/media/MediaRouterService$1;)V
 
-    iput-object v0, p0, Lcom/android/server/media/MediaRouterService$1;->mRestoreBluetoothA2dpRunnable:Ljava/lang/Runnable;
+    iput-object p1, p0, Lcom/android/server/media/MediaRouterService$1;->mRestoreBluetoothA2dpRunnable:Ljava/lang/Runnable;
 
     return-void
 .end method
@@ -47,7 +43,7 @@
 
 # virtual methods
 .method public onAudioPlayerActiveStateChanged(Landroid/media/AudioPlaybackConfiguration;Z)V
-    .locals 12
+    .locals 6
 
     const/4 v0, 0x1
 
@@ -55,214 +51,214 @@
 
     invoke-virtual {p1}, Landroid/media/AudioPlaybackConfiguration;->isActive()Z
 
-    move-result v1
+    move-result p2
 
-    if-eqz v1, :cond_0
+    if-eqz p2, :cond_0
 
-    move v1, v0
+    move p2, v0
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 p2, 0x0
 
     :goto_0
     invoke-virtual {p1}, Landroid/media/AudioPlaybackConfiguration;->getPlayerInterfaceId()I
 
-    move-result v2
+    move-result v1
 
     invoke-virtual {p1}, Landroid/media/AudioPlaybackConfiguration;->getClientUid()I
 
-    move-result v3
+    move-result v2
 
-    iget-object v4, p0, Lcom/android/server/media/MediaRouterService$1;->this$0:Lcom/android/server/media/MediaRouterService;
+    iget-object v3, p0, Lcom/android/server/media/MediaRouterService$1;->this$0:Lcom/android/server/media/MediaRouterService;
 
-    invoke-static {v4}, Lcom/android/server/media/MediaRouterService;->access$000(Lcom/android/server/media/MediaRouterService;)Landroid/util/IntArray;
+    invoke-static {v3}, Lcom/android/server/media/MediaRouterService;->-$$Nest$fgetmActivePlayerMinPriorityQueue(Lcom/android/server/media/MediaRouterService;)Landroid/util/IntArray;
 
-    move-result-object v4
+    move-result-object v3
 
-    invoke-virtual {v4, v2}, Landroid/util/IntArray;->indexOf(I)I
+    invoke-virtual {v3, v1}, Landroid/util/IntArray;->indexOf(I)I
 
-    move-result v4
+    move-result v1
 
-    if-ltz v4, :cond_1
+    if-ltz v1, :cond_1
 
-    iget-object v5, p0, Lcom/android/server/media/MediaRouterService$1;->this$0:Lcom/android/server/media/MediaRouterService;
+    iget-object v3, p0, Lcom/android/server/media/MediaRouterService$1;->this$0:Lcom/android/server/media/MediaRouterService;
 
-    invoke-static {v5}, Lcom/android/server/media/MediaRouterService;->access$000(Lcom/android/server/media/MediaRouterService;)Landroid/util/IntArray;
+    invoke-static {v3}, Lcom/android/server/media/MediaRouterService;->-$$Nest$fgetmActivePlayerMinPriorityQueue(Lcom/android/server/media/MediaRouterService;)Landroid/util/IntArray;
 
-    move-result-object v5
+    move-result-object v3
 
-    invoke-virtual {v5, v4}, Landroid/util/IntArray;->remove(I)V
+    invoke-virtual {v3, v1}, Landroid/util/IntArray;->remove(I)V
 
-    iget-object v5, p0, Lcom/android/server/media/MediaRouterService$1;->this$0:Lcom/android/server/media/MediaRouterService;
+    iget-object v3, p0, Lcom/android/server/media/MediaRouterService$1;->this$0:Lcom/android/server/media/MediaRouterService;
 
-    invoke-static {v5}, Lcom/android/server/media/MediaRouterService;->access$100(Lcom/android/server/media/MediaRouterService;)Landroid/util/IntArray;
+    invoke-static {v3}, Lcom/android/server/media/MediaRouterService;->-$$Nest$fgetmActivePlayerUidMinPriorityQueue(Lcom/android/server/media/MediaRouterService;)Landroid/util/IntArray;
 
-    move-result-object v5
+    move-result-object v3
 
-    invoke-virtual {v5, v4}, Landroid/util/IntArray;->remove(I)V
+    invoke-virtual {v3, v1}, Landroid/util/IntArray;->remove(I)V
 
     :cond_1
-    const/4 v5, -0x1
+    const/4 v1, -0x1
 
-    if-eqz v1, :cond_2
+    if-eqz p2, :cond_2
 
     iget-object v0, p0, Lcom/android/server/media/MediaRouterService$1;->this$0:Lcom/android/server/media/MediaRouterService;
 
-    invoke-static {v0}, Lcom/android/server/media/MediaRouterService;->access$000(Lcom/android/server/media/MediaRouterService;)Landroid/util/IntArray;
+    invoke-static {v0}, Lcom/android/server/media/MediaRouterService;->-$$Nest$fgetmActivePlayerMinPriorityQueue(Lcom/android/server/media/MediaRouterService;)Landroid/util/IntArray;
 
     move-result-object v0
 
     invoke-virtual {p1}, Landroid/media/AudioPlaybackConfiguration;->getPlayerInterfaceId()I
 
-    move-result v6
+    move-result p1
 
-    invoke-virtual {v0, v6}, Landroid/util/IntArray;->add(I)V
+    invoke-virtual {v0, p1}, Landroid/util/IntArray;->add(I)V
 
-    iget-object v0, p0, Lcom/android/server/media/MediaRouterService$1;->this$0:Lcom/android/server/media/MediaRouterService;
+    iget-object p1, p0, Lcom/android/server/media/MediaRouterService$1;->this$0:Lcom/android/server/media/MediaRouterService;
 
-    invoke-static {v0}, Lcom/android/server/media/MediaRouterService;->access$100(Lcom/android/server/media/MediaRouterService;)Landroid/util/IntArray;
+    invoke-static {p1}, Lcom/android/server/media/MediaRouterService;->-$$Nest$fgetmActivePlayerUidMinPriorityQueue(Lcom/android/server/media/MediaRouterService;)Landroid/util/IntArray;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0, v3}, Landroid/util/IntArray;->add(I)V
+    invoke-virtual {p1, v2}, Landroid/util/IntArray;->add(I)V
 
-    move v5, v3
+    move v1, v2
 
     goto :goto_1
 
     :cond_2
-    iget-object v6, p0, Lcom/android/server/media/MediaRouterService$1;->this$0:Lcom/android/server/media/MediaRouterService;
+    iget-object p1, p0, Lcom/android/server/media/MediaRouterService$1;->this$0:Lcom/android/server/media/MediaRouterService;
 
-    invoke-static {v6}, Lcom/android/server/media/MediaRouterService;->access$100(Lcom/android/server/media/MediaRouterService;)Landroid/util/IntArray;
+    invoke-static {p1}, Lcom/android/server/media/MediaRouterService;->-$$Nest$fgetmActivePlayerUidMinPriorityQueue(Lcom/android/server/media/MediaRouterService;)Landroid/util/IntArray;
 
-    move-result-object v6
+    move-result-object p1
 
-    invoke-virtual {v6}, Landroid/util/IntArray;->size()I
+    invoke-virtual {p1}, Landroid/util/IntArray;->size()I
 
-    move-result v6
+    move-result p1
 
-    if-lez v6, :cond_3
+    if-lez p1, :cond_3
 
-    iget-object v6, p0, Lcom/android/server/media/MediaRouterService$1;->this$0:Lcom/android/server/media/MediaRouterService;
+    iget-object p1, p0, Lcom/android/server/media/MediaRouterService$1;->this$0:Lcom/android/server/media/MediaRouterService;
 
-    invoke-static {v6}, Lcom/android/server/media/MediaRouterService;->access$100(Lcom/android/server/media/MediaRouterService;)Landroid/util/IntArray;
+    invoke-static {p1}, Lcom/android/server/media/MediaRouterService;->-$$Nest$fgetmActivePlayerUidMinPriorityQueue(Lcom/android/server/media/MediaRouterService;)Landroid/util/IntArray;
 
-    move-result-object v6
+    move-result-object p1
 
-    iget-object v7, p0, Lcom/android/server/media/MediaRouterService$1;->this$0:Lcom/android/server/media/MediaRouterService;
+    iget-object v1, p0, Lcom/android/server/media/MediaRouterService$1;->this$0:Lcom/android/server/media/MediaRouterService;
 
-    invoke-static {v7}, Lcom/android/server/media/MediaRouterService;->access$100(Lcom/android/server/media/MediaRouterService;)Landroid/util/IntArray;
+    invoke-static {v1}, Lcom/android/server/media/MediaRouterService;->-$$Nest$fgetmActivePlayerUidMinPriorityQueue(Lcom/android/server/media/MediaRouterService;)Landroid/util/IntArray;
 
-    move-result-object v7
+    move-result-object v1
 
-    invoke-virtual {v7}, Landroid/util/IntArray;->size()I
+    invoke-virtual {v1}, Landroid/util/IntArray;->size()I
 
-    move-result v7
+    move-result v1
 
-    sub-int/2addr v7, v0
+    sub-int/2addr v1, v0
 
-    invoke-virtual {v6, v7}, Landroid/util/IntArray;->get(I)I
+    invoke-virtual {p1, v1}, Landroid/util/IntArray;->get(I)I
 
-    move-result v5
+    move-result v1
 
     :cond_3
     :goto_1
-    iget-object v0, p0, Lcom/android/server/media/MediaRouterService$1;->this$0:Lcom/android/server/media/MediaRouterService;
+    iget-object p1, p0, Lcom/android/server/media/MediaRouterService$1;->this$0:Lcom/android/server/media/MediaRouterService;
 
-    invoke-static {v0}, Lcom/android/server/media/MediaRouterService;->access$200(Lcom/android/server/media/MediaRouterService;)Landroid/os/Handler;
+    invoke-static {p1}, Lcom/android/server/media/MediaRouterService;->-$$Nest$fgetmHandler(Lcom/android/server/media/MediaRouterService;)Landroid/os/Handler;
 
-    move-result-object v0
+    move-result-object p1
 
-    iget-object v6, p0, Lcom/android/server/media/MediaRouterService$1;->mRestoreBluetoothA2dpRunnable:Ljava/lang/Runnable;
+    iget-object v0, p0, Lcom/android/server/media/MediaRouterService$1;->mRestoreBluetoothA2dpRunnable:Ljava/lang/Runnable;
 
-    invoke-virtual {v0, v6}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
+    invoke-virtual {p1, v0}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
-    const-string v0, ", active="
+    const-string p1, ", active="
 
-    const-string/jumbo v6, "onAudioPlayerActiveStateChanged: uid="
+    const-string/jumbo v0, "onAudioPlayerActiveStateChanged: uid="
 
-    const-string v7, "MediaRouterService"
+    const-string v3, "MediaRouterService"
 
-    if-ltz v5, :cond_4
+    if-ltz v1, :cond_4
 
-    iget-object v8, p0, Lcom/android/server/media/MediaRouterService$1;->this$0:Lcom/android/server/media/MediaRouterService;
+    iget-object p0, p0, Lcom/android/server/media/MediaRouterService$1;->this$0:Lcom/android/server/media/MediaRouterService;
 
-    invoke-virtual {v8, v5}, Lcom/android/server/media/MediaRouterService;->restoreRoute(I)V
+    invoke-virtual {p0, v1}, Lcom/android/server/media/MediaRouterService;->restoreRoute(I)V
 
-    invoke-static {}, Lcom/android/server/media/MediaRouterService;->access$300()Z
+    invoke-static {}, Lcom/android/server/media/MediaRouterService;->-$$Nest$sfgetDEBUG()Z
 
-    move-result v8
+    move-result p0
 
-    if-eqz v8, :cond_5
+    if-eqz p0, :cond_5
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    new-instance p0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v8, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v8, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v8, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v8, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    const-string v0, ", restoreUid="
+    const-string p1, ", restoreUid="
 
-    invoke-virtual {v8, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v8, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v7, v0}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, p0}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_2
 
     :cond_4
-    iget-object v8, p0, Lcom/android/server/media/MediaRouterService$1;->this$0:Lcom/android/server/media/MediaRouterService;
+    iget-object v1, p0, Lcom/android/server/media/MediaRouterService$1;->this$0:Lcom/android/server/media/MediaRouterService;
 
-    invoke-static {v8}, Lcom/android/server/media/MediaRouterService;->access$200(Lcom/android/server/media/MediaRouterService;)Landroid/os/Handler;
+    invoke-static {v1}, Lcom/android/server/media/MediaRouterService;->-$$Nest$fgetmHandler(Lcom/android/server/media/MediaRouterService;)Landroid/os/Handler;
 
-    move-result-object v8
+    move-result-object v1
 
-    iget-object v9, p0, Lcom/android/server/media/MediaRouterService$1;->mRestoreBluetoothA2dpRunnable:Ljava/lang/Runnable;
+    iget-object p0, p0, Lcom/android/server/media/MediaRouterService$1;->mRestoreBluetoothA2dpRunnable:Ljava/lang/Runnable;
 
-    const-wide/16 v10, 0x1f4
+    const-wide/16 v4, 0x1f4
 
-    invoke-virtual {v8, v9, v10, v11}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+    invoke-virtual {v1, p0, v4, v5}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    invoke-static {}, Lcom/android/server/media/MediaRouterService;->access$300()Z
+    invoke-static {}, Lcom/android/server/media/MediaRouterService;->-$$Nest$sfgetDEBUG()Z
 
-    move-result v8
+    move-result p0
 
-    if-eqz v8, :cond_5
+    if-eqz p0, :cond_5
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    new-instance p0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v8, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v8, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v8, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v8, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    const-string v0, ", delaying"
+    const-string p1, ", delaying"
 
-    invoke-virtual {v8, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v7, v0}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, p0}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_5
     :goto_2

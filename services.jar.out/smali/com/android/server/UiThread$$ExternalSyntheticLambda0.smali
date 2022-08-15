@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/UiThread$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/UiThread$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/UiThread;
+    iget-object p0, p0, Lcom/android/server/UiThread$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/UiThread;
 
-    invoke-virtual {v0}, Landroid/os/HandlerThread;->quit()Z
+    invoke-virtual {p0}, Landroid/os/HandlerThread;->quit()Z
 
     return-void
 .end method

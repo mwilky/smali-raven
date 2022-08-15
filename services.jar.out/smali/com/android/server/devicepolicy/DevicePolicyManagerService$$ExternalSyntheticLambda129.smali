@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda129;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Function;
+.implements Lcom/android/internal/util/FunctionalUtils$ThrowingRunnable;
 
 
 # instance fields
@@ -10,9 +11,11 @@
 
 .field public final synthetic f$1:I
 
+.field public final synthetic f$2:Ljava/util/List;
+
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/devicepolicy/DevicePolicyManagerService;I)V
+.method public synthetic constructor <init>(Lcom/android/server/devicepolicy/DevicePolicyManagerService;ILjava/util/List;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -21,23 +24,23 @@
 
     iput p2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda129;->f$1:I
 
+    iput-object p3, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda129;->f$2:Ljava/util/List;
+
     return-void
 .end method
 
 
 # virtual methods
-.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
+.method public final runOrThrow()V
     .locals 2
 
     iget-object v0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda129;->f$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
 
     iget v1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda129;->f$1:I
 
-    check-cast p1, Landroid/content/ComponentName;
+    iget-object p0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda129;->f$2:Ljava/util/List;
 
-    invoke-virtual {v0, v1, p1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$loadSettingsLocked$6$DevicePolicyManagerService(ILandroid/content/ComponentName;)Landroid/app/admin/DeviceAdminInfo;
+    invoke-static {v0, v1, p0}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->$r8$lambda$bi5N_JrQsBi-OfmaJ19CLbcZKT8(Lcom/android/server/devicepolicy/DevicePolicyManagerService;ILjava/util/List;)V
 
-    move-result-object p1
-
-    return-object p1
+    return-void
 .end method

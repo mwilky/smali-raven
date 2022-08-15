@@ -1,4 +1,4 @@
-.class final Lcom/android/server/notification/NotificationManagerService$RankingHandlerWorker;
+.class public final Lcom/android/server/notification/NotificationManagerService$RankingHandlerWorker;
 .super Landroid/os/Handler;
 .source "NotificationManagerService.java"
 
@@ -12,13 +12,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "RankingHandlerWorker"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/notification/NotificationManagerService;
+.field public final synthetic this$0:Lcom/android/server/notification/NotificationManagerService;
 
 
 # direct methods
@@ -35,38 +35,34 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 1
+    .locals 2
 
     iget v0, p1, Landroid/os/Message;->what:I
 
-    packed-switch v0, :pswitch_data_0
+    const/16 v1, 0x3e8
+
+    if-eq v0, v1, :cond_1
+
+    const/16 p1, 0x3e9
+
+    if-eq v0, p1, :cond_0
 
     goto :goto_0
 
-    :pswitch_0
-    iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$RankingHandlerWorker;->this$0:Lcom/android/server/notification/NotificationManagerService;
+    :cond_0
+    iget-object p0, p0, Lcom/android/server/notification/NotificationManagerService$RankingHandlerWorker;->this$0:Lcom/android/server/notification/NotificationManagerService;
 
-    invoke-virtual {v0}, Lcom/android/server/notification/NotificationManagerService;->handleRankingSort()V
+    invoke-virtual {p0}, Lcom/android/server/notification/NotificationManagerService;->handleRankingSort()V
 
     goto :goto_0
 
-    :pswitch_1
-    iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$RankingHandlerWorker;->this$0:Lcom/android/server/notification/NotificationManagerService;
+    :cond_1
+    iget-object p0, p0, Lcom/android/server/notification/NotificationManagerService$RankingHandlerWorker;->this$0:Lcom/android/server/notification/NotificationManagerService;
 
-    invoke-static {v0, p1}, Lcom/android/server/notification/NotificationManagerService;->access$10400(Lcom/android/server/notification/NotificationManagerService;Landroid/os/Message;)V
-
-    nop
+    invoke-static {p0, p1}, Lcom/android/server/notification/NotificationManagerService;->-$$Nest$mhandleRankingReconsideration(Lcom/android/server/notification/NotificationManagerService;Landroid/os/Message;)V
 
     :goto_0
     return-void
-
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0x3e8
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
 .end method
 
 .method public requestReconsideration(Lcom/android/server/notification/RankingReconsideration;)V
@@ -84,7 +80,7 @@
 
     move-result-wide v1
 
-    invoke-virtual {p0, v0, v1, v2}, Lcom/android/server/notification/NotificationManagerService$RankingHandlerWorker;->sendMessageDelayed(Landroid/os/Message;J)Z
+    invoke-virtual {p0, v0, v1, v2}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
     return-void
 .end method
@@ -94,7 +90,7 @@
 
     const/16 v0, 0x3e9
 
-    invoke-virtual {p0, v0}, Lcom/android/server/notification/NotificationManagerService$RankingHandlerWorker;->removeMessages(I)V
+    invoke-virtual {p0, v0}, Landroid/os/Handler;->removeMessages(I)V
 
     invoke-static {}, Landroid/os/Message;->obtain()Landroid/os/Message;
 
@@ -102,7 +98,7 @@
 
     iput v0, v1, Landroid/os/Message;->what:I
 
-    invoke-virtual {p0, v1}, Lcom/android/server/notification/NotificationManagerService$RankingHandlerWorker;->sendMessage(Landroid/os/Message;)Z
+    invoke-virtual {p0, v1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
     return-void
 .end method

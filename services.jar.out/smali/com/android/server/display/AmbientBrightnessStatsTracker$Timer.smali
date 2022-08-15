@@ -4,22 +4,25 @@
 
 
 # annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/android/server/display/AmbientBrightnessStatsTracker;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "Timer"
 .end annotation
 
 
 # instance fields
-.field private final clock:Lcom/android/server/display/AmbientBrightnessStatsTracker$Clock;
+.field public final clock:Lcom/android/server/display/AmbientBrightnessStatsTracker$Clock;
 
-.field private startTimeMillis:J
+.field public startTimeMillis:J
 
-.field private started:Z
+.field public started:Z
 
 
 # direct methods
@@ -36,11 +39,11 @@
 
 # virtual methods
 .method public isRunning()Z
-    .locals 1
+    .locals 0
 
-    iget-boolean v0, p0, Lcom/android/server/display/AmbientBrightnessStatsTracker$Timer;->started:Z
+    iget-boolean p0, p0, Lcom/android/server/display/AmbientBrightnessStatsTracker$Timer;->started:Z
 
-    return v0
+    return p0
 .end method
 
 .method public reset()V
@@ -99,12 +102,12 @@
 
     div-double/2addr v0, v2
 
-    double-to-float v0, v0
+    double-to-float p0, v0
 
-    return v0
+    return p0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method

@@ -1,4 +1,4 @@
-.class final Lcom/android/server/am/ActivityManagerShellCommand$StopUserCallback;
+.class public final Lcom/android/server/am/ActivityManagerShellCommand$StopUserCallback;
 .super Landroid/app/IStopUserCallback$Stub;
 .source "ActivityManagerShellCommand.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = "StopUserCallback"
 .end annotation
 
 
 # instance fields
-.field private mFinished:Z
+.field public mFinished:Z
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 1
 
     invoke-direct {p0}, Landroid/app/IStopUserCallback$Stub;-><init>()V
@@ -34,14 +34,14 @@
 
 # virtual methods
 .method public declared-synchronized userStopAborted(I)V
-    .locals 1
+    .locals 0
 
     monitor-enter p0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     :try_start_0
-    iput-boolean v0, p0, Lcom/android/server/am/ActivityManagerShellCommand$StopUserCallback;->mFinished:Z
+    iput-boolean p1, p0, Lcom/android/server/am/ActivityManagerShellCommand$StopUserCallback;->mFinished:Z
 
     invoke-virtual {p0}, Ljava/lang/Object;->notifyAll()V
     :try_end_0
@@ -60,14 +60,14 @@
 .end method
 
 .method public declared-synchronized userStopped(I)V
-    .locals 1
+    .locals 0
 
     monitor-enter p0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     :try_start_0
-    iput-boolean v0, p0, Lcom/android/server/am/ActivityManagerShellCommand$StopUserCallback;->mFinished:Z
+    iput-boolean p1, p0, Lcom/android/server/am/ActivityManagerShellCommand$StopUserCallback;->mFinished:Z
 
     invoke-virtual {p0}, Ljava/lang/Object;->notifyAll()V
     :try_end_0
@@ -104,8 +104,6 @@
     goto :goto_0
 
     :cond_0
-    nop
-
     monitor-exit p0
 
     return-void

@@ -4,6 +4,9 @@
 
 
 # annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/android/server/VpnManagerService;
 .end annotation
@@ -26,61 +29,59 @@
 
 # virtual methods
 .method public getCallingUid()I
-    .locals 1
+    .locals 0
 
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public getINetworkManagementService()Landroid/os/INetworkManagementService;
-    .locals 1
+    .locals 0
 
-    nop
+    const-string/jumbo p0, "network_management"
 
-    const-string/jumbo v0, "network_management"
+    invoke-static {p0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
-    invoke-static {v0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+    move-result-object p0
 
-    move-result-object v0
+    invoke-static {p0}, Landroid/os/INetworkManagementService$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/INetworkManagementService;
 
-    invoke-static {v0}, Landroid/os/INetworkManagementService$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/INetworkManagementService;
+    move-result-object p0
 
-    move-result-object v0
-
-    return-object v0
+    return-object p0
 .end method
 
 .method public getNetd()Landroid/net/INetd;
-    .locals 1
+    .locals 0
 
     invoke-static {}, Landroid/net/util/NetdService;->getInstance()Landroid/net/INetd;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getVpnProfileStore()Lcom/android/server/connectivity/VpnProfileStore;
-    .locals 1
+    .locals 0
 
-    new-instance v0, Lcom/android/server/connectivity/VpnProfileStore;
+    new-instance p0, Lcom/android/server/connectivity/VpnProfileStore;
 
-    invoke-direct {v0}, Lcom/android/server/connectivity/VpnProfileStore;-><init>()V
+    invoke-direct {p0}, Lcom/android/server/connectivity/VpnProfileStore;-><init>()V
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public makeHandlerThread()Landroid/os/HandlerThread;
-    .locals 2
+    .locals 1
 
-    new-instance v0, Landroid/os/HandlerThread;
+    new-instance p0, Landroid/os/HandlerThread;
 
-    const-string v1, "VpnManagerService"
+    const-string v0, "VpnManagerService"
 
-    invoke-direct {v0, v1}, Landroid/os/HandlerThread;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Landroid/os/HandlerThread;-><init>(Ljava/lang/String;)V
 
-    return-object v0
+    return-object p0
 .end method

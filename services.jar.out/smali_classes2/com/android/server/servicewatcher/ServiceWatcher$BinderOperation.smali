@@ -15,7 +15,7 @@
 
 
 # virtual methods
-.method public onError()V
+.method public onError(Ljava/lang/Throwable;)V
     .locals 0
 
     return-void

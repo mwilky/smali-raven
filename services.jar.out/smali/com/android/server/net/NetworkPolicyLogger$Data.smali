@@ -15,23 +15,25 @@
 
 
 # instance fields
-.field bfield1:Z
+.field public bfield1:Z
 
-.field bfield2:Z
+.field public bfield2:Z
 
-.field ifield1:I
+.field public ifield1:I
 
-.field ifield2:I
+.field public ifield2:I
 
-.field ifield3:I
+.field public ifield3:I
 
-.field lfield1:J
+.field public ifield4:I
 
-.field sfield1:Ljava/lang/String;
+.field public lfield1:J
 
-.field timeStamp:J
+.field public sfield1:Ljava/lang/String;
 
-.field type:I
+.field public timeStamp:J
+
+.field public type:I
 
 
 # direct methods

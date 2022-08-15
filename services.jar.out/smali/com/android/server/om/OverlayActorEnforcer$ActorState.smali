@@ -23,7 +23,7 @@
 
 
 # static fields
-.field private static final synthetic $VALUES:[Lcom/android/server/om/OverlayActorEnforcer$ActorState;
+.field public static final synthetic $VALUES:[Lcom/android/server/om/OverlayActorEnforcer$ActorState;
 
 .field public static final enum ACTOR_NOT_FOUND:Lcom/android/server/om/OverlayActorEnforcer$ActorState;
 
@@ -57,7 +57,7 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 18
 
     new-instance v0, Lcom/android/server/om/OverlayActorEnforcer$ActorState;
@@ -279,7 +279,7 @@
     return-void
 .end method
 
-.method private constructor <init>(Ljava/lang/String;I)V
+.method public constructor <init>(Ljava/lang/String;I)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -299,11 +299,11 @@
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/android/server/om/OverlayActorEnforcer$ActorState;
+    check-cast p0, Lcom/android/server/om/OverlayActorEnforcer$ActorState;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/android/server/om/OverlayActorEnforcer$ActorState;

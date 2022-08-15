@@ -1,4 +1,4 @@
-.class Lcom/android/server/am/CacheOomRanker$ProcessDependenciesImpl;
+.class public Lcom/android/server/am/CacheOomRanker$ProcessDependenciesImpl;
 .super Ljava/lang/Object;
 .source "CacheOomRanker.java"
 
@@ -12,13 +12,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "ProcessDependenciesImpl"
 .end annotation
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/am/CacheOomRanker$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/am/CacheOomRanker$ProcessDependenciesImpl-IA;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/am/CacheOomRanker$ProcessDependenciesImpl;-><init>()V
@@ -37,11 +37,11 @@
 
 # virtual methods
 .method public getRss(I)[J
-    .locals 1
+    .locals 0
 
     invoke-static {p1}, Landroid/os/Process;->getRss(I)[J
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

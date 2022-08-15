@@ -1,14 +1,10 @@
-.class final Lcom/android/server/hdmi/UnmodifiableSparseIntArray;
+.class public final Lcom/android/server/hdmi/UnmodifiableSparseIntArray;
 .super Ljava/lang/Object;
 .source "UnmodifiableSparseIntArray.java"
 
 
-# static fields
-.field private static final TAG:Ljava/lang/String; = "ImmutableSparseIntArray"
-
-
 # instance fields
-.field private final mArray:Landroid/util/SparseIntArray;
+.field public final mArray:Landroid/util/SparseIntArray;
 
 
 # direct methods
@@ -24,86 +20,26 @@
 
 
 # virtual methods
-.method public get(I)I
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/hdmi/UnmodifiableSparseIntArray;->mArray:Landroid/util/SparseIntArray;
-
-    invoke-virtual {v0, p1}, Landroid/util/SparseIntArray;->get(I)I
-
-    move-result v0
-
-    return v0
-.end method
-
 .method public get(II)I
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/hdmi/UnmodifiableSparseIntArray;->mArray:Landroid/util/SparseIntArray;
+    iget-object p0, p0, Lcom/android/server/hdmi/UnmodifiableSparseIntArray;->mArray:Landroid/util/SparseIntArray;
 
-    invoke-virtual {v0, p1, p2}, Landroid/util/SparseIntArray;->get(II)I
+    invoke-virtual {p0, p1, p2}, Landroid/util/SparseIntArray;->get(II)I
 
-    move-result v0
+    move-result p0
 
-    return v0
-.end method
-
-.method public indexOfValue(I)I
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/hdmi/UnmodifiableSparseIntArray;->mArray:Landroid/util/SparseIntArray;
-
-    invoke-virtual {v0, p1}, Landroid/util/SparseIntArray;->indexOfValue(I)I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public keyAt(I)I
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/hdmi/UnmodifiableSparseIntArray;->mArray:Landroid/util/SparseIntArray;
-
-    invoke-virtual {v0, p1}, Landroid/util/SparseIntArray;->keyAt(I)I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public size()I
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/hdmi/UnmodifiableSparseIntArray;->mArray:Landroid/util/SparseIntArray;
-
-    invoke-virtual {v0}, Landroid/util/SparseIntArray;->size()I
-
-    move-result v0
-
-    return v0
+    return p0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/hdmi/UnmodifiableSparseIntArray;->mArray:Landroid/util/SparseIntArray;
+    iget-object p0, p0, Lcom/android/server/hdmi/UnmodifiableSparseIntArray;->mArray:Landroid/util/SparseIntArray;
 
-    invoke-virtual {v0}, Landroid/util/SparseIntArray;->toString()Ljava/lang/String;
+    invoke-virtual {p0}, Landroid/util/SparseIntArray;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
-.end method
-
-.method public valueAt(I)I
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/hdmi/UnmodifiableSparseIntArray;->mArray:Landroid/util/SparseIntArray;
-
-    invoke-virtual {v0, p1}, Landroid/util/SparseIntArray;->valueAt(I)I
-
-    move-result v0
-
-    return v0
+    return-object p0
 .end method

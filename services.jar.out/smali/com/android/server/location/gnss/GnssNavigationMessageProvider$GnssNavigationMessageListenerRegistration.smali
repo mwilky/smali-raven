@@ -1,4 +1,4 @@
-.class Lcom/android/server/location/gnss/GnssNavigationMessageProvider$GnssNavigationMessageListenerRegistration;
+.class public Lcom/android/server/location/gnss/GnssNavigationMessageProvider$GnssNavigationMessageListenerRegistration;
 .super Lcom/android/server/location/gnss/GnssListenerMultiplexer$GnssListenerRegistration;
 .source "GnssNavigationMessageProvider.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "GnssNavigationMessageListenerRegistration"
 .end annotation
 
@@ -26,11 +26,19 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/location/gnss/GnssNavigationMessageProvider;
+.field public final synthetic this$0:Lcom/android/server/location/gnss/GnssNavigationMessageProvider;
 
 
 # direct methods
-.method protected constructor <init>(Lcom/android/server/location/gnss/GnssNavigationMessageProvider;Landroid/location/util/identity/CallerIdentity;Landroid/location/IGnssNavigationMessageListener;)V
+.method public static synthetic $r8$lambda$ny5ofoWbMdebNFQJlKvviZlHxlc(Landroid/location/IGnssNavigationMessageListener;)V
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/server/location/gnss/GnssNavigationMessageProvider$GnssNavigationMessageListenerRegistration;->lambda$onGnssListenerRegister$0(Landroid/location/IGnssNavigationMessageListener;)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Lcom/android/server/location/gnss/GnssNavigationMessageProvider;Landroid/location/util/identity/CallerIdentity;Landroid/location/IGnssNavigationMessageListener;)V
     .locals 1
 
     iput-object p1, p0, Lcom/android/server/location/gnss/GnssNavigationMessageProvider$GnssNavigationMessageListenerRegistration;->this$0:Lcom/android/server/location/gnss/GnssNavigationMessageProvider;
@@ -42,7 +50,7 @@
     return-void
 .end method
 
-.method static synthetic lambda$onGnssListenerRegister$0(Landroid/location/IGnssNavigationMessageListener;)V
+.method public static synthetic lambda$onGnssListenerRegister$0(Landroid/location/IGnssNavigationMessageListener;)V
     .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -59,12 +67,14 @@
 
 
 # virtual methods
-.method protected onGnssListenerRegister()V
+.method public onGnssListenerRegister()V
     .locals 1
 
-    sget-object v0, Lcom/android/server/location/gnss/GnssNavigationMessageProvider$GnssNavigationMessageListenerRegistration$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/server/location/gnss/GnssNavigationMessageProvider$GnssNavigationMessageListenerRegistration$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/android/server/location/gnss/GnssNavigationMessageProvider$GnssNavigationMessageListenerRegistration$$ExternalSyntheticLambda0;
 
-    invoke-virtual {p0, v0}, Lcom/android/server/location/gnss/GnssNavigationMessageProvider$GnssNavigationMessageListenerRegistration;->executeOperation(Lcom/android/internal/listeners/ListenerExecutor$ListenerOperation;)V
+    invoke-direct {v0}, Lcom/android/server/location/gnss/GnssNavigationMessageProvider$GnssNavigationMessageListenerRegistration$$ExternalSyntheticLambda0;-><init>()V
+
+    invoke-virtual {p0, v0}, Lcom/android/server/location/listeners/ListenerRegistration;->executeOperation(Lcom/android/internal/listeners/ListenerExecutor$ListenerOperation;)V
 
     return-void
 .end method

@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/DisplayHashController$Handler;
+.class public Lcom/android/server/wm/DisplayHashController$Handler;
 .super Landroid/os/Handler;
 .source "DisplayHashController.java"
 
@@ -9,23 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "Handler"
 .end annotation
 
 
-# static fields
-.field static final MSG_SERVICE_SHUTDOWN_TIMEOUT:I = 0x1
-
-.field static final SERVICE_SHUTDOWN_TIMEOUT_MILLIS:J = 0x2710L
-
-
 # instance fields
-.field final synthetic this$0:Lcom/android/server/wm/DisplayHashController;
+.field public final synthetic this$0:Lcom/android/server/wm/DisplayHashController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/wm/DisplayHashController;Landroid/os/Looper;)V
+.method public constructor <init>(Lcom/android/server/wm/DisplayHashController;Landroid/os/Looper;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/wm/DisplayHashController$Handler;->this$0:Lcom/android/server/wm/DisplayHashController;
@@ -38,80 +32,80 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 3
+    .locals 2
 
-    iget v0, p1, Landroid/os/Message;->what:I
+    iget p1, p1, Landroid/os/Message;->what:I
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    if-ne v0, v1, :cond_1
+    if-ne p1, v0, :cond_1
 
+    iget-object p1, p0, Lcom/android/server/wm/DisplayHashController$Handler;->this$0:Lcom/android/server/wm/DisplayHashController;
+
+    invoke-static {p1}, Lcom/android/server/wm/DisplayHashController;->-$$Nest$fgetmServiceConnectionLock(Lcom/android/server/wm/DisplayHashController;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    monitor-enter p1
+
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/wm/DisplayHashController$Handler;->this$0:Lcom/android/server/wm/DisplayHashController;
 
-    invoke-static {v0}, Lcom/android/server/wm/DisplayHashController;->access$400(Lcom/android/server/wm/DisplayHashController;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/server/wm/DisplayHashController;->-$$Nest$fgetmServiceConnection(Lcom/android/server/wm/DisplayHashController;)Lcom/android/server/wm/DisplayHashController$DisplayHashingServiceConnection;
 
     move-result-object v0
 
-    monitor-enter v0
+    if-eqz v0, :cond_0
 
-    :try_start_0
+    iget-object v0, p0, Lcom/android/server/wm/DisplayHashController$Handler;->this$0:Lcom/android/server/wm/DisplayHashController;
+
+    invoke-static {v0}, Lcom/android/server/wm/DisplayHashController;->-$$Nest$fgetmContext(Lcom/android/server/wm/DisplayHashController;)Landroid/content/Context;
+
+    move-result-object v0
+
     iget-object v1, p0, Lcom/android/server/wm/DisplayHashController$Handler;->this$0:Lcom/android/server/wm/DisplayHashController;
 
-    invoke-static {v1}, Lcom/android/server/wm/DisplayHashController;->access$500(Lcom/android/server/wm/DisplayHashController;)Lcom/android/server/wm/DisplayHashController$DisplayHashingServiceConnection;
+    invoke-static {v1}, Lcom/android/server/wm/DisplayHashController;->-$$Nest$fgetmServiceConnection(Lcom/android/server/wm/DisplayHashController;)Lcom/android/server/wm/DisplayHashController$DisplayHashingServiceConnection;
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    invoke-virtual {v0, v1}, Landroid/content/Context;->unbindService(Landroid/content/ServiceConnection;)V
 
-    iget-object v1, p0, Lcom/android/server/wm/DisplayHashController$Handler;->this$0:Lcom/android/server/wm/DisplayHashController;
+    iget-object p0, p0, Lcom/android/server/wm/DisplayHashController$Handler;->this$0:Lcom/android/server/wm/DisplayHashController;
 
-    invoke-static {v1}, Lcom/android/server/wm/DisplayHashController;->access$600(Lcom/android/server/wm/DisplayHashController;)Landroid/content/Context;
+    const/4 v0, 0x0
 
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/android/server/wm/DisplayHashController$Handler;->this$0:Lcom/android/server/wm/DisplayHashController;
-
-    invoke-static {v2}, Lcom/android/server/wm/DisplayHashController;->access$500(Lcom/android/server/wm/DisplayHashController;)Lcom/android/server/wm/DisplayHashController$DisplayHashingServiceConnection;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Landroid/content/Context;->unbindService(Landroid/content/ServiceConnection;)V
-
-    iget-object v1, p0, Lcom/android/server/wm/DisplayHashController$Handler;->this$0:Lcom/android/server/wm/DisplayHashController;
-
-    const/4 v2, 0x0
-
-    invoke-static {v1, v2}, Lcom/android/server/wm/DisplayHashController;->access$502(Lcom/android/server/wm/DisplayHashController;Lcom/android/server/wm/DisplayHashController$DisplayHashingServiceConnection;)Lcom/android/server/wm/DisplayHashController$DisplayHashingServiceConnection;
+    invoke-static {p0, v0}, Lcom/android/server/wm/DisplayHashController;->-$$Nest$fputmServiceConnection(Lcom/android/server/wm/DisplayHashController;Lcom/android/server/wm/DisplayHashController$DisplayHashingServiceConnection;)V
 
     :cond_0
-    monitor-exit v0
+    monitor-exit p1
 
     goto :goto_0
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
-    monitor-exit v0
+    monitor-exit p1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 
     :cond_1
     :goto_0
     return-void
 .end method
 
-.method resetTimeoutMessage()V
+.method public resetTimeoutMessage()V
     .locals 3
 
     const/4 v0, 0x1
 
-    invoke-virtual {p0, v0}, Lcom/android/server/wm/DisplayHashController$Handler;->removeMessages(I)V
+    invoke-virtual {p0, v0}, Landroid/os/Handler;->removeMessages(I)V
 
     const-wide/16 v1, 0x2710
 
-    invoke-virtual {p0, v0, v1, v2}, Lcom/android/server/wm/DisplayHashController$Handler;->sendEmptyMessageDelayed(IJ)Z
+    invoke-virtual {p0, v0, v1, v2}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
     return-void
 .end method

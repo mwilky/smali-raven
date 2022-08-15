@@ -3,22 +3,18 @@
 .source "RollingBuffer.java"
 
 
-# static fields
-.field private static final INITIAL_SIZE:I = 0x32
-
-
 # instance fields
-.field private mCount:I
+.field public mCount:I
 
-.field private mEnd:I
+.field public mEnd:I
 
-.field private mSize:I
+.field public mSize:I
 
-.field private mStart:I
+.field public mStart:I
 
-.field private mTimes:[J
+.field public mTimes:[J
 
-.field private mValues:[F
+.field public mValues:[F
 
 
 # direct methods
@@ -44,7 +40,62 @@
     return-void
 .end method
 
-.method private expandBuffer()V
+
+# virtual methods
+.method public add(JF)V
+    .locals 2
+
+    iget v0, p0, Lcom/android/server/display/utils/RollingBuffer;->mCount:I
+
+    iget v1, p0, Lcom/android/server/display/utils/RollingBuffer;->mSize:I
+
+    if-lt v0, v1, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/server/display/utils/RollingBuffer;->expandBuffer()V
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/server/display/utils/RollingBuffer;->mTimes:[J
+
+    iget v1, p0, Lcom/android/server/display/utils/RollingBuffer;->mEnd:I
+
+    aput-wide p1, v0, v1
+
+    iget-object p1, p0, Lcom/android/server/display/utils/RollingBuffer;->mValues:[F
+
+    aput p3, p1, v1
+
+    add-int/lit8 v1, v1, 0x1
+
+    iget p1, p0, Lcom/android/server/display/utils/RollingBuffer;->mSize:I
+
+    rem-int/2addr v1, p1
+
+    iput v1, p0, Lcom/android/server/display/utils/RollingBuffer;->mEnd:I
+
+    iget p1, p0, Lcom/android/server/display/utils/RollingBuffer;->mCount:I
+
+    add-int/lit8 p1, p1, 0x1
+
+    iput p1, p0, Lcom/android/server/display/utils/RollingBuffer;->mCount:I
+
+    return-void
+.end method
+
+.method public clear()V
+    .locals 1
+
+    const/4 v0, 0x0
+
+    iput v0, p0, Lcom/android/server/display/utils/RollingBuffer;->mCount:I
+
+    iput v0, p0, Lcom/android/server/display/utils/RollingBuffer;->mStart:I
+
+    iput v0, p0, Lcom/android/server/display/utils/RollingBuffer;->mEnd:I
+
+    return-void
+.end method
+
+.method public final expandBuffer()V
     .locals 7
 
     iget v0, p0, Lcom/android/server/display/utils/RollingBuffer;->mSize:I
@@ -101,9 +152,9 @@
 
     iput v6, p0, Lcom/android/server/display/utils/RollingBuffer;->mStart:I
 
-    iget v3, p0, Lcom/android/server/display/utils/RollingBuffer;->mCount:I
+    iget v0, p0, Lcom/android/server/display/utils/RollingBuffer;->mCount:I
 
-    iput v3, p0, Lcom/android/server/display/utils/RollingBuffer;->mEnd:I
+    iput v0, p0, Lcom/android/server/display/utils/RollingBuffer;->mEnd:I
 
     iput-object v1, p0, Lcom/android/server/display/utils/RollingBuffer;->mTimes:[J
 
@@ -112,44 +163,94 @@
     return-void
 .end method
 
-.method private getLatestIndexBefore(J)I
-    .locals 3
+.method public final getLatestIndexBefore(J)I
+    .locals 4
 
     const/4 v0, 0x1
 
+    move v1, v0
+
     :goto_0
-    iget v1, p0, Lcom/android/server/display/utils/RollingBuffer;->mCount:I
+    iget v2, p0, Lcom/android/server/display/utils/RollingBuffer;->mCount:I
 
-    if-ge v0, v1, :cond_1
+    if-ge v1, v2, :cond_1
 
-    iget-object v1, p0, Lcom/android/server/display/utils/RollingBuffer;->mTimes:[J
+    iget-object v2, p0, Lcom/android/server/display/utils/RollingBuffer;->mTimes:[J
 
-    invoke-direct {p0, v0}, Lcom/android/server/display/utils/RollingBuffer;->offsetOf(I)I
+    invoke-virtual {p0, v1}, Lcom/android/server/display/utils/RollingBuffer;->offsetOf(I)I
 
-    move-result v2
+    move-result v3
 
-    aget-wide v1, v1, v2
+    aget-wide v2, v2, v3
 
-    cmp-long v1, v1, p1
+    cmp-long v2, v2, p1
 
-    if-lez v1, :cond_0
+    if-lez v2, :cond_0
 
-    add-int/lit8 v1, v0, -0x1
+    sub-int/2addr v1, v0
 
     return v1
 
     :cond_0
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     :cond_1
-    add-int/lit8 v1, v1, -0x1
+    sub-int/2addr v2, v0
 
-    return v1
+    return v2
 .end method
 
-.method private offsetOf(I)I
+.method public getTime(I)J
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/display/utils/RollingBuffer;->mTimes:[J
+
+    invoke-virtual {p0, p1}, Lcom/android/server/display/utils/RollingBuffer;->offsetOf(I)I
+
+    move-result p0
+
+    aget-wide p0, v0, p0
+
+    return-wide p0
+.end method
+
+.method public getValue(I)F
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/display/utils/RollingBuffer;->mValues:[F
+
+    invoke-virtual {p0, p1}, Lcom/android/server/display/utils/RollingBuffer;->offsetOf(I)I
+
+    move-result p0
+
+    aget p0, v0, p0
+
+    return p0
+.end method
+
+.method public isEmpty()Z
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/server/display/utils/RollingBuffer;->size()I
+
+    move-result p0
+
+    if-nez p0, :cond_0
+
+    const/4 p0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    :goto_0
+    return p0
+.end method
+
+.method public final offsetOf(I)I
     .locals 3
 
     if-ltz p1, :cond_0
@@ -162,9 +263,9 @@
 
     add-int/2addr v0, p1
 
-    iget v1, p0, Lcom/android/server/display/utils/RollingBuffer;->mSize:I
+    iget p0, p0, Lcom/android/server/display/utils/RollingBuffer;->mSize:I
 
-    rem-int/2addr v0, v1
+    rem-int/2addr v0, p0
 
     return v0
 
@@ -181,132 +282,29 @@
 
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v2, ", mCount= "
+    const-string p1, ", mCount= "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v2, p0, Lcom/android/server/display/utils/RollingBuffer;->mCount:I
+    iget p0, p0, Lcom/android/server/display/utils/RollingBuffer;->mCount:I
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-direct {v0, v1}, Ljava/lang/ArrayIndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p0}, Ljava/lang/ArrayIndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
 
-
-# virtual methods
-.method public add(JF)V
-    .locals 2
-
-    iget v0, p0, Lcom/android/server/display/utils/RollingBuffer;->mCount:I
-
-    iget v1, p0, Lcom/android/server/display/utils/RollingBuffer;->mSize:I
-
-    if-lt v0, v1, :cond_0
-
-    invoke-direct {p0}, Lcom/android/server/display/utils/RollingBuffer;->expandBuffer()V
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/server/display/utils/RollingBuffer;->mTimes:[J
-
-    iget v1, p0, Lcom/android/server/display/utils/RollingBuffer;->mEnd:I
-
-    aput-wide p1, v0, v1
-
-    iget-object v0, p0, Lcom/android/server/display/utils/RollingBuffer;->mValues:[F
-
-    aput p3, v0, v1
-
-    add-int/lit8 v1, v1, 0x1
-
-    iget v0, p0, Lcom/android/server/display/utils/RollingBuffer;->mSize:I
-
-    rem-int/2addr v1, v0
-
-    iput v1, p0, Lcom/android/server/display/utils/RollingBuffer;->mEnd:I
-
-    iget v0, p0, Lcom/android/server/display/utils/RollingBuffer;->mCount:I
-
-    add-int/lit8 v0, v0, 0x1
-
-    iput v0, p0, Lcom/android/server/display/utils/RollingBuffer;->mCount:I
-
-    return-void
-.end method
-
-.method public clear()V
-    .locals 1
-
-    const/4 v0, 0x0
-
-    iput v0, p0, Lcom/android/server/display/utils/RollingBuffer;->mCount:I
-
-    iput v0, p0, Lcom/android/server/display/utils/RollingBuffer;->mStart:I
-
-    iput v0, p0, Lcom/android/server/display/utils/RollingBuffer;->mEnd:I
-
-    return-void
-.end method
-
-.method public getTime(I)J
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/server/display/utils/RollingBuffer;->mTimes:[J
-
-    invoke-direct {p0, p1}, Lcom/android/server/display/utils/RollingBuffer;->offsetOf(I)I
-
-    move-result v1
-
-    aget-wide v0, v0, v1
-
-    return-wide v0
-.end method
-
-.method public getValue(I)F
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/server/display/utils/RollingBuffer;->mValues:[F
-
-    invoke-direct {p0, p1}, Lcom/android/server/display/utils/RollingBuffer;->offsetOf(I)I
-
-    move-result v1
-
-    aget v0, v0, v1
-
-    return v0
-.end method
-
-.method public isEmpty()Z
-    .locals 1
-
-    invoke-virtual {p0}, Lcom/android/server/display/utils/RollingBuffer;->size()I
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    const/4 v0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    :goto_0
-    return v0
-.end method
-
 .method public size()I
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/display/utils/RollingBuffer;->mCount:I
+    iget p0, p0, Lcom/android/server/display/utils/RollingBuffer;->mCount:I
 
-    return v0
+    return p0
 .end method
 
 .method public toString()Ljava/lang/String;
@@ -322,12 +320,13 @@
 
     const/4 v1, 0x0
 
+    :cond_0
     :goto_0
     iget v2, p0, Lcom/android/server/display/utils/RollingBuffer;->mCount:I
 
     if-ge v1, v2, :cond_1
 
-    invoke-direct {p0, v1}, Lcom/android/server/display/utils/RollingBuffer;->offsetOf(I)I
+    invoke-virtual {p0, v1}, Lcom/android/server/display/utils/RollingBuffer;->offsetOf(I)I
 
     move-result v2
 
@@ -353,35 +352,32 @@
 
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    add-int/lit8 v3, v1, 0x1
-
-    iget v4, p0, Lcom/android/server/display/utils/RollingBuffer;->mCount:I
-
-    if-eq v3, v4, :cond_0
-
-    const-string v3, ", "
-
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    :cond_0
     add-int/lit8 v1, v1, 0x1
+
+    iget v2, p0, Lcom/android/server/display/utils/RollingBuffer;->mCount:I
+
+    if-eq v1, v2, :cond_0
+
+    const-string v2, ", "
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     goto :goto_0
 
     :cond_1
-    const-string v1, "]"
+    const-string p0, "]"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method
 
 .method public truncate(J)V
@@ -406,11 +402,11 @@
     goto :goto_0
 
     :cond_0
-    invoke-direct {p0, p1, p2}, Lcom/android/server/display/utils/RollingBuffer;->getLatestIndexBefore(J)I
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/display/utils/RollingBuffer;->getLatestIndexBefore(J)I
 
     move-result v0
 
-    invoke-direct {p0, v0}, Lcom/android/server/display/utils/RollingBuffer;->offsetOf(I)I
+    invoke-virtual {p0, v0}, Lcom/android/server/display/utils/RollingBuffer;->offsetOf(I)I
 
     move-result v1
 
@@ -422,11 +418,9 @@
 
     iput v2, p0, Lcom/android/server/display/utils/RollingBuffer;->mCount:I
 
-    iget-object v2, p0, Lcom/android/server/display/utils/RollingBuffer;->mTimes:[J
+    iget-object p0, p0, Lcom/android/server/display/utils/RollingBuffer;->mTimes:[J
 
-    aput-wide p1, v2, v1
-
-    return-void
+    aput-wide p1, p0, v1
 
     :cond_1
     :goto_0

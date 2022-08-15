@@ -1,4 +1,4 @@
-.class Lcom/android/server/inputmethod/InputMethodManagerInternal$1;
+.class public Lcom/android/server/inputmethod/InputMethodManagerInternal$1;
 .super Lcom/android/server/inputmethod/InputMethodManagerInternal;
 .source "InputMethodManagerInternal.java"
 
@@ -9,13 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/inputmethod/InputMethodManagerInternal;-><init>()V
@@ -26,7 +26,7 @@
 
 # virtual methods
 .method public getEnabledInputMethodListAsUser(I)Ljava/util/List;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -38,13 +38,13 @@
 
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getInputMethodListAsUser(I)Ljava/util/List;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -56,12 +56,18 @@
 
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public hideCurrentInputMethod(I)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public maybeFinishStylusHandwriting()V
     .locals 0
 
     return-void
@@ -73,7 +79,13 @@
     return-void
 .end method
 
-.method public registerInputMethodListListener(Lcom/android/server/inputmethod/InputMethodManagerInternal$InputMethodListListener;)V
+.method public onImeParentChanged()V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onSessionForAccessibilityCreated(ILcom/android/internal/inputmethod/IAccessibilityInputMethodSession;)V
     .locals 0
 
     return-void
@@ -85,10 +97,18 @@
     return-void
 .end method
 
-.method public reportImeControl(Landroid/os/IBinder;Z)V
+.method public reportImeControl(Landroid/os/IBinder;)V
     .locals 0
 
     return-void
+.end method
+
+.method public setInputMethodEnabled(Ljava/lang/String;ZI)Z
+    .locals 0
+
+    const/4 p0, 0x0
+
+    return p0
 .end method
 
 .method public setInteractive(Z)V
@@ -98,19 +118,25 @@
 .end method
 
 .method public switchToInputMethod(Ljava/lang/String;I)Z
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
 .method public transferTouchFocusToImeWindow(Landroid/os/IBinder;I)Z
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
+.end method
+
+.method public unbindAccessibilityFromCurrentClient(I)V
+    .locals 0
+
+    return-void
 .end method
 
 .method public updateImeWindowStatus(Z)V

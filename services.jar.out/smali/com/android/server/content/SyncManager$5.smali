@@ -1,4 +1,4 @@
-.class Lcom/android/server/content/SyncManager$5;
+.class public Lcom/android/server/content/SyncManager$5;
 .super Landroid/content/BroadcastReceiver;
 .source "SyncManager.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/content/SyncManager;
+.field public final synthetic this$0:Lcom/android/server/content/SyncManager;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/content/SyncManager;)V
+.method public constructor <init>(Lcom/android/server/content/SyncManager;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/content/SyncManager$5;->this$0:Lcom/android/server/content/SyncManager;
@@ -32,66 +32,66 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 3
+    .locals 2
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v1, "android.intent.extra.user_handle"
+    const-string v0, "android.intent.extra.user_handle"
 
-    const/16 v2, -0x2710
+    const/16 v1, -0x2710
 
-    invoke-virtual {p2, v1, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {p2, v0, v1}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    move-result v1
+    move-result p2
 
-    if-ne v1, v2, :cond_0
+    if-ne p2, v1, :cond_0
 
     return-void
 
     :cond_0
-    const-string v2, "android.intent.action.USER_REMOVED"
+    const-string v0, "android.intent.action.USER_REMOVED"
 
-    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_1
+    if-eqz v0, :cond_1
 
-    iget-object v2, p0, Lcom/android/server/content/SyncManager$5;->this$0:Lcom/android/server/content/SyncManager;
+    iget-object p0, p0, Lcom/android/server/content/SyncManager$5;->this$0:Lcom/android/server/content/SyncManager;
 
-    invoke-static {v2, v1}, Lcom/android/server/content/SyncManager;->access$700(Lcom/android/server/content/SyncManager;I)V
+    invoke-static {p0, p2}, Lcom/android/server/content/SyncManager;->-$$Nest$monUserRemoved(Lcom/android/server/content/SyncManager;I)V
 
     goto :goto_0
 
     :cond_1
-    const-string v2, "android.intent.action.USER_UNLOCKED"
+    const-string v0, "android.intent.action.USER_UNLOCKED"
 
-    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_2
+    if-eqz v0, :cond_2
 
-    iget-object v2, p0, Lcom/android/server/content/SyncManager$5;->this$0:Lcom/android/server/content/SyncManager;
+    iget-object p0, p0, Lcom/android/server/content/SyncManager$5;->this$0:Lcom/android/server/content/SyncManager;
 
-    invoke-static {v2, v1}, Lcom/android/server/content/SyncManager;->access$800(Lcom/android/server/content/SyncManager;I)V
+    invoke-static {p0, p2}, Lcom/android/server/content/SyncManager;->-$$Nest$monUserUnlocked(Lcom/android/server/content/SyncManager;I)V
 
     goto :goto_0
 
     :cond_2
-    const-string v2, "android.intent.action.USER_STOPPED"
+    const-string v0, "android.intent.action.USER_STOPPED"
 
-    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result p1
 
-    if-eqz v2, :cond_3
+    if-eqz p1, :cond_3
 
-    iget-object v2, p0, Lcom/android/server/content/SyncManager$5;->this$0:Lcom/android/server/content/SyncManager;
+    iget-object p0, p0, Lcom/android/server/content/SyncManager$5;->this$0:Lcom/android/server/content/SyncManager;
 
-    invoke-static {v2, v1}, Lcom/android/server/content/SyncManager;->access$900(Lcom/android/server/content/SyncManager;I)V
+    invoke-static {p0, p2}, Lcom/android/server/content/SyncManager;->-$$Nest$monUserStopped(Lcom/android/server/content/SyncManager;I)V
 
     :cond_3
     :goto_0

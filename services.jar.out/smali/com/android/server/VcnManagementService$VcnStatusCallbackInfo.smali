@@ -7,30 +7,34 @@
 
 
 # annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    visibility = .enum Lcom/android/internal/annotations/VisibleForTesting$Visibility;->PRIVATE:Lcom/android/internal/annotations/VisibleForTesting$Visibility;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/android/server/VcnManagementService;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = "VcnStatusCallbackInfo"
 .end annotation
 
 
 # instance fields
-.field final mCallback:Landroid/net/vcn/IVcnStatusCallback;
+.field public final mCallback:Landroid/net/vcn/IVcnStatusCallback;
 
-.field final mPkgName:Ljava/lang/String;
+.field public final mPkgName:Ljava/lang/String;
 
-.field final mSubGroup:Landroid/os/ParcelUuid;
+.field public final mSubGroup:Landroid/os/ParcelUuid;
 
-.field final mUid:I
+.field public final mUid:I
 
-.field final synthetic this$0:Lcom/android/server/VcnManagementService;
+.field public final synthetic this$0:Lcom/android/server/VcnManagementService;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/server/VcnManagementService;Landroid/os/ParcelUuid;Landroid/net/vcn/IVcnStatusCallback;Ljava/lang/String;I)V
+.method public constructor <init>(Lcom/android/server/VcnManagementService;Landroid/os/ParcelUuid;Landroid/net/vcn/IVcnStatusCallback;Ljava/lang/String;I)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/VcnManagementService$VcnStatusCallbackInfo;->this$0:Lcom/android/server/VcnManagementService;
@@ -48,7 +52,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/VcnManagementService;Landroid/os/ParcelUuid;Landroid/net/vcn/IVcnStatusCallback;Ljava/lang/String;ILcom/android/server/VcnManagementService$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/VcnManagementService;Landroid/os/ParcelUuid;Landroid/net/vcn/IVcnStatusCallback;Ljava/lang/String;ILcom/android/server/VcnManagementService$VcnStatusCallbackInfo-IA;)V
     .locals 0
 
     invoke-direct/range {p0 .. p5}, Lcom/android/server/VcnManagementService$VcnStatusCallbackInfo;-><init>(Lcom/android/server/VcnManagementService;Landroid/os/ParcelUuid;Landroid/net/vcn/IVcnStatusCallback;Ljava/lang/String;I)V
@@ -61,7 +65,7 @@
 .method public binderDied()V
     .locals 2
 
-    invoke-static {}, Lcom/android/server/VcnManagementService;->access$300()Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/VcnManagementService;->-$$Nest$sfgetTAG()Ljava/lang/String;
 
     move-result-object v0
 
@@ -71,9 +75,9 @@
 
     iget-object v0, p0, Lcom/android/server/VcnManagementService$VcnStatusCallbackInfo;->this$0:Lcom/android/server/VcnManagementService;
 
-    iget-object v1, p0, Lcom/android/server/VcnManagementService$VcnStatusCallbackInfo;->mCallback:Landroid/net/vcn/IVcnStatusCallback;
+    iget-object p0, p0, Lcom/android/server/VcnManagementService$VcnStatusCallbackInfo;->mCallback:Landroid/net/vcn/IVcnStatusCallback;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/VcnManagementService;->unregisterVcnStatusCallback(Landroid/net/vcn/IVcnStatusCallback;)V
+    invoke-virtual {v0, p0}, Lcom/android/server/VcnManagementService;->unregisterVcnStatusCallback(Landroid/net/vcn/IVcnStatusCallback;)V
 
     return-void
 .end method

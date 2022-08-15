@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/WallpaperAnimationAdapter;
+.class public Lcom/android/server/wm/WallpaperAnimationAdapter;
 .super Ljava/lang/Object;
 .source "WallpaperAnimationAdapter.java"
 
@@ -6,12 +6,8 @@
 .implements Lcom/android/server/wm/AnimationAdapter;
 
 
-# static fields
-.field private static final TAG:Ljava/lang/String; = "WallpaperAnimationAdapter"
-
-
 # instance fields
-.field private mAnimationCanceledRunnable:Ljava/util/function/Consumer;
+.field public mAnimationCanceledRunnable:Ljava/util/function/Consumer;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/function/Consumer<",
@@ -21,23 +17,31 @@
     .end annotation
 .end field
 
-.field private mCapturedLeash:Landroid/view/SurfaceControl;
+.field public mCapturedLeash:Landroid/view/SurfaceControl;
 
-.field private mCapturedLeashFinishCallback:Lcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;
+.field public mCapturedLeashFinishCallback:Lcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;
 
-.field private mDurationHint:J
+.field public mDurationHint:J
 
-.field private mLastAnimationType:I
+.field public mLastAnimationType:I
 
-.field private mStatusBarTransitionDelay:J
+.field public mStatusBarTransitionDelay:J
 
-.field private mTarget:Landroid/view/RemoteAnimationTarget;
+.field public mTarget:Landroid/view/RemoteAnimationTarget;
 
-.field private final mWallpaperToken:Lcom/android/server/wm/WallpaperWindowToken;
+.field public final mWallpaperToken:Lcom/android/server/wm/WallpaperWindowToken;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/wm/WallpaperWindowToken;JJLjava/util/function/Consumer;)V
+.method public static synthetic $r8$lambda$pFt1sM34mQb-FFZsZckZ6IVTj_M(JJLjava/util/function/Consumer;Ljava/util/ArrayList;Ljava/util/ArrayList;Lcom/android/server/wm/WallpaperWindowToken;)V
+    .locals 0
+
+    invoke-static/range {p0 .. p7}, Lcom/android/server/wm/WallpaperAnimationAdapter;->lambda$startWallpaperAnimations$0(JJLjava/util/function/Consumer;Ljava/util/ArrayList;Ljava/util/ArrayList;Lcom/android/server/wm/WallpaperWindowToken;)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Lcom/android/server/wm/WallpaperWindowToken;JJLjava/util/function/Consumer;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -63,7 +67,7 @@
     return-void
 .end method
 
-.method static synthetic lambda$startWallpaperAnimations$0(JJLjava/util/function/Consumer;Ljava/util/ArrayList;Ljava/util/ArrayList;Lcom/android/server/wm/WallpaperWindowToken;)V
+.method public static synthetic lambda$startWallpaperAnimations$0(JJLjava/util/function/Consumer;Ljava/util/ArrayList;Ljava/util/ArrayList;Lcom/android/server/wm/WallpaperWindowToken;)V
     .locals 8
 
     new-instance v7, Lcom/android/server/wm/WallpaperAnimationAdapter;
@@ -80,37 +84,37 @@
 
     invoke-direct/range {v0 .. v6}, Lcom/android/server/wm/WallpaperAnimationAdapter;-><init>(Lcom/android/server/wm/WallpaperWindowToken;JJLjava/util/function/Consumer;)V
 
-    invoke-virtual {p7}, Lcom/android/server/wm/WallpaperWindowToken;->getPendingTransaction()Landroid/view/SurfaceControl$Transaction;
+    invoke-virtual {p7}, Lcom/android/server/wm/WindowContainer;->getPendingTransaction()Landroid/view/SurfaceControl$Transaction;
 
-    move-result-object v1
+    move-result-object p0
 
-    const/4 v2, 0x0
+    const/4 p1, 0x0
 
-    const/16 v3, 0x10
+    const/16 p2, 0x10
 
-    invoke-virtual {p7, v1, v0, v2, v3}, Lcom/android/server/wm/WallpaperWindowToken;->startAnimation(Landroid/view/SurfaceControl$Transaction;Lcom/android/server/wm/AnimationAdapter;ZI)V
+    invoke-virtual {p7, p0, v7, p1, p2}, Lcom/android/server/wm/WindowContainer;->startAnimation(Landroid/view/SurfaceControl$Transaction;Lcom/android/server/wm/AnimationAdapter;ZI)V
 
-    invoke-virtual {v0}, Lcom/android/server/wm/WallpaperAnimationAdapter;->createRemoteAnimationTarget()Landroid/view/RemoteAnimationTarget;
+    invoke-virtual {v7}, Lcom/android/server/wm/WallpaperAnimationAdapter;->createRemoteAnimationTarget()Landroid/view/RemoteAnimationTarget;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {p5, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p5, p0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    invoke-virtual {p6, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p6, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     return-void
 .end method
 
-.method static shouldStartWallpaperAnimation(Lcom/android/server/wm/DisplayContent;)Z
-    .locals 1
+.method public static shouldStartWallpaperAnimation(Lcom/android/server/wm/DisplayContent;)Z
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/DisplayContent;->mWallpaperController:Lcom/android/server/wm/WallpaperController;
+    iget-object p0, p0, Lcom/android/server/wm/DisplayContent;->mWallpaperController:Lcom/android/server/wm/WallpaperController;
 
-    invoke-virtual {v0}, Lcom/android/server/wm/WallpaperController;->isWallpaperVisible()Z
+    invoke-virtual {p0}, Lcom/android/server/wm/WallpaperController;->isWallpaperVisible()Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public static startWallpaperAnimations(Lcom/android/server/wm/DisplayContent;JJLjava/util/function/Consumer;Ljava/util/ArrayList;)[Landroid/view/RemoteAnimationTarget;
@@ -188,26 +192,26 @@
 
     move-object v1, p0
 
-    invoke-virtual {p0, v9}, Lcom/android/server/wm/DisplayContent;->forAllWallpaperWindows(Ljava/util/function/Consumer;)V
+    invoke-virtual {p0, v9}, Lcom/android/server/wm/WindowContainer;->forAllWallpaperWindows(Ljava/util/function/Consumer;)V
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
-    move-result v2
+    move-result v1
 
-    new-array v2, v2, [Landroid/view/RemoteAnimationTarget;
+    new-array v1, v1, [Landroid/view/RemoteAnimationTarget;
 
-    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
-    check-cast v2, [Landroid/view/RemoteAnimationTarget;
+    check-cast v0, [Landroid/view/RemoteAnimationTarget;
 
-    return-object v2
+    return-object v0
 .end method
 
 
 # virtual methods
-.method createRemoteAnimationTarget()Landroid/view/RemoteAnimationTarget;
+.method public createRemoteAnimationTarget()Landroid/view/RemoteAnimationTarget;
     .locals 19
 
     move-object/from16 v0, p0
@@ -222,7 +226,7 @@
 
     iget-object v2, v0, Lcom/android/server/wm/WallpaperAnimationAdapter;->mWallpaperToken:Lcom/android/server/wm/WallpaperWindowToken;
 
-    invoke-virtual {v2}, Lcom/android/server/wm/WallpaperWindowToken;->getPrefixOrderIndex()I
+    invoke-virtual {v2}, Lcom/android/server/wm/WindowContainer;->getPrefixOrderIndex()I
 
     move-result v8
 
@@ -234,7 +238,7 @@
 
     iget-object v2, v0, Lcom/android/server/wm/WallpaperAnimationAdapter;->mWallpaperToken:Lcom/android/server/wm/WallpaperWindowToken;
 
-    invoke-virtual {v2}, Lcom/android/server/wm/WallpaperWindowToken;->getWindowConfiguration()Landroid/app/WindowConfiguration;
+    invoke-virtual {v2}, Lcom/android/server/wm/ConfigurationContainer;->getWindowConfiguration()Landroid/app/WindowConfiguration;
 
     move-result-object v12
 
@@ -274,7 +278,7 @@
 .end method
 
 .method public dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
-    .locals 3
+    .locals 1
 
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
@@ -296,39 +300,39 @@
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    iget-object v0, p0, Lcom/android/server/wm/WallpaperAnimationAdapter;->mTarget:Landroid/view/RemoteAnimationTarget;
+    iget-object p0, p0, Lcom/android/server/wm/WallpaperAnimationAdapter;->mTarget:Landroid/view/RemoteAnimationTarget;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, "  "
+    const-string p2, "  "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-virtual {v0, p1, v1}, Landroid/view/RemoteAnimationTarget;->dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
+    invoke-virtual {p0, p1, p2}, Landroid/view/RemoteAnimationTarget;->dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
 
     goto :goto_0
 
     :cond_0
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    const-string v0, "Target: null"
+    const-string p0, "Target: null"
 
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p1, p0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     :goto_0
     return-void
 .end method
 
 .method public dumpDebug(Landroid/util/proto/ProtoOutputStream;)V
-    .locals 5
+    .locals 4
 
     const-wide v0, 0x10b00000002L
 
@@ -336,13 +340,13 @@
 
     move-result-wide v0
 
-    iget-object v2, p0, Lcom/android/server/wm/WallpaperAnimationAdapter;->mTarget:Landroid/view/RemoteAnimationTarget;
+    iget-object p0, p0, Lcom/android/server/wm/WallpaperAnimationAdapter;->mTarget:Landroid/view/RemoteAnimationTarget;
 
-    if-eqz v2, :cond_0
+    if-eqz p0, :cond_0
 
-    const-wide v3, 0x10b00000001L
+    const-wide v2, 0x10b00000001L
 
-    invoke-virtual {v2, p1, v3, v4}, Landroid/view/RemoteAnimationTarget;->dumpDebug(Landroid/util/proto/ProtoOutputStream;J)V
+    invoke-virtual {p0, p1, v2, v3}, Landroid/view/RemoteAnimationTarget;->dumpDebug(Landroid/util/proto/ProtoOutputStream;J)V
 
     :cond_0
     invoke-virtual {p1, v0, v1}, Landroid/util/proto/ProtoOutputStream;->end(J)V
@@ -358,36 +362,36 @@
     return-wide v0
 .end method
 
-.method getLastAnimationType()I
-    .locals 1
+.method public getLastAnimationType()I
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/wm/WallpaperAnimationAdapter;->mLastAnimationType:I
+    iget p0, p0, Lcom/android/server/wm/WallpaperAnimationAdapter;->mLastAnimationType:I
 
-    return v0
+    return p0
 .end method
 
-.method getLeash()Landroid/view/SurfaceControl;
-    .locals 1
+.method public getLeash()Landroid/view/SurfaceControl;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/WallpaperAnimationAdapter;->mCapturedLeash:Landroid/view/SurfaceControl;
+    iget-object p0, p0, Lcom/android/server/wm/WallpaperAnimationAdapter;->mCapturedLeash:Landroid/view/SurfaceControl;
 
-    return-object v0
+    return-object p0
 .end method
 
-.method getLeashFinishedCallback()Lcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;
-    .locals 1
+.method public getLeashFinishedCallback()Lcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/WallpaperAnimationAdapter;->mCapturedLeashFinishCallback:Lcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;
+    iget-object p0, p0, Lcom/android/server/wm/WallpaperAnimationAdapter;->mCapturedLeashFinishCallback:Lcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getShowWallpaper()Z
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
 .method public getStatusBarTransitionsStartTime()J
@@ -404,45 +408,41 @@
     return-wide v0
 .end method
 
-.method getToken()Lcom/android/server/wm/WallpaperWindowToken;
-    .locals 1
+.method public getToken()Lcom/android/server/wm/WallpaperWindowToken;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/WallpaperAnimationAdapter;->mWallpaperToken:Lcom/android/server/wm/WallpaperWindowToken;
+    iget-object p0, p0, Lcom/android/server/wm/WallpaperAnimationAdapter;->mWallpaperToken:Lcom/android/server/wm/WallpaperWindowToken;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public onAnimationCancelled(Landroid/view/SurfaceControl;)V
-    .locals 5
+    .locals 3
 
-    sget-boolean v0, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_REMOTE_ANIMATIONS_enabled:Z
+    sget-boolean p1, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_REMOTE_ANIMATIONS_enabled:Z
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    sget-object v0, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_REMOTE_ANIMATIONS:Lcom/android/internal/protolog/ProtoLogGroup;
+    sget-object p1, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_REMOTE_ANIMATIONS:Lcom/android/internal/protolog/ProtoLogGroup;
 
-    const v1, -0x2d58e9e4
+    const v0, -0x2d58e9e4
+
+    const/4 v1, 0x0
 
     const/4 v2, 0x0
 
-    const/4 v3, 0x0
-
-    move-object v4, v3
-
-    check-cast v4, [Ljava/lang/Object;
-
-    invoke-static {v0, v1, v2, v3, v4}, Lcom/android/internal/protolog/ProtoLogImpl;->d(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {p1, v0, v1, v2, v2}, Lcom/android/internal/protolog/ProtoLogImpl;->d(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/wm/WallpaperAnimationAdapter;->mAnimationCanceledRunnable:Ljava/util/function/Consumer;
+    iget-object p1, p0, Lcom/android/server/wm/WallpaperAnimationAdapter;->mAnimationCanceledRunnable:Ljava/util/function/Consumer;
 
-    invoke-interface {v0, p0}, Ljava/util/function/Consumer;->accept(Ljava/lang/Object;)V
+    invoke-interface {p1, p0}, Ljava/util/function/Consumer;->accept(Ljava/lang/Object;)V
 
     return-void
 .end method
 
 .method public startAnimation(Landroid/view/SurfaceControl;Landroid/view/SurfaceControl$Transaction;ILcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;)V
-    .locals 5
+    .locals 4
 
     sget-boolean v0, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_REMOTE_ANIMATIONS_enabled:Z
 
@@ -456,16 +456,12 @@
 
     const/4 v3, 0x0
 
-    move-object v4, v3
-
-    check-cast v4, [Ljava/lang/Object;
-
-    invoke-static {v0, v1, v2, v3, v4}, Lcom/android/internal/protolog/ProtoLogImpl;->d(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v0, v1, v2, v3, v3}, Lcom/android/internal/protolog/ProtoLogImpl;->d(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
 
     :cond_0
     iget-object v0, p0, Lcom/android/server/wm/WallpaperAnimationAdapter;->mWallpaperToken:Lcom/android/server/wm/WallpaperWindowToken;
 
-    invoke-virtual {v0}, Lcom/android/server/wm/WallpaperWindowToken;->getPrefixOrderIndex()I
+    invoke-virtual {v0}, Lcom/android/server/wm/WindowContainer;->getPrefixOrderIndex()I
 
     move-result v0
 

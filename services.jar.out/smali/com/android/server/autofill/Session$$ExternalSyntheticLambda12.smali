@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/autofill/Session$$ExternalSyntheticLambda12;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -31,17 +32,17 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/autofill/Session$$ExternalSyntheticLambda12;->f$0:Lcom/android/server/autofill/Session;
 
     iget-object v1, p0, Lcom/android/server/autofill/Session$$ExternalSyntheticLambda12;->f$1:Ljava/util/function/Consumer;
 
-    iget v2, p0, Lcom/android/server/autofill/Session$$ExternalSyntheticLambda12;->f$2:I
+    iget p0, p0, Lcom/android/server/autofill/Session$$ExternalSyntheticLambda12;->f$2:I
 
     check-cast p1, Landroid/view/inputmethod/InlineSuggestionsRequest;
 
-    invoke-virtual {v0, v1, v2, p1}, Lcom/android/server/autofill/Session;->lambda$inlineSuggestionsRequestCacheDecorator$7$Session(Ljava/util/function/Consumer;ILandroid/view/inputmethod/InlineSuggestionsRequest;)V
+    invoke-static {v0, v1, p0, p1}, Lcom/android/server/autofill/Session;->$r8$lambda$Ue5kx2pknsYYXqMSwu3z_27gYqA(Lcom/android/server/autofill/Session;Ljava/util/function/Consumer;ILandroid/view/inputmethod/InlineSuggestionsRequest;)V
 
     return-void
 .end method

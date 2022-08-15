@@ -27,6 +27,8 @@
 
 .field public final checkedOptions:Landroid/app/ActivityOptions;
 
+.field public final clearOptionsAnimation:Ljava/lang/Runnable;
+
 .field public final intent:Landroid/content/Intent;
 
 .field public final rInfo:Landroid/content/pm/ResolveInfo;
@@ -41,7 +43,7 @@
 
 
 # direct methods
-.method public constructor <init>(IIILjava/lang/String;Ljava/lang/String;Landroid/content/Intent;Landroid/content/pm/ResolveInfo;Landroid/content/pm/ActivityInfo;Ljava/lang/String;IILandroid/app/ActivityOptions;)V
+.method public constructor <init>(IIILjava/lang/String;Ljava/lang/String;Landroid/content/Intent;Landroid/content/pm/ResolveInfo;Landroid/content/pm/ActivityInfo;Ljava/lang/String;IILandroid/app/ActivityOptions;Ljava/lang/Runnable;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -69,6 +71,8 @@
     iput p11, p0, Lcom/android/server/wm/ActivityInterceptorCallback$ActivityInterceptorInfo;->callingUid:I
 
     iput-object p12, p0, Lcom/android/server/wm/ActivityInterceptorCallback$ActivityInterceptorInfo;->checkedOptions:Landroid/app/ActivityOptions;
+
+    iput-object p13, p0, Lcom/android/server/wm/ActivityInterceptorCallback$ActivityInterceptorInfo;->clearOptionsAnimation:Ljava/lang/Runnable;
 
     return-void
 .end method

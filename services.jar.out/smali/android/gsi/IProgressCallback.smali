@@ -15,10 +15,6 @@
 .end annotation
 
 
-# static fields
-.field public static final DESCRIPTOR:Ljava/lang/String; = "android.gsi.IProgressCallback"
-
-
 # virtual methods
 .method public abstract onProgress(JJ)V
     .annotation system Ldalvik/annotation/Throws;

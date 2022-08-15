@@ -1,4 +1,4 @@
-.class final Lcom/android/server/hdmi/HdmiControlService$InputChangeListenerRecord;
+.class public final Lcom/android/server/hdmi/HdmiControlService$InputChangeListenerRecord;
 .super Ljava/lang/Object;
 .source "HdmiControlService.java"
 
@@ -12,18 +12,26 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "InputChangeListenerRecord"
 .end annotation
 
 
 # instance fields
-.field private final mListener:Landroid/hardware/hdmi/IHdmiInputChangeListener;
+.field public final mListener:Landroid/hardware/hdmi/IHdmiInputChangeListener;
 
-.field final synthetic this$0:Lcom/android/server/hdmi/HdmiControlService;
+.field public final synthetic this$0:Lcom/android/server/hdmi/HdmiControlService;
 
 
 # direct methods
+.method public static bridge synthetic -$$Nest$fgetmListener(Lcom/android/server/hdmi/HdmiControlService$InputChangeListenerRecord;)Landroid/hardware/hdmi/IHdmiInputChangeListener;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/hdmi/HdmiControlService$InputChangeListenerRecord;->mListener:Landroid/hardware/hdmi/IHdmiInputChangeListener;
+
+    return-object p0
+.end method
+
 .method public constructor <init>(Lcom/android/server/hdmi/HdmiControlService;Landroid/hardware/hdmi/IHdmiInputChangeListener;)V
     .locals 0
 
@@ -36,22 +44,14 @@
     return-void
 .end method
 
-.method static synthetic access$6300(Lcom/android/server/hdmi/HdmiControlService$InputChangeListenerRecord;)Landroid/hardware/hdmi/IHdmiInputChangeListener;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$InputChangeListenerRecord;->mListener:Landroid/hardware/hdmi/IHdmiInputChangeListener;
-
-    return-object v0
-.end method
-
 
 # virtual methods
 .method public binderDied()V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$InputChangeListenerRecord;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
-    invoke-static {v0}, Lcom/android/server/hdmi/HdmiControlService;->access$2200(Lcom/android/server/hdmi/HdmiControlService;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/server/hdmi/HdmiControlService;->-$$Nest$fgetmLock(Lcom/android/server/hdmi/HdmiControlService;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -60,17 +60,17 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/server/hdmi/HdmiControlService$InputChangeListenerRecord;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
-    invoke-static {v1}, Lcom/android/server/hdmi/HdmiControlService;->access$6200(Lcom/android/server/hdmi/HdmiControlService;)Lcom/android/server/hdmi/HdmiControlService$InputChangeListenerRecord;
+    invoke-static {v1}, Lcom/android/server/hdmi/HdmiControlService;->-$$Nest$fgetmInputChangeListenerRecord(Lcom/android/server/hdmi/HdmiControlService;)Lcom/android/server/hdmi/HdmiControlService$InputChangeListenerRecord;
 
     move-result-object v1
 
     if-ne v1, p0, :cond_0
 
-    iget-object v1, p0, Lcom/android/server/hdmi/HdmiControlService$InputChangeListenerRecord;->this$0:Lcom/android/server/hdmi/HdmiControlService;
+    iget-object p0, p0, Lcom/android/server/hdmi/HdmiControlService$InputChangeListenerRecord;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    invoke-static {v1, v2}, Lcom/android/server/hdmi/HdmiControlService;->access$6202(Lcom/android/server/hdmi/HdmiControlService;Lcom/android/server/hdmi/HdmiControlService$InputChangeListenerRecord;)Lcom/android/server/hdmi/HdmiControlService$InputChangeListenerRecord;
+    invoke-static {p0, v1}, Lcom/android/server/hdmi/HdmiControlService;->-$$Nest$fputmInputChangeListenerRecord(Lcom/android/server/hdmi/HdmiControlService;Lcom/android/server/hdmi/HdmiControlService$InputChangeListenerRecord;)V
 
     :cond_0
     monitor-exit v0
@@ -78,11 +78,11 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method

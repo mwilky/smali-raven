@@ -13,6 +13,9 @@
 
 
 # virtual methods
+.method public abstract checkSoundTriggerRecordAudioPermissionForDataDelivery(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+.end method
+
 .method public abstract grantDefaultPermissions(I)V
 .end method
 

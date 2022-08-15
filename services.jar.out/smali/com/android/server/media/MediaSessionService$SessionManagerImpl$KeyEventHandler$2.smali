@@ -1,4 +1,4 @@
-.class Lcom/android/server/media/MediaSessionService$SessionManagerImpl$KeyEventHandler$2;
+.class public Lcom/android/server/media/MediaSessionService$SessionManagerImpl$KeyEventHandler$2;
 .super Ljava/lang/Object;
 .source "MediaSessionService.java"
 
@@ -12,37 +12,37 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$2:Lcom/android/server/media/MediaSessionService$SessionManagerImpl$KeyEventHandler;
+.field public final synthetic this$2:Lcom/android/server/media/MediaSessionService$SessionManagerImpl$KeyEventHandler;
 
-.field final synthetic val$asSystemService:Z
+.field public final synthetic val$asSystemService:Z
 
-.field final synthetic val$keyEvent:Landroid/view/KeyEvent;
+.field public final synthetic val$keyEvent:Landroid/view/KeyEvent;
 
-.field final synthetic val$musicOnly:Z
+.field public final synthetic val$musicOnly:Z
 
-.field final synthetic val$needWakeLock:Z
+.field public final synthetic val$needWakeLock:Z
 
-.field final synthetic val$opPackageName:Ljava/lang/String;
+.field public final synthetic val$opPackageName:Ljava/lang/String;
 
-.field final synthetic val$overridden:Z
+.field public final synthetic val$overridden:Z
 
-.field final synthetic val$packageName:Ljava/lang/String;
+.field public final synthetic val$packageName:Ljava/lang/String;
 
-.field final synthetic val$pid:I
+.field public final synthetic val$pid:I
 
-.field final synthetic val$stream:I
+.field public final synthetic val$stream:I
 
-.field final synthetic val$uid:I
+.field public final synthetic val$uid:I
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/media/MediaSessionService$SessionManagerImpl$KeyEventHandler;ZLandroid/view/KeyEvent;Ljava/lang/String;IIZZLjava/lang/String;IZ)V
+.method public constructor <init>(Lcom/android/server/media/MediaSessionService$SessionManagerImpl$KeyEventHandler;ZLandroid/view/KeyEvent;Ljava/lang/String;IIZZLjava/lang/String;IZ)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/media/MediaSessionService$SessionManagerImpl$KeyEventHandler$2;->this$2:Lcom/android/server/media/MediaSessionService$SessionManagerImpl$KeyEventHandler;
@@ -75,11 +75,11 @@
 
 # virtual methods
 .method public run()V
-    .locals 12
+    .locals 11
 
     iget-object v0, p0, Lcom/android/server/media/MediaSessionService$SessionManagerImpl$KeyEventHandler$2;->this$2:Lcom/android/server/media/MediaSessionService$SessionManagerImpl$KeyEventHandler;
 
-    invoke-static {v0}, Lcom/android/server/media/MediaSessionService$SessionManagerImpl$KeyEventHandler;->access$5800(Lcom/android/server/media/MediaSessionService$SessionManagerImpl$KeyEventHandler;)V
+    invoke-static {v0}, Lcom/android/server/media/MediaSessionService$SessionManagerImpl$KeyEventHandler;->-$$Nest$mresetMultiTapTrackingLocked(Lcom/android/server/media/MediaSessionService$SessionManagerImpl$KeyEventHandler;)V
 
     iget-boolean v0, p0, Lcom/android/server/media/MediaSessionService$SessionManagerImpl$KeyEventHandler$2;->val$overridden:Z
 
@@ -91,38 +91,38 @@
 
     iget-object v0, v0, Lcom/android/server/media/MediaSessionService$SessionManagerImpl;->this$0:Lcom/android/server/media/MediaSessionService;
 
-    invoke-static {v0}, Lcom/android/server/media/MediaSessionService;->access$3900(Lcom/android/server/media/MediaSessionService;)Lcom/android/server/media/MediaKeyDispatcher;
+    invoke-static {v0}, Lcom/android/server/media/MediaSessionService;->-$$Nest$fgetmCustomMediaKeyDispatcher(Lcom/android/server/media/MediaSessionService;)Lcom/android/server/media/MediaKeyDispatcher;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/server/media/MediaSessionService$SessionManagerImpl$KeyEventHandler$2;->val$keyEvent:Landroid/view/KeyEvent;
+    iget-object p0, p0, Lcom/android/server/media/MediaSessionService$SessionManagerImpl$KeyEventHandler$2;->val$keyEvent:Landroid/view/KeyEvent;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/media/MediaKeyDispatcher;->onSingleTap(Landroid/view/KeyEvent;)V
+    invoke-virtual {v0, p0}, Lcom/android/server/media/MediaKeyDispatcher;->onSingleTap(Landroid/view/KeyEvent;)V
 
     goto :goto_0
 
     :cond_0
-    iget-object v2, p0, Lcom/android/server/media/MediaSessionService$SessionManagerImpl$KeyEventHandler$2;->this$2:Lcom/android/server/media/MediaSessionService$SessionManagerImpl$KeyEventHandler;
+    iget-object v1, p0, Lcom/android/server/media/MediaSessionService$SessionManagerImpl$KeyEventHandler$2;->this$2:Lcom/android/server/media/MediaSessionService$SessionManagerImpl$KeyEventHandler;
 
-    iget-object v3, p0, Lcom/android/server/media/MediaSessionService$SessionManagerImpl$KeyEventHandler$2;->val$packageName:Ljava/lang/String;
+    iget-object v2, p0, Lcom/android/server/media/MediaSessionService$SessionManagerImpl$KeyEventHandler$2;->val$packageName:Ljava/lang/String;
 
-    iget v4, p0, Lcom/android/server/media/MediaSessionService$SessionManagerImpl$KeyEventHandler$2;->val$pid:I
+    iget v3, p0, Lcom/android/server/media/MediaSessionService$SessionManagerImpl$KeyEventHandler$2;->val$pid:I
 
-    iget v5, p0, Lcom/android/server/media/MediaSessionService$SessionManagerImpl$KeyEventHandler$2;->val$uid:I
+    iget v4, p0, Lcom/android/server/media/MediaSessionService$SessionManagerImpl$KeyEventHandler$2;->val$uid:I
 
-    iget-boolean v6, p0, Lcom/android/server/media/MediaSessionService$SessionManagerImpl$KeyEventHandler$2;->val$asSystemService:Z
+    iget-boolean v5, p0, Lcom/android/server/media/MediaSessionService$SessionManagerImpl$KeyEventHandler$2;->val$asSystemService:Z
 
-    iget-object v7, p0, Lcom/android/server/media/MediaSessionService$SessionManagerImpl$KeyEventHandler$2;->val$keyEvent:Landroid/view/KeyEvent;
+    iget-object v6, p0, Lcom/android/server/media/MediaSessionService$SessionManagerImpl$KeyEventHandler$2;->val$keyEvent:Landroid/view/KeyEvent;
 
-    iget-boolean v8, p0, Lcom/android/server/media/MediaSessionService$SessionManagerImpl$KeyEventHandler$2;->val$needWakeLock:Z
+    iget-boolean v7, p0, Lcom/android/server/media/MediaSessionService$SessionManagerImpl$KeyEventHandler$2;->val$needWakeLock:Z
 
-    iget-object v9, p0, Lcom/android/server/media/MediaSessionService$SessionManagerImpl$KeyEventHandler$2;->val$opPackageName:Ljava/lang/String;
+    iget-object v8, p0, Lcom/android/server/media/MediaSessionService$SessionManagerImpl$KeyEventHandler$2;->val$opPackageName:Ljava/lang/String;
 
-    iget v10, p0, Lcom/android/server/media/MediaSessionService$SessionManagerImpl$KeyEventHandler$2;->val$stream:I
+    iget v9, p0, Lcom/android/server/media/MediaSessionService$SessionManagerImpl$KeyEventHandler$2;->val$stream:I
 
-    iget-boolean v11, p0, Lcom/android/server/media/MediaSessionService$SessionManagerImpl$KeyEventHandler$2;->val$musicOnly:Z
+    iget-boolean v10, p0, Lcom/android/server/media/MediaSessionService$SessionManagerImpl$KeyEventHandler$2;->val$musicOnly:Z
 
-    invoke-static/range {v2 .. v11}, Lcom/android/server/media/MediaSessionService$SessionManagerImpl$KeyEventHandler;->access$5900(Lcom/android/server/media/MediaSessionService$SessionManagerImpl$KeyEventHandler;Ljava/lang/String;IIZLandroid/view/KeyEvent;ZLjava/lang/String;IZ)V
+    invoke-static/range {v1 .. v10}, Lcom/android/server/media/MediaSessionService$SessionManagerImpl$KeyEventHandler;->-$$Nest$mdispatchDownAndUpKeyEventsLocked(Lcom/android/server/media/MediaSessionService$SessionManagerImpl$KeyEventHandler;Ljava/lang/String;IIZLandroid/view/KeyEvent;ZLjava/lang/String;IZ)V
 
     :goto_0
     return-void

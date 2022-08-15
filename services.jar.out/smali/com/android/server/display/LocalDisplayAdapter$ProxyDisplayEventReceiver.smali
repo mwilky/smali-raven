@@ -15,11 +15,11 @@
 
 
 # instance fields
-.field private final mListener:Lcom/android/server/display/LocalDisplayAdapter$DisplayEventListener;
+.field public final mListener:Lcom/android/server/display/LocalDisplayAdapter$DisplayEventListener;
 
 
 # direct methods
-.method constructor <init>(Landroid/os/Looper;Lcom/android/server/display/LocalDisplayAdapter$DisplayEventListener;)V
+.method public constructor <init>(Landroid/os/Looper;Lcom/android/server/display/LocalDisplayAdapter$DisplayEventListener;)V
     .locals 2
 
     const/4 v0, 0x0

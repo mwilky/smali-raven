@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/LockTaskController$LockTaskToken;
+.class public Lcom/android/server/wm/LockTaskController$LockTaskToken;
 .super Landroid/os/Binder;
 .source "LockTaskController.java"
 
@@ -9,13 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "LockTaskToken"
 .end annotation
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Landroid/os/Binder;-><init>()V
@@ -23,7 +23,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/wm/LockTaskController$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/wm/LockTaskController$LockTaskToken-IA;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/wm/LockTaskController$LockTaskToken;-><init>()V

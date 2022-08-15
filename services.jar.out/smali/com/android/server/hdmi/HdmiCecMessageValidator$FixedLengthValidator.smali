@@ -1,4 +1,4 @@
-.class Lcom/android/server/hdmi/HdmiCecMessageValidator$FixedLengthValidator;
+.class public Lcom/android/server/hdmi/HdmiCecMessageValidator$FixedLengthValidator;
 .super Ljava/lang/Object;
 .source "HdmiCecMessageValidator.java"
 
@@ -12,13 +12,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "FixedLengthValidator"
 .end annotation
 
 
 # instance fields
-.field private final mLength:I
+.field public final mLength:I
 
 
 # direct methods
@@ -35,21 +35,21 @@
 
 # virtual methods
 .method public isValid([B)I
-    .locals 2
+    .locals 0
 
-    array-length v0, p1
+    array-length p1, p1
 
-    iget v1, p0, Lcom/android/server/hdmi/HdmiCecMessageValidator$FixedLengthValidator;->mLength:I
+    iget p0, p0, Lcom/android/server/hdmi/HdmiCecMessageValidator$FixedLengthValidator;->mLength:I
 
-    if-ge v0, v1, :cond_0
+    if-ge p1, p0, :cond_0
 
-    const/4 v0, 0x4
+    const/4 p0, 0x4
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method

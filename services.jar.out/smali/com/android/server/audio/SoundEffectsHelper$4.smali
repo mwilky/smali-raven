@@ -1,4 +1,4 @@
-.class Lcom/android/server/audio/SoundEffectsHelper$4;
+.class public Lcom/android/server/audio/SoundEffectsHelper$4;
 .super Ljava/lang/Object;
 .source "SoundEffectsHelper.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/audio/SoundEffectsHelper;
+.field public final synthetic this$0:Lcom/android/server/audio/SoundEffectsHelper;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/audio/SoundEffectsHelper;)V
+.method public constructor <init>(Lcom/android/server/audio/SoundEffectsHelper;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/audio/SoundEffectsHelper$4;->this$0:Lcom/android/server/audio/SoundEffectsHelper;
@@ -35,11 +35,11 @@
 
 # virtual methods
 .method public onError(Landroid/media/MediaPlayer;II)Z
-    .locals 1
+    .locals 0
 
-    invoke-static {p1}, Lcom/android/server/audio/SoundEffectsHelper;->access$100(Landroid/media/MediaPlayer;)V
+    invoke-static {p1}, Lcom/android/server/audio/SoundEffectsHelper;->-$$Nest$smcleanupPlayer(Landroid/media/MediaPlayer;)V
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 .end method

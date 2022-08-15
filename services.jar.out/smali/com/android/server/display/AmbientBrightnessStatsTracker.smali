@@ -15,31 +15,59 @@
 
 
 # static fields
-.field static final BUCKET_BOUNDARIES_FOR_NEW_STATS:[F
+.field public static final BUCKET_BOUNDARIES_FOR_NEW_STATS:[F
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+.end field
 
-.field private static final DEBUG:Z = false
-
-.field static final MAX_DAYS_TO_TRACK:I = 0x7
-
-.field private static final TAG:Ljava/lang/String; = "AmbientBrightnessStatsTracker"
+.field public static final MAX_DAYS_TO_TRACK:I = 0x7
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+.end field
 
 
 # instance fields
-.field private final mAmbientBrightnessStats:Lcom/android/server/display/AmbientBrightnessStatsTracker$AmbientBrightnessStats;
+.field public final mAmbientBrightnessStats:Lcom/android/server/display/AmbientBrightnessStatsTracker$AmbientBrightnessStats;
 
-.field private mCurrentAmbientBrightness:F
+.field public mCurrentAmbientBrightness:F
 
-.field private mCurrentUserId:I
+.field public mCurrentUserId:I
 
-.field private final mInjector:Lcom/android/server/display/AmbientBrightnessStatsTracker$Injector;
+.field public final mInjector:Lcom/android/server/display/AmbientBrightnessStatsTracker$Injector;
 
-.field private final mTimer:Lcom/android/server/display/AmbientBrightnessStatsTracker$Timer;
+.field public final mTimer:Lcom/android/server/display/AmbientBrightnessStatsTracker$Timer;
 
-.field private final mUserManager:Landroid/os/UserManager;
+.field public final mUserManager:Landroid/os/UserManager;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static synthetic $r8$lambda$PpdGe5Aypn-LWzDAucX-R3O7B_k(Lcom/android/server/display/AmbientBrightnessStatsTracker;)J
+    .locals 2
+
+    invoke-direct {p0}, Lcom/android/server/display/AmbientBrightnessStatsTracker;->lambda$new$0()J
+
+    move-result-wide v0
+
+    return-wide v0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmInjector(Lcom/android/server/display/AmbientBrightnessStatsTracker;)Lcom/android/server/display/AmbientBrightnessStatsTracker$Injector;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/display/AmbientBrightnessStatsTracker;->mInjector:Lcom/android/server/display/AmbientBrightnessStatsTracker$Injector;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmUserManager(Lcom/android/server/display/AmbientBrightnessStatsTracker;)Landroid/os/UserManager;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/display/AmbientBrightnessStatsTracker;->mUserManager:Landroid/os/UserManager;
+
+    return-object p0
+.end method
+
+.method public static constructor <clinit>()V
     .locals 1
 
     const/16 v0, 0xc
@@ -70,7 +98,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/UserManager;Lcom/android/server/display/AmbientBrightnessStatsTracker$Injector;)V
-    .locals 2
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -83,56 +111,52 @@
     goto :goto_0
 
     :cond_0
-    new-instance v0, Lcom/android/server/display/AmbientBrightnessStatsTracker$Injector;
+    new-instance p1, Lcom/android/server/display/AmbientBrightnessStatsTracker$Injector;
 
-    invoke-direct {v0}, Lcom/android/server/display/AmbientBrightnessStatsTracker$Injector;-><init>()V
+    invoke-direct {p1}, Lcom/android/server/display/AmbientBrightnessStatsTracker$Injector;-><init>()V
 
-    iput-object v0, p0, Lcom/android/server/display/AmbientBrightnessStatsTracker;->mInjector:Lcom/android/server/display/AmbientBrightnessStatsTracker$Injector;
+    iput-object p1, p0, Lcom/android/server/display/AmbientBrightnessStatsTracker;->mInjector:Lcom/android/server/display/AmbientBrightnessStatsTracker$Injector;
 
     :goto_0
-    new-instance v0, Lcom/android/server/display/AmbientBrightnessStatsTracker$AmbientBrightnessStats;
+    new-instance p1, Lcom/android/server/display/AmbientBrightnessStatsTracker$AmbientBrightnessStats;
 
-    invoke-direct {v0, p0}, Lcom/android/server/display/AmbientBrightnessStatsTracker$AmbientBrightnessStats;-><init>(Lcom/android/server/display/AmbientBrightnessStatsTracker;)V
+    invoke-direct {p1, p0}, Lcom/android/server/display/AmbientBrightnessStatsTracker$AmbientBrightnessStats;-><init>(Lcom/android/server/display/AmbientBrightnessStatsTracker;)V
 
-    iput-object v0, p0, Lcom/android/server/display/AmbientBrightnessStatsTracker;->mAmbientBrightnessStats:Lcom/android/server/display/AmbientBrightnessStatsTracker$AmbientBrightnessStats;
+    iput-object p1, p0, Lcom/android/server/display/AmbientBrightnessStatsTracker;->mAmbientBrightnessStats:Lcom/android/server/display/AmbientBrightnessStatsTracker$AmbientBrightnessStats;
 
-    new-instance v0, Lcom/android/server/display/AmbientBrightnessStatsTracker$Timer;
+    new-instance p1, Lcom/android/server/display/AmbientBrightnessStatsTracker$Timer;
 
-    new-instance v1, Lcom/android/server/display/AmbientBrightnessStatsTracker$$ExternalSyntheticLambda0;
+    new-instance p2, Lcom/android/server/display/AmbientBrightnessStatsTracker$$ExternalSyntheticLambda0;
 
-    invoke-direct {v1, p0}, Lcom/android/server/display/AmbientBrightnessStatsTracker$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/display/AmbientBrightnessStatsTracker;)V
+    invoke-direct {p2, p0}, Lcom/android/server/display/AmbientBrightnessStatsTracker$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/display/AmbientBrightnessStatsTracker;)V
 
-    invoke-direct {v0, v1}, Lcom/android/server/display/AmbientBrightnessStatsTracker$Timer;-><init>(Lcom/android/server/display/AmbientBrightnessStatsTracker$Clock;)V
+    invoke-direct {p1, p2}, Lcom/android/server/display/AmbientBrightnessStatsTracker$Timer;-><init>(Lcom/android/server/display/AmbientBrightnessStatsTracker$Clock;)V
 
-    iput-object v0, p0, Lcom/android/server/display/AmbientBrightnessStatsTracker;->mTimer:Lcom/android/server/display/AmbientBrightnessStatsTracker$Timer;
+    iput-object p1, p0, Lcom/android/server/display/AmbientBrightnessStatsTracker;->mTimer:Lcom/android/server/display/AmbientBrightnessStatsTracker$Timer;
 
-    const/high16 v0, -0x40800000    # -1.0f
+    const/high16 p1, -0x40800000    # -1.0f
 
-    iput v0, p0, Lcom/android/server/display/AmbientBrightnessStatsTracker;->mCurrentAmbientBrightness:F
+    iput p1, p0, Lcom/android/server/display/AmbientBrightnessStatsTracker;->mCurrentAmbientBrightness:F
 
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/server/display/AmbientBrightnessStatsTracker;)Lcom/android/server/display/AmbientBrightnessStatsTracker$Injector;
-    .locals 1
+.method private synthetic lambda$new$0()J
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/server/display/AmbientBrightnessStatsTracker;->mInjector:Lcom/android/server/display/AmbientBrightnessStatsTracker$Injector;
+    iget-object p0, p0, Lcom/android/server/display/AmbientBrightnessStatsTracker;->mInjector:Lcom/android/server/display/AmbientBrightnessStatsTracker$Injector;
 
-    return-object v0
-.end method
+    invoke-virtual {p0}, Lcom/android/server/display/AmbientBrightnessStatsTracker$Injector;->elapsedRealtimeMillis()J
 
-.method static synthetic access$100(Lcom/android/server/display/AmbientBrightnessStatsTracker;)Landroid/os/UserManager;
-    .locals 1
+    move-result-wide v0
 
-    iget-object v0, p0, Lcom/android/server/display/AmbientBrightnessStatsTracker;->mUserManager:Landroid/os/UserManager;
-
-    return-object v0
+    return-wide v0
 .end method
 
 
 # virtual methods
 .method public declared-synchronized add(IF)V
-    .locals 5
+    .locals 4
 
     monitor-enter p0
 
@@ -149,23 +173,23 @@
 
     if-ne p1, v0, :cond_0
 
-    iget-object v1, p0, Lcom/android/server/display/AmbientBrightnessStatsTracker;->mAmbientBrightnessStats:Lcom/android/server/display/AmbientBrightnessStatsTracker$AmbientBrightnessStats;
+    iget-object p1, p0, Lcom/android/server/display/AmbientBrightnessStatsTracker;->mAmbientBrightnessStats:Lcom/android/server/display/AmbientBrightnessStatsTracker$AmbientBrightnessStats;
 
-    iget-object v2, p0, Lcom/android/server/display/AmbientBrightnessStatsTracker;->mInjector:Lcom/android/server/display/AmbientBrightnessStatsTracker$Injector;
+    iget-object v1, p0, Lcom/android/server/display/AmbientBrightnessStatsTracker;->mInjector:Lcom/android/server/display/AmbientBrightnessStatsTracker$Injector;
 
-    invoke-virtual {v2}, Lcom/android/server/display/AmbientBrightnessStatsTracker$Injector;->getLocalDate()Ljava/time/LocalDate;
+    invoke-virtual {v1}, Lcom/android/server/display/AmbientBrightnessStatsTracker$Injector;->getLocalDate()Ljava/time/LocalDate;
 
-    move-result-object v2
+    move-result-object v1
 
-    iget v3, p0, Lcom/android/server/display/AmbientBrightnessStatsTracker;->mCurrentAmbientBrightness:F
+    iget v2, p0, Lcom/android/server/display/AmbientBrightnessStatsTracker;->mCurrentAmbientBrightness:F
 
-    iget-object v4, p0, Lcom/android/server/display/AmbientBrightnessStatsTracker;->mTimer:Lcom/android/server/display/AmbientBrightnessStatsTracker$Timer;
+    iget-object v3, p0, Lcom/android/server/display/AmbientBrightnessStatsTracker;->mTimer:Lcom/android/server/display/AmbientBrightnessStatsTracker$Timer;
 
-    invoke-virtual {v4}, Lcom/android/server/display/AmbientBrightnessStatsTracker$Timer;->totalDurationSec()F
+    invoke-virtual {v3}, Lcom/android/server/display/AmbientBrightnessStatsTracker$Timer;->totalDurationSec()F
 
-    move-result v4
+    move-result v3
 
-    invoke-virtual {v1, v0, v2, v3, v4}, Lcom/android/server/display/AmbientBrightnessStatsTracker$AmbientBrightnessStats;->log(ILjava/time/LocalDate;FF)V
+    invoke-virtual {p1, v0, v1, v2, v3}, Lcom/android/server/display/AmbientBrightnessStatsTracker$AmbientBrightnessStats;->log(ILjava/time/LocalDate;FF)V
 
     goto :goto_0
 
@@ -173,13 +197,13 @@
     iput p1, p0, Lcom/android/server/display/AmbientBrightnessStatsTracker;->mCurrentUserId:I
 
     :goto_0
-    iget-object v0, p0, Lcom/android/server/display/AmbientBrightnessStatsTracker;->mTimer:Lcom/android/server/display/AmbientBrightnessStatsTracker$Timer;
+    iget-object p1, p0, Lcom/android/server/display/AmbientBrightnessStatsTracker;->mTimer:Lcom/android/server/display/AmbientBrightnessStatsTracker$Timer;
 
-    invoke-virtual {v0}, Lcom/android/server/display/AmbientBrightnessStatsTracker$Timer;->reset()V
+    invoke-virtual {p1}, Lcom/android/server/display/AmbientBrightnessStatsTracker$Timer;->reset()V
 
-    iget-object v0, p0, Lcom/android/server/display/AmbientBrightnessStatsTracker;->mTimer:Lcom/android/server/display/AmbientBrightnessStatsTracker$Timer;
+    iget-object p1, p0, Lcom/android/server/display/AmbientBrightnessStatsTracker;->mTimer:Lcom/android/server/display/AmbientBrightnessStatsTracker$Timer;
 
-    invoke-virtual {v0}, Lcom/android/server/display/AmbientBrightnessStatsTracker$Timer;->start()V
+    invoke-virtual {p1}, Lcom/android/server/display/AmbientBrightnessStatsTracker$Timer;->start()V
 
     iput p2, p0, Lcom/android/server/display/AmbientBrightnessStatsTracker;->mCurrentAmbientBrightness:F
     :try_end_0
@@ -244,13 +268,13 @@
 
     invoke-virtual {v0, p1}, Lcom/android/server/display/AmbientBrightnessStatsTracker$AmbientBrightnessStats;->getUserStats(I)Ljava/util/ArrayList;
 
-    move-result-object v0
+    move-result-object p1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
-    return-object v0
+    return-object p1
 
     :catchall_0
     move-exception p1
@@ -258,18 +282,6 @@
     monitor-exit p0
 
     throw p1
-.end method
-
-.method public synthetic lambda$new$0$AmbientBrightnessStatsTracker()J
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/server/display/AmbientBrightnessStatsTracker;->mInjector:Lcom/android/server/display/AmbientBrightnessStatsTracker$Injector;
-
-    invoke-virtual {v0}, Lcom/android/server/display/AmbientBrightnessStatsTracker$Injector;->elapsedRealtimeMillis()J
-
-    move-result-wide v0
-
-    return-wide v0
 .end method
 
 .method public declared-synchronized readStats(Ljava/io/InputStream;)V

@@ -1,4 +1,4 @@
-.class Landroid/net/NetworkFactoryLegacyImpl$1;
+.class public Landroid/net/NetworkFactoryLegacyImpl$1;
 .super Landroid/net/NetworkProvider;
 .source "NetworkFactoryLegacyImpl.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroid/net/NetworkFactoryLegacyImpl;
+.field public final synthetic this$0:Landroid/net/NetworkFactoryLegacyImpl;
 
 
 # direct methods
-.method constructor <init>(Landroid/net/NetworkFactoryLegacyImpl;Landroid/content/Context;Landroid/os/Looper;Ljava/lang/String;)V
+.method public constructor <init>(Landroid/net/NetworkFactoryLegacyImpl;Landroid/content/Context;Landroid/os/Looper;Ljava/lang/String;)V
     .locals 0
 
     iput-object p1, p0, Landroid/net/NetworkFactoryLegacyImpl$1;->this$0:Landroid/net/NetworkFactoryLegacyImpl;
@@ -32,21 +32,21 @@
 
 # virtual methods
 .method public onNetworkRequestWithdrawn(Landroid/net/NetworkRequest;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Landroid/net/NetworkFactoryLegacyImpl$1;->this$0:Landroid/net/NetworkFactoryLegacyImpl;
+    iget-object p0, p0, Landroid/net/NetworkFactoryLegacyImpl$1;->this$0:Landroid/net/NetworkFactoryLegacyImpl;
 
-    invoke-static {v0, p1}, Landroid/net/NetworkFactoryLegacyImpl;->access$000(Landroid/net/NetworkFactoryLegacyImpl;Landroid/net/NetworkRequest;)V
+    invoke-static {p0, p1}, Landroid/net/NetworkFactoryLegacyImpl;->-$$Nest$mhandleRemoveRequest(Landroid/net/NetworkFactoryLegacyImpl;Landroid/net/NetworkRequest;)V
 
     return-void
 .end method
 
 .method public onNetworkRequested(Landroid/net/NetworkRequest;II)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Landroid/net/NetworkFactoryLegacyImpl$1;->this$0:Landroid/net/NetworkFactoryLegacyImpl;
+    iget-object p0, p0, Landroid/net/NetworkFactoryLegacyImpl$1;->this$0:Landroid/net/NetworkFactoryLegacyImpl;
 
-    invoke-virtual {v0, p1, p2, p3}, Landroid/net/NetworkFactoryLegacyImpl;->handleAddRequest(Landroid/net/NetworkRequest;II)V
+    invoke-virtual {p0, p1, p2, p3}, Landroid/net/NetworkFactoryLegacyImpl;->handleAddRequest(Landroid/net/NetworkRequest;II)V
 
     return-void
 .end method

@@ -1,6 +1,9 @@
-.class Lcom/android/server/DeviceIdleController$6;
-.super Landroid/content/BroadcastReceiver;
+.class public Lcom/android/server/DeviceIdleController$6;
+.super Ljava/lang/Object;
 .source "DeviceIdleController.java"
+
+# interfaces
+.implements Landroid/location/LocationListener;
 
 
 # annotations
@@ -9,50 +12,68 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/DeviceIdleController;
+.field public final synthetic this$0:Lcom/android/server/DeviceIdleController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/DeviceIdleController;)V
+.method public constructor <init>(Lcom/android/server/DeviceIdleController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/DeviceIdleController$6;->this$0:Lcom/android/server/DeviceIdleController;
 
-    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 2
+.method public onLocationChanged(Landroid/location/Location;)V
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/DeviceIdleController$6;->this$0:Lcom/android/server/DeviceIdleController;
 
     monitor-enter v0
 
     :try_start_0
-    iget-object v1, p0, Lcom/android/server/DeviceIdleController$6;->this$0:Lcom/android/server/DeviceIdleController;
+    iget-object p0, p0, Lcom/android/server/DeviceIdleController$6;->this$0:Lcom/android/server/DeviceIdleController;
 
-    invoke-virtual {v1}, Lcom/android/server/DeviceIdleController;->updateInteractivityLocked()V
+    invoke-virtual {p0, p1}, Lcom/android/server/DeviceIdleController;->receivedGenericLocationLocked(Landroid/location/Location;)V
 
     monitor-exit v0
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
+.end method
+
+.method public onProviderDisabled(Ljava/lang/String;)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onProviderEnabled(Ljava/lang/String;)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onStatusChanged(Ljava/lang/String;ILandroid/os/Bundle;)V
+    .locals 0
+
+    return-void
 .end method

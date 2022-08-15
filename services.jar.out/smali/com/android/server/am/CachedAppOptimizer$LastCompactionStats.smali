@@ -4,22 +4,25 @@
 
 
 # annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/android/server/am/CachedAppOptimizer;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = "LastCompactionStats"
 .end annotation
 
 
 # instance fields
-.field private final mRssAfterCompaction:[J
+.field public final mRssAfterCompaction:[J
 
 
 # direct methods
-.method constructor <init>([J)V
+.method public constructor <init>([J)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -31,10 +34,10 @@
 
 
 # virtual methods
-.method getRssAfterCompaction()[J
-    .locals 1
+.method public getRssAfterCompaction()[J
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/am/CachedAppOptimizer$LastCompactionStats;->mRssAfterCompaction:[J
+    iget-object p0, p0, Lcom/android/server/am/CachedAppOptimizer$LastCompactionStats;->mRssAfterCompaction:[J
 
-    return-object v0
+    return-object p0
 .end method

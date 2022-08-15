@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/wm/ActivityTaskManagerService$$ExternalSyntheticLambda7;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -8,14 +9,18 @@
 # instance fields
 .field public final synthetic f$0:Lcom/android/server/wm/ActivityTaskManagerService;
 
+.field public final synthetic f$1:Z
+
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/wm/ActivityTaskManagerService;)V
+.method public synthetic constructor <init>(Lcom/android/server/wm/ActivityTaskManagerService;Z)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/server/wm/ActivityTaskManagerService$$ExternalSyntheticLambda7;->f$0:Lcom/android/server/wm/ActivityTaskManagerService;
+
+    iput-boolean p2, p0, Lcom/android/server/wm/ActivityTaskManagerService$$ExternalSyntheticLambda7;->f$1:Z
 
     return-void
 .end method
@@ -27,7 +32,9 @@
 
     iget-object v0, p0, Lcom/android/server/wm/ActivityTaskManagerService$$ExternalSyntheticLambda7;->f$0:Lcom/android/server/wm/ActivityTaskManagerService;
 
-    invoke-virtual {v0}, Lcom/android/server/wm/ActivityTaskManagerService;->lambda$scheduleAppGcsLocked$6$ActivityTaskManagerService()V
+    iget-boolean p0, p0, Lcom/android/server/wm/ActivityTaskManagerService$$ExternalSyntheticLambda7;->f$1:Z
+
+    invoke-static {v0, p0}, Lcom/android/server/wm/ActivityTaskManagerService;->$r8$lambda$hKrVQsydb0Q0-eBb5nrvE1ED2Kg(Lcom/android/server/wm/ActivityTaskManagerService;Z)V
 
     return-void
 .end method

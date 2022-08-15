@@ -11,16 +11,12 @@
 .end annotation
 
 
-# static fields
-.field private static final EVENT_LOG_SIZE:I = 0x64
-
-
 # instance fields
-.field private mAcceptCount:I
+.field public mAcceptCount:I
 
-.field private mAcceptLatency:J
+.field public mAcceptLatency:J
 
-.field private mAuthenticationEvents:Ljava/util/ArrayDeque;
+.field public mAuthenticationEvents:Ljava/util/ArrayDeque;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/ArrayDeque<",
@@ -30,15 +26,15 @@
     .end annotation
 .end field
 
-.field private mContext:Landroid/content/Context;
+.field public mContext:Landroid/content/Context;
 
-.field private mErrorCount:Landroid/util/SparseIntArray;
+.field public mErrorCount:Landroid/util/SparseIntArray;
 
-.field private mErrorLatency:Landroid/util/SparseLongArray;
+.field public mErrorLatency:Landroid/util/SparseLongArray;
 
-.field private mRejectCount:I
+.field public mRejectCount:I
 
-.field private mRejectLatency:J
+.field public mRejectLatency:J
 
 
 # direct methods
@@ -73,7 +69,7 @@
 
 # virtual methods
 .method public addEvent(Lcom/android/server/biometrics/sensors/face/UsageStats$AuthenticationEvent;)V
-    .locals 6
+    .locals 5
 
     iget-object v0, p0, Lcom/android/server/biometrics/sensors/face/UsageStats;->mAuthenticationEvents:Ljava/util/ArrayDeque;
 
@@ -94,7 +90,7 @@
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayDeque;->add(Ljava/lang/Object;)Z
 
-    invoke-static {p1}, Lcom/android/server/biometrics/sensors/face/UsageStats$AuthenticationEvent;->access$000(Lcom/android/server/biometrics/sensors/face/UsageStats$AuthenticationEvent;)Z
+    invoke-static {p1}, Lcom/android/server/biometrics/sensors/face/UsageStats$AuthenticationEvent;->-$$Nest$fgetmAuthenticated(Lcom/android/server/biometrics/sensors/face/UsageStats$AuthenticationEvent;)Z
 
     move-result v0
 
@@ -108,7 +104,7 @@
 
     iget-wide v0, p0, Lcom/android/server/biometrics/sensors/face/UsageStats;->mAcceptLatency:J
 
-    invoke-static {p1}, Lcom/android/server/biometrics/sensors/face/UsageStats$AuthenticationEvent;->access$100(Lcom/android/server/biometrics/sensors/face/UsageStats$AuthenticationEvent;)J
+    invoke-static {p1}, Lcom/android/server/biometrics/sensors/face/UsageStats$AuthenticationEvent;->-$$Nest$fgetmLatency(Lcom/android/server/biometrics/sensors/face/UsageStats$AuthenticationEvent;)J
 
     move-result-wide v2
 
@@ -119,7 +115,7 @@
     goto :goto_0
 
     :cond_1
-    invoke-static {p1}, Lcom/android/server/biometrics/sensors/face/UsageStats$AuthenticationEvent;->access$200(Lcom/android/server/biometrics/sensors/face/UsageStats$AuthenticationEvent;)I
+    invoke-static {p1}, Lcom/android/server/biometrics/sensors/face/UsageStats$AuthenticationEvent;->-$$Nest$fgetmError(Lcom/android/server/biometrics/sensors/face/UsageStats$AuthenticationEvent;)I
 
     move-result v0
 
@@ -133,7 +129,7 @@
 
     iget-wide v0, p0, Lcom/android/server/biometrics/sensors/face/UsageStats;->mRejectLatency:J
 
-    invoke-static {p1}, Lcom/android/server/biometrics/sensors/face/UsageStats$AuthenticationEvent;->access$100(Lcom/android/server/biometrics/sensors/face/UsageStats$AuthenticationEvent;)J
+    invoke-static {p1}, Lcom/android/server/biometrics/sensors/face/UsageStats$AuthenticationEvent;->-$$Nest$fgetmLatency(Lcom/android/server/biometrics/sensors/face/UsageStats$AuthenticationEvent;)J
 
     move-result-wide v2
 
@@ -146,13 +142,13 @@
     :cond_2
     iget-object v0, p0, Lcom/android/server/biometrics/sensors/face/UsageStats;->mErrorCount:Landroid/util/SparseIntArray;
 
-    invoke-static {p1}, Lcom/android/server/biometrics/sensors/face/UsageStats$AuthenticationEvent;->access$200(Lcom/android/server/biometrics/sensors/face/UsageStats$AuthenticationEvent;)I
+    invoke-static {p1}, Lcom/android/server/biometrics/sensors/face/UsageStats$AuthenticationEvent;->-$$Nest$fgetmError(Lcom/android/server/biometrics/sensors/face/UsageStats$AuthenticationEvent;)I
 
     move-result v1
 
     iget-object v2, p0, Lcom/android/server/biometrics/sensors/face/UsageStats;->mErrorCount:Landroid/util/SparseIntArray;
 
-    invoke-static {p1}, Lcom/android/server/biometrics/sensors/face/UsageStats$AuthenticationEvent;->access$200(Lcom/android/server/biometrics/sensors/face/UsageStats$AuthenticationEvent;)I
+    invoke-static {p1}, Lcom/android/server/biometrics/sensors/face/UsageStats$AuthenticationEvent;->-$$Nest$fgetmError(Lcom/android/server/biometrics/sensors/face/UsageStats$AuthenticationEvent;)I
 
     move-result v3
 
@@ -168,27 +164,27 @@
 
     iget-object v0, p0, Lcom/android/server/biometrics/sensors/face/UsageStats;->mErrorLatency:Landroid/util/SparseLongArray;
 
-    invoke-static {p1}, Lcom/android/server/biometrics/sensors/face/UsageStats$AuthenticationEvent;->access$200(Lcom/android/server/biometrics/sensors/face/UsageStats$AuthenticationEvent;)I
+    invoke-static {p1}, Lcom/android/server/biometrics/sensors/face/UsageStats$AuthenticationEvent;->-$$Nest$fgetmError(Lcom/android/server/biometrics/sensors/face/UsageStats$AuthenticationEvent;)I
 
     move-result v1
 
-    iget-object v2, p0, Lcom/android/server/biometrics/sensors/face/UsageStats;->mErrorLatency:Landroid/util/SparseLongArray;
+    iget-object p0, p0, Lcom/android/server/biometrics/sensors/face/UsageStats;->mErrorLatency:Landroid/util/SparseLongArray;
 
-    invoke-static {p1}, Lcom/android/server/biometrics/sensors/face/UsageStats$AuthenticationEvent;->access$200(Lcom/android/server/biometrics/sensors/face/UsageStats$AuthenticationEvent;)I
+    invoke-static {p1}, Lcom/android/server/biometrics/sensors/face/UsageStats$AuthenticationEvent;->-$$Nest$fgetmError(Lcom/android/server/biometrics/sensors/face/UsageStats$AuthenticationEvent;)I
 
-    move-result v3
+    move-result v2
 
-    const-wide/16 v4, 0x0
+    const-wide/16 v3, 0x0
 
-    invoke-virtual {v2, v3, v4, v5}, Landroid/util/SparseLongArray;->get(IJ)J
+    invoke-virtual {p0, v2, v3, v4}, Landroid/util/SparseLongArray;->get(IJ)J
 
     move-result-wide v2
 
-    invoke-static {p1}, Lcom/android/server/biometrics/sensors/face/UsageStats$AuthenticationEvent;->access$100(Lcom/android/server/biometrics/sensors/face/UsageStats$AuthenticationEvent;)J
+    invoke-static {p1}, Lcom/android/server/biometrics/sensors/face/UsageStats$AuthenticationEvent;->-$$Nest$fgetmLatency(Lcom/android/server/biometrics/sensors/face/UsageStats$AuthenticationEvent;)J
 
-    move-result-wide v4
+    move-result-wide p0
 
-    add-long/2addr v2, v4
+    add-long/2addr v2, p0
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/util/SparseLongArray;->put(IJ)V
 
@@ -197,7 +193,7 @@
 .end method
 
 .method public print(Ljava/io/PrintWriter;)V
-    .locals 12
+    .locals 13
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -244,9 +240,9 @@
 
     invoke-virtual {v1, v2}, Lcom/android/server/biometrics/sensors/face/UsageStats$AuthenticationEvent;->toString(Landroid/content/Context;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {p1, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     goto :goto_0
 
@@ -347,96 +343,96 @@
 
     const/4 v0, 0x0
 
+    move v3, v0
+
     :goto_3
-    iget-object v3, p0, Lcom/android/server/biometrics/sensors/face/UsageStats;->mErrorCount:Landroid/util/SparseIntArray;
-
-    invoke-virtual {v3}, Landroid/util/SparseIntArray;->size()I
-
-    move-result v3
-
-    if-ge v0, v3, :cond_4
-
-    iget-object v3, p0, Lcom/android/server/biometrics/sensors/face/UsageStats;->mErrorCount:Landroid/util/SparseIntArray;
-
-    invoke-virtual {v3, v0}, Landroid/util/SparseIntArray;->keyAt(I)I
-
-    move-result v3
-
     iget-object v6, p0, Lcom/android/server/biometrics/sensors/face/UsageStats;->mErrorCount:Landroid/util/SparseIntArray;
 
-    invoke-virtual {v6, v0}, Landroid/util/SparseIntArray;->get(I)I
+    invoke-virtual {v6}, Landroid/util/SparseIntArray;->size()I
 
     move-result v6
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    if-ge v3, v6, :cond_4
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    iget-object v6, p0, Lcom/android/server/biometrics/sensors/face/UsageStats;->mErrorCount:Landroid/util/SparseIntArray;
 
-    const-string v8, "Error"
+    invoke-virtual {v6, v3}, Landroid/util/SparseIntArray;->keyAt(I)I
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result v6
 
-    invoke-virtual {v7, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    iget-object v7, p0, Lcom/android/server/biometrics/sensors/face/UsageStats;->mErrorCount:Landroid/util/SparseIntArray;
 
-    const-string v8, "\tCount: "
+    invoke-virtual {v7, v3}, Landroid/util/SparseIntArray;->get(I)I
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result v7
 
-    invoke-virtual {v7, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    new-instance v8, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v7, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v8, p0, Lcom/android/server/biometrics/sensors/face/UsageStats;->mErrorLatency:Landroid/util/SparseLongArray;
+    const-string v9, "Error"
 
-    invoke-virtual {v8, v3, v4, v5}, Landroid/util/SparseLongArray;->get(IJ)J
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-wide v8
+    invoke-virtual {v8, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v7, v8, v9}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    const-string v9, "\tCount: "
 
-    invoke-virtual {v7, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    if-lez v6, :cond_3
+    invoke-virtual {v8, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    iget-object v8, p0, Lcom/android/server/biometrics/sensors/face/UsageStats;->mErrorLatency:Landroid/util/SparseLongArray;
+    invoke-virtual {v8, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v8, v3, v4, v5}, Landroid/util/SparseLongArray;->get(IJ)J
+    iget-object v9, p0, Lcom/android/server/biometrics/sensors/face/UsageStats;->mErrorLatency:Landroid/util/SparseLongArray;
 
-    move-result-wide v8
+    invoke-virtual {v9, v6, v4, v5}, Landroid/util/SparseLongArray;->get(IJ)J
 
-    int-to-long v10, v6
+    move-result-wide v9
 
-    div-long/2addr v8, v10
+    invoke-virtual {v8, v9, v10}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v8, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    if-lez v7, :cond_3
+
+    iget-object v9, p0, Lcom/android/server/biometrics/sensors/face/UsageStats;->mErrorLatency:Landroid/util/SparseLongArray;
+
+    invoke-virtual {v9, v6, v4, v5}, Landroid/util/SparseLongArray;->get(IJ)J
+
+    move-result-wide v9
+
+    int-to-long v11, v7
+
+    div-long/2addr v9, v11
 
     goto :goto_4
 
     :cond_3
-    move-wide v8, v4
+    move-wide v9, v4
 
     :goto_4
-    invoke-virtual {v7, v8, v9}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v9, v10}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    const-string v8, "\t"
+    const-string v7, "\t"
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v8, p0, Lcom/android/server/biometrics/sensors/face/UsageStats;->mContext:Landroid/content/Context;
+    iget-object v7, p0, Lcom/android/server/biometrics/sensors/face/UsageStats;->mContext:Landroid/content/Context;
 
-    const/4 v9, 0x0
+    invoke-static {v7, v6, v0}, Landroid/hardware/face/FaceManager;->getErrorString(Landroid/content/Context;II)Ljava/lang/String;
 
-    invoke-static {v8, v3, v9}, Landroid/hardware/face/FaceManager;->getErrorString(Landroid/content/Context;II)Ljava/lang/String;
+    move-result-object v6
 
-    move-result-object v8
+    invoke-virtual {v8, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v6
 
-    move-result-object v7
+    invoke-virtual {p1, v6}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    invoke-virtual {p1, v7}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_3
 

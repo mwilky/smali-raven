@@ -1,4 +1,4 @@
-.class Lcom/android/server/DeviceIdleController$3;
+.class public Lcom/android/server/DeviceIdleController$3;
 .super Ljava/lang/Object;
 .source "DeviceIdleController.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/DeviceIdleController;
+.field public final synthetic this$0:Lcom/android/server/DeviceIdleController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/DeviceIdleController;)V
+.method public constructor <init>(Lcom/android/server/DeviceIdleController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/DeviceIdleController$3;->this$0:Lcom/android/server/DeviceIdleController;
@@ -39,37 +39,25 @@
 
     iget-object v0, p0, Lcom/android/server/DeviceIdleController$3;->this$0:Lcom/android/server/DeviceIdleController;
 
-    invoke-static {v0}, Lcom/android/server/DeviceIdleController;->access$000(Lcom/android/server/DeviceIdleController;)I
-
-    move-result v0
-
-    const/4 v1, 0x3
-
-    if-ne v0, v1, :cond_0
-
-    iget-object v0, p0, Lcom/android/server/DeviceIdleController$3;->this$0:Lcom/android/server/DeviceIdleController;
-
     monitor-enter v0
 
     :try_start_0
-    iget-object v1, p0, Lcom/android/server/DeviceIdleController$3;->this$0:Lcom/android/server/DeviceIdleController;
+    iget-object p0, p0, Lcom/android/server/DeviceIdleController$3;->this$0:Lcom/android/server/DeviceIdleController;
 
-    invoke-virtual {v1}, Lcom/android/server/DeviceIdleController;->becomeInactiveIfAppropriateLocked()V
+    const-string/jumbo v1, "s:alarm"
+
+    invoke-virtual {p0, v1}, Lcom/android/server/DeviceIdleController;->stepIdleStateLocked(Ljava/lang/String;)V
 
     monitor-exit v0
 
-    goto :goto_0
+    return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
-
-    :cond_0
-    :goto_0
-    return-void
+    throw p0
 .end method

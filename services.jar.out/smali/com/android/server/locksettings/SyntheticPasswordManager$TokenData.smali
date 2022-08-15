@@ -1,4 +1,4 @@
-.class Lcom/android/server/locksettings/SyntheticPasswordManager$TokenData;
+.class public Lcom/android/server/locksettings/SyntheticPasswordManager$TokenData;
 .super Ljava/lang/Object;
 .source "SyntheticPasswordManager.java"
 
@@ -9,23 +9,25 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "TokenData"
 .end annotation
 
 
 # instance fields
-.field aggregatedSecret:[B
+.field public aggregatedSecret:[B
 
-.field mCallback:Lcom/android/internal/widget/LockPatternUtils$EscrowTokenStateChangeCallback;
+.field public mCallback:Lcom/android/internal/widget/LockPatternUtils$EscrowTokenStateChangeCallback;
 
-.field secdiscardableOnDisk:[B
+.field public mType:I
 
-.field weaverSecret:[B
+.field public secdiscardableOnDisk:[B
+
+.field public weaverSecret:[B
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

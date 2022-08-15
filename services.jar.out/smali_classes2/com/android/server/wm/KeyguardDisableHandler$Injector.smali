@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/server/wm/KeyguardDisableHandler$Injector;
+.class public interface abstract Lcom/android/server/wm/KeyguardDisableHandler$Injector;
 .super Ljava/lang/Object;
 .source "KeyguardDisableHandler.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
+    accessFlags = 0x609
     name = "Injector"
 .end annotation
 

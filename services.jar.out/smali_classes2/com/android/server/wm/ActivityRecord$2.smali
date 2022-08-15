@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/ActivityRecord$2;
+.class public Lcom/android/server/wm/ActivityRecord$2;
 .super Ljava/lang/Object;
 .source "ActivityRecord.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/wm/ActivityRecord;
+.field public final synthetic this$0:Lcom/android/server/wm/ActivityRecord;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/wm/ActivityRecord;)V
+.method public constructor <init>(Lcom/android/server/wm/ActivityRecord;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/wm/ActivityRecord$2;->this$0:Lcom/android/server/wm/ActivityRecord;
@@ -50,7 +50,7 @@
 
     iget-object v1, p0, Lcom/android/server/wm/ActivityRecord$2;->this$0:Lcom/android/server/wm/ActivityRecord;
 
-    invoke-static {v1}, Lcom/android/server/wm/ActivityRecord;->access$000(Lcom/android/server/wm/ActivityRecord;)Z
+    invoke-static {v1}, Lcom/android/server/wm/ActivityRecord;->-$$Nest$mcontinueLaunchTicking(Lcom/android/server/wm/ActivityRecord;)Z
 
     move-result v1
 
@@ -58,33 +58,29 @@
 
     iget-object v1, p0, Lcom/android/server/wm/ActivityRecord$2;->this$0:Lcom/android/server/wm/ActivityRecord;
 
-    iget-object v1, v1, Lcom/android/server/wm/ActivityRecord;->mAtmService:Lcom/android/server/wm/ActivityTaskManagerService;
+    iget-object v2, v1, Lcom/android/server/wm/ActivityRecord;->mAtmService:Lcom/android/server/wm/ActivityTaskManagerService;
 
-    iget-object v2, p0, Lcom/android/server/wm/ActivityRecord$2;->this$0:Lcom/android/server/wm/ActivityRecord;
+    iget-object v3, v1, Lcom/android/server/wm/ActivityRecord;->app:Lcom/android/server/wm/WindowProcessController;
 
-    iget-object v2, v2, Lcom/android/server/wm/ActivityRecord;->app:Lcom/android/server/wm/WindowProcessController;
+    iget-wide v4, v1, Lcom/android/server/wm/ActivityRecord;->launchTickTime:J
 
-    iget-object v3, p0, Lcom/android/server/wm/ActivityRecord$2;->this$0:Lcom/android/server/wm/ActivityRecord;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    iget-wide v3, v3, Lcom/android/server/wm/ActivityRecord;->launchTickTime:J
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string v6, "launching "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v6, p0, Lcom/android/server/wm/ActivityRecord$2;->this$0:Lcom/android/server/wm/ActivityRecord;
+    iget-object p0, p0, Lcom/android/server/wm/ActivityRecord$2;->this$0:Lcom/android/server/wm/ActivityRecord;
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object p0
 
-    invoke-virtual {v1, v2, v3, v4, v5}, Lcom/android/server/wm/ActivityTaskManagerService;->logAppTooSlow(Lcom/android/server/wm/WindowProcessController;JLjava/lang/String;)V
+    invoke-virtual {v2, v3, v4, v5, p0}, Lcom/android/server/wm/ActivityTaskManagerService;->logAppTooSlow(Lcom/android/server/wm/WindowProcessController;JLjava/lang/String;)V
 
     :cond_0
     monitor-exit v0
@@ -96,7 +92,7 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     :try_start_1
     monitor-exit v0
@@ -105,5 +101,5 @@
 
     invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
 
-    throw v1
+    throw p0
 .end method

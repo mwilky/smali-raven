@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/UiModeManagerService$12$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/server/UiModeManagerService$ProjectionHolder$ProjectionReleaser;
@@ -23,13 +24,13 @@
 
 # virtual methods
 .method public final release(ILjava/lang/String;)Z
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/UiModeManagerService$12$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/UiModeManagerService;
+    iget-object p0, p0, Lcom/android/server/UiModeManagerService$12$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/UiModeManagerService;
 
-    invoke-static {v0, p1, p2}, Lcom/android/server/UiModeManagerService$12;->lambda$requestProjection$1(Lcom/android/server/UiModeManagerService;ILjava/lang/String;)Z
+    invoke-static {p0, p1, p2}, Lcom/android/server/UiModeManagerService$12;->$r8$lambda$YCuxQ0CrbK3-3af2afTAgqrEvbM(Lcom/android/server/UiModeManagerService;ILjava/lang/String;)Z
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method

@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/am/ContentProviderHelper$$ExternalSyntheticLambda3;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Function;
@@ -31,19 +32,19 @@
 
 # virtual methods
 .method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/am/ContentProviderHelper$$ExternalSyntheticLambda3;->f$0:Lcom/android/server/am/ContentProviderHelper;
 
     iget-object v1, p0, Lcom/android/server/am/ContentProviderHelper$$ExternalSyntheticLambda3;->f$1:Lcom/android/server/am/ProcessRecord;
 
-    iget-object v2, p0, Lcom/android/server/am/ContentProviderHelper$$ExternalSyntheticLambda3;->f$2:Landroid/content/pm/ProviderInfo;
+    iget-object p0, p0, Lcom/android/server/am/ContentProviderHelper$$ExternalSyntheticLambda3;->f$2:Landroid/content/pm/ProviderInfo;
 
     check-cast p1, Ljava/lang/String;
 
-    invoke-virtual {v0, v1, v2, p1}, Lcom/android/server/am/ContentProviderHelper;->lambda$checkContentProviderAssociation$3$ContentProviderHelper(Lcom/android/server/am/ProcessRecord;Landroid/content/pm/ProviderInfo;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v0, v1, p0, p1}, Lcom/android/server/am/ContentProviderHelper;->$r8$lambda$Cw-mLIk9odFBZnEyoO6G66ftq3Q(Lcom/android/server/am/ContentProviderHelper;Lcom/android/server/am/ProcessRecord;Landroid/content/pm/ProviderInfo;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method

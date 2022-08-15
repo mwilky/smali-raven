@@ -1,21 +1,9 @@
-.class final Lcom/android/server/biometrics/sensors/face/aidl/AidlConversionUtils;
+.class public final Lcom/android/server/biometrics/sensors/face/aidl/AidlConversionUtils;
 .super Ljava/lang/Object;
 .source "AidlConversionUtils.java"
 
 
-# static fields
-.field private static final TAG:Ljava/lang/String; = "AidlConversionUtils"
-
-
 # direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
 .method public static convertAidlToFrameworkFeature(B)I
     .locals 2
     .annotation system Ldalvik/annotation/Throws;
@@ -24,8 +12,17 @@
         }
     .end annotation
 
-    packed-switch p0, :pswitch_data_0
+    const/4 v0, 0x1
 
+    if-eqz p0, :cond_1
+
+    if-ne p0, v0, :cond_0
+
+    const/4 p0, 0x2
+
+    return p0
+
+    :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -38,35 +35,20 @@
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    const-string v1, "AidlConversionUtils"
+    const-string v0, "AidlConversionUtils"
 
-    invoke-static {v1, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    invoke-direct {v0}, Ljava/lang/IllegalArgumentException;-><init>()V
+    invoke-direct {p0}, Ljava/lang/IllegalArgumentException;-><init>()V
 
-    throw v0
+    throw p0
 
-    :pswitch_0
-    const/4 v0, 0x2
-
+    :cond_1
     return v0
-
-    :pswitch_1
-    const/4 v0, 0x1
-
-    return v0
-
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
 .end method
 
 .method public static convertFrameworkToAidlFeature(I)B
@@ -77,8 +59,17 @@
         }
     .end annotation
 
-    packed-switch p0, :pswitch_data_0
+    const/4 v0, 0x1
 
+    if-eq p0, v0, :cond_1
+
+    const/4 v1, 0x2
+
+    if-ne p0, v1, :cond_0
+
+    return v0
+
+    :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -91,175 +82,162 @@
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    const-string v1, "AidlConversionUtils"
+    const-string v0, "AidlConversionUtils"
 
-    invoke-static {v1, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    invoke-direct {v0}, Ljava/lang/IllegalArgumentException;-><init>()V
+    invoke-direct {p0}, Ljava/lang/IllegalArgumentException;-><init>()V
 
-    throw v0
+    throw p0
 
-    :pswitch_0
-    const/4 v0, 0x1
+    :cond_1
+    const/4 p0, 0x0
 
-    return v0
-
-    :pswitch_1
-    const/4 v0, 0x0
-
-    return v0
-
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
+    return p0
 .end method
 
 .method public static toFrameworkAcquiredInfo(B)I
-    .locals 1
+    .locals 0
 
     packed-switch p0, :pswitch_data_0
 
-    const/16 v0, 0x17
+    const/16 p0, 0x17
 
-    return v0
+    return p0
 
     :pswitch_0
-    const/16 v0, 0x1a
+    const/16 p0, 0x1a
 
-    return v0
+    return p0
 
     :pswitch_1
-    const/16 v0, 0x19
+    const/16 p0, 0x19
 
-    return v0
+    return p0
 
     :pswitch_2
-    const/16 v0, 0x18
+    const/16 p0, 0x18
 
-    return v0
+    return p0
 
     :pswitch_3
-    const/16 v0, 0x16
+    const/16 p0, 0x16
 
-    return v0
+    return p0
 
     :pswitch_4
-    const/16 v0, 0x15
+    const/16 p0, 0x15
 
-    return v0
+    return p0
 
     :pswitch_5
-    const/16 v0, 0x14
+    const/16 p0, 0x14
 
-    return v0
+    return p0
 
     :pswitch_6
-    const/16 v0, 0x13
+    const/16 p0, 0x13
 
-    return v0
+    return p0
 
     :pswitch_7
-    const/16 v0, 0x12
+    const/16 p0, 0x12
 
-    return v0
+    return p0
 
     :pswitch_8
-    const/16 v0, 0x11
+    const/16 p0, 0x11
 
-    return v0
+    return p0
 
     :pswitch_9
-    const/16 v0, 0x10
+    const/16 p0, 0x10
 
-    return v0
+    return p0
 
     :pswitch_a
-    const/16 v0, 0xf
+    const/16 p0, 0xf
 
-    return v0
+    return p0
 
     :pswitch_b
-    const/16 v0, 0xe
+    const/16 p0, 0xe
 
-    return v0
+    return p0
 
     :pswitch_c
-    const/16 v0, 0xd
+    const/16 p0, 0xd
 
-    return v0
+    return p0
 
     :pswitch_d
-    const/16 v0, 0xc
+    const/16 p0, 0xc
 
-    return v0
+    return p0
 
     :pswitch_e
-    const/16 v0, 0xb
+    const/16 p0, 0xb
 
-    return v0
+    return p0
 
     :pswitch_f
-    const/16 v0, 0xa
+    const/16 p0, 0xa
 
-    return v0
+    return p0
 
     :pswitch_10
-    const/16 v0, 0x9
+    const/16 p0, 0x9
 
-    return v0
+    return p0
 
     :pswitch_11
-    const/16 v0, 0x8
+    const/16 p0, 0x8
 
-    return v0
+    return p0
 
     :pswitch_12
-    const/4 v0, 0x7
+    const/4 p0, 0x7
 
-    return v0
+    return p0
 
     :pswitch_13
-    const/4 v0, 0x6
+    const/4 p0, 0x6
 
-    return v0
+    return p0
 
     :pswitch_14
-    const/4 v0, 0x5
+    const/4 p0, 0x5
 
-    return v0
+    return p0
 
     :pswitch_15
-    const/4 v0, 0x4
+    const/4 p0, 0x4
 
-    return v0
+    return p0
 
     :pswitch_16
-    const/4 v0, 0x3
+    const/4 p0, 0x3
 
-    return v0
+    return p0
 
     :pswitch_17
-    const/4 v0, 0x2
+    const/4 p0, 0x2
 
-    return v0
+    return p0
 
     :pswitch_18
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 
     :pswitch_19
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 
     :pswitch_data_0
     .packed-switch 0x1
@@ -293,17 +271,17 @@
 .end method
 
 .method public static toFrameworkAuthenticationFrame(Landroid/hardware/biometrics/face/AuthenticationFrame;)Landroid/hardware/face/FaceAuthenticationFrame;
-    .locals 2
+    .locals 1
 
     new-instance v0, Landroid/hardware/face/FaceAuthenticationFrame;
 
-    iget-object v1, p0, Landroid/hardware/biometrics/face/AuthenticationFrame;->data:Landroid/hardware/biometrics/face/BaseFrame;
+    iget-object p0, p0, Landroid/hardware/biometrics/face/AuthenticationFrame;->data:Landroid/hardware/biometrics/face/BaseFrame;
 
-    invoke-static {v1}, Lcom/android/server/biometrics/sensors/face/aidl/AidlConversionUtils;->toFrameworkBaseFrame(Landroid/hardware/biometrics/face/BaseFrame;)Landroid/hardware/face/FaceDataFrame;
+    invoke-static {p0}, Lcom/android/server/biometrics/sensors/face/aidl/AidlConversionUtils;->toFrameworkBaseFrame(Landroid/hardware/biometrics/face/BaseFrame;)Landroid/hardware/face/FaceDataFrame;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-direct {v0, v1}, Landroid/hardware/face/FaceAuthenticationFrame;-><init>(Landroid/hardware/face/FaceDataFrame;)V
+    invoke-direct {v0, p0}, Landroid/hardware/face/FaceAuthenticationFrame;-><init>(Landroid/hardware/face/FaceDataFrame;)V
 
     return-object v0
 .end method
@@ -337,11 +315,11 @@
 .end method
 
 .method public static toFrameworkCell(Landroid/hardware/biometrics/face/Cell;)Landroid/hardware/face/FaceEnrollCell;
-    .locals 4
+    .locals 3
 
     if-nez p0, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     goto :goto_0
 
@@ -352,16 +330,18 @@
 
     iget v2, p0, Landroid/hardware/biometrics/face/Cell;->y:I
 
-    iget v3, p0, Landroid/hardware/biometrics/face/Cell;->z:I
+    iget p0, p0, Landroid/hardware/biometrics/face/Cell;->z:I
 
-    invoke-direct {v0, v1, v2, v3}, Landroid/hardware/face/FaceEnrollCell;-><init>(III)V
+    invoke-direct {v0, v1, v2, p0}, Landroid/hardware/face/FaceEnrollCell;-><init>(III)V
+
+    move-object p0, v0
 
     :goto_0
-    return-object v0
+    return-object p0
 .end method
 
 .method public static toFrameworkEnrollmentFrame(Landroid/hardware/biometrics/face/EnrollmentFrame;)Landroid/hardware/face/FaceEnrollFrame;
-    .locals 4
+    .locals 3
 
     new-instance v0, Landroid/hardware/face/FaceEnrollFrame;
 
@@ -377,55 +357,55 @@
 
     move-result v2
 
-    iget-object v3, p0, Landroid/hardware/biometrics/face/EnrollmentFrame;->data:Landroid/hardware/biometrics/face/BaseFrame;
+    iget-object p0, p0, Landroid/hardware/biometrics/face/EnrollmentFrame;->data:Landroid/hardware/biometrics/face/BaseFrame;
 
-    invoke-static {v3}, Lcom/android/server/biometrics/sensors/face/aidl/AidlConversionUtils;->toFrameworkBaseFrame(Landroid/hardware/biometrics/face/BaseFrame;)Landroid/hardware/face/FaceDataFrame;
+    invoke-static {p0}, Lcom/android/server/biometrics/sensors/face/aidl/AidlConversionUtils;->toFrameworkBaseFrame(Landroid/hardware/biometrics/face/BaseFrame;)Landroid/hardware/face/FaceDataFrame;
 
-    move-result-object v3
+    move-result-object p0
 
-    invoke-direct {v0, v1, v2, v3}, Landroid/hardware/face/FaceEnrollFrame;-><init>(Landroid/hardware/face/FaceEnrollCell;ILandroid/hardware/face/FaceDataFrame;)V
+    invoke-direct {v0, v1, v2, p0}, Landroid/hardware/face/FaceEnrollFrame;-><init>(Landroid/hardware/face/FaceEnrollCell;ILandroid/hardware/face/FaceDataFrame;)V
 
     return-object v0
 .end method
 
 .method public static toFrameworkEnrollmentStage(I)I
-    .locals 1
+    .locals 0
 
     packed-switch p0, :pswitch_data_0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 
     :pswitch_0
-    const/4 v0, 0x6
+    const/4 p0, 0x6
 
-    return v0
+    return p0
 
     :pswitch_1
-    const/4 v0, 0x5
+    const/4 p0, 0x5
 
-    return v0
+    return p0
 
     :pswitch_2
-    const/4 v0, 0x4
+    const/4 p0, 0x4
 
-    return v0
+    return p0
 
     :pswitch_3
-    const/4 v0, 0x3
+    const/4 p0, 0x3
 
-    return v0
+    return p0
 
     :pswitch_4
-    const/4 v0, 0x2
+    const/4 p0, 0x2
 
-    return v0
+    return p0
 
     :pswitch_5
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 
     nop
 
@@ -441,53 +421,53 @@
 .end method
 
 .method public static toFrameworkError(B)I
-    .locals 1
+    .locals 0
 
     packed-switch p0, :pswitch_data_0
 
-    const/16 v0, 0x11
+    const/16 p0, 0x11
 
-    return v0
+    return p0
 
     :pswitch_0
-    const/16 v0, 0x10
+    const/16 p0, 0x10
 
-    return v0
+    return p0
 
     :pswitch_1
-    const/16 v0, 0x8
+    const/16 p0, 0x8
 
-    return v0
+    return p0
 
     :pswitch_2
-    const/4 v0, 0x6
+    const/4 p0, 0x6
 
-    return v0
+    return p0
 
     :pswitch_3
-    const/4 v0, 0x5
+    const/4 p0, 0x5
 
-    return v0
+    return p0
 
     :pswitch_4
-    const/4 v0, 0x4
+    const/4 p0, 0x4
 
-    return v0
+    return p0
 
     :pswitch_5
-    const/4 v0, 0x3
+    const/4 p0, 0x3
 
-    return v0
+    return p0
 
     :pswitch_6
-    const/4 v0, 0x2
+    const/4 p0, 0x2
 
-    return v0
+    return p0
 
     :pswitch_7
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 
     :pswitch_data_0
     .packed-switch 0x1

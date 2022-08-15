@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/timezonedetector/TimeZoneDetectorStrategyImpl$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/server/timezonedetector/ConfigurationChangeListener;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final onChange()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/timezonedetector/TimeZoneDetectorStrategyImpl$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/timezonedetector/TimeZoneDetectorStrategyImpl;
+    iget-object p0, p0, Lcom/android/server/timezonedetector/TimeZoneDetectorStrategyImpl$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/timezonedetector/TimeZoneDetectorStrategyImpl;
 
-    invoke-static {v0}, Lcom/android/server/timezonedetector/TimeZoneDetectorStrategyImpl;->$r8$lambda$mR7epgjfM8k91QGuE8lIRCCEHek(Lcom/android/server/timezonedetector/TimeZoneDetectorStrategyImpl;)V
+    invoke-static {p0}, Lcom/android/server/timezonedetector/TimeZoneDetectorStrategyImpl;->$r8$lambda$XFc6fNbxgIZNP6Z9K56FRJUdSWg(Lcom/android/server/timezonedetector/TimeZoneDetectorStrategyImpl;)V
 
     return-void
 .end method

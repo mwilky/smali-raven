@@ -1,4 +1,4 @@
-.class final Lcom/android/server/wm/WindowState$DeadWindowEventReceiver;
+.class public final Lcom/android/server/wm/WindowState$DeadWindowEventReceiver;
 .super Landroid/view/InputEventReceiver;
 .source "WindowState.java"
 
@@ -9,26 +9,26 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "DeadWindowEventReceiver"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/wm/WindowState;
+.field public final synthetic this$0:Lcom/android/server/wm/WindowState;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/wm/WindowState;Landroid/view/InputChannel;)V
+.method public constructor <init>(Lcom/android/server/wm/WindowState;Landroid/view/InputChannel;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/wm/WindowState$DeadWindowEventReceiver;->this$0:Lcom/android/server/wm/WindowState;
 
-    iget-object p1, p1, Lcom/android/server/wm/WindowState;->mWmService:Lcom/android/server/wm/WindowManagerService;
+    iget-object p1, p1, Lcom/android/server/wm/WindowContainer;->mWmService:Lcom/android/server/wm/WindowManagerService;
 
     iget-object p1, p1, Lcom/android/server/wm/WindowManagerService;->mH:Lcom/android/server/wm/WindowManagerService$H;
 
-    invoke-virtual {p1}, Lcom/android/server/wm/WindowManagerService$H;->getLooper()Landroid/os/Looper;
+    invoke-virtual {p1}, Landroid/os/Handler;->getLooper()Landroid/os/Looper;
 
     move-result-object p1
 
@@ -44,7 +44,7 @@
 
     const/4 v0, 0x1
 
-    invoke-virtual {p0, p1, v0}, Lcom/android/server/wm/WindowState$DeadWindowEventReceiver;->finishInputEvent(Landroid/view/InputEvent;Z)V
+    invoke-virtual {p0, p1, v0}, Landroid/view/InputEventReceiver;->finishInputEvent(Landroid/view/InputEvent;Z)V
 
     return-void
 .end method

@@ -1,4 +1,4 @@
-.class Lcom/android/server/media/MediaRouterService$3;
+.class public Lcom/android/server/media/MediaRouterService$3;
 .super Landroid/content/BroadcastReceiver;
 .source "MediaRouterService.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/media/MediaRouterService;
+.field public final synthetic this$0:Lcom/android/server/media/MediaRouterService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/media/MediaRouterService;)V
+.method public constructor <init>(Lcom/android/server/media/MediaRouterService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/media/MediaRouterService$3;->this$0:Lcom/android/server/media/MediaRouterService;
@@ -32,23 +32,23 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 2
+    .locals 0
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v1, "android.intent.action.USER_SWITCHED"
+    const-string p2, "android.intent.action.USER_SWITCHED"
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/media/MediaRouterService$3;->this$0:Lcom/android/server/media/MediaRouterService;
+    iget-object p0, p0, Lcom/android/server/media/MediaRouterService$3;->this$0:Lcom/android/server/media/MediaRouterService;
 
-    invoke-virtual {v0}, Lcom/android/server/media/MediaRouterService;->switchUser()V
+    invoke-virtual {p0}, Lcom/android/server/media/MediaRouterService;->switchUser()V
 
     :cond_0
     return-void

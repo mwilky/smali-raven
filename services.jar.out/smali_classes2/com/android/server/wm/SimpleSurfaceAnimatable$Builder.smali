@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;
+.class public Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;
 .super Ljava/lang/Object;
 .source "SimpleSurfaceAnimatable.java"
 
@@ -9,13 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "Builder"
 .end annotation
 
 
 # instance fields
-.field private mAnimationLeashFactory:Ljava/util/function/Supplier;
+.field public mAnimationLeashFactory:Ljava/util/function/Supplier;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/function/Supplier<",
@@ -25,13 +25,13 @@
     .end annotation
 .end field
 
-.field private mAnimationLeashParent:Landroid/view/SurfaceControl;
+.field public mAnimationLeashParent:Landroid/view/SurfaceControl;
 
-.field private mCommitTransactionRunnable:Ljava/lang/Runnable;
+.field public mCommitTransactionRunnable:Ljava/lang/Runnable;
 
-.field private mHeight:I
+.field public mHeight:I
 
-.field private mOnAnimationFinished:Ljava/util/function/Consumer;
+.field public mOnAnimationFinished:Ljava/util/function/Consumer;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/function/Consumer<",
@@ -41,7 +41,7 @@
     .end annotation
 .end field
 
-.field private mOnAnimationLeashCreated:Ljava/util/function/BiConsumer;
+.field public mOnAnimationLeashCreated:Ljava/util/function/BiConsumer;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/function/BiConsumer<",
@@ -52,7 +52,7 @@
     .end annotation
 .end field
 
-.field private mOnAnimationLeashLost:Ljava/util/function/Consumer;
+.field public mOnAnimationLeashLost:Ljava/util/function/Consumer;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/function/Consumer<",
@@ -62,9 +62,9 @@
     .end annotation
 .end field
 
-.field private mParentSurfaceControl:Landroid/view/SurfaceControl;
+.field public mParentSurfaceControl:Landroid/view/SurfaceControl;
 
-.field private mPendingTransactionSupplier:Ljava/util/function/Supplier;
+.field public mPendingTransactionSupplier:Ljava/util/function/Supplier;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/function/Supplier<",
@@ -74,15 +74,129 @@
     .end annotation
 .end field
 
-.field private mShouldDeferAnimationFinish:Z
+.field public mShouldDeferAnimationFinish:Z
 
-.field private mSurfaceControl:Landroid/view/SurfaceControl;
+.field public mSurfaceControl:Landroid/view/SurfaceControl;
 
-.field private mWidth:I
+.field public mSyncTransactionSupplier:Ljava/util/function/Supplier;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/function/Supplier<",
+            "Landroid/view/SurfaceControl$Transaction;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public mWidth:I
 
 
 # direct methods
-.method constructor <init>()V
+.method public static bridge synthetic -$$Nest$fgetmAnimationLeashFactory(Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;)Ljava/util/function/Supplier;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;->mAnimationLeashFactory:Ljava/util/function/Supplier;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmAnimationLeashParent(Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;)Landroid/view/SurfaceControl;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;->mAnimationLeashParent:Landroid/view/SurfaceControl;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmCommitTransactionRunnable(Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;)Ljava/lang/Runnable;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;->mCommitTransactionRunnable:Ljava/lang/Runnable;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmHeight(Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;->mHeight:I
+
+    return p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmOnAnimationFinished(Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;)Ljava/util/function/Consumer;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;->mOnAnimationFinished:Ljava/util/function/Consumer;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmOnAnimationLeashCreated(Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;)Ljava/util/function/BiConsumer;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;->mOnAnimationLeashCreated:Ljava/util/function/BiConsumer;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmOnAnimationLeashLost(Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;)Ljava/util/function/Consumer;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;->mOnAnimationLeashLost:Ljava/util/function/Consumer;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmParentSurfaceControl(Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;)Landroid/view/SurfaceControl;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;->mParentSurfaceControl:Landroid/view/SurfaceControl;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmPendingTransactionSupplier(Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;)Ljava/util/function/Supplier;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;->mPendingTransactionSupplier:Ljava/util/function/Supplier;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmShouldDeferAnimationFinish(Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;->mShouldDeferAnimationFinish:Z
+
+    return p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmSurfaceControl(Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;)Landroid/view/SurfaceControl;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;->mSurfaceControl:Landroid/view/SurfaceControl;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmSyncTransactionSupplier(Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;)Ljava/util/function/Supplier;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;->mSyncTransactionSupplier:Ljava/util/function/Supplier;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmWidth(Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;->mWidth:I
+
+    return p0
+.end method
+
+.method public constructor <init>()V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -114,106 +228,14 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;->mWidth:I
-
-    return v0
-.end method
-
-.method static synthetic access$100(Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;->mHeight:I
-
-    return v0
-.end method
-
-.method static synthetic access$1000(Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;)Ljava/util/function/Supplier;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;->mPendingTransactionSupplier:Ljava/util/function/Supplier;
-
-    return-object v0
-.end method
-
-.method static synthetic access$1100(Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;)Ljava/util/function/Consumer;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;->mOnAnimationFinished:Ljava/util/function/Consumer;
-
-    return-object v0
-.end method
-
-.method static synthetic access$200(Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;->mShouldDeferAnimationFinish:Z
-
-    return v0
-.end method
-
-.method static synthetic access$300(Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;)Landroid/view/SurfaceControl;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;->mAnimationLeashParent:Landroid/view/SurfaceControl;
-
-    return-object v0
-.end method
-
-.method static synthetic access$400(Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;)Landroid/view/SurfaceControl;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;->mSurfaceControl:Landroid/view/SurfaceControl;
-
-    return-object v0
-.end method
-
-.method static synthetic access$500(Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;)Landroid/view/SurfaceControl;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;->mParentSurfaceControl:Landroid/view/SurfaceControl;
-
-    return-object v0
-.end method
-
-.method static synthetic access$600(Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;)Ljava/lang/Runnable;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;->mCommitTransactionRunnable:Ljava/lang/Runnable;
-
-    return-object v0
-.end method
-
-.method static synthetic access$700(Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;)Ljava/util/function/Supplier;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;->mAnimationLeashFactory:Ljava/util/function/Supplier;
-
-    return-object v0
-.end method
-
-.method static synthetic access$800(Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;)Ljava/util/function/BiConsumer;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;->mOnAnimationLeashCreated:Ljava/util/function/BiConsumer;
-
-    return-object v0
-.end method
-
-.method static synthetic access$900(Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;)Ljava/util/function/Consumer;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;->mOnAnimationLeashLost:Ljava/util/function/Consumer;
-
-    return-object v0
-.end method
-
 
 # virtual methods
 .method public build()Lcom/android/server/wm/SurfaceAnimator$Animatable;
     .locals 2
+
+    iget-object v0, p0, Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;->mSyncTransactionSupplier:Ljava/util/function/Supplier;
+
+    if-eqz v0, :cond_4
 
     iget-object v0, p0, Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;->mPendingTransactionSupplier:Ljava/util/function/Supplier;
 
@@ -235,45 +257,54 @@
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, p0, v1}, Lcom/android/server/wm/SimpleSurfaceAnimatable;-><init>(Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;Lcom/android/server/wm/SimpleSurfaceAnimatable$1;)V
+    invoke-direct {v0, p0, v1}, Lcom/android/server/wm/SimpleSurfaceAnimatable;-><init>(Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;Lcom/android/server/wm/SimpleSurfaceAnimatable-IA;)V
 
     return-object v0
 
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "mSurfaceControl cannot be null"
+    const-string v0, "mSurfaceControl cannot be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "mCommitTransactionRunnable cannot be null"
+    const-string v0, "mCommitTransactionRunnable cannot be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 
     :cond_2
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "mAnimationLeashFactory cannot be null"
+    const-string v0, "mAnimationLeashFactory cannot be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 
     :cond_3
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "mPendingTransactionSupplier cannot be null"
+    const-string v0, "mPendingTransactionSupplier cannot be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
+
+    :cond_4
+    new-instance p0, Ljava/lang/IllegalArgumentException;
+
+    const-string v0, "mSyncTransactionSupplier cannot be null"
+
+    invoke-direct {p0, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p0
 .end method
 
 .method public setAnimationLeashParent(Landroid/view/SurfaceControl;)Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;
@@ -317,41 +348,6 @@
     return-object p0
 .end method
 
-.method public setOnAnimationLeashCreated(Ljava/util/function/BiConsumer;)Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/function/BiConsumer<",
-            "Landroid/view/SurfaceControl$Transaction;",
-            "Landroid/view/SurfaceControl;",
-            ">;)",
-            "Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;"
-        }
-    .end annotation
-
-    iput-object p1, p0, Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;->mOnAnimationLeashCreated:Ljava/util/function/BiConsumer;
-
-    return-object p0
-.end method
-
-.method public setOnAnimationLeashLost(Ljava/util/function/Consumer;)Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/function/Consumer<",
-            "Landroid/view/SurfaceControl$Transaction;",
-            ">;)",
-            "Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;"
-        }
-    .end annotation
-
-    iput-object p1, p0, Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;->mOnAnimationLeashLost:Ljava/util/function/Consumer;
-
-    return-object p0
-.end method
-
 .method public setParentSurfaceControl(Landroid/view/SurfaceControl;)Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;
     .locals 0
 
@@ -377,29 +373,27 @@
     return-object p0
 .end method
 
-.method public setShouldDeferAnimationFinish(ZLjava/util/function/Consumer;)Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;
+.method public setSurfaceControl(Landroid/view/SurfaceControl;)Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;->mSurfaceControl:Landroid/view/SurfaceControl;
+
+    return-object p0
+.end method
+
+.method public setSyncTransactionSupplier(Ljava/util/function/Supplier;)Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "(Z",
-            "Ljava/util/function/Consumer<",
-            "Ljava/lang/Runnable;",
+            "(",
+            "Ljava/util/function/Supplier<",
+            "Landroid/view/SurfaceControl$Transaction;",
             ">;)",
             "Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;"
         }
     .end annotation
 
-    iput-boolean p1, p0, Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;->mShouldDeferAnimationFinish:Z
-
-    iput-object p2, p0, Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;->mOnAnimationFinished:Ljava/util/function/Consumer;
-
-    return-object p0
-.end method
-
-.method public setSurfaceControl(Landroid/view/SurfaceControl;)Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;->mSurfaceControl:Landroid/view/SurfaceControl;
+    iput-object p1, p0, Lcom/android/server/wm/SimpleSurfaceAnimatable$Builder;->mSyncTransactionSupplier:Ljava/util/function/Supplier;
 
     return-object p0
 .end method

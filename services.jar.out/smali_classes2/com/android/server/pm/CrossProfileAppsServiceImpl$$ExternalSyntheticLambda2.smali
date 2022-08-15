@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/pm/CrossProfileAppsServiceImpl$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/internal/util/FunctionalUtils$ThrowingRunnable;
@@ -39,7 +40,7 @@
 
 # virtual methods
 .method public final runOrThrow()V
-    .locals 5
+    .locals 4
 
     iget-object v0, p0, Lcom/android/server/pm/CrossProfileAppsServiceImpl$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/pm/CrossProfileAppsServiceImpl;
 
@@ -49,9 +50,9 @@
 
     iget v3, p0, Lcom/android/server/pm/CrossProfileAppsServiceImpl$$ExternalSyntheticLambda2;->f$3:I
 
-    iget-object v4, p0, Lcom/android/server/pm/CrossProfileAppsServiceImpl$$ExternalSyntheticLambda2;->f$4:Landroid/content/ComponentName;
+    iget-object p0, p0, Lcom/android/server/pm/CrossProfileAppsServiceImpl$$ExternalSyntheticLambda2;->f$4:Landroid/content/ComponentName;
 
-    invoke-virtual {v0, v1, v2, v3, v4}, Lcom/android/server/pm/CrossProfileAppsServiceImpl;->lambda$verifyActivityCanHandleIntentAndExported$6$CrossProfileAppsServiceImpl(Landroid/content/Intent;IILandroid/content/ComponentName;)V
+    invoke-static {v0, v1, v2, v3, p0}, Lcom/android/server/pm/CrossProfileAppsServiceImpl;->$r8$lambda$-s4g4JlLOgrFmNuj1XTuZTeOh_w(Lcom/android/server/pm/CrossProfileAppsServiceImpl;Landroid/content/Intent;IILandroid/content/ComponentName;)V
 
     return-void
 .end method

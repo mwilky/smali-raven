@@ -1,43 +1,36 @@
 .class public final synthetic Lcom/android/server/DeviceIdleController$$ExternalSyntheticLambda4;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/IntFunction;
+.implements Ljava/util/function/Consumer;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/DeviceIdleController$$ExternalSyntheticLambda4;
+# instance fields
+.field public final synthetic f$0:Lcom/android/server/DeviceIdleController;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/DeviceIdleController$$ExternalSyntheticLambda4;
-
-    invoke-direct {v0}, Lcom/android/server/DeviceIdleController$$ExternalSyntheticLambda4;-><init>()V
-
-    sput-object v0, Lcom/android/server/DeviceIdleController$$ExternalSyntheticLambda4;->INSTANCE:Lcom/android/server/DeviceIdleController$$ExternalSyntheticLambda4;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Lcom/android/server/DeviceIdleController;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/DeviceIdleController$$ExternalSyntheticLambda4;->f$0:Lcom/android/server/DeviceIdleController;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final apply(I)Ljava/lang/Object;
+.method public final accept(Ljava/lang/Object;)V
     .locals 0
 
-    invoke-static {p1}, Lcom/android/server/DeviceIdleController;->lambda$getFullPowerWhitelistInternal$13(I)[Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/DeviceIdleController$$ExternalSyntheticLambda4;->f$0:Lcom/android/server/DeviceIdleController;
 
-    move-result-object p1
+    check-cast p1, Landroid/os/PowerSaveState;
 
-    return-object p1
+    invoke-static {p0, p1}, Lcom/android/server/DeviceIdleController;->$r8$lambda$CfvXYG_NuVI7ecpXUFD5wU3CcLs(Lcom/android/server/DeviceIdleController;Landroid/os/PowerSaveState;)V
+
+    return-void
 .end method

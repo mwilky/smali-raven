@@ -1,4 +1,4 @@
-.class Lcom/android/server/print/RemotePrintService$9;
+.class public Lcom/android/server/print/RemotePrintService$9;
 .super Ljava/lang/Object;
 .source "RemotePrintService.java"
 
@@ -12,19 +12,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/print/RemotePrintService;
+.field public final synthetic this$0:Lcom/android/server/print/RemotePrintService;
 
-.field final synthetic val$printerId:Landroid/print/PrinterId;
+.field public final synthetic val$printerId:Landroid/print/PrinterId;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/print/RemotePrintService;Landroid/print/PrinterId;)V
+.method public constructor <init>(Lcom/android/server/print/RemotePrintService;Landroid/print/PrinterId;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/print/RemotePrintService$9;->this$0:Lcom/android/server/print/RemotePrintService;
@@ -39,13 +39,13 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/print/RemotePrintService$9;->this$0:Lcom/android/server/print/RemotePrintService;
 
-    iget-object v1, p0, Lcom/android/server/print/RemotePrintService$9;->val$printerId:Landroid/print/PrinterId;
+    iget-object p0, p0, Lcom/android/server/print/RemotePrintService$9;->val$printerId:Landroid/print/PrinterId;
 
-    invoke-static {v0, v1}, Lcom/android/server/print/RemotePrintService;->access$900(Lcom/android/server/print/RemotePrintService;Landroid/print/PrinterId;)V
+    invoke-static {v0, p0}, Lcom/android/server/print/RemotePrintService;->-$$Nest$mhandleStartPrinterStateTracking(Lcom/android/server/print/RemotePrintService;Landroid/print/PrinterId;)V
 
     return-void
 .end method

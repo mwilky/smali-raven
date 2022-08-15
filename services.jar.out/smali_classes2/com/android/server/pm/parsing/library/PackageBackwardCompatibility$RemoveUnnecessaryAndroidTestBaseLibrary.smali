@@ -4,6 +4,9 @@
 
 
 # annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/android/server/pm/parsing/library/PackageBackwardCompatibility;
 .end annotation
@@ -26,11 +29,11 @@
 
 # virtual methods
 .method public updatePackage(Lcom/android/server/pm/parsing/pkg/ParsedPackage;Z)V
-    .locals 1
+    .locals 0
 
-    const-string v0, "android.test.base"
+    const-string p0, "android.test.base"
 
-    invoke-static {p1, v0}, Lcom/android/server/pm/parsing/library/PackageBackwardCompatibility$RemoveUnnecessaryAndroidTestBaseLibrary;->removeLibrary(Lcom/android/server/pm/parsing/pkg/ParsedPackage;Ljava/lang/String;)V
+    invoke-static {p1, p0}, Lcom/android/server/pm/parsing/library/PackageSharedLibraryUpdater;->removeLibrary(Lcom/android/server/pm/parsing/pkg/ParsedPackage;Ljava/lang/String;)V
 
     return-void
 .end method

@@ -1,4 +1,4 @@
-.class Lcom/android/server/print/RemotePrintService$6;
+.class public Lcom/android/server/print/RemotePrintService$6;
 .super Ljava/lang/Object;
 .source "RemotePrintService.java"
 
@@ -12,19 +12,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/print/RemotePrintService;
+.field public final synthetic this$0:Lcom/android/server/print/RemotePrintService;
 
-.field final synthetic val$priorityList:Ljava/util/List;
+.field public final synthetic val$priorityList:Ljava/util/List;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/print/RemotePrintService;Ljava/util/List;)V
+.method public constructor <init>(Lcom/android/server/print/RemotePrintService;Ljava/util/List;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/print/RemotePrintService$6;->this$0:Lcom/android/server/print/RemotePrintService;
@@ -39,13 +39,13 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/print/RemotePrintService$6;->this$0:Lcom/android/server/print/RemotePrintService;
 
-    iget-object v1, p0, Lcom/android/server/print/RemotePrintService$6;->val$priorityList:Ljava/util/List;
+    iget-object p0, p0, Lcom/android/server/print/RemotePrintService$6;->val$priorityList:Ljava/util/List;
 
-    invoke-static {v0, v1}, Lcom/android/server/print/RemotePrintService;->access$600(Lcom/android/server/print/RemotePrintService;Ljava/util/List;)V
+    invoke-static {v0, p0}, Lcom/android/server/print/RemotePrintService;->-$$Nest$mhandleStartPrinterDiscovery(Lcom/android/server/print/RemotePrintService;Ljava/util/List;)V
 
     return-void
 .end method

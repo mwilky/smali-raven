@@ -1,4 +1,4 @@
-.class Lcom/android/server/locksettings/RebootEscrowManager$Injector;
+.class public Lcom/android/server/locksettings/RebootEscrowManager$Injector;
 .super Ljava/lang/Object;
 .source "RebootEscrowManager.java"
 
@@ -9,24 +9,24 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "Injector"
 .end annotation
 
 
 # instance fields
-.field protected mContext:Landroid/content/Context;
+.field public mContext:Landroid/content/Context;
 
-.field private final mKeyStoreManager:Lcom/android/server/locksettings/RebootEscrowKeyStoreManager;
+.field public final mKeyStoreManager:Lcom/android/server/locksettings/RebootEscrowKeyStoreManager;
 
-.field private mRebootEscrowProvider:Lcom/android/server/locksettings/RebootEscrowProviderInterface;
+.field public mRebootEscrowProvider:Lcom/android/server/locksettings/RebootEscrowProviderInterface;
 
-.field private final mStorage:Lcom/android/server/locksettings/LockSettingsStorage;
+.field public final mStorage:Lcom/android/server/locksettings/LockSettingsStorage;
 
 
 # direct methods
-.method constructor <init>(Landroid/content/Context;Lcom/android/server/locksettings/LockSettingsStorage;)V
-    .locals 1
+.method public constructor <init>(Landroid/content/Context;Lcom/android/server/locksettings/LockSettingsStorage;)V
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -34,17 +34,29 @@
 
     iput-object p2, p0, Lcom/android/server/locksettings/RebootEscrowManager$Injector;->mStorage:Lcom/android/server/locksettings/LockSettingsStorage;
 
-    new-instance v0, Lcom/android/server/locksettings/RebootEscrowKeyStoreManager;
+    new-instance p1, Lcom/android/server/locksettings/RebootEscrowKeyStoreManager;
 
-    invoke-direct {v0}, Lcom/android/server/locksettings/RebootEscrowKeyStoreManager;-><init>()V
+    invoke-direct {p1}, Lcom/android/server/locksettings/RebootEscrowKeyStoreManager;-><init>()V
 
-    iput-object v0, p0, Lcom/android/server/locksettings/RebootEscrowManager$Injector;->mKeyStoreManager:Lcom/android/server/locksettings/RebootEscrowKeyStoreManager;
+    iput-object p1, p0, Lcom/android/server/locksettings/RebootEscrowManager$Injector;->mKeyStoreManager:Lcom/android/server/locksettings/RebootEscrowKeyStoreManager;
 
     return-void
 .end method
 
-.method private createRebootEscrowProvider()Lcom/android/server/locksettings/RebootEscrowProviderInterface;
-    .locals 3
+
+# virtual methods
+.method public clearRebootEscrowProvider()V
+    .locals 1
+
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/android/server/locksettings/RebootEscrowManager$Injector;->mRebootEscrowProvider:Lcom/android/server/locksettings/RebootEscrowProviderInterface;
+
+    return-void
+.end method
+
+.method public final createRebootEscrowProvider()Lcom/android/server/locksettings/RebootEscrowProviderInterface;
+    .locals 2
 
     invoke-virtual {p0}, Lcom/android/server/locksettings/RebootEscrowManager$Injector;->serverBasedResumeOnReboot()Z
 
@@ -62,16 +74,16 @@
 
     iget-object v1, p0, Lcom/android/server/locksettings/RebootEscrowManager$Injector;->mContext:Landroid/content/Context;
 
-    iget-object v2, p0, Lcom/android/server/locksettings/RebootEscrowManager$Injector;->mStorage:Lcom/android/server/locksettings/LockSettingsStorage;
+    iget-object p0, p0, Lcom/android/server/locksettings/RebootEscrowManager$Injector;->mStorage:Lcom/android/server/locksettings/LockSettingsStorage;
 
-    invoke-direct {v0, v1, v2}, Lcom/android/server/locksettings/RebootEscrowProviderServerBasedImpl;-><init>(Landroid/content/Context;Lcom/android/server/locksettings/LockSettingsStorage;)V
+    invoke-direct {v0, v1, p0}, Lcom/android/server/locksettings/RebootEscrowProviderServerBasedImpl;-><init>(Landroid/content/Context;Lcom/android/server/locksettings/LockSettingsStorage;)V
 
     goto :goto_0
 
     :cond_0
-    const-string v0, "Using HAL based resume on reboot"
+    const-string p0, "Using HAL based resume on reboot"
 
-    invoke-static {v1, v0}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, p0}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     new-instance v0, Lcom/android/server/locksettings/RebootEscrowProviderHalImpl;
 
@@ -80,28 +92,16 @@
     :goto_0
     invoke-interface {v0}, Lcom/android/server/locksettings/RebootEscrowProviderInterface;->hasRebootEscrowSupport()Z
 
-    move-result v1
+    move-result p0
 
-    if-eqz v1, :cond_1
+    if-eqz p0, :cond_1
 
     return-object v0
 
     :cond_1
-    const/4 v1, 0x0
+    const/4 p0, 0x0
 
-    return-object v1
-.end method
-
-
-# virtual methods
-.method public clearRebootEscrowProvider()V
-    .locals 1
-
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/android/server/locksettings/RebootEscrowManager$Injector;->mRebootEscrowProvider:Lcom/android/server/locksettings/RebootEscrowProviderInterface;
-
-    return-void
+    return-object p0
 .end method
 
 .method public createRebootEscrowProviderIfNeeded()Lcom/android/server/locksettings/RebootEscrowProviderInterface;
@@ -111,44 +111,36 @@
 
     if-nez v0, :cond_0
 
-    invoke-direct {p0}, Lcom/android/server/locksettings/RebootEscrowManager$Injector;->createRebootEscrowProvider()Lcom/android/server/locksettings/RebootEscrowProviderInterface;
+    invoke-virtual {p0}, Lcom/android/server/locksettings/RebootEscrowManager$Injector;->createRebootEscrowProvider()Lcom/android/server/locksettings/RebootEscrowProviderInterface;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/server/locksettings/RebootEscrowManager$Injector;->mRebootEscrowProvider:Lcom/android/server/locksettings/RebootEscrowProviderInterface;
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/locksettings/RebootEscrowManager$Injector;->mRebootEscrowProvider:Lcom/android/server/locksettings/RebootEscrowProviderInterface;
+    iget-object p0, p0, Lcom/android/server/locksettings/RebootEscrowManager$Injector;->mRebootEscrowProvider:Lcom/android/server/locksettings/RebootEscrowProviderInterface;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getBootCount()I
-    .locals 3
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/server/locksettings/RebootEscrowManager$Injector;->mContext:Landroid/content/Context;
+    iget-object p0, p0, Lcom/android/server/locksettings/RebootEscrowManager$Injector;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v0
+    move-result-object p0
 
-    const-string v1, "boot_count"
+    const-string v0, "boot_count"
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    invoke-static {v0, v1, v2}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {p0, v0, v1}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    move-result v0
+    move-result p0
 
-    return v0
-.end method
-
-.method public getContext()Landroid/content/Context;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/locksettings/RebootEscrowManager$Injector;->mContext:Landroid/content/Context;
-
-    return-object v0
+    return p0
 .end method
 
 .method public getCurrentTimeMillis()J
@@ -162,187 +154,180 @@
 .end method
 
 .method public getEventLog()Lcom/android/server/locksettings/RebootEscrowManager$RebootEscrowEventLog;
-    .locals 1
+    .locals 0
 
-    new-instance v0, Lcom/android/server/locksettings/RebootEscrowManager$RebootEscrowEventLog;
+    new-instance p0, Lcom/android/server/locksettings/RebootEscrowManager$RebootEscrowEventLog;
 
-    invoke-direct {v0}, Lcom/android/server/locksettings/RebootEscrowManager$RebootEscrowEventLog;-><init>()V
+    invoke-direct {p0}, Lcom/android/server/locksettings/RebootEscrowManager$RebootEscrowEventLog;-><init>()V
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getKeyStoreManager()Lcom/android/server/locksettings/RebootEscrowKeyStoreManager;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/locksettings/RebootEscrowManager$Injector;->mKeyStoreManager:Lcom/android/server/locksettings/RebootEscrowKeyStoreManager;
+    iget-object p0, p0, Lcom/android/server/locksettings/RebootEscrowManager$Injector;->mKeyStoreManager:Lcom/android/server/locksettings/RebootEscrowKeyStoreManager;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getLoadEscrowDataRetryIntervalSeconds()I
-    .locals 3
+    .locals 2
 
-    const-string/jumbo v0, "ota"
+    const-string/jumbo p0, "ota"
 
-    const-string/jumbo v1, "load_escrow_data_retry_interval_seconds"
+    const-string v0, "load_escrow_data_retry_interval_seconds"
 
-    const/16 v2, 0x1e
+    const/16 v1, 0x1e
 
-    invoke-static {v0, v1, v2}, Landroid/provider/DeviceConfig;->getInt(Ljava/lang/String;Ljava/lang/String;I)I
+    invoke-static {p0, v0, v1}, Landroid/provider/DeviceConfig;->getInt(Ljava/lang/String;Ljava/lang/String;I)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public getLoadEscrowDataRetryLimit()I
-    .locals 3
+    .locals 2
 
-    const-string/jumbo v0, "ota"
+    const-string/jumbo p0, "ota"
 
-    const-string/jumbo v1, "load_escrow_data_retry_count"
+    const-string v0, "load_escrow_data_retry_count"
 
-    const/4 v2, 0x3
+    const/4 v1, 0x3
 
-    invoke-static {v0, v1, v2}, Landroid/provider/DeviceConfig;->getInt(Ljava/lang/String;Ljava/lang/String;I)I
+    invoke-static {p0, v0, v1}, Landroid/provider/DeviceConfig;->getInt(Ljava/lang/String;Ljava/lang/String;I)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public getRebootEscrowProvider()Lcom/android/server/locksettings/RebootEscrowProviderInterface;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/locksettings/RebootEscrowManager$Injector;->mRebootEscrowProvider:Lcom/android/server/locksettings/RebootEscrowProviderInterface;
+    iget-object p0, p0, Lcom/android/server/locksettings/RebootEscrowManager$Injector;->mRebootEscrowProvider:Lcom/android/server/locksettings/RebootEscrowProviderInterface;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getUserManager()Landroid/os/UserManager;
-    .locals 2
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/locksettings/RebootEscrowManager$Injector;->mContext:Landroid/content/Context;
+    iget-object p0, p0, Lcom/android/server/locksettings/RebootEscrowManager$Injector;->mContext:Landroid/content/Context;
 
-    const-string/jumbo v1, "user"
+    const-string/jumbo v0, "user"
 
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Landroid/os/UserManager;
+    check-cast p0, Landroid/os/UserManager;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getVbmetaDigest(Z)Ljava/lang/String;
-    .locals 1
+    .locals 0
 
     if-eqz p1, :cond_0
 
-    const-string/jumbo v0, "ota.other.vbmeta_digest"
+    const-string/jumbo p0, "ota.other.vbmeta_digest"
 
-    invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {p0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
     goto :goto_0
 
     :cond_0
-    const-string/jumbo v0, "ro.boot.vbmeta.digest"
+    const-string/jumbo p0, "ro.boot.vbmeta.digest"
 
-    invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {p0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
     :goto_0
-    return-object v0
+    return-object p0
 .end method
 
-.method getWakeLock()Landroid/os/PowerManager$WakeLock;
-    .locals 3
+.method public getWakeLock()Landroid/os/PowerManager$WakeLock;
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/server/locksettings/RebootEscrowManager$Injector;->mContext:Landroid/content/Context;
+    iget-object p0, p0, Lcom/android/server/locksettings/RebootEscrowManager$Injector;->mContext:Landroid/content/Context;
 
-    const-class v1, Landroid/os/PowerManager;
+    const-class v0, Landroid/os/PowerManager;
 
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Landroid/os/PowerManager;
+    check-cast p0, Landroid/os/PowerManager;
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    const-string v2, "RebootEscrowManager"
+    const-string v1, "RebootEscrowManager"
 
-    invoke-virtual {v0, v1, v2}, Landroid/os/PowerManager;->newWakeLock(ILjava/lang/String;)Landroid/os/PowerManager$WakeLock;
+    invoke-virtual {p0, v0, v1}, Landroid/os/PowerManager;->newWakeLock(ILjava/lang/String;)Landroid/os/PowerManager$WakeLock;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method
 
 .method public isNetworkConnected()Z
-    .locals 5
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/server/locksettings/RebootEscrowManager$Injector;->mContext:Landroid/content/Context;
+    iget-object p0, p0, Lcom/android/server/locksettings/RebootEscrowManager$Injector;->mContext:Landroid/content/Context;
 
-    const-class v1, Landroid/net/ConnectivityManager;
+    const-class v0, Landroid/net/ConnectivityManager;
 
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Landroid/net/ConnectivityManager;
+    check-cast p0, Landroid/net/ConnectivityManager;
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
-    return v1
+    return v0
 
     :cond_0
-    invoke-virtual {v0}, Landroid/net/ConnectivityManager;->getActiveNetwork()Landroid/net/Network;
+    invoke-virtual {p0}, Landroid/net/ConnectivityManager;->getActiveNetwork()Landroid/net/Network;
 
-    move-result-object v2
+    move-result-object v1
 
-    nop
+    invoke-virtual {p0, v1}, Landroid/net/ConnectivityManager;->getNetworkCapabilities(Landroid/net/Network;)Landroid/net/NetworkCapabilities;
 
-    invoke-virtual {v0, v2}, Landroid/net/ConnectivityManager;->getNetworkCapabilities(Landroid/net/Network;)Landroid/net/NetworkCapabilities;
+    move-result-object p0
 
-    move-result-object v3
+    if-eqz p0, :cond_1
 
-    if-eqz v3, :cond_1
+    const/16 v1, 0xc
 
-    const/16 v4, 0xc
+    invoke-virtual {p0, v1}, Landroid/net/NetworkCapabilities;->hasCapability(I)Z
 
-    invoke-virtual {v3, v4}, Landroid/net/NetworkCapabilities;->hasCapability(I)Z
+    move-result v1
 
-    move-result v4
+    if-eqz v1, :cond_1
 
-    if-eqz v4, :cond_1
+    const/16 v1, 0x10
 
-    const/16 v4, 0x10
+    invoke-virtual {p0, v1}, Landroid/net/NetworkCapabilities;->hasCapability(I)Z
 
-    invoke-virtual {v3, v4}, Landroid/net/NetworkCapabilities;->hasCapability(I)Z
+    move-result p0
 
-    move-result v4
+    if-eqz p0, :cond_1
 
-    if-eqz v4, :cond_1
-
-    const/4 v1, 0x1
-
-    goto :goto_0
+    const/4 v0, 0x1
 
     :cond_1
-    nop
-
-    :goto_0
-    return v1
+    return v0
 .end method
 
-.method post(Landroid/os/Handler;Ljava/lang/Runnable;)V
+.method public post(Landroid/os/Handler;Ljava/lang/Runnable;)V
     .locals 0
 
     invoke-virtual {p1, p2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
@@ -350,7 +335,7 @@
     return-void
 .end method
 
-.method postDelayed(Landroid/os/Handler;Ljava/lang/Runnable;J)V
+.method public postDelayed(Landroid/os/Handler;Ljava/lang/Runnable;J)V
     .locals 0
 
     invoke-virtual {p1, p2, p3, p4}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
@@ -383,36 +368,36 @@
 .end method
 
 .method public serverBasedResumeOnReboot()Z
-    .locals 3
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/server/locksettings/RebootEscrowManager$Injector;->mContext:Landroid/content/Context;
+    iget-object p0, p0, Lcom/android/server/locksettings/RebootEscrowManager$Injector;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v0
+    move-result-object p0
 
-    const-string v1, "android.hardware.reboot_escrow"
+    const-string v0, "android.hardware.reboot_escrow"
 
-    invoke-virtual {v0, v1}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
+    invoke-virtual {p0, v0}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result p0
 
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    const-string/jumbo v1, "ota"
+    const-string/jumbo v0, "ota"
 
-    const-string/jumbo v2, "server_based_ror_enabled"
+    const-string/jumbo v1, "server_based_ror_enabled"
 
-    invoke-static {v1, v2, v0}, Landroid/provider/DeviceConfig;->getBoolean(Ljava/lang/String;Ljava/lang/String;Z)Z
+    invoke-static {v0, v1, p0}, Landroid/provider/DeviceConfig;->getBoolean(Ljava/lang/String;Ljava/lang/String;Z)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method

@@ -1,4 +1,4 @@
-.class Lcom/android/server/pm/PackageManagerShellCommand$InstallParams;
+.class public Lcom/android/server/pm/PackageManagerShellCommand$InstallParams;
 .super Ljava/lang/Object;
 .source "PackageManagerShellCommand.java"
 
@@ -9,23 +9,23 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "InstallParams"
 .end annotation
 
 
 # instance fields
-.field installerPackageName:Ljava/lang/String;
+.field public installerPackageName:Ljava/lang/String;
 
-.field sessionParams:Landroid/content/pm/PackageInstaller$SessionParams;
+.field public sessionParams:Landroid/content/pm/PackageInstaller$SessionParams;
 
-.field stagedReadyTimeoutMs:J
+.field public stagedReadyTimeoutMs:J
 
-.field userId:I
+.field public userId:I
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/pm/PackageManagerShellCommand$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/pm/PackageManagerShellCommand$InstallParams-IA;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/pm/PackageManagerShellCommand$InstallParams;-><init>()V

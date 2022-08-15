@@ -1,35 +1,30 @@
 .class public final synthetic Lcom/android/server/wm/TaskFragment$$ExternalSyntheticLambda3;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Consumer;
-
-
-# instance fields
-.field public final synthetic f$0:[I
+.implements Ljava/util/function/Predicate;
 
 
 # direct methods
-.method public synthetic constructor <init>([I)V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/server/wm/TaskFragment$$ExternalSyntheticLambda3;->f$0:[I
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/wm/TaskFragment$$ExternalSyntheticLambda3;->f$0:[I
+.method public final test(Ljava/lang/Object;)Z
+    .locals 0
 
     check-cast p1, Lcom/android/server/wm/ActivityRecord;
 
-    invoke-static {v0, p1}, Lcom/android/server/wm/TaskFragment;->lambda$getTaskFragmentInfo$7([ILcom/android/server/wm/ActivityRecord;)V
+    invoke-static {p1}, Lcom/android/server/wm/TaskFragment;->$r8$lambda$8h3BQU5sM5hHKpLC58wxTI7BuVI(Lcom/android/server/wm/ActivityRecord;)Z
 
-    return-void
+    move-result p0
+
+    return p0
 .end method

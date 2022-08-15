@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/DeviceIdleController$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Consumer;
+.implements Landroid/app/AlarmManager$OnAlarmListener;
 
 
 # instance fields
@@ -22,14 +23,12 @@
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
-    .locals 1
+.method public final onAlarm()V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/DeviceIdleController$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/DeviceIdleController;
+    iget-object p0, p0, Lcom/android/server/DeviceIdleController$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/DeviceIdleController;
 
-    check-cast p1, Landroid/os/PowerSaveState;
-
-    invoke-virtual {v0, p1}, Lcom/android/server/DeviceIdleController;->lambda$onBootPhase$2$DeviceIdleController(Landroid/os/PowerSaveState;)V
+    invoke-static {p0}, Lcom/android/server/DeviceIdleController;->$r8$lambda$zKKDrW1Y2C0guUcFbEW3iYl6FJ8(Lcom/android/server/DeviceIdleController;)V
 
     return-void
 .end method

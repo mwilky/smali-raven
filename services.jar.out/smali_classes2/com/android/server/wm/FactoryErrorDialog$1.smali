@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/FactoryErrorDialog$1;
+.class public Lcom/android/server/wm/FactoryErrorDialog$1;
 .super Landroid/os/Handler;
 .source "FactoryErrorDialog.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/wm/FactoryErrorDialog;
+.field public final synthetic this$0:Lcom/android/server/wm/FactoryErrorDialog;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/wm/FactoryErrorDialog;)V
+.method public constructor <init>(Lcom/android/server/wm/FactoryErrorDialog;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/wm/FactoryErrorDialog$1;->this$0:Lcom/android/server/wm/FactoryErrorDialog;
@@ -32,13 +32,13 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 2
+    .locals 0
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    new-instance p0, Ljava/lang/RuntimeException;
 
-    const-string v1, "Rebooting from failed factory test"
+    const-string p1, "Rebooting from failed factory test"
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method

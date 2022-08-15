@@ -6,14 +6,8 @@
 .implements Lcom/android/server/notification/NotificationSignalExtractor;
 
 
-# static fields
-.field private static final DBG:Z = false
-
-.field private static final TAG:Ljava/lang/String; = "ImportanceExtractor"
-
-
 # instance fields
-.field private mConfig:Lcom/android/server/notification/RankingConfig;
+.field public mConfig:Lcom/android/server/notification/RankingConfig;
 
 
 # direct methods
@@ -49,16 +43,14 @@
     goto :goto_0
 
     :cond_0
-    iget-object v1, p0, Lcom/android/server/notification/ImportanceExtractor;->mConfig:Lcom/android/server/notification/RankingConfig;
+    iget-object p0, p0, Lcom/android/server/notification/ImportanceExtractor;->mConfig:Lcom/android/server/notification/RankingConfig;
 
-    if-nez v1, :cond_1
+    if-nez p0, :cond_1
 
     return-object v0
 
     :cond_1
     invoke-virtual {p1}, Lcom/android/server/notification/NotificationRecord;->calculateImportance()V
-
-    return-object v0
 
     :cond_2
     :goto_0

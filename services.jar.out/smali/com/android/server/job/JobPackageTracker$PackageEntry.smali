@@ -1,4 +1,4 @@
-.class final Lcom/android/server/job/JobPackageTracker$PackageEntry;
+.class public final Lcom/android/server/job/JobPackageTracker$PackageEntry;
 .super Ljava/lang/Object;
 .source "JobPackageTracker.java"
 
@@ -9,47 +9,47 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = "PackageEntry"
 .end annotation
 
 
 # instance fields
-.field activeCount:I
+.field public activeCount:I
 
-.field activeNesting:I
+.field public activeNesting:I
 
-.field activeStartTime:J
+.field public activeStartTime:J
 
-.field activeTopCount:I
+.field public activeTopCount:I
 
-.field activeTopNesting:I
+.field public activeTopNesting:I
 
-.field activeTopStartTime:J
+.field public activeTopStartTime:J
 
-.field hadActive:Z
+.field public hadActive:Z
 
-.field hadActiveTop:Z
+.field public hadActiveTop:Z
 
-.field hadPending:Z
+.field public hadPending:Z
 
-.field pastActiveTime:J
+.field public pastActiveTime:J
 
-.field pastActiveTopTime:J
+.field public pastActiveTopTime:J
 
-.field pastPendingTime:J
+.field public pastPendingTime:J
 
-.field pendingCount:I
+.field public pendingCount:I
 
-.field pendingNesting:I
+.field public pendingNesting:I
 
-.field pendingStartTime:J
+.field public pendingStartTime:J
 
-.field final stopReasons:Landroid/util/SparseIntArray;
+.field public final stopReasons:Landroid/util/SparseIntArray;
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -76,9 +76,9 @@
 
     iget-wide v2, p0, Lcom/android/server/job/JobPackageTracker$PackageEntry;->activeStartTime:J
 
-    sub-long v2, p1, v2
+    sub-long/2addr p1, v2
 
-    add-long/2addr v0, v2
+    add-long/2addr v0, p1
 
     :cond_0
     return-wide v0
@@ -95,9 +95,9 @@
 
     iget-wide v2, p0, Lcom/android/server/job/JobPackageTracker$PackageEntry;->activeTopStartTime:J
 
-    sub-long v2, p1, v2
+    sub-long/2addr p1, v2
 
-    add-long/2addr v0, v2
+    add-long/2addr v0, p1
 
     :cond_0
     return-wide v0
@@ -114,9 +114,9 @@
 
     iget-wide v2, p0, Lcom/android/server/job/JobPackageTracker$PackageEntry;->pendingStartTime:J
 
-    sub-long v2, p1, v2
+    sub-long/2addr p1, v2
 
-    add-long/2addr v0, v2
+    add-long/2addr v0, p1
 
     :cond_0
     return-wide v0

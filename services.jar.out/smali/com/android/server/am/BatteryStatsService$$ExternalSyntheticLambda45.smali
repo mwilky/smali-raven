@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda45;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -16,9 +17,11 @@
 
 .field public final synthetic f$4:J
 
+.field public final synthetic f$5:J
+
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/am/BatteryStatsService;ILjava/lang/String;JJ)V
+.method public synthetic constructor <init>(Lcom/android/server/am/BatteryStatsService;ILjava/lang/String;JJJ)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -33,13 +36,15 @@
 
     iput-wide p6, p0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda45;->f$4:J
 
+    iput-wide p8, p0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda45;->f$5:J
+
     return-void
 .end method
 
 
 # virtual methods
 .method public final run()V
-    .locals 7
+    .locals 9
 
     iget-object v0, p0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda45;->f$0:Lcom/android/server/am/BatteryStatsService;
 
@@ -51,7 +56,9 @@
 
     iget-wide v5, p0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda45;->f$4:J
 
-    invoke-virtual/range {v0 .. v6}, Lcom/android/server/am/BatteryStatsService;->lambda$reportExcessiveCpu$101$BatteryStatsService(ILjava/lang/String;JJ)V
+    iget-wide v7, p0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda45;->f$5:J
+
+    invoke-static/range {v0 .. v8}, Lcom/android/server/am/BatteryStatsService;->$r8$lambda$qrpLXys6gKLuSZ3rvFuQIciK4yo(Lcom/android/server/am/BatteryStatsService;ILjava/lang/String;JJJ)V
 
     return-void
 .end method

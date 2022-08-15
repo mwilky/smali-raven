@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/server/wallpaper/IWallpaperManagerService;
+.class public interface abstract Lcom/android/server/wallpaper/IWallpaperManagerService;
 .super Ljava/lang/Object;
 .source "IWallpaperManagerService.java"
 

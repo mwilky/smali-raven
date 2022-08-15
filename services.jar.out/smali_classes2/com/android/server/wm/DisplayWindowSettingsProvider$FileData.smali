@@ -1,4 +1,4 @@
-.class final Lcom/android/server/wm/DisplayWindowSettingsProvider$FileData;
+.class public final Lcom/android/server/wm/DisplayWindowSettingsProvider$FileData;
 .super Ljava/lang/Object;
 .source "DisplayWindowSettingsProvider.java"
 
@@ -9,15 +9,15 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "FileData"
 .end annotation
 
 
 # instance fields
-.field mIdentifierType:I
+.field public mIdentifierType:I
 
-.field final mSettings:Ljava/util/Map;
+.field public final mSettings:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Map<",
@@ -30,7 +30,7 @@
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -44,7 +44,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/wm/DisplayWindowSettingsProvider$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/wm/DisplayWindowSettingsProvider$FileData-IA;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/wm/DisplayWindowSettingsProvider$FileData;-><init>()V
@@ -73,17 +73,17 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lcom/android/server/wm/DisplayWindowSettingsProvider$FileData;->mSettings:Ljava/util/Map;
+    iget-object p0, p0, Lcom/android/server/wm/DisplayWindowSettingsProvider$FileData;->mSettings:Ljava/util/Map;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const/16 v1, 0x7d
+    const/16 p0, 0x7d
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

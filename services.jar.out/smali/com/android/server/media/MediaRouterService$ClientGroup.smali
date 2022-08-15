@@ -1,4 +1,4 @@
-.class final Lcom/android/server/media/MediaRouterService$ClientGroup;
+.class public final Lcom/android/server/media/MediaRouterService$ClientGroup;
 .super Ljava/lang/Object;
 .source "MediaRouterService.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x10
+    accessFlags = 0x11
     name = "ClientGroup"
 .end annotation
 
@@ -27,22 +27,22 @@
 
 .field public mSelectedRouteId:Ljava/lang/String;
 
-.field final synthetic this$0:Lcom/android/server/media/MediaRouterService;
+.field public final synthetic this$0:Lcom/android/server/media/MediaRouterService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/media/MediaRouterService;)V
-    .locals 1
+.method public constructor <init>(Lcom/android/server/media/MediaRouterService;)V
+    .locals 0
 
     iput-object p1, p0, Lcom/android/server/media/MediaRouterService$ClientGroup;->this$0:Lcom/android/server/media/MediaRouterService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v0, Ljava/util/ArrayList;
+    new-instance p1, Ljava/util/ArrayList;
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v0, p0, Lcom/android/server/media/MediaRouterService$ClientGroup;->mClientRecords:Ljava/util/List;
+    iput-object p1, p0, Lcom/android/server/media/MediaRouterService$ClientGroup;->mClientRecords:Ljava/util/List;
 
     return-void
 .end method

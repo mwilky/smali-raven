@@ -1,4 +1,4 @@
-.class Lcom/android/server/usage/AppIdleHistory$AppUsageHistory;
+.class public Lcom/android/server/usage/AppIdleHistory$AppUsageHistory;
 .super Ljava/lang/Object;
 .source "AppIdleHistory.java"
 
@@ -9,41 +9,41 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "AppUsageHistory"
 .end annotation
 
 
 # instance fields
-.field bucketActiveTimeoutTime:J
+.field public bucketExpiryTimesMs:Landroid/util/SparseLongArray;
 
-.field bucketWorkingSetTimeoutTime:J
+.field public bucketingReason:I
 
-.field bucketingReason:I
+.field public currentBucket:I
 
-.field currentBucket:I
+.field public lastInformedBucket:I
 
-.field lastInformedBucket:I
+.field public lastJobRunTime:J
 
-.field lastJobRunTime:J
+.field public lastPredictedBucket:I
 
-.field lastPredictedBucket:I
+.field public lastPredictedTime:J
 
-.field lastPredictedTime:J
+.field public lastRestrictAttemptElapsedTime:J
 
-.field lastRestrictAttemptElapsedTime:J
+.field public lastRestrictReason:I
 
-.field lastRestrictReason:I
+.field public lastUsedByUserElapsedTime:J
 
-.field lastUsedByUserElapsedTime:J
+.field public lastUsedElapsedTime:J
 
-.field lastUsedElapsedTime:J
+.field public lastUsedScreenTime:J
 
-.field lastUsedScreenTime:J
+.field public nextEstimatedLaunchTime:J
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

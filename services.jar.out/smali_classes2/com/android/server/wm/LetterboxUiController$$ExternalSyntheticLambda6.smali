@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/wm/LetterboxUiController$$ExternalSyntheticLambda6;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Supplier;
+.implements Ljava/util/function/IntConsumer;
 
 
 # instance fields
@@ -22,18 +23,12 @@
 
 
 # virtual methods
-.method public final get()Ljava/lang/Object;
-    .locals 1
+.method public final accept(I)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/LetterboxUiController$$ExternalSyntheticLambda6;->f$0:Lcom/android/server/wm/LetterboxUiController;
+    iget-object p0, p0, Lcom/android/server/wm/LetterboxUiController$$ExternalSyntheticLambda6;->f$0:Lcom/android/server/wm/LetterboxUiController;
 
-    invoke-static {v0}, Lcom/android/server/wm/LetterboxUiController;->$r8$lambda$jUi2GqCCynDmaylgZ_7r_wTiw1c(Lcom/android/server/wm/LetterboxUiController;)Z
+    invoke-static {p0, p1}, Lcom/android/server/wm/LetterboxUiController;->$r8$lambda$DIhAijq-KhVjSJ2n6hNPfk5AiZ8(Lcom/android/server/wm/LetterboxUiController;I)V
 
-    move-result v0
-
-    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v0
-
-    return-object v0
+    return-void
 .end method

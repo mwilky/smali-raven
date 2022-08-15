@@ -14,11 +14,7 @@
 
 
 # static fields
-.field private static final TAG:Ljava/lang/String;
-
-.field private static final TIMEOUT_IDLE_UNBIND_MS:J = 0x0L
-
-.field private static final TIMEOUT_REQUEST_MS:I = 0x1388
+.field public static final TAG:Ljava/lang/String;
 
 
 # instance fields
@@ -32,7 +28,23 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static synthetic $r8$lambda$0TKANU3rMWV-gTQfuhNO9hZTWLc(Landroid/view/translation/TranslationContext;ILcom/android/internal/os/IResultReceiver;Landroid/service/translation/ITranslationService;)V
+    .locals 0
+
+    invoke-static {p0, p1, p2, p3}, Lcom/android/server/translation/RemoteTranslationService;->lambda$onSessionCreated$0(Landroid/view/translation/TranslationContext;ILcom/android/internal/os/IResultReceiver;Landroid/service/translation/ITranslationService;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$SKZSGFv3I0OcvckgM232Zp17dA8(IILandroid/os/ResultReceiver;Landroid/service/translation/ITranslationService;)V
+    .locals 0
+
+    invoke-static {p0, p1, p2, p3}, Lcom/android/server/translation/RemoteTranslationService;->lambda$onTranslationCapabilitiesRequest$1(IILandroid/os/ResultReceiver;Landroid/service/translation/ITranslationService;)V
+
+    return-void
+.end method
+
+.method public static constructor <clinit>()V
     .locals 1
 
     const-class v0, Lcom/android/server/translation/RemoteTranslationService;
@@ -46,7 +58,7 @@
     return-void
 .end method
 
-.method constructor <init>(Landroid/content/Context;Landroid/content/ComponentName;IZLandroid/os/IBinder;)V
+.method public constructor <init>(Landroid/content/Context;Landroid/content/ComponentName;IZLandroid/os/IBinder;)V
     .locals 8
 
     new-instance v0, Landroid/content/Intent;
@@ -61,17 +73,19 @@
 
     if-eqz p4, :cond_0
 
-    const/high16 v0, 0x400000
+    const/high16 p4, 0x400000
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p4, 0x0
 
     :goto_0
-    move v5, v0
+    move v5, p4
 
-    sget-object v7, Lcom/android/server/translation/RemoteTranslationService$$ExternalSyntheticLambda2;->INSTANCE:Lcom/android/server/translation/RemoteTranslationService$$ExternalSyntheticLambda2;
+    new-instance v7, Lcom/android/server/translation/RemoteTranslationService$$ExternalSyntheticLambda0;
+
+    invoke-direct {v7}, Lcom/android/server/translation/RemoteTranslationService$$ExternalSyntheticLambda0;-><init>()V
 
     move-object v2, p0
 
@@ -81,24 +95,24 @@
 
     invoke-direct/range {v2 .. v7}, Lcom/android/internal/infra/ServiceConnector$Impl;-><init>(Landroid/content/Context;Landroid/content/Intent;IILjava/util/function/Function;)V
 
-    const-wide/16 v0, 0x0
+    const-wide/16 p3, 0x0
 
-    iput-wide v0, p0, Lcom/android/server/translation/RemoteTranslationService;->mIdleUnbindTimeoutMs:J
+    iput-wide p3, p0, Lcom/android/server/translation/RemoteTranslationService;->mIdleUnbindTimeoutMs:J
 
-    const/16 v0, 0x1388
+    const/16 p1, 0x1388
 
-    iput v0, p0, Lcom/android/server/translation/RemoteTranslationService;->mRequestTimeoutMs:I
+    iput p1, p0, Lcom/android/server/translation/RemoteTranslationService;->mRequestTimeoutMs:I
 
     iput-object p2, p0, Lcom/android/server/translation/RemoteTranslationService;->mComponentName:Landroid/content/ComponentName;
 
     iput-object p5, p0, Lcom/android/server/translation/RemoteTranslationService;->mRemoteCallback:Landroid/os/IBinder;
 
-    invoke-virtual {p0}, Lcom/android/server/translation/RemoteTranslationService;->connect()Lcom/android/internal/infra/AndroidFuture;
+    invoke-virtual {p0}, Lcom/android/internal/infra/ServiceConnector$Impl;->connect()Lcom/android/internal/infra/AndroidFuture;
 
     return-void
 .end method
 
-.method static synthetic lambda$onSessionCreated$0(Landroid/view/translation/TranslationContext;ILcom/android/internal/os/IResultReceiver;Landroid/service/translation/ITranslationService;)V
+.method public static synthetic lambda$onSessionCreated$0(Landroid/view/translation/TranslationContext;ILcom/android/internal/os/IResultReceiver;Landroid/service/translation/ITranslationService;)V
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -111,7 +125,7 @@
     return-void
 .end method
 
-.method static synthetic lambda$onTranslationCapabilitiesRequest$1(IILandroid/os/ResultReceiver;Landroid/service/translation/ITranslationService;)V
+.method public static synthetic lambda$onTranslationCapabilitiesRequest$1(IILandroid/os/ResultReceiver;Landroid/service/translation/ITranslationService;)V
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -126,7 +140,7 @@
 
 
 # virtual methods
-.method protected getAutoDisconnectTimeoutMs()J
+.method public getAutoDisconnectTimeoutMs()J
     .locals 2
 
     iget-wide v0, p0, Lcom/android/server/translation/RemoteTranslationService;->mIdleUnbindTimeoutMs:J
@@ -134,15 +148,7 @@
     return-wide v0
 .end method
 
-.method public getComponentName()Landroid/content/ComponentName;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/translation/RemoteTranslationService;->mComponentName:Landroid/content/ComponentName;
-
-    return-object v0
-.end method
-
-.method protected bridge synthetic onServiceConnectionStatusChanged(Landroid/os/IInterface;Z)V
+.method public bridge synthetic onServiceConnectionStatusChanged(Landroid/os/IInterface;Z)V
     .locals 0
 
     check-cast p1, Landroid/service/translation/ITranslationService;
@@ -152,15 +158,15 @@
     return-void
 .end method
 
-.method protected onServiceConnectionStatusChanged(Landroid/service/translation/ITranslationService;Z)V
-    .locals 4
+.method public onServiceConnectionStatusChanged(Landroid/service/translation/ITranslationService;Z)V
+    .locals 2
 
     if-eqz p2, :cond_0
 
     :try_start_0
-    iget-object v0, p0, Lcom/android/server/translation/RemoteTranslationService;->mRemoteCallback:Landroid/os/IBinder;
+    iget-object p0, p0, Lcom/android/server/translation/RemoteTranslationService;->mRemoteCallback:Landroid/os/IBinder;
 
-    invoke-interface {p1, v0}, Landroid/service/translation/ITranslationService;->onConnected(Landroid/os/IBinder;)V
+    invoke-interface {p1, p0}, Landroid/service/translation/ITranslationService;->onConnected(Landroid/os/IBinder;)V
 
     goto :goto_0
 
@@ -169,35 +175,34 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    :goto_0
-    goto :goto_1
+    goto :goto_0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    sget-object v1, Lcom/android/server/translation/RemoteTranslationService;->TAG:Ljava/lang/String;
+    sget-object p1, Lcom/android/server/translation/RemoteTranslationService;->TAG:Ljava/lang/String;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "Exception calling onServiceConnectionStatusChanged("
+    const-string v1, "Exception calling onServiceConnectionStatusChanged("
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    const-string v3, "): "
+    const-string p2, "): "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p2
 
-    invoke-static {v1, v2, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {p1, p2, p0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    :goto_1
+    :goto_0
     return-void
 .end method
 
@@ -208,7 +213,7 @@
 
     invoke-direct {v0, p1, p2, p3}, Lcom/android/server/translation/RemoteTranslationService$$ExternalSyntheticLambda1;-><init>(Landroid/view/translation/TranslationContext;ILcom/android/internal/os/IResultReceiver;)V
 
-    invoke-virtual {p0, v0}, Lcom/android/server/translation/RemoteTranslationService;->run(Lcom/android/internal/infra/ServiceConnector$VoidJob;)Z
+    invoke-virtual {p0, v0}, Lcom/android/internal/infra/ServiceConnector$Impl;->run(Lcom/android/internal/infra/ServiceConnector$VoidJob;)Z
 
     return-void
 .end method
@@ -216,11 +221,11 @@
 .method public onTranslationCapabilitiesRequest(IILandroid/os/ResultReceiver;)V
     .locals 1
 
-    new-instance v0, Lcom/android/server/translation/RemoteTranslationService$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/android/server/translation/RemoteTranslationService$$ExternalSyntheticLambda2;
 
-    invoke-direct {v0, p1, p2, p3}, Lcom/android/server/translation/RemoteTranslationService$$ExternalSyntheticLambda0;-><init>(IILandroid/os/ResultReceiver;)V
+    invoke-direct {v0, p1, p2, p3}, Lcom/android/server/translation/RemoteTranslationService$$ExternalSyntheticLambda2;-><init>(IILandroid/os/ResultReceiver;)V
 
-    invoke-virtual {p0, v0}, Lcom/android/server/translation/RemoteTranslationService;->run(Lcom/android/internal/infra/ServiceConnector$VoidJob;)Z
+    invoke-virtual {p0, v0}, Lcom/android/internal/infra/ServiceConnector$Impl;->run(Lcom/android/internal/infra/ServiceConnector$VoidJob;)Z
 
     return-void
 .end method

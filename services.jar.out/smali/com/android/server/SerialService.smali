@@ -4,14 +4,14 @@
 
 
 # instance fields
-.field private final mContext:Landroid/content/Context;
+.field public final mContext:Landroid/content/Context;
 
-.field private final mSerialPorts:[Ljava/lang/String;
+.field public final mSerialPorts:[Ljava/lang/String;
 
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 2
+    .locals 1
 
     invoke-direct {p0}, Landroid/hardware/ISerialManager$Stub;-><init>()V
 
@@ -19,15 +19,15 @@
 
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v0
+    move-result-object p1
 
-    const v1, 0x107008c
+    const v0, 0x107009d
 
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
+    invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/android/server/SerialService;->mSerialPorts:[Ljava/lang/String;
+    iput-object p1, p0, Lcom/android/server/SerialService;->mSerialPorts:[Ljava/lang/String;
 
     return-void
 .end method
@@ -39,14 +39,9 @@
 # virtual methods
 .method public getSerialPorts()[Ljava/lang/String;
     .locals 4
-
-    iget-object v0, p0, Lcom/android/server/SerialService;->mContext:Landroid/content/Context;
-
-    const-string v1, "android.permission.SERIAL_PORT"
-
-    const/4 v2, 0x0
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
+    .annotation build Landroid/annotation/EnforcePermission;
+        value = "android.permission.SERIAL_PORT"
+    .end annotation
 
     new-instance v0, Ljava/util/ArrayList;
 
@@ -83,25 +78,20 @@
     :cond_1
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
-    move-result v1
+    move-result p0
 
-    new-array v1, v1, [Ljava/lang/String;
+    new-array p0, p0, [Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+    invoke-virtual {v0, p0}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
-    return-object v1
+    return-object p0
 .end method
 
 .method public openSerialPort(Ljava/lang/String;)Landroid/os/ParcelFileDescriptor;
     .locals 3
-
-    iget-object v0, p0, Lcom/android/server/SerialService;->mContext:Landroid/content/Context;
-
-    const-string v1, "android.permission.SERIAL_PORT"
-
-    const/4 v2, 0x0
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
+    .annotation build Landroid/annotation/EnforcePermission;
+        value = "android.permission.SERIAL_PORT"
+    .end annotation
 
     const/4 v0, 0x0
 
@@ -122,9 +112,9 @@
 
     invoke-direct {p0, p1}, Lcom/android/server/SerialService;->native_open(Ljava/lang/String;)Landroid/os/ParcelFileDescriptor;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 
     :cond_0
     add-int/lit8 v0, v0, 0x1
@@ -132,23 +122,23 @@
     goto :goto_0
 
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "Invalid serial port "
+    const-string v1, "Invalid serial port "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method

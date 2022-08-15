@@ -15,15 +15,15 @@
 
 
 # instance fields
-.field private final mCategorizer:Lcom/android/server/utils/quota/Categorizer;
+.field public final mCategorizer:Lcom/android/server/utils/quota/Categorizer;
 
-.field private final mCategory:Lcom/android/server/utils/quota/Category;
+.field public final mCategory:Lcom/android/server/utils/quota/Category;
 
-.field private final mContext:Landroid/content/Context;
+.field public final mContext:Landroid/content/Context;
 
-.field private final mInjector:Lcom/android/server/utils/quota/QuotaTracker$Injector;
+.field public final mInjector:Lcom/android/server/utils/quota/QuotaTracker$Injector;
 
-.field private final mQuotaTrackers:Ljava/util/List;
+.field public final mQuotaTrackers:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -45,8 +45,10 @@
     return-void
 .end method
 
-.method constructor <init>(Landroid/content/Context;Lcom/android/server/utils/quota/QuotaTracker$Injector;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/android/server/utils/quota/QuotaTracker$Injector;)V
     .locals 1
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -60,13 +62,13 @@
 
     iput-object p2, p0, Lcom/android/server/utils/quota/MultiRateLimiter$Builder;->mInjector:Lcom/android/server/utils/quota/QuotaTracker$Injector;
 
-    sget-object v0, Lcom/android/server/utils/quota/Categorizer;->SINGLE_CATEGORIZER:Lcom/android/server/utils/quota/Categorizer;
+    sget-object p1, Lcom/android/server/utils/quota/Categorizer;->SINGLE_CATEGORIZER:Lcom/android/server/utils/quota/Categorizer;
 
-    iput-object v0, p0, Lcom/android/server/utils/quota/MultiRateLimiter$Builder;->mCategorizer:Lcom/android/server/utils/quota/Categorizer;
+    iput-object p1, p0, Lcom/android/server/utils/quota/MultiRateLimiter$Builder;->mCategorizer:Lcom/android/server/utils/quota/Categorizer;
 
-    sget-object v0, Lcom/android/server/utils/quota/Category;->SINGLE_CATEGORY:Lcom/android/server/utils/quota/Category;
+    sget-object p1, Lcom/android/server/utils/quota/Category;->SINGLE_CATEGORY:Lcom/android/server/utils/quota/Category;
 
-    iput-object v0, p0, Lcom/android/server/utils/quota/MultiRateLimiter$Builder;->mCategory:Lcom/android/server/utils/quota/Category;
+    iput-object p1, p0, Lcom/android/server/utils/quota/MultiRateLimiter$Builder;->mCategory:Lcom/android/server/utils/quota/Category;
 
     return-void
 .end method
@@ -110,25 +112,25 @@
 
     invoke-virtual {v0, v1, p1, v2, v3}, Lcom/android/server/utils/quota/CountQuotaTracker;->setCountLimit(Lcom/android/server/utils/quota/Category;IJ)V
 
-    iget-object v1, p0, Lcom/android/server/utils/quota/MultiRateLimiter$Builder;->mQuotaTrackers:Ljava/util/List;
+    iget-object p1, p0, Lcom/android/server/utils/quota/MultiRateLimiter$Builder;->mQuotaTrackers:Ljava/util/List;
 
-    invoke-interface {v1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     return-object p0
 .end method
 
 .method public addRateLimit(Lcom/android/server/utils/quota/MultiRateLimiter$RateLimit;)Lcom/android/server/utils/quota/MultiRateLimiter$Builder;
-    .locals 2
+    .locals 1
 
     iget v0, p1, Lcom/android/server/utils/quota/MultiRateLimiter$RateLimit;->mLimit:I
 
-    iget-object v1, p1, Lcom/android/server/utils/quota/MultiRateLimiter$RateLimit;->mWindowSize:Ljava/time/Duration;
+    iget-object p1, p1, Lcom/android/server/utils/quota/MultiRateLimiter$RateLimit;->mWindowSize:Ljava/time/Duration;
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/server/utils/quota/MultiRateLimiter$Builder;->addRateLimit(ILjava/time/Duration;)Lcom/android/server/utils/quota/MultiRateLimiter$Builder;
+    invoke-virtual {p0, v0, p1}, Lcom/android/server/utils/quota/MultiRateLimiter$Builder;->addRateLimit(ILjava/time/Duration;)Lcom/android/server/utils/quota/MultiRateLimiter$Builder;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public addRateLimits([Lcom/android/server/utils/quota/MultiRateLimiter$RateLimit;)Lcom/android/server/utils/quota/MultiRateLimiter$Builder;
@@ -154,15 +156,15 @@
 .end method
 
 .method public build()Lcom/android/server/utils/quota/MultiRateLimiter;
-    .locals 3
+    .locals 2
 
     new-instance v0, Lcom/android/server/utils/quota/MultiRateLimiter;
 
-    iget-object v1, p0, Lcom/android/server/utils/quota/MultiRateLimiter$Builder;->mQuotaTrackers:Ljava/util/List;
+    iget-object p0, p0, Lcom/android/server/utils/quota/MultiRateLimiter$Builder;->mQuotaTrackers:Ljava/util/List;
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    invoke-direct {v0, v1, v2}, Lcom/android/server/utils/quota/MultiRateLimiter;-><init>(Ljava/util/List;Lcom/android/server/utils/quota/MultiRateLimiter$1;)V
+    invoke-direct {v0, p0, v1}, Lcom/android/server/utils/quota/MultiRateLimiter;-><init>(Ljava/util/List;Lcom/android/server/utils/quota/MultiRateLimiter-IA;)V
 
     return-object v0
 .end method

@@ -8,44 +8,25 @@
     value = {
         Lcom/android/server/hdmi/HdmiCecConfig$Setting;,
         Lcom/android/server/hdmi/HdmiCecConfig$Value;,
-        Lcom/android/server/hdmi/HdmiCecConfig$SettingsObserver;,
         Lcom/android/server/hdmi/HdmiCecConfig$StorageAdapter;,
         Lcom/android/server/hdmi/HdmiCecConfig$SettingChangeListener;,
-        Lcom/android/server/hdmi/HdmiCecConfig$VerificationException;,
-        Lcom/android/server/hdmi/HdmiCecConfig$ValueType;,
-        Lcom/android/server/hdmi/HdmiCecConfig$Storage;
+        Lcom/android/server/hdmi/HdmiCecConfig$VerificationException;
     }
 .end annotation
 
 
-# static fields
-.field private static final CONFIG_FILE:Ljava/lang/String; = "cec_config.xml"
-
-.field private static final ETC_DIR:Ljava/lang/String; = "etc"
-
-.field private static final SHARED_PREFS_DIR:Ljava/lang/String; = "shared_prefs"
-
-.field private static final SHARED_PREFS_NAME:Ljava/lang/String; = "cec_config.xml"
-
-.field private static final STORAGE_GLOBAL_SETTINGS:I = 0x1
-
-.field private static final STORAGE_SHARED_PREFS:I = 0x2
-
-.field private static final STORAGE_SYSPROPS:I = 0x0
-
-.field private static final TAG:Ljava/lang/String; = "HdmiCecConfig"
-
-.field private static final VALUE_TYPE_INT:Ljava/lang/String; = "int"
-
-.field private static final VALUE_TYPE_STRING:Ljava/lang/String; = "string"
-
-
 # instance fields
-.field private final mContext:Landroid/content/Context;
+.field public final mContext:Landroid/content/Context;
 
-.field private final mLock:Ljava/lang/Object;
+.field public final mLock:Ljava/lang/Object;
 
-.field private final mSettingChangeListeners:Landroid/util/ArrayMap;
+.field public final mSettingChangeListeners:Landroid/util/ArrayMap;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/ArrayMap<",
@@ -58,7 +39,7 @@
     .end annotation
 .end field
 
-.field private mSettings:Ljava/util/LinkedHashMap;
+.field public mSettings:Ljava/util/LinkedHashMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/LinkedHashMap<",
@@ -69,13 +50,11 @@
     .end annotation
 .end field
 
-.field private mSettingsObserver:Lcom/android/server/hdmi/HdmiCecConfig$SettingsObserver;
-
-.field private final mStorageAdapter:Lcom/android/server/hdmi/HdmiCecConfig$StorageAdapter;
+.field public final mStorageAdapter:Lcom/android/server/hdmi/HdmiCecConfig$StorageAdapter;
 
 
 # direct methods
-.method constructor <init>(Landroid/content/Context;)V
+.method public constructor <init>(Landroid/content/Context;)V
     .locals 1
 
     new-instance v0, Lcom/android/server/hdmi/HdmiCecConfig$StorageAdapter;
@@ -87,1341 +66,741 @@
     return-void
 .end method
 
-.method constructor <init>(Landroid/content/Context;Lcom/android/server/hdmi/HdmiCecConfig$StorageAdapter;)V
-    .locals 17
+.method public constructor <init>(Landroid/content/Context;Lcom/android/server/hdmi/HdmiCecConfig$StorageAdapter;)V
+    .locals 6
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
 
-    move-object/from16 v0, p0
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    new-instance v0, Ljava/lang/Object;
 
-    new-instance v1, Ljava/lang/Object;
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
-    invoke-direct {v1}, Ljava/lang/Object;-><init>()V
+    iput-object v0, p0, Lcom/android/server/hdmi/HdmiCecConfig;->mLock:Ljava/lang/Object;
 
-    iput-object v1, v0, Lcom/android/server/hdmi/HdmiCecConfig;->mLock:Ljava/lang/Object;
+    new-instance v0, Landroid/util/ArrayMap;
 
-    new-instance v1, Landroid/util/ArrayMap;
+    invoke-direct {v0}, Landroid/util/ArrayMap;-><init>()V
 
-    invoke-direct {v1}, Landroid/util/ArrayMap;-><init>()V
+    iput-object v0, p0, Lcom/android/server/hdmi/HdmiCecConfig;->mSettingChangeListeners:Landroid/util/ArrayMap;
 
-    iput-object v1, v0, Lcom/android/server/hdmi/HdmiCecConfig;->mSettingChangeListeners:Landroid/util/ArrayMap;
+    new-instance v0, Ljava/util/LinkedHashMap;
 
-    new-instance v1, Ljava/util/LinkedHashMap;
+    invoke-direct {v0}, Ljava/util/LinkedHashMap;-><init>()V
 
-    invoke-direct {v1}, Ljava/util/LinkedHashMap;-><init>()V
+    iput-object v0, p0, Lcom/android/server/hdmi/HdmiCecConfig;->mSettings:Ljava/util/LinkedHashMap;
 
-    iput-object v1, v0, Lcom/android/server/hdmi/HdmiCecConfig;->mSettings:Ljava/util/LinkedHashMap;
+    iput-object p1, p0, Lcom/android/server/hdmi/HdmiCecConfig;->mContext:Landroid/content/Context;
 
-    move-object/from16 v1, p1
+    iput-object p2, p0, Lcom/android/server/hdmi/HdmiCecConfig;->mStorageAdapter:Lcom/android/server/hdmi/HdmiCecConfig$StorageAdapter;
 
-    iput-object v1, v0, Lcom/android/server/hdmi/HdmiCecConfig;->mContext:Landroid/content/Context;
+    const-string p1, "hdmi_cec_enabled"
 
-    move-object/from16 v2, p2
+    const p2, 0x1110053
 
-    iput-object v2, v0, Lcom/android/server/hdmi/HdmiCecConfig;->mStorageAdapter:Lcom/android/server/hdmi/HdmiCecConfig$StorageAdapter;
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
-    const-string v3, "hdmi_cec_enabled"
+    move-result-object p1
 
-    const v4, 0x1110051
+    const/4 p2, 0x1
 
-    invoke-direct {v0, v3, v4}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
+    const v0, 0x1110051
 
-    move-result-object v3
+    const v1, 0x1110052
 
-    const/4 v4, 0x1
-
-    const v5, 0x111004f
-
-    const v6, 0x1110050
-
-    invoke-virtual {v3, v4, v5, v6}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
-
-    const/4 v5, 0x0
-
-    const v6, 0x111004d
-
-    const v7, 0x111004e
-
-    invoke-virtual {v3, v5, v6, v7}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
-
-    const-string v6, "hdmi_cec_version"
-
-    const v7, 0x1110056
-
-    invoke-direct {v0, v6, v7}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
-
-    move-result-object v6
-
-    const/4 v7, 0x5
-
-    const v8, 0x1110052
-
-    const v9, 0x1110053
-
-    invoke-virtual {v6, v7, v8, v9}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
-
-    const/4 v7, 0x6
-
-    const v8, 0x1110054
-
-    const v9, 0x1110055
-
-    invoke-virtual {v6, v7, v8, v9}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
-
-    const-string/jumbo v8, "power_control_mode"
-
-    const v9, 0x111005d
-
-    invoke-direct {v0, v8, v9}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
-
-    move-result-object v8
-
-    const-string/jumbo v9, "to_tv"
-
-    const v10, 0x111005b
-
-    const v11, 0x111005c
-
-    invoke-virtual {v8, v9, v10, v11}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(Ljava/lang/String;II)V
-
-    const-string v9, "broadcast"
-
-    const v10, 0x1110057
-
-    const v11, 0x1110058
-
-    invoke-virtual {v8, v9, v10, v11}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(Ljava/lang/String;II)V
-
-    const-string/jumbo v9, "none"
-
-    const v10, 0x1110059
-
-    const v11, 0x111005a
-
-    invoke-virtual {v8, v9, v10, v11}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(Ljava/lang/String;II)V
-
-    const-string/jumbo v10, "power_state_change_on_active_source_lost"
-
-    const v11, 0x1110062
-
-    invoke-direct {v0, v10, v11}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
-
-    move-result-object v10
-
-    const v11, 0x111005e
-
-    const v12, 0x111005f
-
-    invoke-virtual {v10, v9, v11, v12}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(Ljava/lang/String;II)V
-
-    const-string/jumbo v9, "standby_now"
-
-    const v11, 0x1110060
-
-    const v12, 0x1110061
-
-    invoke-virtual {v10, v9, v11, v12}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(Ljava/lang/String;II)V
-
-    const-string/jumbo v9, "system_audio_mode_muting"
-
-    const v11, 0x111008b
-
-    invoke-direct {v0, v9, v11}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
-
-    move-result-object v9
-
-    const v11, 0x1110089
-
-    const v12, 0x111008a
-
-    invoke-virtual {v9, v4, v11, v12}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
-
-    const v11, 0x1110087
-
-    const v12, 0x1110088
-
-    invoke-virtual {v9, v5, v11, v12}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
-
-    const-string/jumbo v11, "volume_control_enabled"
-
-    const v12, 0x111009a
-
-    invoke-direct {v0, v11, v12}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
-
-    move-result-object v11
-
-    const v12, 0x1110098
-
-    const v13, 0x1110099
-
-    invoke-virtual {v11, v4, v12, v13}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
-
-    const v12, 0x1110096
-
-    const v13, 0x1110097
-
-    invoke-virtual {v11, v5, v12, v13}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
-
-    const-string/jumbo v12, "tv_wake_on_one_touch_play"
-
-    const v13, 0x1110095
-
-    invoke-direct {v0, v12, v13}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
-
-    move-result-object v12
-
-    const v13, 0x1110093
-
-    const v14, 0x1110094
-
-    invoke-virtual {v12, v4, v13, v14}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
-
-    const v13, 0x1110091
-
-    const v14, 0x1110092
-
-    invoke-virtual {v12, v5, v13, v14}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
-
-    const-string/jumbo v13, "tv_send_standby_on_sleep"
-
-    const v14, 0x1110090
-
-    invoke-direct {v0, v13, v14}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
-
-    move-result-object v13
-
-    const v14, 0x111008e
-
-    const v15, 0x111008f
-
-    invoke-virtual {v13, v4, v14, v15}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
-
-    const v14, 0x111008c
-
-    const v15, 0x111008d
-
-    invoke-virtual {v13, v5, v14, v15}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
-
-    const-string/jumbo v14, "rc_profile_tv"
-
-    const v15, 0x1110086
-
-    invoke-direct {v0, v14, v15}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
-
-    move-result-object v14
-
-    const v15, 0x111007e
-
-    const v4, 0x111007f
-
-    invoke-virtual {v14, v5, v15, v4}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
-
-    const/4 v4, 0x2
-
-    const v15, 0x1110080
-
-    const v5, 0x1110081
-
-    invoke-virtual {v14, v4, v15, v5}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
-
-    const v4, 0x1110084
-
-    const v5, 0x1110085
-
-    invoke-virtual {v14, v7, v4, v5}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
-
-    const/16 v4, 0xa
-
-    const v5, 0x1110082
-
-    const v7, 0x1110083
-
-    invoke-virtual {v14, v4, v5, v7}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
-
-    const/16 v4, 0xe
-
-    const v5, 0x111007c
-
-    const v7, 0x111007d
-
-    invoke-virtual {v14, v4, v5, v7}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
-
-    const-string/jumbo v4, "rc_profile_source_handles_root_menu"
-
-    const v5, 0x1110071
-
-    invoke-direct {v0, v4, v5}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
-
-    move-result-object v4
-
-    const v5, 0x111006d
-
-    const v7, 0x111006e
-
-    const/4 v15, 0x1
-
-    invoke-virtual {v4, v15, v5, v7}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
-
-    const v5, 0x111006f
-
-    const v7, 0x1110070
-
-    const/4 v15, 0x0
-
-    invoke-virtual {v4, v15, v5, v7}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
-
-    const-string/jumbo v5, "rc_profile_source_handles_setup_menu"
-
-    const v7, 0x1110076
-
-    invoke-direct {v0, v5, v7}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
-
-    move-result-object v5
-
-    const v7, 0x1110072
-
-    const v15, 0x1110073
-
-    const/4 v1, 0x1
-
-    invoke-virtual {v5, v1, v7, v15}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
-
-    const v1, 0x1110074
-
-    const v7, 0x1110075
-
-    const/4 v15, 0x0
-
-    invoke-virtual {v5, v15, v1, v7}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
-
-    const-string/jumbo v1, "rc_profile_source_handles_contents_menu"
-
-    const v7, 0x1110067
-
-    invoke-direct {v0, v1, v7}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
-
-    move-result-object v1
-
-    const v7, 0x1110063
-
-    const v15, 0x1110064
-
-    const/4 v2, 0x1
-
-    invoke-virtual {v1, v2, v7, v15}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
-
-    const v2, 0x1110065
-
-    const v7, 0x1110066
-
-    const/4 v15, 0x0
-
-    invoke-virtual {v1, v15, v2, v7}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
-
-    const-string/jumbo v2, "rc_profile_source_handles_top_menu"
-
-    const v7, 0x111007b
-
-    invoke-direct {v0, v2, v7}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
-
-    move-result-object v2
-
-    const v7, 0x1110077
-
-    const v15, 0x1110078
-
-    move-object/from16 v16, v1
-
-    const/4 v1, 0x1
-
-    invoke-virtual {v2, v1, v7, v15}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
-
-    const v1, 0x1110079
-
-    const v7, 0x111007a
-
-    const/4 v15, 0x0
-
-    invoke-virtual {v2, v15, v1, v7}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
-
-    const-string/jumbo v1, "rc_profile_source_handles_media_context_sensitive_menu"
-
-    const v7, 0x111006c
-
-    invoke-direct {v0, v1, v7}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
-
-    move-result-object v1
-
-    const v7, 0x1110068
-
-    const v15, 0x1110069
-
-    const/4 v0, 0x1
-
-    invoke-virtual {v1, v0, v7, v15}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
-
-    const v0, 0x111006a
-
-    const v7, 0x111006b
-
-    const/4 v15, 0x0
-
-    invoke-virtual {v1, v15, v0, v7}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
-
-    invoke-direct/range {p0 .. p0}, Lcom/android/server/hdmi/HdmiCecConfig;->verifySettings()V
-
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/server/hdmi/HdmiCecConfig;Ljava/lang/String;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/server/hdmi/HdmiCecConfig;->notifyGlobalSettingChanged(Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method private getSetting(Ljava/lang/String;)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecConfig;->mSettings:Ljava/util/LinkedHashMap;
-
-    invoke-virtual {v0, p1}, Ljava/util/LinkedHashMap;->containsKey(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecConfig;->mSettings:Ljava/util/LinkedHashMap;
-
-    invoke-virtual {v0, p1}, Ljava/util/LinkedHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/server/hdmi/HdmiCecConfig$Setting;
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    :goto_0
-    return-object v0
-.end method
-
-.method private getStorage(Lcom/android/server/hdmi/HdmiCecConfig$Setting;)I
-    .locals 4
-
-    invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getName()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
-
-    move-result v1
-
-    const/4 v2, 0x1
-
-    const/4 v3, 0x2
-
-    sparse-switch v1, :sswitch_data_0
-
-    :cond_0
-    goto/16 :goto_0
-
-    :sswitch_0
-    const-string/jumbo v1, "tv_send_standby_on_sleep"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x7
-
-    goto/16 :goto_1
-
-    :sswitch_1
-    const-string/jumbo v1, "tv_wake_on_one_touch_play"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x6
-
-    goto/16 :goto_1
-
-    :sswitch_2
-    const-string/jumbo v1, "rc_profile_tv"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const/16 v0, 0x8
-
-    goto/16 :goto_1
-
-    :sswitch_3
-    const-string v1, "hdmi_cec_enabled"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
+    invoke-virtual {p1, p2, v0, v1}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
     const/4 v0, 0x0
 
-    goto/16 :goto_1
+    const v1, 0x111004f
 
-    :sswitch_4
-    const-string/jumbo v1, "volume_control_enabled"
+    const v2, 0x1110050
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v0, v1, v2}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    move-result v0
+    const-string p1, "hdmi_cec_version"
 
-    if-eqz v0, :cond_0
+    const v1, 0x1110058
 
-    const/4 v0, 0x3
+    invoke-virtual {p0, p1, v1}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
-    goto/16 :goto_1
+    move-result-object p1
 
-    :sswitch_5
-    const-string/jumbo v1, "power_control_mode"
+    const/4 v1, 0x5
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const v2, 0x1110054
 
-    move-result v0
+    const v3, 0x1110055
 
-    if-eqz v0, :cond_0
+    invoke-virtual {p1, v1, v2, v3}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    move v0, v3
+    const/4 v1, 0x6
 
-    goto :goto_1
+    const v2, 0x1110056
 
-    :sswitch_6
-    const-string/jumbo v1, "power_state_change_on_active_source_lost"
+    const v3, 0x1110057
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v1, v2, v3}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    move-result v0
+    const-string/jumbo p1, "routing_control"
 
-    if-eqz v0, :cond_0
+    const v2, 0x11100da
 
-    const/4 v0, 0x4
+    invoke-virtual {p0, p1, v2}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
-    goto :goto_1
+    move-result-object p1
 
-    :sswitch_7
-    const-string/jumbo v1, "rc_profile_source_handles_setup_menu"
+    const v2, 0x11100d8
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const v3, 0x11100d9
 
-    move-result v0
+    invoke-virtual {p1, p2, v2, v3}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    if-eqz v0, :cond_0
+    const v2, 0x11100d6
 
-    const/16 v0, 0xa
+    const v3, 0x11100d7
 
-    goto :goto_1
+    invoke-virtual {p1, v0, v2, v3}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    :sswitch_8
-    const-string/jumbo v1, "rc_profile_source_handles_contents_menu"
+    const-string/jumbo p1, "power_control_mode"
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const v2, 0x1110061
 
-    move-result v0
+    invoke-virtual {p0, p1, v2}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
-    if-eqz v0, :cond_0
+    move-result-object p1
 
-    const/16 v0, 0xb
+    const-string/jumbo v2, "to_tv"
 
-    goto :goto_1
+    const v3, 0x111005f
 
-    :sswitch_9
-    const-string/jumbo v1, "rc_profile_source_handles_root_menu"
+    const v4, 0x1110060
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v2, v3, v4}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(Ljava/lang/String;II)V
 
-    move-result v0
+    const-string v2, "broadcast"
 
-    if-eqz v0, :cond_0
+    const v3, 0x1110059
 
-    const/16 v0, 0x9
+    const v4, 0x111005a
 
-    goto :goto_1
+    invoke-virtual {p1, v2, v3, v4}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(Ljava/lang/String;II)V
 
-    :sswitch_a
-    const-string/jumbo v1, "rc_profile_source_handles_top_menu"
+    const-string/jumbo v2, "none"
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const v3, 0x111005b
 
-    move-result v0
+    const v4, 0x111005c
 
-    if-eqz v0, :cond_0
+    invoke-virtual {p1, v2, v3, v4}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(Ljava/lang/String;II)V
 
-    const/16 v0, 0xc
+    const-string/jumbo v3, "to_tv_and_audio_system"
 
-    goto :goto_1
+    const v4, 0x111005d
 
-    :sswitch_b
-    const-string/jumbo v1, "rc_profile_source_handles_media_context_sensitive_menu"
+    const v5, 0x111005e
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v3, v4, v5}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(Ljava/lang/String;II)V
 
-    move-result v0
+    const-string/jumbo p1, "power_state_change_on_active_source_lost"
 
-    if-eqz v0, :cond_0
+    const v3, 0x1110066
 
-    const/16 v0, 0xd
+    invoke-virtual {p0, p1, v3}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
-    goto :goto_1
+    move-result-object p1
 
-    :sswitch_c
-    const-string/jumbo v1, "system_audio_mode_muting"
+    const v3, 0x1110062
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const v4, 0x1110063
 
-    move-result v0
+    invoke-virtual {p1, v2, v3, v4}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(Ljava/lang/String;II)V
 
-    if-eqz v0, :cond_0
+    const-string/jumbo v2, "standby_now"
 
-    const/4 v0, 0x5
+    const v3, 0x1110064
 
-    goto :goto_1
+    const v4, 0x1110065
 
-    :sswitch_d
-    const-string v1, "hdmi_cec_version"
+    invoke-virtual {p1, v2, v3, v4}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(Ljava/lang/String;II)V
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const-string/jumbo p1, "system_audio_control"
 
-    move-result v0
+    const v2, 0x11100e4
 
-    if-eqz v0, :cond_0
+    invoke-virtual {p0, p1, v2}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
-    move v0, v2
+    move-result-object p1
 
-    goto :goto_1
+    const v2, 0x11100e2
 
-    :goto_0
-    const/4 v0, -0x1
+    const v3, 0x11100e3
 
-    :goto_1
-    packed-switch v0, :pswitch_data_0
+    invoke-virtual {p1, p2, v2, v3}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    new-instance v0, Lcom/android/server/hdmi/HdmiCecConfig$VerificationException;
+    const v2, 0x11100e0
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    const v3, 0x11100e1
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {p1, v0, v2, v3}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    const-string v2, "Invalid CEC setting \'"
+    const-string/jumbo p1, "system_audio_mode_muting"
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const v2, 0x11100e9
 
-    invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getName()Ljava/lang/String;
+    invoke-virtual {p0, p1, v2}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const v2, 0x11100e7
 
-    const-string v2, "\' storage."
+    const v3, 0x11100e8
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p2, v2, v3}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const v2, 0x11100e5
 
-    move-result-object v1
+    const v3, 0x11100e6
 
-    invoke-direct {v0, v1}, Lcom/android/server/hdmi/HdmiCecConfig$VerificationException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p1, v0, v2, v3}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    throw v0
+    const-string/jumbo p1, "volume_control_enabled"
 
-    :pswitch_0
-    return v3
+    const v2, 0x11100f8
 
-    :pswitch_1
-    return v3
+    invoke-virtual {p0, p1, v2}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
-    :pswitch_2
-    return v3
+    move-result-object p1
 
-    :pswitch_3
-    return v3
+    const v2, 0x11100f6
 
-    :pswitch_4
-    return v3
+    const v3, 0x11100f7
 
-    :pswitch_5
-    return v3
+    invoke-virtual {p1, p2, v2, v3}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    :pswitch_6
-    return v2
+    const v2, 0x11100f4
 
-    :pswitch_7
-    return v2
+    const v3, 0x11100f5
 
-    :pswitch_8
-    return v3
+    invoke-virtual {p1, v0, v2, v3}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    :pswitch_9
-    return v3
+    const-string/jumbo p1, "tv_wake_on_one_touch_play"
 
-    :pswitch_a
-    return v2
+    const v2, 0x11100f3
 
-    :pswitch_b
-    return v2
+    invoke-virtual {p0, p1, v2}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
-    :pswitch_c
-    return v3
+    move-result-object p1
 
-    :pswitch_d
-    return v2
+    const v2, 0x11100f1
 
-    :sswitch_data_0
-    .sparse-switch
-        -0x7b89074d -> :sswitch_d
-        -0x6a9ec647 -> :sswitch_c
-        -0x4c082dd9 -> :sswitch_b
-        -0x4ab99283 -> :sswitch_a
-        -0x46d3da58 -> :sswitch_9
-        -0x36427790 -> :sswitch_8
-        -0x117d9fab -> :sswitch_7
-        -0xd196d78 -> :sswitch_6
-        -0x1832fc1 -> :sswitch_5
-        0x45cb33a -> :sswitch_4
-        0xf91671c -> :sswitch_3
-        0x2f314ba6 -> :sswitch_2
-        0x611b5e8f -> :sswitch_1
-        0x7a8663a3 -> :sswitch_0
-    .end sparse-switch
+    const v3, 0x11100f2
 
-    :pswitch_data_0
-    .packed-switch 0x0
-        :pswitch_d
-        :pswitch_c
-        :pswitch_b
-        :pswitch_a
-        :pswitch_9
-        :pswitch_8
-        :pswitch_7
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
-.end method
+    invoke-virtual {p1, p2, v2, v3}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-.method private getStorageKey(Lcom/android/server/hdmi/HdmiCecConfig$Setting;)Ljava/lang/String;
-    .locals 3
+    const v2, 0x11100ef
 
-    invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getName()Ljava/lang/String;
+    const v3, 0x11100f0
 
-    move-result-object v0
+    invoke-virtual {p1, v0, v2, v3}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+    const-string/jumbo p1, "tv_send_standby_on_sleep"
 
-    move-result v1
+    const v2, 0x11100ee
 
-    sparse-switch v1, :sswitch_data_0
+    invoke-virtual {p0, p1, v2}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
-    :cond_0
-    goto/16 :goto_0
+    move-result-object p1
 
-    :sswitch_0
-    const-string/jumbo v1, "tv_send_standby_on_sleep"
+    const v2, 0x11100ec
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const v3, 0x11100ed
 
-    move-result v0
+    invoke-virtual {p1, p2, v2, v3}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    if-eqz v0, :cond_0
+    const v2, 0x11100ea
 
-    const/4 v0, 0x7
+    const v3, 0x11100eb
 
-    goto/16 :goto_1
+    invoke-virtual {p1, v0, v2, v3}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    :sswitch_1
-    const-string/jumbo v1, "tv_wake_on_one_touch_play"
+    const-string/jumbo p1, "set_menu_language"
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const v2, 0x11100df
 
-    move-result v0
+    invoke-virtual {p0, p1, v2}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
-    if-eqz v0, :cond_0
+    move-result-object p1
 
-    const/4 v0, 0x6
+    const v2, 0x11100dd
 
-    goto/16 :goto_1
+    const v3, 0x11100de
 
-    :sswitch_2
-    const-string/jumbo v1, "rc_profile_tv"
+    invoke-virtual {p1, p2, v2, v3}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const v2, 0x11100db
 
-    move-result v0
+    const v3, 0x11100dc
 
-    if-eqz v0, :cond_0
+    invoke-virtual {p1, v0, v2, v3}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    const/16 v0, 0x8
+    const-string/jumbo p1, "rc_profile_tv"
 
-    goto/16 :goto_1
+    const v2, 0x11100d5
 
-    :sswitch_3
-    const-string v1, "hdmi_cec_enabled"
+    invoke-virtual {p0, p1, v2}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result-object p1
 
-    move-result v0
+    const v2, 0x11100cd
 
-    if-eqz v0, :cond_0
+    const v3, 0x11100ce
 
-    const/4 v0, 0x0
+    invoke-virtual {p1, v0, v2, v3}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    goto/16 :goto_1
+    const/4 v2, 0x2
 
-    :sswitch_4
-    const-string/jumbo v1, "volume_control_enabled"
+    const v3, 0x11100cf
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const v4, 0x11100d0
 
-    move-result v0
+    invoke-virtual {p1, v2, v3, v4}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    if-eqz v0, :cond_0
+    const v2, 0x11100d3
 
-    const/4 v0, 0x3
+    const v3, 0x11100d4
 
-    goto :goto_1
+    invoke-virtual {p1, v1, v2, v3}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    :sswitch_5
-    const-string/jumbo v1, "power_control_mode"
+    const/16 v1, 0xa
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const v2, 0x11100d1
 
-    move-result v0
+    const v3, 0x11100d2
 
-    if-eqz v0, :cond_0
+    invoke-virtual {p1, v1, v2, v3}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    const/4 v0, 0x2
+    const/16 v1, 0xe
 
-    goto :goto_1
+    const v2, 0x11100cb
 
-    :sswitch_6
-    const-string/jumbo v1, "power_state_change_on_active_source_lost"
+    const v3, 0x11100cc
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v1, v2, v3}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    move-result v0
+    const-string/jumbo p1, "rc_profile_source_handles_root_menu"
 
-    if-eqz v0, :cond_0
+    const v1, 0x11100c0
 
-    const/4 v0, 0x4
+    invoke-virtual {p0, p1, v1}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
-    goto :goto_1
+    move-result-object p1
 
-    :sswitch_7
-    const-string/jumbo v1, "rc_profile_source_handles_setup_menu"
+    const v1, 0x11100bc
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const v2, 0x11100bd
 
-    move-result v0
+    invoke-virtual {p1, p2, v1, v2}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    if-eqz v0, :cond_0
+    const v1, 0x11100be
 
-    const/16 v0, 0xa
+    const v2, 0x11100bf
 
-    goto :goto_1
+    invoke-virtual {p1, v0, v1, v2}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    :sswitch_8
-    const-string/jumbo v1, "rc_profile_source_handles_contents_menu"
+    const-string/jumbo p1, "rc_profile_source_handles_setup_menu"
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const v1, 0x11100c5
 
-    move-result v0
+    invoke-virtual {p0, p1, v1}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
-    if-eqz v0, :cond_0
+    move-result-object p1
 
-    const/16 v0, 0xb
+    const v1, 0x11100c1
 
-    goto :goto_1
+    const v2, 0x11100c2
 
-    :sswitch_9
-    const-string/jumbo v1, "rc_profile_source_handles_root_menu"
+    invoke-virtual {p1, p2, v1, v2}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const v1, 0x11100c3
 
-    move-result v0
+    const v2, 0x11100c4
 
-    if-eqz v0, :cond_0
+    invoke-virtual {p1, v0, v1, v2}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    const/16 v0, 0x9
+    const-string/jumbo p1, "rc_profile_source_handles_contents_menu"
 
-    goto :goto_1
+    const v1, 0x11100b6
 
-    :sswitch_a
-    const-string/jumbo v1, "rc_profile_source_handles_top_menu"
+    invoke-virtual {p0, p1, v1}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result-object p1
 
-    move-result v0
+    const v1, 0x11100b2
 
-    if-eqz v0, :cond_0
+    const v2, 0x11100b3
 
-    const/16 v0, 0xc
+    invoke-virtual {p1, p2, v1, v2}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    goto :goto_1
+    const v1, 0x11100b4
 
-    :sswitch_b
-    const-string/jumbo v1, "rc_profile_source_handles_media_context_sensitive_menu"
+    const v2, 0x11100b5
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v0, v1, v2}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    move-result v0
+    const-string/jumbo p1, "rc_profile_source_handles_top_menu"
 
-    if-eqz v0, :cond_0
+    const v1, 0x11100ca
 
-    const/16 v0, 0xd
+    invoke-virtual {p0, p1, v1}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
-    goto :goto_1
+    move-result-object p1
 
-    :sswitch_c
-    const-string/jumbo v1, "system_audio_mode_muting"
+    const v1, 0x11100c6
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const v2, 0x11100c7
 
-    move-result v0
+    invoke-virtual {p1, p2, v1, v2}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    if-eqz v0, :cond_0
+    const v1, 0x11100c8
 
-    const/4 v0, 0x5
+    const v2, 0x11100c9
 
-    goto :goto_1
+    invoke-virtual {p1, v0, v1, v2}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    :sswitch_d
-    const-string v1, "hdmi_cec_version"
+    const-string/jumbo p1, "rc_profile_source_handles_media_context_sensitive_menu"
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const v1, 0x11100bb
 
-    move-result v0
+    invoke-virtual {p0, p1, v1}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
-    if-eqz v0, :cond_0
+    move-result-object p1
 
-    const/4 v0, 0x1
+    const v1, 0x11100b7
 
-    goto :goto_1
+    const v2, 0x11100b8
 
-    :goto_0
-    const/4 v0, -0x1
+    invoke-virtual {p1, p2, v1, v2}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    :goto_1
-    packed-switch v0, :pswitch_data_0
+    const v1, 0x11100b9
 
-    new-instance v0, Lcom/android/server/hdmi/HdmiCecConfig$VerificationException;
+    const v2, 0x11100ba
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v0, v1, v2}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo p1, "query_sad_lpcm"
 
-    const-string v2, "Invalid CEC setting \'"
+    const v1, 0x111008e
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, p1, v1}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
-    invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getName()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v2
+    const v1, 0x111008c
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const v2, 0x111008d
 
-    const-string v2, "\' storage key."
+    invoke-virtual {p1, p2, v1, v2}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const v1, 0x111008a
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const v2, 0x111008b
 
-    move-result-object v1
+    invoke-virtual {p1, v0, v1, v2}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    invoke-direct {v0, v1}, Lcom/android/server/hdmi/HdmiCecConfig$VerificationException;-><init>(Ljava/lang/String;)V
+    const-string/jumbo p1, "query_sad_dd"
 
-    throw v0
+    const v1, 0x1110075
 
-    :pswitch_0
-    invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getName()Ljava/lang/String;
+    invoke-virtual {p0, p1, v1}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    const v1, 0x1110073
 
-    :pswitch_1
-    invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getName()Ljava/lang/String;
+    const v2, 0x1110074
 
-    move-result-object v0
+    invoke-virtual {p1, p2, v1, v2}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    return-object v0
+    const v1, 0x1110071
 
-    :pswitch_2
-    invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getName()Ljava/lang/String;
+    const v2, 0x1110072
 
-    move-result-object v0
+    invoke-virtual {p1, v0, v1, v2}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    return-object v0
+    const-string/jumbo p1, "query_sad_mpeg1"
 
-    :pswitch_3
-    invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getName()Ljava/lang/String;
+    const v1, 0x111009d
 
-    move-result-object v0
+    invoke-virtual {p0, p1, v1}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
-    return-object v0
+    move-result-object p1
 
-    :pswitch_4
-    invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getName()Ljava/lang/String;
+    const v1, 0x111009b
 
-    move-result-object v0
+    const v2, 0x111009c
 
-    return-object v0
+    invoke-virtual {p1, p2, v1, v2}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    :pswitch_5
-    invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getName()Ljava/lang/String;
+    const v1, 0x1110099
 
-    move-result-object v0
+    const v2, 0x111009a
 
-    return-object v0
+    invoke-virtual {p1, v0, v1, v2}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    :pswitch_6
-    const-string v0, "hdmi_control_auto_device_off_enabled"
+    const-string/jumbo p1, "query_sad_mp3"
 
-    return-object v0
+    const v1, 0x1110098
 
-    :pswitch_7
-    const-string v0, "hdmi_control_auto_wakeup_enabled"
+    invoke-virtual {p0, p1, v1}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
-    return-object v0
+    move-result-object p1
 
-    :pswitch_8
-    invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getName()Ljava/lang/String;
+    const v1, 0x1110096
 
-    move-result-object v0
+    const v2, 0x1110097
 
-    return-object v0
+    invoke-virtual {p1, p2, v1, v2}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    :pswitch_9
-    invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getName()Ljava/lang/String;
+    const v1, 0x1110094
 
-    move-result-object v0
+    const v2, 0x1110095
 
-    return-object v0
+    invoke-virtual {p1, v0, v1, v2}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    :pswitch_a
-    const-string v0, "hdmi_control_volume_control_enabled"
+    const-string/jumbo p1, "query_sad_mpeg2"
 
-    return-object v0
+    const v1, 0x11100a2
 
-    :pswitch_b
-    const-string v0, "hdmi_control_send_standby_on_sleep"
+    invoke-virtual {p0, p1, v1}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
-    return-object v0
+    move-result-object p1
 
-    :pswitch_c
-    invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getName()Ljava/lang/String;
+    const v1, 0x11100a0
 
-    move-result-object v0
+    const v2, 0x11100a1
 
-    return-object v0
+    invoke-virtual {p1, p2, v1, v2}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    :pswitch_d
-    const-string v0, "hdmi_control_enabled"
+    const v1, 0x111009e
 
-    return-object v0
+    const v2, 0x111009f
 
-    nop
+    invoke-virtual {p1, v0, v1, v2}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    :sswitch_data_0
-    .sparse-switch
-        -0x7b89074d -> :sswitch_d
-        -0x6a9ec647 -> :sswitch_c
-        -0x4c082dd9 -> :sswitch_b
-        -0x4ab99283 -> :sswitch_a
-        -0x46d3da58 -> :sswitch_9
-        -0x36427790 -> :sswitch_8
-        -0x117d9fab -> :sswitch_7
-        -0xd196d78 -> :sswitch_6
-        -0x1832fc1 -> :sswitch_5
-        0x45cb33a -> :sswitch_4
-        0xf91671c -> :sswitch_3
-        0x2f314ba6 -> :sswitch_2
-        0x611b5e8f -> :sswitch_1
-        0x7a8663a3 -> :sswitch_0
-    .end sparse-switch
+    const-string/jumbo p1, "query_sad_aac"
 
-    :pswitch_data_0
-    .packed-switch 0x0
-        :pswitch_d
-        :pswitch_c
-        :pswitch_b
-        :pswitch_a
-        :pswitch_9
-        :pswitch_8
-        :pswitch_7
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
-.end method
+    const v1, 0x111006b
 
-.method private notifyGlobalSettingChanged(Ljava/lang/String;)V
-    .locals 1
+    invoke-virtual {p0, p1, v1}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
-    invoke-virtual {p1}, Ljava/lang/String;->hashCode()I
+    move-result-object p1
 
-    move-result v0
+    const v1, 0x1110069
 
-    sparse-switch v0, :sswitch_data_0
+    const v2, 0x111006a
 
-    :cond_0
-    goto :goto_0
+    invoke-virtual {p1, p2, v1, v2}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    :sswitch_0
-    const-string v0, "hdmi_control_volume_control_enabled"
+    const v1, 0x1110067
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const v2, 0x1110068
 
-    move-result v0
+    invoke-virtual {p1, v0, v1, v2}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    if-eqz v0, :cond_0
+    const-string/jumbo p1, "query_sad_dts"
 
-    const/4 v0, 0x2
+    const v1, 0x1110084
 
-    goto :goto_1
+    invoke-virtual {p0, p1, v1}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
-    :sswitch_1
-    const-string v0, "hdmi_control_auto_device_off_enabled"
+    move-result-object p1
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const v1, 0x1110082
 
-    move-result v0
+    const v2, 0x1110083
 
-    if-eqz v0, :cond_0
+    invoke-virtual {p1, p2, v1, v2}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    const/4 v0, 0x4
+    const v1, 0x1110080
 
-    goto :goto_1
+    const v2, 0x1110081
 
-    :sswitch_2
-    const-string v0, "hdmi_control_send_standby_on_sleep"
+    invoke-virtual {p1, v0, v1, v2}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const-string/jumbo p1, "query_sad_atrac"
 
-    move-result v0
+    const v1, 0x1110070
 
-    if-eqz v0, :cond_0
+    invoke-virtual {p0, p1, v1}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
-    const/4 v0, 0x1
+    move-result-object p1
 
-    goto :goto_1
+    const v1, 0x111006e
 
-    :sswitch_3
-    const-string v0, "hdmi_control_auto_wakeup_enabled"
+    const v2, 0x111006f
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, p2, v1, v2}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    move-result v0
+    const v1, 0x111006c
 
-    if-eqz v0, :cond_0
+    const v2, 0x111006d
 
-    const/4 v0, 0x3
+    invoke-virtual {p1, v0, v1, v2}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    goto :goto_1
+    const-string/jumbo p1, "query_sad_onebitaudio"
 
-    :sswitch_4
-    const-string v0, "hdmi_control_enabled"
+    const v1, 0x11100a7
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p1, v1}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
-    move-result v0
+    move-result-object p1
 
-    if-eqz v0, :cond_0
+    const v1, 0x11100a5
 
-    const/4 v0, 0x0
+    const v2, 0x11100a6
 
-    goto :goto_1
+    invoke-virtual {p1, p2, v1, v2}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    :goto_0
-    const/4 v0, -0x1
+    const v1, 0x11100a3
 
-    :goto_1
-    packed-switch v0, :pswitch_data_0
+    const v2, 0x11100a4
 
-    goto :goto_2
+    invoke-virtual {p1, v0, v1, v2}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    :pswitch_0
-    const-string/jumbo v0, "tv_send_standby_on_sleep"
+    const-string/jumbo p1, "query_sad_ddp"
 
-    invoke-direct {p0, v0}, Lcom/android/server/hdmi/HdmiCecConfig;->notifySettingChanged(Ljava/lang/String;)V
+    const v1, 0x111007a
 
-    goto :goto_2
+    invoke-virtual {p0, p1, v1}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
-    :pswitch_1
-    const-string/jumbo v0, "tv_wake_on_one_touch_play"
+    move-result-object p1
 
-    invoke-direct {p0, v0}, Lcom/android/server/hdmi/HdmiCecConfig;->notifySettingChanged(Ljava/lang/String;)V
+    const v1, 0x1110078
 
-    goto :goto_2
+    const v2, 0x1110079
 
-    :pswitch_2
-    const-string/jumbo v0, "volume_control_enabled"
+    invoke-virtual {p1, p2, v1, v2}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    invoke-direct {p0, v0}, Lcom/android/server/hdmi/HdmiCecConfig;->notifySettingChanged(Ljava/lang/String;)V
+    const v1, 0x1110076
 
-    goto :goto_2
+    const v2, 0x1110077
 
-    :pswitch_3
-    const-string/jumbo v0, "power_control_mode"
+    invoke-virtual {p1, v0, v1, v2}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    invoke-direct {p0, v0}, Lcom/android/server/hdmi/HdmiCecConfig;->notifySettingChanged(Ljava/lang/String;)V
+    const-string/jumbo p1, "query_sad_dtshd"
 
-    goto :goto_2
+    const v1, 0x1110089
 
-    :pswitch_4
-    const-string v0, "hdmi_cec_enabled"
+    invoke-virtual {p0, p1, v1}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
-    invoke-direct {p0, v0}, Lcom/android/server/hdmi/HdmiCecConfig;->notifySettingChanged(Ljava/lang/String;)V
+    move-result-object p1
 
-    nop
+    const v1, 0x1110087
 
-    :goto_2
-    return-void
+    const v2, 0x1110088
 
-    :sswitch_data_0
-    .sparse-switch
-        -0x77ca2448 -> :sswitch_4
-        0x2b4f3cc8 -> :sswitch_3
-        0x2f2d75d7 -> :sswitch_2
-        0x610a030f -> :sswitch_1
-        0x7b9a85e3 -> :sswitch_0
-    .end sparse-switch
+    invoke-virtual {p1, p2, v1, v2}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    :pswitch_data_0
-    .packed-switch 0x0
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
-.end method
+    const v1, 0x1110085
 
-.method private notifySettingChanged(Ljava/lang/String;)V
-    .locals 4
+    const v2, 0x1110086
 
-    invoke-direct {p0, p1}, Lcom/android/server/hdmi/HdmiCecConfig;->getSetting(Ljava/lang/String;)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
+    invoke-virtual {p1, v0, v1, v2}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    move-result-object v0
+    const-string/jumbo p1, "query_sad_truehd"
 
-    if-eqz v0, :cond_0
+    const v1, 0x11100ac
 
-    invoke-virtual {p0, v0}, Lcom/android/server/hdmi/HdmiCecConfig;->notifySettingChanged(Lcom/android/server/hdmi/HdmiCecConfig$Setting;)V
+    invoke-virtual {p0, p1, v1}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
-    return-void
+    move-result-object p1
 
-    :cond_0
-    new-instance v1, Ljava/lang/IllegalArgumentException;
+    const v1, 0x11100aa
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    const v2, 0x11100ab
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {p1, p2, v1, v2}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    const-string v3, "Setting \'"
+    const v1, 0x11100a8
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const v2, 0x11100a9
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v0, v1, v2}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    const-string v3, "\' does not exist."
+    const-string/jumbo p1, "query_sad_dst"
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const v1, 0x111007f
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p0, p1, v1}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    const v1, 0x111007d
 
-    throw v1
-.end method
+    const v2, 0x111007e
 
-.method private registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
-    .locals 2
+    invoke-virtual {p1, p2, v1, v2}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    new-instance v0, Lcom/android/server/hdmi/HdmiCecConfig$Setting;
+    const v1, 0x111007b
 
-    iget-object v1, p0, Lcom/android/server/hdmi/HdmiCecConfig;->mContext:Landroid/content/Context;
+    const v2, 0x111007c
 
-    invoke-direct {v0, p0, v1, p1, p2}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;-><init>(Lcom/android/server/hdmi/HdmiCecConfig;Landroid/content/Context;Ljava/lang/String;I)V
+    invoke-virtual {p1, v0, v1, v2}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    iget-object v1, p0, Lcom/android/server/hdmi/HdmiCecConfig;->mSettings:Ljava/util/LinkedHashMap;
+    const-string/jumbo p1, "query_sad_wmapro"
 
-    invoke-virtual {v1, p1, v0}, Ljava/util/LinkedHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    const v1, 0x11100b1
 
-    return-object v0
-.end method
+    invoke-virtual {p0, p1, v1}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
-.method private verifySettings()V
-    .locals 2
+    move-result-object p1
 
-    iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecConfig;->mSettings:Ljava/util/LinkedHashMap;
+    const v1, 0x11100af
 
-    invoke-virtual {v0}, Ljava/util/LinkedHashMap;->values()Ljava/util/Collection;
+    const v2, 0x11100b0
 
-    move-result-object v0
+    invoke-virtual {p1, p2, v1, v2}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+    const v1, 0x11100ad
 
-    move-result-object v0
+    const v2, 0x11100ae
 
-    :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    invoke-virtual {p1, v0, v1, v2}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    move-result v1
+    const-string/jumbo p1, "query_sad_max"
 
-    if-eqz v1, :cond_0
+    const v1, 0x1110093
 
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-virtual {p0, p1, v1}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
-    move-result-object v1
+    move-result-object p1
 
-    check-cast v1, Lcom/android/server/hdmi/HdmiCecConfig$Setting;
+    const v1, 0x1110091
 
-    invoke-virtual {v1}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getDefaultValue()Lcom/android/server/hdmi/HdmiCecConfig$Value;
+    const v2, 0x1110092
 
-    invoke-direct {p0, v1}, Lcom/android/server/hdmi/HdmiCecConfig;->getStorage(Lcom/android/server/hdmi/HdmiCecConfig$Setting;)I
+    invoke-virtual {p1, p2, v1, v2}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    invoke-direct {p0, v1}, Lcom/android/server/hdmi/HdmiCecConfig;->getStorageKey(Lcom/android/server/hdmi/HdmiCecConfig$Setting;)Ljava/lang/String;
+    const p2, 0x111008f
 
-    goto :goto_0
+    const v1, 0x1110090
 
-    :cond_0
+    invoke-virtual {p1, v0, p2, v1}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
+
+    invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecConfig;->verifySettings()V
+
     return-void
 .end method
 
 
 # virtual methods
 .method public getAllSettings()Ljava/util/List;
-    .locals 2
+    .locals 1
+    .annotation build Landroid/hardware/hdmi/HdmiControlManager$CecSettingName;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1433,19 +812,23 @@
 
     new-instance v0, Ljava/util/ArrayList;
 
-    iget-object v1, p0, Lcom/android/server/hdmi/HdmiCecConfig;->mSettings:Ljava/util/LinkedHashMap;
+    iget-object p0, p0, Lcom/android/server/hdmi/HdmiCecConfig;->mSettings:Ljava/util/LinkedHashMap;
 
-    invoke-virtual {v1}, Ljava/util/LinkedHashMap;->keySet()Ljava/util/Set;
+    invoke-virtual {p0}, Ljava/util/LinkedHashMap;->keySet()Ljava/util/Set;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+    invoke-direct {v0, p0}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
     return-object v0
 .end method
 
 .method public getAllowedIntValues(Ljava/lang/String;)Ljava/util/List;
-    .locals 5
+    .locals 3
+    .param p1    # Ljava/lang/String;
+        .annotation build Landroid/hardware/hdmi/HdmiControlManager$CecSettingName;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1457,111 +840,115 @@
         }
     .end annotation
 
-    invoke-direct {p0, p1}, Lcom/android/server/hdmi/HdmiCecConfig;->getSetting(Ljava/lang/String;)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
+    invoke-virtual {p0, p1}, Lcom/android/server/hdmi/HdmiCecConfig;->getSetting(Ljava/lang/String;)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
+
+    move-result-object p0
+
+    const-string v0, "Setting \'"
+
+    if-eqz p0, :cond_2
+
+    invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getValueType()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v2, "int"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    new-instance p1, Ljava/util/ArrayList;
+
+    invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
+
+    invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getAllowedValues()Ljava/util/List;
+
+    move-result-object p0
+
+    invoke-interface {p0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object p0
+
+    :goto_0
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
-    const-string v1, "Setting \'"
+    check-cast v0, Lcom/android/server/hdmi/HdmiCecConfig$Value;
 
-    if-eqz v0, :cond_2
+    invoke-virtual {v0}, Lcom/android/server/hdmi/HdmiCecConfig$Value;->getIntValue()Ljava/lang/Integer;
 
-    invoke-virtual {v0}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getValueType()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v2
-
-    const-string v3, "int"
-
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    new-instance v1, Ljava/util/ArrayList;
-
-    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
-
-    invoke-virtual {v0}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getAllowedValues()Ljava/util/List;
-
-    move-result-object v2
-
-    invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v2
-
-    :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Lcom/android/server/hdmi/HdmiCecConfig$Value;
-
-    invoke-virtual {v3}, Lcom/android/server/hdmi/HdmiCecConfig$Value;->getIntValue()Ljava/lang/Integer;
-
-    move-result-object v4
-
-    invoke-interface {v1, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
     :cond_0
-    return-object v1
+    return-object p1
 
     :cond_1
-    new-instance v2, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "\' is not a string-type setting."
+    const-string p1, "\' is not a string-type setting."
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v2, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw p0
 
     :cond_2
-    new-instance v2, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "\' does not exist."
+    const-string p1, "\' does not exist."
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v2, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw p0
 .end method
 
 .method public getAllowedStringValues(Ljava/lang/String;)Ljava/util/List;
-    .locals 5
+    .locals 3
+    .param p1    # Ljava/lang/String;
+        .annotation build Landroid/hardware/hdmi/HdmiControlManager$CecSettingName;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1573,113 +960,117 @@
         }
     .end annotation
 
-    invoke-direct {p0, p1}, Lcom/android/server/hdmi/HdmiCecConfig;->getSetting(Ljava/lang/String;)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
+    invoke-virtual {p0, p1}, Lcom/android/server/hdmi/HdmiCecConfig;->getSetting(Ljava/lang/String;)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
+
+    move-result-object p0
+
+    const-string v0, "Setting \'"
+
+    if-eqz p0, :cond_2
+
+    invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getValueType()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "string"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    new-instance p1, Ljava/util/ArrayList;
+
+    invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
+
+    invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getAllowedValues()Ljava/util/List;
+
+    move-result-object p0
+
+    invoke-interface {p0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object p0
+
+    :goto_0
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
-    const-string v1, "Setting \'"
+    check-cast v0, Lcom/android/server/hdmi/HdmiCecConfig$Value;
 
-    if-eqz v0, :cond_2
+    invoke-virtual {v0}, Lcom/android/server/hdmi/HdmiCecConfig$Value;->getStringValue()Ljava/lang/String;
 
-    invoke-virtual {v0}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getValueType()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v2
-
-    const-string/jumbo v3, "string"
-
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    new-instance v1, Ljava/util/ArrayList;
-
-    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
-
-    invoke-virtual {v0}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getAllowedValues()Ljava/util/List;
-
-    move-result-object v2
-
-    invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v2
-
-    :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Lcom/android/server/hdmi/HdmiCecConfig$Value;
-
-    invoke-virtual {v3}, Lcom/android/server/hdmi/HdmiCecConfig$Value;->getStringValue()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-interface {v1, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
     :cond_0
-    return-object v1
+    return-object p1
 
     :cond_1
-    new-instance v2, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "\' is not a string-type setting."
+    const-string p1, "\' is not a string-type setting."
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v2, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw p0
 
     :cond_2
-    new-instance v2, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "\' does not exist."
+    const-string p1, "\' does not exist."
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v2, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw p0
 .end method
 
 .method public getDefaultIntValue(Ljava/lang/String;)I
-    .locals 4
+    .locals 3
+    .param p1    # Ljava/lang/String;
+        .annotation build Landroid/hardware/hdmi/HdmiControlManager$CecSettingName;
+        .end annotation
+    .end param
 
-    invoke-direct {p0, p1}, Lcom/android/server/hdmi/HdmiCecConfig;->getSetting(Ljava/lang/String;)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
+    invoke-virtual {p0, p1}, Lcom/android/server/hdmi/HdmiCecConfig;->getSetting(Ljava/lang/String;)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
     move-result-object v0
 
@@ -1689,85 +1080,89 @@
 
     invoke-virtual {v0}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getValueType()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    const-string v3, "int"
+    const-string v2, "int"
 
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_0
+    if-eqz v0, :cond_0
 
-    invoke-direct {p0, p1}, Lcom/android/server/hdmi/HdmiCecConfig;->getSetting(Ljava/lang/String;)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
+    invoke-virtual {p0, p1}, Lcom/android/server/hdmi/HdmiCecConfig;->getSetting(Ljava/lang/String;)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v1}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getDefaultValue()Lcom/android/server/hdmi/HdmiCecConfig$Value;
+    invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getDefaultValue()Lcom/android/server/hdmi/HdmiCecConfig$Value;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v1}, Lcom/android/server/hdmi/HdmiCecConfig$Value;->getIntValue()Ljava/lang/Integer;
+    invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecConfig$Value;->getIntValue()Ljava/lang/Integer;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {p0}, Ljava/lang/Integer;->intValue()I
 
-    move-result v1
+    move-result p0
 
-    return v1
+    return p0
 
     :cond_0
-    new-instance v2, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "\' is not a string-type setting."
+    const-string p1, "\' is not a string-type setting."
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v2, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw p0
 
     :cond_1
-    new-instance v2, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "\' does not exist."
+    const-string p1, "\' does not exist."
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v2, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw p0
 .end method
 
 .method public getDefaultStringValue(Ljava/lang/String;)Ljava/lang/String;
-    .locals 4
+    .locals 3
+    .param p1    # Ljava/lang/String;
+        .annotation build Landroid/hardware/hdmi/HdmiControlManager$CecSettingName;
+        .end annotation
+    .end param
 
-    invoke-direct {p0, p1}, Lcom/android/server/hdmi/HdmiCecConfig;->getSetting(Ljava/lang/String;)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
+    invoke-virtual {p0, p1}, Lcom/android/server/hdmi/HdmiCecConfig;->getSetting(Ljava/lang/String;)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
     move-result-object v0
 
@@ -1777,81 +1172,85 @@
 
     invoke-virtual {v0}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getValueType()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    const-string/jumbo v3, "string"
+    const-string/jumbo v2, "string"
 
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_0
+    if-eqz v0, :cond_0
 
-    invoke-direct {p0, p1}, Lcom/android/server/hdmi/HdmiCecConfig;->getSetting(Ljava/lang/String;)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
+    invoke-virtual {p0, p1}, Lcom/android/server/hdmi/HdmiCecConfig;->getSetting(Ljava/lang/String;)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v1}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getDefaultValue()Lcom/android/server/hdmi/HdmiCecConfig$Value;
+    invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getDefaultValue()Lcom/android/server/hdmi/HdmiCecConfig$Value;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v1}, Lcom/android/server/hdmi/HdmiCecConfig$Value;->getStringValue()Ljava/lang/String;
+    invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecConfig$Value;->getStringValue()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 
     :cond_0
-    new-instance v2, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "\' is not a string-type setting."
+    const-string p1, "\' is not a string-type setting."
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v2, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw p0
 
     :cond_1
-    new-instance v2, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "\' does not exist."
+    const-string p1, "\' does not exist."
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v2, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw p0
 .end method
 
 .method public getIntValue(Ljava/lang/String;)I
     .locals 4
+    .param p1    # Ljava/lang/String;
+        .annotation build Landroid/hardware/hdmi/HdmiControlManager$CecSettingName;
+        .end annotation
+    .end param
 
-    invoke-direct {p0, p1}, Lcom/android/server/hdmi/HdmiCecConfig;->getSetting(Ljava/lang/String;)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
+    invoke-virtual {p0, p1}, Lcom/android/server/hdmi/HdmiCecConfig;->getSetting(Ljava/lang/String;)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
     move-result-object v0
 
@@ -1881,97 +1280,1628 @@
 
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, "\'."
+    const-string p1, "\'."
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    new-array v2, v2, [Ljava/lang/Object;
+    new-array v1, v1, [Ljava/lang/Object;
 
-    invoke-static {v1, v2}, Lcom/android/server/hdmi/HdmiLogger;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {p1, v1}, Lcom/android/server/hdmi/HdmiLogger;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
     invoke-virtual {v0}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getDefaultValue()Lcom/android/server/hdmi/HdmiCecConfig$Value;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v1}, Lcom/android/server/hdmi/HdmiCecConfig$Value;->getIntValue()Ljava/lang/Integer;
+    invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecConfig$Value;->getIntValue()Ljava/lang/Integer;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
 
-    move-result v1
+    move-result p1
 
-    invoke-static {v1}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    invoke-static {p1}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/server/hdmi/HdmiCecConfig;->retrieveValue(Lcom/android/server/hdmi/HdmiCecConfig$Setting;Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v0, p1}, Lcom/android/server/hdmi/HdmiCecConfig;->retrieveValue(Lcom/android/server/hdmi/HdmiCecConfig$Setting;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-static {v2}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static {p0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    move-result v3
+    move-result p0
 
-    return v3
+    return p0
 
     :cond_0
-    new-instance v2, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "\' is not a int-type setting."
+    const-string p1, "\' is not a int-type setting."
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v2, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw p0
 
     :cond_1
-    new-instance v2, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "\' does not exist."
+    const-string p1, "\' does not exist."
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v2, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw p0
+.end method
+
+.method public final getSetting(Ljava/lang/String;)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecConfig;->mSettings:Ljava/util/LinkedHashMap;
+
+    invoke-virtual {v0, p1}, Ljava/util/LinkedHashMap;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object p0, p0, Lcom/android/server/hdmi/HdmiCecConfig;->mSettings:Ljava/util/LinkedHashMap;
+
+    invoke-virtual {p0, p1}, Ljava/util/LinkedHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Lcom/android/server/hdmi/HdmiCecConfig$Setting;
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    :goto_0
+    return-object p0
+.end method
+
+.method public final getStorage(Lcom/android/server/hdmi/HdmiCecConfig$Setting;)I
+    .locals 3
+
+    invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getName()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/String;->hashCode()I
+
+    invoke-virtual {p0}, Ljava/lang/String;->hashCode()I
+
+    move-result v0
+
+    const/4 v1, 0x2
+
+    const/4 v2, -0x1
+
+    sparse-switch v0, :sswitch_data_0
+
+    goto/16 :goto_0
+
+    :sswitch_0
+    const-string/jumbo v0, "system_audio_control"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_0
+
+    goto/16 :goto_0
+
+    :cond_0
+    const/16 v2, 0x1f
+
+    goto/16 :goto_0
+
+    :sswitch_1
+    const-string/jumbo v0, "tv_send_standby_on_sleep"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_1
+
+    goto/16 :goto_0
+
+    :cond_1
+    const/16 v2, 0x1e
+
+    goto/16 :goto_0
+
+    :sswitch_2
+    const-string/jumbo v0, "query_sad_mp3"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_2
+
+    goto/16 :goto_0
+
+    :cond_2
+    const/16 v2, 0x1d
+
+    goto/16 :goto_0
+
+    :sswitch_3
+    const-string/jumbo v0, "query_sad_max"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_3
+
+    goto/16 :goto_0
+
+    :cond_3
+    const/16 v2, 0x1c
+
+    goto/16 :goto_0
+
+    :sswitch_4
+    const-string/jumbo v0, "query_sad_dts"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_4
+
+    goto/16 :goto_0
+
+    :cond_4
+    const/16 v2, 0x1b
+
+    goto/16 :goto_0
+
+    :sswitch_5
+    const-string/jumbo v0, "query_sad_dst"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_5
+
+    goto/16 :goto_0
+
+    :cond_5
+    const/16 v2, 0x1a
+
+    goto/16 :goto_0
+
+    :sswitch_6
+    const-string/jumbo v0, "query_sad_ddp"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_6
+
+    goto/16 :goto_0
+
+    :cond_6
+    const/16 v2, 0x19
+
+    goto/16 :goto_0
+
+    :sswitch_7
+    const-string/jumbo v0, "query_sad_aac"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_7
+
+    goto/16 :goto_0
+
+    :cond_7
+    const/16 v2, 0x18
+
+    goto/16 :goto_0
+
+    :sswitch_8
+    const-string/jumbo v0, "tv_wake_on_one_touch_play"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_8
+
+    goto/16 :goto_0
+
+    :cond_8
+    const/16 v2, 0x17
+
+    goto/16 :goto_0
+
+    :sswitch_9
+    const-string/jumbo v0, "query_sad_dd"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_9
+
+    goto/16 :goto_0
+
+    :cond_9
+    const/16 v2, 0x16
+
+    goto/16 :goto_0
+
+    :sswitch_a
+    const-string/jumbo v0, "query_sad_onebitaudio"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_a
+
+    goto/16 :goto_0
+
+    :cond_a
+    const/16 v2, 0x15
+
+    goto/16 :goto_0
+
+    :sswitch_b
+    const-string/jumbo v0, "rc_profile_tv"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_b
+
+    goto/16 :goto_0
+
+    :cond_b
+    const/16 v2, 0x14
+
+    goto/16 :goto_0
+
+    :sswitch_c
+    const-string v0, "hdmi_cec_enabled"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_c
+
+    goto/16 :goto_0
+
+    :cond_c
+    const/16 v2, 0x13
+
+    goto/16 :goto_0
+
+    :sswitch_d
+    const-string/jumbo v0, "volume_control_enabled"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_d
+
+    goto/16 :goto_0
+
+    :cond_d
+    const/16 v2, 0x12
+
+    goto/16 :goto_0
+
+    :sswitch_e
+    const-string/jumbo v0, "power_control_mode"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_e
+
+    goto/16 :goto_0
+
+    :cond_e
+    const/16 v2, 0x11
+
+    goto/16 :goto_0
+
+    :sswitch_f
+    const-string/jumbo v0, "power_state_change_on_active_source_lost"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_f
+
+    goto/16 :goto_0
+
+    :cond_f
+    const/16 v2, 0x10
+
+    goto/16 :goto_0
+
+    :sswitch_10
+    const-string/jumbo v0, "rc_profile_source_handles_setup_menu"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_10
+
+    goto/16 :goto_0
+
+    :cond_10
+    const/16 v2, 0xf
+
+    goto/16 :goto_0
+
+    :sswitch_11
+    const-string/jumbo v0, "query_sad_lpcm"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_11
+
+    goto/16 :goto_0
+
+    :cond_11
+    const/16 v2, 0xe
+
+    goto/16 :goto_0
+
+    :sswitch_12
+    const-string/jumbo v0, "routing_control"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_12
+
+    goto/16 :goto_0
+
+    :cond_12
+    const/16 v2, 0xd
+
+    goto/16 :goto_0
+
+    :sswitch_13
+    const-string/jumbo v0, "query_sad_wmapro"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_13
+
+    goto/16 :goto_0
+
+    :cond_13
+    const/16 v2, 0xc
+
+    goto/16 :goto_0
+
+    :sswitch_14
+    const-string/jumbo v0, "rc_profile_source_handles_contents_menu"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_14
+
+    goto/16 :goto_0
+
+    :cond_14
+    const/16 v2, 0xb
+
+    goto/16 :goto_0
+
+    :sswitch_15
+    const-string/jumbo v0, "query_sad_truehd"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_15
+
+    goto/16 :goto_0
+
+    :cond_15
+    const/16 v2, 0xa
+
+    goto/16 :goto_0
+
+    :sswitch_16
+    const-string/jumbo v0, "query_sad_mpeg2"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_16
+
+    goto/16 :goto_0
+
+    :cond_16
+    const/16 v2, 0x9
+
+    goto/16 :goto_0
+
+    :sswitch_17
+    const-string/jumbo v0, "query_sad_mpeg1"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_17
+
+    goto/16 :goto_0
+
+    :cond_17
+    const/16 v2, 0x8
+
+    goto/16 :goto_0
+
+    :sswitch_18
+    const-string/jumbo v0, "query_sad_dtshd"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_18
+
+    goto :goto_0
+
+    :cond_18
+    const/4 v2, 0x7
+
+    goto :goto_0
+
+    :sswitch_19
+    const-string/jumbo v0, "query_sad_atrac"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_19
+
+    goto :goto_0
+
+    :cond_19
+    const/4 v2, 0x6
+
+    goto :goto_0
+
+    :sswitch_1a
+    const-string/jumbo v0, "rc_profile_source_handles_root_menu"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_1a
+
+    goto :goto_0
+
+    :cond_1a
+    const/4 v2, 0x5
+
+    goto :goto_0
+
+    :sswitch_1b
+    const-string/jumbo v0, "rc_profile_source_handles_top_menu"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_1b
+
+    goto :goto_0
+
+    :cond_1b
+    const/4 v2, 0x4
+
+    goto :goto_0
+
+    :sswitch_1c
+    const-string/jumbo v0, "rc_profile_source_handles_media_context_sensitive_menu"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_1c
+
+    goto :goto_0
+
+    :cond_1c
+    const/4 v2, 0x3
+
+    goto :goto_0
+
+    :sswitch_1d
+    const-string/jumbo v0, "set_menu_language"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_1d
+
+    goto :goto_0
+
+    :cond_1d
+    move v2, v1
+
+    goto :goto_0
+
+    :sswitch_1e
+    const-string/jumbo v0, "system_audio_mode_muting"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_1e
+
+    goto :goto_0
+
+    :cond_1e
+    const/4 v2, 0x1
+
+    goto :goto_0
+
+    :sswitch_1f
+    const-string v0, "hdmi_cec_version"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_1f
+
+    goto :goto_0
+
+    :cond_1f
+    const/4 v2, 0x0
+
+    :goto_0
+    packed-switch v2, :pswitch_data_0
+
+    new-instance p0, Lcom/android/server/hdmi/HdmiCecConfig$VerificationException;
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "Invalid CEC setting \'"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getName()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string p1, "\' storage."
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-direct {p0, p1}, Lcom/android/server/hdmi/HdmiCecConfig$VerificationException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+
+    :pswitch_0
+    return v1
+
+    nop
+
+    :sswitch_data_0
+    .sparse-switch
+        -0x7b89074d -> :sswitch_1f
+        -0x6a9ec647 -> :sswitch_1e
+        -0x607d7ae5 -> :sswitch_1d
+        -0x4c082dd9 -> :sswitch_1c
+        -0x4ab99283 -> :sswitch_1b
+        -0x46d3da58 -> :sswitch_1a
+        -0x44f9855f -> :sswitch_19
+        -0x44cf3a41 -> :sswitch_18
+        -0x44526d14 -> :sswitch_17
+        -0x44526d13 -> :sswitch_16
+        -0x39e5d496 -> :sswitch_15
+        -0x36427790 -> :sswitch_14
+        -0x3516ad1e -> :sswitch_13
+        -0x1893b91c -> :sswitch_12
+        -0x12b8cab2 -> :sswitch_11
+        -0x117d9fab -> :sswitch_10
+        -0xd196d78 -> :sswitch_f
+        -0x1832fc1 -> :sswitch_e
+        0x45cb33a -> :sswitch_d
+        0xf91671c -> :sswitch_c
+        0x2f314ba6 -> :sswitch_b
+        0x2fa40eef -> :sswitch_a
+        0x5e0410e0 -> :sswitch_9
+        0x611b5e8f -> :sswitch_8
+        0x627dffe3 -> :sswitch_7
+        0x627e0b90 -> :sswitch_6
+        0x627e0d65 -> :sswitch_5
+        0x627e0d83 -> :sswitch_4
+        0x627e2d04 -> :sswitch_3
+        0x627e2e90 -> :sswitch_2
+        0x7a8663a3 -> :sswitch_1
+        0x7e41b7e4 -> :sswitch_0
+    .end sparse-switch
+
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+    .end packed-switch
+.end method
+
+.method public final getStorageKey(Lcom/android/server/hdmi/HdmiCecConfig$Setting;)Ljava/lang/String;
+    .locals 2
+
+    invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getName()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/String;->hashCode()I
+
+    invoke-virtual {p0}, Ljava/lang/String;->hashCode()I
+
+    move-result v0
+
+    const/4 v1, -0x1
+
+    sparse-switch v0, :sswitch_data_0
+
+    goto/16 :goto_0
+
+    :sswitch_0
+    const-string/jumbo v0, "system_audio_control"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_0
+
+    goto/16 :goto_0
+
+    :cond_0
+    const/16 v1, 0x1f
+
+    goto/16 :goto_0
+
+    :sswitch_1
+    const-string/jumbo v0, "tv_send_standby_on_sleep"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_1
+
+    goto/16 :goto_0
+
+    :cond_1
+    const/16 v1, 0x1e
+
+    goto/16 :goto_0
+
+    :sswitch_2
+    const-string/jumbo v0, "query_sad_mp3"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_2
+
+    goto/16 :goto_0
+
+    :cond_2
+    const/16 v1, 0x1d
+
+    goto/16 :goto_0
+
+    :sswitch_3
+    const-string/jumbo v0, "query_sad_max"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_3
+
+    goto/16 :goto_0
+
+    :cond_3
+    const/16 v1, 0x1c
+
+    goto/16 :goto_0
+
+    :sswitch_4
+    const-string/jumbo v0, "query_sad_dts"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_4
+
+    goto/16 :goto_0
+
+    :cond_4
+    const/16 v1, 0x1b
+
+    goto/16 :goto_0
+
+    :sswitch_5
+    const-string/jumbo v0, "query_sad_dst"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_5
+
+    goto/16 :goto_0
+
+    :cond_5
+    const/16 v1, 0x1a
+
+    goto/16 :goto_0
+
+    :sswitch_6
+    const-string/jumbo v0, "query_sad_ddp"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_6
+
+    goto/16 :goto_0
+
+    :cond_6
+    const/16 v1, 0x19
+
+    goto/16 :goto_0
+
+    :sswitch_7
+    const-string/jumbo v0, "query_sad_aac"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_7
+
+    goto/16 :goto_0
+
+    :cond_7
+    const/16 v1, 0x18
+
+    goto/16 :goto_0
+
+    :sswitch_8
+    const-string/jumbo v0, "tv_wake_on_one_touch_play"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_8
+
+    goto/16 :goto_0
+
+    :cond_8
+    const/16 v1, 0x17
+
+    goto/16 :goto_0
+
+    :sswitch_9
+    const-string/jumbo v0, "query_sad_dd"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_9
+
+    goto/16 :goto_0
+
+    :cond_9
+    const/16 v1, 0x16
+
+    goto/16 :goto_0
+
+    :sswitch_a
+    const-string/jumbo v0, "query_sad_onebitaudio"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_a
+
+    goto/16 :goto_0
+
+    :cond_a
+    const/16 v1, 0x15
+
+    goto/16 :goto_0
+
+    :sswitch_b
+    const-string/jumbo v0, "rc_profile_tv"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_b
+
+    goto/16 :goto_0
+
+    :cond_b
+    const/16 v1, 0x14
+
+    goto/16 :goto_0
+
+    :sswitch_c
+    const-string v0, "hdmi_cec_enabled"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_c
+
+    goto/16 :goto_0
+
+    :cond_c
+    const/16 v1, 0x13
+
+    goto/16 :goto_0
+
+    :sswitch_d
+    const-string/jumbo v0, "volume_control_enabled"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_d
+
+    goto/16 :goto_0
+
+    :cond_d
+    const/16 v1, 0x12
+
+    goto/16 :goto_0
+
+    :sswitch_e
+    const-string/jumbo v0, "power_control_mode"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_e
+
+    goto/16 :goto_0
+
+    :cond_e
+    const/16 v1, 0x11
+
+    goto/16 :goto_0
+
+    :sswitch_f
+    const-string/jumbo v0, "power_state_change_on_active_source_lost"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_f
+
+    goto/16 :goto_0
+
+    :cond_f
+    const/16 v1, 0x10
+
+    goto/16 :goto_0
+
+    :sswitch_10
+    const-string/jumbo v0, "rc_profile_source_handles_setup_menu"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_10
+
+    goto/16 :goto_0
+
+    :cond_10
+    const/16 v1, 0xf
+
+    goto/16 :goto_0
+
+    :sswitch_11
+    const-string/jumbo v0, "query_sad_lpcm"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_11
+
+    goto/16 :goto_0
+
+    :cond_11
+    const/16 v1, 0xe
+
+    goto/16 :goto_0
+
+    :sswitch_12
+    const-string/jumbo v0, "routing_control"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_12
+
+    goto/16 :goto_0
+
+    :cond_12
+    const/16 v1, 0xd
+
+    goto/16 :goto_0
+
+    :sswitch_13
+    const-string/jumbo v0, "query_sad_wmapro"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_13
+
+    goto/16 :goto_0
+
+    :cond_13
+    const/16 v1, 0xc
+
+    goto/16 :goto_0
+
+    :sswitch_14
+    const-string/jumbo v0, "rc_profile_source_handles_contents_menu"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_14
+
+    goto/16 :goto_0
+
+    :cond_14
+    const/16 v1, 0xb
+
+    goto/16 :goto_0
+
+    :sswitch_15
+    const-string/jumbo v0, "query_sad_truehd"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_15
+
+    goto/16 :goto_0
+
+    :cond_15
+    const/16 v1, 0xa
+
+    goto/16 :goto_0
+
+    :sswitch_16
+    const-string/jumbo v0, "query_sad_mpeg2"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_16
+
+    goto/16 :goto_0
+
+    :cond_16
+    const/16 v1, 0x9
+
+    goto/16 :goto_0
+
+    :sswitch_17
+    const-string/jumbo v0, "query_sad_mpeg1"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_17
+
+    goto/16 :goto_0
+
+    :cond_17
+    const/16 v1, 0x8
+
+    goto/16 :goto_0
+
+    :sswitch_18
+    const-string/jumbo v0, "query_sad_dtshd"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_18
+
+    goto :goto_0
+
+    :cond_18
+    const/4 v1, 0x7
+
+    goto :goto_0
+
+    :sswitch_19
+    const-string/jumbo v0, "query_sad_atrac"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_19
+
+    goto :goto_0
+
+    :cond_19
+    const/4 v1, 0x6
+
+    goto :goto_0
+
+    :sswitch_1a
+    const-string/jumbo v0, "rc_profile_source_handles_root_menu"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_1a
+
+    goto :goto_0
+
+    :cond_1a
+    const/4 v1, 0x5
+
+    goto :goto_0
+
+    :sswitch_1b
+    const-string/jumbo v0, "rc_profile_source_handles_top_menu"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_1b
+
+    goto :goto_0
+
+    :cond_1b
+    const/4 v1, 0x4
+
+    goto :goto_0
+
+    :sswitch_1c
+    const-string/jumbo v0, "rc_profile_source_handles_media_context_sensitive_menu"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_1c
+
+    goto :goto_0
+
+    :cond_1c
+    const/4 v1, 0x3
+
+    goto :goto_0
+
+    :sswitch_1d
+    const-string/jumbo v0, "set_menu_language"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_1d
+
+    goto :goto_0
+
+    :cond_1d
+    const/4 v1, 0x2
+
+    goto :goto_0
+
+    :sswitch_1e
+    const-string/jumbo v0, "system_audio_mode_muting"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_1e
+
+    goto :goto_0
+
+    :cond_1e
+    const/4 v1, 0x1
+
+    goto :goto_0
+
+    :sswitch_1f
+    const-string v0, "hdmi_cec_version"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_1f
+
+    goto :goto_0
+
+    :cond_1f
+    const/4 v1, 0x0
+
+    :goto_0
+    packed-switch v1, :pswitch_data_0
+
+    new-instance p0, Lcom/android/server/hdmi/HdmiCecConfig$VerificationException;
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "Invalid CEC setting \'"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getName()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string p1, "\' storage key."
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-direct {p0, p1}, Lcom/android/server/hdmi/HdmiCecConfig$VerificationException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+
+    :pswitch_0
+    invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getName()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    :pswitch_1
+    invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getName()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    :pswitch_2
+    invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getName()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    :pswitch_3
+    invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getName()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    :pswitch_4
+    invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getName()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    :pswitch_5
+    invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getName()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    :pswitch_6
+    invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getName()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    :pswitch_7
+    invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getName()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    :pswitch_8
+    invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getName()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    :pswitch_9
+    invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getName()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    :pswitch_a
+    invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getName()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    :pswitch_b
+    invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getName()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    :pswitch_c
+    invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getName()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    :pswitch_d
+    invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getName()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    :pswitch_e
+    invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getName()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    :pswitch_f
+    invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getName()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    :pswitch_10
+    invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getName()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    :pswitch_11
+    invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getName()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    :pswitch_12
+    invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getName()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    :pswitch_13
+    invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getName()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    :pswitch_14
+    invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getName()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    :pswitch_15
+    invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getName()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    :pswitch_16
+    invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getName()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    :pswitch_17
+    invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getName()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    :pswitch_18
+    invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getName()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    :pswitch_19
+    invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getName()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    :pswitch_1a
+    invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getName()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    :pswitch_1b
+    invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getName()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    :pswitch_1c
+    invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getName()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    :pswitch_1d
+    invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getName()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    :pswitch_1e
+    invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getName()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    :pswitch_1f
+    invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getName()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    nop
+
+    :sswitch_data_0
+    .sparse-switch
+        -0x7b89074d -> :sswitch_1f
+        -0x6a9ec647 -> :sswitch_1e
+        -0x607d7ae5 -> :sswitch_1d
+        -0x4c082dd9 -> :sswitch_1c
+        -0x4ab99283 -> :sswitch_1b
+        -0x46d3da58 -> :sswitch_1a
+        -0x44f9855f -> :sswitch_19
+        -0x44cf3a41 -> :sswitch_18
+        -0x44526d14 -> :sswitch_17
+        -0x44526d13 -> :sswitch_16
+        -0x39e5d496 -> :sswitch_15
+        -0x36427790 -> :sswitch_14
+        -0x3516ad1e -> :sswitch_13
+        -0x1893b91c -> :sswitch_12
+        -0x12b8cab2 -> :sswitch_11
+        -0x117d9fab -> :sswitch_10
+        -0xd196d78 -> :sswitch_f
+        -0x1832fc1 -> :sswitch_e
+        0x45cb33a -> :sswitch_d
+        0xf91671c -> :sswitch_c
+        0x2f314ba6 -> :sswitch_b
+        0x2fa40eef -> :sswitch_a
+        0x5e0410e0 -> :sswitch_9
+        0x611b5e8f -> :sswitch_8
+        0x627dffe3 -> :sswitch_7
+        0x627e0b90 -> :sswitch_6
+        0x627e0d65 -> :sswitch_5
+        0x627e0d83 -> :sswitch_4
+        0x627e2d04 -> :sswitch_3
+        0x627e2e90 -> :sswitch_2
+        0x7a8663a3 -> :sswitch_1
+        0x7e41b7e4 -> :sswitch_0
+    .end sparse-switch
+
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_1f
+        :pswitch_1e
+        :pswitch_1d
+        :pswitch_1c
+        :pswitch_1b
+        :pswitch_1a
+        :pswitch_19
+        :pswitch_18
+        :pswitch_17
+        :pswitch_16
+        :pswitch_15
+        :pswitch_14
+        :pswitch_13
+        :pswitch_12
+        :pswitch_11
+        :pswitch_10
+        :pswitch_f
+        :pswitch_e
+        :pswitch_d
+        :pswitch_c
+        :pswitch_b
+        :pswitch_a
+        :pswitch_9
+        :pswitch_8
+        :pswitch_7
+        :pswitch_6
+        :pswitch_5
+        :pswitch_4
+        :pswitch_3
+        :pswitch_2
+        :pswitch_1
+        :pswitch_0
+    .end packed-switch
 .end method
 
 .method public getStringValue(Ljava/lang/String;)Ljava/lang/String;
     .locals 4
+    .param p1    # Ljava/lang/String;
+        .annotation build Landroid/hardware/hdmi/HdmiControlManager$CecSettingName;
+        .end annotation
+    .end param
 
-    invoke-direct {p0, p1}, Lcom/android/server/hdmi/HdmiCecConfig;->getSetting(Ljava/lang/String;)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
+    invoke-virtual {p0, p1}, Lcom/android/server/hdmi/HdmiCecConfig;->getSetting(Ljava/lang/String;)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
     move-result-object v0
 
@@ -2001,83 +2931,86 @@
 
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, "\'."
+    const-string p1, "\'."
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    new-array v2, v2, [Ljava/lang/Object;
+    new-array v1, v1, [Ljava/lang/Object;
 
-    invoke-static {v1, v2}, Lcom/android/server/hdmi/HdmiLogger;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {p1, v1}, Lcom/android/server/hdmi/HdmiLogger;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
     invoke-virtual {v0}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getDefaultValue()Lcom/android/server/hdmi/HdmiCecConfig$Value;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v1}, Lcom/android/server/hdmi/HdmiCecConfig$Value;->getStringValue()Ljava/lang/String;
+    invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecConfig$Value;->getStringValue()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/server/hdmi/HdmiCecConfig;->retrieveValue(Lcom/android/server/hdmi/HdmiCecConfig$Setting;Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v0, p1}, Lcom/android/server/hdmi/HdmiCecConfig;->retrieveValue(Lcom/android/server/hdmi/HdmiCecConfig$Setting;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 
     :cond_0
-    new-instance v2, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "\' is not a string-type setting."
+    const-string p1, "\' is not a string-type setting."
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v2, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw p0
 
     :cond_1
-    new-instance v2, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "\' does not exist."
+    const-string p1, "\' does not exist."
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v2, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw p0
 .end method
 
 .method public getUserSettings()Ljava/util/List;
-    .locals 4
+    .locals 3
+    .annotation build Landroid/hardware/hdmi/HdmiControlManager$CecSettingName;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -2091,42 +3024,42 @@
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    iget-object v1, p0, Lcom/android/server/hdmi/HdmiCecConfig;->mSettings:Ljava/util/LinkedHashMap;
+    iget-object p0, p0, Lcom/android/server/hdmi/HdmiCecConfig;->mSettings:Ljava/util/LinkedHashMap;
 
-    invoke-virtual {v1}, Ljava/util/LinkedHashMap;->values()Ljava/util/Collection;
+    invoke-virtual {p0}, Ljava/util/LinkedHashMap;->values()Ljava/util/Collection;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-interface {v1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+    invoke-interface {p0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
-    move-result-object v1
+    move-result-object p0
 
+    :cond_0
     :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/server/hdmi/HdmiCecConfig$Setting;
+
+    invoke-virtual {v1}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getUserConfigurable()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_0
 
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-virtual {v1}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getName()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    check-cast v2, Lcom/android/server/hdmi/HdmiCecConfig$Setting;
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    invoke-virtual {v2}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getUserConfigurable()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    invoke-virtual {v2}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getName()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-interface {v0, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    :cond_0
     goto :goto_0
 
     :cond_1
@@ -2134,109 +3067,117 @@
 .end method
 
 .method public isIntValueType(Ljava/lang/String;)Z
-    .locals 4
+    .locals 2
+    .param p1    # Ljava/lang/String;
+        .annotation build Landroid/hardware/hdmi/HdmiControlManager$CecSettingName;
+        .end annotation
+    .end param
 
-    invoke-direct {p0, p1}, Lcom/android/server/hdmi/HdmiCecConfig;->getSetting(Ljava/lang/String;)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
+    invoke-virtual {p0, p1}, Lcom/android/server/hdmi/HdmiCecConfig;->getSetting(Ljava/lang/String;)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    invoke-direct {p0, p1}, Lcom/android/server/hdmi/HdmiCecConfig;->getSetting(Ljava/lang/String;)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
+    invoke-virtual {p0, p1}, Lcom/android/server/hdmi/HdmiCecConfig;->getSetting(Ljava/lang/String;)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v1}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getValueType()Ljava/lang/String;
+    invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getValueType()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    const-string v2, "int"
+    const-string p1, "int"
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result p0
 
-    return v1
+    return p0
 
     :cond_0
-    new-instance v1, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "Setting \'"
+    const-string v1, "Setting \'"
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, "\' does not exist."
+    const-string p1, "\' does not exist."
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p0
 .end method
 
 .method public isStringValueType(Ljava/lang/String;)Z
-    .locals 4
+    .locals 2
+    .param p1    # Ljava/lang/String;
+        .annotation build Landroid/hardware/hdmi/HdmiControlManager$CecSettingName;
+        .end annotation
+    .end param
 
-    invoke-direct {p0, p1}, Lcom/android/server/hdmi/HdmiCecConfig;->getSetting(Ljava/lang/String;)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
+    invoke-virtual {p0, p1}, Lcom/android/server/hdmi/HdmiCecConfig;->getSetting(Ljava/lang/String;)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    invoke-direct {p0, p1}, Lcom/android/server/hdmi/HdmiCecConfig;->getSetting(Ljava/lang/String;)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
+    invoke-virtual {p0, p1}, Lcom/android/server/hdmi/HdmiCecConfig;->getSetting(Ljava/lang/String;)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v1}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getValueType()Ljava/lang/String;
+    invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getValueType()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    const-string/jumbo v2, "string"
+    const-string/jumbo p1, "string"
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result p0
 
-    return v1
+    return p0
 
     :cond_0
-    new-instance v1, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "Setting \'"
+    const-string v1, "Setting \'"
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, "\' does not exist."
+    const-string p1, "\' does not exist."
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p0
 .end method
 
-.method protected notifySettingChanged(Lcom/android/server/hdmi/HdmiCecConfig$Setting;)V
-    .locals 7
+.method public notifySettingChanged(Lcom/android/server/hdmi/HdmiCecConfig$Setting;)V
+    .locals 5
 
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecConfig;->mLock:Ljava/lang/Object;
 
@@ -2260,42 +3201,42 @@
     :cond_0
     invoke-virtual {v1}, Landroid/util/ArrayMap;->entrySet()Ljava/util/Set;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-interface {v2}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-interface {v1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    move-result-object v2
+    move-result-object v1
 
     :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_1
+    if-eqz v2, :cond_1
 
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/util/Map$Entry;
+
+    invoke-interface {v2}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v3
 
-    check-cast v3, Ljava/util/Map$Entry;
+    check-cast v3, Lcom/android/server/hdmi/HdmiCecConfig$SettingChangeListener;
 
-    invoke-interface {v3}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+    invoke-interface {v2}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v2
 
-    check-cast v4, Lcom/android/server/hdmi/HdmiCecConfig$SettingChangeListener;
+    check-cast v2, Ljava/util/concurrent/Executor;
 
-    invoke-interface {v3}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+    new-instance v4, Lcom/android/server/hdmi/HdmiCecConfig$1;
 
-    move-result-object v5
+    invoke-direct {v4, p0, v3, p1}, Lcom/android/server/hdmi/HdmiCecConfig$1;-><init>(Lcom/android/server/hdmi/HdmiCecConfig;Lcom/android/server/hdmi/HdmiCecConfig$SettingChangeListener;Lcom/android/server/hdmi/HdmiCecConfig$Setting;)V
 
-    check-cast v5, Ljava/util/concurrent/Executor;
-
-    new-instance v6, Lcom/android/server/hdmi/HdmiCecConfig$1;
-
-    invoke-direct {v6, p0, v4, p1}, Lcom/android/server/hdmi/HdmiCecConfig$1;-><init>(Lcom/android/server/hdmi/HdmiCecConfig;Lcom/android/server/hdmi/HdmiCecConfig$SettingChangeListener;Lcom/android/server/hdmi/HdmiCecConfig$Setting;)V
-
-    invoke-interface {v5, v6}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
+    invoke-interface {v2, v4}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
     goto :goto_0
 
@@ -2305,17 +3246,21 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
 .method public registerChangeListener(Ljava/lang/String;Lcom/android/server/hdmi/HdmiCecConfig$SettingChangeListener;)V
     .locals 1
+    .param p1    # Ljava/lang/String;
+        .annotation build Landroid/hardware/hdmi/HdmiControlManager$CecSettingName;
+        .end annotation
+    .end param
 
     sget-object v0, Lcom/android/internal/util/ConcurrentUtils;->DIRECT_EXECUTOR:Ljava/util/concurrent/Executor;
 
@@ -2325,15 +3270,19 @@
 .end method
 
 .method public registerChangeListener(Ljava/lang/String;Lcom/android/server/hdmi/HdmiCecConfig$SettingChangeListener;Ljava/util/concurrent/Executor;)V
-    .locals 5
+    .locals 3
+    .param p1    # Ljava/lang/String;
+        .annotation build Landroid/hardware/hdmi/HdmiControlManager$CecSettingName;
+        .end annotation
+    .end param
 
-    invoke-direct {p0, p1}, Lcom/android/server/hdmi/HdmiCecConfig;->getSetting(Ljava/lang/String;)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
+    invoke-virtual {p0, p1}, Lcom/android/server/hdmi/HdmiCecConfig;->getSetting(Ljava/lang/String;)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
     move-result-object v0
 
     if-eqz v0, :cond_3
 
-    invoke-direct {p0, v0}, Lcom/android/server/hdmi/HdmiCecConfig;->getStorage(Lcom/android/server/hdmi/HdmiCecConfig$Setting;)I
+    invoke-virtual {p0, v0}, Lcom/android/server/hdmi/HdmiCecConfig;->getStorage(Lcom/android/server/hdmi/HdmiCecConfig$Setting;)I
 
     move-result v1
 
@@ -2348,169 +3297,131 @@
     goto :goto_0
 
     :cond_0
-    new-instance v2, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "Change listeners for setting \'"
+    const-string p3, "Change listeners for setting \'"
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v4, "\' not supported."
+    const-string p1, "\' not supported."
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw p0
 
     :cond_1
     :goto_0
-    iget-object v2, p0, Lcom/android/server/hdmi/HdmiCecConfig;->mLock:Ljava/lang/Object;
+    iget-object v1, p0, Lcom/android/server/hdmi/HdmiCecConfig;->mLock:Ljava/lang/Object;
 
-    monitor-enter v2
+    monitor-enter v1
 
     :try_start_0
-    iget-object v3, p0, Lcom/android/server/hdmi/HdmiCecConfig;->mSettingChangeListeners:Landroid/util/ArrayMap;
+    iget-object p1, p0, Lcom/android/server/hdmi/HdmiCecConfig;->mSettingChangeListeners:Landroid/util/ArrayMap;
 
-    invoke-virtual {v3, v0}, Landroid/util/ArrayMap;->containsKey(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v0}, Landroid/util/ArrayMap;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result p1
 
-    if-nez v3, :cond_2
+    if-nez p1, :cond_2
 
-    iget-object v3, p0, Lcom/android/server/hdmi/HdmiCecConfig;->mSettingChangeListeners:Landroid/util/ArrayMap;
+    iget-object p1, p0, Lcom/android/server/hdmi/HdmiCecConfig;->mSettingChangeListeners:Landroid/util/ArrayMap;
 
-    new-instance v4, Landroid/util/ArrayMap;
+    new-instance v2, Landroid/util/ArrayMap;
 
-    invoke-direct {v4}, Landroid/util/ArrayMap;-><init>()V
+    invoke-direct {v2}, Landroid/util/ArrayMap;-><init>()V
 
-    invoke-virtual {v3, v0, v4}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p1, v0, v2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     :cond_2
-    iget-object v3, p0, Lcom/android/server/hdmi/HdmiCecConfig;->mSettingChangeListeners:Landroid/util/ArrayMap;
+    iget-object p0, p0, Lcom/android/server/hdmi/HdmiCecConfig;->mSettingChangeListeners:Landroid/util/ArrayMap;
 
-    invoke-virtual {v3, v0}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object p0
 
-    check-cast v3, Landroid/util/ArrayMap;
+    check-cast p0, Landroid/util/ArrayMap;
 
-    invoke-virtual {v3, p2, p3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, p2, p3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    monitor-exit v2
+    monitor-exit v1
 
     return-void
 
     :catchall_0
-    move-exception v3
+    move-exception p0
 
-    monitor-exit v2
+    monitor-exit v1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v3
+    throw p0
 
     :cond_3
-    new-instance v1, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "Setting \'"
+    const-string p3, "Setting \'"
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, "\' does not exist."
+    const-string p1, "\' does not exist."
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p0
 .end method
 
-.method public registerGlobalSettingsObserver(Landroid/os/Looper;)V
-    .locals 10
+.method public final registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
+    .locals 2
+    .param p1    # Ljava/lang/String;
+        .annotation build Landroid/hardware/hdmi/HdmiControlManager$CecSettingName;
+        .end annotation
+    .end param
 
-    new-instance v0, Landroid/os/Handler;
-
-    invoke-direct {v0, p1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
-
-    new-instance v1, Lcom/android/server/hdmi/HdmiCecConfig$SettingsObserver;
-
-    invoke-direct {v1, p0, v0}, Lcom/android/server/hdmi/HdmiCecConfig$SettingsObserver;-><init>(Lcom/android/server/hdmi/HdmiCecConfig;Landroid/os/Handler;)V
-
-    iput-object v1, p0, Lcom/android/server/hdmi/HdmiCecConfig;->mSettingsObserver:Lcom/android/server/hdmi/HdmiCecConfig$SettingsObserver;
+    new-instance v0, Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
     iget-object v1, p0, Lcom/android/server/hdmi/HdmiCecConfig;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-direct {v0, p0, v1, p1, p2}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;-><init>(Lcom/android/server/hdmi/HdmiCecConfig;Landroid/content/Context;Ljava/lang/String;I)V
 
-    move-result-object v1
+    iget-object p0, p0, Lcom/android/server/hdmi/HdmiCecConfig;->mSettings:Ljava/util/LinkedHashMap;
 
-    const-string v2, "hdmi_control_enabled"
+    invoke-virtual {p0, p1, v0}, Ljava/util/LinkedHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const-string v3, "hdmi_control_send_standby_on_sleep"
-
-    const-string v4, "hdmi_control_volume_control_enabled"
-
-    const-string v5, "hdmi_control_auto_wakeup_enabled"
-
-    const-string v6, "hdmi_control_auto_device_off_enabled"
-
-    filled-new-array {v2, v3, v4, v5, v6}, [Ljava/lang/String;
-
-    move-result-object v2
-
-    array-length v3, v2
-
-    const/4 v4, 0x0
-
-    move v5, v4
-
-    :goto_0
-    if-ge v5, v3, :cond_0
-
-    aget-object v6, v2, v5
-
-    invoke-static {v6}, Landroid/provider/Settings$Global;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
-
-    move-result-object v7
-
-    iget-object v8, p0, Lcom/android/server/hdmi/HdmiCecConfig;->mSettingsObserver:Lcom/android/server/hdmi/HdmiCecConfig$SettingsObserver;
-
-    const/4 v9, -0x1
-
-    invoke-virtual {v1, v7, v4, v8, v9}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
-
-    add-int/lit8 v5, v5, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    return-void
+    return-object v0
 .end method
 
 .method public removeChangeListener(Ljava/lang/String;Lcom/android/server/hdmi/HdmiCecConfig$SettingChangeListener;)V
-    .locals 4
+    .locals 2
+    .param p1    # Ljava/lang/String;
+        .annotation build Landroid/hardware/hdmi/HdmiControlManager$CecSettingName;
+        .end annotation
+    .end param
 
-    invoke-direct {p0, p1}, Lcom/android/server/hdmi/HdmiCecConfig;->getSetting(Ljava/lang/String;)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
+    invoke-virtual {p0, p1}, Lcom/android/server/hdmi/HdmiCecConfig;->getSetting(Ljava/lang/String;)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
     move-result-object v0
 
@@ -2521,33 +3432,33 @@
     monitor-enter v1
 
     :try_start_0
-    iget-object v2, p0, Lcom/android/server/hdmi/HdmiCecConfig;->mSettingChangeListeners:Landroid/util/ArrayMap;
+    iget-object p1, p0, Lcom/android/server/hdmi/HdmiCecConfig;->mSettingChangeListeners:Landroid/util/ArrayMap;
 
-    invoke-virtual {v2, v0}, Landroid/util/ArrayMap;->containsKey(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v0}, Landroid/util/ArrayMap;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result p1
 
-    if-eqz v2, :cond_0
+    if-eqz p1, :cond_0
 
-    iget-object v2, p0, Lcom/android/server/hdmi/HdmiCecConfig;->mSettingChangeListeners:Landroid/util/ArrayMap;
+    iget-object p1, p0, Lcom/android/server/hdmi/HdmiCecConfig;->mSettingChangeListeners:Landroid/util/ArrayMap;
 
-    invoke-virtual {v2, v0}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p1, v0}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p1
 
-    check-cast v2, Landroid/util/ArrayMap;
+    check-cast p1, Landroid/util/ArrayMap;
 
-    invoke-virtual {v2, p2}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p1, p2}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {v2}, Landroid/util/ArrayMap;->isEmpty()Z
+    invoke-virtual {p1}, Landroid/util/ArrayMap;->isEmpty()Z
 
-    move-result v3
+    move-result p1
 
-    if-eqz v3, :cond_0
+    if-eqz p1, :cond_0
 
-    iget-object v3, p0, Lcom/android/server/hdmi/HdmiCecConfig;->mSettingChangeListeners:Landroid/util/ArrayMap;
+    iget-object p0, p0, Lcom/android/server/hdmi/HdmiCecConfig;->mSettingChangeListeners:Landroid/util/ArrayMap;
 
-    invoke-virtual {v3, v0}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     :cond_0
     monitor-exit v1
@@ -2555,161 +3466,165 @@
     return-void
 
     :catchall_0
-    move-exception v2
+    move-exception p0
 
     monitor-exit v1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v2
+    throw p0
 
     :cond_1
-    new-instance v1, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "Setting \'"
+    const-string v0, "Setting \'"
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, "\' does not exist."
+    const-string p1, "\' does not exist."
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p0
 .end method
 
-.method protected retrieveValue(Lcom/android/server/hdmi/HdmiCecConfig$Setting;Ljava/lang/String;)Ljava/lang/String;
-    .locals 5
+.method public retrieveValue(Lcom/android/server/hdmi/HdmiCecConfig$Setting;Ljava/lang/String;)Ljava/lang/String;
+    .locals 4
 
-    invoke-direct {p0, p1}, Lcom/android/server/hdmi/HdmiCecConfig;->getStorage(Lcom/android/server/hdmi/HdmiCecConfig$Setting;)I
+    invoke-virtual {p0, p1}, Lcom/android/server/hdmi/HdmiCecConfig;->getStorage(Lcom/android/server/hdmi/HdmiCecConfig$Setting;)I
 
     move-result v0
 
-    invoke-direct {p0, p1}, Lcom/android/server/hdmi/HdmiCecConfig;->getStorageKey(Lcom/android/server/hdmi/HdmiCecConfig$Setting;)Ljava/lang/String;
+    invoke-virtual {p0, p1}, Lcom/android/server/hdmi/HdmiCecConfig;->getStorageKey(Lcom/android/server/hdmi/HdmiCecConfig$Setting;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    const-string v3, "Reading \'"
+    const-string v2, "Reading \'"
 
     if-nez v0, :cond_0
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, "\' sysprop."
+    const-string v2, "\' sysprop."
 
-    invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v0
 
-    new-array v2, v2, [Ljava/lang/Object;
+    new-array v1, v1, [Ljava/lang/Object;
 
-    invoke-static {v3, v2}, Lcom/android/server/hdmi/HdmiLogger;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v0, v1}, Lcom/android/server/hdmi/HdmiLogger;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
-    iget-object v2, p0, Lcom/android/server/hdmi/HdmiCecConfig;->mStorageAdapter:Lcom/android/server/hdmi/HdmiCecConfig$StorageAdapter;
+    iget-object p0, p0, Lcom/android/server/hdmi/HdmiCecConfig;->mStorageAdapter:Lcom/android/server/hdmi/HdmiCecConfig$StorageAdapter;
 
-    invoke-virtual {v2, v1, p2}, Lcom/android/server/hdmi/HdmiCecConfig$StorageAdapter;->retrieveSystemProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/hdmi/HdmiCecConfig$StorageAdapter;->retrieveSystemProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p0
 
-    return-object v2
+    return-object p0
 
     :cond_0
-    const/4 v4, 0x1
+    const/4 v3, 0x1
 
-    if-ne v0, v4, :cond_1
+    if-ne v0, v3, :cond_1
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, "\' global setting."
+    const-string v2, "\' global setting."
 
-    invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v0
 
-    new-array v2, v2, [Ljava/lang/Object;
+    new-array v1, v1, [Ljava/lang/Object;
 
-    invoke-static {v3, v2}, Lcom/android/server/hdmi/HdmiLogger;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v0, v1}, Lcom/android/server/hdmi/HdmiLogger;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
-    iget-object v2, p0, Lcom/android/server/hdmi/HdmiCecConfig;->mStorageAdapter:Lcom/android/server/hdmi/HdmiCecConfig$StorageAdapter;
+    iget-object p0, p0, Lcom/android/server/hdmi/HdmiCecConfig;->mStorageAdapter:Lcom/android/server/hdmi/HdmiCecConfig$StorageAdapter;
 
-    invoke-virtual {v2, v1, p2}, Lcom/android/server/hdmi/HdmiCecConfig$StorageAdapter;->retrieveGlobalSetting(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/hdmi/HdmiCecConfig$StorageAdapter;->retrieveGlobalSetting(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p0
 
-    return-object v2
+    return-object p0
 
     :cond_1
-    const/4 v4, 0x2
+    const/4 v3, 0x2
 
-    if-ne v0, v4, :cond_2
+    if-ne v0, v3, :cond_2
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, "\' shared preference."
+    const-string v2, "\' shared preference."
 
-    invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v0
 
-    new-array v2, v2, [Ljava/lang/Object;
+    new-array v1, v1, [Ljava/lang/Object;
 
-    invoke-static {v3, v2}, Lcom/android/server/hdmi/HdmiLogger;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v0, v1}, Lcom/android/server/hdmi/HdmiLogger;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
-    iget-object v2, p0, Lcom/android/server/hdmi/HdmiCecConfig;->mStorageAdapter:Lcom/android/server/hdmi/HdmiCecConfig$StorageAdapter;
+    iget-object p0, p0, Lcom/android/server/hdmi/HdmiCecConfig;->mStorageAdapter:Lcom/android/server/hdmi/HdmiCecConfig$StorageAdapter;
 
-    invoke-virtual {v2, v1, p2}, Lcom/android/server/hdmi/HdmiCecConfig$StorageAdapter;->retrieveSharedPref(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/hdmi/HdmiCecConfig$StorageAdapter;->retrieveSharedPref(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p0
 
-    return-object v2
+    return-object p0
 
     :cond_2
-    const/4 v2, 0x0
+    const/4 p0, 0x0
 
-    return-object v2
+    return-object p0
 .end method
 
 .method public setIntValue(Ljava/lang/String;I)V
     .locals 5
+    .param p1    # Ljava/lang/String;
+        .annotation build Landroid/hardware/hdmi/HdmiControlManager$CecSettingName;
+        .end annotation
+    .end param
 
-    invoke-direct {p0, p1}, Lcom/android/server/hdmi/HdmiCecConfig;->getSetting(Ljava/lang/String;)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
+    invoke-virtual {p0, p1}, Lcom/android/server/hdmi/HdmiCecConfig;->getSetting(Ljava/lang/String;)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
     move-result-object v0
 
@@ -2761,9 +3676,9 @@
 
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, "\' to \'"
+    const-string p1, "\' to \'"
 
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -2771,125 +3686,129 @@
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    new-array v2, v2, [Ljava/lang/Object;
+    new-array v1, v1, [Ljava/lang/Object;
 
-    invoke-static {v1, v2}, Lcom/android/server/hdmi/HdmiLogger;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {p1, v1}, Lcom/android/server/hdmi/HdmiLogger;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
     invoke-static {p2}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/server/hdmi/HdmiCecConfig;->storeValue(Lcom/android/server/hdmi/HdmiCecConfig$Setting;Ljava/lang/String;)V
+    invoke-virtual {p0, v0, p1}, Lcom/android/server/hdmi/HdmiCecConfig;->storeValue(Lcom/android/server/hdmi/HdmiCecConfig$Setting;Ljava/lang/String;)V
 
     return-void
 
     :cond_0
-    new-instance v1, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "Invalid CEC setting \'"
+    const-string v1, "Invalid CEC setting \'"
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v4, "\' value: \'"
+    const-string p1, "\' value: \'"
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p0
 
     :cond_1
-    new-instance v2, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "\' is not a int-type setting."
+    const-string p1, "\' is not a int-type setting."
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v2, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw p0
 
     :cond_2
-    new-instance v1, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, "\' prohibited."
+    const-string p1, "\' prohibited."
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p0
 
     :cond_3
-    new-instance v2, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "\' does not exist."
+    const-string p1, "\' does not exist."
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v2, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw p0
 .end method
 
 .method public setStringValue(Ljava/lang/String;Ljava/lang/String;)V
     .locals 5
+    .param p1    # Ljava/lang/String;
+        .annotation build Landroid/hardware/hdmi/HdmiControlManager$CecSettingName;
+        .end annotation
+    .end param
 
-    invoke-direct {p0, p1}, Lcom/android/server/hdmi/HdmiCecConfig;->getSetting(Ljava/lang/String;)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
+    invoke-virtual {p0, p1}, Lcom/android/server/hdmi/HdmiCecConfig;->getSetting(Ljava/lang/String;)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
     move-result-object v0
 
@@ -2937,9 +3856,9 @@
 
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, "\' to \'"
+    const-string p1, "\' to \'"
 
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2947,125 +3866,125 @@
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    new-array v2, v2, [Ljava/lang/Object;
+    new-array v1, v1, [Ljava/lang/Object;
 
-    invoke-static {v1, v2}, Lcom/android/server/hdmi/HdmiLogger;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {p1, v1}, Lcom/android/server/hdmi/HdmiLogger;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
     invoke-virtual {p0, v0, p2}, Lcom/android/server/hdmi/HdmiCecConfig;->storeValue(Lcom/android/server/hdmi/HdmiCecConfig$Setting;Ljava/lang/String;)V
 
     return-void
 
     :cond_0
-    new-instance v1, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "Invalid CEC setting \'"
+    const-string v1, "Invalid CEC setting \'"
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v4, "\' value: \'"
+    const-string p1, "\' value: \'"
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p0
 
     :cond_1
-    new-instance v2, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "\' is not a string-type setting."
+    const-string p1, "\' is not a string-type setting."
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v2, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw p0
 
     :cond_2
-    new-instance v1, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, "\' prohibited."
+    const-string p1, "\' prohibited."
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p0
 
     :cond_3
-    new-instance v2, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "\' does not exist."
+    const-string p1, "\' does not exist."
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v2, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw p0
 .end method
 
-.method protected storeValue(Lcom/android/server/hdmi/HdmiCecConfig$Setting;Ljava/lang/String;)V
+.method public storeValue(Lcom/android/server/hdmi/HdmiCecConfig$Setting;Ljava/lang/String;)V
     .locals 5
 
-    invoke-direct {p0, p1}, Lcom/android/server/hdmi/HdmiCecConfig;->getStorage(Lcom/android/server/hdmi/HdmiCecConfig$Setting;)I
+    invoke-virtual {p0, p1}, Lcom/android/server/hdmi/HdmiCecConfig;->getStorage(Lcom/android/server/hdmi/HdmiCecConfig$Setting;)I
 
     move-result v0
 
-    invoke-direct {p0, p1}, Lcom/android/server/hdmi/HdmiCecConfig;->getStorageKey(Lcom/android/server/hdmi/HdmiCecConfig$Setting;)Ljava/lang/String;
+    invoke-virtual {p0, p1}, Lcom/android/server/hdmi/HdmiCecConfig;->getStorageKey(Lcom/android/server/hdmi/HdmiCecConfig$Setting;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -3075,29 +3994,29 @@
 
     if-nez v0, :cond_0
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, "\' sysprop."
+    const-string v0, "\' sysprop."
 
-    invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p1
 
-    new-array v2, v2, [Ljava/lang/Object;
+    new-array v0, v2, [Ljava/lang/Object;
 
-    invoke-static {v3, v2}, Lcom/android/server/hdmi/HdmiLogger;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {p1, v0}, Lcom/android/server/hdmi/HdmiLogger;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
-    iget-object v2, p0, Lcom/android/server/hdmi/HdmiCecConfig;->mStorageAdapter:Lcom/android/server/hdmi/HdmiCecConfig$StorageAdapter;
+    iget-object p0, p0, Lcom/android/server/hdmi/HdmiCecConfig;->mStorageAdapter:Lcom/android/server/hdmi/HdmiCecConfig$StorageAdapter;
 
-    invoke-virtual {v2, v1, p2}, Lcom/android/server/hdmi/HdmiCecConfig$StorageAdapter;->storeSystemProperty(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v1, p2}, Lcom/android/server/hdmi/HdmiCecConfig$StorageAdapter;->storeSystemProperty(Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_0
 
@@ -3106,29 +4025,29 @@
 
     if-ne v0, v4, :cond_1
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, "\' global setting."
+    const-string v0, "\' global setting."
 
-    invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p1
 
-    new-array v2, v2, [Ljava/lang/Object;
+    new-array v0, v2, [Ljava/lang/Object;
 
-    invoke-static {v3, v2}, Lcom/android/server/hdmi/HdmiLogger;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {p1, v0}, Lcom/android/server/hdmi/HdmiLogger;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
-    iget-object v2, p0, Lcom/android/server/hdmi/HdmiCecConfig;->mStorageAdapter:Lcom/android/server/hdmi/HdmiCecConfig$StorageAdapter;
+    iget-object p0, p0, Lcom/android/server/hdmi/HdmiCecConfig;->mStorageAdapter:Lcom/android/server/hdmi/HdmiCecConfig$StorageAdapter;
 
-    invoke-virtual {v2, v1, p2}, Lcom/android/server/hdmi/HdmiCecConfig$StorageAdapter;->storeGlobalSetting(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v1, p2}, Lcom/android/server/hdmi/HdmiCecConfig$StorageAdapter;->storeGlobalSetting(Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_0
 
@@ -3137,29 +4056,29 @@
 
     if-ne v0, v4, :cond_2
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     const-string v3, "\' shared pref."
 
-    invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v0
 
     new-array v2, v2, [Ljava/lang/Object;
 
-    invoke-static {v3, v2}, Lcom/android/server/hdmi/HdmiLogger;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v0, v2}, Lcom/android/server/hdmi/HdmiLogger;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
-    iget-object v2, p0, Lcom/android/server/hdmi/HdmiCecConfig;->mStorageAdapter:Lcom/android/server/hdmi/HdmiCecConfig$StorageAdapter;
+    iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecConfig;->mStorageAdapter:Lcom/android/server/hdmi/HdmiCecConfig$StorageAdapter;
 
-    invoke-virtual {v2, v1, p2}, Lcom/android/server/hdmi/HdmiCecConfig$StorageAdapter;->storeSharedPref(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, v1, p2}, Lcom/android/server/hdmi/HdmiCecConfig$StorageAdapter;->storeSharedPref(Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-virtual {p0, p1}, Lcom/android/server/hdmi/HdmiCecConfig;->notifySettingChanged(Lcom/android/server/hdmi/HdmiCecConfig$Setting;)V
 
@@ -3168,18 +4087,40 @@
     return-void
 .end method
 
-.method public unregisterGlobalSettingsObserver()V
+.method public final verifySettings()V
     .locals 2
 
-    iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecConfig;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecConfig;->mSettings:Ljava/util/LinkedHashMap;
 
-    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v0}, Ljava/util/LinkedHashMap;->values()Ljava/util/Collection;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/server/hdmi/HdmiCecConfig;->mSettingsObserver:Lcom/android/server/hdmi/HdmiCecConfig$SettingsObserver;
+    invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
-    invoke-virtual {v0, v1}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
+    move-result-object v0
 
+    :goto_0
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/server/hdmi/HdmiCecConfig$Setting;
+
+    invoke-virtual {v1}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->getDefaultValue()Lcom/android/server/hdmi/HdmiCecConfig$Value;
+
+    invoke-virtual {p0, v1}, Lcom/android/server/hdmi/HdmiCecConfig;->getStorage(Lcom/android/server/hdmi/HdmiCecConfig$Setting;)I
+
+    invoke-virtual {p0, v1}, Lcom/android/server/hdmi/HdmiCecConfig;->getStorageKey(Lcom/android/server/hdmi/HdmiCecConfig$Setting;)Ljava/lang/String;
+
+    goto :goto_0
+
+    :cond_0
     return-void
 .end method

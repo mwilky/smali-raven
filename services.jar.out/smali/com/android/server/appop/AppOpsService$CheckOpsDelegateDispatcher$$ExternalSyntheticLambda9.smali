@@ -1,31 +1,32 @@
 .class public final synthetic Lcom/android/server/appop/AppOpsService$CheckOpsDelegateDispatcher$$ExternalSyntheticLambda9;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/internal/util/function/QuadFunction;
+.implements Lcom/android/internal/util/function/QuintFunction;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/server/appop/AppOpsService$CheckOpsDelegateDispatcher;
+.field public final synthetic f$0:Lcom/android/server/appop/AppOpsService;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/appop/AppOpsService$CheckOpsDelegateDispatcher;)V
+.method public synthetic constructor <init>(Lcom/android/server/appop/AppOpsService;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/appop/AppOpsService$CheckOpsDelegateDispatcher$$ExternalSyntheticLambda9;->f$0:Lcom/android/server/appop/AppOpsService$CheckOpsDelegateDispatcher;
+    iput-object p1, p0, Lcom/android/server/appop/AppOpsService$CheckOpsDelegateDispatcher$$ExternalSyntheticLambda9;->f$0:Lcom/android/server/appop/AppOpsService;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final apply(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+.method public final apply(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/appop/AppOpsService$CheckOpsDelegateDispatcher$$ExternalSyntheticLambda9;->f$0:Lcom/android/server/appop/AppOpsService$CheckOpsDelegateDispatcher;
+    iget-object p0, p0, Lcom/android/server/appop/AppOpsService$CheckOpsDelegateDispatcher$$ExternalSyntheticLambda9;->f$0:Lcom/android/server/appop/AppOpsService;
 
     check-cast p1, Ljava/lang/Integer;
 
@@ -39,21 +40,19 @@
 
     move-result p2
 
-    check-cast p3, Ljava/lang/Integer;
-
-    invoke-virtual {p3}, Ljava/lang/Integer;->intValue()I
-
-    move-result p3
+    check-cast p3, Ljava/lang/String;
 
     check-cast p4, Ljava/lang/String;
 
-    invoke-static {v0, p1, p2, p3, p4}, Lcom/android/server/appop/AppOpsService$CheckOpsDelegateDispatcher;->$r8$lambda$6iUzpqAsrHNNZAT8wDQs4LrRyi8(Lcom/android/server/appop/AppOpsService$CheckOpsDelegateDispatcher;IIILjava/lang/String;)I
+    check-cast p5, Ljava/lang/Boolean;
 
-    move-result p1
+    invoke-virtual {p5}, Ljava/lang/Boolean;->booleanValue()Z
 
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result p5
 
-    move-result-object p1
+    invoke-static/range {p0 .. p5}, Lcom/android/server/appop/AppOpsService$CheckOpsDelegateDispatcher;->$r8$lambda$KrwrxMLmGzFSEjEyo0aJ63o5J9E(Lcom/android/server/appop/AppOpsService;IILjava/lang/String;Ljava/lang/String;Z)Ljava/lang/Integer;
 
-    return-object p1
+    move-result-object p0
+
+    return-object p0
 .end method

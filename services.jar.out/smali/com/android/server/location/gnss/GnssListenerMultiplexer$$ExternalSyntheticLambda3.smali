@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/location/gnss/GnssListenerMultiplexer$$ExternalSyntheticLambda3;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/server/location/injector/SettingsHelper$UserSettingChangedListener;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final onSettingChanged(I)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/location/gnss/GnssListenerMultiplexer$$ExternalSyntheticLambda3;->f$0:Lcom/android/server/location/gnss/GnssListenerMultiplexer;
+    iget-object p0, p0, Lcom/android/server/location/gnss/GnssListenerMultiplexer$$ExternalSyntheticLambda3;->f$0:Lcom/android/server/location/gnss/GnssListenerMultiplexer;
 
-    invoke-static {v0, p1}, Lcom/android/server/location/gnss/GnssListenerMultiplexer;->$r8$lambda$VL3WSbAul5QINTq5awpvQgEDOak(Lcom/android/server/location/gnss/GnssListenerMultiplexer;I)V
+    invoke-static {p0, p1}, Lcom/android/server/location/gnss/GnssListenerMultiplexer;->$r8$lambda$VL3WSbAul5QINTq5awpvQgEDOak(Lcom/android/server/location/gnss/GnssListenerMultiplexer;I)V
 
     return-void
 .end method

@@ -1,4 +1,4 @@
-.class Lcom/android/server/am/UserController$UserJourneySession;
+.class public Lcom/android/server/am/UserController$UserJourneySession;
 .super Ljava/lang/Object;
 .source "UserController.java"
 
@@ -9,19 +9,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "UserJourneySession"
 .end annotation
 
 
 # instance fields
-.field final mJourney:I
+.field public final mJourney:I
 
-.field final mSessionId:J
+.field public final mSessionId:J
 
 
 # direct methods
-.method constructor <init>(JI)V
+.method public constructor <init>(JI)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

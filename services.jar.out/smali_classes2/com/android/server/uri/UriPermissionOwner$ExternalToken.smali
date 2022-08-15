@@ -1,4 +1,4 @@
-.class Lcom/android/server/uri/UriPermissionOwner$ExternalToken;
+.class public Lcom/android/server/uri/UriPermissionOwner$ExternalToken;
 .super Landroid/os/Binder;
 .source "UriPermissionOwner.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = "ExternalToken"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/uri/UriPermissionOwner;
+.field public final synthetic this$0:Lcom/android/server/uri/UriPermissionOwner;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/uri/UriPermissionOwner;)V
+.method public constructor <init>(Lcom/android/server/uri/UriPermissionOwner;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/uri/UriPermissionOwner$ExternalToken;->this$0:Lcom/android/server/uri/UriPermissionOwner;
@@ -31,10 +31,10 @@
 
 
 # virtual methods
-.method getOwner()Lcom/android/server/uri/UriPermissionOwner;
-    .locals 1
+.method public getOwner()Lcom/android/server/uri/UriPermissionOwner;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/uri/UriPermissionOwner$ExternalToken;->this$0:Lcom/android/server/uri/UriPermissionOwner;
+    iget-object p0, p0, Lcom/android/server/uri/UriPermissionOwner$ExternalToken;->this$0:Lcom/android/server/uri/UriPermissionOwner;
 
-    return-object v0
+    return-object p0
 .end method

@@ -1,4 +1,4 @@
-.class final Lcom/android/server/display/OverlayDisplayAdapter$OverlayFlags;
+.class public final Lcom/android/server/display/OverlayDisplayAdapter$OverlayFlags;
 .super Ljava/lang/Object;
 .source "OverlayDisplayAdapter.java"
 
@@ -9,21 +9,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "OverlayFlags"
 .end annotation
 
 
 # instance fields
-.field final mOwnContentOnly:Z
+.field public final mOwnContentOnly:Z
 
-.field final mSecure:Z
+.field public final mSecure:Z
 
-.field final mShouldShowSystemDecorations:Z
+.field public final mShouldShowSystemDecorations:Z
 
 
 # direct methods
-.method constructor <init>(ZZZ)V
+.method public constructor <init>(ZZZ)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,7 +37,7 @@
     return-void
 .end method
 
-.method static parseFlags(Ljava/lang/String;)Lcom/android/server/display/OverlayDisplayAdapter$OverlayFlags;
+.method public static parseFlags(Ljava/lang/String;)Lcom/android/server/display/OverlayDisplayAdapter$OverlayFlags;
     .locals 8
 
     invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -48,63 +48,65 @@
 
     if-eqz v0, :cond_0
 
-    new-instance v0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayFlags;
+    new-instance p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayFlags;
 
-    invoke-direct {v0, v1, v1, v1}, Lcom/android/server/display/OverlayDisplayAdapter$OverlayFlags;-><init>(ZZZ)V
+    invoke-direct {p0, v1, v1, v1}, Lcom/android/server/display/OverlayDisplayAdapter$OverlayFlags;-><init>(ZZZ)V
 
-    return-object v0
+    return-object p0
 
     :cond_0
-    const/4 v0, 0x0
+    const-string v0, ","
 
-    const/4 v2, 0x0
+    invoke-virtual {p0, v0}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
-    const/4 v3, 0x0
+    move-result-object p0
 
-    const-string v4, ","
+    array-length v0, p0
 
-    invoke-virtual {p0, v4}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+    move v2, v1
 
-    move-result-object v4
+    move v3, v2
 
-    array-length v5, v4
+    move v4, v3
 
     :goto_0
-    if-ge v1, v5, :cond_4
+    if-ge v1, v0, :cond_4
 
-    aget-object v6, v4, v1
+    aget-object v5, p0, v1
 
-    const-string/jumbo v7, "secure"
+    const-string/jumbo v6, "secure"
 
-    invoke-virtual {v7, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v6, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v7
+    move-result v6
 
-    if-eqz v7, :cond_1
+    const/4 v7, 0x1
 
-    const/4 v0, 0x1
+    if-eqz v6, :cond_1
+
+    move v2, v7
 
     :cond_1
-    const-string/jumbo v7, "own_content_only"
+    const-string/jumbo v6, "own_content_only"
 
-    invoke-virtual {v7, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v6, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v7
+    move-result v6
 
-    if-eqz v7, :cond_2
+    if-eqz v6, :cond_2
 
-    const/4 v2, 0x1
+    move v3, v7
 
     :cond_2
-    const-string/jumbo v7, "should_show_system_decorations"
+    const-string/jumbo v6, "should_show_system_decorations"
 
-    invoke-virtual {v7, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v6, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v7
+    move-result v5
 
-    if-eqz v7, :cond_3
+    if-eqz v5, :cond_3
 
-    const/4 v3, 0x1
+    move v4, v7
 
     :cond_3
     add-int/lit8 v1, v1, 0x1
@@ -112,11 +114,11 @@
     goto :goto_0
 
     :cond_4
-    new-instance v1, Lcom/android/server/display/OverlayDisplayAdapter$OverlayFlags;
+    new-instance p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayFlags;
 
-    invoke-direct {v1, v0, v2, v3}, Lcom/android/server/display/OverlayDisplayAdapter$OverlayFlags;-><init>(ZZZ)V
+    invoke-direct {p0, v2, v3, v4}, Lcom/android/server/display/OverlayDisplayAdapter$OverlayFlags;-><init>(ZZZ)V
 
-    return-object v1
+    return-object p0
 .end method
 
 
@@ -150,17 +152,17 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-boolean v1, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayFlags;->mShouldShowSystemDecorations:Z
+    iget-boolean p0, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayFlags;->mShouldShowSystemDecorations:Z
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v1, "}"
+    const-string/jumbo p0, "}"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

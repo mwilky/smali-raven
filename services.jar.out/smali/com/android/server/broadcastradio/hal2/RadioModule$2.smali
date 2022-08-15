@@ -1,4 +1,4 @@
-.class Lcom/android/server/broadcastradio/hal2/RadioModule$2;
+.class public Lcom/android/server/broadcastradio/hal2/RadioModule$2;
 .super Landroid/hardware/broadcastradio/V2_0/IAnnouncementListener$Stub;
 .source "RadioModule.java"
 
@@ -9,19 +9,29 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/broadcastradio/hal2/RadioModule;
+.field public final synthetic this$0:Lcom/android/server/broadcastradio/hal2/RadioModule;
 
-.field final synthetic val$listener:Landroid/hardware/radio/IAnnouncementListener;
+.field public final synthetic val$listener:Landroid/hardware/radio/IAnnouncementListener;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/broadcastradio/hal2/RadioModule;Landroid/hardware/radio/IAnnouncementListener;)V
+.method public static synthetic $r8$lambda$MYG3Jfkv5x7CscsDvRUmBVlp2BE(Landroid/hardware/broadcastradio/V2_0/Announcement;)Landroid/hardware/radio/Announcement;
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/server/broadcastradio/hal2/RadioModule$2;->lambda$onListUpdated$0(Landroid/hardware/broadcastradio/V2_0/Announcement;)Landroid/hardware/radio/Announcement;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public constructor <init>(Lcom/android/server/broadcastradio/hal2/RadioModule;Landroid/hardware/radio/IAnnouncementListener;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/broadcastradio/hal2/RadioModule$2;->this$0:Lcom/android/server/broadcastradio/hal2/RadioModule;
@@ -33,20 +43,20 @@
     return-void
 .end method
 
-.method static synthetic lambda$onListUpdated$0(Landroid/hardware/broadcastradio/V2_0/Announcement;)Landroid/hardware/radio/Announcement;
-    .locals 1
+.method public static synthetic lambda$onListUpdated$0(Landroid/hardware/broadcastradio/V2_0/Announcement;)Landroid/hardware/radio/Announcement;
+    .locals 0
 
     invoke-static {p0}, Lcom/android/server/broadcastradio/hal2/Convert;->announcementFromHal(Landroid/hardware/broadcastradio/V2_0/Announcement;)Landroid/hardware/radio/Announcement;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 
 # virtual methods
 .method public onListUpdated(Ljava/util/ArrayList;)V
-    .locals 3
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -62,29 +72,31 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/android/server/broadcastradio/hal2/RadioModule$2;->val$listener:Landroid/hardware/radio/IAnnouncementListener;
+    iget-object p0, p0, Lcom/android/server/broadcastradio/hal2/RadioModule$2;->val$listener:Landroid/hardware/radio/IAnnouncementListener;
 
     invoke-virtual {p1}, Ljava/util/ArrayList;->stream()Ljava/util/stream/Stream;
 
-    move-result-object v1
+    move-result-object p1
 
-    sget-object v2, Lcom/android/server/broadcastradio/hal2/RadioModule$2$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/server/broadcastradio/hal2/RadioModule$2$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/android/server/broadcastradio/hal2/RadioModule$2$$ExternalSyntheticLambda0;
 
-    invoke-interface {v1, v2}, Ljava/util/stream/Stream;->map(Ljava/util/function/Function;)Ljava/util/stream/Stream;
+    invoke-direct {v0}, Lcom/android/server/broadcastradio/hal2/RadioModule$2$$ExternalSyntheticLambda0;-><init>()V
 
-    move-result-object v1
+    invoke-interface {p1, v0}, Ljava/util/stream/Stream;->map(Ljava/util/function/Function;)Ljava/util/stream/Stream;
+
+    move-result-object p1
 
     invoke-static {}, Ljava/util/stream/Collectors;->toList()Ljava/util/stream/Collector;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-interface {v1, v2}, Ljava/util/stream/Stream;->collect(Ljava/util/stream/Collector;)Ljava/lang/Object;
+    invoke-interface {p1, v0}, Ljava/util/stream/Stream;->collect(Ljava/util/stream/Collector;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    check-cast v1, Ljava/util/List;
+    check-cast p1, Ljava/util/List;
 
-    invoke-interface {v0, v1}, Landroid/hardware/radio/IAnnouncementListener;->onListUpdated(Ljava/util/List;)V
+    invoke-interface {p0, p1}, Landroid/hardware/radio/IAnnouncementListener;->onListUpdated(Ljava/util/List;)V
 
     return-void
 .end method

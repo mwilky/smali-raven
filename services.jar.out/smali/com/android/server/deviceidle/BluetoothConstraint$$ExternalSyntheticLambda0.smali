@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/deviceidle/BluetoothConstraint$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/deviceidle/BluetoothConstraint$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/deviceidle/BluetoothConstraint;
+    iget-object p0, p0, Lcom/android/server/deviceidle/BluetoothConstraint$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/deviceidle/BluetoothConstraint;
 
-    invoke-virtual {v0}, Lcom/android/server/deviceidle/BluetoothConstraint;->lambda$new$0$BluetoothConstraint()V
+    invoke-static {p0}, Lcom/android/server/deviceidle/BluetoothConstraint;->$r8$lambda$1K8F0zMQwQMmr8Xliy-3CRAPeHA(Lcom/android/server/deviceidle/BluetoothConstraint;)V
 
     return-void
 .end method

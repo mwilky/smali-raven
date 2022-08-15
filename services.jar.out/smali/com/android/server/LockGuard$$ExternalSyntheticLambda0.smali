@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/LockGuard$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/LockGuard$$ExternalSyntheticLambda0;->f$0:Ljava/lang/Throwable;
+    iget-object p0, p0, Lcom/android/server/LockGuard$$ExternalSyntheticLambda0;->f$0:Ljava/lang/Throwable;
 
-    invoke-static {v0}, Lcom/android/server/LockGuard;->lambda$doLog$0(Ljava/lang/Throwable;)V
+    invoke-static {p0}, Lcom/android/server/LockGuard;->$r8$lambda$f5k-HvMfh78ZfmB_A1qoi_mgrDg(Ljava/lang/Throwable;)V
 
     return-void
 .end method

@@ -4,7 +4,7 @@
 
 
 # instance fields
-.field private mService:Lcom/android/server/rollback/RollbackManagerServiceImpl;
+.field public mService:Lcom/android/server/rollback/RollbackManagerServiceImpl;
 
 
 # direct methods
@@ -25,9 +25,9 @@
 
     if-ne p1, v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/rollback/RollbackManagerService;->mService:Lcom/android/server/rollback/RollbackManagerServiceImpl;
+    iget-object p0, p0, Lcom/android/server/rollback/RollbackManagerService;->mService:Lcom/android/server/rollback/RollbackManagerServiceImpl;
 
-    invoke-virtual {v0}, Lcom/android/server/rollback/RollbackManagerServiceImpl;->onBootCompleted()V
+    invoke-virtual {p0}, Lcom/android/server/rollback/RollbackManagerServiceImpl;->onBootCompleted()V
 
     :cond_0
     return-void
@@ -38,7 +38,7 @@
 
     new-instance v0, Lcom/android/server/rollback/RollbackManagerServiceImpl;
 
-    invoke-virtual {p0}, Lcom/android/server/rollback/RollbackManagerService;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Lcom/android/server/SystemService;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
@@ -48,27 +48,27 @@
 
     const-string v1, "rollback"
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/server/rollback/RollbackManagerService;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
+    invoke-virtual {p0, v1, v0}, Lcom/android/server/SystemService;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
 
     const-class v0, Lcom/android/server/rollback/RollbackManagerInternal;
 
-    iget-object v1, p0, Lcom/android/server/rollback/RollbackManagerService;->mService:Lcom/android/server/rollback/RollbackManagerServiceImpl;
+    iget-object p0, p0, Lcom/android/server/rollback/RollbackManagerService;->mService:Lcom/android/server/rollback/RollbackManagerServiceImpl;
 
-    invoke-static {v0, v1}, Lcom/android/server/LocalServices;->addService(Ljava/lang/Class;Ljava/lang/Object;)V
+    invoke-static {v0, p0}, Lcom/android/server/LocalServices;->addService(Ljava/lang/Class;Ljava/lang/Object;)V
 
     return-void
 .end method
 
 .method public onUserUnlocking(Lcom/android/server/SystemService$TargetUser;)V
-    .locals 2
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/rollback/RollbackManagerService;->mService:Lcom/android/server/rollback/RollbackManagerServiceImpl;
+    iget-object p0, p0, Lcom/android/server/rollback/RollbackManagerService;->mService:Lcom/android/server/rollback/RollbackManagerServiceImpl;
 
     invoke-virtual {p1}, Lcom/android/server/SystemService$TargetUser;->getUserIdentifier()I
 
-    move-result v1
+    move-result p1
 
-    invoke-virtual {v0, v1}, Lcom/android/server/rollback/RollbackManagerServiceImpl;->onUnlockUser(I)V
+    invoke-virtual {p0, p1}, Lcom/android/server/rollback/RollbackManagerServiceImpl;->onUnlockUser(I)V
 
     return-void
 .end method

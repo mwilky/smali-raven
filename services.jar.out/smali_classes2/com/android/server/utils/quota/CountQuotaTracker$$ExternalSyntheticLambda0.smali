@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/utils/quota/CountQuotaTracker$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/app/AlarmManager$OnAlarmListener;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final onAlarm()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/utils/quota/CountQuotaTracker$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/utils/quota/CountQuotaTracker;
+    iget-object p0, p0, Lcom/android/server/utils/quota/CountQuotaTracker$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/utils/quota/CountQuotaTracker;
 
-    invoke-virtual {v0}, Lcom/android/server/utils/quota/CountQuotaTracker;->lambda$new$0$CountQuotaTracker()V
+    invoke-static {p0}, Lcom/android/server/utils/quota/CountQuotaTracker;->$r8$lambda$dn2vOpO4gqeVZbJqpp99JB0-iiw(Lcom/android/server/utils/quota/CountQuotaTracker;)V
 
     return-void
 .end method

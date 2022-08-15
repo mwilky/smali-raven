@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/devicepolicy/DevicePolicyManagerService$DevicePolicyConstantsObserver$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/internal/util/FunctionalUtils$ThrowingRunnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final runOrThrow()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$DevicePolicyConstantsObserver$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService$DevicePolicyConstantsObserver;
+    iget-object p0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$DevicePolicyConstantsObserver$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService$DevicePolicyConstantsObserver;
 
-    invoke-virtual {v0}, Lcom/android/server/devicepolicy/DevicePolicyManagerService$DevicePolicyConstantsObserver;->lambda$onChange$0$DevicePolicyManagerService$DevicePolicyConstantsObserver()V
+    invoke-static {p0}, Lcom/android/server/devicepolicy/DevicePolicyManagerService$DevicePolicyConstantsObserver;->$r8$lambda$DmiqnPVpmKuPvZnkz3xXIwk_iDE(Lcom/android/server/devicepolicy/DevicePolicyManagerService$DevicePolicyConstantsObserver;)V
 
     return-void
 .end method

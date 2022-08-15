@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/wm/WindowManagerConstants$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/WindowManagerConstants$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/wm/WindowManagerService;
+    iget-object p0, p0, Lcom/android/server/wm/WindowManagerConstants$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/wm/WindowManagerService;
 
-    invoke-static {v0}, Lcom/android/server/wm/WindowManagerConstants;->lambda$new$0(Lcom/android/server/wm/WindowManagerService;)V
+    invoke-static {p0}, Lcom/android/server/wm/WindowManagerConstants;->$r8$lambda$LVN1tP1QvlbyU32jxwGIE3Rh75s(Lcom/android/server/wm/WindowManagerService;)V
 
     return-void
 .end method

@@ -1,4 +1,4 @@
-.class final Lcom/android/server/am/UidObserverController$ChangeRecord;
+.class public final Lcom/android/server/am/UidObserverController$ChangeRecord;
 .super Ljava/lang/Object;
 .source "UidObserverController.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = "ChangeRecord"
 .end annotation
 
@@ -31,7 +31,7 @@
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
 
 
 # virtual methods
-.method copyTo(Lcom/android/server/am/UidObserverController$ChangeRecord;)V
+.method public copyTo(Lcom/android/server/am/UidObserverController$ChangeRecord;)V
     .locals 2
 
     iget-boolean v0, p0, Lcom/android/server/am/UidObserverController$ChangeRecord;->isPending:Z

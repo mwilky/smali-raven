@@ -1,4 +1,4 @@
-.class final Lcom/android/server/print/RemotePrintSpooler$GetPrintJobInfosCaller;
+.class public final Lcom/android/server/print/RemotePrintSpooler$GetPrintJobInfosCaller;
 .super Landroid/util/TimedRemoteCaller;
 .source "RemotePrintSpooler.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "GetPrintJobInfosCaller"
 .end annotation
 
@@ -24,7 +24,7 @@
 
 
 # instance fields
-.field private final mCallback:Landroid/print/IPrintSpoolerCallbacks;
+.field public final mCallback:Landroid/print/IPrintSpoolerCallbacks;
 
 
 # direct methods
@@ -44,10 +44,10 @@
     return-void
 .end method
 
-.method static synthetic access$600(Lcom/android/server/print/RemotePrintSpooler$GetPrintJobInfosCaller;Ljava/lang/Object;I)V
+.method public static synthetic access$000(Lcom/android/server/print/RemotePrintSpooler$GetPrintJobInfosCaller;Ljava/lang/Object;I)V
     .locals 0
 
-    invoke-virtual {p0, p1, p2}, Lcom/android/server/print/RemotePrintSpooler$GetPrintJobInfosCaller;->onRemoteMethodResult(Ljava/lang/Object;I)V
+    invoke-virtual {p0, p1, p2}, Landroid/util/TimedRemoteCaller;->onRemoteMethodResult(Ljava/lang/Object;I)V
 
     return-void
 .end method
@@ -75,7 +75,7 @@
         }
     .end annotation
 
-    invoke-virtual {p0}, Lcom/android/server/print/RemotePrintSpooler$GetPrintJobInfosCaller;->onBeforeRemoteCall()I
+    invoke-virtual {p0}, Landroid/util/TimedRemoteCaller;->onBeforeRemoteCall()I
 
     move-result v6
 
@@ -93,11 +93,11 @@
 
     invoke-interface/range {v0 .. v5}, Landroid/print/IPrintSpooler;->getPrintJobInfos(Landroid/print/IPrintSpoolerCallbacks;Landroid/content/ComponentName;III)V
 
-    invoke-virtual {p0, v6}, Lcom/android/server/print/RemotePrintSpooler$GetPrintJobInfosCaller;->getResultTimed(I)Ljava/lang/Object;
+    invoke-virtual {p0, v6}, Landroid/util/TimedRemoteCaller;->getResultTimed(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Ljava/util/List;
+    check-cast p0, Ljava/util/List;
 
-    return-object v0
+    return-object p0
 .end method

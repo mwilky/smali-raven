@@ -1,4 +1,4 @@
-.class Lcom/android/server/audio/SoundEffectsHelper$SfxHandler$1;
+.class public Lcom/android/server/audio/SoundEffectsHelper$SfxHandler$1;
 .super Ljava/lang/Object;
 .source "SoundEffectsHelper.java"
 
@@ -12,21 +12,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$1:Lcom/android/server/audio/SoundEffectsHelper$SfxHandler;
+.field public final synthetic this$1:Lcom/android/server/audio/SoundEffectsHelper$SfxHandler;
 
-.field final synthetic val$effect:I
+.field public final synthetic val$effect:I
 
-.field final synthetic val$volume:I
+.field public final synthetic val$volume:I
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/audio/SoundEffectsHelper$SfxHandler;II)V
+.method public constructor <init>(Lcom/android/server/audio/SoundEffectsHelper$SfxHandler;II)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/audio/SoundEffectsHelper$SfxHandler$1;->this$1:Lcom/android/server/audio/SoundEffectsHelper$SfxHandler;
@@ -43,19 +43,19 @@
 
 # virtual methods
 .method public run(Z)V
-    .locals 3
+    .locals 1
 
     if-eqz p1, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/audio/SoundEffectsHelper$SfxHandler$1;->this$1:Lcom/android/server/audio/SoundEffectsHelper$SfxHandler;
+    iget-object p1, p0, Lcom/android/server/audio/SoundEffectsHelper$SfxHandler$1;->this$1:Lcom/android/server/audio/SoundEffectsHelper$SfxHandler;
 
-    iget-object v0, v0, Lcom/android/server/audio/SoundEffectsHelper$SfxHandler;->this$0:Lcom/android/server/audio/SoundEffectsHelper;
+    iget-object p1, p1, Lcom/android/server/audio/SoundEffectsHelper$SfxHandler;->this$0:Lcom/android/server/audio/SoundEffectsHelper;
 
-    iget v1, p0, Lcom/android/server/audio/SoundEffectsHelper$SfxHandler$1;->val$effect:I
+    iget v0, p0, Lcom/android/server/audio/SoundEffectsHelper$SfxHandler$1;->val$effect:I
 
-    iget v2, p0, Lcom/android/server/audio/SoundEffectsHelper$SfxHandler$1;->val$volume:I
+    iget p0, p0, Lcom/android/server/audio/SoundEffectsHelper$SfxHandler$1;->val$volume:I
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/audio/SoundEffectsHelper;->onPlaySoundEffect(II)V
+    invoke-virtual {p1, v0, p0}, Lcom/android/server/audio/SoundEffectsHelper;->onPlaySoundEffect(II)V
 
     :cond_0
     return-void

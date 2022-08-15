@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/KeyguardDisableHandler$1;
+.class public Lcom/android/server/wm/KeyguardDisableHandler$1;
 .super Ljava/lang/Object;
 .source "KeyguardDisableHandler.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/wm/KeyguardDisableHandler;
+.field public final synthetic this$0:Lcom/android/server/wm/KeyguardDisableHandler;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/wm/KeyguardDisableHandler;)V
+.method public constructor <init>(Lcom/android/server/wm/KeyguardDisableHandler;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/wm/KeyguardDisableHandler$1;->this$0:Lcom/android/server/wm/KeyguardDisableHandler;
@@ -35,21 +35,21 @@
 
 # virtual methods
 .method public acquired(I)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/KeyguardDisableHandler$1;->this$0:Lcom/android/server/wm/KeyguardDisableHandler;
+    iget-object p0, p0, Lcom/android/server/wm/KeyguardDisableHandler$1;->this$0:Lcom/android/server/wm/KeyguardDisableHandler;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/wm/KeyguardDisableHandler;->updateKeyguardEnabled(I)V
+    invoke-virtual {p0, p1}, Lcom/android/server/wm/KeyguardDisableHandler;->updateKeyguardEnabled(I)V
 
     return-void
 .end method
 
 .method public released(I)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/KeyguardDisableHandler$1;->this$0:Lcom/android/server/wm/KeyguardDisableHandler;
+    iget-object p0, p0, Lcom/android/server/wm/KeyguardDisableHandler$1;->this$0:Lcom/android/server/wm/KeyguardDisableHandler;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/wm/KeyguardDisableHandler;->updateKeyguardEnabled(I)V
+    invoke-virtual {p0, p1}, Lcom/android/server/wm/KeyguardDisableHandler;->updateKeyguardEnabled(I)V
 
     return-void
 .end method

@@ -4,12 +4,15 @@
 
 
 # annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/android/server/power/ThermalManagerService$TemperatureWatcher;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = "Sample"
 .end annotation
 
@@ -17,13 +20,13 @@
 # instance fields
 .field public temperature:F
 
-.field final synthetic this$1:Lcom/android/server/power/ThermalManagerService$TemperatureWatcher;
+.field public final synthetic this$1:Lcom/android/server/power/ThermalManagerService$TemperatureWatcher;
 
 .field public time:J
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/power/ThermalManagerService$TemperatureWatcher;JF)V
+.method public constructor <init>(Lcom/android/server/power/ThermalManagerService$TemperatureWatcher;JF)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/power/ThermalManagerService$TemperatureWatcher$Sample;->this$1:Lcom/android/server/power/ThermalManagerService$TemperatureWatcher;

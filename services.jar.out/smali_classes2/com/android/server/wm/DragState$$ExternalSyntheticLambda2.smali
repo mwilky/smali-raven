@@ -1,53 +1,34 @@
 .class public final synthetic Lcom/android/server/wm/DragState$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Consumer;
+.implements Ljava/lang/Runnable;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/server/wm/DragState;
-
-.field public final synthetic f$1:F
-
-.field public final synthetic f$2:F
-
-.field public final synthetic f$3:Z
+.field public final synthetic f$0:Landroid/animation/ValueAnimator;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/wm/DragState;FFZ)V
+.method public synthetic constructor <init>(Landroid/animation/ValueAnimator;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/wm/DragState$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/wm/DragState;
-
-    iput p2, p0, Lcom/android/server/wm/DragState$$ExternalSyntheticLambda2;->f$1:F
-
-    iput p3, p0, Lcom/android/server/wm/DragState$$ExternalSyntheticLambda2;->f$2:F
-
-    iput-boolean p4, p0, Lcom/android/server/wm/DragState$$ExternalSyntheticLambda2;->f$3:Z
+    iput-object p1, p0, Lcom/android/server/wm/DragState$$ExternalSyntheticLambda2;->f$0:Landroid/animation/ValueAnimator;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
-    .locals 4
+.method public final run()V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/DragState$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/wm/DragState;
+    iget-object p0, p0, Lcom/android/server/wm/DragState$$ExternalSyntheticLambda2;->f$0:Landroid/animation/ValueAnimator;
 
-    iget v1, p0, Lcom/android/server/wm/DragState$$ExternalSyntheticLambda2;->f$1:F
-
-    iget v2, p0, Lcom/android/server/wm/DragState$$ExternalSyntheticLambda2;->f$2:F
-
-    iget-boolean v3, p0, Lcom/android/server/wm/DragState$$ExternalSyntheticLambda2;->f$3:Z
-
-    check-cast p1, Lcom/android/server/wm/WindowState;
-
-    invoke-virtual {v0, v1, v2, v3, p1}, Lcom/android/server/wm/DragState;->lambda$broadcastDragStartedLocked$0$DragState(FFZLcom/android/server/wm/WindowState;)V
+    invoke-static {p0}, Lcom/android/server/wm/DragState;->$r8$lambda$DFx7rEKrhQ7NbT-dCLf3IebJV5o(Landroid/animation/ValueAnimator;)V
 
     return-void
 .end method

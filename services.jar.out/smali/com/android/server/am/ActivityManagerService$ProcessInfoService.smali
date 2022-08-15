@@ -1,4 +1,4 @@
-.class Lcom/android/server/am/ActivityManagerService$ProcessInfoService;
+.class public Lcom/android/server/am/ActivityManagerService$ProcessInfoService;
 .super Landroid/os/IProcessInfoService$Stub;
 .source "ActivityManagerService.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "ProcessInfoService"
 .end annotation
 
 
 # instance fields
-.field final mActivityManagerService:Lcom/android/server/am/ActivityManagerService;
+.field public final mActivityManagerService:Lcom/android/server/am/ActivityManagerService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/ActivityManagerService;)V
+.method public constructor <init>(Lcom/android/server/am/ActivityManagerService;)V
     .locals 0
 
     invoke-direct {p0}, Landroid/os/IProcessInfoService$Stub;-><init>()V
@@ -32,23 +32,23 @@
 
 # virtual methods
 .method public getProcessStatesAndOomScoresFromPids([I[I[I)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$ProcessInfoService;->mActivityManagerService:Lcom/android/server/am/ActivityManagerService;
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService$ProcessInfoService;->mActivityManagerService:Lcom/android/server/am/ActivityManagerService;
 
-    invoke-virtual {v0, p1, p2, p3}, Lcom/android/server/am/ActivityManagerService;->getProcessStatesAndOomScoresForPIDs([I[I[I)V
+    invoke-virtual {p0, p1, p2, p3}, Lcom/android/server/am/ActivityManagerService;->getProcessStatesAndOomScoresForPIDs([I[I[I)V
 
     return-void
 .end method
 
 .method public getProcessStatesFromPids([I[I)V
-    .locals 2
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$ProcessInfoService;->mActivityManagerService:Lcom/android/server/am/ActivityManagerService;
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService$ProcessInfoService;->mActivityManagerService:Lcom/android/server/am/ActivityManagerService;
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    invoke-virtual {v0, p1, p2, v1}, Lcom/android/server/am/ActivityManagerService;->getProcessStatesAndOomScoresForPIDs([I[I[I)V
+    invoke-virtual {p0, p1, p2, v0}, Lcom/android/server/am/ActivityManagerService;->getProcessStatesAndOomScoresForPIDs([I[I[I)V
 
     return-void
 .end method

@@ -1,4 +1,4 @@
-.class Lcom/android/server/media/RemoteDisplayProviderProxy$Connection$1;
+.class public Lcom/android/server/media/RemoteDisplayProviderProxy$Connection$1;
 .super Ljava/lang/Object;
 .source "RemoteDisplayProviderProxy.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$1:Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;
+.field public final synthetic this$1:Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;)V
+.method public constructor <init>(Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/media/RemoteDisplayProviderProxy$Connection$1;->this$1:Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;
@@ -35,15 +35,13 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/media/RemoteDisplayProviderProxy$Connection$1;->this$1:Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;
+    iget-object p0, p0, Lcom/android/server/media/RemoteDisplayProviderProxy$Connection$1;->this$1:Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;
 
-    iget-object v0, v0, Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;->this$0:Lcom/android/server/media/RemoteDisplayProviderProxy;
+    iget-object v0, p0, Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;->this$0:Lcom/android/server/media/RemoteDisplayProviderProxy;
 
-    iget-object v1, p0, Lcom/android/server/media/RemoteDisplayProviderProxy$Connection$1;->this$1:Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;
-
-    invoke-static {v0, v1}, Lcom/android/server/media/RemoteDisplayProviderProxy;->access$300(Lcom/android/server/media/RemoteDisplayProviderProxy;Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;)V
+    invoke-static {v0, p0}, Lcom/android/server/media/RemoteDisplayProviderProxy;->-$$Nest$monConnectionReady(Lcom/android/server/media/RemoteDisplayProviderProxy;Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;)V
 
     return-void
 .end method

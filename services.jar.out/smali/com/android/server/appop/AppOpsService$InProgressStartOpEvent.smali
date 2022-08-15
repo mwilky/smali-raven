@@ -1,4 +1,4 @@
-.class final Lcom/android/server/appop/AppOpsService$InProgressStartOpEvent;
+.class public final Lcom/android/server/appop/AppOpsService$InProgressStartOpEvent;
 .super Ljava/lang/Object;
 .source "AppOpsService.java"
 
@@ -12,38 +12,78 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "InProgressStartOpEvent"
 .end annotation
 
 
 # instance fields
-.field private mAttributionChainId:I
+.field public mAttributionChainId:I
 
-.field private mAttributionFlags:I
+.field public mAttributionFlags:I
 
-.field private mAttributionTag:Ljava/lang/String;
+.field public mAttributionTag:Ljava/lang/String;
 
-.field private mClientId:Landroid/os/IBinder;
+.field public mClientId:Landroid/os/IBinder;
 
-.field private mFlags:I
+.field public mFlags:I
 
-.field private mOnDeath:Ljava/lang/Runnable;
+.field public mOnDeath:Ljava/lang/Runnable;
 
-.field private mProxy:Landroid/app/AppOpsManager$OpEventProxyInfo;
+.field public mProxy:Landroid/app/AppOpsManager$OpEventProxyInfo;
 
-.field private mStartElapsedTime:J
+.field public mStartElapsedTime:J
 
-.field private mStartTime:J
+.field public mStartTime:J
 
-.field private mUidState:I
+.field public mUidState:I
 
-.field numUnfinishedStarts:I
+.field public numUnfinishedStarts:I
 
 
 # direct methods
-.method private constructor <init>(JJLandroid/os/IBinder;Ljava/lang/String;Ljava/lang/Runnable;ILandroid/app/AppOpsManager$OpEventProxyInfo;III)V
-    .locals 1
+.method public static bridge synthetic -$$Nest$fgetmClientId(Lcom/android/server/appop/AppOpsService$InProgressStartOpEvent;)Landroid/os/IBinder;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/appop/AppOpsService$InProgressStartOpEvent;->mClientId:Landroid/os/IBinder;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmFlags(Lcom/android/server/appop/AppOpsService$InProgressStartOpEvent;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/server/appop/AppOpsService$InProgressStartOpEvent;->mFlags:I
+
+    return p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmUidState(Lcom/android/server/appop/AppOpsService$InProgressStartOpEvent;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/server/appop/AppOpsService$InProgressStartOpEvent;->mUidState:I
+
+    return p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fputmStartElapsedTime(Lcom/android/server/appop/AppOpsService$InProgressStartOpEvent;J)V
+    .locals 0
+
+    iput-wide p1, p0, Lcom/android/server/appop/AppOpsService$InProgressStartOpEvent;->mStartElapsedTime:J
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$fputmStartTime(Lcom/android/server/appop/AppOpsService$InProgressStartOpEvent;J)V
+    .locals 0
+
+    iput-wide p1, p0, Lcom/android/server/appop/AppOpsService$InProgressStartOpEvent;->mStartTime:J
+
+    return-void
+.end method
+
+.method public constructor <init>(JJLandroid/os/IBinder;Ljava/lang/String;Ljava/lang/Runnable;ILandroid/app/AppOpsManager$OpEventProxyInfo;III)V
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -72,74 +112,29 @@
 
     iput p12, p0, Lcom/android/server/appop/AppOpsService$InProgressStartOpEvent;->mAttributionChainId:I
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    invoke-interface {p5, p0, v0}, Landroid/os/IBinder;->linkToDeath(Landroid/os/IBinder$DeathRecipient;I)V
+    invoke-interface {p5, p0, p1}, Landroid/os/IBinder;->linkToDeath(Landroid/os/IBinder$DeathRecipient;I)V
 
     return-void
 .end method
 
-.method synthetic constructor <init>(JJLandroid/os/IBinder;Ljava/lang/String;Ljava/lang/Runnable;ILandroid/app/AppOpsManager$OpEventProxyInfo;IIILcom/android/server/appop/AppOpsService$1;)V
+.method public synthetic constructor <init>(JJLandroid/os/IBinder;Ljava/lang/String;Ljava/lang/Runnable;ILandroid/app/AppOpsManager$OpEventProxyInfo;IIILcom/android/server/appop/AppOpsService$InProgressStartOpEvent-IA;)V
     .locals 0
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
 
     invoke-direct/range {p0 .. p12}, Lcom/android/server/appop/AppOpsService$InProgressStartOpEvent;-><init>(JJLandroid/os/IBinder;Ljava/lang/String;Ljava/lang/Runnable;ILandroid/app/AppOpsManager$OpEventProxyInfo;III)V
 
     return-void
 .end method
 
-.method static synthetic access$1002(Lcom/android/server/appop/AppOpsService$InProgressStartOpEvent;J)J
-    .locals 0
-
-    iput-wide p1, p0, Lcom/android/server/appop/AppOpsService$InProgressStartOpEvent;->mStartTime:J
-
-    return-wide p1
-.end method
-
-.method static synthetic access$1100(Lcom/android/server/appop/AppOpsService$InProgressStartOpEvent;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/server/appop/AppOpsService$InProgressStartOpEvent;->mFlags:I
-
-    return v0
-.end method
-
-.method static synthetic access$700(Lcom/android/server/appop/AppOpsService$InProgressStartOpEvent;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/server/appop/AppOpsService$InProgressStartOpEvent;->mUidState:I
-
-    return v0
-.end method
-
-.method static synthetic access$800(Lcom/android/server/appop/AppOpsService$InProgressStartOpEvent;)Landroid/os/IBinder;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/appop/AppOpsService$InProgressStartOpEvent;->mClientId:Landroid/os/IBinder;
-
-    return-object v0
-.end method
-
-.method static synthetic access$902(Lcom/android/server/appop/AppOpsService$InProgressStartOpEvent;J)J
-    .locals 0
-
-    iput-wide p1, p0, Lcom/android/server/appop/AppOpsService$InProgressStartOpEvent;->mStartElapsedTime:J
-
-    return-wide p1
-.end method
-
 
 # virtual methods
 .method public binderDied()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/appop/AppOpsService$InProgressStartOpEvent;->mOnDeath:Ljava/lang/Runnable;
+    iget-object p0, p0, Lcom/android/server/appop/AppOpsService$InProgressStartOpEvent;->mOnDeath:Ljava/lang/Runnable;
 
-    invoke-interface {v0}, Ljava/lang/Runnable;->run()V
+    invoke-interface {p0}, Ljava/lang/Runnable;->run()V
 
     return-void
 .end method
@@ -156,53 +151,48 @@
     :try_end_0
     .catch Ljava/util/NoSuchElementException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
-
     :catch_0
-    move-exception v0
-
-    :goto_0
     return-void
 .end method
 
 .method public getAttributionChainId()I
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/appop/AppOpsService$InProgressStartOpEvent;->mAttributionChainId:I
+    iget p0, p0, Lcom/android/server/appop/AppOpsService$InProgressStartOpEvent;->mAttributionChainId:I
 
-    return v0
+    return p0
 .end method
 
 .method public getAttributionFlags()I
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/appop/AppOpsService$InProgressStartOpEvent;->mAttributionFlags:I
+    iget p0, p0, Lcom/android/server/appop/AppOpsService$InProgressStartOpEvent;->mAttributionFlags:I
 
-    return v0
+    return p0
 .end method
 
 .method public getClientId()Landroid/os/IBinder;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/appop/AppOpsService$InProgressStartOpEvent;->mClientId:Landroid/os/IBinder;
+    iget-object p0, p0, Lcom/android/server/appop/AppOpsService$InProgressStartOpEvent;->mClientId:Landroid/os/IBinder;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getFlags()I
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/appop/AppOpsService$InProgressStartOpEvent;->mFlags:I
+    iget p0, p0, Lcom/android/server/appop/AppOpsService$InProgressStartOpEvent;->mFlags:I
 
-    return v0
+    return p0
 .end method
 
 .method public getProxy()Landroid/app/AppOpsManager$OpEventProxyInfo;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/appop/AppOpsService$InProgressStartOpEvent;->mProxy:Landroid/app/AppOpsManager$OpEventProxyInfo;
+    iget-object p0, p0, Lcom/android/server/appop/AppOpsService$InProgressStartOpEvent;->mProxy:Landroid/app/AppOpsManager$OpEventProxyInfo;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getStartElapsedTime()J
@@ -222,15 +212,15 @@
 .end method
 
 .method public getUidState()I
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/appop/AppOpsService$InProgressStartOpEvent;->mUidState:I
+    iget p0, p0, Lcom/android/server/appop/AppOpsService$InProgressStartOpEvent;->mUidState:I
 
-    return v0
+    return p0
 .end method
 
 .method public reinit(JJLandroid/os/IBinder;Ljava/lang/String;Ljava/lang/Runnable;IILandroid/app/AppOpsManager$OpEventProxyInfo;IILandroid/util/Pools$Pool;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(JJ",
@@ -266,11 +256,11 @@
 
     iput p9, p0, Lcom/android/server/appop/AppOpsService$InProgressStartOpEvent;->mFlags:I
 
-    iget-object v0, p0, Lcom/android/server/appop/AppOpsService$InProgressStartOpEvent;->mProxy:Landroid/app/AppOpsManager$OpEventProxyInfo;
+    iget-object p1, p0, Lcom/android/server/appop/AppOpsService$InProgressStartOpEvent;->mProxy:Landroid/app/AppOpsManager$OpEventProxyInfo;
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    invoke-interface {p13, v0}, Landroid/util/Pools$Pool;->release(Ljava/lang/Object;)Z
+    invoke-interface {p13, p1}, Landroid/util/Pools$Pool;->release(Ljava/lang/Object;)Z
 
     :cond_0
     iput-object p10, p0, Lcom/android/server/appop/AppOpsService$InProgressStartOpEvent;->mProxy:Landroid/app/AppOpsManager$OpEventProxyInfo;
@@ -279,9 +269,9 @@
 
     iput p12, p0, Lcom/android/server/appop/AppOpsService$InProgressStartOpEvent;->mAttributionChainId:I
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    invoke-interface {p5, p0, v0}, Landroid/os/IBinder;->linkToDeath(Landroid/os/IBinder$DeathRecipient;I)V
+    invoke-interface {p5, p0, p1}, Landroid/os/IBinder;->linkToDeath(Landroid/os/IBinder$DeathRecipient;I)V
 
     return-void
 .end method

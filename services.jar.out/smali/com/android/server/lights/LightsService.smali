@@ -13,16 +13,10 @@
 .end annotation
 
 
-# static fields
-.field static final DEBUG:Z = false
-
-.field static final TAG:Ljava/lang/String; = "LightsService"
-
-
 # instance fields
-.field private mH:Landroid/os/Handler;
+.field public mH:Landroid/os/Handler;
 
-.field private final mLightsById:Landroid/util/SparseArray;
+.field public final mLightsById:Landroid/util/SparseArray;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/SparseArray<",
@@ -32,13 +26,16 @@
     .end annotation
 .end field
 
-.field private final mLightsByType:[Lcom/android/server/lights/LightsService$LightImpl;
+.field public final mLightsByType:[Lcom/android/server/lights/LightsService$LightImpl;
 
-.field final mManagerService:Lcom/android/server/lights/LightsService$LightsManagerBinderService;
+.field public final mManagerService:Lcom/android/server/lights/LightsService$LightsManagerBinderService;
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+.end field
 
-.field private final mService:Lcom/android/server/lights/LightsManager;
+.field public final mService:Lcom/android/server/lights/LightsManager;
 
-.field private final mVintfLights:Ljava/util/function/Supplier;
+.field public final mVintfLights:Ljava/util/function/Supplier;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/function/Supplier<",
@@ -50,6 +47,48 @@
 
 
 # direct methods
+.method public static bridge synthetic -$$Nest$fgetmH(Lcom/android/server/lights/LightsService;)Landroid/os/Handler;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/lights/LightsService;->mH:Landroid/os/Handler;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmLightsById(Lcom/android/server/lights/LightsService;)Landroid/util/SparseArray;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/lights/LightsService;->mLightsById:Landroid/util/SparseArray;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmLightsByType(Lcom/android/server/lights/LightsService;)[Lcom/android/server/lights/LightsService$LightImpl;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/lights/LightsService;->mLightsByType:[Lcom/android/server/lights/LightsService$LightImpl;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmVintfLights(Lcom/android/server/lights/LightsService;)Ljava/util/function/Supplier;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/lights/LightsService;->mVintfLights:Ljava/util/function/Supplier;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$mgetVrDisplayMode(Lcom/android/server/lights/LightsService;)I
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/server/lights/LightsService;->getVrDisplayMode()I
+
+    move-result p0
+
+    return p0
+.end method
+
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 2
 
@@ -57,7 +96,7 @@
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, v1}, Lcom/android/server/lights/LightsService$VintfHalCache;-><init>(Lcom/android/server/lights/LightsService$1;)V
+    invoke-direct {v0, v1}, Lcom/android/server/lights/LightsService$VintfHalCache;-><init>(Lcom/android/server/lights/LightsService$VintfHalCache-IA;)V
 
     invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
 
@@ -68,8 +107,11 @@
     return-void
 .end method
 
-.method constructor <init>(Landroid/content/Context;Ljava/util/function/Supplier;Landroid/os/Looper;)V
-    .locals 2
+.method public constructor <init>(Landroid/content/Context;Ljava/util/function/Supplier;Landroid/os/Looper;)V
+    .locals 1
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -110,153 +152,138 @@
 
     invoke-interface {p2}, Ljava/util/function/Supplier;->get()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p3
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    if-eqz v0, :cond_0
-
-    move-object v0, p2
+    if-eqz p3, :cond_0
 
     goto :goto_0
 
     :cond_0
-    move-object v0, v1
+    move-object p2, v0
 
     :goto_0
-    iput-object v0, p0, Lcom/android/server/lights/LightsService;->mVintfLights:Ljava/util/function/Supplier;
+    iput-object p2, p0, Lcom/android/server/lights/LightsService;->mVintfLights:Ljava/util/function/Supplier;
 
-    invoke-direct {p0, p1}, Lcom/android/server/lights/LightsService;->populateAvailableLights(Landroid/content/Context;)V
+    invoke-virtual {p0, p1}, Lcom/android/server/lights/LightsService;->populateAvailableLights(Landroid/content/Context;)V
 
-    new-instance v0, Lcom/android/server/lights/LightsService$LightsManagerBinderService;
+    new-instance p1, Lcom/android/server/lights/LightsService$LightsManagerBinderService;
 
-    invoke-direct {v0, p0, v1}, Lcom/android/server/lights/LightsService$LightsManagerBinderService;-><init>(Lcom/android/server/lights/LightsService;Lcom/android/server/lights/LightsService$1;)V
+    invoke-direct {p1, p0, v0}, Lcom/android/server/lights/LightsService$LightsManagerBinderService;-><init>(Lcom/android/server/lights/LightsService;Lcom/android/server/lights/LightsService$LightsManagerBinderService-IA;)V
 
-    iput-object v0, p0, Lcom/android/server/lights/LightsService;->mManagerService:Lcom/android/server/lights/LightsService$LightsManagerBinderService;
+    iput-object p1, p0, Lcom/android/server/lights/LightsService;->mManagerService:Lcom/android/server/lights/LightsService$LightsManagerBinderService;
 
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/server/lights/LightsService;)Landroid/util/SparseArray;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/lights/LightsService;->mLightsById:Landroid/util/SparseArray;
-
-    return-object v0
+.method public static native setLight_native(IIIIII)V
 .end method
 
-.method static synthetic access$1000(Lcom/android/server/lights/LightsService;)[Lcom/android/server/lights/LightsService$LightImpl;
-    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/lights/LightsService;->mLightsByType:[Lcom/android/server/lights/LightsService$LightImpl;
-
-    return-object v0
-.end method
-
-.method static synthetic access$400(Lcom/android/server/lights/LightsService;)Ljava/util/function/Supplier;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/lights/LightsService;->mVintfLights:Ljava/util/function/Supplier;
-
-    return-object v0
-.end method
-
-.method static synthetic access$500(Lcom/android/server/lights/LightsService;)Landroid/os/Handler;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/lights/LightsService;->mH:Landroid/os/Handler;
-
-    return-object v0
-.end method
-
-.method static synthetic access$600(Lcom/android/server/lights/LightsService;)I
-    .locals 1
-
-    invoke-direct {p0}, Lcom/android/server/lights/LightsService;->getVrDisplayMode()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method private getVrDisplayMode()I
-    .locals 4
+# virtual methods
+.method public final getVrDisplayMode()I
+    .locals 3
 
     invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
 
     move-result v0
 
-    invoke-virtual {p0}, Lcom/android/server/lights/LightsService;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Lcom/android/server/SystemService;->getContext()Landroid/content/Context;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v1
+    move-result-object p0
 
-    const-string/jumbo v2, "vr_display_mode"
+    const-string/jumbo v1, "vr_display_mode"
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    invoke-static {v1, v2, v3, v0}, Landroid/provider/Settings$Secure;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
+    invoke-static {p0, v1, v2, v0}, Landroid/provider/Settings$Secure;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
 
-    move-result v1
+    move-result p0
 
-    return v1
+    return p0
 .end method
 
-.method private populateAvailableLights(Landroid/content/Context;)V
-    .locals 4
+.method public onBootPhase(I)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onStart()V
+    .locals 2
+
+    const-class v0, Lcom/android/server/lights/LightsManager;
+
+    iget-object v1, p0, Lcom/android/server/lights/LightsService;->mService:Lcom/android/server/lights/LightsManager;
+
+    invoke-virtual {p0, v0, v1}, Lcom/android/server/SystemService;->publishLocalService(Ljava/lang/Class;Ljava/lang/Object;)V
+
+    iget-object v0, p0, Lcom/android/server/lights/LightsService;->mManagerService:Lcom/android/server/lights/LightsService$LightsManagerBinderService;
+
+    const-string v1, "lights"
+
+    invoke-virtual {p0, v1, v0}, Lcom/android/server/SystemService;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
+
+    return-void
+.end method
+
+.method public final populateAvailableLights(Landroid/content/Context;)V
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/lights/LightsService;->mVintfLights:Ljava/util/function/Supplier;
 
     if-eqz v0, :cond_0
 
-    invoke-direct {p0, p1}, Lcom/android/server/lights/LightsService;->populateAvailableLightsFromAidl(Landroid/content/Context;)V
+    invoke-virtual {p0, p1}, Lcom/android/server/lights/LightsService;->populateAvailableLightsFromAidl(Landroid/content/Context;)V
 
     goto :goto_0
 
     :cond_0
-    invoke-direct {p0, p1}, Lcom/android/server/lights/LightsService;->populateAvailableLightsFromHidl(Landroid/content/Context;)V
+    invoke-virtual {p0, p1}, Lcom/android/server/lights/LightsService;->populateAvailableLightsFromHidl(Landroid/content/Context;)V
 
     :goto_0
+    iget-object p1, p0, Lcom/android/server/lights/LightsService;->mLightsById:Landroid/util/SparseArray;
+
+    invoke-virtual {p1}, Landroid/util/SparseArray;->size()I
+
+    move-result p1
+
+    add-int/lit8 p1, p1, -0x1
+
+    :goto_1
+    if-ltz p1, :cond_2
+
     iget-object v0, p0, Lcom/android/server/lights/LightsService;->mLightsById:Landroid/util/SparseArray;
 
-    invoke-virtual {v0}, Landroid/util/SparseArray;->size()I
+    invoke-virtual {v0, p1}, Landroid/util/SparseArray;->keyAt(I)I
 
     move-result v0
 
-    add-int/lit8 v0, v0, -0x1
+    if-ltz v0, :cond_1
 
-    :goto_1
-    if-ltz v0, :cond_2
+    iget-object v1, p0, Lcom/android/server/lights/LightsService;->mLightsByType:[Lcom/android/server/lights/LightsService$LightImpl;
 
-    iget-object v1, p0, Lcom/android/server/lights/LightsService;->mLightsById:Landroid/util/SparseArray;
+    array-length v2, v1
 
-    invoke-virtual {v1, v0}, Landroid/util/SparseArray;->keyAt(I)I
+    if-ge v0, v2, :cond_1
 
-    move-result v1
+    iget-object v2, p0, Lcom/android/server/lights/LightsService;->mLightsById:Landroid/util/SparseArray;
 
-    if-ltz v1, :cond_1
+    invoke-virtual {v2, p1}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
 
-    iget-object v2, p0, Lcom/android/server/lights/LightsService;->mLightsByType:[Lcom/android/server/lights/LightsService$LightImpl;
+    move-result-object v2
 
-    array-length v3, v2
+    check-cast v2, Lcom/android/server/lights/LightsService$LightImpl;
 
-    if-ge v1, v3, :cond_1
-
-    iget-object v3, p0, Lcom/android/server/lights/LightsService;->mLightsById:Landroid/util/SparseArray;
-
-    invoke-virtual {v3, v0}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Lcom/android/server/lights/LightsService$LightImpl;
-
-    aput-object v3, v2, v1
+    aput-object v2, v1, v0
 
     :cond_1
-    add-int/lit8 v0, v0, -0x1
+    add-int/lit8 p1, p1, -0x1
 
     goto :goto_1
 
@@ -264,7 +291,7 @@
     return-void
 .end method
 
-.method private populateAvailableLightsFromAidl(Landroid/content/Context;)V
+.method public final populateAvailableLightsFromAidl(Landroid/content/Context;)V
     .locals 8
 
     :try_start_0
@@ -297,7 +324,7 @@
 
     const/4 v7, 0x0
 
-    invoke-direct {v6, p0, p1, v3, v7}, Lcom/android/server/lights/LightsService$LightImpl;-><init>(Lcom/android/server/lights/LightsService;Landroid/content/Context;Landroid/hardware/light/HwLight;Lcom/android/server/lights/LightsService$1;)V
+    invoke-direct {v6, p0, p1, v3, v7}, Lcom/android/server/lights/LightsService$LightImpl;-><init>(Lcom/android/server/lights/LightsService;Landroid/content/Context;Landroid/hardware/light/HwLight;Lcom/android/server/lights/LightsService$LightImpl-IA;)V
 
     invoke-virtual {v4, v5, v6}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
     :try_end_0
@@ -307,23 +334,20 @@
 
     goto :goto_0
 
-    :cond_0
-    goto :goto_1
-
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    const-string v1, "LightsService"
+    const-string p1, "LightsService"
 
-    const-string v2, "Unable to get lights from HAL"
+    const-string v0, "Unable to get lights from HAL"
 
-    invoke-static {v1, v2, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {p1, v0, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    :goto_1
+    :cond_0
     return-void
 .end method
 
-.method private populateAvailableLightsFromHidl(Landroid/content/Context;)V
+.method public final populateAvailableLightsFromHidl(Landroid/content/Context;)V
     .locals 6
 
     const/4 v0, 0x0
@@ -343,59 +367,26 @@
 
     iput v2, v1, Landroid/hardware/light/HwLight;->id:I
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
-    iput v2, v1, Landroid/hardware/light/HwLight;->ordinal:I
-
-    int-to-byte v2, v0
+    iput v3, v1, Landroid/hardware/light/HwLight;->ordinal:I
 
     iput-byte v2, v1, Landroid/hardware/light/HwLight;->type:B
 
-    iget-object v2, p0, Lcom/android/server/lights/LightsService;->mLightsById:Landroid/util/SparseArray;
-
-    iget v3, v1, Landroid/hardware/light/HwLight;->id:I
+    iget-object v3, p0, Lcom/android/server/lights/LightsService;->mLightsById:Landroid/util/SparseArray;
 
     new-instance v4, Lcom/android/server/lights/LightsService$LightImpl;
 
     const/4 v5, 0x0
 
-    invoke-direct {v4, p0, p1, v1, v5}, Lcom/android/server/lights/LightsService$LightImpl;-><init>(Lcom/android/server/lights/LightsService;Landroid/content/Context;Landroid/hardware/light/HwLight;Lcom/android/server/lights/LightsService$1;)V
+    invoke-direct {v4, p0, p1, v1, v5}, Lcom/android/server/lights/LightsService$LightImpl;-><init>(Lcom/android/server/lights/LightsService;Landroid/content/Context;Landroid/hardware/light/HwLight;Lcom/android/server/lights/LightsService$LightImpl-IA;)V
 
-    invoke-virtual {v2, v3, v4}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    invoke-virtual {v3, v2, v4}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     :cond_0
-    return-void
-.end method
-
-.method static native setLight_native(IIIIII)V
-.end method
-
-
-# virtual methods
-.method public onBootPhase(I)V
-    .locals 0
-
-    return-void
-.end method
-
-.method public onStart()V
-    .locals 2
-
-    const-class v0, Lcom/android/server/lights/LightsManager;
-
-    iget-object v1, p0, Lcom/android/server/lights/LightsService;->mService:Lcom/android/server/lights/LightsManager;
-
-    invoke-virtual {p0, v0, v1}, Lcom/android/server/lights/LightsService;->publishLocalService(Ljava/lang/Class;Ljava/lang/Object;)V
-
-    iget-object v0, p0, Lcom/android/server/lights/LightsService;->mManagerService:Lcom/android/server/lights/LightsService$LightsManagerBinderService;
-
-    const-string/jumbo v1, "lights"
-
-    invoke-virtual {p0, v1, v0}, Lcom/android/server/lights/LightsService;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
-
     return-void
 .end method

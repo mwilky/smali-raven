@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/am/ProcessStateRecord$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/BiConsumer;
@@ -23,15 +24,15 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/am/ProcessStateRecord$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/am/ProcessStateRecord;
+    iget-object p0, p0, Lcom/android/server/am/ProcessStateRecord$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/am/ProcessStateRecord;
 
     check-cast p1, Ljava/lang/String;
 
     check-cast p2, Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;
 
-    invoke-virtual {v0, p1, p2}, Lcom/android/server/am/ProcessStateRecord;->lambda$setReportedProcState$0$ProcessStateRecord(Ljava/lang/String;Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;)V
+    invoke-static {p0, p1, p2}, Lcom/android/server/am/ProcessStateRecord;->$r8$lambda$bIiYeLi_RQfV33p2KZda84nfLfo(Lcom/android/server/am/ProcessStateRecord;Ljava/lang/String;Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;)V
 
     return-void
 .end method

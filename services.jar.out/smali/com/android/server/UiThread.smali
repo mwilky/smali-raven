@@ -4,17 +4,13 @@
 
 
 # static fields
-.field private static final SLOW_DELIVERY_THRESHOLD_MS:J = 0xc8L
+.field public static sHandler:Landroid/os/Handler;
 
-.field private static final SLOW_DISPATCH_THRESHOLD_MS:J = 0x64L
-
-.field private static sHandler:Landroid/os/Handler;
-
-.field private static sInstance:Lcom/android/server/UiThread;
+.field public static sInstance:Lcom/android/server/UiThread;
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 3
 
     const-string v0, "android.ui"
@@ -30,6 +26,8 @@
 
 .method public static dispose()V
     .locals 6
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
 
     const-class v0, Lcom/android/server/UiThread;
 
@@ -79,7 +77,7 @@
     throw v1
 .end method
 
-.method private static ensureThreadLocked()V
+.method public static ensureThreadLocked()V
     .locals 5
 
     sget-object v0, Lcom/android/server/UiThread;->sInstance:Lcom/android/server/UiThread;
@@ -92,11 +90,11 @@
 
     sput-object v0, Lcom/android/server/UiThread;->sInstance:Lcom/android/server/UiThread;
 
-    invoke-virtual {v0}, Lcom/android/server/UiThread;->start()V
+    invoke-virtual {v0}, Landroid/os/HandlerThread;->start()V
 
     sget-object v0, Lcom/android/server/UiThread;->sInstance:Lcom/android/server/UiThread;
 
-    invoke-virtual {v0}, Lcom/android/server/UiThread;->getLooper()Landroid/os/Looper;
+    invoke-virtual {v0}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;
 
     move-result-object v0
 
@@ -110,17 +108,17 @@
 
     invoke-virtual {v0, v1, v2, v3, v4}, Landroid/os/Looper;->setSlowLogThresholdMs(JJ)V
 
-    new-instance v1, Landroid/os/Handler;
+    new-instance v0, Landroid/os/Handler;
 
-    sget-object v2, Lcom/android/server/UiThread;->sInstance:Lcom/android/server/UiThread;
+    sget-object v1, Lcom/android/server/UiThread;->sInstance:Lcom/android/server/UiThread;
 
-    invoke-virtual {v2}, Lcom/android/server/UiThread;->getLooper()Landroid/os/Looper;
+    invoke-virtual {v1}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-direct {v1, v2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
+    invoke-direct {v0, v1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
-    sput-object v1, Lcom/android/server/UiThread;->sHandler:Landroid/os/Handler;
+    sput-object v0, Lcom/android/server/UiThread;->sHandler:Landroid/os/Handler;
 
     :cond_0
     return-void

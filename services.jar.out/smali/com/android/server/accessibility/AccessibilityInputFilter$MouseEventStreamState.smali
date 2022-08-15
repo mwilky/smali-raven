@@ -1,4 +1,4 @@
-.class Lcom/android/server/accessibility/AccessibilityInputFilter$MouseEventStreamState;
+.class public Lcom/android/server/accessibility/AccessibilityInputFilter$MouseEventStreamState;
 .super Lcom/android/server/accessibility/AccessibilityInputFilter$EventStreamState;
 .source "AccessibilityInputFilter.java"
 
@@ -9,13 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "MouseEventStreamState"
 .end annotation
 
 
 # instance fields
-.field private mMotionSequenceStarted:Z
+.field public mMotionSequenceStarted:Z
 
 
 # direct methods
@@ -44,7 +44,7 @@
 .end method
 
 .method public final shouldProcessMotionEvent(Landroid/view/MotionEvent;)Z
-    .locals 3
+    .locals 2
 
     iget-boolean v0, p0, Lcom/android/server/accessibility/AccessibilityInputFilter$MouseEventStreamState;->mMotionSequenceStarted:Z
 
@@ -57,13 +57,13 @@
     :cond_0
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_2
+    if-eqz p1, :cond_2
 
-    const/4 v2, 0x7
+    const/4 v0, 0x7
 
-    if-ne v0, v2, :cond_1
+    if-ne p1, v0, :cond_1
 
     goto :goto_0
 
@@ -78,9 +78,9 @@
 .end method
 
 .method public final shouldProcessScroll()Z
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 .end method

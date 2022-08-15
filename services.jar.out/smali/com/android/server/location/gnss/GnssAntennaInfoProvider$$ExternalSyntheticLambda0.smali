@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/location/gnss/GnssAntennaInfoProvider$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/internal/listeners/ListenerExecutor$ListenerOperation;
@@ -23,13 +24,13 @@
 
 # virtual methods
 .method public final operate(Ljava/lang/Object;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/location/gnss/GnssAntennaInfoProvider$$ExternalSyntheticLambda0;->f$0:Ljava/util/List;
+    iget-object p0, p0, Lcom/android/server/location/gnss/GnssAntennaInfoProvider$$ExternalSyntheticLambda0;->f$0:Ljava/util/List;
 
     check-cast p1, Landroid/location/IGnssAntennaInfoListener;
 
-    invoke-static {v0, p1}, Lcom/android/server/location/gnss/GnssAntennaInfoProvider;->lambda$onReportAntennaInfo$0(Ljava/util/List;Landroid/location/IGnssAntennaInfoListener;)V
+    invoke-static {p0, p1}, Lcom/android/server/location/gnss/GnssAntennaInfoProvider;->$r8$lambda$aI8m2GsJ28YOCuy_3oZOdDjuy5Y(Ljava/util/List;Landroid/location/IGnssAntennaInfoListener;)V
 
     return-void
 .end method

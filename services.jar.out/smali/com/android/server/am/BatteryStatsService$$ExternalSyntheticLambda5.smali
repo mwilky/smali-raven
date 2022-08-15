@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda5;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -135,7 +136,7 @@
 
     move-object/from16 v1, v18
 
-    invoke-virtual/range {v1 .. v17}, Lcom/android/server/am/BatteryStatsService;->lambda$setBatteryState$94$BatteryStatsService(IIIIIIIIJJJJ)V
+    invoke-static/range {v1 .. v17}, Lcom/android/server/am/BatteryStatsService;->$r8$lambda$S6yftCQQiOHD_m1tY-NXSWfcBoM(Lcom/android/server/am/BatteryStatsService;IIIIIIIIJJJJ)V
 
     return-void
 .end method

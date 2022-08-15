@@ -1,4 +1,4 @@
-.class Lcom/android/server/blob/BlobMetadata;
+.class public Lcom/android/server/blob/BlobMetadata;
 .super Ljava/lang/Object;
 .source "BlobMetadata.java"
 
@@ -14,13 +14,19 @@
 
 
 # instance fields
-.field private mBlobFile:Ljava/io/File;
+.field public mBlobFile:Ljava/io/File;
 
-.field private final mBlobHandle:Landroid/app/blob/BlobHandle;
+.field public final mBlobHandle:Landroid/app/blob/BlobHandle;
 
-.field private final mBlobId:J
+.field public final mBlobId:J
 
-.field private final mCommitters:Landroid/util/ArraySet;
+.field public final mCommitters:Landroid/util/ArraySet;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mMetadataLock"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/ArraySet<",
@@ -30,9 +36,15 @@
     .end annotation
 .end field
 
-.field private final mContext:Landroid/content/Context;
+.field public final mContext:Landroid/content/Context;
 
-.field private final mLeasees:Landroid/util/ArraySet;
+.field public final mLeasees:Landroid/util/ArraySet;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mMetadataLock"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/ArraySet<",
@@ -42,9 +54,15 @@
     .end annotation
 .end field
 
-.field private final mMetadataLock:Ljava/lang/Object;
+.field public final mMetadataLock:Ljava/lang/Object;
 
-.field private final mRevocableFds:Landroid/util/ArrayMap;
+.field public final mRevocableFds:Landroid/util/ArrayMap;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mRevocableFds"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/ArrayMap<",
@@ -58,7 +76,95 @@
 
 
 # direct methods
-.method constructor <init>(Landroid/content/Context;JLandroid/app/blob/BlobHandle;)V
+.method public static synthetic $r8$lambda$1kPlsEMCe_zPKmHIoBHpAwetktA(ILjava/lang/String;Lcom/android/server/blob/BlobMetadata$Leasee;)Z
+    .locals 0
+
+    invoke-static {p0, p1, p2}, Lcom/android/server/blob/BlobMetadata;->lambda$removeLeasee$2(ILjava/lang/String;Lcom/android/server/blob/BlobMetadata$Leasee;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public static synthetic $r8$lambda$8cf_1soPnFxLimWg8LgBQ2GhQzE(ILcom/android/server/blob/BlobMetadata$Leasee;)Z
+    .locals 0
+
+    invoke-static {p0, p1}, Lcom/android/server/blob/BlobMetadata;->lambda$removeDataForUser$6(ILcom/android/server/blob/BlobMetadata$Leasee;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public static synthetic $r8$lambda$DCp8ttpWydxNWSjh8kldMgodraU(Lcom/android/server/blob/BlobMetadata;Lcom/android/server/blob/BlobMetadata$Accessor;Landroid/os/RevocableFileDescriptor;Ljava/io/IOException;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/blob/BlobMetadata;->lambda$createRevocableFd$8(Lcom/android/server/blob/BlobMetadata$Accessor;Landroid/os/RevocableFileDescriptor;Ljava/io/IOException;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$Gj0TgDJ8vdARVdhdnB7wZYpR5eg(ILjava/lang/String;Lcom/android/server/blob/BlobMetadata$Committer;)Z
+    .locals 0
+
+    invoke-static {p0, p1, p2}, Lcom/android/server/blob/BlobMetadata;->lambda$removeCommitter$0(ILjava/lang/String;Lcom/android/server/blob/BlobMetadata$Committer;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public static synthetic $r8$lambda$KrpvkmDm06d88OXLr5VRH5aR8Fw(Lcom/android/server/blob/BlobMetadata$Leasee;)Z
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/server/blob/BlobMetadata;->lambda$removeExpiredLeases$4(Lcom/android/server/blob/BlobMetadata$Leasee;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public static synthetic $r8$lambda$Q56ii5cwa0y_Vux5SdG5jscJceE(Landroid/util/SparseArray;Lcom/android/server/blob/BlobMetadata$Committer;)Z
+    .locals 0
+
+    invoke-static {p0, p1}, Lcom/android/server/blob/BlobMetadata;->lambda$removeCommittersFromUnknownPkgs$1(Landroid/util/SparseArray;Lcom/android/server/blob/BlobMetadata$Committer;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public static synthetic $r8$lambda$ceYnxM7Pw2_I8GUdNelXcRo9Qzw(Landroid/util/SparseArray;Lcom/android/server/blob/BlobMetadata$Leasee;)Z
+    .locals 0
+
+    invoke-static {p0, p1}, Lcom/android/server/blob/BlobMetadata;->lambda$removeLeaseesFromUnknownPkgs$3(Landroid/util/SparseArray;Lcom/android/server/blob/BlobMetadata$Leasee;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public static synthetic $r8$lambda$wTbOHIVJa-V19V5-x5vMJ8XZOHs(ILcom/android/server/blob/BlobMetadata$Committer;)Z
+    .locals 0
+
+    invoke-static {p0, p1}, Lcom/android/server/blob/BlobMetadata;->lambda$removeDataForUser$5(ILcom/android/server/blob/BlobMetadata$Committer;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public static synthetic $r8$lambda$xg8ZjMaQmjABUx7RAZeoQopGNqs(ILjava/util/Map$Entry;)Z
+    .locals 0
+
+    invoke-static {p0, p1}, Lcom/android/server/blob/BlobMetadata;->lambda$removeDataForUser$7(ILjava/util/Map$Entry;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public constructor <init>(Landroid/content/Context;JLandroid/app/blob/BlobHandle;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -96,7 +202,7 @@
     return-void
 .end method
 
-.method private static checkCallerCanAccessBlobsAcrossUsers(Ljava/lang/String;I)Z
+.method public static checkCallerCanAccessBlobsAcrossUsers(Ljava/lang/String;I)Z
     .locals 3
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
@@ -108,34 +214,34 @@
 
     invoke-static {v2, p0, p1}, Landroid/permission/PermissionManager;->checkPackageNamePermission(Ljava/lang/String;Ljava/lang/String;I)I
 
-    move-result v2
+    move-result p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-nez v2, :cond_0
+    if-nez p0, :cond_0
 
-    const/4 v2, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v2, 0x0
+    const/4 p0, 0x0
 
     :goto_0
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    return v2
+    return p0
 
     :catchall_0
-    move-exception v2
+    move-exception p0
 
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    throw v2
+    throw p0
 .end method
 
-.method static createFromXml(Lorg/xmlpull/v1/XmlPullParser;ILandroid/content/Context;)Lcom/android/server/blob/BlobMetadata;
-    .locals 8
+.method public static createFromXml(Lorg/xmlpull/v1/XmlPullParser;ILandroid/content/Context;)Lcom/android/server/blob/BlobMetadata;
+    .locals 9
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -158,194 +264,116 @@
     invoke-static {p0, v2}, Lcom/android/internal/util/XmlUtils;->readIntAttribute(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)I
 
     :cond_0
-    const/4 v2, 0x0
+    new-instance v2, Landroid/util/ArraySet;
+
+    invoke-direct {v2}, Landroid/util/ArraySet;-><init>()V
 
     new-instance v3, Landroid/util/ArraySet;
 
     invoke-direct {v3}, Landroid/util/ArraySet;-><init>()V
 
-    new-instance v4, Landroid/util/ArraySet;
-
-    invoke-direct {v4}, Landroid/util/ArraySet;-><init>()V
-
     invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->getDepth()I
 
-    move-result v5
+    move-result v4
 
+    const/4 v5, 0x0
+
+    move-object v6, v5
+
+    :cond_1
     :goto_0
-    invoke-static {p0, v5}, Lcom/android/internal/util/XmlUtils;->nextElementWithin(Lorg/xmlpull/v1/XmlPullParser;I)Z
+    invoke-static {p0, v4}, Lcom/android/internal/util/XmlUtils;->nextElementWithin(Lorg/xmlpull/v1/XmlPullParser;I)Z
 
-    move-result v6
+    move-result v7
 
-    if-eqz v6, :cond_4
+    if-eqz v7, :cond_4
 
     invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v7
 
-    const-string v7, "bh"
+    const-string v8, "bh"
 
-    invoke-virtual {v7, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v8, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v6
+    move-result v7
 
-    if-eqz v6, :cond_1
+    if-eqz v7, :cond_2
 
     invoke-static {p0}, Landroid/app/blob/BlobHandle;->createFromXml(Lorg/xmlpull/v1/XmlPullParser;)Landroid/app/blob/BlobHandle;
 
-    move-result-object v2
+    move-result-object v6
 
     goto :goto_0
-
-    :cond_1
-    invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
-
-    move-result-object v6
-
-    const-string v7, "c"
-
-    invoke-virtual {v7, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_2
-
-    invoke-static {p0, p1}, Lcom/android/server/blob/BlobMetadata$Committer;->createFromXml(Lorg/xmlpull/v1/XmlPullParser;I)Lcom/android/server/blob/BlobMetadata$Committer;
-
-    move-result-object v6
-
-    if-eqz v6, :cond_3
-
-    invoke-virtual {v3, v6}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
-
-    goto :goto_1
 
     :cond_2
     invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v7
 
-    const-string/jumbo v7, "l"
+    const-string v8, "c"
 
-    invoke-virtual {v7, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v8, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v6
+    move-result v7
 
-    if-eqz v6, :cond_3
+    if-eqz v7, :cond_3
 
-    invoke-static {p0, p1}, Lcom/android/server/blob/BlobMetadata$Leasee;->createFromXml(Lorg/xmlpull/v1/XmlPullParser;I)Lcom/android/server/blob/BlobMetadata$Leasee;
+    invoke-static {p0, p1}, Lcom/android/server/blob/BlobMetadata$Committer;->createFromXml(Lorg/xmlpull/v1/XmlPullParser;I)Lcom/android/server/blob/BlobMetadata$Committer;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v4, v6}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
+    if-eqz v7, :cond_1
+
+    invoke-virtual {v2, v7}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
     :cond_3
-    :goto_1
+    invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
+
+    move-result-object v7
+
+    const-string v8, "l"
+
+    invoke-virtual {v8, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_1
+
+    invoke-static {p0, p1}, Lcom/android/server/blob/BlobMetadata$Leasee;->createFromXml(Lorg/xmlpull/v1/XmlPullParser;I)Lcom/android/server/blob/BlobMetadata$Leasee;
+
+    move-result-object v7
+
+    invoke-virtual {v3, v7}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
+
     goto :goto_0
 
     :cond_4
-    if-nez v2, :cond_5
+    if-nez v6, :cond_5
 
-    const-string v6, "BlobStore"
+    const-string p0, "BlobStore"
 
-    const-string v7, "blobHandle should be available"
+    const-string p1, "blobHandle should be available"
 
-    invoke-static {v6, v7}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, p1}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 v6, 0x0
-
-    return-object v6
+    return-object v5
 
     :cond_5
-    new-instance v6, Lcom/android/server/blob/BlobMetadata;
+    new-instance p0, Lcom/android/server/blob/BlobMetadata;
 
-    invoke-direct {v6, p2, v0, v1, v2}, Lcom/android/server/blob/BlobMetadata;-><init>(Landroid/content/Context;JLandroid/app/blob/BlobHandle;)V
+    invoke-direct {p0, p2, v0, v1, v6}, Lcom/android/server/blob/BlobMetadata;-><init>(Landroid/content/Context;JLandroid/app/blob/BlobHandle;)V
 
-    invoke-virtual {v6, v3}, Lcom/android/server/blob/BlobMetadata;->setCommitters(Landroid/util/ArraySet;)V
+    invoke-virtual {p0, v2}, Lcom/android/server/blob/BlobMetadata;->setCommitters(Landroid/util/ArraySet;)V
 
-    invoke-virtual {v6, v4}, Lcom/android/server/blob/BlobMetadata;->setLeasees(Landroid/util/ArraySet;)V
+    invoke-virtual {p0, v3}, Lcom/android/server/blob/BlobMetadata;->setLeasees(Landroid/util/ArraySet;)V
 
-    return-object v6
+    return-object p0
 .end method
 
-.method private createRevocableFd(Ljava/io/FileDescriptor;Ljava/lang/String;I)Landroid/os/ParcelFileDescriptor;
-    .locals 5
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
-
-    new-instance v0, Landroid/os/RevocableFileDescriptor;
-
-    iget-object v1, p0, Lcom/android/server/blob/BlobMetadata;->mContext:Landroid/content/Context;
-
-    invoke-direct {v0, v1, p1}, Landroid/os/RevocableFileDescriptor;-><init>(Landroid/content/Context;Ljava/io/FileDescriptor;)V
-
-    iget-object v1, p0, Lcom/android/server/blob/BlobMetadata;->mRevocableFds:Landroid/util/ArrayMap;
-
-    monitor-enter v1
-
-    :try_start_0
-    new-instance v2, Lcom/android/server/blob/BlobMetadata$Accessor;
-
-    invoke-direct {v2, p2, p3}, Lcom/android/server/blob/BlobMetadata$Accessor;-><init>(Ljava/lang/String;I)V
-
-    iget-object v3, p0, Lcom/android/server/blob/BlobMetadata;->mRevocableFds:Landroid/util/ArrayMap;
-
-    invoke-virtual {v3, v2}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/util/ArraySet;
-
-    if-nez v3, :cond_0
-
-    new-instance v4, Landroid/util/ArraySet;
-
-    invoke-direct {v4}, Landroid/util/ArraySet;-><init>()V
-
-    move-object v3, v4
-
-    iget-object v4, p0, Lcom/android/server/blob/BlobMetadata;->mRevocableFds:Landroid/util/ArrayMap;
-
-    invoke-virtual {v4, v2, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    :cond_0
-    invoke-virtual {v3, v0}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
-
-    nop
-
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    new-instance v1, Lcom/android/server/blob/BlobMetadata$$ExternalSyntheticLambda0;
-
-    invoke-direct {v1, p0, v2, v0}, Lcom/android/server/blob/BlobMetadata$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/blob/BlobMetadata;Lcom/android/server/blob/BlobMetadata$Accessor;Landroid/os/RevocableFileDescriptor;)V
-
-    invoke-virtual {v0, v1}, Landroid/os/RevocableFileDescriptor;->addOnCloseListener(Landroid/os/ParcelFileDescriptor$OnCloseListener;)V
-
-    invoke-virtual {v0}, Landroid/os/RevocableFileDescriptor;->getRevocableFileDescriptor()Landroid/os/ParcelFileDescriptor;
-
-    move-result-object v1
-
-    return-object v1
-
-    :catchall_0
-    move-exception v2
-
-    :try_start_1
-    monitor-exit v1
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    throw v2
-.end method
-
-.method private static getAccessor(Landroid/util/ArraySet;Ljava/lang/String;II)Lcom/android/server/blob/BlobMetadata$Accessor;
+.method public static getAccessor(Landroid/util/ArraySet;Ljava/lang/String;II)Lcom/android/server/blob/BlobMetadata$Accessor;
     .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -359,16 +387,16 @@
         }
     .end annotation
 
-    const/4 v0, 0x0
-
     invoke-virtual {p0}, Landroid/util/ArraySet;->size()I
 
-    move-result v1
+    move-result v0
+
+    const/4 v1, 0x0
 
     :goto_0
-    if-ge v0, v1, :cond_3
+    if-ge v1, v0, :cond_3
 
-    invoke-virtual {p0, v0}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {p0, v1}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -419,239 +447,18 @@
     return-object v2
 
     :cond_2
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_0
-
-    :cond_3
-    const/4 v0, 0x0
-
-    return-object v0
-.end method
-
-.method private hasALeaseeInUser(I)Z
-    .locals 5
-
-    iget-object v0, p0, Lcom/android/server/blob/BlobMetadata;->mMetadataLock:Ljava/lang/Object;
-
-    monitor-enter v0
-
-    const/4 v1, 0x0
-
-    :try_start_0
-    iget-object v2, p0, Lcom/android/server/blob/BlobMetadata;->mLeasees:Landroid/util/ArraySet;
-
-    invoke-virtual {v2}, Landroid/util/ArraySet;->size()I
-
-    move-result v2
-
-    :goto_0
-    if-ge v1, v2, :cond_1
-
-    iget-object v3, p0, Lcom/android/server/blob/BlobMetadata;->mLeasees:Landroid/util/ArraySet;
-
-    invoke-virtual {v3, v1}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Lcom/android/server/blob/BlobMetadata$Leasee;
-
-    iget v4, v3, Lcom/android/server/blob/BlobMetadata$Leasee;->uid:I
-
-    invoke-static {v4}, Landroid/os/UserHandle;->getUserId(I)I
-
-    move-result v4
-
-    if-ne p1, v4, :cond_0
-
-    monitor-exit v0
-
-    const/4 v0, 0x1
-
-    return v0
-
-    :cond_0
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    :cond_1
-    monitor-exit v0
-
-    const/4 v0, 0x0
-
-    return v0
-
-    :catchall_0
-    move-exception v1
-
-    monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v1
-.end method
-
-.method private hasOtherLeasees(Ljava/lang/String;II)Z
-    .locals 7
-
-    iget-object v0, p0, Lcom/android/server/blob/BlobMetadata;->mMetadataLock:Ljava/lang/Object;
-
-    monitor-enter v0
-
-    const/4 v1, 0x0
-
-    :try_start_0
-    iget-object v2, p0, Lcom/android/server/blob/BlobMetadata;->mLeasees:Landroid/util/ArraySet;
-
-    invoke-virtual {v2}, Landroid/util/ArraySet;->size()I
-
-    move-result v2
-
-    :goto_0
-    if-ge v1, v2, :cond_5
-
-    iget-object v3, p0, Lcom/android/server/blob/BlobMetadata;->mLeasees:Landroid/util/ArraySet;
-
-    invoke-virtual {v3, v1}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Lcom/android/server/blob/BlobMetadata$Leasee;
-
-    invoke-virtual {v3}, Lcom/android/server/blob/BlobMetadata$Leasee;->isStillValid()Z
-
-    move-result v4
-
-    if-nez v4, :cond_0
-
-    goto :goto_1
-
-    :cond_0
-    const/4 v4, -0x1
-
-    const/4 v5, 0x1
-
-    if-eqz p1, :cond_1
-
-    if-eq p2, v4, :cond_1
-
-    invoke-virtual {v3, p1, p2}, Lcom/android/server/blob/BlobMetadata$Leasee;->equals(Ljava/lang/String;I)Z
-
-    move-result v6
-
-    if-nez v6, :cond_1
-
-    monitor-exit v0
-
-    return v5
-
-    :cond_1
-    if-eqz p1, :cond_3
-
-    iget-object v6, v3, Lcom/android/server/blob/BlobMetadata$Leasee;->packageName:Ljava/lang/String;
-
-    invoke-virtual {v6, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_2
-
-    iget v6, v3, Lcom/android/server/blob/BlobMetadata$Leasee;->uid:I
-
-    invoke-static {v6}, Landroid/os/UserHandle;->getUserId(I)I
-
-    move-result v6
-
-    if-eq p3, v6, :cond_3
-
-    :cond_2
-    monitor-exit v0
-
-    return v5
-
     :cond_3
-    if-eq p2, v4, :cond_4
+    const/4 p0, 0x0
 
-    iget v4, v3, Lcom/android/server/blob/BlobMetadata$Leasee;->uid:I
-
-    if-eq v4, p2, :cond_4
-
-    monitor-exit v0
-
-    return v5
-
-    :cond_4
-    :goto_1
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_0
-
-    :cond_5
-    monitor-exit v0
-
-    const/4 v0, 0x0
-
-    return v0
-
-    :catchall_0
-    move-exception v1
-
-    monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v1
+    return-object p0
 .end method
 
-.method private isALeaseeInUser(Ljava/lang/String;II)Z
-    .locals 3
-
-    iget-object v0, p0, Lcom/android/server/blob/BlobMetadata;->mMetadataLock:Ljava/lang/Object;
-
-    monitor-enter v0
-
-    :try_start_0
-    iget-object v1, p0, Lcom/android/server/blob/BlobMetadata;->mLeasees:Landroid/util/ArraySet;
-
-    invoke-static {v1, p1, p2, p3}, Lcom/android/server/blob/BlobMetadata;->getAccessor(Landroid/util/ArraySet;Ljava/lang/String;II)Lcom/android/server/blob/BlobMetadata$Accessor;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/android/server/blob/BlobMetadata$Leasee;
-
-    if-eqz v1, :cond_0
-
-    invoke-virtual {v1}, Lcom/android/server/blob/BlobMetadata$Leasee;->isStillValid()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    const/4 v2, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v2, 0x0
-
-    :goto_0
-    monitor-exit v0
-
-    return v2
-
-    :catchall_0
-    move-exception v1
-
-    monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v1
-.end method
-
-.method private static isAnAccessor(Landroid/util/ArraySet;Ljava/lang/String;II)Z
-    .locals 1
+.method public static isAnAccessor(Landroid/util/ArraySet;Ljava/lang/String;II)Z
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -666,95 +473,96 @@
 
     invoke-static {p0, p1, p2, p3}, Lcom/android/server/blob/BlobMetadata;->getAccessor(Landroid/util/ArraySet;Ljava/lang/String;II)Lcom/android/server/blob/BlobMetadata$Accessor;
 
-    move-result-object v0
+    move-result-object p0
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
-.method private isPackageInstalledOnUser(Ljava/lang/String;I)Z
-    .locals 4
-
-    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
-
-    move-result-wide v0
-
-    const/4 v2, 0x0
-
-    :try_start_0
-    iget-object v3, p0, Lcom/android/server/blob/BlobMetadata;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v3}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object v3
-
-    invoke-virtual {v3, p1, v2, p2}, Landroid/content/pm/PackageManager;->getPackageInfoAsUser(Ljava/lang/String;II)Landroid/content/pm/PackageInfo;
-    :try_end_0
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    const/4 v2, 0x1
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    return v2
-
-    :catchall_0
-    move-exception v2
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    throw v2
-
-    :catch_0
-    move-exception v3
-
-    nop
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    return v2
-.end method
-
-.method static synthetic lambda$removeCommitter$0(ILjava/lang/String;Lcom/android/server/blob/BlobMetadata$Committer;)Z
+.method private synthetic lambda$createRevocableFd$8(Lcom/android/server/blob/BlobMetadata$Accessor;Landroid/os/RevocableFileDescriptor;Ljava/io/IOException;)V
     .locals 1
 
-    iget v0, p2, Lcom/android/server/blob/BlobMetadata$Committer;->uid:I
+    iget-object p3, p0, Lcom/android/server/blob/BlobMetadata;->mRevocableFds:Landroid/util/ArrayMap;
+
+    monitor-enter p3
+
+    :try_start_0
+    iget-object v0, p0, Lcom/android/server/blob/BlobMetadata;->mRevocableFds:Landroid/util/ArrayMap;
+
+    invoke-virtual {v0, p1}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/util/ArraySet;
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0, p2}, Landroid/util/ArraySet;->remove(Ljava/lang/Object;)Z
+
+    invoke-virtual {v0}, Landroid/util/ArraySet;->isEmpty()Z
+
+    move-result p2
+
+    if-eqz p2, :cond_0
+
+    iget-object p0, p0, Lcom/android/server/blob/BlobMetadata;->mRevocableFds:Landroid/util/ArrayMap;
+
+    invoke-virtual {p0, p1}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+
+    :cond_0
+    monitor-exit p3
+
+    return-void
+
+    :catchall_0
+    move-exception p0
+
+    monitor-exit p3
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw p0
+.end method
+
+.method public static synthetic lambda$removeCommitter$0(ILjava/lang/String;Lcom/android/server/blob/BlobMetadata$Committer;)Z
+    .locals 1
+
+    iget v0, p2, Lcom/android/server/blob/BlobMetadata$Accessor;->uid:I
 
     if-ne v0, p0, :cond_0
 
-    iget-object v0, p2, Lcom/android/server/blob/BlobMetadata$Committer;->packageName:Ljava/lang/String;
+    iget-object p0, p2, Lcom/android/server/blob/BlobMetadata$Accessor;->packageName:Ljava/lang/String;
 
-    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p0
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
-.method static synthetic lambda$removeCommittersFromUnknownPkgs$1(Landroid/util/SparseArray;Lcom/android/server/blob/BlobMetadata$Committer;)Z
-    .locals 5
+.method public static synthetic lambda$removeCommittersFromUnknownPkgs$1(Landroid/util/SparseArray;Lcom/android/server/blob/BlobMetadata$Committer;)Z
+    .locals 2
 
-    iget v0, p1, Lcom/android/server/blob/BlobMetadata$Committer;->uid:I
+    iget v0, p1, Lcom/android/server/blob/BlobMetadata$Accessor;->uid:I
 
     invoke-static {v0}, Landroid/os/UserHandle;->getUserId(I)I
 
@@ -762,80 +570,80 @@
 
     invoke-virtual {p0, v0}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p0
 
-    check-cast v1, Landroid/util/SparseArray;
-
-    const/4 v2, 0x1
-
-    if-nez v1, :cond_0
-
-    return v2
-
-    :cond_0
-    iget-object v3, p1, Lcom/android/server/blob/BlobMetadata$Committer;->packageName:Ljava/lang/String;
-
-    iget v4, p1, Lcom/android/server/blob/BlobMetadata$Committer;->uid:I
-
-    invoke-virtual {v1, v4}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    xor-int/2addr v2, v3
-
-    return v2
-.end method
-
-.method static synthetic lambda$removeDataForUser$5(ILcom/android/server/blob/BlobMetadata$Committer;)Z
-    .locals 1
-
-    iget v0, p1, Lcom/android/server/blob/BlobMetadata$Committer;->uid:I
-
-    invoke-static {v0}, Landroid/os/UserHandle;->getUserId(I)I
-
-    move-result v0
-
-    if-ne p0, v0, :cond_0
+    check-cast p0, Landroid/util/SparseArray;
 
     const/4 v0, 0x1
+
+    if-nez p0, :cond_0
+
+    return v0
+
+    :cond_0
+    iget-object v1, p1, Lcom/android/server/blob/BlobMetadata$Accessor;->packageName:Ljava/lang/String;
+
+    iget p1, p1, Lcom/android/server/blob/BlobMetadata$Accessor;->uid:I
+
+    invoke-virtual {p0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+
+    move-result-object p0
+
+    invoke-virtual {v1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    xor-int/2addr p0, v0
+
+    return p0
+.end method
+
+.method public static synthetic lambda$removeDataForUser$5(ILcom/android/server/blob/BlobMetadata$Committer;)Z
+    .locals 0
+
+    iget p1, p1, Lcom/android/server/blob/BlobMetadata$Accessor;->uid:I
+
+    invoke-static {p1}, Landroid/os/UserHandle;->getUserId(I)I
+
+    move-result p1
+
+    if-ne p0, p1, :cond_0
+
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
-.method static synthetic lambda$removeDataForUser$6(ILcom/android/server/blob/BlobMetadata$Leasee;)Z
-    .locals 1
+.method public static synthetic lambda$removeDataForUser$6(ILcom/android/server/blob/BlobMetadata$Leasee;)Z
+    .locals 0
 
-    iget v0, p1, Lcom/android/server/blob/BlobMetadata$Leasee;->uid:I
+    iget p1, p1, Lcom/android/server/blob/BlobMetadata$Accessor;->uid:I
 
-    invoke-static {v0}, Landroid/os/UserHandle;->getUserId(I)I
+    invoke-static {p1}, Landroid/os/UserHandle;->getUserId(I)I
 
-    move-result v0
+    move-result p1
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
-.method static synthetic lambda$removeDataForUser$7(ILjava/util/Map$Entry;)Z
-    .locals 5
+.method public static synthetic lambda$removeDataForUser$7(ILjava/util/Map$Entry;)Z
+    .locals 2
 
     invoke-interface {p1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
@@ -845,94 +653,92 @@
 
     invoke-interface {p1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    check-cast v1, Landroid/util/ArraySet;
+    check-cast p1, Landroid/util/ArraySet;
 
-    iget v2, v0, Lcom/android/server/blob/BlobMetadata$Accessor;->uid:I
+    iget v0, v0, Lcom/android/server/blob/BlobMetadata$Accessor;->uid:I
 
-    invoke-static {v2}, Landroid/os/UserHandle;->getUserId(I)I
+    invoke-static {v0}, Landroid/os/UserHandle;->getUserId(I)I
 
-    move-result v2
+    move-result v0
 
-    if-eq p0, v2, :cond_0
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    if-eq p0, v0, :cond_0
 
-    return v2
+    return v1
 
     :cond_0
-    const/4 v2, 0x0
+    invoke-virtual {p1}, Landroid/util/ArraySet;->size()I
 
-    invoke-virtual {v1}, Landroid/util/ArraySet;->size()I
-
-    move-result v3
+    move-result p0
 
     :goto_0
-    if-ge v2, v3, :cond_1
+    if-ge v1, p0, :cond_1
 
-    invoke-virtual {v1, v2}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {p1, v1}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v0
 
-    check-cast v4, Landroid/os/RevocableFileDescriptor;
+    check-cast v0, Landroid/os/RevocableFileDescriptor;
 
-    invoke-virtual {v4}, Landroid/os/RevocableFileDescriptor;->revoke()V
+    invoke-virtual {v0}, Landroid/os/RevocableFileDescriptor;->revoke()V
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     :cond_1
-    invoke-virtual {v1}, Landroid/util/ArraySet;->clear()V
+    invoke-virtual {p1}, Landroid/util/ArraySet;->clear()V
 
-    const/4 v2, 0x1
+    const/4 p0, 0x1
 
-    return v2
+    return p0
 .end method
 
-.method static synthetic lambda$removeExpiredLeases$4(Lcom/android/server/blob/BlobMetadata$Leasee;)Z
-    .locals 1
+.method public static synthetic lambda$removeExpiredLeases$4(Lcom/android/server/blob/BlobMetadata$Leasee;)Z
+    .locals 0
 
     invoke-virtual {p0}, Lcom/android/server/blob/BlobMetadata$Leasee;->isStillValid()Z
 
-    move-result v0
+    move-result p0
 
-    xor-int/lit8 v0, v0, 0x1
+    xor-int/lit8 p0, p0, 0x1
 
-    return v0
+    return p0
 .end method
 
-.method static synthetic lambda$removeLeasee$2(ILjava/lang/String;Lcom/android/server/blob/BlobMetadata$Leasee;)Z
+.method public static synthetic lambda$removeLeasee$2(ILjava/lang/String;Lcom/android/server/blob/BlobMetadata$Leasee;)Z
     .locals 1
 
-    iget v0, p2, Lcom/android/server/blob/BlobMetadata$Leasee;->uid:I
+    iget v0, p2, Lcom/android/server/blob/BlobMetadata$Accessor;->uid:I
 
     if-ne v0, p0, :cond_0
 
-    iget-object v0, p2, Lcom/android/server/blob/BlobMetadata$Leasee;->packageName:Ljava/lang/String;
+    iget-object p0, p2, Lcom/android/server/blob/BlobMetadata$Accessor;->packageName:Ljava/lang/String;
 
-    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p0
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
-.method static synthetic lambda$removeLeaseesFromUnknownPkgs$3(Landroid/util/SparseArray;Lcom/android/server/blob/BlobMetadata$Leasee;)Z
-    .locals 5
+.method public static synthetic lambda$removeLeaseesFromUnknownPkgs$3(Landroid/util/SparseArray;Lcom/android/server/blob/BlobMetadata$Leasee;)Z
+    .locals 2
 
-    iget v0, p1, Lcom/android/server/blob/BlobMetadata$Leasee;->uid:I
+    iget v0, p1, Lcom/android/server/blob/BlobMetadata$Accessor;->uid:I
 
     invoke-static {v0}, Landroid/os/UserHandle;->getUserId(I)I
 
@@ -940,115 +746,37 @@
 
     invoke-virtual {p0, v0}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p0
 
-    check-cast v1, Landroid/util/SparseArray;
+    check-cast p0, Landroid/util/SparseArray;
 
-    const/4 v2, 0x1
+    const/4 v0, 0x1
 
-    if-nez v1, :cond_0
+    if-nez p0, :cond_0
 
-    return v2
-
-    :cond_0
-    iget-object v3, p1, Lcom/android/server/blob/BlobMetadata$Leasee;->packageName:Ljava/lang/String;
-
-    iget v4, p1, Lcom/android/server/blob/BlobMetadata$Leasee;->uid:I
-
-    invoke-virtual {v1, v4}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    xor-int/2addr v2, v3
-
-    return v2
-.end method
-
-.method private revokeAndClearAllFds()V
-    .locals 7
-
-    iget-object v0, p0, Lcom/android/server/blob/BlobMetadata;->mRevocableFds:Landroid/util/ArrayMap;
-
-    monitor-enter v0
-
-    const/4 v1, 0x0
-
-    :try_start_0
-    iget-object v2, p0, Lcom/android/server/blob/BlobMetadata;->mRevocableFds:Landroid/util/ArrayMap;
-
-    invoke-virtual {v2}, Landroid/util/ArrayMap;->size()I
-
-    move-result v2
-
-    :goto_0
-    if-ge v1, v2, :cond_2
-
-    iget-object v3, p0, Lcom/android/server/blob/BlobMetadata;->mRevocableFds:Landroid/util/ArrayMap;
-
-    invoke-virtual {v3, v1}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/util/ArraySet;
-
-    if-nez v3, :cond_0
-
-    goto :goto_2
+    return v0
 
     :cond_0
-    const/4 v4, 0x0
+    iget-object v1, p1, Lcom/android/server/blob/BlobMetadata$Accessor;->packageName:Ljava/lang/String;
 
-    invoke-virtual {v3}, Landroid/util/ArraySet;->size()I
+    iget p1, p1, Lcom/android/server/blob/BlobMetadata$Accessor;->uid:I
 
-    move-result v5
+    invoke-virtual {p0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
-    :goto_1
-    if-ge v4, v5, :cond_1
+    move-result-object p0
 
-    invoke-virtual {v3, v4}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {v1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result-object v6
+    move-result p0
 
-    check-cast v6, Landroid/os/RevocableFileDescriptor;
+    xor-int/2addr p0, v0
 
-    invoke-virtual {v6}, Landroid/os/RevocableFileDescriptor;->revoke()V
-
-    add-int/lit8 v4, v4, 0x1
-
-    goto :goto_1
-
-    :cond_1
-    :goto_2
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_0
-
-    :cond_2
-    iget-object v1, p0, Lcom/android/server/blob/BlobMetadata;->mRevocableFds:Landroid/util/ArrayMap;
-
-    invoke-virtual {v1}, Landroid/util/ArrayMap;->clear()V
-
-    monitor-exit v0
-
-    return-void
-
-    :catchall_0
-    move-exception v1
-
-    monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v1
+    return p0
 .end method
 
 
 # virtual methods
-.method addCommittersAndLeasees(Lcom/android/server/blob/BlobMetadata;)V
+.method public addCommittersAndLeasees(Lcom/android/server/blob/BlobMetadata;)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/server/blob/BlobMetadata;->mCommitters:Landroid/util/ArraySet;
@@ -1057,16 +785,16 @@
 
     invoke-virtual {v0, v1}, Landroid/util/ArraySet;->addAll(Landroid/util/ArraySet;)V
 
-    iget-object v0, p0, Lcom/android/server/blob/BlobMetadata;->mLeasees:Landroid/util/ArraySet;
+    iget-object p0, p0, Lcom/android/server/blob/BlobMetadata;->mLeasees:Landroid/util/ArraySet;
 
-    iget-object v1, p1, Lcom/android/server/blob/BlobMetadata;->mLeasees:Landroid/util/ArraySet;
+    iget-object p1, p1, Lcom/android/server/blob/BlobMetadata;->mLeasees:Landroid/util/ArraySet;
 
-    invoke-virtual {v0, v1}, Landroid/util/ArraySet;->addAll(Landroid/util/ArraySet;)V
+    invoke-virtual {p0, p1}, Landroid/util/ArraySet;->addAll(Landroid/util/ArraySet;)V
 
     return-void
 .end method
 
-.method addOrReplaceCommitter(Lcom/android/server/blob/BlobMetadata$Committer;)V
+.method public addOrReplaceCommitter(Lcom/android/server/blob/BlobMetadata$Committer;)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/server/blob/BlobMetadata;->mMetadataLock:Ljava/lang/Object;
@@ -1078,92 +806,161 @@
 
     invoke-virtual {v1, p1}, Landroid/util/ArraySet;->remove(Ljava/lang/Object;)Z
 
-    iget-object v1, p0, Lcom/android/server/blob/BlobMetadata;->mCommitters:Landroid/util/ArraySet;
+    iget-object p0, p0, Lcom/android/server/blob/BlobMetadata;->mCommitters:Landroid/util/ArraySet;
 
-    invoke-virtual {v1, p1}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p1}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
 
     monitor-exit v0
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
-.method addOrReplaceLeasee(Ljava/lang/String;IILjava/lang/CharSequence;J)V
+.method public addOrReplaceLeasee(Ljava/lang/String;IILjava/lang/CharSequence;J)V
     .locals 11
 
-    move-object v1, p0
+    move-object v0, p0
 
-    iget-object v2, v1, Lcom/android/server/blob/BlobMetadata;->mMetadataLock:Ljava/lang/Object;
+    iget-object v1, v0, Lcom/android/server/blob/BlobMetadata;->mMetadataLock:Ljava/lang/Object;
 
-    monitor-enter v2
+    monitor-enter v1
 
     :try_start_0
-    new-instance v0, Lcom/android/server/blob/BlobMetadata$Leasee;
+    new-instance v10, Lcom/android/server/blob/BlobMetadata$Leasee;
 
-    iget-object v4, v1, Lcom/android/server/blob/BlobMetadata;->mContext:Landroid/content/Context;
+    iget-object v3, v0, Lcom/android/server/blob/BlobMetadata;->mContext:Landroid/content/Context;
 
-    move-object v3, v0
+    move-object v2, v10
 
-    move-object v5, p1
+    move-object v4, p1
 
-    move v6, p2
+    move v5, p2
 
-    move v7, p3
+    move v6, p3
 
-    move-object v8, p4
+    move-object v7, p4
 
-    move-wide/from16 v9, p5
+    move-wide/from16 v8, p5
 
-    invoke-direct/range {v3 .. v10}, Lcom/android/server/blob/BlobMetadata$Leasee;-><init>(Landroid/content/Context;Ljava/lang/String;IILjava/lang/CharSequence;J)V
+    invoke-direct/range {v2 .. v9}, Lcom/android/server/blob/BlobMetadata$Leasee;-><init>(Landroid/content/Context;Ljava/lang/String;IILjava/lang/CharSequence;J)V
 
-    iget-object v3, v1, Lcom/android/server/blob/BlobMetadata;->mLeasees:Landroid/util/ArraySet;
+    iget-object v2, v0, Lcom/android/server/blob/BlobMetadata;->mLeasees:Landroid/util/ArraySet;
 
-    invoke-virtual {v3, v0}, Landroid/util/ArraySet;->remove(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v10}, Landroid/util/ArraySet;->remove(Ljava/lang/Object;)Z
 
-    iget-object v3, v1, Lcom/android/server/blob/BlobMetadata;->mLeasees:Landroid/util/ArraySet;
+    iget-object v0, v0, Lcom/android/server/blob/BlobMetadata;->mLeasees:Landroid/util/ArraySet;
 
-    invoke-virtual {v3, v0}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v10}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
 
-    nop
-
-    monitor-exit v2
+    monitor-exit v1
 
     return-void
 
     :catchall_0
     move-exception v0
 
-    monitor-exit v2
+    monitor-exit v1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
-.method destroy()V
-    .locals 1
+.method public final createRevocableFd(Ljava/io/FileDescriptor;Ljava/lang/String;I)Landroid/os/ParcelFileDescriptor;
+    .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
 
-    invoke-direct {p0}, Lcom/android/server/blob/BlobMetadata;->revokeAndClearAllFds()V
+    new-instance v0, Landroid/os/RevocableFileDescriptor;
+
+    iget-object v1, p0, Lcom/android/server/blob/BlobMetadata;->mContext:Landroid/content/Context;
+
+    invoke-direct {v0, v1, p1}, Landroid/os/RevocableFileDescriptor;-><init>(Landroid/content/Context;Ljava/io/FileDescriptor;)V
+
+    iget-object p1, p0, Lcom/android/server/blob/BlobMetadata;->mRevocableFds:Landroid/util/ArrayMap;
+
+    monitor-enter p1
+
+    :try_start_0
+    new-instance v1, Lcom/android/server/blob/BlobMetadata$Accessor;
+
+    invoke-direct {v1, p2, p3}, Lcom/android/server/blob/BlobMetadata$Accessor;-><init>(Ljava/lang/String;I)V
+
+    iget-object p2, p0, Lcom/android/server/blob/BlobMetadata;->mRevocableFds:Landroid/util/ArrayMap;
+
+    invoke-virtual {p2, v1}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p2
+
+    check-cast p2, Landroid/util/ArraySet;
+
+    if-nez p2, :cond_0
+
+    new-instance p2, Landroid/util/ArraySet;
+
+    invoke-direct {p2}, Landroid/util/ArraySet;-><init>()V
+
+    iget-object p3, p0, Lcom/android/server/blob/BlobMetadata;->mRevocableFds:Landroid/util/ArrayMap;
+
+    invoke-virtual {p3, v1, p2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    :cond_0
+    invoke-virtual {p2, v0}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
+
+    monitor-exit p1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    new-instance p1, Lcom/android/server/blob/BlobMetadata$$ExternalSyntheticLambda1;
+
+    invoke-direct {p1, p0, v1, v0}, Lcom/android/server/blob/BlobMetadata$$ExternalSyntheticLambda1;-><init>(Lcom/android/server/blob/BlobMetadata;Lcom/android/server/blob/BlobMetadata$Accessor;Landroid/os/RevocableFileDescriptor;)V
+
+    invoke-virtual {v0, p1}, Landroid/os/RevocableFileDescriptor;->addOnCloseListener(Landroid/os/ParcelFileDescriptor$OnCloseListener;)V
+
+    invoke-virtual {v0}, Landroid/os/RevocableFileDescriptor;->getRevocableFileDescriptor()Landroid/os/ParcelFileDescriptor;
+
+    move-result-object p0
+
+    return-object p0
+
+    :catchall_0
+    move-exception p0
+
+    :try_start_1
+    monitor-exit p1
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    throw p0
+.end method
+
+.method public destroy()V
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/server/blob/BlobMetadata;->revokeAndClearAllFds()V
 
     invoke-virtual {p0}, Lcom/android/server/blob/BlobMetadata;->getBlobFile()Ljava/io/File;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Ljava/io/File;->delete()Z
+    invoke-virtual {p0}, Ljava/io/File;->delete()Z
 
     return-void
 .end method
 
-.method dump(Landroid/util/IndentingPrintWriter;Lcom/android/server/blob/BlobStoreManagerService$DumpArgs;)V
-    .locals 7
+.method public dump(Landroid/util/IndentingPrintWriter;Lcom/android/server/blob/BlobStoreManagerService$DumpArgs;)V
+    .locals 6
 
     iget-object v0, p0, Lcom/android/server/blob/BlobMetadata;->mMetadataLock:Ljava/lang/Object;
 
@@ -1180,75 +977,77 @@
 
     invoke-virtual {p2}, Lcom/android/server/blob/BlobStoreManagerService$DumpArgs;->shouldDumpFull()Z
 
-    move-result v2
+    move-result p2
 
-    invoke-virtual {v1, p1, v2}, Landroid/app/blob/BlobHandle;->dump(Landroid/util/IndentingPrintWriter;Z)V
+    invoke-virtual {v1, p1, p2}, Landroid/app/blob/BlobHandle;->dump(Landroid/util/IndentingPrintWriter;Z)V
 
     invoke-virtual {p1}, Landroid/util/IndentingPrintWriter;->decreaseIndent()Landroid/util/IndentingPrintWriter;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v2, "size: "
+    const-string/jumbo v1, "size: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v2, p0, Lcom/android/server/blob/BlobMetadata;->mContext:Landroid/content/Context;
+    iget-object v1, p0, Lcom/android/server/blob/BlobMetadata;->mContext:Landroid/content/Context;
 
     invoke-virtual {p0}, Lcom/android/server/blob/BlobMetadata;->getSize()J
 
-    move-result-wide v3
+    move-result-wide v2
 
-    const/16 v5, 0x8
+    const/16 v4, 0x8
 
-    invoke-static {v2, v3, v4, v5}, Landroid/text/format/Formatter;->formatFileSize(Landroid/content/Context;JI)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v1, v2, v3, v4}, Landroid/text/format/Formatter;->formatFileSize(Landroid/content/Context;JI)Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-virtual {p1, v1}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "Committers:"
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {p1, v1}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+    move-result-object p2
+
+    invoke-virtual {p1, p2}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+
+    const-string p2, "Committers:"
+
+    invoke-virtual {p1, p2}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
     invoke-virtual {p1}, Landroid/util/IndentingPrintWriter;->increaseIndent()Landroid/util/IndentingPrintWriter;
 
-    iget-object v1, p0, Lcom/android/server/blob/BlobMetadata;->mCommitters:Landroid/util/ArraySet;
+    iget-object p2, p0, Lcom/android/server/blob/BlobMetadata;->mCommitters:Landroid/util/ArraySet;
 
-    invoke-virtual {v1}, Landroid/util/ArraySet;->isEmpty()Z
+    invoke-virtual {p2}, Landroid/util/ArraySet;->isEmpty()Z
 
-    move-result v1
+    move-result p2
 
-    if-eqz v1, :cond_0
+    const/4 v1, 0x0
 
-    const-string v1, "<empty>"
+    if-eqz p2, :cond_0
 
-    invoke-virtual {p1, v1}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+    const-string p2, "<empty>"
+
+    invoke-virtual {p1, p2}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
     goto :goto_1
 
     :cond_0
-    const/4 v1, 0x0
+    iget-object p2, p0, Lcom/android/server/blob/BlobMetadata;->mCommitters:Landroid/util/ArraySet;
 
-    iget-object v2, p0, Lcom/android/server/blob/BlobMetadata;->mCommitters:Landroid/util/ArraySet;
+    invoke-virtual {p2}, Landroid/util/ArraySet;->size()I
 
-    invoke-virtual {v2}, Landroid/util/ArraySet;->size()I
+    move-result p2
 
-    move-result v2
+    move v2, v1
 
     :goto_0
-    if-ge v1, v2, :cond_1
+    if-ge v2, p2, :cond_1
 
     iget-object v3, p0, Lcom/android/server/blob/BlobMetadata;->mCommitters:Landroid/util/ArraySet;
 
-    invoke-virtual {v3, v1}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {v3, v2}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
 
     move-result-object v3
 
@@ -1262,7 +1061,7 @@
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Lcom/android/server/blob/BlobMetadata$Committer;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Lcom/android/server/blob/BlobMetadata$Accessor;->toString()Ljava/lang/String;
 
     move-result-object v5
 
@@ -1280,9 +1079,7 @@
 
     invoke-virtual {p1}, Landroid/util/IndentingPrintWriter;->decreaseIndent()Landroid/util/IndentingPrintWriter;
 
-    nop
-
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
@@ -1290,41 +1087,41 @@
     :goto_1
     invoke-virtual {p1}, Landroid/util/IndentingPrintWriter;->decreaseIndent()Landroid/util/IndentingPrintWriter;
 
-    const-string v1, "Leasees:"
+    const-string p2, "Leasees:"
 
-    invoke-virtual {p1, v1}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p1, p2}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
     invoke-virtual {p1}, Landroid/util/IndentingPrintWriter;->increaseIndent()Landroid/util/IndentingPrintWriter;
 
-    iget-object v1, p0, Lcom/android/server/blob/BlobMetadata;->mLeasees:Landroid/util/ArraySet;
+    iget-object p2, p0, Lcom/android/server/blob/BlobMetadata;->mLeasees:Landroid/util/ArraySet;
 
-    invoke-virtual {v1}, Landroid/util/ArraySet;->isEmpty()Z
+    invoke-virtual {p2}, Landroid/util/ArraySet;->isEmpty()Z
 
-    move-result v1
+    move-result p2
 
-    if-eqz v1, :cond_2
+    if-eqz p2, :cond_2
 
-    const-string v1, "<empty>"
+    const-string p2, "<empty>"
 
-    invoke-virtual {p1, v1}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p1, p2}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
     goto :goto_3
 
     :cond_2
-    const/4 v1, 0x0
+    iget-object p2, p0, Lcom/android/server/blob/BlobMetadata;->mLeasees:Landroid/util/ArraySet;
 
-    iget-object v2, p0, Lcom/android/server/blob/BlobMetadata;->mLeasees:Landroid/util/ArraySet;
+    invoke-virtual {p2}, Landroid/util/ArraySet;->size()I
 
-    invoke-virtual {v2}, Landroid/util/ArraySet;->size()I
+    move-result p2
 
-    move-result v2
+    move v2, v1
 
     :goto_2
-    if-ge v1, v2, :cond_3
+    if-ge v2, p2, :cond_3
 
     iget-object v3, p0, Lcom/android/server/blob/BlobMetadata;->mLeasees:Landroid/util/ArraySet;
 
-    invoke-virtual {v3, v1}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {v3, v2}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
 
     move-result-object v3
 
@@ -1334,11 +1131,11 @@
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v5, "leasee "
+    const-string v5, "leasee "
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Lcom/android/server/blob/BlobMetadata$Leasee;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Lcom/android/server/blob/BlobMetadata$Accessor;->toString()Ljava/lang/String;
 
     move-result-object v5
 
@@ -1358,9 +1155,7 @@
 
     invoke-virtual {p1}, Landroid/util/IndentingPrintWriter;->decreaseIndent()Landroid/util/IndentingPrintWriter;
 
-    nop
-
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_2
 
@@ -1368,75 +1163,73 @@
     :goto_3
     invoke-virtual {p1}, Landroid/util/IndentingPrintWriter;->decreaseIndent()Landroid/util/IndentingPrintWriter;
 
-    const-string v1, "Open fds:"
+    const-string p2, "Open fds:"
 
-    invoke-virtual {p1, v1}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p1, p2}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
     invoke-virtual {p1}, Landroid/util/IndentingPrintWriter;->increaseIndent()Landroid/util/IndentingPrintWriter;
 
-    iget-object v1, p0, Lcom/android/server/blob/BlobMetadata;->mRevocableFds:Landroid/util/ArrayMap;
+    iget-object p2, p0, Lcom/android/server/blob/BlobMetadata;->mRevocableFds:Landroid/util/ArrayMap;
 
-    invoke-virtual {v1}, Landroid/util/ArrayMap;->isEmpty()Z
+    invoke-virtual {p2}, Landroid/util/ArrayMap;->isEmpty()Z
 
-    move-result v1
+    move-result p2
 
-    if-eqz v1, :cond_4
+    if-eqz p2, :cond_4
 
-    const-string v1, "<empty>"
+    const-string p0, "<empty>"
 
-    invoke-virtual {p1, v1}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p1, p0}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
     goto :goto_5
 
     :cond_4
-    const/4 v1, 0x0
+    iget-object p2, p0, Lcom/android/server/blob/BlobMetadata;->mRevocableFds:Landroid/util/ArrayMap;
+
+    invoke-virtual {p2}, Landroid/util/ArrayMap;->size()I
+
+    move-result p2
+
+    :goto_4
+    if-ge v1, p2, :cond_5
 
     iget-object v2, p0, Lcom/android/server/blob/BlobMetadata;->mRevocableFds:Landroid/util/ArrayMap;
 
-    invoke-virtual {v2}, Landroid/util/ArrayMap;->size()I
+    invoke-virtual {v2, v1}, Landroid/util/ArrayMap;->keyAt(I)Ljava/lang/Object;
 
-    move-result v2
+    move-result-object v2
 
-    :goto_4
-    if-ge v1, v2, :cond_5
+    check-cast v2, Lcom/android/server/blob/BlobMetadata$Accessor;
 
     iget-object v3, p0, Lcom/android/server/blob/BlobMetadata;->mRevocableFds:Landroid/util/ArrayMap;
 
-    invoke-virtual {v3, v1}, Landroid/util/ArrayMap;->keyAt(I)Ljava/lang/Object;
+    invoke-virtual {v3, v1}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
 
     move-result-object v3
 
-    check-cast v3, Lcom/android/server/blob/BlobMetadata$Accessor;
+    check-cast v3, Landroid/util/ArraySet;
 
-    iget-object v4, p0, Lcom/android/server/blob/BlobMetadata;->mRevocableFds:Landroid/util/ArrayMap;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v1}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object v4
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    check-cast v4, Landroid/util/ArraySet;
+    const-string v2, ": #"
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v3}, Landroid/util/ArraySet;->size()I
 
-    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result v2
 
-    const-string v6, ": #"
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v4}, Landroid/util/ArraySet;->size()I
+    move-result-object v2
 
-    move-result v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {p1, v5}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p1, v2}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
     add-int/lit8 v1, v1, 0x1
 
@@ -1451,179 +1244,179 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
-.method dumpAsStatsEvent(I)Landroid/util/StatsEvent;
-    .locals 20
+.method public dumpAsStatsEvent(I)Landroid/util/StatsEvent;
+    .locals 16
 
-    move-object/from16 v1, p0
+    move-object/from16 v0, p0
 
-    iget-object v2, v1, Lcom/android/server/blob/BlobMetadata;->mMetadataLock:Ljava/lang/Object;
+    iget-object v1, v0, Lcom/android/server/blob/BlobMetadata;->mMetadataLock:Ljava/lang/Object;
 
-    monitor-enter v2
+    monitor-enter v1
 
     :try_start_0
-    new-instance v0, Landroid/util/proto/ProtoOutputStream;
+    new-instance v2, Landroid/util/proto/ProtoOutputStream;
 
-    invoke-direct {v0}, Landroid/util/proto/ProtoOutputStream;-><init>()V
+    invoke-direct {v2}, Landroid/util/proto/ProtoOutputStream;-><init>()V
 
-    const/4 v3, 0x0
+    iget-object v3, v0, Lcom/android/server/blob/BlobMetadata;->mCommitters:Landroid/util/ArraySet;
 
-    iget-object v4, v1, Lcom/android/server/blob/BlobMetadata;->mCommitters:Landroid/util/ArraySet;
+    invoke-virtual {v3}, Landroid/util/ArraySet;->size()I
 
-    invoke-virtual {v4}, Landroid/util/ArraySet;->size()I
+    move-result v3
 
-    move-result v4
+    const/4 v4, 0x0
+
+    move v5, v4
 
     :goto_0
-    const-wide v5, 0x10300000002L
+    const-wide v6, 0x10300000002L
 
-    const-wide v7, 0x10500000001L
+    const-wide v8, 0x10500000001L
 
-    const-wide v9, 0x20b00000001L
+    const-wide v10, 0x20b00000001L
 
-    if-ge v3, v4, :cond_0
+    if-ge v5, v3, :cond_0
 
-    iget-object v11, v1, Lcom/android/server/blob/BlobMetadata;->mCommitters:Landroid/util/ArraySet;
+    iget-object v12, v0, Lcom/android/server/blob/BlobMetadata;->mCommitters:Landroid/util/ArraySet;
 
-    invoke-virtual {v11, v3}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {v12, v5}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
 
-    move-result-object v11
+    move-result-object v12
 
-    check-cast v11, Lcom/android/server/blob/BlobMetadata$Committer;
+    check-cast v12, Lcom/android/server/blob/BlobMetadata$Committer;
 
-    invoke-virtual {v0, v9, v10}, Landroid/util/proto/ProtoOutputStream;->start(J)J
+    invoke-virtual {v2, v10, v11}, Landroid/util/proto/ProtoOutputStream;->start(J)J
 
-    move-result-wide v9
+    move-result-wide v10
 
-    iget v12, v11, Lcom/android/server/blob/BlobMetadata$Committer;->uid:I
+    iget v13, v12, Lcom/android/server/blob/BlobMetadata$Accessor;->uid:I
 
-    invoke-virtual {v0, v7, v8, v12}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
+    invoke-virtual {v2, v8, v9, v13}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
 
-    iget-wide v7, v11, Lcom/android/server/blob/BlobMetadata$Committer;->commitTimeMs:J
+    iget-wide v8, v12, Lcom/android/server/blob/BlobMetadata$Committer;->commitTimeMs:J
 
-    invoke-virtual {v0, v5, v6, v7, v8}, Landroid/util/proto/ProtoOutputStream;->write(JJ)V
+    invoke-virtual {v2, v6, v7, v8, v9}, Landroid/util/proto/ProtoOutputStream;->write(JJ)V
 
-    const-wide v5, 0x10500000003L
+    const-wide v6, 0x10500000003L
 
-    iget-object v7, v11, Lcom/android/server/blob/BlobMetadata$Committer;->blobAccessMode:Lcom/android/server/blob/BlobAccessMode;
+    iget-object v8, v12, Lcom/android/server/blob/BlobMetadata$Committer;->blobAccessMode:Lcom/android/server/blob/BlobAccessMode;
 
-    invoke-virtual {v7}, Lcom/android/server/blob/BlobAccessMode;->getAccessType()I
+    invoke-virtual {v8}, Lcom/android/server/blob/BlobAccessMode;->getAccessType()I
 
-    move-result v7
+    move-result v8
 
-    invoke-virtual {v0, v5, v6, v7}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
+    invoke-virtual {v2, v6, v7, v8}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
 
-    const-wide v5, 0x10500000004L
+    const-wide v6, 0x10500000004L
 
-    iget-object v7, v11, Lcom/android/server/blob/BlobMetadata$Committer;->blobAccessMode:Lcom/android/server/blob/BlobAccessMode;
+    iget-object v8, v12, Lcom/android/server/blob/BlobMetadata$Committer;->blobAccessMode:Lcom/android/server/blob/BlobAccessMode;
 
-    invoke-virtual {v7}, Lcom/android/server/blob/BlobAccessMode;->getAllowedPackagesCount()I
+    invoke-virtual {v8}, Lcom/android/server/blob/BlobAccessMode;->getAllowedPackagesCount()I
 
-    move-result v7
+    move-result v8
 
-    invoke-virtual {v0, v5, v6, v7}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
+    invoke-virtual {v2, v6, v7, v8}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
 
-    invoke-virtual {v0, v9, v10}, Landroid/util/proto/ProtoOutputStream;->end(J)V
+    invoke-virtual {v2, v10, v11}, Landroid/util/proto/ProtoOutputStream;->end(J)V
 
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v5, v5, 0x1
 
     goto :goto_0
 
     :cond_0
-    invoke-virtual {v0}, Landroid/util/proto/ProtoOutputStream;->getBytes()[B
+    invoke-virtual {v2}, Landroid/util/proto/ProtoOutputStream;->getBytes()[B
 
-    move-result-object v18
+    move-result-object v13
 
-    new-instance v3, Landroid/util/proto/ProtoOutputStream;
+    new-instance v2, Landroid/util/proto/ProtoOutputStream;
 
-    invoke-direct {v3}, Landroid/util/proto/ProtoOutputStream;-><init>()V
+    invoke-direct {v2}, Landroid/util/proto/ProtoOutputStream;-><init>()V
 
-    move-object v0, v3
+    iget-object v3, v0, Lcom/android/server/blob/BlobMetadata;->mLeasees:Landroid/util/ArraySet;
 
-    const/4 v3, 0x0
+    invoke-virtual {v3}, Landroid/util/ArraySet;->size()I
 
-    iget-object v4, v1, Lcom/android/server/blob/BlobMetadata;->mLeasees:Landroid/util/ArraySet;
-
-    invoke-virtual {v4}, Landroid/util/ArraySet;->size()I
-
-    move-result v4
+    move-result v3
 
     :goto_1
-    if-ge v3, v4, :cond_1
+    if-ge v4, v3, :cond_1
 
-    iget-object v11, v1, Lcom/android/server/blob/BlobMetadata;->mLeasees:Landroid/util/ArraySet;
+    iget-object v5, v0, Lcom/android/server/blob/BlobMetadata;->mLeasees:Landroid/util/ArraySet;
 
-    invoke-virtual {v11, v3}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {v5, v4}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
 
-    move-result-object v11
+    move-result-object v5
 
-    check-cast v11, Lcom/android/server/blob/BlobMetadata$Leasee;
+    check-cast v5, Lcom/android/server/blob/BlobMetadata$Leasee;
 
-    invoke-virtual {v0, v9, v10}, Landroid/util/proto/ProtoOutputStream;->start(J)J
+    invoke-virtual {v2, v10, v11}, Landroid/util/proto/ProtoOutputStream;->start(J)J
 
-    move-result-wide v12
+    move-result-wide v14
 
-    iget v14, v11, Lcom/android/server/blob/BlobMetadata$Leasee;->uid:I
+    iget v12, v5, Lcom/android/server/blob/BlobMetadata$Accessor;->uid:I
 
-    invoke-virtual {v0, v7, v8, v14}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
+    invoke-virtual {v2, v8, v9, v12}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
 
-    iget-wide v14, v11, Lcom/android/server/blob/BlobMetadata$Leasee;->expiryTimeMillis:J
+    iget-wide v8, v5, Lcom/android/server/blob/BlobMetadata$Leasee;->expiryTimeMillis:J
 
-    invoke-virtual {v0, v5, v6, v14, v15}, Landroid/util/proto/ProtoOutputStream;->write(JJ)V
+    invoke-virtual {v2, v6, v7, v8, v9}, Landroid/util/proto/ProtoOutputStream;->write(JJ)V
 
-    invoke-virtual {v0, v12, v13}, Landroid/util/proto/ProtoOutputStream;->end(J)V
+    invoke-virtual {v2, v14, v15}, Landroid/util/proto/ProtoOutputStream;->end(J)V
 
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v4, v4, 0x1
+
+    const-wide v8, 0x10500000001L
 
     goto :goto_1
 
     :cond_1
-    invoke-virtual {v0}, Landroid/util/proto/ProtoOutputStream;->getBytes()[B
+    invoke-virtual {v2}, Landroid/util/proto/ProtoOutputStream;->getBytes()[B
 
-    move-result-object v19
+    move-result-object v14
 
-    iget-wide v12, v1, Lcom/android/server/blob/BlobMetadata;->mBlobId:J
+    iget-wide v7, v0, Lcom/android/server/blob/BlobMetadata;->mBlobId:J
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/server/blob/BlobMetadata;->getSize()J
 
-    move-result-wide v14
+    move-result-wide v9
 
-    iget-object v3, v1, Lcom/android/server/blob/BlobMetadata;->mBlobHandle:Landroid/app/blob/BlobHandle;
+    iget-object v0, v0, Lcom/android/server/blob/BlobMetadata;->mBlobHandle:Landroid/app/blob/BlobHandle;
 
-    invoke-virtual {v3}, Landroid/app/blob/BlobHandle;->getExpiryTimeMillis()J
+    invoke-virtual {v0}, Landroid/app/blob/BlobHandle;->getExpiryTimeMillis()J
 
-    move-result-wide v16
+    move-result-wide v11
 
-    move/from16 v11, p1
+    move/from16 v6, p1
 
-    invoke-static/range {v11 .. v19}, Lcom/android/internal/util/FrameworkStatsLog;->buildStatsEvent(IJJJ[B[B)Landroid/util/StatsEvent;
+    invoke-static/range {v6 .. v14}, Lcom/android/internal/util/FrameworkStatsLog;->buildStatsEvent(IJJJ[B[B)Landroid/util/StatsEvent;
 
-    move-result-object v3
+    move-result-object v0
 
-    monitor-exit v2
+    monitor-exit v1
 
-    return-object v3
+    return-object v0
 
     :catchall_0
     move-exception v0
 
-    monitor-exit v2
+    monitor-exit v1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
-.method forEachLeasee(Ljava/util/function/Consumer;)V
-    .locals 2
+.method public forEachLeasee(Ljava/util/function/Consumer;)V
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1638,25 +1431,25 @@
     monitor-enter v0
 
     :try_start_0
-    iget-object v1, p0, Lcom/android/server/blob/BlobMetadata;->mLeasees:Landroid/util/ArraySet;
+    iget-object p0, p0, Lcom/android/server/blob/BlobMetadata;->mLeasees:Landroid/util/ArraySet;
 
-    invoke-virtual {v1, p1}, Landroid/util/ArraySet;->forEach(Ljava/util/function/Consumer;)V
+    invoke-virtual {p0, p1}, Landroid/util/ArraySet;->forEach(Ljava/util/function/Consumer;)V
 
     monitor-exit v0
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
-.method getBlobFile()Ljava/io/File;
+.method public getBlobFile()Ljava/io/File;
     .locals 2
 
     iget-object v0, p0, Lcom/android/server/blob/BlobMetadata;->mBlobFile:Ljava/io/File;
@@ -1672,20 +1465,20 @@
     iput-object v0, p0, Lcom/android/server/blob/BlobMetadata;->mBlobFile:Ljava/io/File;
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/blob/BlobMetadata;->mBlobFile:Ljava/io/File;
+    iget-object p0, p0, Lcom/android/server/blob/BlobMetadata;->mBlobFile:Ljava/io/File;
 
-    return-object v0
+    return-object p0
 .end method
 
-.method getBlobHandle()Landroid/app/blob/BlobHandle;
-    .locals 1
+.method public getBlobHandle()Landroid/app/blob/BlobHandle;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/blob/BlobMetadata;->mBlobHandle:Landroid/app/blob/BlobHandle;
+    iget-object p0, p0, Lcom/android/server/blob/BlobMetadata;->mBlobHandle:Landroid/app/blob/BlobHandle;
 
-    return-object v0
+    return-object p0
 .end method
 
-.method getBlobId()J
+.method public getBlobId()J
     .locals 2
 
     iget-wide v0, p0, Lcom/android/server/blob/BlobMetadata;->mBlobId:J
@@ -1693,7 +1486,7 @@
     return-wide v0
 .end method
 
-.method getExistingCommitter(Ljava/lang/String;I)Lcom/android/server/blob/BlobMetadata$Committer;
+.method public getExistingCommitter(Ljava/lang/String;I)Lcom/android/server/blob/BlobMetadata$Committer;
     .locals 5
 
     iget-object v0, p0, Lcom/android/server/blob/BlobMetadata;->mCommitters:Landroid/util/ArraySet;
@@ -1720,11 +1513,11 @@
 
     check-cast v3, Lcom/android/server/blob/BlobMetadata$Committer;
 
-    iget v4, v3, Lcom/android/server/blob/BlobMetadata$Committer;->uid:I
+    iget v4, v3, Lcom/android/server/blob/BlobMetadata$Accessor;->uid:I
 
     if-ne v4, p2, :cond_0
 
-    iget-object v4, v3, Lcom/android/server/blob/BlobMetadata$Committer;->packageName:Ljava/lang/String;
+    iget-object v4, v3, Lcom/android/server/blob/BlobMetadata$Accessor;->packageName:Ljava/lang/String;
 
     invoke-virtual {v4, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1744,107 +1537,104 @@
     :cond_1
     monitor-exit v0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return-object v0
+    return-object p0
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
-.method getLeaseInfo(Ljava/lang/String;I)Landroid/app/blob/LeaseInfo;
+.method public getLeaseInfo(Ljava/lang/String;I)Landroid/app/blob/LeaseInfo;
     .locals 11
 
     iget-object v0, p0, Lcom/android/server/blob/BlobMetadata;->mMetadataLock:Ljava/lang/Object;
 
     monitor-enter v0
 
-    const/4 v1, 0x0
-
     :try_start_0
-    iget-object v2, p0, Lcom/android/server/blob/BlobMetadata;->mLeasees:Landroid/util/ArraySet;
+    iget-object v1, p0, Lcom/android/server/blob/BlobMetadata;->mLeasees:Landroid/util/ArraySet;
 
-    invoke-virtual {v2}, Landroid/util/ArraySet;->size()I
+    invoke-virtual {v1}, Landroid/util/ArraySet;->size()I
 
-    move-result v2
+    move-result v1
+
+    const/4 v2, 0x0
+
+    move v3, v2
 
     :goto_0
-    if-ge v1, v2, :cond_3
+    if-ge v3, v1, :cond_3
 
-    iget-object v3, p0, Lcom/android/server/blob/BlobMetadata;->mLeasees:Landroid/util/ArraySet;
+    iget-object v4, p0, Lcom/android/server/blob/BlobMetadata;->mLeasees:Landroid/util/ArraySet;
 
-    invoke-virtual {v3, v1}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {v4, v3}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v4
 
-    check-cast v3, Lcom/android/server/blob/BlobMetadata$Leasee;
+    check-cast v4, Lcom/android/server/blob/BlobMetadata$Leasee;
 
-    invoke-virtual {v3}, Lcom/android/server/blob/BlobMetadata$Leasee;->isStillValid()Z
+    invoke-virtual {v4}, Lcom/android/server/blob/BlobMetadata$Leasee;->isStillValid()Z
 
-    move-result v4
+    move-result v5
 
-    if-nez v4, :cond_0
+    if-nez v5, :cond_0
+
+    goto :goto_3
+
+    :cond_0
+    iget v5, v4, Lcom/android/server/blob/BlobMetadata$Accessor;->uid:I
+
+    if-ne v5, p2, :cond_2
+
+    iget-object v5, v4, Lcom/android/server/blob/BlobMetadata$Accessor;->packageName:Ljava/lang/String;
+
+    invoke-virtual {v5, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_2
+
+    iget-object p2, v4, Lcom/android/server/blob/BlobMetadata$Leasee;->descriptionResEntryName:Ljava/lang/String;
+
+    if-nez p2, :cond_1
+
+    :goto_1
+    move v9, v2
 
     goto :goto_2
 
-    :cond_0
-    iget v4, v3, Lcom/android/server/blob/BlobMetadata$Leasee;->uid:I
+    :cond_1
+    iget-object p0, p0, Lcom/android/server/blob/BlobMetadata;->mContext:Landroid/content/Context;
 
-    if-ne v4, p2, :cond_2
+    iget-object v1, v4, Lcom/android/server/blob/BlobMetadata$Accessor;->packageName:Ljava/lang/String;
 
-    iget-object v4, v3, Lcom/android/server/blob/BlobMetadata$Leasee;->packageName:Ljava/lang/String;
+    iget v2, v4, Lcom/android/server/blob/BlobMetadata$Accessor;->uid:I
 
-    invoke-virtual {v4, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-static {v2}, Landroid/os/UserHandle;->getUserId(I)I
 
-    move-result v4
+    move-result v2
 
-    if-eqz v4, :cond_2
+    invoke-static {p0, p2, v1, v2}, Lcom/android/server/blob/BlobStoreUtils;->getDescriptionResourceId(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;I)I
 
-    iget-object v4, v3, Lcom/android/server/blob/BlobMetadata$Leasee;->descriptionResEntryName:Ljava/lang/String;
-
-    if-nez v4, :cond_1
-
-    const/4 v4, 0x0
-
-    move v9, v4
+    move-result v2
 
     goto :goto_1
 
-    :cond_1
-    iget-object v4, p0, Lcom/android/server/blob/BlobMetadata;->mContext:Landroid/content/Context;
+    :goto_2
+    new-instance p0, Landroid/app/blob/LeaseInfo;
 
-    iget-object v5, v3, Lcom/android/server/blob/BlobMetadata$Leasee;->descriptionResEntryName:Ljava/lang/String;
+    iget-wide v7, v4, Lcom/android/server/blob/BlobMetadata$Leasee;->expiryTimeMillis:J
 
-    iget-object v6, v3, Lcom/android/server/blob/BlobMetadata$Leasee;->packageName:Ljava/lang/String;
+    iget-object v10, v4, Lcom/android/server/blob/BlobMetadata$Leasee;->description:Ljava/lang/CharSequence;
 
-    iget v7, v3, Lcom/android/server/blob/BlobMetadata$Leasee;->uid:I
-
-    invoke-static {v7}, Landroid/os/UserHandle;->getUserId(I)I
-
-    move-result v7
-
-    invoke-static {v4, v5, v6, v7}, Lcom/android/server/blob/BlobStoreUtils;->getDescriptionResourceId(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;I)I
-
-    move-result v4
-
-    move v9, v4
-
-    :goto_1
-    nop
-
-    new-instance v4, Landroid/app/blob/LeaseInfo;
-
-    iget-wide v7, v3, Lcom/android/server/blob/BlobMetadata$Leasee;->expiryTimeMillis:J
-
-    iget-object v10, v3, Lcom/android/server/blob/BlobMetadata$Leasee;->description:Ljava/lang/CharSequence;
-
-    move-object v5, v4
+    move-object v5, p0
 
     move-object v6, p1
 
@@ -1852,73 +1642,75 @@
 
     monitor-exit v0
 
-    return-object v4
+    return-object p0
 
     :cond_2
-    :goto_2
-    add-int/lit8 v1, v1, 0x1
+    :goto_3
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
     :cond_3
     monitor-exit v0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return-object v0
+    return-object p0
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
-.method getSize()J
+.method public getSize()J
     .locals 2
 
     invoke-virtual {p0}, Lcom/android/server/blob/BlobMetadata;->getBlobFile()Ljava/io/File;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Ljava/io/File;->length()J
+    invoke-virtual {p0}, Ljava/io/File;->length()J
 
     move-result-wide v0
 
     return-wide v0
 .end method
 
-.method hasACommitterInUser(I)Z
+.method public hasACommitterInUser(I)Z
     .locals 5
 
     iget-object v0, p0, Lcom/android/server/blob/BlobMetadata;->mMetadataLock:Ljava/lang/Object;
 
     monitor-enter v0
 
-    const/4 v1, 0x0
-
     :try_start_0
-    iget-object v2, p0, Lcom/android/server/blob/BlobMetadata;->mCommitters:Landroid/util/ArraySet;
+    iget-object v1, p0, Lcom/android/server/blob/BlobMetadata;->mCommitters:Landroid/util/ArraySet;
 
-    invoke-virtual {v2}, Landroid/util/ArraySet;->size()I
+    invoke-virtual {v1}, Landroid/util/ArraySet;->size()I
 
-    move-result v2
+    move-result v1
+
+    const/4 v2, 0x0
+
+    move v3, v2
 
     :goto_0
-    if-ge v1, v2, :cond_1
+    if-ge v3, v1, :cond_1
 
-    iget-object v3, p0, Lcom/android/server/blob/BlobMetadata;->mCommitters:Landroid/util/ArraySet;
+    iget-object v4, p0, Lcom/android/server/blob/BlobMetadata;->mCommitters:Landroid/util/ArraySet;
 
-    invoke-virtual {v3, v1}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {v4, v3}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v4
 
-    check-cast v3, Lcom/android/server/blob/BlobMetadata$Committer;
+    check-cast v4, Lcom/android/server/blob/BlobMetadata$Committer;
 
-    iget v4, v3, Lcom/android/server/blob/BlobMetadata$Committer;->uid:I
+    iget v4, v4, Lcom/android/server/blob/BlobMetadata$Accessor;->uid:I
 
     invoke-static {v4}, Landroid/os/UserHandle;->getUserId(I)I
 
@@ -1928,33 +1720,31 @@
 
     monitor-exit v0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 
     :cond_0
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
     :cond_1
     monitor-exit v0
 
-    const/4 v0, 0x0
-
-    return v0
+    return v2
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
-.method hasACommitterOrLeaseeInUser(I)Z
+.method public hasACommitterOrLeaseeInUser(I)Z
     .locals 1
 
     invoke-virtual {p0, p1}, Lcom/android/server/blob/BlobMetadata;->hasACommitterInUser(I)Z
@@ -1963,50 +1753,117 @@
 
     if-nez v0, :cond_1
 
-    invoke-direct {p0, p1}, Lcom/android/server/blob/BlobMetadata;->hasALeaseeInUser(I)Z
+    invoke-virtual {p0, p1}, Lcom/android/server/blob/BlobMetadata;->hasALeaseeInUser(I)Z
 
-    move-result v0
+    move-result p0
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     goto :goto_1
 
     :cond_1
     :goto_0
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     :goto_1
-    return v0
+    return p0
 .end method
 
-.method hasLeaseWaitTimeElapsedForAll()Z
+.method public final hasALeaseeInUser(I)Z
     .locals 5
 
-    const/4 v0, 0x0
+    iget-object v0, p0, Lcom/android/server/blob/BlobMetadata;->mMetadataLock:Ljava/lang/Object;
 
-    iget-object v1, p0, Lcom/android/server/blob/BlobMetadata;->mCommitters:Landroid/util/ArraySet;
+    monitor-enter v0
+
+    :try_start_0
+    iget-object v1, p0, Lcom/android/server/blob/BlobMetadata;->mLeasees:Landroid/util/ArraySet;
 
     invoke-virtual {v1}, Landroid/util/ArraySet;->size()I
 
     move-result v1
 
+    const/4 v2, 0x0
+
+    move v3, v2
+
     :goto_0
-    if-ge v0, v1, :cond_1
+    if-ge v3, v1, :cond_1
 
-    iget-object v2, p0, Lcom/android/server/blob/BlobMetadata;->mCommitters:Landroid/util/ArraySet;
+    iget-object v4, p0, Lcom/android/server/blob/BlobMetadata;->mLeasees:Landroid/util/ArraySet;
 
-    invoke-virtual {v2, v0}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {v4, v3}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v4
 
-    check-cast v2, Lcom/android/server/blob/BlobMetadata$Committer;
+    check-cast v4, Lcom/android/server/blob/BlobMetadata$Leasee;
 
-    invoke-virtual {v2}, Lcom/android/server/blob/BlobMetadata$Committer;->getCommitTimeMs()J
+    iget v4, v4, Lcom/android/server/blob/BlobMetadata$Accessor;->uid:I
+
+    invoke-static {v4}, Landroid/os/UserHandle;->getUserId(I)I
+
+    move-result v4
+
+    if-ne p1, v4, :cond_0
+
+    monitor-exit v0
+
+    const/4 p0, 0x1
+
+    return p0
+
+    :cond_0
+    add-int/lit8 v3, v3, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    monitor-exit v0
+
+    return v2
+
+    :catchall_0
+    move-exception p0
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw p0
+.end method
+
+.method public hasLeaseWaitTimeElapsedForAll()Z
+    .locals 5
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+
+    iget-object v0, p0, Lcom/android/server/blob/BlobMetadata;->mCommitters:Landroid/util/ArraySet;
+
+    invoke-virtual {v0}, Landroid/util/ArraySet;->size()I
+
+    move-result v0
+
+    const/4 v1, 0x0
+
+    move v2, v1
+
+    :goto_0
+    if-ge v2, v0, :cond_1
+
+    iget-object v3, p0, Lcom/android/server/blob/BlobMetadata;->mCommitters:Landroid/util/ArraySet;
+
+    invoke-virtual {v3, v2}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Lcom/android/server/blob/BlobMetadata$Committer;
+
+    invoke-virtual {v3}, Lcom/android/server/blob/BlobMetadata$Committer;->getCommitTimeMs()J
 
     move-result-wide v3
 
@@ -2016,116 +1873,21 @@
 
     if-nez v3, :cond_0
 
-    const/4 v3, 0x0
-
-    return v3
+    return v1
 
     :cond_0
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     :cond_1
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 .end method
 
-.method hasValidLeases()Z
-    .locals 4
-
-    iget-object v0, p0, Lcom/android/server/blob/BlobMetadata;->mMetadataLock:Ljava/lang/Object;
-
-    monitor-enter v0
-
-    const/4 v1, 0x0
-
-    :try_start_0
-    iget-object v2, p0, Lcom/android/server/blob/BlobMetadata;->mLeasees:Landroid/util/ArraySet;
-
-    invoke-virtual {v2}, Landroid/util/ArraySet;->size()I
-
-    move-result v2
-
-    :goto_0
-    if-ge v1, v2, :cond_1
-
-    iget-object v3, p0, Lcom/android/server/blob/BlobMetadata;->mLeasees:Landroid/util/ArraySet;
-
-    invoke-virtual {v3, v1}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Lcom/android/server/blob/BlobMetadata$Leasee;
-
-    invoke-virtual {v3}, Lcom/android/server/blob/BlobMetadata$Leasee;->isStillValid()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    monitor-exit v0
-
-    const/4 v0, 0x1
-
-    return v0
-
-    :cond_0
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_0
-
-    :cond_1
-    const/4 v1, 0x0
-
-    monitor-exit v0
-
-    return v1
-
-    :catchall_0
-    move-exception v1
-
-    monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v1
-.end method
-
-.method isACommitter(Ljava/lang/String;I)Z
-    .locals 3
-
-    iget-object v0, p0, Lcom/android/server/blob/BlobMetadata;->mMetadataLock:Ljava/lang/Object;
-
-    monitor-enter v0
-
-    :try_start_0
-    iget-object v1, p0, Lcom/android/server/blob/BlobMetadata;->mCommitters:Landroid/util/ArraySet;
-
-    invoke-static {p2}, Landroid/os/UserHandle;->getUserId(I)I
-
-    move-result v2
-
-    invoke-static {v1, p1, p2, v2}, Lcom/android/server/blob/BlobMetadata;->isAnAccessor(Landroid/util/ArraySet;Ljava/lang/String;II)Z
-
-    move-result v1
-
-    monitor-exit v0
-
-    return v1
-
-    :catchall_0
-    move-exception v1
-
-    monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v1
-.end method
-
-.method isALeasee(Ljava/lang/String;I)Z
-    .locals 3
+.method public final hasOtherLeasees(Ljava/lang/String;II)Z
+    .locals 8
 
     iget-object v0, p0, Lcom/android/server/blob/BlobMetadata;->mMetadataLock:Ljava/lang/Object;
 
@@ -2134,48 +1896,299 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/server/blob/BlobMetadata;->mLeasees:Landroid/util/ArraySet;
 
-    invoke-static {p2}, Landroid/os/UserHandle;->getUserId(I)I
+    invoke-virtual {v1}, Landroid/util/ArraySet;->size()I
 
-    move-result v2
+    move-result v1
 
-    invoke-static {v1, p1, p2, v2}, Lcom/android/server/blob/BlobMetadata;->getAccessor(Landroid/util/ArraySet;Ljava/lang/String;II)Lcom/android/server/blob/BlobMetadata$Accessor;
+    const/4 v2, 0x0
 
-    move-result-object v1
+    move v3, v2
 
-    check-cast v1, Lcom/android/server/blob/BlobMetadata$Leasee;
+    :goto_0
+    if-ge v3, v1, :cond_5
 
-    if-eqz v1, :cond_0
+    iget-object v4, p0, Lcom/android/server/blob/BlobMetadata;->mLeasees:Landroid/util/ArraySet;
 
-    invoke-virtual {v1}, Lcom/android/server/blob/BlobMetadata$Leasee;->isStillValid()Z
+    invoke-virtual {v4, v3}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
 
-    move-result v2
+    move-result-object v4
 
-    if-eqz v2, :cond_0
+    check-cast v4, Lcom/android/server/blob/BlobMetadata$Leasee;
 
-    const/4 v2, 0x1
+    invoke-virtual {v4}, Lcom/android/server/blob/BlobMetadata$Leasee;->isStillValid()Z
+
+    move-result v5
+
+    if-nez v5, :cond_0
+
+    goto :goto_1
+
+    :cond_0
+    const/4 v5, -0x1
+
+    const/4 v6, 0x1
+
+    if-eqz p1, :cond_1
+
+    if-eq p2, v5, :cond_1
+
+    invoke-virtual {v4, p1, p2}, Lcom/android/server/blob/BlobMetadata$Accessor;->equals(Ljava/lang/String;I)Z
+
+    move-result v7
+
+    if-nez v7, :cond_1
+
+    monitor-exit v0
+
+    return v6
+
+    :cond_1
+    if-eqz p1, :cond_3
+
+    iget-object v7, v4, Lcom/android/server/blob/BlobMetadata$Accessor;->packageName:Ljava/lang/String;
+
+    invoke-virtual {v7, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_2
+
+    iget v7, v4, Lcom/android/server/blob/BlobMetadata$Accessor;->uid:I
+
+    invoke-static {v7}, Landroid/os/UserHandle;->getUserId(I)I
+
+    move-result v7
+
+    if-eq p3, v7, :cond_3
+
+    :cond_2
+    monitor-exit v0
+
+    return v6
+
+    :cond_3
+    if-eq p2, v5, :cond_4
+
+    iget v4, v4, Lcom/android/server/blob/BlobMetadata$Accessor;->uid:I
+
+    if-eq v4, p2, :cond_4
+
+    monitor-exit v0
+
+    return v6
+
+    :cond_4
+    :goto_1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    :cond_0
-    const/4 v2, 0x0
-
-    :goto_0
+    :cond_5
     monitor-exit v0
 
     return v2
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
-.method isAccessAllowedForCaller(Ljava/lang/String;I)Z
-    .locals 12
+.method public hasValidLeases()Z
+    .locals 5
+
+    iget-object v0, p0, Lcom/android/server/blob/BlobMetadata;->mMetadataLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
+    iget-object v1, p0, Lcom/android/server/blob/BlobMetadata;->mLeasees:Landroid/util/ArraySet;
+
+    invoke-virtual {v1}, Landroid/util/ArraySet;->size()I
+
+    move-result v1
+
+    const/4 v2, 0x0
+
+    move v3, v2
+
+    :goto_0
+    if-ge v3, v1, :cond_1
+
+    iget-object v4, p0, Lcom/android/server/blob/BlobMetadata;->mLeasees:Landroid/util/ArraySet;
+
+    invoke-virtual {v4, v3}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Lcom/android/server/blob/BlobMetadata$Leasee;
+
+    invoke-virtual {v4}, Lcom/android/server/blob/BlobMetadata$Leasee;->isStillValid()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_0
+
+    monitor-exit v0
+
+    const/4 p0, 0x1
+
+    return p0
+
+    :cond_0
+    add-int/lit8 v3, v3, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    monitor-exit v0
+
+    return v2
+
+    :catchall_0
+    move-exception p0
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw p0
+.end method
+
+.method public isACommitter(Ljava/lang/String;I)Z
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/blob/BlobMetadata;->mMetadataLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
+    iget-object p0, p0, Lcom/android/server/blob/BlobMetadata;->mCommitters:Landroid/util/ArraySet;
+
+    invoke-static {p2}, Landroid/os/UserHandle;->getUserId(I)I
+
+    move-result v1
+
+    invoke-static {p0, p1, p2, v1}, Lcom/android/server/blob/BlobMetadata;->isAnAccessor(Landroid/util/ArraySet;Ljava/lang/String;II)Z
+
+    move-result p0
+
+    monitor-exit v0
+
+    return p0
+
+    :catchall_0
+    move-exception p0
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw p0
+.end method
+
+.method public isALeasee(Ljava/lang/String;I)Z
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/blob/BlobMetadata;->mMetadataLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
+    iget-object p0, p0, Lcom/android/server/blob/BlobMetadata;->mLeasees:Landroid/util/ArraySet;
+
+    invoke-static {p2}, Landroid/os/UserHandle;->getUserId(I)I
+
+    move-result v1
+
+    invoke-static {p0, p1, p2, v1}, Lcom/android/server/blob/BlobMetadata;->getAccessor(Landroid/util/ArraySet;Ljava/lang/String;II)Lcom/android/server/blob/BlobMetadata$Accessor;
+
+    move-result-object p0
+
+    check-cast p0, Lcom/android/server/blob/BlobMetadata$Leasee;
+
+    if-eqz p0, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/server/blob/BlobMetadata$Leasee;->isStillValid()Z
+
+    move-result p0
+
+    if-eqz p0, :cond_0
+
+    const/4 p0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    :goto_0
+    monitor-exit v0
+
+    return p0
+
+    :catchall_0
+    move-exception p0
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw p0
+.end method
+
+.method public final isALeaseeInUser(Ljava/lang/String;II)Z
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/blob/BlobMetadata;->mMetadataLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
+    iget-object p0, p0, Lcom/android/server/blob/BlobMetadata;->mLeasees:Landroid/util/ArraySet;
+
+    invoke-static {p0, p1, p2, p3}, Lcom/android/server/blob/BlobMetadata;->getAccessor(Landroid/util/ArraySet;Ljava/lang/String;II)Lcom/android/server/blob/BlobMetadata$Accessor;
+
+    move-result-object p0
+
+    check-cast p0, Lcom/android/server/blob/BlobMetadata$Leasee;
+
+    if-eqz p0, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/server/blob/BlobMetadata$Leasee;->isStillValid()Z
+
+    move-result p0
+
+    if-eqz p0, :cond_0
+
+    const/4 p0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    :goto_0
+    monitor-exit v0
+
+    return p0
+
+    :catchall_0
+    move-exception p0
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw p0
+.end method
+
+.method public isAccessAllowedForCaller(Ljava/lang/String;I)Z
+    .locals 9
 
     invoke-virtual {p0}, Lcom/android/server/blob/BlobMetadata;->getBlobHandle()Landroid/app/blob/BlobHandle;
 
@@ -2196,23 +2209,23 @@
 
     monitor-enter v0
 
-    const/4 v2, 0x0
-
     :try_start_0
-    iget-object v3, p0, Lcom/android/server/blob/BlobMetadata;->mLeasees:Landroid/util/ArraySet;
+    iget-object v2, p0, Lcom/android/server/blob/BlobMetadata;->mLeasees:Landroid/util/ArraySet;
 
-    invoke-virtual {v3}, Landroid/util/ArraySet;->size()I
+    invoke-virtual {v2}, Landroid/util/ArraySet;->size()I
 
-    move-result v3
+    move-result v2
+
+    move v3, v1
 
     :goto_0
     const/4 v4, 0x1
 
-    if-ge v2, v3, :cond_2
+    if-ge v3, v2, :cond_2
 
     iget-object v5, p0, Lcom/android/server/blob/BlobMetadata;->mLeasees:Landroid/util/ArraySet;
 
-    invoke-virtual {v5, v2}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {v5, v3}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
 
     move-result-object v5
 
@@ -2224,18 +2237,18 @@
 
     if-eqz v6, :cond_1
 
-    invoke-virtual {v5, p1, p2}, Lcom/android/server/blob/BlobMetadata$Leasee;->equals(Ljava/lang/String;I)Z
+    invoke-virtual {v5, p1, p2}, Lcom/android/server/blob/BlobMetadata$Accessor;->equals(Ljava/lang/String;I)Z
 
-    move-result v6
+    move-result v5
 
-    if-eqz v6, :cond_1
+    if-eqz v5, :cond_1
 
     monitor-exit v0
 
     return v4
 
     :cond_1
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
@@ -2244,26 +2257,26 @@
 
     move-result v2
 
-    const/4 v3, 0x0
+    iget-object v3, p0, Lcom/android/server/blob/BlobMetadata;->mCommitters:Landroid/util/ArraySet;
 
-    iget-object v5, p0, Lcom/android/server/blob/BlobMetadata;->mCommitters:Landroid/util/ArraySet;
+    invoke-virtual {v3}, Landroid/util/ArraySet;->size()I
 
-    invoke-virtual {v5}, Landroid/util/ArraySet;->size()I
+    move-result v3
 
-    move-result v5
+    move v5, v1
 
     :goto_1
-    if-ge v3, v5, :cond_6
+    if-ge v5, v3, :cond_6
 
     iget-object v6, p0, Lcom/android/server/blob/BlobMetadata;->mCommitters:Landroid/util/ArraySet;
 
-    invoke-virtual {v6, v3}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {v6, v5}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
 
     move-result-object v6
 
     check-cast v6, Lcom/android/server/blob/BlobMetadata$Committer;
 
-    iget v7, v6, Lcom/android/server/blob/BlobMetadata$Committer;->uid:I
+    iget v7, v6, Lcom/android/server/blob/BlobMetadata$Accessor;->uid:I
 
     invoke-static {v7}, Landroid/os/UserHandle;->getUserId(I)I
 
@@ -2274,7 +2287,7 @@
     goto :goto_2
 
     :cond_3
-    invoke-virtual {v6, p1, p2}, Lcom/android/server/blob/BlobMetadata$Committer;->equals(Ljava/lang/String;I)Z
+    invoke-virtual {v6, p1, p2}, Lcom/android/server/blob/BlobMetadata$Accessor;->equals(Ljava/lang/String;I)Z
 
     move-result v7
 
@@ -2289,13 +2302,13 @@
 
     iget-object v8, p0, Lcom/android/server/blob/BlobMetadata;->mContext:Landroid/content/Context;
 
-    iget-object v9, v6, Lcom/android/server/blob/BlobMetadata$Committer;->packageName:Ljava/lang/String;
+    iget-object v6, v6, Lcom/android/server/blob/BlobMetadata$Accessor;->packageName:Ljava/lang/String;
 
-    invoke-virtual {v7, v8, p1, v9}, Lcom/android/server/blob/BlobAccessMode;->isAccessAllowedForCaller(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)Z
+    invoke-virtual {v7, v8, p1, v6}, Lcom/android/server/blob/BlobAccessMode;->isAccessAllowedForCaller(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)Z
 
-    move-result v7
+    move-result v6
 
-    if-eqz v7, :cond_5
+    if-eqz v6, :cond_5
 
     monitor-exit v0
 
@@ -2303,72 +2316,72 @@
 
     :cond_5
     :goto_2
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v5, v5, 0x1
 
     goto :goto_1
 
     :cond_6
     invoke-static {p1, v2}, Lcom/android/server/blob/BlobMetadata;->checkCallerCanAccessBlobsAcrossUsers(Ljava/lang/String;I)Z
 
-    move-result v3
+    move-result p2
 
-    if-nez v3, :cond_7
+    if-nez p2, :cond_7
 
     monitor-exit v0
 
     return v1
 
     :cond_7
-    const/4 v5, 0x0
+    iget-object p2, p0, Lcom/android/server/blob/BlobMetadata;->mCommitters:Landroid/util/ArraySet;
 
-    iget-object v6, p0, Lcom/android/server/blob/BlobMetadata;->mCommitters:Landroid/util/ArraySet;
+    invoke-virtual {p2}, Landroid/util/ArraySet;->size()I
 
-    invoke-virtual {v6}, Landroid/util/ArraySet;->size()I
+    move-result p2
+
+    move v3, v1
+
+    :goto_3
+    if-ge v3, p2, :cond_b
+
+    iget-object v5, p0, Lcom/android/server/blob/BlobMetadata;->mCommitters:Landroid/util/ArraySet;
+
+    invoke-virtual {v5, v3}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Lcom/android/server/blob/BlobMetadata$Committer;
+
+    iget v6, v5, Lcom/android/server/blob/BlobMetadata$Accessor;->uid:I
+
+    invoke-static {v6}, Landroid/os/UserHandle;->getUserId(I)I
 
     move-result v6
 
-    :goto_3
-    if-ge v5, v6, :cond_b
-
-    iget-object v7, p0, Lcom/android/server/blob/BlobMetadata;->mCommitters:Landroid/util/ArraySet;
-
-    invoke-virtual {v7, v5}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
-
-    move-result-object v7
-
-    check-cast v7, Lcom/android/server/blob/BlobMetadata$Committer;
-
-    iget v8, v7, Lcom/android/server/blob/BlobMetadata$Committer;->uid:I
-
-    invoke-static {v8}, Landroid/os/UserHandle;->getUserId(I)I
-
-    move-result v8
-
-    if-ne v2, v8, :cond_8
+    if-ne v2, v6, :cond_8
 
     goto :goto_4
 
     :cond_8
-    invoke-direct {p0, p1, v8}, Lcom/android/server/blob/BlobMetadata;->isPackageInstalledOnUser(Ljava/lang/String;I)Z
+    invoke-virtual {p0, p1, v6}, Lcom/android/server/blob/BlobMetadata;->isPackageInstalledOnUser(Ljava/lang/String;I)Z
 
-    move-result v9
+    move-result v6
 
-    if-nez v9, :cond_9
+    if-nez v6, :cond_9
 
     goto :goto_4
 
     :cond_9
-    iget-object v9, v7, Lcom/android/server/blob/BlobMetadata$Committer;->blobAccessMode:Lcom/android/server/blob/BlobAccessMode;
+    iget-object v6, v5, Lcom/android/server/blob/BlobMetadata$Committer;->blobAccessMode:Lcom/android/server/blob/BlobAccessMode;
 
-    iget-object v10, p0, Lcom/android/server/blob/BlobMetadata;->mContext:Landroid/content/Context;
+    iget-object v7, p0, Lcom/android/server/blob/BlobMetadata;->mContext:Landroid/content/Context;
 
-    iget-object v11, v7, Lcom/android/server/blob/BlobMetadata$Committer;->packageName:Ljava/lang/String;
+    iget-object v5, v5, Lcom/android/server/blob/BlobMetadata$Accessor;->packageName:Ljava/lang/String;
 
-    invoke-virtual {v9, v10, p1, v11}, Lcom/android/server/blob/BlobAccessMode;->isAccessAllowedForCaller(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)Z
+    invoke-virtual {v6, v7, p1, v5}, Lcom/android/server/blob/BlobAccessMode;->isAccessAllowedForCaller(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)Z
 
-    move-result v9
+    move-result v5
 
-    if-eqz v9, :cond_a
+    if-eqz v5, :cond_a
 
     monitor-exit v0
 
@@ -2376,7 +2389,7 @@
 
     :cond_a
     :goto_4
-    add-int/lit8 v5, v5, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_3
 
@@ -2386,61 +2399,56 @@
     return v1
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
-.method public synthetic lambda$createRevocableFd$8$BlobMetadata(Lcom/android/server/blob/BlobMetadata$Accessor;Landroid/os/RevocableFileDescriptor;Ljava/io/IOException;)V
+.method public final isPackageInstalledOnUser(Ljava/lang/String;I)Z
     .locals 3
 
-    iget-object v0, p0, Lcom/android/server/blob/BlobMetadata;->mRevocableFds:Landroid/util/ArrayMap;
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
-    monitor-enter v0
+    move-result-wide v0
+
+    const/4 v2, 0x0
 
     :try_start_0
-    iget-object v1, p0, Lcom/android/server/blob/BlobMetadata;->mRevocableFds:Landroid/util/ArrayMap;
+    iget-object p0, p0, Lcom/android/server/blob/BlobMetadata;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v1, p1}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v1
+    move-result-object p0
 
-    check-cast v1, Landroid/util/ArraySet;
-
-    if-eqz v1, :cond_0
-
-    invoke-virtual {v1, p2}, Landroid/util/ArraySet;->remove(Ljava/lang/Object;)Z
-
-    invoke-virtual {v1}, Landroid/util/ArraySet;->isEmpty()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    iget-object v2, p0, Lcom/android/server/blob/BlobMetadata;->mRevocableFds:Landroid/util/ArrayMap;
-
-    invoke-virtual {v2, p1}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
-
-    :cond_0
-    monitor-exit v0
-
-    return-void
-
-    :catchall_0
-    move-exception v1
-
-    monitor-exit v0
+    invoke-virtual {p0, p1, v2, p2}, Landroid/content/pm/PackageManager;->getPackageInfoAsUser(Ljava/lang/String;II)Landroid/content/pm/PackageInfo;
     :try_end_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    const/4 p0, 0x1
+
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    return p0
+
+    :catchall_0
+    move-exception p0
+
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw p0
+
+    :catch_0
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    return v2
 .end method
 
-.method openForRead(Ljava/lang/String;I)Landroid/os/ParcelFileDescriptor;
+.method public openForRead(Ljava/lang/String;I)Landroid/os/ParcelFileDescriptor;
     .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2467,8 +2475,6 @@
     :try_end_0
     .catch Landroid/system/ErrnoException; {:try_start_0 .. :try_end_0} :catch_1
 
-    nop
-
     :try_start_1
     invoke-static {}, Lcom/android/server/blob/BlobStoreConfig;->shouldUseRevocableFdForReads()Z
 
@@ -2476,39 +2482,65 @@
 
     if-eqz v1, :cond_0
 
-    invoke-direct {p0, v0, p1, p2}, Lcom/android/server/blob/BlobMetadata;->createRevocableFd(Ljava/io/FileDescriptor;Ljava/lang/String;I)Landroid/os/ParcelFileDescriptor;
+    invoke-virtual {p0, v0, p1, p2}, Lcom/android/server/blob/BlobMetadata;->createRevocableFd(Ljava/io/FileDescriptor;Ljava/lang/String;I)Landroid/os/ParcelFileDescriptor;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 
     :cond_0
-    new-instance v1, Landroid/os/ParcelFileDescriptor;
+    new-instance p0, Landroid/os/ParcelFileDescriptor;
 
-    invoke-direct {v1, v0}, Landroid/os/ParcelFileDescriptor;-><init>(Ljava/io/FileDescriptor;)V
+    invoke-direct {p0, v0}, Landroid/os/ParcelFileDescriptor;-><init>(Ljava/io/FileDescriptor;)V
     :try_end_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
 
-    return-object v1
+    return-object p0
 
     :catch_0
-    move-exception v1
+    move-exception p0
 
     invoke-static {v0}, Llibcore/io/IoUtils;->closeQuietly(Ljava/io/FileDescriptor;)V
 
-    throw v1
+    throw p0
 
     :catch_1
-    move-exception v0
+    move-exception p0
 
-    invoke-virtual {v0}, Landroid/system/ErrnoException;->rethrowAsIOException()Ljava/io/IOException;
+    invoke-virtual {p0}, Landroid/system/ErrnoException;->rethrowAsIOException()Ljava/io/IOException;
 
-    move-result-object v1
+    move-result-object p0
 
-    throw v1
+    throw p0
 .end method
 
-.method removeCommitter(Lcom/android/server/blob/BlobMetadata$Committer;)V
+.method public removeCommitter(Lcom/android/server/blob/BlobMetadata$Committer;)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/blob/BlobMetadata;->mMetadataLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
+    iget-object p0, p0, Lcom/android/server/blob/BlobMetadata;->mCommitters:Landroid/util/ArraySet;
+
+    invoke-virtual {p0, p1}, Landroid/util/ArraySet;->remove(Ljava/lang/Object;)Z
+
+    monitor-exit v0
+
+    return-void
+
+    :catchall_0
+    move-exception p0
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw p0
+.end method
+
+.method public removeCommitter(Ljava/lang/String;I)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/server/blob/BlobMetadata;->mMetadataLock:Ljava/lang/Object;
@@ -2516,56 +2548,30 @@
     monitor-enter v0
 
     :try_start_0
-    iget-object v1, p0, Lcom/android/server/blob/BlobMetadata;->mCommitters:Landroid/util/ArraySet;
+    iget-object p0, p0, Lcom/android/server/blob/BlobMetadata;->mCommitters:Landroid/util/ArraySet;
 
-    invoke-virtual {v1, p1}, Landroid/util/ArraySet;->remove(Ljava/lang/Object;)Z
+    new-instance v1, Lcom/android/server/blob/BlobMetadata$$ExternalSyntheticLambda0;
 
-    monitor-exit v0
+    invoke-direct {v1, p2, p1}, Lcom/android/server/blob/BlobMetadata$$ExternalSyntheticLambda0;-><init>(ILjava/lang/String;)V
 
-    return-void
-
-    :catchall_0
-    move-exception v1
-
-    monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v1
-.end method
-
-.method removeCommitter(Ljava/lang/String;I)V
-    .locals 3
-
-    iget-object v0, p0, Lcom/android/server/blob/BlobMetadata;->mMetadataLock:Ljava/lang/Object;
-
-    monitor-enter v0
-
-    :try_start_0
-    iget-object v1, p0, Lcom/android/server/blob/BlobMetadata;->mCommitters:Landroid/util/ArraySet;
-
-    new-instance v2, Lcom/android/server/blob/BlobMetadata$$ExternalSyntheticLambda4;
-
-    invoke-direct {v2, p2, p1}, Lcom/android/server/blob/BlobMetadata$$ExternalSyntheticLambda4;-><init>(ILjava/lang/String;)V
-
-    invoke-virtual {v1, v2}, Landroid/util/ArraySet;->removeIf(Ljava/util/function/Predicate;)Z
+    invoke-virtual {p0, v1}, Landroid/util/ArraySet;->removeIf(Ljava/util/function/Predicate;)Z
 
     monitor-exit v0
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
-.method removeCommittersFromUnknownPkgs(Landroid/util/SparseArray;)V
-    .locals 3
+.method public removeCommittersFromUnknownPkgs(Landroid/util/SparseArray;)V
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2575,6 +2581,36 @@
             ">;>;)V"
         }
     .end annotation
+
+    iget-object v0, p0, Lcom/android/server/blob/BlobMetadata;->mMetadataLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
+    iget-object p0, p0, Lcom/android/server/blob/BlobMetadata;->mCommitters:Landroid/util/ArraySet;
+
+    new-instance v1, Lcom/android/server/blob/BlobMetadata$$ExternalSyntheticLambda2;
+
+    invoke-direct {v1, p1}, Lcom/android/server/blob/BlobMetadata$$ExternalSyntheticLambda2;-><init>(Landroid/util/SparseArray;)V
+
+    invoke-virtual {p0, v1}, Landroid/util/ArraySet;->removeIf(Ljava/util/function/Predicate;)Z
+
+    monitor-exit v0
+
+    return-void
+
+    :catchall_0
+    move-exception p0
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw p0
+.end method
+
+.method public removeDataForUser(I)V
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/blob/BlobMetadata;->mMetadataLock:Ljava/lang/Object;
 
@@ -2585,134 +2621,106 @@
 
     new-instance v2, Lcom/android/server/blob/BlobMetadata$$ExternalSyntheticLambda6;
 
-    invoke-direct {v2, p1}, Lcom/android/server/blob/BlobMetadata$$ExternalSyntheticLambda6;-><init>(Landroid/util/SparseArray;)V
+    invoke-direct {v2, p1}, Lcom/android/server/blob/BlobMetadata$$ExternalSyntheticLambda6;-><init>(I)V
 
     invoke-virtual {v1, v2}, Landroid/util/ArraySet;->removeIf(Ljava/util/function/Predicate;)Z
+
+    iget-object v1, p0, Lcom/android/server/blob/BlobMetadata;->mLeasees:Landroid/util/ArraySet;
+
+    new-instance v2, Lcom/android/server/blob/BlobMetadata$$ExternalSyntheticLambda7;
+
+    invoke-direct {v2, p1}, Lcom/android/server/blob/BlobMetadata$$ExternalSyntheticLambda7;-><init>(I)V
+
+    invoke-virtual {v1, v2}, Landroid/util/ArraySet;->removeIf(Ljava/util/function/Predicate;)Z
+
+    iget-object p0, p0, Lcom/android/server/blob/BlobMetadata;->mRevocableFds:Landroid/util/ArrayMap;
+
+    invoke-virtual {p0}, Landroid/util/ArrayMap;->entrySet()Ljava/util/Set;
+
+    move-result-object p0
+
+    new-instance v1, Lcom/android/server/blob/BlobMetadata$$ExternalSyntheticLambda8;
+
+    invoke-direct {v1, p1}, Lcom/android/server/blob/BlobMetadata$$ExternalSyntheticLambda8;-><init>(I)V
+
+    invoke-interface {p0, v1}, Ljava/util/Set;->removeIf(Ljava/util/function/Predicate;)Z
 
     monitor-exit v0
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
-.method removeDataForUser(I)V
-    .locals 3
+.method public removeExpiredLeases()V
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/blob/BlobMetadata;->mMetadataLock:Ljava/lang/Object;
 
     monitor-enter v0
 
     :try_start_0
-    iget-object v1, p0, Lcom/android/server/blob/BlobMetadata;->mCommitters:Landroid/util/ArraySet;
+    iget-object p0, p0, Lcom/android/server/blob/BlobMetadata;->mLeasees:Landroid/util/ArraySet;
 
-    new-instance v2, Lcom/android/server/blob/BlobMetadata$$ExternalSyntheticLambda1;
+    new-instance v1, Lcom/android/server/blob/BlobMetadata$$ExternalSyntheticLambda3;
 
-    invoke-direct {v2, p1}, Lcom/android/server/blob/BlobMetadata$$ExternalSyntheticLambda1;-><init>(I)V
+    invoke-direct {v1}, Lcom/android/server/blob/BlobMetadata$$ExternalSyntheticLambda3;-><init>()V
 
-    invoke-virtual {v1, v2}, Landroid/util/ArraySet;->removeIf(Ljava/util/function/Predicate;)Z
-
-    iget-object v1, p0, Lcom/android/server/blob/BlobMetadata;->mLeasees:Landroid/util/ArraySet;
-
-    new-instance v2, Lcom/android/server/blob/BlobMetadata$$ExternalSyntheticLambda2;
-
-    invoke-direct {v2, p1}, Lcom/android/server/blob/BlobMetadata$$ExternalSyntheticLambda2;-><init>(I)V
-
-    invoke-virtual {v1, v2}, Landroid/util/ArraySet;->removeIf(Ljava/util/function/Predicate;)Z
-
-    iget-object v1, p0, Lcom/android/server/blob/BlobMetadata;->mRevocableFds:Landroid/util/ArrayMap;
-
-    invoke-virtual {v1}, Landroid/util/ArrayMap;->entrySet()Ljava/util/Set;
-
-    move-result-object v1
-
-    new-instance v2, Lcom/android/server/blob/BlobMetadata$$ExternalSyntheticLambda3;
-
-    invoke-direct {v2, p1}, Lcom/android/server/blob/BlobMetadata$$ExternalSyntheticLambda3;-><init>(I)V
-
-    invoke-interface {v1, v2}, Ljava/util/Set;->removeIf(Ljava/util/function/Predicate;)Z
+    invoke-virtual {p0, v1}, Landroid/util/ArraySet;->removeIf(Ljava/util/function/Predicate;)Z
 
     monitor-exit v0
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
-.method removeExpiredLeases()V
-    .locals 3
+.method public removeLeasee(Ljava/lang/String;I)V
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/blob/BlobMetadata;->mMetadataLock:Ljava/lang/Object;
 
     monitor-enter v0
 
     :try_start_0
-    iget-object v1, p0, Lcom/android/server/blob/BlobMetadata;->mLeasees:Landroid/util/ArraySet;
+    iget-object p0, p0, Lcom/android/server/blob/BlobMetadata;->mLeasees:Landroid/util/ArraySet;
 
-    sget-object v2, Lcom/android/server/blob/BlobMetadata$$ExternalSyntheticLambda8;->INSTANCE:Lcom/android/server/blob/BlobMetadata$$ExternalSyntheticLambda8;
+    new-instance v1, Lcom/android/server/blob/BlobMetadata$$ExternalSyntheticLambda5;
 
-    invoke-virtual {v1, v2}, Landroid/util/ArraySet;->removeIf(Ljava/util/function/Predicate;)Z
+    invoke-direct {v1, p2, p1}, Lcom/android/server/blob/BlobMetadata$$ExternalSyntheticLambda5;-><init>(ILjava/lang/String;)V
 
-    monitor-exit v0
-
-    return-void
-
-    :catchall_0
-    move-exception v1
-
-    monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v1
-.end method
-
-.method removeLeasee(Ljava/lang/String;I)V
-    .locals 3
-
-    iget-object v0, p0, Lcom/android/server/blob/BlobMetadata;->mMetadataLock:Ljava/lang/Object;
-
-    monitor-enter v0
-
-    :try_start_0
-    iget-object v1, p0, Lcom/android/server/blob/BlobMetadata;->mLeasees:Landroid/util/ArraySet;
-
-    new-instance v2, Lcom/android/server/blob/BlobMetadata$$ExternalSyntheticLambda5;
-
-    invoke-direct {v2, p2, p1}, Lcom/android/server/blob/BlobMetadata$$ExternalSyntheticLambda5;-><init>(ILjava/lang/String;)V
-
-    invoke-virtual {v1, v2}, Landroid/util/ArraySet;->removeIf(Ljava/util/function/Predicate;)Z
+    invoke-virtual {p0, v1}, Landroid/util/ArraySet;->removeIf(Ljava/util/function/Predicate;)Z
 
     monitor-exit v0
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
-.method removeLeaseesFromUnknownPkgs(Landroid/util/SparseArray;)V
-    .locals 3
+.method public removeLeaseesFromUnknownPkgs(Landroid/util/SparseArray;)V
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2728,29 +2736,109 @@
     monitor-enter v0
 
     :try_start_0
-    iget-object v1, p0, Lcom/android/server/blob/BlobMetadata;->mLeasees:Landroid/util/ArraySet;
+    iget-object p0, p0, Lcom/android/server/blob/BlobMetadata;->mLeasees:Landroid/util/ArraySet;
 
-    new-instance v2, Lcom/android/server/blob/BlobMetadata$$ExternalSyntheticLambda7;
+    new-instance v1, Lcom/android/server/blob/BlobMetadata$$ExternalSyntheticLambda4;
 
-    invoke-direct {v2, p1}, Lcom/android/server/blob/BlobMetadata$$ExternalSyntheticLambda7;-><init>(Landroid/util/SparseArray;)V
+    invoke-direct {v1, p1}, Lcom/android/server/blob/BlobMetadata$$ExternalSyntheticLambda4;-><init>(Landroid/util/SparseArray;)V
 
-    invoke-virtual {v1, v2}, Landroid/util/ArraySet;->removeIf(Ljava/util/function/Predicate;)Z
+    invoke-virtual {p0, v1}, Landroid/util/ArraySet;->removeIf(Ljava/util/function/Predicate;)Z
 
     monitor-exit v0
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
-.method setCommitters(Landroid/util/ArraySet;)V
+.method public final revokeAndClearAllFds()V
+    .locals 8
+
+    iget-object v0, p0, Lcom/android/server/blob/BlobMetadata;->mRevocableFds:Landroid/util/ArrayMap;
+
+    monitor-enter v0
+
+    :try_start_0
+    iget-object v1, p0, Lcom/android/server/blob/BlobMetadata;->mRevocableFds:Landroid/util/ArrayMap;
+
+    invoke-virtual {v1}, Landroid/util/ArrayMap;->size()I
+
+    move-result v1
+
+    const/4 v2, 0x0
+
+    move v3, v2
+
+    :goto_0
+    if-ge v3, v1, :cond_2
+
+    iget-object v4, p0, Lcom/android/server/blob/BlobMetadata;->mRevocableFds:Landroid/util/ArrayMap;
+
+    invoke-virtual {v4, v3}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Landroid/util/ArraySet;
+
+    if-nez v4, :cond_0
+
+    goto :goto_2
+
+    :cond_0
+    invoke-virtual {v4}, Landroid/util/ArraySet;->size()I
+
+    move-result v5
+
+    move v6, v2
+
+    :goto_1
+    if-ge v6, v5, :cond_1
+
+    invoke-virtual {v4, v6}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v7
+
+    check-cast v7, Landroid/os/RevocableFileDescriptor;
+
+    invoke-virtual {v7}, Landroid/os/RevocableFileDescriptor;->revoke()V
+
+    add-int/lit8 v6, v6, 0x1
+
+    goto :goto_1
+
+    :cond_1
+    :goto_2
+    add-int/lit8 v3, v3, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    iget-object p0, p0, Lcom/android/server/blob/BlobMetadata;->mRevocableFds:Landroid/util/ArrayMap;
+
+    invoke-virtual {p0}, Landroid/util/ArrayMap;->clear()V
+
+    monitor-exit v0
+
+    return-void
+
+    :catchall_0
+    move-exception p0
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw p0
+.end method
+
+.method public setCommitters(Landroid/util/ArraySet;)V
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2770,25 +2858,25 @@
 
     invoke-virtual {v1}, Landroid/util/ArraySet;->clear()V
 
-    iget-object v1, p0, Lcom/android/server/blob/BlobMetadata;->mCommitters:Landroid/util/ArraySet;
+    iget-object p0, p0, Lcom/android/server/blob/BlobMetadata;->mCommitters:Landroid/util/ArraySet;
 
-    invoke-virtual {v1, p1}, Landroid/util/ArraySet;->addAll(Landroid/util/ArraySet;)V
+    invoke-virtual {p0, p1}, Landroid/util/ArraySet;->addAll(Landroid/util/ArraySet;)V
 
     monitor-exit v0
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
-.method setLeasees(Landroid/util/ArraySet;)V
+.method public setLeasees(Landroid/util/ArraySet;)V
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2808,25 +2896,25 @@
 
     invoke-virtual {v1}, Landroid/util/ArraySet;->clear()V
 
-    iget-object v1, p0, Lcom/android/server/blob/BlobMetadata;->mLeasees:Landroid/util/ArraySet;
+    iget-object p0, p0, Lcom/android/server/blob/BlobMetadata;->mLeasees:Landroid/util/ArraySet;
 
-    invoke-virtual {v1, p1}, Landroid/util/ArraySet;->addAll(Landroid/util/ArraySet;)V
+    invoke-virtual {p0, p1}, Landroid/util/ArraySet;->addAll(Landroid/util/ArraySet;)V
 
     monitor-exit v0
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
-.method shouldAttributeToLeasee(IZ)Z
+.method public shouldAttributeToLeasee(IZ)Z
     .locals 4
 
     invoke-static {p1}, Landroid/os/UserHandle;->getUserId(I)I
@@ -2835,7 +2923,7 @@
 
     const/4 v1, 0x0
 
-    invoke-direct {p0, v1, p1, v0}, Lcom/android/server/blob/BlobMetadata;->isALeaseeInUser(Ljava/lang/String;II)Z
+    invoke-virtual {p0, v1, p1, v0}, Lcom/android/server/blob/BlobMetadata;->isALeaseeInUser(Ljava/lang/String;II)Z
 
     move-result v2
 
@@ -2848,11 +2936,11 @@
     :cond_0
     if-eqz p2, :cond_2
 
-    invoke-direct {p0, v1, p1, v0}, Lcom/android/server/blob/BlobMetadata;->hasOtherLeasees(Ljava/lang/String;II)Z
+    invoke-virtual {p0, v1, p1, v0}, Lcom/android/server/blob/BlobMetadata;->hasOtherLeasees(Ljava/lang/String;II)Z
 
-    move-result v1
+    move-result p0
 
-    if-nez v1, :cond_1
+    if-nez p0, :cond_1
 
     goto :goto_0
 
@@ -2861,17 +2949,17 @@
 
     :cond_2
     :goto_0
-    const/4 v1, 0x1
+    const/4 p0, 0x1
 
-    return v1
+    return p0
 .end method
 
-.method shouldAttributeToLeasee(Ljava/lang/String;IZ)Z
+.method public shouldAttributeToLeasee(Ljava/lang/String;IZ)Z
     .locals 3
 
     const/4 v0, -0x1
 
-    invoke-direct {p0, p1, v0, p2}, Lcom/android/server/blob/BlobMetadata;->isALeaseeInUser(Ljava/lang/String;II)Z
+    invoke-virtual {p0, p1, v0, p2}, Lcom/android/server/blob/BlobMetadata;->isALeaseeInUser(Ljava/lang/String;II)Z
 
     move-result v1
 
@@ -2884,11 +2972,11 @@
     :cond_0
     if-eqz p3, :cond_2
 
-    invoke-direct {p0, p1, v0, p2}, Lcom/android/server/blob/BlobMetadata;->hasOtherLeasees(Ljava/lang/String;II)Z
+    invoke-virtual {p0, p1, v0, p2}, Lcom/android/server/blob/BlobMetadata;->hasOtherLeasees(Ljava/lang/String;II)Z
 
-    move-result v0
+    move-result p0
 
-    if-nez v0, :cond_1
+    if-nez p0, :cond_1
 
     goto :goto_0
 
@@ -2897,39 +2985,41 @@
 
     :cond_2
     :goto_0
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 .end method
 
-.method shouldAttributeToUser(I)Z
+.method public shouldAttributeToUser(I)Z
     .locals 5
 
     iget-object v0, p0, Lcom/android/server/blob/BlobMetadata;->mMetadataLock:Ljava/lang/Object;
 
     monitor-enter v0
 
-    const/4 v1, 0x0
-
     :try_start_0
-    iget-object v2, p0, Lcom/android/server/blob/BlobMetadata;->mLeasees:Landroid/util/ArraySet;
+    iget-object v1, p0, Lcom/android/server/blob/BlobMetadata;->mLeasees:Landroid/util/ArraySet;
 
-    invoke-virtual {v2}, Landroid/util/ArraySet;->size()I
+    invoke-virtual {v1}, Landroid/util/ArraySet;->size()I
 
-    move-result v2
+    move-result v1
+
+    const/4 v2, 0x0
+
+    move v3, v2
 
     :goto_0
-    if-ge v1, v2, :cond_1
+    if-ge v3, v1, :cond_1
 
-    iget-object v3, p0, Lcom/android/server/blob/BlobMetadata;->mLeasees:Landroid/util/ArraySet;
+    iget-object v4, p0, Lcom/android/server/blob/BlobMetadata;->mLeasees:Landroid/util/ArraySet;
 
-    invoke-virtual {v3, v1}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {v4, v3}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v4
 
-    check-cast v3, Lcom/android/server/blob/BlobMetadata$Leasee;
+    check-cast v4, Lcom/android/server/blob/BlobMetadata$Leasee;
 
-    iget v4, v3, Lcom/android/server/blob/BlobMetadata$Leasee;->uid:I
+    iget v4, v4, Lcom/android/server/blob/BlobMetadata$Accessor;->uid:I
 
     invoke-static {v4}, Landroid/os/UserHandle;->getUserId(I)I
 
@@ -2937,35 +3027,33 @@
 
     if-eq p1, v4, :cond_0
 
-    const/4 v4, 0x0
-
     monitor-exit v0
 
-    return v4
+    return v2
 
     :cond_0
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
     :cond_1
     monitor-exit v0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
-.method shouldBeDeleted(Z)Z
+.method public shouldBeDeleted(Z)Z
     .locals 2
 
     invoke-virtual {p0}, Lcom/android/server/blob/BlobMetadata;->getBlobHandle()Landroid/app/blob/BlobHandle;
@@ -2987,27 +3075,27 @@
 
     invoke-virtual {p0}, Lcom/android/server/blob/BlobMetadata;->hasLeaseWaitTimeElapsedForAll()Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_2
+    if-eqz p1, :cond_2
 
     :cond_1
     invoke-virtual {p0}, Lcom/android/server/blob/BlobMetadata;->hasValidLeases()Z
 
-    move-result v0
+    move-result p0
 
-    if-nez v0, :cond_2
+    if-nez p0, :cond_2
 
     return v1
 
     :cond_2
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
-.method writeToXml(Lorg/xmlpull/v1/XmlSerializer;)V
-    .locals 5
+.method public writeToXml(Lorg/xmlpull/v1/XmlSerializer;)V
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -3039,58 +3127,58 @@
 
     invoke-interface {p1, v2, v1}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    const/4 v1, 0x0
+    iget-object v1, p0, Lcom/android/server/blob/BlobMetadata;->mCommitters:Landroid/util/ArraySet;
 
-    iget-object v3, p0, Lcom/android/server/blob/BlobMetadata;->mCommitters:Landroid/util/ArraySet;
+    invoke-virtual {v1}, Landroid/util/ArraySet;->size()I
 
-    invoke-virtual {v3}, Landroid/util/ArraySet;->size()I
+    move-result v1
 
-    move-result v3
+    const/4 v3, 0x0
+
+    move v4, v3
 
     :goto_0
-    if-ge v1, v3, :cond_0
+    if-ge v4, v1, :cond_0
 
-    const-string v4, "c"
+    const-string v5, "c"
 
-    invoke-interface {p1, v2, v4}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p1, v2, v5}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    iget-object v4, p0, Lcom/android/server/blob/BlobMetadata;->mCommitters:Landroid/util/ArraySet;
+    iget-object v5, p0, Lcom/android/server/blob/BlobMetadata;->mCommitters:Landroid/util/ArraySet;
 
-    invoke-virtual {v4, v1}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {v5, v4}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v5
 
-    check-cast v4, Lcom/android/server/blob/BlobMetadata$Committer;
+    check-cast v5, Lcom/android/server/blob/BlobMetadata$Committer;
 
-    invoke-virtual {v4, p1}, Lcom/android/server/blob/BlobMetadata$Committer;->writeToXml(Lorg/xmlpull/v1/XmlSerializer;)V
+    invoke-virtual {v5, p1}, Lcom/android/server/blob/BlobMetadata$Committer;->writeToXml(Lorg/xmlpull/v1/XmlSerializer;)V
 
-    const-string v4, "c"
+    const-string v5, "c"
 
-    invoke-interface {p1, v2, v4}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p1, v2, v5}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v4, v4, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    iget-object v1, p0, Lcom/android/server/blob/BlobMetadata;->mLeasees:Landroid/util/ArraySet;
 
-    iget-object v3, p0, Lcom/android/server/blob/BlobMetadata;->mLeasees:Landroid/util/ArraySet;
+    invoke-virtual {v1}, Landroid/util/ArraySet;->size()I
 
-    invoke-virtual {v3}, Landroid/util/ArraySet;->size()I
-
-    move-result v3
+    move-result v1
 
     :goto_1
-    if-ge v1, v3, :cond_1
+    if-ge v3, v1, :cond_1
 
-    const-string/jumbo v4, "l"
+    const-string v4, "l"
 
     invoke-interface {p1, v2, v4}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     iget-object v4, p0, Lcom/android/server/blob/BlobMetadata;->mLeasees:Landroid/util/ArraySet;
 
-    invoke-virtual {v4, v1}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {v4, v3}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
 
     move-result-object v4
 
@@ -3098,11 +3186,11 @@
 
     invoke-virtual {v4, p1}, Lcom/android/server/blob/BlobMetadata$Leasee;->writeToXml(Lorg/xmlpull/v1/XmlSerializer;)V
 
-    const-string/jumbo v4, "l"
+    const-string v4, "l"
 
     invoke-interface {p1, v2, v4}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_1
 
@@ -3112,11 +3200,11 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method

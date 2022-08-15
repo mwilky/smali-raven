@@ -1,4 +1,4 @@
-.class final Lcom/android/server/media/MediaRouter2ServiceImpl$UserRecord;
+.class public final Lcom/android/server/media/MediaRouter2ServiceImpl$UserRecord;
 .super Ljava/lang/Object;
 .source "MediaRouter2ServiceImpl.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x10
+    accessFlags = 0x11
     name = "UserRecord"
 .end annotation
 
 
 # instance fields
-.field mCompositeDiscoveryPreference:Landroid/media/RouteDiscoveryPreference;
+.field public mCompositeDiscoveryPreference:Landroid/media/RouteDiscoveryPreference;
 
-.field final mHandler:Lcom/android/server/media/MediaRouter2ServiceImpl$UserHandler;
+.field public final mHandler:Lcom/android/server/media/MediaRouter2ServiceImpl$UserHandler;
 
-.field final mManagerRecords:Ljava/util/ArrayList;
+.field public final mManagerRecords:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/ArrayList<",
@@ -29,7 +29,7 @@
     .end annotation
 .end field
 
-.field final mRouterRecords:Ljava/util/ArrayList;
+.field public final mRouterRecords:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/ArrayList<",
@@ -41,11 +41,11 @@
 
 .field public final mUserId:I
 
-.field final synthetic this$0:Lcom/android/server/media/MediaRouter2ServiceImpl;
+.field public final synthetic this$0:Lcom/android/server/media/MediaRouter2ServiceImpl;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/media/MediaRouter2ServiceImpl;I)V
+.method public constructor <init>(Lcom/android/server/media/MediaRouter2ServiceImpl;I)V
     .locals 1
 
     iput-object p1, p0, Lcom/android/server/media/MediaRouter2ServiceImpl$UserRecord;->this$0:Lcom/android/server/media/MediaRouter2ServiceImpl;
@@ -70,64 +70,61 @@
 
     iput p2, p0, Lcom/android/server/media/MediaRouter2ServiceImpl$UserRecord;->mUserId:I
 
-    new-instance v0, Lcom/android/server/media/MediaRouter2ServiceImpl$UserHandler;
+    new-instance p2, Lcom/android/server/media/MediaRouter2ServiceImpl$UserHandler;
 
-    invoke-direct {v0, p1, p0}, Lcom/android/server/media/MediaRouter2ServiceImpl$UserHandler;-><init>(Lcom/android/server/media/MediaRouter2ServiceImpl;Lcom/android/server/media/MediaRouter2ServiceImpl$UserRecord;)V
+    invoke-direct {p2, p1, p0}, Lcom/android/server/media/MediaRouter2ServiceImpl$UserHandler;-><init>(Lcom/android/server/media/MediaRouter2ServiceImpl;Lcom/android/server/media/MediaRouter2ServiceImpl$UserRecord;)V
 
-    iput-object v0, p0, Lcom/android/server/media/MediaRouter2ServiceImpl$UserRecord;->mHandler:Lcom/android/server/media/MediaRouter2ServiceImpl$UserHandler;
+    iput-object p2, p0, Lcom/android/server/media/MediaRouter2ServiceImpl$UserRecord;->mHandler:Lcom/android/server/media/MediaRouter2ServiceImpl$UserHandler;
 
     return-void
 .end method
 
 
 # virtual methods
-.method findRouterRecordLocked(Ljava/lang/String;)Lcom/android/server/media/MediaRouter2ServiceImpl$RouterRecord;
-    .locals 3
+.method public findRouterRecordLocked(Ljava/lang/String;)Lcom/android/server/media/MediaRouter2ServiceImpl$RouterRecord;
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/server/media/MediaRouter2ServiceImpl$UserRecord;->mRouterRecords:Ljava/util/ArrayList;
+    iget-object p0, p0, Lcom/android/server/media/MediaRouter2ServiceImpl$UserRecord;->mRouterRecords:Ljava/util/ArrayList;
 
-    invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {p0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object p0
+
+    :cond_0
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
-    :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    check-cast v0, Lcom/android/server/media/MediaRouter2ServiceImpl$RouterRecord;
+
+    iget-object v1, v0, Lcom/android/server/media/MediaRouter2ServiceImpl$RouterRecord;->mPackageName:Ljava/lang/String;
+
+    invoke-static {v1, p1}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/android/server/media/MediaRouter2ServiceImpl$RouterRecord;
-
-    iget-object v2, v1, Lcom/android/server/media/MediaRouter2ServiceImpl$RouterRecord;->mPackageName:Ljava/lang/String;
-
-    invoke-static {v2, p1}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    return-object v1
-
-    :cond_0
-    goto :goto_0
-
-    :cond_1
-    const/4 v0, 0x0
+    if-eqz v1, :cond_0
 
     return-object v0
+
+    :cond_1
+    const/4 p0, 0x0
+
+    return-object p0
 .end method
 
-.method init()V
-    .locals 1
+.method public init()V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/media/MediaRouter2ServiceImpl$UserRecord;->mHandler:Lcom/android/server/media/MediaRouter2ServiceImpl$UserHandler;
+    iget-object p0, p0, Lcom/android/server/media/MediaRouter2ServiceImpl$UserRecord;->mHandler:Lcom/android/server/media/MediaRouter2ServiceImpl$UserHandler;
 
-    invoke-virtual {v0}, Lcom/android/server/media/MediaRouter2ServiceImpl$UserHandler;->init()V
+    invoke-virtual {p0}, Lcom/android/server/media/MediaRouter2ServiceImpl$UserHandler;->init()V
 
     return-void
 .end method

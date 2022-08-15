@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;
+.class public interface abstract Lcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;
 .super Ljava/lang/Object;
 .source "SurfaceAnimator.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
+    accessFlags = 0x609
     name = "OnAnimationFinishedCallback"
 .end annotation
 

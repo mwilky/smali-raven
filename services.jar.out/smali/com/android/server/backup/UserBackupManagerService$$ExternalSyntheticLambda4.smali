@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/backup/UserBackupManagerService$$ExternalSyntheticLambda4;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/server/backup/transport/OnTransportRegisteredListener;
+.implements Lcom/android/server/backup/internal/OnTaskFinishedListener;
 
 
 # instance fields
@@ -22,12 +23,12 @@
 
 
 # virtual methods
-.method public final onTransportRegistered(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 1
+.method public final onFinished(Ljava/lang/String;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/backup/UserBackupManagerService$$ExternalSyntheticLambda4;->f$0:Lcom/android/server/backup/UserBackupManagerService;
+    iget-object p0, p0, Lcom/android/server/backup/UserBackupManagerService$$ExternalSyntheticLambda4;->f$0:Lcom/android/server/backup/UserBackupManagerService;
 
-    invoke-static {v0, p1, p2}, Lcom/android/server/backup/UserBackupManagerService;->$r8$lambda$nhDpousXIb-UWNtQnFwKddTYzHQ(Lcom/android/server/backup/UserBackupManagerService;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {p0, p1}, Lcom/android/server/backup/UserBackupManagerService;->$r8$lambda$UCstHJZMtZQ4HwPele9tL8L0M9c(Lcom/android/server/backup/UserBackupManagerService;Ljava/lang/String;)V
 
     return-void
 .end method

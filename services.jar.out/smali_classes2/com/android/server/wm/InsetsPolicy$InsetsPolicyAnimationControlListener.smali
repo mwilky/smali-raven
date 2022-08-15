@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/InsetsPolicy$InsetsPolicyAnimationControlListener;
+.class public Lcom/android/server/wm/InsetsPolicy$InsetsPolicyAnimationControlListener;
 .super Landroid/view/InsetsController$InternalAnimationControlListener;
 .source "InsetsPolicy.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "InsetsPolicyAnimationControlListener"
 .end annotation
 
@@ -21,15 +21,15 @@
 
 
 # instance fields
-.field mControlCallbacks:Lcom/android/server/wm/InsetsPolicy$InsetsPolicyAnimationControlListener$InsetsPolicyAnimationControlCallbacks;
+.field public mControlCallbacks:Lcom/android/server/wm/InsetsPolicy$InsetsPolicyAnimationControlListener$InsetsPolicyAnimationControlCallbacks;
 
-.field mFinishCallback:Ljava/lang/Runnable;
+.field public mFinishCallback:Ljava/lang/Runnable;
 
-.field final synthetic this$0:Lcom/android/server/wm/InsetsPolicy;
+.field public final synthetic this$0:Lcom/android/server/wm/InsetsPolicy;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/wm/InsetsPolicy;ZLjava/lang/Runnable;I)V
+.method public constructor <init>(Lcom/android/server/wm/InsetsPolicy;ZLjava/lang/Runnable;I)V
     .locals 7
 
     iput-object p1, p0, Lcom/android/server/wm/InsetsPolicy$InsetsPolicyAnimationControlListener;->this$0:Lcom/android/server/wm/InsetsPolicy;
@@ -61,20 +61,20 @@
     return-void
 .end method
 
-.method static synthetic access$800(Lcom/android/server/wm/InsetsPolicy$InsetsPolicyAnimationControlListener;)Landroid/view/animation/Interpolator;
-    .locals 1
+.method public static synthetic access$000(Lcom/android/server/wm/InsetsPolicy$InsetsPolicyAnimationControlListener;)Landroid/view/animation/Interpolator;
+    .locals 0
 
-    invoke-virtual {p0}, Lcom/android/server/wm/InsetsPolicy$InsetsPolicyAnimationControlListener;->getInsetsInterpolator()Landroid/view/animation/Interpolator;
+    invoke-virtual {p0}, Landroid/view/InsetsController$InternalAnimationControlListener;->getInsetsInterpolator()Landroid/view/animation/Interpolator;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 
 # virtual methods
-.method protected onAnimationFinish()V
-    .locals 2
+.method public onAnimationFinish()V
+    .locals 1
 
     invoke-super {p0}, Landroid/view/InsetsController$InternalAnimationControlListener;->onAnimationFinish()V
 
@@ -86,9 +86,9 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/server/wm/InsetsPolicy$InsetsPolicyAnimationControlListener;->mFinishCallback:Ljava/lang/Runnable;
+    iget-object p0, p0, Lcom/android/server/wm/InsetsPolicy$InsetsPolicyAnimationControlListener;->mFinishCallback:Ljava/lang/Runnable;
 
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {v0, p0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     :cond_0
     return-void

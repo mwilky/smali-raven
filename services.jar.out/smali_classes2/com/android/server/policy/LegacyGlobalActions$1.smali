@@ -1,4 +1,4 @@
-.class Lcom/android/server/policy/LegacyGlobalActions$1;
+.class public Lcom/android/server/policy/LegacyGlobalActions$1;
 .super Lcom/android/internal/globalactions/ToggleAction;
 .source "LegacyGlobalActions.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/policy/LegacyGlobalActions;
+.field public final synthetic this$0:Lcom/android/server/policy/LegacyGlobalActions;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/policy/LegacyGlobalActions;IIIII)V
+.method public constructor <init>(Lcom/android/server/policy/LegacyGlobalActions;IIIII)V
     .locals 6
 
     iput-object p1, p0, Lcom/android/server/policy/LegacyGlobalActions$1;->this$0:Lcom/android/server/policy/LegacyGlobalActions;
@@ -43,12 +43,12 @@
 
 
 # virtual methods
-.method protected changeStateFromPress(Z)V
+.method public changeStateFromPress(Z)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/server/policy/LegacyGlobalActions$1;->this$0:Lcom/android/server/policy/LegacyGlobalActions;
 
-    invoke-static {v0}, Lcom/android/server/policy/LegacyGlobalActions;->access$000(Lcom/android/server/policy/LegacyGlobalActions;)Z
+    invoke-static {v0}, Lcom/android/server/policy/LegacyGlobalActions;->-$$Nest$fgetmHasTelephony(Lcom/android/server/policy/LegacyGlobalActions;)Z
 
     move-result v0
 
@@ -61,11 +61,7 @@
 
     move-result-object v0
 
-    const/4 v1, 0x0
-
-    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v1
+    sget-object v1, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
 
     invoke-virtual {v0, v1}, Ljava/util/Optional;->orElse(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -81,32 +77,30 @@
 
     if-eqz p1, :cond_1
 
-    sget-object v0, Lcom/android/internal/globalactions/ToggleAction$State;->TurningOn:Lcom/android/internal/globalactions/ToggleAction$State;
+    sget-object p1, Lcom/android/internal/globalactions/ToggleAction$State;->TurningOn:Lcom/android/internal/globalactions/ToggleAction$State;
 
     goto :goto_0
 
     :cond_1
-    sget-object v0, Lcom/android/internal/globalactions/ToggleAction$State;->TurningOff:Lcom/android/internal/globalactions/ToggleAction$State;
+    sget-object p1, Lcom/android/internal/globalactions/ToggleAction$State;->TurningOff:Lcom/android/internal/globalactions/ToggleAction$State;
 
     :goto_0
-    iput-object v0, p0, Lcom/android/server/policy/LegacyGlobalActions$1;->mState:Lcom/android/internal/globalactions/ToggleAction$State;
+    iput-object p1, p0, Lcom/android/internal/globalactions/ToggleAction;->mState:Lcom/android/internal/globalactions/ToggleAction$State;
 
-    iget-object v0, p0, Lcom/android/server/policy/LegacyGlobalActions$1;->this$0:Lcom/android/server/policy/LegacyGlobalActions;
+    iget-object p0, p0, Lcom/android/server/policy/LegacyGlobalActions$1;->this$0:Lcom/android/server/policy/LegacyGlobalActions;
 
-    iget-object v1, p0, Lcom/android/server/policy/LegacyGlobalActions$1;->mState:Lcom/android/internal/globalactions/ToggleAction$State;
-
-    invoke-static {v0, v1}, Lcom/android/server/policy/LegacyGlobalActions;->access$402(Lcom/android/server/policy/LegacyGlobalActions;Lcom/android/internal/globalactions/ToggleAction$State;)Lcom/android/internal/globalactions/ToggleAction$State;
+    invoke-static {p0, p1}, Lcom/android/server/policy/LegacyGlobalActions;->-$$Nest$fputmAirplaneState(Lcom/android/server/policy/LegacyGlobalActions;Lcom/android/internal/globalactions/ToggleAction$State;)V
 
     :cond_2
     return-void
 .end method
 
 .method public onToggle(Z)V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/policy/LegacyGlobalActions$1;->this$0:Lcom/android/server/policy/LegacyGlobalActions;
 
-    invoke-static {v0}, Lcom/android/server/policy/LegacyGlobalActions;->access$000(Lcom/android/server/policy/LegacyGlobalActions;)Z
+    invoke-static {v0}, Lcom/android/server/policy/LegacyGlobalActions;->-$$Nest$fgetmHasTelephony(Lcom/android/server/policy/LegacyGlobalActions;)Z
 
     move-result v0
 
@@ -116,11 +110,7 @@
 
     move-result-object v0
 
-    const/4 v1, 0x0
-
-    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v1
+    sget-object v1, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
 
     invoke-virtual {v0, v1}, Ljava/util/Optional;->orElse(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -134,55 +124,55 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/policy/LegacyGlobalActions$1;->this$0:Lcom/android/server/policy/LegacyGlobalActions;
+    iget-object p1, p0, Lcom/android/server/policy/LegacyGlobalActions$1;->this$0:Lcom/android/server/policy/LegacyGlobalActions;
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    invoke-static {v0, v1}, Lcom/android/server/policy/LegacyGlobalActions;->access$102(Lcom/android/server/policy/LegacyGlobalActions;Z)Z
+    invoke-static {p1, v0}, Lcom/android/server/policy/LegacyGlobalActions;->-$$Nest$fputmIsWaitingForEcmExit(Lcom/android/server/policy/LegacyGlobalActions;Z)V
 
-    new-instance v0, Landroid/content/Intent;
+    new-instance p1, Landroid/content/Intent;
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    const-string v2, "android.telephony.action.SHOW_NOTICE_ECM_BLOCK_OTHERS"
+    const-string v1, "android.telephony.action.SHOW_NOTICE_ECM_BLOCK_OTHERS"
 
-    invoke-direct {v0, v2, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
+    invoke-direct {p1, v1, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
 
-    const/high16 v1, 0x10000000
+    const/high16 v0, 0x10000000
 
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+    invoke-virtual {p1, v0}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    iget-object v1, p0, Lcom/android/server/policy/LegacyGlobalActions$1;->this$0:Lcom/android/server/policy/LegacyGlobalActions;
+    iget-object p0, p0, Lcom/android/server/policy/LegacyGlobalActions$1;->this$0:Lcom/android/server/policy/LegacyGlobalActions;
 
-    invoke-static {v1}, Lcom/android/server/policy/LegacyGlobalActions;->access$200(Lcom/android/server/policy/LegacyGlobalActions;)Landroid/content/Context;
+    invoke-static {p0}, Lcom/android/server/policy/LegacyGlobalActions;->-$$Nest$fgetmContext(Lcom/android/server/policy/LegacyGlobalActions;)Landroid/content/Context;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v1, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {p0, p1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
     goto :goto_0
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/policy/LegacyGlobalActions$1;->this$0:Lcom/android/server/policy/LegacyGlobalActions;
+    iget-object p0, p0, Lcom/android/server/policy/LegacyGlobalActions$1;->this$0:Lcom/android/server/policy/LegacyGlobalActions;
 
-    invoke-static {v0, p1}, Lcom/android/server/policy/LegacyGlobalActions;->access$300(Lcom/android/server/policy/LegacyGlobalActions;Z)V
+    invoke-static {p0, p1}, Lcom/android/server/policy/LegacyGlobalActions;->-$$Nest$mchangeAirplaneModeSystemSetting(Lcom/android/server/policy/LegacyGlobalActions;Z)V
 
     :goto_0
     return-void
 .end method
 
 .method public showBeforeProvisioning()Z
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
 .method public showDuringKeyguard()Z
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 .end method

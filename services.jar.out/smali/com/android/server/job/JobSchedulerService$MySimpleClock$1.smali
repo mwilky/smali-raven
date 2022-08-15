@@ -1,4 +1,4 @@
-.class Lcom/android/server/job/JobSchedulerService$MySimpleClock$1;
+.class public Lcom/android/server/job/JobSchedulerService$MySimpleClock$1;
 .super Lcom/android/server/job/JobSchedulerService$MySimpleClock;
 .source "JobSchedulerService.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/job/JobSchedulerService$MySimpleClock;
+.field public final synthetic this$0:Lcom/android/server/job/JobSchedulerService$MySimpleClock;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/job/JobSchedulerService$MySimpleClock;Ljava/time/ZoneId;)V
+.method public constructor <init>(Lcom/android/server/job/JobSchedulerService$MySimpleClock;Ljava/time/ZoneId;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/job/JobSchedulerService$MySimpleClock$1;->this$0:Lcom/android/server/job/JobSchedulerService$MySimpleClock;
@@ -34,9 +34,9 @@
 .method public millis()J
     .locals 2
 
-    iget-object v0, p0, Lcom/android/server/job/JobSchedulerService$MySimpleClock$1;->this$0:Lcom/android/server/job/JobSchedulerService$MySimpleClock;
+    iget-object p0, p0, Lcom/android/server/job/JobSchedulerService$MySimpleClock$1;->this$0:Lcom/android/server/job/JobSchedulerService$MySimpleClock;
 
-    invoke-virtual {v0}, Lcom/android/server/job/JobSchedulerService$MySimpleClock;->millis()J
+    invoke-virtual {p0}, Lcom/android/server/job/JobSchedulerService$MySimpleClock;->millis()J
 
     move-result-wide v0
 

@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/content/SyncManagerConstants$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/content/SyncManagerConstants$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/content/SyncManagerConstants;
+    iget-object p0, p0, Lcom/android/server/content/SyncManagerConstants$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/content/SyncManagerConstants;
 
-    invoke-virtual {v0}, Lcom/android/server/content/SyncManagerConstants;->lambda$start$0$SyncManagerConstants()V
+    invoke-static {p0}, Lcom/android/server/content/SyncManagerConstants;->$r8$lambda$QKd8T8KBIMVDqpK10FpJXT8Z4fY(Lcom/android/server/content/SyncManagerConstants;)V
 
     return-void
 .end method

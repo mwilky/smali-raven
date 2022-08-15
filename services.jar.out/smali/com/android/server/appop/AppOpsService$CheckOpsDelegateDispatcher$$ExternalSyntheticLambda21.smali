@@ -1,21 +1,22 @@
 .class public final synthetic Lcom/android/server/appop/AppOpsService$CheckOpsDelegateDispatcher$$ExternalSyntheticLambda21;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/internal/util/function/UndecFunction;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/server/appop/AppOpsService$CheckOpsDelegateDispatcher;
+.field public final synthetic f$0:Lcom/android/server/appop/AppOpsService;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/appop/AppOpsService$CheckOpsDelegateDispatcher;)V
+.method public synthetic constructor <init>(Lcom/android/server/appop/AppOpsService;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/appop/AppOpsService$CheckOpsDelegateDispatcher$$ExternalSyntheticLambda21;->f$0:Lcom/android/server/appop/AppOpsService$CheckOpsDelegateDispatcher;
+    iput-object p1, p0, Lcom/android/server/appop/AppOpsService$CheckOpsDelegateDispatcher$$ExternalSyntheticLambda21;->f$0:Lcom/android/server/appop/AppOpsService;
 
     return-void
 .end method
@@ -23,9 +24,9 @@
 
 # virtual methods
 .method public final apply(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/appop/AppOpsService$CheckOpsDelegateDispatcher$$ExternalSyntheticLambda21;->f$0:Lcom/android/server/appop/AppOpsService$CheckOpsDelegateDispatcher;
+    iget-object p0, p0, Lcom/android/server/appop/AppOpsService$CheckOpsDelegateDispatcher$$ExternalSyntheticLambda21;->f$0:Lcom/android/server/appop/AppOpsService;
 
     check-cast p1, Landroid/os/IBinder;
 
@@ -77,11 +78,9 @@
 
     move-result p11
 
-    move-object p0, v0
+    invoke-static/range {p0 .. p11}, Lcom/android/server/appop/AppOpsService$CheckOpsDelegateDispatcher;->$r8$lambda$_SlBzLw62YEU0zLxyRCRyNNh8uE(Lcom/android/server/appop/AppOpsService;Landroid/os/IBinder;IILjava/lang/String;Ljava/lang/String;ZZLjava/lang/String;ZII)Landroid/app/SyncNotedAppOp;
 
-    invoke-static/range {p0 .. p11}, Lcom/android/server/appop/AppOpsService$CheckOpsDelegateDispatcher;->$r8$lambda$PbpU3Eszve011DPcjUEqveXh3R0(Lcom/android/server/appop/AppOpsService$CheckOpsDelegateDispatcher;Landroid/os/IBinder;IILjava/lang/String;Ljava/lang/String;ZZLjava/lang/String;ZII)Landroid/app/SyncNotedAppOp;
+    move-result-object p0
 
-    move-result-object p1
-
-    return-object p1
+    return-object p0
 .end method

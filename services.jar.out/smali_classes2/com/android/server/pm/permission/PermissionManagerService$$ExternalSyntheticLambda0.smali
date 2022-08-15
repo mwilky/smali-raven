@@ -1,51 +1,42 @@
 .class public final synthetic Lcom/android/server/pm/permission/PermissionManagerService$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/internal/util/function/TriConsumer;
+.implements Ljava/util/function/Consumer;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/pm/permission/PermissionManagerService$$ExternalSyntheticLambda0;
+# instance fields
+.field public final synthetic f$0:I
+
+.field public final synthetic f$1:Ljava/util/List;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/pm/permission/PermissionManagerService$$ExternalSyntheticLambda0;
-
-    invoke-direct {v0}, Lcom/android/server/pm/permission/PermissionManagerService$$ExternalSyntheticLambda0;-><init>()V
-
-    sput-object v0, Lcom/android/server/pm/permission/PermissionManagerService$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/server/pm/permission/PermissionManagerService$$ExternalSyntheticLambda0;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(ILjava/util/List;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput p1, p0, Lcom/android/server/pm/permission/PermissionManagerService$$ExternalSyntheticLambda0;->f$0:I
+
+    iput-object p2, p0, Lcom/android/server/pm/permission/PermissionManagerService$$ExternalSyntheticLambda0;->f$1:Ljava/util/List;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 0
+.method public final accept(Ljava/lang/Object;)V
+    .locals 1
 
-    check-cast p1, Lcom/android/server/pm/permission/PermissionManagerService;
+    iget v0, p0, Lcom/android/server/pm/permission/PermissionManagerService$$ExternalSyntheticLambda0;->f$0:I
 
-    check-cast p2, Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/pm/permission/PermissionManagerService$$ExternalSyntheticLambda0;->f$1:Ljava/util/List;
 
-    check-cast p3, Ljava/lang/Integer;
+    check-cast p1, Lcom/android/server/pm/parsing/pkg/AndroidPackage;
 
-    invoke-virtual {p3}, Ljava/lang/Integer;->intValue()I
-
-    move-result p3
-
-    invoke-static {p1, p2, p3}, Lcom/android/server/pm/permission/PermissionManagerService;->$r8$lambda$AdmbnHOAaZZsea9HyB2538mR5A4(Lcom/android/server/pm/permission/PermissionManagerService;Ljava/lang/String;I)V
+    invoke-static {v0, p0, p1}, Lcom/android/server/pm/permission/PermissionManagerService;->$r8$lambda$OGUGmeWUOZhChdtlRo-7uv9kXH8(ILjava/util/List;Lcom/android/server/pm/parsing/pkg/AndroidPackage;)V
 
     return-void
 .end method

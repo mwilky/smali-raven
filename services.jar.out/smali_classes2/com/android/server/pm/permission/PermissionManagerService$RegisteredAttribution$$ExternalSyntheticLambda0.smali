@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/pm/permission/PermissionManagerService$RegisteredAttribution$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/os/IBinder$DeathRecipient;
@@ -39,7 +40,7 @@
 
 # virtual methods
 .method public final binderDied()V
-    .locals 5
+    .locals 4
 
     iget-object v0, p0, Lcom/android/server/pm/permission/PermissionManagerService$RegisteredAttribution$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/pm/permission/PermissionManagerService$RegisteredAttribution;
 
@@ -49,9 +50,9 @@
 
     iget-object v3, p0, Lcom/android/server/pm/permission/PermissionManagerService$RegisteredAttribution$$ExternalSyntheticLambda0;->f$3:Landroid/content/AttributionSource;
 
-    iget-boolean v4, p0, Lcom/android/server/pm/permission/PermissionManagerService$RegisteredAttribution$$ExternalSyntheticLambda0;->f$4:Z
+    iget-boolean p0, p0, Lcom/android/server/pm/permission/PermissionManagerService$RegisteredAttribution$$ExternalSyntheticLambda0;->f$4:Z
 
-    invoke-virtual {v0, v1, v2, v3, v4}, Lcom/android/server/pm/permission/PermissionManagerService$RegisteredAttribution;->lambda$new$0$PermissionManagerService$RegisteredAttribution(Landroid/content/Context;ILandroid/content/AttributionSource;Z)V
+    invoke-static {v0, v1, v2, v3, p0}, Lcom/android/server/pm/permission/PermissionManagerService$RegisteredAttribution;->$r8$lambda$9eGEysiSQ-F3P0mCT2HztQoqOdk(Lcom/android/server/pm/permission/PermissionManagerService$RegisteredAttribution;Landroid/content/Context;ILandroid/content/AttributionSource;Z)V
 
     return-void
 .end method

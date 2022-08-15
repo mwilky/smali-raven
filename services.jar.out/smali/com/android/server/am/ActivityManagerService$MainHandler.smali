@@ -1,4 +1,4 @@
-.class final Lcom/android/server/am/ActivityManagerService$MainHandler;
+.class public final Lcom/android/server/am/ActivityManagerService$MainHandler;
 .super Landroid/os/Handler;
 .source "ActivityManagerService.java"
 
@@ -9,32 +9,56 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x10
+    accessFlags = 0x11
     name = "MainHandler"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/am/ActivityManagerService;
+.field public final synthetic this$0:Lcom/android/server/am/ActivityManagerService;
 
 
 # direct methods
-.method public constructor <init>(Lcom/android/server/am/ActivityManagerService;Landroid/os/Looper;)V
-    .locals 2
+.method public static synthetic $r8$lambda$nQbn-iaklEykeZqYQ0Hxksxf5B8(Lcom/android/server/am/ProcessRecord;)V
+    .locals 0
 
-    iput-object p1, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
-
-    const/4 v0, 0x0
-
-    const/4 v1, 0x1
-
-    invoke-direct {p0, p2, v0, v1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;Landroid/os/Handler$Callback;Z)V
+    invoke-static {p0}, Lcom/android/server/am/ActivityManagerService$MainHandler;->lambda$handleMessage$0(Lcom/android/server/am/ProcessRecord;)V
 
     return-void
 .end method
 
-.method static synthetic lambda$handleMessage$0(Lcom/android/server/am/ProcessRecord;)V
-    .locals 4
+.method public static synthetic $r8$lambda$tnqzrvfbfhw0qbzF4Zpa6LsnUNU(Landroid/os/Message;Landroid/app/ActivityManagerInternal$BindServiceEventListener;)V
+    .locals 0
+
+    invoke-static {p0, p1}, Lcom/android/server/am/ActivityManagerService$MainHandler;->lambda$handleMessage$2(Landroid/os/Message;Landroid/app/ActivityManagerInternal$BindServiceEventListener;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$y3Zh24d1IG7n6Ujgxim6Oc7DVPo(Landroid/os/Message;Landroid/app/ActivityManagerInternal$BroadcastEventListener;)V
+    .locals 0
+
+    invoke-static {p0, p1}, Lcom/android/server/am/ActivityManagerService$MainHandler;->lambda$handleMessage$1(Landroid/os/Message;Landroid/app/ActivityManagerInternal$BroadcastEventListener;)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Lcom/android/server/am/ActivityManagerService;Landroid/os/Looper;)V
+    .locals 1
+
+    iput-object p1, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
+
+    const/4 p1, 0x0
+
+    const/4 v0, 0x1
+
+    invoke-direct {p0, p2, p1, v0}, Landroid/os/Handler;-><init>(Landroid/os/Looper;Landroid/os/Handler$Callback;Z)V
+
+    return-void
+.end method
+
+.method public static synthetic lambda$handleMessage$0(Lcom/android/server/am/ProcessRecord;)V
+    .locals 2
 
     invoke-virtual {p0}, Lcom/android/server/am/ProcessRecord;->getThread()Landroid/app/IApplicationThread;
 
@@ -50,49 +74,151 @@
     goto :goto_0
 
     :catch_0
-    move-exception v1
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "Failed to update time zone for: "
 
-    const-string v3, "Failed to update time zone for: "
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object p0, p0, Lcom/android/server/am/ProcessRecord;->info:Landroid/content/pm/ApplicationInfo;
 
-    iget-object v3, p0, Lcom/android/server/am/ProcessRecord;->info:Landroid/content/pm/ApplicationInfo;
+    iget-object p0, p0, Landroid/content/pm/ApplicationInfo;->processName:Ljava/lang/String;
 
-    iget-object v3, v3, Landroid/content/pm/ApplicationInfo;->processName:Ljava/lang/String;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object v2
+    const-string v0, "ActivityManager"
 
-    const-string v3, "ActivityManager"
-
-    invoke-static {v3, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, p0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
     :goto_0
     return-void
 .end method
 
+.method public static synthetic lambda$handleMessage$1(Landroid/os/Message;Landroid/app/ActivityManagerInternal$BroadcastEventListener;)V
+    .locals 1
+
+    iget-object v0, p0, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    check-cast v0, Ljava/lang/String;
+
+    iget p0, p0, Landroid/os/Message;->arg1:I
+
+    invoke-interface {p1, v0, p0}, Landroid/app/ActivityManagerInternal$BroadcastEventListener;->onSendingBroadcast(Ljava/lang/String;I)V
+
+    return-void
+.end method
+
+.method public static synthetic lambda$handleMessage$2(Landroid/os/Message;Landroid/app/ActivityManagerInternal$BindServiceEventListener;)V
+    .locals 1
+
+    iget-object v0, p0, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    check-cast v0, Ljava/lang/String;
+
+    iget p0, p0, Landroid/os/Message;->arg1:I
+
+    invoke-interface {p1, v0, p0}, Landroid/app/ActivityManagerInternal$BindServiceEventListener;->onBindingService(Ljava/lang/String;I)V
+
+    return-void
+.end method
+
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 12
+    .locals 11
 
     iget v0, p1, Landroid/os/Message;->what:I
 
-    const/4 v1, 0x0
+    const/4 v1, 0x5
 
-    sparse-switch v0, :sswitch_data_0
+    if-eq v0, v1, :cond_c
 
-    goto/16 :goto_3
+    const/16 v1, 0x14
 
-    :sswitch_0
+    const/4 v2, 0x0
+
+    if-eq v0, v1, :cond_b
+
+    const/16 v1, 0x16
+
+    if-eq v0, v1, :cond_a
+
+    const/16 v1, 0x21
+
+    if-eq v0, v1, :cond_9
+
+    const/16 v1, 0x29
+
+    if-eq v0, v1, :cond_8
+
+    const/16 v1, 0x3f
+
+    if-eq v0, v1, :cond_7
+
+    const/16 v1, 0x45
+
+    if-eq v0, v1, :cond_6
+
+    const/16 v1, 0xc
+
+    if-eq v0, v1, :cond_5
+
+    const/16 v1, 0xd
+
+    if-eq v0, v1, :cond_4
+
+    const/16 v1, 0x42
+
+    if-eq v0, v1, :cond_3
+
+    const/16 v1, 0x43
+
+    if-eq v0, v1, :cond_2
+
+    packed-switch v0, :pswitch_data_0
+
+    packed-switch v0, :pswitch_data_1
+
+    packed-switch v0, :pswitch_data_2
+
+    packed-switch v0, :pswitch_data_3
+
+    goto/16 :goto_2
+
+    :pswitch_0
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService;->mBindServiceEventListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    new-instance v0, Lcom/android/server/am/ActivityManagerService$MainHandler$$ExternalSyntheticLambda2;
+
+    invoke-direct {v0, p1}, Lcom/android/server/am/ActivityManagerService$MainHandler$$ExternalSyntheticLambda2;-><init>(Landroid/os/Message;)V
+
+    invoke-virtual {p0, v0}, Ljava/util/concurrent/CopyOnWriteArrayList;->forEach(Ljava/util/function/Consumer;)V
+
+    goto/16 :goto_2
+
+    :pswitch_1
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService;->mBroadcastEventListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    new-instance v0, Lcom/android/server/am/ActivityManagerService$MainHandler$$ExternalSyntheticLambda1;
+
+    invoke-direct {v0, p1}, Lcom/android/server/am/ActivityManagerService$MainHandler$$ExternalSyntheticLambda1;-><init>(Landroid/os/Message;)V
+
+    invoke-virtual {p0, v0}, Ljava/util/concurrent/CopyOnWriteArrayList;->forEach(Ljava/util/function/Consumer;)V
+
+    goto/16 :goto_2
+
+    :pswitch_2
     iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
 
     monitor-enter v0
@@ -100,11 +226,11 @@
     :try_start_0
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->boostPriorityForLockedSection()V
 
-    iget-object v2, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+    iget-object p0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    check-cast v2, Lcom/android/server/am/ContentProviderRecord;
+    check-cast p0, Lcom/android/server/am/ContentProviderRecord;
 
-    invoke-virtual {v2, v1}, Lcom/android/server/am/ContentProviderRecord;->onProviderPublishStatusLocked(Z)V
+    invoke-virtual {p0, v2}, Lcom/android/server/am/ContentProviderRecord;->onProviderPublishStatusLocked(Z)V
 
     monitor-exit v0
     :try_end_0
@@ -112,10 +238,10 @@
 
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
 
-    goto/16 :goto_3
+    goto/16 :goto_2
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     :try_start_1
     monitor-exit v0
@@ -124,16 +250,16 @@
 
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
 
-    throw v1
+    throw p0
 
-    :sswitch_1
-    iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
+    :pswitch_3
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    invoke-static {v0}, Lcom/android/server/am/ActivityManagerService;->access$400(Lcom/android/server/am/ActivityManagerService;)V
+    invoke-static {p0}, Lcom/android/server/am/ActivityManagerService;->-$$Nest$mhandleBinderHeavyHitterAutoSamplerTimeOut(Lcom/android/server/am/ActivityManagerService;)V
 
-    goto/16 :goto_3
+    goto/16 :goto_2
 
-    :sswitch_2
+    :pswitch_4
     iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
 
     monitor-enter v0
@@ -141,15 +267,15 @@
     :try_start_2
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->boostPriorityForLockedSection()V
 
-    iget-object v2, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+    iget-object p1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    check-cast v2, Landroid/os/AppZygote;
+    check-cast p1, Landroid/os/AppZygote;
 
-    iget-object v3, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v3, v3, Lcom/android/server/am/ActivityManagerService;->mProcessList:Lcom/android/server/am/ProcessList;
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService;->mProcessList:Lcom/android/server/am/ProcessList;
 
-    invoke-virtual {v3, v2, v1}, Lcom/android/server/am/ProcessList;->killAppZygoteIfNeededLocked(Landroid/os/AppZygote;Z)V
+    invoke-virtual {p0, p1, v2}, Lcom/android/server/am/ProcessList;->killAppZygoteIfNeededLocked(Landroid/os/AppZygote;Z)V
 
     monitor-exit v0
     :try_end_2
@@ -157,10 +283,10 @@
 
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
 
-    goto/16 :goto_3
+    goto/16 :goto_2
 
     :catchall_1
-    move-exception v1
+    move-exception p0
 
     :try_start_3
     monitor-exit v0
@@ -169,193 +295,115 @@
 
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
 
-    throw v1
+    throw p0
 
-    :sswitch_3
-    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+    :pswitch_5
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    check-cast v0, Lcom/android/internal/os/SomeArgs;
+    invoke-virtual {p0}, Lcom/android/server/am/ActivityManagerService;->idleUids()V
 
-    iget-object v1, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
+    goto/16 :goto_2
 
-    iget-object v1, v1, Lcom/android/server/am/ActivityManagerService;->mServices:Lcom/android/server/am/ActiveServices;
+    :pswitch_6
+    iget-object p1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    iget-object v2, v0, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
+    check-cast p1, Lcom/android/server/am/ProcessRecord;
 
-    check-cast v2, Lcom/android/server/am/ProcessRecord;
-
-    iget-object v3, v0, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
-
-    check-cast v3, Ljava/lang/String;
-
-    iget-object v4, v0, Lcom/android/internal/os/SomeArgs;->arg3:Ljava/lang/Object;
-
-    check-cast v4, Landroid/content/ComponentName;
-
-    invoke-virtual {v1, v2, v3, v4}, Lcom/android/server/am/ActiveServices;->serviceForegroundCrash(Lcom/android/server/am/ProcessRecord;Ljava/lang/String;Landroid/content/ComponentName;)V
-
-    invoke-virtual {v0}, Lcom/android/internal/os/SomeArgs;->recycle()V
-
-    goto/16 :goto_3
-
-    :sswitch_4
     iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
-
-    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mServices:Lcom/android/server/am/ActiveServices;
-
-    iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v1, Lcom/android/server/am/ServiceRecord;
-
-    invoke-virtual {v0, v1}, Lcom/android/server/am/ActiveServices;->serviceForegroundTimeout(Lcom/android/server/am/ServiceRecord;)V
-
-    goto/16 :goto_3
-
-    :sswitch_5
-    iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
-
-    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mProcLock:Lcom/android/server/am/ActivityManagerGlobalLock;
 
     monitor-enter v0
 
     :try_start_4
-    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->boostPriorityForProcLockedSection()V
+    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->boostPriorityForLockedSection()V
 
-    iget-object v1, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v1, v1, Lcom/android/server/am/ActivityManagerService;->mProcessList:Lcom/android/server/am/ProcessList;
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService;->mCpHelper:Lcom/android/server/am/ContentProviderHelper;
 
-    invoke-virtual {v1}, Lcom/android/server/am/ProcessList;->handleAllTrustStorageUpdateLOSP()V
+    invoke-virtual {p0, p1}, Lcom/android/server/am/ContentProviderHelper;->processContentProviderPublishTimedOutLocked(Lcom/android/server/am/ProcessRecord;)V
 
     monitor-exit v0
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_2
 
-    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterProcLockedSection()V
+    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
 
-    goto/16 :goto_3
+    goto/16 :goto_2
 
     :catchall_2
-    move-exception v1
+    move-exception p0
 
     :try_start_5
     monitor-exit v0
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_2
 
-    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterProcLockedSection()V
+    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
 
-    throw v1
+    throw p0
 
-    :sswitch_6
-    iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
+    :pswitch_7
+    iget-object p1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    invoke-virtual {v0}, Lcom/android/server/am/ActivityManagerService;->idleUids()V
-
-    goto/16 :goto_3
-
-    :sswitch_7
-    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v0, Lcom/android/server/am/ProcessRecord;
-
-    iget-object v2, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
-
-    monitor-enter v2
+    check-cast p1, Landroid/app/IUiAutomationConnection;
 
     :try_start_6
-    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->boostPriorityForLockedSection()V
-
-    iget-object v1, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
-
-    iget-object v1, v1, Lcom/android/server/am/ActivityManagerService;->mCpHelper:Lcom/android/server/am/ContentProviderHelper;
-
-    invoke-virtual {v1, v0}, Lcom/android/server/am/ContentProviderHelper;->processContentProviderPublishTimedOutLocked(Lcom/android/server/am/ProcessRecord;)V
-
-    monitor-exit v2
+    invoke-interface {p1}, Landroid/app/IUiAutomationConnection;->shutdown()V
     :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_3
-
-    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
-
-    goto/16 :goto_3
-
-    :catchall_3
-    move-exception v1
-
-    :try_start_7
-    monitor-exit v2
-    :try_end_7
-    .catchall {:try_start_7 .. :try_end_7} :catchall_3
-
-    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
-
-    throw v1
-
-    :sswitch_8
-    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v0, Landroid/app/IUiAutomationConnection;
-
-    :try_start_8
-    invoke-interface {v0}, Landroid/app/IUiAutomationConnection;->shutdown()V
-    :try_end_8
-    .catch Landroid/os/RemoteException; {:try_start_8 .. :try_end_8} :catch_0
+    .catch Landroid/os/RemoteException; {:try_start_6 .. :try_end_6} :catch_0
 
     goto :goto_0
 
     :catch_0
-    move-exception v2
+    const-string p1, "ActivityManager"
 
-    const-string v3, "ActivityManager"
+    const-string v0, "Error shutting down UiAutomationConnection"
 
-    const-string v4, "Error shutting down UiAutomationConnection"
-
-    invoke-static {v3, v4}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p1, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     :goto_0
-    iget-object v2, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    invoke-static {v2, v1}, Lcom/android/server/am/ActivityManagerService;->access$302(Lcom/android/server/am/ActivityManagerService;Z)Z
+    invoke-static {p0, v2}, Lcom/android/server/am/ActivityManagerService;->-$$Nest$fputmUserIsMonkey(Lcom/android/server/am/ActivityManagerService;Z)V
 
-    goto/16 :goto_3
+    goto/16 :goto_2
 
-    :sswitch_9
-    iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
+    :pswitch_8
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mAppProfiler:Lcom/android/server/am/AppProfiler;
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService;->mAppProfiler:Lcom/android/server/am/AppProfiler;
 
-    iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+    iget-object p1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    check-cast v1, Ljava/lang/String;
+    check-cast p1, Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/am/AppProfiler;->handleAbortDumpHeap(Ljava/lang/String;)V
+    invoke-virtual {p0, p1}, Lcom/android/server/am/AppProfiler;->handleAbortDumpHeap(Ljava/lang/String;)V
 
-    goto/16 :goto_3
+    goto/16 :goto_2
 
-    :sswitch_a
-    iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
+    :pswitch_9
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mAppProfiler:Lcom/android/server/am/AppProfiler;
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService;->mAppProfiler:Lcom/android/server/am/AppProfiler;
 
-    invoke-virtual {v0}, Lcom/android/server/am/AppProfiler;->handlePostDumpHeapNotification()V
+    invoke-virtual {p0}, Lcom/android/server/am/AppProfiler;->handlePostDumpHeapNotification()V
 
-    goto/16 :goto_3
+    goto/16 :goto_2
 
-    :sswitch_b
+    :pswitch_a
     iget v0, p1, Landroid/os/Message;->arg1:I
 
-    iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+    iget-object p1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    check-cast v1, [B
+    check-cast p1, [B
 
-    iget-object v2, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
+    iget-object v1, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v2, v2, Lcom/android/server/am/ActivityManagerService;->mProcLock:Lcom/android/server/am/ActivityManagerGlobalLock;
+    iget-object v1, v1, Lcom/android/server/am/ActivityManagerService;->mProcLock:Lcom/android/server/am/ActivityManagerGlobalLock;
 
-    monitor-enter v2
+    monitor-enter v1
 
-    :try_start_9
+    :try_start_7
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->boostPriorityForProcLockedSection()V
 
     iget-object v3, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
@@ -363,114 +411,213 @@
     iget-object v3, v3, Lcom/android/server/am/ActivityManagerService;->mPidsSelfLocked:Lcom/android/server/am/ActivityManagerService$PidMap;
 
     monitor-enter v3
-    :try_end_9
-    .catchall {:try_start_9 .. :try_end_9} :catchall_5
-
-    const/4 v4, 0x0
+    :try_end_7
+    .catchall {:try_start_7 .. :try_end_7} :catchall_4
 
     :goto_1
-    :try_start_a
-    iget-object v5, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
+    :try_start_8
+    iget-object v4, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v5, v5, Lcom/android/server/am/ActivityManagerService;->mPidsSelfLocked:Lcom/android/server/am/ActivityManagerService$PidMap;
+    iget-object v4, v4, Lcom/android/server/am/ActivityManagerService;->mPidsSelfLocked:Lcom/android/server/am/ActivityManagerService$PidMap;
 
-    invoke-virtual {v5}, Lcom/android/server/am/ActivityManagerService$PidMap;->size()I
+    invoke-virtual {v4}, Lcom/android/server/am/ActivityManagerService$PidMap;->size()I
 
-    move-result v5
+    move-result v4
 
-    if-ge v4, v5, :cond_1
+    if-ge v2, v4, :cond_1
 
-    iget-object v5, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
+    iget-object v4, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v5, v5, Lcom/android/server/am/ActivityManagerService;->mPidsSelfLocked:Lcom/android/server/am/ActivityManagerService$PidMap;
+    iget-object v4, v4, Lcom/android/server/am/ActivityManagerService;->mPidsSelfLocked:Lcom/android/server/am/ActivityManagerService$PidMap;
 
-    invoke-virtual {v5, v4}, Lcom/android/server/am/ActivityManagerService$PidMap;->valueAt(I)Lcom/android/server/am/ProcessRecord;
+    invoke-virtual {v4, v2}, Lcom/android/server/am/ActivityManagerService$PidMap;->valueAt(I)Lcom/android/server/am/ProcessRecord;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Lcom/android/server/am/ProcessRecord;->getThread()Landroid/app/IApplicationThread;
 
     move-result-object v5
 
-    invoke-virtual {v5}, Lcom/android/server/am/ProcessRecord;->getThread()Landroid/app/IApplicationThread;
+    iget v4, v4, Lcom/android/server/am/ProcessRecord;->uid:I
+    :try_end_8
+    .catchall {:try_start_8 .. :try_end_8} :catchall_3
 
-    move-result-object v6
+    if-ne v4, v0, :cond_0
 
-    iget v7, v5, Lcom/android/server/am/ProcessRecord;->uid:I
-    :try_end_a
-    .catchall {:try_start_a .. :try_end_a} :catchall_4
+    if-eqz v5, :cond_0
 
-    if-ne v7, v0, :cond_0
-
-    if-eqz v6, :cond_0
-
-    :try_start_b
-    invoke-interface {v6, v1}, Landroid/app/IApplicationThread;->notifyCleartextNetwork([B)V
-    :try_end_b
-    .catch Landroid/os/RemoteException; {:try_start_b .. :try_end_b} :catch_1
-    .catchall {:try_start_b .. :try_end_b} :catchall_4
-
-    goto :goto_2
+    :try_start_9
+    invoke-interface {v5, p1}, Landroid/app/IApplicationThread;->notifyCleartextNetwork([B)V
+    :try_end_9
+    .catch Landroid/os/RemoteException; {:try_start_9 .. :try_end_9} :catch_1
+    .catchall {:try_start_9 .. :try_end_9} :catchall_3
 
     :catch_1
-    move-exception v7
-
     :cond_0
-    :goto_2
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_1
 
     :cond_1
-    :try_start_c
+    :try_start_a
     monitor-exit v3
-    :try_end_c
-    .catchall {:try_start_c .. :try_end_c} :catchall_4
+    :try_end_a
+    .catchall {:try_start_a .. :try_end_a} :catchall_3
 
-    :try_start_d
-    monitor-exit v2
-    :try_end_d
-    .catchall {:try_start_d .. :try_end_d} :catchall_5
+    :try_start_b
+    monitor-exit v1
+    :try_end_b
+    .catchall {:try_start_b .. :try_end_b} :catchall_4
 
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterProcLockedSection()V
 
-    goto/16 :goto_3
+    goto/16 :goto_2
+
+    :catchall_3
+    move-exception p0
+
+    :try_start_c
+    monitor-exit v3
+    :try_end_c
+    .catchall {:try_start_c .. :try_end_c} :catchall_3
+
+    :try_start_d
+    throw p0
 
     :catchall_4
-    move-exception v4
+    move-exception p0
+
+    monitor-exit v1
+    :try_end_d
+    .catchall {:try_start_d .. :try_end_d} :catchall_4
+
+    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterProcLockedSection()V
+
+    throw p0
+
+    :pswitch_b
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService;->mProcessList:Lcom/android/server/am/ProcessList;
+
+    invoke-virtual {p0}, Lcom/android/server/am/ProcessList;->setAllHttpProxy()V
+
+    goto/16 :goto_2
+
+    :pswitch_c
+    iget-object p1, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object p1, p1, Lcom/android/server/am/ActivityManagerService;->mProcLock:Lcom/android/server/am/ActivityManagerGlobalLock;
+
+    monitor-enter p1
 
     :try_start_e
-    monitor-exit v3
-    :try_end_e
-    .catchall {:try_start_e .. :try_end_e} :catchall_4
+    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->boostPriorityForProcLockedSection()V
 
-    :try_start_f
-    throw v4
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService;->mProcessList:Lcom/android/server/am/ProcessList;
+
+    invoke-virtual {p0}, Lcom/android/server/am/ProcessList;->clearAllDnsCacheLOSP()V
+
+    monitor-exit p1
+    :try_end_e
+    .catchall {:try_start_e .. :try_end_e} :catchall_5
+
+    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterProcLockedSection()V
+
+    goto/16 :goto_2
 
     :catchall_5
-    move-exception v3
+    move-exception p0
 
-    monitor-exit v2
+    :try_start_f
+    monitor-exit p1
     :try_end_f
     .catchall {:try_start_f .. :try_end_f} :catchall_5
 
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterProcLockedSection()V
 
-    throw v3
+    throw p0
 
-    :sswitch_c
+    :pswitch_d
+    iget-object p1, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
+
+    invoke-static {p1}, Lcom/android/server/am/ActivityManagerService;->-$$Nest$mcheckExcessivePowerUsage(Lcom/android/server/am/ActivityManagerService;)V
+
+    const/16 p1, 0x1b
+
+    invoke-virtual {p0, p1}, Landroid/os/Handler;->removeMessages(I)V
+
+    invoke-virtual {p0, p1}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
+
+    move-result-object p1
+
     iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mProcLock:Lcom/android/server/am/ActivityManagerGlobalLock;
+    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mConstants:Lcom/android/server/am/ActivityManagerConstants;
+
+    iget-wide v0, v0, Lcom/android/server/am/ActivityManagerConstants;->POWER_CHECK_INTERVAL:J
+
+    invoke-virtual {p0, p1, v0, v1}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
+
+    goto/16 :goto_2
+
+    :cond_2
+    iget-object p1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    check-cast p1, Lcom/android/internal/os/SomeArgs;
+
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService;->mServices:Lcom/android/server/am/ActiveServices;
+
+    iget-object v0, p1, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
+
+    check-cast v0, Lcom/android/server/am/ProcessRecord;
+
+    iget-object v1, p1, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
+
+    check-cast v1, Ljava/lang/String;
+
+    invoke-virtual {p0, v0, v1}, Lcom/android/server/am/ActiveServices;->serviceForegroundTimeoutANR(Lcom/android/server/am/ProcessRecord;Ljava/lang/String;)V
+
+    invoke-virtual {p1}, Lcom/android/internal/os/SomeArgs;->recycle()V
+
+    goto/16 :goto_2
+
+    :cond_3
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService;->mServices:Lcom/android/server/am/ActiveServices;
+
+    iget-object p1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    check-cast p1, Lcom/android/server/am/ServiceRecord;
+
+    invoke-virtual {p0, p1}, Lcom/android/server/am/ActiveServices;->serviceForegroundTimeout(Lcom/android/server/am/ServiceRecord;)V
+
+    goto/16 :goto_2
+
+    :cond_4
+    iget-object p1, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v0, p1, Lcom/android/server/am/ActivityManagerService;->mProcLock:Lcom/android/server/am/ActivityManagerGlobalLock;
 
     monitor-enter v0
 
     :try_start_10
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->boostPriorityForProcLockedSection()V
 
-    iget-object v1, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v1, v1, Lcom/android/server/am/ActivityManagerService;->mProcessList:Lcom/android/server/am/ProcessList;
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService;->mProcessList:Lcom/android/server/am/ProcessList;
 
-    iget v2, p1, Landroid/os/Message;->arg1:I
+    new-instance p1, Lcom/android/server/am/ActivityManagerService$MainHandler$$ExternalSyntheticLambda0;
 
-    invoke-virtual {v1, v2}, Lcom/android/server/am/ProcessList;->updateAllTimePrefsLOSP(I)V
+    invoke-direct {p1}, Lcom/android/server/am/ActivityManagerService$MainHandler$$ExternalSyntheticLambda0;-><init>()V
+
+    invoke-virtual {p0, v2, p1}, Lcom/android/server/am/ProcessList;->forEachLruProcessesLOSP(ZLjava/util/function/Consumer;)V
 
     monitor-exit v0
     :try_end_10
@@ -478,10 +625,10 @@
 
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterProcLockedSection()V
 
-    goto/16 :goto_3
+    goto/16 :goto_2
 
     :catchall_6
-    move-exception v1
+    move-exception p0
 
     :try_start_11
     monitor-exit v0
@@ -490,45 +637,63 @@
 
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterProcLockedSection()V
 
-    throw v1
+    throw p0
 
-    :sswitch_d
-    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+    :cond_5
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    check-cast v0, Ljava/util/ArrayList;
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService;->mServices:Lcom/android/server/am/ActiveServices;
 
-    new-instance v1, Lcom/android/server/am/ActivityManagerService$MainHandler$1;
+    iget-object p1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    invoke-direct {v1, p0, v0}, Lcom/android/server/am/ActivityManagerService$MainHandler$1;-><init>(Lcom/android/server/am/ActivityManagerService$MainHandler;Ljava/util/ArrayList;)V
+    check-cast p1, Lcom/android/server/am/ProcessRecord;
 
-    invoke-virtual {v1}, Ljava/lang/Thread;->start()V
+    invoke-virtual {p0, p1}, Lcom/android/server/am/ActiveServices;->serviceTimeout(Lcom/android/server/am/ProcessRecord;)V
 
-    goto/16 :goto_3
+    goto/16 :goto_2
 
-    :sswitch_e
-    iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
+    :cond_6
+    iget-object p1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mProcessList:Lcom/android/server/am/ProcessList;
+    check-cast p1, Lcom/android/internal/os/SomeArgs;
 
-    invoke-virtual {v0}, Lcom/android/server/am/ProcessList;->setAllHttpProxy()V
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    goto/16 :goto_3
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService;->mServices:Lcom/android/server/am/ActiveServices;
 
-    :sswitch_f
-    iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
+    iget-object v0, p1, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
 
-    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mProcLock:Lcom/android/server/am/ActivityManagerGlobalLock;
+    check-cast v0, Lcom/android/server/am/ProcessRecord;
+
+    iget-object v1, p1, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
+
+    check-cast v1, Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/android/internal/os/SomeArgs;->arg3:Ljava/lang/Object;
+
+    check-cast v2, Landroid/content/ComponentName;
+
+    invoke-virtual {p0, v0, v1, v2}, Lcom/android/server/am/ActiveServices;->serviceForegroundCrash(Lcom/android/server/am/ProcessRecord;Ljava/lang/String;Landroid/content/ComponentName;)V
+
+    invoke-virtual {p1}, Lcom/android/internal/os/SomeArgs;->recycle()V
+
+    goto/16 :goto_2
+
+    :cond_7
+    iget-object p1, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v0, p1, Lcom/android/server/am/ActivityManagerService;->mProcLock:Lcom/android/server/am/ActivityManagerGlobalLock;
 
     monitor-enter v0
 
     :try_start_12
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->boostPriorityForProcLockedSection()V
 
-    iget-object v1, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v1, v1, Lcom/android/server/am/ActivityManagerService;->mProcessList:Lcom/android/server/am/ProcessList;
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService;->mProcessList:Lcom/android/server/am/ProcessList;
 
-    invoke-virtual {v1}, Lcom/android/server/am/ProcessList;->clearAllDnsCacheLOSP()V
+    invoke-virtual {p0}, Lcom/android/server/am/ProcessList;->handleAllTrustStorageUpdateLOSP()V
 
     monitor-exit v0
     :try_end_12
@@ -536,10 +701,10 @@
 
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterProcLockedSection()V
 
-    goto/16 :goto_3
+    goto/16 :goto_2
 
     :catchall_7
-    move-exception v1
+    move-exception p0
 
     :try_start_13
     monitor-exit v0
@@ -548,58 +713,84 @@
 
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterProcLockedSection()V
 
-    throw v1
+    throw p0
 
-    :sswitch_10
+    :cond_8
     iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    invoke-static {v0}, Lcom/android/server/am/ActivityManagerService;->access$200(Lcom/android/server/am/ActivityManagerService;)V
-
-    const/16 v0, 0x1b
-
-    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerService$MainHandler;->removeMessages(I)V
-
-    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerService$MainHandler;->obtainMessage(I)Landroid/os/Message;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
-
-    iget-object v1, v1, Lcom/android/server/am/ActivityManagerService;->mConstants:Lcom/android/server/am/ActivityManagerConstants;
-
-    iget-wide v1, v1, Lcom/android/server/am/ActivityManagerConstants;->POWER_CHECK_INTERVAL:J
-
-    invoke-virtual {p0, v0, v1, v2}, Lcom/android/server/am/ActivityManagerService$MainHandler;->sendMessageDelayed(Landroid/os/Message;J)Z
-
-    goto/16 :goto_3
-
-    :sswitch_11
-    iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
+    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mProcLock:Lcom/android/server/am/ActivityManagerGlobalLock;
 
     monitor-enter v0
 
     :try_start_14
+    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->boostPriorityForProcLockedSection()V
+
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService;->mProcessList:Lcom/android/server/am/ProcessList;
+
+    iget p1, p1, Landroid/os/Message;->arg1:I
+
+    invoke-virtual {p0, p1}, Lcom/android/server/am/ProcessList;->updateAllTimePrefsLOSP(I)V
+
+    monitor-exit v0
+    :try_end_14
+    .catchall {:try_start_14 .. :try_end_14} :catchall_8
+
+    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterProcLockedSection()V
+
+    goto :goto_2
+
+    :catchall_8
+    move-exception p0
+
+    :try_start_15
+    monitor-exit v0
+    :try_end_15
+    .catchall {:try_start_15 .. :try_end_15} :catchall_8
+
+    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterProcLockedSection()V
+
+    throw p0
+
+    :cond_9
+    iget-object p1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    check-cast p1, Ljava/util/ArrayList;
+
+    new-instance v0, Lcom/android/server/am/ActivityManagerService$MainHandler$1;
+
+    invoke-direct {v0, p0, p1}, Lcom/android/server/am/ActivityManagerService$MainHandler$1;-><init>(Lcom/android/server/am/ActivityManagerService$MainHandler;Ljava/util/ArrayList;)V
+
+    invoke-virtual {v0}, Ljava/lang/Thread;->start()V
+
+    goto :goto_2
+
+    :cond_a
+    iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
+
+    monitor-enter v0
+
+    :try_start_16
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->boostPriorityForLockedSection()V
 
     iget v3, p1, Landroid/os/Message;->arg1:I
 
     iget v9, p1, Landroid/os/Message;->arg2:I
 
-    iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+    iget-object p1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    check-cast v1, Landroid/os/Bundle;
-
-    move-object v11, v1
+    check-cast p1, Landroid/os/Bundle;
 
     const-string/jumbo v1, "pkg"
 
-    invoke-virtual {v11, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p1, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
     const-string/jumbo v1, "reason"
 
-    invoke-virtual {v11, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p1, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v10
 
@@ -617,175 +808,124 @@
 
     invoke-virtual/range {v1 .. v10}, Lcom/android/server/am/ActivityManagerService;->forceStopPackageLocked(Ljava/lang/String;IZZZZZILjava/lang/String;)Z
 
-    nop
-
     monitor-exit v0
-    :try_end_14
-    .catchall {:try_start_14 .. :try_end_14} :catchall_8
-
-    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
-
-    goto :goto_3
-
-    :catchall_8
-    move-exception v1
-
-    :try_start_15
-    monitor-exit v0
-    :try_end_15
-    .catchall {:try_start_15 .. :try_end_15} :catchall_8
-
-    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
-
-    throw v1
-
-    :sswitch_12
-    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v0, Lcom/android/server/am/ProcessRecord;
-
-    iget-object v2, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
-
-    monitor-enter v2
-
-    :try_start_16
-    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->boostPriorityForLockedSection()V
-
-    iget-object v1, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
-
-    invoke-static {v1, v0}, Lcom/android/server/am/ActivityManagerService;->access$100(Lcom/android/server/am/ActivityManagerService;Lcom/android/server/am/ProcessRecord;)V
-
-    monitor-exit v2
     :try_end_16
     .catchall {:try_start_16 .. :try_end_16} :catchall_9
 
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
 
-    goto :goto_3
+    goto :goto_2
 
     :catchall_9
-    move-exception v1
+    move-exception p0
 
     :try_start_17
-    monitor-exit v2
+    monitor-exit v0
     :try_end_17
     .catchall {:try_start_17 .. :try_end_17} :catchall_9
 
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
 
-    throw v1
+    throw p0
 
-    :sswitch_13
+    :cond_b
+    iget-object p1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    check-cast p1, Lcom/android/server/am/ProcessRecord;
+
     iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
-
-    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mProcLock:Lcom/android/server/am/ActivityManagerGlobalLock;
 
     monitor-enter v0
 
     :try_start_18
-    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->boostPriorityForProcLockedSection()V
+    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->boostPriorityForLockedSection()V
 
-    iget-object v2, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v2, v2, Lcom/android/server/am/ActivityManagerService;->mProcessList:Lcom/android/server/am/ProcessList;
-
-    sget-object v3, Lcom/android/server/am/ActivityManagerService$MainHandler$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/server/am/ActivityManagerService$MainHandler$$ExternalSyntheticLambda0;
-
-    invoke-virtual {v2, v1, v3}, Lcom/android/server/am/ProcessList;->forEachLruProcessesLOSP(ZLjava/util/function/Consumer;)V
+    invoke-virtual {p0, p1, v2}, Lcom/android/server/am/ActivityManagerService;->handleProcessStartOrKillTimeoutLocked(Lcom/android/server/am/ProcessRecord;Z)V
 
     monitor-exit v0
     :try_end_18
     .catchall {:try_start_18 .. :try_end_18} :catchall_a
 
-    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterProcLockedSection()V
+    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
 
-    goto :goto_3
+    goto :goto_2
 
     :catchall_a
-    move-exception v1
+    move-exception p0
 
     :try_start_19
     monitor-exit v0
     :try_end_19
     .catchall {:try_start_19 .. :try_end_19} :catchall_a
 
-    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterProcLockedSection()V
+    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
 
-    throw v1
+    throw p0
 
-    :sswitch_14
-    iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
+    :cond_c
+    iget-object p1, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mServices:Lcom/android/server/am/ActiveServices;
-
-    iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v1, Lcom/android/server/am/ProcessRecord;
-
-    invoke-virtual {v0, v1}, Lcom/android/server/am/ActiveServices;->serviceTimeout(Lcom/android/server/am/ProcessRecord;)V
-
-    goto :goto_3
-
-    :sswitch_15
-    iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
-
-    monitor-enter v0
+    monitor-enter p1
 
     :try_start_1a
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->boostPriorityForLockedSection()V
 
-    iget-object v1, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v1, v1, Lcom/android/server/am/ActivityManagerService;->mAppProfiler:Lcom/android/server/am/AppProfiler;
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService;->mAppProfiler:Lcom/android/server/am/AppProfiler;
 
-    invoke-virtual {v1}, Lcom/android/server/am/AppProfiler;->performAppGcsIfAppropriateLocked()V
+    invoke-virtual {p0}, Lcom/android/server/am/AppProfiler;->performAppGcsIfAppropriateLocked()V
 
-    monitor-exit v0
+    monitor-exit p1
     :try_end_1a
     .catchall {:try_start_1a .. :try_end_1a} :catchall_b
 
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
 
-    goto :goto_3
+    :goto_2
+    return-void
 
     :catchall_b
-    move-exception v1
+    move-exception p0
 
     :try_start_1b
-    monitor-exit v0
+    monitor-exit p1
     :try_end_1b
     .catchall {:try_start_1b .. :try_end_1b} :catchall_b
 
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
 
-    throw v1
+    throw p0
 
-    :goto_3
-    return-void
+    :pswitch_data_0
+    .packed-switch 0x1b
+        :pswitch_d
+        :pswitch_c
+        :pswitch_b
+    .end packed-switch
 
-    :sswitch_data_0
-    .sparse-switch
-        0x5 -> :sswitch_15
-        0xc -> :sswitch_14
-        0xd -> :sswitch_13
-        0x14 -> :sswitch_12
-        0x16 -> :sswitch_11
-        0x1b -> :sswitch_10
-        0x1c -> :sswitch_f
-        0x1d -> :sswitch_e
-        0x21 -> :sswitch_d
-        0x29 -> :sswitch_c
-        0x31 -> :sswitch_b
-        0x32 -> :sswitch_a
-        0x33 -> :sswitch_9
-        0x38 -> :sswitch_8
-        0x39 -> :sswitch_7
-        0x3a -> :sswitch_6
-        0x3f -> :sswitch_5
-        0x42 -> :sswitch_4
-        0x45 -> :sswitch_3
-        0x47 -> :sswitch_2
-        0x48 -> :sswitch_1
-        0x49 -> :sswitch_0
-    .end sparse-switch
+    :pswitch_data_1
+    .packed-switch 0x31
+        :pswitch_a
+        :pswitch_9
+        :pswitch_8
+    .end packed-switch
+
+    :pswitch_data_2
+    .packed-switch 0x38
+        :pswitch_7
+        :pswitch_6
+        :pswitch_5
+    .end packed-switch
+
+    :pswitch_data_3
+    .packed-switch 0x47
+        :pswitch_4
+        :pswitch_3
+        :pswitch_2
+        :pswitch_1
+        :pswitch_0
+    .end packed-switch
 .end method

@@ -1,5 +1,6 @@
 .class public final synthetic Landroid/net/networkstack/NetworkStackClientBase$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -23,13 +24,13 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Landroid/net/networkstack/NetworkStackClientBase$$ExternalSyntheticLambda0;->f$0:Landroid/net/IIpMemoryStoreCallbacks;
+    iget-object p0, p0, Landroid/net/networkstack/NetworkStackClientBase$$ExternalSyntheticLambda0;->f$0:Landroid/net/IIpMemoryStoreCallbacks;
 
     check-cast p1, Landroid/net/INetworkStackConnector;
 
-    invoke-static {v0, p1}, Landroid/net/networkstack/NetworkStackClientBase;->lambda$fetchIpMemoryStore$3(Landroid/net/IIpMemoryStoreCallbacks;Landroid/net/INetworkStackConnector;)V
+    invoke-static {p0, p1}, Landroid/net/networkstack/NetworkStackClientBase;->$r8$lambda$zFGh7DNPyMwrUDqFTSWxJFsYSWE(Landroid/net/IIpMemoryStoreCallbacks;Landroid/net/INetworkStackConnector;)V
 
     return-void
 .end method

@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/am/OomAdjuster$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -23,13 +24,13 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/am/OomAdjuster$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/am/OomAdjuster;
+    iget-object p0, p0, Lcom/android/server/am/OomAdjuster$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/am/OomAdjuster;
 
     check-cast p1, Lcom/android/server/am/ProcessRecord;
 
-    invoke-static {v0, p1}, Lcom/android/server/am/OomAdjuster;->$r8$lambda$4pnHIE50TnOcNgt4SOu10KtoinY(Lcom/android/server/am/OomAdjuster;Lcom/android/server/am/ProcessRecord;)V
+    invoke-static {p0, p1}, Lcom/android/server/am/OomAdjuster;->$r8$lambda$ihQaI4mSYofPBYBnyj-KozGpFJs(Lcom/android/server/am/OomAdjuster;Lcom/android/server/am/ProcessRecord;)V
 
     return-void
 .end method

@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/autofill/AutofillManagerServiceShellCommand$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -31,15 +32,15 @@
 
 # virtual methods
 .method public final run()V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/autofill/AutofillManagerServiceShellCommand$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/autofill/AutofillManagerServiceShellCommand;
 
     iget v1, p0, Lcom/android/server/autofill/AutofillManagerServiceShellCommand$$ExternalSyntheticLambda1;->f$1:I
 
-    iget-object v2, p0, Lcom/android/server/autofill/AutofillManagerServiceShellCommand$$ExternalSyntheticLambda1;->f$2:Lcom/android/internal/os/IResultReceiver;
+    iget-object p0, p0, Lcom/android/server/autofill/AutofillManagerServiceShellCommand$$ExternalSyntheticLambda1;->f$2:Lcom/android/internal/os/IResultReceiver;
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/autofill/AutofillManagerServiceShellCommand;->lambda$requestDestroy$1$AutofillManagerServiceShellCommand(ILcom/android/internal/os/IResultReceiver;)V
+    invoke-static {v0, v1, p0}, Lcom/android/server/autofill/AutofillManagerServiceShellCommand;->$r8$lambda$ykN9c1jtiAmiow2aADmpIDFYJy8(Lcom/android/server/autofill/AutofillManagerServiceShellCommand;ILcom/android/internal/os/IResultReceiver;)V
 
     return-void
 .end method

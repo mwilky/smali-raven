@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/location/gnss/GnssNmeaProvider$1$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/internal/listeners/ListenerExecutor$ListenerOperation;
@@ -35,7 +36,7 @@
 
     check-cast p1, Landroid/location/IGnssNmeaListener;
 
-    invoke-virtual {v0, v1, v2, p1}, Lcom/android/server/location/gnss/GnssNmeaProvider$1;->lambda$apply$0$GnssNmeaProvider$1(JLandroid/location/IGnssNmeaListener;)V
+    invoke-static {v0, v1, v2, p1}, Lcom/android/server/location/gnss/GnssNmeaProvider$1;->$r8$lambda$c8BCN8Y5px1dWGPXpPj4uFdCvpI(Lcom/android/server/location/gnss/GnssNmeaProvider$1;JLandroid/location/IGnssNmeaListener;)V
 
     return-void
 .end method

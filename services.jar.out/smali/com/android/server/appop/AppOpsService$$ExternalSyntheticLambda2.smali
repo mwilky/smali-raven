@@ -1,28 +1,13 @@
 .class public final synthetic Lcom/android/server/appop/AppOpsService$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/internal/util/function/NonaConsumer;
-
-
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/appop/AppOpsService$$ExternalSyntheticLambda2;
+.implements Lcom/android/internal/util/function/DodecConsumer;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/appop/AppOpsService$$ExternalSyntheticLambda2;
-
-    invoke-direct {v0}, Lcom/android/server/appop/AppOpsService$$ExternalSyntheticLambda2;-><init>()V
-
-    sput-object v0, Lcom/android/server/appop/AppOpsService$$ExternalSyntheticLambda2;->INSTANCE:Lcom/android/server/appop/AppOpsService$$ExternalSyntheticLambda2;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,66 +17,82 @@
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 0
+.method public final accept(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+    .locals 14
 
-    check-cast p1, Lcom/android/server/appop/AppOpsService;
+    move-object v0, p1
 
-    check-cast p2, Landroid/util/ArraySet;
+    check-cast v0, Lcom/android/server/appop/HistoricalRegistry;
 
-    check-cast p3, Ljava/lang/Integer;
+    move-object/from16 v1, p2
 
-    invoke-virtual {p3}, Ljava/lang/Integer;->intValue()I
+    check-cast v1, Ljava/lang/Integer;
 
-    move-result p3
+    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
 
-    check-cast p4, Ljava/lang/Integer;
+    move-result v1
 
-    invoke-virtual {p4}, Ljava/lang/Integer;->intValue()I
+    move-object/from16 v2, p3
 
-    move-result p4
+    check-cast v2, Ljava/lang/String;
 
-    check-cast p5, Ljava/lang/String;
+    move-object/from16 v3, p4
 
-    check-cast p6, Ljava/lang/String;
+    check-cast v3, Ljava/lang/String;
 
-    check-cast p7, Ljava/lang/Boolean;
+    move-object/from16 v4, p5
 
-    invoke-virtual {p7}, Ljava/lang/Boolean;->booleanValue()Z
+    check-cast v4, [Ljava/lang/String;
 
-    move-result p7
+    move-object/from16 v5, p6
 
-    check-cast p8, Ljava/lang/Integer;
+    check-cast v5, Ljava/lang/Integer;
 
-    invoke-virtual {p8}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v5}, Ljava/lang/Integer;->intValue()I
 
-    move-result p8
+    move-result v5
 
-    check-cast p9, Ljava/lang/Integer;
+    move-object/from16 v6, p7
 
-    invoke-virtual {p9}, Ljava/lang/Integer;->intValue()I
+    check-cast v6, Ljava/lang/Integer;
 
-    move-result p9
+    invoke-virtual {v6}, Ljava/lang/Integer;->intValue()I
 
-    move-object p0, p1
+    move-result v6
 
-    move-object p1, p2
+    move-object/from16 v7, p8
 
-    move p2, p3
+    check-cast v7, Ljava/lang/Long;
 
-    move p3, p4
+    invoke-virtual {v7}, Ljava/lang/Long;->longValue()J
 
-    move-object p4, p5
+    move-result-wide v7
 
-    move-object p5, p6
+    move-object/from16 v9, p9
 
-    move p6, p7
+    check-cast v9, Ljava/lang/Long;
 
-    move p7, p8
+    invoke-virtual {v9}, Ljava/lang/Long;->longValue()J
 
-    move p8, p9
+    move-result-wide v9
 
-    invoke-static/range {p0 .. p8}, Lcom/android/server/appop/AppOpsService;->$r8$lambda$ueiy_QOdjs5waSxjG-x7aX5-gP4(Lcom/android/server/appop/AppOpsService;Landroid/util/ArraySet;IILjava/lang/String;Ljava/lang/String;ZII)V
+    move-object/from16 v11, p10
+
+    check-cast v11, Ljava/lang/Integer;
+
+    invoke-virtual {v11}, Ljava/lang/Integer;->intValue()I
+
+    move-result v11
+
+    move-object/from16 v12, p11
+
+    check-cast v12, [Ljava/lang/String;
+
+    move-object/from16 v13, p12
+
+    check-cast v13, Landroid/os/RemoteCallback;
+
+    invoke-virtual/range {v0 .. v13}, Lcom/android/server/appop/HistoricalRegistry;->getHistoricalOps(ILjava/lang/String;Ljava/lang/String;[Ljava/lang/String;IIJJI[Ljava/lang/String;Landroid/os/RemoteCallback;)V
 
     return-void
 .end method

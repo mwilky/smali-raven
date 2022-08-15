@@ -1,4 +1,4 @@
-.class Lcom/android/server/contentcapture/ContentCaptureManagerServiceShellCommand$2;
+.class public Lcom/android/server/contentcapture/ContentCaptureManagerServiceShellCommand$2;
 .super Lcom/android/internal/os/IResultReceiver$Stub;
 .source "ContentCaptureManagerServiceShellCommand.java"
 
@@ -9,21 +9,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/contentcapture/ContentCaptureManagerServiceShellCommand;
+.field public final synthetic this$0:Lcom/android/server/contentcapture/ContentCaptureManagerServiceShellCommand;
 
-.field final synthetic val$latch:Ljava/util/concurrent/CountDownLatch;
+.field public final synthetic val$latch:Ljava/util/concurrent/CountDownLatch;
 
-.field final synthetic val$pw:Ljava/io/PrintWriter;
+.field public final synthetic val$pw:Ljava/io/PrintWriter;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/contentcapture/ContentCaptureManagerServiceShellCommand;Ljava/io/PrintWriter;Ljava/util/concurrent/CountDownLatch;)V
+.method public constructor <init>(Lcom/android/server/contentcapture/ContentCaptureManagerServiceShellCommand;Ljava/io/PrintWriter;Ljava/util/concurrent/CountDownLatch;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/contentcapture/ContentCaptureManagerServiceShellCommand$2;->this$0:Lcom/android/server/contentcapture/ContentCaptureManagerServiceShellCommand;
@@ -40,43 +40,41 @@
 
 # virtual methods
 .method public send(ILandroid/os/Bundle;)V
-    .locals 4
+    .locals 1
 
-    nop
+    const-string/jumbo p1, "sessions"
 
-    const-string/jumbo v0, "sessions"
+    invoke-virtual {p2, p1}, Landroid/os/Bundle;->getStringArrayList(Ljava/lang/String;)Ljava/util/ArrayList;
 
-    invoke-virtual {p2, v0}, Landroid/os/Bundle;->getStringArrayList(Ljava/lang/String;)Ljava/util/ArrayList;
+    move-result-object p1
 
-    move-result-object v0
+    invoke-virtual {p1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
-    invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
-
-    move-result-object v1
+    move-result-object p1
 
     :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v2
+    move-result p2
 
-    if-eqz v2, :cond_0
+    if-eqz p2, :cond_0
 
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p2
 
-    check-cast v2, Ljava/lang/String;
+    check-cast p2, Ljava/lang/String;
 
-    iget-object v3, p0, Lcom/android/server/contentcapture/ContentCaptureManagerServiceShellCommand$2;->val$pw:Ljava/io/PrintWriter;
+    iget-object v0, p0, Lcom/android/server/contentcapture/ContentCaptureManagerServiceShellCommand$2;->val$pw:Ljava/io/PrintWriter;
 
-    invoke-virtual {v3, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {v0, p2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     goto :goto_0
 
     :cond_0
-    iget-object v1, p0, Lcom/android/server/contentcapture/ContentCaptureManagerServiceShellCommand$2;->val$latch:Ljava/util/concurrent/CountDownLatch;
+    iget-object p0, p0, Lcom/android/server/contentcapture/ContentCaptureManagerServiceShellCommand$2;->val$latch:Ljava/util/concurrent/CountDownLatch;
 
-    invoke-virtual {v1}, Ljava/util/concurrent/CountDownLatch;->countDown()V
+    invoke-virtual {p0}, Ljava/util/concurrent/CountDownLatch;->countDown()V
 
     return-void
 .end method

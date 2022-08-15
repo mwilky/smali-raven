@@ -1,26 +1,32 @@
-.class final Lcom/android/server/inputmethod/InputContentUriTokenHandler;
+.class public final Lcom/android/server/inputmethod/InputContentUriTokenHandler;
 .super Lcom/android/internal/inputmethod/IInputContentUriToken$Stub;
 .source "InputContentUriTokenHandler.java"
 
 
 # instance fields
-.field private final mLock:Ljava/lang/Object;
+.field public final mLock:Ljava/lang/Object;
 
-.field private mPermissionOwnerToken:Landroid/os/IBinder;
+.field public mPermissionOwnerToken:Landroid/os/IBinder;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
+.end field
 
-.field private final mSourceUid:I
+.field public final mSourceUid:I
 
-.field private final mSourceUserId:I
+.field public final mSourceUserId:I
 
-.field private final mTargetPackage:Ljava/lang/String;
+.field public final mTargetPackage:Ljava/lang/String;
 
-.field private final mTargetUserId:I
+.field public final mTargetUserId:I
 
-.field private final mUri:Landroid/net/Uri;
+.field public final mUri:Landroid/net/Uri;
 
 
 # direct methods
-.method constructor <init>(Landroid/net/Uri;ILjava/lang/String;II)V
+.method public constructor <init>(Landroid/net/Uri;ILjava/lang/String;II)V
     .locals 1
 
     invoke-direct {p0}, Lcom/android/internal/inputmethod/IInputContentUriToken$Stub;-><init>()V
@@ -48,7 +54,9 @@
     return-void
 .end method
 
-.method private doTakeLocked(Landroid/os/IBinder;)V
+
+# virtual methods
+.method public final doTakeLocked(Landroid/os/IBinder;)V
     .locals 10
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
@@ -82,34 +90,30 @@
     goto :goto_0
 
     :catchall_0
-    move-exception v2
+    move-exception p0
 
     goto :goto_1
 
     :catch_0
-    move-exception v2
+    move-exception p0
 
     :try_start_1
-    invoke-virtual {v2}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+    invoke-virtual {p0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     :goto_0
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    nop
-
     return-void
 
     :goto_1
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    throw v2
+    throw p0
 .end method
 
-
-# virtual methods
-.method protected finalize()V
+.method public finalize()V
     .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -123,8 +127,6 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
-
-    nop
 
     return-void
 
@@ -181,8 +183,6 @@
     :try_start_2
     iput-object v1, p0, Lcom/android/server/inputmethod/InputContentUriTokenHandler;->mPermissionOwnerToken:Landroid/os/IBinder;
 
-    nop
-
     monitor-exit v0
 
     return-void
@@ -192,18 +192,16 @@
 
     iput-object v1, p0, Lcom/android/server/inputmethod/InputContentUriTokenHandler;->mPermissionOwnerToken:Landroid/os/IBinder;
 
-    nop
-
     throw v2
 
     :catchall_1
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    throw v1
+    throw p0
 .end method
 
 .method public take()V
@@ -239,18 +237,18 @@
 
     iput-object v1, p0, Lcom/android/server/inputmethod/InputContentUriTokenHandler;->mPermissionOwnerToken:Landroid/os/IBinder;
 
-    invoke-direct {p0, v1}, Lcom/android/server/inputmethod/InputContentUriTokenHandler;->doTakeLocked(Landroid/os/IBinder;)V
+    invoke-virtual {p0, v1}, Lcom/android/server/inputmethod/InputContentUriTokenHandler;->doTakeLocked(Landroid/os/IBinder;)V
 
     monitor-exit v0
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method

@@ -1,53 +1,41 @@
-.class Lcom/android/server/media/MediaSessionDeviceConfig;
+.class public Lcom/android/server/media/MediaSessionDeviceConfig;
 .super Ljava/lang/Object;
 .source "MediaSessionDeviceConfig.java"
 
 
 # static fields
-.field private static final DEFAULT_MEDIA_BUTTON_RECEIVER_FGS_ALLOWLIST_DURATION_MS:J = 0x2710L
+.field public static volatile sMediaButtonReceiverFgsAllowlistDurationMs:J = 0x2710L
 
-.field private static final DEFAULT_MEDIA_SESSION_CALLBACK_FGS_ALLOWLIST_DURATION_MS:J = 0x2710L
+.field public static volatile sMediaSessionCallbackFgsAllowlistDurationMs:J = 0x2710L
 
-.field private static final DEFAULT_MEDIA_SESSION_CALLBACK_FGS_WHILE_IN_USE_TEMP_ALLOW_DURATION_MS:J = 0x2710L
-
-.field private static final KEY_MEDIA_BUTTON_RECEIVER_FGS_ALLOWLIST_DURATION_MS:Ljava/lang/String; = "media_button_receiver_fgs_allowlist_duration_ms"
-
-.field private static final KEY_MEDIA_SESSION_CALLBACK_FGS_ALLOWLIST_DURATION_MS:Ljava/lang/String; = "media_session_calback_fgs_allowlist_duration_ms"
-
-.field private static final KEY_MEDIA_SESSION_CALLBACK_FGS_WHILE_IN_USE_TEMP_ALLOW_DURATION_MS:Ljava/lang/String; = "media_session_callback_fgs_while_in_use_temp_allow_duration_ms"
-
-.field private static volatile sMediaButtonReceiverFgsAllowlistDurationMs:J
-
-.field private static volatile sMediaSessionCallbackFgsAllowlistDurationMs:J
-
-.field private static volatile sMediaSessionCallbackFgsWhileInUseTempAllowDurationMs:J
+.field public static volatile sMediaSessionCallbackFgsWhileInUseTempAllowDurationMs:J = 0x2710L
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 2
+.method public static synthetic $r8$lambda$OCQwTB7I68WM6xiQFtYarFYhaVU(Landroid/provider/DeviceConfig$Properties;Ljava/lang/String;)V
+    .locals 0
 
-    const-wide/16 v0, 0x2710
-
-    sput-wide v0, Lcom/android/server/media/MediaSessionDeviceConfig;->sMediaButtonReceiverFgsAllowlistDurationMs:J
-
-    sput-wide v0, Lcom/android/server/media/MediaSessionDeviceConfig;->sMediaSessionCallbackFgsAllowlistDurationMs:J
-
-    sput-wide v0, Lcom/android/server/media/MediaSessionDeviceConfig;->sMediaSessionCallbackFgsWhileInUseTempAllowDurationMs:J
+    invoke-static {p0, p1}, Lcom/android/server/media/MediaSessionDeviceConfig;->lambda$refresh$0(Landroid/provider/DeviceConfig$Properties;Ljava/lang/String;)V
 
     return-void
 .end method
 
-.method constructor <init>()V
+.method public static synthetic $r8$lambda$P42v3Rs6yTZN2AYXv2uOZs0538g(Landroid/provider/DeviceConfig$Properties;)V
     .locals 0
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-static {p0}, Lcom/android/server/media/MediaSessionDeviceConfig;->lambda$initialize$1(Landroid/provider/DeviceConfig$Properties;)V
+
+    return-void
+.end method
+
+.method public static constructor <clinit>()V
+    .locals 0
 
     return-void
 .end method
 
 .method public static dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
-    .locals 9
+    .locals 8
 
     const-string v0, "Media session config:"
 
@@ -59,93 +47,93 @@
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "  %s: [cur: %s, def: %s]"
+    const-string p1, "  %s: [cur: %s, def: %s]"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    const/4 v1, 0x3
+    const/4 v0, 0x3
 
-    new-array v2, v1, [Ljava/lang/Object;
+    new-array v1, v0, [Ljava/lang/Object;
 
-    const-string/jumbo v3, "media_button_receiver_fgs_allowlist_duration_ms"
+    const-string/jumbo v2, "media_button_receiver_fgs_allowlist_duration_ms"
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    aput-object v3, v2, v4
+    aput-object v2, v1, v3
 
-    sget-wide v5, Lcom/android/server/media/MediaSessionDeviceConfig;->sMediaButtonReceiverFgsAllowlistDurationMs:J
+    sget-wide v4, Lcom/android/server/media/MediaSessionDeviceConfig;->sMediaButtonReceiverFgsAllowlistDurationMs:J
 
-    invoke-static {v5, v6}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
-
-    move-result-object v3
-
-    const/4 v5, 0x1
-
-    aput-object v3, v2, v5
-
-    const-wide/16 v6, 0x2710
-
-    invoke-static {v6, v7}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
-
-    move-result-object v3
-
-    const/4 v6, 0x2
-
-    aput-object v3, v2, v6
-
-    invoke-static {v0, v2}, Landroid/text/TextUtils;->formatSimple(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v4, v5}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v2
 
-    invoke-virtual {p0, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    new-array v2, v1, [Ljava/lang/Object;
-
-    const-string/jumbo v7, "media_session_calback_fgs_allowlist_duration_ms"
-
-    aput-object v7, v2, v4
-
-    sget-wide v7, Lcom/android/server/media/MediaSessionDeviceConfig;->sMediaSessionCallbackFgsAllowlistDurationMs:J
-
-    invoke-static {v7, v8}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
-
-    move-result-object v7
-
-    aput-object v7, v2, v5
-
-    aput-object v3, v2, v6
-
-    invoke-static {v0, v2}, Landroid/text/TextUtils;->formatSimple(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {p0, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    new-array v1, v1, [Ljava/lang/Object;
-
-    const-string/jumbo v2, "media_session_callback_fgs_while_in_use_temp_allow_duration_ms"
+    const/4 v4, 0x1
 
     aput-object v2, v1, v4
 
-    sget-wide v7, Lcom/android/server/media/MediaSessionDeviceConfig;->sMediaSessionCallbackFgsWhileInUseTempAllowDurationMs:J
+    const-wide/16 v5, 0x2710
 
-    invoke-static {v7, v8}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    invoke-static {v5, v6}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v2
 
+    const/4 v5, 0x2
+
     aput-object v2, v1, v5
 
-    aput-object v3, v1, v6
-
-    invoke-static {v0, v1}, Landroid/text/TextUtils;->formatSimple(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p1, v1}, Landroid/text/TextUtils;->formatSimple(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v1
 
     invoke-virtual {p0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    new-array v1, v0, [Ljava/lang/Object;
+
+    const-string/jumbo v6, "media_session_calback_fgs_allowlist_duration_ms"
+
+    aput-object v6, v1, v3
+
+    sget-wide v6, Lcom/android/server/media/MediaSessionDeviceConfig;->sMediaSessionCallbackFgsAllowlistDurationMs:J
+
+    invoke-static {v6, v7}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v6
+
+    aput-object v6, v1, v4
+
+    aput-object v2, v1, v5
+
+    invoke-static {p1, v1}, Landroid/text/TextUtils;->formatSimple(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {p0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    const-string/jumbo v1, "media_session_callback_fgs_while_in_use_temp_allow_duration_ms"
+
+    aput-object v1, v0, v3
+
+    sget-wide v6, Lcom/android/server/media/MediaSessionDeviceConfig;->sMediaSessionCallbackFgsWhileInUseTempAllowDurationMs:J
+
+    invoke-static {v6, v7}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v1
+
+    aput-object v1, v0, v4
+
+    aput-object v2, v0, v5
+
+    invoke-static {p1, v0}, Landroid/text/TextUtils;->formatSimple(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {p0, p1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     return-void
 .end method
@@ -175,34 +163,34 @@
 .end method
 
 .method public static initialize(Landroid/content/Context;)V
-    .locals 3
-
-    nop
+    .locals 2
 
     invoke-virtual {p0}, Landroid/content/Context;->getMainExecutor()Ljava/util/concurrent/Executor;
 
-    move-result-object v0
+    move-result-object p0
 
-    sget-object v1, Lcom/android/server/media/MediaSessionDeviceConfig$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/server/media/MediaSessionDeviceConfig$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/android/server/media/MediaSessionDeviceConfig$$ExternalSyntheticLambda0;
 
-    const-string/jumbo v2, "media"
+    invoke-direct {v0}, Lcom/android/server/media/MediaSessionDeviceConfig$$ExternalSyntheticLambda0;-><init>()V
 
-    invoke-static {v2, v0, v1}, Landroid/provider/DeviceConfig;->addOnPropertiesChangedListener(Ljava/lang/String;Ljava/util/concurrent/Executor;Landroid/provider/DeviceConfig$OnPropertiesChangedListener;)V
+    const-string/jumbo v1, "media"
 
-    const/4 v0, 0x0
+    invoke-static {v1, p0, v0}, Landroid/provider/DeviceConfig;->addOnPropertiesChangedListener(Ljava/lang/String;Ljava/util/concurrent/Executor;Landroid/provider/DeviceConfig$OnPropertiesChangedListener;)V
 
-    new-array v0, v0, [Ljava/lang/String;
+    const/4 p0, 0x0
 
-    invoke-static {v2, v0}, Landroid/provider/DeviceConfig;->getProperties(Ljava/lang/String;[Ljava/lang/String;)Landroid/provider/DeviceConfig$Properties;
+    new-array p0, p0, [Ljava/lang/String;
 
-    move-result-object v0
+    invoke-static {v1, p0}, Landroid/provider/DeviceConfig;->getProperties(Ljava/lang/String;[Ljava/lang/String;)Landroid/provider/DeviceConfig$Properties;
 
-    invoke-static {v0}, Lcom/android/server/media/MediaSessionDeviceConfig;->refresh(Landroid/provider/DeviceConfig$Properties;)V
+    move-result-object p0
+
+    invoke-static {p0}, Lcom/android/server/media/MediaSessionDeviceConfig;->refresh(Landroid/provider/DeviceConfig$Properties;)V
 
     return-void
 .end method
 
-.method static synthetic lambda$initialize$1(Landroid/provider/DeviceConfig$Properties;)V
+.method public static synthetic lambda$initialize$1(Landroid/provider/DeviceConfig$Properties;)V
     .locals 0
 
     invoke-static {p0}, Lcom/android/server/media/MediaSessionDeviceConfig;->refresh(Landroid/provider/DeviceConfig$Properties;)V
@@ -210,16 +198,19 @@
     return-void
 .end method
 
-.method static synthetic lambda$refresh$0(Landroid/provider/DeviceConfig$Properties;Ljava/lang/String;)V
-    .locals 3
+.method public static synthetic lambda$refresh$0(Landroid/provider/DeviceConfig$Properties;Ljava/lang/String;)V
+    .locals 4
+
+    invoke-virtual {p1}, Ljava/lang/String;->hashCode()I
 
     invoke-virtual {p1}, Ljava/lang/String;->hashCode()I
 
     move-result v0
 
+    const/4 v1, -0x1
+
     sparse-switch v0, :sswitch_data_0
 
-    :cond_0
     goto :goto_0
 
     :sswitch_0
@@ -229,11 +220,14 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-nez v0, :cond_0
 
-    const/4 v0, 0x1
+    goto :goto_0
 
-    goto :goto_1
+    :cond_0
+    const/4 v1, 0x2
+
+    goto :goto_0
 
     :sswitch_1
     const-string/jumbo v0, "media_session_callback_fgs_while_in_use_temp_allow_duration_ms"
@@ -242,11 +236,14 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-nez v0, :cond_1
 
-    const/4 v0, 0x2
+    goto :goto_0
 
-    goto :goto_1
+    :cond_1
+    const/4 v1, 0x1
+
+    goto :goto_0
 
     :sswitch_2
     const-string/jumbo v0, "media_button_receiver_fgs_allowlist_duration_ms"
@@ -255,50 +252,46 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-nez v0, :cond_2
 
-    const/4 v0, 0x0
+    goto :goto_0
+
+    :cond_2
+    const/4 v1, 0x0
+
+    :goto_0
+    const-wide/16 v2, 0x2710
+
+    packed-switch v1, :pswitch_data_0
 
     goto :goto_1
 
-    :goto_0
-    const/4 v0, -0x1
-
-    :goto_1
-    const-wide/16 v1, 0x2710
-
-    packed-switch v0, :pswitch_data_0
-
-    goto :goto_2
-
     :pswitch_0
-    invoke-virtual {p0, p1, v1, v2}, Landroid/provider/DeviceConfig$Properties;->getLong(Ljava/lang/String;J)J
+    invoke-virtual {p0, p1, v2, v3}, Landroid/provider/DeviceConfig$Properties;->getLong(Ljava/lang/String;J)J
 
-    move-result-wide v0
+    move-result-wide p0
 
-    sput-wide v0, Lcom/android/server/media/MediaSessionDeviceConfig;->sMediaSessionCallbackFgsWhileInUseTempAllowDurationMs:J
+    sput-wide p0, Lcom/android/server/media/MediaSessionDeviceConfig;->sMediaSessionCallbackFgsAllowlistDurationMs:J
 
-    goto :goto_2
+    goto :goto_1
 
     :pswitch_1
-    invoke-virtual {p0, p1, v1, v2}, Landroid/provider/DeviceConfig$Properties;->getLong(Ljava/lang/String;J)J
+    invoke-virtual {p0, p1, v2, v3}, Landroid/provider/DeviceConfig$Properties;->getLong(Ljava/lang/String;J)J
 
-    move-result-wide v0
+    move-result-wide p0
 
-    sput-wide v0, Lcom/android/server/media/MediaSessionDeviceConfig;->sMediaSessionCallbackFgsAllowlistDurationMs:J
+    sput-wide p0, Lcom/android/server/media/MediaSessionDeviceConfig;->sMediaSessionCallbackFgsWhileInUseTempAllowDurationMs:J
 
-    goto :goto_2
+    goto :goto_1
 
     :pswitch_2
-    invoke-virtual {p0, p1, v1, v2}, Landroid/provider/DeviceConfig$Properties;->getLong(Ljava/lang/String;J)J
+    invoke-virtual {p0, p1, v2, v3}, Landroid/provider/DeviceConfig$Properties;->getLong(Ljava/lang/String;J)J
 
-    move-result-wide v0
+    move-result-wide p0
 
-    sput-wide v0, Lcom/android/server/media/MediaSessionDeviceConfig;->sMediaButtonReceiverFgsAllowlistDurationMs:J
+    sput-wide p0, Lcom/android/server/media/MediaSessionDeviceConfig;->sMediaButtonReceiverFgsAllowlistDurationMs:J
 
-    nop
-
-    :goto_2
+    :goto_1
     return-void
 
     :sswitch_data_0
@@ -316,22 +309,20 @@
     .end packed-switch
 .end method
 
-.method private static refresh(Landroid/provider/DeviceConfig$Properties;)V
-    .locals 3
+.method public static refresh(Landroid/provider/DeviceConfig$Properties;)V
+    .locals 2
+
+    invoke-virtual {p0}, Landroid/provider/DeviceConfig$Properties;->getKeyset()Ljava/util/Set;
 
     invoke-virtual {p0}, Landroid/provider/DeviceConfig$Properties;->getKeyset()Ljava/util/Set;
 
     move-result-object v0
 
-    invoke-virtual {p0}, Landroid/provider/DeviceConfig$Properties;->getKeyset()Ljava/util/Set;
+    new-instance v1, Lcom/android/server/media/MediaSessionDeviceConfig$$ExternalSyntheticLambda1;
 
-    move-result-object v1
+    invoke-direct {v1, p0}, Lcom/android/server/media/MediaSessionDeviceConfig$$ExternalSyntheticLambda1;-><init>(Landroid/provider/DeviceConfig$Properties;)V
 
-    new-instance v2, Lcom/android/server/media/MediaSessionDeviceConfig$$ExternalSyntheticLambda1;
-
-    invoke-direct {v2, p0}, Lcom/android/server/media/MediaSessionDeviceConfig$$ExternalSyntheticLambda1;-><init>(Landroid/provider/DeviceConfig$Properties;)V
-
-    invoke-interface {v1, v2}, Ljava/util/Set;->forEach(Ljava/util/function/Consumer;)V
+    invoke-interface {v0, v1}, Ljava/util/Set;->forEach(Ljava/util/function/Consumer;)V
 
     return-void
 .end method

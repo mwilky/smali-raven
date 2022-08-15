@@ -3,6 +3,11 @@
 .source "AndroidHidlUpdater.java"
 
 
+# annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+.end annotation
+
+
 # direct methods
 .method public constructor <init>()V
     .locals 0
@@ -17,7 +22,7 @@
 .method public updatePackage(Lcom/android/server/pm/parsing/pkg/ParsedPackage;Z)V
     .locals 4
 
-    invoke-interface {p1}, Lcom/android/server/pm/parsing/pkg/ParsedPackage;->getTargetSdkVersion()I
+    invoke-interface {p1}, Lcom/android/server/pm/pkg/parsing/PkgWithoutStateAppInfo;->getTargetSdkVersion()I
 
     move-result v0
 
@@ -37,7 +42,7 @@
     move v0, v2
 
     :goto_0
-    invoke-interface {p1}, Lcom/android/server/pm/parsing/pkg/ParsedPackage;->isSystem()Z
+    invoke-interface {p1}, Lcom/android/server/pm/pkg/AndroidPackageApi;->isSystem()Z
 
     move-result v3
 
@@ -52,24 +57,24 @@
 
     :cond_2
     :goto_1
-    const-string v2, "android.hidl.manager-V1.0-java"
+    const-string p2, "android.hidl.manager-V1.0-java"
 
-    const-string v3, "android.hidl.base-V1.0-java"
+    const-string v2, "android.hidl.base-V1.0-java"
 
     if-eqz v0, :cond_3
 
     if-eqz v1, :cond_3
 
-    invoke-virtual {p0, p1, v3}, Lcom/android/server/pm/parsing/library/AndroidHidlUpdater;->prefixRequiredLibrary(Lcom/android/server/pm/parsing/pkg/ParsedPackage;Ljava/lang/String;)V
+    invoke-virtual {p0, p1, v2}, Lcom/android/server/pm/parsing/library/PackageSharedLibraryUpdater;->prefixRequiredLibrary(Lcom/android/server/pm/parsing/pkg/ParsedPackage;Ljava/lang/String;)V
 
-    invoke-virtual {p0, p1, v2}, Lcom/android/server/pm/parsing/library/AndroidHidlUpdater;->prefixRequiredLibrary(Lcom/android/server/pm/parsing/pkg/ParsedPackage;Ljava/lang/String;)V
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/pm/parsing/library/PackageSharedLibraryUpdater;->prefixRequiredLibrary(Lcom/android/server/pm/parsing/pkg/ParsedPackage;Ljava/lang/String;)V
 
     goto :goto_2
 
     :cond_3
-    invoke-static {p1, v3}, Lcom/android/server/pm/parsing/library/AndroidHidlUpdater;->removeLibrary(Lcom/android/server/pm/parsing/pkg/ParsedPackage;Ljava/lang/String;)V
+    invoke-static {p1, v2}, Lcom/android/server/pm/parsing/library/PackageSharedLibraryUpdater;->removeLibrary(Lcom/android/server/pm/parsing/pkg/ParsedPackage;Ljava/lang/String;)V
 
-    invoke-static {p1, v2}, Lcom/android/server/pm/parsing/library/AndroidHidlUpdater;->removeLibrary(Lcom/android/server/pm/parsing/pkg/ParsedPackage;Ljava/lang/String;)V
+    invoke-static {p1, p2}, Lcom/android/server/pm/parsing/library/PackageSharedLibraryUpdater;->removeLibrary(Lcom/android/server/pm/parsing/pkg/ParsedPackage;Ljava/lang/String;)V
 
     :goto_2
     return-void

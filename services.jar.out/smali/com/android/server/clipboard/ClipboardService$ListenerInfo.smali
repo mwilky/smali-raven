@@ -1,4 +1,4 @@
-.class Lcom/android/server/clipboard/ClipboardService$ListenerInfo;
+.class public Lcom/android/server/clipboard/ClipboardService$ListenerInfo;
 .super Ljava/lang/Object;
 .source "ClipboardService.java"
 
@@ -9,21 +9,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "ListenerInfo"
 .end annotation
 
 
 # instance fields
-.field final mPackageName:Ljava/lang/String;
+.field public final mPackageName:Ljava/lang/String;
 
-.field final mUid:I
+.field public final mUid:I
 
-.field final synthetic this$0:Lcom/android/server/clipboard/ClipboardService;
+.field public final synthetic this$0:Lcom/android/server/clipboard/ClipboardService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/clipboard/ClipboardService;ILjava/lang/String;)V
+.method public constructor <init>(Lcom/android/server/clipboard/ClipboardService;ILjava/lang/String;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/clipboard/ClipboardService$ListenerInfo;->this$0:Lcom/android/server/clipboard/ClipboardService;

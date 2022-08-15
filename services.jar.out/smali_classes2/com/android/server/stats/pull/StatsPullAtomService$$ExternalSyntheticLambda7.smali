@@ -1,35 +1,36 @@
 .class public final synthetic Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda7;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/internal/os/KernelCpuUidTimeReader$Callback;
+.implements Ljava/util/function/Consumer;
 
 
 # instance fields
-.field public final synthetic f$0:Landroid/util/SparseArray;
+.field public final synthetic f$0:Ljava/util/concurrent/CompletableFuture;
 
 
 # direct methods
-.method public synthetic constructor <init>(Landroid/util/SparseArray;)V
+.method public synthetic constructor <init>(Ljava/util/concurrent/CompletableFuture;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda7;->f$0:Landroid/util/SparseArray;
+    iput-object p1, p0, Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda7;->f$0:Ljava/util/concurrent/CompletableFuture;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final onUidCpuTime(ILjava/lang/Object;)V
-    .locals 1
+.method public final accept(Ljava/lang/Object;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda7;->f$0:Landroid/util/SparseArray;
+    iget-object p0, p0, Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda7;->f$0:Ljava/util/concurrent/CompletableFuture;
 
-    check-cast p2, [J
+    check-cast p1, Landroid/app/AppOpsManager$HistoricalOps;
 
-    invoke-static {v0, p1, p2}, Lcom/android/server/stats/pull/StatsPullAtomService;->lambda$pullCpuTimePerUidFreqLocked$13(Landroid/util/SparseArray;I[J)V
+    invoke-virtual {p0, p1}, Ljava/util/concurrent/CompletableFuture;->complete(Ljava/lang/Object;)Z
 
     return-void
 .end method

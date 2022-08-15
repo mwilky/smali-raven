@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/wm/PackageConfigPersister$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/BiConsumer;
@@ -23,15 +24,15 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/PackageConfigPersister$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/wm/PackageConfigPersister;
+    iget-object p0, p0, Lcom/android/server/wm/PackageConfigPersister$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/wm/PackageConfigPersister;
 
     check-cast p1, Ljava/lang/String;
 
     check-cast p2, Lcom/android/server/wm/PackageConfigPersister$PackageConfigRecord;
 
-    invoke-virtual {v0, p1, p2}, Lcom/android/server/wm/PackageConfigPersister;->lambda$removeUser$0$PackageConfigPersister(Ljava/lang/String;Lcom/android/server/wm/PackageConfigPersister$PackageConfigRecord;)V
+    invoke-static {p0, p1, p2}, Lcom/android/server/wm/PackageConfigPersister;->$r8$lambda$1FsvPeLql26H1zSx-L2nbPpqZIs(Lcom/android/server/wm/PackageConfigPersister;Ljava/lang/String;Lcom/android/server/wm/PackageConfigPersister$PackageConfigRecord;)V
 
     return-void
 .end method

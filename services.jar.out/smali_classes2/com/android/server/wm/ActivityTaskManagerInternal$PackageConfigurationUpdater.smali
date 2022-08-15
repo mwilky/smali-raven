@@ -15,7 +15,7 @@
 
 
 # virtual methods
-.method public abstract commit()V
+.method public abstract commit()Z
 .end method
 
 .method public abstract setLocales(Landroid/os/LocaleList;)Lcom/android/server/wm/ActivityTaskManagerInternal$PackageConfigurationUpdater;

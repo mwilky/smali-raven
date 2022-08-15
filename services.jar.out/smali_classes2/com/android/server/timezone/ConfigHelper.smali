@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/server/timezone/ConfigHelper;
+.class public interface abstract Lcom/android/server/timezone/ConfigHelper;
 .super Ljava/lang/Object;
 .source "ConfigHelper.java"
 

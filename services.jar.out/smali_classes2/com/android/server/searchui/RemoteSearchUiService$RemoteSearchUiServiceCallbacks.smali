@@ -29,6 +29,3 @@
 # virtual methods
 .method public abstract onConnectedStateChanged(Z)V
 .end method
-
-.method public abstract onFailureOrTimeout(Z)V
-.end method

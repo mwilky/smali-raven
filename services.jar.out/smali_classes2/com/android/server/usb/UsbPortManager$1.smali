@@ -1,4 +1,4 @@
-.class Lcom/android/server/usb/UsbPortManager$1;
+.class public Lcom/android/server/usb/UsbPortManager$1;
 .super Landroid/os/Handler;
 .source "UsbPortManager.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/usb/UsbPortManager;
+.field public final synthetic this$0:Lcom/android/server/usb/UsbPortManager;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/usb/UsbPortManager;Landroid/os/Looper;)V
+.method public constructor <init>(Lcom/android/server/usb/UsbPortManager;Landroid/os/Looper;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/usb/UsbPortManager$1;->this$0:Lcom/android/server/usb/UsbPortManager;
@@ -32,80 +32,76 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 5
+    .locals 2
 
     iget v0, p1, Landroid/os/Message;->what:I
 
-    packed-switch v0, :pswitch_data_0
+    const/4 v1, 0x1
+
+    if-eq v0, v1, :cond_1
+
+    const/4 p1, 0x2
+
+    if-eq v0, p1, :cond_0
 
     goto :goto_0
 
-    :pswitch_0
+    :cond_0
+    iget-object p0, p0, Lcom/android/server/usb/UsbPortManager$1;->this$0:Lcom/android/server/usb/UsbPortManager;
+
+    invoke-static {p0}, Lcom/android/server/usb/UsbPortManager;->-$$Nest$fgetmContext(Lcom/android/server/usb/UsbPortManager;)Landroid/content/Context;
+
+    move-result-object p1
+
+    const-string v0, "notification"
+
+    invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Landroid/app/NotificationManager;
+
+    invoke-static {p0, p1}, Lcom/android/server/usb/UsbPortManager;->-$$Nest$fputmNotificationManager(Lcom/android/server/usb/UsbPortManager;Landroid/app/NotificationManager;)V
+
+    goto :goto_0
+
+    :cond_1
+    invoke-virtual {p1}, Landroid/os/Message;->getData()Landroid/os/Bundle;
+
+    move-result-object p1
+
+    const-string v0, "port_info"
+
+    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getParcelableArrayList(Ljava/lang/String;)Ljava/util/ArrayList;
+
+    move-result-object p1
+
     iget-object v0, p0, Lcom/android/server/usb/UsbPortManager$1;->this$0:Lcom/android/server/usb/UsbPortManager;
 
-    invoke-static {v0}, Lcom/android/server/usb/UsbPortManager;->access$800(Lcom/android/server/usb/UsbPortManager;)Landroid/content/Context;
-
-    move-result-object v1
-
-    const-string v2, "notification"
-
-    invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/app/NotificationManager;
-
-    invoke-static {v0, v1}, Lcom/android/server/usb/UsbPortManager;->access$702(Lcom/android/server/usb/UsbPortManager;Landroid/app/NotificationManager;)Landroid/app/NotificationManager;
-
-    goto :goto_0
-
-    :pswitch_1
-    invoke-virtual {p1}, Landroid/os/Message;->getData()Landroid/os/Bundle;
+    invoke-static {v0}, Lcom/android/server/usb/UsbPortManager;->-$$Nest$fgetmLock(Lcom/android/server/usb/UsbPortManager;)Ljava/lang/Object;
 
     move-result-object v0
 
-    const-string v1, "port_info"
-
-    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getParcelableArrayList(Ljava/lang/String;)Ljava/util/ArrayList;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/android/server/usb/UsbPortManager$1;->this$0:Lcom/android/server/usb/UsbPortManager;
-
-    invoke-static {v2}, Lcom/android/server/usb/UsbPortManager;->access$300(Lcom/android/server/usb/UsbPortManager;)Ljava/lang/Object;
-
-    move-result-object v2
-
-    monitor-enter v2
+    monitor-enter v0
 
     :try_start_0
-    iget-object v3, p0, Lcom/android/server/usb/UsbPortManager$1;->this$0:Lcom/android/server/usb/UsbPortManager;
+    iget-object p0, p0, Lcom/android/server/usb/UsbPortManager$1;->this$0:Lcom/android/server/usb/UsbPortManager;
 
-    const/4 v4, 0x0
+    const/4 v1, 0x0
 
-    invoke-static {v3, v4, v1}, Lcom/android/server/usb/UsbPortManager;->access$600(Lcom/android/server/usb/UsbPortManager;Lcom/android/internal/util/IndentingPrintWriter;Ljava/util/ArrayList;)V
+    invoke-static {p0, v1, p1}, Lcom/android/server/usb/UsbPortManager;->-$$Nest$mupdatePortsLocked(Lcom/android/server/usb/UsbPortManager;Lcom/android/internal/util/IndentingPrintWriter;Ljava/util/ArrayList;)V
 
-    monitor-exit v2
-
-    goto :goto_0
-
-    :catchall_0
-    move-exception v3
-
-    monitor-exit v2
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v3
+    monitor-exit v0
 
     :goto_0
     return-void
 
-    nop
+    :catchall_0
+    move-exception p0
 
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw p0
 .end method

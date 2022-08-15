@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/internal/util/FunctionalUtils$ThrowingRunnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final runOrThrow()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
+    iget-object p0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
 
-    invoke-virtual {v0}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$maybeClearLockTaskPolicyLocked$88$DevicePolicyManagerService()V
+    invoke-static {p0}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->$r8$lambda$nnq5hLS3SZFYfYFMmNlgVWkx6Z0(Lcom/android/server/devicepolicy/DevicePolicyManagerService;)V
 
     return-void
 .end method

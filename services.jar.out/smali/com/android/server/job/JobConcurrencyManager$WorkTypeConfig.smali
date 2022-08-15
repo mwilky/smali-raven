@@ -4,63 +4,45 @@
 
 
 # annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/android/server/job/JobConcurrencyManager;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "WorkTypeConfig"
 .end annotation
 
 
 # static fields
-.field private static final KEY_PREFIX_MAX_BG:Ljava/lang/String; = "concurrency_max_bg_"
-
-.field private static final KEY_PREFIX_MAX_BGUSER:Ljava/lang/String; = "concurrency_max_bguser_"
-
-.field private static final KEY_PREFIX_MAX_BGUSER_IMPORTANT:Ljava/lang/String; = "concurrency_max_bguser_important_"
-
-.field private static final KEY_PREFIX_MAX_EJ:Ljava/lang/String; = "concurrency_max_ej_"
-
-.field private static final KEY_PREFIX_MAX_FGS:Ljava/lang/String; = "concurrency_max_fgs_"
-
-.field private static final KEY_PREFIX_MAX_TOP:Ljava/lang/String; = "concurrency_max_top_"
-
-.field private static final KEY_PREFIX_MAX_TOTAL:Ljava/lang/String; = "concurrency_max_total_"
-
-.field private static final KEY_PREFIX_MIN_BG:Ljava/lang/String; = "concurrency_min_bg_"
-
-.field private static final KEY_PREFIX_MIN_BGUSER:Ljava/lang/String; = "concurrency_min_bguser_"
-
-.field private static final KEY_PREFIX_MIN_BGUSER_IMPORTANT:Ljava/lang/String; = "concurrency_min_bguser_important_"
-
-.field private static final KEY_PREFIX_MIN_EJ:Ljava/lang/String; = "concurrency_min_ej_"
-
-.field private static final KEY_PREFIX_MIN_FGS:Ljava/lang/String; = "concurrency_min_fgs_"
-
-.field private static final KEY_PREFIX_MIN_TOP:Ljava/lang/String; = "concurrency_min_top_"
+.field public static final KEY_PREFIX_MAX_TOTAL:Ljava/lang/String; = "concurrency_max_total_"
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+.end field
 
 
 # instance fields
-.field private final mConfigIdentifier:Ljava/lang/String;
+.field public final mConfigIdentifier:Ljava/lang/String;
 
-.field private final mDefaultMaxAllowedSlots:Landroid/util/SparseIntArray;
+.field public final mDefaultMaxAllowedSlots:Landroid/util/SparseIntArray;
 
-.field private final mDefaultMaxTotal:I
+.field public final mDefaultMaxTotal:I
 
-.field private final mDefaultMinReservedSlots:Landroid/util/SparseIntArray;
+.field public final mDefaultMinReservedSlots:Landroid/util/SparseIntArray;
 
-.field private final mMaxAllowedSlots:Landroid/util/SparseIntArray;
+.field public final mMaxAllowedSlots:Landroid/util/SparseIntArray;
 
-.field private mMaxTotal:I
+.field public mMaxTotal:I
 
-.field private final mMinReservedSlots:Landroid/util/SparseIntArray;
+.field public final mMinReservedSlots:Landroid/util/SparseIntArray;
 
 
 # direct methods
-.method constructor <init>(Ljava/lang/String;ILjava/util/List;Ljava/util/List;)V
-    .locals 5
+.method public constructor <init>(Ljava/lang/String;ILjava/util/List;Ljava/util/List;)V
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -109,66 +91,36 @@
 
     iput-object p1, p0, Lcom/android/server/job/JobConcurrencyManager$WorkTypeConfig;->mConfigIdentifier:Ljava/lang/String;
 
-    const/16 v0, 0x10
+    const/16 p1, 0x10
 
-    invoke-static {p2, v0}, Ljava/lang/Math;->min(II)I
+    invoke-static {p2, p1}, Ljava/lang/Math;->min(II)I
 
-    move-result v0
+    move-result p1
 
-    iput v0, p0, Lcom/android/server/job/JobConcurrencyManager$WorkTypeConfig;->mMaxTotal:I
+    iput p1, p0, Lcom/android/server/job/JobConcurrencyManager$WorkTypeConfig;->mMaxTotal:I
 
-    iput v0, p0, Lcom/android/server/job/JobConcurrencyManager$WorkTypeConfig;->mDefaultMaxTotal:I
-
-    const/4 v0, 0x0
+    iput p1, p0, Lcom/android/server/job/JobConcurrencyManager$WorkTypeConfig;->mDefaultMaxTotal:I
 
     invoke-interface {p3}, Ljava/util/List;->size()I
 
-    move-result v1
+    move-result p1
 
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 p1, p1, -0x1
+
+    const/4 v0, 0x0
 
     :goto_0
-    if-ltz v1, :cond_0
+    if-ltz p1, :cond_0
 
-    iget-object v2, p0, Lcom/android/server/job/JobConcurrencyManager$WorkTypeConfig;->mDefaultMinReservedSlots:Landroid/util/SparseIntArray;
+    iget-object v1, p0, Lcom/android/server/job/JobConcurrencyManager$WorkTypeConfig;->mDefaultMinReservedSlots:Landroid/util/SparseIntArray;
 
-    invoke-interface {p3, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/util/Pair;
-
-    iget-object v3, v3, Landroid/util/Pair;->first:Ljava/lang/Object;
-
-    check-cast v3, Ljava/lang/Integer;
-
-    invoke-virtual {v3}, Ljava/lang/Integer;->intValue()I
-
-    move-result v3
-
-    invoke-interface {p3, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Landroid/util/Pair;
-
-    iget-object v4, v4, Landroid/util/Pair;->second:Ljava/lang/Object;
-
-    check-cast v4, Ljava/lang/Integer;
-
-    invoke-virtual {v4}, Ljava/lang/Integer;->intValue()I
-
-    move-result v4
-
-    invoke-virtual {v2, v3, v4}, Landroid/util/SparseIntArray;->put(II)V
-
-    invoke-interface {p3, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {p3, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Landroid/util/Pair;
 
-    iget-object v2, v2, Landroid/util/Pair;->second:Ljava/lang/Object;
+    iget-object v2, v2, Landroid/util/Pair;->first:Ljava/lang/Object;
 
     check-cast v2, Ljava/lang/Integer;
 
@@ -176,37 +128,13 @@
 
     move-result v2
 
-    add-int/2addr v0, v2
-
-    add-int/lit8 v1, v1, -0x1
-
-    goto :goto_0
-
-    :cond_0
-    iget v1, p0, Lcom/android/server/job/JobConcurrencyManager$WorkTypeConfig;->mDefaultMaxTotal:I
-
-    if-ltz v1, :cond_2
-
-    if-gt v0, v1, :cond_2
-
-    invoke-interface {p4}, Ljava/util/List;->size()I
-
-    move-result v1
-
-    add-int/lit8 v1, v1, -0x1
-
-    :goto_1
-    if-ltz v1, :cond_1
-
-    iget-object v2, p0, Lcom/android/server/job/JobConcurrencyManager$WorkTypeConfig;->mDefaultMaxAllowedSlots:Landroid/util/SparseIntArray;
-
-    invoke-interface {p4, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {p3, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v3
 
     check-cast v3, Landroid/util/Pair;
 
-    iget-object v3, v3, Landroid/util/Pair;->first:Ljava/lang/Object;
+    iget-object v3, v3, Landroid/util/Pair;->second:Ljava/lang/Object;
 
     check-cast v3, Ljava/lang/Integer;
 
@@ -214,78 +142,132 @@
 
     move-result v3
 
-    invoke-interface {p4, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-virtual {v1, v2, v3}, Landroid/util/SparseIntArray;->put(II)V
 
-    move-result-object v4
+    invoke-interface {p3, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    check-cast v4, Landroid/util/Pair;
+    move-result-object v1
 
-    iget-object v4, v4, Landroid/util/Pair;->second:Ljava/lang/Object;
+    check-cast v1, Landroid/util/Pair;
 
-    check-cast v4, Ljava/lang/Integer;
+    iget-object v1, v1, Landroid/util/Pair;->second:Ljava/lang/Object;
 
-    invoke-virtual {v4}, Ljava/lang/Integer;->intValue()I
+    check-cast v1, Ljava/lang/Integer;
 
-    move-result v4
+    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
 
-    invoke-virtual {v2, v3, v4}, Landroid/util/SparseIntArray;->put(II)V
+    move-result v1
 
-    add-int/lit8 v1, v1, -0x1
+    add-int/2addr v0, v1
+
+    add-int/lit8 p1, p1, -0x1
+
+    goto :goto_0
+
+    :cond_0
+    iget p1, p0, Lcom/android/server/job/JobConcurrencyManager$WorkTypeConfig;->mDefaultMaxTotal:I
+
+    if-ltz p1, :cond_2
+
+    if-gt v0, p1, :cond_2
+
+    invoke-interface {p4}, Ljava/util/List;->size()I
+
+    move-result p1
+
+    add-int/lit8 p1, p1, -0x1
+
+    :goto_1
+    if-ltz p1, :cond_1
+
+    iget-object p2, p0, Lcom/android/server/job/JobConcurrencyManager$WorkTypeConfig;->mDefaultMaxAllowedSlots:Landroid/util/SparseIntArray;
+
+    invoke-interface {p4, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object p3
+
+    check-cast p3, Landroid/util/Pair;
+
+    iget-object p3, p3, Landroid/util/Pair;->first:Ljava/lang/Object;
+
+    check-cast p3, Ljava/lang/Integer;
+
+    invoke-virtual {p3}, Ljava/lang/Integer;->intValue()I
+
+    move-result p3
+
+    invoke-interface {p4, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/util/Pair;
+
+    iget-object v0, v0, Landroid/util/Pair;->second:Ljava/lang/Object;
+
+    check-cast v0, Ljava/lang/Integer;
+
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+
+    move-result v0
+
+    invoke-virtual {p2, p3, v0}, Landroid/util/SparseIntArray;->put(II)V
+
+    add-int/lit8 p1, p1, -0x1
 
     goto :goto_1
 
     :cond_1
-    new-instance v1, Landroid/provider/DeviceConfig$Properties$Builder;
+    new-instance p1, Landroid/provider/DeviceConfig$Properties$Builder;
 
-    const-string/jumbo v2, "jobscheduler"
+    const-string p2, "jobscheduler"
 
-    invoke-direct {v1, v2}, Landroid/provider/DeviceConfig$Properties$Builder;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Landroid/provider/DeviceConfig$Properties$Builder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1}, Landroid/provider/DeviceConfig$Properties$Builder;->build()Landroid/provider/DeviceConfig$Properties;
+    invoke-virtual {p1}, Landroid/provider/DeviceConfig$Properties$Builder;->build()Landroid/provider/DeviceConfig$Properties;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {p0, v1}, Lcom/android/server/job/JobConcurrencyManager$WorkTypeConfig;->update(Landroid/provider/DeviceConfig$Properties;)V
+    invoke-virtual {p0, p1}, Lcom/android/server/job/JobConcurrencyManager$WorkTypeConfig;->update(Landroid/provider/DeviceConfig$Properties;)V
 
     return-void
 
     :cond_2
-    new-instance v1, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "Invalid default config: t="
+    const-string v0, "Invalid default config: t="
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v3, " min="
+    const-string p2, " min="
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string v3, " max="
+    const-string p2, " max="
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p0
 .end method
 
 
 # virtual methods
-.method dump(Landroid/util/IndentingPrintWriter;)V
+.method public dump(Landroid/util/IndentingPrintWriter;)V
     .locals 5
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -692,61 +674,61 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/server/job/JobConcurrencyManager$WorkTypeConfig;->mMaxAllowedSlots:Landroid/util/SparseIntArray;
+    iget-object p0, p0, Lcom/android/server/job/JobConcurrencyManager$WorkTypeConfig;->mMaxAllowedSlots:Landroid/util/SparseIntArray;
 
-    invoke-virtual {v1, v3}, Landroid/util/SparseIntArray;->get(I)I
+    invoke-virtual {p0, v3}, Landroid/util/SparseIntArray;->get(I)I
 
-    move-result v1
+    move-result p0
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {p1, v0, v1}, Landroid/util/IndentingPrintWriter;->print(Ljava/lang/String;Ljava/lang/Object;)Landroid/util/IndentingPrintWriter;
+    invoke-virtual {p1, v0, p0}, Landroid/util/IndentingPrintWriter;->print(Ljava/lang/String;Ljava/lang/Object;)Landroid/util/IndentingPrintWriter;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Landroid/util/IndentingPrintWriter;->println()V
+    invoke-virtual {p0}, Landroid/util/IndentingPrintWriter;->println()V
 
     return-void
 .end method
 
-.method getMax(I)I
-    .locals 2
+.method public getMax(I)I
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/job/JobConcurrencyManager$WorkTypeConfig;->mMaxAllowedSlots:Landroid/util/SparseIntArray;
 
-    iget v1, p0, Lcom/android/server/job/JobConcurrencyManager$WorkTypeConfig;->mMaxTotal:I
+    iget p0, p0, Lcom/android/server/job/JobConcurrencyManager$WorkTypeConfig;->mMaxTotal:I
 
-    invoke-virtual {v0, p1, v1}, Landroid/util/SparseIntArray;->get(II)I
+    invoke-virtual {v0, p1, p0}, Landroid/util/SparseIntArray;->get(II)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
-.method getMaxTotal()I
-    .locals 1
+.method public getMaxTotal()I
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/job/JobConcurrencyManager$WorkTypeConfig;->mMaxTotal:I
+    iget p0, p0, Lcom/android/server/job/JobConcurrencyManager$WorkTypeConfig;->mMaxTotal:I
 
-    return v0
+    return p0
 .end method
 
-.method getMinReserved(I)I
-    .locals 1
+.method public getMinReserved(I)I
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/job/JobConcurrencyManager$WorkTypeConfig;->mMinReservedSlots:Landroid/util/SparseIntArray;
+    iget-object p0, p0, Lcom/android/server/job/JobConcurrencyManager$WorkTypeConfig;->mMinReservedSlots:Landroid/util/SparseIntArray;
 
-    invoke-virtual {v0, p1}, Landroid/util/SparseIntArray;->get(I)I
+    invoke-virtual {p0, p1}, Landroid/util/SparseIntArray;->get(I)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
-.method update(Landroid/provider/DeviceConfig$Properties;)V
-    .locals 19
+.method public update(Landroid/provider/DeviceConfig$Properties;)V
+    .locals 16
 
     move-object/from16 v0, p0
 
@@ -1062,23 +1044,23 @@
 
     invoke-static {v2, v14}, Ljava/lang/Math;->min(II)I
 
-    move-result v14
+    move-result v2
 
-    new-instance v15, Ljava/lang/StringBuilder;
+    new-instance v14, Ljava/lang/StringBuilder;
 
-    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "concurrency_min_top_"
+    const-string v15, "concurrency_min_top_"
 
-    invoke-virtual {v15, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v3, v0, Lcom/android/server/job/JobConcurrencyManager$WorkTypeConfig;->mConfigIdentifier:Ljava/lang/String;
+    iget-object v15, v0, Lcom/android/server/job/JobConcurrencyManager$WorkTypeConfig;->mConfigIdentifier:Ljava/lang/String;
 
-    invoke-virtual {v15, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v14
 
     iget-object v15, v0, Lcom/android/server/job/JobConcurrencyManager$WorkTypeConfig;->mDefaultMinReservedSlots:Landroid/util/SparseIntArray;
 
@@ -1086,249 +1068,11 @@
 
     move-result v15
 
-    invoke-virtual {v1, v3, v15}, Landroid/provider/DeviceConfig$Properties;->getInt(Ljava/lang/String;I)I
-
-    move-result v3
-
-    invoke-static {v14, v3}, Ljava/lang/Math;->min(II)I
-
-    move-result v3
-
-    invoke-static {v4, v3}, Ljava/lang/Math;->max(II)I
-
-    move-result v3
-
-    iget-object v14, v0, Lcom/android/server/job/JobConcurrencyManager$WorkTypeConfig;->mMinReservedSlots:Landroid/util/SparseIntArray;
-
-    invoke-virtual {v14, v4, v3}, Landroid/util/SparseIntArray;->put(II)V
-
-    sub-int/2addr v12, v3
-
-    invoke-static {v5, v12}, Ljava/lang/Math;->min(II)I
-
-    move-result v4
-
-    new-instance v14, Ljava/lang/StringBuilder;
-
-    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v15, "concurrency_min_fgs_"
-
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v15, v0, Lcom/android/server/job/JobConcurrencyManager$WorkTypeConfig;->mConfigIdentifier:Ljava/lang/String;
-
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v14
-
-    iget-object v15, v0, Lcom/android/server/job/JobConcurrencyManager$WorkTypeConfig;->mDefaultMinReservedSlots:Landroid/util/SparseIntArray;
-
-    invoke-virtual {v15, v9}, Landroid/util/SparseIntArray;->get(I)I
-
-    move-result v15
-
     invoke-virtual {v1, v14, v15}, Landroid/provider/DeviceConfig$Properties;->getInt(Ljava/lang/String;I)I
 
     move-result v14
 
-    invoke-static {v4, v14}, Ljava/lang/Math;->min(II)I
-
-    move-result v4
-
-    const/4 v14, 0x0
-
-    invoke-static {v14, v4}, Ljava/lang/Math;->max(II)I
-
-    move-result v4
-
-    iget-object v15, v0, Lcom/android/server/job/JobConcurrencyManager$WorkTypeConfig;->mMinReservedSlots:Landroid/util/SparseIntArray;
-
-    invoke-virtual {v15, v9, v4}, Landroid/util/SparseIntArray;->put(II)V
-
-    sub-int/2addr v12, v4
-
-    invoke-static {v6, v12}, Ljava/lang/Math;->min(II)I
-
-    move-result v9
-
-    new-instance v15, Ljava/lang/StringBuilder;
-
-    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v13, "concurrency_min_ej_"
-
-    invoke-virtual {v15, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v13, v0, Lcom/android/server/job/JobConcurrencyManager$WorkTypeConfig;->mConfigIdentifier:Ljava/lang/String;
-
-    invoke-virtual {v15, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v13
-
-    iget-object v15, v0, Lcom/android/server/job/JobConcurrencyManager$WorkTypeConfig;->mDefaultMinReservedSlots:Landroid/util/SparseIntArray;
-
-    invoke-virtual {v15, v11}, Landroid/util/SparseIntArray;->get(I)I
-
-    move-result v15
-
-    invoke-virtual {v1, v13, v15}, Landroid/provider/DeviceConfig$Properties;->getInt(Ljava/lang/String;I)I
-
-    move-result v13
-
-    invoke-static {v9, v13}, Ljava/lang/Math;->min(II)I
-
-    move-result v9
-
-    invoke-static {v14, v9}, Ljava/lang/Math;->max(II)I
-
-    move-result v9
-
-    iget-object v13, v0, Lcom/android/server/job/JobConcurrencyManager$WorkTypeConfig;->mMinReservedSlots:Landroid/util/SparseIntArray;
-
-    invoke-virtual {v13, v11, v9}, Landroid/util/SparseIntArray;->put(II)V
-
-    sub-int/2addr v12, v9
-
-    invoke-static {v7, v12}, Ljava/lang/Math;->min(II)I
-
-    move-result v11
-
-    new-instance v13, Ljava/lang/StringBuilder;
-
-    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v15, "concurrency_min_bg_"
-
-    invoke-virtual {v13, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v15, v0, Lcom/android/server/job/JobConcurrencyManager$WorkTypeConfig;->mConfigIdentifier:Ljava/lang/String;
-
-    invoke-virtual {v13, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v13
-
-    iget-object v15, v0, Lcom/android/server/job/JobConcurrencyManager$WorkTypeConfig;->mDefaultMinReservedSlots:Landroid/util/SparseIntArray;
-
-    const/16 v14, 0x8
-
-    invoke-virtual {v15, v14}, Landroid/util/SparseIntArray;->get(I)I
-
-    move-result v15
-
-    invoke-virtual {v1, v13, v15}, Landroid/provider/DeviceConfig$Properties;->getInt(Ljava/lang/String;I)I
-
-    move-result v13
-
-    invoke-static {v11, v13}, Ljava/lang/Math;->min(II)I
-
-    move-result v11
-
-    const/4 v13, 0x0
-
-    invoke-static {v13, v11}, Ljava/lang/Math;->max(II)I
-
-    move-result v11
-
-    iget-object v13, v0, Lcom/android/server/job/JobConcurrencyManager$WorkTypeConfig;->mMinReservedSlots:Landroid/util/SparseIntArray;
-
-    invoke-virtual {v13, v14, v11}, Landroid/util/SparseIntArray;->put(II)V
-
-    sub-int/2addr v12, v11
-
-    invoke-static {v8, v12}, Ljava/lang/Math;->min(II)I
-
-    move-result v13
-
-    new-instance v14, Ljava/lang/StringBuilder;
-
-    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v15, "concurrency_min_bguser_important_"
-
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v15, v0, Lcom/android/server/job/JobConcurrencyManager$WorkTypeConfig;->mConfigIdentifier:Ljava/lang/String;
-
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v14
-
-    iget-object v15, v0, Lcom/android/server/job/JobConcurrencyManager$WorkTypeConfig;->mDefaultMinReservedSlots:Landroid/util/SparseIntArray;
-
-    move/from16 v18, v2
-
-    move/from16 v16, v3
-
-    const/16 v2, 0x10
-
-    const/4 v3, 0x0
-
-    invoke-virtual {v15, v2, v3}, Landroid/util/SparseIntArray;->get(II)I
-
-    move-result v15
-
-    invoke-virtual {v1, v14, v15}, Landroid/provider/DeviceConfig$Properties;->getInt(Ljava/lang/String;I)I
-
-    move-result v14
-
-    invoke-static {v13, v14}, Ljava/lang/Math;->min(II)I
-
-    move-result v13
-
-    invoke-static {v3, v13}, Ljava/lang/Math;->max(II)I
-
-    move-result v13
-
-    iget-object v3, v0, Lcom/android/server/job/JobConcurrencyManager$WorkTypeConfig;->mMinReservedSlots:Landroid/util/SparseIntArray;
-
-    invoke-virtual {v3, v2, v13}, Landroid/util/SparseIntArray;->put(II)V
-
-    invoke-static {v10, v12}, Ljava/lang/Math;->min(II)I
-
-    move-result v2
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v14, "concurrency_min_bguser_"
-
-    invoke-virtual {v3, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v14, v0, Lcom/android/server/job/JobConcurrencyManager$WorkTypeConfig;->mConfigIdentifier:Ljava/lang/String;
-
-    invoke-virtual {v3, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    iget-object v14, v0, Lcom/android/server/job/JobConcurrencyManager$WorkTypeConfig;->mDefaultMinReservedSlots:Landroid/util/SparseIntArray;
-
-    move/from16 v17, v4
-
-    const/4 v4, 0x0
-
-    const/16 v15, 0x20
-
-    invoke-virtual {v14, v15, v4}, Landroid/util/SparseIntArray;->get(II)I
-
-    move-result v14
-
-    invoke-virtual {v1, v3, v14}, Landroid/provider/DeviceConfig$Properties;->getInt(Ljava/lang/String;I)I
-
-    move-result v3
-
-    invoke-static {v2, v3}, Ljava/lang/Math;->min(II)I
+    invoke-static {v2, v14}, Ljava/lang/Math;->min(II)I
 
     move-result v2
 
@@ -1336,9 +1080,231 @@
 
     move-result v2
 
-    iget-object v3, v0, Lcom/android/server/job/JobConcurrencyManager$WorkTypeConfig;->mMinReservedSlots:Landroid/util/SparseIntArray;
+    iget-object v14, v0, Lcom/android/server/job/JobConcurrencyManager$WorkTypeConfig;->mMinReservedSlots:Landroid/util/SparseIntArray;
 
-    invoke-virtual {v3, v15, v2}, Landroid/util/SparseIntArray;->put(II)V
+    invoke-virtual {v14, v4, v2}, Landroid/util/SparseIntArray;->put(II)V
+
+    sub-int/2addr v12, v2
+
+    invoke-static {v5, v12}, Ljava/lang/Math;->min(II)I
+
+    move-result v2
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, "concurrency_min_fgs_"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v5, v0, Lcom/android/server/job/JobConcurrencyManager$WorkTypeConfig;->mConfigIdentifier:Ljava/lang/String;
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    iget-object v5, v0, Lcom/android/server/job/JobConcurrencyManager$WorkTypeConfig;->mDefaultMinReservedSlots:Landroid/util/SparseIntArray;
+
+    invoke-virtual {v5, v9}, Landroid/util/SparseIntArray;->get(I)I
+
+    move-result v5
+
+    invoke-virtual {v1, v4, v5}, Landroid/provider/DeviceConfig$Properties;->getInt(Ljava/lang/String;I)I
+
+    move-result v4
+
+    invoke-static {v2, v4}, Ljava/lang/Math;->min(II)I
+
+    move-result v2
+
+    const/4 v4, 0x0
+
+    invoke-static {v4, v2}, Ljava/lang/Math;->max(II)I
+
+    move-result v2
+
+    iget-object v5, v0, Lcom/android/server/job/JobConcurrencyManager$WorkTypeConfig;->mMinReservedSlots:Landroid/util/SparseIntArray;
+
+    invoke-virtual {v5, v9, v2}, Landroid/util/SparseIntArray;->put(II)V
+
+    sub-int/2addr v12, v2
+
+    invoke-static {v6, v12}, Ljava/lang/Math;->min(II)I
+
+    move-result v2
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v6, "concurrency_min_ej_"
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v6, v0, Lcom/android/server/job/JobConcurrencyManager$WorkTypeConfig;->mConfigIdentifier:Ljava/lang/String;
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    iget-object v6, v0, Lcom/android/server/job/JobConcurrencyManager$WorkTypeConfig;->mDefaultMinReservedSlots:Landroid/util/SparseIntArray;
+
+    invoke-virtual {v6, v11}, Landroid/util/SparseIntArray;->get(I)I
+
+    move-result v6
+
+    invoke-virtual {v1, v5, v6}, Landroid/provider/DeviceConfig$Properties;->getInt(Ljava/lang/String;I)I
+
+    move-result v5
+
+    invoke-static {v2, v5}, Ljava/lang/Math;->min(II)I
+
+    move-result v2
+
+    invoke-static {v4, v2}, Ljava/lang/Math;->max(II)I
+
+    move-result v2
+
+    iget-object v5, v0, Lcom/android/server/job/JobConcurrencyManager$WorkTypeConfig;->mMinReservedSlots:Landroid/util/SparseIntArray;
+
+    invoke-virtual {v5, v11, v2}, Landroid/util/SparseIntArray;->put(II)V
+
+    sub-int/2addr v12, v2
+
+    invoke-static {v7, v12}, Ljava/lang/Math;->min(II)I
+
+    move-result v2
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v6, "concurrency_min_bg_"
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v6, v0, Lcom/android/server/job/JobConcurrencyManager$WorkTypeConfig;->mConfigIdentifier:Ljava/lang/String;
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    iget-object v6, v0, Lcom/android/server/job/JobConcurrencyManager$WorkTypeConfig;->mDefaultMinReservedSlots:Landroid/util/SparseIntArray;
+
+    invoke-virtual {v6, v13}, Landroid/util/SparseIntArray;->get(I)I
+
+    move-result v6
+
+    invoke-virtual {v1, v5, v6}, Landroid/provider/DeviceConfig$Properties;->getInt(Ljava/lang/String;I)I
+
+    move-result v5
+
+    invoke-static {v2, v5}, Ljava/lang/Math;->min(II)I
+
+    move-result v2
+
+    invoke-static {v4, v2}, Ljava/lang/Math;->max(II)I
+
+    move-result v2
+
+    iget-object v5, v0, Lcom/android/server/job/JobConcurrencyManager$WorkTypeConfig;->mMinReservedSlots:Landroid/util/SparseIntArray;
+
+    invoke-virtual {v5, v13, v2}, Landroid/util/SparseIntArray;->put(II)V
+
+    sub-int/2addr v12, v2
+
+    invoke-static {v8, v12}, Ljava/lang/Math;->min(II)I
+
+    move-result v2
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v6, "concurrency_min_bguser_important_"
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v6, v0, Lcom/android/server/job/JobConcurrencyManager$WorkTypeConfig;->mConfigIdentifier:Ljava/lang/String;
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    iget-object v6, v0, Lcom/android/server/job/JobConcurrencyManager$WorkTypeConfig;->mDefaultMinReservedSlots:Landroid/util/SparseIntArray;
+
+    const/16 v7, 0x10
+
+    invoke-virtual {v6, v7, v4}, Landroid/util/SparseIntArray;->get(II)I
+
+    move-result v6
+
+    invoke-virtual {v1, v5, v6}, Landroid/provider/DeviceConfig$Properties;->getInt(Ljava/lang/String;I)I
+
+    move-result v5
+
+    invoke-static {v2, v5}, Ljava/lang/Math;->min(II)I
+
+    move-result v2
+
+    invoke-static {v4, v2}, Ljava/lang/Math;->max(II)I
+
+    move-result v2
+
+    iget-object v5, v0, Lcom/android/server/job/JobConcurrencyManager$WorkTypeConfig;->mMinReservedSlots:Landroid/util/SparseIntArray;
+
+    invoke-virtual {v5, v7, v2}, Landroid/util/SparseIntArray;->put(II)V
+
+    invoke-static {v10, v12}, Ljava/lang/Math;->min(II)I
+
+    move-result v2
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v6, "concurrency_min_bguser_"
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v6, v0, Lcom/android/server/job/JobConcurrencyManager$WorkTypeConfig;->mConfigIdentifier:Ljava/lang/String;
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    iget-object v6, v0, Lcom/android/server/job/JobConcurrencyManager$WorkTypeConfig;->mDefaultMinReservedSlots:Landroid/util/SparseIntArray;
+
+    invoke-virtual {v6, v3, v4}, Landroid/util/SparseIntArray;->get(II)I
+
+    move-result v6
+
+    invoke-virtual {v1, v5, v6}, Landroid/provider/DeviceConfig$Properties;->getInt(Ljava/lang/String;I)I
+
+    move-result v1
+
+    invoke-static {v2, v1}, Ljava/lang/Math;->min(II)I
+
+    move-result v1
+
+    invoke-static {v4, v1}, Ljava/lang/Math;->max(II)I
+
+    move-result v1
+
+    iget-object v0, v0, Lcom/android/server/job/JobConcurrencyManager$WorkTypeConfig;->mMinReservedSlots:Landroid/util/SparseIntArray;
+
+    invoke-virtual {v0, v3, v1}, Landroid/util/SparseIntArray;->put(II)V
 
     return-void
 .end method

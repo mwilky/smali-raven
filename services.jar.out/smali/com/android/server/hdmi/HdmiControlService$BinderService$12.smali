@@ -1,4 +1,4 @@
-.class Lcom/android/server/hdmi/HdmiControlService$BinderService$12;
+.class public Lcom/android/server/hdmi/HdmiControlService$BinderService$12;
 .super Ljava/lang/Object;
 .source "HdmiControlService.java"
 
@@ -12,23 +12,23 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$1:Lcom/android/server/hdmi/HdmiControlService$BinderService;
+.field public final synthetic this$1:Lcom/android/server/hdmi/HdmiControlService$BinderService;
 
-.field final synthetic val$maxIndex:I
+.field public final synthetic val$maxIndex:I
 
-.field final synthetic val$newIndex:I
+.field public final synthetic val$newIndex:I
 
-.field final synthetic val$oldIndex:I
+.field public final synthetic val$oldIndex:I
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/hdmi/HdmiControlService$BinderService;III)V
+.method public constructor <init>(Lcom/android/server/hdmi/HdmiControlService$BinderService;III)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService$12;->this$1:Lcom/android/server/hdmi/HdmiControlService$BinderService;
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService$12;->this$1:Lcom/android/server/hdmi/HdmiControlService$BinderService;
 
@@ -59,11 +59,11 @@
 
     if-nez v0, :cond_0
 
-    const-string v1, "HdmiControlService"
+    const-string p0, "HdmiControlService"
 
-    const-string v2, "Local tv device not available"
+    const-string v0, "Local tv device not available"
 
-    invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
@@ -74,9 +74,9 @@
 
     sub-int/2addr v2, v1
 
-    iget v3, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService$12;->val$maxIndex:I
+    iget p0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService$12;->val$maxIndex:I
 
-    invoke-virtual {v0, v1, v2, v3}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->changeVolume(III)V
+    invoke-virtual {v0, v1, v2, p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->changeVolume(III)V
 
     return-void
 .end method

@@ -1,4 +1,4 @@
-.class final Lcom/android/server/timedetector/ServiceConfigAccessor;
+.class public final Lcom/android/server/timedetector/ServiceConfigAccessor;
 .super Ljava/lang/Object;
 .source "ServiceConfigAccessor.java"
 
@@ -14,9 +14,9 @@
 
 
 # static fields
-.field private static final DEFAULT_AUTOMATIC_TIME_ORIGIN_PRIORITIES:[I
+.field public static final DEFAULT_AUTOMATIC_TIME_ORIGIN_PRIORITIES:[I
 
-.field private static final SERVER_FLAGS_KEYS_TO_WATCH:Ljava/util/Set;
+.field public static final SERVER_FLAGS_KEYS_TO_WATCH:Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Set<",
@@ -26,29 +26,33 @@
     .end annotation
 .end field
 
-.field private static final SLOCK:Ljava/lang/Object;
+.field public static final SLOCK:Ljava/lang/Object;
 
-.field private static final SYSTEM_CLOCK_UPDATE_THRESHOLD_MILLIS_DEFAULT:I = 0x7d0
+.field public static final TIME_LOWER_BOUND_DEFAULT:Ljava/time/Instant;
 
-.field private static final TIME_LOWER_BOUND_DEFAULT:Ljava/time/Instant;
-
-.field private static sInstance:Lcom/android/server/timedetector/ServiceConfigAccessor;
+.field public static sInstance:Lcom/android/server/timedetector/ServiceConfigAccessor;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "SLOCK"
+        }
+    .end annotation
+.end field
 
 
 # instance fields
-.field private final mConfigOriginPrioritiesSupplier:Lcom/android/server/timedetector/ServiceConfigAccessor$ConfigOriginPrioritiesSupplier;
+.field public final mConfigOriginPrioritiesSupplier:Lcom/android/server/timedetector/ServiceConfigAccessor$ConfigOriginPrioritiesSupplier;
 
-.field private final mContext:Landroid/content/Context;
+.field public final mContext:Landroid/content/Context;
 
-.field private final mServerFlags:Lcom/android/server/timedetector/ServerFlags;
+.field public final mServerFlags:Lcom/android/server/timedetector/ServerFlags;
 
-.field private final mServerFlagsOriginPrioritiesSupplier:Lcom/android/server/timedetector/ServiceConfigAccessor$ServerFlagsOriginPrioritiesSupplier;
+.field public final mServerFlagsOriginPrioritiesSupplier:Lcom/android/server/timedetector/ServiceConfigAccessor$ServerFlagsOriginPrioritiesSupplier;
 
-.field private final mSystemClockUpdateThresholdMillis:I
+.field public final mSystemClockUpdateThresholdMillis:I
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 4
 
     const/4 v0, 0x2
@@ -79,19 +83,11 @@
 
     sput-object v0, Lcom/android/server/timedetector/ServiceConfigAccessor;->TIME_LOWER_BOUND_DEFAULT:Ljava/time/Instant;
 
-    new-instance v0, Landroid/util/ArraySet;
+    const-string v0, "time_detector_lower_bound_millis_override"
 
-    const-string v1, "time_detector_lower_bound_millis_override"
+    const-string v1, "time_detector_origin_priorities_override"
 
-    const-string v2, "time_detector_origin_priorities_override"
-
-    filled-new-array {v1, v2}, [Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Landroid/util/ArraySet;-><init>([Ljava/lang/Object;)V
-
-    invoke-static {v0}, Ljava/util/Collections;->unmodifiableSet(Ljava/util/Set;)Ljava/util/Set;
+    invoke-static {v0, v1}, Ljava/util/Set;->of(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Set;
 
     move-result-object v0
 
@@ -105,8 +101,6 @@
 
     return-void
 
-    nop
-
     :array_0
     .array-data 4
         0x1
@@ -114,7 +108,7 @@
     .end array-data
 .end method
 
-.method private constructor <init>(Landroid/content/Context;)V
+.method public constructor <init>(Landroid/content/Context;)V
     .locals 3
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -125,9 +119,9 @@
 
     check-cast v0, Landroid/content/Context;
 
-    iput-object v0, p0, Lcom/android/server/timedetector/ServiceConfigAccessor;->mContext:Landroid/content/Context;
+    iput-object p1, p0, Lcom/android/server/timedetector/ServiceConfigAccessor;->mContext:Landroid/content/Context;
 
-    invoke-static {v0}, Lcom/android/server/timedetector/ServerFlags;->getInstance(Landroid/content/Context;)Lcom/android/server/timedetector/ServerFlags;
+    invoke-static {p1}, Lcom/android/server/timedetector/ServerFlags;->getInstance(Landroid/content/Context;)Lcom/android/server/timedetector/ServerFlags;
 
     move-result-object v0
 
@@ -137,32 +131,30 @@
 
     const/4 v2, 0x0
 
-    invoke-direct {v1, p1, v2}, Lcom/android/server/timedetector/ServiceConfigAccessor$ConfigOriginPrioritiesSupplier;-><init>(Landroid/content/Context;Lcom/android/server/timedetector/ServiceConfigAccessor$1;)V
+    invoke-direct {v1, p1, v2}, Lcom/android/server/timedetector/ServiceConfigAccessor$ConfigOriginPrioritiesSupplier;-><init>(Landroid/content/Context;Lcom/android/server/timedetector/ServiceConfigAccessor$ConfigOriginPrioritiesSupplier-IA;)V
 
     iput-object v1, p0, Lcom/android/server/timedetector/ServiceConfigAccessor;->mConfigOriginPrioritiesSupplier:Lcom/android/server/timedetector/ServiceConfigAccessor$ConfigOriginPrioritiesSupplier;
 
-    new-instance v1, Lcom/android/server/timedetector/ServiceConfigAccessor$ServerFlagsOriginPrioritiesSupplier;
+    new-instance p1, Lcom/android/server/timedetector/ServiceConfigAccessor$ServerFlagsOriginPrioritiesSupplier;
 
-    invoke-direct {v1, v0, v2}, Lcom/android/server/timedetector/ServiceConfigAccessor$ServerFlagsOriginPrioritiesSupplier;-><init>(Lcom/android/server/timedetector/ServerFlags;Lcom/android/server/timedetector/ServiceConfigAccessor$1;)V
+    invoke-direct {p1, v0, v2}, Lcom/android/server/timedetector/ServiceConfigAccessor$ServerFlagsOriginPrioritiesSupplier;-><init>(Lcom/android/server/timedetector/ServerFlags;Lcom/android/server/timedetector/ServiceConfigAccessor$ServerFlagsOriginPrioritiesSupplier-IA;)V
 
-    iput-object v1, p0, Lcom/android/server/timedetector/ServiceConfigAccessor;->mServerFlagsOriginPrioritiesSupplier:Lcom/android/server/timedetector/ServiceConfigAccessor$ServerFlagsOriginPrioritiesSupplier;
+    iput-object p1, p0, Lcom/android/server/timedetector/ServiceConfigAccessor;->mServerFlagsOriginPrioritiesSupplier:Lcom/android/server/timedetector/ServiceConfigAccessor$ServerFlagsOriginPrioritiesSupplier;
 
-    nop
+    const-string p1, "ro.sys.time_detector_update_diff"
 
-    const-string v0, "ro.sys.time_detector_update_diff"
+    const/16 v0, 0x7d0
 
-    const/16 v1, 0x7d0
+    invoke-static {p1, v0}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
 
-    invoke-static {v0, v1}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
+    move-result p1
 
-    move-result v0
-
-    iput v0, p0, Lcom/android/server/timedetector/ServiceConfigAccessor;->mSystemClockUpdateThresholdMillis:I
+    iput p1, p0, Lcom/android/server/timedetector/ServiceConfigAccessor;->mSystemClockUpdateThresholdMillis:I
 
     return-void
 .end method
 
-.method static getInstance(Landroid/content/Context;)Lcom/android/server/timedetector/ServiceConfigAccessor;
+.method public static getInstance(Landroid/content/Context;)Lcom/android/server/timedetector/ServiceConfigAccessor;
     .locals 2
 
     sget-object v0, Lcom/android/server/timedetector/ServiceConfigAccessor;->SLOCK:Ljava/lang/Object;
@@ -181,64 +173,64 @@
     sput-object v1, Lcom/android/server/timedetector/ServiceConfigAccessor;->sInstance:Lcom/android/server/timedetector/ServiceConfigAccessor;
 
     :cond_0
-    sget-object v1, Lcom/android/server/timedetector/ServiceConfigAccessor;->sInstance:Lcom/android/server/timedetector/ServiceConfigAccessor;
+    sget-object p0, Lcom/android/server/timedetector/ServiceConfigAccessor;->sInstance:Lcom/android/server/timedetector/ServiceConfigAccessor;
 
     monitor-exit v0
 
-    return-object v1
+    return-object p0
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
 
 # virtual methods
-.method addListener(Lcom/android/server/timezonedetector/ConfigurationChangeListener;)V
-    .locals 2
+.method public addListener(Lcom/android/server/timezonedetector/ConfigurationChangeListener;)V
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/timedetector/ServiceConfigAccessor;->mServerFlags:Lcom/android/server/timedetector/ServerFlags;
+    iget-object p0, p0, Lcom/android/server/timedetector/ServiceConfigAccessor;->mServerFlags:Lcom/android/server/timedetector/ServerFlags;
 
-    sget-object v1, Lcom/android/server/timedetector/ServiceConfigAccessor;->SERVER_FLAGS_KEYS_TO_WATCH:Ljava/util/Set;
+    sget-object v0, Lcom/android/server/timedetector/ServiceConfigAccessor;->SERVER_FLAGS_KEYS_TO_WATCH:Ljava/util/Set;
 
-    invoke-virtual {v0, p1, v1}, Lcom/android/server/timedetector/ServerFlags;->addListener(Lcom/android/server/timezonedetector/ConfigurationChangeListener;Ljava/util/Set;)V
+    invoke-virtual {p0, p1, v0}, Lcom/android/server/timedetector/ServerFlags;->addListener(Lcom/android/server/timezonedetector/ConfigurationChangeListener;Ljava/util/Set;)V
 
     return-void
 .end method
 
-.method autoTimeLowerBound()Ljava/time/Instant;
-    .locals 2
+.method public autoTimeLowerBound()Ljava/time/Instant;
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/timedetector/ServiceConfigAccessor;->mServerFlags:Lcom/android/server/timedetector/ServerFlags;
+    iget-object p0, p0, Lcom/android/server/timedetector/ServiceConfigAccessor;->mServerFlags:Lcom/android/server/timedetector/ServerFlags;
 
-    const-string v1, "time_detector_lower_bound_millis_override"
+    const-string v0, "time_detector_lower_bound_millis_override"
 
-    invoke-virtual {v0, v1}, Lcom/android/server/timedetector/ServerFlags;->getOptionalInstant(Ljava/lang/String;)Ljava/util/Optional;
+    invoke-virtual {p0, v0}, Lcom/android/server/timedetector/ServerFlags;->getOptionalInstant(Ljava/lang/String;)Ljava/util/Optional;
 
-    move-result-object v0
+    move-result-object p0
 
-    sget-object v1, Lcom/android/server/timedetector/ServiceConfigAccessor;->TIME_LOWER_BOUND_DEFAULT:Ljava/time/Instant;
+    sget-object v0, Lcom/android/server/timedetector/ServiceConfigAccessor;->TIME_LOWER_BOUND_DEFAULT:Ljava/time/Instant;
 
-    invoke-virtual {v0, v1}, Ljava/util/Optional;->orElse(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Ljava/util/Optional;->orElse(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Ljava/time/Instant;
+    check-cast p0, Ljava/time/Instant;
 
-    return-object v0
+    return-object p0
 .end method
 
-.method getOriginPriorities()[I
-    .locals 3
+.method public getOriginPriorities()[I
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/timedetector/ServiceConfigAccessor;->mServerFlagsOriginPrioritiesSupplier:Lcom/android/server/timedetector/ServiceConfigAccessor$ServerFlagsOriginPrioritiesSupplier;
 
-    invoke-virtual {v0}, Lcom/android/server/timedetector/ServiceConfigAccessor$ServerFlagsOriginPrioritiesSupplier;->get()[I
+    invoke-virtual {v0}, Lcom/android/server/timedetector/ServiceConfigAccessor$BaseOriginPrioritiesSupplier;->get()[I
 
     move-result-object v0
 
@@ -247,26 +239,26 @@
     return-object v0
 
     :cond_0
-    iget-object v1, p0, Lcom/android/server/timedetector/ServiceConfigAccessor;->mConfigOriginPrioritiesSupplier:Lcom/android/server/timedetector/ServiceConfigAccessor$ConfigOriginPrioritiesSupplier;
+    iget-object p0, p0, Lcom/android/server/timedetector/ServiceConfigAccessor;->mConfigOriginPrioritiesSupplier:Lcom/android/server/timedetector/ServiceConfigAccessor$ConfigOriginPrioritiesSupplier;
 
-    invoke-virtual {v1}, Lcom/android/server/timedetector/ServiceConfigAccessor$ConfigOriginPrioritiesSupplier;->get()[I
+    invoke-virtual {p0}, Lcom/android/server/timedetector/ServiceConfigAccessor$BaseOriginPrioritiesSupplier;->get()[I
 
-    move-result-object v1
+    move-result-object p0
 
-    if-eqz v1, :cond_1
+    if-eqz p0, :cond_1
 
-    return-object v1
+    return-object p0
 
     :cond_1
-    sget-object v2, Lcom/android/server/timedetector/ServiceConfigAccessor;->DEFAULT_AUTOMATIC_TIME_ORIGIN_PRIORITIES:[I
+    sget-object p0, Lcom/android/server/timedetector/ServiceConfigAccessor;->DEFAULT_AUTOMATIC_TIME_ORIGIN_PRIORITIES:[I
 
-    return-object v2
+    return-object p0
 .end method
 
-.method systemClockUpdateThresholdMillis()I
-    .locals 1
+.method public systemClockUpdateThresholdMillis()I
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/timedetector/ServiceConfigAccessor;->mSystemClockUpdateThresholdMillis:I
+    iget p0, p0, Lcom/android/server/timedetector/ServiceConfigAccessor;->mSystemClockUpdateThresholdMillis:I
 
-    return v0
+    return p0
 .end method

@@ -1,43 +1,40 @@
 .class public final synthetic Lcom/android/server/pm/ShortcutPackage$$ExternalSyntheticLambda31;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Consumer;
+.implements Ljava/util/function/Function;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/pm/ShortcutPackage$$ExternalSyntheticLambda31;
+# instance fields
+.field public final synthetic f$0:Landroid/util/ArrayMap;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/pm/ShortcutPackage$$ExternalSyntheticLambda31;
-
-    invoke-direct {v0}, Lcom/android/server/pm/ShortcutPackage$$ExternalSyntheticLambda31;-><init>()V
-
-    sput-object v0, Lcom/android/server/pm/ShortcutPackage$$ExternalSyntheticLambda31;->INSTANCE:Lcom/android/server/pm/ShortcutPackage$$ExternalSyntheticLambda31;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Landroid/util/ArrayMap;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/pm/ShortcutPackage$$ExternalSyntheticLambda31;->f$0:Landroid/util/ArrayMap;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
+.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
 
-    check-cast p1, Landroid/content/pm/ShortcutInfo;
+    iget-object p0, p0, Lcom/android/server/pm/ShortcutPackage$$ExternalSyntheticLambda31;->f$0:Landroid/util/ArrayMap;
 
-    invoke-static {p1}, Lcom/android/server/pm/ShortcutPackage;->lambda$refreshPinnedFlags$11(Landroid/content/pm/ShortcutInfo;)V
+    check-cast p1, Ljava/lang/String;
 
-    return-void
+    invoke-virtual {p0, p1}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Landroid/content/pm/ShortcutInfo;
+
+    return-object p0
 .end method

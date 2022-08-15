@@ -15,11 +15,11 @@
 
 
 # instance fields
-.field private final mFromType:Ljava/lang/String;
+.field public final mFromType:Ljava/lang/String;
 
-.field private final mToType:Ljava/lang/String;
+.field public final mToType:Ljava/lang/String;
 
-.field private final mUpToVersion:I
+.field public final mUpToVersion:I
 
 
 # direct methods
@@ -40,25 +40,25 @@
 
 # virtual methods
 .method public getFromType()Ljava/lang/String;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/pm/UserTypeFactory$UserTypeUpgrade;->mFromType:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/pm/UserTypeFactory$UserTypeUpgrade;->mFromType:Ljava/lang/String;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getToType()Ljava/lang/String;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/pm/UserTypeFactory$UserTypeUpgrade;->mToType:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/pm/UserTypeFactory$UserTypeUpgrade;->mToType:Ljava/lang/String;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getUpToVersion()I
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/pm/UserTypeFactory$UserTypeUpgrade;->mUpToVersion:I
+    iget p0, p0, Lcom/android/server/pm/UserTypeFactory$UserTypeUpgrade;->mUpToVersion:I
 
-    return v0
+    return p0
 .end method

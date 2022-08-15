@@ -1,4 +1,4 @@
-.class Lcom/android/server/slice/SliceManagerService$RoleObserver;
+.class public Lcom/android/server/slice/SliceManagerService$RoleObserver;
 .super Ljava/lang/Object;
 .source "SliceManagerService.java"
 
@@ -12,36 +12,36 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = "RoleObserver"
 .end annotation
 
 
 # instance fields
-.field private final mExecutor:Ljava/util/concurrent/Executor;
+.field public final mExecutor:Ljava/util/concurrent/Executor;
 
-.field private mRm:Landroid/app/role/RoleManager;
+.field public mRm:Landroid/app/role/RoleManager;
 
-.field final synthetic this$0:Lcom/android/server/slice/SliceManagerService;
+.field public final synthetic this$0:Lcom/android/server/slice/SliceManagerService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/slice/SliceManagerService;)V
-    .locals 1
+.method public constructor <init>(Lcom/android/server/slice/SliceManagerService;)V
+    .locals 0
 
     iput-object p1, p0, Lcom/android/server/slice/SliceManagerService$RoleObserver;->this$0:Lcom/android/server/slice/SliceManagerService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    invoke-static {p1}, Lcom/android/server/slice/SliceManagerService;->access$000(Lcom/android/server/slice/SliceManagerService;)Landroid/content/Context;
+    invoke-static {p1}, Lcom/android/server/slice/SliceManagerService;->-$$Nest$fgetmContext(Lcom/android/server/slice/SliceManagerService;)Landroid/content/Context;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Landroid/content/Context;->getMainExecutor()Ljava/util/concurrent/Executor;
+    invoke-virtual {p1}, Landroid/content/Context;->getMainExecutor()Ljava/util/concurrent/Executor;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/android/server/slice/SliceManagerService$RoleObserver;->mExecutor:Ljava/util/concurrent/Executor;
+    iput-object p1, p0, Lcom/android/server/slice/SliceManagerService$RoleObserver;->mExecutor:Ljava/util/concurrent/Executor;
 
     invoke-virtual {p0}, Lcom/android/server/slice/SliceManagerService$RoleObserver;->register()V
 
@@ -51,19 +51,19 @@
 
 # virtual methods
 .method public onRoleHoldersChanged(Ljava/lang/String;Landroid/os/UserHandle;)V
-    .locals 1
+    .locals 0
 
-    const-string v0, "android.app.role.HOME"
+    const-string p2, "android.app.role.HOME"
 
-    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/slice/SliceManagerService$RoleObserver;->this$0:Lcom/android/server/slice/SliceManagerService;
+    iget-object p0, p0, Lcom/android/server/slice/SliceManagerService$RoleObserver;->this$0:Lcom/android/server/slice/SliceManagerService;
 
-    invoke-virtual {v0}, Lcom/android/server/slice/SliceManagerService;->invalidateCachedDefaultHome()V
+    invoke-virtual {p0}, Lcom/android/server/slice/SliceManagerService;->invalidateCachedDefaultHome()V
 
     :cond_0
     return-void
@@ -74,7 +74,7 @@
 
     iget-object v0, p0, Lcom/android/server/slice/SliceManagerService$RoleObserver;->this$0:Lcom/android/server/slice/SliceManagerService;
 
-    invoke-static {v0}, Lcom/android/server/slice/SliceManagerService;->access$000(Lcom/android/server/slice/SliceManagerService;)Landroid/content/Context;
+    invoke-static {v0}, Lcom/android/server/slice/SliceManagerService;->-$$Nest$fgetmContext(Lcom/android/server/slice/SliceManagerService;)Landroid/content/Context;
 
     move-result-object v0
 
@@ -96,9 +96,9 @@
 
     invoke-virtual {v0, v1, p0, v2}, Landroid/app/role/RoleManager;->addOnRoleHoldersChangedListenerAsUser(Ljava/util/concurrent/Executor;Landroid/app/role/OnRoleHoldersChangedListener;Landroid/os/UserHandle;)V
 
-    iget-object v0, p0, Lcom/android/server/slice/SliceManagerService$RoleObserver;->this$0:Lcom/android/server/slice/SliceManagerService;
+    iget-object p0, p0, Lcom/android/server/slice/SliceManagerService$RoleObserver;->this$0:Lcom/android/server/slice/SliceManagerService;
 
-    invoke-virtual {v0}, Lcom/android/server/slice/SliceManagerService;->invalidateCachedDefaultHome()V
+    invoke-virtual {p0}, Lcom/android/server/slice/SliceManagerService;->invalidateCachedDefaultHome()V
 
     :cond_0
     return-void

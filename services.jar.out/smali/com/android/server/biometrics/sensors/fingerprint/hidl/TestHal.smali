@@ -3,20 +3,16 @@
 .source "TestHal.java"
 
 
-# static fields
-.field private static final TAG:Ljava/lang/String; = "fingerprint.hidl.TestHal"
-
-
 # instance fields
-.field private mCallback:Landroid/hardware/biometrics/fingerprint/V2_1/IBiometricsFingerprintClientCallback;
+.field public mCallback:Landroid/hardware/biometrics/fingerprint/V2_1/IBiometricsFingerprintClientCallback;
 
-.field private final mContext:Landroid/content/Context;
+.field public final mContext:Landroid/content/Context;
 
-.field private final mSensorId:I
+.field public final mSensorId:I
 
 
 # direct methods
-.method constructor <init>(Landroid/content/Context;I)V
+.method public constructor <init>(Landroid/content/Context;I)V
     .locals 0
 
     invoke-direct {p0}, Landroid/hardware/biometrics/fingerprint/V2_3/IBiometricsFingerprint$Stub;-><init>()V
@@ -31,55 +27,55 @@
 
 # virtual methods
 .method public authenticate(JI)I
-    .locals 2
+    .locals 0
 
-    const-string v0, "fingerprint.hidl.TestHal"
+    const-string p0, "fingerprint.hidl.TestHal"
 
-    const-string v1, "Authenticate"
+    const-string p1, "Authenticate"
 
-    invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, p1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
 .method public cancel()I
-    .locals 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/android/server/biometrics/sensors/fingerprint/hidl/TestHal;->mCallback:Landroid/hardware/biometrics/fingerprint/V2_1/IBiometricsFingerprintClientCallback;
-
-    const/4 v1, 0x0
-
-    if-eqz v0, :cond_0
-
-    const-wide/16 v2, 0x0
-
-    const/4 v4, 0x5
-
-    invoke-interface {v0, v2, v3, v4, v1}, Landroid/hardware/biometrics/fingerprint/V2_1/IBiometricsFingerprintClientCallback;->onError(JII)V
-
-    :cond_0
-    return v1
-.end method
-
-.method public enroll([BII)I
-    .locals 2
-
-    const-string v0, "fingerprint.hidl.TestHal"
-
-    const-string v1, "enroll"
-
-    invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    iget-object p0, p0, Lcom/android/server/biometrics/sensors/fingerprint/hidl/TestHal;->mCallback:Landroid/hardware/biometrics/fingerprint/V2_1/IBiometricsFingerprintClientCallback;
 
     const/4 v0, 0x0
 
+    if-eqz p0, :cond_0
+
+    const-wide/16 v1, 0x0
+
+    const/4 v3, 0x5
+
+    invoke-interface {p0, v1, v2, v3, v0}, Landroid/hardware/biometrics/fingerprint/V2_1/IBiometricsFingerprintClientCallback;->onError(JII)V
+
+    :cond_0
     return v0
+.end method
+
+.method public enroll([BII)I
+    .locals 0
+
+    const-string p0, "fingerprint.hidl.TestHal"
+
+    const-string p1, "enroll"
+
+    invoke-static {p0, p1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 p0, 0x0
+
+    return p0
 .end method
 
 .method public enumerate()I
@@ -111,9 +107,9 @@
     invoke-interface/range {v2 .. v7}, Landroid/hardware/biometrics/fingerprint/V2_1/IBiometricsFingerprintClientCallback;->onEnumerate(JIII)V
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
 .method public getAuthenticatorId()J
@@ -125,11 +121,11 @@
 .end method
 
 .method public isUdfps(I)Z
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
 .method public onFingerDown(IIFF)V
@@ -145,11 +141,11 @@
 .end method
 
 .method public postEnroll()I
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
 .method public preEnroll()J
@@ -176,32 +172,34 @@
 
     iget-object v2, p0, Lcom/android/server/biometrics/sensors/fingerprint/hidl/TestHal;->mCallback:Landroid/hardware/biometrics/fingerprint/V2_1/IBiometricsFingerprintClientCallback;
 
-    if-eqz v2, :cond_2
+    const/4 v0, 0x0
 
-    if-nez p2, :cond_1
+    if-eqz v2, :cond_1
 
-    iget v0, p0, Lcom/android/server/biometrics/sensors/fingerprint/hidl/TestHal;->mSensorId:I
+    if-nez p2, :cond_0
 
-    invoke-static {v0}, Lcom/android/server/biometrics/sensors/fingerprint/FingerprintUtils;->getInstance(I)Lcom/android/server/biometrics/sensors/fingerprint/FingerprintUtils;
+    iget p2, p0, Lcom/android/server/biometrics/sensors/fingerprint/hidl/TestHal;->mSensorId:I
 
-    move-result-object v0
+    invoke-static {p2}, Lcom/android/server/biometrics/sensors/fingerprint/FingerprintUtils;->getInstance(I)Lcom/android/server/biometrics/sensors/fingerprint/FingerprintUtils;
+
+    move-result-object p2
 
     iget-object v1, p0, Lcom/android/server/biometrics/sensors/fingerprint/hidl/TestHal;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v0, v1, p1}, Lcom/android/server/biometrics/sensors/fingerprint/FingerprintUtils;->getBiometricsForUser(Landroid/content/Context;I)Ljava/util/List;
+    invoke-virtual {p2, v1, p1}, Lcom/android/server/biometrics/sensors/fingerprint/FingerprintUtils;->getBiometricsForUser(Landroid/content/Context;I)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p2
 
-    const/4 v1, 0x0
+    move v1, v0
 
     :goto_0
-    invoke-interface {v0}, Ljava/util/List;->size()I
+    invoke-interface {p2}, Ljava/util/List;->size()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_1
 
-    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {p2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -215,13 +213,13 @@
 
     move-result v6
 
-    invoke-interface {v0}, Ljava/util/List;->size()I
+    invoke-interface {p2}, Ljava/util/List;->size()I
 
-    move-result v7
+    move-result v2
 
-    sub-int/2addr v7, v1
+    sub-int/2addr v2, v1
 
-    add-int/lit8 v8, v7, -0x1
+    add-int/lit8 v8, v2, -0x1
 
     move v7, p1
 
@@ -232,9 +230,6 @@
     goto :goto_0
 
     :cond_0
-    goto :goto_1
-
-    :cond_1
     const-wide/16 v3, 0x0
 
     const/4 v7, 0x0
@@ -245,27 +240,24 @@
 
     invoke-interface/range {v2 .. v7}, Landroid/hardware/biometrics/fingerprint/V2_1/IBiometricsFingerprintClientCallback;->onRemoved(JIII)V
 
-    :cond_2
-    :goto_1
-    const/4 v0, 0x0
-
+    :cond_1
     return v0
 .end method
 
 .method public setActiveGroup(ILjava/lang/String;)I
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
 .method public setNotify(Landroid/hardware/biometrics/fingerprint/V2_1/IBiometricsFingerprintClientCallback;)J
-    .locals 2
+    .locals 0
 
     iput-object p1, p0, Lcom/android/server/biometrics/sensors/fingerprint/hidl/TestHal;->mCallback:Landroid/hardware/biometrics/fingerprint/V2_1/IBiometricsFingerprintClientCallback;
 
-    const-wide/16 v0, 0x0
+    const-wide/16 p0, 0x0
 
-    return-wide v0
+    return-wide p0
 .end method

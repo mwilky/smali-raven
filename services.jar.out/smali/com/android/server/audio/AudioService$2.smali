@@ -1,4 +1,4 @@
-.class Lcom/android/server/audio/AudioService$2;
+.class public Lcom/android/server/audio/AudioService$2;
 .super Landroid/app/IUidObserver$Stub;
 .source "AudioService.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/audio/AudioService;
+.field public final synthetic this$0:Lcom/android/server/audio/AudioService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/audio/AudioService;)V
+.method public constructor <init>(Lcom/android/server/audio/AudioService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/audio/AudioService$2;->this$0:Lcom/android/server/audio/AudioService;
@@ -29,12 +29,14 @@
     return-void
 .end method
 
-.method private disableAudioForUid(ZI)V
+
+# virtual methods
+.method public final disableAudioForUid(ZI)V
     .locals 7
 
     iget-object v0, p0, Lcom/android/server/audio/AudioService$2;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v0}, Lcom/android/server/audio/AudioService;->access$100(Lcom/android/server/audio/AudioService;)Lcom/android/server/audio/AudioService$AudioHandler;
+    invoke-static {v0}, Lcom/android/server/audio/AudioService;->-$$Nest$fgetmAudioHandler(Lcom/android/server/audio/AudioService;)Lcom/android/server/audio/AudioService$AudioHandler;
 
     move-result-object v1
 
@@ -48,13 +50,11 @@
 
     move v4, p2
 
-    invoke-static/range {v0 .. v6}, Lcom/android/server/audio/AudioService;->access$600(Lcom/android/server/audio/AudioService;Landroid/os/Handler;IIILjava/lang/Object;I)V
+    invoke-static/range {v0 .. v6}, Lcom/android/server/audio/AudioService;->-$$Nest$mqueueMsgUnderWakeLock(Lcom/android/server/audio/AudioService;Landroid/os/Handler;IIILjava/lang/Object;I)V
 
     return-void
 .end method
 
-
-# virtual methods
 .method public onUidActive(I)V
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
@@ -69,22 +69,28 @@
 .method public onUidCachedChanged(IZ)V
     .locals 0
 
-    invoke-direct {p0, p2, p1}, Lcom/android/server/audio/AudioService$2;->disableAudioForUid(ZI)V
+    invoke-virtual {p0, p2, p1}, Lcom/android/server/audio/AudioService$2;->disableAudioForUid(ZI)V
 
     return-void
 .end method
 
 .method public onUidGone(IZ)V
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p2, 0x0
 
-    invoke-direct {p0, v0, p1}, Lcom/android/server/audio/AudioService$2;->disableAudioForUid(ZI)V
+    invoke-virtual {p0, p2, p1}, Lcom/android/server/audio/AudioService$2;->disableAudioForUid(ZI)V
 
     return-void
 .end method
 
 .method public onUidIdle(IZ)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onUidProcAdjChanged(I)V
     .locals 0
 
     return-void

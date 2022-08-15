@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/rollback/RollbackPackageHealthObserver$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/rollback/RollbackPackageHealthObserver$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/rollback/RollbackPackageHealthObserver;
+    iget-object p0, p0, Lcom/android/server/rollback/RollbackPackageHealthObserver$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/rollback/RollbackPackageHealthObserver;
 
-    invoke-virtual {v0}, Lcom/android/server/rollback/RollbackPackageHealthObserver;->lambda$execute$0$RollbackPackageHealthObserver()V
+    invoke-static {p0}, Lcom/android/server/rollback/RollbackPackageHealthObserver;->$r8$lambda$gxUJsixtVwfiVzdpT7ddT3_PUM8(Lcom/android/server/rollback/RollbackPackageHealthObserver;)V
 
     return-void
 .end method

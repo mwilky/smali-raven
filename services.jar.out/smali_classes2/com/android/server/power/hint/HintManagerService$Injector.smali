@@ -4,18 +4,21 @@
 
 
 # annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/android/server/power/hint/HintManagerService;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "Injector"
 .end annotation
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,12 +28,12 @@
 
 
 # virtual methods
-.method createNativeWrapper()Lcom/android/server/power/hint/HintManagerService$NativeWrapper;
-    .locals 1
+.method public createNativeWrapper()Lcom/android/server/power/hint/HintManagerService$NativeWrapper;
+    .locals 0
 
-    new-instance v0, Lcom/android/server/power/hint/HintManagerService$NativeWrapper;
+    new-instance p0, Lcom/android/server/power/hint/HintManagerService$NativeWrapper;
 
-    invoke-direct {v0}, Lcom/android/server/power/hint/HintManagerService$NativeWrapper;-><init>()V
+    invoke-direct {p0}, Lcom/android/server/power/hint/HintManagerService$NativeWrapper;-><init>()V
 
-    return-object v0
+    return-object p0
 .end method

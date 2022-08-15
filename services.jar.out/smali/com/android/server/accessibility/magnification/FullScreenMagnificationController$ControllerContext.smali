@@ -4,6 +4,9 @@
 
 
 # annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/android/server/accessibility/magnification/FullScreenMagnificationController;
 .end annotation
@@ -15,34 +18,26 @@
 
 
 # instance fields
-.field private final mAms:Lcom/android/server/accessibility/AccessibilityManagerService;
+.field public final mAnimationDuration:Ljava/lang/Long;
 
-.field private final mAnimationDuration:Ljava/lang/Long;
+.field public final mContext:Landroid/content/Context;
 
-.field private final mContext:Landroid/content/Context;
+.field public final mHandler:Landroid/os/Handler;
 
-.field private final mHandler:Landroid/os/Handler;
+.field public final mTrace:Lcom/android/server/accessibility/AccessibilityTraceManager;
 
-.field private final mTrace:Lcom/android/server/accessibility/AccessibilityTraceManager;
-
-.field private final mWindowManager:Lcom/android/server/wm/WindowManagerInternal;
+.field public final mWindowManager:Lcom/android/server/wm/WindowManagerInternal;
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;Lcom/android/server/accessibility/AccessibilityManagerService;Lcom/android/server/wm/WindowManagerInternal;Landroid/os/Handler;J)V
-    .locals 1
+.method public constructor <init>(Landroid/content/Context;Lcom/android/server/accessibility/AccessibilityTraceManager;Lcom/android/server/wm/WindowManagerInternal;Landroid/os/Handler;J)V
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/server/accessibility/magnification/FullScreenMagnificationController$ControllerContext;->mContext:Landroid/content/Context;
 
-    iput-object p2, p0, Lcom/android/server/accessibility/magnification/FullScreenMagnificationController$ControllerContext;->mAms:Lcom/android/server/accessibility/AccessibilityManagerService;
-
-    invoke-virtual {p2}, Lcom/android/server/accessibility/AccessibilityManagerService;->getTraceManager()Lcom/android/server/accessibility/AccessibilityTraceManager;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/server/accessibility/magnification/FullScreenMagnificationController$ControllerContext;->mTrace:Lcom/android/server/accessibility/AccessibilityTraceManager;
+    iput-object p2, p0, Lcom/android/server/accessibility/magnification/FullScreenMagnificationController$ControllerContext;->mTrace:Lcom/android/server/accessibility/AccessibilityTraceManager;
 
     iput-object p3, p0, Lcom/android/server/accessibility/magnification/FullScreenMagnificationController$ControllerContext;->mWindowManager:Lcom/android/server/wm/WindowManagerInternal;
 
@@ -50,29 +45,21 @@
 
     invoke-static {p5, p6}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/android/server/accessibility/magnification/FullScreenMagnificationController$ControllerContext;->mAnimationDuration:Ljava/lang/Long;
+    iput-object p1, p0, Lcom/android/server/accessibility/magnification/FullScreenMagnificationController$ControllerContext;->mAnimationDuration:Ljava/lang/Long;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public getAms()Lcom/android/server/accessibility/AccessibilityManagerService;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/accessibility/magnification/FullScreenMagnificationController$ControllerContext;->mAms:Lcom/android/server/accessibility/AccessibilityManagerService;
-
-    return-object v0
-.end method
-
 .method public getAnimationDuration()J
     .locals 2
 
-    iget-object v0, p0, Lcom/android/server/accessibility/magnification/FullScreenMagnificationController$ControllerContext;->mAnimationDuration:Ljava/lang/Long;
+    iget-object p0, p0, Lcom/android/server/accessibility/magnification/FullScreenMagnificationController$ControllerContext;->mAnimationDuration:Ljava/lang/Long;
 
-    invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
+    invoke-virtual {p0}, Ljava/lang/Long;->longValue()J
 
     move-result-wide v0
 
@@ -80,79 +67,43 @@
 .end method
 
 .method public getContext()Landroid/content/Context;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/accessibility/magnification/FullScreenMagnificationController$ControllerContext;->mContext:Landroid/content/Context;
+    iget-object p0, p0, Lcom/android/server/accessibility/magnification/FullScreenMagnificationController$ControllerContext;->mContext:Landroid/content/Context;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getHandler()Landroid/os/Handler;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/accessibility/magnification/FullScreenMagnificationController$ControllerContext;->mHandler:Landroid/os/Handler;
+    iget-object p0, p0, Lcom/android/server/accessibility/magnification/FullScreenMagnificationController$ControllerContext;->mHandler:Landroid/os/Handler;
 
-    return-object v0
-.end method
-
-.method public getMagnificationScale(I)F
-    .locals 3
-
-    iget-object v0, p0, Lcom/android/server/accessibility/magnification/FullScreenMagnificationController$ControllerContext;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v0
-
-    const-string v1, "accessibility_display_magnification_scale"
-
-    const/high16 v2, 0x40000000    # 2.0f
-
-    invoke-static {v0, v1, v2, p1}, Landroid/provider/Settings$Secure;->getFloatForUser(Landroid/content/ContentResolver;Ljava/lang/String;FI)F
-
-    move-result v0
-
-    return v0
+    return-object p0
 .end method
 
 .method public getTraceManager()Lcom/android/server/accessibility/AccessibilityTraceManager;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/accessibility/magnification/FullScreenMagnificationController$ControllerContext;->mTrace:Lcom/android/server/accessibility/AccessibilityTraceManager;
+    iget-object p0, p0, Lcom/android/server/accessibility/magnification/FullScreenMagnificationController$ControllerContext;->mTrace:Lcom/android/server/accessibility/AccessibilityTraceManager;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getWindowManager()Lcom/android/server/wm/WindowManagerInternal;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/accessibility/magnification/FullScreenMagnificationController$ControllerContext;->mWindowManager:Lcom/android/server/wm/WindowManagerInternal;
+    iget-object p0, p0, Lcom/android/server/accessibility/magnification/FullScreenMagnificationController$ControllerContext;->mWindowManager:Lcom/android/server/wm/WindowManagerInternal;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public newValueAnimator()Landroid/animation/ValueAnimator;
-    .locals 1
+    .locals 0
 
-    new-instance v0, Landroid/animation/ValueAnimator;
+    new-instance p0, Landroid/animation/ValueAnimator;
 
-    invoke-direct {v0}, Landroid/animation/ValueAnimator;-><init>()V
+    invoke-direct {p0}, Landroid/animation/ValueAnimator;-><init>()V
 
-    return-object v0
-.end method
-
-.method public putMagnificationScale(FI)V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/server/accessibility/magnification/FullScreenMagnificationController$ControllerContext;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v0
-
-    const-string v1, "accessibility_display_magnification_scale"
-
-    invoke-static {v0, v1, p1, p2}, Landroid/provider/Settings$Secure;->putFloatForUser(Landroid/content/ContentResolver;Ljava/lang/String;FI)Z
-
-    return-void
+    return-object p0
 .end method

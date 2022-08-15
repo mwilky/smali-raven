@@ -1,4 +1,4 @@
-.class Lcom/android/server/job/JobSchedulerService$DeferredJobCounter;
+.class public Lcom/android/server/job/JobSchedulerService$DeferredJobCounter;
 .super Ljava/lang/Object;
 .source "JobSchedulerService.java"
 
@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "DeferredJobCounter"
 .end annotation
 
@@ -27,11 +27,11 @@
 
 
 # instance fields
-.field private mDeferred:I
+.field public mDeferred:I
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -54,15 +54,15 @@
 
     const-wide/16 v2, 0x0
 
-    cmp-long v0, v0, v2
+    cmp-long p1, v0, v2
 
-    if-lez v0, :cond_0
+    if-lez p1, :cond_0
 
-    iget v0, p0, Lcom/android/server/job/JobSchedulerService$DeferredJobCounter;->mDeferred:I
+    iget p1, p0, Lcom/android/server/job/JobSchedulerService$DeferredJobCounter;->mDeferred:I
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 p1, p1, 0x1
 
-    iput v0, p0, Lcom/android/server/job/JobSchedulerService$DeferredJobCounter;->mDeferred:I
+    iput p1, p0, Lcom/android/server/job/JobSchedulerService$DeferredJobCounter;->mDeferred:I
 
     :cond_0
     return-void
@@ -79,9 +79,9 @@
 .end method
 
 .method public numDeferred()I
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/job/JobSchedulerService$DeferredJobCounter;->mDeferred:I
+    iget p0, p0, Lcom/android/server/job/JobSchedulerService$DeferredJobCounter;->mDeferred:I
 
-    return v0
+    return p0
 .end method

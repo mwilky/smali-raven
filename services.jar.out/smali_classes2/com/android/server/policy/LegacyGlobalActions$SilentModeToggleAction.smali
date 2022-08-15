@@ -1,4 +1,4 @@
-.class Lcom/android/server/policy/LegacyGlobalActions$SilentModeToggleAction;
+.class public Lcom/android/server/policy/LegacyGlobalActions$SilentModeToggleAction;
 .super Lcom/android/internal/globalactions/ToggleAction;
 .source "LegacyGlobalActions.java"
 
@@ -9,13 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "SilentModeToggleAction"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/policy/LegacyGlobalActions;
+.field public final synthetic this$0:Lcom/android/server/policy/LegacyGlobalActions;
 
 
 # direct methods
@@ -24,15 +24,15 @@
 
     iput-object p1, p0, Lcom/android/server/policy/LegacyGlobalActions$SilentModeToggleAction;->this$0:Lcom/android/server/policy/LegacyGlobalActions;
 
-    const v1, 0x1080330
+    const v1, 0x1080339
 
-    const v2, 0x108032f
+    const v2, 0x1080338
 
-    const v3, 0x10403d2
+    const v3, 0x1040418
 
-    const v4, 0x10403d1
+    const v4, 0x1040417
 
-    const v5, 0x10403d0
+    const v5, 0x1040416
 
     move-object v0, p0
 
@@ -44,49 +44,49 @@
 
 # virtual methods
 .method public onToggle(Z)V
-    .locals 2
+    .locals 0
 
     if-eqz p1, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/policy/LegacyGlobalActions$SilentModeToggleAction;->this$0:Lcom/android/server/policy/LegacyGlobalActions;
+    iget-object p0, p0, Lcom/android/server/policy/LegacyGlobalActions$SilentModeToggleAction;->this$0:Lcom/android/server/policy/LegacyGlobalActions;
 
-    invoke-static {v0}, Lcom/android/server/policy/LegacyGlobalActions;->access$800(Lcom/android/server/policy/LegacyGlobalActions;)Landroid/media/AudioManager;
+    invoke-static {p0}, Lcom/android/server/policy/LegacyGlobalActions;->-$$Nest$fgetmAudioManager(Lcom/android/server/policy/LegacyGlobalActions;)Landroid/media/AudioManager;
 
-    move-result-object v0
+    move-result-object p0
 
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/media/AudioManager;->setRingerMode(I)V
+    invoke-virtual {p0, p1}, Landroid/media/AudioManager;->setRingerMode(I)V
 
     goto :goto_0
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/policy/LegacyGlobalActions$SilentModeToggleAction;->this$0:Lcom/android/server/policy/LegacyGlobalActions;
+    iget-object p0, p0, Lcom/android/server/policy/LegacyGlobalActions$SilentModeToggleAction;->this$0:Lcom/android/server/policy/LegacyGlobalActions;
 
-    invoke-static {v0}, Lcom/android/server/policy/LegacyGlobalActions;->access$800(Lcom/android/server/policy/LegacyGlobalActions;)Landroid/media/AudioManager;
+    invoke-static {p0}, Lcom/android/server/policy/LegacyGlobalActions;->-$$Nest$fgetmAudioManager(Lcom/android/server/policy/LegacyGlobalActions;)Landroid/media/AudioManager;
 
-    move-result-object v0
+    move-result-object p0
 
-    const/4 v1, 0x2
+    const/4 p1, 0x2
 
-    invoke-virtual {v0, v1}, Landroid/media/AudioManager;->setRingerMode(I)V
+    invoke-virtual {p0, p1}, Landroid/media/AudioManager;->setRingerMode(I)V
 
     :goto_0
     return-void
 .end method
 
 .method public showBeforeProvisioning()Z
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
 .method public showDuringKeyguard()Z
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 .end method

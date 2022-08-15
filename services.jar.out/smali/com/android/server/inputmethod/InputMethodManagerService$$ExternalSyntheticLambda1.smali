@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/inputmethod/InputMethodManagerService$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/server/inputmethod/InputMethodManagerService$ImeDisplayValidator;
+.implements Lcom/android/server/wm/WindowManagerInternal$OnHardKeyboardStatusChangeListener;
 
 
 # instance fields
@@ -22,14 +23,12 @@
 
 
 # virtual methods
-.method public final getDisplayImePolicy(I)I
-    .locals 1
+.method public final onHardKeyboardStatusChange(Z)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/inputmethod/InputMethodManagerService$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/inputmethod/InputMethodManagerService;
+    iget-object p0, p0, Lcom/android/server/inputmethod/InputMethodManagerService$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/inputmethod/InputMethodManagerService;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/inputmethod/InputMethodManagerService;->lambda$new$0$InputMethodManagerService(I)I
+    invoke-static {p0, p1}, Lcom/android/server/inputmethod/InputMethodManagerService;->$r8$lambda$vz_z57ulRhr4T1Ld16KRvnRuVVc(Lcom/android/server/inputmethod/InputMethodManagerService;Z)V
 
-    move-result p1
-
-    return p1
+    return-void
 .end method

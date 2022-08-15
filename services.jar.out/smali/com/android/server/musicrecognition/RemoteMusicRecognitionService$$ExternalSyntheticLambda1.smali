@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/musicrecognition/RemoteMusicRecognitionService$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/internal/infra/AbstractRemoteService$AsyncRequest;
@@ -27,15 +28,15 @@
 
 # virtual methods
 .method public final run(Landroid/os/IInterface;)V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/musicrecognition/RemoteMusicRecognitionService$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/musicrecognition/RemoteMusicRecognitionService;
 
-    iget-object v1, p0, Lcom/android/server/musicrecognition/RemoteMusicRecognitionService$$ExternalSyntheticLambda1;->f$1:Ljava/util/concurrent/CompletableFuture;
+    iget-object p0, p0, Lcom/android/server/musicrecognition/RemoteMusicRecognitionService$$ExternalSyntheticLambda1;->f$1:Ljava/util/concurrent/CompletableFuture;
 
     check-cast p1, Landroid/media/musicrecognition/IMusicRecognitionService;
 
-    invoke-virtual {v0, v1, p1}, Lcom/android/server/musicrecognition/RemoteMusicRecognitionService;->lambda$getAttributionTag$1$RemoteMusicRecognitionService(Ljava/util/concurrent/CompletableFuture;Landroid/media/musicrecognition/IMusicRecognitionService;)V
+    invoke-static {v0, p0, p1}, Lcom/android/server/musicrecognition/RemoteMusicRecognitionService;->$r8$lambda$Rmak19pnMY4KPPngWF_XZ_-jF60(Lcom/android/server/musicrecognition/RemoteMusicRecognitionService;Ljava/util/concurrent/CompletableFuture;Landroid/media/musicrecognition/IMusicRecognitionService;)V
 
     return-void
 .end method

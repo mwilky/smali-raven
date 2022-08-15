@@ -1,45 +1,40 @@
 .class public final synthetic Lcom/android/server/content/SyncManager$$ExternalSyntheticLambda13;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Predicate;
+.implements Ljava/lang/Runnable;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/content/SyncManager$$ExternalSyntheticLambda13;
+# instance fields
+.field public final synthetic f$0:Landroid/content/Context;
+
+.field public final synthetic f$1:Lcom/android/server/content/SyncManager$OnUnsyncableAccountCheck;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/content/SyncManager$$ExternalSyntheticLambda13;
-
-    invoke-direct {v0}, Lcom/android/server/content/SyncManager$$ExternalSyntheticLambda13;-><init>()V
-
-    sput-object v0, Lcom/android/server/content/SyncManager$$ExternalSyntheticLambda13;->INSTANCE:Lcom/android/server/content/SyncManager$$ExternalSyntheticLambda13;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Landroid/content/Context;Lcom/android/server/content/SyncManager$OnUnsyncableAccountCheck;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/content/SyncManager$$ExternalSyntheticLambda13;->f$0:Landroid/content/Context;
+
+    iput-object p2, p0, Lcom/android/server/content/SyncManager$$ExternalSyntheticLambda13;->f$1:Lcom/android/server/content/SyncManager$OnUnsyncableAccountCheck;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final test(Ljava/lang/Object;)Z
-    .locals 0
+.method public final run()V
+    .locals 1
 
-    check-cast p1, Lcom/android/server/content/SyncOperation;
+    iget-object v0, p0, Lcom/android/server/content/SyncManager$$ExternalSyntheticLambda13;->f$0:Landroid/content/Context;
 
-    invoke-static {p1}, Lcom/android/server/content/SyncManager;->lambda$dumpPeriodicSyncs$9(Lcom/android/server/content/SyncOperation;)Z
+    iget-object p0, p0, Lcom/android/server/content/SyncManager$$ExternalSyntheticLambda13;->f$1:Lcom/android/server/content/SyncManager$OnUnsyncableAccountCheck;
 
-    move-result p1
+    invoke-static {v0, p0}, Lcom/android/server/content/SyncManager;->$r8$lambda$6WOZ6whe3aGhtRg8ibCORDX2qG0(Landroid/content/Context;Lcom/android/server/content/SyncManager$OnUnsyncableAccountCheck;)V
 
-    return p1
+    return-void
 .end method

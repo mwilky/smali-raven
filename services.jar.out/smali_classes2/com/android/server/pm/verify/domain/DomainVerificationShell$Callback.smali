@@ -37,14 +37,6 @@
     .end annotation
 .end method
 
-.method public abstract getDomainVerificationUserState(Ljava/lang/String;I)Landroid/content/pm/verify/domain/DomainVerificationUserState;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/content/pm/PackageManager$NameNotFoundException;
-        }
-    .end annotation
-.end method
-
 .method public abstract printOwnersForDomains(Landroid/util/IndentingPrintWriter;Ljava/util/List;Ljava/lang/Integer;)V
     .annotation system Ldalvik/annotation/Signature;
         value = {

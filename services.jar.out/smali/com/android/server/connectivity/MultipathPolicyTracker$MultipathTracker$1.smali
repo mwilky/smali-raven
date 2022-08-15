@@ -1,4 +1,4 @@
-.class Lcom/android/server/connectivity/MultipathPolicyTracker$MultipathTracker$1;
+.class public Lcom/android/server/connectivity/MultipathPolicyTracker$MultipathTracker$1;
 .super Landroid/app/usage/NetworkStatsManager$UsageCallback;
 .source "MultipathPolicyTracker.java"
 
@@ -9,21 +9,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$1:Lcom/android/server/connectivity/MultipathPolicyTracker$MultipathTracker;
+.field public final synthetic this$1:Lcom/android/server/connectivity/MultipathPolicyTracker$MultipathTracker;
 
-.field final synthetic val$network:Landroid/net/Network;
+.field public final synthetic val$network:Landroid/net/Network;
 
-.field final synthetic val$this$0:Lcom/android/server/connectivity/MultipathPolicyTracker;
+.field public final synthetic val$this$0:Lcom/android/server/connectivity/MultipathPolicyTracker;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/connectivity/MultipathPolicyTracker$MultipathTracker;Lcom/android/server/connectivity/MultipathPolicyTracker;Landroid/net/Network;)V
+.method public constructor <init>(Lcom/android/server/connectivity/MultipathPolicyTracker$MultipathTracker;Lcom/android/server/connectivity/MultipathPolicyTracker;Landroid/net/Network;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/connectivity/MultipathPolicyTracker$MultipathTracker$1;->this$1:Lcom/android/server/connectivity/MultipathPolicyTracker$MultipathTracker;
@@ -40,17 +40,11 @@
 
 # virtual methods
 .method public onThresholdReached(ILjava/lang/String;)V
-    .locals 3
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/connectivity/MultipathPolicyTracker$MultipathTracker$1;->this$1:Lcom/android/server/connectivity/MultipathPolicyTracker$MultipathTracker;
+    iget-object p0, p0, Lcom/android/server/connectivity/MultipathPolicyTracker$MultipathTracker$1;->this$1:Lcom/android/server/connectivity/MultipathPolicyTracker$MultipathTracker;
 
-    const-wide/16 v1, 0x0
-
-    invoke-static {v0, v1, v2}, Lcom/android/server/connectivity/MultipathPolicyTracker$MultipathTracker;->access$202(Lcom/android/server/connectivity/MultipathPolicyTracker$MultipathTracker;J)J
-
-    iget-object v0, p0, Lcom/android/server/connectivity/MultipathPolicyTracker$MultipathTracker$1;->this$1:Lcom/android/server/connectivity/MultipathPolicyTracker$MultipathTracker;
-
-    invoke-virtual {v0}, Lcom/android/server/connectivity/MultipathPolicyTracker$MultipathTracker;->updateMultipathBudget()V
+    invoke-virtual {p0}, Lcom/android/server/connectivity/MultipathPolicyTracker$MultipathTracker;->updateMultipathBudget()V
 
     return-void
 .end method

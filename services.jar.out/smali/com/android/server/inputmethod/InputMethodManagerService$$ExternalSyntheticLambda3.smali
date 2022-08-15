@@ -1,35 +1,36 @@
 .class public final synthetic Lcom/android/server/inputmethod/InputMethodManagerService$$ExternalSyntheticLambda3;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Consumer;
+.implements Lcom/android/server/inputmethod/InputMethodManagerService$ImeDisplayValidator;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/server/inputmethod/InputMethodManagerService;
+.field public final synthetic f$0:Lcom/android/server/wm/WindowManagerInternal;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/inputmethod/InputMethodManagerService;)V
+.method public synthetic constructor <init>(Lcom/android/server/wm/WindowManagerInternal;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/inputmethod/InputMethodManagerService$$ExternalSyntheticLambda3;->f$0:Lcom/android/server/inputmethod/InputMethodManagerService;
+    iput-object p1, p0, Lcom/android/server/inputmethod/InputMethodManagerService$$ExternalSyntheticLambda3;->f$0:Lcom/android/server/wm/WindowManagerInternal;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
-    .locals 1
+.method public final getDisplayImePolicy(I)I
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/inputmethod/InputMethodManagerService$$ExternalSyntheticLambda3;->f$0:Lcom/android/server/inputmethod/InputMethodManagerService;
+    iget-object p0, p0, Lcom/android/server/inputmethod/InputMethodManagerService$$ExternalSyntheticLambda3;->f$0:Lcom/android/server/wm/WindowManagerInternal;
 
-    check-cast p1, Landroid/view/inputmethod/InputMethodInfo;
+    invoke-virtual {p0, p1}, Lcom/android/server/wm/WindowManagerInternal;->getDisplayImePolicy(I)I
 
-    invoke-virtual {v0, p1}, Lcom/android/server/inputmethod/InputMethodManagerService;->lambda$handleShellCommandResetInputMethod$3$InputMethodManagerService(Landroid/view/inputmethod/InputMethodInfo;)V
+    move-result p0
 
-    return-void
+    return p0
 .end method

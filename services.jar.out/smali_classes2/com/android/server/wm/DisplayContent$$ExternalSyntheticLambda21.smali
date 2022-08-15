@@ -1,35 +1,40 @@
 .class public final synthetic Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda21;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Consumer;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/android/server/wm/DisplayContent;
+.implements Lcom/android/internal/util/function/TriConsumer;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/wm/DisplayContent;)V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda21;->f$0:Lcom/android/server/wm/DisplayContent;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
-    .locals 1
+.method public final accept(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda21;->f$0:Lcom/android/server/wm/DisplayContent;
+    check-cast p1, Landroid/app/ActivityManagerInternal;
 
-    check-cast p1, Lcom/android/server/wm/Task;
+    check-cast p2, Ljava/lang/Integer;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/wm/DisplayContent;->lambda$removeExistingTokensIfPossible$32$DisplayContent(Lcom/android/server/wm/Task;)V
+    invoke-virtual {p2}, Ljava/lang/Integer;->intValue()I
+
+    move-result p0
+
+    check-cast p3, Ljava/lang/Integer;
+
+    invoke-virtual {p3}, Ljava/lang/Integer;->intValue()I
+
+    move-result p2
+
+    invoke-virtual {p1, p0, p2}, Landroid/app/ActivityManagerInternal;->killAllBackgroundProcessesExcept(II)V
 
     return-void
 .end method

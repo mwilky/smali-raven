@@ -1,4 +1,4 @@
-.class Lcom/android/server/hdmi/OneTouchRecordAction$1;
+.class public Lcom/android/server/hdmi/OneTouchRecordAction$1;
 .super Ljava/lang/Object;
 .source "OneTouchRecordAction.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/hdmi/OneTouchRecordAction;
+.field public final synthetic this$0:Lcom/android/server/hdmi/OneTouchRecordAction;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/hdmi/OneTouchRecordAction;)V
+.method public constructor <init>(Lcom/android/server/hdmi/OneTouchRecordAction;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/hdmi/OneTouchRecordAction$1;->this$0:Lcom/android/server/hdmi/OneTouchRecordAction;
@@ -35,31 +35,29 @@
 
 # virtual methods
 .method public onSendCompleted(I)V
-    .locals 3
+    .locals 2
 
     if-eqz p1, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/hdmi/OneTouchRecordAction$1;->this$0:Lcom/android/server/hdmi/OneTouchRecordAction;
+    iget-object p1, p0, Lcom/android/server/hdmi/OneTouchRecordAction$1;->this$0:Lcom/android/server/hdmi/OneTouchRecordAction;
 
-    invoke-virtual {v0}, Lcom/android/server/hdmi/OneTouchRecordAction;->tv()Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;
+    invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecFeatureAction;->tv()Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;
 
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/server/hdmi/OneTouchRecordAction$1;->this$0:Lcom/android/server/hdmi/OneTouchRecordAction;
-
-    invoke-static {v1}, Lcom/android/server/hdmi/OneTouchRecordAction;->access$000(Lcom/android/server/hdmi/OneTouchRecordAction;)I
-
-    move-result v1
-
-    const/16 v2, 0x31
-
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->announceOneTouchRecordResult(II)V
+    move-result-object p1
 
     iget-object v0, p0, Lcom/android/server/hdmi/OneTouchRecordAction$1;->this$0:Lcom/android/server/hdmi/OneTouchRecordAction;
 
-    invoke-virtual {v0}, Lcom/android/server/hdmi/OneTouchRecordAction;->finish()V
+    invoke-static {v0}, Lcom/android/server/hdmi/OneTouchRecordAction;->-$$Nest$fgetmRecorderAddress(Lcom/android/server/hdmi/OneTouchRecordAction;)I
 
-    return-void
+    move-result v0
+
+    const/16 v1, 0x31
+
+    invoke-virtual {p1, v0, v1}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->announceOneTouchRecordResult(II)V
+
+    iget-object p0, p0, Lcom/android/server/hdmi/OneTouchRecordAction$1;->this$0:Lcom/android/server/hdmi/OneTouchRecordAction;
+
+    invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecFeatureAction;->finish()V
 
     :cond_0
     return-void

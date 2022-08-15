@@ -1,4 +1,4 @@
-.class Lcom/android/server/camera/CameraServiceProxy$CameraUsageEvent;
+.class public Lcom/android/server/camera/CameraServiceProxy$CameraUsageEvent;
 .super Ljava/lang/Object;
 .source "CameraServiceProxy.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "CameraUsageEvent"
 .end annotation
 
@@ -25,11 +25,11 @@
 
 .field public final mClientName:Ljava/lang/String;
 
-.field private mCompleted:Z
+.field public mCompleted:Z
 
 .field public mDeviceError:Z
 
-.field private mDurationOrStartTimeMs:J
+.field public mDurationOrStartTimeMs:J
 
 .field public mInternalReconfigure:I
 
@@ -53,10 +53,14 @@
     .end annotation
 .end field
 
+.field public mUserTag:Ljava/lang/String;
+
+.field public mVideoStabilizationMode:I
+
 
 # direct methods
-.method constructor <init>(Ljava/lang/String;ILjava/lang/String;IZIII)V
-    .locals 2
+.method public constructor <init>(Ljava/lang/String;ILjava/lang/String;IZIII)V
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -70,13 +74,13 @@
 
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
-    move-result-wide v0
+    move-result-wide p1
 
-    iput-wide v0, p0, Lcom/android/server/camera/CameraServiceProxy$CameraUsageEvent;->mDurationOrStartTimeMs:J
+    iput-wide p1, p0, Lcom/android/server/camera/CameraServiceProxy$CameraUsageEvent;->mDurationOrStartTimeMs:J
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput-boolean v0, p0, Lcom/android/server/camera/CameraServiceProxy$CameraUsageEvent;->mCompleted:Z
+    iput-boolean p1, p0, Lcom/android/server/camera/CameraServiceProxy$CameraUsageEvent;->mCompleted:Z
 
     iput-boolean p5, p0, Lcom/android/server/camera/CameraServiceProxy$CameraUsageEvent;->mIsNdk:Z
 
@@ -109,14 +113,16 @@
     return-wide v0
 .end method
 
-.method public markCompleted(IJJZLjava/util/List;)V
+.method public markCompleted(IJJZLjava/util/List;Ljava/lang/String;I)V
     .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(IJJZ",
             "Ljava/util/List<",
             "Landroid/hardware/CameraStreamStats;",
-            ">;)V"
+            ">;",
+            "Ljava/lang/String;",
+            "I)V"
         }
     .end annotation
 
@@ -150,6 +156,10 @@
     iput-boolean p6, p0, Lcom/android/server/camera/CameraServiceProxy$CameraUsageEvent;->mDeviceError:Z
 
     iput-object p7, p0, Lcom/android/server/camera/CameraServiceProxy$CameraUsageEvent;->mStreamStats:Ljava/util/List;
+
+    iput-object p8, p0, Lcom/android/server/camera/CameraServiceProxy$CameraUsageEvent;->mUserTag:Ljava/lang/String;
+
+    iput p9, p0, Lcom/android/server/camera/CameraServiceProxy$CameraUsageEvent;->mVideoStabilizationMode:I
 
     return-void
 .end method

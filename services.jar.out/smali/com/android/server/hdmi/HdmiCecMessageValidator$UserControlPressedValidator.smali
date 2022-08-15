@@ -1,4 +1,4 @@
-.class Lcom/android/server/hdmi/HdmiCecMessageValidator$UserControlPressedValidator;
+.class public Lcom/android/server/hdmi/HdmiCecMessageValidator$UserControlPressedValidator;
 .super Ljava/lang/Object;
 .source "HdmiCecMessageValidator.java"
 
@@ -12,30 +12,24 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x9
     name = "UserControlPressedValidator"
 .end annotation
 
 
-# instance fields
-.field final synthetic this$0:Lcom/android/server/hdmi/HdmiCecMessageValidator;
-
-
 # direct methods
-.method private constructor <init>(Lcom/android/server/hdmi/HdmiCecMessageValidator;)V
+.method public constructor <init>()V
     .locals 0
-
-    iput-object p1, p0, Lcom/android/server/hdmi/HdmiCecMessageValidator$UserControlPressedValidator;->this$0:Lcom/android/server/hdmi/HdmiCecMessageValidator;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/hdmi/HdmiCecMessageValidator;Lcom/android/server/hdmi/HdmiCecMessageValidator$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/hdmi/HdmiCecMessageValidator$UserControlPressedValidator-IA;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/server/hdmi/HdmiCecMessageValidator$UserControlPressedValidator;-><init>(Lcom/android/server/hdmi/HdmiCecMessageValidator;)V
+    invoke-direct {p0}, Lcom/android/server/hdmi/HdmiCecMessageValidator$UserControlPressedValidator;-><init>()V
 
     return-void
 .end method
@@ -45,105 +39,98 @@
 .method public isValid([B)I
     .locals 4
 
-    array-length v0, p1
+    array-length p0, p1
 
-    const/4 v1, 0x4
+    const/4 v0, 0x4
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    if-ge v0, v2, :cond_0
+    if-ge p0, v1, :cond_0
 
-    return v1
+    return v0
 
     :cond_0
-    array-length v0, p1
+    array-length p0, p1
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    if-ne v0, v2, :cond_1
+    if-ne p0, v1, :cond_1
 
-    return v3
+    return v2
 
     :cond_1
-    aget-byte v0, p1, v3
+    aget-byte p0, p1, v2
 
-    sparse-switch v0, :sswitch_data_0
+    const/16 v3, 0x56
 
-    return v3
+    if-eq p0, v3, :cond_6
 
-    :sswitch_0
-    array-length v3, p1
+    const/16 v3, 0x57
 
-    if-lt v3, v1, :cond_2
+    if-eq p0, v3, :cond_5
 
-    iget-object v1, p0, Lcom/android/server/hdmi/HdmiCecMessageValidator$UserControlPressedValidator;->this$0:Lcom/android/server/hdmi/HdmiCecMessageValidator;
+    const/16 v3, 0x60
 
-    invoke-static {v1, p1, v2}, Lcom/android/server/hdmi/HdmiCecMessageValidator;->access$3500(Lcom/android/server/hdmi/HdmiCecMessageValidator;[BI)Z
+    if-eq p0, v3, :cond_4
 
-    move-result v1
+    const/16 v3, 0x67
 
-    invoke-static {v1}, Lcom/android/server/hdmi/HdmiCecMessageValidator;->access$1700(Z)I
+    if-eq p0, v3, :cond_2
 
-    move-result v1
-
-    goto :goto_0
+    return v2
 
     :cond_2
-    nop
+    array-length p0, p1
 
-    :goto_0
-    return v1
+    if-lt p0, v0, :cond_3
 
-    :sswitch_1
-    iget-object v1, p0, Lcom/android/server/hdmi/HdmiCecMessageValidator$UserControlPressedValidator;->this$0:Lcom/android/server/hdmi/HdmiCecMessageValidator;
+    invoke-static {p1, v1}, Lcom/android/server/hdmi/HdmiCecMessageValidator;->-$$Nest$smisValidChannelIdentifier([BI)Z
 
-    aget-byte v2, p1, v2
+    move-result p0
 
-    invoke-static {v1, v2}, Lcom/android/server/hdmi/HdmiCecMessageValidator;->access$3300(Lcom/android/server/hdmi/HdmiCecMessageValidator;I)Z
+    invoke-static {p0}, Lcom/android/server/hdmi/HdmiCecMessageValidator;->-$$Nest$smtoErrorCode(Z)I
 
-    move-result v1
+    move-result v0
 
-    invoke-static {v1}, Lcom/android/server/hdmi/HdmiCecMessageValidator;->access$1700(Z)I
+    :cond_3
+    return v0
 
-    move-result v1
+    :cond_4
+    aget-byte p0, p1, v1
 
-    return v1
+    invoke-static {p0}, Lcom/android/server/hdmi/HdmiCecMessageValidator;->-$$Nest$smisValidPlayMode(I)Z
 
-    :sswitch_2
-    iget-object v1, p0, Lcom/android/server/hdmi/HdmiCecMessageValidator$UserControlPressedValidator;->this$0:Lcom/android/server/hdmi/HdmiCecMessageValidator;
+    move-result p0
 
-    aget-byte v2, p1, v2
+    invoke-static {p0}, Lcom/android/server/hdmi/HdmiCecMessageValidator;->-$$Nest$smtoErrorCode(Z)I
 
-    invoke-static {v1, v2}, Lcom/android/server/hdmi/HdmiCecMessageValidator;->access$3700(Lcom/android/server/hdmi/HdmiCecMessageValidator;I)Z
+    move-result p0
 
-    move-result v1
+    return p0
 
-    invoke-static {v1}, Lcom/android/server/hdmi/HdmiCecMessageValidator;->access$1700(Z)I
+    :cond_5
+    aget-byte p0, p1, v1
 
-    move-result v1
+    invoke-static {p0}, Lcom/android/server/hdmi/HdmiCecMessageValidator;->-$$Nest$smisValidUiSoundPresenationControl(I)Z
 
-    return v1
+    move-result p0
 
-    :sswitch_3
-    iget-object v1, p0, Lcom/android/server/hdmi/HdmiCecMessageValidator$UserControlPressedValidator;->this$0:Lcom/android/server/hdmi/HdmiCecMessageValidator;
+    invoke-static {p0}, Lcom/android/server/hdmi/HdmiCecMessageValidator;->-$$Nest$smtoErrorCode(Z)I
 
-    aget-byte v2, p1, v2
+    move-result p0
 
-    invoke-static {v1, v2}, Lcom/android/server/hdmi/HdmiCecMessageValidator;->access$3600(Lcom/android/server/hdmi/HdmiCecMessageValidator;I)Z
+    return p0
 
-    move-result v1
+    :cond_6
+    aget-byte p0, p1, v1
 
-    invoke-static {v1}, Lcom/android/server/hdmi/HdmiCecMessageValidator;->access$1700(Z)I
+    invoke-static {p0}, Lcom/android/server/hdmi/HdmiCecMessageValidator;->-$$Nest$smisValidUiBroadcastType(I)Z
 
-    move-result v1
+    move-result p0
 
-    return v1
+    invoke-static {p0}, Lcom/android/server/hdmi/HdmiCecMessageValidator;->-$$Nest$smtoErrorCode(Z)I
 
-    :sswitch_data_0
-    .sparse-switch
-        0x56 -> :sswitch_3
-        0x57 -> :sswitch_2
-        0x60 -> :sswitch_1
-        0x67 -> :sswitch_0
-    .end sparse-switch
+    move-result p0
+
+    return p0
 .end method

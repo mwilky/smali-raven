@@ -1,4 +1,4 @@
-.class Lcom/android/server/pm/permission/OneTimePermissionUserManager$1;
+.class public Lcom/android/server/pm/permission/OneTimePermissionUserManager$1;
 .super Landroid/content/BroadcastReceiver;
 .source "OneTimePermissionUserManager.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/pm/permission/OneTimePermissionUserManager;
+.field public final synthetic this$0:Lcom/android/server/pm/permission/OneTimePermissionUserManager;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/pm/permission/OneTimePermissionUserManager;)V
+.method public constructor <init>(Lcom/android/server/pm/permission/OneTimePermissionUserManager;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/pm/permission/OneTimePermissionUserManager$1;->this$0:Lcom/android/server/pm/permission/OneTimePermissionUserManager;
@@ -32,51 +32,51 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 3
+    .locals 1
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v1, "android.intent.action.UID_REMOVED"
+    const-string v0, "android.intent.action.UID_REMOVED"
 
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    const/4 v0, -0x1
+    const/4 p1, -0x1
 
-    const-string v1, "android.intent.extra.UID"
+    const-string v0, "android.intent.extra.UID"
 
-    invoke-virtual {p2, v1, v0}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {p2, v0, p1}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    move-result v0
+    move-result p1
 
-    iget-object v1, p0, Lcom/android/server/pm/permission/OneTimePermissionUserManager$1;->this$0:Lcom/android/server/pm/permission/OneTimePermissionUserManager;
+    iget-object p2, p0, Lcom/android/server/pm/permission/OneTimePermissionUserManager$1;->this$0:Lcom/android/server/pm/permission/OneTimePermissionUserManager;
 
-    invoke-static {v1}, Lcom/android/server/pm/permission/OneTimePermissionUserManager;->access$000(Lcom/android/server/pm/permission/OneTimePermissionUserManager;)Landroid/util/SparseArray;
+    invoke-static {p2}, Lcom/android/server/pm/permission/OneTimePermissionUserManager;->-$$Nest$fgetmListeners(Lcom/android/server/pm/permission/OneTimePermissionUserManager;)Landroid/util/SparseArray;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-virtual {v1, v0}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    invoke-virtual {p2, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p2
 
-    check-cast v1, Lcom/android/server/pm/permission/OneTimePermissionUserManager$PackageInactivityListener;
+    check-cast p2, Lcom/android/server/pm/permission/OneTimePermissionUserManager$PackageInactivityListener;
 
-    if-eqz v1, :cond_0
+    if-eqz p2, :cond_0
 
-    invoke-static {v1}, Lcom/android/server/pm/permission/OneTimePermissionUserManager$PackageInactivityListener;->access$100(Lcom/android/server/pm/permission/OneTimePermissionUserManager$PackageInactivityListener;)V
+    invoke-static {p2}, Lcom/android/server/pm/permission/OneTimePermissionUserManager$PackageInactivityListener;->-$$Nest$mcancel(Lcom/android/server/pm/permission/OneTimePermissionUserManager$PackageInactivityListener;)V
 
-    iget-object v2, p0, Lcom/android/server/pm/permission/OneTimePermissionUserManager$1;->this$0:Lcom/android/server/pm/permission/OneTimePermissionUserManager;
+    iget-object p0, p0, Lcom/android/server/pm/permission/OneTimePermissionUserManager$1;->this$0:Lcom/android/server/pm/permission/OneTimePermissionUserManager;
 
-    invoke-static {v2}, Lcom/android/server/pm/permission/OneTimePermissionUserManager;->access$000(Lcom/android/server/pm/permission/OneTimePermissionUserManager;)Landroid/util/SparseArray;
+    invoke-static {p0}, Lcom/android/server/pm/permission/OneTimePermissionUserManager;->-$$Nest$fgetmListeners(Lcom/android/server/pm/permission/OneTimePermissionUserManager;)Landroid/util/SparseArray;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-virtual {v2, v0}, Landroid/util/SparseArray;->remove(I)V
+    invoke-virtual {p0, p1}, Landroid/util/SparseArray;->remove(I)V
 
     :cond_0
     return-void

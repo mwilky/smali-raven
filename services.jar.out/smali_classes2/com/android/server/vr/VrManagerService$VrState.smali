@@ -1,4 +1,4 @@
-.class Lcom/android/server/vr/VrManagerService$VrState;
+.class public Lcom/android/server/vr/VrManagerService$VrState;
 .super Ljava/lang/Object;
 .source "VrManagerService.java"
 
@@ -12,32 +12,32 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "VrState"
 .end annotation
 
 
 # instance fields
-.field final callingPackage:Landroid/content/ComponentName;
+.field public final callingPackage:Landroid/content/ComponentName;
 
-.field final defaultPermissionsGranted:Z
+.field public final defaultPermissionsGranted:Z
 
-.field final enabled:Z
+.field public final enabled:Z
 
-.field final processId:I
+.field public final processId:I
 
-.field final running2dInVr:Z
+.field public final running2dInVr:Z
 
-.field final targetPackageName:Landroid/content/ComponentName;
+.field public final targetPackageName:Landroid/content/ComponentName;
 
-.field final timestamp:J
+.field public final timestamp:J
 
-.field final userId:I
+.field public final userId:I
 
 
 # direct methods
-.method constructor <init>(ZZLandroid/content/ComponentName;IILandroid/content/ComponentName;)V
-    .locals 2
+.method public constructor <init>(ZZLandroid/content/ComponentName;IILandroid/content/ComponentName;)V
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -53,21 +53,21 @@
 
     iput-object p6, p0, Lcom/android/server/vr/VrManagerService$VrState;->callingPackage:Landroid/content/ComponentName;
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput-boolean v0, p0, Lcom/android/server/vr/VrManagerService$VrState;->defaultPermissionsGranted:Z
+    iput-boolean p1, p0, Lcom/android/server/vr/VrManagerService$VrState;->defaultPermissionsGranted:Z
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v0
+    move-result-wide p1
 
-    iput-wide v0, p0, Lcom/android/server/vr/VrManagerService$VrState;->timestamp:J
+    iput-wide p1, p0, Lcom/android/server/vr/VrManagerService$VrState;->timestamp:J
 
     return-void
 .end method
 
-.method constructor <init>(ZZLandroid/content/ComponentName;IILandroid/content/ComponentName;Z)V
-    .locals 2
+.method public constructor <init>(ZZLandroid/content/ComponentName;IILandroid/content/ComponentName;Z)V
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -87,9 +87,9 @@
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v0
+    move-result-wide p1
 
-    iput-wide v0, p0, Lcom/android/server/vr/VrManagerService$VrState;->timestamp:J
+    iput-wide p1, p0, Lcom/android/server/vr/VrManagerService$VrState;->timestamp:J
 
     return-void
 .end method
@@ -97,130 +97,130 @@
 
 # virtual methods
 .method public toLogString(Ljava/text/SimpleDateFormat;)Ljava/lang/String;
-    .locals 6
+    .locals 4
 
-    const-string v0, "  "
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    const-string v1, "\n"
+    new-instance v1, Ljava/util/Date;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    iget-wide v2, p0, Lcom/android/server/vr/VrManagerService$VrState;->timestamp:J
 
-    new-instance v3, Ljava/util/Date;
+    invoke-direct {v1, v2, v3}, Ljava/util/Date;-><init>(J)V
 
-    iget-wide v4, p0, Lcom/android/server/vr/VrManagerService$VrState;->timestamp:J
+    invoke-virtual {p1, v1}, Ljava/text/SimpleDateFormat;->format(Ljava/util/Date;)Ljava/lang/String;
 
-    invoke-direct {v3, v4, v5}, Ljava/util/Date;-><init>(J)V
+    move-result-object p1
 
-    invoke-virtual {p1, v3}, Ljava/text/SimpleDateFormat;->format(Ljava/util/Date;)Ljava/lang/String;
+    invoke-direct {v0, p1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    move-result-object v3
+    const-string p1, "  "
 
-    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, "State changed to:"
 
-    const-string v3, "State changed to:"
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-boolean v1, p0, Lcom/android/server/vr/VrManagerService$VrState;->enabled:Z
 
-    iget-boolean v3, p0, Lcom/android/server/vr/VrManagerService$VrState;->enabled:Z
+    if-eqz v1, :cond_0
 
-    if-eqz v3, :cond_0
-
-    const-string v3, "ENABLED"
+    const-string v1, "ENABLED"
 
     goto :goto_0
 
     :cond_0
-    const-string v3, "DISABLED"
+    const-string v1, "DISABLED"
 
     :goto_0
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, "\n"
 
-    iget-boolean v3, p0, Lcom/android/server/vr/VrManagerService$VrState;->enabled:Z
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    if-eqz v3, :cond_3
+    iget-boolean v2, p0, Lcom/android/server/vr/VrManagerService$VrState;->enabled:Z
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    if-eqz v2, :cond_3
 
-    const-string v3, "User="
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v2, "User="
 
-    iget v3, p0, Lcom/android/server/vr/VrManagerService$VrState;->userId:I
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    iget v2, p0, Lcom/android/server/vr/VrManagerService$VrState;->userId:I
 
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, "Current VR Activity="
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v2, "Current VR Activity="
 
-    iget-object v3, p0, Lcom/android/server/vr/VrManagerService$VrState;->callingPackage:Landroid/content/ComponentName;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v4, "None"
+    iget-object v2, p0, Lcom/android/server/vr/VrManagerService$VrState;->callingPackage:Landroid/content/ComponentName;
 
-    if-nez v3, :cond_1
+    const-string v3, "None"
 
-    move-object v3, v4
+    if-nez v2, :cond_1
+
+    move-object v2, v3
 
     goto :goto_1
 
     :cond_1
-    invoke-virtual {v3}, Landroid/content/ComponentName;->flattenToString()Ljava/lang/String;
+    invoke-virtual {v2}, Landroid/content/ComponentName;->flattenToString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
     :goto_1
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, "Bound VrListenerService="
+    const-string v2, "Bound VrListenerService="
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v3, p0, Lcom/android/server/vr/VrManagerService$VrState;->targetPackageName:Landroid/content/ComponentName;
+    iget-object v2, p0, Lcom/android/server/vr/VrManagerService$VrState;->targetPackageName:Landroid/content/ComponentName;
 
-    if-nez v3, :cond_2
+    if-nez v2, :cond_2
 
     goto :goto_2
 
     :cond_2
-    invoke-virtual {v3}, Landroid/content/ComponentName;->flattenToString()Ljava/lang/String;
-
-    move-result-object v4
-
-    :goto_2
-    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-boolean v3, p0, Lcom/android/server/vr/VrManagerService$VrState;->defaultPermissionsGranted:Z
-
-    if-eqz v3, :cond_3
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v3, "Default permissions granted to the bound VrListenerService."
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    :cond_3
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Landroid/content/ComponentName;->flattenToString()Ljava/lang/String;
 
     move-result-object v3
 
-    return-object v3
+    :goto_2
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-boolean p0, p0, Lcom/android/server/vr/VrManagerService$VrState;->defaultPermissionsGranted:Z
+
+    if-eqz p0, :cond_3
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string p0, "Default permissions granted to the bound VrListenerService."
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    :cond_3
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 .end method

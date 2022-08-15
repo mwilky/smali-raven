@@ -1,35 +1,52 @@
 .class public final synthetic Lcom/android/server/om/OverlayManagerService$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/internal/util/FunctionalUtils$ThrowingConsumer;
+.implements Ljava/lang/Runnable;
 
 
 # instance fields
-.field public final synthetic f$0:Landroid/util/SparseArray;
+.field public final synthetic f$0:Lcom/android/server/om/OverlayManagerService;
+
+.field public final synthetic f$1:Ljava/util/List;
+
+.field public final synthetic f$2:I
+
+.field public final synthetic f$3:Landroid/util/ArraySet;
 
 
 # direct methods
-.method public synthetic constructor <init>(Landroid/util/SparseArray;)V
+.method public synthetic constructor <init>(Lcom/android/server/om/OverlayManagerService;Ljava/util/List;ILandroid/util/ArraySet;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/om/OverlayManagerService$$ExternalSyntheticLambda1;->f$0:Landroid/util/SparseArray;
+    iput-object p1, p0, Lcom/android/server/om/OverlayManagerService$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/om/OverlayManagerService;
+
+    iput-object p2, p0, Lcom/android/server/om/OverlayManagerService$$ExternalSyntheticLambda1;->f$1:Ljava/util/List;
+
+    iput p3, p0, Lcom/android/server/om/OverlayManagerService$$ExternalSyntheticLambda1;->f$2:I
+
+    iput-object p4, p0, Lcom/android/server/om/OverlayManagerService$$ExternalSyntheticLambda1;->f$3:Landroid/util/ArraySet;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final acceptOrThrow(Ljava/lang/Object;)V
-    .locals 1
+.method public final run()V
+    .locals 3
 
-    iget-object v0, p0, Lcom/android/server/om/OverlayManagerService$$ExternalSyntheticLambda1;->f$0:Landroid/util/SparseArray;
+    iget-object v0, p0, Lcom/android/server/om/OverlayManagerService$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/om/OverlayManagerService;
 
-    check-cast p1, Lcom/android/server/om/PackageAndUser;
+    iget-object v1, p0, Lcom/android/server/om/OverlayManagerService$$ExternalSyntheticLambda1;->f$1:Ljava/util/List;
 
-    invoke-static {v0, p1}, Lcom/android/server/om/OverlayManagerService;->lambda$groupTargetsByUserId$2(Landroid/util/SparseArray;Lcom/android/server/om/PackageAndUser;)V
+    iget v2, p0, Lcom/android/server/om/OverlayManagerService$$ExternalSyntheticLambda1;->f$2:I
+
+    iget-object p0, p0, Lcom/android/server/om/OverlayManagerService$$ExternalSyntheticLambda1;->f$3:Landroid/util/ArraySet;
+
+    invoke-static {v0, v1, v2, p0}, Lcom/android/server/om/OverlayManagerService;->$r8$lambda$7_qFbBv0vShuS_A6BBTNDNEhaWs(Lcom/android/server/om/OverlayManagerService;Ljava/util/List;ILandroid/util/ArraySet;)V
 
     return-void
 .end method

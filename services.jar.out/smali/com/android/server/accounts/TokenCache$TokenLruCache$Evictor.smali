@@ -1,4 +1,4 @@
-.class Lcom/android/server/accounts/TokenCache$TokenLruCache$Evictor;
+.class public Lcom/android/server/accounts/TokenCache$TokenLruCache$Evictor;
 .super Ljava/lang/Object;
 .source "TokenCache.java"
 
@@ -9,13 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "Evictor"
 .end annotation
 
 
 # instance fields
-.field private final mKeys:Ljava/util/List;
+.field public final mKeys:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -25,7 +25,7 @@
     .end annotation
 .end field
 
-.field final synthetic this$0:Lcom/android/server/accounts/TokenCache$TokenLruCache;
+.field public final synthetic this$0:Lcom/android/server/accounts/TokenCache$TokenLruCache;
 
 
 # direct methods
@@ -48,11 +48,11 @@
 
 # virtual methods
 .method public add(Lcom/android/server/accounts/TokenCache$Key;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/accounts/TokenCache$TokenLruCache$Evictor;->mKeys:Ljava/util/List;
+    iget-object p0, p0, Lcom/android/server/accounts/TokenCache$TokenLruCache$Evictor;->mKeys:Ljava/util/List;
 
-    invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     return-void
 .end method
@@ -81,7 +81,7 @@
 
     iget-object v2, p0, Lcom/android/server/accounts/TokenCache$TokenLruCache$Evictor;->this$0:Lcom/android/server/accounts/TokenCache$TokenLruCache;
 
-    invoke-virtual {v2, v1}, Lcom/android/server/accounts/TokenCache$TokenLruCache;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v1}, Landroid/util/LruCache;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_0
 

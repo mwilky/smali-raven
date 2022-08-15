@@ -1,37 +1,26 @@
 .class public final synthetic Lcom/android/server/wm/PersisterQueue$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Predicate;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/android/server/wm/PersisterQueue$WriteQueueItem;
+.implements Lcom/android/server/wm/PersisterQueue$WriteQueueItem;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/wm/PersisterQueue$WriteQueueItem;)V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/server/wm/PersisterQueue$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/wm/PersisterQueue$WriteQueueItem;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final test(Ljava/lang/Object;)Z
-    .locals 1
+.method public final process()V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/PersisterQueue$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/wm/PersisterQueue$WriteQueueItem;
+    invoke-static {}, Lcom/android/server/wm/PersisterQueue;->$r8$lambda$syVj9EGgTHDI9mYKZaXH4FHirr0()V
 
-    check-cast p1, Lcom/android/server/wm/PersisterQueue$WriteQueueItem;
-
-    invoke-interface {v0, p1}, Lcom/android/server/wm/PersisterQueue$WriteQueueItem;->matches(Lcom/android/server/wm/PersisterQueue$WriteQueueItem;)Z
-
-    move-result p1
-
-    return p1
+    return-void
 .end method

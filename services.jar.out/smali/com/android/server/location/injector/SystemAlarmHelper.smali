@@ -4,7 +4,7 @@
 
 
 # instance fields
-.field private final mContext:Landroid/content/Context;
+.field public final mContext:Landroid/content/Context;
 
 
 # direct methods
@@ -21,69 +21,71 @@
 
 # virtual methods
 .method public cancel(Landroid/app/AlarmManager$OnAlarmListener;)V
-    .locals 2
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/location/injector/SystemAlarmHelper;->mContext:Landroid/content/Context;
+    iget-object p0, p0, Lcom/android/server/location/injector/SystemAlarmHelper;->mContext:Landroid/content/Context;
 
-    const-class v1, Landroid/app/AlarmManager;
+    const-class v0, Landroid/app/AlarmManager;
 
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
+
+    check-cast p0, Landroid/app/AlarmManager;
+
+    invoke-static {p0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-object v0, p0
 
     check-cast v0, Landroid/app/AlarmManager;
 
-    invoke-static {v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    check-cast v0, Landroid/app/AlarmManager;
-
-    invoke-virtual {v0, p1}, Landroid/app/AlarmManager;->cancel(Landroid/app/AlarmManager$OnAlarmListener;)V
+    invoke-virtual {p0, p1}, Landroid/app/AlarmManager;->cancel(Landroid/app/AlarmManager$OnAlarmListener;)V
 
     return-void
 .end method
 
 .method public setDelayedAlarmInternal(JLandroid/app/AlarmManager$OnAlarmListener;Landroid/os/WorkSource;)V
-    .locals 13
+    .locals 11
+
+    iget-object p0, p0, Lcom/android/server/location/injector/SystemAlarmHelper;->mContext:Landroid/content/Context;
+
+    const-class v0, Landroid/app/AlarmManager;
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object p0
 
     move-object v0, p0
 
-    iget-object v1, v0, Lcom/android/server/location/injector/SystemAlarmHelper;->mContext:Landroid/content/Context;
+    check-cast v0, Landroid/app/AlarmManager;
 
-    const-class v2, Landroid/app/AlarmManager;
+    invoke-static {v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+    move-object p0, v0
 
-    move-result-object v1
-
-    check-cast v1, Landroid/app/AlarmManager;
-
-    invoke-static {v1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    check-cast v1, Landroid/app/AlarmManager;
+    check-cast p0, Landroid/app/AlarmManager;
 
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
-    move-result-wide v2
+    move-result-wide v1
 
-    add-long v4, v2, p1
+    add-long v2, v1, p1
 
     invoke-static {}, Lcom/android/server/FgThread;->getHandler()Landroid/os/Handler;
 
-    move-result-object v11
+    move-result-object v9
 
-    const/4 v3, 0x2
+    const/4 v1, 0x2
+
+    const-wide/16 v4, 0x0
 
     const-wide/16 v6, 0x0
 
-    const-wide/16 v8, 0x0
+    move-object v8, p3
 
-    move-object v2, v1
+    move-object v10, p4
 
-    move-object/from16 v10, p3
-
-    move-object/from16 v12, p4
-
-    invoke-virtual/range {v2 .. v12}, Landroid/app/AlarmManager;->set(IJJJLandroid/app/AlarmManager$OnAlarmListener;Landroid/os/Handler;Landroid/os/WorkSource;)V
+    invoke-virtual/range {v0 .. v10}, Landroid/app/AlarmManager;->set(IJJJLandroid/app/AlarmManager$OnAlarmListener;Landroid/os/Handler;Landroid/os/WorkSource;)V
 
     return-void
 .end method

@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/wm/DisplayPolicy$2$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -27,13 +28,13 @@
 
 # virtual methods
 .method public final run()V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/wm/DisplayPolicy$2$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/wm/DisplayPolicy$2;
 
-    iget v1, p0, Lcom/android/server/wm/DisplayPolicy$2$$ExternalSyntheticLambda2;->f$1:I
+    iget p0, p0, Lcom/android/server/wm/DisplayPolicy$2$$ExternalSyntheticLambda2;->f$1:I
 
-    invoke-virtual {v0, v1}, Lcom/android/server/wm/DisplayPolicy$2;->lambda$$2$DisplayPolicy$2(I)V
+    invoke-static {v0, p0}, Lcom/android/server/wm/DisplayPolicy$2;->$r8$lambda$eux2WAaC-W994PC8NDAvKRdCk2Q(Lcom/android/server/wm/DisplayPolicy$2;I)V
 
     return-void
 .end method

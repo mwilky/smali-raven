@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/server/apphibernation/ProtoReadWriter;
+.class public interface abstract Lcom/android/server/apphibernation/ProtoReadWriter;
 .super Ljava/lang/Object;
 .source "ProtoReadWriter.java"
 

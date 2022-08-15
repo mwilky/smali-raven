@@ -1,4 +1,4 @@
-.class Lcom/android/server/BinderCallsStatsService$SettingsObserver;
+.class public Lcom/android/server/BinderCallsStatsService$SettingsObserver;
 .super Landroid/database/ContentObserver;
 .source "BinderCallsStatsService.java"
 
@@ -9,27 +9,37 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "SettingsObserver"
 .end annotation
 
 
 # instance fields
-.field private final mBinderCallsStats:Lcom/android/internal/os/BinderCallsStats;
+.field public final mBinderCallsStats:Lcom/android/internal/os/BinderCallsStats;
 
-.field private final mContext:Landroid/content/Context;
+.field public final mContext:Landroid/content/Context;
 
-.field private mEnabled:Z
+.field public mEnabled:Z
 
-.field private final mParser:Landroid/util/KeyValueListParser;
+.field public final mParser:Landroid/util/KeyValueListParser;
 
-.field private final mUri:Landroid/net/Uri;
+.field public final mUri:Landroid/net/Uri;
 
-.field private final mWorkSourceProvider:Lcom/android/server/BinderCallsStatsService$AuthorizedWorkSourceProvider;
+.field public final mWorkSourceProvider:Lcom/android/server/BinderCallsStatsService$AuthorizedWorkSourceProvider;
 
 
 # direct methods
-.method constructor <init>(Landroid/content/Context;Lcom/android/internal/os/BinderCallsStats;Lcom/android/server/BinderCallsStatsService$AuthorizedWorkSourceProvider;)V
+.method public static synthetic $r8$lambda$OKRhhu6iYXJJRzYdTSZuWm_BsAI(I)I
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/server/BinderCallsStatsService$SettingsObserver;->lambda$onChange$0(I)I
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public constructor <init>(Landroid/content/Context;Lcom/android/internal/os/BinderCallsStats;Lcom/android/server/BinderCallsStatsService$AuthorizedWorkSourceProvider;)V
     .locals 3
 
     invoke-static {}, Lcom/android/internal/os/BackgroundThread;->getHandler()Landroid/os/Handler;
@@ -58,11 +68,11 @@
 
     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v1
+    move-result-object p1
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    invoke-virtual {v1, v0, v2, p0, v2}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
+    invoke-virtual {p1, v0, v1, p0, v1}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
 
     iput-object p2, p0, Lcom/android/server/BinderCallsStatsService$SettingsObserver;->mBinderCallsStats:Lcom/android/internal/os/BinderCallsStats;
 
@@ -73,14 +83,14 @@
     return-void
 .end method
 
-.method static synthetic lambda$onChange$0(I)I
-    .locals 1
+.method public static synthetic lambda$onChange$0(I)I
+    .locals 0
 
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 
@@ -285,7 +295,9 @@
 
     invoke-static {v1}, Landroid/os/Binder;->setProxyTransactListener(Landroid/os/Binder$ProxyTransactListener;)V
 
-    sget-object v1, Lcom/android/server/BinderCallsStatsService$SettingsObserver$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/server/BinderCallsStatsService$SettingsObserver$$ExternalSyntheticLambda0;
+    new-instance v1, Lcom/android/server/BinderCallsStatsService$SettingsObserver$$ExternalSyntheticLambda0;
+
+    invoke-direct {v1}, Lcom/android/server/BinderCallsStatsService$SettingsObserver$$ExternalSyntheticLambda0;-><init>()V
 
     invoke-static {v1}, Landroid/os/Binder;->setWorkSourceProvider(Lcom/android/internal/os/BinderInternal$WorkSourceProvider;)V
 
@@ -300,28 +312,28 @@
 
     invoke-virtual {v1, v0}, Lcom/android/internal/os/BinderCallsStats;->setAddDebugEntries(Z)V
 
-    iget-object v1, p0, Lcom/android/server/BinderCallsStatsService$SettingsObserver;->mBinderCallsStats:Lcom/android/internal/os/BinderCallsStats;
+    iget-object p0, p0, Lcom/android/server/BinderCallsStatsService$SettingsObserver;->mBinderCallsStats:Lcom/android/internal/os/BinderCallsStats;
 
-    invoke-virtual {v1}, Lcom/android/internal/os/BinderCallsStats;->getLatencyObserver()Lcom/android/internal/os/BinderLatencyObserver;
+    invoke-virtual {p0}, Lcom/android/internal/os/BinderCallsStats;->getLatencyObserver()Lcom/android/internal/os/BinderLatencyObserver;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v1}, Lcom/android/internal/os/BinderLatencyObserver;->reset()V
+    invoke-virtual {p0}, Lcom/android/internal/os/BinderLatencyObserver;->reset()V
 
     :cond_2
     return-void
 .end method
 
 .method public onChange(ZLandroid/net/Uri;I)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/BinderCallsStatsService$SettingsObserver;->mUri:Landroid/net/Uri;
+    iget-object p1, p0, Lcom/android/server/BinderCallsStatsService$SettingsObserver;->mUri:Landroid/net/Uri;
 
-    invoke-virtual {v0, p2}, Landroid/net/Uri;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, p2}, Landroid/net/Uri;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     invoke-virtual {p0}, Lcom/android/server/BinderCallsStatsService$SettingsObserver;->onChange()V
 

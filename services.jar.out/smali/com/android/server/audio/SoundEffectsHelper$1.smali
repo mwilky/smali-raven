@@ -1,4 +1,4 @@
-.class Lcom/android/server/audio/SoundEffectsHelper$1;
+.class public Lcom/android/server/audio/SoundEffectsHelper$1;
 .super Ljava/lang/Object;
 .source "SoundEffectsHelper.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/audio/SoundEffectsHelper;
+.field public final synthetic this$0:Lcom/android/server/audio/SoundEffectsHelper;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/audio/SoundEffectsHelper;)V
+.method public constructor <init>(Lcom/android/server/audio/SoundEffectsHelper;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/audio/SoundEffectsHelper$1;->this$0:Lcom/android/server/audio/SoundEffectsHelper;
@@ -41,19 +41,19 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/android/server/audio/SoundEffectsHelper;->access$002(Lcom/android/server/audio/SoundEffectsHelper;Lcom/android/server/audio/SoundEffectsHelper$SoundPoolLoader;)Lcom/android/server/audio/SoundEffectsHelper$SoundPoolLoader;
+    invoke-static {v0, v1}, Lcom/android/server/audio/SoundEffectsHelper;->-$$Nest$fputmSoundPoolLoader(Lcom/android/server/audio/SoundEffectsHelper;Lcom/android/server/audio/SoundEffectsHelper$SoundPoolLoader;)V
 
     if-nez p1, :cond_0
 
-    const-string v0, "AS.SfxHelper"
+    const-string p1, "AS.SfxHelper"
 
-    const-string/jumbo v1, "onLoadSoundEffects(), Error while loading samples"
+    const-string/jumbo v0, "onLoadSoundEffects(), Error while loading samples"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p1, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v0, p0, Lcom/android/server/audio/SoundEffectsHelper$1;->this$0:Lcom/android/server/audio/SoundEffectsHelper;
+    iget-object p0, p0, Lcom/android/server/audio/SoundEffectsHelper$1;->this$0:Lcom/android/server/audio/SoundEffectsHelper;
 
-    invoke-virtual {v0}, Lcom/android/server/audio/SoundEffectsHelper;->onUnloadSoundEffects()V
+    invoke-virtual {p0}, Lcom/android/server/audio/SoundEffectsHelper;->onUnloadSoundEffects()V
 
     :cond_0
     return-void

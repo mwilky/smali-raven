@@ -1,4 +1,4 @@
-.class Lcom/android/server/hdmi/HotplugDetectionAction$1;
+.class public Lcom/android/server/hdmi/HotplugDetectionAction$1;
 .super Ljava/lang/Object;
 .source "HotplugDetectionAction.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/hdmi/HotplugDetectionAction;
+.field public final synthetic this$0:Lcom/android/server/hdmi/HotplugDetectionAction;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/hdmi/HotplugDetectionAction;)V
+.method public constructor <init>(Lcom/android/server/hdmi/HotplugDetectionAction;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/hdmi/HotplugDetectionAction$1;->this$0:Lcom/android/server/hdmi/HotplugDetectionAction;
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onPollingFinished(Ljava/util/List;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -45,11 +45,11 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/android/server/hdmi/HotplugDetectionAction$1;->this$0:Lcom/android/server/hdmi/HotplugDetectionAction;
+    iget-object p0, p0, Lcom/android/server/hdmi/HotplugDetectionAction$1;->this$0:Lcom/android/server/hdmi/HotplugDetectionAction;
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    invoke-static {v0, p1, v1}, Lcom/android/server/hdmi/HotplugDetectionAction;->access$000(Lcom/android/server/hdmi/HotplugDetectionAction;Ljava/util/List;Z)V
+    invoke-static {p0, p1, v0}, Lcom/android/server/hdmi/HotplugDetectionAction;->-$$Nest$mcheckHotplug(Lcom/android/server/hdmi/HotplugDetectionAction;Ljava/util/List;Z)V
 
     return-void
 .end method

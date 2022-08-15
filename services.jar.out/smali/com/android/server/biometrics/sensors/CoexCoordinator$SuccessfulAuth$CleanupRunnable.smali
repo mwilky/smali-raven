@@ -18,11 +18,11 @@
 
 
 # instance fields
-.field final mAuth:Lcom/android/server/biometrics/sensors/CoexCoordinator$SuccessfulAuth;
+.field public final mAuth:Lcom/android/server/biometrics/sensors/CoexCoordinator$SuccessfulAuth;
 
-.field final mCallback:Lcom/android/server/biometrics/sensors/CoexCoordinator$Callback;
+.field public final mCallback:Lcom/android/server/biometrics/sensors/CoexCoordinator$Callback;
 
-.field final mSuccessfulAuths:Ljava/util/LinkedList;
+.field public final mSuccessfulAuths:Ljava/util/LinkedList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/LinkedList<",
@@ -96,15 +96,15 @@
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    const-string v2, "BiometricCoexCoordinator"
+    const-string v1, "BiometricCoexCoordinator"
 
-    invoke-static {v2, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v1, p0, Lcom/android/server/biometrics/sensors/CoexCoordinator$SuccessfulAuth$CleanupRunnable;->mCallback:Lcom/android/server/biometrics/sensors/CoexCoordinator$Callback;
+    iget-object p0, p0, Lcom/android/server/biometrics/sensors/CoexCoordinator$SuccessfulAuth$CleanupRunnable;->mCallback:Lcom/android/server/biometrics/sensors/CoexCoordinator$Callback;
 
-    invoke-interface {v1}, Lcom/android/server/biometrics/sensors/CoexCoordinator$Callback;->handleLifecycleAfterAuth()V
+    invoke-interface {p0}, Lcom/android/server/biometrics/sensors/CoexCoordinator$Callback;->handleLifecycleAfterAuth()V
 
     return-void
 .end method

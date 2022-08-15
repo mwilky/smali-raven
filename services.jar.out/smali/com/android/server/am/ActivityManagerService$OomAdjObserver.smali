@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/server/am/ActivityManagerService$OomAdjObserver;
+.class public interface abstract Lcom/android/server/am/ActivityManagerService$OomAdjObserver;
 .super Ljava/lang/Object;
 .source "ActivityManagerService.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
+    accessFlags = 0x609
     name = "OomAdjObserver"
 .end annotation
 

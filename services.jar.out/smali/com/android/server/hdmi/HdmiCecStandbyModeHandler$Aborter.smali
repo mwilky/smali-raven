@@ -1,4 +1,4 @@
-.class final Lcom/android/server/hdmi/HdmiCecStandbyModeHandler$Aborter;
+.class public final Lcom/android/server/hdmi/HdmiCecStandbyModeHandler$Aborter;
 .super Ljava/lang/Object;
 .source "HdmiCecStandbyModeHandler.java"
 
@@ -12,15 +12,15 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "Aborter"
 .end annotation
 
 
 # instance fields
-.field private final mReason:I
+.field public final mReason:I
 
-.field final synthetic this$0:Lcom/android/server/hdmi/HdmiCecStandbyModeHandler;
+.field public final synthetic this$0:Lcom/android/server/hdmi/HdmiCecStandbyModeHandler;
 
 
 # direct methods
@@ -39,19 +39,19 @@
 
 # virtual methods
 .method public handle(Lcom/android/server/hdmi/HdmiCecMessage;)Z
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecStandbyModeHandler$Aborter;->this$0:Lcom/android/server/hdmi/HdmiCecStandbyModeHandler;
 
-    invoke-static {v0}, Lcom/android/server/hdmi/HdmiCecStandbyModeHandler;->access$000(Lcom/android/server/hdmi/HdmiCecStandbyModeHandler;)Lcom/android/server/hdmi/HdmiControlService;
+    invoke-static {v0}, Lcom/android/server/hdmi/HdmiCecStandbyModeHandler;->-$$Nest$fgetmService(Lcom/android/server/hdmi/HdmiCecStandbyModeHandler;)Lcom/android/server/hdmi/HdmiControlService;
 
     move-result-object v0
 
-    iget v1, p0, Lcom/android/server/hdmi/HdmiCecStandbyModeHandler$Aborter;->mReason:I
+    iget p0, p0, Lcom/android/server/hdmi/HdmiCecStandbyModeHandler$Aborter;->mReason:I
 
-    invoke-virtual {v0, p1, v1}, Lcom/android/server/hdmi/HdmiControlService;->maySendFeatureAbortCommand(Lcom/android/server/hdmi/HdmiCecMessage;I)V
+    invoke-virtual {v0, p1, p0}, Lcom/android/server/hdmi/HdmiControlService;->maySendFeatureAbortCommand(Lcom/android/server/hdmi/HdmiCecMessage;I)V
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 .end method

@@ -21,11 +21,11 @@
 
 
 # instance fields
-.field private final mService:Lcom/android/server/location/LocationManagerService;
+.field public final mService:Lcom/android/server/location/LocationManagerService;
 
-.field private final mSystemInjector:Lcom/android/server/location/LocationManagerService$SystemInjector;
+.field public final mSystemInjector:Lcom/android/server/location/LocationManagerService$SystemInjector;
 
-.field private final mUserInfoHelper:Lcom/android/server/location/LocationManagerService$Lifecycle$LifecycleUserInfoHelper;
+.field public final mUserInfoHelper:Lcom/android/server/location/LocationManagerService$Lifecycle$LifecycleUserInfoHelper;
 
 
 # direct methods
@@ -64,13 +64,13 @@
 
     if-ne p1, v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/location/LocationManagerService$Lifecycle;->mSystemInjector:Lcom/android/server/location/LocationManagerService$SystemInjector;
+    iget-object p1, p0, Lcom/android/server/location/LocationManagerService$Lifecycle;->mSystemInjector:Lcom/android/server/location/LocationManagerService$SystemInjector;
 
-    invoke-virtual {v0}, Lcom/android/server/location/LocationManagerService$SystemInjector;->onSystemReady()V
+    invoke-virtual {p1}, Lcom/android/server/location/LocationManagerService$SystemInjector;->onSystemReady()V
 
-    iget-object v0, p0, Lcom/android/server/location/LocationManagerService$Lifecycle;->mService:Lcom/android/server/location/LocationManagerService;
+    iget-object p0, p0, Lcom/android/server/location/LocationManagerService$Lifecycle;->mService:Lcom/android/server/location/LocationManagerService;
 
-    invoke-virtual {v0}, Lcom/android/server/location/LocationManagerService;->onSystemReady()V
+    invoke-virtual {p0}, Lcom/android/server/location/LocationManagerService;->onSystemReady()V
 
     goto :goto_0
 
@@ -79,9 +79,9 @@
 
     if-ne p1, v0, :cond_1
 
-    iget-object v0, p0, Lcom/android/server/location/LocationManagerService$Lifecycle;->mService:Lcom/android/server/location/LocationManagerService;
+    iget-object p0, p0, Lcom/android/server/location/LocationManagerService$Lifecycle;->mService:Lcom/android/server/location/LocationManagerService;
 
-    invoke-virtual {v0}, Lcom/android/server/location/LocationManagerService;->onSystemThirdPartyAppsCanStart()V
+    invoke-virtual {p0}, Lcom/android/server/location/LocationManagerService;->onSystemThirdPartyAppsCanStart()V
 
     :cond_1
     :goto_0
@@ -93,9 +93,9 @@
 
     iget-object v0, p0, Lcom/android/server/location/LocationManagerService$Lifecycle;->mService:Lcom/android/server/location/LocationManagerService;
 
-    const-string/jumbo v1, "location"
+    const-string v1, "location"
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/server/location/LocationManagerService$Lifecycle;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
+    invoke-virtual {p0, v1, v0}, Lcom/android/server/SystemService;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
 
     invoke-static {}, Landroid/location/LocationManager;->invalidateLocalLocationEnabledCaches()V
 
@@ -105,47 +105,47 @@
 .end method
 
 .method public onUserStarting(Lcom/android/server/SystemService$TargetUser;)V
-    .locals 2
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/location/LocationManagerService$Lifecycle;->mUserInfoHelper:Lcom/android/server/location/LocationManagerService$Lifecycle$LifecycleUserInfoHelper;
+    iget-object p0, p0, Lcom/android/server/location/LocationManagerService$Lifecycle;->mUserInfoHelper:Lcom/android/server/location/LocationManagerService$Lifecycle$LifecycleUserInfoHelper;
 
     invoke-virtual {p1}, Lcom/android/server/SystemService$TargetUser;->getUserIdentifier()I
 
-    move-result v1
+    move-result p1
 
-    invoke-virtual {v0, v1}, Lcom/android/server/location/LocationManagerService$Lifecycle$LifecycleUserInfoHelper;->onUserStarted(I)V
+    invoke-virtual {p0, p1}, Lcom/android/server/location/LocationManagerService$Lifecycle$LifecycleUserInfoHelper;->onUserStarted(I)V
 
     return-void
 .end method
 
 .method public onUserStopped(Lcom/android/server/SystemService$TargetUser;)V
-    .locals 2
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/location/LocationManagerService$Lifecycle;->mUserInfoHelper:Lcom/android/server/location/LocationManagerService$Lifecycle$LifecycleUserInfoHelper;
+    iget-object p0, p0, Lcom/android/server/location/LocationManagerService$Lifecycle;->mUserInfoHelper:Lcom/android/server/location/LocationManagerService$Lifecycle$LifecycleUserInfoHelper;
 
     invoke-virtual {p1}, Lcom/android/server/SystemService$TargetUser;->getUserIdentifier()I
 
-    move-result v1
+    move-result p1
 
-    invoke-virtual {v0, v1}, Lcom/android/server/location/LocationManagerService$Lifecycle$LifecycleUserInfoHelper;->onUserStopped(I)V
+    invoke-virtual {p0, p1}, Lcom/android/server/location/LocationManagerService$Lifecycle$LifecycleUserInfoHelper;->onUserStopped(I)V
 
     return-void
 .end method
 
 .method public onUserSwitching(Lcom/android/server/SystemService$TargetUser;Lcom/android/server/SystemService$TargetUser;)V
-    .locals 3
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/location/LocationManagerService$Lifecycle;->mUserInfoHelper:Lcom/android/server/location/LocationManagerService$Lifecycle$LifecycleUserInfoHelper;
+    iget-object p0, p0, Lcom/android/server/location/LocationManagerService$Lifecycle;->mUserInfoHelper:Lcom/android/server/location/LocationManagerService$Lifecycle$LifecycleUserInfoHelper;
 
     invoke-virtual {p1}, Lcom/android/server/SystemService$TargetUser;->getUserIdentifier()I
 
-    move-result v1
+    move-result p1
 
     invoke-virtual {p2}, Lcom/android/server/SystemService$TargetUser;->getUserIdentifier()I
 
-    move-result v2
+    move-result p2
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/location/LocationManagerService$Lifecycle$LifecycleUserInfoHelper;->onCurrentUserChanged(II)V
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/location/LocationManagerService$Lifecycle$LifecycleUserInfoHelper;->onCurrentUserChanged(II)V
 
     return-void
 .end method

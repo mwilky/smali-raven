@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/backup/UserBackupManagerService$2$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -27,13 +28,13 @@
 
 # virtual methods
 .method public final run()V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/backup/UserBackupManagerService$2$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/backup/UserBackupManagerService$2;
 
-    iget-object v1, p0, Lcom/android/server/backup/UserBackupManagerService$2$$ExternalSyntheticLambda1;->f$1:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/backup/UserBackupManagerService$2$$ExternalSyntheticLambda1;->f$1:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/backup/UserBackupManagerService$2;->lambda$onReceive$2$UserBackupManagerService$2(Ljava/lang/String;)V
+    invoke-static {v0, p0}, Lcom/android/server/backup/UserBackupManagerService$2;->$r8$lambda$zkL4lkBVsrp0I18zMORcBirzgr4(Lcom/android/server/backup/UserBackupManagerService$2;Ljava/lang/String;)V
 
     return-void
 .end method

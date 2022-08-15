@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/notification/NotificationManagerService$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/provider/DeviceConfig$OnPropertiesChangedListener;
+.implements Lcom/android/server/notification/SnoozeHelper$Callback;
 
 
 # instance fields
@@ -22,12 +23,12 @@
 
 
 # virtual methods
-.method public final onPropertiesChanged(Landroid/provider/DeviceConfig$Properties;)V
-    .locals 1
+.method public final repost(ILcom/android/server/notification/NotificationRecord;Z)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/notification/NotificationManagerService;
+    iget-object p0, p0, Lcom/android/server/notification/NotificationManagerService$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/notification/NotificationManagerService;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/notification/NotificationManagerService;->lambda$registerDeviceConfigChange$1$NotificationManagerService(Landroid/provider/DeviceConfig$Properties;)V
+    invoke-static {p0, p1, p2, p3}, Lcom/android/server/notification/NotificationManagerService;->$r8$lambda$wOqy8RyqFkzV9jOGgX8C5waJG3Q(Lcom/android/server/notification/NotificationManagerService;ILcom/android/server/notification/NotificationRecord;Z)V
 
     return-void
 .end method

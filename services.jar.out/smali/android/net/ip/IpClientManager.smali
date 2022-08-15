@@ -3,6 +3,11 @@
 .source "IpClientManager.java"
 
 
+# annotations
+.annotation build Landroid/annotation/Hide;
+.end annotation
+
+
 # instance fields
 .field private final mIpClient:Landroid/net/ip/IIpClient;
 
@@ -37,11 +42,11 @@
 .end method
 
 .method private log(Ljava/lang/String;Ljava/lang/Throwable;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Landroid/net/ip/IpClientManager;->mTag:Ljava/lang/String;
+    iget-object p0, p0, Landroid/net/ip/IpClientManager;->mTag:Ljava/lang/String;
 
-    invoke-static {v0, p1, p2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {p0, p1, p2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     return-void
 .end method
@@ -49,7 +54,7 @@
 
 # virtual methods
 .method public addKeepalivePacketFilter(ILandroid/net/NattKeepalivePacketData;)Z
-    .locals 4
+    .locals 3
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
@@ -60,62 +65,61 @@
 
     invoke-static {p2}, Landroid/net/util/KeepalivePacketDataUtil;->toStableParcelable(Landroid/net/NattKeepalivePacketData;)Landroid/net/NattKeepalivePacketDataParcelable;
 
-    move-result-object v3
+    move-result-object p2
 
-    invoke-interface {v2, p1, v3}, Landroid/net/ip/IIpClient;->addNattKeepalivePacketFilter(ILandroid/net/NattKeepalivePacketDataParcelable;)V
+    invoke-interface {v2, p1, p2}, Landroid/net/ip/IIpClient;->addNattKeepalivePacketFilter(ILandroid/net/NattKeepalivePacketDataParcelable;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    const/4 v2, 0x1
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    return v2
-
-    :catchall_0
-    move-exception v2
-
-    goto :goto_0
-
-    :catch_0
-    move-exception v2
-
-    :try_start_1
-    const-string v3, "Error adding NAT-T Keepalive Packet Filter "
-
-    invoke-direct {p0, v3, v2}, Landroid/net/ip/IpClientManager;->log(Ljava/lang/String;Ljava/lang/Throwable;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    const/4 v3, 0x0
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    return v3
+    const/4 p0, 0x1
 
     :goto_0
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    throw v2
+    return p0
+
+    :catchall_0
+    move-exception p0
+
+    goto :goto_1
+
+    :catch_0
+    move-exception p1
+
+    :try_start_1
+    const-string p2, "Error adding NAT-T Keepalive Packet Filter "
+
+    invoke-direct {p0, p2, p1}, Landroid/net/ip/IpClientManager;->log(Ljava/lang/String;Ljava/lang/Throwable;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    const/4 p0, 0x0
+
+    goto :goto_0
+
+    :goto_1
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw p0
 .end method
 
 .method public addKeepalivePacketFilter(ILandroid/net/TcpKeepalivePacketData;)Z
-    .locals 1
+    .locals 0
 
     invoke-static {p2}, Landroid/net/util/KeepalivePacketDataUtil;->toStableParcelable(Landroid/net/TcpKeepalivePacketData;)Landroid/net/TcpKeepalivePacketDataParcelable;
 
-    move-result-object v0
+    move-result-object p2
 
-    invoke-virtual {p0, p1, v0}, Landroid/net/ip/IpClientManager;->addKeepalivePacketFilter(ILandroid/net/TcpKeepalivePacketDataParcelable;)Z
+    invoke-virtual {p0, p1, p2}, Landroid/net/ip/IpClientManager;->addKeepalivePacketFilter(ILandroid/net/TcpKeepalivePacketDataParcelable;)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public addKeepalivePacketFilter(ILandroid/net/TcpKeepalivePacketDataParcelable;)Z
-    .locals 4
+    .locals 3
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -131,37 +135,36 @@
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    const/4 v2, 0x1
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    return v2
-
-    :catchall_0
-    move-exception v2
-
-    goto :goto_0
-
-    :catch_0
-    move-exception v2
-
-    :try_start_1
-    const-string v3, "Error adding Keepalive Packet Filter "
-
-    invoke-direct {p0, v3, v2}, Landroid/net/ip/IpClientManager;->log(Ljava/lang/String;Ljava/lang/Throwable;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    const/4 v3, 0x0
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    return v3
+    const/4 p0, 0x1
 
     :goto_0
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    throw v2
+    return p0
+
+    :catchall_0
+    move-exception p0
+
+    goto :goto_1
+
+    :catch_0
+    move-exception p1
+
+    :try_start_1
+    const-string p2, "Error adding Keepalive Packet Filter "
+
+    invoke-direct {p0, p2, p1}, Landroid/net/ip/IpClientManager;->log(Ljava/lang/String;Ljava/lang/Throwable;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    const/4 p0, 0x0
+
+    goto :goto_0
+
+    :goto_1
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw p0
 .end method
 
 .method public completedPreDhcpAction()Z
@@ -179,16 +182,17 @@
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    const/4 v2, 0x1
+    const/4 p0, 0x1
 
+    :goto_0
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    return v2
+    return p0
 
     :catchall_0
-    move-exception v2
+    move-exception p0
 
-    goto :goto_0
+    goto :goto_1
 
     :catch_0
     move-exception v2
@@ -200,16 +204,14 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    const/4 v3, 0x0
+    const/4 p0, 0x0
 
+    goto :goto_0
+
+    :goto_1
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    return v3
-
-    :goto_0
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    throw v2
+    throw p0
 .end method
 
 .method public confirmConfiguration()Z
@@ -227,16 +229,17 @@
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    const/4 v2, 0x1
+    const/4 p0, 0x1
 
+    :goto_0
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    return v2
+    return p0
 
     :catchall_0
-    move-exception v2
+    move-exception p0
 
-    goto :goto_0
+    goto :goto_1
 
     :catch_0
     move-exception v2
@@ -248,20 +251,18 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    const/4 v3, 0x0
+    const/4 p0, 0x0
 
+    goto :goto_0
+
+    :goto_1
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    return v3
-
-    :goto_0
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    throw v2
+    throw p0
 .end method
 
 .method public notifyPreconnectionComplete(Z)Z
-    .locals 4
+    .locals 3
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
@@ -275,41 +276,40 @@
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    const/4 v2, 0x1
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    return v2
-
-    :catchall_0
-    move-exception v2
-
-    goto :goto_0
-
-    :catch_0
-    move-exception v2
-
-    :try_start_1
-    const-string v3, "Error notifying IpClient Preconnection completed"
-
-    invoke-direct {p0, v3, v2}, Landroid/net/ip/IpClientManager;->log(Ljava/lang/String;Ljava/lang/Throwable;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    const/4 v3, 0x0
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    return v3
+    const/4 p0, 0x1
 
     :goto_0
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    throw v2
+    return p0
+
+    :catchall_0
+    move-exception p0
+
+    goto :goto_1
+
+    :catch_0
+    move-exception p1
+
+    :try_start_1
+    const-string v2, "Error notifying IpClient Preconnection completed"
+
+    invoke-direct {p0, v2, p1}, Landroid/net/ip/IpClientManager;->log(Ljava/lang/String;Ljava/lang/Throwable;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    const/4 p0, 0x0
+
+    goto :goto_0
+
+    :goto_1
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw p0
 .end method
 
 .method public readPacketFilterComplete([B)Z
-    .locals 4
+    .locals 3
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
@@ -323,41 +323,40 @@
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    const/4 v2, 0x1
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    return v2
-
-    :catchall_0
-    move-exception v2
-
-    goto :goto_0
-
-    :catch_0
-    move-exception v2
-
-    :try_start_1
-    const-string v3, "Error notifying IpClient of packet filter read"
-
-    invoke-direct {p0, v3, v2}, Landroid/net/ip/IpClientManager;->log(Ljava/lang/String;Ljava/lang/Throwable;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    const/4 v3, 0x0
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    return v3
+    const/4 p0, 0x1
 
     :goto_0
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    throw v2
+    return p0
+
+    :catchall_0
+    move-exception p0
+
+    goto :goto_1
+
+    :catch_0
+    move-exception p1
+
+    :try_start_1
+    const-string v2, "Error notifying IpClient of packet filter read"
+
+    invoke-direct {p0, v2, p1}, Landroid/net/ip/IpClientManager;->log(Ljava/lang/String;Ljava/lang/Throwable;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    const/4 p0, 0x0
+
+    goto :goto_0
+
+    :goto_1
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw p0
 .end method
 
 .method public removeKeepalivePacketFilter(I)Z
-    .locals 4
+    .locals 3
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
@@ -371,41 +370,40 @@
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    const/4 v2, 0x1
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    return v2
-
-    :catchall_0
-    move-exception v2
-
-    goto :goto_0
-
-    :catch_0
-    move-exception v2
-
-    :try_start_1
-    const-string v3, "Error removing Keepalive Packet Filter "
-
-    invoke-direct {p0, v3, v2}, Landroid/net/ip/IpClientManager;->log(Ljava/lang/String;Ljava/lang/Throwable;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    const/4 v3, 0x0
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    return v3
+    const/4 p0, 0x1
 
     :goto_0
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    throw v2
+    return p0
+
+    :catchall_0
+    move-exception p0
+
+    goto :goto_1
+
+    :catch_0
+    move-exception p1
+
+    :try_start_1
+    const-string v2, "Error removing Keepalive Packet Filter "
+
+    invoke-direct {p0, v2, p1}, Landroid/net/ip/IpClientManager;->log(Ljava/lang/String;Ljava/lang/Throwable;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    const/4 p0, 0x0
+
+    goto :goto_0
+
+    :goto_1
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw p0
 .end method
 
 .method public setHttpProxy(Landroid/net/ProxyInfo;)Z
-    .locals 4
+    .locals 3
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
@@ -419,41 +417,40 @@
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    const/4 v2, 0x1
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    return v2
-
-    :catchall_0
-    move-exception v2
-
-    goto :goto_0
-
-    :catch_0
-    move-exception v2
-
-    :try_start_1
-    const-string v3, "Error setting IpClient proxy"
-
-    invoke-direct {p0, v3, v2}, Landroid/net/ip/IpClientManager;->log(Ljava/lang/String;Ljava/lang/Throwable;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    const/4 v3, 0x0
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    return v3
+    const/4 p0, 0x1
 
     :goto_0
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    throw v2
+    return p0
+
+    :catchall_0
+    move-exception p0
+
+    goto :goto_1
+
+    :catch_0
+    move-exception p1
+
+    :try_start_1
+    const-string v2, "Error setting IpClient proxy"
+
+    invoke-direct {p0, v2, p1}, Landroid/net/ip/IpClientManager;->log(Ljava/lang/String;Ljava/lang/Throwable;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    const/4 p0, 0x0
+
+    goto :goto_0
+
+    :goto_1
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw p0
 .end method
 
 .method public setL2KeyAndGroupHint(Ljava/lang/String;Ljava/lang/String;)Z
-    .locals 4
+    .locals 3
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
@@ -467,41 +464,40 @@
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    const/4 v2, 0x1
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    return v2
-
-    :catchall_0
-    move-exception v2
-
-    goto :goto_0
-
-    :catch_0
-    move-exception v2
-
-    :try_start_1
-    const-string v3, "Failed setL2KeyAndGroupHint"
-
-    invoke-direct {p0, v3, v2}, Landroid/net/ip/IpClientManager;->log(Ljava/lang/String;Ljava/lang/Throwable;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    const/4 v3, 0x0
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    return v3
+    const/4 p0, 0x1
 
     :goto_0
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    throw v2
+    return p0
+
+    :catchall_0
+    move-exception p0
+
+    goto :goto_1
+
+    :catch_0
+    move-exception p1
+
+    :try_start_1
+    const-string p2, "Failed setL2KeyAndGroupHint"
+
+    invoke-direct {p0, p2, p1}, Landroid/net/ip/IpClientManager;->log(Ljava/lang/String;Ljava/lang/Throwable;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    const/4 p0, 0x0
+
+    goto :goto_0
+
+    :goto_1
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw p0
 .end method
 
 .method public setMulticastFilter(Z)Z
-    .locals 4
+    .locals 3
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
@@ -515,41 +511,40 @@
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    const/4 v2, 0x1
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    return v2
-
-    :catchall_0
-    move-exception v2
-
-    goto :goto_0
-
-    :catch_0
-    move-exception v2
-
-    :try_start_1
-    const-string v3, "Error setting multicast filter"
-
-    invoke-direct {p0, v3, v2}, Landroid/net/ip/IpClientManager;->log(Ljava/lang/String;Ljava/lang/Throwable;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    const/4 v3, 0x0
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    return v3
+    const/4 p0, 0x1
 
     :goto_0
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    throw v2
+    return p0
+
+    :catchall_0
+    move-exception p0
+
+    goto :goto_1
+
+    :catch_0
+    move-exception p1
+
+    :try_start_1
+    const-string v2, "Error setting multicast filter"
+
+    invoke-direct {p0, v2, p1}, Landroid/net/ip/IpClientManager;->log(Ljava/lang/String;Ljava/lang/Throwable;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    const/4 p0, 0x0
+
+    goto :goto_0
+
+    :goto_1
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw p0
 .end method
 
 .method public setTcpBufferSizes(Ljava/lang/String;)Z
-    .locals 4
+    .locals 3
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
@@ -563,37 +558,36 @@
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    const/4 v2, 0x1
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    return v2
-
-    :catchall_0
-    move-exception v2
-
-    goto :goto_0
-
-    :catch_0
-    move-exception v2
-
-    :try_start_1
-    const-string v3, "Error setting IpClient TCP buffer sizes"
-
-    invoke-direct {p0, v3, v2}, Landroid/net/ip/IpClientManager;->log(Ljava/lang/String;Ljava/lang/Throwable;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    const/4 v3, 0x0
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    return v3
+    const/4 p0, 0x1
 
     :goto_0
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    throw v2
+    return p0
+
+    :catchall_0
+    move-exception p0
+
+    goto :goto_1
+
+    :catch_0
+    move-exception p1
+
+    :try_start_1
+    const-string v2, "Error setting IpClient TCP buffer sizes"
+
+    invoke-direct {p0, v2, p1}, Landroid/net/ip/IpClientManager;->log(Ljava/lang/String;Ljava/lang/Throwable;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    const/4 p0, 0x0
+
+    goto :goto_0
+
+    :goto_1
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw p0
 .end method
 
 .method public shutdown()Z
@@ -611,16 +605,17 @@
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    const/4 v2, 0x1
+    const/4 p0, 0x1
 
+    :goto_0
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    return v2
+    return p0
 
     :catchall_0
-    move-exception v2
+    move-exception p0
 
-    goto :goto_0
+    goto :goto_1
 
     :catch_0
     move-exception v2
@@ -632,20 +627,18 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    const/4 v3, 0x0
+    const/4 p0, 0x0
 
+    goto :goto_0
+
+    :goto_1
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    return v3
-
-    :goto_0
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    throw v2
+    throw p0
 .end method
 
 .method public startProvisioning(Landroid/net/shared/ProvisioningConfiguration;)Z
-    .locals 4
+    .locals 3
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
@@ -656,44 +649,43 @@
 
     invoke-virtual {p1}, Landroid/net/shared/ProvisioningConfiguration;->toStableParcelable()Landroid/net/ProvisioningConfigurationParcelable;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-interface {v2, v3}, Landroid/net/ip/IIpClient;->startProvisioning(Landroid/net/ProvisioningConfigurationParcelable;)V
+    invoke-interface {v2, p1}, Landroid/net/ip/IIpClient;->startProvisioning(Landroid/net/ProvisioningConfigurationParcelable;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    const/4 v2, 0x1
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    return v2
-
-    :catchall_0
-    move-exception v2
-
-    goto :goto_0
-
-    :catch_0
-    move-exception v2
-
-    :try_start_1
-    const-string v3, "Error starting IpClient provisioning"
-
-    invoke-direct {p0, v3, v2}, Landroid/net/ip/IpClientManager;->log(Ljava/lang/String;Ljava/lang/Throwable;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    const/4 v3, 0x0
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    return v3
+    const/4 p0, 0x1
 
     :goto_0
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    throw v2
+    return p0
+
+    :catchall_0
+    move-exception p0
+
+    goto :goto_1
+
+    :catch_0
+    move-exception p1
+
+    :try_start_1
+    const-string v2, "Error starting IpClient provisioning"
+
+    invoke-direct {p0, v2, p1}, Landroid/net/ip/IpClientManager;->log(Ljava/lang/String;Ljava/lang/Throwable;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    const/4 p0, 0x0
+
+    goto :goto_0
+
+    :goto_1
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw p0
 .end method
 
 .method public stop()Z
@@ -711,16 +703,17 @@
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    const/4 v2, 0x1
+    const/4 p0, 0x1
 
+    :goto_0
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    return v2
+    return p0
 
     :catchall_0
-    move-exception v2
+    move-exception p0
 
-    goto :goto_0
+    goto :goto_1
 
     :catch_0
     move-exception v2
@@ -732,20 +725,18 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    const/4 v3, 0x0
+    const/4 p0, 0x0
 
+    goto :goto_0
+
+    :goto_1
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    return v3
-
-    :goto_0
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    throw v2
+    throw p0
 .end method
 
 .method public updateLayer2Information(Landroid/net/shared/Layer2Information;)Z
-    .locals 4
+    .locals 3
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
@@ -756,42 +747,41 @@
 
     invoke-virtual {p1}, Landroid/net/shared/Layer2Information;->toStableParcelable()Landroid/net/Layer2InformationParcelable;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-interface {v2, v3}, Landroid/net/ip/IIpClient;->updateLayer2Information(Landroid/net/Layer2InformationParcelable;)V
+    invoke-interface {v2, p1}, Landroid/net/ip/IIpClient;->updateLayer2Information(Landroid/net/Layer2InformationParcelable;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    const/4 v2, 0x1
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    return v2
-
-    :catchall_0
-    move-exception v2
-
-    goto :goto_0
-
-    :catch_0
-    move-exception v2
-
-    :try_start_1
-    const-string v3, "Error updating layer2 information"
-
-    invoke-direct {p0, v3, v2}, Landroid/net/ip/IpClientManager;->log(Ljava/lang/String;Ljava/lang/Throwable;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    const/4 v3, 0x0
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    return v3
+    const/4 p0, 0x1
 
     :goto_0
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    throw v2
+    return p0
+
+    :catchall_0
+    move-exception p0
+
+    goto :goto_1
+
+    :catch_0
+    move-exception p1
+
+    :try_start_1
+    const-string v2, "Error updating layer2 information"
+
+    invoke-direct {p0, v2, p1}, Landroid/net/ip/IpClientManager;->log(Ljava/lang/String;Ljava/lang/Throwable;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    const/4 p0, 0x0
+
+    goto :goto_0
+
+    :goto_1
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw p0
 .end method

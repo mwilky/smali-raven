@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/wm/ActivityRecord$$ExternalSyntheticLambda4;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/server/display/color/ColorDisplayService$ColorTransformController;
+.implements Ljava/util/function/Supplier;
 
 
 # instance fields
@@ -22,12 +23,14 @@
 
 
 # virtual methods
-.method public final applyAppSaturation([F[F)V
-    .locals 1
+.method public final get()Ljava/lang/Object;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/ActivityRecord$$ExternalSyntheticLambda4;->f$0:Lcom/android/server/wm/ActivityRecord;
+    iget-object p0, p0, Lcom/android/server/wm/ActivityRecord$$ExternalSyntheticLambda4;->f$0:Lcom/android/server/wm/ActivityRecord;
 
-    invoke-virtual {v0, p1, p2}, Lcom/android/server/wm/ActivityRecord;->lambda$new$1$ActivityRecord([F[F)V
+    invoke-static {p0}, Lcom/android/server/wm/ActivityRecord;->$r8$lambda$TQSDwUqPe3gvsJE9M4TppEq1BAc(Lcom/android/server/wm/ActivityRecord;)Landroid/content/pm/ApplicationInfo;
 
-    return-void
+    move-result-object p0
+
+    return-object p0
 .end method

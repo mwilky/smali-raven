@@ -1,4 +1,4 @@
-.class Lcom/android/server/power/PowerManagerService$3;
+.class public Lcom/android/server/power/PowerManagerService$3;
 .super Ljava/lang/Thread;
 .source "PowerManagerService.java"
 
@@ -9,19 +9,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/power/PowerManagerService;
+.field public final synthetic this$0:Lcom/android/server/power/PowerManagerService;
 
-.field final synthetic val$message:Ljava/lang/String;
+.field public final synthetic val$message:Ljava/lang/String;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/power/PowerManagerService;Ljava/lang/String;Ljava/lang/String;)V
+.method public constructor <init>(Lcom/android/server/power/PowerManagerService;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/power/PowerManagerService$3;->this$0:Lcom/android/server/power/PowerManagerService;
@@ -36,13 +36,13 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .locals 1
 
     new-instance v0, Ljava/lang/RuntimeException;
 
-    iget-object v1, p0, Lcom/android/server/power/PowerManagerService$3;->val$message:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/power/PowerManagerService$3;->val$message:Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method

@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/pm/UserTypeFactory$$ExternalSyntheticLambda4;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -23,13 +24,17 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/pm/UserTypeFactory$$ExternalSyntheticLambda4;->f$0:Lcom/android/server/pm/UserTypeDetails$Builder;
+    iget-object p0, p0, Lcom/android/server/pm/UserTypeFactory$$ExternalSyntheticLambda4;->f$0:Lcom/android/server/pm/UserTypeDetails$Builder;
 
-    check-cast p1, [I
+    check-cast p1, Ljava/lang/Integer;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/pm/UserTypeDetails$Builder;->setBadgeColors([I)Lcom/android/server/pm/UserTypeDetails$Builder;
+    invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
+
+    move-result p1
+
+    invoke-virtual {p0, p1}, Lcom/android/server/pm/UserTypeDetails$Builder;->setEnabled(I)Lcom/android/server/pm/UserTypeDetails$Builder;
 
     return-void
 .end method

@@ -21,7 +21,7 @@
 
 
 # direct methods
-.method private constructor <init>(ILjava/time/Duration;)V
+.method public constructor <init>(ILjava/time/Duration;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

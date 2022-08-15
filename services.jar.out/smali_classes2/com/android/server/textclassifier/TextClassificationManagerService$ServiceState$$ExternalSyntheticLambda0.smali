@@ -1,28 +1,13 @@
 .class public final synthetic Lcom/android/server/textclassifier/TextClassificationManagerService$ServiceState$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/server/textclassifier/FixedSizeQueue$OnEntryEvictedListener;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/textclassifier/TextClassificationManagerService$ServiceState$$ExternalSyntheticLambda0;
-
-
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/textclassifier/TextClassificationManagerService$ServiceState$$ExternalSyntheticLambda0;
-
-    invoke-direct {v0}, Lcom/android/server/textclassifier/TextClassificationManagerService$ServiceState$$ExternalSyntheticLambda0;-><init>()V
-
-    sput-object v0, Lcom/android/server/textclassifier/TextClassificationManagerService$ServiceState$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/server/textclassifier/TextClassificationManagerService$ServiceState$$ExternalSyntheticLambda0;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,7 +22,7 @@
 
     check-cast p1, Lcom/android/server/textclassifier/TextClassificationManagerService$PendingRequest;
 
-    invoke-static {p1}, Lcom/android/server/textclassifier/TextClassificationManagerService$ServiceState;->lambda$new$0(Lcom/android/server/textclassifier/TextClassificationManagerService$PendingRequest;)V
+    invoke-static {p1}, Lcom/android/server/textclassifier/TextClassificationManagerService$ServiceState;->$r8$lambda$vhu5Pvhu-nPUjgux-NCZ08eC8-I(Lcom/android/server/textclassifier/TextClassificationManagerService$PendingRequest;)V
 
     return-void
 .end method

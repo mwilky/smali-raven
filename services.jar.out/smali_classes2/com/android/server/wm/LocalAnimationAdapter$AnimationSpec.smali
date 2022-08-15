@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/server/wm/LocalAnimationAdapter$AnimationSpec;
+.class public interface abstract Lcom/android/server/wm/LocalAnimationAdapter$AnimationSpec;
 .super Ljava/lang/Object;
 .source "LocalAnimationAdapter.java"
 
@@ -9,13 +9,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
+    accessFlags = 0x609
     name = "AnimationSpec"
 .end annotation
 
 
 # virtual methods
 .method public abstract apply(Landroid/view/SurfaceControl$Transaction;Landroid/view/SurfaceControl;J)V
+.end method
+
+.method public asWindowAnimationSpec()Lcom/android/server/wm/WindowAnimationSpec;
+    .locals 0
+
+    const/4 p0, 0x0
+
+    return-object p0
 .end method
 
 .method public calculateStatusBarTransitionStartTime()J
@@ -29,31 +37,39 @@
 .end method
 
 .method public canSkipFirstFrame()Z
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
 .method public abstract dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
 .end method
 
 .method public dumpDebug(Landroid/util/proto/ProtoOutputStream;J)V
-    .locals 2
+    .locals 0
 
     invoke-virtual {p1, p2, p3}, Landroid/util/proto/ProtoOutputStream;->start(J)J
 
-    move-result-wide v0
+    move-result-wide p2
 
     invoke-interface {p0, p1}, Lcom/android/server/wm/LocalAnimationAdapter$AnimationSpec;->dumpDebugInner(Landroid/util/proto/ProtoOutputStream;)V
 
-    invoke-virtual {p1, v0, v1}, Landroid/util/proto/ProtoOutputStream;->end(J)V
+    invoke-virtual {p1, p2, p3}, Landroid/util/proto/ProtoOutputStream;->end(J)V
 
     return-void
 .end method
 
 .method public abstract dumpDebugInner(Landroid/util/proto/ProtoOutputStream;)V
+.end method
+
+.method public getBackgroundColor()I
+    .locals 0
+
+    const/4 p0, 0x0
+
+    return p0
 .end method
 
 .method public abstract getDuration()J
@@ -66,37 +82,37 @@
 
     move-result-wide v0
 
-    long-to-float v0, v0
+    long-to-float p0, v0
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    cmpl-float v1, v0, v1
+    cmpl-float v0, p0, v0
 
-    if-lez v1, :cond_0
+    if-lez v0, :cond_0
 
-    div-float v1, p1, v0
+    div-float/2addr p1, p0
 
     goto :goto_0
 
     :cond_0
-    const/high16 v1, 0x3f800000    # 1.0f
+    const/high16 p1, 0x3f800000    # 1.0f
 
     :goto_0
-    return v1
+    return p1
+.end method
+
+.method public getShowBackground()Z
+    .locals 0
+
+    const/4 p0, 0x0
+
+    return p0
 .end method
 
 .method public getShowWallpaper()Z
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
-.end method
-
-.method public needsEarlyWakeup()Z
-    .locals 1
-
-    const/4 v0, 0x0
-
-    return v0
+    return p0
 .end method

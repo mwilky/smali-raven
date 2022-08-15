@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/notification/NotificationManagerService$1$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/internal/util/FunctionalUtils$ThrowingRunnable;
@@ -63,7 +64,7 @@
 
     iget-object v6, p0, Lcom/android/server/notification/NotificationManagerService$1$$ExternalSyntheticLambda0;->f$6:Ljava/lang/String;
 
-    invoke-virtual/range {v0 .. v6}, Lcom/android/server/notification/NotificationManagerService$1;->lambda$onNotificationError$0$NotificationManagerService$1(IILjava/lang/String;Ljava/lang/String;ILjava/lang/String;)V
+    invoke-static/range {v0 .. v6}, Lcom/android/server/notification/NotificationManagerService$1;->$r8$lambda$kc4lNM8wfbMoDCu7yWyvWka0-ZE(Lcom/android/server/notification/NotificationManagerService$1;IILjava/lang/String;Ljava/lang/String;ILjava/lang/String;)V
 
     return-void
 .end method

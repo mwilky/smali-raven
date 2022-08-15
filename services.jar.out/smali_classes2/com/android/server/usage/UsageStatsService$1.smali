@@ -1,4 +1,4 @@
-.class Lcom/android/server/usage/UsageStatsService$1;
+.class public Lcom/android/server/usage/UsageStatsService$1;
 .super Lcom/android/server/usage/AppStandbyInternal$AppIdleStateChangeListener;
 .source "UsageStatsService.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/usage/UsageStatsService;
+.field public final synthetic this$0:Lcom/android/server/usage/UsageStatsService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/usage/UsageStatsService;)V
+.method public constructor <init>(Lcom/android/server/usage/UsageStatsService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/usage/UsageStatsService$1;->this$0:Lcom/android/server/usage/UsageStatsService;
@@ -32,33 +32,33 @@
 
 # virtual methods
 .method public onAppIdleStateChanged(Ljava/lang/String;IZII)V
-    .locals 4
+    .locals 3
 
-    new-instance v0, Landroid/app/usage/UsageEvents$Event;
+    new-instance p3, Landroid/app/usage/UsageEvents$Event;
 
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
-    move-result-wide v1
+    move-result-wide v0
 
-    const/16 v3, 0xb
+    const/16 v2, 0xb
 
-    invoke-direct {v0, v3, v1, v2}, Landroid/app/usage/UsageEvents$Event;-><init>(IJ)V
+    invoke-direct {p3, v2, v0, v1}, Landroid/app/usage/UsageEvents$Event;-><init>(IJ)V
 
-    shl-int/lit8 v1, p4, 0x10
+    shl-int/lit8 p4, p4, 0x10
 
-    const v2, 0xffff
+    const v0, 0xffff
 
-    and-int/2addr v2, p5
+    and-int/2addr p5, v0
 
-    or-int/2addr v1, v2
+    or-int/2addr p4, p5
 
-    iput v1, v0, Landroid/app/usage/UsageEvents$Event;->mBucketAndReason:I
+    iput p4, p3, Landroid/app/usage/UsageEvents$Event;->mBucketAndReason:I
 
-    iput-object p1, v0, Landroid/app/usage/UsageEvents$Event;->mPackage:Ljava/lang/String;
+    iput-object p1, p3, Landroid/app/usage/UsageEvents$Event;->mPackage:Ljava/lang/String;
 
-    iget-object v1, p0, Lcom/android/server/usage/UsageStatsService$1;->this$0:Lcom/android/server/usage/UsageStatsService;
+    iget-object p0, p0, Lcom/android/server/usage/UsageStatsService$1;->this$0:Lcom/android/server/usage/UsageStatsService;
 
-    invoke-static {v1, p2, v0}, Lcom/android/server/usage/UsageStatsService;->access$100(Lcom/android/server/usage/UsageStatsService;ILandroid/app/usage/UsageEvents$Event;)V
+    invoke-static {p0, p2, p3}, Lcom/android/server/usage/UsageStatsService;->-$$Nest$mreportEventOrAddToQueue(Lcom/android/server/usage/UsageStatsService;ILandroid/app/usage/UsageEvents$Event;)V
 
     return-void
 .end method

@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/wm/WindowManagerService$SettingsObserver$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -23,13 +24,13 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/WindowManagerService$SettingsObserver$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/wm/WindowManagerService$SettingsObserver;
+    iget-object p0, p0, Lcom/android/server/wm/WindowManagerService$SettingsObserver$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/wm/WindowManagerService$SettingsObserver;
 
     check-cast p1, Lcom/android/server/wm/DisplayContent;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/wm/WindowManagerService$SettingsObserver;->lambda$updateDisplaySettingsLocation$0$WindowManagerService$SettingsObserver(Lcom/android/server/wm/DisplayContent;)V
+    invoke-static {p0, p1}, Lcom/android/server/wm/WindowManagerService$SettingsObserver;->$r8$lambda$A83rsVABC2FxiICXnyg1gIQ1oFw(Lcom/android/server/wm/WindowManagerService$SettingsObserver;Lcom/android/server/wm/DisplayContent;)V
 
     return-void
 .end method

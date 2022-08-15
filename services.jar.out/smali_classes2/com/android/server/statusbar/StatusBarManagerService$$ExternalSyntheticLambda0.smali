@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/statusbar/StatusBarManagerService$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/statusbar/StatusBarManagerService$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/statusbar/StatusBarManagerService;
+    iget-object p0, p0, Lcom/android/server/statusbar/StatusBarManagerService$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/statusbar/StatusBarManagerService;
 
-    invoke-virtual {v0}, Lcom/android/server/statusbar/StatusBarManagerService;->lambda$notifyBarAttachChanged$2$StatusBarManagerService()V
+    invoke-static {p0}, Lcom/android/server/statusbar/StatusBarManagerService;->$r8$lambda$b-0BlA-CZdPGqW_WvD8hJ_9cTV4(Lcom/android/server/statusbar/StatusBarManagerService;)V
 
     return-void
 .end method

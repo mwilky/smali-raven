@@ -1,4 +1,4 @@
-.class Landroid/net/NetworkFactoryImpl$1;
+.class public Landroid/net/NetworkFactoryImpl$1;
 .super Ljava/lang/Object;
 .source "NetworkFactoryImpl.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroid/net/NetworkFactoryImpl;
+.field public final synthetic this$0:Landroid/net/NetworkFactoryImpl;
 
 
 # direct methods
-.method constructor <init>(Landroid/net/NetworkFactoryImpl;)V
+.method public constructor <init>(Landroid/net/NetworkFactoryImpl;)V
     .locals 0
 
     iput-object p1, p0, Landroid/net/NetworkFactoryImpl$1;->this$0:Landroid/net/NetworkFactoryImpl;
@@ -35,21 +35,21 @@
 
 # virtual methods
 .method public onNetworkNeeded(Landroid/net/NetworkRequest;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Landroid/net/NetworkFactoryImpl$1;->this$0:Landroid/net/NetworkFactoryImpl;
+    iget-object p0, p0, Landroid/net/NetworkFactoryImpl$1;->this$0:Landroid/net/NetworkFactoryImpl;
 
-    invoke-static {v0, p1}, Landroid/net/NetworkFactoryImpl;->access$000(Landroid/net/NetworkFactoryImpl;Landroid/net/NetworkRequest;)V
+    invoke-static {p0, p1}, Landroid/net/NetworkFactoryImpl;->-$$Nest$mhandleAddRequest(Landroid/net/NetworkFactoryImpl;Landroid/net/NetworkRequest;)V
 
     return-void
 .end method
 
 .method public onNetworkUnneeded(Landroid/net/NetworkRequest;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Landroid/net/NetworkFactoryImpl$1;->this$0:Landroid/net/NetworkFactoryImpl;
+    iget-object p0, p0, Landroid/net/NetworkFactoryImpl$1;->this$0:Landroid/net/NetworkFactoryImpl;
 
-    invoke-static {v0, p1}, Landroid/net/NetworkFactoryImpl;->access$100(Landroid/net/NetworkFactoryImpl;Landroid/net/NetworkRequest;)V
+    invoke-static {p0, p1}, Landroid/net/NetworkFactoryImpl;->-$$Nest$mhandleRemoveRequest(Landroid/net/NetworkFactoryImpl;Landroid/net/NetworkRequest;)V
 
     return-void
 .end method

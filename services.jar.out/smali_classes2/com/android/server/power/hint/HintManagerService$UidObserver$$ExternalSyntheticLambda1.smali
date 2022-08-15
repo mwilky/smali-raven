@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/power/hint/HintManagerService$UidObserver$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -31,15 +32,15 @@
 
 # virtual methods
 .method public final run()V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/power/hint/HintManagerService$UidObserver$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/power/hint/HintManagerService$UidObserver;
 
     iget v1, p0, Lcom/android/server/power/hint/HintManagerService$UidObserver$$ExternalSyntheticLambda1;->f$1:I
 
-    iget v2, p0, Lcom/android/server/power/hint/HintManagerService$UidObserver$$ExternalSyntheticLambda1;->f$2:I
+    iget p0, p0, Lcom/android/server/power/hint/HintManagerService$UidObserver$$ExternalSyntheticLambda1;->f$2:I
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/power/hint/HintManagerService$UidObserver;->lambda$onUidStateChanged$1$HintManagerService$UidObserver(II)V
+    invoke-static {v0, v1, p0}, Lcom/android/server/power/hint/HintManagerService$UidObserver;->$r8$lambda$jdI4m7Gjk68By1ZihlCe9VtStvE(Lcom/android/server/power/hint/HintManagerService$UidObserver;II)V
 
     return-void
 .end method

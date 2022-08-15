@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/server/media/AudioPlayerStateMonitor$OnAudioPlayerActiveStateChangedListener;
+.class public interface abstract Lcom/android/server/media/AudioPlayerStateMonitor$OnAudioPlayerActiveStateChangedListener;
 .super Ljava/lang/Object;
 .source "AudioPlayerStateMonitor.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
+    accessFlags = 0x609
     name = "OnAudioPlayerActiveStateChangedListener"
 .end annotation
 

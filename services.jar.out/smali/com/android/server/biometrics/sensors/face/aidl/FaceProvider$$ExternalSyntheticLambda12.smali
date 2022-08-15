@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda12;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -12,11 +13,15 @@
 
 .field public final synthetic f$2:Landroid/os/IBinder;
 
-.field public final synthetic f$3:J
+.field public final synthetic f$3:Landroid/hardware/face/IFaceServiceReceiver;
+
+.field public final synthetic f$4:I
+
+.field public final synthetic f$5:Ljava/lang/String;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;ILandroid/os/IBinder;J)V
+.method public synthetic constructor <init>(Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;ILandroid/os/IBinder;Landroid/hardware/face/IFaceServiceReceiver;ILjava/lang/String;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -27,7 +32,11 @@
 
     iput-object p3, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda12;->f$2:Landroid/os/IBinder;
 
-    iput-wide p4, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda12;->f$3:J
+    iput-object p4, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda12;->f$3:Landroid/hardware/face/IFaceServiceReceiver;
+
+    iput p5, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda12;->f$4:I
+
+    iput-object p6, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda12;->f$5:Ljava/lang/String;
 
     return-void
 .end method
@@ -35,7 +44,7 @@
 
 # virtual methods
 .method public final run()V
-    .locals 5
+    .locals 6
 
     iget-object v0, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda12;->f$0:Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;
 
@@ -43,9 +52,13 @@
 
     iget-object v2, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda12;->f$2:Landroid/os/IBinder;
 
-    iget-wide v3, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda12;->f$3:J
+    iget-object v3, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda12;->f$3:Landroid/hardware/face/IFaceServiceReceiver;
 
-    invoke-virtual {v0, v1, v2, v3, v4}, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;->lambda$cancelFaceDetect$8$FaceProvider(ILandroid/os/IBinder;J)V
+    iget v4, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda12;->f$4:I
+
+    iget-object v5, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda12;->f$5:Ljava/lang/String;
+
+    invoke-static/range {v0 .. v5}, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;->$r8$lambda$O7nkr8EIrpUsSyzIhMIlkDNcKMA(Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;ILandroid/os/IBinder;Landroid/hardware/face/IFaceServiceReceiver;ILjava/lang/String;)V
 
     return-void
 .end method

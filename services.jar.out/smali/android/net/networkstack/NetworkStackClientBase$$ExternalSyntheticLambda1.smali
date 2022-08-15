@@ -1,5 +1,6 @@
 .class public final synthetic Landroid/net/networkstack/NetworkStackClientBase$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -31,17 +32,17 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Landroid/net/networkstack/NetworkStackClientBase$$ExternalSyntheticLambda1;->f$0:Landroid/net/Network;
 
     iget-object v1, p0, Landroid/net/networkstack/NetworkStackClientBase$$ExternalSyntheticLambda1;->f$1:Ljava/lang/String;
 
-    iget-object v2, p0, Landroid/net/networkstack/NetworkStackClientBase$$ExternalSyntheticLambda1;->f$2:Landroid/net/INetworkMonitorCallbacks;
+    iget-object p0, p0, Landroid/net/networkstack/NetworkStackClientBase$$ExternalSyntheticLambda1;->f$2:Landroid/net/INetworkMonitorCallbacks;
 
     check-cast p1, Landroid/net/INetworkStackConnector;
 
-    invoke-static {v0, v1, v2, p1}, Landroid/net/networkstack/NetworkStackClientBase;->lambda$makeNetworkMonitor$2(Landroid/net/Network;Ljava/lang/String;Landroid/net/INetworkMonitorCallbacks;Landroid/net/INetworkStackConnector;)V
+    invoke-static {v0, v1, p0, p1}, Landroid/net/networkstack/NetworkStackClientBase;->$r8$lambda$61HXlU0M6AOAd3yvuVbFvqf5YZc(Landroid/net/Network;Ljava/lang/String;Landroid/net/INetworkMonitorCallbacks;Landroid/net/INetworkStackConnector;)V
 
     return-void
 .end method

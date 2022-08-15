@@ -1,33 +1,28 @@
 .class public final synthetic Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda40;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/lang/Runnable;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/android/server/pm/PackageManagerService$MultiPackageVerificationParams;
+.implements Lcom/android/server/pm/PackageManagerServiceInjector$ServiceProducer;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/pm/PackageManagerService$MultiPackageVerificationParams;)V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda40;->f$0:Lcom/android/server/pm/PackageManagerService$MultiPackageVerificationParams;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final run()V
-    .locals 1
+.method public final produce(Ljava/lang/Class;)Ljava/lang/Object;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda40;->f$0:Lcom/android/server/pm/PackageManagerService$MultiPackageVerificationParams;
+    invoke-static {p1}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
 
-    invoke-static {v0}, Lcom/android/server/pm/PackageManagerService;->lambda$verifyStage$43(Lcom/android/server/pm/PackageManagerService$MultiPackageVerificationParams;)V
+    move-result-object p0
 
-    return-void
+    return-object p0
 .end method

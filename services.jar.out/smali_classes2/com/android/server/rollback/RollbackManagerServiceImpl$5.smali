@@ -1,4 +1,4 @@
-.class Lcom/android/server/rollback/RollbackManagerServiceImpl$5;
+.class public Lcom/android/server/rollback/RollbackManagerServiceImpl$5;
 .super Landroid/content/BroadcastReceiver;
 .source "RollbackManagerServiceImpl.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/rollback/RollbackManagerServiceImpl;
+.field public final synthetic this$0:Lcom/android/server/rollback/RollbackManagerServiceImpl;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/rollback/RollbackManagerServiceImpl;)V
+.method public constructor <init>(Lcom/android/server/rollback/RollbackManagerServiceImpl;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/rollback/RollbackManagerServiceImpl$5;->this$0:Lcom/android/server/rollback/RollbackManagerServiceImpl;
@@ -32,66 +32,66 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 7
+    .locals 3
+
+    iget-object p1, p0, Lcom/android/server/rollback/RollbackManagerServiceImpl$5;->this$0:Lcom/android/server/rollback/RollbackManagerServiceImpl;
+
+    invoke-static {p1}, Lcom/android/server/rollback/RollbackManagerServiceImpl;->-$$Nest$massertInWorkerThread(Lcom/android/server/rollback/RollbackManagerServiceImpl;)V
+
+    iget-object p1, p0, Lcom/android/server/rollback/RollbackManagerServiceImpl$5;->this$0:Lcom/android/server/rollback/RollbackManagerServiceImpl;
+
+    invoke-static {p1}, Lcom/android/server/rollback/RollbackManagerServiceImpl;->-$$Nest$fgetmRelativeBootTime(Lcom/android/server/rollback/RollbackManagerServiceImpl;)J
+
+    move-result-wide p1
 
     iget-object v0, p0, Lcom/android/server/rollback/RollbackManagerServiceImpl$5;->this$0:Lcom/android/server/rollback/RollbackManagerServiceImpl;
 
-    invoke-static {v0}, Lcom/android/server/rollback/RollbackManagerServiceImpl;->access$000(Lcom/android/server/rollback/RollbackManagerServiceImpl;)V
+    invoke-static {}, Lcom/android/server/rollback/RollbackManagerServiceImpl;->-$$Nest$smcalculateRelativeBootTime()J
+
+    move-result-wide v1
+
+    invoke-static {v0, v1, v2}, Lcom/android/server/rollback/RollbackManagerServiceImpl;->-$$Nest$fputmRelativeBootTime(Lcom/android/server/rollback/RollbackManagerServiceImpl;J)V
 
     iget-object v0, p0, Lcom/android/server/rollback/RollbackManagerServiceImpl$5;->this$0:Lcom/android/server/rollback/RollbackManagerServiceImpl;
 
-    invoke-static {v0}, Lcom/android/server/rollback/RollbackManagerServiceImpl;->access$1200(Lcom/android/server/rollback/RollbackManagerServiceImpl;)J
+    invoke-static {v0}, Lcom/android/server/rollback/RollbackManagerServiceImpl;->-$$Nest$fgetmRelativeBootTime(Lcom/android/server/rollback/RollbackManagerServiceImpl;)J
 
     move-result-wide v0
 
-    iget-object v2, p0, Lcom/android/server/rollback/RollbackManagerServiceImpl$5;->this$0:Lcom/android/server/rollback/RollbackManagerServiceImpl;
+    sub-long/2addr v0, p1
 
-    invoke-static {}, Lcom/android/server/rollback/RollbackManagerServiceImpl;->access$1300()J
+    iget-object p0, p0, Lcom/android/server/rollback/RollbackManagerServiceImpl$5;->this$0:Lcom/android/server/rollback/RollbackManagerServiceImpl;
 
-    move-result-wide v3
+    invoke-static {p0}, Lcom/android/server/rollback/RollbackManagerServiceImpl;->-$$Nest$fgetmRollbacks(Lcom/android/server/rollback/RollbackManagerServiceImpl;)Ljava/util/List;
 
-    invoke-static {v2, v3, v4}, Lcom/android/server/rollback/RollbackManagerServiceImpl;->access$1202(Lcom/android/server/rollback/RollbackManagerServiceImpl;J)J
+    move-result-object p0
 
-    iget-object v2, p0, Lcom/android/server/rollback/RollbackManagerServiceImpl$5;->this$0:Lcom/android/server/rollback/RollbackManagerServiceImpl;
+    invoke-interface {p0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    invoke-static {v2}, Lcom/android/server/rollback/RollbackManagerServiceImpl;->access$1200(Lcom/android/server/rollback/RollbackManagerServiceImpl;)J
-
-    move-result-wide v2
-
-    sub-long/2addr v2, v0
-
-    iget-object v4, p0, Lcom/android/server/rollback/RollbackManagerServiceImpl$5;->this$0:Lcom/android/server/rollback/RollbackManagerServiceImpl;
-
-    invoke-static {v4}, Lcom/android/server/rollback/RollbackManagerServiceImpl;->access$600(Lcom/android/server/rollback/RollbackManagerServiceImpl;)Ljava/util/List;
-
-    move-result-object v4
-
-    invoke-interface {v4}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v4
+    move-result-object p0
 
     :goto_0
-    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v5
+    move-result p1
 
-    if-eqz v5, :cond_0
+    if-eqz p1, :cond_0
 
-    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object p1
 
-    check-cast v5, Lcom/android/server/rollback/Rollback;
+    check-cast p1, Lcom/android/server/rollback/Rollback;
 
-    invoke-virtual {v5}, Lcom/android/server/rollback/Rollback;->getTimestamp()Ljava/time/Instant;
+    invoke-virtual {p1}, Lcom/android/server/rollback/Rollback;->getTimestamp()Ljava/time/Instant;
 
-    move-result-object v6
+    move-result-object p2
 
-    invoke-virtual {v6, v2, v3}, Ljava/time/Instant;->plusMillis(J)Ljava/time/Instant;
+    invoke-virtual {p2, v0, v1}, Ljava/time/Instant;->plusMillis(J)Ljava/time/Instant;
 
-    move-result-object v6
+    move-result-object p2
 
-    invoke-virtual {v5, v6}, Lcom/android/server/rollback/Rollback;->setTimestamp(Ljava/time/Instant;)V
+    invoke-virtual {p1, p2}, Lcom/android/server/rollback/Rollback;->setTimestamp(Ljava/time/Instant;)V
 
     goto :goto_0
 

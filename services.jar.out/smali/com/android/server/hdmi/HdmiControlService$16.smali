@@ -1,202 +1,57 @@
-.class synthetic Lcom/android/server/hdmi/HdmiControlService$16;
+.class public Lcom/android/server/hdmi/HdmiControlService$16;
 .super Ljava/lang/Object;
 .source "HdmiControlService.java"
 
+# interfaces
+.implements Lcom/android/server/hdmi/HdmiCecLocalDevice$PendingActionClearedCallback;
+
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/android/server/hdmi/HdmiControlService;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/android/server/hdmi/HdmiControlService;->disableHdmiControlService()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
-# static fields
-.field static final synthetic $SwitchMap$android$sysprop$HdmiProperties$cec_device_types_values:[I
+# instance fields
+.field public final synthetic this$0:Lcom/android/server/hdmi/HdmiControlService;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 3
+.method public constructor <init>(Lcom/android/server/hdmi/HdmiControlService;)V
+    .locals 0
 
-    invoke-static {}, Landroid/sysprop/HdmiProperties$cec_device_types_values;->values()[Landroid/sysprop/HdmiProperties$cec_device_types_values;
+    iput-object p1, p0, Lcom/android/server/hdmi/HdmiControlService$16;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
-    move-result-object v0
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    array-length v0, v0
+    return-void
+.end method
 
-    new-array v0, v0, [I
 
-    sput-object v0, Lcom/android/server/hdmi/HdmiControlService$16;->$SwitchMap$android$sysprop$HdmiProperties$cec_device_types_values:[I
+# virtual methods
+.method public onCleared(Lcom/android/server/hdmi/HdmiCecLocalDevice;)V
+    .locals 1
 
-    :try_start_0
-    sget-object v1, Landroid/sysprop/HdmiProperties$cec_device_types_values;->TV:Landroid/sysprop/HdmiProperties$cec_device_types_values;
+    iget-object p1, p0, Lcom/android/server/hdmi/HdmiControlService$16;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
-    invoke-virtual {v1}, Landroid/sysprop/HdmiProperties$cec_device_types_values;->ordinal()I
+    invoke-static {p1}, Lcom/android/server/hdmi/HdmiControlService;->-$$Nest$massertRunOnServiceThread(Lcom/android/server/hdmi/HdmiControlService;)V
 
-    move-result v1
+    iget-object p1, p0, Lcom/android/server/hdmi/HdmiControlService$16;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
-    const/4 v2, 0x1
+    invoke-static {p1}, Lcom/android/server/hdmi/HdmiControlService;->-$$Nest$fgetmCecController(Lcom/android/server/hdmi/HdmiControlService;)Lcom/android/server/hdmi/HdmiCecController;
 
-    aput v2, v0, v1
-    :try_end_0
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_0
+    move-result-object p1
 
-    goto :goto_0
+    new-instance v0, Lcom/android/server/hdmi/HdmiControlService$16$1;
 
-    :catch_0
-    move-exception v0
+    invoke-direct {v0, p0}, Lcom/android/server/hdmi/HdmiControlService$16$1;-><init>(Lcom/android/server/hdmi/HdmiControlService$16;)V
 
-    :goto_0
-    :try_start_1
-    sget-object v0, Lcom/android/server/hdmi/HdmiControlService$16;->$SwitchMap$android$sysprop$HdmiProperties$cec_device_types_values:[I
+    invoke-virtual {p1, v0}, Lcom/android/server/hdmi/HdmiCecController;->flush(Ljava/lang/Runnable;)V
 
-    sget-object v1, Landroid/sysprop/HdmiProperties$cec_device_types_values;->RECORDING_DEVICE:Landroid/sysprop/HdmiProperties$cec_device_types_values;
-
-    invoke-virtual {v1}, Landroid/sysprop/HdmiProperties$cec_device_types_values;->ordinal()I
-
-    move-result v1
-
-    const/4 v2, 0x2
-
-    aput v2, v0, v1
-    :try_end_1
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_1
-
-    goto :goto_1
-
-    :catch_1
-    move-exception v0
-
-    :goto_1
-    :try_start_2
-    sget-object v0, Lcom/android/server/hdmi/HdmiControlService$16;->$SwitchMap$android$sysprop$HdmiProperties$cec_device_types_values:[I
-
-    sget-object v1, Landroid/sysprop/HdmiProperties$cec_device_types_values;->RESERVED:Landroid/sysprop/HdmiProperties$cec_device_types_values;
-
-    invoke-virtual {v1}, Landroid/sysprop/HdmiProperties$cec_device_types_values;->ordinal()I
-
-    move-result v1
-
-    const/4 v2, 0x3
-
-    aput v2, v0, v1
-    :try_end_2
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_2 .. :try_end_2} :catch_2
-
-    goto :goto_2
-
-    :catch_2
-    move-exception v0
-
-    :goto_2
-    :try_start_3
-    sget-object v0, Lcom/android/server/hdmi/HdmiControlService$16;->$SwitchMap$android$sysprop$HdmiProperties$cec_device_types_values:[I
-
-    sget-object v1, Landroid/sysprop/HdmiProperties$cec_device_types_values;->TUNER:Landroid/sysprop/HdmiProperties$cec_device_types_values;
-
-    invoke-virtual {v1}, Landroid/sysprop/HdmiProperties$cec_device_types_values;->ordinal()I
-
-    move-result v1
-
-    const/4 v2, 0x4
-
-    aput v2, v0, v1
-    :try_end_3
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_3 .. :try_end_3} :catch_3
-
-    goto :goto_3
-
-    :catch_3
-    move-exception v0
-
-    :goto_3
-    :try_start_4
-    sget-object v0, Lcom/android/server/hdmi/HdmiControlService$16;->$SwitchMap$android$sysprop$HdmiProperties$cec_device_types_values:[I
-
-    sget-object v1, Landroid/sysprop/HdmiProperties$cec_device_types_values;->PLAYBACK_DEVICE:Landroid/sysprop/HdmiProperties$cec_device_types_values;
-
-    invoke-virtual {v1}, Landroid/sysprop/HdmiProperties$cec_device_types_values;->ordinal()I
-
-    move-result v1
-
-    const/4 v2, 0x5
-
-    aput v2, v0, v1
-    :try_end_4
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_4 .. :try_end_4} :catch_4
-
-    goto :goto_4
-
-    :catch_4
-    move-exception v0
-
-    :goto_4
-    :try_start_5
-    sget-object v0, Lcom/android/server/hdmi/HdmiControlService$16;->$SwitchMap$android$sysprop$HdmiProperties$cec_device_types_values:[I
-
-    sget-object v1, Landroid/sysprop/HdmiProperties$cec_device_types_values;->AUDIO_SYSTEM:Landroid/sysprop/HdmiProperties$cec_device_types_values;
-
-    invoke-virtual {v1}, Landroid/sysprop/HdmiProperties$cec_device_types_values;->ordinal()I
-
-    move-result v1
-
-    const/4 v2, 0x6
-
-    aput v2, v0, v1
-    :try_end_5
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_5 .. :try_end_5} :catch_5
-
-    goto :goto_5
-
-    :catch_5
-    move-exception v0
-
-    :goto_5
-    :try_start_6
-    sget-object v0, Lcom/android/server/hdmi/HdmiControlService$16;->$SwitchMap$android$sysprop$HdmiProperties$cec_device_types_values:[I
-
-    sget-object v1, Landroid/sysprop/HdmiProperties$cec_device_types_values;->PURE_CEC_SWITCH:Landroid/sysprop/HdmiProperties$cec_device_types_values;
-
-    invoke-virtual {v1}, Landroid/sysprop/HdmiProperties$cec_device_types_values;->ordinal()I
-
-    move-result v1
-
-    const/4 v2, 0x7
-
-    aput v2, v0, v1
-    :try_end_6
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_6 .. :try_end_6} :catch_6
-
-    goto :goto_6
-
-    :catch_6
-    move-exception v0
-
-    :goto_6
-    :try_start_7
-    sget-object v0, Lcom/android/server/hdmi/HdmiControlService$16;->$SwitchMap$android$sysprop$HdmiProperties$cec_device_types_values:[I
-
-    sget-object v1, Landroid/sysprop/HdmiProperties$cec_device_types_values;->VIDEO_PROCESSOR:Landroid/sysprop/HdmiProperties$cec_device_types_values;
-
-    invoke-virtual {v1}, Landroid/sysprop/HdmiProperties$cec_device_types_values;->ordinal()I
-
-    move-result v1
-
-    const/16 v2, 0x8
-
-    aput v2, v0, v1
-    :try_end_7
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_7 .. :try_end_7} :catch_7
-
-    goto :goto_7
-
-    :catch_7
-    move-exception v0
-
-    :goto_7
     return-void
 .end method

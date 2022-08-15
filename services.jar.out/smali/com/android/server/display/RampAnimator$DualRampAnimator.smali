@@ -1,4 +1,4 @@
-.class Lcom/android/server/display/RampAnimator$DualRampAnimator;
+.class public Lcom/android/server/display/RampAnimator$DualRampAnimator;
 .super Ljava/lang/Object;
 .source "RampAnimator.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "DualRampAnimator"
 .end annotation
 
@@ -24,7 +24,7 @@
 
 
 # instance fields
-.field private final mFirst:Lcom/android/server/display/RampAnimator;
+.field public final mFirst:Lcom/android/server/display/RampAnimator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/android/server/display/RampAnimator<",
@@ -33,11 +33,11 @@
     .end annotation
 .end field
 
-.field private final mInternalListener:Lcom/android/server/display/RampAnimator$Listener;
+.field public final mInternalListener:Lcom/android/server/display/RampAnimator$Listener;
 
-.field private mListener:Lcom/android/server/display/RampAnimator$Listener;
+.field public mListener:Lcom/android/server/display/RampAnimator$Listener;
 
-.field private final mSecond:Lcom/android/server/display/RampAnimator;
+.field public final mSecond:Lcom/android/server/display/RampAnimator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/android/server/display/RampAnimator<",
@@ -48,7 +48,15 @@
 
 
 # direct methods
-.method constructor <init>(Ljava/lang/Object;Landroid/util/FloatProperty;Landroid/util/FloatProperty;)V
+.method public static bridge synthetic -$$Nest$fgetmListener(Lcom/android/server/display/RampAnimator$DualRampAnimator;)Lcom/android/server/display/RampAnimator$Listener;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/display/RampAnimator$DualRampAnimator;->mListener:Lcom/android/server/display/RampAnimator$Listener;
+
+    return-object p0
+.end method
+
+.method public constructor <init>(Ljava/lang/Object;Landroid/util/FloatProperty;Landroid/util/FloatProperty;)V
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -76,55 +84,47 @@
 
     invoke-virtual {v1, v0}, Lcom/android/server/display/RampAnimator;->setListener(Lcom/android/server/display/RampAnimator$Listener;)V
 
-    new-instance v1, Lcom/android/server/display/RampAnimator;
+    new-instance p2, Lcom/android/server/display/RampAnimator;
 
-    invoke-direct {v1, p1, p3}, Lcom/android/server/display/RampAnimator;-><init>(Ljava/lang/Object;Landroid/util/FloatProperty;)V
+    invoke-direct {p2, p1, p3}, Lcom/android/server/display/RampAnimator;-><init>(Ljava/lang/Object;Landroid/util/FloatProperty;)V
 
-    iput-object v1, p0, Lcom/android/server/display/RampAnimator$DualRampAnimator;->mSecond:Lcom/android/server/display/RampAnimator;
+    iput-object p2, p0, Lcom/android/server/display/RampAnimator$DualRampAnimator;->mSecond:Lcom/android/server/display/RampAnimator;
 
-    invoke-virtual {v1, v0}, Lcom/android/server/display/RampAnimator;->setListener(Lcom/android/server/display/RampAnimator$Listener;)V
+    invoke-virtual {p2, v0}, Lcom/android/server/display/RampAnimator;->setListener(Lcom/android/server/display/RampAnimator$Listener;)V
 
     return-void
-.end method
-
-.method static synthetic access$1000(Lcom/android/server/display/RampAnimator$DualRampAnimator;)Lcom/android/server/display/RampAnimator$Listener;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/display/RampAnimator$DualRampAnimator;->mListener:Lcom/android/server/display/RampAnimator$Listener;
-
-    return-object v0
 .end method
 
 
 # virtual methods
 .method public animateTo(FFF)Z
-    .locals 3
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/display/RampAnimator$DualRampAnimator;->mFirst:Lcom/android/server/display/RampAnimator;
 
     invoke-virtual {v0, p1, p3}, Lcom/android/server/display/RampAnimator;->animateTo(FF)Z
 
-    move-result v0
+    move-result p1
 
-    iget-object v1, p0, Lcom/android/server/display/RampAnimator$DualRampAnimator;->mSecond:Lcom/android/server/display/RampAnimator;
+    iget-object p0, p0, Lcom/android/server/display/RampAnimator$DualRampAnimator;->mSecond:Lcom/android/server/display/RampAnimator;
 
-    invoke-virtual {v1, p2, p3}, Lcom/android/server/display/RampAnimator;->animateTo(FF)Z
+    invoke-virtual {p0, p2, p3}, Lcom/android/server/display/RampAnimator;->animateTo(FF)Z
 
-    move-result v1
+    move-result p0
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    if-eqz v1, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 v2, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v2, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v2
+    return p0
 .end method
 
 .method public isAnimating()Z
@@ -138,23 +138,37 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/display/RampAnimator$DualRampAnimator;->mSecond:Lcom/android/server/display/RampAnimator;
+    iget-object p0, p0, Lcom/android/server/display/RampAnimator$DualRampAnimator;->mSecond:Lcom/android/server/display/RampAnimator;
 
-    invoke-virtual {v0}, Lcom/android/server/display/RampAnimator;->isAnimating()Z
+    invoke-virtual {p0}, Lcom/android/server/display/RampAnimator;->isAnimating()Z
 
-    move-result v0
+    move-result p0
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
+.end method
+
+.method public setAnimationTimeLimits(JJ)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/display/RampAnimator$DualRampAnimator;->mFirst:Lcom/android/server/display/RampAnimator;
+
+    invoke-virtual {v0, p1, p2, p3, p4}, Lcom/android/server/display/RampAnimator;->setAnimationTimeLimits(JJ)V
+
+    iget-object p0, p0, Lcom/android/server/display/RampAnimator$DualRampAnimator;->mSecond:Lcom/android/server/display/RampAnimator;
+
+    invoke-virtual {p0, p1, p2, p3, p4}, Lcom/android/server/display/RampAnimator;->setAnimationTimeLimits(JJ)V
+
+    return-void
 .end method
 
 .method public setListener(Lcom/android/server/display/RampAnimator$Listener;)V

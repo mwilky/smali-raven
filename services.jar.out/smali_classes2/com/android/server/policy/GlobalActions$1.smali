@@ -1,4 +1,4 @@
-.class Lcom/android/server/policy/GlobalActions$1;
+.class public Lcom/android/server/policy/GlobalActions$1;
 .super Ljava/lang/Object;
 .source "GlobalActions.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/policy/GlobalActions;
+.field public final synthetic this$0:Lcom/android/server/policy/GlobalActions;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/policy/GlobalActions;)V
+.method public constructor <init>(Lcom/android/server/policy/GlobalActions;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/policy/GlobalActions$1;->this$0:Lcom/android/server/policy/GlobalActions;
@@ -35,31 +35,31 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/policy/GlobalActions$1;->this$0:Lcom/android/server/policy/GlobalActions;
 
-    invoke-static {v0}, Lcom/android/server/policy/GlobalActions;->access$000(Lcom/android/server/policy/GlobalActions;)V
+    invoke-static {v0}, Lcom/android/server/policy/GlobalActions;->-$$Nest$mensureLegacyCreated(Lcom/android/server/policy/GlobalActions;)V
 
     iget-object v0, p0, Lcom/android/server/policy/GlobalActions$1;->this$0:Lcom/android/server/policy/GlobalActions;
 
-    invoke-static {v0}, Lcom/android/server/policy/GlobalActions;->access$300(Lcom/android/server/policy/GlobalActions;)Lcom/android/server/policy/LegacyGlobalActions;
+    invoke-static {v0}, Lcom/android/server/policy/GlobalActions;->-$$Nest$fgetmLegacyGlobalActions(Lcom/android/server/policy/GlobalActions;)Lcom/android/server/policy/LegacyGlobalActions;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/server/policy/GlobalActions$1;->this$0:Lcom/android/server/policy/GlobalActions;
 
-    invoke-static {v1}, Lcom/android/server/policy/GlobalActions;->access$100(Lcom/android/server/policy/GlobalActions;)Z
+    invoke-static {v1}, Lcom/android/server/policy/GlobalActions;->-$$Nest$fgetmKeyguardShowing(Lcom/android/server/policy/GlobalActions;)Z
 
     move-result v1
 
-    iget-object v2, p0, Lcom/android/server/policy/GlobalActions$1;->this$0:Lcom/android/server/policy/GlobalActions;
+    iget-object p0, p0, Lcom/android/server/policy/GlobalActions$1;->this$0:Lcom/android/server/policy/GlobalActions;
 
-    invoke-static {v2}, Lcom/android/server/policy/GlobalActions;->access$200(Lcom/android/server/policy/GlobalActions;)Z
+    invoke-static {p0}, Lcom/android/server/policy/GlobalActions;->-$$Nest$fgetmDeviceProvisioned(Lcom/android/server/policy/GlobalActions;)Z
 
-    move-result v2
+    move-result p0
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/policy/LegacyGlobalActions;->showDialog(ZZ)V
+    invoke-virtual {v0, v1, p0}, Lcom/android/server/policy/LegacyGlobalActions;->showDialog(ZZ)V
 
     return-void
 .end method

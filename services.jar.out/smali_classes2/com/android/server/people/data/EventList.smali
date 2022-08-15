@@ -1,10 +1,10 @@
-.class Lcom/android/server/people/data/EventList;
+.class public Lcom/android/server/people/data/EventList;
 .super Ljava/lang/Object;
 .source "EventList.java"
 
 
 # instance fields
-.field private final mEvents:Ljava/util/List;
+.field public final mEvents:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -16,7 +16,7 @@
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,143 +30,16 @@
     return-void
 .end method
 
-.method private firstIndexOnOrAfter(J)I
-    .locals 6
-
-    iget-object v0, p0, Lcom/android/server/people/data/EventList;->mEvents:Ljava/util/List;
-
-    invoke-interface {v0}, Ljava/util/List;->size()I
-
-    move-result v0
-
-    const/4 v1, 0x0
-
-    iget-object v2, p0, Lcom/android/server/people/data/EventList;->mEvents:Ljava/util/List;
-
-    invoke-interface {v2}, Ljava/util/List;->size()I
-
-    move-result v2
-
-    add-int/lit8 v2, v2, -0x1
-
-    :goto_0
-    if-gt v1, v2, :cond_1
-
-    add-int v3, v1, v2
-
-    ushr-int/lit8 v3, v3, 0x1
-
-    iget-object v4, p0, Lcom/android/server/people/data/EventList;->mEvents:Ljava/util/List;
-
-    invoke-interface {v4, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Lcom/android/server/people/data/Event;
-
-    invoke-virtual {v4}, Lcom/android/server/people/data/Event;->getTimestamp()J
-
-    move-result-wide v4
-
-    cmp-long v4, v4, p1
-
-    if-ltz v4, :cond_0
-
-    add-int/lit8 v2, v3, -0x1
-
-    move v0, v3
-
-    goto :goto_1
-
-    :cond_0
-    add-int/lit8 v1, v3, 0x1
-
-    :goto_1
-    goto :goto_0
-
-    :cond_1
-    return v0
-.end method
-
-.method private isDuplicate(Lcom/android/server/people/data/Event;I)Z
-    .locals 6
-
-    iget-object v0, p0, Lcom/android/server/people/data/EventList;->mEvents:Ljava/util/List;
-
-    invoke-interface {v0}, Ljava/util/List;->size()I
-
-    move-result v0
-
-    move v1, p2
-
-    :goto_0
-    if-ge v1, v0, :cond_1
-
-    iget-object v2, p0, Lcom/android/server/people/data/EventList;->mEvents:Ljava/util/List;
-
-    invoke-interface {v2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/android/server/people/data/Event;
-
-    invoke-virtual {v2}, Lcom/android/server/people/data/Event;->getTimestamp()J
-
-    move-result-wide v2
-
-    invoke-virtual {p1}, Lcom/android/server/people/data/Event;->getTimestamp()J
-
-    move-result-wide v4
-
-    cmp-long v2, v2, v4
-
-    if-gtz v2, :cond_1
-
-    iget-object v2, p0, Lcom/android/server/people/data/EventList;->mEvents:Ljava/util/List;
-
-    add-int/lit8 v3, v1, 0x1
-
-    invoke-interface {v2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/android/server/people/data/Event;
-
-    invoke-virtual {v1}, Lcom/android/server/people/data/Event;->getType()I
-
-    move-result v1
-
-    invoke-virtual {p1}, Lcom/android/server/people/data/Event;->getType()I
-
-    move-result v2
-
-    if-ne v1, v2, :cond_0
-
-    const/4 v1, 0x1
-
-    return v1
-
-    :cond_0
-    move v1, v3
-
-    goto :goto_0
-
-    :cond_1
-    const/4 v2, 0x0
-
-    return v2
-.end method
-
 
 # virtual methods
-.method add(Lcom/android/server/people/data/Event;)V
+.method public add(Lcom/android/server/people/data/Event;)V
     .locals 5
 
     invoke-virtual {p1}, Lcom/android/server/people/data/Event;->getTimestamp()J
 
     move-result-wide v0
 
-    invoke-direct {p0, v0, v1}, Lcom/android/server/people/data/EventList;->firstIndexOnOrAfter(J)I
+    invoke-virtual {p0, v0, v1}, Lcom/android/server/people/data/EventList;->firstIndexOnOrAfter(J)I
 
     move-result v0
 
@@ -198,7 +71,7 @@
 
     if-nez v1, :cond_0
 
-    invoke-direct {p0, p1, v0}, Lcom/android/server/people/data/EventList;->isDuplicate(Lcom/android/server/people/data/Event;I)Z
+    invoke-virtual {p0, p1, v0}, Lcom/android/server/people/data/EventList;->isDuplicate(Lcom/android/server/people/data/Event;I)Z
 
     move-result v1
 
@@ -207,15 +80,15 @@
     return-void
 
     :cond_0
-    iget-object v1, p0, Lcom/android/server/people/data/EventList;->mEvents:Ljava/util/List;
+    iget-object p0, p0, Lcom/android/server/people/data/EventList;->mEvents:Ljava/util/List;
 
-    invoke-interface {v1, v0, p1}, Ljava/util/List;->add(ILjava/lang/Object;)V
+    invoke-interface {p0, v0, p1}, Ljava/util/List;->add(ILjava/lang/Object;)V
 
     return-void
 .end method
 
-.method addAll(Ljava/util/List;)V
-    .locals 2
+.method public addAll(Ljava/util/List;)V
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -227,22 +100,22 @@
 
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p1
 
     :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Lcom/android/server/people/data/Event;
+    check-cast v0, Lcom/android/server/people/data/Event;
 
-    invoke-virtual {p0, v1}, Lcom/android/server/people/data/EventList;->add(Lcom/android/server/people/data/Event;)V
+    invoke-virtual {p0, v0}, Lcom/android/server/people/data/EventList;->add(Lcom/android/server/people/data/Event;)V
 
     goto :goto_0
 
@@ -250,51 +123,22 @@
     return-void
 .end method
 
-.method clear()V
-    .locals 1
+.method public clear()V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/people/data/EventList;->mEvents:Ljava/util/List;
+    iget-object p0, p0, Lcom/android/server/people/data/EventList;->mEvents:Ljava/util/List;
 
-    invoke-interface {v0}, Ljava/util/List;->clear()V
+    invoke-interface {p0}, Ljava/util/List;->clear()V
 
     return-void
 .end method
 
-.method getAllEvents()Ljava/util/List;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List<",
-            "Lcom/android/server/people/data/Event;",
-            ">;"
-        }
-    .end annotation
+.method public final firstIndexOnOrAfter(J)I
+    .locals 6
 
     iget-object v0, p0, Lcom/android/server/people/data/EventList;->mEvents:Ljava/util/List;
 
-    invoke-static {v0}, Lcom/android/internal/util/CollectionUtils;->copyOf(Ljava/util/List;)Ljava/util/List;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method queryEvents(Ljava/util/Set;JJ)Ljava/util/List;
-    .locals 6
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/Set<",
-            "Ljava/lang/Integer;",
-            ">;JJ)",
-            "Ljava/util/List<",
-            "Lcom/android/server/people/data/Event;",
-            ">;"
-        }
-    .end annotation
-
-    invoke-direct {p0, p2, p3}, Lcom/android/server/people/data/EventList;->firstIndexOnOrAfter(J)I
+    invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v0
 
@@ -304,36 +148,16 @@
 
     move-result v1
 
-    if-ne v0, v1, :cond_0
+    add-int/lit8 v1, v1, -0x1
 
-    new-instance v1, Ljava/util/ArrayList;
-
-    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
-
-    return-object v1
-
-    :cond_0
-    invoke-direct {p0, p4, p5}, Lcom/android/server/people/data/EventList;->firstIndexOnOrAfter(J)I
-
-    move-result v1
-
-    if-ge v1, v0, :cond_1
-
-    new-instance v2, Ljava/util/ArrayList;
-
-    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
-
-    return-object v2
-
-    :cond_1
-    new-instance v2, Ljava/util/ArrayList;
-
-    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
-
-    move v3, v0
+    const/4 v2, 0x0
 
     :goto_0
-    if-ge v3, v1, :cond_3
+    if-gt v2, v1, :cond_1
+
+    add-int v3, v2, v1
+
+    ushr-int/lit8 v3, v3, 0x1
 
     iget-object v4, p0, Lcom/android/server/people/data/EventList;->mEvents:Ljava/util/List;
 
@@ -343,89 +167,178 @@
 
     check-cast v4, Lcom/android/server/people/data/Event;
 
-    invoke-virtual {v4}, Lcom/android/server/people/data/Event;->getType()I
+    invoke-virtual {v4}, Lcom/android/server/people/data/Event;->getTimestamp()J
 
-    move-result v5
+    move-result-wide v4
 
-    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    cmp-long v4, v4, p1
 
-    move-result-object v5
+    if-ltz v4, :cond_0
 
-    invoke-interface {p1, v5}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
+    add-int/lit8 v0, v3, -0x1
 
-    move-result v5
+    move v1, v0
 
-    if-eqz v5, :cond_2
-
-    invoke-interface {v2, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    :cond_2
-    add-int/lit8 v3, v3, 0x1
+    move v0, v3
 
     goto :goto_0
 
-    :cond_3
-    return-object v2
+    :cond_0
+    add-int/lit8 v3, v3, 0x1
+
+    move v2, v3
+
+    goto :goto_0
+
+    :cond_1
+    return v0
 .end method
 
-.method removeOldEvents(J)V
+.method public getAllEvents()Ljava/util/List;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List<",
+            "Lcom/android/server/people/data/Event;",
+            ">;"
+        }
+    .end annotation
+
+    iget-object p0, p0, Lcom/android/server/people/data/EventList;->mEvents:Ljava/util/List;
+
+    invoke-static {p0}, Lcom/android/internal/util/CollectionUtils;->copyOf(Ljava/util/List;)Ljava/util/List;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public final isDuplicate(Lcom/android/server/people/data/Event;I)Z
     .locals 5
 
-    invoke-direct {p0, p1, p2}, Lcom/android/server/people/data/EventList;->firstIndexOnOrAfter(J)I
+    iget-object v0, p0, Lcom/android/server/people/data/EventList;->mEvents:Ljava/util/List;
+
+    invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v0
 
-    if-nez v0, :cond_0
+    :goto_0
+    if-ge p2, v0, :cond_1
+
+    iget-object v1, p0, Lcom/android/server/people/data/EventList;->mEvents:Ljava/util/List;
+
+    invoke-interface {v1, p2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/server/people/data/Event;
+
+    invoke-virtual {v1}, Lcom/android/server/people/data/Event;->getTimestamp()J
+
+    move-result-wide v1
+
+    invoke-virtual {p1}, Lcom/android/server/people/data/Event;->getTimestamp()J
+
+    move-result-wide v3
+
+    cmp-long v1, v1, v3
+
+    if-gtz v1, :cond_1
+
+    iget-object v1, p0, Lcom/android/server/people/data/EventList;->mEvents:Ljava/util/List;
+
+    add-int/lit8 v2, p2, 0x1
+
+    invoke-interface {v1, p2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object p2
+
+    check-cast p2, Lcom/android/server/people/data/Event;
+
+    invoke-virtual {p2}, Lcom/android/server/people/data/Event;->getType()I
+
+    move-result p2
+
+    invoke-virtual {p1}, Lcom/android/server/people/data/Event;->getType()I
+
+    move-result v1
+
+    if-ne p2, v1, :cond_0
+
+    const/4 p0, 0x1
+
+    return p0
+
+    :cond_0
+    move p2, v2
+
+    goto :goto_0
+
+    :cond_1
+    const/4 p0, 0x0
+
+    return p0
+.end method
+
+.method public removeOldEvents(J)V
+    .locals 3
+
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/people/data/EventList;->firstIndexOnOrAfter(J)I
+
+    move-result p1
+
+    if-nez p1, :cond_0
 
     return-void
 
     :cond_0
-    iget-object v1, p0, Lcom/android/server/people/data/EventList;->mEvents:Ljava/util/List;
+    iget-object p2, p0, Lcom/android/server/people/data/EventList;->mEvents:Ljava/util/List;
 
-    invoke-interface {v1}, Ljava/util/List;->size()I
+    invoke-interface {p2}, Ljava/util/List;->size()I
 
-    move-result v1
+    move-result p2
 
-    if-ne v0, v1, :cond_1
+    if-ne p1, p2, :cond_1
 
-    iget-object v2, p0, Lcom/android/server/people/data/EventList;->mEvents:Ljava/util/List;
+    iget-object p0, p0, Lcom/android/server/people/data/EventList;->mEvents:Ljava/util/List;
 
-    invoke-interface {v2}, Ljava/util/List;->clear()V
+    invoke-interface {p0}, Ljava/util/List;->clear()V
 
     return-void
 
     :cond_1
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
     :goto_0
-    if-ge v0, v1, :cond_2
+    if-ge p1, p2, :cond_2
 
-    iget-object v3, p0, Lcom/android/server/people/data/EventList;->mEvents:Ljava/util/List;
+    iget-object v1, p0, Lcom/android/server/people/data/EventList;->mEvents:Ljava/util/List;
 
-    invoke-interface {v3, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v1, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v2
 
-    check-cast v4, Lcom/android/server/people/data/Event;
+    check-cast v2, Lcom/android/server/people/data/Event;
 
-    invoke-interface {v3, v2, v4}, Ljava/util/List;->set(ILjava/lang/Object;)Ljava/lang/Object;
-
-    add-int/lit8 v2, v2, 0x1
+    invoke-interface {v1, v0, v2}, Ljava/util/List;->set(ILjava/lang/Object;)Ljava/lang/Object;
 
     add-int/lit8 v0, v0, 0x1
+
+    add-int/lit8 p1, p1, 0x1
 
     goto :goto_0
 
     :cond_2
-    if-le v1, v2, :cond_3
+    if-le p2, v0, :cond_3
 
-    iget-object v3, p0, Lcom/android/server/people/data/EventList;->mEvents:Ljava/util/List;
+    iget-object p0, p0, Lcom/android/server/people/data/EventList;->mEvents:Ljava/util/List;
 
-    invoke-interface {v3, v2, v1}, Ljava/util/List;->subList(II)Ljava/util/List;
+    invoke-interface {p0, v0, p2}, Ljava/util/List;->subList(II)Ljava/util/List;
 
-    move-result-object v3
+    move-result-object p0
 
-    invoke-interface {v3}, Ljava/util/List;->clear()V
+    invoke-interface {p0}, Ljava/util/List;->clear()V
 
     :cond_3
     return-void

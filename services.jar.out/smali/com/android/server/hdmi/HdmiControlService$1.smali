@@ -1,4 +1,4 @@
-.class Lcom/android/server/hdmi/HdmiControlService$1;
+.class public Lcom/android/server/hdmi/HdmiControlService$1;
 .super Ljava/lang/Object;
 .source "HdmiControlService.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/hdmi/HdmiControlService;
+.field public final synthetic this$0:Lcom/android/server/hdmi/HdmiControlService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/hdmi/HdmiControlService;)V
+.method public constructor <init>(Lcom/android/server/hdmi/HdmiControlService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/hdmi/HdmiControlService$1;->this$0:Lcom/android/server/hdmi/HdmiControlService;
@@ -35,11 +35,11 @@
 
 # virtual methods
 .method public execute(Ljava/lang/Runnable;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$1;->this$0:Lcom/android/server/hdmi/HdmiControlService;
+    iget-object p0, p0, Lcom/android/server/hdmi/HdmiControlService$1;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/hdmi/HdmiControlService;->runOnServiceThread(Ljava/lang/Runnable;)V
+    invoke-virtual {p0, p1}, Lcom/android/server/hdmi/HdmiControlService;->runOnServiceThread(Ljava/lang/Runnable;)V
 
     return-void
 .end method

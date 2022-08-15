@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/display/HighBrightnessModeController$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -27,13 +28,13 @@
 
 # virtual methods
 .method public final run()V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/display/HighBrightnessModeController$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/display/HighBrightnessModeController;
 
-    iget-object v1, p0, Lcom/android/server/display/HighBrightnessModeController$$ExternalSyntheticLambda1;->f$1:Ljava/io/PrintWriter;
+    iget-object p0, p0, Lcom/android/server/display/HighBrightnessModeController$$ExternalSyntheticLambda1;->f$1:Ljava/io/PrintWriter;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/display/HighBrightnessModeController;->lambda$dump$0$HighBrightnessModeController(Ljava/io/PrintWriter;)V
+    invoke-static {v0, p0}, Lcom/android/server/display/HighBrightnessModeController;->$r8$lambda$FwQoqaOsLitbxjoKP4p0hm_WgC0(Lcom/android/server/display/HighBrightnessModeController;Ljava/io/PrintWriter;)V
 
     return-void
 .end method

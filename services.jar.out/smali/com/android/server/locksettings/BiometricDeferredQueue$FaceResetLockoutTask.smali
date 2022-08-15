@@ -1,4 +1,4 @@
-.class Lcom/android/server/locksettings/BiometricDeferredQueue$FaceResetLockoutTask;
+.class public Lcom/android/server/locksettings/BiometricDeferredQueue$FaceResetLockoutTask;
 .super Ljava/lang/Object;
 .source "BiometricDeferredQueue.java"
 
@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "FaceResetLockoutTask"
 .end annotation
 
@@ -24,11 +24,11 @@
 
 
 # instance fields
-.field faceManager:Landroid/hardware/face/FaceManager;
+.field public faceManager:Landroid/hardware/face/FaceManager;
 
-.field finishCallback:Lcom/android/server/locksettings/BiometricDeferredQueue$FaceResetLockoutTask$FinishCallback;
+.field public finishCallback:Lcom/android/server/locksettings/BiometricDeferredQueue$FaceResetLockoutTask$FinishCallback;
 
-.field pendingResetLockuts:Ljava/util/List;
+.field public pendingResetLockuts:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -38,7 +38,7 @@
     .end annotation
 .end field
 
-.field sensorIds:Ljava/util/Set;
+.field public sensorIds:Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Set<",
@@ -48,11 +48,11 @@
     .end annotation
 .end field
 
-.field spManager:Lcom/android/server/locksettings/SyntheticPasswordManager;
+.field public spManager:Lcom/android/server/locksettings/SyntheticPasswordManager;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/locksettings/BiometricDeferredQueue$FaceResetLockoutTask$FinishCallback;Landroid/hardware/face/FaceManager;Lcom/android/server/locksettings/SyntheticPasswordManager;Ljava/util/Set;Ljava/util/List;)V
+.method public constructor <init>(Lcom/android/server/locksettings/BiometricDeferredQueue$FaceResetLockoutTask$FinishCallback;Landroid/hardware/face/FaceManager;Lcom/android/server/locksettings/SyntheticPasswordManager;Ljava/util/Set;Ljava/util/List;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -87,7 +87,7 @@
 
 # virtual methods
 .method public onGenerateChallengeResult(IIJ)V
-    .locals 6
+    .locals 5
 
     iget-object v0, p0, Lcom/android/server/locksettings/BiometricDeferredQueue$FaceResetLockoutTask;->sensorIds:Ljava/util/Set;
 
@@ -103,21 +103,21 @@
 
     if-nez v0, :cond_0
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance p0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "Unknown sensorId received: "
+    const-string p2, "Unknown sensorId received: "
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v1, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
@@ -128,6 +128,7 @@
 
     move-result-object v0
 
+    :cond_1
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -167,7 +168,7 @@
 
     iget-object v3, p0, Lcom/android/server/locksettings/BiometricDeferredQueue$FaceResetLockoutTask;->spManager:Lcom/android/server/locksettings/SyntheticPasswordManager;
 
-    invoke-static {v3, v2, p3, p4}, Lcom/android/server/locksettings/BiometricDeferredQueue;->access$000(Lcom/android/server/locksettings/SyntheticPasswordManager;Lcom/android/server/locksettings/BiometricDeferredQueue$UserAuthInfo;J)[B
+    invoke-static {v3, v2, p3, p4}, Lcom/android/server/locksettings/BiometricDeferredQueue;->-$$Nest$smrequestHatFromGatekeeperPassword(Lcom/android/server/locksettings/SyntheticPasswordManager;Lcom/android/server/locksettings/BiometricDeferredQueue$UserAuthInfo;J)[B
 
     move-result-object v3
 
@@ -175,11 +176,10 @@
 
     iget-object v4, p0, Lcom/android/server/locksettings/BiometricDeferredQueue$FaceResetLockoutTask;->faceManager:Landroid/hardware/face/FaceManager;
 
-    iget v5, v2, Lcom/android/server/locksettings/BiometricDeferredQueue$UserAuthInfo;->userId:I
+    iget v2, v2, Lcom/android/server/locksettings/BiometricDeferredQueue$UserAuthInfo;->userId:I
 
-    invoke-virtual {v4, p1, v5, v3}, Landroid/hardware/face/FaceManager;->resetLockout(II[B)V
+    invoke-virtual {v4, p1, v2, v3}, Landroid/hardware/face/FaceManager;->resetLockout(II[B)V
 
-    :cond_1
     goto :goto_0
 
     :cond_2
@@ -195,21 +195,21 @@
 
     invoke-virtual {v0, p1, p2, p3, p4}, Landroid/hardware/face/FaceManager;->revokeChallenge(IIJ)V
 
-    iget-object v0, p0, Lcom/android/server/locksettings/BiometricDeferredQueue$FaceResetLockoutTask;->sensorIds:Ljava/util/Set;
+    iget-object p1, p0, Lcom/android/server/locksettings/BiometricDeferredQueue$FaceResetLockoutTask;->sensorIds:Ljava/util/Set;
 
-    invoke-interface {v0}, Ljava/util/Set;->isEmpty()Z
+    invoke-interface {p1}, Ljava/util/Set;->isEmpty()Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_3
+    if-eqz p1, :cond_3
 
-    const-string v0, "Done requesting resetLockout for all face sensors"
+    const-string p1, "Done requesting resetLockout for all face sensors"
 
-    invoke-static {v1, v0}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, p1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v0, p0, Lcom/android/server/locksettings/BiometricDeferredQueue$FaceResetLockoutTask;->finishCallback:Lcom/android/server/locksettings/BiometricDeferredQueue$FaceResetLockoutTask$FinishCallback;
+    iget-object p0, p0, Lcom/android/server/locksettings/BiometricDeferredQueue$FaceResetLockoutTask;->finishCallback:Lcom/android/server/locksettings/BiometricDeferredQueue$FaceResetLockoutTask$FinishCallback;
 
-    invoke-interface {v0}, Lcom/android/server/locksettings/BiometricDeferredQueue$FaceResetLockoutTask$FinishCallback;->onFinished()V
+    invoke-interface {p0}, Lcom/android/server/locksettings/BiometricDeferredQueue$FaceResetLockoutTask$FinishCallback;->onFinished()V
 
     :cond_3
     return-void

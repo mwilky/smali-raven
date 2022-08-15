@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/hdmi/ArcTerminationActionFromAvr$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/server/hdmi/HdmiControlService$SendMessageCallback;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final onSendCompleted(I)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/hdmi/ArcTerminationActionFromAvr$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/hdmi/ArcTerminationActionFromAvr;
+    iget-object p0, p0, Lcom/android/server/hdmi/ArcTerminationActionFromAvr$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/hdmi/ArcTerminationActionFromAvr;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/hdmi/ArcTerminationActionFromAvr;->lambda$sendTerminateArc$0$ArcTerminationActionFromAvr(I)V
+    invoke-static {p0, p1}, Lcom/android/server/hdmi/ArcTerminationActionFromAvr;->$r8$lambda$k5UGkbFVCieuTxKQDBl6X0NQFo0(Lcom/android/server/hdmi/ArcTerminationActionFromAvr;I)V
 
     return-void
 .end method

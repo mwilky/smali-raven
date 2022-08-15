@@ -1,4 +1,4 @@
-.class Lcom/android/server/profcollect/ProfcollectForwardingService$ProfcollectdHandler;
+.class public Lcom/android/server/profcollect/ProfcollectForwardingService$ProfcollectdHandler;
 .super Landroid/os/Handler;
 .source "ProfcollectForwardingService.java"
 
@@ -9,17 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "ProfcollectdHandler"
 .end annotation
 
 
-# static fields
-.field public static final MESSAGE_BINDER_CONNECT:I
-
-
 # instance fields
-.field final synthetic this$0:Lcom/android/server/profcollect/ProfcollectForwardingService;
+.field public final synthetic this$0:Lcom/android/server/profcollect/ProfcollectForwardingService;
 
 
 # direct methods
@@ -36,49 +32,56 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 3
+    .locals 2
 
     iget v0, p1, Landroid/os/Message;->what:I
 
-    packed-switch v0, :pswitch_data_0
+    if-eqz v0, :cond_1
 
-    new-instance v0, Ljava/lang/AssertionError;
+    const/4 v1, 0x1
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    if-ne v0, v1, :cond_0
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    iget-object p1, p0, Lcom/android/server/profcollect/ProfcollectForwardingService$ProfcollectdHandler;->this$0:Lcom/android/server/profcollect/ProfcollectForwardingService;
 
-    const-string v2, "Unknown message: "
+    invoke-static {p1}, Lcom/android/server/profcollect/ProfcollectForwardingService;->-$$Nest$mregisterObservers(Lcom/android/server/profcollect/ProfcollectForwardingService;)V
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object p0, p0, Lcom/android/server/profcollect/ProfcollectForwardingService$ProfcollectdHandler;->this$0:Lcom/android/server/profcollect/ProfcollectForwardingService;
 
-    invoke-virtual {p1}, Landroid/os/Message;->toString()Ljava/lang/String;
+    invoke-virtual {p0}, Lcom/android/server/SystemService;->getContext()Landroid/content/Context;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {p0}, Lcom/android/server/profcollect/ProfcollectForwardingService$ProfcollectBGJobService;->schedule(Landroid/content/Context;)V
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    goto :goto_0
 
-    move-result-object v1
+    :cond_0
+    new-instance p0, Ljava/lang/AssertionError;
 
-    invoke-direct {v0, v1}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    throw v0
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    :pswitch_0
-    iget-object v0, p0, Lcom/android/server/profcollect/ProfcollectForwardingService$ProfcollectdHandler;->this$0:Lcom/android/server/profcollect/ProfcollectForwardingService;
+    const-string v1, "Unknown message: "
 
-    invoke-static {v0}, Lcom/android/server/profcollect/ProfcollectForwardingService;->access$100(Lcom/android/server/profcollect/ProfcollectForwardingService;)Z
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    nop
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-direct {p0, p1}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
+
+    throw p0
+
+    :cond_1
+    iget-object p0, p0, Lcom/android/server/profcollect/ProfcollectForwardingService$ProfcollectdHandler;->this$0:Lcom/android/server/profcollect/ProfcollectForwardingService;
+
+    invoke-static {p0}, Lcom/android/server/profcollect/ProfcollectForwardingService;->-$$Nest$mconnectNativeService(Lcom/android/server/profcollect/ProfcollectForwardingService;)Z
+
+    :goto_0
     return-void
-
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0x0
-        :pswitch_0
-    .end packed-switch
 .end method

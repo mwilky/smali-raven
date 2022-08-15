@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/wm/WallpaperController$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/internal/util/ToBooleanFunction;
@@ -23,15 +24,15 @@
 
 # virtual methods
 .method public final apply(Ljava/lang/Object;)Z
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/WallpaperController$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/wm/WallpaperController;
+    iget-object p0, p0, Lcom/android/server/wm/WallpaperController$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/wm/WallpaperController;
 
     check-cast p1, Lcom/android/server/wm/WindowState;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/wm/WallpaperController;->lambda$getTopVisibleWallpaper$3$WallpaperController(Lcom/android/server/wm/WindowState;)Z
+    invoke-static {p0, p1}, Lcom/android/server/wm/WallpaperController;->$r8$lambda$Oh0Wp7xG-k2KXmAyef7cCp2EhUA(Lcom/android/server/wm/WallpaperController;Lcom/android/server/wm/WindowState;)Z
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method

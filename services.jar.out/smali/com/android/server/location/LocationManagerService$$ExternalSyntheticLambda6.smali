@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/location/LocationManagerService$$ExternalSyntheticLambda6;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/server/pm/permission/LegacyPermissionManagerInternal$PackagesProvider;
@@ -23,13 +24,13 @@
 
 # virtual methods
 .method public final getPackages(I)[Ljava/lang/String;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/location/LocationManagerService$$ExternalSyntheticLambda6;->f$0:Lcom/android/server/location/LocationManagerService;
+    iget-object p0, p0, Lcom/android/server/location/LocationManagerService$$ExternalSyntheticLambda6;->f$0:Lcom/android/server/location/LocationManagerService;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/location/LocationManagerService;->lambda$new$3$LocationManagerService(I)[Ljava/lang/String;
+    invoke-static {p0, p1}, Lcom/android/server/location/LocationManagerService;->$r8$lambda$iRExiEymUCHTVSw9jZH8KjzWkDw(Lcom/android/server/location/LocationManagerService;I)[Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method

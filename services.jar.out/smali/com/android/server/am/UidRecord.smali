@@ -4,55 +4,129 @@
 
 
 # static fields
-.field static final CHANGE_ACTIVE:I = 0x4
+.field public static ORIG_ENUMS:[I
 
-.field static final CHANGE_CACHED:I = 0x8
-
-.field static final CHANGE_CAPABILITY:I = 0x20
-
-.field static final CHANGE_GONE:I = 0x1
-
-.field static final CHANGE_IDLE:I = 0x2
-
-.field static final CHANGE_PROCSTATE:I = 0x0
-
-.field static final CHANGE_UNCACHED:I = 0x10
-
-.field private static ORIG_ENUMS:[I
-
-.field private static PROTO_ENUMS:[I
+.field public static PROTO_ENUMS:[I
 
 
 # instance fields
-.field curProcStateSeq:J
+.field public curProcStateSeq:J
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "networkStateUpdate"
+        }
+    .end annotation
+.end field
 
-.field volatile hasInternetPermission:Z
+.field public volatile hasInternetPermission:Z
 
-.field lastDispatchedProcStateSeq:J
+.field public lastNetworkUpdatedProcStateSeq:J
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "networkStateUpdate"
+        }
+    .end annotation
+.end field
 
-.field lastNetworkUpdatedProcStateSeq:J
+.field public mCurAllowList:Z
+    .annotation build Lcom/android/internal/annotations/CompositeRWLock;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
+.end field
 
-.field private mCurAllowList:Z
+.field public mCurCapability:I
+    .annotation build Lcom/android/internal/annotations/CompositeRWLock;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
+.end field
 
-.field private mCurCapability:I
+.field public mCurProcState:I
+    .annotation build Lcom/android/internal/annotations/CompositeRWLock;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
+.end field
 
-.field private mCurProcState:I
+.field public mEphemeral:Z
+    .annotation build Lcom/android/internal/annotations/CompositeRWLock;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
+.end field
 
-.field private mEphemeral:Z
+.field public mForegroundServices:Z
+    .annotation build Lcom/android/internal/annotations/CompositeRWLock;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
+.end field
 
-.field private mForegroundServices:Z
+.field public mIdle:Z
+    .annotation build Lcom/android/internal/annotations/CompositeRWLock;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
+.end field
 
-.field private mIdle:Z
+.field public mLastBackgroundTime:J
+    .annotation build Lcom/android/internal/annotations/CompositeRWLock;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
+.end field
 
-.field private mLastBackgroundTime:J
+.field public mLastReportedChange:I
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
+.end field
 
-.field private mLastReportedChange:I
+.field public mNumProcs:I
+    .annotation build Lcom/android/internal/annotations/CompositeRWLock;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
+.end field
 
-.field private mNumProcs:I
+.field public mProcAdjChanged:Z
+    .annotation build Lcom/android/internal/annotations/CompositeRWLock;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
+.end field
 
-.field private final mProcLock:Lcom/android/server/am/ActivityManagerGlobalLock;
+.field public final mProcLock:Lcom/android/server/am/ActivityManagerGlobalLock;
 
-.field private mProcRecords:Landroid/util/ArraySet;
+.field public mProcRecords:Landroid/util/ArraySet;
+    .annotation build Lcom/android/internal/annotations/CompositeRWLock;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/ArraySet<",
@@ -62,30 +136,58 @@
     .end annotation
 .end field
 
-.field private final mService:Lcom/android/server/am/ActivityManagerService;
+.field public final mService:Lcom/android/server/am/ActivityManagerService;
 
-.field private mSetAllowList:Z
+.field public mSetAllowList:Z
+    .annotation build Lcom/android/internal/annotations/CompositeRWLock;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
+.end field
 
-.field private mSetCapability:I
+.field public mSetCapability:I
+    .annotation build Lcom/android/internal/annotations/CompositeRWLock;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
+.end field
 
-.field private mSetIdle:Z
+.field public mSetIdle:Z
+    .annotation build Lcom/android/internal/annotations/CompositeRWLock;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
+.end field
 
-.field private mSetProcState:I
+.field public mSetProcState:I
+    .annotation build Lcom/android/internal/annotations/CompositeRWLock;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
+.end field
 
-.field private final mUid:I
+.field public final mUid:I
 
-.field final networkStateLock:Ljava/lang/Object;
+.field public final networkStateLock:Ljava/lang/Object;
 
-.field final pendingChange:Lcom/android/server/am/UidObserverController$ChangeRecord;
+.field public final pendingChange:Lcom/android/server/am/UidObserverController$ChangeRecord;
 
-.field volatile waitingForNetwork:Z
+.field public volatile procStateSeqWaitingForNetwork:J
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 2
 
-    const/4 v0, 0x6
+    const/4 v0, 0x7
 
     new-array v1, v0, [I
 
@@ -109,6 +211,7 @@
         0x8
         0x10
         0x20
+        -0x80000000
     .end array-data
 
     :array_1
@@ -119,6 +222,7 @@
         0x3
         0x4
         0x5
+        0x6
     .end array-data
 .end method
 
@@ -155,19 +259,19 @@
 
     if-eqz p2, :cond_0
 
-    iget-object v0, p2, Lcom/android/server/am/ActivityManagerService;->mProcLock:Lcom/android/server/am/ActivityManagerGlobalLock;
+    iget-object p1, p2, Lcom/android/server/am/ActivityManagerService;->mProcLock:Lcom/android/server/am/ActivityManagerGlobalLock;
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    iput-object v0, p0, Lcom/android/server/am/UidRecord;->mProcLock:Lcom/android/server/am/ActivityManagerGlobalLock;
+    iput-object p1, p0, Lcom/android/server/am/UidRecord;->mProcLock:Lcom/android/server/am/ActivityManagerGlobalLock;
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    iput-boolean v0, p0, Lcom/android/server/am/UidRecord;->mIdle:Z
+    iput-boolean p1, p0, Lcom/android/server/am/UidRecord;->mIdle:Z
 
     invoke-virtual {p0}, Lcom/android/server/am/UidRecord;->reset()V
 
@@ -176,129 +280,152 @@
 
 
 # virtual methods
-.method addProcess(Lcom/android/server/am/ProcessRecord;)V
-    .locals 1
+.method public addProcess(Lcom/android/server/am/ProcessRecord;)V
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
-    iget-object v0, p0, Lcom/android/server/am/UidRecord;->mProcRecords:Landroid/util/ArraySet;
+    iget-object p0, p0, Lcom/android/server/am/UidRecord;->mProcRecords:Landroid/util/ArraySet;
 
-    invoke-virtual {v0, p1}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p1}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
 
     return-void
 .end method
 
-.method dumpDebug(Landroid/util/proto/ProtoOutputStream;J)V
-    .locals 12
+.method public clearProcAdjChanged()V
+    .locals 1
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/server/am/UidRecord;->mProcAdjChanged:Z
+
+    return-void
+.end method
+
+.method public dumpDebug(Landroid/util/proto/ProtoOutputStream;J)V
+    .locals 10
 
     invoke-virtual {p1, p2, p3}, Landroid/util/proto/ProtoOutputStream;->start(J)J
 
-    move-result-wide v0
+    move-result-wide p2
 
-    iget v2, p0, Lcom/android/server/am/UidRecord;->mUid:I
+    iget v0, p0, Lcom/android/server/am/UidRecord;->mUid:I
 
-    const-wide v3, 0x10500000001L
+    const-wide v1, 0x10500000001L
 
-    invoke-virtual {p1, v3, v4, v2}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
+    invoke-virtual {p1, v1, v2, v0}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
 
-    iget v2, p0, Lcom/android/server/am/UidRecord;->mCurProcState:I
+    iget v0, p0, Lcom/android/server/am/UidRecord;->mCurProcState:I
 
-    invoke-static {v2}, Lcom/android/server/am/ProcessList;->makeProcStateProtoEnum(I)I
+    invoke-static {v0}, Lcom/android/server/am/ProcessList;->makeProcStateProtoEnum(I)I
 
-    move-result v2
+    move-result v0
 
-    const-wide v3, 0x10e00000002L
+    const-wide v1, 0x10e00000002L
 
-    invoke-virtual {p1, v3, v4, v2}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
+    invoke-virtual {p1, v1, v2, v0}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
 
-    iget-boolean v2, p0, Lcom/android/server/am/UidRecord;->mEphemeral:Z
+    iget-boolean v0, p0, Lcom/android/server/am/UidRecord;->mEphemeral:Z
 
-    const-wide v3, 0x10800000003L
+    const-wide v1, 0x10800000003L
 
-    invoke-virtual {p1, v3, v4, v2}, Landroid/util/proto/ProtoOutputStream;->write(JZ)V
+    invoke-virtual {p1, v1, v2, v0}, Landroid/util/proto/ProtoOutputStream;->write(JZ)V
 
-    iget-boolean v2, p0, Lcom/android/server/am/UidRecord;->mForegroundServices:Z
+    iget-boolean v0, p0, Lcom/android/server/am/UidRecord;->mForegroundServices:Z
 
-    const-wide v3, 0x10800000004L
+    const-wide v1, 0x10800000004L
 
-    invoke-virtual {p1, v3, v4, v2}, Landroid/util/proto/ProtoOutputStream;->write(JZ)V
+    invoke-virtual {p1, v1, v2, v0}, Landroid/util/proto/ProtoOutputStream;->write(JZ)V
 
-    iget-boolean v2, p0, Lcom/android/server/am/UidRecord;->mCurAllowList:Z
+    iget-boolean v0, p0, Lcom/android/server/am/UidRecord;->mCurAllowList:Z
 
-    const-wide v3, 0x10800000005L
+    const-wide v1, 0x10800000005L
 
-    invoke-virtual {p1, v3, v4, v2}, Landroid/util/proto/ProtoOutputStream;->write(JZ)V
+    invoke-virtual {p1, v1, v2, v0}, Landroid/util/proto/ProtoOutputStream;->write(JZ)V
 
-    iget-wide v8, p0, Lcom/android/server/am/UidRecord;->mLastBackgroundTime:J
+    iget-wide v6, p0, Lcom/android/server/am/UidRecord;->mLastBackgroundTime:J
 
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
-    move-result-wide v10
+    move-result-wide v8
 
-    const-wide v6, 0x10b00000006L
+    const-wide v4, 0x10b00000006L
 
-    move-object v5, p1
+    move-object v3, p1
 
-    invoke-static/range {v5 .. v11}, Landroid/util/proto/ProtoUtils;->toDuration(Landroid/util/proto/ProtoOutputStream;JJJ)V
+    invoke-static/range {v3 .. v9}, Landroid/util/proto/ProtoUtils;->toDuration(Landroid/util/proto/ProtoOutputStream;JJJ)V
 
-    iget-boolean v2, p0, Lcom/android/server/am/UidRecord;->mIdle:Z
+    iget-boolean v0, p0, Lcom/android/server/am/UidRecord;->mIdle:Z
 
-    const-wide v3, 0x10800000007L
+    const-wide v1, 0x10800000007L
 
-    invoke-virtual {p1, v3, v4, v2}, Landroid/util/proto/ProtoOutputStream;->write(JZ)V
+    invoke-virtual {p1, v1, v2, v0}, Landroid/util/proto/ProtoOutputStream;->write(JZ)V
 
-    iget v8, p0, Lcom/android/server/am/UidRecord;->mLastReportedChange:I
+    iget v6, p0, Lcom/android/server/am/UidRecord;->mLastReportedChange:I
 
-    if-eqz v8, :cond_0
+    if-eqz v6, :cond_0
 
-    const-wide v6, 0x20e00000008L
+    const-wide v4, 0x20e00000008L
 
-    sget-object v9, Lcom/android/server/am/UidRecord;->ORIG_ENUMS:[I
+    sget-object v7, Lcom/android/server/am/UidRecord;->ORIG_ENUMS:[I
 
-    sget-object v10, Lcom/android/server/am/UidRecord;->PROTO_ENUMS:[I
+    sget-object v8, Lcom/android/server/am/UidRecord;->PROTO_ENUMS:[I
 
-    move-object v5, p1
+    move-object v3, p1
 
-    invoke-static/range {v5 .. v10}, Landroid/util/proto/ProtoUtils;->writeBitWiseFlagsToProtoEnum(Landroid/util/proto/ProtoOutputStream;JI[I[I)V
+    invoke-static/range {v3 .. v8}, Landroid/util/proto/ProtoUtils;->writeBitWiseFlagsToProtoEnum(Landroid/util/proto/ProtoOutputStream;JI[I[I)V
 
     :cond_0
-    const-wide v2, 0x10500000009L
+    const-wide v0, 0x10500000009L
 
-    iget v4, p0, Lcom/android/server/am/UidRecord;->mNumProcs:I
+    iget v2, p0, Lcom/android/server/am/UidRecord;->mNumProcs:I
 
-    invoke-virtual {p1, v2, v3, v4}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
+    invoke-virtual {p1, v0, v1, v2}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
 
-    const-wide v2, 0x10b0000000aL
+    const-wide v0, 0x10b0000000aL
 
-    invoke-virtual {p1, v2, v3}, Landroid/util/proto/ProtoOutputStream;->start(J)J
+    invoke-virtual {p1, v0, v1}, Landroid/util/proto/ProtoOutputStream;->start(J)J
 
-    move-result-wide v2
+    move-result-wide v0
 
-    const-wide v4, 0x10300000001L
+    const-wide v2, 0x10300000001L
 
-    iget-wide v6, p0, Lcom/android/server/am/UidRecord;->curProcStateSeq:J
+    iget-wide v4, p0, Lcom/android/server/am/UidRecord;->curProcStateSeq:J
 
-    invoke-virtual {p1, v4, v5, v6, v7}, Landroid/util/proto/ProtoOutputStream;->write(JJ)V
+    invoke-virtual {p1, v2, v3, v4, v5}, Landroid/util/proto/ProtoOutputStream;->write(JJ)V
 
-    const-wide v4, 0x10300000002L
+    const-wide v2, 0x10300000002L
 
-    iget-wide v6, p0, Lcom/android/server/am/UidRecord;->lastNetworkUpdatedProcStateSeq:J
+    iget-wide v4, p0, Lcom/android/server/am/UidRecord;->lastNetworkUpdatedProcStateSeq:J
 
-    invoke-virtual {p1, v4, v5, v6, v7}, Landroid/util/proto/ProtoOutputStream;->write(JJ)V
-
-    const-wide v4, 0x10300000003L
-
-    iget-wide v6, p0, Lcom/android/server/am/UidRecord;->lastDispatchedProcStateSeq:J
-
-    invoke-virtual {p1, v4, v5, v6, v7}, Landroid/util/proto/ProtoOutputStream;->write(JJ)V
-
-    invoke-virtual {p1, v2, v3}, Landroid/util/proto/ProtoOutputStream;->end(J)V
+    invoke-virtual {p1, v2, v3, v4, v5}, Landroid/util/proto/ProtoOutputStream;->write(JJ)V
 
     invoke-virtual {p1, v0, v1}, Landroid/util/proto/ProtoOutputStream;->end(J)V
+
+    invoke-virtual {p1, p2, p3}, Landroid/util/proto/ProtoOutputStream;->end(J)V
 
     return-void
 .end method
 
-.method forEachProcess(Ljava/util/function/Consumer;)V
+.method public forEachProcess(Ljava/util/function/Consumer;)V
     .locals 2
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        anyOf = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -337,32 +464,88 @@
     return-void
 .end method
 
-.method getCurCapability()I
-    .locals 1
+.method public getCurCapability()I
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        anyOf = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
-    iget v0, p0, Lcom/android/server/am/UidRecord;->mCurCapability:I
+    iget p0, p0, Lcom/android/server/am/UidRecord;->mCurCapability:I
 
-    return v0
+    return p0
 .end method
 
-.method getCurProcState()I
-    .locals 1
+.method public getCurProcState()I
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        anyOf = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
-    iget v0, p0, Lcom/android/server/am/UidRecord;->mCurProcState:I
+    iget p0, p0, Lcom/android/server/am/UidRecord;->mCurProcState:I
 
-    return v0
+    return p0
 .end method
 
-.method getLastBackgroundTime()J
+.method public getLastBackgroundTime()J
     .locals 2
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        anyOf = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
     iget-wide v0, p0, Lcom/android/server/am/UidRecord;->mLastBackgroundTime:J
 
     return-wide v0
 .end method
 
-.method getNumOfProcs()I
-    .locals 1
+.method public getNumOfProcs()I
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        anyOf = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
+
+    iget-object p0, p0, Lcom/android/server/am/UidRecord;->mProcRecords:Landroid/util/ArraySet;
+
+    invoke-virtual {p0}, Landroid/util/ArraySet;->size()I
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public getProcAdjChanged()Z
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
+
+    iget-boolean p0, p0, Lcom/android/server/am/UidRecord;->mProcAdjChanged:Z
+
+    return p0
+.end method
+
+.method public getProcessInPackage(Ljava/lang/String;)Lcom/android/server/am/ProcessRecord;
+    .locals 3
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        anyOf = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
     iget-object v0, p0, Lcom/android/server/am/UidRecord;->mProcRecords:Landroid/util/ArraySet;
 
@@ -370,93 +553,204 @@
 
     move-result v0
 
-    return v0
+    add-int/lit8 v0, v0, -0x1
+
+    :goto_0
+    if-ltz v0, :cond_1
+
+    iget-object v1, p0, Lcom/android/server/am/UidRecord;->mProcRecords:Landroid/util/ArraySet;
+
+    invoke-virtual {v1, v0}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/server/am/ProcessRecord;
+
+    if-eqz v1, :cond_0
+
+    iget-object v2, v1, Lcom/android/server/am/ProcessRecord;->info:Landroid/content/pm/ApplicationInfo;
+
+    iget-object v2, v2, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+
+    invoke-static {v2, p1}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    return-object v1
+
+    :cond_0
+    add-int/lit8 v0, v0, -0x1
+
+    goto :goto_0
+
+    :cond_1
+    const/4 p0, 0x0
+
+    return-object p0
 .end method
 
-.method getSetCapability()I
-    .locals 1
+.method public getSetCapability()I
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        anyOf = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
-    iget v0, p0, Lcom/android/server/am/UidRecord;->mSetCapability:I
+    iget p0, p0, Lcom/android/server/am/UidRecord;->mSetCapability:I
 
-    return v0
+    return p0
 .end method
 
-.method getSetProcState()I
-    .locals 1
+.method public getSetProcState()I
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        anyOf = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
-    iget v0, p0, Lcom/android/server/am/UidRecord;->mSetProcState:I
+    iget p0, p0, Lcom/android/server/am/UidRecord;->mSetProcState:I
 
-    return v0
+    return p0
 .end method
 
-.method getUid()I
-    .locals 1
+.method public getUid()I
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/am/UidRecord;->mUid:I
+    iget p0, p0, Lcom/android/server/am/UidRecord;->mUid:I
 
-    return v0
+    return p0
 .end method
 
-.method hasForegroundServices()Z
-    .locals 1
+.method public hasForegroundServices()Z
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        anyOf = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
-    iget-boolean v0, p0, Lcom/android/server/am/UidRecord;->mForegroundServices:Z
+    iget-boolean p0, p0, Lcom/android/server/am/UidRecord;->mForegroundServices:Z
 
-    return v0
+    return p0
 .end method
 
-.method isCurAllowListed()Z
-    .locals 1
+.method public isCurAllowListed()Z
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        anyOf = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
-    iget-boolean v0, p0, Lcom/android/server/am/UidRecord;->mCurAllowList:Z
+    iget-boolean p0, p0, Lcom/android/server/am/UidRecord;->mCurAllowList:Z
 
-    return v0
+    return p0
 .end method
 
-.method isEphemeral()Z
-    .locals 1
+.method public isEphemeral()Z
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        anyOf = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
-    iget-boolean v0, p0, Lcom/android/server/am/UidRecord;->mEphemeral:Z
+    iget-boolean p0, p0, Lcom/android/server/am/UidRecord;->mEphemeral:Z
 
-    return v0
+    return p0
 .end method
 
-.method isIdle()Z
-    .locals 1
+.method public isIdle()Z
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        anyOf = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
-    iget-boolean v0, p0, Lcom/android/server/am/UidRecord;->mIdle:Z
+    iget-boolean p0, p0, Lcom/android/server/am/UidRecord;->mIdle:Z
 
-    return v0
+    return p0
 .end method
 
-.method isSetAllowListed()Z
-    .locals 1
+.method public isSetAllowListed()Z
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        anyOf = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
-    iget-boolean v0, p0, Lcom/android/server/am/UidRecord;->mSetAllowList:Z
+    iget-boolean p0, p0, Lcom/android/server/am/UidRecord;->mSetAllowList:Z
 
-    return v0
+    return p0
 .end method
 
-.method isSetIdle()Z
-    .locals 1
+.method public isSetIdle()Z
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        anyOf = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
-    iget-boolean v0, p0, Lcom/android/server/am/UidRecord;->mSetIdle:Z
+    iget-boolean p0, p0, Lcom/android/server/am/UidRecord;->mSetIdle:Z
 
-    return v0
+    return p0
 .end method
 
-.method removeProcess(Lcom/android/server/am/ProcessRecord;)V
+.method public noteProcAdjChanged()V
     .locals 1
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
-    iget-object v0, p0, Lcom/android/server/am/UidRecord;->mProcRecords:Landroid/util/ArraySet;
+    const/4 v0, 0x1
 
-    invoke-virtual {v0, p1}, Landroid/util/ArraySet;->remove(Ljava/lang/Object;)Z
+    iput-boolean v0, p0, Lcom/android/server/am/UidRecord;->mProcAdjChanged:Z
 
     return-void
 .end method
 
-.method reset()V
+.method public removeProcess(Lcom/android/server/am/ProcessRecord;)V
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
+
+    iget-object p0, p0, Lcom/android/server/am/UidRecord;->mProcRecords:Landroid/util/ArraySet;
+
+    invoke-virtual {p0, p1}, Landroid/util/ArraySet;->remove(Ljava/lang/Object;)Z
+
+    return-void
+.end method
+
+.method public reset()V
     .locals 1
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
     const/16 v0, 0x13
 
@@ -471,96 +765,167 @@
     return-void
 .end method
 
-.method setCurAllowListed(Z)V
+.method public setCurAllowListed(Z)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
     iput-boolean p1, p0, Lcom/android/server/am/UidRecord;->mCurAllowList:Z
 
     return-void
 .end method
 
-.method setCurCapability(I)V
+.method public setCurCapability(I)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
     iput p1, p0, Lcom/android/server/am/UidRecord;->mCurCapability:I
 
     return-void
 .end method
 
-.method setCurProcState(I)V
+.method public setCurProcState(I)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
     iput p1, p0, Lcom/android/server/am/UidRecord;->mCurProcState:I
 
     return-void
 .end method
 
-.method setEphemeral(Z)V
+.method public setEphemeral(Z)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
     iput-boolean p1, p0, Lcom/android/server/am/UidRecord;->mEphemeral:Z
 
     return-void
 .end method
 
-.method setForegroundServices(Z)V
+.method public setForegroundServices(Z)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
     iput-boolean p1, p0, Lcom/android/server/am/UidRecord;->mForegroundServices:Z
 
     return-void
 .end method
 
-.method setIdle(Z)V
+.method public setIdle(Z)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
     iput-boolean p1, p0, Lcom/android/server/am/UidRecord;->mIdle:Z
 
     return-void
 .end method
 
-.method setLastBackgroundTime(J)V
+.method public setLastBackgroundTime(J)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
     iput-wide p1, p0, Lcom/android/server/am/UidRecord;->mLastBackgroundTime:J
 
     return-void
 .end method
 
-.method setLastReportedChange(I)V
+.method public setLastReportedChange(I)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
     iput p1, p0, Lcom/android/server/am/UidRecord;->mLastReportedChange:I
 
     return-void
 .end method
 
-.method setSetAllowListed(Z)V
+.method public setSetAllowListed(Z)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
     iput-boolean p1, p0, Lcom/android/server/am/UidRecord;->mSetAllowList:Z
 
     return-void
 .end method
 
-.method setSetCapability(I)V
+.method public setSetCapability(I)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
     iput p1, p0, Lcom/android/server/am/UidRecord;->mSetCapability:I
 
     return-void
 .end method
 
-.method setSetIdle(Z)V
+.method public setSetIdle(Z)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
     iput-boolean p1, p0, Lcom/android/server/am/UidRecord;->mSetIdle:Z
 
     return-void
 .end method
 
-.method setSetProcState(I)V
+.method public setSetProcState(I)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
     iput p1, p0, Lcom/android/server/am/UidRecord;->mSetProcState:I
 
@@ -669,7 +1034,7 @@
     :cond_4
     iget v1, p0, Lcom/android/server/am/UidRecord;->mLastReportedChange:I
 
-    if-eqz v1, :cond_d
+    if-eqz v1, :cond_11
 
     const-string v1, " change:"
 
@@ -679,35 +1044,37 @@
 
     iget v2, p0, Lcom/android/server/am/UidRecord;->mLastReportedChange:I
 
-    and-int/lit8 v2, v2, 0x1
+    const/4 v3, 0x1
+
+    and-int/2addr v2, v3
 
     if-eqz v2, :cond_5
 
-    const/4 v1, 0x1
+    const-string v1, "gone"
 
-    const-string v2, "gone"
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move v1, v3
 
     :cond_5
     iget v2, p0, Lcom/android/server/am/UidRecord;->mLastReportedChange:I
 
     and-int/lit8 v2, v2, 0x2
 
-    const-string/jumbo v3, "|"
+    const-string/jumbo v4, "|"
 
     if-eqz v2, :cond_7
 
     if-eqz v1, :cond_6
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_6
-    const/4 v1, 0x1
+    const-string v1, "idle"
 
-    const-string v2, "idle"
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move v1, v3
 
     :cond_7
     iget v2, p0, Lcom/android/server/am/UidRecord;->mLastReportedChange:I
@@ -718,14 +1085,14 @@
 
     if-eqz v1, :cond_8
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_8
-    const/4 v1, 0x1
+    const-string v1, "active"
 
-    const-string v2, "active"
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move v1, v3
 
     :cond_9
     iget v2, p0, Lcom/android/server/am/UidRecord;->mLastReportedChange:I
@@ -736,32 +1103,69 @@
 
     if-eqz v1, :cond_a
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_a
-    const/4 v1, 0x1
+    const-string v1, "cached"
 
-    const-string v2, "cached"
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    goto :goto_0
 
     :cond_b
-    iget v2, p0, Lcom/android/server/am/UidRecord;->mLastReportedChange:I
+    move v3, v1
 
-    and-int/lit8 v2, v2, 0x10
+    :goto_0
+    iget v1, p0, Lcom/android/server/am/UidRecord;->mLastReportedChange:I
 
-    if-eqz v2, :cond_d
+    and-int/lit8 v1, v1, 0x10
 
-    if-eqz v1, :cond_c
+    if-eqz v1, :cond_d
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    if-eqz v3, :cond_c
+
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_c
-    const-string/jumbo v2, "uncached"
+    const-string/jumbo v1, "uncached"
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_d
+    iget v1, p0, Lcom/android/server/am/UidRecord;->mLastReportedChange:I
+
+    const/high16 v2, -0x80000000
+
+    and-int/2addr v1, v2
+
+    if-eqz v1, :cond_f
+
+    if-eqz v3, :cond_e
+
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    :cond_e
+    const-string/jumbo v1, "procstate"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    :cond_f
+    iget v1, p0, Lcom/android/server/am/UidRecord;->mLastReportedChange:I
+
+    and-int/lit8 v1, v1, 0x40
+
+    if-eqz v1, :cond_11
+
+    if-eqz v3, :cond_10
+
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    :cond_10
+    const-string/jumbo v1, "procadj"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    :cond_11
     const-string v1, " procs:"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -782,25 +1186,19 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-wide v2, p0, Lcom/android/server/am/UidRecord;->lastNetworkUpdatedProcStateSeq:J
-
-    invoke-virtual {v0, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-wide v1, p0, Lcom/android/server/am/UidRecord;->lastDispatchedProcStateSeq:J
+    iget-wide v1, p0, Lcom/android/server/am/UidRecord;->lastNetworkUpdatedProcStateSeq:J
 
     invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    const-string v1, ")}"
+    const-string p0, ")}"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method
 
 .method public updateHasInternetPermission()V
@@ -826,20 +1224,5 @@
     :goto_0
     iput-boolean v0, p0, Lcom/android/server/am/UidRecord;->hasInternetPermission:Z
 
-    return-void
-.end method
-
-.method public updateLastDispatchedProcStateSeq(I)V
-    .locals 2
-
-    and-int/lit8 v0, p1, 0x1
-
-    if-nez v0, :cond_0
-
-    iget-wide v0, p0, Lcom/android/server/am/UidRecord;->curProcStateSeq:J
-
-    iput-wide v0, p0, Lcom/android/server/am/UidRecord;->lastDispatchedProcStateSeq:J
-
-    :cond_0
     return-void
 .end method

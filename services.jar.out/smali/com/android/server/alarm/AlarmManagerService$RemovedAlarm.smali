@@ -1,4 +1,4 @@
-.class Lcom/android/server/alarm/AlarmManagerService$RemovedAlarm;
+.class public Lcom/android/server/alarm/AlarmManagerService$RemovedAlarm;
 .super Ljava/lang/Object;
 .source "AlarmManagerService.java"
 
@@ -9,42 +9,30 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "RemovedAlarm"
 .end annotation
 
 
-# static fields
-.field static final REMOVE_REASON_ALARM_CANCELLED:I = 0x1
-
-.field static final REMOVE_REASON_DATA_CLEARED:I = 0x3
-
-.field static final REMOVE_REASON_EXACT_PERMISSION_REVOKED:I = 0x2
-
-.field static final REMOVE_REASON_PI_CANCELLED:I = 0x4
-
-.field static final REMOVE_REASON_UNDEFINED:I
-
-
 # instance fields
-.field final mRemoveReason:I
+.field public final mRemoveReason:I
 
-.field final mTag:Ljava/lang/String;
+.field public final mTag:Ljava/lang/String;
 
-.field final mWhenRemovedElapsed:J
+.field public final mWhenRemovedElapsed:J
 
-.field final mWhenRemovedRtc:J
+.field public final mWhenRemovedRtc:J
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/alarm/Alarm;IJJ)V
-    .locals 1
+.method public constructor <init>(Lcom/android/server/alarm/Alarm;IJJ)V
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iget-object v0, p1, Lcom/android/server/alarm/Alarm;->statsTag:Ljava/lang/String;
+    iget-object p1, p1, Lcom/android/server/alarm/Alarm;->statsTag:Ljava/lang/String;
 
-    iput-object v0, p0, Lcom/android/server/alarm/AlarmManagerService$RemovedAlarm;->mTag:Ljava/lang/String;
+    iput-object p1, p0, Lcom/android/server/alarm/AlarmManagerService$RemovedAlarm;->mTag:Ljava/lang/String;
 
     iput p2, p0, Lcom/android/server/alarm/AlarmManagerService$RemovedAlarm;->mRemoveReason:I
 
@@ -55,26 +43,40 @@
     return-void
 .end method
 
-.method static final isLoggable(I)Z
-    .locals 1
+.method public static final isLoggable(I)Z
+    .locals 0
 
     if-eqz p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
-.method static final removeReasonToString(I)Ljava/lang/String;
+.method public static final removeReasonToString(I)Ljava/lang/String;
     .locals 2
 
-    packed-switch p0, :pswitch_data_0
+    const/4 v0, 0x1
+
+    if-eq p0, v0, :cond_3
+
+    const/4 v0, 0x2
+
+    if-eq p0, v0, :cond_2
+
+    const/4 v0, 0x3
+
+    if-eq p0, v0, :cond_1
+
+    const/4 v0, 0x4
+
+    if-eq p0, v0, :cond_0
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -88,45 +90,35 @@
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
-    :pswitch_0
-    const-string/jumbo v0, "pi_cancelled"
+    :cond_0
+    const-string/jumbo p0, "pi_cancelled"
 
-    return-object v0
+    return-object p0
 
-    :pswitch_1
-    const-string v0, "data_cleared"
+    :cond_1
+    const-string p0, "data_cleared"
 
-    return-object v0
+    return-object p0
 
-    :pswitch_2
-    const-string v0, "exact_alarm_permission_revoked"
+    :cond_2
+    const-string p0, "exact_alarm_permission_revoked"
 
-    return-object v0
+    return-object p0
 
-    :pswitch_3
-    const-string v0, "alarm_cancelled"
+    :cond_3
+    const-string p0, "alarm_cancelled"
 
-    return-object v0
-
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
+    return-object p0
 .end method
 
 
 # virtual methods
-.method dump(Landroid/util/IndentingPrintWriter;JLjava/text/SimpleDateFormat;)V
-    .locals 3
+.method public dump(Landroid/util/IndentingPrintWriter;JLjava/text/SimpleDateFormat;)V
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/alarm/AlarmManagerService$RemovedAlarm;->mTag:Ljava/lang/String;
 
@@ -152,25 +144,25 @@
 
     invoke-static {v0, v1, p2, p3, p1}, Landroid/util/TimeUtils;->formatDuration(JJLjava/io/PrintWriter;)V
 
-    const-string v0, " rtc="
+    const-string p2, " rtc="
 
-    invoke-virtual {p1, v0}, Landroid/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
+    invoke-virtual {p1, p2}, Landroid/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
 
-    new-instance v0, Ljava/util/Date;
+    new-instance p2, Ljava/util/Date;
 
-    iget-wide v1, p0, Lcom/android/server/alarm/AlarmManagerService$RemovedAlarm;->mWhenRemovedRtc:J
+    iget-wide v0, p0, Lcom/android/server/alarm/AlarmManagerService$RemovedAlarm;->mWhenRemovedRtc:J
 
-    invoke-direct {v0, v1, v2}, Ljava/util/Date;-><init>(J)V
+    invoke-direct {p2, v0, v1}, Ljava/util/Date;-><init>(J)V
 
-    invoke-virtual {p4, v0}, Ljava/text/SimpleDateFormat;->format(Ljava/util/Date;)Ljava/lang/String;
+    invoke-virtual {p4, p2}, Ljava/text/SimpleDateFormat;->format(Ljava/util/Date;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {p1, v0}, Landroid/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
+    invoke-virtual {p1, p0}, Landroid/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
 
-    const-string v0, "]"
+    const-string p0, "]"
 
-    invoke-virtual {p1, v0}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p1, p0}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
     return-void
 .end method

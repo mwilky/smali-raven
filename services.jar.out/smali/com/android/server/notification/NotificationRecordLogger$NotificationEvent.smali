@@ -27,7 +27,7 @@
 
 
 # static fields
-.field private static final synthetic $VALUES:[Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;
+.field public static final synthetic $VALUES:[Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;
 
 .field public static final enum NOTIFICATION_ACTION_CLICKED:Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;
 
@@ -79,7 +79,7 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 25
 
     new-instance v0, Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;
@@ -459,7 +459,7 @@
     return-void
 .end method
 
-.method private constructor <init>(Ljava/lang/String;II)V
+.method public constructor <init>(Ljava/lang/String;II)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -475,7 +475,7 @@
 .end method
 
 .method public static fromAction(IZZ)Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;
-    .locals 2
+    .locals 1
 
     if-ltz p0, :cond_3
 
@@ -490,108 +490,108 @@
 
     invoke-static {}, Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;->values()[Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;
 
-    move-result-object v0
+    move-result-object p1
 
-    sget-object v1, Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;->NOTIFICATION_ASSIST_ACTION_CLICKED_0:Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;
+    sget-object p2, Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;->NOTIFICATION_ASSIST_ACTION_CLICKED_0:Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;
 
-    invoke-virtual {v1}, Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;->ordinal()I
+    invoke-virtual {p2}, Ljava/lang/Enum;->ordinal()I
 
-    move-result v1
+    move-result p2
 
-    add-int/2addr v1, p0
+    add-int/2addr p2, p0
 
-    aget-object v0, v0, v1
+    aget-object p0, p1, p2
 
-    return-object v0
+    return-object p0
 
     :cond_1
     if-eqz p2, :cond_2
 
     invoke-static {}, Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;->values()[Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;
 
-    move-result-object v0
+    move-result-object p1
 
-    sget-object v1, Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;->NOTIFICATION_CONTEXTUAL_ACTION_CLICKED_0:Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;
+    sget-object p2, Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;->NOTIFICATION_CONTEXTUAL_ACTION_CLICKED_0:Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;
 
-    invoke-virtual {v1}, Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;->ordinal()I
+    invoke-virtual {p2}, Ljava/lang/Enum;->ordinal()I
 
-    move-result v1
+    move-result p2
 
-    add-int/2addr v1, p0
+    add-int/2addr p2, p0
 
-    aget-object v0, v0, v1
+    aget-object p0, p1, p2
 
-    return-object v0
+    return-object p0
 
     :cond_2
     invoke-static {}, Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;->values()[Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;
 
-    move-result-object v0
+    move-result-object p1
 
-    sget-object v1, Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;->NOTIFICATION_ACTION_CLICKED_0:Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;
+    sget-object p2, Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;->NOTIFICATION_ACTION_CLICKED_0:Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;
 
-    invoke-virtual {v1}, Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;->ordinal()I
+    invoke-virtual {p2}, Ljava/lang/Enum;->ordinal()I
 
-    move-result v1
+    move-result p2
 
-    add-int/2addr v1, p0
+    add-int/2addr p2, p0
 
-    aget-object v0, v0, v1
+    aget-object p0, p1, p2
 
-    return-object v0
+    return-object p0
 
     :cond_3
     :goto_0
-    sget-object v0, Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;->NOTIFICATION_ACTION_CLICKED:Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;
+    sget-object p0, Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;->NOTIFICATION_ACTION_CLICKED:Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static fromExpanded(ZZ)Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;
-    .locals 1
+    .locals 0
 
     if-eqz p1, :cond_1
 
     if-eqz p0, :cond_0
 
-    sget-object v0, Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;->NOTIFICATION_DETAIL_OPEN_USER:Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;
+    sget-object p0, Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;->NOTIFICATION_DETAIL_OPEN_USER:Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;
 
     goto :goto_0
 
     :cond_0
-    sget-object v0, Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;->NOTIFICATION_DETAIL_CLOSE_USER:Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;
+    sget-object p0, Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;->NOTIFICATION_DETAIL_CLOSE_USER:Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;
 
     :goto_0
-    return-object v0
+    return-object p0
 
     :cond_1
     if-eqz p0, :cond_2
 
-    sget-object v0, Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;->NOTIFICATION_DETAIL_OPEN_SYSTEM:Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;
+    sget-object p0, Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;->NOTIFICATION_DETAIL_OPEN_SYSTEM:Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;
 
     goto :goto_1
 
     :cond_2
-    sget-object v0, Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;->NOTIFICATION_DETAIL_CLOSE_SYSTEM:Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;
+    sget-object p0, Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;->NOTIFICATION_DETAIL_CLOSE_SYSTEM:Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;
 
     :goto_1
-    return-object v0
+    return-object p0
 .end method
 
 .method public static fromVisibility(Z)Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;
-    .locals 1
+    .locals 0
 
     if-eqz p0, :cond_0
 
-    sget-object v0, Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;->NOTIFICATION_OPEN:Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;
+    sget-object p0, Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;->NOTIFICATION_OPEN:Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;
 
     goto :goto_0
 
     :cond_0
-    sget-object v0, Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;->NOTIFICATION_CLOSE:Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;
+    sget-object p0, Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;->NOTIFICATION_CLOSE:Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;
 
     :goto_0
-    return-object v0
+    return-object p0
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;
@@ -601,11 +601,11 @@
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;
+    check-cast p0, Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;
@@ -625,9 +625,9 @@
 
 # virtual methods
 .method public getId()I
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;->mId:I
+    iget p0, p0, Lcom/android/server/notification/NotificationRecordLogger$NotificationEvent;->mId:I
 
-    return v0
+    return p0
 .end method

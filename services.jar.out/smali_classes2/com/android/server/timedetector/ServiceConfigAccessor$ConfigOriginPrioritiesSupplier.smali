@@ -1,4 +1,4 @@
-.class Lcom/android/server/timedetector/ServiceConfigAccessor$ConfigOriginPrioritiesSupplier;
+.class public Lcom/android/server/timedetector/ServiceConfigAccessor$ConfigOriginPrioritiesSupplier;
 .super Lcom/android/server/timedetector/ServiceConfigAccessor$BaseOriginPrioritiesSupplier;
 .source "ServiceConfigAccessor.java"
 
@@ -9,22 +9,22 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "ConfigOriginPrioritiesSupplier"
 .end annotation
 
 
 # instance fields
-.field private final mContext:Landroid/content/Context;
+.field public final mContext:Landroid/content/Context;
 
 
 # direct methods
-.method private constructor <init>(Landroid/content/Context;)V
+.method public constructor <init>(Landroid/content/Context;)V
     .locals 1
 
     const/4 v0, 0x0
 
-    invoke-direct {p0, v0}, Lcom/android/server/timedetector/ServiceConfigAccessor$BaseOriginPrioritiesSupplier;-><init>(Lcom/android/server/timedetector/ServiceConfigAccessor$1;)V
+    invoke-direct {p0, v0}, Lcom/android/server/timedetector/ServiceConfigAccessor$BaseOriginPrioritiesSupplier;-><init>(Lcom/android/server/timedetector/ServiceConfigAccessor$BaseOriginPrioritiesSupplier-IA;)V
 
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -32,12 +32,12 @@
 
     check-cast v0, Landroid/content/Context;
 
-    iput-object v0, p0, Lcom/android/server/timedetector/ServiceConfigAccessor$ConfigOriginPrioritiesSupplier;->mContext:Landroid/content/Context;
+    iput-object p1, p0, Lcom/android/server/timedetector/ServiceConfigAccessor$ConfigOriginPrioritiesSupplier;->mContext:Landroid/content/Context;
 
     return-void
 .end method
 
-.method synthetic constructor <init>(Landroid/content/Context;Lcom/android/server/timedetector/ServiceConfigAccessor$1;)V
+.method public synthetic constructor <init>(Landroid/content/Context;Lcom/android/server/timedetector/ServiceConfigAccessor$ConfigOriginPrioritiesSupplier-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/timedetector/ServiceConfigAccessor$ConfigOriginPrioritiesSupplier;-><init>(Landroid/content/Context;)V
@@ -47,20 +47,20 @@
 
 
 # virtual methods
-.method protected lookupPriorityStrings()[Ljava/lang/String;
-    .locals 2
+.method public lookupPriorityStrings()[Ljava/lang/String;
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/timedetector/ServiceConfigAccessor$ConfigOriginPrioritiesSupplier;->mContext:Landroid/content/Context;
+    iget-object p0, p0, Lcom/android/server/timedetector/ServiceConfigAccessor$ConfigOriginPrioritiesSupplier;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v0
+    move-result-object p0
 
-    const v1, 0x1070017
+    const v0, 0x107001b
 
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
+    invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

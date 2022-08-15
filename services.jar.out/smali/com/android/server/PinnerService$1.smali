@@ -1,4 +1,4 @@
-.class Lcom/android/server/PinnerService$1;
+.class public Lcom/android/server/PinnerService$1;
 .super Landroid/content/BroadcastReceiver;
 .source "PinnerService.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/PinnerService;
+.field public final synthetic this$0:Lcom/android/server/PinnerService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/PinnerService;)V
+.method public constructor <init>(Lcom/android/server/PinnerService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/PinnerService$1;->this$0:Lcom/android/server/PinnerService;
@@ -32,39 +32,39 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 5
+    .locals 1
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v1, "android.intent.action.PACKAGE_REPLACED"
+    const-string v0, "android.intent.action.PACKAGE_REPLACED"
 
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     invoke-virtual {p2}, Landroid/content/Intent;->getData()Landroid/net/Uri;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Landroid/net/Uri;->getSchemeSpecificPart()Ljava/lang/String;
+    invoke-virtual {p1}, Landroid/net/Uri;->getSchemeSpecificPart()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    new-instance v2, Landroid/util/ArraySet;
+    new-instance p2, Landroid/util/ArraySet;
 
-    invoke-direct {v2}, Landroid/util/ArraySet;-><init>()V
+    invoke-direct {p2}, Landroid/util/ArraySet;-><init>()V
 
-    invoke-virtual {v2, v1}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p2, p1}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
 
-    iget-object v3, p0, Lcom/android/server/PinnerService$1;->this$0:Lcom/android/server/PinnerService;
+    iget-object p0, p0, Lcom/android/server/PinnerService$1;->this$0:Lcom/android/server/PinnerService;
 
-    const/4 v4, 0x1
+    const/4 p1, 0x1
 
-    invoke-virtual {v3, v2, v4}, Lcom/android/server/PinnerService;->update(Landroid/util/ArraySet;Z)V
+    invoke-virtual {p0, p2, p1}, Lcom/android/server/PinnerService;->update(Landroid/util/ArraySet;Z)V
 
     :cond_0
     return-void

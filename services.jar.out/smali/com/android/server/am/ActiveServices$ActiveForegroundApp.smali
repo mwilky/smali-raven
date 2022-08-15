@@ -1,4 +1,4 @@
-.class final Lcom/android/server/am/ActiveServices$ActiveForegroundApp;
+.class public final Lcom/android/server/am/ActiveServices$ActiveForegroundApp;
 .super Ljava/lang/Object;
 .source "ActiveServices.java"
 
@@ -9,37 +9,37 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = "ActiveForegroundApp"
 .end annotation
 
 
 # instance fields
-.field mAppOnTop:Z
+.field public mAppOnTop:Z
 
-.field mEndTime:J
+.field public mEndTime:J
 
-.field mHideTime:J
+.field public mHideTime:J
 
-.field mLabel:Ljava/lang/CharSequence;
+.field public mLabel:Ljava/lang/CharSequence;
 
-.field mNumActive:I
+.field public mNumActive:I
 
-.field mPackageName:Ljava/lang/String;
+.field public mPackageName:Ljava/lang/String;
 
-.field mShownWhileScreenOn:Z
+.field public mShownWhileScreenOn:Z
 
-.field mShownWhileTop:Z
+.field public mShownWhileTop:Z
 
-.field mStartTime:J
+.field public mStartTime:J
 
-.field mStartVisibleTime:J
+.field public mStartVisibleTime:J
 
-.field mUid:I
+.field public mUid:I
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

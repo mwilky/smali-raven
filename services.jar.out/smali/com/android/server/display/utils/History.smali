@@ -4,19 +4,19 @@
 
 
 # instance fields
-.field private mClock:Ljava/time/Clock;
+.field public mClock:Ljava/time/Clock;
 
-.field private mCount:I
+.field public mCount:I
 
-.field private mEnd:I
+.field public mEnd:I
 
-.field private mSize:I
+.field public mSize:I
 
-.field private mStart:I
+.field public mStart:I
 
-.field private mTimes:[J
+.field public mTimes:[J
 
-.field private mValues:[F
+.field public mValues:[F
 
 
 # direct methods
@@ -51,9 +51,9 @@
 
     iput-object v0, p0, Lcom/android/server/display/utils/History;->mTimes:[J
 
-    new-array v0, p1, [F
+    new-array p1, p1, [F
 
-    iput-object v0, p0, Lcom/android/server/display/utils/History;->mValues:[F
+    iput-object p1, p0, Lcom/android/server/display/utils/History;->mValues:[F
 
     iput-object p2, p0, Lcom/android/server/display/utils/History;->mClock:Ljava/time/Clock;
 
@@ -83,31 +83,31 @@
 
     aput p1, v0, v1
 
-    iget v0, p0, Lcom/android/server/display/utils/History;->mCount:I
+    iget p1, p0, Lcom/android/server/display/utils/History;->mCount:I
 
-    iget v2, p0, Lcom/android/server/display/utils/History;->mSize:I
+    iget v0, p0, Lcom/android/server/display/utils/History;->mSize:I
 
-    if-ge v0, v2, :cond_0
+    if-ge p1, v0, :cond_0
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 p1, p1, 0x1
 
-    iput v0, p0, Lcom/android/server/display/utils/History;->mCount:I
+    iput p1, p0, Lcom/android/server/display/utils/History;->mCount:I
 
     goto :goto_0
 
     :cond_0
-    iget v0, p0, Lcom/android/server/display/utils/History;->mStart:I
+    iget p1, p0, Lcom/android/server/display/utils/History;->mStart:I
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 p1, p1, 0x1
 
-    rem-int/2addr v0, v2
+    rem-int/2addr p1, v0
 
-    iput v0, p0, Lcom/android/server/display/utils/History;->mStart:I
+    iput p1, p0, Lcom/android/server/display/utils/History;->mStart:I
 
     :goto_0
     add-int/lit8 v1, v1, 0x1
 
-    rem-int/2addr v1, v2
+    rem-int/2addr v1, v0
 
     iput v1, p0, Lcom/android/server/display/utils/History;->mEnd:I
 
@@ -115,7 +115,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 8
+    .locals 6
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -127,6 +127,7 @@
 
     const/4 v1, 0x0
 
+    :cond_0
     :goto_0
     iget v2, p0, Lcom/android/server/display/utils/History;->mCount:I
 
@@ -146,49 +147,46 @@
 
     iget-object v5, p0, Lcom/android/server/display/utils/History;->mValues:[F
 
-    aget v5, v5, v2
+    aget v2, v5, v2
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v6, v5}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    const-string v7, " @ "
+    const-string v2, " @ "
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6, v3, v4}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v3, v4}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v2
 
-    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    add-int/lit8 v6, v1, 0x1
-
-    iget v7, p0, Lcom/android/server/display/utils/History;->mCount:I
-
-    if-eq v6, v7, :cond_0
-
-    const-string v6, ", "
-
-    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    :cond_0
     add-int/lit8 v1, v1, 0x1
+
+    iget v2, p0, Lcom/android/server/display/utils/History;->mCount:I
+
+    if-eq v1, v2, :cond_0
+
+    const-string v2, ", "
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     goto :goto_0
 
     :cond_1
-    const-string v1, "]"
+    const-string p0, "]"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method

@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/job/JobSchedulerService$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -23,13 +24,13 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/job/JobSchedulerService$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/job/JobSchedulerService;
+    iget-object p0, p0, Lcom/android/server/job/JobSchedulerService$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/job/JobSchedulerService;
 
     check-cast p1, Lcom/android/server/job/controllers/JobStatus;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/job/JobSchedulerService;->lambda$onBootPhase$2$JobSchedulerService(Lcom/android/server/job/controllers/JobStatus;)V
+    invoke-static {p0, p1}, Lcom/android/server/job/JobSchedulerService;->$r8$lambda$d1TfobUE9MOhcLJycrxqG3OEBrE(Lcom/android/server/job/JobSchedulerService;Lcom/android/server/job/controllers/JobStatus;)V
 
     return-void
 .end method

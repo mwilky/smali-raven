@@ -1,4 +1,4 @@
-.class Lcom/android/server/policy/PhoneWindowManager$HdmiControl;
+.class public Lcom/android/server/policy/PhoneWindowManager$HdmiControl;
 .super Ljava/lang/Object;
 .source "PhoneWindowManager.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "HdmiControl"
 .end annotation
 
 
 # instance fields
-.field private final mClient:Landroid/hardware/hdmi/HdmiPlaybackClient;
+.field public final mClient:Landroid/hardware/hdmi/HdmiPlaybackClient;
 
 
 # direct methods
-.method private constructor <init>(Landroid/hardware/hdmi/HdmiPlaybackClient;)V
+.method public constructor <init>(Landroid/hardware/hdmi/HdmiPlaybackClient;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -29,7 +29,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Landroid/hardware/hdmi/HdmiPlaybackClient;Lcom/android/server/policy/PhoneWindowManager$1;)V
+.method public synthetic constructor <init>(Landroid/hardware/hdmi/HdmiPlaybackClient;Lcom/android/server/policy/PhoneWindowManager$HdmiControl-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/policy/PhoneWindowManager$HdmiControl;-><init>(Landroid/hardware/hdmi/HdmiPlaybackClient;)V

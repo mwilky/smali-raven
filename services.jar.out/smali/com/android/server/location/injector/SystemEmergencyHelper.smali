@@ -12,13 +12,15 @@
 
 
 # instance fields
-.field private final mContext:Landroid/content/Context;
+.field public final mContext:Landroid/content/Context;
 
-.field mEmergencyCallEndRealtimeMs:J
+.field public mEmergencyCallEndRealtimeMs:J
 
-.field mIsInEmergencyCall:Z
+.field public final mEmergencyCallTelephonyCallback:Lcom/android/server/location/injector/SystemEmergencyHelper$EmergencyCallTelephonyCallback;
 
-.field mTelephonyManager:Landroid/telephony/TelephonyManager;
+.field public mIsInEmergencyCall:Z
+
+.field public mTelephonyManager:Landroid/telephony/TelephonyManager;
 
 
 # direct methods
@@ -26,6 +28,12 @@
     .locals 2
 
     invoke-direct {p0}, Lcom/android/server/location/injector/EmergencyHelper;-><init>()V
+
+    new-instance v0, Lcom/android/server/location/injector/SystemEmergencyHelper$EmergencyCallTelephonyCallback;
+
+    invoke-direct {v0, p0}, Lcom/android/server/location/injector/SystemEmergencyHelper$EmergencyCallTelephonyCallback;-><init>(Lcom/android/server/location/injector/SystemEmergencyHelper;)V
+
+    iput-object v0, p0, Lcom/android/server/location/injector/SystemEmergencyHelper;->mEmergencyCallTelephonyCallback:Lcom/android/server/location/injector/SystemEmergencyHelper$EmergencyCallTelephonyCallback;
 
     const-wide/high16 v0, -0x8000000000000000L
 
@@ -76,41 +84,41 @@
 
     sub-long/2addr v3, v5
 
-    cmp-long v0, v3, p1
+    cmp-long p1, v3, p1
 
-    if-gez v0, :cond_1
+    if-gez p1, :cond_1
 
-    move v0, v2
+    move p1, v2
 
     goto :goto_0
 
     :cond_1
-    move v0, v1
+    move p1, v1
 
     :goto_0
-    iget-boolean v3, p0, Lcom/android/server/location/injector/SystemEmergencyHelper;->mIsInEmergencyCall:Z
+    iget-boolean p2, p0, Lcom/android/server/location/injector/SystemEmergencyHelper;->mIsInEmergencyCall:Z
 
-    if-nez v3, :cond_2
+    if-nez p2, :cond_2
 
-    if-nez v0, :cond_2
+    if-nez p1, :cond_2
 
-    iget-object v3, p0, Lcom/android/server/location/injector/SystemEmergencyHelper;->mTelephonyManager:Landroid/telephony/TelephonyManager;
+    iget-object p1, p0, Lcom/android/server/location/injector/SystemEmergencyHelper;->mTelephonyManager:Landroid/telephony/TelephonyManager;
 
-    invoke-virtual {v3}, Landroid/telephony/TelephonyManager;->getEmergencyCallbackMode()Z
+    invoke-virtual {p1}, Landroid/telephony/TelephonyManager;->getEmergencyCallbackMode()Z
 
-    move-result v3
+    move-result p1
 
-    if-nez v3, :cond_2
+    if-nez p1, :cond_2
 
-    iget-object v3, p0, Lcom/android/server/location/injector/SystemEmergencyHelper;->mTelephonyManager:Landroid/telephony/TelephonyManager;
+    iget-object p1, p0, Lcom/android/server/location/injector/SystemEmergencyHelper;->mTelephonyManager:Landroid/telephony/TelephonyManager;
 
-    invoke-virtual {v3}, Landroid/telephony/TelephonyManager;->isInEmergencySmsMode()Z
+    invoke-virtual {p1}, Landroid/telephony/TelephonyManager;->isInEmergencySmsMode()Z
 
-    move-result v3
+    move-result p1
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    if-eqz v3, :cond_3
+    if-eqz p1, :cond_3
 
     :cond_2
     move v1, v2
@@ -158,7 +166,9 @@
 
     invoke-static {v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    check-cast v0, Landroid/telephony/TelephonyManager;
+    move-object v1, v0
+
+    check-cast v1, Landroid/telephony/TelephonyManager;
 
     iput-object v0, p0, Lcom/android/server/location/injector/SystemEmergencyHelper;->mTelephonyManager:Landroid/telephony/TelephonyManager;
 
@@ -166,9 +176,7 @@
 
     move-result-object v1
 
-    new-instance v2, Lcom/android/server/location/injector/SystemEmergencyHelper$EmergencyCallTelephonyCallback;
-
-    invoke-direct {v2, p0}, Lcom/android/server/location/injector/SystemEmergencyHelper$EmergencyCallTelephonyCallback;-><init>(Lcom/android/server/location/injector/SystemEmergencyHelper;)V
+    iget-object v2, p0, Lcom/android/server/location/injector/SystemEmergencyHelper;->mEmergencyCallTelephonyCallback:Lcom/android/server/location/injector/SystemEmergencyHelper$EmergencyCallTelephonyCallback;
 
     invoke-virtual {v0, v1, v2}, Landroid/telephony/TelephonyManager;->registerTelephonyCallback(Ljava/util/concurrent/Executor;Landroid/telephony/TelephonyCallback;)V
 

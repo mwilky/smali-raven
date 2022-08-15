@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/wm/LetterboxUiController$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/IntConsumer;
+.implements Ljava/util/function/Supplier;
 
 
 # instance fields
@@ -22,12 +23,14 @@
 
 
 # virtual methods
-.method public final accept(I)V
-    .locals 1
+.method public final get()Ljava/lang/Object;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/LetterboxUiController$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/wm/LetterboxUiController;
+    iget-object p0, p0, Lcom/android/server/wm/LetterboxUiController$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/wm/LetterboxUiController;
 
-    invoke-static {v0, p1}, Lcom/android/server/wm/LetterboxUiController;->$r8$lambda$DIhAijq-KhVjSJ2n6hNPfk5AiZ8(Lcom/android/server/wm/LetterboxUiController;I)V
+    invoke-static {p0}, Lcom/android/server/wm/LetterboxUiController;->$r8$lambda$OA0yd67wVO249Te3u1OaGYhIhGI(Lcom/android/server/wm/LetterboxUiController;)Landroid/view/SurfaceControl$Builder;
 
-    return-void
+    move-result-object p0
+
+    return-object p0
 .end method

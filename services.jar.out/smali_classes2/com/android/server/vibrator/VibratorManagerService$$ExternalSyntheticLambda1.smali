@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/vibrator/VibratorManagerService$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -23,13 +24,13 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/vibrator/VibratorManagerService$$ExternalSyntheticLambda1;->f$0:I
+    iget p0, p0, Lcom/android/server/vibrator/VibratorManagerService$$ExternalSyntheticLambda1;->f$0:I
 
     check-cast p1, Lcom/android/server/vibrator/VibratorController;
 
-    invoke-static {v0, p1}, Lcom/android/server/vibrator/VibratorManagerService;->lambda$setAlwaysOnEffect$0(ILcom/android/server/vibrator/VibratorController;)V
+    invoke-static {p0, p1}, Lcom/android/server/vibrator/VibratorManagerService;->$r8$lambda$S3DgQpHYVAub4cs1tmkdF33SGcE(ILcom/android/server/vibrator/VibratorController;)V
 
     return-void
 .end method

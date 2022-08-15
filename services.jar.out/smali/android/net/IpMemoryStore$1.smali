@@ -1,4 +1,4 @@
-.class Landroid/net/IpMemoryStore$1;
+.class public Landroid/net/IpMemoryStore$1;
 .super Landroid/net/IIpMemoryStoreCallbacks$Stub;
 .source "IpMemoryStore.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroid/net/IpMemoryStore;
+.field public final synthetic this$0:Landroid/net/IpMemoryStore;
 
 
 # direct methods
-.method constructor <init>(Landroid/net/IpMemoryStore;)V
+.method public constructor <init>(Landroid/net/IpMemoryStore;)V
     .locals 0
 
     iput-object p1, p0, Landroid/net/IpMemoryStore$1;->this$0:Landroid/net/IpMemoryStore;
@@ -32,31 +32,31 @@
 
 # virtual methods
 .method public getInterfaceHash()Ljava/lang/String;
-    .locals 1
+    .locals 0
 
-    const-string v0, "d5ea5eb3ddbdaa9a986ce6ba70b0804ca3e39b0c"
+    const-string p0, "d5ea5eb3ddbdaa9a986ce6ba70b0804ca3e39b0c"
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getInterfaceVersion()I
-    .locals 1
+    .locals 0
 
-    const/16 v0, 0xa
+    const/16 p0, 0xa
 
-    return v0
+    return p0
 .end method
 
 .method public onIpMemoryStoreFetched(Landroid/net/IIpMemoryStore;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Landroid/net/IpMemoryStore$1;->this$0:Landroid/net/IpMemoryStore;
+    iget-object p0, p0, Landroid/net/IpMemoryStore$1;->this$0:Landroid/net/IpMemoryStore;
 
-    invoke-static {v0}, Landroid/net/IpMemoryStore;->access$000(Landroid/net/IpMemoryStore;)Ljava/util/concurrent/CompletableFuture;
+    invoke-static {p0}, Landroid/net/IpMemoryStore;->-$$Nest$fgetmService(Landroid/net/IpMemoryStore;)Ljava/util/concurrent/CompletableFuture;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0, p1}, Ljava/util/concurrent/CompletableFuture;->complete(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p1}, Ljava/util/concurrent/CompletableFuture;->complete(Ljava/lang/Object;)Z
 
     return-void
 .end method

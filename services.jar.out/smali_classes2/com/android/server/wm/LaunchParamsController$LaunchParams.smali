@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/LaunchParamsController$LaunchParams;
+.class public Lcom/android/server/wm/LaunchParamsController$LaunchParams;
 .super Ljava/lang/Object;
 .source "LaunchParamsController.java"
 
@@ -9,21 +9,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "LaunchParams"
 .end annotation
 
 
 # instance fields
-.field final mBounds:Landroid/graphics/Rect;
+.field public final mBounds:Landroid/graphics/Rect;
 
-.field mPreferredTaskDisplayArea:Lcom/android/server/wm/TaskDisplayArea;
+.field public mPreferredTaskDisplayArea:Lcom/android/server/wm/TaskDisplayArea;
 
-.field mWindowingMode:I
+.field public mWindowingMode:I
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .locals 4
 
     const/4 v0, 0x1
 
@@ -66,44 +66,42 @@
     goto :goto_1
 
     :cond_1
-    move-object v2, p1
+    check-cast p1, Lcom/android/server/wm/LaunchParamsController$LaunchParams;
 
-    check-cast v2, Lcom/android/server/wm/LaunchParamsController$LaunchParams;
+    iget-object v2, p0, Lcom/android/server/wm/LaunchParamsController$LaunchParams;->mPreferredTaskDisplayArea:Lcom/android/server/wm/TaskDisplayArea;
 
-    iget-object v3, p0, Lcom/android/server/wm/LaunchParamsController$LaunchParams;->mPreferredTaskDisplayArea:Lcom/android/server/wm/TaskDisplayArea;
+    iget-object v3, p1, Lcom/android/server/wm/LaunchParamsController$LaunchParams;->mPreferredTaskDisplayArea:Lcom/android/server/wm/TaskDisplayArea;
 
-    iget-object v4, v2, Lcom/android/server/wm/LaunchParamsController$LaunchParams;->mPreferredTaskDisplayArea:Lcom/android/server/wm/TaskDisplayArea;
-
-    if-eq v3, v4, :cond_2
+    if-eq v2, v3, :cond_2
 
     return v1
 
     :cond_2
-    iget v3, p0, Lcom/android/server/wm/LaunchParamsController$LaunchParams;->mWindowingMode:I
+    iget v2, p0, Lcom/android/server/wm/LaunchParamsController$LaunchParams;->mWindowingMode:I
 
-    iget v4, v2, Lcom/android/server/wm/LaunchParamsController$LaunchParams;->mWindowingMode:I
+    iget v3, p1, Lcom/android/server/wm/LaunchParamsController$LaunchParams;->mWindowingMode:I
 
-    if-eq v3, v4, :cond_3
+    if-eq v2, v3, :cond_3
 
     return v1
 
     :cond_3
-    iget-object v3, p0, Lcom/android/server/wm/LaunchParamsController$LaunchParams;->mBounds:Landroid/graphics/Rect;
+    iget-object p0, p0, Lcom/android/server/wm/LaunchParamsController$LaunchParams;->mBounds:Landroid/graphics/Rect;
 
-    if-eqz v3, :cond_4
+    if-eqz p0, :cond_4
 
-    iget-object v0, v2, Lcom/android/server/wm/LaunchParamsController$LaunchParams;->mBounds:Landroid/graphics/Rect;
+    iget-object p1, p1, Lcom/android/server/wm/LaunchParamsController$LaunchParams;->mBounds:Landroid/graphics/Rect;
 
-    invoke-virtual {v3, v0}, Landroid/graphics/Rect;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p1}, Landroid/graphics/Rect;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
     goto :goto_0
 
     :cond_4
-    iget-object v3, v2, Lcom/android/server/wm/LaunchParamsController$LaunchParams;->mBounds:Landroid/graphics/Rect;
+    iget-object p0, p1, Lcom/android/server/wm/LaunchParamsController$LaunchParams;->mBounds:Landroid/graphics/Rect;
 
-    if-nez v3, :cond_5
+    if-nez p0, :cond_5
 
     goto :goto_0
 
@@ -118,44 +116,44 @@
     return v1
 .end method
 
-.method hasPreferredTaskDisplayArea()Z
-    .locals 1
+.method public hasPreferredTaskDisplayArea()Z
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/LaunchParamsController$LaunchParams;->mPreferredTaskDisplayArea:Lcom/android/server/wm/TaskDisplayArea;
+    iget-object p0, p0, Lcom/android/server/wm/LaunchParamsController$LaunchParams;->mPreferredTaskDisplayArea:Lcom/android/server/wm/TaskDisplayArea;
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
-.method hasWindowingMode()Z
-    .locals 1
+.method public hasWindowingMode()Z
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/wm/LaunchParamsController$LaunchParams;->mWindowingMode:I
+    iget p0, p0, Lcom/android/server/wm/LaunchParamsController$LaunchParams;->mWindowingMode:I
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method public hashCode()I
-    .locals 4
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/wm/LaunchParamsController$LaunchParams;->mBounds:Landroid/graphics/Rect;
 
@@ -173,34 +171,29 @@
     move v0, v1
 
     :goto_0
-    mul-int/lit8 v2, v0, 0x1f
+    mul-int/lit8 v0, v0, 0x1f
 
-    iget-object v3, p0, Lcom/android/server/wm/LaunchParamsController$LaunchParams;->mPreferredTaskDisplayArea:Lcom/android/server/wm/TaskDisplayArea;
+    iget-object v2, p0, Lcom/android/server/wm/LaunchParamsController$LaunchParams;->mPreferredTaskDisplayArea:Lcom/android/server/wm/TaskDisplayArea;
 
-    if-eqz v3, :cond_1
+    if-eqz v2, :cond_1
 
-    invoke-virtual {v3}, Ljava/lang/Object;->hashCode()I
+    invoke-virtual {v2}, Ljava/lang/Object;->hashCode()I
 
     move-result v1
 
-    goto :goto_1
-
     :cond_1
-    nop
-
-    :goto_1
-    add-int/2addr v2, v1
-
-    mul-int/lit8 v0, v2, 0x1f
-
-    iget v1, p0, Lcom/android/server/wm/LaunchParamsController$LaunchParams;->mWindowingMode:I
-
     add-int/2addr v0, v1
+
+    mul-int/lit8 v0, v0, 0x1f
+
+    iget p0, p0, Lcom/android/server/wm/LaunchParamsController$LaunchParams;->mWindowingMode:I
+
+    add-int/2addr v0, p0
 
     return v0
 .end method
 
-.method isEmpty()Z
+.method public isEmpty()Z
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/wm/LaunchParamsController$LaunchParams;->mBounds:Landroid/graphics/Rect;
@@ -215,22 +208,22 @@
 
     if-nez v0, :cond_0
 
-    iget v0, p0, Lcom/android/server/wm/LaunchParamsController$LaunchParams;->mWindowingMode:I
+    iget p0, p0, Lcom/android/server/wm/LaunchParamsController$LaunchParams;->mWindowingMode:I
 
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
-.method reset()V
+.method public reset()V
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/wm/LaunchParamsController$LaunchParams;->mBounds:Landroid/graphics/Rect;
@@ -248,7 +241,7 @@
     return-void
 .end method
 
-.method set(Lcom/android/server/wm/LaunchParamsController$LaunchParams;)V
+.method public set(Lcom/android/server/wm/LaunchParamsController$LaunchParams;)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/server/wm/LaunchParamsController$LaunchParams;->mBounds:Landroid/graphics/Rect;
@@ -261,9 +254,9 @@
 
     iput-object v0, p0, Lcom/android/server/wm/LaunchParamsController$LaunchParams;->mPreferredTaskDisplayArea:Lcom/android/server/wm/TaskDisplayArea;
 
-    iget v0, p1, Lcom/android/server/wm/LaunchParamsController$LaunchParams;->mWindowingMode:I
+    iget p1, p1, Lcom/android/server/wm/LaunchParamsController$LaunchParams;->mWindowingMode:I
 
-    iput v0, p0, Lcom/android/server/wm/LaunchParamsController$LaunchParams;->mWindowingMode:I
+    iput p1, p0, Lcom/android/server/wm/LaunchParamsController$LaunchParams;->mWindowingMode:I
 
     return-void
 .end method

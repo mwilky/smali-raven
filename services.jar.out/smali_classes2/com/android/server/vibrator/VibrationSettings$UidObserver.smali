@@ -4,18 +4,21 @@
 
 
 # annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/android/server/vibrator/VibrationSettings;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x10
+    accessFlags = 0x11
     name = "UidObserver"
 .end annotation
 
 
 # instance fields
-.field private final mProcStatesCache:Landroid/util/SparseArray;
+.field public final mProcStatesCache:Landroid/util/SparseArray;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/SparseArray<",
@@ -25,68 +28,68 @@
     .end annotation
 .end field
 
-.field final synthetic this$0:Lcom/android/server/vibrator/VibrationSettings;
+.field public final synthetic this$0:Lcom/android/server/vibrator/VibrationSettings;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/vibrator/VibrationSettings;)V
-    .locals 1
+.method public static bridge synthetic -$$Nest$fgetmProcStatesCache(Lcom/android/server/vibrator/VibrationSettings$UidObserver;)Landroid/util/SparseArray;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/vibrator/VibrationSettings$UidObserver;->mProcStatesCache:Landroid/util/SparseArray;
+
+    return-object p0
+.end method
+
+.method public constructor <init>(Lcom/android/server/vibrator/VibrationSettings;)V
+    .locals 0
 
     iput-object p1, p0, Lcom/android/server/vibrator/VibrationSettings$UidObserver;->this$0:Lcom/android/server/vibrator/VibrationSettings;
 
     invoke-direct {p0}, Landroid/app/IUidObserver$Stub;-><init>()V
 
-    new-instance v0, Landroid/util/SparseArray;
+    new-instance p1, Landroid/util/SparseArray;
 
-    invoke-direct {v0}, Landroid/util/SparseArray;-><init>()V
+    invoke-direct {p1}, Landroid/util/SparseArray;-><init>()V
 
-    iput-object v0, p0, Lcom/android/server/vibrator/VibrationSettings$UidObserver;->mProcStatesCache:Landroid/util/SparseArray;
+    iput-object p1, p0, Lcom/android/server/vibrator/VibrationSettings$UidObserver;->mProcStatesCache:Landroid/util/SparseArray;
 
     return-void
-.end method
-
-.method static synthetic access$300(Lcom/android/server/vibrator/VibrationSettings$UidObserver;)Landroid/util/SparseArray;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/vibrator/VibrationSettings$UidObserver;->mProcStatesCache:Landroid/util/SparseArray;
-
-    return-object v0
 .end method
 
 
 # virtual methods
 .method public isUidForeground(I)Z
-    .locals 3
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/server/vibrator/VibrationSettings$UidObserver;->mProcStatesCache:Landroid/util/SparseArray;
+    iget-object p0, p0, Lcom/android/server/vibrator/VibrationSettings$UidObserver;->mProcStatesCache:Landroid/util/SparseArray;
 
-    const/4 v1, 0x6
+    const/4 v0, 0x6
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v0, p1, v2}, Landroid/util/SparseArray;->get(ILjava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, p1, v1}, Landroid/util/SparseArray;->get(ILjava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Ljava/lang/Integer;
+    check-cast p0, Ljava/lang/Integer;
 
-    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {p0}, Ljava/lang/Integer;->intValue()I
 
-    move-result v0
+    move-result p0
 
-    if-gt v0, v1, :cond_0
+    if-gt p0, v0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method public onUidActive(I)V
@@ -102,11 +105,11 @@
 .end method
 
 .method public onUidGone(IZ)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/vibrator/VibrationSettings$UidObserver;->mProcStatesCache:Landroid/util/SparseArray;
+    iget-object p0, p0, Lcom/android/server/vibrator/VibrationSettings$UidObserver;->mProcStatesCache:Landroid/util/SparseArray;
 
-    invoke-virtual {v0, p1}, Landroid/util/SparseArray;->delete(I)V
+    invoke-virtual {p0, p1}, Landroid/util/SparseArray;->delete(I)V
 
     return-void
 .end method
@@ -117,16 +120,22 @@
     return-void
 .end method
 
-.method public onUidStateChanged(IIJI)V
-    .locals 2
+.method public onUidProcAdjChanged(I)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/vibrator/VibrationSettings$UidObserver;->mProcStatesCache:Landroid/util/SparseArray;
+    return-void
+.end method
+
+.method public onUidStateChanged(IIJI)V
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/vibrator/VibrationSettings$UidObserver;->mProcStatesCache:Landroid/util/SparseArray;
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-virtual {v0, p1, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    invoke-virtual {p0, p1, p2}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     return-void
 .end method

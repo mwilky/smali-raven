@@ -1,4 +1,4 @@
-.class synthetic Lcom/android/server/TelephonyRegistry$3;
+.class public synthetic Lcom/android/server/TelephonyRegistry$3;
 .super Ljava/lang/Object;
 .source "TelephonyRegistry.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
+    accessFlags = 0x1009
     name = null
 .end annotation
 
 
 # static fields
-.field static final synthetic $SwitchMap$android$telephony$LocationAccessPolicy$LocationPermissionResult:[I
+.field public static final synthetic $SwitchMap$android$telephony$LocationAccessPolicy$LocationPermissionResult:[I
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 3
 
     invoke-static {}, Landroid/telephony/LocationAccessPolicy$LocationPermissionResult;->values()[Landroid/telephony/LocationAccessPolicy$LocationPermissionResult;
@@ -45,12 +45,7 @@
     :try_end_0
     .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
-
     :catch_0
-    move-exception v0
-
-    :goto_0
     :try_start_1
     sget-object v0, Lcom/android/server/TelephonyRegistry$3;->$SwitchMap$android$telephony$LocationAccessPolicy$LocationPermissionResult:[I
 
@@ -66,11 +61,6 @@
     :try_end_1
     .catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_1
 
-    goto :goto_1
-
     :catch_1
-    move-exception v0
-
-    :goto_1
     return-void
 .end method

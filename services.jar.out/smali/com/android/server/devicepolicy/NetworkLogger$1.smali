@@ -1,4 +1,4 @@
-.class Lcom/android/server/devicepolicy/NetworkLogger$1;
+.class public Lcom/android/server/devicepolicy/NetworkLogger$1;
 .super Lcom/android/server/net/BaseNetdEventCallback;
 .source "NetworkLogger.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/devicepolicy/NetworkLogger;
+.field public final synthetic this$0:Lcom/android/server/devicepolicy/NetworkLogger;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/devicepolicy/NetworkLogger;)V
+.method public constructor <init>(Lcom/android/server/devicepolicy/NetworkLogger;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/devicepolicy/NetworkLogger$1;->this$0:Lcom/android/server/devicepolicy/NetworkLogger;
@@ -29,82 +29,6 @@
     return-void
 .end method
 
-.method private sendNetworkEvent(Landroid/app/admin/NetworkEvent;)V
-    .locals 3
-
-    iget-object v0, p0, Lcom/android/server/devicepolicy/NetworkLogger$1;->this$0:Lcom/android/server/devicepolicy/NetworkLogger;
-
-    invoke-static {v0}, Lcom/android/server/devicepolicy/NetworkLogger;->access$200(Lcom/android/server/devicepolicy/NetworkLogger;)Lcom/android/server/devicepolicy/NetworkLoggingHandler;
-
-    move-result-object v0
-
-    const/4 v1, 0x1
-
-    invoke-virtual {v0, v1}, Lcom/android/server/devicepolicy/NetworkLoggingHandler;->obtainMessage(I)Landroid/os/Message;
-
-    move-result-object v0
-
-    new-instance v1, Landroid/os/Bundle;
-
-    invoke-direct {v1}, Landroid/os/Bundle;-><init>()V
-
-    const-string/jumbo v2, "network_event"
-
-    invoke-virtual {v1, v2, p1}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
-
-    invoke-virtual {v0, v1}, Landroid/os/Message;->setData(Landroid/os/Bundle;)V
-
-    iget-object v2, p0, Lcom/android/server/devicepolicy/NetworkLogger$1;->this$0:Lcom/android/server/devicepolicy/NetworkLogger;
-
-    invoke-static {v2}, Lcom/android/server/devicepolicy/NetworkLogger;->access$200(Lcom/android/server/devicepolicy/NetworkLogger;)Lcom/android/server/devicepolicy/NetworkLoggingHandler;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v0}, Lcom/android/server/devicepolicy/NetworkLoggingHandler;->sendMessage(Landroid/os/Message;)Z
-
-    return-void
-.end method
-
-.method private shouldLogNetworkEvent(I)Z
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/server/devicepolicy/NetworkLogger$1;->this$0:Lcom/android/server/devicepolicy/NetworkLogger;
-
-    invoke-static {v0}, Lcom/android/server/devicepolicy/NetworkLogger;->access$300(Lcom/android/server/devicepolicy/NetworkLogger;)I
-
-    move-result v0
-
-    const/4 v1, -0x1
-
-    if-eq v0, v1, :cond_1
-
-    iget-object v0, p0, Lcom/android/server/devicepolicy/NetworkLogger$1;->this$0:Lcom/android/server/devicepolicy/NetworkLogger;
-
-    invoke-static {v0}, Lcom/android/server/devicepolicy/NetworkLogger;->access$300(Lcom/android/server/devicepolicy/NetworkLogger;)I
-
-    move-result v0
-
-    invoke-static {p1}, Landroid/os/UserHandle;->getUserId(I)I
-
-    move-result v1
-
-    if-ne v0, v1, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_1
-
-    :cond_1
-    :goto_0
-    const/4 v0, 0x1
-
-    :goto_1
-    return v0
-.end method
-
 
 # virtual methods
 .method public onConnectEvent(Ljava/lang/String;IJI)V
@@ -112,7 +36,7 @@
 
     iget-object v0, p0, Lcom/android/server/devicepolicy/NetworkLogger$1;->this$0:Lcom/android/server/devicepolicy/NetworkLogger;
 
-    invoke-static {v0}, Lcom/android/server/devicepolicy/NetworkLogger;->access$000(Lcom/android/server/devicepolicy/NetworkLogger;)Ljava/util/concurrent/atomic/AtomicBoolean;
+    invoke-static {v0}, Lcom/android/server/devicepolicy/NetworkLogger;->-$$Nest$fgetmIsLoggingEnabled(Lcom/android/server/devicepolicy/NetworkLogger;)Ljava/util/concurrent/atomic/AtomicBoolean;
 
     move-result-object v0
 
@@ -125,7 +49,7 @@
     return-void
 
     :cond_0
-    invoke-direct {p0, p5}, Lcom/android/server/devicepolicy/NetworkLogger$1;->shouldLogNetworkEvent(I)Z
+    invoke-virtual {p0, p5}, Lcom/android/server/devicepolicy/NetworkLogger$1;->shouldLogNetworkEvent(I)Z
 
     move-result v0
 
@@ -138,7 +62,7 @@
 
     iget-object v1, p0, Lcom/android/server/devicepolicy/NetworkLogger$1;->this$0:Lcom/android/server/devicepolicy/NetworkLogger;
 
-    invoke-static {v1}, Lcom/android/server/devicepolicy/NetworkLogger;->access$100(Lcom/android/server/devicepolicy/NetworkLogger;)Landroid/content/pm/PackageManagerInternal;
+    invoke-static {v1}, Lcom/android/server/devicepolicy/NetworkLogger;->-$$Nest$fgetmPm(Lcom/android/server/devicepolicy/NetworkLogger;)Landroid/content/pm/PackageManagerInternal;
 
     move-result-object v1
 
@@ -156,7 +80,7 @@
 
     invoke-direct/range {v1 .. v6}, Landroid/app/admin/ConnectEvent;-><init>(Ljava/lang/String;ILjava/lang/String;J)V
 
-    invoke-direct {p0, v0}, Lcom/android/server/devicepolicy/NetworkLogger$1;->sendNetworkEvent(Landroid/app/admin/NetworkEvent;)V
+    invoke-virtual {p0, v0}, Lcom/android/server/devicepolicy/NetworkLogger$1;->sendNetworkEvent(Landroid/app/admin/NetworkEvent;)V
 
     return-void
 .end method
@@ -170,7 +94,7 @@
 
     iget-object v2, v0, Lcom/android/server/devicepolicy/NetworkLogger$1;->this$0:Lcom/android/server/devicepolicy/NetworkLogger;
 
-    invoke-static {v2}, Lcom/android/server/devicepolicy/NetworkLogger;->access$000(Lcom/android/server/devicepolicy/NetworkLogger;)Ljava/util/concurrent/atomic/AtomicBoolean;
+    invoke-static {v2}, Lcom/android/server/devicepolicy/NetworkLogger;->-$$Nest$fgetmIsLoggingEnabled(Lcom/android/server/devicepolicy/NetworkLogger;)Ljava/util/concurrent/atomic/AtomicBoolean;
 
     move-result-object v2
 
@@ -183,7 +107,7 @@
     return-void
 
     :cond_0
-    invoke-direct {p0, v1}, Lcom/android/server/devicepolicy/NetworkLogger$1;->shouldLogNetworkEvent(I)Z
+    invoke-virtual {p0, v1}, Lcom/android/server/devicepolicy/NetworkLogger$1;->shouldLogNetworkEvent(I)Z
 
     move-result v2
 
@@ -196,7 +120,7 @@
 
     iget-object v3, v0, Lcom/android/server/devicepolicy/NetworkLogger$1;->this$0:Lcom/android/server/devicepolicy/NetworkLogger;
 
-    invoke-static {v3}, Lcom/android/server/devicepolicy/NetworkLogger;->access$100(Lcom/android/server/devicepolicy/NetworkLogger;)Landroid/content/pm/PackageManagerInternal;
+    invoke-static {v3}, Lcom/android/server/devicepolicy/NetworkLogger;->-$$Nest$fgetmPm(Lcom/android/server/devicepolicy/NetworkLogger;)Landroid/content/pm/PackageManagerInternal;
 
     move-result-object v3
 
@@ -216,7 +140,83 @@
 
     invoke-direct/range {v3 .. v9}, Landroid/app/admin/DnsEvent;-><init>(Ljava/lang/String;[Ljava/lang/String;ILjava/lang/String;J)V
 
-    invoke-direct {p0, v2}, Lcom/android/server/devicepolicy/NetworkLogger$1;->sendNetworkEvent(Landroid/app/admin/NetworkEvent;)V
+    invoke-virtual {p0, v2}, Lcom/android/server/devicepolicy/NetworkLogger$1;->sendNetworkEvent(Landroid/app/admin/NetworkEvent;)V
 
     return-void
+.end method
+
+.method public final sendNetworkEvent(Landroid/app/admin/NetworkEvent;)V
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/server/devicepolicy/NetworkLogger$1;->this$0:Lcom/android/server/devicepolicy/NetworkLogger;
+
+    invoke-static {v0}, Lcom/android/server/devicepolicy/NetworkLogger;->-$$Nest$fgetmNetworkLoggingHandler(Lcom/android/server/devicepolicy/NetworkLogger;)Lcom/android/server/devicepolicy/NetworkLoggingHandler;
+
+    move-result-object v0
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
+
+    move-result-object v0
+
+    new-instance v1, Landroid/os/Bundle;
+
+    invoke-direct {v1}, Landroid/os/Bundle;-><init>()V
+
+    const-string/jumbo v2, "network_event"
+
+    invoke-virtual {v1, v2, p1}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
+
+    invoke-virtual {v0, v1}, Landroid/os/Message;->setData(Landroid/os/Bundle;)V
+
+    iget-object p0, p0, Lcom/android/server/devicepolicy/NetworkLogger$1;->this$0:Lcom/android/server/devicepolicy/NetworkLogger;
+
+    invoke-static {p0}, Lcom/android/server/devicepolicy/NetworkLogger;->-$$Nest$fgetmNetworkLoggingHandler(Lcom/android/server/devicepolicy/NetworkLogger;)Lcom/android/server/devicepolicy/NetworkLoggingHandler;
+
+    move-result-object p0
+
+    invoke-virtual {p0, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
+
+    return-void
+.end method
+
+.method public final shouldLogNetworkEvent(I)Z
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/devicepolicy/NetworkLogger$1;->this$0:Lcom/android/server/devicepolicy/NetworkLogger;
+
+    invoke-static {v0}, Lcom/android/server/devicepolicy/NetworkLogger;->-$$Nest$fgetmTargetUserId(Lcom/android/server/devicepolicy/NetworkLogger;)I
+
+    move-result v0
+
+    const/4 v1, -0x1
+
+    if-eq v0, v1, :cond_1
+
+    iget-object p0, p0, Lcom/android/server/devicepolicy/NetworkLogger$1;->this$0:Lcom/android/server/devicepolicy/NetworkLogger;
+
+    invoke-static {p0}, Lcom/android/server/devicepolicy/NetworkLogger;->-$$Nest$fgetmTargetUserId(Lcom/android/server/devicepolicy/NetworkLogger;)I
+
+    move-result p0
+
+    invoke-static {p1}, Landroid/os/UserHandle;->getUserId(I)I
+
+    move-result p1
+
+    if-ne p0, p1, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    goto :goto_1
+
+    :cond_1
+    :goto_0
+    const/4 p0, 0x1
+
+    :goto_1
+    return p0
 .end method

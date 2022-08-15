@@ -1,4 +1,4 @@
-.class Lcom/android/server/policy/PhoneWindowManager$HdmiControl$1;
+.class public Lcom/android/server/policy/PhoneWindowManager$HdmiControl$1;
 .super Ljava/lang/Object;
 .source "PhoneWindowManager.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/policy/PhoneWindowManager$HdmiControl;
+.field public final synthetic this$0:Lcom/android/server/policy/PhoneWindowManager$HdmiControl;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/policy/PhoneWindowManager$HdmiControl;)V
+.method public constructor <init>(Lcom/android/server/policy/PhoneWindowManager$HdmiControl;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/policy/PhoneWindowManager$HdmiControl$1;->this$0:Lcom/android/server/policy/PhoneWindowManager$HdmiControl;
@@ -35,27 +35,27 @@
 
 # virtual methods
 .method public onComplete(I)V
-    .locals 2
+    .locals 1
 
     if-eqz p1, :cond_0
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance p0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "One touch play failed: "
+    const-string v0, "One touch play failed: "
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    const-string v1, "WindowManager"
+    const-string p1, "WindowManager"
 
-    invoke-static {v1, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p1, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
     return-void

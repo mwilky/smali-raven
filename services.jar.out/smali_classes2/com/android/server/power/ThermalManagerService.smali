@@ -17,23 +17,44 @@
 
 
 # static fields
-.field private static final TAG:Ljava/lang/String;
+.field public static final TAG:Ljava/lang/String; = "ThermalManagerService"
 
 
 # instance fields
-.field private final mHalReady:Ljava/util/concurrent/atomic/AtomicBoolean;
+.field public final mHalReady:Ljava/util/concurrent/atomic/AtomicBoolean;
 
-.field private mHalWrapper:Lcom/android/server/power/ThermalManagerService$ThermalHalWrapper;
+.field public mHalWrapper:Lcom/android/server/power/ThermalManagerService$ThermalHalWrapper;
 
-.field private mIsStatusOverride:Z
+.field public mIsStatusOverride:Z
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
+.end field
 
-.field private final mLock:Ljava/lang/Object;
+.field public final mLock:Ljava/lang/Object;
 
-.field final mService:Landroid/os/IThermalService$Stub;
+.field public final mService:Landroid/os/IThermalService$Stub;
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+.end field
 
-.field private mStatus:I
+.field public mStatus:I
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
+.end field
 
-.field private mTemperatureMap:Landroid/util/ArrayMap;
+.field public mTemperatureMap:Landroid/util/ArrayMap;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/ArrayMap<",
@@ -44,9 +65,18 @@
     .end annotation
 .end field
 
-.field final mTemperatureWatcher:Lcom/android/server/power/ThermalManagerService$TemperatureWatcher;
+.field public final mTemperatureWatcher:Lcom/android/server/power/ThermalManagerService$TemperatureWatcher;
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+.end field
 
-.field private final mThermalEventListeners:Landroid/os/RemoteCallbackList;
+.field public final mThermalEventListeners:Landroid/os/RemoteCallbackList;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/RemoteCallbackList<",
@@ -56,7 +86,13 @@
     .end annotation
 .end field
 
-.field private final mThermalStatusListeners:Landroid/os/RemoteCallbackList;
+.field public final mThermalStatusListeners:Landroid/os/RemoteCallbackList;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/RemoteCallbackList<",
@@ -71,21 +107,141 @@
 .method public static synthetic $r8$lambda$EFa1q7lNzNJKR9kHjyMZOluNpXA(Lcom/android/server/power/ThermalManagerService;Landroid/os/Temperature;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/server/power/ThermalManagerService;->onTemperatureChangedCallback(Landroid/os/Temperature;)V
+    invoke-virtual {p0, p1}, Lcom/android/server/power/ThermalManagerService;->onTemperatureChangedCallback(Landroid/os/Temperature;)V
 
     return-void
 .end method
 
-.method static constructor <clinit>()V
+.method public static synthetic $r8$lambda$g2jTj6VJDwnSkMsHJvQaUykmq-4(Landroid/os/IThermalEventListener;Landroid/os/Temperature;)V
+    .locals 0
+
+    invoke-static {p0, p1}, Lcom/android/server/power/ThermalManagerService;->lambda$postEventListener$1(Landroid/os/IThermalEventListener;Landroid/os/Temperature;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$lFrxurL8ANGCcVUNbDj5KUpTrxQ(Lcom/android/server/power/ThermalManagerService;Landroid/os/IThermalStatusListener;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/power/ThermalManagerService;->lambda$postStatusListener$0(Landroid/os/IThermalStatusListener;)V
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmHalReady(Lcom/android/server/power/ThermalManagerService;)Ljava/util/concurrent/atomic/AtomicBoolean;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/power/ThermalManagerService;->mHalReady:Ljava/util/concurrent/atomic/AtomicBoolean;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmHalWrapper(Lcom/android/server/power/ThermalManagerService;)Lcom/android/server/power/ThermalManagerService$ThermalHalWrapper;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/power/ThermalManagerService;->mHalWrapper:Lcom/android/server/power/ThermalManagerService$ThermalHalWrapper;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmIsStatusOverride(Lcom/android/server/power/ThermalManagerService;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/server/power/ThermalManagerService;->mIsStatusOverride:Z
+
+    return p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmLock(Lcom/android/server/power/ThermalManagerService;)Ljava/lang/Object;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/power/ThermalManagerService;->mLock:Ljava/lang/Object;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmStatus(Lcom/android/server/power/ThermalManagerService;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/server/power/ThermalManagerService;->mStatus:I
+
+    return p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmTemperatureMap(Lcom/android/server/power/ThermalManagerService;)Landroid/util/ArrayMap;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/power/ThermalManagerService;->mTemperatureMap:Landroid/util/ArrayMap;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmThermalEventListeners(Lcom/android/server/power/ThermalManagerService;)Landroid/os/RemoteCallbackList;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/power/ThermalManagerService;->mThermalEventListeners:Landroid/os/RemoteCallbackList;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmThermalStatusListeners(Lcom/android/server/power/ThermalManagerService;)Landroid/os/RemoteCallbackList;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/power/ThermalManagerService;->mThermalStatusListeners:Landroid/os/RemoteCallbackList;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fputmIsStatusOverride(Lcom/android/server/power/ThermalManagerService;Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/server/power/ThermalManagerService;->mIsStatusOverride:Z
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$monTemperatureMapChangedLocked(Lcom/android/server/power/ThermalManagerService;)V
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/server/power/ThermalManagerService;->onTemperatureMapChangedLocked()V
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$mpostEventListenerCurrentTemperatures(Lcom/android/server/power/ThermalManagerService;Landroid/os/IThermalEventListener;Ljava/lang/Integer;)V
+    .locals 0
+
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/power/ThermalManagerService;->postEventListenerCurrentTemperatures(Landroid/os/IThermalEventListener;Ljava/lang/Integer;)V
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$mpostStatusListener(Lcom/android/server/power/ThermalManagerService;Landroid/os/IThermalStatusListener;)V
+    .locals 0
+
+    invoke-virtual {p0, p1}, Lcom/android/server/power/ThermalManagerService;->postStatusListener(Landroid/os/IThermalStatusListener;)V
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$msetStatusLocked(Lcom/android/server/power/ThermalManagerService;I)V
+    .locals 0
+
+    invoke-virtual {p0, p1}, Lcom/android/server/power/ThermalManagerService;->setStatusLocked(I)V
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$sfgetTAG()Ljava/lang/String;
     .locals 1
 
-    const-class v0, Lcom/android/server/power/ThermalManagerService;
+    sget-object v0, Lcom/android/server/power/ThermalManagerService;->TAG:Ljava/lang/String;
 
-    invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
+    return-object v0
+.end method
 
-    move-result-object v0
-
-    sput-object v0, Lcom/android/server/power/ThermalManagerService;->TAG:Ljava/lang/String;
+.method public static constructor <clinit>()V
+    .locals 0
 
     return-void
 .end method
@@ -100,176 +256,66 @@
     return-void
 .end method
 
-.method constructor <init>(Landroid/content/Context;Lcom/android/server/power/ThermalManagerService$ThermalHalWrapper;)V
-    .locals 1
+.method public constructor <init>(Landroid/content/Context;Lcom/android/server/power/ThermalManagerService$ThermalHalWrapper;)V
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
 
     invoke-direct {p0, p1}, Lcom/android/server/SystemService;-><init>(Landroid/content/Context;)V
 
-    new-instance v0, Ljava/lang/Object;
+    new-instance p1, Ljava/lang/Object;
 
-    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p1}, Ljava/lang/Object;-><init>()V
 
-    iput-object v0, p0, Lcom/android/server/power/ThermalManagerService;->mLock:Ljava/lang/Object;
+    iput-object p1, p0, Lcom/android/server/power/ThermalManagerService;->mLock:Ljava/lang/Object;
 
-    new-instance v0, Landroid/os/RemoteCallbackList;
+    new-instance p1, Landroid/os/RemoteCallbackList;
 
-    invoke-direct {v0}, Landroid/os/RemoteCallbackList;-><init>()V
+    invoke-direct {p1}, Landroid/os/RemoteCallbackList;-><init>()V
 
-    iput-object v0, p0, Lcom/android/server/power/ThermalManagerService;->mThermalEventListeners:Landroid/os/RemoteCallbackList;
+    iput-object p1, p0, Lcom/android/server/power/ThermalManagerService;->mThermalEventListeners:Landroid/os/RemoteCallbackList;
 
-    new-instance v0, Landroid/os/RemoteCallbackList;
+    new-instance p1, Landroid/os/RemoteCallbackList;
 
-    invoke-direct {v0}, Landroid/os/RemoteCallbackList;-><init>()V
+    invoke-direct {p1}, Landroid/os/RemoteCallbackList;-><init>()V
 
-    iput-object v0, p0, Lcom/android/server/power/ThermalManagerService;->mThermalStatusListeners:Landroid/os/RemoteCallbackList;
+    iput-object p1, p0, Lcom/android/server/power/ThermalManagerService;->mThermalStatusListeners:Landroid/os/RemoteCallbackList;
 
-    new-instance v0, Landroid/util/ArrayMap;
+    new-instance p1, Landroid/util/ArrayMap;
 
-    invoke-direct {v0}, Landroid/util/ArrayMap;-><init>()V
+    invoke-direct {p1}, Landroid/util/ArrayMap;-><init>()V
 
-    iput-object v0, p0, Lcom/android/server/power/ThermalManagerService;->mTemperatureMap:Landroid/util/ArrayMap;
+    iput-object p1, p0, Lcom/android/server/power/ThermalManagerService;->mTemperatureMap:Landroid/util/ArrayMap;
 
-    new-instance v0, Ljava/util/concurrent/atomic/AtomicBoolean;
+    new-instance p1, Ljava/util/concurrent/atomic/AtomicBoolean;
 
-    invoke-direct {v0}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>()V
+    invoke-direct {p1}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>()V
 
-    iput-object v0, p0, Lcom/android/server/power/ThermalManagerService;->mHalReady:Ljava/util/concurrent/atomic/AtomicBoolean;
+    iput-object p1, p0, Lcom/android/server/power/ThermalManagerService;->mHalReady:Ljava/util/concurrent/atomic/AtomicBoolean;
 
-    new-instance v0, Lcom/android/server/power/ThermalManagerService$TemperatureWatcher;
+    new-instance p1, Lcom/android/server/power/ThermalManagerService$TemperatureWatcher;
 
-    invoke-direct {v0, p0}, Lcom/android/server/power/ThermalManagerService$TemperatureWatcher;-><init>(Lcom/android/server/power/ThermalManagerService;)V
+    invoke-direct {p1, p0}, Lcom/android/server/power/ThermalManagerService$TemperatureWatcher;-><init>(Lcom/android/server/power/ThermalManagerService;)V
 
-    iput-object v0, p0, Lcom/android/server/power/ThermalManagerService;->mTemperatureWatcher:Lcom/android/server/power/ThermalManagerService$TemperatureWatcher;
+    iput-object p1, p0, Lcom/android/server/power/ThermalManagerService;->mTemperatureWatcher:Lcom/android/server/power/ThermalManagerService$TemperatureWatcher;
 
-    new-instance v0, Lcom/android/server/power/ThermalManagerService$1;
+    new-instance p1, Lcom/android/server/power/ThermalManagerService$1;
 
-    invoke-direct {v0, p0}, Lcom/android/server/power/ThermalManagerService$1;-><init>(Lcom/android/server/power/ThermalManagerService;)V
+    invoke-direct {p1, p0}, Lcom/android/server/power/ThermalManagerService$1;-><init>(Lcom/android/server/power/ThermalManagerService;)V
 
-    iput-object v0, p0, Lcom/android/server/power/ThermalManagerService;->mService:Landroid/os/IThermalService$Stub;
+    iput-object p1, p0, Lcom/android/server/power/ThermalManagerService;->mService:Landroid/os/IThermalService$Stub;
 
     iput-object p2, p0, Lcom/android/server/power/ThermalManagerService;->mHalWrapper:Lcom/android/server/power/ThermalManagerService$ThermalHalWrapper;
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput v0, p0, Lcom/android/server/power/ThermalManagerService;->mStatus:I
-
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/server/power/ThermalManagerService;)Ljava/lang/Object;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/power/ThermalManagerService;->mLock:Ljava/lang/Object;
-
-    return-object v0
-.end method
-
-.method static synthetic access$100(Lcom/android/server/power/ThermalManagerService;)Landroid/os/RemoteCallbackList;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/power/ThermalManagerService;->mThermalEventListeners:Landroid/os/RemoteCallbackList;
-
-    return-object v0
-.end method
-
-.method static synthetic access$1000(Lcom/android/server/power/ThermalManagerService;)Landroid/util/ArrayMap;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/power/ThermalManagerService;->mTemperatureMap:Landroid/util/ArrayMap;
-
-    return-object v0
-.end method
-
-.method static synthetic access$1100(Lcom/android/server/power/ThermalManagerService;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/server/power/ThermalManagerService;->onTemperatureMapChangedLocked()V
+    iput p1, p0, Lcom/android/server/power/ThermalManagerService;->mStatus:I
 
     return-void
 .end method
 
-.method static synthetic access$1200(Lcom/android/server/power/ThermalManagerService;I)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/server/power/ThermalManagerService;->setStatusLocked(I)V
-
-    return-void
-.end method
-
-.method static synthetic access$200(Lcom/android/server/power/ThermalManagerService;Landroid/os/IThermalEventListener;Ljava/lang/Integer;)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/server/power/ThermalManagerService;->postEventListenerCurrentTemperatures(Landroid/os/IThermalEventListener;Ljava/lang/Integer;)V
-
-    return-void
-.end method
-
-.method static synthetic access$300(Lcom/android/server/power/ThermalManagerService;)Ljava/util/concurrent/atomic/AtomicBoolean;
+.method public static synthetic lambda$postEventListener$1(Landroid/os/IThermalEventListener;Landroid/os/Temperature;)V
     .locals 1
-
-    iget-object v0, p0, Lcom/android/server/power/ThermalManagerService;->mHalReady:Ljava/util/concurrent/atomic/AtomicBoolean;
-
-    return-object v0
-.end method
-
-.method static synthetic access$400(Lcom/android/server/power/ThermalManagerService;)Lcom/android/server/power/ThermalManagerService$ThermalHalWrapper;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/power/ThermalManagerService;->mHalWrapper:Lcom/android/server/power/ThermalManagerService$ThermalHalWrapper;
-
-    return-object v0
-.end method
-
-.method static synthetic access$500(Lcom/android/server/power/ThermalManagerService;)Landroid/os/RemoteCallbackList;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/power/ThermalManagerService;->mThermalStatusListeners:Landroid/os/RemoteCallbackList;
-
-    return-object v0
-.end method
-
-.method static synthetic access$600(Lcom/android/server/power/ThermalManagerService;Landroid/os/IThermalStatusListener;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/server/power/ThermalManagerService;->postStatusListener(Landroid/os/IThermalStatusListener;)V
-
-    return-void
-.end method
-
-.method static synthetic access$700(Lcom/android/server/power/ThermalManagerService;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/server/power/ThermalManagerService;->mStatus:I
-
-    return v0
-.end method
-
-.method static synthetic access$800()Ljava/lang/String;
-    .locals 1
-
-    sget-object v0, Lcom/android/server/power/ThermalManagerService;->TAG:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method static synthetic access$900(Lcom/android/server/power/ThermalManagerService;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/server/power/ThermalManagerService;->mIsStatusOverride:Z
-
-    return v0
-.end method
-
-.method static synthetic access$902(Lcom/android/server/power/ThermalManagerService;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/server/power/ThermalManagerService;->mIsStatusOverride:Z
-
-    return p1
-.end method
-
-.method static synthetic lambda$postEventListener$1(Landroid/os/IThermalEventListener;Landroid/os/Temperature;)V
-    .locals 3
 
     :try_start_0
     invoke-interface {p0, p1}, Landroid/os/IThermalEventListener;->notifyThrottling(Landroid/os/Temperature;)V
@@ -280,19 +326,47 @@
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    sget-object v1, Lcom/android/server/power/ThermalManagerService;->TAG:Ljava/lang/String;
+    sget-object p1, Lcom/android/server/power/ThermalManagerService;->TAG:Ljava/lang/String;
 
-    const-string v2, "Thermal callback failed to call"
+    const-string v0, "Thermal callback failed to call"
 
-    invoke-static {v1, v2, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {p1, v0, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_0
     return-void
 .end method
 
-.method private notifyEventListenersLocked(Landroid/os/Temperature;)V
+.method private synthetic lambda$postStatusListener$0(Landroid/os/IThermalStatusListener;)V
+    .locals 1
+
+    :try_start_0
+    iget p0, p0, Lcom/android/server/power/ThermalManagerService;->mStatus:I
+
+    invoke-interface {p1, p0}, Landroid/os/IThermalStatusListener;->onStatusChange(I)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception p0
+
+    sget-object p1, Lcom/android/server/power/ThermalManagerService;->TAG:Ljava/lang/String;
+
+    const-string v0, "Thermal callback failed to call"
+
+    invoke-static {p1, v0, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    :goto_0
+    return-void
+.end method
+
+
+# virtual methods
+.method public final notifyEventListenersLocked(Landroid/os/Temperature;)V
     .locals 5
 
     iget-object v0, p0, Lcom/android/server/power/ThermalManagerService;->mThermalEventListeners:Landroid/os/RemoteCallbackList;
@@ -303,116 +377,114 @@
 
     const/4 v1, 0x0
 
+    move v2, v1
+
     :goto_0
-    if-ge v1, v0, :cond_0
+    if-ge v2, v0, :cond_0
 
     :try_start_0
-    iget-object v2, p0, Lcom/android/server/power/ThermalManagerService;->mThermalEventListeners:Landroid/os/RemoteCallbackList;
-
-    invoke-virtual {v2, v1}, Landroid/os/RemoteCallbackList;->getBroadcastItem(I)Landroid/os/IInterface;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/os/IThermalEventListener;
-
     iget-object v3, p0, Lcom/android/server/power/ThermalManagerService;->mThermalEventListeners:Landroid/os/RemoteCallbackList;
 
-    invoke-virtual {v3, v1}, Landroid/os/RemoteCallbackList;->getBroadcastCookie(I)Ljava/lang/Object;
+    invoke-virtual {v3, v2}, Landroid/os/RemoteCallbackList;->getBroadcastItem(I)Landroid/os/IInterface;
 
     move-result-object v3
 
-    check-cast v3, Ljava/lang/Integer;
+    check-cast v3, Landroid/os/IThermalEventListener;
 
-    invoke-direct {p0, p1, v2, v3}, Lcom/android/server/power/ThermalManagerService;->postEventListener(Landroid/os/Temperature;Landroid/os/IThermalEventListener;Ljava/lang/Integer;)V
+    iget-object v4, p0, Lcom/android/server/power/ThermalManagerService;->mThermalEventListeners:Landroid/os/RemoteCallbackList;
+
+    invoke-virtual {v4, v2}, Landroid/os/RemoteCallbackList;->getBroadcastCookie(I)Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Ljava/lang/Integer;
+
+    invoke-virtual {p0, p1, v3, v4}, Lcom/android/server/power/ThermalManagerService;->postEventListener(Landroid/os/Temperature;Landroid/os/IThermalEventListener;Ljava/lang/Integer;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     :catchall_0
-    move-exception v1
+    move-exception p1
 
-    iget-object v2, p0, Lcom/android/server/power/ThermalManagerService;->mThermalEventListeners:Landroid/os/RemoteCallbackList;
+    iget-object p0, p0, Lcom/android/server/power/ThermalManagerService;->mThermalEventListeners:Landroid/os/RemoteCallbackList;
 
-    invoke-virtual {v2}, Landroid/os/RemoteCallbackList;->finishBroadcast()V
+    invoke-virtual {p0}, Landroid/os/RemoteCallbackList;->finishBroadcast()V
 
-    throw v1
+    throw p1
 
     :cond_0
-    iget-object v1, p0, Lcom/android/server/power/ThermalManagerService;->mThermalEventListeners:Landroid/os/RemoteCallbackList;
+    iget-object v0, p0, Lcom/android/server/power/ThermalManagerService;->mThermalEventListeners:Landroid/os/RemoteCallbackList;
 
-    invoke-virtual {v1}, Landroid/os/RemoteCallbackList;->finishBroadcast()V
+    invoke-virtual {v0}, Landroid/os/RemoteCallbackList;->finishBroadcast()V
 
-    nop
-
-    const/16 v1, 0xab1
+    const/16 v0, 0xab1
 
     const/4 v2, 0x5
 
     new-array v2, v2, [Ljava/lang/Object;
 
-    const/4 v3, 0x0
-
     invoke-virtual {p1}, Landroid/os/Temperature;->getName()Ljava/lang/String;
-
-    move-result-object v4
-
-    aput-object v4, v2, v3
-
-    invoke-virtual {p1}, Landroid/os/Temperature;->getType()I
-
-    move-result v3
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v3
 
-    const/4 v4, 0x1
+    aput-object v3, v2, v1
 
-    aput-object v3, v2, v4
+    invoke-virtual {p1}, Landroid/os/Temperature;->getType()I
 
-    const/4 v3, 0x2
+    move-result v1
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const/4 v3, 0x1
+
+    aput-object v1, v2, v3
+
+    const/4 v1, 0x2
 
     invoke-virtual {p1}, Landroid/os/Temperature;->getValue()F
 
-    move-result v4
+    move-result v3
 
-    invoke-static {v4}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+    invoke-static {v3}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
-    move-result-object v4
+    move-result-object v3
 
-    aput-object v4, v2, v3
+    aput-object v3, v2, v1
 
-    const/4 v3, 0x3
+    const/4 v1, 0x3
 
     invoke-virtual {p1}, Landroid/os/Temperature;->getStatus()I
 
-    move-result v4
+    move-result p1
 
-    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v4
+    move-result-object p1
 
-    aput-object v4, v2, v3
+    aput-object p1, v2, v1
 
-    const/4 v3, 0x4
+    const/4 p1, 0x4
 
-    iget v4, p0, Lcom/android/server/power/ThermalManagerService;->mStatus:I
+    iget p0, p0, Lcom/android/server/power/ThermalManagerService;->mStatus:I
 
-    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v4
+    move-result-object p0
 
-    aput-object v4, v2, v3
+    aput-object p0, v2, p1
 
-    invoke-static {v1, v2}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
+    invoke-static {v0, v2}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
     return-void
 .end method
 
-.method private notifyStatusListenersLocked()V
+.method public final notifyStatusListenersLocked()V
     .locals 3
 
     iget-object v0, p0, Lcom/android/server/power/ThermalManagerService;->mThermalStatusListeners:Landroid/os/RemoteCallbackList;
@@ -435,7 +507,7 @@
 
     check-cast v2, Landroid/os/IThermalStatusListener;
 
-    invoke-direct {p0, v2}, Lcom/android/server/power/ThermalManagerService;->postStatusListener(Landroid/os/IThermalStatusListener;)V
+    invoke-virtual {p0, v2}, Lcom/android/server/power/ThermalManagerService;->postStatusListener(Landroid/os/IThermalStatusListener;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -444,26 +516,24 @@
     goto :goto_0
 
     :catchall_0
-    move-exception v1
+    move-exception v0
 
-    iget-object v2, p0, Lcom/android/server/power/ThermalManagerService;->mThermalStatusListeners:Landroid/os/RemoteCallbackList;
+    iget-object p0, p0, Lcom/android/server/power/ThermalManagerService;->mThermalStatusListeners:Landroid/os/RemoteCallbackList;
 
-    invoke-virtual {v2}, Landroid/os/RemoteCallbackList;->finishBroadcast()V
+    invoke-virtual {p0}, Landroid/os/RemoteCallbackList;->finishBroadcast()V
 
-    throw v1
+    throw v0
 
     :cond_0
-    iget-object v1, p0, Lcom/android/server/power/ThermalManagerService;->mThermalStatusListeners:Landroid/os/RemoteCallbackList;
+    iget-object p0, p0, Lcom/android/server/power/ThermalManagerService;->mThermalStatusListeners:Landroid/os/RemoteCallbackList;
 
-    invoke-virtual {v1}, Landroid/os/RemoteCallbackList;->finishBroadcast()V
-
-    nop
+    invoke-virtual {p0}, Landroid/os/RemoteCallbackList;->finishBroadcast()V
 
     return-void
 .end method
 
-.method private onActivityManagerReady()V
-    .locals 8
+.method public final onActivityManagerReady()V
+    .locals 7
 
     iget-object v0, p0, Lcom/android/server/power/ThermalManagerService;->mLock:Ljava/lang/Object;
 
@@ -488,135 +558,154 @@
     :goto_0
     if-nez v1, :cond_1
 
-    new-instance v4, Lcom/android/server/power/ThermalManagerService$ThermalHal20Wrapper;
+    new-instance v1, Lcom/android/server/power/ThermalManagerService$ThermalHal20Wrapper;
 
-    invoke-direct {v4}, Lcom/android/server/power/ThermalManagerService$ThermalHal20Wrapper;-><init>()V
+    invoke-direct {v1}, Lcom/android/server/power/ThermalManagerService$ThermalHal20Wrapper;-><init>()V
 
-    iput-object v4, p0, Lcom/android/server/power/ThermalManagerService;->mHalWrapper:Lcom/android/server/power/ThermalManagerService$ThermalHalWrapper;
+    iput-object v1, p0, Lcom/android/server/power/ThermalManagerService;->mHalWrapper:Lcom/android/server/power/ThermalManagerService$ThermalHalWrapper;
 
-    invoke-virtual {v4}, Lcom/android/server/power/ThermalManagerService$ThermalHalWrapper;->connectToHal()Z
+    invoke-virtual {v1}, Lcom/android/server/power/ThermalManagerService$ThermalHalWrapper;->connectToHal()Z
 
-    move-result v4
-
-    move v1, v4
+    move-result v1
 
     :cond_1
     if-nez v1, :cond_2
 
-    new-instance v4, Lcom/android/server/power/ThermalManagerService$ThermalHal11Wrapper;
+    new-instance v1, Lcom/android/server/power/ThermalManagerService$ThermalHal11Wrapper;
 
-    invoke-direct {v4}, Lcom/android/server/power/ThermalManagerService$ThermalHal11Wrapper;-><init>()V
+    invoke-direct {v1}, Lcom/android/server/power/ThermalManagerService$ThermalHal11Wrapper;-><init>()V
 
-    iput-object v4, p0, Lcom/android/server/power/ThermalManagerService;->mHalWrapper:Lcom/android/server/power/ThermalManagerService$ThermalHalWrapper;
+    iput-object v1, p0, Lcom/android/server/power/ThermalManagerService;->mHalWrapper:Lcom/android/server/power/ThermalManagerService$ThermalHalWrapper;
 
-    invoke-virtual {v4}, Lcom/android/server/power/ThermalManagerService$ThermalHalWrapper;->connectToHal()Z
+    invoke-virtual {v1}, Lcom/android/server/power/ThermalManagerService$ThermalHalWrapper;->connectToHal()Z
 
-    move-result v4
-
-    move v1, v4
+    move-result v1
 
     :cond_2
     if-nez v1, :cond_3
 
-    new-instance v4, Lcom/android/server/power/ThermalManagerService$ThermalHal10Wrapper;
+    new-instance v1, Lcom/android/server/power/ThermalManagerService$ThermalHal10Wrapper;
 
-    invoke-direct {v4}, Lcom/android/server/power/ThermalManagerService$ThermalHal10Wrapper;-><init>()V
+    invoke-direct {v1}, Lcom/android/server/power/ThermalManagerService$ThermalHal10Wrapper;-><init>()V
 
-    iput-object v4, p0, Lcom/android/server/power/ThermalManagerService;->mHalWrapper:Lcom/android/server/power/ThermalManagerService$ThermalHalWrapper;
+    iput-object v1, p0, Lcom/android/server/power/ThermalManagerService;->mHalWrapper:Lcom/android/server/power/ThermalManagerService$ThermalHalWrapper;
 
-    invoke-virtual {v4}, Lcom/android/server/power/ThermalManagerService$ThermalHalWrapper;->connectToHal()Z
+    invoke-virtual {v1}, Lcom/android/server/power/ThermalManagerService$ThermalHalWrapper;->connectToHal()Z
 
-    move-result v4
-
-    move v1, v4
+    move-result v1
 
     :cond_3
     iget-object v4, p0, Lcom/android/server/power/ThermalManagerService;->mHalWrapper:Lcom/android/server/power/ThermalManagerService$ThermalHalWrapper;
 
-    new-instance v5, Lcom/android/server/power/ThermalManagerService$$ExternalSyntheticLambda0;
+    new-instance v5, Lcom/android/server/power/ThermalManagerService$$ExternalSyntheticLambda1;
 
-    invoke-direct {v5, p0}, Lcom/android/server/power/ThermalManagerService$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/power/ThermalManagerService;)V
+    invoke-direct {v5, p0}, Lcom/android/server/power/ThermalManagerService$$ExternalSyntheticLambda1;-><init>(Lcom/android/server/power/ThermalManagerService;)V
 
     invoke-virtual {v4, v5}, Lcom/android/server/power/ThermalManagerService$ThermalHalWrapper;->setCallback(Lcom/android/server/power/ThermalManagerService$ThermalHalWrapper$TemperatureChangedCallback;)V
 
     if-nez v1, :cond_4
 
-    sget-object v2, Lcom/android/server/power/ThermalManagerService;->TAG:Ljava/lang/String;
+    sget-object p0, Lcom/android/server/power/ThermalManagerService;->TAG:Ljava/lang/String;
 
-    const-string v3, "No Thermal HAL service on this device"
+    const-string v1, "No Thermal HAL service on this device"
 
-    invoke-static {v2, v3}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     monitor-exit v0
 
     return-void
 
     :cond_4
-    iget-object v4, p0, Lcom/android/server/power/ThermalManagerService;->mHalWrapper:Lcom/android/server/power/ThermalManagerService$ThermalHalWrapper;
+    iget-object v1, p0, Lcom/android/server/power/ThermalManagerService;->mHalWrapper:Lcom/android/server/power/ThermalManagerService$ThermalHalWrapper;
 
-    invoke-virtual {v4, v3, v3}, Lcom/android/server/power/ThermalManagerService$ThermalHalWrapper;->getCurrentTemperatures(ZI)Ljava/util/List;
+    invoke-virtual {v1, v3, v3}, Lcom/android/server/power/ThermalManagerService$ThermalHalWrapper;->getCurrentTemperatures(ZI)Ljava/util/List;
 
-    move-result-object v4
+    move-result-object v1
 
-    invoke-interface {v4}, Ljava/util/List;->size()I
+    invoke-interface {v1}, Ljava/util/List;->size()I
 
-    move-result v5
+    move-result v4
 
-    if-nez v5, :cond_5
+    if-nez v4, :cond_5
 
-    sget-object v6, Lcom/android/server/power/ThermalManagerService;->TAG:Ljava/lang/String;
+    sget-object v5, Lcom/android/server/power/ThermalManagerService;->TAG:Ljava/lang/String;
 
-    const-string v7, "Thermal HAL reported invalid data, abort connection"
+    const-string v6, "Thermal HAL reported invalid data, abort connection"
 
-    invoke-static {v6, v7}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_5
-    const/4 v6, 0x0
+    move v5, v3
 
     :goto_1
-    if-ge v6, v5, :cond_6
+    if-ge v5, v4, :cond_6
 
-    invoke-interface {v4, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v1, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v7
+    move-result-object v6
 
-    check-cast v7, Landroid/os/Temperature;
+    check-cast v6, Landroid/os/Temperature;
 
-    invoke-direct {p0, v7, v3}, Lcom/android/server/power/ThermalManagerService;->onTemperatureChanged(Landroid/os/Temperature;Z)V
+    invoke-virtual {p0, v6, v3}, Lcom/android/server/power/ThermalManagerService;->onTemperatureChanged(Landroid/os/Temperature;Z)V
 
-    add-int/lit8 v6, v6, 0x1
+    add-int/lit8 v5, v5, 0x1
 
     goto :goto_1
 
     :cond_6
-    invoke-direct {p0}, Lcom/android/server/power/ThermalManagerService;->onTemperatureMapChangedLocked()V
+    invoke-virtual {p0}, Lcom/android/server/power/ThermalManagerService;->onTemperatureMapChangedLocked()V
 
-    iget-object v3, p0, Lcom/android/server/power/ThermalManagerService;->mTemperatureWatcher:Lcom/android/server/power/ThermalManagerService$TemperatureWatcher;
+    iget-object v1, p0, Lcom/android/server/power/ThermalManagerService;->mTemperatureWatcher:Lcom/android/server/power/ThermalManagerService$TemperatureWatcher;
 
-    invoke-virtual {v3}, Lcom/android/server/power/ThermalManagerService$TemperatureWatcher;->updateSevereThresholds()V
+    invoke-virtual {v1}, Lcom/android/server/power/ThermalManagerService$TemperatureWatcher;->updateSevereThresholds()V
 
-    iget-object v3, p0, Lcom/android/server/power/ThermalManagerService;->mHalReady:Ljava/util/concurrent/atomic/AtomicBoolean;
+    iget-object p0, p0, Lcom/android/server/power/ThermalManagerService;->mHalReady:Ljava/util/concurrent/atomic/AtomicBoolean;
 
-    invoke-virtual {v3, v2}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
+    invoke-virtual {p0, v2}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
     monitor-exit v0
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
-.method private onTemperatureChanged(Landroid/os/Temperature;Z)V
-    .locals 4
+.method public onBootPhase(I)V
+    .locals 1
 
-    invoke-direct {p0, p1}, Lcom/android/server/power/ThermalManagerService;->shutdownIfNeeded(Landroid/os/Temperature;)V
+    const/16 v0, 0x226
+
+    if-ne p1, v0, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/server/power/ThermalManagerService;->onActivityManagerReady()V
+
+    :cond_0
+    return-void
+.end method
+
+.method public onStart()V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/power/ThermalManagerService;->mService:Landroid/os/IThermalService$Stub;
+
+    const-string v1, "thermalservice"
+
+    invoke-virtual {p0, v1, v0}, Lcom/android/server/SystemService;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
+
+    return-void
+.end method
+
+.method public final onTemperatureChanged(Landroid/os/Temperature;Z)V
+    .locals 3
+
+    invoke-virtual {p0, p1}, Lcom/android/server/power/ThermalManagerService;->shutdownIfNeeded(Landroid/os/Temperature;)V
 
     iget-object v0, p0, Lcom/android/server/power/ThermalManagerService;->mLock:Ljava/lang/Object;
 
@@ -639,21 +728,21 @@
 
     invoke-virtual {v1}, Landroid/os/Temperature;->getStatus()I
 
-    move-result v2
+    move-result v1
 
     invoke-virtual {p1}, Landroid/os/Temperature;->getStatus()I
 
-    move-result v3
+    move-result v2
 
-    if-eq v2, v3, :cond_1
+    if-eq v1, v2, :cond_1
 
     :cond_0
-    invoke-direct {p0, p1}, Lcom/android/server/power/ThermalManagerService;->notifyEventListenersLocked(Landroid/os/Temperature;)V
+    invoke-virtual {p0, p1}, Lcom/android/server/power/ThermalManagerService;->notifyEventListenersLocked(Landroid/os/Temperature;)V
 
     :cond_1
     if-eqz p2, :cond_2
 
-    invoke-direct {p0}, Lcom/android/server/power/ThermalManagerService;->onTemperatureMapChangedLocked()V
+    invoke-virtual {p0}, Lcom/android/server/power/ThermalManagerService;->onTemperatureMapChangedLocked()V
 
     :cond_2
     monitor-exit v0
@@ -661,16 +750,16 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
-.method private onTemperatureChangedCallback(Landroid/os/Temperature;)V
+.method public final onTemperatureChangedCallback(Landroid/os/Temperature;)V
     .locals 3
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
@@ -680,43 +769,41 @@
     const/4 v2, 0x1
 
     :try_start_0
-    invoke-direct {p0, p1, v2}, Lcom/android/server/power/ThermalManagerService;->onTemperatureChanged(Landroid/os/Temperature;Z)V
+    invoke-virtual {p0, p1, v2}, Lcom/android/server/power/ThermalManagerService;->onTemperatureChanged(Landroid/os/Temperature;Z)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    nop
-
     return-void
 
     :catchall_0
-    move-exception v2
+    move-exception p0
 
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    throw v2
+    throw p0
 .end method
 
-.method private onTemperatureMapChangedLocked()V
+.method public final onTemperatureMapChangedLocked()V
     .locals 6
 
-    const/4 v0, 0x0
+    iget-object v0, p0, Lcom/android/server/power/ThermalManagerService;->mTemperatureMap:Landroid/util/ArrayMap;
 
-    iget-object v1, p0, Lcom/android/server/power/ThermalManagerService;->mTemperatureMap:Landroid/util/ArrayMap;
+    invoke-virtual {v0}, Landroid/util/ArrayMap;->size()I
 
-    invoke-virtual {v1}, Landroid/util/ArrayMap;->size()I
+    move-result v0
 
-    move-result v1
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    move v2, v1
 
     :goto_0
-    if-ge v2, v1, :cond_1
+    if-ge v1, v0, :cond_1
 
     iget-object v3, p0, Lcom/android/server/power/ThermalManagerService;->mTemperatureMap:Landroid/util/ArrayMap;
 
-    invoke-virtual {v3, v2}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {v3, v1}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
 
     move-result-object v3
 
@@ -734,71 +821,71 @@
 
     move-result v4
 
-    if-lt v4, v0, :cond_0
+    if-lt v4, v2, :cond_0
 
     invoke-virtual {v3}, Landroid/os/Temperature;->getStatus()I
 
-    move-result v0
+    move-result v2
 
     :cond_0
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     :cond_1
-    iget-boolean v2, p0, Lcom/android/server/power/ThermalManagerService;->mIsStatusOverride:Z
+    iget-boolean v0, p0, Lcom/android/server/power/ThermalManagerService;->mIsStatusOverride:Z
 
-    if-nez v2, :cond_2
+    if-nez v0, :cond_2
 
-    invoke-direct {p0, v0}, Lcom/android/server/power/ThermalManagerService;->setStatusLocked(I)V
+    invoke-virtual {p0, v2}, Lcom/android/server/power/ThermalManagerService;->setStatusLocked(I)V
 
     :cond_2
     return-void
 .end method
 
-.method private postEventListener(Landroid/os/Temperature;Landroid/os/IThermalEventListener;Ljava/lang/Integer;)V
-    .locals 3
+.method public final postEventListener(Landroid/os/Temperature;Landroid/os/IThermalEventListener;Ljava/lang/Integer;)V
+    .locals 0
 
     if-eqz p3, :cond_0
 
     invoke-virtual {p3}, Ljava/lang/Integer;->intValue()I
 
-    move-result v0
+    move-result p0
 
     invoke-virtual {p1}, Landroid/os/Temperature;->getType()I
 
-    move-result v1
+    move-result p3
 
-    if-eq v0, v1, :cond_0
+    if-eq p0, p3, :cond_0
 
     return-void
 
     :cond_0
     invoke-static {}, Lcom/android/server/FgThread;->getHandler()Landroid/os/Handler;
 
-    move-result-object v0
+    move-result-object p0
 
-    new-instance v1, Lcom/android/server/power/ThermalManagerService$$ExternalSyntheticLambda1;
+    new-instance p3, Lcom/android/server/power/ThermalManagerService$$ExternalSyntheticLambda2;
 
-    invoke-direct {v1, p2, p1}, Lcom/android/server/power/ThermalManagerService$$ExternalSyntheticLambda1;-><init>(Landroid/os/IThermalEventListener;Landroid/os/Temperature;)V
+    invoke-direct {p3, p2, p1}, Lcom/android/server/power/ThermalManagerService$$ExternalSyntheticLambda2;-><init>(Landroid/os/IThermalEventListener;Landroid/os/Temperature;)V
 
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {p0, p3}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    move-result v0
+    move-result p0
 
-    if-nez v0, :cond_1
+    if-nez p0, :cond_1
 
-    sget-object v1, Lcom/android/server/power/ThermalManagerService;->TAG:Ljava/lang/String;
+    sget-object p0, Lcom/android/server/power/ThermalManagerService;->TAG:Ljava/lang/String;
 
-    const-string v2, "Thermal callback failed to queue"
+    const-string p1, "Thermal callback failed to queue"
 
-    invoke-static {v1, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, p1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_1
     return-void
 .end method
 
-.method private postEventListenerCurrentTemperatures(Landroid/os/IThermalEventListener;Ljava/lang/Integer;)V
+.method public final postEventListenerCurrentTemperatures(Landroid/os/IThermalEventListener;Ljava/lang/Integer;)V
     .locals 4
 
     iget-object v0, p0, Lcom/android/server/power/ThermalManagerService;->mLock:Ljava/lang/Object;
@@ -825,7 +912,7 @@
 
     check-cast v3, Landroid/os/Temperature;
 
-    invoke-direct {p0, v3, p1, p2}, Lcom/android/server/power/ThermalManagerService;->postEventListener(Landroid/os/Temperature;Landroid/os/IThermalEventListener;Ljava/lang/Integer;)V
+    invoke-virtual {p0, v3, p1, p2}, Lcom/android/server/power/ThermalManagerService;->postEventListener(Landroid/os/Temperature;Landroid/os/IThermalEventListener;Ljava/lang/Integer;)V
 
     add-int/lit8 v2, v2, 0x1
 
@@ -837,43 +924,43 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
-.method private postStatusListener(Landroid/os/IThermalStatusListener;)V
-    .locals 3
+.method public final postStatusListener(Landroid/os/IThermalStatusListener;)V
+    .locals 2
 
     invoke-static {}, Lcom/android/server/FgThread;->getHandler()Landroid/os/Handler;
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/server/power/ThermalManagerService$$ExternalSyntheticLambda2;
+    new-instance v1, Lcom/android/server/power/ThermalManagerService$$ExternalSyntheticLambda0;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/server/power/ThermalManagerService$$ExternalSyntheticLambda2;-><init>(Lcom/android/server/power/ThermalManagerService;Landroid/os/IThermalStatusListener;)V
+    invoke-direct {v1, p0, p1}, Lcom/android/server/power/ThermalManagerService$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/power/ThermalManagerService;Landroid/os/IThermalStatusListener;)V
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    move-result v0
+    move-result p0
 
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
-    sget-object v1, Lcom/android/server/power/ThermalManagerService;->TAG:Ljava/lang/String;
+    sget-object p0, Lcom/android/server/power/ThermalManagerService;->TAG:Ljava/lang/String;
 
-    const-string v2, "Thermal callback failed to queue"
+    const-string p1, "Thermal callback failed to queue"
 
-    invoke-static {v1, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, p1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
     return-void
 .end method
 
-.method private setStatusLocked(I)V
+.method public final setStatusLocked(I)V
     .locals 1
 
     iget v0, p0, Lcom/android/server/power/ThermalManagerService;->mStatus:I
@@ -882,14 +969,14 @@
 
     iput p1, p0, Lcom/android/server/power/ThermalManagerService;->mStatus:I
 
-    invoke-direct {p0}, Lcom/android/server/power/ThermalManagerService;->notifyStatusListenersLocked()V
+    invoke-virtual {p0}, Lcom/android/server/power/ThermalManagerService;->notifyStatusListenersLocked()V
 
     :cond_0
     return-void
 .end method
 
-.method private shutdownIfNeeded(Landroid/os/Temperature;)V
-    .locals 3
+.method public final shutdownIfNeeded(Landroid/os/Temperature;)V
+    .locals 2
 
     invoke-virtual {p1}, Landroid/os/Temperature;->getStatus()I
 
@@ -902,104 +989,56 @@
     return-void
 
     :cond_0
-    invoke-virtual {p0}, Lcom/android/server/power/ThermalManagerService;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Lcom/android/server/SystemService;->getContext()Landroid/content/Context;
 
-    move-result-object v0
+    move-result-object p0
 
-    const-class v1, Landroid/os/PowerManager;
+    const-class v0, Landroid/os/PowerManager;
 
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Landroid/os/PowerManager;
+    check-cast p0, Landroid/os/PowerManager;
 
     invoke-virtual {p1}, Landroid/os/Temperature;->getType()I
 
-    move-result v1
+    move-result p1
 
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
-    sparse-switch v1, :sswitch_data_0
+    if-eqz p1, :cond_2
+
+    const/4 v1, 0x1
+
+    if-eq p1, v1, :cond_2
+
+    const/4 v1, 0x2
+
+    if-eq p1, v1, :cond_1
+
+    const/4 v1, 0x3
+
+    if-eq p1, v1, :cond_2
+
+    const/16 v1, 0x9
+
+    if-eq p1, v1, :cond_2
 
     goto :goto_0
 
-    :sswitch_0
-    const-string v1, "thermal,battery"
+    :cond_1
+    const-string p1, "thermal,battery"
 
-    invoke-virtual {v0, v2, v1, v2}, Landroid/os/PowerManager;->shutdown(ZLjava/lang/String;Z)V
+    invoke-virtual {p0, v0, p1, v0}, Landroid/os/PowerManager;->shutdown(ZLjava/lang/String;Z)V
 
     goto :goto_0
 
-    :sswitch_1
-    const-string v1, "thermal"
+    :cond_2
+    const-string p1, "thermal"
 
-    invoke-virtual {v0, v2, v1, v2}, Landroid/os/PowerManager;->shutdown(ZLjava/lang/String;Z)V
-
-    nop
+    invoke-virtual {p0, v0, p1, v0}, Landroid/os/PowerManager;->shutdown(ZLjava/lang/String;Z)V
 
     :goto_0
-    return-void
-
-    :sswitch_data_0
-    .sparse-switch
-        0x0 -> :sswitch_1
-        0x1 -> :sswitch_1
-        0x2 -> :sswitch_0
-        0x3 -> :sswitch_1
-        0x9 -> :sswitch_1
-    .end sparse-switch
-.end method
-
-
-# virtual methods
-.method public synthetic lambda$postStatusListener$0$ThermalManagerService(Landroid/os/IThermalStatusListener;)V
-    .locals 3
-
-    :try_start_0
-    iget v0, p0, Lcom/android/server/power/ThermalManagerService;->mStatus:I
-
-    invoke-interface {p1, v0}, Landroid/os/IThermalStatusListener;->onStatusChange(I)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_0
-
-    :catch_0
-    move-exception v0
-
-    sget-object v1, Lcom/android/server/power/ThermalManagerService;->TAG:Ljava/lang/String;
-
-    const-string v2, "Thermal callback failed to call"
-
-    invoke-static {v1, v2, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    :goto_0
-    return-void
-.end method
-
-.method public onBootPhase(I)V
-    .locals 1
-
-    const/16 v0, 0x226
-
-    if-ne p1, v0, :cond_0
-
-    invoke-direct {p0}, Lcom/android/server/power/ThermalManagerService;->onActivityManagerReady()V
-
-    :cond_0
-    return-void
-.end method
-
-.method public onStart()V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/server/power/ThermalManagerService;->mService:Landroid/os/IThermalService$Stub;
-
-    const-string v1, "thermalservice"
-
-    invoke-virtual {p0, v1, v0}, Lcom/android/server/power/ThermalManagerService;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
-
     return-void
 .end method

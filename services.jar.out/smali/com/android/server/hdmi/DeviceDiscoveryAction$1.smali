@@ -1,4 +1,4 @@
-.class Lcom/android/server/hdmi/DeviceDiscoveryAction$1;
+.class public Lcom/android/server/hdmi/DeviceDiscoveryAction$1;
 .super Ljava/lang/Object;
 .source "DeviceDiscoveryAction.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/hdmi/DeviceDiscoveryAction;
+.field public final synthetic this$0:Lcom/android/server/hdmi/DeviceDiscoveryAction;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/hdmi/DeviceDiscoveryAction;)V
+.method public constructor <init>(Lcom/android/server/hdmi/DeviceDiscoveryAction;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/hdmi/DeviceDiscoveryAction$1;->this$0:Lcom/android/server/hdmi/DeviceDiscoveryAction;
@@ -53,13 +53,13 @@
 
     if-eqz v0, :cond_0
 
-    const-string v0, "No device is detected."
+    const-string p1, "No device is detected."
 
-    invoke-static {v1, v0}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, p1}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v0, p0, Lcom/android/server/hdmi/DeviceDiscoveryAction$1;->this$0:Lcom/android/server/hdmi/DeviceDiscoveryAction;
+    iget-object p0, p0, Lcom/android/server/hdmi/DeviceDiscoveryAction$1;->this$0:Lcom/android/server/hdmi/DeviceDiscoveryAction;
 
-    invoke-static {v0}, Lcom/android/server/hdmi/DeviceDiscoveryAction;->access$000(Lcom/android/server/hdmi/DeviceDiscoveryAction;)V
+    invoke-static {p0}, Lcom/android/server/hdmi/DeviceDiscoveryAction;->-$$Nest$mwrapUpAndFinish(Lcom/android/server/hdmi/DeviceDiscoveryAction;)V
 
     return-void
 
@@ -82,26 +82,26 @@
 
     iget-object v0, p0, Lcom/android/server/hdmi/DeviceDiscoveryAction$1;->this$0:Lcom/android/server/hdmi/DeviceDiscoveryAction;
 
-    invoke-static {v0, p1}, Lcom/android/server/hdmi/DeviceDiscoveryAction;->access$100(Lcom/android/server/hdmi/DeviceDiscoveryAction;Ljava/util/List;)V
+    invoke-static {v0, p1}, Lcom/android/server/hdmi/DeviceDiscoveryAction;->-$$Nest$mallocateDevices(Lcom/android/server/hdmi/DeviceDiscoveryAction;Ljava/util/List;)V
 
-    iget-object v0, p0, Lcom/android/server/hdmi/DeviceDiscoveryAction$1;->this$0:Lcom/android/server/hdmi/DeviceDiscoveryAction;
+    iget-object p1, p0, Lcom/android/server/hdmi/DeviceDiscoveryAction$1;->this$0:Lcom/android/server/hdmi/DeviceDiscoveryAction;
 
-    invoke-static {v0}, Lcom/android/server/hdmi/DeviceDiscoveryAction;->access$200(Lcom/android/server/hdmi/DeviceDiscoveryAction;)I
+    invoke-static {p1}, Lcom/android/server/hdmi/DeviceDiscoveryAction;->-$$Nest$fgetmDelayPeriod(Lcom/android/server/hdmi/DeviceDiscoveryAction;)I
 
-    move-result v0
+    move-result p1
 
-    if-lez v0, :cond_1
+    if-lez p1, :cond_1
 
-    iget-object v0, p0, Lcom/android/server/hdmi/DeviceDiscoveryAction$1;->this$0:Lcom/android/server/hdmi/DeviceDiscoveryAction;
+    iget-object p0, p0, Lcom/android/server/hdmi/DeviceDiscoveryAction$1;->this$0:Lcom/android/server/hdmi/DeviceDiscoveryAction;
 
-    invoke-static {v0}, Lcom/android/server/hdmi/DeviceDiscoveryAction;->access$300(Lcom/android/server/hdmi/DeviceDiscoveryAction;)V
+    invoke-static {p0}, Lcom/android/server/hdmi/DeviceDiscoveryAction;->-$$Nest$mstartToDelayAction(Lcom/android/server/hdmi/DeviceDiscoveryAction;)V
 
     goto :goto_0
 
     :cond_1
-    iget-object v0, p0, Lcom/android/server/hdmi/DeviceDiscoveryAction$1;->this$0:Lcom/android/server/hdmi/DeviceDiscoveryAction;
+    iget-object p0, p0, Lcom/android/server/hdmi/DeviceDiscoveryAction$1;->this$0:Lcom/android/server/hdmi/DeviceDiscoveryAction;
 
-    invoke-static {v0}, Lcom/android/server/hdmi/DeviceDiscoveryAction;->access$400(Lcom/android/server/hdmi/DeviceDiscoveryAction;)V
+    invoke-static {p0}, Lcom/android/server/hdmi/DeviceDiscoveryAction;->-$$Nest$mstartPhysicalAddressStage(Lcom/android/server/hdmi/DeviceDiscoveryAction;)V
 
     :goto_0
     return-void

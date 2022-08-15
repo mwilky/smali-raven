@@ -1,4 +1,4 @@
-.class Lcom/android/server/contentsuggestions/ContentSuggestionsPerUserService$1;
+.class public Lcom/android/server/contentsuggestions/ContentSuggestionsPerUserService$1;
 .super Ljava/lang/Object;
 .source "ContentSuggestionsPerUserService.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/contentsuggestions/ContentSuggestionsPerUserService;
+.field public final synthetic this$0:Lcom/android/server/contentsuggestions/ContentSuggestionsPerUserService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/contentsuggestions/ContentSuggestionsPerUserService;)V
+.method public constructor <init>(Lcom/android/server/contentsuggestions/ContentSuggestionsPerUserService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/contentsuggestions/ContentSuggestionsPerUserService$1;->this$0:Lcom/android/server/contentsuggestions/ContentSuggestionsPerUserService;
@@ -35,19 +35,19 @@
 
 # virtual methods
 .method public onServiceDied(Lcom/android/server/contentsuggestions/RemoteContentSuggestionsService;)V
-    .locals 2
+    .locals 1
 
-    invoke-static {}, Lcom/android/server/contentsuggestions/ContentSuggestionsPerUserService;->access$000()Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/contentsuggestions/ContentSuggestionsPerUserService;->-$$Nest$sfgetTAG()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string/jumbo v1, "remote content suggestions service died"
+    const-string/jumbo v0, "remote content suggestions service died"
 
-    invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p1, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v0, p0, Lcom/android/server/contentsuggestions/ContentSuggestionsPerUserService$1;->this$0:Lcom/android/server/contentsuggestions/ContentSuggestionsPerUserService;
+    iget-object p0, p0, Lcom/android/server/contentsuggestions/ContentSuggestionsPerUserService$1;->this$0:Lcom/android/server/contentsuggestions/ContentSuggestionsPerUserService;
 
-    invoke-static {v0}, Lcom/android/server/contentsuggestions/ContentSuggestionsPerUserService;->access$100(Lcom/android/server/contentsuggestions/ContentSuggestionsPerUserService;)V
+    invoke-static {p0}, Lcom/android/server/contentsuggestions/ContentSuggestionsPerUserService;->-$$Nest$mupdateRemoteServiceLocked(Lcom/android/server/contentsuggestions/ContentSuggestionsPerUserService;)V
 
     return-void
 .end method

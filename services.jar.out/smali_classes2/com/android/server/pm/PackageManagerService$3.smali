@@ -1,226 +1,118 @@
-.class Lcom/android/server/pm/PackageManagerService$3;
-.super Landroid/os/storage/StorageEventListener;
+.class public Lcom/android/server/pm/PackageManagerService$3;
+.super Landroid/database/ContentObserver;
 .source "PackageManagerService.java"
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/android/server/pm/PackageManagerService;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/android/server/pm/PackageManagerService;->systemReady()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/pm/PackageManagerService;
+.field public final synthetic this$0:Lcom/android/server/pm/PackageManagerService;
+
+.field public final synthetic val$resolver:Landroid/content/ContentResolver;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/pm/PackageManagerService;)V
+.method public constructor <init>(Lcom/android/server/pm/PackageManagerService;Landroid/os/Handler;Landroid/content/ContentResolver;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/pm/PackageManagerService$3;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-direct {p0}, Landroid/os/storage/StorageEventListener;-><init>()V
+    iput-object p3, p0, Lcom/android/server/pm/PackageManagerService$3;->val$resolver:Landroid/content/ContentResolver;
+
+    invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onVolumeForgotten(Ljava/lang/String;)V
-    .locals 9
+.method public onChange(Z)V
+    .locals 8
 
-    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    iget-object p1, p0, Lcom/android/server/pm/PackageManagerService$3;->val$resolver:Landroid/content/ContentResolver;
 
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const-string v0, "PackageManager"
-
-    const-string v1, "Forgetting internal storage is probably a mistake; ignoring"
-
-    invoke-static {v0, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$3;->this$0:Lcom/android/server/pm/PackageManagerService;
-
-    iget-object v0, v0, Lcom/android/server/pm/PackageManagerService;->mLock:Lcom/android/server/pm/PackageManagerTracedLock;
-
-    monitor-enter v0
-
-    :try_start_0
-    iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$3;->this$0:Lcom/android/server/pm/PackageManagerService;
-
-    iget-object v1, v1, Lcom/android/server/pm/PackageManagerService;->mSettings:Lcom/android/server/pm/Settings;
-
-    invoke-virtual {v1, p1}, Lcom/android/server/pm/Settings;->getVolumePackagesLPr(Ljava/lang/String;)Ljava/util/List;
-
-    move-result-object v1
-
-    invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v2
-
-    :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_1
-
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Lcom/android/server/pm/PackageSetting;
-
-    const-string v4, "PackageManager"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v6, "Destroying "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v6, v3, Lcom/android/server/pm/PackageSetting;->name:Ljava/lang/String;
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v6, " because volume was forgotten"
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v4, p0, Lcom/android/server/pm/PackageManagerService$3;->this$0:Lcom/android/server/pm/PackageManagerService;
-
-    new-instance v5, Landroid/content/pm/VersionedPackage;
-
-    iget-object v6, v3, Lcom/android/server/pm/PackageSetting;->name:Ljava/lang/String;
-
-    const/4 v7, -0x1
-
-    invoke-direct {v5, v6, v7}, Landroid/content/pm/VersionedPackage;-><init>(Ljava/lang/String;I)V
-
-    new-instance v6, Landroid/content/pm/PackageManager$LegacyPackageDeleteObserver;
-
-    const/4 v7, 0x0
-
-    invoke-direct {v6, v7}, Landroid/content/pm/PackageManager$LegacyPackageDeleteObserver;-><init>(Landroid/content/pm/IPackageDeleteObserver;)V
-
-    invoke-virtual {v6}, Landroid/content/pm/PackageManager$LegacyPackageDeleteObserver;->getBinder()Landroid/content/pm/IPackageDeleteObserver2;
-
-    move-result-object v6
-
-    const/4 v7, 0x0
-
-    const/4 v8, 0x2
-
-    invoke-virtual {v4, v5, v6, v7, v8}, Lcom/android/server/pm/PackageManagerService;->deletePackageVersioned(Landroid/content/pm/VersionedPackage;Landroid/content/pm/IPackageDeleteObserver2;II)V
-
-    invoke-static {}, Lcom/android/internal/policy/AttributeCache;->instance()Lcom/android/internal/policy/AttributeCache;
-
-    move-result-object v4
-
-    iget-object v5, v3, Lcom/android/server/pm/PackageSetting;->name:Ljava/lang/String;
-
-    invoke-virtual {v4, v5}, Lcom/android/internal/policy/AttributeCache;->removePackage(Ljava/lang/String;)V
-
-    goto :goto_0
-
-    :cond_1
-    iget-object v2, p0, Lcom/android/server/pm/PackageManagerService$3;->this$0:Lcom/android/server/pm/PackageManagerService;
-
-    iget-object v2, v2, Lcom/android/server/pm/PackageManagerService;->mSettings:Lcom/android/server/pm/Settings;
-
-    invoke-virtual {v2, p1}, Lcom/android/server/pm/Settings;->onVolumeForgotten(Ljava/lang/String;)V
-
-    iget-object v2, p0, Lcom/android/server/pm/PackageManagerService$3;->this$0:Lcom/android/server/pm/PackageManagerService;
-
-    invoke-static {v2}, Lcom/android/server/pm/PackageManagerService;->access$4200(Lcom/android/server/pm/PackageManagerService;)V
-
-    monitor-exit v0
-
-    return-void
-
-    :catchall_0
-    move-exception v1
-
-    monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v1
-.end method
-
-.method public onVolumeStateChanged(Landroid/os/storage/VolumeInfo;II)V
-    .locals 2
-
-    iget v0, p1, Landroid/os/storage/VolumeInfo;->type:I
+    const-string v0, "enable_ephemeral_feature"
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_1
+    invoke-static {p1, v0, v1}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    iget v0, p1, Landroid/os/storage/VolumeInfo;->state:I
+    move-result p1
 
-    const/4 v1, 0x2
+    const/4 v0, 0x0
 
-    if-ne v0, v1, :cond_0
+    if-nez p1, :cond_0
 
-    invoke-virtual {p1}, Landroid/os/storage/VolumeInfo;->getFsUuid()Ljava/lang/String;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$3;->this$0:Lcom/android/server/pm/PackageManagerService;
-
-    iget-object v1, v1, Lcom/android/server/pm/PackageManagerService;->mUserManager:Lcom/android/server/pm/UserManagerService;
-
-    invoke-virtual {v1, v0}, Lcom/android/server/pm/UserManagerService;->reconcileUsers(Ljava/lang/String;)V
-
-    iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$3;->this$0:Lcom/android/server/pm/PackageManagerService;
-
-    invoke-static {v1, v0}, Lcom/android/server/pm/PackageManagerService;->access$4700(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;)V
-
-    iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$3;->this$0:Lcom/android/server/pm/PackageManagerService;
-
-    iget-object v1, v1, Lcom/android/server/pm/PackageManagerService;->mInstallerService:Lcom/android/server/pm/PackageInstallerService;
-
-    invoke-virtual {v1, v0}, Lcom/android/server/pm/PackageInstallerService;->onPrivateVolumeMounted(Ljava/lang/String;)V
-
-    iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$3;->this$0:Lcom/android/server/pm/PackageManagerService;
-
-    invoke-static {v1, p1}, Lcom/android/server/pm/PackageManagerService;->access$4800(Lcom/android/server/pm/PackageManagerService;Landroid/os/storage/VolumeInfo;)V
+    move p1, v1
 
     goto :goto_0
 
     :cond_0
-    iget v0, p1, Landroid/os/storage/VolumeInfo;->state:I
+    move p1, v0
 
-    const/4 v1, 0x5
+    :goto_0
+    invoke-static {}, Lcom/android/server/pm/UserManagerService;->getInstance()Lcom/android/server/pm/UserManagerService;
 
-    if-ne v0, v1, :cond_1
+    move-result-object v2
 
-    iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$3;->this$0:Lcom/android/server/pm/PackageManagerService;
+    invoke-virtual {v2}, Lcom/android/server/pm/UserManagerService;->getUserIds()[I
 
-    invoke-static {v0, p1}, Lcom/android/server/pm/PackageManagerService;->access$4900(Lcom/android/server/pm/PackageManagerService;Landroid/os/storage/VolumeInfo;)V
+    move-result-object v2
 
-    nop
+    array-length v3, v2
+
+    move v4, v0
+
+    :goto_1
+    if-ge v4, v3, :cond_3
+
+    aget v5, v2, v4
+
+    if-nez p1, :cond_2
+
+    iget-object v6, p0, Lcom/android/server/pm/PackageManagerService$3;->val$resolver:Landroid/content/ContentResolver;
+
+    const-string v7, "instant_apps_enabled"
+
+    invoke-static {v6, v7, v1, v5}, Landroid/provider/Settings$Secure;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
+
+    move-result v6
+
+    if-nez v6, :cond_1
+
+    goto :goto_2
 
     :cond_1
-    :goto_0
+    move v6, v0
+
+    goto :goto_3
+
+    :cond_2
+    :goto_2
+    move v6, v1
+
+    :goto_3
+    iget-object v7, p0, Lcom/android/server/pm/PackageManagerService$3;->this$0:Lcom/android/server/pm/PackageManagerService;
+
+    invoke-static {v7}, Lcom/android/server/pm/PackageManagerService;->-$$Nest$fgetmWebInstantAppsDisabled(Lcom/android/server/pm/PackageManagerService;)Lcom/android/server/utils/WatchedSparseBooleanArray;
+
+    move-result-object v7
+
+    invoke-virtual {v7, v5, v6}, Lcom/android/server/utils/WatchedSparseBooleanArray;->put(IZ)V
+
+    add-int/lit8 v4, v4, 0x1
+
+    goto :goto_1
+
+    :cond_3
     return-void
 .end method

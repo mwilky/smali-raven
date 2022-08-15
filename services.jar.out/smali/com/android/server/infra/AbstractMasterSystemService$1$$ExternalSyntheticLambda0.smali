@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/infra/AbstractMasterSystemService$1$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/server/infra/AbstractMasterSystemService$Visitor;
@@ -23,13 +24,13 @@
 
 # virtual methods
 .method public final visit(Ljava/lang/Object;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/infra/AbstractMasterSystemService$1$$ExternalSyntheticLambda0;->f$0:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/infra/AbstractMasterSystemService$1$$ExternalSyntheticLambda0;->f$0:Ljava/lang/String;
 
     check-cast p1, Lcom/android/server/infra/AbstractPerUserSystemService;
 
-    invoke-static {v0, p1}, Lcom/android/server/infra/AbstractMasterSystemService$1;->lambda$handlePackageUpdateLocked$0(Ljava/lang/String;Lcom/android/server/infra/AbstractPerUserSystemService;)V
+    invoke-static {p0, p1}, Lcom/android/server/infra/AbstractMasterSystemService$1;->$r8$lambda$mJ_S1_laoXXj7HCiDoy18XRSr14(Ljava/lang/String;Lcom/android/server/infra/AbstractPerUserSystemService;)V
 
     return-void
 .end method

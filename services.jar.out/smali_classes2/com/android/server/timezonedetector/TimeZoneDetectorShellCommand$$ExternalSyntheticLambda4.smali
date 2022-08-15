@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/timezonedetector/TimeZoneDetectorShellCommand$$ExternalSyntheticLambda4;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Supplier;
@@ -23,13 +24,13 @@
 
 # virtual methods
 .method public final get()Ljava/lang/Object;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/timezonedetector/TimeZoneDetectorShellCommand$$ExternalSyntheticLambda4;->f$0:Lcom/android/server/timezonedetector/TimeZoneDetectorShellCommand;
+    iget-object p0, p0, Lcom/android/server/timezonedetector/TimeZoneDetectorShellCommand$$ExternalSyntheticLambda4;->f$0:Lcom/android/server/timezonedetector/TimeZoneDetectorShellCommand;
 
-    invoke-virtual {v0}, Lcom/android/server/timezonedetector/TimeZoneDetectorShellCommand;->lambda$runSuggestManualTimeZone$1$TimeZoneDetectorShellCommand()Landroid/app/timezonedetector/ManualTimeZoneSuggestion;
+    invoke-static {p0}, Lcom/android/server/timezonedetector/TimeZoneDetectorShellCommand;->$r8$lambda$xXcivJCp-LWM1Btqa4LmpLz3LFg(Lcom/android/server/timezonedetector/TimeZoneDetectorShellCommand;)Landroid/app/timezonedetector/TelephonyTimeZoneSuggestion;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

@@ -16,13 +16,7 @@
     .end annotation
 .end method
 
-.method public abstract getOwnerComponent(I)Landroid/content/ComponentName;
-.end method
-
 .method public abstract getUsersForUpgrade()[I
-.end method
-
-.method public abstract isDeviceOwner(ILandroid/content/ComponentName;)Z
 .end method
 
 .method public abstract makeDevicePoliciesJournaledFile(I)Lcom/android/internal/util/JournaledFile;

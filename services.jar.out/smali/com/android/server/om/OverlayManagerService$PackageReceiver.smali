@@ -1,4 +1,4 @@
-.class final Lcom/android/server/om/OverlayManagerService$PackageReceiver;
+.class public final Lcom/android/server/om/OverlayManagerService$PackageReceiver;
 .super Landroid/content/BroadcastReceiver;
 .source "OverlayManagerService.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "PackageReceiver"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/om/OverlayManagerService;
+.field public final synthetic this$0:Lcom/android/server/om/OverlayManagerService;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/server/om/OverlayManagerService;)V
+.method public constructor <init>(Lcom/android/server/om/OverlayManagerService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/om/OverlayManagerService$PackageReceiver;->this$0:Lcom/android/server/om/OverlayManagerService;
@@ -29,7 +29,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/om/OverlayManagerService;Lcom/android/server/om/OverlayManagerService$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/om/OverlayManagerService;Lcom/android/server/om/OverlayManagerService$PackageReceiver-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/om/OverlayManagerService$PackageReceiver;-><init>(Lcom/android/server/om/OverlayManagerService;)V
@@ -37,8 +37,10 @@
     return-void
 .end method
 
-.method private onPackageAdded(Ljava/lang/String;[I)V
-    .locals 10
+
+# virtual methods
+.method public final onPackageAdded(Ljava/lang/String;[I)V
+    .locals 8
 
     const-wide/32 v0, 0x4000000
 
@@ -70,7 +72,7 @@
 
     iget-object v5, p0, Lcom/android/server/om/OverlayManagerService$PackageReceiver;->this$0:Lcom/android/server/om/OverlayManagerService;
 
-    invoke-static {v5}, Lcom/android/server/om/OverlayManagerService;->access$300(Lcom/android/server/om/OverlayManagerService;)Ljava/lang/Object;
+    invoke-static {v5}, Lcom/android/server/om/OverlayManagerService;->-$$Nest$fgetmLock(Lcom/android/server/om/OverlayManagerService;)Ljava/lang/Object;
 
     move-result-object v5
 
@@ -81,7 +83,7 @@
     :try_start_1
     iget-object v6, p0, Lcom/android/server/om/OverlayManagerService$PackageReceiver;->this$0:Lcom/android/server/om/OverlayManagerService;
 
-    invoke-static {v6}, Lcom/android/server/om/OverlayManagerService;->access$400(Lcom/android/server/om/OverlayManagerService;)Lcom/android/server/om/OverlayManagerService$PackageManagerHelperImpl;
+    invoke-static {v6}, Lcom/android/server/om/OverlayManagerService;->-$$Nest$fgetmPackageManager(Lcom/android/server/om/OverlayManagerService;)Lcom/android/server/om/OverlayManagerService$PackageManagerHelperImpl;
 
     move-result-object v6
 
@@ -91,32 +93,32 @@
 
     if-eqz v6, :cond_0
 
-    iget-object v7, p0, Lcom/android/server/om/OverlayManagerService$PackageReceiver;->this$0:Lcom/android/server/om/OverlayManagerService;
+    iget-object v6, p0, Lcom/android/server/om/OverlayManagerService$PackageReceiver;->this$0:Lcom/android/server/om/OverlayManagerService;
 
-    invoke-static {v7}, Lcom/android/server/om/OverlayManagerService;->access$400(Lcom/android/server/om/OverlayManagerService;)Lcom/android/server/om/OverlayManagerService$PackageManagerHelperImpl;
+    invoke-static {v6}, Lcom/android/server/om/OverlayManagerService;->-$$Nest$fgetmPackageManager(Lcom/android/server/om/OverlayManagerService;)Lcom/android/server/om/OverlayManagerService$PackageManagerHelperImpl;
 
-    move-result-object v7
+    move-result-object v6
 
-    invoke-virtual {v7, p1, v4}, Lcom/android/server/om/OverlayManagerService$PackageManagerHelperImpl;->isInstantApp(Ljava/lang/String;I)Z
+    invoke-virtual {v6, p1, v4}, Lcom/android/server/om/OverlayManagerService$PackageManagerHelperImpl;->isInstantApp(Ljava/lang/String;I)Z
 
-    move-result v7
+    move-result v6
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    if-nez v7, :cond_0
+    if-nez v6, :cond_0
 
     :try_start_2
-    iget-object v7, p0, Lcom/android/server/om/OverlayManagerService$PackageReceiver;->this$0:Lcom/android/server/om/OverlayManagerService;
+    iget-object v6, p0, Lcom/android/server/om/OverlayManagerService$PackageReceiver;->this$0:Lcom/android/server/om/OverlayManagerService;
 
-    invoke-static {v7}, Lcom/android/server/om/OverlayManagerService;->access$500(Lcom/android/server/om/OverlayManagerService;)Lcom/android/server/om/OverlayManagerServiceImpl;
+    invoke-static {v6}, Lcom/android/server/om/OverlayManagerService;->-$$Nest$fgetmImpl(Lcom/android/server/om/OverlayManagerService;)Lcom/android/server/om/OverlayManagerServiceImpl;
 
-    move-result-object v8
+    move-result-object v7
 
-    invoke-virtual {v8, p1, v4}, Lcom/android/server/om/OverlayManagerServiceImpl;->onPackageAdded(Ljava/lang/String;I)Ljava/util/Set;
+    invoke-virtual {v7, p1, v4}, Lcom/android/server/om/OverlayManagerServiceImpl;->onPackageAdded(Ljava/lang/String;I)Ljava/util/Set;
 
-    move-result-object v8
+    move-result-object v4
 
-    invoke-static {v7, v8}, Lcom/android/server/om/OverlayManagerService;->access$600(Lcom/android/server/om/OverlayManagerService;Ljava/util/Set;)V
+    invoke-static {v6, v4}, Lcom/android/server/om/OverlayManagerService;->-$$Nest$mupdateTargetPackagesLocked(Lcom/android/server/om/OverlayManagerService;Ljava/util/Set;)V
     :try_end_2
     .catch Lcom/android/server/om/OverlayManagerServiceImpl$OperationFailedException; {:try_start_2 .. :try_end_2} :catch_0
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
@@ -124,14 +126,14 @@
     goto :goto_1
 
     :catch_0
-    move-exception v7
+    move-exception v4
 
     :try_start_3
-    const-string v8, "OverlayManager"
+    const-string v6, "OverlayManager"
 
-    const-string/jumbo v9, "onPackageAdded internal error"
+    const-string/jumbo v7, "onPackageAdded internal error"
 
-    invoke-static {v8, v9, v7}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v6, v7, v4}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :cond_0
     :goto_1
@@ -142,34 +144,32 @@
     goto :goto_0
 
     :catchall_0
-    move-exception v2
+    move-exception p0
 
     monitor-exit v5
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     :try_start_4
-    throw v2
+    throw p0
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
     :cond_1
     invoke-static {v0, v1}, Landroid/os/Trace;->traceEnd(J)V
 
-    nop
-
     return-void
 
     :catchall_1
-    move-exception v2
+    move-exception p0
 
     invoke-static {v0, v1}, Landroid/os/Trace;->traceEnd(J)V
 
-    throw v2
+    throw p0
 .end method
 
-.method private onPackageChanged(Ljava/lang/String;[I)V
-    .locals 10
+.method public final onPackageChanged(Ljava/lang/String;[I)V
+    .locals 8
 
     const-wide/32 v0, 0x4000000
 
@@ -201,7 +201,7 @@
 
     iget-object v5, p0, Lcom/android/server/om/OverlayManagerService$PackageReceiver;->this$0:Lcom/android/server/om/OverlayManagerService;
 
-    invoke-static {v5}, Lcom/android/server/om/OverlayManagerService;->access$300(Lcom/android/server/om/OverlayManagerService;)Ljava/lang/Object;
+    invoke-static {v5}, Lcom/android/server/om/OverlayManagerService;->-$$Nest$fgetmLock(Lcom/android/server/om/OverlayManagerService;)Ljava/lang/Object;
 
     move-result-object v5
 
@@ -212,7 +212,7 @@
     :try_start_1
     iget-object v6, p0, Lcom/android/server/om/OverlayManagerService$PackageReceiver;->this$0:Lcom/android/server/om/OverlayManagerService;
 
-    invoke-static {v6}, Lcom/android/server/om/OverlayManagerService;->access$400(Lcom/android/server/om/OverlayManagerService;)Lcom/android/server/om/OverlayManagerService$PackageManagerHelperImpl;
+    invoke-static {v6}, Lcom/android/server/om/OverlayManagerService;->-$$Nest$fgetmPackageManager(Lcom/android/server/om/OverlayManagerService;)Lcom/android/server/om/OverlayManagerService$PackageManagerHelperImpl;
 
     move-result-object v6
 
@@ -222,32 +222,32 @@
 
     if-eqz v6, :cond_0
 
-    iget-object v7, p0, Lcom/android/server/om/OverlayManagerService$PackageReceiver;->this$0:Lcom/android/server/om/OverlayManagerService;
+    iget-object v6, p0, Lcom/android/server/om/OverlayManagerService$PackageReceiver;->this$0:Lcom/android/server/om/OverlayManagerService;
 
-    invoke-static {v7}, Lcom/android/server/om/OverlayManagerService;->access$400(Lcom/android/server/om/OverlayManagerService;)Lcom/android/server/om/OverlayManagerService$PackageManagerHelperImpl;
+    invoke-static {v6}, Lcom/android/server/om/OverlayManagerService;->-$$Nest$fgetmPackageManager(Lcom/android/server/om/OverlayManagerService;)Lcom/android/server/om/OverlayManagerService$PackageManagerHelperImpl;
 
-    move-result-object v7
+    move-result-object v6
 
-    invoke-virtual {v7, p1, v4}, Lcom/android/server/om/OverlayManagerService$PackageManagerHelperImpl;->isInstantApp(Ljava/lang/String;I)Z
+    invoke-virtual {v6, p1, v4}, Lcom/android/server/om/OverlayManagerService$PackageManagerHelperImpl;->isInstantApp(Ljava/lang/String;I)Z
 
-    move-result v7
+    move-result v6
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    if-nez v7, :cond_0
+    if-nez v6, :cond_0
 
     :try_start_2
-    iget-object v7, p0, Lcom/android/server/om/OverlayManagerService$PackageReceiver;->this$0:Lcom/android/server/om/OverlayManagerService;
+    iget-object v6, p0, Lcom/android/server/om/OverlayManagerService$PackageReceiver;->this$0:Lcom/android/server/om/OverlayManagerService;
 
-    invoke-static {v7}, Lcom/android/server/om/OverlayManagerService;->access$500(Lcom/android/server/om/OverlayManagerService;)Lcom/android/server/om/OverlayManagerServiceImpl;
+    invoke-static {v6}, Lcom/android/server/om/OverlayManagerService;->-$$Nest$fgetmImpl(Lcom/android/server/om/OverlayManagerService;)Lcom/android/server/om/OverlayManagerServiceImpl;
 
-    move-result-object v8
+    move-result-object v7
 
-    invoke-virtual {v8, p1, v4}, Lcom/android/server/om/OverlayManagerServiceImpl;->onPackageChanged(Ljava/lang/String;I)Ljava/util/Set;
+    invoke-virtual {v7, p1, v4}, Lcom/android/server/om/OverlayManagerServiceImpl;->onPackageChanged(Ljava/lang/String;I)Ljava/util/Set;
 
-    move-result-object v8
+    move-result-object v4
 
-    invoke-static {v7, v8}, Lcom/android/server/om/OverlayManagerService;->access$600(Lcom/android/server/om/OverlayManagerService;Ljava/util/Set;)V
+    invoke-static {v6, v4}, Lcom/android/server/om/OverlayManagerService;->-$$Nest$mupdateTargetPackagesLocked(Lcom/android/server/om/OverlayManagerService;Ljava/util/Set;)V
     :try_end_2
     .catch Lcom/android/server/om/OverlayManagerServiceImpl$OperationFailedException; {:try_start_2 .. :try_end_2} :catch_0
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
@@ -255,14 +255,14 @@
     goto :goto_1
 
     :catch_0
-    move-exception v7
+    move-exception v4
 
     :try_start_3
-    const-string v8, "OverlayManager"
+    const-string v6, "OverlayManager"
 
-    const-string/jumbo v9, "onPackageChanged internal error"
+    const-string/jumbo v7, "onPackageChanged internal error"
 
-    invoke-static {v8, v9, v7}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v6, v7, v4}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :cond_0
     :goto_1
@@ -273,33 +273,31 @@
     goto :goto_0
 
     :catchall_0
-    move-exception v2
+    move-exception p0
 
     monitor-exit v5
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     :try_start_4
-    throw v2
+    throw p0
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
     :cond_1
     invoke-static {v0, v1}, Landroid/os/Trace;->traceEnd(J)V
 
-    nop
-
     return-void
 
     :catchall_1
-    move-exception v2
+    move-exception p0
 
     invoke-static {v0, v1}, Landroid/os/Trace;->traceEnd(J)V
 
-    throw v2
+    throw p0
 .end method
 
-.method private onPackageRemoved(Ljava/lang/String;[I)V
+.method public final onPackageRemoved(Ljava/lang/String;[I)V
     .locals 8
 
     const-wide/32 v0, 0x4000000
@@ -332,7 +330,7 @@
 
     iget-object v5, p0, Lcom/android/server/om/OverlayManagerService$PackageReceiver;->this$0:Lcom/android/server/om/OverlayManagerService;
 
-    invoke-static {v5}, Lcom/android/server/om/OverlayManagerService;->access$300(Lcom/android/server/om/OverlayManagerService;)Ljava/lang/Object;
+    invoke-static {v5}, Lcom/android/server/om/OverlayManagerService;->-$$Nest$fgetmLock(Lcom/android/server/om/OverlayManagerService;)Ljava/lang/Object;
 
     move-result-object v5
 
@@ -343,7 +341,7 @@
     :try_start_1
     iget-object v6, p0, Lcom/android/server/om/OverlayManagerService$PackageReceiver;->this$0:Lcom/android/server/om/OverlayManagerService;
 
-    invoke-static {v6}, Lcom/android/server/om/OverlayManagerService;->access$400(Lcom/android/server/om/OverlayManagerService;)Lcom/android/server/om/OverlayManagerService$PackageManagerHelperImpl;
+    invoke-static {v6}, Lcom/android/server/om/OverlayManagerService;->-$$Nest$fgetmPackageManager(Lcom/android/server/om/OverlayManagerService;)Lcom/android/server/om/OverlayManagerService$PackageManagerHelperImpl;
 
     move-result-object v6
 
@@ -351,15 +349,15 @@
 
     iget-object v6, p0, Lcom/android/server/om/OverlayManagerService$PackageReceiver;->this$0:Lcom/android/server/om/OverlayManagerService;
 
-    invoke-static {v6}, Lcom/android/server/om/OverlayManagerService;->access$500(Lcom/android/server/om/OverlayManagerService;)Lcom/android/server/om/OverlayManagerServiceImpl;
+    invoke-static {v6}, Lcom/android/server/om/OverlayManagerService;->-$$Nest$fgetmImpl(Lcom/android/server/om/OverlayManagerService;)Lcom/android/server/om/OverlayManagerServiceImpl;
 
     move-result-object v7
 
     invoke-virtual {v7, p1, v4}, Lcom/android/server/om/OverlayManagerServiceImpl;->onPackageRemoved(Ljava/lang/String;I)Ljava/util/Set;
 
-    move-result-object v7
+    move-result-object v4
 
-    invoke-static {v6, v7}, Lcom/android/server/om/OverlayManagerService;->access$600(Lcom/android/server/om/OverlayManagerService;Ljava/util/Set;)V
+    invoke-static {v6, v4}, Lcom/android/server/om/OverlayManagerService;->-$$Nest$mupdateTargetPackagesLocked(Lcom/android/server/om/OverlayManagerService;Ljava/util/Set;)V
 
     monitor-exit v5
 
@@ -368,34 +366,32 @@
     goto :goto_0
 
     :catchall_0
-    move-exception v2
+    move-exception p0
 
     monitor-exit v5
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     :try_start_2
-    throw v2
+    throw p0
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
     :cond_0
     invoke-static {v0, v1}, Landroid/os/Trace;->traceEnd(J)V
 
-    nop
-
     return-void
 
     :catchall_1
-    move-exception v2
+    move-exception p0
 
     invoke-static {v0, v1}, Landroid/os/Trace;->traceEnd(J)V
 
-    throw v2
+    throw p0
 .end method
 
-.method private onPackageReplaced(Ljava/lang/String;[I)V
-    .locals 10
+.method public final onPackageReplaced(Ljava/lang/String;[I)V
+    .locals 8
 
     const-wide/32 v0, 0x4000000
 
@@ -427,7 +423,7 @@
 
     iget-object v5, p0, Lcom/android/server/om/OverlayManagerService$PackageReceiver;->this$0:Lcom/android/server/om/OverlayManagerService;
 
-    invoke-static {v5}, Lcom/android/server/om/OverlayManagerService;->access$300(Lcom/android/server/om/OverlayManagerService;)Ljava/lang/Object;
+    invoke-static {v5}, Lcom/android/server/om/OverlayManagerService;->-$$Nest$fgetmLock(Lcom/android/server/om/OverlayManagerService;)Ljava/lang/Object;
 
     move-result-object v5
 
@@ -438,7 +434,7 @@
     :try_start_1
     iget-object v6, p0, Lcom/android/server/om/OverlayManagerService$PackageReceiver;->this$0:Lcom/android/server/om/OverlayManagerService;
 
-    invoke-static {v6}, Lcom/android/server/om/OverlayManagerService;->access$400(Lcom/android/server/om/OverlayManagerService;)Lcom/android/server/om/OverlayManagerService$PackageManagerHelperImpl;
+    invoke-static {v6}, Lcom/android/server/om/OverlayManagerService;->-$$Nest$fgetmPackageManager(Lcom/android/server/om/OverlayManagerService;)Lcom/android/server/om/OverlayManagerService$PackageManagerHelperImpl;
 
     move-result-object v6
 
@@ -448,32 +444,32 @@
 
     if-eqz v6, :cond_0
 
-    iget-object v7, p0, Lcom/android/server/om/OverlayManagerService$PackageReceiver;->this$0:Lcom/android/server/om/OverlayManagerService;
+    iget-object v6, p0, Lcom/android/server/om/OverlayManagerService$PackageReceiver;->this$0:Lcom/android/server/om/OverlayManagerService;
 
-    invoke-static {v7}, Lcom/android/server/om/OverlayManagerService;->access$400(Lcom/android/server/om/OverlayManagerService;)Lcom/android/server/om/OverlayManagerService$PackageManagerHelperImpl;
+    invoke-static {v6}, Lcom/android/server/om/OverlayManagerService;->-$$Nest$fgetmPackageManager(Lcom/android/server/om/OverlayManagerService;)Lcom/android/server/om/OverlayManagerService$PackageManagerHelperImpl;
 
-    move-result-object v7
+    move-result-object v6
 
-    invoke-virtual {v7, p1, v4}, Lcom/android/server/om/OverlayManagerService$PackageManagerHelperImpl;->isInstantApp(Ljava/lang/String;I)Z
+    invoke-virtual {v6, p1, v4}, Lcom/android/server/om/OverlayManagerService$PackageManagerHelperImpl;->isInstantApp(Ljava/lang/String;I)Z
 
-    move-result v7
+    move-result v6
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    if-nez v7, :cond_0
+    if-nez v6, :cond_0
 
     :try_start_2
-    iget-object v7, p0, Lcom/android/server/om/OverlayManagerService$PackageReceiver;->this$0:Lcom/android/server/om/OverlayManagerService;
+    iget-object v6, p0, Lcom/android/server/om/OverlayManagerService$PackageReceiver;->this$0:Lcom/android/server/om/OverlayManagerService;
 
-    invoke-static {v7}, Lcom/android/server/om/OverlayManagerService;->access$500(Lcom/android/server/om/OverlayManagerService;)Lcom/android/server/om/OverlayManagerServiceImpl;
+    invoke-static {v6}, Lcom/android/server/om/OverlayManagerService;->-$$Nest$fgetmImpl(Lcom/android/server/om/OverlayManagerService;)Lcom/android/server/om/OverlayManagerServiceImpl;
 
-    move-result-object v8
+    move-result-object v7
 
-    invoke-virtual {v8, p1, v4}, Lcom/android/server/om/OverlayManagerServiceImpl;->onPackageReplaced(Ljava/lang/String;I)Ljava/util/Set;
+    invoke-virtual {v7, p1, v4}, Lcom/android/server/om/OverlayManagerServiceImpl;->onPackageReplaced(Ljava/lang/String;I)Ljava/util/Set;
 
-    move-result-object v8
+    move-result-object v4
 
-    invoke-static {v7, v8}, Lcom/android/server/om/OverlayManagerService;->access$600(Lcom/android/server/om/OverlayManagerService;Ljava/util/Set;)V
+    invoke-static {v6, v4}, Lcom/android/server/om/OverlayManagerService;->-$$Nest$mupdateTargetPackagesLocked(Lcom/android/server/om/OverlayManagerService;Ljava/util/Set;)V
     :try_end_2
     .catch Lcom/android/server/om/OverlayManagerServiceImpl$OperationFailedException; {:try_start_2 .. :try_end_2} :catch_0
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
@@ -481,14 +477,14 @@
     goto :goto_1
 
     :catch_0
-    move-exception v7
+    move-exception v4
 
     :try_start_3
-    const-string v8, "OverlayManager"
+    const-string v6, "OverlayManager"
 
-    const-string/jumbo v9, "onPackageReplaced internal error"
+    const-string/jumbo v7, "onPackageReplaced internal error"
 
-    invoke-static {v8, v9, v7}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v6, v7, v4}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :cond_0
     :goto_1
@@ -499,34 +495,32 @@
     goto :goto_0
 
     :catchall_0
-    move-exception v2
+    move-exception p0
 
     monitor-exit v5
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     :try_start_4
-    throw v2
+    throw p0
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
     :cond_1
     invoke-static {v0, v1}, Landroid/os/Trace;->traceEnd(J)V
 
-    nop
-
     return-void
 
     :catchall_1
-    move-exception v2
+    move-exception p0
 
     invoke-static {v0, v1}, Landroid/os/Trace;->traceEnd(J)V
 
-    throw v2
+    throw p0
 .end method
 
-.method private onPackageReplacing(Ljava/lang/String;[I)V
-    .locals 10
+.method public final onPackageReplacing(Ljava/lang/String;[I)V
+    .locals 8
 
     const-wide/32 v0, 0x4000000
 
@@ -558,7 +552,7 @@
 
     iget-object v5, p0, Lcom/android/server/om/OverlayManagerService$PackageReceiver;->this$0:Lcom/android/server/om/OverlayManagerService;
 
-    invoke-static {v5}, Lcom/android/server/om/OverlayManagerService;->access$300(Lcom/android/server/om/OverlayManagerService;)Ljava/lang/Object;
+    invoke-static {v5}, Lcom/android/server/om/OverlayManagerService;->-$$Nest$fgetmLock(Lcom/android/server/om/OverlayManagerService;)Ljava/lang/Object;
 
     move-result-object v5
 
@@ -569,7 +563,7 @@
     :try_start_1
     iget-object v6, p0, Lcom/android/server/om/OverlayManagerService$PackageReceiver;->this$0:Lcom/android/server/om/OverlayManagerService;
 
-    invoke-static {v6}, Lcom/android/server/om/OverlayManagerService;->access$400(Lcom/android/server/om/OverlayManagerService;)Lcom/android/server/om/OverlayManagerService$PackageManagerHelperImpl;
+    invoke-static {v6}, Lcom/android/server/om/OverlayManagerService;->-$$Nest$fgetmPackageManager(Lcom/android/server/om/OverlayManagerService;)Lcom/android/server/om/OverlayManagerService$PackageManagerHelperImpl;
 
     move-result-object v6
 
@@ -579,32 +573,32 @@
 
     if-eqz v6, :cond_0
 
-    iget-object v7, p0, Lcom/android/server/om/OverlayManagerService$PackageReceiver;->this$0:Lcom/android/server/om/OverlayManagerService;
+    iget-object v6, p0, Lcom/android/server/om/OverlayManagerService$PackageReceiver;->this$0:Lcom/android/server/om/OverlayManagerService;
 
-    invoke-static {v7}, Lcom/android/server/om/OverlayManagerService;->access$400(Lcom/android/server/om/OverlayManagerService;)Lcom/android/server/om/OverlayManagerService$PackageManagerHelperImpl;
+    invoke-static {v6}, Lcom/android/server/om/OverlayManagerService;->-$$Nest$fgetmPackageManager(Lcom/android/server/om/OverlayManagerService;)Lcom/android/server/om/OverlayManagerService$PackageManagerHelperImpl;
 
-    move-result-object v7
+    move-result-object v6
 
-    invoke-virtual {v7, p1, v4}, Lcom/android/server/om/OverlayManagerService$PackageManagerHelperImpl;->isInstantApp(Ljava/lang/String;I)Z
+    invoke-virtual {v6, p1, v4}, Lcom/android/server/om/OverlayManagerService$PackageManagerHelperImpl;->isInstantApp(Ljava/lang/String;I)Z
 
-    move-result v7
+    move-result v6
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    if-nez v7, :cond_0
+    if-nez v6, :cond_0
 
     :try_start_2
-    iget-object v7, p0, Lcom/android/server/om/OverlayManagerService$PackageReceiver;->this$0:Lcom/android/server/om/OverlayManagerService;
+    iget-object v6, p0, Lcom/android/server/om/OverlayManagerService$PackageReceiver;->this$0:Lcom/android/server/om/OverlayManagerService;
 
-    invoke-static {v7}, Lcom/android/server/om/OverlayManagerService;->access$500(Lcom/android/server/om/OverlayManagerService;)Lcom/android/server/om/OverlayManagerServiceImpl;
+    invoke-static {v6}, Lcom/android/server/om/OverlayManagerService;->-$$Nest$fgetmImpl(Lcom/android/server/om/OverlayManagerService;)Lcom/android/server/om/OverlayManagerServiceImpl;
 
-    move-result-object v8
+    move-result-object v7
 
-    invoke-virtual {v8, p1, v4}, Lcom/android/server/om/OverlayManagerServiceImpl;->onPackageReplacing(Ljava/lang/String;I)Ljava/util/Set;
+    invoke-virtual {v7, p1, v4}, Lcom/android/server/om/OverlayManagerServiceImpl;->onPackageReplacing(Ljava/lang/String;I)Ljava/util/Set;
 
-    move-result-object v8
+    move-result-object v4
 
-    invoke-static {v7, v8}, Lcom/android/server/om/OverlayManagerService;->access$600(Lcom/android/server/om/OverlayManagerService;Ljava/util/Set;)V
+    invoke-static {v6, v4}, Lcom/android/server/om/OverlayManagerService;->-$$Nest$mupdateTargetPackagesLocked(Lcom/android/server/om/OverlayManagerService;Ljava/util/Set;)V
     :try_end_2
     .catch Lcom/android/server/om/OverlayManagerServiceImpl$OperationFailedException; {:try_start_2 .. :try_end_2} :catch_0
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
@@ -612,14 +606,14 @@
     goto :goto_1
 
     :catch_0
-    move-exception v7
+    move-exception v4
 
     :try_start_3
-    const-string v8, "OverlayManager"
+    const-string v6, "OverlayManager"
 
-    const-string/jumbo v9, "onPackageReplacing internal error"
+    const-string/jumbo v7, "onPackageReplacing internal error"
 
-    invoke-static {v8, v9, v7}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v6, v7, v4}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :cond_0
     :goto_1
@@ -630,211 +624,213 @@
     goto :goto_0
 
     :catchall_0
-    move-exception v2
+    move-exception p0
 
     monitor-exit v5
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     :try_start_4
-    throw v2
+    throw p0
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
     :cond_1
     invoke-static {v0, v1}, Landroid/os/Trace;->traceEnd(J)V
 
-    nop
-
     return-void
 
     :catchall_1
-    move-exception v2
+    move-exception p0
 
     invoke-static {v0, v1}, Landroid/os/Trace;->traceEnd(J)V
 
-    throw v2
+    throw p0
 .end method
 
-
-# virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 10
+    .locals 7
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v1, "OverlayManager"
+    const-string v0, "OverlayManager"
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
-    const-string v2, "Cannot handle package broadcast with null action"
+    const-string p0, "Cannot handle package broadcast with null action"
 
-    invoke-static {v1, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
     :cond_0
     invoke-virtual {p2}, Landroid/content/Intent;->getData()Landroid/net/Uri;
 
-    move-result-object v2
+    move-result-object v1
 
-    if-nez v2, :cond_1
+    if-nez v1, :cond_1
 
-    const-string v3, "Cannot handle package broadcast with null data"
+    const-string p0, "Cannot handle package broadcast with null data"
 
-    invoke-static {v1, v3}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
     :cond_1
-    invoke-virtual {v2}, Landroid/net/Uri;->getSchemeSpecificPart()Ljava/lang/String;
+    invoke-virtual {v1}, Landroid/net/Uri;->getSchemeSpecificPart()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    const-string v3, "android.intent.extra.REPLACING"
+    const-string v1, "android.intent.extra.REPLACING"
 
-    const/4 v4, 0x0
+    const/4 v2, 0x0
 
-    invoke-virtual {p2, v3, v4}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+    invoke-virtual {p2, v1, v2}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+
+    move-result v1
+
+    const-string v3, "android.intent.extra.UID"
+
+    const/16 v4, -0x2710
+
+    invoke-virtual {p2, v3, v4}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v3
 
-    const-string v5, "android.intent.extra.UID"
+    const/4 v5, 0x1
 
-    const/16 v6, -0x2710
+    if-ne v3, v4, :cond_2
 
-    invoke-virtual {p2, v5, v6}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    iget-object v3, p0, Lcom/android/server/om/OverlayManagerService$PackageReceiver;->this$0:Lcom/android/server/om/OverlayManagerService;
 
-    move-result v5
+    invoke-static {v3}, Lcom/android/server/om/OverlayManagerService;->-$$Nest$fgetmUserManager(Lcom/android/server/om/OverlayManagerService;)Lcom/android/server/pm/UserManagerService;
 
-    const/4 v7, 0x1
+    move-result-object v3
 
-    if-ne v5, v6, :cond_2
+    invoke-virtual {v3}, Lcom/android/server/pm/UserManagerService;->getUserIds()[I
 
-    iget-object v6, p0, Lcom/android/server/om/OverlayManagerService$PackageReceiver;->this$0:Lcom/android/server/om/OverlayManagerService;
-
-    invoke-static {v6}, Lcom/android/server/om/OverlayManagerService;->access$200(Lcom/android/server/om/OverlayManagerService;)Lcom/android/server/pm/UserManagerService;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Lcom/android/server/pm/UserManagerService;->getUserIds()[I
-
-    move-result-object v6
+    move-result-object v3
 
     goto :goto_0
 
     :cond_2
-    new-array v6, v7, [I
+    new-array v4, v5, [I
 
-    invoke-static {v5}, Landroid/os/UserHandle;->getUserId(I)I
+    invoke-static {v3}, Landroid/os/UserHandle;->getUserId(I)I
 
-    move-result v8
+    move-result v3
 
-    aput v8, v6, v4
+    aput v3, v4, v2
+
+    move-object v3, v4
 
     :goto_0
-    const/4 v8, -0x1
+    const/4 v4, -0x1
 
-    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+    invoke-virtual {p1}, Ljava/lang/String;->hashCode()I
 
-    move-result v9
+    move-result v6
 
-    sparse-switch v9, :sswitch_data_0
+    sparse-switch v6, :sswitch_data_0
 
-    :cond_3
-    goto :goto_1
+    :goto_1
+    move v2, v4
+
+    goto :goto_2
 
     :sswitch_0
-    const-string v7, "android.intent.action.PACKAGE_ADDED"
+    const-string v2, "android.intent.action.PACKAGE_ADDED"
 
-    invoke-virtual {v0, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v7
+    move-result p1
 
-    if-eqz v7, :cond_3
+    if-nez p1, :cond_3
+
+    goto :goto_1
+
+    :cond_3
+    const/4 v2, 0x2
 
     goto :goto_2
 
     :sswitch_1
-    const-string v4, "android.intent.action.PACKAGE_REMOVED"
+    const-string v2, "android.intent.action.PACKAGE_REMOVED"
 
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result p1
 
-    if-eqz v4, :cond_3
+    if-nez p1, :cond_4
 
-    const/4 v4, 0x2
+    goto :goto_1
+
+    :cond_4
+    move v2, v5
 
     goto :goto_2
 
     :sswitch_2
-    const-string v4, "android.intent.action.PACKAGE_CHANGED"
+    const-string v5, "android.intent.action.PACKAGE_CHANGED"
 
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result p1
 
-    if-eqz v4, :cond_3
+    if-nez p1, :cond_5
 
-    move v4, v7
+    goto :goto_1
 
-    goto :goto_2
-
-    :goto_1
-    move v4, v8
-
+    :cond_5
     :goto_2
-    packed-switch v4, :pswitch_data_0
+    packed-switch v2, :pswitch_data_0
 
     goto :goto_3
 
     :pswitch_0
-    if-eqz v3, :cond_4
+    if-eqz v1, :cond_6
 
-    invoke-direct {p0, v1, v6}, Lcom/android/server/om/OverlayManagerService$PackageReceiver;->onPackageReplacing(Ljava/lang/String;[I)V
+    invoke-virtual {p0, v0, v3}, Lcom/android/server/om/OverlayManagerService$PackageReceiver;->onPackageReplaced(Ljava/lang/String;[I)V
 
     goto :goto_3
 
-    :cond_4
-    invoke-direct {p0, v1, v6}, Lcom/android/server/om/OverlayManagerService$PackageReceiver;->onPackageRemoved(Ljava/lang/String;[I)V
+    :cond_6
+    invoke-virtual {p0, v0, v3}, Lcom/android/server/om/OverlayManagerService$PackageReceiver;->onPackageAdded(Ljava/lang/String;[I)V
 
     goto :goto_3
 
     :pswitch_1
-    const-string v4, "android.intent.extra.REASON"
+    if-eqz v1, :cond_7
 
-    invoke-virtual {p2, v4}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v0, v3}, Lcom/android/server/om/OverlayManagerService$PackageReceiver;->onPackageReplacing(Ljava/lang/String;[I)V
 
-    move-result-object v4
+    goto :goto_3
 
-    const-string v7, "android.intent.action.OVERLAY_CHANGED"
-
-    invoke-virtual {v7, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_6
-
-    invoke-direct {p0, v1, v6}, Lcom/android/server/om/OverlayManagerService$PackageReceiver;->onPackageChanged(Ljava/lang/String;[I)V
+    :cond_7
+    invoke-virtual {p0, v0, v3}, Lcom/android/server/om/OverlayManagerService$PackageReceiver;->onPackageRemoved(Ljava/lang/String;[I)V
 
     goto :goto_3
 
     :pswitch_2
-    if-eqz v3, :cond_5
+    const-string p1, "android.intent.extra.REASON"
 
-    invoke-direct {p0, v1, v6}, Lcom/android/server/om/OverlayManagerService$PackageReceiver;->onPackageReplaced(Ljava/lang/String;[I)V
+    invoke-virtual {p2, p1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
-    goto :goto_3
+    move-result-object p1
 
-    :cond_5
-    invoke-direct {p0, v1, v6}, Lcom/android/server/om/OverlayManagerService$PackageReceiver;->onPackageAdded(Ljava/lang/String;[I)V
+    const-string p2, "android.intent.action.OVERLAY_CHANGED"
 
-    nop
+    invoke-virtual {p2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    :cond_6
+    move-result p1
+
+    if-nez p1, :cond_8
+
+    invoke-virtual {p0, v0, v3}, Lcom/android/server/om/OverlayManagerService$PackageReceiver;->onPackageChanged(Ljava/lang/String;[I)V
+
+    :cond_8
     :goto_3
     return-void
 

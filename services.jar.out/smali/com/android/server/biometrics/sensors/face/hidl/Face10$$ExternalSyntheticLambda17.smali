@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/biometrics/sensors/face/hidl/Face10$$ExternalSyntheticLambda17;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Predicate;
@@ -29,9 +30,9 @@
 
     check-cast p1, Ljava/lang/Long;
 
-    invoke-static {v0, v1, p1}, Lcom/android/server/biometrics/sensors/face/hidl/Face10;->lambda$decrementChallengeCount$2(JLjava/lang/Long;)Z
+    invoke-static {v0, v1, p1}, Lcom/android/server/biometrics/sensors/face/hidl/Face10;->$r8$lambda$iwrmyg8iGfbd0gNJjpGLqxZAESc(JLjava/lang/Long;)Z
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method

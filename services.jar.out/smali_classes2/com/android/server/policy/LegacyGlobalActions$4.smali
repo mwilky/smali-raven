@@ -1,4 +1,4 @@
-.class Lcom/android/server/policy/LegacyGlobalActions$4;
+.class public Lcom/android/server/policy/LegacyGlobalActions$4;
 .super Lcom/android/internal/globalactions/SinglePressAction;
 .source "LegacyGlobalActions.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/policy/LegacyGlobalActions;
+.field public final synthetic this$0:Lcom/android/server/policy/LegacyGlobalActions;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/policy/LegacyGlobalActions;II)V
+.method public constructor <init>(Lcom/android/server/policy/LegacyGlobalActions;II)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/policy/LegacyGlobalActions$4;->this$0:Lcom/android/server/policy/LegacyGlobalActions;
@@ -32,31 +32,31 @@
 
 # virtual methods
 .method public onPress()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/policy/LegacyGlobalActions$4;->this$0:Lcom/android/server/policy/LegacyGlobalActions;
+    iget-object p0, p0, Lcom/android/server/policy/LegacyGlobalActions$4;->this$0:Lcom/android/server/policy/LegacyGlobalActions;
 
-    invoke-static {v0}, Lcom/android/server/policy/LegacyGlobalActions;->access$700(Lcom/android/server/policy/LegacyGlobalActions;)Lcom/android/internal/util/EmergencyAffordanceManager;
+    invoke-static {p0}, Lcom/android/server/policy/LegacyGlobalActions;->-$$Nest$fgetmEmergencyAffordanceManager(Lcom/android/server/policy/LegacyGlobalActions;)Lcom/android/internal/util/EmergencyAffordanceManager;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Lcom/android/internal/util/EmergencyAffordanceManager;->performEmergencyCall()V
+    invoke-virtual {p0}, Lcom/android/internal/util/EmergencyAffordanceManager;->performEmergencyCall()V
 
     return-void
 .end method
 
 .method public showBeforeProvisioning()Z
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 .end method
 
 .method public showDuringKeyguard()Z
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 .end method

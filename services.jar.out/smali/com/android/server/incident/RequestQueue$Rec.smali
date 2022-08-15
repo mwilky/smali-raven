@@ -1,4 +1,4 @@
-.class Lcom/android/server/incident/RequestQueue$Rec;
+.class public Lcom/android/server/incident/RequestQueue$Rec;
 .super Ljava/lang/Object;
 .source "RequestQueue.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "Rec"
 .end annotation
 
@@ -19,13 +19,13 @@
 
 .field public final runnable:Ljava/lang/Runnable;
 
-.field final synthetic this$0:Lcom/android/server/incident/RequestQueue;
+.field public final synthetic this$0:Lcom/android/server/incident/RequestQueue;
 
 .field public final value:Z
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/incident/RequestQueue;Landroid/os/IBinder;ZLjava/lang/Runnable;)V
+.method public constructor <init>(Lcom/android/server/incident/RequestQueue;Landroid/os/IBinder;ZLjava/lang/Runnable;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/incident/RequestQueue$Rec;->this$0:Lcom/android/server/incident/RequestQueue;

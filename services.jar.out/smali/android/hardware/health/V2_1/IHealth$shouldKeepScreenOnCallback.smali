@@ -15,8 +15,3 @@
 
 .annotation runtime Ljava/lang/FunctionalInterface;
 .end annotation
-
-
-# virtual methods
-.method public abstract onValues(IZ)V
-.end method

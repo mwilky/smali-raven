@@ -1,4 +1,4 @@
-.class Lcom/android/server/print/RemotePrintServiceRecommendationService$Connection$1;
+.class public Lcom/android/server/print/RemotePrintServiceRecommendationService$Connection$1;
 .super Landroid/printservice/recommendation/IRecommendationServiceCallbacks$Stub;
 .source "RemotePrintServiceRecommendationService.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$1:Lcom/android/server/print/RemotePrintServiceRecommendationService$Connection;
+.field public final synthetic this$1:Lcom/android/server/print/RemotePrintServiceRecommendationService$Connection;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/print/RemotePrintServiceRecommendationService$Connection;)V
+.method public constructor <init>(Lcom/android/server/print/RemotePrintServiceRecommendationService$Connection;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/print/RemotePrintServiceRecommendationService$Connection$1;->this$1:Lcom/android/server/print/RemotePrintServiceRecommendationService$Connection;
@@ -46,7 +46,7 @@
 
     iget-object v0, v0, Lcom/android/server/print/RemotePrintServiceRecommendationService$Connection;->this$0:Lcom/android/server/print/RemotePrintServiceRecommendationService;
 
-    invoke-static {v0}, Lcom/android/server/print/RemotePrintServiceRecommendationService;->access$000(Lcom/android/server/print/RemotePrintServiceRecommendationService;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/server/print/RemotePrintServiceRecommendationService;->-$$Nest$fgetmLock(Lcom/android/server/print/RemotePrintServiceRecommendationService;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -57,7 +57,7 @@
 
     iget-object v1, v1, Lcom/android/server/print/RemotePrintServiceRecommendationService$Connection;->this$0:Lcom/android/server/print/RemotePrintServiceRecommendationService;
 
-    invoke-static {v1}, Lcom/android/server/print/RemotePrintServiceRecommendationService;->access$200(Lcom/android/server/print/RemotePrintServiceRecommendationService;)Z
+    invoke-static {v1}, Lcom/android/server/print/RemotePrintServiceRecommendationService;->-$$Nest$fgetmIsBound(Lcom/android/server/print/RemotePrintServiceRecommendationService;)Z
 
     move-result v1
 
@@ -67,7 +67,7 @@
 
     iget-object v1, v1, Lcom/android/server/print/RemotePrintServiceRecommendationService$Connection;->this$0:Lcom/android/server/print/RemotePrintServiceRecommendationService;
 
-    invoke-static {v1}, Lcom/android/server/print/RemotePrintServiceRecommendationService;->access$100(Lcom/android/server/print/RemotePrintServiceRecommendationService;)Landroid/printservice/recommendation/IRecommendationService;
+    invoke-static {v1}, Lcom/android/server/print/RemotePrintServiceRecommendationService;->-$$Nest$fgetmService(Lcom/android/server/print/RemotePrintServiceRecommendationService;)Landroid/printservice/recommendation/IRecommendationService;
 
     move-result-object v1
 
@@ -80,13 +80,13 @@
     invoke-static {p1, v1}, Lcom/android/internal/util/Preconditions;->checkCollectionElementsNotNull(Ljava/util/Collection;Ljava/lang/String;)Ljava/util/Collection;
 
     :cond_0
-    iget-object v1, p0, Lcom/android/server/print/RemotePrintServiceRecommendationService$Connection$1;->this$1:Lcom/android/server/print/RemotePrintServiceRecommendationService$Connection;
+    iget-object p0, p0, Lcom/android/server/print/RemotePrintServiceRecommendationService$Connection$1;->this$1:Lcom/android/server/print/RemotePrintServiceRecommendationService$Connection;
 
-    invoke-static {v1}, Lcom/android/server/print/RemotePrintServiceRecommendationService$Connection;->access$300(Lcom/android/server/print/RemotePrintServiceRecommendationService$Connection;)Lcom/android/server/print/RemotePrintServiceRecommendationService$RemotePrintServiceRecommendationServiceCallbacks;
+    invoke-static {p0}, Lcom/android/server/print/RemotePrintServiceRecommendationService$Connection;->-$$Nest$fgetmCallbacks(Lcom/android/server/print/RemotePrintServiceRecommendationService$Connection;)Lcom/android/server/print/RemotePrintServiceRecommendationService$RemotePrintServiceRecommendationServiceCallbacks;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-interface {v1, p1}, Lcom/android/server/print/RemotePrintServiceRecommendationService$RemotePrintServiceRecommendationServiceCallbacks;->onPrintServiceRecommendationsUpdated(Ljava/util/List;)V
+    invoke-interface {p0, p1}, Lcom/android/server/print/RemotePrintServiceRecommendationService$RemotePrintServiceRecommendationServiceCallbacks;->onPrintServiceRecommendationsUpdated(Ljava/util/List;)V
 
     :cond_1
     monitor-exit v0
@@ -94,11 +94,11 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method

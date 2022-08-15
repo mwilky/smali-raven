@@ -1,4 +1,4 @@
-.class Lcom/android/server/display/OverlayDisplayWindow$2;
+.class public Lcom/android/server/display/OverlayDisplayWindow$2;
 .super Ljava/lang/Object;
 .source "OverlayDisplayWindow.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/display/OverlayDisplayWindow;
+.field public final synthetic this$0:Lcom/android/server/display/OverlayDisplayWindow;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/display/OverlayDisplayWindow;)V
+.method public constructor <init>(Lcom/android/server/display/OverlayDisplayWindow;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/display/OverlayDisplayWindow$2;->this$0:Lcom/android/server/display/OverlayDisplayWindow;
@@ -35,61 +35,61 @@
 
 # virtual methods
 .method public onSurfaceTextureAvailable(Landroid/graphics/SurfaceTexture;II)V
-    .locals 7
+    .locals 6
 
-    iget-object v0, p0, Lcom/android/server/display/OverlayDisplayWindow$2;->this$0:Lcom/android/server/display/OverlayDisplayWindow;
+    iget-object p2, p0, Lcom/android/server/display/OverlayDisplayWindow$2;->this$0:Lcom/android/server/display/OverlayDisplayWindow;
 
-    invoke-static {v0}, Lcom/android/server/display/OverlayDisplayWindow;->access$300(Lcom/android/server/display/OverlayDisplayWindow;)Lcom/android/server/display/OverlayDisplayWindow$Listener;
-
-    move-result-object v1
-
-    iget-object v0, p0, Lcom/android/server/display/OverlayDisplayWindow$2;->this$0:Lcom/android/server/display/OverlayDisplayWindow;
-
-    invoke-static {v0}, Lcom/android/server/display/OverlayDisplayWindow;->access$200(Lcom/android/server/display/OverlayDisplayWindow;)Landroid/view/DisplayInfo;
+    invoke-static {p2}, Lcom/android/server/display/OverlayDisplayWindow;->-$$Nest$fgetmListener(Lcom/android/server/display/OverlayDisplayWindow;)Lcom/android/server/display/OverlayDisplayWindow$Listener;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/view/DisplayInfo;->getRefreshRate()F
+    iget-object p2, p0, Lcom/android/server/display/OverlayDisplayWindow$2;->this$0:Lcom/android/server/display/OverlayDisplayWindow;
 
-    move-result v3
+    invoke-static {p2}, Lcom/android/server/display/OverlayDisplayWindow;->-$$Nest$fgetmDefaultDisplayInfo(Lcom/android/server/display/OverlayDisplayWindow;)Landroid/view/DisplayInfo;
 
-    iget-object v0, p0, Lcom/android/server/display/OverlayDisplayWindow$2;->this$0:Lcom/android/server/display/OverlayDisplayWindow;
+    move-result-object p2
 
-    invoke-static {v0}, Lcom/android/server/display/OverlayDisplayWindow;->access$200(Lcom/android/server/display/OverlayDisplayWindow;)Landroid/view/DisplayInfo;
+    invoke-virtual {p2}, Landroid/view/DisplayInfo;->getRefreshRate()F
 
-    move-result-object v0
+    move-result v2
 
-    iget-wide v4, v0, Landroid/view/DisplayInfo;->presentationDeadlineNanos:J
+    iget-object p2, p0, Lcom/android/server/display/OverlayDisplayWindow$2;->this$0:Lcom/android/server/display/OverlayDisplayWindow;
 
-    iget-object v0, p0, Lcom/android/server/display/OverlayDisplayWindow$2;->this$0:Lcom/android/server/display/OverlayDisplayWindow;
+    invoke-static {p2}, Lcom/android/server/display/OverlayDisplayWindow;->-$$Nest$fgetmDefaultDisplayInfo(Lcom/android/server/display/OverlayDisplayWindow;)Landroid/view/DisplayInfo;
 
-    invoke-static {v0}, Lcom/android/server/display/OverlayDisplayWindow;->access$200(Lcom/android/server/display/OverlayDisplayWindow;)Landroid/view/DisplayInfo;
+    move-result-object p2
 
-    move-result-object v0
+    iget-wide v3, p2, Landroid/view/DisplayInfo;->presentationDeadlineNanos:J
 
-    iget v6, v0, Landroid/view/DisplayInfo;->state:I
+    iget-object p0, p0, Lcom/android/server/display/OverlayDisplayWindow$2;->this$0:Lcom/android/server/display/OverlayDisplayWindow;
 
-    move-object v2, p1
+    invoke-static {p0}, Lcom/android/server/display/OverlayDisplayWindow;->-$$Nest$fgetmDefaultDisplayInfo(Lcom/android/server/display/OverlayDisplayWindow;)Landroid/view/DisplayInfo;
 
-    invoke-interface/range {v1 .. v6}, Lcom/android/server/display/OverlayDisplayWindow$Listener;->onWindowCreated(Landroid/graphics/SurfaceTexture;FJI)V
+    move-result-object p0
+
+    iget v5, p0, Landroid/view/DisplayInfo;->state:I
+
+    move-object v1, p1
+
+    invoke-interface/range {v0 .. v5}, Lcom/android/server/display/OverlayDisplayWindow$Listener;->onWindowCreated(Landroid/graphics/SurfaceTexture;FJI)V
 
     return-void
 .end method
 
 .method public onSurfaceTextureDestroyed(Landroid/graphics/SurfaceTexture;)Z
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/display/OverlayDisplayWindow$2;->this$0:Lcom/android/server/display/OverlayDisplayWindow;
+    iget-object p0, p0, Lcom/android/server/display/OverlayDisplayWindow$2;->this$0:Lcom/android/server/display/OverlayDisplayWindow;
 
-    invoke-static {v0}, Lcom/android/server/display/OverlayDisplayWindow;->access$300(Lcom/android/server/display/OverlayDisplayWindow;)Lcom/android/server/display/OverlayDisplayWindow$Listener;
+    invoke-static {p0}, Lcom/android/server/display/OverlayDisplayWindow;->-$$Nest$fgetmListener(Lcom/android/server/display/OverlayDisplayWindow;)Lcom/android/server/display/OverlayDisplayWindow$Listener;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-interface {v0}, Lcom/android/server/display/OverlayDisplayWindow$Listener;->onWindowDestroyed()V
+    invoke-interface {p0}, Lcom/android/server/display/OverlayDisplayWindow$Listener;->onWindowDestroyed()V
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 .end method
 
 .method public onSurfaceTextureSizeChanged(Landroid/graphics/SurfaceTexture;II)V

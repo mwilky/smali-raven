@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda9;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -57,7 +58,7 @@
 
     iget-wide v5, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda9;->f$5:J
 
-    invoke-virtual/range {v0 .. v6}, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;->lambda$scheduleRevokeChallenge$4$FaceProvider(ILandroid/os/IBinder;ILjava/lang/String;J)V
+    invoke-static/range {v0 .. v6}, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;->$r8$lambda$DrTEbLsdPU_kVK1q6lBCZwoHERQ(Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;ILandroid/os/IBinder;ILjava/lang/String;J)V
 
     return-void
 .end method

@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/location/injector/SystemAppOpsHelper$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -27,13 +28,13 @@
 
 # virtual methods
 .method public final run()V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/location/injector/SystemAppOpsHelper$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/location/injector/SystemAppOpsHelper;
 
-    iget-object v1, p0, Lcom/android/server/location/injector/SystemAppOpsHelper$$ExternalSyntheticLambda1;->f$1:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/location/injector/SystemAppOpsHelper$$ExternalSyntheticLambda1;->f$1:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/location/injector/SystemAppOpsHelper;->lambda$onSystemReady$0$SystemAppOpsHelper(Ljava/lang/String;)V
+    invoke-static {v0, p0}, Lcom/android/server/location/injector/SystemAppOpsHelper;->$r8$lambda$CLGSyfxutfULAy19enjkBJzZIqM(Lcom/android/server/location/injector/SystemAppOpsHelper;Ljava/lang/String;)V
 
     return-void
 .end method

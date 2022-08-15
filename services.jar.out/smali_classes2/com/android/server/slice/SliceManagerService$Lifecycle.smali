@@ -15,7 +15,7 @@
 
 
 # instance fields
-.field private mService:Lcom/android/server/slice/SliceManagerService;
+.field public mService:Lcom/android/server/slice/SliceManagerService;
 
 
 # direct methods
@@ -36,9 +36,9 @@
 
     if-ne p1, v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/slice/SliceManagerService$Lifecycle;->mService:Lcom/android/server/slice/SliceManagerService;
+    iget-object p0, p0, Lcom/android/server/slice/SliceManagerService$Lifecycle;->mService:Lcom/android/server/slice/SliceManagerService;
 
-    invoke-static {v0}, Lcom/android/server/slice/SliceManagerService;->access$200(Lcom/android/server/slice/SliceManagerService;)V
+    invoke-static {p0}, Lcom/android/server/slice/SliceManagerService;->-$$Nest$msystemReady(Lcom/android/server/slice/SliceManagerService;)V
 
     :cond_0
     return-void
@@ -49,7 +49,7 @@
 
     new-instance v0, Lcom/android/server/slice/SliceManagerService;
 
-    invoke-virtual {p0}, Lcom/android/server/slice/SliceManagerService$Lifecycle;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Lcom/android/server/SystemService;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
@@ -59,35 +59,35 @@
 
     const-string v1, "slice"
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/server/slice/SliceManagerService$Lifecycle;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
+    invoke-virtual {p0, v1, v0}, Lcom/android/server/SystemService;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
 
     return-void
 .end method
 
 .method public onUserStopping(Lcom/android/server/SystemService$TargetUser;)V
-    .locals 2
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/slice/SliceManagerService$Lifecycle;->mService:Lcom/android/server/slice/SliceManagerService;
+    iget-object p0, p0, Lcom/android/server/slice/SliceManagerService$Lifecycle;->mService:Lcom/android/server/slice/SliceManagerService;
 
     invoke-virtual {p1}, Lcom/android/server/SystemService$TargetUser;->getUserIdentifier()I
 
-    move-result v1
+    move-result p1
 
-    invoke-static {v0, v1}, Lcom/android/server/slice/SliceManagerService;->access$400(Lcom/android/server/slice/SliceManagerService;I)V
+    invoke-static {p0, p1}, Lcom/android/server/slice/SliceManagerService;->-$$Nest$monStopUser(Lcom/android/server/slice/SliceManagerService;I)V
 
     return-void
 .end method
 
 .method public onUserUnlocking(Lcom/android/server/SystemService$TargetUser;)V
-    .locals 2
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/slice/SliceManagerService$Lifecycle;->mService:Lcom/android/server/slice/SliceManagerService;
+    iget-object p0, p0, Lcom/android/server/slice/SliceManagerService$Lifecycle;->mService:Lcom/android/server/slice/SliceManagerService;
 
     invoke-virtual {p1}, Lcom/android/server/SystemService$TargetUser;->getUserIdentifier()I
 
-    move-result v1
+    move-result p1
 
-    invoke-static {v0, v1}, Lcom/android/server/slice/SliceManagerService;->access$300(Lcom/android/server/slice/SliceManagerService;I)V
+    invoke-static {p0, p1}, Lcom/android/server/slice/SliceManagerService;->-$$Nest$monUnlockUser(Lcom/android/server/slice/SliceManagerService;I)V
 
     return-void
 .end method

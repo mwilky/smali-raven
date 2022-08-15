@@ -1,4 +1,4 @@
-.class Lcom/android/server/usb/UsbDeviceManager$4;
+.class public Lcom/android/server/usb/UsbDeviceManager$4;
 .super Landroid/content/BroadcastReceiver;
 .source "UsbDeviceManager.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/usb/UsbDeviceManager;
+.field public final synthetic this$0:Lcom/android/server/usb/UsbDeviceManager;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/usb/UsbDeviceManager;)V
+.method public constructor <init>(Lcom/android/server/usb/UsbDeviceManager;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/usb/UsbDeviceManager$4;->this$0:Lcom/android/server/usb/UsbDeviceManager;
@@ -32,17 +32,17 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 2
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/usb/UsbDeviceManager$4;->this$0:Lcom/android/server/usb/UsbDeviceManager;
+    iget-object p0, p0, Lcom/android/server/usb/UsbDeviceManager$4;->this$0:Lcom/android/server/usb/UsbDeviceManager;
 
-    invoke-static {v0}, Lcom/android/server/usb/UsbDeviceManager;->access$000(Lcom/android/server/usb/UsbDeviceManager;)Lcom/android/server/usb/UsbDeviceManager$UsbHandler;
+    invoke-static {p0}, Lcom/android/server/usb/UsbDeviceManager;->-$$Nest$fgetmHandler(Lcom/android/server/usb/UsbDeviceManager;)Lcom/android/server/usb/UsbDeviceManager$UsbHandler;
 
-    move-result-object v0
+    move-result-object p0
 
-    const/16 v1, 0xb
+    const/16 p1, 0xb
 
-    invoke-virtual {v0, v1}, Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->sendEmptyMessage(I)Z
+    invoke-virtual {p0, p1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
     return-void
 .end method

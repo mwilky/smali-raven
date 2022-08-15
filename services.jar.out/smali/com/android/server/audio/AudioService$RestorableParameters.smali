@@ -1,4 +1,4 @@
-.class Lcom/android/server/audio/AudioService$RestorableParameters;
+.class public Lcom/android/server/audio/AudioService$RestorableParameters;
 .super Ljava/lang/Object;
 .source "AudioService.java"
 
@@ -9,13 +9,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "RestorableParameters"
 .end annotation
 
 
 # instance fields
-.field private mMap:Ljava/util/Map;
+.field public mMap:Ljava/util/Map;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mMap"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Map<",
@@ -28,7 +34,27 @@
 
 
 # direct methods
-.method private constructor <init>()V
+.method public static synthetic $r8$lambda$gvBS4kjBFz3YcSPGsSRUFKDoa4c(Ljava/lang/String;)Z
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/server/audio/AudioService$RestorableParameters;->lambda$setParameters$0(Ljava/lang/String;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public static synthetic $r8$lambda$tcryFOhh04D1NMhDdtoHy2JkFc0(Ljava/util/function/BooleanSupplier;)Z
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/server/audio/AudioService$RestorableParameters;->lambda$restoreAll$1(Ljava/util/function/BooleanSupplier;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public constructor <init>()V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +68,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/audio/AudioService$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/audio/AudioService$RestorableParameters-IA;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/audio/AudioService$RestorableParameters;-><init>()V
@@ -50,40 +76,40 @@
     return-void
 .end method
 
-.method static synthetic lambda$restoreAll$1(Ljava/util/function/BooleanSupplier;)Z
-    .locals 1
+.method public static synthetic lambda$restoreAll$1(Ljava/util/function/BooleanSupplier;)Z
+    .locals 0
 
     invoke-interface {p0}, Ljava/util/function/BooleanSupplier;->getAsBoolean()Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
-.method static synthetic lambda$setParameters$0(Ljava/lang/String;)Z
-    .locals 1
+.method public static synthetic lambda$setParameters$0(Ljava/lang/String;)Z
+    .locals 0
 
     invoke-static {p0}, Landroid/media/AudioSystem;->setParameters(Ljava/lang/String;)I
 
-    move-result v0
+    move-result p0
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 
 # virtual methods
 .method public queueRestoreWithRemovalIfTrue(Ljava/lang/String;Ljava/util/function/BooleanSupplier;)V
-    .locals 2
+    .locals 1
 
     const-string v0, "id must not be null"
 
@@ -96,16 +122,16 @@
     if-eqz p2, :cond_0
 
     :try_start_0
-    iget-object v1, p0, Lcom/android/server/audio/AudioService$RestorableParameters;->mMap:Ljava/util/Map;
+    iget-object p0, p0, Lcom/android/server/audio/AudioService$RestorableParameters;->mMap:Ljava/util/Map;
 
-    invoke-interface {v1, p1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p0, p1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_0
 
     :cond_0
-    iget-object v1, p0, Lcom/android/server/audio/AudioService$RestorableParameters;->mMap:Ljava/util/Map;
+    iget-object p0, p0, Lcom/android/server/audio/AudioService$RestorableParameters;->mMap:Ljava/util/Map;
 
-    invoke-interface {v1, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p0, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     :goto_0
     monitor-exit v0
@@ -113,45 +139,47 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
 .method public restoreAll()V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/audio/AudioService$RestorableParameters;->mMap:Ljava/util/Map;
 
     monitor-enter v0
 
     :try_start_0
-    iget-object v1, p0, Lcom/android/server/audio/AudioService$RestorableParameters;->mMap:Ljava/util/Map;
+    iget-object p0, p0, Lcom/android/server/audio/AudioService$RestorableParameters;->mMap:Ljava/util/Map;
 
-    invoke-interface {v1}, Ljava/util/Map;->values()Ljava/util/Collection;
+    invoke-interface {p0}, Ljava/util/Map;->values()Ljava/util/Collection;
 
-    move-result-object v1
+    move-result-object p0
 
-    sget-object v2, Lcom/android/server/audio/AudioService$RestorableParameters$$ExternalSyntheticLambda1;->INSTANCE:Lcom/android/server/audio/AudioService$RestorableParameters$$ExternalSyntheticLambda1;
+    new-instance v1, Lcom/android/server/audio/AudioService$RestorableParameters$$ExternalSyntheticLambda1;
 
-    invoke-interface {v1, v2}, Ljava/util/Collection;->removeIf(Ljava/util/function/Predicate;)Z
+    invoke-direct {v1}, Lcom/android/server/audio/AudioService$RestorableParameters$$ExternalSyntheticLambda1;-><init>()V
+
+    invoke-interface {p0, v1}, Ljava/util/Collection;->removeIf(Ljava/util/function/Predicate;)Z
 
     monitor-exit v0
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
 .method public setParameters(Ljava/lang/String;Ljava/lang/String;)I
@@ -188,11 +216,11 @@
     return v1
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method

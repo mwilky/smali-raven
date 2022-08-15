@@ -1,28 +1,13 @@
 .class public final synthetic Lcom/android/server/pm/PackageInstallerSession$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Predicate;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/pm/PackageInstallerSession$$ExternalSyntheticLambda2;
-
-
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/pm/PackageInstallerSession$$ExternalSyntheticLambda2;
-
-    invoke-direct {v0}, Lcom/android/server/pm/PackageInstallerSession$$ExternalSyntheticLambda2;-><init>()V
-
-    sput-object v0, Lcom/android/server/pm/PackageInstallerSession$$ExternalSyntheticLambda2;->INSTANCE:Lcom/android/server/pm/PackageInstallerSession$$ExternalSyntheticLambda2;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,9 +22,9 @@
 
     check-cast p1, Lcom/android/server/pm/PackageInstallerSession;
 
-    invoke-static {p1}, Lcom/android/server/pm/PackageInstallerSession;->lambda$containsApkSession$3(Lcom/android/server/pm/PackageInstallerSession;)Z
+    invoke-static {p1}, Lcom/android/server/pm/PackageInstallerSession;->$r8$lambda$JmoW7OA3KLn_4qEY2siiZ_5Xd6M(Lcom/android/server/pm/PackageInstallerSession;)Z
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method

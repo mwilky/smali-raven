@@ -15,7 +15,7 @@
 
 
 # instance fields
-.field private mReceiver:Lcom/android/server/display/LocalDisplayAdapter$ProxyDisplayEventReceiver;
+.field public mReceiver:Lcom/android/server/display/LocalDisplayAdapter$ProxyDisplayEventReceiver;
 
 
 # direct methods
@@ -30,13 +30,13 @@
 
 # virtual methods
 .method public getSurfaceControlProxy()Lcom/android/server/display/LocalDisplayAdapter$SurfaceControlProxy;
-    .locals 1
+    .locals 0
 
-    new-instance v0, Lcom/android/server/display/LocalDisplayAdapter$SurfaceControlProxy;
+    new-instance p0, Lcom/android/server/display/LocalDisplayAdapter$SurfaceControlProxy;
 
-    invoke-direct {v0}, Lcom/android/server/display/LocalDisplayAdapter$SurfaceControlProxy;-><init>()V
+    invoke-direct {p0}, Lcom/android/server/display/LocalDisplayAdapter$SurfaceControlProxy;-><init>()V
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public setDisplayEventListenerLocked(Landroid/os/Looper;Lcom/android/server/display/LocalDisplayAdapter$DisplayEventListener;)V

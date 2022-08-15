@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/smartspace/SmartspacePerUserService$$ExternalSyntheticLambda5;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/internal/infra/AbstractRemoteService$AsyncRequest;
@@ -27,15 +28,15 @@
 
 # virtual methods
 .method public final run(Landroid/os/IInterface;)V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/smartspace/SmartspacePerUserService$$ExternalSyntheticLambda5;->f$0:Landroid/app/smartspace/SmartspaceSessionId;
 
-    iget-object v1, p0, Lcom/android/server/smartspace/SmartspacePerUserService$$ExternalSyntheticLambda5;->f$1:Landroid/app/smartspace/ISmartspaceCallback;
+    iget-object p0, p0, Lcom/android/server/smartspace/SmartspacePerUserService$$ExternalSyntheticLambda5;->f$1:Landroid/app/smartspace/ISmartspaceCallback;
 
     check-cast p1, Landroid/service/smartspace/ISmartspaceService;
 
-    invoke-static {v0, v1, p1}, Lcom/android/server/smartspace/SmartspacePerUserService;->lambda$unregisterSmartspaceUpdatesLocked$5(Landroid/app/smartspace/SmartspaceSessionId;Landroid/app/smartspace/ISmartspaceCallback;Landroid/service/smartspace/ISmartspaceService;)V
+    invoke-static {v0, p0, p1}, Lcom/android/server/smartspace/SmartspacePerUserService;->$r8$lambda$rg-o_Vqh_8xVsrFIK55XOGxrA8E(Landroid/app/smartspace/SmartspaceSessionId;Landroid/app/smartspace/ISmartspaceCallback;Landroid/service/smartspace/ISmartspaceService;)V
 
     return-void
 .end method

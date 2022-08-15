@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda51;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -8,9 +9,9 @@
 # instance fields
 .field public final synthetic f$0:Lcom/android/server/am/BatteryStatsService;
 
-.field public final synthetic f$1:I
+.field public final synthetic f$1:Ljava/lang/String;
 
-.field public final synthetic f$2:Z
+.field public final synthetic f$2:Landroid/os/WorkSource;
 
 .field public final synthetic f$3:I
 
@@ -20,16 +21,16 @@
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/am/BatteryStatsService;IZIJJ)V
+.method public synthetic constructor <init>(Lcom/android/server/am/BatteryStatsService;Ljava/lang/String;Landroid/os/WorkSource;IJJ)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda51;->f$0:Lcom/android/server/am/BatteryStatsService;
 
-    iput p2, p0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda51;->f$1:I
+    iput-object p2, p0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda51;->f$1:Ljava/lang/String;
 
-    iput-boolean p3, p0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda51;->f$2:Z
+    iput-object p3, p0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda51;->f$2:Landroid/os/WorkSource;
 
     iput p4, p0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda51;->f$3:I
 
@@ -47,9 +48,9 @@
 
     iget-object v0, p0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda51;->f$0:Lcom/android/server/am/BatteryStatsService;
 
-    iget v1, p0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda51;->f$1:I
+    iget-object v1, p0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda51;->f$1:Ljava/lang/String;
 
-    iget-boolean v2, p0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda51;->f$2:Z
+    iget-object v2, p0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda51;->f$2:Landroid/os/WorkSource;
 
     iget v3, p0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda51;->f$3:I
 
@@ -57,7 +58,7 @@
 
     iget-wide v6, p0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda51;->f$5:J
 
-    invoke-virtual/range {v0 .. v7}, Lcom/android/server/am/BatteryStatsService;->lambda$notePhoneDataConnectionState$47$BatteryStatsService(IZIJJ)V
+    invoke-static/range {v0 .. v7}, Lcom/android/server/am/BatteryStatsService;->$r8$lambda$5bAFf-ZLJ9zBfBO9CY8r11EvIaM(Lcom/android/server/am/BatteryStatsService;Ljava/lang/String;Landroid/os/WorkSource;IJJ)V
 
     return-void
 .end method

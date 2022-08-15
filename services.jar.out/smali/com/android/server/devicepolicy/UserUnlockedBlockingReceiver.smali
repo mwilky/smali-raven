@@ -1,20 +1,16 @@
-.class Lcom/android/server/devicepolicy/UserUnlockedBlockingReceiver;
+.class public Lcom/android/server/devicepolicy/UserUnlockedBlockingReceiver;
 .super Landroid/content/BroadcastReceiver;
 .source "UserUnlockedBlockingReceiver.java"
 
 
-# static fields
-.field private static final WAIT_FOR_USER_UNLOCKED_TIMEOUT_SECONDS:I = 0x78
-
-
 # instance fields
-.field private final mSemaphore:Ljava/util/concurrent/Semaphore;
+.field public final mSemaphore:Ljava/util/concurrent/Semaphore;
 
-.field private final mUserId:I
+.field public final mUserId:I
 
 
 # direct methods
-.method constructor <init>(I)V
+.method public constructor <init>(I)V
     .locals 2
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -35,65 +31,63 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 2
+    .locals 1
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v1, "android.intent.action.USER_UNLOCKED"
+    const-string v0, "android.intent.action.USER_UNLOCKED"
 
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
     return-void
 
     :cond_0
-    const/16 v0, -0x2710
+    const/16 p1, -0x2710
 
-    const-string v1, "android.intent.extra.user_handle"
+    const-string v0, "android.intent.extra.user_handle"
 
-    invoke-virtual {p2, v1, v0}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {p2, v0, p1}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    move-result v0
+    move-result p1
 
-    iget v1, p0, Lcom/android/server/devicepolicy/UserUnlockedBlockingReceiver;->mUserId:I
+    iget p2, p0, Lcom/android/server/devicepolicy/UserUnlockedBlockingReceiver;->mUserId:I
 
-    if-ne v0, v1, :cond_1
+    if-ne p1, p2, :cond_1
 
-    iget-object v0, p0, Lcom/android/server/devicepolicy/UserUnlockedBlockingReceiver;->mSemaphore:Ljava/util/concurrent/Semaphore;
+    iget-object p0, p0, Lcom/android/server/devicepolicy/UserUnlockedBlockingReceiver;->mSemaphore:Ljava/util/concurrent/Semaphore;
 
-    invoke-virtual {v0}, Ljava/util/concurrent/Semaphore;->release()V
+    invoke-virtual {p0}, Ljava/util/concurrent/Semaphore;->release()V
 
     :cond_1
     return-void
 .end method
 
 .method public waitForUserUnlocked()Z
-    .locals 4
+    .locals 3
 
     :try_start_0
-    iget-object v0, p0, Lcom/android/server/devicepolicy/UserUnlockedBlockingReceiver;->mSemaphore:Ljava/util/concurrent/Semaphore;
+    iget-object p0, p0, Lcom/android/server/devicepolicy/UserUnlockedBlockingReceiver;->mSemaphore:Ljava/util/concurrent/Semaphore;
 
-    const-wide/16 v1, 0x78
+    const-wide/16 v0, 0x78
 
-    sget-object v3, Ljava/util/concurrent/TimeUnit;->SECONDS:Ljava/util/concurrent/TimeUnit;
+    sget-object v2, Ljava/util/concurrent/TimeUnit;->SECONDS:Ljava/util/concurrent/TimeUnit;
 
-    invoke-virtual {v0, v1, v2, v3}, Ljava/util/concurrent/Semaphore;->tryAcquire(JLjava/util/concurrent/TimeUnit;)Z
+    invoke-virtual {p0, v0, v1, v2}, Ljava/util/concurrent/Semaphore;->tryAcquire(JLjava/util/concurrent/TimeUnit;)Z
 
-    move-result v0
+    move-result p0
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return v0
+    return p0
 
     :catch_0
-    move-exception v0
+    const/4 p0, 0x0
 
-    const/4 v1, 0x0
-
-    return v1
+    return p0
 .end method

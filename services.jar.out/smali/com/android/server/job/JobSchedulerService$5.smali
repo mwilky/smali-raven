@@ -1,4 +1,4 @@
-.class Lcom/android/server/job/JobSchedulerService$5;
+.class public Lcom/android/server/job/JobSchedulerService$5;
 .super Landroid/content/BroadcastReceiver;
 .source "JobSchedulerService.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/job/JobSchedulerService;
+.field public final synthetic this$0:Lcom/android/server/job/JobSchedulerService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/job/JobSchedulerService;)V
+.method public constructor <init>(Lcom/android/server/job/JobSchedulerService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/job/JobSchedulerService$5;->this$0:Lcom/android/server/job/JobSchedulerService;
@@ -32,57 +32,57 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 3
+    .locals 2
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p2
 
-    const-string v1, "android.intent.action.TIME_SET"
+    const-string v0, "android.intent.action.TIME_SET"
 
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p2
 
-    if-eqz v0, :cond_0
+    if-eqz p2, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/job/JobSchedulerService$5;->this$0:Lcom/android/server/job/JobSchedulerService;
+    iget-object p2, p0, Lcom/android/server/job/JobSchedulerService$5;->this$0:Lcom/android/server/job/JobSchedulerService;
 
-    iget-object v0, v0, Lcom/android/server/job/JobSchedulerService;->mJobs:Lcom/android/server/job/JobStore;
+    iget-object p2, p2, Lcom/android/server/job/JobSchedulerService;->mJobs:Lcom/android/server/job/JobStore;
 
-    sget-object v1, Lcom/android/server/job/JobSchedulerService;->sSystemClock:Ljava/time/Clock;
+    sget-object v0, Lcom/android/server/job/JobSchedulerService;->sSystemClock:Ljava/time/Clock;
 
-    invoke-virtual {v1}, Ljava/time/Clock;->millis()J
+    invoke-virtual {v0}, Ljava/time/Clock;->millis()J
 
-    move-result-wide v1
+    move-result-wide v0
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/job/JobStore;->clockNowValidToInflate(J)Z
+    invoke-virtual {p2, v0, v1}, Lcom/android/server/job/JobStore;->clockNowValidToInflate(J)Z
 
-    move-result v0
+    move-result p2
 
-    if-eqz v0, :cond_0
+    if-eqz p2, :cond_0
 
-    const-string v0, "JobScheduler"
+    const-string p2, "JobScheduler"
 
-    const-string v1, "RTC now valid; recalculating persisted job windows"
+    const-string v0, "RTC now valid; recalculating persisted job windows"
 
-    invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p2, v0}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-virtual {p1, p0}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    new-instance v0, Ljava/lang/Thread;
+    new-instance p1, Ljava/lang/Thread;
 
-    iget-object v1, p0, Lcom/android/server/job/JobSchedulerService$5;->this$0:Lcom/android/server/job/JobSchedulerService;
+    iget-object p0, p0, Lcom/android/server/job/JobSchedulerService$5;->this$0:Lcom/android/server/job/JobSchedulerService;
 
-    invoke-static {v1}, Lcom/android/server/job/JobSchedulerService;->access$1100(Lcom/android/server/job/JobSchedulerService;)Ljava/lang/Runnable;
+    invoke-static {p0}, Lcom/android/server/job/JobSchedulerService;->-$$Nest$fgetmJobTimeUpdater(Lcom/android/server/job/JobSchedulerService;)Ljava/lang/Runnable;
 
-    move-result-object v1
+    move-result-object p0
 
-    const-string v2, "JobSchedulerTimeSetReceiver"
+    const-string p2, "JobSchedulerTimeSetReceiver"
 
-    invoke-direct {v0, v1, v2}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;Ljava/lang/String;)V
+    invoke-direct {p1, p0, p2}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;Ljava/lang/String;)V
 
-    invoke-virtual {v0}, Ljava/lang/Thread;->start()V
+    invoke-virtual {p1}, Ljava/lang/Thread;->start()V
 
     :cond_0
     return-void

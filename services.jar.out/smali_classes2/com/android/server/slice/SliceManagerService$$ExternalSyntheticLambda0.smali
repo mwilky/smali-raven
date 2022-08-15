@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/slice/SliceManagerService$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -35,7 +36,7 @@
 
 # virtual methods
 .method public final run()V
-    .locals 4
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/slice/SliceManagerService$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/slice/SliceManagerService;
 
@@ -43,9 +44,9 @@
 
     iget-object v2, p0, Lcom/android/server/slice/SliceManagerService$$ExternalSyntheticLambda0;->f$2:Ljava/lang/String;
 
-    iget v3, p0, Lcom/android/server/slice/SliceManagerService$$ExternalSyntheticLambda0;->f$3:I
+    iget p0, p0, Lcom/android/server/slice/SliceManagerService$$ExternalSyntheticLambda0;->f$3:I
 
-    invoke-virtual {v0, v1, v2, v3}, Lcom/android/server/slice/SliceManagerService;->lambda$pinSlice$1$SliceManagerService(Ljava/lang/String;Ljava/lang/String;I)V
+    invoke-static {v0, v1, v2, p0}, Lcom/android/server/slice/SliceManagerService;->$r8$lambda$70hZecvOQgg2dMaz_Didfxa8FUE(Lcom/android/server/slice/SliceManagerService;Ljava/lang/String;Ljava/lang/String;I)V
 
     return-void
 .end method

@@ -8,7 +8,7 @@
 
 
 # instance fields
-.field private final mPackageNames:Ljava/util/List;
+.field public final mPackageNames:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -18,7 +18,7 @@
     .end annotation
 .end field
 
-.field private final mWrappedObserver:Landroid/content/pm/PackageManagerInternal$PackageListObserver;
+.field public final mWrappedObserver:Landroid/content/pm/PackageManagerInternal$PackageListObserver;
 
 
 # direct methods
@@ -68,7 +68,7 @@
 .end method
 
 .method public getPackageNames()Ljava/util/List;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -78,45 +78,45 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/android/server/pm/PackageList;->mPackageNames:Ljava/util/List;
+    iget-object p0, p0, Lcom/android/server/pm/PackageList;->mPackageNames:Ljava/util/List;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public onPackageAdded(Ljava/lang/String;I)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/pm/PackageList;->mWrappedObserver:Landroid/content/pm/PackageManagerInternal$PackageListObserver;
+    iget-object p0, p0, Lcom/android/server/pm/PackageList;->mWrappedObserver:Landroid/content/pm/PackageManagerInternal$PackageListObserver;
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    invoke-interface {v0, p1, p2}, Landroid/content/pm/PackageManagerInternal$PackageListObserver;->onPackageAdded(Ljava/lang/String;I)V
+    invoke-interface {p0, p1, p2}, Landroid/content/pm/PackageManagerInternal$PackageListObserver;->onPackageAdded(Ljava/lang/String;I)V
 
     :cond_0
     return-void
 .end method
 
 .method public onPackageChanged(Ljava/lang/String;I)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/pm/PackageList;->mWrappedObserver:Landroid/content/pm/PackageManagerInternal$PackageListObserver;
+    iget-object p0, p0, Lcom/android/server/pm/PackageList;->mWrappedObserver:Landroid/content/pm/PackageManagerInternal$PackageListObserver;
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    invoke-interface {v0, p1, p2}, Landroid/content/pm/PackageManagerInternal$PackageListObserver;->onPackageChanged(Ljava/lang/String;I)V
+    invoke-interface {p0, p1, p2}, Landroid/content/pm/PackageManagerInternal$PackageListObserver;->onPackageChanged(Ljava/lang/String;I)V
 
     :cond_0
     return-void
 .end method
 
 .method public onPackageRemoved(Ljava/lang/String;I)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/pm/PackageList;->mWrappedObserver:Landroid/content/pm/PackageManagerInternal$PackageListObserver;
+    iget-object p0, p0, Lcom/android/server/pm/PackageList;->mWrappedObserver:Landroid/content/pm/PackageManagerInternal$PackageListObserver;
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    invoke-interface {v0, p1, p2}, Landroid/content/pm/PackageManagerInternal$PackageListObserver;->onPackageRemoved(Ljava/lang/String;I)V
+    invoke-interface {p0, p1, p2}, Landroid/content/pm/PackageManagerInternal$PackageListObserver;->onPackageRemoved(Ljava/lang/String;I)V
 
     :cond_0
     return-void

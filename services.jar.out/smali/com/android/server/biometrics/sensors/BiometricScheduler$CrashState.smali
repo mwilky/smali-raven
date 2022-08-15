@@ -1,4 +1,4 @@
-.class final Lcom/android/server/biometrics/sensors/BiometricScheduler$CrashState;
+.class public final Lcom/android/server/biometrics/sensors/BiometricScheduler$CrashState;
 .super Ljava/lang/Object;
 .source "BiometricScheduler.java"
 
@@ -9,19 +9,15 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "CrashState"
 .end annotation
 
 
-# static fields
-.field static final NUM_ENTRIES:I = 0xa
-
-
 # instance fields
-.field final currentOperation:Ljava/lang/String;
+.field public final currentOperation:Ljava/lang/String;
 
-.field final pendingOperations:Ljava/util/List;
+.field public final pendingOperations:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -31,11 +27,11 @@
     .end annotation
 .end field
 
-.field final timestamp:Ljava/lang/String;
+.field public final timestamp:Ljava/lang/String;
 
 
 # direct methods
-.method constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)V
+.method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -158,7 +154,7 @@
     :cond_2
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method

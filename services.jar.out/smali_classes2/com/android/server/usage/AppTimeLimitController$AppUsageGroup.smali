@@ -1,4 +1,4 @@
-.class Lcom/android/server/usage/AppTimeLimitController$AppUsageGroup;
+.class public Lcom/android/server/usage/AppTimeLimitController$AppUsageGroup;
 .super Lcom/android/server/usage/AppTimeLimitController$UsageGroup;
 .source "AppTimeLimitController.java"
 
@@ -9,13 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = "AppUsageGroup"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/usage/AppTimeLimitController;
+.field public final synthetic this$0:Lcom/android/server/usage/AppTimeLimitController;
 
 
 # direct methods
@@ -33,6 +33,11 @@
 # virtual methods
 .method public onLimitReached()V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
 
     invoke-super {p0}, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->onLimitReached()V
 
@@ -42,11 +47,16 @@
 .end method
 
 .method public remove()V
-    .locals 2
+    .locals 1
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
 
     invoke-super {p0}, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->remove()V
 
-    iget-object v0, p0, Lcom/android/server/usage/AppTimeLimitController$AppUsageGroup;->mObserverAppRef:Ljava/lang/ref/WeakReference;
+    iget-object v0, p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->mObserverAppRef:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
@@ -56,9 +66,9 @@
 
     if-eqz v0, :cond_0
 
-    iget v1, p0, Lcom/android/server/usage/AppTimeLimitController$AppUsageGroup;->mObserverId:I
+    iget p0, p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->mObserverId:I
 
-    invoke-virtual {v0, v1}, Lcom/android/server/usage/AppTimeLimitController$ObserverAppData;->removeAppUsageGroup(I)V
+    invoke-virtual {v0, p0}, Lcom/android/server/usage/AppTimeLimitController$ObserverAppData;->removeAppUsageGroup(I)V
 
     :cond_0
     return-void

@@ -1,28 +1,13 @@
 .class public final synthetic Lcom/android/server/wm/ActivityTaskManagerService$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/internal/util/function/HeptConsumer;
-
-
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/wm/ActivityTaskManagerService$$ExternalSyntheticLambda0;
+.implements Lcom/android/internal/util/function/QuintConsumer;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/wm/ActivityTaskManagerService$$ExternalSyntheticLambda0;
-
-    invoke-direct {v0}, Lcom/android/server/wm/ActivityTaskManagerService$$ExternalSyntheticLambda0;-><init>()V
-
-    sput-object v0, Lcom/android/server/wm/ActivityTaskManagerService$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/server/wm/ActivityTaskManagerService$$ExternalSyntheticLambda0;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,46 +17,32 @@
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+.method public final accept(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
     .locals 0
 
     check-cast p1, Landroid/app/ActivityManagerInternal;
 
-    check-cast p2, Ljava/lang/String;
+    check-cast p2, Landroid/content/ComponentName;
 
-    check-cast p3, Landroid/content/pm/ApplicationInfo;
+    check-cast p3, Ljava/lang/Integer;
 
-    check-cast p4, Ljava/lang/Boolean;
+    invoke-virtual {p3}, Ljava/lang/Integer;->intValue()I
 
-    invoke-virtual {p4}, Ljava/lang/Boolean;->booleanValue()Z
+    move-result p0
 
-    move-result p4
+    check-cast p4, Ljava/lang/Integer;
+
+    invoke-virtual {p4}, Ljava/lang/Integer;->intValue()I
+
+    move-result p3
 
     check-cast p5, Ljava/lang/Boolean;
 
     invoke-virtual {p5}, Ljava/lang/Boolean;->booleanValue()Z
 
-    move-result p5
+    move-result p4
 
-    check-cast p6, Ljava/lang/String;
-
-    check-cast p7, Landroid/content/ComponentName;
-
-    move-object p0, p1
-
-    move-object p1, p2
-
-    move-object p2, p3
-
-    move p3, p4
-
-    move p4, p5
-
-    move-object p5, p6
-
-    move-object p6, p7
-
-    invoke-virtual/range {p0 .. p6}, Landroid/app/ActivityManagerInternal;->startProcess(Ljava/lang/String;Landroid/content/pm/ApplicationInfo;ZZLjava/lang/String;Landroid/content/ComponentName;)V
+    invoke-virtual {p1, p2, p0, p3, p4}, Landroid/app/ActivityManagerInternal;->updateBatteryStats(Landroid/content/ComponentName;IIZ)V
 
     return-void
 .end method

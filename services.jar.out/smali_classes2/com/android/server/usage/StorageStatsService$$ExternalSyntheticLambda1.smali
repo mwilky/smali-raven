@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/usage/StorageStatsService$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -27,15 +28,15 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/usage/StorageStatsService$$ExternalSyntheticLambda1;->f$0:Landroid/content/pm/PackageStats;
 
-    iget-object v1, p0, Lcom/android/server/usage/StorageStatsService$$ExternalSyntheticLambda1;->f$1:Landroid/os/UserHandle;
+    iget-object p0, p0, Lcom/android/server/usage/StorageStatsService$$ExternalSyntheticLambda1;->f$1:Landroid/os/UserHandle;
 
     check-cast p1, Lcom/android/server/usage/StorageStatsManagerLocal$StorageStatsAugmenter;
 
-    invoke-static {v0, v1, p1}, Lcom/android/server/usage/StorageStatsService;->lambda$queryStatsForUser$2(Landroid/content/pm/PackageStats;Landroid/os/UserHandle;Lcom/android/server/usage/StorageStatsManagerLocal$StorageStatsAugmenter;)V
+    invoke-static {v0, p0, p1}, Lcom/android/server/usage/StorageStatsService;->$r8$lambda$e00sXR5LlKUEYmC3mUR12f351l0(Landroid/content/pm/PackageStats;Landroid/os/UserHandle;Lcom/android/server/usage/StorageStatsManagerLocal$StorageStatsAugmenter;)V
 
     return-void
 .end method

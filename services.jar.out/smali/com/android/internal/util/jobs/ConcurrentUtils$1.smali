@@ -1,4 +1,4 @@
-.class Lcom/android/internal/util/jobs/ConcurrentUtils$1;
+.class public Lcom/android/internal/util/jobs/ConcurrentUtils$1;
 .super Ljava/lang/Object;
 .source "ConcurrentUtils.java"
 
@@ -12,21 +12,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field private final threadNum:Ljava/util/concurrent/atomic/AtomicInteger;
+.field public final threadNum:Ljava/util/concurrent/atomic/AtomicInteger;
 
-.field final synthetic val$linuxThreadPriority:I
+.field public final synthetic val$linuxThreadPriority:I
 
-.field final synthetic val$poolName:Ljava/lang/String;
+.field public final synthetic val$poolName:Ljava/lang/String;
 
 
 # direct methods
-.method constructor <init>(Ljava/lang/String;I)V
+.method public constructor <init>(Ljava/lang/String;I)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/internal/util/jobs/ConcurrentUtils$1;->val$poolName:Ljava/lang/String;

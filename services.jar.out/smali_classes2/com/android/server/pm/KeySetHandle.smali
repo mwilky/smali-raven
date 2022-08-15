@@ -1,30 +1,30 @@
-.class Lcom/android/server/pm/KeySetHandle;
+.class public Lcom/android/server/pm/KeySetHandle;
 .super Landroid/os/Binder;
 .source "KeySetHandle.java"
 
 
 # instance fields
-.field private final mId:J
+.field public final mId:J
 
-.field private mRefCount:I
+.field public mRefCount:I
 
 
 # direct methods
-.method protected constructor <init>(J)V
-    .locals 1
+.method public constructor <init>(J)V
+    .locals 0
 
     invoke-direct {p0}, Landroid/os/Binder;-><init>()V
 
     iput-wide p1, p0, Lcom/android/server/pm/KeySetHandle;->mId:J
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    iput v0, p0, Lcom/android/server/pm/KeySetHandle;->mRefCount:I
+    iput p1, p0, Lcom/android/server/pm/KeySetHandle;->mRefCount:I
 
     return-void
 .end method
 
-.method protected constructor <init>(JI)V
+.method public constructor <init>(JI)V
     .locals 0
 
     invoke-direct {p0}, Landroid/os/Binder;-><init>()V
@@ -38,7 +38,7 @@
 
 
 # virtual methods
-.method protected decrRefCountLPw()I
+.method public decrRefCountLPw()I
     .locals 1
 
     iget v0, p0, Lcom/android/server/pm/KeySetHandle;->mRefCount:I
@@ -58,15 +58,15 @@
     return-wide v0
 .end method
 
-.method protected getRefCountLPr()I
-    .locals 1
+.method public getRefCountLPr()I
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/pm/KeySetHandle;->mRefCount:I
+    iget p0, p0, Lcom/android/server/pm/KeySetHandle;->mRefCount:I
 
-    return v0
+    return p0
 .end method
 
-.method protected incrRefCountLPw()V
+.method public incrRefCountLPw()V
     .locals 1
 
     iget v0, p0, Lcom/android/server/pm/KeySetHandle;->mRefCount:I
@@ -78,7 +78,7 @@
     return-void
 .end method
 
-.method protected setRefCountLPw(I)V
+.method public setRefCountLPw(I)V
     .locals 0
 
     iput p1, p0, Lcom/android/server/pm/KeySetHandle;->mRefCount:I

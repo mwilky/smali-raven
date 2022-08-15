@@ -1,4 +1,4 @@
-.class Lcom/android/server/usage/UserUsageStatsService$3;
+.class public Lcom/android/server/usage/UserUsageStatsService$3;
 .super Ljava/lang/Object;
 .source "UserUsageStatsService.java"
 
@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
@@ -27,7 +27,7 @@
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,7 +37,7 @@
 
 
 # virtual methods
-.method public combine(Lcom/android/server/usage/IntervalStats;ZLjava/util/List;)V
+.method public combine(Lcom/android/server/usage/IntervalStats;ZLjava/util/List;)Z
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -46,11 +46,13 @@
             "Z",
             "Ljava/util/List<",
             "Landroid/app/usage/EventStats;",
-            ">;)V"
+            ">;)Z"
         }
     .end annotation
 
     invoke-virtual {p1, p3}, Lcom/android/server/usage/IntervalStats;->addEventStatsTo(Ljava/util/List;)V
 
-    return-void
+    const/4 p0, 0x1
+
+    return p0
 .end method

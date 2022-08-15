@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/WindowContainer$1;
+.class public Lcom/android/server/wm/WindowContainer$1;
 .super Ljava/lang/Object;
 .source "WindowContainer.java"
 
@@ -12,19 +12,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic val$receiver:Lcom/android/server/wm/WindowContainer;
+.field public final synthetic val$receiver:Lcom/android/server/wm/WindowContainer;
 
-.field final synthetic val$supplier:Lcom/android/server/wm/WindowContainer;
+.field public final synthetic val$supplier:Lcom/android/server/wm/WindowContainer;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/wm/WindowContainer;Lcom/android/server/wm/WindowContainer;)V
+.method public constructor <init>(Lcom/android/server/wm/WindowContainer;Lcom/android/server/wm/WindowContainer;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/wm/WindowContainer$1;->val$receiver:Lcom/android/server/wm/WindowContainer;
@@ -39,17 +39,17 @@
 
 # virtual methods
 .method public onMergedOverrideConfigurationChanged(Landroid/content/res/Configuration;)V
-    .locals 2
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/WindowContainer$1;->val$receiver:Lcom/android/server/wm/WindowContainer;
+    iget-object p1, p0, Lcom/android/server/wm/WindowContainer$1;->val$receiver:Lcom/android/server/wm/WindowContainer;
 
-    iget-object v1, p0, Lcom/android/server/wm/WindowContainer$1;->val$supplier:Lcom/android/server/wm/WindowContainer;
+    iget-object p0, p0, Lcom/android/server/wm/WindowContainer$1;->val$supplier:Lcom/android/server/wm/WindowContainer;
 
-    invoke-virtual {v1}, Lcom/android/server/wm/WindowContainer;->getConfiguration()Landroid/content/res/Configuration;
+    invoke-virtual {p0}, Lcom/android/server/wm/ConfigurationContainer;->getConfiguration()Landroid/content/res/Configuration;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v0, v1}, Lcom/android/server/wm/WindowContainer;->onRequestedOverrideConfigurationChanged(Landroid/content/res/Configuration;)V
+    invoke-virtual {p1, p0}, Lcom/android/server/wm/WindowContainer;->onRequestedOverrideConfigurationChanged(Landroid/content/res/Configuration;)V
 
     return-void
 .end method

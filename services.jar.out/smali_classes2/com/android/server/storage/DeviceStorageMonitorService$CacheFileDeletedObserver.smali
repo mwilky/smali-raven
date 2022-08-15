@@ -1,4 +1,4 @@
-.class Lcom/android/server/storage/DeviceStorageMonitorService$CacheFileDeletedObserver;
+.class public Lcom/android/server/storage/DeviceStorageMonitorService$CacheFileDeletedObserver;
 .super Landroid/os/FileObserver;
 .source "DeviceStorageMonitorService.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "CacheFileDeletedObserver"
 .end annotation
 

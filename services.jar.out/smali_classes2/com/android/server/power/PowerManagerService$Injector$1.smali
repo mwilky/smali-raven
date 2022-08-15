@@ -1,4 +1,4 @@
-.class Lcom/android/server/power/PowerManagerService$Injector$1;
+.class public Lcom/android/server/power/PowerManagerService$Injector$1;
 .super Ljava/lang/Object;
 .source "PowerManagerService.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/power/PowerManagerService$Injector;
+.field public final synthetic this$0:Lcom/android/server/power/PowerManagerService$Injector;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/power/PowerManagerService$Injector;)V
+.method public constructor <init>(Lcom/android/server/power/PowerManagerService$Injector;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/power/PowerManagerService$Injector$1;->this$0:Lcom/android/server/power/PowerManagerService$Injector;
@@ -35,13 +35,13 @@
 
 # virtual methods
 .method public get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .locals 0
 
     invoke-static {p1, p2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public set(Ljava/lang/String;Ljava/lang/String;)V

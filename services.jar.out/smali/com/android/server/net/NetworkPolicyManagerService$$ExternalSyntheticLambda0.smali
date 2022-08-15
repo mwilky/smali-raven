@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/net/NetworkPolicyManagerService$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/server/net/NetworkPolicyManagerService$RestrictedModeObserver$RestrictedModeListener;
+.implements Ljava/util/function/IntConsumer;
 
 
 # instance fields
@@ -22,12 +23,12 @@
 
 
 # virtual methods
-.method public final onChange(Z)V
-    .locals 1
+.method public final accept(I)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/net/NetworkPolicyManagerService;
+    iget-object p0, p0, Lcom/android/server/net/NetworkPolicyManagerService$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/net/NetworkPolicyManagerService;->lambda$initService$0$NetworkPolicyManagerService(Z)V
+    invoke-static {p0, p1}, Lcom/android/server/net/NetworkPolicyManagerService;->$r8$lambda$LMdwiJkSZ1n0fUfkvinlIzr3HQo(Lcom/android/server/net/NetworkPolicyManagerService;I)V
 
     return-void
 .end method

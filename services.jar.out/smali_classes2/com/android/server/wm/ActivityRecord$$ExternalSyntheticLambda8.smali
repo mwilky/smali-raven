@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/wm/ActivityRecord$$ExternalSyntheticLambda8;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Consumer;
+.implements Ljava/util/function/Predicate;
 
 
 # instance fields
@@ -22,14 +23,16 @@
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
-    .locals 1
+.method public final test(Ljava/lang/Object;)Z
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/ActivityRecord$$ExternalSyntheticLambda8;->f$0:Lcom/android/server/wm/ActivityRecord;
+    iget-object p0, p0, Lcom/android/server/wm/ActivityRecord$$ExternalSyntheticLambda8;->f$0:Lcom/android/server/wm/ActivityRecord;
 
-    check-cast p1, Lcom/android/server/wm/ActivityRecord;
+    check-cast p1, Lcom/android/server/wm/TaskDisplayArea;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/wm/ActivityRecord;->lambda$associateStartingDataWithTask$3$ActivityRecord(Lcom/android/server/wm/ActivityRecord;)V
+    invoke-static {p0, p1}, Lcom/android/server/wm/ActivityRecord;->$r8$lambda$8qcgcVzSbAyNyEE3CNEy_H1uMxA(Lcom/android/server/wm/ActivityRecord;Lcom/android/server/wm/TaskDisplayArea;)Z
 
-    return-void
+    move-result p0
+
+    return p0
 .end method

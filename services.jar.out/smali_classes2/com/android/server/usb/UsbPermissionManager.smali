@@ -1,18 +1,18 @@
-.class Lcom/android/server/usb/UsbPermissionManager;
+.class public Lcom/android/server/usb/UsbPermissionManager;
 .super Ljava/lang/Object;
 .source "UsbPermissionManager.java"
 
 
-# static fields
-.field private static final DEBUG:Z = false
-
-.field private static final LOG_TAG:Ljava/lang/String;
-
-
 # instance fields
-.field private final mContext:Landroid/content/Context;
+.field public final mContext:Landroid/content/Context;
 
-.field private final mPermissionsByUser:Landroid/util/SparseArray;
+.field public final mPermissionsByUser:Landroid/util/SparseArray;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mPermissionsByUser"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/SparseArray<",
@@ -22,25 +22,17 @@
     .end annotation
 .end field
 
-.field final mUsbService:Lcom/android/server/usb/UsbService;
+.field public final mUsbService:Lcom/android/server/usb/UsbService;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    const-class v0, Lcom/android/server/usb/UsbPermissionManager;
-
-    invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
-
-    move-result-object v0
-
-    sput-object v0, Lcom/android/server/usb/UsbPermissionManager;->LOG_TAG:Ljava/lang/String;
+.method public static constructor <clinit>()V
+    .locals 0
 
     return-void
 .end method
 
-.method constructor <init>(Landroid/content/Context;Lcom/android/server/usb/UsbService;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/android/server/usb/UsbService;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -60,85 +52,85 @@
 
 
 # virtual methods
-.method dump(Lcom/android/internal/util/dump/DualDumpOutputStream;Ljava/lang/String;J)V
-    .locals 11
+.method public dump(Lcom/android/internal/util/dump/DualDumpOutputStream;Ljava/lang/String;J)V
+    .locals 7
 
     invoke-virtual {p1, p2, p3, p4}, Lcom/android/internal/util/dump/DualDumpOutputStream;->start(Ljava/lang/String;J)J
 
-    move-result-wide v0
+    move-result-wide p2
 
-    iget-object v2, p0, Lcom/android/server/usb/UsbPermissionManager;->mContext:Landroid/content/Context;
+    iget-object p4, p0, Lcom/android/server/usb/UsbPermissionManager;->mContext:Landroid/content/Context;
 
-    const-class v3, Landroid/os/UserManager;
+    const-class v0, Landroid/os/UserManager;
 
-    invoke-virtual {v2, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-virtual {p4, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p4
 
-    check-cast v2, Landroid/os/UserManager;
+    check-cast p4, Landroid/os/UserManager;
 
-    iget-object v3, p0, Lcom/android/server/usb/UsbPermissionManager;->mPermissionsByUser:Landroid/util/SparseArray;
+    iget-object v0, p0, Lcom/android/server/usb/UsbPermissionManager;->mPermissionsByUser:Landroid/util/SparseArray;
 
-    monitor-enter v3
+    monitor-enter v0
 
     :try_start_0
-    invoke-virtual {v2}, Landroid/os/UserManager;->getUsers()Ljava/util/List;
+    invoke-virtual {p4}, Landroid/os/UserManager;->getUsers()Ljava/util/List;
 
-    move-result-object v4
+    move-result-object p4
 
-    invoke-interface {v4}, Ljava/util/List;->size()I
+    invoke-interface {p4}, Ljava/util/List;->size()I
 
-    move-result v5
+    move-result v1
 
-    const/4 v6, 0x0
+    const/4 v2, 0x0
 
     :goto_0
-    if-ge v6, v5, :cond_0
+    if-ge v2, v1, :cond_0
 
-    invoke-interface {v4, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {p4, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v7
+    move-result-object v3
 
-    check-cast v7, Landroid/content/pm/UserInfo;
+    check-cast v3, Landroid/content/pm/UserInfo;
 
-    iget v7, v7, Landroid/content/pm/UserInfo;->id:I
+    iget v3, v3, Landroid/content/pm/UserInfo;->id:I
 
-    invoke-virtual {p0, v7}, Lcom/android/server/usb/UsbPermissionManager;->getPermissionsForUser(I)Lcom/android/server/usb/UsbUserPermissionManager;
+    invoke-virtual {p0, v3}, Lcom/android/server/usb/UsbPermissionManager;->getPermissionsForUser(I)Lcom/android/server/usb/UsbUserPermissionManager;
 
-    move-result-object v7
+    move-result-object v3
 
-    const-string v8, "user_permissions"
+    const-string v4, "user_permissions"
 
-    const-wide v9, 0x20b00000001L
+    const-wide v5, 0x20b00000001L
 
-    invoke-virtual {v7, p1, v8, v9, v10}, Lcom/android/server/usb/UsbUserPermissionManager;->dump(Lcom/android/internal/util/dump/DualDumpOutputStream;Ljava/lang/String;J)V
+    invoke-virtual {v3, p1, v4, v5, v6}, Lcom/android/server/usb/UsbUserPermissionManager;->dump(Lcom/android/internal/util/dump/DualDumpOutputStream;Ljava/lang/String;J)V
 
-    add-int/lit8 v6, v6, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     :cond_0
-    monitor-exit v3
+    monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    invoke-virtual {p1, v0, v1}, Lcom/android/internal/util/dump/DualDumpOutputStream;->end(J)V
+    invoke-virtual {p1, p2, p3}, Lcom/android/internal/util/dump/DualDumpOutputStream;->end(J)V
 
     return-void
 
     :catchall_0
-    move-exception v4
+    move-exception p0
 
     :try_start_1
-    monitor-exit v3
+    monitor-exit v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v4
+    throw p0
 .end method
 
-.method getPermissionsForUser(I)Lcom/android/server/usb/UsbUserPermissionManager;
-    .locals 6
+.method public getPermissionsForUser(I)Lcom/android/server/usb/UsbUserPermissionManager;
+    .locals 5
 
     iget-object v0, p0, Lcom/android/server/usb/UsbPermissionManager;->mPermissionsByUser:Landroid/util/SparseArray;
 
@@ -155,33 +147,31 @@
 
     if-nez v1, :cond_0
 
-    new-instance v2, Lcom/android/server/usb/UsbUserPermissionManager;
+    new-instance v1, Lcom/android/server/usb/UsbUserPermissionManager;
 
-    iget-object v3, p0, Lcom/android/server/usb/UsbPermissionManager;->mContext:Landroid/content/Context;
+    iget-object v2, p0, Lcom/android/server/usb/UsbPermissionManager;->mContext:Landroid/content/Context;
 
     invoke-static {p1}, Landroid/os/UserHandle;->of(I)Landroid/os/UserHandle;
 
-    move-result-object v4
+    move-result-object v3
 
-    const/4 v5, 0x0
+    const/4 v4, 0x0
 
-    invoke-virtual {v3, v4, v5}, Landroid/content/Context;->createContextAsUser(Landroid/os/UserHandle;I)Landroid/content/Context;
+    invoke-virtual {v2, v3, v4}, Landroid/content/Context;->createContextAsUser(Landroid/os/UserHandle;I)Landroid/content/Context;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lcom/android/server/usb/UsbPermissionManager;->mUsbService:Lcom/android/server/usb/UsbService;
+
+    invoke-virtual {v3, p1}, Lcom/android/server/usb/UsbService;->getSettingsForUser(I)Lcom/android/server/usb/UsbUserSettingsManager;
 
     move-result-object v3
 
-    iget-object v4, p0, Lcom/android/server/usb/UsbPermissionManager;->mUsbService:Lcom/android/server/usb/UsbService;
+    invoke-direct {v1, v2, v3}, Lcom/android/server/usb/UsbUserPermissionManager;-><init>(Landroid/content/Context;Lcom/android/server/usb/UsbUserSettingsManager;)V
 
-    invoke-virtual {v4, p1}, Lcom/android/server/usb/UsbService;->getSettingsForUser(I)Lcom/android/server/usb/UsbUserSettingsManager;
+    iget-object p0, p0, Lcom/android/server/usb/UsbPermissionManager;->mPermissionsByUser:Landroid/util/SparseArray;
 
-    move-result-object v4
-
-    invoke-direct {v2, v3, v4}, Lcom/android/server/usb/UsbUserPermissionManager;-><init>(Landroid/content/Context;Lcom/android/server/usb/UsbUserSettingsManager;)V
-
-    move-object v1, v2
-
-    iget-object v2, p0, Lcom/android/server/usb/UsbPermissionManager;->mPermissionsByUser:Landroid/util/SparseArray;
-
-    invoke-virtual {v2, p1, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    invoke-virtual {p0, p1, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     :cond_0
     monitor-exit v0
@@ -189,60 +179,30 @@
     return-object v1
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
-.method getPermissionsForUser(Landroid/os/UserHandle;)Lcom/android/server/usb/UsbUserPermissionManager;
-    .locals 1
+.method public getPermissionsForUser(Landroid/os/UserHandle;)Lcom/android/server/usb/UsbUserPermissionManager;
+    .locals 0
 
     invoke-virtual {p1}, Landroid/os/UserHandle;->getIdentifier()I
 
-    move-result v0
+    move-result p1
 
-    invoke-virtual {p0, v0}, Lcom/android/server/usb/UsbPermissionManager;->getPermissionsForUser(I)Lcom/android/server/usb/UsbUserPermissionManager;
+    invoke-virtual {p0, p1}, Lcom/android/server/usb/UsbPermissionManager;->getPermissionsForUser(I)Lcom/android/server/usb/UsbUserPermissionManager;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
-.method remove(Landroid/os/UserHandle;)V
-    .locals 3
-
-    iget-object v0, p0, Lcom/android/server/usb/UsbPermissionManager;->mPermissionsByUser:Landroid/util/SparseArray;
-
-    monitor-enter v0
-
-    :try_start_0
-    iget-object v1, p0, Lcom/android/server/usb/UsbPermissionManager;->mPermissionsByUser:Landroid/util/SparseArray;
-
-    invoke-virtual {p1}, Landroid/os/UserHandle;->getIdentifier()I
-
-    move-result v2
-
-    invoke-virtual {v1, v2}, Landroid/util/SparseArray;->remove(I)V
-
-    monitor-exit v0
-
-    return-void
-
-    :catchall_0
-    move-exception v1
-
-    monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v1
-.end method
-
-.method usbAccessoryRemoved(Landroid/hardware/usb/UsbAccessory;)V
+.method public usbAccessoryRemoved(Landroid/hardware/usb/UsbAccessory;)V
     .locals 3
 
     iget-object v0, p0, Lcom/android/server/usb/UsbPermissionManager;->mPermissionsByUser:Landroid/util/SparseArray;
@@ -294,26 +254,26 @@
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    iget-object v1, p0, Lcom/android/server/usb/UsbPermissionManager;->mContext:Landroid/content/Context;
+    iget-object p0, p0, Lcom/android/server/usb/UsbPermissionManager;->mContext:Landroid/content/Context;
 
-    sget-object v2, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
+    sget-object p1, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
 
-    invoke-virtual {v1, v0, v2}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
+    invoke-virtual {p0, v0, p1}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     :try_start_1
     monitor-exit v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
-.method usbDeviceRemoved(Landroid/hardware/usb/UsbDevice;)V
+.method public usbDeviceRemoved(Landroid/hardware/usb/UsbDevice;)V
     .locals 3
 
     iget-object v0, p0, Lcom/android/server/usb/UsbPermissionManager;->mPermissionsByUser:Landroid/util/SparseArray;
@@ -365,21 +325,21 @@
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    iget-object v1, p0, Lcom/android/server/usb/UsbPermissionManager;->mContext:Landroid/content/Context;
+    iget-object p0, p0, Lcom/android/server/usb/UsbPermissionManager;->mContext:Landroid/content/Context;
 
-    sget-object v2, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
+    sget-object p1, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
 
-    invoke-virtual {v1, v0, v2}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
+    invoke-virtual {p0, v0, p1}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     :try_start_1
     monitor-exit v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v1
+    throw p0
 .end method

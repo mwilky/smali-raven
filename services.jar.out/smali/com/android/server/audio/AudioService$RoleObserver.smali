@@ -1,4 +1,4 @@
-.class Lcom/android/server/audio/AudioService$RoleObserver;
+.class public Lcom/android/server/audio/AudioService$RoleObserver;
 .super Ljava/lang/Object;
 .source "AudioService.java"
 
@@ -12,34 +12,34 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = "RoleObserver"
 .end annotation
 
 
 # instance fields
-.field private final mExecutor:Ljava/util/concurrent/Executor;
+.field public final mExecutor:Ljava/util/concurrent/Executor;
 
-.field private mRm:Landroid/app/role/RoleManager;
+.field public mRm:Landroid/app/role/RoleManager;
 
-.field final synthetic this$0:Lcom/android/server/audio/AudioService;
+.field public final synthetic this$0:Lcom/android/server/audio/AudioService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/audio/AudioService;)V
-    .locals 1
+.method public constructor <init>(Lcom/android/server/audio/AudioService;)V
+    .locals 0
 
     iput-object p1, p0, Lcom/android/server/audio/AudioService$RoleObserver;->this$0:Lcom/android/server/audio/AudioService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iget-object v0, p1, Lcom/android/server/audio/AudioService;->mContext:Landroid/content/Context;
+    iget-object p1, p1, Lcom/android/server/audio/AudioService;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v0}, Landroid/content/Context;->getMainExecutor()Ljava/util/concurrent/Executor;
+    invoke-virtual {p1}, Landroid/content/Context;->getMainExecutor()Ljava/util/concurrent/Executor;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/android/server/audio/AudioService$RoleObserver;->mExecutor:Ljava/util/concurrent/Executor;
+    iput-object p1, p0, Lcom/android/server/audio/AudioService$RoleObserver;->mExecutor:Ljava/util/concurrent/Executor;
 
     return-void
 .end method
@@ -47,64 +47,85 @@
 
 # virtual methods
 .method public getAssistantRoleHolder()Ljava/lang/String;
-    .locals 3
+    .locals 2
+
+    iget-object p0, p0, Lcom/android/server/audio/AudioService$RoleObserver;->mRm:Landroid/app/role/RoleManager;
 
     const-string v0, ""
 
-    iget-object v1, p0, Lcom/android/server/audio/AudioService$RoleObserver;->mRm:Landroid/app/role/RoleManager;
+    if-eqz p0, :cond_1
 
-    if-eqz v1, :cond_1
+    const-string v1, "android.app.role.ASSISTANT"
 
-    const-string v2, "android.app.role.ASSISTANT"
+    invoke-virtual {p0, v1}, Landroid/app/role/RoleManager;->getRoleHolders(Ljava/lang/String;)Ljava/util/List;
 
-    invoke-virtual {v1, v2}, Landroid/app/role/RoleManager;->getRoleHolders(Ljava/lang/String;)Ljava/util/List;
+    move-result-object p0
 
-    move-result-object v1
+    invoke-interface {p0}, Ljava/util/List;->size()I
 
-    invoke-interface {v1}, Ljava/util/List;->size()I
+    move-result v1
 
-    move-result v2
-
-    if-nez v2, :cond_0
-
-    const-string v2, ""
+    if-nez v1, :cond_0
 
     goto :goto_0
 
     :cond_0
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
-    invoke-interface {v1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {p0, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p0
 
-    check-cast v2, Ljava/lang/String;
+    check-cast p0, Ljava/lang/String;
 
-    :goto_0
-    move-object v0, v2
+    move-object v0, p0
 
     :cond_1
+    :goto_0
     return-object v0
 .end method
 
 .method public onRoleHoldersChanged(Ljava/lang/String;Landroid/os/UserHandle;)V
-    .locals 2
+    .locals 0
 
-    const-string v0, "android.app.role.ASSISTANT"
+    const-string p2, "android.app.role.ASSISTANT"
 
-    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/audio/AudioService$RoleObserver;->this$0:Lcom/android/server/audio/AudioService;
+    iget-object p1, p0, Lcom/android/server/audio/AudioService$RoleObserver;->this$0:Lcom/android/server/audio/AudioService;
 
-    const/4 v1, 0x0
+    invoke-static {p1}, Lcom/android/server/audio/AudioService;->-$$Nest$fgetmSettingsLock(Lcom/android/server/audio/AudioService;)Ljava/lang/Object;
 
-    invoke-static {v0, v1}, Lcom/android/server/audio/AudioService;->access$700(Lcom/android/server/audio/AudioService;Z)V
+    move-result-object p1
+
+    monitor-enter p1
+
+    :try_start_0
+    iget-object p0, p0, Lcom/android/server/audio/AudioService$RoleObserver;->this$0:Lcom/android/server/audio/AudioService;
+
+    const/4 p2, 0x0
+
+    invoke-static {p0, p2}, Lcom/android/server/audio/AudioService;->-$$Nest$mupdateAssistantUIdLocked(Lcom/android/server/audio/AudioService;Z)V
+
+    monitor-exit p1
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception p0
+
+    monitor-exit p1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw p0
 
     :cond_0
+    :goto_0
     return-void
 .end method
 
@@ -135,10 +156,33 @@
 
     iget-object v0, p0, Lcom/android/server/audio/AudioService$RoleObserver;->this$0:Lcom/android/server/audio/AudioService;
 
+    invoke-static {v0}, Lcom/android/server/audio/AudioService;->-$$Nest$fgetmSettingsLock(Lcom/android/server/audio/AudioService;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    monitor-enter v0
+
+    :try_start_0
+    iget-object p0, p0, Lcom/android/server/audio/AudioService$RoleObserver;->this$0:Lcom/android/server/audio/AudioService;
+
     const/4 v1, 0x1
 
-    invoke-static {v0, v1}, Lcom/android/server/audio/AudioService;->access$700(Lcom/android/server/audio/AudioService;Z)V
+    invoke-static {p0, v1}, Lcom/android/server/audio/AudioService;->-$$Nest$mupdateAssistantUIdLocked(Lcom/android/server/audio/AudioService;Z)V
+
+    monitor-exit v0
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception p0
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw p0
 
     :cond_0
+    :goto_0
     return-void
 .end method

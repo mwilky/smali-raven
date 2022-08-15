@@ -1,4 +1,4 @@
-.class Lcom/android/server/inputmethod/InputMethodManagerService$StartInputInfo;
+.class public Lcom/android/server/inputmethod/InputMethodManagerService$StartInputInfo;
 .super Ljava/lang/Object;
 .source "InputMethodManagerService.java"
 
@@ -9,49 +9,49 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "StartInputInfo"
 .end annotation
 
 
 # static fields
-.field private static final sSequenceNumber:Ljava/util/concurrent/atomic/AtomicInteger;
+.field public static final sSequenceNumber:Ljava/util/concurrent/atomic/AtomicInteger;
 
 
 # instance fields
-.field final mClientBindSequenceNumber:I
+.field public final mClientBindSequenceNumber:I
 
-.field final mEditorInfo:Landroid/view/inputmethod/EditorInfo;
+.field public final mEditorInfo:Landroid/view/inputmethod/EditorInfo;
 
-.field final mImeDisplayId:I
+.field public final mImeDisplayId:I
 
-.field final mImeId:Ljava/lang/String;
+.field public final mImeId:Ljava/lang/String;
 
-.field final mImeToken:Landroid/os/IBinder;
+.field public final mImeToken:Landroid/os/IBinder;
 
-.field final mImeUserId:I
+.field public final mImeUserId:I
 
-.field final mRestarting:Z
+.field public final mRestarting:Z
 
-.field final mSequenceNumber:I
+.field public final mSequenceNumber:I
 
-.field final mStartInputReason:I
+.field public final mStartInputReason:I
 
-.field final mTargetDisplayId:I
+.field public final mTargetDisplayId:I
 
-.field final mTargetUserId:I
+.field public final mTargetUserId:I
 
-.field final mTargetWindow:Landroid/os/IBinder;
+.field public final mTargetWindow:Landroid/os/IBinder;
 
-.field final mTargetWindowSoftInputMode:I
+.field public final mTargetWindowSoftInputMode:I
 
-.field final mTimestamp:J
+.field public final mTimestamp:J
 
-.field final mWallTime:J
+.field public final mWallTime:J
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 2
 
     new-instance v0, Ljava/util/concurrent/atomic/AtomicInteger;
@@ -65,7 +65,7 @@
     return-void
 .end method
 
-.method constructor <init>(ILandroid/os/IBinder;ILjava/lang/String;IZIILandroid/os/IBinder;Landroid/view/inputmethod/EditorInfo;II)V
+.method public constructor <init>(ILandroid/os/IBinder;ILjava/lang/String;IZIILandroid/os/IBinder;Landroid/view/inputmethod/EditorInfo;II)V
     .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

@@ -4,6 +4,9 @@
 
 
 # annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/android/server/timezonedetector/TimeZoneDetectorStrategyImpl;
 .end annotation
@@ -15,10 +18,10 @@
 
 
 # virtual methods
-.method public abstract getConfigurationInternal(I)Lcom/android/server/timezonedetector/ConfigurationInternal;
+.method public abstract elapsedRealtimeMillis()J
 .end method
 
-.method public abstract getCurrentUserId()I
+.method public abstract getCurrentUserConfigurationInternal()Lcom/android/server/timezonedetector/ConfigurationInternal;
 .end method
 
 .method public abstract getDeviceTimeZone()Ljava/lang/String;
@@ -27,11 +30,8 @@
 .method public abstract isDeviceTimeZoneInitialized()Z
 .end method
 
-.method public abstract setConfigChangeListener(Lcom/android/server/timezonedetector/ConfigurationChangeListener;)V
+.method public abstract setConfigurationInternalChangeListener(Lcom/android/server/timezonedetector/ConfigurationChangeListener;)V
 .end method
 
 .method public abstract setDeviceTimeZone(Ljava/lang/String;)V
-.end method
-
-.method public abstract storeConfiguration(ILandroid/app/time/TimeZoneConfiguration;)V
 .end method

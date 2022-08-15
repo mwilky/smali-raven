@@ -6,22 +6,22 @@
 # instance fields
 .field public final listener:Lcom/android/server/backup/internal/OnTaskFinishedListener;
 
+.field public final mTransportConnection:Lcom/android/server/backup/transport/TransportConnection;
+
 .field public final monitor:Landroid/app/backup/IBackupManagerMonitor;
 
 .field public final observer:Landroid/app/backup/IRestoreObserver;
 
 .field public final session:Lcom/android/server/backup/restore/ActiveRestoreSession;
 
-.field public final transportClient:Lcom/android/server/backup/transport/TransportClient;
-
 
 # direct methods
-.method public constructor <init>(Lcom/android/server/backup/transport/TransportClient;Lcom/android/server/backup/restore/ActiveRestoreSession;Landroid/app/backup/IRestoreObserver;Landroid/app/backup/IBackupManagerMonitor;Lcom/android/server/backup/internal/OnTaskFinishedListener;)V
+.method public constructor <init>(Lcom/android/server/backup/transport/TransportConnection;Lcom/android/server/backup/restore/ActiveRestoreSession;Landroid/app/backup/IRestoreObserver;Landroid/app/backup/IBackupManagerMonitor;Lcom/android/server/backup/internal/OnTaskFinishedListener;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/backup/params/RestoreGetSetsParams;->transportClient:Lcom/android/server/backup/transport/TransportClient;
+    iput-object p1, p0, Lcom/android/server/backup/params/RestoreGetSetsParams;->mTransportConnection:Lcom/android/server/backup/transport/TransportConnection;
 
     iput-object p2, p0, Lcom/android/server/backup/params/RestoreGetSetsParams;->session:Lcom/android/server/backup/restore/ActiveRestoreSession;
 

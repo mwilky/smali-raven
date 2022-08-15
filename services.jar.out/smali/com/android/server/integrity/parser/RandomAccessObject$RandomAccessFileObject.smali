@@ -1,4 +1,4 @@
-.class Lcom/android/server/integrity/parser/RandomAccessObject$RandomAccessFileObject;
+.class public Lcom/android/server/integrity/parser/RandomAccessObject$RandomAccessFileObject;
 .super Lcom/android/server/integrity/parser/RandomAccessObject;
 .source "RandomAccessObject.java"
 
@@ -9,20 +9,20 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "RandomAccessFileObject"
 .end annotation
 
 
 # instance fields
-.field private final mLength:I
+.field public final mLength:I
 
-.field private final mRandomAccessFile:Ljava/io/RandomAccessFile;
+.field public final mRandomAccessFile:Ljava/io/RandomAccessFile;
 
 
 # direct methods
-.method constructor <init>(Ljava/io/File;)V
-    .locals 5
+.method public constructor <init>(Ljava/io/File;)V
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -49,106 +49,106 @@
 
     iput-object v2, p0, Lcom/android/server/integrity/parser/RandomAccessObject$RandomAccessFileObject;->mRandomAccessFile:Ljava/io/RandomAccessFile;
 
-    long-to-int v2, v0
+    long-to-int p1, v0
 
-    iput v2, p0, Lcom/android/server/integrity/parser/RandomAccessObject$RandomAccessFileObject;->mLength:I
+    iput p1, p0, Lcom/android/server/integrity/parser/RandomAccessObject$RandomAccessFileObject;->mLength:I
 
     return-void
 
     :cond_0
-    new-instance v2, Ljava/io/IOException;
+    new-instance p0, Ljava/io/IOException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "Unsupported file size (too big) "
+    const-string v2, "Unsupported file size (too big) "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-direct {v2, v3}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw p0
 .end method
 
 
 # virtual methods
 .method public close()V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/android/server/integrity/parser/RandomAccessObject$RandomAccessFileObject;->mRandomAccessFile:Ljava/io/RandomAccessFile;
+    iget-object p0, p0, Lcom/android/server/integrity/parser/RandomAccessObject$RandomAccessFileObject;->mRandomAccessFile:Ljava/io/RandomAccessFile;
 
-    invoke-virtual {v0}, Ljava/io/RandomAccessFile;->close()V
+    invoke-virtual {p0}, Ljava/io/RandomAccessFile;->close()V
 
     return-void
 .end method
 
 .method public length()I
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/integrity/parser/RandomAccessObject$RandomAccessFileObject;->mLength:I
+    iget p0, p0, Lcom/android/server/integrity/parser/RandomAccessObject$RandomAccessFileObject;->mLength:I
 
-    return v0
+    return p0
 .end method
 
 .method public read()I
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/android/server/integrity/parser/RandomAccessObject$RandomAccessFileObject;->mRandomAccessFile:Ljava/io/RandomAccessFile;
+    iget-object p0, p0, Lcom/android/server/integrity/parser/RandomAccessObject$RandomAccessFileObject;->mRandomAccessFile:Ljava/io/RandomAccessFile;
 
-    invoke-virtual {v0}, Ljava/io/RandomAccessFile;->read()I
+    invoke-virtual {p0}, Ljava/io/RandomAccessFile;->read()I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public read([BII)I
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/android/server/integrity/parser/RandomAccessObject$RandomAccessFileObject;->mRandomAccessFile:Ljava/io/RandomAccessFile;
+    iget-object p0, p0, Lcom/android/server/integrity/parser/RandomAccessObject$RandomAccessFileObject;->mRandomAccessFile:Ljava/io/RandomAccessFile;
 
-    invoke-virtual {v0, p1, p2, p3}, Ljava/io/RandomAccessFile;->read([BII)I
+    invoke-virtual {p0, p1, p2, p3}, Ljava/io/RandomAccessFile;->read([BII)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public seek(I)V
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/android/server/integrity/parser/RandomAccessObject$RandomAccessFileObject;->mRandomAccessFile:Ljava/io/RandomAccessFile;
+    iget-object p0, p0, Lcom/android/server/integrity/parser/RandomAccessObject$RandomAccessFileObject;->mRandomAccessFile:Ljava/io/RandomAccessFile;
 
-    int-to-long v1, p1
+    int-to-long v0, p1
 
-    invoke-virtual {v0, v1, v2}, Ljava/io/RandomAccessFile;->seek(J)V
+    invoke-virtual {p0, v0, v1}, Ljava/io/RandomAccessFile;->seek(J)V
 
     return-void
 .end method

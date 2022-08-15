@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/notification/NotificationManagerService$15$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/server/notification/NotificationManagerService$FlagChecker;
@@ -27,15 +28,15 @@
 
 # virtual methods
 .method public final apply(I)Z
-    .locals 2
+    .locals 1
 
     iget v0, p0, Lcom/android/server/notification/NotificationManagerService$15$$ExternalSyntheticLambda0;->f$0:I
 
-    iget v1, p0, Lcom/android/server/notification/NotificationManagerService$15$$ExternalSyntheticLambda0;->f$1:I
+    iget p0, p0, Lcom/android/server/notification/NotificationManagerService$15$$ExternalSyntheticLambda0;->f$1:I
 
-    invoke-static {v0, v1, p1}, Lcom/android/server/notification/NotificationManagerService$15;->lambda$run$0(III)Z
+    invoke-static {v0, p0, p1}, Lcom/android/server/notification/NotificationManagerService$15;->$r8$lambda$uhN0Uv7Gm10MZbHY2JPbkId0Nro(III)Z
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method

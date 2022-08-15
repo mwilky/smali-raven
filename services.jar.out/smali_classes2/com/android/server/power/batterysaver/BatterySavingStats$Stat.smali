@@ -1,4 +1,4 @@
-.class Lcom/android/server/power/batterysaver/BatterySavingStats$Stat;
+.class public Lcom/android/server/power/batterysaver/BatterySavingStats$Stat;
 .super Ljava/lang/Object;
 .source "BatterySavingStats.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "Stat"
 .end annotation
 
@@ -35,7 +35,7 @@
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -61,9 +61,9 @@
     return-wide v0
 
     :cond_0
-    iget v2, p0, Lcom/android/server/power/batterysaver/BatterySavingStats$Stat;->totalBatteryDrain:I
+    iget p0, p0, Lcom/android/server/power/batterysaver/BatterySavingStats$Stat;->totalBatteryDrain:I
 
-    int-to-double v2, v2
+    int-to-double v2, p0
 
     long-to-double v0, v0
 
@@ -92,9 +92,9 @@
     return-wide v0
 
     :cond_0
-    iget v2, p0, Lcom/android/server/power/batterysaver/BatterySavingStats$Stat;->totalBatteryDrainPercent:I
+    iget p0, p0, Lcom/android/server/power/batterysaver/BatterySavingStats$Stat;->totalBatteryDrainPercent:I
 
-    int-to-double v2, v2
+    int-to-double v2, p0
 
     long-to-double v0, v0
 
@@ -107,8 +107,10 @@
     return-wide v2
 .end method
 
-.method toStringForTest()Ljava/lang/String;
+.method public toStringForTest()Ljava/lang/String;
     .locals 7
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -172,25 +174,25 @@
 
     invoke-static {v5, v6}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
 
-    move-result-object v2
+    move-result-object p0
 
-    aput-object v2, v1, v4
+    aput-object p0, v1, v4
 
     invoke-static {v3, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "%}"
+    const-string p0, "%}"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public totalMinutes()J

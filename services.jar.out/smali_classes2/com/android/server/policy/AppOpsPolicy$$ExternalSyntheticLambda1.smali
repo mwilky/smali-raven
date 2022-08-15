@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/policy/AppOpsPolicy$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/location/LocationManagerInternal$LocationPackageTagsListener;
+.implements Landroid/app/role/OnRoleHoldersChangedListener;
 
 
 # instance fields
@@ -22,12 +23,12 @@
 
 
 # virtual methods
-.method public final onLocationPackageTagsChanged(ILandroid/os/PackageTagsList;)V
-    .locals 1
+.method public final onRoleHoldersChanged(Ljava/lang/String;Landroid/os/UserHandle;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/policy/AppOpsPolicy$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/policy/AppOpsPolicy;
+    iget-object p0, p0, Lcom/android/server/policy/AppOpsPolicy$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/policy/AppOpsPolicy;
 
-    invoke-virtual {v0, p1, p2}, Lcom/android/server/policy/AppOpsPolicy;->lambda$new$0$AppOpsPolicy(ILandroid/os/PackageTagsList;)V
+    invoke-static {p0, p1, p2}, Lcom/android/server/policy/AppOpsPolicy;->$r8$lambda$aO_NnaJwsQZMgs1gEAW5MdOJKO0(Lcom/android/server/policy/AppOpsPolicy;Ljava/lang/String;Landroid/os/UserHandle;)V
 
     return-void
 .end method

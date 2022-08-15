@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/backup/BackupManagerService$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -27,13 +28,13 @@
 
 # virtual methods
 .method public final run()V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/backup/BackupManagerService$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/backup/BackupManagerService;
 
-    iget v1, p0, Lcom/android/server/backup/BackupManagerService$$ExternalSyntheticLambda1;->f$1:I
+    iget p0, p0, Lcom/android/server/backup/BackupManagerService$$ExternalSyntheticLambda1;->f$1:I
 
-    invoke-virtual {v0, v1}, Lcom/android/server/backup/BackupManagerService;->lambda$onUnlockUser$0$BackupManagerService(I)V
+    invoke-static {v0, p0}, Lcom/android/server/backup/BackupManagerService;->$r8$lambda$s6pWhYaPzmo2Z59Zyczn5lsJYNE(Lcom/android/server/backup/BackupManagerService;I)V
 
     return-void
 .end method

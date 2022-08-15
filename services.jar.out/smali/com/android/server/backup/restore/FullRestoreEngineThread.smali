@@ -1,4 +1,4 @@
-.class Lcom/android/server/backup/restore/FullRestoreEngineThread;
+.class public Lcom/android/server/backup/restore/FullRestoreEngineThread;
 .super Ljava/lang/Object;
 .source "FullRestoreEngineThread.java"
 
@@ -7,15 +7,15 @@
 
 
 # instance fields
-.field mEngine:Lcom/android/server/backup/restore/FullRestoreEngine;
+.field public mEngine:Lcom/android/server/backup/restore/FullRestoreEngine;
 
-.field mEngineStream:Ljava/io/InputStream;
+.field public mEngineStream:Ljava/io/InputStream;
 
-.field private final mMustKillAgent:Z
+.field public final mMustKillAgent:Z
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/backup/restore/FullRestoreEngine;Landroid/os/ParcelFileDescriptor;)V
+.method public constructor <init>(Lcom/android/server/backup/restore/FullRestoreEngine;Landroid/os/ParcelFileDescriptor;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -24,22 +24,22 @@
 
     const/4 v0, 0x1
 
-    invoke-virtual {p1, v0}, Lcom/android/server/backup/restore/FullRestoreEngine;->setRunning(Z)V
+    invoke-virtual {p1, v0}, Lcom/android/server/backup/restore/RestoreEngine;->setRunning(Z)V
 
-    new-instance v0, Landroid/os/ParcelFileDescriptor$AutoCloseInputStream;
+    new-instance p1, Landroid/os/ParcelFileDescriptor$AutoCloseInputStream;
 
-    invoke-direct {v0, p2}, Landroid/os/ParcelFileDescriptor$AutoCloseInputStream;-><init>(Landroid/os/ParcelFileDescriptor;)V
+    invoke-direct {p1, p2}, Landroid/os/ParcelFileDescriptor$AutoCloseInputStream;-><init>(Landroid/os/ParcelFileDescriptor;)V
 
-    iput-object v0, p0, Lcom/android/server/backup/restore/FullRestoreEngineThread;->mEngineStream:Ljava/io/InputStream;
+    iput-object p1, p0, Lcom/android/server/backup/restore/FullRestoreEngineThread;->mEngineStream:Ljava/io/InputStream;
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput-boolean v0, p0, Lcom/android/server/backup/restore/FullRestoreEngineThread;->mMustKillAgent:Z
+    iput-boolean p1, p0, Lcom/android/server/backup/restore/FullRestoreEngineThread;->mMustKillAgent:Z
 
     return-void
 .end method
 
-.method constructor <init>(Lcom/android/server/backup/restore/FullRestoreEngine;Ljava/io/InputStream;)V
+.method public constructor <init>(Lcom/android/server/backup/restore/FullRestoreEngine;Ljava/io/InputStream;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -48,7 +48,7 @@
 
     const/4 v0, 0x1
 
-    invoke-virtual {p1, v0}, Lcom/android/server/backup/restore/FullRestoreEngine;->setRunning(Z)V
+    invoke-virtual {p1, v0}, Lcom/android/server/backup/restore/RestoreEngine;->setRunning(Z)V
 
     iput-object p2, p0, Lcom/android/server/backup/restore/FullRestoreEngineThread;->mEngineStream:Ljava/io/InputStream;
 
@@ -66,23 +66,11 @@
 
     invoke-static {v0}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
-    iget-object v0, p0, Lcom/android/server/backup/restore/FullRestoreEngineThread;->mEngine:Lcom/android/server/backup/restore/FullRestoreEngine;
+    iget-object p0, p0, Lcom/android/server/backup/restore/FullRestoreEngineThread;->mEngine:Lcom/android/server/backup/restore/FullRestoreEngine;
 
-    invoke-virtual {v0}, Lcom/android/server/backup/restore/FullRestoreEngine;->handleTimeout()V
+    invoke-virtual {p0}, Lcom/android/server/backup/restore/FullRestoreEngine;->handleTimeout()V
 
     return-void
-.end method
-
-.method public isRunning()Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/backup/restore/FullRestoreEngineThread;->mEngine:Lcom/android/server/backup/restore/FullRestoreEngine;
-
-    invoke-virtual {v0}, Lcom/android/server/backup/restore/FullRestoreEngine;->isRunning()Z
-
-    move-result v0
-
-    return v0
 .end method
 
 .method public run()V
@@ -92,7 +80,7 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/server/backup/restore/FullRestoreEngineThread;->mEngine:Lcom/android/server/backup/restore/FullRestoreEngine;
 
-    invoke-virtual {v0}, Lcom/android/server/backup/restore/FullRestoreEngine;->isRunning()Z
+    invoke-virtual {v0}, Lcom/android/server/backup/restore/RestoreEngine;->isRunning()Z
 
     move-result v0
 
@@ -106,21 +94,13 @@
 
     iget-object v4, v1, Lcom/android/server/backup/restore/FullRestoreEngine;->mBuffer:[B
 
-    iget-object v0, p0, Lcom/android/server/backup/restore/FullRestoreEngineThread;->mEngine:Lcom/android/server/backup/restore/FullRestoreEngine;
+    iget-object v5, v1, Lcom/android/server/backup/restore/FullRestoreEngine;->mOnlyPackage:Landroid/content/pm/PackageInfo;
 
-    iget-object v5, v0, Lcom/android/server/backup/restore/FullRestoreEngine;->mOnlyPackage:Landroid/content/pm/PackageInfo;
+    iget-boolean v6, v1, Lcom/android/server/backup/restore/FullRestoreEngine;->mAllowApks:Z
 
-    iget-object v0, p0, Lcom/android/server/backup/restore/FullRestoreEngineThread;->mEngine:Lcom/android/server/backup/restore/FullRestoreEngine;
+    iget v7, v1, Lcom/android/server/backup/restore/FullRestoreEngine;->mEphemeralOpToken:I
 
-    iget-boolean v6, v0, Lcom/android/server/backup/restore/FullRestoreEngine;->mAllowApks:Z
-
-    iget-object v0, p0, Lcom/android/server/backup/restore/FullRestoreEngineThread;->mEngine:Lcom/android/server/backup/restore/FullRestoreEngine;
-
-    iget v7, v0, Lcom/android/server/backup/restore/FullRestoreEngine;->mEphemeralOpToken:I
-
-    iget-object v0, p0, Lcom/android/server/backup/restore/FullRestoreEngineThread;->mEngine:Lcom/android/server/backup/restore/FullRestoreEngine;
-
-    iget-object v8, v0, Lcom/android/server/backup/restore/FullRestoreEngine;->mMonitor:Landroid/app/backup/IBackupManagerMonitor;
+    iget-object v8, v1, Lcom/android/server/backup/restore/FullRestoreEngine;->mMonitor:Landroid/app/backup/IBackupManagerMonitor;
 
     invoke-virtual/range {v1 .. v8}, Lcom/android/server/backup/restore/FullRestoreEngine;->restoreOneFile(Ljava/io/InputStream;Z[BLandroid/content/pm/PackageInfo;ZILandroid/app/backup/IBackupManagerMonitor;)Z
     :try_end_0
@@ -129,32 +109,30 @@
     goto :goto_0
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/backup/restore/FullRestoreEngineThread;->mEngineStream:Ljava/io/InputStream;
+    iget-object p0, p0, Lcom/android/server/backup/restore/FullRestoreEngineThread;->mEngineStream:Ljava/io/InputStream;
 
-    invoke-static {v0}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
-
-    nop
+    invoke-static {p0}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
     return-void
 
     :catchall_0
     move-exception v0
 
-    iget-object v1, p0, Lcom/android/server/backup/restore/FullRestoreEngineThread;->mEngineStream:Ljava/io/InputStream;
+    iget-object p0, p0, Lcom/android/server/backup/restore/FullRestoreEngineThread;->mEngineStream:Ljava/io/InputStream;
 
-    invoke-static {v1}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
+    invoke-static {p0}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
     throw v0
 .end method
 
 .method public waitForResult()I
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/backup/restore/FullRestoreEngineThread;->mEngine:Lcom/android/server/backup/restore/FullRestoreEngine;
+    iget-object p0, p0, Lcom/android/server/backup/restore/FullRestoreEngineThread;->mEngine:Lcom/android/server/backup/restore/FullRestoreEngine;
 
-    invoke-virtual {v0}, Lcom/android/server/backup/restore/FullRestoreEngine;->waitForResult()I
+    invoke-virtual {p0}, Lcom/android/server/backup/restore/RestoreEngine;->waitForResult()I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method

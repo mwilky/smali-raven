@@ -26,33 +26,33 @@
 
 # virtual methods
 .method public getClock()Ljava/time/Clock;
-    .locals 5
+    .locals 4
 
-    new-instance v0, Landroid/os/BestClock;
+    new-instance p0, Landroid/os/BestClock;
 
-    sget-object v1, Ljava/time/ZoneOffset;->UTC:Ljava/time/ZoneOffset;
+    sget-object v0, Ljava/time/ZoneOffset;->UTC:Ljava/time/ZoneOffset;
 
-    const/4 v2, 0x2
+    const/4 v1, 0x2
 
-    new-array v2, v2, [Ljava/time/Clock;
+    new-array v1, v1, [Ljava/time/Clock;
 
     invoke-static {}, Landroid/os/SystemClock;->currentNetworkTimeClock()Ljava/time/Clock;
 
-    move-result-object v3
+    move-result-object v2
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    aput-object v3, v2, v4
+    aput-object v2, v1, v3
 
     invoke-static {}, Ljava/time/Clock;->systemUTC()Ljava/time/Clock;
 
-    move-result-object v3
+    move-result-object v2
 
-    const/4 v4, 0x1
+    const/4 v3, 0x1
 
-    aput-object v3, v2, v4
+    aput-object v2, v1, v3
 
-    invoke-direct {v0, v1, v2}, Landroid/os/BestClock;-><init>(Ljava/time/ZoneId;[Ljava/time/Clock;)V
+    invoke-direct {p0, v0, v1}, Landroid/os/BestClock;-><init>(Ljava/time/ZoneId;[Ljava/time/Clock;)V
 
-    return-object v0
+    return-object p0
 .end method

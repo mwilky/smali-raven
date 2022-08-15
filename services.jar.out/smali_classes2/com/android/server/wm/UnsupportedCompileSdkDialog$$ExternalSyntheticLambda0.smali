@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/wm/UnsupportedCompileSdkDialog$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/content/DialogInterface$OnClickListener;
@@ -27,13 +28,13 @@
 
 # virtual methods
 .method public final onClick(Landroid/content/DialogInterface;I)V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/wm/UnsupportedCompileSdkDialog$$ExternalSyntheticLambda0;->f$0:Landroid/content/Context;
 
-    iget-object v1, p0, Lcom/android/server/wm/UnsupportedCompileSdkDialog$$ExternalSyntheticLambda0;->f$1:Landroid/content/Intent;
+    iget-object p0, p0, Lcom/android/server/wm/UnsupportedCompileSdkDialog$$ExternalSyntheticLambda0;->f$1:Landroid/content/Intent;
 
-    invoke-static {v0, v1, p1, p2}, Lcom/android/server/wm/UnsupportedCompileSdkDialog;->lambda$new$0(Landroid/content/Context;Landroid/content/Intent;Landroid/content/DialogInterface;I)V
+    invoke-static {v0, p0, p1, p2}, Lcom/android/server/wm/UnsupportedCompileSdkDialog;->$r8$lambda$5mkI0kraSIwO34KBhd4VEDMyizs(Landroid/content/Context;Landroid/content/Intent;Landroid/content/DialogInterface;I)V
 
     return-void
 .end method

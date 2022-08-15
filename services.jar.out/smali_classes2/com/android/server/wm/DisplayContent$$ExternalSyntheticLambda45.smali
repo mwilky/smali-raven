@@ -1,45 +1,48 @@
 .class public final synthetic Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda45;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Function;
+.implements Ljava/util/function/Consumer;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda45;
+# instance fields
+.field public final synthetic f$0:Ljava/io/PrintWriter;
+
+.field public final synthetic f$1:Ljava/lang/String;
+
+.field public final synthetic f$2:Z
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda45;
-
-    invoke-direct {v0}, Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda45;-><init>()V
-
-    sput-object v0, Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda45;->INSTANCE:Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda45;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Ljava/io/PrintWriter;Ljava/lang/String;Z)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda45;->f$0:Ljava/io/PrintWriter;
+
+    iput-object p2, p0, Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda45;->f$1:Ljava/lang/String;
+
+    iput-boolean p3, p0, Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda45;->f$2:Z
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+.method public final accept(Ljava/lang/Object;)V
+    .locals 2
 
-    check-cast p1, Lcom/android/server/wm/Task;
+    iget-object v0, p0, Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda45;->f$0:Ljava/io/PrintWriter;
 
-    invoke-static {p1}, Lcom/android/server/wm/DisplayContent;->lambda$releaseSelfIfNeeded$44(Lcom/android/server/wm/Task;)Ljava/lang/Boolean;
+    iget-object v1, p0, Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda45;->f$1:Ljava/lang/String;
 
-    move-result-object p1
+    iget-boolean p0, p0, Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda45;->f$2:Z
 
-    return-object p1
+    check-cast p1, Lcom/android/server/wm/TaskDisplayArea;
+
+    invoke-static {v0, v1, p0, p1}, Lcom/android/server/wm/DisplayContent;->$r8$lambda$Ombulr7Onm0oifj9eINkuGypFvs(Ljava/io/PrintWriter;Ljava/lang/String;ZLcom/android/server/wm/TaskDisplayArea;)V
+
+    return-void
 .end method

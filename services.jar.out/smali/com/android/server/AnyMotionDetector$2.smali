@@ -1,4 +1,4 @@
-.class Lcom/android/server/AnyMotionDetector$2;
+.class public Lcom/android/server/AnyMotionDetector$2;
 .super Ljava/lang/Object;
 .source "AnyMotionDetector.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/AnyMotionDetector;
+.field public final synthetic this$0:Lcom/android/server/AnyMotionDetector;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/AnyMotionDetector;)V
+.method public constructor <init>(Lcom/android/server/AnyMotionDetector;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/AnyMotionDetector$2;->this$0:Lcom/android/server/AnyMotionDetector;
@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Lcom/android/server/AnyMotionDetector$2;->this$0:Lcom/android/server/AnyMotionDetector;
 
-    invoke-static {v0}, Lcom/android/server/AnyMotionDetector;->access$000(Lcom/android/server/AnyMotionDetector;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/server/AnyMotionDetector;->-$$Nest$fgetmLock(Lcom/android/server/AnyMotionDetector;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -48,7 +48,7 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/server/AnyMotionDetector$2;->this$0:Lcom/android/server/AnyMotionDetector;
 
-    invoke-static {v1}, Lcom/android/server/AnyMotionDetector;->access$800(Lcom/android/server/AnyMotionDetector;)Z
+    invoke-static {v1}, Lcom/android/server/AnyMotionDetector;->-$$Nest$fgetmSensorRestartIsActive(Lcom/android/server/AnyMotionDetector;)Z
 
     move-result v1
 
@@ -60,11 +60,11 @@
 
     const/4 v2, 0x0
 
-    invoke-static {v1, v2}, Lcom/android/server/AnyMotionDetector;->access$802(Lcom/android/server/AnyMotionDetector;Z)Z
+    invoke-static {v1, v2}, Lcom/android/server/AnyMotionDetector;->-$$Nest$fputmSensorRestartIsActive(Lcom/android/server/AnyMotionDetector;Z)V
 
-    iget-object v1, p0, Lcom/android/server/AnyMotionDetector$2;->this$0:Lcom/android/server/AnyMotionDetector;
+    iget-object p0, p0, Lcom/android/server/AnyMotionDetector$2;->this$0:Lcom/android/server/AnyMotionDetector;
 
-    invoke-static {v1}, Lcom/android/server/AnyMotionDetector;->access$900(Lcom/android/server/AnyMotionDetector;)V
+    invoke-static {p0}, Lcom/android/server/AnyMotionDetector;->-$$Nest$mstartOrientationMeasurementLocked(Lcom/android/server/AnyMotionDetector;)V
 
     :cond_0
     monitor-exit v0
@@ -72,11 +72,11 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method

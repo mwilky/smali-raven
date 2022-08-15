@@ -1,4 +1,4 @@
-.class Landroid/hardware/health/V2_1/IHealth$Stub$9;
+.class public Landroid/hardware/health/V2_1/IHealth$Stub$9;
 .super Ljava/lang/Object;
 .source "IHealth.java"
 
@@ -12,19 +12,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroid/hardware/health/V2_1/IHealth$Stub;
+.field public final synthetic this$0:Landroid/hardware/health/V2_1/IHealth$Stub;
 
-.field final synthetic val$_hidl_reply:Landroid/os/HwParcel;
+.field public final synthetic val$_hidl_reply:Landroid/os/HwParcel;
 
 
 # direct methods
-.method constructor <init>(Landroid/hardware/health/V2_1/IHealth$Stub;Landroid/os/HwParcel;)V
+.method public constructor <init>(Landroid/hardware/health/V2_1/IHealth$Stub;Landroid/os/HwParcel;)V
     .locals 0
 
     iput-object p1, p0, Landroid/hardware/health/V2_1/IHealth$Stub$9;->this$0:Landroid/hardware/health/V2_1/IHealth$Stub;
@@ -51,13 +51,13 @@
 
     invoke-virtual {v0, p1}, Landroid/os/HwParcel;->writeInt32(I)V
 
-    iget-object v0, p0, Landroid/hardware/health/V2_1/IHealth$Stub$9;->val$_hidl_reply:Landroid/os/HwParcel;
+    iget-object p1, p0, Landroid/hardware/health/V2_1/IHealth$Stub$9;->val$_hidl_reply:Landroid/os/HwParcel;
 
-    invoke-virtual {p2, v0}, Landroid/hardware/health/V2_0/HealthInfo;->writeToParcel(Landroid/os/HwParcel;)V
+    invoke-virtual {p2, p1}, Landroid/hardware/health/V2_0/HealthInfo;->writeToParcel(Landroid/os/HwParcel;)V
 
-    iget-object v0, p0, Landroid/hardware/health/V2_1/IHealth$Stub$9;->val$_hidl_reply:Landroid/os/HwParcel;
+    iget-object p0, p0, Landroid/hardware/health/V2_1/IHealth$Stub$9;->val$_hidl_reply:Landroid/os/HwParcel;
 
-    invoke-virtual {v0}, Landroid/os/HwParcel;->send()V
+    invoke-virtual {p0}, Landroid/os/HwParcel;->send()V
 
     return-void
 .end method

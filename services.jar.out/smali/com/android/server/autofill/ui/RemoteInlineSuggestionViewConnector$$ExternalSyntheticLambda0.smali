@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/autofill/ui/RemoteInlineSuggestionViewConnector$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionViewConnector$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/autofill/ui/InlineFillUi$InlineSuggestionUiCallback;
+    iget-object p0, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionViewConnector$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/autofill/ui/InlineFillUi$InlineSuggestionUiCallback;
 
-    invoke-interface {v0}, Lcom/android/server/autofill/ui/InlineFillUi$InlineSuggestionUiCallback;->onError()V
+    invoke-interface {p0}, Lcom/android/server/autofill/ui/InlineFillUi$InlineSuggestionUiCallback;->onError()V
 
     return-void
 .end method

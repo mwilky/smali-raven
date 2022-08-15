@@ -1,4 +1,4 @@
-.class Lcom/android/server/usage/AppStandbyController$StandbyUpdateRecord;
+.class public Lcom/android/server/usage/AppStandbyController$StandbyUpdateRecord;
 .super Ljava/lang/Object;
 .source "AppStandbyController.java"
 
@@ -9,13 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "StandbyUpdateRecord"
 .end annotation
 
 
 # static fields
-.field private static final sPool:Lcom/android/server/usage/AppStandbyController$Pool;
+.field public static final sPool:Lcom/android/server/usage/AppStandbyController$Pool;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/android/server/usage/AppStandbyController$Pool<",
@@ -27,19 +27,19 @@
 
 
 # instance fields
-.field bucket:I
+.field public bucket:I
 
-.field isUserInteraction:Z
+.field public isUserInteraction:Z
 
-.field packageName:Ljava/lang/String;
+.field public packageName:Ljava/lang/String;
 
-.field reason:I
+.field public reason:I
 
-.field userId:I
+.field public userId:I
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 2
 
     new-instance v0, Lcom/android/server/usage/AppStandbyController$Pool;
@@ -55,7 +55,7 @@
     return-void
 .end method
 
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -64,7 +64,7 @@
 .end method
 
 .method public static obtain(Ljava/lang/String;IIIZ)Lcom/android/server/usage/AppStandbyController$StandbyUpdateRecord;
-    .locals 2
+    .locals 1
 
     sget-object v0, Lcom/android/server/usage/AppStandbyController$StandbyUpdateRecord;->sPool:Lcom/android/server/usage/AppStandbyController$Pool;
 
@@ -76,11 +76,9 @@
 
     if-nez v0, :cond_0
 
-    new-instance v1, Lcom/android/server/usage/AppStandbyController$StandbyUpdateRecord;
+    new-instance v0, Lcom/android/server/usage/AppStandbyController$StandbyUpdateRecord;
 
-    invoke-direct {v1}, Lcom/android/server/usage/AppStandbyController$StandbyUpdateRecord;-><init>()V
-
-    move-object v0, v1
+    invoke-direct {v0}, Lcom/android/server/usage/AppStandbyController$StandbyUpdateRecord;-><init>()V
 
     :cond_0
     iput-object p0, v0, Lcom/android/server/usage/AppStandbyController$StandbyUpdateRecord;->packageName:Ljava/lang/String;

@@ -1,4 +1,4 @@
-.class final Lcom/android/server/appop/AppOpsService$ChangeRec;
+.class public final Lcom/android/server/appop/AppOpsService$ChangeRec;
 .super Ljava/lang/Object;
 .source "AppOpsService.java"
 
@@ -9,23 +9,23 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = "ChangeRec"
 .end annotation
 
 
 # instance fields
-.field final op:I
+.field public final op:I
 
-.field final pkg:Ljava/lang/String;
+.field public final pkg:Ljava/lang/String;
 
-.field final previous_mode:I
+.field public final previous_mode:I
 
-.field final uid:I
+.field public final uid:I
 
 
 # direct methods
-.method constructor <init>(IILjava/lang/String;I)V
+.method public constructor <init>(IILjava/lang/String;I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

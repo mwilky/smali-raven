@@ -1,47 +1,38 @@
 .class public final synthetic Lcom/android/server/om/OverlayManagerSettings$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Consumer;
+.implements Ljava/util/function/Predicate;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/server/om/OverlayManagerSettings;
-
-.field public final synthetic f$1:Lcom/android/internal/util/IndentingPrintWriter;
-
-.field public final synthetic f$2:Lcom/android/server/om/DumpState;
+.field public final synthetic f$0:I
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/om/OverlayManagerSettings;Lcom/android/internal/util/IndentingPrintWriter;Lcom/android/server/om/DumpState;)V
+.method public synthetic constructor <init>(I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/om/OverlayManagerSettings$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/om/OverlayManagerSettings;
-
-    iput-object p2, p0, Lcom/android/server/om/OverlayManagerSettings$$ExternalSyntheticLambda1;->f$1:Lcom/android/internal/util/IndentingPrintWriter;
-
-    iput-object p3, p0, Lcom/android/server/om/OverlayManagerSettings$$ExternalSyntheticLambda1;->f$2:Lcom/android/server/om/DumpState;
+    iput p1, p0, Lcom/android/server/om/OverlayManagerSettings$$ExternalSyntheticLambda1;->f$0:I
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
-    .locals 3
+.method public final test(Ljava/lang/Object;)Z
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/om/OverlayManagerSettings$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/om/OverlayManagerSettings;
-
-    iget-object v1, p0, Lcom/android/server/om/OverlayManagerSettings$$ExternalSyntheticLambda1;->f$1:Lcom/android/internal/util/IndentingPrintWriter;
-
-    iget-object v2, p0, Lcom/android/server/om/OverlayManagerSettings$$ExternalSyntheticLambda1;->f$2:Lcom/android/server/om/DumpState;
+    iget p0, p0, Lcom/android/server/om/OverlayManagerSettings$$ExternalSyntheticLambda1;->f$0:I
 
     check-cast p1, Lcom/android/server/om/OverlayManagerSettings$SettingsItem;
 
-    invoke-virtual {v0, v1, v2, p1}, Lcom/android/server/om/OverlayManagerSettings;->lambda$dump$10$OverlayManagerSettings(Lcom/android/internal/util/IndentingPrintWriter;Lcom/android/server/om/DumpState;Lcom/android/server/om/OverlayManagerSettings$SettingsItem;)V
+    invoke-static {p0, p1}, Lcom/android/server/om/OverlayManagerSettings;->$r8$lambda$DfRINM4kXyxADVOGyzx4GtRXBI4(ILcom/android/server/om/OverlayManagerSettings$SettingsItem;)Z
 
-    return-void
+    move-result p0
+
+    return p0
 .end method

@@ -1,43 +1,38 @@
 .class public final synthetic Lcom/android/server/accessibility/AccessibilityManagerService$$ExternalSyntheticLambda39;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Predicate;
-
-
-# instance fields
-.field public final synthetic f$0:Ljava/lang/String;
-
-.field public final synthetic f$1:Lcom/android/server/accessibility/AccessibilityUserState;
+.implements Lcom/android/internal/util/function/QuadConsumer;
 
 
 # direct methods
-.method public synthetic constructor <init>(Ljava/lang/String;Lcom/android/server/accessibility/AccessibilityUserState;)V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/server/accessibility/AccessibilityManagerService$$ExternalSyntheticLambda39;->f$0:Ljava/lang/String;
-
-    iput-object p2, p0, Lcom/android/server/accessibility/AccessibilityManagerService$$ExternalSyntheticLambda39;->f$1:Lcom/android/server/accessibility/AccessibilityUserState;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final test(Ljava/lang/Object;)Z
-    .locals 2
+.method public final accept(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityManagerService$$ExternalSyntheticLambda39;->f$0:Ljava/lang/String;
+    check-cast p1, Lcom/android/server/accessibility/AccessibilityManagerService;
 
-    iget-object v1, p0, Lcom/android/server/accessibility/AccessibilityManagerService$$ExternalSyntheticLambda39;->f$1:Lcom/android/server/accessibility/AccessibilityUserState;
+    check-cast p2, Lcom/android/internal/inputmethod/IRemoteAccessibilityInputConnection;
 
-    check-cast p1, Ljava/lang/String;
+    check-cast p3, Landroid/view/inputmethod/EditorInfo;
 
-    invoke-static {v0, v1, p1}, Lcom/android/server/accessibility/AccessibilityManagerService;->lambda$migrateAccessibilityButtonSettingsIfNecessaryLocked$18(Ljava/lang/String;Lcom/android/server/accessibility/AccessibilityUserState;Ljava/lang/String;)Z
+    check-cast p4, Ljava/lang/Boolean;
 
-    move-result p1
+    invoke-virtual {p4}, Ljava/lang/Boolean;->booleanValue()Z
 
-    return p1
+    move-result p0
+
+    invoke-static {p1, p2, p3, p0}, Lcom/android/server/accessibility/AccessibilityManagerService;->$r8$lambda$9e10GLBNMx9Pu36nGitZK9F7mt4(Lcom/android/server/accessibility/AccessibilityManagerService;Lcom/android/internal/inputmethod/IRemoteAccessibilityInputConnection;Landroid/view/inputmethod/EditorInfo;Z)V
+
+    return-void
 .end method

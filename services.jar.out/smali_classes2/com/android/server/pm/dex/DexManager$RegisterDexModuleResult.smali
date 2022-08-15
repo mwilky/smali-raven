@@ -21,18 +21,6 @@
 
 
 # direct methods
-.method public constructor <init>()V
-    .locals 2
-
-    const/4 v0, 0x0
-
-    const/4 v1, 0x0
-
-    invoke-direct {p0, v0, v1}, Lcom/android/server/pm/dex/DexManager$RegisterDexModuleResult;-><init>(ZLjava/lang/String;)V
-
-    return-void
-.end method
-
 .method public constructor <init>(ZLjava/lang/String;)V
     .locals 0
 

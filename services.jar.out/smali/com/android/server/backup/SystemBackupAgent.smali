@@ -4,43 +4,15 @@
 
 
 # static fields
-.field private static final ACCOUNT_MANAGER_HELPER:Ljava/lang/String; = "account_manager"
-
-.field private static final NOTIFICATION_HELPER:Ljava/lang/String; = "notifications"
-
-.field private static final PEOPLE_HELPER:Ljava/lang/String; = "people"
-
-.field private static final PERMISSION_HELPER:Ljava/lang/String; = "permissions"
-
-.field private static final PREFERRED_HELPER:Ljava/lang/String; = "preferred_activities"
-
-.field private static final SHORTCUT_MANAGER_HELPER:Ljava/lang/String; = "shortcut_manager"
-
-.field private static final SLICES_HELPER:Ljava/lang/String; = "slices"
-
-.field private static final SYNC_SETTINGS_HELPER:Ljava/lang/String; = "account_sync_settings"
-
-.field private static final TAG:Ljava/lang/String; = "SystemBackupAgent"
-
-.field private static final USAGE_STATS_HELPER:Ljava/lang/String; = "usage_stats"
-
-.field private static final WALLPAPER_HELPER:Ljava/lang/String; = "wallpaper"
-
 .field public static final WALLPAPER_IMAGE:Ljava/lang/String;
 
-.field private static final WALLPAPER_IMAGE_DIR:Ljava/lang/String;
-
-.field private static final WALLPAPER_IMAGE_FILENAME:Ljava/lang/String; = "wallpaper"
-
-.field private static final WALLPAPER_IMAGE_KEY:Ljava/lang/String; = "/data/data/com.android.settings/files/wallpaper"
+.field public static final WALLPAPER_IMAGE_DIR:Ljava/lang/String;
 
 .field public static final WALLPAPER_INFO:Ljava/lang/String;
 
-.field private static final WALLPAPER_INFO_DIR:Ljava/lang/String;
+.field public static final WALLPAPER_INFO_DIR:Ljava/lang/String;
 
-.field private static final WALLPAPER_INFO_FILENAME:Ljava/lang/String; = "wallpaper_info.xml"
-
-.field private static final sEligibleForMultiUser:Ljava/util/Set;
+.field public static final sEligibleForMultiUser:Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Set<",
@@ -52,14 +24,12 @@
 
 
 # instance fields
-.field private mUserId:I
+.field public mUserId:I
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 4
-
-    nop
 
     const/4 v0, 0x0
 
@@ -88,8 +58,6 @@
     move-result-object v1
 
     sput-object v1, Lcom/android/server/backup/SystemBackupAgent;->WALLPAPER_IMAGE:Ljava/lang/String;
-
-    nop
 
     invoke-static {v0}, Landroid/os/Environment;->getUserSystemDirectory(I)Ljava/io/File;
 
@@ -123,7 +91,9 @@
 
     const-string v2, "account_sync_settings"
 
-    filled-new-array {v0, v1, v2}, [Ljava/lang/String;
+    const-string v3, "app_locales"
+
+    filled-new-array {v0, v1, v2, v3}, [Ljava/lang/String;
 
     move-result-object v0
 
@@ -174,97 +144,107 @@
 .end method
 
 .method public onCreate(Landroid/os/UserHandle;I)V
-    .locals 2
+    .locals 0
 
     invoke-super {p0, p1, p2}, Landroid/app/backup/BackupAgentHelper;->onCreate(Landroid/os/UserHandle;I)V
 
     invoke-virtual {p1}, Landroid/os/UserHandle;->getIdentifier()I
 
-    move-result v0
+    move-result p1
 
-    iput v0, p0, Lcom/android/server/backup/SystemBackupAgent;->mUserId:I
+    iput p1, p0, Lcom/android/server/backup/SystemBackupAgent;->mUserId:I
 
-    new-instance v0, Lcom/android/server/backup/AccountSyncSettingsBackupHelper;
+    new-instance p1, Lcom/android/server/backup/AccountSyncSettingsBackupHelper;
 
-    iget v1, p0, Lcom/android/server/backup/SystemBackupAgent;->mUserId:I
+    iget p2, p0, Lcom/android/server/backup/SystemBackupAgent;->mUserId:I
 
-    invoke-direct {v0, p0, v1}, Lcom/android/server/backup/AccountSyncSettingsBackupHelper;-><init>(Landroid/content/Context;I)V
+    invoke-direct {p1, p0, p2}, Lcom/android/server/backup/AccountSyncSettingsBackupHelper;-><init>(Landroid/content/Context;I)V
 
-    const-string v1, "account_sync_settings"
+    const-string p2, "account_sync_settings"
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/server/backup/SystemBackupAgent;->addHelper(Ljava/lang/String;Landroid/app/backup/BackupHelper;)V
+    invoke-virtual {p0, p2, p1}, Lcom/android/server/backup/SystemBackupAgent;->addHelper(Ljava/lang/String;Landroid/app/backup/BackupHelper;)V
 
-    new-instance v0, Lcom/android/server/backup/PreferredActivityBackupHelper;
+    new-instance p1, Lcom/android/server/backup/PreferredActivityBackupHelper;
 
-    iget v1, p0, Lcom/android/server/backup/SystemBackupAgent;->mUserId:I
+    iget p2, p0, Lcom/android/server/backup/SystemBackupAgent;->mUserId:I
 
-    invoke-direct {v0, v1}, Lcom/android/server/backup/PreferredActivityBackupHelper;-><init>(I)V
+    invoke-direct {p1, p2}, Lcom/android/server/backup/PreferredActivityBackupHelper;-><init>(I)V
 
-    const-string/jumbo v1, "preferred_activities"
+    const-string/jumbo p2, "preferred_activities"
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/server/backup/SystemBackupAgent;->addHelper(Ljava/lang/String;Landroid/app/backup/BackupHelper;)V
+    invoke-virtual {p0, p2, p1}, Lcom/android/server/backup/SystemBackupAgent;->addHelper(Ljava/lang/String;Landroid/app/backup/BackupHelper;)V
 
-    new-instance v0, Lcom/android/server/backup/NotificationBackupHelper;
+    new-instance p1, Lcom/android/server/backup/NotificationBackupHelper;
 
-    iget v1, p0, Lcom/android/server/backup/SystemBackupAgent;->mUserId:I
+    iget p2, p0, Lcom/android/server/backup/SystemBackupAgent;->mUserId:I
 
-    invoke-direct {v0, v1}, Lcom/android/server/backup/NotificationBackupHelper;-><init>(I)V
+    invoke-direct {p1, p2}, Lcom/android/server/backup/NotificationBackupHelper;-><init>(I)V
 
-    const-string/jumbo v1, "notifications"
+    const-string/jumbo p2, "notifications"
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/server/backup/SystemBackupAgent;->addHelper(Ljava/lang/String;Landroid/app/backup/BackupHelper;)V
+    invoke-virtual {p0, p2, p1}, Lcom/android/server/backup/SystemBackupAgent;->addHelper(Ljava/lang/String;Landroid/app/backup/BackupHelper;)V
 
-    new-instance v0, Lcom/android/server/backup/PermissionBackupHelper;
+    new-instance p1, Lcom/android/server/backup/PermissionBackupHelper;
 
-    iget v1, p0, Lcom/android/server/backup/SystemBackupAgent;->mUserId:I
+    iget p2, p0, Lcom/android/server/backup/SystemBackupAgent;->mUserId:I
 
-    invoke-direct {v0, v1}, Lcom/android/server/backup/PermissionBackupHelper;-><init>(I)V
+    invoke-direct {p1, p2}, Lcom/android/server/backup/PermissionBackupHelper;-><init>(I)V
 
-    const-string/jumbo v1, "permissions"
+    const-string/jumbo p2, "permissions"
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/server/backup/SystemBackupAgent;->addHelper(Ljava/lang/String;Landroid/app/backup/BackupHelper;)V
+    invoke-virtual {p0, p2, p1}, Lcom/android/server/backup/SystemBackupAgent;->addHelper(Ljava/lang/String;Landroid/app/backup/BackupHelper;)V
 
-    new-instance v0, Lcom/android/server/backup/UsageStatsBackupHelper;
+    new-instance p1, Lcom/android/server/backup/UsageStatsBackupHelper;
 
-    invoke-direct {v0, p0}, Lcom/android/server/backup/UsageStatsBackupHelper;-><init>(Landroid/content/Context;)V
+    invoke-direct {p1, p0}, Lcom/android/server/backup/UsageStatsBackupHelper;-><init>(Landroid/content/Context;)V
 
-    const-string/jumbo v1, "usage_stats"
+    const-string/jumbo p2, "usage_stats"
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/server/backup/SystemBackupAgent;->addHelper(Ljava/lang/String;Landroid/app/backup/BackupHelper;)V
+    invoke-virtual {p0, p2, p1}, Lcom/android/server/backup/SystemBackupAgent;->addHelper(Ljava/lang/String;Landroid/app/backup/BackupHelper;)V
 
-    new-instance v0, Lcom/android/server/backup/ShortcutBackupHelper;
+    new-instance p1, Lcom/android/server/backup/ShortcutBackupHelper;
 
-    invoke-direct {v0}, Lcom/android/server/backup/ShortcutBackupHelper;-><init>()V
+    invoke-direct {p1}, Lcom/android/server/backup/ShortcutBackupHelper;-><init>()V
 
-    const-string/jumbo v1, "shortcut_manager"
+    const-string/jumbo p2, "shortcut_manager"
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/server/backup/SystemBackupAgent;->addHelper(Ljava/lang/String;Landroid/app/backup/BackupHelper;)V
+    invoke-virtual {p0, p2, p1}, Lcom/android/server/backup/SystemBackupAgent;->addHelper(Ljava/lang/String;Landroid/app/backup/BackupHelper;)V
 
-    new-instance v0, Lcom/android/server/backup/AccountManagerBackupHelper;
+    new-instance p1, Lcom/android/server/backup/AccountManagerBackupHelper;
 
-    invoke-direct {v0}, Lcom/android/server/backup/AccountManagerBackupHelper;-><init>()V
+    invoke-direct {p1}, Lcom/android/server/backup/AccountManagerBackupHelper;-><init>()V
 
-    const-string v1, "account_manager"
+    const-string p2, "account_manager"
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/server/backup/SystemBackupAgent;->addHelper(Ljava/lang/String;Landroid/app/backup/BackupHelper;)V
+    invoke-virtual {p0, p2, p1}, Lcom/android/server/backup/SystemBackupAgent;->addHelper(Ljava/lang/String;Landroid/app/backup/BackupHelper;)V
 
-    new-instance v0, Lcom/android/server/backup/SliceBackupHelper;
+    new-instance p1, Lcom/android/server/backup/SliceBackupHelper;
 
-    invoke-direct {v0, p0}, Lcom/android/server/backup/SliceBackupHelper;-><init>(Landroid/content/Context;)V
+    invoke-direct {p1, p0}, Lcom/android/server/backup/SliceBackupHelper;-><init>(Landroid/content/Context;)V
 
-    const-string/jumbo v1, "slices"
+    const-string/jumbo p2, "slices"
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/server/backup/SystemBackupAgent;->addHelper(Ljava/lang/String;Landroid/app/backup/BackupHelper;)V
+    invoke-virtual {p0, p2, p1}, Lcom/android/server/backup/SystemBackupAgent;->addHelper(Ljava/lang/String;Landroid/app/backup/BackupHelper;)V
 
-    new-instance v0, Lcom/android/server/backup/PeopleBackupHelper;
+    new-instance p1, Lcom/android/server/backup/PeopleBackupHelper;
 
-    iget v1, p0, Lcom/android/server/backup/SystemBackupAgent;->mUserId:I
+    iget p2, p0, Lcom/android/server/backup/SystemBackupAgent;->mUserId:I
 
-    invoke-direct {v0, v1}, Lcom/android/server/backup/PeopleBackupHelper;-><init>(I)V
+    invoke-direct {p1, p2}, Lcom/android/server/backup/PeopleBackupHelper;-><init>(I)V
 
-    const-string/jumbo v1, "people"
+    const-string/jumbo p2, "people"
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/server/backup/SystemBackupAgent;->addHelper(Ljava/lang/String;Landroid/app/backup/BackupHelper;)V
+    invoke-virtual {p0, p2, p1}, Lcom/android/server/backup/SystemBackupAgent;->addHelper(Ljava/lang/String;Landroid/app/backup/BackupHelper;)V
+
+    new-instance p1, Lcom/android/server/backup/AppSpecificLocalesBackupHelper;
+
+    iget p2, p0, Lcom/android/server/backup/SystemBackupAgent;->mUserId:I
+
+    invoke-direct {p1, p2}, Lcom/android/server/backup/AppSpecificLocalesBackupHelper;-><init>(I)V
+
+    const-string p2, "app_locales"
+
+    invoke-virtual {p0, p2, p1}, Lcom/android/server/backup/SystemBackupAgent;->addHelper(Ljava/lang/String;Landroid/app/backup/BackupHelper;)V
 
     return-void
 .end method
@@ -320,153 +300,137 @@
 .end method
 
 .method public onRestoreFile(Landroid/os/ParcelFileDescriptor;JILjava/lang/String;Ljava/lang/String;JJ)V
-    .locals 16
+    .locals 15
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    move-object/from16 v1, p5
+    move-object/from16 v0, p5
 
-    move-object/from16 v2, p6
+    move-object/from16 v1, p6
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string v3, "Restoring file domain="
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     const-string v3, " path="
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
     const-string v3, "SystemBackupAgent"
 
-    invoke-static {v3, v0}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 v0, 0x0
+    const-string/jumbo v2, "r"
 
-    const/4 v4, 0x0
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    const-string/jumbo v5, "r"
+    move-result v2
 
-    invoke-virtual {v1, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const/4 v4, 0x1
 
-    move-result v5
+    const-string/jumbo v5, "wallpaper"
 
-    const-string/jumbo v6, "wallpaper"
+    if-eqz v2, :cond_1
 
-    if-eqz v5, :cond_1
+    const-string/jumbo v2, "wallpaper_info.xml"
 
-    const-string/jumbo v5, "wallpaper_info.xml"
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v2, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result v2
 
-    move-result v5
+    if-eqz v2, :cond_0
 
-    if-eqz v5, :cond_0
+    new-instance v2, Ljava/io/File;
 
-    new-instance v5, Ljava/io/File;
+    sget-object v6, Lcom/android/server/backup/SystemBackupAgent;->WALLPAPER_INFO:Ljava/lang/String;
 
-    sget-object v7, Lcom/android/server/backup/SystemBackupAgent;->WALLPAPER_INFO:Ljava/lang/String;
-
-    invoke-direct {v5, v7}, Ljava/io/File;-><init>(Ljava/lang/String;)V
-
-    move-object v4, v5
-
-    const/4 v0, 0x1
-
-    move v4, v0
+    invoke-direct {v2, v6}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     goto :goto_0
 
     :cond_0
-    invoke-virtual {v2, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v2
 
-    if-eqz v5, :cond_1
+    if-eqz v2, :cond_1
 
-    new-instance v5, Ljava/io/File;
+    new-instance v2, Ljava/io/File;
 
-    sget-object v7, Lcom/android/server/backup/SystemBackupAgent;->WALLPAPER_IMAGE:Ljava/lang/String;
+    sget-object v6, Lcom/android/server/backup/SystemBackupAgent;->WALLPAPER_IMAGE:Ljava/lang/String;
 
-    invoke-direct {v5, v7}, Ljava/io/File;-><init>(Ljava/lang/String;)V
-
-    move-object v4, v5
-
-    const/4 v0, 0x1
-
-    move v4, v0
+    invoke-direct {v2, v6}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     goto :goto_0
 
     :cond_1
-    move-object v5, v4
+    const/4 v4, 0x0
 
-    move v4, v0
+    const/4 v2, 0x0
 
     :goto_0
-    if-nez v5, :cond_2
+    move-object v14, v2
+
+    if-nez v14, :cond_2
 
     :try_start_0
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v7, "Skipping unrecognized system file: [ "
+    const-string v6, "Skipping unrecognized system file: [ "
 
-    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v7, " : "
+    const-string v0, " : "
 
-    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v7, " ]"
+    const-string v0, " ]"
 
-    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
     invoke-static {v3, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_2
-    move-object/from16 v7, p1
+    move-object/from16 v6, p1
 
-    move-wide/from16 v8, p2
+    move-wide/from16 v7, p2
 
-    move/from16 v10, p4
+    move/from16 v9, p4
 
-    move-wide/from16 v11, p7
+    move-wide/from16 v10, p7
 
-    move-wide/from16 v13, p9
+    move-wide/from16 v12, p9
 
-    move-object v15, v5
-
-    invoke-static/range {v7 .. v15}, Landroid/app/backup/FullBackup;->restoreFile(Landroid/os/ParcelFileDescriptor;JIJJLjava/io/File;)V
+    invoke-static/range {v6 .. v14}, Landroid/app/backup/FullBackup;->restoreFile(Landroid/os/ParcelFileDescriptor;JIJJLjava/io/File;)V
 
     if-eqz v4, :cond_3
 
-    nop
-
-    invoke-static {v6}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+    invoke-static {v5}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v0
 
@@ -474,12 +438,10 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
 
-    move-object v6, v0
-
-    if-eqz v6, :cond_3
+    if-eqz v0, :cond_3
 
     :try_start_1
-    invoke-interface {v6}, Landroid/app/IWallpaperManager;->settingsRestored()V
+    invoke-interface {v0}, Landroid/app/IWallpaperManager;->settingsRestored()V
     :try_end_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
@@ -489,55 +451,49 @@
     :catch_0
     move-exception v0
 
-    move-object v7, v0
-
-    move-object v0, v7
+    move-object v1, v0
 
     :try_start_2
-    new-instance v7, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v8, "Couldn\'t restore settings\n"
+    const-string v2, "Couldn\'t restore settings\n"
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v7, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v0
 
-    invoke-static {v3, v7}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_2
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_1
 
-    :cond_3
-    :goto_1
-    goto :goto_2
+    goto :goto_1
 
     :catch_1
-    move-exception v0
+    if-eqz v4, :cond_3
 
-    if-eqz v4, :cond_4
+    new-instance v0, Ljava/io/File;
 
-    new-instance v3, Ljava/io/File;
+    sget-object v1, Lcom/android/server/backup/SystemBackupAgent;->WALLPAPER_IMAGE:Ljava/lang/String;
 
-    sget-object v6, Lcom/android/server/backup/SystemBackupAgent;->WALLPAPER_IMAGE:Ljava/lang/String;
+    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    invoke-direct {v3, v6}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v0}, Ljava/io/File;->delete()Z
 
-    invoke-virtual {v3}, Ljava/io/File;->delete()Z
+    new-instance v0, Ljava/io/File;
 
-    new-instance v3, Ljava/io/File;
+    sget-object v1, Lcom/android/server/backup/SystemBackupAgent;->WALLPAPER_INFO:Ljava/lang/String;
 
-    sget-object v6, Lcom/android/server/backup/SystemBackupAgent;->WALLPAPER_INFO:Ljava/lang/String;
+    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    invoke-direct {v3, v6}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v0}, Ljava/io/File;->delete()Z
 
-    invoke-virtual {v3}, Ljava/io/File;->delete()Z
-
-    :cond_4
-    :goto_2
+    :cond_3
+    :goto_1
     return-void
 .end method

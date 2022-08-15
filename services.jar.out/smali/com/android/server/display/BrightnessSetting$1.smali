@@ -1,4 +1,4 @@
-.class Lcom/android/server/display/BrightnessSetting$1;
+.class public Lcom/android/server/display/BrightnessSetting$1;
 .super Landroid/os/Handler;
 .source "BrightnessSetting.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/display/BrightnessSetting;
+.field public final synthetic this$0:Lcom/android/server/display/BrightnessSetting;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/display/BrightnessSetting;Landroid/os/Looper;)V
+.method public constructor <init>(Lcom/android/server/display/BrightnessSetting;Landroid/os/Looper;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/display/BrightnessSetting$1;->this$0:Lcom/android/server/display/BrightnessSetting;
@@ -40,15 +40,15 @@
 
     if-ne v0, v1, :cond_0
 
-    iget v0, p1, Landroid/os/Message;->arg1:I
+    iget p1, p1, Landroid/os/Message;->arg1:I
 
-    invoke-static {v0}, Ljava/lang/Float;->intBitsToFloat(I)F
+    invoke-static {p1}, Ljava/lang/Float;->intBitsToFloat(I)F
 
-    move-result v0
+    move-result p1
 
-    iget-object v1, p0, Lcom/android/server/display/BrightnessSetting$1;->this$0:Lcom/android/server/display/BrightnessSetting;
+    iget-object p0, p0, Lcom/android/server/display/BrightnessSetting$1;->this$0:Lcom/android/server/display/BrightnessSetting;
 
-    invoke-static {v1, v0}, Lcom/android/server/display/BrightnessSetting;->access$000(Lcom/android/server/display/BrightnessSetting;F)V
+    invoke-static {p0, p1}, Lcom/android/server/display/BrightnessSetting;->-$$Nest$mnotifyListeners(Lcom/android/server/display/BrightnessSetting;F)V
 
     :cond_0
     return-void

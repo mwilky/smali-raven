@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/rollback/RollbackManagerServiceImpl$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Landroid/provider/DeviceConfig$OnPropertiesChangedListener;
 
 
 # instance fields
@@ -22,12 +23,12 @@
 
 
 # virtual methods
-.method public final run()V
-    .locals 1
+.method public final onPropertiesChanged(Landroid/provider/DeviceConfig$Properties;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/rollback/RollbackManagerServiceImpl$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/rollback/RollbackManagerServiceImpl;
+    iget-object p0, p0, Lcom/android/server/rollback/RollbackManagerServiceImpl$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/rollback/RollbackManagerServiceImpl;
 
-    invoke-virtual {v0}, Lcom/android/server/rollback/RollbackManagerServiceImpl;->lambda$reloadPersistedData$4$RollbackManagerServiceImpl()V
+    invoke-static {p0, p1}, Lcom/android/server/rollback/RollbackManagerServiceImpl;->$r8$lambda$sGGTK4wUZI4CpwfBk29xEUclDoQ(Lcom/android/server/rollback/RollbackManagerServiceImpl;Landroid/provider/DeviceConfig$Properties;)V
 
     return-void
 .end method

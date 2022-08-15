@@ -4,6 +4,9 @@
 
 
 # annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/android/server/locksettings/LockSettingsStorage;
 .end annotation
@@ -15,14 +18,14 @@
 
 
 # instance fields
-.field hash:[B
+.field public hash:[B
 
-.field type:I
+.field public type:I
 
 
 # direct methods
-.method private constructor <init>([BI)V
-    .locals 2
+.method public constructor <init>([BI)V
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -35,13 +38,13 @@
     goto :goto_0
 
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Empty hash for CredentialHash"
+    const-string p1, "Empty hash for CredentialHash"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 
     :cond_1
     if-nez p1, :cond_2
@@ -54,16 +57,16 @@
     return-void
 
     :cond_2
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "None type CredentialHash should not have hash"
+    const-string p1, "None type CredentialHash should not have hash"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
-.method synthetic constructor <init>([BILcom/android/server/locksettings/LockSettingsStorage$1;)V
+.method public synthetic constructor <init>([BILcom/android/server/locksettings/LockSettingsStorage$CredentialHash-IA;)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/locksettings/LockSettingsStorage$CredentialHash;-><init>([BI)V
@@ -71,30 +74,7 @@
     return-void
 .end method
 
-.method static create([BI)Lcom/android/server/locksettings/LockSettingsStorage$CredentialHash;
-    .locals 2
-
-    const/4 v0, -0x1
-
-    if-eq p1, v0, :cond_0
-
-    new-instance v0, Lcom/android/server/locksettings/LockSettingsStorage$CredentialHash;
-
-    invoke-direct {v0, p0, p1}, Lcom/android/server/locksettings/LockSettingsStorage$CredentialHash;-><init>([BI)V
-
-    return-object v0
-
-    :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
-
-    const-string v1, "Bad type for CredentialHash"
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-.end method
-
-.method static createEmptyHash()Lcom/android/server/locksettings/LockSettingsStorage$CredentialHash;
+.method public static createEmptyHash()Lcom/android/server/locksettings/LockSettingsStorage$CredentialHash;
     .locals 3
 
     new-instance v0, Lcom/android/server/locksettings/LockSettingsStorage$CredentialHash;

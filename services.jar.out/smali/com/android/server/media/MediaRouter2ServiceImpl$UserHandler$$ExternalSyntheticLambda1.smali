@@ -1,28 +1,13 @@
 .class public final synthetic Lcom/android/server/media/MediaRouter2ServiceImpl$UserHandler$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/internal/util/function/QuadConsumer;
-
-
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/media/MediaRouter2ServiceImpl$UserHandler$$ExternalSyntheticLambda1;
+.implements Ljava/util/function/Function;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/media/MediaRouter2ServiceImpl$UserHandler$$ExternalSyntheticLambda1;
-
-    invoke-direct {v0}, Lcom/android/server/media/MediaRouter2ServiceImpl$UserHandler$$ExternalSyntheticLambda1;-><init>()V
-
-    sput-object v0, Lcom/android/server/media/MediaRouter2ServiceImpl$UserHandler$$ExternalSyntheticLambda1;->INSTANCE:Lcom/android/server/media/MediaRouter2ServiceImpl$UserHandler$$ExternalSyntheticLambda1;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,26 +17,14 @@
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 2
+.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 0
 
-    check-cast p1, Lcom/android/server/media/MediaRouter2ServiceImpl$UserHandler;
+    check-cast p1, Lcom/android/server/media/MediaRouter2ServiceImpl$RouterRecord;
 
-    check-cast p2, Lcom/android/server/media/MediaRoute2Provider;
+    invoke-static {p1}, Lcom/android/server/media/MediaRouter2ServiceImpl$UserHandler;->$r8$lambda$10HKBieAEdoL-2sUqTQwCLpMvw4(Lcom/android/server/media/MediaRouter2ServiceImpl$RouterRecord;)Landroid/media/RouteDiscoveryPreference;
 
-    check-cast p3, Ljava/lang/Long;
+    move-result-object p0
 
-    invoke-virtual {p3}, Ljava/lang/Long;->longValue()J
-
-    move-result-wide v0
-
-    check-cast p4, Ljava/lang/Integer;
-
-    invoke-virtual {p4}, Ljava/lang/Integer;->intValue()I
-
-    move-result p3
-
-    invoke-static {p1, p2, v0, v1, p3}, Lcom/android/server/media/MediaRouter2ServiceImpl$UserHandler;->$r8$lambda$BlvJKclcwWlp8CPpAUiMFIFJPBg(Lcom/android/server/media/MediaRouter2ServiceImpl$UserHandler;Lcom/android/server/media/MediaRoute2Provider;JI)V
-
-    return-void
+    return-object p0
 .end method

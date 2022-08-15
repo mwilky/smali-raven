@@ -1,4 +1,4 @@
-.class Lcom/android/server/content/ContentService$1;
+.class public Lcom/android/server/content/ContentService$1;
 .super Landroid/content/BroadcastReceiver;
 .source "ContentService.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/content/ContentService;
+.field public final synthetic this$0:Lcom/android/server/content/ContentService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/content/ContentService;)V
+.method public constructor <init>(Lcom/android/server/content/ContentService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/content/ContentService$1;->this$0:Lcom/android/server/content/ContentService;
@@ -32,76 +32,76 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 6
+    .locals 3
 
-    iget-object v0, p0, Lcom/android/server/content/ContentService$1;->this$0:Lcom/android/server/content/ContentService;
+    iget-object p1, p0, Lcom/android/server/content/ContentService$1;->this$0:Lcom/android/server/content/ContentService;
 
-    invoke-static {v0}, Lcom/android/server/content/ContentService;->access$000(Lcom/android/server/content/ContentService;)Landroid/util/SparseArray;
+    invoke-static {p1}, Lcom/android/server/content/ContentService;->-$$Nest$fgetmCache(Lcom/android/server/content/ContentService;)Landroid/util/SparseArray;
 
-    move-result-object v0
+    move-result-object p1
 
-    monitor-enter v0
+    monitor-enter p1
 
     :try_start_0
-    const-string v1, "android.intent.action.LOCALE_CHANGED"
+    const-string v0, "android.intent.action.LOCALE_CHANGED"
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/server/content/ContentService$1;->this$0:Lcom/android/server/content/ContentService;
-
-    invoke-static {v1}, Lcom/android/server/content/ContentService;->access$000(Lcom/android/server/content/ContentService;)Landroid/util/SparseArray;
-
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/util/SparseArray;->clear()V
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object p0, p0, Lcom/android/server/content/ContentService$1;->this$0:Lcom/android/server/content/ContentService;
+
+    invoke-static {p0}, Lcom/android/server/content/ContentService;->-$$Nest$fgetmCache(Lcom/android/server/content/ContentService;)Landroid/util/SparseArray;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroid/util/SparseArray;->clear()V
 
     goto :goto_0
 
     :cond_0
     invoke-virtual {p2}, Landroid/content/Intent;->getData()Landroid/net/Uri;
 
-    move-result-object v1
+    move-result-object v0
 
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
-    const-string v2, "android.intent.extra.user_handle"
+    const-string v1, "android.intent.extra.user_handle"
 
-    const/16 v3, -0x2710
+    const/16 v2, -0x2710
 
-    invoke-virtual {p2, v2, v3}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {p2, v1, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    move-result v2
+    move-result p2
 
-    invoke-virtual {v1}, Landroid/net/Uri;->getSchemeSpecificPart()Ljava/lang/String;
+    invoke-virtual {v0}, Landroid/net/Uri;->getSchemeSpecificPart()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v0
 
-    iget-object v4, p0, Lcom/android/server/content/ContentService$1;->this$0:Lcom/android/server/content/ContentService;
+    iget-object p0, p0, Lcom/android/server/content/ContentService$1;->this$0:Lcom/android/server/content/ContentService;
 
-    const/4 v5, 0x0
+    const/4 v1, 0x0
 
-    invoke-static {v4, v2, v3, v5}, Lcom/android/server/content/ContentService;->access$100(Lcom/android/server/content/ContentService;ILjava/lang/String;Landroid/net/Uri;)V
+    invoke-static {p0, p2, v0, v1}, Lcom/android/server/content/ContentService;->-$$Nest$minvalidateCacheLocked(Lcom/android/server/content/ContentService;ILjava/lang/String;Landroid/net/Uri;)V
 
     :cond_1
     :goto_0
-    monitor-exit v0
+    monitor-exit p1
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
-    monitor-exit v0
+    monitor-exit p1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method

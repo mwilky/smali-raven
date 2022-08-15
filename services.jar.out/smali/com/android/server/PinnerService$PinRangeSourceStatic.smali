@@ -1,4 +1,4 @@
-.class final Lcom/android/server/PinnerService$PinRangeSourceStatic;
+.class public final Lcom/android/server/PinnerService$PinRangeSourceStatic;
 .super Lcom/android/server/PinnerService$PinRangeSource;
 .source "PinnerService.java"
 
@@ -9,26 +9,26 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "PinRangeSourceStatic"
 .end annotation
 
 
 # instance fields
-.field private mDone:Z
+.field public mDone:Z
 
-.field private final mPinLength:I
+.field public final mPinLength:I
 
-.field private final mPinStart:I
+.field public final mPinStart:I
 
 
 # direct methods
-.method constructor <init>(II)V
+.method public constructor <init>(II)V
     .locals 1
 
     const/4 v0, 0x0
 
-    invoke-direct {p0, v0}, Lcom/android/server/PinnerService$PinRangeSource;-><init>(Lcom/android/server/PinnerService$1;)V
+    invoke-direct {p0, v0}, Lcom/android/server/PinnerService$PinRangeSource;-><init>(Lcom/android/server/PinnerService$PinRangeSource-IA;)V
 
     const/4 v0, 0x0
 
@@ -43,8 +43,8 @@
 
 
 # virtual methods
-.method read(Lcom/android/server/PinnerService$PinRange;)Z
-    .locals 2
+.method public read(Lcom/android/server/PinnerService$PinRange;)Z
+    .locals 1
 
     iget v0, p0, Lcom/android/server/PinnerService$PinRangeSourceStatic;->mPinStart:I
 
@@ -54,13 +54,13 @@
 
     iput v0, p1, Lcom/android/server/PinnerService$PinRange;->length:I
 
-    iget-boolean v0, p0, Lcom/android/server/PinnerService$PinRangeSourceStatic;->mDone:Z
+    iget-boolean p1, p0, Lcom/android/server/PinnerService$PinRangeSourceStatic;->mDone:Z
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    iput-boolean v1, p0, Lcom/android/server/PinnerService$PinRangeSourceStatic;->mDone:Z
+    iput-boolean v0, p0, Lcom/android/server/PinnerService$PinRangeSourceStatic;->mDone:Z
 
-    xor-int/lit8 v1, v0, 0x1
+    xor-int/lit8 p0, p1, 0x1
 
-    return v1
+    return p0
 .end method

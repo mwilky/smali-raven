@@ -1,4 +1,4 @@
-.class Lcom/android/server/notification/PreferencesHelper$PackagePreferences;
+.class public Lcom/android/server/notification/PreferencesHelper$PackagePreferences;
 .super Ljava/lang/Object;
 .source "PreferencesHelper.java"
 
@@ -9,15 +9,15 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "PackagePreferences"
 .end annotation
 
 
 # instance fields
-.field bubblePreference:I
+.field public bubblePreference:I
 
-.field channels:Landroid/util/ArrayMap;
+.field public channels:Landroid/util/ArrayMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/ArrayMap<",
@@ -28,11 +28,13 @@
     .end annotation
 .end field
 
-.field defaultAppLockedImportance:Z
+.field public defaultAppLockedImportance:Z
 
-.field delegate:Lcom/android/server/notification/PreferencesHelper$Delegate;
+.field public delegate:Lcom/android/server/notification/PreferencesHelper$Delegate;
 
-.field groups:Ljava/util/Map;
+.field public fixedImportance:Z
+
+.field public groups:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Map<",
@@ -43,41 +45,33 @@
     .end annotation
 .end field
 
-.field hasSentInvalidMessage:Z
+.field public hasSentInvalidMessage:Z
 
-.field hasSentValidMessage:Z
+.field public hasSentValidBubble:Z
 
-.field importance:I
+.field public hasSentValidMessage:Z
 
-.field lockedAppFields:I
+.field public importance:I
 
-.field oemLockedChannels:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List<",
-            "Ljava/lang/String;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public lockedAppFields:I
 
-.field oemLockedImportance:Z
+.field public migrateToPm:Z
 
-.field pkg:Ljava/lang/String;
+.field public pkg:Ljava/lang/String;
 
-.field priority:I
+.field public priority:I
 
-.field showBadge:Z
+.field public showBadge:Z
 
-.field uid:I
+.field public uid:I
 
-.field userDemotedMsgApp:Z
+.field public userDemotedMsgApp:Z
 
-.field visibility:I
+.field public visibility:I
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -104,21 +98,19 @@
 
     iput v1, p0, Lcom/android/server/notification/PreferencesHelper$PackagePreferences;->lockedAppFields:I
 
-    iput-boolean v1, p0, Lcom/android/server/notification/PreferencesHelper$PackagePreferences;->oemLockedImportance:Z
-
-    new-instance v0, Ljava/util/ArrayList;
-
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
-
-    iput-object v0, p0, Lcom/android/server/notification/PreferencesHelper$PackagePreferences;->oemLockedChannels:Ljava/util/List;
-
     iput-boolean v1, p0, Lcom/android/server/notification/PreferencesHelper$PackagePreferences;->defaultAppLockedImportance:Z
+
+    iput-boolean v1, p0, Lcom/android/server/notification/PreferencesHelper$PackagePreferences;->fixedImportance:Z
 
     iput-boolean v1, p0, Lcom/android/server/notification/PreferencesHelper$PackagePreferences;->hasSentInvalidMessage:Z
 
     iput-boolean v1, p0, Lcom/android/server/notification/PreferencesHelper$PackagePreferences;->hasSentValidMessage:Z
 
     iput-boolean v1, p0, Lcom/android/server/notification/PreferencesHelper$PackagePreferences;->userDemotedMsgApp:Z
+
+    iput-boolean v1, p0, Lcom/android/server/notification/PreferencesHelper$PackagePreferences;->hasSentValidBubble:Z
+
+    iput-boolean v1, p0, Lcom/android/server/notification/PreferencesHelper$PackagePreferences;->migrateToPm:Z
 
     const/4 v0, 0x0
 
@@ -139,7 +131,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/notification/PreferencesHelper$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/notification/PreferencesHelper$PackagePreferences-IA;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/notification/PreferencesHelper$PackagePreferences;-><init>()V
@@ -150,25 +142,25 @@
 
 # virtual methods
 .method public isValidDelegate(Ljava/lang/String;I)Z
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/notification/PreferencesHelper$PackagePreferences;->delegate:Lcom/android/server/notification/PreferencesHelper$Delegate;
+    iget-object p0, p0, Lcom/android/server/notification/PreferencesHelper$PackagePreferences;->delegate:Lcom/android/server/notification/PreferencesHelper$Delegate;
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    invoke-virtual {v0, p1, p2}, Lcom/android/server/notification/PreferencesHelper$Delegate;->isAllowed(Ljava/lang/String;I)Z
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/notification/PreferencesHelper$Delegate;->isAllowed(Ljava/lang/String;I)Z
 
-    move-result v0
+    move-result p0
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method

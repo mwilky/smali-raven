@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/server/media/BluetoothRouteProvider$BluetoothEventReceiver;
+.class public interface abstract Lcom/android/server/media/BluetoothRouteProvider$BluetoothEventReceiver;
 .super Ljava/lang/Object;
 .source "BluetoothRouteProvider.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x60a
+    accessFlags = 0x609
     name = "BluetoothEventReceiver"
 .end annotation
 

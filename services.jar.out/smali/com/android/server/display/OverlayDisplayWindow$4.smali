@@ -1,4 +1,4 @@
-.class Lcom/android/server/display/OverlayDisplayWindow$4;
+.class public Lcom/android/server/display/OverlayDisplayWindow$4;
 .super Landroid/view/GestureDetector$SimpleOnGestureListener;
 .source "OverlayDisplayWindow.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/display/OverlayDisplayWindow;
+.field public final synthetic this$0:Lcom/android/server/display/OverlayDisplayWindow;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/display/OverlayDisplayWindow;)V
+.method public constructor <init>(Lcom/android/server/display/OverlayDisplayWindow;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/display/OverlayDisplayWindow$4;->this$0:Lcom/android/server/display/OverlayDisplayWindow;
@@ -32,21 +32,33 @@
 
 # virtual methods
 .method public onScroll(Landroid/view/MotionEvent;Landroid/view/MotionEvent;FF)Z
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/display/OverlayDisplayWindow$4;->this$0:Lcom/android/server/display/OverlayDisplayWindow;
+    iget-object p1, p0, Lcom/android/server/display/OverlayDisplayWindow$4;->this$0:Lcom/android/server/display/OverlayDisplayWindow;
 
-    invoke-static {v0, p3}, Lcom/android/server/display/OverlayDisplayWindow;->access$724(Lcom/android/server/display/OverlayDisplayWindow;F)F
+    invoke-static {p1}, Lcom/android/server/display/OverlayDisplayWindow;->-$$Nest$fgetmLiveTranslationX(Lcom/android/server/display/OverlayDisplayWindow;)F
 
-    iget-object v0, p0, Lcom/android/server/display/OverlayDisplayWindow$4;->this$0:Lcom/android/server/display/OverlayDisplayWindow;
+    move-result p2
 
-    invoke-static {v0, p4}, Lcom/android/server/display/OverlayDisplayWindow;->access$824(Lcom/android/server/display/OverlayDisplayWindow;F)F
+    sub-float/2addr p2, p3
 
-    iget-object v0, p0, Lcom/android/server/display/OverlayDisplayWindow$4;->this$0:Lcom/android/server/display/OverlayDisplayWindow;
+    invoke-static {p1, p2}, Lcom/android/server/display/OverlayDisplayWindow;->-$$Nest$fputmLiveTranslationX(Lcom/android/server/display/OverlayDisplayWindow;F)V
 
-    invoke-virtual {v0}, Lcom/android/server/display/OverlayDisplayWindow;->relayout()V
+    iget-object p1, p0, Lcom/android/server/display/OverlayDisplayWindow$4;->this$0:Lcom/android/server/display/OverlayDisplayWindow;
 
-    const/4 v0, 0x1
+    invoke-static {p1}, Lcom/android/server/display/OverlayDisplayWindow;->-$$Nest$fgetmLiveTranslationY(Lcom/android/server/display/OverlayDisplayWindow;)F
 
-    return v0
+    move-result p2
+
+    sub-float/2addr p2, p4
+
+    invoke-static {p1, p2}, Lcom/android/server/display/OverlayDisplayWindow;->-$$Nest$fputmLiveTranslationY(Lcom/android/server/display/OverlayDisplayWindow;F)V
+
+    iget-object p0, p0, Lcom/android/server/display/OverlayDisplayWindow$4;->this$0:Lcom/android/server/display/OverlayDisplayWindow;
+
+    invoke-virtual {p0}, Lcom/android/server/display/OverlayDisplayWindow;->relayout()V
+
+    const/4 p0, 0x1
+
+    return p0
 .end method

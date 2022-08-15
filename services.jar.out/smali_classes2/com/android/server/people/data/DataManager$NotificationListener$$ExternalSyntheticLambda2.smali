@@ -1,47 +1,44 @@
 .class public final synthetic Lcom/android/server/people/data/DataManager$NotificationListener$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Consumer;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/android/server/people/data/DataManager$NotificationListener;
-
-.field public final synthetic f$1:Landroid/service/notification/StatusBarNotification;
-
-.field public final synthetic f$2:Ljava/lang/String;
+.implements Ljava/util/function/BiFunction;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/people/data/DataManager$NotificationListener;Landroid/service/notification/StatusBarNotification;Ljava/lang/String;)V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/server/people/data/DataManager$NotificationListener$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/people/data/DataManager$NotificationListener;
-
-    iput-object p2, p0, Lcom/android/server/people/data/DataManager$NotificationListener$$ExternalSyntheticLambda2;->f$1:Landroid/service/notification/StatusBarNotification;
-
-    iput-object p3, p0, Lcom/android/server/people/data/DataManager$NotificationListener$$ExternalSyntheticLambda2;->f$2:Ljava/lang/String;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
-    .locals 3
+.method public final apply(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/people/data/DataManager$NotificationListener$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/people/data/DataManager$NotificationListener;
+    check-cast p1, Ljava/lang/Integer;
 
-    iget-object v1, p0, Lcom/android/server/people/data/DataManager$NotificationListener$$ExternalSyntheticLambda2;->f$1:Landroid/service/notification/StatusBarNotification;
+    invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
 
-    iget-object v2, p0, Lcom/android/server/people/data/DataManager$NotificationListener$$ExternalSyntheticLambda2;->f$2:Ljava/lang/String;
+    move-result p0
 
-    check-cast p1, Lcom/android/server/people/data/ConversationInfo;
+    check-cast p2, Ljava/lang/Integer;
 
-    invoke-virtual {v0, v1, v2, p1}, Lcom/android/server/people/data/DataManager$NotificationListener;->lambda$onNotificationRemoved$1$DataManager$NotificationListener(Landroid/service/notification/StatusBarNotification;Ljava/lang/String;Lcom/android/server/people/data/ConversationInfo;)V
+    invoke-virtual {p2}, Ljava/lang/Integer;->intValue()I
 
-    return-void
+    move-result p1
+
+    invoke-static {p0, p1}, Ljava/lang/Integer;->sum(II)I
+
+    move-result p0
+
+    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object p0
+
+    return-object p0
 .end method

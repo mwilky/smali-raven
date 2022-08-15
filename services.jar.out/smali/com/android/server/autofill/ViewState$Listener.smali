@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/server/autofill/ViewState$Listener;
+.class public interface abstract Lcom/android/server/autofill/ViewState$Listener;
 .super Ljava/lang/Object;
 .source "ViewState.java"
 
@@ -9,11 +9,11 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
+    accessFlags = 0x609
     name = "Listener"
 .end annotation
 
 
 # virtual methods
-.method public abstract onFillReady(Landroid/service/autofill/FillResponse;Landroid/view/autofill/AutofillId;Landroid/view/autofill/AutofillValue;)V
+.method public abstract onFillReady(Landroid/service/autofill/FillResponse;Landroid/view/autofill/AutofillId;Landroid/view/autofill/AutofillValue;I)V
 .end method

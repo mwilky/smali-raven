@@ -1,4 +1,4 @@
-.class final Lcom/android/server/autofill/Session$SaveResult;
+.class public final Lcom/android/server/autofill/Session$SaveResult;
 .super Ljava/lang/Object;
 .source "Session.java"
 
@@ -9,21 +9,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = "SaveResult"
 .end annotation
 
 
 # instance fields
-.field private mLogSaveShown:Z
+.field public mLogSaveShown:Z
 
-.field private mRemoveSession:Z
+.field public mRemoveSession:Z
 
-.field private mSaveDialogNotShowReason:I
+.field public mSaveDialogNotShowReason:I
 
 
 # direct methods
-.method constructor <init>(ZZI)V
+.method public constructor <init>(ZZI)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,51 +40,27 @@
 
 # virtual methods
 .method public getNoSaveUiReason()I
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/autofill/Session$SaveResult;->mSaveDialogNotShowReason:I
+    iget p0, p0, Lcom/android/server/autofill/Session$SaveResult;->mSaveDialogNotShowReason:I
 
-    return v0
+    return p0
 .end method
 
 .method public isLogSaveShown()Z
-    .locals 1
+    .locals 0
 
-    iget-boolean v0, p0, Lcom/android/server/autofill/Session$SaveResult;->mLogSaveShown:Z
+    iget-boolean p0, p0, Lcom/android/server/autofill/Session$SaveResult;->mLogSaveShown:Z
 
-    return v0
+    return p0
 .end method
 
 .method public isRemoveSession()Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/server/autofill/Session$SaveResult;->mRemoveSession:Z
-
-    return v0
-.end method
-
-.method public setLogSaveShown(Z)V
     .locals 0
 
-    iput-boolean p1, p0, Lcom/android/server/autofill/Session$SaveResult;->mLogSaveShown:Z
+    iget-boolean p0, p0, Lcom/android/server/autofill/Session$SaveResult;->mRemoveSession:Z
 
-    return-void
-.end method
-
-.method public setRemoveSession(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/server/autofill/Session$SaveResult;->mRemoveSession:Z
-
-    return-void
-.end method
-
-.method public setSaveDialogNotShowReason(I)V
-    .locals 0
-
-    iput p1, p0, Lcom/android/server/autofill/Session$SaveResult;->mSaveDialogNotShowReason:I
-
-    return-void
+    return p0
 .end method
 
 .method public toString()Ljava/lang/String;
@@ -114,17 +90,17 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v1, p0, Lcom/android/server/autofill/Session$SaveResult;->mSaveDialogNotShowReason:I
+    iget p0, p0, Lcom/android/server/autofill/Session$SaveResult;->mSaveDialogNotShowReason:I
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v1, "]"
+    const-string p0, "]"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

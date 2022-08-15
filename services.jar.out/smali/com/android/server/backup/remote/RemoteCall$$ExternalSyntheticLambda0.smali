@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/backup/remote/RemoteCall$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/backup/remote/RemoteCall$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/backup/remote/RemoteCall;
+    iget-object p0, p0, Lcom/android/server/backup/remote/RemoteCall$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/backup/remote/RemoteCall;
 
-    invoke-static {v0}, Lcom/android/server/backup/remote/RemoteCall;->$r8$lambda$KU79zXZdYj-XIeuWevlfe_nSw5Y(Lcom/android/server/backup/remote/RemoteCall;)V
+    invoke-static {p0}, Lcom/android/server/backup/remote/RemoteCall;->$r8$lambda$KU79zXZdYj-XIeuWevlfe_nSw5Y(Lcom/android/server/backup/remote/RemoteCall;)V
 
     return-void
 .end method

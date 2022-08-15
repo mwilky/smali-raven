@@ -4,6 +4,10 @@
 
 
 # annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    visibility = .enum Lcom/android/internal/annotations/VisibleForTesting$Visibility;->PRIVATE:Lcom/android/internal/annotations/VisibleForTesting$Visibility;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/android/server/vcn/VcnGatewayConnection;
 .end annotation
@@ -15,7 +19,7 @@
 
 
 # instance fields
-.field private final mImpl:Landroid/net/ipsec/ike/IkeSession;
+.field public final mImpl:Landroid/net/ipsec/ike/IkeSession;
 
 
 # direct methods
@@ -36,9 +40,9 @@
 
     invoke-virtual {p1}, Lcom/android/server/vcn/VcnContext;->getLooper()Landroid/os/Looper;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-direct {v0, v2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
+    invoke-direct {v0, p1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
     invoke-direct {v4, v0}, Landroid/os/HandlerExecutor;-><init>(Landroid/os/Handler;)V
 
@@ -62,51 +66,31 @@
 
 # virtual methods
 .method public close()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/vcn/VcnGatewayConnection$VcnIkeSession;->mImpl:Landroid/net/ipsec/ike/IkeSession;
+    iget-object p0, p0, Lcom/android/server/vcn/VcnGatewayConnection$VcnIkeSession;->mImpl:Landroid/net/ipsec/ike/IkeSession;
 
-    invoke-virtual {v0}, Landroid/net/ipsec/ike/IkeSession;->close()V
-
-    return-void
-.end method
-
-.method public closeChildSession(Landroid/net/ipsec/ike/ChildSessionCallback;)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/vcn/VcnGatewayConnection$VcnIkeSession;->mImpl:Landroid/net/ipsec/ike/IkeSession;
-
-    invoke-virtual {v0, p1}, Landroid/net/ipsec/ike/IkeSession;->closeChildSession(Landroid/net/ipsec/ike/ChildSessionCallback;)V
+    invoke-virtual {p0}, Landroid/net/ipsec/ike/IkeSession;->close()V
 
     return-void
 .end method
 
 .method public kill()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/vcn/VcnGatewayConnection$VcnIkeSession;->mImpl:Landroid/net/ipsec/ike/IkeSession;
+    iget-object p0, p0, Lcom/android/server/vcn/VcnGatewayConnection$VcnIkeSession;->mImpl:Landroid/net/ipsec/ike/IkeSession;
 
-    invoke-virtual {v0}, Landroid/net/ipsec/ike/IkeSession;->kill()V
-
-    return-void
-.end method
-
-.method public openChildSession(Landroid/net/ipsec/ike/ChildSessionParams;Landroid/net/ipsec/ike/ChildSessionCallback;)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/vcn/VcnGatewayConnection$VcnIkeSession;->mImpl:Landroid/net/ipsec/ike/IkeSession;
-
-    invoke-virtual {v0, p1, p2}, Landroid/net/ipsec/ike/IkeSession;->openChildSession(Landroid/net/ipsec/ike/ChildSessionParams;Landroid/net/ipsec/ike/ChildSessionCallback;)V
+    invoke-virtual {p0}, Landroid/net/ipsec/ike/IkeSession;->kill()V
 
     return-void
 .end method
 
 .method public setNetwork(Landroid/net/Network;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/vcn/VcnGatewayConnection$VcnIkeSession;->mImpl:Landroid/net/ipsec/ike/IkeSession;
+    iget-object p0, p0, Lcom/android/server/vcn/VcnGatewayConnection$VcnIkeSession;->mImpl:Landroid/net/ipsec/ike/IkeSession;
 
-    invoke-virtual {v0, p1}, Landroid/net/ipsec/ike/IkeSession;->setNetwork(Landroid/net/Network;)V
+    invoke-virtual {p0, p1}, Landroid/net/ipsec/ike/IkeSession;->setNetwork(Landroid/net/Network;)V
 
     return-void
 .end method

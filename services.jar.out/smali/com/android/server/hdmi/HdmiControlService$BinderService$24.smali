@@ -1,4 +1,4 @@
-.class Lcom/android/server/hdmi/HdmiControlService$BinderService$24;
+.class public Lcom/android/server/hdmi/HdmiControlService$BinderService$24;
 .super Ljava/lang/Object;
 .source "HdmiControlService.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$1:Lcom/android/server/hdmi/HdmiControlService$BinderService;
+.field public final synthetic this$1:Lcom/android/server/hdmi/HdmiControlService$BinderService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/hdmi/HdmiControlService$BinderService;)V
+.method public constructor <init>(Lcom/android/server/hdmi/HdmiControlService$BinderService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService$24;->this$1:Lcom/android/server/hdmi/HdmiControlService$BinderService;
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService$24;->this$1:Lcom/android/server/hdmi/HdmiControlService$BinderService;
 
@@ -49,9 +49,9 @@
 
     if-nez v0, :cond_0
 
-    const-string v0, "Not an audio system device. Won\'t set system audio mode on"
+    const-string p0, "Not an audio system device. Won\'t set system audio mode on"
 
-    invoke-static {v1, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
@@ -66,9 +66,9 @@
 
     if-nez v0, :cond_1
 
-    const-string v0, "Audio System local device is not registered"
+    const-string p0, "Audio System local device is not registered"
 
-    invoke-static {v1, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
@@ -89,34 +89,36 @@
 
     if-nez v0, :cond_2
 
-    const-string v0, "System Audio Mode is not supported."
+    const-string p0, "System Audio Mode is not supported."
 
-    invoke-static {v1, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
     :cond_2
-    iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService$24;->this$1:Lcom/android/server/hdmi/HdmiControlService$BinderService;
+    iget-object p0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService$24;->this$1:Lcom/android/server/hdmi/HdmiControlService$BinderService;
 
-    iget-object v0, v0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
+    iget-object p0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
-    iget-object v1, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService$24;->this$1:Lcom/android/server/hdmi/HdmiControlService$BinderService;
+    invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiControlService;->audioSystem()Lcom/android/server/hdmi/HdmiCecLocalDeviceAudioSystem;
 
-    iget-object v1, v1, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
+    move-result-object v0
 
-    invoke-virtual {v1}, Lcom/android/server/hdmi/HdmiControlService;->audioSystem()Lcom/android/server/hdmi/HdmiCecLocalDeviceAudioSystem;
+    invoke-virtual {v0}, Lcom/android/server/hdmi/HdmiCecLocalDevice;->getDeviceInfo()Landroid/hardware/hdmi/HdmiDeviceInfo;
 
-    move-result-object v1
+    move-result-object v0
 
-    iget v1, v1, Lcom/android/server/hdmi/HdmiCecLocalDeviceAudioSystem;->mAddress:I
+    invoke-virtual {v0}, Landroid/hardware/hdmi/HdmiDeviceInfo;->getLogicalAddress()I
 
-    const/16 v3, 0xf
+    move-result v0
 
-    invoke-static {v1, v3, v2}, Lcom/android/server/hdmi/HdmiCecMessageBuilder;->buildSetSystemAudioMode(IIZ)Lcom/android/server/hdmi/HdmiCecMessage;
+    const/16 v1, 0xf
 
-    move-result-object v1
+    invoke-static {v0, v1, v2}, Lcom/android/server/hdmi/HdmiCecMessageBuilder;->buildSetSystemAudioMode(IIZ)Lcom/android/server/hdmi/HdmiCecMessage;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/hdmi/HdmiControlService;->sendCecCommand(Lcom/android/server/hdmi/HdmiCecMessage;)V
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Lcom/android/server/hdmi/HdmiControlService;->sendCecCommand(Lcom/android/server/hdmi/HdmiCecMessage;)V
 
     return-void
 .end method

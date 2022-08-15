@@ -15,17 +15,13 @@
 
 
 # static fields
-.field private static final LOG_PARSE_TIMINGS:Z
-
-.field private static final LOG_PARSE_TIMINGS_THRESHOLD_MS:I = 0x64
-
-.field private static final TAG:Ljava/lang/String; = "PackageParsing"
+.field public static final LOG_PARSE_TIMINGS:Z
 
 
 # instance fields
-.field protected mCacher:Lcom/android/server/pm/parsing/PackageCacher;
+.field public mCacher:Lcom/android/server/pm/parsing/PackageCacher;
 
-.field private mSharedAppInfo:Ljava/lang/ThreadLocal;
+.field public mSharedAppInfo:Ljava/lang/ThreadLocal;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/lang/ThreadLocal<",
@@ -35,7 +31,7 @@
     .end annotation
 .end field
 
-.field private mSharedResult:Ljava/lang/ThreadLocal;
+.field public mSharedResult:Ljava/lang/ThreadLocal;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/lang/ThreadLocal<",
@@ -45,11 +41,41 @@
     .end annotation
 .end field
 
-.field private parsingUtils:Landroid/content/pm/parsing/ParsingPackageUtils;
+.field public parsingUtils:Lcom/android/server/pm/pkg/parsing/ParsingPackageUtils;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static synthetic $r8$lambda$Cj4GVgvNLY55VZy61p7qPlNAEvg(Lcom/android/server/pm/parsing/PackageParser2;Lcom/android/server/pm/parsing/PackageParser2$Callback;JLjava/lang/String;I)Z
+    .locals 0
+
+    invoke-direct/range {p0 .. p5}, Lcom/android/server/pm/parsing/PackageParser2;->lambda$new$1(Lcom/android/server/pm/parsing/PackageParser2$Callback;JLjava/lang/String;I)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public static synthetic $r8$lambda$TyuePyUPnrrxyGine9B9PVPKaBM()Landroid/content/pm/ApplicationInfo;
+    .locals 1
+
+    invoke-static {}, Lcom/android/server/pm/parsing/PackageParser2;->lambda$new$0()Landroid/content/pm/ApplicationInfo;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public static synthetic $r8$lambda$wJ5RQfmA6u_C5mkZkTAKrvEySIo(Landroid/content/pm/parsing/result/ParseInput$Callback;)Landroid/content/pm/parsing/result/ParseTypeImpl;
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/server/pm/parsing/PackageParser2;->lambda$new$2(Landroid/content/pm/parsing/result/ParseInput$Callback;)Landroid/content/pm/parsing/result/ParseTypeImpl;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static constructor <clinit>()V
     .locals 1
 
     sget-boolean v0, Landroid/os/Build;->IS_DEBUGGABLE:Z
@@ -60,11 +86,13 @@
 .end method
 
 .method public constructor <init>([Ljava/lang/String;ZLandroid/util/DisplayMetrics;Ljava/io/File;Lcom/android/server/pm/parsing/PackageParser2$Callback;)V
-    .locals 9
+    .locals 6
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    sget-object v0, Lcom/android/server/pm/parsing/PackageParser2$$ExternalSyntheticLambda2;->INSTANCE:Lcom/android/server/pm/parsing/PackageParser2$$ExternalSyntheticLambda2;
+    new-instance v0, Lcom/android/server/pm/parsing/PackageParser2$$ExternalSyntheticLambda0;
+
+    invoke-direct {v0}, Lcom/android/server/pm/parsing/PackageParser2$$ExternalSyntheticLambda0;-><init>()V
 
     invoke-static {v0}, Ljava/lang/ThreadLocal;->withInitial(Ljava/util/function/Supplier;)Ljava/lang/ThreadLocal;
 
@@ -74,88 +102,78 @@
 
     if-nez p3, :cond_0
 
-    new-instance v0, Landroid/util/DisplayMetrics;
+    new-instance p3, Landroid/util/DisplayMetrics;
 
-    invoke-direct {v0}, Landroid/util/DisplayMetrics;-><init>()V
-
-    move-object p3, v0
+    invoke-direct {p3}, Landroid/util/DisplayMetrics;-><init>()V
 
     invoke-virtual {p3}, Landroid/util/DisplayMetrics;->setToDefaults()V
 
     :cond_0
+    move-object v3, p3
+
     invoke-static {}, Landroid/app/ActivityThread;->currentApplication()Landroid/app/Application;
 
-    move-result-object v0
+    move-result-object p3
 
-    const-class v1, Landroid/permission/PermissionManager;
+    const-class v0, Landroid/permission/PermissionManager;
 
-    invoke-virtual {v0, v1}, Landroid/app/Application;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-virtual {p3, v0}, Landroid/app/Application;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p3
 
-    move-object v6, v0
+    check-cast p3, Landroid/permission/PermissionManager;
 
-    check-cast v6, Landroid/permission/PermissionManager;
+    invoke-virtual {p3}, Landroid/permission/PermissionManager;->getSplitPermissions()Ljava/util/List;
 
-    nop
-
-    invoke-virtual {v6}, Landroid/permission/PermissionManager;->getSplitPermissions()Ljava/util/List;
-
-    move-result-object v7
+    move-result-object v4
 
     if-nez p4, :cond_1
 
-    const/4 v0, 0x0
+    const/4 p3, 0x0
 
     goto :goto_0
 
     :cond_1
-    new-instance v0, Lcom/android/server/pm/parsing/PackageCacher;
+    new-instance p3, Lcom/android/server/pm/parsing/PackageCacher;
 
-    invoke-direct {v0, p4}, Lcom/android/server/pm/parsing/PackageCacher;-><init>(Ljava/io/File;)V
+    invoke-direct {p3, p4}, Lcom/android/server/pm/parsing/PackageCacher;-><init>(Ljava/io/File;)V
 
     :goto_0
-    iput-object v0, p0, Lcom/android/server/pm/parsing/PackageParser2;->mCacher:Lcom/android/server/pm/parsing/PackageCacher;
+    iput-object p3, p0, Lcom/android/server/pm/parsing/PackageParser2;->mCacher:Lcom/android/server/pm/parsing/PackageCacher;
 
-    new-instance v8, Landroid/content/pm/parsing/ParsingPackageUtils;
+    new-instance p3, Lcom/android/server/pm/pkg/parsing/ParsingPackageUtils;
 
-    move-object v0, v8
+    move-object v0, p3
 
     move v1, p2
 
     move-object v2, p1
 
-    move-object v3, p3
-
-    move-object v4, v7
-
     move-object v5, p5
 
-    invoke-direct/range {v0 .. v5}, Landroid/content/pm/parsing/ParsingPackageUtils;-><init>(Z[Ljava/lang/String;Landroid/util/DisplayMetrics;Ljava/util/List;Landroid/content/pm/parsing/ParsingPackageUtils$Callback;)V
+    invoke-direct/range {v0 .. v5}, Lcom/android/server/pm/pkg/parsing/ParsingPackageUtils;-><init>(Z[Ljava/lang/String;Landroid/util/DisplayMetrics;Ljava/util/List;Lcom/android/server/pm/pkg/parsing/ParsingPackageUtils$Callback;)V
 
-    iput-object v8, p0, Lcom/android/server/pm/parsing/PackageParser2;->parsingUtils:Landroid/content/pm/parsing/ParsingPackageUtils;
+    iput-object p3, p0, Lcom/android/server/pm/parsing/PackageParser2;->parsingUtils:Lcom/android/server/pm/pkg/parsing/ParsingPackageUtils;
 
-    new-instance v0, Lcom/android/server/pm/parsing/PackageParser2$$ExternalSyntheticLambda0;
+    new-instance p1, Lcom/android/server/pm/parsing/PackageParser2$$ExternalSyntheticLambda1;
 
-    invoke-direct {v0, p0, p5}, Lcom/android/server/pm/parsing/PackageParser2$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/pm/parsing/PackageParser2;Lcom/android/server/pm/parsing/PackageParser2$Callback;)V
+    invoke-direct {p1, p0, p5}, Lcom/android/server/pm/parsing/PackageParser2$$ExternalSyntheticLambda1;-><init>(Lcom/android/server/pm/parsing/PackageParser2;Lcom/android/server/pm/parsing/PackageParser2$Callback;)V
 
-    new-instance v1, Lcom/android/server/pm/parsing/PackageParser2$$ExternalSyntheticLambda1;
+    new-instance p2, Lcom/android/server/pm/parsing/PackageParser2$$ExternalSyntheticLambda2;
 
-    invoke-direct {v1, v0}, Lcom/android/server/pm/parsing/PackageParser2$$ExternalSyntheticLambda1;-><init>(Landroid/content/pm/parsing/result/ParseInput$Callback;)V
+    invoke-direct {p2, p1}, Lcom/android/server/pm/parsing/PackageParser2$$ExternalSyntheticLambda2;-><init>(Landroid/content/pm/parsing/result/ParseInput$Callback;)V
 
-    invoke-static {v1}, Ljava/lang/ThreadLocal;->withInitial(Ljava/util/function/Supplier;)Ljava/lang/ThreadLocal;
+    invoke-static {p2}, Ljava/lang/ThreadLocal;->withInitial(Ljava/util/function/Supplier;)Ljava/lang/ThreadLocal;
 
-    move-result-object v1
+    move-result-object p1
 
-    iput-object v1, p0, Lcom/android/server/pm/parsing/PackageParser2;->mSharedResult:Ljava/lang/ThreadLocal;
+    iput-object p1, p0, Lcom/android/server/pm/parsing/PackageParser2;->mSharedResult:Ljava/lang/ThreadLocal;
 
     return-void
 .end method
 
 .method public static forParsingFileWithDefaults()Lcom/android/server/pm/parsing/PackageParser2;
     .locals 8
-
-    nop
 
     const-string v0, "platform_compat"
 
@@ -188,7 +206,7 @@
     return-object v7
 .end method
 
-.method static synthetic lambda$new$0()Landroid/content/pm/ApplicationInfo;
+.method public static synthetic lambda$new$0()Landroid/content/pm/ApplicationInfo;
     .locals 2
 
     new-instance v0, Landroid/content/pm/ApplicationInfo;
@@ -202,7 +220,29 @@
     return-object v0
 .end method
 
-.method static synthetic lambda$new$2(Landroid/content/pm/parsing/result/ParseInput$Callback;)Landroid/content/pm/parsing/result/ParseTypeImpl;
+.method private synthetic lambda$new$1(Lcom/android/server/pm/parsing/PackageParser2$Callback;JLjava/lang/String;I)Z
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/pm/parsing/PackageParser2;->mSharedAppInfo:Ljava/lang/ThreadLocal;
+
+    invoke-virtual {p0}, Ljava/lang/ThreadLocal;->get()Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Landroid/content/pm/ApplicationInfo;
+
+    iput-object p4, p0, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+
+    iput p5, p0, Landroid/content/pm/ApplicationInfo;->targetSdkVersion:I
+
+    invoke-virtual {p1, p2, p3, p0}, Lcom/android/server/pm/parsing/PackageParser2$Callback;->isChangeEnabled(JLandroid/content/pm/ApplicationInfo;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public static synthetic lambda$new$2(Landroid/content/pm/parsing/result/ParseInput$Callback;)Landroid/content/pm/parsing/result/ParseTypeImpl;
     .locals 1
 
     new-instance v0, Landroid/content/pm/parsing/result/ParseTypeImpl;
@@ -221,195 +261,202 @@
 
     invoke-virtual {v0}, Ljava/lang/ThreadLocal;->remove()V
 
-    iget-object v0, p0, Lcom/android/server/pm/parsing/PackageParser2;->mSharedAppInfo:Ljava/lang/ThreadLocal;
+    iget-object p0, p0, Lcom/android/server/pm/parsing/PackageParser2;->mSharedAppInfo:Ljava/lang/ThreadLocal;
 
-    invoke-virtual {v0}, Ljava/lang/ThreadLocal;->remove()V
+    invoke-virtual {p0}, Ljava/lang/ThreadLocal;->remove()V
 
     return-void
 .end method
 
-.method public synthetic lambda$new$1$PackageParser2(Lcom/android/server/pm/parsing/PackageParser2$Callback;JLjava/lang/String;I)Z
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/server/pm/parsing/PackageParser2;->mSharedAppInfo:Ljava/lang/ThreadLocal;
-
-    invoke-virtual {v0}, Ljava/lang/ThreadLocal;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/content/pm/ApplicationInfo;
-
-    iput-object p4, v0, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
-
-    iput p5, v0, Landroid/content/pm/ApplicationInfo;->targetSdkVersion:I
-
-    invoke-virtual {p1, p2, p3, v0}, Lcom/android/server/pm/parsing/PackageParser2$Callback;->isChangeEnabled(JLandroid/content/pm/ApplicationInfo;)Z
-
-    move-result v1
-
-    return v1
-.end method
-
 .method public parsePackage(Ljava/io/File;IZ)Lcom/android/server/pm/parsing/pkg/ParsedPackage;
-    .locals 12
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
-            Landroid/content/pm/PackageParser$PackageParserException;
+            Lcom/android/server/pm/PackageManagerException;
+        }
+    .end annotation
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, p1, p2, p3, v0}, Lcom/android/server/pm/parsing/PackageParser2;->parsePackage(Ljava/io/File;IZLjava/util/List;)Lcom/android/server/pm/parsing/pkg/ParsedPackage;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public parsePackage(Ljava/io/File;IZLjava/util/List;)Lcom/android/server/pm/parsing/pkg/ParsedPackage;
+    .locals 6
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/io/File;",
+            "IZ",
+            "Ljava/util/List<",
+            "Ljava/io/File;",
+            ">;)",
+            "Lcom/android/server/pm/parsing/pkg/ParsedPackage;"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/android/server/pm/PackageManagerException;
         }
     .end annotation
 
     if-eqz p3, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/pm/parsing/PackageParser2;->mCacher:Lcom/android/server/pm/parsing/PackageCacher;
+    iget-object p3, p0, Lcom/android/server/pm/parsing/PackageParser2;->mCacher:Lcom/android/server/pm/parsing/PackageCacher;
 
-    if-eqz v0, :cond_0
+    if-eqz p3, :cond_0
 
-    invoke-virtual {v0, p1, p2}, Lcom/android/server/pm/parsing/PackageCacher;->getCachedResult(Ljava/io/File;I)Lcom/android/server/pm/parsing/pkg/ParsedPackage;
+    invoke-virtual {p3, p1, p2}, Lcom/android/server/pm/parsing/PackageCacher;->getCachedResult(Ljava/io/File;I)Lcom/android/server/pm/parsing/pkg/ParsedPackage;
 
-    move-result-object v0
+    move-result-object p3
 
-    if-eqz v0, :cond_0
+    if-eqz p3, :cond_0
 
-    return-object v0
+    return-object p3
 
     :cond_0
-    sget-boolean v0, Lcom/android/server/pm/parsing/PackageParser2;->LOG_PARSE_TIMINGS:Z
+    sget-boolean p3, Lcom/android/server/pm/parsing/PackageParser2;->LOG_PARSE_TIMINGS:Z
 
-    const-wide/16 v1, 0x0
+    const-wide/16 v0, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz p3, :cond_1
 
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
-    move-result-wide v3
+    move-result-wide v2
 
     goto :goto_0
 
     :cond_1
-    move-wide v3, v1
+    move-wide v2, v0
 
     :goto_0
-    iget-object v5, p0, Lcom/android/server/pm/parsing/PackageParser2;->mSharedResult:Ljava/lang/ThreadLocal;
+    iget-object v4, p0, Lcom/android/server/pm/parsing/PackageParser2;->mSharedResult:Ljava/lang/ThreadLocal;
 
-    invoke-virtual {v5}, Ljava/lang/ThreadLocal;->get()Ljava/lang/Object;
+    invoke-virtual {v4}, Ljava/lang/ThreadLocal;->get()Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v4
 
-    check-cast v5, Landroid/content/pm/parsing/result/ParseTypeImpl;
+    check-cast v4, Landroid/content/pm/parsing/result/ParseTypeImpl;
 
-    invoke-virtual {v5}, Landroid/content/pm/parsing/result/ParseTypeImpl;->reset()Landroid/content/pm/parsing/result/ParseInput;
+    invoke-virtual {v4}, Landroid/content/pm/parsing/result/ParseTypeImpl;->reset()Landroid/content/pm/parsing/result/ParseInput;
 
-    move-result-object v5
+    move-result-object v4
 
-    iget-object v6, p0, Lcom/android/server/pm/parsing/PackageParser2;->parsingUtils:Landroid/content/pm/parsing/ParsingPackageUtils;
+    iget-object v5, p0, Lcom/android/server/pm/parsing/PackageParser2;->parsingUtils:Lcom/android/server/pm/pkg/parsing/ParsingPackageUtils;
 
-    invoke-virtual {v6, v5, p1, p2}, Landroid/content/pm/parsing/ParsingPackageUtils;->parsePackage(Landroid/content/pm/parsing/result/ParseInput;Ljava/io/File;I)Landroid/content/pm/parsing/result/ParseResult;
+    invoke-virtual {v5, v4, p1, p2, p4}, Lcom/android/server/pm/pkg/parsing/ParsingPackageUtils;->parsePackage(Landroid/content/pm/parsing/result/ParseInput;Ljava/io/File;ILjava/util/List;)Landroid/content/pm/parsing/result/ParseResult;
 
-    move-result-object v6
+    move-result-object p4
 
-    invoke-interface {v6}, Landroid/content/pm/parsing/result/ParseResult;->isError()Z
+    invoke-interface {p4}, Landroid/content/pm/parsing/result/ParseResult;->isError()Z
 
-    move-result v7
+    move-result v4
 
-    if-nez v7, :cond_5
+    if-nez v4, :cond_5
 
-    invoke-interface {v6}, Landroid/content/pm/parsing/result/ParseResult;->getResult()Ljava/lang/Object;
+    invoke-interface {p4}, Landroid/content/pm/parsing/result/ParseResult;->getResult()Ljava/lang/Object;
 
-    move-result-object v7
+    move-result-object p4
 
-    check-cast v7, Landroid/content/pm/parsing/ParsingPackage;
+    check-cast p4, Lcom/android/server/pm/pkg/parsing/ParsingPackage;
 
-    invoke-interface {v7}, Landroid/content/pm/parsing/ParsingPackage;->hideAsParsed()Ljava/lang/Object;
+    invoke-interface {p4}, Lcom/android/server/pm/pkg/parsing/ParsingPackage;->hideAsParsed()Ljava/lang/Object;
 
-    move-result-object v7
+    move-result-object p4
 
-    check-cast v7, Lcom/android/server/pm/parsing/pkg/ParsedPackage;
+    check-cast p4, Lcom/android/server/pm/parsing/pkg/ParsedPackage;
 
-    if-eqz v0, :cond_2
+    if-eqz p3, :cond_2
 
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
-    move-result-wide v1
+    move-result-wide v0
 
     :cond_2
-    iget-object v8, p0, Lcom/android/server/pm/parsing/PackageParser2;->mCacher:Lcom/android/server/pm/parsing/PackageCacher;
+    iget-object p0, p0, Lcom/android/server/pm/parsing/PackageParser2;->mCacher:Lcom/android/server/pm/parsing/PackageCacher;
 
-    if-eqz v8, :cond_3
+    if-eqz p0, :cond_3
 
-    invoke-virtual {v8, p1, p2, v7}, Lcom/android/server/pm/parsing/PackageCacher;->cacheResult(Ljava/io/File;ILcom/android/server/pm/parsing/pkg/ParsedPackage;)V
+    invoke-virtual {p0, p1, p2, p4}, Lcom/android/server/pm/parsing/PackageCacher;->cacheResult(Ljava/io/File;ILcom/android/server/pm/parsing/pkg/ParsedPackage;)V
 
     :cond_3
-    if-eqz v0, :cond_4
+    if-eqz p3, :cond_4
 
-    sub-long v3, v1, v3
+    sub-long p2, v0, v2
 
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
-    move-result-wide v8
+    move-result-wide v2
 
-    sub-long v1, v8, v1
+    sub-long/2addr v2, v0
 
-    add-long v8, v3, v1
+    add-long v0, p2, v2
 
-    const-wide/16 v10, 0x64
+    const-wide/16 v4, 0x64
 
-    cmp-long v0, v8, v10
+    cmp-long p0, v0, v4
 
-    if-lez v0, :cond_4
+    if-lez p0, :cond_4
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance p0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v8, "Parse times for \'"
+    const-string v0, "Parse times for \'"
 
-    invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string v8, "\': parse="
+    const-string p1, "\': parse="
 
-    invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v3, v4}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, p2, p3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    const-string v8, "ms, update_cache="
+    const-string p1, "ms, update_cache="
 
-    invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    const-string v8, " ms"
+    const-string p1, " ms"
 
-    invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    const-string v8, "PackageParsing"
+    const-string p1, "PackageParsing"
 
-    invoke-static {v8, v0}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p1, p0}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_4
-    return-object v7
+    return-object p4
 
     :cond_5
-    new-instance v0, Landroid/content/pm/PackageParser$PackageParserException;
+    new-instance p0, Lcom/android/server/pm/PackageManagerException;
 
-    invoke-interface {v6}, Landroid/content/pm/parsing/result/ParseResult;->getErrorCode()I
+    invoke-interface {p4}, Landroid/content/pm/parsing/result/ParseResult;->getErrorCode()I
 
-    move-result v1
+    move-result p1
 
-    invoke-interface {v6}, Landroid/content/pm/parsing/result/ParseResult;->getErrorMessage()Ljava/lang/String;
+    invoke-interface {p4}, Landroid/content/pm/parsing/result/ParseResult;->getErrorMessage()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p2
 
-    invoke-interface {v6}, Landroid/content/pm/parsing/result/ParseResult;->getException()Ljava/lang/Exception;
+    invoke-interface {p4}, Landroid/content/pm/parsing/result/ParseResult;->getException()Ljava/lang/Exception;
 
-    move-result-object v7
+    move-result-object p3
 
-    invoke-direct {v0, v1, v2, v7}, Landroid/content/pm/PackageParser$PackageParserException;-><init>(ILjava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/pm/PackageManagerException;-><init>(ILjava/lang/String;Ljava/lang/Throwable;)V
 
-    throw v0
+    throw p0
 .end method

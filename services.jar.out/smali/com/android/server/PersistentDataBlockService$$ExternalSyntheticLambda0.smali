@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/PersistentDataBlockService$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/PersistentDataBlockService$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/PersistentDataBlockService;
+    iget-object p0, p0, Lcom/android/server/PersistentDataBlockService$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/PersistentDataBlockService;
 
-    invoke-virtual {v0}, Lcom/android/server/PersistentDataBlockService;->lambda$onStart$0$PersistentDataBlockService()V
+    invoke-static {p0}, Lcom/android/server/PersistentDataBlockService;->$r8$lambda$Ib6I4Ek3xdzDClEPgfPUhGUQJio(Lcom/android/server/PersistentDataBlockService;)V
 
     return-void
 .end method

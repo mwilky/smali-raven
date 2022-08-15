@@ -50,31 +50,31 @@
 .end method
 
 .method public final getDebugInfo()Landroid/hidl/base/V1_0/DebugInfo;
-    .locals 3
+    .locals 2
 
-    new-instance v0, Landroid/hidl/base/V1_0/DebugInfo;
+    new-instance p0, Landroid/hidl/base/V1_0/DebugInfo;
 
-    invoke-direct {v0}, Landroid/hidl/base/V1_0/DebugInfo;-><init>()V
+    invoke-direct {p0}, Landroid/hidl/base/V1_0/DebugInfo;-><init>()V
 
     invoke-static {}, Landroid/os/HidlSupport;->getPidIfSharable()I
 
-    move-result v1
+    move-result v0
 
-    iput v1, v0, Landroid/hidl/base/V1_0/DebugInfo;->pid:I
+    iput v0, p0, Landroid/hidl/base/V1_0/DebugInfo;->pid:I
 
-    const-wide/16 v1, 0x0
+    const-wide/16 v0, 0x0
 
-    iput-wide v1, v0, Landroid/hidl/base/V1_0/DebugInfo;->ptr:J
+    iput-wide v0, p0, Landroid/hidl/base/V1_0/DebugInfo;->ptr:J
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    iput v1, v0, Landroid/hidl/base/V1_0/DebugInfo;->arch:I
+    iput v0, p0, Landroid/hidl/base/V1_0/DebugInfo;->arch:I
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public final getHashChain()Ljava/util/ArrayList;
-    .locals 5
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -83,45 +83,45 @@
         }
     .end annotation
 
-    new-instance v0, Ljava/util/ArrayList;
+    new-instance p0, Ljava/util/ArrayList;
 
-    const/4 v1, 0x3
+    const/4 v0, 0x3
 
-    new-array v1, v1, [[B
+    new-array v0, v0, [[B
 
-    const/16 v2, 0x20
+    const/16 v1, 0x20
 
-    new-array v3, v2, [B
+    new-array v2, v1, [B
 
-    fill-array-data v3, :array_0
+    fill-array-data v2, :array_0
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    aput-object v3, v1, v4
+    aput-object v2, v0, v3
 
-    new-array v3, v2, [B
+    new-array v2, v1, [B
 
-    fill-array-data v3, :array_1
+    fill-array-data v2, :array_1
 
-    const/4 v4, 0x1
+    const/4 v3, 0x1
 
-    aput-object v3, v1, v4
+    aput-object v2, v0, v3
 
-    new-array v2, v2, [B
+    new-array v1, v1, [B
 
-    fill-array-data v2, :array_2
+    fill-array-data v1, :array_2
 
-    const/4 v3, 0x2
+    const/4 v2, 0x2
 
-    aput-object v2, v1, v3
+    aput-object v1, v0, v2
 
-    invoke-static {v1}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+    invoke-static {v0}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+    invoke-direct {p0, v0}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
-    return-object v0
+    return-object p0
 
     nop
 
@@ -235,7 +235,7 @@
 .end method
 
 .method public final interfaceChain()Ljava/util/ArrayList;
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -245,41 +245,41 @@
         }
     .end annotation
 
-    new-instance v0, Ljava/util/ArrayList;
-
-    const-string v1, "android.hardware.tv.cec@1.1::IHdmiCec"
-
-    const-string v2, "android.hardware.tv.cec@1.0::IHdmiCec"
-
-    const-string v3, "android.hidl.base@1.0::IBase"
-
-    filled-new-array {v1, v2, v3}, [Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
-
-    return-object v0
-.end method
-
-.method public final interfaceDescriptor()Ljava/lang/String;
-    .locals 1
+    new-instance p0, Ljava/util/ArrayList;
 
     const-string v0, "android.hardware.tv.cec@1.1::IHdmiCec"
 
-    return-object v0
+    const-string v1, "android.hardware.tv.cec@1.0::IHdmiCec"
+
+    const-string v2, "android.hidl.base@1.0::IBase"
+
+    filled-new-array {v0, v1, v2}, [Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+
+    move-result-object v0
+
+    invoke-direct {p0, v0}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+
+    return-object p0
+.end method
+
+.method public final interfaceDescriptor()Ljava/lang/String;
+    .locals 0
+
+    const-string p0, "android.hardware.tv.cec@1.1::IHdmiCec"
+
+    return-object p0
 .end method
 
 .method public final linkToDeath(Landroid/os/IHwBinder$DeathRecipient;J)Z
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 .end method
 
 .method public final notifySyspropsChanged()V
@@ -291,484 +291,480 @@
 .end method
 
 .method public onTransact(ILandroid/os/HwParcel;Landroid/os/HwParcel;I)V
-    .locals 10
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const-string v0, "android.hardware.tv.cec@1.1::IHdmiCec"
+    const-string p4, "android.hardware.tv.cec@1.1::IHdmiCec"
 
-    const-string v1, "android.hidl.base@1.0::IBase"
+    const-string v0, "android.hardware.tv.cec@1.0::IHdmiCec"
 
-    const-string v2, "android.hardware.tv.cec@1.0::IHdmiCec"
+    const/4 v1, 0x0
 
-    const/4 v3, 0x0
+    packed-switch p1, :pswitch_data_0
+
+    const-string p4, "android.hidl.base@1.0::IBase"
 
     sparse-switch p1, :sswitch_data_0
 
     goto/16 :goto_1
 
     :sswitch_0
-    invoke-virtual {p2, v1}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, p4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Landroid/hardware/tv/cec/V1_1/IHdmiCec$Stub;->notifySyspropsChanged()V
 
     goto/16 :goto_1
 
     :sswitch_1
-    invoke-virtual {p2, v1}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, p4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Landroid/hardware/tv/cec/V1_1/IHdmiCec$Stub;->getDebugInfo()Landroid/hidl/base/V1_0/DebugInfo;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {p3, v3}, Landroid/os/HwParcel;->writeStatus(I)V
+    invoke-virtual {p3, v1}, Landroid/os/HwParcel;->writeStatus(I)V
 
-    invoke-virtual {v0, p3}, Landroid/hidl/base/V1_0/DebugInfo;->writeToParcel(Landroid/os/HwParcel;)V
+    invoke-virtual {p0, p3}, Landroid/hidl/base/V1_0/DebugInfo;->writeToParcel(Landroid/os/HwParcel;)V
 
     invoke-virtual {p3}, Landroid/os/HwParcel;->send()V
 
     goto/16 :goto_1
 
     :sswitch_2
-    invoke-virtual {p2, v1}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, p4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Landroid/hardware/tv/cec/V1_1/IHdmiCec$Stub;->ping()V
 
-    invoke-virtual {p3, v3}, Landroid/os/HwParcel;->writeStatus(I)V
+    invoke-virtual {p3, v1}, Landroid/os/HwParcel;->writeStatus(I)V
 
     invoke-virtual {p3}, Landroid/os/HwParcel;->send()V
 
     goto/16 :goto_1
 
     :sswitch_3
-    goto/16 :goto_1
-
-    :sswitch_4
-    invoke-virtual {p2, v1}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, p4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Landroid/hardware/tv/cec/V1_1/IHdmiCec$Stub;->setHALInstrumentation()V
 
     goto/16 :goto_1
 
-    :sswitch_5
-    invoke-virtual {p2, v1}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
+    :sswitch_4
+    invoke-virtual {p2, p4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Landroid/hardware/tv/cec/V1_1/IHdmiCec$Stub;->getHashChain()Ljava/util/ArrayList;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {p3, v3}, Landroid/os/HwParcel;->writeStatus(I)V
+    invoke-virtual {p3, v1}, Landroid/os/HwParcel;->writeStatus(I)V
 
-    new-instance v1, Landroid/os/HwBlob;
+    new-instance p1, Landroid/os/HwBlob;
 
-    const/16 v2, 0x10
+    const/16 p2, 0x10
 
-    invoke-direct {v1, v2}, Landroid/os/HwBlob;-><init>(I)V
+    invoke-direct {p1, p2}, Landroid/os/HwBlob;-><init>(I)V
 
-    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {p0}, Ljava/util/ArrayList;->size()I
 
-    move-result v2
+    move-result p2
 
-    const-wide/16 v4, 0x8
+    const-wide/16 v2, 0x8
 
-    invoke-virtual {v1, v4, v5, v2}, Landroid/os/HwBlob;->putInt32(JI)V
+    invoke-virtual {p1, v2, v3, p2}, Landroid/os/HwBlob;->putInt32(JI)V
 
-    const-wide/16 v4, 0xc
+    const-wide/16 v2, 0xc
 
-    invoke-virtual {v1, v4, v5, v3}, Landroid/os/HwBlob;->putBool(JZ)V
+    invoke-virtual {p1, v2, v3, v1}, Landroid/os/HwBlob;->putBool(JZ)V
 
-    new-instance v3, Landroid/os/HwBlob;
+    new-instance p4, Landroid/os/HwBlob;
 
-    mul-int/lit8 v4, v2, 0x20
+    mul-int/lit8 v0, p2, 0x20
 
-    invoke-direct {v3, v4}, Landroid/os/HwBlob;-><init>(I)V
-
-    const/4 v4, 0x0
+    invoke-direct {p4, v0}, Landroid/os/HwBlob;-><init>(I)V
 
     :goto_0
-    if-ge v4, v2, :cond_1
+    if-ge v1, p2, :cond_1
 
-    mul-int/lit8 v5, v4, 0x20
+    mul-int/lit8 v0, v1, 0x20
 
-    int-to-long v5, v5
+    int-to-long v2, v0
 
-    invoke-virtual {v0, v4}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {p0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v7
+    move-result-object v0
 
-    check-cast v7, [B
+    check-cast v0, [B
 
-    if-eqz v7, :cond_0
+    if-eqz v0, :cond_0
 
-    array-length v8, v7
+    array-length v4, v0
 
-    const/16 v9, 0x20
+    const/16 v5, 0x20
 
-    if-ne v8, v9, :cond_0
+    if-ne v4, v5, :cond_0
 
-    invoke-virtual {v3, v5, v6, v7}, Landroid/os/HwBlob;->putInt8Array(J[B)V
+    invoke-virtual {p4, v2, v3, v0}, Landroid/os/HwBlob;->putInt8Array(J[B)V
 
-    nop
-
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     :cond_0
-    new-instance v8, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v9, "Array element is not of the expected length"
+    const-string p1, "Array element is not of the expected length"
 
-    invoke-direct {v8, v9}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v8
+    throw p0
 
     :cond_1
-    const-wide/16 v4, 0x0
+    const-wide/16 v0, 0x0
 
-    invoke-virtual {v1, v4, v5, v3}, Landroid/os/HwBlob;->putBlob(JLandroid/os/HwBlob;)V
+    invoke-virtual {p1, v0, v1, p4}, Landroid/os/HwBlob;->putBlob(JLandroid/os/HwBlob;)V
 
-    invoke-virtual {p3, v1}, Landroid/os/HwParcel;->writeBuffer(Landroid/os/HwBlob;)V
+    invoke-virtual {p3, p1}, Landroid/os/HwParcel;->writeBuffer(Landroid/os/HwBlob;)V
+
+    invoke-virtual {p3}, Landroid/os/HwParcel;->send()V
+
+    goto/16 :goto_1
+
+    :sswitch_5
+    invoke-virtual {p2, p4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual {p0}, Landroid/hardware/tv/cec/V1_1/IHdmiCec$Stub;->interfaceDescriptor()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {p3, v1}, Landroid/os/HwParcel;->writeStatus(I)V
+
+    invoke-virtual {p3, p0}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
 
     invoke-virtual {p3}, Landroid/os/HwParcel;->send()V
 
     goto/16 :goto_1
 
     :sswitch_6
-    invoke-virtual {p2, v1}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, p4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
-    invoke-virtual {p0}, Landroid/hardware/tv/cec/V1_1/IHdmiCec$Stub;->interfaceDescriptor()Ljava/lang/String;
+    invoke-virtual {p2}, Landroid/os/HwParcel;->readNativeHandle()Landroid/os/NativeHandle;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p3, v3}, Landroid/os/HwParcel;->writeStatus(I)V
+    invoke-virtual {p2}, Landroid/os/HwParcel;->readStringVector()Ljava/util/ArrayList;
 
-    invoke-virtual {p3, v0}, Landroid/os/HwParcel;->writeString(Ljava/lang/String;)V
+    move-result-object p2
+
+    invoke-virtual {p0, p1, p2}, Landroid/hardware/tv/cec/V1_1/IHdmiCec$Stub;->debug(Landroid/os/NativeHandle;Ljava/util/ArrayList;)V
+
+    invoke-virtual {p3, v1}, Landroid/os/HwParcel;->writeStatus(I)V
 
     invoke-virtual {p3}, Landroid/os/HwParcel;->send()V
 
     goto/16 :goto_1
 
     :sswitch_7
-    invoke-virtual {p2, v1}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual {p2}, Landroid/os/HwParcel;->readNativeHandle()Landroid/os/NativeHandle;
-
-    move-result-object v0
-
-    invoke-virtual {p2}, Landroid/os/HwParcel;->readStringVector()Ljava/util/ArrayList;
-
-    move-result-object v1
-
-    invoke-virtual {p0, v0, v1}, Landroid/hardware/tv/cec/V1_1/IHdmiCec$Stub;->debug(Landroid/os/NativeHandle;Ljava/util/ArrayList;)V
-
-    invoke-virtual {p3, v3}, Landroid/os/HwParcel;->writeStatus(I)V
-
-    invoke-virtual {p3}, Landroid/os/HwParcel;->send()V
-
-    goto/16 :goto_1
-
-    :sswitch_8
-    invoke-virtual {p2, v1}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, p4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Landroid/hardware/tv/cec/V1_1/IHdmiCec$Stub;->interfaceChain()Ljava/util/ArrayList;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {p3, v3}, Landroid/os/HwParcel;->writeStatus(I)V
+    invoke-virtual {p3, v1}, Landroid/os/HwParcel;->writeStatus(I)V
 
-    invoke-virtual {p3, v0}, Landroid/os/HwParcel;->writeStringVector(Ljava/util/ArrayList;)V
+    invoke-virtual {p3, p0}, Landroid/os/HwParcel;->writeStringVector(Ljava/util/ArrayList;)V
 
     invoke-virtual {p3}, Landroid/os/HwParcel;->send()V
 
     goto/16 :goto_1
 
-    :sswitch_9
-    invoke-virtual {p2, v0}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
+    :pswitch_0
+    invoke-virtual {p2, p4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/HwParcel;->readStrongBinder()Landroid/os/IHwBinder;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-static {v0}, Landroid/hardware/tv/cec/V1_1/IHdmiCecCallback;->asInterface(Landroid/os/IHwBinder;)Landroid/hardware/tv/cec/V1_1/IHdmiCecCallback;
+    invoke-static {p1}, Landroid/hardware/tv/cec/V1_1/IHdmiCecCallback;->asInterface(Landroid/os/IHwBinder;)Landroid/hardware/tv/cec/V1_1/IHdmiCecCallback;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Landroid/hardware/tv/cec/V1_1/IHdmiCec$Stub;->setCallback_1_1(Landroid/hardware/tv/cec/V1_1/IHdmiCecCallback;)V
+    invoke-interface {p0, p1}, Landroid/hardware/tv/cec/V1_1/IHdmiCec;->setCallback_1_1(Landroid/hardware/tv/cec/V1_1/IHdmiCecCallback;)V
 
-    invoke-virtual {p3, v3}, Landroid/os/HwParcel;->writeStatus(I)V
+    invoke-virtual {p3, v1}, Landroid/os/HwParcel;->writeStatus(I)V
 
     invoke-virtual {p3}, Landroid/os/HwParcel;->send()V
 
     goto/16 :goto_1
 
-    :sswitch_a
+    :pswitch_1
+    invoke-virtual {p2, p4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
+
+    new-instance p1, Landroid/hardware/tv/cec/V1_1/CecMessage;
+
+    invoke-direct {p1}, Landroid/hardware/tv/cec/V1_1/CecMessage;-><init>()V
+
+    invoke-virtual {p1, p2}, Landroid/hardware/tv/cec/V1_1/CecMessage;->readFromParcel(Landroid/os/HwParcel;)V
+
+    invoke-interface {p0, p1}, Landroid/hardware/tv/cec/V1_1/IHdmiCec;->sendMessage_1_1(Landroid/hardware/tv/cec/V1_1/CecMessage;)I
+
+    move-result p0
+
+    invoke-virtual {p3, v1}, Landroid/os/HwParcel;->writeStatus(I)V
+
+    invoke-virtual {p3, p0}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {p3}, Landroid/os/HwParcel;->send()V
+
+    goto/16 :goto_1
+
+    :pswitch_2
+    invoke-virtual {p2, p4}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual {p2}, Landroid/os/HwParcel;->readInt32()I
+
+    move-result p1
+
+    invoke-interface {p0, p1}, Landroid/hardware/tv/cec/V1_1/IHdmiCec;->addLogicalAddress_1_1(I)I
+
+    move-result p0
+
+    invoke-virtual {p3, v1}, Landroid/os/HwParcel;->writeStatus(I)V
+
+    invoke-virtual {p3, p0}, Landroid/os/HwParcel;->writeInt32(I)V
+
+    invoke-virtual {p3}, Landroid/os/HwParcel;->send()V
+
+    goto/16 :goto_1
+
+    :pswitch_3
     invoke-virtual {p2, v0}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
-    new-instance v0, Landroid/hardware/tv/cec/V1_1/CecMessage;
+    invoke-virtual {p2}, Landroid/os/HwParcel;->readInt32()I
 
-    invoke-direct {v0}, Landroid/hardware/tv/cec/V1_1/CecMessage;-><init>()V
+    move-result p1
 
-    invoke-virtual {v0, p2}, Landroid/hardware/tv/cec/V1_1/CecMessage;->readFromParcel(Landroid/os/HwParcel;)V
+    invoke-interface {p0, p1}, Landroid/hardware/tv/cec/V1_0/IHdmiCec;->isConnected(I)Z
 
-    invoke-virtual {p0, v0}, Landroid/hardware/tv/cec/V1_1/IHdmiCec$Stub;->sendMessage_1_1(Landroid/hardware/tv/cec/V1_1/CecMessage;)I
+    move-result p0
 
-    move-result v1
+    invoke-virtual {p3, v1}, Landroid/os/HwParcel;->writeStatus(I)V
 
-    invoke-virtual {p3, v3}, Landroid/os/HwParcel;->writeStatus(I)V
-
-    invoke-virtual {p3, v1}, Landroid/os/HwParcel;->writeInt32(I)V
+    invoke-virtual {p3, p0}, Landroid/os/HwParcel;->writeBool(Z)V
 
     invoke-virtual {p3}, Landroid/os/HwParcel;->send()V
 
     goto/16 :goto_1
 
-    :sswitch_b
+    :pswitch_4
     invoke-virtual {p2, v0}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/HwParcel;->readInt32()I
 
-    move-result v0
-
-    invoke-virtual {p0, v0}, Landroid/hardware/tv/cec/V1_1/IHdmiCec$Stub;->addLogicalAddress_1_1(I)I
-
-    move-result v1
-
-    invoke-virtual {p3, v3}, Landroid/os/HwParcel;->writeStatus(I)V
-
-    invoke-virtual {p3, v1}, Landroid/os/HwParcel;->writeInt32(I)V
-
-    invoke-virtual {p3}, Landroid/os/HwParcel;->send()V
-
-    goto/16 :goto_1
-
-    :sswitch_c
-    invoke-virtual {p2, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual {p2}, Landroid/os/HwParcel;->readInt32()I
-
-    move-result v0
-
-    invoke-virtual {p0, v0}, Landroid/hardware/tv/cec/V1_1/IHdmiCec$Stub;->isConnected(I)Z
-
-    move-result v1
-
-    invoke-virtual {p3, v3}, Landroid/os/HwParcel;->writeStatus(I)V
-
-    invoke-virtual {p3, v1}, Landroid/os/HwParcel;->writeBool(Z)V
-
-    invoke-virtual {p3}, Landroid/os/HwParcel;->send()V
-
-    goto/16 :goto_1
-
-    :sswitch_d
-    invoke-virtual {p2, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual {p2}, Landroid/os/HwParcel;->readInt32()I
-
-    move-result v0
+    move-result p1
 
     invoke-virtual {p2}, Landroid/os/HwParcel;->readBool()Z
 
-    move-result v1
+    move-result p2
 
-    invoke-virtual {p0, v0, v1}, Landroid/hardware/tv/cec/V1_1/IHdmiCec$Stub;->enableAudioReturnChannel(IZ)V
+    invoke-interface {p0, p1, p2}, Landroid/hardware/tv/cec/V1_0/IHdmiCec;->enableAudioReturnChannel(IZ)V
 
-    invoke-virtual {p3, v3}, Landroid/os/HwParcel;->writeStatus(I)V
+    invoke-virtual {p3, v1}, Landroid/os/HwParcel;->writeStatus(I)V
 
     invoke-virtual {p3}, Landroid/os/HwParcel;->send()V
 
     goto/16 :goto_1
 
-    :sswitch_e
-    invoke-virtual {p2, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
+    :pswitch_5
+    invoke-virtual {p2, v0}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/HwParcel;->readString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Landroid/hardware/tv/cec/V1_1/IHdmiCec$Stub;->setLanguage(Ljava/lang/String;)V
+    invoke-interface {p0, p1}, Landroid/hardware/tv/cec/V1_0/IHdmiCec;->setLanguage(Ljava/lang/String;)V
 
-    invoke-virtual {p3, v3}, Landroid/os/HwParcel;->writeStatus(I)V
+    invoke-virtual {p3, v1}, Landroid/os/HwParcel;->writeStatus(I)V
 
     invoke-virtual {p3}, Landroid/os/HwParcel;->send()V
 
     goto/16 :goto_1
 
-    :sswitch_f
-    invoke-virtual {p2, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
+    :pswitch_6
+    invoke-virtual {p2, v0}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/HwParcel;->readInt32()I
 
-    move-result v0
+    move-result p1
 
     invoke-virtual {p2}, Landroid/os/HwParcel;->readBool()Z
 
-    move-result v1
+    move-result p2
 
-    invoke-virtual {p0, v0, v1}, Landroid/hardware/tv/cec/V1_1/IHdmiCec$Stub;->setOption(IZ)V
+    invoke-interface {p0, p1, p2}, Landroid/hardware/tv/cec/V1_0/IHdmiCec;->setOption(IZ)V
 
-    invoke-virtual {p3, v3}, Landroid/os/HwParcel;->writeStatus(I)V
-
-    invoke-virtual {p3}, Landroid/os/HwParcel;->send()V
-
-    goto/16 :goto_1
-
-    :sswitch_10
-    invoke-virtual {p2, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual {p0}, Landroid/hardware/tv/cec/V1_1/IHdmiCec$Stub;->getPortInfo()Ljava/util/ArrayList;
-
-    move-result-object v0
-
-    invoke-virtual {p3, v3}, Landroid/os/HwParcel;->writeStatus(I)V
-
-    invoke-static {p3, v0}, Landroid/hardware/tv/cec/V1_0/HdmiPortInfo;->writeVectorToParcel(Landroid/os/HwParcel;Ljava/util/ArrayList;)V
+    invoke-virtual {p3, v1}, Landroid/os/HwParcel;->writeStatus(I)V
 
     invoke-virtual {p3}, Landroid/os/HwParcel;->send()V
 
     goto/16 :goto_1
 
-    :sswitch_11
-    invoke-virtual {p2, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
+    :pswitch_7
+    invoke-virtual {p2, v0}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
-    invoke-virtual {p0}, Landroid/hardware/tv/cec/V1_1/IHdmiCec$Stub;->getVendorId()I
+    invoke-interface {p0}, Landroid/hardware/tv/cec/V1_0/IHdmiCec;->getPortInfo()Ljava/util/ArrayList;
 
-    move-result v0
+    move-result-object p0
 
-    invoke-virtual {p3, v3}, Landroid/os/HwParcel;->writeStatus(I)V
+    invoke-virtual {p3, v1}, Landroid/os/HwParcel;->writeStatus(I)V
 
-    invoke-virtual {p3, v0}, Landroid/os/HwParcel;->writeInt32(I)V
+    invoke-static {p3, p0}, Landroid/hardware/tv/cec/V1_0/HdmiPortInfo;->writeVectorToParcel(Landroid/os/HwParcel;Ljava/util/ArrayList;)V
+
+    invoke-virtual {p3}, Landroid/os/HwParcel;->send()V
+
+    goto/16 :goto_1
+
+    :pswitch_8
+    invoke-virtual {p2, v0}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-interface {p0}, Landroid/hardware/tv/cec/V1_0/IHdmiCec;->getVendorId()I
+
+    move-result p0
+
+    invoke-virtual {p3, v1}, Landroid/os/HwParcel;->writeStatus(I)V
+
+    invoke-virtual {p3, p0}, Landroid/os/HwParcel;->writeInt32(I)V
 
     invoke-virtual {p3}, Landroid/os/HwParcel;->send()V
 
     goto :goto_1
 
-    :sswitch_12
-    invoke-virtual {p2, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
+    :pswitch_9
+    invoke-virtual {p2, v0}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
-    invoke-virtual {p0}, Landroid/hardware/tv/cec/V1_1/IHdmiCec$Stub;->getCecVersion()I
+    invoke-interface {p0}, Landroid/hardware/tv/cec/V1_0/IHdmiCec;->getCecVersion()I
 
-    move-result v0
+    move-result p0
 
-    invoke-virtual {p3, v3}, Landroid/os/HwParcel;->writeStatus(I)V
+    invoke-virtual {p3, v1}, Landroid/os/HwParcel;->writeStatus(I)V
 
-    invoke-virtual {p3, v0}, Landroid/os/HwParcel;->writeInt32(I)V
+    invoke-virtual {p3, p0}, Landroid/os/HwParcel;->writeInt32(I)V
 
     invoke-virtual {p3}, Landroid/os/HwParcel;->send()V
 
     goto :goto_1
 
-    :sswitch_13
-    invoke-virtual {p2, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
+    :pswitch_a
+    invoke-virtual {p2, v0}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/HwParcel;->readStrongBinder()Landroid/os/IHwBinder;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-static {v0}, Landroid/hardware/tv/cec/V1_0/IHdmiCecCallback;->asInterface(Landroid/os/IHwBinder;)Landroid/hardware/tv/cec/V1_0/IHdmiCecCallback;
+    invoke-static {p1}, Landroid/hardware/tv/cec/V1_0/IHdmiCecCallback;->asInterface(Landroid/os/IHwBinder;)Landroid/hardware/tv/cec/V1_0/IHdmiCecCallback;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Landroid/hardware/tv/cec/V1_1/IHdmiCec$Stub;->setCallback(Landroid/hardware/tv/cec/V1_0/IHdmiCecCallback;)V
+    invoke-interface {p0, p1}, Landroid/hardware/tv/cec/V1_0/IHdmiCec;->setCallback(Landroid/hardware/tv/cec/V1_0/IHdmiCecCallback;)V
 
-    invoke-virtual {p3, v3}, Landroid/os/HwParcel;->writeStatus(I)V
-
-    invoke-virtual {p3}, Landroid/os/HwParcel;->send()V
-
-    goto :goto_1
-
-    :sswitch_14
-    invoke-virtual {p2, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
-
-    new-instance v0, Landroid/hardware/tv/cec/V1_0/CecMessage;
-
-    invoke-direct {v0}, Landroid/hardware/tv/cec/V1_0/CecMessage;-><init>()V
-
-    invoke-virtual {v0, p2}, Landroid/hardware/tv/cec/V1_0/CecMessage;->readFromParcel(Landroid/os/HwParcel;)V
-
-    invoke-virtual {p0, v0}, Landroid/hardware/tv/cec/V1_1/IHdmiCec$Stub;->sendMessage(Landroid/hardware/tv/cec/V1_0/CecMessage;)I
-
-    move-result v1
-
-    invoke-virtual {p3, v3}, Landroid/os/HwParcel;->writeStatus(I)V
-
-    invoke-virtual {p3, v1}, Landroid/os/HwParcel;->writeInt32(I)V
+    invoke-virtual {p3, v1}, Landroid/os/HwParcel;->writeStatus(I)V
 
     invoke-virtual {p3}, Landroid/os/HwParcel;->send()V
 
     goto :goto_1
 
-    :sswitch_15
-    invoke-virtual {p2, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
+    :pswitch_b
+    invoke-virtual {p2, v0}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
-    new-instance v0, Landroid/hardware/tv/cec/V1_1/IHdmiCec$Stub$1;
+    new-instance p1, Landroid/hardware/tv/cec/V1_0/CecMessage;
 
-    invoke-direct {v0, p0, p3}, Landroid/hardware/tv/cec/V1_1/IHdmiCec$Stub$1;-><init>(Landroid/hardware/tv/cec/V1_1/IHdmiCec$Stub;Landroid/os/HwParcel;)V
+    invoke-direct {p1}, Landroid/hardware/tv/cec/V1_0/CecMessage;-><init>()V
 
-    invoke-virtual {p0, v0}, Landroid/hardware/tv/cec/V1_1/IHdmiCec$Stub;->getPhysicalAddress(Landroid/hardware/tv/cec/V1_0/IHdmiCec$getPhysicalAddressCallback;)V
+    invoke-virtual {p1, p2}, Landroid/hardware/tv/cec/V1_0/CecMessage;->readFromParcel(Landroid/os/HwParcel;)V
 
-    goto :goto_1
+    invoke-interface {p0, p1}, Landroid/hardware/tv/cec/V1_0/IHdmiCec;->sendMessage(Landroid/hardware/tv/cec/V1_0/CecMessage;)I
 
-    :sswitch_16
-    invoke-virtual {p2, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
+    move-result p0
 
-    invoke-virtual {p0}, Landroid/hardware/tv/cec/V1_1/IHdmiCec$Stub;->clearLogicalAddress()V
+    invoke-virtual {p3, v1}, Landroid/os/HwParcel;->writeStatus(I)V
 
-    invoke-virtual {p3, v3}, Landroid/os/HwParcel;->writeStatus(I)V
+    invoke-virtual {p3, p0}, Landroid/os/HwParcel;->writeInt32(I)V
 
     invoke-virtual {p3}, Landroid/os/HwParcel;->send()V
 
     goto :goto_1
 
-    :sswitch_17
-    invoke-virtual {p2, v2}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
+    :pswitch_c
+    invoke-virtual {p2, v0}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
+
+    new-instance p1, Landroid/hardware/tv/cec/V1_1/IHdmiCec$Stub$1;
+
+    invoke-direct {p1, p0, p3}, Landroid/hardware/tv/cec/V1_1/IHdmiCec$Stub$1;-><init>(Landroid/hardware/tv/cec/V1_1/IHdmiCec$Stub;Landroid/os/HwParcel;)V
+
+    invoke-interface {p0, p1}, Landroid/hardware/tv/cec/V1_0/IHdmiCec;->getPhysicalAddress(Landroid/hardware/tv/cec/V1_0/IHdmiCec$getPhysicalAddressCallback;)V
+
+    goto :goto_1
+
+    :pswitch_d
+    invoke-virtual {p2, v0}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-interface {p0}, Landroid/hardware/tv/cec/V1_0/IHdmiCec;->clearLogicalAddress()V
+
+    invoke-virtual {p3, v1}, Landroid/os/HwParcel;->writeStatus(I)V
+
+    invoke-virtual {p3}, Landroid/os/HwParcel;->send()V
+
+    goto :goto_1
+
+    :pswitch_e
+    invoke-virtual {p2, v0}, Landroid/os/HwParcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/HwParcel;->readInt32()I
 
-    move-result v0
+    move-result p1
 
-    invoke-virtual {p0, v0}, Landroid/hardware/tv/cec/V1_1/IHdmiCec$Stub;->addLogicalAddress(I)I
+    invoke-interface {p0, p1}, Landroid/hardware/tv/cec/V1_0/IHdmiCec;->addLogicalAddress(I)I
 
-    move-result v1
+    move-result p0
 
-    invoke-virtual {p3, v3}, Landroid/os/HwParcel;->writeStatus(I)V
+    invoke-virtual {p3, v1}, Landroid/os/HwParcel;->writeStatus(I)V
 
-    invoke-virtual {p3, v1}, Landroid/os/HwParcel;->writeInt32(I)V
+    invoke-virtual {p3, p0}, Landroid/os/HwParcel;->writeInt32(I)V
 
     invoke-virtual {p3}, Landroid/os/HwParcel;->send()V
-
-    nop
 
     :goto_1
     return-void
 
+    :pswitch_data_0
+    .packed-switch 0x1
+        :pswitch_e
+        :pswitch_d
+        :pswitch_c
+        :pswitch_b
+        :pswitch_a
+        :pswitch_9
+        :pswitch_8
+        :pswitch_7
+        :pswitch_6
+        :pswitch_5
+        :pswitch_4
+        :pswitch_3
+        :pswitch_2
+        :pswitch_1
+        :pswitch_0
+    .end packed-switch
+
     :sswitch_data_0
     .sparse-switch
-        0x1 -> :sswitch_17
-        0x2 -> :sswitch_16
-        0x3 -> :sswitch_15
-        0x4 -> :sswitch_14
-        0x5 -> :sswitch_13
-        0x6 -> :sswitch_12
-        0x7 -> :sswitch_11
-        0x8 -> :sswitch_10
-        0x9 -> :sswitch_f
-        0xa -> :sswitch_e
-        0xb -> :sswitch_d
-        0xc -> :sswitch_c
-        0xd -> :sswitch_b
-        0xe -> :sswitch_a
-        0xf -> :sswitch_9
-        0xf43484e -> :sswitch_8
-        0xf444247 -> :sswitch_7
-        0xf445343 -> :sswitch_6
-        0xf485348 -> :sswitch_5
-        0xf494e54 -> :sswitch_4
-        0xf4c5444 -> :sswitch_3
+        0xf43484e -> :sswitch_7
+        0xf444247 -> :sswitch_6
+        0xf445343 -> :sswitch_5
+        0xf485348 -> :sswitch_4
+        0xf494e54 -> :sswitch_3
         0xf504e47 -> :sswitch_2
         0xf524546 -> :sswitch_1
         0xf535953 -> :sswitch_0
@@ -788,29 +784,16 @@
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     return-object p0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return-object v0
-.end method
-
-.method public registerAsService(Ljava/lang/String;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    invoke-virtual {p0, p1}, Landroid/hardware/tv/cec/V1_1/IHdmiCec$Stub;->registerService(Ljava/lang/String;)V
-
-    return-void
+    return-object p0
 .end method
 
 .method public final setHALInstrumentation()V
@@ -820,7 +803,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .locals 1
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -828,25 +811,25 @@
 
     invoke-virtual {p0}, Landroid/hardware/tv/cec/V1_1/IHdmiCec$Stub;->interfaceDescriptor()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "@Stub"
+    const-string p0, "@Stub"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public final unlinkToDeath(Landroid/os/IHwBinder$DeathRecipient;)Z
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 .end method

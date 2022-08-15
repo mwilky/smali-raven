@@ -1,4 +1,4 @@
-.class final Lcom/android/server/AppStateTrackerImpl$UidObserver;
+.class public final Lcom/android/server/AppStateTrackerImpl$UidObserver;
 .super Landroid/app/IUidObserver$Stub;
 .source "AppStateTrackerImpl.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "UidObserver"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/AppStateTrackerImpl;
+.field public final synthetic this$0:Lcom/android/server/AppStateTrackerImpl;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/server/AppStateTrackerImpl;)V
+.method public constructor <init>(Lcom/android/server/AppStateTrackerImpl;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/AppStateTrackerImpl$UidObserver;->this$0:Lcom/android/server/AppStateTrackerImpl;
@@ -29,7 +29,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/AppStateTrackerImpl;Lcom/android/server/AppStateTrackerImpl$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/AppStateTrackerImpl;Lcom/android/server/AppStateTrackerImpl$UidObserver-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/AppStateTrackerImpl$UidObserver;-><init>(Lcom/android/server/AppStateTrackerImpl;)V
@@ -40,15 +40,15 @@
 
 # virtual methods
 .method public onUidActive(I)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/AppStateTrackerImpl$UidObserver;->this$0:Lcom/android/server/AppStateTrackerImpl;
+    iget-object p0, p0, Lcom/android/server/AppStateTrackerImpl$UidObserver;->this$0:Lcom/android/server/AppStateTrackerImpl;
 
-    invoke-static {v0}, Lcom/android/server/AppStateTrackerImpl;->access$200(Lcom/android/server/AppStateTrackerImpl;)Lcom/android/server/AppStateTrackerImpl$MyHandler;
+    invoke-static {p0}, Lcom/android/server/AppStateTrackerImpl;->-$$Nest$fgetmHandler(Lcom/android/server/AppStateTrackerImpl;)Lcom/android/server/AppStateTrackerImpl$MyHandler;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0, p1}, Lcom/android/server/AppStateTrackerImpl$MyHandler;->onUidActive(I)V
+    invoke-virtual {p0, p1}, Lcom/android/server/AppStateTrackerImpl$MyHandler;->onUidActive(I)V
 
     return-void
 .end method
@@ -60,29 +60,35 @@
 .end method
 
 .method public onUidGone(IZ)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/AppStateTrackerImpl$UidObserver;->this$0:Lcom/android/server/AppStateTrackerImpl;
+    iget-object p0, p0, Lcom/android/server/AppStateTrackerImpl$UidObserver;->this$0:Lcom/android/server/AppStateTrackerImpl;
 
-    invoke-static {v0}, Lcom/android/server/AppStateTrackerImpl;->access$200(Lcom/android/server/AppStateTrackerImpl;)Lcom/android/server/AppStateTrackerImpl$MyHandler;
+    invoke-static {p0}, Lcom/android/server/AppStateTrackerImpl;->-$$Nest$fgetmHandler(Lcom/android/server/AppStateTrackerImpl;)Lcom/android/server/AppStateTrackerImpl$MyHandler;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0, p1, p2}, Lcom/android/server/AppStateTrackerImpl$MyHandler;->onUidGone(IZ)V
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/AppStateTrackerImpl$MyHandler;->onUidGone(IZ)V
 
     return-void
 .end method
 
 .method public onUidIdle(IZ)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/AppStateTrackerImpl$UidObserver;->this$0:Lcom/android/server/AppStateTrackerImpl;
+    iget-object p0, p0, Lcom/android/server/AppStateTrackerImpl$UidObserver;->this$0:Lcom/android/server/AppStateTrackerImpl;
 
-    invoke-static {v0}, Lcom/android/server/AppStateTrackerImpl;->access$200(Lcom/android/server/AppStateTrackerImpl;)Lcom/android/server/AppStateTrackerImpl$MyHandler;
+    invoke-static {p0}, Lcom/android/server/AppStateTrackerImpl;->-$$Nest$fgetmHandler(Lcom/android/server/AppStateTrackerImpl;)Lcom/android/server/AppStateTrackerImpl$MyHandler;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0, p1, p2}, Lcom/android/server/AppStateTrackerImpl$MyHandler;->onUidIdle(IZ)V
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/AppStateTrackerImpl$MyHandler;->onUidIdle(IZ)V
+
+    return-void
+.end method
+
+.method public onUidProcAdjChanged(I)V
+    .locals 0
 
     return-void
 .end method

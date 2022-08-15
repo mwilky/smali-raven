@@ -1,29 +1,34 @@
 .class public final synthetic Lcom/android/server/translation/TranslationManagerServiceImpl$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/BiConsumer;
 
 
 # instance fields
-.field public final synthetic f$0:I
+.field public final synthetic f$0:Lcom/android/server/translation/TranslationManagerServiceImpl;
 
-.field public final synthetic f$1:Landroid/os/Bundle;
+.field public final synthetic f$1:I
 
-.field public final synthetic f$2:Ljava/util/List;
+.field public final synthetic f$2:Landroid/os/Bundle;
+
+.field public final synthetic f$3:Ljava/util/List;
 
 
 # direct methods
-.method public synthetic constructor <init>(ILandroid/os/Bundle;Ljava/util/List;)V
+.method public synthetic constructor <init>(Lcom/android/server/translation/TranslationManagerServiceImpl;ILandroid/os/Bundle;Ljava/util/List;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput p1, p0, Lcom/android/server/translation/TranslationManagerServiceImpl$$ExternalSyntheticLambda0;->f$0:I
+    iput-object p1, p0, Lcom/android/server/translation/TranslationManagerServiceImpl$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/translation/TranslationManagerServiceImpl;
 
-    iput-object p2, p0, Lcom/android/server/translation/TranslationManagerServiceImpl$$ExternalSyntheticLambda0;->f$1:Landroid/os/Bundle;
+    iput p2, p0, Lcom/android/server/translation/TranslationManagerServiceImpl$$ExternalSyntheticLambda0;->f$1:I
 
-    iput-object p3, p0, Lcom/android/server/translation/TranslationManagerServiceImpl$$ExternalSyntheticLambda0;->f$2:Ljava/util/List;
+    iput-object p3, p0, Lcom/android/server/translation/TranslationManagerServiceImpl$$ExternalSyntheticLambda0;->f$2:Landroid/os/Bundle;
+
+    iput-object p4, p0, Lcom/android/server/translation/TranslationManagerServiceImpl$$ExternalSyntheticLambda0;->f$3:Ljava/util/List;
 
     return-void
 .end method
@@ -31,17 +36,23 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 3
+    .locals 6
 
-    iget v0, p0, Lcom/android/server/translation/TranslationManagerServiceImpl$$ExternalSyntheticLambda0;->f$0:I
+    iget-object v0, p0, Lcom/android/server/translation/TranslationManagerServiceImpl$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/translation/TranslationManagerServiceImpl;
 
-    iget-object v1, p0, Lcom/android/server/translation/TranslationManagerServiceImpl$$ExternalSyntheticLambda0;->f$1:Landroid/os/Bundle;
+    iget v1, p0, Lcom/android/server/translation/TranslationManagerServiceImpl$$ExternalSyntheticLambda0;->f$1:I
 
-    iget-object v2, p0, Lcom/android/server/translation/TranslationManagerServiceImpl$$ExternalSyntheticLambda0;->f$2:Ljava/util/List;
+    iget-object v2, p0, Lcom/android/server/translation/TranslationManagerServiceImpl$$ExternalSyntheticLambda0;->f$2:Landroid/os/Bundle;
 
-    check-cast p1, Landroid/os/IRemoteCallback;
+    iget-object v3, p0, Lcom/android/server/translation/TranslationManagerServiceImpl$$ExternalSyntheticLambda0;->f$3:Ljava/util/List;
 
-    invoke-static {v0, v1, v2, p1, p2}, Lcom/android/server/translation/TranslationManagerServiceImpl;->lambda$invokeCallbacks$0(ILandroid/os/Bundle;Ljava/util/List;Landroid/os/IRemoteCallback;Ljava/lang/Object;)V
+    move-object v4, p1
+
+    check-cast v4, Landroid/os/IRemoteCallback;
+
+    move-object v5, p2
+
+    invoke-static/range {v0 .. v5}, Lcom/android/server/translation/TranslationManagerServiceImpl;->$r8$lambda$c0p_kBd7KVoWA1ZoqlErTHb0uJE(Lcom/android/server/translation/TranslationManagerServiceImpl;ILandroid/os/Bundle;Ljava/util/List;Landroid/os/IRemoteCallback;Ljava/lang/Object;)V
 
     return-void
 .end method

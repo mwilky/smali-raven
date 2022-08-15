@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/server/location/contexthub/ContextHubClientBroker$CallbackConsumer;
+.class public interface abstract Lcom/android/server/location/contexthub/ContextHubClientBroker$CallbackConsumer;
 .super Ljava/lang/Object;
 .source "ContextHubClientBroker.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x60a
+    accessFlags = 0x609
     name = "CallbackConsumer"
 .end annotation
 

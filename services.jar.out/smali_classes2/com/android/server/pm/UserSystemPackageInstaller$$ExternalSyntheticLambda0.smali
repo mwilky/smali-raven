@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/pm/UserSystemPackageInstaller$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -35,7 +36,7 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 4
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/pm/UserSystemPackageInstaller$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/pm/UserSystemPackageInstaller;
 
@@ -43,11 +44,11 @@
 
     iget-boolean v2, p0, Lcom/android/server/pm/UserSystemPackageInstaller$$ExternalSyntheticLambda0;->f$2:Z
 
-    iget-object v3, p0, Lcom/android/server/pm/UserSystemPackageInstaller$$ExternalSyntheticLambda0;->f$3:Ljava/util/Set;
+    iget-object p0, p0, Lcom/android/server/pm/UserSystemPackageInstaller$$ExternalSyntheticLambda0;->f$3:Ljava/util/Set;
 
     check-cast p1, Lcom/android/server/pm/parsing/pkg/AndroidPackage;
 
-    invoke-virtual {v0, v1, v2, v3, p1}, Lcom/android/server/pm/UserSystemPackageInstaller;->lambda$getInstallablePackagesForUserType$2$UserSystemPackageInstaller(Ljava/util/Set;ZLjava/util/Set;Lcom/android/server/pm/parsing/pkg/AndroidPackage;)V
+    invoke-static {v0, v1, v2, p0, p1}, Lcom/android/server/pm/UserSystemPackageInstaller;->$r8$lambda$KK68HRXL3UiPImjAZOE_N1HTv2s(Lcom/android/server/pm/UserSystemPackageInstaller;Ljava/util/Set;ZLjava/util/Set;Lcom/android/server/pm/parsing/pkg/AndroidPackage;)V
 
     return-void
 .end method

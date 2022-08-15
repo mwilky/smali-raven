@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/job/JobSchedulerService$LocalService$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -27,15 +28,15 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/job/JobSchedulerService$LocalService$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/job/JobSchedulerService$LocalService;
 
-    iget-object v1, p0, Lcom/android/server/job/JobSchedulerService$LocalService$$ExternalSyntheticLambda0;->f$1:Ljava/util/List;
+    iget-object p0, p0, Lcom/android/server/job/JobSchedulerService$LocalService$$ExternalSyntheticLambda0;->f$1:Ljava/util/List;
 
     check-cast p1, Lcom/android/server/job/controllers/JobStatus;
 
-    invoke-virtual {v0, v1, p1}, Lcom/android/server/job/JobSchedulerService$LocalService;->lambda$getSystemScheduledPendingJobs$0$JobSchedulerService$LocalService(Ljava/util/List;Lcom/android/server/job/controllers/JobStatus;)V
+    invoke-static {v0, p0, p1}, Lcom/android/server/job/JobSchedulerService$LocalService;->$r8$lambda$5Zq9BJx0-W6H-q8IPOMMnJJu8Jo(Lcom/android/server/job/JobSchedulerService$LocalService;Ljava/util/List;Lcom/android/server/job/controllers/JobStatus;)V
 
     return-void
 .end method

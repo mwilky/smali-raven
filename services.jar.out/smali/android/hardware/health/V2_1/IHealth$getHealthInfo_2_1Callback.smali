@@ -15,8 +15,3 @@
 
 .annotation runtime Ljava/lang/FunctionalInterface;
 .end annotation
-
-
-# virtual methods
-.method public abstract onValues(ILandroid/hardware/health/V2_1/HealthInfo;)V
-.end method

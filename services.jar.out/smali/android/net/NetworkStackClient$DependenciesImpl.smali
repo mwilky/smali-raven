@@ -1,4 +1,4 @@
-.class Landroid/net/NetworkStackClient$DependenciesImpl;
+.class public Landroid/net/NetworkStackClient$DependenciesImpl;
 .super Ljava/lang/Object;
 .source "NetworkStackClient.java"
 
@@ -12,13 +12,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "DependenciesImpl"
 .end annotation
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Landroid/net/NetworkStackClient$1;)V
+.method public synthetic constructor <init>(Landroid/net/NetworkStackClient$DependenciesImpl-IA;)V
     .locals 0
 
     invoke-direct {p0}, Landroid/net/NetworkStackClient$DependenciesImpl;-><init>()V
@@ -37,52 +37,52 @@
 
 # virtual methods
 .method public addToServiceManager(Landroid/os/IBinder;)V
-    .locals 3
+    .locals 2
 
-    const-string/jumbo v0, "network_stack"
+    const-string/jumbo p0, "network_stack"
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    const/4 v2, 0x6
+    const/4 v1, 0x6
 
-    invoke-static {v0, p1, v1, v2}, Landroid/os/ServiceManager;->addService(Ljava/lang/String;Landroid/os/IBinder;ZI)V
+    invoke-static {p0, p1, v0, v1}, Landroid/os/ServiceManager;->addService(Ljava/lang/String;Landroid/os/IBinder;ZI)V
 
     return-void
 .end method
 
 .method public checkCallerUid()V
-    .locals 3
+    .locals 1
 
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
-    move-result v0
+    move-result p0
 
-    const/16 v1, 0x3e8
+    const/16 v0, 0x3e8
 
-    if-eq v0, v1, :cond_1
+    if-eq p0, v0, :cond_1
 
-    const/16 v1, 0x431
+    const/16 v0, 0x431
 
-    if-eq v0, v1, :cond_1
+    if-eq p0, v0, :cond_1
 
-    invoke-static {v0}, Landroid/os/UserHandle;->getAppId(I)I
+    invoke-static {p0}, Landroid/os/UserHandle;->getAppId(I)I
 
-    move-result v1
+    move-result p0
 
-    const/16 v2, 0x3ea
+    const/16 v0, 0x3ea
 
-    if-ne v1, v2, :cond_0
+    if-ne p0, v0, :cond_0
 
     goto :goto_0
 
     :cond_0
-    new-instance v1, Ljava/lang/SecurityException;
+    new-instance p0, Ljava/lang/SecurityException;
 
-    const-string v2, "Only the system server should try to bind to the network stack."
+    const-string v0, "Only the system server should try to bind to the network stack."
 
-    invoke-direct {v1, v2}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p0
 
     :cond_1
     :goto_0
@@ -90,11 +90,11 @@
 .end method
 
 .method public getConnectivityModuleConnector()Landroid/net/ConnectivityModuleConnector;
-    .locals 1
+    .locals 0
 
     invoke-static {}, Landroid/net/ConnectivityModuleConnector;->getInstance()Landroid/net/ConnectivityModuleConnector;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

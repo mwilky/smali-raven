@@ -1,4 +1,4 @@
-.class Lcom/android/server/media/MediaSessionRecord$ISessionControllerCallbackHolder;
+.class public Lcom/android/server/media/MediaSessionRecord$ISessionControllerCallbackHolder;
 .super Ljava/lang/Object;
 .source "MediaSessionRecord.java"
 
@@ -9,23 +9,49 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "ISessionControllerCallbackHolder"
 .end annotation
 
 
 # instance fields
-.field private final mCallback:Landroid/media/session/ISessionControllerCallback;
+.field public final mCallback:Landroid/media/session/ISessionControllerCallback;
 
-.field private final mPackageName:Ljava/lang/String;
+.field public final mDeathMonitor:Landroid/os/IBinder$DeathRecipient;
 
-.field private final mUid:I
+.field public final mPackageName:Ljava/lang/String;
 
-.field final synthetic this$0:Lcom/android/server/media/MediaSessionRecord;
+.field public final mUid:I
+
+.field public final synthetic this$0:Lcom/android/server/media/MediaSessionRecord;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/media/MediaSessionRecord;Landroid/media/session/ISessionControllerCallback;Ljava/lang/String;I)V
+.method public static bridge synthetic -$$Nest$fgetmCallback(Lcom/android/server/media/MediaSessionRecord$ISessionControllerCallbackHolder;)Landroid/media/session/ISessionControllerCallback;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/media/MediaSessionRecord$ISessionControllerCallbackHolder;->mCallback:Landroid/media/session/ISessionControllerCallback;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmDeathMonitor(Lcom/android/server/media/MediaSessionRecord$ISessionControllerCallbackHolder;)Landroid/os/IBinder$DeathRecipient;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/media/MediaSessionRecord$ISessionControllerCallbackHolder;->mDeathMonitor:Landroid/os/IBinder$DeathRecipient;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmPackageName(Lcom/android/server/media/MediaSessionRecord$ISessionControllerCallbackHolder;)Ljava/lang/String;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/media/MediaSessionRecord$ISessionControllerCallbackHolder;->mPackageName:Ljava/lang/String;
+
+    return-object p0
+.end method
+
+.method public constructor <init>(Lcom/android/server/media/MediaSessionRecord;Landroid/media/session/ISessionControllerCallback;Ljava/lang/String;ILandroid/os/IBinder$DeathRecipient;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/media/MediaSessionRecord$ISessionControllerCallbackHolder;->this$0:Lcom/android/server/media/MediaSessionRecord;
@@ -38,21 +64,7 @@
 
     iput p4, p0, Lcom/android/server/media/MediaSessionRecord$ISessionControllerCallbackHolder;->mUid:I
 
+    iput-object p5, p0, Lcom/android/server/media/MediaSessionRecord$ISessionControllerCallbackHolder;->mDeathMonitor:Landroid/os/IBinder$DeathRecipient;
+
     return-void
-.end method
-
-.method static synthetic access$400(Lcom/android/server/media/MediaSessionRecord$ISessionControllerCallbackHolder;)Ljava/lang/String;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$ISessionControllerCallbackHolder;->mPackageName:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method static synthetic access$500(Lcom/android/server/media/MediaSessionRecord$ISessionControllerCallbackHolder;)Landroid/media/session/ISessionControllerCallback;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$ISessionControllerCallbackHolder;->mCallback:Landroid/media/session/ISessionControllerCallback;
-
-    return-object v0
 .end method

@@ -28,7 +28,7 @@
 .method public onStart()V
     .locals 7
 
-    invoke-virtual {p0}, Lcom/android/server/timezonedetector/TimeZoneDetectorService$Lifecycle;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Lcom/android/server/SystemService;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
@@ -36,33 +36,41 @@
 
     move-result-object v1
 
-    nop
-
-    invoke-static {v0}, Lcom/android/server/timezonedetector/ServiceConfigAccessor;->getInstance(Landroid/content/Context;)Lcom/android/server/timezonedetector/ServiceConfigAccessor;
+    invoke-static {v0}, Lcom/android/server/timezonedetector/ServiceConfigAccessorImpl;->getInstance(Landroid/content/Context;)Lcom/android/server/timezonedetector/ServiceConfigAccessor;
 
     move-result-object v2
-
-    nop
 
     invoke-static {v0, v1, v2}, Lcom/android/server/timezonedetector/TimeZoneDetectorStrategyImpl;->create(Landroid/content/Context;Landroid/os/Handler;Lcom/android/server/timezonedetector/ServiceConfigAccessor;)Lcom/android/server/timezonedetector/TimeZoneDetectorStrategyImpl;
 
     move-result-object v3
 
-    new-instance v4, Lcom/android/server/timezonedetector/TimeZoneDetectorInternalImpl;
+    invoke-static {v0, v1}, Lcom/android/server/timezonedetector/DeviceActivityMonitorImpl;->create(Landroid/content/Context;Landroid/os/Handler;)Lcom/android/server/timezonedetector/DeviceActivityMonitor;
 
-    invoke-direct {v4, v0, v1, v3}, Lcom/android/server/timezonedetector/TimeZoneDetectorInternalImpl;-><init>(Landroid/content/Context;Landroid/os/Handler;Lcom/android/server/timezonedetector/TimeZoneDetectorStrategy;)V
+    move-result-object v4
 
-    const-class v5, Lcom/android/server/timezonedetector/TimeZoneDetectorInternal;
+    new-instance v5, Lcom/android/server/timezonedetector/TimeZoneDetectorService$Lifecycle$1;
 
-    invoke-virtual {p0, v5, v4}, Lcom/android/server/timezonedetector/TimeZoneDetectorService$Lifecycle;->publishLocalService(Ljava/lang/Class;Ljava/lang/Object;)V
+    invoke-direct {v5, p0, v3}, Lcom/android/server/timezonedetector/TimeZoneDetectorService$Lifecycle$1;-><init>(Lcom/android/server/timezonedetector/TimeZoneDetectorService$Lifecycle;Lcom/android/server/timezonedetector/TimeZoneDetectorStrategy;)V
 
-    invoke-static {v0, v1, v3}, Lcom/android/server/timezonedetector/TimeZoneDetectorService;->access$000(Landroid/content/Context;Landroid/os/Handler;Lcom/android/server/timezonedetector/TimeZoneDetectorStrategy;)Lcom/android/server/timezonedetector/TimeZoneDetectorService;
+    invoke-interface {v4, v5}, Lcom/android/server/timezonedetector/DeviceActivityMonitor;->addListener(Lcom/android/server/timezonedetector/DeviceActivityMonitor$Listener;)V
 
-    move-result-object v5
+    new-instance v5, Lcom/android/server/timezonedetector/TimeZoneDetectorInternalImpl;
 
-    const-string v6, "time_zone_detector"
+    invoke-direct {v5, v0, v1, v3}, Lcom/android/server/timezonedetector/TimeZoneDetectorInternalImpl;-><init>(Landroid/content/Context;Landroid/os/Handler;Lcom/android/server/timezonedetector/TimeZoneDetectorStrategy;)V
 
-    invoke-virtual {p0, v6, v5}, Lcom/android/server/timezonedetector/TimeZoneDetectorService$Lifecycle;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
+    const-class v6, Lcom/android/server/timezonedetector/TimeZoneDetectorInternal;
+
+    invoke-virtual {p0, v6, v5}, Lcom/android/server/SystemService;->publishLocalService(Ljava/lang/Class;Ljava/lang/Object;)V
+
+    invoke-static {v0, v1, v2, v3}, Lcom/android/server/timezonedetector/TimeZoneDetectorService;->-$$Nest$smcreate(Landroid/content/Context;Landroid/os/Handler;Lcom/android/server/timezonedetector/ServiceConfigAccessor;Lcom/android/server/timezonedetector/TimeZoneDetectorStrategy;)Lcom/android/server/timezonedetector/TimeZoneDetectorService;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v4}, Lcom/android/server/timezonedetector/TimeZoneDetectorService;->addDumpable(Lcom/android/server/timezonedetector/Dumpable;)V
+
+    const-string v1, "time_zone_detector"
+
+    invoke-virtual {p0, v1, v0}, Lcom/android/server/SystemService;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
 
     return-void
 .end method

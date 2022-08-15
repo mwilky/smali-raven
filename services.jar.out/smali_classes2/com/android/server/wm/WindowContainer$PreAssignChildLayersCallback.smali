@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/server/wm/WindowContainer$PreAssignChildLayersCallback;
+.class public interface abstract Lcom/android/server/wm/WindowContainer$PreAssignChildLayersCallback;
 .super Ljava/lang/Object;
 .source "WindowContainer.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
+    accessFlags = 0x609
     name = "PreAssignChildLayersCallback"
 .end annotation
 

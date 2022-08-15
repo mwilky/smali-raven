@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/policy/PhoneWindowManager$DisplayHomeButtonHandler$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/policy/PhoneWindowManager$DisplayHomeButtonHandler$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/policy/PhoneWindowManager$DisplayHomeButtonHandler;
+    iget-object p0, p0, Lcom/android/server/policy/PhoneWindowManager$DisplayHomeButtonHandler$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/policy/PhoneWindowManager$DisplayHomeButtonHandler;
 
-    invoke-virtual {v0}, Lcom/android/server/policy/PhoneWindowManager$DisplayHomeButtonHandler;->lambda$handleHomeButton$0$PhoneWindowManager$DisplayHomeButtonHandler()V
+    invoke-static {p0}, Lcom/android/server/policy/PhoneWindowManager$DisplayHomeButtonHandler;->$r8$lambda$5rQKs73-nKRT-vY-vVSg3sRPCFY(Lcom/android/server/policy/PhoneWindowManager$DisplayHomeButtonHandler;)V
 
     return-void
 .end method

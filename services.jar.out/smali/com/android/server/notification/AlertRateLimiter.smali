@@ -3,12 +3,8 @@
 .source "AlertRateLimiter.java"
 
 
-# static fields
-.field static final ALLOWED_ALERT_INTERVAL:J = 0x3e8L
-
-
 # instance fields
-.field private mLastNotificationMillis:J
+.field public mLastNotificationMillis:J
 
 
 # direct methods
@@ -26,7 +22,7 @@
 
 
 # virtual methods
-.method shouldRateLimitAlert(J)Z
+.method public shouldRateLimitAlert(J)Z
     .locals 4
 
     iget-wide v0, p0, Lcom/android/server/notification/AlertRateLimiter;->mLastNotificationMillis:J
@@ -41,22 +37,22 @@
 
     const-wide/16 v2, 0x3e8
 
-    cmp-long v2, v0, v2
+    cmp-long v0, v0, v2
 
-    if-gez v2, :cond_0
+    if-gez v0, :cond_0
 
     goto :goto_0
 
     :cond_0
     iput-wide p1, p0, Lcom/android/server/notification/AlertRateLimiter;->mLastNotificationMillis:J
 
-    const/4 v2, 0x0
+    const/4 p0, 0x0
 
-    return v2
+    return p0
 
     :cond_1
     :goto_0
-    const/4 v2, 0x1
+    const/4 p0, 0x1
 
-    return v2
+    return p0
 .end method

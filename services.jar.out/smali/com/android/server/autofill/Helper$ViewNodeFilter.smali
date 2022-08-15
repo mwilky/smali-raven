@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/server/autofill/Helper$ViewNodeFilter;
+.class public interface abstract Lcom/android/server/autofill/Helper$ViewNodeFilter;
 .super Ljava/lang/Object;
 .source "Helper.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x60a
+    accessFlags = 0x609
     name = "ViewNodeFilter"
 .end annotation
 

@@ -1,4 +1,4 @@
-.class abstract Lcom/android/server/display/color/ColorDisplayService$NightDisplayAutoMode;
+.class public abstract Lcom/android/server/display/color/ColorDisplayService$NightDisplayAutoMode;
 .super Ljava/lang/Object;
 .source "ColorDisplayService.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x402
+    accessFlags = 0x401
     name = "NightDisplayAutoMode"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/display/color/ColorDisplayService;
+.field public final synthetic this$0:Lcom/android/server/display/color/ColorDisplayService;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/server/display/color/ColorDisplayService;)V
+.method public constructor <init>(Lcom/android/server/display/color/ColorDisplayService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/display/color/ColorDisplayService$NightDisplayAutoMode;->this$0:Lcom/android/server/display/color/ColorDisplayService;
@@ -29,7 +29,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/display/color/ColorDisplayService;Lcom/android/server/display/color/ColorDisplayService$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/display/color/ColorDisplayService;Lcom/android/server/display/color/ColorDisplayService$NightDisplayAutoMode-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/display/color/ColorDisplayService$NightDisplayAutoMode;-><init>(Lcom/android/server/display/color/ColorDisplayService;)V

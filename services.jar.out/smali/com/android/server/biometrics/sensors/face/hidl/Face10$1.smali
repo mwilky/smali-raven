@@ -1,4 +1,4 @@
-.class Lcom/android/server/biometrics/sensors/face/hidl/Face10$1;
+.class public Lcom/android/server/biometrics/sensors/face/hidl/Face10$1;
 .super Landroid/app/SynchronousUserSwitchObserver;
 .source "Face10.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/biometrics/sensors/face/hidl/Face10;
+.field public final synthetic this$0:Lcom/android/server/biometrics/sensors/face/hidl/Face10;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/biometrics/sensors/face/hidl/Face10;)V
+.method public constructor <init>(Lcom/android/server/biometrics/sensors/face/hidl/Face10;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/biometrics/sensors/face/hidl/Face10$1;->this$0:Lcom/android/server/biometrics/sensors/face/hidl/Face10;
@@ -38,11 +38,11 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v0, p1, v1}, Lcom/android/server/biometrics/sensors/face/hidl/Face10;->access$000(Lcom/android/server/biometrics/sensors/face/hidl/Face10;ILcom/android/server/biometrics/sensors/BaseClientMonitor$Callback;)V
+    invoke-static {v0, p1, v1}, Lcom/android/server/biometrics/sensors/face/hidl/Face10;->-$$Nest$mscheduleInternalCleanup(Lcom/android/server/biometrics/sensors/face/hidl/Face10;ILcom/android/server/biometrics/sensors/ClientMonitorCallback;)V
 
     iget-object v2, p0, Lcom/android/server/biometrics/sensors/face/hidl/Face10$1;->this$0:Lcom/android/server/biometrics/sensors/face/hidl/Face10;
 
-    invoke-static {v2}, Lcom/android/server/biometrics/sensors/face/hidl/Face10;->access$100(Lcom/android/server/biometrics/sensors/face/hidl/Face10;)I
+    invoke-static {v2}, Lcom/android/server/biometrics/sensors/face/hidl/Face10;->-$$Nest$fgetmSensorId(Lcom/android/server/biometrics/sensors/face/hidl/Face10;)I
 
     move-result v3
 
@@ -50,13 +50,13 @@
 
     invoke-direct {v4}, Landroid/os/Binder;-><init>()V
 
-    iget-object v0, p0, Lcom/android/server/biometrics/sensors/face/hidl/Face10$1;->this$0:Lcom/android/server/biometrics/sensors/face/hidl/Face10;
+    iget-object p0, p0, Lcom/android/server/biometrics/sensors/face/hidl/Face10$1;->this$0:Lcom/android/server/biometrics/sensors/face/hidl/Face10;
 
-    invoke-static {v0}, Lcom/android/server/biometrics/sensors/face/hidl/Face10;->access$200(Lcom/android/server/biometrics/sensors/face/hidl/Face10;)Landroid/content/Context;
+    invoke-static {p0}, Lcom/android/server/biometrics/sensors/face/hidl/Face10;->-$$Nest$fgetmContext(Lcom/android/server/biometrics/sensors/face/hidl/Face10;)Landroid/content/Context;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Landroid/content/Context;->getOpPackageName()Ljava/lang/String;
+    invoke-virtual {p0}, Landroid/content/Context;->getOpPackageName()Ljava/lang/String;
 
     move-result-object v8
 

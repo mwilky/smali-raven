@@ -1,4 +1,4 @@
-.class final Lcom/android/server/dreams/DreamManagerService$LocalService;
+.class public final Lcom/android/server/dreams/DreamManagerService$LocalService;
 .super Landroid/service/dreams/DreamManagerInternal;
 .source "DreamManagerService.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "LocalService"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/dreams/DreamManagerService;
+.field public final synthetic this$0:Lcom/android/server/dreams/DreamManagerService;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/server/dreams/DreamManagerService;)V
+.method public constructor <init>(Lcom/android/server/dreams/DreamManagerService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/dreams/DreamManagerService$LocalService;->this$0:Lcom/android/server/dreams/DreamManagerService;
@@ -29,7 +29,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/dreams/DreamManagerService;Lcom/android/server/dreams/DreamManagerService$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/dreams/DreamManagerService;Lcom/android/server/dreams/DreamManagerService$LocalService-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/dreams/DreamManagerService$LocalService;-><init>(Lcom/android/server/dreams/DreamManagerService;)V
@@ -40,47 +40,47 @@
 
 # virtual methods
 .method public getActiveDreamComponent(Z)Landroid/content/ComponentName;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/dreams/DreamManagerService$LocalService;->this$0:Lcom/android/server/dreams/DreamManagerService;
+    iget-object p0, p0, Lcom/android/server/dreams/DreamManagerService$LocalService;->this$0:Lcom/android/server/dreams/DreamManagerService;
 
-    invoke-static {v0, p1}, Lcom/android/server/dreams/DreamManagerService;->access$2400(Lcom/android/server/dreams/DreamManagerService;Z)Landroid/content/ComponentName;
+    invoke-static {p0, p1}, Lcom/android/server/dreams/DreamManagerService;->-$$Nest$mgetActiveDreamComponentInternal(Lcom/android/server/dreams/DreamManagerService;Z)Landroid/content/ComponentName;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public isDreaming()Z
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/dreams/DreamManagerService$LocalService;->this$0:Lcom/android/server/dreams/DreamManagerService;
+    iget-object p0, p0, Lcom/android/server/dreams/DreamManagerService$LocalService;->this$0:Lcom/android/server/dreams/DreamManagerService;
 
-    invoke-static {v0}, Lcom/android/server/dreams/DreamManagerService;->access$1400(Lcom/android/server/dreams/DreamManagerService;)Z
+    invoke-static {p0}, Lcom/android/server/dreams/DreamManagerService;->-$$Nest$misDreamingInternal(Lcom/android/server/dreams/DreamManagerService;)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public startDream(Z)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/dreams/DreamManagerService$LocalService;->this$0:Lcom/android/server/dreams/DreamManagerService;
+    iget-object p0, p0, Lcom/android/server/dreams/DreamManagerService$LocalService;->this$0:Lcom/android/server/dreams/DreamManagerService;
 
-    invoke-static {v0, p1}, Lcom/android/server/dreams/DreamManagerService;->access$2200(Lcom/android/server/dreams/DreamManagerService;Z)V
+    invoke-static {p0, p1}, Lcom/android/server/dreams/DreamManagerService;->-$$Nest$mstartDreamInternal(Lcom/android/server/dreams/DreamManagerService;Z)V
 
     return-void
 .end method
 
 .method public stopDream(Z)V
-    .locals 2
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/dreams/DreamManagerService$LocalService;->this$0:Lcom/android/server/dreams/DreamManagerService;
+    iget-object p0, p0, Lcom/android/server/dreams/DreamManagerService$LocalService;->this$0:Lcom/android/server/dreams/DreamManagerService;
 
-    const-string/jumbo v1, "requested stopDream"
+    const-string/jumbo v0, "requested stopDream"
 
-    invoke-static {v0, p1, v1}, Lcom/android/server/dreams/DreamManagerService;->access$2300(Lcom/android/server/dreams/DreamManagerService;ZLjava/lang/String;)V
+    invoke-static {p0, p1, v0}, Lcom/android/server/dreams/DreamManagerService;->-$$Nest$mstopDreamInternal(Lcom/android/server/dreams/DreamManagerService;ZLjava/lang/String;)V
 
     return-void
 .end method

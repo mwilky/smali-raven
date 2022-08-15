@@ -1,4 +1,4 @@
-.class Lcom/android/server/biometrics/sensors/InvalidationRequesterClient$1;
+.class public Lcom/android/server/biometrics/sensors/InvalidationRequesterClient$1;
 .super Landroid/hardware/biometrics/IInvalidationCallback$Stub;
 .source "InvalidationRequesterClient.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/biometrics/sensors/InvalidationRequesterClient;
+.field public final synthetic this$0:Lcom/android/server/biometrics/sensors/InvalidationRequesterClient;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/biometrics/sensors/InvalidationRequesterClient;)V
+.method public constructor <init>(Lcom/android/server/biometrics/sensors/InvalidationRequesterClient;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/biometrics/sensors/InvalidationRequesterClient$1;->this$0:Lcom/android/server/biometrics/sensors/InvalidationRequesterClient;
@@ -36,19 +36,19 @@
 
     iget-object v0, p0, Lcom/android/server/biometrics/sensors/InvalidationRequesterClient$1;->this$0:Lcom/android/server/biometrics/sensors/InvalidationRequesterClient;
 
-    invoke-static {v0}, Lcom/android/server/biometrics/sensors/InvalidationRequesterClient;->access$000(Lcom/android/server/biometrics/sensors/InvalidationRequesterClient;)Lcom/android/server/biometrics/sensors/BiometricUtils;
+    invoke-static {v0}, Lcom/android/server/biometrics/sensors/InvalidationRequesterClient;->-$$Nest$fgetmUtils(Lcom/android/server/biometrics/sensors/InvalidationRequesterClient;)Lcom/android/server/biometrics/sensors/BiometricUtils;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/server/biometrics/sensors/InvalidationRequesterClient$1;->this$0:Lcom/android/server/biometrics/sensors/InvalidationRequesterClient;
 
-    invoke-virtual {v1}, Lcom/android/server/biometrics/sensors/InvalidationRequesterClient;->getContext()Landroid/content/Context;
+    invoke-virtual {v1}, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/android/server/biometrics/sensors/InvalidationRequesterClient$1;->this$0:Lcom/android/server/biometrics/sensors/InvalidationRequesterClient;
 
-    invoke-virtual {v2}, Lcom/android/server/biometrics/sensors/InvalidationRequesterClient;->getTargetUserId()I
+    invoke-virtual {v2}, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->getTargetUserId()I
 
     move-result v2
 
@@ -56,15 +56,13 @@
 
     invoke-interface {v0, v1, v2, v3}, Lcom/android/server/biometrics/sensors/BiometricUtils;->setInvalidationInProgress(Landroid/content/Context;IZ)V
 
-    iget-object v0, p0, Lcom/android/server/biometrics/sensors/InvalidationRequesterClient$1;->this$0:Lcom/android/server/biometrics/sensors/InvalidationRequesterClient;
+    iget-object p0, p0, Lcom/android/server/biometrics/sensors/InvalidationRequesterClient$1;->this$0:Lcom/android/server/biometrics/sensors/InvalidationRequesterClient;
 
-    iget-object v0, v0, Lcom/android/server/biometrics/sensors/InvalidationRequesterClient;->mCallback:Lcom/android/server/biometrics/sensors/BaseClientMonitor$Callback;
+    iget-object v0, p0, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->mCallback:Lcom/android/server/biometrics/sensors/ClientMonitorCallback;
 
-    iget-object v1, p0, Lcom/android/server/biometrics/sensors/InvalidationRequesterClient$1;->this$0:Lcom/android/server/biometrics/sensors/InvalidationRequesterClient;
+    const/4 v1, 0x1
 
-    const/4 v2, 0x1
-
-    invoke-interface {v0, v1, v2}, Lcom/android/server/biometrics/sensors/BaseClientMonitor$Callback;->onClientFinished(Lcom/android/server/biometrics/sensors/BaseClientMonitor;Z)V
+    invoke-interface {v0, p0, v1}, Lcom/android/server/biometrics/sensors/ClientMonitorCallback;->onClientFinished(Lcom/android/server/biometrics/sensors/BaseClientMonitor;Z)V
 
     return-void
 .end method

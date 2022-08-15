@@ -3,53 +3,39 @@
 .source "BiometricSensor.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/android/server/biometrics/BiometricSensor$SensorState;
-    }
-.end annotation
-
-
-# static fields
-.field static final STATE_AUTHENTICATING:I = 0x3
-
-.field static final STATE_CANCELING:I = 0x4
-
-.field static final STATE_COOKIE_RETURNED:I = 0x2
-
-.field static final STATE_STOPPED:I = 0x5
-
-.field static final STATE_UNKNOWN:I = 0x0
-
-.field static final STATE_WAITING_FOR_COOKIE:I = 0x1
-
-.field private static final TAG:Ljava/lang/String; = "BiometricService/Sensor"
-
-
 # instance fields
 .field public final id:I
 
 .field public final impl:Landroid/hardware/biometrics/IBiometricAuthenticator;
 
-.field private final mContext:Landroid/content/Context;
+.field public final mContext:Landroid/content/Context;
 
-.field private mCookie:I
+.field public mCookie:I
 
-.field private mError:I
+.field public mError:I
 
-.field private mSensorState:I
+.field public mSensorState:I
 
-.field private mUpdatedStrength:I
+.field public mUpdatedStrength:I
+    .annotation build Landroid/hardware/biometrics/BiometricManager$Authenticators$Types;
+    .end annotation
+.end field
 
 .field public final modality:I
 
 .field public final oemStrength:I
+    .annotation build Landroid/hardware/biometrics/BiometricManager$Authenticators$Types;
+    .end annotation
+.end field
 
 
 # direct methods
-.method constructor <init>(Landroid/content/Context;IIILandroid/hardware/biometrics/IBiometricAuthenticator;)V
+.method public constructor <init>(Landroid/content/Context;IIILandroid/hardware/biometrics/IBiometricAuthenticator;)V
     .locals 0
+    .param p4    # I
+        .annotation build Landroid/hardware/biometrics/BiometricManager$Authenticators$Types;
+        .end annotation
+    .end param
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -72,60 +58,67 @@
 
 
 # virtual methods
-.method abstract confirmationAlwaysRequired(I)Z
+.method public abstract confirmationAlwaysRequired(I)Z
 .end method
 
-.method abstract confirmationSupported()Z
+.method public abstract confirmationSupported()Z
 .end method
 
-.method getCookie()I
+.method public getCookie()I
+    .locals 0
+
+    iget p0, p0, Lcom/android/server/biometrics/BiometricSensor;->mCookie:I
+
+    return p0
+.end method
+
+.method public getCurrentStrength()I
     .locals 1
-
-    iget v0, p0, Lcom/android/server/biometrics/BiometricSensor;->mCookie:I
-
-    return v0
-.end method
-
-.method getCurrentStrength()I
-    .locals 2
+    .annotation build Landroid/hardware/biometrics/BiometricManager$Authenticators$Types;
+    .end annotation
 
     iget v0, p0, Lcom/android/server/biometrics/BiometricSensor;->oemStrength:I
 
-    iget v1, p0, Lcom/android/server/biometrics/BiometricSensor;->mUpdatedStrength:I
+    iget p0, p0, Lcom/android/server/biometrics/BiometricSensor;->mUpdatedStrength:I
 
-    or-int/2addr v0, v1
+    or-int/2addr p0, v0
 
-    return v0
+    return p0
 .end method
 
-.method getSensorState()I
-    .locals 1
+.method public getSensorState()I
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/biometrics/BiometricSensor;->mSensorState:I
+    iget p0, p0, Lcom/android/server/biometrics/BiometricSensor;->mSensorState:I
 
-    return v0
+    return p0
 .end method
 
-.method goToStateCancelling(Landroid/os/IBinder;Ljava/lang/String;J)V
-    .locals 1
+.method public goToStateCancelling(Landroid/os/IBinder;Ljava/lang/String;J)V
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    iget v0, p0, Lcom/android/server/biometrics/BiometricSensor;->mSensorState:I
+
+    const/4 v1, 0x4
+
+    if-eq v0, v1, :cond_0
+
     iget-object v0, p0, Lcom/android/server/biometrics/BiometricSensor;->impl:Landroid/hardware/biometrics/IBiometricAuthenticator;
 
     invoke-interface {v0, p1, p2, p3, p4}, Landroid/hardware/biometrics/IBiometricAuthenticator;->cancelAuthenticationFromService(Landroid/os/IBinder;Ljava/lang/String;J)V
 
-    const/4 v0, 0x4
+    iput v1, p0, Lcom/android/server/biometrics/BiometricSensor;->mSensorState:I
 
-    iput v0, p0, Lcom/android/server/biometrics/BiometricSensor;->mSensorState:I
-
+    :cond_0
     return-void
 .end method
 
-.method goToStateCookieReturnedIfCookieMatches(I)V
+.method public goToStateCookieReturnedIfCookieMatches(I)V
     .locals 2
 
     iget v0, p0, Lcom/android/server/biometrics/BiometricSensor;->mCookie:I
@@ -152,21 +145,21 @@
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v1, "BiometricService/Sensor"
+    const-string v0, "BiometricService/Sensor"
 
-    invoke-static {v1, v0}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, p1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 v0, 0x2
+    const/4 p1, 0x2
 
-    iput v0, p0, Lcom/android/server/biometrics/BiometricSensor;->mSensorState:I
+    iput p1, p0, Lcom/android/server/biometrics/BiometricSensor;->mSensorState:I
 
     :cond_0
     return-void
 .end method
 
-.method goToStateUnknown()V
+.method public goToStateUnknown()V
     .locals 1
 
     const/4 v0, 0x0
@@ -180,8 +173,8 @@
     return-void
 .end method
 
-.method goToStateWaitingForCookie(ZLandroid/os/IBinder;JILandroid/hardware/biometrics/IBiometricSensorReceiver;Ljava/lang/String;JIZ)V
-    .locals 14
+.method public goToStateWaitingForCookie(ZLandroid/os/IBinder;JILandroid/hardware/biometrics/IBiometricSensorReceiver;Ljava/lang/String;JIZ)V
+    .locals 13
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -190,15 +183,15 @@
 
     move-object v0, p0
 
-    move/from16 v13, p10
+    move/from16 v11, p10
 
-    iput v13, v0, Lcom/android/server/biometrics/BiometricSensor;->mCookie:I
+    iput v11, v0, Lcom/android/server/biometrics/BiometricSensor;->mCookie:I
 
     iget-object v1, v0, Lcom/android/server/biometrics/BiometricSensor;->impl:Landroid/hardware/biometrics/IBiometricAuthenticator;
 
     move v2, p1
 
-    move-object/from16 v3, p2
+    move-object v3, p2
 
     move-wide/from16 v4, p3
 
@@ -209,8 +202,6 @@
     move-object/from16 v8, p7
 
     move-wide/from16 v9, p8
-
-    move/from16 v11, p10
 
     move/from16 v12, p11
 
@@ -223,48 +214,48 @@
     return-void
 .end method
 
-.method goToStoppedStateIfCookieMatches(II)V
-    .locals 2
+.method public goToStoppedStateIfCookieMatches(II)V
+    .locals 1
 
     iget v0, p0, Lcom/android/server/biometrics/BiometricSensor;->mCookie:I
 
     if-ne p1, v0, :cond_0
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "Sensor("
+    const-string v0, "Sensor("
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v1, p0, Lcom/android/server/biometrics/BiometricSensor;->id:I
+    iget v0, p0, Lcom/android/server/biometrics/BiometricSensor;->id:I
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v1, ") now in STATE_STOPPED"
+    const-string v0, ") now in STATE_STOPPED"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v1, "BiometricService/Sensor"
+    const-string v0, "BiometricService/Sensor"
 
-    invoke-static {v1, v0}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, p1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     iput p2, p0, Lcom/android/server/biometrics/BiometricSensor;->mError:I
 
-    const/4 v0, 0x5
+    const/4 p1, 0x5
 
-    iput v0, p0, Lcom/android/server/biometrics/BiometricSensor;->mSensorState:I
+    iput p1, p0, Lcom/android/server/biometrics/BiometricSensor;->mSensorState:I
 
     :cond_0
     return-void
 .end method
 
-.method startSensor()V
+.method public startSensor()V
     .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -286,106 +277,73 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .locals 2
 
-    const/4 v0, 0x0
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    :try_start_0
-    iget-object v1, p0, Lcom/android/server/biometrics/BiometricSensor;->impl:Landroid/hardware/biometrics/IBiometricAuthenticator;
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v2, p0, Lcom/android/server/biometrics/BiometricSensor;->mContext:Landroid/content/Context;
+    const-string v1, "ID("
 
-    invoke-virtual {v2}, Landroid/content/Context;->getOpPackageName()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    iget v1, p0, Lcom/android/server/biometrics/BiometricSensor;->id:I
 
-    invoke-interface {v1, v2}, Landroid/hardware/biometrics/IBiometricAuthenticator;->getSensorProperties(Ljava/lang/String;)Landroid/hardware/biometrics/SensorPropertiesInternal;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v1
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    const-string v1, "), oemStrength: "
 
-    move-object v0, v1
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_0
+    iget v1, p0, Lcom/android/server/biometrics/BiometricSensor;->oemStrength:I
 
-    :catch_0
-    move-exception v1
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v2, "BiometricService/Sensor"
+    const-string v1, ", updatedStrength: "
 
-    const-string v3, "Remote exception"
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {v2, v3, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    iget v1, p0, Lcom/android/server/biometrics/BiometricSensor;->mUpdatedStrength:I
 
-    :goto_0
-    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, ", modality "
 
-    const-string v2, "ID("
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget v1, p0, Lcom/android/server/biometrics/BiometricSensor;->modality:I
 
-    iget v2, p0, Lcom/android/server/biometrics/BiometricSensor;->id:I
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string v1, ", state: "
 
-    const-string v2, "), oemStrength: "
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget v1, p0, Lcom/android/server/biometrics/BiometricSensor;->mSensorState:I
 
-    iget v2, p0, Lcom/android/server/biometrics/BiometricSensor;->oemStrength:I
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string v1, ", cookie: "
 
-    const-string v2, ", updatedStrength: "
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget p0, p0, Lcom/android/server/biometrics/BiometricSensor;->mCookie:I
 
-    iget v2, p0, Lcom/android/server/biometrics/BiometricSensor;->mUpdatedStrength:I
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    const-string v2, ", modality "
+    move-result-object p0
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget v2, p0, Lcom/android/server/biometrics/BiometricSensor;->modality:I
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v2, ", state: "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget v2, p0, Lcom/android/server/biometrics/BiometricSensor;->mSensorState:I
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v2, ", cookie: "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget v2, p0, Lcom/android/server/biometrics/BiometricSensor;->mCookie:I
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v2, ", props: "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    return-object v1
+    return-object p0
 .end method
 
-.method updateStrength(I)V
-    .locals 4
+.method public updateStrength(I)V
+    .locals 2
+    .param p1    # I
+        .annotation build Landroid/hardware/biometrics/BiometricManager$Authenticators$Types;
+        .end annotation
+    .end param
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -395,11 +353,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Lcom/android/server/biometrics/BiometricSensor;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     const-string v1, ")"
 
@@ -411,31 +365,27 @@
 
     iput p1, p0, Lcom/android/server/biometrics/BiometricSensor;->mUpdatedStrength:I
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, " After("
+    const-string v0, " After("
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Lcom/android/server/biometrics/BiometricSensor;->toString()Ljava/lang/String;
+    invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p0
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string p1, "BiometricService/Sensor"
 
-    move-result-object v0
-
-    const-string v1, "BiometricService/Sensor"
-
-    invoke-static {v1, v0}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p1, p0}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 .end method

@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda3;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/os/IBinder$DeathRecipient;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final binderDied()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda3;->f$0:Lcom/android/server/stats/pull/StatsPullAtomService;
+    iget-object p0, p0, Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda3;->f$0:Lcom/android/server/stats/pull/StatsPullAtomService;
 
-    invoke-virtual {v0}, Lcom/android/server/stats/pull/StatsPullAtomService;->lambda$getINotificationManagerService$5$StatsPullAtomService()V
+    invoke-static {p0}, Lcom/android/server/stats/pull/StatsPullAtomService;->$r8$lambda$TZ5O-rOJ7_PWulVdE8rZI7aJzyM(Lcom/android/server/stats/pull/StatsPullAtomService;)V
 
     return-void
 .end method

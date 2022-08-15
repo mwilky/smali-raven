@@ -1,4 +1,4 @@
-.class Lcom/android/server/pm/SnapshotStatistics$1;
+.class public Lcom/android/server/pm/SnapshotStatistics$1;
 .super Landroid/os/Handler;
 .source "SnapshotStatistics.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/pm/SnapshotStatistics;
+.field public final synthetic this$0:Lcom/android/server/pm/SnapshotStatistics;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/pm/SnapshotStatistics;Landroid/os/Looper;)V
+.method public constructor <init>(Lcom/android/server/pm/SnapshotStatistics;Landroid/os/Looper;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/pm/SnapshotStatistics$1;->this$0:Lcom/android/server/pm/SnapshotStatistics;
@@ -32,11 +32,11 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/pm/SnapshotStatistics$1;->this$0:Lcom/android/server/pm/SnapshotStatistics;
+    iget-object p0, p0, Lcom/android/server/pm/SnapshotStatistics$1;->this$0:Lcom/android/server/pm/SnapshotStatistics;
 
-    invoke-static {v0, p1}, Lcom/android/server/pm/SnapshotStatistics;->access$300(Lcom/android/server/pm/SnapshotStatistics;Landroid/os/Message;)V
+    invoke-static {p0, p1}, Lcom/android/server/pm/SnapshotStatistics;->-$$Nest$mhandleMessage(Lcom/android/server/pm/SnapshotStatistics;Landroid/os/Message;)V
 
     return-void
 .end method

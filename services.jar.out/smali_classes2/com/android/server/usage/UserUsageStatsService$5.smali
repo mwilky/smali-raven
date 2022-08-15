@@ -1,4 +1,4 @@
-.class Lcom/android/server/usage/UserUsageStatsService$5;
+.class public Lcom/android/server/usage/UserUsageStatsService$5;
 .super Ljava/lang/Object;
 .source "UserUsageStatsService.java"
 
@@ -12,19 +12,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/usage/UserUsageStatsService;
+.field public final synthetic this$0:Lcom/android/server/usage/UserUsageStatsService;
 
-.field final synthetic val$pw:Lcom/android/internal/util/IndentingPrintWriter;
+.field public final synthetic val$pw:Lcom/android/internal/util/IndentingPrintWriter;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/usage/UserUsageStatsService;Lcom/android/internal/util/IndentingPrintWriter;)V
+.method public constructor <init>(Lcom/android/server/usage/UserUsageStatsService;Lcom/android/internal/util/IndentingPrintWriter;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/usage/UserUsageStatsService$5;->this$0:Lcom/android/server/usage/UserUsageStatsService;
@@ -55,7 +55,7 @@
 
     invoke-virtual/range {v0 .. v5}, Lcom/android/server/usage/UserUsageStatsService;->printIntervalStats(Lcom/android/internal/util/IndentingPrintWriter;Lcom/android/server/usage/IntervalStats;ZZLjava/util/List;)V
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 .end method

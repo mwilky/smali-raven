@@ -23,9 +23,7 @@
 
 
 # static fields
-.field private static final ENABLED:Z = true
-
-.field private static final sCaches:Ljava/util/WeakHashMap;
+.field public static final sCaches:Ljava/util/WeakHashMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/WeakHashMap<",
@@ -38,9 +36,9 @@
 
 
 # instance fields
-.field private volatile mSealed:Z
+.field public volatile mSealed:Z
 
-.field private volatile mSnapshot:Ljava/lang/Object;
+.field public volatile mSnapshot:Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "TT;"
@@ -48,7 +46,7 @@
     .end annotation
 .end field
 
-.field protected final mSource:Ljava/lang/Object;
+.field public final mSource:Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "TT;"
@@ -56,11 +54,11 @@
     .end annotation
 .end field
 
-.field private final mStatistics:Lcom/android/server/utils/SnapshotCache$Statistics;
+.field public final mStatistics:Lcom/android/server/utils/SnapshotCache$Statistics;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 1
 
     new-instance v0, Ljava/util/WeakHashMap;
@@ -140,15 +138,15 @@
 
     if-eqz p3, :cond_0
 
-    new-instance v1, Lcom/android/server/utils/SnapshotCache$Statistics;
+    new-instance p1, Lcom/android/server/utils/SnapshotCache$Statistics;
 
-    invoke-direct {v1, p3}, Lcom/android/server/utils/SnapshotCache$Statistics;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p3}, Lcom/android/server/utils/SnapshotCache$Statistics;-><init>(Ljava/lang/String;)V
 
-    iput-object v1, p0, Lcom/android/server/utils/SnapshotCache;->mStatistics:Lcom/android/server/utils/SnapshotCache$Statistics;
+    iput-object p1, p0, Lcom/android/server/utils/SnapshotCache;->mStatistics:Lcom/android/server/utils/SnapshotCache$Statistics;
 
-    sget-object v1, Lcom/android/server/utils/SnapshotCache;->sCaches:Ljava/util/WeakHashMap;
+    sget-object p1, Lcom/android/server/utils/SnapshotCache;->sCaches:Ljava/util/WeakHashMap;
 
-    invoke-virtual {v1, p0, v0}, Ljava/util/WeakHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p1, p0, v0}, Ljava/util/WeakHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_0
 
@@ -170,40 +168,30 @@
 .end method
 
 .method public final onChange(Lcom/android/server/utils/Watchable;)V
-    .locals 2
+    .locals 0
 
-    iget-boolean v0, p0, Lcom/android/server/utils/SnapshotCache;->mSealed:Z
+    iget-boolean p1, p0, Lcom/android/server/utils/SnapshotCache;->mSealed:Z
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput-object v0, p0, Lcom/android/server/utils/SnapshotCache;->mSnapshot:Ljava/lang/Object;
+    iput-object p1, p0, Lcom/android/server/utils/SnapshotCache;->mSnapshot:Ljava/lang/Object;
 
     return-void
 
     :cond_0
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p0, Ljava/lang/IllegalStateException;
 
-    const-string v1, "attempt to change a sealed object"
+    const-string p1, "attempt to change a sealed object"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
-.end method
-
-.method public final seal()V
-    .locals 1
-
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/android/server/utils/SnapshotCache;->mSealed:Z
-
-    return-void
+    throw p0
 .end method
 
 .method public final snapshot()Ljava/lang/Object;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -214,15 +202,15 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v1, p0, Lcom/android/server/utils/SnapshotCache;->mStatistics:Lcom/android/server/utils/SnapshotCache$Statistics;
+    iget-object p0, p0, Lcom/android/server/utils/SnapshotCache;->mStatistics:Lcom/android/server/utils/SnapshotCache$Statistics;
 
-    if-eqz v1, :cond_1
+    if-eqz p0, :cond_1
 
-    invoke-static {v1}, Lcom/android/server/utils/SnapshotCache$Statistics;->access$100(Lcom/android/server/utils/SnapshotCache$Statistics;)Ljava/util/concurrent/atomic/AtomicInteger;
+    invoke-static {p0}, Lcom/android/server/utils/SnapshotCache$Statistics;->-$$Nest$fgetmReused(Lcom/android/server/utils/SnapshotCache$Statistics;)Ljava/util/concurrent/atomic/AtomicInteger;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v1}, Ljava/util/concurrent/atomic/AtomicInteger;->incrementAndGet()I
+    invoke-virtual {p0}, Ljava/util/concurrent/atomic/AtomicInteger;->incrementAndGet()I
 
     goto :goto_0
 
@@ -233,15 +221,15 @@
 
     iput-object v0, p0, Lcom/android/server/utils/SnapshotCache;->mSnapshot:Ljava/lang/Object;
 
-    iget-object v1, p0, Lcom/android/server/utils/SnapshotCache;->mStatistics:Lcom/android/server/utils/SnapshotCache$Statistics;
+    iget-object p0, p0, Lcom/android/server/utils/SnapshotCache;->mStatistics:Lcom/android/server/utils/SnapshotCache$Statistics;
 
-    if-eqz v1, :cond_1
+    if-eqz p0, :cond_1
 
-    invoke-static {v1}, Lcom/android/server/utils/SnapshotCache$Statistics;->access$000(Lcom/android/server/utils/SnapshotCache$Statistics;)Ljava/util/concurrent/atomic/AtomicInteger;
+    invoke-static {p0}, Lcom/android/server/utils/SnapshotCache$Statistics;->-$$Nest$fgetmRebuilt(Lcom/android/server/utils/SnapshotCache$Statistics;)Ljava/util/concurrent/atomic/AtomicInteger;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v1}, Ljava/util/concurrent/atomic/AtomicInteger;->incrementAndGet()I
+    invoke-virtual {p0}, Ljava/util/concurrent/atomic/AtomicInteger;->incrementAndGet()I
 
     :cond_1
     :goto_0

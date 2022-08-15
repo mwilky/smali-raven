@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/server/wm/PersisterQueue$WriteQueueItem;
+.class public interface abstract Lcom/android/server/wm/PersisterQueue$WriteQueueItem;
 .super Ljava/lang/Object;
 .source "PersisterQueue.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
+    accessFlags = 0x609
     name = "WriteQueueItem"
 .end annotation
 
@@ -25,16 +25,16 @@
 
 # virtual methods
 .method public matches(Lcom/android/server/wm/PersisterQueue$WriteQueueItem;)Z
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)Z"
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
 .method public abstract process()V

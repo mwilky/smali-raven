@@ -1,4 +1,4 @@
-.class Lcom/android/server/location/gnss/GnssGeofenceProxy;
+.class public Lcom/android/server/location/gnss/GnssGeofenceProxy;
 .super Landroid/location/IGpsGeofenceHardware$Stub;
 .source "GnssGeofenceProxy.java"
 
@@ -15,7 +15,13 @@
 
 
 # instance fields
-.field private final mGeofenceEntries:Landroid/util/SparseArray;
+.field public final mGeofenceEntries:Landroid/util/SparseArray;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/SparseArray<",
@@ -25,13 +31,13 @@
     .end annotation
 .end field
 
-.field private final mGnssNative:Lcom/android/server/location/gnss/hal/GnssNative;
+.field public final mGnssNative:Lcom/android/server/location/gnss/hal/GnssNative;
 
-.field private final mLock:Ljava/lang/Object;
+.field public final mLock:Ljava/lang/Object;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/location/gnss/hal/GnssNative;)V
+.method public constructor <init>(Lcom/android/server/location/gnss/hal/GnssNative;)V
     .locals 1
 
     invoke-direct {p0}, Landroid/location/IGpsGeofenceHardware$Stub;-><init>()V
@@ -58,216 +64,122 @@
 
 # virtual methods
 .method public addCircularHardwareGeofence(IDDDIIII)Z
-    .locals 16
+    .locals 15
 
-    move-object/from16 v1, p0
+    move-object v0, p0
 
-    move/from16 v14, p1
+    move/from16 v13, p1
 
-    iget-object v15, v1, Lcom/android/server/location/gnss/GnssGeofenceProxy;->mLock:Ljava/lang/Object;
+    iget-object v14, v0, Lcom/android/server/location/gnss/GnssGeofenceProxy;->mLock:Ljava/lang/Object;
 
-    monitor-enter v15
+    monitor-enter v14
 
     :try_start_0
-    iget-object v2, v1, Lcom/android/server/location/gnss/GnssGeofenceProxy;->mGnssNative:Lcom/android/server/location/gnss/hal/GnssNative;
+    iget-object v1, v0, Lcom/android/server/location/gnss/GnssGeofenceProxy;->mGnssNative:Lcom/android/server/location/gnss/hal/GnssNative;
 
-    move/from16 v3, p1
+    move/from16 v2, p1
 
-    move-wide/from16 v4, p2
+    move-wide/from16 v3, p2
 
-    move-wide/from16 v6, p4
+    move-wide/from16 v5, p4
 
-    move-wide/from16 v8, p6
+    move-wide/from16 v7, p6
 
-    move/from16 v10, p8
+    move/from16 v9, p8
 
-    move/from16 v11, p9
+    move/from16 v10, p9
 
-    move/from16 v12, p10
+    move/from16 v11, p10
 
-    move/from16 v13, p11
+    move/from16 v12, p11
 
-    invoke-virtual/range {v2 .. v13}, Lcom/android/server/location/gnss/hal/GnssNative;->addGeofence(IDDDIIII)Z
+    invoke-virtual/range {v1 .. v12}, Lcom/android/server/location/gnss/hal/GnssNative;->addGeofence(IDDDIIII)Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
     new-instance v2, Lcom/android/server/location/gnss/GnssGeofenceProxy$GeofenceEntry;
 
     const/4 v3, 0x0
 
-    invoke-direct {v2, v3}, Lcom/android/server/location/gnss/GnssGeofenceProxy$GeofenceEntry;-><init>(Lcom/android/server/location/gnss/GnssGeofenceProxy$1;)V
+    invoke-direct {v2, v3}, Lcom/android/server/location/gnss/GnssGeofenceProxy$GeofenceEntry;-><init>(Lcom/android/server/location/gnss/GnssGeofenceProxy$GeofenceEntry-IA;)V
 
-    iput v14, v2, Lcom/android/server/location/gnss/GnssGeofenceProxy$GeofenceEntry;->geofenceId:I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_6
+    iput v13, v2, Lcom/android/server/location/gnss/GnssGeofenceProxy$GeofenceEntry;->geofenceId:I
 
     move-wide/from16 v3, p2
 
-    :try_start_1
     iput-wide v3, v2, Lcom/android/server/location/gnss/GnssGeofenceProxy$GeofenceEntry;->latitude:D
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_5
 
-    move-wide/from16 v5, p4
+    move-wide/from16 v3, p4
 
-    :try_start_2
-    iput-wide v5, v2, Lcom/android/server/location/gnss/GnssGeofenceProxy$GeofenceEntry;->longitude:D
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_4
+    iput-wide v3, v2, Lcom/android/server/location/gnss/GnssGeofenceProxy$GeofenceEntry;->longitude:D
 
-    move-wide/from16 v7, p6
+    move-wide/from16 v3, p6
 
-    :try_start_3
-    iput-wide v7, v2, Lcom/android/server/location/gnss/GnssGeofenceProxy$GeofenceEntry;->radius:D
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_3
+    iput-wide v3, v2, Lcom/android/server/location/gnss/GnssGeofenceProxy$GeofenceEntry;->radius:D
 
-    move/from16 v9, p8
+    move/from16 v3, p8
 
-    :try_start_4
-    iput v9, v2, Lcom/android/server/location/gnss/GnssGeofenceProxy$GeofenceEntry;->lastTransition:I
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_2
+    iput v3, v2, Lcom/android/server/location/gnss/GnssGeofenceProxy$GeofenceEntry;->lastTransition:I
 
-    move/from16 v10, p9
+    move/from16 v3, p9
 
-    :try_start_5
-    iput v10, v2, Lcom/android/server/location/gnss/GnssGeofenceProxy$GeofenceEntry;->monitorTransitions:I
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_1
+    iput v3, v2, Lcom/android/server/location/gnss/GnssGeofenceProxy$GeofenceEntry;->monitorTransitions:I
 
-    move/from16 v11, p10
+    move/from16 v3, p10
 
-    :try_start_6
-    iput v11, v2, Lcom/android/server/location/gnss/GnssGeofenceProxy$GeofenceEntry;->notificationResponsiveness:I
-    :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_0
+    iput v3, v2, Lcom/android/server/location/gnss/GnssGeofenceProxy$GeofenceEntry;->notificationResponsiveness:I
 
-    move/from16 v12, p11
+    move/from16 v3, p11
 
-    :try_start_7
-    iput v12, v2, Lcom/android/server/location/gnss/GnssGeofenceProxy$GeofenceEntry;->unknownTimer:I
+    iput v3, v2, Lcom/android/server/location/gnss/GnssGeofenceProxy$GeofenceEntry;->unknownTimer:I
 
-    iget-object v13, v1, Lcom/android/server/location/gnss/GnssGeofenceProxy;->mGeofenceEntries:Landroid/util/SparseArray;
+    iget-object v0, v0, Lcom/android/server/location/gnss/GnssGeofenceProxy;->mGeofenceEntries:Landroid/util/SparseArray;
 
-    invoke-virtual {v13, v14, v2}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    invoke-virtual {v0, v13, v2}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    goto :goto_0
+    :cond_0
+    monitor-exit v14
+
+    return v1
 
     :catchall_0
     move-exception v0
 
-    goto :goto_6
-
-    :catchall_1
-    move-exception v0
-
-    goto :goto_5
-
-    :catchall_2
-    move-exception v0
-
-    goto :goto_4
-
-    :catchall_3
-    move-exception v0
-
-    goto :goto_3
-
-    :catchall_4
-    move-exception v0
-
-    goto :goto_2
-
-    :catchall_5
-    move-exception v0
-
-    goto :goto_1
-
-    :cond_0
-    move-wide/from16 v3, p2
-
-    move-wide/from16 v5, p4
-
-    move-wide/from16 v7, p6
-
-    move/from16 v9, p8
-
-    move/from16 v10, p9
-
-    move/from16 v11, p10
-
-    move/from16 v12, p11
-
-    :goto_0
-    monitor-exit v15
-
-    return v0
-
-    :catchall_6
-    move-exception v0
-
-    move-wide/from16 v3, p2
-
-    :goto_1
-    move-wide/from16 v5, p4
-
-    :goto_2
-    move-wide/from16 v7, p6
-
-    :goto_3
-    move/from16 v9, p8
-
-    :goto_4
-    move/from16 v10, p9
-
-    :goto_5
-    move/from16 v11, p10
-
-    :goto_6
-    move/from16 v12, p11
-
-    :goto_7
-    monitor-exit v15
-    :try_end_7
-    .catchall {:try_start_7 .. :try_end_7} :catchall_7
+    monitor-exit v14
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
-
-    :catchall_7
-    move-exception v0
-
-    goto :goto_7
 .end method
 
 .method public isHardwareGeofenceSupported()Z
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/location/gnss/GnssGeofenceProxy;->mLock:Ljava/lang/Object;
 
     monitor-enter v0
 
     :try_start_0
-    iget-object v1, p0, Lcom/android/server/location/gnss/GnssGeofenceProxy;->mGnssNative:Lcom/android/server/location/gnss/hal/GnssNative;
+    iget-object p0, p0, Lcom/android/server/location/gnss/GnssGeofenceProxy;->mGnssNative:Lcom/android/server/location/gnss/hal/GnssNative;
 
-    invoke-virtual {v1}, Lcom/android/server/location/gnss/hal/GnssNative;->isGeofencingSupported()Z
+    invoke-virtual {p0}, Lcom/android/server/location/gnss/hal/GnssNative;->isGeofencingSupported()Z
 
-    move-result v1
+    move-result p0
 
     monitor-exit v0
 
-    return v1
+    return p0
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
 .method public onHalRestarted()V
@@ -321,15 +233,15 @@
 
     if-eqz v3, :cond_0
 
-    iget-boolean v4, v2, Lcom/android/server/location/gnss/GnssGeofenceProxy$GeofenceEntry;->paused:Z
+    iget-boolean v3, v2, Lcom/android/server/location/gnss/GnssGeofenceProxy$GeofenceEntry;->paused:Z
 
-    if-eqz v4, :cond_0
+    if-eqz v3, :cond_0
 
-    iget-object v4, p0, Lcom/android/server/location/gnss/GnssGeofenceProxy;->mGnssNative:Lcom/android/server/location/gnss/hal/GnssNative;
+    iget-object v3, p0, Lcom/android/server/location/gnss/GnssGeofenceProxy;->mGnssNative:Lcom/android/server/location/gnss/hal/GnssNative;
 
-    iget v5, v2, Lcom/android/server/location/gnss/GnssGeofenceProxy$GeofenceEntry;->geofenceId:I
+    iget v2, v2, Lcom/android/server/location/gnss/GnssGeofenceProxy$GeofenceEntry;->geofenceId:I
 
-    invoke-virtual {v4, v5}, Lcom/android/server/location/gnss/hal/GnssNative;->pauseGeofence(I)Z
+    invoke-virtual {v3, v2}, Lcom/android/server/location/gnss/hal/GnssNative;->pauseGeofence(I)Z
 
     :cond_0
     add-int/lit8 v1, v1, 0x1
@@ -342,17 +254,17 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
 .method public pauseHardwareGeofence(I)Z
-    .locals 4
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/location/gnss/GnssGeofenceProxy;->mLock:Ljava/lang/Object;
 
@@ -367,19 +279,19 @@
 
     if-eqz v1, :cond_0
 
-    iget-object v2, p0, Lcom/android/server/location/gnss/GnssGeofenceProxy;->mGeofenceEntries:Landroid/util/SparseArray;
+    iget-object p0, p0, Lcom/android/server/location/gnss/GnssGeofenceProxy;->mGeofenceEntries:Landroid/util/SparseArray;
 
-    invoke-virtual {v2, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p0
 
-    check-cast v2, Lcom/android/server/location/gnss/GnssGeofenceProxy$GeofenceEntry;
+    check-cast p0, Lcom/android/server/location/gnss/GnssGeofenceProxy$GeofenceEntry;
 
-    if-eqz v2, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 v3, 0x1
+    const/4 p1, 0x1
 
-    iput-boolean v3, v2, Lcom/android/server/location/gnss/GnssGeofenceProxy$GeofenceEntry;->paused:Z
+    iput-boolean p1, p0, Lcom/android/server/location/gnss/GnssGeofenceProxy$GeofenceEntry;->paused:Z
 
     :cond_0
     monitor-exit v0
@@ -387,17 +299,17 @@
     return v1
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
 .method public removeHardwareGeofence(I)Z
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/location/gnss/GnssGeofenceProxy;->mLock:Ljava/lang/Object;
 
@@ -412,9 +324,9 @@
 
     if-eqz v1, :cond_0
 
-    iget-object v2, p0, Lcom/android/server/location/gnss/GnssGeofenceProxy;->mGeofenceEntries:Landroid/util/SparseArray;
+    iget-object p0, p0, Lcom/android/server/location/gnss/GnssGeofenceProxy;->mGeofenceEntries:Landroid/util/SparseArray;
 
-    invoke-virtual {v2, p1}, Landroid/util/SparseArray;->remove(I)V
+    invoke-virtual {p0, p1}, Landroid/util/SparseArray;->remove(I)V
 
     :cond_0
     monitor-exit v0
@@ -422,17 +334,17 @@
     return v1
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
 .method public resumeHardwareGeofence(II)Z
-    .locals 4
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/location/gnss/GnssGeofenceProxy;->mLock:Ljava/lang/Object;
 
@@ -447,21 +359,21 @@
 
     if-eqz v1, :cond_0
 
-    iget-object v2, p0, Lcom/android/server/location/gnss/GnssGeofenceProxy;->mGeofenceEntries:Landroid/util/SparseArray;
+    iget-object p0, p0, Lcom/android/server/location/gnss/GnssGeofenceProxy;->mGeofenceEntries:Landroid/util/SparseArray;
 
-    invoke-virtual {v2, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p0
 
-    check-cast v2, Lcom/android/server/location/gnss/GnssGeofenceProxy$GeofenceEntry;
+    check-cast p0, Lcom/android/server/location/gnss/GnssGeofenceProxy$GeofenceEntry;
 
-    if-eqz v2, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 v3, 0x0
+    const/4 p1, 0x0
 
-    iput-boolean v3, v2, Lcom/android/server/location/gnss/GnssGeofenceProxy$GeofenceEntry;->paused:Z
+    iput-boolean p1, p0, Lcom/android/server/location/gnss/GnssGeofenceProxy$GeofenceEntry;->paused:Z
 
-    iput p2, v2, Lcom/android/server/location/gnss/GnssGeofenceProxy$GeofenceEntry;->monitorTransitions:I
+    iput p2, p0, Lcom/android/server/location/gnss/GnssGeofenceProxy$GeofenceEntry;->monitorTransitions:I
 
     :cond_0
     monitor-exit v0
@@ -469,11 +381,11 @@
     return v1
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method

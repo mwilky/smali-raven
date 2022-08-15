@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/TaskChangeNotificationController$MainHandler;
+.class public Lcom/android/server/wm/TaskChangeNotificationController$MainHandler;
 .super Landroid/os/Handler;
 .source "TaskChangeNotificationController.java"
 
@@ -9,13 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "MainHandler"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/wm/TaskChangeNotificationController;
+.field public final synthetic this$0:Lcom/android/server/wm/TaskChangeNotificationController;
 
 
 # direct methods
@@ -32,7 +32,7 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 2
+    .locals 1
 
     iget v0, p1, Landroid/os/Message;->what:I
 
@@ -42,330 +42,294 @@
     goto/16 :goto_0
 
     :pswitch_1
-    iget-object v0, p0, Lcom/android/server/wm/TaskChangeNotificationController$MainHandler;->this$0:Lcom/android/server/wm/TaskChangeNotificationController;
+    iget-object p0, p0, Lcom/android/server/wm/TaskChangeNotificationController$MainHandler;->this$0:Lcom/android/server/wm/TaskChangeNotificationController;
 
-    invoke-static {v0}, Lcom/android/server/wm/TaskChangeNotificationController;->access$2700(Lcom/android/server/wm/TaskChangeNotificationController;)Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;
+    invoke-static {p0}, Lcom/android/server/wm/TaskChangeNotificationController;->-$$Nest$fgetmNotifyLockTaskModeChanged(Lcom/android/server/wm/TaskChangeNotificationController;)Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-static {v0, v1, p1}, Lcom/android/server/wm/TaskChangeNotificationController;->access$300(Lcom/android/server/wm/TaskChangeNotificationController;Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;Landroid/os/Message;)V
+    invoke-static {p0, v0, p1}, Lcom/android/server/wm/TaskChangeNotificationController;->-$$Nest$mforAllRemoteListeners(Lcom/android/server/wm/TaskChangeNotificationController;Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;Landroid/os/Message;)V
 
     goto/16 :goto_0
 
     :pswitch_2
-    iget-object v0, p0, Lcom/android/server/wm/TaskChangeNotificationController$MainHandler;->this$0:Lcom/android/server/wm/TaskChangeNotificationController;
+    iget-object p0, p0, Lcom/android/server/wm/TaskChangeNotificationController$MainHandler;->this$0:Lcom/android/server/wm/TaskChangeNotificationController;
 
-    invoke-static {v0}, Lcom/android/server/wm/TaskChangeNotificationController;->access$2600(Lcom/android/server/wm/TaskChangeNotificationController;)Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;
+    invoke-static {p0}, Lcom/android/server/wm/TaskChangeNotificationController;->-$$Nest$fgetmNotifyTaskMovedToBack(Lcom/android/server/wm/TaskChangeNotificationController;)Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-static {v0, v1, p1}, Lcom/android/server/wm/TaskChangeNotificationController;->access$300(Lcom/android/server/wm/TaskChangeNotificationController;Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;Landroid/os/Message;)V
+    invoke-static {p0, v0, p1}, Lcom/android/server/wm/TaskChangeNotificationController;->-$$Nest$mforAllRemoteListeners(Lcom/android/server/wm/TaskChangeNotificationController;Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;Landroid/os/Message;)V
 
     goto/16 :goto_0
 
     :pswitch_3
-    iget-object v0, p0, Lcom/android/server/wm/TaskChangeNotificationController$MainHandler;->this$0:Lcom/android/server/wm/TaskChangeNotificationController;
+    iget-object p0, p0, Lcom/android/server/wm/TaskChangeNotificationController$MainHandler;->this$0:Lcom/android/server/wm/TaskChangeNotificationController;
 
-    invoke-static {v0}, Lcom/android/server/wm/TaskChangeNotificationController;->access$2500(Lcom/android/server/wm/TaskChangeNotificationController;)Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;
+    invoke-static {p0}, Lcom/android/server/wm/TaskChangeNotificationController;->-$$Nest$fgetmNotifyOnActivityRotation(Lcom/android/server/wm/TaskChangeNotificationController;)Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-static {v0, v1, p1}, Lcom/android/server/wm/TaskChangeNotificationController;->access$300(Lcom/android/server/wm/TaskChangeNotificationController;Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;Landroid/os/Message;)V
+    invoke-static {p0, v0, p1}, Lcom/android/server/wm/TaskChangeNotificationController;->-$$Nest$mforAllRemoteListeners(Lcom/android/server/wm/TaskChangeNotificationController;Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;Landroid/os/Message;)V
 
     goto/16 :goto_0
 
     :pswitch_4
-    iget-object v0, p0, Lcom/android/server/wm/TaskChangeNotificationController$MainHandler;->this$0:Lcom/android/server/wm/TaskChangeNotificationController;
+    iget-object p0, p0, Lcom/android/server/wm/TaskChangeNotificationController$MainHandler;->this$0:Lcom/android/server/wm/TaskChangeNotificationController;
 
-    invoke-static {v0}, Lcom/android/server/wm/TaskChangeNotificationController;->access$2400(Lcom/android/server/wm/TaskChangeNotificationController;)Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;
+    invoke-static {p0}, Lcom/android/server/wm/TaskChangeNotificationController;->-$$Nest$fgetmNotifyTaskRequestedOrientationChanged(Lcom/android/server/wm/TaskChangeNotificationController;)Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-static {v0, v1, p1}, Lcom/android/server/wm/TaskChangeNotificationController;->access$300(Lcom/android/server/wm/TaskChangeNotificationController;Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;Landroid/os/Message;)V
+    invoke-static {p0, v0, p1}, Lcom/android/server/wm/TaskChangeNotificationController;->-$$Nest$mforAllRemoteListeners(Lcom/android/server/wm/TaskChangeNotificationController;Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;Landroid/os/Message;)V
 
     goto/16 :goto_0
 
     :pswitch_5
-    iget-object v0, p0, Lcom/android/server/wm/TaskChangeNotificationController$MainHandler;->this$0:Lcom/android/server/wm/TaskChangeNotificationController;
+    iget-object p0, p0, Lcom/android/server/wm/TaskChangeNotificationController$MainHandler;->this$0:Lcom/android/server/wm/TaskChangeNotificationController;
 
-    invoke-static {v0}, Lcom/android/server/wm/TaskChangeNotificationController;->access$2300(Lcom/android/server/wm/TaskChangeNotificationController;)Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;
+    invoke-static {p0}, Lcom/android/server/wm/TaskChangeNotificationController;->-$$Nest$fgetmNotifyTaskFocusChanged(Lcom/android/server/wm/TaskChangeNotificationController;)Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-static {v0, v1, p1}, Lcom/android/server/wm/TaskChangeNotificationController;->access$300(Lcom/android/server/wm/TaskChangeNotificationController;Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;Landroid/os/Message;)V
+    invoke-static {p0, v0, p1}, Lcom/android/server/wm/TaskChangeNotificationController;->-$$Nest$mforAllRemoteListeners(Lcom/android/server/wm/TaskChangeNotificationController;Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;Landroid/os/Message;)V
 
     goto/16 :goto_0
 
     :pswitch_6
-    iget-object v0, p0, Lcom/android/server/wm/TaskChangeNotificationController$MainHandler;->this$0:Lcom/android/server/wm/TaskChangeNotificationController;
+    iget-object p0, p0, Lcom/android/server/wm/TaskChangeNotificationController$MainHandler;->this$0:Lcom/android/server/wm/TaskChangeNotificationController;
 
-    invoke-static {v0}, Lcom/android/server/wm/TaskChangeNotificationController;->access$2200(Lcom/android/server/wm/TaskChangeNotificationController;)Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;
+    invoke-static {p0}, Lcom/android/server/wm/TaskChangeNotificationController;->-$$Nest$fgetmNotifyTaskListFrozen(Lcom/android/server/wm/TaskChangeNotificationController;)Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-static {v0, v1, p1}, Lcom/android/server/wm/TaskChangeNotificationController;->access$300(Lcom/android/server/wm/TaskChangeNotificationController;Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;Landroid/os/Message;)V
+    invoke-static {p0, v0, p1}, Lcom/android/server/wm/TaskChangeNotificationController;->-$$Nest$mforAllRemoteListeners(Lcom/android/server/wm/TaskChangeNotificationController;Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;Landroid/os/Message;)V
 
     goto/16 :goto_0
 
     :pswitch_7
-    iget-object v0, p0, Lcom/android/server/wm/TaskChangeNotificationController$MainHandler;->this$0:Lcom/android/server/wm/TaskChangeNotificationController;
+    iget-object p0, p0, Lcom/android/server/wm/TaskChangeNotificationController$MainHandler;->this$0:Lcom/android/server/wm/TaskChangeNotificationController;
 
-    invoke-static {v0}, Lcom/android/server/wm/TaskChangeNotificationController;->access$2100(Lcom/android/server/wm/TaskChangeNotificationController;)Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;
+    invoke-static {p0}, Lcom/android/server/wm/TaskChangeNotificationController;->-$$Nest$fgetmNotifyTaskListUpdated(Lcom/android/server/wm/TaskChangeNotificationController;)Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-static {v0, v1, p1}, Lcom/android/server/wm/TaskChangeNotificationController;->access$300(Lcom/android/server/wm/TaskChangeNotificationController;Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;Landroid/os/Message;)V
+    invoke-static {p0, v0, p1}, Lcom/android/server/wm/TaskChangeNotificationController;->-$$Nest$mforAllRemoteListeners(Lcom/android/server/wm/TaskChangeNotificationController;Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;Landroid/os/Message;)V
 
     goto/16 :goto_0
 
     :pswitch_8
-    iget-object v0, p0, Lcom/android/server/wm/TaskChangeNotificationController$MainHandler;->this$0:Lcom/android/server/wm/TaskChangeNotificationController;
+    iget-object p0, p0, Lcom/android/server/wm/TaskChangeNotificationController$MainHandler;->this$0:Lcom/android/server/wm/TaskChangeNotificationController;
 
-    invoke-static {v0}, Lcom/android/server/wm/TaskChangeNotificationController;->access$2000(Lcom/android/server/wm/TaskChangeNotificationController;)Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;
+    invoke-static {p0}, Lcom/android/server/wm/TaskChangeNotificationController;->-$$Nest$fgetmNotifyTaskDisplayChanged(Lcom/android/server/wm/TaskChangeNotificationController;)Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-static {v0, v1, p1}, Lcom/android/server/wm/TaskChangeNotificationController;->access$300(Lcom/android/server/wm/TaskChangeNotificationController;Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;Landroid/os/Message;)V
+    invoke-static {p0, v0, p1}, Lcom/android/server/wm/TaskChangeNotificationController;->-$$Nest$mforAllRemoteListeners(Lcom/android/server/wm/TaskChangeNotificationController;Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;Landroid/os/Message;)V
 
     goto/16 :goto_0
 
     :pswitch_9
-    iget-object v0, p0, Lcom/android/server/wm/TaskChangeNotificationController$MainHandler;->this$0:Lcom/android/server/wm/TaskChangeNotificationController;
+    iget-object p0, p0, Lcom/android/server/wm/TaskChangeNotificationController$MainHandler;->this$0:Lcom/android/server/wm/TaskChangeNotificationController;
 
-    invoke-static {v0}, Lcom/android/server/wm/TaskChangeNotificationController;->access$1900(Lcom/android/server/wm/TaskChangeNotificationController;)Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;
+    invoke-static {p0}, Lcom/android/server/wm/TaskChangeNotificationController;->-$$Nest$fgetmNotifyBackPressedOnTaskRoot(Lcom/android/server/wm/TaskChangeNotificationController;)Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-static {v0, v1, p1}, Lcom/android/server/wm/TaskChangeNotificationController;->access$300(Lcom/android/server/wm/TaskChangeNotificationController;Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;Landroid/os/Message;)V
+    invoke-static {p0, v0, p1}, Lcom/android/server/wm/TaskChangeNotificationController;->-$$Nest$mforAllRemoteListeners(Lcom/android/server/wm/TaskChangeNotificationController;Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;Landroid/os/Message;)V
 
     goto/16 :goto_0
 
     :pswitch_a
-    iget-object v0, p0, Lcom/android/server/wm/TaskChangeNotificationController$MainHandler;->this$0:Lcom/android/server/wm/TaskChangeNotificationController;
+    iget-object p0, p0, Lcom/android/server/wm/TaskChangeNotificationController$MainHandler;->this$0:Lcom/android/server/wm/TaskChangeNotificationController;
 
-    invoke-static {v0}, Lcom/android/server/wm/TaskChangeNotificationController;->access$1600(Lcom/android/server/wm/TaskChangeNotificationController;)Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;
+    invoke-static {p0}, Lcom/android/server/wm/TaskChangeNotificationController;->-$$Nest$fgetmNotifyActivityLaunchOnSecondaryDisplayRerouted(Lcom/android/server/wm/TaskChangeNotificationController;)Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-static {v0, v1, p1}, Lcom/android/server/wm/TaskChangeNotificationController;->access$300(Lcom/android/server/wm/TaskChangeNotificationController;Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;Landroid/os/Message;)V
+    invoke-static {p0, v0, p1}, Lcom/android/server/wm/TaskChangeNotificationController;->-$$Nest$mforAllRemoteListeners(Lcom/android/server/wm/TaskChangeNotificationController;Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;Landroid/os/Message;)V
 
     goto/16 :goto_0
 
     :pswitch_b
-    iget-object v0, p0, Lcom/android/server/wm/TaskChangeNotificationController$MainHandler;->this$0:Lcom/android/server/wm/TaskChangeNotificationController;
+    iget-object p0, p0, Lcom/android/server/wm/TaskChangeNotificationController$MainHandler;->this$0:Lcom/android/server/wm/TaskChangeNotificationController;
 
-    invoke-static {v0}, Lcom/android/server/wm/TaskChangeNotificationController;->access$1500(Lcom/android/server/wm/TaskChangeNotificationController;)Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;
+    invoke-static {p0}, Lcom/android/server/wm/TaskChangeNotificationController;->-$$Nest$fgetmNotifyActivityLaunchOnSecondaryDisplayFailed(Lcom/android/server/wm/TaskChangeNotificationController;)Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-static {v0, v1, p1}, Lcom/android/server/wm/TaskChangeNotificationController;->access$300(Lcom/android/server/wm/TaskChangeNotificationController;Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;Landroid/os/Message;)V
+    invoke-static {p0, v0, p1}, Lcom/android/server/wm/TaskChangeNotificationController;->-$$Nest$mforAllRemoteListeners(Lcom/android/server/wm/TaskChangeNotificationController;Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;Landroid/os/Message;)V
 
     goto/16 :goto_0
 
     :pswitch_c
-    iget-object v0, p0, Lcom/android/server/wm/TaskChangeNotificationController$MainHandler;->this$0:Lcom/android/server/wm/TaskChangeNotificationController;
+    iget-object p0, p0, Lcom/android/server/wm/TaskChangeNotificationController$MainHandler;->this$0:Lcom/android/server/wm/TaskChangeNotificationController;
 
-    invoke-static {v0}, Lcom/android/server/wm/TaskChangeNotificationController;->access$1100(Lcom/android/server/wm/TaskChangeNotificationController;)Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;
+    invoke-static {p0}, Lcom/android/server/wm/TaskChangeNotificationController;->-$$Nest$fgetmNotifyActivityUnpinned(Lcom/android/server/wm/TaskChangeNotificationController;)Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-static {v0, v1, p1}, Lcom/android/server/wm/TaskChangeNotificationController;->access$300(Lcom/android/server/wm/TaskChangeNotificationController;Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;Landroid/os/Message;)V
+    invoke-static {p0, v0, p1}, Lcom/android/server/wm/TaskChangeNotificationController;->-$$Nest$mforAllRemoteListeners(Lcom/android/server/wm/TaskChangeNotificationController;Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;Landroid/os/Message;)V
 
     goto/16 :goto_0
 
     :pswitch_d
-    iget-object v0, p0, Lcom/android/server/wm/TaskChangeNotificationController$MainHandler;->this$0:Lcom/android/server/wm/TaskChangeNotificationController;
+    iget-object p0, p0, Lcom/android/server/wm/TaskChangeNotificationController$MainHandler;->this$0:Lcom/android/server/wm/TaskChangeNotificationController;
 
-    invoke-static {v0}, Lcom/android/server/wm/TaskChangeNotificationController;->access$1800(Lcom/android/server/wm/TaskChangeNotificationController;)Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;
+    invoke-static {p0}, Lcom/android/server/wm/TaskChangeNotificationController;->-$$Nest$fgetmNotifyTaskSnapshotChanged(Lcom/android/server/wm/TaskChangeNotificationController;)Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-static {v0, v1, p1}, Lcom/android/server/wm/TaskChangeNotificationController;->access$300(Lcom/android/server/wm/TaskChangeNotificationController;Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;Landroid/os/Message;)V
+    invoke-static {p0, v0, p1}, Lcom/android/server/wm/TaskChangeNotificationController;->-$$Nest$mforAllRemoteListeners(Lcom/android/server/wm/TaskChangeNotificationController;Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;Landroid/os/Message;)V
 
     goto/16 :goto_0
 
     :pswitch_e
-    iget-object v0, p0, Lcom/android/server/wm/TaskChangeNotificationController$MainHandler;->this$0:Lcom/android/server/wm/TaskChangeNotificationController;
+    iget-object p0, p0, Lcom/android/server/wm/TaskChangeNotificationController$MainHandler;->this$0:Lcom/android/server/wm/TaskChangeNotificationController;
 
-    invoke-static {v0}, Lcom/android/server/wm/TaskChangeNotificationController;->access$1700(Lcom/android/server/wm/TaskChangeNotificationController;)Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;
+    invoke-static {p0}, Lcom/android/server/wm/TaskChangeNotificationController;->-$$Nest$fgetmNotifyTaskProfileLocked(Lcom/android/server/wm/TaskChangeNotificationController;)Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-static {v0, v1, p1}, Lcom/android/server/wm/TaskChangeNotificationController;->access$300(Lcom/android/server/wm/TaskChangeNotificationController;Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;Landroid/os/Message;)V
+    invoke-static {p0, v0, p1}, Lcom/android/server/wm/TaskChangeNotificationController;->-$$Nest$mforAllRemoteListeners(Lcom/android/server/wm/TaskChangeNotificationController;Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;Landroid/os/Message;)V
 
     goto/16 :goto_0
 
     :pswitch_f
-    iget-object v0, p0, Lcom/android/server/wm/TaskChangeNotificationController$MainHandler;->this$0:Lcom/android/server/wm/TaskChangeNotificationController;
+    iget-object p0, p0, Lcom/android/server/wm/TaskChangeNotificationController$MainHandler;->this$0:Lcom/android/server/wm/TaskChangeNotificationController;
 
-    invoke-static {v0}, Lcom/android/server/wm/TaskChangeNotificationController;->access$900(Lcom/android/server/wm/TaskChangeNotificationController;)Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;
+    invoke-static {p0}, Lcom/android/server/wm/TaskChangeNotificationController;->-$$Nest$fgetmNotifyTaskRemovalStarted(Lcom/android/server/wm/TaskChangeNotificationController;)Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-static {v0, v1, p1}, Lcom/android/server/wm/TaskChangeNotificationController;->access$300(Lcom/android/server/wm/TaskChangeNotificationController;Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;Landroid/os/Message;)V
+    invoke-static {p0, v0, p1}, Lcom/android/server/wm/TaskChangeNotificationController;->-$$Nest$mforAllRemoteListeners(Lcom/android/server/wm/TaskChangeNotificationController;Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;Landroid/os/Message;)V
 
-    goto/16 :goto_0
+    goto :goto_0
 
     :pswitch_10
-    iget-object v0, p0, Lcom/android/server/wm/TaskChangeNotificationController$MainHandler;->this$0:Lcom/android/server/wm/TaskChangeNotificationController;
+    iget-object p0, p0, Lcom/android/server/wm/TaskChangeNotificationController$MainHandler;->this$0:Lcom/android/server/wm/TaskChangeNotificationController;
 
-    invoke-static {v0}, Lcom/android/server/wm/TaskChangeNotificationController;->access$800(Lcom/android/server/wm/TaskChangeNotificationController;)Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;
+    invoke-static {p0}, Lcom/android/server/wm/TaskChangeNotificationController;->-$$Nest$fgetmNotifyActivityRequestedOrientationChanged(Lcom/android/server/wm/TaskChangeNotificationController;)Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-static {v0, v1, p1}, Lcom/android/server/wm/TaskChangeNotificationController;->access$300(Lcom/android/server/wm/TaskChangeNotificationController;Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;Landroid/os/Message;)V
+    invoke-static {p0, v0, p1}, Lcom/android/server/wm/TaskChangeNotificationController;->-$$Nest$mforAllRemoteListeners(Lcom/android/server/wm/TaskChangeNotificationController;Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;Landroid/os/Message;)V
 
-    goto/16 :goto_0
+    goto :goto_0
 
     :pswitch_11
-    iget-object v0, p0, Lcom/android/server/wm/TaskChangeNotificationController$MainHandler;->this$0:Lcom/android/server/wm/TaskChangeNotificationController;
+    iget-object p0, p0, Lcom/android/server/wm/TaskChangeNotificationController$MainHandler;->this$0:Lcom/android/server/wm/TaskChangeNotificationController;
 
-    invoke-static {v0}, Lcom/android/server/wm/TaskChangeNotificationController;->access$700(Lcom/android/server/wm/TaskChangeNotificationController;)Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;
+    invoke-static {p0}, Lcom/android/server/wm/TaskChangeNotificationController;->-$$Nest$fgetmNotifyTaskDescriptionChanged(Lcom/android/server/wm/TaskChangeNotificationController;)Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-static {v0, v1, p1}, Lcom/android/server/wm/TaskChangeNotificationController;->access$300(Lcom/android/server/wm/TaskChangeNotificationController;Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;Landroid/os/Message;)V
+    invoke-static {p0, v0, p1}, Lcom/android/server/wm/TaskChangeNotificationController;->-$$Nest$mforAllRemoteListeners(Lcom/android/server/wm/TaskChangeNotificationController;Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;Landroid/os/Message;)V
 
     goto :goto_0
 
     :pswitch_12
-    iget-object v0, p0, Lcom/android/server/wm/TaskChangeNotificationController$MainHandler;->this$0:Lcom/android/server/wm/TaskChangeNotificationController;
+    iget-object p0, p0, Lcom/android/server/wm/TaskChangeNotificationController$MainHandler;->this$0:Lcom/android/server/wm/TaskChangeNotificationController;
 
-    invoke-static {v0}, Lcom/android/server/wm/TaskChangeNotificationController;->access$600(Lcom/android/server/wm/TaskChangeNotificationController;)Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;
+    invoke-static {p0}, Lcom/android/server/wm/TaskChangeNotificationController;->-$$Nest$fgetmNotifyTaskMovedToFront(Lcom/android/server/wm/TaskChangeNotificationController;)Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-static {v0, v1, p1}, Lcom/android/server/wm/TaskChangeNotificationController;->access$300(Lcom/android/server/wm/TaskChangeNotificationController;Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;Landroid/os/Message;)V
+    invoke-static {p0, v0, p1}, Lcom/android/server/wm/TaskChangeNotificationController;->-$$Nest$mforAllRemoteListeners(Lcom/android/server/wm/TaskChangeNotificationController;Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;Landroid/os/Message;)V
 
     goto :goto_0
 
     :pswitch_13
-    iget-object v0, p0, Lcom/android/server/wm/TaskChangeNotificationController$MainHandler;->this$0:Lcom/android/server/wm/TaskChangeNotificationController;
+    iget-object p0, p0, Lcom/android/server/wm/TaskChangeNotificationController$MainHandler;->this$0:Lcom/android/server/wm/TaskChangeNotificationController;
 
-    invoke-static {v0}, Lcom/android/server/wm/TaskChangeNotificationController;->access$500(Lcom/android/server/wm/TaskChangeNotificationController;)Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;
+    invoke-static {p0}, Lcom/android/server/wm/TaskChangeNotificationController;->-$$Nest$fgetmNotifyTaskRemoved(Lcom/android/server/wm/TaskChangeNotificationController;)Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-static {v0, v1, p1}, Lcom/android/server/wm/TaskChangeNotificationController;->access$300(Lcom/android/server/wm/TaskChangeNotificationController;Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;Landroid/os/Message;)V
+    invoke-static {p0, v0, p1}, Lcom/android/server/wm/TaskChangeNotificationController;->-$$Nest$mforAllRemoteListeners(Lcom/android/server/wm/TaskChangeNotificationController;Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;Landroid/os/Message;)V
 
     goto :goto_0
 
     :pswitch_14
-    iget-object v0, p0, Lcom/android/server/wm/TaskChangeNotificationController$MainHandler;->this$0:Lcom/android/server/wm/TaskChangeNotificationController;
+    iget-object p0, p0, Lcom/android/server/wm/TaskChangeNotificationController$MainHandler;->this$0:Lcom/android/server/wm/TaskChangeNotificationController;
 
-    invoke-static {v0}, Lcom/android/server/wm/TaskChangeNotificationController;->access$400(Lcom/android/server/wm/TaskChangeNotificationController;)Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;
+    invoke-static {p0}, Lcom/android/server/wm/TaskChangeNotificationController;->-$$Nest$fgetmNotifyTaskCreated(Lcom/android/server/wm/TaskChangeNotificationController;)Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-static {v0, v1, p1}, Lcom/android/server/wm/TaskChangeNotificationController;->access$300(Lcom/android/server/wm/TaskChangeNotificationController;Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;Landroid/os/Message;)V
+    invoke-static {p0, v0, p1}, Lcom/android/server/wm/TaskChangeNotificationController;->-$$Nest$mforAllRemoteListeners(Lcom/android/server/wm/TaskChangeNotificationController;Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;Landroid/os/Message;)V
 
     goto :goto_0
 
     :pswitch_15
-    iget-object v0, p0, Lcom/android/server/wm/TaskChangeNotificationController$MainHandler;->this$0:Lcom/android/server/wm/TaskChangeNotificationController;
+    iget-object p0, p0, Lcom/android/server/wm/TaskChangeNotificationController$MainHandler;->this$0:Lcom/android/server/wm/TaskChangeNotificationController;
 
-    invoke-static {v0}, Lcom/android/server/wm/TaskChangeNotificationController;->access$1400(Lcom/android/server/wm/TaskChangeNotificationController;)Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;
+    invoke-static {p0}, Lcom/android/server/wm/TaskChangeNotificationController;->-$$Nest$fgetmNotifyActivityDismissingDockedTask(Lcom/android/server/wm/TaskChangeNotificationController;)Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-static {v0, v1, p1}, Lcom/android/server/wm/TaskChangeNotificationController;->access$300(Lcom/android/server/wm/TaskChangeNotificationController;Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;Landroid/os/Message;)V
+    invoke-static {p0, v0, p1}, Lcom/android/server/wm/TaskChangeNotificationController;->-$$Nest$mforAllRemoteListeners(Lcom/android/server/wm/TaskChangeNotificationController;Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;Landroid/os/Message;)V
 
     goto :goto_0
 
     :pswitch_16
-    iget-object v0, p0, Lcom/android/server/wm/TaskChangeNotificationController$MainHandler;->this$0:Lcom/android/server/wm/TaskChangeNotificationController;
+    iget-object p0, p0, Lcom/android/server/wm/TaskChangeNotificationController$MainHandler;->this$0:Lcom/android/server/wm/TaskChangeNotificationController;
 
-    invoke-static {v0}, Lcom/android/server/wm/TaskChangeNotificationController;->access$1300(Lcom/android/server/wm/TaskChangeNotificationController;)Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;
+    invoke-static {p0}, Lcom/android/server/wm/TaskChangeNotificationController;->-$$Nest$fgetmNotifyActivityForcedResizable(Lcom/android/server/wm/TaskChangeNotificationController;)Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-static {v0, v1, p1}, Lcom/android/server/wm/TaskChangeNotificationController;->access$300(Lcom/android/server/wm/TaskChangeNotificationController;Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;Landroid/os/Message;)V
+    invoke-static {p0, v0, p1}, Lcom/android/server/wm/TaskChangeNotificationController;->-$$Nest$mforAllRemoteListeners(Lcom/android/server/wm/TaskChangeNotificationController;Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;Landroid/os/Message;)V
 
     goto :goto_0
 
     :pswitch_17
-    iget-object v0, p0, Lcom/android/server/wm/TaskChangeNotificationController$MainHandler;->this$0:Lcom/android/server/wm/TaskChangeNotificationController;
+    iget-object p0, p0, Lcom/android/server/wm/TaskChangeNotificationController$MainHandler;->this$0:Lcom/android/server/wm/TaskChangeNotificationController;
 
-    invoke-static {v0}, Lcom/android/server/wm/TaskChangeNotificationController;->access$1200(Lcom/android/server/wm/TaskChangeNotificationController;)Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;
+    invoke-static {p0}, Lcom/android/server/wm/TaskChangeNotificationController;->-$$Nest$fgetmNotifyActivityRestartAttempt(Lcom/android/server/wm/TaskChangeNotificationController;)Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-static {v0, v1, p1}, Lcom/android/server/wm/TaskChangeNotificationController;->access$300(Lcom/android/server/wm/TaskChangeNotificationController;Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;Landroid/os/Message;)V
+    invoke-static {p0, v0, p1}, Lcom/android/server/wm/TaskChangeNotificationController;->-$$Nest$mforAllRemoteListeners(Lcom/android/server/wm/TaskChangeNotificationController;Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;Landroid/os/Message;)V
 
     goto :goto_0
 
     :pswitch_18
-    iget-object v0, p0, Lcom/android/server/wm/TaskChangeNotificationController$MainHandler;->this$0:Lcom/android/server/wm/TaskChangeNotificationController;
+    iget-object p0, p0, Lcom/android/server/wm/TaskChangeNotificationController$MainHandler;->this$0:Lcom/android/server/wm/TaskChangeNotificationController;
 
-    invoke-static {v0}, Lcom/android/server/wm/TaskChangeNotificationController;->access$1000(Lcom/android/server/wm/TaskChangeNotificationController;)Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;
+    invoke-static {p0}, Lcom/android/server/wm/TaskChangeNotificationController;->-$$Nest$fgetmNotifyActivityPinned(Lcom/android/server/wm/TaskChangeNotificationController;)Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-static {v0, v1, p1}, Lcom/android/server/wm/TaskChangeNotificationController;->access$300(Lcom/android/server/wm/TaskChangeNotificationController;Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;Landroid/os/Message;)V
+    invoke-static {p0, v0, p1}, Lcom/android/server/wm/TaskChangeNotificationController;->-$$Nest$mforAllRemoteListeners(Lcom/android/server/wm/TaskChangeNotificationController;Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;Landroid/os/Message;)V
 
     goto :goto_0
 
     :pswitch_19
-    iget-object v0, p0, Lcom/android/server/wm/TaskChangeNotificationController$MainHandler;->this$0:Lcom/android/server/wm/TaskChangeNotificationController;
+    iget-object p0, p0, Lcom/android/server/wm/TaskChangeNotificationController$MainHandler;->this$0:Lcom/android/server/wm/TaskChangeNotificationController;
 
-    invoke-static {v0}, Lcom/android/server/wm/TaskChangeNotificationController;->access$200(Lcom/android/server/wm/TaskChangeNotificationController;)Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;
-
-    move-result-object v1
-
-    invoke-static {v0, v1, p1}, Lcom/android/server/wm/TaskChangeNotificationController;->access$300(Lcom/android/server/wm/TaskChangeNotificationController;Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;Landroid/os/Message;)V
-
-    goto :goto_0
-
-    :pswitch_1a
-    iget-object v0, p0, Lcom/android/server/wm/TaskChangeNotificationController$MainHandler;->this$0:Lcom/android/server/wm/TaskChangeNotificationController;
-
-    invoke-static {v0}, Lcom/android/server/wm/TaskChangeNotificationController;->access$000(Lcom/android/server/wm/TaskChangeNotificationController;)Ljava/lang/Object;
+    invoke-static {p0}, Lcom/android/server/wm/TaskChangeNotificationController;->-$$Nest$fgetmNotifyTaskStackChanged(Lcom/android/server/wm/TaskChangeNotificationController;)Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;
 
     move-result-object v0
 
-    monitor-enter v0
-
-    :try_start_0
-    iget-object v1, p0, Lcom/android/server/wm/TaskChangeNotificationController$MainHandler;->this$0:Lcom/android/server/wm/TaskChangeNotificationController;
-
-    invoke-static {v1}, Lcom/android/server/wm/TaskChangeNotificationController;->access$100(Lcom/android/server/wm/TaskChangeNotificationController;)Lcom/android/server/wm/ActivityTaskSupervisor;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/android/server/wm/ActivityTaskSupervisor;->logRootTaskState()V
-
-    monitor-exit v0
-
-    goto :goto_0
-
-    :catchall_0
-    move-exception v1
-
-    monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v1
+    invoke-static {p0, v0, p1}, Lcom/android/server/wm/TaskChangeNotificationController;->-$$Nest$mforAllRemoteListeners(Lcom/android/server/wm/TaskChangeNotificationController;Lcom/android/server/wm/TaskChangeNotificationController$TaskStackConsumer;Landroid/os/Message;)V
 
     :goto_0
-    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+    iget-object p0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    instance-of v0, v0, Lcom/android/internal/os/SomeArgs;
+    instance-of p1, p0, Lcom/android/internal/os/SomeArgs;
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+    check-cast p0, Lcom/android/internal/os/SomeArgs;
 
-    check-cast v0, Lcom/android/internal/os/SomeArgs;
-
-    invoke-virtual {v0}, Lcom/android/internal/os/SomeArgs;->recycle()V
+    invoke-virtual {p0}, Lcom/android/internal/os/SomeArgs;->recycle()V
 
     :cond_0
     return-void
 
     :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_1a
+    .packed-switch 0x2
         :pswitch_19
         :pswitch_18
         :pswitch_17

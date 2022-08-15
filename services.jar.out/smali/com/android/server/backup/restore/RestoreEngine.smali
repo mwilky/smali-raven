@@ -3,20 +3,10 @@
 .source "RestoreEngine.java"
 
 
-# static fields
-.field public static final SUCCESS:I = 0x0
-
-.field private static final TAG:Ljava/lang/String; = "RestoreEngine"
-
-.field public static final TARGET_FAILURE:I = -0x2
-
-.field public static final TRANSPORT_FAILURE:I = -0x3
-
-
 # instance fields
-.field private final mResult:Ljava/util/concurrent/atomic/AtomicInteger;
+.field public final mResult:Ljava/util/concurrent/atomic/AtomicInteger;
 
-.field private final mRunning:Ljava/util/concurrent/atomic/AtomicBoolean;
+.field public final mRunning:Ljava/util/concurrent/atomic/AtomicBoolean;
 
 
 # direct methods
@@ -45,35 +35,35 @@
 
 # virtual methods
 .method public getResult()I
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/backup/restore/RestoreEngine;->mResult:Ljava/util/concurrent/atomic/AtomicInteger;
+    iget-object p0, p0, Lcom/android/server/backup/restore/RestoreEngine;->mResult:Ljava/util/concurrent/atomic/AtomicInteger;
 
-    invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->get()I
+    invoke-virtual {p0}, Ljava/util/concurrent/atomic/AtomicInteger;->get()I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public isRunning()Z
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/backup/restore/RestoreEngine;->mRunning:Ljava/util/concurrent/atomic/AtomicBoolean;
+    iget-object p0, p0, Lcom/android/server/backup/restore/RestoreEngine;->mRunning:Ljava/util/concurrent/atomic/AtomicBoolean;
 
-    invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicBoolean;->get()Z
+    invoke-virtual {p0}, Ljava/util/concurrent/atomic/AtomicBoolean;->get()Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public setResult(I)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/backup/restore/RestoreEngine;->mResult:Ljava/util/concurrent/atomic/AtomicInteger;
+    iget-object p0, p0, Lcom/android/server/backup/restore/RestoreEngine;->mResult:Ljava/util/concurrent/atomic/AtomicInteger;
 
-    invoke-virtual {v0, p1}, Ljava/util/concurrent/atomic/AtomicInteger;->set(I)V
+    invoke-virtual {p0, p1}, Ljava/util/concurrent/atomic/AtomicInteger;->set(I)V
 
     return-void
 .end method
@@ -90,22 +80,22 @@
 
     invoke-virtual {v1, p1}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
-    iget-object v1, p0, Lcom/android/server/backup/restore/RestoreEngine;->mRunning:Ljava/util/concurrent/atomic/AtomicBoolean;
+    iget-object p0, p0, Lcom/android/server/backup/restore/RestoreEngine;->mRunning:Ljava/util/concurrent/atomic/AtomicBoolean;
 
-    invoke-virtual {v1}, Ljava/lang/Object;->notifyAll()V
+    invoke-virtual {p0}, Ljava/lang/Object;->notifyAll()V
 
     monitor-exit v0
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
 .method public waitForResult()I
@@ -115,6 +105,7 @@
 
     monitor-enter v0
 
+    :catch_0
     :goto_0
     :try_start_0
     invoke-virtual {p0}, Lcom/android/server/backup/restore/RestoreEngine;->isRunning()Z
@@ -133,12 +124,6 @@
     .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_1
-
-    :catch_0
-    move-exception v1
-
-    :goto_1
     goto :goto_0
 
     :cond_0
@@ -149,17 +134,17 @@
 
     invoke-virtual {p0}, Lcom/android/server/backup/restore/RestoreEngine;->getResult()I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     :try_start_3
     monitor-exit v0
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    throw v1
+    throw p0
 .end method

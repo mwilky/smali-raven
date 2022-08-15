@@ -1,4 +1,4 @@
-.class final Lcom/android/server/job/controllers/QuotaController$EarliestEndTimeFunctor;
+.class public final Lcom/android/server/job/controllers/QuotaController$EarliestEndTimeFunctor;
 .super Ljava/lang/Object;
 .source "QuotaController.java"
 
@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "EarliestEndTimeFunctor"
 .end annotation
 
@@ -21,7 +21,7 @@
         "Ljava/lang/Object;",
         "Ljava/util/function/Consumer<",
         "Ljava/util/List<",
-        "Lcom/android/server/job/controllers/QuotaController$TimingSession;",
+        "Lcom/android/server/job/controllers/QuotaController$TimedEvent;",
         ">;>;"
     }
 .end annotation
@@ -30,11 +30,11 @@
 # instance fields
 .field public earliestEndElapsed:J
 
-.field final synthetic this$0:Lcom/android/server/job/controllers/QuotaController;
+.field public final synthetic this$0:Lcom/android/server/job/controllers/QuotaController;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/server/job/controllers/QuotaController;)V
+.method public constructor <init>(Lcom/android/server/job/controllers/QuotaController;)V
     .locals 2
 
     iput-object p1, p0, Lcom/android/server/job/controllers/QuotaController$EarliestEndTimeFunctor;->this$0:Lcom/android/server/job/controllers/QuotaController;
@@ -48,7 +48,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/job/controllers/QuotaController;Lcom/android/server/job/controllers/QuotaController$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/job/controllers/QuotaController;Lcom/android/server/job/controllers/QuotaController$EarliestEndTimeFunctor-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/job/controllers/QuotaController$EarliestEndTimeFunctor;-><init>(Lcom/android/server/job/controllers/QuotaController;)V
@@ -74,7 +74,7 @@
         value = {
             "(",
             "Ljava/util/List<",
-            "Lcom/android/server/job/controllers/QuotaController$TimingSession;",
+            "Lcom/android/server/job/controllers/QuotaController$TimedEvent;",
             ">;)V"
         }
     .end annotation
@@ -93,11 +93,13 @@
 
     invoke-interface {p1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p1
 
-    check-cast v2, Lcom/android/server/job/controllers/QuotaController$TimingSession;
+    check-cast p1, Lcom/android/server/job/controllers/QuotaController$TimedEvent;
 
-    iget-wide v2, v2, Lcom/android/server/job/controllers/QuotaController$TimingSession;->endTimeElapsed:J
+    invoke-interface {p1}, Lcom/android/server/job/controllers/QuotaController$TimedEvent;->getEndTimeElapsed()J
+
+    move-result-wide v2
 
     invoke-static {v0, v1, v2, v3}, Ljava/lang/Math;->min(JJ)J
 
@@ -109,7 +111,7 @@
     return-void
 .end method
 
-.method reset()V
+.method public reset()V
     .locals 2
 
     const-wide v0, 0x7fffffffffffffffL

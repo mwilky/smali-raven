@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/usage/UsageStatsIdleService$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -31,15 +32,15 @@
 
 # virtual methods
 .method public final run()V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/usage/UsageStatsIdleService$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/usage/UsageStatsIdleService;
 
     iget-object v1, p0, Lcom/android/server/usage/UsageStatsIdleService$$ExternalSyntheticLambda0;->f$1:Landroid/app/job/JobParameters;
 
-    iget v2, p0, Lcom/android/server/usage/UsageStatsIdleService$$ExternalSyntheticLambda0;->f$2:I
+    iget p0, p0, Lcom/android/server/usage/UsageStatsIdleService$$ExternalSyntheticLambda0;->f$2:I
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/usage/UsageStatsIdleService;->lambda$onStartJob$0$UsageStatsIdleService(Landroid/app/job/JobParameters;I)V
+    invoke-static {v0, v1, p0}, Lcom/android/server/usage/UsageStatsIdleService;->$r8$lambda$ZsYfqAFXuTM24Y9yxnOo-eCaFQc(Lcom/android/server/usage/UsageStatsIdleService;Landroid/app/job/JobParameters;I)V
 
     return-void
 .end method

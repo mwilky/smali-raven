@@ -1,35 +1,30 @@
 .class public final synthetic Lcom/android/server/wm/ActivityRecord$$ExternalSyntheticLambda25;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Supplier;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/android/server/wm/ActivityRecord;
+.implements Ljava/util/function/Predicate;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/wm/ActivityRecord;)V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/server/wm/ActivityRecord$$ExternalSyntheticLambda25;->f$0:Lcom/android/server/wm/ActivityRecord;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final get()Ljava/lang/Object;
-    .locals 1
+.method public final test(Ljava/lang/Object;)Z
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/ActivityRecord$$ExternalSyntheticLambda25;->f$0:Lcom/android/server/wm/ActivityRecord;
+    check-cast p1, Lcom/android/server/wm/ActivityRecord;
 
-    invoke-virtual {v0}, Lcom/android/server/wm/ActivityRecord;->lambda$addStartingWindow$2$ActivityRecord()Landroid/content/pm/ApplicationInfo;
+    invoke-static {p1}, Lcom/android/server/wm/ActivityRecord;->$r8$lambda$XQOlcnkrnLBkeM6_oUKL3es3_VM(Lcom/android/server/wm/ActivityRecord;)Z
 
-    move-result-object v0
+    move-result p0
 
-    return-object v0
+    return p0
 .end method

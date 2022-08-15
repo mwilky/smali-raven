@@ -1,4 +1,4 @@
-.class final Lcom/android/server/notification/NotificationHistoryDatabase$WriteBufferRunnable;
+.class public final Lcom/android/server/notification/NotificationHistoryDatabase$WriteBufferRunnable;
 .super Ljava/lang/Object;
 .source "NotificationHistoryDatabase.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x10
+    accessFlags = 0x11
     name = "WriteBufferRunnable"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/notification/NotificationHistoryDatabase;
+.field public final synthetic this$0:Lcom/android/server/notification/NotificationHistoryDatabase;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/notification/NotificationHistoryDatabase;)V
+.method public constructor <init>(Lcom/android/server/notification/NotificationHistoryDatabase;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/notification/NotificationHistoryDatabase$WriteBufferRunnable;->this$0:Lcom/android/server/notification/NotificationHistoryDatabase;
@@ -47,7 +47,7 @@
 
     iget-object v4, p0, Lcom/android/server/notification/NotificationHistoryDatabase$WriteBufferRunnable;->this$0:Lcom/android/server/notification/NotificationHistoryDatabase;
 
-    invoke-static {v4}, Lcom/android/server/notification/NotificationHistoryDatabase;->access$300(Lcom/android/server/notification/NotificationHistoryDatabase;)Ljava/io/File;
+    invoke-static {v4}, Lcom/android/server/notification/NotificationHistoryDatabase;->-$$Nest$fgetmHistoryDir(Lcom/android/server/notification/NotificationHistoryDatabase;)Ljava/io/File;
 
     move-result-object v4
 
@@ -64,19 +64,19 @@
     return-void
 .end method
 
-.method run(JLandroid/util/AtomicFile;)V
+.method public run(JLandroid/util/AtomicFile;)V
     .locals 4
 
     iget-object v0, p0, Lcom/android/server/notification/NotificationHistoryDatabase$WriteBufferRunnable;->this$0:Lcom/android/server/notification/NotificationHistoryDatabase;
 
-    invoke-static {v0}, Lcom/android/server/notification/NotificationHistoryDatabase;->access$100(Lcom/android/server/notification/NotificationHistoryDatabase;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/server/notification/NotificationHistoryDatabase;->-$$Nest$fgetmLock(Lcom/android/server/notification/NotificationHistoryDatabase;)Ljava/lang/Object;
 
     move-result-object v0
 
     monitor-enter v0
 
     :try_start_0
-    invoke-static {}, Lcom/android/server/notification/NotificationHistoryDatabase;->access$200()Z
+    invoke-static {}, Lcom/android/server/notification/NotificationHistoryDatabase;->-$$Nest$sfgetDEBUG()Z
 
     move-result v1
 
@@ -116,7 +116,7 @@
 
     iget-object v2, v1, Lcom/android/server/notification/NotificationHistoryDatabase;->mBuffer:Landroid/app/NotificationHistory;
 
-    invoke-static {v1, p3, v2}, Lcom/android/server/notification/NotificationHistoryDatabase;->access$400(Lcom/android/server/notification/NotificationHistoryDatabase;Landroid/util/AtomicFile;Landroid/app/NotificationHistory;)V
+    invoke-static {v1, p3, v2}, Lcom/android/server/notification/NotificationHistoryDatabase;->-$$Nest$mwriteLocked(Lcom/android/server/notification/NotificationHistoryDatabase;Landroid/util/AtomicFile;Landroid/app/NotificationHistory;)V
 
     iget-object v1, p0, Lcom/android/server/notification/NotificationHistoryDatabase$WriteBufferRunnable;->this$0:Lcom/android/server/notification/NotificationHistoryDatabase;
 
@@ -132,15 +132,15 @@
 
     iput-object v2, v1, Lcom/android/server/notification/NotificationHistoryDatabase;->mBuffer:Landroid/app/NotificationHistory;
 
-    iget-object v1, p0, Lcom/android/server/notification/NotificationHistoryDatabase$WriteBufferRunnable;->this$0:Lcom/android/server/notification/NotificationHistoryDatabase;
+    iget-object p0, p0, Lcom/android/server/notification/NotificationHistoryDatabase$WriteBufferRunnable;->this$0:Lcom/android/server/notification/NotificationHistoryDatabase;
 
     invoke-virtual {p3}, Landroid/util/AtomicFile;->getBaseFile()Ljava/io/File;
 
-    move-result-object v2
+    move-result-object p3
 
-    const/4 v3, 0x1
+    const/4 v1, 0x1
 
-    invoke-static {v1, v2, p1, p2, v3}, Lcom/android/server/notification/NotificationHistoryDatabase;->access$500(Lcom/android/server/notification/NotificationHistoryDatabase;Ljava/io/File;JI)V
+    invoke-static {p0, p3, p1, p2, v1}, Lcom/android/server/notification/NotificationHistoryDatabase;->-$$Nest$mscheduleDeletion(Lcom/android/server/notification/NotificationHistoryDatabase;Ljava/io/File;JI)V
     :try_end_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
@@ -148,14 +148,14 @@
     goto :goto_0
 
     :catch_0
-    move-exception v1
+    move-exception p0
 
     :try_start_2
-    const-string v2, "NotiHistoryDatabase"
+    const-string p1, "NotiHistoryDatabase"
 
-    const-string v3, "Failed to write buffer to disk. not flushing buffer"
+    const-string p2, "Failed to write buffer to disk. not flushing buffer"
 
-    invoke-static {v2, v3, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {p1, p2, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_0
     monitor-exit v0
@@ -163,11 +163,11 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    throw v1
+    throw p0
 .end method

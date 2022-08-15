@@ -1,4 +1,4 @@
-.class Lcom/android/server/notification/NASLearnMoreActivity$1;
+.class public Lcom/android/server/notification/NASLearnMoreActivity$1;
 .super Ljava/lang/Object;
 .source "NASLearnMoreActivity.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/notification/NASLearnMoreActivity;
+.field public final synthetic this$0:Lcom/android/server/notification/NASLearnMoreActivity;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/notification/NASLearnMoreActivity;)V
+.method public constructor <init>(Lcom/android/server/notification/NASLearnMoreActivity;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/notification/NASLearnMoreActivity$1;->this$0:Lcom/android/server/notification/NASLearnMoreActivity;
@@ -35,11 +35,11 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/notification/NASLearnMoreActivity$1;->this$0:Lcom/android/server/notification/NASLearnMoreActivity;
+    iget-object p0, p0, Lcom/android/server/notification/NASLearnMoreActivity$1;->this$0:Lcom/android/server/notification/NASLearnMoreActivity;
 
-    invoke-virtual {v0}, Lcom/android/server/notification/NASLearnMoreActivity;->finish()V
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     return-void
 .end method

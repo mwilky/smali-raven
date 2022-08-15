@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/people/data/AbstractProtoDiskReadWriter$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/people/data/AbstractProtoDiskReadWriter$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/people/data/AbstractProtoDiskReadWriter;
+    iget-object p0, p0, Lcom/android/server/people/data/AbstractProtoDiskReadWriter$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/people/data/AbstractProtoDiskReadWriter;
 
-    invoke-static {v0}, Lcom/android/server/people/data/AbstractProtoDiskReadWriter;->$r8$lambda$8hKrFxaERM0k5Zmspu6vDGvnkqA(Lcom/android/server/people/data/AbstractProtoDiskReadWriter;)V
+    invoke-static {p0}, Lcom/android/server/people/data/AbstractProtoDiskReadWriter;->$r8$lambda$8hKrFxaERM0k5Zmspu6vDGvnkqA(Lcom/android/server/people/data/AbstractProtoDiskReadWriter;)V
 
     return-void
 .end method

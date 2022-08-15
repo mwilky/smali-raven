@@ -1,4 +1,4 @@
-.class Lcom/android/server/om/OverlayReferenceMapper$1;
+.class public Lcom/android/server/om/OverlayReferenceMapper$1;
 .super Ljava/lang/Object;
 .source "OverlayReferenceMapper.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/om/OverlayReferenceMapper;
+.field public final synthetic this$0:Lcom/android/server/om/OverlayReferenceMapper;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/om/OverlayReferenceMapper;)V
+.method public constructor <init>(Lcom/android/server/om/OverlayReferenceMapper;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/om/OverlayReferenceMapper$1;->this$0:Lcom/android/server/om/OverlayReferenceMapper;
@@ -35,31 +35,29 @@
 
 # virtual methods
 .method public getActorPkg(Ljava/lang/String;)Ljava/lang/String;
-    .locals 3
+    .locals 0
 
     invoke-static {}, Lcom/android/server/SystemConfig;->getInstance()Lcom/android/server/SystemConfig;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Lcom/android/server/SystemConfig;->getNamedActors()Ljava/util/Map;
+    invoke-virtual {p0}, Lcom/android/server/SystemConfig;->getNamedActors()Ljava/util/Map;
 
-    move-result-object v0
+    move-result-object p0
 
-    nop
+    invoke-static {p1, p0}, Lcom/android/server/om/OverlayActorEnforcer;->getPackageNameForActor(Ljava/lang/String;Ljava/util/Map;)Landroid/util/Pair;
 
-    invoke-static {p1, v0}, Lcom/android/server/om/OverlayActorEnforcer;->getPackageNameForActor(Ljava/lang/String;Ljava/util/Map;)Landroid/util/Pair;
+    move-result-object p0
 
-    move-result-object v1
+    iget-object p0, p0, Landroid/util/Pair;->first:Ljava/lang/Object;
 
-    iget-object v2, v1, Landroid/util/Pair;->first:Ljava/lang/Object;
+    check-cast p0, Ljava/lang/String;
 
-    check-cast v2, Ljava/lang/String;
-
-    return-object v2
+    return-object p0
 .end method
 
 .method public getTargetToOverlayables(Lcom/android/server/pm/parsing/pkg/AndroidPackage;)Ljava/util/Map;
-    .locals 4
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -73,38 +71,38 @@
         }
     .end annotation
 
-    invoke-interface {p1}, Lcom/android/server/pm/parsing/pkg/AndroidPackage;->getOverlayTarget()Ljava/lang/String;
+    invoke-interface {p1}, Lcom/android/server/pm/pkg/parsing/ParsingPackageInternal;->getOverlayTarget()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
     invoke-static {}, Ljava/util/Collections;->emptyMap()Ljava/util/Map;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 
     :cond_0
-    invoke-interface {p1}, Lcom/android/server/pm/parsing/pkg/AndroidPackage;->getOverlayTargetName()Ljava/lang/String;
+    invoke-interface {p1}, Lcom/android/server/pm/pkg/parsing/ParsingPackageInternal;->getOverlayTargetOverlayableName()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    new-instance v2, Ljava/util/HashMap;
+    new-instance v0, Ljava/util/HashMap;
 
-    invoke-direct {v2}, Ljava/util/HashMap;-><init>()V
+    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
-    new-instance v3, Ljava/util/HashSet;
+    new-instance v1, Ljava/util/HashSet;
 
-    invoke-direct {v3}, Ljava/util/HashSet;-><init>()V
+    invoke-direct {v1}, Ljava/util/HashSet;-><init>()V
 
-    invoke-interface {v3, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    invoke-interface {v2, v0, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, p0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    return-object v2
+    return-object v0
 .end method

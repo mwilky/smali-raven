@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/audio/AudioDeviceBroker$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -27,15 +28,15 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/audio/AudioDeviceBroker$$ExternalSyntheticLambda0;->f$0:Ljava/io/PrintWriter;
 
-    iget-object v1, p0, Lcom/android/server/audio/AudioDeviceBroker$$ExternalSyntheticLambda0;->f$1:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/audio/AudioDeviceBroker$$ExternalSyntheticLambda0;->f$1:Ljava/lang/String;
 
     check-cast p1, Lcom/android/server/audio/AudioDeviceBroker$CommunicationRouteClient;
 
-    invoke-static {v0, v1, p1}, Lcom/android/server/audio/AudioDeviceBroker;->lambda$dump$0(Ljava/io/PrintWriter;Ljava/lang/String;Lcom/android/server/audio/AudioDeviceBroker$CommunicationRouteClient;)V
+    invoke-static {v0, p0, p1}, Lcom/android/server/audio/AudioDeviceBroker;->$r8$lambda$VarJDTHGtx-e1FGP_B_yLilAfsk(Ljava/io/PrintWriter;Ljava/lang/String;Lcom/android/server/audio/AudioDeviceBroker$CommunicationRouteClient;)V
 
     return-void
 .end method

@@ -1,4 +1,4 @@
-.class Lcom/android/server/VpnManagerService$2;
+.class public Lcom/android/server/VpnManagerService$2;
 .super Landroid/content/BroadcastReceiver;
 .source "VpnManagerService.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/VpnManagerService;
+.field public final synthetic this$0:Lcom/android/server/VpnManagerService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/VpnManagerService;)V
+.method public constructor <init>(Lcom/android/server/VpnManagerService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/VpnManagerService$2;->this$0:Lcom/android/server/VpnManagerService;
@@ -32,15 +32,15 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/VpnManagerService$2;->this$0:Lcom/android/server/VpnManagerService;
+    iget-object p2, p0, Lcom/android/server/VpnManagerService$2;->this$0:Lcom/android/server/VpnManagerService;
 
-    invoke-static {v0}, Lcom/android/server/VpnManagerService;->access$000(Lcom/android/server/VpnManagerService;)V
+    invoke-static {p2}, Lcom/android/server/VpnManagerService;->-$$Nest$mensureRunningOnHandlerThread(Lcom/android/server/VpnManagerService;)V
 
-    iget-object v0, p0, Lcom/android/server/VpnManagerService$2;->this$0:Lcom/android/server/VpnManagerService;
+    iget-object p2, p0, Lcom/android/server/VpnManagerService$2;->this$0:Lcom/android/server/VpnManagerService;
 
-    invoke-virtual {v0}, Lcom/android/server/VpnManagerService;->updateLockdownVpn()Z
+    invoke-virtual {p2}, Lcom/android/server/VpnManagerService;->updateLockdownVpn()Z
 
     invoke-virtual {p1, p0}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 

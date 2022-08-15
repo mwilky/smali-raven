@@ -1,39 +1,34 @@
 .class public final synthetic Lcom/android/server/BatteryService$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/internal/util/FunctionalUtils$ThrowingRunnable;
+.implements Lcom/android/server/health/HealthInfoCallback;
 
 
 # instance fields
 .field public final synthetic f$0:Lcom/android/server/BatteryService;
 
-.field public final synthetic f$1:Z
-
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/BatteryService;Z)V
+.method public synthetic constructor <init>(Lcom/android/server/BatteryService;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/server/BatteryService$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/BatteryService;
 
-    iput-boolean p2, p0, Lcom/android/server/BatteryService$$ExternalSyntheticLambda0;->f$1:Z
-
     return-void
 .end method
 
 
 # virtual methods
-.method public final runOrThrow()V
-    .locals 2
+.method public final update(Landroid/hardware/health/HealthInfo;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/BatteryService$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/BatteryService;
+    iget-object p0, p0, Lcom/android/server/BatteryService$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/BatteryService;
 
-    iget-boolean v1, p0, Lcom/android/server/BatteryService$$ExternalSyntheticLambda0;->f$1:Z
-
-    invoke-virtual {v0, v1}, Lcom/android/server/BatteryService;->lambda$setBatteryLevel$2$BatteryService(Z)V
+    invoke-static {p0, p1}, Lcom/android/server/BatteryService;->$r8$lambda$nMM-N14QCYtvYu3I-B9f4UtoxL0(Lcom/android/server/BatteryService;Landroid/hardware/health/HealthInfo;)V
 
     return-void
 .end method

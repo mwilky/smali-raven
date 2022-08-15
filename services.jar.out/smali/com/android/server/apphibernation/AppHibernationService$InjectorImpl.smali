@@ -1,4 +1,4 @@
-.class final Lcom/android/server/apphibernation/AppHibernationService$InjectorImpl;
+.class public final Lcom/android/server/apphibernation/AppHibernationService$InjectorImpl;
 .super Ljava/lang/Object;
 .source "AppHibernationService.java"
 
@@ -12,26 +12,22 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "InjectorImpl"
 .end annotation
 
 
-# static fields
-.field private static final HIBERNATION_DIR_NAME:Ljava/lang/String; = "hibernation"
-
-
 # instance fields
-.field private final mContext:Landroid/content/Context;
+.field public final mContext:Landroid/content/Context;
 
-.field private final mScheduledExecutorService:Ljava/util/concurrent/ScheduledExecutorService;
+.field public final mScheduledExecutorService:Ljava/util/concurrent/ScheduledExecutorService;
 
-.field private final mUserLevelHibernationProto:Lcom/android/server/apphibernation/UserLevelHibernationProto;
+.field public final mUserLevelHibernationProto:Lcom/android/server/apphibernation/UserLevelHibernationProto;
 
 
 # direct methods
-.method constructor <init>(Landroid/content/Context;)V
-    .locals 1
+.method public constructor <init>(Landroid/content/Context;)V
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -39,15 +35,15 @@
 
     invoke-static {}, Ljava/util/concurrent/Executors;->newSingleThreadScheduledExecutor()Ljava/util/concurrent/ScheduledExecutorService;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/android/server/apphibernation/AppHibernationService$InjectorImpl;->mScheduledExecutorService:Ljava/util/concurrent/ScheduledExecutorService;
+    iput-object p1, p0, Lcom/android/server/apphibernation/AppHibernationService$InjectorImpl;->mScheduledExecutorService:Ljava/util/concurrent/ScheduledExecutorService;
 
-    new-instance v0, Lcom/android/server/apphibernation/UserLevelHibernationProto;
+    new-instance p1, Lcom/android/server/apphibernation/UserLevelHibernationProto;
 
-    invoke-direct {v0}, Lcom/android/server/apphibernation/UserLevelHibernationProto;-><init>()V
+    invoke-direct {p1}, Lcom/android/server/apphibernation/UserLevelHibernationProto;-><init>()V
 
-    iput-object v0, p0, Lcom/android/server/apphibernation/AppHibernationService$InjectorImpl;->mUserLevelHibernationProto:Lcom/android/server/apphibernation/UserLevelHibernationProto;
+    iput-object p1, p0, Lcom/android/server/apphibernation/AppHibernationService$InjectorImpl;->mUserLevelHibernationProto:Lcom/android/server/apphibernation/UserLevelHibernationProto;
 
     return-void
 .end method
@@ -55,33 +51,33 @@
 
 # virtual methods
 .method public getActivityManager()Landroid/app/IActivityManager;
-    .locals 1
+    .locals 0
 
     invoke-static {}, Landroid/app/ActivityManager;->getService()Landroid/app/IActivityManager;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getBackgroundExecutor()Ljava/util/concurrent/Executor;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/apphibernation/AppHibernationService$InjectorImpl;->mScheduledExecutorService:Ljava/util/concurrent/ScheduledExecutorService;
+    iget-object p0, p0, Lcom/android/server/apphibernation/AppHibernationService$InjectorImpl;->mScheduledExecutorService:Ljava/util/concurrent/ScheduledExecutorService;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getContext()Landroid/content/Context;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/apphibernation/AppHibernationService$InjectorImpl;->mContext:Landroid/content/Context;
+    iget-object p0, p0, Lcom/android/server/apphibernation/AppHibernationService$InjectorImpl;->mContext:Landroid/content/Context;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getGlobalLevelDiskStore()Lcom/android/server/apphibernation/HibernationStateDiskStore;
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -107,59 +103,75 @@
 
     invoke-direct {v2}, Lcom/android/server/apphibernation/GlobalLevelHibernationProto;-><init>()V
 
-    iget-object v3, p0, Lcom/android/server/apphibernation/AppHibernationService$InjectorImpl;->mScheduledExecutorService:Ljava/util/concurrent/ScheduledExecutorService;
+    iget-object p0, p0, Lcom/android/server/apphibernation/AppHibernationService$InjectorImpl;->mScheduledExecutorService:Ljava/util/concurrent/ScheduledExecutorService;
 
-    invoke-direct {v1, v0, v2, v3}, Lcom/android/server/apphibernation/HibernationStateDiskStore;-><init>(Ljava/io/File;Lcom/android/server/apphibernation/ProtoReadWriter;Ljava/util/concurrent/ScheduledExecutorService;)V
+    invoke-direct {v1, v0, v2, p0}, Lcom/android/server/apphibernation/HibernationStateDiskStore;-><init>(Ljava/io/File;Lcom/android/server/apphibernation/ProtoReadWriter;Ljava/util/concurrent/ScheduledExecutorService;)V
 
     return-object v1
 .end method
 
 .method public getPackageManager()Landroid/content/pm/IPackageManager;
-    .locals 1
+    .locals 0
 
-    const-string/jumbo v0, "package"
+    const-string/jumbo p0, "package"
 
-    invoke-static {v0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+    invoke-static {p0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0}, Landroid/content/pm/IPackageManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/content/pm/IPackageManager;
+    invoke-static {p0}, Landroid/content/pm/IPackageManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/content/pm/IPackageManager;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getPackageManagerInternal()Landroid/content/pm/PackageManagerInternal;
+    .locals 0
+
+    const-class p0, Landroid/content/pm/PackageManagerInternal;
+
+    invoke-static {p0}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Landroid/content/pm/PackageManagerInternal;
+
+    return-object p0
+.end method
+
+.method public getStorageStatsManager()Landroid/app/usage/StorageStatsManager;
     .locals 1
 
-    const-class v0, Landroid/content/pm/PackageManagerInternal;
+    iget-object p0, p0, Lcom/android/server/apphibernation/AppHibernationService$InjectorImpl;->mContext:Landroid/content/Context;
 
-    invoke-static {v0}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
+    const-class v0, Landroid/app/usage/StorageStatsManager;
 
-    move-result-object v0
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
-    check-cast v0, Landroid/content/pm/PackageManagerInternal;
+    move-result-object p0
 
-    return-object v0
+    check-cast p0, Landroid/app/usage/StorageStatsManager;
+
+    return-object p0
 .end method
 
 .method public getUsageStatsManagerInternal()Landroid/app/usage/UsageStatsManagerInternal;
-    .locals 1
+    .locals 0
 
-    const-class v0, Landroid/app/usage/UsageStatsManagerInternal;
+    const-class p0, Landroid/app/usage/UsageStatsManagerInternal;
 
-    invoke-static {v0}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-static {p0}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Landroid/app/usage/UsageStatsManagerInternal;
+    check-cast p0, Landroid/app/usage/UsageStatsManagerInternal;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getUserLevelDiskStore(I)Lcom/android/server/apphibernation/HibernationStateDiskStore;
-    .locals 4
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -173,53 +185,53 @@
 
     invoke-static {p1}, Landroid/os/Environment;->getDataSystemCeDirectory(I)Ljava/io/File;
 
-    move-result-object v1
+    move-result-object p1
 
-    const-string v2, "hibernation"
+    const-string v1, "hibernation"
 
-    invoke-direct {v0, v1, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    invoke-direct {v0, p1, v1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    new-instance v1, Lcom/android/server/apphibernation/HibernationStateDiskStore;
+    new-instance p1, Lcom/android/server/apphibernation/HibernationStateDiskStore;
 
-    iget-object v2, p0, Lcom/android/server/apphibernation/AppHibernationService$InjectorImpl;->mUserLevelHibernationProto:Lcom/android/server/apphibernation/UserLevelHibernationProto;
+    iget-object v1, p0, Lcom/android/server/apphibernation/AppHibernationService$InjectorImpl;->mUserLevelHibernationProto:Lcom/android/server/apphibernation/UserLevelHibernationProto;
 
-    iget-object v3, p0, Lcom/android/server/apphibernation/AppHibernationService$InjectorImpl;->mScheduledExecutorService:Ljava/util/concurrent/ScheduledExecutorService;
+    iget-object p0, p0, Lcom/android/server/apphibernation/AppHibernationService$InjectorImpl;->mScheduledExecutorService:Ljava/util/concurrent/ScheduledExecutorService;
 
-    invoke-direct {v1, v0, v2, v3}, Lcom/android/server/apphibernation/HibernationStateDiskStore;-><init>(Ljava/io/File;Lcom/android/server/apphibernation/ProtoReadWriter;Ljava/util/concurrent/ScheduledExecutorService;)V
+    invoke-direct {p1, v0, v1, p0}, Lcom/android/server/apphibernation/HibernationStateDiskStore;-><init>(Ljava/io/File;Lcom/android/server/apphibernation/ProtoReadWriter;Ljava/util/concurrent/ScheduledExecutorService;)V
 
-    return-object v1
+    return-object p1
 .end method
 
 .method public getUserManager()Landroid/os/UserManager;
-    .locals 2
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/apphibernation/AppHibernationService$InjectorImpl;->mContext:Landroid/content/Context;
+    iget-object p0, p0, Lcom/android/server/apphibernation/AppHibernationService$InjectorImpl;->mContext:Landroid/content/Context;
 
-    const-class v1, Landroid/os/UserManager;
+    const-class v0, Landroid/os/UserManager;
 
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Landroid/os/UserManager;
+    check-cast p0, Landroid/os/UserManager;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public isOatArtifactDeletionEnabled()Z
-    .locals 2
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/apphibernation/AppHibernationService$InjectorImpl;->mContext:Landroid/content/Context;
+    iget-object p0, p0, Lcom/android/server/apphibernation/AppHibernationService$InjectorImpl;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v0
+    move-result-object p0
 
-    const v1, 0x11100f8
+    const v0, 0x111015f
 
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
+    invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method

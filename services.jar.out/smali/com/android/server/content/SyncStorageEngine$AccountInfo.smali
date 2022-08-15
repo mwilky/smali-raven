@@ -1,4 +1,4 @@
-.class Lcom/android/server/content/SyncStorageEngine$AccountInfo;
+.class public Lcom/android/server/content/SyncStorageEngine$AccountInfo;
 .super Ljava/lang/Object;
 .source "SyncStorageEngine.java"
 
@@ -9,15 +9,15 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "AccountInfo"
 .end annotation
 
 
 # instance fields
-.field final accountAndUser:Landroid/accounts/AccountAndUser;
+.field public final accountAndUser:Landroid/accounts/AccountAndUser;
 
-.field final authorities:Ljava/util/HashMap;
+.field public final authorities:Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/HashMap<",
@@ -30,7 +30,7 @@
 
 
 # direct methods
-.method constructor <init>(Landroid/accounts/AccountAndUser;)V
+.method public constructor <init>(Landroid/accounts/AccountAndUser;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

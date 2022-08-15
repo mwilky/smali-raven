@@ -1,4 +1,4 @@
-.class Lcom/android/server/adb/AdbDebuggingManager$PortListenerImpl;
+.class public Lcom/android/server/adb/AdbDebuggingManager$PortListenerImpl;
 .super Ljava/lang/Object;
 .source "AdbDebuggingManager.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = "PortListenerImpl"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/adb/AdbDebuggingManager;
+.field public final synthetic this$0:Lcom/android/server/adb/AdbDebuggingManager;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/adb/AdbDebuggingManager;)V
+.method public constructor <init>(Lcom/android/server/adb/AdbDebuggingManager;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/adb/AdbDebuggingManager$PortListenerImpl;->this$0:Lcom/android/server/adb/AdbDebuggingManager;
@@ -39,9 +39,7 @@
 
     iget-object v0, p0, Lcom/android/server/adb/AdbDebuggingManager$PortListenerImpl;->this$0:Lcom/android/server/adb/AdbDebuggingManager;
 
-    invoke-static {v0}, Lcom/android/server/adb/AdbDebuggingManager;->access$100(Lcom/android/server/adb/AdbDebuggingManager;)Landroid/os/Handler;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/server/adb/AdbDebuggingManager;->mHandler:Lcom/android/server/adb/AdbDebuggingManager$AdbDebuggingHandler;
 
     if-lez p1, :cond_0
 
@@ -59,17 +57,15 @@
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v1
+    move-result-object p1
 
-    iput-object v1, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
+    iput-object p1, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    iget-object v1, p0, Lcom/android/server/adb/AdbDebuggingManager$PortListenerImpl;->this$0:Lcom/android/server/adb/AdbDebuggingManager;
+    iget-object p0, p0, Lcom/android/server/adb/AdbDebuggingManager$PortListenerImpl;->this$0:Lcom/android/server/adb/AdbDebuggingManager;
 
-    invoke-static {v1}, Lcom/android/server/adb/AdbDebuggingManager;->access$100(Lcom/android/server/adb/AdbDebuggingManager;)Landroid/os/Handler;
+    iget-object p0, p0, Lcom/android/server/adb/AdbDebuggingManager;->mHandler:Lcom/android/server/adb/AdbDebuggingManager$AdbDebuggingHandler;
 
-    move-result-object v1
-
-    invoke-virtual {v1, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
+    invoke-virtual {p0, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
     return-void
 .end method

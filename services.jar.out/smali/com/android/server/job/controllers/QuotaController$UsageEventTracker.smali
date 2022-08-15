@@ -1,4 +1,4 @@
-.class final Lcom/android/server/job/controllers/QuotaController$UsageEventTracker;
+.class public final Lcom/android/server/job/controllers/QuotaController$UsageEventTracker;
 .super Ljava/lang/Object;
 .source "QuotaController.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x10
+    accessFlags = 0x11
     name = "UsageEventTracker"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/job/controllers/QuotaController;
+.field public final synthetic this$0:Lcom/android/server/job/controllers/QuotaController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/job/controllers/QuotaController;)V
+.method public constructor <init>(Lcom/android/server/job/controllers/QuotaController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/job/controllers/QuotaController$UsageEventTracker;->this$0:Lcom/android/server/job/controllers/QuotaController;
@@ -35,23 +35,23 @@
 
 # virtual methods
 .method public onUsageEvent(ILandroid/app/usage/UsageEvents$Event;)V
-    .locals 3
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/server/job/controllers/QuotaController$UsageEventTracker;->this$0:Lcom/android/server/job/controllers/QuotaController;
+    iget-object p0, p0, Lcom/android/server/job/controllers/QuotaController$UsageEventTracker;->this$0:Lcom/android/server/job/controllers/QuotaController;
 
-    invoke-static {v0}, Lcom/android/server/job/controllers/QuotaController;->access$300(Lcom/android/server/job/controllers/QuotaController;)Lcom/android/server/job/controllers/QuotaController$QcHandler;
+    invoke-static {p0}, Lcom/android/server/job/controllers/QuotaController;->-$$Nest$fgetmHandler(Lcom/android/server/job/controllers/QuotaController;)Lcom/android/server/job/controllers/QuotaController$QcHandler;
 
-    move-result-object v0
+    move-result-object p0
 
-    const/4 v1, 0x5
+    const/4 v0, 0x5
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    invoke-virtual {v0, v1, p1, v2, p2}, Lcom/android/server/job/controllers/QuotaController$QcHandler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {p0, v0, p1, v1, p2}, Landroid/os/Handler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
+    invoke-virtual {p0}, Landroid/os/Message;->sendToTarget()V
 
     return-void
 .end method

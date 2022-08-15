@@ -11,24 +11,20 @@
 .end annotation
 
 
-# static fields
-.field public static final UNLIMITED_NUMBER_OF_USERS:I = -0x1
-
-
 # instance fields
-.field private final mBadgeColors:[I
+.field public final mBadgeColors:[I
 
-.field private final mBadgeLabels:[I
+.field public final mBadgeLabels:[I
 
-.field private final mBadgeNoBackground:I
+.field public final mBadgeNoBackground:I
 
-.field private final mBadgePlain:I
+.field public final mBadgePlain:I
 
-.field private final mBaseType:I
+.field public final mBaseType:I
 
-.field private final mDarkThemeBadgeColors:[I
+.field public final mDarkThemeBadgeColors:[I
 
-.field private final mDefaultCrossProfileIntentFilters:Ljava/util/List;
+.field public final mDefaultCrossProfileIntentFilters:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -38,32 +34,34 @@
     .end annotation
 .end field
 
-.field private final mDefaultRestrictions:Landroid/os/Bundle;
+.field public final mDefaultRestrictions:Landroid/os/Bundle;
 
-.field private final mDefaultSecureSettings:Landroid/os/Bundle;
+.field public final mDefaultSecureSettings:Landroid/os/Bundle;
 
-.field private final mDefaultSystemSettings:Landroid/os/Bundle;
+.field public final mDefaultSystemSettings:Landroid/os/Bundle;
 
-.field private final mDefaultUserInfoPropertyFlags:I
+.field public final mDefaultUserInfoPropertyFlags:I
 
-.field private final mEnabled:Z
+.field public final mEnabled:Z
 
-.field private final mIconBadge:I
+.field public final mIconBadge:I
 
-.field private final mIsMediaSharedWithParent:Z
+.field public final mIsCredentialSharableWithParent:Z
 
-.field private final mLabel:I
+.field public final mIsMediaSharedWithParent:Z
 
-.field private final mMaxAllowed:I
+.field public final mLabel:I
 
-.field private final mMaxAllowedPerParent:I
+.field public final mMaxAllowed:I
 
-.field private final mName:Ljava/lang/String;
+.field public final mMaxAllowedPerParent:I
+
+.field public final mName:Ljava/lang/String;
 
 
 # direct methods
-.method private constructor <init>(Ljava/lang/String;ZIIIIIIII[I[I[ILandroid/os/Bundle;Landroid/os/Bundle;Landroid/os/Bundle;Ljava/util/List;Z)V
-    .locals 16
+.method public constructor <init>(Ljava/lang/String;ZIIIIIIII[I[I[ILandroid/os/Bundle;Landroid/os/Bundle;Landroid/os/Bundle;Ljava/util/List;ZZ)V
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -74,79 +72,79 @@
             "Landroid/os/Bundle;",
             "Ljava/util/List<",
             "Lcom/android/server/pm/DefaultCrossProfileIntentFilter;",
-            ">;Z)V"
+            ">;ZZ)V"
         }
     .end annotation
 
-    move-object/from16 v0, p0
+    move-object v0, p0
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    move-object/from16 v1, p1
+    move-object v1, p1
 
     iput-object v1, v0, Lcom/android/server/pm/UserTypeDetails;->mName:Ljava/lang/String;
 
-    move/from16 v2, p2
+    move v1, p2
 
-    iput-boolean v2, v0, Lcom/android/server/pm/UserTypeDetails;->mEnabled:Z
+    iput-boolean v1, v0, Lcom/android/server/pm/UserTypeDetails;->mEnabled:Z
 
-    move/from16 v3, p3
+    move v1, p3
 
-    iput v3, v0, Lcom/android/server/pm/UserTypeDetails;->mMaxAllowed:I
+    iput v1, v0, Lcom/android/server/pm/UserTypeDetails;->mMaxAllowed:I
 
-    move/from16 v4, p7
+    move v1, p7
 
-    iput v4, v0, Lcom/android/server/pm/UserTypeDetails;->mMaxAllowedPerParent:I
+    iput v1, v0, Lcom/android/server/pm/UserTypeDetails;->mMaxAllowedPerParent:I
 
-    move/from16 v5, p4
+    move v1, p4
 
-    iput v5, v0, Lcom/android/server/pm/UserTypeDetails;->mBaseType:I
+    iput v1, v0, Lcom/android/server/pm/UserTypeDetails;->mBaseType:I
 
-    move/from16 v6, p5
+    move v1, p5
 
-    iput v6, v0, Lcom/android/server/pm/UserTypeDetails;->mDefaultUserInfoPropertyFlags:I
+    iput v1, v0, Lcom/android/server/pm/UserTypeDetails;->mDefaultUserInfoPropertyFlags:I
 
-    move-object/from16 v7, p14
+    move-object/from16 v1, p14
 
-    iput-object v7, v0, Lcom/android/server/pm/UserTypeDetails;->mDefaultRestrictions:Landroid/os/Bundle;
+    iput-object v1, v0, Lcom/android/server/pm/UserTypeDetails;->mDefaultRestrictions:Landroid/os/Bundle;
 
-    move-object/from16 v8, p15
+    move-object/from16 v1, p15
 
-    iput-object v8, v0, Lcom/android/server/pm/UserTypeDetails;->mDefaultSystemSettings:Landroid/os/Bundle;
+    iput-object v1, v0, Lcom/android/server/pm/UserTypeDetails;->mDefaultSystemSettings:Landroid/os/Bundle;
 
-    move-object/from16 v9, p16
+    move-object/from16 v1, p16
 
-    iput-object v9, v0, Lcom/android/server/pm/UserTypeDetails;->mDefaultSecureSettings:Landroid/os/Bundle;
+    iput-object v1, v0, Lcom/android/server/pm/UserTypeDetails;->mDefaultSecureSettings:Landroid/os/Bundle;
 
-    move-object/from16 v10, p17
+    move-object/from16 v1, p17
 
-    iput-object v10, v0, Lcom/android/server/pm/UserTypeDetails;->mDefaultCrossProfileIntentFilters:Ljava/util/List;
+    iput-object v1, v0, Lcom/android/server/pm/UserTypeDetails;->mDefaultCrossProfileIntentFilters:Ljava/util/List;
 
-    move/from16 v11, p8
+    move v1, p8
 
-    iput v11, v0, Lcom/android/server/pm/UserTypeDetails;->mIconBadge:I
+    iput v1, v0, Lcom/android/server/pm/UserTypeDetails;->mIconBadge:I
 
-    move/from16 v12, p9
+    move v1, p9
 
-    iput v12, v0, Lcom/android/server/pm/UserTypeDetails;->mBadgePlain:I
+    iput v1, v0, Lcom/android/server/pm/UserTypeDetails;->mBadgePlain:I
 
-    move/from16 v13, p10
+    move v1, p10
 
-    iput v13, v0, Lcom/android/server/pm/UserTypeDetails;->mBadgeNoBackground:I
+    iput v1, v0, Lcom/android/server/pm/UserTypeDetails;->mBadgeNoBackground:I
 
-    move/from16 v14, p6
+    move v1, p6
 
-    iput v14, v0, Lcom/android/server/pm/UserTypeDetails;->mLabel:I
+    iput v1, v0, Lcom/android/server/pm/UserTypeDetails;->mLabel:I
 
-    move-object/from16 v15, p11
+    move-object v1, p11
 
-    iput-object v15, v0, Lcom/android/server/pm/UserTypeDetails;->mBadgeLabels:[I
+    iput-object v1, v0, Lcom/android/server/pm/UserTypeDetails;->mBadgeLabels:[I
 
-    move-object/from16 v1, p12
+    move-object v1, p12
 
     iput-object v1, v0, Lcom/android/server/pm/UserTypeDetails;->mBadgeColors:[I
 
-    move-object/from16 v1, p13
+    move-object v1, p13
 
     iput-object v1, v0, Lcom/android/server/pm/UserTypeDetails;->mDarkThemeBadgeColors:[I
 
@@ -154,13 +152,17 @@
 
     iput-boolean v1, v0, Lcom/android/server/pm/UserTypeDetails;->mIsMediaSharedWithParent:Z
 
+    move/from16 v1, p19
+
+    iput-boolean v1, v0, Lcom/android/server/pm/UserTypeDetails;->mIsCredentialSharableWithParent:Z
+
     return-void
 .end method
 
-.method synthetic constructor <init>(Ljava/lang/String;ZIIIIIIII[I[I[ILandroid/os/Bundle;Landroid/os/Bundle;Landroid/os/Bundle;Ljava/util/List;ZLcom/android/server/pm/UserTypeDetails$1;)V
+.method public synthetic constructor <init>(Ljava/lang/String;ZIIIIIIII[I[I[ILandroid/os/Bundle;Landroid/os/Bundle;Landroid/os/Bundle;Ljava/util/List;ZZLcom/android/server/pm/UserTypeDetails-IA;)V
     .locals 0
 
-    invoke-direct/range {p0 .. p18}, Lcom/android/server/pm/UserTypeDetails;-><init>(Ljava/lang/String;ZIIIIIIII[I[I[ILandroid/os/Bundle;Landroid/os/Bundle;Landroid/os/Bundle;Ljava/util/List;Z)V
+    invoke-direct/range {p0 .. p19}, Lcom/android/server/pm/UserTypeDetails;-><init>(Ljava/lang/String;ZIIIIIIII[I[I[ILandroid/os/Bundle;Landroid/os/Bundle;Landroid/os/Bundle;Ljava/util/List;ZZ)V
 
     return-void
 .end method
@@ -168,11 +170,11 @@
 
 # virtual methods
 .method public addDefaultRestrictionsTo(Landroid/os/Bundle;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/pm/UserTypeDetails;->mDefaultRestrictions:Landroid/os/Bundle;
+    iget-object p0, p0, Lcom/android/server/pm/UserTypeDetails;->mDefaultRestrictions:Landroid/os/Bundle;
 
-    invoke-static {p1, v0}, Lcom/android/server/pm/UserRestrictionsUtils;->merge(Landroid/os/Bundle;Landroid/os/Bundle;)V
+    invoke-static {p1, p0}, Lcom/android/server/pm/UserRestrictionsUtils;->merge(Landroid/os/Bundle;Landroid/os/Bundle;)V
 
     return-void
 .end method
@@ -293,7 +295,7 @@
 
     move-result-object v2
 
-    const v3, 0x107002a
+    const v3, 0x1070032
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -331,16 +333,13 @@
     goto :goto_1
 
     :catch_0
-    move-exception v1
-
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    const-string v2, "none - resource not found"
+    const-string v0, "none - resource not found"
 
-    invoke-virtual {p1, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    :goto_1
-    goto :goto_2
+    goto :goto_1
 
     :cond_2
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -353,193 +352,193 @@
 
     invoke-static {p1, v0, v1}, Lcom/android/server/pm/UserRestrictionsUtils;->dumpRestrictions(Ljava/io/PrintWriter;Ljava/lang/String;Landroid/os/Bundle;)V
 
+    :goto_1
+    invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    const-string v0, "mIconBadge: "
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget v0, p0, Lcom/android/server/pm/UserTypeDetails;->mIconBadge:I
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(I)V
+
+    invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    const-string v0, "mBadgePlain: "
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget v0, p0, Lcom/android/server/pm/UserTypeDetails;->mBadgePlain:I
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(I)V
+
+    invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    const-string v0, "mBadgeNoBackground: "
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget v0, p0, Lcom/android/server/pm/UserTypeDetails;->mBadgeNoBackground:I
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(I)V
+
+    invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    const-string v0, "mBadgeLabels.length: "
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget-object v0, p0, Lcom/android/server/pm/UserTypeDetails;->mBadgeLabels:[I
+
+    const-string v1, "0(null)"
+
+    if-eqz v0, :cond_3
+
+    array-length v0, v0
+
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v0
+
+    goto :goto_2
+
+    :cond_3
+    move-object v0, v1
+
     :goto_2
-    invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    const-string v1, "mIconBadge: "
-
-    invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    iget v1, p0, Lcom/android/server/pm/UserTypeDetails;->mIconBadge:I
-
-    invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->println(I)V
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
 
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    const-string v1, "mBadgePlain: "
+    const-string v0, "mBadgeColors.length: "
 
-    invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    iget v1, p0, Lcom/android/server/pm/UserTypeDetails;->mBadgePlain:I
+    iget-object v0, p0, Lcom/android/server/pm/UserTypeDetails;->mBadgeColors:[I
 
-    invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->println(I)V
+    if-eqz v0, :cond_4
 
-    invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+    array-length v0, v0
 
-    const-string v1, "mBadgeNoBackground: "
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    iget v1, p0, Lcom/android/server/pm/UserTypeDetails;->mBadgeNoBackground:I
-
-    invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->println(I)V
-
-    invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    const-string v1, "mBadgeLabels.length: "
-
-    invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    iget-object v1, p0, Lcom/android/server/pm/UserTypeDetails;->mBadgeLabels:[I
-
-    const-string v2, "0(null)"
-
-    if-eqz v1, :cond_3
-
-    array-length v1, v1
-
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
+    move-result-object v0
 
     goto :goto_3
 
-    :cond_3
-    move-object v1, v2
+    :cond_4
+    move-object v0, v1
 
     :goto_3
-    invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
 
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    const-string v1, "mBadgeColors.length: "
+    const-string p2, "mDarkThemeBadgeColors.length: "
 
-    invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+    invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    iget-object v1, p0, Lcom/android/server/pm/UserTypeDetails;->mBadgeColors:[I
+    iget-object p0, p0, Lcom/android/server/pm/UserTypeDetails;->mDarkThemeBadgeColors:[I
 
-    if-eqz v1, :cond_4
+    if-eqz p0, :cond_5
 
-    array-length v1, v1
+    array-length p0, p0
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v1
 
-    goto :goto_4
-
-    :cond_4
-    move-object v1, v2
-
-    :goto_4
-    invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
-
-    invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    const-string v1, "mDarkThemeBadgeColors.length: "
-
-    invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    iget-object v1, p0, Lcom/android/server/pm/UserTypeDetails;->mDarkThemeBadgeColors:[I
-
-    if-eqz v1, :cond_5
-
-    array-length v1, v1
-
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
     :cond_5
-    invoke-virtual {p1, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
+    invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
 
     return-void
 .end method
 
 .method public getBadgeColor(I)I
-    .locals 2
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/pm/UserTypeDetails;->mBadgeColors:[I
+    iget-object p0, p0, Lcom/android/server/pm/UserTypeDetails;->mBadgeColors:[I
+
+    if-eqz p0, :cond_1
+
+    array-length v0, p0
 
     if-eqz v0, :cond_1
-
-    array-length v1, v0
-
-    if-eqz v1, :cond_1
 
     if-gez p1, :cond_0
 
     goto :goto_0
 
     :cond_0
-    array-length v1, v0
+    array-length v0, p0
 
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 v0, v0, -0x1
 
-    invoke-static {p1, v1}, Ljava/lang/Math;->min(II)I
+    invoke-static {p1, v0}, Ljava/lang/Math;->min(II)I
 
-    move-result v1
+    move-result p1
 
-    aget v0, v0, v1
+    aget p0, p0, p1
 
-    return v0
+    return p0
 
     :cond_1
     :goto_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
 .method public getBadgeLabel(I)I
-    .locals 2
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/pm/UserTypeDetails;->mBadgeLabels:[I
+    iget-object p0, p0, Lcom/android/server/pm/UserTypeDetails;->mBadgeLabels:[I
+
+    if-eqz p0, :cond_1
+
+    array-length v0, p0
 
     if-eqz v0, :cond_1
-
-    array-length v1, v0
-
-    if-eqz v1, :cond_1
 
     if-gez p1, :cond_0
 
     goto :goto_0
 
     :cond_0
-    array-length v1, v0
+    array-length v0, p0
 
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 v0, v0, -0x1
 
-    invoke-static {p1, v1}, Ljava/lang/Math;->min(II)I
+    invoke-static {p1, v0}, Ljava/lang/Math;->min(II)I
 
-    move-result v1
+    move-result p1
 
-    aget v0, v0, v1
+    aget p0, p0, p1
 
-    return v0
+    return p0
 
     :cond_1
     :goto_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
 .method public getBadgeNoBackground()I
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/pm/UserTypeDetails;->mBadgeNoBackground:I
+    iget p0, p0, Lcom/android/server/pm/UserTypeDetails;->mBadgeNoBackground:I
 
-    return v0
+    return p0
 .end method
 
 .method public getBadgePlain()I
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/pm/UserTypeDetails;->mBadgePlain:I
+    iget p0, p0, Lcom/android/server/pm/UserTypeDetails;->mBadgePlain:I
 
-    return v0
+    return p0
 .end method
 
 .method public getDarkThemeBadgeColor(I)I
@@ -558,29 +557,29 @@
     goto :goto_0
 
     :cond_0
-    array-length v1, v0
+    array-length p0, v0
 
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 p0, p0, -0x1
 
-    invoke-static {p1, v1}, Ljava/lang/Math;->min(II)I
+    invoke-static {p1, p0}, Ljava/lang/Math;->min(II)I
 
-    move-result v1
+    move-result p0
 
-    aget v0, v0, v1
+    aget p0, v0, p0
 
-    return v0
+    return p0
 
     :cond_1
     :goto_0
     invoke-virtual {p0, p1}, Lcom/android/server/pm/UserTypeDetails;->getBadgeColor(I)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
-.method getDefaultCrossProfileIntentFilters()Ljava/util/List;
-    .locals 2
+.method public getDefaultCrossProfileIntentFilters()Ljava/util/List;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -596,9 +595,9 @@
 
     new-instance v0, Ljava/util/ArrayList;
 
-    iget-object v1, p0, Lcom/android/server/pm/UserTypeDetails;->mDefaultCrossProfileIntentFilters:Ljava/util/List;
+    iget-object p0, p0, Lcom/android/server/pm/UserTypeDetails;->mDefaultCrossProfileIntentFilters:Ljava/util/List;
 
-    invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+    invoke-direct {v0, p0}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
     goto :goto_0
 
@@ -611,196 +610,196 @@
     return-object v0
 .end method
 
-.method getDefaultRestrictions()Landroid/os/Bundle;
-    .locals 1
+.method public getDefaultRestrictions()Landroid/os/Bundle;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/pm/UserTypeDetails;->mDefaultRestrictions:Landroid/os/Bundle;
+    iget-object p0, p0, Lcom/android/server/pm/UserTypeDetails;->mDefaultRestrictions:Landroid/os/Bundle;
 
-    invoke-static {v0}, Lcom/android/server/BundleUtils;->clone(Landroid/os/Bundle;)Landroid/os/Bundle;
+    invoke-static {p0}, Lcom/android/server/BundleUtils;->clone(Landroid/os/Bundle;)Landroid/os/Bundle;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
-.method getDefaultSecureSettings()Landroid/os/Bundle;
-    .locals 1
+.method public getDefaultSecureSettings()Landroid/os/Bundle;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/pm/UserTypeDetails;->mDefaultSecureSettings:Landroid/os/Bundle;
+    iget-object p0, p0, Lcom/android/server/pm/UserTypeDetails;->mDefaultSecureSettings:Landroid/os/Bundle;
 
-    invoke-static {v0}, Lcom/android/server/BundleUtils;->clone(Landroid/os/Bundle;)Landroid/os/Bundle;
+    invoke-static {p0}, Lcom/android/server/BundleUtils;->clone(Landroid/os/Bundle;)Landroid/os/Bundle;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
-.method getDefaultSystemSettings()Landroid/os/Bundle;
-    .locals 1
+.method public getDefaultSystemSettings()Landroid/os/Bundle;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/pm/UserTypeDetails;->mDefaultSystemSettings:Landroid/os/Bundle;
+    iget-object p0, p0, Lcom/android/server/pm/UserTypeDetails;->mDefaultSystemSettings:Landroid/os/Bundle;
 
-    invoke-static {v0}, Lcom/android/server/BundleUtils;->clone(Landroid/os/Bundle;)Landroid/os/Bundle;
+    invoke-static {p0}, Lcom/android/server/BundleUtils;->clone(Landroid/os/Bundle;)Landroid/os/Bundle;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getDefaultUserInfoFlags()I
-    .locals 2
+    .locals 1
 
     iget v0, p0, Lcom/android/server/pm/UserTypeDetails;->mDefaultUserInfoPropertyFlags:I
 
-    iget v1, p0, Lcom/android/server/pm/UserTypeDetails;->mBaseType:I
+    iget p0, p0, Lcom/android/server/pm/UserTypeDetails;->mBaseType:I
 
-    or-int/2addr v0, v1
+    or-int/2addr p0, v0
 
-    return v0
+    return p0
 .end method
 
 .method public getIconBadge()I
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/pm/UserTypeDetails;->mIconBadge:I
+    iget p0, p0, Lcom/android/server/pm/UserTypeDetails;->mIconBadge:I
 
-    return v0
-.end method
-
-.method public getLabel()I
-    .locals 1
-
-    iget v0, p0, Lcom/android/server/pm/UserTypeDetails;->mLabel:I
-
-    return v0
+    return p0
 .end method
 
 .method public getMaxAllowed()I
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/pm/UserTypeDetails;->mMaxAllowed:I
+    iget p0, p0, Lcom/android/server/pm/UserTypeDetails;->mMaxAllowed:I
 
-    return v0
+    return p0
 .end method
 
 .method public getMaxAllowedPerParent()I
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/pm/UserTypeDetails;->mMaxAllowedPerParent:I
+    iget p0, p0, Lcom/android/server/pm/UserTypeDetails;->mMaxAllowedPerParent:I
 
-    return v0
+    return p0
 .end method
 
 .method public getName()Ljava/lang/String;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/pm/UserTypeDetails;->mName:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/pm/UserTypeDetails;->mName:Ljava/lang/String;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public hasBadge()Z
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/pm/UserTypeDetails;->mIconBadge:I
+    iget p0, p0, Lcom/android/server/pm/UserTypeDetails;->mIconBadge:I
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
+.end method
+
+.method public isCredentialSharableWithParent()Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/server/pm/UserTypeDetails;->mIsCredentialSharableWithParent:Z
+
+    return p0
 .end method
 
 .method public isEnabled()Z
-    .locals 1
+    .locals 0
 
-    iget-boolean v0, p0, Lcom/android/server/pm/UserTypeDetails;->mEnabled:Z
+    iget-boolean p0, p0, Lcom/android/server/pm/UserTypeDetails;->mEnabled:Z
 
-    return v0
+    return p0
 .end method
 
 .method public isFull()Z
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/pm/UserTypeDetails;->mBaseType:I
+    iget p0, p0, Lcom/android/server/pm/UserTypeDetails;->mBaseType:I
 
-    and-int/lit16 v0, v0, 0x400
+    and-int/lit16 p0, p0, 0x400
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method public isManagedProfile()Z
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/pm/UserTypeDetails;->mName:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/pm/UserTypeDetails;->mName:Ljava/lang/String;
 
-    invoke-static {v0}, Landroid/os/UserManager;->isUserTypeManagedProfile(Ljava/lang/String;)Z
+    invoke-static {p0}, Landroid/os/UserManager;->isUserTypeManagedProfile(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public isMediaSharedWithParent()Z
-    .locals 1
+    .locals 0
 
-    iget-boolean v0, p0, Lcom/android/server/pm/UserTypeDetails;->mIsMediaSharedWithParent:Z
+    iget-boolean p0, p0, Lcom/android/server/pm/UserTypeDetails;->mIsMediaSharedWithParent:Z
 
-    return v0
+    return p0
 .end method
 
 .method public isProfile()Z
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/pm/UserTypeDetails;->mBaseType:I
+    iget p0, p0, Lcom/android/server/pm/UserTypeDetails;->mBaseType:I
 
-    and-int/lit16 v0, v0, 0x1000
+    and-int/lit16 p0, p0, 0x1000
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method public isSystem()Z
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/pm/UserTypeDetails;->mBaseType:I
+    iget p0, p0, Lcom/android/server/pm/UserTypeDetails;->mBaseType:I
 
-    and-int/lit16 v0, v0, 0x800
+    and-int/lit16 p0, p0, 0x800
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method

@@ -17,29 +17,9 @@
 
 
 # static fields
-.field private static final LOG_PACKAGES_MAX_LENGTH:I = 0x96
+.field public static final RULES_DIR:Ljava/io/File;
 
-.field private static final LOG_PACKAGES_SUFFICIENT_LENGTH:I = 0x7d
-
-.field private static final RULES_DIR:Ljava/io/File;
-
-.field static final TAG:Ljava/lang/String; = "IntentFirewall"
-
-.field private static final TAG_ACTIVITY:Ljava/lang/String; = "activity"
-
-.field private static final TAG_BROADCAST:Ljava/lang/String; = "broadcast"
-
-.field private static final TAG_RULES:Ljava/lang/String; = "rules"
-
-.field private static final TAG_SERVICE:Ljava/lang/String; = "service"
-
-.field private static final TYPE_ACTIVITY:I = 0x0
-
-.field private static final TYPE_BROADCAST:I = 0x1
-
-.field private static final TYPE_SERVICE:I = 0x2
-
-.field private static final factoryMap:Ljava/util/HashMap;
+.field public static final factoryMap:Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/HashMap<",
@@ -52,22 +32,32 @@
 
 
 # instance fields
-.field private mActivityResolver:Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver;
+.field public mActivityResolver:Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver;
 
-.field private final mAms:Lcom/android/server/firewall/IntentFirewall$AMSInterface;
+.field public final mAms:Lcom/android/server/firewall/IntentFirewall$AMSInterface;
 
-.field private mBroadcastResolver:Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver;
+.field public mBroadcastResolver:Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver;
 
-.field final mHandler:Lcom/android/server/firewall/IntentFirewall$FirewallHandler;
+.field public final mHandler:Lcom/android/server/firewall/IntentFirewall$FirewallHandler;
 
-.field private final mObserver:Lcom/android/server/firewall/IntentFirewall$RuleObserver;
+.field public final mObserver:Lcom/android/server/firewall/IntentFirewall$RuleObserver;
 
-.field private mServiceResolver:Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver;
+.field public mPackageManager:Landroid/content/pm/PackageManagerInternal;
+
+.field public mServiceResolver:Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 5
+.method public static bridge synthetic -$$Nest$mreadRulesDir(Lcom/android/server/firewall/IntentFirewall;Ljava/io/File;)V
+    .locals 0
+
+    invoke-virtual {p0, p1}, Lcom/android/server/firewall/IntentFirewall;->readRulesDir(Ljava/io/File;)V
+
+    return-void
+.end method
+
+.method public static constructor <clinit>()V
+    .locals 6
 
     new-instance v0, Ljava/io/File;
 
@@ -83,146 +73,138 @@
 
     const/16 v0, 0x12
 
-    new-array v0, v0, [Lcom/android/server/firewall/FilterFactory;
+    new-array v1, v0, [Lcom/android/server/firewall/FilterFactory;
 
-    sget-object v1, Lcom/android/server/firewall/AndFilter;->FACTORY:Lcom/android/server/firewall/FilterFactory;
+    sget-object v2, Lcom/android/server/firewall/AndFilter;->FACTORY:Lcom/android/server/firewall/FilterFactory;
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    aput-object v1, v0, v2
+    aput-object v2, v1, v3
 
-    sget-object v1, Lcom/android/server/firewall/OrFilter;->FACTORY:Lcom/android/server/firewall/FilterFactory;
+    sget-object v2, Lcom/android/server/firewall/OrFilter;->FACTORY:Lcom/android/server/firewall/FilterFactory;
 
-    const/4 v2, 0x1
+    const/4 v4, 0x1
 
-    aput-object v1, v0, v2
+    aput-object v2, v1, v4
 
-    sget-object v1, Lcom/android/server/firewall/NotFilter;->FACTORY:Lcom/android/server/firewall/FilterFactory;
+    sget-object v2, Lcom/android/server/firewall/NotFilter;->FACTORY:Lcom/android/server/firewall/FilterFactory;
 
-    const/4 v2, 0x2
+    const/4 v4, 0x2
 
-    aput-object v1, v0, v2
+    aput-object v2, v1, v4
 
-    sget-object v1, Lcom/android/server/firewall/StringFilter;->ACTION:Lcom/android/server/firewall/FilterFactory;
+    sget-object v2, Lcom/android/server/firewall/StringFilter;->ACTION:Lcom/android/server/firewall/FilterFactory;
 
-    const/4 v2, 0x3
+    const/4 v4, 0x3
 
-    aput-object v1, v0, v2
+    aput-object v2, v1, v4
 
-    sget-object v1, Lcom/android/server/firewall/StringFilter;->COMPONENT:Lcom/android/server/firewall/StringFilter$ValueProvider;
+    sget-object v2, Lcom/android/server/firewall/StringFilter;->COMPONENT:Lcom/android/server/firewall/StringFilter$ValueProvider;
 
-    const/4 v3, 0x4
+    const/4 v4, 0x4
 
-    aput-object v1, v0, v3
+    aput-object v2, v1, v4
 
-    sget-object v1, Lcom/android/server/firewall/StringFilter;->COMPONENT_NAME:Lcom/android/server/firewall/StringFilter$ValueProvider;
+    sget-object v2, Lcom/android/server/firewall/StringFilter;->COMPONENT_NAME:Lcom/android/server/firewall/StringFilter$ValueProvider;
 
     const/4 v4, 0x5
 
-    aput-object v1, v0, v4
+    aput-object v2, v1, v4
 
-    sget-object v1, Lcom/android/server/firewall/StringFilter;->COMPONENT_PACKAGE:Lcom/android/server/firewall/StringFilter$ValueProvider;
+    sget-object v2, Lcom/android/server/firewall/StringFilter;->COMPONENT_PACKAGE:Lcom/android/server/firewall/StringFilter$ValueProvider;
 
     const/4 v4, 0x6
 
-    aput-object v1, v0, v4
+    aput-object v2, v1, v4
 
-    sget-object v1, Lcom/android/server/firewall/StringFilter;->DATA:Lcom/android/server/firewall/StringFilter$ValueProvider;
+    sget-object v2, Lcom/android/server/firewall/StringFilter;->DATA:Lcom/android/server/firewall/StringFilter$ValueProvider;
 
     const/4 v4, 0x7
 
-    aput-object v1, v0, v4
+    aput-object v2, v1, v4
 
-    sget-object v1, Lcom/android/server/firewall/StringFilter;->HOST:Lcom/android/server/firewall/StringFilter$ValueProvider;
+    sget-object v2, Lcom/android/server/firewall/StringFilter;->HOST:Lcom/android/server/firewall/StringFilter$ValueProvider;
 
     const/16 v4, 0x8
 
-    aput-object v1, v0, v4
+    aput-object v2, v1, v4
 
-    sget-object v1, Lcom/android/server/firewall/StringFilter;->MIME_TYPE:Lcom/android/server/firewall/StringFilter$ValueProvider;
+    sget-object v2, Lcom/android/server/firewall/StringFilter;->MIME_TYPE:Lcom/android/server/firewall/StringFilter$ValueProvider;
 
     const/16 v4, 0x9
 
-    aput-object v1, v0, v4
+    aput-object v2, v1, v4
 
-    sget-object v1, Lcom/android/server/firewall/StringFilter;->SCHEME:Lcom/android/server/firewall/StringFilter$ValueProvider;
+    sget-object v2, Lcom/android/server/firewall/StringFilter;->SCHEME:Lcom/android/server/firewall/StringFilter$ValueProvider;
 
     const/16 v4, 0xa
 
-    aput-object v1, v0, v4
+    aput-object v2, v1, v4
 
-    sget-object v1, Lcom/android/server/firewall/StringFilter;->PATH:Lcom/android/server/firewall/StringFilter$ValueProvider;
+    sget-object v2, Lcom/android/server/firewall/StringFilter;->PATH:Lcom/android/server/firewall/StringFilter$ValueProvider;
 
     const/16 v4, 0xb
 
-    aput-object v1, v0, v4
+    aput-object v2, v1, v4
 
-    sget-object v1, Lcom/android/server/firewall/StringFilter;->SSP:Lcom/android/server/firewall/StringFilter$ValueProvider;
+    sget-object v2, Lcom/android/server/firewall/StringFilter;->SSP:Lcom/android/server/firewall/StringFilter$ValueProvider;
 
     const/16 v4, 0xc
 
-    aput-object v1, v0, v4
+    aput-object v2, v1, v4
 
-    sget-object v1, Lcom/android/server/firewall/CategoryFilter;->FACTORY:Lcom/android/server/firewall/FilterFactory;
+    sget-object v2, Lcom/android/server/firewall/CategoryFilter;->FACTORY:Lcom/android/server/firewall/FilterFactory;
 
     const/16 v4, 0xd
 
-    aput-object v1, v0, v4
+    aput-object v2, v1, v4
 
-    sget-object v1, Lcom/android/server/firewall/SenderFilter;->FACTORY:Lcom/android/server/firewall/FilterFactory;
+    sget-object v2, Lcom/android/server/firewall/SenderFilter;->FACTORY:Lcom/android/server/firewall/FilterFactory;
 
     const/16 v4, 0xe
 
-    aput-object v1, v0, v4
+    aput-object v2, v1, v4
 
-    sget-object v1, Lcom/android/server/firewall/SenderPackageFilter;->FACTORY:Lcom/android/server/firewall/FilterFactory;
+    sget-object v2, Lcom/android/server/firewall/SenderPackageFilter;->FACTORY:Lcom/android/server/firewall/FilterFactory;
 
     const/16 v4, 0xf
 
-    aput-object v1, v0, v4
+    aput-object v2, v1, v4
 
-    sget-object v1, Lcom/android/server/firewall/SenderPermissionFilter;->FACTORY:Lcom/android/server/firewall/FilterFactory;
+    sget-object v2, Lcom/android/server/firewall/SenderPermissionFilter;->FACTORY:Lcom/android/server/firewall/FilterFactory;
 
     const/16 v4, 0x10
 
-    aput-object v1, v0, v4
+    aput-object v2, v1, v4
 
-    sget-object v1, Lcom/android/server/firewall/PortFilter;->FACTORY:Lcom/android/server/firewall/FilterFactory;
+    sget-object v2, Lcom/android/server/firewall/PortFilter;->FACTORY:Lcom/android/server/firewall/FilterFactory;
 
     const/16 v4, 0x11
 
-    aput-object v1, v0, v4
+    aput-object v2, v1, v4
 
-    new-instance v1, Ljava/util/HashMap;
+    new-instance v2, Ljava/util/HashMap;
 
-    array-length v4, v0
+    const/16 v4, 0x18
 
-    mul-int/2addr v4, v3
+    invoke-direct {v2, v4}, Ljava/util/HashMap;-><init>(I)V
 
-    div-int/2addr v4, v2
-
-    invoke-direct {v1, v4}, Ljava/util/HashMap;-><init>(I)V
-
-    sput-object v1, Lcom/android/server/firewall/IntentFirewall;->factoryMap:Ljava/util/HashMap;
-
-    const/4 v1, 0x0
+    sput-object v2, Lcom/android/server/firewall/IntentFirewall;->factoryMap:Ljava/util/HashMap;
 
     :goto_0
-    array-length v2, v0
+    if-ge v3, v0, :cond_0
 
-    if-ge v1, v2, :cond_0
+    aget-object v2, v1, v3
 
-    aget-object v2, v0, v1
-
-    sget-object v3, Lcom/android/server/firewall/IntentFirewall;->factoryMap:Ljava/util/HashMap;
+    sget-object v4, Lcom/android/server/firewall/IntentFirewall;->factoryMap:Ljava/util/HashMap;
 
     invoke-virtual {v2}, Lcom/android/server/firewall/FilterFactory;->getTagName()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-virtual {v3, v4, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v4, v5, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
@@ -239,57 +221,49 @@
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, v1}, Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver;-><init>(Lcom/android/server/firewall/IntentFirewall$1;)V
+    invoke-direct {v0, v1}, Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver;-><init>(Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver-IA;)V
 
     iput-object v0, p0, Lcom/android/server/firewall/IntentFirewall;->mActivityResolver:Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver;
 
     new-instance v0, Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver;
 
-    invoke-direct {v0, v1}, Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver;-><init>(Lcom/android/server/firewall/IntentFirewall$1;)V
+    invoke-direct {v0, v1}, Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver;-><init>(Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver-IA;)V
 
     iput-object v0, p0, Lcom/android/server/firewall/IntentFirewall;->mBroadcastResolver:Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver;
 
     new-instance v0, Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver;
 
-    invoke-direct {v0, v1}, Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver;-><init>(Lcom/android/server/firewall/IntentFirewall$1;)V
+    invoke-direct {v0, v1}, Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver;-><init>(Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver-IA;)V
 
     iput-object v0, p0, Lcom/android/server/firewall/IntentFirewall;->mServiceResolver:Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver;
 
     iput-object p1, p0, Lcom/android/server/firewall/IntentFirewall;->mAms:Lcom/android/server/firewall/IntentFirewall$AMSInterface;
 
-    new-instance v0, Lcom/android/server/firewall/IntentFirewall$FirewallHandler;
+    new-instance p1, Lcom/android/server/firewall/IntentFirewall$FirewallHandler;
 
     invoke-virtual {p2}, Landroid/os/Handler;->getLooper()Landroid/os/Looper;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-direct {v0, p0, v1}, Lcom/android/server/firewall/IntentFirewall$FirewallHandler;-><init>(Lcom/android/server/firewall/IntentFirewall;Landroid/os/Looper;)V
+    invoke-direct {p1, p0, p2}, Lcom/android/server/firewall/IntentFirewall$FirewallHandler;-><init>(Lcom/android/server/firewall/IntentFirewall;Landroid/os/Looper;)V
 
-    iput-object v0, p0, Lcom/android/server/firewall/IntentFirewall;->mHandler:Lcom/android/server/firewall/IntentFirewall$FirewallHandler;
+    iput-object p1, p0, Lcom/android/server/firewall/IntentFirewall;->mHandler:Lcom/android/server/firewall/IntentFirewall$FirewallHandler;
 
     invoke-static {}, Lcom/android/server/firewall/IntentFirewall;->getRulesDir()Ljava/io/File;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Ljava/io/File;->mkdirs()Z
+    invoke-virtual {p1}, Ljava/io/File;->mkdirs()Z
 
-    invoke-direct {p0, v0}, Lcom/android/server/firewall/IntentFirewall;->readRulesDir(Ljava/io/File;)V
+    invoke-virtual {p0, p1}, Lcom/android/server/firewall/IntentFirewall;->readRulesDir(Ljava/io/File;)V
 
-    new-instance v1, Lcom/android/server/firewall/IntentFirewall$RuleObserver;
+    new-instance p2, Lcom/android/server/firewall/IntentFirewall$RuleObserver;
 
-    invoke-direct {v1, p0, v0}, Lcom/android/server/firewall/IntentFirewall$RuleObserver;-><init>(Lcom/android/server/firewall/IntentFirewall;Ljava/io/File;)V
+    invoke-direct {p2, p0, p1}, Lcom/android/server/firewall/IntentFirewall$RuleObserver;-><init>(Lcom/android/server/firewall/IntentFirewall;Ljava/io/File;)V
 
-    iput-object v1, p0, Lcom/android/server/firewall/IntentFirewall;->mObserver:Lcom/android/server/firewall/IntentFirewall$RuleObserver;
+    iput-object p2, p0, Lcom/android/server/firewall/IntentFirewall;->mObserver:Lcom/android/server/firewall/IntentFirewall$RuleObserver;
 
-    invoke-virtual {v1}, Lcom/android/server/firewall/IntentFirewall$RuleObserver;->startWatching()V
-
-    return-void
-.end method
-
-.method static synthetic access$300(Lcom/android/server/firewall/IntentFirewall;Ljava/io/File;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/server/firewall/IntentFirewall;->readRulesDir(Ljava/io/File;)V
+    invoke-virtual {p2}, Landroid/os/FileObserver;->startWatching()V
 
     return-void
 .end method
@@ -302,243 +276,216 @@
     return-object v0
 .end method
 
-.method private static joinPackages([Ljava/lang/String;)Ljava/lang/String;
-    .locals 7
+.method public static joinPackages([Ljava/lang/String;)Ljava/lang/String;
+    .locals 9
 
-    const/4 v0, 0x1
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    const/4 v2, 0x1
+
+    move v3, v1
+
+    move v4, v2
 
     :goto_0
-    array-length v3, p0
+    array-length v5, p0
 
-    const/16 v4, 0x96
+    const/16 v6, 0x96
 
-    if-ge v2, v3, :cond_3
+    if-ge v3, v5, :cond_3
 
-    aget-object v3, p0, v2
+    aget-object v5, p0, v3
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->length()I
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->length()I
 
-    move-result v5
+    move-result v7
 
-    invoke-virtual {v3}, Ljava/lang/String;->length()I
+    invoke-virtual {v5}, Ljava/lang/String;->length()I
 
-    move-result v6
+    move-result v8
 
-    add-int/2addr v5, v6
+    add-int/2addr v7, v8
 
-    add-int/lit8 v5, v5, 0x1
+    add-int/2addr v7, v2
 
-    if-ge v5, v4, :cond_1
+    if-ge v7, v6, :cond_1
 
-    if-nez v0, :cond_0
+    if-nez v4, :cond_0
 
-    const/16 v4, 0x2c
+    const/16 v6, 0x2c
 
-    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     goto :goto_1
 
     :cond_0
-    const/4 v0, 0x0
+    move v4, v1
 
     :goto_1
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     goto :goto_2
 
     :cond_1
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->length()I
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->length()I
 
-    move-result v4
+    move-result v5
 
-    const/16 v5, 0x7d
+    const/16 v6, 0x7d
 
-    if-lt v4, v5, :cond_2
+    if-lt v5, v6, :cond_2
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object p0
 
-    return-object v4
+    return-object p0
 
     :cond_2
     :goto_2
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
     :cond_3
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->length()I
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->length()I
 
-    move-result v2
+    move-result v0
 
-    if-nez v2, :cond_4
+    if-nez v0, :cond_4
 
-    array-length v2, p0
+    array-length v0, p0
 
-    if-lez v2, :cond_4
+    if-lez v0, :cond_4
 
-    const/4 v2, 0x0
+    aget-object p0, p0, v1
 
-    aget-object v2, p0, v2
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {p0}, Ljava/lang/String;->length()I
 
-    invoke-virtual {v2}, Ljava/lang/String;->length()I
+    move-result v1
 
-    move-result v5
+    sub-int/2addr v1, v6
 
-    sub-int/2addr v5, v4
+    add-int/2addr v1, v2
 
-    add-int/lit8 v5, v5, 0x1
+    invoke-virtual {p0, v1}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
-    invoke-virtual {v2, v5}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object v4
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const/16 p0, 0x2d
 
-    const/16 v4, 0x2d
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object v3
-
-    return-object v3
+    return-object p0
 
     :cond_4
-    const/4 v2, 0x0
+    const/4 p0, 0x0
 
-    return-object v2
+    return-object p0
 .end method
 
-.method private static logIntent(ILandroid/content/Intent;ILjava/lang/String;)V
-    .locals 15
+.method public static logIntent(ILandroid/content/Intent;ILjava/lang/String;)V
+    .locals 11
 
-    invoke-virtual/range {p1 .. p1}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
-
-    move-result-object v1
-
-    const/4 v0, 0x0
-
-    if-eqz v1, :cond_0
-
-    invoke-virtual {v1}, Landroid/content/ComponentName;->flattenToShortString()Ljava/lang/String;
+    invoke-virtual {p1}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
 
     move-result-object v0
 
-    move-object v11, v0
+    const/4 v1, 0x0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Landroid/content/ComponentName;->flattenToShortString()Ljava/lang/String;
+
+    move-result-object v0
+
+    move-object v3, v0
 
     goto :goto_0
 
     :cond_0
-    move-object v11, v0
+    move-object v3, v1
 
     :goto_0
-    const/4 v2, 0x0
-
-    const/4 v3, 0x0
+    const/4 v0, 0x0
 
     invoke-static {}, Landroid/app/AppGlobals;->getPackageManager()Landroid/content/pm/IPackageManager;
 
-    move-result-object v12
+    move-result-object v2
 
-    if-eqz v12, :cond_2
-
-    move/from16 v13, p2
+    if-eqz v2, :cond_1
 
     :try_start_0
-    invoke-interface {v12, v13}, Landroid/content/pm/IPackageManager;->getPackagesForUid(I)[Ljava/lang/String;
+    invoke-interface {v2, p2}, Landroid/content/pm/IPackageManager;->getPackagesForUid(I)[Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    if-eqz v0, :cond_1
+    if-eqz v2, :cond_1
 
-    array-length v4, v0
+    array-length v0, v2
 
-    move v3, v4
+    invoke-static {v2}, Lcom/android/server/firewall/IntentFirewall;->joinPackages([Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-static {v0}, Lcom/android/server/firewall/IntentFirewall;->joinPackages([Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v4
+    move-result-object v1
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-object v2, v4
-
-    :cond_1
-    move-object v0, v2
-
-    move v14, v3
 
     goto :goto_1
 
     :catch_0
-    move-exception v0
+    move-exception v2
 
     const-string v4, "IntentFirewall"
 
     const-string v5, "Remote exception while retrieving packages"
 
-    invoke-static {v4, v5, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v4, v5, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    move-object v0, v2
-
-    move v14, v3
-
-    goto :goto_1
-
-    :cond_2
-    move/from16 v13, p2
-
-    move-object v0, v2
-
-    move v14, v3
-
+    :cond_1
     :goto_1
-    nop
+    move v5, v0
 
-    invoke-virtual/range {p1 .. p1}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+    move-object v6, v1
+
+    invoke-virtual {p1}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v7
 
-    invoke-virtual/range {p1 .. p1}, Landroid/content/Intent;->getDataString()Ljava/lang/String;
+    invoke-virtual {p1}, Landroid/content/Intent;->getDataString()Ljava/lang/String;
 
     move-result-object v9
 
-    invoke-virtual/range {p1 .. p1}, Landroid/content/Intent;->getFlags()I
+    invoke-virtual {p1}, Landroid/content/Intent;->getFlags()I
 
     move-result v10
 
     move v2, p0
 
-    move-object v3, v11
+    move v4, p2
 
-    move/from16 v4, p2
-
-    move v5, v14
-
-    move-object v6, v0
-
-    move-object/from16 v8, p3
+    move-object v8, p3
 
     invoke-static/range {v2 .. v10}, Lcom/android/server/EventLogTags;->writeIfwIntentMatched(ILjava/lang/String;IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V
 
     return-void
 .end method
 
-.method static parseFilter(Lorg/xmlpull/v1/XmlPullParser;)Lcom/android/server/firewall/Filter;
-    .locals 5
+.method public static parseFilter(Lorg/xmlpull/v1/XmlPullParser;)Lcom/android/server/firewall/Filter;
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -562,661 +509,30 @@
 
     invoke-virtual {v1, p0}, Lcom/android/server/firewall/FilterFactory;->newFilter(Lorg/xmlpull/v1/XmlPullParser;)Lcom/android/server/firewall/Filter;
 
-    move-result-object v2
+    move-result-object p0
 
-    return-object v2
-
-    :cond_0
-    new-instance v2, Lorg/xmlpull/v1/XmlPullParserException;
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "Unknown element in filter list: "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-direct {v2, v3}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
-
-    throw v2
-.end method
-
-.method private readRules(Ljava/io/File;[Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver;)V
-    .locals 16
-
-    move-object/from16 v1, p1
-
-    const-string v2, "Error reading intent firewall rules from "
-
-    const-string v3, "Error while closing "
-
-    const-string v4, "IntentFirewall"
-
-    new-instance v0, Ljava/util/ArrayList;
-
-    const/4 v5, 0x3
-
-    invoke-direct {v0, v5}, Ljava/util/ArrayList;-><init>(I)V
-
-    move-object v6, v0
-
-    const/4 v0, 0x0
-
-    :goto_0
-    if-ge v0, v5, :cond_0
-
-    new-instance v7, Ljava/util/ArrayList;
-
-    invoke-direct {v7}, Ljava/util/ArrayList;-><init>()V
-
-    invoke-interface {v6, v7}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_0
+    return-object p0
 
     :cond_0
-    :try_start_0
-    new-instance v0, Ljava/io/FileInputStream;
+    new-instance p0, Lorg/xmlpull/v1/XmlPullParserException;
 
-    invoke-direct {v0, v1}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
-    :try_end_0
-    .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_7
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    move-object v5, v0
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    nop
+    const-string v2, "Unknown element in filter list: "
 
-    :try_start_1
-    invoke-static {}, Landroid/util/Xml;->newPullParser()Lorg/xmlpull/v1/XmlPullParser;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-object v7, v0
-
-    const/4 v8, 0x0
-
-    invoke-interface {v7, v5, v8}, Lorg/xmlpull/v1/XmlPullParser;->setInput(Ljava/io/InputStream;Ljava/lang/String;)V
-
-    const-string/jumbo v0, "rules"
-
-    invoke-static {v7, v0}, Lcom/android/internal/util/XmlUtils;->beginDocument(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)V
-
-    invoke-interface {v7}, Lorg/xmlpull/v1/XmlPullParser;->getDepth()I
-
-    move-result v0
-
-    move v9, v0
-
-    :goto_1
-    invoke-static {v7, v9}, Lcom/android/internal/util/XmlUtils;->nextElementWithin(Lorg/xmlpull/v1/XmlPullParser;I)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_5
-
-    const/4 v0, -0x1
-
-    invoke-interface {v7}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
-
-    move-result-object v10
-
-    const-string v11, "activity"
-
-    invoke-virtual {v10, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v11
-
-    if-eqz v11, :cond_1
-
-    const/4 v0, 0x0
-
-    move v11, v0
-
-    goto :goto_2
-
-    :cond_1
-    const-string v11, "broadcast"
-
-    invoke-virtual {v10, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v11
-
-    if-eqz v11, :cond_2
-
-    const/4 v0, 0x1
-
-    move v11, v0
-
-    goto :goto_2
-
-    :cond_2
-    const-string/jumbo v11, "service"
-
-    invoke-virtual {v10, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v11
-
-    if-eqz v11, :cond_3
-
-    const/4 v0, 0x2
-
-    move v11, v0
-
-    goto :goto_2
-
-    :cond_3
-    move v11, v0
-
-    :goto_2
-    const/4 v0, -0x1
-
-    if-eq v11, v0, :cond_4
-
-    new-instance v0, Lcom/android/server/firewall/IntentFirewall$Rule;
-
-    invoke-direct {v0, v8}, Lcom/android/server/firewall/IntentFirewall$Rule;-><init>(Lcom/android/server/firewall/IntentFirewall$1;)V
-
-    move-object v12, v0
-
-    invoke-interface {v6, v11}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    check-cast v0, Ljava/util/List;
-    :try_end_1
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_1 .. :try_end_1} :catch_4
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_2
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    invoke-direct {p0, v0}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
 
-    move-object v13, v0
-
-    :try_start_2
-    invoke-virtual {v12, v7}, Lcom/android/server/firewall/IntentFirewall$Rule;->readFromXml(Lorg/xmlpull/v1/XmlPullParser;)Lcom/android/server/firewall/IntentFirewall$Rule;
-    :try_end_2
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_2 .. :try_end_2} :catch_0
-    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
-
-    nop
-
-    :try_start_3
-    invoke-interface {v13, v12}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    goto :goto_3
-
-    :catch_0
-    move-exception v0
-
-    move-object v14, v0
-
-    move-object v0, v14
-
-    new-instance v14, Ljava/lang/StringBuilder;
-
-    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v15, "Error reading an intent firewall rule from "
-
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v14, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v14
-
-    invoke-static {v4, v14, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_3
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_3 .. :try_end_3} :catch_4
-    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_2
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
-
-    goto :goto_1
-
-    :cond_4
-    :goto_3
-    goto :goto_1
-
-    :cond_5
-    :try_start_4
-    invoke-virtual {v5}, Ljava/io/FileInputStream;->close()V
-    :try_end_4
-    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_1
-
-    goto :goto_4
-
-    :catch_1
-    move-exception v0
-
-    move-object v2, v0
-
-    move-object v0, v2
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v4, v2, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    nop
-
-    :goto_4
-    const/4 v0, 0x0
-
-    :goto_5
-    invoke-interface {v6}, Ljava/util/List;->size()I
-
-    move-result v2
-
-    if-ge v0, v2, :cond_9
-
-    invoke-interface {v6, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Ljava/util/List;
-
-    aget-object v3, p2, v0
-
-    const/4 v4, 0x0
-
-    :goto_6
-    invoke-interface {v2}, Ljava/util/List;->size()I
-
-    move-result v7
-
-    if-ge v4, v7, :cond_8
-
-    invoke-interface {v2, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v7
-
-    check-cast v7, Lcom/android/server/firewall/IntentFirewall$Rule;
-
-    const/4 v8, 0x0
-
-    :goto_7
-    invoke-virtual {v7}, Lcom/android/server/firewall/IntentFirewall$Rule;->getIntentFilterCount()I
-
-    move-result v9
-
-    if-ge v8, v9, :cond_6
-
-    invoke-virtual {v7, v8}, Lcom/android/server/firewall/IntentFirewall$Rule;->getIntentFilter(I)Lcom/android/server/firewall/IntentFirewall$FirewallIntentFilter;
-
-    move-result-object v9
-
-    invoke-virtual {v3, v9}, Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver;->addFilter(Ljava/lang/Object;)V
-
-    add-int/lit8 v8, v8, 0x1
-
-    goto :goto_7
-
-    :cond_6
-    const/4 v8, 0x0
-
-    :goto_8
-    invoke-virtual {v7}, Lcom/android/server/firewall/IntentFirewall$Rule;->getComponentFilterCount()I
-
-    move-result v9
-
-    if-ge v8, v9, :cond_7
-
-    invoke-virtual {v7, v8}, Lcom/android/server/firewall/IntentFirewall$Rule;->getComponentFilter(I)Landroid/content/ComponentName;
-
-    move-result-object v9
-
-    invoke-virtual {v3, v9, v7}, Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver;->addComponentFilter(Landroid/content/ComponentName;Lcom/android/server/firewall/IntentFirewall$Rule;)V
-
-    add-int/lit8 v8, v8, 0x1
-
-    goto :goto_8
-
-    :cond_7
-    add-int/lit8 v4, v4, 0x1
-
-    goto :goto_6
-
-    :cond_8
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_5
-
-    :cond_9
-    return-void
-
-    :catchall_0
-    move-exception v0
-
-    move-object v2, v0
-
-    goto :goto_b
-
-    :catch_2
-    move-exception v0
-
-    move-object v7, v0
-
-    :try_start_5
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v4, v0, v7}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_0
-
-    :try_start_6
-    invoke-virtual {v5}, Ljava/io/FileInputStream;->close()V
-    :try_end_6
-    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_3
-
-    goto :goto_9
-
-    :catch_3
-    move-exception v0
-
-    move-object v2, v0
-
-    move-object v0, v2
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v4, v2, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    :goto_9
-    return-void
-
-    :catch_4
-    move-exception v0
-
-    move-object v7, v0
-
-    :try_start_7
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v4, v0, v7}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_7
-    .catchall {:try_start_7 .. :try_end_7} :catchall_0
-
-    :try_start_8
-    invoke-virtual {v5}, Ljava/io/FileInputStream;->close()V
-    :try_end_8
-    .catch Ljava/io/IOException; {:try_start_8 .. :try_end_8} :catch_5
-
-    goto :goto_a
-
-    :catch_5
-    move-exception v0
-
-    move-object v2, v0
-
-    move-object v0, v2
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v4, v2, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    :goto_a
-    return-void
-
-    :goto_b
-    :try_start_9
-    invoke-virtual {v5}, Ljava/io/FileInputStream;->close()V
-    :try_end_9
-    .catch Ljava/io/IOException; {:try_start_9 .. :try_end_9} :catch_6
-
-    goto :goto_c
-
-    :catch_6
-    move-exception v0
-
-    move-object v7, v0
-
-    move-object v0, v7
-
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v7, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v7, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v4, v3, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    :goto_c
-    throw v2
-
-    :catch_7
-    move-exception v0
-
-    return-void
-.end method
-
-.method private readRulesDir(Ljava/io/File;)V
-    .locals 8
-
-    const/4 v0, 0x3
-
-    new-array v0, v0, [Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver;
-
-    const/4 v1, 0x0
-
-    :goto_0
-    array-length v2, v0
-
-    if-ge v1, v2, :cond_0
-
-    new-instance v2, Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver;
-
-    const/4 v3, 0x0
-
-    invoke-direct {v2, v3}, Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver;-><init>(Lcom/android/server/firewall/IntentFirewall$1;)V
-
-    aput-object v2, v0, v1
-
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    invoke-virtual {p1}, Ljava/io/File;->listFiles()[Ljava/io/File;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_2
-
-    const/4 v2, 0x0
-
-    :goto_1
-    array-length v3, v1
-
-    if-ge v2, v3, :cond_2
-
-    aget-object v3, v1, v2
-
-    invoke-virtual {v3}, Ljava/io/File;->getName()Ljava/lang/String;
-
-    move-result-object v4
-
-    const-string v5, ".xml"
-
-    invoke-virtual {v4, v5}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_1
-
-    invoke-direct {p0, v3, v0}, Lcom/android/server/firewall/IntentFirewall;->readRules(Ljava/io/File;[Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver;)V
-
-    :cond_1
-    add-int/lit8 v2, v2, 0x1
-
-    goto :goto_1
-
-    :cond_2
-    const-string v2, "IntentFirewall"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "Read new rules (A:"
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const/4 v4, 0x0
-
-    aget-object v5, v0, v4
-
-    invoke-virtual {v5}, Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver;->filterSet()Ljava/util/Set;
-
-    move-result-object v5
-
-    invoke-interface {v5}, Ljava/util/Set;->size()I
-
-    move-result v5
-
-    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v5, " B:"
-
-    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const/4 v5, 0x1
-
-    aget-object v6, v0, v5
-
-    invoke-virtual {v6}, Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver;->filterSet()Ljava/util/Set;
-
-    move-result-object v6
-
-    invoke-interface {v6}, Ljava/util/Set;->size()I
-
-    move-result v6
-
-    invoke-virtual {v3, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v6, " S:"
-
-    invoke-virtual {v3, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const/4 v6, 0x2
-
-    aget-object v7, v0, v6
-
-    invoke-virtual {v7}, Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver;->filterSet()Ljava/util/Set;
-
-    move-result-object v7
-
-    invoke-interface {v7}, Ljava/util/Set;->size()I
-
-    move-result v7
-
-    invoke-virtual {v3, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v7, ")"
-
-    invoke-virtual {v3, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v2, p0, Lcom/android/server/firewall/IntentFirewall;->mAms:Lcom/android/server/firewall/IntentFirewall$AMSInterface;
-
-    invoke-interface {v2}, Lcom/android/server/firewall/IntentFirewall$AMSInterface;->getAMSLock()Ljava/lang/Object;
-
-    move-result-object v2
-
-    monitor-enter v2
-
-    :try_start_0
-    aget-object v3, v0, v4
-
-    iput-object v3, p0, Lcom/android/server/firewall/IntentFirewall;->mActivityResolver:Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver;
-
-    aget-object v3, v0, v5
-
-    iput-object v3, p0, Lcom/android/server/firewall/IntentFirewall;->mBroadcastResolver:Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver;
-
-    aget-object v3, v0, v6
-
-    iput-object v3, p0, Lcom/android/server/firewall/IntentFirewall;->mServiceResolver:Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver;
-
-    monitor-exit v2
-
-    return-void
-
-    :catchall_0
-    move-exception v3
-
-    monitor-exit v2
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v3
+    throw p0
 .end method
 
 
@@ -1246,12 +562,12 @@
 
     invoke-virtual/range {v0 .. v8}, Lcom/android/server/firewall/IntentFirewall;->checkIntent(Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver;Landroid/content/ComponentName;ILandroid/content/Intent;IILjava/lang/String;I)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
-.method checkComponentPermission(Ljava/lang/String;IIIZ)Z
+.method public checkComponentPermission(Ljava/lang/String;IIIZ)Z
     .locals 6
 
     iget-object v0, p0, Lcom/android/server/firewall/IntentFirewall;->mAms:Lcom/android/server/firewall/IntentFirewall$AMSInterface;
@@ -1268,86 +584,85 @@
 
     invoke-interface/range {v0 .. v5}, Lcom/android/server/firewall/IntentFirewall$AMSInterface;->checkComponentPermission(Ljava/lang/String;IIIZ)I
 
-    move-result v0
+    move-result p0
 
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method public checkIntent(Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver;Landroid/content/ComponentName;ILandroid/content/Intent;IILjava/lang/String;I)Z
-    .locals 17
+    .locals 14
 
-    move-object/from16 v0, p1
+    invoke-virtual {p0}, Lcom/android/server/firewall/IntentFirewall;->getPackageManager()Landroid/content/pm/PackageManagerInternal;
 
-    move-object/from16 v9, p4
+    move-result-object v0
 
-    move-object/from16 v10, p7
+    invoke-virtual {v0}, Landroid/content/pm/PackageManagerInternal;->snapshot()Lcom/android/server/pm/snapshot/PackageDataSnapshot;
+
+    move-result-object v2
+
+    const/4 v5, 0x0
+
+    const/4 v6, 0x0
+
+    move-object v1, p1
+
+    move-object/from16 v3, p4
+
+    move-object/from16 v4, p7
+
+    invoke-virtual/range {v1 .. v6}, Lcom/android/server/IntentResolver;->queryIntent(Lcom/android/server/pm/snapshot/PackageDataSnapshot;Landroid/content/Intent;Ljava/lang/String;ZI)Ljava/util/List;
+
+    move-result-object v0
+
+    if-nez v0, :cond_0
+
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    :cond_0
+    move-object v1, p1
+
+    move-object/from16 v9, p2
+
+    invoke-virtual {p1, v9, v0}, Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver;->queryByComponent(Landroid/content/ComponentName;Ljava/util/List;)V
 
     const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    move v10, v1
 
-    const/4 v3, 0x0
+    move v11, v10
 
-    invoke-virtual {v0, v9, v10, v3, v3}, Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver;->queryIntent(Landroid/content/Intent;Ljava/lang/String;ZI)Ljava/util/List;
-
-    move-result-object v3
-
-    if-nez v3, :cond_0
-
-    new-instance v4, Ljava/util/ArrayList;
-
-    invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
-
-    move-object v3, v4
-
-    move-object v11, v3
-
-    goto :goto_0
-
-    :cond_0
-    move-object v11, v3
+    move v12, v11
 
     :goto_0
-    move-object/from16 v12, p2
-
-    invoke-virtual {v0, v12, v11}, Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver;->queryByComponent(Landroid/content/ComponentName;Ljava/util/List;)V
-
-    const/4 v3, 0x0
-
-    move v13, v1
-
-    move v14, v2
-
-    move v15, v3
-
-    :goto_1
-    invoke-interface {v11}, Ljava/util/List;->size()I
+    invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v1
 
-    if-ge v15, v1, :cond_2
+    if-ge v10, v1, :cond_2
 
-    invoke-interface {v11, v15}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v0, v10}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v1
 
-    move-object/from16 v16, v1
+    move-object v13, v1
 
-    check-cast v16, Lcom/android/server/firewall/IntentFirewall$Rule;
+    check-cast v13, Lcom/android/server/firewall/IntentFirewall$Rule;
 
-    move-object/from16 v1, v16
+    move-object v1, v13
 
-    move-object/from16 v2, p0
+    move-object v2, p0
 
     move-object/from16 v3, p2
 
@@ -1361,56 +676,53 @@
 
     move/from16 v8, p8
 
-    invoke-virtual/range {v1 .. v8}, Lcom/android/server/firewall/IntentFirewall$Rule;->matches(Lcom/android/server/firewall/IntentFirewall;Landroid/content/ComponentName;Landroid/content/Intent;IILjava/lang/String;I)Z
+    invoke-virtual/range {v1 .. v8}, Lcom/android/server/firewall/AndFilter;->matches(Lcom/android/server/firewall/IntentFirewall;Landroid/content/ComponentName;Landroid/content/Intent;IILjava/lang/String;I)Z
 
     move-result v1
 
     if-eqz v1, :cond_1
 
-    invoke-virtual/range {v16 .. v16}, Lcom/android/server/firewall/IntentFirewall$Rule;->getBlock()Z
+    invoke-virtual {v13}, Lcom/android/server/firewall/IntentFirewall$Rule;->getBlock()Z
 
     move-result v1
 
-    or-int/2addr v14, v1
+    or-int/2addr v11, v1
 
-    invoke-virtual/range {v16 .. v16}, Lcom/android/server/firewall/IntentFirewall$Rule;->getLog()Z
+    invoke-virtual {v13}, Lcom/android/server/firewall/IntentFirewall$Rule;->getLog()Z
 
     move-result v1
 
-    or-int/2addr v13, v1
+    or-int/2addr v12, v1
 
-    if-eqz v14, :cond_1
+    if-eqz v11, :cond_1
 
-    if-eqz v13, :cond_1
-
-    goto :goto_2
-
-    :cond_1
-    add-int/lit8 v15, v15, 0x1
+    if-eqz v12, :cond_1
 
     goto :goto_1
 
-    :cond_2
-    :goto_2
-    if-eqz v13, :cond_3
+    :cond_1
+    add-int/lit8 v10, v10, 0x1
 
-    move/from16 v1, p3
+    goto :goto_0
+
+    :cond_2
+    :goto_1
+    if-eqz v12, :cond_3
+
+    move/from16 v0, p3
+
+    move-object/from16 v1, p4
 
     move/from16 v2, p5
 
-    invoke-static {v1, v9, v2, v10}, Lcom/android/server/firewall/IntentFirewall;->logIntent(ILandroid/content/Intent;ILjava/lang/String;)V
+    move-object/from16 v3, p7
 
-    goto :goto_3
+    invoke-static {v0, v1, v2, v3}, Lcom/android/server/firewall/IntentFirewall;->logIntent(ILandroid/content/Intent;ILjava/lang/String;)V
 
     :cond_3
-    move/from16 v1, p3
+    xor-int/lit8 v0, v11, 0x1
 
-    move/from16 v2, p5
-
-    :goto_3
-    xor-int/lit8 v3, v14, 0x1
-
-    return v3
+    return v0
 .end method
 
 .method public checkService(Landroid/content/ComponentName;Landroid/content/Intent;IILjava/lang/String;Landroid/content/pm/ApplicationInfo;)Z
@@ -1436,9 +748,9 @@
 
     invoke-virtual/range {v0 .. v8}, Lcom/android/server/firewall/IntentFirewall;->checkIntent(Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver;Landroid/content/ComponentName;ILandroid/content/Intent;IILjava/lang/String;I)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public checkStartActivity(Landroid/content/Intent;IILjava/lang/String;Landroid/content/pm/ApplicationInfo;)Z
@@ -1466,42 +778,637 @@
 
     invoke-virtual/range {v0 .. v8}, Lcom/android/server/firewall/IntentFirewall;->checkIntent(Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver;Landroid/content/ComponentName;ILandroid/content/Intent;IILjava/lang/String;I)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
-.method signaturesMatch(II)Z
-    .locals 4
+.method public final getPackageManager()Landroid/content/pm/PackageManagerInternal;
+    .locals 1
 
-    const/4 v0, 0x0
+    iget-object v0, p0, Lcom/android/server/firewall/IntentFirewall;->mPackageManager:Landroid/content/pm/PackageManagerInternal;
+
+    if-nez v0, :cond_0
+
+    const-class v0, Landroid/content/pm/PackageManagerInternal;
+
+    invoke-static {v0}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/content/pm/PackageManagerInternal;
+
+    iput-object v0, p0, Lcom/android/server/firewall/IntentFirewall;->mPackageManager:Landroid/content/pm/PackageManagerInternal;
+
+    :cond_0
+    iget-object p0, p0, Lcom/android/server/firewall/IntentFirewall;->mPackageManager:Landroid/content/pm/PackageManagerInternal;
+
+    return-object p0
+.end method
+
+.method public final readRules(Ljava/io/File;[Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver;)V
+    .locals 11
+
+    const-string p0, "Error reading intent firewall rules from "
+
+    const-string v0, "Error while closing "
+
+    const-string v1, "IntentFirewall"
+
+    new-instance v2, Ljava/util/ArrayList;
+
+    const/4 v3, 0x3
+
+    invoke-direct {v2, v3}, Ljava/util/ArrayList;-><init>(I)V
+
+    const/4 v4, 0x0
+
+    move v5, v4
+
+    :goto_0
+    if-ge v5, v3, :cond_0
+
+    new-instance v6, Ljava/util/ArrayList;
+
+    invoke-direct {v6}, Ljava/util/ArrayList;-><init>()V
+
+    invoke-interface {v2, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    add-int/lit8 v5, v5, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    :try_start_0
+    new-instance v3, Ljava/io/FileInputStream;
+
+    invoke-direct {v3, p1}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
+    :try_end_0
+    .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_7
+
+    :try_start_1
+    invoke-static {}, Landroid/util/Xml;->newPullParser()Lorg/xmlpull/v1/XmlPullParser;
+
+    move-result-object v5
+
+    const/4 v6, 0x0
+
+    invoke-interface {v5, v3, v6}, Lorg/xmlpull/v1/XmlPullParser;->setInput(Ljava/io/InputStream;Ljava/lang/String;)V
+
+    const-string/jumbo v7, "rules"
+
+    invoke-static {v5, v7}, Lcom/android/internal/util/XmlUtils;->beginDocument(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)V
+
+    invoke-interface {v5}, Lorg/xmlpull/v1/XmlPullParser;->getDepth()I
+
+    move-result v7
+
+    :cond_1
+    :goto_1
+    invoke-static {v5, v7}, Lcom/android/internal/util/XmlUtils;->nextElementWithin(Lorg/xmlpull/v1/XmlPullParser;I)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_5
+
+    invoke-interface {v5}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
+
+    move-result-object v8
+
+    const-string v9, "activity"
+
+    invoke-virtual {v8, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v9
+
+    const/4 v10, -0x1
+
+    if-eqz v9, :cond_2
+
+    move v8, v4
+
+    goto :goto_2
+
+    :cond_2
+    const-string v9, "broadcast"
+
+    invoke-virtual {v8, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v9
+
+    if-eqz v9, :cond_3
+
+    const/4 v8, 0x1
+
+    goto :goto_2
+
+    :cond_3
+    const-string/jumbo v9, "service"
+
+    invoke-virtual {v8, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_4
+
+    const/4 v8, 0x2
+
+    goto :goto_2
+
+    :cond_4
+    move v8, v10
+
+    :goto_2
+    if-eq v8, v10, :cond_1
+
+    new-instance v9, Lcom/android/server/firewall/IntentFirewall$Rule;
+
+    invoke-direct {v9, v6}, Lcom/android/server/firewall/IntentFirewall$Rule;-><init>(Lcom/android/server/firewall/IntentFirewall$Rule-IA;)V
+
+    invoke-interface {v2, v8}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v8
+
+    check-cast v8, Ljava/util/List;
+    :try_end_1
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_1 .. :try_end_1} :catch_4
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_2
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    :try_start_2
+    invoke-virtual {v9, v5}, Lcom/android/server/firewall/IntentFirewall$Rule;->readFromXml(Lorg/xmlpull/v1/XmlPullParser;)Lcom/android/server/firewall/IntentFirewall$Rule;
+    :try_end_2
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_2 .. :try_end_2} :catch_0
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    :try_start_3
+    invoke-interface {v8, v9}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    goto :goto_1
+
+    :catch_0
+    move-exception v8
+
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v10, "Error reading an intent firewall rule from "
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v9, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v1, v9, v8}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    :try_end_3
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_3 .. :try_end_3} :catch_4
+    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_2
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    goto :goto_1
+
+    :cond_5
+    :try_start_4
+    invoke-virtual {v3}, Ljava/io/FileInputStream;->close()V
+    :try_end_4
+    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_1
+
+    goto :goto_3
+
+    :catch_1
+    move-exception p0
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-static {v1, p1, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    :goto_3
+    move p0, v4
+
+    :goto_4
+    invoke-interface {v2}, Ljava/util/List;->size()I
+
+    move-result p1
+
+    if-ge p0, p1, :cond_9
+
+    invoke-interface {v2, p0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Ljava/util/List;
+
+    aget-object v0, p2, p0
+
+    move v1, v4
+
+    :goto_5
+    invoke-interface {p1}, Ljava/util/List;->size()I
+
+    move-result v3
+
+    if-ge v1, v3, :cond_8
+
+    invoke-interface {p1, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Lcom/android/server/firewall/IntentFirewall$Rule;
+
+    move v5, v4
+
+    :goto_6
+    invoke-virtual {v3}, Lcom/android/server/firewall/IntentFirewall$Rule;->getIntentFilterCount()I
+
+    move-result v7
+
+    if-ge v5, v7, :cond_6
+
+    invoke-virtual {v3, v5}, Lcom/android/server/firewall/IntentFirewall$Rule;->getIntentFilter(I)Lcom/android/server/firewall/IntentFirewall$FirewallIntentFilter;
+
+    move-result-object v7
+
+    invoke-virtual {v0, v6, v7}, Lcom/android/server/IntentResolver;->addFilter(Lcom/android/server/pm/snapshot/PackageDataSnapshot;Ljava/lang/Object;)V
+
+    add-int/lit8 v5, v5, 0x1
+
+    goto :goto_6
+
+    :cond_6
+    move v5, v4
+
+    :goto_7
+    invoke-virtual {v3}, Lcom/android/server/firewall/IntentFirewall$Rule;->getComponentFilterCount()I
+
+    move-result v7
+
+    if-ge v5, v7, :cond_7
+
+    invoke-virtual {v3, v5}, Lcom/android/server/firewall/IntentFirewall$Rule;->getComponentFilter(I)Landroid/content/ComponentName;
+
+    move-result-object v7
+
+    invoke-virtual {v0, v7, v3}, Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver;->addComponentFilter(Landroid/content/ComponentName;Lcom/android/server/firewall/IntentFirewall$Rule;)V
+
+    add-int/lit8 v5, v5, 0x1
+
+    goto :goto_7
+
+    :cond_7
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_5
+
+    :cond_8
+    add-int/lit8 p0, p0, 0x1
+
+    goto :goto_4
+
+    :cond_9
+    return-void
+
+    :catchall_0
+    move-exception p0
+
+    goto :goto_a
+
+    :catch_2
+    move-exception p2
+
+    :try_start_5
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-static {v1, p0, p2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_0
+
+    :try_start_6
+    invoke-virtual {v3}, Ljava/io/FileInputStream;->close()V
+    :try_end_6
+    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_3
+
+    goto :goto_8
+
+    :catch_3
+    move-exception p0
+
+    new-instance p2, Ljava/lang/StringBuilder;
+
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-static {v1, p1, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    :goto_8
+    return-void
+
+    :catch_4
+    move-exception p2
+
+    :try_start_7
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-static {v1, p0, p2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    :try_end_7
+    .catchall {:try_start_7 .. :try_end_7} :catchall_0
+
+    :try_start_8
+    invoke-virtual {v3}, Ljava/io/FileInputStream;->close()V
+    :try_end_8
+    .catch Ljava/io/IOException; {:try_start_8 .. :try_end_8} :catch_5
+
+    goto :goto_9
+
+    :catch_5
+    move-exception p0
+
+    new-instance p2, Ljava/lang/StringBuilder;
+
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-static {v1, p1, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    :goto_9
+    return-void
+
+    :goto_a
+    :try_start_9
+    invoke-virtual {v3}, Ljava/io/FileInputStream;->close()V
+    :try_end_9
+    .catch Ljava/io/IOException; {:try_start_9 .. :try_end_9} :catch_6
+
+    goto :goto_b
+
+    :catch_6
+    move-exception p2
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-static {v1, p1, p2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    :goto_b
+    throw p0
+
+    :catch_7
+    return-void
+.end method
+
+.method public final readRulesDir(Ljava/io/File;)V
+    .locals 6
+
+    const/4 v0, 0x3
+
+    new-array v1, v0, [Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver;
+
+    const/4 v2, 0x0
+
+    move v3, v2
+
+    :goto_0
+    if-ge v3, v0, :cond_0
+
+    new-instance v4, Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver;
+
+    const/4 v5, 0x0
+
+    invoke-direct {v4, v5}, Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver;-><init>(Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver-IA;)V
+
+    aput-object v4, v1, v3
+
+    add-int/lit8 v3, v3, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {p1}, Ljava/io/File;->listFiles()[Ljava/io/File;
+
+    move-result-object p1
+
+    if-eqz p1, :cond_2
+
+    move v0, v2
+
+    :goto_1
+    array-length v3, p1
+
+    if-ge v0, v3, :cond_2
+
+    aget-object v3, p1, v0
+
+    invoke-virtual {v3}, Ljava/io/File;->getName()Ljava/lang/String;
+
+    move-result-object v4
+
+    const-string v5, ".xml"
+
+    invoke-virtual {v4, v5}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    invoke-virtual {p0, v3, v1}, Lcom/android/server/firewall/IntentFirewall;->readRules(Ljava/io/File;[Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver;)V
+
+    :cond_1
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_1
+
+    :cond_2
+    const-string p1, "IntentFirewall"
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "Read new rules (A:"
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    aget-object v3, v1, v2
+
+    invoke-virtual {v3}, Lcom/android/server/IntentResolver;->filterSet()Ljava/util/Set;
+
+    move-result-object v3
+
+    invoke-interface {v3}, Ljava/util/Set;->size()I
+
+    move-result v3
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v3, " B:"
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const/4 v3, 0x1
+
+    aget-object v4, v1, v3
+
+    invoke-virtual {v4}, Lcom/android/server/IntentResolver;->filterSet()Ljava/util/Set;
+
+    move-result-object v4
+
+    invoke-interface {v4}, Ljava/util/Set;->size()I
+
+    move-result v4
+
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v4, " S:"
+
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const/4 v4, 0x2
+
+    aget-object v5, v1, v4
+
+    invoke-virtual {v5}, Lcom/android/server/IntentResolver;->filterSet()Ljava/util/Set;
+
+    move-result-object v5
+
+    invoke-interface {v5}, Ljava/util/Set;->size()I
+
+    move-result v5
+
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v5, ")"
+
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {p1, v0}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object p1, p0, Lcom/android/server/firewall/IntentFirewall;->mAms:Lcom/android/server/firewall/IntentFirewall$AMSInterface;
+
+    invoke-interface {p1}, Lcom/android/server/firewall/IntentFirewall$AMSInterface;->getAMSLock()Ljava/lang/Object;
+
+    move-result-object p1
+
+    monitor-enter p1
+
+    :try_start_0
+    aget-object v0, v1, v2
+
+    iput-object v0, p0, Lcom/android/server/firewall/IntentFirewall;->mActivityResolver:Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver;
+
+    aget-object v0, v1, v3
+
+    iput-object v0, p0, Lcom/android/server/firewall/IntentFirewall;->mBroadcastResolver:Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver;
+
+    aget-object v0, v1, v4
+
+    iput-object v0, p0, Lcom/android/server/firewall/IntentFirewall;->mServiceResolver:Lcom/android/server/firewall/IntentFirewall$FirewallIntentResolver;
+
+    monitor-exit p1
+
+    return-void
+
+    :catchall_0
+    move-exception p0
+
+    monitor-exit p1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw p0
+.end method
+
+.method public signaturesMatch(II)Z
+    .locals 1
+
+    const/4 p0, 0x0
 
     :try_start_0
     invoke-static {}, Landroid/app/AppGlobals;->getPackageManager()Landroid/content/pm/IPackageManager;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-interface {v1, p1, p2}, Landroid/content/pm/IPackageManager;->checkUidSignatures(II)I
+    invoke-interface {v0, p1, p2}, Landroid/content/pm/IPackageManager;->checkUidSignatures(II)I
 
-    move-result v2
+    move-result p1
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    if-nez v2, :cond_0
+    if-nez p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     :cond_0
-    return v0
+    return p0
 
     :catch_0
-    move-exception v1
+    move-exception p1
 
-    const-string v2, "IntentFirewall"
+    const-string p2, "IntentFirewall"
 
-    const-string v3, "Remote exception while checking signatures"
+    const-string v0, "Remote exception while checking signatures"
 
-    invoke-static {v2, v3, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {p2, v0, p1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    return v0
+    return p0
 .end method

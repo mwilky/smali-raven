@@ -1,4 +1,4 @@
-.class Lcom/android/server/BinderCallsStatsService$LifeCycle$1;
+.class public Lcom/android/server/BinderCallsStatsService$LifeCycle$1;
 .super Ljava/lang/Object;
 .source "BinderCallsStatsService.java"
 
@@ -12,19 +12,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/BinderCallsStatsService$LifeCycle;
+.field public final synthetic this$0:Lcom/android/server/BinderCallsStatsService$LifeCycle;
 
-.field final synthetic val$batteryStatsInternal:Landroid/os/BatteryStatsInternal;
+.field public final synthetic val$batteryStatsInternal:Landroid/os/BatteryStatsInternal;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/BinderCallsStatsService$LifeCycle;Landroid/os/BatteryStatsInternal;)V
+.method public constructor <init>(Lcom/android/server/BinderCallsStatsService$LifeCycle;Landroid/os/BatteryStatsInternal;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/BinderCallsStatsService$LifeCycle$1;->this$0:Lcom/android/server/BinderCallsStatsService$LifeCycle;
@@ -39,17 +39,17 @@
 
 # virtual methods
 .method public noteBinderThreadNativeIds([I)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/BinderCallsStatsService$LifeCycle$1;->val$batteryStatsInternal:Landroid/os/BatteryStatsInternal;
+    iget-object p0, p0, Lcom/android/server/BinderCallsStatsService$LifeCycle$1;->val$batteryStatsInternal:Landroid/os/BatteryStatsInternal;
 
-    invoke-virtual {v0, p1}, Landroid/os/BatteryStatsInternal;->noteBinderThreadNativeIds([I)V
+    invoke-virtual {p0, p1}, Landroid/os/BatteryStatsInternal;->noteBinderThreadNativeIds([I)V
 
     return-void
 .end method
 
 .method public noteCallStats(IJLjava/util/Collection;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(IJ",
@@ -59,9 +59,9 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/android/server/BinderCallsStatsService$LifeCycle$1;->val$batteryStatsInternal:Landroid/os/BatteryStatsInternal;
+    iget-object p0, p0, Lcom/android/server/BinderCallsStatsService$LifeCycle$1;->val$batteryStatsInternal:Landroid/os/BatteryStatsInternal;
 
-    invoke-virtual {v0, p1, p2, p3, p4}, Landroid/os/BatteryStatsInternal;->noteBinderCallStats(IJLjava/util/Collection;)V
+    invoke-virtual {p0, p1, p2, p3, p4}, Landroid/os/BatteryStatsInternal;->noteBinderCallStats(IJLjava/util/Collection;)V
 
     return-void
 .end method

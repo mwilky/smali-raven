@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/WindowContainer$RemoteToken;
+.class public Lcom/android/server/wm/WindowContainer$RemoteToken;
 .super Landroid/window/IWindowContainerToken$Stub;
 .source "WindowContainer.java"
 
@@ -9,13 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "RemoteToken"
 .end annotation
 
 
 # instance fields
-.field final mWeakRef:Ljava/lang/ref/WeakReference;
+.field public final mWeakRef:Ljava/lang/ref/WeakReference;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/lang/ref/WeakReference<",
@@ -25,11 +25,11 @@
     .end annotation
 .end field
 
-.field private mWindowContainerToken:Landroid/window/WindowContainerToken;
+.field public mWindowContainerToken:Landroid/window/WindowContainerToken;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/wm/WindowContainer;)V
+.method public constructor <init>(Lcom/android/server/wm/WindowContainer;)V
     .locals 1
 
     invoke-direct {p0}, Landroid/window/IWindowContainerToken$Stub;-><init>()V
@@ -43,30 +43,28 @@
     return-void
 .end method
 
-.method static fromBinder(Landroid/os/IBinder;)Lcom/android/server/wm/WindowContainer$RemoteToken;
-    .locals 1
+.method public static fromBinder(Landroid/os/IBinder;)Lcom/android/server/wm/WindowContainer$RemoteToken;
+    .locals 0
 
-    move-object v0, p0
+    check-cast p0, Lcom/android/server/wm/WindowContainer$RemoteToken;
 
-    check-cast v0, Lcom/android/server/wm/WindowContainer$RemoteToken;
-
-    return-object v0
+    return-object p0
 .end method
 
 
 # virtual methods
-.method getContainer()Lcom/android/server/wm/WindowContainer;
-    .locals 1
+.method public getContainer()Lcom/android/server/wm/WindowContainer;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/WindowContainer$RemoteToken;->mWeakRef:Ljava/lang/ref/WeakReference;
+    iget-object p0, p0, Lcom/android/server/wm/WindowContainer$RemoteToken;->mWeakRef:Ljava/lang/ref/WeakReference;
 
-    invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+    invoke-virtual {p0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/android/server/wm/WindowContainer;
+    check-cast p0, Lcom/android/server/wm/WindowContainer;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public toString()Ljava/lang/String;
@@ -96,26 +94,26 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lcom/android/server/wm/WindowContainer$RemoteToken;->mWeakRef:Ljava/lang/ref/WeakReference;
+    iget-object p0, p0, Lcom/android/server/wm/WindowContainer$RemoteToken;->mWeakRef:Ljava/lang/ref/WeakReference;
 
-    invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+    invoke-virtual {p0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const/16 v1, 0x7d
+    const/16 p0, 0x7d
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method
 
-.method toWindowContainerToken()Landroid/window/WindowContainerToken;
+.method public toWindowContainerToken()Landroid/window/WindowContainerToken;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/wm/WindowContainer$RemoteToken;->mWindowContainerToken:Landroid/window/WindowContainerToken;
@@ -129,7 +127,7 @@
     iput-object v0, p0, Lcom/android/server/wm/WindowContainer$RemoteToken;->mWindowContainerToken:Landroid/window/WindowContainerToken;
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/wm/WindowContainer$RemoteToken;->mWindowContainerToken:Landroid/window/WindowContainerToken;
+    iget-object p0, p0, Lcom/android/server/wm/WindowContainer$RemoteToken;->mWindowContainerToken:Landroid/window/WindowContainerToken;
 
-    return-object v0
+    return-object p0
 .end method

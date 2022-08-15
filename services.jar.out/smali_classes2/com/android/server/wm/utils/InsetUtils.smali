@@ -4,14 +4,6 @@
 
 
 # direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
 .method public static addInsets(Landroid/graphics/Rect;Landroid/graphics/Rect;)V
     .locals 2
 
@@ -41,175 +33,90 @@
 
     iget v0, p0, Landroid/graphics/Rect;->bottom:I
 
-    iget v1, p1, Landroid/graphics/Rect;->bottom:I
+    iget p1, p1, Landroid/graphics/Rect;->bottom:I
 
-    add-int/2addr v0, v1
+    add-int/2addr v0, p1
 
     iput v0, p0, Landroid/graphics/Rect;->bottom:I
 
     return-void
 .end method
 
-.method public static insetsBetweenFrames(Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;)V
-    .locals 8
+.method public static rotateInsets(Landroid/graphics/Rect;I)V
+    .locals 3
 
-    if-nez p1, :cond_0
+    if-eqz p1, :cond_3
 
-    invoke-virtual {p2}, Landroid/graphics/Rect;->setEmpty()V
+    const/4 v0, 0x1
 
-    return-void
+    if-eq p1, v0, :cond_2
+
+    const/4 v0, 0x2
+
+    if-eq p1, v0, :cond_1
+
+    const/4 v0, 0x3
+
+    if-ne p1, v0, :cond_0
+
+    iget p1, p0, Landroid/graphics/Rect;->bottom:I
+
+    iget v0, p0, Landroid/graphics/Rect;->left:I
+
+    iget v1, p0, Landroid/graphics/Rect;->top:I
+
+    iget v2, p0, Landroid/graphics/Rect;->right:I
+
+    invoke-virtual {p0, p1, v0, v1, v2}, Landroid/graphics/Rect;->set(IIII)V
+
+    goto :goto_0
 
     :cond_0
-    invoke-virtual {p0}, Landroid/graphics/Rect;->width()I
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    move-result v0
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Landroid/graphics/Rect;->height()I
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result v1
+    const-string v1, "Unknown rotation: "
 
-    iget v2, p1, Landroid/graphics/Rect;->left:I
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v3, p0, Landroid/graphics/Rect;->left:I
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    sub-int/2addr v2, v3
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    const/4 v3, 0x0
+    move-result-object p1
 
-    invoke-static {v3, v2}, Ljava/lang/Math;->max(II)I
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    move-result v2
+    throw p0
 
-    invoke-static {v0, v2}, Ljava/lang/Math;->min(II)I
+    :cond_1
+    iget p1, p0, Landroid/graphics/Rect;->right:I
 
-    move-result v2
+    iget v0, p0, Landroid/graphics/Rect;->bottom:I
 
-    iget v4, p1, Landroid/graphics/Rect;->top:I
+    iget v1, p0, Landroid/graphics/Rect;->left:I
 
-    iget v5, p0, Landroid/graphics/Rect;->top:I
+    iget v2, p0, Landroid/graphics/Rect;->top:I
 
-    sub-int/2addr v4, v5
-
-    invoke-static {v3, v4}, Ljava/lang/Math;->max(II)I
-
-    move-result v4
-
-    invoke-static {v1, v4}, Ljava/lang/Math;->min(II)I
-
-    move-result v4
-
-    iget v5, p0, Landroid/graphics/Rect;->right:I
-
-    iget v6, p1, Landroid/graphics/Rect;->right:I
-
-    sub-int/2addr v5, v6
-
-    invoke-static {v3, v5}, Ljava/lang/Math;->max(II)I
-
-    move-result v5
-
-    invoke-static {v0, v5}, Ljava/lang/Math;->min(II)I
-
-    move-result v5
-
-    iget v6, p0, Landroid/graphics/Rect;->bottom:I
-
-    iget v7, p1, Landroid/graphics/Rect;->bottom:I
-
-    sub-int/2addr v6, v7
-
-    invoke-static {v3, v6}, Ljava/lang/Math;->max(II)I
-
-    move-result v3
-
-    invoke-static {v1, v3}, Ljava/lang/Math;->min(II)I
-
-    move-result v3
-
-    invoke-virtual {p2, v2, v4, v5, v3}, Landroid/graphics/Rect;->set(IIII)V
-
-    return-void
-.end method
-
-.method public static rotateInsets(Landroid/graphics/Rect;I)V
-    .locals 5
-
-    move-object v0, p0
-
-    packed-switch p1, :pswitch_data_0
-
-    new-instance v1, Ljava/lang/IllegalArgumentException;
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "Unknown rotation: "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v1
-
-    :pswitch_0
-    iget v1, v0, Landroid/graphics/Rect;->bottom:I
-
-    iget v2, v0, Landroid/graphics/Rect;->left:I
-
-    iget v3, v0, Landroid/graphics/Rect;->top:I
-
-    iget v4, v0, Landroid/graphics/Rect;->right:I
-
-    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/graphics/Rect;->set(IIII)V
+    invoke-virtual {p0, p1, v0, v1, v2}, Landroid/graphics/Rect;->set(IIII)V
 
     goto :goto_0
 
-    :pswitch_1
-    iget v1, v0, Landroid/graphics/Rect;->right:I
+    :cond_2
+    iget p1, p0, Landroid/graphics/Rect;->top:I
 
-    iget v2, v0, Landroid/graphics/Rect;->bottom:I
+    iget v0, p0, Landroid/graphics/Rect;->right:I
 
-    iget v3, v0, Landroid/graphics/Rect;->left:I
+    iget v1, p0, Landroid/graphics/Rect;->bottom:I
 
-    iget v4, v0, Landroid/graphics/Rect;->top:I
+    iget v2, p0, Landroid/graphics/Rect;->left:I
 
-    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/graphics/Rect;->set(IIII)V
+    invoke-virtual {p0, p1, v0, v1, v2}, Landroid/graphics/Rect;->set(IIII)V
 
-    goto :goto_0
-
-    :pswitch_2
-    iget v1, v0, Landroid/graphics/Rect;->top:I
-
-    iget v2, v0, Landroid/graphics/Rect;->right:I
-
-    iget v3, v0, Landroid/graphics/Rect;->bottom:I
-
-    iget v4, v0, Landroid/graphics/Rect;->left:I
-
-    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/graphics/Rect;->set(IIII)V
-
-    nop
-
+    :cond_3
     :goto_0
     return-void
-
-    :pswitch_3
-    return-void
-
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0x0
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
 .end method

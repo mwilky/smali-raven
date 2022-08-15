@@ -1,4 +1,4 @@
-.class Lcom/android/server/connectivity/VpnIkev2Utils$ChildSessionCallbackImpl;
+.class public Lcom/android/server/connectivity/VpnIkev2Utils$ChildSessionCallbackImpl;
 .super Ljava/lang/Object;
 .source "VpnIkev2Utils.java"
 
@@ -12,21 +12,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "ChildSessionCallbackImpl"
 .end annotation
 
 
 # instance fields
-.field private final mCallback:Lcom/android/server/connectivity/Vpn$IkeV2VpnRunnerCallback;
+.field public final mCallback:Lcom/android/server/connectivity/Vpn$IkeV2VpnRunnerCallback;
 
-.field private final mNetwork:Landroid/net/Network;
+.field public final mNetwork:Landroid/net/Network;
 
-.field private final mTag:Ljava/lang/String;
+.field public final mTag:Ljava/lang/String;
 
 
 # direct methods
-.method constructor <init>(Ljava/lang/String;Lcom/android/server/connectivity/Vpn$IkeV2VpnRunnerCallback;Landroid/net/Network;)V
+.method public constructor <init>(Ljava/lang/String;Lcom/android/server/connectivity/Vpn$IkeV2VpnRunnerCallback;Landroid/net/Network;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -67,11 +67,11 @@
 
     iget-object v0, p0, Lcom/android/server/connectivity/VpnIkev2Utils$ChildSessionCallbackImpl;->mCallback:Lcom/android/server/connectivity/Vpn$IkeV2VpnRunnerCallback;
 
-    iget-object v1, p0, Lcom/android/server/connectivity/VpnIkev2Utils$ChildSessionCallbackImpl;->mNetwork:Landroid/net/Network;
+    iget-object p0, p0, Lcom/android/server/connectivity/VpnIkev2Utils$ChildSessionCallbackImpl;->mNetwork:Landroid/net/Network;
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    invoke-interface {v0, v1, v2}, Lcom/android/server/connectivity/Vpn$IkeV2VpnRunnerCallback;->onSessionLost(Landroid/net/Network;Ljava/lang/Exception;)V
+    invoke-interface {v0, p0, v1}, Lcom/android/server/connectivity/Vpn$IkeV2VpnRunnerCallback;->onSessionLost(Landroid/net/Network;Ljava/lang/Exception;)V
 
     return-void
 .end method
@@ -101,9 +101,9 @@
 
     iget-object v0, p0, Lcom/android/server/connectivity/VpnIkev2Utils$ChildSessionCallbackImpl;->mCallback:Lcom/android/server/connectivity/Vpn$IkeV2VpnRunnerCallback;
 
-    iget-object v1, p0, Lcom/android/server/connectivity/VpnIkev2Utils$ChildSessionCallbackImpl;->mNetwork:Landroid/net/Network;
+    iget-object p0, p0, Lcom/android/server/connectivity/VpnIkev2Utils$ChildSessionCallbackImpl;->mNetwork:Landroid/net/Network;
 
-    invoke-interface {v0, v1, p1}, Lcom/android/server/connectivity/Vpn$IkeV2VpnRunnerCallback;->onSessionLost(Landroid/net/Network;Ljava/lang/Exception;)V
+    invoke-interface {v0, p0, p1}, Lcom/android/server/connectivity/Vpn$IkeV2VpnRunnerCallback;->onSessionLost(Landroid/net/Network;Ljava/lang/Exception;)V
 
     return-void
 .end method
@@ -139,41 +139,41 @@
 
     iget-object v0, p0, Lcom/android/server/connectivity/VpnIkev2Utils$ChildSessionCallbackImpl;->mCallback:Lcom/android/server/connectivity/Vpn$IkeV2VpnRunnerCallback;
 
-    iget-object v1, p0, Lcom/android/server/connectivity/VpnIkev2Utils$ChildSessionCallbackImpl;->mNetwork:Landroid/net/Network;
+    iget-object p0, p0, Lcom/android/server/connectivity/VpnIkev2Utils$ChildSessionCallbackImpl;->mNetwork:Landroid/net/Network;
 
-    invoke-interface {v0, v1, p1, p2}, Lcom/android/server/connectivity/Vpn$IkeV2VpnRunnerCallback;->onChildTransformCreated(Landroid/net/Network;Landroid/net/IpSecTransform;I)V
+    invoke-interface {v0, p0, p1, p2}, Lcom/android/server/connectivity/Vpn$IkeV2VpnRunnerCallback;->onChildTransformCreated(Landroid/net/Network;Landroid/net/IpSecTransform;I)V
 
     return-void
 .end method
 
 .method public onIpSecTransformDeleted(Landroid/net/IpSecTransform;I)V
-    .locals 3
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/server/connectivity/VpnIkev2Utils$ChildSessionCallbackImpl;->mTag:Ljava/lang/String;
+    iget-object p1, p0, Lcom/android/server/connectivity/VpnIkev2Utils$ChildSessionCallbackImpl;->mTag:Ljava/lang/String;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "ChildTransformDeleted; Direction: "
+    const-string v1, "ChildTransformDeleted; Direction: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v2, "; for network "
+    const-string p2, "; for network "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v2, p0, Lcom/android/server/connectivity/VpnIkev2Utils$ChildSessionCallbackImpl;->mNetwork:Landroid/net/Network;
+    iget-object p0, p0, Lcom/android/server/connectivity/VpnIkev2Utils$ChildSessionCallbackImpl;->mNetwork:Landroid/net/Network;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p1, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 .end method
@@ -203,9 +203,9 @@
 
     iget-object v0, p0, Lcom/android/server/connectivity/VpnIkev2Utils$ChildSessionCallbackImpl;->mCallback:Lcom/android/server/connectivity/Vpn$IkeV2VpnRunnerCallback;
 
-    iget-object v1, p0, Lcom/android/server/connectivity/VpnIkev2Utils$ChildSessionCallbackImpl;->mNetwork:Landroid/net/Network;
+    iget-object p0, p0, Lcom/android/server/connectivity/VpnIkev2Utils$ChildSessionCallbackImpl;->mNetwork:Landroid/net/Network;
 
-    invoke-interface {v0, v1, p1}, Lcom/android/server/connectivity/Vpn$IkeV2VpnRunnerCallback;->onChildOpened(Landroid/net/Network;Landroid/net/ipsec/ike/ChildSessionConfiguration;)V
+    invoke-interface {v0, p0, p1}, Lcom/android/server/connectivity/Vpn$IkeV2VpnRunnerCallback;->onChildOpened(Landroid/net/Network;Landroid/net/ipsec/ike/ChildSessionConfiguration;)V
 
     return-void
 .end method

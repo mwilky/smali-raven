@@ -1,5 +1,6 @@
 .class public final synthetic Landroid/net/NetworkFactoryImpl$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/concurrent/Executor;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final execute(Ljava/lang/Runnable;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Landroid/net/NetworkFactoryImpl$$ExternalSyntheticLambda0;->f$0:Landroid/net/NetworkFactoryImpl;
+    iget-object p0, p0, Landroid/net/NetworkFactoryImpl$$ExternalSyntheticLambda0;->f$0:Landroid/net/NetworkFactoryImpl;
 
-    invoke-virtual {v0, p1}, Landroid/net/NetworkFactoryImpl;->lambda$new$0$NetworkFactoryImpl(Ljava/lang/Runnable;)V
+    invoke-static {p0, p1}, Landroid/net/NetworkFactoryImpl;->$r8$lambda$jawFpVlErUG1--waBKmGfN598J0(Landroid/net/NetworkFactoryImpl;Ljava/lang/Runnable;)V
 
     return-void
 .end method

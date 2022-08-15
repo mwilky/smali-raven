@@ -1,4 +1,4 @@
-.class Lcom/android/server/MountServiceIdler$1;
+.class public Lcom/android/server/MountServiceIdler$1;
 .super Ljava/lang/Object;
 .source "MountServiceIdler.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/MountServiceIdler;
+.field public final synthetic this$0:Lcom/android/server/MountServiceIdler;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/MountServiceIdler;)V
+.method public constructor <init>(Lcom/android/server/MountServiceIdler;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/MountServiceIdler$1;->this$0:Lcom/android/server/MountServiceIdler;
@@ -45,7 +45,7 @@
 
     iget-object v0, p0, Lcom/android/server/MountServiceIdler$1;->this$0:Lcom/android/server/MountServiceIdler;
 
-    invoke-static {v0}, Lcom/android/server/MountServiceIdler;->access$000(Lcom/android/server/MountServiceIdler;)Ljava/lang/Runnable;
+    invoke-static {v0}, Lcom/android/server/MountServiceIdler;->-$$Nest$fgetmFinishCallback(Lcom/android/server/MountServiceIdler;)Ljava/lang/Runnable;
 
     move-result-object v0
 
@@ -54,7 +54,7 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/server/MountServiceIdler$1;->this$0:Lcom/android/server/MountServiceIdler;
 
-    invoke-static {v1}, Lcom/android/server/MountServiceIdler;->access$100(Lcom/android/server/MountServiceIdler;)Z
+    invoke-static {v1}, Lcom/android/server/MountServiceIdler;->-$$Nest$fgetmStarted(Lcom/android/server/MountServiceIdler;)Z
 
     move-result v1
 
@@ -62,36 +62,36 @@
 
     iget-object v1, p0, Lcom/android/server/MountServiceIdler$1;->this$0:Lcom/android/server/MountServiceIdler;
 
-    invoke-static {v1}, Lcom/android/server/MountServiceIdler;->access$200(Lcom/android/server/MountServiceIdler;)Landroid/app/job/JobParameters;
+    invoke-static {v1}, Lcom/android/server/MountServiceIdler;->-$$Nest$fgetmJobParams(Lcom/android/server/MountServiceIdler;)Landroid/app/job/JobParameters;
 
     move-result-object v2
 
     const/4 v3, 0x0
 
-    invoke-virtual {v1, v2, v3}, Lcom/android/server/MountServiceIdler;->jobFinished(Landroid/app/job/JobParameters;Z)V
+    invoke-virtual {v1, v2, v3}, Landroid/app/job/JobService;->jobFinished(Landroid/app/job/JobParameters;Z)V
 
     iget-object v1, p0, Lcom/android/server/MountServiceIdler$1;->this$0:Lcom/android/server/MountServiceIdler;
 
-    invoke-static {v1, v3}, Lcom/android/server/MountServiceIdler;->access$102(Lcom/android/server/MountServiceIdler;Z)Z
+    invoke-static {v1, v3}, Lcom/android/server/MountServiceIdler;->-$$Nest$fputmStarted(Lcom/android/server/MountServiceIdler;Z)V
 
     :cond_0
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    iget-object v0, p0, Lcom/android/server/MountServiceIdler$1;->this$0:Lcom/android/server/MountServiceIdler;
+    iget-object p0, p0, Lcom/android/server/MountServiceIdler$1;->this$0:Lcom/android/server/MountServiceIdler;
 
-    invoke-static {v0}, Lcom/android/server/MountServiceIdler;->scheduleIdlePass(Landroid/content/Context;)V
+    invoke-static {p0}, Lcom/android/server/MountServiceIdler;->scheduleIdlePass(Landroid/content/Context;)V
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     :try_start_1
     monitor-exit v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v1
+    throw p0
 .end method

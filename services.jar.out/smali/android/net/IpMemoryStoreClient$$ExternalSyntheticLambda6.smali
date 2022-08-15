@@ -1,5 +1,6 @@
 .class public final synthetic Landroid/net/IpMemoryStoreClient$$ExternalSyntheticLambda6;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/net/IpMemoryStoreClient$ThrowingRunnable;
@@ -12,13 +13,11 @@
 
 .field public final synthetic f$2:Ljava/lang/String;
 
-.field public final synthetic f$3:Ljava/lang/String;
-
-.field public final synthetic f$4:Landroid/net/ipmemorystore/OnBlobRetrievedListener;
+.field public final synthetic f$3:Landroid/net/ipmemorystore/OnSameL3NetworkResponseListener;
 
 
 # direct methods
-.method public synthetic constructor <init>(Landroid/net/IIpMemoryStore;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/net/ipmemorystore/OnBlobRetrievedListener;)V
+.method public synthetic constructor <init>(Landroid/net/IIpMemoryStore;Ljava/lang/String;Ljava/lang/String;Landroid/net/ipmemorystore/OnSameL3NetworkResponseListener;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -29,9 +28,7 @@
 
     iput-object p3, p0, Landroid/net/IpMemoryStoreClient$$ExternalSyntheticLambda6;->f$2:Ljava/lang/String;
 
-    iput-object p4, p0, Landroid/net/IpMemoryStoreClient$$ExternalSyntheticLambda6;->f$3:Ljava/lang/String;
-
-    iput-object p5, p0, Landroid/net/IpMemoryStoreClient$$ExternalSyntheticLambda6;->f$4:Landroid/net/ipmemorystore/OnBlobRetrievedListener;
+    iput-object p4, p0, Landroid/net/IpMemoryStoreClient$$ExternalSyntheticLambda6;->f$3:Landroid/net/ipmemorystore/OnSameL3NetworkResponseListener;
 
     return-void
 .end method
@@ -39,7 +36,7 @@
 
 # virtual methods
 .method public final run()V
-    .locals 5
+    .locals 3
 
     iget-object v0, p0, Landroid/net/IpMemoryStoreClient$$ExternalSyntheticLambda6;->f$0:Landroid/net/IIpMemoryStore;
 
@@ -47,11 +44,9 @@
 
     iget-object v2, p0, Landroid/net/IpMemoryStoreClient$$ExternalSyntheticLambda6;->f$2:Ljava/lang/String;
 
-    iget-object v3, p0, Landroid/net/IpMemoryStoreClient$$ExternalSyntheticLambda6;->f$3:Ljava/lang/String;
+    iget-object p0, p0, Landroid/net/IpMemoryStoreClient$$ExternalSyntheticLambda6;->f$3:Landroid/net/ipmemorystore/OnSameL3NetworkResponseListener;
 
-    iget-object v4, p0, Landroid/net/IpMemoryStoreClient$$ExternalSyntheticLambda6;->f$4:Landroid/net/ipmemorystore/OnBlobRetrievedListener;
-
-    invoke-static {v0, v1, v2, v3, v4}, Landroid/net/IpMemoryStoreClient;->lambda$retrieveBlob$15(Landroid/net/IIpMemoryStore;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/net/ipmemorystore/OnBlobRetrievedListener;)V
+    invoke-static {v0, v1, v2, p0}, Landroid/net/IpMemoryStoreClient;->$r8$lambda$lwi0VK5Do3lgfYFiuQMcCfINqUw(Landroid/net/IIpMemoryStore;Ljava/lang/String;Ljava/lang/String;Landroid/net/ipmemorystore/OnSameL3NetworkResponseListener;)V
 
     return-void
 .end method

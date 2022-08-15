@@ -1,4 +1,4 @@
-.class Lcom/android/server/power/ShutdownThread$6;
+.class public Lcom/android/server/power/ShutdownThread$6;
 .super Ljava/lang/Object;
 .source "ShutdownThread.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/power/ShutdownThread;
+.field public final synthetic this$0:Lcom/android/server/power/ShutdownThread;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/power/ShutdownThread;)V
+.method public constructor <init>(Lcom/android/server/power/ShutdownThread;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/power/ShutdownThread$6;->this$0:Lcom/android/server/power/ShutdownThread;
@@ -39,9 +39,9 @@
 
     const/16 v0, 0x64
 
-    if-ltz p1, :cond_1
+    if-ltz p1, :cond_0
 
-    if-ge p1, v0, :cond_1
+    if-ge p1, v0, :cond_0
 
     int-to-double v0, p1
 
@@ -57,48 +57,48 @@
 
     add-int/lit8 p1, p1, 0x14
 
-    iget-object v0, p0, Lcom/android/server/power/ShutdownThread$6;->this$0:Lcom/android/server/power/ShutdownThread;
+    iget-object p0, p0, Lcom/android/server/power/ShutdownThread$6;->this$0:Lcom/android/server/power/ShutdownThread;
 
-    invoke-static {v0}, Lcom/android/server/power/ShutdownThread;->access$300(Lcom/android/server/power/ShutdownThread;)Landroid/content/Context;
+    invoke-static {p0}, Lcom/android/server/power/ShutdownThread;->-$$Nest$fgetmContext(Lcom/android/server/power/ShutdownThread;)Landroid/content/Context;
+
+    move-result-object p0
+
+    const v0, 0x10407cf
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object p0
+
+    invoke-static {}, Lcom/android/server/power/ShutdownThread;->-$$Nest$sfgetsInstance()Lcom/android/server/power/ShutdownThread;
 
     move-result-object v0
 
-    const v1, 0x104075e
+    invoke-static {v0, p1, p0}, Lcom/android/server/power/ShutdownThread;->-$$Nest$msetRebootProgress(Lcom/android/server/power/ShutdownThread;ILjava/lang/CharSequence;)V
 
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
-
-    move-result-object v0
-
-    invoke-static {}, Lcom/android/server/power/ShutdownThread;->access$700()Lcom/android/server/power/ShutdownThread;
-
-    move-result-object v1
-
-    invoke-static {v1, p1, v0}, Lcom/android/server/power/ShutdownThread;->access$800(Lcom/android/server/power/ShutdownThread;ILjava/lang/CharSequence;)V
-
-    :cond_0
     goto :goto_0
 
+    :cond_0
+    if-ne p1, v0, :cond_1
+
+    iget-object p0, p0, Lcom/android/server/power/ShutdownThread$6;->this$0:Lcom/android/server/power/ShutdownThread;
+
+    invoke-static {p0}, Lcom/android/server/power/ShutdownThread;->-$$Nest$fgetmContext(Lcom/android/server/power/ShutdownThread;)Landroid/content/Context;
+
+    move-result-object p0
+
+    const v0, 0x10407d1
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object p0
+
+    invoke-static {}, Lcom/android/server/power/ShutdownThread;->-$$Nest$sfgetsInstance()Lcom/android/server/power/ShutdownThread;
+
+    move-result-object v0
+
+    invoke-static {v0, p1, p0}, Lcom/android/server/power/ShutdownThread;->-$$Nest$msetRebootProgress(Lcom/android/server/power/ShutdownThread;ILjava/lang/CharSequence;)V
+
     :cond_1
-    if-ne p1, v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/server/power/ShutdownThread$6;->this$0:Lcom/android/server/power/ShutdownThread;
-
-    invoke-static {v0}, Lcom/android/server/power/ShutdownThread;->access$300(Lcom/android/server/power/ShutdownThread;)Landroid/content/Context;
-
-    move-result-object v0
-
-    const v1, 0x1040760
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
-
-    move-result-object v0
-
-    invoke-static {}, Lcom/android/server/power/ShutdownThread;->access$700()Lcom/android/server/power/ShutdownThread;
-
-    move-result-object v1
-
-    invoke-static {v1, p1, v0}, Lcom/android/server/power/ShutdownThread;->access$800(Lcom/android/server/power/ShutdownThread;ILjava/lang/CharSequence;)V
-
     :goto_0
     return-void
 .end method

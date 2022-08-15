@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/sensors/SensorService$ProximityListenerProxy$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -27,13 +28,13 @@
 
 # virtual methods
 .method public final run()V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/sensors/SensorService$ProximityListenerProxy$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/sensors/SensorService$ProximityListenerProxy;
 
-    iget-boolean v1, p0, Lcom/android/server/sensors/SensorService$ProximityListenerProxy$$ExternalSyntheticLambda0;->f$1:Z
+    iget-boolean p0, p0, Lcom/android/server/sensors/SensorService$ProximityListenerProxy$$ExternalSyntheticLambda0;->f$1:Z
 
-    invoke-virtual {v0, v1}, Lcom/android/server/sensors/SensorService$ProximityListenerProxy;->lambda$onProximityActive$0$SensorService$ProximityListenerProxy(Z)V
+    invoke-static {v0, p0}, Lcom/android/server/sensors/SensorService$ProximityListenerProxy;->$r8$lambda$H4DYjGrZE1zOpQR-GhA_HjfumRY(Lcom/android/server/sensors/SensorService$ProximityListenerProxy;Z)V
 
     return-void
 .end method

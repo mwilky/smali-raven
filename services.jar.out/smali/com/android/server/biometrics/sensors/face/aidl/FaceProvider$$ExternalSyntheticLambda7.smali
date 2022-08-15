@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda7;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -12,11 +13,9 @@
 
 .field public final synthetic f$2:I
 
-.field public final synthetic f$3:Lcom/android/server/biometrics/sensors/BaseClientMonitor$Callback;
-
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;IILcom/android/server/biometrics/sensors/BaseClientMonitor$Callback;)V
+.method public synthetic constructor <init>(Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;II)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -27,25 +26,21 @@
 
     iput p3, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda7;->f$2:I
 
-    iput-object p4, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda7;->f$3:Lcom/android/server/biometrics/sensors/BaseClientMonitor$Callback;
-
     return-void
 .end method
 
 
 # virtual methods
 .method public final run()V
-    .locals 4
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda7;->f$0:Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;
 
     iget v1, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda7;->f$1:I
 
-    iget v2, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda7;->f$2:I
+    iget p0, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda7;->f$2:I
 
-    iget-object v3, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda7;->f$3:Lcom/android/server/biometrics/sensors/BaseClientMonitor$Callback;
-
-    invoke-virtual {v0, v1, v2, v3}, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;->lambda$scheduleInternalCleanup$16$FaceProvider(IILcom/android/server/biometrics/sensors/BaseClientMonitor$Callback;)V
+    invoke-static {v0, v1, p0}, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;->$r8$lambda$SA9CJy00QUcljW_dkwH04fhTdH4(Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;II)V
 
     return-void
 .end method

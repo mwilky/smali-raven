@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/autofill/ui/AutoFillUI$$ExternalSyntheticLambda9;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -8,26 +9,22 @@
 # instance fields
 .field public final synthetic f$0:Lcom/android/server/autofill/ui/AutoFillUI;
 
-.field public final synthetic f$1:Lcom/android/server/autofill/ui/PendingUi;
+.field public final synthetic f$1:Lcom/android/server/autofill/ui/AutoFillUI$AutoFillUiCallback;
 
-.field public final synthetic f$2:Lcom/android/server/autofill/ui/AutoFillUI$AutoFillUiCallback;
-
-.field public final synthetic f$3:Z
+.field public final synthetic f$2:Ljava/lang/CharSequence;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/autofill/ui/AutoFillUI;Lcom/android/server/autofill/ui/PendingUi;Lcom/android/server/autofill/ui/AutoFillUI$AutoFillUiCallback;Z)V
+.method public synthetic constructor <init>(Lcom/android/server/autofill/ui/AutoFillUI;Lcom/android/server/autofill/ui/AutoFillUI$AutoFillUiCallback;Ljava/lang/CharSequence;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/server/autofill/ui/AutoFillUI$$ExternalSyntheticLambda9;->f$0:Lcom/android/server/autofill/ui/AutoFillUI;
 
-    iput-object p2, p0, Lcom/android/server/autofill/ui/AutoFillUI$$ExternalSyntheticLambda9;->f$1:Lcom/android/server/autofill/ui/PendingUi;
+    iput-object p2, p0, Lcom/android/server/autofill/ui/AutoFillUI$$ExternalSyntheticLambda9;->f$1:Lcom/android/server/autofill/ui/AutoFillUI$AutoFillUiCallback;
 
-    iput-object p3, p0, Lcom/android/server/autofill/ui/AutoFillUI$$ExternalSyntheticLambda9;->f$2:Lcom/android/server/autofill/ui/AutoFillUI$AutoFillUiCallback;
-
-    iput-boolean p4, p0, Lcom/android/server/autofill/ui/AutoFillUI$$ExternalSyntheticLambda9;->f$3:Z
+    iput-object p3, p0, Lcom/android/server/autofill/ui/AutoFillUI$$ExternalSyntheticLambda9;->f$2:Ljava/lang/CharSequence;
 
     return-void
 .end method
@@ -35,17 +32,15 @@
 
 # virtual methods
 .method public final run()V
-    .locals 4
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/autofill/ui/AutoFillUI$$ExternalSyntheticLambda9;->f$0:Lcom/android/server/autofill/ui/AutoFillUI;
 
-    iget-object v1, p0, Lcom/android/server/autofill/ui/AutoFillUI$$ExternalSyntheticLambda9;->f$1:Lcom/android/server/autofill/ui/PendingUi;
+    iget-object v1, p0, Lcom/android/server/autofill/ui/AutoFillUI$$ExternalSyntheticLambda9;->f$1:Lcom/android/server/autofill/ui/AutoFillUI$AutoFillUiCallback;
 
-    iget-object v2, p0, Lcom/android/server/autofill/ui/AutoFillUI$$ExternalSyntheticLambda9;->f$2:Lcom/android/server/autofill/ui/AutoFillUI$AutoFillUiCallback;
+    iget-object p0, p0, Lcom/android/server/autofill/ui/AutoFillUI$$ExternalSyntheticLambda9;->f$2:Ljava/lang/CharSequence;
 
-    iget-boolean v3, p0, Lcom/android/server/autofill/ui/AutoFillUI$$ExternalSyntheticLambda9;->f$3:Z
-
-    invoke-virtual {v0, v1, v2, v3}, Lcom/android/server/autofill/ui/AutoFillUI;->lambda$destroyAll$9$AutoFillUI(Lcom/android/server/autofill/ui/PendingUi;Lcom/android/server/autofill/ui/AutoFillUI$AutoFillUiCallback;Z)V
+    invoke-static {v0, v1, p0}, Lcom/android/server/autofill/ui/AutoFillUI;->$r8$lambda$I-n54hnXUIh6ahPrM5XBEnwI2FI(Lcom/android/server/autofill/ui/AutoFillUI;Lcom/android/server/autofill/ui/AutoFillUI$AutoFillUiCallback;Ljava/lang/CharSequence;)V
 
     return-void
 .end method

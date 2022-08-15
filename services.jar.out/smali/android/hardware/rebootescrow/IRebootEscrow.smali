@@ -18,10 +18,6 @@
 # static fields
 .field public static final DESCRIPTOR:Ljava/lang/String;
 
-.field public static final HASH:Ljava/lang/String; = "ba450432e0dab8ee7bbc30013819ea8aef12054b"
-
-.field public static final VERSION:I = 0x1
-
 
 # direct methods
 .method static constructor <clinit>()V

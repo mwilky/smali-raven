@@ -1,31 +1,22 @@
 .class public final synthetic Lcom/android/server/wm/RecentsAnimation$$ExternalSyntheticLambda3;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Predicate;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/wm/RecentsAnimation$$ExternalSyntheticLambda3;
+# instance fields
+.field public final synthetic f$0:Lcom/android/server/wm/Task;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/wm/RecentsAnimation$$ExternalSyntheticLambda3;
-
-    invoke-direct {v0}, Lcom/android/server/wm/RecentsAnimation$$ExternalSyntheticLambda3;-><init>()V
-
-    sput-object v0, Lcom/android/server/wm/RecentsAnimation$$ExternalSyntheticLambda3;->INSTANCE:Lcom/android/server/wm/RecentsAnimation$$ExternalSyntheticLambda3;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Lcom/android/server/wm/Task;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/wm/RecentsAnimation$$ExternalSyntheticLambda3;->f$0:Lcom/android/server/wm/Task;
 
     return-void
 .end method
@@ -35,11 +26,13 @@
 .method public final test(Ljava/lang/Object;)Z
     .locals 0
 
-    check-cast p1, Lcom/android/server/wm/ActivityRecord;
+    iget-object p0, p0, Lcom/android/server/wm/RecentsAnimation$$ExternalSyntheticLambda3;->f$0:Lcom/android/server/wm/Task;
 
-    invoke-virtual {p1}, Lcom/android/server/wm/ActivityRecord;->occludesParent()Z
+    check-cast p1, Lcom/android/server/wm/Task;
 
-    move-result p1
+    invoke-static {p0, p1}, Lcom/android/server/wm/RecentsAnimation;->$r8$lambda$tMveIxizoSUB7ffzyA2hxelJDY8(Lcom/android/server/wm/Task;Lcom/android/server/wm/Task;)Z
 
-    return p1
+    move-result p0
+
+    return p0
 .end method

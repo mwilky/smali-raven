@@ -1,25 +1,14 @@
-.class Lcom/android/server/notification/SysUiStatsEvent$Builder;
+.class public Lcom/android/server/notification/SysUiStatsEvent$Builder;
 .super Ljava/lang/Object;
 .source "SysUiStatsEvent.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/android/server/notification/SysUiStatsEvent;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
-    name = "Builder"
-.end annotation
-
-
 # instance fields
-.field private final mBuilder:Landroid/util/StatsEvent$Builder;
+.field public final mBuilder:Landroid/util/StatsEvent$Builder;
 
 
 # direct methods
-.method protected constructor <init>(Landroid/util/StatsEvent$Builder;)V
+.method public constructor <init>(Landroid/util/StatsEvent$Builder;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,15 +31,15 @@
 .end method
 
 .method public build()Landroid/util/StatsEvent;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/notification/SysUiStatsEvent$Builder;->mBuilder:Landroid/util/StatsEvent$Builder;
+    iget-object p0, p0, Lcom/android/server/notification/SysUiStatsEvent$Builder;->mBuilder:Landroid/util/StatsEvent$Builder;
 
-    invoke-virtual {v0}, Landroid/util/StatsEvent$Builder;->build()Landroid/util/StatsEvent;
+    invoke-virtual {p0}, Landroid/util/StatsEvent$Builder;->build()Landroid/util/StatsEvent;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public setAtomId(I)Lcom/android/server/notification/SysUiStatsEvent$Builder;

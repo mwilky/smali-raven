@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/utils/quota/QuotaTracker$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -35,7 +36,7 @@
 
 # virtual methods
 .method public final run()V
-    .locals 4
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/utils/quota/QuotaTracker$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/utils/quota/QuotaTracker;
 
@@ -43,9 +44,9 @@
 
     iget-object v2, p0, Lcom/android/server/utils/quota/QuotaTracker$$ExternalSyntheticLambda2;->f$2:Ljava/lang/String;
 
-    iget-object v3, p0, Lcom/android/server/utils/quota/QuotaTracker$$ExternalSyntheticLambda2;->f$3:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/utils/quota/QuotaTracker$$ExternalSyntheticLambda2;->f$3:Ljava/lang/String;
 
-    invoke-virtual {v0, v1, v2, v3}, Lcom/android/server/utils/quota/QuotaTracker;->lambda$postQuotaStatusChanged$3$QuotaTracker(ILjava/lang/String;Ljava/lang/String;)V
+    invoke-static {v0, v1, v2, p0}, Lcom/android/server/utils/quota/QuotaTracker;->$r8$lambda$sJ-uoK5pVTrmHxd1mOGUoe75hsU(Lcom/android/server/utils/quota/QuotaTracker;ILjava/lang/String;Ljava/lang/String;)V
 
     return-void
 .end method

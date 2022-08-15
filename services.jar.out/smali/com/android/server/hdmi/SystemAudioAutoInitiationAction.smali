@@ -1,104 +1,107 @@
-.class final Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;
+.class public final Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;
 .super Lcom/android/server/hdmi/HdmiCecFeatureAction;
 .source "SystemAudioAutoInitiationAction.java"
 
 
 # static fields
-.field static final RETRIES_ON_TIMEOUT:I = 0x1
-
-.field private static final STATE_WAITING_FOR_SYSTEM_AUDIO_MODE_STATUS:I = 0x1
+.field public static final RETRIES_ON_TIMEOUT:I = 0x1
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+.end field
 
 
 # instance fields
-.field private final mAvrAddress:I
+.field public final mAvrAddress:I
 
-.field private mRetriesOnTimeOut:I
+.field public mRetriesOnTimeOut:I
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/hdmi/HdmiCecLocalDevice;I)V
-    .locals 1
+.method public static bridge synthetic -$$Nest$mhandleSystemAudioModeStatusTimeout(Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;)V
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;->handleSystemAudioModeStatusTimeout()V
+
+    return-void
+.end method
+
+.method public constructor <init>(Lcom/android/server/hdmi/HdmiCecLocalDevice;I)V
+    .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/hdmi/HdmiCecFeatureAction;-><init>(Lcom/android/server/hdmi/HdmiCecLocalDevice;)V
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    iput v0, p0, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;->mRetriesOnTimeOut:I
+    iput p1, p0, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;->mRetriesOnTimeOut:I
 
     iput p2, p0, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;->mAvrAddress:I
 
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;)V
-    .locals 0
 
-    invoke-direct {p0}, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;->handleSystemAudioModeStatusTimeout()V
-
-    return-void
-.end method
-
-.method private canChangeSystemAudio()Z
+# virtual methods
+.method public final canChangeSystemAudio()Z
     .locals 2
 
-    invoke-virtual {p0}, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;->tv()Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;
+    invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecFeatureAction;->tv()Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;
 
     move-result-object v0
 
     const-class v1, Lcom/android/server/hdmi/SystemAudioActionFromTv;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->hasAction(Ljava/lang/Class;)Z
+    invoke-virtual {v0, v1}, Lcom/android/server/hdmi/HdmiCecLocalDevice;->hasAction(Ljava/lang/Class;)Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    invoke-virtual {p0}, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;->tv()Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;
+    invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecFeatureAction;->tv()Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;
 
-    move-result-object v0
+    move-result-object p0
 
-    const-class v1, Lcom/android/server/hdmi/SystemAudioActionFromAvr;
+    const-class v0, Lcom/android/server/hdmi/SystemAudioActionFromAvr;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->hasAction(Ljava/lang/Class;)Z
+    invoke-virtual {p0, v0}, Lcom/android/server/hdmi/HdmiCecLocalDevice;->hasAction(Ljava/lang/Class;)Z
 
-    move-result v0
+    move-result p0
 
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
-.method private handleSystemAudioModeStatusMessage(Z)V
-    .locals 5
+.method public final handleSystemAudioModeStatusMessage(Z)V
+    .locals 4
 
-    invoke-direct {p0}, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;->canChangeSystemAudio()Z
+    invoke-virtual {p0}, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;->canChangeSystemAudio()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    new-array v0, v0, [Ljava/lang/Object;
+    new-array p1, p1, [Ljava/lang/Object;
 
-    const-string v1, "Cannot change system audio mode in auto initiation action."
+    const-string v0, "Cannot change system audio mode in auto initiation action."
 
-    invoke-static {v1, v0}, Lcom/android/server/hdmi/HdmiLogger;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v0, p1}, Lcom/android/server/hdmi/HdmiLogger;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
-    invoke-virtual {p0}, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;->finish()V
+    invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecFeatureAction;->finish()V
 
     return-void
 
     :cond_0
-    invoke-virtual {p0}, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;->tv()Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;
+    invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecFeatureAction;->tv()Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;
 
     move-result-object v0
 
@@ -108,39 +111,39 @@
 
     if-eq p1, v0, :cond_1
 
-    new-instance v1, Lcom/android/server/hdmi/SystemAudioActionFromTv;
+    new-instance p1, Lcom/android/server/hdmi/SystemAudioActionFromTv;
 
-    invoke-virtual {p0}, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;->tv()Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;
+    invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecFeatureAction;->tv()Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;
 
-    move-result-object v2
+    move-result-object v1
 
-    iget v3, p0, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;->mAvrAddress:I
+    iget v2, p0, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;->mAvrAddress:I
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    invoke-direct {v1, v2, v3, v0, v4}, Lcom/android/server/hdmi/SystemAudioActionFromTv;-><init>(Lcom/android/server/hdmi/HdmiCecLocalDevice;IZLandroid/hardware/hdmi/IHdmiControlCallback;)V
+    invoke-direct {p1, v1, v2, v0, v3}, Lcom/android/server/hdmi/SystemAudioActionFromTv;-><init>(Lcom/android/server/hdmi/HdmiCecLocalDevice;IZLandroid/hardware/hdmi/IHdmiControlCallback;)V
 
-    invoke-virtual {p0, v1}, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;->addAndStartAction(Lcom/android/server/hdmi/HdmiCecFeatureAction;)V
+    invoke-virtual {p0, p1}, Lcom/android/server/hdmi/HdmiCecFeatureAction;->addAndStartAction(Lcom/android/server/hdmi/HdmiCecFeatureAction;)V
 
     goto :goto_0
 
     :cond_1
-    invoke-virtual {p0}, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;->tv()Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;
+    invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecFeatureAction;->tv()Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v1, v0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->setSystemAudioMode(Z)V
+    invoke-virtual {p1, v0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->setSystemAudioMode(Z)V
 
     :goto_0
-    invoke-virtual {p0}, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;->finish()V
+    invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecFeatureAction;->finish()V
 
     return-void
 .end method
 
-.method private handleSystemAudioModeStatusTimeout()V
+.method public final handleSystemAudioModeStatusTimeout()V
     .locals 5
 
-    invoke-direct {p0}, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;->canChangeSystemAudio()Z
+    invoke-virtual {p0}, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;->canChangeSystemAudio()Z
 
     move-result v0
 
@@ -154,20 +157,20 @@
 
     invoke-static {v1, v0}, Lcom/android/server/hdmi/HdmiLogger;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
-    invoke-virtual {p0}, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;->finish()V
+    invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecFeatureAction;->finish()V
 
     return-void
 
     :cond_0
     new-instance v0, Lcom/android/server/hdmi/SystemAudioActionFromTv;
 
-    invoke-virtual {p0}, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;->tv()Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;
+    invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecFeatureAction;->tv()Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;
 
     move-result-object v1
 
     iget v2, p0, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;->mAvrAddress:I
 
-    invoke-virtual {p0}, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;->tv()Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;
+    invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecFeatureAction;->tv()Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;
 
     move-result-object v3
 
@@ -179,94 +182,63 @@
 
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/hdmi/SystemAudioActionFromTv;-><init>(Lcom/android/server/hdmi/HdmiCecLocalDevice;IZLandroid/hardware/hdmi/IHdmiControlCallback;)V
 
-    invoke-virtual {p0, v0}, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;->addAndStartAction(Lcom/android/server/hdmi/HdmiCecFeatureAction;)V
+    invoke-virtual {p0, v0}, Lcom/android/server/hdmi/HdmiCecFeatureAction;->addAndStartAction(Lcom/android/server/hdmi/HdmiCecFeatureAction;)V
 
-    invoke-virtual {p0}, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;->finish()V
-
-    return-void
-.end method
-
-.method private sendGiveSystemAudioModeStatus()V
-    .locals 2
-
-    invoke-virtual {p0}, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;->getSourceAddress()I
-
-    move-result v0
-
-    iget v1, p0, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;->mAvrAddress:I
-
-    invoke-static {v0, v1}, Lcom/android/server/hdmi/HdmiCecMessageBuilder;->buildGiveSystemAudioModeStatus(II)Lcom/android/server/hdmi/HdmiCecMessage;
-
-    move-result-object v0
-
-    new-instance v1, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction$1;
-
-    invoke-direct {v1, p0}, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction$1;-><init>(Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;)V
-
-    invoke-virtual {p0, v0, v1}, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;->sendCommand(Lcom/android/server/hdmi/HdmiCecMessage;Lcom/android/server/hdmi/HdmiControlService$SendMessageCallback;)V
+    invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecFeatureAction;->finish()V
 
     return-void
 .end method
 
-
-# virtual methods
-.method handleTimerEvent(I)V
+.method public handleTimerEvent(I)V
     .locals 2
 
-    iget v0, p0, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;->mState:I
+    iget v0, p0, Lcom/android/server/hdmi/HdmiCecFeatureAction;->mState:I
 
     if-eq v0, p1, :cond_0
 
     return-void
 
     :cond_0
-    iget v0, p0, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;->mState:I
+    const/4 p1, 0x1
 
-    packed-switch v0, :pswitch_data_0
+    if-eq v0, p1, :cond_1
 
     goto :goto_0
 
-    :pswitch_0
-    iget v0, p0, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;->mRetriesOnTimeOut:I
+    :cond_1
+    iget v1, p0, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;->mRetriesOnTimeOut:I
 
-    if-lez v0, :cond_1
+    if-lez v1, :cond_2
 
-    add-int/lit8 v0, v0, -0x1
+    sub-int/2addr v1, p1
 
-    iput v0, p0, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;->mRetriesOnTimeOut:I
+    iput v1, p0, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;->mRetriesOnTimeOut:I
 
-    iget v0, p0, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;->mState:I
+    const/16 p1, 0x7d0
 
-    const/16 v1, 0x7d0
+    invoke-virtual {p0, v0, p1}, Lcom/android/server/hdmi/HdmiCecFeatureAction;->addTimer(II)V
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;->addTimer(II)V
-
-    invoke-direct {p0}, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;->sendGiveSystemAudioModeStatus()V
+    invoke-virtual {p0}, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;->sendGiveSystemAudioModeStatus()V
 
     return-void
 
-    :cond_1
-    invoke-direct {p0}, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;->handleSystemAudioModeStatusTimeout()V
+    :cond_2
+    invoke-virtual {p0}, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;->handleSystemAudioModeStatusTimeout()V
 
     :goto_0
     return-void
-
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_0
-    .end packed-switch
 .end method
 
-.method processCommand(Lcom/android/server/hdmi/HdmiCecMessage;)Z
+.method public processCommand(Lcom/android/server/hdmi/HdmiCecMessage;)Z
     .locals 4
 
-    iget v0, p0, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;->mState:I
+    iget v0, p0, Lcom/android/server/hdmi/HdmiCecFeatureAction;->mState:I
 
     const/4 v1, 0x0
 
     const/4 v2, 0x1
 
-    if-ne v0, v2, :cond_2
+    if-ne v0, v2, :cond_1
 
     iget v0, p0, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;->mAvrAddress:I
 
@@ -289,34 +261,51 @@
 
     invoke-static {p1}, Lcom/android/server/hdmi/HdmiUtils;->parseCommandParamSystemAudioStatus(Lcom/android/server/hdmi/HdmiCecMessage;)Z
 
-    move-result v0
+    move-result p1
 
-    invoke-direct {p0, v0}, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;->handleSystemAudioModeStatusMessage(Z)V
+    invoke-virtual {p0, p1}, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;->handleSystemAudioModeStatusMessage(Z)V
 
     return v2
 
     :cond_1
-    return v1
-
-    :cond_2
     :goto_0
     return v1
 .end method
 
-.method start()Z
-    .locals 3
+.method public final sendGiveSystemAudioModeStatus()V
+    .locals 2
+
+    invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecFeatureAction;->getSourceAddress()I
+
+    move-result v0
+
+    iget v1, p0, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;->mAvrAddress:I
+
+    invoke-static {v0, v1}, Lcom/android/server/hdmi/HdmiCecMessageBuilder;->buildGiveSystemAudioModeStatus(II)Lcom/android/server/hdmi/HdmiCecMessage;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction$1;
+
+    invoke-direct {v1, p0}, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction$1;-><init>(Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;)V
+
+    invoke-virtual {p0, v0, v1}, Lcom/android/server/hdmi/HdmiCecFeatureAction;->sendCommand(Lcom/android/server/hdmi/HdmiCecMessage;Lcom/android/server/hdmi/HdmiControlService$SendMessageCallback;)V
+
+    return-void
+.end method
+
+.method public start()Z
+    .locals 2
 
     const/4 v0, 0x1
 
-    iput v0, p0, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;->mState:I
+    iput v0, p0, Lcom/android/server/hdmi/HdmiCecFeatureAction;->mState:I
 
-    iget v1, p0, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;->mState:I
+    const/16 v1, 0x7d0
 
-    const/16 v2, 0x7d0
+    invoke-virtual {p0, v0, v1}, Lcom/android/server/hdmi/HdmiCecFeatureAction;->addTimer(II)V
 
-    invoke-virtual {p0, v1, v2}, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;->addTimer(II)V
-
-    invoke-direct {p0}, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;->sendGiveSystemAudioModeStatus()V
+    invoke-virtual {p0}, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;->sendGiveSystemAudioModeStatus()V
 
     return v0
 .end method

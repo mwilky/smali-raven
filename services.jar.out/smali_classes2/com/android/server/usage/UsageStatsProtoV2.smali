@@ -1,16 +1,14 @@
-.class final Lcom/android/server/usage/UsageStatsProtoV2;
+.class public final Lcom/android/server/usage/UsageStatsProtoV2;
 .super Ljava/lang/Object;
 .source "UsageStatsProtoV2.java"
 
 
 # static fields
-.field private static final ONE_HOUR_MS:J
-
-.field private static final TAG:Ljava/lang/String; = "UsageStatsProtoV2"
+.field public static final ONE_HOUR_MS:J
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 3
 
     sget-object v0, Ljava/util/concurrent/TimeUnit;->HOURS:Ljava/util/concurrent/TimeUnit;
@@ -26,40 +24,27 @@
     return-void
 .end method
 
-.method private constructor <init>()V
+.method public static getOffsetTimestamp(JJ)J
     .locals 0
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    sub-long/2addr p0, p2
 
-    return-void
-.end method
+    const-wide/16 p2, 0x0
 
-.method static getOffsetTimestamp(JJ)J
-    .locals 4
+    cmp-long p2, p0, p2
 
-    sub-long v0, p0, p2
+    if-nez p2, :cond_0
 
-    const-wide/16 v2, 0x0
+    const-wide/16 p2, 0x1
 
-    cmp-long v2, v0, v2
-
-    if-nez v2, :cond_0
-
-    const-wide/16 v2, 0x1
-
-    add-long/2addr v2, v0
-
-    goto :goto_0
+    add-long/2addr p0, p2
 
     :cond_0
-    move-wide v2, v0
-
-    :goto_0
-    return-wide v2
+    return-wide p0
 .end method
 
-.method private static loadChooserCounts(Landroid/util/proto/ProtoInputStream;Landroid/app/usage/UsageStats;)V
-    .locals 6
+.method public static loadChooserCounts(Landroid/util/proto/ProtoInputStream;Landroid/app/usage/UsageStats;)V
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -72,42 +57,40 @@
 
     move-result v2
 
+    const/4 v3, 0x1
+
     if-eqz v2, :cond_0
 
     invoke-virtual {p0, v0, v1}, Landroid/util/proto/ProtoInputStream;->readInt(J)I
 
     move-result v2
 
-    add-int/lit8 v2, v2, -0x1
+    sub-int/2addr v2, v3
 
-    iget-object v3, p1, Landroid/app/usage/UsageStats;->mChooserCountsObfuscated:Landroid/util/SparseArray;
+    iget-object v4, p1, Landroid/app/usage/UsageStats;->mChooserCountsObfuscated:Landroid/util/SparseArray;
 
-    invoke-virtual {v3, v2}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    invoke-virtual {v4, v2}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v4
 
-    check-cast v3, Landroid/util/SparseIntArray;
+    check-cast v4, Landroid/util/SparseIntArray;
 
-    if-nez v3, :cond_1
+    if-nez v4, :cond_1
 
     new-instance v4, Landroid/util/SparseIntArray;
 
     invoke-direct {v4}, Landroid/util/SparseIntArray;-><init>()V
 
-    move-object v3, v4
+    iget-object v5, p1, Landroid/app/usage/UsageStats;->mChooserCountsObfuscated:Landroid/util/SparseArray;
 
-    iget-object v4, p1, Landroid/app/usage/UsageStats;->mChooserCountsObfuscated:Landroid/util/SparseArray;
-
-    invoke-virtual {v4, v2, v3}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    invoke-virtual {v5, v2, v4}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     goto :goto_0
 
     :cond_0
-    new-instance v2, Landroid/util/SparseIntArray;
+    new-instance v4, Landroid/util/SparseIntArray;
 
-    invoke-direct {v2}, Landroid/util/SparseIntArray;-><init>()V
-
-    move-object v3, v2
+    invoke-direct {v4}, Landroid/util/SparseIntArray;-><init>()V
 
     :cond_1
     :goto_0
@@ -115,194 +98,195 @@
 
     move-result v2
 
-    packed-switch v2, :pswitch_data_0
+    const/4 v5, -0x1
 
-    :pswitch_0
-    goto :goto_1
+    if-eq v2, v5, :cond_4
 
-    :pswitch_1
-    const-wide v4, 0x20b00000002L
+    if-eq v2, v3, :cond_3
 
-    invoke-virtual {p0, v4, v5}, Landroid/util/proto/ProtoInputStream;->start(J)J
+    const/4 v5, 0x2
 
-    move-result-wide v4
+    if-eq v2, v5, :cond_2
 
-    invoke-static {p0, v3}, Lcom/android/server/usage/UsageStatsProtoV2;->loadCountsForAction(Landroid/util/proto/ProtoInputStream;Landroid/util/SparseIntArray;)V
+    goto :goto_0
 
-    invoke-virtual {p0, v4, v5}, Landroid/util/proto/ProtoInputStream;->end(J)V
+    :cond_2
+    const-wide v5, 0x20b00000002L
 
-    goto :goto_1
+    invoke-virtual {p0, v5, v6}, Landroid/util/proto/ProtoInputStream;->start(J)J
 
-    :pswitch_2
+    move-result-wide v5
+
+    invoke-static {p0, v4}, Lcom/android/server/usage/UsageStatsProtoV2;->loadCountsForAction(Landroid/util/proto/ProtoInputStream;Landroid/util/SparseIntArray;)V
+
+    invoke-virtual {p0, v5, v6}, Landroid/util/proto/ProtoInputStream;->end(J)V
+
+    goto :goto_0
+
+    :cond_3
     invoke-virtual {p0, v0, v1}, Landroid/util/proto/ProtoInputStream;->readInt(J)I
 
     move-result v2
 
-    add-int/lit8 v2, v2, -0x1
+    sub-int/2addr v2, v3
 
-    iget-object v4, p1, Landroid/app/usage/UsageStats;->mChooserCountsObfuscated:Landroid/util/SparseArray;
+    iget-object v5, p1, Landroid/app/usage/UsageStats;->mChooserCountsObfuscated:Landroid/util/SparseArray;
 
-    invoke-virtual {v4, v2, v3}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    invoke-virtual {v5, v2, v4}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    goto :goto_1
-
-    :pswitch_3
-    return-void
-
-    :goto_1
     goto :goto_0
 
-    nop
-
-    :pswitch_data_0
-    .packed-switch -0x1
-        :pswitch_3
-        :pswitch_0
-        :pswitch_2
-        :pswitch_1
-    .end packed-switch
+    :cond_4
+    return-void
 .end method
 
-.method private static loadConfigStats(Landroid/util/proto/ProtoInputStream;Lcom/android/server/usage/IntervalStats;)V
-    .locals 9
+.method public static loadConfigStats(Landroid/util/proto/ProtoInputStream;Lcom/android/server/usage/IntervalStats;)V
+    .locals 10
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    const/4 v0, 0x0
+    new-instance v0, Landroid/content/res/Configuration;
 
-    new-instance v1, Landroid/content/res/Configuration;
+    invoke-direct {v0}, Landroid/content/res/Configuration;-><init>()V
 
-    invoke-direct {v1}, Landroid/content/res/Configuration;-><init>()V
+    new-instance v1, Landroid/app/usage/ConfigurationStats;
 
-    new-instance v2, Landroid/app/usage/ConfigurationStats;
+    invoke-direct {v1}, Landroid/app/usage/ConfigurationStats;-><init>()V
 
-    invoke-direct {v2}, Landroid/app/usage/ConfigurationStats;-><init>()V
+    const-wide v2, 0x10b00000001L
 
-    const-wide v3, 0x10b00000001L
+    invoke-virtual {p0, v2, v3}, Landroid/util/proto/ProtoInputStream;->nextField(J)Z
 
-    invoke-virtual {p0, v3, v4}, Landroid/util/proto/ProtoInputStream;->nextField(J)Z
+    move-result v4
 
-    move-result v5
+    const/4 v5, 0x0
 
-    if-eqz v5, :cond_0
+    if-eqz v4, :cond_0
 
-    invoke-virtual {v1, p0, v3, v4}, Landroid/content/res/Configuration;->readFromProto(Landroid/util/proto/ProtoInputStream;J)V
+    invoke-virtual {v0, p0, v2, v3}, Landroid/content/res/Configuration;->readFromProto(Landroid/util/proto/ProtoInputStream;J)V
 
-    invoke-virtual {p1, v1}, Lcom/android/server/usage/IntervalStats;->getOrCreateConfigurationStats(Landroid/content/res/Configuration;)Landroid/app/usage/ConfigurationStats;
+    invoke-virtual {p1, v0}, Lcom/android/server/usage/IntervalStats;->getOrCreateConfigurationStats(Landroid/content/res/Configuration;)Landroid/app/usage/ConfigurationStats;
 
-    move-result-object v2
+    move-result-object v1
 
     :cond_0
     :goto_0
     invoke-virtual {p0}, Landroid/util/proto/ProtoInputStream;->nextField()I
 
-    move-result v5
+    move-result v4
 
-    packed-switch v5, :pswitch_data_0
+    const/4 v6, -0x1
 
-    :pswitch_0
-    goto :goto_1
+    if-eq v4, v6, :cond_6
 
-    :pswitch_1
-    const-wide v5, 0x10800000005L
+    const/4 v6, 0x1
 
-    invoke-virtual {p0, v5, v6}, Landroid/util/proto/ProtoInputStream;->readBoolean(J)Z
+    if-eq v4, v6, :cond_5
 
-    move-result v0
+    const/4 v6, 0x2
 
-    goto :goto_1
+    if-eq v4, v6, :cond_4
 
-    :pswitch_2
-    const-wide v5, 0x10500000004L
+    const/4 v6, 0x3
 
-    invoke-virtual {p0, v5, v6}, Landroid/util/proto/ProtoInputStream;->readInt(J)I
+    if-eq v4, v6, :cond_3
 
-    move-result v5
+    const/4 v6, 0x4
 
-    iput v5, v2, Landroid/app/usage/ConfigurationStats;->mActivationCount:I
+    if-eq v4, v6, :cond_2
 
-    goto :goto_1
+    const/4 v6, 0x5
 
-    :pswitch_3
-    const-wide v5, 0x10300000003L
+    if-eq v4, v6, :cond_1
 
-    invoke-virtual {p0, v5, v6}, Landroid/util/proto/ProtoInputStream;->readLong(J)J
-
-    move-result-wide v5
-
-    iput-wide v5, v2, Landroid/app/usage/ConfigurationStats;->mTotalTimeActive:J
-
-    goto :goto_1
-
-    :pswitch_4
-    iget-wide v5, p1, Lcom/android/server/usage/IntervalStats;->beginTime:J
-
-    const-wide v7, 0x10300000002L
-
-    invoke-virtual {p0, v7, v8}, Landroid/util/proto/ProtoInputStream;->readLong(J)J
-
-    move-result-wide v7
-
-    add-long/2addr v5, v7
-
-    iput-wide v5, v2, Landroid/app/usage/ConfigurationStats;->mLastTimeActive:J
-
-    goto :goto_1
-
-    :pswitch_5
-    invoke-virtual {v1, p0, v3, v4}, Landroid/content/res/Configuration;->readFromProto(Landroid/util/proto/ProtoInputStream;J)V
-
-    invoke-virtual {p1, v1}, Lcom/android/server/usage/IntervalStats;->getOrCreateConfigurationStats(Landroid/content/res/Configuration;)Landroid/app/usage/ConfigurationStats;
-
-    move-result-object v5
-
-    iget-wide v6, v2, Landroid/app/usage/ConfigurationStats;->mLastTimeActive:J
-
-    iput-wide v6, v5, Landroid/app/usage/ConfigurationStats;->mLastTimeActive:J
-
-    iget-wide v6, v2, Landroid/app/usage/ConfigurationStats;->mTotalTimeActive:J
-
-    iput-wide v6, v5, Landroid/app/usage/ConfigurationStats;->mTotalTimeActive:J
-
-    iget v6, v2, Landroid/app/usage/ConfigurationStats;->mActivationCount:I
-
-    iput v6, v5, Landroid/app/usage/ConfigurationStats;->mActivationCount:I
-
-    move-object v2, v5
-
-    goto :goto_1
-
-    :pswitch_6
-    if-eqz v0, :cond_1
-
-    iget-object v3, v2, Landroid/app/usage/ConfigurationStats;->mConfiguration:Landroid/content/res/Configuration;
-
-    iput-object v3, p1, Lcom/android/server/usage/IntervalStats;->activeConfiguration:Landroid/content/res/Configuration;
-
-    :cond_1
-    return-void
-
-    :goto_1
     goto :goto_0
 
-    nop
+    :cond_1
+    const-wide v4, 0x10800000005L
 
-    :pswitch_data_0
-    .packed-switch -0x1
-        :pswitch_6
-        :pswitch_0
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-    .end packed-switch
+    invoke-virtual {p0, v4, v5}, Landroid/util/proto/ProtoInputStream;->readBoolean(J)Z
+
+    move-result v4
+
+    move v5, v4
+
+    goto :goto_0
+
+    :cond_2
+    const-wide v6, 0x10500000004L
+
+    invoke-virtual {p0, v6, v7}, Landroid/util/proto/ProtoInputStream;->readInt(J)I
+
+    move-result v4
+
+    iput v4, v1, Landroid/app/usage/ConfigurationStats;->mActivationCount:I
+
+    goto :goto_0
+
+    :cond_3
+    const-wide v6, 0x10300000003L
+
+    invoke-virtual {p0, v6, v7}, Landroid/util/proto/ProtoInputStream;->readLong(J)J
+
+    move-result-wide v6
+
+    iput-wide v6, v1, Landroid/app/usage/ConfigurationStats;->mTotalTimeActive:J
+
+    goto :goto_0
+
+    :cond_4
+    iget-wide v6, p1, Lcom/android/server/usage/IntervalStats;->beginTime:J
+
+    const-wide v8, 0x10300000002L
+
+    invoke-virtual {p0, v8, v9}, Landroid/util/proto/ProtoInputStream;->readLong(J)J
+
+    move-result-wide v8
+
+    add-long/2addr v6, v8
+
+    iput-wide v6, v1, Landroid/app/usage/ConfigurationStats;->mLastTimeActive:J
+
+    goto :goto_0
+
+    :cond_5
+    invoke-virtual {v0, p0, v2, v3}, Landroid/content/res/Configuration;->readFromProto(Landroid/util/proto/ProtoInputStream;J)V
+
+    invoke-virtual {p1, v0}, Lcom/android/server/usage/IntervalStats;->getOrCreateConfigurationStats(Landroid/content/res/Configuration;)Landroid/app/usage/ConfigurationStats;
+
+    move-result-object v4
+
+    iget-wide v6, v1, Landroid/app/usage/ConfigurationStats;->mLastTimeActive:J
+
+    iput-wide v6, v4, Landroid/app/usage/ConfigurationStats;->mLastTimeActive:J
+
+    iget-wide v6, v1, Landroid/app/usage/ConfigurationStats;->mTotalTimeActive:J
+
+    iput-wide v6, v4, Landroid/app/usage/ConfigurationStats;->mTotalTimeActive:J
+
+    iget v1, v1, Landroid/app/usage/ConfigurationStats;->mActivationCount:I
+
+    iput v1, v4, Landroid/app/usage/ConfigurationStats;->mActivationCount:I
+
+    move-object v1, v4
+
+    goto :goto_0
+
+    :cond_6
+    if-eqz v5, :cond_7
+
+    iget-object p0, v1, Landroid/app/usage/ConfigurationStats;->mConfiguration:Landroid/content/res/Configuration;
+
+    iput-object p0, p1, Lcom/android/server/usage/IntervalStats;->activeConfiguration:Landroid/content/res/Configuration;
+
+    :cond_7
+    return-void
 .end method
 
-.method private static loadCountAndTime(Landroid/util/proto/ProtoInputStream;JLcom/android/server/usage/IntervalStats$EventTracker;)V
+.method public static loadCountAndTime(Landroid/util/proto/ProtoInputStream;JLcom/android/server/usage/IntervalStats$EventTracker;)V
     .locals 4
 
     :try_start_0
@@ -315,12 +299,21 @@
 
     move-result v2
 
-    packed-switch v2, :pswitch_data_0
+    const/4 v3, -0x1
 
-    :pswitch_0
-    goto :goto_1
+    if-eq v2, v3, :cond_2
 
-    :pswitch_1
+    const/4 v3, 0x1
+
+    if-eq v2, v3, :cond_1
+
+    const/4 v3, 0x2
+
+    if-eq v2, v3, :cond_0
+
+    goto :goto_0
+
+    :cond_0
     const-wide v2, 0x10300000002L
 
     invoke-virtual {p0, v2, v3}, Landroid/util/proto/ProtoInputStream;->readLong(J)J
@@ -329,9 +322,9 @@
 
     iput-wide v2, p3, Lcom/android/server/usage/IntervalStats$EventTracker;->duration:J
 
-    goto :goto_1
+    goto :goto_0
 
-    :pswitch_2
+    :cond_1
     const-wide v2, 0x10500000001L
 
     invoke-virtual {p0, v2, v3}, Landroid/util/proto/ProtoInputStream;->readInt(J)I
@@ -340,54 +333,41 @@
 
     iput v2, p3, Lcom/android/server/usage/IntervalStats$EventTracker;->count:I
 
-    goto :goto_1
+    goto :goto_0
 
-    :pswitch_3
+    :cond_2
     invoke-virtual {p0, v0, v1}, Landroid/util/proto/ProtoInputStream;->end(J)V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     return-void
 
-    :goto_1
-    goto :goto_0
-
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance p3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "Unable to read event tracker "
+    const-string v0, "Unable to read event tracker "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1, p2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, p1, p2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    const-string v2, "UsageStatsProtoV2"
+    const-string p2, "UsageStatsProtoV2"
 
-    invoke-static {v2, v1, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {p2, p1, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     return-void
-
-    nop
-
-    :pswitch_data_0
-    .packed-switch -0x1
-        :pswitch_3
-        :pswitch_0
-        :pswitch_2
-        :pswitch_1
-    .end packed-switch
 .end method
 
-.method private static loadCountsForAction(Landroid/util/proto/ProtoInputStream;Landroid/util/SparseIntArray;)V
-    .locals 4
+.method public static loadCountsForAction(Landroid/util/proto/ProtoInputStream;Landroid/util/SparseIntArray;)V
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -398,64 +378,56 @@
 
     const/4 v1, 0x0
 
+    move v2, v0
+
     :goto_0
     invoke-virtual {p0}, Landroid/util/proto/ProtoInputStream;->nextField()I
 
-    move-result v2
+    move-result v3
 
-    packed-switch v2, :pswitch_data_0
+    if-eq v3, v0, :cond_2
 
-    :pswitch_0
-    goto :goto_1
+    const/4 v4, 0x1
 
-    :pswitch_1
-    const-wide v2, 0x10500000002L
+    if-eq v3, v4, :cond_1
 
-    invoke-virtual {p0, v2, v3}, Landroid/util/proto/ProtoInputStream;->readInt(J)I
+    const/4 v4, 0x2
+
+    if-eq v3, v4, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    const-wide v3, 0x10500000002L
+
+    invoke-virtual {p0, v3, v4}, Landroid/util/proto/ProtoInputStream;->readInt(J)I
 
     move-result v1
 
-    goto :goto_1
+    goto :goto_0
 
-    :pswitch_2
+    :cond_1
     const-wide v2, 0x10500000001L
 
     invoke-virtual {p0, v2, v3}, Landroid/util/proto/ProtoInputStream;->readInt(J)I
 
     move-result v2
 
-    add-int/lit8 v2, v2, -0x1
+    sub-int/2addr v2, v4
 
-    move v0, v2
-
-    goto :goto_1
-
-    :pswitch_3
-    const/4 v2, -0x1
-
-    if-eq v0, v2, :cond_0
-
-    invoke-virtual {p1, v0, v1}, Landroid/util/SparseIntArray;->put(II)V
-
-    :cond_0
-    return-void
-
-    :goto_1
     goto :goto_0
 
-    nop
+    :cond_2
+    if-eq v2, v0, :cond_3
 
-    :pswitch_data_0
-    .packed-switch -0x1
-        :pswitch_3
-        :pswitch_0
-        :pswitch_2
-        :pswitch_1
-    .end packed-switch
+    invoke-virtual {p1, v2, v1}, Landroid/util/SparseIntArray;->put(II)V
+
+    :cond_3
+    return-void
 .end method
 
-.method private static loadPackagesMap(Landroid/util/proto/ProtoInputStream;Landroid/util/SparseArray;)V
-    .locals 4
+.method public static loadPackagesMap(Landroid/util/proto/ProtoInputStream;Landroid/util/SparseArray;)V
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -473,69 +445,63 @@
         }
     .end annotation
 
-    const/4 v0, -0x1
+    new-instance v0, Ljava/util/ArrayList;
 
-    new-instance v1, Ljava/util/ArrayList;
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
+    const/4 v1, -0x1
+
+    move v2, v1
 
     :goto_0
     invoke-virtual {p0}, Landroid/util/proto/ProtoInputStream;->nextField()I
 
-    move-result v2
+    move-result v3
 
-    packed-switch v2, :pswitch_data_0
+    if-eq v3, v1, :cond_2
 
-    :pswitch_0
-    goto :goto_1
+    const/4 v4, 0x1
 
-    :pswitch_1
-    const-wide v2, 0x20900000002L
+    if-eq v3, v4, :cond_1
 
-    invoke-virtual {p0, v2, v3}, Landroid/util/proto/ProtoInputStream;->readString(J)Ljava/lang/String;
+    const/4 v4, 0x2
 
-    move-result-object v2
+    if-eq v3, v4, :cond_0
 
-    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    goto :goto_0
 
-    goto :goto_1
+    :cond_0
+    const-wide v3, 0x20900000002L
 
-    :pswitch_2
+    invoke-virtual {p0, v3, v4}, Landroid/util/proto/ProtoInputStream;->readString(J)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v0, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto :goto_0
+
+    :cond_1
     const-wide v2, 0x10500000001L
 
     invoke-virtual {p0, v2, v3}, Landroid/util/proto/ProtoInputStream;->readInt(J)I
 
     move-result v2
 
-    add-int/lit8 v2, v2, -0x1
+    sub-int/2addr v2, v4
 
-    move v0, v2
-
-    goto :goto_1
-
-    :pswitch_3
-    const/4 v2, -0x1
-
-    if-eq v0, v2, :cond_0
-
-    invoke-virtual {p1, v0, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
-
-    :cond_0
-    return-void
-
-    :goto_1
     goto :goto_0
 
-    :pswitch_data_0
-    .packed-switch -0x1
-        :pswitch_3
-        :pswitch_0
-        :pswitch_2
-        :pswitch_1
-    .end packed-switch
+    :cond_2
+    if-eq v2, v1, :cond_3
+
+    invoke-virtual {p1, v2, v0}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+
+    :cond_3
+    return-void
 .end method
 
-.method private static parseEvent(Landroid/util/proto/ProtoInputStream;J)Landroid/app/usage/UsageEvents$Event;
+.method public static parseEvent(Landroid/util/proto/ProtoInputStream;J)Landroid/app/usage/UsageEvents$Event;
     .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -555,7 +521,7 @@
     packed-switch v1, :pswitch_data_0
 
     :pswitch_0
-    goto/16 :goto_2
+    goto :goto_0
 
     :pswitch_1
     const-wide v1, 0x1050000000dL
@@ -568,7 +534,7 @@
 
     iput v1, v0, Landroid/app/usage/UsageEvents$Event;->mLocusIdToken:I
 
-    goto/16 :goto_2
+    goto :goto_0
 
     :pswitch_2
     const-wide v1, 0x1050000000cL
@@ -581,7 +547,7 @@
 
     iput v1, v0, Landroid/app/usage/UsageEvents$Event;->mTaskRootClassToken:I
 
-    goto/16 :goto_2
+    goto :goto_0
 
     :pswitch_3
     const-wide v1, 0x1050000000bL
@@ -594,7 +560,7 @@
 
     iput v1, v0, Landroid/app/usage/UsageEvents$Event;->mTaskRootPackageToken:I
 
-    goto/16 :goto_2
+    goto :goto_0
 
     :pswitch_4
     const-wide v1, 0x1050000000aL
@@ -605,7 +571,7 @@
 
     iput v1, v0, Landroid/app/usage/UsageEvents$Event;->mInstanceId:I
 
-    goto/16 :goto_2
+    goto :goto_0
 
     :pswitch_5
     const-wide v1, 0x10500000009L
@@ -618,7 +584,7 @@
 
     iput v1, v0, Landroid/app/usage/UsageEvents$Event;->mNotificationChannelIdToken:I
 
-    goto/16 :goto_2
+    goto :goto_0
 
     :pswitch_6
     const-wide v1, 0x10500000008L
@@ -629,7 +595,7 @@
 
     iput v1, v0, Landroid/app/usage/UsageEvents$Event;->mBucketAndReason:I
 
-    goto/16 :goto_2
+    goto :goto_0
 
     :pswitch_7
     const-wide v1, 0x10500000007L
@@ -642,7 +608,7 @@
 
     iput v1, v0, Landroid/app/usage/UsageEvents$Event;->mShortcutIdToken:I
 
-    goto :goto_2
+    goto :goto_0
 
     :pswitch_8
     new-instance v1, Landroid/content/res/Configuration;
@@ -651,13 +617,11 @@
 
     iput-object v1, v0, Landroid/app/usage/UsageEvents$Event;->mConfiguration:Landroid/content/res/Configuration;
 
-    iget-object v1, v0, Landroid/app/usage/UsageEvents$Event;->mConfiguration:Landroid/content/res/Configuration;
-
     const-wide v2, 0x10b00000006L
 
     invoke-virtual {v1, p0, v2, v3}, Landroid/content/res/Configuration;->readFromProto(Landroid/util/proto/ProtoInputStream;J)V
 
-    goto :goto_2
+    goto :goto_0
 
     :pswitch_9
     const-wide v1, 0x10500000005L
@@ -668,7 +632,7 @@
 
     iput v1, v0, Landroid/app/usage/UsageEvents$Event;->mEventType:I
 
-    goto :goto_2
+    goto/16 :goto_0
 
     :pswitch_a
     const-wide v1, 0x10500000004L
@@ -679,7 +643,7 @@
 
     iput v1, v0, Landroid/app/usage/UsageEvents$Event;->mFlags:I
 
-    goto :goto_2
+    goto/16 :goto_0
 
     :pswitch_b
     const-wide v1, 0x10300000003L
@@ -692,7 +656,7 @@
 
     iput-wide v1, v0, Landroid/app/usage/UsageEvents$Event;->mTimeStamp:J
 
-    goto :goto_2
+    goto/16 :goto_0
 
     :pswitch_c
     const-wide v1, 0x10500000002L
@@ -705,7 +669,7 @@
 
     iput v1, v0, Landroid/app/usage/UsageEvents$Event;->mClassToken:I
 
-    goto :goto_2
+    goto/16 :goto_0
 
     :pswitch_d
     const-wide v1, 0x10500000001L
@@ -718,27 +682,19 @@
 
     iput v1, v0, Landroid/app/usage/UsageEvents$Event;->mPackageToken:I
 
-    goto :goto_2
+    goto/16 :goto_0
 
     :pswitch_e
-    iget v1, v0, Landroid/app/usage/UsageEvents$Event;->mPackageToken:I
+    iget p0, v0, Landroid/app/usage/UsageEvents$Event;->mPackageToken:I
 
-    const/4 v2, -0x1
+    const/4 p1, -0x1
 
-    if-ne v1, v2, :cond_0
+    if-ne p0, p1, :cond_0
 
-    const/4 v1, 0x0
-
-    goto :goto_1
+    const/4 v0, 0x0
 
     :cond_0
-    move-object v1, v0
-
-    :goto_1
-    return-object v1
-
-    :goto_2
-    goto/16 :goto_0
+    return-object v0
 
     :pswitch_data_0
     .packed-switch -0x1
@@ -760,7 +716,7 @@
     .end packed-switch
 .end method
 
-.method private static parseGlobalComponentUsage(Landroid/util/proto/ProtoInputStream;)Landroid/util/Pair;
+.method public static parseGlobalComponentUsage(Landroid/util/proto/ProtoInputStream;)Landroid/util/Pair;
     .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -789,55 +745,51 @@
 
     move-result v3
 
-    packed-switch v3, :pswitch_data_0
+    const/4 v4, -0x1
 
-    :pswitch_0
-    goto :goto_1
+    if-eq v3, v4, :cond_2
 
-    :pswitch_1
-    const-wide v3, 0x10300000002L
+    const/4 v4, 0x1
 
-    invoke-virtual {p0, v3, v4}, Landroid/util/proto/ProtoInputStream;->readLong(J)J
+    if-eq v3, v4, :cond_1
+
+    const/4 v4, 0x2
+
+    if-eq v3, v4, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    const-wide v1, 0x10300000002L
+
+    invoke-virtual {p0, v1, v2}, Landroid/util/proto/ProtoInputStream;->readLong(J)J
 
     move-result-wide v1
 
-    goto :goto_1
+    goto :goto_0
 
-    :pswitch_2
+    :cond_1
     const-wide v3, 0x10900000001L
 
     invoke-virtual {p0, v3, v4}, Landroid/util/proto/ProtoInputStream;->readString(J)Ljava/lang/String;
 
     move-result-object v0
 
-    goto :goto_1
+    goto :goto_0
 
-    :pswitch_3
-    new-instance v3, Landroid/util/Pair;
+    :cond_2
+    new-instance p0, Landroid/util/Pair;
 
     invoke-static {v1, v2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v4
+    move-result-object v1
 
-    invoke-direct {v3, v0, v4}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-direct {p0, v0, v1}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    return-object v3
-
-    :goto_1
-    goto :goto_0
-
-    nop
-
-    :pswitch_data_0
-    .packed-switch -0x1
-        :pswitch_3
-        :pswitch_0
-        :pswitch_2
-        :pswitch_1
-    .end packed-switch
+    return-object p0
 .end method
 
-.method private static parsePendingEvent(Landroid/util/proto/ProtoInputStream;)Landroid/app/usage/UsageEvents$Event;
+.method public static parsePendingEvent(Landroid/util/proto/ProtoInputStream;)Landroid/app/usage/UsageEvents$Event;
     .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -857,7 +809,7 @@
     packed-switch v1, :pswitch_data_0
 
     :pswitch_0
-    goto/16 :goto_3
+    goto :goto_0
 
     :pswitch_1
     const-wide v1, 0x1090000000cL
@@ -868,7 +820,7 @@
 
     iput-object v1, v0, Landroid/app/usage/UsageEvents$Event;->mTaskRootClass:Ljava/lang/String;
 
-    goto/16 :goto_3
+    goto :goto_0
 
     :pswitch_2
     const-wide v1, 0x1090000000bL
@@ -879,7 +831,7 @@
 
     iput-object v1, v0, Landroid/app/usage/UsageEvents$Event;->mTaskRootPackage:Ljava/lang/String;
 
-    goto/16 :goto_3
+    goto :goto_0
 
     :pswitch_3
     const-wide v1, 0x1050000000aL
@@ -890,7 +842,7 @@
 
     iput v1, v0, Landroid/app/usage/UsageEvents$Event;->mInstanceId:I
 
-    goto/16 :goto_3
+    goto :goto_0
 
     :pswitch_4
     const-wide v1, 0x10900000009L
@@ -901,7 +853,7 @@
 
     iput-object v1, v0, Landroid/app/usage/UsageEvents$Event;->mNotificationChannelId:Ljava/lang/String;
 
-    goto/16 :goto_3
+    goto :goto_0
 
     :pswitch_5
     const-wide v1, 0x10500000008L
@@ -912,7 +864,7 @@
 
     iput v1, v0, Landroid/app/usage/UsageEvents$Event;->mBucketAndReason:I
 
-    goto/16 :goto_3
+    goto :goto_0
 
     :pswitch_6
     const-wide v1, 0x10900000007L
@@ -923,7 +875,7 @@
 
     iput-object v1, v0, Landroid/app/usage/UsageEvents$Event;->mShortcutId:Ljava/lang/String;
 
-    goto/16 :goto_3
+    goto :goto_0
 
     :pswitch_7
     new-instance v1, Landroid/content/res/Configuration;
@@ -932,13 +884,11 @@
 
     iput-object v1, v0, Landroid/app/usage/UsageEvents$Event;->mConfiguration:Landroid/content/res/Configuration;
 
-    iget-object v1, v0, Landroid/app/usage/UsageEvents$Event;->mConfiguration:Landroid/content/res/Configuration;
-
     const-wide v2, 0x10b00000006L
 
     invoke-virtual {v1, p0, v2, v3}, Landroid/content/res/Configuration;->readFromProto(Landroid/util/proto/ProtoInputStream;J)V
 
-    goto/16 :goto_3
+    goto :goto_0
 
     :pswitch_8
     const-wide v1, 0x10500000005L
@@ -949,7 +899,7 @@
 
     iput v1, v0, Landroid/app/usage/UsageEvents$Event;->mEventType:I
 
-    goto :goto_3
+    goto :goto_0
 
     :pswitch_9
     const-wide v1, 0x10500000004L
@@ -960,7 +910,7 @@
 
     iput v1, v0, Landroid/app/usage/UsageEvents$Event;->mFlags:I
 
-    goto :goto_3
+    goto :goto_0
 
     :pswitch_a
     const-wide v1, 0x10300000003L
@@ -971,7 +921,7 @@
 
     iput-wide v1, v0, Landroid/app/usage/UsageEvents$Event;->mTimeStamp:J
 
-    goto :goto_3
+    goto/16 :goto_0
 
     :pswitch_b
     const-wide v1, 0x10900000002L
@@ -982,7 +932,7 @@
 
     iput-object v1, v0, Landroid/app/usage/UsageEvents$Event;->mClass:Ljava/lang/String;
 
-    goto :goto_3
+    goto/16 :goto_0
 
     :pswitch_c
     const-wide v1, 0x10900000001L
@@ -993,64 +943,68 @@
 
     iput-object v1, v0, Landroid/app/usage/UsageEvents$Event;->mPackage:Ljava/lang/String;
 
-    goto :goto_3
+    goto/16 :goto_0
 
     :pswitch_d
-    iget v1, v0, Landroid/app/usage/UsageEvents$Event;->mEventType:I
+    iget p0, v0, Landroid/app/usage/UsageEvents$Event;->mEventType:I
+
+    const/4 v1, 0x5
+
+    if-eq p0, v1, :cond_2
+
+    const/16 v1, 0x8
 
     const-string v2, ""
 
-    sparse-switch v1, :sswitch_data_0
+    if-eq p0, v1, :cond_1
+
+    const/16 v1, 0xc
+
+    if-eq p0, v1, :cond_0
 
     goto :goto_1
 
-    :sswitch_0
-    iget-object v1, v0, Landroid/app/usage/UsageEvents$Event;->mNotificationChannelId:Ljava/lang/String;
+    :cond_0
+    iget-object p0, v0, Landroid/app/usage/UsageEvents$Event;->mNotificationChannelId:Ljava/lang/String;
 
-    if-nez v1, :cond_0
+    if-nez p0, :cond_3
 
     iput-object v2, v0, Landroid/app/usage/UsageEvents$Event;->mNotificationChannelId:Ljava/lang/String;
 
     goto :goto_1
 
-    :sswitch_1
-    iget-object v1, v0, Landroid/app/usage/UsageEvents$Event;->mShortcutId:Ljava/lang/String;
+    :cond_1
+    iget-object p0, v0, Landroid/app/usage/UsageEvents$Event;->mShortcutId:Ljava/lang/String;
 
-    if-nez v1, :cond_0
+    if-nez p0, :cond_3
 
     iput-object v2, v0, Landroid/app/usage/UsageEvents$Event;->mShortcutId:Ljava/lang/String;
 
     goto :goto_1
 
-    :sswitch_2
-    iget-object v1, v0, Landroid/app/usage/UsageEvents$Event;->mConfiguration:Landroid/content/res/Configuration;
+    :cond_2
+    iget-object p0, v0, Landroid/app/usage/UsageEvents$Event;->mConfiguration:Landroid/content/res/Configuration;
 
-    if-nez v1, :cond_0
+    if-nez p0, :cond_3
 
-    new-instance v1, Landroid/content/res/Configuration;
+    new-instance p0, Landroid/content/res/Configuration;
 
-    invoke-direct {v1}, Landroid/content/res/Configuration;-><init>()V
+    invoke-direct {p0}, Landroid/content/res/Configuration;-><init>()V
 
-    iput-object v1, v0, Landroid/app/usage/UsageEvents$Event;->mConfiguration:Landroid/content/res/Configuration;
+    iput-object p0, v0, Landroid/app/usage/UsageEvents$Event;->mConfiguration:Landroid/content/res/Configuration;
 
-    :cond_0
+    :cond_3
     :goto_1
-    iget-object v1, v0, Landroid/app/usage/UsageEvents$Event;->mPackage:Ljava/lang/String;
+    iget-object p0, v0, Landroid/app/usage/UsageEvents$Event;->mPackage:Ljava/lang/String;
 
-    if-nez v1, :cond_1
+    if-nez p0, :cond_4
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    goto :goto_2
+    :cond_4
+    return-object v0
 
-    :cond_1
-    move-object v1, v0
-
-    :goto_2
-    return-object v1
-
-    :goto_3
-    goto/16 :goto_0
+    nop
 
     :pswitch_data_0
     .packed-switch -0x1
@@ -1069,17 +1023,10 @@
         :pswitch_2
         :pswitch_1
     .end packed-switch
-
-    :sswitch_data_0
-    .sparse-switch
-        0x5 -> :sswitch_2
-        0x8 -> :sswitch_1
-        0xc -> :sswitch_0
-    .end sparse-switch
 .end method
 
-.method private static parseUsageStats(Landroid/util/proto/ProtoInputStream;J)Landroid/app/usage/UsageStats;
-    .locals 4
+.method public static parseUsageStats(Landroid/util/proto/ProtoInputStream;J)Landroid/app/usage/UsageStats;
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1095,12 +1042,27 @@
 
     move-result v1
 
+    const/4 v2, -0x1
+
+    if-eq v1, v2, :cond_3
+
+    const/4 v2, 0x1
+
+    if-eq v1, v2, :cond_2
+
+    const/4 v2, 0x3
+
+    if-eq v1, v2, :cond_1
+
+    const/4 v2, 0x4
+
+    if-eq v1, v2, :cond_0
+
     packed-switch v1, :pswitch_data_0
 
-    :pswitch_0
-    goto/16 :goto_1
+    goto :goto_0
 
-    :pswitch_1
+    :pswitch_0
     const-wide v1, 0x1030000000cL
 
     invoke-virtual {p0, v1, v2}, Landroid/util/proto/ProtoInputStream;->readLong(J)J
@@ -1111,9 +1073,9 @@
 
     iput-wide v1, v0, Landroid/app/usage/UsageStats;->mLastTimeComponentUsed:J
 
-    goto/16 :goto_1
+    goto :goto_0
 
-    :pswitch_2
+    :pswitch_1
     const-wide v1, 0x1030000000bL
 
     invoke-virtual {p0, v1, v2}, Landroid/util/proto/ProtoInputStream;->readLong(J)J
@@ -1122,9 +1084,9 @@
 
     iput-wide v1, v0, Landroid/app/usage/UsageStats;->mTotalTimeVisible:J
 
-    goto/16 :goto_1
+    goto :goto_0
 
-    :pswitch_3
+    :pswitch_2
     const-wide v1, 0x1030000000aL
 
     invoke-virtual {p0, v1, v2}, Landroid/util/proto/ProtoInputStream;->readLong(J)J
@@ -1135,9 +1097,9 @@
 
     iput-wide v1, v0, Landroid/app/usage/UsageStats;->mLastTimeVisible:J
 
-    goto/16 :goto_1
+    goto :goto_0
 
-    :pswitch_4
+    :pswitch_3
     const-wide v1, 0x10300000009L
 
     invoke-virtual {p0, v1, v2}, Landroid/util/proto/ProtoInputStream;->readLong(J)J
@@ -1146,9 +1108,9 @@
 
     iput-wide v1, v0, Landroid/app/usage/UsageStats;->mTotalTimeForegroundServiceUsed:J
 
-    goto :goto_1
+    goto :goto_0
 
-    :pswitch_5
+    :pswitch_4
     const-wide v1, 0x10300000008L
 
     invoke-virtual {p0, v1, v2}, Landroid/util/proto/ProtoInputStream;->readLong(J)J
@@ -1159,9 +1121,9 @@
 
     iput-wide v1, v0, Landroid/app/usage/UsageStats;->mLastTimeForegroundServiceUsed:J
 
-    goto :goto_1
+    goto :goto_0
 
-    :pswitch_6
+    :pswitch_5
     const-wide v1, 0x20b00000007L
 
     :try_start_0
@@ -1175,34 +1137,32 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_1
+    goto :goto_0
 
     :catch_0
-    move-exception v1
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v2, "Unable to read chooser counts for "
 
-    const-string v3, "Unable to read chooser counts for "
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget v2, v0, Landroid/app/usage/UsageStats;->mPackageToken:I
 
-    iget v3, v0, Landroid/app/usage/UsageStats;->mPackageToken:I
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v2
+    const-string v2, "UsageStatsProtoV2"
 
-    const-string v3, "UsageStatsProtoV2"
+    invoke-static {v2, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {v3, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    goto :goto_0
 
-    goto :goto_1
-
-    :pswitch_7
+    :pswitch_6
     const-wide v1, 0x10500000006L
 
     invoke-virtual {p0, v1, v2}, Landroid/util/proto/ProtoInputStream;->readInt(J)I
@@ -1211,9 +1171,9 @@
 
     iput v1, v0, Landroid/app/usage/UsageStats;->mAppLaunchCount:I
 
-    goto :goto_1
+    goto/16 :goto_0
 
-    :pswitch_8
+    :cond_0
     const-wide v1, 0x10300000004L
 
     invoke-virtual {p0, v1, v2}, Landroid/util/proto/ProtoInputStream;->readLong(J)J
@@ -1222,9 +1182,9 @@
 
     iput-wide v1, v0, Landroid/app/usage/UsageStats;->mTotalTimeInForeground:J
 
-    goto :goto_1
+    goto/16 :goto_0
 
-    :pswitch_9
+    :cond_1
     const-wide v1, 0x10300000003L
 
     invoke-virtual {p0, v1, v2}, Landroid/util/proto/ProtoInputStream;->readLong(J)J
@@ -1235,43 +1195,33 @@
 
     iput-wide v1, v0, Landroid/app/usage/UsageStats;->mLastTimeUsed:J
 
-    goto :goto_1
+    goto/16 :goto_0
 
-    :pswitch_a
-    const-wide v1, 0x10500000001L
+    :cond_2
+    const-wide v3, 0x10500000001L
 
-    invoke-virtual {p0, v1, v2}, Landroid/util/proto/ProtoInputStream;->readInt(J)I
+    invoke-virtual {p0, v3, v4}, Landroid/util/proto/ProtoInputStream;->readInt(J)I
 
     move-result v1
 
-    add-int/lit8 v1, v1, -0x1
+    sub-int/2addr v1, v2
 
     iput v1, v0, Landroid/app/usage/UsageStats;->mPackageToken:I
 
-    goto :goto_1
-
-    :pswitch_b
-    return-object v0
-
-    :goto_1
     goto/16 :goto_0
 
+    :cond_3
+    return-object v0
+
     :pswitch_data_0
-    .packed-switch -0x1
-        :pswitch_b
-        :pswitch_0
-        :pswitch_a
-        :pswitch_0
-        :pswitch_9
-        :pswitch_8
-        :pswitch_0
-        :pswitch_7
+    .packed-switch 0x6
         :pswitch_6
         :pswitch_5
         :pswitch_4
         :pswitch_3
         :pswitch_2
         :pswitch_1
+        :pswitch_0
     .end packed-switch
 .end method
 
@@ -1287,18 +1237,37 @@
 
     invoke-direct {v0, p0}, Landroid/util/proto/ProtoInputStream;-><init>(Ljava/io/InputStream;)V
 
+    :cond_0
     :goto_0
     invoke-virtual {v0}, Landroid/util/proto/ProtoInputStream;->nextField()I
 
-    move-result v1
+    move-result p0
+
+    const/4 v1, -0x1
+
+    if-eq p0, v1, :cond_4
+
+    const/4 v2, 0x1
+
+    if-eq p0, v2, :cond_3
+
+    const/4 v2, 0x2
+
+    if-eq p0, v2, :cond_2
+
+    const/4 v2, 0x3
+
+    if-eq p0, v2, :cond_1
+
+    packed-switch p0, :pswitch_data_0
 
     const-string v2, "UsageStatsProtoV2"
 
-    sparse-switch v1, :sswitch_data_0
+    packed-switch p0, :pswitch_data_1
 
-    goto/16 :goto_2
+    goto :goto_0
 
-    :sswitch_0
+    :pswitch_0
     const-wide v3, 0x20b00000016L
 
     :try_start_0
@@ -1310,31 +1279,30 @@
 
     invoke-static {v0, v5, v6}, Lcom/android/server/usage/UsageStatsProtoV2;->parseEvent(Landroid/util/proto/ProtoInputStream;J)Landroid/app/usage/UsageEvents$Event;
 
-    move-result-object v1
+    move-result-object p0
 
     invoke-virtual {v0, v3, v4}, Landroid/util/proto/ProtoInputStream;->end(J)V
 
-    if-eqz v1, :cond_0
+    if-eqz p0, :cond_0
 
-    iget-object v5, p1, Lcom/android/server/usage/IntervalStats;->events:Landroid/app/usage/EventList;
+    iget-object v1, p1, Lcom/android/server/usage/IntervalStats;->events:Landroid/app/usage/EventList;
 
-    invoke-virtual {v5, v1}, Landroid/app/usage/EventList;->insert(Landroid/app/usage/UsageEvents$Event;)V
+    invoke-virtual {v1, p0}, Landroid/app/usage/EventList;->insert(Landroid/app/usage/UsageEvents$Event;)V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    :cond_0
-    goto/16 :goto_2
+    goto :goto_0
 
     :catch_0
-    move-exception v1
+    move-exception p0
 
-    const-string v3, "Unable to read some events from proto."
+    const-string v1, "Unable to read some events from proto."
 
-    invoke-static {v2, v3, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v2, v1, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto/16 :goto_2
+    goto :goto_0
 
-    :sswitch_1
+    :pswitch_1
     const-wide v3, 0x20b00000015L
 
     :try_start_1
@@ -1348,18 +1316,18 @@
     :try_end_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
 
-    goto/16 :goto_2
+    goto :goto_0
 
     :catch_1
-    move-exception v1
+    move-exception p0
 
-    const-string v3, "Unable to read some configuration stats from proto."
+    const-string v1, "Unable to read some configuration stats from proto."
 
-    invoke-static {v2, v3, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v2, v1, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto/16 :goto_2
+    goto :goto_0
 
-    :sswitch_2
+    :pswitch_2
     const-wide v3, 0x20b00000014L
 
     :try_start_2
@@ -1371,95 +1339,90 @@
 
     invoke-static {v0, v5, v6}, Lcom/android/server/usage/UsageStatsProtoV2;->parseUsageStats(Landroid/util/proto/ProtoInputStream;J)Landroid/app/usage/UsageStats;
 
-    move-result-object v1
+    move-result-object p0
 
     invoke-virtual {v0, v3, v4}, Landroid/util/proto/ProtoInputStream;->end(J)V
 
-    iget v5, v1, Landroid/app/usage/UsageStats;->mPackageToken:I
+    iget v3, p0, Landroid/app/usage/UsageStats;->mPackageToken:I
 
-    const/4 v6, -0x1
+    if-eq v3, v1, :cond_0
 
-    if-eq v5, v6, :cond_1
+    iget-object v1, p1, Lcom/android/server/usage/IntervalStats;->packageStatsObfuscated:Landroid/util/SparseArray;
 
-    iget-object v5, p1, Lcom/android/server/usage/IntervalStats;->packageStatsObfuscated:Landroid/util/SparseArray;
-
-    iget v6, v1, Landroid/app/usage/UsageStats;->mPackageToken:I
-
-    invoke-virtual {v5, v6, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    invoke-virtual {v1, v3, p0}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
     :try_end_2
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_2
 
-    :cond_1
-    goto/16 :goto_2
+    goto :goto_0
 
     :catch_2
-    move-exception v1
+    move-exception p0
 
-    const-string v3, "Unable to read some usage stats from proto."
+    const-string v1, "Unable to read some usage stats from proto."
 
-    invoke-static {v2, v3, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v2, v1, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto/16 :goto_2
+    goto :goto_0
 
-    :sswitch_3
+    :pswitch_3
     const-wide v1, 0x10b0000000dL
 
-    iget-object v3, p1, Lcom/android/server/usage/IntervalStats;->keyguardHiddenTracker:Lcom/android/server/usage/IntervalStats$EventTracker;
+    iget-object p0, p1, Lcom/android/server/usage/IntervalStats;->keyguardHiddenTracker:Lcom/android/server/usage/IntervalStats$EventTracker;
 
-    invoke-static {v0, v1, v2, v3}, Lcom/android/server/usage/UsageStatsProtoV2;->loadCountAndTime(Landroid/util/proto/ProtoInputStream;JLcom/android/server/usage/IntervalStats$EventTracker;)V
+    invoke-static {v0, v1, v2, p0}, Lcom/android/server/usage/UsageStatsProtoV2;->loadCountAndTime(Landroid/util/proto/ProtoInputStream;JLcom/android/server/usage/IntervalStats$EventTracker;)V
 
-    goto :goto_2
+    goto :goto_0
 
-    :sswitch_4
+    :pswitch_4
     const-wide v1, 0x10b0000000cL
 
-    iget-object v3, p1, Lcom/android/server/usage/IntervalStats;->keyguardShownTracker:Lcom/android/server/usage/IntervalStats$EventTracker;
+    iget-object p0, p1, Lcom/android/server/usage/IntervalStats;->keyguardShownTracker:Lcom/android/server/usage/IntervalStats$EventTracker;
 
-    invoke-static {v0, v1, v2, v3}, Lcom/android/server/usage/UsageStatsProtoV2;->loadCountAndTime(Landroid/util/proto/ProtoInputStream;JLcom/android/server/usage/IntervalStats$EventTracker;)V
+    invoke-static {v0, v1, v2, p0}, Lcom/android/server/usage/UsageStatsProtoV2;->loadCountAndTime(Landroid/util/proto/ProtoInputStream;JLcom/android/server/usage/IntervalStats$EventTracker;)V
 
-    goto :goto_2
+    goto/16 :goto_0
 
-    :sswitch_5
+    :pswitch_5
     const-wide v1, 0x10b0000000bL
 
-    iget-object v3, p1, Lcom/android/server/usage/IntervalStats;->nonInteractiveTracker:Lcom/android/server/usage/IntervalStats$EventTracker;
+    iget-object p0, p1, Lcom/android/server/usage/IntervalStats;->nonInteractiveTracker:Lcom/android/server/usage/IntervalStats$EventTracker;
 
-    invoke-static {v0, v1, v2, v3}, Lcom/android/server/usage/UsageStatsProtoV2;->loadCountAndTime(Landroid/util/proto/ProtoInputStream;JLcom/android/server/usage/IntervalStats$EventTracker;)V
+    invoke-static {v0, v1, v2, p0}, Lcom/android/server/usage/UsageStatsProtoV2;->loadCountAndTime(Landroid/util/proto/ProtoInputStream;JLcom/android/server/usage/IntervalStats$EventTracker;)V
 
-    goto :goto_2
+    goto/16 :goto_0
 
-    :sswitch_6
+    :pswitch_6
     const-wide v1, 0x10b0000000aL
 
-    iget-object v3, p1, Lcom/android/server/usage/IntervalStats;->interactiveTracker:Lcom/android/server/usage/IntervalStats$EventTracker;
+    iget-object p0, p1, Lcom/android/server/usage/IntervalStats;->interactiveTracker:Lcom/android/server/usage/IntervalStats$EventTracker;
 
-    invoke-static {v0, v1, v2, v3}, Lcom/android/server/usage/UsageStatsProtoV2;->loadCountAndTime(Landroid/util/proto/ProtoInputStream;JLcom/android/server/usage/IntervalStats$EventTracker;)V
+    invoke-static {v0, v1, v2, p0}, Lcom/android/server/usage/UsageStatsProtoV2;->loadCountAndTime(Landroid/util/proto/ProtoInputStream;JLcom/android/server/usage/IntervalStats$EventTracker;)V
 
-    goto :goto_2
+    goto/16 :goto_0
 
-    :sswitch_7
+    :cond_1
     const-wide v1, 0x10500000003L
 
     invoke-virtual {v0, v1, v2}, Landroid/util/proto/ProtoInputStream;->readInt(J)I
 
-    move-result v1
+    move-result p0
 
-    iput v1, p1, Lcom/android/server/usage/IntervalStats;->minorVersion:I
+    iput p0, p1, Lcom/android/server/usage/IntervalStats;->minorVersion:I
 
-    goto :goto_2
+    goto/16 :goto_0
 
-    :sswitch_8
+    :cond_2
     const-wide v1, 0x10500000002L
 
     invoke-virtual {v0, v1, v2}, Landroid/util/proto/ProtoInputStream;->readInt(J)I
 
-    move-result v1
+    move-result p0
 
-    iput v1, p1, Lcom/android/server/usage/IntervalStats;->majorVersion:I
+    iput p0, p1, Lcom/android/server/usage/IntervalStats;->majorVersion:I
 
-    goto :goto_2
+    goto/16 :goto_0
 
-    :sswitch_9
+    :cond_3
     iget-wide v1, p1, Lcom/android/server/usage/IntervalStats;->beginTime:J
 
     const-wide v3, 0x10300000001L
@@ -1472,64 +1435,63 @@
 
     iput-wide v1, p1, Lcom/android/server/usage/IntervalStats;->endTime:J
 
-    goto :goto_2
+    goto/16 :goto_0
 
-    :sswitch_a
-    iget-object v1, p1, Lcom/android/server/usage/IntervalStats;->packageStatsObfuscated:Landroid/util/SparseArray;
+    :cond_4
+    iget-object p0, p1, Lcom/android/server/usage/IntervalStats;->packageStatsObfuscated:Landroid/util/SparseArray;
 
-    invoke-virtual {v1}, Landroid/util/SparseArray;->size()I
+    invoke-virtual {p0}, Landroid/util/SparseArray;->size()I
 
-    move-result v1
+    move-result p0
 
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
     :goto_1
-    if-ge v2, v1, :cond_2
+    if-ge v0, p0, :cond_5
 
-    iget-object v3, p1, Lcom/android/server/usage/IntervalStats;->packageStatsObfuscated:Landroid/util/SparseArray;
+    iget-object v1, p1, Lcom/android/server/usage/IntervalStats;->packageStatsObfuscated:Landroid/util/SparseArray;
 
-    invoke-virtual {v3, v2}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {v1, v0}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v1
 
-    check-cast v3, Landroid/app/usage/UsageStats;
+    check-cast v1, Landroid/app/usage/UsageStats;
 
-    iget-wide v4, p1, Lcom/android/server/usage/IntervalStats;->beginTime:J
+    iget-wide v2, p1, Lcom/android/server/usage/IntervalStats;->beginTime:J
 
-    iput-wide v4, v3, Landroid/app/usage/UsageStats;->mBeginTimeStamp:J
+    iput-wide v2, v1, Landroid/app/usage/UsageStats;->mBeginTimeStamp:J
 
-    iget-wide v4, p1, Lcom/android/server/usage/IntervalStats;->endTime:J
+    iget-wide v2, p1, Lcom/android/server/usage/IntervalStats;->endTime:J
 
-    iput-wide v4, v3, Landroid/app/usage/UsageStats;->mEndTimeStamp:J
+    iput-wide v2, v1, Landroid/app/usage/UsageStats;->mEndTimeStamp:J
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
-    :cond_2
+    :cond_5
     return-void
 
-    :goto_2
-    goto/16 :goto_0
+    nop
 
-    :sswitch_data_0
-    .sparse-switch
-        -0x1 -> :sswitch_a
-        0x1 -> :sswitch_9
-        0x2 -> :sswitch_8
-        0x3 -> :sswitch_7
-        0xa -> :sswitch_6
-        0xb -> :sswitch_5
-        0xc -> :sswitch_4
-        0xd -> :sswitch_3
-        0x14 -> :sswitch_2
-        0x15 -> :sswitch_1
-        0x16 -> :sswitch_0
-    .end sparse-switch
+    :pswitch_data_0
+    .packed-switch 0xa
+        :pswitch_6
+        :pswitch_5
+        :pswitch_4
+        :pswitch_3
+    .end packed-switch
+
+    :pswitch_data_1
+    .packed-switch 0x14
+        :pswitch_2
+        :pswitch_1
+        :pswitch_0
+    .end packed-switch
 .end method
 
-.method static readGlobalComponentUsage(Ljava/io/InputStream;Ljava/util/Map;)V
-    .locals 8
+.method public static readGlobalComponentUsage(Ljava/io/InputStream;Ljava/util/Map;)V
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1551,16 +1513,23 @@
 
     invoke-direct {v0, p0}, Landroid/util/proto/ProtoInputStream;-><init>(Ljava/io/InputStream;)V
 
+    :cond_0
     :goto_0
     invoke-virtual {v0}, Landroid/util/proto/ProtoInputStream;->nextField()I
 
-    move-result v1
+    move-result p0
 
-    sparse-switch v1, :sswitch_data_0
+    const/4 v1, -0x1
 
-    goto :goto_1
+    if-eq p0, v1, :cond_2
 
-    :sswitch_0
+    const/16 v1, 0x18
+
+    if-eq p0, v1, :cond_1
+
+    goto :goto_0
+
+    :cond_1
     const-wide v1, 0x20b00000018L
 
     :try_start_0
@@ -1570,75 +1539,65 @@
 
     invoke-static {v0}, Lcom/android/server/usage/UsageStatsProtoV2;->parseGlobalComponentUsage(Landroid/util/proto/ProtoInputStream;)Landroid/util/Pair;
 
-    move-result-object v3
+    move-result-object p0
 
     invoke-virtual {v0, v1, v2}, Landroid/util/proto/ProtoInputStream;->end(J)V
 
-    iget-object v4, v3, Landroid/util/Pair;->first:Ljava/lang/Object;
+    iget-object v1, p0, Landroid/util/Pair;->first:Ljava/lang/Object;
 
-    check-cast v4, Ljava/lang/String;
+    check-cast v1, Ljava/lang/String;
 
-    invoke-virtual {v4}, Ljava/lang/String;->isEmpty()Z
+    invoke-virtual {v1}, Ljava/lang/String;->isEmpty()Z
 
-    move-result v4
+    move-result v1
 
-    if-nez v4, :cond_0
+    if-nez v1, :cond_0
 
-    iget-object v4, v3, Landroid/util/Pair;->second:Ljava/lang/Object;
+    iget-object v1, p0, Landroid/util/Pair;->second:Ljava/lang/Object;
 
-    check-cast v4, Ljava/lang/Long;
+    check-cast v1, Ljava/lang/Long;
 
-    invoke-virtual {v4}, Ljava/lang/Long;->longValue()J
+    invoke-virtual {v1}, Ljava/lang/Long;->longValue()J
 
-    move-result-wide v4
+    move-result-wide v1
 
-    const-wide/16 v6, 0x0
+    const-wide/16 v3, 0x0
 
-    cmp-long v4, v4, v6
+    cmp-long v1, v1, v3
 
-    if-lez v4, :cond_0
+    if-lez v1, :cond_0
 
-    iget-object v4, v3, Landroid/util/Pair;->first:Ljava/lang/Object;
+    iget-object v1, p0, Landroid/util/Pair;->first:Ljava/lang/Object;
 
-    check-cast v4, Ljava/lang/String;
+    check-cast v1, Ljava/lang/String;
 
-    iget-object v5, v3, Landroid/util/Pair;->second:Ljava/lang/Object;
+    iget-object p0, p0, Landroid/util/Pair;->second:Ljava/lang/Object;
 
-    check-cast v5, Ljava/lang/Long;
+    check-cast p0, Ljava/lang/Long;
 
-    invoke-interface {p1, v4, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p1, v1, p0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    :cond_0
-    goto :goto_1
-
-    :catch_0
-    move-exception v1
-
-    const-string v2, "UsageStatsProtoV2"
-
-    const-string v3, "Unable to parse some package usage from proto."
-
-    invoke-static {v2, v3, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto :goto_1
-
-    :sswitch_1
-    return-void
-
-    :goto_1
     goto :goto_0
 
-    :sswitch_data_0
-    .sparse-switch
-        -0x1 -> :sswitch_1
-        0x18 -> :sswitch_0
-    .end sparse-switch
+    :catch_0
+    move-exception p0
+
+    const-string v1, "UsageStatsProtoV2"
+
+    const-string v2, "Unable to parse some package usage from proto."
+
+    invoke-static {v1, v2, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
+
+    :cond_2
+    return-void
 .end method
 
-.method static readObfuscatedData(Ljava/io/InputStream;Lcom/android/server/usage/PackagesTokenData;)V
-    .locals 4
+.method public static readObfuscatedData(Ljava/io/InputStream;Lcom/android/server/usage/PackagesTokenData;)V
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1652,58 +1611,54 @@
     :goto_0
     invoke-virtual {v0}, Landroid/util/proto/ProtoInputStream;->nextField()I
 
-    move-result v1
+    move-result p0
 
-    packed-switch v1, :pswitch_data_0
+    const/4 v1, -0x1
 
-    :pswitch_0
-    goto :goto_1
+    if-eq p0, v1, :cond_2
 
-    :pswitch_1
+    const/4 v1, 0x1
+
+    if-eq p0, v1, :cond_1
+
+    const/4 v1, 0x2
+
+    if-eq p0, v1, :cond_0
+
+    goto :goto_0
+
+    :cond_0
     const-wide v1, 0x20b00000002L
 
     invoke-virtual {v0, v1, v2}, Landroid/util/proto/ProtoInputStream;->start(J)J
 
     move-result-wide v1
 
-    iget-object v3, p1, Lcom/android/server/usage/PackagesTokenData;->tokensToPackagesMap:Landroid/util/SparseArray;
+    iget-object p0, p1, Lcom/android/server/usage/PackagesTokenData;->tokensToPackagesMap:Landroid/util/SparseArray;
 
-    invoke-static {v0, v3}, Lcom/android/server/usage/UsageStatsProtoV2;->loadPackagesMap(Landroid/util/proto/ProtoInputStream;Landroid/util/SparseArray;)V
+    invoke-static {v0, p0}, Lcom/android/server/usage/UsageStatsProtoV2;->loadPackagesMap(Landroid/util/proto/ProtoInputStream;Landroid/util/SparseArray;)V
 
     invoke-virtual {v0, v1, v2}, Landroid/util/proto/ProtoInputStream;->end(J)V
 
-    goto :goto_1
+    goto :goto_0
 
-    :pswitch_2
+    :cond_1
     const-wide v1, 0x10500000001L
 
     invoke-virtual {v0, v1, v2}, Landroid/util/proto/ProtoInputStream;->readInt(J)I
 
-    move-result v1
+    move-result p0
 
-    iput v1, p1, Lcom/android/server/usage/PackagesTokenData;->counter:I
+    iput p0, p1, Lcom/android/server/usage/PackagesTokenData;->counter:I
 
-    goto :goto_1
-
-    :pswitch_3
-    return-void
-
-    :goto_1
     goto :goto_0
 
-    nop
-
-    :pswitch_data_0
-    .packed-switch -0x1
-        :pswitch_3
-        :pswitch_0
-        :pswitch_2
-        :pswitch_1
-    .end packed-switch
+    :cond_2
+    return-void
 .end method
 
-.method static readPendingEvents(Ljava/io/InputStream;Ljava/util/LinkedList;)V
-    .locals 4
+.method public static readPendingEvents(Ljava/io/InputStream;Ljava/util/LinkedList;)V
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1724,16 +1679,23 @@
 
     invoke-direct {v0, p0}, Landroid/util/proto/ProtoInputStream;-><init>(Ljava/io/InputStream;)V
 
+    :cond_0
     :goto_0
     invoke-virtual {v0}, Landroid/util/proto/ProtoInputStream;->nextField()I
 
-    move-result v1
+    move-result p0
 
-    sparse-switch v1, :sswitch_data_0
+    const/4 v1, -0x1
 
-    goto :goto_1
+    if-eq p0, v1, :cond_2
 
-    :sswitch_0
+    const/16 v1, 0x17
+
+    if-eq p0, v1, :cond_1
+
+    goto :goto_0
+
+    :cond_1
     const-wide v1, 0x20b00000017L
 
     :try_start_0
@@ -1743,45 +1705,35 @@
 
     invoke-static {v0}, Lcom/android/server/usage/UsageStatsProtoV2;->parsePendingEvent(Landroid/util/proto/ProtoInputStream;)Landroid/app/usage/UsageEvents$Event;
 
-    move-result-object v3
+    move-result-object p0
 
     invoke-virtual {v0, v1, v2}, Landroid/util/proto/ProtoInputStream;->end(J)V
 
-    if-eqz v3, :cond_0
+    if-eqz p0, :cond_0
 
-    invoke-virtual {p1, v3}, Ljava/util/LinkedList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p1, p0}, Ljava/util/LinkedList;->add(Ljava/lang/Object;)Z
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    :cond_0
-    goto :goto_1
-
-    :catch_0
-    move-exception v1
-
-    const-string v2, "UsageStatsProtoV2"
-
-    const-string v3, "Unable to parse some pending events from proto."
-
-    invoke-static {v2, v3, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto :goto_1
-
-    :sswitch_1
-    return-void
-
-    :goto_1
     goto :goto_0
 
-    :sswitch_data_0
-    .sparse-switch
-        -0x1 -> :sswitch_1
-        0x17 -> :sswitch_0
-    .end sparse-switch
+    :catch_0
+    move-exception p0
+
+    const-string v1, "UsageStatsProtoV2"
+
+    const-string v2, "Unable to parse some pending events from proto."
+
+    invoke-static {v1, v2, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
+
+    :cond_2
+    return-void
 .end method
 
 .method public static write(Ljava/io/OutputStream;Lcom/android/server/usage/IntervalStats;)V
-    .locals 11
+    .locals 10
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -1791,276 +1743,268 @@
 
     const-string v0, "UsageStatsProtoV2"
 
-    new-instance v1, Landroid/util/proto/ProtoOutputStream;
+    new-instance v7, Landroid/util/proto/ProtoOutputStream;
 
-    invoke-direct {v1, p0}, Landroid/util/proto/ProtoOutputStream;-><init>(Ljava/io/OutputStream;)V
+    invoke-direct {v7, p0}, Landroid/util/proto/ProtoOutputStream;-><init>(Ljava/io/OutputStream;)V
 
-    iget-wide v2, p1, Lcom/android/server/usage/IntervalStats;->endTime:J
+    iget-wide v1, p1, Lcom/android/server/usage/IntervalStats;->endTime:J
 
-    iget-wide v4, p1, Lcom/android/server/usage/IntervalStats;->beginTime:J
+    iget-wide v3, p1, Lcom/android/server/usage/IntervalStats;->beginTime:J
 
-    invoke-static {v2, v3, v4, v5}, Lcom/android/server/usage/UsageStatsProtoV2;->getOffsetTimestamp(JJ)J
+    invoke-static {v1, v2, v3, v4}, Lcom/android/server/usage/UsageStatsProtoV2;->getOffsetTimestamp(JJ)J
 
-    move-result-wide v2
+    move-result-wide v1
 
-    const-wide v4, 0x10300000001L
+    const-wide v3, 0x10300000001L
 
-    invoke-virtual {v1, v4, v5, v2, v3}, Landroid/util/proto/ProtoOutputStream;->write(JJ)V
+    invoke-virtual {v7, v3, v4, v1, v2}, Landroid/util/proto/ProtoOutputStream;->write(JJ)V
 
-    iget v2, p1, Lcom/android/server/usage/IntervalStats;->majorVersion:I
+    iget p0, p1, Lcom/android/server/usage/IntervalStats;->majorVersion:I
 
-    const-wide v3, 0x10500000002L
+    const-wide v1, 0x10500000002L
 
-    invoke-virtual {v1, v3, v4, v2}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
+    invoke-virtual {v7, v1, v2, p0}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
 
-    iget v2, p1, Lcom/android/server/usage/IntervalStats;->minorVersion:I
+    iget p0, p1, Lcom/android/server/usage/IntervalStats;->minorVersion:I
 
-    const-wide v3, 0x10500000003L
+    const-wide v1, 0x10500000003L
 
-    invoke-virtual {v1, v3, v4, v2}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
+    invoke-virtual {v7, v1, v2, p0}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
 
-    const-wide v3, 0x10b0000000aL
+    const-wide v2, 0x10b0000000aL
 
     :try_start_0
-    iget-object v2, p1, Lcom/android/server/usage/IntervalStats;->interactiveTracker:Lcom/android/server/usage/IntervalStats$EventTracker;
+    iget-object p0, p1, Lcom/android/server/usage/IntervalStats;->interactiveTracker:Lcom/android/server/usage/IntervalStats$EventTracker;
 
-    iget v5, v2, Lcom/android/server/usage/IntervalStats$EventTracker;->count:I
+    iget v4, p0, Lcom/android/server/usage/IntervalStats$EventTracker;->count:I
 
-    iget-object v2, p1, Lcom/android/server/usage/IntervalStats;->interactiveTracker:Lcom/android/server/usage/IntervalStats$EventTracker;
+    iget-wide v5, p0, Lcom/android/server/usage/IntervalStats$EventTracker;->duration:J
 
-    iget-wide v6, v2, Lcom/android/server/usage/IntervalStats$EventTracker;->duration:J
+    move-object v1, v7
 
-    move-object v2, v1
+    invoke-static/range {v1 .. v6}, Lcom/android/server/usage/UsageStatsProtoV2;->writeCountAndTime(Landroid/util/proto/ProtoOutputStream;JIJ)V
 
-    invoke-static/range {v2 .. v7}, Lcom/android/server/usage/UsageStatsProtoV2;->writeCountAndTime(Landroid/util/proto/ProtoOutputStream;JIJ)V
+    const-wide v2, 0x10b0000000bL
 
-    const-wide v3, 0x10b0000000bL
+    iget-object p0, p1, Lcom/android/server/usage/IntervalStats;->nonInteractiveTracker:Lcom/android/server/usage/IntervalStats$EventTracker;
 
-    iget-object v2, p1, Lcom/android/server/usage/IntervalStats;->nonInteractiveTracker:Lcom/android/server/usage/IntervalStats$EventTracker;
+    iget v4, p0, Lcom/android/server/usage/IntervalStats$EventTracker;->count:I
 
-    iget v5, v2, Lcom/android/server/usage/IntervalStats$EventTracker;->count:I
+    iget-wide v5, p0, Lcom/android/server/usage/IntervalStats$EventTracker;->duration:J
 
-    iget-object v2, p1, Lcom/android/server/usage/IntervalStats;->nonInteractiveTracker:Lcom/android/server/usage/IntervalStats$EventTracker;
+    move-object v1, v7
 
-    iget-wide v6, v2, Lcom/android/server/usage/IntervalStats$EventTracker;->duration:J
+    invoke-static/range {v1 .. v6}, Lcom/android/server/usage/UsageStatsProtoV2;->writeCountAndTime(Landroid/util/proto/ProtoOutputStream;JIJ)V
 
-    move-object v2, v1
+    const-wide v2, 0x10b0000000cL
 
-    invoke-static/range {v2 .. v7}, Lcom/android/server/usage/UsageStatsProtoV2;->writeCountAndTime(Landroid/util/proto/ProtoOutputStream;JIJ)V
+    iget-object p0, p1, Lcom/android/server/usage/IntervalStats;->keyguardShownTracker:Lcom/android/server/usage/IntervalStats$EventTracker;
 
-    const-wide v3, 0x10b0000000cL
+    iget v4, p0, Lcom/android/server/usage/IntervalStats$EventTracker;->count:I
 
-    iget-object v2, p1, Lcom/android/server/usage/IntervalStats;->keyguardShownTracker:Lcom/android/server/usage/IntervalStats$EventTracker;
+    iget-wide v5, p0, Lcom/android/server/usage/IntervalStats$EventTracker;->duration:J
 
-    iget v5, v2, Lcom/android/server/usage/IntervalStats$EventTracker;->count:I
+    move-object v1, v7
 
-    iget-object v2, p1, Lcom/android/server/usage/IntervalStats;->keyguardShownTracker:Lcom/android/server/usage/IntervalStats$EventTracker;
+    invoke-static/range {v1 .. v6}, Lcom/android/server/usage/UsageStatsProtoV2;->writeCountAndTime(Landroid/util/proto/ProtoOutputStream;JIJ)V
 
-    iget-wide v6, v2, Lcom/android/server/usage/IntervalStats$EventTracker;->duration:J
+    const-wide v2, 0x10b0000000dL
 
-    move-object v2, v1
+    iget-object p0, p1, Lcom/android/server/usage/IntervalStats;->keyguardHiddenTracker:Lcom/android/server/usage/IntervalStats$EventTracker;
 
-    invoke-static/range {v2 .. v7}, Lcom/android/server/usage/UsageStatsProtoV2;->writeCountAndTime(Landroid/util/proto/ProtoOutputStream;JIJ)V
+    iget v4, p0, Lcom/android/server/usage/IntervalStats$EventTracker;->count:I
 
-    const-wide v3, 0x10b0000000dL
+    iget-wide v5, p0, Lcom/android/server/usage/IntervalStats$EventTracker;->duration:J
 
-    iget-object v2, p1, Lcom/android/server/usage/IntervalStats;->keyguardHiddenTracker:Lcom/android/server/usage/IntervalStats$EventTracker;
+    move-object v1, v7
 
-    iget v5, v2, Lcom/android/server/usage/IntervalStats$EventTracker;->count:I
-
-    iget-object v2, p1, Lcom/android/server/usage/IntervalStats;->keyguardHiddenTracker:Lcom/android/server/usage/IntervalStats$EventTracker;
-
-    iget-wide v6, v2, Lcom/android/server/usage/IntervalStats$EventTracker;->duration:J
-
-    move-object v2, v1
-
-    invoke-static/range {v2 .. v7}, Lcom/android/server/usage/UsageStatsProtoV2;->writeCountAndTime(Landroid/util/proto/ProtoOutputStream;JIJ)V
+    invoke-static/range {v1 .. v6}, Lcom/android/server/usage/UsageStatsProtoV2;->writeCountAndTime(Landroid/util/proto/ProtoOutputStream;JIJ)V
     :try_end_0
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
     :catch_0
-    move-exception v2
+    move-exception p0
 
-    const-string v3, "Unable to write some interval stats trackers to proto."
+    const-string v1, "Unable to write some interval stats trackers to proto."
 
-    invoke-static {v0, v3, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v0, v1, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_0
-    iget-object v2, p1, Lcom/android/server/usage/IntervalStats;->packageStatsObfuscated:Landroid/util/SparseArray;
+    iget-object p0, p1, Lcom/android/server/usage/IntervalStats;->packageStatsObfuscated:Landroid/util/SparseArray;
 
-    invoke-virtual {v2}, Landroid/util/SparseArray;->size()I
+    invoke-virtual {p0}, Landroid/util/SparseArray;->size()I
 
-    move-result v2
+    move-result p0
 
-    const/4 v3, 0x0
+    const/4 v1, 0x0
+
+    move v2, v1
 
     :goto_1
-    if-ge v3, v2, :cond_0
+    if-ge v2, p0, :cond_0
 
-    const-wide v4, 0x20b00000014L
+    const-wide v3, 0x20b00000014L
 
     :try_start_1
-    invoke-virtual {v1, v4, v5}, Landroid/util/proto/ProtoOutputStream;->start(J)J
+    invoke-virtual {v7, v3, v4}, Landroid/util/proto/ProtoOutputStream;->start(J)J
 
-    move-result-wide v4
+    move-result-wide v3
 
-    iget-wide v6, p1, Lcom/android/server/usage/IntervalStats;->beginTime:J
+    iget-wide v5, p1, Lcom/android/server/usage/IntervalStats;->beginTime:J
 
     iget-object v8, p1, Lcom/android/server/usage/IntervalStats;->packageStatsObfuscated:Landroid/util/SparseArray;
 
-    invoke-virtual {v8, v3}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {v8, v2}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
 
     move-result-object v8
 
     check-cast v8, Landroid/app/usage/UsageStats;
 
-    invoke-static {v1, v6, v7, v8}, Lcom/android/server/usage/UsageStatsProtoV2;->writeUsageStats(Landroid/util/proto/ProtoOutputStream;JLandroid/app/usage/UsageStats;)V
+    invoke-static {v7, v5, v6, v8}, Lcom/android/server/usage/UsageStatsProtoV2;->writeUsageStats(Landroid/util/proto/ProtoOutputStream;JLandroid/app/usage/UsageStats;)V
 
-    invoke-virtual {v1, v4, v5}, Landroid/util/proto/ProtoOutputStream;->end(J)V
+    invoke-virtual {v7, v3, v4}, Landroid/util/proto/ProtoOutputStream;->end(J)V
     :try_end_1
     .catch Ljava/lang/IllegalArgumentException; {:try_start_1 .. :try_end_1} :catch_1
 
     goto :goto_2
 
     :catch_1
-    move-exception v4
+    move-exception v3
 
-    const-string v5, "Unable to write some usage stats to proto."
+    const-string v4, "Unable to write some usage stats to proto."
 
-    invoke-static {v0, v5, v4}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v0, v4, v3}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_2
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_1
 
     :cond_0
-    iget-object v3, p1, Lcom/android/server/usage/IntervalStats;->configurations:Landroid/util/ArrayMap;
+    iget-object p0, p1, Lcom/android/server/usage/IntervalStats;->configurations:Landroid/util/ArrayMap;
 
-    invoke-virtual {v3}, Landroid/util/ArrayMap;->size()I
+    invoke-virtual {p0}, Landroid/util/ArrayMap;->size()I
+
+    move-result p0
+
+    move v2, v1
+
+    :goto_3
+    if-ge v2, p0, :cond_1
+
+    iget-object v3, p1, Lcom/android/server/usage/IntervalStats;->activeConfiguration:Landroid/content/res/Configuration;
+
+    iget-object v4, p1, Lcom/android/server/usage/IntervalStats;->configurations:Landroid/util/ArrayMap;
+
+    invoke-virtual {v4, v2}, Landroid/util/ArrayMap;->keyAt(I)Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Landroid/content/res/Configuration;
+
+    invoke-virtual {v3, v4}, Landroid/content/res/Configuration;->equals(Landroid/content/res/Configuration;)Z
 
     move-result v3
 
-    const/4 v4, 0x0
-
-    :goto_3
-    if-ge v4, v3, :cond_1
-
-    iget-object v5, p1, Lcom/android/server/usage/IntervalStats;->activeConfiguration:Landroid/content/res/Configuration;
-
-    iget-object v6, p1, Lcom/android/server/usage/IntervalStats;->configurations:Landroid/util/ArrayMap;
-
-    invoke-virtual {v6, v4}, Landroid/util/ArrayMap;->keyAt(I)Ljava/lang/Object;
-
-    move-result-object v6
-
-    check-cast v6, Landroid/content/res/Configuration;
-
-    invoke-virtual {v5, v6}, Landroid/content/res/Configuration;->equals(Landroid/content/res/Configuration;)Z
-
-    move-result v5
-
-    const-wide v6, 0x20b00000015L
+    const-wide v4, 0x20b00000015L
 
     :try_start_2
-    invoke-virtual {v1, v6, v7}, Landroid/util/proto/ProtoOutputStream;->start(J)J
+    invoke-virtual {v7, v4, v5}, Landroid/util/proto/ProtoOutputStream;->start(J)J
 
-    move-result-wide v6
+    move-result-wide v4
 
     iget-wide v8, p1, Lcom/android/server/usage/IntervalStats;->beginTime:J
 
-    iget-object v10, p1, Lcom/android/server/usage/IntervalStats;->configurations:Landroid/util/ArrayMap;
+    iget-object v6, p1, Lcom/android/server/usage/IntervalStats;->configurations:Landroid/util/ArrayMap;
 
-    invoke-virtual {v10, v4}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {v6, v2}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
 
-    move-result-object v10
+    move-result-object v6
 
-    check-cast v10, Landroid/app/usage/ConfigurationStats;
+    check-cast v6, Landroid/app/usage/ConfigurationStats;
 
-    invoke-static {v1, v8, v9, v10, v5}, Lcom/android/server/usage/UsageStatsProtoV2;->writeConfigStats(Landroid/util/proto/ProtoOutputStream;JLandroid/app/usage/ConfigurationStats;Z)V
+    invoke-static {v7, v8, v9, v6, v3}, Lcom/android/server/usage/UsageStatsProtoV2;->writeConfigStats(Landroid/util/proto/ProtoOutputStream;JLandroid/app/usage/ConfigurationStats;Z)V
 
-    invoke-virtual {v1, v6, v7}, Landroid/util/proto/ProtoOutputStream;->end(J)V
+    invoke-virtual {v7, v4, v5}, Landroid/util/proto/ProtoOutputStream;->end(J)V
     :try_end_2
     .catch Ljava/lang/IllegalArgumentException; {:try_start_2 .. :try_end_2} :catch_2
 
     goto :goto_4
 
     :catch_2
-    move-exception v6
+    move-exception v3
 
-    const-string v7, "Unable to write some configuration stats to proto."
+    const-string v4, "Unable to write some configuration stats to proto."
 
-    invoke-static {v0, v7, v6}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v0, v4, v3}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_4
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_3
 
     :cond_1
-    iget-object v4, p1, Lcom/android/server/usage/IntervalStats;->events:Landroid/app/usage/EventList;
+    iget-object p0, p1, Lcom/android/server/usage/IntervalStats;->events:Landroid/app/usage/EventList;
 
-    invoke-virtual {v4}, Landroid/app/usage/EventList;->size()I
+    invoke-virtual {p0}, Landroid/app/usage/EventList;->size()I
 
-    move-result v4
-
-    const/4 v5, 0x0
+    move-result p0
 
     :goto_5
-    if-ge v5, v4, :cond_2
+    if-ge v1, p0, :cond_2
 
-    const-wide v6, 0x20b00000016L
+    const-wide v2, 0x20b00000016L
 
     :try_start_3
-    invoke-virtual {v1, v6, v7}, Landroid/util/proto/ProtoOutputStream;->start(J)J
+    invoke-virtual {v7, v2, v3}, Landroid/util/proto/ProtoOutputStream;->start(J)J
 
-    move-result-wide v6
+    move-result-wide v2
 
-    iget-wide v8, p1, Lcom/android/server/usage/IntervalStats;->beginTime:J
+    iget-wide v4, p1, Lcom/android/server/usage/IntervalStats;->beginTime:J
 
-    iget-object v10, p1, Lcom/android/server/usage/IntervalStats;->events:Landroid/app/usage/EventList;
+    iget-object v6, p1, Lcom/android/server/usage/IntervalStats;->events:Landroid/app/usage/EventList;
 
-    invoke-virtual {v10, v5}, Landroid/app/usage/EventList;->get(I)Landroid/app/usage/UsageEvents$Event;
+    invoke-virtual {v6, v1}, Landroid/app/usage/EventList;->get(I)Landroid/app/usage/UsageEvents$Event;
 
-    move-result-object v10
+    move-result-object v6
 
-    invoke-static {v1, v8, v9, v10}, Lcom/android/server/usage/UsageStatsProtoV2;->writeEvent(Landroid/util/proto/ProtoOutputStream;JLandroid/app/usage/UsageEvents$Event;)V
+    invoke-static {v7, v4, v5, v6}, Lcom/android/server/usage/UsageStatsProtoV2;->writeEvent(Landroid/util/proto/ProtoOutputStream;JLandroid/app/usage/UsageEvents$Event;)V
 
-    invoke-virtual {v1, v6, v7}, Landroid/util/proto/ProtoOutputStream;->end(J)V
+    invoke-virtual {v7, v2, v3}, Landroid/util/proto/ProtoOutputStream;->end(J)V
     :try_end_3
     .catch Ljava/lang/IllegalArgumentException; {:try_start_3 .. :try_end_3} :catch_3
 
     goto :goto_6
 
     :catch_3
-    move-exception v6
+    move-exception v2
 
-    const-string v7, "Unable to write some events to proto."
+    const-string v3, "Unable to write some events to proto."
 
-    invoke-static {v0, v7, v6}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v0, v3, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_6
-    add-int/lit8 v5, v5, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_5
 
     :cond_2
-    invoke-virtual {v1}, Landroid/util/proto/ProtoOutputStream;->flush()V
+    invoke-virtual {v7}, Landroid/util/proto/ProtoOutputStream;->flush()V
 
     return-void
 .end method
 
-.method private static writeChooserCounts(Landroid/util/proto/ProtoOutputStream;Landroid/app/usage/UsageStats;)V
-    .locals 9
+.method public static writeChooserCounts(Landroid/util/proto/ProtoOutputStream;Landroid/app/usage/UsageStats;)V
+    .locals 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
         }
     .end annotation
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_3
 
     iget-object v0, p1, Landroid/app/usage/UsageStats;->mChooserCountsObfuscated:Landroid/util/SparseArray;
 
@@ -2117,9 +2061,9 @@
 
     const-wide v6, 0x10500000001L
 
-    add-int/lit8 v8, v2, 0x1
+    add-int/lit8 v2, v2, 0x1
 
-    invoke-virtual {p0, v6, v7, v8}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
+    invoke-virtual {p0, v6, v7, v2}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
 
     invoke-static {p0, v3}, Lcom/android/server/usage/UsageStatsProtoV2;->writeCountsForAction(Landroid/util/proto/ProtoOutputStream;Landroid/util/SparseIntArray;)V
 
@@ -2132,14 +2076,11 @@
     goto :goto_0
 
     :cond_3
-    return-void
-
-    :cond_4
     :goto_2
     return-void
 .end method
 
-.method private static writeConfigStats(Landroid/util/proto/ProtoOutputStream;JLandroid/app/usage/ConfigurationStats;Z)V
+.method public static writeConfigStats(Landroid/util/proto/ProtoOutputStream;JLandroid/app/usage/ConfigurationStats;Z)V
     .locals 10
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2163,27 +2104,27 @@
 
     invoke-static/range {v3 .. v9}, Lcom/android/server/usage/UsageStatsProtoV2;->writeOffsetTimestamp(Landroid/util/proto/ProtoOutputStream;JJJ)V
 
-    iget-wide v0, p3, Landroid/app/usage/ConfigurationStats;->mTotalTimeActive:J
+    iget-wide p1, p3, Landroid/app/usage/ConfigurationStats;->mTotalTimeActive:J
 
-    const-wide v2, 0x10300000003L
+    const-wide v0, 0x10300000003L
 
-    invoke-virtual {p0, v2, v3, v0, v1}, Landroid/util/proto/ProtoOutputStream;->write(JJ)V
+    invoke-virtual {p0, v0, v1, p1, p2}, Landroid/util/proto/ProtoOutputStream;->write(JJ)V
 
-    iget v0, p3, Landroid/app/usage/ConfigurationStats;->mActivationCount:I
+    iget p1, p3, Landroid/app/usage/ConfigurationStats;->mActivationCount:I
 
-    const-wide v1, 0x10500000004L
+    const-wide p2, 0x10500000004L
 
-    invoke-virtual {p0, v1, v2, v0}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
+    invoke-virtual {p0, p2, p3, p1}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
 
-    const-wide v0, 0x10800000005L
+    const-wide p1, 0x10800000005L
 
-    invoke-virtual {p0, v0, v1, p4}, Landroid/util/proto/ProtoOutputStream;->write(JZ)V
+    invoke-virtual {p0, p1, p2, p4}, Landroid/util/proto/ProtoOutputStream;->write(JZ)V
 
     return-void
 .end method
 
-.method private static writeCountAndTime(Landroid/util/proto/ProtoOutputStream;JIJ)V
-    .locals 4
+.method public static writeCountAndTime(Landroid/util/proto/ProtoOutputStream;JIJ)V
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
@@ -2192,23 +2133,23 @@
 
     invoke-virtual {p0, p1, p2}, Landroid/util/proto/ProtoOutputStream;->start(J)J
 
-    move-result-wide v0
+    move-result-wide p1
 
-    const-wide v2, 0x10500000001L
+    const-wide v0, 0x10500000001L
 
-    invoke-virtual {p0, v2, v3, p3}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
+    invoke-virtual {p0, v0, v1, p3}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
 
-    const-wide v2, 0x10300000002L
+    const-wide v0, 0x10300000002L
 
-    invoke-virtual {p0, v2, v3, p4, p5}, Landroid/util/proto/ProtoOutputStream;->write(JJ)V
+    invoke-virtual {p0, v0, v1, p4, p5}, Landroid/util/proto/ProtoOutputStream;->write(JJ)V
 
-    invoke-virtual {p0, v0, v1}, Landroid/util/proto/ProtoOutputStream;->end(J)V
+    invoke-virtual {p0, p1, p2}, Landroid/util/proto/ProtoOutputStream;->end(J)V
 
     return-void
 .end method
 
-.method private static writeCountsForAction(Landroid/util/proto/ProtoOutputStream;Landroid/util/SparseIntArray;)V
-    .locals 9
+.method public static writeCountsForAction(Landroid/util/proto/ProtoOutputStream;Landroid/util/SparseIntArray;)V
+    .locals 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
@@ -2245,9 +2186,9 @@
 
     const-wide v6, 0x10500000001L
 
-    add-int/lit8 v8, v2, 0x1
+    add-int/lit8 v2, v2, 0x1
 
-    invoke-virtual {p0, v6, v7, v8}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
+    invoke-virtual {p0, v6, v7, v2}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
 
     const-wide v6, 0x10500000002L
 
@@ -2264,7 +2205,7 @@
     return-void
 .end method
 
-.method private static writeEvent(Landroid/util/proto/ProtoOutputStream;JLandroid/app/usage/UsageEvents$Event;)V
+.method public static writeEvent(Landroid/util/proto/ProtoOutputStream;JLandroid/app/usage/UsageEvents$Event;)V
     .locals 11
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2288,8 +2229,6 @@
 
     const-wide v2, 0x10500000002L
 
-    iget v0, p3, Landroid/app/usage/UsageEvents$Event;->mClassToken:I
-
     add-int/lit8 v0, v0, 0x1
 
     invoke-virtual {p0, v2, v3, v0}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
@@ -2305,141 +2244,136 @@
 
     invoke-static/range {v4 .. v10}, Lcom/android/server/usage/UsageStatsProtoV2;->writeOffsetTimestamp(Landroid/util/proto/ProtoOutputStream;JJJ)V
 
-    const-wide v2, 0x10500000004L
+    const-wide p1, 0x10500000004L
 
     iget v0, p3, Landroid/app/usage/UsageEvents$Event;->mFlags:I
 
-    invoke-virtual {p0, v2, v3, v0}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
+    invoke-virtual {p0, p1, p2, v0}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
 
-    const-wide v2, 0x10500000005L
+    const-wide p1, 0x10500000005L
 
     iget v0, p3, Landroid/app/usage/UsageEvents$Event;->mEventType:I
 
-    invoke-virtual {p0, v2, v3, v0}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
+    invoke-virtual {p0, p1, p2, v0}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
 
-    const-wide v2, 0x1050000000aL
+    const-wide p1, 0x1050000000aL
 
     iget v0, p3, Landroid/app/usage/UsageEvents$Event;->mInstanceId:I
 
-    invoke-virtual {p0, v2, v3, v0}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
+    invoke-virtual {p0, p1, p2, v0}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
 
-    iget v0, p3, Landroid/app/usage/UsageEvents$Event;->mTaskRootPackageToken:I
+    iget p1, p3, Landroid/app/usage/UsageEvents$Event;->mTaskRootPackageToken:I
 
-    if-eq v0, v1, :cond_1
+    if-eq p1, v1, :cond_1
 
     const-wide v2, 0x1050000000bL
 
-    iget v0, p3, Landroid/app/usage/UsageEvents$Event;->mTaskRootPackageToken:I
+    add-int/lit8 p1, p1, 0x1
 
-    add-int/lit8 v0, v0, 0x1
-
-    invoke-virtual {p0, v2, v3, v0}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
+    invoke-virtual {p0, v2, v3, p1}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
 
     :cond_1
-    iget v0, p3, Landroid/app/usage/UsageEvents$Event;->mTaskRootClassToken:I
+    iget p1, p3, Landroid/app/usage/UsageEvents$Event;->mTaskRootClassToken:I
 
-    if-eq v0, v1, :cond_2
+    if-eq p1, v1, :cond_2
 
     const-wide v2, 0x1050000000cL
 
-    iget v0, p3, Landroid/app/usage/UsageEvents$Event;->mTaskRootClassToken:I
+    add-int/lit8 p1, p1, 0x1
 
-    add-int/lit8 v0, v0, 0x1
-
-    invoke-virtual {p0, v2, v3, v0}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
+    invoke-virtual {p0, v2, v3, p1}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
 
     :cond_2
-    iget v0, p3, Landroid/app/usage/UsageEvents$Event;->mEventType:I
+    iget p1, p3, Landroid/app/usage/UsageEvents$Event;->mEventType:I
 
-    sparse-switch v0, :sswitch_data_0
+    const/4 p2, 0x5
 
-    goto :goto_0
+    if-eq p1, p2, :cond_7
 
-    :sswitch_0
-    iget v0, p3, Landroid/app/usage/UsageEvents$Event;->mLocusIdToken:I
+    const/16 p2, 0x8
 
-    if-eq v0, v1, :cond_3
+    if-eq p1, p2, :cond_6
 
-    const-wide v0, 0x1050000000dL
+    const/16 p2, 0x1e
 
-    iget v2, p3, Landroid/app/usage/UsageEvents$Event;->mLocusIdToken:I
+    if-eq p1, p2, :cond_5
 
-    add-int/lit8 v2, v2, 0x1
+    const/16 p2, 0xb
 
-    invoke-virtual {p0, v0, v1, v2}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
+    if-eq p1, p2, :cond_4
 
-    goto :goto_0
+    const/16 p2, 0xc
 
-    :sswitch_1
-    iget v0, p3, Landroid/app/usage/UsageEvents$Event;->mNotificationChannelIdToken:I
-
-    if-eq v0, v1, :cond_3
-
-    const-wide v0, 0x10500000009L
-
-    iget v2, p3, Landroid/app/usage/UsageEvents$Event;->mNotificationChannelIdToken:I
-
-    add-int/lit8 v2, v2, 0x1
-
-    invoke-virtual {p0, v0, v1, v2}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
+    if-eq p1, p2, :cond_3
 
     goto :goto_0
-
-    :sswitch_2
-    iget v0, p3, Landroid/app/usage/UsageEvents$Event;->mBucketAndReason:I
-
-    if-eqz v0, :cond_3
-
-    const-wide v0, 0x10500000008L
-
-    iget v2, p3, Landroid/app/usage/UsageEvents$Event;->mBucketAndReason:I
-
-    invoke-virtual {p0, v0, v1, v2}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
-
-    goto :goto_0
-
-    :sswitch_3
-    iget v0, p3, Landroid/app/usage/UsageEvents$Event;->mShortcutIdToken:I
-
-    if-eq v0, v1, :cond_3
-
-    const-wide v0, 0x10500000007L
-
-    iget v2, p3, Landroid/app/usage/UsageEvents$Event;->mShortcutIdToken:I
-
-    add-int/lit8 v2, v2, 0x1
-
-    invoke-virtual {p0, v0, v1, v2}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
-
-    goto :goto_0
-
-    :sswitch_4
-    iget-object v0, p3, Landroid/app/usage/UsageEvents$Event;->mConfiguration:Landroid/content/res/Configuration;
-
-    if-eqz v0, :cond_3
-
-    iget-object v0, p3, Landroid/app/usage/UsageEvents$Event;->mConfiguration:Landroid/content/res/Configuration;
-
-    const-wide v1, 0x10b00000006L
-
-    invoke-virtual {v0, p0, v1, v2}, Landroid/content/res/Configuration;->dumpDebug(Landroid/util/proto/ProtoOutputStream;J)V
 
     :cond_3
+    iget p1, p3, Landroid/app/usage/UsageEvents$Event;->mNotificationChannelIdToken:I
+
+    if-eq p1, v1, :cond_8
+
+    const-wide p2, 0x10500000009L
+
+    add-int/lit8 p1, p1, 0x1
+
+    invoke-virtual {p0, p2, p3, p1}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
+
+    goto :goto_0
+
+    :cond_4
+    iget p1, p3, Landroid/app/usage/UsageEvents$Event;->mBucketAndReason:I
+
+    if-eqz p1, :cond_8
+
+    const-wide p2, 0x10500000008L
+
+    invoke-virtual {p0, p2, p3, p1}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
+
+    goto :goto_0
+
+    :cond_5
+    iget p1, p3, Landroid/app/usage/UsageEvents$Event;->mLocusIdToken:I
+
+    if-eq p1, v1, :cond_8
+
+    const-wide p2, 0x1050000000dL
+
+    add-int/lit8 p1, p1, 0x1
+
+    invoke-virtual {p0, p2, p3, p1}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
+
+    goto :goto_0
+
+    :cond_6
+    iget p1, p3, Landroid/app/usage/UsageEvents$Event;->mShortcutIdToken:I
+
+    if-eq p1, v1, :cond_8
+
+    const-wide p2, 0x10500000007L
+
+    add-int/lit8 p1, p1, 0x1
+
+    invoke-virtual {p0, p2, p3, p1}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
+
+    goto :goto_0
+
+    :cond_7
+    iget-object p1, p3, Landroid/app/usage/UsageEvents$Event;->mConfiguration:Landroid/content/res/Configuration;
+
+    if-eqz p1, :cond_8
+
+    const-wide p2, 0x10b00000006L
+
+    invoke-virtual {p1, p0, p2, p3}, Landroid/content/res/Configuration;->dumpDebug(Landroid/util/proto/ProtoOutputStream;J)V
+
+    :cond_8
     :goto_0
     return-void
-
-    :sswitch_data_0
-    .sparse-switch
-        0x5 -> :sswitch_4
-        0x8 -> :sswitch_3
-        0xb -> :sswitch_2
-        0xc -> :sswitch_1
-        0x1e -> :sswitch_0
-    .end sparse-switch
 .end method
 
-.method static writeGlobalComponentUsage(Ljava/io/OutputStream;Ljava/util/Map;)V
-    .locals 10
+.method public static writeGlobalComponentUsage(Ljava/io/OutputStream;Ljava/util/Map;)V
+    .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2455,84 +2389,82 @@
 
     invoke-direct {v0, p0}, Landroid/util/proto/ProtoOutputStream;-><init>(Ljava/io/OutputStream;)V
 
-    nop
-
     invoke-interface {p1}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-interface {v1}, Ljava/util/Set;->toArray()[Ljava/lang/Object;
+    invoke-interface {p0}, Ljava/util/Set;->toArray()[Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p0
 
-    check-cast v1, [Ljava/util/Map$Entry;
+    check-cast p0, [Ljava/util/Map$Entry;
 
-    array-length v2, v1
+    array-length p1, p0
 
-    const/4 v3, 0x0
+    const/4 v1, 0x0
 
     :goto_0
-    if-ge v3, v2, :cond_1
+    if-ge v1, p1, :cond_1
 
-    aget-object v4, v1, v3
+    aget-object v2, p0, v1
 
-    invoke-interface {v4}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+    invoke-interface {v2}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v2
 
-    check-cast v4, Ljava/lang/Long;
+    check-cast v2, Ljava/lang/Long;
 
-    invoke-virtual {v4}, Ljava/lang/Long;->longValue()J
+    invoke-virtual {v2}, Ljava/lang/Long;->longValue()J
 
-    move-result-wide v4
+    move-result-wide v2
 
-    const-wide/16 v6, 0x0
+    const-wide/16 v4, 0x0
 
-    cmp-long v4, v4, v6
+    cmp-long v2, v2, v4
 
-    if-gtz v4, :cond_0
+    if-gtz v2, :cond_0
 
     goto :goto_1
 
     :cond_0
-    const-wide v4, 0x20b00000018L
+    const-wide v2, 0x20b00000018L
 
-    invoke-virtual {v0, v4, v5}, Landroid/util/proto/ProtoOutputStream;->start(J)J
+    invoke-virtual {v0, v2, v3}, Landroid/util/proto/ProtoOutputStream;->start(J)J
 
-    move-result-wide v4
+    move-result-wide v2
 
-    const-wide v6, 0x10900000001L
+    const-wide v4, 0x10900000001L
 
-    aget-object v8, v1, v3
+    aget-object v6, p0, v1
 
-    invoke-interface {v8}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+    invoke-interface {v6}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
-    move-result-object v8
+    move-result-object v6
 
-    check-cast v8, Ljava/lang/String;
+    check-cast v6, Ljava/lang/String;
 
-    invoke-virtual {v0, v6, v7, v8}, Landroid/util/proto/ProtoOutputStream;->write(JLjava/lang/String;)V
+    invoke-virtual {v0, v4, v5, v6}, Landroid/util/proto/ProtoOutputStream;->write(JLjava/lang/String;)V
 
-    const-wide v6, 0x10300000002L
+    const-wide v4, 0x10300000002L
 
-    aget-object v8, v1, v3
+    aget-object v6, p0, v1
 
-    invoke-interface {v8}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+    invoke-interface {v6}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v8
+    move-result-object v6
 
-    check-cast v8, Ljava/lang/Long;
+    check-cast v6, Ljava/lang/Long;
 
-    invoke-virtual {v8}, Ljava/lang/Long;->longValue()J
+    invoke-virtual {v6}, Ljava/lang/Long;->longValue()J
 
-    move-result-wide v8
+    move-result-wide v6
 
-    invoke-virtual {v0, v6, v7, v8, v9}, Landroid/util/proto/ProtoOutputStream;->write(JJ)V
+    invoke-virtual {v0, v4, v5, v6, v7}, Landroid/util/proto/ProtoOutputStream;->write(JJ)V
 
-    invoke-virtual {v0, v4, v5}, Landroid/util/proto/ProtoOutputStream;->end(J)V
+    invoke-virtual {v0, v2, v3}, Landroid/util/proto/ProtoOutputStream;->end(J)V
 
     :goto_1
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
@@ -2540,8 +2472,8 @@
     return-void
 .end method
 
-.method static writeObfuscatedData(Ljava/io/OutputStream;Lcom/android/server/usage/PackagesTokenData;)V
-    .locals 14
+.method public static writeObfuscatedData(Ljava/io/OutputStream;Lcom/android/server/usage/PackagesTokenData;)V
+    .locals 13
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -2553,22 +2485,24 @@
 
     invoke-direct {v0, p0}, Landroid/util/proto/ProtoOutputStream;-><init>(Ljava/io/OutputStream;)V
 
-    iget v1, p1, Lcom/android/server/usage/PackagesTokenData;->counter:I
+    iget p0, p1, Lcom/android/server/usage/PackagesTokenData;->counter:I
 
-    const-wide v2, 0x10500000001L
+    const-wide v1, 0x10500000001L
 
-    invoke-virtual {v0, v2, v3, v1}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
+    invoke-virtual {v0, v1, v2, p0}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
 
-    iget-object v1, p1, Lcom/android/server/usage/PackagesTokenData;->tokensToPackagesMap:Landroid/util/SparseArray;
+    iget-object p0, p1, Lcom/android/server/usage/PackagesTokenData;->tokensToPackagesMap:Landroid/util/SparseArray;
 
-    invoke-virtual {v1}, Landroid/util/SparseArray;->size()I
+    invoke-virtual {p0}, Landroid/util/SparseArray;->size()I
 
-    move-result v1
+    move-result p0
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
+
+    move v4, v3
 
     :goto_0
-    if-ge v4, v1, :cond_1
+    if-ge v4, p0, :cond_1
 
     const-wide v5, 0x20b00000002L
 
@@ -2582,38 +2516,38 @@
 
     move-result v7
 
-    add-int/lit8 v8, v7, 0x1
+    add-int/lit8 v7, v7, 0x1
 
-    invoke-virtual {v0, v2, v3, v8}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
+    invoke-virtual {v0, v1, v2, v7}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
 
-    iget-object v8, p1, Lcom/android/server/usage/PackagesTokenData;->tokensToPackagesMap:Landroid/util/SparseArray;
+    iget-object v7, p1, Lcom/android/server/usage/PackagesTokenData;->tokensToPackagesMap:Landroid/util/SparseArray;
 
-    invoke-virtual {v8, v4}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {v7, v4}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
 
-    move-result-object v8
+    move-result-object v7
 
-    check-cast v8, Ljava/util/ArrayList;
+    check-cast v7, Ljava/util/ArrayList;
 
-    invoke-virtual {v8}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v7}, Ljava/util/ArrayList;->size()I
 
-    move-result v9
+    move-result v8
 
-    const/4 v10, 0x0
+    move v9, v3
 
     :goto_1
-    if-ge v10, v9, :cond_0
+    if-ge v9, v8, :cond_0
 
-    const-wide v11, 0x20900000002L
+    const-wide v10, 0x20900000002L
 
-    invoke-virtual {v8, v10}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v7, v9}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v13
+    move-result-object v12
 
-    check-cast v13, Ljava/lang/String;
+    check-cast v12, Ljava/lang/String;
 
-    invoke-virtual {v0, v11, v12, v13}, Landroid/util/proto/ProtoOutputStream;->write(JLjava/lang/String;)V
+    invoke-virtual {v0, v10, v11, v12}, Landroid/util/proto/ProtoOutputStream;->write(JLjava/lang/String;)V
 
-    add-int/lit8 v10, v10, 0x1
+    add-int/lit8 v9, v9, 0x1
 
     goto :goto_1
 
@@ -2630,28 +2564,28 @@
     return-void
 .end method
 
-.method static writeOffsetTimestamp(Landroid/util/proto/ProtoOutputStream;JJJ)V
-    .locals 4
+.method public static writeOffsetTimestamp(Landroid/util/proto/ProtoOutputStream;JJJ)V
+    .locals 2
 
     sget-wide v0, Lcom/android/server/usage/UsageStatsProtoV2;->ONE_HOUR_MS:J
 
     sub-long v0, p5, v0
 
-    cmp-long v2, p3, v0
+    cmp-long v0, p3, v0
 
-    if-lez v2, :cond_0
+    if-lez v0, :cond_0
 
     invoke-static {p3, p4, p5, p6}, Lcom/android/server/usage/UsageStatsProtoV2;->getOffsetTimestamp(JJ)J
 
-    move-result-wide v2
+    move-result-wide p3
 
-    invoke-virtual {p0, p1, p2, v2, v3}, Landroid/util/proto/ProtoOutputStream;->write(JJ)V
+    invoke-virtual {p0, p1, p2, p3, p4}, Landroid/util/proto/ProtoOutputStream;->write(JJ)V
 
     :cond_0
     return-void
 .end method
 
-.method private static writePendingEvent(Landroid/util/proto/ProtoOutputStream;Landroid/app/usage/UsageEvents$Event;)V
+.method public static writePendingEvent(Landroid/util/proto/ProtoOutputStream;Landroid/app/usage/UsageEvents$Event;)V
     .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2669,11 +2603,9 @@
 
     if-eqz v0, :cond_0
 
-    const-wide v0, 0x10900000002L
+    const-wide v1, 0x10900000002L
 
-    iget-object v2, p1, Landroid/app/usage/UsageEvents$Event;->mClass:Ljava/lang/String;
-
-    invoke-virtual {p0, v0, v1, v2}, Landroid/util/proto/ProtoOutputStream;->write(JLjava/lang/String;)V
+    invoke-virtual {p0, v1, v2, v0}, Landroid/util/proto/ProtoOutputStream;->write(JLjava/lang/String;)V
 
     :cond_0
     const-wide v0, 0x10300000003L
@@ -2704,95 +2636,89 @@
 
     if-eqz v0, :cond_1
 
-    const-wide v0, 0x1090000000bL
+    const-wide v1, 0x1090000000bL
 
-    iget-object v2, p1, Landroid/app/usage/UsageEvents$Event;->mTaskRootPackage:Ljava/lang/String;
-
-    invoke-virtual {p0, v0, v1, v2}, Landroid/util/proto/ProtoOutputStream;->write(JLjava/lang/String;)V
+    invoke-virtual {p0, v1, v2, v0}, Landroid/util/proto/ProtoOutputStream;->write(JLjava/lang/String;)V
 
     :cond_1
     iget-object v0, p1, Landroid/app/usage/UsageEvents$Event;->mTaskRootClass:Ljava/lang/String;
 
     if-eqz v0, :cond_2
 
-    const-wide v0, 0x1090000000cL
+    const-wide v1, 0x1090000000cL
 
-    iget-object v2, p1, Landroid/app/usage/UsageEvents$Event;->mTaskRootClass:Ljava/lang/String;
-
-    invoke-virtual {p0, v0, v1, v2}, Landroid/util/proto/ProtoOutputStream;->write(JLjava/lang/String;)V
+    invoke-virtual {p0, v1, v2, v0}, Landroid/util/proto/ProtoOutputStream;->write(JLjava/lang/String;)V
 
     :cond_2
     iget v0, p1, Landroid/app/usage/UsageEvents$Event;->mEventType:I
 
-    sparse-switch v0, :sswitch_data_0
+    const/4 v1, 0x5
+
+    if-eq v0, v1, :cond_6
+
+    const/16 v1, 0x8
+
+    if-eq v0, v1, :cond_5
+
+    const/16 v1, 0xb
+
+    if-eq v0, v1, :cond_4
+
+    const/16 v1, 0xc
+
+    if-eq v0, v1, :cond_3
 
     goto :goto_0
 
-    :sswitch_0
-    iget-object v0, p1, Landroid/app/usage/UsageEvents$Event;->mNotificationChannelId:Ljava/lang/String;
+    :cond_3
+    iget-object p1, p1, Landroid/app/usage/UsageEvents$Event;->mNotificationChannelId:Ljava/lang/String;
 
-    if-eqz v0, :cond_3
+    if-eqz p1, :cond_7
 
     const-wide v0, 0x10900000009L
 
-    iget-object v2, p1, Landroid/app/usage/UsageEvents$Event;->mNotificationChannelId:Ljava/lang/String;
-
-    invoke-virtual {p0, v0, v1, v2}, Landroid/util/proto/ProtoOutputStream;->write(JLjava/lang/String;)V
+    invoke-virtual {p0, v0, v1, p1}, Landroid/util/proto/ProtoOutputStream;->write(JLjava/lang/String;)V
 
     goto :goto_0
 
-    :sswitch_1
-    iget v0, p1, Landroid/app/usage/UsageEvents$Event;->mBucketAndReason:I
+    :cond_4
+    iget p1, p1, Landroid/app/usage/UsageEvents$Event;->mBucketAndReason:I
 
-    if-eqz v0, :cond_3
+    if-eqz p1, :cond_7
 
     const-wide v0, 0x10500000008L
 
-    iget v2, p1, Landroid/app/usage/UsageEvents$Event;->mBucketAndReason:I
-
-    invoke-virtual {p0, v0, v1, v2}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
+    invoke-virtual {p0, v0, v1, p1}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
 
     goto :goto_0
 
-    :sswitch_2
-    iget-object v0, p1, Landroid/app/usage/UsageEvents$Event;->mShortcutId:Ljava/lang/String;
+    :cond_5
+    iget-object p1, p1, Landroid/app/usage/UsageEvents$Event;->mShortcutId:Ljava/lang/String;
 
-    if-eqz v0, :cond_3
+    if-eqz p1, :cond_7
 
     const-wide v0, 0x10900000007L
 
-    iget-object v2, p1, Landroid/app/usage/UsageEvents$Event;->mShortcutId:Ljava/lang/String;
-
-    invoke-virtual {p0, v0, v1, v2}, Landroid/util/proto/ProtoOutputStream;->write(JLjava/lang/String;)V
+    invoke-virtual {p0, v0, v1, p1}, Landroid/util/proto/ProtoOutputStream;->write(JLjava/lang/String;)V
 
     goto :goto_0
 
-    :sswitch_3
-    iget-object v0, p1, Landroid/app/usage/UsageEvents$Event;->mConfiguration:Landroid/content/res/Configuration;
+    :cond_6
+    iget-object p1, p1, Landroid/app/usage/UsageEvents$Event;->mConfiguration:Landroid/content/res/Configuration;
 
-    if-eqz v0, :cond_3
+    if-eqz p1, :cond_7
 
-    iget-object v0, p1, Landroid/app/usage/UsageEvents$Event;->mConfiguration:Landroid/content/res/Configuration;
+    const-wide v0, 0x10b00000006L
 
-    const-wide v1, 0x10b00000006L
+    invoke-virtual {p1, p0, v0, v1}, Landroid/content/res/Configuration;->dumpDebug(Landroid/util/proto/ProtoOutputStream;J)V
 
-    invoke-virtual {v0, p0, v1, v2}, Landroid/content/res/Configuration;->dumpDebug(Landroid/util/proto/ProtoOutputStream;J)V
-
-    :cond_3
+    :cond_7
     :goto_0
     return-void
-
-    :sswitch_data_0
-    .sparse-switch
-        0x5 -> :sswitch_3
-        0x8 -> :sswitch_2
-        0xb -> :sswitch_1
-        0xc -> :sswitch_0
-    .end sparse-switch
 .end method
 
-.method static writePendingEvents(Ljava/io/OutputStream;Ljava/util/LinkedList;)V
-    .locals 6
+.method public static writePendingEvents(Ljava/io/OutputStream;Ljava/util/LinkedList;)V
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2816,45 +2742,45 @@
 
     invoke-virtual {p1}, Ljava/util/LinkedList;->size()I
 
-    move-result v1
+    move-result p0
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
     :goto_0
-    if-ge v2, v1, :cond_0
+    if-ge v1, p0, :cond_0
 
-    const-wide v3, 0x20b00000017L
+    const-wide v2, 0x20b00000017L
 
     :try_start_0
-    invoke-virtual {v0, v3, v4}, Landroid/util/proto/ProtoOutputStream;->start(J)J
+    invoke-virtual {v0, v2, v3}, Landroid/util/proto/ProtoOutputStream;->start(J)J
 
-    move-result-wide v3
+    move-result-wide v2
 
-    invoke-virtual {p1, v2}, Ljava/util/LinkedList;->get(I)Ljava/lang/Object;
+    invoke-virtual {p1, v1}, Ljava/util/LinkedList;->get(I)Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v4
 
-    check-cast v5, Landroid/app/usage/UsageEvents$Event;
+    check-cast v4, Landroid/app/usage/UsageEvents$Event;
 
-    invoke-static {v0, v5}, Lcom/android/server/usage/UsageStatsProtoV2;->writePendingEvent(Landroid/util/proto/ProtoOutputStream;Landroid/app/usage/UsageEvents$Event;)V
+    invoke-static {v0, v4}, Lcom/android/server/usage/UsageStatsProtoV2;->writePendingEvent(Landroid/util/proto/ProtoOutputStream;Landroid/app/usage/UsageEvents$Event;)V
 
-    invoke-virtual {v0, v3, v4}, Landroid/util/proto/ProtoOutputStream;->end(J)V
+    invoke-virtual {v0, v2, v3}, Landroid/util/proto/ProtoOutputStream;->end(J)V
     :try_end_0
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_1
 
     :catch_0
-    move-exception v3
+    move-exception v2
 
-    const-string v4, "UsageStatsProtoV2"
+    const-string v3, "UsageStatsProtoV2"
 
-    const-string v5, "Unable to write some pending events to proto."
+    const-string v4, "Unable to write some pending events to proto."
 
-    invoke-static {v4, v5, v3}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v3, v4, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_1
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
@@ -2864,7 +2790,7 @@
     return-void
 .end method
 
-.method private static writeUsageStats(Landroid/util/proto/ProtoOutputStream;JLandroid/app/usage/UsageStats;)V
+.method public static writeUsageStats(Landroid/util/proto/ProtoOutputStream;JLandroid/app/usage/UsageStats;)V
     .locals 11
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2930,11 +2856,11 @@
 
     invoke-static/range {v4 .. v10}, Lcom/android/server/usage/UsageStatsProtoV2;->writeOffsetTimestamp(Landroid/util/proto/ProtoOutputStream;JJJ)V
 
-    iget v0, p3, Landroid/app/usage/UsageStats;->mAppLaunchCount:I
+    iget p1, p3, Landroid/app/usage/UsageStats;->mAppLaunchCount:I
 
-    const-wide v1, 0x10500000006L
+    const-wide v0, 0x10500000006L
 
-    invoke-virtual {p0, v1, v2, v0}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
+    invoke-virtual {p0, v0, v1, p1}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
 
     :try_start_0
     invoke-static {p0, p3}, Lcom/android/server/usage/UsageStatsProtoV2;->writeChooserCounts(Landroid/util/proto/ProtoOutputStream;Landroid/app/usage/UsageStats;)V
@@ -2944,27 +2870,27 @@
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "Unable to write chooser counts for "
+    const-string p2, "Unable to write chooser counts for "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v2, p3, Landroid/app/usage/UsageStats;->mPackageName:Ljava/lang/String;
+    iget-object p2, p3, Landroid/app/usage/UsageStats;->mPackageName:Ljava/lang/String;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    const-string v2, "UsageStatsProtoV2"
+    const-string p2, "UsageStatsProtoV2"
 
-    invoke-static {v2, v1, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {p2, p1, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_0
     return-void

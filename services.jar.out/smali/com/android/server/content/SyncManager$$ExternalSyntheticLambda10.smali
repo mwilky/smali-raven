@@ -1,41 +1,102 @@
 .class public final synthetic Lcom/android/server/content/SyncManager$$ExternalSyntheticLambda10;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Function;
+.implements Landroid/os/RemoteCallback$OnResultListener;
 
 
 # instance fields
 .field public final synthetic f$0:Lcom/android/server/content/SyncManager;
 
+.field public final synthetic f$1:Landroid/accounts/AccountAndUser;
+
+.field public final synthetic f$10:I
+
+.field public final synthetic f$11:Ljava/lang/String;
+
+.field public final synthetic f$2:I
+
+.field public final synthetic f$3:I
+
+.field public final synthetic f$4:Ljava/lang/String;
+
+.field public final synthetic f$5:Landroid/os/Bundle;
+
+.field public final synthetic f$6:I
+
+.field public final synthetic f$7:J
+
+.field public final synthetic f$8:I
+
+.field public final synthetic f$9:I
+
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/content/SyncManager;)V
+.method public synthetic constructor <init>(Lcom/android/server/content/SyncManager;Landroid/accounts/AccountAndUser;IILjava/lang/String;Landroid/os/Bundle;IJIIILjava/lang/String;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/server/content/SyncManager$$ExternalSyntheticLambda10;->f$0:Lcom/android/server/content/SyncManager;
 
+    iput-object p2, p0, Lcom/android/server/content/SyncManager$$ExternalSyntheticLambda10;->f$1:Landroid/accounts/AccountAndUser;
+
+    iput p3, p0, Lcom/android/server/content/SyncManager$$ExternalSyntheticLambda10;->f$2:I
+
+    iput p4, p0, Lcom/android/server/content/SyncManager$$ExternalSyntheticLambda10;->f$3:I
+
+    iput-object p5, p0, Lcom/android/server/content/SyncManager$$ExternalSyntheticLambda10;->f$4:Ljava/lang/String;
+
+    iput-object p6, p0, Lcom/android/server/content/SyncManager$$ExternalSyntheticLambda10;->f$5:Landroid/os/Bundle;
+
+    iput p7, p0, Lcom/android/server/content/SyncManager$$ExternalSyntheticLambda10;->f$6:I
+
+    iput-wide p8, p0, Lcom/android/server/content/SyncManager$$ExternalSyntheticLambda10;->f$7:J
+
+    iput p10, p0, Lcom/android/server/content/SyncManager$$ExternalSyntheticLambda10;->f$8:I
+
+    iput p11, p0, Lcom/android/server/content/SyncManager$$ExternalSyntheticLambda10;->f$9:I
+
+    iput p12, p0, Lcom/android/server/content/SyncManager$$ExternalSyntheticLambda10;->f$10:I
+
+    iput-object p13, p0, Lcom/android/server/content/SyncManager$$ExternalSyntheticLambda10;->f$11:Ljava/lang/String;
+
     return-void
 .end method
 
 
 # virtual methods
-.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+.method public final onResult(Landroid/os/Bundle;)V
+    .locals 14
 
     iget-object v0, p0, Lcom/android/server/content/SyncManager$$ExternalSyntheticLambda10;->f$0:Lcom/android/server/content/SyncManager;
 
-    check-cast p1, Ljava/lang/Integer;
+    iget-object v1, p0, Lcom/android/server/content/SyncManager$$ExternalSyntheticLambda10;->f$1:Landroid/accounts/AccountAndUser;
 
-    invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
+    iget v2, p0, Lcom/android/server/content/SyncManager$$ExternalSyntheticLambda10;->f$2:I
 
-    move-result p1
+    iget v3, p0, Lcom/android/server/content/SyncManager$$ExternalSyntheticLambda10;->f$3:I
 
-    invoke-static {v0, p1}, Lcom/android/server/content/SyncManager;->$r8$lambda$f_0Z1_2aO_5hA8fHgzsbmTPHbes(Lcom/android/server/content/SyncManager;I)Ljava/lang/String;
+    iget-object v4, p0, Lcom/android/server/content/SyncManager$$ExternalSyntheticLambda10;->f$4:Ljava/lang/String;
 
-    move-result-object p1
+    iget-object v5, p0, Lcom/android/server/content/SyncManager$$ExternalSyntheticLambda10;->f$5:Landroid/os/Bundle;
 
-    return-object p1
+    iget v6, p0, Lcom/android/server/content/SyncManager$$ExternalSyntheticLambda10;->f$6:I
+
+    iget-wide v7, p0, Lcom/android/server/content/SyncManager$$ExternalSyntheticLambda10;->f$7:J
+
+    iget v9, p0, Lcom/android/server/content/SyncManager$$ExternalSyntheticLambda10;->f$8:I
+
+    iget v10, p0, Lcom/android/server/content/SyncManager$$ExternalSyntheticLambda10;->f$9:I
+
+    iget v11, p0, Lcom/android/server/content/SyncManager$$ExternalSyntheticLambda10;->f$10:I
+
+    iget-object v12, p0, Lcom/android/server/content/SyncManager$$ExternalSyntheticLambda10;->f$11:Ljava/lang/String;
+
+    move-object v13, p1
+
+    invoke-static/range {v0 .. v13}, Lcom/android/server/content/SyncManager;->$r8$lambda$npAYbBbVd5Z_AuJYfL0Y--2whrM(Lcom/android/server/content/SyncManager;Landroid/accounts/AccountAndUser;IILjava/lang/String;Landroid/os/Bundle;IJIIILjava/lang/String;Landroid/os/Bundle;)V
+
+    return-void
 .end method

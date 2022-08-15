@@ -26,9 +26,9 @@
 
 # virtual methods
 .method public onStart()V
-    .locals 6
+    .locals 4
 
-    invoke-virtual {p0}, Lcom/android/server/timedetector/TimeDetectorService$Lifecycle;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Lcom/android/server/SystemService;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
@@ -36,25 +36,21 @@
 
     move-result-object v1
 
-    nop
-
     invoke-static {v0}, Lcom/android/server/timedetector/ServiceConfigAccessor;->getInstance(Landroid/content/Context;)Lcom/android/server/timedetector/ServiceConfigAccessor;
 
     move-result-object v2
 
-    nop
-
     invoke-static {v0, v1, v2}, Lcom/android/server/timedetector/TimeDetectorStrategyImpl;->create(Landroid/content/Context;Landroid/os/Handler;Lcom/android/server/timedetector/ServiceConfigAccessor;)Lcom/android/server/timedetector/TimeDetectorStrategy;
 
-    move-result-object v3
+    move-result-object v2
 
-    new-instance v4, Lcom/android/server/timedetector/TimeDetectorService;
+    new-instance v3, Lcom/android/server/timedetector/TimeDetectorService;
 
-    invoke-direct {v4, v0, v1, v3}, Lcom/android/server/timedetector/TimeDetectorService;-><init>(Landroid/content/Context;Landroid/os/Handler;Lcom/android/server/timedetector/TimeDetectorStrategy;)V
+    invoke-direct {v3, v0, v1, v2}, Lcom/android/server/timedetector/TimeDetectorService;-><init>(Landroid/content/Context;Landroid/os/Handler;Lcom/android/server/timedetector/TimeDetectorStrategy;)V
 
-    const-string v5, "time_detector"
+    const-string v0, "time_detector"
 
-    invoke-virtual {p0, v5, v4}, Lcom/android/server/timedetector/TimeDetectorService$Lifecycle;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
+    invoke-virtual {p0, v0, v3}, Lcom/android/server/SystemService;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
 
     return-void
 .end method

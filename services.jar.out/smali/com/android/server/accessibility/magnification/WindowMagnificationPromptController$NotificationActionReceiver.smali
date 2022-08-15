@@ -1,4 +1,4 @@
-.class Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController$NotificationActionReceiver;
+.class public Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController$NotificationActionReceiver;
 .super Landroid/content/BroadcastReceiver;
 .source "WindowMagnificationPromptController.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "NotificationActionReceiver"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController;
+.field public final synthetic this$0:Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController;)V
+.method public constructor <init>(Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController$NotificationActionReceiver;->this$0:Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController;
@@ -29,7 +29,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController;Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController;Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController$NotificationActionReceiver-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController$NotificationActionReceiver;-><init>(Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController;)V
@@ -40,77 +40,77 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 5
+    .locals 3
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v1
+    move-result p2
 
-    if-eqz v1, :cond_0
+    if-eqz p2, :cond_0
 
     return-void
 
     :cond_0
+    iget-object p2, p0, Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController$NotificationActionReceiver;->this$0:Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController;
+
+    const/4 v0, 0x0
+
+    invoke-static {p2, v0}, Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController;->-$$Nest$fputmNeedToShowNotification(Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController;Z)V
+
+    iget-object p2, p0, Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController$NotificationActionReceiver;->this$0:Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController;
+
+    invoke-static {p2}, Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController;->-$$Nest$fgetmContext(Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController;)Landroid/content/Context;
+
+    move-result-object p2
+
+    invoke-virtual {p2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object p2
+
     iget-object v1, p0, Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController$NotificationActionReceiver;->this$0:Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController;
 
-    const/4 v2, 0x0
-
-    invoke-static {v1, v2}, Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController;->access$102(Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController;Z)Z
-
-    iget-object v1, p0, Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController$NotificationActionReceiver;->this$0:Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController;
-
-    invoke-static {v1}, Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController;->access$200(Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController;)Landroid/content/Context;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v1
-
-    iget-object v3, p0, Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController$NotificationActionReceiver;->this$0:Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController;
-
-    invoke-static {v3}, Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController;->access$300(Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController;)I
-
-    move-result v3
-
-    const-string v4, "accessibility_show_window_magnification_prompt"
-
-    invoke-static {v1, v4, v2, v3}, Landroid/provider/Settings$Secure;->putIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)Z
-
-    const-string v1, "com.android.server.accessibility.magnification.action.TURN_ON_IN_SETTINGS"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-static {v1}, Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController;->-$$Nest$fgetmUserId(Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController;)I
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    const-string v2, "accessibility_show_window_magnification_prompt"
 
-    iget-object v1, p0, Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController$NotificationActionReceiver;->this$0:Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController;
+    invoke-static {p2, v2, v0, v1}, Landroid/provider/Settings$Secure;->putIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)Z
 
-    invoke-static {v1}, Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController;->access$400(Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController;)V
+    const-string p2, "com.android.server.accessibility.magnification.action.TURN_ON_IN_SETTINGS"
 
-    iget-object v1, p0, Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController$NotificationActionReceiver;->this$0:Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController;
+    invoke-virtual {p2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-static {v1}, Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController;->access$500(Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController;)V
+    move-result p2
+
+    if-eqz p2, :cond_1
+
+    iget-object p1, p0, Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController$NotificationActionReceiver;->this$0:Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController;
+
+    invoke-static {p1}, Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController;->-$$Nest$mlaunchMagnificationSettings(Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController;)V
+
+    iget-object p0, p0, Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController$NotificationActionReceiver;->this$0:Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController;
+
+    invoke-static {p0}, Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController;->-$$Nest$mdismissNotification(Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController;)V
 
     goto :goto_0
 
     :cond_1
-    const-string v1, "com.android.server.accessibility.magnification.action.DISMISS"
+    const-string p2, "com.android.server.accessibility.magnification.action.DISMISS"
 
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result p1
 
-    if-eqz v1, :cond_2
+    if-eqz p1, :cond_2
 
-    iget-object v1, p0, Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController$NotificationActionReceiver;->this$0:Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController;
+    iget-object p0, p0, Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController$NotificationActionReceiver;->this$0:Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController;
 
-    invoke-static {v1}, Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController;->access$500(Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController;)V
+    invoke-static {p0}, Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController;->-$$Nest$mdismissNotification(Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController;)V
 
     :cond_2
     :goto_0

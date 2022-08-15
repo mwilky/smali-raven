@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/textclassifier/TextClassificationManagerService$$ExternalSyntheticLambda12;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -23,13 +24,13 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/textclassifier/TextClassificationManagerService$$ExternalSyntheticLambda12;->f$0:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/textclassifier/TextClassificationManagerService$$ExternalSyntheticLambda12;->f$0:Ljava/lang/String;
 
     check-cast p1, Ljava/lang/Throwable;
 
-    invoke-static {v0, p1}, Lcom/android/server/textclassifier/TextClassificationManagerService;->lambda$logOnFailure$11(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-static {p0, p1}, Lcom/android/server/textclassifier/TextClassificationManagerService;->$r8$lambda$Jbg_cElQVKpjFcTDHfbDzSedyr4(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     return-void
 .end method

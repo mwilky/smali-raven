@@ -4,6 +4,10 @@
 
 
 # annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    visibility = .enum Lcom/android/internal/annotations/VisibleForTesting$Visibility;->PRIVATE:Lcom/android/internal/annotations/VisibleForTesting$Visibility;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/android/server/vcn/VcnGatewayConnection;
 .end annotation
@@ -15,7 +19,7 @@
 
 
 # instance fields
-.field private final mImpl:Landroid/net/NetworkAgent;
+.field public final mImpl:Landroid/net/NetworkAgent;
 
 
 # direct methods
@@ -84,59 +88,59 @@
 
 # virtual methods
 .method public getNetwork()Landroid/net/Network;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/vcn/VcnGatewayConnection$VcnNetworkAgent;->mImpl:Landroid/net/NetworkAgent;
+    iget-object p0, p0, Lcom/android/server/vcn/VcnGatewayConnection$VcnNetworkAgent;->mImpl:Landroid/net/NetworkAgent;
 
-    invoke-virtual {v0}, Landroid/net/NetworkAgent;->getNetwork()Landroid/net/Network;
+    invoke-virtual {p0}, Landroid/net/NetworkAgent;->getNetwork()Landroid/net/Network;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public markConnected()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/vcn/VcnGatewayConnection$VcnNetworkAgent;->mImpl:Landroid/net/NetworkAgent;
+    iget-object p0, p0, Lcom/android/server/vcn/VcnGatewayConnection$VcnNetworkAgent;->mImpl:Landroid/net/NetworkAgent;
 
-    invoke-virtual {v0}, Landroid/net/NetworkAgent;->markConnected()V
+    invoke-virtual {p0}, Landroid/net/NetworkAgent;->markConnected()V
 
     return-void
 .end method
 
 .method public register()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/vcn/VcnGatewayConnection$VcnNetworkAgent;->mImpl:Landroid/net/NetworkAgent;
+    iget-object p0, p0, Lcom/android/server/vcn/VcnGatewayConnection$VcnNetworkAgent;->mImpl:Landroid/net/NetworkAgent;
 
-    invoke-virtual {v0}, Landroid/net/NetworkAgent;->register()Landroid/net/Network;
+    invoke-virtual {p0}, Landroid/net/NetworkAgent;->register()Landroid/net/Network;
 
     return-void
 .end method
 
 .method public sendLinkProperties(Landroid/net/LinkProperties;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/vcn/VcnGatewayConnection$VcnNetworkAgent;->mImpl:Landroid/net/NetworkAgent;
+    iget-object p0, p0, Lcom/android/server/vcn/VcnGatewayConnection$VcnNetworkAgent;->mImpl:Landroid/net/NetworkAgent;
 
-    invoke-virtual {v0, p1}, Landroid/net/NetworkAgent;->sendLinkProperties(Landroid/net/LinkProperties;)V
+    invoke-virtual {p0, p1}, Landroid/net/NetworkAgent;->sendLinkProperties(Landroid/net/LinkProperties;)V
 
     return-void
 .end method
 
 .method public sendNetworkCapabilities(Landroid/net/NetworkCapabilities;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/vcn/VcnGatewayConnection$VcnNetworkAgent;->mImpl:Landroid/net/NetworkAgent;
+    iget-object p0, p0, Lcom/android/server/vcn/VcnGatewayConnection$VcnNetworkAgent;->mImpl:Landroid/net/NetworkAgent;
 
-    invoke-virtual {v0, p1}, Landroid/net/NetworkAgent;->sendNetworkCapabilities(Landroid/net/NetworkCapabilities;)V
+    invoke-virtual {p0, p1}, Landroid/net/NetworkAgent;->sendNetworkCapabilities(Landroid/net/NetworkCapabilities;)V
 
     return-void
 .end method
 
 .method public setUnderlyingNetworks(Ljava/util/List;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -146,19 +150,19 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/android/server/vcn/VcnGatewayConnection$VcnNetworkAgent;->mImpl:Landroid/net/NetworkAgent;
+    iget-object p0, p0, Lcom/android/server/vcn/VcnGatewayConnection$VcnNetworkAgent;->mImpl:Landroid/net/NetworkAgent;
 
-    invoke-virtual {v0, p1}, Landroid/net/NetworkAgent;->setUnderlyingNetworks(Ljava/util/List;)V
+    invoke-virtual {p0, p1}, Landroid/net/NetworkAgent;->setUnderlyingNetworks(Ljava/util/List;)V
 
     return-void
 .end method
 
 .method public unregister()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/vcn/VcnGatewayConnection$VcnNetworkAgent;->mImpl:Landroid/net/NetworkAgent;
+    iget-object p0, p0, Lcom/android/server/vcn/VcnGatewayConnection$VcnNetworkAgent;->mImpl:Landroid/net/NetworkAgent;
 
-    invoke-virtual {v0}, Landroid/net/NetworkAgent;->unregister()V
+    invoke-virtual {p0}, Landroid/net/NetworkAgent;->unregister()V
 
     return-void
 .end method

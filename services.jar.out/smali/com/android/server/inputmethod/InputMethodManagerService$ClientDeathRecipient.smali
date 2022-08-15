@@ -1,4 +1,4 @@
-.class final Lcom/android/server/inputmethod/InputMethodManagerService$ClientDeathRecipient;
+.class public final Lcom/android/server/inputmethod/InputMethodManagerService$ClientDeathRecipient;
 .super Ljava/lang/Object;
 .source "InputMethodManagerService.java"
 
@@ -12,19 +12,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "ClientDeathRecipient"
 .end annotation
 
 
 # instance fields
-.field private final mClient:Lcom/android/internal/view/IInputMethodClient;
+.field public final mClient:Lcom/android/internal/view/IInputMethodClient;
 
-.field private final mImms:Lcom/android/server/inputmethod/InputMethodManagerService;
+.field public final mImms:Lcom/android/server/inputmethod/InputMethodManagerService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/inputmethod/InputMethodManagerService;Lcom/android/internal/view/IInputMethodClient;)V
+.method public constructor <init>(Lcom/android/server/inputmethod/InputMethodManagerService;Lcom/android/internal/view/IInputMethodClient;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,13 +39,13 @@
 
 # virtual methods
 .method public binderDied()V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/inputmethod/InputMethodManagerService$ClientDeathRecipient;->mImms:Lcom/android/server/inputmethod/InputMethodManagerService;
 
-    iget-object v1, p0, Lcom/android/server/inputmethod/InputMethodManagerService$ClientDeathRecipient;->mClient:Lcom/android/internal/view/IInputMethodClient;
+    iget-object p0, p0, Lcom/android/server/inputmethod/InputMethodManagerService$ClientDeathRecipient;->mClient:Lcom/android/internal/view/IInputMethodClient;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/inputmethod/InputMethodManagerService;->removeClient(Lcom/android/internal/view/IInputMethodClient;)V
+    invoke-virtual {v0, p0}, Lcom/android/server/inputmethod/InputMethodManagerService;->removeClient(Lcom/android/internal/view/IInputMethodClient;)V
 
     return-void
 .end method

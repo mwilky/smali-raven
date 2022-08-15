@@ -1,4 +1,4 @@
-.class Lcom/android/server/adb/AdbService$AdbSettingsObserver;
+.class public Lcom/android/server/adb/AdbService$AdbSettingsObserver;
 .super Landroid/database/ContentObserver;
 .source "AdbService.java"
 
@@ -9,21 +9,37 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "AdbSettingsObserver"
 .end annotation
 
 
 # instance fields
-.field private final mAdbUsbUri:Landroid/net/Uri;
+.field public final mAdbUsbUri:Landroid/net/Uri;
 
-.field private final mAdbWifiUri:Landroid/net/Uri;
+.field public final mAdbWifiUri:Landroid/net/Uri;
 
-.field final synthetic this$0:Lcom/android/server/adb/AdbService;
+.field public final synthetic this$0:Lcom/android/server/adb/AdbService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/adb/AdbService;)V
+.method public static synthetic $r8$lambda$0BNJsES12ohN-hM9rc-IHHCmT0w(Ljava/lang/Object;ZB)V
+    .locals 0
+
+    invoke-static {p0, p1, p2}, Lcom/android/server/adb/AdbService$AdbSettingsObserver;->lambda$onChange$0(Ljava/lang/Object;ZB)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$_anrLRfFAjD1hzNXDKN7XRbjsWE(Ljava/lang/Object;ZB)V
+    .locals 0
+
+    invoke-static {p0, p1, p2}, Lcom/android/server/adb/AdbService$AdbSettingsObserver;->lambda$onChange$1(Ljava/lang/Object;ZB)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Lcom/android/server/adb/AdbService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/adb/AdbService$AdbSettingsObserver;->this$0:Lcom/android/server/adb/AdbService;
@@ -51,26 +67,22 @@
     return-void
 .end method
 
-.method static synthetic lambda$onChange$0(Ljava/lang/Object;ZB)V
-    .locals 1
+.method public static synthetic lambda$onChange$0(Ljava/lang/Object;ZB)V
+    .locals 0
 
-    move-object v0, p0
+    check-cast p0, Lcom/android/server/adb/AdbService;
 
-    check-cast v0, Lcom/android/server/adb/AdbService;
-
-    invoke-static {v0, p1, p2}, Lcom/android/server/adb/AdbService;->access$700(Lcom/android/server/adb/AdbService;ZB)V
+    invoke-static {p0, p1, p2}, Lcom/android/server/adb/AdbService;->-$$Nest$msetAdbEnabled(Lcom/android/server/adb/AdbService;ZB)V
 
     return-void
 .end method
 
-.method static synthetic lambda$onChange$1(Ljava/lang/Object;ZB)V
-    .locals 1
+.method public static synthetic lambda$onChange$1(Ljava/lang/Object;ZB)V
+    .locals 0
 
-    move-object v0, p0
+    check-cast p0, Lcom/android/server/adb/AdbService;
 
-    check-cast v0, Lcom/android/server/adb/AdbService;
-
-    invoke-static {v0, p1, p2}, Lcom/android/server/adb/AdbService;->access$700(Lcom/android/server/adb/AdbService;ZB)V
+    invoke-static {p0, p1, p2}, Lcom/android/server/adb/AdbService;->-$$Nest$msetAdbEnabled(Lcom/android/server/adb/AdbService;ZB)V
 
     return-void
 .end method
@@ -78,122 +90,117 @@
 
 # virtual methods
 .method public onChange(ZLandroid/net/Uri;I)V
-    .locals 6
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/adb/AdbService$AdbSettingsObserver;->mAdbUsbUri:Landroid/net/Uri;
+    iget-object p1, p0, Lcom/android/server/adb/AdbService$AdbSettingsObserver;->mAdbUsbUri:Landroid/net/Uri;
 
-    invoke-virtual {v0, p2}, Landroid/net/Uri;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, p2}, Landroid/net/Uri;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    const/4 v1, 0x1
+    const/4 p3, 0x1
 
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_1
 
-    iget-object v0, p0, Lcom/android/server/adb/AdbService$AdbSettingsObserver;->this$0:Lcom/android/server/adb/AdbService;
+    iget-object p1, p0, Lcom/android/server/adb/AdbService$AdbSettingsObserver;->this$0:Lcom/android/server/adb/AdbService;
 
-    invoke-static {v0}, Lcom/android/server/adb/AdbService;->access$600(Lcom/android/server/adb/AdbService;)Landroid/content/ContentResolver;
+    invoke-static {p1}, Lcom/android/server/adb/AdbService;->-$$Nest$fgetmContentResolver(Lcom/android/server/adb/AdbService;)Landroid/content/ContentResolver;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v3, "adb_enabled"
+    const-string p2, "adb_enabled"
 
-    invoke-static {v0, v3, v2}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {p1, p2, v0}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    move-result v0
+    move-result p1
 
-    if-lez v0, :cond_0
+    if-lez p1, :cond_0
 
     goto :goto_0
 
     :cond_0
-    move v1, v2
+    move p3, v0
 
     :goto_0
-    move v0, v1
-
     invoke-static {}, Lcom/android/server/FgThread;->getHandler()Landroid/os/Handler;
 
-    move-result-object v1
+    move-result-object p1
 
-    sget-object v3, Lcom/android/server/adb/AdbService$AdbSettingsObserver$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/server/adb/AdbService$AdbSettingsObserver$$ExternalSyntheticLambda0;
+    new-instance p2, Lcom/android/server/adb/AdbService$AdbSettingsObserver$$ExternalSyntheticLambda0;
 
-    iget-object v4, p0, Lcom/android/server/adb/AdbService$AdbSettingsObserver;->this$0:Lcom/android/server/adb/AdbService;
+    invoke-direct {p2}, Lcom/android/server/adb/AdbService$AdbSettingsObserver$$ExternalSyntheticLambda0;-><init>()V
 
-    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    iget-object p0, p0, Lcom/android/server/adb/AdbService$AdbSettingsObserver;->this$0:Lcom/android/server/adb/AdbService;
 
-    move-result-object v5
+    invoke-static {p3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    invoke-static {v2}, Ljava/lang/Byte;->valueOf(B)Ljava/lang/Byte;
+    move-result-object p3
 
-    move-result-object v2
+    invoke-static {v0}, Ljava/lang/Byte;->valueOf(B)Ljava/lang/Byte;
 
-    invoke-static {v3, v4, v5, v2}, Lcom/android/internal/util/function/pooled/PooledLambda;->obtainMessage(Lcom/android/internal/util/function/TriConsumer;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Landroid/os/Message;
+    move-result-object v0
 
-    move-result-object v2
+    invoke-static {p2, p0, p3, v0}, Lcom/android/internal/util/function/pooled/PooledLambda;->obtainMessage(Lcom/android/internal/util/function/TriConsumer;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Landroid/os/Message;
 
-    invoke-virtual {v1, v2}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
+    move-result-object p0
+
+    invoke-virtual {p1, p0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
     goto :goto_1
 
     :cond_1
-    iget-object v0, p0, Lcom/android/server/adb/AdbService$AdbSettingsObserver;->mAdbWifiUri:Landroid/net/Uri;
+    iget-object p1, p0, Lcom/android/server/adb/AdbService$AdbSettingsObserver;->mAdbWifiUri:Landroid/net/Uri;
 
-    invoke-virtual {v0, p2}, Landroid/net/Uri;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, p2}, Landroid/net/Uri;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_3
+    if-eqz p1, :cond_3
 
-    iget-object v0, p0, Lcom/android/server/adb/AdbService$AdbSettingsObserver;->this$0:Lcom/android/server/adb/AdbService;
+    iget-object p1, p0, Lcom/android/server/adb/AdbService$AdbSettingsObserver;->this$0:Lcom/android/server/adb/AdbService;
 
-    invoke-static {v0}, Lcom/android/server/adb/AdbService;->access$600(Lcom/android/server/adb/AdbService;)Landroid/content/ContentResolver;
+    invoke-static {p1}, Lcom/android/server/adb/AdbService;->-$$Nest$fgetmContentResolver(Lcom/android/server/adb/AdbService;)Landroid/content/ContentResolver;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v3, "adb_wifi_enabled"
+    const-string p2, "adb_wifi_enabled"
 
-    invoke-static {v0, v3, v2}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {p1, p2, v0}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    move-result v0
+    move-result p1
 
-    if-lez v0, :cond_2
+    if-lez p1, :cond_2
 
-    move v2, v1
+    move v0, p3
 
     :cond_2
-    move v0, v2
-
     invoke-static {}, Lcom/android/server/FgThread;->getHandler()Landroid/os/Handler;
 
-    move-result-object v2
+    move-result-object p1
 
-    sget-object v3, Lcom/android/server/adb/AdbService$AdbSettingsObserver$$ExternalSyntheticLambda1;->INSTANCE:Lcom/android/server/adb/AdbService$AdbSettingsObserver$$ExternalSyntheticLambda1;
+    new-instance p2, Lcom/android/server/adb/AdbService$AdbSettingsObserver$$ExternalSyntheticLambda1;
 
-    iget-object v4, p0, Lcom/android/server/adb/AdbService$AdbSettingsObserver;->this$0:Lcom/android/server/adb/AdbService;
+    invoke-direct {p2}, Lcom/android/server/adb/AdbService$AdbSettingsObserver$$ExternalSyntheticLambda1;-><init>()V
+
+    iget-object p0, p0, Lcom/android/server/adb/AdbService$AdbSettingsObserver;->this$0:Lcom/android/server/adb/AdbService;
 
     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v5
+    move-result-object v0
 
-    invoke-static {v1}, Ljava/lang/Byte;->valueOf(B)Ljava/lang/Byte;
+    invoke-static {p3}, Ljava/lang/Byte;->valueOf(B)Ljava/lang/Byte;
 
-    move-result-object v1
+    move-result-object p3
 
-    invoke-static {v3, v4, v5, v1}, Lcom/android/internal/util/function/pooled/PooledLambda;->obtainMessage(Lcom/android/internal/util/function/TriConsumer;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Landroid/os/Message;
+    invoke-static {p2, p0, v0, p3}, Lcom/android/internal/util/function/pooled/PooledLambda;->obtainMessage(Lcom/android/internal/util/function/TriConsumer;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Landroid/os/Message;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v2, v1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
-
-    goto :goto_2
+    invoke-virtual {p1, p0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
     :cond_3
     :goto_1
-    nop
-
-    :goto_2
     return-void
 .end method

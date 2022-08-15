@@ -20,7 +20,7 @@
 
     new-instance v0, Lcom/android/server/infra/FrameworkResourcesServiceNameResolver;
 
-    const v1, 0x1040227
+    const v1, 0x1040249
 
     invoke-direct {v0, p1, v1}, Lcom/android/server/infra/FrameworkResourcesServiceNameResolver;-><init>(Landroid/content/Context;I)V
 
@@ -35,22 +35,22 @@
 
 
 # virtual methods
-.method protected bridge synthetic newServiceLocked(IZ)Lcom/android/server/infra/AbstractPerUserSystemService;
+.method public bridge synthetic newServiceLocked(IZ)Lcom/android/server/infra/AbstractPerUserSystemService;
     .locals 0
 
     invoke-virtual {p0, p1, p2}, Lcom/android/server/systemcaptions/SystemCaptionsManagerService;->newServiceLocked(IZ)Lcom/android/server/systemcaptions/SystemCaptionsManagerPerUserService;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method
 
-.method protected newServiceLocked(IZ)Lcom/android/server/systemcaptions/SystemCaptionsManagerPerUserService;
+.method public newServiceLocked(IZ)Lcom/android/server/systemcaptions/SystemCaptionsManagerPerUserService;
     .locals 2
 
     new-instance v0, Lcom/android/server/systemcaptions/SystemCaptionsManagerPerUserService;
 
-    iget-object v1, p0, Lcom/android/server/systemcaptions/SystemCaptionsManagerService;->mLock:Ljava/lang/Object;
+    iget-object v1, p0, Lcom/android/server/infra/AbstractMasterSystemService;->mLock:Ljava/lang/Object;
 
     invoke-direct {v0, p0, v1, p2, p1}, Lcom/android/server/systemcaptions/SystemCaptionsManagerPerUserService;-><init>(Lcom/android/server/systemcaptions/SystemCaptionsManagerService;Ljava/lang/Object;ZI)V
 
@@ -59,7 +59,7 @@
     return-object v0
 .end method
 
-.method protected bridge synthetic onServiceRemoved(Lcom/android/server/infra/AbstractPerUserSystemService;I)V
+.method public bridge synthetic onServiceRemoved(Lcom/android/server/infra/AbstractPerUserSystemService;I)V
     .locals 0
 
     check-cast p1, Lcom/android/server/systemcaptions/SystemCaptionsManagerPerUserService;
@@ -69,28 +69,28 @@
     return-void
 .end method
 
-.method protected onServiceRemoved(Lcom/android/server/systemcaptions/SystemCaptionsManagerPerUserService;I)V
-    .locals 2
+.method public onServiceRemoved(Lcom/android/server/systemcaptions/SystemCaptionsManagerPerUserService;I)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/systemcaptions/SystemCaptionsManagerService;->mLock:Ljava/lang/Object;
+    iget-object p0, p0, Lcom/android/server/infra/AbstractMasterSystemService;->mLock:Ljava/lang/Object;
 
-    monitor-enter v0
+    monitor-enter p0
 
     :try_start_0
     invoke-virtual {p1}, Lcom/android/server/systemcaptions/SystemCaptionsManagerPerUserService;->destroyLocked()V
 
-    monitor-exit v0
+    monitor-exit p0
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p1
 
-    monitor-exit v0
+    monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method
 
 .method public onStart()V

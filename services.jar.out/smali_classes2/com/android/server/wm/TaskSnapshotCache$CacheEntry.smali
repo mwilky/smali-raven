@@ -1,4 +1,4 @@
-.class final Lcom/android/server/wm/TaskSnapshotCache$CacheEntry;
+.class public final Lcom/android/server/wm/TaskSnapshotCache$CacheEntry;
 .super Ljava/lang/Object;
 .source "TaskSnapshotCache.java"
 
@@ -9,19 +9,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "CacheEntry"
 .end annotation
 
 
 # instance fields
-.field final snapshot:Landroid/window/TaskSnapshot;
+.field public final snapshot:Landroid/window/TaskSnapshot;
 
-.field final topApp:Lcom/android/server/wm/ActivityRecord;
+.field public final topApp:Lcom/android/server/wm/ActivityRecord;
 
 
 # direct methods
-.method constructor <init>(Landroid/window/TaskSnapshot;Lcom/android/server/wm/ActivityRecord;)V
+.method public constructor <init>(Landroid/window/TaskSnapshot;Lcom/android/server/wm/ActivityRecord;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

@@ -12,7 +12,7 @@
 
 
 # instance fields
-.field private mId:J
+.field public mId:J
 
 
 # direct methods
@@ -34,24 +34,78 @@
     return-object v0
 .end method
 
-.method private formatCurve(Ljava/lang/String;[F[F)Ljava/lang/String;
-    .locals 5
+
+# virtual methods
+.method public abstract emit(Ljava/lang/String;)V
+.end method
+
+.method public final formatCurve(Ljava/lang/String;[F[F)Ljava/lang/String;
+    .locals 3
+
+    new-instance p0, Ljava/lang/StringBuilder;
+
+    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
 
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
+    const-string v1, "curve: "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string p1, ": ["
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    array-length p1, p2
+
+    array-length v0, p3
+
+    if-gt p1, v0, :cond_0
+
+    array-length p1, p2
+
+    goto :goto_0
+
+    :cond_0
+    array-length p1, p3
+
+    :goto_0
+    const/4 v0, 0x0
+
+    :goto_1
+    if-ge v0, p1, :cond_1
+
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "curve: "
+    const-string v2, "("
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    aget v2, p2, v0
 
-    const-string v2, ": ["
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    const-string v2, ","
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    aget v2, p3, v0
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    const-string v2, "),"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -59,130 +113,123 @@
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    array-length v1, p2
-
-    array-length v2, p3
-
-    if-gt v1, v2, :cond_0
-
-    array-length v1, p2
-
-    goto :goto_0
-
-    :cond_0
-    array-length v1, p3
-
-    :goto_0
-    const/4 v2, 0x0
-
-    :goto_1
-    if-ge v2, v1, :cond_1
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "("
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    aget v4, p2, v2
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
-
-    const-string v4, ","
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    aget v4, p3, v2
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
-
-    const-string v4, "),"
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
     :cond_1
-    const-string v2, "]"
+    const-string p1, "]"
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p0
 
-    return-object v2
+    return-object p0
 .end method
 
-.method private formatPoint(Ljava/lang/String;FF)Ljava/lang/String;
+.method public final formatPoint(Ljava/lang/String;FF)Ljava/lang/String;
+    .locals 1
+
+    new-instance p0, Ljava/lang/StringBuilder;
+
+    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v0, "point: "
+
+    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string p1, ": ("
+
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0, p2}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    const-string p1, ","
+
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0, p3}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    const-string p1, ")"
+
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public final formatTitle(Ljava/lang/String;)Ljava/lang/String;
+    .locals 1
+
+    new-instance p0, Ljava/lang/StringBuilder;
+
+    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v0, "title: "
+
+    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public logCurve(Ljava/lang/String;[F[F)Lcom/android/server/display/utils/Plog;
+    .locals 0
+
+    invoke-virtual {p0, p1, p2, p3}, Lcom/android/server/display/utils/Plog;->formatCurve(Ljava/lang/String;[F[F)Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {p0, p1}, Lcom/android/server/display/utils/Plog;->write(Ljava/lang/String;)V
+
+    return-object p0
+.end method
+
+.method public logPoint(Ljava/lang/String;FF)Lcom/android/server/display/utils/Plog;
+    .locals 0
+
+    invoke-virtual {p0, p1, p2, p3}, Lcom/android/server/display/utils/Plog;->formatPoint(Ljava/lang/String;FF)Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {p0, p1}, Lcom/android/server/display/utils/Plog;->write(Ljava/lang/String;)V
+
+    return-object p0
+.end method
+
+.method public start(Ljava/lang/String;)Lcom/android/server/display/utils/Plog;
     .locals 2
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-wide v0
 
-    const-string/jumbo v1, "point: "
+    iput-wide v0, p0, Lcom/android/server/display/utils/Plog;->mId:J
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, p1}, Lcom/android/server/display/utils/Plog;->formatTitle(Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    const-string v1, ": ("
+    invoke-virtual {p0, p1}, Lcom/android/server/display/utils/Plog;->write(Ljava/lang/String;)V
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
-
-    const-string v1, ","
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, p3}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
-
-    const-string v1, ")"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
+    return-object p0
 .end method
 
-.method private formatTitle(Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v1, "title: "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method private write(Ljava/lang/String;)V
+.method public final write(Ljava/lang/String;)V
     .locals 3
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -205,56 +252,9 @@
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Lcom/android/server/display/utils/Plog;->emit(Ljava/lang/String;)V
+    invoke-virtual {p0, p1}, Lcom/android/server/display/utils/Plog;->emit(Ljava/lang/String;)V
 
     return-void
-.end method
-
-
-# virtual methods
-.method protected abstract emit(Ljava/lang/String;)V
-.end method
-
-.method public logCurve(Ljava/lang/String;[F[F)Lcom/android/server/display/utils/Plog;
-    .locals 1
-
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/display/utils/Plog;->formatCurve(Ljava/lang/String;[F[F)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-direct {p0, v0}, Lcom/android/server/display/utils/Plog;->write(Ljava/lang/String;)V
-
-    return-object p0
-.end method
-
-.method public logPoint(Ljava/lang/String;FF)Lcom/android/server/display/utils/Plog;
-    .locals 1
-
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/display/utils/Plog;->formatPoint(Ljava/lang/String;FF)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-direct {p0, v0}, Lcom/android/server/display/utils/Plog;->write(Ljava/lang/String;)V
-
-    return-object p0
-.end method
-
-.method public start(Ljava/lang/String;)Lcom/android/server/display/utils/Plog;
-    .locals 2
-
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
-
-    move-result-wide v0
-
-    iput-wide v0, p0, Lcom/android/server/display/utils/Plog;->mId:J
-
-    invoke-direct {p0, p1}, Lcom/android/server/display/utils/Plog;->formatTitle(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-direct {p0, v0}, Lcom/android/server/display/utils/Plog;->write(Ljava/lang/String;)V
-
-    return-object p0
 .end method

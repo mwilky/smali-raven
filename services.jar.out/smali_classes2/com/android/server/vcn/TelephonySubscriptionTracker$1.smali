@@ -1,4 +1,4 @@
-.class Lcom/android/server/vcn/TelephonySubscriptionTracker$1;
+.class public Lcom/android/server/vcn/TelephonySubscriptionTracker$1;
 .super Landroid/telephony/SubscriptionManager$OnSubscriptionsChangedListener;
 .source "TelephonySubscriptionTracker.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/vcn/TelephonySubscriptionTracker;
+.field public final synthetic this$0:Lcom/android/server/vcn/TelephonySubscriptionTracker;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/vcn/TelephonySubscriptionTracker;)V
+.method public constructor <init>(Lcom/android/server/vcn/TelephonySubscriptionTracker;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/vcn/TelephonySubscriptionTracker$1;->this$0:Lcom/android/server/vcn/TelephonySubscriptionTracker;
@@ -32,11 +32,11 @@
 
 # virtual methods
 .method public onSubscriptionsChanged()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/vcn/TelephonySubscriptionTracker$1;->this$0:Lcom/android/server/vcn/TelephonySubscriptionTracker;
+    iget-object p0, p0, Lcom/android/server/vcn/TelephonySubscriptionTracker$1;->this$0:Lcom/android/server/vcn/TelephonySubscriptionTracker;
 
-    invoke-virtual {v0}, Lcom/android/server/vcn/TelephonySubscriptionTracker;->handleSubscriptionsChanged()V
+    invoke-virtual {p0}, Lcom/android/server/vcn/TelephonySubscriptionTracker;->handleSubscriptionsChanged()V
 
     return-void
 .end method

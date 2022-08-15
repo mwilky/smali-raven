@@ -1,10 +1,10 @@
-.class Lcom/android/server/content/SyncAdapterStateFetcher;
+.class public Lcom/android/server/content/SyncAdapterStateFetcher;
 .super Ljava/lang/Object;
 .source "SyncAdapterStateFetcher.java"
 
 
 # instance fields
-.field private final mBucketCache:Ljava/util/HashMap;
+.field public final mBucketCache:Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/HashMap<",
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public getStandbyBucket(ILjava/lang/String;)I
-    .locals 6
+    .locals 4
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -59,69 +59,67 @@
 
     invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
 
-    move-result v2
+    move-result p0
 
-    return v2
+    return p0
 
     :cond_0
-    const-class v2, Landroid/app/usage/UsageStatsManagerInternal;
+    const-class v1, Landroid/app/usage/UsageStatsManagerInternal;
 
-    invoke-static {v2}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-static {v1}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
-    check-cast v2, Landroid/app/usage/UsageStatsManagerInternal;
+    check-cast v1, Landroid/app/usage/UsageStatsManagerInternal;
 
-    if-nez v2, :cond_1
+    if-nez v1, :cond_1
 
-    const/4 v3, -0x1
+    const/4 p0, -0x1
 
-    return v3
+    return p0
 
     :cond_1
-    nop
-
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
-    move-result-wide v3
+    move-result-wide v2
 
-    invoke-virtual {v2, p2, p1, v3, v4}, Landroid/app/usage/UsageStatsManagerInternal;->getAppStandbyBucket(Ljava/lang/String;IJ)I
+    invoke-virtual {v1, p2, p1, v2, v3}, Landroid/app/usage/UsageStatsManagerInternal;->getAppStandbyBucket(Ljava/lang/String;IJ)I
 
-    move-result v3
+    move-result p1
 
-    iget-object v4, p0, Lcom/android/server/content/SyncAdapterStateFetcher;->mBucketCache:Ljava/util/HashMap;
+    iget-object p0, p0, Lcom/android/server/content/SyncAdapterStateFetcher;->mBucketCache:Ljava/util/HashMap;
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v5
+    move-result-object p2
 
-    invoke-virtual {v4, v0, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, p2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    return v3
+    return p1
 .end method
 
 .method public isAppActive(I)Z
-    .locals 2
+    .locals 0
 
-    const-class v0, Landroid/app/ActivityManagerInternal;
+    const-class p0, Landroid/app/ActivityManagerInternal;
 
-    invoke-static {v0}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-static {p0}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Landroid/app/ActivityManagerInternal;
+    check-cast p0, Landroid/app/ActivityManagerInternal;
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    invoke-virtual {v0, p1}, Landroid/app/ActivityManagerInternal;->isUidActive(I)Z
+    invoke-virtual {p0, p1}, Landroid/app/ActivityManagerInternal;->isUidActive(I)Z
 
-    move-result v1
+    move-result p0
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v1
+    return p0
 .end method

@@ -1,28 +1,13 @@
 .class public final synthetic Lcom/android/server/PinnerService$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/internal/util/function/QuadConsumer;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/PinnerService$$ExternalSyntheticLambda0;
-
-
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/PinnerService$$ExternalSyntheticLambda0;
-
-    invoke-direct {v0}, Lcom/android/server/PinnerService$$ExternalSyntheticLambda0;-><init>()V
-
-    sput-object v0, Lcom/android/server/PinnerService$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/server/PinnerService$$ExternalSyntheticLambda0;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,21 +26,21 @@
 
     invoke-virtual {p2}, Ljava/lang/Integer;->intValue()I
 
-    move-result p2
+    move-result p0
 
     check-cast p3, Ljava/lang/Integer;
 
     invoke-virtual {p3}, Ljava/lang/Integer;->intValue()I
 
-    move-result p3
+    move-result p2
 
     check-cast p4, Ljava/lang/Boolean;
 
     invoke-virtual {p4}, Ljava/lang/Boolean;->booleanValue()Z
 
-    move-result p4
+    move-result p3
 
-    invoke-static {p1, p2, p3, p4}, Lcom/android/server/PinnerService;->$r8$lambda$FuPmnbX6d3sOIO4LP4dO1IrwBvY(Lcom/android/server/PinnerService;IIZ)V
+    invoke-static {p1, p0, p2, p3}, Lcom/android/server/PinnerService;->$r8$lambda$FuPmnbX6d3sOIO4LP4dO1IrwBvY(Lcom/android/server/PinnerService;IIZ)V
 
     return-void
 .end method

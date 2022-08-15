@@ -1,4 +1,4 @@
-.class Lcom/android/server/pm/PerPackageReadTimeouts;
+.class public Lcom/android/server/pm/PerPackageReadTimeouts;
 .super Ljava/lang/Object;
 .source "PerPackageReadTimeouts.java"
 
@@ -23,7 +23,7 @@
 
 
 # direct methods
-.method private constructor <init>(Ljava/lang/String;[BLcom/android/server/pm/PerPackageReadTimeouts$VersionCodes;Lcom/android/server/pm/PerPackageReadTimeouts$Timeouts;)V
+.method public constructor <init>(Ljava/lang/String;[BLcom/android/server/pm/PerPackageReadTimeouts$VersionCodes;Lcom/android/server/pm/PerPackageReadTimeouts$Timeouts;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,95 +39,86 @@
     return-void
 .end method
 
-.method static parse(Ljava/lang/String;Lcom/android/server/pm/PerPackageReadTimeouts$VersionCodes;Lcom/android/server/pm/PerPackageReadTimeouts$Timeouts;)Lcom/android/server/pm/PerPackageReadTimeouts;
-    .locals 7
+.method public static parse(Ljava/lang/String;Lcom/android/server/pm/PerPackageReadTimeouts$VersionCodes;Lcom/android/server/pm/PerPackageReadTimeouts$Timeouts;)Lcom/android/server/pm/PerPackageReadTimeouts;
+    .locals 5
 
-    const/4 v0, 0x0
+    const-string v0, ":"
 
-    const/4 v1, 0x0
+    const/4 v1, 0x4
 
-    move-object v2, p1
+    invoke-virtual {p0, v0, v1}, Ljava/lang/String;->split(Ljava/lang/String;I)[Ljava/lang/String;
 
-    move-object v3, p2
+    move-result-object p0
 
-    const-string v4, ":"
+    array-length v0, p0
 
-    const/4 v5, 0x4
+    const/4 v2, 0x1
 
-    invoke-virtual {p0, v4, v5}, Ljava/lang/String;->split(Ljava/lang/String;I)[Ljava/lang/String;
+    const/4 v3, 0x0
 
-    move-result-object v4
+    if-eq v0, v2, :cond_3
 
-    array-length v5, v4
+    const/4 v4, 0x2
 
-    const/4 v6, 0x0
+    if-eq v0, v4, :cond_2
 
-    packed-switch v5, :pswitch_data_0
+    const/4 p1, 0x3
 
-    return-object v6
+    if-eq v0, p1, :cond_1
 
-    :pswitch_0
-    const/4 v5, 0x3
+    if-eq v0, v1, :cond_0
 
-    aget-object v5, v4, v5
-
-    invoke-static {v5}, Lcom/android/server/pm/PerPackageReadTimeouts$Timeouts;->parse(Ljava/lang/String;)Lcom/android/server/pm/PerPackageReadTimeouts$Timeouts;
-
-    move-result-object v3
-
-    :pswitch_1
-    const/4 v5, 0x2
-
-    aget-object v5, v4, v5
-
-    invoke-static {v5}, Lcom/android/server/pm/PerPackageReadTimeouts$VersionCodes;->parse(Ljava/lang/String;)Lcom/android/server/pm/PerPackageReadTimeouts$VersionCodes;
-
-    move-result-object v2
-
-    :pswitch_2
-    const/4 v5, 0x1
-
-    aget-object v5, v4, v5
-
-    invoke-static {v5}, Lcom/android/server/pm/PerPackageReadTimeouts;->tryParseSha256(Ljava/lang/String;)[B
-
-    move-result-object v1
-
-    :pswitch_3
-    const/4 v5, 0x0
-
-    aget-object v0, v4, v5
-
-    nop
-
-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_0
-
-    return-object v6
+    return-object v3
 
     :cond_0
-    new-instance v5, Lcom/android/server/pm/PerPackageReadTimeouts;
+    aget-object p1, p0, p1
 
-    invoke-direct {v5, v0, v1, v2, v3}, Lcom/android/server/pm/PerPackageReadTimeouts;-><init>(Ljava/lang/String;[BLcom/android/server/pm/PerPackageReadTimeouts$VersionCodes;Lcom/android/server/pm/PerPackageReadTimeouts$Timeouts;)V
+    invoke-static {p1}, Lcom/android/server/pm/PerPackageReadTimeouts$Timeouts;->parse(Ljava/lang/String;)Lcom/android/server/pm/PerPackageReadTimeouts$Timeouts;
 
-    return-object v5
+    move-result-object p2
 
-    nop
+    :cond_1
+    aget-object p1, p0, v4
 
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
+    invoke-static {p1}, Lcom/android/server/pm/PerPackageReadTimeouts$VersionCodes;->parse(Ljava/lang/String;)Lcom/android/server/pm/PerPackageReadTimeouts$VersionCodes;
+
+    move-result-object p1
+
+    :cond_2
+    aget-object v0, p0, v2
+
+    invoke-static {v0}, Lcom/android/server/pm/PerPackageReadTimeouts;->tryParseSha256(Ljava/lang/String;)[B
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :cond_3
+    move-object v0, v3
+
+    :goto_0
+    const/4 v1, 0x0
+
+    aget-object p0, p0, v1
+
+    invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_4
+
+    return-object v3
+
+    :cond_4
+    new-instance v1, Lcom/android/server/pm/PerPackageReadTimeouts;
+
+    invoke-direct {v1, p0, v0, p1, p2}, Lcom/android/server/pm/PerPackageReadTimeouts;-><init>(Ljava/lang/String;[BLcom/android/server/pm/PerPackageReadTimeouts$VersionCodes;Lcom/android/server/pm/PerPackageReadTimeouts$Timeouts;)V
+
+    return-object v1
 .end method
 
-.method static parseDigestersList(Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;
-    .locals 7
+.method public static parseDigestersList(Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -148,74 +139,72 @@
 
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     :cond_0
     sget-object v0, Lcom/android/server/pm/PerPackageReadTimeouts$VersionCodes;->ALL_VERSION_CODES:Lcom/android/server/pm/PerPackageReadTimeouts$VersionCodes;
 
     invoke-static {p0}, Lcom/android/server/pm/PerPackageReadTimeouts$Timeouts;->parse(Ljava/lang/String;)Lcom/android/server/pm/PerPackageReadTimeouts$Timeouts;
 
-    move-result-object v1
+    move-result-object p0
 
-    const-string v2, ","
+    const-string v1, ","
 
-    invoke-virtual {p1, v2}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+    invoke-virtual {p1, v1}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    new-instance v3, Ljava/util/ArrayList;
+    new-instance v1, Ljava/util/ArrayList;
 
-    array-length v4, v2
+    array-length v2, p1
 
-    invoke-direct {v3, v4}, Ljava/util/ArrayList;-><init>(I)V
+    invoke-direct {v1, v2}, Ljava/util/ArrayList;-><init>(I)V
 
-    const/4 v4, 0x0
+    const/4 v2, 0x0
 
-    array-length v5, v2
+    array-length v3, p1
 
     :goto_0
-    if-ge v4, v5, :cond_2
+    if-ge v2, v3, :cond_2
 
-    aget-object v6, v2, v4
+    aget-object v4, p1, v2
 
-    invoke-static {v6, v0, v1}, Lcom/android/server/pm/PerPackageReadTimeouts;->parse(Ljava/lang/String;Lcom/android/server/pm/PerPackageReadTimeouts$VersionCodes;Lcom/android/server/pm/PerPackageReadTimeouts$Timeouts;)Lcom/android/server/pm/PerPackageReadTimeouts;
+    invoke-static {v4, v0, p0}, Lcom/android/server/pm/PerPackageReadTimeouts;->parse(Ljava/lang/String;Lcom/android/server/pm/PerPackageReadTimeouts$VersionCodes;Lcom/android/server/pm/PerPackageReadTimeouts$Timeouts;)Lcom/android/server/pm/PerPackageReadTimeouts;
 
-    move-result-object v6
+    move-result-object v4
 
-    if-eqz v6, :cond_1
+    if-eqz v4, :cond_1
 
-    invoke-interface {v3, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     :cond_1
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     :cond_2
-    return-object v3
+    return-object v1
 .end method
 
-.method static tryParseLong(Ljava/lang/String;J)J
-    .locals 2
+.method public static tryParseLong(Ljava/lang/String;J)J
+    .locals 0
 
     :try_start_0
     invoke-static {p0}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
-    move-result-wide v0
+    move-result-wide p0
     :try_end_0
     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-wide v0
+    return-wide p0
 
     :catch_0
-    move-exception v0
-
     return-wide p1
 .end method
 
-.method static tryParseSha256(Ljava/lang/String;)[B
+.method public static tryParseSha256(Ljava/lang/String;)[B
     .locals 2
 
     invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -232,14 +221,12 @@
     :try_start_0
     invoke-static {p0}, Lcom/android/internal/util/HexDump;->hexStringToByteArray(Ljava/lang/String;)[B
 
-    move-result-object v0
+    move-result-object p0
     :try_end_0
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object p0
 
     :catch_0
-    move-exception v0
-
     return-object v1
 .end method

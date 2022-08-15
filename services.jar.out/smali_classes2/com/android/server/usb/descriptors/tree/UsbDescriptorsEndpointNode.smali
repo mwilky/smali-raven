@@ -3,12 +3,8 @@
 .source "UsbDescriptorsEndpointNode.java"
 
 
-# static fields
-.field private static final TAG:Ljava/lang/String; = "UsbDescriptorsEndpointNode"
-
-
 # instance fields
-.field private final mEndpointDescriptor:Lcom/android/server/usb/descriptors/UsbEndpointDescriptor;
+.field public final mEndpointDescriptor:Lcom/android/server/usb/descriptors/UsbEndpointDescriptor;
 
 
 # direct methods
@@ -25,11 +21,11 @@
 
 # virtual methods
 .method public report(Lcom/android/server/usb/descriptors/report/ReportCanvas;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/usb/descriptors/tree/UsbDescriptorsEndpointNode;->mEndpointDescriptor:Lcom/android/server/usb/descriptors/UsbEndpointDescriptor;
+    iget-object p0, p0, Lcom/android/server/usb/descriptors/tree/UsbDescriptorsEndpointNode;->mEndpointDescriptor:Lcom/android/server/usb/descriptors/UsbEndpointDescriptor;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/usb/descriptors/UsbEndpointDescriptor;->report(Lcom/android/server/usb/descriptors/report/ReportCanvas;)V
+    invoke-virtual {p0, p1}, Lcom/android/server/usb/descriptors/UsbEndpointDescriptor;->report(Lcom/android/server/usb/descriptors/report/ReportCanvas;)V
 
     return-void
 .end method

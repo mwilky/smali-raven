@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/pm/LauncherAppsService$LauncherAppsImpl$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/IntPredicate;
@@ -27,15 +28,15 @@
 
 # virtual methods
 .method public final test(I)Z
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/pm/LauncherAppsService$LauncherAppsImpl$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/pm/LauncherAppsService$LauncherAppsImpl;
 
-    iget-object v1, p0, Lcom/android/server/pm/LauncherAppsService$LauncherAppsImpl$$ExternalSyntheticLambda1;->f$1:Landroid/os/UserHandle;
+    iget-object p0, p0, Lcom/android/server/pm/LauncherAppsService$LauncherAppsImpl$$ExternalSyntheticLambda1;->f$1:Landroid/os/UserHandle;
 
-    invoke-virtual {v0, v1, p1}, Lcom/android/server/pm/LauncherAppsService$LauncherAppsImpl;->lambda$registerPackageInstallerCallback$0$LauncherAppsService$LauncherAppsImpl(Landroid/os/UserHandle;I)Z
+    invoke-static {v0, p0, p1}, Lcom/android/server/pm/LauncherAppsService$LauncherAppsImpl;->$r8$lambda$JH6bHMIPeyliulxkptv72amRs88(Lcom/android/server/pm/LauncherAppsService$LauncherAppsImpl;Landroid/os/UserHandle;I)Z
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method

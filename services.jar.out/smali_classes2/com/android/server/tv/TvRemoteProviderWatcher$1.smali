@@ -1,4 +1,4 @@
-.class Lcom/android/server/tv/TvRemoteProviderWatcher$1;
+.class public Lcom/android/server/tv/TvRemoteProviderWatcher$1;
 .super Landroid/content/BroadcastReceiver;
 .source "TvRemoteProviderWatcher.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/tv/TvRemoteProviderWatcher;
+.field public final synthetic this$0:Lcom/android/server/tv/TvRemoteProviderWatcher;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/tv/TvRemoteProviderWatcher;)V
+.method public constructor <init>(Lcom/android/server/tv/TvRemoteProviderWatcher;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/tv/TvRemoteProviderWatcher$1;->this$0:Lcom/android/server/tv/TvRemoteProviderWatcher;
@@ -32,46 +32,46 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 2
+    .locals 1
 
-    invoke-static {}, Lcom/android/server/tv/TvRemoteProviderWatcher;->access$000()Z
+    invoke-static {}, Lcom/android/server/tv/TvRemoteProviderWatcher;->-$$Nest$sfgetDEBUG()Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "Received package manager broadcast: "
+    const-string v0, "Received package manager broadcast: "
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v1, "TvRemoteProviderWatcher"
+    const-string p2, "TvRemoteProviderWatcher"
 
-    invoke-static {v1, v0}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p2, p1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/tv/TvRemoteProviderWatcher$1;->this$0:Lcom/android/server/tv/TvRemoteProviderWatcher;
+    iget-object p1, p0, Lcom/android/server/tv/TvRemoteProviderWatcher$1;->this$0:Lcom/android/server/tv/TvRemoteProviderWatcher;
 
-    invoke-static {v0}, Lcom/android/server/tv/TvRemoteProviderWatcher;->access$200(Lcom/android/server/tv/TvRemoteProviderWatcher;)Landroid/os/Handler;
+    invoke-static {p1}, Lcom/android/server/tv/TvRemoteProviderWatcher;->-$$Nest$fgetmHandler(Lcom/android/server/tv/TvRemoteProviderWatcher;)Landroid/os/Handler;
 
-    move-result-object v0
+    move-result-object p1
 
-    iget-object v1, p0, Lcom/android/server/tv/TvRemoteProviderWatcher$1;->this$0:Lcom/android/server/tv/TvRemoteProviderWatcher;
+    iget-object p0, p0, Lcom/android/server/tv/TvRemoteProviderWatcher$1;->this$0:Lcom/android/server/tv/TvRemoteProviderWatcher;
 
-    invoke-static {v1}, Lcom/android/server/tv/TvRemoteProviderWatcher;->access$100(Lcom/android/server/tv/TvRemoteProviderWatcher;)Ljava/lang/Runnable;
+    invoke-static {p0}, Lcom/android/server/tv/TvRemoteProviderWatcher;->-$$Nest$fgetmScanPackagesRunnable(Lcom/android/server/tv/TvRemoteProviderWatcher;)Ljava/lang/Runnable;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {p1, p0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     return-void
 .end method

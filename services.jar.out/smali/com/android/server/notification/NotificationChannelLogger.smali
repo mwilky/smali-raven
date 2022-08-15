@@ -13,75 +13,75 @@
 
 # direct methods
 .method public static getConversationIdHash(Landroid/app/NotificationChannel;)I
-    .locals 1
+    .locals 0
 
     invoke-virtual {p0}, Landroid/app/NotificationChannel;->getConversationId()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0}, Lcom/android/server/notification/SmallHash;->hash(Ljava/lang/String;)I
+    invoke-static {p0}, Lcom/android/server/notification/SmallHash;->hash(Ljava/lang/String;)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public static getIdHash(Landroid/app/NotificationChannel;)I
-    .locals 1
+    .locals 0
 
     invoke-virtual {p0}, Landroid/app/NotificationChannel;->getId()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0}, Lcom/android/server/notification/SmallHash;->hash(Ljava/lang/String;)I
+    invoke-static {p0}, Lcom/android/server/notification/SmallHash;->hash(Ljava/lang/String;)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public static getIdHash(Landroid/app/NotificationChannelGroup;)I
-    .locals 1
+    .locals 0
 
     invoke-virtual {p0}, Landroid/app/NotificationChannelGroup;->getId()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0}, Lcom/android/server/notification/SmallHash;->hash(Ljava/lang/String;)I
+    invoke-static {p0}, Lcom/android/server/notification/SmallHash;->hash(Ljava/lang/String;)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public static getImportance(Landroid/app/NotificationChannelGroup;)I
-    .locals 1
+    .locals 0
 
     invoke-virtual {p0}, Landroid/app/NotificationChannelGroup;->isBlocked()Z
 
-    move-result v0
+    move-result p0
 
-    invoke-static {v0}, Lcom/android/server/notification/NotificationChannelLogger;->getImportance(Z)I
+    invoke-static {p0}, Lcom/android/server/notification/NotificationChannelLogger;->getImportance(Z)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public static getImportance(Z)I
-    .locals 1
+    .locals 0
 
     if-eqz p0, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x3
+    const/4 p0, 0x3
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method public static getLoggingImportance(Landroid/app/NotificationChannel;)I
@@ -93,9 +93,9 @@
 
     invoke-static {p0, v0}, Lcom/android/server/notification/NotificationChannelLogger;->getLoggingImportance(Landroid/app/NotificationChannel;I)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public static getLoggingImportance(Landroid/app/NotificationChannel;I)I
@@ -105,33 +105,25 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1
 
     const/4 v0, 0x4
 
     if-ge p1, v0, :cond_0
 
-    goto :goto_1
+    goto :goto_0
 
     :cond_0
     invoke-virtual {p0}, Landroid/app/NotificationChannel;->isImportantConversation()Z
 
-    move-result v0
+    move-result p0
 
-    if-eqz v0, :cond_1
+    if-eqz p0, :cond_1
 
-    const/4 v0, 0x5
-
-    goto :goto_0
+    const/4 p1, 0x5
 
     :cond_1
-    move v0, p1
-
     :goto_0
-    return v0
-
-    :cond_2
-    :goto_1
     return p1
 .end method
 
@@ -141,13 +133,13 @@
 .end method
 
 .method public logAppNotificationsAllowed(ILjava/lang/String;Z)V
-    .locals 1
+    .locals 0
 
     invoke-static {p3}, Lcom/android/server/notification/NotificationChannelLogger$NotificationChannelEvent;->getBlocked(Z)Lcom/android/server/notification/NotificationChannelLogger$NotificationChannelEvent;
 
-    move-result-object v0
+    move-result-object p3
 
-    invoke-interface {p0, v0, p1, p2}, Lcom/android/server/notification/NotificationChannelLogger;->logAppEvent(Lcom/android/server/notification/NotificationChannelLogger$NotificationChannelEvent;ILjava/lang/String;)V
+    invoke-interface {p0, p3, p1, p2}, Lcom/android/server/notification/NotificationChannelLogger;->logAppEvent(Lcom/android/server/notification/NotificationChannelLogger$NotificationChannelEvent;ILjava/lang/String;)V
 
     return-void
 .end method
@@ -157,8 +149,6 @@
 
 .method public logNotificationChannelCreated(Landroid/app/NotificationChannel;ILjava/lang/String;)V
     .locals 7
-
-    nop
 
     invoke-static {p1}, Lcom/android/server/notification/NotificationChannelLogger$NotificationChannelEvent;->getCreated(Landroid/app/NotificationChannel;)Lcom/android/server/notification/NotificationChannelLogger$NotificationChannelEvent;
 
@@ -185,8 +175,6 @@
 
 .method public logNotificationChannelDeleted(Landroid/app/NotificationChannel;ILjava/lang/String;)V
     .locals 7
-
-    nop
 
     invoke-static {p1}, Lcom/android/server/notification/NotificationChannelLogger$NotificationChannelEvent;->getDeleted(Landroid/app/NotificationChannel;)Lcom/android/server/notification/NotificationChannelLogger$NotificationChannelEvent;
 

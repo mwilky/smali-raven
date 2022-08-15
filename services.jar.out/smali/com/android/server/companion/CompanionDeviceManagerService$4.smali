@@ -1,82 +1,74 @@
-.class Lcom/android/server/companion/CompanionDeviceManagerService$4;
-.super Lcom/android/internal/infra/ServiceConnector$Impl;
+.class public Lcom/android/server/companion/CompanionDeviceManagerService$4;
+.super Lcom/android/internal/content/PackageMonitor;
 .source "CompanionDeviceManagerService.java"
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/companion/CompanionDeviceManagerService;->createDeviceListenerServiceConnector(Landroid/companion/Association;)Lcom/android/internal/infra/ServiceConnector;
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/server/companion/CompanionDeviceManagerService;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
-.end annotation
-
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Lcom/android/internal/infra/ServiceConnector$Impl<",
-        "Landroid/companion/ICompanionDeviceService;",
-        ">;"
-    }
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/companion/CompanionDeviceManagerService;
+.field public final synthetic this$0:Lcom/android/server/companion/CompanionDeviceManagerService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/companion/CompanionDeviceManagerService;Landroid/content/Context;Landroid/content/Intent;IILjava/util/function/Function;)V
-    .locals 6
+.method public constructor <init>(Lcom/android/server/companion/CompanionDeviceManagerService;)V
+    .locals 0
 
     iput-object p1, p0, Lcom/android/server/companion/CompanionDeviceManagerService$4;->this$0:Lcom/android/server/companion/CompanionDeviceManagerService;
 
-    move-object v0, p0
-
-    move-object v1, p2
-
-    move-object v2, p3
-
-    move v3, p4
-
-    move v4, p5
-
-    move-object v5, p6
-
-    invoke-direct/range {v0 .. v5}, Lcom/android/internal/infra/ServiceConnector$Impl;-><init>(Landroid/content/Context;Landroid/content/Intent;IILjava/util/function/Function;)V
+    invoke-direct {p0}, Lcom/android/internal/content/PackageMonitor;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public binderDied()V
-    .locals 4
+.method public onPackageDataCleared(Ljava/lang/String;I)V
+    .locals 0
 
-    invoke-super {p0}, Lcom/android/internal/infra/ServiceConnector$Impl;->binderDied()V
+    iget-object p2, p0, Lcom/android/server/companion/CompanionDeviceManagerService$4;->this$0:Lcom/android/server/companion/CompanionDeviceManagerService;
 
-    iget-object v0, p0, Lcom/android/server/companion/CompanionDeviceManagerService$4;->this$0:Lcom/android/server/companion/CompanionDeviceManagerService;
+    invoke-virtual {p0}, Lcom/android/internal/content/PackageMonitor;->getChangingUserId()I
 
-    invoke-static {v0}, Lcom/android/server/companion/CompanionDeviceManagerService;->access$2300(Lcom/android/server/companion/CompanionDeviceManagerService;)Landroid/os/Handler;
+    move-result p0
 
-    move-result-object v0
-
-    new-instance v1, Lcom/android/server/companion/CompanionDeviceManagerService$4$$ExternalSyntheticLambda0;
-
-    invoke-direct {v1, p0}, Lcom/android/server/companion/CompanionDeviceManagerService$4$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/companion/CompanionDeviceManagerService$4;)V
-
-    const-wide/16 v2, 0x2710
-
-    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+    invoke-static {p2, p0, p1}, Lcom/android/server/companion/CompanionDeviceManagerService;->-$$Nest$monPackageRemoveOrDataClearedInternal(Lcom/android/server/companion/CompanionDeviceManagerService;ILjava/lang/String;)V
 
     return-void
 .end method
 
-.method protected getAutoDisconnectTimeoutMs()J
-    .locals 2
+.method public onPackageModified(Ljava/lang/String;)V
+    .locals 1
 
-    const-wide v0, 0x7fffffffffffffffL
+    iget-object v0, p0, Lcom/android/server/companion/CompanionDeviceManagerService$4;->this$0:Lcom/android/server/companion/CompanionDeviceManagerService;
 
-    return-wide v0
+    invoke-virtual {p0}, Lcom/android/internal/content/PackageMonitor;->getChangingUserId()I
+
+    move-result p0
+
+    invoke-static {v0, p0, p1}, Lcom/android/server/companion/CompanionDeviceManagerService;->-$$Nest$monPackageModifiedInternal(Lcom/android/server/companion/CompanionDeviceManagerService;ILjava/lang/String;)V
+
+    return-void
+.end method
+
+.method public onPackageRemoved(Ljava/lang/String;I)V
+    .locals 0
+
+    iget-object p2, p0, Lcom/android/server/companion/CompanionDeviceManagerService$4;->this$0:Lcom/android/server/companion/CompanionDeviceManagerService;
+
+    invoke-virtual {p0}, Lcom/android/internal/content/PackageMonitor;->getChangingUserId()I
+
+    move-result p0
+
+    invoke-static {p2, p0, p1}, Lcom/android/server/companion/CompanionDeviceManagerService;->-$$Nest$monPackageRemoveOrDataClearedInternal(Lcom/android/server/companion/CompanionDeviceManagerService;ILjava/lang/String;)V
+
+    return-void
 .end method

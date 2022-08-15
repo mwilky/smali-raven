@@ -4,17 +4,17 @@
 
 
 # instance fields
-.field mAssociatedTask:Lcom/android/server/wm/Task;
+.field public mAssociatedTask:Lcom/android/server/wm/Task;
 
-.field mIsTransitionForward:Z
+.field public mIsTransitionForward:Z
 
-.field protected final mService:Lcom/android/server/wm/WindowManagerService;
+.field public final mService:Lcom/android/server/wm/WindowManagerService;
 
-.field protected final mTypeParams:I
+.field public final mTypeParams:I
 
 
 # direct methods
-.method protected constructor <init>(Lcom/android/server/wm/WindowManagerService;I)V
+.method public constructor <init>(Lcom/android/server/wm/WindowManagerService;I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -28,16 +28,8 @@
 
 
 # virtual methods
-.method abstract createStartingSurface(Lcom/android/server/wm/ActivityRecord;)Lcom/android/server/policy/WindowManagerPolicy$StartingSurface;
+.method public abstract createStartingSurface(Lcom/android/server/wm/ActivityRecord;)Lcom/android/server/wm/StartingSurfaceController$StartingSurface;
 .end method
 
-.method hasImeSurface()Z
-    .locals 1
-
-    const/4 v0, 0x0
-
-    return v0
-.end method
-
-.method abstract needRevealAnimation()Z
+.method public abstract needRevealAnimation()Z
 .end method

@@ -1,4 +1,4 @@
-.class final Lcom/android/server/power/Notifier$NotifierHandler;
+.class public final Lcom/android/server/power/Notifier$NotifierHandler;
 .super Landroid/os/Handler;
 .source "Notifier.java"
 
@@ -9,13 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "NotifierHandler"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/power/Notifier;
+.field public final synthetic this$0:Lcom/android/server/power/Notifier;
 
 
 # direct methods
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 3
+    .locals 1
 
     iget v0, p1, Landroid/os/Message;->what:I
 
@@ -45,74 +45,74 @@
     goto :goto_0
 
     :pswitch_0
-    iget-object v0, p0, Lcom/android/server/power/Notifier$NotifierHandler;->this$0:Lcom/android/server/power/Notifier;
+    iget-object p0, p0, Lcom/android/server/power/Notifier$NotifierHandler;->this$0:Lcom/android/server/power/Notifier;
 
-    iget v1, p1, Landroid/os/Message;->arg1:I
+    iget v0, p1, Landroid/os/Message;->arg1:I
 
-    invoke-static {v0, v1}, Lcom/android/server/power/Notifier;->access$800(Lcom/android/server/power/Notifier;I)V
+    iget p1, p1, Landroid/os/Message;->arg2:I
+
+    invoke-static {p0, v0, p1}, Lcom/android/server/power/Notifier;->-$$Nest$mscreenPolicyChanging(Lcom/android/server/power/Notifier;II)V
 
     goto :goto_0
 
     :pswitch_1
-    iget-object v0, p0, Lcom/android/server/power/Notifier$NotifierHandler;->this$0:Lcom/android/server/power/Notifier;
+    iget-object p0, p0, Lcom/android/server/power/Notifier$NotifierHandler;->this$0:Lcom/android/server/power/Notifier;
 
-    iget v1, p1, Landroid/os/Message;->arg1:I
+    iget p1, p1, Landroid/os/Message;->arg1:I
 
-    invoke-static {v0, v1}, Lcom/android/server/power/Notifier;->access$700(Lcom/android/server/power/Notifier;I)V
+    invoke-static {p0, p1}, Lcom/android/server/power/Notifier;->-$$Nest$mshowWiredChargingStarted(Lcom/android/server/power/Notifier;I)V
 
     goto :goto_0
 
     :pswitch_2
-    iget-object v0, p0, Lcom/android/server/power/Notifier$NotifierHandler;->this$0:Lcom/android/server/power/Notifier;
+    iget-object p0, p0, Lcom/android/server/power/Notifier$NotifierHandler;->this$0:Lcom/android/server/power/Notifier;
 
-    iget v1, p1, Landroid/os/Message;->arg1:I
+    iget p1, p1, Landroid/os/Message;->arg1:I
 
-    invoke-static {v0, v1}, Lcom/android/server/power/Notifier;->access$600(Lcom/android/server/power/Notifier;I)V
+    invoke-static {p0, p1}, Lcom/android/server/power/Notifier;->-$$Nest$mlockProfile(Lcom/android/server/power/Notifier;I)V
 
     goto :goto_0
 
     :pswitch_3
-    const/4 v0, 0x4
+    const/4 p1, 0x4
 
-    invoke-virtual {p0, v0}, Lcom/android/server/power/Notifier$NotifierHandler;->removeMessages(I)V
+    invoke-virtual {p0, p1}, Landroid/os/Handler;->removeMessages(I)V
 
-    iget-object v0, p0, Lcom/android/server/power/Notifier$NotifierHandler;->this$0:Lcom/android/server/power/Notifier;
+    iget-object p0, p0, Lcom/android/server/power/Notifier$NotifierHandler;->this$0:Lcom/android/server/power/Notifier;
 
-    invoke-static {v0}, Lcom/android/server/power/Notifier;->access$500(Lcom/android/server/power/Notifier;)V
+    invoke-static {p0}, Lcom/android/server/power/Notifier;->-$$Nest$msendEnhancedDischargePredictionBroadcast(Lcom/android/server/power/Notifier;)V
 
     goto :goto_0
 
     :pswitch_4
-    iget-object v0, p0, Lcom/android/server/power/Notifier$NotifierHandler;->this$0:Lcom/android/server/power/Notifier;
+    iget-object p0, p0, Lcom/android/server/power/Notifier$NotifierHandler;->this$0:Lcom/android/server/power/Notifier;
 
-    iget v1, p1, Landroid/os/Message;->arg1:I
+    iget v0, p1, Landroid/os/Message;->arg1:I
 
-    iget v2, p1, Landroid/os/Message;->arg2:I
+    iget p1, p1, Landroid/os/Message;->arg2:I
 
-    invoke-static {v0, v1, v2}, Lcom/android/server/power/Notifier;->access$400(Lcom/android/server/power/Notifier;II)V
+    invoke-static {p0, v0, p1}, Lcom/android/server/power/Notifier;->-$$Nest$mshowWirelessChargingStarted(Lcom/android/server/power/Notifier;II)V
 
     goto :goto_0
 
     :pswitch_5
-    iget-object v0, p0, Lcom/android/server/power/Notifier$NotifierHandler;->this$0:Lcom/android/server/power/Notifier;
+    iget-object p0, p0, Lcom/android/server/power/Notifier$NotifierHandler;->this$0:Lcom/android/server/power/Notifier;
 
-    invoke-static {v0}, Lcom/android/server/power/Notifier;->access$200(Lcom/android/server/power/Notifier;)V
+    invoke-static {p0}, Lcom/android/server/power/Notifier;->-$$Nest$msendNextBroadcast(Lcom/android/server/power/Notifier;)V
 
     goto :goto_0
 
     :pswitch_6
-    iget-object v0, p0, Lcom/android/server/power/Notifier$NotifierHandler;->this$0:Lcom/android/server/power/Notifier;
+    iget-object p0, p0, Lcom/android/server/power/Notifier$NotifierHandler;->this$0:Lcom/android/server/power/Notifier;
 
-    iget v1, p1, Landroid/os/Message;->arg1:I
+    iget v0, p1, Landroid/os/Message;->arg1:I
 
-    invoke-static {v0, v1}, Lcom/android/server/power/Notifier;->access$300(Lcom/android/server/power/Notifier;I)V
+    iget p1, p1, Landroid/os/Message;->arg2:I
 
-    nop
+    invoke-static {p0, v0, p1}, Lcom/android/server/power/Notifier;->-$$Nest$msendUserActivity(Lcom/android/server/power/Notifier;II)V
 
     :goto_0
     return-void
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x1

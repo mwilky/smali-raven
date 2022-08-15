@@ -21,25 +21,21 @@
 
 
 # direct methods
-.method private constructor <init>(Ljava/lang/String;I)V
-    .locals 1
+.method public constructor <init>(Ljava/lang/String;I)V
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-object v0, p1
-
-    check-cast v0, Ljava/lang/String;
-
-    iput-object v0, p0, Lcom/android/server/textclassifier/IconsUriHelper$ResourceInfo;->packageName:Ljava/lang/String;
+    iput-object p1, p0, Lcom/android/server/textclassifier/IconsUriHelper$ResourceInfo;->packageName:Ljava/lang/String;
 
     iput p2, p0, Lcom/android/server/textclassifier/IconsUriHelper$ResourceInfo;->id:I
 
     return-void
 .end method
 
-.method synthetic constructor <init>(Ljava/lang/String;ILcom/android/server/textclassifier/IconsUriHelper$1;)V
+.method public synthetic constructor <init>(Ljava/lang/String;ILcom/android/server/textclassifier/IconsUriHelper$ResourceInfo-IA;)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/textclassifier/IconsUriHelper$ResourceInfo;-><init>(Ljava/lang/String;I)V

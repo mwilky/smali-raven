@@ -1,55 +1,40 @@
 .class public final synthetic Lcom/android/server/content/SyncManager$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/internal/util/function/QuadConsumer;
+.implements Ljava/lang/Runnable;
 
 
 # instance fields
-.field public final synthetic f$0:Ljava/lang/StringBuilder;
+.field public final synthetic f$0:Lcom/android/server/content/SyncManager;
 
-.field public final synthetic f$1:Lcom/android/server/content/SyncManager$PrintTable;
+.field public final synthetic f$1:I
 
 
 # direct methods
-.method public synthetic constructor <init>(Ljava/lang/StringBuilder;Lcom/android/server/content/SyncManager$PrintTable;)V
+.method public synthetic constructor <init>(Lcom/android/server/content/SyncManager;I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/content/SyncManager$$ExternalSyntheticLambda2;->f$0:Ljava/lang/StringBuilder;
+    iput-object p1, p0, Lcom/android/server/content/SyncManager$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/content/SyncManager;
 
-    iput-object p2, p0, Lcom/android/server/content/SyncManager$$ExternalSyntheticLambda2;->f$1:Lcom/android/server/content/SyncManager$PrintTable;
+    iput p2, p0, Lcom/android/server/content/SyncManager$$ExternalSyntheticLambda2;->f$1:I
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 6
+.method public final run()V
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/content/SyncManager$$ExternalSyntheticLambda2;->f$0:Ljava/lang/StringBuilder;
+    iget-object v0, p0, Lcom/android/server/content/SyncManager$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/content/SyncManager;
 
-    iget-object v1, p0, Lcom/android/server/content/SyncManager$$ExternalSyntheticLambda2;->f$1:Lcom/android/server/content/SyncManager$PrintTable;
+    iget p0, p0, Lcom/android/server/content/SyncManager$$ExternalSyntheticLambda2;->f$1:I
 
-    move-object v2, p1
-
-    check-cast v2, Ljava/lang/String;
-
-    move-object v3, p2
-
-    check-cast v3, Landroid/content/SyncStatusInfo$Stats;
-
-    move-object v4, p3
-
-    check-cast v4, Ljava/util/function/Function;
-
-    move-object v5, p4
-
-    check-cast v5, Ljava/lang/Integer;
-
-    invoke-static/range {v0 .. v5}, Lcom/android/server/content/SyncManager;->lambda$dumpSyncState$10(Ljava/lang/StringBuilder;Lcom/android/server/content/SyncManager$PrintTable;Ljava/lang/String;Landroid/content/SyncStatusInfo$Stats;Ljava/util/function/Function;Ljava/lang/Integer;)V
+    invoke-static {v0, p0}, Lcom/android/server/content/SyncManager;->$r8$lambda$LZGnk1q28RiuTwEW9ov1qqhutYw(Lcom/android/server/content/SyncManager;I)V
 
     return-void
 .end method

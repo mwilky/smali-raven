@@ -1,33 +1,30 @@
 .class public final synthetic Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/lang/Runnable;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/android/server/wm/RecentsAnimationController;
+.implements Ljava/util/function/BiConsumer;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/wm/RecentsAnimationController;)V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/wm/RecentsAnimationController;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final run()V
-    .locals 1
+.method public final accept(Ljava/lang/Object;Ljava/lang/Object;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/wm/RecentsAnimationController;
+    check-cast p1, Lcom/android/server/wm/Task;
 
-    invoke-virtual {v0}, Lcom/android/server/wm/RecentsAnimationController;->lambda$setCheckRotationAfterCleanup$6$RecentsAnimationController()V
+    check-cast p2, Ljava/util/ArrayList;
+
+    invoke-static {p1, p2}, Lcom/android/server/wm/RecentsAnimationController;->$r8$lambda$gcwA1mUxs5hJs8Ru_ltRmDfjDKE(Lcom/android/server/wm/Task;Ljava/util/ArrayList;)V
 
     return-void
 .end method

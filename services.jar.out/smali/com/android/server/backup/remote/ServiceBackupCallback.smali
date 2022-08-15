@@ -4,9 +4,9 @@
 
 
 # instance fields
-.field private final mBackupManager:Landroid/app/backup/IBackupManager;
+.field public final mBackupManager:Landroid/app/backup/IBackupManager;
 
-.field private final mToken:I
+.field public final mToken:I
 
 
 # direct methods
@@ -25,7 +25,7 @@
 
 # virtual methods
 .method public operationComplete(J)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -34,9 +34,9 @@
 
     iget-object v0, p0, Lcom/android/server/backup/remote/ServiceBackupCallback;->mBackupManager:Landroid/app/backup/IBackupManager;
 
-    iget v1, p0, Lcom/android/server/backup/remote/ServiceBackupCallback;->mToken:I
+    iget p0, p0, Lcom/android/server/backup/remote/ServiceBackupCallback;->mToken:I
 
-    invoke-interface {v0, v1, p1, p2}, Landroid/app/backup/IBackupManager;->opComplete(IJ)V
+    invoke-interface {v0, p0, p1, p2}, Landroid/app/backup/IBackupManager;->opComplete(IJ)V
 
     return-void
 .end method

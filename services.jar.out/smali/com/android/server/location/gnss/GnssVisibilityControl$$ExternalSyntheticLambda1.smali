@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/location/gnss/GnssVisibilityControl$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Landroid/content/pm/PackageManager$OnPermissionsChangedListener;
 
 
 # instance fields
@@ -22,12 +23,12 @@
 
 
 # virtual methods
-.method public final run()V
-    .locals 1
+.method public final onPermissionsChanged(I)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/location/gnss/GnssVisibilityControl$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/location/gnss/GnssVisibilityControl;
+    iget-object p0, p0, Lcom/android/server/location/gnss/GnssVisibilityControl$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/location/gnss/GnssVisibilityControl;
 
-    invoke-static {v0}, Lcom/android/server/location/gnss/GnssVisibilityControl;->$r8$lambda$bkqQpQK63wbElF7BKgA4hx8Pvoo(Lcom/android/server/location/gnss/GnssVisibilityControl;)V
+    invoke-static {p0, p1}, Lcom/android/server/location/gnss/GnssVisibilityControl;->$r8$lambda$nS3WUeOuzLUrCIBmTEW4tvIGtag(Lcom/android/server/location/gnss/GnssVisibilityControl;I)V
 
     return-void
 .end method

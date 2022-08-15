@@ -1,25 +1,38 @@
 .class public final synthetic Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda11;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/internal/os/KernelCpuUidTimeReader$Callback;
 
 
 # instance fields
-.field public final synthetic f$0:Ljava/util/List;
+.field public final synthetic f$0:Landroid/util/SparseArray;
 
 .field public final synthetic f$1:I
 
+.field public final synthetic f$2:[I
+
+.field public final synthetic f$3:[J
+
+.field public final synthetic f$4:[D
+
 
 # direct methods
-.method public synthetic constructor <init>(Ljava/util/List;I)V
+.method public synthetic constructor <init>(Landroid/util/SparseArray;I[I[J[D)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda11;->f$0:Ljava/util/List;
+    iput-object p1, p0, Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda11;->f$0:Landroid/util/SparseArray;
 
     iput p2, p0, Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda11;->f$1:I
+
+    iput-object p3, p0, Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda11;->f$2:[I
+
+    iput-object p4, p0, Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda11;->f$3:[J
+
+    iput-object p5, p0, Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda11;->f$4:[D
 
     return-void
 .end method
@@ -27,15 +40,25 @@
 
 # virtual methods
 .method public final onUidCpuTime(ILjava/lang/Object;)V
-    .locals 2
+    .locals 7
 
-    iget-object v0, p0, Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda11;->f$0:Ljava/util/List;
+    iget-object v0, p0, Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda11;->f$0:Landroid/util/SparseArray;
 
     iget v1, p0, Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda11;->f$1:I
 
-    check-cast p2, [J
+    iget-object v2, p0, Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda11;->f$2:[I
 
-    invoke-static {v0, v1, p1, p2}, Lcom/android/server/stats/pull/StatsPullAtomService;->lambda$pullCpuTimePerUidLocked$11(Ljava/util/List;II[J)V
+    iget-object v3, p0, Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda11;->f$3:[J
+
+    iget-object v4, p0, Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda11;->f$4:[D
+
+    move-object v6, p2
+
+    check-cast v6, [J
+
+    move v5, p1
+
+    invoke-static/range {v0 .. v6}, Lcom/android/server/stats/pull/StatsPullAtomService;->$r8$lambda$-dMA_wHIJeRrUambllf9cllVsmo(Landroid/util/SparseArray;I[I[J[DI[J)V
 
     return-void
 .end method

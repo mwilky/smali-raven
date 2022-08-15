@@ -1,4 +1,4 @@
-.class interface abstract Landroid/net/NetworkStackClient$NetworkStackCallback;
+.class public interface abstract Landroid/net/NetworkStackClient$NetworkStackCallback;
 .super Ljava/lang/Object;
 .source "NetworkStackClient.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x60a
+    accessFlags = 0x609
     name = "NetworkStackCallback"
 .end annotation
 

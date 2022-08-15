@@ -1,4 +1,4 @@
-.class Lcom/android/server/BatteryService$8;
+.class public Lcom/android/server/BatteryService$8;
 .super Ljava/lang/Object;
 .source "BatteryService.java"
 
@@ -12,19 +12,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/BatteryService;
+.field public final synthetic this$0:Lcom/android/server/BatteryService;
 
-.field final synthetic val$statusIntent:Landroid/content/Intent;
+.field public final synthetic val$statusIntent:Landroid/content/Intent;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/BatteryService;Landroid/content/Intent;)V
+.method public constructor <init>(Lcom/android/server/BatteryService;Landroid/content/Intent;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/BatteryService$8;->this$0:Lcom/android/server/BatteryService;
@@ -39,19 +39,19 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/BatteryService$8;->this$0:Lcom/android/server/BatteryService;
 
-    invoke-static {v0}, Lcom/android/server/BatteryService;->access$800(Lcom/android/server/BatteryService;)Landroid/content/Context;
+    invoke-static {v0}, Lcom/android/server/BatteryService;->-$$Nest$fgetmContext(Lcom/android/server/BatteryService;)Landroid/content/Context;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/server/BatteryService$8;->val$statusIntent:Landroid/content/Intent;
+    iget-object p0, p0, Lcom/android/server/BatteryService$8;->val$statusIntent:Landroid/content/Intent;
 
-    sget-object v2, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
+    sget-object v1, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
 
-    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
+    invoke-virtual {v0, p0, v1}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
 
     return-void
 .end method

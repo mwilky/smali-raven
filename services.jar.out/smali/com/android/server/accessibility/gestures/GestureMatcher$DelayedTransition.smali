@@ -12,29 +12,25 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x14
+    accessFlags = 0x11
     name = "DelayedTransition"
 .end annotation
 
 
-# static fields
-.field private static final LOG_TAG:Ljava/lang/String; = "GestureMatcher.DelayedTransition"
-
-
 # instance fields
-.field mEvent:Landroid/view/MotionEvent;
+.field public mEvent:Landroid/view/MotionEvent;
 
-.field mPolicyFlags:I
+.field public mPolicyFlags:I
 
-.field mRawEvent:Landroid/view/MotionEvent;
+.field public mRawEvent:Landroid/view/MotionEvent;
 
-.field mTargetState:I
+.field public mTargetState:I
 
-.field final synthetic this$0:Lcom/android/server/accessibility/gestures/GestureMatcher;
+.field public final synthetic this$0:Lcom/android/server/accessibility/gestures/GestureMatcher;
 
 
 # direct methods
-.method protected constructor <init>(Lcom/android/server/accessibility/gestures/GestureMatcher;)V
+.method public constructor <init>(Lcom/android/server/accessibility/gestures/GestureMatcher;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/accessibility/gestures/GestureMatcher$DelayedTransition;->this$0:Lcom/android/server/accessibility/gestures/GestureMatcher;
@@ -51,7 +47,7 @@
 
     iget-object v0, p0, Lcom/android/server/accessibility/gestures/GestureMatcher$DelayedTransition;->this$0:Lcom/android/server/accessibility/gestures/GestureMatcher;
 
-    invoke-static {v0}, Lcom/android/server/accessibility/gestures/GestureMatcher;->access$000(Lcom/android/server/accessibility/gestures/GestureMatcher;)Landroid/os/Handler;
+    invoke-static {v0}, Lcom/android/server/accessibility/gestures/GestureMatcher;->-$$Nest$fgetmHandler(Lcom/android/server/accessibility/gestures/GestureMatcher;)Landroid/os/Handler;
 
     move-result-object v0
 
@@ -60,41 +56,8 @@
     return-void
 .end method
 
-.method public forceSendAndRemove()V
-    .locals 1
-
-    invoke-virtual {p0}, Lcom/android/server/accessibility/gestures/GestureMatcher$DelayedTransition;->isPending()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {p0}, Lcom/android/server/accessibility/gestures/GestureMatcher$DelayedTransition;->run()V
-
-    invoke-virtual {p0}, Lcom/android/server/accessibility/gestures/GestureMatcher$DelayedTransition;->cancel()V
-
-    :cond_0
-    return-void
-.end method
-
-.method public isPending()Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/accessibility/gestures/GestureMatcher$DelayedTransition;->this$0:Lcom/android/server/accessibility/gestures/GestureMatcher;
-
-    invoke-static {v0}, Lcom/android/server/accessibility/gestures/GestureMatcher;->access$000(Lcom/android/server/accessibility/gestures/GestureMatcher;)Landroid/os/Handler;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p0}, Landroid/os/Handler;->hasCallbacks(Ljava/lang/Runnable;)Z
-
-    move-result v0
-
-    return v0
-.end method
-
 .method public post(IJLandroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
-    .locals 1
+    .locals 0
 
     iput p1, p0, Lcom/android/server/accessibility/gestures/GestureMatcher$DelayedTransition;->mTargetState:I
 
@@ -104,19 +67,19 @@
 
     iput p6, p0, Lcom/android/server/accessibility/gestures/GestureMatcher$DelayedTransition;->mPolicyFlags:I
 
-    iget-object v0, p0, Lcom/android/server/accessibility/gestures/GestureMatcher$DelayedTransition;->this$0:Lcom/android/server/accessibility/gestures/GestureMatcher;
+    iget-object p1, p0, Lcom/android/server/accessibility/gestures/GestureMatcher$DelayedTransition;->this$0:Lcom/android/server/accessibility/gestures/GestureMatcher;
 
-    invoke-static {v0}, Lcom/android/server/accessibility/gestures/GestureMatcher;->access$000(Lcom/android/server/accessibility/gestures/GestureMatcher;)Landroid/os/Handler;
+    invoke-static {p1}, Lcom/android/server/accessibility/gestures/GestureMatcher;->-$$Nest$fgetmHandler(Lcom/android/server/accessibility/gestures/GestureMatcher;)Landroid/os/Handler;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0, p0, p2, p3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+    invoke-virtual {p1, p0, p2, p3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
     return-void
 .end method
 
 .method public run()V
-    .locals 5
+    .locals 4
 
     iget-object v0, p0, Lcom/android/server/accessibility/gestures/GestureMatcher$DelayedTransition;->this$0:Lcom/android/server/accessibility/gestures/GestureMatcher;
 
@@ -126,9 +89,9 @@
 
     iget-object v3, p0, Lcom/android/server/accessibility/gestures/GestureMatcher$DelayedTransition;->mRawEvent:Landroid/view/MotionEvent;
 
-    iget v4, p0, Lcom/android/server/accessibility/gestures/GestureMatcher$DelayedTransition;->mPolicyFlags:I
+    iget p0, p0, Lcom/android/server/accessibility/gestures/GestureMatcher$DelayedTransition;->mPolicyFlags:I
 
-    invoke-static {v0, v1, v2, v3, v4}, Lcom/android/server/accessibility/gestures/GestureMatcher;->access$100(Lcom/android/server/accessibility/gestures/GestureMatcher;ILandroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
+    invoke-static {v0, v1, v2, v3, p0}, Lcom/android/server/accessibility/gestures/GestureMatcher;->-$$Nest$msetState(Lcom/android/server/accessibility/gestures/GestureMatcher;ILandroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
 
     return-void
 .end method

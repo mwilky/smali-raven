@@ -1,53 +1,42 @@
 .class public final synthetic Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda18;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/BiConsumer;
+.implements Lcom/android/internal/os/BinderCallHeavyHitterWatcher$BinderCallHeavyHitterListener;
 
 
 # instance fields
-.field public final synthetic f$0:Ljava/io/PrintWriter;
-
-.field public final synthetic f$1:J
-
-.field public final synthetic f$2:J
+.field public final synthetic f$0:Lcom/android/server/am/ActivityManagerService;
 
 
 # direct methods
-.method public synthetic constructor <init>(Ljava/io/PrintWriter;JJ)V
+.method public synthetic constructor <init>(Lcom/android/server/am/ActivityManagerService;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda18;->f$0:Ljava/io/PrintWriter;
-
-    iput-wide p2, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda18;->f$1:J
-
-    iput-wide p4, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda18;->f$2:J
+    iput-object p1, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda18;->f$0:Lcom/android/server/am/ActivityManagerService;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 7
+.method public final onHeavyHit(Ljava/util/List;IFJ)V
+    .locals 6
 
-    iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda18;->f$0:Ljava/io/PrintWriter;
+    iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda18;->f$0:Lcom/android/server/am/ActivityManagerService;
 
-    iget-wide v1, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda18;->f$1:J
+    move-object v1, p1
 
-    iget-wide v3, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda18;->f$2:J
+    move v2, p2
 
-    move-object v5, p1
+    move v3, p3
 
-    check-cast v5, Ljava/lang/Integer;
+    move-wide v4, p4
 
-    move-object v6, p2
-
-    check-cast v6, Landroid/util/Pair;
-
-    invoke-static/range {v0 .. v6}, Lcom/android/server/am/ActivityManagerService;->lambda$dumpOtherProcessesInfoLSP$13(Ljava/io/PrintWriter;JJLjava/lang/Integer;Landroid/util/Pair;)V
+    invoke-static/range {v0 .. v5}, Lcom/android/server/am/ActivityManagerService;->$r8$lambda$I6Cbi9CwYm4I_ZEoLY_kJPbRBHQ(Lcom/android/server/am/ActivityManagerService;Ljava/util/List;IFJ)V
 
     return-void
 .end method

@@ -1,4 +1,4 @@
-.class Lcom/android/server/pm/PackageInstallerSession$PerFileChecksum;
+.class public Lcom/android/server/pm/PackageInstallerSession$PerFileChecksum;
 .super Ljava/lang/Object;
 .source "PackageInstallerSession.java"
 
@@ -9,19 +9,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "PerFileChecksum"
 .end annotation
 
 
 # instance fields
-.field private final mChecksums:[Landroid/content/pm/Checksum;
+.field public final mChecksums:[Landroid/content/pm/Checksum;
 
-.field private final mSignature:[B
+.field public final mSignature:[B
 
 
 # direct methods
-.method constructor <init>([Landroid/content/pm/Checksum;[B)V
+.method public constructor <init>([Landroid/content/pm/Checksum;[B)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -35,18 +35,18 @@
 
 
 # virtual methods
-.method getChecksums()[Landroid/content/pm/Checksum;
-    .locals 1
+.method public getChecksums()[Landroid/content/pm/Checksum;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/pm/PackageInstallerSession$PerFileChecksum;->mChecksums:[Landroid/content/pm/Checksum;
+    iget-object p0, p0, Lcom/android/server/pm/PackageInstallerSession$PerFileChecksum;->mChecksums:[Landroid/content/pm/Checksum;
 
-    return-object v0
+    return-object p0
 .end method
 
-.method getSignature()[B
-    .locals 1
+.method public getSignature()[B
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/pm/PackageInstallerSession$PerFileChecksum;->mSignature:[B
+    iget-object p0, p0, Lcom/android/server/pm/PackageInstallerSession$PerFileChecksum;->mSignature:[B
 
-    return-object v0
+    return-object p0
 .end method

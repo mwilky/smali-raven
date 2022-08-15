@@ -1,4 +1,4 @@
-.class Lcom/android/server/accounts/AccountManagerService$1LogRecordTask;
+.class public Lcom/android/server/accounts/AccountManagerService$1LogRecordTask;
 .super Ljava/lang/Object;
 .source "AccountManagerService.java"
 
@@ -12,29 +12,29 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = "LogRecordTask"
 .end annotation
 
 
 # instance fields
-.field private final accountId:J
+.field public final accountId:J
 
-.field private final action:Ljava/lang/String;
+.field public final action:Ljava/lang/String;
 
-.field private final callingUid:I
+.field public final callingUid:I
 
-.field private final tableName:Ljava/lang/String;
+.field public final tableName:Ljava/lang/String;
 
-.field final synthetic this$0:Lcom/android/server/accounts/AccountManagerService;
+.field public final synthetic this$0:Lcom/android/server/accounts/AccountManagerService;
 
-.field private final userAccount:Lcom/android/server/accounts/AccountManagerService$UserAccounts;
+.field public final userAccount:Lcom/android/server/accounts/AccountManagerService$UserAccounts;
 
-.field private final userDebugDbInsertionPoint:J
+.field public final userDebugDbInsertionPoint:J
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/accounts/AccountManagerService;Ljava/lang/String;Ljava/lang/String;JLcom/android/server/accounts/AccountManagerService$UserAccounts;IJ)V
+.method public constructor <init>(Lcom/android/server/accounts/AccountManagerService;Ljava/lang/String;Ljava/lang/String;JLcom/android/server/accounts/AccountManagerService$UserAccounts;IJ)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/accounts/AccountManagerService$1LogRecordTask;->this$0:Lcom/android/server/accounts/AccountManagerService;
@@ -101,7 +101,7 @@
 
     iget-object v3, p0, Lcom/android/server/accounts/AccountManagerService$1LogRecordTask;->this$0:Lcom/android/server/accounts/AccountManagerService;
 
-    invoke-static {v3}, Lcom/android/server/accounts/AccountManagerService;->access$3600(Lcom/android/server/accounts/AccountManagerService;)Ljava/text/SimpleDateFormat;
+    invoke-static {v3}, Lcom/android/server/accounts/AccountManagerService;->-$$Nest$fgetmDateFormat(Lcom/android/server/accounts/AccountManagerService;)Ljava/text/SimpleDateFormat;
 
     move-result-object v3
 
@@ -141,6 +141,7 @@
     invoke-virtual {v1}, Landroid/database/sqlite/SQLiteStatement;->execute()V
     :try_end_1
     .catch Ljava/lang/IllegalStateException; {:try_start_1 .. :try_end_1} :catch_0
+    .catch Landroid/database/sqlite/SQLiteFullException; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     :goto_0
@@ -152,7 +153,7 @@
     goto :goto_1
 
     :catchall_0
-    move-exception v2
+    move-exception p0
 
     goto :goto_2
 
@@ -186,21 +187,21 @@
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v5, p0, Lcom/android/server/accounts/AccountManagerService$1LogRecordTask;->tableName:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/accounts/AccountManagerService$1LogRecordTask;->tableName:Ljava/lang/String;
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v5, " Error: "
+    const-string p0, " Error: "
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object p0
 
-    invoke-static {v3, v4}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, p0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
@@ -215,16 +216,14 @@
     :goto_2
     invoke-virtual {v1}, Landroid/database/sqlite/SQLiteStatement;->clearBindings()V
 
-    nop
-
-    throw v2
+    throw p0
 
     :catchall_1
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
-    throw v1
+    throw p0
 .end method

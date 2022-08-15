@@ -1,35 +1,26 @@
 .class public final synthetic Lcom/android/server/location/contexthub/ContextHubClientBroker$$ExternalSyntheticLambda6;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Supplier;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/android/server/location/contexthub/ContextHubClientBroker;
+.implements Lcom/android/server/location/contexthub/ContextHubClientBroker$CallbackConsumer;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/location/contexthub/ContextHubClientBroker;)V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/server/location/contexthub/ContextHubClientBroker$$ExternalSyntheticLambda6;->f$0:Lcom/android/server/location/contexthub/ContextHubClientBroker;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final get()Ljava/lang/Object;
-    .locals 1
+.method public final accept(Landroid/hardware/location/IContextHubClientCallback;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/location/contexthub/ContextHubClientBroker$$ExternalSyntheticLambda6;->f$0:Lcom/android/server/location/contexthub/ContextHubClientBroker;
+    invoke-static {p1}, Lcom/android/server/location/contexthub/ContextHubClientBroker;->$r8$lambda$kU4n_bH_eoKIdcferyJMeBvMmxo(Landroid/hardware/location/IContextHubClientCallback;)V
 
-    invoke-virtual {v0}, Lcom/android/server/location/contexthub/ContextHubClientBroker;->lambda$onHubReset$7$ContextHubClientBroker()Landroid/content/Intent;
-
-    move-result-object v0
-
-    return-object v0
+    return-void
 .end method

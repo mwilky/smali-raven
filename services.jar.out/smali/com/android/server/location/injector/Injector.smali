@@ -3,6 +3,11 @@
 .source "Injector.java"
 
 
+# annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+.end annotation
+
+
 # virtual methods
 .method public abstract getAlarmHelper()Lcom/android/server/location/injector/AlarmHelper;
 .end method
@@ -20,9 +25,6 @@
 .end method
 
 .method public abstract getEmergencyHelper()Lcom/android/server/location/injector/EmergencyHelper;
-.end method
-
-.method public abstract getLocationAttributionHelper()Lcom/android/server/location/injector/LocationAttributionHelper;
 .end method
 
 .method public abstract getLocationPermissionsHelper()Lcom/android/server/location/injector/LocationPermissionsHelper;

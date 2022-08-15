@@ -20,7 +20,7 @@
 
 
 # instance fields
-.field private final mRequest:Ljava/lang/Object;
+.field public final mRequest:Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "TTRequest;"
@@ -30,7 +30,7 @@
 
 
 # direct methods
-.method protected constructor <init>(Ljava/util/concurrent/Executor;Ljava/lang/Object;Ljava/lang/Object;)V
+.method public constructor <init>(Ljava/util/concurrent/Executor;Ljava/lang/Object;Ljava/lang/Object;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -52,33 +52,33 @@
 
 # virtual methods
 .method public getRequest()Ljava/lang/Object;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TTRequest;"
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/android/server/location/listeners/RequestListenerRegistration;->mRequest:Ljava/lang/Object;
+    iget-object p0, p0, Lcom/android/server/location/listeners/RequestListenerRegistration;->mRequest:Ljava/lang/Object;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/location/listeners/RequestListenerRegistration;->mRequest:Ljava/lang/Object;
+    iget-object p0, p0, Lcom/android/server/location/listeners/RequestListenerRegistration;->mRequest:Ljava/lang/Object;
 
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
-    const-string v0, "[]"
+    const-string p0, "[]"
 
-    return-object v0
+    return-object p0
 
     :cond_0
-    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

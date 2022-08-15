@@ -1,4 +1,4 @@
-.class Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;
+.class public Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;
 .super Ljava/lang/Object;
 .source "HdmiCecLocalDevice.java"
 
@@ -9,15 +9,15 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "ActiveSource"
 .end annotation
 
 
 # instance fields
-.field logicalAddress:I
+.field public logicalAddress:I
 
-.field physicalAddress:I
+.field public physicalAddress:I
 
 
 # direct methods
@@ -54,15 +54,15 @@
 .end method
 
 .method public static of(Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;)Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;
-    .locals 3
+    .locals 2
 
     new-instance v0, Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;
 
     iget v1, p0, Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;->logicalAddress:I
 
-    iget v2, p0, Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;->physicalAddress:I
+    iget p0, p0, Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;->physicalAddress:I
 
-    invoke-direct {v0, v1, v2}, Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;-><init>(II)V
+    invoke-direct {v0, v1, p0}, Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;-><init>(II)V
 
     return-object v0
 .end method
@@ -76,65 +76,60 @@
 
     if-ne v0, p1, :cond_0
 
-    iget v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;->physicalAddress:I
+    iget p0, p0, Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;->physicalAddress:I
 
-    if-ne v0, p2, :cond_0
+    if-ne p0, p2, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .locals 3
 
     instance-of v0, p1, Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
-    move-object v0, p1
+    check-cast p1, Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;
 
-    check-cast v0, Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;
+    iget v0, p1, Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;->logicalAddress:I
 
-    iget v2, v0, Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;->logicalAddress:I
+    iget v2, p0, Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;->logicalAddress:I
 
-    iget v3, p0, Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;->logicalAddress:I
+    if-ne v0, v2, :cond_0
 
-    if-ne v2, v3, :cond_0
+    iget p1, p1, Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;->physicalAddress:I
 
-    iget v2, v0, Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;->physicalAddress:I
+    iget p0, p0, Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;->physicalAddress:I
 
-    iget v3, p0, Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;->physicalAddress:I
-
-    if-ne v2, v3, :cond_0
+    if-ne p1, p0, :cond_0
 
     const/4 v1, 0x1
 
     :cond_0
     return v1
-
-    :cond_1
-    return v1
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .locals 1
 
     iget v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;->logicalAddress:I
 
     mul-int/lit8 v0, v0, 0x1d
 
-    iget v1, p0, Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;->physicalAddress:I
+    iget p0, p0, Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;->physicalAddress:I
 
-    add-int/2addr v0, v1
+    add-int/2addr v0, p0
 
     return v0
 .end method
@@ -154,19 +149,19 @@
 .end method
 
 .method public isValid()Z
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;->logicalAddress:I
+    iget p0, p0, Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;->logicalAddress:I
 
-    invoke-static {v0}, Lcom/android/server/hdmi/HdmiUtils;->isValidAddress(I)Z
+    invoke-static {p0}, Lcom/android/server/hdmi/HdmiUtils;->isValidAddress(I)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 7
+    .locals 6
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -204,53 +199,49 @@
     move-result-object v1
 
     :goto_0
-    nop
-
     const-string v5, "("
 
     invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v5, p0, Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;->physicalAddress:I
+    iget p0, p0, Lcom/android/server/hdmi/HdmiCecLocalDevice$ActiveSource;->physicalAddress:I
 
-    const v6, 0xffff
+    const v1, 0xffff
 
-    if-ne v5, v6, :cond_1
+    if-ne p0, v1, :cond_1
 
     goto :goto_1
 
     :cond_1
-    new-array v2, v4, [Ljava/lang/Object;
+    new-array v1, v4, [Ljava/lang/Object;
 
-    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v4
+    move-result-object p0
 
-    aput-object v4, v2, v3
+    aput-object p0, v1, v3
 
-    const-string v3, "0x%04x"
+    const-string p0, "0x%04x"
 
-    invoke-static {v3, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v2
 
     :goto_1
-    nop
+    const-string p0, ", "
 
-    const-string v3, ", "
-
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, ")"
+    const-string p0, ")"
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p0
 
-    return-object v3
+    return-object p0
 .end method

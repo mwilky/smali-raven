@@ -1,4 +1,4 @@
-.class Lcom/android/server/location/gnss/GnssMetrics$Statistics;
+.class public Lcom/android/server/location/gnss/GnssMetrics$Statistics;
 .super Ljava/lang/Object;
 .source "GnssMetrics.java"
 
@@ -9,23 +9,23 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "Statistics"
 .end annotation
 
 
 # instance fields
-.field private mCount:I
+.field public mCount:I
 
-.field private mLongSum:J
+.field public mLongSum:J
 
-.field private mSum:D
+.field public mSum:D
 
-.field private mSumSquare:D
+.field public mSumSquare:D
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -67,9 +67,9 @@
 
     add-double/2addr v0, p1
 
-    double-to-long v0, v0
+    double-to-long p1, v0
 
-    iput-wide v0, p0, Lcom/android/server/location/gnss/GnssMetrics$Statistics;->mLongSum:J
+    iput-wide p1, p0, Lcom/android/server/location/gnss/GnssMetrics$Statistics;->mLongSum:J
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -183,24 +183,24 @@
 
     if-lez v2, :cond_0
 
-    sub-double v5, v3, v0
+    sub-double/2addr v3, v0
 
-    invoke-static {v5, v6}, Ljava/lang/Math;->sqrt(D)D
+    invoke-static {v3, v4}, Ljava/lang/Math;->sqrt(D)D
 
-    move-result-wide v5
+    move-result-wide v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
-    return-wide v5
+    return-wide v0
 
     :cond_0
-    const-wide/16 v5, 0x0
+    const-wide/16 v0, 0x0
 
     monitor-exit p0
 
-    return-wide v5
+    return-wide v0
 
     :catchall_0
     move-exception v0

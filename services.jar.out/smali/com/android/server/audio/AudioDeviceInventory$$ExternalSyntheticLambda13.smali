@@ -1,45 +1,42 @@
 .class public final synthetic Lcom/android/server/audio/AudioDeviceInventory$$ExternalSyntheticLambda13;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/ToIntFunction;
+.implements Ljava/util/function/Consumer;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/audio/AudioDeviceInventory$$ExternalSyntheticLambda13;
+# instance fields
+.field public final synthetic f$0:Lcom/android/server/audio/AudioDeviceInventory;
+
+.field public final synthetic f$1:I
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/audio/AudioDeviceInventory$$ExternalSyntheticLambda13;
-
-    invoke-direct {v0}, Lcom/android/server/audio/AudioDeviceInventory$$ExternalSyntheticLambda13;-><init>()V
-
-    sput-object v0, Lcom/android/server/audio/AudioDeviceInventory$$ExternalSyntheticLambda13;->INSTANCE:Lcom/android/server/audio/AudioDeviceInventory$$ExternalSyntheticLambda13;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Lcom/android/server/audio/AudioDeviceInventory;I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/audio/AudioDeviceInventory$$ExternalSyntheticLambda13;->f$0:Lcom/android/server/audio/AudioDeviceInventory;
+
+    iput p2, p0, Lcom/android/server/audio/AudioDeviceInventory$$ExternalSyntheticLambda13;->f$1:I
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final applyAsInt(Ljava/lang/Object;)I
-    .locals 0
+.method public final accept(Ljava/lang/Object;)V
+    .locals 1
 
-    check-cast p1, Ljava/lang/Integer;
+    iget-object v0, p0, Lcom/android/server/audio/AudioDeviceInventory$$ExternalSyntheticLambda13;->f$0:Lcom/android/server/audio/AudioDeviceInventory;
 
-    invoke-static {p1}, Lcom/android/server/audio/AudioDeviceInventory;->lambda$configureHdmiPlugIntent$13(Ljava/lang/Integer;)I
+    iget p0, p0, Lcom/android/server/audio/AudioDeviceInventory$$ExternalSyntheticLambda13;->f$1:I
 
-    move-result p1
+    check-cast p1, Ljava/lang/String;
 
-    return p1
+    invoke-static {v0, p0, p1}, Lcom/android/server/audio/AudioDeviceInventory;->$r8$lambda$budNJyYK6nq05DI-Nmeb7anmlzg(Lcom/android/server/audio/AudioDeviceInventory;ILjava/lang/String;)V
+
+    return-void
 .end method

@@ -1,43 +1,34 @@
 .class public final synthetic Lcom/android/server/DeviceIdleController$$ExternalSyntheticLambda3;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/IntFunction;
+.implements Landroid/app/AlarmManager$OnAlarmListener;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/DeviceIdleController$$ExternalSyntheticLambda3;
+# instance fields
+.field public final synthetic f$0:Lcom/android/server/DeviceIdleController;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/DeviceIdleController$$ExternalSyntheticLambda3;
-
-    invoke-direct {v0}, Lcom/android/server/DeviceIdleController$$ExternalSyntheticLambda3;-><init>()V
-
-    sput-object v0, Lcom/android/server/DeviceIdleController$$ExternalSyntheticLambda3;->INSTANCE:Lcom/android/server/DeviceIdleController$$ExternalSyntheticLambda3;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Lcom/android/server/DeviceIdleController;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/DeviceIdleController$$ExternalSyntheticLambda3;->f$0:Lcom/android/server/DeviceIdleController;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final apply(I)Ljava/lang/Object;
+.method public final onAlarm()V
     .locals 0
 
-    invoke-static {p1}, Lcom/android/server/DeviceIdleController;->lambda$getFullPowerWhitelistExceptIdleInternal$11(I)[Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/DeviceIdleController$$ExternalSyntheticLambda3;->f$0:Lcom/android/server/DeviceIdleController;
 
-    move-result-object p1
+    invoke-static {p0}, Lcom/android/server/DeviceIdleController;->$r8$lambda$lxpykl3EqKPgngnURMeKcFFakBk(Lcom/android/server/DeviceIdleController;)V
 
-    return-object p1
+    return-void
 .end method

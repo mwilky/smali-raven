@@ -1,59 +1,49 @@
-.class Lcom/android/server/hdmi/HdmiCecLocalDevice$3;
-.super Ljava/lang/Object;
+.class public Lcom/android/server/hdmi/HdmiCecLocalDevice$3;
+.super Landroid/hardware/hdmi/IHdmiControlCallback$Stub;
 .source "HdmiCecLocalDevice.java"
-
-# interfaces
-.implements Lcom/android/server/hdmi/HdmiCecLocalDevice$PendingActionClearedCallback;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/hdmi/HdmiCecLocalDevice;->disableDevice(ZLcom/android/server/hdmi/HdmiCecLocalDevice$PendingActionClearedCallback;)V
+    value = Lcom/android/server/hdmi/HdmiCecLocalDevice;->queryAvcSupport(I)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/hdmi/HdmiCecLocalDevice;
-
-.field final synthetic val$originalCallback:Lcom/android/server/hdmi/HdmiCecLocalDevice$PendingActionClearedCallback;
+.field public final synthetic this$0:Lcom/android/server/hdmi/HdmiCecLocalDevice;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/hdmi/HdmiCecLocalDevice;Lcom/android/server/hdmi/HdmiCecLocalDevice$PendingActionClearedCallback;)V
+.method public constructor <init>(Lcom/android/server/hdmi/HdmiCecLocalDevice;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/hdmi/HdmiCecLocalDevice$3;->this$0:Lcom/android/server/hdmi/HdmiCecLocalDevice;
 
-    iput-object p2, p0, Lcom/android/server/hdmi/HdmiCecLocalDevice$3;->val$originalCallback:Lcom/android/server/hdmi/HdmiCecLocalDevice$PendingActionClearedCallback;
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/hardware/hdmi/IHdmiControlCallback$Stub;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onCleared(Lcom/android/server/hdmi/HdmiCecLocalDevice;)V
-    .locals 2
+.method public onComplete(I)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDevice$3;->this$0:Lcom/android/server/hdmi/HdmiCecLocalDevice;
+    if-nez p1, :cond_0
 
-    invoke-static {v0}, Lcom/android/server/hdmi/HdmiCecLocalDevice;->access$100(Lcom/android/server/hdmi/HdmiCecLocalDevice;)Landroid/os/Handler;
+    iget-object p0, p0, Lcom/android/server/hdmi/HdmiCecLocalDevice$3;->this$0:Lcom/android/server/hdmi/HdmiCecLocalDevice;
 
-    move-result-object v0
+    invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecLocalDevice;->getService()Lcom/android/server/hdmi/HdmiControlService;
 
-    const/4 v1, 0x1
+    move-result-object p0
 
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
+    invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiControlService;->checkAndUpdateAbsoluteVolumeControlState()V
 
-    iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDevice$3;->val$originalCallback:Lcom/android/server/hdmi/HdmiCecLocalDevice$PendingActionClearedCallback;
-
-    invoke-interface {v0, p1}, Lcom/android/server/hdmi/HdmiCecLocalDevice$PendingActionClearedCallback;->onCleared(Lcom/android/server/hdmi/HdmiCecLocalDevice;)V
-
+    :cond_0
     return-void
 .end method

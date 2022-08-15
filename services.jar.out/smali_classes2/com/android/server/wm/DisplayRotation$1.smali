@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/DisplayRotation$1;
+.class public Lcom/android/server/wm/DisplayRotation$1;
 .super Ljava/lang/Object;
 .source "DisplayRotation.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/wm/DisplayRotation;
+.field public final synthetic this$0:Lcom/android/server/wm/DisplayRotation;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/wm/DisplayRotation;)V
+.method public constructor <init>(Lcom/android/server/wm/DisplayRotation;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/wm/DisplayRotation$1;->this$0:Lcom/android/server/wm/DisplayRotation;
@@ -35,17 +35,17 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/server/wm/DisplayRotation$1;->this$0:Lcom/android/server/wm/DisplayRotation;
+    iget-object p0, p0, Lcom/android/server/wm/DisplayRotation$1;->this$0:Lcom/android/server/wm/DisplayRotation;
 
-    invoke-static {v0}, Lcom/android/server/wm/DisplayRotation;->access$100(Lcom/android/server/wm/DisplayRotation;)I
+    invoke-static {p0}, Lcom/android/server/wm/DisplayRotation;->-$$Nest$fgetmRotation(Lcom/android/server/wm/DisplayRotation;)I
 
-    move-result v1
+    move-result v0
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    invoke-static {v0, v1, v2}, Lcom/android/server/wm/DisplayRotation;->access$200(Lcom/android/server/wm/DisplayRotation;ILandroid/window/WindowContainerTransaction;)V
+    invoke-static {p0, v0, v1}, Lcom/android/server/wm/DisplayRotation;->-$$Nest$mcontinueRotation(Lcom/android/server/wm/DisplayRotation;ILandroid/window/WindowContainerTransaction;)V
 
     return-void
 .end method

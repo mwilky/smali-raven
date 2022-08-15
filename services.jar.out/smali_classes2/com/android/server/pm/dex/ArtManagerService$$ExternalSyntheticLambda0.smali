@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/pm/dex/ArtManagerService$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -31,15 +32,15 @@
 
 # virtual methods
 .method public final run()V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/pm/dex/ArtManagerService$$ExternalSyntheticLambda0;->f$0:Landroid/content/pm/dex/ISnapshotRuntimeProfileCallback;
 
     iget v1, p0, Lcom/android/server/pm/dex/ArtManagerService$$ExternalSyntheticLambda0;->f$1:I
 
-    iget-object v2, p0, Lcom/android/server/pm/dex/ArtManagerService$$ExternalSyntheticLambda0;->f$2:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/pm/dex/ArtManagerService$$ExternalSyntheticLambda0;->f$2:Ljava/lang/String;
 
-    invoke-static {v0, v1, v2}, Lcom/android/server/pm/dex/ArtManagerService;->lambda$postError$0(Landroid/content/pm/dex/ISnapshotRuntimeProfileCallback;ILjava/lang/String;)V
+    invoke-static {v0, v1, p0}, Lcom/android/server/pm/dex/ArtManagerService;->$r8$lambda$dmR_bGEH0KrwULZ-7hRCD3pHSTU(Landroid/content/pm/dex/ISnapshotRuntimeProfileCallback;ILjava/lang/String;)V
 
     return-void
 .end method

@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/job/controllers/idle/DeviceIdlenessTracker$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/app/AlarmManager$OnAlarmListener;
+.implements Landroid/app/UiModeManager$OnProjectionStateChangedListener;
 
 
 # instance fields
@@ -22,12 +23,12 @@
 
 
 # virtual methods
-.method public final onAlarm()V
-    .locals 1
+.method public final onProjectionStateChanged(ILjava/util/Set;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/job/controllers/idle/DeviceIdlenessTracker$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/job/controllers/idle/DeviceIdlenessTracker;
+    iget-object p0, p0, Lcom/android/server/job/controllers/idle/DeviceIdlenessTracker$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/job/controllers/idle/DeviceIdlenessTracker;
 
-    invoke-virtual {v0}, Lcom/android/server/job/controllers/idle/DeviceIdlenessTracker;->lambda$new$0$DeviceIdlenessTracker()V
+    invoke-static {p0, p1, p2}, Lcom/android/server/job/controllers/idle/DeviceIdlenessTracker;->$r8$lambda$2MC_yOXl7-XH1zQvbaDgQgMvvEw(Lcom/android/server/job/controllers/idle/DeviceIdlenessTracker;ILjava/util/Set;)V
 
     return-void
 .end method

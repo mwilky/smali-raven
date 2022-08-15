@@ -1,4 +1,4 @@
-.class Lcom/android/server/net/NetworkPolicyManagerService$3;
+.class public Lcom/android/server/net/NetworkPolicyManagerService$3;
 .super Landroid/telephony/SubscriptionManager$OnSubscriptionsChangedListener;
 .source "NetworkPolicyManagerService.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/net/NetworkPolicyManagerService;
+.field public final synthetic this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/net/NetworkPolicyManagerService;)V
+.method public constructor <init>(Lcom/android/server/net/NetworkPolicyManagerService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/net/NetworkPolicyManagerService$3;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
@@ -32,11 +32,11 @@
 
 # virtual methods
 .method public onSubscriptionsChanged()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService$3;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
+    iget-object p0, p0, Lcom/android/server/net/NetworkPolicyManagerService$3;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
-    invoke-static {v0}, Lcom/android/server/net/NetworkPolicyManagerService;->access$400(Lcom/android/server/net/NetworkPolicyManagerService;)V
+    invoke-static {p0}, Lcom/android/server/net/NetworkPolicyManagerService;->-$$Nest$mupdateNetworksInternal(Lcom/android/server/net/NetworkPolicyManagerService;)V
 
     return-void
 .end method

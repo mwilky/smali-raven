@@ -1,4 +1,4 @@
-.class Lcom/android/server/pm/PackageManagerShellCommand$4;
+.class public Lcom/android/server/pm/PackageManagerShellCommand$4;
 .super Ljava/lang/Object;
 .source "PackageManagerShellCommand.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/pm/PackageManagerShellCommand;
+.field public final synthetic this$0:Lcom/android/server/pm/PackageManagerShellCommand;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/pm/PackageManagerShellCommand;)V
+.method public constructor <init>(Lcom/android/server/pm/PackageManagerShellCommand;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/pm/PackageManagerShellCommand$4;->this$0:Lcom/android/server/pm/PackageManagerShellCommand;
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public handleOption(Ljava/lang/String;Landroid/os/ShellCommand;)Z
-    .locals 3
+    .locals 2
 
     const-string v0, "--user"
 
@@ -47,17 +47,17 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/pm/PackageManagerShellCommand$4;->this$0:Lcom/android/server/pm/PackageManagerShellCommand;
+    iget-object p0, p0, Lcom/android/server/pm/PackageManagerShellCommand$4;->this$0:Lcom/android/server/pm/PackageManagerShellCommand;
 
     invoke-virtual {p2}, Landroid/os/ShellCommand;->getNextArgRequired()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-static {v2}, Landroid/os/UserHandle;->parseUserArg(Ljava/lang/String;)I
+    invoke-static {p1}, Landroid/os/UserHandle;->parseUserArg(Ljava/lang/String;)I
 
-    move-result v2
+    move-result p1
 
-    iput v2, v0, Lcom/android/server/pm/PackageManagerShellCommand;->mTargetUser:I
+    iput p1, p0, Lcom/android/server/pm/PackageManagerShellCommand;->mTargetUser:I
 
     return v1
 
@@ -70,9 +70,9 @@
 
     if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/android/server/pm/PackageManagerShellCommand$4;->this$0:Lcom/android/server/pm/PackageManagerShellCommand;
+    iget-object p0, p0, Lcom/android/server/pm/PackageManagerShellCommand$4;->this$0:Lcom/android/server/pm/PackageManagerShellCommand;
 
-    iput-boolean v1, v0, Lcom/android/server/pm/PackageManagerShellCommand;->mBrief:Z
+    iput-boolean v1, p0, Lcom/android/server/pm/PackageManagerShellCommand;->mBrief:Z
 
     return v1
 
@@ -85,9 +85,9 @@
 
     if-eqz v0, :cond_2
 
-    iget-object v0, p0, Lcom/android/server/pm/PackageManagerShellCommand$4;->this$0:Lcom/android/server/pm/PackageManagerShellCommand;
+    iget-object p0, p0, Lcom/android/server/pm/PackageManagerShellCommand$4;->this$0:Lcom/android/server/pm/PackageManagerShellCommand;
 
-    iput-boolean v1, v0, Lcom/android/server/pm/PackageManagerShellCommand;->mComponents:Z
+    iput-boolean v1, p0, Lcom/android/server/pm/PackageManagerShellCommand;->mComponents:Z
 
     return v1
 
@@ -96,30 +96,30 @@
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_3
+    if-eqz p1, :cond_3
 
-    iget-object v0, p0, Lcom/android/server/pm/PackageManagerShellCommand$4;->this$0:Lcom/android/server/pm/PackageManagerShellCommand;
+    iget-object p0, p0, Lcom/android/server/pm/PackageManagerShellCommand$4;->this$0:Lcom/android/server/pm/PackageManagerShellCommand;
 
     invoke-virtual {p2}, Landroid/os/ShellCommand;->getNextArgRequired()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-static {v2}, Ljava/lang/Integer;->decode(Ljava/lang/String;)Ljava/lang/Integer;
+    invoke-static {p1}, Ljava/lang/Integer;->decode(Ljava/lang/String;)Ljava/lang/Integer;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
 
-    move-result v2
+    move-result p1
 
-    iput v2, v0, Lcom/android/server/pm/PackageManagerShellCommand;->mQueryFlags:I
+    iput p1, p0, Lcom/android/server/pm/PackageManagerShellCommand;->mQueryFlags:I
 
     return v1
 
     :cond_3
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method

@@ -1,4 +1,4 @@
-.class final Lcom/android/server/audio/PlaybackActivityMonitor$PlayerEvent;
+.class public final Lcom/android/server/audio/PlaybackActivityMonitor$PlayerEvent;
 .super Lcom/android/server/audio/AudioEventLogger$Event;
 .source "PlaybackActivityMonitor.java"
 
@@ -9,21 +9,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "PlayerEvent"
 .end annotation
 
 
 # instance fields
-.field final mDeviceId:I
+.field public final mDeviceId:I
 
-.field final mPlayerIId:I
+.field public final mPlayerIId:I
 
-.field final mState:I
+.field public final mState:I
 
 
 # direct methods
-.method constructor <init>(III)V
+.method public constructor <init>(III)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/audio/AudioEventLogger$Event;-><init>()V
@@ -68,13 +68,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v1, p0, Lcom/android/server/audio/PlaybackActivityMonitor$PlayerEvent;->mDeviceId:I
+    iget p0, p0, Lcom/android/server/audio/PlaybackActivityMonitor$PlayerEvent;->mDeviceId:I
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

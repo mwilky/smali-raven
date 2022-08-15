@@ -1,4 +1,4 @@
-.class Lcom/android/server/clipboard/ClipboardService$PerUserClipboard;
+.class public Lcom/android/server/clipboard/ClipboardService$PerUserClipboard;
 .super Ljava/lang/Object;
 .source "ClipboardService.java"
 
@@ -9,13 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "PerUserClipboard"
 .end annotation
 
 
 # instance fields
-.field final activePermissionOwners:Ljava/util/HashSet;
+.field public final activePermissionOwners:Ljava/util/HashSet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/HashSet<",
@@ -25,17 +25,17 @@
     .end annotation
 .end field
 
-.field final mNotifiedTextClassifierUids:Landroid/util/SparseBooleanArray;
+.field public final mNotifiedTextClassifierUids:Landroid/util/SparseBooleanArray;
 
-.field final mNotifiedUids:Landroid/util/SparseBooleanArray;
+.field public final mNotifiedUids:Landroid/util/SparseBooleanArray;
 
-.field mPrimaryClipPackage:Ljava/lang/String;
+.field public mPrimaryClipPackage:Ljava/lang/String;
 
-.field mTextClassifier:Landroid/view/textclassifier/TextClassifier;
+.field public mTextClassifier:Landroid/view/textclassifier/TextClassifier;
 
-.field primaryClip:Landroid/content/ClipData;
+.field public primaryClip:Landroid/content/ClipData;
 
-.field final primaryClipListeners:Landroid/os/RemoteCallbackList;
+.field public final primaryClipListeners:Landroid/os/RemoteCallbackList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/RemoteCallbackList<",
@@ -45,15 +45,15 @@
     .end annotation
 .end field
 
-.field primaryClipUid:I
+.field public primaryClipUid:I
 
-.field final synthetic this$0:Lcom/android/server/clipboard/ClipboardService;
+.field public final synthetic this$0:Lcom/android/server/clipboard/ClipboardService;
 
-.field final userId:I
+.field public final userId:I
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/clipboard/ClipboardService;I)V
+.method public constructor <init>(Lcom/android/server/clipboard/ClipboardService;I)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/clipboard/ClipboardService$PerUserClipboard;->this$0:Lcom/android/server/clipboard/ClipboardService;

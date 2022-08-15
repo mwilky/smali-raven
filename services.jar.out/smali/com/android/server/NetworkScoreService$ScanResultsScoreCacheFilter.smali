@@ -7,12 +7,15 @@
 
 
 # annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/android/server/NetworkScoreService;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "ScanResultsScoreCacheFilter"
 .end annotation
 
@@ -28,7 +31,7 @@
 
 
 # instance fields
-.field private final mScanResultKeys:Ljava/util/Set;
+.field public final mScanResultKeys:Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Set<",
@@ -40,8 +43,8 @@
 
 
 # direct methods
-.method constructor <init>(Ljava/util/function/Supplier;)V
-    .locals 6
+.method public constructor <init>(Ljava/util/function/Supplier;)V
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -56,43 +59,43 @@
 
     invoke-interface {p1}, Ljava/util/function/Supplier;->get()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/util/List;
+    check-cast p1, Ljava/util/List;
 
-    invoke-interface {v0}, Ljava/util/List;->size()I
+    invoke-interface {p1}, Ljava/util/List;->size()I
 
-    move-result v1
+    move-result v0
 
-    new-instance v2, Landroid/util/ArraySet;
+    new-instance v1, Landroid/util/ArraySet;
 
-    invoke-direct {v2, v1}, Landroid/util/ArraySet;-><init>(I)V
+    invoke-direct {v1, v0}, Landroid/util/ArraySet;-><init>(I)V
 
-    iput-object v2, p0, Lcom/android/server/NetworkScoreService$ScanResultsScoreCacheFilter;->mScanResultKeys:Ljava/util/Set;
+    iput-object v1, p0, Lcom/android/server/NetworkScoreService$ScanResultsScoreCacheFilter;->mScanResultKeys:Ljava/util/Set;
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
     :goto_0
-    if-ge v2, v1, :cond_1
+    if-ge v1, v0, :cond_1
 
-    invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {p1, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v2
 
-    check-cast v3, Landroid/net/wifi/ScanResult;
+    check-cast v2, Landroid/net/wifi/ScanResult;
 
-    invoke-static {v3}, Landroid/net/NetworkKey;->createFromScanResult(Landroid/net/wifi/ScanResult;)Landroid/net/NetworkKey;
+    invoke-static {v2}, Landroid/net/NetworkKey;->createFromScanResult(Landroid/net/wifi/ScanResult;)Landroid/net/NetworkKey;
 
-    move-result-object v4
+    move-result-object v2
 
-    if-eqz v4, :cond_0
+    if-eqz v2, :cond_0
 
-    iget-object v5, p0, Lcom/android/server/NetworkScoreService$ScanResultsScoreCacheFilter;->mScanResultKeys:Ljava/util/Set;
+    iget-object v3, p0, Lcom/android/server/NetworkScoreService$ScanResultsScoreCacheFilter;->mScanResultKeys:Ljava/util/Set;
 
-    invoke-interface {v5, v4}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    invoke-interface {v3, v2}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     :cond_0
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
@@ -109,9 +112,9 @@
 
     invoke-virtual {p0, p1}, Lcom/android/server/NetworkScoreService$ScanResultsScoreCacheFilter;->apply(Ljava/util/List;)Ljava/util/List;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method
 
 .method public apply(Ljava/util/List;)Ljava/util/List;
@@ -188,7 +191,7 @@
     :goto_1
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

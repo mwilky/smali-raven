@@ -1,4 +1,4 @@
-.class Lcom/android/server/am/UserController$7;
+.class public Lcom/android/server/am/UserController$7;
 .super Landroid/os/IRemoteCallback$Stub;
 .source "UserController.java"
 
@@ -9,48 +9,52 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/am/UserController;
+.field public final synthetic this$0:Lcom/android/server/am/UserController;
 
-.field final synthetic val$curWaitingUserSwitchCallbacks:Landroid/util/ArraySet;
+.field public final synthetic val$curWaitingUserSwitchCallbacks:Landroid/util/ArraySet;
 
-.field final synthetic val$dispatchStartedTime:J
+.field public final synthetic val$dispatchStartedTime:J
 
-.field final synthetic val$name:Ljava/lang/String;
+.field public final synthetic val$dispatchStartedTimeForObserver:J
 
-.field final synthetic val$newUserId:I
+.field public final synthetic val$name:Ljava/lang/String;
 
-.field final synthetic val$oldUserId:I
+.field public final synthetic val$newUserId:I
 
-.field final synthetic val$uss:Lcom/android/server/am/UserState;
+.field public final synthetic val$oldUserId:I
 
-.field final synthetic val$waitingCallbacksCount:Ljava/util/concurrent/atomic/AtomicInteger;
+.field public final synthetic val$uss:Lcom/android/server/am/UserState;
+
+.field public final synthetic val$waitingCallbacksCount:Ljava/util/concurrent/atomic/AtomicInteger;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/UserController;JLjava/lang/String;Landroid/util/ArraySet;Ljava/util/concurrent/atomic/AtomicInteger;Lcom/android/server/am/UserState;II)V
+.method public constructor <init>(Lcom/android/server/am/UserController;JLjava/lang/String;JLandroid/util/ArraySet;Ljava/util/concurrent/atomic/AtomicInteger;Lcom/android/server/am/UserState;II)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/am/UserController$7;->this$0:Lcom/android/server/am/UserController;
 
-    iput-wide p2, p0, Lcom/android/server/am/UserController$7;->val$dispatchStartedTime:J
+    iput-wide p2, p0, Lcom/android/server/am/UserController$7;->val$dispatchStartedTimeForObserver:J
 
     iput-object p4, p0, Lcom/android/server/am/UserController$7;->val$name:Ljava/lang/String;
 
-    iput-object p5, p0, Lcom/android/server/am/UserController$7;->val$curWaitingUserSwitchCallbacks:Landroid/util/ArraySet;
+    iput-wide p5, p0, Lcom/android/server/am/UserController$7;->val$dispatchStartedTime:J
 
-    iput-object p6, p0, Lcom/android/server/am/UserController$7;->val$waitingCallbacksCount:Ljava/util/concurrent/atomic/AtomicInteger;
+    iput-object p7, p0, Lcom/android/server/am/UserController$7;->val$curWaitingUserSwitchCallbacks:Landroid/util/ArraySet;
 
-    iput-object p7, p0, Lcom/android/server/am/UserController$7;->val$uss:Lcom/android/server/am/UserState;
+    iput-object p8, p0, Lcom/android/server/am/UserController$7;->val$waitingCallbacksCount:Ljava/util/concurrent/atomic/AtomicInteger;
 
-    iput p8, p0, Lcom/android/server/am/UserController$7;->val$oldUserId:I
+    iput-object p9, p0, Lcom/android/server/am/UserController$7;->val$uss:Lcom/android/server/am/UserState;
 
-    iput p9, p0, Lcom/android/server/am/UserController$7;->val$newUserId:I
+    iput p10, p0, Lcom/android/server/am/UserController$7;->val$oldUserId:I
+
+    iput p11, p0, Lcom/android/server/am/UserController$7;->val$newUserId:I
 
     invoke-direct {p0}, Landroid/os/IRemoteCallback$Stub;-><init>()V
 
@@ -60,152 +64,157 @@
 
 # virtual methods
 .method public sendResult(Landroid/os/Bundle;)V
-    .locals 7
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/android/server/am/UserController$7;->this$0:Lcom/android/server/am/UserController;
+    iget-object p1, p0, Lcom/android/server/am/UserController$7;->this$0:Lcom/android/server/am/UserController;
 
-    invoke-static {v0}, Lcom/android/server/am/UserController;->access$200(Lcom/android/server/am/UserController;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/android/server/am/UserController;->-$$Nest$fgetmLock(Lcom/android/server/am/UserController;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    monitor-enter v0
+    monitor-enter p1
 
     :try_start_0
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
-    move-result-wide v1
+    move-result-wide v0
 
-    iget-wide v3, p0, Lcom/android/server/am/UserController$7;->val$dispatchStartedTime:J
+    iget-wide v2, p0, Lcom/android/server/am/UserController$7;->val$dispatchStartedTimeForObserver:J
 
-    sub-long/2addr v1, v3
+    sub-long/2addr v0, v2
 
-    const-wide/16 v3, 0xbb8
+    const-wide/16 v2, 0x1f4
 
-    cmp-long v3, v1, v3
+    cmp-long v2, v0, v2
 
-    if-lez v3, :cond_0
+    if-lez v2, :cond_0
 
-    const-string v3, "ActivityManager"
+    const-string v2, "ActivityManager"
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "User switch timeout: observer "
+    const-string v4, "User switch slowed down by observer "
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v5, p0, Lcom/android/server/am/UserController$7;->val$name:Ljava/lang/String;
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v5, " sent result after "
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v4, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    const-string v5, " ms"
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v3, v4}, Lcom/android/server/utils/Slogf;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
-
-    :cond_0
-    const-wide/16 v3, 0x1f4
-
-    cmp-long v3, v1, v3
-
-    if-lez v3, :cond_1
-
-    const-string v3, "ActivityManager"
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v5, "User switch slowed down by observer "
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v5, p0, Lcom/android/server/am/UserController$7;->val$name:Ljava/lang/String;
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v5, ": result sent after "
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v4, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    const-string v5, " ms"
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v3, v4}, Lcom/android/server/utils/Slogf;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_1
-    :goto_0
-    iget-object v3, p0, Lcom/android/server/am/UserController$7;->val$curWaitingUserSwitchCallbacks:Landroid/util/ArraySet;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     iget-object v4, p0, Lcom/android/server/am/UserController$7;->val$name:Ljava/lang/String;
 
-    invoke-virtual {v3, v4}, Landroid/util/ArraySet;->remove(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v3, p0, Lcom/android/server/am/UserController$7;->val$waitingCallbacksCount:Ljava/util/concurrent/atomic/AtomicInteger;
+    const-string v4, ": result took "
 
-    invoke-virtual {v3}, Ljava/util/concurrent/atomic/AtomicInteger;->decrementAndGet()I
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result v3
+    invoke-virtual {v3, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    if-nez v3, :cond_2
+    const-string v0, " ms to process."
 
-    iget-object v3, p0, Lcom/android/server/am/UserController$7;->val$curWaitingUserSwitchCallbacks:Landroid/util/ArraySet;
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v4, p0, Lcom/android/server/am/UserController$7;->this$0:Lcom/android/server/am/UserController;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {v4}, Lcom/android/server/am/UserController;->access$300(Lcom/android/server/am/UserController;)Landroid/util/ArraySet;
+    move-result-object v0
 
-    move-result-object v4
+    invoke-static {v2, v0}, Lcom/android/server/utils/Slogf;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-ne v3, v4, :cond_2
+    :cond_0
+    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
-    iget-object v3, p0, Lcom/android/server/am/UserController$7;->this$0:Lcom/android/server/am/UserController;
+    move-result-wide v0
 
-    iget-object v4, p0, Lcom/android/server/am/UserController$7;->val$uss:Lcom/android/server/am/UserState;
+    iget-wide v2, p0, Lcom/android/server/am/UserController$7;->val$dispatchStartedTime:J
 
-    iget v5, p0, Lcom/android/server/am/UserController$7;->val$oldUserId:I
+    sub-long/2addr v0, v2
 
-    iget v6, p0, Lcom/android/server/am/UserController$7;->val$newUserId:I
+    const-wide/16 v2, 0xbb8
 
-    invoke-virtual {v3, v4, v5, v6}, Lcom/android/server/am/UserController;->sendContinueUserSwitchLU(Lcom/android/server/am/UserState;II)V
+    cmp-long v2, v0, v2
+
+    if-lez v2, :cond_1
+
+    const-string v2, "ActivityManager"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "User switch timeout: observer "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v4, p0, Lcom/android/server/am/UserController$7;->val$name:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v4, "\'s result was received "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    const-string v0, " ms after dispatchUserSwitch."
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v2, v0}, Lcom/android/server/utils/Slogf;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/server/am/UserController$7;->val$curWaitingUserSwitchCallbacks:Landroid/util/ArraySet;
+
+    iget-object v1, p0, Lcom/android/server/am/UserController$7;->val$name:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Landroid/util/ArraySet;->remove(Ljava/lang/Object;)Z
+
+    iget-object v0, p0, Lcom/android/server/am/UserController$7;->val$waitingCallbacksCount:Ljava/util/concurrent/atomic/AtomicInteger;
+
+    invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->decrementAndGet()I
+
+    move-result v0
+
+    if-nez v0, :cond_2
+
+    iget-object v0, p0, Lcom/android/server/am/UserController$7;->val$curWaitingUserSwitchCallbacks:Landroid/util/ArraySet;
+
+    iget-object v1, p0, Lcom/android/server/am/UserController$7;->this$0:Lcom/android/server/am/UserController;
+
+    invoke-static {v1}, Lcom/android/server/am/UserController;->-$$Nest$fgetmCurWaitingUserSwitchCallbacks(Lcom/android/server/am/UserController;)Landroid/util/ArraySet;
+
+    move-result-object v1
+
+    if-ne v0, v1, :cond_2
+
+    iget-object v0, p0, Lcom/android/server/am/UserController$7;->this$0:Lcom/android/server/am/UserController;
+
+    iget-object v1, p0, Lcom/android/server/am/UserController$7;->val$uss:Lcom/android/server/am/UserState;
+
+    iget v2, p0, Lcom/android/server/am/UserController$7;->val$oldUserId:I
+
+    iget p0, p0, Lcom/android/server/am/UserController$7;->val$newUserId:I
+
+    invoke-static {v0, v1, v2, p0}, Lcom/android/server/am/UserController;->-$$Nest$msendContinueUserSwitchLU(Lcom/android/server/am/UserController;Lcom/android/server/am/UserState;II)V
 
     :cond_2
-    monitor-exit v0
+    monitor-exit p1
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
-    monitor-exit v0
+    monitor-exit p1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method

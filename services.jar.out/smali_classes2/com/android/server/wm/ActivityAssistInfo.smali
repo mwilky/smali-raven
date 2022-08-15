@@ -4,11 +4,11 @@
 
 
 # instance fields
-.field private final mActivityToken:Landroid/os/IBinder;
+.field public final mActivityToken:Landroid/os/IBinder;
 
-.field private final mAssistToken:Landroid/os/IBinder;
+.field public final mAssistToken:Landroid/os/IBinder;
 
-.field private final mTaskId:I
+.field public final mTaskId:I
 
 
 # direct methods
@@ -17,7 +17,7 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iget-object v0, p1, Lcom/android/server/wm/ActivityRecord;->appToken:Lcom/android/server/wm/ActivityRecord$Token;
+    iget-object v0, p1, Lcom/android/server/wm/WindowToken;->token:Landroid/os/IBinder;
 
     iput-object v0, p0, Lcom/android/server/wm/ActivityAssistInfo;->mActivityToken:Landroid/os/IBinder;
 
@@ -27,11 +27,11 @@
 
     invoke-virtual {p1}, Lcom/android/server/wm/ActivityRecord;->getTask()Lcom/android/server/wm/Task;
 
-    move-result-object v0
+    move-result-object p1
 
-    iget v0, v0, Lcom/android/server/wm/Task;->mTaskId:I
+    iget p1, p1, Lcom/android/server/wm/Task;->mTaskId:I
 
-    iput v0, p0, Lcom/android/server/wm/ActivityAssistInfo;->mTaskId:I
+    iput p1, p0, Lcom/android/server/wm/ActivityAssistInfo;->mTaskId:I
 
     return-void
 .end method
@@ -39,25 +39,25 @@
 
 # virtual methods
 .method public getActivityToken()Landroid/os/IBinder;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/ActivityAssistInfo;->mActivityToken:Landroid/os/IBinder;
+    iget-object p0, p0, Lcom/android/server/wm/ActivityAssistInfo;->mActivityToken:Landroid/os/IBinder;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getAssistToken()Landroid/os/IBinder;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/ActivityAssistInfo;->mAssistToken:Landroid/os/IBinder;
+    iget-object p0, p0, Lcom/android/server/wm/ActivityAssistInfo;->mAssistToken:Landroid/os/IBinder;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getTaskId()I
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/wm/ActivityAssistInfo;->mTaskId:I
+    iget p0, p0, Lcom/android/server/wm/ActivityAssistInfo;->mTaskId:I
 
-    return v0
+    return p0
 .end method

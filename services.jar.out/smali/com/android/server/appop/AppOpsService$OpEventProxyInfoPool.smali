@@ -1,4 +1,4 @@
-.class Lcom/android/server/appop/AppOpsService$OpEventProxyInfoPool;
+.class public Lcom/android/server/appop/AppOpsService$OpEventProxyInfoPool;
 .super Landroid/util/Pools$SimplePool;
 .source "AppOpsService.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "OpEventProxyInfoPool"
 .end annotation
 
@@ -23,11 +23,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/appop/AppOpsService;
+.field public final synthetic this$0:Lcom/android/server/appop/AppOpsService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/appop/AppOpsService;)V
+.method public constructor <init>(Lcom/android/server/appop/AppOpsService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/appop/AppOpsService$OpEventProxyInfoPool;->this$0:Lcom/android/server/appop/AppOpsService;
@@ -41,25 +41,25 @@
 
 
 # virtual methods
-.method acquire(ILjava/lang/String;Ljava/lang/String;)Landroid/app/AppOpsManager$OpEventProxyInfo;
-    .locals 2
+.method public acquire(ILjava/lang/String;Ljava/lang/String;)Landroid/app/AppOpsManager$OpEventProxyInfo;
+    .locals 0
 
-    invoke-virtual {p0}, Lcom/android/server/appop/AppOpsService$OpEventProxyInfoPool;->acquire()Ljava/lang/Object;
+    invoke-virtual {p0}, Landroid/util/Pools$SimplePool;->acquire()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Landroid/app/AppOpsManager$OpEventProxyInfo;
+    check-cast p0, Landroid/app/AppOpsManager$OpEventProxyInfo;
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    invoke-virtual {v0, p1, p2, p3}, Landroid/app/AppOpsManager$OpEventProxyInfo;->reinit(ILjava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, p1, p2, p3}, Landroid/app/AppOpsManager$OpEventProxyInfo;->reinit(ILjava/lang/String;Ljava/lang/String;)V
 
-    return-object v0
+    return-object p0
 
     :cond_0
-    new-instance v1, Landroid/app/AppOpsManager$OpEventProxyInfo;
+    new-instance p0, Landroid/app/AppOpsManager$OpEventProxyInfo;
 
-    invoke-direct {v1, p1, p2, p3}, Landroid/app/AppOpsManager$OpEventProxyInfo;-><init>(ILjava/lang/String;Ljava/lang/String;)V
+    invoke-direct {p0, p1, p2, p3}, Landroid/app/AppOpsManager$OpEventProxyInfo;-><init>(ILjava/lang/String;Ljava/lang/String;)V
 
-    return-object v1
+    return-object p0
 .end method

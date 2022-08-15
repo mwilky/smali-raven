@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/broadcastradio/hal2/ProgramInfoCache$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/BiConsumer;
@@ -23,15 +24,15 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/broadcastradio/hal2/ProgramInfoCache$$ExternalSyntheticLambda0;->f$0:Ljava/lang/StringBuilder;
+    iget-object p0, p0, Lcom/android/server/broadcastradio/hal2/ProgramInfoCache$$ExternalSyntheticLambda0;->f$0:Ljava/lang/StringBuilder;
 
     check-cast p1, Landroid/hardware/radio/ProgramSelector$Identifier;
 
     check-cast p2, Landroid/hardware/radio/RadioManager$ProgramInfo;
 
-    invoke-static {v0, p1, p2}, Lcom/android/server/broadcastradio/hal2/ProgramInfoCache;->lambda$toString$0(Ljava/lang/StringBuilder;Landroid/hardware/radio/ProgramSelector$Identifier;Landroid/hardware/radio/RadioManager$ProgramInfo;)V
+    invoke-static {p0, p1, p2}, Lcom/android/server/broadcastradio/hal2/ProgramInfoCache;->$r8$lambda$AFY1vEhIFnJI_6nusSZ8Cz3Q87I(Ljava/lang/StringBuilder;Landroid/hardware/radio/ProgramSelector$Identifier;Landroid/hardware/radio/RadioManager$ProgramInfo;)V
 
     return-void
 .end method

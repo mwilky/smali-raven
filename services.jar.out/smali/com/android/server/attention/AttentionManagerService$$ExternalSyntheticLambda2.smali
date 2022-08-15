@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/attention/AttentionManagerService$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/attention/AttentionManagerService$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/attention/AttentionManagerService;
+    iget-object p0, p0, Lcom/android/server/attention/AttentionManagerService$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/attention/AttentionManagerService;
 
-    invoke-virtual {v0}, Lcom/android/server/attention/AttentionManagerService;->lambda$cancelAndUnbindLocked$1$AttentionManagerService()V
+    invoke-static {p0}, Lcom/android/server/attention/AttentionManagerService;->$r8$lambda$gB_-BdC0YJFCoSO95udknZ00hKg(Lcom/android/server/attention/AttentionManagerService;)V
 
     return-void
 .end method

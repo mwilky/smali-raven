@@ -1,9 +1,9 @@
-.class Lcom/android/server/am/BatteryExternalStatsWorker$4;
+.class public Lcom/android/server/am/BatteryExternalStatsWorker$4;
 .super Ljava/lang/Object;
 .source "BatteryExternalStatsWorker.java"
 
 # interfaces
-.implements Landroid/os/OutcomeReceiver;
+.implements Landroid/bluetooth/BluetoothAdapter$OnBluetoothActivityEnergyInfoCallback;
 
 
 # annotations
@@ -12,34 +12,24 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
-.end annotation
-
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Ljava/lang/Object;",
-        "Landroid/os/OutcomeReceiver<",
-        "Landroid/telephony/ModemActivityInfo;",
-        "Landroid/telephony/TelephonyManager$ModemActivityInfoException;",
-        ">;"
-    }
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/am/BatteryExternalStatsWorker;
+.field public final synthetic this$0:Lcom/android/server/am/BatteryExternalStatsWorker;
 
-.field final synthetic val$temp:Ljava/util/concurrent/CompletableFuture;
+.field public final synthetic val$resultReceiver:Landroid/os/SynchronousResultReceiver;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/BatteryExternalStatsWorker;Ljava/util/concurrent/CompletableFuture;)V
+.method public constructor <init>(Lcom/android/server/am/BatteryExternalStatsWorker;Landroid/os/SynchronousResultReceiver;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/am/BatteryExternalStatsWorker$4;->this$0:Lcom/android/server/am/BatteryExternalStatsWorker;
 
-    iput-object p2, p0, Lcom/android/server/am/BatteryExternalStatsWorker$4;->val$temp:Ljava/util/concurrent/CompletableFuture;
+    iput-object p2, p0, Lcom/android/server/am/BatteryExternalStatsWorker$4;->val$resultReceiver:Landroid/os/SynchronousResultReceiver;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -48,62 +38,62 @@
 
 
 # virtual methods
-.method public onError(Landroid/telephony/TelephonyManager$ModemActivityInfoException;)V
+.method public onBluetoothActivityEnergyInfoAvailable(Landroid/bluetooth/BluetoothActivityEnergyInfo;)V
+    .locals 2
+
+    new-instance v0, Landroid/os/Bundle;
+
+    invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
+
+    const-string v1, "controller_activity"
+
+    invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
+
+    iget-object p0, p0, Lcom/android/server/am/BatteryExternalStatsWorker$4;->val$resultReceiver:Landroid/os/SynchronousResultReceiver;
+
+    const/4 p1, 0x0
+
+    invoke-virtual {p0, p1, v0}, Landroid/os/SynchronousResultReceiver;->send(ILandroid/os/Bundle;)V
+
+    return-void
+.end method
+
+.method public onBluetoothActivityEnergyInfoError(I)V
     .locals 2
 
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "error reading modem stats:"
+    const-string v1, "error reading Bluetooth stats: "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v1, "BatteryExternalStatsWorker"
+    const-string v0, "BatteryExternalStatsWorker"
 
-    invoke-static {v1, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, p1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v0, p0, Lcom/android/server/am/BatteryExternalStatsWorker$4;->val$temp:Ljava/util/concurrent/CompletableFuture;
+    new-instance p1, Landroid/os/Bundle;
+
+    invoke-direct {p1}, Landroid/os/Bundle;-><init>()V
+
+    const-string v0, "controller_activity"
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Ljava/util/concurrent/CompletableFuture;->complete(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
-    return-void
-.end method
+    iget-object p0, p0, Lcom/android/server/am/BatteryExternalStatsWorker$4;->val$resultReceiver:Landroid/os/SynchronousResultReceiver;
 
-.method public bridge synthetic onError(Ljava/lang/Throwable;)V
-    .locals 0
+    const/4 v0, 0x0
 
-    check-cast p1, Landroid/telephony/TelephonyManager$ModemActivityInfoException;
-
-    invoke-virtual {p0, p1}, Lcom/android/server/am/BatteryExternalStatsWorker$4;->onError(Landroid/telephony/TelephonyManager$ModemActivityInfoException;)V
-
-    return-void
-.end method
-
-.method public onResult(Landroid/telephony/ModemActivityInfo;)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/am/BatteryExternalStatsWorker$4;->val$temp:Ljava/util/concurrent/CompletableFuture;
-
-    invoke-virtual {v0, p1}, Ljava/util/concurrent/CompletableFuture;->complete(Ljava/lang/Object;)Z
-
-    return-void
-.end method
-
-.method public bridge synthetic onResult(Ljava/lang/Object;)V
-    .locals 0
-
-    check-cast p1, Landroid/telephony/ModemActivityInfo;
-
-    invoke-virtual {p0, p1}, Lcom/android/server/am/BatteryExternalStatsWorker$4;->onResult(Landroid/telephony/ModemActivityInfo;)V
+    invoke-virtual {p0, v0, p1}, Landroid/os/SynchronousResultReceiver;->send(ILandroid/os/Bundle;)V
 
     return-void
 .end method

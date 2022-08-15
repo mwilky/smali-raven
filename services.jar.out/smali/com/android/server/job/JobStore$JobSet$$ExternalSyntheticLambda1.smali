@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/job/JobStore$JobSet$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Predicate;
@@ -23,15 +24,15 @@
 
 # virtual methods
 .method public final test(Ljava/lang/Object;)Z
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/job/JobStore$JobSet$$ExternalSyntheticLambda1;->f$0:[I
+    iget-object p0, p0, Lcom/android/server/job/JobStore$JobSet$$ExternalSyntheticLambda1;->f$0:[I
 
     check-cast p1, Lcom/android/server/job/controllers/JobStatus;
 
-    invoke-static {v0, p1}, Lcom/android/server/job/JobStore$JobSet;->lambda$removeJobsOfUnlistedUsers$1([ILcom/android/server/job/controllers/JobStatus;)Z
+    invoke-static {p0, p1}, Lcom/android/server/job/JobStore$JobSet;->$r8$lambda$71uLzwiFFBRziIBlMoFl_0ARVhA([ILcom/android/server/job/controllers/JobStatus;)Z
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method

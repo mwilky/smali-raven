@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/pm/parsing/PackageCacher$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/io/FilenameFilter;
@@ -23,13 +24,13 @@
 
 # virtual methods
 .method public final accept(Ljava/io/File;Ljava/lang/String;)Z
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/pm/parsing/PackageCacher$$ExternalSyntheticLambda0;->f$0:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/pm/parsing/PackageCacher$$ExternalSyntheticLambda0;->f$0:Ljava/lang/String;
 
-    invoke-static {v0, p1, p2}, Lcom/android/server/pm/parsing/PackageCacher;->lambda$cleanCachedResult$0(Ljava/lang/String;Ljava/io/File;Ljava/lang/String;)Z
+    invoke-static {p0, p1, p2}, Lcom/android/server/pm/parsing/PackageCacher;->$r8$lambda$EHUdax2tnuvpowUcJ_gJlWWRagM(Ljava/lang/String;Ljava/io/File;Ljava/lang/String;)Z
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method

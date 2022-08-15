@@ -7,9 +7,9 @@
 
 
 # instance fields
-.field private final mContext:Landroid/content/Context;
+.field public final mContext:Landroid/content/Context;
 
-.field private final mWindowManagerFuncs:Lcom/android/server/policy/WindowManagerPolicy$WindowManagerFuncs;
+.field public final mWindowManagerFuncs:Lcom/android/server/policy/WindowManagerPolicy$WindowManagerFuncs;
 
 
 # direct methods
@@ -18,7 +18,7 @@
 
     const v0, 0x1080030
 
-    const v1, 0x10403cb
+    const v1, 0x1040411
 
     invoke-direct {p0, v0, v1}, Lcom/android/internal/globalactions/SinglePressAction;-><init>(II)V
 
@@ -32,7 +32,7 @@
 
 # virtual methods
 .method public onLongPress()Z
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/policy/PowerAction;->mContext:Landroid/content/Context;
 
@@ -48,48 +48,48 @@
 
     invoke-virtual {v0, v1}, Landroid/os/UserManager;->hasUserRestriction(Ljava/lang/String;)Z
 
-    move-result v1
+    move-result v0
 
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
-    iget-object v1, p0, Lcom/android/server/policy/PowerAction;->mWindowManagerFuncs:Lcom/android/server/policy/WindowManagerPolicy$WindowManagerFuncs;
+    iget-object p0, p0, Lcom/android/server/policy/PowerAction;->mWindowManagerFuncs:Lcom/android/server/policy/WindowManagerPolicy$WindowManagerFuncs;
 
-    const/4 v2, 0x1
+    const/4 v0, 0x1
 
-    invoke-interface {v1, v2}, Lcom/android/server/policy/WindowManagerPolicy$WindowManagerFuncs;->rebootSafeMode(Z)V
+    invoke-interface {p0, v0}, Lcom/android/server/policy/WindowManagerPolicy$WindowManagerFuncs;->rebootSafeMode(Z)V
 
-    return v2
+    return v0
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 p0, 0x0
 
-    return v1
+    return p0
 .end method
 
 .method public onPress()V
-    .locals 2
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/policy/PowerAction;->mWindowManagerFuncs:Lcom/android/server/policy/WindowManagerPolicy$WindowManagerFuncs;
+    iget-object p0, p0, Lcom/android/server/policy/PowerAction;->mWindowManagerFuncs:Lcom/android/server/policy/WindowManagerPolicy$WindowManagerFuncs;
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    invoke-interface {v0, v1}, Lcom/android/server/policy/WindowManagerPolicy$WindowManagerFuncs;->shutdown(Z)V
+    invoke-interface {p0, v0}, Lcom/android/server/policy/WindowManagerPolicy$WindowManagerFuncs;->shutdown(Z)V
 
     return-void
 .end method
 
 .method public showBeforeProvisioning()Z
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 .end method
 
 .method public showDuringKeyguard()Z
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 .end method

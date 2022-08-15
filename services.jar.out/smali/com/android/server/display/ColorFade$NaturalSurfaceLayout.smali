@@ -1,4 +1,4 @@
-.class final Lcom/android/server/display/ColorFade$NaturalSurfaceLayout;
+.class public final Lcom/android/server/display/ColorFade$NaturalSurfaceLayout;
 .super Ljava/lang/Object;
 .source "ColorFade.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "NaturalSurfaceLayout"
 .end annotation
 
 
 # instance fields
-.field private final mDisplayId:I
+.field public final mDisplayId:I
 
-.field private final mDisplayManagerInternal:Landroid/hardware/display/DisplayManagerInternal;
+.field public final mDisplayManagerInternal:Landroid/hardware/display/DisplayManagerInternal;
 
-.field private mSurfaceControl:Landroid/view/SurfaceControl;
+.field public mSurfaceControl:Landroid/view/SurfaceControl;
 
 
 # direct methods
@@ -76,7 +76,7 @@
 .end method
 
 .method public onDisplayTransaction(Landroid/view/SurfaceControl$Transaction;)V
-    .locals 10
+    .locals 9
 
     monitor-enter p0
 
@@ -109,93 +109,105 @@
 
     const/4 v2, 0x0
 
-    packed-switch v1, :pswitch_data_0
+    if-eqz v1, :cond_5
+
+    const/4 v3, 0x1
+
+    if-eq v1, v3, :cond_4
+
+    const/4 v3, 0x2
+
+    if-eq v1, v3, :cond_3
+
+    const/4 v3, 0x3
+
+    if-eq v1, v3, :cond_2
 
     goto :goto_0
 
-    :pswitch_0
+    :cond_2
     iget-object v1, p0, Lcom/android/server/display/ColorFade$NaturalSurfaceLayout;->mSurfaceControl:Landroid/view/SurfaceControl;
 
-    iget v3, v0, Landroid/view/DisplayInfo;->logicalWidth:I
+    iget v0, v0, Landroid/view/DisplayInfo;->logicalWidth:I
 
-    int-to-float v3, v3
+    int-to-float v0, v0
 
-    invoke-virtual {p1, v1, v3, v2}, Landroid/view/SurfaceControl$Transaction;->setPosition(Landroid/view/SurfaceControl;FF)Landroid/view/SurfaceControl$Transaction;
+    invoke-virtual {p1, v1, v0, v2}, Landroid/view/SurfaceControl$Transaction;->setPosition(Landroid/view/SurfaceControl;FF)Landroid/view/SurfaceControl$Transaction;
 
-    iget-object v5, p0, Lcom/android/server/display/ColorFade$NaturalSurfaceLayout;->mSurfaceControl:Landroid/view/SurfaceControl;
+    iget-object v4, p0, Lcom/android/server/display/ColorFade$NaturalSurfaceLayout;->mSurfaceControl:Landroid/view/SurfaceControl;
 
-    const/4 v6, 0x0
+    const/4 v5, 0x0
 
-    const/high16 v7, 0x3f800000    # 1.0f
+    const/high16 v6, 0x3f800000    # 1.0f
 
-    const/high16 v8, -0x40800000    # -1.0f
+    const/high16 v7, -0x40800000    # -1.0f
 
-    const/4 v9, 0x0
+    const/4 v8, 0x0
 
-    move-object v4, p1
+    move-object v3, p1
 
-    invoke-virtual/range {v4 .. v9}, Landroid/view/SurfaceControl$Transaction;->setMatrix(Landroid/view/SurfaceControl;FFFF)Landroid/view/SurfaceControl$Transaction;
+    invoke-virtual/range {v3 .. v8}, Landroid/view/SurfaceControl$Transaction;->setMatrix(Landroid/view/SurfaceControl;FFFF)Landroid/view/SurfaceControl$Transaction;
 
     goto :goto_0
 
-    :pswitch_1
+    :cond_3
     iget-object v1, p0, Lcom/android/server/display/ColorFade$NaturalSurfaceLayout;->mSurfaceControl:Landroid/view/SurfaceControl;
 
     iget v2, v0, Landroid/view/DisplayInfo;->logicalWidth:I
 
     int-to-float v2, v2
 
-    iget v3, v0, Landroid/view/DisplayInfo;->logicalHeight:I
+    iget v0, v0, Landroid/view/DisplayInfo;->logicalHeight:I
 
-    int-to-float v3, v3
+    int-to-float v0, v0
 
-    invoke-virtual {p1, v1, v2, v3}, Landroid/view/SurfaceControl$Transaction;->setPosition(Landroid/view/SurfaceControl;FF)Landroid/view/SurfaceControl$Transaction;
+    invoke-virtual {p1, v1, v2, v0}, Landroid/view/SurfaceControl$Transaction;->setPosition(Landroid/view/SurfaceControl;FF)Landroid/view/SurfaceControl$Transaction;
 
-    iget-object v5, p0, Lcom/android/server/display/ColorFade$NaturalSurfaceLayout;->mSurfaceControl:Landroid/view/SurfaceControl;
+    iget-object v4, p0, Lcom/android/server/display/ColorFade$NaturalSurfaceLayout;->mSurfaceControl:Landroid/view/SurfaceControl;
 
-    const/high16 v6, -0x40800000    # -1.0f
-
-    const/4 v7, 0x0
-
-    const/4 v8, 0x0
-
-    const/high16 v9, -0x40800000    # -1.0f
-
-    move-object v4, p1
-
-    invoke-virtual/range {v4 .. v9}, Landroid/view/SurfaceControl$Transaction;->setMatrix(Landroid/view/SurfaceControl;FFFF)Landroid/view/SurfaceControl$Transaction;
-
-    goto :goto_0
-
-    :pswitch_2
-    iget-object v1, p0, Lcom/android/server/display/ColorFade$NaturalSurfaceLayout;->mSurfaceControl:Landroid/view/SurfaceControl;
-
-    iget v3, v0, Landroid/view/DisplayInfo;->logicalHeight:I
-
-    int-to-float v3, v3
-
-    invoke-virtual {p1, v1, v2, v3}, Landroid/view/SurfaceControl$Transaction;->setPosition(Landroid/view/SurfaceControl;FF)Landroid/view/SurfaceControl$Transaction;
-
-    iget-object v5, p0, Lcom/android/server/display/ColorFade$NaturalSurfaceLayout;->mSurfaceControl:Landroid/view/SurfaceControl;
+    const/high16 v5, -0x40800000    # -1.0f
 
     const/4 v6, 0x0
 
-    const/high16 v7, -0x40800000    # -1.0f
+    const/4 v7, 0x0
 
-    const/high16 v8, 0x3f800000    # 1.0f
+    const/high16 v8, -0x40800000    # -1.0f
 
-    const/4 v9, 0x0
+    move-object v3, p1
 
-    move-object v4, p1
-
-    invoke-virtual/range {v4 .. v9}, Landroid/view/SurfaceControl$Transaction;->setMatrix(Landroid/view/SurfaceControl;FFFF)Landroid/view/SurfaceControl$Transaction;
+    invoke-virtual/range {v3 .. v8}, Landroid/view/SurfaceControl$Transaction;->setMatrix(Landroid/view/SurfaceControl;FFFF)Landroid/view/SurfaceControl$Transaction;
 
     goto :goto_0
 
-    :pswitch_3
+    :cond_4
     iget-object v1, p0, Lcom/android/server/display/ColorFade$NaturalSurfaceLayout;->mSurfaceControl:Landroid/view/SurfaceControl;
 
-    invoke-virtual {p1, v1, v2, v2}, Landroid/view/SurfaceControl$Transaction;->setPosition(Landroid/view/SurfaceControl;FF)Landroid/view/SurfaceControl$Transaction;
+    iget v0, v0, Landroid/view/DisplayInfo;->logicalHeight:I
+
+    int-to-float v0, v0
+
+    invoke-virtual {p1, v1, v2, v0}, Landroid/view/SurfaceControl$Transaction;->setPosition(Landroid/view/SurfaceControl;FF)Landroid/view/SurfaceControl$Transaction;
+
+    iget-object v4, p0, Lcom/android/server/display/ColorFade$NaturalSurfaceLayout;->mSurfaceControl:Landroid/view/SurfaceControl;
+
+    const/4 v5, 0x0
+
+    const/high16 v6, -0x40800000    # -1.0f
+
+    const/high16 v7, 0x3f800000    # 1.0f
+
+    const/4 v8, 0x0
+
+    move-object v3, p1
+
+    invoke-virtual/range {v3 .. v8}, Landroid/view/SurfaceControl$Transaction;->setMatrix(Landroid/view/SurfaceControl;FFFF)Landroid/view/SurfaceControl$Transaction;
+
+    goto :goto_0
+
+    :cond_5
+    iget-object v0, p0, Lcom/android/server/display/ColorFade$NaturalSurfaceLayout;->mSurfaceControl:Landroid/view/SurfaceControl;
+
+    invoke-virtual {p1, v0, v2, v2}, Landroid/view/SurfaceControl$Transaction;->setPosition(Landroid/view/SurfaceControl;FF)Landroid/view/SurfaceControl$Transaction;
 
     iget-object v4, p0, Lcom/android/server/display/ColorFade$NaturalSurfaceLayout;->mSurfaceControl:Landroid/view/SurfaceControl;
 
@@ -211,29 +223,17 @@
 
     invoke-virtual/range {v3 .. v8}, Landroid/view/SurfaceControl$Transaction;->setMatrix(Landroid/view/SurfaceControl;FFFF)Landroid/view/SurfaceControl$Transaction;
 
-    nop
-
     :goto_0
     monitor-exit p0
 
     return-void
 
     :catchall_0
-    move-exception v0
+    move-exception p1
 
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
-
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0x0
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
+    throw p1
 .end method

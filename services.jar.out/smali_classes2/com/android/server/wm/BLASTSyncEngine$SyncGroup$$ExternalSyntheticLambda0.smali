@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/wm/BLASTSyncEngine$SyncGroup$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/BLASTSyncEngine$SyncGroup$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/wm/BLASTSyncEngine$SyncGroup;
+    iget-object p0, p0, Lcom/android/server/wm/BLASTSyncEngine$SyncGroup$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/wm/BLASTSyncEngine$SyncGroup;
 
-    invoke-virtual {v0}, Lcom/android/server/wm/BLASTSyncEngine$SyncGroup;->lambda$new$0$BLASTSyncEngine$SyncGroup()V
+    invoke-static {p0}, Lcom/android/server/wm/BLASTSyncEngine$SyncGroup;->$r8$lambda$oV399Hoj-bRnMRgLWF_VXkWmnJQ(Lcom/android/server/wm/BLASTSyncEngine$SyncGroup;)V
 
     return-void
 .end method

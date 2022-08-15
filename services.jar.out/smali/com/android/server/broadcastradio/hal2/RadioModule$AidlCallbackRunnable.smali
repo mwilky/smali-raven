@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/server/broadcastradio/hal2/RadioModule$AidlCallbackRunnable;
+.class public interface abstract Lcom/android/server/broadcastradio/hal2/RadioModule$AidlCallbackRunnable;
 .super Ljava/lang/Object;
 .source "RadioModule.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
+    accessFlags = 0x609
     name = "AidlCallbackRunnable"
 .end annotation
 

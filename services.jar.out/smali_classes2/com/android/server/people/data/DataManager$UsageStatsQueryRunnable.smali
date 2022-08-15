@@ -1,4 +1,4 @@
-.class Lcom/android/server/people/data/DataManager$UsageStatsQueryRunnable;
+.class public Lcom/android/server/people/data/DataManager$UsageStatsQueryRunnable;
 .super Ljava/lang/Object;
 .source "DataManager.java"
 
@@ -13,28 +13,38 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "UsageStatsQueryRunnable"
 .end annotation
 
 
 # instance fields
-.field private mLastEventTimestamp:J
+.field public mLastEventTimestamp:J
 
-.field private final mUsageStatsQueryHelper:Lcom/android/server/people/data/UsageStatsQueryHelper;
+.field public final mUsageStatsQueryHelper:Lcom/android/server/people/data/UsageStatsQueryHelper;
 
-.field final synthetic this$0:Lcom/android/server/people/data/DataManager;
+.field public final synthetic this$0:Lcom/android/server/people/data/DataManager;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/server/people/data/DataManager;I)V
-    .locals 4
+.method public static synthetic $r8$lambda$L5c-F-8UvApPv_gRgMAwxjuR5IM(Lcom/android/server/people/data/DataManager$UsageStatsQueryRunnable;ILjava/lang/String;)Lcom/android/server/people/data/PackageData;
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/server/people/data/DataManager$UsageStatsQueryRunnable;->lambda$new$0(ILjava/lang/String;)Lcom/android/server/people/data/PackageData;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public constructor <init>(Lcom/android/server/people/data/DataManager;I)V
+    .locals 2
 
     iput-object p1, p0, Lcom/android/server/people/data/DataManager$UsageStatsQueryRunnable;->this$0:Lcom/android/server/people/data/DataManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    invoke-static {p1}, Lcom/android/server/people/data/DataManager;->access$1000(Lcom/android/server/people/data/DataManager;)Lcom/android/server/people/data/DataManager$Injector;
+    invoke-static {p1}, Lcom/android/server/people/data/DataManager;->-$$Nest$fgetmInjector(Lcom/android/server/people/data/DataManager;)Lcom/android/server/people/data/DataManager$Injector;
 
     move-result-object p1
 
@@ -50,18 +60,18 @@
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v0
+    move-result-wide p1
 
-    const-wide/32 v2, 0x493e0
+    const-wide/32 v0, 0x493e0
 
-    sub-long/2addr v0, v2
+    sub-long/2addr p1, v0
 
-    iput-wide v0, p0, Lcom/android/server/people/data/DataManager$UsageStatsQueryRunnable;->mLastEventTimestamp:J
+    iput-wide p1, p0, Lcom/android/server/people/data/DataManager$UsageStatsQueryRunnable;->mLastEventTimestamp:J
 
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/people/data/DataManager;ILcom/android/server/people/data/DataManager$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/people/data/DataManager;ILcom/android/server/people/data/DataManager$UsageStatsQueryRunnable-IA;)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/people/data/DataManager$UsageStatsQueryRunnable;-><init>(Lcom/android/server/people/data/DataManager;I)V
@@ -69,22 +79,22 @@
     return-void
 .end method
 
+.method private synthetic lambda$new$0(ILjava/lang/String;)Lcom/android/server/people/data/PackageData;
+    .locals 0
 
-# virtual methods
-.method public synthetic lambda$new$0$DataManager$UsageStatsQueryRunnable(ILjava/lang/String;)Lcom/android/server/people/data/PackageData;
-    .locals 1
+    iget-object p0, p0, Lcom/android/server/people/data/DataManager$UsageStatsQueryRunnable;->this$0:Lcom/android/server/people/data/DataManager;
 
-    iget-object v0, p0, Lcom/android/server/people/data/DataManager$UsageStatsQueryRunnable;->this$0:Lcom/android/server/people/data/DataManager;
+    invoke-virtual {p0, p2, p1}, Lcom/android/server/people/data/DataManager;->getPackage(Ljava/lang/String;I)Lcom/android/server/people/data/PackageData;
 
-    invoke-virtual {v0, p2, p1}, Lcom/android/server/people/data/DataManager;->getPackage(Ljava/lang/String;I)Lcom/android/server/people/data/PackageData;
+    move-result-object p0
 
-    move-result-object v0
-
-    return-object v0
+    return-object p0
 .end method
 
+
+# virtual methods
 .method public onEvent(Lcom/android/server/people/data/PackageData;Lcom/android/server/people/data/ConversationInfo;Lcom/android/server/people/data/Event;)V
-    .locals 5
+    .locals 2
 
     invoke-virtual {p3}, Lcom/android/server/people/data/Event;->getType()I
 
@@ -100,31 +110,31 @@
 
     invoke-virtual {p3}, Lcom/android/server/people/data/Event;->getTimestamp()J
 
-    move-result-wide v1
+    move-result-wide p2
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/people/data/ConversationInfo$Builder;->setLastEventTimestamp(J)Lcom/android/server/people/data/ConversationInfo$Builder;
+    invoke-virtual {v0, p2, p3}, Lcom/android/server/people/data/ConversationInfo$Builder;->setLastEventTimestamp(J)Lcom/android/server/people/data/ConversationInfo$Builder;
 
-    move-result-object v0
+    move-result-object p2
 
-    invoke-virtual {v0}, Lcom/android/server/people/data/ConversationInfo$Builder;->build()Lcom/android/server/people/data/ConversationInfo;
+    invoke-virtual {p2}, Lcom/android/server/people/data/ConversationInfo$Builder;->build()Lcom/android/server/people/data/ConversationInfo;
 
-    move-result-object v0
+    move-result-object p2
 
-    iget-object v1, p0, Lcom/android/server/people/data/DataManager$UsageStatsQueryRunnable;->this$0:Lcom/android/server/people/data/DataManager;
+    iget-object p0, p0, Lcom/android/server/people/data/DataManager$UsageStatsQueryRunnable;->this$0:Lcom/android/server/people/data/DataManager;
 
     invoke-virtual {p1}, Lcom/android/server/people/data/PackageData;->getConversationStore()Lcom/android/server/people/data/ConversationStore;
 
-    move-result-object v2
+    move-result-object p3
 
     invoke-virtual {p1}, Lcom/android/server/people/data/PackageData;->getPackageName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v0
 
     invoke-virtual {p1}, Lcom/android/server/people/data/PackageData;->getUserId()I
 
-    move-result v4
+    move-result p1
 
-    invoke-static {v1, v2, v0, v3, v4}, Lcom/android/server/people/data/DataManager;->access$1600(Lcom/android/server/people/data/DataManager;Lcom/android/server/people/data/ConversationStore;Lcom/android/server/people/data/ConversationInfo;Ljava/lang/String;I)V
+    invoke-static {p0, p3, p2, v0, p1}, Lcom/android/server/people/data/DataManager;->-$$Nest$mupdateConversationStoreThenNotifyListeners(Lcom/android/server/people/data/DataManager;Lcom/android/server/people/data/ConversationStore;Lcom/android/server/people/data/ConversationInfo;Ljava/lang/String;I)V
 
     :cond_0
     return-void

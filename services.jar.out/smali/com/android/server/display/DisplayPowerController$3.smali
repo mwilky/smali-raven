@@ -1,9 +1,9 @@
-.class Lcom/android/server/display/DisplayPowerController$3;
+.class public Lcom/android/server/display/DisplayPowerController$3;
 .super Ljava/lang/Object;
 .source "DisplayPowerController.java"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Landroid/animation/Animator$AnimatorListener;
 
 
 # annotations
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/display/DisplayPowerController;
+.field public final synthetic this$0:Lcom/android/server/display/DisplayPowerController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/display/DisplayPowerController;)V
+.method public constructor <init>(Lcom/android/server/display/DisplayPowerController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/display/DisplayPowerController$3;->this$0:Lcom/android/server/display/DisplayPowerController;
@@ -34,24 +34,30 @@
 
 
 # virtual methods
-.method public run()V
-    .locals 1
+.method public onAnimationCancel(Landroid/animation/Animator;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/display/DisplayPowerController$3;->this$0:Lcom/android/server/display/DisplayPowerController;
+    return-void
+.end method
 
-    invoke-static {v0}, Lcom/android/server/display/DisplayPowerController;->access$500(Lcom/android/server/display/DisplayPowerController;)Landroid/hardware/display/DisplayManagerInternal$DisplayPowerCallbacks;
+.method public onAnimationEnd(Landroid/animation/Animator;)V
+    .locals 0
 
-    move-result-object v0
+    iget-object p0, p0, Lcom/android/server/display/DisplayPowerController$3;->this$0:Lcom/android/server/display/DisplayPowerController;
 
-    invoke-interface {v0}, Landroid/hardware/display/DisplayManagerInternal$DisplayPowerCallbacks;->onStateChanged()V
+    invoke-static {p0}, Lcom/android/server/display/DisplayPowerController;->-$$Nest$msendUpdatePowerState(Lcom/android/server/display/DisplayPowerController;)V
 
-    iget-object v0, p0, Lcom/android/server/display/DisplayPowerController$3;->this$0:Lcom/android/server/display/DisplayPowerController;
+    return-void
+.end method
 
-    invoke-static {v0}, Lcom/android/server/display/DisplayPowerController;->access$500(Lcom/android/server/display/DisplayPowerController;)Landroid/hardware/display/DisplayManagerInternal$DisplayPowerCallbacks;
+.method public onAnimationRepeat(Landroid/animation/Animator;)V
+    .locals 0
 
-    move-result-object v0
+    return-void
+.end method
 
-    invoke-interface {v0}, Landroid/hardware/display/DisplayManagerInternal$DisplayPowerCallbacks;->releaseSuspendBlocker()V
+.method public onAnimationStart(Landroid/animation/Animator;)V
+    .locals 0
 
     return-void
 .end method

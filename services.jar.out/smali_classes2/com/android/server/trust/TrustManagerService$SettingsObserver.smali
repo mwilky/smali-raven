@@ -1,4 +1,4 @@
-.class final Lcom/android/server/trust/TrustManagerService$SettingsObserver;
+.class public final Lcom/android/server/trust/TrustManagerService$SettingsObserver;
 .super Landroid/database/ContentObserver;
 .source "TrustManagerService.java"
 
@@ -9,72 +9,68 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "SettingsObserver"
 .end annotation
 
 
 # instance fields
-.field private final LOCK_SCREEN_WHEN_TRUST_LOST:Landroid/net/Uri;
+.field public final LOCK_SCREEN_WHEN_TRUST_LOST:Landroid/net/Uri;
 
-.field private final TRUST_AGENTS_EXTEND_UNLOCK:Landroid/net/Uri;
+.field public final TRUST_AGENTS_EXTEND_UNLOCK:Landroid/net/Uri;
 
-.field private final mContentResolver:Landroid/content/ContentResolver;
+.field public final mContentResolver:Landroid/content/ContentResolver;
 
-.field private final mIsAutomotive:Z
+.field public final mIsAutomotive:Z
 
-.field private mLockWhenTrustLost:Z
+.field public mLockWhenTrustLost:Z
 
-.field private mTrustAgentsExtendUnlock:Z
+.field public mTrustAgentsNonrenewableTrust:Z
 
-.field final synthetic this$0:Lcom/android/server/trust/TrustManagerService;
+.field public final synthetic this$0:Lcom/android/server/trust/TrustManagerService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/trust/TrustManagerService;Landroid/os/Handler;)V
-    .locals 2
+.method public constructor <init>(Lcom/android/server/trust/TrustManagerService;Landroid/os/Handler;)V
+    .locals 1
 
     iput-object p1, p0, Lcom/android/server/trust/TrustManagerService$SettingsObserver;->this$0:Lcom/android/server/trust/TrustManagerService;
 
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
-    nop
+    const-string p2, "trust_agents_extend_unlock"
 
-    const-string v0, "trust_agents_extend_unlock"
+    invoke-static {p2}, Landroid/provider/Settings$Secure;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
-    invoke-static {v0}, Landroid/provider/Settings$Secure;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+    move-result-object p2
 
-    move-result-object v0
+    iput-object p2, p0, Lcom/android/server/trust/TrustManagerService$SettingsObserver;->TRUST_AGENTS_EXTEND_UNLOCK:Landroid/net/Uri;
 
-    iput-object v0, p0, Lcom/android/server/trust/TrustManagerService$SettingsObserver;->TRUST_AGENTS_EXTEND_UNLOCK:Landroid/net/Uri;
+    const-string p2, "lock_screen_when_trust_lost"
 
-    nop
+    invoke-static {p2}, Landroid/provider/Settings$Secure;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
-    const-string v0, "lock_screen_when_trust_lost"
+    move-result-object p2
 
-    invoke-static {v0}, Landroid/provider/Settings$Secure;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+    iput-object p2, p0, Lcom/android/server/trust/TrustManagerService$SettingsObserver;->LOCK_SCREEN_WHEN_TRUST_LOST:Landroid/net/Uri;
 
-    move-result-object v0
+    invoke-virtual {p1}, Lcom/android/server/SystemService;->getContext()Landroid/content/Context;
 
-    iput-object v0, p0, Lcom/android/server/trust/TrustManagerService$SettingsObserver;->LOCK_SCREEN_WHEN_TRUST_LOST:Landroid/net/Uri;
+    move-result-object p2
 
-    invoke-virtual {p1}, Lcom/android/server/trust/TrustManagerService;->getContext()Landroid/content/Context;
+    invoke-virtual {p2}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v0
+    move-result-object p2
 
-    invoke-virtual {v0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+    const-string v0, "android.hardware.type.automotive"
 
-    move-result-object v0
+    invoke-virtual {p2, v0}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
 
-    const-string v1, "android.hardware.type.automotive"
+    move-result p2
 
-    invoke-virtual {v0, v1}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
+    iput-boolean p2, p0, Lcom/android/server/trust/TrustManagerService$SettingsObserver;->mIsAutomotive:Z
 
-    move-result v1
-
-    iput-boolean v1, p0, Lcom/android/server/trust/TrustManagerService$SettingsObserver;->mIsAutomotive:Z
-
-    invoke-virtual {p1}, Lcom/android/server/trust/TrustManagerService;->getContext()Landroid/content/Context;
+    invoke-virtual {p1}, Lcom/android/server/SystemService;->getContext()Landroid/content/Context;
 
     move-result-object p1
 
@@ -91,111 +87,106 @@
 
 
 # virtual methods
-.method getLockWhenTrustLost()Z
-    .locals 1
+.method public getLockWhenTrustLost()Z
+    .locals 0
 
-    iget-boolean v0, p0, Lcom/android/server/trust/TrustManagerService$SettingsObserver;->mLockWhenTrustLost:Z
+    iget-boolean p0, p0, Lcom/android/server/trust/TrustManagerService$SettingsObserver;->mLockWhenTrustLost:Z
 
-    return v0
+    return p0
 .end method
 
-.method getTrustAgentsExtendUnlock()Z
-    .locals 1
+.method public getTrustAgentsNonrenewableTrust()Z
+    .locals 0
 
-    iget-boolean v0, p0, Lcom/android/server/trust/TrustManagerService$SettingsObserver;->mTrustAgentsExtendUnlock:Z
+    iget-boolean p0, p0, Lcom/android/server/trust/TrustManagerService$SettingsObserver;->mTrustAgentsNonrenewableTrust:Z
 
-    return v0
+    return p0
 .end method
 
 .method public onChange(ZLandroid/net/Uri;)V
-    .locals 6
+    .locals 4
 
-    iget-object v0, p0, Lcom/android/server/trust/TrustManagerService$SettingsObserver;->TRUST_AGENTS_EXTEND_UNLOCK:Landroid/net/Uri;
+    iget-object p1, p0, Lcom/android/server/trust/TrustManagerService$SettingsObserver;->TRUST_AGENTS_EXTEND_UNLOCK:Landroid/net/Uri;
 
-    invoke-virtual {v0, p2}, Landroid/net/Uri;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, p2}, Landroid/net/Uri;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_1
 
-    iget-boolean v0, p0, Lcom/android/server/trust/TrustManagerService$SettingsObserver;->mIsAutomotive:Z
+    iget-boolean p1, p0, Lcom/android/server/trust/TrustManagerService$SettingsObserver;->mIsAutomotive:Z
 
-    xor-int/2addr v0, v1
+    xor-int/2addr p1, v0
 
-    iget-object v3, p0, Lcom/android/server/trust/TrustManagerService$SettingsObserver;->mContentResolver:Landroid/content/ContentResolver;
+    iget-object p2, p0, Lcom/android/server/trust/TrustManagerService$SettingsObserver;->mContentResolver:Landroid/content/ContentResolver;
 
-    iget-object v4, p0, Lcom/android/server/trust/TrustManagerService$SettingsObserver;->this$0:Lcom/android/server/trust/TrustManagerService;
+    iget-object v2, p0, Lcom/android/server/trust/TrustManagerService$SettingsObserver;->this$0:Lcom/android/server/trust/TrustManagerService;
 
-    invoke-static {v4}, Lcom/android/server/trust/TrustManagerService;->access$100(Lcom/android/server/trust/TrustManagerService;)I
+    invoke-static {v2}, Lcom/android/server/trust/TrustManagerService;->-$$Nest$fgetmCurrentUser(Lcom/android/server/trust/TrustManagerService;)I
 
-    move-result v4
+    move-result v2
 
-    const-string v5, "trust_agents_extend_unlock"
+    const-string v3, "trust_agents_extend_unlock"
 
-    invoke-static {v3, v5, v0, v4}, Landroid/provider/Settings$Secure;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
+    invoke-static {p2, v3, p1, v2}, Landroid/provider/Settings$Secure;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
 
-    move-result v3
+    move-result p1
 
-    if-eqz v3, :cond_0
+    if-eqz p1, :cond_0
 
     goto :goto_0
 
     :cond_0
-    move v1, v2
+    move v0, v1
 
     :goto_0
-    iput-boolean v1, p0, Lcom/android/server/trust/TrustManagerService$SettingsObserver;->mTrustAgentsExtendUnlock:Z
+    iput-boolean v0, p0, Lcom/android/server/trust/TrustManagerService$SettingsObserver;->mTrustAgentsNonrenewableTrust:Z
 
     goto :goto_2
 
     :cond_1
-    iget-object v0, p0, Lcom/android/server/trust/TrustManagerService$SettingsObserver;->LOCK_SCREEN_WHEN_TRUST_LOST:Landroid/net/Uri;
+    iget-object p1, p0, Lcom/android/server/trust/TrustManagerService$SettingsObserver;->LOCK_SCREEN_WHEN_TRUST_LOST:Landroid/net/Uri;
 
-    invoke-virtual {v0, p2}, Landroid/net/Uri;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, p2}, Landroid/net/Uri;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_3
+    if-eqz p1, :cond_3
 
-    iget-object v0, p0, Lcom/android/server/trust/TrustManagerService$SettingsObserver;->mContentResolver:Landroid/content/ContentResolver;
+    iget-object p1, p0, Lcom/android/server/trust/TrustManagerService$SettingsObserver;->mContentResolver:Landroid/content/ContentResolver;
 
-    iget-object v3, p0, Lcom/android/server/trust/TrustManagerService$SettingsObserver;->this$0:Lcom/android/server/trust/TrustManagerService;
+    iget-object p2, p0, Lcom/android/server/trust/TrustManagerService$SettingsObserver;->this$0:Lcom/android/server/trust/TrustManagerService;
 
-    invoke-static {v3}, Lcom/android/server/trust/TrustManagerService;->access$100(Lcom/android/server/trust/TrustManagerService;)I
+    invoke-static {p2}, Lcom/android/server/trust/TrustManagerService;->-$$Nest$fgetmCurrentUser(Lcom/android/server/trust/TrustManagerService;)I
 
-    move-result v3
+    move-result p2
 
-    const-string v4, "lock_screen_when_trust_lost"
+    const-string v2, "lock_screen_when_trust_lost"
 
-    invoke-static {v0, v4, v2, v3}, Landroid/provider/Settings$Secure;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
+    invoke-static {p1, v2, v1, p2}, Landroid/provider/Settings$Secure;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_2
+    if-eqz p1, :cond_2
 
     goto :goto_1
 
     :cond_2
-    move v1, v2
+    move v0, v1
 
     :goto_1
-    iput-boolean v1, p0, Lcom/android/server/trust/TrustManagerService$SettingsObserver;->mLockWhenTrustLost:Z
-
-    goto :goto_3
+    iput-boolean v0, p0, Lcom/android/server/trust/TrustManagerService$SettingsObserver;->mLockWhenTrustLost:Z
 
     :cond_3
     :goto_2
-    nop
-
-    :goto_3
     return-void
 .end method
 
-.method updateContentObserver()V
+.method public updateContentObserver()V
     .locals 4
 
     iget-object v0, p0, Lcom/android/server/trust/TrustManagerService$SettingsObserver;->mContentResolver:Landroid/content/ContentResolver;
@@ -208,7 +199,7 @@
 
     iget-object v2, p0, Lcom/android/server/trust/TrustManagerService$SettingsObserver;->this$0:Lcom/android/server/trust/TrustManagerService;
 
-    invoke-static {v2}, Lcom/android/server/trust/TrustManagerService;->access$100(Lcom/android/server/trust/TrustManagerService;)I
+    invoke-static {v2}, Lcom/android/server/trust/TrustManagerService;->-$$Nest$fgetmCurrentUser(Lcom/android/server/trust/TrustManagerService;)I
 
     move-result v2
 
@@ -222,7 +213,7 @@
 
     iget-object v2, p0, Lcom/android/server/trust/TrustManagerService$SettingsObserver;->this$0:Lcom/android/server/trust/TrustManagerService;
 
-    invoke-static {v2}, Lcom/android/server/trust/TrustManagerService;->access$100(Lcom/android/server/trust/TrustManagerService;)I
+    invoke-static {v2}, Lcom/android/server/trust/TrustManagerService;->-$$Nest$fgetmCurrentUser(Lcom/android/server/trust/TrustManagerService;)I
 
     move-result v2
 

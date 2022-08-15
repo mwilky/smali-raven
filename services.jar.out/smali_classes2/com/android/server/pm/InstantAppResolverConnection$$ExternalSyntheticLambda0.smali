@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/pm/InstantAppResolverConnection$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/pm/InstantAppResolverConnection$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/pm/InstantAppResolverConnection;
+    iget-object p0, p0, Lcom/android/server/pm/InstantAppResolverConnection$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/pm/InstantAppResolverConnection;
 
-    invoke-virtual {v0}, Lcom/android/server/pm/InstantAppResolverConnection;->lambda$optimisticBind$0$InstantAppResolverConnection()V
+    invoke-static {p0}, Lcom/android/server/pm/InstantAppResolverConnection;->$r8$lambda$JBm5_EVTrfafQJpmYxi5cuBdFsA(Lcom/android/server/pm/InstantAppResolverConnection;)V
 
     return-void
 .end method

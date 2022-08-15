@@ -12,19 +12,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x4
+    accessFlags = 0x1
     name = "AudioFocusDeathHandler"
 .end annotation
 
 
 # instance fields
-.field private mCb:Landroid/os/IBinder;
+.field public mCb:Landroid/os/IBinder;
 
-.field final synthetic this$0:Lcom/android/server/audio/MediaFocusControl;
+.field public final synthetic this$0:Lcom/android/server/audio/MediaFocusControl;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/audio/MediaFocusControl;Landroid/os/IBinder;)V
+.method public constructor <init>(Lcom/android/server/audio/MediaFocusControl;Landroid/os/IBinder;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/audio/MediaFocusControl$AudioFocusDeathHandler;->this$0:Lcom/android/server/audio/MediaFocusControl;
@@ -41,7 +41,7 @@
 .method public binderDied()V
     .locals 4
 
-    invoke-static {}, Lcom/android/server/audio/MediaFocusControl;->access$000()Ljava/lang/Object;
+    invoke-static {}, Lcom/android/server/audio/MediaFocusControl;->-$$Nest$sfgetmAudioFocusLock()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -50,7 +50,7 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/server/audio/MediaFocusControl$AudioFocusDeathHandler;->this$0:Lcom/android/server/audio/MediaFocusControl;
 
-    invoke-static {v1}, Lcom/android/server/audio/MediaFocusControl;->access$100(Lcom/android/server/audio/MediaFocusControl;)Landroid/media/audiopolicy/IAudioPolicyCallback;
+    invoke-static {v1}, Lcom/android/server/audio/MediaFocusControl;->-$$Nest$fgetmFocusPolicy(Lcom/android/server/audio/MediaFocusControl;)Landroid/media/audiopolicy/IAudioPolicyCallback;
 
     move-result-object v1
 
@@ -58,9 +58,9 @@
 
     iget-object v1, p0, Lcom/android/server/audio/MediaFocusControl$AudioFocusDeathHandler;->this$0:Lcom/android/server/audio/MediaFocusControl;
 
-    iget-object v2, p0, Lcom/android/server/audio/MediaFocusControl$AudioFocusDeathHandler;->mCb:Landroid/os/IBinder;
+    iget-object p0, p0, Lcom/android/server/audio/MediaFocusControl$AudioFocusDeathHandler;->mCb:Landroid/os/IBinder;
 
-    invoke-static {v1, v2}, Lcom/android/server/audio/MediaFocusControl;->access$200(Lcom/android/server/audio/MediaFocusControl;Landroid/os/IBinder;)V
+    invoke-static {v1, p0}, Lcom/android/server/audio/MediaFocusControl;->-$$Nest$mremoveFocusEntryForExtPolicyOnDeath(Lcom/android/server/audio/MediaFocusControl;Landroid/os/IBinder;)V
 
     goto :goto_1
 
@@ -69,11 +69,11 @@
 
     iget-object v2, p0, Lcom/android/server/audio/MediaFocusControl$AudioFocusDeathHandler;->mCb:Landroid/os/IBinder;
 
-    invoke-static {v1, v2}, Lcom/android/server/audio/MediaFocusControl;->access$300(Lcom/android/server/audio/MediaFocusControl;Landroid/os/IBinder;)V
+    invoke-static {v1, v2}, Lcom/android/server/audio/MediaFocusControl;->-$$Nest$mremoveFocusStackEntryOnDeath(Lcom/android/server/audio/MediaFocusControl;Landroid/os/IBinder;)V
 
     iget-object v1, p0, Lcom/android/server/audio/MediaFocusControl$AudioFocusDeathHandler;->this$0:Lcom/android/server/audio/MediaFocusControl;
 
-    invoke-static {v1}, Lcom/android/server/audio/MediaFocusControl;->access$400(Lcom/android/server/audio/MediaFocusControl;)Z
+    invoke-static {v1}, Lcom/android/server/audio/MediaFocusControl;->-$$Nest$fgetmMultiAudioFocusEnabled(Lcom/android/server/audio/MediaFocusControl;)Z
 
     move-result v1
 
@@ -97,6 +97,7 @@
 
     move-result-object v1
 
+    :cond_1
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -122,7 +123,6 @@
 
     invoke-virtual {v2}, Lcom/android/server/audio/FocusRequester;->release()V
 
-    :cond_1
     goto :goto_0
 
     :cond_2
@@ -132,11 +132,11 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method

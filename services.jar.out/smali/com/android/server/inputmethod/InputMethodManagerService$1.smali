@@ -1,94 +1,70 @@
-.class Lcom/android/server/inputmethod/InputMethodManagerService$1;
-.super Ljava/lang/Object;
+.class public Lcom/android/server/inputmethod/InputMethodManagerService$1;
+.super Lcom/android/internal/view/IInputSessionCallback$Stub;
 .source "InputMethodManagerService.java"
-
-# interfaces
-.implements Landroid/content/ServiceConnection;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/android/server/inputmethod/InputMethodManagerService;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/android/server/inputmethod/InputMethodManagerService;->requestClientSessionLocked(Lcom/android/server/inputmethod/InputMethodManagerService$ClientState;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/inputmethod/InputMethodManagerService;
+.field public final synthetic this$0:Lcom/android/server/inputmethod/InputMethodManagerService;
+
+.field public final synthetic val$curMethod:Lcom/android/server/inputmethod/IInputMethodInvoker;
+
+.field public final synthetic val$serverChannel:Landroid/view/InputChannel;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/inputmethod/InputMethodManagerService;)V
+.method public constructor <init>(Lcom/android/server/inputmethod/InputMethodManagerService;Lcom/android/server/inputmethod/IInputMethodInvoker;Landroid/view/InputChannel;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/inputmethod/InputMethodManagerService$1;->this$0:Lcom/android/server/inputmethod/InputMethodManagerService;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    iput-object p2, p0, Lcom/android/server/inputmethod/InputMethodManagerService$1;->val$curMethod:Lcom/android/server/inputmethod/IInputMethodInvoker;
+
+    iput-object p3, p0, Lcom/android/server/inputmethod/InputMethodManagerService$1;->val$serverChannel:Landroid/view/InputChannel;
+
+    invoke-direct {p0}, Lcom/android/internal/view/IInputSessionCallback$Stub;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onBindingDied(Landroid/content/ComponentName;)V
-    .locals 3
+.method public sessionCreated(Lcom/android/internal/view/IInputMethodSession;)V
+    .locals 4
 
-    iget-object v0, p0, Lcom/android/server/inputmethod/InputMethodManagerService$1;->this$0:Lcom/android/server/inputmethod/InputMethodManagerService;
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
-    iget-object v0, v0, Lcom/android/server/inputmethod/InputMethodManagerService;->mMethodMap:Landroid/util/ArrayMap;
-
-    monitor-enter v0
+    move-result-wide v0
 
     :try_start_0
-    iget-object v1, p0, Lcom/android/server/inputmethod/InputMethodManagerService$1;->this$0:Lcom/android/server/inputmethod/InputMethodManagerService;
-
-    iget-boolean v1, v1, Lcom/android/server/inputmethod/InputMethodManagerService;->mVisibleBound:Z
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/server/inputmethod/InputMethodManagerService$1;->this$0:Lcom/android/server/inputmethod/InputMethodManagerService;
-
-    iget-object v1, v1, Lcom/android/server/inputmethod/InputMethodManagerService;->mContext:Landroid/content/Context;
-
     iget-object v2, p0, Lcom/android/server/inputmethod/InputMethodManagerService$1;->this$0:Lcom/android/server/inputmethod/InputMethodManagerService;
 
-    iget-object v2, v2, Lcom/android/server/inputmethod/InputMethodManagerService;->mVisibleConnection:Landroid/content/ServiceConnection;
+    iget-object v3, p0, Lcom/android/server/inputmethod/InputMethodManagerService$1;->val$curMethod:Lcom/android/server/inputmethod/IInputMethodInvoker;
 
-    invoke-virtual {v1, v2}, Landroid/content/Context;->unbindService(Landroid/content/ServiceConnection;)V
+    iget-object p0, p0, Lcom/android/server/inputmethod/InputMethodManagerService$1;->val$serverChannel:Landroid/view/InputChannel;
 
-    iget-object v1, p0, Lcom/android/server/inputmethod/InputMethodManagerService$1;->this$0:Lcom/android/server/inputmethod/InputMethodManagerService;
+    invoke-virtual {v2, v3, p1, p0}, Lcom/android/server/inputmethod/InputMethodManagerService;->onSessionCreated(Lcom/android/server/inputmethod/IInputMethodInvoker;Lcom/android/internal/view/IInputMethodSession;Landroid/view/InputChannel;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    const/4 v2, 0x0
-
-    iput-boolean v2, v1, Lcom/android/server/inputmethod/InputMethodManagerService;->mVisibleBound:Z
-
-    :cond_0
-    monitor-exit v0
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
-    monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    throw v1
-.end method
-
-.method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
-    .locals 0
-
-    return-void
-.end method
-
-.method public onServiceDisconnected(Landroid/content/ComponentName;)V
-    .locals 0
-
-    return-void
+    throw p0
 .end method

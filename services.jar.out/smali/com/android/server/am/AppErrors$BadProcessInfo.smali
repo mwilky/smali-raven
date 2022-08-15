@@ -1,4 +1,4 @@
-.class final Lcom/android/server/am/AppErrors$BadProcessInfo;
+.class public final Lcom/android/server/am/AppErrors$BadProcessInfo;
 .super Ljava/lang/Object;
 .source "AppErrors.java"
 
@@ -9,23 +9,23 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = "BadProcessInfo"
 .end annotation
 
 
 # instance fields
-.field final longMsg:Ljava/lang/String;
+.field public final longMsg:Ljava/lang/String;
 
-.field final shortMsg:Ljava/lang/String;
+.field public final shortMsg:Ljava/lang/String;
 
-.field final stack:Ljava/lang/String;
+.field public final stack:Ljava/lang/String;
 
-.field final time:J
+.field public final time:J
 
 
 # direct methods
-.method constructor <init>(JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+.method public constructor <init>(JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

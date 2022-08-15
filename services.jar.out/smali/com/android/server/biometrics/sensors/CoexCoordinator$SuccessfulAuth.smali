@@ -4,6 +4,9 @@
 
 
 # annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/android/server/biometrics/sensors/CoexCoordinator;
 .end annotation
@@ -21,9 +24,9 @@
 
 
 # instance fields
-.field final mAuthTimestamp:J
+.field public final mAuthTimestamp:J
 
-.field final mAuthenticationClient:Lcom/android/server/biometrics/sensors/AuthenticationClient;
+.field public final mAuthenticationClient:Lcom/android/server/biometrics/sensors/AuthenticationClient;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/android/server/biometrics/sensors/AuthenticationClient<",
@@ -32,16 +35,16 @@
     .end annotation
 .end field
 
-.field final mCallback:Lcom/android/server/biometrics/sensors/CoexCoordinator$Callback;
+.field public final mCallback:Lcom/android/server/biometrics/sensors/CoexCoordinator$Callback;
 
-.field final mCleanupRunnable:Lcom/android/server/biometrics/sensors/CoexCoordinator$SuccessfulAuth$CleanupRunnable;
+.field public final mCleanupRunnable:Lcom/android/server/biometrics/sensors/CoexCoordinator$SuccessfulAuth$CleanupRunnable;
 
-.field final mSensorType:I
+.field public final mSensorType:I
 
 
 # direct methods
 .method public constructor <init>(Landroid/os/Handler;Ljava/util/LinkedList;JILcom/android/server/biometrics/sensors/AuthenticationClient;Lcom/android/server/biometrics/sensors/CoexCoordinator$Callback;)V
-    .locals 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -66,15 +69,15 @@
 
     iput-object p7, p0, Lcom/android/server/biometrics/sensors/CoexCoordinator$SuccessfulAuth;->mCallback:Lcom/android/server/biometrics/sensors/CoexCoordinator$Callback;
 
-    new-instance v0, Lcom/android/server/biometrics/sensors/CoexCoordinator$SuccessfulAuth$CleanupRunnable;
+    new-instance p3, Lcom/android/server/biometrics/sensors/CoexCoordinator$SuccessfulAuth$CleanupRunnable;
 
-    invoke-direct {v0, p2, p0, p7}, Lcom/android/server/biometrics/sensors/CoexCoordinator$SuccessfulAuth$CleanupRunnable;-><init>(Ljava/util/LinkedList;Lcom/android/server/biometrics/sensors/CoexCoordinator$SuccessfulAuth;Lcom/android/server/biometrics/sensors/CoexCoordinator$Callback;)V
+    invoke-direct {p3, p2, p0, p7}, Lcom/android/server/biometrics/sensors/CoexCoordinator$SuccessfulAuth$CleanupRunnable;-><init>(Ljava/util/LinkedList;Lcom/android/server/biometrics/sensors/CoexCoordinator$SuccessfulAuth;Lcom/android/server/biometrics/sensors/CoexCoordinator$Callback;)V
 
-    iput-object v0, p0, Lcom/android/server/biometrics/sensors/CoexCoordinator$SuccessfulAuth;->mCleanupRunnable:Lcom/android/server/biometrics/sensors/CoexCoordinator$SuccessfulAuth$CleanupRunnable;
+    iput-object p3, p0, Lcom/android/server/biometrics/sensors/CoexCoordinator$SuccessfulAuth;->mCleanupRunnable:Lcom/android/server/biometrics/sensors/CoexCoordinator$SuccessfulAuth$CleanupRunnable;
 
-    const-wide/16 v1, 0x1388
+    const-wide/16 p4, 0x1388
 
-    invoke-virtual {p1, v0, v1, v2}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+    invoke-virtual {p1, p3, p4, p5}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
     return-void
 .end method
@@ -112,13 +115,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lcom/android/server/biometrics/sensors/CoexCoordinator$SuccessfulAuth;->mAuthenticationClient:Lcom/android/server/biometrics/sensors/AuthenticationClient;
+    iget-object p0, p0, Lcom/android/server/biometrics/sensors/CoexCoordinator$SuccessfulAuth;->mAuthenticationClient:Lcom/android/server/biometrics/sensors/AuthenticationClient;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

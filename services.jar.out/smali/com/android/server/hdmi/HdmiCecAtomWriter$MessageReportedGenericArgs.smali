@@ -1,4 +1,4 @@
-.class Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedGenericArgs;
+.class public Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedGenericArgs;
 .super Ljava/lang/Object;
 .source "HdmiCecAtomWriter.java"
 
@@ -9,29 +9,29 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "MessageReportedGenericArgs"
 .end annotation
 
 
 # instance fields
-.field final mDestinationLogicalAddress:I
+.field public final mDestinationLogicalAddress:I
 
-.field final mDirection:I
+.field public final mDirection:I
 
-.field final mInitiatorLogicalAddress:I
+.field public final mInitiatorLogicalAddress:I
 
-.field final mOpcode:I
+.field public final mOpcode:I
 
-.field final mSendMessageResult:I
+.field public final mSendMessageResult:I
 
-.field final mUid:I
+.field public final mUid:I
 
-.field final synthetic this$0:Lcom/android/server/hdmi/HdmiCecAtomWriter;
+.field public final synthetic this$0:Lcom/android/server/hdmi/HdmiCecAtomWriter;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/hdmi/HdmiCecAtomWriter;IIIIII)V
+.method public constructor <init>(Lcom/android/server/hdmi/HdmiCecAtomWriter;IIIIII)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedGenericArgs;->this$0:Lcom/android/server/hdmi/HdmiCecAtomWriter;

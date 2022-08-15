@@ -12,22 +12,22 @@
 
 
 # static fields
-.field private static final TAG:Ljava/lang/String;
+.field private static final TAG:Ljava/lang/String; = "ModuleNetworkStackClient"
 
 .field private static sInstance:Landroid/net/networkstack/ModuleNetworkStackClient;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static bridge synthetic -$$Nest$sfgetTAG()Ljava/lang/String;
     .locals 1
 
-    const-class v0, Landroid/net/networkstack/ModuleNetworkStackClient;
+    sget-object v0, Landroid/net/networkstack/ModuleNetworkStackClient;->TAG:Ljava/lang/String;
 
-    invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
+    return-object v0
+.end method
 
-    move-result-object v0
-
-    sput-object v0, Landroid/net/networkstack/ModuleNetworkStackClient;->TAG:Ljava/lang/String;
+.method public static constructor <clinit>()V
+    .locals 0
 
     return-void
 .end method
@@ -40,100 +40,47 @@
     return-void
 .end method
 
-.method static synthetic access$100()Ljava/lang/String;
+.method public static declared-synchronized getInstance(Landroid/content/Context;)Landroid/net/networkstack/ModuleNetworkStackClient;
     .locals 1
 
-    sget-object v0, Landroid/net/networkstack/ModuleNetworkStackClient;->TAG:Ljava/lang/String;
+    const-class p0, Landroid/net/networkstack/ModuleNetworkStackClient;
 
-    return-object v0
-.end method
-
-.method public static declared-synchronized getInstance(Landroid/content/Context;)Landroid/net/networkstack/ModuleNetworkStackClient;
-    .locals 4
-
-    const-class v0, Landroid/net/networkstack/ModuleNetworkStackClient;
-
-    monitor-enter v0
+    monitor-enter p0
 
     :try_start_0
-    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
+    sget-object v0, Landroid/net/networkstack/ModuleNetworkStackClient;->sInstance:Landroid/net/networkstack/ModuleNetworkStackClient;
 
-    const/16 v2, 0x1d
+    if-nez v0, :cond_0
 
-    if-lt v1, v2, :cond_2
+    new-instance v0, Landroid/net/networkstack/ModuleNetworkStackClient;
 
-    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
+    invoke-direct {v0}, Landroid/net/networkstack/ModuleNetworkStackClient;-><init>()V
 
-    if-ne v1, v2, :cond_0
+    sput-object v0, Landroid/net/networkstack/ModuleNetworkStackClient;->sInstance:Landroid/net/networkstack/ModuleNetworkStackClient;
 
-    const-string v1, "REL"
-
-    sget-object v2, Landroid/os/Build$VERSION;->CODENAME:Ljava/lang/String;
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_2
+    invoke-direct {v0}, Landroid/net/networkstack/ModuleNetworkStackClient;->startPolling()V
 
     :cond_0
-    sget-object v1, Landroid/net/networkstack/ModuleNetworkStackClient;->sInstance:Landroid/net/networkstack/ModuleNetworkStackClient;
-
-    if-nez v1, :cond_1
-
-    new-instance v1, Landroid/net/networkstack/ModuleNetworkStackClient;
-
-    invoke-direct {v1}, Landroid/net/networkstack/ModuleNetworkStackClient;-><init>()V
-
-    sput-object v1, Landroid/net/networkstack/ModuleNetworkStackClient;->sInstance:Landroid/net/networkstack/ModuleNetworkStackClient;
-
-    invoke-direct {v1}, Landroid/net/networkstack/ModuleNetworkStackClient;->startPolling()V
-
-    :cond_1
-    sget-object v1, Landroid/net/networkstack/ModuleNetworkStackClient;->sInstance:Landroid/net/networkstack/ModuleNetworkStackClient;
+    sget-object v0, Landroid/net/networkstack/ModuleNetworkStackClient;->sInstance:Landroid/net/networkstack/ModuleNetworkStackClient;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    monitor-exit v0
+    monitor-exit p0
 
-    return-object v1
-
-    :cond_2
-    :try_start_1
-    new-instance v1, Ljava/lang/UnsupportedOperationException;
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "ModuleNetworkStackClient is not supported on API "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    sget v3, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-direct {v1, v2}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
-
-    throw v1
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    return-object v0
 
     :catchall_0
-    move-exception p0
+    move-exception v0
 
-    monitor-exit v0
+    monitor-exit p0
 
-    throw p0
+    throw v0
 .end method
 
-.method protected static declared-synchronized resetInstanceForTest()V
+.method public static declared-synchronized resetInstanceForTest()V
     .locals 2
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
 
     const-class v0, Landroid/net/networkstack/ModuleNetworkStackClient;
 
@@ -159,7 +106,7 @@
 .end method
 
 .method private startPolling()V
-    .locals 4
+    .locals 3
 
     invoke-static {}, Landroid/net/NetworkStack;->getService()Landroid/os/IBinder;
 
@@ -169,24 +116,24 @@
 
     invoke-static {v0}, Landroid/net/INetworkStackConnector$Stub;->asInterface(Landroid/os/IBinder;)Landroid/net/INetworkStackConnector;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {p0, v1}, Landroid/net/networkstack/ModuleNetworkStackClient;->onNetworkStackConnected(Landroid/net/INetworkStackConnector;)V
+    invoke-virtual {p0, v0}, Landroid/net/networkstack/NetworkStackClientBase;->onNetworkStackConnected(Landroid/net/INetworkStackConnector;)V
 
     return-void
 
     :cond_0
-    new-instance v1, Ljava/lang/Thread;
+    new-instance v0, Ljava/lang/Thread;
 
-    new-instance v2, Landroid/net/networkstack/ModuleNetworkStackClient$PollingRunner;
+    new-instance v1, Landroid/net/networkstack/ModuleNetworkStackClient$PollingRunner;
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    invoke-direct {v2, p0, v3}, Landroid/net/networkstack/ModuleNetworkStackClient$PollingRunner;-><init>(Landroid/net/networkstack/ModuleNetworkStackClient;Landroid/net/networkstack/ModuleNetworkStackClient$1;)V
+    invoke-direct {v1, p0, v2}, Landroid/net/networkstack/ModuleNetworkStackClient$PollingRunner;-><init>(Landroid/net/networkstack/ModuleNetworkStackClient;Landroid/net/networkstack/ModuleNetworkStackClient$PollingRunner-IA;)V
 
-    invoke-direct {v1, v2}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
+    invoke-direct {v0, v1}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
 
-    invoke-virtual {v1}, Ljava/lang/Thread;->start()V
+    invoke-virtual {v0}, Ljava/lang/Thread;->start()V
 
     return-void
 .end method

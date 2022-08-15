@@ -1,4 +1,4 @@
-.class Lcom/android/server/powerstats/PowerStatsDataStorage$DataRewriter;
+.class public Lcom/android/server/powerstats/PowerStatsDataStorage$DataRewriter;
 .super Ljava/lang/Object;
 .source "PowerStatsDataStorage.java"
 
@@ -12,19 +12,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "DataRewriter"
 .end annotation
 
 
 # instance fields
-.field mActiveFileData:[B
+.field public mActiveFileData:[B
 
-.field mNewData:[B
+.field public mNewData:[B
 
 
 # direct methods
-.method constructor <init>([B)V
+.method public constructor <init>([B)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -70,11 +70,11 @@
 .end method
 
 .method public shouldWrite()Z
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 .end method
 
 .method public write(Ljava/io/OutputStream;)V
@@ -89,9 +89,9 @@
 
     invoke-virtual {p1, v0}, Ljava/io/OutputStream;->write([B)V
 
-    iget-object v0, p0, Lcom/android/server/powerstats/PowerStatsDataStorage$DataRewriter;->mNewData:[B
+    iget-object p0, p0, Lcom/android/server/powerstats/PowerStatsDataStorage$DataRewriter;->mNewData:[B
 
-    invoke-virtual {p1, v0}, Ljava/io/OutputStream;->write([B)V
+    invoke-virtual {p1, p0}, Ljava/io/OutputStream;->write([B)V
 
     return-void
 .end method

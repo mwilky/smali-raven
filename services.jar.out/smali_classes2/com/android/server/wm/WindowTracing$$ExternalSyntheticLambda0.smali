@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/wm/WindowTracing$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/view/Choreographer$FrameCallback;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final doFrame(J)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/WindowTracing$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/wm/WindowTracing;
+    iget-object p0, p0, Lcom/android/server/wm/WindowTracing$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/wm/WindowTracing;
 
-    invoke-virtual {v0, p1, p2}, Lcom/android/server/wm/WindowTracing;->lambda$new$0$WindowTracing(J)V
+    invoke-static {p0, p1, p2}, Lcom/android/server/wm/WindowTracing;->$r8$lambda$lwp39UNT2iyahoxYytHt93gf2j8(Lcom/android/server/wm/WindowTracing;J)V
 
     return-void
 .end method

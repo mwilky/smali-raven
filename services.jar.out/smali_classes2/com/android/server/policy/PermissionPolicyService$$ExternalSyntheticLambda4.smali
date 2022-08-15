@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/policy/PermissionPolicyService$$ExternalSyntheticLambda4;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -27,15 +28,15 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/policy/PermissionPolicyService$$ExternalSyntheticLambda4;->f$0:Lcom/android/internal/infra/AndroidFuture;
 
-    iget v1, p0, Lcom/android/server/policy/PermissionPolicyService$$ExternalSyntheticLambda4;->f$1:I
+    iget p0, p0, Lcom/android/server/policy/PermissionPolicyService$$ExternalSyntheticLambda4;->f$1:I
 
     check-cast p1, Ljava/lang/Boolean;
 
-    invoke-static {v0, v1, p1}, Lcom/android/server/policy/PermissionPolicyService;->lambda$grantOrUpgradeDefaultRuntimePermissionsIfNeeded$0(Lcom/android/internal/infra/AndroidFuture;ILjava/lang/Boolean;)V
+    invoke-static {v0, p0, p1}, Lcom/android/server/policy/PermissionPolicyService;->$r8$lambda$XnDRakQtMnR8LtloM1QJwVK3a38(Lcom/android/internal/infra/AndroidFuture;ILjava/lang/Boolean;)V
 
     return-void
 .end method

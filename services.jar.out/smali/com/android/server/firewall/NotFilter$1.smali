@@ -1,4 +1,4 @@
-.class Lcom/android/server/firewall/NotFilter$1;
+.class public Lcom/android/server/firewall/NotFilter$1;
 .super Lcom/android/server/firewall/FilterFactory;
 .source "NotFilter.java"
 
@@ -9,13 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # direct methods
-.method constructor <init>(Ljava/lang/String;)V
+.method public constructor <init>(Ljava/lang/String;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/firewall/FilterFactory;-><init>(Ljava/lang/String;)V
@@ -26,7 +26,7 @@
 
 # virtual methods
 .method public newFilter(Lorg/xmlpull/v1/XmlPullParser;)Lcom/android/server/firewall/Filter;
-    .locals 6
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -34,18 +34,18 @@
         }
     .end annotation
 
-    const/4 v0, 0x0
-
     invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->getDepth()I
 
-    move-result v1
+    move-result p0
+
+    const/4 v0, 0x0
+
+    move-object v1, v0
 
     :goto_0
-    invoke-static {p1, v1}, Lcom/android/internal/util/XmlUtils;->nextElementWithin(Lorg/xmlpull/v1/XmlPullParser;I)Z
+    invoke-static {p1, p0}, Lcom/android/internal/util/XmlUtils;->nextElementWithin(Lorg/xmlpull/v1/XmlPullParser;I)Z
 
     move-result v2
-
-    const/4 v3, 0x0
 
     if-eqz v2, :cond_1
 
@@ -53,25 +53,25 @@
 
     move-result-object v2
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
-    move-object v0, v2
+    move-object v1, v2
 
     goto :goto_0
 
     :cond_0
-    new-instance v4, Lorg/xmlpull/v1/XmlPullParserException;
+    new-instance p0, Lorg/xmlpull/v1/XmlPullParserException;
 
-    const-string v5, "<not> tag can only contain a single child filter."
+    const-string v1, "<not> tag can only contain a single child filter."
 
-    invoke-direct {v4, v5, p1, v3}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/Throwable;)V
+    invoke-direct {p0, v1, p1, v0}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/Throwable;)V
 
-    throw v4
+    throw p0
 
     :cond_1
-    new-instance v2, Lcom/android/server/firewall/NotFilter;
+    new-instance p0, Lcom/android/server/firewall/NotFilter;
 
-    invoke-direct {v2, v0, v3}, Lcom/android/server/firewall/NotFilter;-><init>(Lcom/android/server/firewall/Filter;Lcom/android/server/firewall/NotFilter$1;)V
+    invoke-direct {p0, v1, v0}, Lcom/android/server/firewall/NotFilter;-><init>(Lcom/android/server/firewall/Filter;Lcom/android/server/firewall/NotFilter-IA;)V
 
-    return-object v2
+    return-object p0
 .end method

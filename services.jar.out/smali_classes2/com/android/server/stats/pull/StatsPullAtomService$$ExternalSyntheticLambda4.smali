@@ -1,33 +1,38 @@
 .class public final synthetic Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda4;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/os/IBinder$DeathRecipient;
+.implements Ljava/util/function/Predicate;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/server/stats/pull/StatsPullAtomService;
+.field public final synthetic f$0:Lcom/android/server/stats/pull/netstats/NetworkStatsExt;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/stats/pull/StatsPullAtomService;)V
+.method public synthetic constructor <init>(Lcom/android/server/stats/pull/netstats/NetworkStatsExt;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda4;->f$0:Lcom/android/server/stats/pull/StatsPullAtomService;
+    iput-object p1, p0, Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda4;->f$0:Lcom/android/server/stats/pull/netstats/NetworkStatsExt;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final binderDied()V
-    .locals 1
+.method public final test(Ljava/lang/Object;)Z
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda4;->f$0:Lcom/android/server/stats/pull/StatsPullAtomService;
+    iget-object p0, p0, Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda4;->f$0:Lcom/android/server/stats/pull/netstats/NetworkStatsExt;
 
-    invoke-virtual {v0}, Lcom/android/server/stats/pull/StatsPullAtomService;->lambda$getIProcessStatsService$6$StatsPullAtomService()V
+    check-cast p1, Lcom/android/server/stats/pull/netstats/NetworkStatsExt;
 
-    return-void
+    invoke-static {p0, p1}, Lcom/android/server/stats/pull/StatsPullAtomService;->$r8$lambda$k66nC0GgsFSmSC1Ioqfar2w3jiQ(Lcom/android/server/stats/pull/netstats/NetworkStatsExt;Lcom/android/server/stats/pull/netstats/NetworkStatsExt;)Z
+
+    move-result p0
+
+    return p0
 .end method

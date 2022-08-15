@@ -1,10 +1,10 @@
-.class Lcom/android/server/net/watchlist/HarmfulCrcs;
+.class public Lcom/android/server/net/watchlist/HarmfulCrcs;
 .super Ljava/lang/Object;
 .source "HarmfulCrcs.java"
 
 
 # instance fields
-.field private final mCrcSet:Ljava/util/Set;
+.field public final mCrcSet:Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Set<",
@@ -16,8 +16,8 @@
 
 
 # direct methods
-.method constructor <init>(Ljava/util/List;)V
-    .locals 10
+.method public constructor <init>(Ljava/util/List;)V
+    .locals 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -38,60 +38,62 @@
 
     const/4 v2, 0x0
 
+    move v3, v2
+
     :goto_0
-    if-ge v2, v1, :cond_2
+    if-ge v3, v1, :cond_2
 
-    invoke-interface {p1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {p1, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v4
 
-    check-cast v3, [B
+    check-cast v4, [B
 
-    array-length v4, v3
+    array-length v5, v4
 
-    const/4 v5, 0x4
+    const/4 v6, 0x4
 
-    if-gt v4, v5, :cond_1
+    if-gt v5, v6, :cond_1
 
-    const/4 v4, 0x0
+    array-length v5, v4
 
-    array-length v5, v3
+    move v6, v2
 
-    const/4 v6, 0x0
+    move v7, v6
 
     :goto_1
     if-ge v6, v5, :cond_0
 
-    aget-byte v7, v3, v6
+    aget-byte v8, v4, v6
 
-    shl-int/lit8 v8, v4, 0x8
+    shl-int/lit8 v7, v7, 0x8
 
-    and-int/lit16 v9, v7, 0xff
+    and-int/lit16 v8, v8, 0xff
 
-    or-int v4, v8, v9
+    or-int/2addr v7, v8
 
     add-int/lit8 v6, v6, 0x1
 
     goto :goto_1
 
     :cond_0
-    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-virtual {v0, v5}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v4}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
     :cond_1
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
     :cond_2
     invoke-static {v0}, Ljava/util/Collections;->unmodifiableSet(Ljava/util/Set;)Ljava/util/Set;
 
-    move-result-object v2
+    move-result-object p1
 
-    iput-object v2, p0, Lcom/android/server/net/watchlist/HarmfulCrcs;->mCrcSet:Ljava/util/Set;
+    iput-object p1, p0, Lcom/android/server/net/watchlist/HarmfulCrcs;->mCrcSet:Ljava/util/Set;
 
     return-void
 .end method
@@ -99,59 +101,59 @@
 
 # virtual methods
 .method public contains(I)Z
-    .locals 2
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/net/watchlist/HarmfulCrcs;->mCrcSet:Ljava/util/Set;
+    iget-object p0, p0, Lcom/android/server/net/watchlist/HarmfulCrcs;->mCrcSet:Ljava/util/Set;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-interface {v0, v1}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
+    invoke-interface {p0, p1}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    .locals 3
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/net/watchlist/HarmfulCrcs;->mCrcSet:Ljava/util/Set;
+    iget-object p0, p0, Lcom/android/server/net/watchlist/HarmfulCrcs;->mCrcSet:Ljava/util/Set;
 
-    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-interface {p0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p0
 
     :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v1
+    move-result p1
 
-    if-eqz v1, :cond_0
+    if-eqz p1, :cond_0
 
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    check-cast v1, Ljava/lang/Integer;
+    check-cast p1, Ljava/lang/Integer;
 
-    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
 
-    move-result v1
+    move-result p1
 
-    invoke-static {v1}, Lcom/android/internal/util/HexDump;->toHexString(I)Ljava/lang/String;
+    invoke-static {p1}, Lcom/android/internal/util/HexDump;->toHexString(I)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {p2, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     goto :goto_0
 
     :cond_0
-    const-string v0, ""
+    const-string p0, ""
 
-    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p2, p0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     return-void
 .end method

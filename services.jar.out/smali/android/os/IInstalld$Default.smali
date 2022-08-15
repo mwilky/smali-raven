@@ -29,14 +29,14 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return-object v0
+    return-object p0
 .end method
 
-.method public assertFsverityRootHashMatches(Ljava/lang/String;[B)V
+.method public cleanupInvalidPackageDirs(Ljava/lang/String;II)V
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -70,58 +70,69 @@
 .end method
 
 .method public compileLayouts(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)Z
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
+.end method
+
+.method public controlDexOptBlocking(Z)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    return-void
 .end method
 
 .method public copySystemProfile(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)Z
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
 .method public createAppData(Landroid/os/CreateAppDataArgs;)Landroid/os/CreateAppDataResult;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public createAppDataBatched([Landroid/os/CreateAppDataArgs;)[Landroid/os/CreateAppDataResult;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return-object v0
+    return-object p0
 .end method
 
-.method public createOatDir(Ljava/lang/String;Ljava/lang/String;)V
+.method public createOatDir(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -133,16 +144,16 @@
 .end method
 
 .method public createProfileSnapshot(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
 .method public createUserData(Ljava/lang/String;III)V
@@ -156,17 +167,28 @@
     return-void
 .end method
 
-.method public deleteOdex(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)J
-    .locals 2
+.method public deleteOdex(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)J
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const-wide/16 v0, 0x0
+    const-wide/16 p0, 0x0
 
-    return-wide v0
+    return-wide p0
+.end method
+
+.method public deleteReferenceProfile(Ljava/lang/String;Ljava/lang/String;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    return-void
 .end method
 
 .method public destroyAppData(Ljava/lang/String;Ljava/lang/String;IIJ)V
@@ -235,18 +257,7 @@
     return-void
 .end method
 
-.method public dexopt(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;ILjava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    return-void
-.end method
-
-.method public dumpProfiles(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
+.method public dexopt(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;ILjava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
     .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -257,6 +268,19 @@
     const/4 v0, 0x0
 
     return v0
+.end method
+
+.method public dumpProfiles(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Z
+    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    const/4 p0, 0x0
+
+    return p0
 .end method
 
 .method public fixupAppData(Ljava/lang/String;I)V
@@ -270,7 +294,7 @@
     return-void
 .end method
 
-.method public freeCache(Ljava/lang/String;JJI)V
+.method public freeCache(Ljava/lang/String;JI)V
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -282,84 +306,6 @@
 .end method
 
 .method public getAppCrates(Ljava/lang/String;[Ljava/lang/String;I)[Landroid/os/storage/CrateMetadata;
-    .locals 1
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    const/4 v0, 0x0
-
-    return-object v0
-.end method
-
-.method public getAppSize(Ljava/lang/String;[Ljava/lang/String;III[J[Ljava/lang/String;)[J
-    .locals 1
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    const/4 v0, 0x0
-
-    return-object v0
-.end method
-
-.method public getExternalSize(Ljava/lang/String;II[I)[J
-    .locals 1
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    const/4 v0, 0x0
-
-    return-object v0
-.end method
-
-.method public getUserCrates(Ljava/lang/String;I)[Landroid/os/storage/CrateMetadata;
-    .locals 1
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    const/4 v0, 0x0
-
-    return-object v0
-.end method
-
-.method public getUserSize(Ljava/lang/String;II[I)[J
-    .locals 1
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    const/4 v0, 0x0
-
-    return-object v0
-.end method
-
-.method public hashSecondaryDexFile(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;I)[B
-    .locals 1
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    const/4 v0, 0x0
-
-    return-object v0
-.end method
-
-.method public installApkVerity(Ljava/lang/String;Ljava/io/FileDescriptor;I)V
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -367,7 +313,87 @@
         }
     .end annotation
 
-    return-void
+    const/4 p0, 0x0
+
+    return-object p0
+.end method
+
+.method public getAppSize(Ljava/lang/String;[Ljava/lang/String;III[J[Ljava/lang/String;)[J
+    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    const/4 p0, 0x0
+
+    return-object p0
+.end method
+
+.method public getExternalSize(Ljava/lang/String;II[I)[J
+    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    const/4 p0, 0x0
+
+    return-object p0
+.end method
+
+.method public getOdexVisibility(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    const/4 p0, 0x0
+
+    return p0
+.end method
+
+.method public getUserCrates(Ljava/lang/String;I)[Landroid/os/storage/CrateMetadata;
+    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    const/4 p0, 0x0
+
+    return-object p0
+.end method
+
+.method public getUserSize(Ljava/lang/String;II[I)[J
+    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    const/4 p0, 0x0
+
+    return-object p0
+.end method
+
+.method public hashSecondaryDexFile(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;I)[B
+    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    const/4 p0, 0x0
+
+    return-object p0
 .end method
 
 .method public invalidateMounts()V
@@ -382,19 +408,19 @@
 .end method
 
 .method public isQuotaSupported(Ljava/lang/String;)Z
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
-.method public linkFile(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+.method public linkFile(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -417,16 +443,16 @@
 .end method
 
 .method public mergeProfiles(ILjava/lang/String;Ljava/lang/String;)I
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
 .method public migrateAppData(Ljava/lang/String;Ljava/lang/String;II)V
@@ -451,7 +477,7 @@
     return-void
 .end method
 
-.method public moveAb(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+.method public moveAb(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -485,29 +511,40 @@
 .end method
 
 .method public prepareAppProfile(Ljava/lang/String;IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
+.end method
+
+.method public reconcileSdkData(Landroid/os/ReconcileSdkDataArgs;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    return-void
 .end method
 
 .method public reconcileSecondaryDexFile(Ljava/lang/String;Ljava/lang/String;I[Ljava/lang/String;Ljava/lang/String;I)Z
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
 .method public restoreAppDataSnapshot(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;III)V
@@ -532,7 +569,7 @@
     return-void
 .end method
 
-.method public rmPackageDir(Ljava/lang/String;)V
+.method public rmPackageDir(Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -565,17 +602,28 @@
     return-void
 .end method
 
-.method public snapshotAppData(Ljava/lang/String;Ljava/lang/String;III)J
-    .locals 2
+.method public setFirstBoot()V
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const-wide/16 v0, 0x0
+    return-void
+.end method
 
-    return-wide v0
+.method public snapshotAppData(Ljava/lang/String;Ljava/lang/String;III)J
+    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    const-wide/16 p0, 0x0
+
+    return-wide p0
 .end method
 
 .method public tryMountDataMirror(Ljava/lang/String;)V

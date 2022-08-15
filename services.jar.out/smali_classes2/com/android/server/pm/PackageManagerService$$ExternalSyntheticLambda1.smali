@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/internal/content/om/OverlayConfig$PackageProvider;
+.implements Ljava/util/function/Function;
 
 
 # instance fields
@@ -22,12 +23,16 @@
 
 
 # virtual methods
-.method public final forEachPackage(Ljava/util/function/BiConsumer;)V
-    .locals 1
+.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/pm/PackageManagerService;
+    iget-object p0, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/pm/PackageManagerService;->lambda$new$33$PackageManagerService(Ljava/util/function/BiConsumer;)V
+    check-cast p1, Ljava/lang/String;
 
-    return-void
+    invoke-virtual {p0, p1}, Lcom/android/server/pm/PackageManagerService;->getPackageSettingForMutation(Ljava/lang/String;)Lcom/android/server/pm/PackageSetting;
+
+    move-result-object p0
+
+    return-object p0
 .end method

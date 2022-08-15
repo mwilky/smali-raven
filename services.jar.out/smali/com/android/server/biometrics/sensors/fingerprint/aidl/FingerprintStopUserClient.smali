@@ -7,59 +7,61 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Lcom/android/server/biometrics/sensors/StopUserClient<",
-        "Landroid/hardware/biometrics/fingerprint/ISession;",
+        "Lcom/android/server/biometrics/sensors/fingerprint/aidl/AidlSession;",
         ">;"
     }
 .end annotation
 
 
-# static fields
-.field private static final TAG:Ljava/lang/String; = "FingerprintStopUserClient"
-
-
 # direct methods
-.method public constructor <init>(Landroid/content/Context;Lcom/android/server/biometrics/sensors/HalClientMonitor$LazyDaemon;Landroid/os/IBinder;IILcom/android/server/biometrics/sensors/StopUserClient$UserStoppedCallback;)V
+.method public constructor <init>(Landroid/content/Context;Ljava/util/function/Supplier;Landroid/os/IBinder;IILcom/android/server/biometrics/log/BiometricLogger;Lcom/android/server/biometrics/log/BiometricContext;Lcom/android/server/biometrics/sensors/StopUserClient$UserStoppedCallback;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Landroid/content/Context;",
-            "Lcom/android/server/biometrics/sensors/HalClientMonitor$LazyDaemon<",
-            "Landroid/hardware/biometrics/fingerprint/ISession;",
+            "Ljava/util/function/Supplier<",
+            "Lcom/android/server/biometrics/sensors/fingerprint/aidl/AidlSession;",
             ">;",
             "Landroid/os/IBinder;",
             "II",
+            "Lcom/android/server/biometrics/log/BiometricLogger;",
+            "Lcom/android/server/biometrics/log/BiometricContext;",
             "Lcom/android/server/biometrics/sensors/StopUserClient$UserStoppedCallback;",
             ")V"
         }
     .end annotation
 
-    invoke-direct/range {p0 .. p6}, Lcom/android/server/biometrics/sensors/StopUserClient;-><init>(Landroid/content/Context;Lcom/android/server/biometrics/sensors/HalClientMonitor$LazyDaemon;Landroid/os/IBinder;IILcom/android/server/biometrics/sensors/StopUserClient$UserStoppedCallback;)V
+    invoke-direct/range {p0 .. p8}, Lcom/android/server/biometrics/sensors/StopUserClient;-><init>(Landroid/content/Context;Ljava/util/function/Supplier;Landroid/os/IBinder;IILcom/android/server/biometrics/log/BiometricLogger;Lcom/android/server/biometrics/log/BiometricContext;Lcom/android/server/biometrics/sensors/StopUserClient$UserStoppedCallback;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public start(Lcom/android/server/biometrics/sensors/BaseClientMonitor$Callback;)V
+.method public start(Lcom/android/server/biometrics/sensors/ClientMonitorCallback;)V
     .locals 0
 
-    invoke-super {p0, p1}, Lcom/android/server/biometrics/sensors/StopUserClient;->start(Lcom/android/server/biometrics/sensors/BaseClientMonitor$Callback;)V
+    invoke-super {p0, p1}, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->start(Lcom/android/server/biometrics/sensors/ClientMonitorCallback;)V
 
     invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintStopUserClient;->startHalOperation()V
 
     return-void
 .end method
 
-.method protected startHalOperation()V
+.method public startHalOperation()V
     .locals 3
 
     :try_start_0
-    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintStopUserClient;->getFreshDaemon()Ljava/lang/Object;
+    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/HalClientMonitor;->getFreshDaemon()Ljava/lang/Object;
 
     move-result-object v0
 
-    check-cast v0, Landroid/hardware/biometrics/fingerprint/ISession;
+    check-cast v0, Lcom/android/server/biometrics/sensors/fingerprint/aidl/AidlSession;
+
+    invoke-virtual {v0}, Lcom/android/server/biometrics/sensors/fingerprint/aidl/AidlSession;->getSession()Landroid/hardware/biometrics/fingerprint/ISession;
+
+    move-result-object v0
 
     invoke-interface {v0}, Landroid/hardware/biometrics/fingerprint/ISession;->close()V
     :try_end_0
@@ -76,13 +78,13 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintStopUserClient;->getCallback()Lcom/android/server/biometrics/sensors/BaseClientMonitor$Callback;
+    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->getCallback()Lcom/android/server/biometrics/sensors/ClientMonitorCallback;
 
-    move-result-object v1
+    move-result-object v0
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    invoke-interface {v1, p0, v2}, Lcom/android/server/biometrics/sensors/BaseClientMonitor$Callback;->onClientFinished(Lcom/android/server/biometrics/sensors/BaseClientMonitor;Z)V
+    invoke-interface {v0, p0, v1}, Lcom/android/server/biometrics/sensors/ClientMonitorCallback;->onClientFinished(Lcom/android/server/biometrics/sensors/BaseClientMonitor;Z)V
 
     :goto_0
     return-void

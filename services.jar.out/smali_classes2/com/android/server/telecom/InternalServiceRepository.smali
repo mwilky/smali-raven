@@ -4,12 +4,20 @@
 
 
 # instance fields
-.field private final mDeviceIdleController:Lcom/android/server/DeviceIdleInternal;
+.field public final mDeviceIdleController:Lcom/android/server/DeviceIdleInternal;
 
-.field private final mDeviceIdleControllerAdapter:Lcom/android/internal/telecom/IDeviceIdleControllerAdapter$Stub;
+.field public final mDeviceIdleControllerAdapter:Lcom/android/internal/telecom/IDeviceIdleControllerAdapter$Stub;
 
 
 # direct methods
+.method public static bridge synthetic -$$Nest$fgetmDeviceIdleController(Lcom/android/server/telecom/InternalServiceRepository;)Lcom/android/server/DeviceIdleInternal;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/telecom/InternalServiceRepository;->mDeviceIdleController:Lcom/android/server/DeviceIdleInternal;
+
+    return-object p0
+.end method
+
 .method public constructor <init>(Lcom/android/server/DeviceIdleInternal;)V
     .locals 1
 
@@ -26,45 +34,37 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/server/telecom/InternalServiceRepository;)Lcom/android/server/DeviceIdleInternal;
+
+# virtual methods
+.method public final ensureSystemProcess()V
     .locals 1
-
-    iget-object v0, p0, Lcom/android/server/telecom/InternalServiceRepository;->mDeviceIdleController:Lcom/android/server/DeviceIdleInternal;
-
-    return-object v0
-.end method
-
-.method private ensureSystemProcess()V
-    .locals 2
 
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
-    move-result v0
+    move-result p0
 
-    const/16 v1, 0x3e8
+    const/16 v0, 0x3e8
 
-    if-ne v0, v1, :cond_0
+    if-ne p0, v0, :cond_0
 
     return-void
 
     :cond_0
-    new-instance v0, Ljava/lang/SecurityException;
+    new-instance p0, Ljava/lang/SecurityException;
 
-    const-string v1, "SYSTEM ONLY API."
+    const-string v0, "SYSTEM ONLY API."
 
-    invoke-direct {v0, v1}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
-
-# virtual methods
 .method public getDeviceIdleController()Lcom/android/internal/telecom/IDeviceIdleControllerAdapter;
-    .locals 1
+    .locals 0
 
-    invoke-direct {p0}, Lcom/android/server/telecom/InternalServiceRepository;->ensureSystemProcess()V
+    invoke-virtual {p0}, Lcom/android/server/telecom/InternalServiceRepository;->ensureSystemProcess()V
 
-    iget-object v0, p0, Lcom/android/server/telecom/InternalServiceRepository;->mDeviceIdleControllerAdapter:Lcom/android/internal/telecom/IDeviceIdleControllerAdapter$Stub;
+    iget-object p0, p0, Lcom/android/server/telecom/InternalServiceRepository;->mDeviceIdleControllerAdapter:Lcom/android/internal/telecom/IDeviceIdleControllerAdapter$Stub;
 
-    return-object v0
+    return-object p0
 .end method

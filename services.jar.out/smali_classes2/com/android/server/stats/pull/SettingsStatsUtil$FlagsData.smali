@@ -1,4 +1,4 @@
-.class final Lcom/android/server/stats/pull/SettingsStatsUtil$FlagsData;
+.class public final Lcom/android/server/stats/pull/SettingsStatsUtil$FlagsData;
 .super Ljava/lang/Object;
 .source "SettingsStatsUtil.java"
 
@@ -9,19 +9,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = "FlagsData"
 .end annotation
 
 
 # instance fields
-.field mDataType:I
+.field public mDataType:I
 
-.field mFlagName:Ljava/lang/String;
+.field public mFlagName:Ljava/lang/String;
 
 
 # direct methods
-.method constructor <init>(Ljava/lang/String;I)V
+.method public constructor <init>(Ljava/lang/String;I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

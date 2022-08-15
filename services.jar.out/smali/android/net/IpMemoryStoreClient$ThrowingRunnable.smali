@@ -1,4 +1,4 @@
-.class interface abstract Landroid/net/IpMemoryStoreClient$ThrowingRunnable;
+.class public interface abstract Landroid/net/IpMemoryStoreClient$ThrowingRunnable;
 .super Ljava/lang/Object;
 .source "IpMemoryStoreClient.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x60a
+    accessFlags = 0x609
     name = "ThrowingRunnable"
 .end annotation
 

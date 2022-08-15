@@ -1,4 +1,4 @@
-.class Lcom/android/server/backup/PackageManagerBackupAgent$AncestralVersion1RestoreDataConsumer;
+.class public Lcom/android/server/backup/PackageManagerBackupAgent$AncestralVersion1RestoreDataConsumer;
 .super Ljava/lang/Object;
 .source "PackageManagerBackupAgent.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "AncestralVersion1RestoreDataConsumer"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/backup/PackageManagerBackupAgent;
+.field public final synthetic this$0:Lcom/android/server/backup/PackageManagerBackupAgent;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/server/backup/PackageManagerBackupAgent;)V
+.method public constructor <init>(Lcom/android/server/backup/PackageManagerBackupAgent;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/backup/PackageManagerBackupAgent$AncestralVersion1RestoreDataConsumer;->this$0:Lcom/android/server/backup/PackageManagerBackupAgent;
@@ -32,7 +32,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/backup/PackageManagerBackupAgent;Lcom/android/server/backup/PackageManagerBackupAgent$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/backup/PackageManagerBackupAgent;Lcom/android/server/backup/PackageManagerBackupAgent$AncestralVersion1RestoreDataConsumer-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/backup/PackageManagerBackupAgent$AncestralVersion1RestoreDataConsumer;-><init>(Lcom/android/server/backup/PackageManagerBackupAgent;)V
@@ -43,234 +43,211 @@
 
 # virtual methods
 .method public consumeRestoreData(Landroid/app/backup/BackupDataInput;)V
-    .locals 17
+    .locals 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    move-object/from16 v0, p0
+    new-instance v0, Ljava/util/ArrayList;
 
-    new-instance v1, Ljava/util/ArrayList;
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
+    new-instance v1, Ljava/util/HashMap;
 
-    new-instance v2, Ljava/util/HashMap;
-
-    invoke-direct {v2}, Ljava/util/HashMap;-><init>()V
-
-    const/4 v3, -0x1
+    invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
 
     :goto_0
-    invoke-virtual/range {p1 .. p1}, Landroid/app/backup/BackupDataInput;->readNextHeader()Z
+    invoke-virtual {p1}, Landroid/app/backup/BackupDataInput;->readNextHeader()Z
 
-    move-result v4
+    move-result v2
 
-    if-eqz v4, :cond_5
+    if-eqz v2, :cond_5
 
-    invoke-virtual/range {p1 .. p1}, Landroid/app/backup/BackupDataInput;->getKey()Ljava/lang/String;
+    invoke-virtual {p1}, Landroid/app/backup/BackupDataInput;->getKey()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v2
 
-    invoke-virtual/range {p1 .. p1}, Landroid/app/backup/BackupDataInput;->getDataSize()I
+    invoke-virtual {p1}, Landroid/app/backup/BackupDataInput;->getDataSize()I
 
-    move-result v5
+    move-result v3
 
-    new-array v6, v5, [B
+    new-array v4, v3, [B
 
-    const/4 v7, 0x0
+    const/4 v5, 0x0
 
-    move-object/from16 v8, p1
+    invoke-virtual {p1, v4, v5, v3}, Landroid/app/backup/BackupDataInput;->readEntityData([BII)I
 
-    invoke-virtual {v8, v6, v7, v5}, Landroid/app/backup/BackupDataInput;->readEntityData([BII)I
+    new-instance v3, Ljava/io/ByteArrayInputStream;
 
-    new-instance v7, Ljava/io/ByteArrayInputStream;
+    invoke-direct {v3, v4}, Ljava/io/ByteArrayInputStream;-><init>([B)V
 
-    invoke-direct {v7, v6}, Ljava/io/ByteArrayInputStream;-><init>([B)V
+    new-instance v4, Ljava/io/DataInputStream;
 
-    new-instance v9, Ljava/io/DataInputStream;
+    invoke-direct {v4, v3}, Ljava/io/DataInputStream;-><init>(Ljava/io/InputStream;)V
 
-    invoke-direct {v9, v7}, Ljava/io/DataInputStream;-><init>(Ljava/io/InputStream;)V
+    const-string v3, "@meta@"
 
-    const-string v10, "@meta@"
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v4, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result v3
 
-    move-result v10
+    if-eqz v3, :cond_0
 
-    if-eqz v10, :cond_0
+    invoke-virtual {v4}, Ljava/io/DataInputStream;->readInt()I
 
-    invoke-virtual {v9}, Ljava/io/DataInputStream;->readInt()I
+    move-result v2
 
-    move-result v10
+    iget-object v3, p0, Lcom/android/server/backup/PackageManagerBackupAgent$AncestralVersion1RestoreDataConsumer;->this$0:Lcom/android/server/backup/PackageManagerBackupAgent;
 
-    iget-object v11, v0, Lcom/android/server/backup/PackageManagerBackupAgent$AncestralVersion1RestoreDataConsumer;->this$0:Lcom/android/server/backup/PackageManagerBackupAgent;
+    invoke-static {v3, v2}, Lcom/android/server/backup/PackageManagerBackupAgent;->-$$Nest$fputmStoredSdkVersion(Lcom/android/server/backup/PackageManagerBackupAgent;I)V
 
-    invoke-static {v11, v10}, Lcom/android/server/backup/PackageManagerBackupAgent;->access$202(Lcom/android/server/backup/PackageManagerBackupAgent;I)I
+    iget-object v2, p0, Lcom/android/server/backup/PackageManagerBackupAgent$AncestralVersion1RestoreDataConsumer;->this$0:Lcom/android/server/backup/PackageManagerBackupAgent;
 
-    iget-object v11, v0, Lcom/android/server/backup/PackageManagerBackupAgent$AncestralVersion1RestoreDataConsumer;->this$0:Lcom/android/server/backup/PackageManagerBackupAgent;
+    invoke-virtual {v4}, Ljava/io/DataInputStream;->readUTF()Ljava/lang/String;
 
-    invoke-virtual {v9}, Ljava/io/DataInputStream;->readUTF()Ljava/lang/String;
+    move-result-object v3
 
-    move-result-object v12
+    invoke-static {v2, v3}, Lcom/android/server/backup/PackageManagerBackupAgent;->-$$Nest$fputmStoredIncrementalVersion(Lcom/android/server/backup/PackageManagerBackupAgent;Ljava/lang/String;)V
 
-    invoke-static {v11, v12}, Lcom/android/server/backup/PackageManagerBackupAgent;->access$302(Lcom/android/server/backup/PackageManagerBackupAgent;Ljava/lang/String;)Ljava/lang/String;
+    iget-object v2, p0, Lcom/android/server/backup/PackageManagerBackupAgent$AncestralVersion1RestoreDataConsumer;->this$0:Lcom/android/server/backup/PackageManagerBackupAgent;
 
-    iget-object v11, v0, Lcom/android/server/backup/PackageManagerBackupAgent$AncestralVersion1RestoreDataConsumer;->this$0:Lcom/android/server/backup/PackageManagerBackupAgent;
+    const/4 v3, 0x1
 
-    const/4 v12, 0x1
+    invoke-static {v2, v3}, Lcom/android/server/backup/PackageManagerBackupAgent;->-$$Nest$fputmHasMetadata(Lcom/android/server/backup/PackageManagerBackupAgent;Z)V
 
-    invoke-static {v11, v12}, Lcom/android/server/backup/PackageManagerBackupAgent;->access$402(Lcom/android/server/backup/PackageManagerBackupAgent;Z)Z
-
-    move-object/from16 v16, v1
-
-    goto :goto_2
+    goto :goto_0
 
     :cond_0
-    const-string v10, "@home@"
+    const-string v3, "@home@"
 
-    invoke-virtual {v4, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v10
+    move-result v3
 
-    if-eqz v10, :cond_1
+    if-eqz v3, :cond_1
 
-    invoke-virtual {v9}, Ljava/io/DataInputStream;->readUTF()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/io/DataInputStream;->readUTF()Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v2
 
-    iget-object v11, v0, Lcom/android/server/backup/PackageManagerBackupAgent$AncestralVersion1RestoreDataConsumer;->this$0:Lcom/android/server/backup/PackageManagerBackupAgent;
+    iget-object v3, p0, Lcom/android/server/backup/PackageManagerBackupAgent$AncestralVersion1RestoreDataConsumer;->this$0:Lcom/android/server/backup/PackageManagerBackupAgent;
 
-    invoke-static {v10}, Landroid/content/ComponentName;->unflattenFromString(Ljava/lang/String;)Landroid/content/ComponentName;
+    invoke-static {v2}, Landroid/content/ComponentName;->unflattenFromString(Ljava/lang/String;)Landroid/content/ComponentName;
 
-    move-result-object v12
+    move-result-object v2
 
-    invoke-static {v11, v12}, Lcom/android/server/backup/PackageManagerBackupAgent;->access$502(Lcom/android/server/backup/PackageManagerBackupAgent;Landroid/content/ComponentName;)Landroid/content/ComponentName;
+    invoke-static {v3, v2}, Lcom/android/server/backup/PackageManagerBackupAgent;->-$$Nest$fputmRestoredHome(Lcom/android/server/backup/PackageManagerBackupAgent;Landroid/content/ComponentName;)V
 
-    iget-object v11, v0, Lcom/android/server/backup/PackageManagerBackupAgent$AncestralVersion1RestoreDataConsumer;->this$0:Lcom/android/server/backup/PackageManagerBackupAgent;
+    iget-object v2, p0, Lcom/android/server/backup/PackageManagerBackupAgent$AncestralVersion1RestoreDataConsumer;->this$0:Lcom/android/server/backup/PackageManagerBackupAgent;
 
-    invoke-virtual {v9}, Ljava/io/DataInputStream;->readLong()J
+    invoke-virtual {v4}, Ljava/io/DataInputStream;->readLong()J
 
-    move-result-wide v12
+    move-result-wide v5
 
-    invoke-static {v11, v12, v13}, Lcom/android/server/backup/PackageManagerBackupAgent;->access$602(Lcom/android/server/backup/PackageManagerBackupAgent;J)J
+    invoke-static {v2, v5, v6}, Lcom/android/server/backup/PackageManagerBackupAgent;->-$$Nest$fputmRestoredHomeVersion(Lcom/android/server/backup/PackageManagerBackupAgent;J)V
 
-    iget-object v11, v0, Lcom/android/server/backup/PackageManagerBackupAgent$AncestralVersion1RestoreDataConsumer;->this$0:Lcom/android/server/backup/PackageManagerBackupAgent;
+    iget-object v2, p0, Lcom/android/server/backup/PackageManagerBackupAgent$AncestralVersion1RestoreDataConsumer;->this$0:Lcom/android/server/backup/PackageManagerBackupAgent;
 
-    invoke-virtual {v9}, Ljava/io/DataInputStream;->readUTF()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/io/DataInputStream;->readUTF()Ljava/lang/String;
 
-    move-result-object v12
+    move-result-object v3
 
-    invoke-static {v11, v12}, Lcom/android/server/backup/PackageManagerBackupAgent;->access$702(Lcom/android/server/backup/PackageManagerBackupAgent;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v2, v3}, Lcom/android/server/backup/PackageManagerBackupAgent;->-$$Nest$fputmRestoredHomeInstaller(Lcom/android/server/backup/PackageManagerBackupAgent;Ljava/lang/String;)V
 
-    iget-object v11, v0, Lcom/android/server/backup/PackageManagerBackupAgent$AncestralVersion1RestoreDataConsumer;->this$0:Lcom/android/server/backup/PackageManagerBackupAgent;
+    iget-object v2, p0, Lcom/android/server/backup/PackageManagerBackupAgent$AncestralVersion1RestoreDataConsumer;->this$0:Lcom/android/server/backup/PackageManagerBackupAgent;
 
-    invoke-static {v9}, Lcom/android/server/backup/PackageManagerBackupAgent;->access$900(Ljava/io/DataInputStream;)Ljava/util/ArrayList;
+    invoke-static {v4}, Lcom/android/server/backup/PackageManagerBackupAgent;->-$$Nest$smreadSignatureHashArray(Ljava/io/DataInputStream;)Ljava/util/ArrayList;
 
-    move-result-object v12
+    move-result-object v3
 
-    invoke-static {v11, v12}, Lcom/android/server/backup/PackageManagerBackupAgent;->access$802(Lcom/android/server/backup/PackageManagerBackupAgent;Ljava/util/ArrayList;)Ljava/util/ArrayList;
+    invoke-static {v2, v3}, Lcom/android/server/backup/PackageManagerBackupAgent;->-$$Nest$fputmRestoredHomeSigHashes(Lcom/android/server/backup/PackageManagerBackupAgent;Ljava/util/ArrayList;)V
 
-    move-object/from16 v16, v1
-
-    goto :goto_2
+    goto :goto_0
 
     :cond_1
-    invoke-virtual {v9}, Ljava/io/DataInputStream;->readInt()I
+    invoke-virtual {v4}, Ljava/io/DataInputStream;->readInt()I
 
-    move-result v10
+    move-result v3
 
-    const/high16 v11, -0x80000000
+    const/high16 v5, -0x80000000
 
-    if-ne v10, v11, :cond_2
+    if-ne v3, v5, :cond_2
 
-    invoke-virtual {v9}, Ljava/io/DataInputStream;->readLong()J
+    invoke-virtual {v4}, Ljava/io/DataInputStream;->readLong()J
 
-    move-result-wide v11
+    move-result-wide v5
 
     goto :goto_1
 
     :cond_2
-    int-to-long v11, v10
+    int-to-long v5, v3
 
     :goto_1
-    invoke-static {v9}, Lcom/android/server/backup/PackageManagerBackupAgent;->access$900(Ljava/io/DataInputStream;)Ljava/util/ArrayList;
+    invoke-static {v4}, Lcom/android/server/backup/PackageManagerBackupAgent;->-$$Nest$smreadSignatureHashArray(Ljava/io/DataInputStream;)Ljava/util/ArrayList;
 
-    move-result-object v13
+    move-result-object v3
 
-    if-eqz v13, :cond_4
+    if-eqz v3, :cond_4
 
-    invoke-virtual {v13}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
 
-    move-result v14
+    move-result v4
 
-    if-nez v14, :cond_3
+    if-nez v4, :cond_3
 
-    move-object/from16 v16, v1
-
-    goto :goto_3
+    goto :goto_2
 
     :cond_3
-    new-instance v14, Landroid/content/pm/ApplicationInfo;
+    new-instance v4, Landroid/content/pm/ApplicationInfo;
 
-    invoke-direct {v14}, Landroid/content/pm/ApplicationInfo;-><init>()V
+    invoke-direct {v4}, Landroid/content/pm/ApplicationInfo;-><init>()V
 
-    iput-object v4, v14, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+    iput-object v2, v4, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
-    invoke-interface {v1, v14}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    new-instance v15, Lcom/android/server/backup/PackageManagerBackupAgent$Metadata;
+    new-instance v4, Lcom/android/server/backup/PackageManagerBackupAgent$Metadata;
 
-    move-object/from16 v16, v1
+    iget-object v7, p0, Lcom/android/server/backup/PackageManagerBackupAgent$AncestralVersion1RestoreDataConsumer;->this$0:Lcom/android/server/backup/PackageManagerBackupAgent;
 
-    iget-object v1, v0, Lcom/android/server/backup/PackageManagerBackupAgent$AncestralVersion1RestoreDataConsumer;->this$0:Lcom/android/server/backup/PackageManagerBackupAgent;
+    invoke-direct {v4, v7, v5, v6, v3}, Lcom/android/server/backup/PackageManagerBackupAgent$Metadata;-><init>(Lcom/android/server/backup/PackageManagerBackupAgent;JLjava/util/ArrayList;)V
 
-    invoke-direct {v15, v1, v11, v12, v13}, Lcom/android/server/backup/PackageManagerBackupAgent$Metadata;-><init>(Lcom/android/server/backup/PackageManagerBackupAgent;JLjava/util/ArrayList;)V
-
-    invoke-virtual {v2, v4, v15}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    :goto_2
-    move-object/from16 v1, v16
+    invoke-virtual {v1, v2, v4}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     goto/16 :goto_0
 
     :cond_4
-    move-object/from16 v16, v1
+    :goto_2
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    :goto_3
-    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v4, "Not restoring package "
 
-    const-string v14, "Not restoring package "
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v2, " since it appears to have no signatures."
 
-    const-string v14, " since it appears to have no signatures."
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v2
 
-    move-result-object v1
+    const-string v3, "PMBA"
 
-    const-string v14, "PMBA"
-
-    invoke-static {v14, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-object/from16 v1, v16
+    invoke-static {v3, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_0
 
     :cond_5
-    move-object/from16 v16, v1
+    iget-object p0, p0, Lcom/android/server/backup/PackageManagerBackupAgent$AncestralVersion1RestoreDataConsumer;->this$0:Lcom/android/server/backup/PackageManagerBackupAgent;
 
-    iget-object v1, v0, Lcom/android/server/backup/PackageManagerBackupAgent$AncestralVersion1RestoreDataConsumer;->this$0:Lcom/android/server/backup/PackageManagerBackupAgent;
-
-    invoke-static {v1, v2}, Lcom/android/server/backup/PackageManagerBackupAgent;->access$1002(Lcom/android/server/backup/PackageManagerBackupAgent;Ljava/util/HashMap;)Ljava/util/HashMap;
+    invoke-static {p0, v1}, Lcom/android/server/backup/PackageManagerBackupAgent;->-$$Nest$fputmRestoredSignatures(Lcom/android/server/backup/PackageManagerBackupAgent;Ljava/util/HashMap;)V
 
     return-void
 .end method

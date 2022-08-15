@@ -1,39 +1,34 @@
 .class public final synthetic Lcom/android/server/wm/ActivityTaskManagerService$$ExternalSyntheticLambda8;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/lang/Runnable;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/android/server/wm/ActivityTaskManagerService;
-
-.field public final synthetic f$1:Lcom/android/server/wm/ActivityRecord;
+.implements Ljava/util/function/BiConsumer;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/wm/ActivityTaskManagerService;Lcom/android/server/wm/ActivityRecord;)V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/server/wm/ActivityTaskManagerService$$ExternalSyntheticLambda8;->f$0:Lcom/android/server/wm/ActivityTaskManagerService;
-
-    iput-object p2, p0, Lcom/android/server/wm/ActivityTaskManagerService$$ExternalSyntheticLambda8;->f$1:Lcom/android/server/wm/ActivityRecord;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final run()V
-    .locals 2
+.method public final accept(Ljava/lang/Object;Ljava/lang/Object;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/ActivityTaskManagerService$$ExternalSyntheticLambda8;->f$0:Lcom/android/server/wm/ActivityTaskManagerService;
+    check-cast p1, Landroid/app/ActivityManagerInternal;
 
-    iget-object v1, p0, Lcom/android/server/wm/ActivityTaskManagerService$$ExternalSyntheticLambda8;->f$1:Lcom/android/server/wm/ActivityRecord;
+    check-cast p2, Ljava/lang/Integer;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/wm/ActivityTaskManagerService;->lambda$applyUpdateVrModeLocked$4$ActivityTaskManagerService(Lcom/android/server/wm/ActivityRecord;)V
+    invoke-virtual {p2}, Ljava/lang/Integer;->intValue()I
+
+    move-result p0
+
+    invoke-virtual {p1, p0}, Landroid/app/ActivityManagerInternal;->updateOomLevelsForDisplay(I)V
 
     return-void
 .end method

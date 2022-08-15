@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/searchui/SearchUiPerUserService$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/internal/infra/AbstractRemoteService$AsyncRequest;
@@ -27,15 +28,15 @@
 
 # virtual methods
 .method public final run(Landroid/os/IInterface;)V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/searchui/SearchUiPerUserService$$ExternalSyntheticLambda1;->f$0:Landroid/app/search/SearchContext;
 
-    iget-object v1, p0, Lcom/android/server/searchui/SearchUiPerUserService$$ExternalSyntheticLambda1;->f$1:Landroid/app/search/SearchSessionId;
+    iget-object p0, p0, Lcom/android/server/searchui/SearchUiPerUserService$$ExternalSyntheticLambda1;->f$1:Landroid/app/search/SearchSessionId;
 
     check-cast p1, Landroid/service/search/ISearchUiService;
 
-    invoke-static {v0, v1, p1}, Lcom/android/server/searchui/SearchUiPerUserService;->lambda$onCreateSearchSessionLocked$0(Landroid/app/search/SearchContext;Landroid/app/search/SearchSessionId;Landroid/service/search/ISearchUiService;)V
+    invoke-static {v0, p0, p1}, Lcom/android/server/searchui/SearchUiPerUserService;->$r8$lambda$a9RZ0LNKV8Vdm8uBIwf12qOmTU4(Landroid/app/search/SearchContext;Landroid/app/search/SearchSessionId;Landroid/service/search/ISearchUiService;)V
 
     return-void
 .end method

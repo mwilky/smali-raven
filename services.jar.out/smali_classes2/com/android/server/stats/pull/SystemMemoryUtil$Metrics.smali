@@ -1,4 +1,4 @@
-.class final Lcom/android/server/stats/pull/SystemMemoryUtil$Metrics;
+.class public final Lcom/android/server/stats/pull/SystemMemoryUtil$Metrics;
 .super Ljava/lang/Object;
 .source "SystemMemoryUtil.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = "Metrics"
 .end annotation
 
@@ -25,6 +25,8 @@
 
 .field public pageTablesKb:I
 
+.field public shmemKb:I
+
 .field public totalIonKb:I
 
 .field public unaccountedKb:I
@@ -35,7 +37,7 @@
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

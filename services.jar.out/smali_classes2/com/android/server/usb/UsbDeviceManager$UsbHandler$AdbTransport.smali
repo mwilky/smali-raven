@@ -1,4 +1,4 @@
-.class Lcom/android/server/usb/UsbDeviceManager$UsbHandler$AdbTransport;
+.class public Lcom/android/server/usb/UsbDeviceManager$UsbHandler$AdbTransport;
 .super Landroid/debug/IAdbTransport$Stub;
 .source "UsbDeviceManager.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "AdbTransport"
 .end annotation
 
 
 # instance fields
-.field private final mHandler:Lcom/android/server/usb/UsbDeviceManager$UsbHandler;
+.field public final mHandler:Lcom/android/server/usb/UsbDeviceManager$UsbHandler;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/usb/UsbDeviceManager$UsbHandler;)V
+.method public constructor <init>(Lcom/android/server/usb/UsbDeviceManager$UsbHandler;)V
     .locals 0
 
     invoke-direct {p0}, Landroid/debug/IAdbTransport$Stub;-><init>()V
@@ -32,15 +32,15 @@
 
 # virtual methods
 .method public onAdbEnabled(ZB)V
-    .locals 2
+    .locals 0
 
     if-nez p2, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/usb/UsbDeviceManager$UsbHandler$AdbTransport;->mHandler:Lcom/android/server/usb/UsbDeviceManager$UsbHandler;
+    iget-object p0, p0, Lcom/android/server/usb/UsbDeviceManager$UsbHandler$AdbTransport;->mHandler:Lcom/android/server/usb/UsbDeviceManager$UsbHandler;
 
-    const/4 v1, 0x1
+    const/4 p2, 0x1
 
-    invoke-virtual {v0, v1, p1}, Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->sendMessage(IZ)V
+    invoke-virtual {p0, p2, p1}, Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->sendMessage(IZ)V
 
     :cond_0
     return-void

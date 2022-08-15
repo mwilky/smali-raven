@@ -1,4 +1,4 @@
-.class Lcom/android/server/job/controllers/QuotaController$TimerChargingUpdateFunctor;
+.class public Lcom/android/server/job/controllers/QuotaController$TimerChargingUpdateFunctor;
 .super Ljava/lang/Object;
 .source "QuotaController.java"
 
@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "TimerChargingUpdateFunctor"
 .end annotation
 
@@ -27,15 +27,23 @@
 
 
 # instance fields
-.field private mIsCharging:Z
+.field public mIsCharging:Z
 
-.field private mNowElapsed:J
+.field public mNowElapsed:J
 
-.field final synthetic this$0:Lcom/android/server/job/controllers/QuotaController;
+.field public final synthetic this$0:Lcom/android/server/job/controllers/QuotaController;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/server/job/controllers/QuotaController;)V
+.method public static bridge synthetic -$$Nest$msetStatus(Lcom/android/server/job/controllers/QuotaController$TimerChargingUpdateFunctor;JZ)V
+    .locals 0
+
+    invoke-virtual {p0, p1, p2, p3}, Lcom/android/server/job/controllers/QuotaController$TimerChargingUpdateFunctor;->setStatus(JZ)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Lcom/android/server/job/controllers/QuotaController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/job/controllers/QuotaController$TimerChargingUpdateFunctor;->this$0:Lcom/android/server/job/controllers/QuotaController;
@@ -45,28 +53,10 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/job/controllers/QuotaController;Lcom/android/server/job/controllers/QuotaController$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/job/controllers/QuotaController;Lcom/android/server/job/controllers/QuotaController$TimerChargingUpdateFunctor-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/job/controllers/QuotaController$TimerChargingUpdateFunctor;-><init>(Lcom/android/server/job/controllers/QuotaController;)V
-
-    return-void
-.end method
-
-.method static synthetic access$800(Lcom/android/server/job/controllers/QuotaController$TimerChargingUpdateFunctor;JZ)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/job/controllers/QuotaController$TimerChargingUpdateFunctor;->setStatus(JZ)V
-
-    return-void
-.end method
-
-.method private setStatus(JZ)V
-    .locals 0
-
-    iput-wide p1, p0, Lcom/android/server/job/controllers/QuotaController$TimerChargingUpdateFunctor;->mNowElapsed:J
-
-    iput-boolean p3, p0, Lcom/android/server/job/controllers/QuotaController$TimerChargingUpdateFunctor;->mIsCharging:Z
 
     return-void
 .end method
@@ -76,17 +66,17 @@
 .method public accept(Lcom/android/server/job/controllers/QuotaController$Timer;)V
     .locals 4
 
-    invoke-static {p1}, Lcom/android/server/job/controllers/QuotaController$Timer;->access$600(Lcom/android/server/job/controllers/QuotaController$Timer;)Lcom/android/server/job/controllers/QuotaController$Package;
+    invoke-static {p1}, Lcom/android/server/job/controllers/QuotaController$Timer;->-$$Nest$fgetmPkg(Lcom/android/server/job/controllers/QuotaController$Timer;)Lcom/android/server/job/controllers/Package;
 
     move-result-object v0
 
-    iget-object v0, v0, Lcom/android/server/job/controllers/QuotaController$Package;->packageName:Ljava/lang/String;
+    iget-object v0, v0, Lcom/android/server/job/controllers/Package;->packageName:Ljava/lang/String;
 
-    invoke-static {p1}, Lcom/android/server/job/controllers/QuotaController$Timer;->access$600(Lcom/android/server/job/controllers/QuotaController$Timer;)Lcom/android/server/job/controllers/QuotaController$Package;
+    invoke-static {p1}, Lcom/android/server/job/controllers/QuotaController$Timer;->-$$Nest$fgetmPkg(Lcom/android/server/job/controllers/QuotaController$Timer;)Lcom/android/server/job/controllers/Package;
 
     move-result-object v1
 
-    iget v1, v1, Lcom/android/server/job/controllers/QuotaController$Package;->userId:I
+    iget v1, v1, Lcom/android/server/job/controllers/Package;->userId:I
 
     iget-wide v2, p0, Lcom/android/server/job/controllers/QuotaController$TimerChargingUpdateFunctor;->mNowElapsed:J
 
@@ -100,9 +90,9 @@
 
     iget-wide v0, p0, Lcom/android/server/job/controllers/QuotaController$TimerChargingUpdateFunctor;->mNowElapsed:J
 
-    iget-boolean v2, p0, Lcom/android/server/job/controllers/QuotaController$TimerChargingUpdateFunctor;->mIsCharging:Z
+    iget-boolean p0, p0, Lcom/android/server/job/controllers/QuotaController$TimerChargingUpdateFunctor;->mIsCharging:Z
 
-    invoke-virtual {p1, v0, v1, v2}, Lcom/android/server/job/controllers/QuotaController$Timer;->onStateChangedLocked(JZ)V
+    invoke-virtual {p1, v0, v1, p0}, Lcom/android/server/job/controllers/QuotaController$Timer;->onStateChangedLocked(JZ)V
 
     :cond_0
     return-void
@@ -114,6 +104,16 @@
     check-cast p1, Lcom/android/server/job/controllers/QuotaController$Timer;
 
     invoke-virtual {p0, p1}, Lcom/android/server/job/controllers/QuotaController$TimerChargingUpdateFunctor;->accept(Lcom/android/server/job/controllers/QuotaController$Timer;)V
+
+    return-void
+.end method
+
+.method public final setStatus(JZ)V
+    .locals 0
+
+    iput-wide p1, p0, Lcom/android/server/job/controllers/QuotaController$TimerChargingUpdateFunctor;->mNowElapsed:J
+
+    iput-boolean p3, p0, Lcom/android/server/job/controllers/QuotaController$TimerChargingUpdateFunctor;->mIsCharging:Z
 
     return-void
 .end method

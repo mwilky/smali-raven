@@ -15,7 +15,7 @@
 
 
 # instance fields
-.field final appDigestCNCList:Ljava/util/HashMap;
+.field public final appDigestCNCList:Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/HashMap<",
@@ -26,7 +26,7 @@
     .end annotation
 .end field
 
-.field final appDigestList:Ljava/util/Set;
+.field public final appDigestList:Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Set<",
@@ -36,7 +36,7 @@
     .end annotation
 .end field
 
-.field final cncDomainVisited:Ljava/lang/String;
+.field public final cncDomainVisited:Ljava/lang/String;
 
 
 # direct methods

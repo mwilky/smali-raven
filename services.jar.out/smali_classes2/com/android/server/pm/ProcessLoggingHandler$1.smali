@@ -1,4 +1,4 @@
-.class Lcom/android/server/pm/ProcessLoggingHandler$1;
+.class public Lcom/android/server/pm/ProcessLoggingHandler$1;
 .super Landroid/content/pm/IOnChecksumsReadyListener$Stub;
 .source "ProcessLoggingHandler.java"
 
@@ -9,19 +9,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/pm/ProcessLoggingHandler;
+.field public final synthetic this$0:Lcom/android/server/pm/ProcessLoggingHandler;
 
-.field final synthetic val$loggingInfo:Lcom/android/server/pm/ProcessLoggingHandler$LoggingInfo;
+.field public final synthetic val$loggingInfo:Lcom/android/server/pm/ProcessLoggingHandler$LoggingInfo;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/pm/ProcessLoggingHandler;Lcom/android/server/pm/ProcessLoggingHandler$LoggingInfo;)V
+.method public constructor <init>(Lcom/android/server/pm/ProcessLoggingHandler;Lcom/android/server/pm/ProcessLoggingHandler$LoggingInfo;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/pm/ProcessLoggingHandler$1;->this$0:Lcom/android/server/pm/ProcessLoggingHandler;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public onChecksumsReady(Ljava/util/List;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -54,9 +54,9 @@
 
     iget-object v0, p0, Lcom/android/server/pm/ProcessLoggingHandler$1;->this$0:Lcom/android/server/pm/ProcessLoggingHandler;
 
-    iget-object v1, p0, Lcom/android/server/pm/ProcessLoggingHandler$1;->val$loggingInfo:Lcom/android/server/pm/ProcessLoggingHandler$LoggingInfo;
+    iget-object p0, p0, Lcom/android/server/pm/ProcessLoggingHandler$1;->val$loggingInfo:Lcom/android/server/pm/ProcessLoggingHandler$LoggingInfo;
 
-    invoke-virtual {v0, v1, p1}, Lcom/android/server/pm/ProcessLoggingHandler;->processChecksums(Lcom/android/server/pm/ProcessLoggingHandler$LoggingInfo;Ljava/util/List;)V
+    invoke-virtual {v0, p0, p1}, Lcom/android/server/pm/ProcessLoggingHandler;->processChecksums(Lcom/android/server/pm/ProcessLoggingHandler$LoggingInfo;Ljava/util/List;)V
 
     return-void
 .end method

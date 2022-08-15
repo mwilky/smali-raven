@@ -1,4 +1,4 @@
-.class abstract Lcom/android/server/firewall/FilterList;
+.class public abstract Lcom/android/server/firewall/FilterList;
 .super Ljava/lang/Object;
 .source "FilterList.java"
 
@@ -7,7 +7,7 @@
 
 
 # instance fields
-.field protected final children:Ljava/util/ArrayList;
+.field public final children:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/ArrayList<",
@@ -19,7 +19,7 @@
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -35,8 +35,8 @@
 
 
 # virtual methods
-.method protected readChild(Lorg/xmlpull/v1/XmlPullParser;)V
-    .locals 2
+.method public readChild(Lorg/xmlpull/v1/XmlPullParser;)V
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -46,11 +46,11 @@
 
     invoke-static {p1}, Lcom/android/server/firewall/IntentFirewall;->parseFilter(Lorg/xmlpull/v1/XmlPullParser;)Lcom/android/server/firewall/Filter;
 
-    move-result-object v0
+    move-result-object p1
 
-    iget-object v1, p0, Lcom/android/server/firewall/FilterList;->children:Ljava/util/ArrayList;
+    iget-object p0, p0, Lcom/android/server/firewall/FilterList;->children:Ljava/util/ArrayList;
 
-    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     return-void
 .end method

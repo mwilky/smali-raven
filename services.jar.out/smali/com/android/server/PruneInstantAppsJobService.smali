@@ -4,15 +4,19 @@
 
 
 # static fields
-.field private static final DEBUG:Z = false
-
-.field private static final JOB_ID:I = 0xbacc3
-
-.field private static final PRUNE_INSTANT_APPS_PERIOD_MILLIS:J
+.field public static final PRUNE_INSTANT_APPS_PERIOD_MILLIS:J
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static synthetic $r8$lambda$QAihRlYk-3_wNEM1mAuMqacYi34(Lcom/android/server/PruneInstantAppsJobService;Landroid/app/job/JobParameters;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/PruneInstantAppsJobService;->lambda$onStartJob$0(Landroid/app/job/JobParameters;)V
+
+    return-void
+.end method
+
+.method public static constructor <clinit>()V
     .locals 3
 
     sget-object v0, Ljava/util/concurrent/TimeUnit;->DAYS:Ljava/util/concurrent/TimeUnit;
@@ -32,6 +36,26 @@
     .locals 0
 
     invoke-direct {p0}, Landroid/app/job/JobService;-><init>()V
+
+    return-void
+.end method
+
+.method private synthetic lambda$onStartJob$0(Landroid/app/job/JobParameters;)V
+    .locals 1
+
+    const-class v0, Landroid/content/pm/PackageManagerInternal;
+
+    invoke-static {v0}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/content/pm/PackageManagerInternal;
+
+    invoke-virtual {v0}, Landroid/content/pm/PackageManagerInternal;->pruneInstantApps()V
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, p1, v0}, Landroid/app/job/JobService;->jobFinished(Landroid/app/job/JobParameters;Z)V
 
     return-void
 .end method
@@ -79,37 +103,17 @@
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p0
 
-    check-cast v1, Landroid/app/job/JobScheduler;
+    check-cast p0, Landroid/app/job/JobScheduler;
 
-    invoke-virtual {v1, v0}, Landroid/app/job/JobScheduler;->schedule(Landroid/app/job/JobInfo;)I
+    invoke-virtual {p0, v0}, Landroid/app/job/JobScheduler;->schedule(Landroid/app/job/JobInfo;)I
 
     return-void
 .end method
 
 
 # virtual methods
-.method public synthetic lambda$onStartJob$0$PruneInstantAppsJobService(Landroid/app/job/JobParameters;)V
-    .locals 2
-
-    const-class v0, Landroid/content/pm/PackageManagerInternal;
-
-    invoke-static {v0}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/content/pm/PackageManagerInternal;
-
-    invoke-virtual {v0}, Landroid/content/pm/PackageManagerInternal;->pruneInstantApps()V
-
-    const/4 v1, 0x0
-
-    invoke-virtual {p0, p1, v1}, Lcom/android/server/PruneInstantAppsJobService;->jobFinished(Landroid/app/job/JobParameters;Z)V
-
-    return-void
-.end method
-
 .method public onStartJob(Landroid/app/job/JobParameters;)Z
     .locals 1
 
@@ -119,15 +123,15 @@
 
     invoke-static {v0}, Landroid/os/AsyncTask;->execute(Ljava/lang/Runnable;)V
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 .end method
 
 .method public onStopJob(Landroid/app/job/JobParameters;)Z
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method

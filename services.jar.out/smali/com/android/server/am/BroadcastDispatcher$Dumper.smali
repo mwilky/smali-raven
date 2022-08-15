@@ -1,4 +1,4 @@
-.class Lcom/android/server/am/BroadcastDispatcher$Dumper;
+.class public Lcom/android/server/am/BroadcastDispatcher$Dumper;
 .super Ljava/lang/Object;
 .source "BroadcastDispatcher.java"
 
@@ -9,36 +9,36 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = "Dumper"
 .end annotation
 
 
 # instance fields
-.field final mDumpPackage:Ljava/lang/String;
+.field public final mDumpPackage:Ljava/lang/String;
 
-.field mHeading:Ljava/lang/String;
+.field public mHeading:Ljava/lang/String;
 
-.field mLabel:Ljava/lang/String;
+.field public mLabel:Ljava/lang/String;
 
-.field mNeedSep:Z
+.field public mNeedSep:Z
 
-.field mOrdinal:I
+.field public mOrdinal:I
 
-.field mPrinted:Z
+.field public mPrinted:Z
 
-.field final mPw:Ljava/io/PrintWriter;
+.field public final mPw:Ljava/io/PrintWriter;
 
-.field final mQueueName:Ljava/lang/String;
+.field public final mQueueName:Ljava/lang/String;
 
-.field final mSdf:Ljava/text/SimpleDateFormat;
+.field public final mSdf:Ljava/text/SimpleDateFormat;
 
-.field final synthetic this$0:Lcom/android/server/am/BroadcastDispatcher;
+.field public final synthetic this$0:Lcom/android/server/am/BroadcastDispatcher;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/BroadcastDispatcher;Ljava/io/PrintWriter;Ljava/lang/String;Ljava/lang/String;Ljava/text/SimpleDateFormat;)V
-    .locals 1
+.method public constructor <init>(Lcom/android/server/am/BroadcastDispatcher;Ljava/io/PrintWriter;Ljava/lang/String;Ljava/lang/String;Ljava/text/SimpleDateFormat;)V
+    .locals 0
 
     iput-object p1, p0, Lcom/android/server/am/BroadcastDispatcher$Dumper;->this$0:Lcom/android/server/am/BroadcastDispatcher;
 
@@ -52,28 +52,28 @@
 
     iput-object p5, p0, Lcom/android/server/am/BroadcastDispatcher$Dumper;->mSdf:Ljava/text/SimpleDateFormat;
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput-boolean v0, p0, Lcom/android/server/am/BroadcastDispatcher$Dumper;->mPrinted:Z
+    iput-boolean p1, p0, Lcom/android/server/am/BroadcastDispatcher$Dumper;->mPrinted:Z
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    iput-boolean v0, p0, Lcom/android/server/am/BroadcastDispatcher$Dumper;->mNeedSep:Z
+    iput-boolean p1, p0, Lcom/android/server/am/BroadcastDispatcher$Dumper;->mNeedSep:Z
 
     return-void
 .end method
 
 
 # virtual methods
-.method didPrint()Z
-    .locals 1
+.method public didPrint()Z
+    .locals 0
 
-    iget-boolean v0, p0, Lcom/android/server/am/BroadcastDispatcher$Dumper;->mPrinted:Z
+    iget-boolean p0, p0, Lcom/android/server/am/BroadcastDispatcher$Dumper;->mPrinted:Z
 
-    return v0
+    return p0
 .end method
 
-.method dump(Lcom/android/server/am/BroadcastRecord;)V
+.method public dump(Lcom/android/server/am/BroadcastRecord;)V
     .locals 4
 
     iget-object v0, p0, Lcom/android/server/am/BroadcastDispatcher$Dumper;->mDumpPackage:Ljava/lang/String;
@@ -173,29 +173,29 @@
 
     iget-object v0, p0, Lcom/android/server/am/BroadcastDispatcher$Dumper;->mPw:Ljava/io/PrintWriter;
 
-    iget-object v1, p0, Lcom/android/server/am/BroadcastDispatcher$Dumper;->mSdf:Ljava/text/SimpleDateFormat;
+    iget-object p0, p0, Lcom/android/server/am/BroadcastDispatcher$Dumper;->mSdf:Ljava/text/SimpleDateFormat;
 
-    const-string v2, "    "
+    const-string v1, "    "
 
-    invoke-virtual {p1, v0, v2, v1}, Lcom/android/server/am/BroadcastRecord;->dump(Ljava/io/PrintWriter;Ljava/lang/String;Ljava/text/SimpleDateFormat;)V
+    invoke-virtual {p1, v0, v1, p0}, Lcom/android/server/am/BroadcastRecord;->dump(Ljava/io/PrintWriter;Ljava/lang/String;Ljava/text/SimpleDateFormat;)V
 
     :cond_3
     return-void
 .end method
 
-.method setHeading(Ljava/lang/String;)V
-    .locals 1
+.method public setHeading(Ljava/lang/String;)V
+    .locals 0
 
     iput-object p1, p0, Lcom/android/server/am/BroadcastDispatcher$Dumper;->mHeading:Ljava/lang/String;
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput-boolean v0, p0, Lcom/android/server/am/BroadcastDispatcher$Dumper;->mPrinted:Z
+    iput-boolean p1, p0, Lcom/android/server/am/BroadcastDispatcher$Dumper;->mPrinted:Z
 
     return-void
 .end method
 
-.method setLabel(Ljava/lang/String;)V
+.method public setLabel(Ljava/lang/String;)V
     .locals 2
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -208,27 +208,27 @@
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, " "
+    const-string p1, " "
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lcom/android/server/am/BroadcastDispatcher$Dumper;->mQueueName:Ljava/lang/String;
+    iget-object p1, p0, Lcom/android/server/am/BroadcastDispatcher$Dumper;->mQueueName:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, " #"
+    const-string p1, " #"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/android/server/am/BroadcastDispatcher$Dumper;->mLabel:Ljava/lang/String;
+    iput-object p1, p0, Lcom/android/server/am/BroadcastDispatcher$Dumper;->mLabel:Ljava/lang/String;
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput v0, p0, Lcom/android/server/am/BroadcastDispatcher$Dumper;->mOrdinal:I
+    iput p1, p0, Lcom/android/server/am/BroadcastDispatcher$Dumper;->mOrdinal:I
 
     return-void
 .end method

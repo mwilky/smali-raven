@@ -4,12 +4,6 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/android/server/musicrecognition/RemoteMusicRecognitionService$Callbacks;
-    }
-.end annotation
-
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Lcom/android/internal/infra/AbstractMultiplePendingRequestsRemoteService<",
@@ -20,19 +14,29 @@
 .end annotation
 
 
-# static fields
-.field private static final TIMEOUT_IDLE_BIND_MILLIS:J = 0x9c40L
-
-
 # instance fields
-.field private final mServerCallback:Lcom/android/server/musicrecognition/MusicRecognitionManagerPerUserService$MusicRecognitionServiceCallback;
+.field public final mServerCallback:Lcom/android/server/musicrecognition/MusicRecognitionManagerPerUserService$MusicRecognitionServiceCallback;
 
 
 # direct methods
+.method public static synthetic $r8$lambda$HL-Ejgp_q_Tv4vsAwCDSP_jYmiM(Lcom/android/server/musicrecognition/RemoteMusicRecognitionService;Landroid/os/ParcelFileDescriptor;Landroid/media/AudioFormat;Landroid/media/musicrecognition/IMusicRecognitionService;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/musicrecognition/RemoteMusicRecognitionService;->lambda$onAudioStreamStarted$0(Landroid/os/ParcelFileDescriptor;Landroid/media/AudioFormat;Landroid/media/musicrecognition/IMusicRecognitionService;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$Rmak19pnMY4KPPngWF_XZ_-jF60(Lcom/android/server/musicrecognition/RemoteMusicRecognitionService;Ljava/util/concurrent/CompletableFuture;Landroid/media/musicrecognition/IMusicRecognitionService;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/server/musicrecognition/RemoteMusicRecognitionService;->lambda$getAttributionTag$1(Ljava/util/concurrent/CompletableFuture;Landroid/media/musicrecognition/IMusicRecognitionService;)V
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Landroid/content/ComponentName;ILcom/android/server/musicrecognition/MusicRecognitionManagerPerUserService;Lcom/android/server/musicrecognition/MusicRecognitionManagerPerUserService$MusicRecognitionServiceCallback;ZZ)V
     .locals 10
-
-    nop
 
     invoke-virtual {p1}, Landroid/content/Context;->getMainThreadHandler()Landroid/os/Handler;
 
@@ -75,6 +79,38 @@
     return-void
 .end method
 
+.method private synthetic lambda$getAttributionTag$1(Ljava/util/concurrent/CompletableFuture;Landroid/media/musicrecognition/IMusicRecognitionService;)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v0, Lcom/android/server/musicrecognition/RemoteMusicRecognitionService$1;
+
+    invoke-direct {v0, p0, p1}, Lcom/android/server/musicrecognition/RemoteMusicRecognitionService$1;-><init>(Lcom/android/server/musicrecognition/RemoteMusicRecognitionService;Ljava/util/concurrent/CompletableFuture;)V
+
+    invoke-interface {p2, v0}, Landroid/media/musicrecognition/IMusicRecognitionService;->getAttributionTag(Landroid/media/musicrecognition/IMusicRecognitionAttributionTagCallback;)V
+
+    return-void
+.end method
+
+.method private synthetic lambda$onAudioStreamStarted$0(Landroid/os/ParcelFileDescriptor;Landroid/media/AudioFormat;Landroid/media/musicrecognition/IMusicRecognitionService;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    iget-object p0, p0, Lcom/android/server/musicrecognition/RemoteMusicRecognitionService;->mServerCallback:Lcom/android/server/musicrecognition/MusicRecognitionManagerPerUserService$MusicRecognitionServiceCallback;
+
+    invoke-interface {p3, p1, p2, p0}, Landroid/media/musicrecognition/IMusicRecognitionService;->onAudioStreamStarted(Landroid/os/ParcelFileDescriptor;Landroid/media/AudioFormat;Landroid/media/musicrecognition/IMusicRecognitionServiceCallback;)V
+
+    return-void
+.end method
+
 
 # virtual methods
 .method public getAttributionTag()Ljava/util/concurrent/CompletableFuture;
@@ -96,77 +132,45 @@
 
     invoke-direct {v1, p0, v0}, Lcom/android/server/musicrecognition/RemoteMusicRecognitionService$$ExternalSyntheticLambda1;-><init>(Lcom/android/server/musicrecognition/RemoteMusicRecognitionService;Ljava/util/concurrent/CompletableFuture;)V
 
-    invoke-virtual {p0, v1}, Lcom/android/server/musicrecognition/RemoteMusicRecognitionService;->scheduleAsyncRequest(Lcom/android/internal/infra/AbstractRemoteService$AsyncRequest;)V
+    invoke-virtual {p0, v1}, Lcom/android/internal/infra/AbstractMultiplePendingRequestsRemoteService;->scheduleAsyncRequest(Lcom/android/internal/infra/AbstractRemoteService$AsyncRequest;)V
 
     return-object v0
 .end method
 
-.method getServerCallback()Lcom/android/server/musicrecognition/MusicRecognitionManagerPerUserService$MusicRecognitionServiceCallback;
-    .locals 1
+.method public getServerCallback()Lcom/android/server/musicrecognition/MusicRecognitionManagerPerUserService$MusicRecognitionServiceCallback;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/musicrecognition/RemoteMusicRecognitionService;->mServerCallback:Lcom/android/server/musicrecognition/MusicRecognitionManagerPerUserService$MusicRecognitionServiceCallback;
+    iget-object p0, p0, Lcom/android/server/musicrecognition/RemoteMusicRecognitionService;->mServerCallback:Lcom/android/server/musicrecognition/MusicRecognitionManagerPerUserService$MusicRecognitionServiceCallback;
 
-    return-object v0
+    return-object p0
 .end method
 
-.method protected getServiceInterface(Landroid/os/IBinder;)Landroid/media/musicrecognition/IMusicRecognitionService;
-    .locals 1
+.method public getServiceInterface(Landroid/os/IBinder;)Landroid/media/musicrecognition/IMusicRecognitionService;
+    .locals 0
 
     invoke-static {p1}, Landroid/media/musicrecognition/IMusicRecognitionService$Stub;->asInterface(Landroid/os/IBinder;)Landroid/media/musicrecognition/IMusicRecognitionService;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
-.method protected bridge synthetic getServiceInterface(Landroid/os/IBinder;)Landroid/os/IInterface;
+.method public bridge synthetic getServiceInterface(Landroid/os/IBinder;)Landroid/os/IInterface;
     .locals 0
 
     invoke-virtual {p0, p1}, Lcom/android/server/musicrecognition/RemoteMusicRecognitionService;->getServiceInterface(Landroid/os/IBinder;)Landroid/media/musicrecognition/IMusicRecognitionService;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method
 
-.method protected getTimeoutIdleBindMillis()J
+.method public getTimeoutIdleBindMillis()J
     .locals 2
 
     const-wide/32 v0, 0x9c40
 
     return-wide v0
-.end method
-
-.method public synthetic lambda$getAttributionTag$1$RemoteMusicRecognitionService(Ljava/util/concurrent/CompletableFuture;Landroid/media/musicrecognition/IMusicRecognitionService;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    new-instance v0, Lcom/android/server/musicrecognition/RemoteMusicRecognitionService$1;
-
-    invoke-direct {v0, p0, p1}, Lcom/android/server/musicrecognition/RemoteMusicRecognitionService$1;-><init>(Lcom/android/server/musicrecognition/RemoteMusicRecognitionService;Ljava/util/concurrent/CompletableFuture;)V
-
-    invoke-interface {p2, v0}, Landroid/media/musicrecognition/IMusicRecognitionService;->getAttributionTag(Landroid/media/musicrecognition/IMusicRecognitionAttributionTagCallback;)V
-
-    return-void
-.end method
-
-.method public synthetic lambda$onAudioStreamStarted$0$RemoteMusicRecognitionService(Landroid/os/ParcelFileDescriptor;Landroid/media/AudioFormat;Landroid/media/musicrecognition/IMusicRecognitionService;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    iget-object v0, p0, Lcom/android/server/musicrecognition/RemoteMusicRecognitionService;->mServerCallback:Lcom/android/server/musicrecognition/MusicRecognitionManagerPerUserService$MusicRecognitionServiceCallback;
-
-    invoke-interface {p3, p1, p2, v0}, Landroid/media/musicrecognition/IMusicRecognitionService;->onAudioStreamStarted(Landroid/os/ParcelFileDescriptor;Landroid/media/AudioFormat;Landroid/media/musicrecognition/IMusicRecognitionServiceCallback;)V
-
-    return-void
 .end method
 
 .method public onAudioStreamStarted(Landroid/os/ParcelFileDescriptor;Landroid/media/AudioFormat;)V
@@ -176,7 +180,7 @@
 
     invoke-direct {v0, p0, p1, p2}, Lcom/android/server/musicrecognition/RemoteMusicRecognitionService$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/musicrecognition/RemoteMusicRecognitionService;Landroid/os/ParcelFileDescriptor;Landroid/media/AudioFormat;)V
 
-    invoke-virtual {p0, v0}, Lcom/android/server/musicrecognition/RemoteMusicRecognitionService;->scheduleAsyncRequest(Lcom/android/internal/infra/AbstractRemoteService$AsyncRequest;)V
+    invoke-virtual {p0, v0}, Lcom/android/internal/infra/AbstractMultiplePendingRequestsRemoteService;->scheduleAsyncRequest(Lcom/android/internal/infra/AbstractRemoteService$AsyncRequest;)V
 
     return-void
 .end method

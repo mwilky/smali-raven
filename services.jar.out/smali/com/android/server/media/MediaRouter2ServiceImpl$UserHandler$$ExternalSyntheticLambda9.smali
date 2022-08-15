@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/media/MediaRouter2ServiceImpl$UserHandler$$ExternalSyntheticLambda9;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Predicate;
@@ -23,15 +24,15 @@
 
 # virtual methods
 .method public final test(Ljava/lang/Object;)Z
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/media/MediaRouter2ServiceImpl$UserHandler$$ExternalSyntheticLambda9;->f$0:I
+    iget p0, p0, Lcom/android/server/media/MediaRouter2ServiceImpl$UserHandler$$ExternalSyntheticLambda9;->f$0:I
 
     check-cast p1, Lcom/android/server/media/MediaRouter2ServiceImpl$RouterRecord;
 
-    invoke-static {v0, p1}, Lcom/android/server/media/MediaRouter2ServiceImpl$UserHandler;->lambda$maybeUpdateDiscoveryPreferenceForUid$0(ILcom/android/server/media/MediaRouter2ServiceImpl$RouterRecord;)Z
+    invoke-static {p0, p1}, Lcom/android/server/media/MediaRouter2ServiceImpl$UserHandler;->$r8$lambda$EdiHHza2jiTwlIfUMIsAFSFmZRw(ILcom/android/server/media/MediaRouter2ServiceImpl$RouterRecord;)Z
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method

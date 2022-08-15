@@ -29,20 +29,9 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .locals 1
-
-    const/4 v0, 0x0
-
-    return-object v0
-.end method
-
-.method public setCaptureState(Z)V
     .locals 0
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
 
-    return-void
+    const/4 p0, 0x0
+
+    return-object p0
 .end method

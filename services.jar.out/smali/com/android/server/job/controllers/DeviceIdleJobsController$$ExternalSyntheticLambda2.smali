@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/job/controllers/DeviceIdleJobsController$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Predicate;
@@ -23,15 +24,15 @@
 
 # virtual methods
 .method public final test(Ljava/lang/Object;)Z
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/job/controllers/DeviceIdleJobsController$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/job/controllers/DeviceIdleJobsController;
+    iget-object p0, p0, Lcom/android/server/job/controllers/DeviceIdleJobsController$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/job/controllers/DeviceIdleJobsController;
 
     check-cast p1, Lcom/android/server/job/controllers/JobStatus;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/job/controllers/DeviceIdleJobsController;->lambda$new$0$DeviceIdleJobsController(Lcom/android/server/job/controllers/JobStatus;)Z
+    invoke-static {p0, p1}, Lcom/android/server/job/controllers/DeviceIdleJobsController;->$r8$lambda$VpJp4MpRi-UflASRMbPmKAqXjTU(Lcom/android/server/job/controllers/DeviceIdleJobsController;Lcom/android/server/job/controllers/JobStatus;)Z
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method

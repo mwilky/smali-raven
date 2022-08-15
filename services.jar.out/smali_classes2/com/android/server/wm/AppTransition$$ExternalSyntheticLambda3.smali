@@ -1,43 +1,34 @@
 .class public final synthetic Lcom/android/server/wm/AppTransition$$ExternalSyntheticLambda3;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Consumer;
+.implements Ljava/lang/Runnable;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/wm/AppTransition$$ExternalSyntheticLambda3;
+# instance fields
+.field public final synthetic f$0:Lcom/android/server/wm/AppTransition;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/wm/AppTransition$$ExternalSyntheticLambda3;
-
-    invoke-direct {v0}, Lcom/android/server/wm/AppTransition$$ExternalSyntheticLambda3;-><init>()V
-
-    sput-object v0, Lcom/android/server/wm/AppTransition$$ExternalSyntheticLambda3;->INSTANCE:Lcom/android/server/wm/AppTransition$$ExternalSyntheticLambda3;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Lcom/android/server/wm/AppTransition;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/wm/AppTransition$$ExternalSyntheticLambda3;->f$0:Lcom/android/server/wm/AppTransition;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
+.method public final run()V
     .locals 0
 
-    check-cast p1, Landroid/os/IRemoteCallback;
+    iget-object p0, p0, Lcom/android/server/wm/AppTransition$$ExternalSyntheticLambda3;->f$0:Lcom/android/server/wm/AppTransition;
 
-    invoke-static {p1}, Lcom/android/server/wm/AppTransition;->$r8$lambda$ovWj1GU-Dyl-6GvlYAUAdjIFGUA(Landroid/os/IRemoteCallback;)V
+    invoke-static {p0}, Lcom/android/server/wm/AppTransition;->$r8$lambda$MtmvAz126jZqF-O1-KeCkHITn9Y(Lcom/android/server/wm/AppTransition;)V
 
     return-void
 .end method

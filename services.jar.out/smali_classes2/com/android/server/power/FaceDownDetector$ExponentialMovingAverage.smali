@@ -1,4 +1,4 @@
-.class final Lcom/android/server/power/FaceDownDetector$ExponentialMovingAverage;
+.class public final Lcom/android/server/power/FaceDownDetector$ExponentialMovingAverage;
 .super Ljava/lang/Object;
 .source "FaceDownDetector.java"
 
@@ -9,23 +9,31 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "ExponentialMovingAverage"
 .end annotation
 
 
 # instance fields
-.field private final mAlpha:F
+.field public final mAlpha:F
 
-.field private final mInitialAverage:F
+.field public final mInitialAverage:F
 
-.field private mMovingAverage:F
+.field public mMovingAverage:F
 
-.field final synthetic this$0:Lcom/android/server/power/FaceDownDetector;
+.field public final synthetic this$0:Lcom/android/server/power/FaceDownDetector;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/power/FaceDownDetector;F)V
+.method public static bridge synthetic -$$Nest$fgetmMovingAverage(Lcom/android/server/power/FaceDownDetector$ExponentialMovingAverage;)F
+    .locals 0
+
+    iget p0, p0, Lcom/android/server/power/FaceDownDetector$ExponentialMovingAverage;->mMovingAverage:F
+
+    return p0
+.end method
+
+.method public constructor <init>(Lcom/android/server/power/FaceDownDetector;F)V
     .locals 1
 
     const/4 v0, 0x0
@@ -35,7 +43,7 @@
     return-void
 .end method
 
-.method constructor <init>(Lcom/android/server/power/FaceDownDetector;FF)V
+.method public constructor <init>(Lcom/android/server/power/FaceDownDetector;FF)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/power/FaceDownDetector$ExponentialMovingAverage;->this$0:Lcom/android/server/power/FaceDownDetector;
@@ -51,27 +59,9 @@
     return-void
 .end method
 
-.method static synthetic access$100(Lcom/android/server/power/FaceDownDetector$ExponentialMovingAverage;)F
-    .locals 1
-
-    iget v0, p0, Lcom/android/server/power/FaceDownDetector$ExponentialMovingAverage;->mMovingAverage:F
-
-    return v0
-.end method
-
 
 # virtual methods
-.method reset()V
-    .locals 1
-
-    iget v0, p0, Lcom/android/server/power/FaceDownDetector$ExponentialMovingAverage;->mInitialAverage:F
-
-    iput v0, p0, Lcom/android/server/power/FaceDownDetector$ExponentialMovingAverage;->mMovingAverage:F
-
-    return-void
-.end method
-
-.method updateMovingAverage(F)V
+.method public updateMovingAverage(F)V
     .locals 2
 
     iget v0, p0, Lcom/android/server/power/FaceDownDetector$ExponentialMovingAverage;->mAlpha:F
@@ -82,9 +72,9 @@
 
     mul-float/2addr v0, v1
 
-    add-float/2addr v0, p1
+    add-float/2addr p1, v0
 
-    iput v0, p0, Lcom/android/server/power/FaceDownDetector$ExponentialMovingAverage;->mMovingAverage:F
+    iput p1, p0, Lcom/android/server/power/FaceDownDetector$ExponentialMovingAverage;->mMovingAverage:F
 
     return-void
 .end method

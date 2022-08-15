@@ -4,6 +4,9 @@
 
 
 # annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/android/server/power/PowerManagerService;
 .end annotation
@@ -28,25 +31,25 @@
 .method public nativeAcquireSuspendBlocker(Ljava/lang/String;)V
     .locals 0
 
-    invoke-static {p1}, Lcom/android/server/power/PowerManagerService;->access$1200(Ljava/lang/String;)V
+    invoke-static {p1}, Lcom/android/server/power/PowerManagerService;->-$$Nest$smnativeAcquireSuspendBlocker(Ljava/lang/String;)V
 
     return-void
 .end method
 
 .method public nativeForceSuspend()Z
-    .locals 1
+    .locals 0
 
-    invoke-static {}, Lcom/android/server/power/PowerManagerService;->access$1700()Z
+    invoke-static {}, Lcom/android/server/power/PowerManagerService;->-$$Nest$smnativeForceSuspend()Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public nativeInit(Lcom/android/server/power/PowerManagerService;)V
     .locals 0
 
-    invoke-static {p1}, Lcom/android/server/power/PowerManagerService;->access$1100(Lcom/android/server/power/PowerManagerService;)V
+    invoke-static {p1}, Lcom/android/server/power/PowerManagerService;->-$$Nest$mnativeInit(Lcom/android/server/power/PowerManagerService;)V
 
     return-void
 .end method
@@ -54,7 +57,7 @@
 .method public nativeReleaseSuspendBlocker(Ljava/lang/String;)V
     .locals 0
 
-    invoke-static {p1}, Lcom/android/server/power/PowerManagerService;->access$1300(Ljava/lang/String;)V
+    invoke-static {p1}, Lcom/android/server/power/PowerManagerService;->-$$Nest$smnativeReleaseSuspendBlocker(Ljava/lang/String;)V
 
     return-void
 .end method
@@ -62,7 +65,7 @@
 .method public nativeSetAutoSuspend(Z)V
     .locals 0
 
-    invoke-static {p1}, Lcom/android/server/power/PowerManagerService;->access$1400(Z)V
+    invoke-static {p1}, Lcom/android/server/power/PowerManagerService;->-$$Nest$smnativeSetAutoSuspend(Z)V
 
     return-void
 .end method
@@ -70,17 +73,17 @@
 .method public nativeSetPowerBoost(II)V
     .locals 0
 
-    invoke-static {p1, p2}, Lcom/android/server/power/PowerManagerService;->access$1500(II)V
+    invoke-static {p1, p2}, Lcom/android/server/power/PowerManagerService;->-$$Nest$smnativeSetPowerBoost(II)V
 
     return-void
 .end method
 
 .method public nativeSetPowerMode(IZ)Z
-    .locals 1
+    .locals 0
 
-    invoke-static {p1, p2}, Lcom/android/server/power/PowerManagerService;->access$1600(IZ)Z
+    invoke-static {p1, p2}, Lcom/android/server/power/PowerManagerService;->-$$Nest$smnativeSetPowerMode(IZ)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method

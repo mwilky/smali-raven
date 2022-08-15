@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/autofill/ui/InlineContentProviderImpl$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/autofill/ui/InlineContentProviderImpl$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/autofill/ui/InlineContentProviderImpl;
+    iget-object p0, p0, Lcom/android/server/autofill/ui/InlineContentProviderImpl$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/autofill/ui/InlineContentProviderImpl;
 
-    invoke-static {v0}, Lcom/android/server/autofill/ui/InlineContentProviderImpl;->$r8$lambda$UJ9Me98vkLkpMX54UCQ58cg4p34(Lcom/android/server/autofill/ui/InlineContentProviderImpl;)V
+    invoke-static {p0}, Lcom/android/server/autofill/ui/InlineContentProviderImpl;->$r8$lambda$v48Do4L1mg7cec4s91jTuKeui3Y(Lcom/android/server/autofill/ui/InlineContentProviderImpl;)V
 
     return-void
 .end method

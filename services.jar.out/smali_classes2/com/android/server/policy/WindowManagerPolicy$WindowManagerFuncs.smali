@@ -14,97 +14,75 @@
 .end annotation
 
 
-# static fields
-.field public static final CAMERA_LENS_COVERED:I = 0x1
-
-.field public static final CAMERA_LENS_COVER_ABSENT:I = -0x1
-
-.field public static final CAMERA_LENS_UNCOVERED:I = 0x0
-
-.field public static final LID_ABSENT:I = -0x1
-
-.field public static final LID_BEHAVIOR_LOCK:I = 0x2
-
-.field public static final LID_BEHAVIOR_NONE:I = 0x0
-
-.field public static final LID_BEHAVIOR_SLEEP:I = 0x1
-
-.field public static final LID_CLOSED:I = 0x0
-
-.field public static final LID_OPEN:I = 0x1
-
-
 # direct methods
 .method public static cameraLensStateToString(I)Ljava/lang/String;
     .locals 1
 
-    packed-switch p0, :pswitch_data_0
+    const/4 v0, -0x1
+
+    if-eq p0, v0, :cond_2
+
+    if-eqz p0, :cond_1
+
+    const/4 v0, 0x1
+
+    if-eq p0, v0, :cond_0
 
     invoke-static {p0}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
-    :pswitch_0
-    const-string v0, "CAMERA_LENS_COVERED"
+    :cond_0
+    const-string p0, "CAMERA_LENS_COVERED"
 
-    return-object v0
+    return-object p0
 
-    :pswitch_1
-    const-string v0, "CAMERA_LENS_UNCOVERED"
+    :cond_1
+    const-string p0, "CAMERA_LENS_UNCOVERED"
 
-    return-object v0
+    return-object p0
 
-    :pswitch_2
-    const-string v0, "CAMERA_LENS_COVER_ABSENT"
+    :cond_2
+    const-string p0, "CAMERA_LENS_COVER_ABSENT"
 
-    return-object v0
-
-    nop
-
-    :pswitch_data_0
-    .packed-switch -0x1
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
+    return-object p0
 .end method
 
 .method public static lidStateToString(I)Ljava/lang/String;
     .locals 1
 
-    packed-switch p0, :pswitch_data_0
+    const/4 v0, -0x1
+
+    if-eq p0, v0, :cond_2
+
+    if-eqz p0, :cond_1
+
+    const/4 v0, 0x1
+
+    if-eq p0, v0, :cond_0
 
     invoke-static {p0}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
-    :pswitch_0
-    const-string v0, "LID_OPEN"
+    :cond_0
+    const-string p0, "LID_OPEN"
 
-    return-object v0
+    return-object p0
 
-    :pswitch_1
-    const-string v0, "LID_CLOSED"
+    :cond_1
+    const-string p0, "LID_CLOSED"
 
-    return-object v0
+    return-object p0
 
-    :pswitch_2
-    const-string v0, "LID_ABSENT"
+    :cond_2
+    const-string p0, "LID_ABSENT"
 
-    return-object v0
-
-    nop
-
-    :pswitch_data_0
-    .packed-switch -0x1
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
+    return-object p0
 .end method
 
 
@@ -113,9 +91,6 @@
 .end method
 
 .method public abstract getLidState()I
-.end method
-
-.method public abstract getWindowManagerLock()Ljava/lang/Object;
 .end method
 
 .method public abstract isAppTransitionStateIdle()Z
@@ -145,9 +120,6 @@
 .method public abstract rebootSafeMode(Z)V
 .end method
 
-.method public abstract registerPointerEventListener(Landroid/view/WindowManagerPolicyConstants$PointerEventListener;I)V
-.end method
-
 .method public abstract screenTurningOff(ILcom/android/server/policy/WindowManagerPolicy$ScreenOffListener;)V
 .end method
 
@@ -158,7 +130,4 @@
 .end method
 
 .method public abstract triggerAnimationFailsafe()V
-.end method
-
-.method public abstract unregisterPointerEventListener(Landroid/view/WindowManagerPolicyConstants$PointerEventListener;I)V
 .end method

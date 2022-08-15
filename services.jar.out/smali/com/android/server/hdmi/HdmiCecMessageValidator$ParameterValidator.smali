@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/server/hdmi/HdmiCecMessageValidator$ParameterValidator;
+.class public interface abstract Lcom/android/server/hdmi/HdmiCecMessageValidator$ParameterValidator;
 .super Ljava/lang/Object;
 .source "HdmiCecMessageValidator.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
+    accessFlags = 0x609
     name = "ParameterValidator"
 .end annotation
 

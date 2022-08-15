@@ -31,7 +31,7 @@
 
     invoke-direct {p0}, Lcom/android/server/backup/params/AdbParams;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/backup/params/AdbBackupParams;->fd:Landroid/os/ParcelFileDescriptor;
+    iput-object p1, p0, Lcom/android/server/backup/params/AdbParams;->fd:Landroid/os/ParcelFileDescriptor;
 
     iput-boolean p2, p0, Lcom/android/server/backup/params/AdbBackupParams;->includeApks:Z
 

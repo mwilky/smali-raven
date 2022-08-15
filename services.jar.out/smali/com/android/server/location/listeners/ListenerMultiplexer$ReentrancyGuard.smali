@@ -1,4 +1,4 @@
-.class final Lcom/android/server/location/listeners/ListenerMultiplexer$ReentrancyGuard;
+.class public final Lcom/android/server/location/listeners/ListenerMultiplexer$ReentrancyGuard;
 .super Ljava/lang/Object;
 .source "ListenerMultiplexer.java"
 
@@ -12,15 +12,27 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "ReentrancyGuard"
 .end annotation
 
 
 # instance fields
-.field private mGuardCount:I
+.field public mGuardCount:I
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mRegistrations"
+        }
+    .end annotation
+.end field
 
-.field private mScheduledRemovals:Landroid/util/ArraySet;
+.field public mScheduledRemovals:Landroid/util/ArraySet;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mRegistrations"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/ArraySet<",
@@ -32,11 +44,11 @@
     .end annotation
 .end field
 
-.field final synthetic this$0:Lcom/android/server/location/listeners/ListenerMultiplexer;
+.field public final synthetic this$0:Lcom/android/server/location/listeners/ListenerMultiplexer;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/location/listeners/ListenerMultiplexer;)V
+.method public constructor <init>(Lcom/android/server/location/listeners/ListenerMultiplexer;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/location/listeners/ListenerMultiplexer$ReentrancyGuard;->this$0:Lcom/android/server/location/listeners/ListenerMultiplexer;
@@ -56,7 +68,7 @@
 
 
 # virtual methods
-.method acquire()Lcom/android/server/location/listeners/ListenerMultiplexer$ReentrancyGuard;
+.method public acquire()Lcom/android/server/location/listeners/ListenerMultiplexer$ReentrancyGuard;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -78,67 +90,67 @@
 .end method
 
 .method public close()V
-    .locals 8
+    .locals 7
 
-    const/4 v0, 0x0
+    iget v0, p0, Lcom/android/server/location/listeners/ListenerMultiplexer$ReentrancyGuard;->mGuardCount:I
 
-    iget v1, p0, Lcom/android/server/location/listeners/ListenerMultiplexer$ReentrancyGuard;->mGuardCount:I
+    const/4 v1, 0x0
 
     const/4 v2, 0x1
 
-    if-lez v1, :cond_0
+    if-lez v0, :cond_0
 
-    move v1, v2
+    move v0, v2
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    move v0, v1
 
     :goto_0
-    invoke-static {v1}, Lcom/android/internal/util/Preconditions;->checkState(Z)V
+    invoke-static {v0}, Lcom/android/internal/util/Preconditions;->checkState(Z)V
 
-    iget v1, p0, Lcom/android/server/location/listeners/ListenerMultiplexer$ReentrancyGuard;->mGuardCount:I
+    iget v0, p0, Lcom/android/server/location/listeners/ListenerMultiplexer$ReentrancyGuard;->mGuardCount:I
 
-    sub-int/2addr v1, v2
+    sub-int/2addr v0, v2
 
-    iput v1, p0, Lcom/android/server/location/listeners/ListenerMultiplexer$ReentrancyGuard;->mGuardCount:I
+    iput v0, p0, Lcom/android/server/location/listeners/ListenerMultiplexer$ReentrancyGuard;->mGuardCount:I
 
-    if-nez v1, :cond_1
+    const/4 v2, 0x0
+
+    if-nez v0, :cond_1
 
     iget-object v0, p0, Lcom/android/server/location/listeners/ListenerMultiplexer$ReentrancyGuard;->mScheduledRemovals:Landroid/util/ArraySet;
 
-    const/4 v1, 0x0
+    iput-object v2, p0, Lcom/android/server/location/listeners/ListenerMultiplexer$ReentrancyGuard;->mScheduledRemovals:Landroid/util/ArraySet;
 
-    iput-object v1, p0, Lcom/android/server/location/listeners/ListenerMultiplexer$ReentrancyGuard;->mScheduledRemovals:Landroid/util/ArraySet;
+    move-object v2, v0
 
     :cond_1
-    if-nez v0, :cond_2
+    if-nez v2, :cond_2
 
     return-void
 
     :cond_2
-    iget-object v1, p0, Lcom/android/server/location/listeners/ListenerMultiplexer$ReentrancyGuard;->this$0:Lcom/android/server/location/listeners/ListenerMultiplexer;
+    iget-object v0, p0, Lcom/android/server/location/listeners/ListenerMultiplexer$ReentrancyGuard;->this$0:Lcom/android/server/location/listeners/ListenerMultiplexer;
 
-    invoke-static {v1}, Lcom/android/server/location/listeners/ListenerMultiplexer;->access$100(Lcom/android/server/location/listeners/ListenerMultiplexer;)Lcom/android/server/location/listeners/ListenerMultiplexer$UpdateServiceBuffer;
+    invoke-static {v0}, Lcom/android/server/location/listeners/ListenerMultiplexer;->-$$Nest$fgetmUpdateServiceBuffer(Lcom/android/server/location/listeners/ListenerMultiplexer;)Lcom/android/server/location/listeners/ListenerMultiplexer$UpdateServiceBuffer;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1}, Lcom/android/server/location/listeners/ListenerMultiplexer$UpdateServiceBuffer;->acquire()Lcom/android/server/location/listeners/ListenerMultiplexer$UpdateServiceBuffer;
+    invoke-virtual {v0}, Lcom/android/server/location/listeners/ListenerMultiplexer$UpdateServiceBuffer;->acquire()Lcom/android/server/location/listeners/ListenerMultiplexer$UpdateServiceBuffer;
 
-    move-result-object v1
+    move-result-object v0
 
     :try_start_0
-    invoke-virtual {v0}, Landroid/util/ArraySet;->size()I
+    invoke-virtual {v2}, Landroid/util/ArraySet;->size()I
 
-    move-result v2
-
-    const/4 v3, 0x0
+    move-result v3
 
     :goto_1
-    if-ge v3, v2, :cond_3
+    if-ge v1, v3, :cond_3
 
-    invoke-virtual {v0, v3}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {v2, v1}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
 
     move-result-object v4
 
@@ -152,50 +164,55 @@
 
     invoke-interface {v4}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v7
+    move-result-object v4
 
-    check-cast v7, Lcom/android/server/location/listeners/ListenerRegistration;
+    check-cast v4, Lcom/android/server/location/listeners/ListenerRegistration;
 
-    invoke-virtual {v5, v6, v7}, Lcom/android/server/location/listeners/ListenerMultiplexer;->removeRegistration(Ljava/lang/Object;Lcom/android/server/location/listeners/ListenerRegistration;)V
+    invoke-virtual {v5, v6, v4}, Lcom/android/server/location/listeners/ListenerMultiplexer;->removeRegistration(Ljava/lang/Object;Lcom/android/server/location/listeners/ListenerRegistration;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 
     :cond_3
-    if-eqz v1, :cond_4
+    if-eqz v0, :cond_4
 
-    invoke-virtual {v1}, Lcom/android/server/location/listeners/ListenerMultiplexer$UpdateServiceBuffer;->close()V
+    invoke-virtual {v0}, Lcom/android/server/location/listeners/ListenerMultiplexer$UpdateServiceBuffer;->close()V
 
     :cond_4
     return-void
 
     :catchall_0
-    move-exception v2
+    move-exception p0
 
-    if-eqz v1, :cond_5
+    if-eqz v0, :cond_5
 
     :try_start_1
-    invoke-virtual {v1}, Lcom/android/server/location/listeners/ListenerMultiplexer$UpdateServiceBuffer;->close()V
+    invoke-virtual {v0}, Lcom/android/server/location/listeners/ListenerMultiplexer$UpdateServiceBuffer;->close()V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     goto :goto_2
 
     :catchall_1
-    move-exception v3
+    move-exception v0
 
-    invoke-virtual {v2, v3}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
+    invoke-virtual {p0, v0}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
 
     :cond_5
     :goto_2
-    throw v2
+    throw p0
 .end method
 
-.method isReentrant()Z
+.method public isReentrant()Z
     .locals 1
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mRegistrations"
+        }
+    .end annotation
 
     sget-boolean v0, Landroid/os/Build;->IS_DEBUGGABLE:Z
 
@@ -203,7 +220,7 @@
 
     iget-object v0, p0, Lcom/android/server/location/listeners/ListenerMultiplexer$ReentrancyGuard;->this$0:Lcom/android/server/location/listeners/ListenerMultiplexer;
 
-    invoke-static {v0}, Lcom/android/server/location/listeners/ListenerMultiplexer;->access$000(Lcom/android/server/location/listeners/ListenerMultiplexer;)Landroid/util/ArrayMap;
+    invoke-static {v0}, Lcom/android/server/location/listeners/ListenerMultiplexer;->-$$Nest$fgetmRegistrations(Lcom/android/server/location/listeners/ListenerMultiplexer;)Landroid/util/ArrayMap;
 
     move-result-object v0
 
@@ -214,23 +231,29 @@
     invoke-static {v0}, Lcom/android/internal/util/Preconditions;->checkState(Z)V
 
     :cond_0
-    iget v0, p0, Lcom/android/server/location/listeners/ListenerMultiplexer$ReentrancyGuard;->mGuardCount:I
+    iget p0, p0, Lcom/android/server/location/listeners/ListenerMultiplexer$ReentrancyGuard;->mGuardCount:I
 
-    if-eqz v0, :cond_1
+    if-eqz p0, :cond_1
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_1
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
-.method markForRemoval(Ljava/lang/Object;Lcom/android/server/location/listeners/ListenerRegistration;)V
+.method public markForRemoval(Ljava/lang/Object;Lcom/android/server/location/listeners/ListenerRegistration;)V
     .locals 2
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mRegistrations"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -246,7 +269,7 @@
 
     iget-object v0, p0, Lcom/android/server/location/listeners/ListenerMultiplexer$ReentrancyGuard;->this$0:Lcom/android/server/location/listeners/ListenerMultiplexer;
 
-    invoke-static {v0}, Lcom/android/server/location/listeners/ListenerMultiplexer;->access$000(Lcom/android/server/location/listeners/ListenerMultiplexer;)Landroid/util/ArrayMap;
+    invoke-static {v0}, Lcom/android/server/location/listeners/ListenerMultiplexer;->-$$Nest$fgetmRegistrations(Lcom/android/server/location/listeners/ListenerMultiplexer;)Landroid/util/ArrayMap;
 
     move-result-object v0
 
@@ -271,7 +294,7 @@
 
     iget-object v1, p0, Lcom/android/server/location/listeners/ListenerMultiplexer$ReentrancyGuard;->this$0:Lcom/android/server/location/listeners/ListenerMultiplexer;
 
-    invoke-static {v1}, Lcom/android/server/location/listeners/ListenerMultiplexer;->access$000(Lcom/android/server/location/listeners/ListenerMultiplexer;)Landroid/util/ArrayMap;
+    invoke-static {v1}, Lcom/android/server/location/listeners/ListenerMultiplexer;->-$$Nest$fgetmRegistrations(Lcom/android/server/location/listeners/ListenerMultiplexer;)Landroid/util/ArrayMap;
 
     move-result-object v1
 
@@ -284,13 +307,13 @@
     iput-object v0, p0, Lcom/android/server/location/listeners/ListenerMultiplexer$ReentrancyGuard;->mScheduledRemovals:Landroid/util/ArraySet;
 
     :cond_1
-    iget-object v0, p0, Lcom/android/server/location/listeners/ListenerMultiplexer$ReentrancyGuard;->mScheduledRemovals:Landroid/util/ArraySet;
+    iget-object p0, p0, Lcom/android/server/location/listeners/ListenerMultiplexer$ReentrancyGuard;->mScheduledRemovals:Landroid/util/ArraySet;
 
-    new-instance v1, Ljava/util/AbstractMap$SimpleImmutableEntry;
+    new-instance v0, Ljava/util/AbstractMap$SimpleImmutableEntry;
 
-    invoke-direct {v1, p1, p2}, Ljava/util/AbstractMap$SimpleImmutableEntry;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-direct {v0, p1, p2}, Ljava/util/AbstractMap$SimpleImmutableEntry;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-virtual {v0, v1}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p0, v0}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
 
     return-void
 .end method

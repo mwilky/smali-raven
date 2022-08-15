@@ -1,4 +1,4 @@
-.class abstract Lcom/android/server/PinnerService$PinRangeSource;
+.class public abstract Lcom/android/server/PinnerService$PinRangeSource;
 .super Ljava/lang/Object;
 .source "PinnerService.java"
 
@@ -9,13 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x40a
+    accessFlags = 0x409
     name = "PinRangeSource"
 .end annotation
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -23,7 +23,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/PinnerService$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/PinnerService$PinRangeSource-IA;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/PinnerService$PinRangeSource;-><init>()V
@@ -33,5 +33,5 @@
 
 
 # virtual methods
-.method abstract read(Lcom/android/server/PinnerService$PinRange;)Z
+.method public abstract read(Lcom/android/server/PinnerService$PinRange;)Z
 .end method

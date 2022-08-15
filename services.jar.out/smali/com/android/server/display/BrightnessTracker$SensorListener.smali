@@ -1,4 +1,4 @@
-.class final Lcom/android/server/display/BrightnessTracker$SensorListener;
+.class public final Lcom/android/server/display/BrightnessTracker$SensorListener;
 .super Ljava/lang/Object;
 .source "BrightnessTracker.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "SensorListener"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/display/BrightnessTracker;
+.field public final synthetic this$0:Lcom/android/server/display/BrightnessTracker;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/server/display/BrightnessTracker;)V
+.method public constructor <init>(Lcom/android/server/display/BrightnessTracker;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/display/BrightnessTracker$SensorListener;->this$0:Lcom/android/server/display/BrightnessTracker;
@@ -32,7 +32,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/display/BrightnessTracker;Lcom/android/server/display/BrightnessTracker$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/display/BrightnessTracker;Lcom/android/server/display/BrightnessTracker$SensorListener-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/display/BrightnessTracker$SensorListener;-><init>(Lcom/android/server/display/BrightnessTracker;)V
@@ -53,11 +53,11 @@
 
     iget-object v0, p0, Lcom/android/server/display/BrightnessTracker$SensorListener;->this$0:Lcom/android/server/display/BrightnessTracker;
 
-    invoke-static {v0, p1}, Lcom/android/server/display/BrightnessTracker;->access$400(Lcom/android/server/display/BrightnessTracker;Landroid/hardware/SensorEvent;)V
+    invoke-static {v0, p1}, Lcom/android/server/display/BrightnessTracker;->-$$Nest$mrecordSensorEvent(Lcom/android/server/display/BrightnessTracker;Landroid/hardware/SensorEvent;)V
 
-    iget-object v0, p0, Lcom/android/server/display/BrightnessTracker$SensorListener;->this$0:Lcom/android/server/display/BrightnessTracker;
+    iget-object p0, p0, Lcom/android/server/display/BrightnessTracker$SensorListener;->this$0:Lcom/android/server/display/BrightnessTracker;
 
-    invoke-static {v0, p1}, Lcom/android/server/display/BrightnessTracker;->access$500(Lcom/android/server/display/BrightnessTracker;Landroid/hardware/SensorEvent;)V
+    invoke-static {p0, p1}, Lcom/android/server/display/BrightnessTracker;->-$$Nest$mrecordAmbientBrightnessStats(Lcom/android/server/display/BrightnessTracker;Landroid/hardware/SensorEvent;)V
 
     return-void
 .end method

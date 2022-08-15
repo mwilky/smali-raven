@@ -7,17 +7,15 @@
 
 
 # static fields
-.field private static final DBG:Z
-
-.field private static final TAG:Ljava/lang/String; = "ZenModeExtractor"
+.field public static final DBG:Z
 
 
 # instance fields
-.field private mZenModeHelper:Lcom/android/server/notification/ZenModeHelper;
+.field public mZenModeHelper:Lcom/android/server/notification/ZenModeHelper;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 2
 
     const-string v0, "ZenModeExtractor"
@@ -44,41 +42,41 @@
 
 # virtual methods
 .method public initialize(Landroid/content/Context;Lcom/android/server/notification/NotificationUsageStats;)V
-    .locals 2
+    .locals 0
 
-    sget-boolean v0, Lcom/android/server/notification/ZenModeExtractor;->DBG:Z
+    sget-boolean p1, Lcom/android/server/notification/ZenModeExtractor;->DBG:Z
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "Initializing  "
+    const-string p2, "Initializing  "
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v1}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "."
+    const-string p0, "."
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    const-string v1, "ZenModeExtractor"
+    const-string p1, "ZenModeExtractor"
 
-    invoke-static {v1, v0}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p1, p0}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
     return-void
@@ -106,13 +104,13 @@
 
     if-nez v2, :cond_2
 
-    sget-boolean v2, Lcom/android/server/notification/ZenModeExtractor;->DBG:Z
+    sget-boolean p0, Lcom/android/server/notification/ZenModeExtractor;->DBG:Z
 
-    if-eqz v2, :cond_1
+    if-eqz p0, :cond_1
 
-    const-string/jumbo v2, "skipping - no zen info available"
+    const-string/jumbo p0, "skipping - no zen info available"
 
-    invoke-static {v0, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, p0}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_1
     return-object v1
@@ -130,35 +128,35 @@
 
     if-eqz v0, :cond_3
 
-    iget-object v0, p0, Lcom/android/server/notification/ZenModeExtractor;->mZenModeHelper:Lcom/android/server/notification/ZenModeHelper;
+    iget-object p0, p0, Lcom/android/server/notification/ZenModeExtractor;->mZenModeHelper:Lcom/android/server/notification/ZenModeHelper;
 
-    invoke-virtual {v0}, Lcom/android/server/notification/ZenModeHelper;->getConsolidatedNotificationPolicy()Landroid/app/NotificationManager$Policy;
+    invoke-virtual {p0}, Lcom/android/server/notification/ZenModeHelper;->getConsolidatedNotificationPolicy()Landroid/app/NotificationManager$Policy;
 
-    move-result-object v0
+    move-result-object p0
 
-    iget v0, v0, Landroid/app/NotificationManager$Policy;->suppressedVisualEffects:I
+    iget p0, p0, Landroid/app/NotificationManager$Policy;->suppressedVisualEffects:I
 
-    invoke-virtual {p1, v0}, Lcom/android/server/notification/NotificationRecord;->setSuppressedVisualEffects(I)V
+    invoke-virtual {p1, p0}, Lcom/android/server/notification/NotificationRecord;->setSuppressedVisualEffects(I)V
 
     goto :goto_0
 
     :cond_3
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    invoke-virtual {p1, v0}, Lcom/android/server/notification/NotificationRecord;->setSuppressedVisualEffects(I)V
+    invoke-virtual {p1, p0}, Lcom/android/server/notification/NotificationRecord;->setSuppressedVisualEffects(I)V
 
     :goto_0
     return-object v1
 
     :cond_4
     :goto_1
-    sget-boolean v2, Lcom/android/server/notification/ZenModeExtractor;->DBG:Z
+    sget-boolean p0, Lcom/android/server/notification/ZenModeExtractor;->DBG:Z
 
-    if-eqz v2, :cond_5
+    if-eqz p0, :cond_5
 
-    const-string/jumbo v2, "skipping empty notification"
+    const-string/jumbo p0, "skipping empty notification"
 
-    invoke-static {v0, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, p0}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_5
     return-object v1

@@ -15,10 +15,6 @@
 .end annotation
 
 
-# static fields
-.field public static final DESCRIPTOR:Ljava/lang/String; = "android.gsi.IGsiServiceCallback"
-
-
 # virtual methods
 .method public abstract onResult(I)V
     .annotation system Ldalvik/annotation/Throws;

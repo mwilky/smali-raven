@@ -4,18 +4,21 @@
 
 
 # annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/android/server/display/AmbientBrightnessStatsTracker;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "Injector"
 .end annotation
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,31 +39,31 @@
 .end method
 
 .method public getLocalDate()Ljava/time/LocalDate;
-    .locals 1
+    .locals 0
 
     invoke-static {}, Ljava/time/LocalDate;->now()Ljava/time/LocalDate;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getUserId(Landroid/os/UserManager;I)I
-    .locals 1
+    .locals 0
 
     invoke-virtual {p1, p2}, Landroid/os/UserManager;->getUserHandle(I)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public getUserSerialNumber(Landroid/os/UserManager;I)I
-    .locals 1
+    .locals 0
 
     invoke-virtual {p1, p2}, Landroid/os/UserManager;->getUserSerialNumber(I)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method

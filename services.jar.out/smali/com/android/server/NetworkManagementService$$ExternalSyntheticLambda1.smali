@@ -1,21 +1,22 @@
 .class public final synthetic Lcom/android/server/NetworkManagementService$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/server/NetworkManagementService$NetworkManagementEventCallback;
 
 
 # instance fields
-.field public final synthetic f$0:Landroid/net/RouteInfo;
+.field public final synthetic f$0:Ljava/lang/String;
 
 
 # direct methods
-.method public synthetic constructor <init>(Landroid/net/RouteInfo;)V
+.method public synthetic constructor <init>(Ljava/lang/String;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/NetworkManagementService$$ExternalSyntheticLambda1;->f$0:Landroid/net/RouteInfo;
+    iput-object p1, p0, Lcom/android/server/NetworkManagementService$$ExternalSyntheticLambda1;->f$0:Ljava/lang/String;
 
     return-void
 .end method
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final sendCallback(Landroid/net/INetworkManagementEventObserver;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/NetworkManagementService$$ExternalSyntheticLambda1;->f$0:Landroid/net/RouteInfo;
+    iget-object p0, p0, Lcom/android/server/NetworkManagementService$$ExternalSyntheticLambda1;->f$0:Ljava/lang/String;
 
-    invoke-static {v0, p1}, Lcom/android/server/NetworkManagementService;->lambda$notifyRouteChange$10(Landroid/net/RouteInfo;Landroid/net/INetworkManagementEventObserver;)V
+    invoke-static {p0, p1}, Lcom/android/server/NetworkManagementService;->$r8$lambda$bXld2ArZjQy3fuf_MW9Li_nCSc4(Ljava/lang/String;Landroid/net/INetworkManagementEventObserver;)V
 
     return-void
 .end method

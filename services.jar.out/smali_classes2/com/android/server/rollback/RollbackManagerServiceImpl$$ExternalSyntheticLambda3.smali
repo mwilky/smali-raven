@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/rollback/RollbackManagerServiceImpl$$ExternalSyntheticLambda3;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/rollback/RollbackManagerServiceImpl$$ExternalSyntheticLambda3;->f$0:Lcom/android/server/rollback/RollbackManagerServiceImpl;
+    iget-object p0, p0, Lcom/android/server/rollback/RollbackManagerServiceImpl$$ExternalSyntheticLambda3;->f$0:Lcom/android/server/rollback/RollbackManagerServiceImpl;
 
-    invoke-static {v0}, Lcom/android/server/rollback/RollbackManagerServiceImpl;->$r8$lambda$cFIOO-xjw7GyHhx5uTaE0MIKJSU(Lcom/android/server/rollback/RollbackManagerServiceImpl;)V
+    invoke-static {p0}, Lcom/android/server/rollback/RollbackManagerServiceImpl;->$r8$lambda$Jeae9NigXkWmYcdHaOW6Dye9LH8(Lcom/android/server/rollback/RollbackManagerServiceImpl;)V
 
     return-void
 .end method

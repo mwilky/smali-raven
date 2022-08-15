@@ -1,4 +1,4 @@
-.class final Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy$DefaultPermissionGrant;
+.class public final Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy$DefaultPermissionGrant;
 .super Ljava/lang/Object;
 .source "DefaultPermissionGrantPolicy.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "DefaultPermissionGrant"
 .end annotation
 
 
 # instance fields
-.field final fixed:Z
+.field public final fixed:Z
 
-.field final name:Ljava/lang/String;
+.field public final name:Ljava/lang/String;
 
-.field final whitelisted:Z
+.field public final whitelisted:Z
 
 
 # direct methods

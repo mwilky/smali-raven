@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda83;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/internal/util/FunctionalUtils$ThrowingSupplier;
@@ -8,18 +9,22 @@
 # instance fields
 .field public final synthetic f$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
 
-.field public final synthetic f$1:I
+.field public final synthetic f$1:Ljava/lang/String;
+
+.field public final synthetic f$2:I
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/devicepolicy/DevicePolicyManagerService;I)V
+.method public synthetic constructor <init>(Lcom/android/server/devicepolicy/DevicePolicyManagerService;Ljava/lang/String;I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda83;->f$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
 
-    iput p2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda83;->f$1:I
+    iput-object p2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda83;->f$1:Ljava/lang/String;
+
+    iput p3, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda83;->f$2:I
 
     return-void
 .end method
@@ -31,11 +36,13 @@
 
     iget-object v0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda83;->f$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
 
-    iget v1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda83;->f$1:I
+    iget-object v1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda83;->f$1:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$setPersonalAppsSuspended$134$DevicePolicyManagerService(I)Ljava/lang/Boolean;
+    iget p0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda83;->f$2:I
 
-    move-result-object v0
+    invoke-static {v0, v1, p0}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->$r8$lambda$nnX3Yh2qC2laeVOQTJ5L87e4hH0(Lcom/android/server/devicepolicy/DevicePolicyManagerService;Ljava/lang/String;I)Ljava/lang/Boolean;
 
-    return-object v0
+    move-result-object p0
+
+    return-object p0
 .end method

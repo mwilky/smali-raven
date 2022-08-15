@@ -1,28 +1,13 @@
 .class public final synthetic Lcom/android/server/pm/ShortcutPackage$$ExternalSyntheticLambda54;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Predicate;
-
-
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/pm/ShortcutPackage$$ExternalSyntheticLambda54;
+.implements Ljava/util/Comparator;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/pm/ShortcutPackage$$ExternalSyntheticLambda54;
-
-    invoke-direct {v0}, Lcom/android/server/pm/ShortcutPackage$$ExternalSyntheticLambda54;-><init>()V
-
-    sput-object v0, Lcom/android/server/pm/ShortcutPackage$$ExternalSyntheticLambda54;->INSTANCE:Lcom/android/server/pm/ShortcutPackage$$ExternalSyntheticLambda54;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,14 +17,16 @@
 
 
 # virtual methods
-.method public final test(Ljava/lang/Object;)Z
+.method public final compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 0
 
     check-cast p1, Landroid/content/pm/ShortcutInfo;
 
-    invoke-static {p1}, Lcom/android/server/pm/ShortcutPackage;->lambda$verifyStates$34(Landroid/content/pm/ShortcutInfo;)Z
+    check-cast p2, Landroid/content/pm/ShortcutInfo;
 
-    move-result p1
+    invoke-static {p1, p2}, Lcom/android/server/pm/ShortcutPackage;->$r8$lambda$sTGc3LO7uVFKByFKgJJ8jIwgCpA(Landroid/content/pm/ShortcutInfo;Landroid/content/pm/ShortcutInfo;)I
 
-    return p1
+    move-result p0
+
+    return p0
 .end method

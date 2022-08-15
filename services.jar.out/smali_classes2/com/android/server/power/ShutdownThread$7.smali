@@ -1,4 +1,4 @@
-.class Lcom/android/server/power/ShutdownThread$7;
+.class public Lcom/android/server/power/ShutdownThread$7;
 .super Ljava/lang/Thread;
 .source "ShutdownThread.java"
 
@@ -9,21 +9,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/power/ShutdownThread;
+.field public final synthetic this$0:Lcom/android/server/power/ShutdownThread;
 
-.field final synthetic val$done:[Z
+.field public final synthetic val$done:[Z
 
-.field final synthetic val$progressListener:Landroid/os/RecoverySystem$ProgressListener;
+.field public final synthetic val$progressListener:Landroid/os/RecoverySystem$ProgressListener;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/power/ShutdownThread;Landroid/os/RecoverySystem$ProgressListener;[Z)V
+.method public constructor <init>(Lcom/android/server/power/ShutdownThread;Landroid/os/RecoverySystem$ProgressListener;[Z)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/power/ShutdownThread$7;->this$0:Lcom/android/server/power/ShutdownThread;
@@ -40,11 +40,11 @@
 
 # virtual methods
 .method public run()V
-    .locals 6
+    .locals 4
 
     iget-object v0, p0, Lcom/android/server/power/ShutdownThread$7;->this$0:Lcom/android/server/power/ShutdownThread;
 
-    invoke-static {v0}, Lcom/android/server/power/ShutdownThread;->access$300(Lcom/android/server/power/ShutdownThread;)Landroid/content/Context;
+    invoke-static {v0}, Lcom/android/server/power/ShutdownThread;->-$$Nest$fgetmContext(Lcom/android/server/power/ShutdownThread;)Landroid/content/Context;
 
     move-result-object v0
 
@@ -56,54 +56,50 @@
 
     check-cast v0, Landroid/os/RecoverySystem;
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
+
+    :try_start_0
+    sget-object v1, Landroid/os/RecoverySystem;->UNCRYPT_PACKAGE_FILE:Ljava/io/File;
 
     const/4 v2, 0x0
 
-    :try_start_0
-    sget-object v3, Landroid/os/RecoverySystem;->UNCRYPT_PACKAGE_FILE:Ljava/io/File;
+    invoke-static {v1, v0, v2}, Landroid/os/FileUtils;->readTextFile(Ljava/io/File;ILjava/lang/String;)Ljava/lang/String;
 
-    const/4 v4, 0x0
+    move-result-object v1
 
-    invoke-static {v3, v2, v4}, Landroid/os/FileUtils;->readTextFile(Ljava/io/File;ILjava/lang/String;)Ljava/lang/String;
+    iget-object v2, p0, Lcom/android/server/power/ShutdownThread$7;->this$0:Lcom/android/server/power/ShutdownThread;
 
-    move-result-object v3
+    invoke-static {v2}, Lcom/android/server/power/ShutdownThread;->-$$Nest$fgetmContext(Lcom/android/server/power/ShutdownThread;)Landroid/content/Context;
 
-    move-object v1, v3
+    move-result-object v2
 
-    iget-object v3, p0, Lcom/android/server/power/ShutdownThread$7;->this$0:Lcom/android/server/power/ShutdownThread;
+    new-instance v3, Ljava/io/File;
 
-    invoke-static {v3}, Lcom/android/server/power/ShutdownThread;->access$300(Lcom/android/server/power/ShutdownThread;)Landroid/content/Context;
+    invoke-direct {v3, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    move-result-object v3
+    iget-object v1, p0, Lcom/android/server/power/ShutdownThread$7;->val$progressListener:Landroid/os/RecoverySystem$ProgressListener;
 
-    new-instance v4, Ljava/io/File;
-
-    invoke-direct {v4, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
-
-    iget-object v5, p0, Lcom/android/server/power/ShutdownThread$7;->val$progressListener:Landroid/os/RecoverySystem$ProgressListener;
-
-    invoke-static {v3, v4, v5}, Landroid/os/RecoverySystem;->processPackage(Landroid/content/Context;Ljava/io/File;Landroid/os/RecoverySystem$ProgressListener;)V
+    invoke-static {v2, v3, v1}, Landroid/os/RecoverySystem;->processPackage(Landroid/content/Context;Ljava/io/File;Landroid/os/RecoverySystem$ProgressListener;)V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
     :catch_0
-    move-exception v3
+    move-exception v1
 
-    const-string v4, "ShutdownThread"
+    const-string v2, "ShutdownThread"
 
-    const-string v5, "Error uncrypting file"
+    const-string v3, "Error uncrypting file"
 
-    invoke-static {v4, v5, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v2, v3, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_0
-    iget-object v3, p0, Lcom/android/server/power/ShutdownThread$7;->val$done:[Z
+    iget-object p0, p0, Lcom/android/server/power/ShutdownThread$7;->val$done:[Z
 
-    const/4 v4, 0x1
+    const/4 v1, 0x1
 
-    aput-boolean v4, v3, v2
+    aput-boolean v1, p0, v0
 
     return-void
 .end method

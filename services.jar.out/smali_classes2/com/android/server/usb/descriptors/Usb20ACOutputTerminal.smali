@@ -3,18 +3,14 @@
 .source "Usb20ACOutputTerminal.java"
 
 
-# static fields
-.field private static final TAG:Ljava/lang/String; = "Usb20ACOutputTerminal"
-
-
 # instance fields
-.field private mClkSoureID:B
+.field public mClkSoureID:B
 
-.field private mControls:I
+.field public mControls:I
 
-.field private mSourceID:B
+.field public mSourceID:B
 
-.field private mTerminalID:B
+.field public mTerminalID:B
 
 
 # direct methods
@@ -29,35 +25,27 @@
 
 # virtual methods
 .method public getClkSourceID()B
-    .locals 1
+    .locals 0
 
-    iget-byte v0, p0, Lcom/android/server/usb/descriptors/Usb20ACOutputTerminal;->mClkSoureID:B
+    iget-byte p0, p0, Lcom/android/server/usb/descriptors/Usb20ACOutputTerminal;->mClkSoureID:B
 
-    return v0
+    return p0
 .end method
 
 .method public getControls()I
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/usb/descriptors/Usb20ACOutputTerminal;->mControls:I
+    iget p0, p0, Lcom/android/server/usb/descriptors/Usb20ACOutputTerminal;->mControls:I
 
-    return v0
-.end method
-
-.method public getSourceID()B
-    .locals 1
-
-    iget-byte v0, p0, Lcom/android/server/usb/descriptors/Usb20ACOutputTerminal;->mSourceID:B
-
-    return v0
+    return p0
 .end method
 
 .method public getTerminalID()B
-    .locals 1
+    .locals 0
 
-    iget-byte v0, p0, Lcom/android/server/usb/descriptors/Usb20ACOutputTerminal;->mTerminalID:B
+    iget-byte p0, p0, Lcom/android/server/usb/descriptors/Usb20ACOutputTerminal;->mTerminalID:B
 
-    return v0
+    return p0
 .end method
 
 .method public parseRawDescriptors(Lcom/android/server/usb/descriptors/ByteStream;)I
@@ -85,13 +73,13 @@
 
     invoke-virtual {p1}, Lcom/android/server/usb/descriptors/ByteStream;->getByte()B
 
-    move-result v0
+    move-result p1
 
-    iput-byte v0, p0, Lcom/android/server/usb/descriptors/Usb20ACOutputTerminal;->mTerminalID:B
+    iput-byte p1, p0, Lcom/android/server/usb/descriptors/Usb20ACOutputTerminal;->mTerminalID:B
 
-    iget v0, p0, Lcom/android/server/usb/descriptors/Usb20ACOutputTerminal;->mLength:I
+    iget p0, p0, Lcom/android/server/usb/descriptors/UsbDescriptor;->mLength:I
 
-    return v0
+    return p0
 .end method
 
 .method public report(Lcom/android/server/usb/descriptors/report/ReportCanvas;)V
@@ -155,15 +143,15 @@
 
     invoke-virtual {p0}, Lcom/android/server/usb/descriptors/Usb20ACOutputTerminal;->getTerminalID()B
 
-    move-result v1
+    move-result p0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {p1, v0}, Lcom/android/server/usb/descriptors/report/ReportCanvas;->writeListItem(Ljava/lang/String;)V
+    invoke-virtual {p1, p0}, Lcom/android/server/usb/descriptors/report/ReportCanvas;->writeListItem(Ljava/lang/String;)V
 
     invoke-virtual {p1}, Lcom/android/server/usb/descriptors/report/ReportCanvas;->closeList()V
 

@@ -1,4 +1,4 @@
-.class Lcom/android/server/alarm/AlarmManagerService$1;
+.class public Lcom/android/server/alarm/AlarmManagerService$1;
 .super Ljava/lang/Object;
 .source "AlarmManagerService.java"
 
@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
@@ -27,11 +27,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/alarm/AlarmManagerService;
+.field public final synthetic this$0:Lcom/android/server/alarm/AlarmManagerService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/alarm/AlarmManagerService;)V
+.method public constructor <init>(Lcom/android/server/alarm/AlarmManagerService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/alarm/AlarmManagerService$1;->this$0:Lcom/android/server/alarm/AlarmManagerService;
@@ -44,93 +44,70 @@
 
 # virtual methods
 .method public compare(Lcom/android/server/alarm/Alarm;Lcom/android/server/alarm/Alarm;)I
-    .locals 9
+    .locals 8
 
-    iget v0, p1, Lcom/android/server/alarm/Alarm;->flags:I
+    iget p0, p1, Lcom/android/server/alarm/Alarm;->flags:I
 
-    and-int/lit8 v0, v0, 0x10
+    and-int/lit8 p0, p0, 0x10
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    move v0, v2
+    move p0, v1
 
     goto :goto_0
 
     :cond_0
-    move v0, v1
+    move p0, v0
 
     :goto_0
-    iget v3, p2, Lcom/android/server/alarm/Alarm;->flags:I
+    iget v2, p2, Lcom/android/server/alarm/Alarm;->flags:I
 
-    and-int/lit8 v3, v3, 0x10
+    and-int/lit8 v2, v2, 0x10
 
-    if-eqz v3, :cond_1
+    if-eqz v2, :cond_1
 
-    move v3, v2
+    move v2, v1
 
     goto :goto_1
 
     :cond_1
-    move v3, v1
+    move v2, v0
 
     :goto_1
-    const/4 v4, -0x1
+    const/4 v3, -0x1
 
-    if-eq v0, v3, :cond_3
+    if-eq p0, v2, :cond_3
 
-    if-eqz v0, :cond_2
+    if-eqz p0, :cond_2
 
-    move v2, v4
+    move v1, v3
 
     :cond_2
-    return v2
+    return v1
 
     :cond_3
-    iget-object v5, p1, Lcom/android/server/alarm/Alarm;->priorityClass:Lcom/android/server/alarm/AlarmManagerService$PriorityClass;
+    iget-object p0, p1, Lcom/android/server/alarm/Alarm;->priorityClass:Lcom/android/server/alarm/AlarmManagerService$PriorityClass;
 
-    iget v5, v5, Lcom/android/server/alarm/AlarmManagerService$PriorityClass;->priority:I
+    iget p0, p0, Lcom/android/server/alarm/AlarmManagerService$PriorityClass;->priority:I
 
-    iget-object v6, p2, Lcom/android/server/alarm/Alarm;->priorityClass:Lcom/android/server/alarm/AlarmManagerService$PriorityClass;
+    iget-object v2, p2, Lcom/android/server/alarm/Alarm;->priorityClass:Lcom/android/server/alarm/AlarmManagerService$PriorityClass;
 
-    iget v6, v6, Lcom/android/server/alarm/AlarmManagerService$PriorityClass;->priority:I
+    iget v2, v2, Lcom/android/server/alarm/AlarmManagerService$PriorityClass;->priority:I
 
-    if-ge v5, v6, :cond_4
+    if-ge p0, v2, :cond_4
 
-    return v4
+    return v3
 
     :cond_4
-    iget-object v5, p1, Lcom/android/server/alarm/Alarm;->priorityClass:Lcom/android/server/alarm/AlarmManagerService$PriorityClass;
+    if-le p0, v2, :cond_5
 
-    iget v5, v5, Lcom/android/server/alarm/AlarmManagerService$PriorityClass;->priority:I
-
-    iget-object v6, p2, Lcom/android/server/alarm/Alarm;->priorityClass:Lcom/android/server/alarm/AlarmManagerService$PriorityClass;
-
-    iget v6, v6, Lcom/android/server/alarm/AlarmManagerService$PriorityClass;->priority:I
-
-    if-le v5, v6, :cond_5
-
-    return v2
+    return v1
 
     :cond_5
-    invoke-virtual {p1}, Lcom/android/server/alarm/Alarm;->getRequestedElapsed()J
-
-    move-result-wide v5
-
-    invoke-virtual {p2}, Lcom/android/server/alarm/Alarm;->getRequestedElapsed()J
-
-    move-result-wide v7
-
-    cmp-long v5, v5, v7
-
-    if-gez v5, :cond_6
-
-    return v4
-
-    :cond_6
     invoke-virtual {p1}, Lcom/android/server/alarm/Alarm;->getRequestedElapsed()J
 
     move-result-wide v4
@@ -139,14 +116,29 @@
 
     move-result-wide v6
 
-    cmp-long v4, v4, v6
+    cmp-long p0, v4, v6
 
-    if-lez v4, :cond_7
+    if-gez p0, :cond_6
 
-    return v2
+    return v3
+
+    :cond_6
+    invoke-virtual {p1}, Lcom/android/server/alarm/Alarm;->getRequestedElapsed()J
+
+    move-result-wide p0
+
+    invoke-virtual {p2}, Lcom/android/server/alarm/Alarm;->getRequestedElapsed()J
+
+    move-result-wide v2
+
+    cmp-long p0, p0, v2
+
+    if-lez p0, :cond_7
+
+    return v1
 
     :cond_7
-    return v1
+    return v0
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
@@ -158,7 +150,7 @@
 
     invoke-virtual {p0, p1, p2}, Lcom/android/server/alarm/AlarmManagerService$1;->compare(Lcom/android/server/alarm/Alarm;Lcom/android/server/alarm/Alarm;)I
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method

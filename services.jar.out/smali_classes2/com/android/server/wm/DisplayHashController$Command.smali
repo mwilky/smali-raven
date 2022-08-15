@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/server/wm/DisplayHashController$Command;
+.class public interface abstract Lcom/android/server/wm/DisplayHashController$Command;
 .super Ljava/lang/Object;
 .source "DisplayHashController.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x60a
+    accessFlags = 0x609
     name = "Command"
 .end annotation
 

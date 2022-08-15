@@ -3,12 +3,8 @@
 .source "UsbMSMidiInputJack.java"
 
 
-# static fields
-.field private static final TAG:Ljava/lang/String; = "UsbMSMidiInputJack"
-
-
 # direct methods
-.method constructor <init>(IBBI)V
+.method public constructor <init>(IBBI)V
     .locals 0
 
     invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/server/usb/descriptors/UsbACInterface;-><init>(IBBI)V
@@ -21,7 +17,7 @@
 .method public parseRawDescriptors(Lcom/android/server/usb/descriptors/ByteStream;)I
     .locals 2
 
-    iget v0, p0, Lcom/android/server/usb/descriptors/UsbMSMidiInputJack;->mLength:I
+    iget v0, p0, Lcom/android/server/usb/descriptors/UsbDescriptor;->mLength:I
 
     invoke-virtual {p1}, Lcom/android/server/usb/descriptors/ByteStream;->getReadCount()I
 
@@ -31,9 +27,9 @@
 
     invoke-virtual {p1, v0}, Lcom/android/server/usb/descriptors/ByteStream;->advance(I)V
 
-    iget v0, p0, Lcom/android/server/usb/descriptors/UsbMSMidiInputJack;->mLength:I
+    iget p0, p0, Lcom/android/server/usb/descriptors/UsbDescriptor;->mLength:I
 
-    return v0
+    return p0
 .end method
 
 .method public report(Lcom/android/server/usb/descriptors/report/ReportCanvas;)V
@@ -49,7 +45,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Lcom/android/server/usb/descriptors/UsbMSMidiInputJack;->getType()B
+    invoke-virtual {p0}, Lcom/android/server/usb/descriptors/UsbDescriptor;->getType()B
 
     move-result v1
 
@@ -63,7 +59,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Lcom/android/server/usb/descriptors/UsbMSMidiInputJack;->getSubclass()I
+    invoke-virtual {p0}, Lcom/android/server/usb/descriptors/UsbACInterface;->getSubclass()I
 
     move-result v1
 
@@ -77,19 +73,19 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Lcom/android/server/usb/descriptors/UsbMSMidiInputJack;->getLength()I
+    invoke-virtual {p0}, Lcom/android/server/usb/descriptors/UsbDescriptor;->getLength()I
 
-    move-result v1
+    move-result p0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    const/4 v1, 0x3
+    const/4 v0, 0x3
 
-    invoke-virtual {p1, v1, v0}, Lcom/android/server/usb/descriptors/report/ReportCanvas;->writeHeader(ILjava/lang/String;)V
+    invoke-virtual {p1, v0, p0}, Lcom/android/server/usb/descriptors/report/ReportCanvas;->writeHeader(ILjava/lang/String;)V
 
     return-void
 .end method

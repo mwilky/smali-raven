@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/wm/DisplayAreaOrganizerController$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -35,7 +36,7 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 4
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/wm/DisplayAreaOrganizerController$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/wm/DisplayAreaOrganizerController;
 
@@ -43,11 +44,11 @@
 
     iget-object v2, p0, Lcom/android/server/wm/DisplayAreaOrganizerController$$ExternalSyntheticLambda0;->f$2:Ljava/util/List;
 
-    iget-object v3, p0, Lcom/android/server/wm/DisplayAreaOrganizerController$$ExternalSyntheticLambda0;->f$3:Landroid/window/IDisplayAreaOrganizer;
+    iget-object p0, p0, Lcom/android/server/wm/DisplayAreaOrganizerController$$ExternalSyntheticLambda0;->f$3:Landroid/window/IDisplayAreaOrganizer;
 
-    check-cast p1, Lcom/android/server/wm/DisplayArea;
+    check-cast p1, Lcom/android/server/wm/DisplayContent;
 
-    invoke-virtual {v0, v1, v2, v3, p1}, Lcom/android/server/wm/DisplayAreaOrganizerController;->lambda$registerOrganizer$0$DisplayAreaOrganizerController(ILjava/util/List;Landroid/window/IDisplayAreaOrganizer;Lcom/android/server/wm/DisplayArea;)V
+    invoke-static {v0, v1, v2, p0, p1}, Lcom/android/server/wm/DisplayAreaOrganizerController;->$r8$lambda$iuW9rgPMJg2iQeV7ZnA6uq27t-s(Lcom/android/server/wm/DisplayAreaOrganizerController;ILjava/util/List;Landroid/window/IDisplayAreaOrganizer;Lcom/android/server/wm/DisplayContent;)V
 
     return-void
 .end method

@@ -16,9 +16,6 @@
 .method public abstract getCpuTime()J
 .end method
 
-.method public abstract isCached()Z
-.end method
-
 .method public abstract isRemoved()Z
 .end method
 

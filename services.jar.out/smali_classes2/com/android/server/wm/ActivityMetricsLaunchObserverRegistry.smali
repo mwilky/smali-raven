@@ -6,6 +6,3 @@
 # virtual methods
 .method public abstract registerLaunchObserver(Lcom/android/server/wm/ActivityMetricsLaunchObserver;)V
 .end method
-
-.method public abstract unregisterLaunchObserver(Lcom/android/server/wm/ActivityMetricsLaunchObserver;)V
-.end method

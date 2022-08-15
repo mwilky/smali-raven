@@ -1,4 +1,4 @@
-.class final Lcom/android/server/tv/TvInputManagerService$ServiceState;
+.class public final Lcom/android/server/tv/TvInputManagerService$ServiceState;
 .super Ljava/lang/Object;
 .source "TvInputManagerService.java"
 
@@ -9,21 +9,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "ServiceState"
 .end annotation
 
 
 # instance fields
-.field private bound:Z
+.field public bound:Z
 
-.field private callback:Lcom/android/server/tv/TvInputManagerService$ServiceCallback;
+.field public callback:Lcom/android/server/tv/TvInputManagerService$ServiceCallback;
 
-.field private final component:Landroid/content/ComponentName;
+.field public final component:Landroid/content/ComponentName;
 
-.field private final connection:Landroid/content/ServiceConnection;
+.field public final connection:Landroid/content/ServiceConnection;
 
-.field private final hardwareInputMap:Ljava/util/Map;
+.field public final hardwareInputMap:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Map<",
@@ -34,13 +34,13 @@
     .end annotation
 .end field
 
-.field private final isHardware:Z
+.field public final isHardware:Z
 
-.field private reconnecting:Z
+.field public reconnecting:Z
 
-.field private service:Landroid/media/tv/ITvInputService;
+.field public service:Landroid/media/tv/ITvInputService;
 
-.field private final sessionTokens:Ljava/util/List;
+.field public final sessionTokens:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -50,11 +50,115 @@
     .end annotation
 .end field
 
-.field final synthetic this$0:Lcom/android/server/tv/TvInputManagerService;
+.field public final synthetic this$0:Lcom/android/server/tv/TvInputManagerService;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/server/tv/TvInputManagerService;Landroid/content/ComponentName;I)V
+.method public static bridge synthetic -$$Nest$fgetbound(Lcom/android/server/tv/TvInputManagerService$ServiceState;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/server/tv/TvInputManagerService$ServiceState;->bound:Z
+
+    return p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetcallback(Lcom/android/server/tv/TvInputManagerService$ServiceState;)Lcom/android/server/tv/TvInputManagerService$ServiceCallback;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/tv/TvInputManagerService$ServiceState;->callback:Lcom/android/server/tv/TvInputManagerService$ServiceCallback;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetcomponent(Lcom/android/server/tv/TvInputManagerService$ServiceState;)Landroid/content/ComponentName;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/tv/TvInputManagerService$ServiceState;->component:Landroid/content/ComponentName;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetconnection(Lcom/android/server/tv/TvInputManagerService$ServiceState;)Landroid/content/ServiceConnection;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/tv/TvInputManagerService$ServiceState;->connection:Landroid/content/ServiceConnection;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgethardwareInputMap(Lcom/android/server/tv/TvInputManagerService$ServiceState;)Ljava/util/Map;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/tv/TvInputManagerService$ServiceState;->hardwareInputMap:Ljava/util/Map;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetisHardware(Lcom/android/server/tv/TvInputManagerService$ServiceState;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/server/tv/TvInputManagerService$ServiceState;->isHardware:Z
+
+    return p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetreconnecting(Lcom/android/server/tv/TvInputManagerService$ServiceState;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/server/tv/TvInputManagerService$ServiceState;->reconnecting:Z
+
+    return p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetservice(Lcom/android/server/tv/TvInputManagerService$ServiceState;)Landroid/media/tv/ITvInputService;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/tv/TvInputManagerService$ServiceState;->service:Landroid/media/tv/ITvInputService;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetsessionTokens(Lcom/android/server/tv/TvInputManagerService$ServiceState;)Ljava/util/List;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/tv/TvInputManagerService$ServiceState;->sessionTokens:Ljava/util/List;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fputbound(Lcom/android/server/tv/TvInputManagerService$ServiceState;Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/server/tv/TvInputManagerService$ServiceState;->bound:Z
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$fputcallback(Lcom/android/server/tv/TvInputManagerService$ServiceState;Lcom/android/server/tv/TvInputManagerService$ServiceCallback;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/server/tv/TvInputManagerService$ServiceState;->callback:Lcom/android/server/tv/TvInputManagerService$ServiceCallback;
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$fputreconnecting(Lcom/android/server/tv/TvInputManagerService$ServiceState;Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/server/tv/TvInputManagerService$ServiceState;->reconnecting:Z
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$fputservice(Lcom/android/server/tv/TvInputManagerService$ServiceState;Landroid/media/tv/ITvInputService;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/server/tv/TvInputManagerService$ServiceState;->service:Landroid/media/tv/ITvInputService;
+
+    return-void
+.end method
+
+.method public constructor <init>(Lcom/android/server/tv/TvInputManagerService;Landroid/content/ComponentName;I)V
     .locals 2
 
     iput-object p1, p0, Lcom/android/server/tv/TvInputManagerService$ServiceState;->this$0:Lcom/android/server/tv/TvInputManagerService;
@@ -79,11 +183,11 @@
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, p1, p2, p3, v1}, Lcom/android/server/tv/TvInputManagerService$InputServiceConnection;-><init>(Lcom/android/server/tv/TvInputManagerService;Landroid/content/ComponentName;ILcom/android/server/tv/TvInputManagerService$1;)V
+    invoke-direct {v0, p1, p2, p3, v1}, Lcom/android/server/tv/TvInputManagerService$InputServiceConnection;-><init>(Lcom/android/server/tv/TvInputManagerService;Landroid/content/ComponentName;ILcom/android/server/tv/TvInputManagerService$InputServiceConnection-IA;)V
 
     iput-object v0, p0, Lcom/android/server/tv/TvInputManagerService$ServiceState;->connection:Landroid/content/ServiceConnection;
 
-    invoke-static {p1}, Lcom/android/server/tv/TvInputManagerService;->access$5300(Lcom/android/server/tv/TvInputManagerService;)Landroid/content/Context;
+    invoke-static {p1}, Lcom/android/server/tv/TvInputManagerService;->-$$Nest$fgetmContext(Lcom/android/server/tv/TvInputManagerService;)Landroid/content/Context;
 
     move-result-object p1
 
@@ -91,7 +195,7 @@
 
     move-result-object p1
 
-    invoke-static {p1, p2}, Lcom/android/server/tv/TvInputManagerService;->access$8600(Landroid/content/pm/PackageManager;Landroid/content/ComponentName;)Z
+    invoke-static {p1, p2}, Lcom/android/server/tv/TvInputManagerService;->-$$Nest$smhasHardwarePermission(Landroid/content/pm/PackageManager;Landroid/content/ComponentName;)Z
 
     move-result p1
 
@@ -100,114 +204,10 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/tv/TvInputManagerService;Landroid/content/ComponentName;ILcom/android/server/tv/TvInputManagerService$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/tv/TvInputManagerService;Landroid/content/ComponentName;ILcom/android/server/tv/TvInputManagerService$ServiceState-IA;)V
     .locals 0
 
     invoke-direct {p0, p1, p2, p3}, Lcom/android/server/tv/TvInputManagerService$ServiceState;-><init>(Lcom/android/server/tv/TvInputManagerService;Landroid/content/ComponentName;I)V
 
     return-void
-.end method
-
-.method static synthetic access$1400(Lcom/android/server/tv/TvInputManagerService$ServiceState;)Ljava/util/Map;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/tv/TvInputManagerService$ServiceState;->hardwareInputMap:Ljava/util/Map;
-
-    return-object v0
-.end method
-
-.method static synthetic access$2600(Lcom/android/server/tv/TvInputManagerService$ServiceState;)Ljava/util/List;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/tv/TvInputManagerService$ServiceState;->sessionTokens:Ljava/util/List;
-
-    return-object v0
-.end method
-
-.method static synthetic access$2700(Lcom/android/server/tv/TvInputManagerService$ServiceState;)Lcom/android/server/tv/TvInputManagerService$ServiceCallback;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/tv/TvInputManagerService$ServiceState;->callback:Lcom/android/server/tv/TvInputManagerService$ServiceCallback;
-
-    return-object v0
-.end method
-
-.method static synthetic access$2702(Lcom/android/server/tv/TvInputManagerService$ServiceState;Lcom/android/server/tv/TvInputManagerService$ServiceCallback;)Lcom/android/server/tv/TvInputManagerService$ServiceCallback;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/server/tv/TvInputManagerService$ServiceState;->callback:Lcom/android/server/tv/TvInputManagerService$ServiceCallback;
-
-    return-object p1
-.end method
-
-.method static synthetic access$2800(Lcom/android/server/tv/TvInputManagerService$ServiceState;)Landroid/media/tv/ITvInputService;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/tv/TvInputManagerService$ServiceState;->service:Landroid/media/tv/ITvInputService;
-
-    return-object v0
-.end method
-
-.method static synthetic access$2802(Lcom/android/server/tv/TvInputManagerService$ServiceState;Landroid/media/tv/ITvInputService;)Landroid/media/tv/ITvInputService;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/server/tv/TvInputManagerService$ServiceState;->service:Landroid/media/tv/ITvInputService;
-
-    return-object p1
-.end method
-
-.method static synthetic access$2900(Lcom/android/server/tv/TvInputManagerService$ServiceState;)Landroid/content/ServiceConnection;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/tv/TvInputManagerService$ServiceState;->connection:Landroid/content/ServiceConnection;
-
-    return-object v0
-.end method
-
-.method static synthetic access$4000(Lcom/android/server/tv/TvInputManagerService$ServiceState;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/server/tv/TvInputManagerService$ServiceState;->reconnecting:Z
-
-    return v0
-.end method
-
-.method static synthetic access$4002(Lcom/android/server/tv/TvInputManagerService$ServiceState;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/server/tv/TvInputManagerService$ServiceState;->reconnecting:Z
-
-    return p1
-.end method
-
-.method static synthetic access$4100(Lcom/android/server/tv/TvInputManagerService$ServiceState;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/server/tv/TvInputManagerService$ServiceState;->isHardware:Z
-
-    return v0
-.end method
-
-.method static synthetic access$4200(Lcom/android/server/tv/TvInputManagerService$ServiceState;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/server/tv/TvInputManagerService$ServiceState;->bound:Z
-
-    return v0
-.end method
-
-.method static synthetic access$4202(Lcom/android/server/tv/TvInputManagerService$ServiceState;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/server/tv/TvInputManagerService$ServiceState;->bound:Z
-
-    return p1
-.end method
-
-.method static synthetic access$4400(Lcom/android/server/tv/TvInputManagerService$ServiceState;)Landroid/content/ComponentName;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/tv/TvInputManagerService$ServiceState;->component:Landroid/content/ComponentName;
-
-    return-object v0
 .end method

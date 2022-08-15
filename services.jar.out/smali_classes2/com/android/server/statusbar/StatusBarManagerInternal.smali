@@ -58,7 +58,7 @@
 .method public abstract preloadRecentApps()V
 .end method
 
-.method public abstract requestWindowMagnificationConnection(Z)V
+.method public abstract requestWindowMagnificationConnection(Z)Z
 .end method
 
 .method public abstract setCurrentUser(I)V
@@ -100,7 +100,7 @@
 .method public abstract showShutdownUi(ZLjava/lang/String;)Z
 .end method
 
-.method public abstract showToast(ILjava/lang/String;Landroid/os/IBinder;Ljava/lang/CharSequence;Landroid/os/IBinder;ILandroid/app/ITransientNotificationCallback;)V
+.method public abstract showToast(ILjava/lang/String;Landroid/os/IBinder;Ljava/lang/CharSequence;Landroid/os/IBinder;ILandroid/app/ITransientNotificationCallback;I)V
 .end method
 
 .method public abstract showTransient(I[IZ)V
@@ -113,7 +113,4 @@
 .end method
 
 .method public abstract toggleRecentApps()V
-.end method
-
-.method public abstract toggleSplitScreen()V
 .end method

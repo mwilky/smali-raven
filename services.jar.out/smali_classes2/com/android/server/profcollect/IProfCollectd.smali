@@ -15,27 +15,7 @@
 .end annotation
 
 
-# static fields
-.field public static final DESCRIPTOR:Ljava/lang/String; = "com.android.server.profcollect.IProfCollectd"
-
-
 # virtual methods
-.method public abstract copy_report_to_bb(ILjava/lang/String;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract delete_report(Ljava/lang/String;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract get_supported_provider()Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -44,7 +24,15 @@
     .end annotation
 .end method
 
-.method public abstract process(Z)V
+.method public abstract process()V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract registerProviderStatusCallback(Lcom/android/server/profcollect/IProviderStatusCallback;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

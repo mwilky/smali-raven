@@ -1,4 +1,4 @@
-.class Lcom/android/server/am/ActivityManagerService$15;
+.class public Lcom/android/server/am/ActivityManagerService$15;
 .super Ljava/lang/Object;
 .source "ActivityManagerService.java"
 
@@ -12,27 +12,27 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/am/ActivityManagerService;
+.field public final synthetic this$0:Lcom/android/server/am/ActivityManagerService;
 
-.field final synthetic val$app:Landroid/os/IBinder;
+.field public final synthetic val$app:Landroid/os/IBinder;
 
-.field final synthetic val$callingPid:I
+.field public final synthetic val$callingPid:I
 
-.field final synthetic val$callingUid:I
+.field public final synthetic val$callingUid:I
 
-.field final synthetic val$crashInfo:Landroid/app/ApplicationErrorReport$ParcelableCrashInfo;
+.field public final synthetic val$crashInfo:Landroid/app/ApplicationErrorReport$ParcelableCrashInfo;
 
-.field final synthetic val$tag:Ljava/lang/String;
+.field public final synthetic val$tag:Ljava/lang/String;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/ActivityManagerService;IILandroid/os/IBinder;Ljava/lang/String;Landroid/app/ApplicationErrorReport$ParcelableCrashInfo;)V
+.method public constructor <init>(Lcom/android/server/am/ActivityManagerService;IILandroid/os/IBinder;Ljava/lang/String;Landroid/app/ApplicationErrorReport$ParcelableCrashInfo;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/am/ActivityManagerService$15;->this$0:Lcom/android/server/am/ActivityManagerService;

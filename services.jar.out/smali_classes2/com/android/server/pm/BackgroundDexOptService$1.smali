@@ -1,28 +1,28 @@
-.class Lcom/android/server/pm/BackgroundDexOptService$1;
+.class public Lcom/android/server/pm/BackgroundDexOptService$1;
 .super Landroid/content/BroadcastReceiver;
 .source "BackgroundDexOptService.java"
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/pm/BackgroundDexOptService;->schedule(Landroid/content/Context;)V
+    value = Lcom/android/server/pm/BackgroundDexOptService;->systemReady()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic val$js:Landroid/app/job/JobScheduler;
+.field public final synthetic this$0:Lcom/android/server/pm/BackgroundDexOptService;
 
 
 # direct methods
-.method constructor <init>(Landroid/app/job/JobScheduler;)V
+.method public constructor <init>(Lcom/android/server/pm/BackgroundDexOptService;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/android/server/pm/BackgroundDexOptService$1;->val$js:Landroid/app/job/JobScheduler;
+    iput-object p1, p0, Lcom/android/server/pm/BackgroundDexOptService$1;->this$0:Lcom/android/server/pm/BackgroundDexOptService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
@@ -32,63 +32,43 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 5
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/pm/BackgroundDexOptService$1;->val$js:Landroid/app/job/JobScheduler;
+    iget-object p1, p0, Lcom/android/server/pm/BackgroundDexOptService$1;->this$0:Lcom/android/server/pm/BackgroundDexOptService;
 
-    new-instance v1, Landroid/app/job/JobInfo$Builder;
+    invoke-static {p1}, Lcom/android/server/pm/BackgroundDexOptService;->-$$Nest$fgetmInjector(Lcom/android/server/pm/BackgroundDexOptService;)Lcom/android/server/pm/BackgroundDexOptService$Injector;
 
-    invoke-static {}, Lcom/android/server/pm/BackgroundDexOptService;->access$000()Landroid/content/ComponentName;
+    move-result-object p1
 
-    move-result-object v2
+    invoke-virtual {p1}, Lcom/android/server/pm/BackgroundDexOptService$Injector;->getContext()Landroid/content/Context;
 
-    const/16 v3, 0x321
-
-    invoke-direct {v1, v3, v2}, Landroid/app/job/JobInfo$Builder;-><init>(ILandroid/content/ComponentName;)V
-
-    sget-object v2, Ljava/util/concurrent/TimeUnit;->MINUTES:Ljava/util/concurrent/TimeUnit;
-
-    const-wide/16 v3, 0xa
-
-    invoke-virtual {v2, v3, v4}, Ljava/util/concurrent/TimeUnit;->toMillis(J)J
-
-    move-result-wide v2
-
-    invoke-virtual {v1, v2, v3}, Landroid/app/job/JobInfo$Builder;->setMinimumLatency(J)Landroid/app/job/JobInfo$Builder;
-
-    move-result-object v1
-
-    sget-object v2, Ljava/util/concurrent/TimeUnit;->MINUTES:Ljava/util/concurrent/TimeUnit;
-
-    const-wide/16 v3, 0x3c
-
-    invoke-virtual {v2, v3, v4}, Ljava/util/concurrent/TimeUnit;->toMillis(J)J
-
-    move-result-wide v2
-
-    invoke-virtual {v1, v2, v3}, Landroid/app/job/JobInfo$Builder;->setOverrideDeadline(J)Landroid/app/job/JobInfo$Builder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/app/job/JobInfo$Builder;->build()Landroid/app/job/JobInfo;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/app/job/JobScheduler;->schedule(Landroid/app/job/JobInfo;)I
+    move-result-object p1
 
     invoke-virtual {p1, p0}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    invoke-static {}, Lcom/android/server/pm/BackgroundDexOptService;->access$100()Z
+    iget-object p1, p0, Lcom/android/server/pm/BackgroundDexOptService$1;->this$0:Lcom/android/server/pm/BackgroundDexOptService;
 
-    move-result v0
+    const/16 p2, 0x321
 
-    if-eqz v0, :cond_0
+    invoke-static {p1, p2}, Lcom/android/server/pm/BackgroundDexOptService;->-$$Nest$mscheduleAJob(Lcom/android/server/pm/BackgroundDexOptService;I)V
 
-    const-string v0, "BackgroundDexOptService"
+    iget-object p0, p0, Lcom/android/server/pm/BackgroundDexOptService$1;->this$0:Lcom/android/server/pm/BackgroundDexOptService;
 
-    const-string v1, "BootBgDexopt scheduled"
+    const/16 p1, 0x320
 
-    invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, p1}, Lcom/android/server/pm/BackgroundDexOptService;->-$$Nest$mscheduleAJob(Lcom/android/server/pm/BackgroundDexOptService;I)V
+
+    invoke-static {}, Lcom/android/server/pm/BackgroundDexOptService;->-$$Nest$sfgetDEBUG()Z
+
+    move-result p0
+
+    if-eqz p0, :cond_0
+
+    const-string p0, "BackgroundDexOptService"
+
+    const-string p1, "BootBgDexopt scheduled"
+
+    invoke-static {p0, p1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
     return-void

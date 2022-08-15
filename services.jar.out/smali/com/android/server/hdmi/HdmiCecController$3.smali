@@ -1,4 +1,4 @@
-.class Lcom/android/server/hdmi/HdmiCecController$3;
+.class public Lcom/android/server/hdmi/HdmiCecController$3;
 .super Ljava/lang/Object;
 .source "HdmiCecController.java"
 
@@ -12,23 +12,23 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/hdmi/HdmiCecController;
+.field public final synthetic this$0:Lcom/android/server/hdmi/HdmiCecController;
 
-.field final synthetic val$callback:Lcom/android/server/hdmi/HdmiCecController$AllocateAddressCallback;
+.field public final synthetic val$callback:Lcom/android/server/hdmi/HdmiCecController$AllocateAddressCallback;
 
-.field final synthetic val$deviceType:I
+.field public final synthetic val$deviceType:I
 
-.field final synthetic val$preferredAddress:I
+.field public final synthetic val$preferredAddress:I
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/hdmi/HdmiCecController;IILcom/android/server/hdmi/HdmiCecController$AllocateAddressCallback;)V
+.method public constructor <init>(Lcom/android/server/hdmi/HdmiCecController;IILcom/android/server/hdmi/HdmiCecController$AllocateAddressCallback;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/hdmi/HdmiCecController$3;->this$0:Lcom/android/server/hdmi/HdmiCecController;
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecController$3;->this$0:Lcom/android/server/hdmi/HdmiCecController;
 
@@ -55,9 +55,9 @@
 
     iget v2, p0, Lcom/android/server/hdmi/HdmiCecController$3;->val$preferredAddress:I
 
-    iget-object v3, p0, Lcom/android/server/hdmi/HdmiCecController$3;->val$callback:Lcom/android/server/hdmi/HdmiCecController$AllocateAddressCallback;
+    iget-object p0, p0, Lcom/android/server/hdmi/HdmiCecController$3;->val$callback:Lcom/android/server/hdmi/HdmiCecController$AllocateAddressCallback;
 
-    invoke-static {v0, v1, v2, v3}, Lcom/android/server/hdmi/HdmiCecController;->access$300(Lcom/android/server/hdmi/HdmiCecController;IILcom/android/server/hdmi/HdmiCecController$AllocateAddressCallback;)V
+    invoke-static {v0, v1, v2, p0}, Lcom/android/server/hdmi/HdmiCecController;->-$$Nest$mhandleAllocateLogicalAddress(Lcom/android/server/hdmi/HdmiCecController;IILcom/android/server/hdmi/HdmiCecController$AllocateAddressCallback;)V
 
     return-void
 .end method

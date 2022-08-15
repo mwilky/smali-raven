@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/people/data/AbstractProtoDiskReadWriter$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/io/FileFilter;
@@ -23,13 +24,13 @@
 
 # virtual methods
 .method public final accept(Ljava/io/File;)Z
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/people/data/AbstractProtoDiskReadWriter$$ExternalSyntheticLambda0;->f$0:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/people/data/AbstractProtoDiskReadWriter$$ExternalSyntheticLambda0;->f$0:Ljava/lang/String;
 
-    invoke-static {v0, p1}, Lcom/android/server/people/data/AbstractProtoDiskReadWriter;->lambda$read$0(Ljava/lang/String;Ljava/io/File;)Z
+    invoke-static {p0, p1}, Lcom/android/server/people/data/AbstractProtoDiskReadWriter;->$r8$lambda$xO0W3CCwasK1I_FEyFVkvRPrN_c(Ljava/lang/String;Ljava/io/File;)Z
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method

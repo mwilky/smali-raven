@@ -1,4 +1,4 @@
-.class Lcom/android/server/pm/PackageManagerService$1;
+.class public Lcom/android/server/pm/PackageManagerService$1;
 .super Lcom/android/server/utils/Watcher;
 .source "PackageManagerService.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/pm/PackageManagerService;
+.field public final synthetic this$0:Lcom/android/server/pm/PackageManagerService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/pm/PackageManagerService;)V
+.method public constructor <init>(Lcom/android/server/pm/PackageManagerService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/pm/PackageManagerService$1;->this$0:Lcom/android/server/pm/PackageManagerService;

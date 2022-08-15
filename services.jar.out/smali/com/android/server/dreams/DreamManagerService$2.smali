@@ -1,49 +1,70 @@
-.class Lcom/android/server/dreams/DreamManagerService$2;
-.super Ljava/lang/Object;
+.class public Lcom/android/server/dreams/DreamManagerService$2;
+.super Landroid/content/BroadcastReceiver;
 .source "DreamManagerService.java"
-
-# interfaces
-.implements Lcom/android/internal/util/DumpUtils$Dump;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/dreams/DreamManagerService;->dumpInternal(Ljava/io/PrintWriter;)V
+    value = Lcom/android/server/dreams/DreamManagerService;->onBootPhase(I)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/dreams/DreamManagerService;
+.field public final synthetic this$0:Lcom/android/server/dreams/DreamManagerService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/dreams/DreamManagerService;)V
+.method public constructor <init>(Lcom/android/server/dreams/DreamManagerService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/dreams/DreamManagerService$2;->this$0:Lcom/android/server/dreams/DreamManagerService;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
+.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 1
 
-    iget-object v0, p0, Lcom/android/server/dreams/DreamManagerService$2;->this$0:Lcom/android/server/dreams/DreamManagerService;
+    iget-object p1, p0, Lcom/android/server/dreams/DreamManagerService$2;->this$0:Lcom/android/server/dreams/DreamManagerService;
 
-    invoke-static {v0}, Lcom/android/server/dreams/DreamManagerService;->access$500(Lcom/android/server/dreams/DreamManagerService;)Lcom/android/server/dreams/DreamController;
+    invoke-static {p1}, Lcom/android/server/dreams/DreamManagerService;->-$$Nest$mwritePulseGestureEnabled(Lcom/android/server/dreams/DreamManagerService;)V
 
-    move-result-object v0
+    iget-object p1, p0, Lcom/android/server/dreams/DreamManagerService$2;->this$0:Lcom/android/server/dreams/DreamManagerService;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/dreams/DreamController;->dump(Ljava/io/PrintWriter;)V
+    invoke-static {p1}, Lcom/android/server/dreams/DreamManagerService;->-$$Nest$fgetmLock(Lcom/android/server/dreams/DreamManagerService;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    monitor-enter p1
+
+    :try_start_0
+    iget-object p0, p0, Lcom/android/server/dreams/DreamManagerService$2;->this$0:Lcom/android/server/dreams/DreamManagerService;
+
+    const/4 p2, 0x0
+
+    const-string/jumbo v0, "user switched"
+
+    invoke-static {p0, p2, v0}, Lcom/android/server/dreams/DreamManagerService;->-$$Nest$mstopDreamLocked(Lcom/android/server/dreams/DreamManagerService;ZLjava/lang/String;)V
+
+    monitor-exit p1
 
     return-void
+
+    :catchall_0
+    move-exception p0
+
+    monitor-exit p1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw p0
 .end method

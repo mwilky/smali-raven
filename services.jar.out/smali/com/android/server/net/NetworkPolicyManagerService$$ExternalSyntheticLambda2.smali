@@ -1,33 +1,34 @@
 .class public final synthetic Lcom/android/server/net/NetworkPolicyManagerService$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Ljava/util/function/IntConsumer;
 
 
 # instance fields
-.field public final synthetic f$0:Ljava/util/concurrent/CountDownLatch;
+.field public final synthetic f$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
 
 # direct methods
-.method public synthetic constructor <init>(Ljava/util/concurrent/CountDownLatch;)V
+.method public synthetic constructor <init>(Lcom/android/server/net/NetworkPolicyManagerService;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/net/NetworkPolicyManagerService$$ExternalSyntheticLambda2;->f$0:Ljava/util/concurrent/CountDownLatch;
+    iput-object p1, p0, Lcom/android/server/net/NetworkPolicyManagerService$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final run()V
-    .locals 1
+.method public final accept(I)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService$$ExternalSyntheticLambda2;->f$0:Ljava/util/concurrent/CountDownLatch;
+    iget-object p0, p0, Lcom/android/server/net/NetworkPolicyManagerService$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
-    invoke-static {v0}, Lcom/android/server/net/NetworkPolicyManagerService;->lambda$updateNetworks$2(Ljava/util/concurrent/CountDownLatch;)V
+    invoke-static {p0, p1}, Lcom/android/server/net/NetworkPolicyManagerService;->$r8$lambda$KP26Fg0m84D3dEWKYHZa2V92Xok(Lcom/android/server/net/NetworkPolicyManagerService;I)V
 
     return-void
 .end method

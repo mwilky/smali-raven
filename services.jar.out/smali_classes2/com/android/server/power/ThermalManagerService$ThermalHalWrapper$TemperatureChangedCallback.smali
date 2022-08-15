@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/server/power/ThermalManagerService$ThermalHalWrapper$TemperatureChangedCallback;
+.class public interface abstract Lcom/android/server/power/ThermalManagerService$ThermalHalWrapper$TemperatureChangedCallback;
 .super Ljava/lang/Object;
 .source "ThermalManagerService.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
+    accessFlags = 0x609
     name = "TemperatureChangedCallback"
 .end annotation
 

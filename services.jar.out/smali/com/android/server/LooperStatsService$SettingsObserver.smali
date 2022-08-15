@@ -1,4 +1,4 @@
-.class Lcom/android/server/LooperStatsService$SettingsObserver;
+.class public Lcom/android/server/LooperStatsService$SettingsObserver;
 .super Landroid/database/ContentObserver;
 .source "LooperStatsService.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "SettingsObserver"
 .end annotation
 
 
 # instance fields
-.field private final mService:Lcom/android/server/LooperStatsService;
+.field public final mService:Lcom/android/server/LooperStatsService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/LooperStatsService;)V
+.method public constructor <init>(Lcom/android/server/LooperStatsService;)V
     .locals 1
 
     invoke-static {}, Lcom/android/internal/os/BackgroundThread;->getHandler()Landroid/os/Handler;
@@ -36,11 +36,11 @@
 
 # virtual methods
 .method public onChange(ZLandroid/net/Uri;I)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/LooperStatsService$SettingsObserver;->mService:Lcom/android/server/LooperStatsService;
+    iget-object p0, p0, Lcom/android/server/LooperStatsService$SettingsObserver;->mService:Lcom/android/server/LooperStatsService;
 
-    invoke-static {v0}, Lcom/android/server/LooperStatsService;->access$200(Lcom/android/server/LooperStatsService;)V
+    invoke-static {p0}, Lcom/android/server/LooperStatsService;->-$$Nest$minitFromSettings(Lcom/android/server/LooperStatsService;)V
 
     return-void
 .end method

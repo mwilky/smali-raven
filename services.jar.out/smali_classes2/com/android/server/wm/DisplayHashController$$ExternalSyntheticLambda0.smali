@@ -1,59 +1,44 @@
 .class public final synthetic Lcom/android/server/wm/DisplayHashController$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/server/wm/DisplayHashController$Command;
+.implements Ljava/util/function/BiConsumer;
 
 
 # instance fields
 .field public final synthetic f$0:Lcom/android/server/wm/DisplayHashController;
 
-.field public final synthetic f$1:Landroid/hardware/HardwareBuffer;
-
-.field public final synthetic f$2:Landroid/graphics/Rect;
-
-.field public final synthetic f$3:Ljava/lang/String;
-
-.field public final synthetic f$4:Landroid/os/RemoteCallback;
+.field public final synthetic f$1:Landroid/view/displayhash/DisplayHash;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/wm/DisplayHashController;Landroid/hardware/HardwareBuffer;Landroid/graphics/Rect;Ljava/lang/String;Landroid/os/RemoteCallback;)V
+.method public synthetic constructor <init>(Lcom/android/server/wm/DisplayHashController;Landroid/view/displayhash/DisplayHash;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/server/wm/DisplayHashController$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/wm/DisplayHashController;
 
-    iput-object p2, p0, Lcom/android/server/wm/DisplayHashController$$ExternalSyntheticLambda0;->f$1:Landroid/hardware/HardwareBuffer;
-
-    iput-object p3, p0, Lcom/android/server/wm/DisplayHashController$$ExternalSyntheticLambda0;->f$2:Landroid/graphics/Rect;
-
-    iput-object p4, p0, Lcom/android/server/wm/DisplayHashController$$ExternalSyntheticLambda0;->f$3:Ljava/lang/String;
-
-    iput-object p5, p0, Lcom/android/server/wm/DisplayHashController$$ExternalSyntheticLambda0;->f$4:Landroid/os/RemoteCallback;
+    iput-object p2, p0, Lcom/android/server/wm/DisplayHashController$$ExternalSyntheticLambda0;->f$1:Landroid/view/displayhash/DisplayHash;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final run(Landroid/service/displayhash/IDisplayHashingService;)V
-    .locals 6
+.method public final accept(Ljava/lang/Object;Ljava/lang/Object;)V
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/wm/DisplayHashController$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/wm/DisplayHashController;
 
-    iget-object v1, p0, Lcom/android/server/wm/DisplayHashController$$ExternalSyntheticLambda0;->f$1:Landroid/hardware/HardwareBuffer;
+    iget-object p0, p0, Lcom/android/server/wm/DisplayHashController$$ExternalSyntheticLambda0;->f$1:Landroid/view/displayhash/DisplayHash;
 
-    iget-object v2, p0, Lcom/android/server/wm/DisplayHashController$$ExternalSyntheticLambda0;->f$2:Landroid/graphics/Rect;
+    check-cast p1, Landroid/service/displayhash/IDisplayHashingService;
 
-    iget-object v3, p0, Lcom/android/server/wm/DisplayHashController$$ExternalSyntheticLambda0;->f$3:Ljava/lang/String;
+    check-cast p2, Landroid/os/RemoteCallback;
 
-    iget-object v4, p0, Lcom/android/server/wm/DisplayHashController$$ExternalSyntheticLambda0;->f$4:Landroid/os/RemoteCallback;
-
-    move-object v5, p1
-
-    invoke-virtual/range {v0 .. v5}, Lcom/android/server/wm/DisplayHashController;->lambda$generateDisplayHash$1$DisplayHashController(Landroid/hardware/HardwareBuffer;Landroid/graphics/Rect;Ljava/lang/String;Landroid/os/RemoteCallback;Landroid/service/displayhash/IDisplayHashingService;)V
+    invoke-static {v0, p0, p1, p2}, Lcom/android/server/wm/DisplayHashController;->$r8$lambda$gYNYHeV45c4EmCW6kKVPAnWlcHo(Lcom/android/server/wm/DisplayHashController;Landroid/view/displayhash/DisplayHash;Landroid/service/displayhash/IDisplayHashingService;Landroid/os/RemoteCallback;)V
 
     return-void
 .end method

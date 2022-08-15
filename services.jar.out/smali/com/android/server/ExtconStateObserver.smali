@@ -14,12 +14,6 @@
 .end annotation
 
 
-# static fields
-.field private static final LOG:Z = false
-
-.field private static final TAG:Ljava/lang/String; = "ExtconStateObserver"
-
-
 # direct methods
 .method public constructor <init>()V
     .locals 0
@@ -44,15 +38,15 @@
 
     invoke-virtual {p2, v1}, Landroid/os/UEventObserver$UEvent;->get(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-virtual {p0, p1, v1}, Lcom/android/server/ExtconStateObserver;->parseState(Lcom/android/server/ExtconUEventObserver$ExtconInfo;Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/ExtconStateObserver;->parseState(Lcom/android/server/ExtconUEventObserver$ExtconInfo;Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p2
 
-    if-eqz v1, :cond_0
+    if-eqz p2, :cond_0
 
-    invoke-virtual {p0, p1, v0, v1}, Lcom/android/server/ExtconStateObserver;->updateState(Lcom/android/server/ExtconUEventObserver$ExtconInfo;Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-virtual {p0, p1, v0, p2}, Lcom/android/server/ExtconStateObserver;->updateState(Lcom/android/server/ExtconUEventObserver$ExtconInfo;Ljava/lang/String;Ljava/lang/Object;)V
 
     :cond_0
     return-void
@@ -70,7 +64,7 @@
 .end method
 
 .method public parseStateFromFile(Lcom/android/server/ExtconUEventObserver$ExtconInfo;)Ljava/lang/Object;
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -93,23 +87,23 @@
 
     invoke-direct {v1, v0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
+    const/4 v0, 0x0
+
     const/4 v2, 0x0
 
-    const/4 v3, 0x0
+    invoke-static {v1, v0, v2}, Landroid/os/FileUtils;->readTextFile(Ljava/io/File;ILjava/lang/String;)Ljava/lang/String;
 
-    invoke-static {v1, v2, v3}, Landroid/os/FileUtils;->readTextFile(Ljava/io/File;ILjava/lang/String;)Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v1
+    invoke-virtual {v0}, Ljava/lang/String;->trim()Ljava/lang/String;
 
-    invoke-virtual {v1}, Ljava/lang/String;->trim()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v1
+    invoke-virtual {p0, p1, v0}, Lcom/android/server/ExtconStateObserver;->parseState(Lcom/android/server/ExtconUEventObserver$ExtconInfo;Ljava/lang/String;)Ljava/lang/Object;
 
-    invoke-virtual {p0, p1, v1}, Lcom/android/server/ExtconStateObserver;->parseState(Lcom/android/server/ExtconUEventObserver$ExtconInfo;Ljava/lang/String;)Ljava/lang/Object;
+    move-result-object p0
 
-    move-result-object v1
-
-    return-object v1
+    return-object p0
 .end method
 
 .method public abstract updateState(Lcom/android/server/ExtconUEventObserver$ExtconInfo;Ljava/lang/String;Ljava/lang/Object;)V

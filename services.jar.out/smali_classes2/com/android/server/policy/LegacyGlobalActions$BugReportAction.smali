@@ -1,4 +1,4 @@
-.class Lcom/android/server/policy/LegacyGlobalActions$BugReportAction;
+.class public Lcom/android/server/policy/LegacyGlobalActions$BugReportAction;
 .super Lcom/android/internal/globalactions/SinglePressAction;
 .source "LegacyGlobalActions.java"
 
@@ -12,13 +12,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "BugReportAction"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/policy/LegacyGlobalActions;
+.field public final synthetic this$0:Lcom/android/server/policy/LegacyGlobalActions;
 
 
 # direct methods
@@ -27,9 +27,9 @@
 
     iput-object p1, p0, Lcom/android/server/policy/LegacyGlobalActions$BugReportAction;->this$0:Lcom/android/server/policy/LegacyGlobalActions;
 
-    const p1, 0x10803d4
+    const p1, 0x10803e0
 
-    const v0, 0x10401b8
+    const v0, 0x10401d1
 
     invoke-direct {p0, p1, v0}, Lcom/android/internal/globalactions/SinglePressAction;-><init>(II)V
 
@@ -39,41 +39,41 @@
 
 # virtual methods
 .method public getStatus()Ljava/lang/String;
-    .locals 4
+    .locals 3
 
-    iget-object v0, p0, Lcom/android/server/policy/LegacyGlobalActions$BugReportAction;->this$0:Lcom/android/server/policy/LegacyGlobalActions;
+    iget-object p0, p0, Lcom/android/server/policy/LegacyGlobalActions$BugReportAction;->this$0:Lcom/android/server/policy/LegacyGlobalActions;
 
-    invoke-static {v0}, Lcom/android/server/policy/LegacyGlobalActions;->access$200(Lcom/android/server/policy/LegacyGlobalActions;)Landroid/content/Context;
+    invoke-static {p0}, Lcom/android/server/policy/LegacyGlobalActions;->-$$Nest$fgetmContext(Lcom/android/server/policy/LegacyGlobalActions;)Landroid/content/Context;
 
-    move-result-object v0
+    move-result-object p0
 
-    const/4 v1, 0x2
+    const/4 v0, 0x2
 
-    new-array v1, v1, [Ljava/lang/Object;
+    new-array v0, v0, [Ljava/lang/Object;
 
-    sget-object v2, Landroid/os/Build$VERSION;->RELEASE_OR_CODENAME:Ljava/lang/String;
+    sget-object v1, Landroid/os/Build$VERSION;->RELEASE_OR_CODENAME:Ljava/lang/String;
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    aput-object v2, v1, v3
+    aput-object v1, v0, v2
 
-    sget-object v2, Landroid/os/Build;->ID:Ljava/lang/String;
+    sget-object v1, Landroid/os/Build;->ID:Ljava/lang/String;
 
-    const/4 v3, 0x1
+    const/4 v2, 0x1
 
-    aput-object v2, v1, v3
+    aput-object v1, v0, v2
 
-    const v2, 0x10401b7
+    const v1, 0x10401d0
 
-    invoke-virtual {v0, v2, v1}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {p0, v1, v0}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public onLongPress()Z
-    .locals 3
+    .locals 2
 
     invoke-static {}, Landroid/app/ActivityManager;->isUserAMonkey()Z
 
@@ -87,30 +87,25 @@
 
     :cond_0
     :try_start_0
-    iget-object v0, p0, Lcom/android/server/policy/LegacyGlobalActions$BugReportAction;->this$0:Lcom/android/server/policy/LegacyGlobalActions;
+    iget-object p0, p0, Lcom/android/server/policy/LegacyGlobalActions$BugReportAction;->this$0:Lcom/android/server/policy/LegacyGlobalActions;
 
-    invoke-static {v0}, Lcom/android/server/policy/LegacyGlobalActions;->access$200(Lcom/android/server/policy/LegacyGlobalActions;)Landroid/content/Context;
+    invoke-static {p0}, Lcom/android/server/policy/LegacyGlobalActions;->-$$Nest$fgetmContext(Lcom/android/server/policy/LegacyGlobalActions;)Landroid/content/Context;
 
-    move-result-object v0
+    move-result-object p0
 
-    const/16 v2, 0x125
+    const/16 v0, 0x125
 
-    invoke-static {v0, v2}, Lcom/android/internal/logging/MetricsLogger;->action(Landroid/content/Context;I)V
+    invoke-static {p0, v0}, Lcom/android/internal/logging/MetricsLogger;->action(Landroid/content/Context;I)V
 
     invoke-static {}, Landroid/app/ActivityManager;->getService()Landroid/app/IActivityManager;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-interface {v0}, Landroid/app/IActivityManager;->requestFullBugReport()V
+    invoke-interface {p0}, Landroid/app/IActivityManager;->requestFullBugReport()V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
-
     :catch_0
-    move-exception v0
-
-    :goto_0
     return v1
 .end method
 
@@ -128,7 +123,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/server/policy/LegacyGlobalActions$BugReportAction;->this$0:Lcom/android/server/policy/LegacyGlobalActions;
 
-    invoke-static {v0}, Lcom/android/server/policy/LegacyGlobalActions;->access$600(Lcom/android/server/policy/LegacyGlobalActions;)Landroid/os/Handler;
+    invoke-static {v0}, Lcom/android/server/policy/LegacyGlobalActions;->-$$Nest$fgetmHandler(Lcom/android/server/policy/LegacyGlobalActions;)Landroid/os/Handler;
 
     move-result-object v0
 
@@ -144,17 +139,17 @@
 .end method
 
 .method public showBeforeProvisioning()Z
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
 .method public showDuringKeyguard()Z
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 .end method

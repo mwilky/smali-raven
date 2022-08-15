@@ -12,29 +12,21 @@
 
 
 # static fields
-.field private static final DEBUG:Z = false
+.field public static final FADEABLE_USAGES:[I
 
-.field static final DELAY_FADE_IN_OFFENDERS_MS:J = 0x7d0L
+.field public static final FADEOUT_VSHAPE:Landroid/media/VolumeShaper$Configuration;
 
-.field private static final FADEABLE_USAGES:[I
+.field public static final PLAY_CREATE_IF_NEEDED:Landroid/media/VolumeShaper$Operation;
 
-.field private static final FADEOUT_VSHAPE:Landroid/media/VolumeShaper$Configuration;
+.field public static final PLAY_SKIP_RAMP:Landroid/media/VolumeShaper$Operation;
 
-.field static final FADE_OUT_DURATION_MS:J = 0x7d0L
+.field public static final UNFADEABLE_CONTENT_TYPES:[I
 
-.field private static final PLAY_CREATE_IF_NEEDED:Landroid/media/VolumeShaper$Operation;
-
-.field private static final PLAY_SKIP_RAMP:Landroid/media/VolumeShaper$Operation;
-
-.field public static final TAG:Ljava/lang/String; = "AudioService.FadeOutManager"
-
-.field private static final UNFADEABLE_CONTENT_TYPES:[I
-
-.field private static final UNFADEABLE_PLAYER_TYPES:[I
+.field public static final UNFADEABLE_PLAYER_TYPES:[I
 
 
 # instance fields
-.field private final mFadedApps:Ljava/util/HashMap;
+.field public final mFadedApps:Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/HashMap<",
@@ -47,7 +39,31 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static bridge synthetic -$$Nest$sfgetFADEOUT_VSHAPE()Landroid/media/VolumeShaper$Configuration;
+    .locals 1
+
+    sget-object v0, Lcom/android/server/audio/FadeOutManager;->FADEOUT_VSHAPE:Landroid/media/VolumeShaper$Configuration;
+
+    return-object v0
+.end method
+
+.method public static bridge synthetic -$$Nest$sfgetPLAY_CREATE_IF_NEEDED()Landroid/media/VolumeShaper$Operation;
+    .locals 1
+
+    sget-object v0, Lcom/android/server/audio/FadeOutManager;->PLAY_CREATE_IF_NEEDED:Landroid/media/VolumeShaper$Operation;
+
+    return-object v0
+.end method
+
+.method public static bridge synthetic -$$Nest$sfgetPLAY_SKIP_RAMP()Landroid/media/VolumeShaper$Operation;
+    .locals 1
+
+    sget-object v0, Lcom/android/server/audio/FadeOutManager;->PLAY_SKIP_RAMP:Landroid/media/VolumeShaper$Operation;
+
+    return-object v0
+.end method
+
+.method public static constructor <clinit>()V
     .locals 5
 
     new-instance v0, Landroid/media/VolumeShaper$Configuration$Builder;
@@ -187,31 +203,7 @@
     return-void
 .end method
 
-.method static synthetic access$000()Landroid/media/VolumeShaper$Configuration;
-    .locals 1
-
-    sget-object v0, Lcom/android/server/audio/FadeOutManager;->FADEOUT_VSHAPE:Landroid/media/VolumeShaper$Configuration;
-
-    return-object v0
-.end method
-
-.method static synthetic access$100()Landroid/media/VolumeShaper$Operation;
-    .locals 1
-
-    sget-object v0, Lcom/android/server/audio/FadeOutManager;->PLAY_SKIP_RAMP:Landroid/media/VolumeShaper$Operation;
-
-    return-object v0
-.end method
-
-.method static synthetic access$200()Landroid/media/VolumeShaper$Operation;
-    .locals 1
-
-    sget-object v0, Lcom/android/server/audio/FadeOutManager;->PLAY_CREATE_IF_NEEDED:Landroid/media/VolumeShaper$Operation;
-
-    return-object v0
-.end method
-
-.method static canBeFadedOut(Landroid/media/AudioPlaybackConfiguration;)Z
+.method public static canBeFadedOut(Landroid/media/AudioPlaybackConfiguration;)Z
     .locals 3
 
     sget-object v0, Lcom/android/server/audio/FadeOutManager;->UNFADEABLE_PLAYER_TYPES:[I
@@ -254,62 +246,62 @@
 
     invoke-virtual {p0}, Landroid/media/AudioPlaybackConfiguration;->getAudioAttributes()Landroid/media/AudioAttributes;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-virtual {v2}, Landroid/media/AudioAttributes;->getUsage()I
+    invoke-virtual {p0}, Landroid/media/AudioAttributes;->getUsage()I
 
-    move-result v2
+    move-result p0
 
-    invoke-static {v0, v2}, Lcom/android/internal/util/ArrayUtils;->contains([II)Z
+    invoke-static {v0, p0}, Lcom/android/internal/util/ArrayUtils;->contains([II)Z
 
-    move-result v0
+    move-result p0
 
-    if-nez v0, :cond_2
+    if-nez p0, :cond_2
 
     return v1
 
     :cond_2
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 .end method
 
-.method static canCauseFadeOut(Lcom/android/server/audio/FocusRequester;Lcom/android/server/audio/FocusRequester;)Z
-    .locals 3
+.method public static canCauseFadeOut(Lcom/android/server/audio/FocusRequester;Lcom/android/server/audio/FocusRequester;)Z
+    .locals 2
 
     invoke-virtual {p0}, Lcom/android/server/audio/FocusRequester;->getAudioAttributes()Landroid/media/AudioAttributes;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Landroid/media/AudioAttributes;->getContentType()I
+    invoke-virtual {p0}, Landroid/media/AudioAttributes;->getContentType()I
 
-    move-result v0
+    move-result p0
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    if-ne v0, v2, :cond_0
+    if-ne p0, v1, :cond_0
 
-    return v1
+    return v0
 
     :cond_0
     invoke-virtual {p1}, Lcom/android/server/audio/FocusRequester;->getGrantFlags()I
 
-    move-result v0
+    move-result p0
 
-    and-int/lit8 v0, v0, 0x2
+    and-int/lit8 p0, p0, 0x2
 
-    if-eqz v0, :cond_1
+    if-eqz p0, :cond_1
 
-    return v1
+    return v0
 
     :cond_1
-    return v2
+    return v1
 .end method
 
-.method static getFadeOutDurationOnFocusLossMillis(Landroid/media/AudioAttributes;)J
-    .locals 4
+.method public static getFadeOutDurationOnFocusLossMillis(Landroid/media/AudioAttributes;)J
+    .locals 3
 
     sget-object v0, Lcom/android/server/audio/FadeOutManager;->UNFADEABLE_CONTENT_TYPES:[I
 
@@ -332,13 +324,13 @@
 
     invoke-virtual {p0}, Landroid/media/AudioAttributes;->getUsage()I
 
-    move-result v3
+    move-result p0
 
-    invoke-static {v0, v3}, Lcom/android/internal/util/ArrayUtils;->contains([II)Z
+    invoke-static {v0, p0}, Lcom/android/internal/util/ArrayUtils;->contains([II)Z
 
-    move-result v0
+    move-result p0
 
-    if-nez v0, :cond_1
+    if-nez p0, :cond_1
 
     return-wide v1
 
@@ -350,7 +342,7 @@
 
 
 # virtual methods
-.method declared-synchronized checkFade(Landroid/media/AudioPlaybackConfiguration;)V
+.method public declared-synchronized checkFade(Landroid/media/AudioPlaybackConfiguration;)V
     .locals 2
 
     monitor-enter p0
@@ -400,7 +392,7 @@
     throw p1
 .end method
 
-.method declared-synchronized dump(Ljava/io/PrintWriter;)V
+.method public declared-synchronized dump(Ljava/io/PrintWriter;)V
     .locals 2
 
     monitor-enter p0
@@ -448,8 +440,8 @@
     throw p1
 .end method
 
-.method declared-synchronized fadeOutUid(ILjava/util/ArrayList;)V
-    .locals 4
+.method public declared-synchronized fadeOutUid(ILjava/util/ArrayList;)V
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -509,34 +501,34 @@
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v0, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/android/server/audio/FadeOutManager$FadedOutApp;
+    check-cast p1, Lcom/android/server/audio/FadeOutManager$FadedOutApp;
 
     invoke-virtual {p2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
-    move-result-object v1
+    move-result-object p2
 
     :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p2}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_1
+    if-eqz v0, :cond_1
 
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
-    check-cast v2, Landroid/media/AudioPlaybackConfiguration;
+    check-cast v0, Landroid/media/AudioPlaybackConfiguration;
 
-    const/4 v3, 0x0
+    const/4 v1, 0x0
 
-    invoke-virtual {v0, v2, v3}, Lcom/android/server/audio/FadeOutManager$FadedOutApp;->addFade(Landroid/media/AudioPlaybackConfiguration;Z)V
+    invoke-virtual {p1, v0, v1}, Lcom/android/server/audio/FadeOutManager$FadedOutApp;->addFade(Landroid/media/AudioPlaybackConfiguration;Z)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -555,8 +547,8 @@
     throw p1
 .end method
 
-.method declared-synchronized removeReleased(Landroid/media/AudioPlaybackConfiguration;)V
-    .locals 3
+.method public declared-synchronized removeReleased(Landroid/media/AudioPlaybackConfiguration;)V
+    .locals 2
 
     monitor-enter p0
 
@@ -569,17 +561,17 @@
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v1, v2}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, v0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Lcom/android/server/audio/FadeOutManager$FadedOutApp;
+    check-cast v0, Lcom/android/server/audio/FadeOutManager$FadedOutApp;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
     monitor-exit p0
 
@@ -587,7 +579,7 @@
 
     :cond_0
     :try_start_1
-    invoke-virtual {v1, p1}, Lcom/android/server/audio/FadeOutManager$FadedOutApp;->removeReleased(Landroid/media/AudioPlaybackConfiguration;)V
+    invoke-virtual {v0, p1}, Lcom/android/server/audio/FadeOutManager$FadedOutApp;->removeReleased(Landroid/media/AudioPlaybackConfiguration;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -603,7 +595,7 @@
     throw p1
 .end method
 
-.method declared-synchronized unfadeOutUid(ILjava/util/HashMap;)V
+.method public declared-synchronized unfadeOutUid(ILjava/util/HashMap;)V
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -640,17 +632,17 @@
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v0, v1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, p1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/android/server/audio/FadeOutManager$FadedOutApp;
+    check-cast p1, Lcom/android/server/audio/FadeOutManager$FadedOutApp;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
     monitor-exit p0
 
@@ -658,7 +650,7 @@
 
     :cond_0
     :try_start_1
-    invoke-virtual {v0, p2}, Lcom/android/server/audio/FadeOutManager$FadedOutApp;->removeUnfadeAll(Ljava/util/HashMap;)V
+    invoke-virtual {p1, p2}, Lcom/android/server/audio/FadeOutManager$FadedOutApp;->removeUnfadeAll(Ljava/util/HashMap;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 

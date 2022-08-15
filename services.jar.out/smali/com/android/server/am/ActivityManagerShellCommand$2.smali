@@ -1,4 +1,4 @@
-.class Lcom/android/server/am/ActivityManagerShellCommand$2;
+.class public Lcom/android/server/am/ActivityManagerShellCommand$2;
 .super Ljava/lang/Object;
 .source "ActivityManagerShellCommand.java"
 
@@ -12,19 +12,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/am/ActivityManagerShellCommand;
+.field public final synthetic this$0:Lcom/android/server/am/ActivityManagerShellCommand;
 
-.field final synthetic val$latch:Ljava/util/concurrent/CountDownLatch;
+.field public final synthetic val$latch:Ljava/util/concurrent/CountDownLatch;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/ActivityManagerShellCommand;Ljava/util/concurrent/CountDownLatch;)V
+.method public constructor <init>(Lcom/android/server/am/ActivityManagerShellCommand;Ljava/util/concurrent/CountDownLatch;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/am/ActivityManagerShellCommand$2;->this$0:Lcom/android/server/am/ActivityManagerShellCommand;
@@ -39,11 +39,11 @@
 
 # virtual methods
 .method public onResult(Landroid/os/Bundle;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/am/ActivityManagerShellCommand$2;->val$latch:Ljava/util/concurrent/CountDownLatch;
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerShellCommand$2;->val$latch:Ljava/util/concurrent/CountDownLatch;
 
-    invoke-virtual {v0}, Ljava/util/concurrent/CountDownLatch;->countDown()V
+    invoke-virtual {p0}, Ljava/util/concurrent/CountDownLatch;->countDown()V
 
     return-void
 .end method

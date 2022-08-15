@@ -1,4 +1,4 @@
-.class Lcom/android/server/power/ShutdownThread$2;
+.class public Lcom/android/server/power/ShutdownThread$2;
 .super Landroid/os/Handler;
 .source "ShutdownThread.java"
 
@@ -9,13 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V

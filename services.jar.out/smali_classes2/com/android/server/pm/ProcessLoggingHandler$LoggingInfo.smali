@@ -1,4 +1,4 @@
-.class Lcom/android/server/pm/ProcessLoggingHandler$LoggingInfo;
+.class public Lcom/android/server/pm/ProcessLoggingHandler$LoggingInfo;
 .super Ljava/lang/Object;
 .source "ProcessLoggingHandler.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "LoggingInfo"
 .end annotation
 
@@ -29,7 +29,7 @@
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

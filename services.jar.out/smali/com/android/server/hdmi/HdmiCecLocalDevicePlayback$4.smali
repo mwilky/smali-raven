@@ -1,97 +1,55 @@
-.class synthetic Lcom/android/server/hdmi/HdmiCecLocalDevicePlayback$4;
+.class public Lcom/android/server/hdmi/HdmiCecLocalDevicePlayback$4;
 .super Ljava/lang/Object;
 .source "HdmiCecLocalDevicePlayback.java"
 
+# interfaces
+.implements Lcom/android/server/hdmi/HdmiCecLocalDevicePlayback$ActiveWakeLock;
+
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/android/server/hdmi/HdmiCecLocalDevicePlayback;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/android/server/hdmi/HdmiCecLocalDevicePlayback;->getWakeLock()Lcom/android/server/hdmi/HdmiCecLocalDevicePlayback$ActiveWakeLock;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
-# static fields
-.field static final synthetic $SwitchMap$android$sysprop$HdmiProperties$playback_device_action_on_routing_control_values:[I
+# instance fields
+.field public final synthetic this$0:Lcom/android/server/hdmi/HdmiCecLocalDevicePlayback;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 3
+.method public constructor <init>(Lcom/android/server/hdmi/HdmiCecLocalDevicePlayback;)V
+    .locals 0
 
-    invoke-static {}, Landroid/sysprop/HdmiProperties$playback_device_action_on_routing_control_values;->values()[Landroid/sysprop/HdmiProperties$playback_device_action_on_routing_control_values;
+    iput-object p1, p0, Lcom/android/server/hdmi/HdmiCecLocalDevicePlayback$4;->this$0:Lcom/android/server/hdmi/HdmiCecLocalDevicePlayback;
 
-    move-result-object v0
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    array-length v0, v0
+    return-void
+.end method
 
-    new-array v0, v0, [I
 
-    sput-object v0, Lcom/android/server/hdmi/HdmiCecLocalDevicePlayback$4;->$SwitchMap$android$sysprop$HdmiProperties$playback_device_action_on_routing_control_values:[I
+# virtual methods
+.method public acquire()V
+    .locals 0
 
-    :try_start_0
-    sget-object v1, Landroid/sysprop/HdmiProperties$playback_device_action_on_routing_control_values;->WAKE_UP_AND_SEND_ACTIVE_SOURCE:Landroid/sysprop/HdmiProperties$playback_device_action_on_routing_control_values;
+    return-void
+.end method
 
-    invoke-virtual {v1}, Landroid/sysprop/HdmiProperties$playback_device_action_on_routing_control_values;->ordinal()I
+.method public isHeld()Z
+    .locals 0
 
-    move-result v1
+    const/4 p0, 0x0
 
-    const/4 v2, 0x1
+    return p0
+.end method
 
-    aput v2, v0, v1
-    :try_end_0
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_0
+.method public release()V
+    .locals 0
 
-    goto :goto_0
-
-    :catch_0
-    move-exception v0
-
-    :goto_0
-    :try_start_1
-    sget-object v0, Lcom/android/server/hdmi/HdmiCecLocalDevicePlayback$4;->$SwitchMap$android$sysprop$HdmiProperties$playback_device_action_on_routing_control_values:[I
-
-    sget-object v1, Landroid/sysprop/HdmiProperties$playback_device_action_on_routing_control_values;->WAKE_UP_ONLY:Landroid/sysprop/HdmiProperties$playback_device_action_on_routing_control_values;
-
-    invoke-virtual {v1}, Landroid/sysprop/HdmiProperties$playback_device_action_on_routing_control_values;->ordinal()I
-
-    move-result v1
-
-    const/4 v2, 0x2
-
-    aput v2, v0, v1
-    :try_end_1
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_1
-
-    goto :goto_1
-
-    :catch_1
-    move-exception v0
-
-    :goto_1
-    :try_start_2
-    sget-object v0, Lcom/android/server/hdmi/HdmiCecLocalDevicePlayback$4;->$SwitchMap$android$sysprop$HdmiProperties$playback_device_action_on_routing_control_values:[I
-
-    sget-object v1, Landroid/sysprop/HdmiProperties$playback_device_action_on_routing_control_values;->NONE:Landroid/sysprop/HdmiProperties$playback_device_action_on_routing_control_values;
-
-    invoke-virtual {v1}, Landroid/sysprop/HdmiProperties$playback_device_action_on_routing_control_values;->ordinal()I
-
-    move-result v1
-
-    const/4 v2, 0x3
-
-    aput v2, v0, v1
-    :try_end_2
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_2 .. :try_end_2} :catch_2
-
-    goto :goto_2
-
-    :catch_2
-    move-exception v0
-
-    :goto_2
     return-void
 .end method

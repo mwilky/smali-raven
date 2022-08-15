@@ -15,5 +15,5 @@
 
 
 # virtual methods
-.method public abstract onResult(Z)V
+.method public abstract onResult(IZ)V
 .end method

@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/people/prediction/AppTargetPredictor$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -31,15 +32,15 @@
 
 # virtual methods
 .method public final run()V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/people/prediction/AppTargetPredictor$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/people/prediction/AppTargetPredictor;
 
     iget-object v1, p0, Lcom/android/server/people/prediction/AppTargetPredictor$$ExternalSyntheticLambda2;->f$1:Ljava/util/List;
 
-    iget-object v2, p0, Lcom/android/server/people/prediction/AppTargetPredictor$$ExternalSyntheticLambda2;->f$2:Ljava/util/function/Consumer;
+    iget-object p0, p0, Lcom/android/server/people/prediction/AppTargetPredictor$$ExternalSyntheticLambda2;->f$2:Ljava/util/function/Consumer;
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/people/prediction/AppTargetPredictor;->lambda$onSortAppTargets$1$AppTargetPredictor(Ljava/util/List;Ljava/util/function/Consumer;)V
+    invoke-static {v0, v1, p0}, Lcom/android/server/people/prediction/AppTargetPredictor;->$r8$lambda$7k9bJYOmjtc7MFfvGtekovSRq1E(Lcom/android/server/people/prediction/AppTargetPredictor;Ljava/util/List;Ljava/util/function/Consumer;)V
 
     return-void
 .end method

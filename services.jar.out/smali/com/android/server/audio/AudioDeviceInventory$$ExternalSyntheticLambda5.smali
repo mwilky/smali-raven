@@ -1,35 +1,44 @@
 .class public final synthetic Lcom/android/server/audio/AudioDeviceInventory$$ExternalSyntheticLambda5;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Consumer;
+.implements Ljava/util/function/BiConsumer;
 
 
 # instance fields
-.field public final synthetic f$0:Landroid/util/ArraySet;
+.field public final synthetic f$0:Ljava/io/PrintWriter;
+
+.field public final synthetic f$1:Ljava/lang/String;
 
 
 # direct methods
-.method public synthetic constructor <init>(Landroid/util/ArraySet;)V
+.method public synthetic constructor <init>(Ljava/io/PrintWriter;Ljava/lang/String;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/audio/AudioDeviceInventory$$ExternalSyntheticLambda5;->f$0:Landroid/util/ArraySet;
+    iput-object p1, p0, Lcom/android/server/audio/AudioDeviceInventory$$ExternalSyntheticLambda5;->f$0:Ljava/io/PrintWriter;
+
+    iput-object p2, p0, Lcom/android/server/audio/AudioDeviceInventory$$ExternalSyntheticLambda5;->f$1:Ljava/lang/String;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
+.method public final accept(Ljava/lang/Object;Ljava/lang/Object;)V
     .locals 1
 
-    iget-object v0, p0, Lcom/android/server/audio/AudioDeviceInventory$$ExternalSyntheticLambda5;->f$0:Landroid/util/ArraySet;
+    iget-object v0, p0, Lcom/android/server/audio/AudioDeviceInventory$$ExternalSyntheticLambda5;->f$0:Ljava/io/PrintWriter;
 
-    check-cast p1, Lcom/android/server/audio/AudioDeviceInventory$DeviceInfo;
+    iget-object p0, p0, Lcom/android/server/audio/AudioDeviceInventory$$ExternalSyntheticLambda5;->f$1:Ljava/lang/String;
 
-    invoke-static {v0, p1}, Lcom/android/server/audio/AudioDeviceInventory;->lambda$disconnectA2dp$6(Landroid/util/ArraySet;Lcom/android/server/audio/AudioDeviceInventory$DeviceInfo;)V
+    check-cast p1, Ljava/lang/Integer;
+
+    check-cast p2, Ljava/util/List;
+
+    invoke-static {v0, p0, p1, p2}, Lcom/android/server/audio/AudioDeviceInventory;->$r8$lambda$MXE31taXb_-zLjjMkkOKuui589A(Ljava/io/PrintWriter;Ljava/lang/String;Ljava/lang/Integer;Ljava/util/List;)V
 
     return-void
 .end method

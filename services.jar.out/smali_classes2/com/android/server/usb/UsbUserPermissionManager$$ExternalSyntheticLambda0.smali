@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/usb/UsbUserPermissionManager$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/usb/UsbUserPermissionManager$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/usb/UsbUserPermissionManager;
+    iget-object p0, p0, Lcom/android/server/usb/UsbUserPermissionManager$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/usb/UsbUserPermissionManager;
 
-    invoke-virtual {v0}, Lcom/android/server/usb/UsbUserPermissionManager;->lambda$scheduleWritePermissionsLocked$0$UsbUserPermissionManager()V
+    invoke-static {p0}, Lcom/android/server/usb/UsbUserPermissionManager;->$r8$lambda$Ndlx1JHigbuEGTg2mkqIYkCDRl4(Lcom/android/server/usb/UsbUserPermissionManager;)V
 
     return-void
 .end method

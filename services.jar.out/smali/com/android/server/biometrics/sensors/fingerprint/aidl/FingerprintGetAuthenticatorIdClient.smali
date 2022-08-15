@@ -1,4 +1,4 @@
-.class Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintGetAuthenticatorIdClient;
+.class public Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintGetAuthenticatorIdClient;
 .super Lcom/android/server/biometrics/sensors/HalClientMonitor;
 .source "FingerprintGetAuthenticatorIdClient.java"
 
@@ -7,18 +7,14 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Lcom/android/server/biometrics/sensors/HalClientMonitor<",
-        "Landroid/hardware/biometrics/fingerprint/ISession;",
+        "Lcom/android/server/biometrics/sensors/fingerprint/aidl/AidlSession;",
         ">;"
     }
 .end annotation
 
 
-# static fields
-.field private static final TAG:Ljava/lang/String; = "FingerprintGetAuthenticatorIdClient"
-
-
 # instance fields
-.field private final mAuthenticatorIds:Ljava/util/Map;
+.field public final mAuthenticatorIds:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Map<",
@@ -31,17 +27,19 @@
 
 
 # direct methods
-.method constructor <init>(Landroid/content/Context;Lcom/android/server/biometrics/sensors/HalClientMonitor$LazyDaemon;ILjava/lang/String;ILjava/util/Map;)V
-    .locals 12
+.method public constructor <init>(Landroid/content/Context;Ljava/util/function/Supplier;ILjava/lang/String;ILcom/android/server/biometrics/log/BiometricLogger;Lcom/android/server/biometrics/log/BiometricContext;Ljava/util/Map;)V
+    .locals 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Landroid/content/Context;",
-            "Lcom/android/server/biometrics/sensors/HalClientMonitor$LazyDaemon<",
-            "Landroid/hardware/biometrics/fingerprint/ISession;",
+            "Ljava/util/function/Supplier<",
+            "Lcom/android/server/biometrics/sensors/fingerprint/aidl/AidlSession;",
             ">;I",
             "Ljava/lang/String;",
             "I",
+            "Lcom/android/server/biometrics/log/BiometricLogger;",
+            "Lcom/android/server/biometrics/log/BiometricContext;",
             "Ljava/util/Map<",
             "Ljava/lang/Integer;",
             "Ljava/lang/Long;",
@@ -55,12 +53,6 @@
 
     const/4 v7, 0x0
 
-    const/4 v9, 0x1
-
-    const/4 v10, 0x0
-
-    const/4 v11, 0x0
-
     move-object v0, p0
 
     move-object v1, p1
@@ -69,13 +61,17 @@
 
     move v5, p3
 
-    move-object/from16 v6, p4
+    move-object v6, p4
 
     move/from16 v8, p5
 
-    invoke-direct/range {v0 .. v11}, Lcom/android/server/biometrics/sensors/HalClientMonitor;-><init>(Landroid/content/Context;Lcom/android/server/biometrics/sensors/HalClientMonitor$LazyDaemon;Landroid/os/IBinder;Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;ILjava/lang/String;IIIII)V
+    move-object/from16 v9, p6
 
-    move-object/from16 v1, p6
+    move-object/from16 v10, p7
+
+    invoke-direct/range {v0 .. v10}, Lcom/android/server/biometrics/sensors/HalClientMonitor;-><init>(Landroid/content/Context;Ljava/util/function/Supplier;Landroid/os/IBinder;Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;ILjava/lang/String;IILcom/android/server/biometrics/log/BiometricLogger;Lcom/android/server/biometrics/log/BiometricContext;)V
+
+    move-object/from16 v1, p8
 
     iput-object v1, v0, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintGetAuthenticatorIdClient;->mAuthenticatorIds:Ljava/util/Map;
 
@@ -85,19 +81,19 @@
 
 # virtual methods
 .method public getProtoEnum()I
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x5
+    const/4 p0, 0x5
 
-    return v0
+    return p0
 .end method
 
-.method onAuthenticatorIdRetrieved(J)V
-    .locals 3
+.method public onAuthenticatorIdRetrieved(J)V
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintGetAuthenticatorIdClient;->mAuthenticatorIds:Ljava/util/Map;
 
-    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintGetAuthenticatorIdClient;->getTargetUserId()I
+    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->getTargetUserId()I
 
     move-result v1
 
@@ -107,53 +103,57 @@
 
     invoke-static {p1, p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v1, p1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintGetAuthenticatorIdClient;->mCallback:Lcom/android/server/biometrics/sensors/BaseClientMonitor$Callback;
+    iget-object p1, p0, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->mCallback:Lcom/android/server/biometrics/sensors/ClientMonitorCallback;
 
-    const/4 v1, 0x1
+    const/4 p2, 0x1
 
-    invoke-interface {v0, p0, v1}, Lcom/android/server/biometrics/sensors/BaseClientMonitor$Callback;->onClientFinished(Lcom/android/server/biometrics/sensors/BaseClientMonitor;Z)V
+    invoke-interface {p1, p0, p2}, Lcom/android/server/biometrics/sensors/ClientMonitorCallback;->onClientFinished(Lcom/android/server/biometrics/sensors/BaseClientMonitor;Z)V
 
     return-void
 .end method
 
-.method public start(Lcom/android/server/biometrics/sensors/BaseClientMonitor$Callback;)V
+.method public start(Lcom/android/server/biometrics/sensors/ClientMonitorCallback;)V
     .locals 0
 
-    invoke-super {p0, p1}, Lcom/android/server/biometrics/sensors/HalClientMonitor;->start(Lcom/android/server/biometrics/sensors/BaseClientMonitor$Callback;)V
+    invoke-super {p0, p1}, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->start(Lcom/android/server/biometrics/sensors/ClientMonitorCallback;)V
 
     invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintGetAuthenticatorIdClient;->startHalOperation()V
 
     return-void
 .end method
 
-.method protected startHalOperation()V
-    .locals 3
+.method public startHalOperation()V
+    .locals 2
 
     :try_start_0
-    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintGetAuthenticatorIdClient;->getFreshDaemon()Ljava/lang/Object;
+    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/HalClientMonitor;->getFreshDaemon()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Landroid/hardware/biometrics/fingerprint/ISession;
+    check-cast p0, Lcom/android/server/biometrics/sensors/fingerprint/aidl/AidlSession;
 
-    invoke-interface {v0}, Landroid/hardware/biometrics/fingerprint/ISession;->getAuthenticatorId()V
+    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/fingerprint/aidl/AidlSession;->getSession()Landroid/hardware/biometrics/fingerprint/ISession;
+
+    move-result-object p0
+
+    invoke-interface {p0}, Landroid/hardware/biometrics/fingerprint/ISession;->getAuthenticatorId()V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    const-string v1, "FingerprintGetAuthenticatorIdClient"
+    const-string v0, "FingerprintGetAuthenticatorIdClient"
 
-    const-string v2, "Remote exception"
+    const-string v1, "Remote exception"
 
-    invoke-static {v1, v2, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v0, v1, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_0
     return-void

@@ -1,4 +1,4 @@
-.class Lcom/android/server/location/gnss/GnssNmeaProvider$1;
+.class public Lcom/android/server/location/gnss/GnssNmeaProvider$1;
 .super Ljava/lang/Object;
 .source "GnssNmeaProvider.java"
 
@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
@@ -34,15 +34,23 @@
 
 
 # instance fields
-.field private mNmea:Ljava/lang/String;
+.field public mNmea:Ljava/lang/String;
 
-.field final synthetic this$0:Lcom/android/server/location/gnss/GnssNmeaProvider;
+.field public final synthetic this$0:Lcom/android/server/location/gnss/GnssNmeaProvider;
 
-.field final synthetic val$timestamp:J
+.field public final synthetic val$timestamp:J
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/location/gnss/GnssNmeaProvider;J)V
+.method public static synthetic $r8$lambda$c8BCN8Y5px1dWGPXpPj4uFdCvpI(Lcom/android/server/location/gnss/GnssNmeaProvider$1;JLandroid/location/IGnssNmeaListener;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/location/gnss/GnssNmeaProvider$1;->lambda$apply$0(JLandroid/location/IGnssNmeaListener;)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Lcom/android/server/location/gnss/GnssNmeaProvider;J)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/location/gnss/GnssNmeaProvider$1;->this$0:Lcom/android/server/location/gnss/GnssNmeaProvider;
@@ -54,10 +62,25 @@
     return-void
 .end method
 
+.method private synthetic lambda$apply$0(JLandroid/location/IGnssNmeaListener;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/Exception;
+        }
+    .end annotation
+
+    iget-object p0, p0, Lcom/android/server/location/gnss/GnssNmeaProvider$1;->mNmea:Ljava/lang/String;
+
+    invoke-interface {p3, p1, p2, p0}, Landroid/location/IGnssNmeaListener;->onNmeaReceived(JLjava/lang/String;)V
+
+    return-void
+.end method
+
 
 # virtual methods
 .method public apply(Lcom/android/server/location/gnss/GnssListenerMultiplexer$GnssListenerRegistration;)Lcom/android/internal/listeners/ListenerExecutor$ListenerOperation;
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -76,77 +99,77 @@
 
     iget-object v0, p0, Lcom/android/server/location/gnss/GnssNmeaProvider$1;->this$0:Lcom/android/server/location/gnss/GnssNmeaProvider;
 
-    invoke-static {v0}, Lcom/android/server/location/gnss/GnssNmeaProvider;->access$000(Lcom/android/server/location/gnss/GnssNmeaProvider;)Lcom/android/server/location/injector/AppOpsHelper;
+    invoke-static {v0}, Lcom/android/server/location/gnss/GnssNmeaProvider;->-$$Nest$fgetmAppOpsHelper(Lcom/android/server/location/gnss/GnssNmeaProvider;)Lcom/android/server/location/injector/AppOpsHelper;
 
     move-result-object v0
 
-    invoke-virtual {p1}, Lcom/android/server/location/gnss/GnssListenerMultiplexer$GnssListenerRegistration;->getIdentity()Landroid/location/util/identity/CallerIdentity;
+    invoke-virtual {p1}, Lcom/android/server/location/listeners/RemoteListenerRegistration;->getIdentity()Landroid/location/util/identity/CallerIdentity;
 
-    move-result-object v1
+    move-result-object p1
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    invoke-virtual {v0, v2, v1}, Lcom/android/server/location/injector/AppOpsHelper;->noteOpNoThrow(ILandroid/location/util/identity/CallerIdentity;)Z
+    invoke-virtual {v0, v1, p1}, Lcom/android/server/location/injector/AppOpsHelper;->noteOpNoThrow(ILandroid/location/util/identity/CallerIdentity;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_1
 
-    iget-object v0, p0, Lcom/android/server/location/gnss/GnssNmeaProvider$1;->mNmea:Ljava/lang/String;
+    iget-object p1, p0, Lcom/android/server/location/gnss/GnssNmeaProvider$1;->mNmea:Ljava/lang/String;
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
+
+    iget-object p1, p0, Lcom/android/server/location/gnss/GnssNmeaProvider$1;->this$0:Lcom/android/server/location/gnss/GnssNmeaProvider;
+
+    invoke-static {p1}, Lcom/android/server/location/gnss/GnssNmeaProvider;->-$$Nest$fgetmGnssNative(Lcom/android/server/location/gnss/GnssNmeaProvider;)Lcom/android/server/location/gnss/hal/GnssNative;
+
+    move-result-object p1
 
     iget-object v0, p0, Lcom/android/server/location/gnss/GnssNmeaProvider$1;->this$0:Lcom/android/server/location/gnss/GnssNmeaProvider;
 
-    invoke-static {v0}, Lcom/android/server/location/gnss/GnssNmeaProvider;->access$200(Lcom/android/server/location/gnss/GnssNmeaProvider;)Lcom/android/server/location/gnss/hal/GnssNative;
+    invoke-static {v0}, Lcom/android/server/location/gnss/GnssNmeaProvider;->-$$Nest$fgetmNmeaBuffer(Lcom/android/server/location/gnss/GnssNmeaProvider;)[B
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/server/location/gnss/GnssNmeaProvider$1;->this$0:Lcom/android/server/location/gnss/GnssNmeaProvider;
 
-    invoke-static {v1}, Lcom/android/server/location/gnss/GnssNmeaProvider;->access$100(Lcom/android/server/location/gnss/GnssNmeaProvider;)[B
+    invoke-static {v1}, Lcom/android/server/location/gnss/GnssNmeaProvider;->-$$Nest$fgetmNmeaBuffer(Lcom/android/server/location/gnss/GnssNmeaProvider;)[B
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/android/server/location/gnss/GnssNmeaProvider$1;->this$0:Lcom/android/server/location/gnss/GnssNmeaProvider;
+    array-length v1, v1
 
-    invoke-static {v2}, Lcom/android/server/location/gnss/GnssNmeaProvider;->access$100(Lcom/android/server/location/gnss/GnssNmeaProvider;)[B
+    invoke-virtual {p1, v0, v1}, Lcom/android/server/location/gnss/hal/GnssNative;->readNmea([BI)I
 
-    move-result-object v2
+    move-result p1
 
-    array-length v2, v2
+    new-instance v0, Ljava/lang/String;
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/location/gnss/hal/GnssNative;->readNmea([BI)I
+    iget-object v1, p0, Lcom/android/server/location/gnss/GnssNmeaProvider$1;->this$0:Lcom/android/server/location/gnss/GnssNmeaProvider;
 
-    move-result v0
+    invoke-static {v1}, Lcom/android/server/location/gnss/GnssNmeaProvider;->-$$Nest$fgetmNmeaBuffer(Lcom/android/server/location/gnss/GnssNmeaProvider;)[B
 
-    new-instance v1, Ljava/lang/String;
+    move-result-object v1
 
-    iget-object v2, p0, Lcom/android/server/location/gnss/GnssNmeaProvider$1;->this$0:Lcom/android/server/location/gnss/GnssNmeaProvider;
+    const/4 v2, 0x0
 
-    invoke-static {v2}, Lcom/android/server/location/gnss/GnssNmeaProvider;->access$100(Lcom/android/server/location/gnss/GnssNmeaProvider;)[B
+    invoke-direct {v0, v1, v2, p1}, Ljava/lang/String;-><init>([BII)V
 
-    move-result-object v2
-
-    const/4 v3, 0x0
-
-    invoke-direct {v1, v2, v3, v0}, Ljava/lang/String;-><init>([BII)V
-
-    iput-object v1, p0, Lcom/android/server/location/gnss/GnssNmeaProvider$1;->mNmea:Ljava/lang/String;
+    iput-object v0, p0, Lcom/android/server/location/gnss/GnssNmeaProvider$1;->mNmea:Ljava/lang/String;
 
     :cond_0
     iget-wide v0, p0, Lcom/android/server/location/gnss/GnssNmeaProvider$1;->val$timestamp:J
 
-    new-instance v2, Lcom/android/server/location/gnss/GnssNmeaProvider$1$$ExternalSyntheticLambda0;
+    new-instance p1, Lcom/android/server/location/gnss/GnssNmeaProvider$1$$ExternalSyntheticLambda0;
 
-    invoke-direct {v2, p0, v0, v1}, Lcom/android/server/location/gnss/GnssNmeaProvider$1$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/location/gnss/GnssNmeaProvider$1;J)V
+    invoke-direct {p1, p0, v0, v1}, Lcom/android/server/location/gnss/GnssNmeaProvider$1$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/location/gnss/GnssNmeaProvider$1;J)V
 
-    return-object v2
+    return-object p1
 
     :cond_1
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public bridge synthetic apply(Ljava/lang/Object;)Ljava/lang/Object;
@@ -156,22 +179,7 @@
 
     invoke-virtual {p0, p1}, Lcom/android/server/location/gnss/GnssNmeaProvider$1;->apply(Lcom/android/server/location/gnss/GnssListenerMultiplexer$GnssListenerRegistration;)Lcom/android/internal/listeners/ListenerExecutor$ListenerOperation;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
-.end method
-
-.method public synthetic lambda$apply$0$GnssNmeaProvider$1(JLandroid/location/IGnssNmeaListener;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/lang/Exception;
-        }
-    .end annotation
-
-    iget-object v0, p0, Lcom/android/server/location/gnss/GnssNmeaProvider$1;->mNmea:Ljava/lang/String;
-
-    invoke-interface {p3, p1, p2, v0}, Landroid/location/IGnssNmeaListener;->onNmeaReceived(JLjava/lang/String;)V
-
-    return-void
+    return-object p0
 .end method

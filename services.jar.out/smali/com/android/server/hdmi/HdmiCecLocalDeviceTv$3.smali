@@ -1,4 +1,4 @@
-.class Lcom/android/server/hdmi/HdmiCecLocalDeviceTv$3;
+.class public Lcom/android/server/hdmi/HdmiCecLocalDeviceTv$3;
 .super Ljava/lang/Object;
 .source "HdmiCecLocalDeviceTv.java"
 
@@ -12,19 +12,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;
+.field public final synthetic this$0:Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;
 
-.field final synthetic val$recorderAddress:I
+.field public final synthetic val$recorderAddress:I
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;I)V
+.method public constructor <init>(Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;I)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv$3;->this$0:Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;
@@ -39,17 +39,17 @@
 
 # virtual methods
 .method public onSendCompleted(I)V
-    .locals 3
+    .locals 1
 
     if-eqz p1, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv$3;->this$0:Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;
+    iget-object p1, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv$3;->this$0:Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;
 
-    iget v1, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv$3;->val$recorderAddress:I
+    iget p0, p0, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv$3;->val$recorderAddress:I
 
-    const/16 v2, 0xa1
+    const/16 v0, 0xa1
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->announceClearTimerRecordingResult(II)V
+    invoke-virtual {p1, p0, v0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->announceClearTimerRecordingResult(II)V
 
     :cond_0
     return-void

@@ -1,4 +1,4 @@
-.class Lcom/android/server/smartspace/SmartspacePerUserService$SmartspaceSessionInfo$1;
+.class public Lcom/android/server/smartspace/SmartspacePerUserService$SmartspaceSessionInfo$1;
 .super Landroid/os/RemoteCallbackList;
 .source "SmartspacePerUserService.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
@@ -23,11 +23,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/smartspace/SmartspacePerUserService$SmartspaceSessionInfo;
+.field public final synthetic this$0:Lcom/android/server/smartspace/SmartspacePerUserService$SmartspaceSessionInfo;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/smartspace/SmartspacePerUserService$SmartspaceSessionInfo;)V
+.method public constructor <init>(Lcom/android/server/smartspace/SmartspacePerUserService$SmartspaceSessionInfo;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/smartspace/SmartspacePerUserService$SmartspaceSessionInfo$1;->this$0:Lcom/android/server/smartspace/SmartspacePerUserService$SmartspaceSessionInfo;
@@ -40,23 +40,23 @@
 
 # virtual methods
 .method public onCallbackDied(Landroid/app/smartspace/ISmartspaceCallback;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/smartspace/SmartspacePerUserService$SmartspaceSessionInfo$1;->this$0:Lcom/android/server/smartspace/SmartspacePerUserService$SmartspaceSessionInfo;
+    iget-object p1, p0, Lcom/android/server/smartspace/SmartspacePerUserService$SmartspaceSessionInfo$1;->this$0:Lcom/android/server/smartspace/SmartspacePerUserService$SmartspaceSessionInfo;
 
-    invoke-static {v0}, Lcom/android/server/smartspace/SmartspacePerUserService$SmartspaceSessionInfo;->access$000(Lcom/android/server/smartspace/SmartspacePerUserService$SmartspaceSessionInfo;)Landroid/os/RemoteCallbackList;
+    invoke-static {p1}, Lcom/android/server/smartspace/SmartspacePerUserService$SmartspaceSessionInfo;->-$$Nest$fgetmCallbacks(Lcom/android/server/smartspace/SmartspacePerUserService$SmartspaceSessionInfo;)Landroid/os/RemoteCallbackList;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Landroid/os/RemoteCallbackList;->getRegisteredCallbackCount()I
+    invoke-virtual {p1}, Landroid/os/RemoteCallbackList;->getRegisteredCallbackCount()I
 
-    move-result v0
+    move-result p1
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/smartspace/SmartspacePerUserService$SmartspaceSessionInfo$1;->this$0:Lcom/android/server/smartspace/SmartspacePerUserService$SmartspaceSessionInfo;
+    iget-object p0, p0, Lcom/android/server/smartspace/SmartspacePerUserService$SmartspaceSessionInfo$1;->this$0:Lcom/android/server/smartspace/SmartspacePerUserService$SmartspaceSessionInfo;
 
-    invoke-virtual {v0}, Lcom/android/server/smartspace/SmartspacePerUserService$SmartspaceSessionInfo;->destroy()V
+    invoke-virtual {p0}, Lcom/android/server/smartspace/SmartspacePerUserService$SmartspaceSessionInfo;->destroy()V
 
     :cond_0
     return-void

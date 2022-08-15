@@ -1,4 +1,4 @@
-.class Lcom/android/server/hdmi/HdmiControlService$BinderService$5;
+.class public Lcom/android/server/hdmi/HdmiControlService$BinderService$5;
 .super Ljava/lang/Object;
 .source "HdmiControlService.java"
 
@@ -12,19 +12,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$1:Lcom/android/server/hdmi/HdmiControlService$BinderService;
+.field public final synthetic this$1:Lcom/android/server/hdmi/HdmiControlService$BinderService;
 
-.field final synthetic val$callback:Landroid/hardware/hdmi/IHdmiControlCallback;
+.field public final synthetic val$callback:Landroid/hardware/hdmi/IHdmiControlCallback;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/hdmi/HdmiControlService$BinderService;Landroid/hardware/hdmi/IHdmiControlCallback;)V
+.method public constructor <init>(Lcom/android/server/hdmi/HdmiControlService$BinderService;Landroid/hardware/hdmi/IHdmiControlCallback;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService$5;->this$1:Lcom/android/server/hdmi/HdmiControlService$BinderService;
@@ -39,15 +39,15 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService$5;->this$1:Lcom/android/server/hdmi/HdmiControlService$BinderService;
 
     iget-object v0, v0, Lcom/android/server/hdmi/HdmiControlService$BinderService;->this$0:Lcom/android/server/hdmi/HdmiControlService;
 
-    iget-object v1, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService$5;->val$callback:Landroid/hardware/hdmi/IHdmiControlCallback;
+    iget-object p0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService$5;->val$callback:Landroid/hardware/hdmi/IHdmiControlCallback;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/hdmi/HdmiControlService;->oneTouchPlay(Landroid/hardware/hdmi/IHdmiControlCallback;)V
+    invoke-virtual {v0, p0}, Lcom/android/server/hdmi/HdmiControlService;->oneTouchPlay(Landroid/hardware/hdmi/IHdmiControlCallback;)V
 
     return-void
 .end method

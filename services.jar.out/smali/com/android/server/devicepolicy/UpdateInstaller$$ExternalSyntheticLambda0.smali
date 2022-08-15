@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/devicepolicy/UpdateInstaller$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/devicepolicy/UpdateInstaller$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/devicepolicy/UpdateInstaller;
+    iget-object p0, p0, Lcom/android/server/devicepolicy/UpdateInstaller$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/devicepolicy/UpdateInstaller;
 
-    invoke-virtual {v0}, Lcom/android/server/devicepolicy/UpdateInstaller;->lambda$startInstallUpdate$0$UpdateInstaller()V
+    invoke-static {p0}, Lcom/android/server/devicepolicy/UpdateInstaller;->$r8$lambda$zmBAvKNO5Ea2huCLVWTgilzOSD8(Lcom/android/server/devicepolicy/UpdateInstaller;)V
 
     return-void
 .end method

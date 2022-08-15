@@ -1,9 +1,6 @@
-.class Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;
+.class public final Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;
 .super Ljava/lang/Object;
 .source "LocalEventLog.java"
-
-# interfaces
-.implements Ljava/util/Iterator;
 
 
 # annotations
@@ -12,85 +9,172 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x11
     name = "LogIterator"
-.end annotation
-
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Ljava/lang/Object;",
-        "Ljava/util/Iterator<",
-        "Ljava/lang/String;",
-        ">;"
-    }
 .end annotation
 
 
 # instance fields
-.field private mCount:I
+.field public mCount:I
 
-.field private mCurrentRealtimeMs:J
+.field public mCurrentLogEvent:Ljava/lang/Object;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "TT;"
+        }
+    .end annotation
+.end field
 
-.field private final mFilter:Ljava/lang/String;
+.field public mCurrentTime:J
 
-.field private mIndex:I
+.field public mIndex:I
 
-.field private final mSystemTimeDeltaMs:J
+.field public mLogTime:J
 
-.field final synthetic this$0:Lcom/android/server/location/eventlog/LocalEventLog;
+.field public final mModificationCount:J
+
+.field public final synthetic this$0:Lcom/android/server/location/eventlog/LocalEventLog;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/location/eventlog/LocalEventLog;)V
-    .locals 1
-
-    const/4 v0, 0x0
-
-    invoke-direct {p0, p1, v0}, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;-><init>(Lcom/android/server/location/eventlog/LocalEventLog;Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method constructor <init>(Lcom/android/server/location/eventlog/LocalEventLog;Ljava/lang/String;)V
-    .locals 4
+.method public constructor <init>(Lcom/android/server/location/eventlog/LocalEventLog;)V
+    .locals 2
 
     iput-object p1, p0, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->this$0:Lcom/android/server/location/eventlog/LocalEventLog;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p2, p0, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->mFilter:Ljava/lang/String;
+    monitor-enter p1
 
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+    :try_start_0
+    iget-wide v0, p1, Lcom/android/server/location/eventlog/LocalEventLog;->mModificationCount:J
 
-    move-result-wide v0
+    iput-wide v0, p0, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->mModificationCount:J
 
-    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+    iget-wide v0, p1, Lcom/android/server/location/eventlog/LocalEventLog;->mStartTime:J
 
-    move-result-wide v2
+    iput-wide v0, p0, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->mLogTime:J
 
-    sub-long/2addr v0, v2
+    const/4 v0, -0x1
 
-    iput-wide v0, p0, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->mSystemTimeDeltaMs:J
+    iput v0, p0, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->mIndex:I
 
-    invoke-static {p1}, Lcom/android/server/location/eventlog/LocalEventLog;->access$000(Lcom/android/server/location/eventlog/LocalEventLog;)J
+    iput v0, p0, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->mCount:I
 
-    move-result-wide v0
+    invoke-virtual {p0}, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->increment()V
 
-    iput-wide v0, p0, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->mCurrentRealtimeMs:J
-
-    const/4 p1, -0x1
-
-    iput p1, p0, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->mIndex:I
-
-    iput p1, p0, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->mCount:I
-
-    invoke-direct {p0}, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->increment()V
+    monitor-exit p1
 
     return-void
+
+    :catchall_0
+    move-exception p0
+
+    monitor-exit p1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw p0
 .end method
 
-.method private increment()V
+
+# virtual methods
+.method public final checkModifications()V
     .locals 4
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "LocalEventLog.this"
+        }
+    .end annotation
+
+    iget-wide v0, p0, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->mModificationCount:J
+
+    iget-object p0, p0, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->this$0:Lcom/android/server/location/eventlog/LocalEventLog;
+
+    iget-wide v2, p0, Lcom/android/server/location/eventlog/LocalEventLog;->mModificationCount:J
+
+    cmp-long p0, v0, v2
+
+    if-nez p0, :cond_0
+
+    return-void
+
+    :cond_0
+    new-instance p0, Ljava/util/ConcurrentModificationException;
+
+    invoke-direct {p0}, Ljava/util/ConcurrentModificationException;-><init>()V
+
+    throw p0
+.end method
+
+.method public getLog()Ljava/lang/Object;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()TT;"
+        }
+    .end annotation
+
+    iget-object p0, p0, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->mCurrentLogEvent:Ljava/lang/Object;
+
+    return-object p0
+.end method
+
+.method public getTime()J
+    .locals 2
+
+    iget-wide v0, p0, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->mCurrentTime:J
+
+    return-wide v0
+.end method
+
+.method public hasNext()Z
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->this$0:Lcom/android/server/location/eventlog/LocalEventLog;
+
+    monitor-enter v0
+
+    :try_start_0
+    invoke-virtual {p0}, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->checkModifications()V
+
+    iget v1, p0, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->mCount:I
+
+    iget-object p0, p0, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->this$0:Lcom/android/server/location/eventlog/LocalEventLog;
+
+    iget p0, p0, Lcom/android/server/location/eventlog/LocalEventLog;->mLogSize:I
+
+    if-ge v1, p0, :cond_0
+
+    const/4 p0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    :goto_0
+    monitor-exit v0
+
+    return p0
+
+    :catchall_0
+    move-exception p0
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw p0
+.end method
+
+.method public final increment()V
+    .locals 6
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "LocalEventLog.this"
+        }
+    .end annotation
 
     iget v0, p0, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->mIndex:I
 
@@ -103,226 +187,148 @@
     goto :goto_0
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->this$0:Lcom/android/server/location/eventlog/LocalEventLog;
+    iget-object v1, p0, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->this$0:Lcom/android/server/location/eventlog/LocalEventLog;
 
-    invoke-static {v0}, Lcom/android/server/location/eventlog/LocalEventLog;->access$200(Lcom/android/server/location/eventlog/LocalEventLog;)[Lcom/android/server/location/eventlog/LocalEventLog$Log;
+    iget-object v1, v1, Lcom/android/server/location/eventlog/LocalEventLog;->mEntries:[I
 
-    move-result-object v0
+    aget v0, v1, v0
 
-    iget v1, p0, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->mIndex:I
+    invoke-static {v0}, Lcom/android/server/location/eventlog/LocalEventLog;->getTimeDelta(I)I
 
-    aget-object v0, v0, v1
+    move-result v0
 
-    invoke-interface {v0}, Lcom/android/server/location/eventlog/LocalEventLog$Log;->getTimeDeltaMs()J
-
-    move-result-wide v0
+    int-to-long v0, v0
 
     :cond_1
     :goto_0
-    iget-wide v2, p0, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->mCurrentRealtimeMs:J
+    iget-wide v2, p0, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->mLogTime:J
 
     add-long/2addr v2, v0
 
-    iput-wide v2, p0, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->mCurrentRealtimeMs:J
+    iput-wide v2, p0, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->mLogTime:J
 
     iget-object v2, p0, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->this$0:Lcom/android/server/location/eventlog/LocalEventLog;
 
     iget v3, p0, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->mIndex:I
 
-    invoke-static {v2, v3}, Lcom/android/server/location/eventlog/LocalEventLog;->access$300(Lcom/android/server/location/eventlog/LocalEventLog;I)I
+    invoke-virtual {v2, v3}, Lcom/android/server/location/eventlog/LocalEventLog;->incrementIndex(I)I
 
     move-result v2
 
     iput v2, p0, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->mIndex:I
 
-    iget v2, p0, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->mCount:I
+    iget v3, p0, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->mCount:I
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v3, v3, 0x1
 
-    iput v2, p0, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->mCount:I
+    iput v3, p0, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->mCount:I
 
-    iget-object v3, p0, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->this$0:Lcom/android/server/location/eventlog/LocalEventLog;
+    iget-object v4, p0, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->this$0:Lcom/android/server/location/eventlog/LocalEventLog;
 
-    invoke-static {v3}, Lcom/android/server/location/eventlog/LocalEventLog;->access$100(Lcom/android/server/location/eventlog/LocalEventLog;)I
+    iget v5, v4, Lcom/android/server/location/eventlog/LocalEventLog;->mLogSize:I
 
-    move-result v3
+    if-ge v3, v5, :cond_2
 
-    if-ge v2, v3, :cond_2
+    iget-object v0, v4, Lcom/android/server/location/eventlog/LocalEventLog;->mEntries:[I
 
-    iget-object v2, p0, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->this$0:Lcom/android/server/location/eventlog/LocalEventLog;
+    aget v0, v0, v2
 
-    invoke-static {v2}, Lcom/android/server/location/eventlog/LocalEventLog;->access$200(Lcom/android/server/location/eventlog/LocalEventLog;)[Lcom/android/server/location/eventlog/LocalEventLog$Log;
+    invoke-static {v0}, Lcom/android/server/location/eventlog/LocalEventLog;->getTimeDelta(I)I
 
-    move-result-object v2
+    move-result v0
 
-    iget v3, p0, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->mIndex:I
-
-    aget-object v2, v2, v3
-
-    invoke-interface {v2}, Lcom/android/server/location/eventlog/LocalEventLog$Log;->getTimeDeltaMs()J
-
-    move-result-wide v0
+    int-to-long v0, v0
 
     :cond_2
     iget v2, p0, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->mCount:I
 
     iget-object v3, p0, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->this$0:Lcom/android/server/location/eventlog/LocalEventLog;
 
-    invoke-static {v3}, Lcom/android/server/location/eventlog/LocalEventLog;->access$100(Lcom/android/server/location/eventlog/LocalEventLog;)I
+    iget v4, v3, Lcom/android/server/location/eventlog/LocalEventLog;->mLogSize:I
 
-    move-result v3
+    if-ge v2, v4, :cond_3
 
-    if-ge v2, v3, :cond_3
-
-    iget-object v2, p0, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->this$0:Lcom/android/server/location/eventlog/LocalEventLog;
-
-    invoke-static {v2}, Lcom/android/server/location/eventlog/LocalEventLog;->access$200(Lcom/android/server/location/eventlog/LocalEventLog;)[Lcom/android/server/location/eventlog/LocalEventLog$Log;
-
-    move-result-object v2
+    iget-object v2, v3, Lcom/android/server/location/eventlog/LocalEventLog;->mEntries:[I
 
     iget v3, p0, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->mIndex:I
 
-    aget-object v2, v2, v3
+    aget v2, v2, v3
 
-    invoke-interface {v2}, Lcom/android/server/location/eventlog/LocalEventLog$Log;->isFiller()Z
+    invoke-static {v2}, Lcom/android/server/location/eventlog/LocalEventLog;->isFiller(I)Z
 
     move-result v2
 
     if-nez v2, :cond_1
 
-    iget-object v2, p0, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->mFilter:Ljava/lang/String;
-
-    if-eqz v2, :cond_3
-
-    iget-object v2, p0, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->this$0:Lcom/android/server/location/eventlog/LocalEventLog;
-
-    invoke-static {v2}, Lcom/android/server/location/eventlog/LocalEventLog;->access$200(Lcom/android/server/location/eventlog/LocalEventLog;)[Lcom/android/server/location/eventlog/LocalEventLog$Log;
-
-    move-result-object v2
-
-    iget v3, p0, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->mIndex:I
-
-    aget-object v2, v2, v3
-
-    iget-object v3, p0, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->mFilter:Ljava/lang/String;
-
-    invoke-interface {v2, v3}, Lcom/android/server/location/eventlog/LocalEventLog$Log;->filter(Ljava/lang/String;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
     :cond_3
     return-void
 .end method
 
-
-# virtual methods
-.method public hasNext()Z
-    .locals 2
-
-    iget v0, p0, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->mCount:I
-
-    iget-object v1, p0, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->this$0:Lcom/android/server/location/eventlog/LocalEventLog;
-
-    invoke-static {v1}, Lcom/android/server/location/eventlog/LocalEventLog;->access$100(Lcom/android/server/location/eventlog/LocalEventLog;)I
-
-    move-result v1
-
-    if-ge v0, v1, :cond_0
-
-    const/4 v0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    :goto_0
-    return v0
-.end method
-
-.method public bridge synthetic next()Ljava/lang/Object;
-    .locals 1
-
-    invoke-virtual {p0}, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->next()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public next()Ljava/lang/String;
+.method public next()V
     .locals 5
-
-    invoke-virtual {p0}, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->hasNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->this$0:Lcom/android/server/location/eventlog/LocalEventLog;
 
-    invoke-static {v0}, Lcom/android/server/location/eventlog/LocalEventLog;->access$200(Lcom/android/server/location/eventlog/LocalEventLog;)[Lcom/android/server/location/eventlog/LocalEventLog$Log;
+    monitor-enter v0
 
-    move-result-object v0
+    :try_start_0
+    invoke-virtual {p0}, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->hasNext()Z
 
-    iget v1, p0, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->mIndex:I
+    move-result v1
 
-    aget-object v0, v0, v1
+    if-eqz v1, :cond_0
 
-    iget-wide v1, p0, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->mCurrentRealtimeMs:J
+    iget-wide v1, p0, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->mLogTime:J
 
-    invoke-interface {v0}, Lcom/android/server/location/eventlog/LocalEventLog$Log;->getTimeDeltaMs()J
+    iget-object v3, p0, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->this$0:Lcom/android/server/location/eventlog/LocalEventLog;
 
-    move-result-wide v3
+    iget-object v3, v3, Lcom/android/server/location/eventlog/LocalEventLog;->mEntries:[I
+
+    iget v4, p0, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->mIndex:I
+
+    aget v3, v3, v4
+
+    invoke-static {v3}, Lcom/android/server/location/eventlog/LocalEventLog;->getTimeDelta(I)I
+
+    move-result v3
+
+    int-to-long v3, v3
 
     add-long/2addr v1, v3
 
-    iget-wide v3, p0, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->mSystemTimeDeltaMs:J
+    iput-wide v1, p0, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->mCurrentTime:J
 
-    add-long/2addr v1, v3
+    iget-object v1, p0, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->this$0:Lcom/android/server/location/eventlog/LocalEventLog;
 
-    invoke-direct {p0}, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->increment()V
+    iget-object v1, v1, Lcom/android/server/location/eventlog/LocalEventLog;->mLogEvents:[Ljava/lang/Object;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    iget v2, p0, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->mIndex:I
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    aget-object v1, v1, v2
 
-    iget-object v4, p0, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->this$0:Lcom/android/server/location/eventlog/LocalEventLog;
+    invoke-static {v1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {v4, v1, v2}, Lcom/android/server/location/eventlog/LocalEventLog;->getTimePrefix(J)Ljava/lang/String;
+    iput-object v1, p0, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->mCurrentLogEvent:Ljava/lang/Object;
 
-    move-result-object v4
+    invoke-virtual {p0}, Lcom/android/server/location/eventlog/LocalEventLog$LogIterator;->increment()V
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    monitor-exit v0
 
-    invoke-interface {v0}, Lcom/android/server/location/eventlog/LocalEventLog$Log;->getLogString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    return-object v3
+    return-void
 
     :cond_0
-    new-instance v0, Ljava/util/NoSuchElementException;
+    new-instance p0, Ljava/util/NoSuchElementException;
 
-    invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
+    invoke-direct {p0}, Ljava/util/NoSuchElementException;-><init>()V
 
-    throw v0
-.end method
+    throw p0
 
-.method public remove()V
-    .locals 1
+    :catchall_0
+    move-exception p0
 
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
-
-    throw v0
+    throw p0
 .end method

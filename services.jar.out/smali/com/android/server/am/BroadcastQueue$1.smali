@@ -1,4 +1,4 @@
-.class Lcom/android/server/am/BroadcastQueue$1;
+.class public Lcom/android/server/am/BroadcastQueue$1;
 .super Ljava/lang/Object;
 .source "BroadcastQueue.java"
 
@@ -12,21 +12,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/am/BroadcastQueue;
+.field public final synthetic this$0:Lcom/android/server/am/BroadcastQueue;
 
-.field final synthetic val$intent:Landroid/content/Intent;
+.field public final synthetic val$intent:Landroid/content/Intent;
 
-.field final synthetic val$receivingUserId:I
+.field public final synthetic val$receivingUserId:I
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/BroadcastQueue;Landroid/content/Intent;I)V
+.method public constructor <init>(Lcom/android/server/am/BroadcastQueue;Landroid/content/Intent;I)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/am/BroadcastQueue$1;->this$0:Lcom/android/server/am/BroadcastQueue;
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/am/BroadcastQueue$1;->this$0:Lcom/android/server/am/BroadcastQueue;
 
@@ -55,9 +55,9 @@
 
     new-instance v2, Landroid/os/UserHandle;
 
-    iget v3, p0, Lcom/android/server/am/BroadcastQueue$1;->val$receivingUserId:I
+    iget p0, p0, Lcom/android/server/am/BroadcastQueue$1;->val$receivingUserId:I
 
-    invoke-direct {v2, v3}, Landroid/os/UserHandle;-><init>(I)V
+    invoke-direct {v2, p0}, Landroid/os/UserHandle;-><init>(I)V
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->startActivityAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
 

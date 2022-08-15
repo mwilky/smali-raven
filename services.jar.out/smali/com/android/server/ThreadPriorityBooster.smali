@@ -11,18 +11,12 @@
 .end annotation
 
 
-# static fields
-.field private static final ENABLE_LOCK_GUARD:Z = false
-
-.field private static final PRIORITY_NOT_ADJUSTED:I = 0x7fffffff
-
-
 # instance fields
-.field private volatile mBoostToPriority:I
+.field public volatile mBoostToPriority:I
 
-.field private final mLockGuardIndex:I
+.field public final mLockGuardIndex:I
 
-.field private final mThreadState:Ljava/lang/ThreadLocal;
+.field public final mThreadState:Ljava/lang/ThreadLocal;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/lang/ThreadLocal<",
@@ -55,7 +49,7 @@
 
 # virtual methods
 .method public boost()V
-    .locals 4
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/ThreadPriorityBooster;->mThreadState:Ljava/lang/ThreadLocal;
 
@@ -81,89 +75,85 @@
 
     iget v2, v0, Lcom/android/server/ThreadPriorityBooster$PriorityState;->tid:I
 
-    iget v3, p0, Lcom/android/server/ThreadPriorityBooster;->mBoostToPriority:I
+    iget p0, p0, Lcom/android/server/ThreadPriorityBooster;->mBoostToPriority:I
 
-    invoke-static {v2, v3}, Landroid/os/Process;->setThreadPriority(II)V
+    invoke-static {v2, p0}, Landroid/os/Process;->setThreadPriority(II)V
 
     iput v1, v0, Lcom/android/server/ThreadPriorityBooster$PriorityState;->prevPriority:I
 
     :cond_0
-    iget v1, v0, Lcom/android/server/ThreadPriorityBooster$PriorityState;->regionCounter:I
+    iget p0, v0, Lcom/android/server/ThreadPriorityBooster$PriorityState;->regionCounter:I
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 p0, p0, 0x1
 
-    iput v1, v0, Lcom/android/server/ThreadPriorityBooster$PriorityState;->regionCounter:I
+    iput p0, v0, Lcom/android/server/ThreadPriorityBooster$PriorityState;->regionCounter:I
 
     return-void
 .end method
 
 .method public reset()V
-    .locals 4
+    .locals 3
 
-    iget-object v0, p0, Lcom/android/server/ThreadPriorityBooster;->mThreadState:Ljava/lang/ThreadLocal;
+    iget-object p0, p0, Lcom/android/server/ThreadPriorityBooster;->mThreadState:Ljava/lang/ThreadLocal;
 
-    invoke-virtual {v0}, Ljava/lang/ThreadLocal;->get()Ljava/lang/Object;
+    invoke-virtual {p0}, Ljava/lang/ThreadLocal;->get()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/android/server/ThreadPriorityBooster$PriorityState;
+    check-cast p0, Lcom/android/server/ThreadPriorityBooster$PriorityState;
 
-    iget v1, v0, Lcom/android/server/ThreadPriorityBooster$PriorityState;->regionCounter:I
+    iget v0, p0, Lcom/android/server/ThreadPriorityBooster$PriorityState;->regionCounter:I
 
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 v0, v0, -0x1
 
-    iput v1, v0, Lcom/android/server/ThreadPriorityBooster$PriorityState;->regionCounter:I
+    iput v0, p0, Lcom/android/server/ThreadPriorityBooster$PriorityState;->regionCounter:I
 
-    iget v1, v0, Lcom/android/server/ThreadPriorityBooster$PriorityState;->regionCounter:I
+    if-nez v0, :cond_0
 
-    if-nez v1, :cond_0
+    iget v0, p0, Lcom/android/server/ThreadPriorityBooster$PriorityState;->prevPriority:I
 
-    iget v1, v0, Lcom/android/server/ThreadPriorityBooster$PriorityState;->prevPriority:I
+    const v1, 0x7fffffff
 
-    const v2, 0x7fffffff
+    if-eq v0, v1, :cond_0
 
-    if-eq v1, v2, :cond_0
+    iget v2, p0, Lcom/android/server/ThreadPriorityBooster$PriorityState;->tid:I
 
-    iget v1, v0, Lcom/android/server/ThreadPriorityBooster$PriorityState;->tid:I
+    invoke-static {v2, v0}, Landroid/os/Process;->setThreadPriority(II)V
 
-    iget v3, v0, Lcom/android/server/ThreadPriorityBooster$PriorityState;->prevPriority:I
-
-    invoke-static {v1, v3}, Landroid/os/Process;->setThreadPriority(II)V
-
-    iput v2, v0, Lcom/android/server/ThreadPriorityBooster$PriorityState;->prevPriority:I
+    iput v1, p0, Lcom/android/server/ThreadPriorityBooster$PriorityState;->prevPriority:I
 
     :cond_0
     return-void
 .end method
 
-.method protected setBoostToPriority(I)V
-    .locals 3
+.method public setBoostToPriority(I)V
+    .locals 1
 
     iput p1, p0, Lcom/android/server/ThreadPriorityBooster;->mBoostToPriority:I
 
-    iget-object v0, p0, Lcom/android/server/ThreadPriorityBooster;->mThreadState:Ljava/lang/ThreadLocal;
+    iget-object p0, p0, Lcom/android/server/ThreadPriorityBooster;->mThreadState:Ljava/lang/ThreadLocal;
 
-    invoke-virtual {v0}, Ljava/lang/ThreadLocal;->get()Ljava/lang/Object;
+    invoke-virtual {p0}, Ljava/lang/ThreadLocal;->get()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/android/server/ThreadPriorityBooster$PriorityState;
+    check-cast p0, Lcom/android/server/ThreadPriorityBooster$PriorityState;
 
-    iget v1, v0, Lcom/android/server/ThreadPriorityBooster$PriorityState;->regionCounter:I
+    iget v0, p0, Lcom/android/server/ThreadPriorityBooster$PriorityState;->regionCounter:I
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    iget v1, v0, Lcom/android/server/ThreadPriorityBooster$PriorityState;->tid:I
+    iget v0, p0, Lcom/android/server/ThreadPriorityBooster$PriorityState;->tid:I
 
-    invoke-static {v1}, Landroid/os/Process;->getThreadPriority(I)I
+    invoke-static {v0}, Landroid/os/Process;->getThreadPriority(I)I
 
-    move-result v1
+    move-result v0
 
-    if-eq v1, p1, :cond_0
+    if-eq v0, p1, :cond_0
 
-    iget v2, v0, Lcom/android/server/ThreadPriorityBooster$PriorityState;->tid:I
+    iget p0, p0, Lcom/android/server/ThreadPriorityBooster$PriorityState;->tid:I
 
-    invoke-static {v2, p1}, Landroid/os/Process;->setThreadPriority(II)V
+    invoke-static {p0, p1}, Landroid/os/Process;->setThreadPriority(II)V
 
     :cond_0
     return-void

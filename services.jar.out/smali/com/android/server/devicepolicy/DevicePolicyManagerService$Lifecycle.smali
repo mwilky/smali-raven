@@ -15,7 +15,7 @@
 
 
 # instance fields
-.field private mService:Lcom/android/server/devicepolicy/BaseIDevicePolicyManager;
+.field public mService:Lcom/android/server/devicepolicy/BaseIDevicePolicyManager;
 
 
 # direct methods
@@ -28,7 +28,7 @@
 
     move-result-object v0
 
-    const v1, 0x1040231
+    const v1, 0x1040254
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -40,9 +40,9 @@
 
     if-eqz v1, :cond_0
 
-    const-class v1, Lcom/android/server/devicepolicy/DevicePolicyManagerService;
+    const-class v0, Lcom/android/server/devicepolicy/DevicePolicyManagerService;
 
-    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
     move-result-object v0
 
@@ -64,58 +64,56 @@
 
     invoke-virtual {v1, v3}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
 
-    move-result-object v3
+    move-result-object v1
 
     new-array v2, v2, [Ljava/lang/Object;
 
     aput-object p1, v2, v5
 
-    invoke-virtual {v3, v2}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, v2}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p1
 
-    check-cast v2, Lcom/android/server/devicepolicy/BaseIDevicePolicyManager;
+    check-cast p1, Lcom/android/server/devicepolicy/BaseIDevicePolicyManager;
 
-    iput-object v2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$Lifecycle;->mService:Lcom/android/server/devicepolicy/BaseIDevicePolicyManager;
+    iput-object p1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$Lifecycle;->mService:Lcom/android/server/devicepolicy/BaseIDevicePolicyManager;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    nop
 
     return-void
 
     :catch_0
-    move-exception v1
+    move-exception p0
 
-    new-instance v2, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "Failed to instantiate DevicePolicyManagerService with class name: "
+    const-string v2, "Failed to instantiate DevicePolicyManagerService with class name: "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-direct {v2, v3, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {p1, v0, p0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    throw v2
+    throw p1
 .end method
 
 
 # virtual methods
 .method public onBootPhase(I)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$Lifecycle;->mService:Lcom/android/server/devicepolicy/BaseIDevicePolicyManager;
+    iget-object p0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$Lifecycle;->mService:Lcom/android/server/devicepolicy/BaseIDevicePolicyManager;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/devicepolicy/BaseIDevicePolicyManager;->systemReady(I)V
+    invoke-virtual {p0, p1}, Lcom/android/server/devicepolicy/BaseIDevicePolicyManager;->systemReady(I)V
 
     return-void
 .end method
@@ -127,13 +125,13 @@
 
     const-string v1, "device_policy"
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/server/devicepolicy/DevicePolicyManagerService$Lifecycle;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
+    invoke-virtual {p0, v1, v0}, Lcom/android/server/SystemService;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
 
     return-void
 .end method
 
 .method public onUserStarting(Lcom/android/server/SystemService$TargetUser;)V
-    .locals 2
+    .locals 1
 
     invoke-virtual {p1}, Lcom/android/server/SystemService$TargetUser;->isPreCreated()Z
 
@@ -144,19 +142,19 @@
     return-void
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$Lifecycle;->mService:Lcom/android/server/devicepolicy/BaseIDevicePolicyManager;
+    iget-object p0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$Lifecycle;->mService:Lcom/android/server/devicepolicy/BaseIDevicePolicyManager;
 
     invoke-virtual {p1}, Lcom/android/server/SystemService$TargetUser;->getUserIdentifier()I
 
-    move-result v1
+    move-result p1
 
-    invoke-virtual {v0, v1}, Lcom/android/server/devicepolicy/BaseIDevicePolicyManager;->handleStartUser(I)V
+    invoke-virtual {p0, p1}, Lcom/android/server/devicepolicy/BaseIDevicePolicyManager;->handleStartUser(I)V
 
     return-void
 .end method
 
 .method public onUserStopping(Lcom/android/server/SystemService$TargetUser;)V
-    .locals 2
+    .locals 1
 
     invoke-virtual {p1}, Lcom/android/server/SystemService$TargetUser;->isPreCreated()Z
 
@@ -167,19 +165,19 @@
     return-void
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$Lifecycle;->mService:Lcom/android/server/devicepolicy/BaseIDevicePolicyManager;
+    iget-object p0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$Lifecycle;->mService:Lcom/android/server/devicepolicy/BaseIDevicePolicyManager;
 
     invoke-virtual {p1}, Lcom/android/server/SystemService$TargetUser;->getUserIdentifier()I
 
-    move-result v1
+    move-result p1
 
-    invoke-virtual {v0, v1}, Lcom/android/server/devicepolicy/BaseIDevicePolicyManager;->handleStopUser(I)V
+    invoke-virtual {p0, p1}, Lcom/android/server/devicepolicy/BaseIDevicePolicyManager;->handleStopUser(I)V
 
     return-void
 .end method
 
 .method public onUserUnlocked(Lcom/android/server/SystemService$TargetUser;)V
-    .locals 2
+    .locals 1
 
     invoke-virtual {p1}, Lcom/android/server/SystemService$TargetUser;->isPreCreated()Z
 
@@ -190,19 +188,19 @@
     return-void
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$Lifecycle;->mService:Lcom/android/server/devicepolicy/BaseIDevicePolicyManager;
+    iget-object p0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$Lifecycle;->mService:Lcom/android/server/devicepolicy/BaseIDevicePolicyManager;
 
     invoke-virtual {p1}, Lcom/android/server/SystemService$TargetUser;->getUserIdentifier()I
 
-    move-result v1
+    move-result p1
 
-    invoke-virtual {v0, v1}, Lcom/android/server/devicepolicy/BaseIDevicePolicyManager;->handleOnUserUnlocked(I)V
+    invoke-virtual {p0, p1}, Lcom/android/server/devicepolicy/BaseIDevicePolicyManager;->handleOnUserUnlocked(I)V
 
     return-void
 .end method
 
 .method public onUserUnlocking(Lcom/android/server/SystemService$TargetUser;)V
-    .locals 2
+    .locals 1
 
     invoke-virtual {p1}, Lcom/android/server/SystemService$TargetUser;->isPreCreated()Z
 
@@ -213,23 +211,23 @@
     return-void
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$Lifecycle;->mService:Lcom/android/server/devicepolicy/BaseIDevicePolicyManager;
+    iget-object p0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$Lifecycle;->mService:Lcom/android/server/devicepolicy/BaseIDevicePolicyManager;
 
     invoke-virtual {p1}, Lcom/android/server/SystemService$TargetUser;->getUserIdentifier()I
 
-    move-result v1
+    move-result p1
 
-    invoke-virtual {v0, v1}, Lcom/android/server/devicepolicy/BaseIDevicePolicyManager;->handleUnlockUser(I)V
+    invoke-virtual {p0, p1}, Lcom/android/server/devicepolicy/BaseIDevicePolicyManager;->handleUnlockUser(I)V
 
     return-void
 .end method
 
 .method public setDevicePolicySafetyChecker(Landroid/app/admin/DevicePolicySafetyChecker;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$Lifecycle;->mService:Lcom/android/server/devicepolicy/BaseIDevicePolicyManager;
+    iget-object p0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$Lifecycle;->mService:Lcom/android/server/devicepolicy/BaseIDevicePolicyManager;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/devicepolicy/BaseIDevicePolicyManager;->setDevicePolicySafetyChecker(Landroid/app/admin/DevicePolicySafetyChecker;)V
+    invoke-virtual {p0, p1}, Lcom/android/server/devicepolicy/BaseIDevicePolicyManager;->setDevicePolicySafetyChecker(Landroid/app/admin/DevicePolicySafetyChecker;)V
 
     return-void
 .end method

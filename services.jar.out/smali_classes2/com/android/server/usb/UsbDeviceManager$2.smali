@@ -1,4 +1,4 @@
-.class Lcom/android/server/usb/UsbDeviceManager$2;
+.class public Lcom/android/server/usb/UsbDeviceManager$2;
 .super Landroid/content/BroadcastReceiver;
 .source "UsbDeviceManager.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/usb/UsbDeviceManager;
+.field public final synthetic this$0:Lcom/android/server/usb/UsbDeviceManager;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/usb/UsbDeviceManager;)V
+.method public constructor <init>(Lcom/android/server/usb/UsbDeviceManager;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/usb/UsbDeviceManager$2;->this$0:Lcom/android/server/usb/UsbDeviceManager;
@@ -32,37 +32,37 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 4
+    .locals 1
 
-    const-string v0, "plugged"
+    const-string p1, "plugged"
 
-    const/4 v1, -0x1
+    const/4 v0, -0x1
 
-    invoke-virtual {p2, v0, v1}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {p2, p1, v0}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    move-result v0
+    move-result p1
 
-    const/4 v1, 0x2
+    const/4 p2, 0x2
 
-    if-ne v0, v1, :cond_0
+    if-ne p1, p2, :cond_0
 
-    const/4 v1, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    iget-object v2, p0, Lcom/android/server/usb/UsbDeviceManager$2;->this$0:Lcom/android/server/usb/UsbDeviceManager;
+    iget-object p0, p0, Lcom/android/server/usb/UsbDeviceManager$2;->this$0:Lcom/android/server/usb/UsbDeviceManager;
 
-    invoke-static {v2}, Lcom/android/server/usb/UsbDeviceManager;->access$000(Lcom/android/server/usb/UsbDeviceManager;)Lcom/android/server/usb/UsbDeviceManager$UsbHandler;
+    invoke-static {p0}, Lcom/android/server/usb/UsbDeviceManager;->-$$Nest$fgetmHandler(Lcom/android/server/usb/UsbDeviceManager;)Lcom/android/server/usb/UsbDeviceManager$UsbHandler;
 
-    move-result-object v2
+    move-result-object p0
 
-    const/16 v3, 0x9
+    const/16 p2, 0x9
 
-    invoke-virtual {v2, v3, v1}, Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->sendMessage(IZ)V
+    invoke-virtual {p0, p2, p1}, Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->sendMessage(IZ)V
 
     return-void
 .end method

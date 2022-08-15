@@ -1,4 +1,4 @@
-.class Lcom/android/server/IntentResolver$IteratorWrapper;
+.class public Lcom/android/server/IntentResolver$IteratorWrapper;
 .super Ljava/lang/Object;
 .source "IntentResolver.java"
 
@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "IteratorWrapper"
 .end annotation
 
@@ -26,7 +26,7 @@
 
 
 # instance fields
-.field private mCur:Ljava/lang/Object;
+.field public mCur:Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "TF;"
@@ -34,7 +34,7 @@
     .end annotation
 .end field
 
-.field private final mI:Ljava/util/Iterator;
+.field public final mI:Ljava/util/Iterator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Iterator<",
@@ -43,11 +43,11 @@
     .end annotation
 .end field
 
-.field final synthetic this$0:Lcom/android/server/IntentResolver;
+.field public final synthetic this$0:Lcom/android/server/IntentResolver;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/IntentResolver;Ljava/util/Iterator;)V
+.method public constructor <init>(Lcom/android/server/IntentResolver;Ljava/util/Iterator;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -69,15 +69,15 @@
 
 # virtual methods
 .method public hasNext()Z
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/IntentResolver$IteratorWrapper;->mI:Ljava/util/Iterator;
+    iget-object p0, p0, Lcom/android/server/IntentResolver$IteratorWrapper;->mI:Ljava/util/Iterator;
 
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public next()Ljava/lang/Object;
@@ -111,9 +111,9 @@
     invoke-virtual {v1, v0}, Lcom/android/server/IntentResolver;->removeFilterInternal(Ljava/lang/Object;)V
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/IntentResolver$IteratorWrapper;->mI:Ljava/util/Iterator;
+    iget-object p0, p0, Lcom/android/server/IntentResolver$IteratorWrapper;->mI:Ljava/util/Iterator;
 
-    invoke-interface {v0}, Ljava/util/Iterator;->remove()V
+    invoke-interface {p0}, Ljava/util/Iterator;->remove()V
 
     return-void
 .end method

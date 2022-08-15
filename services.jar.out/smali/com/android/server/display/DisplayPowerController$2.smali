@@ -1,28 +1,28 @@
-.class Lcom/android/server/display/DisplayPowerController$2;
+.class public Lcom/android/server/display/DisplayPowerController$2;
 .super Ljava/lang/Object;
 .source "DisplayPowerController.java"
 
 # interfaces
-.implements Landroid/animation/Animator$AnimatorListener;
+.implements Lcom/android/server/display/HighBrightnessModeController$HdrBrightnessDeviceConfig;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/android/server/display/DisplayPowerController;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/android/server/display/DisplayPowerController;->loadFromDisplayDeviceConfig(Landroid/os/IBinder;Lcom/android/server/display/DisplayDeviceInfo;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/display/DisplayPowerController;
+.field public final synthetic this$0:Lcom/android/server/display/DisplayPowerController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/display/DisplayPowerController;)V
+.method public constructor <init>(Lcom/android/server/display/DisplayPowerController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/display/DisplayPowerController$2;->this$0:Lcom/android/server/display/DisplayPowerController;
@@ -34,30 +34,18 @@
 
 
 # virtual methods
-.method public onAnimationCancel(Landroid/animation/Animator;)V
+.method public getHdrBrightnessFromSdr(F)F
     .locals 0
 
-    return-void
-.end method
+    iget-object p0, p0, Lcom/android/server/display/DisplayPowerController$2;->this$0:Lcom/android/server/display/DisplayPowerController;
 
-.method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 1
+    invoke-static {p0}, Lcom/android/server/display/DisplayPowerController;->-$$Nest$fgetmDisplayDeviceConfig(Lcom/android/server/display/DisplayPowerController;)Lcom/android/server/display/DisplayDeviceConfig;
 
-    iget-object v0, p0, Lcom/android/server/display/DisplayPowerController$2;->this$0:Lcom/android/server/display/DisplayPowerController;
+    move-result-object p0
 
-    invoke-static {v0}, Lcom/android/server/display/DisplayPowerController;->access$200(Lcom/android/server/display/DisplayPowerController;)V
+    invoke-virtual {p0, p1}, Lcom/android/server/display/DisplayDeviceConfig;->getHdrBrightnessFromSdr(F)F
 
-    return-void
-.end method
+    move-result p0
 
-.method public onAnimationRepeat(Landroid/animation/Animator;)V
-    .locals 0
-
-    return-void
-.end method
-
-.method public onAnimationStart(Landroid/animation/Animator;)V
-    .locals 0
-
-    return-void
+    return p0
 .end method

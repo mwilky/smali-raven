@@ -1,4 +1,4 @@
-.class Lcom/android/server/trust/TrustManagerService$SettingsAttrs;
+.class public Lcom/android/server/trust/TrustManagerService$SettingsAttrs;
 .super Ljava/lang/Object;
 .source "TrustManagerService.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "SettingsAttrs"
 .end annotation
 

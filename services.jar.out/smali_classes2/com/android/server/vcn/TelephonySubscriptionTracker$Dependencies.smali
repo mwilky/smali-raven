@@ -4,6 +4,10 @@
 
 
 # annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    visibility = .enum Lcom/android/internal/annotations/VisibleForTesting$Visibility;->PRIVATE:Lcom/android/internal/annotations/VisibleForTesting$Visibility;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/android/server/vcn/TelephonySubscriptionTracker;
 .end annotation
@@ -26,21 +30,21 @@
 
 # virtual methods
 .method public getActiveDataSubscriptionId()I
-    .locals 1
+    .locals 0
 
     invoke-static {}, Landroid/telephony/SubscriptionManager;->getActiveDataSubscriptionId()I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public isConfigForIdentifiedCarrier(Landroid/os/PersistableBundle;)Z
-    .locals 1
+    .locals 0
 
     invoke-static {p1}, Landroid/telephony/CarrierConfigManager;->isConfigForIdentifiedCarrier(Landroid/os/PersistableBundle;)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method

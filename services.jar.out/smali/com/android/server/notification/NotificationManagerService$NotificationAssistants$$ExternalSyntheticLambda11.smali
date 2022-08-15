@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/notification/NotificationManagerService$NotificationAssistants$$ExternalSyntheticLambda11;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/BiConsumer;
@@ -12,9 +13,11 @@
 
 .field public final synthetic f$2:Z
 
+.field public final synthetic f$3:Z
+
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/notification/NotificationManagerService$NotificationAssistants;Ljava/lang/String;Z)V
+.method public synthetic constructor <init>(Lcom/android/server/notification/NotificationManagerService$NotificationAssistants;Ljava/lang/String;ZZ)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,13 +28,15 @@
 
     iput-boolean p3, p0, Lcom/android/server/notification/NotificationManagerService$NotificationAssistants$$ExternalSyntheticLambda11;->f$2:Z
 
+    iput-boolean p4, p0, Lcom/android/server/notification/NotificationManagerService$NotificationAssistants$$ExternalSyntheticLambda11;->f$3:Z
+
     return-void
 .end method
 
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 3
+    .locals 6
 
     iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$NotificationAssistants$$ExternalSyntheticLambda11;->f$0:Lcom/android/server/notification/NotificationManagerService$NotificationAssistants;
 
@@ -39,11 +44,17 @@
 
     iget-boolean v2, p0, Lcom/android/server/notification/NotificationManagerService$NotificationAssistants$$ExternalSyntheticLambda11;->f$2:Z
 
-    check-cast p1, Landroid/service/notification/INotificationListener;
+    iget-boolean v3, p0, Lcom/android/server/notification/NotificationManagerService$NotificationAssistants$$ExternalSyntheticLambda11;->f$3:Z
 
-    check-cast p2, Lcom/android/server/notification/NotificationManagerService$StatusBarNotificationHolder;
+    move-object v4, p1
 
-    invoke-virtual {v0, v1, v2, p1, p2}, Lcom/android/server/notification/NotificationManagerService$NotificationAssistants;->lambda$notifyAssistantVisibilityChangedLocked$5$NotificationManagerService$NotificationAssistants(Ljava/lang/String;ZLandroid/service/notification/INotificationListener;Lcom/android/server/notification/NotificationManagerService$StatusBarNotificationHolder;)V
+    check-cast v4, Landroid/service/notification/INotificationListener;
+
+    move-object v5, p2
+
+    check-cast v5, Lcom/android/server/notification/NotificationManagerService$StatusBarNotificationHolder;
+
+    invoke-static/range {v0 .. v5}, Lcom/android/server/notification/NotificationManagerService$NotificationAssistants;->$r8$lambda$-bR5NhNPIE-ji2CH17r3A47mMTE(Lcom/android/server/notification/NotificationManagerService$NotificationAssistants;Ljava/lang/String;ZZLandroid/service/notification/INotificationListener;Lcom/android/server/notification/NotificationManagerService$StatusBarNotificationHolder;)V
 
     return-void
 .end method

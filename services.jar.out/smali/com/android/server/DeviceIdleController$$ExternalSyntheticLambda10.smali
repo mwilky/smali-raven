@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/DeviceIdleController$$ExternalSyntheticLambda10;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Predicate;
@@ -31,19 +32,19 @@
 
 # virtual methods
 .method public final test(Ljava/lang/Object;)Z
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/DeviceIdleController$$ExternalSyntheticLambda10;->f$0:Lcom/android/server/DeviceIdleController;
 
     iget v1, p0, Lcom/android/server/DeviceIdleController$$ExternalSyntheticLambda10;->f$1:I
 
-    iget v2, p0, Lcom/android/server/DeviceIdleController$$ExternalSyntheticLambda10;->f$2:I
+    iget p0, p0, Lcom/android/server/DeviceIdleController$$ExternalSyntheticLambda10;->f$2:I
 
     check-cast p1, Ljava/lang/String;
 
-    invoke-virtual {v0, v1, v2, p1}, Lcom/android/server/DeviceIdleController;->lambda$getFullPowerWhitelistInternal$14$DeviceIdleController(IILjava/lang/String;)Z
+    invoke-static {v0, v1, p0, p1}, Lcom/android/server/DeviceIdleController;->$r8$lambda$z6jwv_zcHBk6Ge4DE_7ormOxpPA(Lcom/android/server/DeviceIdleController;IILjava/lang/String;)Z
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method

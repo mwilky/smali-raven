@@ -1,4 +1,4 @@
-.class final Lcom/android/server/wm/WallpaperController$FindWallpaperTargetResult;
+.class public final Lcom/android/server/wm/WallpaperController$FindWallpaperTargetResult;
 .super Ljava/lang/Object;
 .source "WallpaperController.java"
 
@@ -9,25 +9,25 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "FindWallpaperTargetResult"
 .end annotation
 
 
 # instance fields
-.field isWallpaperTargetForLetterbox:Z
+.field public isWallpaperTargetForLetterbox:Z
 
-.field resetTopWallpaper:Z
+.field public resetTopWallpaper:Z
 
-.field topWallpaper:Lcom/android/server/wm/WindowState;
+.field public topWallpaper:Lcom/android/server/wm/WindowState;
 
-.field useTopWallpaperAsTarget:Z
+.field public useTopWallpaperAsTarget:Z
 
-.field wallpaperTarget:Lcom/android/server/wm/WindowState;
+.field public wallpaperTarget:Lcom/android/server/wm/WindowState;
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -49,7 +49,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/wm/WallpaperController$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/wm/WallpaperController$FindWallpaperTargetResult-IA;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/wm/WallpaperController$FindWallpaperTargetResult;-><init>()V
@@ -59,7 +59,7 @@
 
 
 # virtual methods
-.method reset()V
+.method public reset()V
     .locals 1
 
     const/4 v0, 0x0
@@ -79,7 +79,7 @@
     return-void
 .end method
 
-.method setIsWallpaperTargetForLetterbox(Z)V
+.method public setIsWallpaperTargetForLetterbox(Z)V
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/server/wm/WallpaperController$FindWallpaperTargetResult;->isWallpaperTargetForLetterbox:Z
@@ -87,7 +87,7 @@
     return-void
 .end method
 
-.method setTopWallpaper(Lcom/android/server/wm/WindowState;)V
+.method public setTopWallpaper(Lcom/android/server/wm/WindowState;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/wm/WallpaperController$FindWallpaperTargetResult;->topWallpaper:Lcom/android/server/wm/WindowState;
@@ -95,7 +95,7 @@
     return-void
 .end method
 
-.method setUseTopWallpaperAsTarget(Z)V
+.method public setUseTopWallpaperAsTarget(Z)V
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/server/wm/WallpaperController$FindWallpaperTargetResult;->useTopWallpaperAsTarget:Z
@@ -103,7 +103,7 @@
     return-void
 .end method
 
-.method setWallpaperTarget(Lcom/android/server/wm/WindowState;)V
+.method public setWallpaperTarget(Lcom/android/server/wm/WindowState;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/wm/WallpaperController$FindWallpaperTargetResult;->wallpaperTarget:Lcom/android/server/wm/WindowState;

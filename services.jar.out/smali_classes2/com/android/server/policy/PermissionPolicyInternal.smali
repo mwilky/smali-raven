@@ -28,5 +28,14 @@
 .method public abstract isInitialized(I)Z
 .end method
 
+.method public abstract isIntentToPermissionDialog(Landroid/content/Intent;)Z
+.end method
+
 .method public abstract setOnInitializedCallback(Lcom/android/server/policy/PermissionPolicyInternal$OnInitializedCallback;)V
+.end method
+
+.method public abstract shouldShowNotificationDialogForTask(Landroid/app/TaskInfo;Ljava/lang/String;Ljava/lang/String;Landroid/content/Intent;Ljava/lang/String;)Z
+.end method
+
+.method public abstract showNotificationPromptIfNeeded(Ljava/lang/String;II)V
 .end method

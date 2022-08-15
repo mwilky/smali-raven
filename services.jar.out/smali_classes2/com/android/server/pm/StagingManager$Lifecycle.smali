@@ -15,7 +15,7 @@
 
 
 # static fields
-.field private static sStagingManager:Lcom/android/server/pm/StagingManager;
+.field public static sStagingManager:Lcom/android/server/pm/StagingManager;
 
 
 # direct methods
@@ -30,21 +30,21 @@
 
 # virtual methods
 .method public onBootPhase(I)V
-    .locals 1
+    .locals 0
 
-    const/16 v0, 0x3e8
+    const/16 p0, 0x3e8
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, p0, :cond_0
 
-    sget-object v0, Lcom/android/server/pm/StagingManager$Lifecycle;->sStagingManager:Lcom/android/server/pm/StagingManager;
+    sget-object p0, Lcom/android/server/pm/StagingManager$Lifecycle;->sStagingManager:Lcom/android/server/pm/StagingManager;
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    invoke-static {v0}, Lcom/android/server/pm/StagingManager;->access$000(Lcom/android/server/pm/StagingManager;)V
+    invoke-static {p0}, Lcom/android/server/pm/StagingManager;->-$$Nest$mmarkStagedSessionsAsSuccessful(Lcom/android/server/pm/StagingManager;)V
 
-    sget-object v0, Lcom/android/server/pm/StagingManager$Lifecycle;->sStagingManager:Lcom/android/server/pm/StagingManager;
+    sget-object p0, Lcom/android/server/pm/StagingManager$Lifecycle;->sStagingManager:Lcom/android/server/pm/StagingManager;
 
-    invoke-static {v0}, Lcom/android/server/pm/StagingManager;->access$100(Lcom/android/server/pm/StagingManager;)V
+    invoke-static {p0}, Lcom/android/server/pm/StagingManager;->-$$Nest$mmarkBootCompleted(Lcom/android/server/pm/StagingManager;)V
 
     :cond_0
     return-void
@@ -56,20 +56,20 @@
     return-void
 .end method
 
-.method startService(Lcom/android/server/pm/StagingManager;)V
-    .locals 1
+.method public startService(Lcom/android/server/pm/StagingManager;)V
+    .locals 0
 
     sput-object p1, Lcom/android/server/pm/StagingManager$Lifecycle;->sStagingManager:Lcom/android/server/pm/StagingManager;
 
-    const-class v0, Lcom/android/server/SystemServiceManager;
+    const-class p1, Lcom/android/server/SystemServiceManager;
 
-    invoke-static {v0}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/android/server/SystemServiceManager;
+    check-cast p1, Lcom/android/server/SystemServiceManager;
 
-    invoke-virtual {v0, p0}, Lcom/android/server/SystemServiceManager;->startService(Lcom/android/server/SystemService;)V
+    invoke-virtual {p1, p0}, Lcom/android/server/SystemServiceManager;->startService(Lcom/android/server/SystemService;)V
 
     return-void
 .end method

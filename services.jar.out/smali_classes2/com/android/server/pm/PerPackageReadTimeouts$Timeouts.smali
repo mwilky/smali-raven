@@ -1,4 +1,4 @@
-.class Lcom/android/server/pm/PerPackageReadTimeouts$Timeouts;
+.class public Lcom/android/server/pm/PerPackageReadTimeouts$Timeouts;
 .super Ljava/lang/Object;
 .source "PerPackageReadTimeouts.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "Timeouts"
 .end annotation
 
@@ -27,7 +27,7 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 8
 
     new-instance v7, Lcom/android/server/pm/PerPackageReadTimeouts$Timeouts;
@@ -47,7 +47,7 @@
     return-void
 .end method
 
-.method private constructor <init>(JJJ)V
+.method public constructor <init>(JJJ)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -61,88 +61,80 @@
     return-void
 .end method
 
-.method static parse(Ljava/lang/String;)Lcom/android/server/pm/PerPackageReadTimeouts$Timeouts;
-    .locals 17
+.method public static parse(Ljava/lang/String;)Lcom/android/server/pm/PerPackageReadTimeouts$Timeouts;
+    .locals 11
 
     const-string v0, ":"
 
     const/4 v1, 0x3
 
-    move-object/from16 v2, p0
+    invoke-virtual {p0, v0, v1}, Ljava/lang/String;->split(Ljava/lang/String;I)[Ljava/lang/String;
 
-    invoke-virtual {v2, v0, v1}, Ljava/lang/String;->split(Ljava/lang/String;I)[Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object v0
+    array-length v0, p0
 
-    array-length v3, v0
+    if-eq v0, v1, :cond_0
 
-    if-eq v3, v1, :cond_0
+    sget-object p0, Lcom/android/server/pm/PerPackageReadTimeouts$Timeouts;->DEFAULT:Lcom/android/server/pm/PerPackageReadTimeouts$Timeouts;
+
+    return-object p0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    aget-object v0, p0, v0
 
     sget-object v1, Lcom/android/server/pm/PerPackageReadTimeouts$Timeouts;->DEFAULT:Lcom/android/server/pm/PerPackageReadTimeouts$Timeouts;
 
-    return-object v1
+    iget-wide v2, v1, Lcom/android/server/pm/PerPackageReadTimeouts$Timeouts;->minTimeUs:J
 
-    :cond_0
-    const/4 v1, 0x0
+    invoke-static {v0, v2, v3}, Lcom/android/server/pm/PerPackageReadTimeouts;->tryParseLong(Ljava/lang/String;J)J
 
-    aget-object v1, v0, v1
+    move-result-wide v5
 
-    sget-object v3, Lcom/android/server/pm/PerPackageReadTimeouts$Timeouts;->DEFAULT:Lcom/android/server/pm/PerPackageReadTimeouts$Timeouts;
+    const/4 v0, 0x1
 
-    iget-wide v4, v3, Lcom/android/server/pm/PerPackageReadTimeouts$Timeouts;->minTimeUs:J
+    aget-object v0, p0, v0
 
-    invoke-static {v1, v4, v5}, Lcom/android/server/pm/PerPackageReadTimeouts;->tryParseLong(Ljava/lang/String;J)J
+    iget-wide v2, v1, Lcom/android/server/pm/PerPackageReadTimeouts$Timeouts;->minPendingTimeUs:J
 
-    move-result-wide v4
+    invoke-static {v0, v2, v3}, Lcom/android/server/pm/PerPackageReadTimeouts;->tryParseLong(Ljava/lang/String;J)J
 
-    const/4 v1, 0x1
+    move-result-wide v7
 
-    aget-object v1, v0, v1
+    const/4 v0, 0x2
 
-    iget-wide v6, v3, Lcom/android/server/pm/PerPackageReadTimeouts$Timeouts;->minPendingTimeUs:J
+    aget-object p0, p0, v0
 
-    invoke-static {v1, v6, v7}, Lcom/android/server/pm/PerPackageReadTimeouts;->tryParseLong(Ljava/lang/String;J)J
+    iget-wide v2, v1, Lcom/android/server/pm/PerPackageReadTimeouts$Timeouts;->maxPendingTimeUs:J
 
-    move-result-wide v13
+    invoke-static {p0, v2, v3}, Lcom/android/server/pm/PerPackageReadTimeouts;->tryParseLong(Ljava/lang/String;J)J
 
-    const/4 v1, 0x2
+    move-result-wide v9
 
-    aget-object v1, v0, v1
+    const-wide/16 v2, 0x0
 
-    iget-wide v6, v3, Lcom/android/server/pm/PerPackageReadTimeouts$Timeouts;->maxPendingTimeUs:J
+    cmp-long p0, v2, v5
 
-    invoke-static {v1, v6, v7}, Lcom/android/server/pm/PerPackageReadTimeouts;->tryParseLong(Ljava/lang/String;J)J
+    if-gtz p0, :cond_1
 
-    move-result-wide v15
+    cmp-long p0, v5, v7
 
-    const-wide/16 v6, 0x0
+    if-gtz p0, :cond_1
 
-    cmp-long v1, v6, v4
+    cmp-long p0, v7, v9
 
-    if-gtz v1, :cond_1
+    if-gtz p0, :cond_1
 
-    cmp-long v1, v4, v13
+    new-instance p0, Lcom/android/server/pm/PerPackageReadTimeouts$Timeouts;
 
-    if-gtz v1, :cond_1
+    move-object v4, p0
 
-    cmp-long v1, v13, v15
+    invoke-direct/range {v4 .. v10}, Lcom/android/server/pm/PerPackageReadTimeouts$Timeouts;-><init>(JJJ)V
 
-    if-gtz v1, :cond_1
-
-    new-instance v1, Lcom/android/server/pm/PerPackageReadTimeouts$Timeouts;
-
-    move-object v6, v1
-
-    move-wide v7, v4
-
-    move-wide v9, v13
-
-    move-wide v11, v15
-
-    invoke-direct/range {v6 .. v12}, Lcom/android/server/pm/PerPackageReadTimeouts$Timeouts;-><init>(JJJ)V
-
-    return-object v1
+    return-object p0
 
     :cond_1
-    return-object v3
+    return-object v1
 .end method

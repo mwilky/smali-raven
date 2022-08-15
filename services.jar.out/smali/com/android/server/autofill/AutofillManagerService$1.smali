@@ -1,4 +1,4 @@
-.class Lcom/android/server/autofill/AutofillManagerService$1;
+.class public Lcom/android/server/autofill/AutofillManagerService$1;
 .super Landroid/content/BroadcastReceiver;
 .source "AutofillManagerService.java"
 
@@ -9,17 +9,25 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/autofill/AutofillManagerService;
+.field public final synthetic this$0:Lcom/android/server/autofill/AutofillManagerService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/autofill/AutofillManagerService;)V
+.method public static synthetic $r8$lambda$gR3lHeitxLs-Odltg-gqWTiGaX0(Lcom/android/server/autofill/AutofillManagerServiceImpl;)V
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/server/autofill/AutofillManagerService$1;->lambda$onReceive$0(Lcom/android/server/autofill/AutofillManagerServiceImpl;)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Lcom/android/server/autofill/AutofillManagerService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/autofill/AutofillManagerService$1;->this$0:Lcom/android/server/autofill/AutofillManagerService;
@@ -29,7 +37,7 @@
     return-void
 .end method
 
-.method static synthetic lambda$onReceive$0(Lcom/android/server/autofill/AutofillManagerServiceImpl;)V
+.method public static synthetic lambda$onReceive$0(Lcom/android/server/autofill/AutofillManagerServiceImpl;)V
     .locals 0
 
     invoke-virtual {p0}, Lcom/android/server/autofill/AutofillManagerServiceImpl;->forceRemoveFinishedSessionsLocked()V
@@ -40,71 +48,73 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 3
+    .locals 1
 
-    const-string v0, "android.intent.action.CLOSE_SYSTEM_DIALOGS"
+    const-string p1, "android.intent.action.CLOSE_SYSTEM_DIALOGS"
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_1
 
-    sget-boolean v0, Lcom/android/server/autofill/Helper;->sDebug:Z
+    sget-boolean p1, Lcom/android/server/autofill/Helper;->sDebug:Z
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    const-string v0, "AutofillManagerService"
+    const-string p1, "AutofillManagerService"
 
-    const-string v1, "Close system dialogs"
+    const-string p2, "Close system dialogs"
 
-    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p1, p2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/autofill/AutofillManagerService$1;->this$0:Lcom/android/server/autofill/AutofillManagerService;
+    iget-object p1, p0, Lcom/android/server/autofill/AutofillManagerService$1;->this$0:Lcom/android/server/autofill/AutofillManagerService;
 
-    invoke-static {v0}, Lcom/android/server/autofill/AutofillManagerService;->access$100(Lcom/android/server/autofill/AutofillManagerService;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/android/server/autofill/AutofillManagerService;->access$000(Lcom/android/server/autofill/AutofillManagerService;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    monitor-enter v0
+    monitor-enter p1
 
     :try_start_0
-    iget-object v1, p0, Lcom/android/server/autofill/AutofillManagerService$1;->this$0:Lcom/android/server/autofill/AutofillManagerService;
+    iget-object p2, p0, Lcom/android/server/autofill/AutofillManagerService$1;->this$0:Lcom/android/server/autofill/AutofillManagerService;
 
-    sget-object v2, Lcom/android/server/autofill/AutofillManagerService$1$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/server/autofill/AutofillManagerService$1$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/android/server/autofill/AutofillManagerService$1$$ExternalSyntheticLambda0;
 
-    invoke-static {v1, v2}, Lcom/android/server/autofill/AutofillManagerService;->access$200(Lcom/android/server/autofill/AutofillManagerService;Lcom/android/server/infra/AbstractMasterSystemService$Visitor;)V
+    invoke-direct {v0}, Lcom/android/server/autofill/AutofillManagerService$1$$ExternalSyntheticLambda0;-><init>()V
 
-    monitor-exit v0
+    invoke-static {p2, v0}, Lcom/android/server/autofill/AutofillManagerService;->access$100(Lcom/android/server/autofill/AutofillManagerService;Lcom/android/server/infra/AbstractMasterSystemService$Visitor;)V
+
+    monitor-exit p1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    iget-object v0, p0, Lcom/android/server/autofill/AutofillManagerService$1;->this$0:Lcom/android/server/autofill/AutofillManagerService;
+    iget-object p0, p0, Lcom/android/server/autofill/AutofillManagerService$1;->this$0:Lcom/android/server/autofill/AutofillManagerService;
 
-    invoke-static {v0}, Lcom/android/server/autofill/AutofillManagerService;->access$300(Lcom/android/server/autofill/AutofillManagerService;)Lcom/android/server/autofill/ui/AutoFillUI;
+    invoke-static {p0}, Lcom/android/server/autofill/AutofillManagerService;->-$$Nest$fgetmUi(Lcom/android/server/autofill/AutofillManagerService;)Lcom/android/server/autofill/ui/AutoFillUI;
 
-    move-result-object v0
+    move-result-object p0
 
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    invoke-virtual {v0, v1}, Lcom/android/server/autofill/ui/AutoFillUI;->hideAll(Lcom/android/server/autofill/ui/AutoFillUI$AutoFillUiCallback;)V
+    invoke-virtual {p0, p1}, Lcom/android/server/autofill/ui/AutoFillUI;->hideAll(Lcom/android/server/autofill/ui/AutoFillUI$AutoFillUiCallback;)V
 
     goto :goto_0
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     :try_start_1
-    monitor-exit v0
+    monitor-exit p1
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v1
+    throw p0
 
     :cond_1
     :goto_0

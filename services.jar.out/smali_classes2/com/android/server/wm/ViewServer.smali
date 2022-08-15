@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/ViewServer;
+.class public Lcom/android/server/wm/ViewServer;
 .super Ljava/lang/Object;
 .source "ViewServer.java"
 
@@ -14,42 +14,38 @@
 .end annotation
 
 
-# static fields
-.field private static final COMMAND_PROTOCOL_VERSION:Ljava/lang/String; = "PROTOCOL"
-
-.field private static final COMMAND_SERVER_VERSION:Ljava/lang/String; = "SERVER"
-
-.field private static final COMMAND_WINDOW_MANAGER_AUTOLIST:Ljava/lang/String; = "AUTOLIST"
-
-.field private static final COMMAND_WINDOW_MANAGER_GET_FOCUS:Ljava/lang/String; = "GET_FOCUS"
-
-.field private static final COMMAND_WINDOW_MANAGER_LIST:Ljava/lang/String; = "LIST"
-
-.field private static final LOG_TAG:Ljava/lang/String; = "WindowManager"
-
-.field private static final VALUE_PROTOCOL_VERSION:Ljava/lang/String; = "4"
-
-.field private static final VALUE_SERVER_VERSION:Ljava/lang/String; = "4"
-
-.field public static final VIEW_SERVER_DEFAULT_PORT:I = 0x134b
-
-.field private static final VIEW_SERVER_MAX_CONNECTIONS:I = 0xa
-
-
 # instance fields
-.field private final mPort:I
+.field public final mPort:I
 
-.field private mServer:Ljava/net/ServerSocket;
+.field public mServer:Ljava/net/ServerSocket;
 
-.field private mThread:Ljava/lang/Thread;
+.field public mThread:Ljava/lang/Thread;
 
-.field private mThreadPool:Ljava/util/concurrent/ExecutorService;
+.field public mThreadPool:Ljava/util/concurrent/ExecutorService;
 
-.field private final mWindowManager:Lcom/android/server/wm/WindowManagerService;
+.field public final mWindowManager:Lcom/android/server/wm/WindowManagerService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/wm/WindowManagerService;I)V
+.method public static bridge synthetic -$$Nest$fgetmWindowManager(Lcom/android/server/wm/ViewServer;)Lcom/android/server/wm/WindowManagerService;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/wm/ViewServer;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$smwriteValue(Ljava/net/Socket;Ljava/lang/String;)Z
+    .locals 0
+
+    invoke-static {p0, p1}, Lcom/android/server/wm/ViewServer;->writeValue(Ljava/net/Socket;Ljava/lang/String;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public constructor <init>(Lcom/android/server/wm/WindowManagerService;I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -61,135 +57,120 @@
     return-void
 .end method
 
-.method static synthetic access$000(Ljava/net/Socket;Ljava/lang/String;)Z
-    .locals 1
-
-    invoke-static {p0, p1}, Lcom/android/server/wm/ViewServer;->writeValue(Ljava/net/Socket;Ljava/lang/String;)Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method static synthetic access$100(Lcom/android/server/wm/ViewServer;)Lcom/android/server/wm/WindowManagerService;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/wm/ViewServer;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
-
-    return-object v0
-.end method
-
-.method private static writeValue(Ljava/net/Socket;Ljava/lang/String;)Z
-    .locals 5
+.method public static writeValue(Ljava/net/Socket;Ljava/lang/String;)Z
+    .locals 4
 
     const/4 v0, 0x0
+
+    const/4 v1, 0x0
 
     :try_start_0
     invoke-virtual {p0}, Ljava/net/Socket;->getOutputStream()Ljava/io/OutputStream;
 
-    move-result-object v1
+    move-result-object p0
 
     new-instance v2, Ljava/io/BufferedWriter;
 
     new-instance v3, Ljava/io/OutputStreamWriter;
 
-    invoke-direct {v3, v1}, Ljava/io/OutputStreamWriter;-><init>(Ljava/io/OutputStream;)V
+    invoke-direct {v3, p0}, Ljava/io/OutputStreamWriter;-><init>(Ljava/io/OutputStream;)V
 
-    const/16 v4, 0x2000
+    const/16 p0, 0x2000
 
-    invoke-direct {v2, v3, v4}, Ljava/io/BufferedWriter;-><init>(Ljava/io/Writer;I)V
-
-    move-object v0, v2
-
-    invoke-virtual {v0, p1}, Ljava/io/BufferedWriter;->write(Ljava/lang/String;)V
-
-    const-string v2, "\n"
-
-    invoke-virtual {v0, v2}, Ljava/io/BufferedWriter;->write(Ljava/lang/String;)V
-
-    invoke-virtual {v0}, Ljava/io/BufferedWriter;->flush()V
+    invoke-direct {v2, v3, p0}, Ljava/io/BufferedWriter;-><init>(Ljava/io/Writer;I)V
     :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    const/4 v1, 0x1
-
-    nop
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_2
+    .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     :try_start_1
-    invoke-virtual {v0}, Ljava/io/BufferedWriter;->close()V
+    invoke-virtual {v2, p1}, Ljava/io/BufferedWriter;->write(Ljava/lang/String;)V
+
+    const-string p0, "\n"
+
+    invoke-virtual {v2, p0}, Ljava/io/BufferedWriter;->write(Ljava/lang/String;)V
+
+    invoke-virtual {v2}, Ljava/io/BufferedWriter;->flush()V
     :try_end_1
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_2
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_1
-
-    :catchall_0
-    move-exception v1
-
-    if-eqz v0, :cond_0
+    const/4 p0, 0x1
 
     :try_start_2
-    invoke-virtual {v0}, Ljava/io/BufferedWriter;->close()V
+    invoke-virtual {v2}, Ljava/io/BufferedWriter;->close()V
     :try_end_2
-    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_3
+
+    move v0, p0
+
+    goto :goto_2
+
+    :catchall_0
+    move-exception p0
+
+    move-object v1, v2
 
     goto :goto_0
 
     :catch_0
-    move-exception v2
-
-    :cond_0
-    :goto_0
-    throw v1
-
-    :catch_1
-    move-exception v1
-
-    const/4 v1, 0x0
-
-    if-eqz v0, :cond_1
-
-    :try_start_3
-    invoke-virtual {v0}, Ljava/io/BufferedWriter;->close()V
-    :try_end_3
-    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_2
+    move-object v1, v2
 
     goto :goto_1
 
+    :catchall_1
+    move-exception p0
+
+    :goto_0
+    if-eqz v1, :cond_0
+
+    :try_start_3
+    invoke-virtual {v1}, Ljava/io/BufferedWriter;->close()V
+    :try_end_3
+    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_1
+
+    :catch_1
+    :cond_0
+    throw p0
+
     :catch_2
-    move-exception v2
-
-    const/4 v1, 0x0
-
-    :cond_1
     :goto_1
-    return v1
+    if-eqz v1, :cond_1
+
+    :try_start_4
+    invoke-virtual {v1}, Ljava/io/BufferedWriter;->close()V
+    :try_end_4
+    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_3
+
+    :catch_3
+    :cond_1
+    :goto_2
+    return v0
 .end method
 
 
 # virtual methods
-.method isRunning()Z
-    .locals 1
+.method public isRunning()Z
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/ViewServer;->mThread:Ljava/lang/Thread;
+    iget-object p0, p0, Lcom/android/server/wm/ViewServer;->mThread:Ljava/lang/Thread;
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    invoke-virtual {v0}, Ljava/lang/Thread;->isAlive()Z
+    invoke-virtual {p0}, Ljava/lang/Thread;->isAlive()Z
 
-    move-result v0
+    move-result p0
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method public run()V
@@ -223,7 +204,7 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
 
-    goto :goto_1
+    goto :goto_0
 
     :cond_0
     :try_start_1
@@ -232,17 +213,17 @@
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
 
-    goto :goto_1
+    goto :goto_0
 
     :catch_0
-    move-exception v1
+    move-exception v0
 
     :try_start_2
-    invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
     :try_end_2
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
 
-    goto :goto_1
+    goto :goto_0
 
     :catch_1
     move-exception v0
@@ -253,14 +234,13 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    :goto_1
     goto :goto_0
 
     :cond_1
     return-void
 .end method
 
-.method start()Z
+.method public start()Z
     .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -272,9 +252,9 @@
 
     if-eqz v0, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 
     :cond_0
     new-instance v0, Ljava/net/ServerSocket;
@@ -323,16 +303,16 @@
 
     iput-object v0, p0, Lcom/android/server/wm/ViewServer;->mThreadPool:Ljava/util/concurrent/ExecutorService;
 
-    iget-object v0, p0, Lcom/android/server/wm/ViewServer;->mThread:Ljava/lang/Thread;
+    iget-object p0, p0, Lcom/android/server/wm/ViewServer;->mThread:Ljava/lang/Thread;
 
-    invoke-virtual {v0}, Ljava/lang/Thread;->start()V
+    invoke-virtual {p0}, Ljava/lang/Thread;->start()V
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 .end method
 
-.method stop()Z
+.method public stop()Z
     .locals 3
 
     iget-object v0, p0, Lcom/android/server/wm/ViewServer;->mThread:Ljava/lang/Thread;
@@ -355,11 +335,9 @@
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    const-string v0, "Could not stop all view server threads"
 
-    const-string v2, "Could not stop all view server threads"
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
     :goto_0
@@ -378,19 +356,17 @@
     :try_end_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 
     :catch_1
-    move-exception v0
+    const-string p0, "Could not close the view server"
 
-    const-string v2, "Could not close the view server"
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, p0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_1
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method

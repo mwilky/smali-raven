@@ -1,43 +1,48 @@
 .class public final synthetic Lcom/android/server/blob/BlobStoreManagerService$$ExternalSyntheticLambda18;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Predicate;
+.implements Ljava/util/function/Consumer;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/server/blob/BlobStoreManagerService;
+.field public final synthetic f$0:I
 
-.field public final synthetic f$1:J
+.field public final synthetic f$1:Ljava/lang/String;
+
+.field public final synthetic f$2:Ljava/util/concurrent/atomic/AtomicInteger;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/blob/BlobStoreManagerService;J)V
+.method public synthetic constructor <init>(ILjava/lang/String;Ljava/util/concurrent/atomic/AtomicInteger;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/blob/BlobStoreManagerService$$ExternalSyntheticLambda18;->f$0:Lcom/android/server/blob/BlobStoreManagerService;
+    iput p1, p0, Lcom/android/server/blob/BlobStoreManagerService$$ExternalSyntheticLambda18;->f$0:I
 
-    iput-wide p2, p0, Lcom/android/server/blob/BlobStoreManagerService$$ExternalSyntheticLambda18;->f$1:J
+    iput-object p2, p0, Lcom/android/server/blob/BlobStoreManagerService$$ExternalSyntheticLambda18;->f$1:Ljava/lang/String;
+
+    iput-object p3, p0, Lcom/android/server/blob/BlobStoreManagerService$$ExternalSyntheticLambda18;->f$2:Ljava/util/concurrent/atomic/AtomicInteger;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final test(Ljava/lang/Object;)Z
-    .locals 3
+.method public final accept(Ljava/lang/Object;)V
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/server/blob/BlobStoreManagerService$$ExternalSyntheticLambda18;->f$0:Lcom/android/server/blob/BlobStoreManagerService;
+    iget v0, p0, Lcom/android/server/blob/BlobStoreManagerService$$ExternalSyntheticLambda18;->f$0:I
 
-    iget-wide v1, p0, Lcom/android/server/blob/BlobStoreManagerService$$ExternalSyntheticLambda18;->f$1:J
+    iget-object v1, p0, Lcom/android/server/blob/BlobStoreManagerService$$ExternalSyntheticLambda18;->f$1:Ljava/lang/String;
 
-    check-cast p1, Ljava/util/Map$Entry;
+    iget-object p0, p0, Lcom/android/server/blob/BlobStoreManagerService$$ExternalSyntheticLambda18;->f$2:Ljava/util/concurrent/atomic/AtomicInteger;
 
-    invoke-virtual {v0, v1, v2, p1}, Lcom/android/server/blob/BlobStoreManagerService;->lambda$deleteBlobInternal$8$BlobStoreManagerService(JLjava/util/Map$Entry;)Z
+    check-cast p1, Lcom/android/server/blob/BlobStoreSession;
 
-    move-result p1
+    invoke-static {v0, v1, p0, p1}, Lcom/android/server/blob/BlobStoreManagerService;->$r8$lambda$jSxJ7CVYG5DOkEQOyeXKn6cZfxA(ILjava/lang/String;Ljava/util/concurrent/atomic/AtomicInteger;Lcom/android/server/blob/BlobStoreSession;)V
 
-    return p1
+    return-void
 .end method

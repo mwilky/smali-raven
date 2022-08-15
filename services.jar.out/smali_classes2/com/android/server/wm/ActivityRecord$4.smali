@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/ActivityRecord$4;
+.class public Lcom/android/server/wm/ActivityRecord$4;
 .super Ljava/lang/Object;
 .source "ActivityRecord.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/wm/ActivityRecord;
+.field public final synthetic this$0:Lcom/android/server/wm/ActivityRecord;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/wm/ActivityRecord;)V
+.method public constructor <init>(Lcom/android/server/wm/ActivityRecord;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/wm/ActivityRecord$4;->this$0:Lcom/android/server/wm/ActivityRecord;
@@ -76,11 +76,11 @@
 
     if-eqz v1, :cond_0
 
-    iget-object v1, p0, Lcom/android/server/wm/ActivityRecord$4;->this$0:Lcom/android/server/wm/ActivityRecord;
+    iget-object p0, p0, Lcom/android/server/wm/ActivityRecord$4;->this$0:Lcom/android/server/wm/ActivityRecord;
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    invoke-virtual {v1, v2, v2, v2}, Lcom/android/server/wm/ActivityRecord;->activityStopped(Landroid/os/Bundle;Landroid/os/PersistableBundle;Ljava/lang/CharSequence;)V
+    invoke-virtual {p0, v1, v1, v1}, Lcom/android/server/wm/ActivityRecord;->activityStopped(Landroid/os/Bundle;Landroid/os/PersistableBundle;Ljava/lang/CharSequence;)V
 
     :cond_0
     monitor-exit v0
@@ -92,7 +92,7 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     :try_start_1
     monitor-exit v0
@@ -101,5 +101,5 @@
 
     invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
 
-    throw v1
+    throw p0
 .end method

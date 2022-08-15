@@ -1,45 +1,40 @@
 .class public final synthetic Lcom/android/server/print/RemotePrintService$$ExternalSyntheticLambda5;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/BiConsumer;
+.implements Ljava/lang/Runnable;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/print/RemotePrintService$$ExternalSyntheticLambda5;
+# instance fields
+.field public final synthetic f$0:Lcom/android/server/print/RemotePrintService;
+
+.field public final synthetic f$1:Landroid/print/PrinterId;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/print/RemotePrintService$$ExternalSyntheticLambda5;
-
-    invoke-direct {v0}, Lcom/android/server/print/RemotePrintService$$ExternalSyntheticLambda5;-><init>()V
-
-    sput-object v0, Lcom/android/server/print/RemotePrintService$$ExternalSyntheticLambda5;->INSTANCE:Lcom/android/server/print/RemotePrintService$$ExternalSyntheticLambda5;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Lcom/android/server/print/RemotePrintService;Landroid/print/PrinterId;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/print/RemotePrintService$$ExternalSyntheticLambda5;->f$0:Lcom/android/server/print/RemotePrintService;
+
+    iput-object p2, p0, Lcom/android/server/print/RemotePrintService$$ExternalSyntheticLambda5;->f$1:Landroid/print/PrinterId;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 0
+.method public final run()V
+    .locals 1
 
-    check-cast p1, Lcom/android/server/print/RemotePrintService;
+    iget-object v0, p0, Lcom/android/server/print/RemotePrintService$$ExternalSyntheticLambda5;->f$0:Lcom/android/server/print/RemotePrintService;
 
-    check-cast p2, Landroid/print/PrinterId;
+    iget-object p0, p0, Lcom/android/server/print/RemotePrintService$$ExternalSyntheticLambda5;->f$1:Landroid/print/PrinterId;
 
-    invoke-static {p1, p2}, Lcom/android/server/print/RemotePrintService;->$r8$lambda$ssNGvMcrnbZQPteuOxztgloFRgw(Lcom/android/server/print/RemotePrintService;Landroid/print/PrinterId;)V
+    invoke-static {v0, p0}, Lcom/android/server/print/RemotePrintService;->$r8$lambda$h8g8HhDY83uWvGG37YDXUXap48c(Lcom/android/server/print/RemotePrintService;Landroid/print/PrinterId;)V
 
     return-void
 .end method

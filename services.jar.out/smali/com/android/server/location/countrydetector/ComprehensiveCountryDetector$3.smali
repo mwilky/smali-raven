@@ -1,4 +1,4 @@
-.class Lcom/android/server/location/countrydetector/ComprehensiveCountryDetector$3;
+.class public Lcom/android/server/location/countrydetector/ComprehensiveCountryDetector$3;
 .super Ljava/util/TimerTask;
 .source "ComprehensiveCountryDetector.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/location/countrydetector/ComprehensiveCountryDetector;
+.field public final synthetic this$0:Lcom/android/server/location/countrydetector/ComprehensiveCountryDetector;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/location/countrydetector/ComprehensiveCountryDetector;)V
+.method public constructor <init>(Lcom/android/server/location/countrydetector/ComprehensiveCountryDetector;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/location/countrydetector/ComprehensiveCountryDetector$3;->this$0:Lcom/android/server/location/countrydetector/ComprehensiveCountryDetector;
@@ -32,21 +32,19 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/server/location/countrydetector/ComprehensiveCountryDetector$3;->this$0:Lcom/android/server/location/countrydetector/ComprehensiveCountryDetector;
+    iget-object p0, p0, Lcom/android/server/location/countrydetector/ComprehensiveCountryDetector$3;->this$0:Lcom/android/server/location/countrydetector/ComprehensiveCountryDetector;
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    iput-object v1, v0, Lcom/android/server/location/countrydetector/ComprehensiveCountryDetector;->mLocationRefreshTimer:Ljava/util/Timer;
+    iput-object v0, p0, Lcom/android/server/location/countrydetector/ComprehensiveCountryDetector;->mLocationRefreshTimer:Ljava/util/Timer;
 
-    iget-object v0, p0, Lcom/android/server/location/countrydetector/ComprehensiveCountryDetector$3;->this$0:Lcom/android/server/location/countrydetector/ComprehensiveCountryDetector;
+    const/4 v0, 0x0
 
-    const/4 v1, 0x0
+    const/4 v1, 0x1
 
-    const/4 v2, 0x1
-
-    invoke-static {v0, v1, v2}, Lcom/android/server/location/countrydetector/ComprehensiveCountryDetector;->access$100(Lcom/android/server/location/countrydetector/ComprehensiveCountryDetector;ZZ)Landroid/location/Country;
+    invoke-static {p0, v0, v1}, Lcom/android/server/location/countrydetector/ComprehensiveCountryDetector;->-$$Nest$mdetectCountry(Lcom/android/server/location/countrydetector/ComprehensiveCountryDetector;ZZ)Landroid/location/Country;
 
     return-void
 .end method

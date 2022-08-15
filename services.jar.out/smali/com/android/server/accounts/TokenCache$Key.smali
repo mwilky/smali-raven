@@ -1,4 +1,4 @@
-.class Lcom/android/server/accounts/TokenCache$Key;
+.class public Lcom/android/server/accounts/TokenCache$Key;
 .super Ljava/lang/Object;
 .source "TokenCache.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "Key"
 .end annotation
 
@@ -44,71 +44,61 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .locals 3
 
     const/4 v0, 0x0
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_0
 
     instance-of v1, p1, Lcom/android/server/accounts/TokenCache$Key;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_0
 
-    move-object v1, p1
+    check-cast p1, Lcom/android/server/accounts/TokenCache$Key;
 
-    check-cast v1, Lcom/android/server/accounts/TokenCache$Key;
+    iget-object v1, p0, Lcom/android/server/accounts/TokenCache$Key;->account:Landroid/accounts/Account;
 
-    iget-object v2, p0, Lcom/android/server/accounts/TokenCache$Key;->account:Landroid/accounts/Account;
+    iget-object v2, p1, Lcom/android/server/accounts/TokenCache$Key;->account:Landroid/accounts/Account;
 
-    iget-object v3, v1, Lcom/android/server/accounts/TokenCache$Key;->account:Landroid/accounts/Account;
+    invoke-static {v1, v2}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    invoke-static {v2, v3}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+    move-result v1
 
-    move-result v2
+    if-eqz v1, :cond_0
 
-    if-eqz v2, :cond_0
+    iget-object v1, p0, Lcom/android/server/accounts/TokenCache$Key;->packageName:Ljava/lang/String;
 
-    iget-object v2, p0, Lcom/android/server/accounts/TokenCache$Key;->packageName:Ljava/lang/String;
+    iget-object v2, p1, Lcom/android/server/accounts/TokenCache$Key;->packageName:Ljava/lang/String;
 
-    iget-object v3, v1, Lcom/android/server/accounts/TokenCache$Key;->packageName:Ljava/lang/String;
+    invoke-static {v1, v2}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    invoke-static {v2, v3}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+    move-result v1
 
-    move-result v2
+    if-eqz v1, :cond_0
 
-    if-eqz v2, :cond_0
+    iget-object v1, p0, Lcom/android/server/accounts/TokenCache$Key;->tokenType:Ljava/lang/String;
 
-    iget-object v2, p0, Lcom/android/server/accounts/TokenCache$Key;->tokenType:Ljava/lang/String;
+    iget-object v2, p1, Lcom/android/server/accounts/TokenCache$Key;->tokenType:Ljava/lang/String;
 
-    iget-object v3, v1, Lcom/android/server/accounts/TokenCache$Key;->tokenType:Ljava/lang/String;
+    invoke-static {v1, v2}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    invoke-static {v2, v3}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+    move-result v1
 
-    move-result v2
+    if-eqz v1, :cond_0
 
-    if-eqz v2, :cond_0
+    iget-object p0, p0, Lcom/android/server/accounts/TokenCache$Key;->sigDigest:[B
 
-    iget-object v2, p0, Lcom/android/server/accounts/TokenCache$Key;->sigDigest:[B
+    iget-object p1, p1, Lcom/android/server/accounts/TokenCache$Key;->sigDigest:[B
 
-    iget-object v3, v1, Lcom/android/server/accounts/TokenCache$Key;->sigDigest:[B
+    invoke-static {p0, p1}, Ljava/util/Arrays;->equals([B[B)Z
 
-    invoke-static {v2, v3}, Ljava/util/Arrays;->equals([B[B)Z
+    move-result p0
 
-    move-result v2
-
-    if-eqz v2, :cond_0
+    if-eqz p0, :cond_0
 
     const/4 v0, 0x1
 
-    goto :goto_0
-
     :cond_0
-    nop
-
-    :goto_0
-    return v0
-
-    :cond_1
     return v0
 .end method
 
@@ -137,13 +127,13 @@
 
     xor-int/2addr v0, v1
 
-    iget-object v1, p0, Lcom/android/server/accounts/TokenCache$Key;->sigDigest:[B
+    iget-object p0, p0, Lcom/android/server/accounts/TokenCache$Key;->sigDigest:[B
 
-    invoke-static {v1}, Ljava/util/Arrays;->hashCode([B)I
+    invoke-static {p0}, Ljava/util/Arrays;->hashCode([B)I
 
-    move-result v1
+    move-result p0
 
-    xor-int/2addr v0, v1
+    xor-int/2addr p0, v0
 
-    return v0
+    return p0
 .end method

@@ -1,4 +1,4 @@
-.class Lcom/android/server/location/gnss/GnssConfiguration$HalInterfaceVersion;
+.class public Lcom/android/server/location/gnss/GnssConfiguration$HalInterfaceVersion;
 .super Ljava/lang/Object;
 .source "GnssConfiguration.java"
 
@@ -9,19 +9,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "HalInterfaceVersion"
 .end annotation
 
 
 # instance fields
-.field final mMajor:I
+.field public final mMajor:I
 
-.field final mMinor:I
+.field public final mMinor:I
 
 
 # direct methods
-.method constructor <init>(II)V
+.method public constructor <init>(II)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

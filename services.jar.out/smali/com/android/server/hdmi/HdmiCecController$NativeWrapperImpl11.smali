@@ -1,4 +1,4 @@
-.class final Lcom/android/server/hdmi/HdmiCecController$NativeWrapperImpl11;
+.class public final Lcom/android/server/hdmi/HdmiCecController$NativeWrapperImpl11;
 .super Ljava/lang/Object;
 .source "HdmiCecController.java"
 
@@ -14,23 +14,23 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "NativeWrapperImpl11"
 .end annotation
 
 
 # instance fields
-.field private mCallback:Lcom/android/server/hdmi/HdmiCecController$HdmiCecCallback;
+.field public mCallback:Lcom/android/server/hdmi/HdmiCecController$HdmiCecCallback;
 
-.field private mHdmiCec:Landroid/hardware/tv/cec/V1_1/IHdmiCec;
+.field public mHdmiCec:Landroid/hardware/tv/cec/V1_1/IHdmiCec;
 
-.field private final mLock:Ljava/lang/Object;
+.field public final mLock:Ljava/lang/Object;
 
-.field private mPhysicalAddress:I
+.field public mPhysicalAddress:I
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -48,7 +48,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/hdmi/HdmiCecController$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/hdmi/HdmiCecController$NativeWrapperImpl11-IA;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/hdmi/HdmiCecController$NativeWrapperImpl11;-><init>()V
@@ -58,7 +58,7 @@
 
 
 # virtual methods
-.method connectToHal()Z
+.method public connectToHal()Z
     .locals 5
 
     const/4 v0, 0x1
@@ -86,207 +86,205 @@
     goto :goto_0
 
     :catch_0
-    move-exception v2
+    move-exception p0
 
     :try_start_2
-    const-string v3, "Couldn\'t link to death : "
+    const-string v2, "Couldn\'t link to death : "
 
-    new-array v4, v1, [Ljava/lang/Object;
+    new-array v3, v1, [Ljava/lang/Object;
 
-    invoke-static {v3, v2, v4}, Lcom/android/server/hdmi/HdmiLogger;->error(Ljava/lang/String;Ljava/lang/Exception;[Ljava/lang/Object;)V
+    invoke-static {v2, p0, v3}, Lcom/android/server/hdmi/HdmiLogger;->error(Ljava/lang/String;Ljava/lang/Exception;[Ljava/lang/Object;)V
     :try_end_2
     .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_1
     .catch Ljava/util/NoSuchElementException; {:try_start_2 .. :try_end_2} :catch_1
 
     :goto_0
-    nop
-
     return v0
 
     :catch_1
-    move-exception v0
+    move-exception p0
 
-    new-array v2, v1, [Ljava/lang/Object;
+    new-array v0, v1, [Ljava/lang/Object;
 
-    const-string v3, "Couldn\'t connect to cec@1.1"
+    const-string v2, "Couldn\'t connect to cec@1.1"
 
-    invoke-static {v3, v0, v2}, Lcom/android/server/hdmi/HdmiLogger;->error(Ljava/lang/String;Ljava/lang/Exception;[Ljava/lang/Object;)V
+    invoke-static {v2, p0, v0}, Lcom/android/server/hdmi/HdmiLogger;->error(Ljava/lang/String;Ljava/lang/Exception;[Ljava/lang/Object;)V
 
     return v1
 .end method
 
 .method public nativeAddLogicalAddress(I)I
-    .locals 3
+    .locals 1
 
     :try_start_0
-    iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecController$NativeWrapperImpl11;->mHdmiCec:Landroid/hardware/tv/cec/V1_1/IHdmiCec;
+    iget-object p0, p0, Lcom/android/server/hdmi/HdmiCecController$NativeWrapperImpl11;->mHdmiCec:Landroid/hardware/tv/cec/V1_1/IHdmiCec;
 
-    invoke-interface {v0, p1}, Landroid/hardware/tv/cec/V1_1/IHdmiCec;->addLogicalAddress_1_1(I)I
+    invoke-interface {p0, p1}, Landroid/hardware/tv/cec/V1_1/IHdmiCec;->addLogicalAddress_1_1(I)I
 
-    move-result v0
+    move-result p0
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return v0
+    return p0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    new-array v1, v1, [Ljava/lang/Object;
+    new-array p1, p1, [Ljava/lang/Object;
 
-    const-string v2, "Failed to add a logical address : "
+    const-string v0, "Failed to add a logical address : "
 
-    invoke-static {v2, v0, v1}, Lcom/android/server/hdmi/HdmiLogger;->error(Ljava/lang/String;Ljava/lang/Exception;[Ljava/lang/Object;)V
+    invoke-static {v0, p0, p1}, Lcom/android/server/hdmi/HdmiLogger;->error(Ljava/lang/String;Ljava/lang/Exception;[Ljava/lang/Object;)V
 
-    const/4 v1, 0x2
+    const/4 p0, 0x2
 
-    return v1
+    return p0
 .end method
 
 .method public nativeClearLogicalAddress()V
-    .locals 3
+    .locals 2
 
     :try_start_0
-    iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecController$NativeWrapperImpl11;->mHdmiCec:Landroid/hardware/tv/cec/V1_1/IHdmiCec;
+    iget-object p0, p0, Lcom/android/server/hdmi/HdmiCecController$NativeWrapperImpl11;->mHdmiCec:Landroid/hardware/tv/cec/V1_1/IHdmiCec;
 
-    invoke-interface {v0}, Landroid/hardware/tv/cec/V1_1/IHdmiCec;->clearLogicalAddress()V
+    invoke-interface {p0}, Landroid/hardware/tv/cec/V1_0/IHdmiCec;->clearLogicalAddress()V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    new-array v1, v1, [Ljava/lang/Object;
+    new-array v0, v0, [Ljava/lang/Object;
 
-    const-string v2, "Failed to clear logical address : "
+    const-string v1, "Failed to clear logical address : "
 
-    invoke-static {v2, v0, v1}, Lcom/android/server/hdmi/HdmiLogger;->error(Ljava/lang/String;Ljava/lang/Exception;[Ljava/lang/Object;)V
+    invoke-static {v1, p0, v0}, Lcom/android/server/hdmi/HdmiLogger;->error(Ljava/lang/String;Ljava/lang/Exception;[Ljava/lang/Object;)V
 
     :goto_0
     return-void
 .end method
 
 .method public nativeEnableAudioReturnChannel(IZ)V
-    .locals 3
+    .locals 0
 
     :try_start_0
-    iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecController$NativeWrapperImpl11;->mHdmiCec:Landroid/hardware/tv/cec/V1_1/IHdmiCec;
+    iget-object p0, p0, Lcom/android/server/hdmi/HdmiCecController$NativeWrapperImpl11;->mHdmiCec:Landroid/hardware/tv/cec/V1_1/IHdmiCec;
 
-    invoke-interface {v0, p1, p2}, Landroid/hardware/tv/cec/V1_1/IHdmiCec;->enableAudioReturnChannel(IZ)V
+    invoke-interface {p0, p1, p2}, Landroid/hardware/tv/cec/V1_0/IHdmiCec;->enableAudioReturnChannel(IZ)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    new-array v1, v1, [Ljava/lang/Object;
+    new-array p1, p1, [Ljava/lang/Object;
 
-    const-string v2, "Failed to enable/disable ARC : "
+    const-string p2, "Failed to enable/disable ARC : "
 
-    invoke-static {v2, v0, v1}, Lcom/android/server/hdmi/HdmiLogger;->error(Ljava/lang/String;Ljava/lang/Exception;[Ljava/lang/Object;)V
+    invoke-static {p2, p0, p1}, Lcom/android/server/hdmi/HdmiLogger;->error(Ljava/lang/String;Ljava/lang/Exception;[Ljava/lang/Object;)V
 
     :goto_0
     return-void
 .end method
 
 .method public nativeGetPhysicalAddress()I
-    .locals 3
+    .locals 2
 
     :try_start_0
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecController$NativeWrapperImpl11;->mHdmiCec:Landroid/hardware/tv/cec/V1_1/IHdmiCec;
 
-    invoke-interface {v0, p0}, Landroid/hardware/tv/cec/V1_1/IHdmiCec;->getPhysicalAddress(Landroid/hardware/tv/cec/V1_0/IHdmiCec$getPhysicalAddressCallback;)V
+    invoke-interface {v0, p0}, Landroid/hardware/tv/cec/V1_0/IHdmiCec;->getPhysicalAddress(Landroid/hardware/tv/cec/V1_0/IHdmiCec$getPhysicalAddressCallback;)V
 
-    iget v0, p0, Lcom/android/server/hdmi/HdmiCecController$NativeWrapperImpl11;->mPhysicalAddress:I
+    iget p0, p0, Lcom/android/server/hdmi/HdmiCecController$NativeWrapperImpl11;->mPhysicalAddress:I
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return v0
+    return p0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    new-array v1, v1, [Ljava/lang/Object;
+    new-array v0, v0, [Ljava/lang/Object;
 
-    const-string v2, "Failed to get physical address : "
+    const-string v1, "Failed to get physical address : "
 
-    invoke-static {v2, v0, v1}, Lcom/android/server/hdmi/HdmiLogger;->error(Ljava/lang/String;Ljava/lang/Exception;[Ljava/lang/Object;)V
+    invoke-static {v1, p0, v0}, Lcom/android/server/hdmi/HdmiLogger;->error(Ljava/lang/String;Ljava/lang/Exception;[Ljava/lang/Object;)V
 
-    const v1, 0xffff
+    const p0, 0xffff
 
-    return v1
+    return p0
 .end method
 
 .method public nativeGetPortInfos()[Landroid/hardware/hdmi/HdmiPortInfo;
-    .locals 13
+    .locals 12
+
+    const/4 v0, 0x0
 
     :try_start_0
-    iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecController$NativeWrapperImpl11;->mHdmiCec:Landroid/hardware/tv/cec/V1_1/IHdmiCec;
+    iget-object p0, p0, Lcom/android/server/hdmi/HdmiCecController$NativeWrapperImpl11;->mHdmiCec:Landroid/hardware/tv/cec/V1_1/IHdmiCec;
 
-    invoke-interface {v0}, Landroid/hardware/tv/cec/V1_1/IHdmiCec;->getPortInfo()Ljava/util/ArrayList;
+    invoke-interface {p0}, Landroid/hardware/tv/cec/V1_0/IHdmiCec;->getPortInfo()Ljava/util/ArrayList;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {p0}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
     new-array v1, v1, [Landroid/hardware/hdmi/HdmiPortInfo;
 
-    const/4 v2, 0x0
+    invoke-virtual {p0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
-    invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+    move-result-object p0
+
+    move v2, v0
+
+    :goto_0
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v3
 
-    :goto_0
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+    check-cast v3, Landroid/hardware/tv/cec/V1_0/HdmiPortInfo;
 
-    move-result v4
+    new-instance v11, Landroid/hardware/hdmi/HdmiPortInfo;
 
-    if-eqz v4, :cond_0
+    iget v5, v3, Landroid/hardware/tv/cec/V1_0/HdmiPortInfo;->portId:I
 
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    iget v6, v3, Landroid/hardware/tv/cec/V1_0/HdmiPortInfo;->type:I
 
-    move-result-object v4
+    iget-short v7, v3, Landroid/hardware/tv/cec/V1_0/HdmiPortInfo;->physicalAddress:S
 
-    check-cast v4, Landroid/hardware/tv/cec/V1_0/HdmiPortInfo;
+    iget-boolean v8, v3, Landroid/hardware/tv/cec/V1_0/HdmiPortInfo;->cecSupported:Z
 
-    new-instance v12, Landroid/hardware/hdmi/HdmiPortInfo;
+    const/4 v9, 0x0
 
-    iget v6, v4, Landroid/hardware/tv/cec/V1_0/HdmiPortInfo;->portId:I
+    iget-boolean v10, v3, Landroid/hardware/tv/cec/V1_0/HdmiPortInfo;->arcSupported:Z
 
-    iget v7, v4, Landroid/hardware/tv/cec/V1_0/HdmiPortInfo;->type:I
+    move-object v4, v11
 
-    iget-short v8, v4, Landroid/hardware/tv/cec/V1_0/HdmiPortInfo;->physicalAddress:S
+    invoke-direct/range {v4 .. v10}, Landroid/hardware/hdmi/HdmiPortInfo;-><init>(IIIZZZ)V
 
-    iget-boolean v9, v4, Landroid/hardware/tv/cec/V1_0/HdmiPortInfo;->cecSupported:Z
-
-    const/4 v10, 0x0
-
-    iget-boolean v11, v4, Landroid/hardware/tv/cec/V1_0/HdmiPortInfo;->arcSupported:Z
-
-    move-object v5, v12
-
-    invoke-direct/range {v5 .. v11}, Landroid/hardware/hdmi/HdmiPortInfo;-><init>(IIIZZZ)V
-
-    aput-object v12, v1, v2
+    aput-object v11, v1, v2
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    nop
 
     add-int/lit8 v2, v2, 0x1
 
@@ -296,79 +294,77 @@
     return-object v1
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    const/4 v1, 0x0
+    new-array v0, v0, [Ljava/lang/Object;
 
-    new-array v1, v1, [Ljava/lang/Object;
+    const-string v1, "Failed to get port information : "
 
-    const-string v2, "Failed to get port information : "
+    invoke-static {v1, p0, v0}, Lcom/android/server/hdmi/HdmiLogger;->error(Ljava/lang/String;Ljava/lang/Exception;[Ljava/lang/Object;)V
 
-    invoke-static {v2, v0, v1}, Lcom/android/server/hdmi/HdmiLogger;->error(Ljava/lang/String;Ljava/lang/Exception;[Ljava/lang/Object;)V
+    const/4 p0, 0x0
 
-    const/4 v1, 0x0
-
-    return-object v1
+    return-object p0
 .end method
 
 .method public nativeGetVendorId()I
-    .locals 3
+    .locals 2
 
     :try_start_0
-    iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecController$NativeWrapperImpl11;->mHdmiCec:Landroid/hardware/tv/cec/V1_1/IHdmiCec;
+    iget-object p0, p0, Lcom/android/server/hdmi/HdmiCecController$NativeWrapperImpl11;->mHdmiCec:Landroid/hardware/tv/cec/V1_1/IHdmiCec;
 
-    invoke-interface {v0}, Landroid/hardware/tv/cec/V1_1/IHdmiCec;->getVendorId()I
+    invoke-interface {p0}, Landroid/hardware/tv/cec/V1_0/IHdmiCec;->getVendorId()I
 
-    move-result v0
+    move-result p0
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return v0
+    return p0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    new-array v1, v1, [Ljava/lang/Object;
+    new-array v0, v0, [Ljava/lang/Object;
 
-    const-string v2, "Failed to get vendor id : "
+    const-string v1, "Failed to get vendor id : "
 
-    invoke-static {v2, v0, v1}, Lcom/android/server/hdmi/HdmiLogger;->error(Ljava/lang/String;Ljava/lang/Exception;[Ljava/lang/Object;)V
+    invoke-static {v1, p0, v0}, Lcom/android/server/hdmi/HdmiLogger;->error(Ljava/lang/String;Ljava/lang/Exception;[Ljava/lang/Object;)V
 
-    const/4 v1, 0x1
+    const/4 p0, 0x1
 
-    return v1
+    return p0
 .end method
 
 .method public nativeGetVersion()I
-    .locals 3
+    .locals 2
 
     :try_start_0
-    iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecController$NativeWrapperImpl11;->mHdmiCec:Landroid/hardware/tv/cec/V1_1/IHdmiCec;
+    iget-object p0, p0, Lcom/android/server/hdmi/HdmiCecController$NativeWrapperImpl11;->mHdmiCec:Landroid/hardware/tv/cec/V1_1/IHdmiCec;
 
-    invoke-interface {v0}, Landroid/hardware/tv/cec/V1_1/IHdmiCec;->getCecVersion()I
+    invoke-interface {p0}, Landroid/hardware/tv/cec/V1_0/IHdmiCec;->getCecVersion()I
 
-    move-result v0
+    move-result p0
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return v0
+    return p0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    new-array v1, v1, [Ljava/lang/Object;
+    new-array v0, v0, [Ljava/lang/Object;
 
-    const-string v2, "Failed to get cec version : "
+    const-string v1, "Failed to get cec version : "
 
-    invoke-static {v2, v0, v1}, Lcom/android/server/hdmi/HdmiLogger;->error(Ljava/lang/String;Ljava/lang/Exception;[Ljava/lang/Object;)V
+    invoke-static {v1, p0, v0}, Lcom/android/server/hdmi/HdmiLogger;->error(Ljava/lang/String;Ljava/lang/Exception;[Ljava/lang/Object;)V
 
-    const/4 v1, 0x1
+    const/4 p0, 0x1
 
-    return v1
+    return p0
 .end method
 
 .method public nativeInit()Ljava/lang/String;
@@ -380,51 +376,51 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecController$NativeWrapperImpl11;->mHdmiCec:Landroid/hardware/tv/cec/V1_1/IHdmiCec;
+    iget-object p0, p0, Lcom/android/server/hdmi/HdmiCecController$NativeWrapperImpl11;->mHdmiCec:Landroid/hardware/tv/cec/V1_1/IHdmiCec;
 
-    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return-object v0
+    return-object p0
 .end method
 
 .method public nativeIsConnected(I)Z
-    .locals 4
+    .locals 2
 
     :try_start_0
-    iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecController$NativeWrapperImpl11;->mHdmiCec:Landroid/hardware/tv/cec/V1_1/IHdmiCec;
+    iget-object p0, p0, Lcom/android/server/hdmi/HdmiCecController$NativeWrapperImpl11;->mHdmiCec:Landroid/hardware/tv/cec/V1_1/IHdmiCec;
 
-    invoke-interface {v0, p1}, Landroid/hardware/tv/cec/V1_1/IHdmiCec;->isConnected(I)Z
+    invoke-interface {p0, p1}, Landroid/hardware/tv/cec/V1_0/IHdmiCec;->isConnected(I)Z
 
-    move-result v0
+    move-result p0
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return v0
+    return p0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    new-array v2, v1, [Ljava/lang/Object;
+    new-array v0, p1, [Ljava/lang/Object;
 
-    const-string v3, "Failed to get connection info : "
+    const-string v1, "Failed to get connection info : "
 
-    invoke-static {v3, v0, v2}, Lcom/android/server/hdmi/HdmiLogger;->error(Ljava/lang/String;Ljava/lang/Exception;[Ljava/lang/Object;)V
+    invoke-static {v1, p0, v0}, Lcom/android/server/hdmi/HdmiLogger;->error(Ljava/lang/String;Ljava/lang/Exception;[Ljava/lang/Object;)V
 
-    return v1
+    return p1
 .end method
 
 .method public nativeSendCecCommand(II[B)I
-    .locals 7
+    .locals 4
 
     new-instance v0, Landroid/hardware/tv/cec/V1_1/CecMessage;
 
@@ -434,149 +430,149 @@
 
     iput p2, v0, Landroid/hardware/tv/cec/V1_1/CecMessage;->destination:I
 
-    new-instance v1, Ljava/util/ArrayList;
+    new-instance p1, Ljava/util/ArrayList;
 
-    array-length v2, p3
+    array-length p2, p3
 
-    invoke-direct {v1, v2}, Ljava/util/ArrayList;-><init>(I)V
+    invoke-direct {p1, p2}, Ljava/util/ArrayList;-><init>(I)V
 
-    iput-object v1, v0, Landroid/hardware/tv/cec/V1_1/CecMessage;->body:Ljava/util/ArrayList;
+    iput-object p1, v0, Landroid/hardware/tv/cec/V1_1/CecMessage;->body:Ljava/util/ArrayList;
 
-    array-length v1, p3
+    array-length p1, p3
 
-    const/4 v2, 0x0
+    const/4 p2, 0x0
 
-    move v3, v2
+    move v1, p2
 
     :goto_0
-    if-ge v3, v1, :cond_0
+    if-ge v1, p1, :cond_0
 
-    aget-byte v4, p3, v3
+    aget-byte v2, p3, v1
 
-    iget-object v5, v0, Landroid/hardware/tv/cec/V1_1/CecMessage;->body:Ljava/util/ArrayList;
+    iget-object v3, v0, Landroid/hardware/tv/cec/V1_1/CecMessage;->body:Ljava/util/ArrayList;
 
-    invoke-static {v4}, Ljava/lang/Byte;->valueOf(B)Ljava/lang/Byte;
+    invoke-static {v2}, Ljava/lang/Byte;->valueOf(B)Ljava/lang/Byte;
 
-    move-result-object v6
+    move-result-object v2
 
-    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     :cond_0
     :try_start_0
-    iget-object v1, p0, Lcom/android/server/hdmi/HdmiCecController$NativeWrapperImpl11;->mHdmiCec:Landroid/hardware/tv/cec/V1_1/IHdmiCec;
+    iget-object p0, p0, Lcom/android/server/hdmi/HdmiCecController$NativeWrapperImpl11;->mHdmiCec:Landroid/hardware/tv/cec/V1_1/IHdmiCec;
 
-    invoke-interface {v1, v0}, Landroid/hardware/tv/cec/V1_1/IHdmiCec;->sendMessage_1_1(Landroid/hardware/tv/cec/V1_1/CecMessage;)I
+    invoke-interface {p0, v0}, Landroid/hardware/tv/cec/V1_1/IHdmiCec;->sendMessage_1_1(Landroid/hardware/tv/cec/V1_1/CecMessage;)I
 
-    move-result v1
+    move-result p0
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return v1
+    return p0
 
     :catch_0
-    move-exception v1
+    move-exception p0
 
-    new-array v2, v2, [Ljava/lang/Object;
+    new-array p1, p2, [Ljava/lang/Object;
 
-    const-string v3, "Failed to send CEC message : "
+    const-string p2, "Failed to send CEC message : "
 
-    invoke-static {v3, v1, v2}, Lcom/android/server/hdmi/HdmiLogger;->error(Ljava/lang/String;Ljava/lang/Exception;[Ljava/lang/Object;)V
+    invoke-static {p2, p0, p1}, Lcom/android/server/hdmi/HdmiLogger;->error(Ljava/lang/String;Ljava/lang/Exception;[Ljava/lang/Object;)V
 
-    const/4 v2, 0x3
+    const/4 p0, 0x3
 
-    return v2
+    return p0
 .end method
 
 .method public nativeSetLanguage(Ljava/lang/String;)V
-    .locals 3
+    .locals 1
 
     :try_start_0
-    iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecController$NativeWrapperImpl11;->mHdmiCec:Landroid/hardware/tv/cec/V1_1/IHdmiCec;
+    iget-object p0, p0, Lcom/android/server/hdmi/HdmiCecController$NativeWrapperImpl11;->mHdmiCec:Landroid/hardware/tv/cec/V1_1/IHdmiCec;
 
-    invoke-interface {v0, p1}, Landroid/hardware/tv/cec/V1_1/IHdmiCec;->setLanguage(Ljava/lang/String;)V
+    invoke-interface {p0, p1}, Landroid/hardware/tv/cec/V1_0/IHdmiCec;->setLanguage(Ljava/lang/String;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    new-array v1, v1, [Ljava/lang/Object;
+    new-array p1, p1, [Ljava/lang/Object;
 
-    const-string v2, "Failed to set language : "
+    const-string v0, "Failed to set language : "
 
-    invoke-static {v2, v0, v1}, Lcom/android/server/hdmi/HdmiLogger;->error(Ljava/lang/String;Ljava/lang/Exception;[Ljava/lang/Object;)V
+    invoke-static {v0, p0, p1}, Lcom/android/server/hdmi/HdmiLogger;->error(Ljava/lang/String;Ljava/lang/Exception;[Ljava/lang/Object;)V
 
     :goto_0
     return-void
 .end method
 
 .method public nativeSetOption(IZ)V
-    .locals 3
+    .locals 0
 
     :try_start_0
-    iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecController$NativeWrapperImpl11;->mHdmiCec:Landroid/hardware/tv/cec/V1_1/IHdmiCec;
+    iget-object p0, p0, Lcom/android/server/hdmi/HdmiCecController$NativeWrapperImpl11;->mHdmiCec:Landroid/hardware/tv/cec/V1_1/IHdmiCec;
 
-    invoke-interface {v0, p1, p2}, Landroid/hardware/tv/cec/V1_1/IHdmiCec;->setOption(IZ)V
+    invoke-interface {p0, p1, p2}, Landroid/hardware/tv/cec/V1_0/IHdmiCec;->setOption(IZ)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    new-array v1, v1, [Ljava/lang/Object;
+    new-array p1, p1, [Ljava/lang/Object;
 
-    const-string v2, "Failed to set option : "
+    const-string p2, "Failed to set option : "
 
-    invoke-static {v2, v0, v1}, Lcom/android/server/hdmi/HdmiLogger;->error(Ljava/lang/String;Ljava/lang/Exception;[Ljava/lang/Object;)V
+    invoke-static {p2, p0, p1}, Lcom/android/server/hdmi/HdmiLogger;->error(Ljava/lang/String;Ljava/lang/Exception;[Ljava/lang/Object;)V
 
     :goto_0
     return-void
 .end method
 
 .method public onValues(IS)V
-    .locals 2
+    .locals 1
 
     if-nez p1, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecController$NativeWrapperImpl11;->mLock:Ljava/lang/Object;
+    iget-object p1, p0, Lcom/android/server/hdmi/HdmiCecController$NativeWrapperImpl11;->mLock:Ljava/lang/Object;
 
-    monitor-enter v0
+    monitor-enter p1
 
     :try_start_0
-    new-instance v1, Ljava/lang/Short;
+    new-instance v0, Ljava/lang/Short;
 
-    invoke-direct {v1, p2}, Ljava/lang/Short;-><init>(S)V
+    invoke-direct {v0, p2}, Ljava/lang/Short;-><init>(S)V
 
-    invoke-virtual {v1}, Ljava/lang/Short;->intValue()I
+    invoke-virtual {v0}, Ljava/lang/Short;->intValue()I
 
-    move-result v1
+    move-result p2
 
-    iput v1, p0, Lcom/android/server/hdmi/HdmiCecController$NativeWrapperImpl11;->mPhysicalAddress:I
+    iput p2, p0, Lcom/android/server/hdmi/HdmiCecController$NativeWrapperImpl11;->mPhysicalAddress:I
 
-    monitor-exit v0
+    monitor-exit p1
 
     goto :goto_0
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
-    monitor-exit v0
+    monitor-exit p1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 
     :cond_0
     :goto_0
@@ -602,60 +598,60 @@
 
     invoke-virtual {v0, p1, p2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    const-string v1, "; reconnecting"
+    const-string p1, "; reconnecting"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    const/4 v1, 0x0
+    const/4 p2, 0x0
 
-    new-array v1, v1, [Ljava/lang/Object;
+    new-array p2, p2, [Ljava/lang/Object;
 
-    invoke-static {v0, v1}, Lcom/android/server/hdmi/HdmiLogger;->error(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {p1, p2}, Lcom/android/server/hdmi/HdmiLogger;->error(Ljava/lang/String;[Ljava/lang/Object;)V
 
     invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecController$NativeWrapperImpl11;->connectToHal()Z
 
-    iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecController$NativeWrapperImpl11;->mCallback:Lcom/android/server/hdmi/HdmiCecController$HdmiCecCallback;
+    iget-object p1, p0, Lcom/android/server/hdmi/HdmiCecController$NativeWrapperImpl11;->mCallback:Lcom/android/server/hdmi/HdmiCecController$HdmiCecCallback;
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    invoke-virtual {p0, v0}, Lcom/android/server/hdmi/HdmiCecController$NativeWrapperImpl11;->setCallback(Lcom/android/server/hdmi/HdmiCecController$HdmiCecCallback;)V
+    invoke-virtual {p0, p1}, Lcom/android/server/hdmi/HdmiCecController$NativeWrapperImpl11;->setCallback(Lcom/android/server/hdmi/HdmiCecController$HdmiCecCallback;)V
 
     :cond_0
     return-void
 .end method
 
 .method public setCallback(Lcom/android/server/hdmi/HdmiCecController$HdmiCecCallback;)V
-    .locals 3
+    .locals 1
 
     iput-object p1, p0, Lcom/android/server/hdmi/HdmiCecController$NativeWrapperImpl11;->mCallback:Lcom/android/server/hdmi/HdmiCecController$HdmiCecCallback;
 
     :try_start_0
-    iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecController$NativeWrapperImpl11;->mHdmiCec:Landroid/hardware/tv/cec/V1_1/IHdmiCec;
+    iget-object p0, p0, Lcom/android/server/hdmi/HdmiCecController$NativeWrapperImpl11;->mHdmiCec:Landroid/hardware/tv/cec/V1_1/IHdmiCec;
 
-    new-instance v1, Lcom/android/server/hdmi/HdmiCecController$HdmiCecCallback11;
+    new-instance v0, Lcom/android/server/hdmi/HdmiCecController$HdmiCecCallback11;
 
-    invoke-direct {v1, p1}, Lcom/android/server/hdmi/HdmiCecController$HdmiCecCallback11;-><init>(Lcom/android/server/hdmi/HdmiCecController$HdmiCecCallback;)V
+    invoke-direct {v0, p1}, Lcom/android/server/hdmi/HdmiCecController$HdmiCecCallback11;-><init>(Lcom/android/server/hdmi/HdmiCecController$HdmiCecCallback;)V
 
-    invoke-interface {v0, v1}, Landroid/hardware/tv/cec/V1_1/IHdmiCec;->setCallback_1_1(Landroid/hardware/tv/cec/V1_1/IHdmiCecCallback;)V
+    invoke-interface {p0, v0}, Landroid/hardware/tv/cec/V1_1/IHdmiCec;->setCallback_1_1(Landroid/hardware/tv/cec/V1_1/IHdmiCecCallback;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    new-array v1, v1, [Ljava/lang/Object;
+    new-array p1, p1, [Ljava/lang/Object;
 
-    const-string v2, "Couldn\'t initialise tv.cec callback : "
+    const-string v0, "Couldn\'t initialise tv.cec callback : "
 
-    invoke-static {v2, v0, v1}, Lcom/android/server/hdmi/HdmiLogger;->error(Ljava/lang/String;Ljava/lang/Exception;[Ljava/lang/Object;)V
+    invoke-static {v0, p0, p1}, Lcom/android/server/hdmi/HdmiLogger;->error(Ljava/lang/String;Ljava/lang/Exception;[Ljava/lang/Object;)V
 
     :goto_0
     return-void

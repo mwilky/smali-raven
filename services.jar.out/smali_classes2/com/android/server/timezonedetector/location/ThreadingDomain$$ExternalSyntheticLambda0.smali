@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/timezonedetector/location/ThreadingDomain$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/concurrent/Callable;
@@ -23,13 +24,13 @@
 
 # virtual methods
 .method public final call()Ljava/lang/Object;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/timezonedetector/location/ThreadingDomain$$ExternalSyntheticLambda0;->f$0:Ljava/lang/Runnable;
+    iget-object p0, p0, Lcom/android/server/timezonedetector/location/ThreadingDomain$$ExternalSyntheticLambda0;->f$0:Ljava/lang/Runnable;
 
-    invoke-static {v0}, Lcom/android/server/timezonedetector/location/ThreadingDomain;->lambda$postAndWait$0(Ljava/lang/Runnable;)Ljava/lang/Object;
+    invoke-static {p0}, Lcom/android/server/timezonedetector/location/ThreadingDomain;->$r8$lambda$iOR7YTmPe6qb-H0s8Z-0RjW50g8(Ljava/lang/Runnable;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

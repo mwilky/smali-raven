@@ -1,4 +1,4 @@
-.class Lcom/android/server/AnyMotionDetector$1;
+.class public Lcom/android/server/AnyMotionDetector$1;
 .super Ljava/lang/Object;
 .source "AnyMotionDetector.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/AnyMotionDetector;
+.field public final synthetic this$0:Lcom/android/server/AnyMotionDetector;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/AnyMotionDetector;)V
+.method public constructor <init>(Lcom/android/server/AnyMotionDetector;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/AnyMotionDetector$1;->this$0:Lcom/android/server/AnyMotionDetector;
@@ -41,128 +41,123 @@
 .end method
 
 .method public onSensorChanged(Landroid/hardware/SensorEvent;)V
-    .locals 10
+    .locals 9
 
-    const/4 v0, -0x1
+    iget-object v0, p0, Lcom/android/server/AnyMotionDetector$1;->this$0:Lcom/android/server/AnyMotionDetector;
 
-    iget-object v1, p0, Lcom/android/server/AnyMotionDetector$1;->this$0:Lcom/android/server/AnyMotionDetector;
+    invoke-static {v0}, Lcom/android/server/AnyMotionDetector;->-$$Nest$fgetmLock(Lcom/android/server/AnyMotionDetector;)Ljava/lang/Object;
 
-    invoke-static {v1}, Lcom/android/server/AnyMotionDetector;->access$000(Lcom/android/server/AnyMotionDetector;)Ljava/lang/Object;
+    move-result-object v0
 
-    move-result-object v1
-
-    monitor-enter v1
+    monitor-enter v0
 
     :try_start_0
-    new-instance v8, Lcom/android/server/AnyMotionDetector$Vector3;
+    new-instance v7, Lcom/android/server/AnyMotionDetector$Vector3;
 
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
-    move-result-wide v3
+    move-result-wide v2
 
-    iget-object v2, p1, Landroid/hardware/SensorEvent;->values:[F
+    iget-object p1, p1, Landroid/hardware/SensorEvent;->values:[F
 
-    const/4 v9, 0x0
+    const/4 v8, 0x0
 
-    aget v5, v2, v9
+    aget v4, p1, v8
 
-    iget-object v2, p1, Landroid/hardware/SensorEvent;->values:[F
+    const/4 v1, 0x1
 
-    const/4 v6, 0x1
+    aget v5, p1, v1
 
-    aget v6, v2, v6
+    const/4 v1, 0x2
 
-    iget-object v2, p1, Landroid/hardware/SensorEvent;->values:[F
+    aget v6, p1, v1
 
-    const/4 v7, 0x2
+    move-object v1, v7
 
-    aget v7, v2, v7
+    invoke-direct/range {v1 .. v6}, Lcom/android/server/AnyMotionDetector$Vector3;-><init>(JFFF)V
 
-    move-object v2, v8
+    iget-object p1, p0, Lcom/android/server/AnyMotionDetector$1;->this$0:Lcom/android/server/AnyMotionDetector;
 
-    invoke-direct/range {v2 .. v7}, Lcom/android/server/AnyMotionDetector$Vector3;-><init>(JFFF)V
+    invoke-static {p1}, Lcom/android/server/AnyMotionDetector;->-$$Nest$fgetmRunningStats(Lcom/android/server/AnyMotionDetector;)Lcom/android/server/AnyMotionDetector$RunningSignalStats;
 
-    move-object v2, v8
+    move-result-object p1
 
-    iget-object v3, p0, Lcom/android/server/AnyMotionDetector$1;->this$0:Lcom/android/server/AnyMotionDetector;
+    invoke-virtual {p1, v7}, Lcom/android/server/AnyMotionDetector$RunningSignalStats;->accumulate(Lcom/android/server/AnyMotionDetector$Vector3;)V
 
-    invoke-static {v3}, Lcom/android/server/AnyMotionDetector;->access$100(Lcom/android/server/AnyMotionDetector;)Lcom/android/server/AnyMotionDetector$RunningSignalStats;
+    iget-object p1, p0, Lcom/android/server/AnyMotionDetector$1;->this$0:Lcom/android/server/AnyMotionDetector;
 
-    move-result-object v3
+    invoke-static {p1}, Lcom/android/server/AnyMotionDetector;->-$$Nest$fgetmRunningStats(Lcom/android/server/AnyMotionDetector;)Lcom/android/server/AnyMotionDetector$RunningSignalStats;
 
-    invoke-virtual {v3, v2}, Lcom/android/server/AnyMotionDetector$RunningSignalStats;->accumulate(Lcom/android/server/AnyMotionDetector$Vector3;)V
+    move-result-object p1
 
-    iget-object v3, p0, Lcom/android/server/AnyMotionDetector$1;->this$0:Lcom/android/server/AnyMotionDetector;
+    invoke-virtual {p1}, Lcom/android/server/AnyMotionDetector$RunningSignalStats;->getSampleCount()I
 
-    invoke-static {v3}, Lcom/android/server/AnyMotionDetector;->access$100(Lcom/android/server/AnyMotionDetector;)Lcom/android/server/AnyMotionDetector$RunningSignalStats;
+    move-result p1
 
-    move-result-object v3
+    iget-object v1, p0, Lcom/android/server/AnyMotionDetector$1;->this$0:Lcom/android/server/AnyMotionDetector;
 
-    invoke-virtual {v3}, Lcom/android/server/AnyMotionDetector$RunningSignalStats;->getSampleCount()I
+    invoke-static {v1}, Lcom/android/server/AnyMotionDetector;->-$$Nest$fgetmNumSufficientSamples(Lcom/android/server/AnyMotionDetector;)I
 
-    move-result v3
+    move-result v1
 
-    iget-object v4, p0, Lcom/android/server/AnyMotionDetector$1;->this$0:Lcom/android/server/AnyMotionDetector;
+    const/4 v2, -0x1
 
-    invoke-static {v4}, Lcom/android/server/AnyMotionDetector;->access$200(Lcom/android/server/AnyMotionDetector;)I
+    if-lt p1, v1, :cond_0
 
-    move-result v4
+    iget-object p1, p0, Lcom/android/server/AnyMotionDetector$1;->this$0:Lcom/android/server/AnyMotionDetector;
 
-    if-lt v3, v4, :cond_0
+    invoke-static {p1}, Lcom/android/server/AnyMotionDetector;->-$$Nest$mstopOrientationMeasurementLocked(Lcom/android/server/AnyMotionDetector;)I
 
-    iget-object v3, p0, Lcom/android/server/AnyMotionDetector$1;->this$0:Lcom/android/server/AnyMotionDetector;
+    move-result p1
 
-    invoke-static {v3}, Lcom/android/server/AnyMotionDetector;->access$300(Lcom/android/server/AnyMotionDetector;)I
-
-    move-result v3
-
-    move v0, v3
+    goto :goto_0
 
     :cond_0
-    monitor-exit v1
+    move p1, v2
+
+    :goto_0
+    monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    const/4 v1, -0x1
+    if-eq p1, v2, :cond_1
 
-    if-eq v0, v1, :cond_1
+    iget-object v0, p0, Lcom/android/server/AnyMotionDetector$1;->this$0:Lcom/android/server/AnyMotionDetector;
+
+    invoke-static {v0}, Lcom/android/server/AnyMotionDetector;->-$$Nest$fgetmHandler(Lcom/android/server/AnyMotionDetector;)Landroid/os/Handler;
+
+    move-result-object v0
 
     iget-object v1, p0, Lcom/android/server/AnyMotionDetector$1;->this$0:Lcom/android/server/AnyMotionDetector;
 
-    invoke-static {v1}, Lcom/android/server/AnyMotionDetector;->access$500(Lcom/android/server/AnyMotionDetector;)Landroid/os/Handler;
+    invoke-static {v1}, Lcom/android/server/AnyMotionDetector;->-$$Nest$fgetmWakelockTimeout(Lcom/android/server/AnyMotionDetector;)Ljava/lang/Runnable;
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/android/server/AnyMotionDetector$1;->this$0:Lcom/android/server/AnyMotionDetector;
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
-    invoke-static {v2}, Lcom/android/server/AnyMotionDetector;->access$400(Lcom/android/server/AnyMotionDetector;)Ljava/lang/Runnable;
+    iget-object v0, p0, Lcom/android/server/AnyMotionDetector$1;->this$0:Lcom/android/server/AnyMotionDetector;
 
-    move-result-object v2
+    invoke-static {v0, v8}, Lcom/android/server/AnyMotionDetector;->-$$Nest$fputmWakelockTimeoutIsActive(Lcom/android/server/AnyMotionDetector;Z)V
 
-    invoke-virtual {v1, v2}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
+    iget-object p0, p0, Lcom/android/server/AnyMotionDetector$1;->this$0:Lcom/android/server/AnyMotionDetector;
 
-    iget-object v1, p0, Lcom/android/server/AnyMotionDetector$1;->this$0:Lcom/android/server/AnyMotionDetector;
+    invoke-static {p0}, Lcom/android/server/AnyMotionDetector;->-$$Nest$fgetmCallback(Lcom/android/server/AnyMotionDetector;)Lcom/android/server/AnyMotionDetector$DeviceIdleCallback;
 
-    invoke-static {v1, v9}, Lcom/android/server/AnyMotionDetector;->access$602(Lcom/android/server/AnyMotionDetector;Z)Z
+    move-result-object p0
 
-    iget-object v1, p0, Lcom/android/server/AnyMotionDetector$1;->this$0:Lcom/android/server/AnyMotionDetector;
-
-    invoke-static {v1}, Lcom/android/server/AnyMotionDetector;->access$700(Lcom/android/server/AnyMotionDetector;)Lcom/android/server/AnyMotionDetector$DeviceIdleCallback;
-
-    move-result-object v1
-
-    invoke-interface {v1, v0}, Lcom/android/server/AnyMotionDetector$DeviceIdleCallback;->onAnyMotionResult(I)V
+    invoke-interface {p0, p1}, Lcom/android/server/AnyMotionDetector$DeviceIdleCallback;->onAnyMotionResult(I)V
 
     :cond_1
     return-void
 
     :catchall_0
-    move-exception v2
+    move-exception p0
 
     :try_start_1
-    monitor-exit v1
+    monitor-exit v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v2
+    throw p0
 .end method

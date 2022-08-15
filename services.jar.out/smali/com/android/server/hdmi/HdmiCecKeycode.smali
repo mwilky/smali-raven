@@ -1,4 +1,4 @@
-.class final Lcom/android/server/hdmi/HdmiCecKeycode;
+.class public final Lcom/android/server/hdmi/HdmiCecKeycode;
 .super Ljava/lang/Object;
 .source "HdmiCecKeycode.java"
 
@@ -12,235 +12,11 @@
 
 
 # static fields
-.field public static final CEC_KEYCODE_ANGLE:I = 0x50
-
-.field public static final CEC_KEYCODE_BACKWARD:I = 0x4c
-
-.field public static final CEC_KEYCODE_CHANNEL_DOWN:I = 0x31
-
-.field public static final CEC_KEYCODE_CHANNEL_UP:I = 0x30
-
-.field public static final CEC_KEYCODE_CLEAR:I = 0x2c
-
-.field public static final CEC_KEYCODE_CONTENTS_MENU:I = 0xb
-
-.field public static final CEC_KEYCODE_DATA:I = 0x76
-
-.field public static final CEC_KEYCODE_DISPLAY_INFORMATION:I = 0x35
-
-.field public static final CEC_KEYCODE_DOT:I = 0x2a
-
-.field public static final CEC_KEYCODE_DOWN:I = 0x2
-
-.field public static final CEC_KEYCODE_EJECT:I = 0x4a
-
-.field public static final CEC_KEYCODE_ELECTRONIC_PROGRAM_GUIDE:I = 0x53
-
-.field public static final CEC_KEYCODE_ENTER:I = 0x2b
-
-.field public static final CEC_KEYCODE_EXIT:I = 0xd
-
-.field public static final CEC_KEYCODE_F1_BLUE:I = 0x71
-
-.field public static final CEC_KEYCODE_F2_RED:I = 0x72
-
-.field public static final CEC_KEYCODE_F3_GREEN:I = 0x73
-
-.field public static final CEC_KEYCODE_F4_YELLOW:I = 0x74
-
-.field public static final CEC_KEYCODE_F5:I = 0x75
-
-.field public static final CEC_KEYCODE_FAST_FORWARD:I = 0x49
-
-.field public static final CEC_KEYCODE_FAVORITE_MENU:I = 0xc
-
-.field public static final CEC_KEYCODE_FORWARD:I = 0x4b
-
-.field public static final CEC_KEYCODE_HELP:I = 0x36
-
-.field public static final CEC_KEYCODE_INITIAL_CONFIGURATION:I = 0x55
-
-.field public static final CEC_KEYCODE_INPUT_SELECT:I = 0x34
-
-.field public static final CEC_KEYCODE_LEFT:I = 0x3
-
-.field public static final CEC_KEYCODE_LEFT_DOWN:I = 0x8
-
-.field public static final CEC_KEYCODE_LEFT_UP:I = 0x7
-
-.field public static final CEC_KEYCODE_MEDIA_CONTEXT_SENSITIVE_MENU:I = 0x11
-
-.field public static final CEC_KEYCODE_MEDIA_TOP_MENU:I = 0x10
-
-.field public static final CEC_KEYCODE_MUTE:I = 0x43
-
-.field public static final CEC_KEYCODE_MUTE_FUNCTION:I = 0x65
-
-.field public static final CEC_KEYCODE_NEXT_FAVORITE:I = 0x2f
-
-.field public static final CEC_KEYCODE_NUMBERS_1:I = 0x21
-
-.field public static final CEC_KEYCODE_NUMBERS_2:I = 0x22
-
-.field public static final CEC_KEYCODE_NUMBERS_3:I = 0x23
-
-.field public static final CEC_KEYCODE_NUMBERS_4:I = 0x24
-
-.field public static final CEC_KEYCODE_NUMBERS_5:I = 0x25
-
-.field public static final CEC_KEYCODE_NUMBERS_6:I = 0x26
-
-.field public static final CEC_KEYCODE_NUMBERS_7:I = 0x27
-
-.field public static final CEC_KEYCODE_NUMBERS_8:I = 0x28
-
-.field public static final CEC_KEYCODE_NUMBERS_9:I = 0x29
-
-.field public static final CEC_KEYCODE_NUMBER_0_OR_NUMBER_10:I = 0x20
-
-.field public static final CEC_KEYCODE_NUMBER_11:I = 0x1e
-
-.field public static final CEC_KEYCODE_NUMBER_12:I = 0x1f
-
-.field public static final CEC_KEYCODE_NUMBER_ENTRY_MODE:I = 0x1d
-
-.field public static final CEC_KEYCODE_PAGE_DOWN:I = 0x38
-
-.field public static final CEC_KEYCODE_PAGE_UP:I = 0x37
-
-.field public static final CEC_KEYCODE_PAUSE:I = 0x46
-
-.field public static final CEC_KEYCODE_PAUSE_PLAY_FUNCTION:I = 0x61
-
-.field public static final CEC_KEYCODE_PAUSE_RECORD:I = 0x4e
-
-.field public static final CEC_KEYCODE_PAUSE_RECORD_FUNCTION:I = 0x63
-
-.field public static final CEC_KEYCODE_PLAY:I = 0x44
-
-.field public static final CEC_KEYCODE_PLAY_FUNCTION:I = 0x60
-
-.field public static final CEC_KEYCODE_POWER:I = 0x40
-
-.field public static final CEC_KEYCODE_POWER_OFF_FUNCTION:I = 0x6c
-
-.field public static final CEC_KEYCODE_POWER_ON_FUNCTION:I = 0x6d
-
-.field public static final CEC_KEYCODE_POWER_TOGGLE_FUNCTION:I = 0x6b
-
-.field public static final CEC_KEYCODE_PREVIOUS_CHANNEL:I = 0x32
-
-.field public static final CEC_KEYCODE_RECORD:I = 0x47
-
-.field public static final CEC_KEYCODE_RECORD_FUNCTION:I = 0x62
-
-.field public static final CEC_KEYCODE_RESERVED:I = 0x4f
-
-.field public static final CEC_KEYCODE_RESTORE_VOLUME_FUNCTION:I = 0x66
-
-.field public static final CEC_KEYCODE_REWIND:I = 0x48
-
-.field public static final CEC_KEYCODE_RIGHT:I = 0x4
-
-.field public static final CEC_KEYCODE_RIGHT_DOWN:I = 0x6
-
-.field public static final CEC_KEYCODE_RIGHT_UP:I = 0x5
-
-.field public static final CEC_KEYCODE_ROOT_MENU:I = 0x9
-
-.field public static final CEC_KEYCODE_SELECT:I = 0x0
-
-.field public static final CEC_KEYCODE_SELECT_AUDIO_INPUT_FUNCTION:I = 0x6a
-
-.field public static final CEC_KEYCODE_SELECT_AV_INPUT_FUNCTION:I = 0x69
-
-.field public static final CEC_KEYCODE_SELECT_BROADCAST_TYPE:I = 0x56
-
-.field public static final CEC_KEYCODE_SELECT_MEDIA_FUNCTION:I = 0x68
-
-.field public static final CEC_KEYCODE_SELECT_SOUND_PRESENTATION:I = 0x57
-
-.field public static final CEC_KEYCODE_SETUP_MENU:I = 0xa
-
-.field public static final CEC_KEYCODE_SOUND_SELECT:I = 0x33
-
-.field public static final CEC_KEYCODE_STOP:I = 0x45
-
-.field public static final CEC_KEYCODE_STOP_FUNCTION:I = 0x64
-
-.field public static final CEC_KEYCODE_STOP_RECORD:I = 0x4d
-
-.field public static final CEC_KEYCODE_SUB_PICTURE:I = 0x51
-
-.field public static final CEC_KEYCODE_TIMER_PROGRAMMING:I = 0x54
-
-.field public static final CEC_KEYCODE_TUNE_FUNCTION:I = 0x67
-
-.field public static final CEC_KEYCODE_UP:I = 0x1
-
-.field public static final CEC_KEYCODE_VIDEO_ON_DEMAND:I = 0x52
-
-.field public static final CEC_KEYCODE_VOLUME_DOWN:I = 0x42
-
-.field public static final CEC_KEYCODE_VOLUME_UP:I = 0x41
-
-.field private static final KEYCODE_ENTRIES:[Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;
-
-.field public static final NO_PARAM:I = -0x1
-
-.field public static final UI_BROADCAST_ANALOGUE:I = 0x10
-
-.field public static final UI_BROADCAST_ANALOGUE_CABLE:I = 0x30
-
-.field public static final UI_BROADCAST_ANALOGUE_SATELLITE:I = 0x40
-
-.field public static final UI_BROADCAST_ANALOGUE_TERRESTRIAL:I = 0x20
-
-.field public static final UI_BROADCAST_DIGITAL:I = 0x50
-
-.field public static final UI_BROADCAST_DIGITAL_CABLE:I = 0x70
-
-.field public static final UI_BROADCAST_DIGITAL_COMMNICATIONS_SATELLITE:I = 0x90
-
-.field public static final UI_BROADCAST_DIGITAL_COMMNICATIONS_SATELLITE_2:I = 0x91
-
-.field public static final UI_BROADCAST_DIGITAL_SATELLITE:I = 0x80
-
-.field public static final UI_BROADCAST_DIGITAL_TERRESTRIAL:I = 0x60
-
-.field public static final UI_BROADCAST_IP:I = 0xa0
-
-.field public static final UI_BROADCAST_TOGGLE_ALL:I = 0x0
-
-.field public static final UI_BROADCAST_TOGGLE_ANALOGUE_DIGITAL:I = 0x1
-
-.field public static final UI_SOUND_PRESENTATION_BASS_NEUTRAL:I = 0xb2
-
-.field public static final UI_SOUND_PRESENTATION_BASS_STEP_MINUS:I = 0xb3
-
-.field public static final UI_SOUND_PRESENTATION_BASS_STEP_PLUS:I = 0xb1
-
-.field public static final UI_SOUND_PRESENTATION_SELECT_AUDIO_AUTO_EQUALIZER:I = 0xa0
-
-.field public static final UI_SOUND_PRESENTATION_SELECT_AUDIO_AUTO_REVERBERATION:I = 0x90
-
-.field public static final UI_SOUND_PRESENTATION_SELECT_AUDIO_DOWN_MIX:I = 0x80
-
-.field public static final UI_SOUND_PRESENTATION_SOUND_MIX_DUAL_MONO:I = 0x20
-
-.field public static final UI_SOUND_PRESENTATION_SOUND_MIX_KARAOKE:I = 0x30
-
-.field public static final UI_SOUND_PRESENTATION_TREBLE_NEUTRAL:I = 0xc2
-
-.field public static final UI_SOUND_PRESENTATION_TREBLE_STEP_MINUS:I = 0xc3
-
-.field public static final UI_SOUND_PRESENTATION_TREBLE_STEP_PLUS:I = 0xc1
-
-.field public static final UNSUPPORTED_KEYCODE:I = -0x1
+.field public static final KEYCODE_ENTRIES:[Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 22
 
     const/16 v0, 0x5e
@@ -255,7 +31,7 @@
 
     const/4 v4, 0x0
 
-    invoke-direct {v1, v2, v3, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v2, v3, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     aput-object v1, v0, v3
 
@@ -265,7 +41,7 @@
 
     const/4 v6, 0x1
 
-    invoke-direct {v1, v5, v6, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v5, v6, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     aput-object v1, v0, v6
 
@@ -275,7 +51,7 @@
 
     const/4 v8, 0x2
 
-    invoke-direct {v1, v7, v8, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v7, v8, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/4 v7, 0x2
 
@@ -287,7 +63,7 @@
 
     const/4 v8, 0x3
 
-    invoke-direct {v1, v7, v8, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v7, v8, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     aput-object v1, v0, v8
 
@@ -297,7 +73,7 @@
 
     const/4 v9, 0x4
 
-    invoke-direct {v1, v7, v9, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v7, v9, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     aput-object v1, v0, v9
 
@@ -307,7 +83,7 @@
 
     const/4 v10, 0x5
 
-    invoke-direct {v1, v7, v10, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v7, v10, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     aput-object v1, v0, v10
 
@@ -315,7 +91,7 @@
 
     const/4 v10, 0x6
 
-    invoke-direct {v1, v7, v10, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v7, v10, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     aput-object v1, v0, v10
 
@@ -323,7 +99,7 @@
 
     const/4 v10, 0x7
 
-    invoke-direct {v1, v7, v10, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v7, v10, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     aput-object v1, v0, v10
 
@@ -331,7 +107,7 @@
 
     const/16 v11, 0x8
 
-    invoke-direct {v1, v7, v11, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v7, v11, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     aput-object v1, v0, v11
 
@@ -339,7 +115,7 @@
 
     const/16 v12, 0x9
 
-    invoke-direct {v1, v8, v12, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v8, v12, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     aput-object v1, v0, v12
 
@@ -347,7 +123,7 @@
 
     const/16 v8, 0x52
 
-    invoke-direct {v1, v8, v12, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v8, v12, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v13, 0xa
 
@@ -357,7 +133,7 @@
 
     const/16 v14, 0xb0
 
-    invoke-direct {v1, v14, v13, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v14, v13, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v14, 0xb
 
@@ -367,7 +143,7 @@
 
     const/16 v15, 0x100
 
-    invoke-direct {v1, v15, v14, v3, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IIZLcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v15, v14, v3, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IIZLcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v15, 0xc
 
@@ -375,7 +151,7 @@
 
     new-instance v1, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;
 
-    invoke-direct {v1, v7, v15, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v7, v15, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v6, 0xd
 
@@ -383,7 +159,7 @@
 
     new-instance v1, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;
 
-    invoke-direct {v1, v9, v6, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v9, v6, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v9, 0xe
 
@@ -393,7 +169,7 @@
 
     const/16 v9, 0x6f
 
-    invoke-direct {v1, v9, v6, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v9, v6, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v9, 0xf
 
@@ -405,7 +181,7 @@
 
     const/16 v8, 0x10
 
-    invoke-direct {v1, v9, v8, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v9, v8, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     aput-object v1, v0, v8
 
@@ -415,7 +191,7 @@
 
     const/16 v3, 0x11
 
-    invoke-direct {v1, v9, v3, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v9, v3, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     aput-object v1, v0, v3
 
@@ -425,7 +201,7 @@
 
     const/16 v9, 0x1d
 
-    invoke-direct {v1, v3, v9, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v3, v9, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v3, 0x12
 
@@ -437,7 +213,7 @@
 
     const/16 v9, 0x1e
 
-    invoke-direct {v1, v3, v9, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v3, v9, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     aput-object v1, v0, v5
 
@@ -447,7 +223,7 @@
 
     const/16 v5, 0x1f
 
-    invoke-direct {v1, v3, v5, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v3, v5, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v3, 0x14
 
@@ -457,7 +233,7 @@
 
     const/16 v3, 0x20
 
-    invoke-direct {v1, v10, v3, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v10, v3, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v3, 0x15
 
@@ -467,7 +243,7 @@
 
     const/16 v3, 0x21
 
-    invoke-direct {v1, v11, v3, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v11, v3, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v3, 0x16
 
@@ -477,7 +253,7 @@
 
     const/16 v3, 0x22
 
-    invoke-direct {v1, v12, v3, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v12, v3, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     aput-object v1, v0, v2
 
@@ -485,7 +261,7 @@
 
     const/16 v2, 0x23
 
-    invoke-direct {v1, v13, v2, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v13, v2, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v2, 0x18
 
@@ -495,7 +271,7 @@
 
     const/16 v2, 0x24
 
-    invoke-direct {v1, v14, v2, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v14, v2, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v2, 0x19
 
@@ -505,7 +281,7 @@
 
     const/16 v2, 0x25
 
-    invoke-direct {v1, v15, v2, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v15, v2, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v2, 0x1a
 
@@ -515,7 +291,7 @@
 
     const/16 v2, 0x26
 
-    invoke-direct {v1, v6, v2, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v6, v2, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v2, 0x1b
 
@@ -527,7 +303,7 @@
 
     const/16 v3, 0x27
 
-    invoke-direct {v1, v2, v3, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v2, v3, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v2, 0x1c
 
@@ -539,7 +315,7 @@
 
     const/16 v3, 0x28
 
-    invoke-direct {v1, v2, v3, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v2, v3, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v2, 0x1d
 
@@ -549,7 +325,7 @@
 
     const/16 v2, 0x29
 
-    invoke-direct {v1, v8, v2, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v8, v2, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v2, 0x1e
 
@@ -561,7 +337,7 @@
 
     const/16 v3, 0x2a
 
-    invoke-direct {v1, v2, v3, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v2, v3, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v3, 0x1f
 
@@ -573,7 +349,7 @@
 
     const/16 v5, 0x2b
 
-    invoke-direct {v1, v3, v5, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v3, v5, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v3, 0x20
 
@@ -585,7 +361,7 @@
 
     const/16 v5, 0x2c
 
-    invoke-direct {v1, v3, v5, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v3, v5, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v3, 0x21
 
@@ -595,7 +371,7 @@
 
     const/16 v3, 0x2f
 
-    invoke-direct {v1, v7, v3, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v7, v3, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v3, 0x22
 
@@ -607,7 +383,7 @@
 
     const/16 v5, 0x30
 
-    invoke-direct {v1, v3, v5, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v3, v5, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v3, 0x23
 
@@ -619,7 +395,7 @@
 
     const/16 v5, 0x31
 
-    invoke-direct {v1, v3, v5, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v3, v5, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v3, 0x24
 
@@ -631,7 +407,7 @@
 
     const/16 v5, 0x32
 
-    invoke-direct {v1, v3, v5, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v3, v5, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v3, 0x25
 
@@ -643,7 +419,7 @@
 
     const/16 v5, 0x33
 
-    invoke-direct {v1, v3, v5, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v3, v5, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v3, 0x26
 
@@ -655,7 +431,7 @@
 
     const/16 v5, 0x34
 
-    invoke-direct {v1, v3, v5, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v3, v5, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v3, 0x27
 
@@ -667,7 +443,7 @@
 
     const/16 v5, 0x35
 
-    invoke-direct {v1, v3, v5, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v3, v5, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v3, 0x28
 
@@ -677,7 +453,7 @@
 
     const/16 v3, 0x36
 
-    invoke-direct {v1, v7, v3, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v7, v3, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v3, 0x29
 
@@ -689,7 +465,7 @@
 
     const/16 v5, 0x37
 
-    invoke-direct {v1, v3, v5, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v3, v5, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v3, 0x2a
 
@@ -699,7 +475,7 @@
 
     const/16 v3, 0x5d
 
-    invoke-direct {v1, v3, v2, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v3, v2, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v3, 0x2b
 
@@ -713,7 +489,7 @@
 
     const/4 v6, 0x0
 
-    invoke-direct {v1, v3, v5, v6, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IIZLcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v3, v5, v6, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IIZLcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v3, 0x2c
 
@@ -725,7 +501,7 @@
 
     const/16 v5, 0x41
 
-    invoke-direct {v1, v3, v5, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v3, v5, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v3, 0x2d
 
@@ -737,7 +513,7 @@
 
     const/16 v5, 0x42
 
-    invoke-direct {v1, v3, v5, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v3, v5, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v3, 0x2e
 
@@ -751,7 +527,7 @@
 
     const/4 v6, 0x0
 
-    invoke-direct {v1, v3, v5, v6, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IIZLcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v3, v5, v6, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IIZLcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v3, 0x2f
 
@@ -763,7 +539,7 @@
 
     const/16 v5, 0x44
 
-    invoke-direct {v1, v3, v5, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v3, v5, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v3, 0x30
 
@@ -775,7 +551,7 @@
 
     const/16 v5, 0x45
 
-    invoke-direct {v1, v3, v5, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v3, v5, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v5, 0x31
 
@@ -787,7 +563,7 @@
 
     const/16 v6, 0x46
 
-    invoke-direct {v1, v5, v6, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v5, v6, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v5, 0x32
 
@@ -797,7 +573,7 @@
 
     const/16 v5, 0x55
 
-    invoke-direct {v1, v5, v6, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v5, v6, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v9, 0x33
 
@@ -809,7 +585,7 @@
 
     const/16 v10, 0x47
 
-    invoke-direct {v1, v9, v10, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v9, v10, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v9, 0x34
 
@@ -821,7 +597,7 @@
 
     const/16 v10, 0x48
 
-    invoke-direct {v1, v9, v10, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v9, v10, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v9, 0x35
 
@@ -833,7 +609,7 @@
 
     const/16 v10, 0x49
 
-    invoke-direct {v1, v9, v10, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v9, v10, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v9, 0x36
 
@@ -845,7 +621,7 @@
 
     const/16 v10, 0x4a
 
-    invoke-direct {v1, v9, v10, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v9, v10, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v9, 0x37
 
@@ -857,7 +633,7 @@
 
     const/16 v10, 0x4b
 
-    invoke-direct {v1, v9, v10, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v9, v10, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     aput-object v1, v0, v2
 
@@ -867,7 +643,7 @@
 
     const/16 v10, 0x4c
 
-    invoke-direct {v1, v2, v10, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v2, v10, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v2, 0x39
 
@@ -877,7 +653,7 @@
 
     const/16 v2, 0x4d
 
-    invoke-direct {v1, v7, v2, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v7, v2, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v2, 0x3a
 
@@ -887,7 +663,7 @@
 
     const/16 v2, 0x4e
 
-    invoke-direct {v1, v7, v2, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v7, v2, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v2, 0x3b
 
@@ -897,7 +673,7 @@
 
     const/16 v2, 0x4f
 
-    invoke-direct {v1, v7, v2, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v7, v2, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v2, 0x3c
 
@@ -907,7 +683,7 @@
 
     const/16 v2, 0x50
 
-    invoke-direct {v1, v7, v2, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v7, v2, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v2, 0x3d
 
@@ -919,7 +695,7 @@
 
     const/16 v10, 0x51
 
-    invoke-direct {v1, v2, v10, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v2, v10, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v2, 0x3e
 
@@ -929,7 +705,7 @@
 
     const/16 v2, 0x52
 
-    invoke-direct {v1, v7, v2, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v7, v2, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v2, 0x3f
 
@@ -941,7 +717,7 @@
 
     const/16 v10, 0x53
 
-    invoke-direct {v1, v2, v10, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v2, v10, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v2, 0x40
 
@@ -953,7 +729,7 @@
 
     const/16 v10, 0x54
 
-    invoke-direct {v1, v2, v10, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v2, v10, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v2, 0x41
 
@@ -961,7 +737,7 @@
 
     new-instance v1, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;
 
-    invoke-direct {v1, v7, v5, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v7, v5, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v2, 0x42
 
@@ -969,7 +745,7 @@
 
     new-instance v1, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;
 
-    invoke-direct {v1, v7, v3, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v7, v3, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v2, 0x43
 
@@ -991,7 +767,7 @@
 
     move-object v10, v1
 
-    invoke-direct/range {v10 .. v15}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IIZ[BLcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct/range {v10 .. v15}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IIZ[BLcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v2, 0x44
 
@@ -1009,7 +785,7 @@
 
     move-object v10, v1
 
-    invoke-direct/range {v10 .. v15}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IIZ[BLcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct/range {v10 .. v15}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IIZ[BLcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v2, 0x45
 
@@ -1027,7 +803,7 @@
 
     move-object v10, v1
 
-    invoke-direct/range {v10 .. v15}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IIZ[BLcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct/range {v10 .. v15}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IIZ[BLcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     aput-object v1, v0, v6
 
@@ -1049,7 +825,7 @@
 
     move-object/from16 v16, v1
 
-    invoke-direct/range {v16 .. v21}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IIZ[BLcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct/range {v16 .. v21}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IIZ[BLcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v2, 0x47
 
@@ -1067,7 +843,7 @@
 
     move-object v10, v1
 
-    invoke-direct/range {v10 .. v15}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IIZ[BLcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct/range {v10 .. v15}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IIZ[BLcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v2, 0x48
 
@@ -1075,7 +851,7 @@
 
     new-instance v1, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;
 
-    invoke-direct {v1, v7, v9, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v7, v9, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v2, 0x49
 
@@ -1087,7 +863,7 @@
 
     const/4 v6, 0x0
 
-    invoke-direct {v1, v7, v2, v6, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IIZLcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v7, v2, v6, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IIZLcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v2, 0x4a
 
@@ -1097,7 +873,7 @@
 
     const/16 v2, 0x61
 
-    invoke-direct {v1, v7, v2, v6, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IIZLcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v7, v2, v6, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IIZLcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v2, 0x4b
 
@@ -1107,7 +883,7 @@
 
     const/16 v2, 0x62
 
-    invoke-direct {v1, v7, v2, v6, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IIZLcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v7, v2, v6, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IIZLcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v2, 0x4c
 
@@ -1117,7 +893,7 @@
 
     const/16 v2, 0x63
 
-    invoke-direct {v1, v7, v2, v6, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IIZLcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v7, v2, v6, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IIZLcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v2, 0x4d
 
@@ -1127,7 +903,7 @@
 
     const/16 v2, 0x64
 
-    invoke-direct {v1, v7, v2, v6, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IIZLcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v7, v2, v6, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IIZLcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v2, 0x4e
 
@@ -1137,7 +913,7 @@
 
     const/16 v2, 0x65
 
-    invoke-direct {v1, v7, v2, v6, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IIZLcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v7, v2, v6, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IIZLcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v2, 0x4f
 
@@ -1147,7 +923,7 @@
 
     const/16 v2, 0x66
 
-    invoke-direct {v1, v7, v2, v6, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IIZLcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v7, v2, v6, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IIZLcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v2, 0x50
 
@@ -1157,7 +933,7 @@
 
     const/16 v2, 0x67
 
-    invoke-direct {v1, v7, v2, v6, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IIZLcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v7, v2, v6, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IIZLcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v2, 0x51
 
@@ -1167,7 +943,7 @@
 
     const/16 v2, 0x68
 
-    invoke-direct {v1, v7, v2, v6, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IIZLcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v7, v2, v6, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IIZLcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v2, 0x52
 
@@ -1177,7 +953,7 @@
 
     const/16 v2, 0x69
 
-    invoke-direct {v1, v7, v2, v6, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IIZLcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v7, v2, v6, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IIZLcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v2, 0x53
 
@@ -1187,7 +963,7 @@
 
     const/16 v2, 0x6a
 
-    invoke-direct {v1, v7, v2, v6, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IIZLcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v7, v2, v6, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IIZLcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v2, 0x54
 
@@ -1197,7 +973,7 @@
 
     const/16 v2, 0x6b
 
-    invoke-direct {v1, v7, v2, v6, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IIZLcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v7, v2, v6, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IIZLcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     aput-object v1, v0, v5
 
@@ -1205,7 +981,7 @@
 
     const/16 v2, 0x6c
 
-    invoke-direct {v1, v7, v2, v6, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IIZLcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v7, v2, v6, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IIZLcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     aput-object v1, v0, v3
 
@@ -1213,7 +989,7 @@
 
     const/16 v2, 0x6d
 
-    invoke-direct {v1, v7, v2, v6, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IIZLcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v7, v2, v6, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IIZLcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     aput-object v1, v0, v9
 
@@ -1223,7 +999,7 @@
 
     const/16 v3, 0x71
 
-    invoke-direct {v1, v2, v3, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v2, v3, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v2, 0x58
 
@@ -1235,7 +1011,7 @@
 
     const/16 v3, 0x72
 
-    invoke-direct {v1, v2, v3, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v2, v3, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v2, 0x59
 
@@ -1247,7 +1023,7 @@
 
     const/16 v3, 0x73
 
-    invoke-direct {v1, v2, v3, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v2, v3, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v2, 0x5a
 
@@ -1259,7 +1035,7 @@
 
     const/16 v3, 0x74
 
-    invoke-direct {v1, v2, v3, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v2, v3, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v2, 0x5b
 
@@ -1271,7 +1047,7 @@
 
     const/16 v3, 0x75
 
-    invoke-direct {v1, v2, v3, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v2, v3, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v2, 0x5c
 
@@ -1283,7 +1059,7 @@
 
     const/16 v3, 0x76
 
-    invoke-direct {v1, v2, v3, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$1;)V
+    invoke-direct {v1, v2, v3, v4}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;-><init>(IILcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry-IA;)V
 
     const/16 v2, 0x5d
 
@@ -1294,15 +1070,7 @@
     return-void
 .end method
 
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-.method static androidKeyToCecKey(I)[B
+.method public static androidKeyToCecKey(I)[B
     .locals 3
 
     const/4 v0, 0x0
@@ -1316,7 +1084,7 @@
 
     aget-object v1, v1, v0
 
-    invoke-static {v1, p0}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;->access$300(Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;I)[B
+    invoke-static {v1, p0}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;->-$$Nest$mtoCecKeycodeAndParamIfMatched(Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;I)[B
 
     move-result-object v1
 
@@ -1330,12 +1098,12 @@
     goto :goto_0
 
     :cond_1
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return-object v0
+    return-object p0
 .end method
 
-.method static cecKeycodeAndParamsToAndroidKey([B)I
+.method public static cecKeycodeAndParamsToAndroidKey([B)I
     .locals 4
 
     const/4 v0, 0x0
@@ -1351,7 +1119,7 @@
 
     aget-object v1, v1, v0
 
-    invoke-static {v1, p0}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;->access$400(Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;[B)I
+    invoke-static {v1, p0}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;->-$$Nest$mtoAndroidKeycodeIfMatched(Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;[B)I
 
     move-result v1
 
@@ -1368,91 +1136,320 @@
     return v3
 .end method
 
-.method public static getMuteKey(Z)I
+.method public static getKeycodeType(B)Ljava/lang/String;
     .locals 1
 
-    const/16 v0, 0x43
+    const/16 v0, 0x10
 
-    return v0
+    if-eq p0, v0, :cond_0
+
+    const/16 v0, 0x11
+
+    if-eq p0, v0, :cond_0
+
+    packed-switch p0, :pswitch_data_0
+
+    packed-switch p0, :pswitch_data_1
+
+    packed-switch p0, :pswitch_data_2
+
+    packed-switch p0, :pswitch_data_3
+
+    packed-switch p0, :pswitch_data_4
+
+    packed-switch p0, :pswitch_data_5
+
+    packed-switch p0, :pswitch_data_6
+
+    const-string p0, "Unknown"
+
+    return-object p0
+
+    :pswitch_0
+    const-string p0, "Function key"
+
+    return-object p0
+
+    :pswitch_1
+    const-string p0, "Power on"
+
+    return-object p0
+
+    :pswitch_2
+    const-string p0, "Power off"
+
+    return-object p0
+
+    :pswitch_3
+    const-string p0, "Power toggle"
+
+    return-object p0
+
+    :pswitch_4
+    const-string p0, "Functional"
+
+    return-object p0
+
+    :pswitch_5
+    const-string p0, "Timer"
+
+    return-object p0
+
+    :pswitch_6
+    const-string p0, "Media"
+
+    return-object p0
+
+    :pswitch_7
+    const-string p0, "Volume mute"
+
+    return-object p0
+
+    :pswitch_8
+    const-string p0, "Volume down"
+
+    return-object p0
+
+    :pswitch_9
+    const-string p0, "Volume up"
+
+    return-object p0
+
+    :pswitch_a
+    const-string p0, "Power"
+
+    return-object p0
+
+    :pswitch_b
+    const-string p0, "Channel"
+
+    return-object p0
+
+    :pswitch_c
+    const-string p0, "Number"
+
+    return-object p0
+
+    :pswitch_d
+    const-string p0, "General"
+
+    return-object p0
+
+    :pswitch_e
+    const-string p0, "Navigation"
+
+    return-object p0
+
+    :pswitch_f
+    const-string p0, "Select"
+
+    return-object p0
+
+    :cond_0
+    :pswitch_10
+    const-string p0, "Menu"
+
+    return-object p0
+
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_f
+        :pswitch_e
+        :pswitch_e
+        :pswitch_e
+        :pswitch_e
+        :pswitch_e
+        :pswitch_e
+        :pswitch_e
+        :pswitch_e
+        :pswitch_10
+        :pswitch_10
+        :pswitch_10
+        :pswitch_10
+        :pswitch_e
+    .end packed-switch
+
+    :pswitch_data_1
+    .packed-switch 0x1d
+        :pswitch_d
+        :pswitch_c
+        :pswitch_c
+        :pswitch_c
+        :pswitch_c
+        :pswitch_c
+        :pswitch_c
+        :pswitch_c
+        :pswitch_c
+        :pswitch_c
+        :pswitch_c
+        :pswitch_c
+        :pswitch_c
+        :pswitch_d
+        :pswitch_d
+        :pswitch_d
+    .end packed-switch
+
+    :pswitch_data_2
+    .packed-switch 0x2f
+        :pswitch_b
+        :pswitch_b
+        :pswitch_b
+        :pswitch_b
+        :pswitch_f
+        :pswitch_f
+        :pswitch_d
+        :pswitch_d
+        :pswitch_e
+        :pswitch_e
+    .end packed-switch
+
+    :pswitch_data_3
+    .packed-switch 0x40
+        :pswitch_a
+        :pswitch_9
+        :pswitch_8
+        :pswitch_7
+        :pswitch_6
+        :pswitch_6
+        :pswitch_6
+        :pswitch_6
+        :pswitch_6
+        :pswitch_6
+        :pswitch_6
+        :pswitch_6
+        :pswitch_6
+        :pswitch_6
+        :pswitch_6
+    .end packed-switch
+
+    :pswitch_data_4
+    .packed-switch 0x50
+        :pswitch_6
+        :pswitch_6
+        :pswitch_6
+        :pswitch_5
+        :pswitch_5
+        :pswitch_d
+        :pswitch_f
+        :pswitch_f
+    .end packed-switch
+
+    :pswitch_data_5
+    .packed-switch 0x60
+        :pswitch_4
+        :pswitch_4
+        :pswitch_4
+        :pswitch_4
+        :pswitch_4
+        :pswitch_4
+        :pswitch_4
+        :pswitch_4
+        :pswitch_4
+        :pswitch_4
+        :pswitch_4
+        :pswitch_3
+        :pswitch_2
+        :pswitch_1
+    .end packed-switch
+
+    :pswitch_data_6
+    .packed-switch 0x71
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_d
+    .end packed-switch
 .end method
 
-.method private static intToSingleByteArray(I)[B
-    .locals 3
+.method public static getMuteKey(Z)I
+    .locals 0
+
+    const/16 p0, 0x43
+
+    return p0
+.end method
+
+.method public static intToSingleByteArray(I)[B
+    .locals 2
 
     const/4 v0, 0x1
 
     new-array v0, v0, [B
 
-    and-int/lit16 v1, p0, 0xff
+    and-int/lit16 p0, p0, 0xff
 
-    int-to-byte v1, v1
+    int-to-byte p0, p0
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    aput-byte v1, v0, v2
+    aput-byte p0, v0, v1
 
     return-object v0
 .end method
 
-.method static isRepeatableKey(I)Z
-    .locals 3
+.method public static isRepeatableKey(I)Z
+    .locals 4
 
     const/4 v0, 0x0
 
+    move v1, v0
+
     :goto_0
-    sget-object v1, Lcom/android/server/hdmi/HdmiCecKeycode;->KEYCODE_ENTRIES:[Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;
+    sget-object v2, Lcom/android/server/hdmi/HdmiCecKeycode;->KEYCODE_ENTRIES:[Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;
 
-    array-length v2, v1
+    array-length v3, v2
 
-    if-ge v0, v2, :cond_1
+    if-ge v1, v3, :cond_1
 
-    aget-object v1, v1, v0
+    aget-object v2, v2, v1
 
-    invoke-static {v1, p0}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;->access$500(Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;I)Ljava/lang/Boolean;
+    invoke-static {v2, p0}, Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;->-$$Nest$misRepeatableIfMatched(Lcom/android/server/hdmi/HdmiCecKeycode$KeycodeEntry;I)Ljava/lang/Boolean;
 
-    move-result-object v1
+    move-result-object v2
 
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_0
 
-    invoke-virtual {v1}, Ljava/lang/Boolean;->booleanValue()Z
+    invoke-virtual {v2}, Ljava/lang/Boolean;->booleanValue()Z
 
-    move-result v2
+    move-result p0
 
-    return v2
+    return p0
 
     :cond_0
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     :cond_1
-    const/4 v0, 0x0
-
     return v0
 .end method
 
-.method static isSupportedKeycode(I)Z
-    .locals 1
+.method public static isSupportedKeycode(I)Z
+    .locals 0
 
     invoke-static {p0}, Lcom/android/server/hdmi/HdmiCecKeycode;->androidKeyToCecKey(I)[B
 
-    move-result-object v0
+    move-result-object p0
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
-.method static isVolumeKeycode(I)Z
-    .locals 3
+.method public static isVolumeKeycode(I)Z
+    .locals 2
 
     invoke-static {p0}, Lcom/android/server/hdmi/HdmiCecKeycode;->androidKeyToCecKey(I)[B
 
@@ -1464,29 +1461,29 @@
 
     invoke-static {p0}, Lcom/android/server/hdmi/HdmiCecKeycode;->isSupportedKeycode(I)Z
 
-    move-result v2
+    move-result p0
 
-    if-eqz v2, :cond_1
+    if-eqz p0, :cond_1
 
-    const/16 v2, 0x41
+    const/16 p0, 0x41
 
-    if-eq v0, v2, :cond_0
+    if-eq v0, p0, :cond_0
 
-    const/16 v2, 0x42
+    const/16 p0, 0x42
 
-    if-eq v0, v2, :cond_0
+    if-eq v0, p0, :cond_0
 
-    const/16 v2, 0x43
+    const/16 p0, 0x43
 
-    if-eq v0, v2, :cond_0
+    if-eq v0, p0, :cond_0
 
-    const/16 v2, 0x65
+    const/16 p0, 0x65
 
-    if-eq v0, v2, :cond_0
+    if-eq v0, p0, :cond_0
 
-    const/16 v2, 0x66
+    const/16 p0, 0x66
 
-    if-ne v0, v2, :cond_1
+    if-ne v0, p0, :cond_1
 
     :cond_0
     const/4 v1, 0x1

@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/UiModeManagerService$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -23,13 +24,13 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/UiModeManagerService$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/UiModeManagerService;
+    iget-object p0, p0, Lcom/android/server/UiModeManagerService$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/UiModeManagerService;
 
     check-cast p1, Landroid/os/PowerSaveState;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/UiModeManagerService;->lambda$initPowerSave$2$UiModeManagerService(Landroid/os/PowerSaveState;)V
+    invoke-static {p0, p1}, Lcom/android/server/UiModeManagerService;->$r8$lambda$nBXoPX29oGtvKQx7QC8Jg06Ugmg(Lcom/android/server/UiModeManagerService;Landroid/os/PowerSaveState;)V
 
     return-void
 .end method

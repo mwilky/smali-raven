@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/os/IBinder$DeathRecipient;
+.implements Lcom/android/internal/util/FunctionalUtils$ThrowingRunnable;
 
 
 # instance fields
@@ -22,12 +23,12 @@
 
 
 # virtual methods
-.method public final binderDied()V
-    .locals 1
+.method public final runOrThrow()V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/voiceinteraction/HotwordDetectionConnection;
+    iget-object p0, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/voiceinteraction/HotwordDetectionConnection;
 
-    invoke-static {v0}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->$r8$lambda$i8F8xvsj0XTRcMx3FdDlXqkF-FE(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;)V
+    invoke-static {p0}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->$r8$lambda$8MqrfnzDbyODuPkfE5SXBILkDVg(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;)V
 
     return-void
 .end method

@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/infra/AbstractMasterSystemService$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/server/pm/UserManagerInternal$UserRestrictionsListener;
@@ -27,13 +28,13 @@
 
 # virtual methods
 .method public final onUserRestrictionsChanged(ILandroid/os/Bundle;Landroid/os/Bundle;)V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/infra/AbstractMasterSystemService$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/infra/AbstractMasterSystemService;
 
-    iget-object v1, p0, Lcom/android/server/infra/AbstractMasterSystemService$$ExternalSyntheticLambda1;->f$1:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/infra/AbstractMasterSystemService$$ExternalSyntheticLambda1;->f$1:Ljava/lang/String;
 
-    invoke-virtual {v0, v1, p1, p2, p3}, Lcom/android/server/infra/AbstractMasterSystemService;->lambda$new$1$AbstractMasterSystemService(Ljava/lang/String;ILandroid/os/Bundle;Landroid/os/Bundle;)V
+    invoke-static {v0, p0, p1, p2, p3}, Lcom/android/server/infra/AbstractMasterSystemService;->$r8$lambda$PxI_NOd_w_XVlHtV92tGC-JO0R4(Lcom/android/server/infra/AbstractMasterSystemService;Ljava/lang/String;ILandroid/os/Bundle;Landroid/os/Bundle;)V
 
     return-void
 .end method

@@ -1,4 +1,4 @@
-.class final Lcom/android/server/wm/WindowState$UpdateReportedVisibilityResults;
+.class public final Lcom/android/server/wm/WindowState$UpdateReportedVisibilityResults;
 .super Ljava/lang/Object;
 .source "WindowState.java"
 
@@ -9,23 +9,23 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = "UpdateReportedVisibilityResults"
 .end annotation
 
 
 # instance fields
-.field nowGone:Z
+.field public nowGone:Z
 
-.field numDrawn:I
+.field public numDrawn:I
 
-.field numInteresting:I
+.field public numInteresting:I
 
-.field numVisible:I
+.field public numVisible:I
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,7 +39,7 @@
 
 
 # virtual methods
-.method reset()V
+.method public reset()V
     .locals 1
 
     const/4 v0, 0x0

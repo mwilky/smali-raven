@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/biometrics/sensors/BiometricSchedulerOperation$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/biometrics/sensors/BiometricSchedulerOperation$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/biometrics/sensors/BiometricSchedulerOperation;
+    iget-object p0, p0, Lcom/android/server/biometrics/sensors/BiometricSchedulerOperation$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/biometrics/sensors/BiometricSchedulerOperation;
 
-    invoke-virtual {v0}, Lcom/android/server/biometrics/sensors/BiometricSchedulerOperation;->lambda$new$0$BiometricSchedulerOperation()V
+    invoke-static {p0}, Lcom/android/server/biometrics/sensors/BiometricSchedulerOperation;->$r8$lambda$B7QjT2I_8dwC5lA66-6hE4ajnBw(Lcom/android/server/biometrics/sensors/BiometricSchedulerOperation;)V
 
     return-void
 .end method

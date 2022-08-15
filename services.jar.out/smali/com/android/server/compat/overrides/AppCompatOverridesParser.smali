@@ -1,4 +1,4 @@
-.class final Lcom/android/server/compat/overrides/AppCompatOverridesParser;
+.class public final Lcom/android/server/compat/overrides/AppCompatOverridesParser;
 .super Ljava/lang/Object;
 .source "AppCompatOverridesParser.java"
 
@@ -12,28 +12,26 @@
 
 
 # static fields
-.field private static final BOOLEAN_PATTERN:Ljava/util/regex/Pattern;
-
-.field static final FLAG_OWNED_CHANGE_IDS:Ljava/lang/String; = "owned_change_ids"
-
-.field static final FLAG_REMOVE_OVERRIDES:Ljava/lang/String; = "remove_overrides"
-
-.field private static final TAG:Ljava/lang/String; = "AppCompatOverridesParser"
-
-.field private static final WILDCARD_NO_OWNED_CHANGE_IDS_WARNING:Ljava/lang/String; = "Wildcard can\'t be used in \'remove_overrides\' flag with an empty owned_change_ids\' flag"
-
-.field private static final WILDCARD_SYMBOL:Ljava/lang/String; = "*"
+.field public static final BOOLEAN_PATTERN:Ljava/util/regex/Pattern;
 
 
 # instance fields
-.field private final mPackageManager:Landroid/content/pm/PackageManager;
+.field public final mPackageManager:Landroid/content/pm/PackageManager;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 2
+.method public static synthetic $r8$lambda$CCLVQzkeXBCIlKIB40cGiPH6YP8(Ljava/lang/String;)Ljava/util/Set;
+    .locals 0
 
-    nop
+    invoke-static {p0}, Lcom/android/server/compat/overrides/AppCompatOverridesParser;->lambda$parseRemoveOverrides$0(Ljava/lang/String;)Ljava/util/Set;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static constructor <clinit>()V
+    .locals 2
 
     const-string/jumbo v0, "true|false"
 
@@ -48,7 +46,7 @@
     return-void
 .end method
 
-.method constructor <init>(Landroid/content/pm/PackageManager;)V
+.method public constructor <init>(Landroid/content/pm/PackageManager;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -58,18 +56,111 @@
     return-void
 .end method
 
-.method static synthetic lambda$parseRemoveOverrides$0(Ljava/lang/String;)Ljava/util/Set;
-    .locals 1
+.method public static extractSignatureFromConfig(Ljava/lang/String;)Landroid/util/Pair;
+    .locals 4
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            ")",
+            "Landroid/util/Pair<",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
 
-    new-instance v0, Landroid/util/ArraySet;
+    const-string/jumbo v0, "~"
 
-    invoke-direct {v0}, Landroid/util/ArraySet;-><init>()V
+    invoke-virtual {p0, v0}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
-    return-object v0
+    move-result-object v0
+
+    invoke-static {v0}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/List;->size()I
+
+    move-result v1
+
+    const/4 v2, 0x1
+
+    if-ne v1, v2, :cond_0
+
+    const-string v0, ""
+
+    invoke-static {v0, p0}, Landroid/util/Pair;->create(Ljava/lang/Object;Ljava/lang/Object;)Landroid/util/Pair;
+
+    move-result-object p0
+
+    return-object p0
+
+    :cond_0
+    invoke-interface {v0}, Ljava/util/List;->size()I
+
+    move-result v1
+
+    const/4 v3, 0x2
+
+    if-le v1, v3, :cond_1
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "Only one signature per config is supported. Config: "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    const-string v0, "AppCompatOverridesParser"
+
+    invoke-static {v0, p0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 p0, 0x0
+
+    return-object p0
+
+    :cond_1
+    const/4 p0, 0x0
+
+    invoke-interface {v0, p0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Ljava/lang/String;
+
+    invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    invoke-static {p0, v0}, Landroid/util/Pair;->create(Ljava/lang/Object;Ljava/lang/Object;)Landroid/util/Pair;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
-.method static parseOwnedChangeIds(Ljava/lang/String;)Ljava/util/Set;
-    .locals 8
+.method public static synthetic lambda$parseRemoveOverrides$0(Ljava/lang/String;)Ljava/util/Set;
+    .locals 0
+
+    new-instance p0, Landroid/util/ArraySet;
+
+    invoke-direct {p0}, Landroid/util/ArraySet;-><init>()V
+
+    return-object p0
+.end method
+
+.method public static parseOwnedChangeIds(Ljava/lang/String;)Ljava/util/Set;
+    .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -89,9 +180,9 @@
 
     invoke-static {}, Ljava/util/Collections;->emptySet()Ljava/util/Set;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     :cond_0
     new-instance v0, Landroid/util/ArraySet;
@@ -102,55 +193,55 @@
 
     invoke-virtual {p0, v1}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    array-length v2, v1
+    array-length v1, p0
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
     :goto_0
-    if-ge v3, v2, :cond_1
+    if-ge v2, v1, :cond_1
 
-    aget-object v4, v1, v3
+    aget-object v3, p0, v2
 
     :try_start_0
-    invoke-static {v4}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+    invoke-static {v3}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
-    move-result-wide v5
+    move-result-wide v4
 
-    invoke-static {v5, v6}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    invoke-static {v4, v5}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-interface {v0, v5}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v4}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
     :try_end_0
     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_1
 
     :catch_0
-    move-exception v5
+    move-exception v4
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v7, "Invalid change ID in \'owned_change_ids\' flag: "
+    const-string v6, "Invalid change ID in \'owned_change_ids\' flag: "
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v3
 
-    const-string v7, "AppCompatOverridesParser"
+    const-string v5, "AppCompatOverridesParser"
 
-    invoke-static {v7, v6, v5}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v5, v3, v4}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_1
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
@@ -158,11 +249,14 @@
     return-object v0
 .end method
 
-.method static parsePackageOverrides(Ljava/lang/String;JLjava/util/Set;)Ljava/util/Map;
-    .locals 20
+
+# virtual methods
+.method public parsePackageOverrides(Ljava/lang/String;Ljava/lang/String;JLjava/util/Set;)Ljava/util/Map;
+    .locals 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
+            "Ljava/lang/String;",
             "Ljava/lang/String;",
             "J",
             "Ljava/util/Set<",
@@ -175,7 +269,7 @@
         }
     .end annotation
 
-    invoke-virtual/range {p0 .. p0}, Ljava/lang/String;->isEmpty()Z
+    invoke-virtual {p1}, Ljava/lang/String;->isEmpty()Z
 
     move-result v0
 
@@ -183,354 +277,334 @@
 
     invoke-static {}, Ljava/util/Collections;->emptyMap()Ljava/util/Map;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     :cond_0
     new-instance v0, Lcom/android/server/compat/overrides/AppCompatOverridesParser$PackageOverrideComparator;
 
-    move-wide/from16 v1, p1
+    invoke-direct {v0, p3, p4}, Lcom/android/server/compat/overrides/AppCompatOverridesParser$PackageOverrideComparator;-><init>(J)V
 
-    invoke-direct {v0, v1, v2}, Lcom/android/server/compat/overrides/AppCompatOverridesParser$PackageOverrideComparator;-><init>(J)V
+    new-instance p3, Landroid/util/ArrayMap;
 
-    move-object v3, v0
+    invoke-direct {p3}, Landroid/util/ArrayMap;-><init>()V
 
-    new-instance v0, Landroid/util/ArrayMap;
+    invoke-static {p1}, Lcom/android/server/compat/overrides/AppCompatOverridesParser;->extractSignatureFromConfig(Ljava/lang/String;)Landroid/util/Pair;
 
-    invoke-direct {v0}, Landroid/util/ArrayMap;-><init>()V
+    move-result-object p1
 
-    move-object v4, v0
+    if-nez p1, :cond_1
 
-    const-string v0, ","
+    invoke-static {}, Ljava/util/Collections;->emptyMap()Ljava/util/Map;
 
-    move-object/from16 v5, p0
+    move-result-object p0
 
-    invoke-virtual {v5, v0}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+    return-object p0
+
+    :cond_1
+    iget-object p4, p1, Landroid/util/Pair;->first:Ljava/lang/Object;
+
+    check-cast p4, Ljava/lang/String;
+
+    iget-object p1, p1, Landroid/util/Pair;->second:Ljava/lang/Object;
+
+    check-cast p1, Ljava/lang/String;
+
+    invoke-virtual {p0, p2, p4}, Lcom/android/server/compat/overrides/AppCompatOverridesParser;->verifySignature(Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_2
+
+    invoke-static {}, Ljava/util/Collections;->emptyMap()Ljava/util/Map;
+
+    move-result-object p0
+
+    return-object p0
+
+    :cond_2
+    const-string p0, ","
+
+    invoke-virtual {p1, p0}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object p0
+
+    array-length p1, p0
+
+    const/4 p2, 0x0
+
+    move p4, p2
+
+    :goto_0
+    if-ge p4, p1, :cond_a
+
+    aget-object v1, p0, p4
+
+    const-string v2, ":"
+
+    const/4 v3, 0x4
+
+    invoke-virtual {v1, v2, v3}, Ljava/lang/String;->split(Ljava/lang/String;I)[Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+
+    move-result-object v2
+
+    invoke-interface {v2}, Ljava/util/List;->size()I
+
+    move-result v4
+
+    const-string v5, "AppCompatOverridesParser"
+
+    if-eq v4, v3, :cond_3
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "Invalid change override entry: "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v5, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_1
+
+    :cond_3
+    :try_start_0
+    invoke-interface {v2, p2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Ljava/lang/String;
+
+    invoke-static {v3}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+
+    move-result-wide v3
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_2
+
+    invoke-static {v3, v4}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v6
 
-    array-length v7, v6
+    invoke-interface {p5, v6}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
 
-    const/4 v8, 0x0
+    move-result v6
 
-    move v9, v8
+    if-eqz v6, :cond_4
 
-    :goto_0
-    if-ge v9, v7, :cond_8
+    goto/16 :goto_1
 
-    aget-object v10, v6, v9
+    :cond_4
+    const/4 v6, 0x1
 
-    const-string v0, ":"
+    invoke-interface {v2, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    const/4 v11, 0x4
+    move-result-object v6
 
-    invoke-virtual {v10, v0, v11}, Ljava/lang/String;->split(Ljava/lang/String;I)[Ljava/lang/String;
+    check-cast v6, Ljava/lang/String;
 
-    move-result-object v0
+    const/4 v7, 0x2
 
-    invoke-static {v0}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+    invoke-interface {v2, v7}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v12
+    move-result-object v7
 
-    invoke-interface {v12}, Ljava/util/List;->size()I
+    check-cast v7, Ljava/lang/String;
 
-    move-result v0
+    const/4 v8, 0x3
 
-    const-string v13, "AppCompatOverridesParser"
+    invoke-interface {v2, v8}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    if-eq v0, v11, :cond_1
+    move-result-object v2
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    check-cast v2, Ljava/lang/String;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    sget-object v8, Lcom/android/server/compat/overrides/AppCompatOverridesParser;->BOOLEAN_PATTERN:Ljava/util/regex/Pattern;
 
-    const-string v11, "Invalid change override entry: "
+    invoke-virtual {v8, v2}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
 
-    invoke-virtual {v0, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v8
 
-    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v8}, Ljava/util/regex/Matcher;->matches()Z
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result v8
 
-    move-result-object v0
+    if-nez v8, :cond_5
 
-    invoke-static {v13, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    move-object/from16 v11, p3
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    goto/16 :goto_3
+    const-string v3, "Invalid enabled string in override entry: "
 
-    :cond_1
-    :try_start_0
-    invoke-interface {v12, v8}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    check-cast v0, Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {v0}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+    move-result-object v1
 
-    move-result-wide v14
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_3
+    invoke-static {v5, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    nop
+    goto/16 :goto_1
 
-    invoke-static {v14, v15}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    :cond_5
+    invoke-static {v2}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
 
-    move-result-object v0
+    move-result v2
 
-    move-object/from16 v11, p3
+    new-instance v8, Landroid/app/compat/PackageOverride$Builder;
 
-    invoke-interface {v11, v0}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
+    invoke-direct {v8}, Landroid/app/compat/PackageOverride$Builder;-><init>()V
 
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    goto/16 :goto_3
-
-    :cond_2
-    const/4 v0, 0x1
-
-    invoke-interface {v12, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v0
-
-    move-object/from16 v16, v0
-
-    check-cast v16, Ljava/lang/String;
-
-    const/4 v0, 0x2
-
-    invoke-interface {v12, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v0
-
-    move-object/from16 v17, v0
-
-    check-cast v17, Ljava/lang/String;
-
-    const/4 v0, 0x3
-
-    invoke-interface {v12, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v0
-
-    move-object v8, v0
-
-    check-cast v8, Ljava/lang/String;
-
-    sget-object v0, Lcom/android/server/compat/overrides/AppCompatOverridesParser;->BOOLEAN_PATTERN:Ljava/util/regex/Pattern;
-
-    invoke-virtual {v0, v8}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/util/regex/Matcher;->matches()Z
-
-    move-result v0
-
-    if-nez v0, :cond_3
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "Invalid enabled string in override entry: "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v13, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto/16 :goto_3
-
-    :cond_3
-    invoke-static {v8}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
-
-    move-result v1
-
-    new-instance v0, Landroid/app/compat/PackageOverride$Builder;
-
-    invoke-direct {v0}, Landroid/app/compat/PackageOverride$Builder;-><init>()V
-
-    invoke-virtual {v0, v1}, Landroid/app/compat/PackageOverride$Builder;->setEnabled(Z)Landroid/app/compat/PackageOverride$Builder;
+    invoke-virtual {v8, v2}, Landroid/app/compat/PackageOverride$Builder;->setEnabled(Z)Landroid/app/compat/PackageOverride$Builder;
 
     move-result-object v2
 
     :try_start_1
-    invoke-virtual/range {v16 .. v16}, Ljava/lang/String;->isEmpty()Z
+    invoke-virtual {v6}, Ljava/lang/String;->isEmpty()Z
 
-    move-result v0
+    move-result v8
+
+    if-nez v8, :cond_6
+
+    invoke-static {v6}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+
+    move-result-wide v8
+
+    invoke-virtual {v2, v8, v9}, Landroid/app/compat/PackageOverride$Builder;->setMinVersionCode(J)Landroid/app/compat/PackageOverride$Builder;
+
+    :cond_6
+    invoke-virtual {v7}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v6
+
+    if-nez v6, :cond_7
+
+    invoke-static {v7}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+
+    move-result-wide v6
+
+    invoke-virtual {v2, v6, v7}, Landroid/app/compat/PackageOverride$Builder;->setMaxVersionCode(J)Landroid/app/compat/PackageOverride$Builder;
     :try_end_1
-    .catch Ljava/lang/NumberFormatException; {:try_start_1 .. :try_end_1} :catch_2
+    .catch Ljava/lang/NumberFormatException; {:try_start_1 .. :try_end_1} :catch_1
 
-    if-nez v0, :cond_4
-
-    move/from16 v18, v1
-
+    :cond_7
     :try_start_2
-    invoke-static/range {v16 .. v16}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+    invoke-virtual {v2}, Landroid/app/compat/PackageOverride$Builder;->build()Landroid/app/compat/PackageOverride;
 
-    move-result-wide v0
+    move-result-object v1
 
-    invoke-virtual {v2, v0, v1}, Landroid/app/compat/PackageOverride$Builder;->setMinVersionCode(J)Landroid/app/compat/PackageOverride$Builder;
+    invoke-static {v3, v4}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v2
+
+    invoke-interface {p3, v2}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_8
+
+    invoke-static {v3, v4}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v2
+
+    invoke-interface {p3, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/app/compat/PackageOverride;
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/compat/overrides/AppCompatOverridesParser$PackageOverrideComparator;->compare(Landroid/app/compat/PackageOverride;Landroid/app/compat/PackageOverride;)I
+
+    move-result v2
+
+    if-gez v2, :cond_9
+
+    :cond_8
+    invoke-static {v3, v4}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v2
+
+    invoke-interface {p3, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    :try_end_2
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_2 .. :try_end_2} :catch_0
 
     goto :goto_1
 
-    :cond_4
-    move/from16 v18, v1
-
-    :goto_1
-    invoke-virtual/range {v17 .. v17}, Ljava/lang/String;->isEmpty()Z
-
-    move-result v0
-
-    if-nez v0, :cond_5
-
-    invoke-static/range {v17 .. v17}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
-
-    move-result-wide v0
-
-    invoke-virtual {v2, v0, v1}, Landroid/app/compat/PackageOverride$Builder;->setMaxVersionCode(J)Landroid/app/compat/PackageOverride$Builder;
-    :try_end_2
-    .catch Ljava/lang/NumberFormatException; {:try_start_2 .. :try_end_2} :catch_1
-
-    :cond_5
-    nop
-
-    :try_start_3
-    invoke-virtual {v2}, Landroid/app/compat/PackageOverride$Builder;->build()Landroid/app/compat/PackageOverride;
-
-    move-result-object v0
-
-    invoke-static {v14, v15}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
-
-    move-result-object v1
-
-    invoke-interface {v4, v1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_6
-
-    invoke-static {v14, v15}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
-
-    move-result-object v1
-
-    invoke-interface {v4, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/app/compat/PackageOverride;
-
-    invoke-virtual {v3, v0, v1}, Lcom/android/server/compat/overrides/AppCompatOverridesParser$PackageOverrideComparator;->compare(Landroid/app/compat/PackageOverride;Landroid/app/compat/PackageOverride;)I
-
-    move-result v1
-
-    if-gez v1, :cond_7
-
-    :cond_6
-    invoke-static {v14, v15}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
-
-    move-result-object v1
-
-    invoke-interface {v4, v1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_3
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_3 .. :try_end_3} :catch_0
-
-    :cond_7
-    goto :goto_3
-
     :catch_0
-    move-exception v0
+    move-exception v1
 
-    const-string v1, "Failed to build PackageOverride"
+    const-string v2, "Failed to build PackageOverride"
 
-    invoke-static {v13, v1, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v5, v2, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_3
+    goto :goto_1
 
     :catch_1
-    move-exception v0
+    move-exception v2
 
-    goto :goto_2
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "Invalid min/max version code in override entry: "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v5, v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_1
 
     :catch_2
-    move-exception v0
+    move-exception v2
 
-    move/from16 v18, v1
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    :goto_2
-    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v4, "Invalid change ID in override entry: "
 
-    move-object/from16 v19, v2
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, "Invalid min/max version code in override entry: "
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-static {v13, v1, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v5, v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_3
-
-    :catch_3
-    move-exception v0
-
-    move-object/from16 v11, p3
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "Invalid change ID in override entry: "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v13, v1, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    nop
-
-    :goto_3
-    add-int/lit8 v9, v9, 0x1
-
-    move-wide/from16 v1, p1
-
-    const/4 v8, 0x0
+    :cond_9
+    :goto_1
+    add-int/lit8 p4, p4, 0x1
 
     goto/16 :goto_0
 
-    :cond_8
-    move-object/from16 v11, p3
-
-    return-object v4
+    :cond_a
+    return-object p3
 .end method
 
-
-# virtual methods
-.method parseRemoveOverrides(Ljava/lang/String;Ljava/util/Set;)Ljava/util/Map;
-    .locals 18
+.method public parseRemoveOverrides(Ljava/lang/String;Ljava/util/Set;)Ljava/util/Map;
+    .locals 13
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -546,11 +620,7 @@
         }
     .end annotation
 
-    move-object/from16 v1, p1
-
-    move-object/from16 v2, p2
-
-    invoke-virtual/range {p1 .. p1}, Ljava/lang/String;->isEmpty()Z
+    invoke-virtual {p1}, Ljava/lang/String;->isEmpty()Z
 
     move-result v0
 
@@ -558,258 +628,314 @@
 
     invoke-static {}, Ljava/util/Collections;->emptyMap()Ljava/util/Map;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     :cond_0
     new-instance v0, Landroid/util/ArrayMap;
 
     invoke-direct {v0}, Landroid/util/ArrayMap;-><init>()V
 
-    move-object v3, v0
+    const-string v1, "*"
 
-    const-string v4, "*"
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result v2
 
-    move-result v0
+    const-string v3, "Wildcard can\'t be used in \'remove_overrides\' flag with an empty owned_change_ids\' flag"
 
-    const-string v5, "Wildcard can\'t be used in \'remove_overrides\' flag with an empty owned_change_ids\' flag"
+    const-string v4, "AppCompatOverridesParser"
 
-    const-string v6, "AppCompatOverridesParser"
+    if-eqz v2, :cond_3
 
-    if-eqz v0, :cond_3
+    invoke-interface {p2}, Ljava/util/Set;->isEmpty()Z
 
-    invoke-interface/range {p2 .. p2}, Ljava/util/Set;->isEmpty()Z
+    move-result p1
 
-    move-result v0
+    if-eqz p1, :cond_1
 
-    if-eqz v0, :cond_1
-
-    invoke-static {v6, v5}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v3}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-static {}, Ljava/util/Collections;->emptyMap()Ljava/util/Map;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     :cond_1
-    move-object/from16 v7, p0
+    iget-object p0, p0, Lcom/android/server/compat/overrides/AppCompatOverridesParser;->mPackageManager:Landroid/content/pm/PackageManager;
 
-    iget-object v0, v7, Lcom/android/server/compat/overrides/AppCompatOverridesParser;->mPackageManager:Landroid/content/pm/PackageManager;
+    const/high16 p1, 0x400000
 
-    const/high16 v4, 0x400000
+    invoke-virtual {p0, p1}, Landroid/content/pm/PackageManager;->getInstalledApplications(I)Ljava/util/List;
 
-    invoke-virtual {v0, v4}, Landroid/content/pm/PackageManager;->getInstalledApplications(I)Ljava/util/List;
+    move-result-object p0
 
-    move-result-object v0
+    invoke-interface {p0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v4
+    move-result-object p0
 
     :goto_0
-    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v5
+    move-result p1
 
-    if-eqz v5, :cond_2
+    if-eqz p1, :cond_2
 
-    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object p1
 
-    check-cast v5, Landroid/content/pm/ApplicationInfo;
+    check-cast p1, Landroid/content/pm/ApplicationInfo;
 
-    iget-object v6, v5, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+    iget-object p1, p1, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
-    invoke-interface {v3, v6, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, p1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_0
 
     :cond_2
-    return-object v3
+    return-object v0
 
     :cond_3
-    move-object/from16 v7, p0
+    new-instance p0, Landroid/util/KeyValueListParser;
 
-    new-instance v0, Landroid/util/KeyValueListParser;
+    const/16 v2, 0x2c
 
-    const/16 v8, 0x2c
-
-    invoke-direct {v0, v8}, Landroid/util/KeyValueListParser;-><init>(C)V
-
-    move-object v8, v0
+    invoke-direct {p0, v2}, Landroid/util/KeyValueListParser;-><init>(C)V
 
     :try_start_0
-    invoke-virtual {v8, v1}, Landroid/util/KeyValueListParser;->setString(Ljava/lang/String;)V
+    invoke-virtual {p0, p1}, Landroid/util/KeyValueListParser;->setString(Ljava/lang/String;)V
     :try_end_0
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_1
 
-    nop
+    const/4 p1, 0x0
 
-    const/4 v0, 0x0
-
-    move v9, v0
+    move v2, p1
 
     :goto_1
-    invoke-virtual {v8}, Landroid/util/KeyValueListParser;->size()I
+    invoke-virtual {p0}, Landroid/util/KeyValueListParser;->size()I
 
-    move-result v0
+    move-result v5
 
-    if-ge v9, v0, :cond_7
+    if-ge v2, v5, :cond_7
 
-    invoke-virtual {v8, v9}, Landroid/util/KeyValueListParser;->keyAt(I)Ljava/lang/String;
+    invoke-virtual {p0, v2}, Landroid/util/KeyValueListParser;->keyAt(I)Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v5
 
-    const-string v0, ""
+    const-string v6, ""
 
-    invoke-virtual {v8, v10, v0}, Landroid/util/KeyValueListParser;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v5, v6}, Landroid/util/KeyValueListParser;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v11
+    move-result-object v6
 
-    invoke-virtual {v11, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v6, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v7
 
-    if-eqz v0, :cond_5
+    if-eqz v7, :cond_5
 
-    invoke-interface/range {p2 .. p2}, Ljava/util/Set;->isEmpty()Z
+    invoke-interface {p2}, Ljava/util/Set;->isEmpty()Z
 
-    move-result v0
+    move-result v6
 
-    if-eqz v0, :cond_4
+    if-eqz v6, :cond_4
 
-    invoke-static {v6, v5}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-object/from16 v16, v4
+    invoke-static {v4, v3}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_4
 
     :cond_4
-    invoke-interface {v3, v10, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-object/from16 v16, v4
+    invoke-interface {v0, v5, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_4
 
     :cond_5
-    const-string v0, ":"
+    const-string v7, ":"
 
-    invoke-virtual {v11, v0}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+    invoke-virtual {v6, v7}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v6
+
+    array-length v7, v6
+
+    move v8, p1
+
+    :goto_2
+    if-ge v8, v7, :cond_6
+
+    aget-object v9, v6, v8
+
+    :try_start_1
+    invoke-static {v9}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+
+    move-result-wide v10
+
+    new-instance v12, Lcom/android/server/compat/overrides/AppCompatOverridesParser$$ExternalSyntheticLambda0;
+
+    invoke-direct {v12}, Lcom/android/server/compat/overrides/AppCompatOverridesParser$$ExternalSyntheticLambda0;-><init>()V
+
+    invoke-interface {v0, v5, v12}, Ljava/util/Map;->computeIfAbsent(Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;
 
     move-result-object v12
 
-    array-length v13, v12
+    check-cast v12, Ljava/util/Set;
 
-    const/4 v0, 0x0
+    invoke-static {v10, v11}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move v14, v0
+    move-result-object v10
 
-    :goto_2
-    if-ge v14, v13, :cond_6
-
-    aget-object v15, v12, v14
-
-    :try_start_1
-    invoke-static {v15}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
-
-    move-result-wide v16
-
-    sget-object v0, Lcom/android/server/compat/overrides/AppCompatOverridesParser$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/server/compat/overrides/AppCompatOverridesParser$$ExternalSyntheticLambda0;
-
-    invoke-interface {v3, v10, v0}, Ljava/util/Map;->computeIfAbsent(Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/util/Set;
-
-    invoke-static/range {v16 .. v17}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
-
-    move-result-object v2
-
-    invoke-interface {v0, v2}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    invoke-interface {v12, v10}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
     :try_end_1
     .catch Ljava/lang/NumberFormatException; {:try_start_1 .. :try_end_1} :catch_0
-
-    move-object/from16 v16, v4
 
     goto :goto_3
 
     :catch_0
-    move-exception v0
+    move-exception v10
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v11, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-object/from16 v16, v4
+    const-string v12, "Invalid change ID in \'remove_overrides\' flag: "
 
-    const-string v4, "Invalid change ID in \'remove_overrides\' flag: "
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v11, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v9
 
-    move-result-object v2
-
-    invoke-static {v6, v2, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v4, v9, v10}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_3
-    add-int/lit8 v14, v14, 0x1
-
-    move-object/from16 v2, p2
-
-    move-object/from16 v4, v16
+    add-int/lit8 v8, v8, 0x1
 
     goto :goto_2
 
     :cond_6
-    move-object/from16 v16, v4
-
     :goto_4
-    add-int/lit8 v9, v9, 0x1
-
-    move-object/from16 v2, p2
-
-    move-object/from16 v4, v16
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_1
 
     :cond_7
-    return-object v3
+    return-object v0
 
     :catch_1
-    move-exception v0
+    move-exception p0
 
-    move-object v2, v0
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    move-object v0, v2
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v0, "Invalid format in \'remove_overrides\' flag: "
+
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-static {v4, p1, p0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    invoke-static {}, Ljava/util/Collections;->emptyMap()Ljava/util/Map;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public final verifySignature(Ljava/lang/String;Ljava/lang/String;)Z
+    .locals 4
+
+    const-string v0, "AppCompatOverridesParser"
+
+    const/4 v1, 0x0
+
+    :try_start_0
+    invoke-virtual {p2}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v2
+
+    const/4 v3, 0x1
+
+    if-nez v2, :cond_1
+
+    iget-object p0, p0, Lcom/android/server/compat/overrides/AppCompatOverridesParser;->mPackageManager:Landroid/content/pm/PackageManager;
+
+    invoke-static {p2}, Llibcore/util/HexEncoding;->decode(Ljava/lang/String;)[B
+
+    move-result-object v2
+
+    invoke-virtual {p0, p1, v2, v3}, Landroid/content/pm/PackageManager;->hasSigningCertificate(Ljava/lang/String;[BI)Z
+
+    move-result p0
+
+    if-eqz p0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    move v3, v1
+
+    :cond_1
+    :goto_0
+    if-nez v3, :cond_2
+
+    new-instance p0, Ljava/lang/StringBuilder;
+
+    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v2, " did not have expected signature: "
+
+    invoke-virtual {p0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-static {v0, p0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :cond_2
+    return v3
+
+    :catch_0
+    move-exception p0
 
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "Invalid format in \'remove_overrides\' flag: "
+    const-string v3, "Unable to verify signature "
 
-    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string p2, " for "
+
+    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-static {v6, v2, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v0, p1, p0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    invoke-static {}, Ljava/util/Collections;->emptyMap()Ljava/util/Map;
-
-    move-result-object v2
-
-    return-object v2
+    return v1
 .end method

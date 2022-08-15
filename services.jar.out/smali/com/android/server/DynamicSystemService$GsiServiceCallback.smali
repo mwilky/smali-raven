@@ -1,4 +1,4 @@
-.class Lcom/android/server/DynamicSystemService$GsiServiceCallback;
+.class public Lcom/android/server/DynamicSystemService$GsiServiceCallback;
 .super Landroid/gsi/IGsiServiceCallback$Stub;
 .source "DynamicSystemService.java"
 
@@ -9,28 +9,28 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = "GsiServiceCallback"
 .end annotation
 
 
 # instance fields
-.field private mResult:I
+.field public mResult:I
 
-.field final synthetic this$0:Lcom/android/server/DynamicSystemService;
+.field public final synthetic this$0:Lcom/android/server/DynamicSystemService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/DynamicSystemService;)V
-    .locals 1
+.method public constructor <init>(Lcom/android/server/DynamicSystemService;)V
+    .locals 0
 
     iput-object p1, p0, Lcom/android/server/DynamicSystemService$GsiServiceCallback;->this$0:Lcom/android/server/DynamicSystemService;
 
     invoke-direct {p0}, Landroid/gsi/IGsiServiceCallback$Stub;-><init>()V
 
-    const/4 v0, -0x1
+    const/4 p1, -0x1
 
-    iput v0, p0, Lcom/android/server/DynamicSystemService$GsiServiceCallback;->mResult:I
+    iput p1, p0, Lcom/android/server/DynamicSystemService$GsiServiceCallback;->mResult:I
 
     return-void
 .end method
@@ -38,11 +38,11 @@
 
 # virtual methods
 .method public getResult()I
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/DynamicSystemService$GsiServiceCallback;->mResult:I
+    iget p0, p0, Lcom/android/server/DynamicSystemService$GsiServiceCallback;->mResult:I
 
-    return v0
+    return p0
 .end method
 
 .method public declared-synchronized onResult(I)V

@@ -24,6 +24,3 @@
 # virtual methods
 .method public abstract addProximityActiveListener(Ljava/util/concurrent/Executor;Lcom/android/server/sensors/SensorManagerInternal$ProximityActiveListener;)V
 .end method
-
-.method public abstract removeProximityActiveListener(Lcom/android/server/sensors/SensorManagerInternal$ProximityActiveListener;)V
-.end method

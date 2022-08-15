@@ -1,28 +1,13 @@
 .class public final synthetic Lcom/android/server/am/ActivityManagerService$MainHandler$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/am/ActivityManagerService$MainHandler$$ExternalSyntheticLambda0;
-
-
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/am/ActivityManagerService$MainHandler$$ExternalSyntheticLambda0;
-
-    invoke-direct {v0}, Lcom/android/server/am/ActivityManagerService$MainHandler$$ExternalSyntheticLambda0;-><init>()V
-
-    sput-object v0, Lcom/android/server/am/ActivityManagerService$MainHandler$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/server/am/ActivityManagerService$MainHandler$$ExternalSyntheticLambda0;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,7 +22,7 @@
 
     check-cast p1, Lcom/android/server/am/ProcessRecord;
 
-    invoke-static {p1}, Lcom/android/server/am/ActivityManagerService$MainHandler;->lambda$handleMessage$0(Lcom/android/server/am/ProcessRecord;)V
+    invoke-static {p1}, Lcom/android/server/am/ActivityManagerService$MainHandler;->$r8$lambda$nQbn-iaklEykeZqYQ0Hxksxf5B8(Lcom/android/server/am/ProcessRecord;)V
 
     return-void
 .end method

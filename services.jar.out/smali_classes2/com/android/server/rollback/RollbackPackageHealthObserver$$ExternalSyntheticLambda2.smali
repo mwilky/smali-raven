@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/rollback/RollbackPackageHealthObserver$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -35,7 +36,7 @@
 
 # virtual methods
 .method public final run()V
-    .locals 4
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/rollback/RollbackPackageHealthObserver$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/rollback/RollbackPackageHealthObserver;
 
@@ -43,9 +44,9 @@
 
     iget-object v2, p0, Lcom/android/server/rollback/RollbackPackageHealthObserver$$ExternalSyntheticLambda2;->f$2:Landroid/content/pm/VersionedPackage;
 
-    iget v3, p0, Lcom/android/server/rollback/RollbackPackageHealthObserver$$ExternalSyntheticLambda2;->f$3:I
+    iget p0, p0, Lcom/android/server/rollback/RollbackPackageHealthObserver$$ExternalSyntheticLambda2;->f$3:I
 
-    invoke-virtual {v0, v1, v2, v3}, Lcom/android/server/rollback/RollbackPackageHealthObserver;->lambda$execute$1$RollbackPackageHealthObserver(Landroid/content/rollback/RollbackInfo;Landroid/content/pm/VersionedPackage;I)V
+    invoke-static {v0, v1, v2, p0}, Lcom/android/server/rollback/RollbackPackageHealthObserver;->$r8$lambda$mG9Ex1MR2I2vEsLTgH1ly5DHHZA(Lcom/android/server/rollback/RollbackPackageHealthObserver;Landroid/content/rollback/RollbackInfo;Landroid/content/pm/VersionedPackage;I)V
 
     return-void
 .end method

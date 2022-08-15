@@ -1,4 +1,4 @@
-.class final Lcom/android/server/hdmi/DeviceDiscoveryAction$DeviceInfo;
+.class public final Lcom/android/server/hdmi/DeviceDiscoveryAction$DeviceInfo;
 .super Ljava/lang/Object;
 .source "DeviceDiscoveryAction.java"
 
@@ -9,29 +9,111 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "DeviceInfo"
 .end annotation
 
 
 # instance fields
-.field private mDeviceType:I
+.field public mDeviceType:I
 
-.field private mDisplayName:Ljava/lang/String;
+.field public mDisplayName:Ljava/lang/String;
 
-.field private final mLogicalAddress:I
+.field public final mLogicalAddress:I
 
-.field private mPhysicalAddress:I
+.field public mPhysicalAddress:I
 
-.field private mPortId:I
+.field public mPortId:I
 
-.field private mPowerStatus:I
+.field public mPowerStatus:I
 
-.field private mVendorId:I
+.field public mVendorId:I
 
 
 # direct methods
-.method private constructor <init>(I)V
+.method public static bridge synthetic -$$Nest$fgetmDeviceType(Lcom/android/server/hdmi/DeviceDiscoveryAction$DeviceInfo;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/server/hdmi/DeviceDiscoveryAction$DeviceInfo;->mDeviceType:I
+
+    return p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmLogicalAddress(Lcom/android/server/hdmi/DeviceDiscoveryAction$DeviceInfo;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/server/hdmi/DeviceDiscoveryAction$DeviceInfo;->mLogicalAddress:I
+
+    return p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmPhysicalAddress(Lcom/android/server/hdmi/DeviceDiscoveryAction$DeviceInfo;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/server/hdmi/DeviceDiscoveryAction$DeviceInfo;->mPhysicalAddress:I
+
+    return p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fputmDeviceType(Lcom/android/server/hdmi/DeviceDiscoveryAction$DeviceInfo;I)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/server/hdmi/DeviceDiscoveryAction$DeviceInfo;->mDeviceType:I
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$fputmDisplayName(Lcom/android/server/hdmi/DeviceDiscoveryAction$DeviceInfo;Ljava/lang/String;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/server/hdmi/DeviceDiscoveryAction$DeviceInfo;->mDisplayName:Ljava/lang/String;
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$fputmPhysicalAddress(Lcom/android/server/hdmi/DeviceDiscoveryAction$DeviceInfo;I)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/server/hdmi/DeviceDiscoveryAction$DeviceInfo;->mPhysicalAddress:I
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$fputmPortId(Lcom/android/server/hdmi/DeviceDiscoveryAction$DeviceInfo;I)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/server/hdmi/DeviceDiscoveryAction$DeviceInfo;->mPortId:I
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$fputmPowerStatus(Lcom/android/server/hdmi/DeviceDiscoveryAction$DeviceInfo;I)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/server/hdmi/DeviceDiscoveryAction$DeviceInfo;->mPowerStatus:I
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$fputmVendorId(Lcom/android/server/hdmi/DeviceDiscoveryAction$DeviceInfo;I)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/server/hdmi/DeviceDiscoveryAction$DeviceInfo;->mVendorId:I
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$mtoHdmiDeviceInfo(Lcom/android/server/hdmi/DeviceDiscoveryAction$DeviceInfo;)Landroid/hardware/hdmi/HdmiDeviceInfo;
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/server/hdmi/DeviceDiscoveryAction$DeviceInfo;->toHdmiDeviceInfo()Landroid/hardware/hdmi/HdmiDeviceInfo;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public constructor <init>(I)V
     .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -61,7 +143,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(ILcom/android/server/hdmi/DeviceDiscoveryAction$1;)V
+.method public synthetic constructor <init>(ILcom/android/server/hdmi/DeviceDiscoveryAction$DeviceInfo-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/hdmi/DeviceDiscoveryAction$DeviceInfo;-><init>(I)V
@@ -69,110 +151,60 @@
     return-void
 .end method
 
-.method static synthetic access$1002(Lcom/android/server/hdmi/DeviceDiscoveryAction$DeviceInfo;Ljava/lang/String;)Ljava/lang/String;
-    .locals 0
 
-    iput-object p1, p0, Lcom/android/server/hdmi/DeviceDiscoveryAction$DeviceInfo;->mDisplayName:Ljava/lang/String;
+# virtual methods
+.method public final toHdmiDeviceInfo()Landroid/hardware/hdmi/HdmiDeviceInfo;
+    .locals 2
 
-    return-object p1
-.end method
-
-.method static synthetic access$1102(Lcom/android/server/hdmi/DeviceDiscoveryAction$DeviceInfo;I)I
-    .locals 0
-
-    iput p1, p0, Lcom/android/server/hdmi/DeviceDiscoveryAction$DeviceInfo;->mVendorId:I
-
-    return p1
-.end method
-
-.method static synthetic access$1202(Lcom/android/server/hdmi/DeviceDiscoveryAction$DeviceInfo;I)I
-    .locals 0
-
-    iput p1, p0, Lcom/android/server/hdmi/DeviceDiscoveryAction$DeviceInfo;->mPowerStatus:I
-
-    return p1
-.end method
-
-.method static synthetic access$1300(Lcom/android/server/hdmi/DeviceDiscoveryAction$DeviceInfo;)Landroid/hardware/hdmi/HdmiDeviceInfo;
-    .locals 1
-
-    invoke-direct {p0}, Lcom/android/server/hdmi/DeviceDiscoveryAction$DeviceInfo;->toHdmiDeviceInfo()Landroid/hardware/hdmi/HdmiDeviceInfo;
+    invoke-static {}, Landroid/hardware/hdmi/HdmiDeviceInfo;->cecDeviceBuilder()Landroid/hardware/hdmi/HdmiDeviceInfo$Builder;
 
     move-result-object v0
 
-    return-object v0
-.end method
-
-.method static synthetic access$600(Lcom/android/server/hdmi/DeviceDiscoveryAction$DeviceInfo;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/server/hdmi/DeviceDiscoveryAction$DeviceInfo;->mLogicalAddress:I
-
-    return v0
-.end method
-
-.method static synthetic access$700(Lcom/android/server/hdmi/DeviceDiscoveryAction$DeviceInfo;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/server/hdmi/DeviceDiscoveryAction$DeviceInfo;->mPhysicalAddress:I
-
-    return v0
-.end method
-
-.method static synthetic access$702(Lcom/android/server/hdmi/DeviceDiscoveryAction$DeviceInfo;I)I
-    .locals 0
-
-    iput p1, p0, Lcom/android/server/hdmi/DeviceDiscoveryAction$DeviceInfo;->mPhysicalAddress:I
-
-    return p1
-.end method
-
-.method static synthetic access$802(Lcom/android/server/hdmi/DeviceDiscoveryAction$DeviceInfo;I)I
-    .locals 0
-
-    iput p1, p0, Lcom/android/server/hdmi/DeviceDiscoveryAction$DeviceInfo;->mPortId:I
-
-    return p1
-.end method
-
-.method static synthetic access$900(Lcom/android/server/hdmi/DeviceDiscoveryAction$DeviceInfo;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/server/hdmi/DeviceDiscoveryAction$DeviceInfo;->mDeviceType:I
-
-    return v0
-.end method
-
-.method static synthetic access$902(Lcom/android/server/hdmi/DeviceDiscoveryAction$DeviceInfo;I)I
-    .locals 0
-
-    iput p1, p0, Lcom/android/server/hdmi/DeviceDiscoveryAction$DeviceInfo;->mDeviceType:I
-
-    return p1
-.end method
-
-.method private toHdmiDeviceInfo()Landroid/hardware/hdmi/HdmiDeviceInfo;
-    .locals 9
-
-    new-instance v8, Landroid/hardware/hdmi/HdmiDeviceInfo;
-
     iget v1, p0, Lcom/android/server/hdmi/DeviceDiscoveryAction$DeviceInfo;->mLogicalAddress:I
 
-    iget v2, p0, Lcom/android/server/hdmi/DeviceDiscoveryAction$DeviceInfo;->mPhysicalAddress:I
+    invoke-virtual {v0, v1}, Landroid/hardware/hdmi/HdmiDeviceInfo$Builder;->setLogicalAddress(I)Landroid/hardware/hdmi/HdmiDeviceInfo$Builder;
 
-    iget v3, p0, Lcom/android/server/hdmi/DeviceDiscoveryAction$DeviceInfo;->mPortId:I
+    move-result-object v0
 
-    iget v4, p0, Lcom/android/server/hdmi/DeviceDiscoveryAction$DeviceInfo;->mDeviceType:I
+    iget v1, p0, Lcom/android/server/hdmi/DeviceDiscoveryAction$DeviceInfo;->mPhysicalAddress:I
 
-    iget v5, p0, Lcom/android/server/hdmi/DeviceDiscoveryAction$DeviceInfo;->mVendorId:I
+    invoke-virtual {v0, v1}, Landroid/hardware/hdmi/HdmiDeviceInfo$Builder;->setPhysicalAddress(I)Landroid/hardware/hdmi/HdmiDeviceInfo$Builder;
 
-    iget-object v6, p0, Lcom/android/server/hdmi/DeviceDiscoveryAction$DeviceInfo;->mDisplayName:Ljava/lang/String;
+    move-result-object v0
 
-    iget v7, p0, Lcom/android/server/hdmi/DeviceDiscoveryAction$DeviceInfo;->mPowerStatus:I
+    iget v1, p0, Lcom/android/server/hdmi/DeviceDiscoveryAction$DeviceInfo;->mPortId:I
 
-    move-object v0, v8
+    invoke-virtual {v0, v1}, Landroid/hardware/hdmi/HdmiDeviceInfo$Builder;->setPortId(I)Landroid/hardware/hdmi/HdmiDeviceInfo$Builder;
 
-    invoke-direct/range {v0 .. v7}, Landroid/hardware/hdmi/HdmiDeviceInfo;-><init>(IIIIILjava/lang/String;I)V
+    move-result-object v0
 
-    return-object v8
+    iget v1, p0, Lcom/android/server/hdmi/DeviceDiscoveryAction$DeviceInfo;->mVendorId:I
+
+    invoke-virtual {v0, v1}, Landroid/hardware/hdmi/HdmiDeviceInfo$Builder;->setVendorId(I)Landroid/hardware/hdmi/HdmiDeviceInfo$Builder;
+
+    move-result-object v0
+
+    iget v1, p0, Lcom/android/server/hdmi/DeviceDiscoveryAction$DeviceInfo;->mDeviceType:I
+
+    invoke-virtual {v0, v1}, Landroid/hardware/hdmi/HdmiDeviceInfo$Builder;->setDeviceType(I)Landroid/hardware/hdmi/HdmiDeviceInfo$Builder;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/server/hdmi/DeviceDiscoveryAction$DeviceInfo;->mDisplayName:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Landroid/hardware/hdmi/HdmiDeviceInfo$Builder;->setDisplayName(Ljava/lang/String;)Landroid/hardware/hdmi/HdmiDeviceInfo$Builder;
+
+    move-result-object v0
+
+    iget p0, p0, Lcom/android/server/hdmi/DeviceDiscoveryAction$DeviceInfo;->mPowerStatus:I
+
+    invoke-virtual {v0, p0}, Landroid/hardware/hdmi/HdmiDeviceInfo$Builder;->setDevicePowerStatus(I)Landroid/hardware/hdmi/HdmiDeviceInfo$Builder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroid/hardware/hdmi/HdmiDeviceInfo$Builder;->build()Landroid/hardware/hdmi/HdmiDeviceInfo;
+
+    move-result-object p0
+
+    return-object p0
 .end method

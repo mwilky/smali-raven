@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/power/FaceDownDetector$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Landroid/provider/DeviceConfig$OnPropertiesChangedListener;
 
 
 # instance fields
@@ -22,12 +23,12 @@
 
 
 # virtual methods
-.method public final run()V
-    .locals 1
+.method public final onPropertiesChanged(Landroid/provider/DeviceConfig$Properties;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/power/FaceDownDetector$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/power/FaceDownDetector;
+    iget-object p0, p0, Lcom/android/server/power/FaceDownDetector$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/power/FaceDownDetector;
 
-    invoke-virtual {v0}, Lcom/android/server/power/FaceDownDetector;->lambda$new$0$FaceDownDetector()V
+    invoke-static {p0, p1}, Lcom/android/server/power/FaceDownDetector;->$r8$lambda$gqYe7OrZslZqSkwu1OG7WXBdzHc(Lcom/android/server/power/FaceDownDetector;Landroid/provider/DeviceConfig$Properties;)V
 
     return-void
 .end method

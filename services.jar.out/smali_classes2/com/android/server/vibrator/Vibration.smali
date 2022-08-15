@@ -1,4 +1,4 @@
-.class final Lcom/android/server/vibrator/Vibration;
+.class public final Lcom/android/server/vibrator/Vibration;
 .super Ljava/lang/Object;
 .source "Vibration.java"
 
@@ -13,9 +13,7 @@
 
 
 # static fields
-.field private static final DEBUG_DATE_FORMAT:Ljava/text/SimpleDateFormat;
-
-.field private static final TAG:Ljava/lang/String; = "Vibration"
+.field public static final DEBUG_DATE_FORMAT:Ljava/text/SimpleDateFormat;
 
 
 # instance fields
@@ -23,9 +21,13 @@
 
 .field public final id:J
 
-.field private mEffect:Landroid/os/CombinedVibration;
+.field public final mCompletionLatch:Ljava/util/concurrent/CountDownLatch;
 
-.field private mEndTimeDebug:J
+.field public mEffect:Landroid/os/CombinedVibration;
+
+.field public mEndTimeDebug:J
+
+.field public mEndUptimeMillis:J
 
 .field public final mFallbacks:Landroid/util/SparseArray;
     .annotation system Ldalvik/annotation/Signature;
@@ -37,17 +39,17 @@
     .end annotation
 .end field
 
-.field private mOriginalEffect:Landroid/os/CombinedVibration;
+.field public mOriginalEffect:Landroid/os/CombinedVibration;
 
-.field private final mStartTimeDebug:J
+.field public final mStartTimeDebug:J
 
-.field private mStatus:Lcom/android/server/vibrator/Vibration$Status;
+.field public mStatus:Lcom/android/server/vibrator/Vibration$Status;
 
 .field public final opPkg:Ljava/lang/String;
 
 .field public final reason:Ljava/lang/String;
 
-.field public final startTime:J
+.field public final startUptimeMillis:J
 
 .field public final token:Landroid/os/IBinder;
 
@@ -55,7 +57,15 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static bridge synthetic -$$Nest$sfgetDEBUG_DATE_FORMAT()Ljava/text/SimpleDateFormat;
+    .locals 1
+
+    sget-object v0, Lcom/android/server/vibrator/Vibration;->DEBUG_DATE_FORMAT:Ljava/text/SimpleDateFormat;
+
+    return-object v0
+.end method
+
+.method public static constructor <clinit>()V
     .locals 2
 
     new-instance v0, Ljava/text/SimpleDateFormat;
@@ -69,7 +79,7 @@
     return-void
 .end method
 
-.method constructor <init>(Landroid/os/IBinder;ILandroid/os/CombinedVibration;Landroid/os/VibrationAttributes;ILjava/lang/String;Ljava/lang/String;)V
+.method public constructor <init>(Landroid/os/IBinder;ILandroid/os/CombinedVibration;Landroid/os/VibrationAttributes;ILjava/lang/String;Ljava/lang/String;)V
     .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -80,19 +90,27 @@
 
     iput-object v0, p0, Lcom/android/server/vibrator/Vibration;->mFallbacks:Landroid/util/SparseArray;
 
+    new-instance v0, Ljava/util/concurrent/CountDownLatch;
+
+    const/4 v1, 0x1
+
+    invoke-direct {v0, v1}, Ljava/util/concurrent/CountDownLatch;-><init>(I)V
+
+    iput-object v0, p0, Lcom/android/server/vibrator/Vibration;->mCompletionLatch:Ljava/util/concurrent/CountDownLatch;
+
     iput-object p1, p0, Lcom/android/server/vibrator/Vibration;->token:Landroid/os/IBinder;
 
     iput-object p3, p0, Lcom/android/server/vibrator/Vibration;->mEffect:Landroid/os/CombinedVibration;
 
-    int-to-long v0, p2
+    int-to-long p1, p2
 
-    iput-wide v0, p0, Lcom/android/server/vibrator/Vibration;->id:J
+    iput-wide p1, p0, Lcom/android/server/vibrator/Vibration;->id:J
 
-    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
-    move-result-wide v0
+    move-result-wide p1
 
-    iput-wide v0, p0, Lcom/android/server/vibrator/Vibration;->startTime:J
+    iput-wide p1, p0, Lcom/android/server/vibrator/Vibration;->startUptimeMillis:J
 
     iput-object p4, p0, Lcom/android/server/vibrator/Vibration;->attrs:Landroid/os/VibrationAttributes;
 
@@ -104,27 +122,19 @@
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v0
+    move-result-wide p1
 
-    iput-wide v0, p0, Lcom/android/server/vibrator/Vibration;->mStartTimeDebug:J
+    iput-wide p1, p0, Lcom/android/server/vibrator/Vibration;->mStartTimeDebug:J
 
-    sget-object v0, Lcom/android/server/vibrator/Vibration$Status;->RUNNING:Lcom/android/server/vibrator/Vibration$Status;
+    sget-object p1, Lcom/android/server/vibrator/Vibration$Status;->RUNNING:Lcom/android/server/vibrator/Vibration$Status;
 
-    iput-object v0, p0, Lcom/android/server/vibrator/Vibration;->mStatus:Lcom/android/server/vibrator/Vibration$Status;
+    iput-object p1, p0, Lcom/android/server/vibrator/Vibration;->mStatus:Lcom/android/server/vibrator/Vibration$Status;
 
     return-void
 .end method
 
-.method static synthetic access$000()Ljava/text/SimpleDateFormat;
-    .locals 1
-
-    sget-object v0, Lcom/android/server/vibrator/Vibration;->DEBUG_DATE_FORMAT:Ljava/text/SimpleDateFormat;
-
-    return-object v0
-.end method
-
-.method private static transformCombinedEffect(Landroid/os/CombinedVibration;Ljava/util/function/Function;)Landroid/os/CombinedVibration;
-    .locals 5
+.method public static transformCombinedEffect(Landroid/os/CombinedVibration;Ljava/util/function/Function;)Landroid/os/CombinedVibration;
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -141,129 +151,121 @@
 
     if-eqz v0, :cond_0
 
-    move-object v0, p0
+    check-cast p0, Landroid/os/CombinedVibration$Mono;
 
-    check-cast v0, Landroid/os/CombinedVibration$Mono;
+    invoke-virtual {p0}, Landroid/os/CombinedVibration$Mono;->getEffect()Landroid/os/VibrationEffect;
 
-    invoke-virtual {v0}, Landroid/os/CombinedVibration$Mono;->getEffect()Landroid/os/VibrationEffect;
+    move-result-object p0
 
-    move-result-object v0
+    invoke-interface {p1, p0}, Ljava/util/function/Function;->apply(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-interface {p1, v0}, Ljava/util/function/Function;->apply(Ljava/lang/Object;)Ljava/lang/Object;
+    move-result-object p0
 
-    move-result-object v1
+    check-cast p0, Landroid/os/VibrationEffect;
 
-    check-cast v1, Landroid/os/VibrationEffect;
+    invoke-static {p0}, Landroid/os/CombinedVibration;->createParallel(Landroid/os/VibrationEffect;)Landroid/os/CombinedVibration;
 
-    invoke-static {v1}, Landroid/os/CombinedVibration;->createParallel(Landroid/os/VibrationEffect;)Landroid/os/CombinedVibration;
+    move-result-object p0
 
-    move-result-object v1
-
-    return-object v1
+    return-object p0
 
     :cond_0
     instance-of v0, p0, Landroid/os/CombinedVibration$Stereo;
 
     if-eqz v0, :cond_2
 
-    move-object v0, p0
+    check-cast p0, Landroid/os/CombinedVibration$Stereo;
 
-    check-cast v0, Landroid/os/CombinedVibration$Stereo;
+    invoke-virtual {p0}, Landroid/os/CombinedVibration$Stereo;->getEffects()Landroid/util/SparseArray;
 
-    invoke-virtual {v0}, Landroid/os/CombinedVibration$Stereo;->getEffects()Landroid/util/SparseArray;
-
-    move-result-object v0
+    move-result-object p0
 
     invoke-static {}, Landroid/os/CombinedVibration;->startParallel()Landroid/os/CombinedVibration$ParallelCombination;
 
-    move-result-object v1
+    move-result-object v0
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
     :goto_0
-    invoke-virtual {v0}, Landroid/util/SparseArray;->size()I
+    invoke-virtual {p0}, Landroid/util/SparseArray;->size()I
 
-    move-result v3
+    move-result v2
 
-    if-ge v2, v3, :cond_1
+    if-ge v1, v2, :cond_1
 
-    invoke-virtual {v0, v2}, Landroid/util/SparseArray;->keyAt(I)I
+    invoke-virtual {p0, v1}, Landroid/util/SparseArray;->keyAt(I)I
 
-    move-result v3
+    move-result v2
 
-    invoke-virtual {v0, v2}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {p0, v1}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v3
 
-    check-cast v4, Landroid/os/VibrationEffect;
+    check-cast v3, Landroid/os/VibrationEffect;
 
-    invoke-interface {p1, v4}, Ljava/util/function/Function;->apply(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p1, v3}, Ljava/util/function/Function;->apply(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v3
 
-    check-cast v4, Landroid/os/VibrationEffect;
+    check-cast v3, Landroid/os/VibrationEffect;
 
-    invoke-virtual {v1, v3, v4}, Landroid/os/CombinedVibration$ParallelCombination;->addVibrator(ILandroid/os/VibrationEffect;)Landroid/os/CombinedVibration$ParallelCombination;
+    invoke-virtual {v0, v2, v3}, Landroid/os/CombinedVibration$ParallelCombination;->addVibrator(ILandroid/os/VibrationEffect;)Landroid/os/CombinedVibration$ParallelCombination;
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     :cond_1
-    invoke-virtual {v1}, Landroid/os/CombinedVibration$ParallelCombination;->combine()Landroid/os/CombinedVibration;
+    invoke-virtual {v0}, Landroid/os/CombinedVibration$ParallelCombination;->combine()Landroid/os/CombinedVibration;
 
-    move-result-object v2
+    move-result-object p0
 
-    return-object v2
+    return-object p0
 
     :cond_2
     instance-of v0, p0, Landroid/os/CombinedVibration$Sequential;
 
     if-eqz v0, :cond_4
 
-    move-object v0, p0
+    check-cast p0, Landroid/os/CombinedVibration$Sequential;
 
-    check-cast v0, Landroid/os/CombinedVibration$Sequential;
+    invoke-virtual {p0}, Landroid/os/CombinedVibration$Sequential;->getEffects()Ljava/util/List;
 
-    invoke-virtual {v0}, Landroid/os/CombinedVibration$Sequential;->getEffects()Ljava/util/List;
-
-    move-result-object v0
+    move-result-object p0
 
     invoke-static {}, Landroid/os/CombinedVibration;->startSequential()Landroid/os/CombinedVibration$SequentialCombination;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-interface {p0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v2
+    move-result-object p0
 
     :goto_1
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v3
+    move-result v1
 
-    if-eqz v3, :cond_3
+    if-eqz v1, :cond_3
 
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v1
 
-    check-cast v3, Landroid/os/CombinedVibration;
+    check-cast v1, Landroid/os/CombinedVibration;
 
-    invoke-static {v3, p1}, Lcom/android/server/vibrator/Vibration;->transformCombinedEffect(Landroid/os/CombinedVibration;Ljava/util/function/Function;)Landroid/os/CombinedVibration;
+    invoke-static {v1, p1}, Lcom/android/server/vibrator/Vibration;->transformCombinedEffect(Landroid/os/CombinedVibration;Ljava/util/function/Function;)Landroid/os/CombinedVibration;
 
-    move-result-object v4
+    move-result-object v1
 
-    invoke-virtual {v1, v4}, Landroid/os/CombinedVibration$SequentialCombination;->addNext(Landroid/os/CombinedVibration;)Landroid/os/CombinedVibration$SequentialCombination;
+    invoke-virtual {v0, v1}, Landroid/os/CombinedVibration$SequentialCombination;->addNext(Landroid/os/CombinedVibration;)Landroid/os/CombinedVibration$SequentialCombination;
 
     goto :goto_1
 
     :cond_3
-    invoke-virtual {v1}, Landroid/os/CombinedVibration$SequentialCombination;->combine()Landroid/os/CombinedVibration;
+    invoke-virtual {v0}, Landroid/os/CombinedVibration$SequentialCombination;->combine()Landroid/os/CombinedVibration;
 
-    move-result-object v2
-
-    return-object v2
+    move-result-object p0
 
     :cond_4
     return-object p0
@@ -272,11 +274,11 @@
 
 # virtual methods
 .method public addFallback(ILandroid/os/VibrationEffect;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/vibrator/Vibration;->mFallbacks:Landroid/util/SparseArray;
+    iget-object p0, p0, Lcom/android/server/vibrator/Vibration;->mFallbacks:Landroid/util/SparseArray;
 
-    invoke-virtual {v0, p1, p2}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    invoke-virtual {p0, p1, p2}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     return-void
 .end method
@@ -295,117 +297,153 @@
     :cond_0
     iput-object p1, p0, Lcom/android/server/vibrator/Vibration;->mStatus:Lcom/android/server/vibrator/Vibration$Status;
 
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+
+    move-result-wide v0
+
+    iput-wide v0, p0, Lcom/android/server/vibrator/Vibration;->mEndUptimeMillis:J
+
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v0
 
     iput-wide v0, p0, Lcom/android/server/vibrator/Vibration;->mEndTimeDebug:J
 
+    iget-object p0, p0, Lcom/android/server/vibrator/Vibration;->mCompletionLatch:Ljava/util/concurrent/CountDownLatch;
+
+    invoke-virtual {p0}, Ljava/util/concurrent/CountDownLatch;->countDown()V
+
     return-void
 .end method
 
 .method public getDebugInfo()Lcom/android/server/vibrator/Vibration$DebugInfo;
-    .locals 14
+    .locals 18
 
-    new-instance v13, Lcom/android/server/vibrator/Vibration$DebugInfo;
+    move-object/from16 v0, p0
 
-    iget-wide v1, p0, Lcom/android/server/vibrator/Vibration;->mStartTimeDebug:J
+    invoke-virtual/range {p0 .. p0}, Lcom/android/server/vibrator/Vibration;->hasEnded()Z
 
-    iget-wide v3, p0, Lcom/android/server/vibrator/Vibration;->mEndTimeDebug:J
+    move-result v1
 
-    iget-object v5, p0, Lcom/android/server/vibrator/Vibration;->mEffect:Landroid/os/CombinedVibration;
+    if-eqz v1, :cond_0
 
-    iget-object v6, p0, Lcom/android/server/vibrator/Vibration;->mOriginalEffect:Landroid/os/CombinedVibration;
+    iget-wide v1, v0, Lcom/android/server/vibrator/Vibration;->mEndUptimeMillis:J
 
-    iget-object v8, p0, Lcom/android/server/vibrator/Vibration;->attrs:Landroid/os/VibrationAttributes;
+    iget-wide v3, v0, Lcom/android/server/vibrator/Vibration;->startUptimeMillis:J
 
-    iget v9, p0, Lcom/android/server/vibrator/Vibration;->uid:I
-
-    iget-object v10, p0, Lcom/android/server/vibrator/Vibration;->opPkg:Ljava/lang/String;
-
-    iget-object v11, p0, Lcom/android/server/vibrator/Vibration;->reason:Ljava/lang/String;
-
-    iget-object v12, p0, Lcom/android/server/vibrator/Vibration;->mStatus:Lcom/android/server/vibrator/Vibration$Status;
-
-    const/4 v7, 0x0
-
-    move-object v0, v13
-
-    invoke-direct/range {v0 .. v12}, Lcom/android/server/vibrator/Vibration$DebugInfo;-><init>(JJLandroid/os/CombinedVibration;Landroid/os/CombinedVibration;FLandroid/os/VibrationAttributes;ILjava/lang/String;Ljava/lang/String;Lcom/android/server/vibrator/Vibration$Status;)V
-
-    return-object v13
-.end method
-
-.method public getEffect()Landroid/os/CombinedVibration;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/vibrator/Vibration;->mEffect:Landroid/os/CombinedVibration;
-
-    return-object v0
-.end method
-
-.method public getFallback(I)Landroid/os/VibrationEffect;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/vibrator/Vibration;->mFallbacks:Landroid/util/SparseArray;
-
-    invoke-virtual {v0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/os/VibrationEffect;
-
-    return-object v0
-.end method
-
-.method public hasEnded()Z
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/server/vibrator/Vibration;->mStatus:Lcom/android/server/vibrator/Vibration$Status;
-
-    sget-object v1, Lcom/android/server/vibrator/Vibration$Status;->RUNNING:Lcom/android/server/vibrator/Vibration$Status;
-
-    if-eq v0, v1, :cond_0
-
-    const/4 v0, 0x1
+    sub-long/2addr v1, v3
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const-wide/16 v1, -0x1
 
     :goto_0
-    return v0
+    move-wide v8, v1
+
+    new-instance v1, Lcom/android/server/vibrator/Vibration$DebugInfo;
+
+    iget-wide v4, v0, Lcom/android/server/vibrator/Vibration;->mStartTimeDebug:J
+
+    iget-wide v6, v0, Lcom/android/server/vibrator/Vibration;->mEndTimeDebug:J
+
+    iget-object v10, v0, Lcom/android/server/vibrator/Vibration;->mEffect:Landroid/os/CombinedVibration;
+
+    iget-object v11, v0, Lcom/android/server/vibrator/Vibration;->mOriginalEffect:Landroid/os/CombinedVibration;
+
+    const/4 v12, 0x0
+
+    iget-object v13, v0, Lcom/android/server/vibrator/Vibration;->attrs:Landroid/os/VibrationAttributes;
+
+    iget v14, v0, Lcom/android/server/vibrator/Vibration;->uid:I
+
+    iget-object v15, v0, Lcom/android/server/vibrator/Vibration;->opPkg:Ljava/lang/String;
+
+    iget-object v2, v0, Lcom/android/server/vibrator/Vibration;->reason:Ljava/lang/String;
+
+    iget-object v0, v0, Lcom/android/server/vibrator/Vibration;->mStatus:Lcom/android/server/vibrator/Vibration$Status;
+
+    move-object v3, v1
+
+    move-object/from16 v16, v2
+
+    move-object/from16 v17, v0
+
+    invoke-direct/range {v3 .. v17}, Lcom/android/server/vibrator/Vibration$DebugInfo;-><init>(JJJLandroid/os/CombinedVibration;Landroid/os/CombinedVibration;FLandroid/os/VibrationAttributes;ILjava/lang/String;Ljava/lang/String;Lcom/android/server/vibrator/Vibration$Status;)V
+
+    return-object v1
+.end method
+
+.method public getEffect()Landroid/os/CombinedVibration;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/vibrator/Vibration;->mEffect:Landroid/os/CombinedVibration;
+
+    return-object p0
+.end method
+
+.method public getFallback(I)Landroid/os/VibrationEffect;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/vibrator/Vibration;->mFallbacks:Landroid/util/SparseArray;
+
+    invoke-virtual {p0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Landroid/os/VibrationEffect;
+
+    return-object p0
+.end method
+
+.method public hasEnded()Z
+    .locals 1
+
+    iget-object p0, p0, Lcom/android/server/vibrator/Vibration;->mStatus:Lcom/android/server/vibrator/Vibration$Status;
+
+    sget-object v0, Lcom/android/server/vibrator/Vibration$Status;->RUNNING:Lcom/android/server/vibrator/Vibration$Status;
+
+    if-eq p0, v0, :cond_0
+
+    const/4 p0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    :goto_0
+    return p0
 .end method
 
 .method public isRepeating()Z
     .locals 4
 
-    iget-object v0, p0, Lcom/android/server/vibrator/Vibration;->mEffect:Landroid/os/CombinedVibration;
+    iget-object p0, p0, Lcom/android/server/vibrator/Vibration;->mEffect:Landroid/os/CombinedVibration;
 
-    invoke-virtual {v0}, Landroid/os/CombinedVibration;->getDuration()J
+    invoke-virtual {p0}, Landroid/os/CombinedVibration;->getDuration()J
 
     move-result-wide v0
 
     const-wide v2, 0x7fffffffffffffffL
 
-    cmp-long v0, v0, v2
+    cmp-long p0, v0, v2
 
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method public updateEffects(Ljava/util/function/Function;)V
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -442,37 +480,52 @@
     iput-object v0, p0, Lcom/android/server/vibrator/Vibration;->mEffect:Landroid/os/CombinedVibration;
 
     :cond_1
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     :goto_0
-    iget-object v2, p0, Lcom/android/server/vibrator/Vibration;->mFallbacks:Landroid/util/SparseArray;
+    iget-object v1, p0, Lcom/android/server/vibrator/Vibration;->mFallbacks:Landroid/util/SparseArray;
 
-    invoke-virtual {v2}, Landroid/util/SparseArray;->size()I
+    invoke-virtual {v1}, Landroid/util/SparseArray;->size()I
 
-    move-result v2
+    move-result v1
 
-    if-ge v1, v2, :cond_2
+    if-ge v0, v1, :cond_2
 
-    iget-object v2, p0, Lcom/android/server/vibrator/Vibration;->mFallbacks:Landroid/util/SparseArray;
+    iget-object v1, p0, Lcom/android/server/vibrator/Vibration;->mFallbacks:Landroid/util/SparseArray;
 
-    invoke-virtual {v2, v1}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {v1, v0}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v2
 
-    check-cast v3, Landroid/os/VibrationEffect;
+    check-cast v2, Landroid/os/VibrationEffect;
 
-    invoke-interface {p1, v3}, Ljava/util/function/Function;->apply(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p1, v2}, Ljava/util/function/Function;->apply(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v2
 
-    check-cast v3, Landroid/os/VibrationEffect;
+    check-cast v2, Landroid/os/VibrationEffect;
 
-    invoke-virtual {v2, v1, v3}, Landroid/util/SparseArray;->setValueAt(ILjava/lang/Object;)V
+    invoke-virtual {v1, v0, v2}, Landroid/util/SparseArray;->setValueAt(ILjava/lang/Object;)V
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     :cond_2
+    return-void
+.end method
+
+.method public waitForEnd()V
+    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/InterruptedException;
+        }
+    .end annotation
+
+    iget-object p0, p0, Lcom/android/server/vibrator/Vibration;->mCompletionLatch:Ljava/util/concurrent/CountDownLatch;
+
+    invoke-virtual {p0}, Ljava/util/concurrent/CountDownLatch;->await()V
+
     return-void
 .end method

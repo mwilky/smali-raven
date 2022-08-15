@@ -12,15 +12,13 @@
 
 
 # static fields
-.field private static final DEBUG:Z
-
-.field private static final TAG:Ljava/lang/String; = "JobScheduler.Storage"
+.field public static final DEBUG:Z
 
 
 # instance fields
-.field private final mStorageTracker:Lcom/android/server/job/controllers/StorageController$StorageTracker;
+.field public final mStorageTracker:Lcom/android/server/job/controllers/StorageController$StorageTracker;
 
-.field private final mTrackedTasks:Landroid/util/ArraySet;
+.field public final mTrackedTasks:Landroid/util/ArraySet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/ArraySet<",
@@ -32,7 +30,23 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static bridge synthetic -$$Nest$mmaybeReportNewStorageState(Lcom/android/server/job/controllers/StorageController;)V
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/server/job/controllers/StorageController;->maybeReportNewStorageState()V
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$sfgetDEBUG()Z
+    .locals 1
+
+    sget-boolean v0, Lcom/android/server/job/controllers/StorageController;->DEBUG:Z
+
+    return v0
+.end method
+
+.method public static constructor <clinit>()V
     .locals 2
 
     sget-boolean v0, Lcom/android/server/job/JobSchedulerService;->DEBUG:Z
@@ -67,129 +81,25 @@
 .end method
 
 .method public constructor <init>(Lcom/android/server/job/JobSchedulerService;)V
-    .locals 1
+    .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/job/controllers/StateController;-><init>(Lcom/android/server/job/JobSchedulerService;)V
 
-    new-instance v0, Landroid/util/ArraySet;
+    new-instance p1, Landroid/util/ArraySet;
 
-    invoke-direct {v0}, Landroid/util/ArraySet;-><init>()V
+    invoke-direct {p1}, Landroid/util/ArraySet;-><init>()V
 
-    iput-object v0, p0, Lcom/android/server/job/controllers/StorageController;->mTrackedTasks:Landroid/util/ArraySet;
+    iput-object p1, p0, Lcom/android/server/job/controllers/StorageController;->mTrackedTasks:Landroid/util/ArraySet;
 
-    new-instance v0, Lcom/android/server/job/controllers/StorageController$StorageTracker;
+    new-instance p1, Lcom/android/server/job/controllers/StorageController$StorageTracker;
 
-    invoke-direct {v0, p0}, Lcom/android/server/job/controllers/StorageController$StorageTracker;-><init>(Lcom/android/server/job/controllers/StorageController;)V
+    invoke-direct {p1, p0}, Lcom/android/server/job/controllers/StorageController$StorageTracker;-><init>(Lcom/android/server/job/controllers/StorageController;)V
 
-    iput-object v0, p0, Lcom/android/server/job/controllers/StorageController;->mStorageTracker:Lcom/android/server/job/controllers/StorageController$StorageTracker;
+    iput-object p1, p0, Lcom/android/server/job/controllers/StorageController;->mStorageTracker:Lcom/android/server/job/controllers/StorageController$StorageTracker;
 
-    invoke-virtual {v0}, Lcom/android/server/job/controllers/StorageController$StorageTracker;->startTracking()V
-
-    return-void
-.end method
-
-.method static synthetic access$000()Z
-    .locals 1
-
-    sget-boolean v0, Lcom/android/server/job/controllers/StorageController;->DEBUG:Z
-
-    return v0
-.end method
-
-.method static synthetic access$100(Lcom/android/server/job/controllers/StorageController;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/server/job/controllers/StorageController;->maybeReportNewStorageState()V
+    invoke-virtual {p1}, Lcom/android/server/job/controllers/StorageController$StorageTracker;->startTracking()V
 
     return-void
-.end method
-
-.method private maybeReportNewStorageState()V
-    .locals 8
-
-    sget-object v0, Lcom/android/server/job/JobSchedulerService;->sElapsedRealtimeClock:Ljava/time/Clock;
-
-    invoke-virtual {v0}, Ljava/time/Clock;->millis()J
-
-    move-result-wide v0
-
-    iget-object v2, p0, Lcom/android/server/job/controllers/StorageController;->mStorageTracker:Lcom/android/server/job/controllers/StorageController$StorageTracker;
-
-    invoke-virtual {v2}, Lcom/android/server/job/controllers/StorageController$StorageTracker;->isStorageNotLow()Z
-
-    move-result v2
-
-    const/4 v3, 0x0
-
-    iget-object v4, p0, Lcom/android/server/job/controllers/StorageController;->mLock:Ljava/lang/Object;
-
-    monitor-enter v4
-
-    :try_start_0
-    iget-object v5, p0, Lcom/android/server/job/controllers/StorageController;->mTrackedTasks:Landroid/util/ArraySet;
-
-    invoke-virtual {v5}, Landroid/util/ArraySet;->size()I
-
-    move-result v5
-
-    add-int/lit8 v5, v5, -0x1
-
-    :goto_0
-    if-ltz v5, :cond_0
-
-    iget-object v6, p0, Lcom/android/server/job/controllers/StorageController;->mTrackedTasks:Landroid/util/ArraySet;
-
-    invoke-virtual {v6, v5}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
-
-    move-result-object v6
-
-    check-cast v6, Lcom/android/server/job/controllers/JobStatus;
-
-    invoke-virtual {v6, v0, v1, v2}, Lcom/android/server/job/controllers/JobStatus;->setStorageNotLowConstraintSatisfied(JZ)Z
-
-    move-result v7
-
-    or-int/2addr v3, v7
-
-    add-int/lit8 v5, v5, -0x1
-
-    goto :goto_0
-
-    :cond_0
-    monitor-exit v4
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    if-eqz v2, :cond_1
-
-    iget-object v4, p0, Lcom/android/server/job/controllers/StorageController;->mStateChangedListener:Lcom/android/server/job/StateChangedListener;
-
-    const/4 v5, 0x0
-
-    invoke-interface {v4, v5}, Lcom/android/server/job/StateChangedListener;->onRunJobNow(Lcom/android/server/job/controllers/JobStatus;)V
-
-    goto :goto_1
-
-    :cond_1
-    if-eqz v3, :cond_2
-
-    iget-object v4, p0, Lcom/android/server/job/controllers/StorageController;->mStateChangedListener:Lcom/android/server/job/StateChangedListener;
-
-    invoke-interface {v4}, Lcom/android/server/job/StateChangedListener;->onControllerStateChanged()V
-
-    :cond_2
-    :goto_1
-    return-void
-
-    :catchall_0
-    move-exception v5
-
-    :try_start_1
-    monitor-exit v4
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    throw v5
 .end method
 
 
@@ -292,9 +202,9 @@
 
     invoke-virtual {v1}, Lcom/android/server/job/controllers/JobStatus;->getSourceUid()I
 
-    move-result v2
+    move-result v1
 
-    invoke-static {p1, v2}, Landroid/os/UserHandle;->formatUid(Ljava/io/PrintWriter;I)V
+    invoke-static {p1, v1}, Landroid/os/UserHandle;->formatUid(Ljava/io/PrintWriter;I)V
 
     invoke-virtual {p1}, Landroid/util/IndentingPrintWriter;->println()V
 
@@ -308,7 +218,7 @@
 .end method
 
 .method public dumpControllerStateLocked(Landroid/util/proto/ProtoOutputStream;JLjava/util/function/Predicate;)V
-    .locals 15
+    .locals 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -320,135 +230,15 @@
         }
     .end annotation
 
-    move-object v0, p0
+    invoke-virtual {p1, p2, p3}, Landroid/util/proto/ProtoOutputStream;->start(J)J
 
-    move-object/from16 v1, p1
+    move-result-wide p2
 
-    invoke-virtual/range {p1 .. p3}, Landroid/util/proto/ProtoOutputStream;->start(J)J
+    const-wide v0, 0x10b00000007L
 
-    move-result-wide v2
-
-    const-wide v4, 0x10b00000007L
-
-    invoke-virtual {v1, v4, v5}, Landroid/util/proto/ProtoOutputStream;->start(J)J
-
-    move-result-wide v4
-
-    iget-object v6, v0, Lcom/android/server/job/controllers/StorageController;->mStorageTracker:Lcom/android/server/job/controllers/StorageController$StorageTracker;
-
-    invoke-virtual {v6}, Lcom/android/server/job/controllers/StorageController$StorageTracker;->isStorageNotLow()Z
-
-    move-result v6
-
-    const-wide v7, 0x10800000001L
-
-    invoke-virtual {v1, v7, v8, v6}, Landroid/util/proto/ProtoOutputStream;->write(JZ)V
-
-    iget-object v6, v0, Lcom/android/server/job/controllers/StorageController;->mStorageTracker:Lcom/android/server/job/controllers/StorageController$StorageTracker;
-
-    invoke-virtual {v6}, Lcom/android/server/job/controllers/StorageController$StorageTracker;->getSeq()I
-
-    move-result v6
-
-    const-wide v7, 0x10500000002L
-
-    invoke-virtual {v1, v7, v8, v6}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
-
-    const/4 v6, 0x0
-
-    :goto_0
-    iget-object v9, v0, Lcom/android/server/job/controllers/StorageController;->mTrackedTasks:Landroid/util/ArraySet;
-
-    invoke-virtual {v9}, Landroid/util/ArraySet;->size()I
-
-    move-result v9
-
-    if-ge v6, v9, :cond_1
-
-    iget-object v9, v0, Lcom/android/server/job/controllers/StorageController;->mTrackedTasks:Landroid/util/ArraySet;
-
-    invoke-virtual {v9, v6}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
-
-    move-result-object v9
-
-    check-cast v9, Lcom/android/server/job/controllers/JobStatus;
-
-    move-object/from16 v10, p4
-
-    invoke-interface {v10, v9}, Ljava/util/function/Predicate;->test(Ljava/lang/Object;)Z
-
-    move-result v11
-
-    if-nez v11, :cond_0
-
-    goto :goto_1
-
-    :cond_0
-    const-wide v11, 0x20b00000003L
-
-    invoke-virtual {v1, v11, v12}, Landroid/util/proto/ProtoOutputStream;->start(J)J
-
-    move-result-wide v11
-
-    const-wide v13, 0x10b00000001L
-
-    invoke-virtual {v9, v1, v13, v14}, Lcom/android/server/job/controllers/JobStatus;->writeToShortProto(Landroid/util/proto/ProtoOutputStream;J)V
-
-    nop
-
-    invoke-virtual {v9}, Lcom/android/server/job/controllers/JobStatus;->getSourceUid()I
-
-    move-result v13
-
-    invoke-virtual {v1, v7, v8, v13}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
-
-    invoke-virtual {v1, v11, v12}, Landroid/util/proto/ProtoOutputStream;->end(J)V
-
-    :goto_1
-    add-int/lit8 v6, v6, 0x1
-
-    goto :goto_0
-
-    :cond_1
-    move-object/from16 v10, p4
-
-    invoke-virtual {v1, v4, v5}, Landroid/util/proto/ProtoOutputStream;->end(J)V
-
-    invoke-virtual {v1, v2, v3}, Landroid/util/proto/ProtoOutputStream;->end(J)V
-
-    return-void
-.end method
-
-.method public getTracker()Lcom/android/server/job/controllers/StorageController$StorageTracker;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/job/controllers/StorageController;->mStorageTracker:Lcom/android/server/job/controllers/StorageController$StorageTracker;
-
-    return-object v0
-.end method
-
-.method public maybeStartTrackingJobLocked(Lcom/android/server/job/controllers/JobStatus;Lcom/android/server/job/controllers/JobStatus;)V
-    .locals 3
-
-    invoke-virtual {p1}, Lcom/android/server/job/controllers/JobStatus;->hasStorageNotLowConstraint()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    sget-object v0, Lcom/android/server/job/JobSchedulerService;->sElapsedRealtimeClock:Ljava/time/Clock;
-
-    invoke-virtual {v0}, Ljava/time/Clock;->millis()J
+    invoke-virtual {p1, v0, v1}, Landroid/util/proto/ProtoOutputStream;->start(J)J
 
     move-result-wide v0
-
-    iget-object v2, p0, Lcom/android/server/job/controllers/StorageController;->mTrackedTasks:Landroid/util/ArraySet;
-
-    invoke-virtual {v2, p1}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
-
-    const/16 v2, 0x10
-
-    invoke-virtual {p1, v2}, Lcom/android/server/job/controllers/JobStatus;->setTrackingController(I)V
 
     iget-object v2, p0, Lcom/android/server/job/controllers/StorageController;->mStorageTracker:Lcom/android/server/job/controllers/StorageController$StorageTracker;
 
@@ -456,26 +246,228 @@
 
     move-result v2
 
-    invoke-virtual {p1, v0, v1, v2}, Lcom/android/server/job/controllers/JobStatus;->setStorageNotLowConstraintSatisfied(JZ)Z
+    const-wide v3, 0x10800000001L
+
+    invoke-virtual {p1, v3, v4, v2}, Landroid/util/proto/ProtoOutputStream;->write(JZ)V
+
+    iget-object v2, p0, Lcom/android/server/job/controllers/StorageController;->mStorageTracker:Lcom/android/server/job/controllers/StorageController$StorageTracker;
+
+    invoke-virtual {v2}, Lcom/android/server/job/controllers/StorageController$StorageTracker;->getSeq()I
+
+    move-result v2
+
+    const-wide v3, 0x10500000002L
+
+    invoke-virtual {p1, v3, v4, v2}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
+
+    const/4 v2, 0x0
+
+    :goto_0
+    iget-object v5, p0, Lcom/android/server/job/controllers/StorageController;->mTrackedTasks:Landroid/util/ArraySet;
+
+    invoke-virtual {v5}, Landroid/util/ArraySet;->size()I
+
+    move-result v5
+
+    if-ge v2, v5, :cond_1
+
+    iget-object v5, p0, Lcom/android/server/job/controllers/StorageController;->mTrackedTasks:Landroid/util/ArraySet;
+
+    invoke-virtual {v5, v2}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Lcom/android/server/job/controllers/JobStatus;
+
+    invoke-interface {p4, v5}, Ljava/util/function/Predicate;->test(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-nez v6, :cond_0
+
+    goto :goto_1
+
+    :cond_0
+    const-wide v6, 0x20b00000003L
+
+    invoke-virtual {p1, v6, v7}, Landroid/util/proto/ProtoOutputStream;->start(J)J
+
+    move-result-wide v6
+
+    const-wide v8, 0x10b00000001L
+
+    invoke-virtual {v5, p1, v8, v9}, Lcom/android/server/job/controllers/JobStatus;->writeToShortProto(Landroid/util/proto/ProtoOutputStream;J)V
+
+    invoke-virtual {v5}, Lcom/android/server/job/controllers/JobStatus;->getSourceUid()I
+
+    move-result v5
+
+    invoke-virtual {p1, v3, v4, v5}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
+
+    invoke-virtual {p1, v6, v7}, Landroid/util/proto/ProtoOutputStream;->end(J)V
+
+    :goto_1
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    invoke-virtual {p1, v0, v1}, Landroid/util/proto/ProtoOutputStream;->end(J)V
+
+    invoke-virtual {p1, p2, p3}, Landroid/util/proto/ProtoOutputStream;->end(J)V
+
+    return-void
+.end method
+
+.method public getTracker()Lcom/android/server/job/controllers/StorageController$StorageTracker;
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+
+    iget-object p0, p0, Lcom/android/server/job/controllers/StorageController;->mStorageTracker:Lcom/android/server/job/controllers/StorageController$StorageTracker;
+
+    return-object p0
+.end method
+
+.method public final maybeReportNewStorageState()V
+    .locals 7
+
+    sget-object v0, Lcom/android/server/job/JobSchedulerService;->sElapsedRealtimeClock:Ljava/time/Clock;
+
+    invoke-virtual {v0}, Ljava/time/Clock;->millis()J
+
+    move-result-wide v0
+
+    iget-object v2, p0, Lcom/android/server/job/controllers/StorageController;->mStorageTracker:Lcom/android/server/job/controllers/StorageController$StorageTracker;
+
+    invoke-virtual {v2}, Lcom/android/server/job/controllers/StorageController$StorageTracker;->isStorageNotLow()Z
+
+    move-result v2
+
+    iget-object v3, p0, Lcom/android/server/job/controllers/StateController;->mLock:Ljava/lang/Object;
+
+    monitor-enter v3
+
+    :try_start_0
+    iget-object v4, p0, Lcom/android/server/job/controllers/StorageController;->mTrackedTasks:Landroid/util/ArraySet;
+
+    invoke-virtual {v4}, Landroid/util/ArraySet;->size()I
+
+    move-result v4
+
+    add-int/lit8 v4, v4, -0x1
+
+    const/4 v5, 0x0
+
+    :goto_0
+    if-ltz v4, :cond_0
+
+    iget-object v6, p0, Lcom/android/server/job/controllers/StorageController;->mTrackedTasks:Landroid/util/ArraySet;
+
+    invoke-virtual {v6, v4}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Lcom/android/server/job/controllers/JobStatus;
+
+    invoke-virtual {v6, v0, v1, v2}, Lcom/android/server/job/controllers/JobStatus;->setStorageNotLowConstraintSatisfied(JZ)Z
+
+    move-result v6
+
+    or-int/2addr v5, v6
+
+    add-int/lit8 v4, v4, -0x1
+
+    goto :goto_0
+
+    :cond_0
+    monitor-exit v3
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    if-eqz v2, :cond_1
+
+    iget-object p0, p0, Lcom/android/server/job/controllers/StateController;->mStateChangedListener:Lcom/android/server/job/StateChangedListener;
+
+    const/4 v0, 0x0
+
+    invoke-interface {p0, v0}, Lcom/android/server/job/StateChangedListener;->onRunJobNow(Lcom/android/server/job/controllers/JobStatus;)V
+
+    goto :goto_1
+
+    :cond_1
+    if-eqz v5, :cond_2
+
+    iget-object v0, p0, Lcom/android/server/job/controllers/StateController;->mStateChangedListener:Lcom/android/server/job/StateChangedListener;
+
+    iget-object p0, p0, Lcom/android/server/job/controllers/StorageController;->mTrackedTasks:Landroid/util/ArraySet;
+
+    invoke-interface {v0, p0}, Lcom/android/server/job/StateChangedListener;->onControllerStateChanged(Landroid/util/ArraySet;)V
+
+    :cond_2
+    :goto_1
+    return-void
+
+    :catchall_0
+    move-exception p0
+
+    :try_start_1
+    monitor-exit v3
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    throw p0
+.end method
+
+.method public maybeStartTrackingJobLocked(Lcom/android/server/job/controllers/JobStatus;Lcom/android/server/job/controllers/JobStatus;)V
+    .locals 2
+
+    invoke-virtual {p1}, Lcom/android/server/job/controllers/JobStatus;->hasStorageNotLowConstraint()Z
+
+    move-result p2
+
+    if-eqz p2, :cond_0
+
+    sget-object p2, Lcom/android/server/job/JobSchedulerService;->sElapsedRealtimeClock:Ljava/time/Clock;
+
+    invoke-virtual {p2}, Ljava/time/Clock;->millis()J
+
+    move-result-wide v0
+
+    iget-object p2, p0, Lcom/android/server/job/controllers/StorageController;->mTrackedTasks:Landroid/util/ArraySet;
+
+    invoke-virtual {p2, p1}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
+
+    const/16 p2, 0x10
+
+    invoke-virtual {p1, p2}, Lcom/android/server/job/controllers/JobStatus;->setTrackingController(I)V
+
+    iget-object p0, p0, Lcom/android/server/job/controllers/StorageController;->mStorageTracker:Lcom/android/server/job/controllers/StorageController$StorageTracker;
+
+    invoke-virtual {p0}, Lcom/android/server/job/controllers/StorageController$StorageTracker;->isStorageNotLow()Z
+
+    move-result p0
+
+    invoke-virtual {p1, v0, v1, p0}, Lcom/android/server/job/controllers/JobStatus;->setStorageNotLowConstraintSatisfied(JZ)Z
 
     :cond_0
     return-void
 .end method
 
 .method public maybeStopTrackingJobLocked(Lcom/android/server/job/controllers/JobStatus;Lcom/android/server/job/controllers/JobStatus;Z)V
-    .locals 1
+    .locals 0
 
-    const/16 v0, 0x10
+    const/16 p2, 0x10
 
-    invoke-virtual {p1, v0}, Lcom/android/server/job/controllers/JobStatus;->clearTrackingController(I)Z
+    invoke-virtual {p1, p2}, Lcom/android/server/job/controllers/JobStatus;->clearTrackingController(I)Z
 
-    move-result v0
+    move-result p2
 
-    if-eqz v0, :cond_0
+    if-eqz p2, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/job/controllers/StorageController;->mTrackedTasks:Landroid/util/ArraySet;
+    iget-object p0, p0, Lcom/android/server/job/controllers/StorageController;->mTrackedTasks:Landroid/util/ArraySet;
 
-    invoke-virtual {v0, p1}, Landroid/util/ArraySet;->remove(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p1}, Landroid/util/ArraySet;->remove(Ljava/lang/Object;)Z
 
     :cond_0
     return-void

@@ -1,4 +1,4 @@
-.class Lcom/android/server/utils/WatchedLongSparseArray$1;
+.class public Lcom/android/server/utils/WatchedLongSparseArray$1;
 .super Lcom/android/server/utils/Watcher;
 .source "WatchedLongSparseArray.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/utils/WatchedLongSparseArray;
+.field public final synthetic this$0:Lcom/android/server/utils/WatchedLongSparseArray;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/utils/WatchedLongSparseArray;)V
+.method public constructor <init>(Lcom/android/server/utils/WatchedLongSparseArray;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/utils/WatchedLongSparseArray$1;->this$0:Lcom/android/server/utils/WatchedLongSparseArray;
@@ -32,11 +32,11 @@
 
 # virtual methods
 .method public onChange(Lcom/android/server/utils/Watchable;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/utils/WatchedLongSparseArray$1;->this$0:Lcom/android/server/utils/WatchedLongSparseArray;
+    iget-object p0, p0, Lcom/android/server/utils/WatchedLongSparseArray$1;->this$0:Lcom/android/server/utils/WatchedLongSparseArray;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/utils/WatchedLongSparseArray;->dispatchChange(Lcom/android/server/utils/Watchable;)V
+    invoke-virtual {p0, p1}, Lcom/android/server/utils/WatchableImpl;->dispatchChange(Lcom/android/server/utils/Watchable;)V
 
     return-void
 .end method

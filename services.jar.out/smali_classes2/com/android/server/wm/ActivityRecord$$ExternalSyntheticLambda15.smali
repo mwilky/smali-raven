@@ -1,28 +1,13 @@
 .class public final synthetic Lcom/android/server/wm/ActivityRecord$$ExternalSyntheticLambda15;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Consumer;
-
-
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/wm/ActivityRecord$$ExternalSyntheticLambda15;
+.implements Ljava/util/function/Predicate;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/wm/ActivityRecord$$ExternalSyntheticLambda15;
-
-    invoke-direct {v0}, Lcom/android/server/wm/ActivityRecord$$ExternalSyntheticLambda15;-><init>()V
-
-    sput-object v0, Lcom/android/server/wm/ActivityRecord$$ExternalSyntheticLambda15;->INSTANCE:Lcom/android/server/wm/ActivityRecord$$ExternalSyntheticLambda15;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,12 +17,14 @@
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
+.method public final test(Ljava/lang/Object;)Z
     .locals 0
 
-    check-cast p1, Lcom/android/server/wm/WindowState;
+    check-cast p1, Lcom/android/server/wm/ActivityRecord;
 
-    invoke-static {p1}, Lcom/android/server/wm/ActivityRecord;->lambda$setVisibility$10(Lcom/android/server/wm/WindowState;)V
+    invoke-virtual {p1}, Lcom/android/server/wm/ActivityRecord;->attachedToProcess()Z
 
-    return-void
+    move-result p0
+
+    return p0
 .end method

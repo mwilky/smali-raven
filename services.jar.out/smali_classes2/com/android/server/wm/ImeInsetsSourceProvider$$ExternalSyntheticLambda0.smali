@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/wm/ImeInsetsSourceProvider$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/ImeInsetsSourceProvider$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/wm/ImeInsetsSourceProvider;
+    iget-object p0, p0, Lcom/android/server/wm/ImeInsetsSourceProvider$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/wm/ImeInsetsSourceProvider;
 
-    invoke-virtual {v0}, Lcom/android/server/wm/ImeInsetsSourceProvider;->lambda$scheduleShowImePostLayout$0$ImeInsetsSourceProvider()V
+    invoke-static {p0}, Lcom/android/server/wm/ImeInsetsSourceProvider;->$r8$lambda$rvjySZUXAI10R3XB6kYvMsUjUZQ(Lcom/android/server/wm/ImeInsetsSourceProvider;)V
 
     return-void
 .end method

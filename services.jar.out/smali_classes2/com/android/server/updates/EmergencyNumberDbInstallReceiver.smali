@@ -3,10 +3,6 @@
 .source "EmergencyNumberDbInstallReceiver.java"
 
 
-# static fields
-.field private static final TAG:Ljava/lang/String; = "EmergencyNumberDbInstallReceiver"
-
-
 # direct methods
 .method public constructor <init>()V
     .locals 4
@@ -26,24 +22,24 @@
 
 
 # virtual methods
-.method protected postInstall(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 2
+.method public postInstall(Landroid/content/Context;Landroid/content/Intent;)V
+    .locals 0
 
-    const-string v0, "EmergencyNumberDbInstallReceiver"
+    const-string p0, "EmergencyNumberDbInstallReceiver"
 
-    const-string v1, "Emergency number database is updated in file partition"
+    const-string p2, "Emergency number database is updated in file partition"
 
-    invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, p2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string v0, "phone"
+    const-string p0, "phone"
 
-    invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p1, p0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Landroid/telephony/TelephonyManager;
+    check-cast p0, Landroid/telephony/TelephonyManager;
 
-    invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->notifyOtaEmergencyNumberDbInstalled()V
+    invoke-virtual {p0}, Landroid/telephony/TelephonyManager;->notifyOtaEmergencyNumberDbInstalled()V
 
     return-void
 .end method

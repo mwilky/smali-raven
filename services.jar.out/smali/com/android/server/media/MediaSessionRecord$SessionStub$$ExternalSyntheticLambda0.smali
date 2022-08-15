@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/media/MediaSessionRecord$SessionStub$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -23,13 +24,13 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$SessionStub$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/media/MediaSessionRecord$SessionStub;
+    iget-object p0, p0, Lcom/android/server/media/MediaSessionRecord$SessionStub$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/media/MediaSessionRecord$SessionStub;
 
     check-cast p1, Ljava/util/List;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/media/MediaSessionRecord$SessionStub;->lambda$getBinderForSetQueue$0$MediaSessionRecord$SessionStub(Ljava/util/List;)V
+    invoke-static {p0, p1}, Lcom/android/server/media/MediaSessionRecord$SessionStub;->$r8$lambda$g7c74wN0s85B0GplGOQWhF2EKyk(Lcom/android/server/media/MediaSessionRecord$SessionStub;Ljava/util/List;)V
 
     return-void
 .end method

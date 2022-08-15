@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/ActivityTaskManagerService$2;
+.class public Lcom/android/server/wm/ActivityTaskManagerService$2;
 .super Lcom/android/internal/policy/KeyguardDismissCallback;
 .source "ActivityTaskManagerService.java"
 
@@ -9,19 +9,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/wm/ActivityTaskManagerService;
+.field public final synthetic this$0:Lcom/android/server/wm/ActivityTaskManagerService;
 
-.field final synthetic val$enterPipRunnable:Ljava/lang/Runnable;
+.field public final synthetic val$enterPipRunnable:Ljava/lang/Runnable;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/wm/ActivityTaskManagerService;Ljava/lang/Runnable;)V
+.method public constructor <init>(Lcom/android/server/wm/ActivityTaskManagerService;Ljava/lang/Runnable;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/wm/ActivityTaskManagerService$2;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
@@ -36,15 +36,15 @@
 
 # virtual methods
 .method public onDismissSucceeded()V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/wm/ActivityTaskManagerService$2;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
 
     iget-object v0, v0, Lcom/android/server/wm/ActivityTaskManagerService;->mH:Lcom/android/server/wm/ActivityTaskManagerService$H;
 
-    iget-object v1, p0, Lcom/android/server/wm/ActivityTaskManagerService$2;->val$enterPipRunnable:Ljava/lang/Runnable;
+    iget-object p0, p0, Lcom/android/server/wm/ActivityTaskManagerService$2;->val$enterPipRunnable:Ljava/lang/Runnable;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/wm/ActivityTaskManagerService$H;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {v0, p0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     return-void
 .end method

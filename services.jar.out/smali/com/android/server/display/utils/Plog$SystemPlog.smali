@@ -15,7 +15,7 @@
 
 
 # instance fields
-.field private final mTag:Ljava/lang/String;
+.field public final mTag:Ljava/lang/String;
 
 
 # direct methods
@@ -31,12 +31,12 @@
 
 
 # virtual methods
-.method protected emit(Ljava/lang/String;)V
-    .locals 1
+.method public emit(Ljava/lang/String;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/display/utils/Plog$SystemPlog;->mTag:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/display/utils/Plog$SystemPlog;->mTag:Ljava/lang/String;
 
-    invoke-static {v0, p1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, p1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 .end method

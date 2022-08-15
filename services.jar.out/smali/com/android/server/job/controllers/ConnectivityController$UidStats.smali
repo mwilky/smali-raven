@@ -1,4 +1,4 @@
-.class Lcom/android/server/job/controllers/ConnectivityController$UidStats;
+.class public Lcom/android/server/job/controllers/ConnectivityController$UidStats;
 .super Ljava/lang/Object;
 .source "ConnectivityController.java"
 
@@ -9,13 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "UidStats"
 .end annotation
 
 
 # instance fields
-.field public basePriority:I
+.field public baseBias:I
 
 .field public earliestEJEnqueueTime:J
 
@@ -45,7 +45,15 @@
 
 
 # direct methods
-.method private constructor <init>(I)V
+.method public static bridge synthetic -$$Nest$mdumpLocked(Lcom/android/server/job/controllers/ConnectivityController$UidStats;Landroid/util/IndentingPrintWriter;J)V
+    .locals 0
+
+    invoke-virtual {p0, p1, p2, p3}, Lcom/android/server/job/controllers/ConnectivityController$UidStats;->dumpLocked(Landroid/util/IndentingPrintWriter;J)V
+
+    return-void
+.end method
+
+.method public constructor <init>(I)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -61,7 +69,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(ILcom/android/server/job/controllers/ConnectivityController$1;)V
+.method public synthetic constructor <init>(ILcom/android/server/job/controllers/ConnectivityController$UidStats-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/job/controllers/ConnectivityController$UidStats;-><init>(I)V
@@ -69,15 +77,9 @@
     return-void
 .end method
 
-.method static synthetic access$1400(Lcom/android/server/job/controllers/ConnectivityController$UidStats;Landroid/util/IndentingPrintWriter;J)V
-    .locals 0
 
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/job/controllers/ConnectivityController$UidStats;->dumpLocked(Landroid/util/IndentingPrintWriter;J)V
-
-    return-void
-.end method
-
-.method private dumpLocked(Landroid/util/IndentingPrintWriter;J)V
+# virtual methods
+.method public final dumpLocked(Landroid/util/IndentingPrintWriter;J)V
     .locals 2
 
     const-string v0, "UidStats{"
@@ -94,7 +96,7 @@
 
     invoke-virtual {p1, v1, v0}, Landroid/util/IndentingPrintWriter;->print(Ljava/lang/String;Ljava/lang/Object;)Landroid/util/IndentingPrintWriter;
 
-    iget v0, p0, Lcom/android/server/job/controllers/ConnectivityController$UidStats;->basePriority:I
+    iget v0, p0, Lcom/android/server/job/controllers/ConnectivityController$UidStats;->baseBias:I
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -188,9 +190,9 @@
 
     invoke-static {v0, v1, p1}, Landroid/util/TimeUtils;->formatDuration(JLjava/io/PrintWriter;)V
 
-    const-string/jumbo v0, "}"
+    const-string/jumbo p0, "}"
 
-    invoke-virtual {p1, v0}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p1, p0}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
     return-void
 .end method

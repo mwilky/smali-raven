@@ -1,4 +1,4 @@
-.class Lcom/android/server/DockObserver$1;
+.class public Lcom/android/server/DockObserver$1;
 .super Landroid/os/Handler;
 .source "DockObserver.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/DockObserver;
+.field public final synthetic this$0:Lcom/android/server/DockObserver;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/DockObserver;Z)V
+.method public constructor <init>(Lcom/android/server/DockObserver;Z)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/DockObserver$1;->this$0:Lcom/android/server/DockObserver;
@@ -32,34 +32,27 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 1
+    .locals 0
 
-    iget v0, p1, Landroid/os/Message;->what:I
+    iget p1, p1, Landroid/os/Message;->what:I
 
-    packed-switch v0, :pswitch_data_0
+    if-eqz p1, :cond_0
 
     goto :goto_0
 
-    :pswitch_0
-    iget-object v0, p0, Lcom/android/server/DockObserver$1;->this$0:Lcom/android/server/DockObserver;
+    :cond_0
+    iget-object p1, p0, Lcom/android/server/DockObserver$1;->this$0:Lcom/android/server/DockObserver;
 
-    invoke-static {v0}, Lcom/android/server/DockObserver;->access$100(Lcom/android/server/DockObserver;)V
+    invoke-static {p1}, Lcom/android/server/DockObserver;->-$$Nest$mhandleDockStateChange(Lcom/android/server/DockObserver;)V
 
-    iget-object v0, p0, Lcom/android/server/DockObserver$1;->this$0:Lcom/android/server/DockObserver;
+    iget-object p0, p0, Lcom/android/server/DockObserver$1;->this$0:Lcom/android/server/DockObserver;
 
-    invoke-static {v0}, Lcom/android/server/DockObserver;->access$200(Lcom/android/server/DockObserver;)Landroid/os/PowerManager$WakeLock;
+    invoke-static {p0}, Lcom/android/server/DockObserver;->-$$Nest$fgetmWakeLock(Lcom/android/server/DockObserver;)Landroid/os/PowerManager$WakeLock;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->release()V
+    invoke-virtual {p0}, Landroid/os/PowerManager$WakeLock;->release()V
 
     :goto_0
     return-void
-
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0x0
-        :pswitch_0
-    .end packed-switch
 .end method

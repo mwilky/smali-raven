@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda29;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -8,14 +9,18 @@
 # instance fields
 .field public final synthetic f$0:Lcom/android/server/wm/DisplayContent;
 
+.field public final synthetic f$1:Landroid/view/SurfaceControl$Transaction;
+
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/wm/DisplayContent;)V
+.method public synthetic constructor <init>(Lcom/android/server/wm/DisplayContent;Landroid/view/SurfaceControl$Transaction;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda29;->f$0:Lcom/android/server/wm/DisplayContent;
+
+    iput-object p2, p0, Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda29;->f$1:Landroid/view/SurfaceControl$Transaction;
 
     return-void
 .end method
@@ -27,9 +32,11 @@
 
     iget-object v0, p0, Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda29;->f$0:Lcom/android/server/wm/DisplayContent;
 
+    iget-object p0, p0, Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda29;->f$1:Landroid/view/SurfaceControl$Transaction;
+
     check-cast p1, Lcom/android/server/wm/WindowState;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/wm/DisplayContent;->lambda$onWindowFreezeTimeout$30$DisplayContent(Lcom/android/server/wm/WindowState;)V
+    invoke-static {v0, p0, p1}, Lcom/android/server/wm/DisplayContent;->$r8$lambda$9M8KWjXTwp7la_Ci0pJZ-tS_Pz0(Lcom/android/server/wm/DisplayContent;Landroid/view/SurfaceControl$Transaction;Lcom/android/server/wm/WindowState;)V
 
     return-void
 .end method

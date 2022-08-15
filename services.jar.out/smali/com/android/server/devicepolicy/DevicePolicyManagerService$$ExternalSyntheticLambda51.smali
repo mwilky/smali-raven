@@ -1,57 +1,36 @@
 .class public final synthetic Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda51;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/internal/util/FunctionalUtils$ThrowingRunnable;
+.implements Lcom/android/internal/util/FunctionalUtils$ThrowingSupplier;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
-
-.field public final synthetic f$1:Ljava/lang/String;
-
-.field public final synthetic f$2:Landroid/os/Bundle;
-
-.field public final synthetic f$3:Lcom/android/server/devicepolicy/CallerIdentity;
-
-.field public final synthetic f$4:Landroid/content/ComponentName;
+.field public final synthetic f$0:Landroid/content/ContentResolver;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/devicepolicy/DevicePolicyManagerService;Ljava/lang/String;Landroid/os/Bundle;Lcom/android/server/devicepolicy/CallerIdentity;Landroid/content/ComponentName;)V
+.method public synthetic constructor <init>(Landroid/content/ContentResolver;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda51;->f$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
-
-    iput-object p2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda51;->f$1:Ljava/lang/String;
-
-    iput-object p3, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda51;->f$2:Landroid/os/Bundle;
-
-    iput-object p4, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda51;->f$3:Lcom/android/server/devicepolicy/CallerIdentity;
-
-    iput-object p5, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda51;->f$4:Landroid/content/ComponentName;
+    iput-object p1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda51;->f$0:Landroid/content/ContentResolver;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final runOrThrow()V
-    .locals 5
+.method public final getOrThrow()Ljava/lang/Object;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda51;->f$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
+    iget-object p0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda51;->f$0:Landroid/content/ContentResolver;
 
-    iget-object v1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda51;->f$1:Ljava/lang/String;
+    invoke-static {p0}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->$r8$lambda$LeTD4RvbX2iLzEkl_jRDrGh7PhU(Landroid/content/ContentResolver;)Ljava/lang/Boolean;
 
-    iget-object v2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda51;->f$2:Landroid/os/Bundle;
+    move-result-object p0
 
-    iget-object v3, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda51;->f$3:Lcom/android/server/devicepolicy/CallerIdentity;
-
-    iget-object v4, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda51;->f$4:Landroid/content/ComponentName;
-
-    invoke-virtual {v0, v1, v2, v3, v4}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$setApplicationRestrictions$74$DevicePolicyManagerService(Ljava/lang/String;Landroid/os/Bundle;Lcom/android/server/devicepolicy/CallerIdentity;Landroid/content/ComponentName;)V
-
-    return-void
+    return-object p0
 .end method

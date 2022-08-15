@@ -1,4 +1,4 @@
-.class Lcom/android/server/adb/AdbDebuggingManager$AdbConnectionPortPoller;
+.class public Lcom/android/server/adb/AdbDebuggingManager$AdbConnectionPortPoller;
 .super Ljava/lang/Thread;
 .source "AdbDebuggingManager.java"
 
@@ -9,23 +9,23 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "AdbConnectionPortPoller"
 .end annotation
 
 
 # instance fields
-.field private final mAdbPortProp:Ljava/lang/String;
+.field public final mAdbPortProp:Ljava/lang/String;
 
-.field private mCanceled:Ljava/util/concurrent/atomic/AtomicBoolean;
+.field public mCanceled:Ljava/util/concurrent/atomic/AtomicBoolean;
 
-.field private final mDurationSecs:I
+.field public final mDurationSecs:I
 
-.field private mListener:Lcom/android/server/adb/AdbDebuggingManager$AdbConnectionPortListener;
+.field public mListener:Lcom/android/server/adb/AdbDebuggingManager$AdbConnectionPortListener;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/adb/AdbDebuggingManager$AdbConnectionPortListener;)V
+.method public constructor <init>(Lcom/android/server/adb/AdbDebuggingManager$AdbConnectionPortListener;)V
     .locals 2
 
     invoke-direct {p0}, Ljava/lang/Thread;-><init>()V
@@ -62,24 +62,19 @@
 
     invoke-virtual {v0, v1}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
-    invoke-virtual {p0}, Lcom/android/server/adb/AdbDebuggingManager$AdbConnectionPortPoller;->isAlive()Z
+    invoke-virtual {p0}, Ljava/lang/Thread;->isAlive()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
     :try_start_0
-    invoke-virtual {p0}, Lcom/android/server/adb/AdbDebuggingManager$AdbConnectionPortPoller;->join()V
+    invoke-virtual {p0}, Ljava/lang/Thread;->join()V
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
-
     :catch_0
-    move-exception v0
-
     :cond_0
-    :goto_0
     return-void
 .end method
 
@@ -125,9 +120,9 @@
     goto :goto_1
 
     :cond_1
-    const-wide/16 v2, 0x3e8
+    const-wide/16 v1, 0x3e8
 
-    invoke-static {v2, v3}, Landroid/os/SystemClock;->sleep(J)V
+    invoke-static {v1, v2}, Landroid/os/SystemClock;->sleep(J)V
 
     add-int/lit8 v0, v0, 0x1
 
@@ -135,22 +130,24 @@
 
     :cond_2
     :goto_1
-    iget-object v2, p0, Lcom/android/server/adb/AdbDebuggingManager$AdbConnectionPortPoller;->mListener:Lcom/android/server/adb/AdbDebuggingManager$AdbConnectionPortListener;
+    iget-object p0, p0, Lcom/android/server/adb/AdbDebuggingManager$AdbConnectionPortPoller;->mListener:Lcom/android/server/adb/AdbDebuggingManager$AdbConnectionPortListener;
 
-    invoke-interface {v2, v1}, Lcom/android/server/adb/AdbDebuggingManager$AdbConnectionPortListener;->onPortReceived(I)V
+    invoke-interface {p0, v1}, Lcom/android/server/adb/AdbDebuggingManager$AdbConnectionPortListener;->onPortReceived(I)V
 
     return-void
 
     :cond_3
-    const-string v0, "AdbDebuggingManager"
+    invoke-static {}, Lcom/android/server/adb/AdbDebuggingManager;->-$$Nest$sfgetTAG()Ljava/lang/String;
+
+    move-result-object v0
 
     const-string v1, "Failed to receive adb connection port"
 
     invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v0, p0, Lcom/android/server/adb/AdbDebuggingManager$AdbConnectionPortPoller;->mListener:Lcom/android/server/adb/AdbDebuggingManager$AdbConnectionPortListener;
+    iget-object p0, p0, Lcom/android/server/adb/AdbDebuggingManager$AdbConnectionPortPoller;->mListener:Lcom/android/server/adb/AdbDebuggingManager$AdbConnectionPortListener;
 
-    invoke-interface {v0, v2}, Lcom/android/server/adb/AdbDebuggingManager$AdbConnectionPortListener;->onPortReceived(I)V
+    invoke-interface {p0, v2}, Lcom/android/server/adb/AdbDebuggingManager$AdbConnectionPortListener;->onPortReceived(I)V
 
     return-void
 .end method

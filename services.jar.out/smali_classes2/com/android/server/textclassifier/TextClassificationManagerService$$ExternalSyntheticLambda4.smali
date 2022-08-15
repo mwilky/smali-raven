@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/textclassifier/TextClassificationManagerService$$ExternalSyntheticLambda4;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/internal/util/FunctionalUtils$ThrowingConsumer;
@@ -27,15 +28,15 @@
 
 # virtual methods
 .method public final acceptOrThrow(Ljava/lang/Object;)V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/textclassifier/TextClassificationManagerService$$ExternalSyntheticLambda4;->f$0:Landroid/view/textclassifier/TextClassificationSessionId;
 
-    iget-object v1, p0, Lcom/android/server/textclassifier/TextClassificationManagerService$$ExternalSyntheticLambda4;->f$1:Landroid/view/textclassifier/TextClassifierEvent;
+    iget-object p0, p0, Lcom/android/server/textclassifier/TextClassificationManagerService$$ExternalSyntheticLambda4;->f$1:Landroid/view/textclassifier/TextClassifierEvent;
 
     check-cast p1, Landroid/service/textclassifier/ITextClassifierService;
 
-    invoke-static {v0, v1, p1}, Lcom/android/server/textclassifier/TextClassificationManagerService;->lambda$onTextClassifierEvent$4(Landroid/view/textclassifier/TextClassificationSessionId;Landroid/view/textclassifier/TextClassifierEvent;Landroid/service/textclassifier/ITextClassifierService;)V
+    invoke-static {v0, p0, p1}, Lcom/android/server/textclassifier/TextClassificationManagerService;->$r8$lambda$GM5sk77pzmN8BRA54KADuL3E7DA(Landroid/view/textclassifier/TextClassificationSessionId;Landroid/view/textclassifier/TextClassifierEvent;Landroid/service/textclassifier/ITextClassifierService;)V
 
     return-void
 .end method

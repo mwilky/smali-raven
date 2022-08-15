@@ -12,11 +12,11 @@
 
 
 # instance fields
-.field private externalToken:Landroid/os/Binder;
+.field public externalToken:Landroid/os/Binder;
 
-.field private final mOwner:Ljava/lang/Object;
+.field public final mOwner:Ljava/lang/Object;
 
-.field private mReadPerms:Landroid/util/ArraySet;
+.field public mReadPerms:Landroid/util/ArraySet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/ArraySet<",
@@ -26,9 +26,9 @@
     .end annotation
 .end field
 
-.field private final mService:Lcom/android/server/uri/UriGrantsManagerInternal;
+.field public final mService:Lcom/android/server/uri/UriGrantsManagerInternal;
 
-.field private mWritePerms:Landroid/util/ArraySet;
+.field public mWritePerms:Landroid/util/ArraySet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/ArraySet<",
@@ -52,27 +52,25 @@
     return-void
 .end method
 
-.method static fromExternalToken(Landroid/os/IBinder;)Lcom/android/server/uri/UriPermissionOwner;
+.method public static fromExternalToken(Landroid/os/IBinder;)Lcom/android/server/uri/UriPermissionOwner;
     .locals 1
 
     instance-of v0, p0, Lcom/android/server/uri/UriPermissionOwner$ExternalToken;
 
     if-eqz v0, :cond_0
 
-    move-object v0, p0
+    check-cast p0, Lcom/android/server/uri/UriPermissionOwner$ExternalToken;
 
-    check-cast v0, Lcom/android/server/uri/UriPermissionOwner$ExternalToken;
+    invoke-virtual {p0}, Lcom/android/server/uri/UriPermissionOwner$ExternalToken;->getOwner()Lcom/android/server/uri/UriPermissionOwner;
 
-    invoke-virtual {v0}, Lcom/android/server/uri/UriPermissionOwner$ExternalToken;->getOwner()Lcom/android/server/uri/UriPermissionOwner;
+    move-result-object p0
 
-    move-result-object v0
-
-    return-object v0
+    return-object p0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return-object v0
+    return-object p0
 .end method
 
 
@@ -91,9 +89,9 @@
     iput-object v0, p0, Lcom/android/server/uri/UriPermissionOwner;->mReadPerms:Landroid/util/ArraySet;
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/uri/UriPermissionOwner;->mReadPerms:Landroid/util/ArraySet;
+    iget-object p0, p0, Lcom/android/server/uri/UriPermissionOwner;->mReadPerms:Landroid/util/ArraySet;
 
-    invoke-virtual {v0, p1}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p1}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
 
     return-void
 .end method
@@ -112,9 +110,9 @@
     iput-object v0, p0, Lcom/android/server/uri/UriPermissionOwner;->mWritePerms:Landroid/util/ArraySet;
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/uri/UriPermissionOwner;->mWritePerms:Landroid/util/ArraySet;
+    iget-object p0, p0, Lcom/android/server/uri/UriPermissionOwner;->mWritePerms:Landroid/util/ArraySet;
 
-    invoke-virtual {v0, p1}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p1}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
 
     return-void
 .end method
@@ -143,136 +141,136 @@
 
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    const-string v0, "writeUriPermissions="
+    const-string p2, "writeUriPermissions="
 
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+    invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    iget-object v0, p0, Lcom/android/server/uri/UriPermissionOwner;->mWritePerms:Landroid/util/ArraySet;
+    iget-object p0, p0, Lcom/android/server/uri/UriPermissionOwner;->mWritePerms:Landroid/util/ArraySet;
 
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
+    invoke-virtual {p1, p0}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
 
     :cond_1
     return-void
 .end method
 
 .method public dumpDebug(Landroid/util/proto/ProtoOutputStream;J)V
-    .locals 8
+    .locals 5
 
     invoke-virtual {p1, p2, p3}, Landroid/util/proto/ProtoOutputStream;->start(J)J
 
-    move-result-wide v0
+    move-result-wide p2
 
-    iget-object v2, p0, Lcom/android/server/uri/UriPermissionOwner;->mOwner:Ljava/lang/Object;
+    iget-object v0, p0, Lcom/android/server/uri/UriPermissionOwner;->mOwner:Ljava/lang/Object;
 
-    invoke-virtual {v2}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-wide v1, 0x10900000001L
+
+    invoke-virtual {p1, v1, v2, v0}, Landroid/util/proto/ProtoOutputStream;->write(JLjava/lang/String;)V
+
+    iget-object v0, p0, Lcom/android/server/uri/UriPermissionOwner;->mReadPerms:Landroid/util/ArraySet;
+
+    if-eqz v0, :cond_1
+
+    monitor-enter v0
+
+    :try_start_0
+    iget-object v1, p0, Lcom/android/server/uri/UriPermissionOwner;->mReadPerms:Landroid/util/ArraySet;
+
+    invoke-virtual {v1}, Landroid/util/ArraySet;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v2
 
-    const-wide v3, 0x10900000001L
+    check-cast v2, Lcom/android/server/uri/UriPermission;
 
-    invoke-virtual {p1, v3, v4, v2}, Landroid/util/proto/ProtoOutputStream;->write(JLjava/lang/String;)V
+    iget-object v2, v2, Lcom/android/server/uri/UriPermission;->uri:Lcom/android/server/uri/GrantUri;
 
-    iget-object v2, p0, Lcom/android/server/uri/UriPermissionOwner;->mReadPerms:Landroid/util/ArraySet;
+    const-wide v3, 0x20b00000002L
 
-    if-eqz v2, :cond_1
-
-    monitor-enter v2
-
-    :try_start_0
-    iget-object v3, p0, Lcom/android/server/uri/UriPermissionOwner;->mReadPerms:Landroid/util/ArraySet;
-
-    invoke-virtual {v3}, Landroid/util/ArraySet;->iterator()Ljava/util/Iterator;
-
-    move-result-object v3
-
-    :goto_0
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_0
-
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Lcom/android/server/uri/UriPermission;
-
-    iget-object v5, v4, Lcom/android/server/uri/UriPermission;->uri:Lcom/android/server/uri/GrantUri;
-
-    const-wide v6, 0x20b00000002L
-
-    invoke-virtual {v5, p1, v6, v7}, Lcom/android/server/uri/GrantUri;->dumpDebug(Landroid/util/proto/ProtoOutputStream;J)V
+    invoke-virtual {v2, p1, v3, v4}, Lcom/android/server/uri/GrantUri;->dumpDebug(Landroid/util/proto/ProtoOutputStream;J)V
 
     goto :goto_0
 
     :cond_0
-    monitor-exit v2
+    monitor-exit v0
 
     goto :goto_1
 
     :catchall_0
-    move-exception v3
+    move-exception p0
 
-    monitor-exit v2
+    monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v3
+    throw p0
 
     :cond_1
     :goto_1
-    iget-object v2, p0, Lcom/android/server/uri/UriPermissionOwner;->mWritePerms:Landroid/util/ArraySet;
+    iget-object v0, p0, Lcom/android/server/uri/UriPermissionOwner;->mWritePerms:Landroid/util/ArraySet;
 
-    if-eqz v2, :cond_3
+    if-eqz v0, :cond_3
 
-    monitor-enter v2
+    monitor-enter v0
 
     :try_start_1
-    iget-object v3, p0, Lcom/android/server/uri/UriPermissionOwner;->mWritePerms:Landroid/util/ArraySet;
+    iget-object p0, p0, Lcom/android/server/uri/UriPermissionOwner;->mWritePerms:Landroid/util/ArraySet;
 
-    invoke-virtual {v3}, Landroid/util/ArraySet;->iterator()Ljava/util/Iterator;
+    invoke-virtual {p0}, Landroid/util/ArraySet;->iterator()Ljava/util/Iterator;
 
-    move-result-object v3
+    move-result-object p0
 
     :goto_2
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v4
+    move-result v1
 
-    if-eqz v4, :cond_2
+    if-eqz v1, :cond_2
 
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v1
 
-    check-cast v4, Lcom/android/server/uri/UriPermission;
+    check-cast v1, Lcom/android/server/uri/UriPermission;
 
-    iget-object v5, v4, Lcom/android/server/uri/UriPermission;->uri:Lcom/android/server/uri/GrantUri;
+    iget-object v1, v1, Lcom/android/server/uri/UriPermission;->uri:Lcom/android/server/uri/GrantUri;
 
-    const-wide v6, 0x20b00000003L
+    const-wide v2, 0x20b00000003L
 
-    invoke-virtual {v5, p1, v6, v7}, Lcom/android/server/uri/GrantUri;->dumpDebug(Landroid/util/proto/ProtoOutputStream;J)V
+    invoke-virtual {v1, p1, v2, v3}, Lcom/android/server/uri/GrantUri;->dumpDebug(Landroid/util/proto/ProtoOutputStream;J)V
 
     goto :goto_2
 
     :cond_2
-    monitor-exit v2
+    monitor-exit v0
 
     goto :goto_3
 
     :catchall_1
-    move-exception v3
+    move-exception p0
 
-    monitor-exit v2
+    monitor-exit v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    throw v3
+    throw p0
 
     :cond_3
     :goto_3
-    invoke-virtual {p1, v0, v1}, Landroid/util/proto/ProtoOutputStream;->end(J)V
+    invoke-virtual {p1, p2, p3}, Landroid/util/proto/ProtoOutputStream;->end(J)V
 
     return-void
 .end method
@@ -291,9 +289,9 @@
     iput-object v0, p0, Lcom/android/server/uri/UriPermissionOwner;->externalToken:Landroid/os/Binder;
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/uri/UriPermissionOwner;->externalToken:Landroid/os/Binder;
+    iget-object p0, p0, Lcom/android/server/uri/UriPermissionOwner;->externalToken:Landroid/os/Binder;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public removeReadPermission(Lcom/android/server/uri/UriPermission;)V
@@ -303,23 +301,23 @@
 
     invoke-virtual {v0, p1}, Landroid/util/ArraySet;->remove(Ljava/lang/Object;)Z
 
-    iget-object v0, p0, Lcom/android/server/uri/UriPermissionOwner;->mReadPerms:Landroid/util/ArraySet;
+    iget-object p1, p0, Lcom/android/server/uri/UriPermissionOwner;->mReadPerms:Landroid/util/ArraySet;
 
-    invoke-virtual {v0}, Landroid/util/ArraySet;->isEmpty()Z
+    invoke-virtual {p1}, Landroid/util/ArraySet;->isEmpty()Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput-object v0, p0, Lcom/android/server/uri/UriPermissionOwner;->mReadPerms:Landroid/util/ArraySet;
+    iput-object p1, p0, Lcom/android/server/uri/UriPermissionOwner;->mReadPerms:Landroid/util/ArraySet;
 
     :cond_0
     return-void
 .end method
 
-.method removeUriPermission(Lcom/android/server/uri/GrantUri;I)V
+.method public removeUriPermission(Lcom/android/server/uri/GrantUri;I)V
     .locals 2
 
     const/4 v0, 0x0
@@ -331,7 +329,7 @@
     return-void
 .end method
 
-.method removeUriPermission(Lcom/android/server/uri/GrantUri;ILjava/lang/String;I)V
+.method public removeUriPermission(Lcom/android/server/uri/GrantUri;ILjava/lang/String;I)V
     .locals 5
 
     and-int/lit8 v0, p2, 0x1
@@ -409,95 +407,95 @@
     goto :goto_0
 
     :cond_3
-    iget-object v3, p0, Lcom/android/server/uri/UriPermissionOwner;->mReadPerms:Landroid/util/ArraySet;
+    iget-object v0, p0, Lcom/android/server/uri/UriPermissionOwner;->mReadPerms:Landroid/util/ArraySet;
 
-    invoke-virtual {v3}, Landroid/util/ArraySet;->isEmpty()Z
+    invoke-virtual {v0}, Landroid/util/ArraySet;->isEmpty()Z
 
-    move-result v3
+    move-result v0
 
-    if-eqz v3, :cond_4
+    if-eqz v0, :cond_4
 
     iput-object v2, p0, Lcom/android/server/uri/UriPermissionOwner;->mReadPerms:Landroid/util/ArraySet;
 
     :cond_4
-    and-int/lit8 v0, p2, 0x2
+    and-int/lit8 p2, p2, 0x2
 
-    if-eqz v0, :cond_9
+    if-eqz p2, :cond_9
 
-    iget-object v0, p0, Lcom/android/server/uri/UriPermissionOwner;->mWritePerms:Landroid/util/ArraySet;
+    iget-object p2, p0, Lcom/android/server/uri/UriPermissionOwner;->mWritePerms:Landroid/util/ArraySet;
 
-    if-eqz v0, :cond_9
+    if-eqz p2, :cond_9
 
-    invoke-virtual {v0}, Landroid/util/ArraySet;->iterator()Ljava/util/Iterator;
+    invoke-virtual {p2}, Landroid/util/ArraySet;->iterator()Ljava/util/Iterator;
+
+    move-result-object p2
+
+    :goto_1
+    invoke-interface {p2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_8
+
+    invoke-interface {p2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
-    :goto_1
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_8
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Lcom/android/server/uri/UriPermission;
+    check-cast v0, Lcom/android/server/uri/UriPermission;
 
     if-eqz p1, :cond_5
 
-    iget-object v4, v3, Lcom/android/server/uri/UriPermission;->uri:Lcom/android/server/uri/GrantUri;
+    iget-object v3, v0, Lcom/android/server/uri/UriPermission;->uri:Lcom/android/server/uri/GrantUri;
 
-    invoke-virtual {p1, v4}, Lcom/android/server/uri/GrantUri;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v3}, Lcom/android/server/uri/GrantUri;->equals(Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result v3
 
-    if-nez v4, :cond_5
+    if-nez v3, :cond_5
 
     goto :goto_1
 
     :cond_5
     if-eqz p3, :cond_6
 
-    iget-object v4, v3, Lcom/android/server/uri/UriPermission;->targetPkg:Ljava/lang/String;
+    iget-object v3, v0, Lcom/android/server/uri/UriPermission;->targetPkg:Ljava/lang/String;
 
-    invoke-virtual {p3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p3, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result v3
 
-    if-nez v4, :cond_6
+    if-nez v3, :cond_6
 
     goto :goto_1
 
     :cond_6
     if-eq p4, v1, :cond_7
 
-    iget v4, v3, Lcom/android/server/uri/UriPermission;->targetUserId:I
+    iget v3, v0, Lcom/android/server/uri/UriPermission;->targetUserId:I
 
-    if-eq p4, v4, :cond_7
+    if-eq p4, v3, :cond_7
 
     goto :goto_1
 
     :cond_7
-    invoke-virtual {v3, p0}, Lcom/android/server/uri/UriPermission;->removeWriteOwner(Lcom/android/server/uri/UriPermissionOwner;)V
+    invoke-virtual {v0, p0}, Lcom/android/server/uri/UriPermission;->removeWriteOwner(Lcom/android/server/uri/UriPermissionOwner;)V
 
-    iget-object v4, p0, Lcom/android/server/uri/UriPermissionOwner;->mService:Lcom/android/server/uri/UriGrantsManagerInternal;
+    iget-object v3, p0, Lcom/android/server/uri/UriPermissionOwner;->mService:Lcom/android/server/uri/UriGrantsManagerInternal;
 
-    invoke-interface {v4, v3}, Lcom/android/server/uri/UriGrantsManagerInternal;->removeUriPermissionIfNeeded(Lcom/android/server/uri/UriPermission;)V
+    invoke-interface {v3, v0}, Lcom/android/server/uri/UriGrantsManagerInternal;->removeUriPermissionIfNeeded(Lcom/android/server/uri/UriPermission;)V
 
-    invoke-interface {v0}, Ljava/util/Iterator;->remove()V
+    invoke-interface {p2}, Ljava/util/Iterator;->remove()V
 
     goto :goto_1
 
     :cond_8
-    iget-object v1, p0, Lcom/android/server/uri/UriPermissionOwner;->mWritePerms:Landroid/util/ArraySet;
+    iget-object p1, p0, Lcom/android/server/uri/UriPermissionOwner;->mWritePerms:Landroid/util/ArraySet;
 
-    invoke-virtual {v1}, Landroid/util/ArraySet;->isEmpty()Z
+    invoke-virtual {p1}, Landroid/util/ArraySet;->isEmpty()Z
 
-    move-result v1
+    move-result p1
 
-    if-eqz v1, :cond_9
+    if-eqz p1, :cond_9
 
     iput-object v2, p0, Lcom/android/server/uri/UriPermissionOwner;->mWritePerms:Landroid/util/ArraySet;
 
@@ -515,7 +513,7 @@
     return-void
 .end method
 
-.method removeUriPermissions(I)V
+.method public removeUriPermissions(I)V
     .locals 1
 
     const/4 v0, 0x0
@@ -532,30 +530,30 @@
 
     invoke-virtual {v0, p1}, Landroid/util/ArraySet;->remove(Ljava/lang/Object;)Z
 
-    iget-object v0, p0, Lcom/android/server/uri/UriPermissionOwner;->mWritePerms:Landroid/util/ArraySet;
+    iget-object p1, p0, Lcom/android/server/uri/UriPermissionOwner;->mWritePerms:Landroid/util/ArraySet;
 
-    invoke-virtual {v0}, Landroid/util/ArraySet;->isEmpty()Z
+    invoke-virtual {p1}, Landroid/util/ArraySet;->isEmpty()Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput-object v0, p0, Lcom/android/server/uri/UriPermissionOwner;->mWritePerms:Landroid/util/ArraySet;
+    iput-object p1, p0, Lcom/android/server/uri/UriPermissionOwner;->mWritePerms:Landroid/util/ArraySet;
 
     :cond_0
     return-void
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/uri/UriPermissionOwner;->mOwner:Ljava/lang/Object;
+    iget-object p0, p0, Lcom/android/server/uri/UriPermissionOwner;->mOwner:Ljava/lang/Object;
 
-    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

@@ -4,6 +4,9 @@
 
 
 # annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedSpecialArgs;,
@@ -13,9 +16,10 @@
 
 
 # static fields
-.field private static final ERROR_CODE_UNKNOWN:I = -0x1
-
-.field private static final FEATURE_ABORT_OPCODE_UNKNOWN:I = 0x100
+.field public static final FEATURE_ABORT_OPCODE_UNKNOWN:I = 0x100
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+.end field
 
 
 # direct methods
@@ -27,169 +31,227 @@
     return-void
 .end method
 
-.method private createFeatureAbortSpecialArgs(Lcom/android/server/hdmi/HdmiCecMessage;)Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedSpecialArgs;
-    .locals 3
+
+# virtual methods
+.method public activeSourceChanged(III)V
+    .locals 0
+
+    const/16 p0, 0x135
+
+    invoke-static {p0, p1, p2, p3}, Lcom/android/internal/util/FrameworkStatsLog;->write(IIII)V
+
+    return-void
+.end method
+
+.method public final createFeatureAbortSpecialArgs(Lcom/android/server/hdmi/HdmiCecMessage;)Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedSpecialArgs;
+    .locals 2
 
     new-instance v0, Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedSpecialArgs;
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, p0, v1}, Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedSpecialArgs;-><init>(Lcom/android/server/hdmi/HdmiCecAtomWriter;Lcom/android/server/hdmi/HdmiCecAtomWriter$1;)V
+    invoke-direct {v0, p0, v1}, Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedSpecialArgs;-><init>(Lcom/android/server/hdmi/HdmiCecAtomWriter;Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedSpecialArgs-IA;)V
 
     invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecMessage;->getParams()[B
 
-    move-result-object v1
+    move-result-object p0
 
-    const/4 v2, 0x0
+    array-length p0, p0
 
-    aget-byte v1, v1, v2
-
-    and-int/lit16 v1, v1, 0xff
-
-    iput v1, v0, Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedSpecialArgs;->mFeatureAbortOpcode:I
+    if-lez p0, :cond_0
 
     invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecMessage;->getParams()[B
 
-    move-result-object v1
+    move-result-object p0
 
-    const/4 v2, 0x1
+    const/4 v1, 0x0
 
-    aget-byte v1, v1, v2
+    aget-byte p0, p0, v1
 
-    add-int/lit8 v1, v1, 0xa
+    and-int/lit16 p0, p0, 0xff
 
-    iput v1, v0, Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedSpecialArgs;->mFeatureAbortReason:I
+    iput p0, v0, Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedSpecialArgs;->mFeatureAbortOpcode:I
 
+    invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecMessage;->getParams()[B
+
+    move-result-object p0
+
+    array-length p0, p0
+
+    const/4 v1, 0x1
+
+    if-le p0, v1, :cond_0
+
+    invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecMessage;->getParams()[B
+
+    move-result-object p0
+
+    aget-byte p0, p0, v1
+
+    add-int/lit8 p0, p0, 0xa
+
+    iput p0, v0, Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedSpecialArgs;->mFeatureAbortReason:I
+
+    :cond_0
     return-object v0
 .end method
 
-.method private createMessageReportedGenericArgs(Lcom/android/server/hdmi/HdmiCecMessage;III)Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedGenericArgs;
-    .locals 9
+.method public final createMessageReportedGenericArgs(Lcom/android/server/hdmi/HdmiCecMessage;III)Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedGenericArgs;
+    .locals 8
 
     const/4 v0, -0x1
 
     if-ne p3, v0, :cond_0
 
-    const/4 v0, 0x0
-
-    move v8, v0
+    const/4 p3, 0x0
 
     goto :goto_0
 
     :cond_0
-    add-int/lit8 v0, p3, 0xa
-
-    move v8, v0
+    add-int/lit8 p3, p3, 0xa
 
     :goto_0
-    nop
+    move v7, p3
 
-    new-instance v0, Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedGenericArgs;
+    new-instance p3, Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedGenericArgs;
 
     invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecMessage;->getSource()I
 
-    move-result v5
+    move-result v4
 
     invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecMessage;->getDestination()I
 
-    move-result v6
+    move-result v5
 
     invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecMessage;->getOpcode()I
 
-    move-result v7
+    move-result v6
 
-    move-object v1, v0
+    move-object v0, p3
 
-    move-object v2, p0
+    move-object v1, p0
 
-    move v3, p4
+    move v2, p4
 
-    move v4, p2
+    move v3, p2
 
-    invoke-direct/range {v1 .. v8}, Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedGenericArgs;-><init>(Lcom/android/server/hdmi/HdmiCecAtomWriter;IIIIII)V
+    invoke-direct/range {v0 .. v7}, Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedGenericArgs;-><init>(Lcom/android/server/hdmi/HdmiCecAtomWriter;IIIIII)V
 
-    return-object v0
+    return-object p3
 .end method
 
-.method private createMessageReportedSpecialArgs(Lcom/android/server/hdmi/HdmiCecMessage;)Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedSpecialArgs;
+.method public final createMessageReportedSpecialArgs(Lcom/android/server/hdmi/HdmiCecMessage;)Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedSpecialArgs;
     .locals 2
 
     invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecMessage;->getOpcode()I
 
     move-result v0
 
-    sparse-switch v0, :sswitch_data_0
+    if-eqz v0, :cond_1
 
-    new-instance v0, Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedSpecialArgs;
+    const/16 v1, 0x44
 
-    const/4 v1, 0x0
+    if-eq v0, v1, :cond_0
 
-    invoke-direct {v0, p0, v1}, Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedSpecialArgs;-><init>(Lcom/android/server/hdmi/HdmiCecAtomWriter;Lcom/android/server/hdmi/HdmiCecAtomWriter$1;)V
+    new-instance p1, Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedSpecialArgs;
 
-    return-object v0
+    const/4 v0, 0x0
 
-    :sswitch_0
-    invoke-direct {p0, p1}, Lcom/android/server/hdmi/HdmiCecAtomWriter;->createUserControlPressedSpecialArgs(Lcom/android/server/hdmi/HdmiCecMessage;)Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedSpecialArgs;
+    invoke-direct {p1, p0, v0}, Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedSpecialArgs;-><init>(Lcom/android/server/hdmi/HdmiCecAtomWriter;Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedSpecialArgs-IA;)V
 
-    move-result-object v0
+    return-object p1
 
-    return-object v0
+    :cond_0
+    invoke-virtual {p0, p1}, Lcom/android/server/hdmi/HdmiCecAtomWriter;->createUserControlPressedSpecialArgs(Lcom/android/server/hdmi/HdmiCecMessage;)Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedSpecialArgs;
 
-    :sswitch_1
-    invoke-direct {p0, p1}, Lcom/android/server/hdmi/HdmiCecAtomWriter;->createFeatureAbortSpecialArgs(Lcom/android/server/hdmi/HdmiCecMessage;)Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedSpecialArgs;
+    move-result-object p0
 
-    move-result-object v0
+    return-object p0
 
-    return-object v0
+    :cond_1
+    invoke-virtual {p0, p1}, Lcom/android/server/hdmi/HdmiCecAtomWriter;->createFeatureAbortSpecialArgs(Lcom/android/server/hdmi/HdmiCecMessage;)Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedSpecialArgs;
 
-    :sswitch_data_0
-    .sparse-switch
-        0x0 -> :sswitch_1
-        0x44 -> :sswitch_0
-    .end sparse-switch
+    move-result-object p0
+
+    return-object p0
 .end method
 
-.method private createUserControlPressedSpecialArgs(Lcom/android/server/hdmi/HdmiCecMessage;)Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedSpecialArgs;
-    .locals 3
+.method public final createUserControlPressedSpecialArgs(Lcom/android/server/hdmi/HdmiCecMessage;)Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedSpecialArgs;
+    .locals 2
 
     new-instance v0, Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedSpecialArgs;
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, p0, v1}, Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedSpecialArgs;-><init>(Lcom/android/server/hdmi/HdmiCecAtomWriter;Lcom/android/server/hdmi/HdmiCecAtomWriter$1;)V
+    invoke-direct {v0, p0, v1}, Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedSpecialArgs;-><init>(Lcom/android/server/hdmi/HdmiCecAtomWriter;Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedSpecialArgs-IA;)V
 
     invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecMessage;->getParams()[B
 
-    move-result-object v1
+    move-result-object p0
 
-    const/4 v2, 0x0
+    array-length p0, p0
 
-    aget-byte v1, v1, v2
+    if-lez p0, :cond_1
 
-    const/16 v2, 0x1e
+    invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecMessage;->getParams()[B
 
-    if-lt v1, v2, :cond_0
+    move-result-object p0
 
-    const/16 v2, 0x29
+    const/4 p1, 0x0
 
-    if-gt v1, v2, :cond_0
+    aget-byte p0, p0, p1
 
-    const/4 v2, 0x2
+    const/16 p1, 0x1e
 
-    iput v2, v0, Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedSpecialArgs;->mUserControlPressedCommand:I
+    if-lt p0, p1, :cond_0
+
+    const/16 p1, 0x29
+
+    if-gt p0, p1, :cond_0
+
+    const/4 p0, 0x2
+
+    iput p0, v0, Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedSpecialArgs;->mUserControlPressedCommand:I
 
     goto :goto_0
 
     :cond_0
-    add-int/lit16 v2, v1, 0x100
+    add-int/lit16 p0, p0, 0x100
 
-    iput v2, v0, Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedSpecialArgs;->mUserControlPressedCommand:I
+    iput p0, v0, Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedSpecialArgs;->mUserControlPressedCommand:I
 
+    :cond_1
     :goto_0
     return-object v0
 .end method
 
-.method private messageReportedBase(Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedGenericArgs;Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedSpecialArgs;)V
+.method public messageReported(Lcom/android/server/hdmi/HdmiCecMessage;II)V
+    .locals 1
+
+    const/4 v0, -0x1
+
+    invoke-virtual {p0, p1, p2, p3, v0}, Lcom/android/server/hdmi/HdmiCecAtomWriter;->messageReported(Lcom/android/server/hdmi/HdmiCecMessage;III)V
+
+    return-void
+.end method
+
+.method public messageReported(Lcom/android/server/hdmi/HdmiCecMessage;III)V
+    .locals 0
+
+    invoke-virtual {p0, p1, p2, p4, p3}, Lcom/android/server/hdmi/HdmiCecAtomWriter;->createMessageReportedGenericArgs(Lcom/android/server/hdmi/HdmiCecMessage;III)Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedGenericArgs;
+
+    move-result-object p2
+
+    invoke-virtual {p0, p1}, Lcom/android/server/hdmi/HdmiCecAtomWriter;->createMessageReportedSpecialArgs(Lcom/android/server/hdmi/HdmiCecMessage;)Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedSpecialArgs;
+
+    move-result-object p1
+
+    invoke-virtual {p0, p2, p1}, Lcom/android/server/hdmi/HdmiCecAtomWriter;->messageReportedBase(Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedGenericArgs;Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedSpecialArgs;)V
+
+    return-void
+.end method
+
+.method public final messageReportedBase(Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedGenericArgs;Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedSpecialArgs;)V
     .locals 10
 
     iget v1, p1, Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedGenericArgs;->mUid:I
@@ -210,47 +272,39 @@
 
     iget v9, p2, Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedSpecialArgs;->mFeatureAbortReason:I
 
+    move-object v0, p0
+
+    invoke-virtual/range {v0 .. v9}, Lcom/android/server/hdmi/HdmiCecAtomWriter;->writeHdmiCecMessageReportedAtom(IIIIIIIII)V
+
+    return-void
+.end method
+
+.method public writeHdmiCecMessageReportedAtom(IIIIIIIII)V
+    .locals 10
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+
     const/16 v0, 0x136
 
+    move v1, p1
+
+    move v2, p2
+
+    move v3, p3
+
+    move v4, p4
+
+    move v5, p5
+
+    move/from16 v6, p6
+
+    move/from16 v7, p7
+
+    move/from16 v8, p8
+
+    move/from16 v9, p9
+
     invoke-static/range {v0 .. v9}, Lcom/android/internal/util/FrameworkStatsLog;->write(IIIIIIIIII)V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public activeSourceChanged(III)V
-    .locals 1
-
-    const/16 v0, 0x135
-
-    invoke-static {v0, p1, p2, p3}, Lcom/android/internal/util/FrameworkStatsLog;->write(IIII)V
-
-    return-void
-.end method
-
-.method public messageReported(Lcom/android/server/hdmi/HdmiCecMessage;II)V
-    .locals 1
-
-    const/4 v0, -0x1
-
-    invoke-virtual {p0, p1, p2, p3, v0}, Lcom/android/server/hdmi/HdmiCecAtomWriter;->messageReported(Lcom/android/server/hdmi/HdmiCecMessage;III)V
-
-    return-void
-.end method
-
-.method public messageReported(Lcom/android/server/hdmi/HdmiCecMessage;III)V
-    .locals 2
-
-    invoke-direct {p0, p1, p2, p4, p3}, Lcom/android/server/hdmi/HdmiCecAtomWriter;->createMessageReportedGenericArgs(Lcom/android/server/hdmi/HdmiCecMessage;III)Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedGenericArgs;
-
-    move-result-object v0
-
-    invoke-direct {p0, p1}, Lcom/android/server/hdmi/HdmiCecAtomWriter;->createMessageReportedSpecialArgs(Lcom/android/server/hdmi/HdmiCecMessage;)Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedSpecialArgs;
-
-    move-result-object v1
-
-    invoke-direct {p0, v0, v1}, Lcom/android/server/hdmi/HdmiCecAtomWriter;->messageReportedBase(Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedGenericArgs;Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedSpecialArgs;)V
 
     return-void
 .end method

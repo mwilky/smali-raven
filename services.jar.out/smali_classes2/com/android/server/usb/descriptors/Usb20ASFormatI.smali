@@ -3,14 +3,10 @@
 .source "Usb20ASFormatI.java"
 
 
-# static fields
-.field private static final TAG:Ljava/lang/String; = "Usb20ASFormatI"
-
-
 # instance fields
-.field private mBitResolution:B
+.field public mBitResolution:B
 
-.field private mSubSlotSize:B
+.field public mSubSlotSize:B
 
 
 # direct methods
@@ -25,19 +21,19 @@
 
 # virtual methods
 .method public getBitResolution()B
-    .locals 1
+    .locals 0
 
-    iget-byte v0, p0, Lcom/android/server/usb/descriptors/Usb20ASFormatI;->mBitResolution:B
+    iget-byte p0, p0, Lcom/android/server/usb/descriptors/Usb20ASFormatI;->mBitResolution:B
 
-    return v0
+    return p0
 .end method
 
 .method public getSubSlotSize()B
-    .locals 1
+    .locals 0
 
-    iget-byte v0, p0, Lcom/android/server/usb/descriptors/Usb20ASFormatI;->mSubSlotSize:B
+    iget-byte p0, p0, Lcom/android/server/usb/descriptors/Usb20ASFormatI;->mSubSlotSize:B
 
-    return v0
+    return p0
 .end method
 
 .method public parseRawDescriptors(Lcom/android/server/usb/descriptors/ByteStream;)I
@@ -51,13 +47,13 @@
 
     invoke-virtual {p1}, Lcom/android/server/usb/descriptors/ByteStream;->getByte()B
 
-    move-result v0
+    move-result p1
 
-    iput-byte v0, p0, Lcom/android/server/usb/descriptors/Usb20ASFormatI;->mBitResolution:B
+    iput-byte p1, p0, Lcom/android/server/usb/descriptors/Usb20ASFormatI;->mBitResolution:B
 
-    iget v0, p0, Lcom/android/server/usb/descriptors/Usb20ASFormatI;->mLength:I
+    iget p0, p0, Lcom/android/server/usb/descriptors/UsbDescriptor;->mLength:I
 
-    return v0
+    return p0
 .end method
 
 .method public report(Lcom/android/server/usb/descriptors/report/ReportCanvas;)V
@@ -97,15 +93,15 @@
 
     invoke-virtual {p0}, Lcom/android/server/usb/descriptors/Usb20ASFormatI;->getBitResolution()B
 
-    move-result v1
+    move-result p0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {p1, v0}, Lcom/android/server/usb/descriptors/report/ReportCanvas;->writeListItem(Ljava/lang/String;)V
+    invoke-virtual {p1, p0}, Lcom/android/server/usb/descriptors/report/ReportCanvas;->writeListItem(Ljava/lang/String;)V
 
     invoke-virtual {p1}, Lcom/android/server/usb/descriptors/report/ReportCanvas;->closeList()V
 

@@ -1,4 +1,4 @@
-.class Lcom/android/server/media/BluetoothRouteProvider$AdapterStateChangedReceiver;
+.class public Lcom/android/server/media/BluetoothRouteProvider$AdapterStateChangedReceiver;
 .super Ljava/lang/Object;
 .source "BluetoothRouteProvider.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "AdapterStateChangedReceiver"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/media/BluetoothRouteProvider;
+.field public final synthetic this$0:Lcom/android/server/media/BluetoothRouteProvider;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/server/media/BluetoothRouteProvider;)V
+.method public constructor <init>(Lcom/android/server/media/BluetoothRouteProvider;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/media/BluetoothRouteProvider$AdapterStateChangedReceiver;->this$0:Lcom/android/server/media/BluetoothRouteProvider;
@@ -32,7 +32,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/media/BluetoothRouteProvider;Lcom/android/server/media/BluetoothRouteProvider$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/media/BluetoothRouteProvider;Lcom/android/server/media/BluetoothRouteProvider$AdapterStateChangedReceiver-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/media/BluetoothRouteProvider$AdapterStateChangedReceiver;-><init>(Lcom/android/server/media/BluetoothRouteProvider;)V
@@ -43,62 +43,62 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;Landroid/bluetooth/BluetoothDevice;)V
-    .locals 2
+    .locals 0
 
-    const-string v0, "android.bluetooth.adapter.extra.STATE"
+    const-string p1, "android.bluetooth.adapter.extra.STATE"
 
-    const/4 v1, -0x1
+    const/4 p3, -0x1
 
-    invoke-virtual {p2, v0, v1}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {p2, p1, p3}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    move-result v0
+    move-result p1
 
-    const/16 v1, 0xa
+    const/16 p2, 0xa
 
-    if-eq v0, v1, :cond_1
+    if-eq p1, p2, :cond_1
 
-    const/16 v1, 0xd
+    const/16 p2, 0xd
 
-    if-ne v0, v1, :cond_0
+    if-ne p1, p2, :cond_0
 
     goto :goto_0
 
     :cond_0
-    const/16 v1, 0xc
+    const/16 p2, 0xc
 
-    if-ne v0, v1, :cond_2
+    if-ne p1, p2, :cond_2
 
-    iget-object v1, p0, Lcom/android/server/media/BluetoothRouteProvider$AdapterStateChangedReceiver;->this$0:Lcom/android/server/media/BluetoothRouteProvider;
+    iget-object p1, p0, Lcom/android/server/media/BluetoothRouteProvider$AdapterStateChangedReceiver;->this$0:Lcom/android/server/media/BluetoothRouteProvider;
 
-    invoke-static {v1}, Lcom/android/server/media/BluetoothRouteProvider;->access$900(Lcom/android/server/media/BluetoothRouteProvider;)V
+    invoke-static {p1}, Lcom/android/server/media/BluetoothRouteProvider;->-$$Nest$mbuildBluetoothRoutes(Lcom/android/server/media/BluetoothRouteProvider;)V
 
-    iget-object v1, p0, Lcom/android/server/media/BluetoothRouteProvider$AdapterStateChangedReceiver;->this$0:Lcom/android/server/media/BluetoothRouteProvider;
+    iget-object p1, p0, Lcom/android/server/media/BluetoothRouteProvider$AdapterStateChangedReceiver;->this$0:Lcom/android/server/media/BluetoothRouteProvider;
 
-    iget-object v1, v1, Lcom/android/server/media/BluetoothRouteProvider;->mBluetoothRoutes:Ljava/util/Map;
+    iget-object p1, p1, Lcom/android/server/media/BluetoothRouteProvider;->mBluetoothRoutes:Ljava/util/Map;
 
-    invoke-interface {v1}, Ljava/util/Map;->isEmpty()Z
+    invoke-interface {p1}, Ljava/util/Map;->isEmpty()Z
 
-    move-result v1
+    move-result p1
 
-    if-nez v1, :cond_2
+    if-nez p1, :cond_2
 
-    iget-object v1, p0, Lcom/android/server/media/BluetoothRouteProvider$AdapterStateChangedReceiver;->this$0:Lcom/android/server/media/BluetoothRouteProvider;
+    iget-object p0, p0, Lcom/android/server/media/BluetoothRouteProvider$AdapterStateChangedReceiver;->this$0:Lcom/android/server/media/BluetoothRouteProvider;
 
-    invoke-static {v1}, Lcom/android/server/media/BluetoothRouteProvider;->access$700(Lcom/android/server/media/BluetoothRouteProvider;)V
+    invoke-static {p0}, Lcom/android/server/media/BluetoothRouteProvider;->-$$Nest$mnotifyBluetoothRoutesUpdated(Lcom/android/server/media/BluetoothRouteProvider;)V
 
     goto :goto_1
 
     :cond_1
     :goto_0
-    iget-object v1, p0, Lcom/android/server/media/BluetoothRouteProvider$AdapterStateChangedReceiver;->this$0:Lcom/android/server/media/BluetoothRouteProvider;
+    iget-object p1, p0, Lcom/android/server/media/BluetoothRouteProvider$AdapterStateChangedReceiver;->this$0:Lcom/android/server/media/BluetoothRouteProvider;
 
-    iget-object v1, v1, Lcom/android/server/media/BluetoothRouteProvider;->mBluetoothRoutes:Ljava/util/Map;
+    iget-object p1, p1, Lcom/android/server/media/BluetoothRouteProvider;->mBluetoothRoutes:Ljava/util/Map;
 
-    invoke-interface {v1}, Ljava/util/Map;->clear()V
+    invoke-interface {p1}, Ljava/util/Map;->clear()V
 
-    iget-object v1, p0, Lcom/android/server/media/BluetoothRouteProvider$AdapterStateChangedReceiver;->this$0:Lcom/android/server/media/BluetoothRouteProvider;
+    iget-object p0, p0, Lcom/android/server/media/BluetoothRouteProvider$AdapterStateChangedReceiver;->this$0:Lcom/android/server/media/BluetoothRouteProvider;
 
-    invoke-static {v1}, Lcom/android/server/media/BluetoothRouteProvider;->access$700(Lcom/android/server/media/BluetoothRouteProvider;)V
+    invoke-static {p0}, Lcom/android/server/media/BluetoothRouteProvider;->-$$Nest$mnotifyBluetoothRoutesUpdated(Lcom/android/server/media/BluetoothRouteProvider;)V
 
     :cond_2
     :goto_1

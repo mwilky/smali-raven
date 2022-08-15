@@ -49,149 +49,6 @@
     return-void
 .end method
 
-.method public static final readVectorFromParcel(Landroid/os/HwParcel;)Ljava/util/ArrayList;
-    .locals 12
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/os/HwParcel;",
-            ")",
-            "Ljava/util/ArrayList<",
-            "Landroid/hardware/soundtrigger/V2_1/ISoundTriggerHwCallback$PhraseRecognitionEvent;",
-            ">;"
-        }
-    .end annotation
-
-    new-instance v0, Ljava/util/ArrayList;
-
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
-
-    const-wide/16 v1, 0x10
-
-    invoke-virtual {p0, v1, v2}, Landroid/os/HwParcel;->readBuffer(J)Landroid/os/HwBlob;
-
-    move-result-object v1
-
-    const-wide/16 v2, 0x8
-
-    invoke-virtual {v1, v2, v3}, Landroid/os/HwBlob;->getInt32(J)I
-
-    move-result v2
-
-    mul-int/lit16 v3, v2, 0xb0
-
-    int-to-long v5, v3
-
-    invoke-virtual {v1}, Landroid/os/HwBlob;->handle()J
-
-    move-result-wide v7
-
-    const-wide/16 v9, 0x0
-
-    const/4 v11, 0x1
-
-    move-object v4, p0
-
-    invoke-virtual/range {v4 .. v11}, Landroid/os/HwParcel;->readEmbeddedBuffer(JJJZ)Landroid/os/HwBlob;
-
-    move-result-object v3
-
-    invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
-
-    const/4 v4, 0x0
-
-    :goto_0
-    if-ge v4, v2, :cond_0
-
-    new-instance v5, Landroid/hardware/soundtrigger/V2_1/ISoundTriggerHwCallback$PhraseRecognitionEvent;
-
-    invoke-direct {v5}, Landroid/hardware/soundtrigger/V2_1/ISoundTriggerHwCallback$PhraseRecognitionEvent;-><init>()V
-
-    mul-int/lit16 v6, v4, 0xb0
-
-    int-to-long v6, v6
-
-    invoke-virtual {v5, p0, v3, v6, v7}, Landroid/hardware/soundtrigger/V2_1/ISoundTriggerHwCallback$PhraseRecognitionEvent;->readEmbeddedFromParcel(Landroid/os/HwParcel;Landroid/os/HwBlob;J)V
-
-    invoke-virtual {v0, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    add-int/lit8 v4, v4, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    return-object v0
-.end method
-
-.method public static final writeVectorToParcel(Landroid/os/HwParcel;Ljava/util/ArrayList;)V
-    .locals 7
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/os/HwParcel;",
-            "Ljava/util/ArrayList<",
-            "Landroid/hardware/soundtrigger/V2_1/ISoundTriggerHwCallback$PhraseRecognitionEvent;",
-            ">;)V"
-        }
-    .end annotation
-
-    new-instance v0, Landroid/os/HwBlob;
-
-    const/16 v1, 0x10
-
-    invoke-direct {v0, v1}, Landroid/os/HwBlob;-><init>(I)V
-
-    invoke-virtual {p1}, Ljava/util/ArrayList;->size()I
-
-    move-result v1
-
-    const-wide/16 v2, 0x8
-
-    invoke-virtual {v0, v2, v3, v1}, Landroid/os/HwBlob;->putInt32(JI)V
-
-    const-wide/16 v2, 0xc
-
-    const/4 v4, 0x0
-
-    invoke-virtual {v0, v2, v3, v4}, Landroid/os/HwBlob;->putBool(JZ)V
-
-    new-instance v2, Landroid/os/HwBlob;
-
-    mul-int/lit16 v3, v1, 0xb0
-
-    invoke-direct {v2, v3}, Landroid/os/HwBlob;-><init>(I)V
-
-    const/4 v3, 0x0
-
-    :goto_0
-    if-ge v3, v1, :cond_0
-
-    invoke-virtual {p1, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Landroid/hardware/soundtrigger/V2_1/ISoundTriggerHwCallback$PhraseRecognitionEvent;
-
-    mul-int/lit16 v5, v3, 0xb0
-
-    int-to-long v5, v5
-
-    invoke-virtual {v4, v2, v5, v6}, Landroid/hardware/soundtrigger/V2_1/ISoundTriggerHwCallback$PhraseRecognitionEvent;->writeEmbeddedToBlob(Landroid/os/HwBlob;J)V
-
-    add-int/lit8 v3, v3, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const-wide/16 v3, 0x0
-
-    invoke-virtual {v0, v3, v4, v2}, Landroid/os/HwBlob;->putBlob(JLandroid/os/HwBlob;)V
-
-    invoke-virtual {p0, v0}, Landroid/os/HwParcel;->writeBuffer(Landroid/os/HwBlob;)V
-
-    return-void
-.end method
-
 
 # virtual methods
 .method public final readEmbeddedFromParcel(Landroid/os/HwParcel;Landroid/os/HwBlob;J)V
@@ -201,49 +58,49 @@
 
     move-object/from16 v9, p1
 
-    move-object/from16 v10, p2
+    move-object/from16 v1, p2
 
-    iget-object v1, v0, Landroid/hardware/soundtrigger/V2_1/ISoundTriggerHwCallback$PhraseRecognitionEvent;->common:Landroid/hardware/soundtrigger/V2_1/ISoundTriggerHwCallback$RecognitionEvent;
+    iget-object v2, v0, Landroid/hardware/soundtrigger/V2_1/ISoundTriggerHwCallback$PhraseRecognitionEvent;->common:Landroid/hardware/soundtrigger/V2_1/ISoundTriggerHwCallback$RecognitionEvent;
 
-    const-wide/16 v2, 0x0
+    const-wide/16 v3, 0x0
 
-    add-long v4, p3, v2
+    add-long v5, p3, v3
 
-    invoke-virtual {v1, v9, v10, v4, v5}, Landroid/hardware/soundtrigger/V2_1/ISoundTriggerHwCallback$RecognitionEvent;->readEmbeddedFromParcel(Landroid/os/HwParcel;Landroid/os/HwBlob;J)V
+    invoke-virtual {v2, v9, v1, v5, v6}, Landroid/hardware/soundtrigger/V2_1/ISoundTriggerHwCallback$RecognitionEvent;->readEmbeddedFromParcel(Landroid/os/HwParcel;Landroid/os/HwBlob;J)V
 
-    const-wide/16 v4, 0xa0
+    const-wide/16 v5, 0xa0
 
-    add-long v6, p3, v4
+    add-long v5, p3, v5
 
-    const-wide/16 v11, 0x8
+    const-wide/16 v7, 0x8
 
-    add-long/2addr v6, v11
+    add-long/2addr v7, v5
 
-    invoke-virtual {v10, v6, v7}, Landroid/os/HwBlob;->getInt32(J)I
+    invoke-virtual {v1, v7, v8}, Landroid/os/HwBlob;->getInt32(J)I
 
-    move-result v11
+    move-result v10
 
-    mul-int/lit8 v1, v11, 0x20
+    mul-int/lit8 v2, v10, 0x20
 
-    int-to-long v6, v1
+    int-to-long v7, v2
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/HwBlob;->handle()J
 
-    move-result-wide v12
+    move-result-wide v11
 
-    add-long v4, p3, v4
+    add-long v13, v5, v3
 
-    add-long v14, v4, v2
-
-    const/4 v8, 0x1
+    const/4 v15, 0x1
 
     move-object/from16 v1, p1
 
-    move-wide v2, v6
+    move-wide v2, v7
 
-    move-wide v4, v12
+    move-wide v4, v11
 
-    move-wide v6, v14
+    move-wide v6, v13
+
+    move v8, v15
 
     invoke-virtual/range {v1 .. v8}, Landroid/os/HwParcel;->readEmbeddedBuffer(JJJZ)Landroid/os/HwBlob;
 
@@ -256,7 +113,7 @@
     const/4 v2, 0x0
 
     :goto_0
-    if-ge v2, v11, :cond_0
+    if-ge v2, v10, :cond_0
 
     new-instance v3, Landroid/hardware/soundtrigger/V2_0/PhraseRecognitionExtra;
 
@@ -319,111 +176,17 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Landroid/hardware/soundtrigger/V2_1/ISoundTriggerHwCallback$PhraseRecognitionEvent;->phraseExtras:Ljava/util/ArrayList;
+    iget-object p0, p0, Landroid/hardware/soundtrigger/V2_1/ISoundTriggerHwCallback$PhraseRecognitionEvent;->phraseExtras:Ljava/util/ArrayList;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v1, "}"
+    const-string/jumbo p0, "}"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
-.end method
-
-.method public final writeEmbeddedToBlob(Landroid/os/HwBlob;J)V
-    .locals 10
-
-    iget-object v0, p0, Landroid/hardware/soundtrigger/V2_1/ISoundTriggerHwCallback$PhraseRecognitionEvent;->common:Landroid/hardware/soundtrigger/V2_1/ISoundTriggerHwCallback$RecognitionEvent;
-
-    const-wide/16 v1, 0x0
-
-    add-long v3, p2, v1
-
-    invoke-virtual {v0, p1, v3, v4}, Landroid/hardware/soundtrigger/V2_1/ISoundTriggerHwCallback$RecognitionEvent;->writeEmbeddedToBlob(Landroid/os/HwBlob;J)V
-
-    iget-object v0, p0, Landroid/hardware/soundtrigger/V2_1/ISoundTriggerHwCallback$PhraseRecognitionEvent;->phraseExtras:Ljava/util/ArrayList;
-
-    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
-
-    move-result v0
-
-    const-wide/16 v3, 0xa0
-
-    add-long v5, p2, v3
-
-    const-wide/16 v7, 0x8
-
-    add-long/2addr v5, v7
-
-    invoke-virtual {p1, v5, v6, v0}, Landroid/os/HwBlob;->putInt32(JI)V
-
-    add-long v5, p2, v3
-
-    const-wide/16 v7, 0xc
-
-    add-long/2addr v5, v7
-
-    const/4 v7, 0x0
-
-    invoke-virtual {p1, v5, v6, v7}, Landroid/os/HwBlob;->putBool(JZ)V
-
-    new-instance v5, Landroid/os/HwBlob;
-
-    mul-int/lit8 v6, v0, 0x20
-
-    invoke-direct {v5, v6}, Landroid/os/HwBlob;-><init>(I)V
-
-    const/4 v6, 0x0
-
-    :goto_0
-    if-ge v6, v0, :cond_0
-
-    iget-object v7, p0, Landroid/hardware/soundtrigger/V2_1/ISoundTriggerHwCallback$PhraseRecognitionEvent;->phraseExtras:Ljava/util/ArrayList;
-
-    invoke-virtual {v7, v6}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v7
-
-    check-cast v7, Landroid/hardware/soundtrigger/V2_0/PhraseRecognitionExtra;
-
-    mul-int/lit8 v8, v6, 0x20
-
-    int-to-long v8, v8
-
-    invoke-virtual {v7, v5, v8, v9}, Landroid/hardware/soundtrigger/V2_0/PhraseRecognitionExtra;->writeEmbeddedToBlob(Landroid/os/HwBlob;J)V
-
-    add-int/lit8 v6, v6, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    add-long/2addr v3, p2
-
-    add-long/2addr v3, v1
-
-    invoke-virtual {p1, v3, v4, v5}, Landroid/os/HwBlob;->putBlob(JLandroid/os/HwBlob;)V
-
-    return-void
-.end method
-
-.method public final writeToParcel(Landroid/os/HwParcel;)V
-    .locals 3
-
-    new-instance v0, Landroid/os/HwBlob;
-
-    const/16 v1, 0xb0
-
-    invoke-direct {v0, v1}, Landroid/os/HwBlob;-><init>(I)V
-
-    const-wide/16 v1, 0x0
-
-    invoke-virtual {p0, v0, v1, v2}, Landroid/hardware/soundtrigger/V2_1/ISoundTriggerHwCallback$PhraseRecognitionEvent;->writeEmbeddedToBlob(Landroid/os/HwBlob;J)V
-
-    invoke-virtual {p1, v0}, Landroid/os/HwParcel;->writeBuffer(Landroid/os/HwBlob;)V
-
-    return-void
+    return-object p0
 .end method

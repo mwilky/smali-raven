@@ -1,4 +1,4 @@
-.class Lcom/android/server/usage/AppStandbyController$DeviceStateReceiver;
+.class public Lcom/android/server/usage/AppStandbyController$DeviceStateReceiver;
 .super Landroid/content/BroadcastReceiver;
 .source "AppStandbyController.java"
 
@@ -9,17 +9,25 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "DeviceStateReceiver"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/usage/AppStandbyController;
+.field public final synthetic this$0:Lcom/android/server/usage/AppStandbyController;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/server/usage/AppStandbyController;)V
+.method public static synthetic $r8$lambda$syA3iqAJNmNp4QI-JtYPahoOdIo(Lcom/android/server/usage/AppStandbyController;)V
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/server/usage/AppStandbyController$DeviceStateReceiver;->lambda$onReceive$0(Lcom/android/server/usage/AppStandbyController;)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Lcom/android/server/usage/AppStandbyController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/usage/AppStandbyController$DeviceStateReceiver;->this$0:Lcom/android/server/usage/AppStandbyController;
@@ -29,7 +37,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/usage/AppStandbyController;Lcom/android/server/usage/AppStandbyController$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/usage/AppStandbyController;Lcom/android/server/usage/AppStandbyController$DeviceStateReceiver-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/usage/AppStandbyController$DeviceStateReceiver;-><init>(Lcom/android/server/usage/AppStandbyController;)V
@@ -37,10 +45,10 @@
     return-void
 .end method
 
-.method static synthetic lambda$onReceive$0(Lcom/android/server/usage/AppStandbyController;)V
+.method public static synthetic lambda$onReceive$0(Lcom/android/server/usage/AppStandbyController;)V
     .locals 0
 
-    invoke-static {p0}, Lcom/android/server/usage/AppStandbyController;->access$1400(Lcom/android/server/usage/AppStandbyController;)V
+    invoke-static {p0}, Lcom/android/server/usage/AppStandbyController;->-$$Nest$mupdatePowerWhitelistCache(Lcom/android/server/usage/AppStandbyController;)V
 
     return-void
 .end method
@@ -48,113 +56,118 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 4
+    .locals 3
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+    invoke-virtual {p1}, Ljava/lang/String;->hashCode()I
 
-    move-result v1
+    invoke-virtual {p1}, Ljava/lang/String;->hashCode()I
 
-    const/4 v2, 0x0
+    move-result p2
 
-    const/4 v3, 0x1
+    const/4 v0, 0x1
 
-    sparse-switch v1, :sswitch_data_0
+    const/4 v1, 0x0
 
-    :cond_0
+    const/4 v2, -0x1
+
+    sparse-switch p2, :sswitch_data_0
+
     goto :goto_0
 
     :sswitch_0
-    const-string v1, "android.os.action.CHARGING"
+    const-string p2, "android.os.action.CHARGING"
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-nez p1, :cond_0
 
-    move v0, v2
+    goto :goto_0
 
-    goto :goto_1
+    :cond_0
+    const/4 v2, 0x2
+
+    goto :goto_0
 
     :sswitch_1
-    const-string v1, "android.os.action.DISCHARGING"
+    const-string p2, "android.os.action.DISCHARGING"
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-nez p1, :cond_1
 
-    move v0, v3
-
-    goto :goto_1
-
-    :sswitch_2
-    const-string v1, "android.os.action.POWER_SAVE_WHITELIST_CHANGED"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x2
-
-    goto :goto_1
-
-    :goto_0
-    const/4 v0, -0x1
-
-    :goto_1
-    packed-switch v0, :pswitch_data_0
-
-    goto :goto_2
-
-    :pswitch_0
-    iget-object v0, p0, Lcom/android/server/usage/AppStandbyController$DeviceStateReceiver;->this$0:Lcom/android/server/usage/AppStandbyController;
-
-    invoke-static {v0}, Lcom/android/server/usage/AppStandbyController;->access$1300(Lcom/android/server/usage/AppStandbyController;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    iget-object v0, p0, Lcom/android/server/usage/AppStandbyController$DeviceStateReceiver;->this$0:Lcom/android/server/usage/AppStandbyController;
-
-    invoke-static {v0}, Lcom/android/server/usage/AppStandbyController;->access$300(Lcom/android/server/usage/AppStandbyController;)Lcom/android/server/usage/AppStandbyController$AppStandbyHandler;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/server/usage/AppStandbyController$DeviceStateReceiver;->this$0:Lcom/android/server/usage/AppStandbyController;
-
-    new-instance v2, Lcom/android/server/usage/AppStandbyController$DeviceStateReceiver$$ExternalSyntheticLambda0;
-
-    invoke-direct {v2, v1}, Lcom/android/server/usage/AppStandbyController$DeviceStateReceiver$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/usage/AppStandbyController;)V
-
-    invoke-virtual {v0, v2}, Lcom/android/server/usage/AppStandbyController$AppStandbyHandler;->post(Ljava/lang/Runnable;)Z
-
-    goto :goto_2
-
-    :pswitch_1
-    iget-object v0, p0, Lcom/android/server/usage/AppStandbyController$DeviceStateReceiver;->this$0:Lcom/android/server/usage/AppStandbyController;
-
-    invoke-virtual {v0, v2}, Lcom/android/server/usage/AppStandbyController;->setChargingState(Z)V
-
-    goto :goto_2
-
-    :pswitch_2
-    iget-object v0, p0, Lcom/android/server/usage/AppStandbyController$DeviceStateReceiver;->this$0:Lcom/android/server/usage/AppStandbyController;
-
-    invoke-virtual {v0, v3}, Lcom/android/server/usage/AppStandbyController;->setChargingState(Z)V
-
-    nop
+    goto :goto_0
 
     :cond_1
-    :goto_2
+    move v2, v0
+
+    goto :goto_0
+
+    :sswitch_2
+    const-string p2, "android.os.action.POWER_SAVE_WHITELIST_CHANGED"
+
+    invoke-virtual {p1, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p1
+
+    if-nez p1, :cond_2
+
+    goto :goto_0
+
+    :cond_2
+    move v2, v1
+
+    :goto_0
+    packed-switch v2, :pswitch_data_0
+
+    goto :goto_1
+
+    :pswitch_0
+    iget-object p0, p0, Lcom/android/server/usage/AppStandbyController$DeviceStateReceiver;->this$0:Lcom/android/server/usage/AppStandbyController;
+
+    invoke-virtual {p0, v0}, Lcom/android/server/usage/AppStandbyController;->setChargingState(Z)V
+
+    goto :goto_1
+
+    :pswitch_1
+    iget-object p0, p0, Lcom/android/server/usage/AppStandbyController$DeviceStateReceiver;->this$0:Lcom/android/server/usage/AppStandbyController;
+
+    invoke-virtual {p0, v1}, Lcom/android/server/usage/AppStandbyController;->setChargingState(Z)V
+
+    goto :goto_1
+
+    :pswitch_2
+    iget-object p1, p0, Lcom/android/server/usage/AppStandbyController$DeviceStateReceiver;->this$0:Lcom/android/server/usage/AppStandbyController;
+
+    invoke-static {p1}, Lcom/android/server/usage/AppStandbyController;->-$$Nest$fgetmSystemServicesReady(Lcom/android/server/usage/AppStandbyController;)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_3
+
+    iget-object p1, p0, Lcom/android/server/usage/AppStandbyController$DeviceStateReceiver;->this$0:Lcom/android/server/usage/AppStandbyController;
+
+    invoke-static {p1}, Lcom/android/server/usage/AppStandbyController;->-$$Nest$fgetmHandler(Lcom/android/server/usage/AppStandbyController;)Lcom/android/server/usage/AppStandbyController$AppStandbyHandler;
+
+    move-result-object p1
+
+    iget-object p0, p0, Lcom/android/server/usage/AppStandbyController$DeviceStateReceiver;->this$0:Lcom/android/server/usage/AppStandbyController;
+
+    new-instance p2, Lcom/android/server/usage/AppStandbyController$DeviceStateReceiver$$ExternalSyntheticLambda0;
+
+    invoke-direct {p2, p0}, Lcom/android/server/usage/AppStandbyController$DeviceStateReceiver$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/usage/AppStandbyController;)V
+
+    invoke-virtual {p1, p2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
+    :cond_3
+    :goto_1
     return-void
 
     nop

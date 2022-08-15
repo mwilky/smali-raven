@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/WindowOrganizerController$CallerInfo;
+.class public Lcom/android/server/wm/WindowOrganizerController$CallerInfo;
 .super Ljava/lang/Object;
 .source "WindowOrganizerController.java"
 
@@ -9,19 +9,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "CallerInfo"
 .end annotation
 
 
 # instance fields
-.field final mPid:I
+.field public final mPid:I
 
-.field final mUid:I
+.field public final mUid:I
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

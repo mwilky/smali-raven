@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/profcollect/ProfcollectForwardingService$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/profcollect/ProfcollectForwardingService$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/profcollect/ProfcollectForwardingService;
+    iget-object p0, p0, Lcom/android/server/profcollect/ProfcollectForwardingService$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/profcollect/ProfcollectForwardingService;
 
-    invoke-virtual {v0}, Lcom/android/server/profcollect/ProfcollectForwardingService;->lambda$packProfileReport$0$ProfcollectForwardingService()V
+    invoke-static {p0}, Lcom/android/server/profcollect/ProfcollectForwardingService;->$r8$lambda$GcOJBpwpZ4Gc5QLdEhC1xxyQ5eQ(Lcom/android/server/profcollect/ProfcollectForwardingService;)V
 
     return-void
 .end method

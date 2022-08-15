@@ -1,4 +1,4 @@
-.class Lcom/android/server/print/UserState$2;
+.class public Lcom/android/server/print/UserState$2;
 .super Lcom/android/server/print/UserState$PrintJobStateChangeListenerRecord;
 .source "UserState.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/print/UserState;
+.field public final synthetic this$0:Lcom/android/server/print/UserState;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/print/UserState;Landroid/print/IPrintJobStateChangeListener;I)V
+.method public constructor <init>(Lcom/android/server/print/UserState;Landroid/print/IPrintJobStateChangeListener;I)V
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -41,7 +41,7 @@
 
     iget-object v0, p0, Lcom/android/server/print/UserState$2;->this$0:Lcom/android/server/print/UserState;
 
-    invoke-static {v0}, Lcom/android/server/print/UserState;->access$200(Lcom/android/server/print/UserState;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/server/print/UserState;->-$$Nest$fgetmLock(Lcom/android/server/print/UserState;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -50,7 +50,7 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/server/print/UserState$2;->this$0:Lcom/android/server/print/UserState;
 
-    invoke-static {v1}, Lcom/android/server/print/UserState;->access$300(Lcom/android/server/print/UserState;)Ljava/util/List;
+    invoke-static {v1}, Lcom/android/server/print/UserState;->-$$Nest$fgetmPrintJobStateChangeListenerRecords(Lcom/android/server/print/UserState;)Ljava/util/List;
 
     move-result-object v1
 
@@ -58,7 +58,7 @@
 
     iget-object v1, p0, Lcom/android/server/print/UserState$2;->this$0:Lcom/android/server/print/UserState;
 
-    invoke-static {v1}, Lcom/android/server/print/UserState;->access$300(Lcom/android/server/print/UserState;)Ljava/util/List;
+    invoke-static {v1}, Lcom/android/server/print/UserState;->-$$Nest$fgetmPrintJobStateChangeListenerRecords(Lcom/android/server/print/UserState;)Ljava/util/List;
 
     move-result-object v1
 
@@ -70,11 +70,11 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method

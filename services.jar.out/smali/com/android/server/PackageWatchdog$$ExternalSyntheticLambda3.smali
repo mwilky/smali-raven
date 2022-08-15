@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/PackageWatchdog$$ExternalSyntheticLambda3;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/PackageWatchdog$$ExternalSyntheticLambda3;->f$0:Lcom/android/server/PackageWatchdog;
+    iget-object p0, p0, Lcom/android/server/PackageWatchdog$$ExternalSyntheticLambda3;->f$0:Lcom/android/server/PackageWatchdog;
 
-    invoke-virtual {v0}, Lcom/android/server/PackageWatchdog;->lambda$checkAndMitigateNativeCrashes$5$PackageWatchdog()V
+    invoke-static {p0}, Lcom/android/server/PackageWatchdog;->$r8$lambda$Mx_Y1uqlcwGnBszKo_ph_MI-E0g(Lcom/android/server/PackageWatchdog;)V
 
     return-void
 .end method

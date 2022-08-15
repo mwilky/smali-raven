@@ -1,39 +1,28 @@
 .class public final synthetic Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda39;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/lang/Runnable;
-
-
-# instance fields
-.field public final synthetic f$0:Landroid/content/pm/IPackageDeleteObserver2;
-
-.field public final synthetic f$1:Ljava/lang/String;
+.implements Lcom/android/server/pm/PackageManagerServiceInjector$Producer;
 
 
 # direct methods
-.method public synthetic constructor <init>(Landroid/content/pm/IPackageDeleteObserver2;Ljava/lang/String;)V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda39;->f$0:Landroid/content/pm/IPackageDeleteObserver2;
-
-    iput-object p2, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda39;->f$1:Ljava/lang/String;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final run()V
-    .locals 2
+.method public final produce(Lcom/android/server/pm/PackageManagerServiceInjector;Lcom/android/server/pm/PackageManagerService;)Ljava/lang/Object;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda39;->f$0:Landroid/content/pm/IPackageDeleteObserver2;
+    invoke-static {p1, p2}, Lcom/android/server/pm/PackageManagerService;->$r8$lambda$kiYs6M_TU13CHmdufJ1OYExCLpc(Lcom/android/server/pm/PackageManagerServiceInjector;Lcom/android/server/pm/PackageManagerService;)Landroid/os/Handler;
 
-    iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda39;->f$1:Ljava/lang/String;
+    move-result-object p0
 
-    invoke-static {v0, v1}, Lcom/android/server/pm/PackageManagerService;->lambda$deletePackageVersionedInternal$52(Landroid/content/pm/IPackageDeleteObserver2;Ljava/lang/String;)V
-
-    return-void
+    return-object p0
 .end method

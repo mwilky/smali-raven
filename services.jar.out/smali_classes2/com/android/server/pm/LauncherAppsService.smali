@@ -7,13 +7,14 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/android/server/pm/LauncherAppsService$LauncherAppsImpl;,
+        Lcom/android/server/pm/LauncherAppsService$LauncherAppsServiceInternal;,
         Lcom/android/server/pm/LauncherAppsService$BroadcastCookie;
     }
 .end annotation
 
 
 # instance fields
-.field private final mLauncherAppsImpl:Lcom/android/server/pm/LauncherAppsService$LauncherAppsImpl;
+.field public final mLauncherAppsImpl:Lcom/android/server/pm/LauncherAppsService$LauncherAppsImpl;
 
 
 # direct methods
@@ -40,11 +41,19 @@
 
     const-string v1, "launcherapps"
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/server/pm/LauncherAppsService;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
+    invoke-virtual {p0, v1, v0}, Lcom/android/server/SystemService;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
 
     iget-object v0, p0, Lcom/android/server/pm/LauncherAppsService;->mLauncherAppsImpl:Lcom/android/server/pm/LauncherAppsService$LauncherAppsImpl;
 
     invoke-virtual {v0}, Lcom/android/server/pm/LauncherAppsService$LauncherAppsImpl;->registerLoadingProgressForIncrementalApps()V
+
+    const-class v0, Lcom/android/server/pm/LauncherAppsService$LauncherAppsServiceInternal;
+
+    iget-object p0, p0, Lcom/android/server/pm/LauncherAppsService;->mLauncherAppsImpl:Lcom/android/server/pm/LauncherAppsService$LauncherAppsImpl;
+
+    iget-object p0, p0, Lcom/android/server/pm/LauncherAppsService$LauncherAppsImpl;->mInternal:Lcom/android/server/pm/LauncherAppsService$LauncherAppsServiceInternal;
+
+    invoke-static {v0, p0}, Lcom/android/server/LocalServices;->addService(Ljava/lang/Class;Ljava/lang/Object;)V
 
     return-void
 .end method

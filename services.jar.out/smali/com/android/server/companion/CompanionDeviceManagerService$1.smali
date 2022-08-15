@@ -1,89 +1,45 @@
-.class Lcom/android/server/companion/CompanionDeviceManagerService$1;
-.super Lcom/android/internal/infra/PerUser;
+.class public Lcom/android/server/companion/CompanionDeviceManagerService$1;
+.super Ljava/lang/Object;
 .source "CompanionDeviceManagerService.java"
+
+# interfaces
+.implements Lcom/android/server/companion/AssociationStore$OnChangeListener;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/companion/CompanionDeviceManagerService;-><init>(Landroid/content/Context;)V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/server/companion/CompanionDeviceManagerService;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
-.end annotation
-
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Lcom/android/internal/infra/PerUser<",
-        "Lcom/android/internal/infra/ServiceConnector<",
-        "Landroid/companion/ICompanionDeviceDiscoveryService;",
-        ">;>;"
-    }
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/companion/CompanionDeviceManagerService;
-
-.field final synthetic val$serviceIntent:Landroid/content/Intent;
+.field public final synthetic this$0:Lcom/android/server/companion/CompanionDeviceManagerService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/companion/CompanionDeviceManagerService;Landroid/content/Intent;)V
+.method public constructor <init>(Lcom/android/server/companion/CompanionDeviceManagerService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/companion/CompanionDeviceManagerService$1;->this$0:Lcom/android/server/companion/CompanionDeviceManagerService;
 
-    iput-object p2, p0, Lcom/android/server/companion/CompanionDeviceManagerService$1;->val$serviceIntent:Landroid/content/Intent;
-
-    invoke-direct {p0}, Lcom/android/internal/infra/PerUser;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method protected create(I)Lcom/android/internal/infra/ServiceConnector;
-    .locals 7
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(I)",
-            "Lcom/android/internal/infra/ServiceConnector<",
-            "Landroid/companion/ICompanionDeviceDiscoveryService;",
-            ">;"
-        }
-    .end annotation
-
-    new-instance v6, Lcom/android/internal/infra/ServiceConnector$Impl;
-
-    iget-object v0, p0, Lcom/android/server/companion/CompanionDeviceManagerService$1;->this$0:Lcom/android/server/companion/CompanionDeviceManagerService;
-
-    invoke-virtual {v0}, Lcom/android/server/companion/CompanionDeviceManagerService;->getContext()Landroid/content/Context;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/android/server/companion/CompanionDeviceManagerService$1;->val$serviceIntent:Landroid/content/Intent;
-
-    sget-object v5, Lcom/android/server/companion/CompanionDeviceManagerService$1$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/server/companion/CompanionDeviceManagerService$1$$ExternalSyntheticLambda0;
-
-    const/4 v3, 0x0
-
-    move-object v0, v6
-
-    move v4, p1
-
-    invoke-direct/range {v0 .. v5}, Lcom/android/internal/infra/ServiceConnector$Impl;-><init>(Landroid/content/Context;Landroid/content/Intent;IILjava/util/function/Function;)V
-
-    return-object v6
-.end method
-
-.method protected bridge synthetic create(I)Ljava/lang/Object;
+.method public onAssociationChanged(ILandroid/companion/AssociationInfo;)V
     .locals 0
 
-    invoke-virtual {p0, p1}, Lcom/android/server/companion/CompanionDeviceManagerService$1;->create(I)Lcom/android/internal/infra/ServiceConnector;
+    iget-object p0, p0, Lcom/android/server/companion/CompanionDeviceManagerService$1;->this$0:Lcom/android/server/companion/CompanionDeviceManagerService;
 
-    move-result-object p1
+    invoke-static {p0, p1, p2}, Lcom/android/server/companion/CompanionDeviceManagerService;->-$$Nest$monAssociationChangedInternal(Lcom/android/server/companion/CompanionDeviceManagerService;ILandroid/companion/AssociationInfo;)V
 
-    return-object p1
+    return-void
 .end method

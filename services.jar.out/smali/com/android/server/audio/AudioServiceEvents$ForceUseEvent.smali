@@ -1,29 +1,18 @@
-.class final Lcom/android/server/audio/AudioServiceEvents$ForceUseEvent;
+.class public final Lcom/android/server/audio/AudioServiceEvents$ForceUseEvent;
 .super Lcom/android/server/audio/AudioEventLogger$Event;
 .source "AudioServiceEvents.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/android/server/audio/AudioServiceEvents;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
-    name = "ForceUseEvent"
-.end annotation
-
-
 # instance fields
-.field final mConfig:I
+.field public final mConfig:I
 
-.field final mReason:Ljava/lang/String;
+.field public final mReason:Ljava/lang/String;
 
-.field final mUsage:I
+.field public final mUsage:I
 
 
 # direct methods
-.method constructor <init>(IILjava/lang/String;)V
+.method public constructor <init>(IILjava/lang/String;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/audio/AudioEventLogger$Event;-><init>()V
@@ -72,13 +61,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lcom/android/server/audio/AudioServiceEvents$ForceUseEvent;->mReason:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/audio/AudioServiceEvents$ForceUseEvent;->mReason:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

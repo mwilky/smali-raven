@@ -1,4 +1,4 @@
-.class Lcom/android/server/biometrics/sensors/face/aidl/FaceInternalCleanupClient;
+.class public Lcom/android/server/biometrics/sensors/face/aidl/FaceInternalCleanupClient;
 .super Lcom/android/server/biometrics/sensors/InternalCleanupClient;
 .source "FaceInternalCleanupClient.java"
 
@@ -8,24 +8,26 @@
     value = {
         "Lcom/android/server/biometrics/sensors/InternalCleanupClient<",
         "Landroid/hardware/face/Face;",
-        "Landroid/hardware/biometrics/face/ISession;",
+        "Lcom/android/server/biometrics/sensors/face/aidl/AidlSession;",
         ">;"
     }
 .end annotation
 
 
 # direct methods
-.method constructor <init>(Landroid/content/Context;Lcom/android/server/biometrics/sensors/HalClientMonitor$LazyDaemon;ILjava/lang/String;ILjava/util/List;Lcom/android/server/biometrics/sensors/BiometricUtils;Ljava/util/Map;)V
-    .locals 10
+.method public constructor <init>(Landroid/content/Context;Ljava/util/function/Supplier;ILjava/lang/String;ILcom/android/server/biometrics/log/BiometricLogger;Lcom/android/server/biometrics/log/BiometricContext;Ljava/util/List;Lcom/android/server/biometrics/sensors/BiometricUtils;Ljava/util/Map;)V
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Landroid/content/Context;",
-            "Lcom/android/server/biometrics/sensors/HalClientMonitor$LazyDaemon<",
-            "Landroid/hardware/biometrics/face/ISession;",
+            "Ljava/util/function/Supplier<",
+            "Lcom/android/server/biometrics/sensors/face/aidl/AidlSession;",
             ">;I",
             "Ljava/lang/String;",
             "I",
+            "Lcom/android/server/biometrics/log/BiometricLogger;",
+            "Lcom/android/server/biometrics/log/BiometricContext;",
             "Ljava/util/List<",
             "Landroid/hardware/face/Face;",
             ">;",
@@ -39,41 +41,21 @@
         }
     .end annotation
 
-    const/4 v6, 0x4
-
-    move-object v0, p0
-
-    move-object v1, p1
-
-    move-object v2, p2
-
-    move v3, p3
-
-    move-object v4, p4
-
-    move v5, p5
-
-    move-object/from16 v7, p6
-
-    move-object/from16 v8, p7
-
-    move-object/from16 v9, p8
-
-    invoke-direct/range {v0 .. v9}, Lcom/android/server/biometrics/sensors/InternalCleanupClient;-><init>(Landroid/content/Context;Lcom/android/server/biometrics/sensors/HalClientMonitor$LazyDaemon;ILjava/lang/String;IILjava/util/List;Lcom/android/server/biometrics/sensors/BiometricUtils;Ljava/util/Map;)V
+    invoke-direct/range {p0 .. p10}, Lcom/android/server/biometrics/sensors/InternalCleanupClient;-><init>(Landroid/content/Context;Ljava/util/function/Supplier;ILjava/lang/String;ILcom/android/server/biometrics/log/BiometricLogger;Lcom/android/server/biometrics/log/BiometricContext;Ljava/util/List;Lcom/android/server/biometrics/sensors/BiometricUtils;Ljava/util/Map;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method protected getEnumerateClient(Landroid/content/Context;Lcom/android/server/biometrics/sensors/HalClientMonitor$LazyDaemon;Landroid/os/IBinder;ILjava/lang/String;Ljava/util/List;Lcom/android/server/biometrics/sensors/BiometricUtils;I)Lcom/android/server/biometrics/sensors/InternalEnumerateClient;
-    .locals 10
+.method public getEnumerateClient(Landroid/content/Context;Ljava/util/function/Supplier;Landroid/os/IBinder;ILjava/lang/String;Ljava/util/List;Lcom/android/server/biometrics/sensors/BiometricUtils;ILcom/android/server/biometrics/log/BiometricLogger;Lcom/android/server/biometrics/log/BiometricContext;)Lcom/android/server/biometrics/sensors/InternalEnumerateClient;
+    .locals 12
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Landroid/content/Context;",
-            "Lcom/android/server/biometrics/sensors/HalClientMonitor$LazyDaemon<",
-            "Landroid/hardware/biometrics/face/ISession;",
+            "Ljava/util/function/Supplier<",
+            "Lcom/android/server/biometrics/sensors/face/aidl/AidlSession;",
             ">;",
             "Landroid/os/IBinder;",
             "I",
@@ -83,16 +65,19 @@
             ">;",
             "Lcom/android/server/biometrics/sensors/BiometricUtils<",
             "Landroid/hardware/face/Face;",
-            ">;I)",
+            ">;I",
+            "Lcom/android/server/biometrics/log/BiometricLogger;",
+            "Lcom/android/server/biometrics/log/BiometricContext;",
+            ")",
             "Lcom/android/server/biometrics/sensors/InternalEnumerateClient<",
-            "Landroid/hardware/biometrics/face/ISession;",
+            "Lcom/android/server/biometrics/sensors/face/aidl/AidlSession;",
             ">;"
         }
     .end annotation
 
-    new-instance v9, Lcom/android/server/biometrics/sensors/face/aidl/FaceInternalEnumerateClient;
+    new-instance v11, Lcom/android/server/biometrics/sensors/face/aidl/FaceInternalEnumerateClient;
 
-    move-object v0, v9
+    move-object v0, v11
 
     move-object v1, p1
 
@@ -100,9 +85,9 @@
 
     move-object v3, p3
 
-    move v4, p4
+    move/from16 v4, p4
 
-    move-object v5, p5
+    move-object/from16 v5, p5
 
     move-object/from16 v6, p6
 
@@ -110,19 +95,23 @@
 
     move/from16 v8, p8
 
-    invoke-direct/range {v0 .. v8}, Lcom/android/server/biometrics/sensors/face/aidl/FaceInternalEnumerateClient;-><init>(Landroid/content/Context;Lcom/android/server/biometrics/sensors/HalClientMonitor$LazyDaemon;Landroid/os/IBinder;ILjava/lang/String;Ljava/util/List;Lcom/android/server/biometrics/sensors/BiometricUtils;I)V
+    move-object/from16 v9, p9
 
-    return-object v9
+    move-object/from16 v10, p10
+
+    invoke-direct/range {v0 .. v10}, Lcom/android/server/biometrics/sensors/face/aidl/FaceInternalEnumerateClient;-><init>(Landroid/content/Context;Ljava/util/function/Supplier;Landroid/os/IBinder;ILjava/lang/String;Ljava/util/List;Lcom/android/server/biometrics/sensors/BiometricUtils;ILcom/android/server/biometrics/log/BiometricLogger;Lcom/android/server/biometrics/log/BiometricContext;)V
+
+    return-object v11
 .end method
 
-.method protected getRemovalClient(Landroid/content/Context;Lcom/android/server/biometrics/sensors/HalClientMonitor$LazyDaemon;Landroid/os/IBinder;IILjava/lang/String;Lcom/android/server/biometrics/sensors/BiometricUtils;ILjava/util/Map;)Lcom/android/server/biometrics/sensors/RemovalClient;
-    .locals 12
+.method public getRemovalClient(Landroid/content/Context;Ljava/util/function/Supplier;Landroid/os/IBinder;IILjava/lang/String;Lcom/android/server/biometrics/sensors/BiometricUtils;ILcom/android/server/biometrics/log/BiometricLogger;Lcom/android/server/biometrics/log/BiometricContext;Ljava/util/Map;)Lcom/android/server/biometrics/sensors/RemovalClient;
+    .locals 14
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Landroid/content/Context;",
-            "Lcom/android/server/biometrics/sensors/HalClientMonitor$LazyDaemon<",
-            "Landroid/hardware/biometrics/face/ISession;",
+            "Ljava/util/function/Supplier<",
+            "Lcom/android/server/biometrics/sensors/face/aidl/AidlSession;",
             ">;",
             "Landroid/os/IBinder;",
             "II",
@@ -130,18 +119,20 @@
             "Lcom/android/server/biometrics/sensors/BiometricUtils<",
             "Landroid/hardware/face/Face;",
             ">;I",
+            "Lcom/android/server/biometrics/log/BiometricLogger;",
+            "Lcom/android/server/biometrics/log/BiometricContext;",
             "Ljava/util/Map<",
             "Ljava/lang/Integer;",
             "Ljava/lang/Long;",
             ">;)",
             "Lcom/android/server/biometrics/sensors/RemovalClient<",
             "Landroid/hardware/face/Face;",
-            "Landroid/hardware/biometrics/face/ISession;",
+            "Lcom/android/server/biometrics/sensors/face/aidl/AidlSession;",
             ">;"
         }
     .end annotation
 
-    new-instance v11, Lcom/android/server/biometrics/sensors/face/aidl/FaceRemovalClient;
+    new-instance v13, Lcom/android/server/biometrics/sensors/face/aidl/FaceRemovalClient;
 
     const/4 v0, 0x1
 
@@ -153,13 +144,13 @@
 
     const/4 v4, 0x0
 
-    move-object v0, v11
+    move-object v0, v13
 
     move-object v1, p1
 
-    move-object v2, p2
+    move-object/from16 v2, p2
 
-    move-object v3, p3
+    move-object/from16 v3, p3
 
     move/from16 v6, p5
 
@@ -171,7 +162,11 @@
 
     move-object/from16 v10, p9
 
-    invoke-direct/range {v0 .. v10}, Lcom/android/server/biometrics/sensors/face/aidl/FaceRemovalClient;-><init>(Landroid/content/Context;Lcom/android/server/biometrics/sensors/HalClientMonitor$LazyDaemon;Landroid/os/IBinder;Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;[IILjava/lang/String;Lcom/android/server/biometrics/sensors/BiometricUtils;ILjava/util/Map;)V
+    move-object/from16 v11, p10
 
-    return-object v11
+    move-object/from16 v12, p11
+
+    invoke-direct/range {v0 .. v12}, Lcom/android/server/biometrics/sensors/face/aidl/FaceRemovalClient;-><init>(Landroid/content/Context;Ljava/util/function/Supplier;Landroid/os/IBinder;Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;[IILjava/lang/String;Lcom/android/server/biometrics/sensors/BiometricUtils;ILcom/android/server/biometrics/log/BiometricLogger;Lcom/android/server/biometrics/log/BiometricContext;Ljava/util/Map;)V
+
+    return-object v13
 .end method

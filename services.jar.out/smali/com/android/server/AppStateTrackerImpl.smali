@@ -14,34 +14,69 @@
         Lcom/android/server/AppStateTrackerImpl$AppOpsWatcher;,
         Lcom/android/server/AppStateTrackerImpl$UidObserver;,
         Lcom/android/server/AppStateTrackerImpl$Listener;,
-        Lcom/android/server/AppStateTrackerImpl$FeatureFlagsObserver;,
-        Lcom/android/server/AppStateTrackerImpl$Stats;
+        Lcom/android/server/AppStateTrackerImpl$FeatureFlagsObserver;
     }
 .end annotation
 
 
 # static fields
-.field private static final DEBUG:Z = false
-
-.field static final TARGET_OP:I = 0x46
+.field public static final TARGET_OP:I = 0x46
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+.end field
 
 
 # instance fields
-.field final mActiveUids:Landroid/util/SparseBooleanArray;
+.field public final mActiveUids:Landroid/util/SparseBooleanArray;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
+.end field
 
-.field mActivityManagerInternal:Landroid/app/ActivityManagerInternal;
+.field public mActivityManagerInternal:Landroid/app/ActivityManagerInternal;
 
-.field mAppOpsManager:Landroid/app/AppOpsManager;
+.field public final mAppBackgroundRestrictionListener:Landroid/app/ActivityManagerInternal$AppBackgroundRestrictionListener;
 
-.field mAppOpsService:Lcom/android/internal/app/IAppOpsService;
+.field public mAppOpsManager:Landroid/app/AppOpsManager;
 
-.field mAppStandbyInternal:Lcom/android/server/usage/AppStandbyInternal;
+.field public mAppOpsService:Lcom/android/internal/app/IAppOpsService;
 
-.field mBatterySaverEnabled:Z
+.field public mAppStandbyInternal:Lcom/android/server/usage/AppStandbyInternal;
 
-.field private final mContext:Landroid/content/Context;
+.field public volatile mBackgroundRestrictedUidPackages:Ljava/util/Set;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/Set<",
+            "Landroid/util/Pair<",
+            "Ljava/lang/Integer;",
+            "Ljava/lang/String;",
+            ">;>;"
+        }
+    .end annotation
+.end field
 
-.field final mExemptedBucketPackages:Landroid/util/SparseSetArray;
+.field public mBatterySaverEnabled:Z
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
+.end field
+
+.field public final mContext:Landroid/content/Context;
+
+.field public final mExemptedBucketPackages:Landroid/util/SparseSetArray;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
+
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/SparseSetArray<",
@@ -51,21 +86,54 @@
     .end annotation
 .end field
 
-.field mFlagsObserver:Lcom/android/server/AppStateTrackerImpl$FeatureFlagsObserver;
+.field public mFlagsObserver:Lcom/android/server/AppStateTrackerImpl$FeatureFlagsObserver;
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+.end field
 
-.field mForceAllAppStandbyForSmallBattery:Z
+.field public mForceAllAppStandbyForSmallBattery:Z
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
+.end field
 
-.field mForceAllAppsStandby:Z
+.field public mForceAllAppsStandby:Z
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
+.end field
 
-.field mForcedAppStandbyEnabled:Z
+.field public mForcedAppStandbyEnabled:Z
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
+.end field
 
-.field private final mHandler:Lcom/android/server/AppStateTrackerImpl$MyHandler;
+.field public final mHandler:Lcom/android/server/AppStateTrackerImpl$MyHandler;
 
-.field mIActivityManager:Landroid/app/IActivityManager;
+.field public mIActivityManager:Landroid/app/IActivityManager;
 
-.field mIsPluggedIn:Z
+.field public mIsPluggedIn:Z
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
+.end field
 
-.field final mListeners:Landroid/util/ArraySet;
+.field public final mListeners:Landroid/util/ArraySet;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/ArraySet<",
@@ -75,17 +143,35 @@
     .end annotation
 .end field
 
-.field private final mLock:Ljava/lang/Object;
+.field public final mLock:Ljava/lang/Object;
 
-.field private mPowerExemptAllAppIds:[I
+.field public mPowerExemptAllAppIds:[I
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
+.end field
 
-.field private mPowerExemptUserAppIds:[I
+.field public mPowerExemptUserAppIds:[I
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
+.end field
 
-.field mPowerManagerInternal:Landroid/os/PowerManagerInternal;
+.field public mPowerManagerInternal:Landroid/os/PowerManagerInternal;
 
-.field private final mReceiver:Landroid/content/BroadcastReceiver;
+.field public final mReceiver:Landroid/content/BroadcastReceiver;
 
-.field final mRunAnyRestrictedPackages:Landroid/util/ArraySet;
+.field public final mRunAnyRestrictedPackages:Landroid/util/ArraySet;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/ArraySet<",
@@ -97,16 +183,114 @@
     .end annotation
 .end field
 
-.field mStandbyTracker:Lcom/android/server/AppStateTrackerImpl$StandbyTracker;
+.field public mStandbyTracker:Lcom/android/server/AppStateTrackerImpl$StandbyTracker;
 
-.field mStarted:Z
+.field public mStarted:Z
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
+.end field
 
-.field private final mStatLogger:Lcom/android/internal/util/jobs/StatLogger;
+.field public final mStatLogger:Lcom/android/internal/util/jobs/StatLogger;
 
-.field private mTempExemptAppIds:[I
+.field public mTempExemptAppIds:[I
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
+.end field
 
 
 # direct methods
+.method public static synthetic $r8$lambda$cShSvuV-sPxJB9Jx10gt5TtmIsc(Lcom/android/server/AppStateTrackerImpl;Landroid/os/PowerSaveState;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/AppStateTrackerImpl;->lambda$onSystemServicesReady$0(Landroid/os/PowerSaveState;)V
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmContext(Lcom/android/server/AppStateTrackerImpl;)Landroid/content/Context;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/AppStateTrackerImpl;->mContext:Landroid/content/Context;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmHandler(Lcom/android/server/AppStateTrackerImpl;)Lcom/android/server/AppStateTrackerImpl$MyHandler;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/AppStateTrackerImpl;->mHandler:Lcom/android/server/AppStateTrackerImpl$MyHandler;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmLock(Lcom/android/server/AppStateTrackerImpl;)Ljava/lang/Object;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/AppStateTrackerImpl;->mLock:Ljava/lang/Object;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmStatLogger(Lcom/android/server/AppStateTrackerImpl;)Lcom/android/internal/util/jobs/StatLogger;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/AppStateTrackerImpl;->mStatLogger:Lcom/android/internal/util/jobs/StatLogger;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$mcloneListeners(Lcom/android/server/AppStateTrackerImpl;)[Lcom/android/server/AppStateTrackerImpl$Listener;
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/server/AppStateTrackerImpl;->cloneListeners()[Lcom/android/server/AppStateTrackerImpl$Listener;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$mupdateBackgroundRestrictedUidPackagesLocked(Lcom/android/server/AppStateTrackerImpl;)V
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/server/AppStateTrackerImpl;->updateBackgroundRestrictedUidPackagesLocked()V
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$mupdateForceAllAppStandbyState(Lcom/android/server/AppStateTrackerImpl;)V
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/server/AppStateTrackerImpl;->updateForceAllAppStandbyState()V
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$smaddUidToArray(Landroid/util/SparseBooleanArray;I)Z
+    .locals 0
+
+    invoke-static {p0, p1}, Lcom/android/server/AppStateTrackerImpl;->addUidToArray(Landroid/util/SparseBooleanArray;I)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public static bridge synthetic -$$Nest$smremoveUidFromArray(Landroid/util/SparseBooleanArray;IZ)Z
+    .locals 0
+
+    invoke-static {p0, p1, p2}, Lcom/android/server/AppStateTrackerImpl;->removeUidFromArray(Landroid/util/SparseBooleanArray;IZ)Z
+
+    move-result p0
+
+    return p0
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Landroid/os/Looper;)V
     .locals 12
 
@@ -154,6 +338,12 @@
 
     iput-object v0, p0, Lcom/android/server/AppStateTrackerImpl;->mListeners:Landroid/util/ArraySet;
 
+    invoke-static {}, Ljava/util/Collections;->emptySet()Ljava/util/Set;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/server/AppStateTrackerImpl;->mBackgroundRestrictedUidPackages:Ljava/util/Set;
+
     new-instance v0, Lcom/android/internal/util/jobs/StatLogger;
 
     const-string v1, "UID_FG_STATE_CHANGED"
@@ -190,90 +380,26 @@
 
     invoke-direct {v0, p0}, Lcom/android/server/AppStateTrackerImpl$2;-><init>(Lcom/android/server/AppStateTrackerImpl;)V
 
+    iput-object v0, p0, Lcom/android/server/AppStateTrackerImpl;->mAppBackgroundRestrictionListener:Landroid/app/ActivityManagerInternal$AppBackgroundRestrictionListener;
+
+    new-instance v0, Lcom/android/server/AppStateTrackerImpl$3;
+
+    invoke-direct {v0, p0}, Lcom/android/server/AppStateTrackerImpl$3;-><init>(Lcom/android/server/AppStateTrackerImpl;)V
+
     iput-object v0, p0, Lcom/android/server/AppStateTrackerImpl;->mReceiver:Landroid/content/BroadcastReceiver;
 
     iput-object p1, p0, Lcom/android/server/AppStateTrackerImpl;->mContext:Landroid/content/Context;
 
-    new-instance v0, Lcom/android/server/AppStateTrackerImpl$MyHandler;
+    new-instance p1, Lcom/android/server/AppStateTrackerImpl$MyHandler;
 
-    invoke-direct {v0, p0, p2}, Lcom/android/server/AppStateTrackerImpl$MyHandler;-><init>(Lcom/android/server/AppStateTrackerImpl;Landroid/os/Looper;)V
+    invoke-direct {p1, p0, p2}, Lcom/android/server/AppStateTrackerImpl$MyHandler;-><init>(Lcom/android/server/AppStateTrackerImpl;Landroid/os/Looper;)V
 
-    iput-object v0, p0, Lcom/android/server/AppStateTrackerImpl;->mHandler:Lcom/android/server/AppStateTrackerImpl$MyHandler;
-
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/server/AppStateTrackerImpl;)Landroid/content/Context;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/AppStateTrackerImpl;->mContext:Landroid/content/Context;
-
-    return-object v0
-.end method
-
-.method static synthetic access$100(Lcom/android/server/AppStateTrackerImpl;)Ljava/lang/Object;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/AppStateTrackerImpl;->mLock:Ljava/lang/Object;
-
-    return-object v0
-.end method
-
-.method static synthetic access$1500(Landroid/util/SparseBooleanArray;I)Z
-    .locals 1
-
-    invoke-static {p0, p1}, Lcom/android/server/AppStateTrackerImpl;->addUidToArray(Landroid/util/SparseBooleanArray;I)Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method static synthetic access$1600(Landroid/util/SparseBooleanArray;IZ)Z
-    .locals 1
-
-    invoke-static {p0, p1, p2}, Lcom/android/server/AppStateTrackerImpl;->removeUidFromArray(Landroid/util/SparseBooleanArray;IZ)Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method static synthetic access$200(Lcom/android/server/AppStateTrackerImpl;)Lcom/android/server/AppStateTrackerImpl$MyHandler;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/AppStateTrackerImpl;->mHandler:Lcom/android/server/AppStateTrackerImpl$MyHandler;
-
-    return-object v0
-.end method
-
-.method static synthetic access$300(Lcom/android/server/AppStateTrackerImpl;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/server/AppStateTrackerImpl;->updateForceAllAppStandbyState()V
+    iput-object p1, p0, Lcom/android/server/AppStateTrackerImpl;->mHandler:Lcom/android/server/AppStateTrackerImpl$MyHandler;
 
     return-void
 .end method
 
-.method static synthetic access$600(Lcom/android/server/AppStateTrackerImpl;)Lcom/android/internal/util/jobs/StatLogger;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/AppStateTrackerImpl;->mStatLogger:Lcom/android/internal/util/jobs/StatLogger;
-
-    return-object v0
-.end method
-
-.method static synthetic access$700(Lcom/android/server/AppStateTrackerImpl;)[Lcom/android/server/AppStateTrackerImpl$Listener;
-    .locals 1
-
-    invoke-direct {p0}, Lcom/android/server/AppStateTrackerImpl;->cloneListeners()[Lcom/android/server/AppStateTrackerImpl$Listener;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method private static addUidToArray(Landroid/util/SparseBooleanArray;I)Z
+.method public static addUidToArray(Landroid/util/SparseBooleanArray;I)Z
     .locals 2
 
     invoke-static {p1}, Landroid/os/UserHandle;->isCore(I)Z
@@ -303,385 +429,58 @@
     return v0
 .end method
 
-.method private cleanUpArrayForUser(Landroid/util/SparseBooleanArray;I)V
-    .locals 3
-
-    invoke-virtual {p1}, Landroid/util/SparseBooleanArray;->size()I
-
-    move-result v0
-
-    add-int/lit8 v0, v0, -0x1
-
-    :goto_0
-    if-ltz v0, :cond_1
-
-    invoke-virtual {p1, v0}, Landroid/util/SparseBooleanArray;->keyAt(I)I
-
-    move-result v1
-
-    invoke-static {v1}, Landroid/os/UserHandle;->getUserId(I)I
-
-    move-result v2
-
-    if-ne v2, p2, :cond_0
-
-    invoke-virtual {p1, v0}, Landroid/util/SparseBooleanArray;->removeAt(I)V
-
-    :cond_0
-    add-int/lit8 v0, v0, -0x1
-
-    goto :goto_0
-
-    :cond_1
-    return-void
-.end method
-
-.method private cloneListeners()[Lcom/android/server/AppStateTrackerImpl$Listener;
-    .locals 3
-
-    iget-object v0, p0, Lcom/android/server/AppStateTrackerImpl;->mLock:Ljava/lang/Object;
-
-    monitor-enter v0
-
-    :try_start_0
-    iget-object v1, p0, Lcom/android/server/AppStateTrackerImpl;->mListeners:Landroid/util/ArraySet;
-
-    invoke-virtual {v1}, Landroid/util/ArraySet;->size()I
-
-    move-result v2
-
-    new-array v2, v2, [Lcom/android/server/AppStateTrackerImpl$Listener;
-
-    invoke-virtual {v1, v2}, Landroid/util/ArraySet;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, [Lcom/android/server/AppStateTrackerImpl$Listener;
-
-    monitor-exit v0
-
-    return-object v1
-
-    :catchall_0
-    move-exception v1
-
-    monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v1
-.end method
-
-.method private dumpUids(Ljava/io/PrintWriter;Landroid/util/SparseBooleanArray;)V
-    .locals 3
-
-    const-string v0, "["
-
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    const-string v0, ""
-
-    const/4 v1, 0x0
-
-    :goto_0
-    invoke-virtual {p2}, Landroid/util/SparseBooleanArray;->size()I
-
-    move-result v2
-
-    if-ge v1, v2, :cond_1
-
-    invoke-virtual {p2, v1}, Landroid/util/SparseBooleanArray;->valueAt(I)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    invoke-virtual {p2, v1}, Landroid/util/SparseBooleanArray;->keyAt(I)I
-
-    move-result v2
-
-    invoke-static {v2}, Landroid/os/UserHandle;->formatUid(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {p1, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    const-string v0, " "
-
-    :cond_0
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_0
-
-    :cond_1
-    const-string v1, "]"
-
-    invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method private findForcedAppStandbyUidPackageIndexLocked(ILjava/lang/String;)I
-    .locals 4
-
-    iget-object v0, p0, Lcom/android/server/AppStateTrackerImpl;->mRunAnyRestrictedPackages:Landroid/util/ArraySet;
-
-    invoke-virtual {v0}, Landroid/util/ArraySet;->size()I
-
-    move-result v0
-
-    const/16 v1, 0x8
-
-    if-le v0, v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/server/AppStateTrackerImpl;->mRunAnyRestrictedPackages:Landroid/util/ArraySet;
-
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-static {v2, p2}, Landroid/util/Pair;->create(Ljava/lang/Object;Ljava/lang/Object;)Landroid/util/Pair;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Landroid/util/ArraySet;->indexOf(Ljava/lang/Object;)I
-
-    move-result v1
-
-    return v1
-
-    :cond_0
-    const/4 v1, 0x0
-
-    :goto_0
-    if-ge v1, v0, :cond_2
-
-    iget-object v2, p0, Lcom/android/server/AppStateTrackerImpl;->mRunAnyRestrictedPackages:Landroid/util/ArraySet;
-
-    invoke-virtual {v2, v1}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/util/Pair;
-
-    iget-object v3, v2, Landroid/util/Pair;->first:Ljava/lang/Object;
-
-    check-cast v3, Ljava/lang/Integer;
-
-    invoke-virtual {v3}, Ljava/lang/Integer;->intValue()I
-
-    move-result v3
-
-    if-ne v3, p1, :cond_1
-
-    iget-object v3, v2, Landroid/util/Pair;->second:Ljava/lang/Object;
-
-    invoke-virtual {p2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_1
-
-    return v1
-
-    :cond_1
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_0
-
-    :cond_2
-    const/4 v1, -0x1
-
-    return v1
-.end method
-
-.method static isAnyAppIdUnexempt([I[I)Z
-    .locals 7
+.method public static isAnyAppIdUnexempt([I[I)Z
+    .locals 6
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
 
     const/4 v0, 0x0
 
-    const/4 v1, 0x0
+    move v1, v0
+
+    move v2, v1
 
     :goto_0
-    array-length v2, p0
-
-    const/4 v3, 0x0
+    array-length v3, p0
 
     const/4 v4, 0x1
 
-    if-lt v0, v2, :cond_0
+    if-lt v1, v3, :cond_0
 
-    move v2, v4
+    move v3, v4
 
     goto :goto_1
 
     :cond_0
-    move v2, v3
+    move v3, v0
 
     :goto_1
     array-length v5, p1
 
-    if-lt v1, v5, :cond_1
+    if-lt v2, v5, :cond_1
 
     move v5, v4
 
     goto :goto_2
 
     :cond_1
-    move v5, v3
+    move v5, v0
 
     :goto_2
-    if-nez v2, :cond_5
+    if-nez v3, :cond_5
 
     if-eqz v5, :cond_2
 
     goto :goto_3
 
     :cond_2
-    aget v3, p0, v0
+    aget v3, p0, v1
 
-    aget v6, p1, v1
+    aget v5, p1, v2
 
-    if-ne v3, v6, :cond_3
-
-    add-int/lit8 v0, v0, 0x1
+    if-ne v3, v5, :cond_4
 
     add-int/lit8 v1, v1, 0x1
-
-    goto :goto_0
-
-    :cond_3
-    if-ge v3, v6, :cond_4
-
-    return v4
-
-    :cond_4
-    nop
-
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_0
-
-    :cond_5
-    :goto_3
-    if-eqz v2, :cond_6
-
-    return v3
-
-    :cond_6
-    return v5
-.end method
-
-.method private refreshForcedAppStandbyUidPackagesLocked()V
-    .locals 11
-
-    iget-object v0, p0, Lcom/android/server/AppStateTrackerImpl;->mRunAnyRestrictedPackages:Landroid/util/ArraySet;
-
-    invoke-virtual {v0}, Landroid/util/ArraySet;->clear()V
-
-    iget-object v0, p0, Lcom/android/server/AppStateTrackerImpl;->mAppOpsManager:Landroid/app/AppOpsManager;
-
-    const/4 v1, 0x1
-
-    new-array v1, v1, [I
-
-    const/4 v2, 0x0
-
-    const/16 v3, 0x46
-
-    aput v3, v1, v2
-
-    invoke-virtual {v0, v1}, Landroid/app/AppOpsManager;->getPackagesForOps([I)Ljava/util/List;
-
-    move-result-object v0
-
-    if-nez v0, :cond_0
-
-    return-void
-
-    :cond_0
-    invoke-interface {v0}, Ljava/util/List;->size()I
-
-    move-result v1
-
-    const/4 v2, 0x0
-
-    :goto_0
-    if-ge v2, v1, :cond_4
-
-    invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Landroid/app/AppOpsManager$PackageOps;
-
-    invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Landroid/app/AppOpsManager$PackageOps;
-
-    invoke-virtual {v5}, Landroid/app/AppOpsManager$PackageOps;->getOps()Ljava/util/List;
-
-    move-result-object v5
-
-    const/4 v6, 0x0
-
-    :goto_1
-    invoke-interface {v5}, Ljava/util/List;->size()I
-
-    move-result v7
-
-    if-ge v6, v7, :cond_3
-
-    invoke-interface {v5, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v7
-
-    check-cast v7, Landroid/app/AppOpsManager$OpEntry;
-
-    invoke-virtual {v7}, Landroid/app/AppOpsManager$OpEntry;->getOp()I
-
-    move-result v8
-
-    if-eq v8, v3, :cond_1
-
-    goto :goto_2
-
-    :cond_1
-    invoke-virtual {v7}, Landroid/app/AppOpsManager$OpEntry;->getMode()I
-
-    move-result v8
-
-    if-eqz v8, :cond_2
-
-    iget-object v8, p0, Lcom/android/server/AppStateTrackerImpl;->mRunAnyRestrictedPackages:Landroid/util/ArraySet;
-
-    invoke-virtual {v4}, Landroid/app/AppOpsManager$PackageOps;->getUid()I
-
-    move-result v9
-
-    invoke-static {v9}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v9
-
-    invoke-virtual {v4}, Landroid/app/AppOpsManager$PackageOps;->getPackageName()Ljava/lang/String;
-
-    move-result-object v10
-
-    invoke-static {v9, v10}, Landroid/util/Pair;->create(Ljava/lang/Object;Ljava/lang/Object;)Landroid/util/Pair;
-
-    move-result-object v9
-
-    invoke-virtual {v8, v9}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
-
-    :cond_2
-    :goto_2
-    add-int/lit8 v6, v6, 0x1
-
-    goto :goto_1
 
     :cond_3
     add-int/lit8 v2, v2, 0x1
@@ -689,10 +488,49 @@
     goto :goto_0
 
     :cond_4
-    return-void
+    if-ge v3, v5, :cond_3
+
+    return v4
+
+    :cond_5
+    :goto_3
+    if-eqz v3, :cond_6
+
+    return v0
+
+    :cond_6
+    return v5
 .end method
 
-.method private static removeUidFromArray(Landroid/util/SparseBooleanArray;IZ)Z
+.method private synthetic lambda$onSystemServicesReady$0(Landroid/os/PowerSaveState;)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/AppStateTrackerImpl;->mLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
+    iget-boolean p1, p1, Landroid/os/PowerSaveState;->batterySaverEnabled:Z
+
+    iput-boolean p1, p0, Lcom/android/server/AppStateTrackerImpl;->mBatterySaverEnabled:Z
+
+    invoke-virtual {p0}, Lcom/android/server/AppStateTrackerImpl;->updateForceAllAppStandbyState()V
+
+    monitor-exit v0
+
+    return-void
+
+    :catchall_0
+    move-exception p0
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw p0
+.end method
+
+.method public static removeUidFromArray(Landroid/util/SparseBooleanArray;IZ)Z
     .locals 2
 
     invoke-static {p1}, Landroid/os/UserHandle;->isCore(I)Z
@@ -725,122 +563,49 @@
     invoke-virtual {p0, p1, v1}, Landroid/util/SparseBooleanArray;->put(IZ)V
 
     :goto_0
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
-.end method
-
-.method private toggleForceAllAppsStandbyLocked(Z)V
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/server/AppStateTrackerImpl;->mForceAllAppsStandby:Z
-
-    if-ne p1, v0, :cond_0
-
-    return-void
-
-    :cond_0
-    iput-boolean p1, p0, Lcom/android/server/AppStateTrackerImpl;->mForceAllAppsStandby:Z
-
-    iget-object v0, p0, Lcom/android/server/AppStateTrackerImpl;->mHandler:Lcom/android/server/AppStateTrackerImpl$MyHandler;
-
-    invoke-virtual {v0}, Lcom/android/server/AppStateTrackerImpl$MyHandler;->notifyForceAllAppsStandbyChanged()V
-
-    return-void
-.end method
-
-.method private updateForceAllAppStandbyState()V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/server/AppStateTrackerImpl;->mLock:Ljava/lang/Object;
-
-    monitor-enter v0
-
-    :try_start_0
-    iget-boolean v1, p0, Lcom/android/server/AppStateTrackerImpl;->mForceAllAppStandbyForSmallBattery:Z
-
-    if-eqz v1, :cond_1
-
-    invoke-virtual {p0}, Lcom/android/server/AppStateTrackerImpl;->isSmallBatteryDevice()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    iget-boolean v1, p0, Lcom/android/server/AppStateTrackerImpl;->mIsPluggedIn:Z
-
-    if-nez v1, :cond_0
-
-    const/4 v1, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v1, 0x0
-
-    :goto_0
-    invoke-direct {p0, v1}, Lcom/android/server/AppStateTrackerImpl;->toggleForceAllAppsStandbyLocked(Z)V
-
-    goto :goto_1
-
-    :cond_1
-    iget-boolean v1, p0, Lcom/android/server/AppStateTrackerImpl;->mBatterySaverEnabled:Z
-
-    invoke-direct {p0, v1}, Lcom/android/server/AppStateTrackerImpl;->toggleForceAllAppsStandbyLocked(Z)V
-
-    :goto_1
-    monitor-exit v0
-
-    return-void
-
-    :catchall_0
-    move-exception v1
-
-    monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v1
+    return p0
 .end method
 
 
 # virtual methods
+.method public addBackgroundRestrictedAppListener(Lcom/android/server/AppStateTracker$BackgroundRestrictedAppListener;)V
+    .locals 1
+
+    new-instance v0, Lcom/android/server/AppStateTrackerImpl$1;
+
+    invoke-direct {v0, p0, p1}, Lcom/android/server/AppStateTrackerImpl$1;-><init>(Lcom/android/server/AppStateTrackerImpl;Lcom/android/server/AppStateTracker$BackgroundRestrictedAppListener;)V
+
+    invoke-virtual {p0, v0}, Lcom/android/server/AppStateTrackerImpl;->addListener(Lcom/android/server/AppStateTrackerImpl$Listener;)V
+
+    return-void
+.end method
+
 .method public addListener(Lcom/android/server/AppStateTrackerImpl$Listener;)V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/AppStateTrackerImpl;->mLock:Ljava/lang/Object;
 
     monitor-enter v0
 
     :try_start_0
-    iget-object v1, p0, Lcom/android/server/AppStateTrackerImpl;->mListeners:Landroid/util/ArraySet;
+    iget-object p0, p0, Lcom/android/server/AppStateTrackerImpl;->mListeners:Landroid/util/ArraySet;
 
-    invoke-virtual {v1, p1}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p1}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
 
     monitor-exit v0
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
-.end method
-
-.method public addServiceStateListener(Lcom/android/server/AppStateTracker$ServiceStateListener;)V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/AppStateTrackerImpl$1;
-
-    invoke-direct {v0, p0, p1}, Lcom/android/server/AppStateTrackerImpl$1;-><init>(Lcom/android/server/AppStateTrackerImpl;Lcom/android/server/AppStateTracker$ServiceStateListener;)V
-
-    invoke-virtual {p0, v0}, Lcom/android/server/AppStateTrackerImpl;->addListener(Lcom/android/server/AppStateTrackerImpl$Listener;)V
-
-    return-void
+    throw p0
 .end method
 
 .method public areAlarmsRestricted(ILjava/lang/String;)Z
@@ -870,24 +635,32 @@
 
     invoke-static {v3, v2}, Lcom/android/internal/util/jobs/ArrayUtils;->contains([II)Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_1
+    if-eqz v2, :cond_1
 
     monitor-exit v0
 
     return v1
 
     :cond_1
-    iget-boolean v3, p0, Lcom/android/server/AppStateTrackerImpl;->mForcedAppStandbyEnabled:Z
+    iget-boolean v2, p0, Lcom/android/server/AppStateTrackerImpl;->mForcedAppStandbyEnabled:Z
 
-    if-eqz v3, :cond_2
+    if-eqz v2, :cond_2
+
+    iget-object v2, p0, Lcom/android/server/AppStateTrackerImpl;->mActivityManagerInternal:Landroid/app/ActivityManagerInternal;
+
+    invoke-virtual {v2}, Landroid/app/ActivityManagerInternal;->isBgAutoRestrictedBucketFeatureFlagEnabled()Z
+
+    move-result v2
+
+    if-nez v2, :cond_2
 
     invoke-virtual {p0, p1, p2}, Lcom/android/server/AppStateTrackerImpl;->isRunAnyRestrictedLocked(ILjava/lang/String;)Z
 
-    move-result v3
+    move-result p0
 
-    if-eqz v3, :cond_2
+    if-eqz p0, :cond_2
 
     const/4 v1, 0x1
 
@@ -897,17 +670,17 @@
     return v1
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
 .method public areAlarmsRestrictedByBatterySaver(ILjava/lang/String;)Z
-    .locals 5
+    .locals 4
 
     invoke-virtual {p0, p1}, Lcom/android/server/AppStateTrackerImpl;->isUidActive(I)Z
 
@@ -933,9 +706,9 @@
 
     invoke-static {v3, v2}, Lcom/android/internal/util/jobs/ArrayUtils;->contains([II)Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_1
+    if-eqz v2, :cond_1
 
     monitor-exit v0
 
@@ -944,55 +717,55 @@
     :cond_1
     invoke-static {p1}, Landroid/os/UserHandle;->getUserId(I)I
 
-    move-result v3
+    move-result p1
 
-    iget-object v4, p0, Lcom/android/server/AppStateTrackerImpl;->mAppStandbyInternal:Lcom/android/server/usage/AppStandbyInternal;
+    iget-object v2, p0, Lcom/android/server/AppStateTrackerImpl;->mAppStandbyInternal:Lcom/android/server/usage/AppStandbyInternal;
 
-    invoke-interface {v4}, Lcom/android/server/usage/AppStandbyInternal;->isAppIdleEnabled()Z
+    invoke-interface {v2}, Lcom/android/server/usage/AppStandbyInternal;->isAppIdleEnabled()Z
 
-    move-result v4
+    move-result v2
 
-    if-eqz v4, :cond_2
+    if-eqz v2, :cond_2
 
-    iget-object v4, p0, Lcom/android/server/AppStateTrackerImpl;->mAppStandbyInternal:Lcom/android/server/usage/AppStandbyInternal;
+    iget-object v2, p0, Lcom/android/server/AppStateTrackerImpl;->mAppStandbyInternal:Lcom/android/server/usage/AppStandbyInternal;
 
-    invoke-interface {v4}, Lcom/android/server/usage/AppStandbyInternal;->isInParole()Z
+    invoke-interface {v2}, Lcom/android/server/usage/AppStandbyInternal;->isInParole()Z
 
-    move-result v4
+    move-result v2
 
-    if-nez v4, :cond_2
+    if-nez v2, :cond_2
 
-    iget-object v4, p0, Lcom/android/server/AppStateTrackerImpl;->mExemptedBucketPackages:Landroid/util/SparseSetArray;
+    iget-object v2, p0, Lcom/android/server/AppStateTrackerImpl;->mExemptedBucketPackages:Landroid/util/SparseSetArray;
 
-    invoke-virtual {v4, v3, p2}, Landroid/util/SparseSetArray;->contains(ILjava/lang/Object;)Z
+    invoke-virtual {v2, p1, p2}, Landroid/util/SparseSetArray;->contains(ILjava/lang/Object;)Z
 
-    move-result v4
+    move-result p1
 
-    if-eqz v4, :cond_2
+    if-eqz p1, :cond_2
 
     monitor-exit v0
 
     return v1
 
     :cond_2
-    iget-boolean v1, p0, Lcom/android/server/AppStateTrackerImpl;->mForceAllAppsStandby:Z
+    iget-boolean p0, p0, Lcom/android/server/AppStateTrackerImpl;->mForceAllAppsStandby:Z
 
     monitor-exit v0
 
-    return v1
+    return p0
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
 .method public areJobsRestricted(ILjava/lang/String;Z)Z
-    .locals 5
+    .locals 4
 
     invoke-virtual {p0, p1}, Lcom/android/server/AppStateTrackerImpl;->isUidActive(I)Z
 
@@ -1026,28 +799,36 @@
 
     invoke-static {v3, v2}, Lcom/android/internal/util/jobs/ArrayUtils;->contains([II)Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_1
+    if-eqz v2, :cond_1
 
     goto :goto_0
 
     :cond_1
-    iget-boolean v3, p0, Lcom/android/server/AppStateTrackerImpl;->mForcedAppStandbyEnabled:Z
+    iget-boolean v2, p0, Lcom/android/server/AppStateTrackerImpl;->mForcedAppStandbyEnabled:Z
 
-    if-eqz v3, :cond_2
+    if-eqz v2, :cond_2
+
+    iget-object v2, p0, Lcom/android/server/AppStateTrackerImpl;->mActivityManagerInternal:Landroid/app/ActivityManagerInternal;
+
+    invoke-virtual {v2}, Landroid/app/ActivityManagerInternal;->isBgAutoRestrictedBucketFeatureFlagEnabled()Z
+
+    move-result v2
+
+    if-nez v2, :cond_2
 
     invoke-virtual {p0, p1, p2}, Lcom/android/server/AppStateTrackerImpl;->isRunAnyRestrictedLocked(ILjava/lang/String;)Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_2
+    if-eqz v2, :cond_2
 
-    const/4 v1, 0x1
+    const/4 p0, 0x1
 
     monitor-exit v0
 
-    return v1
+    return p0
 
     :cond_2
     if-eqz p3, :cond_3
@@ -1059,42 +840,42 @@
     :cond_3
     invoke-static {p1}, Landroid/os/UserHandle;->getUserId(I)I
 
-    move-result v3
+    move-result p1
 
-    iget-object v4, p0, Lcom/android/server/AppStateTrackerImpl;->mAppStandbyInternal:Lcom/android/server/usage/AppStandbyInternal;
+    iget-object p3, p0, Lcom/android/server/AppStateTrackerImpl;->mAppStandbyInternal:Lcom/android/server/usage/AppStandbyInternal;
 
-    invoke-interface {v4}, Lcom/android/server/usage/AppStandbyInternal;->isAppIdleEnabled()Z
+    invoke-interface {p3}, Lcom/android/server/usage/AppStandbyInternal;->isAppIdleEnabled()Z
 
-    move-result v4
+    move-result p3
 
-    if-eqz v4, :cond_4
+    if-eqz p3, :cond_4
 
-    iget-object v4, p0, Lcom/android/server/AppStateTrackerImpl;->mAppStandbyInternal:Lcom/android/server/usage/AppStandbyInternal;
+    iget-object p3, p0, Lcom/android/server/AppStateTrackerImpl;->mAppStandbyInternal:Lcom/android/server/usage/AppStandbyInternal;
 
-    invoke-interface {v4}, Lcom/android/server/usage/AppStandbyInternal;->isInParole()Z
+    invoke-interface {p3}, Lcom/android/server/usage/AppStandbyInternal;->isInParole()Z
 
-    move-result v4
+    move-result p3
 
-    if-nez v4, :cond_4
+    if-nez p3, :cond_4
 
-    iget-object v4, p0, Lcom/android/server/AppStateTrackerImpl;->mExemptedBucketPackages:Landroid/util/SparseSetArray;
+    iget-object p3, p0, Lcom/android/server/AppStateTrackerImpl;->mExemptedBucketPackages:Landroid/util/SparseSetArray;
 
-    invoke-virtual {v4, v3, p2}, Landroid/util/SparseSetArray;->contains(ILjava/lang/Object;)Z
+    invoke-virtual {p3, p1, p2}, Landroid/util/SparseSetArray;->contains(ILjava/lang/Object;)Z
 
-    move-result v4
+    move-result p1
 
-    if-eqz v4, :cond_4
+    if-eqz p1, :cond_4
 
     monitor-exit v0
 
     return v1
 
     :cond_4
-    iget-boolean v1, p0, Lcom/android/server/AppStateTrackerImpl;->mForceAllAppsStandby:Z
+    iget-boolean p0, p0, Lcom/android/server/AppStateTrackerImpl;->mForceAllAppsStandby:Z
 
     monitor-exit v0
 
-    return v1
+    return p0
 
     :cond_5
     :goto_0
@@ -1103,17 +884,86 @@
     return v1
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
+.end method
+
+.method public final cleanUpArrayForUser(Landroid/util/SparseBooleanArray;I)V
+    .locals 1
+
+    invoke-virtual {p1}, Landroid/util/SparseBooleanArray;->size()I
+
+    move-result p0
+
+    add-int/lit8 p0, p0, -0x1
+
+    :goto_0
+    if-ltz p0, :cond_1
+
+    invoke-virtual {p1, p0}, Landroid/util/SparseBooleanArray;->keyAt(I)I
+
+    move-result v0
+
+    invoke-static {v0}, Landroid/os/UserHandle;->getUserId(I)I
+
+    move-result v0
+
+    if-ne v0, p2, :cond_0
+
+    invoke-virtual {p1, p0}, Landroid/util/SparseBooleanArray;->removeAt(I)V
+
+    :cond_0
+    add-int/lit8 p0, p0, -0x1
+
+    goto :goto_0
+
+    :cond_1
+    return-void
+.end method
+
+.method public final cloneListeners()[Lcom/android/server/AppStateTrackerImpl$Listener;
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/AppStateTrackerImpl;->mLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
+    iget-object p0, p0, Lcom/android/server/AppStateTrackerImpl;->mListeners:Landroid/util/ArraySet;
+
+    invoke-virtual {p0}, Landroid/util/ArraySet;->size()I
+
+    move-result v1
+
+    new-array v1, v1, [Lcom/android/server/AppStateTrackerImpl$Listener;
+
+    invoke-virtual {p0, v1}, Landroid/util/ArraySet;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, [Lcom/android/server/AppStateTrackerImpl$Listener;
+
+    monitor-exit v0
+
+    return-object p0
+
+    :catchall_0
+    move-exception p0
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw p0
 .end method
 
 .method public dump(Landroid/util/IndentingPrintWriter;)V
-    .locals 4
+    .locals 5
 
     iget-object v0, p0, Lcom/android/server/AppStateTrackerImpl;->mLock:Ljava/lang/Object;
 
@@ -1186,7 +1036,7 @@
 
     iget-object v1, p0, Lcom/android/server/AppStateTrackerImpl;->mActiveUids:Landroid/util/SparseBooleanArray;
 
-    invoke-direct {p0, p1, v1}, Lcom/android/server/AppStateTrackerImpl;->dumpUids(Ljava/io/PrintWriter;Landroid/util/SparseBooleanArray;)V
+    invoke-virtual {p0, p1, v1}, Lcom/android/server/AppStateTrackerImpl;->dumpUids(Ljava/io/PrintWriter;Landroid/util/SparseBooleanArray;)V
 
     const-string v1, "Except-idle + user exemption list appids: "
 
@@ -1232,62 +1082,64 @@
 
     const/4 v1, 0x0
 
+    move v2, v1
+
     :goto_0
-    iget-object v2, p0, Lcom/android/server/AppStateTrackerImpl;->mExemptedBucketPackages:Landroid/util/SparseSetArray;
+    iget-object v3, p0, Lcom/android/server/AppStateTrackerImpl;->mExemptedBucketPackages:Landroid/util/SparseSetArray;
 
-    invoke-virtual {v2}, Landroid/util/SparseSetArray;->size()I
+    invoke-virtual {v3}, Landroid/util/SparseSetArray;->size()I
 
-    move-result v2
+    move-result v3
 
-    if-ge v1, v2, :cond_1
+    if-ge v2, v3, :cond_1
 
-    const-string v2, "User "
+    const-string v3, "User "
 
-    invoke-virtual {p1, v2}, Landroid/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
+    invoke-virtual {p1, v3}, Landroid/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
 
-    iget-object v2, p0, Lcom/android/server/AppStateTrackerImpl;->mExemptedBucketPackages:Landroid/util/SparseSetArray;
+    iget-object v3, p0, Lcom/android/server/AppStateTrackerImpl;->mExemptedBucketPackages:Landroid/util/SparseSetArray;
 
-    invoke-virtual {v2, v1}, Landroid/util/SparseSetArray;->keyAt(I)I
+    invoke-virtual {v3, v2}, Landroid/util/SparseSetArray;->keyAt(I)I
 
-    move-result v2
+    move-result v3
 
-    invoke-virtual {p1, v2}, Landroid/util/IndentingPrintWriter;->print(I)V
+    invoke-virtual {p1, v3}, Landroid/util/IndentingPrintWriter;->print(I)V
 
     invoke-virtual {p1}, Landroid/util/IndentingPrintWriter;->println()V
 
     invoke-virtual {p1}, Landroid/util/IndentingPrintWriter;->increaseIndent()Landroid/util/IndentingPrintWriter;
 
-    const/4 v2, 0x0
+    move v3, v1
 
     :goto_1
-    iget-object v3, p0, Lcom/android/server/AppStateTrackerImpl;->mExemptedBucketPackages:Landroid/util/SparseSetArray;
+    iget-object v4, p0, Lcom/android/server/AppStateTrackerImpl;->mExemptedBucketPackages:Landroid/util/SparseSetArray;
 
-    invoke-virtual {v3, v1}, Landroid/util/SparseSetArray;->sizeAt(I)I
+    invoke-virtual {v4, v2}, Landroid/util/SparseSetArray;->sizeAt(I)I
 
-    move-result v3
+    move-result v4
 
-    if-ge v2, v3, :cond_0
+    if-ge v3, v4, :cond_0
 
-    iget-object v3, p0, Lcom/android/server/AppStateTrackerImpl;->mExemptedBucketPackages:Landroid/util/SparseSetArray;
+    iget-object v4, p0, Lcom/android/server/AppStateTrackerImpl;->mExemptedBucketPackages:Landroid/util/SparseSetArray;
 
-    invoke-virtual {v3, v1, v2}, Landroid/util/SparseSetArray;->valueAt(II)Ljava/lang/Object;
+    invoke-virtual {v4, v2, v3}, Landroid/util/SparseSetArray;->valueAt(II)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v4
 
-    check-cast v3, Ljava/lang/String;
+    check-cast v4, Ljava/lang/String;
 
-    invoke-virtual {p1, v3}, Landroid/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
+    invoke-virtual {p1, v4}, Landroid/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
 
     invoke-virtual {p1}, Landroid/util/IndentingPrintWriter;->println()V
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_1
 
     :cond_0
     invoke-virtual {p1}, Landroid/util/IndentingPrintWriter;->decreaseIndent()Landroid/util/IndentingPrintWriter;
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
@@ -1339,11 +1191,11 @@
 
     invoke-virtual {p1, v3}, Landroid/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
 
-    iget-object v3, v2, Landroid/util/Pair;->second:Ljava/lang/Object;
+    iget-object v2, v2, Landroid/util/Pair;->second:Ljava/lang/Object;
 
-    check-cast v3, Ljava/lang/String;
+    check-cast v2, Ljava/lang/String;
 
-    invoke-virtual {p1, v3}, Landroid/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
+    invoke-virtual {p1, v2}, Landroid/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
 
     invoke-virtual {p1}, Landroid/util/IndentingPrintWriter;->println()V
 
@@ -1352,9 +1204,9 @@
     :cond_2
     invoke-virtual {p1}, Landroid/util/IndentingPrintWriter;->decreaseIndent()Landroid/util/IndentingPrintWriter;
 
-    iget-object v1, p0, Lcom/android/server/AppStateTrackerImpl;->mStatLogger:Lcom/android/internal/util/jobs/StatLogger;
+    iget-object p0, p0, Lcom/android/server/AppStateTrackerImpl;->mStatLogger:Lcom/android/internal/util/jobs/StatLogger;
 
-    invoke-virtual {v1, p1}, Lcom/android/internal/util/jobs/StatLogger;->dump(Landroid/util/IndentingPrintWriter;)V
+    invoke-virtual {p0, p1}, Lcom/android/internal/util/jobs/StatLogger;->dump(Landroid/util/IndentingPrintWriter;)V
 
     invoke-virtual {p1}, Landroid/util/IndentingPrintWriter;->decreaseIndent()Landroid/util/IndentingPrintWriter;
 
@@ -1363,17 +1215,17 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
 .method public dumpProto(Landroid/util/proto/ProtoOutputStream;J)V
-    .locals 12
+    .locals 11
 
     iget-object v0, p0, Lcom/android/server/AppStateTrackerImpl;->mLock:Ljava/lang/Object;
 
@@ -1382,269 +1234,401 @@
     :try_start_0
     invoke-virtual {p1, p2, p3}, Landroid/util/proto/ProtoOutputStream;->start(J)J
 
-    move-result-wide v1
+    move-result-wide p2
 
-    const-wide v3, 0x1080000000dL
+    const-wide v1, 0x1080000000dL
 
-    iget-boolean v5, p0, Lcom/android/server/AppStateTrackerImpl;->mForcedAppStandbyEnabled:Z
+    iget-boolean v3, p0, Lcom/android/server/AppStateTrackerImpl;->mForcedAppStandbyEnabled:Z
 
-    invoke-virtual {p1, v3, v4, v5}, Landroid/util/proto/ProtoOutputStream;->write(JZ)V
+    invoke-virtual {p1, v1, v2, v3}, Landroid/util/proto/ProtoOutputStream;->write(JZ)V
 
-    const-wide v3, 0x10800000001L
+    const-wide v1, 0x10800000001L
 
     invoke-virtual {p0}, Lcom/android/server/AppStateTrackerImpl;->isForceAllAppsStandbyEnabled()Z
 
-    move-result v5
+    move-result v3
 
-    invoke-virtual {p1, v3, v4, v5}, Landroid/util/proto/ProtoOutputStream;->write(JZ)V
+    invoke-virtual {p1, v1, v2, v3}, Landroid/util/proto/ProtoOutputStream;->write(JZ)V
 
-    const-wide v3, 0x10800000006L
+    const-wide v1, 0x10800000006L
 
     invoke-virtual {p0}, Lcom/android/server/AppStateTrackerImpl;->isSmallBatteryDevice()Z
 
-    move-result v5
+    move-result v3
 
-    invoke-virtual {p1, v3, v4, v5}, Landroid/util/proto/ProtoOutputStream;->write(JZ)V
+    invoke-virtual {p1, v1, v2, v3}, Landroid/util/proto/ProtoOutputStream;->write(JZ)V
 
-    const-wide v3, 0x10800000007L
+    const-wide v1, 0x10800000007L
 
-    iget-boolean v5, p0, Lcom/android/server/AppStateTrackerImpl;->mForceAllAppStandbyForSmallBattery:Z
+    iget-boolean v3, p0, Lcom/android/server/AppStateTrackerImpl;->mForceAllAppStandbyForSmallBattery:Z
 
-    invoke-virtual {p1, v3, v4, v5}, Landroid/util/proto/ProtoOutputStream;->write(JZ)V
+    invoke-virtual {p1, v1, v2, v3}, Landroid/util/proto/ProtoOutputStream;->write(JZ)V
 
-    const-wide v3, 0x10800000008L
+    const-wide v1, 0x10800000008L
 
-    iget-boolean v5, p0, Lcom/android/server/AppStateTrackerImpl;->mIsPluggedIn:Z
+    iget-boolean v3, p0, Lcom/android/server/AppStateTrackerImpl;->mIsPluggedIn:Z
 
-    invoke-virtual {p1, v3, v4, v5}, Landroid/util/proto/ProtoOutputStream;->write(JZ)V
+    invoke-virtual {p1, v1, v2, v3}, Landroid/util/proto/ProtoOutputStream;->write(JZ)V
 
-    const/4 v3, 0x0
+    const/4 v1, 0x0
+
+    move v2, v1
 
     :goto_0
-    iget-object v4, p0, Lcom/android/server/AppStateTrackerImpl;->mActiveUids:Landroid/util/SparseBooleanArray;
+    iget-object v3, p0, Lcom/android/server/AppStateTrackerImpl;->mActiveUids:Landroid/util/SparseBooleanArray;
 
-    invoke-virtual {v4}, Landroid/util/SparseBooleanArray;->size()I
+    invoke-virtual {v3}, Landroid/util/SparseBooleanArray;->size()I
 
-    move-result v4
+    move-result v3
 
-    if-ge v3, v4, :cond_1
+    if-ge v2, v3, :cond_1
 
-    iget-object v4, p0, Lcom/android/server/AppStateTrackerImpl;->mActiveUids:Landroid/util/SparseBooleanArray;
+    iget-object v3, p0, Lcom/android/server/AppStateTrackerImpl;->mActiveUids:Landroid/util/SparseBooleanArray;
 
-    invoke-virtual {v4, v3}, Landroid/util/SparseBooleanArray;->valueAt(I)Z
+    invoke-virtual {v3, v2}, Landroid/util/SparseBooleanArray;->valueAt(I)Z
 
-    move-result v4
+    move-result v3
 
-    if-eqz v4, :cond_0
+    if-eqz v3, :cond_0
 
-    const-wide v4, 0x20500000002L
+    const-wide v3, 0x20500000002L
 
-    iget-object v6, p0, Lcom/android/server/AppStateTrackerImpl;->mActiveUids:Landroid/util/SparseBooleanArray;
+    iget-object v5, p0, Lcom/android/server/AppStateTrackerImpl;->mActiveUids:Landroid/util/SparseBooleanArray;
 
-    invoke-virtual {v6, v3}, Landroid/util/SparseBooleanArray;->keyAt(I)I
+    invoke-virtual {v5, v2}, Landroid/util/SparseBooleanArray;->keyAt(I)I
 
-    move-result v6
+    move-result v5
 
-    invoke-virtual {p1, v4, v5, v6}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
+    invoke-virtual {p1, v3, v4, v5}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
 
     :cond_0
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     :cond_1
-    iget-object v3, p0, Lcom/android/server/AppStateTrackerImpl;->mPowerExemptAllAppIds:[I
+    iget-object v2, p0, Lcom/android/server/AppStateTrackerImpl;->mPowerExemptAllAppIds:[I
 
-    array-length v4, v3
+    array-length v3, v2
 
-    const/4 v5, 0x0
-
-    move v6, v5
+    move v4, v1
 
     :goto_1
-    if-ge v6, v4, :cond_2
+    if-ge v4, v3, :cond_2
 
-    aget v7, v3, v6
+    aget v5, v2, v4
 
-    const-wide v8, 0x20500000003L
+    const-wide v6, 0x20500000003L
 
-    invoke-virtual {p1, v8, v9, v7}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
+    invoke-virtual {p1, v6, v7, v5}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
 
-    add-int/lit8 v6, v6, 0x1
+    add-int/lit8 v4, v4, 0x1
 
     goto :goto_1
 
     :cond_2
-    iget-object v3, p0, Lcom/android/server/AppStateTrackerImpl;->mPowerExemptUserAppIds:[I
+    iget-object v2, p0, Lcom/android/server/AppStateTrackerImpl;->mPowerExemptUserAppIds:[I
 
-    array-length v4, v3
+    array-length v3, v2
 
-    move v6, v5
+    move v4, v1
 
     :goto_2
-    if-ge v6, v4, :cond_3
+    if-ge v4, v3, :cond_3
 
-    aget v7, v3, v6
+    aget v5, v2, v4
 
-    const-wide v8, 0x2050000000cL
+    const-wide v6, 0x2050000000cL
 
-    invoke-virtual {p1, v8, v9, v7}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
+    invoke-virtual {p1, v6, v7, v5}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
 
-    add-int/lit8 v6, v6, 0x1
+    add-int/lit8 v4, v4, 0x1
 
     goto :goto_2
 
     :cond_3
-    iget-object v3, p0, Lcom/android/server/AppStateTrackerImpl;->mTempExemptAppIds:[I
+    iget-object v2, p0, Lcom/android/server/AppStateTrackerImpl;->mTempExemptAppIds:[I
 
-    array-length v4, v3
+    array-length v3, v2
+
+    move v4, v1
 
     :goto_3
-    if-ge v5, v4, :cond_4
+    if-ge v4, v3, :cond_4
 
-    aget v6, v3, v5
+    aget v5, v2, v4
 
-    const-wide v7, 0x20500000004L
+    const-wide v6, 0x20500000004L
 
-    invoke-virtual {p1, v7, v8, v6}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
+    invoke-virtual {p1, v6, v7, v5}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
 
-    add-int/lit8 v5, v5, 0x1
+    add-int/lit8 v4, v4, 0x1
 
     goto :goto_3
 
     :cond_4
-    const/4 v3, 0x0
+    move v2, v1
 
     :goto_4
-    iget-object v4, p0, Lcom/android/server/AppStateTrackerImpl;->mExemptedBucketPackages:Landroid/util/SparseSetArray;
+    iget-object v3, p0, Lcom/android/server/AppStateTrackerImpl;->mExemptedBucketPackages:Landroid/util/SparseSetArray;
 
-    invoke-virtual {v4}, Landroid/util/SparseSetArray;->size()I
+    invoke-virtual {v3}, Landroid/util/SparseSetArray;->size()I
 
-    move-result v4
+    move-result v3
 
-    const-wide v5, 0x10900000002L
+    const-wide v4, 0x10900000002L
 
-    const-wide v7, 0x10500000001L
+    const-wide v6, 0x10500000001L
 
-    if-ge v3, v4, :cond_6
+    if-ge v2, v3, :cond_6
 
-    const/4 v4, 0x0
+    move v3, v1
 
     :goto_5
-    iget-object v9, p0, Lcom/android/server/AppStateTrackerImpl;->mExemptedBucketPackages:Landroid/util/SparseSetArray;
+    iget-object v8, p0, Lcom/android/server/AppStateTrackerImpl;->mExemptedBucketPackages:Landroid/util/SparseSetArray;
 
-    invoke-virtual {v9, v3}, Landroid/util/SparseSetArray;->sizeAt(I)I
+    invoke-virtual {v8, v2}, Landroid/util/SparseSetArray;->sizeAt(I)I
 
-    move-result v9
+    move-result v8
 
-    if-ge v4, v9, :cond_5
+    if-ge v3, v8, :cond_5
 
-    const-wide v9, 0x20b0000000aL
+    const-wide v8, 0x20b0000000aL
 
-    invoke-virtual {p1, v9, v10}, Landroid/util/proto/ProtoOutputStream;->start(J)J
+    invoke-virtual {p1, v8, v9}, Landroid/util/proto/ProtoOutputStream;->start(J)J
 
-    move-result-wide v9
+    move-result-wide v8
 
-    iget-object v11, p0, Lcom/android/server/AppStateTrackerImpl;->mExemptedBucketPackages:Landroid/util/SparseSetArray;
+    iget-object v10, p0, Lcom/android/server/AppStateTrackerImpl;->mExemptedBucketPackages:Landroid/util/SparseSetArray;
 
-    invoke-virtual {v11, v3}, Landroid/util/SparseSetArray;->keyAt(I)I
+    invoke-virtual {v10, v2}, Landroid/util/SparseSetArray;->keyAt(I)I
 
-    move-result v11
+    move-result v10
 
-    invoke-virtual {p1, v7, v8, v11}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
+    invoke-virtual {p1, v6, v7, v10}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
 
-    iget-object v11, p0, Lcom/android/server/AppStateTrackerImpl;->mExemptedBucketPackages:Landroid/util/SparseSetArray;
+    iget-object v10, p0, Lcom/android/server/AppStateTrackerImpl;->mExemptedBucketPackages:Landroid/util/SparseSetArray;
 
-    invoke-virtual {v11, v3, v4}, Landroid/util/SparseSetArray;->valueAt(II)Ljava/lang/Object;
+    invoke-virtual {v10, v2, v3}, Landroid/util/SparseSetArray;->valueAt(II)Ljava/lang/Object;
 
-    move-result-object v11
+    move-result-object v10
 
-    check-cast v11, Ljava/lang/String;
+    check-cast v10, Ljava/lang/String;
 
-    invoke-virtual {p1, v5, v6, v11}, Landroid/util/proto/ProtoOutputStream;->write(JLjava/lang/String;)V
+    invoke-virtual {p1, v4, v5, v10}, Landroid/util/proto/ProtoOutputStream;->write(JLjava/lang/String;)V
 
-    invoke-virtual {p1, v9, v10}, Landroid/util/proto/ProtoOutputStream;->end(J)V
+    invoke-virtual {p1, v8, v9}, Landroid/util/proto/ProtoOutputStream;->end(J)V
 
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_5
 
     :cond_5
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_4
 
     :cond_6
-    iget-object v3, p0, Lcom/android/server/AppStateTrackerImpl;->mRunAnyRestrictedPackages:Landroid/util/ArraySet;
+    iget-object v1, p0, Lcom/android/server/AppStateTrackerImpl;->mRunAnyRestrictedPackages:Landroid/util/ArraySet;
 
-    invoke-virtual {v3}, Landroid/util/ArraySet;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v1}, Landroid/util/ArraySet;->iterator()Ljava/util/Iterator;
 
-    move-result-object v3
+    move-result-object v1
 
     :goto_6
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v4
+    move-result v2
 
-    if-eqz v4, :cond_7
+    if-eqz v2, :cond_7
 
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v2
 
-    check-cast v4, Landroid/util/Pair;
+    check-cast v2, Landroid/util/Pair;
 
-    const-wide v9, 0x20b00000005L
+    const-wide v8, 0x20b00000005L
 
-    invoke-virtual {p1, v9, v10}, Landroid/util/proto/ProtoOutputStream;->start(J)J
+    invoke-virtual {p1, v8, v9}, Landroid/util/proto/ProtoOutputStream;->start(J)J
 
-    move-result-wide v9
+    move-result-wide v8
 
-    iget-object v11, v4, Landroid/util/Pair;->first:Ljava/lang/Object;
+    iget-object v3, v2, Landroid/util/Pair;->first:Ljava/lang/Object;
 
-    check-cast v11, Ljava/lang/Integer;
+    check-cast v3, Ljava/lang/Integer;
 
-    invoke-virtual {v11}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v3}, Ljava/lang/Integer;->intValue()I
 
-    move-result v11
+    move-result v3
 
-    invoke-virtual {p1, v7, v8, v11}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
+    invoke-virtual {p1, v6, v7, v3}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
 
-    iget-object v11, v4, Landroid/util/Pair;->second:Ljava/lang/Object;
+    iget-object v2, v2, Landroid/util/Pair;->second:Ljava/lang/Object;
 
-    check-cast v11, Ljava/lang/String;
+    check-cast v2, Ljava/lang/String;
 
-    invoke-virtual {p1, v5, v6, v11}, Landroid/util/proto/ProtoOutputStream;->write(JLjava/lang/String;)V
+    invoke-virtual {p1, v4, v5, v2}, Landroid/util/proto/ProtoOutputStream;->write(JLjava/lang/String;)V
 
-    invoke-virtual {p1, v9, v10}, Landroid/util/proto/ProtoOutputStream;->end(J)V
+    invoke-virtual {p1, v8, v9}, Landroid/util/proto/ProtoOutputStream;->end(J)V
 
     goto :goto_6
 
     :cond_7
-    iget-object v3, p0, Lcom/android/server/AppStateTrackerImpl;->mStatLogger:Lcom/android/internal/util/jobs/StatLogger;
+    iget-object p0, p0, Lcom/android/server/AppStateTrackerImpl;->mStatLogger:Lcom/android/internal/util/jobs/StatLogger;
 
-    const-wide v4, 0x10b00000009L
+    const-wide v1, 0x10b00000009L
 
-    invoke-virtual {v3, p1, v4, v5}, Lcom/android/internal/util/jobs/StatLogger;->dumpProto(Landroid/util/proto/ProtoOutputStream;J)V
+    invoke-virtual {p0, p1, v1, v2}, Lcom/android/internal/util/jobs/StatLogger;->dumpProto(Landroid/util/proto/ProtoOutputStream;J)V
 
-    invoke-virtual {p1, v1, v2}, Landroid/util/proto/ProtoOutputStream;->end(J)V
+    invoke-virtual {p1, p2, p3}, Landroid/util/proto/ProtoOutputStream;->end(J)V
 
     monitor-exit v0
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
-.method handleUserRemoved(I)V
-    .locals 6
+.method public final dumpUids(Ljava/io/PrintWriter;Landroid/util/SparseBooleanArray;)V
+    .locals 2
+
+    const-string p0, "["
+
+    invoke-virtual {p1, p0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    const-string p0, ""
+
+    const/4 v0, 0x0
+
+    :goto_0
+    invoke-virtual {p2}, Landroid/util/SparseBooleanArray;->size()I
+
+    move-result v1
+
+    if-ge v0, v1, :cond_1
+
+    invoke-virtual {p2, v0}, Landroid/util/SparseBooleanArray;->valueAt(I)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {p1, p0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    invoke-virtual {p2, v0}, Landroid/util/SparseBooleanArray;->keyAt(I)I
+
+    move-result p0
+
+    invoke-static {p0}, Landroid/os/UserHandle;->formatUid(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {p1, p0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    const-string p0, " "
+
+    :cond_0
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    const-string p0, "]"
+
+    invoke-virtual {p1, p0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method public final findForcedAppStandbyUidPackageIndexLocked(ILjava/lang/String;)I
+    .locals 4
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/android/server/AppStateTrackerImpl;->mRunAnyRestrictedPackages:Landroid/util/ArraySet;
+
+    invoke-virtual {v0}, Landroid/util/ArraySet;->size()I
+
+    move-result v0
+
+    const/16 v1, 0x8
+
+    if-le v0, v1, :cond_0
+
+    iget-object p0, p0, Lcom/android/server/AppStateTrackerImpl;->mRunAnyRestrictedPackages:Landroid/util/ArraySet;
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object p1
+
+    invoke-static {p1, p2}, Landroid/util/Pair;->create(Ljava/lang/Object;Ljava/lang/Object;)Landroid/util/Pair;
+
+    move-result-object p1
+
+    invoke-virtual {p0, p1}, Landroid/util/ArraySet;->indexOf(Ljava/lang/Object;)I
+
+    move-result p0
+
+    return p0
+
+    :cond_0
+    const/4 v1, 0x0
+
+    :goto_0
+    if-ge v1, v0, :cond_2
+
+    iget-object v2, p0, Lcom/android/server/AppStateTrackerImpl;->mRunAnyRestrictedPackages:Landroid/util/ArraySet;
+
+    invoke-virtual {v2, v1}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/util/Pair;
+
+    iget-object v3, v2, Landroid/util/Pair;->first:Ljava/lang/Object;
+
+    check-cast v3, Ljava/lang/Integer;
+
+    invoke-virtual {v3}, Ljava/lang/Integer;->intValue()I
+
+    move-result v3
+
+    if-ne v3, p1, :cond_1
+
+    iget-object v2, v2, Landroid/util/Pair;->second:Ljava/lang/Object;
+
+    invoke-virtual {p2, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    return v1
+
+    :cond_1
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    const/4 p0, -0x1
+
+    return p0
+.end method
+
+.method public handleUserRemoved(I)V
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/AppStateTrackerImpl;->mLock:Ljava/lang/Object;
 
@@ -1670,23 +1654,23 @@
 
     check-cast v2, Landroid/util/Pair;
 
-    iget-object v3, v2, Landroid/util/Pair;->first:Ljava/lang/Object;
+    iget-object v2, v2, Landroid/util/Pair;->first:Ljava/lang/Object;
 
-    check-cast v3, Ljava/lang/Integer;
+    check-cast v2, Ljava/lang/Integer;
 
-    invoke-virtual {v3}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
 
-    move-result v3
+    move-result v2
 
-    invoke-static {v3}, Landroid/os/UserHandle;->getUserId(I)I
+    invoke-static {v2}, Landroid/os/UserHandle;->getUserId(I)I
 
-    move-result v4
+    move-result v2
 
-    if-ne v4, p1, :cond_0
+    if-ne v2, p1, :cond_0
 
-    iget-object v5, p0, Lcom/android/server/AppStateTrackerImpl;->mRunAnyRestrictedPackages:Landroid/util/ArraySet;
+    iget-object v2, p0, Lcom/android/server/AppStateTrackerImpl;->mRunAnyRestrictedPackages:Landroid/util/ArraySet;
 
-    invoke-virtual {v5, v1}, Landroid/util/ArraySet;->removeAt(I)Ljava/lang/Object;
+    invoke-virtual {v2, v1}, Landroid/util/ArraySet;->removeAt(I)Ljava/lang/Object;
 
     :cond_0
     add-int/lit8 v1, v1, -0x1
@@ -1694,156 +1678,190 @@
     goto :goto_0
 
     :cond_1
+    invoke-virtual {p0}, Lcom/android/server/AppStateTrackerImpl;->updateBackgroundRestrictedUidPackagesLocked()V
+
     iget-object v1, p0, Lcom/android/server/AppStateTrackerImpl;->mActiveUids:Landroid/util/SparseBooleanArray;
 
-    invoke-direct {p0, v1, p1}, Lcom/android/server/AppStateTrackerImpl;->cleanUpArrayForUser(Landroid/util/SparseBooleanArray;I)V
+    invoke-virtual {p0, v1, p1}, Lcom/android/server/AppStateTrackerImpl;->cleanUpArrayForUser(Landroid/util/SparseBooleanArray;I)V
 
-    iget-object v1, p0, Lcom/android/server/AppStateTrackerImpl;->mExemptedBucketPackages:Landroid/util/SparseSetArray;
+    iget-object p0, p0, Lcom/android/server/AppStateTrackerImpl;->mExemptedBucketPackages:Landroid/util/SparseSetArray;
 
-    invoke-virtual {v1, p1}, Landroid/util/SparseSetArray;->remove(I)V
+    invoke-virtual {p0, p1}, Landroid/util/SparseSetArray;->remove(I)V
 
     monitor-exit v0
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
-.method injectActivityManagerInternal()Landroid/app/ActivityManagerInternal;
+.method public injectActivityManagerInternal()Landroid/app/ActivityManagerInternal;
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+
+    const-class p0, Landroid/app/ActivityManagerInternal;
+
+    invoke-static {p0}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Landroid/app/ActivityManagerInternal;
+
+    return-object p0
+.end method
+
+.method public injectAppOpsManager()Landroid/app/AppOpsManager;
     .locals 1
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
 
-    const-class v0, Landroid/app/ActivityManagerInternal;
+    iget-object p0, p0, Lcom/android/server/AppStateTrackerImpl;->mContext:Landroid/content/Context;
 
-    invoke-static {v0}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
+    const-class v0, Landroid/app/AppOpsManager;
 
-    move-result-object v0
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
-    check-cast v0, Landroid/app/ActivityManagerInternal;
+    move-result-object p0
 
-    return-object v0
+    check-cast p0, Landroid/app/AppOpsManager;
+
+    return-object p0
 .end method
 
-.method injectAppOpsManager()Landroid/app/AppOpsManager;
-    .locals 2
+.method public injectAppStandbyInternal()Lcom/android/server/usage/AppStandbyInternal;
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
 
-    iget-object v0, p0, Lcom/android/server/AppStateTrackerImpl;->mContext:Landroid/content/Context;
+    const-class p0, Lcom/android/server/usage/AppStandbyInternal;
 
-    const-class v1, Landroid/app/AppOpsManager;
+    invoke-static {p0}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
 
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+    move-result-object p0
 
-    move-result-object v0
+    check-cast p0, Lcom/android/server/usage/AppStandbyInternal;
 
-    check-cast v0, Landroid/app/AppOpsManager;
-
-    return-object v0
+    return-object p0
 .end method
 
-.method injectAppStandbyInternal()Lcom/android/server/usage/AppStandbyInternal;
-    .locals 1
+.method public injectGetGlobalSettingInt(Ljava/lang/String;I)I
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
 
-    const-class v0, Lcom/android/server/usage/AppStandbyInternal;
+    iget-object p0, p0, Lcom/android/server/AppStateTrackerImpl;->mContext:Landroid/content/Context;
 
-    invoke-static {v0}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/android/server/usage/AppStandbyInternal;
+    invoke-static {p0, p1, p2}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    return-object v0
+    move-result p0
+
+    return p0
 .end method
 
-.method injectGetGlobalSettingInt(Ljava/lang/String;I)I
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/AppStateTrackerImpl;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v0
-
-    invoke-static {v0, p1, p2}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method injectIActivityManager()Landroid/app/IActivityManager;
-    .locals 1
+.method public injectIActivityManager()Landroid/app/IActivityManager;
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
 
     invoke-static {}, Landroid/app/ActivityManager;->getService()Landroid/app/IActivityManager;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
-.method injectIAppOpsService()Lcom/android/internal/app/IAppOpsService;
-    .locals 1
+.method public injectIAppOpsService()Lcom/android/internal/app/IAppOpsService;
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
 
-    nop
+    const-string p0, "appops"
 
-    const-string v0, "appops"
+    invoke-static {p0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
-    invoke-static {v0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+    move-result-object p0
 
-    move-result-object v0
+    invoke-static {p0}, Lcom/android/internal/app/IAppOpsService$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/app/IAppOpsService;
 
-    invoke-static {v0}, Lcom/android/internal/app/IAppOpsService$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/app/IAppOpsService;
+    move-result-object p0
 
-    move-result-object v0
-
-    return-object v0
+    return-object p0
 .end method
 
-.method injectPowerManagerInternal()Landroid/os/PowerManagerInternal;
-    .locals 1
+.method public injectPowerManagerInternal()Landroid/os/PowerManagerInternal;
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
 
-    const-class v0, Landroid/os/PowerManagerInternal;
+    const-class p0, Landroid/os/PowerManagerInternal;
 
-    invoke-static {v0}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-static {p0}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Landroid/os/PowerManagerInternal;
+    check-cast p0, Landroid/os/PowerManagerInternal;
 
-    return-object v0
+    return-object p0
+.end method
+
+.method public isAppBackgroundRestricted(ILjava/lang/String;)Z
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/AppStateTrackerImpl;->mBackgroundRestrictedUidPackages:Ljava/util/Set;
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object p1
+
+    invoke-static {p1, p2}, Landroid/util/Pair;->create(Ljava/lang/Object;Ljava/lang/Object;)Landroid/util/Pair;
+
+    move-result-object p1
+
+    invoke-interface {p0, p1}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    return p0
 .end method
 
 .method public isForceAllAppsStandbyEnabled()Z
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/AppStateTrackerImpl;->mLock:Ljava/lang/Object;
 
     monitor-enter v0
 
     :try_start_0
-    iget-boolean v1, p0, Lcom/android/server/AppStateTrackerImpl;->mForceAllAppsStandby:Z
+    iget-boolean p0, p0, Lcom/android/server/AppStateTrackerImpl;->mForceAllAppsStandby:Z
 
     monitor-exit v0
 
-    return v1
+    return p0
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
 .method public isRunAnyInBackgroundAppOpsAllowed(ILjava/lang/String;)Z
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/AppStateTrackerImpl;->mLock:Ljava/lang/Object;
 
@@ -1852,64 +1870,71 @@
     :try_start_0
     invoke-virtual {p0, p1, p2}, Lcom/android/server/AppStateTrackerImpl;->isRunAnyRestrictedLocked(ILjava/lang/String;)Z
 
-    move-result v1
+    move-result p0
 
-    if-nez v1, :cond_0
+    if-nez p0, :cond_0
 
-    const/4 v1, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 p0, 0x0
 
     :goto_0
     monitor-exit v0
 
-    return v1
+    return p0
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
-.method isRunAnyRestrictedLocked(ILjava/lang/String;)Z
-    .locals 1
+.method public isRunAnyRestrictedLocked(ILjava/lang/String;)Z
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
 
-    invoke-direct {p0, p1, p2}, Lcom/android/server/AppStateTrackerImpl;->findForcedAppStandbyUidPackageIndexLocked(ILjava/lang/String;)I
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/AppStateTrackerImpl;->findForcedAppStandbyUidPackageIndexLocked(ILjava/lang/String;)I
 
-    move-result v0
+    move-result p0
 
-    if-ltz v0, :cond_0
+    if-ltz p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
-.method isSmallBatteryDevice()Z
-    .locals 1
+.method public isSmallBatteryDevice()Z
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
 
     invoke-static {}, Landroid/app/ActivityManager;->isSmallBatteryDevice()Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public isUidActive(I)Z
-    .locals 2
+    .locals 1
 
     invoke-static {p1}, Landroid/os/UserHandle;->isCore(I)Z
 
@@ -1917,9 +1942,9 @@
 
     if-eqz v0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 
     :cond_0
     iget-object v0, p0, Lcom/android/server/AppStateTrackerImpl;->mLock:Ljava/lang/Object;
@@ -1927,28 +1952,28 @@
     monitor-enter v0
 
     :try_start_0
-    iget-object v1, p0, Lcom/android/server/AppStateTrackerImpl;->mActiveUids:Landroid/util/SparseBooleanArray;
+    iget-object p0, p0, Lcom/android/server/AppStateTrackerImpl;->mActiveUids:Landroid/util/SparseBooleanArray;
 
-    invoke-virtual {v1, p1}, Landroid/util/SparseBooleanArray;->get(I)Z
+    invoke-virtual {p0, p1}, Landroid/util/SparseBooleanArray;->get(I)Z
 
-    move-result v1
+    move-result p0
 
     monitor-exit v0
 
-    return v1
+    return p0
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
 .method public isUidActiveSynced(I)Z
-    .locals 5
+    .locals 3
 
     invoke-virtual {p0, p1}, Lcom/android/server/AppStateTrackerImpl;->isUidActive(I)Z
 
@@ -1956,9 +1981,9 @@
 
     if-eqz v0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 
     :cond_0
     iget-object v0, p0, Lcom/android/server/AppStateTrackerImpl;->mStatLogger:Lcom/android/internal/util/jobs/StatLogger;
@@ -1971,139 +1996,111 @@
 
     invoke-virtual {v2, p1}, Landroid/app/ActivityManagerInternal;->isUidActive(I)Z
 
-    move-result v2
+    move-result p1
 
-    iget-object v3, p0, Lcom/android/server/AppStateTrackerImpl;->mStatLogger:Lcom/android/internal/util/jobs/StatLogger;
+    iget-object p0, p0, Lcom/android/server/AppStateTrackerImpl;->mStatLogger:Lcom/android/internal/util/jobs/StatLogger;
 
-    const/16 v4, 0xa
+    const/16 v2, 0xa
 
-    invoke-virtual {v3, v4, v0, v1}, Lcom/android/internal/util/jobs/StatLogger;->logDurationStat(IJ)J
+    invoke-virtual {p0, v2, v0, v1}, Lcom/android/internal/util/jobs/StatLogger;->logDurationStat(IJ)J
 
-    return v2
+    return p1
 .end method
 
 .method public isUidPowerSaveExempt(I)Z
-    .locals 3
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/AppStateTrackerImpl;->mLock:Ljava/lang/Object;
 
     monitor-enter v0
 
     :try_start_0
-    iget-object v1, p0, Lcom/android/server/AppStateTrackerImpl;->mPowerExemptAllAppIds:[I
+    iget-object p0, p0, Lcom/android/server/AppStateTrackerImpl;->mPowerExemptAllAppIds:[I
 
     invoke-static {p1}, Landroid/os/UserHandle;->getAppId(I)I
 
-    move-result v2
+    move-result p1
 
-    invoke-static {v1, v2}, Lcom/android/internal/util/jobs/ArrayUtils;->contains([II)Z
+    invoke-static {p0, p1}, Lcom/android/internal/util/jobs/ArrayUtils;->contains([II)Z
 
-    move-result v1
+    move-result p0
 
     monitor-exit v0
 
-    return v1
+    return p0
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
 .method public isUidPowerSaveUserExempt(I)Z
-    .locals 3
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/AppStateTrackerImpl;->mLock:Ljava/lang/Object;
 
     monitor-enter v0
 
     :try_start_0
-    iget-object v1, p0, Lcom/android/server/AppStateTrackerImpl;->mPowerExemptUserAppIds:[I
+    iget-object p0, p0, Lcom/android/server/AppStateTrackerImpl;->mPowerExemptUserAppIds:[I
 
     invoke-static {p1}, Landroid/os/UserHandle;->getAppId(I)I
 
-    move-result v2
+    move-result p1
 
-    invoke-static {v1, v2}, Lcom/android/internal/util/jobs/ArrayUtils;->contains([II)Z
+    invoke-static {p0, p1}, Lcom/android/internal/util/jobs/ArrayUtils;->contains([II)Z
 
-    move-result v1
+    move-result p0
 
     monitor-exit v0
 
-    return v1
+    return p0
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
 .method public isUidTempPowerSaveExempt(I)Z
-    .locals 3
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/AppStateTrackerImpl;->mLock:Ljava/lang/Object;
 
     monitor-enter v0
 
     :try_start_0
-    iget-object v1, p0, Lcom/android/server/AppStateTrackerImpl;->mTempExemptAppIds:[I
+    iget-object p0, p0, Lcom/android/server/AppStateTrackerImpl;->mTempExemptAppIds:[I
 
     invoke-static {p1}, Landroid/os/UserHandle;->getAppId(I)I
 
-    move-result v2
+    move-result p1
 
-    invoke-static {v1, v2}, Lcom/android/internal/util/jobs/ArrayUtils;->contains([II)Z
+    invoke-static {p0, p1}, Lcom/android/internal/util/jobs/ArrayUtils;->contains([II)Z
 
-    move-result v1
+    move-result p0
 
     monitor-exit v0
 
-    return v1
+    return p0
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
-.end method
-
-.method public synthetic lambda$onSystemServicesReady$0$AppStateTrackerImpl(Landroid/os/PowerSaveState;)V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/server/AppStateTrackerImpl;->mLock:Ljava/lang/Object;
-
-    monitor-enter v0
-
-    :try_start_0
-    iget-boolean v1, p1, Landroid/os/PowerSaveState;->batterySaverEnabled:Z
-
-    iput-boolean v1, p0, Lcom/android/server/AppStateTrackerImpl;->mBatterySaverEnabled:Z
-
-    invoke-direct {p0}, Lcom/android/server/AppStateTrackerImpl;->updateForceAllAppStandbyState()V
-
-    monitor-exit v0
-
-    return-void
-
-    :catchall_0
-    move-exception v1
-
-    monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v1
+    throw p0
 .end method
 
 .method public onSystemServicesReady()V
@@ -2143,7 +2140,9 @@
 
     invoke-static {v1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    check-cast v1, Landroid/app/ActivityManagerInternal;
+    move-object v2, v1
+
+    check-cast v2, Landroid/app/ActivityManagerInternal;
 
     iput-object v1, p0, Lcom/android/server/AppStateTrackerImpl;->mActivityManagerInternal:Landroid/app/ActivityManagerInternal;
 
@@ -2153,7 +2152,9 @@
 
     invoke-static {v1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    check-cast v1, Landroid/app/AppOpsManager;
+    move-object v2, v1
+
+    check-cast v2, Landroid/app/AppOpsManager;
 
     iput-object v1, p0, Lcom/android/server/AppStateTrackerImpl;->mAppOpsManager:Landroid/app/AppOpsManager;
 
@@ -2173,7 +2174,9 @@
 
     invoke-static {v1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    check-cast v1, Landroid/os/PowerManagerInternal;
+    move-object v2, v1
+
+    check-cast v2, Landroid/os/PowerManagerInternal;
 
     iput-object v1, p0, Lcom/android/server/AppStateTrackerImpl;->mPowerManagerInternal:Landroid/os/PowerManagerInternal;
 
@@ -2220,6 +2223,12 @@
     iget-object v2, p0, Lcom/android/server/AppStateTrackerImpl;->mAppStandbyInternal:Lcom/android/server/usage/AppStandbyInternal;
 
     invoke-interface {v2, v1}, Lcom/android/server/usage/AppStandbyInternal;->addListener(Lcom/android/server/usage/AppStandbyInternal$AppIdleStateChangeListener;)V
+
+    iget-object v1, p0, Lcom/android/server/AppStateTrackerImpl;->mActivityManagerInternal:Landroid/app/ActivityManagerInternal;
+
+    iget-object v2, p0, Lcom/android/server/AppStateTrackerImpl;->mAppBackgroundRestrictionListener:Landroid/app/ActivityManagerInternal$AppBackgroundRestrictionListener;
+
+    invoke-virtual {v1, v2}, Landroid/app/ActivityManagerInternal;->addAppBackgroundRestrictionListener(Landroid/app/ActivityManagerInternal$AppBackgroundRestrictionListener;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -2230,7 +2239,7 @@
 
     const/4 v3, 0x0
 
-    invoke-direct {v2, p0, v3}, Lcom/android/server/AppStateTrackerImpl$UidObserver;-><init>(Lcom/android/server/AppStateTrackerImpl;Lcom/android/server/AppStateTrackerImpl$1;)V
+    invoke-direct {v2, p0, v3}, Lcom/android/server/AppStateTrackerImpl$UidObserver;-><init>(Lcom/android/server/AppStateTrackerImpl;Lcom/android/server/AppStateTrackerImpl$UidObserver-IA;)V
 
     const/16 v4, 0xe
 
@@ -2244,19 +2253,14 @@
 
     new-instance v4, Lcom/android/server/AppStateTrackerImpl$AppOpsWatcher;
 
-    invoke-direct {v4, p0, v3}, Lcom/android/server/AppStateTrackerImpl$AppOpsWatcher;-><init>(Lcom/android/server/AppStateTrackerImpl;Lcom/android/server/AppStateTrackerImpl$1;)V
+    invoke-direct {v4, p0, v3}, Lcom/android/server/AppStateTrackerImpl$AppOpsWatcher;-><init>(Lcom/android/server/AppStateTrackerImpl;Lcom/android/server/AppStateTrackerImpl$AppOpsWatcher-IA;)V
 
     invoke-interface {v1, v2, v3, v4}, Lcom/android/internal/app/IAppOpsService;->startWatchingMode(ILjava/lang/String;Lcom/android/internal/app/IAppOpsCallback;)V
     :try_end_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_0
-
     :catch_0
-    move-exception v1
-
-    :goto_0
     :try_start_2
     new-instance v1, Landroid/content/IntentFilter;
 
@@ -2276,13 +2280,11 @@
 
     invoke-virtual {v2, v3, v1}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    new-instance v2, Landroid/content/IntentFilter;
+    new-instance v1, Landroid/content/IntentFilter;
 
-    const-string v3, "android.intent.action.PACKAGE_REMOVED"
+    const-string v2, "android.intent.action.PACKAGE_REMOVED"
 
-    invoke-direct {v2, v3}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
-
-    move-object v1, v2
+    invoke-direct {v1, v2}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
 
     const-string/jumbo v2, "package"
 
@@ -2294,46 +2296,171 @@
 
     invoke-virtual {v2, v3, v1}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    invoke-direct {p0}, Lcom/android/server/AppStateTrackerImpl;->refreshForcedAppStandbyUidPackagesLocked()V
+    invoke-virtual {p0}, Lcom/android/server/AppStateTrackerImpl;->refreshForcedAppStandbyUidPackagesLocked()V
 
-    iget-object v2, p0, Lcom/android/server/AppStateTrackerImpl;->mPowerManagerInternal:Landroid/os/PowerManagerInternal;
+    iget-object v1, p0, Lcom/android/server/AppStateTrackerImpl;->mPowerManagerInternal:Landroid/os/PowerManagerInternal;
 
-    new-instance v3, Lcom/android/server/AppStateTrackerImpl$$ExternalSyntheticLambda0;
+    new-instance v2, Lcom/android/server/AppStateTrackerImpl$$ExternalSyntheticLambda0;
 
-    invoke-direct {v3, p0}, Lcom/android/server/AppStateTrackerImpl$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/AppStateTrackerImpl;)V
+    invoke-direct {v2, p0}, Lcom/android/server/AppStateTrackerImpl$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/AppStateTrackerImpl;)V
 
-    const/16 v4, 0xb
+    const/16 v3, 0xb
 
-    invoke-virtual {v2, v4, v3}, Landroid/os/PowerManagerInternal;->registerLowPowerModeObserver(ILjava/util/function/Consumer;)V
+    invoke-virtual {v1, v3, v2}, Landroid/os/PowerManagerInternal;->registerLowPowerModeObserver(ILjava/util/function/Consumer;)V
 
-    iget-object v2, p0, Lcom/android/server/AppStateTrackerImpl;->mPowerManagerInternal:Landroid/os/PowerManagerInternal;
+    iget-object v1, p0, Lcom/android/server/AppStateTrackerImpl;->mPowerManagerInternal:Landroid/os/PowerManagerInternal;
 
-    invoke-virtual {v2, v4}, Landroid/os/PowerManagerInternal;->getLowPowerState(I)Landroid/os/PowerSaveState;
+    invoke-virtual {v1, v3}, Landroid/os/PowerManagerInternal;->getLowPowerState(I)Landroid/os/PowerSaveState;
 
-    move-result-object v2
+    move-result-object v1
 
-    iget-boolean v2, v2, Landroid/os/PowerSaveState;->batterySaverEnabled:Z
+    iget-boolean v1, v1, Landroid/os/PowerSaveState;->batterySaverEnabled:Z
 
-    iput-boolean v2, p0, Lcom/android/server/AppStateTrackerImpl;->mBatterySaverEnabled:Z
+    iput-boolean v1, p0, Lcom/android/server/AppStateTrackerImpl;->mBatterySaverEnabled:Z
 
-    invoke-direct {p0}, Lcom/android/server/AppStateTrackerImpl;->updateForceAllAppStandbyState()V
+    invoke-virtual {p0}, Lcom/android/server/AppStateTrackerImpl;->updateForceAllAppStandbyState()V
 
     monitor-exit v0
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    throw v1
+    throw p0
+.end method
+
+.method public final refreshForcedAppStandbyUidPackagesLocked()V
+    .locals 11
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/android/server/AppStateTrackerImpl;->mRunAnyRestrictedPackages:Landroid/util/ArraySet;
+
+    invoke-virtual {v0}, Landroid/util/ArraySet;->clear()V
+
+    iget-object v0, p0, Lcom/android/server/AppStateTrackerImpl;->mAppOpsManager:Landroid/app/AppOpsManager;
+
+    const/4 v1, 0x1
+
+    new-array v1, v1, [I
+
+    const/4 v2, 0x0
+
+    const/16 v3, 0x46
+
+    aput v3, v1, v2
+
+    invoke-virtual {v0, v1}, Landroid/app/AppOpsManager;->getPackagesForOps([I)Ljava/util/List;
+
+    move-result-object v0
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    invoke-interface {v0}, Ljava/util/List;->size()I
+
+    move-result v1
+
+    move v4, v2
+
+    :goto_0
+    if-ge v4, v1, :cond_4
+
+    invoke-interface {v0, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Landroid/app/AppOpsManager$PackageOps;
+
+    invoke-interface {v0, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Landroid/app/AppOpsManager$PackageOps;
+
+    invoke-virtual {v6}, Landroid/app/AppOpsManager$PackageOps;->getOps()Ljava/util/List;
+
+    move-result-object v6
+
+    move v7, v2
+
+    :goto_1
+    invoke-interface {v6}, Ljava/util/List;->size()I
+
+    move-result v8
+
+    if-ge v7, v8, :cond_3
+
+    invoke-interface {v6, v7}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v8
+
+    check-cast v8, Landroid/app/AppOpsManager$OpEntry;
+
+    invoke-virtual {v8}, Landroid/app/AppOpsManager$OpEntry;->getOp()I
+
+    move-result v9
+
+    if-eq v9, v3, :cond_1
+
+    goto :goto_2
+
+    :cond_1
+    invoke-virtual {v8}, Landroid/app/AppOpsManager$OpEntry;->getMode()I
+
+    move-result v8
+
+    if-eqz v8, :cond_2
+
+    iget-object v8, p0, Lcom/android/server/AppStateTrackerImpl;->mRunAnyRestrictedPackages:Landroid/util/ArraySet;
+
+    invoke-virtual {v5}, Landroid/app/AppOpsManager$PackageOps;->getUid()I
+
+    move-result v9
+
+    invoke-static {v9}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v9
+
+    invoke-virtual {v5}, Landroid/app/AppOpsManager$PackageOps;->getPackageName()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v9, v10}, Landroid/util/Pair;->create(Ljava/lang/Object;Ljava/lang/Object;)Landroid/util/Pair;
+
+    move-result-object v9
+
+    invoke-virtual {v8, v9}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
+
+    :cond_2
+    :goto_2
+    add-int/lit8 v7, v7, 0x1
+
+    goto :goto_1
+
+    :cond_3
+    add-int/lit8 v4, v4, 0x1
+
+    goto :goto_0
+
+    :cond_4
+    invoke-virtual {p0}, Lcom/android/server/AppStateTrackerImpl;->updateBackgroundRestrictedUidPackagesLocked()V
+
+    return-void
 .end method
 
 .method public setPowerSaveExemptionListAppIds([I[I[I)V
-    .locals 4
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/AppStateTrackerImpl;->mLock:Ljava/lang/Object;
 
@@ -2352,42 +2479,42 @@
 
     invoke-static {v1, p1}, Lcom/android/server/AppStateTrackerImpl;->isAnyAppIdUnexempt([I[I)Z
 
-    move-result v3
+    move-result p1
 
-    if-eqz v3, :cond_0
+    if-eqz p1, :cond_0
 
-    iget-object v3, p0, Lcom/android/server/AppStateTrackerImpl;->mHandler:Lcom/android/server/AppStateTrackerImpl$MyHandler;
+    iget-object p1, p0, Lcom/android/server/AppStateTrackerImpl;->mHandler:Lcom/android/server/AppStateTrackerImpl$MyHandler;
 
-    invoke-virtual {v3}, Lcom/android/server/AppStateTrackerImpl$MyHandler;->notifyAllUnexempted()V
+    invoke-virtual {p1}, Lcom/android/server/AppStateTrackerImpl$MyHandler;->notifyAllUnexempted()V
 
     goto :goto_0
 
     :cond_0
-    iget-object v3, p0, Lcom/android/server/AppStateTrackerImpl;->mPowerExemptAllAppIds:[I
+    iget-object p1, p0, Lcom/android/server/AppStateTrackerImpl;->mPowerExemptAllAppIds:[I
 
-    invoke-static {v1, v3}, Ljava/util/Arrays;->equals([I[I)Z
+    invoke-static {v1, p1}, Ljava/util/Arrays;->equals([I[I)Z
 
-    move-result v3
+    move-result p1
 
-    if-nez v3, :cond_1
+    if-nez p1, :cond_1
 
-    iget-object v3, p0, Lcom/android/server/AppStateTrackerImpl;->mHandler:Lcom/android/server/AppStateTrackerImpl$MyHandler;
+    iget-object p1, p0, Lcom/android/server/AppStateTrackerImpl;->mHandler:Lcom/android/server/AppStateTrackerImpl$MyHandler;
 
-    invoke-virtual {v3}, Lcom/android/server/AppStateTrackerImpl$MyHandler;->notifyAllExemptionListChanged()V
+    invoke-virtual {p1}, Lcom/android/server/AppStateTrackerImpl$MyHandler;->notifyAllExemptionListChanged()V
 
     :cond_1
     :goto_0
-    iget-object v3, p0, Lcom/android/server/AppStateTrackerImpl;->mTempExemptAppIds:[I
+    iget-object p1, p0, Lcom/android/server/AppStateTrackerImpl;->mTempExemptAppIds:[I
 
-    invoke-static {v2, v3}, Ljava/util/Arrays;->equals([I[I)Z
+    invoke-static {v2, p1}, Ljava/util/Arrays;->equals([I[I)Z
 
-    move-result v3
+    move-result p1
 
-    if-nez v3, :cond_2
+    if-nez p1, :cond_2
 
-    iget-object v3, p0, Lcom/android/server/AppStateTrackerImpl;->mHandler:Lcom/android/server/AppStateTrackerImpl$MyHandler;
+    iget-object p0, p0, Lcom/android/server/AppStateTrackerImpl;->mHandler:Lcom/android/server/AppStateTrackerImpl$MyHandler;
 
-    invoke-virtual {v3}, Lcom/android/server/AppStateTrackerImpl$MyHandler;->notifyTempExemptionListChanged()V
+    invoke-virtual {p0}, Lcom/android/server/AppStateTrackerImpl$MyHandler;->notifyTempExemptionListChanged()V
 
     :cond_2
     monitor-exit v0
@@ -2395,19 +2522,162 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
-.method updateForcedAppStandbyUidPackageLocked(ILjava/lang/String;Z)Z
-    .locals 5
+.method public final toggleForceAllAppsStandbyLocked(Z)V
+    .locals 1
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
 
-    invoke-direct {p0, p1, p2}, Lcom/android/server/AppStateTrackerImpl;->findForcedAppStandbyUidPackageIndexLocked(ILjava/lang/String;)I
+    iget-boolean v0, p0, Lcom/android/server/AppStateTrackerImpl;->mForceAllAppsStandby:Z
+
+    if-ne p1, v0, :cond_0
+
+    return-void
+
+    :cond_0
+    iput-boolean p1, p0, Lcom/android/server/AppStateTrackerImpl;->mForceAllAppsStandby:Z
+
+    iget-object p0, p0, Lcom/android/server/AppStateTrackerImpl;->mHandler:Lcom/android/server/AppStateTrackerImpl$MyHandler;
+
+    invoke-virtual {p0}, Lcom/android/server/AppStateTrackerImpl$MyHandler;->notifyForceAllAppsStandbyChanged()V
+
+    return-void
+.end method
+
+.method public final updateBackgroundRestrictedUidPackagesLocked()V
+    .locals 4
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
+
+    iget-boolean v0, p0, Lcom/android/server/AppStateTrackerImpl;->mForcedAppStandbyEnabled:Z
+
+    if-nez v0, :cond_0
+
+    invoke-static {}, Ljava/util/Collections;->emptySet()Ljava/util/Set;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/server/AppStateTrackerImpl;->mBackgroundRestrictedUidPackages:Ljava/util/Set;
+
+    return-void
+
+    :cond_0
+    new-instance v0, Landroid/util/ArraySet;
+
+    invoke-direct {v0}, Landroid/util/ArraySet;-><init>()V
+
+    const/4 v1, 0x0
+
+    iget-object v2, p0, Lcom/android/server/AppStateTrackerImpl;->mRunAnyRestrictedPackages:Landroid/util/ArraySet;
+
+    invoke-virtual {v2}, Landroid/util/ArraySet;->size()I
+
+    move-result v2
+
+    :goto_0
+    if-ge v1, v2, :cond_1
+
+    iget-object v3, p0, Lcom/android/server/AppStateTrackerImpl;->mRunAnyRestrictedPackages:Landroid/util/ArraySet;
+
+    invoke-virtual {v3, v1}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/util/Pair;
+
+    invoke-interface {v0, v3}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    invoke-static {v0}, Ljava/util/Collections;->unmodifiableSet(Ljava/util/Set;)Ljava/util/Set;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/server/AppStateTrackerImpl;->mBackgroundRestrictedUidPackages:Ljava/util/Set;
+
+    return-void
+.end method
+
+.method public final updateForceAllAppStandbyState()V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/AppStateTrackerImpl;->mLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
+    iget-boolean v1, p0, Lcom/android/server/AppStateTrackerImpl;->mForceAllAppStandbyForSmallBattery:Z
+
+    if-eqz v1, :cond_1
+
+    invoke-virtual {p0}, Lcom/android/server/AppStateTrackerImpl;->isSmallBatteryDevice()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    iget-boolean v1, p0, Lcom/android/server/AppStateTrackerImpl;->mIsPluggedIn:Z
+
+    if-nez v1, :cond_0
+
+    const/4 v1, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v1, 0x0
+
+    :goto_0
+    invoke-virtual {p0, v1}, Lcom/android/server/AppStateTrackerImpl;->toggleForceAllAppsStandbyLocked(Z)V
+
+    goto :goto_1
+
+    :cond_1
+    iget-boolean v1, p0, Lcom/android/server/AppStateTrackerImpl;->mBatterySaverEnabled:Z
+
+    invoke-virtual {p0, v1}, Lcom/android/server/AppStateTrackerImpl;->toggleForceAllAppsStandbyLocked(Z)V
+
+    :goto_1
+    monitor-exit v0
+
+    return-void
+
+    :catchall_0
+    move-exception p0
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw p0
+.end method
+
+.method public updateForcedAppStandbyUidPackageLocked(ILjava/lang/String;Z)Z
+    .locals 4
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
+
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/AppStateTrackerImpl;->findForcedAppStandbyUidPackageIndexLocked(ILjava/lang/String;)I
 
     move-result v0
 
@@ -2432,25 +2702,27 @@
     :cond_1
     if-eqz p3, :cond_2
 
-    iget-object v2, p0, Lcom/android/server/AppStateTrackerImpl;->mRunAnyRestrictedPackages:Landroid/util/ArraySet;
+    iget-object p3, p0, Lcom/android/server/AppStateTrackerImpl;->mRunAnyRestrictedPackages:Landroid/util/ArraySet;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v4
+    move-result-object p1
 
-    invoke-static {v4, p2}, Landroid/util/Pair;->create(Ljava/lang/Object;Ljava/lang/Object;)Landroid/util/Pair;
+    invoke-static {p1, p2}, Landroid/util/Pair;->create(Ljava/lang/Object;Ljava/lang/Object;)Landroid/util/Pair;
 
-    move-result-object v4
+    move-result-object p1
 
-    invoke-virtual {v2, v4}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p3, p1}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
 
     goto :goto_1
 
     :cond_2
-    iget-object v2, p0, Lcom/android/server/AppStateTrackerImpl;->mRunAnyRestrictedPackages:Landroid/util/ArraySet;
+    iget-object p1, p0, Lcom/android/server/AppStateTrackerImpl;->mRunAnyRestrictedPackages:Landroid/util/ArraySet;
 
-    invoke-virtual {v2, v0}, Landroid/util/ArraySet;->removeAt(I)Ljava/lang/Object;
+    invoke-virtual {p1, v0}, Landroid/util/ArraySet;->removeAt(I)Ljava/lang/Object;
 
     :goto_1
+    invoke-virtual {p0}, Lcom/android/server/AppStateTrackerImpl;->updateBackgroundRestrictedUidPackagesLocked()V
+
     return v1
 .end method

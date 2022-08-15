@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/server/usage/UserUsageStatsService$StatsUpdatedListener;
+.class public interface abstract Lcom/android/server/usage/UserUsageStatsService$StatsUpdatedListener;
 .super Ljava/lang/Object;
 .source "UserUsageStatsService.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
+    accessFlags = 0x609
     name = "StatsUpdatedListener"
 .end annotation
 

@@ -3,21 +3,7 @@
 .source "MemoryPressureUtil.java"
 
 
-# static fields
-.field private static final FILE:Ljava/lang/String; = "/proc/pressure/memory"
-
-.field private static final TAG:Ljava/lang/String; = "MemoryPressure"
-
-
 # direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
 .method public static currentPsiState()Ljava/lang/String;
     .locals 5
 
@@ -59,7 +45,6 @@
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :cond_0
     goto :goto_0
 
     :catchall_0
@@ -79,12 +64,9 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    nop
-
+    :cond_0
     :goto_0
     invoke-static {v1}, Landroid/os/StrictMode;->setThreadPolicy(Landroid/os/StrictMode$ThreadPolicy;)V
-
-    nop
 
     invoke-virtual {v2}, Ljava/io/StringWriter;->toString()Ljava/lang/String;
 

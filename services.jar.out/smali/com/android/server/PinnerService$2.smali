@@ -1,4 +1,4 @@
-.class Lcom/android/server/PinnerService$2;
+.class public Lcom/android/server/PinnerService$2;
 .super Landroid/database/ContentObserver;
 .source "PinnerService.java"
 
@@ -9,19 +9,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/PinnerService;
+.field public final synthetic this$0:Lcom/android/server/PinnerService;
 
-.field final synthetic val$userSetupCompleteUri:Landroid/net/Uri;
+.field public final synthetic val$userSetupCompleteUri:Landroid/net/Uri;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/PinnerService;Landroid/os/Handler;Landroid/net/Uri;)V
+.method public constructor <init>(Lcom/android/server/PinnerService;Landroid/os/Handler;Landroid/net/Uri;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/PinnerService$2;->this$0:Lcom/android/server/PinnerService;
@@ -36,25 +36,25 @@
 
 # virtual methods
 .method public onChange(ZLandroid/net/Uri;)V
-    .locals 3
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/PinnerService$2;->val$userSetupCompleteUri:Landroid/net/Uri;
+    iget-object p1, p0, Lcom/android/server/PinnerService$2;->val$userSetupCompleteUri:Landroid/net/Uri;
 
-    invoke-virtual {v0, p2}, Landroid/net/Uri;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, p2}, Landroid/net/Uri;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/PinnerService$2;->this$0:Lcom/android/server/PinnerService;
+    iget-object p0, p0, Lcom/android/server/PinnerService$2;->this$0:Lcom/android/server/PinnerService;
 
     invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
 
-    move-result v1
+    move-result p1
 
-    const/4 v2, 0x1
+    const/4 p2, 0x1
 
-    invoke-static {v0, v2, v1, v2}, Lcom/android/server/PinnerService;->access$100(Lcom/android/server/PinnerService;IIZ)V
+    invoke-static {p0, p2, p1, p2}, Lcom/android/server/PinnerService;->-$$Nest$msendPinAppMessage(Lcom/android/server/PinnerService;IIZ)V
 
     :cond_0
     return-void

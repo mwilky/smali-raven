@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/wm/WindowManagerService$LocalService$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -23,13 +24,13 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/WindowManagerService$LocalService$$ExternalSyntheticLambda1;->f$0:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/wm/WindowManagerService$LocalService$$ExternalSyntheticLambda1;->f$0:Ljava/lang/String;
 
     check-cast p1, Lcom/android/server/wm/DisplayContent;
 
-    invoke-static {v0, p1}, Lcom/android/server/wm/WindowManagerService$LocalService;->lambda$removeNonHighRefreshRatePackage$1(Ljava/lang/String;Lcom/android/server/wm/DisplayContent;)V
+    invoke-static {p0, p1}, Lcom/android/server/wm/WindowManagerService$LocalService;->$r8$lambda$zG_Xgx4e-xyV78pyyeRruTNDb9s(Ljava/lang/String;Lcom/android/server/wm/DisplayContent;)V
 
     return-void
 .end method

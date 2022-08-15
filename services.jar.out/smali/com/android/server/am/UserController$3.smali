@@ -1,4 +1,4 @@
-.class Lcom/android/server/am/UserController$3;
+.class public Lcom/android/server/am/UserController$3;
 .super Ljava/lang/Object;
 .source "UserController.java"
 
@@ -12,19 +12,27 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/am/UserController;
+.field public final synthetic this$0:Lcom/android/server/am/UserController;
 
-.field final synthetic val$foreground:Z
+.field public final synthetic val$foreground:Z
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/UserController;Z)V
+.method public static synthetic $r8$lambda$RYrhcDgczNYY-O19G6cwCRKBktI(Lcom/android/server/am/UserController$3;IZ)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/server/am/UserController$3;->lambda$keyEvicted$0(IZ)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Lcom/android/server/am/UserController;Z)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/am/UserController$3;->this$0:Lcom/android/server/am/UserController;
@@ -36,6 +44,16 @@
     return-void
 .end method
 
+.method private synthetic lambda$keyEvicted$0(IZ)V
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/am/UserController$3;->this$0:Lcom/android/server/am/UserController;
+
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/am/UserController;->startUser(IZ)Z
+
+    return-void
+.end method
+
 
 # virtual methods
 .method public keyEvicted(I)V
@@ -43,7 +61,7 @@
 
     iget-object v0, p0, Lcom/android/server/am/UserController$3;->this$0:Lcom/android/server/am/UserController;
 
-    invoke-static {v0}, Lcom/android/server/am/UserController;->access$100(Lcom/android/server/am/UserController;)Landroid/os/Handler;
+    invoke-static {v0}, Lcom/android/server/am/UserController;->-$$Nest$fgetmHandler(Lcom/android/server/am/UserController;)Landroid/os/Handler;
 
     move-result-object v0
 
@@ -54,16 +72,6 @@
     invoke-direct {v2, p0, p1, v1}, Lcom/android/server/am/UserController$3$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/am/UserController$3;IZ)V
 
     invoke-virtual {v0, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-
-    return-void
-.end method
-
-.method public synthetic lambda$keyEvicted$0$UserController$3(IZ)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/am/UserController$3;->this$0:Lcom/android/server/am/UserController;
-
-    invoke-virtual {v0, p1, p2}, Lcom/android/server/am/UserController;->startUser(IZ)Z
 
     return-void
 .end method

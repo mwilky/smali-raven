@@ -1,76 +1,264 @@
-.class final Lcom/android/server/am/ProcessProfileRecord;
+.class public final Lcom/android/server/am/ProcessProfileRecord;
 .super Ljava/lang/Object;
 .source "ProcessProfileRecord.java"
 
 
 # instance fields
-.field final mApp:Lcom/android/server/am/ProcessRecord;
+.field public final mApp:Lcom/android/server/am/ProcessRecord;
 
-.field private mBaseProcessTracker:Lcom/android/internal/app/procstats/ProcessState;
+.field public mBaseProcessTracker:Lcom/android/internal/app/procstats/ProcessState;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService.mProcessStats.mLock"
+        }
+    .end annotation
+.end field
 
-.field final mCurCpuTime:Ljava/util/concurrent/atomic/AtomicLong;
+.field public final mCurCpuTime:Ljava/util/concurrent/atomic/AtomicLong;
 
-.field private mCurProcBatteryStats:Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;
+.field public mCurProcBatteryStats:Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;
 
-.field private mCurRawAdj:I
+.field public mCurRawAdj:I
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProfilerLock"
+        }
+    .end annotation
+.end field
 
-.field private mInitialIdlePss:J
+.field public mCurrentHostingComponentTypes:Ljava/util/concurrent/atomic/AtomicInteger;
 
-.field private mLastCachedPss:J
+.field public mHistoricalHostingComponentTypes:Ljava/util/concurrent/atomic/AtomicInteger;
 
-.field private mLastCachedSwapPss:J
+.field public mInitialIdlePss:J
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProfilerLock"
+        }
+    .end annotation
+.end field
 
-.field final mLastCpuTime:Ljava/util/concurrent/atomic/AtomicLong;
+.field public mLastCachedPss:J
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProfilerLock"
+        }
+    .end annotation
+.end field
 
-.field private mLastLowMemory:J
+.field public mLastCachedSwapPss:J
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProfilerLock"
+        }
+    .end annotation
+.end field
 
-.field private mLastMemInfo:Landroid/os/Debug$MemoryInfo;
+.field public final mLastCpuTime:Ljava/util/concurrent/atomic/AtomicLong;
 
-.field private mLastMemInfoTime:J
+.field public mLastLowMemory:J
+    .annotation build Lcom/android/internal/annotations/CompositeRWLock;
+        value = {
+            "mService",
+            "mProfilerLock"
+        }
+    .end annotation
+.end field
 
-.field private mLastPss:J
+.field public mLastMemInfo:Landroid/os/Debug$MemoryInfo;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProfilerLock"
+        }
+    .end annotation
+.end field
 
-.field private mLastPssTime:J
+.field public mLastMemInfoTime:J
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProfilerLock"
+        }
+    .end annotation
+.end field
 
-.field private mLastRequestedGc:J
+.field public mLastPss:J
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProfilerLock"
+        }
+    .end annotation
+.end field
 
-.field private mLastRss:J
+.field public mLastPssTime:J
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProfilerLock"
+        }
+    .end annotation
+.end field
 
-.field private mLastStateTime:J
+.field public mLastRequestedGc:J
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProfilerLock"
+        }
+    .end annotation
+.end field
 
-.field private mLastSwapPss:J
+.field public mLastRss:J
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProfilerLock"
+        }
+    .end annotation
+.end field
 
-.field private mNextPssTime:J
+.field public mLastStateTime:J
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProfilerLock"
+        }
+    .end annotation
+.end field
 
-.field private mPendingUiClean:Z
+.field public mLastSwapPss:J
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProfilerLock"
+        }
+    .end annotation
+.end field
 
-.field private mPid:I
+.field public mNextPssTime:J
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProfilerLock"
+        }
+    .end annotation
+.end field
 
-.field private final mProcLock:Lcom/android/server/am/ActivityManagerGlobalLock;
+.field public mPendingUiClean:Z
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProcLock"
+        }
+    .end annotation
+.end field
 
-.field private final mProcStateMemTracker:Lcom/android/server/am/ProcessList$ProcStateMemTracker;
+.field public mPid:I
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProfilerLock"
+        }
+    .end annotation
+.end field
 
-.field final mProfilerLock:Ljava/lang/Object;
+.field public final mProcLock:Lcom/android/server/am/ActivityManagerGlobalLock;
 
-.field private mPssProcState:I
+.field public final mProcStateMemTracker:Lcom/android/server/am/ProcessList$ProcStateMemTracker;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProfilerLock"
+        }
+    .end annotation
+.end field
 
-.field private mPssStatType:I
+.field public final mProfilerLock:Ljava/lang/Object;
 
-.field private mReportLowMemory:Z
+.field public mPssProcState:I
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProfilerLock"
+        }
+    .end annotation
+.end field
 
-.field private final mService:Lcom/android/server/am/ActivityManagerService;
+.field public mPssStatType:I
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProfilerLock"
+        }
+    .end annotation
+.end field
 
-.field private mSetAdj:I
+.field public mReportLowMemory:Z
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProfilerLock"
+        }
+    .end annotation
+.end field
 
-.field private mSetProcState:I
+.field public final mService:Lcom/android/server/am/ActivityManagerService;
 
-.field private mThread:Landroid/app/IApplicationThread;
+.field public mSetAdj:I
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProfilerLock"
+        }
+    .end annotation
+.end field
 
-.field private mTrimMemoryLevel:I
+.field public mSetProcState:I
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProfilerLock"
+        }
+    .end annotation
+.end field
+
+.field public mThread:Landroid/app/IApplicationThread;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProfilerLock"
+        }
+    .end annotation
+.end field
+
+.field public mTrimMemoryLevel:I
+    .annotation build Lcom/android/internal/annotations/CompositeRWLock;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
+.end field
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/ProcessRecord;)V
+.method public static synthetic $r8$lambda$Rvf-KEcf2HnHPSLuyzzt_9uo3cg(Lcom/android/internal/app/procstats/ProcessState;Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;)V
+    .locals 0
+
+    invoke-static {p0, p1}, Lcom/android/server/am/ProcessProfileRecord;->lambda$onProcessInactive$3(Lcom/android/internal/app/procstats/ProcessState;Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$Zs4hSKu0v2FWd9koXYXrsRiiwvI(Lcom/android/server/am/ProcessProfileRecord;Ljava/lang/String;Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/server/am/ProcessProfileRecord;->lambda$onProcessActive$0(Ljava/lang/String;Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$iz5Bnsh-yvVXIwMXZyOTsDUdjDc(Lcom/android/server/am/ProcessProfileRecord;Ljava/lang/String;Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/server/am/ProcessProfileRecord;->lambda$onProcessInactive$2(Ljava/lang/String;Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$s6oa4nqF2g4s3gw9kM5OX7F-3Dw(Lcom/android/server/am/ProcessProfileRecord;Lcom/android/internal/app/procstats/ProcessState;Lcom/android/server/am/ProcessStatsService;Lcom/android/internal/app/procstats/ProcessState;Ljava/lang/String;Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;)V
+    .locals 0
+
+    invoke-direct/range {p0 .. p5}, Lcom/android/server/am/ProcessProfileRecord;->lambda$onProcessActive$1(Lcom/android/internal/app/procstats/ProcessState;Lcom/android/server/am/ProcessStatsService;Lcom/android/internal/app/procstats/ProcessState;Ljava/lang/String;Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Lcom/android/server/am/ProcessRecord;)V
     .locals 3
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -99,26 +287,40 @@
 
     iput-object v0, p0, Lcom/android/server/am/ProcessProfileRecord;->mCurCpuTime:Ljava/util/concurrent/atomic/AtomicLong;
 
+    new-instance v0, Ljava/util/concurrent/atomic/AtomicInteger;
+
+    const/4 v1, 0x0
+
+    invoke-direct {v0, v1}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>(I)V
+
+    iput-object v0, p0, Lcom/android/server/am/ProcessProfileRecord;->mCurrentHostingComponentTypes:Ljava/util/concurrent/atomic/AtomicInteger;
+
+    new-instance v0, Ljava/util/concurrent/atomic/AtomicInteger;
+
+    invoke-direct {v0, v1}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>(I)V
+
+    iput-object v0, p0, Lcom/android/server/am/ProcessProfileRecord;->mHistoricalHostingComponentTypes:Ljava/util/concurrent/atomic/AtomicInteger;
+
     iput-object p1, p0, Lcom/android/server/am/ProcessProfileRecord;->mApp:Lcom/android/server/am/ProcessRecord;
 
-    iget-object v0, p1, Lcom/android/server/am/ProcessRecord;->mService:Lcom/android/server/am/ActivityManagerService;
+    iget-object p1, p1, Lcom/android/server/am/ProcessRecord;->mService:Lcom/android/server/am/ActivityManagerService;
 
-    iput-object v0, p0, Lcom/android/server/am/ProcessProfileRecord;->mService:Lcom/android/server/am/ActivityManagerService;
+    iput-object p1, p0, Lcom/android/server/am/ProcessProfileRecord;->mService:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v1, v0, Lcom/android/server/am/ActivityManagerService;->mProcLock:Lcom/android/server/am/ActivityManagerGlobalLock;
+    iget-object v0, p1, Lcom/android/server/am/ActivityManagerService;->mProcLock:Lcom/android/server/am/ActivityManagerGlobalLock;
 
-    iput-object v1, p0, Lcom/android/server/am/ProcessProfileRecord;->mProcLock:Lcom/android/server/am/ActivityManagerGlobalLock;
+    iput-object v0, p0, Lcom/android/server/am/ProcessProfileRecord;->mProcLock:Lcom/android/server/am/ActivityManagerGlobalLock;
 
-    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mAppProfiler:Lcom/android/server/am/AppProfiler;
+    iget-object p1, p1, Lcom/android/server/am/ActivityManagerService;->mAppProfiler:Lcom/android/server/am/AppProfiler;
 
-    iget-object v0, v0, Lcom/android/server/am/AppProfiler;->mProfilerLock:Ljava/lang/Object;
+    iget-object p1, p1, Lcom/android/server/am/AppProfiler;->mProfilerLock:Ljava/lang/Object;
 
-    iput-object v0, p0, Lcom/android/server/am/ProcessProfileRecord;->mProfilerLock:Ljava/lang/Object;
+    iput-object p1, p0, Lcom/android/server/am/ProcessProfileRecord;->mProfilerLock:Ljava/lang/Object;
 
     return-void
 .end method
 
-.method private static abortNextPssTime(Lcom/android/server/am/ProcessList$ProcStateMemTracker;)V
+.method public static abortNextPssTime(Lcom/android/server/am/ProcessList$ProcStateMemTracker;)V
     .locals 1
 
     const/4 v0, -0x1
@@ -128,32 +330,26 @@
     return-void
 .end method
 
-.method private static commitNextPssTime(Lcom/android/server/am/ProcessList$ProcStateMemTracker;)V
-    .locals 3
+.method public static commitNextPssTime(Lcom/android/server/am/ProcessList$ProcStateMemTracker;)V
+    .locals 4
 
     iget v0, p0, Lcom/android/server/am/ProcessList$ProcStateMemTracker;->mPendingMemState:I
 
     if-ltz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/am/ProcessList$ProcStateMemTracker;->mHighestMem:[I
-
-    iget v1, p0, Lcom/android/server/am/ProcessList$ProcStateMemTracker;->mPendingMemState:I
+    iget-object v1, p0, Lcom/android/server/am/ProcessList$ProcStateMemTracker;->mHighestMem:[I
 
     iget v2, p0, Lcom/android/server/am/ProcessList$ProcStateMemTracker;->mPendingHighestMemState:I
 
-    aput v2, v0, v1
+    aput v2, v1, v0
 
-    iget-object v0, p0, Lcom/android/server/am/ProcessList$ProcStateMemTracker;->mScalingFactor:[F
+    iget-object v1, p0, Lcom/android/server/am/ProcessList$ProcStateMemTracker;->mScalingFactor:[F
 
-    iget v1, p0, Lcom/android/server/am/ProcessList$ProcStateMemTracker;->mPendingMemState:I
+    iget v3, p0, Lcom/android/server/am/ProcessList$ProcStateMemTracker;->mPendingScalingFactor:F
 
-    iget v2, p0, Lcom/android/server/am/ProcessList$ProcStateMemTracker;->mPendingScalingFactor:F
+    aput v3, v1, v0
 
-    aput v2, v0, v1
-
-    iget v0, p0, Lcom/android/server/am/ProcessList$ProcStateMemTracker;->mPendingHighestMemState:I
-
-    iput v0, p0, Lcom/android/server/am/ProcessList$ProcStateMemTracker;->mTotalHighestMem:I
+    iput v2, p0, Lcom/android/server/am/ProcessList$ProcStateMemTracker;->mTotalHighestMem:I
 
     const/4 v0, -0x1
 
@@ -163,106 +359,223 @@
     return-void
 .end method
 
-.method static synthetic lambda$onProcessInactive$3(Lcom/android/internal/app/procstats/ProcessState;Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;)V
+.method private synthetic lambda$onProcessActive$0(Ljava/lang/String;Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;)V
+    .locals 7
+
+    iget-object p0, p0, Lcom/android/server/am/ProcessProfileRecord;->mApp:Lcom/android/server/am/ProcessRecord;
+
+    iget v1, p0, Lcom/android/server/am/ProcessRecord;->uid:I
+
+    iget-object v2, p0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+
+    const/4 p0, -0x1
+
+    invoke-static {p0}, Landroid/app/ActivityManager;->processStateAmToProto(I)I
+
+    move-result v4
+
+    iget-wide v5, p2, Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;->appVersion:J
+
+    const/4 v0, 0x3
+
+    move-object v3, p1
+
+    invoke-static/range {v0 .. v6}, Lcom/android/internal/util/FrameworkStatsLog;->write(IILjava/lang/String;Ljava/lang/String;IJ)V
+
+    return-void
+.end method
+
+.method private synthetic lambda$onProcessActive$1(Lcom/android/internal/app/procstats/ProcessState;Lcom/android/server/am/ProcessStatsService;Lcom/android/internal/app/procstats/ProcessState;Ljava/lang/String;Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;)V
+    .locals 7
+
+    iget-object v0, p5, Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;->state:Lcom/android/internal/app/procstats/ProcessState;
+
+    if-eqz v0, :cond_0
+
+    if-eq v0, p1, :cond_0
+
+    invoke-virtual {v0}, Lcom/android/internal/app/procstats/ProcessState;->makeInactive()V
+
+    :cond_0
+    iget-object p1, p0, Lcom/android/server/am/ProcessProfileRecord;->mApp:Lcom/android/server/am/ProcessRecord;
+
+    iget-object p1, p1, Lcom/android/server/am/ProcessRecord;->info:Landroid/content/pm/ApplicationInfo;
+
+    iget v3, p1, Landroid/content/pm/ApplicationInfo;->uid:I
+
+    iget-object p1, p0, Lcom/android/server/am/ProcessProfileRecord;->mApp:Lcom/android/server/am/ProcessRecord;
+
+    iget-object p1, p1, Lcom/android/server/am/ProcessRecord;->info:Landroid/content/pm/ApplicationInfo;
+
+    iget-wide v4, p1, Landroid/content/pm/ApplicationInfo;->longVersionCode:J
+
+    iget-object p0, p0, Lcom/android/server/am/ProcessProfileRecord;->mApp:Lcom/android/server/am/ProcessRecord;
+
+    iget-object v6, p0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+
+    move-object v0, p2
+
+    move-object v1, p5
+
+    move-object v2, p4
+
+    invoke-virtual/range {v0 .. v6}, Lcom/android/server/am/ProcessStatsService;->updateProcessStateHolderLocked(Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;Ljava/lang/String;IJLjava/lang/String;)V
+
+    iget-object p0, p5, Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;->state:Lcom/android/internal/app/procstats/ProcessState;
+
+    if-eq p0, p3, :cond_1
+
+    invoke-virtual {p0}, Lcom/android/internal/app/procstats/ProcessState;->makeActive()V
+
+    :cond_1
+    return-void
+.end method
+
+.method private synthetic lambda$onProcessInactive$2(Ljava/lang/String;Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;)V
+    .locals 7
+
+    iget-object p0, p0, Lcom/android/server/am/ProcessProfileRecord;->mApp:Lcom/android/server/am/ProcessRecord;
+
+    iget v1, p0, Lcom/android/server/am/ProcessRecord;->uid:I
+
+    iget-object v2, p0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+
+    const/4 p0, -0x1
+
+    invoke-static {p0}, Landroid/app/ActivityManager;->processStateAmToProto(I)I
+
+    move-result v4
+
+    iget-wide v5, p2, Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;->appVersion:J
+
+    const/4 v0, 0x3
+
+    move-object v3, p1
+
+    invoke-static/range {v0 .. v6}, Lcom/android/internal/util/FrameworkStatsLog;->write(IILjava/lang/String;Ljava/lang/String;IJ)V
+
+    return-void
+.end method
+
+.method public static synthetic lambda$onProcessInactive$3(Lcom/android/internal/app/procstats/ProcessState;Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;)V
     .locals 1
 
     iget-object v0, p1, Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;->state:Lcom/android/internal/app/procstats/ProcessState;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p1, Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;->state:Lcom/android/internal/app/procstats/ProcessState;
-
     if-eq v0, p0, :cond_0
-
-    iget-object v0, p1, Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;->state:Lcom/android/internal/app/procstats/ProcessState;
 
     invoke-virtual {v0}, Lcom/android/internal/app/procstats/ProcessState;->makeInactive()V
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    iput-object v0, p1, Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;->pkg:Lcom/android/internal/app/procstats/ProcessStats$PackageState;
+    iput-object p0, p1, Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;->pkg:Lcom/android/internal/app/procstats/ProcessStats$PackageState;
 
-    iput-object v0, p1, Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;->state:Lcom/android/internal/app/procstats/ProcessState;
+    iput-object p0, p1, Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;->state:Lcom/android/internal/app/procstats/ProcessState;
 
     return-void
 .end method
 
 
 # virtual methods
-.method abortNextPssTime()V
-    .locals 1
+.method public abortNextPssTime()V
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProfilerLock"
+        }
+    .end annotation
 
-    iget-object v0, p0, Lcom/android/server/am/ProcessProfileRecord;->mProcStateMemTracker:Lcom/android/server/am/ProcessList$ProcStateMemTracker;
+    iget-object p0, p0, Lcom/android/server/am/ProcessProfileRecord;->mProcStateMemTracker:Lcom/android/server/am/ProcessList$ProcStateMemTracker;
 
-    invoke-static {v0}, Lcom/android/server/am/ProcessProfileRecord;->abortNextPssTime(Lcom/android/server/am/ProcessList$ProcStateMemTracker;)V
+    invoke-static {p0}, Lcom/android/server/am/ProcessProfileRecord;->abortNextPssTime(Lcom/android/server/am/ProcessList$ProcStateMemTracker;)V
 
     return-void
 .end method
 
-.method addPss(JJJZIJ)V
-    .locals 17
+.method public addHostingComponentType(I)V
+    .locals 2
 
-    move-object/from16 v1, p0
+    iget-object v0, p0, Lcom/android/server/am/ProcessProfileRecord;->mCurrentHostingComponentTypes:Ljava/util/concurrent/atomic/AtomicInteger;
 
-    iget-object v0, v1, Lcom/android/server/am/ProcessProfileRecord;->mService:Lcom/android/server/am/ActivityManagerService;
+    invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->get()I
 
-    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mProcessStats:Lcom/android/server/am/ProcessStatsService;
+    move-result v1
 
-    iget-object v2, v0, Lcom/android/server/am/ProcessStatsService;->mLock:Ljava/lang/Object;
+    or-int/2addr v1, p1
 
-    monitor-enter v2
+    invoke-virtual {v0, v1}, Ljava/util/concurrent/atomic/AtomicInteger;->set(I)V
+
+    iget-object p0, p0, Lcom/android/server/am/ProcessProfileRecord;->mHistoricalHostingComponentTypes:Ljava/util/concurrent/atomic/AtomicInteger;
+
+    invoke-virtual {p0}, Ljava/util/concurrent/atomic/AtomicInteger;->get()I
+
+    move-result v0
+
+    or-int/2addr p1, v0
+
+    invoke-virtual {p0, p1}, Ljava/util/concurrent/atomic/AtomicInteger;->set(I)V
+
+    return-void
+.end method
+
+.method public addPss(JJJZIJ)V
+    .locals 15
+
+    move-object v0, p0
+
+    iget-object v1, v0, Lcom/android/server/am/ProcessProfileRecord;->mService:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v1, v1, Lcom/android/server/am/ActivityManagerService;->mProcessStats:Lcom/android/server/am/ProcessStatsService;
+
+    iget-object v1, v1, Lcom/android/server/am/ProcessStatsService;->mLock:Ljava/lang/Object;
+
+    monitor-enter v1
 
     :try_start_0
-    iget-object v0, v1, Lcom/android/server/am/ProcessProfileRecord;->mBaseProcessTracker:Lcom/android/internal/app/procstats/ProcessState;
+    iget-object v2, v0, Lcom/android/server/am/ProcessProfileRecord;->mBaseProcessTracker:Lcom/android/internal/app/procstats/ProcessState;
 
-    move-object v15, v0
+    if-eqz v2, :cond_0
 
-    if-eqz v15, :cond_0
-
-    iget-object v0, v1, Lcom/android/server/am/ProcessProfileRecord;->mApp:Lcom/android/server/am/ProcessRecord;
+    iget-object v0, v0, Lcom/android/server/am/ProcessProfileRecord;->mApp:Lcom/android/server/am/ProcessRecord;
 
     invoke-virtual {v0}, Lcom/android/server/am/ProcessRecord;->getPkgList()Lcom/android/server/am/PackageList;
 
-    move-result-object v0
+    move-result-object v14
 
-    move-object/from16 v16, v0
-
-    monitor-enter v16
+    monitor-enter v14
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
-    nop
-
     :try_start_1
-    invoke-virtual/range {v16 .. v16}, Lcom/android/server/am/PackageList;->getPackageListLocked()Landroid/util/ArrayMap;
+    invoke-virtual {v14}, Lcom/android/server/am/PackageList;->getPackageListLocked()Landroid/util/ArrayMap;
 
-    move-result-object v14
+    move-result-object v13
 
-    move-object v3, v15
+    move-wide/from16 v3, p1
 
-    move-wide/from16 v4, p1
+    move-wide/from16 v5, p3
 
-    move-wide/from16 v6, p3
+    move-wide/from16 v7, p5
 
-    move-wide/from16 v8, p5
+    move/from16 v9, p7
 
-    move/from16 v10, p7
+    move/from16 v10, p8
 
-    move/from16 v11, p8
+    move-wide/from16 v11, p9
 
-    move-wide/from16 v12, p9
+    invoke-virtual/range {v2 .. v13}, Lcom/android/internal/app/procstats/ProcessState;->addPss(JJJZIJLandroid/util/ArrayMap;)V
 
-    invoke-virtual/range {v3 .. v14}, Lcom/android/internal/app/procstats/ProcessState;->addPss(JJJZIJLandroid/util/ArrayMap;)V
-
-    monitor-exit v16
+    monitor-exit v14
 
     goto :goto_0
 
     :catchall_0
     move-exception v0
 
-    monitor-exit v16
+    monitor-exit v14
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -271,32 +584,60 @@
 
     :cond_0
     :goto_0
-    monitor-exit v2
+    monitor-exit v1
 
     return-void
 
     :catchall_1
     move-exception v0
 
-    monitor-exit v2
+    monitor-exit v1
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
     throw v0
 .end method
 
-.method commitNextPssTime()V
+.method public clearHostingComponentType(I)V
     .locals 1
 
-    iget-object v0, p0, Lcom/android/server/am/ProcessProfileRecord;->mProcStateMemTracker:Lcom/android/server/am/ProcessList$ProcStateMemTracker;
+    iget-object p0, p0, Lcom/android/server/am/ProcessProfileRecord;->mCurrentHostingComponentTypes:Ljava/util/concurrent/atomic/AtomicInteger;
 
-    invoke-static {v0}, Lcom/android/server/am/ProcessProfileRecord;->commitNextPssTime(Lcom/android/server/am/ProcessList$ProcStateMemTracker;)V
+    invoke-virtual {p0}, Ljava/util/concurrent/atomic/AtomicInteger;->get()I
+
+    move-result v0
+
+    not-int p1, p1
+
+    and-int/2addr p1, v0
+
+    invoke-virtual {p0, p1}, Ljava/util/concurrent/atomic/AtomicInteger;->set(I)V
 
     return-void
 .end method
 
-.method computeNextPssTime(IZZJ)J
+.method public commitNextPssTime()V
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProfilerLock"
+        }
+    .end annotation
+
+    iget-object p0, p0, Lcom/android/server/am/ProcessProfileRecord;->mProcStateMemTracker:Lcom/android/server/am/ProcessList$ProcStateMemTracker;
+
+    invoke-static {p0}, Lcom/android/server/am/ProcessProfileRecord;->commitNextPssTime(Lcom/android/server/am/ProcessList$ProcStateMemTracker;)V
+
+    return-void
+.end method
+
+.method public computeNextPssTime(IZZJ)J
     .locals 6
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProfilerLock"
+        }
+    .end annotation
 
     iget-object v1, p0, Lcom/android/server/am/ProcessProfileRecord;->mProcStateMemTracker:Lcom/android/server/am/ProcessList$ProcStateMemTracker;
 
@@ -310,12 +651,12 @@
 
     invoke-static/range {v0 .. v5}, Lcom/android/server/am/ProcessList;->computeNextPssTime(ILcom/android/server/am/ProcessList$ProcStateMemTracker;ZZJ)J
 
-    move-result-wide v0
+    move-result-wide p0
 
-    return-wide v0
+    return-wide p0
 .end method
 
-.method dumpCputime(Ljava/io/PrintWriter;Ljava/lang/String;)V
+.method public dumpCputime(Ljava/io/PrintWriter;Ljava/lang/String;)V
     .locals 4
 
     iget-object v0, p0, Lcom/android/server/am/ProcessProfileRecord;->mLastCpuTime:Ljava/util/concurrent/atomic/AtomicLong;
@@ -326,25 +667,25 @@
 
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    const-string/jumbo v2, "lastCpuTime="
+    const-string p2, "lastCpuTime="
 
-    invoke-virtual {p1, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+    invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     invoke-virtual {p1, v0, v1}, Ljava/io/PrintWriter;->print(J)V
 
     const-wide/16 v2, 0x0
 
-    cmp-long v2, v0, v2
+    cmp-long p2, v0, v2
 
-    if-lez v2, :cond_0
+    if-lez p2, :cond_0
 
-    const-string v2, " timeUsed="
+    const-string p2, " timeUsed="
 
-    invoke-virtual {p1, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+    invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    iget-object v2, p0, Lcom/android/server/am/ProcessProfileRecord;->mCurCpuTime:Ljava/util/concurrent/atomic/AtomicLong;
+    iget-object p0, p0, Lcom/android/server/am/ProcessProfileRecord;->mCurCpuTime:Ljava/util/concurrent/atomic/AtomicLong;
 
-    invoke-virtual {v2}, Ljava/util/concurrent/atomic/AtomicLong;->get()J
+    invoke-virtual {p0}, Ljava/util/concurrent/atomic/AtomicLong;->get()J
 
     move-result-wide v2
 
@@ -358,8 +699,13 @@
     return-void
 .end method
 
-.method dumpPss(Ljava/io/PrintWriter;Ljava/lang/String;J)V
+.method public dumpPss(Ljava/io/PrintWriter;Ljava/lang/String;J)V
     .locals 5
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
     iget-object v0, p0, Lcom/android/server/am/ProcessProfileRecord;->mProfilerLock:Ljava/lang/Object;
 
@@ -368,7 +714,7 @@
     :try_start_0
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    const-string/jumbo v1, "lastPssTime="
+    const-string v1, "lastPssTime="
 
     invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
@@ -404,7 +750,7 @@
 
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    const-string/jumbo v1, "lastPss="
+    const-string v1, "lastPss="
 
     invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
@@ -480,7 +826,7 @@
 
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    const-string/jumbo v1, "lastRequestedGc="
+    const-string v1, "lastRequestedGc="
 
     invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
@@ -496,229 +842,395 @@
 
     invoke-static {v1, v2, p3, p4, p1}, Landroid/util/TimeUtils;->formatDuration(JJLjava/io/PrintWriter;)V
 
-    const-string v1, " reportLowMemory="
+    const-string p3, " reportLowMemory="
 
-    invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+    invoke-virtual {p1, p3}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    iget-boolean v1, p0, Lcom/android/server/am/ProcessProfileRecord;->mReportLowMemory:Z
+    iget-boolean p3, p0, Lcom/android/server/am/ProcessProfileRecord;->mReportLowMemory:Z
 
-    invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->println(Z)V
-
-    monitor-exit v0
-
-    return-void
-
-    :catchall_0
-    move-exception v1
+    invoke-virtual {p1, p3}, Ljava/io/PrintWriter;->println(Z)V
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    const-string p2, "currentHostingComponentTypes=0x"
+
+    invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    invoke-virtual {p0}, Lcom/android/server/am/ProcessProfileRecord;->getCurrentHostingComponentTypes()I
+
+    move-result p2
+
+    invoke-static {p2}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+
+    move-result-object p2
+
+    invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    const-string p2, " historicalHostingComponentTypes=0x"
+
+    invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    invoke-virtual {p0}, Lcom/android/server/am/ProcessProfileRecord;->getHistoricalHostingComponentTypes()I
+
+    move-result p0
+
+    invoke-static {p0}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {p1, p0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    return-void
+
+    :catchall_0
+    move-exception p0
+
+    :try_start_1
+    monitor-exit v0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    throw p0
 .end method
 
-.method getBaseProcessTracker()Lcom/android/internal/app/procstats/ProcessState;
-    .locals 1
+.method public getBaseProcessTracker()Lcom/android/internal/app/procstats/ProcessState;
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService.mProcessStats.mLock"
+        }
+    .end annotation
 
-    iget-object v0, p0, Lcom/android/server/am/ProcessProfileRecord;->mBaseProcessTracker:Lcom/android/internal/app/procstats/ProcessState;
+    iget-object p0, p0, Lcom/android/server/am/ProcessProfileRecord;->mBaseProcessTracker:Lcom/android/internal/app/procstats/ProcessState;
 
-    return-object v0
+    return-object p0
 .end method
 
-.method getCurProcBatteryStats()Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;
-    .locals 1
+.method public getCurProcBatteryStats()Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/am/ProcessProfileRecord;->mCurProcBatteryStats:Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;
+    iget-object p0, p0, Lcom/android/server/am/ProcessProfileRecord;->mCurProcBatteryStats:Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;
 
-    return-object v0
+    return-object p0
 .end method
 
-.method getCurRawAdj()I
-    .locals 1
+.method public getCurRawAdj()I
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProfilerLock"
+        }
+    .end annotation
 
-    iget v0, p0, Lcom/android/server/am/ProcessProfileRecord;->mCurRawAdj:I
+    iget p0, p0, Lcom/android/server/am/ProcessProfileRecord;->mCurRawAdj:I
 
-    return v0
+    return p0
 .end method
 
-.method getInitialIdlePss()J
+.method public getCurrentHostingComponentTypes()I
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/am/ProcessProfileRecord;->mCurrentHostingComponentTypes:Ljava/util/concurrent/atomic/AtomicInteger;
+
+    invoke-virtual {p0}, Ljava/util/concurrent/atomic/AtomicInteger;->get()I
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public getHistoricalHostingComponentTypes()I
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/am/ProcessProfileRecord;->mHistoricalHostingComponentTypes:Ljava/util/concurrent/atomic/AtomicInteger;
+
+    invoke-virtual {p0}, Ljava/util/concurrent/atomic/AtomicInteger;->get()I
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public getInitialIdlePss()J
     .locals 2
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProfilerLock"
+        }
+    .end annotation
 
     iget-wide v0, p0, Lcom/android/server/am/ProcessProfileRecord;->mInitialIdlePss:J
 
     return-wide v0
 .end method
 
-.method getLastCachedPss()J
+.method public getLastCachedPss()J
     .locals 2
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProfilerLock"
+        }
+    .end annotation
 
     iget-wide v0, p0, Lcom/android/server/am/ProcessProfileRecord;->mLastCachedPss:J
 
     return-wide v0
 .end method
 
-.method getLastCachedSwapPss()J
+.method public getLastLowMemory()J
     .locals 2
-
-    iget-wide v0, p0, Lcom/android/server/am/ProcessProfileRecord;->mLastCachedSwapPss:J
-
-    return-wide v0
-.end method
-
-.method getLastLowMemory()J
-    .locals 2
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        anyOf = {
+            "mService",
+            "mProfilerLock"
+        }
+    .end annotation
 
     iget-wide v0, p0, Lcom/android/server/am/ProcessProfileRecord;->mLastLowMemory:J
 
     return-wide v0
 .end method
 
-.method getLastMemInfo()Landroid/os/Debug$MemoryInfo;
-    .locals 1
+.method public getLastMemInfo()Landroid/os/Debug$MemoryInfo;
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProfilerLock"
+        }
+    .end annotation
 
-    iget-object v0, p0, Lcom/android/server/am/ProcessProfileRecord;->mLastMemInfo:Landroid/os/Debug$MemoryInfo;
+    iget-object p0, p0, Lcom/android/server/am/ProcessProfileRecord;->mLastMemInfo:Landroid/os/Debug$MemoryInfo;
 
-    return-object v0
+    return-object p0
 .end method
 
-.method getLastMemInfoTime()J
+.method public getLastMemInfoTime()J
     .locals 2
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProfilerLock"
+        }
+    .end annotation
 
     iget-wide v0, p0, Lcom/android/server/am/ProcessProfileRecord;->mLastMemInfoTime:J
 
     return-wide v0
 .end method
 
-.method getLastPss()J
+.method public getLastPss()J
     .locals 2
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProfilerLock"
+        }
+    .end annotation
 
     iget-wide v0, p0, Lcom/android/server/am/ProcessProfileRecord;->mLastPss:J
 
     return-wide v0
 .end method
 
-.method getLastPssTime()J
+.method public getLastPssTime()J
     .locals 2
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProfilerLock"
+        }
+    .end annotation
 
     iget-wide v0, p0, Lcom/android/server/am/ProcessProfileRecord;->mLastPssTime:J
 
     return-wide v0
 .end method
 
-.method getLastRequestedGc()J
+.method public getLastRequestedGc()J
     .locals 2
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProfilerLock"
+        }
+    .end annotation
 
     iget-wide v0, p0, Lcom/android/server/am/ProcessProfileRecord;->mLastRequestedGc:J
 
     return-wide v0
 .end method
 
-.method getLastRss()J
+.method public getLastRss()J
     .locals 2
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProfilerLock"
+        }
+    .end annotation
 
     iget-wide v0, p0, Lcom/android/server/am/ProcessProfileRecord;->mLastRss:J
 
     return-wide v0
 .end method
 
-.method getLastStateTime()J
+.method public getLastStateTime()J
     .locals 2
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProfilerLock"
+        }
+    .end annotation
 
     iget-wide v0, p0, Lcom/android/server/am/ProcessProfileRecord;->mLastStateTime:J
 
     return-wide v0
 .end method
 
-.method getLastSwapPss()J
+.method public getLastSwapPss()J
     .locals 2
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProfilerLock"
+        }
+    .end annotation
 
     iget-wide v0, p0, Lcom/android/server/am/ProcessProfileRecord;->mLastSwapPss:J
 
     return-wide v0
 .end method
 
-.method getNextPssTime()J
+.method public getNextPssTime()J
     .locals 2
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProfilerLock"
+        }
+    .end annotation
 
     iget-wide v0, p0, Lcom/android/server/am/ProcessProfileRecord;->mNextPssTime:J
 
     return-wide v0
 .end method
 
-.method getPid()I
-    .locals 1
+.method public getPid()I
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProfilerLock"
+        }
+    .end annotation
 
-    iget v0, p0, Lcom/android/server/am/ProcessProfileRecord;->mPid:I
+    iget p0, p0, Lcom/android/server/am/ProcessProfileRecord;->mPid:I
 
-    return v0
+    return p0
 .end method
 
-.method getPssProcState()I
-    .locals 1
+.method public getPssProcState()I
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProfilerLock"
+        }
+    .end annotation
 
-    iget v0, p0, Lcom/android/server/am/ProcessProfileRecord;->mPssProcState:I
+    iget p0, p0, Lcom/android/server/am/ProcessProfileRecord;->mPssProcState:I
 
-    return v0
+    return p0
 .end method
 
-.method getPssStatType()I
-    .locals 1
+.method public getPssStatType()I
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProfilerLock"
+        }
+    .end annotation
 
-    iget v0, p0, Lcom/android/server/am/ProcessProfileRecord;->mPssStatType:I
+    iget p0, p0, Lcom/android/server/am/ProcessProfileRecord;->mPssStatType:I
 
-    return v0
+    return p0
 .end method
 
-.method getReportLowMemory()Z
-    .locals 1
+.method public getReportLowMemory()Z
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProfilerLock"
+        }
+    .end annotation
 
-    iget-boolean v0, p0, Lcom/android/server/am/ProcessProfileRecord;->mReportLowMemory:Z
+    iget-boolean p0, p0, Lcom/android/server/am/ProcessProfileRecord;->mReportLowMemory:Z
 
-    return v0
+    return p0
 .end method
 
-.method getSetAdj()I
-    .locals 1
+.method public getSetAdj()I
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProfilerLock"
+        }
+    .end annotation
 
-    iget v0, p0, Lcom/android/server/am/ProcessProfileRecord;->mSetAdj:I
+    iget p0, p0, Lcom/android/server/am/ProcessProfileRecord;->mSetAdj:I
 
-    return v0
+    return p0
 .end method
 
-.method getSetProcState()I
-    .locals 1
+.method public getSetProcState()I
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProfilerLock"
+        }
+    .end annotation
 
-    iget v0, p0, Lcom/android/server/am/ProcessProfileRecord;->mSetProcState:I
+    iget p0, p0, Lcom/android/server/am/ProcessProfileRecord;->mSetProcState:I
 
-    return v0
+    return p0
 .end method
 
-.method getThread()Landroid/app/IApplicationThread;
-    .locals 1
+.method public getThread()Landroid/app/IApplicationThread;
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProfilerLock"
+        }
+    .end annotation
 
-    iget-object v0, p0, Lcom/android/server/am/ProcessProfileRecord;->mThread:Landroid/app/IApplicationThread;
+    iget-object p0, p0, Lcom/android/server/am/ProcessProfileRecord;->mThread:Landroid/app/IApplicationThread;
 
-    return-object v0
+    return-object p0
 .end method
 
-.method getTrimMemoryLevel()I
-    .locals 1
+.method public getTrimMemoryLevel()I
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        anyOf = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
-    iget v0, p0, Lcom/android/server/am/ProcessProfileRecord;->mTrimMemoryLevel:I
+    iget p0, p0, Lcom/android/server/am/ProcessProfileRecord;->mTrimMemoryLevel:I
 
-    return v0
+    return p0
 .end method
 
-.method hasPendingUiClean()Z
-    .locals 1
+.method public hasPendingUiClean()Z
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProcLock"
+        }
+    .end annotation
 
-    iget-boolean v0, p0, Lcom/android/server/am/ProcessProfileRecord;->mPendingUiClean:Z
+    iget-boolean p0, p0, Lcom/android/server/am/ProcessProfileRecord;->mPendingUiClean:Z
 
-    return v0
+    return p0
 .end method
 
-.method init(J)V
+.method public init(J)V
     .locals 0
 
     iput-wide p1, p0, Lcom/android/server/am/ProcessProfileRecord;->mNextPssTime:J
@@ -728,222 +1240,72 @@
     return-void
 .end method
 
-.method public synthetic lambda$onProcessActive$0$ProcessProfileRecord(Ljava/lang/String;Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;)V
-    .locals 8
+.method public onProcessActive(Landroid/app/IApplicationThread;Lcom/android/server/am/ProcessStatsService;)V
+    .locals 11
 
-    iget-object v0, p0, Lcom/android/server/am/ProcessProfileRecord;->mApp:Lcom/android/server/am/ProcessRecord;
+    iget-object v1, p0, Lcom/android/server/am/ProcessProfileRecord;->mThread:Landroid/app/IApplicationThread;
 
-    iget v2, v0, Lcom/android/server/am/ProcessRecord;->uid:I
+    if-nez v1, :cond_1
 
-    iget-object v0, p0, Lcom/android/server/am/ProcessProfileRecord;->mApp:Lcom/android/server/am/ProcessRecord;
+    iget-object v7, p0, Lcom/android/server/am/ProcessProfileRecord;->mProfilerLock:Ljava/lang/Object;
 
-    iget-object v3, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
-
-    const/4 v0, -0x1
-
-    invoke-static {v0}, Landroid/app/ActivityManager;->processStateAmToProto(I)I
-
-    move-result v5
-
-    iget-wide v6, p2, Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;->appVersion:J
-
-    const/4 v1, 0x3
-
-    move-object v4, p1
-
-    invoke-static/range {v1 .. v7}, Lcom/android/internal/util/FrameworkStatsLog;->write(IILjava/lang/String;Ljava/lang/String;IJ)V
-
-    return-void
-.end method
-
-.method public synthetic lambda$onProcessActive$1$ProcessProfileRecord(Lcom/android/internal/app/procstats/ProcessState;Lcom/android/server/am/ProcessStatsService;Lcom/android/internal/app/procstats/ProcessState;Ljava/lang/String;Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;)V
-    .locals 8
-
-    iget-object v0, p5, Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;->state:Lcom/android/internal/app/procstats/ProcessState;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p5, Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;->state:Lcom/android/internal/app/procstats/ProcessState;
-
-    if-eq v0, p1, :cond_0
-
-    iget-object v0, p5, Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;->state:Lcom/android/internal/app/procstats/ProcessState;
-
-    invoke-virtual {v0}, Lcom/android/internal/app/procstats/ProcessState;->makeInactive()V
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/server/am/ProcessProfileRecord;->mApp:Lcom/android/server/am/ProcessRecord;
-
-    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->info:Landroid/content/pm/ApplicationInfo;
-
-    iget v4, v0, Landroid/content/pm/ApplicationInfo;->uid:I
-
-    iget-object v0, p0, Lcom/android/server/am/ProcessProfileRecord;->mApp:Lcom/android/server/am/ProcessRecord;
-
-    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->info:Landroid/content/pm/ApplicationInfo;
-
-    iget-wide v5, v0, Landroid/content/pm/ApplicationInfo;->longVersionCode:J
-
-    iget-object v0, p0, Lcom/android/server/am/ProcessProfileRecord;->mApp:Lcom/android/server/am/ProcessRecord;
-
-    iget-object v7, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
-
-    move-object v1, p2
-
-    move-object v2, p5
-
-    move-object v3, p4
-
-    invoke-virtual/range {v1 .. v7}, Lcom/android/server/am/ProcessStatsService;->updateProcessStateHolderLocked(Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;Ljava/lang/String;IJLjava/lang/String;)V
-
-    iget-object v0, p5, Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;->state:Lcom/android/internal/app/procstats/ProcessState;
-
-    if-eq v0, p3, :cond_1
-
-    iget-object v0, p5, Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;->state:Lcom/android/internal/app/procstats/ProcessState;
-
-    invoke-virtual {v0}, Lcom/android/internal/app/procstats/ProcessState;->makeActive()V
-
-    :cond_1
-    return-void
-.end method
-
-.method public synthetic lambda$onProcessInactive$2$ProcessProfileRecord(Ljava/lang/String;Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;)V
-    .locals 8
-
-    iget-object v0, p0, Lcom/android/server/am/ProcessProfileRecord;->mApp:Lcom/android/server/am/ProcessRecord;
-
-    iget v2, v0, Lcom/android/server/am/ProcessRecord;->uid:I
-
-    iget-object v0, p0, Lcom/android/server/am/ProcessProfileRecord;->mApp:Lcom/android/server/am/ProcessRecord;
-
-    iget-object v3, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
-
-    const/4 v0, -0x1
-
-    invoke-static {v0}, Landroid/app/ActivityManager;->processStateAmToProto(I)I
-
-    move-result v5
-
-    iget-wide v6, p2, Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;->appVersion:J
-
-    const/4 v1, 0x3
-
-    move-object v4, p1
-
-    invoke-static/range {v1 .. v7}, Lcom/android/internal/util/FrameworkStatsLog;->write(IILjava/lang/String;Ljava/lang/String;IJ)V
-
-    return-void
-.end method
-
-.method public synthetic lambda$reportCachedKill$4$ProcessProfileRecord(Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;)V
-    .locals 9
-
-    iget-object v0, p0, Lcom/android/server/am/ProcessProfileRecord;->mApp:Lcom/android/server/am/ProcessRecord;
-
-    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->info:Landroid/content/pm/ApplicationInfo;
-
-    iget v2, v0, Landroid/content/pm/ApplicationInfo;->uid:I
-
-    iget-object v0, p1, Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;->state:Lcom/android/internal/app/procstats/ProcessState;
-
-    invoke-virtual {v0}, Lcom/android/internal/app/procstats/ProcessState;->getName()Ljava/lang/String;
-
-    move-result-object v3
-
-    iget-object v0, p1, Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;->state:Lcom/android/internal/app/procstats/ProcessState;
-
-    invoke-virtual {v0}, Lcom/android/internal/app/procstats/ProcessState;->getPackage()Ljava/lang/String;
-
-    move-result-object v4
-
-    iget-wide v5, p0, Lcom/android/server/am/ProcessProfileRecord;->mLastCachedPss:J
-
-    iget-wide v7, p1, Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;->appVersion:J
-
-    const/16 v1, 0x11
-
-    invoke-static/range {v1 .. v8}, Lcom/android/internal/util/FrameworkStatsLog;->write(IILjava/lang/String;Ljava/lang/String;JJ)V
-
-    return-void
-.end method
-
-.method onProcessActive(Landroid/app/IApplicationThread;Lcom/android/server/am/ProcessStatsService;)V
-    .locals 14
-
-    move-object v1, p0
-
-    move-object v2, p1
-
-    move-object/from16 v9, p2
-
-    iget-object v0, v1, Lcom/android/server/am/ProcessProfileRecord;->mThread:Landroid/app/IApplicationThread;
-
-    if-nez v0, :cond_1
-
-    iget-object v10, v1, Lcom/android/server/am/ProcessProfileRecord;->mProfilerLock:Ljava/lang/Object;
-
-    monitor-enter v10
+    monitor-enter v7
 
     :try_start_0
-    iget-object v11, v9, Lcom/android/server/am/ProcessStatsService;->mLock:Ljava/lang/Object;
+    iget-object v8, p2, Lcom/android/server/am/ProcessStatsService;->mLock:Ljava/lang/Object;
 
-    monitor-enter v11
+    monitor-enter v8
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_2
 
     :try_start_1
     invoke-virtual {p0}, Lcom/android/server/am/ProcessProfileRecord;->getBaseProcessTracker()Lcom/android/internal/app/procstats/ProcessState;
 
-    move-result-object v0
+    move-result-object v9
 
-    move-object v12, v0
+    iget-object v1, p0, Lcom/android/server/am/ProcessProfileRecord;->mApp:Lcom/android/server/am/ProcessRecord;
 
-    iget-object v0, v1, Lcom/android/server/am/ProcessProfileRecord;->mApp:Lcom/android/server/am/ProcessRecord;
+    invoke-virtual {v1}, Lcom/android/server/am/ProcessRecord;->getPkgList()Lcom/android/server/am/PackageList;
 
-    invoke-virtual {v0}, Lcom/android/server/am/ProcessRecord;->getPkgList()Lcom/android/server/am/PackageList;
+    move-result-object v10
 
-    move-result-object v0
+    if-eqz v9, :cond_0
 
-    move-object v13, v0
-
-    if-eqz v12, :cond_0
-
-    monitor-enter v13
+    monitor-enter v10
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    const/4 v4, -0x1
+    const/4 v2, -0x1
 
     :try_start_2
-    invoke-virtual/range {p2 .. p2}, Lcom/android/server/am/ProcessStatsService;->getMemFactorLocked()I
+    invoke-virtual {p2}, Lcom/android/server/am/ProcessStatsService;->getMemFactorLocked()I
 
-    move-result v5
+    move-result v3
 
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
-    move-result-wide v6
+    move-result-wide v4
 
-    invoke-virtual {v13}, Lcom/android/server/am/PackageList;->getPackageListLocked()Landroid/util/ArrayMap;
+    invoke-virtual {v10}, Lcom/android/server/am/PackageList;->getPackageListLocked()Landroid/util/ArrayMap;
 
-    move-result-object v8
+    move-result-object v6
 
-    move-object v3, v12
+    move-object v1, v9
 
-    invoke-virtual/range {v3 .. v8}, Lcom/android/internal/app/procstats/ProcessState;->setState(IIJLandroid/util/ArrayMap;)V
+    invoke-virtual/range {v1 .. v6}, Lcom/android/internal/app/procstats/ProcessState;->setState(IIJLandroid/util/ArrayMap;)V
 
-    new-instance v0, Lcom/android/server/am/ProcessProfileRecord$$ExternalSyntheticLambda0;
+    new-instance v1, Lcom/android/server/am/ProcessProfileRecord$$ExternalSyntheticLambda2;
 
-    invoke-direct {v0, p0}, Lcom/android/server/am/ProcessProfileRecord$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/am/ProcessProfileRecord;)V
+    invoke-direct {v1, p0}, Lcom/android/server/am/ProcessProfileRecord$$ExternalSyntheticLambda2;-><init>(Lcom/android/server/am/ProcessProfileRecord;)V
 
-    invoke-virtual {v13, v0}, Lcom/android/server/am/PackageList;->forEachPackage(Ljava/util/function/BiConsumer;)V
+    invoke-virtual {v10, v1}, Lcom/android/server/am/PackageList;->forEachPackage(Ljava/util/function/BiConsumer;)V
 
-    monitor-exit v13
+    monitor-exit v10
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     :try_start_3
-    invoke-virtual {v12}, Lcom/android/internal/app/procstats/ProcessState;->makeInactive()V
+    invoke-virtual {v9}, Lcom/android/internal/app/procstats/ProcessState;->makeInactive()V
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
@@ -953,7 +1315,7 @@
     move-exception v0
 
     :try_start_4
-    monitor-exit v13
+    monitor-exit v10
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
@@ -962,44 +1324,44 @@
 
     :cond_0
     :goto_0
-    iget-object v0, v1, Lcom/android/server/am/ProcessProfileRecord;->mApp:Lcom/android/server/am/ProcessRecord;
+    iget-object v1, p0, Lcom/android/server/am/ProcessProfileRecord;->mApp:Lcom/android/server/am/ProcessRecord;
 
-    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->info:Landroid/content/pm/ApplicationInfo;
+    iget-object v1, v1, Lcom/android/server/am/ProcessRecord;->info:Landroid/content/pm/ApplicationInfo;
 
-    iget-object v4, v0, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+    iget-object v2, v1, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
-    iget v5, v0, Landroid/content/pm/ApplicationInfo;->uid:I
+    iget v3, v1, Landroid/content/pm/ApplicationInfo;->uid:I
 
-    iget-wide v6, v0, Landroid/content/pm/ApplicationInfo;->longVersionCode:J
+    iget-wide v4, v1, Landroid/content/pm/ApplicationInfo;->longVersionCode:J
 
-    iget-object v3, v1, Lcom/android/server/am/ProcessProfileRecord;->mApp:Lcom/android/server/am/ProcessRecord;
+    iget-object v1, p0, Lcom/android/server/am/ProcessProfileRecord;->mApp:Lcom/android/server/am/ProcessRecord;
 
-    iget-object v8, v3, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+    iget-object v6, v1, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
 
-    move-object/from16 v3, p2
+    move-object v1, p2
 
-    invoke-virtual/range {v3 .. v8}, Lcom/android/server/am/ProcessStatsService;->getProcessStateLocked(Ljava/lang/String;IJLjava/lang/String;)Lcom/android/internal/app/procstats/ProcessState;
+    invoke-virtual/range {v1 .. v6}, Lcom/android/server/am/ProcessStatsService;->getProcessStateLocked(Ljava/lang/String;IJLjava/lang/String;)Lcom/android/internal/app/procstats/ProcessState;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-virtual {p0, v3}, Lcom/android/server/am/ProcessProfileRecord;->setBaseProcessTracker(Lcom/android/internal/app/procstats/ProcessState;)V
+    invoke-virtual {p0, v1}, Lcom/android/server/am/ProcessProfileRecord;->setBaseProcessTracker(Lcom/android/internal/app/procstats/ProcessState;)V
 
-    invoke-virtual {v3}, Lcom/android/internal/app/procstats/ProcessState;->makeActive()V
+    invoke-virtual {v1}, Lcom/android/internal/app/procstats/ProcessState;->makeActive()V
 
-    new-instance v4, Lcom/android/server/am/ProcessProfileRecord$$ExternalSyntheticLambda2;
+    new-instance v2, Lcom/android/server/am/ProcessProfileRecord$$ExternalSyntheticLambda3;
 
-    invoke-direct {v4, p0, v12, v9, v3}, Lcom/android/server/am/ProcessProfileRecord$$ExternalSyntheticLambda2;-><init>(Lcom/android/server/am/ProcessProfileRecord;Lcom/android/internal/app/procstats/ProcessState;Lcom/android/server/am/ProcessStatsService;Lcom/android/internal/app/procstats/ProcessState;)V
+    invoke-direct {v2, p0, v9, p2, v1}, Lcom/android/server/am/ProcessProfileRecord$$ExternalSyntheticLambda3;-><init>(Lcom/android/server/am/ProcessProfileRecord;Lcom/android/internal/app/procstats/ProcessState;Lcom/android/server/am/ProcessStatsService;Lcom/android/internal/app/procstats/ProcessState;)V
 
-    invoke-virtual {v13, v4}, Lcom/android/server/am/PackageList;->forEachPackage(Ljava/util/function/BiConsumer;)V
+    invoke-virtual {v10, v2}, Lcom/android/server/am/PackageList;->forEachPackage(Ljava/util/function/BiConsumer;)V
 
-    iput-object v2, v1, Lcom/android/server/am/ProcessProfileRecord;->mThread:Landroid/app/IApplicationThread;
+    iput-object p1, p0, Lcom/android/server/am/ProcessProfileRecord;->mThread:Landroid/app/IApplicationThread;
 
-    monitor-exit v11
+    monitor-exit v8
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_1
 
     :try_start_6
-    monitor-exit v10
+    monitor-exit v7
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_2
 
@@ -1009,7 +1371,7 @@
     move-exception v0
 
     :try_start_7
-    monitor-exit v11
+    monitor-exit v8
     :try_end_7
     .catchall {:try_start_7 .. :try_end_7} :catchall_1
 
@@ -1019,21 +1381,21 @@
     :catchall_2
     move-exception v0
 
-    monitor-exit v10
+    monitor-exit v7
     :try_end_8
     .catchall {:try_start_8 .. :try_end_8} :catchall_2
 
     throw v0
 
     :cond_1
-    iget-object v3, v1, Lcom/android/server/am/ProcessProfileRecord;->mProfilerLock:Ljava/lang/Object;
+    iget-object v1, p0, Lcom/android/server/am/ProcessProfileRecord;->mProfilerLock:Ljava/lang/Object;
 
-    monitor-enter v3
+    monitor-enter v1
 
     :try_start_9
-    iput-object v2, v1, Lcom/android/server/am/ProcessProfileRecord;->mThread:Landroid/app/IApplicationThread;
+    iput-object p1, p0, Lcom/android/server/am/ProcessProfileRecord;->mThread:Landroid/app/IApplicationThread;
 
-    monitor-exit v3
+    monitor-exit v1
 
     :goto_1
     return-void
@@ -1041,14 +1403,14 @@
     :catchall_3
     move-exception v0
 
-    monitor-exit v3
+    monitor-exit v1
     :try_end_9
     .catchall {:try_start_9 .. :try_end_9} :catchall_3
 
     throw v0
 .end method
 
-.method onProcessInactive(Lcom/android/server/am/ProcessStatsService;)V
+.method public onProcessInactive(Lcom/android/server/am/ProcessStatsService;)V
     .locals 11
 
     iget-object v0, p0, Lcom/android/server/am/ProcessProfileRecord;->mProfilerLock:Ljava/lang/Object;
@@ -1065,70 +1427,68 @@
     :try_start_1
     invoke-virtual {p0}, Lcom/android/server/am/ProcessProfileRecord;->getBaseProcessTracker()Lcom/android/internal/app/procstats/ProcessState;
 
-    move-result-object v2
+    move-result-object v8
 
     const/4 v9, 0x0
 
-    if-eqz v2, :cond_0
+    if-eqz v8, :cond_0
 
-    iget-object v3, p0, Lcom/android/server/am/ProcessProfileRecord;->mApp:Lcom/android/server/am/ProcessRecord;
+    iget-object v2, p0, Lcom/android/server/am/ProcessProfileRecord;->mApp:Lcom/android/server/am/ProcessRecord;
 
-    invoke-virtual {v3}, Lcom/android/server/am/ProcessRecord;->getPkgList()Lcom/android/server/am/PackageList;
+    invoke-virtual {v2}, Lcom/android/server/am/ProcessRecord;->getPkgList()Lcom/android/server/am/PackageList;
 
-    move-result-object v3
-
-    move-object v10, v3
+    move-result-object v10
 
     monitor-enter v10
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    const/4 v4, -0x1
+    const/4 v3, -0x1
 
     :try_start_2
     invoke-virtual {p1}, Lcom/android/server/am/ProcessStatsService;->getMemFactorLocked()I
 
-    move-result v5
+    move-result v4
 
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
-    move-result-wide v6
+    move-result-wide v5
 
     invoke-virtual {v10}, Lcom/android/server/am/PackageList;->getPackageListLocked()Landroid/util/ArrayMap;
 
-    move-result-object v8
+    move-result-object v7
 
-    move-object v3, v2
+    move-object v2, v8
 
-    invoke-virtual/range {v3 .. v8}, Lcom/android/internal/app/procstats/ProcessState;->setState(IIJLandroid/util/ArrayMap;)V
+    invoke-virtual/range {v2 .. v7}, Lcom/android/internal/app/procstats/ProcessState;->setState(IIJLandroid/util/ArrayMap;)V
 
-    new-instance v3, Lcom/android/server/am/ProcessProfileRecord$$ExternalSyntheticLambda1;
+    new-instance p1, Lcom/android/server/am/ProcessProfileRecord$$ExternalSyntheticLambda0;
 
-    invoke-direct {v3, p0}, Lcom/android/server/am/ProcessProfileRecord$$ExternalSyntheticLambda1;-><init>(Lcom/android/server/am/ProcessProfileRecord;)V
+    invoke-direct {p1, p0}, Lcom/android/server/am/ProcessProfileRecord$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/am/ProcessProfileRecord;)V
 
-    invoke-virtual {v10, v3}, Lcom/android/server/am/PackageList;->forEachPackage(Ljava/util/function/BiConsumer;)V
+    invoke-virtual {v10, p1}, Lcom/android/server/am/PackageList;->forEachPackage(Ljava/util/function/BiConsumer;)V
 
     monitor-exit v10
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     :try_start_3
-    invoke-virtual {v2}, Lcom/android/internal/app/procstats/ProcessState;->makeInactive()V
+    invoke-virtual {v8}, Lcom/android/internal/app/procstats/ProcessState;->makeInactive()V
 
     invoke-virtual {p0, v9}, Lcom/android/server/am/ProcessProfileRecord;->setBaseProcessTracker(Lcom/android/internal/app/procstats/ProcessState;)V
 
-    new-instance v3, Lcom/android/server/am/ProcessProfileRecord$$ExternalSyntheticLambda3;
+    new-instance p1, Lcom/android/server/am/ProcessProfileRecord$$ExternalSyntheticLambda1;
 
-    invoke-direct {v3, v2}, Lcom/android/server/am/ProcessProfileRecord$$ExternalSyntheticLambda3;-><init>(Lcom/android/internal/app/procstats/ProcessState;)V
+    invoke-direct {p1, v8}, Lcom/android/server/am/ProcessProfileRecord$$ExternalSyntheticLambda1;-><init>(Lcom/android/internal/app/procstats/ProcessState;)V
 
-    invoke-virtual {v10, v3}, Lcom/android/server/am/PackageList;->forEachPackageProcessStats(Ljava/util/function/Consumer;)V
+    invoke-virtual {v10, p1}, Lcom/android/server/am/PackageList;->forEachPackageProcessStats(Ljava/util/function/Consumer;)V
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
     goto :goto_0
 
     :catchall_0
-    move-exception v3
+    move-exception p0
 
     :try_start_4
     monitor-exit v10
@@ -1136,7 +1496,7 @@
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
     :try_start_5
-    throw v3
+    throw p0
 
     :cond_0
     :goto_0
@@ -1151,10 +1511,20 @@
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_2
 
+    iget-object p1, p0, Lcom/android/server/am/ProcessProfileRecord;->mCurrentHostingComponentTypes:Ljava/util/concurrent/atomic/AtomicInteger;
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p1, v0}, Ljava/util/concurrent/atomic/AtomicInteger;->set(I)V
+
+    iget-object p0, p0, Lcom/android/server/am/ProcessProfileRecord;->mHistoricalHostingComponentTypes:Ljava/util/concurrent/atomic/AtomicInteger;
+
+    invoke-virtual {p0, v0}, Ljava/util/concurrent/atomic/AtomicInteger;->set(I)V
+
     return-void
 
     :catchall_1
-    move-exception v2
+    move-exception p0
 
     :try_start_7
     monitor-exit v1
@@ -1162,20 +1532,20 @@
     .catchall {:try_start_7 .. :try_end_7} :catchall_1
 
     :try_start_8
-    throw v2
+    throw p0
 
     :catchall_2
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_8
     .catchall {:try_start_8 .. :try_end_8} :catchall_2
 
-    throw v1
+    throw p0
 .end method
 
-.method reportCachedKill()V
-    .locals 6
+.method public reportExcessiveCpu()V
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/am/ProcessProfileRecord;->mService:Lcom/android/server/am/ActivityManagerService;
 
@@ -1190,44 +1560,36 @@
 
     if-eqz v1, :cond_0
 
-    iget-object v2, p0, Lcom/android/server/am/ProcessProfileRecord;->mApp:Lcom/android/server/am/ProcessRecord;
+    iget-object p0, p0, Lcom/android/server/am/ProcessProfileRecord;->mApp:Lcom/android/server/am/ProcessRecord;
 
-    invoke-virtual {v2}, Lcom/android/server/am/ProcessRecord;->getPkgList()Lcom/android/server/am/PackageList;
+    invoke-virtual {p0}, Lcom/android/server/am/ProcessRecord;->getPkgList()Lcom/android/server/am/PackageList;
 
-    move-result-object v2
+    move-result-object p0
 
-    monitor-enter v2
+    monitor-enter p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     :try_start_1
-    invoke-virtual {v2}, Lcom/android/server/am/PackageList;->getPackageListLocked()Landroid/util/ArrayMap;
+    invoke-virtual {p0}, Lcom/android/server/am/PackageList;->getPackageListLocked()Landroid/util/ArrayMap;
 
-    move-result-object v3
+    move-result-object v2
 
-    iget-wide v4, p0, Lcom/android/server/am/ProcessProfileRecord;->mLastCachedPss:J
+    invoke-virtual {v1, v2}, Lcom/android/internal/app/procstats/ProcessState;->reportExcessiveCpu(Landroid/util/ArrayMap;)V
 
-    invoke-virtual {v1, v3, v4, v5}, Lcom/android/internal/app/procstats/ProcessState;->reportCachedKill(Landroid/util/ArrayMap;J)V
-
-    new-instance v3, Lcom/android/server/am/ProcessProfileRecord$$ExternalSyntheticLambda4;
-
-    invoke-direct {v3, p0}, Lcom/android/server/am/ProcessProfileRecord$$ExternalSyntheticLambda4;-><init>(Lcom/android/server/am/ProcessProfileRecord;)V
-
-    invoke-virtual {v2, v3}, Lcom/android/server/am/PackageList;->forEachPackageProcessStats(Ljava/util/function/Consumer;)V
-
-    monitor-exit v2
+    monitor-exit p0
 
     goto :goto_0
 
     :catchall_0
-    move-exception v3
+    move-exception v1
 
-    monitor-exit v2
+    monitor-exit p0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     :try_start_2
-    throw v3
+    throw v1
 
     :cond_0
     :goto_0
@@ -1236,87 +1598,29 @@
     return-void
 
     :catchall_1
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    throw v1
+    throw p0
 .end method
 
-.method reportExcessiveCpu()V
-    .locals 4
-
-    iget-object v0, p0, Lcom/android/server/am/ProcessProfileRecord;->mService:Lcom/android/server/am/ActivityManagerService;
-
-    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mProcessStats:Lcom/android/server/am/ProcessStatsService;
-
-    iget-object v0, v0, Lcom/android/server/am/ProcessStatsService;->mLock:Ljava/lang/Object;
-
-    monitor-enter v0
-
-    :try_start_0
-    iget-object v1, p0, Lcom/android/server/am/ProcessProfileRecord;->mBaseProcessTracker:Lcom/android/internal/app/procstats/ProcessState;
-
-    if-eqz v1, :cond_0
-
-    iget-object v2, p0, Lcom/android/server/am/ProcessProfileRecord;->mApp:Lcom/android/server/am/ProcessRecord;
-
-    invoke-virtual {v2}, Lcom/android/server/am/ProcessRecord;->getPkgList()Lcom/android/server/am/PackageList;
-
-    move-result-object v2
-
-    monitor-enter v2
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
-
-    :try_start_1
-    invoke-virtual {v2}, Lcom/android/server/am/PackageList;->getPackageListLocked()Landroid/util/ArrayMap;
-
-    move-result-object v3
-
-    invoke-virtual {v1, v3}, Lcom/android/internal/app/procstats/ProcessState;->reportExcessiveCpu(Landroid/util/ArrayMap;)V
-
-    monitor-exit v2
-
-    goto :goto_0
-
-    :catchall_0
-    move-exception v3
-
-    monitor-exit v2
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    :try_start_2
-    throw v3
-
-    :cond_0
-    :goto_0
-    monitor-exit v0
-
-    return-void
-
-    :catchall_1
-    move-exception v1
-
-    monitor-exit v0
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
-
-    throw v1
-.end method
-
-.method setBaseProcessTracker(Lcom/android/internal/app/procstats/ProcessState;)V
+.method public setBaseProcessTracker(Lcom/android/internal/app/procstats/ProcessState;)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService.mProcessStats.mLock"
+        }
+    .end annotation
 
     iput-object p1, p0, Lcom/android/server/am/ProcessProfileRecord;->mBaseProcessTracker:Lcom/android/internal/app/procstats/ProcessState;
 
     return-void
 .end method
 
-.method setCurProcBatteryStats(Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;)V
+.method public setCurProcBatteryStats(Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/am/ProcessProfileRecord;->mCurProcBatteryStats:Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;
@@ -1324,128 +1628,199 @@
     return-void
 .end method
 
-.method setInitialIdlePss(J)V
+.method public setInitialIdlePss(J)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProfilerLock"
+        }
+    .end annotation
 
     iput-wide p1, p0, Lcom/android/server/am/ProcessProfileRecord;->mInitialIdlePss:J
 
     return-void
 .end method
 
-.method setLastCachedPss(J)V
+.method public setLastCachedPss(J)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProfilerLock"
+        }
+    .end annotation
 
     iput-wide p1, p0, Lcom/android/server/am/ProcessProfileRecord;->mLastCachedPss:J
 
     return-void
 .end method
 
-.method setLastCachedSwapPss(J)V
+.method public setLastCachedSwapPss(J)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProfilerLock"
+        }
+    .end annotation
 
     iput-wide p1, p0, Lcom/android/server/am/ProcessProfileRecord;->mLastCachedSwapPss:J
 
     return-void
 .end method
 
-.method setLastLowMemory(J)V
+.method public setLastLowMemory(J)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService",
+            "mProfilerLock"
+        }
+    .end annotation
 
     iput-wide p1, p0, Lcom/android/server/am/ProcessProfileRecord;->mLastLowMemory:J
 
     return-void
 .end method
 
-.method setLastMemInfo(Landroid/os/Debug$MemoryInfo;)V
+.method public setLastMemInfo(Landroid/os/Debug$MemoryInfo;)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProfilerLock"
+        }
+    .end annotation
 
     iput-object p1, p0, Lcom/android/server/am/ProcessProfileRecord;->mLastMemInfo:Landroid/os/Debug$MemoryInfo;
 
     return-void
 .end method
 
-.method setLastMemInfoTime(J)V
+.method public setLastMemInfoTime(J)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProfilerLock"
+        }
+    .end annotation
 
     iput-wide p1, p0, Lcom/android/server/am/ProcessProfileRecord;->mLastMemInfoTime:J
 
     return-void
 .end method
 
-.method setLastPss(J)V
+.method public setLastPss(J)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProfilerLock"
+        }
+    .end annotation
 
     iput-wide p1, p0, Lcom/android/server/am/ProcessProfileRecord;->mLastPss:J
 
     return-void
 .end method
 
-.method setLastPssTime(J)V
+.method public setLastPssTime(J)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProfilerLock"
+        }
+    .end annotation
 
     iput-wide p1, p0, Lcom/android/server/am/ProcessProfileRecord;->mLastPssTime:J
 
     return-void
 .end method
 
-.method setLastRequestedGc(J)V
+.method public setLastRequestedGc(J)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProfilerLock"
+        }
+    .end annotation
 
     iput-wide p1, p0, Lcom/android/server/am/ProcessProfileRecord;->mLastRequestedGc:J
 
     return-void
 .end method
 
-.method setLastRss(J)V
+.method public setLastRss(J)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProfilerLock"
+        }
+    .end annotation
 
     iput-wide p1, p0, Lcom/android/server/am/ProcessProfileRecord;->mLastRss:J
 
     return-void
 .end method
 
-.method setLastSwapPss(J)V
+.method public setLastSwapPss(J)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProfilerLock"
+        }
+    .end annotation
 
     iput-wide p1, p0, Lcom/android/server/am/ProcessProfileRecord;->mLastSwapPss:J
 
     return-void
 .end method
 
-.method setNextPssTime(J)V
+.method public setNextPssTime(J)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProfilerLock"
+        }
+    .end annotation
 
     iput-wide p1, p0, Lcom/android/server/am/ProcessProfileRecord;->mNextPssTime:J
 
     return-void
 .end method
 
-.method setPendingUiClean(Z)V
-    .locals 1
+.method public setPendingUiClean(Z)V
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProcLock"
+        }
+    .end annotation
 
     iput-boolean p1, p0, Lcom/android/server/am/ProcessProfileRecord;->mPendingUiClean:Z
 
-    iget-object v0, p0, Lcom/android/server/am/ProcessProfileRecord;->mApp:Lcom/android/server/am/ProcessRecord;
+    iget-object p0, p0, Lcom/android/server/am/ProcessProfileRecord;->mApp:Lcom/android/server/am/ProcessRecord;
 
-    invoke-virtual {v0}, Lcom/android/server/am/ProcessRecord;->getWindowProcessController()Lcom/android/server/wm/WindowProcessController;
+    invoke-virtual {p0}, Lcom/android/server/am/ProcessRecord;->getWindowProcessController()Lcom/android/server/wm/WindowProcessController;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0, p1}, Lcom/android/server/wm/WindowProcessController;->setPendingUiClean(Z)V
+    invoke-virtual {p0, p1}, Lcom/android/server/wm/WindowProcessController;->setPendingUiClean(Z)V
 
     return-void
 .end method
 
-.method setPid(I)V
+.method public setPid(I)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProfilerLock"
+        }
+    .end annotation
 
     iput p1, p0, Lcom/android/server/am/ProcessProfileRecord;->mPid:I
 
     return-void
 .end method
 
-.method setProcessTrackerState(IIJ)V
-    .locals 9
+.method public setProcessTrackerState(II)V
+    .locals 7
 
     iget-object v0, p0, Lcom/android/server/am/ProcessProfileRecord;->mService:Lcom/android/server/am/ActivityManagerService;
 
@@ -1464,48 +1839,44 @@
 
     if-eq p1, v2, :cond_0
 
-    iget-object v2, p0, Lcom/android/server/am/ProcessProfileRecord;->mApp:Lcom/android/server/am/ProcessRecord;
+    iget-object p0, p0, Lcom/android/server/am/ProcessProfileRecord;->mApp:Lcom/android/server/am/ProcessRecord;
 
-    invoke-virtual {v2}, Lcom/android/server/am/ProcessRecord;->getPkgList()Lcom/android/server/am/PackageList;
+    invoke-virtual {p0}, Lcom/android/server/am/ProcessRecord;->getPkgList()Lcom/android/server/am/PackageList;
 
-    move-result-object v2
+    move-result-object p0
 
-    move-object v8, v2
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
-    monitor-enter v8
+    move-result-wide v4
+
+    monitor-enter p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
-    nop
-
     :try_start_1
-    invoke-virtual {v8}, Lcom/android/server/am/PackageList;->getPackageListLocked()Landroid/util/ArrayMap;
+    invoke-virtual {p0}, Lcom/android/server/am/PackageList;->getPackageListLocked()Landroid/util/ArrayMap;
 
-    move-result-object v7
+    move-result-object v6
 
-    move-object v2, v1
+    move v2, p1
 
-    move v3, p1
+    move v3, p2
 
-    move v4, p2
+    invoke-virtual/range {v1 .. v6}, Lcom/android/internal/app/procstats/ProcessState;->setState(IIJLandroid/util/ArrayMap;)V
 
-    move-wide v5, p3
-
-    invoke-virtual/range {v2 .. v7}, Lcom/android/internal/app/procstats/ProcessState;->setState(IIJLandroid/util/ArrayMap;)V
-
-    monitor-exit v8
+    monitor-exit p0
 
     goto :goto_0
 
     :catchall_0
-    move-exception v2
+    move-exception p1
 
-    monitor-exit v8
+    monitor-exit p0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     :try_start_2
-    throw v2
+    throw p1
 
     :cond_0
     :goto_0
@@ -1514,49 +1885,76 @@
     return-void
 
     :catchall_1
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    throw v1
+    throw p0
 .end method
 
-.method setPssProcState(I)V
+.method public setPssProcState(I)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProfilerLock"
+        }
+    .end annotation
 
     iput p1, p0, Lcom/android/server/am/ProcessProfileRecord;->mPssProcState:I
 
     return-void
 .end method
 
-.method setPssStatType(I)V
+.method public setPssStatType(I)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProfilerLock"
+        }
+    .end annotation
 
     iput p1, p0, Lcom/android/server/am/ProcessProfileRecord;->mPssStatType:I
 
     return-void
 .end method
 
-.method setReportLowMemory(Z)V
+.method public setReportLowMemory(Z)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProfilerLock"
+        }
+    .end annotation
 
     iput-boolean p1, p0, Lcom/android/server/am/ProcessProfileRecord;->mReportLowMemory:Z
 
     return-void
 .end method
 
-.method setTrimMemoryLevel(I)V
+.method public setTrimMemoryLevel(I)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
     iput p1, p0, Lcom/android/server/am/ProcessProfileRecord;->mTrimMemoryLevel:I
 
     return-void
 .end method
 
-.method updateProcState(Lcom/android/server/am/ProcessStateRecord;)V
+.method public updateProcState(Lcom/android/server/am/ProcessStateRecord;)V
     .locals 2
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService",
+            "mProfilerLock"
+        }
+    .end annotation
 
     invoke-virtual {p1}, Lcom/android/server/am/ProcessStateRecord;->getCurProcState()I
 

@@ -1,4 +1,4 @@
-.class Lcom/android/server/pm/WatchedIntentResolver$2;
+.class public Lcom/android/server/pm/WatchedIntentResolver$2;
 .super Ljava/lang/Object;
 .source "WatchedIntentResolver.java"
 
@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
@@ -27,7 +27,7 @@
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,34 +38,34 @@
 
 # virtual methods
 .method public compare(Lcom/android/server/pm/WatchedIntentFilter;Lcom/android/server/pm/WatchedIntentFilter;)I
-    .locals 3
+    .locals 0
 
     invoke-virtual {p1}, Lcom/android/server/pm/WatchedIntentFilter;->getPriority()I
 
-    move-result v0
+    move-result p0
 
     invoke-virtual {p2}, Lcom/android/server/pm/WatchedIntentFilter;->getPriority()I
 
-    move-result v1
+    move-result p1
 
-    if-le v0, v1, :cond_0
+    if-le p0, p1, :cond_0
 
-    const/4 v2, -0x1
+    const/4 p0, -0x1
 
     goto :goto_0
 
     :cond_0
-    if-ge v0, v1, :cond_1
+    if-ge p0, p1, :cond_1
 
-    const/4 v2, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_1
-    const/4 v2, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v2
+    return p0
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
@@ -77,7 +77,7 @@
 
     invoke-virtual {p0, p1, p2}, Lcom/android/server/pm/WatchedIntentResolver$2;->compare(Lcom/android/server/pm/WatchedIntentFilter;Lcom/android/server/pm/WatchedIntentFilter;)I
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method

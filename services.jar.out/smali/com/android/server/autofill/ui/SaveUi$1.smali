@@ -1,4 +1,4 @@
-.class Lcom/android/server/autofill/ui/SaveUi$1;
+.class public Lcom/android/server/autofill/ui/SaveUi$1;
 .super Landroid/view/ContextThemeWrapper;
 .source "SaveUi.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/autofill/ui/SaveUi;
+.field public final synthetic this$0:Lcom/android/server/autofill/ui/SaveUi;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/autofill/ui/SaveUi;Landroid/content/Context;I)V
+.method public constructor <init>(Lcom/android/server/autofill/ui/SaveUi;Landroid/content/Context;I)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/autofill/ui/SaveUi$1;->this$0:Lcom/android/server/autofill/ui/SaveUi;
@@ -29,58 +29,58 @@
     return-void
 .end method
 
-.method private resolveActivity(Landroid/content/Intent;)Landroid/content/ComponentName;
-    .locals 6
 
-    invoke-virtual {p0}, Lcom/android/server/autofill/ui/SaveUi$1;->getPackageManager()Landroid/content/pm/PackageManager;
+# virtual methods
+.method public final resolveActivity(Landroid/content/Intent;)Landroid/content/ComponentName;
+    .locals 1
+
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object p0
+
+    invoke-virtual {p1, p0}, Landroid/content/Intent;->resolveActivity(Landroid/content/pm/PackageManager;)Landroid/content/ComponentName;
 
     move-result-object v0
 
-    invoke-virtual {p1, v0}, Landroid/content/Intent;->resolveActivity(Landroid/content/pm/PackageManager;)Landroid/content/ComponentName;
+    if-eqz v0, :cond_0
 
-    move-result-object v1
-
-    if-eqz v1, :cond_0
-
-    return-object v1
+    return-object v0
 
     :cond_0
-    const/16 v2, 0x800
+    const/16 v0, 0x800
 
-    invoke-virtual {p1, v2}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+    invoke-virtual {p1, v0}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    const/high16 v2, 0x800000
+    const/high16 v0, 0x800000
 
-    invoke-virtual {p1, v0, v2}, Landroid/content/Intent;->resolveActivityInfo(Landroid/content/pm/PackageManager;I)Landroid/content/pm/ActivityInfo;
+    invoke-virtual {p1, p0, v0}, Landroid/content/Intent;->resolveActivityInfo(Landroid/content/pm/PackageManager;I)Landroid/content/pm/ActivityInfo;
 
-    move-result-object v2
+    move-result-object p0
 
-    if-eqz v2, :cond_1
+    if-eqz p0, :cond_1
 
-    new-instance v3, Landroid/content/ComponentName;
+    new-instance p1, Landroid/content/ComponentName;
 
-    iget-object v4, v2, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+    iget-object v0, p0, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
-    iget-object v4, v4, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+    iget-object v0, v0, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
-    iget-object v5, v2, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
+    iget-object p0, p0, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
 
-    invoke-direct {v3, v4, v5}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct {p1, v0, p0}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    return-object v3
+    return-object p1
 
     :cond_1
-    const/4 v3, 0x0
+    const/4 p0, 0x0
 
-    return-object v3
+    return-object p0
 .end method
 
-
-# virtual methods
 .method public startActivity(Landroid/content/Intent;)V
     .locals 9
 
-    invoke-direct {p0, p1}, Lcom/android/server/autofill/ui/SaveUi$1;->resolveActivity(Landroid/content/Intent;)Landroid/content/ComponentName;
+    invoke-virtual {p0, p1}, Lcom/android/server/autofill/ui/SaveUi$1;->resolveActivity(Landroid/content/Intent;)Landroid/content/ComponentName;
 
     move-result-object v0
 
@@ -88,25 +88,25 @@
 
     if-nez v0, :cond_1
 
-    sget-boolean v0, Lcom/android/server/autofill/Helper;->sDebug:Z
+    sget-boolean p0, Lcom/android/server/autofill/Helper;->sDebug:Z
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance p0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "Can not startActivity for save UI with intent="
+    const-string v0, "Can not startActivity for save UI with intent="
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v1, v0}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, p0}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
     return-void
@@ -155,9 +155,9 @@
     invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_2
-    iget-object v1, p0, Lcom/android/server/autofill/ui/SaveUi$1;->this$0:Lcom/android/server/autofill/ui/SaveUi;
+    iget-object p0, p0, Lcom/android/server/autofill/ui/SaveUi$1;->this$0:Lcom/android/server/autofill/ui/SaveUi;
 
-    invoke-static {v1, v0, p1}, Lcom/android/server/autofill/ui/SaveUi;->access$000(Lcom/android/server/autofill/ui/SaveUi;Landroid/app/PendingIntent;Landroid/content/Intent;)V
+    invoke-static {p0, v0, p1}, Lcom/android/server/autofill/ui/SaveUi;->-$$Nest$mstartIntentSenderWithRestore(Lcom/android/server/autofill/ui/SaveUi;Landroid/app/PendingIntent;Landroid/content/Intent;)V
 
     return-void
 .end method

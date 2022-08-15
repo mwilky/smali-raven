@@ -1,10 +1,10 @@
-.class Lcom/android/server/devicepolicy/NonAbUpdateInstaller;
+.class public Lcom/android/server/devicepolicy/NonAbUpdateInstaller;
 .super Lcom/android/server/devicepolicy/UpdateInstaller;
 .source "NonAbUpdateInstaller.java"
 
 
 # direct methods
-.method constructor <init>(Landroid/content/Context;Landroid/os/ParcelFileDescriptor;Landroid/app/admin/StartInstallingUpdateCallback;Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;Lcom/android/server/devicepolicy/DevicePolicyConstants;)V
+.method public constructor <init>(Landroid/content/Context;Landroid/os/ParcelFileDescriptor;Landroid/app/admin/StartInstallingUpdateCallback;Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;Lcom/android/server/devicepolicy/DevicePolicyConstants;)V
     .locals 0
 
     invoke-direct/range {p0 .. p5}, Lcom/android/server/devicepolicy/UpdateInstaller;-><init>(Landroid/content/Context;Landroid/os/ParcelFileDescriptor;Landroid/app/admin/StartInstallingUpdateCallback;Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;Lcom/android/server/devicepolicy/DevicePolicyConstants;)V
@@ -18,13 +18,13 @@
     .locals 3
 
     :try_start_0
-    iget-object v0, p0, Lcom/android/server/devicepolicy/NonAbUpdateInstaller;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Lcom/android/server/devicepolicy/UpdateInstaller;->mContext:Landroid/content/Context;
 
-    iget-object v1, p0, Lcom/android/server/devicepolicy/NonAbUpdateInstaller;->mCopiedUpdateFile:Ljava/io/File;
+    iget-object v1, p0, Lcom/android/server/devicepolicy/UpdateInstaller;->mCopiedUpdateFile:Ljava/io/File;
 
     invoke-static {v0, v1}, Landroid/os/RecoverySystem;->installPackage(Landroid/content/Context;Ljava/io/File;)V
 
-    invoke-virtual {p0}, Lcom/android/server/devicepolicy/NonAbUpdateInstaller;->notifyCallbackOnSuccess()V
+    invoke-virtual {p0}, Lcom/android/server/devicepolicy/UpdateInstaller;->notifyCallbackOnSuccess()V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -43,9 +43,9 @@
 
     invoke-static {v0}, Landroid/util/Log;->getStackTraceString(Ljava/lang/Throwable;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {p0, v1, v2}, Lcom/android/server/devicepolicy/NonAbUpdateInstaller;->notifyCallbackOnError(ILjava/lang/String;)V
+    invoke-virtual {p0, v1, v0}, Lcom/android/server/devicepolicy/UpdateInstaller;->notifyCallbackOnError(ILjava/lang/String;)V
 
     :goto_0
     return-void

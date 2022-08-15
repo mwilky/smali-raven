@@ -1,4 +1,4 @@
-.class final Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;
+.class public final Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;
 .super Ljava/lang/Object;
 .source "RemoteInlineSuggestionUi.java"
 
@@ -12,62 +12,172 @@
 
 
 # static fields
-.field private static final RELEASE_REMOTE_VIEW_HOST_DELAY_MS:J = 0xc8L
-
-.field private static final TAG:Ljava/lang/String;
+.field public static final TAG:Ljava/lang/String; = "RemoteInlineSuggestionUi"
 
 
 # instance fields
-.field private mActualHeight:I
+.field public mActualHeight:I
 
-.field private mActualWidth:I
+.field public mActualWidth:I
 
-.field private mDelayedReleaseViewRunnable:Ljava/lang/Runnable;
+.field public mDelayedReleaseViewRunnable:Ljava/lang/Runnable;
 
-.field private final mHandler:Landroid/os/Handler;
+.field public final mHandler:Landroid/os/Handler;
 
-.field private final mHeight:I
+.field public final mHeight:I
 
-.field private mInlineContentCallback:Lcom/android/internal/view/inline/IInlineContentCallback;
+.field public mInlineContentCallback:Lcom/android/internal/view/inline/IInlineContentCallback;
 
-.field private mInlineSuggestionUi:Landroid/service/autofill/IInlineSuggestionUi;
+.field public mInlineSuggestionUi:Landroid/service/autofill/IInlineSuggestionUi;
 
-.field private final mInlineSuggestionUiCallback:Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi$InlineSuggestionUiCallbackImpl;
+.field public final mInlineSuggestionUiCallback:Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi$InlineSuggestionUiCallbackImpl;
 
-.field private mRefCount:I
+.field public mRefCount:I
 
-.field private final mRemoteInlineSuggestionViewConnector:Lcom/android/server/autofill/ui/RemoteInlineSuggestionViewConnector;
+.field public final mRemoteInlineSuggestionViewConnector:Lcom/android/server/autofill/ui/RemoteInlineSuggestionViewConnector;
 
-.field private mWaitingForUiCreation:Z
+.field public mWaitingForUiCreation:Z
 
-.field private final mWidth:I
+.field public final mWidth:I
 
 
 # direct methods
+.method public static synthetic $r8$lambda$1dxmi2UfbEWG7h4ONjerJvThEns(Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;Lcom/android/internal/view/inline/IInlineContentCallback;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->lambda$setInlineContentCallback$0(Lcom/android/internal/view/inline/IInlineContentCallback;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$B2fPc8n1JwGv0DRTjeRuW2XnUlM(Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->lambda$surfacePackageReleased$1()V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$HAy7C2vKM8wYVo2gJQSpVm8KpfE(Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->lambda$handleUpdateRefCount$2()V
+
+    return-void
+.end method
+
 .method public static synthetic $r8$lambda$MMq47I5aZPTzvuGELQ_pARNunQ0(Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->handleRequestSurfacePackage()V
+    invoke-virtual {p0}, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->handleRequestSurfacePackage()V
 
     return-void
 .end method
 
-.method static constructor <clinit>()V
+.method public static bridge synthetic -$$Nest$fgetmActualHeight(Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mActualHeight:I
+
+    return p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmActualWidth(Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mActualWidth:I
+
+    return p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmHandler(Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;)Landroid/os/Handler;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mHandler:Landroid/os/Handler;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmInlineContentCallback(Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;)Lcom/android/internal/view/inline/IInlineContentCallback;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mInlineContentCallback:Lcom/android/internal/view/inline/IInlineContentCallback;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$mhandleInlineSuggestionUiReady(Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;Landroid/service/autofill/IInlineSuggestionUi;Landroid/view/SurfaceControlViewHost$SurfacePackage;II)V
+    .locals 0
+
+    invoke-virtual {p0, p1, p2, p3, p4}, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->handleInlineSuggestionUiReady(Landroid/service/autofill/IInlineSuggestionUi;Landroid/view/SurfaceControlViewHost$SurfacePackage;II)V
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$mhandleOnClick(Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;)V
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->handleOnClick()V
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$mhandleOnError(Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;)V
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->handleOnError()V
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$mhandleOnLongClick(Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;)V
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->handleOnLongClick()V
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$mhandleOnStartIntentSender(Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;Landroid/content/IntentSender;)V
+    .locals 0
+
+    invoke-virtual {p0, p1}, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->handleOnStartIntentSender(Landroid/content/IntentSender;)V
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$mhandleOnTransferTouchFocusToImeWindow(Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;Landroid/os/IBinder;I)V
+    .locals 0
+
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->handleOnTransferTouchFocusToImeWindow(Landroid/os/IBinder;I)V
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$mhandleUpdateRefCount(Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;I)V
+    .locals 0
+
+    invoke-virtual {p0, p1}, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->handleUpdateRefCount(I)V
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$sfgetTAG()Ljava/lang/String;
     .locals 1
 
-    const-class v0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;
+    sget-object v0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->TAG:Ljava/lang/String;
 
-    invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
+    return-object v0
+.end method
 
-    move-result-object v0
-
-    sput-object v0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->TAG:Ljava/lang/String;
+.method public static constructor <clinit>()V
+    .locals 0
 
     return-void
 .end method
 
-.method constructor <init>(Lcom/android/server/autofill/ui/RemoteInlineSuggestionViewConnector;IILandroid/os/Handler;)V
-    .locals 2
+.method public constructor <init>(Lcom/android/server/autofill/ui/RemoteInlineSuggestionViewConnector;IILandroid/os/Handler;)V
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -85,114 +195,83 @@
 
     iput p3, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mHeight:I
 
-    new-instance v0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi$InlineSuggestionUiCallbackImpl;
+    new-instance p1, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi$InlineSuggestionUiCallbackImpl;
+
+    const/4 p2, 0x0
+
+    invoke-direct {p1, p0, p2}, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi$InlineSuggestionUiCallbackImpl;-><init>(Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi$InlineSuggestionUiCallbackImpl-IA;)V
+
+    iput-object p1, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mInlineSuggestionUiCallback:Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi$InlineSuggestionUiCallbackImpl;
+
+    return-void
+.end method
+
+.method private synthetic lambda$handleUpdateRefCount$2()V
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mInlineSuggestionUi:Landroid/service/autofill/IInlineSuggestionUi;
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, p0, v1}, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi$InlineSuggestionUiCallbackImpl;-><init>(Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi$1;)V
+    if-eqz v0, :cond_1
 
-    iput-object v0, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mInlineSuggestionUiCallback:Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi$InlineSuggestionUiCallbackImpl;
+    :try_start_0
+    sget-boolean v0, Lcom/android/server/autofill/Helper;->sVerbose:Z
 
-    return-void
-.end method
-
-.method static synthetic access$100(Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;)Landroid/os/Handler;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mHandler:Landroid/os/Handler;
-
-    return-object v0
-.end method
-
-.method static synthetic access$1000(Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;Landroid/service/autofill/IInlineSuggestionUi;Landroid/view/SurfaceControlViewHost$SurfacePackage;II)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->handleInlineSuggestionUiReady(Landroid/service/autofill/IInlineSuggestionUi;Landroid/view/SurfaceControlViewHost$SurfacePackage;II)V
-
-    return-void
-.end method
-
-.method static synthetic access$1100(Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->handleOnLongClick()V
-
-    return-void
-.end method
-
-.method static synthetic access$1200(Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->handleOnClick()V
-
-    return-void
-.end method
-
-.method static synthetic access$200()Ljava/lang/String;
-    .locals 1
+    if-eqz v0, :cond_0
 
     sget-object v0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->TAG:Ljava/lang/String;
 
-    return-object v0
+    const-string/jumbo v2, "releasing the host"
+
+    invoke-static {v0, v2}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mInlineSuggestionUi:Landroid/service/autofill/IInlineSuggestionUi;
+
+    invoke-interface {v0}, Landroid/service/autofill/IInlineSuggestionUi;->releaseSurfaceControlViewHost()V
+
+    iput-object v1, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mInlineSuggestionUi:Landroid/service/autofill/IInlineSuggestionUi;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    sget-object v0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->TAG:Ljava/lang/String;
+
+    const-string v2, "RemoteException calling releaseSurfaceControlViewHost"
+
+    invoke-static {v0, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_1
+    :goto_0
+    iput-object v1, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mDelayedReleaseViewRunnable:Ljava/lang/Runnable;
+
+    return-void
 .end method
 
-.method static synthetic access$300(Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;)I
+.method private synthetic lambda$setInlineContentCallback$0(Lcom/android/internal/view/inline/IInlineContentCallback;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mInlineContentCallback:Lcom/android/internal/view/inline/IInlineContentCallback;
+
+    return-void
+.end method
+
+.method private synthetic lambda$surfacePackageReleased$1()V
     .locals 1
 
-    iget v0, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mActualWidth:I
+    const/4 v0, -0x1
 
-    return v0
-.end method
-
-.method static synthetic access$400(Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mActualHeight:I
-
-    return v0
-.end method
-
-.method static synthetic access$500(Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;)Lcom/android/internal/view/inline/IInlineContentCallback;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mInlineContentCallback:Lcom/android/internal/view/inline/IInlineContentCallback;
-
-    return-object v0
-.end method
-
-.method static synthetic access$600(Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;I)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->handleUpdateRefCount(I)V
+    invoke-virtual {p0, v0}, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->handleUpdateRefCount(I)V
 
     return-void
 .end method
 
-.method static synthetic access$700(Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;Landroid/content/IntentSender;)V
-    .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->handleOnStartIntentSender(Landroid/content/IntentSender;)V
-
-    return-void
-.end method
-
-.method static synthetic access$800(Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;Landroid/os/IBinder;I)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->handleOnTransferTouchFocusToImeWindow(Landroid/os/IBinder;I)V
-
-    return-void
-.end method
-
-.method static synthetic access$900(Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->handleOnError()V
-
-    return-void
-.end method
-
-.method private cancelPendingReleaseViewRequest()V
+# virtual methods
+.method public final cancelPendingReleaseViewRequest()V
     .locals 2
 
     iget-object v0, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mDelayedReleaseViewRunnable:Ljava/lang/Runnable;
@@ -211,61 +290,59 @@
     return-void
 .end method
 
-.method private handleInlineSuggestionUiReady(Landroid/service/autofill/IInlineSuggestionUi;Landroid/view/SurfaceControlViewHost$SurfacePackage;II)V
-    .locals 3
+.method public final handleInlineSuggestionUiReady(Landroid/service/autofill/IInlineSuggestionUi;Landroid/view/SurfaceControlViewHost$SurfacePackage;II)V
+    .locals 0
 
     iput-object p1, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mInlineSuggestionUi:Landroid/service/autofill/IInlineSuggestionUi;
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput v0, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mRefCount:I
+    iput p1, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mRefCount:I
 
-    iput-boolean v0, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mWaitingForUiCreation:Z
+    iput-boolean p1, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mWaitingForUiCreation:Z
 
     iput p3, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mActualWidth:I
 
     iput p4, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mActualHeight:I
 
-    iget-object v0, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mInlineContentCallback:Lcom/android/internal/view/inline/IInlineContentCallback;
+    iget-object p1, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mInlineContentCallback:Lcom/android/internal/view/inline/IInlineContentCallback;
 
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_1
 
     :try_start_0
-    sget-boolean v0, Lcom/android/server/autofill/Helper;->sVerbose:Z
+    sget-boolean p1, Lcom/android/server/autofill/Helper;->sVerbose:Z
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    sget-object v0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->TAG:Ljava/lang/String;
+    sget-object p1, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->TAG:Ljava/lang/String;
 
-    const-string v1, "Sending new UI content to IME"
+    const-string p3, "Sending new UI content to IME"
 
-    invoke-static {v0, v1}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p1, p3}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    invoke-direct {p0, v0}, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->handleUpdateRefCount(I)V
+    invoke-virtual {p0, p1}, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->handleUpdateRefCount(I)V
 
-    iget-object v0, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mInlineContentCallback:Lcom/android/internal/view/inline/IInlineContentCallback;
+    iget-object p1, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mInlineContentCallback:Lcom/android/internal/view/inline/IInlineContentCallback;
 
-    iget v1, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mActualWidth:I
+    iget p3, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mActualWidth:I
 
-    iget v2, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mActualHeight:I
+    iget p0, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mActualHeight:I
 
-    invoke-interface {v0, p2, v1, v2}, Lcom/android/internal/view/inline/IInlineContentCallback;->onContent(Landroid/view/SurfaceControlViewHost$SurfacePackage;II)V
+    invoke-interface {p1, p2, p3, p0}, Lcom/android/internal/view/inline/IInlineContentCallback;->onContent(Landroid/view/SurfaceControlViewHost$SurfacePackage;II)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    sget-object p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->TAG:Ljava/lang/String;
 
-    sget-object v1, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->TAG:Ljava/lang/String;
+    const-string p1, "RemoteException calling onContent"
 
-    const-string v2, "RemoteException calling onContent"
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, p1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_1
     :goto_0
@@ -277,100 +354,96 @@
     return-void
 .end method
 
-.method private handleOnClick()V
-    .locals 3
+.method public final handleOnClick()V
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mRemoteInlineSuggestionViewConnector:Lcom/android/server/autofill/ui/RemoteInlineSuggestionViewConnector;
 
     invoke-virtual {v0}, Lcom/android/server/autofill/ui/RemoteInlineSuggestionViewConnector;->onClick()V
 
-    iget-object v0, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mInlineContentCallback:Lcom/android/internal/view/inline/IInlineContentCallback;
+    iget-object p0, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mInlineContentCallback:Lcom/android/internal/view/inline/IInlineContentCallback;
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
     :try_start_0
-    invoke-interface {v0}, Lcom/android/internal/view/inline/IInlineContentCallback;->onClick()V
+    invoke-interface {p0}, Lcom/android/internal/view/inline/IInlineContentCallback;->onClick()V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    sget-object p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->TAG:Ljava/lang/String;
 
-    sget-object v1, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->TAG:Ljava/lang/String;
+    const-string v0, "RemoteException calling onClick"
 
-    const-string v2, "RemoteException calling onClick"
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
     :goto_0
     return-void
 .end method
 
-.method private handleOnError()V
-    .locals 1
+.method public final handleOnError()V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mRemoteInlineSuggestionViewConnector:Lcom/android/server/autofill/ui/RemoteInlineSuggestionViewConnector;
+    iget-object p0, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mRemoteInlineSuggestionViewConnector:Lcom/android/server/autofill/ui/RemoteInlineSuggestionViewConnector;
 
-    invoke-virtual {v0}, Lcom/android/server/autofill/ui/RemoteInlineSuggestionViewConnector;->onError()V
+    invoke-virtual {p0}, Lcom/android/server/autofill/ui/RemoteInlineSuggestionViewConnector;->onError()V
 
     return-void
 .end method
 
-.method private handleOnLongClick()V
-    .locals 3
+.method public final handleOnLongClick()V
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mInlineContentCallback:Lcom/android/internal/view/inline/IInlineContentCallback;
+    iget-object p0, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mInlineContentCallback:Lcom/android/internal/view/inline/IInlineContentCallback;
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
     :try_start_0
-    invoke-interface {v0}, Lcom/android/internal/view/inline/IInlineContentCallback;->onLongClick()V
+    invoke-interface {p0}, Lcom/android/internal/view/inline/IInlineContentCallback;->onLongClick()V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    sget-object p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->TAG:Ljava/lang/String;
 
-    sget-object v1, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->TAG:Ljava/lang/String;
+    const-string v0, "RemoteException calling onLongClick"
 
-    const-string v2, "RemoteException calling onLongClick"
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
     :goto_0
     return-void
 .end method
 
-.method private handleOnStartIntentSender(Landroid/content/IntentSender;)V
-    .locals 1
+.method public final handleOnStartIntentSender(Landroid/content/IntentSender;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mRemoteInlineSuggestionViewConnector:Lcom/android/server/autofill/ui/RemoteInlineSuggestionViewConnector;
+    iget-object p0, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mRemoteInlineSuggestionViewConnector:Lcom/android/server/autofill/ui/RemoteInlineSuggestionViewConnector;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/autofill/ui/RemoteInlineSuggestionViewConnector;->onStartIntentSender(Landroid/content/IntentSender;)V
-
-    return-void
-.end method
-
-.method private handleOnTransferTouchFocusToImeWindow(Landroid/os/IBinder;I)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mRemoteInlineSuggestionViewConnector:Lcom/android/server/autofill/ui/RemoteInlineSuggestionViewConnector;
-
-    invoke-virtual {v0, p1, p2}, Lcom/android/server/autofill/ui/RemoteInlineSuggestionViewConnector;->onTransferTouchFocusToImeWindow(Landroid/os/IBinder;I)V
+    invoke-virtual {p0, p1}, Lcom/android/server/autofill/ui/RemoteInlineSuggestionViewConnector;->onStartIntentSender(Landroid/content/IntentSender;)V
 
     return-void
 .end method
 
-.method private handleRequestSurfacePackage()V
+.method public final handleOnTransferTouchFocusToImeWindow(Landroid/os/IBinder;I)V
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mRemoteInlineSuggestionViewConnector:Lcom/android/server/autofill/ui/RemoteInlineSuggestionViewConnector;
+
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/autofill/ui/RemoteInlineSuggestionViewConnector;->onTransferTouchFocusToImeWindow(Landroid/os/IBinder;I)V
+
+    return-void
+.end method
+
+.method public final handleRequestSurfacePackage()V
     .locals 4
 
-    invoke-direct {p0}, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->cancelPendingReleaseViewRequest()V
+    invoke-virtual {p0}, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->cancelPendingReleaseViewRequest()V
 
     iget-object v0, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mInlineSuggestionUi:Landroid/service/autofill/IInlineSuggestionUi;
 
@@ -380,15 +453,15 @@
 
     if-eqz v0, :cond_0
 
-    sget-boolean v0, Lcom/android/server/autofill/Helper;->sDebug:Z
+    sget-boolean p0, Lcom/android/server/autofill/Helper;->sDebug:Z
 
-    if-eqz v0, :cond_2
+    if-eqz p0, :cond_2
 
-    sget-object v0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->TAG:Ljava/lang/String;
+    sget-object p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->TAG:Ljava/lang/String;
 
-    const-string v1, "Inline suggestion ui is not ready"
+    const-string v0, "Inline suggestion ui is not ready"
 
-    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, v0}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
@@ -422,23 +495,21 @@
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    sget-object p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->TAG:Ljava/lang/String;
 
-    sget-object v1, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->TAG:Ljava/lang/String;
+    const-string v0, "RemoteException calling getSurfacePackage."
 
-    const-string v2, "RemoteException calling getSurfacePackage."
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_2
     :goto_0
     return-void
 .end method
 
-.method private handleUpdateRefCount(I)V
-    .locals 4
+.method public final handleUpdateRefCount(I)V
+    .locals 2
 
-    invoke-direct {p0}, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->cancelPendingReleaseViewRequest()V
+    invoke-virtual {p0}, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->cancelPendingReleaseViewRequest()V
 
     iget v0, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mRefCount:I
 
@@ -448,126 +519,59 @@
 
     if-gtz v0, :cond_0
 
-    new-instance v0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi$$ExternalSyntheticLambda0;
+    new-instance p1, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi$$ExternalSyntheticLambda2;
 
-    invoke-direct {v0, p0}, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;)V
+    invoke-direct {p1, p0}, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi$$ExternalSyntheticLambda2;-><init>(Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;)V
 
-    iput-object v0, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mDelayedReleaseViewRunnable:Ljava/lang/Runnable;
+    iput-object p1, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mDelayedReleaseViewRunnable:Ljava/lang/Runnable;
 
-    iget-object v1, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mHandler:Landroid/os/Handler;
+    iget-object p0, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mHandler:Landroid/os/Handler;
 
-    const-wide/16 v2, 0xc8
+    const-wide/16 v0, 0xc8
 
-    invoke-virtual {v1, v0, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
-
-    :cond_0
-    return-void
-.end method
-
-
-# virtual methods
-.method public synthetic lambda$handleUpdateRefCount$2$RemoteInlineSuggestionUi()V
-    .locals 4
-
-    iget-object v0, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mInlineSuggestionUi:Landroid/service/autofill/IInlineSuggestionUi;
-
-    const/4 v1, 0x0
-
-    if-eqz v0, :cond_1
-
-    :try_start_0
-    sget-boolean v0, Lcom/android/server/autofill/Helper;->sVerbose:Z
-
-    if-eqz v0, :cond_0
-
-    sget-object v0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v2, "releasing the host"
-
-    invoke-static {v0, v2}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {p0, p1, v0, v1}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mInlineSuggestionUi:Landroid/service/autofill/IInlineSuggestionUi;
-
-    invoke-interface {v0}, Landroid/service/autofill/IInlineSuggestionUi;->releaseSurfaceControlViewHost()V
-
-    iput-object v1, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mInlineSuggestionUi:Landroid/service/autofill/IInlineSuggestionUi;
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_0
-
-    :catch_0
-    move-exception v0
-
-    sget-object v2, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->TAG:Ljava/lang/String;
-
-    const-string v3, "RemoteException calling releaseSurfaceControlViewHost"
-
-    invoke-static {v2, v3}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_1
-    :goto_0
-    iput-object v1, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mDelayedReleaseViewRunnable:Ljava/lang/Runnable;
-
     return-void
 .end method
 
-.method public synthetic lambda$setInlineContentCallback$0$RemoteInlineSuggestionUi(Lcom/android/internal/view/inline/IInlineContentCallback;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mInlineContentCallback:Lcom/android/internal/view/inline/IInlineContentCallback;
-
-    return-void
-.end method
-
-.method public synthetic lambda$surfacePackageReleased$1$RemoteInlineSuggestionUi()V
-    .locals 1
-
-    const/4 v0, -0x1
-
-    invoke-direct {p0, v0}, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->handleUpdateRefCount(I)V
-
-    return-void
-.end method
-
-.method match(II)Z
+.method public match(II)Z
     .locals 1
 
     iget v0, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mWidth:I
 
     if-ne v0, p1, :cond_0
 
-    iget v0, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mHeight:I
+    iget p0, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mHeight:I
 
-    if-ne v0, p2, :cond_0
+    if-ne p0, p2, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
-.method requestSurfacePackage()V
+.method public requestSurfacePackage()V
     .locals 2
 
     iget-object v0, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mHandler:Landroid/os/Handler;
 
-    new-instance v1, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi$$ExternalSyntheticLambda2;
+    new-instance v1, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi$$ExternalSyntheticLambda1;
 
-    invoke-direct {v1, p0}, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi$$ExternalSyntheticLambda2;-><init>(Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;)V
+    invoke-direct {v1, p0}, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi$$ExternalSyntheticLambda1;-><init>(Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;)V
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     return-void
 .end method
 
-.method setInlineContentCallback(Lcom/android/internal/view/inline/IInlineContentCallback;)V
+.method public setInlineContentCallback(Lcom/android/internal/view/inline/IInlineContentCallback;)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mHandler:Landroid/os/Handler;
@@ -581,14 +585,14 @@
     return-void
 .end method
 
-.method surfacePackageReleased()V
+.method public surfacePackageReleased()V
     .locals 2
 
     iget-object v0, p0, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;->mHandler:Landroid/os/Handler;
 
-    new-instance v1, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi$$ExternalSyntheticLambda1;
+    new-instance v1, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi$$ExternalSyntheticLambda0;
 
-    invoke-direct {v1, p0}, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi$$ExternalSyntheticLambda1;-><init>(Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;)V
+    invoke-direct {v1, p0}, Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/autofill/ui/RemoteInlineSuggestionUi;)V
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 

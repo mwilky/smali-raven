@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/biometrics/sensors/face/aidl/Sensor$HalSessionCallback$$ExternalSyntheticLambda12;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -33,7 +34,7 @@
 
     iget-wide v1, p0, Lcom/android/server/biometrics/sensors/face/aidl/Sensor$HalSessionCallback$$ExternalSyntheticLambda12;->f$1:J
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/biometrics/sensors/face/aidl/Sensor$HalSessionCallback;->lambda$onChallengeRevoked$1$Sensor$HalSessionCallback(J)V
+    invoke-static {v0, v1, v2}, Lcom/android/server/biometrics/sensors/face/aidl/Sensor$HalSessionCallback;->$r8$lambda$4oQ653z_12XCMdNCIeD1aM3Yt5Y(Lcom/android/server/biometrics/sensors/face/aidl/Sensor$HalSessionCallback;J)V
 
     return-void
 .end method

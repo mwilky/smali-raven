@@ -1,4 +1,4 @@
-.class final Lcom/android/server/timezonedetector/location/ThreadingDomain$SingleRunnableQueue;
+.class public final Lcom/android/server/timezonedetector/location/ThreadingDomain$SingleRunnableQueue;
 .super Ljava/lang/Object;
 .source "ThreadingDomain.java"
 
@@ -9,26 +9,50 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x10
+    accessFlags = 0x11
     name = "SingleRunnableQueue"
 .end annotation
 
 
 # instance fields
-.field private mDelayMillis:J
+.field public mDelayMillis:J
 
-.field private mIsQueued:Z
+.field public mIsQueued:Z
 
-.field final synthetic this$0:Lcom/android/server/timezonedetector/location/ThreadingDomain;
+.field public final synthetic this$0:Lcom/android/server/timezonedetector/location/ThreadingDomain;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/timezonedetector/location/ThreadingDomain;)V
+.method public static synthetic $r8$lambda$7LRyZe5aRdU7jEhHXAqD1DYgs7I(Lcom/android/server/timezonedetector/location/ThreadingDomain$SingleRunnableQueue;Ljava/lang/Runnable;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/timezonedetector/location/ThreadingDomain$SingleRunnableQueue;->lambda$runDelayed$0(Ljava/lang/Runnable;)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Lcom/android/server/timezonedetector/location/ThreadingDomain;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/timezonedetector/location/ThreadingDomain$SingleRunnableQueue;->this$0:Lcom/android/server/timezonedetector/location/ThreadingDomain;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+.method private synthetic lambda$runDelayed$0(Ljava/lang/Runnable;)V
+    .locals 2
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/server/timezonedetector/location/ThreadingDomain$SingleRunnableQueue;->mIsQueued:Z
+
+    const-wide/16 v0, -0x2
+
+    iput-wide v0, p0, Lcom/android/server/timezonedetector/location/ThreadingDomain$SingleRunnableQueue;->mDelayMillis:J
+
+    invoke-interface {p1}, Ljava/lang/Runnable;->run()V
 
     return-void
 .end method
@@ -62,7 +86,7 @@
     return-void
 .end method
 
-.method getQueuedDelayMillis()J
+.method public getQueuedDelayMillis()J
     .locals 2
 
     iget-object v0, p0, Lcom/android/server/timezonedetector/location/ThreadingDomain$SingleRunnableQueue;->this$0:Lcom/android/server/timezonedetector/location/ThreadingDomain;
@@ -78,44 +102,28 @@
     return-wide v0
 
     :cond_0
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p0, Ljava/lang/IllegalStateException;
 
-    const-string v1, "No item queued"
+    const-string v0, "No item queued"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
-.method hasQueued()Z
+.method public hasQueued()Z
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/timezonedetector/location/ThreadingDomain$SingleRunnableQueue;->this$0:Lcom/android/server/timezonedetector/location/ThreadingDomain;
 
     invoke-virtual {v0}, Lcom/android/server/timezonedetector/location/ThreadingDomain;->assertCurrentThread()V
 
-    iget-boolean v0, p0, Lcom/android/server/timezonedetector/location/ThreadingDomain$SingleRunnableQueue;->mIsQueued:Z
+    iget-boolean p0, p0, Lcom/android/server/timezonedetector/location/ThreadingDomain$SingleRunnableQueue;->mIsQueued:Z
 
-    return v0
+    return p0
 .end method
 
-.method public synthetic lambda$runDelayed$0$ThreadingDomain$SingleRunnableQueue(Ljava/lang/Runnable;)V
-    .locals 2
-
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/android/server/timezonedetector/location/ThreadingDomain$SingleRunnableQueue;->mIsQueued:Z
-
-    const-wide/16 v0, -0x2
-
-    iput-wide v0, p0, Lcom/android/server/timezonedetector/location/ThreadingDomain$SingleRunnableQueue;->mDelayMillis:J
-
-    invoke-interface {p1}, Ljava/lang/Runnable;->run()V
-
-    return-void
-.end method
-
-.method runDelayed(Ljava/lang/Runnable;J)V
+.method public runDelayed(Ljava/lang/Runnable;J)V
     .locals 2
 
     invoke-virtual {p0}, Lcom/android/server/timezonedetector/location/ThreadingDomain$SingleRunnableQueue;->cancel()V

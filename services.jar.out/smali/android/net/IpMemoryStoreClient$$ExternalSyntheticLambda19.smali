@@ -1,53 +1,34 @@
 .class public final synthetic Landroid/net/IpMemoryStoreClient$$ExternalSyntheticLambda19;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Consumer;
+.implements Landroid/net/IpMemoryStoreClient$ThrowingRunnable;
 
 
 # instance fields
-.field public final synthetic f$0:Landroid/net/IpMemoryStoreClient;
-
-.field public final synthetic f$1:Ljava/lang/String;
-
-.field public final synthetic f$2:Landroid/net/ipmemorystore/NetworkAttributes;
-
-.field public final synthetic f$3:Landroid/net/ipmemorystore/OnStatusListener;
+.field public final synthetic f$0:Landroid/net/IIpMemoryStore;
 
 
 # direct methods
-.method public synthetic constructor <init>(Landroid/net/IpMemoryStoreClient;Ljava/lang/String;Landroid/net/ipmemorystore/NetworkAttributes;Landroid/net/ipmemorystore/OnStatusListener;)V
+.method public synthetic constructor <init>(Landroid/net/IIpMemoryStore;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Landroid/net/IpMemoryStoreClient$$ExternalSyntheticLambda19;->f$0:Landroid/net/IpMemoryStoreClient;
-
-    iput-object p2, p0, Landroid/net/IpMemoryStoreClient$$ExternalSyntheticLambda19;->f$1:Ljava/lang/String;
-
-    iput-object p3, p0, Landroid/net/IpMemoryStoreClient$$ExternalSyntheticLambda19;->f$2:Landroid/net/ipmemorystore/NetworkAttributes;
-
-    iput-object p4, p0, Landroid/net/IpMemoryStoreClient$$ExternalSyntheticLambda19;->f$3:Landroid/net/ipmemorystore/OnStatusListener;
+    iput-object p1, p0, Landroid/net/IpMemoryStoreClient$$ExternalSyntheticLambda19;->f$0:Landroid/net/IIpMemoryStore;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
-    .locals 4
+.method public final run()V
+    .locals 0
 
-    iget-object v0, p0, Landroid/net/IpMemoryStoreClient$$ExternalSyntheticLambda19;->f$0:Landroid/net/IpMemoryStoreClient;
+    iget-object p0, p0, Landroid/net/IpMemoryStoreClient$$ExternalSyntheticLambda19;->f$0:Landroid/net/IIpMemoryStore;
 
-    iget-object v1, p0, Landroid/net/IpMemoryStoreClient$$ExternalSyntheticLambda19;->f$1:Ljava/lang/String;
-
-    iget-object v2, p0, Landroid/net/IpMemoryStoreClient$$ExternalSyntheticLambda19;->f$2:Landroid/net/ipmemorystore/NetworkAttributes;
-
-    iget-object v3, p0, Landroid/net/IpMemoryStoreClient$$ExternalSyntheticLambda19;->f$3:Landroid/net/ipmemorystore/OnStatusListener;
-
-    check-cast p1, Landroid/net/IIpMemoryStore;
-
-    invoke-virtual {v0, v1, v2, v3, p1}, Landroid/net/IpMemoryStoreClient;->lambda$storeNetworkAttributes$1$IpMemoryStoreClient(Ljava/lang/String;Landroid/net/ipmemorystore/NetworkAttributes;Landroid/net/ipmemorystore/OnStatusListener;Landroid/net/IIpMemoryStore;)V
+    invoke-static {p0}, Landroid/net/IpMemoryStoreClient;->$r8$lambda$-BBVmFTZ9kUTJDKMH8awIlSZQjc(Landroid/net/IIpMemoryStore;)V
 
     return-void
 .end method

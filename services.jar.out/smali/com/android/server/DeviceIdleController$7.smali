@@ -1,4 +1,4 @@
-.class Lcom/android/server/DeviceIdleController$7;
+.class public Lcom/android/server/DeviceIdleController$7;
 .super Ljava/lang/Object;
 .source "DeviceIdleController.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/DeviceIdleController;
+.field public final synthetic this$0:Lcom/android/server/DeviceIdleController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/DeviceIdleController;)V
+.method public constructor <init>(Lcom/android/server/DeviceIdleController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/DeviceIdleController$7;->this$0:Lcom/android/server/DeviceIdleController;
@@ -35,29 +35,29 @@
 
 # virtual methods
 .method public onLocationChanged(Landroid/location/Location;)V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/DeviceIdleController$7;->this$0:Lcom/android/server/DeviceIdleController;
 
     monitor-enter v0
 
     :try_start_0
-    iget-object v1, p0, Lcom/android/server/DeviceIdleController$7;->this$0:Lcom/android/server/DeviceIdleController;
+    iget-object p0, p0, Lcom/android/server/DeviceIdleController$7;->this$0:Lcom/android/server/DeviceIdleController;
 
-    invoke-virtual {v1, p1}, Lcom/android/server/DeviceIdleController;->receivedGenericLocationLocked(Landroid/location/Location;)V
+    invoke-virtual {p0, p1}, Lcom/android/server/DeviceIdleController;->receivedGpsLocationLocked(Landroid/location/Location;)V
 
     monitor-exit v0
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
 .method public onProviderDisabled(Ljava/lang/String;)V

@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/server/accessibility/magnification/FullScreenMagnificationController$MagnificationInfoChangedCallback;
+.class public interface abstract Lcom/android/server/accessibility/magnification/FullScreenMagnificationController$MagnificationInfoChangedCallback;
 .super Ljava/lang/Object;
 .source "FullScreenMagnificationController.java"
 
@@ -9,16 +9,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
+    accessFlags = 0x609
     name = "MagnificationInfoChangedCallback"
 .end annotation
 
 
 # virtual methods
-.method public abstract onFullScreenMagnificationActivationState(Z)V
+.method public abstract onFullScreenMagnificationActivationState(IZ)V
 .end method
 
-.method public abstract onImeWindowVisibilityChanged(Z)V
+.method public abstract onFullScreenMagnificationChanged(ILandroid/graphics/Region;Landroid/accessibilityservice/MagnificationConfig;)V
+.end method
+
+.method public abstract onImeWindowVisibilityChanged(IZ)V
 .end method
 
 .method public abstract onRequestMagnificationSpec(II)V

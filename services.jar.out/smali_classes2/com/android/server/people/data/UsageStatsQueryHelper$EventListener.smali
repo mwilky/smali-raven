@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/server/people/data/UsageStatsQueryHelper$EventListener;
+.class public interface abstract Lcom/android/server/people/data/UsageStatsQueryHelper$EventListener;
 .super Ljava/lang/Object;
 .source "UsageStatsQueryHelper.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
+    accessFlags = 0x609
     name = "EventListener"
 .end annotation
 

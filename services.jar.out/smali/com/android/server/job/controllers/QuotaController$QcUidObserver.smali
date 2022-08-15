@@ -1,4 +1,4 @@
-.class Lcom/android/server/job/controllers/QuotaController$QcUidObserver;
+.class public Lcom/android/server/job/controllers/QuotaController$QcUidObserver;
 .super Landroid/app/IUidObserver$Stub;
 .source "QuotaController.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "QcUidObserver"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/job/controllers/QuotaController;
+.field public final synthetic this$0:Lcom/android/server/job/controllers/QuotaController;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/server/job/controllers/QuotaController;)V
+.method public constructor <init>(Lcom/android/server/job/controllers/QuotaController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/job/controllers/QuotaController$QcUidObserver;->this$0:Lcom/android/server/job/controllers/QuotaController;
@@ -29,7 +29,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/job/controllers/QuotaController;Lcom/android/server/job/controllers/QuotaController$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/job/controllers/QuotaController;Lcom/android/server/job/controllers/QuotaController$QcUidObserver-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/job/controllers/QuotaController$QcUidObserver;-><init>(Lcom/android/server/job/controllers/QuotaController;)V
@@ -63,22 +63,28 @@
     return-void
 .end method
 
+.method public onUidProcAdjChanged(I)V
+    .locals 0
+
+    return-void
+.end method
+
 .method public onUidStateChanged(IIJI)V
-    .locals 2
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/job/controllers/QuotaController$QcUidObserver;->this$0:Lcom/android/server/job/controllers/QuotaController;
+    iget-object p0, p0, Lcom/android/server/job/controllers/QuotaController$QcUidObserver;->this$0:Lcom/android/server/job/controllers/QuotaController;
 
-    invoke-static {v0}, Lcom/android/server/job/controllers/QuotaController;->access$300(Lcom/android/server/job/controllers/QuotaController;)Lcom/android/server/job/controllers/QuotaController$QcHandler;
+    invoke-static {p0}, Lcom/android/server/job/controllers/QuotaController;->-$$Nest$fgetmHandler(Lcom/android/server/job/controllers/QuotaController;)Lcom/android/server/job/controllers/QuotaController$QcHandler;
 
-    move-result-object v0
+    move-result-object p0
 
-    const/4 v1, 0x3
+    const/4 p3, 0x3
 
-    invoke-virtual {v0, v1, p1, p2}, Lcom/android/server/job/controllers/QuotaController$QcHandler;->obtainMessage(III)Landroid/os/Message;
+    invoke-virtual {p0, p3, p1, p2}, Landroid/os/Handler;->obtainMessage(III)Landroid/os/Message;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
+    invoke-virtual {p0}, Landroid/os/Message;->sendToTarget()V
 
     return-void
 .end method

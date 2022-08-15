@@ -1,4 +1,4 @@
-.class abstract Lcom/android/server/am/ActivityManagerService$ImportanceToken;
+.class public abstract Lcom/android/server/am/ActivityManagerService$ImportanceToken;
 .super Ljava/lang/Object;
 .source "ActivityManagerService.java"
 
@@ -12,23 +12,23 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x400
+    accessFlags = 0x401
     name = "ImportanceToken"
 .end annotation
 
 
 # instance fields
-.field final pid:I
+.field public final pid:I
 
-.field final reason:Ljava/lang/String;
+.field public final reason:Ljava/lang/String;
 
-.field final synthetic this$0:Lcom/android/server/am/ActivityManagerService;
+.field public final synthetic this$0:Lcom/android/server/am/ActivityManagerService;
 
-.field final token:Landroid/os/IBinder;
+.field public final token:Landroid/os/IBinder;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/ActivityManagerService;ILandroid/os/IBinder;Ljava/lang/String;)V
+.method public constructor <init>(Lcom/android/server/am/ActivityManagerService;ILandroid/os/IBinder;Ljava/lang/String;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/am/ActivityManagerService$ImportanceToken;->this$0:Lcom/android/server/am/ActivityManagerService;
@@ -46,39 +46,39 @@
 
 
 # virtual methods
-.method dumpDebug(Landroid/util/proto/ProtoOutputStream;J)V
-    .locals 5
+.method public dumpDebug(Landroid/util/proto/ProtoOutputStream;J)V
+    .locals 3
 
     invoke-virtual {p1, p2, p3}, Landroid/util/proto/ProtoOutputStream;->start(J)J
 
-    move-result-wide v0
+    move-result-wide p2
 
-    iget v2, p0, Lcom/android/server/am/ActivityManagerService$ImportanceToken;->pid:I
+    iget v0, p0, Lcom/android/server/am/ActivityManagerService$ImportanceToken;->pid:I
 
-    const-wide v3, 0x10500000001L
+    const-wide v1, 0x10500000001L
 
-    invoke-virtual {p1, v3, v4, v2}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
+    invoke-virtual {p1, v1, v2, v0}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
 
-    iget-object v2, p0, Lcom/android/server/am/ActivityManagerService$ImportanceToken;->token:Landroid/os/IBinder;
+    iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$ImportanceToken;->token:Landroid/os/IBinder;
 
-    if-eqz v2, :cond_0
+    if-eqz v0, :cond_0
 
-    const-wide v3, 0x10900000002L
+    const-wide v1, 0x10900000002L
 
-    invoke-virtual {v2}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {p1, v3, v4, v2}, Landroid/util/proto/ProtoOutputStream;->write(JLjava/lang/String;)V
+    invoke-virtual {p1, v1, v2, v0}, Landroid/util/proto/ProtoOutputStream;->write(JLjava/lang/String;)V
 
     :cond_0
-    const-wide v2, 0x10900000003L
+    const-wide v0, 0x10900000003L
 
-    iget-object v4, p0, Lcom/android/server/am/ActivityManagerService$ImportanceToken;->reason:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService$ImportanceToken;->reason:Ljava/lang/String;
 
-    invoke-virtual {p1, v2, v3, v4}, Landroid/util/proto/ProtoOutputStream;->write(JLjava/lang/String;)V
+    invoke-virtual {p1, v0, v1, p0}, Landroid/util/proto/ProtoOutputStream;->write(JLjava/lang/String;)V
 
-    invoke-virtual {p1, v0, v1}, Landroid/util/proto/ProtoOutputStream;->end(J)V
+    invoke-virtual {p1, p2, p3}, Landroid/util/proto/ProtoOutputStream;->end(J)V
 
     return-void
 .end method
@@ -120,17 +120,17 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lcom/android/server/am/ActivityManagerService$ImportanceToken;->token:Landroid/os/IBinder;
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService$ImportanceToken;->token:Landroid/os/IBinder;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string v1, " }"
+    const-string p0, " }"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

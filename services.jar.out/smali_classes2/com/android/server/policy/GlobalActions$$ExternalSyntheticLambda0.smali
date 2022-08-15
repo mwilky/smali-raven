@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/policy/GlobalActions$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/policy/GlobalActions$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/policy/GlobalActions;
+    iget-object p0, p0, Lcom/android/server/policy/GlobalActions$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/policy/GlobalActions;
 
-    invoke-virtual {v0}, Lcom/android/server/policy/GlobalActions;->onGlobalActionsDismissed()V
+    invoke-virtual {p0}, Lcom/android/server/policy/GlobalActions;->onGlobalActionsDismissed()V
 
     return-void
 .end method

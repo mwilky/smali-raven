@@ -1,4 +1,4 @@
-.class Lcom/android/server/net/NetworkPolicyManagerService$4;
+.class public Lcom/android/server/net/NetworkPolicyManagerService$4;
 .super Landroid/app/IUidObserver$Stub;
 .source "NetworkPolicyManagerService.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/net/NetworkPolicyManagerService;
+.field public final synthetic this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/net/NetworkPolicyManagerService;)V
+.method public constructor <init>(Lcom/android/server/net/NetworkPolicyManagerService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/net/NetworkPolicyManagerService$4;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
@@ -44,21 +44,21 @@
 .end method
 
 .method public onUidGone(IZ)V
-    .locals 3
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService$4;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
+    iget-object p0, p0, Lcom/android/server/net/NetworkPolicyManagerService$4;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
-    iget-object v0, v0, Lcom/android/server/net/NetworkPolicyManagerService;->mUidEventHandler:Landroid/os/Handler;
+    iget-object p0, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mUidEventHandler:Landroid/os/Handler;
 
-    const/16 v1, 0x65
+    const/16 p2, 0x65
 
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
-    invoke-virtual {v0, v1, p1, v2}, Landroid/os/Handler;->obtainMessage(III)Landroid/os/Message;
+    invoke-virtual {p0, p2, p1, v0}, Landroid/os/Handler;->obtainMessage(III)Landroid/os/Message;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
+    invoke-virtual {p0}, Landroid/os/Message;->sendToTarget()V
 
     return-void
 .end method
@@ -69,12 +69,18 @@
     return-void
 .end method
 
+.method public onUidProcAdjChanged(I)V
+    .locals 0
+
+    return-void
+.end method
+
 .method public onUidStateChanged(IIJI)V
     .locals 8
 
     iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService$4;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
-    invoke-static {v0}, Lcom/android/server/net/NetworkPolicyManagerService;->access$500(Lcom/android/server/net/NetworkPolicyManagerService;)Landroid/util/SparseArray;
+    invoke-static {v0}, Lcom/android/server/net/NetworkPolicyManagerService;->-$$Nest$fgetmUidStateCallbackInfos(Lcom/android/server/net/NetworkPolicyManagerService;)Landroid/util/SparseArray;
 
     move-result-object v0
 
@@ -83,7 +89,7 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/server/net/NetworkPolicyManagerService$4;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
-    invoke-static {v1}, Lcom/android/server/net/NetworkPolicyManagerService;->access$500(Lcom/android/server/net/NetworkPolicyManagerService;)Landroid/util/SparseArray;
+    invoke-static {v1}, Lcom/android/server/net/NetworkPolicyManagerService;->-$$Nest$fgetmUidStateCallbackInfos(Lcom/android/server/net/NetworkPolicyManagerService;)Landroid/util/SparseArray;
 
     move-result-object v1
 
@@ -95,62 +101,76 @@
 
     if-nez v1, :cond_0
 
-    new-instance v2, Lcom/android/server/net/NetworkPolicyManagerService$UidStateCallbackInfo;
+    new-instance v1, Lcom/android/server/net/NetworkPolicyManagerService$UidStateCallbackInfo;
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    invoke-direct {v2, v3}, Lcom/android/server/net/NetworkPolicyManagerService$UidStateCallbackInfo;-><init>(Lcom/android/server/net/NetworkPolicyManagerService$1;)V
-
-    move-object v1, v2
+    invoke-direct {v1, v2}, Lcom/android/server/net/NetworkPolicyManagerService$UidStateCallbackInfo;-><init>(Lcom/android/server/net/NetworkPolicyManagerService$UidStateCallbackInfo-IA;)V
 
     iget-object v2, p0, Lcom/android/server/net/NetworkPolicyManagerService$4;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
-    invoke-static {v2}, Lcom/android/server/net/NetworkPolicyManagerService;->access$500(Lcom/android/server/net/NetworkPolicyManagerService;)Landroid/util/SparseArray;
+    invoke-static {v2}, Lcom/android/server/net/NetworkPolicyManagerService;->-$$Nest$fgetmUidStateCallbackInfos(Lcom/android/server/net/NetworkPolicyManagerService;)Landroid/util/SparseArray;
 
     move-result-object v2
 
     invoke-virtual {v2, p1, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     :cond_0
-    move-object v2, v1
+    move-object v7, v1
 
-    move v3, p1
+    iget-wide v1, v7, Lcom/android/server/net/NetworkPolicyManagerService$UidStateCallbackInfo;->procStateSeq:J
 
-    move v4, p2
+    const-wide/16 v3, -0x1
 
-    move-wide v5, p3
+    cmp-long v3, v1, v3
 
-    move v7, p5
+    if-eqz v3, :cond_1
 
-    invoke-virtual/range {v2 .. v7}, Lcom/android/server/net/NetworkPolicyManagerService$UidStateCallbackInfo;->update(IIJI)V
+    cmp-long v1, p3, v1
 
-    iget-boolean v2, v1, Lcom/android/server/net/NetworkPolicyManagerService$UidStateCallbackInfo;->isPending:Z
-
-    if-nez v2, :cond_1
-
-    iget-object v2, p0, Lcom/android/server/net/NetworkPolicyManagerService$4;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
-
-    iget-object v2, v2, Lcom/android/server/net/NetworkPolicyManagerService;->mUidEventHandler:Landroid/os/Handler;
-
-    const/16 v3, 0x64
-
-    invoke-virtual {v2, v3, v1}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroid/os/Message;->sendToTarget()V
+    if-lez v1, :cond_2
 
     :cond_1
+    move-object v1, v7
+
+    move v2, p1
+
+    move v3, p2
+
+    move-wide v4, p3
+
+    move v6, p5
+
+    invoke-virtual/range {v1 .. v6}, Lcom/android/server/net/NetworkPolicyManagerService$UidStateCallbackInfo;->update(IIJI)V
+
+    :cond_2
+    iget-boolean p1, v7, Lcom/android/server/net/NetworkPolicyManagerService$UidStateCallbackInfo;->isPending:Z
+
+    if-nez p1, :cond_3
+
+    iget-object p0, p0, Lcom/android/server/net/NetworkPolicyManagerService$4;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
+
+    iget-object p0, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mUidEventHandler:Landroid/os/Handler;
+
+    const/16 p1, 0x64
+
+    invoke-virtual {p0, p1, v7}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroid/os/Message;->sendToTarget()V
+
+    :cond_3
     monitor-exit v0
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method

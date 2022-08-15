@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/am/ProcessList$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/os/MessageQueue$OnFileDescriptorEventListener;
@@ -23,13 +24,13 @@
 
 # virtual methods
 .method public final onFileDescriptorEvents(Ljava/io/FileDescriptor;I)I
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/am/ProcessList$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/am/ProcessList;
+    iget-object p0, p0, Lcom/android/server/am/ProcessList$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/am/ProcessList;
 
-    invoke-static {v0, p1, p2}, Lcom/android/server/am/ProcessList;->$r8$lambda$eEVoHjWPClUsVDRm3xBMVJVcgcw(Lcom/android/server/am/ProcessList;Ljava/io/FileDescriptor;I)I
+    invoke-static {p0, p1, p2}, Lcom/android/server/am/ProcessList;->$r8$lambda$eEVoHjWPClUsVDRm3xBMVJVcgcw(Lcom/android/server/am/ProcessList;Ljava/io/FileDescriptor;I)I
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method

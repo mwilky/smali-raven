@@ -1,6 +1,9 @@
-.class final Lcom/android/server/wm/DisplayContent$TaskForResizePointSearchResult;
+.class public final Lcom/android/server/wm/DisplayContent$TaskForResizePointSearchResult;
 .super Ljava/lang/Object;
 .source "DisplayContent.java"
+
+# interfaces
+.implements Ljava/util/function/Predicate;
 
 
 # annotations
@@ -9,35 +12,34 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = "TaskForResizePointSearchResult"
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Ljava/lang/Object;",
+        "Ljava/util/function/Predicate<",
+        "Lcom/android/server/wm/Task;",
+        ">;"
+    }
 .end annotation
 
 
 # instance fields
-.field private delta:I
+.field public delta:I
 
-.field private mTmpRect:Landroid/graphics/Rect;
+.field public mTmpRect:Landroid/graphics/Rect;
 
-.field private taskForResize:Lcom/android/server/wm/Task;
+.field public taskForResize:Lcom/android/server/wm/Task;
 
-.field private x:I
+.field public x:I
 
-.field private y:I
+.field public y:I
 
 
 # direct methods
-.method public static synthetic $r8$lambda$D8FA8Tar2R-Xf8tDgCDkmRm7SO0(Lcom/android/server/wm/DisplayContent$TaskForResizePointSearchResult;Lcom/android/server/wm/Task;)Z
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/server/wm/DisplayContent$TaskForResizePointSearchResult;->processTask(Lcom/android/server/wm/Task;)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -51,14 +53,40 @@
     return-void
 .end method
 
-.method private processTask(Lcom/android/server/wm/Task;)Z
+
+# virtual methods
+.method public process(Lcom/android/server/wm/WindowContainer;III)Lcom/android/server/wm/Task;
+    .locals 1
+
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/android/server/wm/DisplayContent$TaskForResizePointSearchResult;->taskForResize:Lcom/android/server/wm/Task;
+
+    iput p2, p0, Lcom/android/server/wm/DisplayContent$TaskForResizePointSearchResult;->x:I
+
+    iput p3, p0, Lcom/android/server/wm/DisplayContent$TaskForResizePointSearchResult;->y:I
+
+    iput p4, p0, Lcom/android/server/wm/DisplayContent$TaskForResizePointSearchResult;->delta:I
+
+    iget-object p2, p0, Lcom/android/server/wm/DisplayContent$TaskForResizePointSearchResult;->mTmpRect:Landroid/graphics/Rect;
+
+    invoke-virtual {p2}, Landroid/graphics/Rect;->setEmpty()V
+
+    invoke-virtual {p1, p0}, Lcom/android/server/wm/WindowContainer;->forAllTasks(Ljava/util/function/Predicate;)Z
+
+    iget-object p0, p0, Lcom/android/server/wm/DisplayContent$TaskForResizePointSearchResult;->taskForResize:Lcom/android/server/wm/Task;
+
+    return-object p0
+.end method
+
+.method public test(Lcom/android/server/wm/Task;)Z
     .locals 4
 
-    invoke-virtual {p1}, Lcom/android/server/wm/Task;->getRootTask()Lcom/android/server/wm/Task;
+    invoke-virtual {p1}, Lcom/android/server/wm/TaskFragment;->getRootTask()Lcom/android/server/wm/Task;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/server/wm/Task;->getWindowConfiguration()Landroid/app/WindowConfiguration;
+    invoke-virtual {v0}, Lcom/android/server/wm/ConfigurationContainer;->getWindowConfiguration()Landroid/app/WindowConfiguration;
 
     move-result-object v0
 
@@ -73,7 +101,7 @@
     return v1
 
     :cond_0
-    invoke-virtual {p1}, Lcom/android/server/wm/Task;->getWindowingMode()I
+    invoke-virtual {p1}, Lcom/android/server/wm/ConfigurationContainer;->getWindowingMode()I
 
     move-result v0
 
@@ -88,7 +116,7 @@
 
     if-eqz v0, :cond_2
 
-    invoke-virtual {p1}, Lcom/android/server/wm/Task;->getWindowingMode()I
+    invoke-virtual {p1}, Lcom/android/server/wm/ConfigurationContainer;->getWindowingMode()I
 
     move-result v0
 
@@ -145,53 +173,23 @@
 
     iput-object p1, p0, Lcom/android/server/wm/DisplayContent$TaskForResizePointSearchResult;->taskForResize:Lcom/android/server/wm/Task;
 
-    return v1
-
     :cond_3
     return v1
 
     :cond_4
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
+.method public bridge synthetic test(Ljava/lang/Object;)Z
+    .locals 0
 
-# virtual methods
-.method process(Lcom/android/server/wm/WindowContainer;III)Lcom/android/server/wm/Task;
-    .locals 2
+    check-cast p1, Lcom/android/server/wm/Task;
 
-    const/4 v0, 0x0
+    invoke-virtual {p0, p1}, Lcom/android/server/wm/DisplayContent$TaskForResizePointSearchResult;->test(Lcom/android/server/wm/Task;)Z
 
-    iput-object v0, p0, Lcom/android/server/wm/DisplayContent$TaskForResizePointSearchResult;->taskForResize:Lcom/android/server/wm/Task;
+    move-result p0
 
-    iput p2, p0, Lcom/android/server/wm/DisplayContent$TaskForResizePointSearchResult;->x:I
-
-    iput p3, p0, Lcom/android/server/wm/DisplayContent$TaskForResizePointSearchResult;->y:I
-
-    iput p4, p0, Lcom/android/server/wm/DisplayContent$TaskForResizePointSearchResult;->delta:I
-
-    iget-object v0, p0, Lcom/android/server/wm/DisplayContent$TaskForResizePointSearchResult;->mTmpRect:Landroid/graphics/Rect;
-
-    invoke-virtual {v0}, Landroid/graphics/Rect;->setEmpty()V
-
-    sget-object v0, Lcom/android/server/wm/DisplayContent$TaskForResizePointSearchResult$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/server/wm/DisplayContent$TaskForResizePointSearchResult$$ExternalSyntheticLambda0;
-
-    const-class v1, Lcom/android/server/wm/Task;
-
-    invoke-static {v1}, Lcom/android/internal/util/function/pooled/PooledLambda;->__(Ljava/lang/Class;)Lcom/android/internal/util/function/pooled/ArgumentPlaceholder;
-
-    move-result-object v1
-
-    invoke-static {v0, p0, v1}, Lcom/android/internal/util/function/pooled/PooledLambda;->obtainFunction(Ljava/util/function/BiFunction;Ljava/lang/Object;Lcom/android/internal/util/function/pooled/ArgumentPlaceholder;)Lcom/android/internal/util/function/pooled/PooledFunction;
-
-    move-result-object v0
-
-    invoke-virtual {p1, v0}, Lcom/android/server/wm/WindowContainer;->forAllTasks(Ljava/util/function/Function;)Z
-
-    invoke-interface {v0}, Lcom/android/internal/util/function/pooled/PooledFunction;->recycle()V
-
-    iget-object v1, p0, Lcom/android/server/wm/DisplayContent$TaskForResizePointSearchResult;->taskForResize:Lcom/android/server/wm/Task;
-
-    return-object v1
+    return p0
 .end method

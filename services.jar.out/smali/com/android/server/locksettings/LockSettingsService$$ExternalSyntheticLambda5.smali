@@ -1,41 +1,36 @@
 .class public final synthetic Lcom/android/server/locksettings/LockSettingsService$$ExternalSyntheticLambda5;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Ljava/util/function/Supplier;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/locksettings/LockSettingsService$$ExternalSyntheticLambda5;
+# instance fields
+.field public final synthetic f$0:Lcom/android/server/locksettings/LockSettingsService;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/locksettings/LockSettingsService$$ExternalSyntheticLambda5;
-
-    invoke-direct {v0}, Lcom/android/server/locksettings/LockSettingsService$$ExternalSyntheticLambda5;-><init>()V
-
-    sput-object v0, Lcom/android/server/locksettings/LockSettingsService$$ExternalSyntheticLambda5;->INSTANCE:Lcom/android/server/locksettings/LockSettingsService$$ExternalSyntheticLambda5;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Lcom/android/server/locksettings/LockSettingsService;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/locksettings/LockSettingsService$$ExternalSyntheticLambda5;->f$0:Lcom/android/server/locksettings/LockSettingsService;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final run()V
+.method public final get()Ljava/lang/Object;
     .locals 0
 
-    invoke-static {}, Lcom/android/server/locksettings/LockSettingsService;->lambda$scheduleGc$5()V
+    iget-object p0, p0, Lcom/android/server/locksettings/LockSettingsService$$ExternalSyntheticLambda5;->f$0:Lcom/android/server/locksettings/LockSettingsService;
 
-    return-void
+    invoke-static {p0}, Lcom/android/server/locksettings/LockSettingsService;->$r8$lambda$WxWz0L6Nf3FUAf-s7QOaUf6YkGE(Lcom/android/server/locksettings/LockSettingsService;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 .end method

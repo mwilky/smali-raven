@@ -15,7 +15,7 @@
 
 
 # instance fields
-.field private mAllowlistedRestrictedPermissions:Ljava/util/List;
+.field public mAllowlistedRestrictedPermissions:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -25,9 +25,9 @@
     .end annotation
 .end field
 
-.field private mAutoRevokePermissionsMode:I
+.field public mAutoRevokePermissionsMode:I
 
-.field private mGrantedPermissions:Ljava/util/List;
+.field public mGrantedPermissions:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -44,15 +44,11 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    nop
-
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/server/pm/permission/PermissionManagerServiceInternal$PackageInstalledParams$Builder;->mGrantedPermissions:Ljava/util/List;
-
-    nop
 
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
@@ -70,7 +66,7 @@
 
 # virtual methods
 .method public build()Lcom/android/server/pm/permission/PermissionManagerServiceInternal$PackageInstalledParams;
-    .locals 5
+    .locals 4
 
     new-instance v0, Lcom/android/server/pm/permission/PermissionManagerServiceInternal$PackageInstalledParams;
 
@@ -78,11 +74,11 @@
 
     iget-object v2, p0, Lcom/android/server/pm/permission/PermissionManagerServiceInternal$PackageInstalledParams$Builder;->mAllowlistedRestrictedPermissions:Ljava/util/List;
 
-    iget v3, p0, Lcom/android/server/pm/permission/PermissionManagerServiceInternal$PackageInstalledParams$Builder;->mAutoRevokePermissionsMode:I
+    iget p0, p0, Lcom/android/server/pm/permission/PermissionManagerServiceInternal$PackageInstalledParams$Builder;->mAutoRevokePermissionsMode:I
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    invoke-direct {v0, v1, v2, v3, v4}, Lcom/android/server/pm/permission/PermissionManagerServiceInternal$PackageInstalledParams;-><init>(Ljava/util/List;Ljava/util/List;ILcom/android/server/pm/permission/PermissionManagerServiceInternal$1;)V
+    invoke-direct {v0, v1, v2, p0, v3}, Lcom/android/server/pm/permission/PermissionManagerServiceInternal$PackageInstalledParams;-><init>(Ljava/util/List;Ljava/util/List;ILcom/android/server/pm/permission/PermissionManagerServiceInternal$PackageInstalledParams-IA;)V
 
     return-object v0
 .end method

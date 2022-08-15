@@ -1,4 +1,4 @@
-.class Lcom/android/server/GestureLauncherService$2;
+.class public Lcom/android/server/GestureLauncherService$2;
 .super Landroid/database/ContentObserver;
 .source "GestureLauncherService.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/GestureLauncherService;
+.field public final synthetic this$0:Lcom/android/server/GestureLauncherService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/GestureLauncherService;Landroid/os/Handler;)V
+.method public constructor <init>(Lcom/android/server/GestureLauncherService;Landroid/os/Handler;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/GestureLauncherService$2;->this$0:Lcom/android/server/GestureLauncherService;
@@ -32,31 +32,31 @@
 
 # virtual methods
 .method public onChange(ZLandroid/net/Uri;I)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/GestureLauncherService$2;->this$0:Lcom/android/server/GestureLauncherService;
+    iget-object p1, p0, Lcom/android/server/GestureLauncherService$2;->this$0:Lcom/android/server/GestureLauncherService;
 
-    invoke-static {v0}, Lcom/android/server/GestureLauncherService;->access$200(Lcom/android/server/GestureLauncherService;)I
+    invoke-static {p1}, Lcom/android/server/GestureLauncherService;->-$$Nest$fgetmUserId(Lcom/android/server/GestureLauncherService;)I
 
-    move-result v0
+    move-result p1
 
-    if-ne p3, v0, :cond_0
+    if-ne p3, p1, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/GestureLauncherService$2;->this$0:Lcom/android/server/GestureLauncherService;
+    iget-object p1, p0, Lcom/android/server/GestureLauncherService$2;->this$0:Lcom/android/server/GestureLauncherService;
 
-    invoke-static {v0}, Lcom/android/server/GestureLauncherService;->access$600(Lcom/android/server/GestureLauncherService;)V
+    invoke-static {p1}, Lcom/android/server/GestureLauncherService;->-$$Nest$mupdateCameraRegistered(Lcom/android/server/GestureLauncherService;)V
 
-    iget-object v0, p0, Lcom/android/server/GestureLauncherService$2;->this$0:Lcom/android/server/GestureLauncherService;
+    iget-object p1, p0, Lcom/android/server/GestureLauncherService$2;->this$0:Lcom/android/server/GestureLauncherService;
 
-    invoke-virtual {v0}, Lcom/android/server/GestureLauncherService;->updateCameraDoubleTapPowerEnabled()V
+    invoke-virtual {p1}, Lcom/android/server/GestureLauncherService;->updateCameraDoubleTapPowerEnabled()V
 
-    iget-object v0, p0, Lcom/android/server/GestureLauncherService$2;->this$0:Lcom/android/server/GestureLauncherService;
+    iget-object p1, p0, Lcom/android/server/GestureLauncherService$2;->this$0:Lcom/android/server/GestureLauncherService;
 
-    invoke-virtual {v0}, Lcom/android/server/GestureLauncherService;->updateEmergencyGestureEnabled()V
+    invoke-virtual {p1}, Lcom/android/server/GestureLauncherService;->updateEmergencyGestureEnabled()V
 
-    iget-object v0, p0, Lcom/android/server/GestureLauncherService$2;->this$0:Lcom/android/server/GestureLauncherService;
+    iget-object p0, p0, Lcom/android/server/GestureLauncherService$2;->this$0:Lcom/android/server/GestureLauncherService;
 
-    invoke-virtual {v0}, Lcom/android/server/GestureLauncherService;->updateEmergencyGesturePowerButtonCooldownPeriodMs()V
+    invoke-virtual {p0}, Lcom/android/server/GestureLauncherService;->updateEmergencyGesturePowerButtonCooldownPeriodMs()V
 
     :cond_0
     return-void

@@ -13,413 +13,179 @@
 .end annotation
 
 
-# static fields
-.field private static final CONVERT_MILLI_TO_MICRO:I = 0x3e8
-
-.field private static final DEFAULT_TIME_BETWEEN_FIXES_MILLISECS:I = 0x3e8
-
-.field private static final L5_CARRIER_FREQ_RANGE_HIGH_HZ:D = 1.189E9
-
-.field private static final L5_CARRIER_FREQ_RANGE_LOW_HZ:D = 1.164E9
-
-.field private static final TAG:Ljava/lang/String; = "GnssMetrics"
-
-.field private static final VENDOR_SPECIFIC_POWER_MODES_SIZE:I = 0xa
-
-
 # instance fields
-.field private mConstellationTypes:[Z
+.field public mConstellationTypes:[Z
 
-.field private final mGnssNative:Lcom/android/server/location/gnss/hal/GnssNative;
+.field public final mGnssNative:Lcom/android/server/location/gnss/hal/GnssNative;
 
-.field mGnssPowerMetrics:Lcom/android/server/location/gnss/GnssMetrics$GnssPowerMetrics;
+.field public mGnssPowerMetrics:Lcom/android/server/location/gnss/GnssMetrics$GnssPowerMetrics;
 
-.field mL5SvStatusReports:J
+.field public mL5SvStatusReports:J
 
-.field mL5SvStatusReportsUsedInFix:J
+.field public mL5SvStatusReportsUsedInFix:J
 
-.field mL5TopFourAverageCn0DbmHzReportsStatistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
+.field public mL5TopFourAverageCn0DbmHzReportsStatistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
 
-.field mLocationFailureReportsStatistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
+.field public mLocationFailureReportsStatistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
 
-.field private final mLocationFailureStatistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
+.field public final mLocationFailureStatistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
 
-.field private mLogStartInElapsedRealtimeMs:J
+.field public mLogStartInElapsedRealtimeMs:J
 
-.field private mNumL5SvStatus:I
+.field public mNumL5SvStatus:I
 
-.field private mNumL5SvStatusUsedInFix:I
+.field public mNumL5SvStatusUsedInFix:I
 
-.field private mNumSvStatus:I
+.field public mNumSvStatus:I
 
-.field private mNumSvStatusUsedInFix:I
+.field public mNumSvStatusUsedInFix:I
 
-.field private final mPositionAccuracyMeterStatistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
+.field public final mPositionAccuracyMeterStatistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
 
-.field mPositionAccuracyMetersReportsStatistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
+.field public mPositionAccuracyMetersReportsStatistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
 
-.field private final mStatsManager:Landroid/app/StatsManager;
+.field public final mStatsManager:Landroid/app/StatsManager;
 
-.field mSvStatusReports:J
+.field public mSvStatusReports:J
 
-.field mSvStatusReportsUsedInFix:J
+.field public mSvStatusReportsUsedInFix:J
 
-.field mTimeToFirstFixMilliSReportsStatistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
+.field public mTimeToFirstFixMilliSReportsStatistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
 
-.field private final mTimeToFirstFixSecStatistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
+.field public final mTimeToFirstFixSecStatistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
 
-.field mTopFourAverageCn0DbmHzReportsStatistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
+.field public mTopFourAverageCn0DbmHzReportsStatistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
 
-.field private final mTopFourAverageCn0Statistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
+.field public final mTopFourAverageCn0Statistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
 
-.field private final mTopFourAverageCn0StatisticsL5:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
+.field public final mTopFourAverageCn0StatisticsL5:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
 
 
 # direct methods
+.method public static bridge synthetic -$$Nest$fgetmGnssNative(Lcom/android/server/location/gnss/GnssMetrics;)Lcom/android/server/location/gnss/hal/GnssNative;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/location/gnss/GnssMetrics;->mGnssNative:Lcom/android/server/location/gnss/hal/GnssNative;
+
+    return-object p0
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Lcom/android/internal/app/IBatteryStats;Lcom/android/server/location/gnss/hal/GnssNative;)V
-    .locals 1
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p3, p0, Lcom/android/server/location/gnss/GnssMetrics;->mGnssNative:Lcom/android/server/location/gnss/hal/GnssNative;
 
-    new-instance v0, Lcom/android/server/location/gnss/GnssMetrics$GnssPowerMetrics;
+    new-instance p3, Lcom/android/server/location/gnss/GnssMetrics$GnssPowerMetrics;
 
-    invoke-direct {v0, p0, p2}, Lcom/android/server/location/gnss/GnssMetrics$GnssPowerMetrics;-><init>(Lcom/android/server/location/gnss/GnssMetrics;Lcom/android/internal/app/IBatteryStats;)V
+    invoke-direct {p3, p0, p2}, Lcom/android/server/location/gnss/GnssMetrics$GnssPowerMetrics;-><init>(Lcom/android/server/location/gnss/GnssMetrics;Lcom/android/internal/app/IBatteryStats;)V
 
-    iput-object v0, p0, Lcom/android/server/location/gnss/GnssMetrics;->mGnssPowerMetrics:Lcom/android/server/location/gnss/GnssMetrics$GnssPowerMetrics;
+    iput-object p3, p0, Lcom/android/server/location/gnss/GnssMetrics;->mGnssPowerMetrics:Lcom/android/server/location/gnss/GnssMetrics$GnssPowerMetrics;
 
-    new-instance v0, Lcom/android/server/location/gnss/GnssMetrics$Statistics;
+    new-instance p2, Lcom/android/server/location/gnss/GnssMetrics$Statistics;
 
-    invoke-direct {v0}, Lcom/android/server/location/gnss/GnssMetrics$Statistics;-><init>()V
+    invoke-direct {p2}, Lcom/android/server/location/gnss/GnssMetrics$Statistics;-><init>()V
 
-    iput-object v0, p0, Lcom/android/server/location/gnss/GnssMetrics;->mLocationFailureStatistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
+    iput-object p2, p0, Lcom/android/server/location/gnss/GnssMetrics;->mLocationFailureStatistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
 
-    new-instance v0, Lcom/android/server/location/gnss/GnssMetrics$Statistics;
+    new-instance p2, Lcom/android/server/location/gnss/GnssMetrics$Statistics;
 
-    invoke-direct {v0}, Lcom/android/server/location/gnss/GnssMetrics$Statistics;-><init>()V
+    invoke-direct {p2}, Lcom/android/server/location/gnss/GnssMetrics$Statistics;-><init>()V
 
-    iput-object v0, p0, Lcom/android/server/location/gnss/GnssMetrics;->mTimeToFirstFixSecStatistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
+    iput-object p2, p0, Lcom/android/server/location/gnss/GnssMetrics;->mTimeToFirstFixSecStatistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
 
-    new-instance v0, Lcom/android/server/location/gnss/GnssMetrics$Statistics;
+    new-instance p2, Lcom/android/server/location/gnss/GnssMetrics$Statistics;
 
-    invoke-direct {v0}, Lcom/android/server/location/gnss/GnssMetrics$Statistics;-><init>()V
+    invoke-direct {p2}, Lcom/android/server/location/gnss/GnssMetrics$Statistics;-><init>()V
 
-    iput-object v0, p0, Lcom/android/server/location/gnss/GnssMetrics;->mPositionAccuracyMeterStatistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
+    iput-object p2, p0, Lcom/android/server/location/gnss/GnssMetrics;->mPositionAccuracyMeterStatistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
 
-    new-instance v0, Lcom/android/server/location/gnss/GnssMetrics$Statistics;
+    new-instance p2, Lcom/android/server/location/gnss/GnssMetrics$Statistics;
 
-    invoke-direct {v0}, Lcom/android/server/location/gnss/GnssMetrics$Statistics;-><init>()V
+    invoke-direct {p2}, Lcom/android/server/location/gnss/GnssMetrics$Statistics;-><init>()V
 
-    iput-object v0, p0, Lcom/android/server/location/gnss/GnssMetrics;->mTopFourAverageCn0Statistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
+    iput-object p2, p0, Lcom/android/server/location/gnss/GnssMetrics;->mTopFourAverageCn0Statistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
 
-    new-instance v0, Lcom/android/server/location/gnss/GnssMetrics$Statistics;
+    new-instance p2, Lcom/android/server/location/gnss/GnssMetrics$Statistics;
 
-    invoke-direct {v0}, Lcom/android/server/location/gnss/GnssMetrics$Statistics;-><init>()V
+    invoke-direct {p2}, Lcom/android/server/location/gnss/GnssMetrics$Statistics;-><init>()V
 
-    iput-object v0, p0, Lcom/android/server/location/gnss/GnssMetrics;->mTopFourAverageCn0StatisticsL5:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
+    iput-object p2, p0, Lcom/android/server/location/gnss/GnssMetrics;->mTopFourAverageCn0StatisticsL5:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
 
-    invoke-direct {p0}, Lcom/android/server/location/gnss/GnssMetrics;->reset()V
+    invoke-virtual {p0}, Lcom/android/server/location/gnss/GnssMetrics;->reset()V
 
-    new-instance v0, Lcom/android/server/location/gnss/GnssMetrics$Statistics;
+    new-instance p2, Lcom/android/server/location/gnss/GnssMetrics$Statistics;
 
-    invoke-direct {v0}, Lcom/android/server/location/gnss/GnssMetrics$Statistics;-><init>()V
+    invoke-direct {p2}, Lcom/android/server/location/gnss/GnssMetrics$Statistics;-><init>()V
 
-    iput-object v0, p0, Lcom/android/server/location/gnss/GnssMetrics;->mLocationFailureReportsStatistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
+    iput-object p2, p0, Lcom/android/server/location/gnss/GnssMetrics;->mLocationFailureReportsStatistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
 
-    new-instance v0, Lcom/android/server/location/gnss/GnssMetrics$Statistics;
+    new-instance p2, Lcom/android/server/location/gnss/GnssMetrics$Statistics;
 
-    invoke-direct {v0}, Lcom/android/server/location/gnss/GnssMetrics$Statistics;-><init>()V
+    invoke-direct {p2}, Lcom/android/server/location/gnss/GnssMetrics$Statistics;-><init>()V
 
-    iput-object v0, p0, Lcom/android/server/location/gnss/GnssMetrics;->mTimeToFirstFixMilliSReportsStatistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
+    iput-object p2, p0, Lcom/android/server/location/gnss/GnssMetrics;->mTimeToFirstFixMilliSReportsStatistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
 
-    new-instance v0, Lcom/android/server/location/gnss/GnssMetrics$Statistics;
+    new-instance p2, Lcom/android/server/location/gnss/GnssMetrics$Statistics;
 
-    invoke-direct {v0}, Lcom/android/server/location/gnss/GnssMetrics$Statistics;-><init>()V
+    invoke-direct {p2}, Lcom/android/server/location/gnss/GnssMetrics$Statistics;-><init>()V
 
-    iput-object v0, p0, Lcom/android/server/location/gnss/GnssMetrics;->mPositionAccuracyMetersReportsStatistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
+    iput-object p2, p0, Lcom/android/server/location/gnss/GnssMetrics;->mPositionAccuracyMetersReportsStatistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
 
-    new-instance v0, Lcom/android/server/location/gnss/GnssMetrics$Statistics;
+    new-instance p2, Lcom/android/server/location/gnss/GnssMetrics$Statistics;
 
-    invoke-direct {v0}, Lcom/android/server/location/gnss/GnssMetrics$Statistics;-><init>()V
+    invoke-direct {p2}, Lcom/android/server/location/gnss/GnssMetrics$Statistics;-><init>()V
 
-    iput-object v0, p0, Lcom/android/server/location/gnss/GnssMetrics;->mTopFourAverageCn0DbmHzReportsStatistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
+    iput-object p2, p0, Lcom/android/server/location/gnss/GnssMetrics;->mTopFourAverageCn0DbmHzReportsStatistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
 
-    new-instance v0, Lcom/android/server/location/gnss/GnssMetrics$Statistics;
+    new-instance p2, Lcom/android/server/location/gnss/GnssMetrics$Statistics;
 
-    invoke-direct {v0}, Lcom/android/server/location/gnss/GnssMetrics$Statistics;-><init>()V
+    invoke-direct {p2}, Lcom/android/server/location/gnss/GnssMetrics$Statistics;-><init>()V
 
-    iput-object v0, p0, Lcom/android/server/location/gnss/GnssMetrics;->mL5TopFourAverageCn0DbmHzReportsStatistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
+    iput-object p2, p0, Lcom/android/server/location/gnss/GnssMetrics;->mL5TopFourAverageCn0DbmHzReportsStatistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
 
-    const-string/jumbo v0, "stats"
+    const-string/jumbo p2, "stats"
 
-    invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p1, p2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Landroid/app/StatsManager;
+    check-cast p1, Landroid/app/StatsManager;
 
-    iput-object v0, p0, Lcom/android/server/location/gnss/GnssMetrics;->mStatsManager:Landroid/app/StatsManager;
+    iput-object p1, p0, Lcom/android/server/location/gnss/GnssMetrics;->mStatsManager:Landroid/app/StatsManager;
 
-    invoke-direct {p0}, Lcom/android/server/location/gnss/GnssMetrics;->registerGnssStats()V
+    invoke-virtual {p0}, Lcom/android/server/location/gnss/GnssMetrics;->registerGnssStats()V
 
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/server/location/gnss/GnssMetrics;)Lcom/android/server/location/gnss/hal/GnssNative;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/location/gnss/GnssMetrics;->mGnssNative:Lcom/android/server/location/gnss/hal/GnssNative;
-
-    return-object v0
-.end method
-
-.method private static isL5Sv(F)Z
+.method public static isL5Sv(F)Z
     .locals 4
 
     float-to-double v0, p0
 
     const-wide v2, 0x41d1584ec0000000L    # 1.164E9
 
-    cmpl-double v0, v0, v2
+    cmpl-double p0, v0, v2
 
-    if-ltz v0, :cond_0
-
-    float-to-double v0, p0
+    if-ltz p0, :cond_0
 
     const-wide v2, 0x41d1b7acd0000000L    # 1.189E9
 
-    cmpg-double v0, v0, v2
+    cmpg-double p0, v0, v2
 
-    if-gtz v0, :cond_0
+    if-gtz p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
-.end method
-
-.method private logCn0L5(Landroid/location/GnssStatus;)V
-    .locals 7
-
-    invoke-virtual {p1}, Landroid/location/GnssStatus;->getSatelliteCount()I
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    return-void
-
-    :cond_0
-    new-instance v0, Ljava/util/ArrayList;
-
-    invoke-virtual {p1}, Landroid/location/GnssStatus;->getSatelliteCount()I
-
-    move-result v1
-
-    invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(I)V
-
-    const/4 v1, 0x0
-
-    :goto_0
-    invoke-virtual {p1}, Landroid/location/GnssStatus;->getSatelliteCount()I
-
-    move-result v2
-
-    if-ge v1, v2, :cond_2
-
-    invoke-virtual {p1, v1}, Landroid/location/GnssStatus;->getCarrierFrequencyHz(I)F
-
-    move-result v2
-
-    invoke-static {v2}, Lcom/android/server/location/gnss/GnssMetrics;->isL5Sv(F)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    invoke-virtual {p1, v1}, Landroid/location/GnssStatus;->getCn0DbHz(I)F
-
-    move-result v2
-
-    invoke-static {v2}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    :cond_1
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_0
-
-    :cond_2
-    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
-
-    move-result v1
-
-    const/4 v2, 0x4
-
-    if-ge v1, v2, :cond_3
-
-    return-void
-
-    :cond_3
-    invoke-static {v0}, Ljava/util/Collections;->sort(Ljava/util/List;)V
-
-    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
-
-    move-result v1
-
-    sub-int/2addr v1, v2
-
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/lang/Float;
-
-    invoke-virtual {v1}, Ljava/lang/Float;->floatValue()F
-
-    move-result v1
-
-    float-to-double v3, v1
-
-    const-wide/16 v5, 0x0
-
-    cmpl-double v1, v3, v5
-
-    if-lez v1, :cond_5
-
-    const-wide/16 v3, 0x0
-
-    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
-
-    move-result v1
-
-    sub-int/2addr v1, v2
-
-    :goto_1
-    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
-
-    move-result v2
-
-    if-ge v1, v2, :cond_4
-
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Ljava/lang/Float;
-
-    invoke-virtual {v2}, Ljava/lang/Float;->floatValue()F
-
-    move-result v2
-
-    float-to-double v5, v2
-
-    add-double/2addr v3, v5
-
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_1
-
-    :cond_4
-    const-wide/high16 v1, 0x4010000000000000L    # 4.0
-
-    div-double/2addr v3, v1
-
-    iget-object v1, p0, Lcom/android/server/location/gnss/GnssMetrics;->mTopFourAverageCn0StatisticsL5:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
-
-    invoke-virtual {v1, v3, v4}, Lcom/android/server/location/gnss/GnssMetrics$Statistics;->addItem(D)V
-
-    iget-object v1, p0, Lcom/android/server/location/gnss/GnssMetrics;->mL5TopFourAverageCn0DbmHzReportsStatistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
-
-    const-wide v5, 0x408f400000000000L    # 1000.0
-
-    mul-double/2addr v5, v3
-
-    invoke-virtual {v1, v5, v6}, Lcom/android/server/location/gnss/GnssMetrics$Statistics;->addItem(D)V
-
-    :cond_5
-    return-void
-.end method
-
-.method private registerGnssStats()V
-    .locals 5
-
-    new-instance v0, Lcom/android/server/location/gnss/GnssMetrics$StatsPullAtomCallbackImpl;
-
-    invoke-direct {v0, p0}, Lcom/android/server/location/gnss/GnssMetrics$StatsPullAtomCallbackImpl;-><init>(Lcom/android/server/location/gnss/GnssMetrics;)V
-
-    iget-object v1, p0, Lcom/android/server/location/gnss/GnssMetrics;->mStatsManager:Landroid/app/StatsManager;
-
-    sget-object v2, Lcom/android/internal/util/ConcurrentUtils;->DIRECT_EXECUTOR:Ljava/util/concurrent/Executor;
-
-    const/16 v3, 0x275a
-
-    const/4 v4, 0x0
-
-    invoke-virtual {v1, v3, v4, v2, v0}, Landroid/app/StatsManager;->setPullAtomCallback(ILandroid/app/StatsManager$PullAtomMetadata;Ljava/util/concurrent/Executor;Landroid/app/StatsManager$StatsPullAtomCallback;)V
-
-    iget-object v1, p0, Lcom/android/server/location/gnss/GnssMetrics;->mStatsManager:Landroid/app/StatsManager;
-
-    sget-object v2, Lcom/android/internal/util/ConcurrentUtils;->DIRECT_EXECUTOR:Ljava/util/concurrent/Executor;
-
-    const/16 v3, 0x2775
-
-    invoke-virtual {v1, v3, v4, v2, v0}, Landroid/app/StatsManager;->setPullAtomCallback(ILandroid/app/StatsManager$PullAtomMetadata;Ljava/util/concurrent/Executor;Landroid/app/StatsManager$StatsPullAtomCallback;)V
-
-    return-void
-.end method
-
-.method private reset()V
-    .locals 2
-
-    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
-
-    move-result-wide v0
-
-    iput-wide v0, p0, Lcom/android/server/location/gnss/GnssMetrics;->mLogStartInElapsedRealtimeMs:J
-
-    iget-object v0, p0, Lcom/android/server/location/gnss/GnssMetrics;->mLocationFailureStatistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
-
-    invoke-virtual {v0}, Lcom/android/server/location/gnss/GnssMetrics$Statistics;->reset()V
-
-    iget-object v0, p0, Lcom/android/server/location/gnss/GnssMetrics;->mTimeToFirstFixSecStatistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
-
-    invoke-virtual {v0}, Lcom/android/server/location/gnss/GnssMetrics$Statistics;->reset()V
-
-    iget-object v0, p0, Lcom/android/server/location/gnss/GnssMetrics;->mPositionAccuracyMeterStatistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
-
-    invoke-virtual {v0}, Lcom/android/server/location/gnss/GnssMetrics$Statistics;->reset()V
-
-    iget-object v0, p0, Lcom/android/server/location/gnss/GnssMetrics;->mTopFourAverageCn0Statistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
-
-    invoke-virtual {v0}, Lcom/android/server/location/gnss/GnssMetrics$Statistics;->reset()V
-
-    invoke-virtual {p0}, Lcom/android/server/location/gnss/GnssMetrics;->resetConstellationTypes()V
-
-    iget-object v0, p0, Lcom/android/server/location/gnss/GnssMetrics;->mTopFourAverageCn0StatisticsL5:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
-
-    invoke-virtual {v0}, Lcom/android/server/location/gnss/GnssMetrics$Statistics;->reset()V
-
-    const/4 v0, 0x0
-
-    iput v0, p0, Lcom/android/server/location/gnss/GnssMetrics;->mNumSvStatus:I
-
-    iput v0, p0, Lcom/android/server/location/gnss/GnssMetrics;->mNumL5SvStatus:I
-
-    iput v0, p0, Lcom/android/server/location/gnss/GnssMetrics;->mNumSvStatusUsedInFix:I
-
-    iput v0, p0, Lcom/android/server/location/gnss/GnssMetrics;->mNumL5SvStatusUsedInFix:I
-
-    return-void
+    return p0
 .end method
 
 
@@ -650,17 +416,17 @@
 
     invoke-static {v0}, Lcom/android/internal/location/nano/GnssLogsProto$GnssLog;->toByteArray(Lcom/android/framework/protobuf/nano/MessageNano;)[B
 
-    move-result-object v1
+    move-result-object v0
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    invoke-static {v1, v2}, Landroid/util/Base64;->encodeToString([BI)Ljava/lang/String;
+    invoke-static {v0, v1}, Landroid/util/Base64;->encodeToString([BI)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-direct {p0}, Lcom/android/server/location/gnss/GnssMetrics;->reset()V
+    invoke-virtual {p0}, Lcom/android/server/location/gnss/GnssMetrics;->reset()V
 
-    return-object v1
+    return-object v0
 .end method
 
 .method public dumpGnssMetricsAsText()Ljava/lang/String;
@@ -993,48 +759,50 @@
 
     const/4 v2, 0x0
 
+    move v3, v2
+
     :goto_0
-    iget-object v3, p0, Lcom/android/server/location/gnss/GnssMetrics;->mConstellationTypes:[Z
+    iget-object v4, p0, Lcom/android/server/location/gnss/GnssMetrics;->mConstellationTypes:[Z
 
-    array-length v4, v3
+    array-length v5, v4
 
-    if-ge v2, v4, :cond_6
+    if-ge v3, v5, :cond_6
 
-    aget-boolean v3, v3, v2
+    aget-boolean v4, v4, v3
 
-    if-eqz v3, :cond_5
+    if-eqz v4, :cond_5
 
-    invoke-static {v2}, Landroid/location/GnssStatus;->constellationTypeToString(I)Ljava/lang/String;
+    invoke-static {v3}, Landroid/location/GnssStatus;->constellationTypeToString(I)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, " "
+    const-string v4, " "
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_5
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
     :cond_6
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, "GNSS_KPI_END"
+    const-string v3, "GNSS_KPI_END"
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v2, p0, Lcom/android/server/location/gnss/GnssMetrics;->mGnssPowerMetrics:Lcom/android/server/location/gnss/GnssMetrics$GnssPowerMetrics;
+    iget-object p0, p0, Lcom/android/server/location/gnss/GnssMetrics;->mGnssPowerMetrics:Lcom/android/server/location/gnss/GnssMetrics$GnssPowerMetrics;
 
-    invoke-virtual {v2}, Lcom/android/server/location/gnss/GnssMetrics$GnssPowerMetrics;->getGpsBatteryStats()Landroid/os/connectivity/GpsBatteryStats;
+    invoke-virtual {p0}, Lcom/android/server/location/gnss/GnssMetrics$GnssPowerMetrics;->getGpsBatteryStats()Landroid/os/connectivity/GpsBatteryStats;
 
-    move-result-object v2
+    move-result-object p0
 
-    if-eqz v2, :cond_8
+    if-eqz p0, :cond_8
 
     const-string v3, "Power Metrics"
 
@@ -1046,7 +814,7 @@
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Landroid/os/connectivity/GpsBatteryStats;->getLoggingDurationMs()J
+    invoke-virtual {p0}, Landroid/os/connectivity/GpsBatteryStats;->getLoggingDurationMs()J
 
     move-result-wide v3
 
@@ -1060,7 +828,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Landroid/os/connectivity/GpsBatteryStats;->getTimeInGpsSignalQualityLevel()[J
+    invoke-virtual {p0}, Landroid/os/connectivity/GpsBatteryStats;->getTimeInGpsSignalQualityLevel()[J
 
     move-result-object v3
 
@@ -1092,65 +860,63 @@
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const/4 v4, 0x0
+    aget-wide v2, v3, v2
 
-    aget-wide v7, v3, v4
+    long-to-double v2, v2
 
-    long-to-double v7, v7
+    div-double/2addr v2, v5
 
-    div-double/2addr v7, v5
-
-    invoke-virtual {v0, v7, v8}, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2, v3}, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_7
-    const-string v4, "  Energy consumed while on battery (mAh): "
+    const-string v2, "  Energy consumed while on battery (mAh): "
 
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Landroid/os/connectivity/GpsBatteryStats;->getEnergyConsumedMaMs()J
+    invoke-virtual {p0}, Landroid/os/connectivity/GpsBatteryStats;->getEnergyConsumedMaMs()J
 
-    move-result-wide v4
+    move-result-wide v2
 
-    long-to-double v4, v4
+    long-to-double v2, v2
 
-    const-wide v6, 0x414b774000000000L    # 3600000.0
+    const-wide v4, 0x414b774000000000L    # 3600000.0
 
-    div-double/2addr v4, v6
+    div-double/2addr v2, v4
 
-    invoke-virtual {v0, v4, v5}, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2, v3}, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_8
-    const-string v3, "Hardware Version: "
+    const-string p0, "Hardware Version: "
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v3, "ro.boot.revision"
+    const-string/jumbo p0, "ro.boot.revision"
 
-    const-string v4, ""
+    const-string v2, ""
 
-    invoke-static {v3, v4}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {p0, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p0
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method
 
 .method public logCn0(Landroid/location/GnssStatus;)V
-    .locals 7
+    .locals 6
 
-    invoke-direct {p0, p1}, Lcom/android/server/location/gnss/GnssMetrics;->logCn0L5(Landroid/location/GnssStatus;)V
+    invoke-virtual {p0, p1}, Lcom/android/server/location/gnss/GnssMetrics;->logCn0L5(Landroid/location/GnssStatus;)V
 
     invoke-virtual {p1}, Landroid/location/GnssStatus;->getSatelliteCount()I
 
@@ -1158,11 +924,11 @@
 
     if-nez v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/location/gnss/GnssMetrics;->mGnssPowerMetrics:Lcom/android/server/location/gnss/GnssMetrics$GnssPowerMetrics;
+    iget-object p0, p0, Lcom/android/server/location/gnss/GnssMetrics;->mGnssPowerMetrics:Lcom/android/server/location/gnss/GnssMetrics$GnssPowerMetrics;
 
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    invoke-virtual {v0, v1}, Lcom/android/server/location/gnss/GnssMetrics$GnssPowerMetrics;->reportSignalQuality([F)V
+    invoke-virtual {p0, p1}, Lcom/android/server/location/gnss/GnssMetrics$GnssPowerMetrics;->reportSignalQuality([F)V
 
     return-void
 
@@ -1171,171 +937,303 @@
 
     move-result v0
 
-    new-array v0, v0, [F
+    new-array v1, v0, [F
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
     :goto_0
     invoke-virtual {p1}, Landroid/location/GnssStatus;->getSatelliteCount()I
 
-    move-result v2
+    move-result v3
 
-    if-ge v1, v2, :cond_1
+    if-ge v2, v3, :cond_1
 
-    invoke-virtual {p1, v1}, Landroid/location/GnssStatus;->getCn0DbHz(I)F
+    invoke-virtual {p1, v2}, Landroid/location/GnssStatus;->getCn0DbHz(I)F
 
-    move-result v2
+    move-result v3
 
-    aput v2, v0, v1
+    aput v3, v1, v2
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     :cond_1
-    invoke-static {v0}, Ljava/util/Arrays;->sort([F)V
+    invoke-static {v1}, Ljava/util/Arrays;->sort([F)V
 
-    iget-object v1, p0, Lcom/android/server/location/gnss/GnssMetrics;->mGnssPowerMetrics:Lcom/android/server/location/gnss/GnssMetrics$GnssPowerMetrics;
+    iget-object p1, p0, Lcom/android/server/location/gnss/GnssMetrics;->mGnssPowerMetrics:Lcom/android/server/location/gnss/GnssMetrics$GnssPowerMetrics;
 
-    invoke-virtual {v1, v0}, Lcom/android/server/location/gnss/GnssMetrics$GnssPowerMetrics;->reportSignalQuality([F)V
+    invoke-virtual {p1, v1}, Lcom/android/server/location/gnss/GnssMetrics$GnssPowerMetrics;->reportSignalQuality([F)V
 
-    array-length v1, v0
+    const/4 p1, 0x4
 
-    const/4 v2, 0x4
-
-    if-ge v1, v2, :cond_2
+    if-ge v0, p1, :cond_2
 
     return-void
 
     :cond_2
-    array-length v1, v0
+    add-int/lit8 p1, v0, -0x4
 
-    sub-int/2addr v1, v2
+    aget v2, v1, p1
 
-    aget v1, v0, v1
+    float-to-double v2, v2
 
-    float-to-double v3, v1
+    const-wide/16 v4, 0x0
 
-    const-wide/16 v5, 0x0
+    cmpl-double v2, v2, v4
 
-    cmpl-double v1, v3, v5
-
-    if-lez v1, :cond_4
-
-    const-wide/16 v3, 0x0
-
-    array-length v1, v0
-
-    sub-int/2addr v1, v2
+    if-lez v2, :cond_4
 
     :goto_1
-    array-length v2, v0
+    if-ge p1, v0, :cond_3
 
-    if-ge v1, v2, :cond_3
+    aget v2, v1, p1
 
-    aget v2, v0, v1
+    float-to-double v2, v2
 
-    float-to-double v5, v2
+    add-double/2addr v4, v2
 
-    add-double/2addr v3, v5
-
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 p1, p1, 0x1
 
     goto :goto_1
 
     :cond_3
-    const-wide/high16 v1, 0x4010000000000000L    # 4.0
+    const-wide/high16 v0, 0x4010000000000000L    # 4.0
 
-    div-double/2addr v3, v1
+    div-double/2addr v4, v0
 
-    iget-object v1, p0, Lcom/android/server/location/gnss/GnssMetrics;->mTopFourAverageCn0Statistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
+    iget-object p1, p0, Lcom/android/server/location/gnss/GnssMetrics;->mTopFourAverageCn0Statistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
 
-    invoke-virtual {v1, v3, v4}, Lcom/android/server/location/gnss/GnssMetrics$Statistics;->addItem(D)V
+    invoke-virtual {p1, v4, v5}, Lcom/android/server/location/gnss/GnssMetrics$Statistics;->addItem(D)V
 
-    iget-object v1, p0, Lcom/android/server/location/gnss/GnssMetrics;->mTopFourAverageCn0DbmHzReportsStatistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
+    iget-object p0, p0, Lcom/android/server/location/gnss/GnssMetrics;->mTopFourAverageCn0DbmHzReportsStatistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
 
-    const-wide v5, 0x408f400000000000L    # 1000.0
+    const-wide v0, 0x408f400000000000L    # 1000.0
 
-    mul-double/2addr v5, v3
+    mul-double/2addr v4, v0
 
-    invoke-virtual {v1, v5, v6}, Lcom/android/server/location/gnss/GnssMetrics$Statistics;->addItem(D)V
+    invoke-virtual {p0, v4, v5}, Lcom/android/server/location/gnss/GnssMetrics$Statistics;->addItem(D)V
 
     :cond_4
     return-void
 .end method
 
-.method public logConstellationType(I)V
-    .locals 2
+.method public final logCn0L5(Landroid/location/GnssStatus;)V
+    .locals 6
 
-    iget-object v0, p0, Lcom/android/server/location/gnss/GnssMetrics;->mConstellationTypes:[Z
+    invoke-virtual {p1}, Landroid/location/GnssStatus;->getSatelliteCount()I
 
-    array-length v1, v0
+    move-result v0
 
-    if-lt p1, v1, :cond_0
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "Constellation type "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v1, " is not valid."
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string v1, "GnssMetrics"
-
-    invoke-static {v1, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    if-nez v0, :cond_0
 
     return-void
 
     :cond_0
-    const/4 v1, 0x1
+    new-instance v0, Ljava/util/ArrayList;
 
-    aput-boolean v1, v0, p1
+    invoke-virtual {p1}, Landroid/location/GnssStatus;->getSatelliteCount()I
+
+    move-result v1
+
+    invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(I)V
+
+    const/4 v1, 0x0
+
+    :goto_0
+    invoke-virtual {p1}, Landroid/location/GnssStatus;->getSatelliteCount()I
+
+    move-result v2
+
+    if-ge v1, v2, :cond_2
+
+    invoke-virtual {p1, v1}, Landroid/location/GnssStatus;->getCarrierFrequencyHz(I)F
+
+    move-result v2
+
+    invoke-static {v2}, Lcom/android/server/location/gnss/GnssMetrics;->isL5Sv(F)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    invoke-virtual {p1, v1}, Landroid/location/GnssStatus;->getCn0DbHz(I)F
+
+    move-result v2
+
+    invoke-static {v2}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    :cond_1
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+
+    move-result p1
+
+    const/4 v1, 0x4
+
+    if-ge p1, v1, :cond_3
+
+    return-void
+
+    :cond_3
+    invoke-static {v0}, Ljava/util/Collections;->sort(Ljava/util/List;)V
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+
+    move-result p1
+
+    sub-int/2addr p1, v1
+
+    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Ljava/lang/Float;
+
+    invoke-virtual {p1}, Ljava/lang/Float;->floatValue()F
+
+    move-result p1
+
+    float-to-double v2, p1
+
+    const-wide/16 v4, 0x0
+
+    cmpl-double p1, v2, v4
+
+    if-lez p1, :cond_5
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+
+    move-result p1
+
+    sub-int/2addr p1, v1
+
+    :goto_1
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+
+    move-result v1
+
+    if-ge p1, v1, :cond_4
+
+    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/lang/Float;
+
+    invoke-virtual {v1}, Ljava/lang/Float;->floatValue()F
+
+    move-result v1
+
+    float-to-double v1, v1
+
+    add-double/2addr v4, v1
+
+    add-int/lit8 p1, p1, 0x1
+
+    goto :goto_1
+
+    :cond_4
+    const-wide/high16 v0, 0x4010000000000000L    # 4.0
+
+    div-double/2addr v4, v0
+
+    iget-object p1, p0, Lcom/android/server/location/gnss/GnssMetrics;->mTopFourAverageCn0StatisticsL5:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
+
+    invoke-virtual {p1, v4, v5}, Lcom/android/server/location/gnss/GnssMetrics$Statistics;->addItem(D)V
+
+    iget-object p0, p0, Lcom/android/server/location/gnss/GnssMetrics;->mL5TopFourAverageCn0DbmHzReportsStatistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
+
+    const-wide v0, 0x408f400000000000L    # 1000.0
+
+    mul-double/2addr v4, v0
+
+    invoke-virtual {p0, v4, v5}, Lcom/android/server/location/gnss/GnssMetrics$Statistics;->addItem(D)V
+
+    :cond_5
+    return-void
+.end method
+
+.method public logConstellationType(I)V
+    .locals 1
+
+    iget-object p0, p0, Lcom/android/server/location/gnss/GnssMetrics;->mConstellationTypes:[Z
+
+    array-length v0, p0
+
+    if-lt p1, v0, :cond_0
+
+    new-instance p0, Ljava/lang/StringBuilder;
+
+    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v0, "Constellation type "
+
+    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string p1, " is not valid."
+
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    const-string p1, "GnssMetrics"
+
+    invoke-static {p1, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_0
+    const/4 v0, 0x1
+
+    aput-boolean v0, p0, p1
 
     return-void
 .end method
 
 .method public logMissedReports(II)V
-    .locals 5
+    .locals 3
 
     const/16 v0, 0x3e8
 
     invoke-static {v0, p1}, Ljava/lang/Math;->max(II)I
 
-    move-result v0
+    move-result p1
 
-    div-int v0, p2, v0
+    div-int/2addr p2, p1
 
-    add-int/lit8 v0, v0, -0x1
+    add-int/lit8 p2, p2, -0x1
 
-    if-lez v0, :cond_0
+    if-lez p2, :cond_0
 
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    if-ge v1, v0, :cond_0
+    if-ge p1, p2, :cond_0
 
-    iget-object v2, p0, Lcom/android/server/location/gnss/GnssMetrics;->mLocationFailureStatistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
+    iget-object v0, p0, Lcom/android/server/location/gnss/GnssMetrics;->mLocationFailureStatistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
 
-    const-wide/high16 v3, 0x3ff0000000000000L    # 1.0
+    const-wide/high16 v1, 0x3ff0000000000000L    # 1.0
 
-    invoke-virtual {v2, v3, v4}, Lcom/android/server/location/gnss/GnssMetrics$Statistics;->addItem(D)V
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/location/gnss/GnssMetrics$Statistics;->addItem(D)V
 
-    iget-object v2, p0, Lcom/android/server/location/gnss/GnssMetrics;->mLocationFailureReportsStatistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
+    iget-object v0, p0, Lcom/android/server/location/gnss/GnssMetrics;->mLocationFailureReportsStatistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
 
-    invoke-virtual {v2, v3, v4}, Lcom/android/server/location/gnss/GnssMetrics$Statistics;->addItem(D)V
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/location/gnss/GnssMetrics$Statistics;->addItem(D)V
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 p1, p1, 0x1
 
     goto :goto_0
 
@@ -1352,42 +1250,40 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/android/server/location/gnss/GnssMetrics$Statistics;->addItem(D)V
 
-    iget-object v0, p0, Lcom/android/server/location/gnss/GnssMetrics;->mPositionAccuracyMetersReportsStatistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
+    iget-object p0, p0, Lcom/android/server/location/gnss/GnssMetrics;->mPositionAccuracyMetersReportsStatistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
 
-    float-to-double v1, p1
-
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/location/gnss/GnssMetrics$Statistics;->addItem(D)V
+    invoke-virtual {p0, v1, v2}, Lcom/android/server/location/gnss/GnssMetrics$Statistics;->addItem(D)V
 
     return-void
 .end method
 
 .method public logReceivedLocationStatus(Z)V
-    .locals 3
+    .locals 2
 
     if-nez p1, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/location/gnss/GnssMetrics;->mLocationFailureStatistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
+    iget-object p1, p0, Lcom/android/server/location/gnss/GnssMetrics;->mLocationFailureStatistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
 
-    const-wide/high16 v1, 0x3ff0000000000000L    # 1.0
+    const-wide/high16 v0, 0x3ff0000000000000L    # 1.0
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/location/gnss/GnssMetrics$Statistics;->addItem(D)V
+    invoke-virtual {p1, v0, v1}, Lcom/android/server/location/gnss/GnssMetrics$Statistics;->addItem(D)V
 
-    iget-object v0, p0, Lcom/android/server/location/gnss/GnssMetrics;->mLocationFailureReportsStatistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
+    iget-object p0, p0, Lcom/android/server/location/gnss/GnssMetrics;->mLocationFailureReportsStatistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/location/gnss/GnssMetrics$Statistics;->addItem(D)V
+    invoke-virtual {p0, v0, v1}, Lcom/android/server/location/gnss/GnssMetrics$Statistics;->addItem(D)V
 
     return-void
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/location/gnss/GnssMetrics;->mLocationFailureStatistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
+    iget-object p1, p0, Lcom/android/server/location/gnss/GnssMetrics;->mLocationFailureStatistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
 
-    const-wide/16 v1, 0x0
+    const-wide/16 v0, 0x0
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/location/gnss/GnssMetrics$Statistics;->addItem(D)V
+    invoke-virtual {p1, v0, v1}, Lcom/android/server/location/gnss/GnssMetrics$Statistics;->addItem(D)V
 
-    iget-object v0, p0, Lcom/android/server/location/gnss/GnssMetrics;->mLocationFailureReportsStatistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
+    iget-object p0, p0, Lcom/android/server/location/gnss/GnssMetrics;->mLocationFailureReportsStatistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/location/gnss/GnssMetrics$Statistics;->addItem(D)V
+    invoke-virtual {p0, v0, v1}, Lcom/android/server/location/gnss/GnssMetrics$Statistics;->addItem(D)V
 
     return-void
 .end method
@@ -1467,17 +1363,17 @@
 
     if-eqz v1, :cond_1
 
-    iget v2, p0, Lcom/android/server/location/gnss/GnssMetrics;->mNumL5SvStatusUsedInFix:I
+    iget v1, p0, Lcom/android/server/location/gnss/GnssMetrics;->mNumL5SvStatusUsedInFix:I
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v1, v1, 0x1
 
-    iput v2, p0, Lcom/android/server/location/gnss/GnssMetrics;->mNumL5SvStatusUsedInFix:I
+    iput v1, p0, Lcom/android/server/location/gnss/GnssMetrics;->mNumL5SvStatusUsedInFix:I
 
-    iget-wide v5, p0, Lcom/android/server/location/gnss/GnssMetrics;->mL5SvStatusReportsUsedInFix:J
+    iget-wide v1, p0, Lcom/android/server/location/gnss/GnssMetrics;->mL5SvStatusReportsUsedInFix:J
 
-    add-long/2addr v5, v3
+    add-long/2addr v1, v3
 
-    iput-wide v5, p0, Lcom/android/server/location/gnss/GnssMetrics;->mL5SvStatusReportsUsedInFix:J
+    iput-wide v1, p0, Lcom/android/server/location/gnss/GnssMetrics;->mL5SvStatusReportsUsedInFix:J
 
     :cond_1
     add-int/lit8 v0, v0, 0x1
@@ -1497,15 +1393,85 @@
 
     const-wide v3, 0x408f400000000000L    # 1000.0
 
-    div-double/2addr v1, v3
+    div-double v3, v1, v3
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/location/gnss/GnssMetrics$Statistics;->addItem(D)V
+    invoke-virtual {v0, v3, v4}, Lcom/android/server/location/gnss/GnssMetrics$Statistics;->addItem(D)V
 
-    iget-object v0, p0, Lcom/android/server/location/gnss/GnssMetrics;->mTimeToFirstFixMilliSReportsStatistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
+    iget-object p0, p0, Lcom/android/server/location/gnss/GnssMetrics;->mTimeToFirstFixMilliSReportsStatistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
 
-    int-to-double v1, p1
+    invoke-virtual {p0, v1, v2}, Lcom/android/server/location/gnss/GnssMetrics$Statistics;->addItem(D)V
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/location/gnss/GnssMetrics$Statistics;->addItem(D)V
+    return-void
+.end method
+
+.method public final registerGnssStats()V
+    .locals 5
+
+    new-instance v0, Lcom/android/server/location/gnss/GnssMetrics$StatsPullAtomCallbackImpl;
+
+    invoke-direct {v0, p0}, Lcom/android/server/location/gnss/GnssMetrics$StatsPullAtomCallbackImpl;-><init>(Lcom/android/server/location/gnss/GnssMetrics;)V
+
+    iget-object v1, p0, Lcom/android/server/location/gnss/GnssMetrics;->mStatsManager:Landroid/app/StatsManager;
+
+    sget-object v2, Lcom/android/internal/util/ConcurrentUtils;->DIRECT_EXECUTOR:Ljava/util/concurrent/Executor;
+
+    const/16 v3, 0x275a
+
+    const/4 v4, 0x0
+
+    invoke-virtual {v1, v3, v4, v2, v0}, Landroid/app/StatsManager;->setPullAtomCallback(ILandroid/app/StatsManager$PullAtomMetadata;Ljava/util/concurrent/Executor;Landroid/app/StatsManager$StatsPullAtomCallback;)V
+
+    iget-object p0, p0, Lcom/android/server/location/gnss/GnssMetrics;->mStatsManager:Landroid/app/StatsManager;
+
+    sget-object v1, Lcom/android/internal/util/ConcurrentUtils;->DIRECT_EXECUTOR:Ljava/util/concurrent/Executor;
+
+    const/16 v2, 0x2775
+
+    invoke-virtual {p0, v2, v4, v1, v0}, Landroid/app/StatsManager;->setPullAtomCallback(ILandroid/app/StatsManager$PullAtomMetadata;Ljava/util/concurrent/Executor;Landroid/app/StatsManager$StatsPullAtomCallback;)V
+
+    return-void
+.end method
+
+.method public final reset()V
+    .locals 2
+
+    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+
+    move-result-wide v0
+
+    iput-wide v0, p0, Lcom/android/server/location/gnss/GnssMetrics;->mLogStartInElapsedRealtimeMs:J
+
+    iget-object v0, p0, Lcom/android/server/location/gnss/GnssMetrics;->mLocationFailureStatistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
+
+    invoke-virtual {v0}, Lcom/android/server/location/gnss/GnssMetrics$Statistics;->reset()V
+
+    iget-object v0, p0, Lcom/android/server/location/gnss/GnssMetrics;->mTimeToFirstFixSecStatistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
+
+    invoke-virtual {v0}, Lcom/android/server/location/gnss/GnssMetrics$Statistics;->reset()V
+
+    iget-object v0, p0, Lcom/android/server/location/gnss/GnssMetrics;->mPositionAccuracyMeterStatistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
+
+    invoke-virtual {v0}, Lcom/android/server/location/gnss/GnssMetrics$Statistics;->reset()V
+
+    iget-object v0, p0, Lcom/android/server/location/gnss/GnssMetrics;->mTopFourAverageCn0Statistics:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
+
+    invoke-virtual {v0}, Lcom/android/server/location/gnss/GnssMetrics$Statistics;->reset()V
+
+    invoke-virtual {p0}, Lcom/android/server/location/gnss/GnssMetrics;->resetConstellationTypes()V
+
+    iget-object v0, p0, Lcom/android/server/location/gnss/GnssMetrics;->mTopFourAverageCn0StatisticsL5:Lcom/android/server/location/gnss/GnssMetrics$Statistics;
+
+    invoke-virtual {v0}, Lcom/android/server/location/gnss/GnssMetrics$Statistics;->reset()V
+
+    const/4 v0, 0x0
+
+    iput v0, p0, Lcom/android/server/location/gnss/GnssMetrics;->mNumSvStatus:I
+
+    iput v0, p0, Lcom/android/server/location/gnss/GnssMetrics;->mNumL5SvStatus:I
+
+    iput v0, p0, Lcom/android/server/location/gnss/GnssMetrics;->mNumSvStatusUsedInFix:I
+
+    iput v0, p0, Lcom/android/server/location/gnss/GnssMetrics;->mNumL5SvStatusUsedInFix:I
 
     return-void
 .end method

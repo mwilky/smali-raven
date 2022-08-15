@@ -13,20 +13,6 @@
 .end annotation
 
 
-# static fields
-.field private static final ATTR_DEVICE_ID:Ljava/lang/String; = "deviceId"
-
-.field private static final ATTR_FACE_ID:Ljava/lang/String; = "faceId"
-
-.field private static final ATTR_NAME:Ljava/lang/String; = "name"
-
-.field private static final TAG:Ljava/lang/String; = "FaceState"
-
-.field private static final TAG_FACE:Ljava/lang/String; = "face"
-
-.field private static final TAG_FACES:Ljava/lang/String; = "faces"
-
-
 # direct methods
 .method public constructor <init>(Landroid/content/Context;ILjava/lang/String;)V
     .locals 0
@@ -38,8 +24,8 @@
 
 
 # virtual methods
-.method protected doWriteState(Landroid/util/TypedXmlSerializer;)V
-    .locals 8
+.method public doWriteState(Landroid/util/TypedXmlSerializer;)V
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -49,7 +35,7 @@
     monitor-enter p0
 
     :try_start_0
-    iget-object v0, p0, Lcom/android/server/biometrics/sensors/face/FaceUserState;->mBiometrics:Ljava/util/ArrayList;
+    iget-object v0, p0, Lcom/android/server/biometrics/sensors/BiometricUserState;->mBiometrics:Ljava/util/ArrayList;
 
     invoke-virtual {p0, v0}, Lcom/android/server/biometrics/sensors/face/FaceUserState;->getCopy(Ljava/util/ArrayList;)Ljava/util/ArrayList;
 
@@ -59,95 +45,95 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    const-string v1, "faces"
+    const-string p0, "faces"
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    invoke-interface {p1, v2, v1}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p1, v1, p0}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
-    move-result v1
+    move-result p0
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
     :goto_0
-    if-ge v3, v1, :cond_0
+    if-ge v2, p0, :cond_0
 
-    invoke-virtual {v0, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v3
 
-    check-cast v4, Landroid/hardware/face/Face;
+    check-cast v3, Landroid/hardware/face/Face;
 
-    const-string v5, "face"
+    const-string v4, "face"
 
-    invoke-interface {p1, v2, v5}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p1, v1, v4}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    const-string v5, "faceId"
+    const-string v4, "faceId"
 
-    invoke-virtual {v4}, Landroid/hardware/face/Face;->getBiometricId()I
+    invoke-virtual {v3}, Landroid/hardware/face/Face;->getBiometricId()I
 
-    move-result v6
+    move-result v5
 
-    invoke-interface {p1, v2, v5, v6}, Landroid/util/TypedXmlSerializer;->attributeInt(Ljava/lang/String;Ljava/lang/String;I)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p1, v1, v4, v5}, Landroid/util/TypedXmlSerializer;->attributeInt(Ljava/lang/String;Ljava/lang/String;I)Lorg/xmlpull/v1/XmlSerializer;
 
-    const-string/jumbo v5, "name"
+    const-string/jumbo v4, "name"
 
-    invoke-virtual {v4}, Landroid/hardware/face/Face;->getName()Ljava/lang/CharSequence;
+    invoke-virtual {v3}, Landroid/hardware/face/Face;->getName()Ljava/lang/CharSequence;
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-interface {v6}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+    invoke-interface {v5}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-interface {p1, v2, v5, v6}, Landroid/util/TypedXmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p1, v1, v4, v5}, Landroid/util/TypedXmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    const-string v5, "deviceId"
+    const-string v4, "deviceId"
 
-    invoke-virtual {v4}, Landroid/hardware/face/Face;->getDeviceId()J
+    invoke-virtual {v3}, Landroid/hardware/face/Face;->getDeviceId()J
 
-    move-result-wide v6
+    move-result-wide v5
 
-    invoke-interface {p1, v2, v5, v6, v7}, Landroid/util/TypedXmlSerializer;->attributeLong(Ljava/lang/String;Ljava/lang/String;J)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p1, v1, v4, v5, v6}, Landroid/util/TypedXmlSerializer;->attributeLong(Ljava/lang/String;Ljava/lang/String;J)Lorg/xmlpull/v1/XmlSerializer;
 
-    const-string v5, "face"
+    const-string v3, "face"
 
-    invoke-interface {p1, v2, v5}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p1, v1, v3}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     :cond_0
-    const-string v3, "faces"
+    const-string p0, "faces"
 
-    invoke-interface {p1, v2, v3}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p1, v1, p0}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     return-void
 
     :catchall_0
-    move-exception v0
+    move-exception p1
 
     :try_start_1
     monitor-exit p0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v0
+    throw p1
 .end method
 
-.method protected getBiometricsTag()Ljava/lang/String;
-    .locals 1
+.method public getBiometricsTag()Ljava/lang/String;
+    .locals 0
 
-    const-string v0, "faces"
+    const-string p0, "faces"
 
-    return-object v0
+    return-object p0
 .end method
 
-.method protected getCopy(Ljava/util/ArrayList;)Ljava/util/ArrayList;
-    .locals 8
+.method public getCopy(Ljava/util/ArrayList;)Ljava/util/ArrayList;
+    .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -160,61 +146,67 @@
         }
     .end annotation
 
-    new-instance v0, Ljava/util/ArrayList;
+    new-instance p0, Ljava/util/ArrayList;
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {p0}, Ljava/util/ArrayList;-><init>()V
 
     invoke-virtual {p1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
-    move-result-object v1
+    move-result-object p1
 
     :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_0
+    if-eqz v0, :cond_0
 
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/hardware/face/Face;
+
+    new-instance v1, Landroid/hardware/face/Face;
+
+    invoke-virtual {v0}, Landroid/hardware/face/Face;->getName()Ljava/lang/CharSequence;
 
     move-result-object v2
 
-    check-cast v2, Landroid/hardware/face/Face;
+    invoke-virtual {v0}, Landroid/hardware/face/Face;->getBiometricId()I
 
-    new-instance v3, Landroid/hardware/face/Face;
+    move-result v3
 
-    invoke-virtual {v2}, Landroid/hardware/face/Face;->getName()Ljava/lang/CharSequence;
+    invoke-virtual {v0}, Landroid/hardware/face/Face;->getDeviceId()J
 
-    move-result-object v4
+    move-result-wide v4
 
-    invoke-virtual {v2}, Landroid/hardware/face/Face;->getBiometricId()I
+    invoke-direct {v1, v2, v3, v4, v5}, Landroid/hardware/face/Face;-><init>(Ljava/lang/CharSequence;IJ)V
 
-    move-result v5
-
-    invoke-virtual {v2}, Landroid/hardware/face/Face;->getDeviceId()J
-
-    move-result-wide v6
-
-    invoke-direct {v3, v4, v5, v6, v7}, Landroid/hardware/face/Face;-><init>(Ljava/lang/CharSequence;IJ)V
-
-    invoke-virtual {v0, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
     :cond_0
-    return-object v0
+    return-object p0
 .end method
 
-.method protected getNameTemplateResource()I
-    .locals 1
+.method public getNameTemplateResource()I
+    .locals 0
 
-    const v0, 0x104036d
+    const p0, 0x10403ab
 
-    return v0
+    return p0
 .end method
 
-.method protected parseBiometricsLocked(Landroid/util/TypedXmlPullParser;)V
-    .locals 9
+.method public parseBiometricsLocked(Landroid/util/TypedXmlPullParser;)V
+    .locals 7
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "this"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -232,28 +224,26 @@
 
     move-result v1
 
-    move v2, v1
+    const/4 v2, 0x1
 
-    const/4 v3, 0x1
+    if-eq v1, v2, :cond_3
 
-    if-eq v1, v3, :cond_4
+    const/4 v2, 0x3
 
-    const/4 v1, 0x3
-
-    if-ne v2, v1, :cond_1
+    if-ne v1, v2, :cond_1
 
     invoke-interface {p1}, Landroid/util/TypedXmlPullParser;->getDepth()I
 
     move-result v3
 
-    if-le v3, v0, :cond_4
+    if-le v3, v0, :cond_3
 
     :cond_1
-    if-eq v2, v1, :cond_0
+    if-eq v1, v2, :cond_0
 
-    const/4 v1, 0x4
+    const/4 v2, 0x4
 
-    if-ne v2, v1, :cond_2
+    if-ne v1, v2, :cond_2
 
     goto :goto_0
 
@@ -262,45 +252,44 @@
 
     move-result-object v1
 
-    const-string v3, "face"
+    const-string v2, "face"
 
-    invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    const/4 v1, 0x0
+
+    const-string/jumbo v2, "name"
+
+    invoke-interface {p1, v1, v2}, Landroid/util/TypedXmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string v3, "faceId"
+
+    invoke-interface {p1, v1, v3}, Landroid/util/TypedXmlPullParser;->getAttributeInt(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    const-string v4, "deviceId"
 
-    const/4 v3, 0x0
+    invoke-interface {p1, v1, v4}, Landroid/util/TypedXmlPullParser;->getAttributeLong(Ljava/lang/String;Ljava/lang/String;)J
 
-    const-string/jumbo v4, "name"
+    move-result-wide v4
 
-    invoke-interface {p1, v3, v4}, Landroid/util/TypedXmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    iget-object v1, p0, Lcom/android/server/biometrics/sensors/BiometricUserState;->mBiometrics:Ljava/util/ArrayList;
 
-    move-result-object v4
+    new-instance v6, Landroid/hardware/face/Face;
 
-    const-string v5, "faceId"
+    invoke-direct {v6, v2, v3, v4, v5}, Landroid/hardware/face/Face;-><init>(Ljava/lang/CharSequence;IJ)V
 
-    invoke-interface {p1, v3, v5}, Landroid/util/TypedXmlPullParser;->getAttributeInt(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v1, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    move-result v5
-
-    const-string v6, "deviceId"
-
-    invoke-interface {p1, v3, v6}, Landroid/util/TypedXmlPullParser;->getAttributeLong(Ljava/lang/String;Ljava/lang/String;)J
-
-    move-result-wide v6
-
-    iget-object v3, p0, Lcom/android/server/biometrics/sensors/face/FaceUserState;->mBiometrics:Ljava/util/ArrayList;
-
-    new-instance v8, Landroid/hardware/face/Face;
-
-    invoke-direct {v8, v4, v5, v6, v7}, Landroid/hardware/face/Face;-><init>(Ljava/lang/CharSequence;IJ)V
-
-    invoke-virtual {v3, v8}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    :cond_3
     goto :goto_0
 
-    :cond_4
+    :cond_3
     return-void
 .end method

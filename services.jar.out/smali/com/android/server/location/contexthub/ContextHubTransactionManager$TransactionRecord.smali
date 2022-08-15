@@ -1,4 +1,4 @@
-.class Lcom/android/server/location/contexthub/ContextHubTransactionManager$TransactionRecord;
+.class public Lcom/android/server/location/contexthub/ContextHubTransactionManager$TransactionRecord;
 .super Ljava/lang/Object;
 .source "ContextHubTransactionManager.java"
 
@@ -9,22 +9,22 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "TransactionRecord"
 .end annotation
 
 
 # instance fields
-.field private final mTimestamp:J
+.field public final mTimestamp:J
 
-.field private final mTransaction:Ljava/lang/String;
+.field public final mTransaction:Ljava/lang/String;
 
-.field final synthetic this$0:Lcom/android/server/location/contexthub/ContextHubTransactionManager;
+.field public final synthetic this$0:Lcom/android/server/location/contexthub/ContextHubTransactionManager;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/location/contexthub/ContextHubTransactionManager;Ljava/lang/String;)V
-    .locals 2
+.method public constructor <init>(Lcom/android/server/location/contexthub/ContextHubTransactionManager;Ljava/lang/String;)V
+    .locals 0
 
     iput-object p1, p0, Lcom/android/server/location/contexthub/ContextHubTransactionManager$TransactionRecord;->this$0:Lcom/android/server/location/contexthub/ContextHubTransactionManager;
 
@@ -34,9 +34,9 @@
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v0
+    move-result-wide p1
 
-    iput-wide v0, p0, Lcom/android/server/location/contexthub/ContextHubTransactionManager$TransactionRecord;->mTimestamp:J
+    iput-wide p1, p0, Lcom/android/server/location/contexthub/ContextHubTransactionManager$TransactionRecord;->mTimestamp:J
 
     return-void
 .end method
@@ -50,7 +50,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-static {}, Lcom/android/server/location/contexthub/ContextHubTransactionManager;->access$000()Ljava/text/DateFormat;
+    invoke-static {}, Lcom/android/server/location/contexthub/ContextHubTransactionManager;->-$$Nest$sfgetDATE_FORMAT()Ljava/text/DateFormat;
 
     move-result-object v1
 
@@ -70,13 +70,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lcom/android/server/location/contexthub/ContextHubTransactionManager$TransactionRecord;->mTransaction:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/location/contexthub/ContextHubTransactionManager$TransactionRecord;->mTransaction:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

@@ -3,8 +3,9 @@
 .source "ComGoogleAndroidMapsUpdater.java"
 
 
-# static fields
-.field private static final LIBRARY_NAME:Ljava/lang/String; = "com.google.android.maps"
+# annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+.end annotation
 
 
 # direct methods
@@ -19,13 +20,13 @@
 
 # virtual methods
 .method public updatePackage(Lcom/android/server/pm/parsing/pkg/ParsedPackage;Z)V
-    .locals 1
+    .locals 0
 
-    const-string v0, "com.google.android.maps"
+    const-string p0, "com.google.android.maps"
 
-    invoke-interface {p1, v0}, Lcom/android/server/pm/parsing/pkg/ParsedPackage;->removeUsesLibrary(Ljava/lang/String;)Lcom/android/server/pm/parsing/pkg/ParsedPackage;
+    invoke-interface {p1, p0}, Lcom/android/server/pm/parsing/pkg/ParsedPackage;->removeUsesLibrary(Ljava/lang/String;)Lcom/android/server/pm/parsing/pkg/ParsedPackage;
 
-    invoke-interface {p1, v0}, Lcom/android/server/pm/parsing/pkg/ParsedPackage;->removeUsesOptionalLibrary(Ljava/lang/String;)Lcom/android/server/pm/parsing/pkg/ParsedPackage;
+    invoke-interface {p1, p0}, Lcom/android/server/pm/parsing/pkg/ParsedPackage;->removeUsesOptionalLibrary(Ljava/lang/String;)Lcom/android/server/pm/parsing/pkg/ParsedPackage;
 
     return-void
 .end method

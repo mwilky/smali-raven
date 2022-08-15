@@ -4,6 +4,9 @@
 
 
 # annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/android/server/connectivity/Vpn;
 .end annotation
@@ -26,11 +29,11 @@
 
 # virtual methods
 .method public createIkeSession(Landroid/content/Context;Landroid/net/ipsec/ike/IkeSessionParams;Landroid/net/ipsec/ike/ChildSessionParams;Ljava/util/concurrent/Executor;Landroid/net/ipsec/ike/IkeSessionCallback;Landroid/net/ipsec/ike/ChildSessionCallback;)Landroid/net/ipsec/ike/IkeSession;
-    .locals 8
+    .locals 7
 
-    new-instance v7, Landroid/net/ipsec/ike/IkeSession;
+    new-instance p0, Landroid/net/ipsec/ike/IkeSession;
 
-    move-object v0, v7
+    move-object v0, p0
 
     move-object v1, p1
 
@@ -46,5 +49,5 @@
 
     invoke-direct/range {v0 .. v6}, Landroid/net/ipsec/ike/IkeSession;-><init>(Landroid/content/Context;Landroid/net/ipsec/ike/IkeSessionParams;Landroid/net/ipsec/ike/ChildSessionParams;Ljava/util/concurrent/Executor;Landroid/net/ipsec/ike/IkeSessionCallback;Landroid/net/ipsec/ike/ChildSessionCallback;)V
 
-    return-object v7
+    return-object p0
 .end method

@@ -1,4 +1,4 @@
-.class Lcom/android/server/notification/NotificationIntrusivenessExtractor$1;
+.class public Lcom/android/server/notification/NotificationIntrusivenessExtractor$1;
 .super Lcom/android/server/notification/RankingReconsideration;
 .source "NotificationIntrusivenessExtractor.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/notification/NotificationIntrusivenessExtractor;
+.field public final synthetic this$0:Lcom/android/server/notification/NotificationIntrusivenessExtractor;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/notification/NotificationIntrusivenessExtractor;Ljava/lang/String;J)V
+.method public constructor <init>(Lcom/android/server/notification/NotificationIntrusivenessExtractor;Ljava/lang/String;J)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/notification/NotificationIntrusivenessExtractor$1;->this$0:Lcom/android/server/notification/NotificationIntrusivenessExtractor;
@@ -46,13 +46,13 @@
 
     const-wide/16 v2, 0x2710
 
-    cmp-long v0, v0, v2
+    cmp-long p0, v0, v2
 
-    if-ltz v0, :cond_0
+    if-ltz p0, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    invoke-virtual {p1, v0}, Lcom/android/server/notification/NotificationRecord;->setRecentlyIntrusive(Z)V
+    invoke-virtual {p1, p0}, Lcom/android/server/notification/NotificationRecord;->setRecentlyIntrusive(Z)V
 
     :cond_0
     return-void

@@ -1,4 +1,4 @@
-.class Lcom/android/server/powerstats/TimerTrigger$2;
+.class public Lcom/android/server/powerstats/TimerTrigger$2;
 .super Ljava/lang/Object;
 .source "TimerTrigger.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/powerstats/TimerTrigger;
+.field public final synthetic this$0:Lcom/android/server/powerstats/TimerTrigger;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/powerstats/TimerTrigger;)V
+.method public constructor <init>(Lcom/android/server/powerstats/TimerTrigger;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/powerstats/TimerTrigger$2;->this$0:Lcom/android/server/powerstats/TimerTrigger;
@@ -39,13 +39,13 @@
 
     iget-object v0, p0, Lcom/android/server/powerstats/TimerTrigger$2;->this$0:Lcom/android/server/powerstats/TimerTrigger;
 
-    invoke-static {v0}, Lcom/android/server/powerstats/TimerTrigger;->access$100(Lcom/android/server/powerstats/TimerTrigger;)Landroid/os/Handler;
+    invoke-static {v0}, Lcom/android/server/powerstats/TimerTrigger;->-$$Nest$fgetmHandler(Lcom/android/server/powerstats/TimerTrigger;)Landroid/os/Handler;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/server/powerstats/TimerTrigger$2;->this$0:Lcom/android/server/powerstats/TimerTrigger;
 
-    invoke-static {v1}, Lcom/android/server/powerstats/TimerTrigger;->access$200(Lcom/android/server/powerstats/TimerTrigger;)Ljava/lang/Runnable;
+    invoke-static {v1}, Lcom/android/server/powerstats/TimerTrigger;->-$$Nest$fgetmLogDataHighFrequency(Lcom/android/server/powerstats/TimerTrigger;)Ljava/lang/Runnable;
 
     move-result-object v1
 
@@ -53,11 +53,11 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    iget-object v0, p0, Lcom/android/server/powerstats/TimerTrigger$2;->this$0:Lcom/android/server/powerstats/TimerTrigger;
+    iget-object p0, p0, Lcom/android/server/powerstats/TimerTrigger$2;->this$0:Lcom/android/server/powerstats/TimerTrigger;
 
-    const/4 v1, 0x2
+    const/4 v0, 0x2
 
-    invoke-virtual {v0, v1}, Lcom/android/server/powerstats/TimerTrigger;->logPowerStatsData(I)V
+    invoke-virtual {p0, v0}, Lcom/android/server/powerstats/PowerStatsLogTrigger;->logPowerStatsData(I)V
 
     return-void
 .end method

@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/WindowChangeAnimationSpec$TmpValues;
+.class public Lcom/android/server/wm/WindowChangeAnimationSpec$TmpValues;
 .super Ljava/lang/Object;
 .source "WindowChangeAnimationSpec.java"
 
@@ -9,21 +9,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "TmpValues"
 .end annotation
 
 
 # instance fields
-.field final mFloats:[F
+.field public final mFloats:[F
 
-.field final mTransformation:Landroid/view/animation/Transformation;
+.field public final mTransformation:Landroid/view/animation/Transformation;
 
-.field final mVecs:[F
+.field public final mVecs:[F
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -49,7 +49,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/wm/WindowChangeAnimationSpec$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/wm/WindowChangeAnimationSpec$TmpValues-IA;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/wm/WindowChangeAnimationSpec$TmpValues;-><init>()V

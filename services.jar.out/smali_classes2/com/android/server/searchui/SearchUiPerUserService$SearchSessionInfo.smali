@@ -1,4 +1,4 @@
-.class final Lcom/android/server/searchui/SearchUiPerUserService$SearchSessionInfo;
+.class public final Lcom/android/server/searchui/SearchUiPerUserService$SearchSessionInfo;
 .super Ljava/lang/Object;
 .source "SearchUiPerUserService.java"
 
@@ -9,17 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "SearchSessionInfo"
 .end annotation
 
 
-# static fields
-.field private static final DEBUG:Z = true
-
-
 # instance fields
-.field private final mCallbacks:Landroid/os/RemoteCallbackList;
+.field public final mCallbacks:Landroid/os/RemoteCallbackList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/RemoteCallbackList<",
@@ -29,17 +25,33 @@
     .end annotation
 .end field
 
-.field final mDeathRecipient:Landroid/os/IBinder$DeathRecipient;
+.field public final mDeathRecipient:Landroid/os/IBinder$DeathRecipient;
 
-.field private final mSearchContext:Landroid/app/search/SearchContext;
+.field public final mSearchContext:Landroid/app/search/SearchContext;
 
-.field private final mSessionId:Landroid/app/search/SearchSessionId;
+.field public final mSessionId:Landroid/app/search/SearchSessionId;
 
-.field final mToken:Landroid/os/IBinder;
+.field public final mToken:Landroid/os/IBinder;
 
 
 # direct methods
-.method constructor <init>(Landroid/app/search/SearchSessionId;Landroid/app/search/SearchContext;Landroid/os/IBinder;Landroid/os/IBinder$DeathRecipient;)V
+.method public static bridge synthetic -$$Nest$fgetmCallbacks(Lcom/android/server/searchui/SearchUiPerUserService$SearchSessionInfo;)Landroid/os/RemoteCallbackList;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/searchui/SearchUiPerUserService$SearchSessionInfo;->mCallbacks:Landroid/os/RemoteCallbackList;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmSessionId(Lcom/android/server/searchui/SearchUiPerUserService$SearchSessionInfo;)Landroid/app/search/SearchSessionId;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/searchui/SearchUiPerUserService$SearchSessionInfo;->mSessionId:Landroid/app/search/SearchSessionId;
+
+    return-object p0
+.end method
+
+.method public constructor <init>(Landroid/app/search/SearchSessionId;Landroid/app/search/SearchContext;Landroid/os/IBinder;Landroid/os/IBinder$DeathRecipient;)V
     .locals 3
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -50,7 +62,7 @@
 
     iput-object v0, p0, Lcom/android/server/searchui/SearchUiPerUserService$SearchSessionInfo;->mCallbacks:Landroid/os/RemoteCallbackList;
 
-    invoke-static {}, Lcom/android/server/searchui/SearchUiPerUserService;->access$000()Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/searchui/SearchUiPerUserService;->-$$Nest$sfgetTAG()Ljava/lang/String;
 
     move-result-object v0
 
@@ -81,28 +93,12 @@
     return-void
 .end method
 
-.method static synthetic access$100(Lcom/android/server/searchui/SearchUiPerUserService$SearchSessionInfo;)Landroid/app/search/SearchSessionId;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/searchui/SearchUiPerUserService$SearchSessionInfo;->mSessionId:Landroid/app/search/SearchSessionId;
-
-    return-object v0
-.end method
-
-.method static synthetic access$200(Lcom/android/server/searchui/SearchUiPerUserService$SearchSessionInfo;)Landroid/os/RemoteCallbackList;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/searchui/SearchUiPerUserService$SearchSessionInfo;->mCallbacks:Landroid/os/RemoteCallbackList;
-
-    return-object v0
-.end method
-
 
 # virtual methods
-.method destroy()V
+.method public destroy()V
     .locals 3
 
-    invoke-static {}, Lcom/android/server/searchui/SearchUiPerUserService;->access$000()Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/searchui/SearchUiPerUserService;->-$$Nest$sfgetTAG()Ljava/lang/String;
 
     move-result-object v0
 
@@ -151,15 +147,15 @@
     invoke-interface {v0, v1, v2}, Landroid/os/IBinder;->unlinkToDeath(Landroid/os/IBinder$DeathRecipient;I)Z
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/searchui/SearchUiPerUserService$SearchSessionInfo;->mCallbacks:Landroid/os/RemoteCallbackList;
+    iget-object p0, p0, Lcom/android/server/searchui/SearchUiPerUserService$SearchSessionInfo;->mCallbacks:Landroid/os/RemoteCallbackList;
 
-    invoke-virtual {v0}, Landroid/os/RemoteCallbackList;->kill()V
+    invoke-virtual {p0}, Landroid/os/RemoteCallbackList;->kill()V
 
     return-void
 .end method
 
-.method linkToDeath()Z
-    .locals 5
+.method public linkToDeath()Z
+    .locals 4
 
     const/4 v0, 0x0
 
@@ -172,41 +168,37 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    nop
+    const/4 p0, 0x1
 
-    const/4 v0, 0x1
-
-    return v0
+    return p0
 
     :catch_0
-    move-exception v1
+    invoke-static {}, Lcom/android/server/searchui/SearchUiPerUserService;->-$$Nest$sfgetTAG()Ljava/lang/String;
 
-    invoke-static {}, Lcom/android/server/searchui/SearchUiPerUserService;->access$000()Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v2
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v3, "Caller is dead before session can be started, sessionId: "
 
-    const-string v4, "Caller is dead before session can be started, sessionId: "
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object p0, p0, Lcom/android/server/searchui/SearchUiPerUserService$SearchSessionInfo;->mSessionId:Landroid/app/search/SearchSessionId;
 
-    iget-object v4, p0, Lcom/android/server/searchui/SearchUiPerUserService$SearchSessionInfo;->mSessionId:Landroid/app/search/SearchSessionId;
+    invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, p0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     return v0
 .end method
 
-.method resurrectSessionLocked(Lcom/android/server/searchui/SearchUiPerUserService;Landroid/os/IBinder;)V
+.method public resurrectSessionLocked(Lcom/android/server/searchui/SearchUiPerUserService;Landroid/os/IBinder;)V
     .locals 4
 
     iget-object v0, p0, Lcom/android/server/searchui/SearchUiPerUserService$SearchSessionInfo;->mCallbacks:Landroid/os/RemoteCallbackList;
@@ -215,7 +207,7 @@
 
     move-result v0
 
-    invoke-static {}, Lcom/android/server/searchui/SearchUiPerUserService;->access$000()Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/searchui/SearchUiPerUserService;->-$$Nest$sfgetTAG()Ljava/lang/String;
 
     move-result-object v1
 
@@ -227,7 +219,7 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {p1}, Lcom/android/server/searchui/SearchUiPerUserService;->access$300(Lcom/android/server/searchui/SearchUiPerUserService;)Lcom/android/server/searchui/RemoteSearchUiService;
+    invoke-static {p1}, Lcom/android/server/searchui/SearchUiPerUserService;->-$$Nest$mgetRemoteServiceLocked(Lcom/android/server/searchui/SearchUiPerUserService;)Lcom/android/server/searchui/RemoteSearchUiService;
 
     move-result-object v3
 
@@ -247,21 +239,21 @@
 
     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v3, " callbacks."
+    const-string v0, " callbacks."
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v0}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v1, p0, Lcom/android/server/searchui/SearchUiPerUserService$SearchSessionInfo;->mSearchContext:Landroid/app/search/SearchContext;
+    iget-object v0, p0, Lcom/android/server/searchui/SearchUiPerUserService$SearchSessionInfo;->mSearchContext:Landroid/app/search/SearchContext;
 
-    iget-object v2, p0, Lcom/android/server/searchui/SearchUiPerUserService$SearchSessionInfo;->mSessionId:Landroid/app/search/SearchSessionId;
+    iget-object p0, p0, Lcom/android/server/searchui/SearchUiPerUserService$SearchSessionInfo;->mSessionId:Landroid/app/search/SearchSessionId;
 
-    invoke-virtual {p1, v1, v2, p2}, Lcom/android/server/searchui/SearchUiPerUserService;->onCreateSearchSessionLocked(Landroid/app/search/SearchContext;Landroid/app/search/SearchSessionId;Landroid/os/IBinder;)V
+    invoke-virtual {p1, v0, p0, p2}, Lcom/android/server/searchui/SearchUiPerUserService;->onCreateSearchSessionLocked(Landroid/app/search/SearchContext;Landroid/app/search/SearchSessionId;Landroid/os/IBinder;)V
 
     return-void
 .end method

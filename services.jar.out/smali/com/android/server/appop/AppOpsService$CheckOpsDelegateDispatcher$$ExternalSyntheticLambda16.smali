@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/appop/AppOpsService$CheckOpsDelegateDispatcher$$ExternalSyntheticLambda16;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/internal/util/function/QuintFunction;
+.implements Lcom/android/internal/util/function/HeptFunction;
 
 
 # instance fields
@@ -22,10 +23,10 @@
 
 
 # virtual methods
-.method public final apply(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+.method public final apply(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/appop/AppOpsService$CheckOpsDelegateDispatcher$$ExternalSyntheticLambda16;->f$0:Lcom/android/server/appop/AppOpsService;
+    iget-object p0, p0, Lcom/android/server/appop/AppOpsService$CheckOpsDelegateDispatcher$$ExternalSyntheticLambda16;->f$0:Lcom/android/server/appop/AppOpsService;
 
     check-cast p1, Ljava/lang/Integer;
 
@@ -49,11 +50,17 @@
 
     move-result p5
 
-    move-object p0, v0
+    check-cast p6, Ljava/lang/String;
 
-    invoke-static/range {p0 .. p5}, Lcom/android/server/appop/AppOpsService$CheckOpsDelegateDispatcher;->lambda$checkDelegateOperationImpl$1(Lcom/android/server/appop/AppOpsService;IILjava/lang/String;Ljava/lang/String;Z)Ljava/lang/Integer;
+    check-cast p7, Ljava/lang/Boolean;
 
-    move-result-object p1
+    invoke-virtual {p7}, Ljava/lang/Boolean;->booleanValue()Z
 
-    return-object p1
+    move-result p7
+
+    invoke-static/range {p0 .. p7}, Lcom/android/server/appop/AppOpsService$CheckOpsDelegateDispatcher;->$r8$lambda$DNTiX6LDOjEcXWX8-0kPsIyHzfc(Lcom/android/server/appop/AppOpsService;IILjava/lang/String;Ljava/lang/String;ZLjava/lang/String;Z)Landroid/app/SyncNotedAppOp;
+
+    move-result-object p0
+
+    return-object p0
 .end method

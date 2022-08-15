@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/timedetector/EnvironmentImpl$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/server/timezonedetector/ConfigurationChangeListener;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final onChange()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/timedetector/EnvironmentImpl$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/timedetector/EnvironmentImpl;
+    iget-object p0, p0, Lcom/android/server/timedetector/EnvironmentImpl$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/timedetector/EnvironmentImpl;
 
-    invoke-virtual {v0}, Lcom/android/server/timedetector/EnvironmentImpl;->lambda$new$0$EnvironmentImpl()V
+    invoke-static {p0}, Lcom/android/server/timedetector/EnvironmentImpl;->$r8$lambda$gykhHiW5AlYhTa3-C3aNHh7op3A(Lcom/android/server/timedetector/EnvironmentImpl;)V
 
     return-void
 .end method

@@ -3,12 +3,8 @@
 .source "ServiceThread.java"
 
 
-# static fields
-.field private static final TAG:Ljava/lang/String; = "ServiceThread"
-
-
 # instance fields
-.field private final mAllowIo:Z
+.field public final mAllowIo:Z
 
 
 # direct methods

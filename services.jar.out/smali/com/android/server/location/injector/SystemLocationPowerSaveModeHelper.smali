@@ -18,14 +18,22 @@
 
 
 # instance fields
-.field private final mContext:Landroid/content/Context;
+.field public final mContext:Landroid/content/Context;
 
-.field private volatile mLocationPowerSaveMode:I
+.field public volatile mLocationPowerSaveMode:I
 
-.field private mReady:Z
+.field public mReady:Z
 
 
 # direct methods
+.method public static synthetic $r8$lambda$cngo8HcVIGznbJh2rQU74Fbu0p8(Lcom/android/server/location/injector/SystemLocationPowerSaveModeHelper;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/location/injector/SystemLocationPowerSaveModeHelper;->lambda$accept$0(I)V
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 0
 
@@ -36,41 +44,49 @@
     return-void
 .end method
 
+.method private synthetic lambda$accept$0(I)V
+    .locals 0
+
+    invoke-virtual {p0, p1}, Lcom/android/server/location/injector/LocationPowerSaveModeHelper;->notifyLocationPowerSaveModeChanged(I)V
+
+    return-void
+.end method
+
 
 # virtual methods
 .method public accept(Landroid/os/PowerSaveState;)V
-    .locals 3
+    .locals 2
 
     iget-boolean v0, p1, Landroid/os/PowerSaveState;->batterySaverEnabled:Z
 
     if-nez v0, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     goto :goto_0
 
     :cond_0
-    iget v0, p1, Landroid/os/PowerSaveState;->locationMode:I
+    iget p1, p1, Landroid/os/PowerSaveState;->locationMode:I
 
     :goto_0
-    iget v1, p0, Lcom/android/server/location/injector/SystemLocationPowerSaveModeHelper;->mLocationPowerSaveMode:I
+    iget v0, p0, Lcom/android/server/location/injector/SystemLocationPowerSaveModeHelper;->mLocationPowerSaveMode:I
 
-    if-ne v0, v1, :cond_1
+    if-ne p1, v0, :cond_1
 
     return-void
 
     :cond_1
-    iput v0, p0, Lcom/android/server/location/injector/SystemLocationPowerSaveModeHelper;->mLocationPowerSaveMode:I
+    iput p1, p0, Lcom/android/server/location/injector/SystemLocationPowerSaveModeHelper;->mLocationPowerSaveMode:I
 
     invoke-static {}, Lcom/android/server/FgThread;->getHandler()Landroid/os/Handler;
 
-    move-result-object v1
+    move-result-object v0
 
-    new-instance v2, Lcom/android/server/location/injector/SystemLocationPowerSaveModeHelper$$ExternalSyntheticLambda0;
+    new-instance v1, Lcom/android/server/location/injector/SystemLocationPowerSaveModeHelper$$ExternalSyntheticLambda0;
 
-    invoke-direct {v2, p0, v0}, Lcom/android/server/location/injector/SystemLocationPowerSaveModeHelper$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/location/injector/SystemLocationPowerSaveModeHelper;I)V
+    invoke-direct {v1, p0, p1}, Lcom/android/server/location/injector/SystemLocationPowerSaveModeHelper$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/location/injector/SystemLocationPowerSaveModeHelper;I)V
 
-    invoke-virtual {v1, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     return-void
 .end method
@@ -92,17 +108,9 @@
 
     invoke-static {v0}, Lcom/android/internal/util/Preconditions;->checkState(Z)V
 
-    iget v0, p0, Lcom/android/server/location/injector/SystemLocationPowerSaveModeHelper;->mLocationPowerSaveMode:I
+    iget p0, p0, Lcom/android/server/location/injector/SystemLocationPowerSaveModeHelper;->mLocationPowerSaveMode:I
 
-    return v0
-.end method
-
-.method public synthetic lambda$accept$0$SystemLocationPowerSaveModeHelper(I)V
-    .locals 0
-
-    invoke-virtual {p0, p1}, Lcom/android/server/location/injector/SystemLocationPowerSaveModeHelper;->notifyLocationPowerSaveModeChanged(I)V
-
-    return-void
+    return p0
 .end method
 
 .method public onSystemReady()V
@@ -139,7 +147,9 @@
 
     invoke-static {v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    check-cast v0, Landroid/os/PowerManager;
+    move-object v2, v0
+
+    check-cast v2, Landroid/os/PowerManager;
 
     invoke-virtual {v0}, Landroid/os/PowerManager;->getLocationPowerSaveMode()I
 

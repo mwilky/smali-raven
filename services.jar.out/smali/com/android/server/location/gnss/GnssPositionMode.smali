@@ -4,17 +4,17 @@
 
 
 # instance fields
-.field private final mLowPowerMode:Z
+.field public final mLowPowerMode:Z
 
-.field private final mMinInterval:I
+.field public final mMinInterval:I
 
-.field private final mMode:I
+.field public final mMode:I
 
-.field private final mPreferredAccuracy:I
+.field public final mPreferredAccuracy:I
 
-.field private final mPreferredTime:I
+.field public final mPreferredTime:I
 
-.field private final mRecurrence:I
+.field public final mRecurrence:I
 
 
 # direct methods
@@ -41,75 +41,65 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .locals 3
 
     instance-of v0, p1, Lcom/android/server/location/gnss/GnssPositionMode;
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
-    move-object v0, p1
+    check-cast p1, Lcom/android/server/location/gnss/GnssPositionMode;
 
-    check-cast v0, Lcom/android/server/location/gnss/GnssPositionMode;
+    iget v0, p0, Lcom/android/server/location/gnss/GnssPositionMode;->mMode:I
 
-    iget v2, p0, Lcom/android/server/location/gnss/GnssPositionMode;->mMode:I
+    iget v2, p1, Lcom/android/server/location/gnss/GnssPositionMode;->mMode:I
 
-    iget v3, v0, Lcom/android/server/location/gnss/GnssPositionMode;->mMode:I
+    if-ne v0, v2, :cond_0
 
-    if-ne v2, v3, :cond_0
+    iget v0, p0, Lcom/android/server/location/gnss/GnssPositionMode;->mRecurrence:I
 
-    iget v2, p0, Lcom/android/server/location/gnss/GnssPositionMode;->mRecurrence:I
+    iget v2, p1, Lcom/android/server/location/gnss/GnssPositionMode;->mRecurrence:I
 
-    iget v3, v0, Lcom/android/server/location/gnss/GnssPositionMode;->mRecurrence:I
+    if-ne v0, v2, :cond_0
 
-    if-ne v2, v3, :cond_0
+    iget v0, p0, Lcom/android/server/location/gnss/GnssPositionMode;->mMinInterval:I
 
-    iget v2, p0, Lcom/android/server/location/gnss/GnssPositionMode;->mMinInterval:I
+    iget v2, p1, Lcom/android/server/location/gnss/GnssPositionMode;->mMinInterval:I
 
-    iget v3, v0, Lcom/android/server/location/gnss/GnssPositionMode;->mMinInterval:I
+    if-ne v0, v2, :cond_0
 
-    if-ne v2, v3, :cond_0
+    iget v0, p0, Lcom/android/server/location/gnss/GnssPositionMode;->mPreferredAccuracy:I
 
-    iget v2, p0, Lcom/android/server/location/gnss/GnssPositionMode;->mPreferredAccuracy:I
+    iget v2, p1, Lcom/android/server/location/gnss/GnssPositionMode;->mPreferredAccuracy:I
 
-    iget v3, v0, Lcom/android/server/location/gnss/GnssPositionMode;->mPreferredAccuracy:I
+    if-ne v0, v2, :cond_0
 
-    if-ne v2, v3, :cond_0
+    iget v0, p0, Lcom/android/server/location/gnss/GnssPositionMode;->mPreferredTime:I
 
-    iget v2, p0, Lcom/android/server/location/gnss/GnssPositionMode;->mPreferredTime:I
+    iget v2, p1, Lcom/android/server/location/gnss/GnssPositionMode;->mPreferredTime:I
 
-    iget v3, v0, Lcom/android/server/location/gnss/GnssPositionMode;->mPreferredTime:I
+    if-ne v0, v2, :cond_0
 
-    if-ne v2, v3, :cond_0
+    iget-boolean v0, p0, Lcom/android/server/location/gnss/GnssPositionMode;->mLowPowerMode:Z
 
-    iget-boolean v2, p0, Lcom/android/server/location/gnss/GnssPositionMode;->mLowPowerMode:Z
+    iget-boolean v2, p1, Lcom/android/server/location/gnss/GnssPositionMode;->mLowPowerMode:Z
 
-    iget-boolean v3, v0, Lcom/android/server/location/gnss/GnssPositionMode;->mLowPowerMode:Z
-
-    if-ne v2, v3, :cond_0
+    if-ne v0, v2, :cond_0
 
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v3
+    move-result-object p1
 
-    if-ne v2, v3, :cond_0
+    if-ne p0, p1, :cond_0
 
     const/4 v1, 0x1
 
-    goto :goto_0
-
     :cond_0
-    nop
-
-    :goto_0
-    return v1
-
-    :cond_1
     return v1
 .end method
 
@@ -182,15 +172,15 @@
 
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v1
+    move-result-object p0
 
-    const/4 v2, 0x6
+    const/4 v1, 0x6
 
-    aput-object v1, v0, v2
+    aput-object p0, v0, v1
 
     invoke-static {v0}, Ljava/util/Arrays;->hashCode([Ljava/lang/Object;)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method

@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/server/notification/SnoozeHelper$Inserter;
+.class public interface abstract Lcom/android/server/notification/SnoozeHelper$Inserter;
 .super Ljava/lang/Object;
 .source "SnoozeHelper.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x60a
+    accessFlags = 0x609
     name = "Inserter"
 .end annotation
 

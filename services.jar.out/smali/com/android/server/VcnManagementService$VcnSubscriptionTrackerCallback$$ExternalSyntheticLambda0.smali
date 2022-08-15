@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/VcnManagementService$VcnSubscriptionTrackerCallback$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -31,15 +32,15 @@
 
 # virtual methods
 .method public final run()V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/VcnManagementService$VcnSubscriptionTrackerCallback$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/VcnManagementService$VcnSubscriptionTrackerCallback;
 
     iget-object v1, p0, Lcom/android/server/VcnManagementService$VcnSubscriptionTrackerCallback$$ExternalSyntheticLambda0;->f$1:Landroid/os/ParcelUuid;
 
-    iget-object v2, p0, Lcom/android/server/VcnManagementService$VcnSubscriptionTrackerCallback$$ExternalSyntheticLambda0;->f$2:Lcom/android/server/vcn/Vcn;
+    iget-object p0, p0, Lcom/android/server/VcnManagementService$VcnSubscriptionTrackerCallback$$ExternalSyntheticLambda0;->f$2:Lcom/android/server/vcn/Vcn;
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/VcnManagementService$VcnSubscriptionTrackerCallback;->lambda$onNewSnapshot$0$VcnManagementService$VcnSubscriptionTrackerCallback(Landroid/os/ParcelUuid;Lcom/android/server/vcn/Vcn;)V
+    invoke-static {v0, v1, p0}, Lcom/android/server/VcnManagementService$VcnSubscriptionTrackerCallback;->$r8$lambda$qd7by0Lv2EUgCZv5qTqXzF7V1_4(Lcom/android/server/VcnManagementService$VcnSubscriptionTrackerCallback;Landroid/os/ParcelUuid;Lcom/android/server/vcn/Vcn;)V
 
     return-void
 .end method

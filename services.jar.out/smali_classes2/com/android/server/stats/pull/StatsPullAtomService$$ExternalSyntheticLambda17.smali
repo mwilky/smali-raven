@@ -1,45 +1,34 @@
 .class public final synthetic Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda17;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/BiConsumer;
+.implements Landroid/net/wifi/WifiManager$OnWifiActivityEnergyInfoListener;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda17;
+# instance fields
+.field public final synthetic f$0:Landroid/os/SynchronousResultReceiver;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda17;
-
-    invoke-direct {v0}, Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda17;-><init>()V
-
-    sput-object v0, Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda17;->INSTANCE:Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda17;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Landroid/os/SynchronousResultReceiver;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda17;->f$0:Landroid/os/SynchronousResultReceiver;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;Ljava/lang/Object;)V
+.method public final onWifiActivityEnergyInfo(Landroid/os/connectivity/WifiActivityEnergyInfo;)V
     .locals 0
 
-    check-cast p1, Landroid/net/NetworkStats$Entry;
+    iget-object p0, p0, Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda17;->f$0:Landroid/os/SynchronousResultReceiver;
 
-    check-cast p2, Landroid/net/NetworkStats$Entry;
-
-    invoke-static {p1, p2}, Lcom/android/server/stats/pull/StatsPullAtomService;->lambda$sliceNetworkStatsByUidAndFgbg$9(Landroid/net/NetworkStats$Entry;Landroid/net/NetworkStats$Entry;)V
+    invoke-static {p0, p1}, Lcom/android/server/stats/pull/StatsPullAtomService;->$r8$lambda$lR5Ax5WEodQyxPTfiiBAJdF1jus(Landroid/os/SynchronousResultReceiver;Landroid/os/connectivity/WifiActivityEnergyInfo;)V
 
     return-void
 .end method

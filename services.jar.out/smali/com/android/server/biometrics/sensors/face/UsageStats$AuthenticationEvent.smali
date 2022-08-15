@@ -15,20 +15,44 @@
 
 
 # instance fields
-.field private mAuthenticated:Z
+.field public mAuthenticated:Z
 
-.field private mError:I
+.field public mError:I
 
-.field private mLatency:J
+.field public mLatency:J
 
-.field private mStartTime:J
+.field public mStartTime:J
 
-.field private mUser:I
+.field public mUser:I
 
-.field private mVendorError:I
+.field public mVendorError:I
 
 
 # direct methods
+.method public static bridge synthetic -$$Nest$fgetmAuthenticated(Lcom/android/server/biometrics/sensors/face/UsageStats$AuthenticationEvent;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/server/biometrics/sensors/face/UsageStats$AuthenticationEvent;->mAuthenticated:Z
+
+    return p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmError(Lcom/android/server/biometrics/sensors/face/UsageStats$AuthenticationEvent;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/server/biometrics/sensors/face/UsageStats$AuthenticationEvent;->mError:I
+
+    return p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmLatency(Lcom/android/server/biometrics/sensors/face/UsageStats$AuthenticationEvent;)J
+    .locals 2
+
+    iget-wide v0, p0, Lcom/android/server/biometrics/sensors/face/UsageStats$AuthenticationEvent;->mLatency:J
+
+    return-wide v0
+.end method
+
 .method public constructor <init>(JJZIII)V
     .locals 0
 
@@ -47,30 +71,6 @@
     iput p8, p0, Lcom/android/server/biometrics/sensors/face/UsageStats$AuthenticationEvent;->mUser:I
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/server/biometrics/sensors/face/UsageStats$AuthenticationEvent;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/server/biometrics/sensors/face/UsageStats$AuthenticationEvent;->mAuthenticated:Z
-
-    return v0
-.end method
-
-.method static synthetic access$100(Lcom/android/server/biometrics/sensors/face/UsageStats$AuthenticationEvent;)J
-    .locals 2
-
-    iget-wide v0, p0, Lcom/android/server/biometrics/sensors/face/UsageStats$AuthenticationEvent;->mLatency:J
-
-    return-wide v0
-.end method
-
-.method static synthetic access$200(Lcom/android/server/biometrics/sensors/face/UsageStats$AuthenticationEvent;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/server/biometrics/sensors/face/UsageStats$AuthenticationEvent;->mError:I
-
-    return v0
 .end method
 
 
@@ -136,17 +136,17 @@
 
     iget v1, p0, Lcom/android/server/biometrics/sensors/face/UsageStats$AuthenticationEvent;->mError:I
 
-    iget v2, p0, Lcom/android/server/biometrics/sensors/face/UsageStats$AuthenticationEvent;->mVendorError:I
+    iget p0, p0, Lcom/android/server/biometrics/sensors/face/UsageStats$AuthenticationEvent;->mVendorError:I
 
-    invoke-static {p1, v1, v2}, Landroid/hardware/face/FaceManager;->getErrorString(Landroid/content/Context;II)Ljava/lang/String;
+    invoke-static {p1, v1, p0}, Landroid/hardware/face/FaceManager;->getErrorString(Landroid/content/Context;II)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

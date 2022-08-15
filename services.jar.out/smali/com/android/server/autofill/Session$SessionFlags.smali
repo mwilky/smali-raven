@@ -1,4 +1,4 @@
-.class final Lcom/android/server/autofill/Session$SessionFlags;
+.class public final Lcom/android/server/autofill/Session$SessionFlags;
 .super Ljava/lang/Object;
 .source "Session.java"
 
@@ -9,27 +9,117 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "SessionFlags"
 .end annotation
 
 
 # instance fields
-.field private mAugmentedAutofillOnly:Z
+.field public mAugmentedAutofillOnly:Z
 
-.field private mAutofillDisabled:Z
+.field public mAutofillDisabled:Z
 
-.field private mExpiredResponse:Z
+.field public mExpiredResponse:Z
 
-.field private mInlineSupportedByService:Z
+.field public mFillDialogDisabled:Z
 
-.field private mShowingSaveUi:Z
+.field public mInlineSupportedByService:Z
 
-.field final synthetic this$0:Lcom/android/server/autofill/Session;
+.field public mShowingSaveUi:Z
+
+.field public final synthetic this$0:Lcom/android/server/autofill/Session;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/server/autofill/Session;)V
+.method public static bridge synthetic -$$Nest$fgetmAugmentedAutofillOnly(Lcom/android/server/autofill/Session$SessionFlags;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/server/autofill/Session$SessionFlags;->mAugmentedAutofillOnly:Z
+
+    return p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmExpiredResponse(Lcom/android/server/autofill/Session$SessionFlags;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/server/autofill/Session$SessionFlags;->mExpiredResponse:Z
+
+    return p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmFillDialogDisabled(Lcom/android/server/autofill/Session$SessionFlags;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/server/autofill/Session$SessionFlags;->mFillDialogDisabled:Z
+
+    return p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmInlineSupportedByService(Lcom/android/server/autofill/Session$SessionFlags;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/server/autofill/Session$SessionFlags;->mInlineSupportedByService:Z
+
+    return p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmShowingSaveUi(Lcom/android/server/autofill/Session$SessionFlags;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/server/autofill/Session$SessionFlags;->mShowingSaveUi:Z
+
+    return p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fputmAugmentedAutofillOnly(Lcom/android/server/autofill/Session$SessionFlags;Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/server/autofill/Session$SessionFlags;->mAugmentedAutofillOnly:Z
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$fputmAutofillDisabled(Lcom/android/server/autofill/Session$SessionFlags;Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/server/autofill/Session$SessionFlags;->mAutofillDisabled:Z
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$fputmExpiredResponse(Lcom/android/server/autofill/Session$SessionFlags;Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/server/autofill/Session$SessionFlags;->mExpiredResponse:Z
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$fputmFillDialogDisabled(Lcom/android/server/autofill/Session$SessionFlags;Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/server/autofill/Session$SessionFlags;->mFillDialogDisabled:Z
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$fputmInlineSupportedByService(Lcom/android/server/autofill/Session$SessionFlags;Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/server/autofill/Session$SessionFlags;->mInlineSupportedByService:Z
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$fputmShowingSaveUi(Lcom/android/server/autofill/Session$SessionFlags;Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/server/autofill/Session$SessionFlags;->mShowingSaveUi:Z
+
+    return-void
+.end method
+
+.method public constructor <init>(Lcom/android/server/autofill/Session;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/autofill/Session$SessionFlags;->this$0:Lcom/android/server/autofill/Session;
@@ -39,82 +129,10 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/autofill/Session;Lcom/android/server/autofill/Session$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/autofill/Session;Lcom/android/server/autofill/Session$SessionFlags-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/autofill/Session$SessionFlags;-><init>(Lcom/android/server/autofill/Session;)V
 
     return-void
-.end method
-
-.method static synthetic access$100(Lcom/android/server/autofill/Session$SessionFlags;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/server/autofill/Session$SessionFlags;->mExpiredResponse:Z
-
-    return v0
-.end method
-
-.method static synthetic access$102(Lcom/android/server/autofill/Session$SessionFlags;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/server/autofill/Session$SessionFlags;->mExpiredResponse:Z
-
-    return p1
-.end method
-
-.method static synthetic access$200(Lcom/android/server/autofill/Session$SessionFlags;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/server/autofill/Session$SessionFlags;->mAugmentedAutofillOnly:Z
-
-    return v0
-.end method
-
-.method static synthetic access$202(Lcom/android/server/autofill/Session$SessionFlags;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/server/autofill/Session$SessionFlags;->mAugmentedAutofillOnly:Z
-
-    return p1
-.end method
-
-.method static synthetic access$2402(Lcom/android/server/autofill/Session$SessionFlags;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/server/autofill/Session$SessionFlags;->mAutofillDisabled:Z
-
-    return p1
-.end method
-
-.method static synthetic access$2500(Lcom/android/server/autofill/Session$SessionFlags;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/server/autofill/Session$SessionFlags;->mShowingSaveUi:Z
-
-    return v0
-.end method
-
-.method static synthetic access$2502(Lcom/android/server/autofill/Session$SessionFlags;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/server/autofill/Session$SessionFlags;->mShowingSaveUi:Z
-
-    return p1
-.end method
-
-.method static synthetic access$300(Lcom/android/server/autofill/Session$SessionFlags;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/server/autofill/Session$SessionFlags;->mInlineSupportedByService:Z
-
-    return v0
-.end method
-
-.method static synthetic access$302(Lcom/android/server/autofill/Session$SessionFlags;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/server/autofill/Session$SessionFlags;->mInlineSupportedByService:Z
-
-    return p1
 .end method

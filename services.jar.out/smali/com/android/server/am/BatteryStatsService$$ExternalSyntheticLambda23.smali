@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda23;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -45,7 +46,7 @@
 
     iget-wide v4, p0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda23;->f$3:J
 
-    invoke-virtual/range {v0 .. v5}, Lcom/android/server/am/BatteryStatsService;->lambda$noteFullWifiLockReleased$71$BatteryStatsService(IJJ)V
+    invoke-static/range {v0 .. v5}, Lcom/android/server/am/BatteryStatsService;->$r8$lambda$IRE2jaspd-_dd5RwbWqP9b1_Yak(Lcom/android/server/am/BatteryStatsService;IJJ)V
 
     return-void
 .end method

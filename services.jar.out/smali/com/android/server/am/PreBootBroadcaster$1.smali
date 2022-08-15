@@ -1,4 +1,4 @@
-.class Lcom/android/server/am/PreBootBroadcaster$1;
+.class public Lcom/android/server/am/PreBootBroadcaster$1;
 .super Landroid/os/Handler;
 .source "PreBootBroadcaster.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/am/PreBootBroadcaster;
+.field public final synthetic this$0:Lcom/android/server/am/PreBootBroadcaster;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/PreBootBroadcaster;Landroid/os/Looper;Landroid/os/Handler$Callback;Z)V
+.method public constructor <init>(Lcom/android/server/am/PreBootBroadcaster;Landroid/os/Looper;Landroid/os/Handler$Callback;Z)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/am/PreBootBroadcaster$1;->this$0:Lcom/android/server/am/PreBootBroadcaster;
@@ -32,11 +32,11 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 13
+    .locals 12
 
     iget-object v0, p0, Lcom/android/server/am/PreBootBroadcaster$1;->this$0:Lcom/android/server/am/PreBootBroadcaster;
 
-    invoke-static {v0}, Lcom/android/server/am/PreBootBroadcaster;->access$000(Lcom/android/server/am/PreBootBroadcaster;)Lcom/android/server/am/ActivityManagerService;
+    invoke-static {v0}, Lcom/android/server/am/PreBootBroadcaster;->-$$Nest$fgetmService(Lcom/android/server/am/PreBootBroadcaster;)Lcom/android/server/am/ActivityManagerService;
 
     move-result-object v0
 
@@ -54,37 +54,43 @@
 
     iget v3, p1, Landroid/os/Message;->arg2:I
 
-    iget v4, p1, Landroid/os/Message;->what:I
+    iget p1, p1, Landroid/os/Message;->what:I
 
-    const/16 v5, 0xd
+    const/16 v4, 0xd
 
-    const-string v6, "PreBootBroadcaster"
+    const-string v5, "PreBootBroadcaster"
 
-    packed-switch v4, :pswitch_data_0
+    const/4 v6, 0x1
 
-    goto/16 :goto_1
+    if-eq p1, v6, :cond_1
 
-    :pswitch_0
-    iget-object v4, p0, Lcom/android/server/am/PreBootBroadcaster$1;->this$0:Lcom/android/server/am/PreBootBroadcaster;
+    const/4 v0, 0x2
 
-    invoke-static {v4}, Lcom/android/server/am/PreBootBroadcaster;->access$100(Lcom/android/server/am/PreBootBroadcaster;)I
-
-    move-result v4
-
-    invoke-static {v4}, Landroid/os/UserHandle;->of(I)Landroid/os/UserHandle;
-
-    move-result-object v4
-
-    invoke-virtual {v1, v6, v5, v4}, Landroid/app/NotificationManager;->cancelAsUser(Ljava/lang/String;ILandroid/os/UserHandle;)V
+    if-eq p1, v0, :cond_0
 
     goto/16 :goto_1
 
-    :pswitch_1
-    const v4, 0x1040128
+    :cond_0
+    iget-object p0, p0, Lcom/android/server/am/PreBootBroadcaster$1;->this$0:Lcom/android/server/am/PreBootBroadcaster;
 
-    invoke-virtual {v0, v4}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
+    invoke-static {p0}, Lcom/android/server/am/PreBootBroadcaster;->-$$Nest$fgetmUserId(Lcom/android/server/am/PreBootBroadcaster;)I
 
-    move-result-object v4
+    move-result p0
+
+    invoke-static {p0}, Landroid/os/UserHandle;->of(I)Landroid/os/UserHandle;
+
+    move-result-object p0
+
+    invoke-virtual {v1, v5, v4, p0}, Landroid/app/NotificationManager;->cancelAsUser(Ljava/lang/String;ILandroid/os/UserHandle;)V
+
+    goto/16 :goto_1
+
+    :cond_1
+    const p1, 0x1040135
+
+    invoke-virtual {v0, p1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object p1
 
     new-instance v7, Landroid/content/Intent;
 
@@ -112,106 +118,96 @@
 
     move-result-object v8
 
-    if-eqz v8, :cond_0
+    if-eqz v8, :cond_2
 
     const/high16 v8, 0x4000000
 
     invoke-static {v0, v9, v7, v8}, Landroid/app/PendingIntent;->getActivity(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
 
-    move-result-object v8
+    move-result-object v7
 
     goto :goto_0
 
-    :cond_0
-    const/4 v8, 0x0
+    :cond_2
+    const/4 v7, 0x0
 
     :goto_0
-    new-instance v10, Landroid/app/Notification$Builder;
-
-    iget-object v11, p0, Lcom/android/server/am/PreBootBroadcaster$1;->this$0:Lcom/android/server/am/PreBootBroadcaster;
-
-    invoke-static {v11}, Lcom/android/server/am/PreBootBroadcaster;->access$000(Lcom/android/server/am/PreBootBroadcaster;)Lcom/android/server/am/ActivityManagerService;
-
-    move-result-object v11
-
-    iget-object v11, v11, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
-
-    sget-object v12, Lcom/android/internal/notification/SystemNotificationChannels;->UPDATES:Ljava/lang/String;
-
-    invoke-direct {v10, v11, v12}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;Ljava/lang/String;)V
-
-    const v11, 0x108080e
-
-    invoke-virtual {v10, v11}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
-
-    move-result-object v10
-
-    const-wide/16 v11, 0x0
-
-    invoke-virtual {v10, v11, v12}, Landroid/app/Notification$Builder;->setWhen(J)Landroid/app/Notification$Builder;
-
-    move-result-object v10
-
-    const/4 v11, 0x1
-
-    invoke-virtual {v10, v11}, Landroid/app/Notification$Builder;->setOngoing(Z)Landroid/app/Notification$Builder;
-
-    move-result-object v10
-
-    invoke-virtual {v10, v4}, Landroid/app/Notification$Builder;->setTicker(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
-
-    move-result-object v10
-
-    const v12, 0x106001c
-
-    invoke-virtual {v0, v12}, Landroid/content/Context;->getColor(I)I
-
-    move-result v12
-
-    invoke-virtual {v10, v12}, Landroid/app/Notification$Builder;->setColor(I)Landroid/app/Notification$Builder;
-
-    move-result-object v10
-
-    invoke-virtual {v10, v4}, Landroid/app/Notification$Builder;->setContentTitle(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
-
-    move-result-object v10
-
-    invoke-virtual {v10, v8}, Landroid/app/Notification$Builder;->setContentIntent(Landroid/app/PendingIntent;)Landroid/app/Notification$Builder;
-
-    move-result-object v10
-
-    invoke-virtual {v10, v11}, Landroid/app/Notification$Builder;->setVisibility(I)Landroid/app/Notification$Builder;
-
-    move-result-object v10
-
-    invoke-virtual {v10, v2, v3, v9}, Landroid/app/Notification$Builder;->setProgress(IIZ)Landroid/app/Notification$Builder;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Landroid/app/Notification$Builder;->build()Landroid/app/Notification;
-
-    move-result-object v9
+    new-instance v8, Landroid/app/Notification$Builder;
 
     iget-object v10, p0, Lcom/android/server/am/PreBootBroadcaster$1;->this$0:Lcom/android/server/am/PreBootBroadcaster;
 
-    invoke-static {v10}, Lcom/android/server/am/PreBootBroadcaster;->access$100(Lcom/android/server/am/PreBootBroadcaster;)I
-
-    move-result v10
-
-    invoke-static {v10}, Landroid/os/UserHandle;->of(I)Landroid/os/UserHandle;
+    invoke-static {v10}, Lcom/android/server/am/PreBootBroadcaster;->-$$Nest$fgetmService(Lcom/android/server/am/PreBootBroadcaster;)Lcom/android/server/am/ActivityManagerService;
 
     move-result-object v10
 
-    invoke-virtual {v1, v6, v5, v9, v10}, Landroid/app/NotificationManager;->notifyAsUser(Ljava/lang/String;ILandroid/app/Notification;Landroid/os/UserHandle;)V
+    iget-object v10, v10, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
 
-    nop
+    sget-object v11, Lcom/android/internal/notification/SystemNotificationChannels;->UPDATES:Ljava/lang/String;
+
+    invoke-direct {v8, v10, v11}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;Ljava/lang/String;)V
+
+    const v10, 0x108081e
+
+    invoke-virtual {v8, v10}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
+
+    move-result-object v8
+
+    const-wide/16 v10, 0x0
+
+    invoke-virtual {v8, v10, v11}, Landroid/app/Notification$Builder;->setWhen(J)Landroid/app/Notification$Builder;
+
+    move-result-object v8
+
+    invoke-virtual {v8, v6}, Landroid/app/Notification$Builder;->setOngoing(Z)Landroid/app/Notification$Builder;
+
+    move-result-object v8
+
+    invoke-virtual {v8, p1}, Landroid/app/Notification$Builder;->setTicker(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
+
+    move-result-object v8
+
+    const v10, 0x106001c
+
+    invoke-virtual {v0, v10}, Landroid/content/Context;->getColor(I)I
+
+    move-result v0
+
+    invoke-virtual {v8, v0}, Landroid/app/Notification$Builder;->setColor(I)Landroid/app/Notification$Builder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Landroid/app/Notification$Builder;->setContentTitle(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
+
+    move-result-object p1
+
+    invoke-virtual {p1, v7}, Landroid/app/Notification$Builder;->setContentIntent(Landroid/app/PendingIntent;)Landroid/app/Notification$Builder;
+
+    move-result-object p1
+
+    invoke-virtual {p1, v6}, Landroid/app/Notification$Builder;->setVisibility(I)Landroid/app/Notification$Builder;
+
+    move-result-object p1
+
+    invoke-virtual {p1, v2, v3, v9}, Landroid/app/Notification$Builder;->setProgress(IIZ)Landroid/app/Notification$Builder;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Landroid/app/Notification$Builder;->build()Landroid/app/Notification;
+
+    move-result-object p1
+
+    iget-object p0, p0, Lcom/android/server/am/PreBootBroadcaster$1;->this$0:Lcom/android/server/am/PreBootBroadcaster;
+
+    invoke-static {p0}, Lcom/android/server/am/PreBootBroadcaster;->-$$Nest$fgetmUserId(Lcom/android/server/am/PreBootBroadcaster;)I
+
+    move-result p0
+
+    invoke-static {p0}, Landroid/os/UserHandle;->of(I)Landroid/os/UserHandle;
+
+    move-result-object p0
+
+    invoke-virtual {v1, v5, v4, p1, p0}, Landroid/app/NotificationManager;->notifyAsUser(Ljava/lang/String;ILandroid/app/Notification;Landroid/os/UserHandle;)V
 
     :goto_1
     return-void
-
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
 .end method

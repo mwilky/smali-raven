@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/broadcastradio/hal2/Convert$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -23,13 +24,13 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/broadcastradio/hal2/Convert$$ExternalSyntheticLambda1;->f$0:Ljava/util/ArrayList;
+    iget-object p0, p0, Lcom/android/server/broadcastradio/hal2/Convert$$ExternalSyntheticLambda1;->f$0:Ljava/util/ArrayList;
 
     check-cast p1, Landroid/hardware/broadcastradio/V2_0/ProgramIdentifier;
 
-    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     return-void
 .end method

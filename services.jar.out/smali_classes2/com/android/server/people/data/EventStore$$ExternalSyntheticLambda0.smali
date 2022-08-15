@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/people/data/EventStore$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Function;
@@ -31,19 +32,19 @@
 
 # virtual methods
 .method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/people/data/EventStore$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/people/data/EventStore;
 
     iget v1, p0, Lcom/android/server/people/data/EventStore$$ExternalSyntheticLambda0;->f$1:I
 
-    iget-object v2, p0, Lcom/android/server/people/data/EventStore$$ExternalSyntheticLambda0;->f$2:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/people/data/EventStore$$ExternalSyntheticLambda0;->f$2:Ljava/lang/String;
 
     check-cast p1, Ljava/lang/String;
 
-    invoke-virtual {v0, v1, v2, p1}, Lcom/android/server/people/data/EventStore;->lambda$getOrCreateEventHistory$0$EventStore(ILjava/lang/String;Ljava/lang/String;)Lcom/android/server/people/data/EventHistoryImpl;
+    invoke-static {v0, v1, p0, p1}, Lcom/android/server/people/data/EventStore;->$r8$lambda$hIr_vqLjIPHbScqy2vjg16Ts_G4(Lcom/android/server/people/data/EventStore;ILjava/lang/String;Ljava/lang/String;)Lcom/android/server/people/data/EventHistoryImpl;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method

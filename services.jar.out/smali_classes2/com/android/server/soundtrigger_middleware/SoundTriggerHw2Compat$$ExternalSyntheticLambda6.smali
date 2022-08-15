@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/soundtrigger_middleware/SoundTriggerHw2Compat$$ExternalSyntheticLambda6;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/hardware/soundtrigger/V2_3/ISoundTriggerHw$getProperties_2_3Callback;
@@ -27,13 +28,13 @@
 
 # virtual methods
 .method public final onValues(ILandroid/hardware/soundtrigger/V2_3/Properties;)V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/soundtrigger_middleware/SoundTriggerHw2Compat$$ExternalSyntheticLambda6;->f$0:Ljava/util/concurrent/atomic/AtomicInteger;
 
-    iget-object v1, p0, Lcom/android/server/soundtrigger_middleware/SoundTriggerHw2Compat$$ExternalSyntheticLambda6;->f$1:Ljava/util/concurrent/atomic/AtomicReference;
+    iget-object p0, p0, Lcom/android/server/soundtrigger_middleware/SoundTriggerHw2Compat$$ExternalSyntheticLambda6;->f$1:Ljava/util/concurrent/atomic/AtomicReference;
 
-    invoke-static {v0, v1, p1, p2}, Lcom/android/server/soundtrigger_middleware/SoundTriggerHw2Compat;->lambda$getProperties$0(Ljava/util/concurrent/atomic/AtomicInteger;Ljava/util/concurrent/atomic/AtomicReference;ILandroid/hardware/soundtrigger/V2_3/Properties;)V
+    invoke-static {v0, p0, p1, p2}, Lcom/android/server/soundtrigger_middleware/SoundTriggerHw2Compat;->$r8$lambda$9xkmsUAk61z_McRprN22AgUZ_5Q(Ljava/util/concurrent/atomic/AtomicInteger;Ljava/util/concurrent/atomic/AtomicReference;ILandroid/hardware/soundtrigger/V2_3/Properties;)V
 
     return-void
 .end method

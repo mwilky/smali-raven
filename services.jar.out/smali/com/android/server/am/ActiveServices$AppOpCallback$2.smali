@@ -1,4 +1,4 @@
-.class Lcom/android/server/am/ActiveServices$AppOpCallback$2;
+.class public Lcom/android/server/am/ActiveServices$AppOpCallback$2;
 .super Ljava/lang/Object;
 .source "ActiveServices.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/am/ActiveServices$AppOpCallback;
+.field public final synthetic this$0:Lcom/android/server/am/ActiveServices$AppOpCallback;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/ActiveServices$AppOpCallback;)V
+.method public constructor <init>(Lcom/android/server/am/ActiveServices$AppOpCallback;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/am/ActiveServices$AppOpCallback$2;->this$0:Lcom/android/server/am/ActiveServices$AppOpCallback;
@@ -35,11 +35,11 @@
 
 # virtual methods
 .method public onOpStarted(IILjava/lang/String;Ljava/lang/String;II)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/am/ActiveServices$AppOpCallback$2;->this$0:Lcom/android/server/am/ActiveServices$AppOpCallback;
+    iget-object p0, p0, Lcom/android/server/am/ActiveServices$AppOpCallback$2;->this$0:Lcom/android/server/am/ActiveServices$AppOpCallback;
 
-    invoke-static {v0, p1, p2, p6}, Lcom/android/server/am/ActiveServices$AppOpCallback;->access$400(Lcom/android/server/am/ActiveServices$AppOpCallback;III)V
+    invoke-static {p0, p1, p2, p6}, Lcom/android/server/am/ActiveServices$AppOpCallback;->-$$Nest$mincrementOpCountIfNeeded(Lcom/android/server/am/ActiveServices$AppOpCallback;III)V
 
     return-void
 .end method

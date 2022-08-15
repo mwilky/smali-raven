@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/server/storage/StorageUserConnection$AsyncStorageServiceCall;
+.class public interface abstract Lcom/android/server/storage/StorageUserConnection$AsyncStorageServiceCall;
 .super Ljava/lang/Object;
 .source "StorageUserConnection.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
+    accessFlags = 0x609
     name = "AsyncStorageServiceCall"
 .end annotation
 

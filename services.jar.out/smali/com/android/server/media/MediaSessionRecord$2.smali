@@ -1,4 +1,4 @@
-.class Lcom/android/server/media/MediaSessionRecord$2;
+.class public Lcom/android/server/media/MediaSessionRecord$2;
 .super Ljava/lang/Object;
 .source "MediaSessionRecord.java"
 
@@ -12,33 +12,33 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/media/MediaSessionRecord;
+.field public final synthetic this$0:Lcom/android/server/media/MediaSessionRecord;
 
-.field final synthetic val$direction:I
+.field public final synthetic val$direction:I
 
-.field final synthetic val$flags:I
+.field public final synthetic val$flags:I
 
-.field final synthetic val$opPackageName:Ljava/lang/String;
+.field public final synthetic val$opPackageName:Ljava/lang/String;
 
-.field final synthetic val$pid:I
+.field public final synthetic val$pid:I
 
-.field final synthetic val$previousFlagPlaySound:I
+.field public final synthetic val$previousFlagPlaySound:I
 
-.field final synthetic val$stream:I
+.field public final synthetic val$stream:I
 
-.field final synthetic val$uid:I
+.field public final synthetic val$uid:I
 
-.field final synthetic val$useSuggested:Z
+.field public final synthetic val$useSuggested:Z
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/media/MediaSessionRecord;ZIIILjava/lang/String;III)V
+.method public constructor <init>(Lcom/android/server/media/MediaSessionRecord;ZIIILjava/lang/String;III)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/media/MediaSessionRecord$2;->this$0:Lcom/android/server/media/MediaSessionRecord;
@@ -86,7 +86,7 @@
 
     iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$2;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
-    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->access$300(Lcom/android/server/media/MediaSessionRecord;)Landroid/media/AudioManager;
+    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-$$Nest$fgetmAudioManager(Lcom/android/server/media/MediaSessionRecord;)Landroid/media/AudioManager;
 
     move-result-object v1
 
@@ -104,7 +104,7 @@
 
     iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$2;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
-    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->access$200(Lcom/android/server/media/MediaSessionRecord;)Landroid/content/Context;
+    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-$$Nest$fgetmContext(Lcom/android/server/media/MediaSessionRecord;)Landroid/content/Context;
 
     move-result-object v0
 
@@ -116,12 +116,12 @@
 
     invoke-virtual/range {v1 .. v8}, Landroid/media/AudioManager;->adjustSuggestedStreamVolumeForUid(IIILjava/lang/String;III)V
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :cond_0
     iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$2;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
-    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->access$300(Lcom/android/server/media/MediaSessionRecord;)Landroid/media/AudioManager;
+    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-$$Nest$fgetmAudioManager(Lcom/android/server/media/MediaSessionRecord;)Landroid/media/AudioManager;
 
     move-result-object v1
 
@@ -143,7 +143,7 @@
 
     iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$2;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
-    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->access$200(Lcom/android/server/media/MediaSessionRecord;)Landroid/content/Context;
+    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-$$Nest$fgetmContext(Lcom/android/server/media/MediaSessionRecord;)Landroid/content/Context;
 
     move-result-object v0
 
@@ -160,7 +160,7 @@
     :cond_1
     iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$2;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
-    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->access$300(Lcom/android/server/media/MediaSessionRecord;)Landroid/media/AudioManager;
+    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-$$Nest$fgetmAudioManager(Lcom/android/server/media/MediaSessionRecord;)Landroid/media/AudioManager;
 
     move-result-object v1
 
@@ -178,7 +178,7 @@
 
     iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$2;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
-    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->access$200(Lcom/android/server/media/MediaSessionRecord;)Landroid/content/Context;
+    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-$$Nest$fgetmContext(Lcom/android/server/media/MediaSessionRecord;)Landroid/content/Context;
 
     move-result-object v0
 
@@ -193,8 +193,7 @@
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
 
-    :goto_0
-    goto :goto_1
+    goto :goto_0
 
     :catch_0
     move-exception v0
@@ -255,18 +254,18 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v2, p0, Lcom/android/server/media/MediaSessionRecord$2;->val$previousFlagPlaySound:I
+    iget p0, p0, Lcom/android/server/media/MediaSessionRecord$2;->val$previousFlagPlaySound:I
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    const-string v2, "MediaSessionRecord"
+    const-string v1, "MediaSessionRecord"
 
-    invoke-static {v2, v1, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v1, p0, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    :goto_1
+    :goto_0
     return-void
 .end method

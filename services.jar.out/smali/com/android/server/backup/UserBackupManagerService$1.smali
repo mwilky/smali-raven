@@ -1,4 +1,4 @@
-.class Lcom/android/server/backup/UserBackupManagerService$1;
+.class public Lcom/android/server/backup/UserBackupManagerService$1;
 .super Ljava/lang/Object;
 .source "UserBackupManagerService.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/backup/UserBackupManagerService;
+.field public final synthetic this$0:Lcom/android/server/backup/UserBackupManagerService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/backup/UserBackupManagerService;)V
+.method public constructor <init>(Lcom/android/server/backup/UserBackupManagerService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/backup/UserBackupManagerService$1;->this$0:Lcom/android/server/backup/UserBackupManagerService;
@@ -35,11 +35,11 @@
 
 # virtual methods
 .method public run()V
-    .locals 8
+    .locals 7
 
     iget-object v0, p0, Lcom/android/server/backup/UserBackupManagerService$1;->this$0:Lcom/android/server/backup/UserBackupManagerService;
 
-    invoke-static {v0}, Lcom/android/server/backup/UserBackupManagerService;->access$200(Lcom/android/server/backup/UserBackupManagerService;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/server/backup/UserBackupManagerService;->-$$Nest$fgetmQueueLock(Lcom/android/server/backup/UserBackupManagerService;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -62,7 +62,7 @@
 
     iget-object v3, p0, Lcom/android/server/backup/UserBackupManagerService$1;->this$0:Lcom/android/server/backup/UserBackupManagerService;
 
-    invoke-static {v3}, Lcom/android/server/backup/UserBackupManagerService;->access$300(Lcom/android/server/backup/UserBackupManagerService;)Ljava/util/ArrayList;
+    invoke-static {v3}, Lcom/android/server/backup/UserBackupManagerService;->-$$Nest$fgetmFullBackupQueue(Lcom/android/server/backup/UserBackupManagerService;)Ljava/util/ArrayList;
 
     move-result-object v3
 
@@ -79,7 +79,7 @@
 
     iget-object v5, p0, Lcom/android/server/backup/UserBackupManagerService$1;->this$0:Lcom/android/server/backup/UserBackupManagerService;
 
-    invoke-static {v5}, Lcom/android/server/backup/UserBackupManagerService;->access$300(Lcom/android/server/backup/UserBackupManagerService;)Ljava/util/ArrayList;
+    invoke-static {v5}, Lcom/android/server/backup/UserBackupManagerService;->-$$Nest$fgetmFullBackupQueue(Lcom/android/server/backup/UserBackupManagerService;)Ljava/util/ArrayList;
 
     move-result-object v5
 
@@ -93,9 +93,9 @@
 
     invoke-virtual {v2, v6}, Ljava/io/DataOutputStream;->writeUTF(Ljava/lang/String;)V
 
-    iget-wide v6, v5, Lcom/android/server/backup/fullbackup/FullBackupEntry;->lastBackup:J
+    iget-wide v5, v5, Lcom/android/server/backup/fullbackup/FullBackupEntry;->lastBackup:J
 
-    invoke-virtual {v2, v6, v7}, Ljava/io/DataOutputStream;->writeLong(J)V
+    invoke-virtual {v2, v5, v6}, Ljava/io/DataOutputStream;->writeLong(J)V
 
     add-int/lit8 v4, v4, 0x1
 
@@ -104,27 +104,27 @@
     :cond_0
     invoke-virtual {v2}, Ljava/io/DataOutputStream;->flush()V
 
-    new-instance v4, Landroid/util/AtomicFile;
+    new-instance v2, Landroid/util/AtomicFile;
 
-    iget-object v5, p0, Lcom/android/server/backup/UserBackupManagerService$1;->this$0:Lcom/android/server/backup/UserBackupManagerService;
+    iget-object v3, p0, Lcom/android/server/backup/UserBackupManagerService$1;->this$0:Lcom/android/server/backup/UserBackupManagerService;
 
-    invoke-static {v5}, Lcom/android/server/backup/UserBackupManagerService;->access$400(Lcom/android/server/backup/UserBackupManagerService;)Ljava/io/File;
+    invoke-static {v3}, Lcom/android/server/backup/UserBackupManagerService;->-$$Nest$fgetmFullBackupScheduleFile(Lcom/android/server/backup/UserBackupManagerService;)Ljava/io/File;
 
-    move-result-object v5
+    move-result-object v3
 
-    invoke-direct {v4, v5}, Landroid/util/AtomicFile;-><init>(Ljava/io/File;)V
+    invoke-direct {v2, v3}, Landroid/util/AtomicFile;-><init>(Ljava/io/File;)V
 
-    invoke-virtual {v4}, Landroid/util/AtomicFile;->startWrite()Ljava/io/FileOutputStream;
+    invoke-virtual {v2}, Landroid/util/AtomicFile;->startWrite()Ljava/io/FileOutputStream;
 
-    move-result-object v5
+    move-result-object v3
 
     invoke-virtual {v1}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
 
-    move-result-object v6
+    move-result-object v1
 
-    invoke-virtual {v5, v6}, Ljava/io/FileOutputStream;->write([B)V
+    invoke-virtual {v3, v1}, Ljava/io/FileOutputStream;->write([B)V
 
-    invoke-virtual {v4, v5}, Landroid/util/AtomicFile;->finishWrite(Ljava/io/FileOutputStream;)V
+    invoke-virtual {v2, v3}, Landroid/util/AtomicFile;->finishWrite(Ljava/io/FileOutputStream;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -132,7 +132,7 @@
     goto :goto_1
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     goto :goto_2
 
@@ -142,19 +142,19 @@
     :try_start_1
     const-string v2, "BackupManagerService"
 
-    iget-object v3, p0, Lcom/android/server/backup/UserBackupManagerService$1;->this$0:Lcom/android/server/backup/UserBackupManagerService;
+    iget-object p0, p0, Lcom/android/server/backup/UserBackupManagerService$1;->this$0:Lcom/android/server/backup/UserBackupManagerService;
 
-    invoke-static {v3}, Lcom/android/server/backup/UserBackupManagerService;->access$500(Lcom/android/server/backup/UserBackupManagerService;)I
+    invoke-static {p0}, Lcom/android/server/backup/UserBackupManagerService;->-$$Nest$fgetmUserId(Lcom/android/server/backup/UserBackupManagerService;)I
 
-    move-result v3
+    move-result p0
 
-    const-string v4, "Unable to write backup schedule!"
+    const-string v3, "Unable to write backup schedule!"
 
-    invoke-static {v3, v4}, Lcom/android/server/backup/UserBackupManagerService;->access$000(ILjava/lang/String;)Ljava/lang/String;
+    invoke-static {p0, v3}, Lcom/android/server/backup/UserBackupManagerService;->-$$Nest$smaddUserIdToLogMessage(ILjava/lang/String;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p0
 
-    invoke-static {v2, v3, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v2, p0, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_1
     monitor-exit v0
@@ -166,5 +166,5 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v1
+    throw p0
 .end method

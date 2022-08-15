@@ -1,35 +1,30 @@
 .class public final synthetic Lcom/android/server/pm/ShortcutPackage$$ExternalSyntheticLambda12;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Consumer;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/android/internal/infra/AndroidFuture;
+.implements Ljava/util/function/Predicate;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/internal/infra/AndroidFuture;)V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/server/pm/ShortcutPackage$$ExternalSyntheticLambda12;->f$0:Lcom/android/internal/infra/AndroidFuture;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
-    .locals 1
+.method public final test(Ljava/lang/Object;)Z
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/pm/ShortcutPackage$$ExternalSyntheticLambda12;->f$0:Lcom/android/internal/infra/AndroidFuture;
+    check-cast p1, Landroid/content/pm/ShortcutInfo;
 
-    check-cast p1, Landroid/app/appsearch/AppSearchResult;
+    invoke-virtual {p1}, Landroid/content/pm/ShortcutInfo;->isNonManifestVisible()Z
 
-    invoke-static {v0, p1}, Lcom/android/server/pm/ShortcutPackage;->lambda$removeShortcuts$41(Lcom/android/internal/infra/AndroidFuture;Landroid/app/appsearch/AppSearchResult;)V
+    move-result p0
 
-    return-void
+    return p0
 .end method

@@ -4,5 +4,5 @@
 
 
 # virtual methods
-.method public abstract preProcess(Lcom/android/server/timezonedetector/location/TimeZoneProviderEvent;)Lcom/android/server/timezonedetector/location/TimeZoneProviderEvent;
+.method public abstract preProcess(Landroid/service/timezone/TimeZoneProviderEvent;)Landroid/service/timezone/TimeZoneProviderEvent;
 .end method

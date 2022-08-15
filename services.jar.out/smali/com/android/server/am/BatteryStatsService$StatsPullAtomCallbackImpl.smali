@@ -1,4 +1,4 @@
-.class Lcom/android/server/am/BatteryStatsService$StatsPullAtomCallbackImpl;
+.class public Lcom/android/server/am/BatteryStatsService$StatsPullAtomCallbackImpl;
 .super Ljava/lang/Object;
 .source "BatteryStatsService.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "StatsPullAtomCallbackImpl"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/am/BatteryStatsService;
+.field public final synthetic this$0:Lcom/android/server/am/BatteryStatsService;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/server/am/BatteryStatsService;)V
+.method public constructor <init>(Lcom/android/server/am/BatteryStatsService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/am/BatteryStatsService$StatsPullAtomCallbackImpl;->this$0:Lcom/android/server/am/BatteryStatsService;
@@ -32,7 +32,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/am/BatteryStatsService;Lcom/android/server/am/BatteryStatsService$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/am/BatteryStatsService;Lcom/android/server/am/BatteryStatsService$StatsPullAtomCallbackImpl-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/am/BatteryStatsService$StatsPullAtomCallbackImpl;-><init>(Lcom/android/server/am/BatteryStatsService;)V
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public onPullAtom(ILjava/util/List;)I
-    .locals 8
+    .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -57,30 +57,38 @@
 
     packed-switch p1, :pswitch_data_0
 
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p0, Ljava/lang/UnsupportedOperationException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "Unknown tagId="
+    const-string v0, "Unknown tagId="
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 
     :pswitch_0
     new-instance v1, Landroid/os/BatteryUsageStatsQuery$Builder;
 
     invoke-direct {v1}, Landroid/os/BatteryUsageStatsQuery$Builder;-><init>()V
+
+    invoke-virtual {v1}, Landroid/os/BatteryUsageStatsQuery$Builder;->includeProcessStateData()Landroid/os/BatteryUsageStatsQuery$Builder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/os/BatteryUsageStatsQuery$Builder;->includeVirtualUids()Landroid/os/BatteryUsageStatsQuery$Builder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Landroid/os/BatteryUsageStatsQuery$Builder;->powerProfileModeledOnly()Landroid/os/BatteryUsageStatsQuery$Builder;
 
@@ -90,51 +98,63 @@
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/android/server/am/BatteryStatsService$StatsPullAtomCallbackImpl;->this$0:Lcom/android/server/am/BatteryStatsService;
+    iget-object p0, p0, Lcom/android/server/am/BatteryStatsService$StatsPullAtomCallbackImpl;->this$0:Lcom/android/server/am/BatteryStatsService;
 
     invoke-static {v1}, Ljava/util/List;->of(Ljava/lang/Object;)Ljava/util/List;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-virtual {v2, v3}, Lcom/android/server/am/BatteryStatsService;->getBatteryUsageStats(Ljava/util/List;)Ljava/util/List;
+    invoke-virtual {p0, v1}, Lcom/android/server/am/BatteryStatsService;->getBatteryUsageStats(Ljava/util/List;)Ljava/util/List;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-interface {v2, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {p0, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p0
 
-    check-cast v2, Landroid/os/BatteryUsageStats;
+    check-cast p0, Landroid/os/BatteryUsageStats;
 
     goto :goto_0
 
     :pswitch_1
-    iget-object v1, p0, Lcom/android/server/am/BatteryStatsService$StatsPullAtomCallbackImpl;->this$0:Lcom/android/server/am/BatteryStatsService;
+    new-instance v1, Landroid/os/BatteryUsageStatsQuery$Builder;
 
-    sget-object v2, Landroid/os/BatteryUsageStatsQuery;->DEFAULT:Landroid/os/BatteryUsageStatsQuery;
+    invoke-direct {v1}, Landroid/os/BatteryUsageStatsQuery$Builder;-><init>()V
 
-    invoke-static {v2}, Ljava/util/List;->of(Ljava/lang/Object;)Ljava/util/List;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Lcom/android/server/am/BatteryStatsService;->getBatteryUsageStats(Ljava/util/List;)Ljava/util/List;
+    invoke-virtual {v1}, Landroid/os/BatteryUsageStatsQuery$Builder;->includeProcessStateData()Landroid/os/BatteryUsageStatsQuery$Builder;
 
     move-result-object v1
 
-    invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-virtual {v1}, Landroid/os/BatteryUsageStatsQuery$Builder;->includeVirtualUids()Landroid/os/BatteryUsageStatsQuery$Builder;
 
     move-result-object v1
 
-    move-object v2, v1
+    invoke-virtual {v1}, Landroid/os/BatteryUsageStatsQuery$Builder;->build()Landroid/os/BatteryUsageStatsQuery;
 
-    check-cast v2, Landroid/os/BatteryUsageStats;
+    move-result-object v1
+
+    iget-object p0, p0, Lcom/android/server/am/BatteryStatsService$StatsPullAtomCallbackImpl;->this$0:Lcom/android/server/am/BatteryStatsService;
+
+    invoke-static {v1}, Ljava/util/List;->of(Ljava/lang/Object;)Ljava/util/List;
+
+    move-result-object v1
+
+    invoke-virtual {p0, v1}, Lcom/android/server/am/BatteryStatsService;->getBatteryUsageStats(Ljava/util/List;)Ljava/util/List;
+
+    move-result-object p0
+
+    invoke-interface {p0, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Landroid/os/BatteryUsageStats;
 
     goto :goto_0
 
     :pswitch_2
     iget-object v1, p0, Lcom/android/server/am/BatteryStatsService$StatsPullAtomCallbackImpl;->this$0:Lcom/android/server/am/BatteryStatsService;
 
-    invoke-static {v1}, Lcom/android/server/am/BatteryStatsService;->access$400(Lcom/android/server/am/BatteryStatsService;)Lcom/android/internal/os/BatteryUsageStatsStore;
+    invoke-static {v1}, Lcom/android/server/am/BatteryStatsService;->-$$Nest$fgetmBatteryUsageStatsStore(Lcom/android/server/am/BatteryStatsService;)Lcom/android/internal/os/BatteryUsageStatsStore;
 
     move-result-object v1
 
@@ -154,50 +174,58 @@
 
     invoke-direct {v5}, Landroid/os/BatteryUsageStatsQuery$Builder;-><init>()V
 
+    invoke-virtual {v5}, Landroid/os/BatteryUsageStatsQuery$Builder;->includeProcessStateData()Landroid/os/BatteryUsageStatsQuery$Builder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Landroid/os/BatteryUsageStatsQuery$Builder;->includeVirtualUids()Landroid/os/BatteryUsageStatsQuery$Builder;
+
+    move-result-object v5
+
     invoke-virtual {v5, v1, v2, v3, v4}, Landroid/os/BatteryUsageStatsQuery$Builder;->aggregateSnapshots(JJ)Landroid/os/BatteryUsageStatsQuery$Builder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Landroid/os/BatteryUsageStatsQuery$Builder;->build()Landroid/os/BatteryUsageStatsQuery;
-
-    move-result-object v5
-
-    iget-object v6, p0, Lcom/android/server/am/BatteryStatsService$StatsPullAtomCallbackImpl;->this$0:Lcom/android/server/am/BatteryStatsService;
-
-    invoke-static {v5}, Ljava/util/List;->of(Ljava/lang/Object;)Ljava/util/List;
-
-    move-result-object v7
-
-    invoke-virtual {v6, v7}, Lcom/android/server/am/BatteryStatsService;->getBatteryUsageStats(Ljava/util/List;)Ljava/util/List;
-
-    move-result-object v6
-
-    invoke-interface {v6, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v6
-
-    check-cast v6, Landroid/os/BatteryUsageStats;
-
-    iget-object v7, p0, Lcom/android/server/am/BatteryStatsService$StatsPullAtomCallbackImpl;->this$0:Lcom/android/server/am/BatteryStatsService;
-
-    invoke-static {v7}, Lcom/android/server/am/BatteryStatsService;->access$400(Lcom/android/server/am/BatteryStatsService;)Lcom/android/internal/os/BatteryUsageStatsStore;
-
-    move-result-object v7
-
-    invoke-virtual {v7, v3, v4}, Lcom/android/internal/os/BatteryUsageStatsStore;->setLastBatteryUsageStatsBeforeResetAtomPullTimestamp(J)V
-
-    move-object v2, v6
-
-    :goto_0
-    invoke-virtual {v2}, Landroid/os/BatteryUsageStats;->getStatsProto()[B
 
     move-result-object v1
 
-    invoke-static {p1, v1}, Lcom/android/internal/util/FrameworkStatsLog;->buildStatsEvent(I[B)Landroid/util/StatsEvent;
+    invoke-virtual {v1}, Landroid/os/BatteryUsageStatsQuery$Builder;->build()Landroid/os/BatteryUsageStatsQuery;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-interface {p2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    iget-object v2, p0, Lcom/android/server/am/BatteryStatsService$StatsPullAtomCallbackImpl;->this$0:Lcom/android/server/am/BatteryStatsService;
+
+    invoke-static {v1}, Ljava/util/List;->of(Ljava/lang/Object;)Ljava/util/List;
+
+    move-result-object v1
+
+    invoke-virtual {v2, v1}, Lcom/android/server/am/BatteryStatsService;->getBatteryUsageStats(Ljava/util/List;)Ljava/util/List;
+
+    move-result-object v1
+
+    invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/os/BatteryUsageStats;
+
+    iget-object p0, p0, Lcom/android/server/am/BatteryStatsService$StatsPullAtomCallbackImpl;->this$0:Lcom/android/server/am/BatteryStatsService;
+
+    invoke-static {p0}, Lcom/android/server/am/BatteryStatsService;->-$$Nest$fgetmBatteryUsageStatsStore(Lcom/android/server/am/BatteryStatsService;)Lcom/android/internal/os/BatteryUsageStatsStore;
+
+    move-result-object p0
+
+    invoke-virtual {p0, v3, v4}, Lcom/android/internal/os/BatteryUsageStatsStore;->setLastBatteryUsageStatsBeforeResetAtomPullTimestamp(J)V
+
+    move-object p0, v1
+
+    :goto_0
+    invoke-virtual {p0}, Landroid/os/BatteryUsageStats;->getStatsProto()[B
+
+    move-result-object p0
+
+    invoke-static {p1, p0}, Lcom/android/internal/util/FrameworkStatsLog;->buildStatsEvent(I[B)Landroid/util/StatsEvent;
+
+    move-result-object p0
+
+    invoke-interface {p2, p0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     return v0
 

@@ -16,45 +16,33 @@
 
 
 # static fields
-.field private static final ACTION_HISTORY_DELETION:Ljava/lang/String;
+.field public static final ACTION_HISTORY_DELETION:Ljava/lang/String;
 
-.field private static final DEBUG:Z
-
-.field private static final DEFAULT_CURRENT_VERSION:I = 0x1
-
-.field private static final EXTRA_KEY:Ljava/lang/String; = "key"
-
-.field private static final HISTORY_RETENTION_DAYS:I = 0x1
-
-.field private static final HISTORY_RETENTION_MS:I = 0x5265c00
-
-.field private static final INVALID_FILE_TIME_MS:J = -0x1L
-
-.field private static final REQUEST_CODE_DELETION:I = 0x1
-
-.field private static final SCHEME_DELETION:Ljava/lang/String; = "delete"
-
-.field private static final TAG:Ljava/lang/String; = "NotiHistoryDatabase"
-
-.field private static final WRITE_BUFFER_INTERVAL_MS:J = 0x124f80L
+.field public static final DEBUG:Z
 
 
 # instance fields
-.field private final mAlarmManager:Landroid/app/AlarmManager;
+.field public final mAlarmManager:Landroid/app/AlarmManager;
 
-.field mBuffer:Landroid/app/NotificationHistory;
+.field public mBuffer:Landroid/app/NotificationHistory;
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+.end field
 
-.field private final mContext:Landroid/content/Context;
+.field public final mContext:Landroid/content/Context;
 
-.field private mCurrentVersion:I
+.field public mCurrentVersion:I
 
-.field private final mFileCleanupReceiver:Landroid/content/BroadcastReceiver;
+.field public final mFileCleanupReceiver:Landroid/content/BroadcastReceiver;
 
-.field private final mFileWriteHandler:Landroid/os/Handler;
+.field public final mFileWriteHandler:Landroid/os/Handler;
 
-.field private final mHistoryDir:Ljava/io/File;
+.field public final mHistoryDir:Ljava/io/File;
 
-.field final mHistoryFiles:Ljava/util/LinkedList;
+.field public final mHistoryFiles:Ljava/util/LinkedList;
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/LinkedList<",
@@ -64,15 +52,81 @@
     .end annotation
 .end field
 
-.field private final mLock:Ljava/lang/Object;
+.field public final mLock:Ljava/lang/Object;
 
-.field private final mVersionFile:Ljava/io/File;
+.field public final mVersionFile:Ljava/io/File;
 
-.field private final mWriteBufferRunnable:Lcom/android/server/notification/NotificationHistoryDatabase$WriteBufferRunnable;
+.field public final mWriteBufferRunnable:Lcom/android/server/notification/NotificationHistoryDatabase$WriteBufferRunnable;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static synthetic $r8$lambda$WusY7wQm1vEW3s6f_GskFVqUAnM(Ljava/io/File;Ljava/io/File;)I
+    .locals 0
+
+    invoke-static {p0, p1}, Lcom/android/server/notification/NotificationHistoryDatabase;->lambda$indexFilesLocked$0(Ljava/io/File;Ljava/io/File;)I
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmHistoryDir(Lcom/android/server/notification/NotificationHistoryDatabase;)Ljava/io/File;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mHistoryDir:Ljava/io/File;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmLock(Lcom/android/server/notification/NotificationHistoryDatabase;)Ljava/lang/Object;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mLock:Ljava/lang/Object;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$mscheduleDeletion(Lcom/android/server/notification/NotificationHistoryDatabase;Ljava/io/File;JI)V
+    .locals 0
+
+    invoke-virtual {p0, p1, p2, p3, p4}, Lcom/android/server/notification/NotificationHistoryDatabase;->scheduleDeletion(Ljava/io/File;JI)V
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$mwriteLocked(Lcom/android/server/notification/NotificationHistoryDatabase;Landroid/util/AtomicFile;Landroid/app/NotificationHistory;)V
+    .locals 0
+
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/notification/NotificationHistoryDatabase;->writeLocked(Landroid/util/AtomicFile;Landroid/app/NotificationHistory;)V
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$sfgetACTION_HISTORY_DELETION()Ljava/lang/String;
+    .locals 1
+
+    sget-object v0, Lcom/android/server/notification/NotificationHistoryDatabase;->ACTION_HISTORY_DELETION:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public static bridge synthetic -$$Nest$sfgetDEBUG()Z
+    .locals 1
+
+    sget-boolean v0, Lcom/android/server/notification/NotificationHistoryDatabase;->DEBUG:Z
+
+    return v0
+.end method
+
+.method public static bridge synthetic -$$Nest$smreadLocked(Landroid/util/AtomicFile;Landroid/app/NotificationHistory;Lcom/android/server/notification/NotificationHistoryFilter;)V
+    .locals 0
+
+    invoke-static {p0, p1, p2}, Lcom/android/server/notification/NotificationHistoryDatabase;->readLocked(Landroid/util/AtomicFile;Landroid/app/NotificationHistory;Lcom/android/server/notification/NotificationHistoryFilter;)V
+
+    return-void
+.end method
+
+.method public static constructor <clinit>()V
     .locals 2
 
     sget-boolean v0, Lcom/android/server/notification/NotificationManagerService;->DBG:Z
@@ -105,7 +159,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/os/Handler;Ljava/io/File;)V
-    .locals 3
+    .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -139,123 +193,225 @@
 
     iput-object p2, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mFileWriteHandler:Landroid/os/Handler;
 
-    new-instance v1, Ljava/io/File;
+    new-instance p2, Ljava/io/File;
 
-    const-string/jumbo v2, "version"
+    const-string/jumbo v1, "version"
 
-    invoke-direct {v1, p3, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    invoke-direct {p2, p3, v1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    iput-object v1, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mVersionFile:Ljava/io/File;
+    iput-object p2, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mVersionFile:Ljava/io/File;
 
-    new-instance v1, Ljava/io/File;
+    new-instance p2, Ljava/io/File;
 
-    const-string v2, "history"
+    const-string v1, "history"
 
-    invoke-direct {v1, p3, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    invoke-direct {p2, p3, v1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    iput-object v1, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mHistoryDir:Ljava/io/File;
+    iput-object p2, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mHistoryDir:Ljava/io/File;
 
-    new-instance v1, Ljava/util/LinkedList;
+    new-instance p2, Ljava/util/LinkedList;
 
-    invoke-direct {v1}, Ljava/util/LinkedList;-><init>()V
+    invoke-direct {p2}, Ljava/util/LinkedList;-><init>()V
 
-    iput-object v1, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mHistoryFiles:Ljava/util/LinkedList;
+    iput-object p2, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mHistoryFiles:Ljava/util/LinkedList;
 
-    new-instance v1, Landroid/app/NotificationHistory;
+    new-instance p2, Landroid/app/NotificationHistory;
 
-    invoke-direct {v1}, Landroid/app/NotificationHistory;-><init>()V
+    invoke-direct {p2}, Landroid/app/NotificationHistory;-><init>()V
 
-    iput-object v1, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mBuffer:Landroid/app/NotificationHistory;
+    iput-object p2, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mBuffer:Landroid/app/NotificationHistory;
 
-    new-instance v1, Lcom/android/server/notification/NotificationHistoryDatabase$WriteBufferRunnable;
+    new-instance p2, Lcom/android/server/notification/NotificationHistoryDatabase$WriteBufferRunnable;
 
-    invoke-direct {v1, p0}, Lcom/android/server/notification/NotificationHistoryDatabase$WriteBufferRunnable;-><init>(Lcom/android/server/notification/NotificationHistoryDatabase;)V
+    invoke-direct {p2, p0}, Lcom/android/server/notification/NotificationHistoryDatabase$WriteBufferRunnable;-><init>(Lcom/android/server/notification/NotificationHistoryDatabase;)V
 
-    iput-object v1, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mWriteBufferRunnable:Lcom/android/server/notification/NotificationHistoryDatabase$WriteBufferRunnable;
+    iput-object p2, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mWriteBufferRunnable:Lcom/android/server/notification/NotificationHistoryDatabase$WriteBufferRunnable;
 
-    new-instance v1, Landroid/content/IntentFilter;
+    new-instance p0, Landroid/content/IntentFilter;
 
-    sget-object v2, Lcom/android/server/notification/NotificationHistoryDatabase;->ACTION_HISTORY_DELETION:Ljava/lang/String;
+    sget-object p2, Lcom/android/server/notification/NotificationHistoryDatabase;->ACTION_HISTORY_DELETION:Ljava/lang/String;
 
-    invoke-direct {v1, v2}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p2}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
 
-    const-string v2, "delete"
+    const-string p2, "delete"
 
-    invoke-virtual {v1, v2}, Landroid/content/IntentFilter;->addDataScheme(Ljava/lang/String;)V
+    invoke-virtual {p0, p2}, Landroid/content/IntentFilter;->addDataScheme(Ljava/lang/String;)V
 
-    invoke-virtual {p1, v0, v1}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+    const/4 p2, 0x2
+
+    invoke-virtual {p1, v0, p0, p2}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;I)Landroid/content/Intent;
 
     return-void
 .end method
 
-.method static synthetic access$000()Ljava/lang/String;
-    .locals 1
+.method public static synthetic lambda$indexFilesLocked$0(Ljava/io/File;Ljava/io/File;)I
+    .locals 2
 
-    sget-object v0, Lcom/android/server/notification/NotificationHistoryDatabase;->ACTION_HISTORY_DELETION:Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/io/File;->getName()Ljava/lang/String;
 
-    return-object v0
+    move-result-object p1
+
+    invoke-static {p1}, Lcom/android/server/notification/NotificationHistoryDatabase;->safeParseLong(Ljava/lang/String;)J
+
+    move-result-wide v0
+
+    invoke-virtual {p0}, Ljava/io/File;->getName()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-static {p0}, Lcom/android/server/notification/NotificationHistoryDatabase;->safeParseLong(Ljava/lang/String;)J
+
+    move-result-wide p0
+
+    invoke-static {v0, v1, p0, p1}, Ljava/lang/Long;->compare(JJ)I
+
+    move-result p0
+
+    return p0
 .end method
 
-.method static synthetic access$100(Lcom/android/server/notification/NotificationHistoryDatabase;)Ljava/lang/Object;
-    .locals 1
+.method public static readLocked(Landroid/util/AtomicFile;Landroid/app/NotificationHistory;Lcom/android/server/notification/NotificationHistoryFilter;)V
+    .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    const/4 v0, 0x0
+
+    :try_start_0
+    invoke-virtual {p0}, Landroid/util/AtomicFile;->openRead()Ljava/io/FileInputStream;
+
+    move-result-object v0
+
+    invoke-static {v0, p1, p2}, Lcom/android/server/notification/NotificationHistoryProtoHelper;->read(Ljava/io/InputStream;Landroid/app/NotificationHistory;Lcom/android/server/notification/NotificationHistoryFilter;)V
+    :try_end_0
+    .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Ljava/io/FileInputStream;->close()V
+
+    :cond_0
+    return-void
+
+    :catchall_0
+    move-exception p0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception p1
+
+    :try_start_1
+    const-string p2, "NotiHistoryDatabase"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "Cannot open "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0}, Landroid/util/AtomicFile;->getBaseFile()Ljava/io/File;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-static {p2, p0, p1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    throw p1
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    :goto_0
+    if-eqz v0, :cond_1
+
+    invoke-virtual {v0}, Ljava/io/FileInputStream;->close()V
+
+    :cond_1
+    throw p0
+.end method
+
+.method public static safeParseLong(Ljava/lang/String;)J
+    .locals 2
+
+    :try_start_0
+    invoke-static {p0}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+
+    move-result-wide v0
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-wide v0
+
+    :catch_0
+    const-wide/16 v0, -0x1
+
+    return-wide v0
+.end method
+
+
+# virtual methods
+.method public addNotification(Landroid/app/NotificationHistory$HistoricalNotification;)V
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mLock:Ljava/lang/Object;
 
-    return-object v0
-.end method
+    monitor-enter v0
 
-.method static synthetic access$200()Z
-    .locals 1
+    :try_start_0
+    iget-object v1, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mBuffer:Landroid/app/NotificationHistory;
 
-    sget-boolean v0, Lcom/android/server/notification/NotificationHistoryDatabase;->DEBUG:Z
+    invoke-virtual {v1, p1}, Landroid/app/NotificationHistory;->addNewNotificationToWrite(Landroid/app/NotificationHistory$HistoricalNotification;)V
 
-    return v0
-.end method
+    iget-object p1, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mBuffer:Landroid/app/NotificationHistory;
 
-.method static synthetic access$300(Lcom/android/server/notification/NotificationHistoryDatabase;)Ljava/io/File;
-    .locals 1
+    invoke-virtual {p1}, Landroid/app/NotificationHistory;->getHistoryCount()I
 
-    iget-object v0, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mHistoryDir:Ljava/io/File;
+    move-result p1
 
-    return-object v0
-.end method
+    const/4 v1, 0x1
 
-.method static synthetic access$400(Lcom/android/server/notification/NotificationHistoryDatabase;Landroid/util/AtomicFile;Landroid/app/NotificationHistory;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
+    if-ne p1, v1, :cond_0
 
-    invoke-direct {p0, p1, p2}, Lcom/android/server/notification/NotificationHistoryDatabase;->writeLocked(Landroid/util/AtomicFile;Landroid/app/NotificationHistory;)V
+    iget-object p1, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mFileWriteHandler:Landroid/os/Handler;
 
-    return-void
-.end method
+    iget-object p0, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mWriteBufferRunnable:Lcom/android/server/notification/NotificationHistoryDatabase$WriteBufferRunnable;
 
-.method static synthetic access$500(Lcom/android/server/notification/NotificationHistoryDatabase;Ljava/io/File;JI)V
-    .locals 0
+    const-wide/32 v1, 0x124f80
 
-    invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/server/notification/NotificationHistoryDatabase;->scheduleDeletion(Ljava/io/File;JI)V
+    invoke-virtual {p1, p0, v1, v2}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+
+    :cond_0
+    monitor-exit v0
 
     return-void
+
+    :catchall_0
+    move-exception p0
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw p0
 .end method
 
-.method static synthetic access$600(Landroid/util/AtomicFile;Landroid/app/NotificationHistory;Lcom/android/server/notification/NotificationHistoryFilter;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
-
-    invoke-static {p0, p1, p2}, Lcom/android/server/notification/NotificationHistoryDatabase;->readLocked(Landroid/util/AtomicFile;Landroid/app/NotificationHistory;Lcom/android/server/notification/NotificationHistoryFilter;)V
-
-    return-void
-.end method
-
-.method private checkVersionAndBuildLocked()V
-    .locals 4
+.method public final checkVersionAndBuildLocked()V
+    .locals 3
 
     :try_start_0
     new-instance v0, Ljava/io/BufferedReader;
@@ -301,10 +457,10 @@
     goto :goto_0
 
     :catchall_1
-    move-exception v2
+    move-exception v0
 
     :try_start_4
-    invoke-virtual {v1, v2}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
+    invoke-virtual {v1, v0}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
 
     :goto_0
     throw v1
@@ -313,8 +469,6 @@
     .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_0
 
     :catch_0
-    move-exception v0
-
     const/4 v1, 0x0
 
     :goto_1
@@ -333,28 +487,28 @@
     :try_start_5
     new-instance v0, Ljava/io/BufferedWriter;
 
-    new-instance v2, Ljava/io/FileWriter;
+    new-instance v1, Ljava/io/FileWriter;
 
-    iget-object v3, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mVersionFile:Ljava/io/File;
+    iget-object v2, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mVersionFile:Ljava/io/File;
 
-    invoke-direct {v2, v3}, Ljava/io/FileWriter;-><init>(Ljava/io/File;)V
+    invoke-direct {v1, v2}, Ljava/io/FileWriter;-><init>(Ljava/io/File;)V
 
-    invoke-direct {v0, v2}, Ljava/io/BufferedWriter;-><init>(Ljava/io/Writer;)V
+    invoke-direct {v0, v1}, Ljava/io/BufferedWriter;-><init>(Ljava/io/Writer;)V
     :try_end_5
     .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_1
 
     :try_start_6
-    iget v2, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mCurrentVersion:I
+    iget p0, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mCurrentVersion:I
 
-    invoke-static {v2}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    invoke-static {p0}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-virtual {v0, v2}, Ljava/io/BufferedWriter;->write(Ljava/lang/String;)V
+    invoke-virtual {v0, p0}, Ljava/io/BufferedWriter;->write(Ljava/lang/String;)V
 
-    const-string v2, "\n"
+    const-string p0, "\n"
 
-    invoke-virtual {v0, v2}, Ljava/io/BufferedWriter;->write(Ljava/lang/String;)V
+    invoke-virtual {v0, p0}, Ljava/io/BufferedWriter;->write(Ljava/lang/String;)V
 
     invoke-virtual {v0}, Ljava/io/BufferedWriter;->flush()V
     :try_end_6
@@ -368,7 +522,7 @@
     goto :goto_3
 
     :catchall_2
-    move-exception v2
+    move-exception p0
 
     :try_start_8
     invoke-virtual {v0}, Ljava/io/BufferedWriter;->close()V
@@ -378,37 +532,60 @@
     goto :goto_2
 
     :catchall_3
-    move-exception v3
+    move-exception v0
 
     :try_start_9
-    invoke-virtual {v2, v3}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
+    invoke-virtual {p0, v0}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
 
     :goto_2
-    throw v2
+    throw p0
     :try_end_9
     .catch Ljava/io/IOException; {:try_start_9 .. :try_end_9} :catch_1
 
     :catch_1
-    move-exception v0
+    move-exception p0
 
-    const-string v2, "NotiHistoryDatabase"
+    const-string v0, "NotiHistoryDatabase"
 
-    const-string v3, "Failed to write new version"
+    const-string v1, "Failed to write new version"
 
-    invoke-static {v2, v3}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    new-instance v2, Ljava/lang/RuntimeException;
+    new-instance v0, Ljava/lang/RuntimeException;
 
-    invoke-direct {v2, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {v0, p0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v2
+    throw v0
 
     :cond_0
     :goto_3
     return-void
 .end method
 
-.method private deleteFile(Landroid/util/AtomicFile;)V
+.method public deleteConversations(Ljava/lang/String;Ljava/util/Set;)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            "Ljava/util/Set<",
+            "Ljava/lang/String;",
+            ">;)V"
+        }
+    .end annotation
+
+    new-instance v0, Lcom/android/server/notification/NotificationHistoryDatabase$RemoveConversationRunnable;
+
+    invoke-direct {v0, p0, p1, p2}, Lcom/android/server/notification/NotificationHistoryDatabase$RemoveConversationRunnable;-><init>(Lcom/android/server/notification/NotificationHistoryDatabase;Ljava/lang/String;Ljava/util/Set;)V
+
+    iget-object p0, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mFileWriteHandler:Landroid/os/Handler;
+
+    invoke-virtual {p0, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
+    return-void
+.end method
+
+.method public final deleteFile(Landroid/util/AtomicFile;)V
     .locals 2
 
     sget-boolean v0, Lcom/android/server/notification/NotificationHistoryDatabase;->DEBUG:Z
@@ -446,18 +623,112 @@
 
     invoke-virtual {p1}, Landroid/util/AtomicFile;->getBaseFile()Ljava/io/File;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Lcom/android/server/notification/NotificationHistoryDatabase;->removeFilePathFromHistory(Ljava/lang/String;)V
+    invoke-virtual {p0, p1}, Lcom/android/server/notification/NotificationHistoryDatabase;->removeFilePathFromHistory(Ljava/lang/String;)V
 
     return-void
 .end method
 
-.method private indexFilesLocked()V
+.method public deleteNotificationChannel(Ljava/lang/String;Ljava/lang/String;)V
+    .locals 1
+
+    new-instance v0, Lcom/android/server/notification/NotificationHistoryDatabase$RemoveChannelRunnable;
+
+    invoke-direct {v0, p0, p1, p2}, Lcom/android/server/notification/NotificationHistoryDatabase$RemoveChannelRunnable;-><init>(Lcom/android/server/notification/NotificationHistoryDatabase;Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object p0, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mFileWriteHandler:Landroid/os/Handler;
+
+    invoke-virtual {p0, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
+    return-void
+.end method
+
+.method public deleteNotificationHistoryItem(Ljava/lang/String;J)V
+    .locals 1
+
+    new-instance v0, Lcom/android/server/notification/NotificationHistoryDatabase$RemoveNotificationRunnable;
+
+    invoke-direct {v0, p0, p1, p2, p3}, Lcom/android/server/notification/NotificationHistoryDatabase$RemoveNotificationRunnable;-><init>(Lcom/android/server/notification/NotificationHistoryDatabase;Ljava/lang/String;J)V
+
+    iget-object p0, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mFileWriteHandler:Landroid/os/Handler;
+
+    invoke-virtual {p0, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
+    return-void
+.end method
+
+.method public disableHistory()V
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
+    iget-object v1, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mHistoryFiles:Ljava/util/LinkedList;
+
+    invoke-virtual {v1}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/util/AtomicFile;
+
+    invoke-virtual {v2}, Landroid/util/AtomicFile;->delete()V
+
+    goto :goto_0
+
+    :cond_0
+    iget-object v1, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mHistoryDir:Ljava/io/File;
+
+    invoke-virtual {v1}, Ljava/io/File;->delete()Z
+
+    iget-object p0, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mHistoryFiles:Ljava/util/LinkedList;
+
+    invoke-virtual {p0}, Ljava/util/LinkedList;->clear()V
+
+    monitor-exit v0
+
+    return-void
+
+    :catchall_0
+    move-exception p0
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw p0
+.end method
+
+.method public forceWriteToDisk()V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mFileWriteHandler:Landroid/os/Handler;
+
+    iget-object p0, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mWriteBufferRunnable:Lcom/android/server/notification/NotificationHistoryDatabase$WriteBufferRunnable;
+
+    invoke-virtual {v0, p0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
+    return-void
+.end method
+
+.method public final indexFilesLocked()V
     .locals 6
 
     iget-object v0, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mHistoryFiles:Ljava/util/LinkedList;
@@ -475,7 +746,9 @@
     return-void
 
     :cond_0
-    sget-object v1, Lcom/android/server/notification/NotificationHistoryDatabase$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/server/notification/NotificationHistoryDatabase$$ExternalSyntheticLambda0;
+    new-instance v1, Lcom/android/server/notification/NotificationHistoryDatabase$$ExternalSyntheticLambda0;
+
+    invoke-direct {v1}, Lcom/android/server/notification/NotificationHistoryDatabase$$ExternalSyntheticLambda0;-><init>()V
 
     invoke-static {v0, v1}, Ljava/util/Arrays;->sort([Ljava/lang/Object;Ljava/util/Comparator;)V
 
@@ -504,65 +777,56 @@
     return-void
 .end method
 
-.method static synthetic lambda$indexFilesLocked$0(Ljava/io/File;Ljava/io/File;)I
+.method public init()V
     .locals 4
 
-    invoke-virtual {p1}, Ljava/io/File;->getName()Ljava/lang/String;
+    iget-object v0, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mLock:Ljava/lang/Object;
 
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/android/server/notification/NotificationHistoryDatabase;->safeParseLong(Ljava/lang/String;)J
-
-    move-result-wide v0
-
-    invoke-virtual {p0}, Ljava/io/File;->getName()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v2}, Lcom/android/server/notification/NotificationHistoryDatabase;->safeParseLong(Ljava/lang/String;)J
-
-    move-result-wide v2
-
-    invoke-static {v0, v1, v2, v3}, Ljava/lang/Long;->compare(JJ)I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method private static readLocked(Landroid/util/AtomicFile;Landroid/app/NotificationHistory;Lcom/android/server/notification/NotificationHistoryFilter;)V
-    .locals 5
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
-
-    const/4 v0, 0x0
+    monitor-enter v0
 
     :try_start_0
-    invoke-virtual {p0}, Landroid/util/AtomicFile;->openRead()Ljava/io/FileInputStream;
+    iget-object v1, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mHistoryDir:Ljava/io/File;
 
-    move-result-object v1
+    invoke-virtual {v1}, Ljava/io/File;->exists()Z
 
-    move-object v0, v1
+    move-result v1
 
-    invoke-static {v0, p1, p2}, Lcom/android/server/notification/NotificationHistoryProtoHelper;->read(Ljava/io/InputStream;Landroid/app/NotificationHistory;Lcom/android/server/notification/NotificationHistoryFilter;)V
-    :try_end_0
-    .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    if-nez v1, :cond_1
 
-    if-eqz v0, :cond_0
+    iget-object v1, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mHistoryDir:Ljava/io/File;
 
-    invoke-virtual {v0}, Ljava/io/FileInputStream;->close()V
+    invoke-virtual {v1}, Ljava/io/File;->mkdir()Z
 
-    :cond_0
-    return-void
+    move-result v1
 
-    :catchall_0
-    move-exception v1
+    if-eqz v1, :cond_0
 
     goto :goto_0
+
+    :cond_0
+    new-instance v1, Ljava/lang/IllegalStateException;
+
+    const-string v2, "could not create history directory"
+
+    invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v1
+
+    :cond_1
+    :goto_0
+    iget-object v1, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mVersionFile:Ljava/io/File;
+
+    invoke-virtual {v1}, Ljava/io/File;->createNewFile()Z
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    goto :goto_1
+
+    :catchall_0
+    move-exception p0
+
+    goto :goto_2
 
     :catch_0
     move-exception v1
@@ -570,66 +834,326 @@
     :try_start_1
     const-string v2, "NotiHistoryDatabase"
 
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "Cannot open "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p0}, Landroid/util/AtomicFile;->getBaseFile()Ljava/io/File;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
+    const-string v3, "could not create needed files"
 
     invoke-static {v2, v3, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    nop
+    :goto_1
+    invoke-virtual {p0}, Lcom/android/server/notification/NotificationHistoryDatabase;->checkVersionAndBuildLocked()V
 
-    throw v1
+    invoke-virtual {p0}, Lcom/android/server/notification/NotificationHistoryDatabase;->indexFilesLocked()V
+
+    const/4 v1, 0x1
+
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v2
+
+    invoke-virtual {p0, v1, v2, v3}, Lcom/android/server/notification/NotificationHistoryDatabase;->prune(IJ)V
+
+    monitor-exit v0
+
+    return-void
+
+    :goto_2
+    monitor-exit v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    :goto_0
-    if-eqz v0, :cond_1
-
-    invoke-virtual {v0}, Ljava/io/FileInputStream;->close()V
-
-    :cond_1
-    throw v1
+    throw p0
 .end method
 
-.method private static safeParseLong(Ljava/lang/String;)J
-    .locals 3
+.method public onPackageRemoved(Ljava/lang/String;)V
+    .locals 1
+
+    new-instance v0, Lcom/android/server/notification/NotificationHistoryDatabase$RemovePackageRunnable;
+
+    invoke-direct {v0, p0, p1}, Lcom/android/server/notification/NotificationHistoryDatabase$RemovePackageRunnable;-><init>(Lcom/android/server/notification/NotificationHistoryDatabase;Ljava/lang/String;)V
+
+    iget-object p0, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mFileWriteHandler:Landroid/os/Handler;
+
+    invoke-virtual {p0, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
+    return-void
+.end method
+
+.method public prune(IJ)V
+    .locals 7
+
+    iget-object v0, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mLock:Ljava/lang/Object;
+
+    monitor-enter v0
 
     :try_start_0
-    invoke-static {p0}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+    new-instance v1, Ljava/util/GregorianCalendar;
 
-    move-result-wide v0
+    invoke-direct {v1}, Ljava/util/GregorianCalendar;-><init>()V
+
+    invoke-virtual {v1, p2, p3}, Ljava/util/GregorianCalendar;->setTimeInMillis(J)V
+
+    const/4 p2, 0x5
+
+    mul-int/lit8 p3, p1, -0x1
+
+    invoke-virtual {v1, p2, p3}, Ljava/util/GregorianCalendar;->add(II)V
+
+    iget-object p2, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mHistoryFiles:Ljava/util/LinkedList;
+
+    invoke-virtual {p2}, Ljava/util/LinkedList;->size()I
+
+    move-result p2
+
+    add-int/lit8 p2, p2, -0x1
+
+    :goto_0
+    if-ltz p2, :cond_2
+
+    iget-object p3, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mHistoryFiles:Ljava/util/LinkedList;
+
+    invoke-virtual {p3, p2}, Ljava/util/LinkedList;->get(I)Ljava/lang/Object;
+
+    move-result-object p3
+
+    check-cast p3, Landroid/util/AtomicFile;
+
+    invoke-virtual {p3}, Landroid/util/AtomicFile;->getBaseFile()Ljava/io/File;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/io/File;->getName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/android/server/notification/NotificationHistoryDatabase;->safeParseLong(Ljava/lang/String;)J
+
+    move-result-wide v2
+
+    sget-boolean v4, Lcom/android/server/notification/NotificationHistoryDatabase;->DEBUG:Z
+
+    if-eqz v4, :cond_0
+
+    const-string v4, "NotiHistoryDatabase"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v6, "File "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p3}, Landroid/util/AtomicFile;->getBaseFile()Ljava/io/File;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/io/File;->getName()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v6, " created on "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v5, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    invoke-virtual {v1}, Ljava/util/GregorianCalendar;->getTimeInMillis()J
+
+    move-result-wide v4
+
+    cmp-long v4, v2, v4
+
+    if-gtz v4, :cond_1
+
+    invoke-virtual {p0, p3}, Lcom/android/server/notification/NotificationHistoryDatabase;->deleteFile(Landroid/util/AtomicFile;)V
+
+    goto :goto_1
+
+    :cond_1
+    invoke-virtual {p3}, Landroid/util/AtomicFile;->getBaseFile()Ljava/io/File;
+
+    move-result-object p3
+
+    invoke-virtual {p0, p3, v2, v3, p1}, Lcom/android/server/notification/NotificationHistoryDatabase;->scheduleDeletion(Ljava/io/File;JI)V
+
+    :goto_1
+    add-int/lit8 p2, p2, -0x1
+
+    goto :goto_0
+
+    :cond_2
+    monitor-exit v0
+
+    return-void
+
+    :catchall_0
+    move-exception p0
+
+    monitor-exit v0
     :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    return-wide v0
-
-    :catch_0
-    move-exception v0
-
-    const-wide/16 v1, -0x1
-
-    return-wide v1
+    throw p0
 .end method
 
-.method private scheduleDeletion(Ljava/io/File;J)V
+.method public readNotificationHistory()Landroid/app/NotificationHistory;
+    .locals 7
+
+    iget-object v0, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
+    new-instance v1, Landroid/app/NotificationHistory;
+
+    invoke-direct {v1}, Landroid/app/NotificationHistory;-><init>()V
+
+    iget-object v2, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mBuffer:Landroid/app/NotificationHistory;
+
+    invoke-virtual {v1, v2}, Landroid/app/NotificationHistory;->addNotificationsToWrite(Landroid/app/NotificationHistory;)V
+
+    iget-object p0, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mHistoryFiles:Ljava/util/LinkedList;
+
+    invoke-virtual {p0}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+
+    move-result-object p0
+
+    :goto_0
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/util/AtomicFile;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :try_start_1
+    new-instance v3, Lcom/android/server/notification/NotificationHistoryFilter$Builder;
+
+    invoke-direct {v3}, Lcom/android/server/notification/NotificationHistoryFilter$Builder;-><init>()V
+
+    invoke-virtual {v3}, Lcom/android/server/notification/NotificationHistoryFilter$Builder;->build()Lcom/android/server/notification/NotificationHistoryFilter;
+
+    move-result-object v3
+
+    invoke-static {v2, v1, v3}, Lcom/android/server/notification/NotificationHistoryDatabase;->readLocked(Landroid/util/AtomicFile;Landroid/app/NotificationHistory;Lcom/android/server/notification/NotificationHistoryFilter;)V
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v3
+
+    :try_start_2
+    const-string v4, "NotiHistoryDatabase"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v6, "error reading "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Landroid/util/AtomicFile;->getBaseFile()Ljava/io/File;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v4, v2, v3}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
+
+    :cond_0
+    monitor-exit v0
+
+    return-object v1
+
+    :catchall_0
+    move-exception p0
+
+    monitor-exit v0
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    throw p0
+.end method
+
+.method public removeFilePathFromHistory(Ljava/lang/String;)V
+    .locals 1
+
+    if-nez p1, :cond_0
+
+    return-void
+
+    :cond_0
+    iget-object p0, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mHistoryFiles:Ljava/util/LinkedList;
+
+    invoke-virtual {p0}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+
+    move-result-object p0
+
+    :cond_1
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/util/AtomicFile;
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {v0}, Landroid/util/AtomicFile;->getBaseFile()Ljava/io/File;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    invoke-interface {p0}, Ljava/util/Iterator;->remove()V
+
+    :cond_2
+    return-void
+.end method
+
+.method public final scheduleDeletion(Ljava/io/File;J)V
     .locals 5
 
     sget-boolean v0, Lcom/android/server/notification/NotificationHistoryDatabase;->DEBUG:Z
@@ -709,47 +1233,62 @@
 
     invoke-virtual {p1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p1
 
-    const-string/jumbo v4, "key"
+    const-string v3, "key"
 
-    invoke-virtual {v2, v4, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v2, v3, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    move-result-object v2
+    move-result-object p1
 
-    const/high16 v3, 0xc000000
+    const/high16 v2, 0xc000000
 
-    invoke-static {v0, v1, v2, v3}, Landroid/app/PendingIntent;->getBroadcast(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
+    invoke-static {v0, v1, p1, v2}, Landroid/app/PendingIntent;->getBroadcast(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
 
-    move-result-object v0
+    move-result-object p1
 
-    iget-object v1, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mAlarmManager:Landroid/app/AlarmManager;
+    iget-object p0, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mAlarmManager:Landroid/app/AlarmManager;
 
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
-    invoke-virtual {v1, v2, p2, p3, v0}, Landroid/app/AlarmManager;->setExactAndAllowWhileIdle(IJLandroid/app/PendingIntent;)V
+    invoke-virtual {p0, v0, p2, p3, p1}, Landroid/app/AlarmManager;->setExactAndAllowWhileIdle(IJLandroid/app/PendingIntent;)V
 
     return-void
 .end method
 
-.method private scheduleDeletion(Ljava/io/File;JI)V
+.method public final scheduleDeletion(Ljava/io/File;JI)V
     .locals 2
 
     const v0, 0x5265c00
 
-    mul-int/2addr v0, p4
+    mul-int/2addr p4, v0
 
-    int-to-long v0, v0
+    int-to-long v0, p4
 
-    add-long/2addr v0, p2
+    add-long/2addr p2, v0
 
-    invoke-direct {p0, p1, v0, v1}, Lcom/android/server/notification/NotificationHistoryDatabase;->scheduleDeletion(Ljava/io/File;J)V
+    invoke-virtual {p0, p1, p2, p3}, Lcom/android/server/notification/NotificationHistoryDatabase;->scheduleDeletion(Ljava/io/File;J)V
 
     return-void
 .end method
 
-.method private writeLocked(Landroid/util/AtomicFile;Landroid/app/NotificationHistory;)V
-    .locals 2
+.method public unregisterFileCleanupReceiver()V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mContext:Landroid/content/Context;
+
+    if-eqz v0, :cond_0
+
+    iget-object p0, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mFileCleanupReceiver:Landroid/content/BroadcastReceiver;
+
+    invoke-virtual {v0, p0}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
+
+    :cond_0
+    return-void
+.end method
+
+.method public final writeLocked(Landroid/util/AtomicFile;Landroid/app/NotificationHistory;)V
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -761,695 +1300,24 @@
     move-result-object v0
 
     :try_start_0
-    iget v1, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mCurrentVersion:I
+    iget p0, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mCurrentVersion:I
 
-    invoke-static {v0, p2, v1}, Lcom/android/server/notification/NotificationHistoryProtoHelper;->write(Ljava/io/OutputStream;Landroid/app/NotificationHistory;I)V
+    invoke-static {v0, p2, p0}, Lcom/android/server/notification/NotificationHistoryProtoHelper;->write(Ljava/io/OutputStream;Landroid/app/NotificationHistory;I)V
 
     invoke-virtual {p1, v0}, Landroid/util/AtomicFile;->finishWrite(Ljava/io/FileOutputStream;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
+
+    invoke-virtual {p1, p0}, Landroid/util/AtomicFile;->failWrite(Ljava/io/FileOutputStream;)V
+
+    return-void
+
+    :catchall_0
+    move-exception p0
 
     invoke-virtual {p1, v0}, Landroid/util/AtomicFile;->failWrite(Ljava/io/FileOutputStream;)V
 
-    nop
-
-    return-void
-
-    :catchall_0
-    move-exception v1
-
-    invoke-virtual {p1, v0}, Landroid/util/AtomicFile;->failWrite(Ljava/io/FileOutputStream;)V
-
-    throw v1
-.end method
-
-
-# virtual methods
-.method public addNotification(Landroid/app/NotificationHistory$HistoricalNotification;)V
-    .locals 5
-
-    iget-object v0, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mLock:Ljava/lang/Object;
-
-    monitor-enter v0
-
-    :try_start_0
-    iget-object v1, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mBuffer:Landroid/app/NotificationHistory;
-
-    invoke-virtual {v1, p1}, Landroid/app/NotificationHistory;->addNewNotificationToWrite(Landroid/app/NotificationHistory$HistoricalNotification;)V
-
-    iget-object v1, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mBuffer:Landroid/app/NotificationHistory;
-
-    invoke-virtual {v1}, Landroid/app/NotificationHistory;->getHistoryCount()I
-
-    move-result v1
-
-    const/4 v2, 0x1
-
-    if-ne v1, v2, :cond_0
-
-    iget-object v1, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mFileWriteHandler:Landroid/os/Handler;
-
-    iget-object v2, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mWriteBufferRunnable:Lcom/android/server/notification/NotificationHistoryDatabase$WriteBufferRunnable;
-
-    const-wide/32 v3, 0x124f80
-
-    invoke-virtual {v1, v2, v3, v4}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
-
-    :cond_0
-    monitor-exit v0
-
-    return-void
-
-    :catchall_0
-    move-exception v1
-
-    monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v1
-.end method
-
-.method public deleteConversations(Ljava/lang/String;Ljava/util/Set;)V
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/lang/String;",
-            "Ljava/util/Set<",
-            "Ljava/lang/String;",
-            ">;)V"
-        }
-    .end annotation
-
-    new-instance v0, Lcom/android/server/notification/NotificationHistoryDatabase$RemoveConversationRunnable;
-
-    invoke-direct {v0, p0, p1, p2}, Lcom/android/server/notification/NotificationHistoryDatabase$RemoveConversationRunnable;-><init>(Lcom/android/server/notification/NotificationHistoryDatabase;Ljava/lang/String;Ljava/util/Set;)V
-
-    iget-object v1, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mFileWriteHandler:Landroid/os/Handler;
-
-    invoke-virtual {v1, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-
-    return-void
-.end method
-
-.method public deleteNotificationChannel(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 2
-
-    new-instance v0, Lcom/android/server/notification/NotificationHistoryDatabase$RemoveChannelRunnable;
-
-    invoke-direct {v0, p0, p1, p2}, Lcom/android/server/notification/NotificationHistoryDatabase$RemoveChannelRunnable;-><init>(Lcom/android/server/notification/NotificationHistoryDatabase;Ljava/lang/String;Ljava/lang/String;)V
-
-    iget-object v1, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mFileWriteHandler:Landroid/os/Handler;
-
-    invoke-virtual {v1, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-
-    return-void
-.end method
-
-.method public deleteNotificationHistoryItem(Ljava/lang/String;J)V
-    .locals 2
-
-    new-instance v0, Lcom/android/server/notification/NotificationHistoryDatabase$RemoveNotificationRunnable;
-
-    invoke-direct {v0, p0, p1, p2, p3}, Lcom/android/server/notification/NotificationHistoryDatabase$RemoveNotificationRunnable;-><init>(Lcom/android/server/notification/NotificationHistoryDatabase;Ljava/lang/String;J)V
-
-    iget-object v1, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mFileWriteHandler:Landroid/os/Handler;
-
-    invoke-virtual {v1, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-
-    return-void
-.end method
-
-.method public disableHistory()V
-    .locals 3
-
-    iget-object v0, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mLock:Ljava/lang/Object;
-
-    monitor-enter v0
-
-    :try_start_0
-    iget-object v1, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mHistoryFiles:Ljava/util/LinkedList;
-
-    invoke-virtual {v1}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
-
-    move-result-object v1
-
-    :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/util/AtomicFile;
-
-    invoke-virtual {v2}, Landroid/util/AtomicFile;->delete()V
-
-    goto :goto_0
-
-    :cond_0
-    iget-object v1, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mHistoryDir:Ljava/io/File;
-
-    invoke-virtual {v1}, Ljava/io/File;->delete()Z
-
-    iget-object v1, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mHistoryFiles:Ljava/util/LinkedList;
-
-    invoke-virtual {v1}, Ljava/util/LinkedList;->clear()V
-
-    monitor-exit v0
-
-    return-void
-
-    :catchall_0
-    move-exception v1
-
-    monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v1
-.end method
-
-.method public forceWriteToDisk()V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mFileWriteHandler:Landroid/os/Handler;
-
-    iget-object v1, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mWriteBufferRunnable:Lcom/android/server/notification/NotificationHistoryDatabase$WriteBufferRunnable;
-
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-
-    return-void
-.end method
-
-.method public init()V
-    .locals 4
-
-    iget-object v0, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mLock:Ljava/lang/Object;
-
-    monitor-enter v0
-
-    :try_start_0
-    iget-object v1, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mHistoryDir:Ljava/io/File;
-
-    invoke-virtual {v1}, Ljava/io/File;->exists()Z
-
-    move-result v1
-
-    if-nez v1, :cond_1
-
-    iget-object v1, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mHistoryDir:Ljava/io/File;
-
-    invoke-virtual {v1}, Ljava/io/File;->mkdir()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    new-instance v1, Ljava/lang/IllegalStateException;
-
-    const-string v2, "could not create history directory"
-
-    invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    throw v1
-
-    :cond_1
-    :goto_0
-    iget-object v1, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mVersionFile:Ljava/io/File;
-
-    invoke-virtual {v1}, Ljava/io/File;->createNewFile()Z
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    goto :goto_1
-
-    :catchall_0
-    move-exception v1
-
-    goto :goto_2
-
-    :catch_0
-    move-exception v1
-
-    :try_start_1
-    const-string v2, "NotiHistoryDatabase"
-
-    const-string v3, "could not create needed files"
-
-    invoke-static {v2, v3, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    :goto_1
-    invoke-direct {p0}, Lcom/android/server/notification/NotificationHistoryDatabase;->checkVersionAndBuildLocked()V
-
-    invoke-direct {p0}, Lcom/android/server/notification/NotificationHistoryDatabase;->indexFilesLocked()V
-
-    const/4 v1, 0x1
-
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
-
-    move-result-wide v2
-
-    invoke-virtual {p0, v1, v2, v3}, Lcom/android/server/notification/NotificationHistoryDatabase;->prune(IJ)V
-
-    monitor-exit v0
-
-    return-void
-
-    :goto_2
-    monitor-exit v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    throw v1
-.end method
-
-.method public onPackageRemoved(Ljava/lang/String;)V
-    .locals 2
-
-    new-instance v0, Lcom/android/server/notification/NotificationHistoryDatabase$RemovePackageRunnable;
-
-    invoke-direct {v0, p0, p1}, Lcom/android/server/notification/NotificationHistoryDatabase$RemovePackageRunnable;-><init>(Lcom/android/server/notification/NotificationHistoryDatabase;Ljava/lang/String;)V
-
-    iget-object v1, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mFileWriteHandler:Landroid/os/Handler;
-
-    invoke-virtual {v1, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-
-    return-void
-.end method
-
-.method prune(IJ)V
-    .locals 9
-
-    iget-object v0, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mLock:Ljava/lang/Object;
-
-    monitor-enter v0
-
-    :try_start_0
-    new-instance v1, Ljava/util/GregorianCalendar;
-
-    invoke-direct {v1}, Ljava/util/GregorianCalendar;-><init>()V
-
-    invoke-virtual {v1, p2, p3}, Ljava/util/GregorianCalendar;->setTimeInMillis(J)V
-
-    const/4 v2, 0x5
-
-    mul-int/lit8 v3, p1, -0x1
-
-    invoke-virtual {v1, v2, v3}, Ljava/util/GregorianCalendar;->add(II)V
-
-    iget-object v2, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mHistoryFiles:Ljava/util/LinkedList;
-
-    invoke-virtual {v2}, Ljava/util/LinkedList;->size()I
-
-    move-result v2
-
-    add-int/lit8 v2, v2, -0x1
-
-    :goto_0
-    if-ltz v2, :cond_2
-
-    iget-object v3, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mHistoryFiles:Ljava/util/LinkedList;
-
-    invoke-virtual {v3, v2}, Ljava/util/LinkedList;->get(I)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/util/AtomicFile;
-
-    nop
-
-    invoke-virtual {v3}, Landroid/util/AtomicFile;->getBaseFile()Ljava/io/File;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/io/File;->getName()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v4}, Lcom/android/server/notification/NotificationHistoryDatabase;->safeParseLong(Ljava/lang/String;)J
-
-    move-result-wide v4
-
-    sget-boolean v6, Lcom/android/server/notification/NotificationHistoryDatabase;->DEBUG:Z
-
-    if-eqz v6, :cond_0
-
-    const-string v6, "NotiHistoryDatabase"
-
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v8, "File "
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3}, Landroid/util/AtomicFile;->getBaseFile()Ljava/io/File;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/io/File;->getName()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v8, " created on "
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v7, v4, v5}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-static {v6, v7}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
-    invoke-virtual {v1}, Ljava/util/GregorianCalendar;->getTimeInMillis()J
-
-    move-result-wide v6
-
-    cmp-long v6, v4, v6
-
-    if-gtz v6, :cond_1
-
-    invoke-direct {p0, v3}, Lcom/android/server/notification/NotificationHistoryDatabase;->deleteFile(Landroid/util/AtomicFile;)V
-
-    goto :goto_1
-
-    :cond_1
-    nop
-
-    invoke-virtual {v3}, Landroid/util/AtomicFile;->getBaseFile()Ljava/io/File;
-
-    move-result-object v6
-
-    invoke-direct {p0, v6, v4, v5, p1}, Lcom/android/server/notification/NotificationHistoryDatabase;->scheduleDeletion(Ljava/io/File;JI)V
-
-    :goto_1
-    add-int/lit8 v2, v2, -0x1
-
-    goto :goto_0
-
-    :cond_2
-    monitor-exit v0
-
-    return-void
-
-    :catchall_0
-    move-exception v1
-
-    monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v1
-.end method
-
-.method public readNotificationHistory()Landroid/app/NotificationHistory;
-    .locals 8
-
-    iget-object v0, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mLock:Ljava/lang/Object;
-
-    monitor-enter v0
-
-    :try_start_0
-    new-instance v1, Landroid/app/NotificationHistory;
-
-    invoke-direct {v1}, Landroid/app/NotificationHistory;-><init>()V
-
-    iget-object v2, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mBuffer:Landroid/app/NotificationHistory;
-
-    invoke-virtual {v1, v2}, Landroid/app/NotificationHistory;->addNotificationsToWrite(Landroid/app/NotificationHistory;)V
-
-    iget-object v2, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mHistoryFiles:Ljava/util/LinkedList;
-
-    invoke-virtual {v2}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
-
-    move-result-object v2
-
-    :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/util/AtomicFile;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    :try_start_1
-    new-instance v4, Lcom/android/server/notification/NotificationHistoryFilter$Builder;
-
-    invoke-direct {v4}, Lcom/android/server/notification/NotificationHistoryFilter$Builder;-><init>()V
-
-    invoke-virtual {v4}, Lcom/android/server/notification/NotificationHistoryFilter$Builder;->build()Lcom/android/server/notification/NotificationHistoryFilter;
-
-    move-result-object v4
-
-    invoke-static {v3, v1, v4}, Lcom/android/server/notification/NotificationHistoryDatabase;->readLocked(Landroid/util/AtomicFile;Landroid/app/NotificationHistory;Lcom/android/server/notification/NotificationHistoryFilter;)V
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    goto :goto_1
-
-    :catch_0
-    move-exception v4
-
-    :try_start_2
-    const-string v5, "NotiHistoryDatabase"
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v7, "error reading "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3}, Landroid/util/AtomicFile;->getBaseFile()Ljava/io/File;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6, v4}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    :goto_1
-    goto :goto_0
-
-    :cond_0
-    monitor-exit v0
-
-    return-object v1
-
-    :catchall_0
-    move-exception v1
-
-    monitor-exit v0
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
-
-    throw v1
-.end method
-
-.method public readNotificationHistory(Ljava/lang/String;Ljava/lang/String;I)Landroid/app/NotificationHistory;
-    .locals 8
-
-    iget-object v0, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mLock:Ljava/lang/Object;
-
-    monitor-enter v0
-
-    :try_start_0
-    new-instance v1, Landroid/app/NotificationHistory;
-
-    invoke-direct {v1}, Landroid/app/NotificationHistory;-><init>()V
-
-    iget-object v2, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mHistoryFiles:Ljava/util/LinkedList;
-
-    invoke-virtual {v2}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
-
-    move-result-object v2
-
-    :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_1
-
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/util/AtomicFile;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    :try_start_1
-    new-instance v4, Lcom/android/server/notification/NotificationHistoryFilter$Builder;
-
-    invoke-direct {v4}, Lcom/android/server/notification/NotificationHistoryFilter$Builder;-><init>()V
-
-    invoke-virtual {v4, p1}, Lcom/android/server/notification/NotificationHistoryFilter$Builder;->setPackage(Ljava/lang/String;)Lcom/android/server/notification/NotificationHistoryFilter$Builder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, p1, p2}, Lcom/android/server/notification/NotificationHistoryFilter$Builder;->setChannel(Ljava/lang/String;Ljava/lang/String;)Lcom/android/server/notification/NotificationHistoryFilter$Builder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, p3}, Lcom/android/server/notification/NotificationHistoryFilter$Builder;->setMaxNotifications(I)Lcom/android/server/notification/NotificationHistoryFilter$Builder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Lcom/android/server/notification/NotificationHistoryFilter$Builder;->build()Lcom/android/server/notification/NotificationHistoryFilter;
-
-    move-result-object v4
-
-    invoke-static {v3, v1, v4}, Lcom/android/server/notification/NotificationHistoryDatabase;->readLocked(Landroid/util/AtomicFile;Landroid/app/NotificationHistory;Lcom/android/server/notification/NotificationHistoryFilter;)V
-
-    invoke-virtual {v1}, Landroid/app/NotificationHistory;->getHistoryCount()I
-
-    move-result v4
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    if-ne p3, v4, :cond_0
-
-    goto :goto_2
-
-    :cond_0
-    goto :goto_1
-
-    :catch_0
-    move-exception v4
-
-    :try_start_2
-    const-string v5, "NotiHistoryDatabase"
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v7, "error reading "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3}, Landroid/util/AtomicFile;->getBaseFile()Ljava/io/File;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6, v4}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    :goto_1
-    goto :goto_0
-
-    :cond_1
-    :goto_2
-    monitor-exit v0
-
-    return-object v1
-
-    :catchall_0
-    move-exception v1
-
-    monitor-exit v0
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
-
-    throw v1
-.end method
-
-.method removeFilePathFromHistory(Ljava/lang/String;)V
-    .locals 3
-
-    if-nez p1, :cond_0
-
-    return-void
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/server/notification/NotificationHistoryDatabase;->mHistoryFiles:Ljava/util/LinkedList;
-
-    invoke-virtual {v0}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
-
-    move-result-object v0
-
-    :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_2
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/util/AtomicFile;
-
-    if-eqz v1, :cond_1
-
-    invoke-virtual {v1}, Landroid/util/AtomicFile;->getBaseFile()Ljava/io/File;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    invoke-interface {v0}, Ljava/util/Iterator;->remove()V
-
-    return-void
-
-    :cond_1
-    goto :goto_0
-
-    :cond_2
-    return-void
+    throw p0
 .end method

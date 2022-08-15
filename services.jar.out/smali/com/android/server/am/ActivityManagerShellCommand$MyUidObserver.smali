@@ -1,4 +1,4 @@
-.class final Lcom/android/server/am/ActivityManagerShellCommand$MyUidObserver;
+.class public final Lcom/android/server/am/ActivityManagerShellCommand$MyUidObserver;
 .super Landroid/app/IUidObserver$Stub;
 .source "ActivityManagerShellCommand.java"
 
@@ -12,31 +12,27 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = "MyUidObserver"
 .end annotation
 
 
-# static fields
-.field static final STATE_NORMAL:I
-
-
 # instance fields
-.field final mInput:Ljava/io/InputStream;
+.field public final mInput:Ljava/io/InputStream;
 
-.field final mInterface:Landroid/app/IActivityManager;
+.field public final mInterface:Landroid/app/IActivityManager;
 
-.field final mInternal:Lcom/android/server/am/ActivityManagerService;
+.field public final mInternal:Lcom/android/server/am/ActivityManagerService;
 
-.field final mPw:Ljava/io/PrintWriter;
+.field public final mPw:Ljava/io/PrintWriter;
 
-.field mState:I
+.field public mState:I
 
-.field final mUid:I
+.field public final mUid:I
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/ActivityManagerService;Ljava/io/PrintWriter;Ljava/io/InputStream;I)V
+.method public constructor <init>(Lcom/android/server/am/ActivityManagerService;Ljava/io/PrintWriter;Ljava/io/InputStream;I)V
     .locals 0
 
     invoke-direct {p0}, Landroid/app/IUidObserver$Stub;-><init>()V
@@ -79,42 +75,38 @@
 
     invoke-virtual {v1, p1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    iget-object v1, p0, Lcom/android/server/am/ActivityManagerShellCommand$MyUidObserver;->mPw:Ljava/io/PrintWriter;
+    iget-object p1, p0, Lcom/android/server/am/ActivityManagerShellCommand$MyUidObserver;->mPw:Ljava/io/PrintWriter;
 
-    invoke-virtual {v1}, Ljava/io/PrintWriter;->flush()V
+    invoke-virtual {p1}, Ljava/io/PrintWriter;->flush()V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     :try_start_2
     invoke-static {v0}, Landroid/os/StrictMode;->setThreadPolicy(Landroid/os/StrictMode$ThreadPolicy;)V
 
-    nop
-
     monitor-exit p0
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p1
 
     invoke-static {v0}, Landroid/os/StrictMode;->setThreadPolicy(Landroid/os/StrictMode$ThreadPolicy;)V
 
-    nop
-
-    throw v1
+    throw p1
 
     :catchall_1
-    move-exception v0
+    move-exception p1
 
     monitor-exit p0
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    throw v0
+    throw p1
 .end method
 
 .method public onUidActive(I)V
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -135,48 +127,44 @@
 
     invoke-virtual {v1, p1}, Ljava/io/PrintWriter;->print(I)V
 
-    iget-object v1, p0, Lcom/android/server/am/ActivityManagerShellCommand$MyUidObserver;->mPw:Ljava/io/PrintWriter;
+    iget-object p1, p0, Lcom/android/server/am/ActivityManagerShellCommand$MyUidObserver;->mPw:Ljava/io/PrintWriter;
 
-    const-string v2, " active"
+    const-string v1, " active"
 
-    invoke-virtual {v1, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    iget-object v1, p0, Lcom/android/server/am/ActivityManagerShellCommand$MyUidObserver;->mPw:Ljava/io/PrintWriter;
+    iget-object p1, p0, Lcom/android/server/am/ActivityManagerShellCommand$MyUidObserver;->mPw:Ljava/io/PrintWriter;
 
-    invoke-virtual {v1}, Ljava/io/PrintWriter;->flush()V
+    invoke-virtual {p1}, Ljava/io/PrintWriter;->flush()V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     :try_start_2
     invoke-static {v0}, Landroid/os/StrictMode;->setThreadPolicy(Landroid/os/StrictMode$ThreadPolicy;)V
 
-    nop
-
     monitor-exit p0
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p1
 
     invoke-static {v0}, Landroid/os/StrictMode;->setThreadPolicy(Landroid/os/StrictMode$ThreadPolicy;)V
 
-    nop
-
-    throw v1
+    throw p1
 
     :catchall_1
-    move-exception v0
+    move-exception p1
 
     monitor-exit p0
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    throw v0
+    throw p1
 .end method
 
 .method public onUidCachedChanged(IZ)V
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -197,56 +185,52 @@
 
     invoke-virtual {v1, p1}, Ljava/io/PrintWriter;->print(I)V
 
-    iget-object v1, p0, Lcom/android/server/am/ActivityManagerShellCommand$MyUidObserver;->mPw:Ljava/io/PrintWriter;
+    iget-object p1, p0, Lcom/android/server/am/ActivityManagerShellCommand$MyUidObserver;->mPw:Ljava/io/PrintWriter;
 
     if-eqz p2, :cond_0
 
-    const-string v2, " cached"
+    const-string p2, " cached"
 
     goto :goto_0
 
     :cond_0
-    const-string v2, " uncached"
+    const-string p2, " uncached"
 
     :goto_0
-    invoke-virtual {v1, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    iget-object v1, p0, Lcom/android/server/am/ActivityManagerShellCommand$MyUidObserver;->mPw:Ljava/io/PrintWriter;
+    iget-object p1, p0, Lcom/android/server/am/ActivityManagerShellCommand$MyUidObserver;->mPw:Ljava/io/PrintWriter;
 
-    invoke-virtual {v1}, Ljava/io/PrintWriter;->flush()V
+    invoke-virtual {p1}, Ljava/io/PrintWriter;->flush()V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     :try_start_2
     invoke-static {v0}, Landroid/os/StrictMode;->setThreadPolicy(Landroid/os/StrictMode$ThreadPolicy;)V
 
-    nop
-
     monitor-exit p0
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p1
 
     invoke-static {v0}, Landroid/os/StrictMode;->setThreadPolicy(Landroid/os/StrictMode$ThreadPolicy;)V
 
-    nop
-
-    throw v1
+    throw p1
 
     :catchall_1
-    move-exception v0
+    move-exception p1
 
     monitor-exit p0
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    throw v0
+    throw p1
 .end method
 
 .method public onUidGone(IZ)V
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -267,61 +251,57 @@
 
     invoke-virtual {v1, p1}, Ljava/io/PrintWriter;->print(I)V
 
-    iget-object v1, p0, Lcom/android/server/am/ActivityManagerShellCommand$MyUidObserver;->mPw:Ljava/io/PrintWriter;
+    iget-object p1, p0, Lcom/android/server/am/ActivityManagerShellCommand$MyUidObserver;->mPw:Ljava/io/PrintWriter;
 
-    const-string v2, " gone"
+    const-string v1, " gone"
 
-    invoke-virtual {v1, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+    invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     if-eqz p2, :cond_0
 
-    iget-object v1, p0, Lcom/android/server/am/ActivityManagerShellCommand$MyUidObserver;->mPw:Ljava/io/PrintWriter;
+    iget-object p1, p0, Lcom/android/server/am/ActivityManagerShellCommand$MyUidObserver;->mPw:Ljava/io/PrintWriter;
 
-    const-string v2, " disabled"
+    const-string p2, " disabled"
 
-    invoke-virtual {v1, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+    invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     :cond_0
-    iget-object v1, p0, Lcom/android/server/am/ActivityManagerShellCommand$MyUidObserver;->mPw:Ljava/io/PrintWriter;
+    iget-object p1, p0, Lcom/android/server/am/ActivityManagerShellCommand$MyUidObserver;->mPw:Ljava/io/PrintWriter;
 
-    invoke-virtual {v1}, Ljava/io/PrintWriter;->println()V
+    invoke-virtual {p1}, Ljava/io/PrintWriter;->println()V
 
-    iget-object v1, p0, Lcom/android/server/am/ActivityManagerShellCommand$MyUidObserver;->mPw:Ljava/io/PrintWriter;
+    iget-object p1, p0, Lcom/android/server/am/ActivityManagerShellCommand$MyUidObserver;->mPw:Ljava/io/PrintWriter;
 
-    invoke-virtual {v1}, Ljava/io/PrintWriter;->flush()V
+    invoke-virtual {p1}, Ljava/io/PrintWriter;->flush()V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     :try_start_2
     invoke-static {v0}, Landroid/os/StrictMode;->setThreadPolicy(Landroid/os/StrictMode$ThreadPolicy;)V
 
-    nop
-
     monitor-exit p0
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p1
 
     invoke-static {v0}, Landroid/os/StrictMode;->setThreadPolicy(Landroid/os/StrictMode$ThreadPolicy;)V
 
-    nop
-
-    throw v1
+    throw p1
 
     :catchall_1
-    move-exception v0
+    move-exception p1
 
     monitor-exit p0
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    throw v0
+    throw p1
 .end method
 
 .method public onUidIdle(IZ)V
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -342,61 +322,68 @@
 
     invoke-virtual {v1, p1}, Ljava/io/PrintWriter;->print(I)V
 
-    iget-object v1, p0, Lcom/android/server/am/ActivityManagerShellCommand$MyUidObserver;->mPw:Ljava/io/PrintWriter;
+    iget-object p1, p0, Lcom/android/server/am/ActivityManagerShellCommand$MyUidObserver;->mPw:Ljava/io/PrintWriter;
 
-    const-string v2, " idle"
+    const-string v1, " idle"
 
-    invoke-virtual {v1, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+    invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     if-eqz p2, :cond_0
 
-    iget-object v1, p0, Lcom/android/server/am/ActivityManagerShellCommand$MyUidObserver;->mPw:Ljava/io/PrintWriter;
+    iget-object p1, p0, Lcom/android/server/am/ActivityManagerShellCommand$MyUidObserver;->mPw:Ljava/io/PrintWriter;
 
-    const-string v2, " disabled"
+    const-string p2, " disabled"
 
-    invoke-virtual {v1, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+    invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     :cond_0
-    iget-object v1, p0, Lcom/android/server/am/ActivityManagerShellCommand$MyUidObserver;->mPw:Ljava/io/PrintWriter;
+    iget-object p1, p0, Lcom/android/server/am/ActivityManagerShellCommand$MyUidObserver;->mPw:Ljava/io/PrintWriter;
 
-    invoke-virtual {v1}, Ljava/io/PrintWriter;->println()V
+    invoke-virtual {p1}, Ljava/io/PrintWriter;->println()V
 
-    iget-object v1, p0, Lcom/android/server/am/ActivityManagerShellCommand$MyUidObserver;->mPw:Ljava/io/PrintWriter;
+    iget-object p1, p0, Lcom/android/server/am/ActivityManagerShellCommand$MyUidObserver;->mPw:Ljava/io/PrintWriter;
 
-    invoke-virtual {v1}, Ljava/io/PrintWriter;->flush()V
+    invoke-virtual {p1}, Ljava/io/PrintWriter;->flush()V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     :try_start_2
     invoke-static {v0}, Landroid/os/StrictMode;->setThreadPolicy(Landroid/os/StrictMode$ThreadPolicy;)V
 
-    nop
-
     monitor-exit p0
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p1
 
     invoke-static {v0}, Landroid/os/StrictMode;->setThreadPolicy(Landroid/os/StrictMode$ThreadPolicy;)V
 
-    nop
-
-    throw v1
+    throw p1
 
     :catchall_1
-    move-exception v0
+    move-exception p1
 
     monitor-exit p0
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    throw v0
+    throw p1
+.end method
+
+.method public onUidProcAdjChanged(I)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    return-void
 .end method
 
 .method public onUidStateChanged(IIJI)V
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -417,84 +404,80 @@
 
     invoke-virtual {v1, p1}, Ljava/io/PrintWriter;->print(I)V
 
-    iget-object v1, p0, Lcom/android/server/am/ActivityManagerShellCommand$MyUidObserver;->mPw:Ljava/io/PrintWriter;
+    iget-object p1, p0, Lcom/android/server/am/ActivityManagerShellCommand$MyUidObserver;->mPw:Ljava/io/PrintWriter;
 
-    const-string v2, " procstate "
+    const-string v1, " procstate "
 
-    invoke-virtual {v1, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+    invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    iget-object v1, p0, Lcom/android/server/am/ActivityManagerShellCommand$MyUidObserver;->mPw:Ljava/io/PrintWriter;
+    iget-object p1, p0, Lcom/android/server/am/ActivityManagerShellCommand$MyUidObserver;->mPw:Ljava/io/PrintWriter;
 
     invoke-static {p2}, Lcom/android/server/am/ProcessList;->makeProcStateString(I)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p2
 
-    invoke-virtual {v1, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+    invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    iget-object v1, p0, Lcom/android/server/am/ActivityManagerShellCommand$MyUidObserver;->mPw:Ljava/io/PrintWriter;
+    iget-object p1, p0, Lcom/android/server/am/ActivityManagerShellCommand$MyUidObserver;->mPw:Ljava/io/PrintWriter;
 
-    const-string v2, " seq "
+    const-string p2, " seq "
 
-    invoke-virtual {v1, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+    invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    iget-object v1, p0, Lcom/android/server/am/ActivityManagerShellCommand$MyUidObserver;->mPw:Ljava/io/PrintWriter;
+    iget-object p1, p0, Lcom/android/server/am/ActivityManagerShellCommand$MyUidObserver;->mPw:Ljava/io/PrintWriter;
 
-    invoke-virtual {v1, p3, p4}, Ljava/io/PrintWriter;->print(J)V
+    invoke-virtual {p1, p3, p4}, Ljava/io/PrintWriter;->print(J)V
 
-    iget-object v1, p0, Lcom/android/server/am/ActivityManagerShellCommand$MyUidObserver;->mPw:Ljava/io/PrintWriter;
+    iget-object p1, p0, Lcom/android/server/am/ActivityManagerShellCommand$MyUidObserver;->mPw:Ljava/io/PrintWriter;
 
-    const-string v2, " capability "
+    const-string p2, " capability "
 
-    invoke-virtual {v1, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+    invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    iget-object v1, p0, Lcom/android/server/am/ActivityManagerShellCommand$MyUidObserver;->mPw:Ljava/io/PrintWriter;
+    iget-object p1, p0, Lcom/android/server/am/ActivityManagerShellCommand$MyUidObserver;->mPw:Ljava/io/PrintWriter;
 
-    invoke-virtual {v1, p5}, Ljava/io/PrintWriter;->println(I)V
+    invoke-virtual {p1, p5}, Ljava/io/PrintWriter;->println(I)V
 
-    iget-object v1, p0, Lcom/android/server/am/ActivityManagerShellCommand$MyUidObserver;->mPw:Ljava/io/PrintWriter;
+    iget-object p1, p0, Lcom/android/server/am/ActivityManagerShellCommand$MyUidObserver;->mPw:Ljava/io/PrintWriter;
 
-    invoke-virtual {v1}, Ljava/io/PrintWriter;->flush()V
+    invoke-virtual {p1}, Ljava/io/PrintWriter;->flush()V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     :try_start_2
     invoke-static {v0}, Landroid/os/StrictMode;->setThreadPolicy(Landroid/os/StrictMode$ThreadPolicy;)V
 
-    nop
-
     monitor-exit p0
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p1
 
     invoke-static {v0}, Landroid/os/StrictMode;->setThreadPolicy(Landroid/os/StrictMode$ThreadPolicy;)V
 
-    nop
-
-    throw v1
+    throw p1
 
     :catchall_1
-    move-exception v0
+    move-exception p1
 
     monitor-exit p0
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    throw v0
+    throw p1
 .end method
 
-.method printMessageForState()V
+.method public printMessageForState()V
     .locals 2
 
     iget v0, p0, Lcom/android/server/am/ActivityManagerShellCommand$MyUidObserver;->mState:I
 
-    packed-switch v0, :pswitch_data_0
+    if-eqz v0, :cond_0
 
     goto :goto_0
 
-    :pswitch_0
+    :cond_0
     iget-object v0, p0, Lcom/android/server/am/ActivityManagerShellCommand$MyUidObserver;->mPw:Ljava/io/PrintWriter;
 
     const-string v1, "Watching uid states...  available commands:"
@@ -502,23 +485,16 @@
     invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     :goto_0
-    iget-object v0, p0, Lcom/android/server/am/ActivityManagerShellCommand$MyUidObserver;->mPw:Ljava/io/PrintWriter;
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerShellCommand$MyUidObserver;->mPw:Ljava/io/PrintWriter;
 
-    const-string v1, "(q)uit: finish watching"
+    const-string v0, "(q)uit: finish watching"
 
-    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     return-void
-
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0x0
-        :pswitch_0
-    .end packed-switch
 .end method
 
-.method run()V
+.method public run()V
     .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -556,41 +532,39 @@
 
     iput v0, p0, Lcom/android/server/am/ActivityManagerShellCommand$MyUidObserver;->mState:I
 
-    new-instance v0, Ljava/io/InputStreamReader;
+    new-instance v1, Ljava/io/InputStreamReader;
 
-    iget-object v1, p0, Lcom/android/server/am/ActivityManagerShellCommand$MyUidObserver;->mInput:Ljava/io/InputStream;
+    iget-object v2, p0, Lcom/android/server/am/ActivityManagerShellCommand$MyUidObserver;->mInput:Ljava/io/InputStream;
 
-    invoke-direct {v0, v1}, Ljava/io/InputStreamReader;-><init>(Ljava/io/InputStream;)V
+    invoke-direct {v1, v2}, Ljava/io/InputStreamReader;-><init>(Ljava/io/InputStream;)V
 
-    new-instance v1, Ljava/io/BufferedReader;
+    new-instance v2, Ljava/io/BufferedReader;
 
-    invoke-direct {v1, v0}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;)V
+    invoke-direct {v2, v1}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;)V
 
     :goto_0
-    invoke-virtual {v1}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    move-object v3, v2
+    if-eqz v1, :cond_4
 
-    if-eqz v2, :cond_4
+    const/4 v3, 0x1
 
-    const/4 v2, 0x1
-
-    invoke-virtual {v3}, Ljava/lang/String;->length()I
+    invoke-virtual {v1}, Ljava/lang/String;->length()I
 
     move-result v4
 
     if-gtz v4, :cond_1
 
-    const/4 v2, 0x0
+    move v3, v0
 
     goto :goto_1
 
     :cond_1
     const-string/jumbo v4, "q"
 
-    invoke-virtual {v4, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v4, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
@@ -598,7 +572,7 @@
 
     const-string/jumbo v4, "quit"
 
-    invoke-virtual {v4, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v4, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
@@ -617,13 +591,13 @@
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-virtual {v4, v5}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {v4, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     :goto_1
     monitor-enter p0
@@ -631,35 +605,35 @@
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
-    if-eqz v2, :cond_3
+    if-eqz v3, :cond_3
 
     :try_start_1
-    iget-object v4, p0, Lcom/android/server/am/ActivityManagerShellCommand$MyUidObserver;->mPw:Ljava/io/PrintWriter;
+    iget-object v1, p0, Lcom/android/server/am/ActivityManagerShellCommand$MyUidObserver;->mPw:Ljava/io/PrintWriter;
 
-    const-string v5, ""
+    const-string v3, ""
 
-    invoke-virtual {v4, v5}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {v1, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     :cond_3
     invoke-virtual {p0}, Lcom/android/server/am/ActivityManagerShellCommand$MyUidObserver;->printMessageForState()V
 
-    iget-object v4, p0, Lcom/android/server/am/ActivityManagerShellCommand$MyUidObserver;->mPw:Ljava/io/PrintWriter;
+    iget-object v1, p0, Lcom/android/server/am/ActivityManagerShellCommand$MyUidObserver;->mPw:Ljava/io/PrintWriter;
 
-    invoke-virtual {v4}, Ljava/io/PrintWriter;->flush()V
+    invoke-virtual {v1}, Ljava/io/PrintWriter;->flush()V
 
     monitor-exit p0
 
     goto :goto_0
 
     :catchall_0
-    move-exception v4
+    move-exception v0
 
     monitor-exit p0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     :try_start_2
-    throw v4
+    throw v0
     :try_end_2
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
@@ -685,9 +659,9 @@
 
     invoke-virtual {v0, v1}, Ljava/io/IOException;->printStackTrace(Ljava/io/PrintWriter;)V
 
-    iget-object v1, p0, Lcom/android/server/am/ActivityManagerShellCommand$MyUidObserver;->mPw:Ljava/io/PrintWriter;
+    iget-object v0, p0, Lcom/android/server/am/ActivityManagerShellCommand$MyUidObserver;->mPw:Ljava/io/PrintWriter;
 
-    invoke-virtual {v1}, Ljava/io/PrintWriter;->flush()V
+    invoke-virtual {v0}, Ljava/io/PrintWriter;->flush()V
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
@@ -704,8 +678,6 @@
     iget-object v0, p0, Lcom/android/server/am/ActivityManagerShellCommand$MyUidObserver;->mInterface:Landroid/app/IActivityManager;
 
     invoke-interface {v0, p0}, Landroid/app/IActivityManager;->unregisterUidObserver(Landroid/app/IUidObserver;)V
-
-    nop
 
     return-void
 

@@ -1,4 +1,4 @@
-.class final Lcom/android/server/autofill/ui/FillUi$AnchoredWindow;
+.class public final Lcom/android/server/autofill/ui/FillUi$AnchoredWindow;
 .super Ljava/lang/Object;
 .source "FillUi.java"
 
@@ -9,28 +9,52 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x10
+    accessFlags = 0x11
     name = "AnchoredWindow"
 .end annotation
 
 
 # instance fields
-.field private final mContentView:Landroid/view/View;
+.field public final mContentView:Landroid/view/View;
 
-.field private final mOverlayControl:Lcom/android/server/autofill/ui/OverlayControl;
+.field public final mOverlayControl:Lcom/android/server/autofill/ui/OverlayControl;
 
-.field private mShowParams:Landroid/view/WindowManager$LayoutParams;
+.field public mShowParams:Landroid/view/WindowManager$LayoutParams;
 
-.field private mShowing:Z
+.field public mShowing:Z
 
-.field private final mWm:Landroid/view/WindowManager;
+.field public final mWm:Landroid/view/WindowManager;
 
-.field final synthetic this$0:Lcom/android/server/autofill/ui/FillUi;
+.field public final synthetic this$0:Lcom/android/server/autofill/ui/FillUi;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/autofill/ui/FillUi;Landroid/view/View;Lcom/android/server/autofill/ui/OverlayControl;)V
-    .locals 2
+.method public static bridge synthetic -$$Nest$fgetmContentView(Lcom/android/server/autofill/ui/FillUi$AnchoredWindow;)Landroid/view/View;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/autofill/ui/FillUi$AnchoredWindow;->mContentView:Landroid/view/View;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmShowParams(Lcom/android/server/autofill/ui/FillUi$AnchoredWindow;)Landroid/view/WindowManager$LayoutParams;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/autofill/ui/FillUi$AnchoredWindow;->mShowParams:Landroid/view/WindowManager$LayoutParams;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmShowing(Lcom/android/server/autofill/ui/FillUi$AnchoredWindow;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/server/autofill/ui/FillUi$AnchoredWindow;->mShowing:Z
+
+    return p0
+.end method
+
+.method public constructor <init>(Lcom/android/server/autofill/ui/FillUi;Landroid/view/View;Lcom/android/server/autofill/ui/OverlayControl;)V
+    .locals 1
 
     iput-object p1, p0, Lcom/android/server/autofill/ui/FillUi$AnchoredWindow;->this$0:Lcom/android/server/autofill/ui/FillUi;
 
@@ -38,17 +62,17 @@
 
     invoke-virtual {p2}, Landroid/view/View;->getContext()Landroid/content/Context;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-class v1, Landroid/view/WindowManager;
+    const-class v0, Landroid/view/WindowManager;
 
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Landroid/view/WindowManager;
+    check-cast p1, Landroid/view/WindowManager;
 
-    iput-object v0, p0, Lcom/android/server/autofill/ui/FillUi$AnchoredWindow;->mWm:Landroid/view/WindowManager;
+    iput-object p1, p0, Lcom/android/server/autofill/ui/FillUi$AnchoredWindow;->mWm:Landroid/view/WindowManager;
 
     iput-object p2, p0, Lcom/android/server/autofill/ui/FillUi$AnchoredWindow;->mContentView:Landroid/view/View;
 
@@ -57,33 +81,9 @@
     return-void
 .end method
 
-.method static synthetic access$300(Lcom/android/server/autofill/ui/FillUi$AnchoredWindow;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/server/autofill/ui/FillUi$AnchoredWindow;->mShowing:Z
-
-    return v0
-.end method
-
-.method static synthetic access$400(Lcom/android/server/autofill/ui/FillUi$AnchoredWindow;)Landroid/view/View;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/autofill/ui/FillUi$AnchoredWindow;->mContentView:Landroid/view/View;
-
-    return-object v0
-.end method
-
-.method static synthetic access$500(Lcom/android/server/autofill/ui/FillUi$AnchoredWindow;)Landroid/view/WindowManager$LayoutParams;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/autofill/ui/FillUi$AnchoredWindow;->mShowParams:Landroid/view/WindowManager$LayoutParams;
-
-    return-object v0
-.end method
-
 
 # virtual methods
-.method hide()V
+.method public hide()V
     .locals 1
 
     const/4 v0, 0x1
@@ -93,7 +93,7 @@
     return-void
 .end method
 
-.method hide(Z)V
+.method public hide(Z)V
     .locals 3
 
     :try_start_0
@@ -116,14 +116,14 @@
 
     :cond_0
     :goto_0
-    iget-object v0, p0, Lcom/android/server/autofill/ui/FillUi$AnchoredWindow;->mOverlayControl:Lcom/android/server/autofill/ui/OverlayControl;
+    iget-object p0, p0, Lcom/android/server/autofill/ui/FillUi$AnchoredWindow;->mOverlayControl:Lcom/android/server/autofill/ui/OverlayControl;
 
-    invoke-virtual {v0}, Lcom/android/server/autofill/ui/OverlayControl;->showOverlays()V
+    invoke-virtual {p0}, Lcom/android/server/autofill/ui/OverlayControl;->showOverlays()V
 
     goto :goto_1
 
     :catchall_0
-    move-exception v0
+    move-exception p1
 
     goto :goto_2
 
@@ -139,13 +139,13 @@
 
     if-eqz p1, :cond_0
 
-    iget-object v1, p0, Lcom/android/server/autofill/ui/FillUi$AnchoredWindow;->this$0:Lcom/android/server/autofill/ui/FillUi;
+    iget-object p1, p0, Lcom/android/server/autofill/ui/FillUi$AnchoredWindow;->this$0:Lcom/android/server/autofill/ui/FillUi;
 
-    invoke-static {v1}, Lcom/android/server/autofill/ui/FillUi;->access$200(Lcom/android/server/autofill/ui/FillUi;)Lcom/android/server/autofill/ui/FillUi$Callback;
+    invoke-static {p1}, Lcom/android/server/autofill/ui/FillUi;->-$$Nest$fgetmCallback(Lcom/android/server/autofill/ui/FillUi;)Lcom/android/server/autofill/ui/FillUi$Callback;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-interface {v1}, Lcom/android/server/autofill/ui/FillUi$Callback;->onDestroy()V
+    invoke-interface {p1}, Lcom/android/server/autofill/ui/FillUi$Callback;->onDestroy()V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -155,11 +155,11 @@
     return-void
 
     :goto_2
-    iget-object v1, p0, Lcom/android/server/autofill/ui/FillUi$AnchoredWindow;->mOverlayControl:Lcom/android/server/autofill/ui/OverlayControl;
+    iget-object p0, p0, Lcom/android/server/autofill/ui/FillUi$AnchoredWindow;->mOverlayControl:Lcom/android/server/autofill/ui/OverlayControl;
 
-    invoke-virtual {v1}, Lcom/android/server/autofill/ui/OverlayControl;->showOverlays()V
+    invoke-virtual {p0}, Lcom/android/server/autofill/ui/OverlayControl;->showOverlays()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public show(Landroid/view/WindowManager$LayoutParams;)V
@@ -221,7 +221,7 @@
 
     move-result-object v0
 
-    const v2, 0x1040175
+    const v2, 0x104018b
 
     invoke-virtual {v0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -272,61 +272,56 @@
 
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-static {v1, v2, v0}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v1, p1, v0}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    iget-object v1, p0, Lcom/android/server/autofill/ui/FillUi$AnchoredWindow;->this$0:Lcom/android/server/autofill/ui/FillUi;
+    iget-object p0, p0, Lcom/android/server/autofill/ui/FillUi$AnchoredWindow;->this$0:Lcom/android/server/autofill/ui/FillUi;
 
-    invoke-static {v1}, Lcom/android/server/autofill/ui/FillUi;->access$200(Lcom/android/server/autofill/ui/FillUi;)Lcom/android/server/autofill/ui/FillUi$Callback;
+    invoke-static {p0}, Lcom/android/server/autofill/ui/FillUi;->-$$Nest$fgetmCallback(Lcom/android/server/autofill/ui/FillUi;)Lcom/android/server/autofill/ui/FillUi$Callback;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-interface {v1}, Lcom/android/server/autofill/ui/FillUi$Callback;->onDestroy()V
+    invoke-interface {p0}, Lcom/android/server/autofill/ui/FillUi$Callback;->onDestroy()V
 
-    goto :goto_1
+    goto :goto_0
 
     :catch_1
-    move-exception v0
+    sget-boolean v0, Lcom/android/server/autofill/Helper;->sDebug:Z
 
-    sget-boolean v2, Lcom/android/server/autofill/Helper;->sDebug:Z
+    if-eqz v0, :cond_2
 
-    if-eqz v2, :cond_2
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v2, "Filed with with token "
 
-    const-string v3, "Filed with with token "
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object p1, p1, Landroid/view/WindowManager$LayoutParams;->token:Landroid/os/IBinder;
 
-    iget-object v3, p1, Landroid/view/WindowManager$LayoutParams;->token:Landroid/os/IBinder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    const-string p1, " gone."
 
-    const-string v3, " gone."
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, p1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_2
-    iget-object v1, p0, Lcom/android/server/autofill/ui/FillUi$AnchoredWindow;->this$0:Lcom/android/server/autofill/ui/FillUi;
+    iget-object p0, p0, Lcom/android/server/autofill/ui/FillUi$AnchoredWindow;->this$0:Lcom/android/server/autofill/ui/FillUi;
 
-    invoke-static {v1}, Lcom/android/server/autofill/ui/FillUi;->access$200(Lcom/android/server/autofill/ui/FillUi;)Lcom/android/server/autofill/ui/FillUi$Callback;
+    invoke-static {p0}, Lcom/android/server/autofill/ui/FillUi;->-$$Nest$fgetmCallback(Lcom/android/server/autofill/ui/FillUi;)Lcom/android/server/autofill/ui/FillUi$Callback;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-interface {v1}, Lcom/android/server/autofill/ui/FillUi$Callback;->onDestroy()V
+    invoke-interface {p0}, Lcom/android/server/autofill/ui/FillUi$Callback;->onDestroy()V
 
     :goto_0
-    nop
-
-    :goto_1
     return-void
 .end method

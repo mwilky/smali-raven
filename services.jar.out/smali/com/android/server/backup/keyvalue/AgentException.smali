@@ -8,7 +8,7 @@
 
 
 # direct methods
-.method private constructor <init>(Z)V
+.method public constructor <init>(Z)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/backup/keyvalue/BackupException;-><init>()V
@@ -18,7 +18,7 @@
     return-void
 .end method
 
-.method private constructor <init>(ZLjava/lang/Exception;)V
+.method public constructor <init>(ZLjava/lang/Exception;)V
     .locals 0
 
     invoke-direct {p0, p2}, Lcom/android/server/backup/keyvalue/BackupException;-><init>(Ljava/lang/Exception;)V
@@ -28,7 +28,7 @@
     return-void
 .end method
 
-.method static permanent()Lcom/android/server/backup/keyvalue/AgentException;
+.method public static permanent()Lcom/android/server/backup/keyvalue/AgentException;
     .locals 2
 
     new-instance v0, Lcom/android/server/backup/keyvalue/AgentException;
@@ -40,7 +40,7 @@
     return-object v0
 .end method
 
-.method static permanent(Ljava/lang/Exception;)Lcom/android/server/backup/keyvalue/AgentException;
+.method public static permanent(Ljava/lang/Exception;)Lcom/android/server/backup/keyvalue/AgentException;
     .locals 2
 
     new-instance v0, Lcom/android/server/backup/keyvalue/AgentException;
@@ -52,7 +52,7 @@
     return-object v0
 .end method
 
-.method static transitory()Lcom/android/server/backup/keyvalue/AgentException;
+.method public static transitory()Lcom/android/server/backup/keyvalue/AgentException;
     .locals 2
 
     new-instance v0, Lcom/android/server/backup/keyvalue/AgentException;
@@ -64,7 +64,7 @@
     return-object v0
 .end method
 
-.method static transitory(Ljava/lang/Exception;)Lcom/android/server/backup/keyvalue/AgentException;
+.method public static transitory(Ljava/lang/Exception;)Lcom/android/server/backup/keyvalue/AgentException;
     .locals 2
 
     new-instance v0, Lcom/android/server/backup/keyvalue/AgentException;
@@ -78,10 +78,10 @@
 
 
 # virtual methods
-.method isTransitory()Z
-    .locals 1
+.method public isTransitory()Z
+    .locals 0
 
-    iget-boolean v0, p0, Lcom/android/server/backup/keyvalue/AgentException;->mTransitory:Z
+    iget-boolean p0, p0, Lcom/android/server/backup/keyvalue/AgentException;->mTransitory:Z
 
-    return v0
+    return p0
 .end method

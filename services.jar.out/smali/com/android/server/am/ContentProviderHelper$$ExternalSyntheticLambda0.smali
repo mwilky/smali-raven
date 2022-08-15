@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/am/ContentProviderHelper$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/os/RemoteCallback$OnResultListener;
@@ -35,7 +36,7 @@
 
 # virtual methods
 .method public final onResult(Landroid/os/Bundle;)V
-    .locals 4
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/am/ContentProviderHelper$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/am/ContentProviderHelper;
 
@@ -43,9 +44,9 @@
 
     iget v2, p0, Lcom/android/server/am/ContentProviderHelper$$ExternalSyntheticLambda0;->f$2:I
 
-    iget-object v3, p0, Lcom/android/server/am/ContentProviderHelper$$ExternalSyntheticLambda0;->f$3:Landroid/os/RemoteCallback;
+    iget-object p0, p0, Lcom/android/server/am/ContentProviderHelper$$ExternalSyntheticLambda0;->f$3:Landroid/os/RemoteCallback;
 
-    invoke-virtual {v0, v1, v2, v3, p1}, Lcom/android/server/am/ContentProviderHelper;->lambda$getProviderMimeTypeAsync$0$ContentProviderHelper(Ljava/lang/String;ILandroid/os/RemoteCallback;Landroid/os/Bundle;)V
+    invoke-static {v0, v1, v2, p0, p1}, Lcom/android/server/am/ContentProviderHelper;->$r8$lambda$g45MLM-M0O4bf6DUATzDShTA1sg(Lcom/android/server/am/ContentProviderHelper;Ljava/lang/String;ILandroid/os/RemoteCallback;Landroid/os/Bundle;)V
 
     return-void
 .end method

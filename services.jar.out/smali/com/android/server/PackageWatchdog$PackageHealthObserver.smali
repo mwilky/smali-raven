@@ -19,38 +19,38 @@
 .end method
 
 .method public executeBootLoopMitigation(I)Z
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
 .method public abstract getName()Ljava/lang/String;
 .end method
 
 .method public isPersistent()Z
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
 .method public mayObservePackage(Ljava/lang/String;)Z
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
 .method public onBootLoop(I)I
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
 .method public abstract onHealthCheckFailed(Landroid/content/pm/VersionedPackage;II)I

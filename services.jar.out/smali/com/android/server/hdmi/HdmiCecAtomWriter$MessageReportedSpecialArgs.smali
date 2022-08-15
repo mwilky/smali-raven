@@ -1,4 +1,4 @@
-.class Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedSpecialArgs;
+.class public Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedSpecialArgs;
 .super Ljava/lang/Object;
 .source "HdmiCecAtomWriter.java"
 
@@ -9,23 +9,23 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "MessageReportedSpecialArgs"
 .end annotation
 
 
 # instance fields
-.field mFeatureAbortOpcode:I
+.field public mFeatureAbortOpcode:I
 
-.field mFeatureAbortReason:I
+.field public mFeatureAbortReason:I
 
-.field mUserControlPressedCommand:I
+.field public mUserControlPressedCommand:I
 
-.field final synthetic this$0:Lcom/android/server/hdmi/HdmiCecAtomWriter;
+.field public final synthetic this$0:Lcom/android/server/hdmi/HdmiCecAtomWriter;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/server/hdmi/HdmiCecAtomWriter;)V
+.method public constructor <init>(Lcom/android/server/hdmi/HdmiCecAtomWriter;)V
     .locals 1
 
     iput-object p1, p0, Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedSpecialArgs;->this$0:Lcom/android/server/hdmi/HdmiCecAtomWriter;
@@ -45,7 +45,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/hdmi/HdmiCecAtomWriter;Lcom/android/server/hdmi/HdmiCecAtomWriter$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/hdmi/HdmiCecAtomWriter;Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedSpecialArgs-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/hdmi/HdmiCecAtomWriter$MessageReportedSpecialArgs;-><init>(Lcom/android/server/hdmi/HdmiCecAtomWriter;)V

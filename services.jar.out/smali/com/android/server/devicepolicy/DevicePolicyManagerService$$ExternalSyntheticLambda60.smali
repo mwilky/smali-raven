@@ -1,45 +1,36 @@
 .class public final synthetic Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda60;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/internal/util/FunctionalUtils$ThrowingRunnable;
+.implements Lcom/android/internal/util/FunctionalUtils$ThrowingSupplier;
 
 
 # instance fields
 .field public final synthetic f$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
 
-.field public final synthetic f$1:Z
-
-.field public final synthetic f$2:Z
-
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/devicepolicy/DevicePolicyManagerService;ZZ)V
+.method public synthetic constructor <init>(Lcom/android/server/devicepolicy/DevicePolicyManagerService;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda60;->f$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
 
-    iput-boolean p2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda60;->f$1:Z
-
-    iput-boolean p3, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda60;->f$2:Z
-
     return-void
 .end method
 
 
 # virtual methods
-.method public final runOrThrow()V
-    .locals 3
+.method public final getOrThrow()Ljava/lang/Object;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda60;->f$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
+    iget-object p0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda60;->f$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
 
-    iget-boolean v1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda60;->f$1:Z
+    invoke-static {p0}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->$r8$lambda$CEUSJ66HZtGF975stcK9Q-m7Ld0(Lcom/android/server/devicepolicy/DevicePolicyManagerService;)Landroid/database/Cursor;
 
-    iget-boolean v2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda60;->f$2:Z
+    move-result-object p0
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$maybeResumeDeviceWideLoggingLocked$117$DevicePolicyManagerService(ZZ)V
-
-    return-void
+    return-object p0
 .end method

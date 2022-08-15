@@ -1,4 +1,4 @@
-.class final Lcom/android/server/trust/TrustManagerService$AgentInfo;
+.class public final Lcom/android/server/trust/TrustManagerService$AgentInfo;
 .super Ljava/lang/Object;
 .source "TrustManagerService.java"
 
@@ -9,27 +9,27 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "AgentInfo"
 .end annotation
 
 
 # instance fields
-.field agent:Lcom/android/server/trust/TrustAgentWrapper;
+.field public agent:Lcom/android/server/trust/TrustAgentWrapper;
 
-.field component:Landroid/content/ComponentName;
+.field public component:Landroid/content/ComponentName;
 
-.field icon:Landroid/graphics/drawable/Drawable;
+.field public icon:Landroid/graphics/drawable/Drawable;
 
-.field label:Ljava/lang/CharSequence;
+.field public label:Ljava/lang/CharSequence;
 
-.field settings:Lcom/android/server/trust/TrustManagerService$SettingsAttrs;
+.field public settings:Lcom/android/server/trust/TrustManagerService$SettingsAttrs;
 
-.field userId:I
+.field public userId:I
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,7 +37,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/trust/TrustManagerService$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/trust/TrustManagerService$AgentInfo-IA;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/trust/TrustManagerService$AgentInfo;-><init>()V
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .locals 3
 
     instance-of v0, p1, Lcom/android/server/trust/TrustManagerService$AgentInfo;
 
@@ -59,25 +59,23 @@
     return v1
 
     :cond_0
-    move-object v0, p1
+    check-cast p1, Lcom/android/server/trust/TrustManagerService$AgentInfo;
 
-    check-cast v0, Lcom/android/server/trust/TrustManagerService$AgentInfo;
+    iget-object v0, p0, Lcom/android/server/trust/TrustManagerService$AgentInfo;->component:Landroid/content/ComponentName;
 
-    iget-object v2, p0, Lcom/android/server/trust/TrustManagerService$AgentInfo;->component:Landroid/content/ComponentName;
+    iget-object v2, p1, Lcom/android/server/trust/TrustManagerService$AgentInfo;->component:Landroid/content/ComponentName;
 
-    iget-object v3, v0, Lcom/android/server/trust/TrustManagerService$AgentInfo;->component:Landroid/content/ComponentName;
+    invoke-virtual {v0, v2}, Landroid/content/ComponentName;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v2, v3}, Landroid/content/ComponentName;->equals(Ljava/lang/Object;)Z
+    move-result v0
 
-    move-result v2
+    if-eqz v0, :cond_1
 
-    if-eqz v2, :cond_1
+    iget p0, p0, Lcom/android/server/trust/TrustManagerService$AgentInfo;->userId:I
 
-    iget v2, p0, Lcom/android/server/trust/TrustManagerService$AgentInfo;->userId:I
+    iget p1, p1, Lcom/android/server/trust/TrustManagerService$AgentInfo;->userId:I
 
-    iget v3, v0, Lcom/android/server/trust/TrustManagerService$AgentInfo;->userId:I
-
-    if-ne v2, v3, :cond_1
+    if-ne p0, p1, :cond_1
 
     const/4 v1, 0x1
 
@@ -86,7 +84,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/trust/TrustManagerService$AgentInfo;->component:Landroid/content/ComponentName;
 
@@ -96,9 +94,9 @@
 
     mul-int/lit8 v0, v0, 0x1f
 
-    iget v1, p0, Lcom/android/server/trust/TrustManagerService$AgentInfo;->userId:I
+    iget p0, p0, Lcom/android/server/trust/TrustManagerService$AgentInfo;->userId:I
 
-    add-int/2addr v0, v1
+    add-int/2addr v0, p0
 
     return v0
 .end method

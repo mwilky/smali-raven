@@ -1,4 +1,4 @@
-.class final Lcom/android/server/dreams/DreamManagerService$DreamHandler;
+.class public final Lcom/android/server/dreams/DreamManagerService$DreamHandler;
 .super Landroid/os/Handler;
 .source "DreamManagerService.java"
 
@@ -9,13 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "DreamHandler"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/dreams/DreamManagerService;
+.field public final synthetic this$0:Lcom/android/server/dreams/DreamManagerService;
 
 
 # direct methods

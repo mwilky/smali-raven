@@ -1,41 +1,32 @@
 .class public final synthetic Lcom/android/server/pm/ShortcutPackage$$ExternalSyntheticLambda8;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Consumer;
-
-
-# instance fields
-.field public final synthetic f$0:J
-
-.field public final synthetic f$1:I
+.implements Ljava/util/Comparator;
 
 
 # direct methods
-.method public synthetic constructor <init>(JI)V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-wide p1, p0, Lcom/android/server/pm/ShortcutPackage$$ExternalSyntheticLambda8;->f$0:J
-
-    iput p3, p0, Lcom/android/server/pm/ShortcutPackage$$ExternalSyntheticLambda8;->f$1:I
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
-    .locals 3
-
-    iget-wide v0, p0, Lcom/android/server/pm/ShortcutPackage$$ExternalSyntheticLambda8;->f$0:J
-
-    iget v2, p0, Lcom/android/server/pm/ShortcutPackage$$ExternalSyntheticLambda8;->f$1:I
+.method public final compare(Ljava/lang/Object;Ljava/lang/Object;)I
+    .locals 0
 
     check-cast p1, Landroid/content/pm/ShortcutInfo;
 
-    invoke-static {v0, v1, v2, p1}, Lcom/android/server/pm/ShortcutPackage;->lambda$adjustRanks$27(JILandroid/content/pm/ShortcutInfo;)V
+    check-cast p2, Landroid/content/pm/ShortcutInfo;
 
-    return-void
+    invoke-static {p1, p2}, Lcom/android/server/pm/ShortcutPackage;->$r8$lambda$AgyfgJ2xn6tL4ZTCpZ3rTgLDH64(Landroid/content/pm/ShortcutInfo;Landroid/content/pm/ShortcutInfo;)I
+
+    move-result p0
+
+    return p0
 .end method

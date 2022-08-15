@@ -4,7 +4,7 @@
 
 
 # instance fields
-.field private final mImpl:Lcom/android/server/appwidget/AppWidgetServiceImpl;
+.field public final mImpl:Lcom/android/server/appwidget/AppWidgetServiceImpl;
 
 
 # direct methods
@@ -25,23 +25,23 @@
 
 # virtual methods
 .method public onBootPhase(I)V
-    .locals 2
+    .locals 1
 
     const/16 v0, 0x226
 
     if-ne p1, v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/appwidget/AppWidgetService;->mImpl:Lcom/android/server/appwidget/AppWidgetServiceImpl;
+    iget-object p1, p0, Lcom/android/server/appwidget/AppWidgetService;->mImpl:Lcom/android/server/appwidget/AppWidgetServiceImpl;
 
-    invoke-virtual {p0}, Lcom/android/server/appwidget/AppWidgetService;->isSafeMode()Z
+    invoke-virtual {p0}, Lcom/android/server/SystemService;->isSafeMode()Z
 
-    move-result v1
+    move-result v0
 
-    invoke-virtual {v0, v1}, Lcom/android/server/appwidget/AppWidgetServiceImpl;->setSafeMode(Z)V
+    invoke-virtual {p1, v0}, Lcom/android/server/appwidget/AppWidgetServiceImpl;->setSafeMode(Z)V
 
-    iget-object v0, p0, Lcom/android/server/appwidget/AppWidgetService;->mImpl:Lcom/android/server/appwidget/AppWidgetServiceImpl;
+    iget-object p0, p0, Lcom/android/server/appwidget/AppWidgetService;->mImpl:Lcom/android/server/appwidget/AppWidgetServiceImpl;
 
-    invoke-virtual {v0}, Lcom/android/server/appwidget/AppWidgetServiceImpl;->systemServicesReady()V
+    invoke-virtual {p0}, Lcom/android/server/appwidget/AppWidgetServiceImpl;->systemServicesReady()V
 
     :cond_0
     return-void
@@ -58,39 +58,39 @@
 
     const-string v1, "appwidget"
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/server/appwidget/AppWidgetService;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
+    invoke-virtual {p0, v1, v0}, Lcom/android/server/SystemService;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
 
-    iget-object v0, p0, Lcom/android/server/appwidget/AppWidgetService;->mImpl:Lcom/android/server/appwidget/AppWidgetServiceImpl;
+    iget-object p0, p0, Lcom/android/server/appwidget/AppWidgetService;->mImpl:Lcom/android/server/appwidget/AppWidgetServiceImpl;
 
-    invoke-static {v0}, Lcom/android/server/AppWidgetBackupBridge;->register(Lcom/android/server/WidgetBackupProvider;)V
+    invoke-static {p0}, Lcom/android/server/AppWidgetBackupBridge;->register(Lcom/android/server/WidgetBackupProvider;)V
 
     return-void
 .end method
 
 .method public onUserStopping(Lcom/android/server/SystemService$TargetUser;)V
-    .locals 2
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/appwidget/AppWidgetService;->mImpl:Lcom/android/server/appwidget/AppWidgetServiceImpl;
+    iget-object p0, p0, Lcom/android/server/appwidget/AppWidgetService;->mImpl:Lcom/android/server/appwidget/AppWidgetServiceImpl;
 
     invoke-virtual {p1}, Lcom/android/server/SystemService$TargetUser;->getUserIdentifier()I
 
-    move-result v1
+    move-result p1
 
-    invoke-virtual {v0, v1}, Lcom/android/server/appwidget/AppWidgetServiceImpl;->onUserStopped(I)V
+    invoke-virtual {p0, p1}, Lcom/android/server/appwidget/AppWidgetServiceImpl;->onUserStopped(I)V
 
     return-void
 .end method
 
 .method public onUserSwitching(Lcom/android/server/SystemService$TargetUser;Lcom/android/server/SystemService$TargetUser;)V
-    .locals 2
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/appwidget/AppWidgetService;->mImpl:Lcom/android/server/appwidget/AppWidgetServiceImpl;
+    iget-object p0, p0, Lcom/android/server/appwidget/AppWidgetService;->mImpl:Lcom/android/server/appwidget/AppWidgetServiceImpl;
 
     invoke-virtual {p2}, Lcom/android/server/SystemService$TargetUser;->getUserIdentifier()I
 
-    move-result v1
+    move-result p1
 
-    invoke-virtual {v0, v1}, Lcom/android/server/appwidget/AppWidgetServiceImpl;->reloadWidgetsMaskedStateForGroup(I)V
+    invoke-virtual {p0, p1}, Lcom/android/server/appwidget/AppWidgetServiceImpl;->reloadWidgetsMaskedStateForGroup(I)V
 
     return-void
 .end method

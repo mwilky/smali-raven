@@ -1,4 +1,4 @@
-.class Lcom/android/server/appop/AppOpsService$7;
+.class public Lcom/android/server/appop/AppOpsService$7;
 .super Landroid/os/RemoteCallbackList;
 .source "AppOpsService.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
@@ -23,13 +23,13 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/appop/AppOpsService;
+.field public final synthetic this$0:Lcom/android/server/appop/AppOpsService;
 
-.field final synthetic val$key:Landroid/util/Pair;
+.field public final synthetic val$key:Landroid/util/Pair;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/appop/AppOpsService;Landroid/util/Pair;)V
+.method public constructor <init>(Lcom/android/server/appop/AppOpsService;Landroid/util/Pair;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/appop/AppOpsService$7;->this$0:Lcom/android/server/appop/AppOpsService;
@@ -54,40 +54,40 @@
 .end method
 
 .method public onCallbackDied(Lcom/android/internal/app/IAppOpsAsyncNotedCallback;)V
-    .locals 3
+    .locals 1
+
+    iget-object p1, p0, Lcom/android/server/appop/AppOpsService$7;->this$0:Lcom/android/server/appop/AppOpsService;
+
+    monitor-enter p1
+
+    :try_start_0
+    invoke-virtual {p0}, Landroid/os/RemoteCallbackList;->getRegisteredCallbackCount()I
+
+    move-result v0
+
+    if-nez v0, :cond_0
 
     iget-object v0, p0, Lcom/android/server/appop/AppOpsService$7;->this$0:Lcom/android/server/appop/AppOpsService;
 
-    monitor-enter v0
+    invoke-static {v0}, Lcom/android/server/appop/AppOpsService;->-$$Nest$fgetmAsyncOpWatchers(Lcom/android/server/appop/AppOpsService;)Landroid/util/ArrayMap;
 
-    :try_start_0
-    invoke-virtual {p0}, Lcom/android/server/appop/AppOpsService$7;->getRegisteredCallbackCount()I
+    move-result-object v0
 
-    move-result v1
+    iget-object p0, p0, Lcom/android/server/appop/AppOpsService$7;->val$key:Landroid/util/Pair;
 
-    if-nez v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/server/appop/AppOpsService$7;->this$0:Lcom/android/server/appop/AppOpsService;
-
-    invoke-static {v1}, Lcom/android/server/appop/AppOpsService;->access$2700(Lcom/android/server/appop/AppOpsService;)Landroid/util/ArrayMap;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/android/server/appop/AppOpsService$7;->val$key:Landroid/util/Pair;
-
-    invoke-virtual {v1, v2}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, p0}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     :cond_0
-    monitor-exit v0
+    monitor-exit p1
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
-    monitor-exit v0
+    monitor-exit p1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method

@@ -9,7 +9,7 @@
 
     invoke-direct {p0}, Lcom/android/server/backup/params/AdbParams;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/backup/params/AdbRestoreParams;->fd:Landroid/os/ParcelFileDescriptor;
+    iput-object p1, p0, Lcom/android/server/backup/params/AdbParams;->fd:Landroid/os/ParcelFileDescriptor;
 
     return-void
 .end method

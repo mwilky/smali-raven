@@ -3,14 +3,10 @@
 .source "TextToastRecord.java"
 
 
-# static fields
-.field private static final TAG:Ljava/lang/String; = "NotificationService"
-
-
 # instance fields
-.field private final mCallback:Landroid/app/ITransientNotificationCallback;
+.field public final mCallback:Landroid/app/ITransientNotificationCallback;
 
-.field private final mStatusBar:Lcom/android/server/statusbar/StatusBarManagerInternal;
+.field public final mStatusBar:Lcom/android/server/statusbar/StatusBarManagerInternal;
 
 .field public final text:Ljava/lang/CharSequence;
 
@@ -47,17 +43,17 @@
 
     iput-object v0, v10, Lcom/android/server/notification/toast/TextToastRecord;->mStatusBar:Lcom/android/server/statusbar/StatusBarManagerInternal;
 
-    move-object/from16 v1, p12
+    move-object/from16 v0, p12
 
-    iput-object v1, v10, Lcom/android/server/notification/toast/TextToastRecord;->mCallback:Landroid/app/ITransientNotificationCallback;
+    iput-object v0, v10, Lcom/android/server/notification/toast/TextToastRecord;->mCallback:Landroid/app/ITransientNotificationCallback;
 
     invoke-static/range {p8 .. p8}, Lcom/android/internal/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
-    check-cast v2, Ljava/lang/CharSequence;
+    check-cast v0, Ljava/lang/CharSequence;
 
-    iput-object v2, v10, Lcom/android/server/notification/toast/TextToastRecord;->text:Ljava/lang/CharSequence;
+    iput-object v0, v10, Lcom/android/server/notification/toast/TextToastRecord;->text:Ljava/lang/CharSequence;
 
     return-void
 .end method
@@ -65,7 +61,7 @@
 
 # virtual methods
 .method public hide()V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/notification/toast/TextToastRecord;->mStatusBar:Lcom/android/server/statusbar/StatusBarManagerInternal;
 
@@ -75,25 +71,25 @@
 
     iget-object v0, p0, Lcom/android/server/notification/toast/TextToastRecord;->mStatusBar:Lcom/android/server/statusbar/StatusBarManagerInternal;
 
-    iget-object v1, p0, Lcom/android/server/notification/toast/TextToastRecord;->pkg:Ljava/lang/String;
+    iget-object v1, p0, Lcom/android/server/notification/toast/ToastRecord;->pkg:Ljava/lang/String;
 
-    iget-object v2, p0, Lcom/android/server/notification/toast/TextToastRecord;->token:Landroid/os/IBinder;
+    iget-object p0, p0, Lcom/android/server/notification/toast/ToastRecord;->token:Landroid/os/IBinder;
 
-    invoke-interface {v0, v1, v2}, Lcom/android/server/statusbar/StatusBarManagerInternal;->hideToast(Ljava/lang/String;Landroid/os/IBinder;)V
+    invoke-interface {v0, v1, p0}, Lcom/android/server/statusbar/StatusBarManagerInternal;->hideToast(Ljava/lang/String;Landroid/os/IBinder;)V
 
     return-void
 .end method
 
 .method public isAppRendered()Z
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
 .method public show()Z
-    .locals 10
+    .locals 11
 
     sget-boolean v0, Lcom/android/server/notification/NotificationManagerService;->DBG:Z
 
@@ -109,7 +105,7 @@
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v2, p0, Lcom/android/server/notification/toast/TextToastRecord;->pkg:Ljava/lang/String;
+    iget-object v2, p0, Lcom/android/server/notification/toast/ToastRecord;->pkg:Ljava/lang/String;
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -140,42 +136,44 @@
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v2, p0, Lcom/android/server/notification/toast/TextToastRecord;->pkg:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/notification/toast/ToastRecord;->pkg:Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v1, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, p0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 
     :cond_1
-    iget v3, p0, Lcom/android/server/notification/toast/TextToastRecord;->uid:I
+    iget v3, p0, Lcom/android/server/notification/toast/ToastRecord;->uid:I
 
-    iget-object v4, p0, Lcom/android/server/notification/toast/TextToastRecord;->pkg:Ljava/lang/String;
+    iget-object v4, p0, Lcom/android/server/notification/toast/ToastRecord;->pkg:Ljava/lang/String;
 
-    iget-object v5, p0, Lcom/android/server/notification/toast/TextToastRecord;->token:Landroid/os/IBinder;
+    iget-object v5, p0, Lcom/android/server/notification/toast/ToastRecord;->token:Landroid/os/IBinder;
 
     iget-object v6, p0, Lcom/android/server/notification/toast/TextToastRecord;->text:Ljava/lang/CharSequence;
 
-    iget-object v7, p0, Lcom/android/server/notification/toast/TextToastRecord;->windowToken:Landroid/os/Binder;
+    iget-object v7, p0, Lcom/android/server/notification/toast/ToastRecord;->windowToken:Landroid/os/Binder;
 
-    invoke-virtual {p0}, Lcom/android/server/notification/toast/TextToastRecord;->getDuration()I
+    invoke-virtual {p0}, Lcom/android/server/notification/toast/ToastRecord;->getDuration()I
 
     move-result v8
 
     iget-object v9, p0, Lcom/android/server/notification/toast/TextToastRecord;->mCallback:Landroid/app/ITransientNotificationCallback;
 
-    invoke-interface/range {v2 .. v9}, Lcom/android/server/statusbar/StatusBarManagerInternal;->showToast(ILjava/lang/String;Landroid/os/IBinder;Ljava/lang/CharSequence;Landroid/os/IBinder;ILandroid/app/ITransientNotificationCallback;)V
+    iget v10, p0, Lcom/android/server/notification/toast/ToastRecord;->displayId:I
 
-    const/4 v0, 0x1
+    invoke-interface/range {v2 .. v10}, Lcom/android/server/statusbar/StatusBarManagerInternal;->showToast(ILjava/lang/String;Landroid/os/IBinder;Ljava/lang/CharSequence;Landroid/os/IBinder;ILandroid/app/ITransientNotificationCallback;I)V
 
-    return v0
+    const/4 p0, 0x1
+
+    return p0
 .end method
 
 .method public toString()Ljava/lang/String;
@@ -203,7 +201,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v1, p0, Lcom/android/server/notification/toast/TextToastRecord;->pid:I
+    iget v1, p0, Lcom/android/server/notification/toast/ToastRecord;->pid:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -211,7 +209,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lcom/android/server/notification/toast/TextToastRecord;->pkg:Ljava/lang/String;
+    iget-object v1, p0, Lcom/android/server/notification/toast/ToastRecord;->pkg:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -219,7 +217,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v1, p0, Lcom/android/server/notification/toast/TextToastRecord;->uid:I
+    iget v1, p0, Lcom/android/server/notification/toast/ToastRecord;->uid:I
 
     invoke-static {v1}, Landroid/os/UserHandle;->formatUid(I)Ljava/lang/String;
 
@@ -231,7 +229,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-boolean v1, p0, Lcom/android/server/notification/toast/TextToastRecord;->isSystemToast:Z
+    iget-boolean v1, p0, Lcom/android/server/notification/toast/ToastRecord;->isSystemToast:Z
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
@@ -239,7 +237,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lcom/android/server/notification/toast/TextToastRecord;->token:Landroid/os/IBinder;
+    iget-object v1, p0, Lcom/android/server/notification/toast/ToastRecord;->token:Landroid/os/IBinder;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
@@ -255,19 +253,19 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Lcom/android/server/notification/toast/TextToastRecord;->getDuration()I
+    invoke-virtual {p0}, Lcom/android/server/notification/toast/ToastRecord;->getDuration()I
 
-    move-result v1
+    move-result p0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v1, "}"
+    const-string/jumbo p0, "}"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

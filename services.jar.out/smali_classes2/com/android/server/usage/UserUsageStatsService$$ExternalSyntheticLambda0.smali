@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/usage/UserUsageStatsService$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/server/usage/UsageStatsDatabase$StatCombiner;
@@ -38,7 +39,7 @@
 
 
 # virtual methods
-.method public final combine(Lcom/android/server/usage/IntervalStats;ZLjava/util/List;)V
+.method public final combine(Lcom/android/server/usage/IntervalStats;ZLjava/util/List;)Z
     .locals 10
 
     iget-wide v0, p0, Lcom/android/server/usage/UserUsageStatsService$$ExternalSyntheticLambda0;->f$0:J
@@ -57,7 +58,9 @@
 
     move-object v9, p3
 
-    invoke-static/range {v0 .. v9}, Lcom/android/server/usage/UserUsageStatsService;->lambda$queryEventsForPackage$0(JJLjava/lang/String;Landroid/util/ArraySet;ZLcom/android/server/usage/IntervalStats;ZLjava/util/List;)V
+    invoke-static/range {v0 .. v9}, Lcom/android/server/usage/UserUsageStatsService;->$r8$lambda$_UPxVnAWPl-nKogImwCVbNoyn_Y(JJLjava/lang/String;Landroid/util/ArraySet;ZLcom/android/server/usage/IntervalStats;ZLjava/util/List;)Z
 
-    return-void
+    move-result p0
+
+    return p0
 .end method

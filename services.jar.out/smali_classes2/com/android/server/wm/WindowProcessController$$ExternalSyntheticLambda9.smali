@@ -1,43 +1,34 @@
 .class public final synthetic Lcom/android/server/wm/WindowProcessController$$ExternalSyntheticLambda9;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Consumer;
+.implements Ljava/lang/Runnable;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/wm/WindowProcessController$$ExternalSyntheticLambda9;
+# instance fields
+.field public final synthetic f$0:Lcom/android/server/wm/WindowProcessController;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/wm/WindowProcessController$$ExternalSyntheticLambda9;
-
-    invoke-direct {v0}, Lcom/android/server/wm/WindowProcessController$$ExternalSyntheticLambda9;-><init>()V
-
-    sput-object v0, Lcom/android/server/wm/WindowProcessController$$ExternalSyntheticLambda9;->INSTANCE:Lcom/android/server/wm/WindowProcessController$$ExternalSyntheticLambda9;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Lcom/android/server/wm/WindowProcessController;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/wm/WindowProcessController$$ExternalSyntheticLambda9;->f$0:Lcom/android/server/wm/WindowProcessController;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
+.method public final run()V
     .locals 0
 
-    check-cast p1, Lcom/android/server/wm/WindowProcessListener;
+    iget-object p0, p0, Lcom/android/server/wm/WindowProcessController$$ExternalSyntheticLambda9;->f$0:Lcom/android/server/wm/WindowProcessController;
 
-    invoke-interface {p1}, Lcom/android/server/wm/WindowProcessListener;->updateServiceConnectionActivities()V
+    invoke-static {p0}, Lcom/android/server/wm/WindowProcessController;->$r8$lambda$sN1HOZPmTeBktn04E6BaLOdZ1SY(Lcom/android/server/wm/WindowProcessController;)V
 
     return-void
 .end method

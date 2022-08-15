@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda103;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -8,7 +9,7 @@
 # instance fields
 .field public final synthetic f$0:Lcom/android/server/am/BatteryStatsService;
 
-.field public final synthetic f$1:Z
+.field public final synthetic f$1:Ljava/lang/String;
 
 .field public final synthetic f$2:I
 
@@ -18,14 +19,14 @@
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/am/BatteryStatsService;ZIJJ)V
+.method public synthetic constructor <init>(Lcom/android/server/am/BatteryStatsService;Ljava/lang/String;IJJ)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda103;->f$0:Lcom/android/server/am/BatteryStatsService;
 
-    iput-boolean p2, p0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda103;->f$1:Z
+    iput-object p2, p0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda103;->f$1:Ljava/lang/String;
 
     iput p3, p0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda103;->f$2:I
 
@@ -43,7 +44,7 @@
 
     iget-object v0, p0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda103;->f$0:Lcom/android/server/am/BatteryStatsService;
 
-    iget-boolean v1, p0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda103;->f$1:Z
+    iget-object v1, p0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda103;->f$1:Ljava/lang/String;
 
     iget v2, p0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda103;->f$2:I
 
@@ -51,7 +52,7 @@
 
     iget-wide v5, p0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda103;->f$4:J
 
-    invoke-virtual/range {v0 .. v6}, Lcom/android/server/am/BatteryStatsService;->lambda$updateBatteryStatsOnActivityUsage$99$BatteryStatsService(ZIJJ)V
+    invoke-static/range {v0 .. v6}, Lcom/android/server/am/BatteryStatsService;->$r8$lambda$52Xb71NuvGfmroUgTcvVZR9TTKA(Lcom/android/server/am/BatteryStatsService;Ljava/lang/String;IJJ)V
 
     return-void
 .end method

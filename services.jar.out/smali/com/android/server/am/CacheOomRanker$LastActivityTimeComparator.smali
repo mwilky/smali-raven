@@ -1,4 +1,4 @@
-.class Lcom/android/server/am/CacheOomRanker$LastActivityTimeComparator;
+.class public Lcom/android/server/am/CacheOomRanker$LastActivityTimeComparator;
 .super Ljava/lang/Object;
 .source "CacheOomRanker.java"
 
@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "LastActivityTimeComparator"
 .end annotation
 
@@ -27,7 +27,7 @@
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -35,7 +35,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/am/CacheOomRanker$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/am/CacheOomRanker$LastActivityTimeComparator-IA;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/am/CacheOomRanker$LastActivityTimeComparator;-><init>()V
@@ -46,25 +46,25 @@
 
 # virtual methods
 .method public compare(Lcom/android/server/am/CacheOomRanker$RankedProcessRecord;Lcom/android/server/am/CacheOomRanker$RankedProcessRecord;)I
-    .locals 4
+    .locals 2
 
-    iget-object v0, p1, Lcom/android/server/am/CacheOomRanker$RankedProcessRecord;->proc:Lcom/android/server/am/ProcessRecord;
+    iget-object p0, p1, Lcom/android/server/am/CacheOomRanker$RankedProcessRecord;->proc:Lcom/android/server/am/ProcessRecord;
 
-    invoke-virtual {v0}, Lcom/android/server/am/ProcessRecord;->getLastActivityTime()J
+    invoke-virtual {p0}, Lcom/android/server/am/ProcessRecord;->getLastActivityTime()J
+
+    move-result-wide p0
+
+    iget-object p2, p2, Lcom/android/server/am/CacheOomRanker$RankedProcessRecord;->proc:Lcom/android/server/am/ProcessRecord;
+
+    invoke-virtual {p2}, Lcom/android/server/am/ProcessRecord;->getLastActivityTime()J
 
     move-result-wide v0
 
-    iget-object v2, p2, Lcom/android/server/am/CacheOomRanker$RankedProcessRecord;->proc:Lcom/android/server/am/ProcessRecord;
+    invoke-static {p0, p1, v0, v1}, Ljava/lang/Long;->compare(JJ)I
 
-    invoke-virtual {v2}, Lcom/android/server/am/ProcessRecord;->getLastActivityTime()J
+    move-result p0
 
-    move-result-wide v2
-
-    invoke-static {v0, v1, v2, v3}, Ljava/lang/Long;->compare(JJ)I
-
-    move-result v0
-
-    return v0
+    return p0
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
@@ -76,7 +76,7 @@
 
     invoke-virtual {p0, p1, p2}, Lcom/android/server/am/CacheOomRanker$LastActivityTimeComparator;->compare(Lcom/android/server/am/CacheOomRanker$RankedProcessRecord;Lcom/android/server/am/CacheOomRanker$RankedProcessRecord;)I
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method

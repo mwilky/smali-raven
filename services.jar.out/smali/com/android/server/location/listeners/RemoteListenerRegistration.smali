@@ -21,10 +21,13 @@
 
 # static fields
 .field public static final IN_PROCESS_EXECUTOR:Ljava/util/concurrent/Executor;
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+.end field
 
 
 # instance fields
-.field private final mIdentity:Landroid/location/util/identity/CallerIdentity;
+.field public final mIdentity:Landroid/location/util/identity/CallerIdentity;
 
 
 # direct methods
@@ -40,7 +43,7 @@
     return-void
 .end method
 
-.method protected constructor <init>(Ljava/lang/Object;Landroid/location/util/identity/CallerIdentity;Ljava/lang/Object;)V
+.method public constructor <init>(Ljava/lang/Object;Landroid/location/util/identity/CallerIdentity;Ljava/lang/Object;)V
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -60,44 +63,44 @@
 
     invoke-static {p2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-object v0, p2
+    move-object p1, p2
 
-    check-cast v0, Landroid/location/util/identity/CallerIdentity;
+    check-cast p1, Landroid/location/util/identity/CallerIdentity;
 
-    iput-object v0, p0, Lcom/android/server/location/listeners/RemoteListenerRegistration;->mIdentity:Landroid/location/util/identity/CallerIdentity;
+    iput-object p2, p0, Lcom/android/server/location/listeners/RemoteListenerRegistration;->mIdentity:Landroid/location/util/identity/CallerIdentity;
 
     return-void
 .end method
 
-.method private static chooseExecutor(Landroid/location/util/identity/CallerIdentity;)Ljava/util/concurrent/Executor;
-    .locals 2
+.method public static chooseExecutor(Landroid/location/util/identity/CallerIdentity;)Ljava/util/concurrent/Executor;
+    .locals 1
 
     invoke-virtual {p0}, Landroid/location/util/identity/CallerIdentity;->getPid()I
 
-    move-result v0
+    move-result p0
 
     invoke-static {}, Landroid/os/Process;->myPid()I
 
-    move-result v1
+    move-result v0
 
-    if-ne v0, v1, :cond_0
+    if-ne p0, v0, :cond_0
 
-    sget-object v0, Lcom/android/server/location/listeners/RemoteListenerRegistration;->IN_PROCESS_EXECUTOR:Ljava/util/concurrent/Executor;
+    sget-object p0, Lcom/android/server/location/listeners/RemoteListenerRegistration;->IN_PROCESS_EXECUTOR:Ljava/util/concurrent/Executor;
 
-    return-object v0
+    return-object p0
 
     :cond_0
-    sget-object v0, Lcom/android/internal/util/ConcurrentUtils;->DIRECT_EXECUTOR:Ljava/util/concurrent/Executor;
+    sget-object p0, Lcom/android/internal/util/ConcurrentUtils;->DIRECT_EXECUTOR:Ljava/util/concurrent/Executor;
 
-    return-object v0
+    return-object p0
 .end method
 
 
 # virtual methods
 .method public final getIdentity()Landroid/location/util/identity/CallerIdentity;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/location/listeners/RemoteListenerRegistration;->mIdentity:Landroid/location/util/identity/CallerIdentity;
+    iget-object p0, p0, Lcom/android/server/location/listeners/RemoteListenerRegistration;->mIdentity:Landroid/location/util/identity/CallerIdentity;
 
-    return-object v0
+    return-object p0
 .end method

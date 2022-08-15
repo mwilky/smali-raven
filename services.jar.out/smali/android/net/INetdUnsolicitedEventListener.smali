@@ -18,9 +18,9 @@
 # static fields
 .field public static final DESCRIPTOR:Ljava/lang/String;
 
-.field public static final HASH:Ljava/lang/String; = "850353de5d19a0dd718f8fd20791f0532e6a34c7"
+.field public static final HASH:Ljava/lang/String; = "3943383e838f39851675e3640fcdf27b42f8c9fc"
 
-.field public static final VERSION:I = 0x7
+.field public static final VERSION:I = 0xa
 
 
 # direct methods

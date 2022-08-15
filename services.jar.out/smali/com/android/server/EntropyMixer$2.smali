@@ -1,4 +1,4 @@
-.class Lcom/android/server/EntropyMixer$2;
+.class public Lcom/android/server/EntropyMixer$2;
 .super Landroid/content/BroadcastReceiver;
 .source "EntropyMixer.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/EntropyMixer;
+.field public final synthetic this$0:Lcom/android/server/EntropyMixer;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/EntropyMixer;)V
+.method public constructor <init>(Lcom/android/server/EntropyMixer;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/EntropyMixer$2;->this$0:Lcom/android/server/EntropyMixer;
@@ -32,11 +32,11 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/EntropyMixer$2;->this$0:Lcom/android/server/EntropyMixer;
+    iget-object p0, p0, Lcom/android/server/EntropyMixer$2;->this$0:Lcom/android/server/EntropyMixer;
 
-    invoke-static {v0}, Lcom/android/server/EntropyMixer;->access$000(Lcom/android/server/EntropyMixer;)V
+    invoke-static {p0}, Lcom/android/server/EntropyMixer;->-$$Nest$mupdateSeedFile(Lcom/android/server/EntropyMixer;)V
 
     return-void
 .end method

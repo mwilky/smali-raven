@@ -1,4 +1,4 @@
-.class Lcom/android/server/display/AmbientBrightnessStatsTracker$AmbientBrightnessStats;
+.class public Lcom/android/server/display/AmbientBrightnessStatsTracker$AmbientBrightnessStats;
 .super Ljava/lang/Object;
 .source "AmbientBrightnessStatsTracker.java"
 
@@ -9,27 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = "AmbientBrightnessStats"
 .end annotation
 
 
-# static fields
-.field private static final ATTR_BUCKET_BOUNDARIES:Ljava/lang/String; = "bucket-boundaries"
-
-.field private static final ATTR_BUCKET_STATS:Ljava/lang/String; = "bucket-stats"
-
-.field private static final ATTR_LOCAL_DATE:Ljava/lang/String; = "local-date"
-
-.field private static final ATTR_USER:Ljava/lang/String; = "user"
-
-.field private static final TAG_AMBIENT_BRIGHTNESS_DAY_STATS:Ljava/lang/String; = "ambient-brightness-day-stats"
-
-.field private static final TAG_AMBIENT_BRIGHTNESS_STATS:Ljava/lang/String; = "ambient-brightness-stats"
-
-
 # instance fields
-.field private mStats:Ljava/util/Map;
+.field public mStats:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Map<",
@@ -41,28 +27,30 @@
     .end annotation
 .end field
 
-.field final synthetic this$0:Lcom/android/server/display/AmbientBrightnessStatsTracker;
+.field public final synthetic this$0:Lcom/android/server/display/AmbientBrightnessStatsTracker;
 
 
 # direct methods
 .method public constructor <init>(Lcom/android/server/display/AmbientBrightnessStatsTracker;)V
-    .locals 1
+    .locals 0
 
     iput-object p1, p0, Lcom/android/server/display/AmbientBrightnessStatsTracker$AmbientBrightnessStats;->this$0:Lcom/android/server/display/AmbientBrightnessStatsTracker;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v0, Ljava/util/HashMap;
+    new-instance p1, Ljava/util/HashMap;
 
-    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+    invoke-direct {p1}, Ljava/util/HashMap;-><init>()V
 
-    iput-object v0, p0, Lcom/android/server/display/AmbientBrightnessStatsTracker$AmbientBrightnessStats;->mStats:Ljava/util/Map;
+    iput-object p1, p0, Lcom/android/server/display/AmbientBrightnessStatsTracker$AmbientBrightnessStats;->mStats:Ljava/util/Map;
 
     return-void
 .end method
 
-.method private getOrCreateDayStats(Ljava/util/Deque;Ljava/time/LocalDate;)Landroid/hardware/display/AmbientBrightnessDayStats;
-    .locals 4
+
+# virtual methods
+.method public final getOrCreateDayStats(Ljava/util/Deque;Ljava/time/LocalDate;)Landroid/hardware/display/AmbientBrightnessDayStats;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -77,49 +65,49 @@
 
     invoke-interface {p1}, Ljava/util/Deque;->peekLast()Ljava/lang/Object;
 
+    move-result-object p0
+
+    check-cast p0, Landroid/hardware/display/AmbientBrightnessDayStats;
+
+    if-eqz p0, :cond_0
+
+    invoke-virtual {p0}, Landroid/hardware/display/AmbientBrightnessDayStats;->getLocalDate()Ljava/time/LocalDate;
+
     move-result-object v0
 
-    check-cast v0, Landroid/hardware/display/AmbientBrightnessDayStats;
+    invoke-virtual {v0, p2}, Ljava/time/LocalDate;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {v0}, Landroid/hardware/display/AmbientBrightnessDayStats;->getLocalDate()Ljava/time/LocalDate;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p2}, Ljava/time/LocalDate;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    return-object v0
+    return-object p0
 
     :cond_0
-    new-instance v1, Landroid/hardware/display/AmbientBrightnessDayStats;
+    new-instance p0, Landroid/hardware/display/AmbientBrightnessDayStats;
 
-    sget-object v2, Lcom/android/server/display/AmbientBrightnessStatsTracker;->BUCKET_BOUNDARIES_FOR_NEW_STATS:[F
+    sget-object v0, Lcom/android/server/display/AmbientBrightnessStatsTracker;->BUCKET_BOUNDARIES_FOR_NEW_STATS:[F
 
-    invoke-direct {v1, p2, v2}, Landroid/hardware/display/AmbientBrightnessDayStats;-><init>(Ljava/time/LocalDate;[F)V
+    invoke-direct {p0, p2, v0}, Landroid/hardware/display/AmbientBrightnessDayStats;-><init>(Ljava/time/LocalDate;[F)V
 
     invoke-interface {p1}, Ljava/util/Deque;->size()I
 
-    move-result v2
+    move-result p2
 
-    const/4 v3, 0x7
+    const/4 v0, 0x7
 
-    if-ne v2, v3, :cond_1
+    if-ne p2, v0, :cond_1
 
     invoke-interface {p1}, Ljava/util/Deque;->poll()Ljava/lang/Object;
 
     :cond_1
-    invoke-interface {p1, v1}, Ljava/util/Deque;->offer(Ljava/lang/Object;)Z
+    invoke-interface {p1, p0}, Ljava/util/Deque;->offer(Ljava/lang/Object;)Z
 
-    return-object v1
+    return-object p0
 .end method
 
-.method private getOrCreateUserStats(Ljava/util/Map;I)Ljava/util/Deque;
-    .locals 2
+.method public final getOrCreateUserStats(Ljava/util/Map;I)Ljava/util/Deque;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -136,42 +124,40 @@
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-interface {p1, v0}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+    invoke-interface {p1, p0}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p0
 
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v0
+    move-result-object p0
 
-    new-instance v1, Ljava/util/ArrayDeque;
+    new-instance v0, Ljava/util/ArrayDeque;
 
-    invoke-direct {v1}, Ljava/util/ArrayDeque;-><init>()V
+    invoke-direct {v0}, Ljava/util/ArrayDeque;-><init>()V
 
-    invoke-interface {p1, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p1, p0, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     :cond_0
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-interface {p1, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p1, p0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Ljava/util/Deque;
+    check-cast p0, Ljava/util/Deque;
 
-    return-object v0
+    return-object p0
 .end method
 
-
-# virtual methods
 .method public getUserStats(I)Ljava/util/ArrayList;
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -195,345 +181,309 @@
 
     new-instance v0, Ljava/util/ArrayList;
 
-    iget-object v1, p0, Lcom/android/server/display/AmbientBrightnessStatsTracker$AmbientBrightnessStats;->mStats:Ljava/util/Map;
+    iget-object p0, p0, Lcom/android/server/display/AmbientBrightnessStatsTracker$AmbientBrightnessStats;->mStats:Ljava/util/Map;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-interface {v1, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p0
 
-    check-cast v1, Ljava/util/Collection;
+    check-cast p0, Ljava/util/Collection;
 
-    invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+    invoke-direct {v0, p0}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
     return-object v0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public log(ILjava/time/LocalDate;FF)V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/display/AmbientBrightnessStatsTracker$AmbientBrightnessStats;->mStats:Ljava/util/Map;
 
-    invoke-direct {p0, v0, p1}, Lcom/android/server/display/AmbientBrightnessStatsTracker$AmbientBrightnessStats;->getOrCreateUserStats(Ljava/util/Map;I)Ljava/util/Deque;
+    invoke-virtual {p0, v0, p1}, Lcom/android/server/display/AmbientBrightnessStatsTracker$AmbientBrightnessStats;->getOrCreateUserStats(Ljava/util/Map;I)Ljava/util/Deque;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-direct {p0, v0, p2}, Lcom/android/server/display/AmbientBrightnessStatsTracker$AmbientBrightnessStats;->getOrCreateDayStats(Ljava/util/Deque;Ljava/time/LocalDate;)Landroid/hardware/display/AmbientBrightnessDayStats;
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/display/AmbientBrightnessStatsTracker$AmbientBrightnessStats;->getOrCreateDayStats(Ljava/util/Deque;Ljava/time/LocalDate;)Landroid/hardware/display/AmbientBrightnessDayStats;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v1, p3, p4}, Landroid/hardware/display/AmbientBrightnessDayStats;->log(FF)V
+    invoke-virtual {p0, p3, p4}, Landroid/hardware/display/AmbientBrightnessDayStats;->log(FF)V
 
     return-void
 .end method
 
 .method public readFromXML(Ljava/io/InputStream;)V
-    .locals 17
+    .locals 13
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    move-object/from16 v1, p0
-
     const-string v0, ","
 
     :try_start_0
-    new-instance v2, Ljava/util/HashMap;
+    new-instance v1, Ljava/util/HashMap;
 
-    invoke-direct {v2}, Ljava/util/HashMap;-><init>()V
+    invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
 
-    invoke-static/range {p1 .. p1}, Landroid/util/Xml;->resolvePullParser(Ljava/io/InputStream;)Landroid/util/TypedXmlPullParser;
+    invoke-static {p1}, Landroid/util/Xml;->resolvePullParser(Ljava/io/InputStream;)Landroid/util/TypedXmlPullParser;
 
-    move-result-object v3
+    move-result-object p1
 
     :goto_0
-    invoke-interface {v3}, Landroid/util/TypedXmlPullParser;->next()I
+    invoke-interface {p1}, Landroid/util/TypedXmlPullParser;->next()I
 
-    move-result v4
+    move-result v2
 
-    move v5, v4
+    const/4 v3, 0x1
 
-    const/4 v6, 0x1
-
-    if-eq v4, v6, :cond_0
+    if-eq v2, v3, :cond_0
 
     const/4 v4, 0x2
 
-    if-eq v5, v4, :cond_0
+    if-eq v2, v4, :cond_0
 
     goto :goto_0
 
     :cond_0
-    invoke-interface {v3}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
+    invoke-interface {p1}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v2
 
-    const-string v7, "ambient-brightness-stats"
+    const-string v4, "ambient-brightness-stats"
 
-    invoke-virtual {v7, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v4, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_7
+
+    iget-object v2, p0, Lcom/android/server/display/AmbientBrightnessStatsTracker$AmbientBrightnessStats;->this$0:Lcom/android/server/display/AmbientBrightnessStatsTracker;
+
+    invoke-static {v2}, Lcom/android/server/display/AmbientBrightnessStatsTracker;->-$$Nest$fgetmInjector(Lcom/android/server/display/AmbientBrightnessStatsTracker;)Lcom/android/server/display/AmbientBrightnessStatsTracker$Injector;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/android/server/display/AmbientBrightnessStatsTracker$Injector;->getLocalDate()Ljava/time/LocalDate;
+
+    move-result-object v2
+
+    const-wide/16 v4, 0x7
+
+    invoke-virtual {v2, v4, v5}, Ljava/time/LocalDate;->minusDays(J)Ljava/time/LocalDate;
+
+    move-result-object v2
+
+    invoke-interface {p1}, Landroid/util/TypedXmlPullParser;->getDepth()I
+
+    move-result v4
+
+    :cond_1
+    :goto_1
+    invoke-interface {p1}, Landroid/util/TypedXmlPullParser;->next()I
+
+    move-result v5
+
+    if-eq v5, v3, :cond_6
+
+    const/4 v6, 0x3
+
+    if-ne v5, v6, :cond_2
+
+    invoke-interface {p1}, Landroid/util/TypedXmlPullParser;->getDepth()I
 
     move-result v7
 
-    if-eqz v7, :cond_9
-
-    iget-object v7, v1, Lcom/android/server/display/AmbientBrightnessStatsTracker$AmbientBrightnessStats;->this$0:Lcom/android/server/display/AmbientBrightnessStatsTracker;
-
-    invoke-static {v7}, Lcom/android/server/display/AmbientBrightnessStatsTracker;->access$000(Lcom/android/server/display/AmbientBrightnessStatsTracker;)Lcom/android/server/display/AmbientBrightnessStatsTracker$Injector;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Lcom/android/server/display/AmbientBrightnessStatsTracker$Injector;->getLocalDate()Ljava/time/LocalDate;
-
-    move-result-object v7
-
-    const-wide/16 v8, 0x7
-
-    invoke-virtual {v7, v8, v9}, Ljava/time/LocalDate;->minusDays(J)Ljava/time/LocalDate;
-
-    move-result-object v7
-
-    invoke-interface {v3}, Landroid/util/TypedXmlPullParser;->getDepth()I
-
-    move-result v8
-
-    :goto_1
-    invoke-interface {v3}, Landroid/util/TypedXmlPullParser;->next()I
-
-    move-result v9
-
-    move v5, v9
-
-    if-eq v9, v6, :cond_8
-
-    const/4 v9, 0x3
-
-    if-ne v5, v9, :cond_1
-
-    invoke-interface {v3}, Landroid/util/TypedXmlPullParser;->getDepth()I
-
-    move-result v10
-
-    if-le v10, v8, :cond_8
-
-    :cond_1
-    if-eq v5, v9, :cond_7
-
-    const/4 v9, 0x4
-
-    if-ne v5, v9, :cond_2
-
-    move-object/from16 v16, v0
-
-    goto/16 :goto_4
+    if-le v7, v4, :cond_6
 
     :cond_2
-    invoke-interface {v3}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
+    if-eq v5, v6, :cond_1
 
-    move-result-object v9
+    const/4 v6, 0x4
 
-    move-object v4, v9
+    if-ne v5, v6, :cond_3
 
-    const-string v9, "ambient-brightness-day-stats"
+    goto :goto_1
 
-    invoke-virtual {v9, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    :cond_3
+    invoke-interface {p1}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
 
-    move-result v9
+    move-result-object v5
 
-    if-eqz v9, :cond_6
+    const-string v6, "ambient-brightness-day-stats"
 
-    const-string/jumbo v9, "user"
+    invoke-virtual {v6, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    const/4 v10, 0x0
+    move-result v5
 
-    invoke-interface {v3, v10, v9}, Landroid/util/TypedXmlPullParser;->getAttributeInt(Ljava/lang/String;Ljava/lang/String;)I
+    if-eqz v5, :cond_1
 
-    move-result v9
+    const-string/jumbo v5, "user"
 
-    const-string/jumbo v11, "local-date"
+    const/4 v6, 0x0
 
-    invoke-interface {v3, v10, v11}, Landroid/util/TypedXmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {p1, v6, v5}, Landroid/util/TypedXmlPullParser;->getAttributeInt(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result-object v11
+    move-result v5
 
-    invoke-static {v11}, Ljava/time/LocalDate;->parse(Ljava/lang/CharSequence;)Ljava/time/LocalDate;
+    const-string v7, "local-date"
 
-    move-result-object v11
+    invoke-interface {p1, v6, v7}, Landroid/util/TypedXmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    const-string v12, "bucket-boundaries"
+    move-result-object v7
 
-    invoke-interface {v3, v10, v12}, Landroid/util/TypedXmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v7}, Ljava/time/LocalDate;->parse(Ljava/lang/CharSequence;)Ljava/time/LocalDate;
 
-    move-result-object v12
+    move-result-object v7
 
-    invoke-virtual {v12, v0}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+    const-string v8, "bucket-boundaries"
 
-    move-result-object v12
+    invoke-interface {p1, v6, v8}, Landroid/util/TypedXmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    const-string v13, "bucket-stats"
+    move-result-object v8
 
-    invoke-interface {v3, v10, v13}, Landroid/util/TypedXmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v8, v0}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v8
 
-    invoke-virtual {v10, v0}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+    const-string v9, "bucket-stats"
 
-    move-result-object v10
+    invoke-interface {p1, v6, v9}, Landroid/util/TypedXmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    array-length v13, v12
+    move-result-object v6
 
-    array-length v14, v10
+    invoke-virtual {v6, v0}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
-    if-ne v13, v14, :cond_5
+    move-result-object v6
 
-    array-length v13, v12
+    array-length v9, v8
 
-    if-lt v13, v6, :cond_5
+    array-length v10, v6
 
-    array-length v13, v12
+    if-ne v9, v10, :cond_5
 
-    new-array v13, v13, [F
+    array-length v9, v8
 
-    array-length v14, v10
+    if-lt v9, v3, :cond_5
 
-    new-array v14, v14, [F
+    array-length v9, v8
 
-    const/4 v15, 0x0
+    new-array v9, v9, [F
+
+    array-length v10, v6
+
+    new-array v10, v10, [F
+
+    const/4 v11, 0x0
 
     :goto_2
-    array-length v6, v12
+    array-length v12, v8
 
-    if-ge v15, v6, :cond_3
+    if-ge v11, v12, :cond_4
 
-    aget-object v6, v12, v15
+    aget-object v12, v8, v11
 
-    invoke-static {v6}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+    invoke-static {v12}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
-    move-result v6
+    move-result v12
 
-    aput v6, v13, v15
+    aput v12, v9, v11
 
-    aget-object v6, v10, v15
+    aget-object v12, v6, v11
 
-    invoke-static {v6}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+    invoke-static {v12}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
-    move-result v6
+    move-result v12
 
-    aput v6, v14, v15
+    aput v12, v10, v11
 
-    add-int/lit8 v15, v15, 0x1
-
-    const/4 v6, 0x1
+    add-int/lit8 v11, v11, 0x1
 
     goto :goto_2
 
-    :cond_3
-    iget-object v6, v1, Lcom/android/server/display/AmbientBrightnessStatsTracker$AmbientBrightnessStats;->this$0:Lcom/android/server/display/AmbientBrightnessStatsTracker;
+    :cond_4
+    iget-object v6, p0, Lcom/android/server/display/AmbientBrightnessStatsTracker$AmbientBrightnessStats;->this$0:Lcom/android/server/display/AmbientBrightnessStatsTracker;
 
-    invoke-static {v6}, Lcom/android/server/display/AmbientBrightnessStatsTracker;->access$000(Lcom/android/server/display/AmbientBrightnessStatsTracker;)Lcom/android/server/display/AmbientBrightnessStatsTracker$Injector;
+    invoke-static {v6}, Lcom/android/server/display/AmbientBrightnessStatsTracker;->-$$Nest$fgetmInjector(Lcom/android/server/display/AmbientBrightnessStatsTracker;)Lcom/android/server/display/AmbientBrightnessStatsTracker$Injector;
 
     move-result-object v6
 
-    iget-object v15, v1, Lcom/android/server/display/AmbientBrightnessStatsTracker$AmbientBrightnessStats;->this$0:Lcom/android/server/display/AmbientBrightnessStatsTracker;
+    iget-object v8, p0, Lcom/android/server/display/AmbientBrightnessStatsTracker$AmbientBrightnessStats;->this$0:Lcom/android/server/display/AmbientBrightnessStatsTracker;
 
-    invoke-static {v15}, Lcom/android/server/display/AmbientBrightnessStatsTracker;->access$100(Lcom/android/server/display/AmbientBrightnessStatsTracker;)Landroid/os/UserManager;
+    invoke-static {v8}, Lcom/android/server/display/AmbientBrightnessStatsTracker;->-$$Nest$fgetmUserManager(Lcom/android/server/display/AmbientBrightnessStatsTracker;)Landroid/os/UserManager;
 
-    move-result-object v15
+    move-result-object v8
 
-    invoke-virtual {v6, v15, v9}, Lcom/android/server/display/AmbientBrightnessStatsTracker$Injector;->getUserId(Landroid/os/UserManager;I)I
+    invoke-virtual {v6, v8, v5}, Lcom/android/server/display/AmbientBrightnessStatsTracker$Injector;->getUserId(Landroid/os/UserManager;I)I
+
+    move-result v5
+
+    const/4 v6, -0x1
+
+    if-eq v5, v6, :cond_1
+
+    invoke-virtual {v7, v2}, Ljava/time/LocalDate;->isAfter(Ljava/time/chrono/ChronoLocalDate;)Z
 
     move-result v6
 
-    const/4 v15, -0x1
+    if-eqz v6, :cond_1
 
-    if-eq v6, v15, :cond_4
+    invoke-virtual {p0, v1, v5}, Lcom/android/server/display/AmbientBrightnessStatsTracker$AmbientBrightnessStats;->getOrCreateUserStats(Ljava/util/Map;I)Ljava/util/Deque;
 
-    invoke-virtual {v11, v7}, Ljava/time/LocalDate;->isAfter(Ljava/time/chrono/ChronoLocalDate;)Z
+    move-result-object v5
 
-    move-result v15
+    new-instance v6, Landroid/hardware/display/AmbientBrightnessDayStats;
 
-    if-eqz v15, :cond_4
+    invoke-direct {v6, v7, v9, v10}, Landroid/hardware/display/AmbientBrightnessDayStats;-><init>(Ljava/time/LocalDate;[F[F)V
 
-    invoke-direct {v1, v2, v6}, Lcom/android/server/display/AmbientBrightnessStatsTracker$AmbientBrightnessStats;->getOrCreateUserStats(Ljava/util/Map;I)Ljava/util/Deque;
-
-    move-result-object v15
-
-    move-object/from16 v16, v0
-
-    new-instance v0, Landroid/hardware/display/AmbientBrightnessDayStats;
-
-    invoke-direct {v0, v11, v13, v14}, Landroid/hardware/display/AmbientBrightnessDayStats;-><init>(Ljava/time/LocalDate;[F[F)V
-
-    invoke-interface {v15, v0}, Ljava/util/Deque;->offer(Ljava/lang/Object;)Z
-
-    goto :goto_3
-
-    :cond_4
-    move-object/from16 v16, v0
-
-    :goto_3
-    goto :goto_4
-
-    :cond_5
-    new-instance v0, Ljava/io/IOException;
-
-    const-string v6, "Invalid brightness stats string."
-
-    invoke-direct {v0, v6}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    :cond_6
-    move-object/from16 v16, v0
-
-    goto :goto_4
-
-    :cond_7
-    move-object/from16 v16, v0
-
-    :goto_4
-    move-object/from16 v0, v16
-
-    const/4 v6, 0x1
+    invoke-interface {v5, v6}, Ljava/util/Deque;->offer(Ljava/lang/Object;)Z
 
     goto/16 :goto_1
 
-    :cond_8
-    iput-object v2, v1, Lcom/android/server/display/AmbientBrightnessStatsTracker$AmbientBrightnessStats;->mStats:Ljava/util/Map;
+    :cond_5
+    new-instance p0, Ljava/io/IOException;
 
-    nop
+    const-string p1, "Invalid brightness stats string."
+
+    invoke-direct {p0, p1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+
+    :cond_6
+    iput-object v1, p0, Lcom/android/server/display/AmbientBrightnessStatsTracker$AmbientBrightnessStats;->mStats:Ljava/util/Map;
 
     return-void
 
-    :cond_9
-    new-instance v0, Lorg/xmlpull/v1/XmlPullParserException;
+    :cond_7
+    new-instance p0, Lorg/xmlpull/v1/XmlPullParserException;
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v7, "Ambient brightness stats not found in tracker file "
+    const-string v0, "Ambient brightness stats not found in tracker file "
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object p1
 
-    invoke-direct {v0, v6}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
     :try_end_0
     .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
@@ -542,105 +492,102 @@
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    new-instance v2, Ljava/io/IOException;
+    new-instance p1, Ljava/io/IOException;
 
-    const-string v3, "Failed to parse brightness stats file."
+    const-string v0, "Failed to parse brightness stats file."
 
-    invoke-direct {v2, v3, v0}, Ljava/io/IOException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {p1, v0, p0}, Ljava/io/IOException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    throw v2
+    throw p1
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 6
+    .locals 5
 
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v1, p0, Lcom/android/server/display/AmbientBrightnessStatsTracker$AmbientBrightnessStats;->mStats:Ljava/util/Map;
+    iget-object p0, p0, Lcom/android/server/display/AmbientBrightnessStatsTracker$AmbientBrightnessStats;->mStats:Ljava/util/Map;
 
-    invoke-interface {v1}, Ljava/util/Map;->entrySet()Ljava/util/Set;
+    invoke-interface {p0}, Ljava/util/Map;->entrySet()Ljava/util/Set;
+
+    move-result-object p0
+
+    invoke-interface {p0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object p0
+
+    :cond_0
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
 
-    invoke-interface {v1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    check-cast v1, Ljava/util/Map$Entry;
 
-    move-result-object v1
-
-    :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v2
 
-    check-cast v2, Ljava/util/Map$Entry;
+    check-cast v2, Ljava/util/Deque;
 
-    invoke-interface {v2}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+    invoke-interface {v2}, Ljava/util/Deque;->iterator()Ljava/util/Iterator;
+
+    move-result-object v2
+
+    :goto_0
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v3
 
-    check-cast v3, Ljava/util/Deque;
+    check-cast v3, Landroid/hardware/display/AmbientBrightnessDayStats;
 
-    invoke-interface {v3}, Ljava/util/Deque;->iterator()Ljava/util/Iterator;
+    const-string v4, "  "
 
-    move-result-object v3
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :goto_1
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_0
-
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v4
 
-    check-cast v4, Landroid/hardware/display/AmbientBrightnessDayStats;
-
-    const-string v5, "  "
-
-    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-interface {v2}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
-
-    move-result-object v5
-
-    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    const-string v5, " "
-
-    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string v5, "\n"
+    const-string v4, " "
 
-    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    :cond_0
+    const-string v3, "\n"
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
     goto :goto_0
 
     :cond_1
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method
 
 .method public writeToXML(Ljava/io/OutputStream;)V
-    .locals 14
+    .locals 13
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -651,23 +598,21 @@
 
     move-result-object v0
 
-    const/4 v1, 0x1
+    sget-object v1, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
 
-    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    const/4 v2, 0x0
 
-    move-result-object v2
+    invoke-interface {v0, v2, v1}, Landroid/util/TypedXmlSerializer;->startDocument(Ljava/lang/String;Ljava/lang/Boolean;)V
 
-    const/4 v3, 0x0
+    const-string v1, "http://xmlpull.org/v1/doc/features.html#indent-output"
 
-    invoke-interface {v0, v3, v2}, Landroid/util/TypedXmlSerializer;->startDocument(Ljava/lang/String;Ljava/lang/Boolean;)V
+    const/4 v3, 0x1
 
-    const-string v2, "http://xmlpull.org/v1/doc/features.html#indent-output"
-
-    invoke-interface {v0, v2, v1}, Landroid/util/TypedXmlSerializer;->setFeature(Ljava/lang/String;Z)V
+    invoke-interface {v0, v1, v3}, Landroid/util/TypedXmlSerializer;->setFeature(Ljava/lang/String;Z)V
 
     iget-object v1, p0, Lcom/android/server/display/AmbientBrightnessStatsTracker$AmbientBrightnessStats;->this$0:Lcom/android/server/display/AmbientBrightnessStatsTracker;
 
-    invoke-static {v1}, Lcom/android/server/display/AmbientBrightnessStatsTracker;->access$000(Lcom/android/server/display/AmbientBrightnessStatsTracker;)Lcom/android/server/display/AmbientBrightnessStatsTracker$Injector;
+    invoke-static {v1}, Lcom/android/server/display/AmbientBrightnessStatsTracker;->-$$Nest$fgetmInjector(Lcom/android/server/display/AmbientBrightnessStatsTracker;)Lcom/android/server/display/AmbientBrightnessStatsTracker$Injector;
 
     move-result-object v1
 
@@ -675,15 +620,15 @@
 
     move-result-object v1
 
-    const-wide/16 v4, 0x7
+    const-wide/16 v3, 0x7
 
-    invoke-virtual {v1, v4, v5}, Ljava/time/LocalDate;->minusDays(J)Ljava/time/LocalDate;
+    invoke-virtual {v1, v3, v4}, Ljava/time/LocalDate;->minusDays(J)Ljava/time/LocalDate;
 
     move-result-object v1
 
-    const-string v2, "ambient-brightness-stats"
+    const-string v3, "ambient-brightness-stats"
 
-    invoke-interface {v0, v3, v2}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {v0, v2, v3}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     iget-object v4, p0, Lcom/android/server/display/AmbientBrightnessStatsTracker$AmbientBrightnessStats;->mStats:Ljava/util/Map;
 
@@ -695,7 +640,7 @@
 
     move-result-object v4
 
-    :goto_0
+    :cond_0
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
@@ -718,12 +663,13 @@
 
     move-result-object v6
 
-    :goto_1
+    :cond_1
+    :goto_0
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_3
+    if-eqz v7, :cond_0
 
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -733,13 +679,13 @@
 
     iget-object v8, p0, Lcom/android/server/display/AmbientBrightnessStatsTracker$AmbientBrightnessStats;->this$0:Lcom/android/server/display/AmbientBrightnessStatsTracker;
 
-    invoke-static {v8}, Lcom/android/server/display/AmbientBrightnessStatsTracker;->access$000(Lcom/android/server/display/AmbientBrightnessStatsTracker;)Lcom/android/server/display/AmbientBrightnessStatsTracker$Injector;
+    invoke-static {v8}, Lcom/android/server/display/AmbientBrightnessStatsTracker;->-$$Nest$fgetmInjector(Lcom/android/server/display/AmbientBrightnessStatsTracker;)Lcom/android/server/display/AmbientBrightnessStatsTracker$Injector;
 
     move-result-object v8
 
     iget-object v9, p0, Lcom/android/server/display/AmbientBrightnessStatsTracker$AmbientBrightnessStats;->this$0:Lcom/android/server/display/AmbientBrightnessStatsTracker;
 
-    invoke-static {v9}, Lcom/android/server/display/AmbientBrightnessStatsTracker;->access$100(Lcom/android/server/display/AmbientBrightnessStatsTracker;)Landroid/os/UserManager;
+    invoke-static {v9}, Lcom/android/server/display/AmbientBrightnessStatsTracker;->-$$Nest$fgetmUserManager(Lcom/android/server/display/AmbientBrightnessStatsTracker;)Landroid/os/UserManager;
 
     move-result-object v9
 
@@ -759,7 +705,7 @@
 
     const/4 v9, -0x1
 
-    if-eq v8, v9, :cond_2
+    if-eq v8, v9, :cond_1
 
     invoke-virtual {v7}, Landroid/hardware/display/AmbientBrightnessDayStats;->getLocalDate()Ljava/time/LocalDate;
 
@@ -769,107 +715,99 @@
 
     move-result v9
 
-    if-eqz v9, :cond_2
+    if-eqz v9, :cond_1
 
     const-string v9, "ambient-brightness-day-stats"
 
-    invoke-interface {v0, v3, v9}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {v0, v2, v9}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     const-string/jumbo v10, "user"
 
-    invoke-interface {v0, v3, v10, v8}, Landroid/util/TypedXmlSerializer;->attributeInt(Ljava/lang/String;Ljava/lang/String;I)Lorg/xmlpull/v1/XmlSerializer;
-
-    nop
+    invoke-interface {v0, v2, v10, v8}, Landroid/util/TypedXmlSerializer;->attributeInt(Ljava/lang/String;Ljava/lang/String;I)Lorg/xmlpull/v1/XmlSerializer;
 
     invoke-virtual {v7}, Landroid/hardware/display/AmbientBrightnessDayStats;->getLocalDate()Ljava/time/LocalDate;
 
-    move-result-object v10
+    move-result-object v8
 
-    invoke-virtual {v10}, Ljava/time/LocalDate;->toString()Ljava/lang/String;
+    invoke-virtual {v8}, Ljava/time/LocalDate;->toString()Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v8
 
-    const-string/jumbo v11, "local-date"
+    const-string v10, "local-date"
 
-    invoke-interface {v0, v3, v11, v10}, Landroid/util/TypedXmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {v0, v2, v10, v8}, Landroid/util/TypedXmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
 
     new-instance v10, Ljava/lang/StringBuilder;
 
     invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
-    new-instance v11, Ljava/lang/StringBuilder;
+    const/4 v11, 0x0
 
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
-
-    const/4 v12, 0x0
-
-    :goto_2
+    :goto_1
     invoke-virtual {v7}, Landroid/hardware/display/AmbientBrightnessDayStats;->getBucketBoundaries()[F
 
-    move-result-object v13
+    move-result-object v12
 
-    array-length v13, v13
+    array-length v12, v12
 
-    if-ge v12, v13, :cond_1
+    if-ge v11, v12, :cond_3
 
-    if-lez v12, :cond_0
+    if-lez v11, :cond_2
 
-    const-string v13, ","
+    const-string v12, ","
 
-    invoke-virtual {v10, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v11, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_0
+    :cond_2
     invoke-virtual {v7}, Landroid/hardware/display/AmbientBrightnessDayStats;->getBucketBoundaries()[F
 
-    move-result-object v13
+    move-result-object v12
 
-    aget v13, v13, v12
+    aget v12, v12, v11
 
-    invoke-virtual {v10, v13}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v12}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
     invoke-virtual {v7}, Landroid/hardware/display/AmbientBrightnessDayStats;->getStats()[F
 
-    move-result-object v13
+    move-result-object v12
 
-    aget v13, v13, v12
+    aget v12, v12, v11
 
-    invoke-virtual {v11, v13}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v12}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    add-int/lit8 v12, v12, 0x1
+    add-int/lit8 v11, v11, 0x1
 
-    goto :goto_2
+    goto :goto_1
 
-    :cond_1
-    nop
+    :cond_3
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    const-string v8, "bucket-boundaries"
+
+    invoke-interface {v0, v2, v8, v7}, Landroid/util/TypedXmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v12
+    move-result-object v7
 
-    const-string v13, "bucket-boundaries"
+    const-string v8, "bucket-stats"
 
-    invoke-interface {v0, v3, v13, v12}, Landroid/util/TypedXmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {v0, v2, v8, v7}, Landroid/util/TypedXmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-interface {v0, v2, v9}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    move-result-object v12
-
-    const-string v13, "bucket-stats"
-
-    invoke-interface {v0, v3, v13, v12}, Landroid/util/TypedXmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
-
-    invoke-interface {v0, v3, v9}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
-
-    :cond_2
-    goto/16 :goto_1
-
-    :cond_3
     goto/16 :goto_0
 
     :cond_4
-    invoke-interface {v0, v3, v2}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {v0, v2, v3}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     invoke-interface {v0}, Landroid/util/TypedXmlSerializer;->endDocument()V
 

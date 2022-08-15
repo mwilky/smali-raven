@@ -16,39 +16,19 @@
 
 
 # static fields
-.field public static final ENCRYPTION_FLAG_NO_UI:I = 0x4
-
-.field public static final ENCRYPTION_STATE_ERROR_CORRUPT:I = -0x4
-
-.field public static final ENCRYPTION_STATE_ERROR_INCOMPLETE:I = -0x2
-
-.field public static final ENCRYPTION_STATE_ERROR_INCONSISTENT:I = -0x3
-
-.field public static final ENCRYPTION_STATE_ERROR_UNKNOWN:I = -0x1
-
-.field public static final ENCRYPTION_STATE_NONE:I = 0x1
-
-.field public static final ENCRYPTION_STATE_OK:I = 0x0
-
 .field public static final FSTRIM_FLAG_DEEP_TRIM:I = 0x1
 
 .field public static final MOUNT_FLAG_PRIMARY:I = 0x1
 
-.field public static final MOUNT_FLAG_VISIBLE:I = 0x2
+.field public static final MOUNT_FLAG_VISIBLE_FOR_READ:I = 0x2
+
+.field public static final MOUNT_FLAG_VISIBLE_FOR_WRITE:I = 0x4
 
 .field public static final PARTITION_TYPE_MIXED:I = 0x2
 
 .field public static final PARTITION_TYPE_PRIVATE:I = 0x1
 
 .field public static final PARTITION_TYPE_PUBLIC:I = 0x0
-
-.field public static final PASSWORD_TYPE_DEFAULT:I = 0x1
-
-.field public static final PASSWORD_TYPE_PASSWORD:I = 0x0
-
-.field public static final PASSWORD_TYPE_PATTERN:I = 0x2
-
-.field public static final PASSWORD_TYPE_PIN:I = 0x3
 
 .field public static final REMOUNT_MODE_ANDROID_WRITABLE:I = 0x4
 
@@ -136,7 +116,7 @@
     .end annotation
 .end method
 
-.method public abstract addUserKeyAuth(IILjava/lang/String;Ljava/lang/String;)V
+.method public abstract addUserKeyAuth(IILjava/lang/String;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -160,7 +140,7 @@
     .end annotation
 .end method
 
-.method public abstract clearUserKeyAuth(IILjava/lang/String;Ljava/lang/String;)V
+.method public abstract clearUserKeyAuth(IILjava/lang/String;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -176,7 +156,7 @@
     .end annotation
 .end method
 
-.method public abstract createObb(Ljava/lang/String;Ljava/lang/String;I)Ljava/lang/String;
+.method public abstract createObb(Ljava/lang/String;I)Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -280,94 +260,6 @@
     .end annotation
 .end method
 
-.method public abstract fdeChangePassword(ILjava/lang/String;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract fdeCheckPassword(Ljava/lang/String;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract fdeClearPassword()V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract fdeComplete()I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract fdeEnable(ILjava/lang/String;I)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract fdeGetField(Ljava/lang/String;)Ljava/lang/String;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract fdeGetPassword()Ljava/lang/String;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract fdeGetPasswordType()I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract fdeRestart()V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract fdeSetField(Ljava/lang/String;Ljava/lang/String;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract fdeVerifyPassword(Ljava/lang/String;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract fixateNewestUserKeyAuth(I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -408,7 +300,23 @@
     .end annotation
 .end method
 
+.method public abstract getStorageLifeTime()I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract getUnlockedUsers()[I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract getWriteAmount()I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -433,14 +341,6 @@
 .end method
 
 .method public abstract isCheckpointing()Z
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract isConvertibleToFbe()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -481,14 +381,6 @@
 .end method
 
 .method public abstract mountAppFuse(II)Ljava/io/FileDescriptor;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract mountDefaultEncrypted()V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -616,6 +508,14 @@
     .end annotation
 .end method
 
+.method public abstract refreshLatestWrite()V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract remountAppStorageDirs(II[Ljava/lang/String;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -664,7 +564,15 @@
     .end annotation
 .end method
 
-.method public abstract runIdleMaint(Landroid/os/IVoldTaskListener;)V
+.method public abstract runIdleMaint(ZLandroid/os/IVoldTaskListener;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract setGCUrgentPace(IIFFI)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -744,7 +652,7 @@
     .end annotation
 .end method
 
-.method public abstract unlockUserKey(IILjava/lang/String;Ljava/lang/String;)V
+.method public abstract unlockUserKey(IILjava/lang/String;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

@@ -1,20 +1,14 @@
-.class Lcom/android/server/locksettings/RebootEscrowKey;
+.class public Lcom/android/server/locksettings/RebootEscrowKey;
 .super Ljava/lang/Object;
 .source "RebootEscrowKey.java"
 
 
-# static fields
-.field private static final KEY_ALGO:Ljava/lang/String; = "AES"
-
-.field private static final KEY_SIZE_BITS:I = 0x100
-
-
 # instance fields
-.field private final mKey:Ljavax/crypto/SecretKey;
+.field public final mKey:Ljavax/crypto/SecretKey;
 
 
 # direct methods
-.method private constructor <init>(Ljavax/crypto/SecretKey;)V
+.method public constructor <init>(Ljavax/crypto/SecretKey;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -24,7 +18,7 @@
     return-void
 .end method
 
-.method static fromKeyBytes([B)Lcom/android/server/locksettings/RebootEscrowKey;
+.method public static fromKeyBytes([B)Lcom/android/server/locksettings/RebootEscrowKey;
     .locals 3
 
     new-instance v0, Lcom/android/server/locksettings/RebootEscrowKey;
@@ -40,7 +34,7 @@
     return-object v0
 .end method
 
-.method static generate()Lcom/android/server/locksettings/RebootEscrowKey;
+.method public static generate()Lcom/android/server/locksettings/RebootEscrowKey;
     .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -65,13 +59,9 @@
 
     invoke-virtual {v0}, Ljavax/crypto/KeyGenerator;->generateKey()Ljavax/crypto/SecretKey;
 
-    move-result-object v1
+    move-result-object v0
     :try_end_0
     .catch Ljava/security/NoSuchAlgorithmException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-object v0, v1
-
-    nop
 
     new-instance v1, Lcom/android/server/locksettings/RebootEscrowKey;
 
@@ -93,22 +83,22 @@
 
 
 # virtual methods
-.method getKey()Ljavax/crypto/SecretKey;
-    .locals 1
+.method public getKey()Ljavax/crypto/SecretKey;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/locksettings/RebootEscrowKey;->mKey:Ljavax/crypto/SecretKey;
+    iget-object p0, p0, Lcom/android/server/locksettings/RebootEscrowKey;->mKey:Ljavax/crypto/SecretKey;
 
-    return-object v0
+    return-object p0
 .end method
 
-.method getKeyBytes()[B
-    .locals 1
+.method public getKeyBytes()[B
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/locksettings/RebootEscrowKey;->mKey:Ljavax/crypto/SecretKey;
+    iget-object p0, p0, Lcom/android/server/locksettings/RebootEscrowKey;->mKey:Ljavax/crypto/SecretKey;
 
-    invoke-interface {v0}, Ljavax/crypto/SecretKey;->getEncoded()[B
+    invoke-interface {p0}, Ljavax/crypto/SecretKey;->getEncoded()[B
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

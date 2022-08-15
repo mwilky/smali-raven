@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/server/power/batterysaver/BatterySavingStats$InteractiveState;
+.class public interface abstract Lcom/android/server/power/batterysaver/BatterySavingStats$InteractiveState;
 .super Ljava/lang/Object;
 .source "BatterySavingStats.java"
 
@@ -9,30 +9,18 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
+    accessFlags = 0x609
     name = "InteractiveState"
 .end annotation
 
 
-# static fields
-.field public static final BITS:I = 0x1
-
-.field public static final INTERACTIVE:I = 0x1
-
-.field public static final MASK:I = 0x1
-
-.field public static final NON_INTERACTIVE:I = 0x0
-
-.field public static final SHIFT:I = 0x2
-
-
 # direct methods
 .method public static fromIndex(I)I
-    .locals 1
+    .locals 0
 
-    shr-int/lit8 v0, p0, 0x2
+    shr-int/lit8 p0, p0, 0x2
 
-    and-int/lit8 v0, v0, 0x1
+    and-int/lit8 p0, p0, 0x1
 
-    return v0
+    return p0
 .end method

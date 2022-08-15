@@ -1,40 +1,51 @@
-.class public interface abstract Lcom/android/server/wm/ActivityMetricsLaunchObserver;
+.class public Lcom/android/server/wm/ActivityMetricsLaunchObserver;
 .super Ljava/lang/Object;
 .source "ActivityMetricsLaunchObserver.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/android/server/wm/ActivityMetricsLaunchObserver$ActivityRecordProto;,
-        Lcom/android/server/wm/ActivityMetricsLaunchObserver$Temperature;
-    }
-.end annotation
+# direct methods
+.method public constructor <init>()V
+    .locals 0
 
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-# static fields
-.field public static final TEMPERATURE_COLD:I = 0x1
-
-.field public static final TEMPERATURE_HOT:I = 0x3
-
-.field public static final TEMPERATURE_WARM:I = 0x2
+    return-void
+.end method
 
 
 # virtual methods
-.method public abstract onActivityLaunchCancelled([B)V
+.method public onActivityLaunchCancelled(J)V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract onActivityLaunchFinished([BJ)V
+.method public onActivityLaunchFinished(JLandroid/content/ComponentName;J)V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract onActivityLaunched([BI)V
+.method public onActivityLaunched(JLandroid/content/ComponentName;I)V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract onIntentFailed()V
+.method public onIntentFailed(J)V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract onIntentStarted(Landroid/content/Intent;J)V
+.method public onIntentStarted(Landroid/content/Intent;J)V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract onReportFullyDrawn([BJ)V
+.method public onReportFullyDrawn(JJ)V
+    .locals 0
+
+    return-void
 .end method

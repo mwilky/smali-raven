@@ -1,4 +1,4 @@
-.class abstract Lcom/android/server/job/JobSchedulerService$MySimpleClock;
+.class public abstract Lcom/android/server/job/JobSchedulerService$MySimpleClock;
 .super Ljava/time/Clock;
 .source "JobSchedulerService.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x40a
+    accessFlags = 0x409
     name = "MySimpleClock"
 .end annotation
 
 
 # instance fields
-.field private final mZoneId:Ljava/time/ZoneId;
+.field public final mZoneId:Ljava/time/ZoneId;
 
 
 # direct methods
-.method constructor <init>(Ljava/time/ZoneId;)V
+.method public constructor <init>(Ljava/time/ZoneId;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/time/Clock;-><init>()V
@@ -32,11 +32,11 @@
 
 # virtual methods
 .method public getZone()Ljava/time/ZoneId;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/job/JobSchedulerService$MySimpleClock;->mZoneId:Ljava/time/ZoneId;
+    iget-object p0, p0, Lcom/android/server/job/JobSchedulerService$MySimpleClock;->mZoneId:Ljava/time/ZoneId;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public instant()Ljava/time/Instant;
@@ -48,9 +48,9 @@
 
     invoke-static {v0, v1}, Ljava/time/Instant;->ofEpochMilli(J)Ljava/time/Instant;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public abstract millis()J

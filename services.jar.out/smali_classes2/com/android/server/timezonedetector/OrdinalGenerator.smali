@@ -1,4 +1,4 @@
-.class Lcom/android/server/timezonedetector/OrdinalGenerator;
+.class public Lcom/android/server/timezonedetector/OrdinalGenerator;
 .super Ljava/lang/Object;
 .source "OrdinalGenerator.java"
 
@@ -15,7 +15,7 @@
 
 
 # instance fields
-.field private final mCanonicalizationFunction:Ljava/util/function/Function;
+.field public final mCanonicalizationFunction:Ljava/util/function/Function;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/function/Function<",
@@ -24,7 +24,7 @@
     .end annotation
 .end field
 
-.field private final mKnownIds:Landroid/util/ArraySet;
+.field public final mKnownIds:Landroid/util/ArraySet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/ArraySet<",
@@ -35,7 +35,7 @@
 
 
 # direct methods
-.method constructor <init>(Ljava/util/function/Function;)V
+.method public constructor <init>(Ljava/util/function/Function;)V
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -55,19 +55,17 @@
 
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-object v0, p1
+    check-cast p1, Ljava/util/function/Function;
 
-    check-cast v0, Ljava/util/function/Function;
-
-    iput-object v0, p0, Lcom/android/server/timezonedetector/OrdinalGenerator;->mCanonicalizationFunction:Ljava/util/function/Function;
+    iput-object p1, p0, Lcom/android/server/timezonedetector/OrdinalGenerator;->mCanonicalizationFunction:Ljava/util/function/Function;
 
     return-void
 .end method
 
 
 # virtual methods
-.method ordinal(Ljava/lang/Object;)I
-    .locals 3
+.method public ordinal(Ljava/lang/Object;)I
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)I"
@@ -78,32 +76,32 @@
 
     invoke-interface {v0, p1}, Ljava/util/function/Function;->apply(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    iget-object v1, p0, Lcom/android/server/timezonedetector/OrdinalGenerator;->mKnownIds:Landroid/util/ArraySet;
+    iget-object v0, p0, Lcom/android/server/timezonedetector/OrdinalGenerator;->mKnownIds:Landroid/util/ArraySet;
 
-    invoke-virtual {v1, v0}, Landroid/util/ArraySet;->indexOf(Ljava/lang/Object;)I
+    invoke-virtual {v0, p1}, Landroid/util/ArraySet;->indexOf(Ljava/lang/Object;)I
 
-    move-result v1
+    move-result v0
 
-    if-gez v1, :cond_0
+    if-gez v0, :cond_0
 
-    iget-object v2, p0, Lcom/android/server/timezonedetector/OrdinalGenerator;->mKnownIds:Landroid/util/ArraySet;
+    iget-object v0, p0, Lcom/android/server/timezonedetector/OrdinalGenerator;->mKnownIds:Landroid/util/ArraySet;
 
-    invoke-virtual {v2}, Landroid/util/ArraySet;->size()I
+    invoke-virtual {v0}, Landroid/util/ArraySet;->size()I
 
-    move-result v1
+    move-result v0
 
-    iget-object v2, p0, Lcom/android/server/timezonedetector/OrdinalGenerator;->mKnownIds:Landroid/util/ArraySet;
+    iget-object p0, p0, Lcom/android/server/timezonedetector/OrdinalGenerator;->mKnownIds:Landroid/util/ArraySet;
 
-    invoke-virtual {v2, v0}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p1}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
 
     :cond_0
-    return v1
+    return v0
 .end method
 
-.method ordinals(Ljava/util/List;)[I
-    .locals 3
+.method public ordinals(Ljava/util/List;)[I
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -116,29 +114,27 @@
 
     move-result v0
 
-    new-array v0, v0, [I
+    new-array v1, v0, [I
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
     :goto_0
-    array-length v2, v0
+    if-ge v2, v0, :cond_0
 
-    if-ge v1, v2, :cond_0
+    invoke-interface {p1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    invoke-interface {p1, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    move-result-object v3
 
-    move-result-object v2
+    invoke-virtual {p0, v3}, Lcom/android/server/timezonedetector/OrdinalGenerator;->ordinal(Ljava/lang/Object;)I
 
-    invoke-virtual {p0, v2}, Lcom/android/server/timezonedetector/OrdinalGenerator;->ordinal(Ljava/lang/Object;)I
+    move-result v3
 
-    move-result v2
+    aput v3, v1, v2
 
-    aput v2, v0, v1
-
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     :cond_0
-    return-object v0
+    return-object v1
 .end method

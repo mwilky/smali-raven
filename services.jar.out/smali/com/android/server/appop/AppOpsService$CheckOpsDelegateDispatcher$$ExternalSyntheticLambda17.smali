@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/appop/AppOpsService$CheckOpsDelegateDispatcher$$ExternalSyntheticLambda17;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/internal/util/function/QuintFunction;
+.implements Lcom/android/internal/util/function/HexFunction;
 
 
 # instance fields
@@ -22,10 +23,10 @@
 
 
 # virtual methods
-.method public final apply(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+.method public final apply(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/appop/AppOpsService$CheckOpsDelegateDispatcher$$ExternalSyntheticLambda17;->f$0:Lcom/android/server/appop/AppOpsService;
+    iget-object p0, p0, Lcom/android/server/appop/AppOpsService$CheckOpsDelegateDispatcher$$ExternalSyntheticLambda17;->f$0:Lcom/android/server/appop/AppOpsService;
 
     check-cast p1, Ljava/lang/Integer;
 
@@ -33,13 +34,13 @@
 
     move-result p1
 
-    check-cast p2, Ljava/lang/Integer;
+    check-cast p2, Landroid/content/AttributionSource;
 
-    invoke-virtual {p2}, Ljava/lang/Integer;->intValue()I
+    check-cast p3, Ljava/lang/Boolean;
 
-    move-result p2
+    invoke-virtual {p3}, Ljava/lang/Boolean;->booleanValue()Z
 
-    check-cast p3, Ljava/lang/String;
+    move-result p3
 
     check-cast p4, Ljava/lang/String;
 
@@ -49,11 +50,15 @@
 
     move-result p5
 
-    move-object p0, v0
+    check-cast p6, Ljava/lang/Boolean;
 
-    invoke-static/range {p0 .. p5}, Lcom/android/server/appop/AppOpsService$CheckOpsDelegateDispatcher;->lambda$checkOperation$0(Lcom/android/server/appop/AppOpsService;IILjava/lang/String;Ljava/lang/String;Z)Ljava/lang/Integer;
+    invoke-virtual {p6}, Ljava/lang/Boolean;->booleanValue()Z
 
-    move-result-object p1
+    move-result p6
 
-    return-object p1
+    invoke-static/range {p0 .. p6}, Lcom/android/server/appop/AppOpsService$CheckOpsDelegateDispatcher;->$r8$lambda$izzNLdqOHikwSD80oD3sl-d6hlo(Lcom/android/server/appop/AppOpsService;ILandroid/content/AttributionSource;ZLjava/lang/String;ZZ)Landroid/app/SyncNotedAppOp;
+
+    move-result-object p0
+
+    return-object p0
 .end method

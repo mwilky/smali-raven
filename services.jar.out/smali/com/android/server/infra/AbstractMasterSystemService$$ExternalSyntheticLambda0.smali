@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/infra/AbstractMasterSystemService$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/server/infra/ServiceNameResolver$NameResolverListener;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final onNameResolved(ILjava/lang/String;Z)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/infra/AbstractMasterSystemService$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/infra/AbstractMasterSystemService;
+    iget-object p0, p0, Lcom/android/server/infra/AbstractMasterSystemService$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/infra/AbstractMasterSystemService;
 
-    invoke-virtual {v0, p1, p2, p3}, Lcom/android/server/infra/AbstractMasterSystemService;->lambda$new$0$AbstractMasterSystemService(ILjava/lang/String;Z)V
+    invoke-virtual {p0, p1, p2, p3}, Lcom/android/server/infra/AbstractMasterSystemService;->onServiceNameChanged(ILjava/lang/String;Z)V
 
     return-void
 .end method

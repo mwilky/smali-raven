@@ -24,7 +24,7 @@
 .end method
 
 .method public static from(Ljava/lang/Exception;)Lcom/android/server/pm/Installer$InstallerException;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/server/pm/Installer$InstallerException;
@@ -35,9 +35,9 @@
 
     invoke-virtual {p0}, Ljava/lang/Exception;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-direct {v0, v1}, Lcom/android/server/pm/Installer$InstallerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p0}, Lcom/android/server/pm/Installer$InstallerException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method

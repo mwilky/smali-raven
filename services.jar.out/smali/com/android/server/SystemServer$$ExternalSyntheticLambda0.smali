@@ -1,28 +1,13 @@
 .class public final synthetic Lcom/android/server/SystemServer$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/net/ConnectivityModuleConnector$ModuleServiceCallback;
-
-
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/SystemServer$$ExternalSyntheticLambda0;
+.implements Lcom/android/internal/os/RuntimeInit$ApplicationWtfHandler;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/SystemServer$$ExternalSyntheticLambda0;
-
-    invoke-direct {v0}, Lcom/android/server/SystemServer$$ExternalSyntheticLambda0;-><init>()V
-
-    sput-object v0, Lcom/android/server/SystemServer$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/server/SystemServer$$ExternalSyntheticLambda0;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,10 +17,12 @@
 
 
 # virtual methods
-.method public final onModuleServiceConnected(Landroid/os/IBinder;)V
+.method public final handleApplicationWtf(Landroid/os/IBinder;Ljava/lang/String;ZLandroid/app/ApplicationErrorReport$ParcelableCrashInfo;I)Z
     .locals 0
 
-    invoke-static {p1}, Lcom/android/server/SystemServer;->lambda$startOtherServices$4(Landroid/os/IBinder;)V
+    invoke-static {p1, p2, p3, p4, p5}, Lcom/android/server/SystemServer;->$r8$lambda$8zxOYx-QEMffbYJtoGp6Ub2KG-8(Landroid/os/IBinder;Ljava/lang/String;ZLandroid/app/ApplicationErrorReport$ParcelableCrashInfo;I)Z
 
-    return-void
+    move-result p0
+
+    return p0
 .end method

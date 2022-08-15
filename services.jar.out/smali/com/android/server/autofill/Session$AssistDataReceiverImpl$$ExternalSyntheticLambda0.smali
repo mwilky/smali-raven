@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/autofill/Session$AssistDataReceiverImpl$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -27,15 +28,15 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/autofill/Session$AssistDataReceiverImpl$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/autofill/Session$AssistDataReceiverImpl;
 
-    iget-object v1, p0, Lcom/android/server/autofill/Session$AssistDataReceiverImpl$$ExternalSyntheticLambda0;->f$1:Lcom/android/server/autofill/ViewState;
+    iget-object p0, p0, Lcom/android/server/autofill/Session$AssistDataReceiverImpl$$ExternalSyntheticLambda0;->f$1:Lcom/android/server/autofill/ViewState;
 
     check-cast p1, Landroid/view/inputmethod/InlineSuggestionsRequest;
 
-    invoke-virtual {v0, v1, p1}, Lcom/android/server/autofill/Session$AssistDataReceiverImpl;->lambda$newAutofillRequestLocked$0$Session$AssistDataReceiverImpl(Lcom/android/server/autofill/ViewState;Landroid/view/inputmethod/InlineSuggestionsRequest;)V
+    invoke-static {v0, p0, p1}, Lcom/android/server/autofill/Session$AssistDataReceiverImpl;->$r8$lambda$hemAHRz_WlhwPzcRrqcP-8RtrAg(Lcom/android/server/autofill/Session$AssistDataReceiverImpl;Lcom/android/server/autofill/ViewState;Landroid/view/inputmethod/InlineSuggestionsRequest;)V
 
     return-void
 .end method

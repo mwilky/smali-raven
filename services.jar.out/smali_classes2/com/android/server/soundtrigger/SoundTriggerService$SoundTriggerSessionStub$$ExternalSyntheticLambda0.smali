@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/soundtrigger/SoundTriggerService$SoundTriggerSessionStub$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/os/IBinder$DeathRecipient;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final binderDied()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/soundtrigger/SoundTriggerService$SoundTriggerSessionStub$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/soundtrigger/SoundTriggerService$SoundTriggerSessionStub;
+    iget-object p0, p0, Lcom/android/server/soundtrigger/SoundTriggerService$SoundTriggerSessionStub$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/soundtrigger/SoundTriggerService$SoundTriggerSessionStub;
 
-    invoke-virtual {v0}, Lcom/android/server/soundtrigger/SoundTriggerService$SoundTriggerSessionStub;->lambda$new$0$SoundTriggerService$SoundTriggerSessionStub()V
+    invoke-static {p0}, Lcom/android/server/soundtrigger/SoundTriggerService$SoundTriggerSessionStub;->$r8$lambda$Z33tjEItKKPp9qvqIj8NB9Iwmn0(Lcom/android/server/soundtrigger/SoundTriggerService$SoundTriggerSessionStub;)V
 
     return-void
 .end method

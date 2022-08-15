@@ -1,61 +1,68 @@
 .class public final synthetic Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda3;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/internal/util/function/QuintPredicate;
+.implements Ljava/util/function/BiFunction;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda3;
+# instance fields
+.field public final synthetic f$0:Lcom/android/server/wm/RootWindowContainer;
+
+.field public final synthetic f$1:I
+
+.field public final synthetic f$2:Ljava/lang/String;
+
+.field public final synthetic f$3:Z
+
+.field public final synthetic f$4:Z
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda3;
-
-    invoke-direct {v0}, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda3;-><init>()V
-
-    sput-object v0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda3;->INSTANCE:Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda3;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Lcom/android/server/wm/RootWindowContainer;ILjava/lang/String;ZZ)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda3;->f$0:Lcom/android/server/wm/RootWindowContainer;
+
+    iput p2, p0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda3;->f$1:I
+
+    iput-object p3, p0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda3;->f$2:Ljava/lang/String;
+
+    iput-boolean p4, p0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda3;->f$3:Z
+
+    iput-boolean p5, p0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda3;->f$4:Z
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final test(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 0
+.method public final apply(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 7
 
-    check-cast p1, Lcom/android/server/wm/ActivityRecord;
+    iget-object v0, p0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda3;->f$0:Lcom/android/server/wm/RootWindowContainer;
 
-    check-cast p2, Ljava/lang/Integer;
+    iget v1, p0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda3;->f$1:I
 
-    invoke-virtual {p2}, Ljava/lang/Integer;->intValue()I
+    iget-object v2, p0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda3;->f$2:Ljava/lang/String;
 
-    move-result p2
+    iget-boolean v3, p0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda3;->f$3:Z
 
-    check-cast p3, Ljava/lang/Boolean;
+    iget-boolean v4, p0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda3;->f$4:Z
 
-    invoke-virtual {p3}, Ljava/lang/Boolean;->booleanValue()Z
+    move-object v5, p1
 
-    move-result p3
+    check-cast v5, Lcom/android/server/wm/TaskDisplayArea;
 
-    check-cast p4, Landroid/content/Intent;
+    move-object v6, p2
 
-    check-cast p5, Landroid/content/ComponentName;
+    check-cast v6, Ljava/lang/Boolean;
 
-    invoke-static {p1, p2, p3, p4, p5}, Lcom/android/server/wm/RootWindowContainer;->$r8$lambda$2k3zC_nv2SZ_nI8-ixMORvQU-jI(Lcom/android/server/wm/ActivityRecord;IZLandroid/content/Intent;Landroid/content/ComponentName;)Z
+    invoke-static/range {v0 .. v6}, Lcom/android/server/wm/RootWindowContainer;->$r8$lambda$NBiBwCPKbn9eWkBWdVl8xwrBdiQ(Lcom/android/server/wm/RootWindowContainer;ILjava/lang/String;ZZLcom/android/server/wm/TaskDisplayArea;Ljava/lang/Boolean;)Ljava/lang/Boolean;
 
-    move-result p1
+    move-result-object p0
 
-    return p1
+    return-object p0
 .end method

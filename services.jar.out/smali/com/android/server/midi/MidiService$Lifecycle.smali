@@ -15,7 +15,7 @@
 
 
 # instance fields
-.field private mMidiService:Lcom/android/server/midi/MidiService;
+.field public mMidiService:Lcom/android/server/midi/MidiService;
 
 
 # direct methods
@@ -34,7 +34,7 @@
 
     new-instance v0, Lcom/android/server/midi/MidiService;
 
-    invoke-virtual {p0}, Lcom/android/server/midi/MidiService$Lifecycle;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Lcom/android/server/SystemService;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
@@ -44,23 +44,23 @@
 
     const-string/jumbo v1, "midi"
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/server/midi/MidiService$Lifecycle;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
+    invoke-virtual {p0, v1, v0}, Lcom/android/server/SystemService;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
 
     return-void
 .end method
 
 .method public onUserUnlocking(Lcom/android/server/SystemService$TargetUser;)V
-    .locals 1
+    .locals 0
 
     invoke-virtual {p1}, Lcom/android/server/SystemService$TargetUser;->getUserIdentifier()I
 
-    move-result v0
+    move-result p1
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/midi/MidiService$Lifecycle;->mMidiService:Lcom/android/server/midi/MidiService;
+    iget-object p0, p0, Lcom/android/server/midi/MidiService$Lifecycle;->mMidiService:Lcom/android/server/midi/MidiService;
 
-    invoke-static {v0}, Lcom/android/server/midi/MidiService;->access$000(Lcom/android/server/midi/MidiService;)V
+    invoke-static {p0}, Lcom/android/server/midi/MidiService;->-$$Nest$monUnlockUser(Lcom/android/server/midi/MidiService;)V
 
     :cond_0
     return-void

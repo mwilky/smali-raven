@@ -4,15 +4,15 @@
 
 
 # instance fields
-.field private mField:Ljava/lang/String;
+.field public mField:Ljava/lang/String;
 
-.field private mOverlayName:Ljava/lang/String;
+.field public mOverlayName:Ljava/lang/String;
 
-.field private mPackageName:Ljava/lang/String;
+.field public mPackageName:Ljava/lang/String;
 
-.field private mUserId:I
+.field public mUserId:I
 
-.field private mVerbose:Z
+.field public mVerbose:Z
 
 
 # direct methods
@@ -31,43 +31,43 @@
 
 # virtual methods
 .method public getField()Ljava/lang/String;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/om/DumpState;->mField:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/om/DumpState;->mField:Ljava/lang/String;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getOverlayName()Ljava/lang/String;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/om/DumpState;->mOverlayName:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/om/DumpState;->mOverlayName:Ljava/lang/String;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getPackageName()Ljava/lang/String;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/om/DumpState;->mPackageName:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/om/DumpState;->mPackageName:Ljava/lang/String;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getUserId()I
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/om/DumpState;->mUserId:I
+    iget p0, p0, Lcom/android/server/om/DumpState;->mUserId:I
 
-    return v0
+    return p0
 .end method
 
 .method public isVerbose()Z
-    .locals 1
+    .locals 0
 
-    iget-boolean v0, p0, Lcom/android/server/om/DumpState;->mVerbose:Z
+    iget-boolean p0, p0, Lcom/android/server/om/DumpState;->mVerbose:Z
 
-    return v0
+    return p0
 .end method
 
 .method public setField(Ljava/lang/String;)V
@@ -79,23 +79,23 @@
 .end method
 
 .method public setOverlyIdentifier(Ljava/lang/String;)V
-    .locals 2
+    .locals 1
 
     invoke-static {p1}, Landroid/content/om/OverlayIdentifier;->fromString(Ljava/lang/String;)Landroid/content/om/OverlayIdentifier;
 
+    move-result-object p1
+
+    invoke-virtual {p1}, Landroid/content/om/OverlayIdentifier;->getPackageName()Ljava/lang/String;
+
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/content/om/OverlayIdentifier;->getPackageName()Ljava/lang/String;
+    iput-object v0, p0, Lcom/android/server/om/DumpState;->mPackageName:Ljava/lang/String;
 
-    move-result-object v1
+    invoke-virtual {p1}, Landroid/content/om/OverlayIdentifier;->getOverlayName()Ljava/lang/String;
 
-    iput-object v1, p0, Lcom/android/server/om/DumpState;->mPackageName:Ljava/lang/String;
+    move-result-object p1
 
-    invoke-virtual {v0}, Landroid/content/om/OverlayIdentifier;->getOverlayName()Ljava/lang/String;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lcom/android/server/om/DumpState;->mOverlayName:Ljava/lang/String;
+    iput-object p1, p0, Lcom/android/server/om/DumpState;->mOverlayName:Ljava/lang/String;
 
     return-void
 .end method

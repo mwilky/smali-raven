@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/power/ThermalManagerService$TemperatureWatcher$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/power/ThermalManagerService$TemperatureWatcher$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/power/ThermalManagerService$TemperatureWatcher;
+    iget-object p0, p0, Lcom/android/server/power/ThermalManagerService$TemperatureWatcher$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/power/ThermalManagerService$TemperatureWatcher;
 
-    invoke-static {v0}, Lcom/android/server/power/ThermalManagerService$TemperatureWatcher;->$r8$lambda$YkIIdol_gv-0HgY3geOYld_CxYU(Lcom/android/server/power/ThermalManagerService$TemperatureWatcher;)V
+    invoke-static {p0}, Lcom/android/server/power/ThermalManagerService$TemperatureWatcher;->$r8$lambda$YkIIdol_gv-0HgY3geOYld_CxYU(Lcom/android/server/power/ThermalManagerService$TemperatureWatcher;)V
 
     return-void
 .end method

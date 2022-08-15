@@ -1,4 +1,4 @@
-.class Lcom/android/server/camera/CameraServiceProxy$1;
+.class public Lcom/android/server/camera/CameraServiceProxy$1;
 .super Landroid/content/BroadcastReceiver;
 .source "CameraServiceProxy.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/camera/CameraServiceProxy;
+.field public final synthetic this$0:Lcom/android/server/camera/CameraServiceProxy;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/camera/CameraServiceProxy;)V
+.method public constructor <init>(Lcom/android/server/camera/CameraServiceProxy;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/camera/CameraServiceProxy$1;->this$0:Lcom/android/server/camera/CameraServiceProxy;
@@ -32,148 +32,236 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 4
+    .locals 2
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
     return-void
 
     :cond_0
-    const/4 v1, -0x1
+    const/4 v0, -0x1
 
-    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+    invoke-virtual {p1}, Ljava/lang/String;->hashCode()I
 
-    move-result v2
+    move-result v1
 
-    sparse-switch v2, :sswitch_data_0
+    sparse-switch v1, :sswitch_data_0
 
-    :cond_1
     goto :goto_0
 
     :sswitch_0
-    const-string v2, "android.intent.action.USER_ADDED"
+    const-string v1, "android.intent.action.USER_ADDED"
 
-    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_1
+    if-nez v1, :cond_1
 
-    const/4 v1, 0x0
+    goto :goto_0
+
+    :cond_1
+    const/4 v0, 0x6
 
     goto :goto_0
 
     :sswitch_1
-    const-string v2, "android.intent.action.MANAGED_PROFILE_REMOVED"
+    const-string v1, "android.intent.action.MANAGED_PROFILE_REMOVED"
 
-    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_1
+    if-nez v1, :cond_2
 
-    const/4 v1, 0x4
+    goto :goto_0
+
+    :cond_2
+    const/4 v0, 0x5
 
     goto :goto_0
 
     :sswitch_2
-    const-string v2, "android.intent.action.USER_INFO_CHANGED"
+    const-string v1, "android.intent.action.USER_INFO_CHANGED"
 
-    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_1
+    if-nez v1, :cond_3
 
-    const/4 v1, 0x2
+    goto :goto_0
+
+    :cond_3
+    const/4 v0, 0x4
 
     goto :goto_0
 
     :sswitch_3
-    const-string v2, "android.intent.action.MANAGED_PROFILE_ADDED"
+    const-string v1, "android.intent.action.MANAGED_PROFILE_ADDED"
 
-    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_1
+    if-nez v1, :cond_4
 
-    const/4 v1, 0x3
+    goto :goto_0
+
+    :cond_4
+    const/4 v0, 0x3
 
     goto :goto_0
 
     :sswitch_4
-    const-string v2, "android.intent.action.USER_REMOVED"
+    const-string v1, "android.hardware.usb.action.USB_DEVICE_DETACHED"
 
-    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_1
+    if-nez v1, :cond_5
 
-    const/4 v1, 0x1
+    goto :goto_0
+
+    :cond_5
+    const/4 v0, 0x2
+
+    goto :goto_0
+
+    :sswitch_5
+    const-string v1, "android.intent.action.USER_REMOVED"
+
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_6
+
+    goto :goto_0
+
+    :cond_6
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :sswitch_6
+    const-string v1, "android.hardware.usb.action.USB_DEVICE_ATTACHED"
+
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_7
+
+    goto :goto_0
+
+    :cond_7
+    const/4 v0, 0x0
 
     :goto_0
-    packed-switch v1, :pswitch_data_0
+    packed-switch v0, :pswitch_data_0
 
     goto :goto_1
 
     :pswitch_0
-    iget-object v1, p0, Lcom/android/server/camera/CameraServiceProxy$1;->this$0:Lcom/android/server/camera/CameraServiceProxy;
+    iget-object p1, p0, Lcom/android/server/camera/CameraServiceProxy$1;->this$0:Lcom/android/server/camera/CameraServiceProxy;
 
-    invoke-static {v1}, Lcom/android/server/camera/CameraServiceProxy;->access$200(Lcom/android/server/camera/CameraServiceProxy;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/android/server/camera/CameraServiceProxy;->-$$Nest$fgetmLock(Lcom/android/server/camera/CameraServiceProxy;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    monitor-enter v1
+    monitor-enter v0
 
     :try_start_0
-    iget-object v2, p0, Lcom/android/server/camera/CameraServiceProxy$1;->this$0:Lcom/android/server/camera/CameraServiceProxy;
+    iget-object p1, p0, Lcom/android/server/camera/CameraServiceProxy$1;->this$0:Lcom/android/server/camera/CameraServiceProxy;
 
-    invoke-static {v2}, Lcom/android/server/camera/CameraServiceProxy;->access$300(Lcom/android/server/camera/CameraServiceProxy;)Ljava/util/Set;
+    invoke-static {p1}, Lcom/android/server/camera/CameraServiceProxy;->-$$Nest$fgetmEnabledCameraUsers(Lcom/android/server/camera/CameraServiceProxy;)Ljava/util/Set;
 
-    move-result-object v2
+    move-result-object p1
 
-    if-nez v2, :cond_2
+    if-nez p1, :cond_8
 
-    monitor-exit v1
+    monitor-exit v0
 
     return-void
 
-    :cond_2
-    iget-object v2, p0, Lcom/android/server/camera/CameraServiceProxy$1;->this$0:Lcom/android/server/camera/CameraServiceProxy;
+    :cond_8
+    iget-object p0, p0, Lcom/android/server/camera/CameraServiceProxy$1;->this$0:Lcom/android/server/camera/CameraServiceProxy;
 
-    invoke-static {v2}, Lcom/android/server/camera/CameraServiceProxy;->access$400(Lcom/android/server/camera/CameraServiceProxy;)I
+    invoke-static {p0}, Lcom/android/server/camera/CameraServiceProxy;->-$$Nest$fgetmLastUser(Lcom/android/server/camera/CameraServiceProxy;)I
 
-    move-result v3
+    move-result p1
 
-    invoke-static {v2, v3}, Lcom/android/server/camera/CameraServiceProxy;->access$500(Lcom/android/server/camera/CameraServiceProxy;I)V
+    invoke-static {p0, p1}, Lcom/android/server/camera/CameraServiceProxy;->-$$Nest$mswitchUserLocked(Lcom/android/server/camera/CameraServiceProxy;I)V
 
-    monitor-exit v1
+    monitor-exit v0
 
     goto :goto_1
 
     :catchall_0
-    move-exception v2
+    move-exception p0
 
-    monitor-exit v1
+    monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v2
+    throw p0
+
+    :pswitch_1
+    iget-object v0, p0, Lcom/android/server/camera/CameraServiceProxy$1;->this$0:Lcom/android/server/camera/CameraServiceProxy;
+
+    invoke-static {v0}, Lcom/android/server/camera/CameraServiceProxy;->-$$Nest$fgetmLock(Lcom/android/server/camera/CameraServiceProxy;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    monitor-enter v0
+
+    :try_start_1
+    const-string v1, "device"
+
+    invoke-virtual {p2, v1}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
+
+    move-result-object p2
+
+    check-cast p2, Landroid/hardware/usb/UsbDevice;
+
+    if-eqz p2, :cond_9
+
+    iget-object p0, p0, Lcom/android/server/camera/CameraServiceProxy$1;->this$0:Lcom/android/server/camera/CameraServiceProxy;
+
+    const-string v1, "android.hardware.usb.action.USB_DEVICE_ATTACHED"
+
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p1
+
+    invoke-static {p0, p2, p1}, Lcom/android/server/camera/CameraServiceProxy;->-$$Nest$mnotifyUsbDeviceHotplugLocked(Lcom/android/server/camera/CameraServiceProxy;Landroid/hardware/usb/UsbDevice;Z)Z
+
+    :cond_9
+    monitor-exit v0
 
     :goto_1
     return-void
 
-    nop
+    :catchall_1
+    move-exception p0
+
+    monitor-exit v0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+
+    throw p0
 
     :sswitch_data_0
     .sparse-switch
-        -0x7ad942ef -> :sswitch_4
+        -0x7e02a835 -> :sswitch_6
+        -0x7ad942ef -> :sswitch_5
+        -0x5fdc9a67 -> :sswitch_4
         -0x16fbb1bb -> :sswitch_3
         -0xc02da2e -> :sswitch_2
         0x3eac4465 -> :sswitch_1
@@ -182,7 +270,9 @@
 
     :pswitch_data_0
     .packed-switch 0x0
+        :pswitch_1
         :pswitch_0
+        :pswitch_1
         :pswitch_0
         :pswitch_0
         :pswitch_0

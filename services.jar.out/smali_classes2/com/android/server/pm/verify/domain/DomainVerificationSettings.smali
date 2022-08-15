@@ -1,14 +1,20 @@
-.class Lcom/android/server/pm/verify/domain/DomainVerificationSettings;
+.class public Lcom/android/server/pm/verify/domain/DomainVerificationSettings;
 .super Ljava/lang/Object;
 .source "DomainVerificationSettings.java"
 
 
 # instance fields
-.field private final mCollector:Lcom/android/server/pm/verify/domain/DomainVerificationCollector;
+.field public final mCollector:Lcom/android/server/pm/verify/domain/DomainVerificationCollector;
 
-.field private final mLock:Ljava/lang/Object;
+.field public final mLock:Ljava/lang/Object;
 
-.field private final mPendingPkgStates:Landroid/util/ArrayMap;
+.field public final mPendingPkgStates:Landroid/util/ArrayMap;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/ArrayMap<",
@@ -19,7 +25,13 @@
     .end annotation
 .end field
 
-.field private final mRestoredPkgStates:Landroid/util/ArrayMap;
+.field public final mRestoredPkgStates:Landroid/util/ArrayMap;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/ArrayMap<",
@@ -62,226 +74,194 @@
 
 
 # virtual methods
-.method public mergePkgState(Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;Ljava/util/function/Function;)V
-    .locals 17
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;",
-            "Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;",
-            "Ljava/util/function/Function<",
-            "Ljava/lang/String;",
-            "Lcom/android/server/pm/PackageSetting;",
-            ">;)V"
-        }
+.method public mergePkgState(Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;Lcom/android/server/pm/Computer;)V
+    .locals 9
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+        visibility = .enum Lcom/android/internal/annotations/VisibleForTesting$Visibility;->PRIVATE:Lcom/android/internal/annotations/VisibleForTesting$Visibility;
     .end annotation
 
-    invoke-virtual/range {p1 .. p1}, Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;->getPackageName()Ljava/lang/String;
+    invoke-virtual {p1}, Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;->getPackageName()Ljava/lang/String;
 
     move-result-object v0
 
-    move-object/from16 v1, p3
+    invoke-interface {p3, v0}, Lcom/android/server/pm/Computer;->getPackageStateInternal(Ljava/lang/String;)Lcom/android/server/pm/pkg/PackageStateInternal;
 
-    invoke-interface {v1, v0}, Ljava/util/function/Function;->apply(Ljava/lang/Object;)Ljava/lang/Object;
+    move-result-object p3
 
-    move-result-object v0
+    if-nez p3, :cond_0
 
-    check-cast v0, Lcom/android/server/pm/PackageSetting;
-
-    if-nez v0, :cond_0
-
-    const/4 v2, 0x0
+    const/4 p3, 0x0
 
     goto :goto_0
 
     :cond_0
-    invoke-virtual {v0}, Lcom/android/server/pm/PackageSetting;->getPkg()Lcom/android/server/pm/parsing/pkg/AndroidPackage;
+    invoke-interface {p3}, Lcom/android/server/pm/pkg/PackageStateInternal;->getPkg()Lcom/android/server/pm/parsing/pkg/AndroidPackage;
 
-    move-result-object v2
+    move-result-object p3
 
     :goto_0
-    if-nez v2, :cond_1
+    if-nez p3, :cond_1
 
     invoke-static {}, Ljava/util/Collections;->emptySet()Ljava/util/Set;
 
-    move-result-object v3
-
-    move-object v4, v3
-
-    move-object/from16 v3, p0
+    move-result-object p0
 
     goto :goto_1
 
     :cond_1
-    move-object/from16 v3, p0
+    iget-object p0, p0, Lcom/android/server/pm/verify/domain/DomainVerificationSettings;->mCollector:Lcom/android/server/pm/verify/domain/DomainVerificationCollector;
 
-    iget-object v4, v3, Lcom/android/server/pm/verify/domain/DomainVerificationSettings;->mCollector:Lcom/android/server/pm/verify/domain/DomainVerificationCollector;
+    invoke-virtual {p0, p3}, Lcom/android/server/pm/verify/domain/DomainVerificationCollector;->collectValidAutoVerifyDomains(Lcom/android/server/pm/parsing/pkg/AndroidPackage;)Landroid/util/ArraySet;
 
-    invoke-virtual {v4, v2}, Lcom/android/server/pm/verify/domain/DomainVerificationCollector;->collectValidAutoVerifyDomains(Lcom/android/server/pm/parsing/pkg/AndroidPackage;)Landroid/util/ArraySet;
+    move-result-object p0
+
+    :goto_1
+    invoke-virtual {p1}, Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;->getStateMap()Landroid/util/ArrayMap;
+
+    move-result-object p3
+
+    invoke-virtual {p2}, Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;->getStateMap()Landroid/util/ArrayMap;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/util/ArrayMap;->size()I
+
+    move-result v1
+
+    const/4 v2, 0x0
+
+    move v3, v2
+
+    :goto_2
+    if-ge v3, v1, :cond_6
+
+    invoke-virtual {v0, v3}, Landroid/util/ArrayMap;->keyAt(I)Ljava/lang/Object;
 
     move-result-object v4
 
-    :goto_1
-    invoke-virtual/range {p1 .. p1}, Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;->getStateMap()Landroid/util/ArrayMap;
+    check-cast v4, Ljava/lang/String;
+
+    invoke-virtual {v0, v3}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
 
     move-result-object v5
 
-    invoke-virtual/range {p2 .. p2}, Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;->getStateMap()Landroid/util/ArrayMap;
+    check-cast v5, Ljava/lang/Integer;
 
-    move-result-object v6
+    invoke-interface {p0, v4}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
 
-    invoke-virtual {v6}, Landroid/util/ArrayMap;->size()I
+    move-result v6
 
-    move-result v7
-
-    const/4 v8, 0x0
-
-    :goto_2
-    if-ge v8, v7, :cond_6
-
-    invoke-virtual {v6, v8}, Landroid/util/ArrayMap;->keyAt(I)Ljava/lang/Object;
-
-    move-result-object v9
-
-    check-cast v9, Ljava/lang/String;
-
-    invoke-virtual {v6, v8}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
-
-    move-result-object v10
-
-    check-cast v10, Ljava/lang/Integer;
-
-    invoke-interface {v4, v9}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
-
-    move-result v11
-
-    if-nez v11, :cond_2
+    if-nez v6, :cond_2
 
     goto :goto_3
 
     :cond_2
-    invoke-virtual {v5, v9}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p3, v4}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v11
+    move-result-object v6
 
-    check-cast v11, Ljava/lang/Integer;
+    check-cast v6, Ljava/lang/Integer;
 
-    if-eqz v11, :cond_3
+    if-eqz v6, :cond_3
 
-    invoke-virtual {v11}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v6}, Ljava/lang/Integer;->intValue()I
 
-    move-result v12
+    move-result v6
 
-    if-nez v12, :cond_5
+    if-nez v6, :cond_5
 
     :cond_3
-    invoke-virtual {v10}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v5}, Ljava/lang/Integer;->intValue()I
 
-    move-result v12
+    move-result v6
 
-    const/4 v13, 0x5
+    const/4 v7, 0x5
 
-    const/4 v14, 0x1
+    const/4 v8, 0x1
 
-    if-eq v12, v14, :cond_4
+    if-eq v6, v8, :cond_4
 
-    invoke-virtual {v10}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v5}, Ljava/lang/Integer;->intValue()I
 
-    move-result v12
+    move-result v5
 
-    if-ne v12, v13, :cond_5
+    if-ne v5, v7, :cond_5
 
     :cond_4
-    invoke-static {v13}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v12
+    move-result-object v5
 
-    invoke-virtual {v5, v9, v12}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p3, v4, v5}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     :cond_5
     :goto_3
-    add-int/lit8 v8, v8, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_2
 
     :cond_6
-    nop
+    invoke-virtual {p1}, Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;->getUserStates()Landroid/util/SparseArray;
 
-    invoke-virtual/range {p1 .. p1}, Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;->getUserStates()Landroid/util/SparseArray;
+    move-result-object p0
 
-    move-result-object v8
+    invoke-virtual {p2}, Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;->getUserStates()Landroid/util/SparseArray;
 
-    nop
+    move-result-object p1
 
-    invoke-virtual/range {p2 .. p2}, Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;->getUserStates()Landroid/util/SparseArray;
+    invoke-virtual {p1}, Landroid/util/SparseArray;->size()I
 
-    move-result-object v9
-
-    invoke-virtual {v9}, Landroid/util/SparseArray;->size()I
-
-    move-result v10
-
-    const/4 v11, 0x0
+    move-result p2
 
     :goto_4
-    if-ge v11, v10, :cond_9
+    if-ge v2, p2, :cond_9
 
-    invoke-virtual {v9, v11}, Landroid/util/SparseArray;->keyAt(I)I
+    invoke-virtual {p1, v2}, Landroid/util/SparseArray;->keyAt(I)I
 
-    move-result v12
+    move-result p3
 
-    invoke-virtual {v9, v11}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {p1, v2}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
 
-    move-result-object v13
+    move-result-object v0
 
-    check-cast v13, Lcom/android/server/pm/verify/domain/models/DomainVerificationInternalUserState;
+    check-cast v0, Lcom/android/server/pm/verify/domain/models/DomainVerificationInternalUserState;
 
-    if-eqz v13, :cond_8
+    if-eqz v0, :cond_8
 
-    invoke-virtual {v13}, Lcom/android/server/pm/verify/domain/models/DomainVerificationInternalUserState;->getEnabledHosts()Landroid/util/ArraySet;
+    invoke-virtual {v0}, Lcom/android/server/pm/verify/domain/models/DomainVerificationInternalUserState;->getEnabledHosts()Landroid/util/ArraySet;
 
-    move-result-object v14
+    move-result-object v1
 
-    invoke-virtual {v8, v12}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    invoke-virtual {p0, p3}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
-    move-result-object v15
+    move-result-object v3
 
-    check-cast v15, Lcom/android/server/pm/verify/domain/models/DomainVerificationInternalUserState;
+    check-cast v3, Lcom/android/server/pm/verify/domain/models/DomainVerificationInternalUserState;
 
-    move-object/from16 v16, v0
-
-    invoke-virtual {v13}, Lcom/android/server/pm/verify/domain/models/DomainVerificationInternalUserState;->isLinkHandlingAllowed()Z
+    invoke-virtual {v0}, Lcom/android/server/pm/verify/domain/models/DomainVerificationInternalUserState;->isLinkHandlingAllowed()Z
 
     move-result v0
 
-    if-nez v15, :cond_7
+    if-nez v3, :cond_7
 
-    new-instance v1, Lcom/android/server/pm/verify/domain/models/DomainVerificationInternalUserState;
+    new-instance v3, Lcom/android/server/pm/verify/domain/models/DomainVerificationInternalUserState;
 
-    invoke-direct {v1, v12, v14, v0}, Lcom/android/server/pm/verify/domain/models/DomainVerificationInternalUserState;-><init>(ILandroid/util/ArraySet;Z)V
+    invoke-direct {v3, p3, v1, v0}, Lcom/android/server/pm/verify/domain/models/DomainVerificationInternalUserState;-><init>(ILandroid/util/ArraySet;Z)V
 
-    invoke-virtual {v8, v12, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    invoke-virtual {p0, p3, v3}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     goto :goto_5
 
     :cond_7
-    invoke-virtual {v15, v14}, Lcom/android/server/pm/verify/domain/models/DomainVerificationInternalUserState;->addHosts(Landroid/util/ArraySet;)Lcom/android/server/pm/verify/domain/models/DomainVerificationInternalUserState;
+    invoke-virtual {v3, v1}, Lcom/android/server/pm/verify/domain/models/DomainVerificationInternalUserState;->addHosts(Landroid/util/ArraySet;)Lcom/android/server/pm/verify/domain/models/DomainVerificationInternalUserState;
 
-    move-result-object v1
+    move-result-object p3
 
-    invoke-virtual {v1, v0}, Lcom/android/server/pm/verify/domain/models/DomainVerificationInternalUserState;->setLinkHandlingAllowed(Z)Lcom/android/server/pm/verify/domain/models/DomainVerificationInternalUserState;
-
-    goto :goto_5
+    invoke-virtual {p3, v0}, Lcom/android/server/pm/verify/domain/models/DomainVerificationInternalUserState;->setLinkHandlingAllowed(Z)Lcom/android/server/pm/verify/domain/models/DomainVerificationInternalUserState;
 
     :cond_8
-    move-object/from16 v16, v0
-
     :goto_5
-    add-int/lit8 v11, v11, 0x1
-
-    move-object/from16 v1, p3
-
-    move-object/from16 v0, v16
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_4
 
@@ -289,8 +269,8 @@
     return-void
 .end method
 
-.method public readSettings(Landroid/util/TypedXmlPullParser;Lcom/android/server/pm/verify/domain/models/DomainVerificationStateMap;Ljava/util/function/Function;)V
-    .locals 11
+.method public readSettings(Landroid/util/TypedXmlPullParser;Lcom/android/server/pm/verify/domain/models/DomainVerificationStateMap;Lcom/android/server/pm/Computer;)V
+    .locals 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -298,10 +278,8 @@
             "Lcom/android/server/pm/verify/domain/models/DomainVerificationStateMap<",
             "Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;",
             ">;",
-            "Ljava/util/function/Function<",
-            "Ljava/lang/String;",
-            "Lcom/android/server/pm/PackageSetting;",
-            ">;)V"
+            "Lcom/android/server/pm/Computer;",
+            ")V"
         }
     .end annotation
 
@@ -312,120 +290,116 @@
         }
     .end annotation
 
-    nop
-
     invoke-static {p1}, Lcom/android/server/pm/verify/domain/DomainVerificationPersistence;->readFromXml(Landroid/util/TypedXmlPullParser;)Lcom/android/server/pm/verify/domain/DomainVerificationPersistence$ReadResult;
 
-    move-result-object v0
+    move-result-object p1
 
-    iget-object v1, v0, Lcom/android/server/pm/verify/domain/DomainVerificationPersistence$ReadResult;->active:Landroid/util/ArrayMap;
+    iget-object v0, p1, Lcom/android/server/pm/verify/domain/DomainVerificationPersistence$ReadResult;->active:Landroid/util/ArrayMap;
 
-    iget-object v2, v0, Lcom/android/server/pm/verify/domain/DomainVerificationPersistence$ReadResult;->restored:Landroid/util/ArrayMap;
+    iget-object p1, p1, Lcom/android/server/pm/verify/domain/DomainVerificationPersistence$ReadResult;->restored:Landroid/util/ArrayMap;
 
-    iget-object v3, p0, Lcom/android/server/pm/verify/domain/DomainVerificationSettings;->mLock:Ljava/lang/Object;
+    iget-object v1, p0, Lcom/android/server/pm/verify/domain/DomainVerificationSettings;->mLock:Ljava/lang/Object;
 
-    monitor-enter v3
+    monitor-enter v1
 
     :try_start_0
-    invoke-virtual {v1}, Landroid/util/ArrayMap;->size()I
+    invoke-virtual {v0}, Landroid/util/ArrayMap;->size()I
 
-    move-result v4
+    move-result v2
 
-    const/4 v5, 0x0
+    const/4 v3, 0x0
+
+    move v4, v3
 
     :goto_0
-    if-ge v5, v4, :cond_2
+    if-ge v4, v2, :cond_2
 
-    invoke-virtual {v1, v5}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {v0, v4}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;
+
+    invoke-virtual {v5}, Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;->getPackageName()Ljava/lang/String;
 
     move-result-object v6
 
-    check-cast v6, Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;
-
-    invoke-virtual {v6}, Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;->getPackageName()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {p2, v7}, Lcom/android/server/pm/verify/domain/models/DomainVerificationStateMap;->get(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v8
-
-    check-cast v8, Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;
-
-    if-eqz v8, :cond_0
-
-    invoke-virtual {v8}, Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;->getId()Ljava/util/UUID;
-
-    move-result-object v9
-
-    invoke-virtual {v6}, Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;->getId()Ljava/util/UUID;
-
-    move-result-object v10
-
-    invoke-virtual {v9, v10}, Ljava/util/UUID;->equals(Ljava/lang/Object;)Z
-
-    move-result v9
-
-    if-nez v9, :cond_1
-
-    invoke-virtual {p0, v8, v6, p3}, Lcom/android/server/pm/verify/domain/DomainVerificationSettings;->mergePkgState(Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;Ljava/util/function/Function;)V
-
-    goto :goto_1
-
-    :cond_0
-    iget-object v9, p0, Lcom/android/server/pm/verify/domain/DomainVerificationSettings;->mPendingPkgStates:Landroid/util/ArrayMap;
-
-    invoke-virtual {v9, v7, v6}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    :cond_1
-    :goto_1
-    add-int/lit8 v5, v5, 0x1
-
-    goto :goto_0
-
-    :cond_2
-    invoke-virtual {v2}, Landroid/util/ArrayMap;->size()I
-
-    move-result v5
-
-    const/4 v6, 0x0
-
-    :goto_2
-    if-ge v6, v5, :cond_3
-
-    invoke-virtual {v2, v6}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {p2, v6}, Lcom/android/server/pm/verify/domain/models/DomainVerificationStateMap;->get(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v7
 
     check-cast v7, Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;
 
-    iget-object v8, p0, Lcom/android/server/pm/verify/domain/DomainVerificationSettings;->mRestoredPkgStates:Landroid/util/ArrayMap;
+    if-eqz v7, :cond_0
 
-    invoke-virtual {v7}, Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;->getPackageName()Ljava/lang/String;
+    invoke-virtual {v7}, Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;->getId()Ljava/util/UUID;
 
-    move-result-object v9
+    move-result-object v6
 
-    invoke-virtual {v8, v9, v7}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v5}, Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;->getId()Ljava/util/UUID;
 
-    nop
+    move-result-object v8
 
-    add-int/lit8 v6, v6, 0x1
+    invoke-virtual {v6, v8}, Ljava/util/UUID;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-nez v6, :cond_1
+
+    invoke-virtual {p0, v7, v5, p3}, Lcom/android/server/pm/verify/domain/DomainVerificationSettings;->mergePkgState(Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;Lcom/android/server/pm/Computer;)V
+
+    goto :goto_1
+
+    :cond_0
+    iget-object v7, p0, Lcom/android/server/pm/verify/domain/DomainVerificationSettings;->mPendingPkgStates:Landroid/util/ArrayMap;
+
+    invoke-virtual {v7, v6, v5}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    :cond_1
+    :goto_1
+    add-int/lit8 v4, v4, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    invoke-virtual {p1}, Landroid/util/ArrayMap;->size()I
+
+    move-result p2
+
+    :goto_2
+    if-ge v3, p2, :cond_3
+
+    invoke-virtual {p1, v3}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object p3
+
+    check-cast p3, Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;
+
+    iget-object v0, p0, Lcom/android/server/pm/verify/domain/DomainVerificationSettings;->mRestoredPkgStates:Landroid/util/ArrayMap;
+
+    invoke-virtual {p3}, Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;->getPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v2, p3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_2
 
     :cond_3
-    monitor-exit v3
+    monitor-exit v1
 
     return-void
 
     :catchall_0
-    move-exception v4
+    move-exception p0
 
-    monitor-exit v3
+    monitor-exit v1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v4
+    throw p0
 .end method
 
 .method public removePackage(Ljava/lang/String;)V
@@ -440,26 +414,26 @@
 
     invoke-virtual {v1, p1}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v1, p0, Lcom/android/server/pm/verify/domain/DomainVerificationSettings;->mRestoredPkgStates:Landroid/util/ArrayMap;
+    iget-object p0, p0, Lcom/android/server/pm/verify/domain/DomainVerificationSettings;->mRestoredPkgStates:Landroid/util/ArrayMap;
 
-    invoke-virtual {v1, p1}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     monitor-exit v0
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
 .method public removePackageForUser(Ljava/lang/String;I)V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/pm/verify/domain/DomainVerificationSettings;->mLock:Ljava/lang/Object;
 
@@ -479,17 +453,17 @@
     invoke-virtual {v1, p2}, Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;->removeUser(I)V
 
     :cond_0
-    iget-object v2, p0, Lcom/android/server/pm/verify/domain/DomainVerificationSettings;->mRestoredPkgStates:Landroid/util/ArrayMap;
+    iget-object p0, p0, Lcom/android/server/pm/verify/domain/DomainVerificationSettings;->mRestoredPkgStates:Landroid/util/ArrayMap;
 
-    invoke-virtual {v2, p1}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p0
 
-    check-cast v2, Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;
+    check-cast p0, Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;
 
-    if-eqz v2, :cond_1
+    if-eqz p0, :cond_1
 
-    invoke-virtual {v2, p2}, Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;->removeUser(I)V
+    invoke-virtual {p0, p2}, Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;->removeUser(I)V
 
     :cond_1
     monitor-exit v0
@@ -497,73 +471,73 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
 .method public removePendingState(Ljava/lang/String;)Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/pm/verify/domain/DomainVerificationSettings;->mLock:Ljava/lang/Object;
 
     monitor-enter v0
 
     :try_start_0
-    iget-object v1, p0, Lcom/android/server/pm/verify/domain/DomainVerificationSettings;->mPendingPkgStates:Landroid/util/ArrayMap;
+    iget-object p0, p0, Lcom/android/server/pm/verify/domain/DomainVerificationSettings;->mPendingPkgStates:Landroid/util/ArrayMap;
 
-    invoke-virtual {v1, p1}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p0
 
-    check-cast v1, Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;
+    check-cast p0, Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;
 
     monitor-exit v0
 
-    return-object v1
+    return-object p0
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
 .method public removeRestoredState(Ljava/lang/String;)Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/pm/verify/domain/DomainVerificationSettings;->mLock:Ljava/lang/Object;
 
     monitor-enter v0
 
     :try_start_0
-    iget-object v1, p0, Lcom/android/server/pm/verify/domain/DomainVerificationSettings;->mRestoredPkgStates:Landroid/util/ArrayMap;
+    iget-object p0, p0, Lcom/android/server/pm/verify/domain/DomainVerificationSettings;->mRestoredPkgStates:Landroid/util/ArrayMap;
 
-    invoke-virtual {v1, p1}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p0
 
-    check-cast v1, Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;
+    check-cast p0, Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;
 
     monitor-exit v0
 
-    return-object v1
+    return-object p0
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
 .method public removeUser(I)V
@@ -582,36 +556,12 @@
 
     const/4 v2, 0x0
 
+    move v3, v2
+
     :goto_0
-    if-ge v2, v1, :cond_0
+    if-ge v3, v1, :cond_0
 
-    iget-object v3, p0, Lcom/android/server/pm/verify/domain/DomainVerificationSettings;->mPendingPkgStates:Landroid/util/ArrayMap;
-
-    invoke-virtual {v3, v2}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;
-
-    invoke-virtual {v3, p1}, Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;->removeUser(I)V
-
-    add-int/lit8 v2, v2, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    iget-object v2, p0, Lcom/android/server/pm/verify/domain/DomainVerificationSettings;->mRestoredPkgStates:Landroid/util/ArrayMap;
-
-    invoke-virtual {v2}, Landroid/util/ArrayMap;->size()I
-
-    move-result v2
-
-    const/4 v3, 0x0
-
-    :goto_1
-    if-ge v3, v2, :cond_1
-
-    iget-object v4, p0, Lcom/android/server/pm/verify/domain/DomainVerificationSettings;->mRestoredPkgStates:Landroid/util/ArrayMap;
+    iget-object v4, p0, Lcom/android/server/pm/verify/domain/DomainVerificationSettings;->mPendingPkgStates:Landroid/util/ArrayMap;
 
     invoke-virtual {v4, v3}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
 
@@ -623,6 +573,30 @@
 
     add-int/lit8 v3, v3, 0x1
 
+    goto :goto_0
+
+    :cond_0
+    iget-object v1, p0, Lcom/android/server/pm/verify/domain/DomainVerificationSettings;->mRestoredPkgStates:Landroid/util/ArrayMap;
+
+    invoke-virtual {v1}, Landroid/util/ArrayMap;->size()I
+
+    move-result v1
+
+    :goto_1
+    if-ge v2, v1, :cond_1
+
+    iget-object v3, p0, Lcom/android/server/pm/verify/domain/DomainVerificationSettings;->mRestoredPkgStates:Landroid/util/ArrayMap;
+
+    invoke-virtual {v3, v2}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;
+
+    invoke-virtual {v3, p1}, Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;->removeUser(I)V
+
+    add-int/lit8 v2, v2, 0x1
+
     goto :goto_1
 
     :cond_1
@@ -631,17 +605,17 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
-.method public restoreSettings(Landroid/util/TypedXmlPullParser;Lcom/android/server/pm/verify/domain/models/DomainVerificationStateMap;Ljava/util/function/Function;)V
-    .locals 16
+.method public restoreSettings(Landroid/util/TypedXmlPullParser;Lcom/android/server/pm/verify/domain/models/DomainVerificationStateMap;Lcom/android/server/pm/Computer;)V
+    .locals 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -649,10 +623,8 @@
             "Lcom/android/server/pm/verify/domain/models/DomainVerificationStateMap<",
             "Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;",
             ">;",
-            "Ljava/util/function/Function<",
-            "Ljava/lang/String;",
-            "Lcom/android/server/pm/PackageSetting;",
-            ">;)V"
+            "Lcom/android/server/pm/Computer;",
+            ")V"
         }
     .end annotation
 
@@ -663,192 +635,152 @@
         }
     .end annotation
 
-    move-object/from16 v1, p0
+    invoke-static {p1}, Lcom/android/server/pm/verify/domain/DomainVerificationPersistence;->readFromXml(Landroid/util/TypedXmlPullParser;)Lcom/android/server/pm/verify/domain/DomainVerificationPersistence$ReadResult;
 
-    invoke-static/range {p1 .. p1}, Lcom/android/server/pm/verify/domain/DomainVerificationPersistence;->readFromXml(Landroid/util/TypedXmlPullParser;)Lcom/android/server/pm/verify/domain/DomainVerificationPersistence$ReadResult;
+    move-result-object p1
 
-    move-result-object v2
+    iget-object v0, p1, Lcom/android/server/pm/verify/domain/DomainVerificationPersistence$ReadResult;->restored:Landroid/util/ArrayMap;
 
-    iget-object v3, v2, Lcom/android/server/pm/verify/domain/DomainVerificationPersistence$ReadResult;->restored:Landroid/util/ArrayMap;
+    iget-object p1, p1, Lcom/android/server/pm/verify/domain/DomainVerificationPersistence$ReadResult;->active:Landroid/util/ArrayMap;
 
-    iget-object v0, v2, Lcom/android/server/pm/verify/domain/DomainVerificationPersistence$ReadResult;->active:Landroid/util/ArrayMap;
+    invoke-virtual {v0, p1}, Landroid/util/ArrayMap;->putAll(Landroid/util/ArrayMap;)V
 
-    invoke-virtual {v3, v0}, Landroid/util/ArrayMap;->putAll(Landroid/util/ArrayMap;)V
+    iget-object p1, p0, Lcom/android/server/pm/verify/domain/DomainVerificationSettings;->mLock:Ljava/lang/Object;
 
-    iget-object v4, v1, Lcom/android/server/pm/verify/domain/DomainVerificationSettings;->mLock:Ljava/lang/Object;
+    monitor-enter p1
 
-    monitor-enter v4
-
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
     :goto_0
     :try_start_0
-    invoke-virtual {v3}, Landroid/util/ArrayMap;->size()I
+    invoke-virtual {v0}, Landroid/util/ArrayMap;->size()I
 
-    move-result v5
+    move-result v2
 
-    if-ge v0, v5, :cond_7
+    if-ge v1, v2, :cond_7
 
-    invoke-virtual {v3, v0}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {v0, v1}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v2
 
-    check-cast v5, Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;
+    check-cast v2, Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;
 
-    invoke-virtual {v5}, Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;->getPackageName()Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;->getPackageName()Ljava/lang/String;
 
-    move-result-object v6
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    move-result-object v3
 
-    move-object/from16 v7, p2
+    invoke-virtual {p2, v3}, Lcom/android/server/pm/verify/domain/models/DomainVerificationStateMap;->get(Ljava/lang/String;)Ljava/lang/Object;
 
-    :try_start_1
-    invoke-virtual {v7, v6}, Lcom/android/server/pm/verify/domain/models/DomainVerificationStateMap;->get(Ljava/lang/String;)Ljava/lang/Object;
+    move-result-object v4
 
-    move-result-object v8
+    check-cast v4, Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;
 
-    check-cast v8, Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;
+    if-nez v4, :cond_0
 
-    if-nez v8, :cond_0
+    iget-object v4, p0, Lcom/android/server/pm/verify/domain/DomainVerificationSettings;->mPendingPkgStates:Landroid/util/ArrayMap;
 
-    iget-object v9, v1, Lcom/android/server/pm/verify/domain/DomainVerificationSettings;->mPendingPkgStates:Landroid/util/ArrayMap;
+    invoke-virtual {v4, v3}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {v9, v6}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    move-result-object v4
 
-    move-result-object v9
-
-    check-cast v9, Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;
-
-    move-object v8, v9
+    check-cast v4, Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;
 
     :cond_0
-    if-nez v8, :cond_1
+    if-nez v4, :cond_1
 
-    iget-object v9, v1, Lcom/android/server/pm/verify/domain/DomainVerificationSettings;->mRestoredPkgStates:Landroid/util/ArrayMap;
+    iget-object v4, p0, Lcom/android/server/pm/verify/domain/DomainVerificationSettings;->mRestoredPkgStates:Landroid/util/ArrayMap;
 
-    invoke-virtual {v9, v6}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v4, v3}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v9
+    move-result-object v4
 
-    check-cast v9, Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    move-object v8, v9
+    check-cast v4, Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;
 
     :cond_1
-    if-eqz v8, :cond_2
+    if-eqz v4, :cond_2
 
-    move-object/from16 v9, p3
-
-    :try_start_2
-    invoke-virtual {v1, v8, v5, v9}, Lcom/android/server/pm/verify/domain/DomainVerificationSettings;->mergePkgState(Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;Ljava/util/function/Function;)V
+    invoke-virtual {p0, v4, v2, p3}, Lcom/android/server/pm/verify/domain/DomainVerificationSettings;->mergePkgState(Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;Lcom/android/server/pm/Computer;)V
 
     goto :goto_4
 
     :cond_2
-    move-object/from16 v9, p3
+    invoke-virtual {v2}, Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;->getStateMap()Landroid/util/ArrayMap;
 
-    invoke-virtual {v5}, Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;->getStateMap()Landroid/util/ArrayMap;
+    move-result-object v4
 
-    move-result-object v10
+    invoke-virtual {v4}, Landroid/util/ArrayMap;->size()I
 
-    invoke-virtual {v10}, Landroid/util/ArrayMap;->size()I
+    move-result v5
 
-    move-result v11
+    const/4 v6, 0x1
 
-    add-int/lit8 v12, v11, -0x1
+    sub-int/2addr v5, v6
 
     :goto_1
-    if-ltz v12, :cond_6
+    if-ltz v5, :cond_6
 
-    invoke-virtual {v10, v12}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {v4, v5}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
 
-    move-result-object v13
+    move-result-object v7
 
-    check-cast v13, Ljava/lang/Integer;
+    check-cast v7, Ljava/lang/Integer;
 
-    if-eqz v13, :cond_5
+    if-eqz v7, :cond_5
 
-    invoke-virtual {v13}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v7}, Ljava/lang/Integer;->intValue()I
 
-    move-result v14
+    move-result v7
 
-    const/4 v15, 0x1
+    const/4 v8, 0x5
 
-    if-eq v14, v15, :cond_4
+    if-eq v7, v6, :cond_4
 
-    const/4 v15, 0x5
-
-    if-ne v14, v15, :cond_3
+    if-ne v7, v8, :cond_3
 
     goto :goto_2
 
     :cond_3
-    invoke-virtual {v10, v12}, Landroid/util/ArrayMap;->removeAt(I)Ljava/lang/Object;
+    invoke-virtual {v4, v5}, Landroid/util/ArrayMap;->removeAt(I)Ljava/lang/Object;
 
     goto :goto_3
 
     :cond_4
     :goto_2
-    const/4 v15, 0x5
+    invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v15}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v7
 
-    move-result-object v15
-
-    invoke-virtual {v10, v12, v15}, Landroid/util/ArrayMap;->setValueAt(ILjava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v4, v5, v7}, Landroid/util/ArrayMap;->setValueAt(ILjava/lang/Object;)Ljava/lang/Object;
 
     :cond_5
     :goto_3
-    add-int/lit8 v12, v12, -0x1
+    add-int/lit8 v5, v5, -0x1
 
     goto :goto_1
 
     :cond_6
-    iget-object v12, v1, Lcom/android/server/pm/verify/domain/DomainVerificationSettings;->mRestoredPkgStates:Landroid/util/ArrayMap;
+    iget-object v4, p0, Lcom/android/server/pm/verify/domain/DomainVerificationSettings;->mRestoredPkgStates:Landroid/util/ArrayMap;
 
-    invoke-virtual {v12, v6, v5}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v4, v3, v2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     :goto_4
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    :catchall_0
-    move-exception v0
-
-    goto :goto_5
-
     :cond_7
-    move-object/from16 v7, p2
-
-    move-object/from16 v9, p3
-
-    monitor-exit v4
+    monitor-exit p1
 
     return-void
 
-    :catchall_1
-    move-exception v0
+    :catchall_0
+    move-exception p0
 
-    move-object/from16 v7, p2
+    monitor-exit p1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :goto_5
-    move-object/from16 v9, p3
-
-    :goto_6
-    monitor-exit v4
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_2
-
-    throw v0
-
-    :catchall_2
-    move-exception v0
-
-    goto :goto_6
+    throw p0
 .end method
 
 .method public writeSettings(Landroid/util/TypedXmlSerializer;Lcom/android/server/pm/verify/domain/models/DomainVerificationStateMap;ILjava/util/function/Function;)V
@@ -897,30 +829,11 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
-.end method
-
-.method public writeSettings(Landroid/util/TypedXmlSerializer;Lcom/android/server/pm/verify/domain/models/DomainVerificationStateMap;Ljava/util/function/Function;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/util/TypedXmlSerializer;",
-            "Lcom/android/server/pm/verify/domain/models/DomainVerificationStateMap<",
-            "Lcom/android/server/pm/verify/domain/models/DomainVerificationPkgState;",
-            ">;",
-            "Ljava/util/function/Function<",
-            "Ljava/lang/String;",
-            "Ljava/lang/String;",
-            ">;)V"
-        }
-    .end annotation
-
-    return-void
+    throw p0
 .end method

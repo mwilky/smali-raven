@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/server/media/MediaSessionStack$OnMediaButtonSessionChangedListener;
+.class public interface abstract Lcom/android/server/media/MediaSessionStack$OnMediaButtonSessionChangedListener;
 .super Ljava/lang/Object;
 .source "MediaSessionStack.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
+    accessFlags = 0x609
     name = "OnMediaButtonSessionChangedListener"
 .end annotation
 

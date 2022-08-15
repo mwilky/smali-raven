@@ -4,6 +4,9 @@
 
 
 # annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/android/server/pm/PackageManagerShellCommandDataLoader;
 .end annotation
@@ -15,27 +18,19 @@
 
 
 # static fields
-.field static final DATA_ONLY_STREAMING:B = 0x2t
-
-.field static final LOCAL_FILE:B = 0x1t
-
-.field static final STDIN:B = 0x0t
-
-.field static final STREAMING:B = 0x3t
-
-.field private static sGlobalSalt:Ljava/util/concurrent/atomic/AtomicLong;
+.field public static sGlobalSalt:Ljava/util/concurrent/atomic/AtomicLong;
 
 
 # instance fields
-.field private final mData:Ljava/lang/String;
+.field public final mData:Ljava/lang/String;
 
-.field private final mMode:B
+.field public final mMode:B
 
-.field private final mSalt:Ljava/lang/String;
+.field public final mSalt:Ljava/lang/String;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 3
 
     new-instance v0, Ljava/util/concurrent/atomic/AtomicLong;
@@ -55,7 +50,7 @@
     return-void
 .end method
 
-.method private constructor <init>(BLjava/lang/String;)V
+.method public constructor <init>(BLjava/lang/String;)V
     .locals 1
 
     const/4 v0, 0x0
@@ -65,8 +60,8 @@
     return-void
 .end method
 
-.method private constructor <init>(BLjava/lang/String;Ljava/lang/String;)V
-    .locals 1
+.method public constructor <init>(BLjava/lang/String;Ljava/lang/String;)V
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -74,22 +69,17 @@
 
     if-nez p2, :cond_0
 
-    const-string v0, ""
-
-    goto :goto_0
+    const-string p2, ""
 
     :cond_0
-    move-object v0, p2
-
-    :goto_0
-    iput-object v0, p0, Lcom/android/server/pm/PackageManagerShellCommandDataLoader$Metadata;->mData:Ljava/lang/String;
+    iput-object p2, p0, Lcom/android/server/pm/PackageManagerShellCommandDataLoader$Metadata;->mData:Ljava/lang/String;
 
     iput-object p3, p0, Lcom/android/server/pm/PackageManagerShellCommandDataLoader$Metadata;->mSalt:Ljava/lang/String;
 
     return-void
 .end method
 
-.method static forDataOnlyStreaming(Ljava/lang/String;)Lcom/android/server/pm/PackageManagerShellCommandDataLoader$Metadata;
+.method public static forDataOnlyStreaming(Ljava/lang/String;)Lcom/android/server/pm/PackageManagerShellCommandDataLoader$Metadata;
     .locals 2
 
     new-instance v0, Lcom/android/server/pm/PackageManagerShellCommandDataLoader$Metadata;
@@ -103,6 +93,8 @@
 
 .method public static forLocalFile(Ljava/lang/String;)Lcom/android/server/pm/PackageManagerShellCommandDataLoader$Metadata;
     .locals 3
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
 
     new-instance v0, Lcom/android/server/pm/PackageManagerShellCommandDataLoader$Metadata;
 
@@ -121,7 +113,7 @@
     return-object v0
 .end method
 
-.method static forStdIn(Ljava/lang/String;)Lcom/android/server/pm/PackageManagerShellCommandDataLoader$Metadata;
+.method public static forStdIn(Ljava/lang/String;)Lcom/android/server/pm/PackageManagerShellCommandDataLoader$Metadata;
     .locals 2
 
     new-instance v0, Lcom/android/server/pm/PackageManagerShellCommandDataLoader$Metadata;
@@ -133,7 +125,7 @@
     return-object v0
 .end method
 
-.method static forStreaming(Ljava/lang/String;)Lcom/android/server/pm/PackageManagerShellCommandDataLoader$Metadata;
+.method public static forStreaming(Ljava/lang/String;)Lcom/android/server/pm/PackageManagerShellCommandDataLoader$Metadata;
     .locals 2
 
     new-instance v0, Lcom/android/server/pm/PackageManagerShellCommandDataLoader$Metadata;
@@ -145,108 +137,97 @@
     return-object v0
 .end method
 
-.method static fromByteArray([B)Lcom/android/server/pm/PackageManagerShellCommandDataLoader$Metadata;
-    .locals 7
+.method public static fromByteArray([B)Lcom/android/server/pm/PackageManagerShellCommandDataLoader$Metadata;
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    if-eqz p0, :cond_1
+    const/4 v0, 0x0
 
-    array-length v0, p0
+    if-eqz p0, :cond_2
 
-    const/4 v1, 0x5
+    array-length v1, p0
 
-    if-ge v0, v1, :cond_0
+    const/4 v2, 0x5
+
+    if-ge v1, v2, :cond_0
 
     goto :goto_1
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    aget-byte v1, p0, v0
+    aget-byte v1, p0, v1
 
-    add-int/lit8 v0, v0, 0x1
+    const/4 v3, 0x1
 
-    packed-switch v1, :pswitch_data_0
+    if-eq v1, v3, :cond_1
 
     new-instance v2, Ljava/lang/String;
 
-    array-length v3, p0
+    array-length v4, p0
 
-    sub-int/2addr v3, v0
+    sub-int/2addr v4, v3
 
-    sget-object v4, Ljava/nio/charset/StandardCharsets;->UTF_8:Ljava/nio/charset/Charset;
+    sget-object v5, Ljava/nio/charset/StandardCharsets;->UTF_8:Ljava/nio/charset/Charset;
 
-    invoke-direct {v2, p0, v0, v3, v4}, Ljava/lang/String;-><init>([BIILjava/nio/charset/Charset;)V
-
-    move-object v3, v2
-
-    const/4 v4, 0x0
+    invoke-direct {v2, p0, v3, v4, v5}, Ljava/lang/String;-><init>([BIILjava/nio/charset/Charset;)V
 
     goto :goto_0
 
-    :pswitch_0
-    const/4 v2, 0x4
+    :cond_1
+    const/4 v0, 0x4
 
-    invoke-static {p0, v0, v2}, Ljava/nio/ByteBuffer;->wrap([BII)Ljava/nio/ByteBuffer;
+    invoke-static {p0, v3, v0}, Ljava/nio/ByteBuffer;->wrap([BII)Ljava/nio/ByteBuffer;
 
-    move-result-object v2
+    move-result-object v0
 
     sget-object v3, Ljava/nio/ByteOrder;->LITTLE_ENDIAN:Ljava/nio/ByteOrder;
 
-    invoke-virtual {v2, v3}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
+    invoke-virtual {v0, v3}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v2}, Ljava/nio/ByteBuffer;->getInt()I
+    invoke-virtual {v0}, Ljava/nio/ByteBuffer;->getInt()I
 
-    move-result v2
-
-    add-int/lit8 v0, v0, 0x4
+    move-result v0
 
     new-instance v3, Ljava/lang/String;
 
     sget-object v4, Ljava/nio/charset/StandardCharsets;->UTF_8:Ljava/nio/charset/Charset;
 
-    invoke-direct {v3, p0, v0, v2, v4}, Ljava/lang/String;-><init>([BIILjava/nio/charset/Charset;)V
+    invoke-direct {v3, p0, v2, v0, v4}, Ljava/lang/String;-><init>([BIILjava/nio/charset/Charset;)V
 
-    add-int/2addr v0, v2
+    add-int/2addr v2, v0
 
-    new-instance v4, Ljava/lang/String;
+    new-instance v0, Ljava/lang/String;
 
-    array-length v5, p0
+    array-length v4, p0
 
-    sub-int/2addr v5, v0
+    sub-int/2addr v4, v2
 
-    sget-object v6, Ljava/nio/charset/StandardCharsets;->UTF_8:Ljava/nio/charset/Charset;
+    sget-object v5, Ljava/nio/charset/StandardCharsets;->UTF_8:Ljava/nio/charset/Charset;
 
-    invoke-direct {v4, p0, v0, v5, v6}, Ljava/lang/String;-><init>([BIILjava/nio/charset/Charset;)V
+    invoke-direct {v0, p0, v2, v4, v5}, Ljava/lang/String;-><init>([BIILjava/nio/charset/Charset;)V
 
-    nop
+    move-object v2, v3
 
     :goto_0
-    new-instance v2, Lcom/android/server/pm/PackageManagerShellCommandDataLoader$Metadata;
+    new-instance p0, Lcom/android/server/pm/PackageManagerShellCommandDataLoader$Metadata;
 
-    invoke-direct {v2, v1, v3, v4}, Lcom/android/server/pm/PackageManagerShellCommandDataLoader$Metadata;-><init>(BLjava/lang/String;Ljava/lang/String;)V
+    invoke-direct {p0, v1, v2, v0}, Lcom/android/server/pm/PackageManagerShellCommandDataLoader$Metadata;-><init>(BLjava/lang/String;Ljava/lang/String;)V
 
-    return-object v2
+    return-object p0
 
-    :cond_1
+    :cond_2
     :goto_1
-    const/4 v0, 0x0
-
     return-object v0
-
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_0
-    .end packed-switch
 .end method
 
-.method private static nextGlobalSalt()Ljava/lang/Long;
+.method public static nextGlobalSalt()Ljava/lang/Long;
     .locals 2
 
     sget-object v0, Lcom/android/server/pm/PackageManagerShellCommandDataLoader$Metadata;->sGlobalSalt:Ljava/util/concurrent/atomic/AtomicLong;
@@ -264,24 +245,26 @@
 
 
 # virtual methods
-.method getData()Ljava/lang/String;
-    .locals 1
+.method public getData()Ljava/lang/String;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/pm/PackageManagerShellCommandDataLoader$Metadata;->mData:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/pm/PackageManagerShellCommandDataLoader$Metadata;->mData:Ljava/lang/String;
 
-    return-object v0
+    return-object p0
 .end method
 
-.method getMode()B
-    .locals 1
+.method public getMode()B
+    .locals 0
 
-    iget-byte v0, p0, Lcom/android/server/pm/PackageManagerShellCommandDataLoader$Metadata;->mMode:B
+    iget-byte p0, p0, Lcom/android/server/pm/PackageManagerShellCommandDataLoader$Metadata;->mMode:B
 
-    return v0
+    return p0
 .end method
 
 .method public toByteArray()[B
-    .locals 9
+    .locals 7
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
 
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerShellCommandDataLoader$Metadata;->mData:Ljava/lang/String;
 
@@ -297,23 +280,23 @@
 
     const/4 v3, 0x0
 
-    packed-switch v1, :pswitch_data_0
+    if-eq v1, v2, :cond_0
 
-    array-length v4, v0
+    array-length p0, v0
 
-    add-int/2addr v4, v2
+    add-int/2addr p0, v2
 
-    new-array v5, v4, [B
+    new-array p0, p0, [B
 
-    aput-byte v1, v5, v3
+    aput-byte v1, p0, v3
 
     array-length v1, v0
 
-    invoke-static {v0, v3, v5, v2, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v0, v3, p0, v2, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     goto :goto_0
 
-    :pswitch_0
+    :cond_0
     array-length v1, v0
 
     iget-object v4, p0, Lcom/android/server/pm/PackageManagerShellCommandDataLoader$Metadata;->mSalt:Ljava/lang/String;
@@ -332,45 +315,36 @@
 
     new-array v5, v5, [B
 
-    const/4 v6, 0x0
+    iget-byte p0, p0, Lcom/android/server/pm/PackageManagerShellCommandDataLoader$Metadata;->mMode:B
 
-    iget-byte v7, p0, Lcom/android/server/pm/PackageManagerShellCommandDataLoader$Metadata;->mMode:B
+    aput-byte p0, v5, v3
 
-    aput-byte v7, v5, v6
+    const/4 p0, 0x4
 
-    add-int/2addr v6, v2
+    invoke-static {v5, v2, p0}, Ljava/nio/ByteBuffer;->wrap([BII)Ljava/nio/ByteBuffer;
 
-    const/4 v2, 0x4
+    move-result-object p0
 
-    invoke-static {v5, v6, v2}, Ljava/nio/ByteBuffer;->wrap([BII)Ljava/nio/ByteBuffer;
+    sget-object v2, Ljava/nio/ByteOrder;->LITTLE_ENDIAN:Ljava/nio/ByteOrder;
 
-    move-result-object v7
+    invoke-virtual {p0, v2}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
 
-    sget-object v8, Ljava/nio/ByteOrder;->LITTLE_ENDIAN:Ljava/nio/ByteOrder;
+    move-result-object p0
 
-    invoke-virtual {v7, v8}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
+    invoke-virtual {p0, v1}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
 
-    move-result-object v7
+    const/4 p0, 0x5
 
-    invoke-virtual {v7, v1}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
+    invoke-static {v0, v3, v5, p0, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    add-int/2addr v6, v2
+    add-int/2addr p0, v1
 
-    invoke-static {v0, v3, v5, v6, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    array-length v0, v4
 
-    add-int/2addr v6, v1
+    invoke-static {v4, v3, v5, p0, v0}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    array-length v2, v4
-
-    invoke-static {v4, v3, v5, v6, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
-
-    nop
+    move-object p0, v5
 
     :goto_0
-    return-object v5
-
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_0
-    .end packed-switch
+    return-object p0
 .end method

@@ -1,4 +1,4 @@
-.class Lcom/android/server/media/projection/MediaProjectionManagerService$1;
+.class public Lcom/android/server/media/projection/MediaProjectionManagerService$1;
 .super Landroid/app/IProcessObserver$Stub;
 .source "MediaProjectionManagerService.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/media/projection/MediaProjectionManagerService;
+.field public final synthetic this$0:Lcom/android/server/media/projection/MediaProjectionManagerService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/media/projection/MediaProjectionManagerService;)V
+.method public constructor <init>(Lcom/android/server/media/projection/MediaProjectionManagerService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/media/projection/MediaProjectionManagerService$1;->this$0:Lcom/android/server/media/projection/MediaProjectionManagerService;
@@ -38,11 +38,11 @@
 .end method
 
 .method public onForegroundServicesChanged(III)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/media/projection/MediaProjectionManagerService$1;->this$0:Lcom/android/server/media/projection/MediaProjectionManagerService;
+    iget-object p0, p0, Lcom/android/server/media/projection/MediaProjectionManagerService$1;->this$0:Lcom/android/server/media/projection/MediaProjectionManagerService;
 
-    invoke-static {v0, p1, p2, p3}, Lcom/android/server/media/projection/MediaProjectionManagerService;->access$200(Lcom/android/server/media/projection/MediaProjectionManagerService;III)V
+    invoke-static {p0, p1, p2, p3}, Lcom/android/server/media/projection/MediaProjectionManagerService;->-$$Nest$mhandleForegroundServicesChanged(Lcom/android/server/media/projection/MediaProjectionManagerService;III)V
 
     return-void
 .end method

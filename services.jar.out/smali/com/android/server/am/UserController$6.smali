@@ -1,4 +1,4 @@
-.class Lcom/android/server/am/UserController$6;
+.class public Lcom/android/server/am/UserController$6;
 .super Landroid/content/IIntentReceiver$Stub;
 .source "UserController.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/am/UserController;
+.field public final synthetic this$0:Lcom/android/server/am/UserController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/UserController;)V
+.method public constructor <init>(Lcom/android/server/am/UserController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/am/UserController$6;->this$0:Lcom/android/server/am/UserController;

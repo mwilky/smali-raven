@@ -1,4 +1,4 @@
-.class Lcom/android/server/am/AppProfiler$ProcessCpuThread;
+.class public Lcom/android/server/am/AppProfiler$ProcessCpuThread;
 .super Ljava/lang/Thread;
 .source "AppProfiler.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "ProcessCpuThread"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/am/AppProfiler;
+.field public final synthetic this$0:Lcom/android/server/am/AppProfiler;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/AppProfiler;Ljava/lang/String;)V
+.method public constructor <init>(Lcom/android/server/am/AppProfiler;Ljava/lang/String;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/am/AppProfiler$ProcessCpuThread;->this$0:Lcom/android/server/am/AppProfiler;
@@ -36,7 +36,7 @@
 
     iget-object v0, p0, Lcom/android/server/am/AppProfiler$ProcessCpuThread;->this$0:Lcom/android/server/am/AppProfiler;
 
-    invoke-static {v0}, Lcom/android/server/am/AppProfiler;->access$700(Lcom/android/server/am/AppProfiler;)Lcom/android/internal/os/ProcessCpuTracker;
+    invoke-static {v0}, Lcom/android/server/am/AppProfiler;->-$$Nest$fgetmProcessCpuTracker(Lcom/android/server/am/AppProfiler;)Lcom/android/internal/os/ProcessCpuTracker;
 
     move-result-object v0
 
@@ -45,7 +45,7 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/server/am/AppProfiler$ProcessCpuThread;->this$0:Lcom/android/server/am/AppProfiler;
 
-    invoke-static {v1}, Lcom/android/server/am/AppProfiler;->access$800(Lcom/android/server/am/AppProfiler;)Ljava/util/concurrent/CountDownLatch;
+    invoke-static {v1}, Lcom/android/server/am/AppProfiler;->-$$Nest$fgetmProcessCpuInitLatch(Lcom/android/server/am/AppProfiler;)Ljava/util/concurrent/CountDownLatch;
 
     move-result-object v1
 
@@ -53,7 +53,7 @@
 
     iget-object v1, p0, Lcom/android/server/am/AppProfiler$ProcessCpuThread;->this$0:Lcom/android/server/am/AppProfiler;
 
-    invoke-static {v1}, Lcom/android/server/am/AppProfiler;->access$700(Lcom/android/server/am/AppProfiler;)Lcom/android/internal/os/ProcessCpuTracker;
+    invoke-static {v1}, Lcom/android/server/am/AppProfiler;->-$$Nest$fgetmProcessCpuTracker(Lcom/android/server/am/AppProfiler;)Lcom/android/internal/os/ProcessCpuTracker;
 
     move-result-object v1
 
@@ -77,7 +77,7 @@
 
     iget-object v2, p0, Lcom/android/server/am/AppProfiler$ProcessCpuThread;->this$0:Lcom/android/server/am/AppProfiler;
 
-    invoke-static {v2}, Lcom/android/server/am/AppProfiler;->access$900(Lcom/android/server/am/AppProfiler;)Ljava/util/concurrent/atomic/AtomicLong;
+    invoke-static {v2}, Lcom/android/server/am/AppProfiler;->-$$Nest$fgetmLastCpuTime(Lcom/android/server/am/AppProfiler;)Ljava/util/concurrent/atomic/AtomicLong;
 
     move-result-object v2
 
@@ -93,7 +93,7 @@
 
     iget-object v4, p0, Lcom/android/server/am/AppProfiler$ProcessCpuThread;->this$0:Lcom/android/server/am/AppProfiler;
 
-    invoke-static {v4}, Lcom/android/server/am/AppProfiler;->access$1000(Lcom/android/server/am/AppProfiler;)J
+    invoke-static {v4}, Lcom/android/server/am/AppProfiler;->-$$Nest$fgetmLastWriteTime(Lcom/android/server/am/AppProfiler;)J
 
     move-result-wide v4
 
@@ -103,28 +103,28 @@
 
     sub-long/2addr v4, v0
 
-    cmp-long v6, v4, v2
+    cmp-long v0, v4, v2
 
-    if-gez v6, :cond_0
+    if-gez v0, :cond_0
 
     move-wide v2, v4
 
     :cond_0
-    const-wide/16 v6, 0x0
+    const-wide/16 v0, 0x0
 
-    cmp-long v6, v2, v6
+    cmp-long v0, v2, v0
 
-    if-lez v6, :cond_1
+    if-lez v0, :cond_1
 
-    iget-object v6, p0, Lcom/android/server/am/AppProfiler$ProcessCpuThread;->this$0:Lcom/android/server/am/AppProfiler;
+    iget-object v0, p0, Lcom/android/server/am/AppProfiler$ProcessCpuThread;->this$0:Lcom/android/server/am/AppProfiler;
 
-    invoke-static {v6}, Lcom/android/server/am/AppProfiler;->access$1100(Lcom/android/server/am/AppProfiler;)Ljava/util/concurrent/atomic/AtomicBoolean;
+    invoke-static {v0}, Lcom/android/server/am/AppProfiler;->-$$Nest$fgetmProcessCpuMutexFree(Lcom/android/server/am/AppProfiler;)Ljava/util/concurrent/atomic/AtomicBoolean;
 
-    move-result-object v6
+    move-result-object v0
 
-    const/4 v7, 0x1
+    const/4 v1, 0x1
 
-    invoke-virtual {v6, v7}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
+    invoke-virtual {v0, v1}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
     invoke-virtual {p0, v2, v3}, Ljava/lang/Object;->wait(J)V
 
@@ -152,8 +152,6 @@
     goto :goto_2
 
     :catch_1
-    move-exception v0
-
     :goto_1
     :try_start_4
     iget-object v0, p0, Lcom/android/server/am/AppProfiler$ProcessCpuThread;->this$0:Lcom/android/server/am/AppProfiler;
@@ -162,7 +160,7 @@
     :try_end_4
     .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_0
 
-    goto :goto_3
+    goto :goto_0
 
     :goto_2
     const-string v1, "ActivityManager"
@@ -171,22 +169,15 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    :goto_3
     goto :goto_0
 
     :catchall_1
-    move-exception v1
+    move-exception p0
 
-    :goto_4
     :try_start_5
     monitor-exit v0
     :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_2
+    .catchall {:try_start_5 .. :try_end_5} :catchall_1
 
-    throw v1
-
-    :catchall_2
-    move-exception v1
-
-    goto :goto_4
+    throw p0
 .end method

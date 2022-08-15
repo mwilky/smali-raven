@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/location/provider/LocationProviderManager$$ExternalSyntheticLambda8;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/server/location/injector/UserInfoHelper$UserListener;
+.implements Lcom/android/server/location/injector/SettingsHelper$UserSettingChangedListener;
 
 
 # instance fields
@@ -22,12 +23,12 @@
 
 
 # virtual methods
-.method public final onUserChanged(II)V
-    .locals 1
+.method public final onSettingChanged(I)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/location/provider/LocationProviderManager$$ExternalSyntheticLambda8;->f$0:Lcom/android/server/location/provider/LocationProviderManager;
+    iget-object p0, p0, Lcom/android/server/location/provider/LocationProviderManager$$ExternalSyntheticLambda8;->f$0:Lcom/android/server/location/provider/LocationProviderManager;
 
-    invoke-static {v0, p1, p2}, Lcom/android/server/location/provider/LocationProviderManager;->$r8$lambda$RYed_vtaZnnYqxlvwQkjiVZutKw(Lcom/android/server/location/provider/LocationProviderManager;II)V
+    invoke-static {p0, p1}, Lcom/android/server/location/provider/LocationProviderManager;->$r8$lambda$fIoNTobs61StXMNZ0ubcdArVE2A(Lcom/android/server/location/provider/LocationProviderManager;I)V
 
     return-void
 .end method

@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/server/apphibernation/AppHibernationService$Injector;
+.class public interface abstract Lcom/android/server/apphibernation/AppHibernationService$Injector;
 .super Ljava/lang/Object;
 .source "AppHibernationService.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
+    accessFlags = 0x609
     name = "Injector"
 .end annotation
 
@@ -39,6 +39,9 @@
 .end method
 
 .method public abstract getPackageManagerInternal()Landroid/content/pm/PackageManagerInternal;
+.end method
+
+.method public abstract getStorageStatsManager()Landroid/app/usage/StorageStatsManager;
 .end method
 
 .method public abstract getUsageStatsManagerInternal()Landroid/app/usage/UsageStatsManagerInternal;

@@ -1,4 +1,4 @@
-.class Lcom/android/server/os/SchedulingPolicyService$1;
+.class public Lcom/android/server/os/SchedulingPolicyService$1;
 .super Ljava/lang/Object;
 .source "SchedulingPolicyService.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/os/SchedulingPolicyService;
+.field public final synthetic this$0:Lcom/android/server/os/SchedulingPolicyService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/os/SchedulingPolicyService;)V
+.method public constructor <init>(Lcom/android/server/os/SchedulingPolicyService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/os/SchedulingPolicyService$1;->this$0:Lcom/android/server/os/SchedulingPolicyService;
@@ -35,15 +35,15 @@
 
 # virtual methods
 .method public binderDied()V
-    .locals 3
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/server/os/SchedulingPolicyService$1;->this$0:Lcom/android/server/os/SchedulingPolicyService;
+    iget-object p0, p0, Lcom/android/server/os/SchedulingPolicyService$1;->this$0:Lcom/android/server/os/SchedulingPolicyService;
+
+    const/4 v0, 0x0
 
     const/4 v1, 0x0
 
-    const/4 v2, 0x0
-
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/os/SchedulingPolicyService;->requestCpusetBoost(ZLandroid/os/IBinder;)I
+    invoke-virtual {p0, v0, v1}, Lcom/android/server/os/SchedulingPolicyService;->requestCpusetBoost(ZLandroid/os/IBinder;)I
 
     return-void
 .end method

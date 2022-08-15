@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/VcnManagementService$VcnCallbackImpl$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/internal/util/FunctionalUtils$ThrowingRunnable;
@@ -57,7 +58,7 @@
 
     iget-object v5, p0, Lcom/android/server/VcnManagementService$VcnCallbackImpl$$ExternalSyntheticLambda0;->f$5:Ljava/lang/String;
 
-    invoke-virtual/range {v0 .. v5}, Lcom/android/server/VcnManagementService$VcnCallbackImpl;->lambda$onGatewayConnectionError$0$VcnManagementService$VcnCallbackImpl(Lcom/android/server/VcnManagementService$VcnStatusCallbackInfo;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V
+    invoke-static/range {v0 .. v5}, Lcom/android/server/VcnManagementService$VcnCallbackImpl;->$r8$lambda$lbPaKbt1mkLOdC2o5Bcnz1mAJ7E(Lcom/android/server/VcnManagementService$VcnCallbackImpl;Lcom/android/server/VcnManagementService$VcnStatusCallbackInfo;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V
 
     return-void
 .end method

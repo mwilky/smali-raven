@@ -1,4 +1,4 @@
-.class final Lcom/android/server/display/BrightnessTracker$Receiver;
+.class public final Lcom/android/server/display/BrightnessTracker$Receiver;
 .super Landroid/content/BroadcastReceiver;
 .source "BrightnessTracker.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "Receiver"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/display/BrightnessTracker;
+.field public final synthetic this$0:Lcom/android/server/display/BrightnessTracker;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/server/display/BrightnessTracker;)V
+.method public constructor <init>(Lcom/android/server/display/BrightnessTracker;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/display/BrightnessTracker$Receiver;->this$0:Lcom/android/server/display/BrightnessTracker;
@@ -29,7 +29,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/display/BrightnessTracker;Lcom/android/server/display/BrightnessTracker$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/display/BrightnessTracker;Lcom/android/server/display/BrightnessTracker$Receiver-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/display/BrightnessTracker$Receiver;-><init>(Lcom/android/server/display/BrightnessTracker;)V
@@ -40,115 +40,114 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 5
+    .locals 3
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v1, "android.intent.action.ACTION_SHUTDOWN"
+    const-string v0, "android.intent.action.ACTION_SHUTDOWN"
 
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    iget-object v1, p0, Lcom/android/server/display/BrightnessTracker$Receiver;->this$0:Lcom/android/server/display/BrightnessTracker;
+    iget-object p1, p0, Lcom/android/server/display/BrightnessTracker$Receiver;->this$0:Lcom/android/server/display/BrightnessTracker;
 
-    invoke-virtual {v1}, Lcom/android/server/display/BrightnessTracker;->stop()V
+    invoke-virtual {p1}, Lcom/android/server/display/BrightnessTracker;->stop()V
 
-    iget-object v1, p0, Lcom/android/server/display/BrightnessTracker$Receiver;->this$0:Lcom/android/server/display/BrightnessTracker;
+    iget-object p0, p0, Lcom/android/server/display/BrightnessTracker$Receiver;->this$0:Lcom/android/server/display/BrightnessTracker;
 
-    invoke-static {v1}, Lcom/android/server/display/BrightnessTracker;->access$1000(Lcom/android/server/display/BrightnessTracker;)V
+    invoke-static {p0}, Lcom/android/server/display/BrightnessTracker;->-$$Nest$mscheduleWriteBrightnessTrackerState(Lcom/android/server/display/BrightnessTracker;)V
 
     goto :goto_0
 
     :cond_0
-    const-string v1, "android.intent.action.BATTERY_CHANGED"
+    const-string v0, "android.intent.action.BATTERY_CHANGED"
 
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_2
+    if-eqz v0, :cond_1
 
-    const-string/jumbo v1, "level"
+    const-string p1, "level"
 
-    const/4 v2, -0x1
+    const/4 v0, -0x1
 
-    invoke-virtual {p2, v1, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {p2, p1, v0}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    move-result v1
+    move-result p1
 
-    const/4 v3, 0x0
+    const/4 v1, 0x0
 
-    const-string/jumbo v4, "scale"
+    const-string/jumbo v2, "scale"
 
-    invoke-virtual {p2, v4, v3}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {p2, v2, v1}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    move-result v3
+    move-result p2
 
-    if-eq v1, v2, :cond_1
+    if-eq p1, v0, :cond_3
 
-    if-eqz v3, :cond_1
+    if-eqz p2, :cond_3
 
-    iget-object v2, p0, Lcom/android/server/display/BrightnessTracker$Receiver;->this$0:Lcom/android/server/display/BrightnessTracker;
+    iget-object p0, p0, Lcom/android/server/display/BrightnessTracker$Receiver;->this$0:Lcom/android/server/display/BrightnessTracker;
 
-    invoke-static {v2, v1, v3}, Lcom/android/server/display/BrightnessTracker;->access$1100(Lcom/android/server/display/BrightnessTracker;II)V
+    invoke-static {p0, p1, p2}, Lcom/android/server/display/BrightnessTracker;->-$$Nest$mbatteryLevelChanged(Lcom/android/server/display/BrightnessTracker;II)V
+
+    goto :goto_0
 
     :cond_1
+    const-string p2, "android.intent.action.SCREEN_OFF"
+
+    invoke-virtual {p2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p2
+
+    if-eqz p2, :cond_2
+
+    iget-object p0, p0, Lcom/android/server/display/BrightnessTracker$Receiver;->this$0:Lcom/android/server/display/BrightnessTracker;
+
+    invoke-static {p0}, Lcom/android/server/display/BrightnessTracker;->-$$Nest$fgetmBgHandler(Lcom/android/server/display/BrightnessTracker;)Landroid/os/Handler;
+
+    move-result-object p0
+
+    const/4 p1, 0x2
+
+    invoke-virtual {p0, p1}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroid/os/Message;->sendToTarget()V
+
     goto :goto_0
 
     :cond_2
-    const-string v1, "android.intent.action.SCREEN_OFF"
+    const-string p2, "android.intent.action.SCREEN_ON"
 
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result p1
 
-    if-eqz v1, :cond_3
+    if-eqz p1, :cond_3
 
-    iget-object v1, p0, Lcom/android/server/display/BrightnessTracker$Receiver;->this$0:Lcom/android/server/display/BrightnessTracker;
+    iget-object p0, p0, Lcom/android/server/display/BrightnessTracker$Receiver;->this$0:Lcom/android/server/display/BrightnessTracker;
 
-    invoke-static {v1}, Lcom/android/server/display/BrightnessTracker;->access$900(Lcom/android/server/display/BrightnessTracker;)Landroid/os/Handler;
+    invoke-static {p0}, Lcom/android/server/display/BrightnessTracker;->-$$Nest$fgetmBgHandler(Lcom/android/server/display/BrightnessTracker;)Landroid/os/Handler;
 
-    move-result-object v1
+    move-result-object p0
 
-    const/4 v2, 0x2
+    const/4 p1, 0x3
 
-    invoke-virtual {v1, v2}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
+    invoke-virtual {p0, p1}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v1}, Landroid/os/Message;->sendToTarget()V
-
-    goto :goto_0
+    invoke-virtual {p0}, Landroid/os/Message;->sendToTarget()V
 
     :cond_3
-    const-string v1, "android.intent.action.SCREEN_ON"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_4
-
-    iget-object v1, p0, Lcom/android/server/display/BrightnessTracker$Receiver;->this$0:Lcom/android/server/display/BrightnessTracker;
-
-    invoke-static {v1}, Lcom/android/server/display/BrightnessTracker;->access$900(Lcom/android/server/display/BrightnessTracker;)Landroid/os/Handler;
-
-    move-result-object v1
-
-    const/4 v2, 0x3
-
-    invoke-virtual {v1, v2}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/os/Message;->sendToTarget()V
-
-    :cond_4
     :goto_0
     return-void
 .end method

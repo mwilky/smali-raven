@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/TaskPositioner$1;
+.class public Lcom/android/server/wm/TaskPositioner$1;
 .super Ljava/lang/Object;
 .source "TaskPositioner.java"
 
@@ -12,13 +12,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

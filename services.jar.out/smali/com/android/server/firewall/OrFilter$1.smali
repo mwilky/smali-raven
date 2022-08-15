@@ -1,4 +1,4 @@
-.class Lcom/android/server/firewall/OrFilter$1;
+.class public Lcom/android/server/firewall/OrFilter$1;
 .super Lcom/android/server/firewall/FilterFactory;
 .source "OrFilter.java"
 
@@ -9,13 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # direct methods
-.method constructor <init>(Ljava/lang/String;)V
+.method public constructor <init>(Ljava/lang/String;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/firewall/FilterFactory;-><init>(Ljava/lang/String;)V
@@ -26,7 +26,7 @@
 
 # virtual methods
 .method public newFilter(Lorg/xmlpull/v1/XmlPullParser;)Lcom/android/server/firewall/Filter;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -34,13 +34,13 @@
         }
     .end annotation
 
-    new-instance v0, Lcom/android/server/firewall/OrFilter;
+    new-instance p0, Lcom/android/server/firewall/OrFilter;
 
-    invoke-direct {v0}, Lcom/android/server/firewall/OrFilter;-><init>()V
+    invoke-direct {p0}, Lcom/android/server/firewall/OrFilter;-><init>()V
 
-    invoke-virtual {v0, p1}, Lcom/android/server/firewall/OrFilter;->readFromXml(Lorg/xmlpull/v1/XmlPullParser;)Lcom/android/server/firewall/FilterList;
+    invoke-virtual {p0, p1}, Lcom/android/server/firewall/FilterList;->readFromXml(Lorg/xmlpull/v1/XmlPullParser;)Lcom/android/server/firewall/FilterList;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

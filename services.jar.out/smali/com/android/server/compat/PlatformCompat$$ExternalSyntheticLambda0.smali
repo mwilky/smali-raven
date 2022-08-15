@@ -1,43 +1,38 @@
 .class public final synthetic Lcom/android/server/compat/PlatformCompat$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/IntFunction;
+.implements Ljava/util/function/Predicate;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/compat/PlatformCompat$$ExternalSyntheticLambda0;
+# instance fields
+.field public final synthetic f$0:Lcom/android/server/compat/PlatformCompat;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/compat/PlatformCompat$$ExternalSyntheticLambda0;
-
-    invoke-direct {v0}, Lcom/android/server/compat/PlatformCompat$$ExternalSyntheticLambda0;-><init>()V
-
-    sput-object v0, Lcom/android/server/compat/PlatformCompat$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/server/compat/PlatformCompat$$ExternalSyntheticLambda0;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Lcom/android/server/compat/PlatformCompat;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/compat/PlatformCompat$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/compat/PlatformCompat;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final apply(I)Ljava/lang/Object;
+.method public final test(Ljava/lang/Object;)Z
     .locals 0
 
-    invoke-static {p1}, Lcom/android/server/compat/PlatformCompat;->lambda$listUIChanges$0(I)[Lcom/android/internal/compat/CompatibilityChangeInfo;
+    iget-object p0, p0, Lcom/android/server/compat/PlatformCompat$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/compat/PlatformCompat;
 
-    move-result-object p1
+    check-cast p1, Lcom/android/internal/compat/CompatibilityChangeInfo;
 
-    return-object p1
+    invoke-static {p0, p1}, Lcom/android/server/compat/PlatformCompat;->$r8$lambda$n_2JjKeulvxyAF8j4MdiUMuKl6A(Lcom/android/server/compat/PlatformCompat;Lcom/android/internal/compat/CompatibilityChangeInfo;)Z
+
+    move-result p0
+
+    return p0
 .end method

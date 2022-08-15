@@ -1,4 +1,4 @@
-.class final Lcom/android/server/inputmethod/InputMethodManagerService$StartInputHistory$Entry;
+.class public final Lcom/android/server/inputmethod/InputMethodManagerService$StartInputHistory$Entry;
 .super Ljava/lang/Object;
 .source "InputMethodManagerService.java"
 
@@ -9,45 +9,45 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "Entry"
 .end annotation
 
 
 # instance fields
-.field mClientBindSequenceNumber:I
+.field public mClientBindSequenceNumber:I
 
-.field mEditorInfo:Landroid/view/inputmethod/EditorInfo;
+.field public mEditorInfo:Landroid/view/inputmethod/EditorInfo;
 
-.field mImeDisplayId:I
+.field public mImeDisplayId:I
 
-.field mImeId:Ljava/lang/String;
+.field public mImeId:Ljava/lang/String;
 
-.field mImeTokenString:Ljava/lang/String;
+.field public mImeTokenString:Ljava/lang/String;
 
-.field mImeUserId:I
+.field public mImeUserId:I
 
-.field mRestarting:Z
+.field public mRestarting:Z
 
-.field mSequenceNumber:I
+.field public mSequenceNumber:I
 
-.field mStartInputReason:I
+.field public mStartInputReason:I
 
-.field mTargetDisplayId:I
+.field public mTargetDisplayId:I
 
-.field mTargetUserId:I
+.field public mTargetUserId:I
 
-.field mTargetWindowSoftInputMode:I
+.field public mTargetWindowSoftInputMode:I
 
-.field mTargetWindowString:Ljava/lang/String;
+.field public mTargetWindowString:Ljava/lang/String;
 
-.field mTimestamp:J
+.field public mTimestamp:J
 
-.field mWallTime:J
+.field public mWallTime:J
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/inputmethod/InputMethodManagerService$StartInputInfo;)V
+.method public constructor <init>(Lcom/android/server/inputmethod/InputMethodManagerService$StartInputInfo;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -59,7 +59,7 @@
 
 
 # virtual methods
-.method set(Lcom/android/server/inputmethod/InputMethodManagerService$StartInputInfo;)V
+.method public set(Lcom/android/server/inputmethod/InputMethodManagerService$StartInputInfo;)V
     .locals 2
 
     iget v0, p1, Lcom/android/server/inputmethod/InputMethodManagerService$StartInputInfo;->mSequenceNumber:I
@@ -126,9 +126,9 @@
 
     iput v0, p0, Lcom/android/server/inputmethod/InputMethodManagerService$StartInputHistory$Entry;->mTargetWindowSoftInputMode:I
 
-    iget v0, p1, Lcom/android/server/inputmethod/InputMethodManagerService$StartInputInfo;->mClientBindSequenceNumber:I
+    iget p1, p1, Lcom/android/server/inputmethod/InputMethodManagerService$StartInputInfo;->mClientBindSequenceNumber:I
 
-    iput v0, p0, Lcom/android/server/inputmethod/InputMethodManagerService$StartInputHistory$Entry;->mClientBindSequenceNumber:I
+    iput p1, p0, Lcom/android/server/inputmethod/InputMethodManagerService$StartInputHistory$Entry;->mClientBindSequenceNumber:I
 
     return-void
 .end method

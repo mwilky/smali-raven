@@ -4,16 +4,24 @@
 
 
 # instance fields
-.field private mActivityManager:Landroid/app/ActivityManager;
+.field public mActivityManager:Landroid/app/ActivityManager;
 
-.field private final mContext:Landroid/content/Context;
+.field public final mContext:Landroid/content/Context;
 
 
 # direct methods
 .method public static synthetic $r8$lambda$Yq4Uol0cKBkywoHPg9SHJHpQCjk(Lcom/android/server/location/injector/SystemAppForegroundHelper;II)V
     .locals 0
 
-    invoke-direct {p0, p1, p2}, Lcom/android/server/location/injector/SystemAppForegroundHelper;->onAppForegroundChanged(II)V
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/location/injector/SystemAppForegroundHelper;->onAppForegroundChanged(II)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$jfxw7iYvgyB4w8Fs_JJYhMU6Qj8(Lcom/android/server/location/injector/SystemAppForegroundHelper;IZ)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/server/location/injector/SystemAppForegroundHelper;->lambda$onAppForegroundChanged$0(IZ)V
 
     return-void
 .end method
@@ -28,22 +36,10 @@
     return-void
 .end method
 
-.method private onAppForegroundChanged(II)V
-    .locals 3
+.method private synthetic lambda$onAppForegroundChanged$0(IZ)V
+    .locals 0
 
-    invoke-static {p2}, Lcom/android/server/location/injector/SystemAppForegroundHelper;->isForeground(I)Z
-
-    move-result v0
-
-    invoke-static {}, Lcom/android/server/FgThread;->getHandler()Landroid/os/Handler;
-
-    move-result-object v1
-
-    new-instance v2, Lcom/android/server/location/injector/SystemAppForegroundHelper$$ExternalSyntheticLambda1;
-
-    invoke-direct {v2, p0, p1, v0}, Lcom/android/server/location/injector/SystemAppForegroundHelper$$ExternalSyntheticLambda1;-><init>(Lcom/android/server/location/injector/SystemAppForegroundHelper;IZ)V
-
-    invoke-virtual {v1, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/location/injector/AppForegroundHelper;->notifyAppForeground(IZ)V
 
     return-void
 .end method
@@ -51,7 +47,7 @@
 
 # virtual methods
 .method public isAppForeground(I)Z
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/location/injector/SystemAppForegroundHelper;->mActivityManager:Landroid/app/ActivityManager;
 
@@ -72,40 +68,52 @@
     move-result-wide v0
 
     :try_start_0
-    iget-object v2, p0, Lcom/android/server/location/injector/SystemAppForegroundHelper;->mActivityManager:Landroid/app/ActivityManager;
+    iget-object p0, p0, Lcom/android/server/location/injector/SystemAppForegroundHelper;->mActivityManager:Landroid/app/ActivityManager;
 
-    invoke-virtual {v2, p1}, Landroid/app/ActivityManager;->getUidImportance(I)I
+    invoke-virtual {p0, p1}, Landroid/app/ActivityManager;->getUidImportance(I)I
 
-    move-result v2
+    move-result p0
 
-    invoke-static {v2}, Lcom/android/server/location/injector/SystemAppForegroundHelper;->isForeground(I)Z
+    invoke-static {p0}, Lcom/android/server/location/injector/AppForegroundHelper;->isForeground(I)Z
 
-    move-result v2
+    move-result p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    return v2
+    return p0
 
     :catchall_0
-    move-exception v2
+    move-exception p0
 
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    throw v2
+    throw p0
 .end method
 
-.method public synthetic lambda$onAppForegroundChanged$0$SystemAppForegroundHelper(IZ)V
-    .locals 0
+.method public final onAppForegroundChanged(II)V
+    .locals 2
 
-    invoke-virtual {p0, p1, p2}, Lcom/android/server/location/injector/SystemAppForegroundHelper;->notifyAppForeground(IZ)V
+    invoke-static {p2}, Lcom/android/server/location/injector/AppForegroundHelper;->isForeground(I)Z
+
+    move-result p2
+
+    invoke-static {}, Lcom/android/server/FgThread;->getHandler()Landroid/os/Handler;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/android/server/location/injector/SystemAppForegroundHelper$$ExternalSyntheticLambda1;
+
+    invoke-direct {v1, p0, p1, p2}, Lcom/android/server/location/injector/SystemAppForegroundHelper$$ExternalSyntheticLambda1;-><init>(Lcom/android/server/location/injector/SystemAppForegroundHelper;IZ)V
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     return-void
 .end method
 
 .method public onSystemReady()V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/location/injector/SystemAppForegroundHelper;->mActivityManager:Landroid/app/ActivityManager;
 
@@ -126,7 +134,9 @@
 
     invoke-static {v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    check-cast v0, Landroid/app/ActivityManager;
+    move-object v1, v0
+
+    check-cast v1, Landroid/app/ActivityManager;
 
     iput-object v0, p0, Lcom/android/server/location/injector/SystemAppForegroundHelper;->mActivityManager:Landroid/app/ActivityManager;
 
@@ -134,9 +144,9 @@
 
     invoke-direct {v1, p0}, Lcom/android/server/location/injector/SystemAppForegroundHelper$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/location/injector/SystemAppForegroundHelper;)V
 
-    const/16 v2, 0x7d
+    const/16 p0, 0x7d
 
-    invoke-virtual {v0, v1, v2}, Landroid/app/ActivityManager;->addOnUidImportanceListener(Landroid/app/ActivityManager$OnUidImportanceListener;I)V
+    invoke-virtual {v0, v1, p0}, Landroid/app/ActivityManager;->addOnUidImportanceListener(Landroid/app/ActivityManager$OnUidImportanceListener;I)V
 
     return-void
 .end method

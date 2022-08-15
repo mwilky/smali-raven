@@ -3,10 +3,6 @@
 .source "UsbVCInputTerminal.java"
 
 
-# static fields
-.field private static final TAG:Ljava/lang/String; = "UsbVCInputTerminal"
-
-
 # direct methods
 .method public constructor <init>(IBB)V
     .locals 0
@@ -19,19 +15,19 @@
 
 # virtual methods
 .method public parseRawDescriptors(Lcom/android/server/usb/descriptors/ByteStream;)I
-    .locals 1
+    .locals 0
 
-    invoke-super {p0, p1}, Lcom/android/server/usb/descriptors/UsbVCInterface;->parseRawDescriptors(Lcom/android/server/usb/descriptors/ByteStream;)I
+    invoke-super {p0, p1}, Lcom/android/server/usb/descriptors/UsbDescriptor;->parseRawDescriptors(Lcom/android/server/usb/descriptors/ByteStream;)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public report(Lcom/android/server/usb/descriptors/report/ReportCanvas;)V
     .locals 0
 
-    invoke-super {p0, p1}, Lcom/android/server/usb/descriptors/UsbVCInterface;->report(Lcom/android/server/usb/descriptors/report/ReportCanvas;)V
+    invoke-super {p0, p1}, Lcom/android/server/usb/descriptors/UsbDescriptor;->report(Lcom/android/server/usb/descriptors/report/ReportCanvas;)V
 
     return-void
 .end method

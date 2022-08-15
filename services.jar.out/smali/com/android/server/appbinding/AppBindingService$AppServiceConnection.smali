@@ -1,4 +1,4 @@
-.class Lcom/android/server/appbinding/AppBindingService$AppServiceConnection;
+.class public Lcom/android/server/appbinding/AppBindingService$AppServiceConnection;
 .super Lcom/android/server/am/PersistentConnection;
 .source "AppBindingService.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "AppServiceConnection"
 .end annotation
 
@@ -23,13 +23,13 @@
 
 
 # instance fields
-.field private final mConstants:Lcom/android/server/appbinding/AppBindingConstants;
+.field public final mConstants:Lcom/android/server/appbinding/AppBindingConstants;
 
-.field private final mFinder:Lcom/android/server/appbinding/finders/AppServiceFinder;
+.field public final mFinder:Lcom/android/server/appbinding/finders/AppServiceFinder;
 
 
 # direct methods
-.method constructor <init>(Landroid/content/Context;ILcom/android/server/appbinding/AppBindingConstants;Landroid/os/Handler;Lcom/android/server/appbinding/finders/AppServiceFinder;Landroid/content/ComponentName;)V
+.method public constructor <init>(Landroid/content/Context;ILcom/android/server/appbinding/AppBindingConstants;Landroid/os/Handler;Lcom/android/server/appbinding/finders/AppServiceFinder;Landroid/content/ComponentName;)V
     .locals 16
 
     move-object/from16 v14, p0
@@ -69,46 +69,46 @@
 
 
 # virtual methods
-.method protected asInterface(Landroid/os/IBinder;)Landroid/os/IInterface;
-    .locals 1
+.method public asInterface(Landroid/os/IBinder;)Landroid/os/IInterface;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/appbinding/AppBindingService$AppServiceConnection;->mFinder:Lcom/android/server/appbinding/finders/AppServiceFinder;
+    iget-object p0, p0, Lcom/android/server/appbinding/AppBindingService$AppServiceConnection;->mFinder:Lcom/android/server/appbinding/finders/AppServiceFinder;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/appbinding/finders/AppServiceFinder;->asInterface(Landroid/os/IBinder;)Landroid/os/IInterface;
+    invoke-virtual {p0, p1}, Lcom/android/server/appbinding/finders/AppServiceFinder;->asInterface(Landroid/os/IBinder;)Landroid/os/IInterface;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
-.method protected bridge synthetic asInterface(Landroid/os/IBinder;)Ljava/lang/Object;
+.method public bridge synthetic asInterface(Landroid/os/IBinder;)Ljava/lang/Object;
     .locals 0
 
     invoke-virtual {p0, p1}, Lcom/android/server/appbinding/AppBindingService$AppServiceConnection;->asInterface(Landroid/os/IBinder;)Landroid/os/IInterface;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method
 
-.method protected getBindFlags()I
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/server/appbinding/AppBindingService$AppServiceConnection;->mFinder:Lcom/android/server/appbinding/finders/AppServiceFinder;
-
-    iget-object v1, p0, Lcom/android/server/appbinding/AppBindingService$AppServiceConnection;->mConstants:Lcom/android/server/appbinding/AppBindingConstants;
-
-    invoke-virtual {v0, v1}, Lcom/android/server/appbinding/finders/AppServiceFinder;->getBindFlags(Lcom/android/server/appbinding/AppBindingConstants;)I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public getFinder()Lcom/android/server/appbinding/finders/AppServiceFinder;
+.method public getBindFlags()I
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/appbinding/AppBindingService$AppServiceConnection;->mFinder:Lcom/android/server/appbinding/finders/AppServiceFinder;
 
-    return-object v0
+    iget-object p0, p0, Lcom/android/server/appbinding/AppBindingService$AppServiceConnection;->mConstants:Lcom/android/server/appbinding/AppBindingConstants;
+
+    invoke-virtual {v0, p0}, Lcom/android/server/appbinding/finders/AppServiceFinder;->getBindFlags(Lcom/android/server/appbinding/AppBindingConstants;)I
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public getFinder()Lcom/android/server/appbinding/finders/AppServiceFinder;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/appbinding/AppBindingService$AppServiceConnection;->mFinder:Lcom/android/server/appbinding/finders/AppServiceFinder;
+
+    return-object p0
 .end method

@@ -1,4 +1,4 @@
-.class Lcom/android/server/am/ActiveServices$2;
+.class public Lcom/android/server/am/ActiveServices$2;
 .super Ljava/lang/Object;
 .source "ActiveServices.java"
 
@@ -12,25 +12,25 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/am/ActiveServices;
+.field public final synthetic this$0:Lcom/android/server/am/ActiveServices;
 
-.field final synthetic val$callerFg:Z
+.field public final synthetic val$callerFg:Z
 
-.field final synthetic val$connection:Landroid/app/IServiceConnection;
+.field public final synthetic val$connection:Landroid/app/IServiceConnection;
 
-.field final synthetic val$r:Lcom/android/server/am/ServiceRecord;
+.field public final synthetic val$r:Lcom/android/server/am/ServiceRecord;
 
-.field final synthetic val$service:Landroid/content/Intent;
+.field public final synthetic val$service:Landroid/content/Intent;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/ActiveServices;Lcom/android/server/am/ServiceRecord;Landroid/content/Intent;ZLandroid/app/IServiceConnection;)V
+.method public constructor <init>(Lcom/android/server/am/ActiveServices;Lcom/android/server/am/ServiceRecord;Landroid/content/Intent;ZLandroid/app/IServiceConnection;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/am/ActiveServices$2;->this$0:Lcom/android/server/am/ActiveServices;
@@ -51,42 +51,42 @@
 
 # virtual methods
 .method public onResult(Landroid/os/Bundle;)V
-    .locals 12
+    .locals 11
 
-    iget-object v0, p0, Lcom/android/server/am/ActiveServices$2;->this$0:Lcom/android/server/am/ActiveServices;
+    iget-object p1, p0, Lcom/android/server/am/ActiveServices$2;->this$0:Lcom/android/server/am/ActiveServices;
 
-    iget-object v0, v0, Lcom/android/server/am/ActiveServices;->mAm:Lcom/android/server/am/ActivityManagerService;
+    iget-object p1, p1, Lcom/android/server/am/ActiveServices;->mAm:Lcom/android/server/am/ActivityManagerService;
 
-    monitor-enter v0
+    monitor-enter p1
 
     :try_start_0
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->boostPriorityForLockedSection()V
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
-    move-result-wide v1
+    move-result-wide v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_2
 
     :try_start_1
-    iget-object v3, p0, Lcom/android/server/am/ActiveServices$2;->this$0:Lcom/android/server/am/ActiveServices;
+    iget-object v2, p0, Lcom/android/server/am/ActiveServices$2;->this$0:Lcom/android/server/am/ActiveServices;
 
-    iget-object v3, v3, Lcom/android/server/am/ActiveServices;->mPendingServices:Ljava/util/ArrayList;
+    iget-object v2, v2, Lcom/android/server/am/ActiveServices;->mPendingServices:Ljava/util/ArrayList;
 
-    iget-object v4, p0, Lcom/android/server/am/ActiveServices$2;->val$r:Lcom/android/server/am/ServiceRecord;
+    iget-object v3, p0, Lcom/android/server/am/ActiveServices$2;->val$r:Lcom/android/server/am/ServiceRecord;
 
-    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v2
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    if-nez v3, :cond_0
+    if-nez v2, :cond_0
 
     :try_start_2
-    invoke-static {v1, v2}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    monitor-exit v0
+    monitor-exit p1
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_2
 
@@ -96,110 +96,102 @@
 
     :cond_0
     :try_start_3
-    iget-object v3, p0, Lcom/android/server/am/ActiveServices$2;->this$0:Lcom/android/server/am/ActiveServices;
+    iget-object v2, p0, Lcom/android/server/am/ActiveServices$2;->this$0:Lcom/android/server/am/ActiveServices;
 
-    iget-object v3, v3, Lcom/android/server/am/ActiveServices;->mAm:Lcom/android/server/am/ActivityManagerService;
+    iget-object v2, v2, Lcom/android/server/am/ActiveServices;->mAm:Lcom/android/server/am/ActivityManagerService;
 
-    invoke-virtual {v3}, Lcom/android/server/am/ActivityManagerService;->getPackageManagerInternal()Landroid/content/pm/PackageManagerInternal;
+    invoke-virtual {v2}, Lcom/android/server/am/ActivityManagerService;->getPackageManagerInternal()Landroid/content/pm/PackageManagerInternal;
 
-    move-result-object v3
+    move-result-object v2
 
-    iget-object v4, p0, Lcom/android/server/am/ActiveServices$2;->val$r:Lcom/android/server/am/ServiceRecord;
+    iget-object v3, p0, Lcom/android/server/am/ActiveServices$2;->val$r:Lcom/android/server/am/ServiceRecord;
 
-    iget-object v4, v4, Lcom/android/server/am/ServiceRecord;->packageName:Ljava/lang/String;
+    iget-object v4, v3, Lcom/android/server/am/ServiceRecord;->packageName:Ljava/lang/String;
 
-    iget-object v5, p0, Lcom/android/server/am/ActiveServices$2;->val$r:Lcom/android/server/am/ServiceRecord;
+    iget v3, v3, Lcom/android/server/am/ServiceRecord;->userId:I
 
-    iget v5, v5, Lcom/android/server/am/ServiceRecord;->userId:I
+    invoke-virtual {v2, v4, v3}, Landroid/content/pm/PackageManagerInternal;->isPermissionsReviewRequired(Ljava/lang/String;I)Z
 
-    invoke-virtual {v3, v4, v5}, Landroid/content/pm/PackageManagerInternal;->isPermissionsReviewRequired(Ljava/lang/String;I)Z
-
-    move-result v3
+    move-result v2
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
-    if-nez v3, :cond_1
+    if-nez v2, :cond_1
 
     :try_start_4
-    iget-object v4, p0, Lcom/android/server/am/ActiveServices$2;->this$0:Lcom/android/server/am/ActiveServices;
+    iget-object v3, p0, Lcom/android/server/am/ActiveServices$2;->this$0:Lcom/android/server/am/ActiveServices;
 
-    iget-object v5, p0, Lcom/android/server/am/ActiveServices$2;->val$r:Lcom/android/server/am/ServiceRecord;
+    iget-object v4, p0, Lcom/android/server/am/ActiveServices$2;->val$r:Lcom/android/server/am/ServiceRecord;
 
-    iget-object v3, p0, Lcom/android/server/am/ActiveServices$2;->val$service:Landroid/content/Intent;
+    iget-object v2, p0, Lcom/android/server/am/ActiveServices$2;->val$service:Landroid/content/Intent;
 
-    invoke-virtual {v3}, Landroid/content/Intent;->getFlags()I
+    invoke-virtual {v2}, Landroid/content/Intent;->getFlags()I
 
-    move-result v6
+    move-result v5
 
-    iget-boolean v7, p0, Lcom/android/server/am/ActiveServices$2;->val$callerFg:Z
+    iget-boolean v6, p0, Lcom/android/server/am/ActiveServices$2;->val$callerFg:Z
+
+    const/4 v7, 0x0
 
     const/4 v8, 0x0
 
     const/4 v9, 0x0
 
-    const/4 v10, 0x0
+    const/4 v10, 0x1
 
-    const/4 v11, 0x1
-
-    invoke-static/range {v4 .. v11}, Lcom/android/server/am/ActiveServices;->access$000(Lcom/android/server/am/ActiveServices;Lcom/android/server/am/ServiceRecord;IZZZZZ)Ljava/lang/String;
+    invoke-static/range {v3 .. v10}, Lcom/android/server/am/ActiveServices;->-$$Nest$mbringUpServiceLocked(Lcom/android/server/am/ActiveServices;Lcom/android/server/am/ServiceRecord;IZZZZZ)Ljava/lang/String;
     :try_end_4
     .catch Landroid/os/RemoteException; {:try_start_4 .. :try_end_4} :catch_0
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
     :try_start_5
-    iget-object v3, p0, Lcom/android/server/am/ActiveServices$2;->this$0:Lcom/android/server/am/ActiveServices;
+    iget-object p0, p0, Lcom/android/server/am/ActiveServices$2;->this$0:Lcom/android/server/am/ActiveServices;
 
-    iget-object v3, v3, Lcom/android/server/am/ActiveServices;->mAm:Lcom/android/server/am/ActivityManagerService;
+    iget-object p0, p0, Lcom/android/server/am/ActiveServices;->mAm:Lcom/android/server/am/ActivityManagerService;
 
-    const-string/jumbo v4, "updateOomAdj_startService"
-
-    goto :goto_0
-
-    :catchall_0
-    move-exception v3
-
-    iget-object v4, p0, Lcom/android/server/am/ActiveServices$2;->this$0:Lcom/android/server/am/ActiveServices;
-
-    iget-object v4, v4, Lcom/android/server/am/ActiveServices;->mAm:Lcom/android/server/am/ActivityManagerService;
-
-    const-string/jumbo v5, "updateOomAdj_startService"
-
-    invoke-virtual {v4, v5}, Lcom/android/server/am/ActivityManagerService;->updateOomAdjPendingTargetsLocked(Ljava/lang/String;)V
-
-    nop
-
-    throw v3
-
-    :catch_0
-    move-exception v3
-
-    iget-object v3, p0, Lcom/android/server/am/ActiveServices$2;->this$0:Lcom/android/server/am/ActiveServices;
-
-    iget-object v3, v3, Lcom/android/server/am/ActiveServices;->mAm:Lcom/android/server/am/ActivityManagerService;
-
-    const-string/jumbo v4, "updateOomAdj_startService"
+    const-string/jumbo v2, "updateOomAdj_startService"
 
     :goto_0
-    invoke-virtual {v3, v4}, Lcom/android/server/am/ActivityManagerService;->updateOomAdjPendingTargetsLocked(Ljava/lang/String;)V
+    invoke-virtual {p0, v2}, Lcom/android/server/am/ActivityManagerService;->updateOomAdjPendingTargetsLocked(Ljava/lang/String;)V
 
     goto :goto_1
 
+    :catchall_0
+    move-exception v2
+
+    iget-object p0, p0, Lcom/android/server/am/ActiveServices$2;->this$0:Lcom/android/server/am/ActiveServices;
+
+    iget-object p0, p0, Lcom/android/server/am/ActiveServices;->mAm:Lcom/android/server/am/ActivityManagerService;
+
+    const-string/jumbo v3, "updateOomAdj_startService"
+
+    invoke-virtual {p0, v3}, Lcom/android/server/am/ActivityManagerService;->updateOomAdjPendingTargetsLocked(Ljava/lang/String;)V
+
+    throw v2
+
+    :catch_0
+    iget-object p0, p0, Lcom/android/server/am/ActiveServices$2;->this$0:Lcom/android/server/am/ActiveServices;
+
+    iget-object p0, p0, Lcom/android/server/am/ActiveServices;->mAm:Lcom/android/server/am/ActivityManagerService;
+
+    const-string/jumbo v2, "updateOomAdj_startService"
+
+    goto :goto_0
+
     :cond_1
-    iget-object v3, p0, Lcom/android/server/am/ActiveServices$2;->this$0:Lcom/android/server/am/ActiveServices;
+    iget-object v2, p0, Lcom/android/server/am/ActiveServices$2;->this$0:Lcom/android/server/am/ActiveServices;
 
-    iget-object v4, p0, Lcom/android/server/am/ActiveServices$2;->val$connection:Landroid/app/IServiceConnection;
+    iget-object p0, p0, Lcom/android/server/am/ActiveServices$2;->val$connection:Landroid/app/IServiceConnection;
 
-    invoke-virtual {v3, v4}, Lcom/android/server/am/ActiveServices;->unbindServiceLocked(Landroid/app/IServiceConnection;)Z
+    invoke-virtual {v2, p0}, Lcom/android/server/am/ActiveServices;->unbindServiceLocked(Landroid/app/IServiceConnection;)Z
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_1
 
     :goto_1
     :try_start_6
-    invoke-static {v1, v2}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    nop
-
-    monitor-exit v0
+    monitor-exit p1
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_2
 
@@ -208,23 +200,21 @@
     return-void
 
     :catchall_1
-    move-exception v3
+    move-exception p0
 
     :try_start_7
-    invoke-static {v1, v2}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    nop
-
-    throw v3
+    throw p0
 
     :catchall_2
-    move-exception v1
+    move-exception p0
 
-    monitor-exit v0
+    monitor-exit p1
     :try_end_7
     .catchall {:try_start_7 .. :try_end_7} :catchall_2
 
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
 
-    throw v1
+    throw p0
 .end method

@@ -1,21 +1,26 @@
 .class public final synthetic Lcom/android/server/display/DisplayManagerService$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/server/display/DisplayManagerService;
+.field public final synthetic f$0:Ljava/io/PrintWriter;
+
+.field public final synthetic f$1:Lcom/android/internal/util/IndentingPrintWriter;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/display/DisplayManagerService;)V
+.method public synthetic constructor <init>(Ljava/io/PrintWriter;Lcom/android/internal/util/IndentingPrintWriter;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/display/DisplayManagerService$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/display/DisplayManagerService;
+    iput-object p1, p0, Lcom/android/server/display/DisplayManagerService$$ExternalSyntheticLambda2;->f$0:Ljava/io/PrintWriter;
+
+    iput-object p2, p0, Lcom/android/server/display/DisplayManagerService$$ExternalSyntheticLambda2;->f$1:Lcom/android/internal/util/IndentingPrintWriter;
 
     return-void
 .end method
@@ -25,11 +30,13 @@
 .method public final accept(Ljava/lang/Object;)V
     .locals 1
 
-    iget-object v0, p0, Lcom/android/server/display/DisplayManagerService$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/display/DisplayManagerService;
+    iget-object v0, p0, Lcom/android/server/display/DisplayManagerService$$ExternalSyntheticLambda2;->f$0:Ljava/io/PrintWriter;
 
-    check-cast p1, Lcom/android/server/display/LogicalDisplay;
+    iget-object p0, p0, Lcom/android/server/display/DisplayManagerService$$ExternalSyntheticLambda2;->f$1:Lcom/android/internal/util/IndentingPrintWriter;
 
-    invoke-static {v0, p1}, Lcom/android/server/display/DisplayManagerService;->$r8$lambda$blkD86Pa3eTp0bxU70Yrbd3ywUQ(Lcom/android/server/display/DisplayManagerService;Lcom/android/server/display/LogicalDisplay;)V
+    check-cast p1, Lcom/android/server/display/DisplayDevice;
+
+    invoke-static {v0, p0, p1}, Lcom/android/server/display/DisplayManagerService;->$r8$lambda$CX2HLSgGwLuOIgIZn5MNc8IhMXg(Ljava/io/PrintWriter;Lcom/android/internal/util/IndentingPrintWriter;Lcom/android/server/display/DisplayDevice;)V
 
     return-void
 .end method

@@ -1,34 +1,24 @@
-.class final Lcom/android/server/am/BackupRecord;
+.class public final Lcom/android/server/am/BackupRecord;
 .super Ljava/lang/Object;
 .source "BackupRecord.java"
 
 
-# static fields
-.field public static final BACKUP_FULL:I = 0x1
-
-.field public static final BACKUP_NORMAL:I = 0x0
-
-.field public static final RESTORE:I = 0x2
-
-.field public static final RESTORE_FULL:I = 0x3
-
-
 # instance fields
-.field app:Lcom/android/server/am/ProcessRecord;
+.field public app:Lcom/android/server/am/ProcessRecord;
 
-.field final appInfo:Landroid/content/pm/ApplicationInfo;
+.field public final appInfo:Landroid/content/pm/ApplicationInfo;
 
-.field final backupMode:I
+.field public final backupMode:I
 
-.field final operationType:I
+.field public final operationType:I
 
-.field stringName:Ljava/lang/String;
+.field public stringName:Ljava/lang/String;
 
-.field final userId:I
+.field public final userId:I
 
 
 # direct methods
-.method constructor <init>(Landroid/content/pm/ApplicationInfo;III)V
+.method public constructor <init>(Landroid/content/pm/ApplicationInfo;III)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -108,9 +98,9 @@
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    iput-object v1, p0, Lcom/android/server/am/BackupRecord;->stringName:Ljava/lang/String;
+    iput-object v0, p0, Lcom/android/server/am/BackupRecord;->stringName:Ljava/lang/String;
 
-    return-object v1
+    return-object v0
 .end method

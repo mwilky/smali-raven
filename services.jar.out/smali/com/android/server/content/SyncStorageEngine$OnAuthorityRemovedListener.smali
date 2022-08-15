@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/server/content/SyncStorageEngine$OnAuthorityRemovedListener;
+.class public interface abstract Lcom/android/server/content/SyncStorageEngine$OnAuthorityRemovedListener;
 .super Ljava/lang/Object;
 .source "SyncStorageEngine.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
+    accessFlags = 0x609
     name = "OnAuthorityRemovedListener"
 .end annotation
 

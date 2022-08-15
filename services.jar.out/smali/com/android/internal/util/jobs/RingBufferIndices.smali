@@ -4,11 +4,11 @@
 
 
 # instance fields
-.field private final mCapacity:I
+.field public final mCapacity:I
 
-.field private mSize:I
+.field public mSize:I
 
-.field private mStart:I
+.field public mStart:I
 
 
 # direct methods
@@ -33,20 +33,16 @@
 
     if-ge v0, v1, :cond_0
 
-    iget v1, p0, Lcom/android/internal/util/jobs/RingBufferIndices;->mSize:I
+    add-int/lit8 v1, v0, 0x1
 
-    add-int/lit8 v0, v0, 0x1
+    iput v1, p0, Lcom/android/internal/util/jobs/RingBufferIndices;->mSize:I
 
-    iput v0, p0, Lcom/android/internal/util/jobs/RingBufferIndices;->mSize:I
-
-    return v1
+    return v0
 
     :cond_0
     iget v0, p0, Lcom/android/internal/util/jobs/RingBufferIndices;->mStart:I
 
-    iget v2, p0, Lcom/android/internal/util/jobs/RingBufferIndices;->mStart:I
-
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v2, v0, 0x1
 
     iput v2, p0, Lcom/android/internal/util/jobs/RingBufferIndices;->mStart:I
 
@@ -73,26 +69,26 @@
 .end method
 
 .method public indexOf(I)I
-    .locals 2
+    .locals 1
 
     iget v0, p0, Lcom/android/internal/util/jobs/RingBufferIndices;->mStart:I
 
     add-int/2addr v0, p1
 
-    iget v1, p0, Lcom/android/internal/util/jobs/RingBufferIndices;->mCapacity:I
+    iget p0, p0, Lcom/android/internal/util/jobs/RingBufferIndices;->mCapacity:I
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, p0, :cond_0
 
-    sub-int/2addr v0, v1
+    sub-int/2addr v0, p0
 
     :cond_0
     return v0
 .end method
 
 .method public size()I
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/internal/util/jobs/RingBufferIndices;->mSize:I
+    iget p0, p0, Lcom/android/internal/util/jobs/RingBufferIndices;->mSize:I
 
-    return v0
+    return p0
 .end method

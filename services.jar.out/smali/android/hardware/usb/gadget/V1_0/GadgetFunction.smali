@@ -37,27 +37,28 @@
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    const-wide/16 v1, 0x0
+    const-string v1, "NONE"
 
-    const-string v3, "NONE"
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-wide/16 v1, 0x1
+
+    and-long v3, p0, v1
+
+    cmp-long v3, v3, v1
+
+    if-nez v3, :cond_0
+
+    const-string v3, "ADB"
 
     invoke-virtual {v0, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const-wide/16 v3, 0x1
-
-    and-long v5, p0, v3
-
-    cmp-long v5, v5, v3
-
-    if-nez v5, :cond_0
-
-    const-string v5, "ADB"
-
-    invoke-virtual {v0, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    or-long/2addr v1, v3
+    goto :goto_0
 
     :cond_0
+    const-wide/16 v1, 0x0
+
+    :goto_0
     const-wide/16 v3, 0x2
 
     and-long v5, p0, v3
@@ -160,30 +161,30 @@
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    not-long v4, v1
+    not-long v1, v1
 
-    and-long/2addr v4, p0
+    and-long/2addr p0, v1
 
-    invoke-static {v4, v5}, Ljava/lang/Long;->toHexString(J)Ljava/lang/String;
+    invoke-static {p0, p1}, Ljava/lang/Long;->toHexString(J)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object p0
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p0
 
-    invoke-virtual {v0, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     :cond_7
-    const-string v3, " | "
+    const-string p0, " | "
 
-    invoke-static {v3, v0}, Ljava/lang/String;->join(Ljava/lang/CharSequence;Ljava/lang/Iterable;)Ljava/lang/String;
+    invoke-static {p0, v0}, Ljava/lang/String;->join(Ljava/lang/CharSequence;Ljava/lang/Iterable;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p0
 
-    return-object v3
+    return-object p0
 .end method
 
 .method public static final toString(J)Ljava/lang/String;
@@ -195,9 +196,9 @@
 
     if-nez v0, :cond_0
 
-    const-string v0, "NONE"
+    const-string p0, "NONE"
 
-    return-object v0
+    return-object p0
 
     :cond_0
     const-wide/16 v0, 0x1
@@ -206,9 +207,9 @@
 
     if-nez v0, :cond_1
 
-    const-string v0, "ADB"
+    const-string p0, "ADB"
 
-    return-object v0
+    return-object p0
 
     :cond_1
     const-wide/16 v0, 0x2
@@ -217,9 +218,9 @@
 
     if-nez v0, :cond_2
 
-    const-string v0, "ACCESSORY"
+    const-string p0, "ACCESSORY"
 
-    return-object v0
+    return-object p0
 
     :cond_2
     const-wide/16 v0, 0x4
@@ -228,9 +229,9 @@
 
     if-nez v0, :cond_3
 
-    const-string v0, "MTP"
+    const-string p0, "MTP"
 
-    return-object v0
+    return-object p0
 
     :cond_3
     const-wide/16 v0, 0x8
@@ -239,9 +240,9 @@
 
     if-nez v0, :cond_4
 
-    const-string v0, "MIDI"
+    const-string p0, "MIDI"
 
-    return-object v0
+    return-object p0
 
     :cond_4
     const-wide/16 v0, 0x10
@@ -250,9 +251,9 @@
 
     if-nez v0, :cond_5
 
-    const-string v0, "PTP"
+    const-string p0, "PTP"
 
-    return-object v0
+    return-object p0
 
     :cond_5
     const-wide/16 v0, 0x20
@@ -261,9 +262,9 @@
 
     if-nez v0, :cond_6
 
-    const-string v0, "RNDIS"
+    const-string p0, "RNDIS"
 
-    return-object v0
+    return-object p0
 
     :cond_6
     const-wide/16 v0, 0x40
@@ -272,9 +273,9 @@
 
     if-nez v0, :cond_7
 
-    const-string v0, "AUDIO_SOURCE"
+    const-string p0, "AUDIO_SOURCE"
 
-    return-object v0
+    return-object p0
 
     :cond_7
     new-instance v0, Ljava/lang/StringBuilder;
@@ -287,13 +288,13 @@
 
     invoke-static {p0, p1}, Ljava/lang/Long;->toHexString(J)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

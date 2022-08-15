@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/location/gnss/GnssListenerMultiplexer$$ExternalSyntheticLambda9;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Predicate;
@@ -8,18 +9,14 @@
 # instance fields
 .field public final synthetic f$0:I
 
-.field public final synthetic f$1:Z
-
 
 # direct methods
-.method public synthetic constructor <init>(IZ)V
+.method public synthetic constructor <init>(I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput p1, p0, Lcom/android/server/location/gnss/GnssListenerMultiplexer$$ExternalSyntheticLambda9;->f$0:I
-
-    iput-boolean p2, p0, Lcom/android/server/location/gnss/GnssListenerMultiplexer$$ExternalSyntheticLambda9;->f$1:Z
 
     return-void
 .end method
@@ -27,17 +24,15 @@
 
 # virtual methods
 .method public final test(Ljava/lang/Object;)Z
-    .locals 2
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/location/gnss/GnssListenerMultiplexer$$ExternalSyntheticLambda9;->f$0:I
-
-    iget-boolean v1, p0, Lcom/android/server/location/gnss/GnssListenerMultiplexer$$ExternalSyntheticLambda9;->f$1:Z
+    iget p0, p0, Lcom/android/server/location/gnss/GnssListenerMultiplexer$$ExternalSyntheticLambda9;->f$0:I
 
     check-cast p1, Lcom/android/server/location/gnss/GnssListenerMultiplexer$GnssListenerRegistration;
 
-    invoke-static {v0, v1, p1}, Lcom/android/server/location/gnss/GnssListenerMultiplexer;->lambda$onAppForegroundChanged$6(IZLcom/android/server/location/gnss/GnssListenerMultiplexer$GnssListenerRegistration;)Z
+    invoke-static {p0, p1}, Lcom/android/server/location/gnss/GnssListenerMultiplexer;->$r8$lambda$t-xQw-_5X0NjngkF5eKY2fL7p44(ILcom/android/server/location/gnss/GnssListenerMultiplexer$GnssListenerRegistration;)Z
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method

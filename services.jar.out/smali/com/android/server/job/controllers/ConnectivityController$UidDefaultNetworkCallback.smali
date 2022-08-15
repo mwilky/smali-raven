@@ -1,4 +1,4 @@
-.class Lcom/android/server/job/controllers/ConnectivityController$UidDefaultNetworkCallback;
+.class public Lcom/android/server/job/controllers/ConnectivityController$UidDefaultNetworkCallback;
 .super Landroid/net/ConnectivityManager$NetworkCallback;
 .source "ConnectivityController.java"
 
@@ -9,23 +9,71 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "UidDefaultNetworkCallback"
 .end annotation
 
 
 # instance fields
-.field private mBlockedReasons:I
+.field public mBlockedReasons:I
 
-.field private mDefaultNetwork:Landroid/net/Network;
+.field public mDefaultNetwork:Landroid/net/Network;
 
-.field private mUid:I
+.field public mUid:I
 
-.field final synthetic this$0:Lcom/android/server/job/controllers/ConnectivityController;
+.field public final synthetic this$0:Lcom/android/server/job/controllers/ConnectivityController;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/server/job/controllers/ConnectivityController;)V
+.method public static bridge synthetic -$$Nest$fgetmBlockedReasons(Lcom/android/server/job/controllers/ConnectivityController$UidDefaultNetworkCallback;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/server/job/controllers/ConnectivityController$UidDefaultNetworkCallback;->mBlockedReasons:I
+
+    return p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmDefaultNetwork(Lcom/android/server/job/controllers/ConnectivityController$UidDefaultNetworkCallback;)Landroid/net/Network;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/job/controllers/ConnectivityController$UidDefaultNetworkCallback;->mDefaultNetwork:Landroid/net/Network;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fputmDefaultNetwork(Lcom/android/server/job/controllers/ConnectivityController$UidDefaultNetworkCallback;Landroid/net/Network;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/server/job/controllers/ConnectivityController$UidDefaultNetworkCallback;->mDefaultNetwork:Landroid/net/Network;
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$mclear(Lcom/android/server/job/controllers/ConnectivityController$UidDefaultNetworkCallback;)V
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/server/job/controllers/ConnectivityController$UidDefaultNetworkCallback;->clear()V
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$mdumpLocked(Lcom/android/server/job/controllers/ConnectivityController$UidDefaultNetworkCallback;Landroid/util/IndentingPrintWriter;)V
+    .locals 0
+
+    invoke-virtual {p0, p1}, Lcom/android/server/job/controllers/ConnectivityController$UidDefaultNetworkCallback;->dumpLocked(Landroid/util/IndentingPrintWriter;)V
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$msetUid(Lcom/android/server/job/controllers/ConnectivityController$UidDefaultNetworkCallback;I)V
+    .locals 0
+
+    invoke-virtual {p0, p1}, Lcom/android/server/job/controllers/ConnectivityController$UidDefaultNetworkCallback;->setUid(I)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Lcom/android/server/job/controllers/ConnectivityController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/job/controllers/ConnectivityController$UidDefaultNetworkCallback;->this$0:Lcom/android/server/job/controllers/ConnectivityController;
@@ -35,7 +83,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/job/controllers/ConnectivityController;Lcom/android/server/job/controllers/ConnectivityController$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/job/controllers/ConnectivityController;Lcom/android/server/job/controllers/ConnectivityController$UidDefaultNetworkCallback-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/job/controllers/ConnectivityController$UidDefaultNetworkCallback;-><init>(Lcom/android/server/job/controllers/ConnectivityController;)V
@@ -43,55 +91,9 @@
     return-void
 .end method
 
-.method static synthetic access$1300(Lcom/android/server/job/controllers/ConnectivityController$UidDefaultNetworkCallback;Landroid/util/IndentingPrintWriter;)V
-    .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/server/job/controllers/ConnectivityController$UidDefaultNetworkCallback;->dumpLocked(Landroid/util/IndentingPrintWriter;)V
-
-    return-void
-.end method
-
-.method static synthetic access$200(Lcom/android/server/job/controllers/ConnectivityController$UidDefaultNetworkCallback;I)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/server/job/controllers/ConnectivityController$UidDefaultNetworkCallback;->setUid(I)V
-
-    return-void
-.end method
-
-.method static synthetic access$300(Lcom/android/server/job/controllers/ConnectivityController$UidDefaultNetworkCallback;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/server/job/controllers/ConnectivityController$UidDefaultNetworkCallback;->clear()V
-
-    return-void
-.end method
-
-.method static synthetic access$400(Lcom/android/server/job/controllers/ConnectivityController$UidDefaultNetworkCallback;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/server/job/controllers/ConnectivityController$UidDefaultNetworkCallback;->mBlockedReasons:I
-
-    return v0
-.end method
-
-.method static synthetic access$500(Lcom/android/server/job/controllers/ConnectivityController$UidDefaultNetworkCallback;)Landroid/net/Network;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/job/controllers/ConnectivityController$UidDefaultNetworkCallback;->mDefaultNetwork:Landroid/net/Network;
-
-    return-object v0
-.end method
-
-.method static synthetic access$502(Lcom/android/server/job/controllers/ConnectivityController$UidDefaultNetworkCallback;Landroid/net/Network;)Landroid/net/Network;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/server/job/controllers/ConnectivityController$UidDefaultNetworkCallback;->mDefaultNetwork:Landroid/net/Network;
-
-    return-object p1
-.end method
-
-.method private clear()V
+# virtual methods
+.method public final clear()V
     .locals 1
 
     const/4 v0, 0x0
@@ -105,7 +107,7 @@
     return-void
 .end method
 
-.method private dumpLocked(Landroid/util/IndentingPrintWriter;)V
+.method public final dumpLocked(Landroid/util/IndentingPrintWriter;)V
     .locals 1
 
     const-string v0, "UID: "
@@ -124,9 +126,9 @@
 
     if-nez v0, :cond_0
 
-    const-string v0, "No network"
+    const-string p0, "No network"
 
-    invoke-virtual {p1, v0}, Landroid/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
+    invoke-virtual {p1, p0}, Landroid/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
 
     goto :goto_0
 
@@ -143,17 +145,17 @@
 
     invoke-virtual {p1, v0}, Landroid/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
 
-    iget v0, p0, Lcom/android/server/job/controllers/ConnectivityController$UidDefaultNetworkCallback;->mBlockedReasons:I
+    iget p0, p0, Lcom/android/server/job/controllers/ConnectivityController$UidDefaultNetworkCallback;->mBlockedReasons:I
 
-    invoke-static {v0}, Landroid/net/NetworkPolicyManager;->blockedReasonsToString(I)Ljava/lang/String;
+    invoke-static {p0}, Landroid/net/NetworkPolicyManager;->blockedReasonsToString(I)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {p1, v0}, Landroid/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
+    invoke-virtual {p1, p0}, Landroid/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
 
-    const-string v0, ")"
+    const-string p0, ")"
 
-    invoke-virtual {p1, v0}, Landroid/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
+    invoke-virtual {p1, p0}, Landroid/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
 
     :goto_0
     invoke-virtual {p1}, Landroid/util/IndentingPrintWriter;->println()V
@@ -161,24 +163,10 @@
     return-void
 .end method
 
-.method private setUid(I)V
-    .locals 1
-
-    iput p1, p0, Lcom/android/server/job/controllers/ConnectivityController$UidDefaultNetworkCallback;->mUid:I
-
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/android/server/job/controllers/ConnectivityController$UidDefaultNetworkCallback;->mDefaultNetwork:Landroid/net/Network;
-
-    return-void
-.end method
-
-
-# virtual methods
 .method public onAvailable(Landroid/net/Network;)V
     .locals 2
 
-    invoke-static {}, Lcom/android/server/job/controllers/ConnectivityController;->access$700()Z
+    invoke-static {}, Lcom/android/server/job/controllers/ConnectivityController;->-$$Nest$sfgetDEBUG()Z
 
     move-result v0
 
@@ -192,23 +180,23 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v1, p0, Lcom/android/server/job/controllers/ConnectivityController$UidDefaultNetworkCallback;->mUid:I
+    iget p0, p0, Lcom/android/server/job/controllers/ConnectivityController$UidDefaultNetworkCallback;->mUid:I
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v1, "): "
+    const-string p0, "): "
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    const-string v1, "JobScheduler.Connectivity"
+    const-string p1, "JobScheduler.Connectivity"
 
-    invoke-static {v1, v0}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p1, p0}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
     return-void
@@ -217,7 +205,7 @@
 .method public onBlockedStatusChanged(Landroid/net/Network;I)V
     .locals 3
 
-    invoke-static {}, Lcom/android/server/job/controllers/ConnectivityController;->access$700()Z
+    invoke-static {}, Lcom/android/server/job/controllers/ConnectivityController;->-$$Nest$sfgetDEBUG()Z
 
     move-result v0
 
@@ -267,7 +255,7 @@
     :cond_1
     iget-object v0, p0, Lcom/android/server/job/controllers/ConnectivityController$UidDefaultNetworkCallback;->this$0:Lcom/android/server/job/controllers/ConnectivityController;
 
-    iget-object v0, v0, Lcom/android/server/job/controllers/ConnectivityController;->mLock:Ljava/lang/Object;
+    iget-object v0, v0, Lcom/android/server/job/controllers/StateController;->mLock:Ljava/lang/Object;
 
     monitor-enter v0
 
@@ -276,30 +264,30 @@
 
     iput p2, p0, Lcom/android/server/job/controllers/ConnectivityController$UidDefaultNetworkCallback;->mBlockedReasons:I
 
-    iget-object v1, p0, Lcom/android/server/job/controllers/ConnectivityController$UidDefaultNetworkCallback;->this$0:Lcom/android/server/job/controllers/ConnectivityController;
+    iget-object p2, p0, Lcom/android/server/job/controllers/ConnectivityController$UidDefaultNetworkCallback;->this$0:Lcom/android/server/job/controllers/ConnectivityController;
 
-    iget v2, p0, Lcom/android/server/job/controllers/ConnectivityController$UidDefaultNetworkCallback;->mUid:I
+    iget p0, p0, Lcom/android/server/job/controllers/ConnectivityController$UidDefaultNetworkCallback;->mUid:I
 
-    invoke-static {v1, v2, p1}, Lcom/android/server/job/controllers/ConnectivityController;->access$600(Lcom/android/server/job/controllers/ConnectivityController;ILandroid/net/Network;)V
+    invoke-static {p2, p0, p1}, Lcom/android/server/job/controllers/ConnectivityController;->-$$Nest$mupdateTrackedJobsLocked(Lcom/android/server/job/controllers/ConnectivityController;ILandroid/net/Network;)V
 
     monitor-exit v0
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
 .method public onLost(Landroid/net/Network;)V
-    .locals 4
+    .locals 3
 
-    invoke-static {}, Lcom/android/server/job/controllers/ConnectivityController;->access$700()Z
+    invoke-static {}, Lcom/android/server/job/controllers/ConnectivityController;->-$$Nest$sfgetDEBUG()Z
 
     move-result v0
 
@@ -343,7 +331,7 @@
     :cond_1
     iget-object v0, p0, Lcom/android/server/job/controllers/ConnectivityController$UidDefaultNetworkCallback;->this$0:Lcom/android/server/job/controllers/ConnectivityController;
 
-    iget-object v0, v0, Lcom/android/server/job/controllers/ConnectivityController;->mLock:Ljava/lang/Object;
+    iget-object v0, v0, Lcom/android/server/job/controllers/StateController;->mLock:Ljava/lang/Object;
 
     monitor-enter v0
 
@@ -364,13 +352,13 @@
 
     iget v2, p0, Lcom/android/server/job/controllers/ConnectivityController$UidDefaultNetworkCallback;->mUid:I
 
-    invoke-static {v1, v2, p1}, Lcom/android/server/job/controllers/ConnectivityController;->access$600(Lcom/android/server/job/controllers/ConnectivityController;ILandroid/net/Network;)V
+    invoke-static {v1, v2, p1}, Lcom/android/server/job/controllers/ConnectivityController;->-$$Nest$mupdateTrackedJobsLocked(Lcom/android/server/job/controllers/ConnectivityController;ILandroid/net/Network;)V
 
-    iget-object v1, p0, Lcom/android/server/job/controllers/ConnectivityController$UidDefaultNetworkCallback;->this$0:Lcom/android/server/job/controllers/ConnectivityController;
+    iget-object p0, p0, Lcom/android/server/job/controllers/ConnectivityController$UidDefaultNetworkCallback;->this$0:Lcom/android/server/job/controllers/ConnectivityController;
 
-    const-wide/16 v2, 0x3e8
+    const-wide/16 v1, 0x3e8
 
-    invoke-static {v1, v2, v3}, Lcom/android/server/job/controllers/ConnectivityController;->access$1200(Lcom/android/server/job/controllers/ConnectivityController;J)V
+    invoke-static {p0, v1, v2}, Lcom/android/server/job/controllers/ConnectivityController;->-$$Nest$mpostAdjustCallbacks(Lcom/android/server/job/controllers/ConnectivityController;J)V
 
     :cond_2
     monitor-exit v0
@@ -378,11 +366,23 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
+.end method
+
+.method public final setUid(I)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/server/job/controllers/ConnectivityController$UidDefaultNetworkCallback;->mUid:I
+
+    const/4 p1, 0x0
+
+    iput-object p1, p0, Lcom/android/server/job/controllers/ConnectivityController$UidDefaultNetworkCallback;->mDefaultNetwork:Landroid/net/Network;
+
+    return-void
 .end method

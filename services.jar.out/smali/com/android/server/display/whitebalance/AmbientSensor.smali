@@ -1,4 +1,4 @@
-.class abstract Lcom/android/server/display/whitebalance/AmbientSensor;
+.class public abstract Lcom/android/server/display/whitebalance/AmbientSensor;
 .super Ljava/lang/Object;
 .source "AmbientSensor.java"
 
@@ -12,35 +12,39 @@
 .end annotation
 
 
-# static fields
-.field private static final HISTORY_SIZE:I = 0x32
-
-
 # instance fields
-.field private mEnabled:Z
+.field public mEnabled:Z
 
-.field private mEventsCount:I
+.field public mEventsCount:I
 
-.field private mEventsHistory:Lcom/android/server/display/utils/History;
+.field public mEventsHistory:Lcom/android/server/display/utils/History;
 
-.field private final mHandler:Landroid/os/Handler;
+.field public final mHandler:Landroid/os/Handler;
 
-.field private mListener:Landroid/hardware/SensorEventListener;
+.field public mListener:Landroid/hardware/SensorEventListener;
 
-.field protected mLoggingEnabled:Z
+.field public mLoggingEnabled:Z
 
-.field private mRate:I
+.field public mRate:I
 
-.field protected mSensor:Landroid/hardware/Sensor;
+.field public mSensor:Landroid/hardware/Sensor;
 
-.field protected final mSensorManager:Landroid/hardware/SensorManager;
+.field public final mSensorManager:Landroid/hardware/SensorManager;
 
-.field protected mTag:Ljava/lang/String;
+.field public mTag:Ljava/lang/String;
 
 
 # direct methods
-.method constructor <init>(Ljava/lang/String;Landroid/os/Handler;Landroid/hardware/SensorManager;I)V
-    .locals 2
+.method public static bridge synthetic -$$Nest$mhandleNewEvent(Lcom/android/server/display/whitebalance/AmbientSensor;F)V
+    .locals 0
+
+    invoke-virtual {p0, p1}, Lcom/android/server/display/whitebalance/AmbientSensor;->handleNewEvent(F)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Ljava/lang/String;Landroid/os/Handler;Landroid/hardware/SensorManager;I)V
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -54,40 +58,59 @@
 
     iput-object p1, p0, Lcom/android/server/display/whitebalance/AmbientSensor;->mTag:Ljava/lang/String;
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput-boolean v0, p0, Lcom/android/server/display/whitebalance/AmbientSensor;->mLoggingEnabled:Z
+    iput-boolean p1, p0, Lcom/android/server/display/whitebalance/AmbientSensor;->mLoggingEnabled:Z
 
     iput-object p2, p0, Lcom/android/server/display/whitebalance/AmbientSensor;->mHandler:Landroid/os/Handler;
 
     iput-object p3, p0, Lcom/android/server/display/whitebalance/AmbientSensor;->mSensorManager:Landroid/hardware/SensorManager;
 
-    iput-boolean v0, p0, Lcom/android/server/display/whitebalance/AmbientSensor;->mEnabled:Z
+    iput-boolean p1, p0, Lcom/android/server/display/whitebalance/AmbientSensor;->mEnabled:Z
 
     iput p4, p0, Lcom/android/server/display/whitebalance/AmbientSensor;->mRate:I
 
-    iput v0, p0, Lcom/android/server/display/whitebalance/AmbientSensor;->mEventsCount:I
+    iput p1, p0, Lcom/android/server/display/whitebalance/AmbientSensor;->mEventsCount:I
 
-    new-instance v0, Lcom/android/server/display/utils/History;
+    new-instance p1, Lcom/android/server/display/utils/History;
 
-    const/16 v1, 0x32
+    const/16 p2, 0x32
 
-    invoke-direct {v0, v1}, Lcom/android/server/display/utils/History;-><init>(I)V
+    invoke-direct {p1, p2}, Lcom/android/server/display/utils/History;-><init>(I)V
 
-    iput-object v0, p0, Lcom/android/server/display/whitebalance/AmbientSensor;->mEventsHistory:Lcom/android/server/display/utils/History;
-
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/server/display/whitebalance/AmbientSensor;F)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/server/display/whitebalance/AmbientSensor;->handleNewEvent(F)V
+    iput-object p1, p0, Lcom/android/server/display/whitebalance/AmbientSensor;->mEventsHistory:Lcom/android/server/display/utils/History;
 
     return-void
 .end method
 
-.method private disable()Z
+.method public static validateArguments(Landroid/os/Handler;Landroid/hardware/SensorManager;I)V
+    .locals 1
+
+    const-string v0, "handler cannot be null"
+
+    invoke-static {p0, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+
+    const-string/jumbo p0, "sensorManager cannot be null"
+
+    invoke-static {p1, p0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+
+    if-lez p2, :cond_0
+
+    return-void
+
+    :cond_0
+    new-instance p0, Ljava/lang/IllegalArgumentException;
+
+    const-string/jumbo p1, "rate must be positive"
+
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+.end method
+
+
+# virtual methods
+.method public final disable()Z
     .locals 3
 
     iget-boolean v0, p0, Lcom/android/server/display/whitebalance/AmbientSensor;->mEnabled:Z
@@ -114,162 +137,13 @@
 
     iput v1, p0, Lcom/android/server/display/whitebalance/AmbientSensor;->mEventsCount:I
 
-    invoke-direct {p0}, Lcom/android/server/display/whitebalance/AmbientSensor;->stopListening()V
+    invoke-virtual {p0}, Lcom/android/server/display/whitebalance/AmbientSensor;->stopListening()V
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 .end method
 
-.method private enable()Z
-    .locals 2
-
-    iget-boolean v0, p0, Lcom/android/server/display/whitebalance/AmbientSensor;->mEnabled:Z
-
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x0
-
-    return v0
-
-    :cond_0
-    iget-boolean v0, p0, Lcom/android/server/display/whitebalance/AmbientSensor;->mLoggingEnabled:Z
-
-    if-eqz v0, :cond_1
-
-    iget-object v0, p0, Lcom/android/server/display/whitebalance/AmbientSensor;->mTag:Ljava/lang/String;
-
-    const-string v1, "enabling"
-
-    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_1
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/android/server/display/whitebalance/AmbientSensor;->mEnabled:Z
-
-    invoke-direct {p0}, Lcom/android/server/display/whitebalance/AmbientSensor;->startListening()V
-
-    return v0
-.end method
-
-.method private handleNewEvent(F)V
-    .locals 3
-
-    iget-boolean v0, p0, Lcom/android/server/display/whitebalance/AmbientSensor;->mEnabled:Z
-
-    if-nez v0, :cond_0
-
-    return-void
-
-    :cond_0
-    iget-boolean v0, p0, Lcom/android/server/display/whitebalance/AmbientSensor;->mLoggingEnabled:Z
-
-    if-eqz v0, :cond_1
-
-    iget-object v0, p0, Lcom/android/server/display/whitebalance/AmbientSensor;->mTag:Ljava/lang/String;
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "handle new event: "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_1
-    iget v0, p0, Lcom/android/server/display/whitebalance/AmbientSensor;->mEventsCount:I
-
-    add-int/lit8 v0, v0, 0x1
-
-    iput v0, p0, Lcom/android/server/display/whitebalance/AmbientSensor;->mEventsCount:I
-
-    iget-object v0, p0, Lcom/android/server/display/whitebalance/AmbientSensor;->mEventsHistory:Lcom/android/server/display/utils/History;
-
-    invoke-virtual {v0, p1}, Lcom/android/server/display/utils/History;->add(F)V
-
-    invoke-virtual {p0, p1}, Lcom/android/server/display/whitebalance/AmbientSensor;->update(F)V
-
-    return-void
-.end method
-
-.method private startListening()V
-    .locals 5
-
-    iget-object v0, p0, Lcom/android/server/display/whitebalance/AmbientSensor;->mSensorManager:Landroid/hardware/SensorManager;
-
-    if-nez v0, :cond_0
-
-    return-void
-
-    :cond_0
-    iget-object v1, p0, Lcom/android/server/display/whitebalance/AmbientSensor;->mListener:Landroid/hardware/SensorEventListener;
-
-    iget-object v2, p0, Lcom/android/server/display/whitebalance/AmbientSensor;->mSensor:Landroid/hardware/Sensor;
-
-    iget v3, p0, Lcom/android/server/display/whitebalance/AmbientSensor;->mRate:I
-
-    mul-int/lit16 v3, v3, 0x3e8
-
-    iget-object v4, p0, Lcom/android/server/display/whitebalance/AmbientSensor;->mHandler:Landroid/os/Handler;
-
-    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/hardware/SensorManager;->registerListener(Landroid/hardware/SensorEventListener;Landroid/hardware/Sensor;ILandroid/os/Handler;)Z
-
-    return-void
-.end method
-
-.method private stopListening()V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/server/display/whitebalance/AmbientSensor;->mSensorManager:Landroid/hardware/SensorManager;
-
-    if-nez v0, :cond_0
-
-    return-void
-
-    :cond_0
-    iget-object v1, p0, Lcom/android/server/display/whitebalance/AmbientSensor;->mListener:Landroid/hardware/SensorEventListener;
-
-    invoke-virtual {v0, v1}, Landroid/hardware/SensorManager;->unregisterListener(Landroid/hardware/SensorEventListener;)V
-
-    return-void
-.end method
-
-.method private static validateArguments(Landroid/os/Handler;Landroid/hardware/SensorManager;I)V
-    .locals 2
-
-    const-string v0, "handler cannot be null"
-
-    invoke-static {p0, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
-
-    const-string/jumbo v0, "sensorManager cannot be null"
-
-    invoke-static {p1, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
-
-    if-lez p2, :cond_0
-
-    return-void
-
-    :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
-
-    const-string/jumbo v1, "rate must be positive"
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-.end method
-
-
-# virtual methods
 .method public dump(Ljava/io/PrintWriter;)V
     .locals 2
 
@@ -425,36 +299,116 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lcom/android/server/display/whitebalance/AmbientSensor;->mEventsHistory:Lcom/android/server/display/utils/History;
+    iget-object p0, p0, Lcom/android/server/display/whitebalance/AmbientSensor;->mEventsHistory:Lcom/android/server/display/utils/History;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p1, p0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method public final enable()Z
+    .locals 2
+
+    iget-boolean v0, p0, Lcom/android/server/display/whitebalance/AmbientSensor;->mEnabled:Z
+
+    if-eqz v0, :cond_0
+
+    const/4 p0, 0x0
+
+    return p0
+
+    :cond_0
+    iget-boolean v0, p0, Lcom/android/server/display/whitebalance/AmbientSensor;->mLoggingEnabled:Z
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/server/display/whitebalance/AmbientSensor;->mTag:Ljava/lang/String;
+
+    const-string v1, "enabling"
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_1
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/server/display/whitebalance/AmbientSensor;->mEnabled:Z
+
+    invoke-virtual {p0}, Lcom/android/server/display/whitebalance/AmbientSensor;->startListening()V
+
+    return v0
+.end method
+
+.method public final handleNewEvent(F)V
+    .locals 3
+
+    iget-boolean v0, p0, Lcom/android/server/display/whitebalance/AmbientSensor;->mEnabled:Z
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    iget-boolean v0, p0, Lcom/android/server/display/whitebalance/AmbientSensor;->mLoggingEnabled:Z
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/server/display/whitebalance/AmbientSensor;->mTag:Ljava/lang/String;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "handle new event: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_1
+    iget v0, p0, Lcom/android/server/display/whitebalance/AmbientSensor;->mEventsCount:I
+
+    add-int/lit8 v0, v0, 0x1
+
+    iput v0, p0, Lcom/android/server/display/whitebalance/AmbientSensor;->mEventsCount:I
+
+    iget-object v0, p0, Lcom/android/server/display/whitebalance/AmbientSensor;->mEventsHistory:Lcom/android/server/display/utils/History;
+
+    invoke-virtual {v0, p1}, Lcom/android/server/display/utils/History;->add(F)V
+
+    invoke-virtual {p0, p1}, Lcom/android/server/display/whitebalance/AmbientSensor;->update(F)V
 
     return-void
 .end method
 
 .method public setEnabled(Z)Z
-    .locals 1
+    .locals 0
 
     if-eqz p1, :cond_0
 
-    invoke-direct {p0}, Lcom/android/server/display/whitebalance/AmbientSensor;->enable()Z
+    invoke-virtual {p0}, Lcom/android/server/display/whitebalance/AmbientSensor;->enable()Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 
     :cond_0
-    invoke-direct {p0}, Lcom/android/server/display/whitebalance/AmbientSensor;->disable()Z
+    invoke-virtual {p0}, Lcom/android/server/display/whitebalance/AmbientSensor;->disable()Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public setLoggingEnabled(Z)Z
@@ -464,17 +418,59 @@
 
     if-ne v0, p1, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 
     :cond_0
     iput-boolean p1, p0, Lcom/android/server/display/whitebalance/AmbientSensor;->mLoggingEnabled:Z
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 .end method
 
-.method protected abstract update(F)V
+.method public final startListening()V
+    .locals 4
+
+    iget-object v0, p0, Lcom/android/server/display/whitebalance/AmbientSensor;->mSensorManager:Landroid/hardware/SensorManager;
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    iget-object v1, p0, Lcom/android/server/display/whitebalance/AmbientSensor;->mListener:Landroid/hardware/SensorEventListener;
+
+    iget-object v2, p0, Lcom/android/server/display/whitebalance/AmbientSensor;->mSensor:Landroid/hardware/Sensor;
+
+    iget v3, p0, Lcom/android/server/display/whitebalance/AmbientSensor;->mRate:I
+
+    mul-int/lit16 v3, v3, 0x3e8
+
+    iget-object p0, p0, Lcom/android/server/display/whitebalance/AmbientSensor;->mHandler:Landroid/os/Handler;
+
+    invoke-virtual {v0, v1, v2, v3, p0}, Landroid/hardware/SensorManager;->registerListener(Landroid/hardware/SensorEventListener;Landroid/hardware/Sensor;ILandroid/os/Handler;)Z
+
+    return-void
+.end method
+
+.method public final stopListening()V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/display/whitebalance/AmbientSensor;->mSensorManager:Landroid/hardware/SensorManager;
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    iget-object p0, p0, Lcom/android/server/display/whitebalance/AmbientSensor;->mListener:Landroid/hardware/SensorEventListener;
+
+    invoke-virtual {v0, p0}, Landroid/hardware/SensorManager;->unregisterListener(Landroid/hardware/SensorEventListener;)V
+
+    return-void
+.end method
+
+.method public abstract update(F)V
 .end method

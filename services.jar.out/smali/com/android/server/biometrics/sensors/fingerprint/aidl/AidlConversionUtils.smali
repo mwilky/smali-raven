@@ -1,17 +1,9 @@
-.class final Lcom/android/server/biometrics/sensors/fingerprint/aidl/AidlConversionUtils;
+.class public final Lcom/android/server/biometrics/sensors/fingerprint/aidl/AidlConversionUtils;
 .super Ljava/lang/Object;
 .source "AidlConversionUtils.java"
 
 
 # direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
 .method public static toFrameworkAcquiredInfo(B)I
     .locals 3
 
@@ -26,9 +18,9 @@
 
     if-ne p0, v1, :cond_1
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 
     :cond_1
     const/4 v2, 0x2
@@ -99,8 +91,6 @@
     return v1
 
     :cond_b
-    nop
-
     return v0
 .end method
 
@@ -167,9 +157,9 @@
     :cond_7
     if-ne p0, v2, :cond_8
 
-    const/16 v0, 0x12
+    const/16 p0, 0x12
 
-    return v0
+    return p0
 
     :cond_8
     return v0

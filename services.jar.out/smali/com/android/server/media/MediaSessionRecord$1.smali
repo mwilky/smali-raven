@@ -1,4 +1,4 @@
-.class Lcom/android/server/media/MediaSessionRecord$1;
+.class public Lcom/android/server/media/MediaSessionRecord$1;
 .super Ljava/lang/Object;
 .source "MediaSessionRecord.java"
 
@@ -12,29 +12,29 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/media/MediaSessionRecord;
+.field public final synthetic this$0:Lcom/android/server/media/MediaSessionRecord;
 
-.field final synthetic val$flags:I
+.field public final synthetic val$flags:I
 
-.field final synthetic val$opPackageName:Ljava/lang/String;
+.field public final synthetic val$opPackageName:Ljava/lang/String;
 
-.field final synthetic val$pid:I
+.field public final synthetic val$pid:I
 
-.field final synthetic val$stream:I
+.field public final synthetic val$stream:I
 
-.field final synthetic val$uid:I
+.field public final synthetic val$uid:I
 
-.field final synthetic val$volumeValue:I
+.field public final synthetic val$volumeValue:I
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/media/MediaSessionRecord;IIILjava/lang/String;II)V
+.method public constructor <init>(Lcom/android/server/media/MediaSessionRecord;IIILjava/lang/String;II)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/media/MediaSessionRecord$1;->this$0:Lcom/android/server/media/MediaSessionRecord;
@@ -64,7 +64,7 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$1;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
-    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->access$300(Lcom/android/server/media/MediaSessionRecord;)Landroid/media/AudioManager;
+    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-$$Nest$fgetmAudioManager(Lcom/android/server/media/MediaSessionRecord;)Landroid/media/AudioManager;
 
     move-result-object v1
 
@@ -82,7 +82,7 @@
 
     iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$1;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
-    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->access$200(Lcom/android/server/media/MediaSessionRecord;)Landroid/content/Context;
+    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-$$Nest$fgetmContext(Lcom/android/server/media/MediaSessionRecord;)Landroid/content/Context;
 
     move-result-object v0
 
@@ -126,17 +126,17 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v2, p0, Lcom/android/server/media/MediaSessionRecord$1;->val$flags:I
+    iget p0, p0, Lcom/android/server/media/MediaSessionRecord$1;->val$flags:I
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    const-string v2, "MediaSessionRecord"
+    const-string v1, "MediaSessionRecord"
 
-    invoke-static {v2, v1, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v1, p0, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_0
     return-void

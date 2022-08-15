@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/display/DisplayManagerService$BinderService$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -35,7 +36,7 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 4
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/display/DisplayManagerService$BinderService$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/display/DisplayManagerService$BinderService;
 
@@ -43,11 +44,11 @@
 
     iget v2, p0, Lcom/android/server/display/DisplayManagerService$BinderService$$ExternalSyntheticLambda0;->f$2:I
 
-    iget-object v3, p0, Lcom/android/server/display/DisplayManagerService$BinderService$$ExternalSyntheticLambda0;->f$3:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/display/DisplayManagerService$BinderService$$ExternalSyntheticLambda0;->f$3:Ljava/lang/String;
 
     check-cast p1, Lcom/android/server/display/LogicalDisplay;
 
-    invoke-virtual {v0, v1, v2, v3, p1}, Lcom/android/server/display/DisplayManagerService$BinderService;->lambda$setBrightnessConfigurationForUser$0$DisplayManagerService$BinderService(Landroid/hardware/display/BrightnessConfiguration;ILjava/lang/String;Lcom/android/server/display/LogicalDisplay;)V
+    invoke-static {v0, v1, v2, p0, p1}, Lcom/android/server/display/DisplayManagerService$BinderService;->$r8$lambda$E8fYBUVdCqz8DHvDK1eI4P5_ob0(Lcom/android/server/display/DisplayManagerService$BinderService;Landroid/hardware/display/BrightnessConfiguration;ILjava/lang/String;Lcom/android/server/display/LogicalDisplay;)V
 
     return-void
 .end method

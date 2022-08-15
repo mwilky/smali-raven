@@ -1,4 +1,4 @@
-.class Lcom/android/server/am/ProcessStatsService$3;
+.class public Lcom/android/server/am/ProcessStatsService$3;
 .super Ljava/lang/Thread;
 .source "ProcessStatsService.java"
 
@@ -9,21 +9,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic val$fds:[Landroid/os/ParcelFileDescriptor;
+.field public final synthetic val$fds:[Landroid/os/ParcelFileDescriptor;
 
-.field final synthetic val$section:I
+.field public final synthetic val$section:I
 
-.field final synthetic val$stats:Lcom/android/internal/app/procstats/ProcessStats;
+.field public final synthetic val$stats:Lcom/android/internal/app/procstats/ProcessStats;
 
 
 # direct methods
-.method constructor <init>(Ljava/lang/String;[Landroid/os/ParcelFileDescriptor;Lcom/android/internal/app/procstats/ProcessStats;I)V
+.method public constructor <init>(Ljava/lang/String;[Landroid/os/ParcelFileDescriptor;Lcom/android/internal/app/procstats/ProcessStats;I)V
     .locals 0
 
     iput-object p2, p0, Lcom/android/server/am/ProcessStatsService$3;->val$fds:[Landroid/os/ParcelFileDescriptor;
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 6
+    .locals 5
 
     :try_start_0
     new-instance v0, Landroid/os/ParcelFileDescriptor$AutoCloseOutputStream;
@@ -61,9 +61,9 @@
 
     iget-wide v3, v2, Lcom/android/internal/app/procstats/ProcessStats;->mTimePeriodEndRealtime:J
 
-    iget v5, p0, Lcom/android/server/am/ProcessStatsService$3;->val$section:I
+    iget p0, p0, Lcom/android/server/am/ProcessStatsService$3;->val$section:I
 
-    invoke-virtual {v2, v1, v3, v4, v5}, Lcom/android/internal/app/procstats/ProcessStats;->dumpDebug(Landroid/util/proto/ProtoOutputStream;JI)V
+    invoke-virtual {v2, v1, v3, v4, p0}, Lcom/android/internal/app/procstats/ProcessStats;->dumpDebug(Landroid/util/proto/ProtoOutputStream;JI)V
 
     invoke-virtual {v1}, Landroid/util/proto/ProtoOutputStream;->flush()V
 
@@ -74,13 +74,13 @@
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    const-string v1, "ProcessStatsService"
+    const-string v0, "ProcessStatsService"
 
-    const-string v2, "Failure writing pipe"
+    const-string v1, "Failure writing pipe"
 
-    invoke-static {v1, v2, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v0, v1, p0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_0
     return-void

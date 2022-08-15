@@ -1,4 +1,4 @@
-.class Landroid/gsi/GsiProgress$1;
+.class public Landroid/gsi/GsiProgress$1;
 .super Ljava/lang/Object;
 .source "GsiProgress.java"
 
@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
@@ -27,7 +27,7 @@
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,15 +38,15 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/gsi/GsiProgress;
-    .locals 1
+    .locals 0
 
-    new-instance v0, Landroid/gsi/GsiProgress;
+    new-instance p0, Landroid/gsi/GsiProgress;
 
-    invoke-direct {v0}, Landroid/gsi/GsiProgress;-><init>()V
+    invoke-direct {p0}, Landroid/gsi/GsiProgress;-><init>()V
 
-    invoke-virtual {v0, p1}, Landroid/gsi/GsiProgress;->readFromParcel(Landroid/os/Parcel;)V
+    invoke-virtual {p0, p1}, Landroid/gsi/GsiProgress;->readFromParcel(Landroid/os/Parcel;)V
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -54,17 +54,17 @@
 
     invoke-virtual {p0, p1}, Landroid/gsi/GsiProgress$1;->createFromParcel(Landroid/os/Parcel;)Landroid/gsi/GsiProgress;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method
 
 .method public newArray(I)[Landroid/gsi/GsiProgress;
-    .locals 1
+    .locals 0
 
-    new-array v0, p1, [Landroid/gsi/GsiProgress;
+    new-array p0, p1, [Landroid/gsi/GsiProgress;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
@@ -72,7 +72,7 @@
 
     invoke-virtual {p0, p1}, Landroid/gsi/GsiProgress$1;->newArray(I)[Landroid/gsi/GsiProgress;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method

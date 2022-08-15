@@ -1,4 +1,4 @@
-.class final Lcom/android/server/appwidget/AppWidgetServiceImpl$Host;
+.class public final Lcom/android/server/appwidget/AppWidgetServiceImpl$Host;
 .super Ljava/lang/Object;
 .source "AppWidgetServiceImpl.java"
 
@@ -9,21 +9,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "Host"
 .end annotation
 
 
 # instance fields
-.field callbacks:Lcom/android/internal/appwidget/IAppWidgetHost;
+.field public callbacks:Lcom/android/internal/appwidget/IAppWidgetHost;
 
-.field id:Lcom/android/server/appwidget/AppWidgetServiceImpl$HostId;
+.field public id:Lcom/android/server/appwidget/AppWidgetServiceImpl$HostId;
 
-.field lastWidgetUpdateSequenceNo:J
+.field public lastWidgetUpdateSequenceNo:J
 
-.field tag:I
+.field public tag:I
 
-.field widgets:Ljava/util/ArrayList;
+.field public widgets:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/ArrayList<",
@@ -33,11 +33,21 @@
     .end annotation
 .end field
 
-.field zombie:Z
+.field public zombie:Z
 
 
 # direct methods
-.method private constructor <init>()V
+.method public static bridge synthetic -$$Nest$mhostsPackageForUser(Lcom/android/server/appwidget/AppWidgetServiceImpl$Host;Ljava/lang/String;I)Z
+    .locals 0
+
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/appwidget/AppWidgetServiceImpl$Host;->hostsPackageForUser(Ljava/lang/String;I)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public constructor <init>()V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -55,7 +65,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/appwidget/AppWidgetServiceImpl$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/appwidget/AppWidgetServiceImpl$Host-IA;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/appwidget/AppWidgetServiceImpl$Host;-><init>()V
@@ -63,81 +73,16 @@
     return-void
 .end method
 
-.method static synthetic access$3600(Lcom/android/server/appwidget/AppWidgetServiceImpl$Host;Ljava/lang/String;I)Z
-    .locals 1
-
-    invoke-direct {p0, p1, p2}, Lcom/android/server/appwidget/AppWidgetServiceImpl$Host;->hostsPackageForUser(Ljava/lang/String;I)Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method private hostsPackageForUser(Ljava/lang/String;I)Z
-    .locals 4
-
-    iget-object v0, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl$Host;->widgets:Ljava/util/ArrayList;
-
-    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
-
-    move-result v0
-
-    const/4 v1, 0x0
-
-    :goto_0
-    if-ge v1, v0, :cond_1
-
-    iget-object v2, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl$Host;->widgets:Ljava/util/ArrayList;
-
-    invoke-virtual {v2, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;
-
-    iget-object v2, v2, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;->provider:Lcom/android/server/appwidget/AppWidgetServiceImpl$Provider;
-
-    if-eqz v2, :cond_0
-
-    invoke-virtual {v2}, Lcom/android/server/appwidget/AppWidgetServiceImpl$Provider;->getUserId()I
-
-    move-result v3
-
-    if-ne v3, p2, :cond_0
-
-    iget-object v3, v2, Lcom/android/server/appwidget/AppWidgetServiceImpl$Provider;->id:Lcom/android/server/appwidget/AppWidgetServiceImpl$ProviderId;
-
-    iget-object v3, v3, Lcom/android/server/appwidget/AppWidgetServiceImpl$ProviderId;->componentName:Landroid/content/ComponentName;
-
-    invoke-virtual {v3}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {p1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    const/4 v3, 0x1
-
-    return v3
-
-    :cond_0
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_0
-
-    :cond_1
-    const/4 v1, 0x0
-
-    return v1
-.end method
-
 
 # virtual methods
 .method public getPendingUpdatesForIdLocked(Landroid/content/Context;ILandroid/util/LongSparseArray;)V
-    .locals 10
+    .locals 7
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -160,7 +105,7 @@
     const/4 v3, 0x0
 
     :goto_0
-    if-ge v3, v2, :cond_3
+    if-ge v3, v2, :cond_5
 
     iget-object v4, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl$Host;->widgets:Ljava/util/ArrayList;
 
@@ -172,128 +117,120 @@
 
     iget v5, v4, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;->appWidgetId:I
 
-    if-ne v5, p2, :cond_2
+    if-ne v5, p2, :cond_4
 
-    iget-object v5, v4, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;->updateSequenceNos:Landroid/util/SparseLongArray;
+    iget-object p0, v4, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;->updateSequenceNos:Landroid/util/SparseLongArray;
 
-    invoke-virtual {v5}, Landroid/util/SparseLongArray;->size()I
+    invoke-virtual {p0}, Landroid/util/SparseLongArray;->size()I
 
-    move-result v5
+    move-result p0
 
-    add-int/lit8 v5, v5, -0x1
+    const/4 v2, 0x1
+
+    sub-int/2addr p0, v2
 
     :goto_1
-    if-ltz v5, :cond_1
+    if-ltz p0, :cond_3
 
-    iget-object v6, v4, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;->updateSequenceNos:Landroid/util/SparseLongArray;
+    iget-object v3, v4, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;->updateSequenceNos:Landroid/util/SparseLongArray;
 
-    invoke-virtual {v6, v5}, Landroid/util/SparseLongArray;->valueAt(I)J
+    invoke-virtual {v3, p0}, Landroid/util/SparseLongArray;->valueAt(I)J
 
-    move-result-wide v6
+    move-result-wide v5
 
-    cmp-long v8, v6, v0
+    cmp-long v3, v5, v0
 
-    if-gtz v8, :cond_0
+    if-gtz v3, :cond_0
 
     goto :goto_3
 
     :cond_0
-    iget-object v8, v4, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;->updateSequenceNos:Landroid/util/SparseLongArray;
+    iget-object v3, v4, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;->updateSequenceNos:Landroid/util/SparseLongArray;
 
-    invoke-virtual {v8, v5}, Landroid/util/SparseLongArray;->keyAt(I)I
+    invoke-virtual {v3, p0}, Landroid/util/SparseLongArray;->keyAt(I)I
 
-    move-result v8
+    move-result v3
 
-    packed-switch v8, :pswitch_data_0
+    if-eqz v3, :cond_2
 
-    invoke-static {p2, v8}, Landroid/appwidget/PendingHostUpdate;->viewDataChanged(II)Landroid/appwidget/PendingHostUpdate;
+    if-eq v3, v2, :cond_1
 
-    move-result-object v9
+    invoke-static {p2, v3}, Landroid/appwidget/PendingHostUpdate;->viewDataChanged(II)Landroid/appwidget/PendingHostUpdate;
 
-    goto :goto_2
-
-    :pswitch_0
-    iget-object v9, v4, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;->provider:Lcom/android/server/appwidget/AppWidgetServiceImpl$Provider;
-
-    invoke-virtual {v9, p1}, Lcom/android/server/appwidget/AppWidgetServiceImpl$Provider;->getInfoLocked(Landroid/content/Context;)Landroid/appwidget/AppWidgetProviderInfo;
-
-    move-result-object v9
-
-    invoke-static {p2, v9}, Landroid/appwidget/PendingHostUpdate;->providerChanged(ILandroid/appwidget/AppWidgetProviderInfo;)Landroid/appwidget/PendingHostUpdate;
-
-    move-result-object v9
+    move-result-object v3
 
     goto :goto_2
 
-    :pswitch_1
-    nop
+    :cond_1
+    iget-object v3, v4, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;->provider:Lcom/android/server/appwidget/AppWidgetServiceImpl$Provider;
 
+    invoke-virtual {v3, p1}, Lcom/android/server/appwidget/AppWidgetServiceImpl$Provider;->getInfoLocked(Landroid/content/Context;)Landroid/appwidget/AppWidgetProviderInfo;
+
+    move-result-object v3
+
+    invoke-static {p2, v3}, Landroid/appwidget/PendingHostUpdate;->providerChanged(ILandroid/appwidget/AppWidgetProviderInfo;)Landroid/appwidget/PendingHostUpdate;
+
+    move-result-object v3
+
+    goto :goto_2
+
+    :cond_2
     invoke-virtual {v4}, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;->getEffectiveViewsLocked()Landroid/widget/RemoteViews;
 
-    move-result-object v9
+    move-result-object v3
 
-    invoke-static {v9}, Lcom/android/server/appwidget/AppWidgetServiceImpl;->access$2900(Landroid/widget/RemoteViews;)Landroid/widget/RemoteViews;
+    invoke-static {v3}, Lcom/android/server/appwidget/AppWidgetServiceImpl;->-$$Nest$smcloneIfLocalBinder(Landroid/widget/RemoteViews;)Landroid/widget/RemoteViews;
 
-    move-result-object v9
+    move-result-object v3
 
-    invoke-static {p2, v9}, Landroid/appwidget/PendingHostUpdate;->updateAppWidget(ILandroid/widget/RemoteViews;)Landroid/appwidget/PendingHostUpdate;
+    invoke-static {p2, v3}, Landroid/appwidget/PendingHostUpdate;->updateAppWidget(ILandroid/widget/RemoteViews;)Landroid/appwidget/PendingHostUpdate;
 
-    move-result-object v9
-
-    nop
+    move-result-object v3
 
     :goto_2
-    invoke-virtual {p3, v6, v7, v9}, Landroid/util/LongSparseArray;->put(JLjava/lang/Object;)V
+    invoke-virtual {p3, v5, v6, v3}, Landroid/util/LongSparseArray;->put(JLjava/lang/Object;)V
 
     :goto_3
-    add-int/lit8 v5, v5, -0x1
+    add-int/lit8 p0, p0, -0x1
 
     goto :goto_1
 
-    :cond_1
+    :cond_3
     return-void
 
-    :cond_2
+    :cond_4
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    :cond_3
-    iget-wide v3, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl$Host;->lastWidgetUpdateSequenceNo:J
+    :cond_5
+    iget-wide p0, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl$Host;->lastWidgetUpdateSequenceNo:J
 
     invoke-static {p2}, Landroid/appwidget/PendingHostUpdate;->appWidgetRemoved(I)Landroid/appwidget/PendingHostUpdate;
 
-    move-result-object v5
+    move-result-object p2
 
-    invoke-virtual {p3, v3, v4, v5}, Landroid/util/LongSparseArray;->put(JLjava/lang/Object;)V
+    invoke-virtual {p3, p0, p1, p2}, Landroid/util/LongSparseArray;->put(JLjava/lang/Object;)V
 
     return-void
-
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
 .end method
 
 .method public getUserId()I
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl$Host;->id:Lcom/android/server/appwidget/AppWidgetServiceImpl$HostId;
+    iget-object p0, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl$Host;->id:Lcom/android/server/appwidget/AppWidgetServiceImpl$HostId;
 
-    iget v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl$HostId;->uid:I
+    iget p0, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl$HostId;->uid:I
 
-    invoke-static {v0}, Landroid/os/UserHandle;->getUserId(I)I
+    invoke-static {p0}, Landroid/os/UserHandle;->getUserId(I)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public getWidgetUids()Landroid/util/SparseArray;
-    .locals 6
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -326,19 +263,19 @@
 
     check-cast v2, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;
 
-    iget-object v3, v2, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;->provider:Lcom/android/server/appwidget/AppWidgetServiceImpl$Provider;
+    iget-object v2, v2, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;->provider:Lcom/android/server/appwidget/AppWidgetServiceImpl$Provider;
 
-    iget-object v3, v3, Lcom/android/server/appwidget/AppWidgetServiceImpl$Provider;->id:Lcom/android/server/appwidget/AppWidgetServiceImpl$ProviderId;
+    iget-object v2, v2, Lcom/android/server/appwidget/AppWidgetServiceImpl$Provider;->id:Lcom/android/server/appwidget/AppWidgetServiceImpl$ProviderId;
 
-    iget v4, v3, Lcom/android/server/appwidget/AppWidgetServiceImpl$ProviderId;->uid:I
+    iget v3, v2, Lcom/android/server/appwidget/AppWidgetServiceImpl$ProviderId;->uid:I
 
-    iget-object v5, v3, Lcom/android/server/appwidget/AppWidgetServiceImpl$ProviderId;->componentName:Landroid/content/ComponentName;
+    iget-object v2, v2, Lcom/android/server/appwidget/AppWidgetServiceImpl$ProviderId;->componentName:Landroid/content/ComponentName;
 
-    invoke-virtual {v5}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+    invoke-virtual {v2}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v2
 
-    invoke-virtual {v0, v4, v5}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    invoke-virtual {v0, v3, v2}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     add-int/lit8 v1, v1, -0x1
 
@@ -346,6 +283,67 @@
 
     :cond_0
     return-object v0
+.end method
+
+.method public final hostsPackageForUser(Ljava/lang/String;I)Z
+    .locals 5
+
+    iget-object v0, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl$Host;->widgets:Ljava/util/ArrayList;
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+
+    move-result v0
+
+    const/4 v1, 0x0
+
+    move v2, v1
+
+    :goto_0
+    if-ge v2, v0, :cond_1
+
+    iget-object v3, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl$Host;->widgets:Ljava/util/ArrayList;
+
+    invoke-virtual {v3, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;
+
+    iget-object v3, v3, Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;->provider:Lcom/android/server/appwidget/AppWidgetServiceImpl$Provider;
+
+    if-eqz v3, :cond_0
+
+    invoke-virtual {v3}, Lcom/android/server/appwidget/AppWidgetServiceImpl$Provider;->getUserId()I
+
+    move-result v4
+
+    if-ne v4, p2, :cond_0
+
+    iget-object v3, v3, Lcom/android/server/appwidget/AppWidgetServiceImpl$Provider;->id:Lcom/android/server/appwidget/AppWidgetServiceImpl$ProviderId;
+
+    iget-object v3, v3, Lcom/android/server/appwidget/AppWidgetServiceImpl$ProviderId;->componentName:Landroid/content/ComponentName;
+
+    invoke-virtual {v3}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {p1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    const/4 p0, 0x1
+
+    return p0
+
+    :cond_0
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    return v1
 .end method
 
 .method public isInPackageForUser(Ljava/lang/String;I)Z
@@ -357,25 +355,25 @@
 
     if-ne v0, p2, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl$Host;->id:Lcom/android/server/appwidget/AppWidgetServiceImpl$HostId;
+    iget-object p0, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl$Host;->id:Lcom/android/server/appwidget/AppWidgetServiceImpl$HostId;
 
-    iget-object v0, v0, Lcom/android/server/appwidget/AppWidgetServiceImpl$HostId;->packageName:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl$HostId;->packageName:Ljava/lang/String;
 
-    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p0
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method public toString()Ljava/lang/String;
@@ -393,27 +391,27 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    iget-boolean v1, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl$Host;->zombie:Z
+    iget-boolean p0, p0, Lcom/android/server/appwidget/AppWidgetServiceImpl$Host;->zombie:Z
 
-    if-eqz v1, :cond_0
+    if-eqz p0, :cond_0
 
-    const-string v1, " Z"
+    const-string p0, " Z"
 
     goto :goto_0
 
     :cond_0
-    const-string v1, ""
+    const-string p0, ""
 
     :goto_0
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const/16 v1, 0x7d
+    const/16 p0, 0x7d
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

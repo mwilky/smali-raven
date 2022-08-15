@@ -1,4 +1,4 @@
-.class final Lcom/android/server/policy/PhoneWindowManager$BackKeyRule;
+.class public final Lcom/android/server/policy/PhoneWindowManager$BackKeyRule;
 .super Lcom/android/server/policy/SingleKeyGestureDetector$SingleKeyRule;
 .source "PhoneWindowManager.java"
 
@@ -9,66 +9,64 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "BackKeyRule"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/policy/PhoneWindowManager;
+.field public final synthetic this$0:Lcom/android/server/policy/PhoneWindowManager;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/policy/PhoneWindowManager;I)V
-    .locals 1
+.method public constructor <init>(Lcom/android/server/policy/PhoneWindowManager;I)V
+    .locals 0
 
     iput-object p1, p0, Lcom/android/server/policy/PhoneWindowManager$BackKeyRule;->this$0:Lcom/android/server/policy/PhoneWindowManager;
 
-    iget-object p1, p1, Lcom/android/server/policy/PhoneWindowManager;->mContext:Landroid/content/Context;
+    const/4 p1, 0x4
 
-    const/4 v0, 0x4
-
-    invoke-direct {p0, p1, v0, p2}, Lcom/android/server/policy/SingleKeyGestureDetector$SingleKeyRule;-><init>(Landroid/content/Context;II)V
+    invoke-direct {p0, p1, p2}, Lcom/android/server/policy/SingleKeyGestureDetector$SingleKeyRule;-><init>(II)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method getMaxMultiPressCount()I
-    .locals 1
+.method public getMaxMultiPressCount()I
+    .locals 0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 .end method
 
-.method onLongPress(J)V
-    .locals 1
+.method public onLongPress(J)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/policy/PhoneWindowManager$BackKeyRule;->this$0:Lcom/android/server/policy/PhoneWindowManager;
+    iget-object p0, p0, Lcom/android/server/policy/PhoneWindowManager$BackKeyRule;->this$0:Lcom/android/server/policy/PhoneWindowManager;
 
-    invoke-static {v0}, Lcom/android/server/policy/PhoneWindowManager;->access$5100(Lcom/android/server/policy/PhoneWindowManager;)V
+    invoke-static {p0}, Lcom/android/server/policy/PhoneWindowManager;->-$$Nest$mbackLongPress(Lcom/android/server/policy/PhoneWindowManager;)V
 
     return-void
 .end method
 
-.method onPress(J)V
-    .locals 3
+.method public onPress(J)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/policy/PhoneWindowManager$BackKeyRule;->this$0:Lcom/android/server/policy/PhoneWindowManager;
+    iget-object p1, p0, Lcom/android/server/policy/PhoneWindowManager$BackKeyRule;->this$0:Lcom/android/server/policy/PhoneWindowManager;
 
-    iget-boolean v1, v0, Lcom/android/server/policy/PhoneWindowManager;->mBackKeyHandled:Z
+    iget-boolean p2, p1, Lcom/android/server/policy/PhoneWindowManager;->mBackKeyHandled:Z
 
-    iget-object v2, p0, Lcom/android/server/policy/PhoneWindowManager$BackKeyRule;->this$0:Lcom/android/server/policy/PhoneWindowManager;
+    iget-object p0, p0, Lcom/android/server/policy/PhoneWindowManager$BackKeyRule;->this$0:Lcom/android/server/policy/PhoneWindowManager;
 
-    invoke-static {v2}, Lcom/android/server/policy/PhoneWindowManager;->access$5000(Lcom/android/server/policy/PhoneWindowManager;)Z
+    invoke-static {p0}, Lcom/android/server/policy/PhoneWindowManager;->-$$Nest$mbackKeyPress(Lcom/android/server/policy/PhoneWindowManager;)Z
 
-    move-result v2
+    move-result p0
 
-    or-int/2addr v1, v2
+    or-int/2addr p0, p2
 
-    iput-boolean v1, v0, Lcom/android/server/policy/PhoneWindowManager;->mBackKeyHandled:Z
+    iput-boolean p0, p1, Lcom/android/server/policy/PhoneWindowManager;->mBackKeyHandled:Z
 
     return-void
 .end method

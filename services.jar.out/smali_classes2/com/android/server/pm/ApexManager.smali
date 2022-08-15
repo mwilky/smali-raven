@@ -8,22 +8,13 @@
     value = {
         Lcom/android/server/pm/ApexManager$ApexManagerFlattenedApex;,
         Lcom/android/server/pm/ApexManager$ApexManagerImpl;,
-        Lcom/android/server/pm/ApexManager$PackageInfoFlags;,
         Lcom/android/server/pm/ApexManager$ActiveApexInfo;
     }
 .end annotation
 
 
 # static fields
-.field public static final MATCH_ACTIVE_PACKAGE:I = 0x1
-
-.field static final MATCH_FACTORY_PACKAGE:I = 0x2
-
-.field private static final TAG:Ljava/lang/String; = "ApexManager"
-
-.field private static final VNDK_APEX_MODULE_NAME_PREFIX:Ljava/lang/String; = "com.android.vndk."
-
-.field private static final sApexManagerSingleton:Landroid/util/Singleton;
+.field public static final sApexManagerSingleton:Landroid/util/Singleton;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/Singleton<",
@@ -35,7 +26,7 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 1
 
     new-instance v0, Lcom/android/server/pm/ApexManager$1;
@@ -70,38 +61,30 @@
 .end method
 
 .method public static isFactory(Landroid/content/pm/PackageInfo;)Z
-    .locals 2
+    .locals 1
 
-    iget-object v0, p0, Landroid/content/pm/PackageInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+    iget-object p0, p0, Landroid/content/pm/PackageInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
-    iget v0, v0, Landroid/content/pm/ApplicationInfo;->flags:I
+    iget p0, p0, Landroid/content/pm/ApplicationInfo;->flags:I
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    and-int/2addr v0, v1
+    and-int/2addr p0, v0
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     :goto_0
-    return v1
+    return v0
 .end method
 
 
 # virtual methods
-.method abstract abortStagedSession(I)Z
-.end method
-
-.method public abstract calculateSizeForCompressedApex(Landroid/apex/CompressedApexInfoList;)J
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
+.method public abstract abortStagedSession(I)Z
 .end method
 
 .method public abstract destroyCeSnapshots(II)Z
@@ -113,7 +96,7 @@
 .method public abstract destroyDeSnapshots(I)Z
 .end method
 
-.method abstract dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
+.method public abstract dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
 .end method
 
 .method public abstract getActiveApexInfos()Ljava/util/List;
@@ -130,7 +113,10 @@
 .method public abstract getActiveApexPackageNameContainingPackage(Ljava/lang/String;)Ljava/lang/String;
 .end method
 
-.method abstract getActivePackages()Ljava/util/List;
+.method public abstract getActivePackageNameForApexModuleName(Ljava/lang/String;)Ljava/lang/String;
+.end method
+
+.method public abstract getActivePackages()Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -144,10 +130,21 @@
 .method public abstract getApexModuleNameForPackageName(Ljava/lang/String;)Ljava/lang/String;
 .end method
 
-.method abstract getApkInApexInstallError(Ljava/lang/String;)Ljava/lang/String;
+.method public abstract getApexSystemServices()Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List<",
+            "Lcom/android/server/pm/ApexSystemServiceInfo;",
+            ">;"
+        }
+    .end annotation
 .end method
 
-.method abstract getApksInApex(Ljava/lang/String;)Ljava/util/List;
+.method public abstract getApkInApexInstallError(Ljava/lang/String;)Ljava/lang/String;
+.end method
+
+.method public abstract getApksInApex(Ljava/lang/String;)Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -160,7 +157,10 @@
     .end annotation
 .end method
 
-.method abstract getFactoryPackages()Ljava/util/List;
+.method public abstract getBackingApexFile(Ljava/io/File;)Ljava/io/File;
+.end method
+
+.method public abstract getFactoryPackages()Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -171,7 +171,7 @@
     .end annotation
 .end method
 
-.method abstract getInactivePackages()Ljava/util/List;
+.method public abstract getInactivePackages()Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -185,7 +185,7 @@
 .method public abstract getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
 .end method
 
-.method abstract getSessions()Landroid/util/SparseArray;
+.method public abstract getSessions()Landroid/util/SparseArray;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -196,10 +196,13 @@
     .end annotation
 .end method
 
-.method abstract getStagedSessionInfo(I)Landroid/apex/ApexSessionInfo;
+.method public abstract getStagedApexInfos(Landroid/apex/ApexSessionParams;)[Landroid/apex/ApexInfo;
 .end method
 
-.method abstract installPackage(Ljava/io/File;Lcom/android/server/pm/parsing/PackageParser2;)V
+.method public abstract getStagedSessionInfo(I)Landroid/apex/ApexSessionInfo;
+.end method
+
+.method public abstract installPackage(Ljava/io/File;Lcom/android/server/pm/parsing/PackageParser2;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/server/pm/PackageManagerException;
@@ -207,16 +210,16 @@
     .end annotation
 .end method
 
-.method abstract isApexPackage(Ljava/lang/String;)Z
+.method public abstract isApexPackage(Ljava/lang/String;)Z
 .end method
 
-.method abstract isApexSupported()Z
+.method public abstract isApexSupported()Z
 .end method
 
 .method public abstract markBootCompleted()V
 .end method
 
-.method abstract markStagedSessionReady(I)V
+.method public abstract markStagedSessionReady(I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/server/pm/PackageManagerException;
@@ -224,13 +227,13 @@
     .end annotation
 .end method
 
-.method abstract markStagedSessionSuccessful(I)V
+.method public abstract markStagedSessionSuccessful(I)V
 .end method
 
-.method abstract registerApkInApex(Lcom/android/server/pm/parsing/pkg/AndroidPackage;)V
+.method public abstract registerApkInApex(Lcom/android/server/pm/parsing/pkg/AndroidPackage;)V
 .end method
 
-.method abstract reportErrorWithApkInApex(Ljava/lang/String;Ljava/lang/String;)V
+.method public abstract reportErrorWithApkInApex(Ljava/lang/String;Ljava/lang/String;)V
 .end method
 
 .method public abstract reserveSpaceForCompressedApex(Landroid/apex/CompressedApexInfoList;)V
@@ -244,16 +247,16 @@
 .method public abstract restoreCeData(IILjava/lang/String;)Z
 .end method
 
-.method abstract revertActiveSessions()Z
+.method public abstract revertActiveSessions()Z
 .end method
 
-.method abstract scanApexPackagesTraced(Lcom/android/server/pm/parsing/PackageParser2;Ljava/util/concurrent/ExecutorService;)V
+.method public abstract scanApexPackagesTraced(Lcom/android/server/pm/parsing/PackageParser2;Ljava/util/concurrent/ExecutorService;)V
 .end method
 
 .method public abstract snapshotCeData(IILjava/lang/String;)Z
 .end method
 
-.method abstract submitStagedSession(Landroid/apex/ApexSessionParams;)Landroid/apex/ApexInfoList;
+.method public abstract submitStagedSession(Landroid/apex/ApexSessionParams;)Landroid/apex/ApexInfoList;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/server/pm/PackageManagerException;
@@ -261,5 +264,5 @@
     .end annotation
 .end method
 
-.method abstract uninstallApex(Ljava/lang/String;)Z
+.method public abstract uninstallApex(Ljava/lang/String;)Z
 .end method

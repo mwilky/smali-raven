@@ -1,33 +1,34 @@
 .class public final synthetic Lcom/android/server/location/gnss/GnssLocationProvider$$ExternalSyntheticLambda6;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/server/location/gnss/GnssNetworkConnectivityHandler$GnssNetworkListener;
+.implements Ljava/lang/Runnable;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/server/location/gnss/GnssLocationProvider;
+.field public final synthetic f$0:Lcom/android/server/location/gnss/GnssSatelliteBlocklistHelper;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/location/gnss/GnssLocationProvider;)V
+.method public synthetic constructor <init>(Lcom/android/server/location/gnss/GnssSatelliteBlocklistHelper;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/location/gnss/GnssLocationProvider$$ExternalSyntheticLambda6;->f$0:Lcom/android/server/location/gnss/GnssLocationProvider;
+    iput-object p1, p0, Lcom/android/server/location/gnss/GnssLocationProvider$$ExternalSyntheticLambda6;->f$0:Lcom/android/server/location/gnss/GnssSatelliteBlocklistHelper;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final onNetworkAvailable()V
-    .locals 1
+.method public final run()V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/location/gnss/GnssLocationProvider$$ExternalSyntheticLambda6;->f$0:Lcom/android/server/location/gnss/GnssLocationProvider;
+    iget-object p0, p0, Lcom/android/server/location/gnss/GnssLocationProvider$$ExternalSyntheticLambda6;->f$0:Lcom/android/server/location/gnss/GnssSatelliteBlocklistHelper;
 
-    invoke-static {v0}, Lcom/android/server/location/gnss/GnssLocationProvider;->$r8$lambda$9sSPMK2HhcdmHWjcYHg7YWQOhr8(Lcom/android/server/location/gnss/GnssLocationProvider;)V
+    invoke-virtual {p0}, Lcom/android/server/location/gnss/GnssSatelliteBlocklistHelper;->updateSatelliteBlocklist()V
 
     return-void
 .end method

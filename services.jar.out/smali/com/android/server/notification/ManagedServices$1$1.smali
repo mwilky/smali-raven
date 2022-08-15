@@ -1,4 +1,4 @@
-.class Lcom/android/server/notification/ManagedServices$1$1;
+.class public Lcom/android/server/notification/ManagedServices$1$1;
 .super Ljava/lang/Object;
 .source "ManagedServices.java"
 
@@ -12,19 +12,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$1:Lcom/android/server/notification/ManagedServices$1;
+.field public final synthetic this$1:Lcom/android/server/notification/ManagedServices$1;
 
-.field final synthetic val$name:Landroid/content/ComponentName;
+.field public final synthetic val$name:Landroid/content/ComponentName;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/notification/ManagedServices$1;Landroid/content/ComponentName;)V
+.method public constructor <init>(Lcom/android/server/notification/ManagedServices$1;Landroid/content/ComponentName;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/notification/ManagedServices$1$1;->this$1:Lcom/android/server/notification/ManagedServices$1;
@@ -39,19 +39,17 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/notification/ManagedServices$1$1;->this$1:Lcom/android/server/notification/ManagedServices$1;
 
-    iget-object v0, v0, Lcom/android/server/notification/ManagedServices$1;->this$0:Lcom/android/server/notification/ManagedServices;
+    iget-object v1, v0, Lcom/android/server/notification/ManagedServices$1;->this$0:Lcom/android/server/notification/ManagedServices;
 
-    iget-object v1, p0, Lcom/android/server/notification/ManagedServices$1$1;->val$name:Landroid/content/ComponentName;
+    iget-object p0, p0, Lcom/android/server/notification/ManagedServices$1$1;->val$name:Landroid/content/ComponentName;
 
-    iget-object v2, p0, Lcom/android/server/notification/ManagedServices$1$1;->this$1:Lcom/android/server/notification/ManagedServices$1;
+    iget v0, v0, Lcom/android/server/notification/ManagedServices$1;->val$userid:I
 
-    iget v2, v2, Lcom/android/server/notification/ManagedServices$1;->val$userid:I
-
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/notification/ManagedServices;->registerService(Landroid/content/ComponentName;I)V
+    invoke-virtual {v1, p0, v0}, Lcom/android/server/notification/ManagedServices;->registerService(Landroid/content/ComponentName;I)V
 
     return-void
 .end method

@@ -1,4 +1,4 @@
-.class Lcom/android/server/hdmi/HdmiCecMessageValidator$ValidationInfo;
+.class public Lcom/android/server/hdmi/HdmiCecMessageValidator$ValidationInfo;
 .super Ljava/lang/Object;
 .source "HdmiCecMessageValidator.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "ValidationInfo"
 .end annotation
 

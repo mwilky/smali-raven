@@ -1,4 +1,4 @@
-.class final Lcom/android/server/location/geofence/GeofenceKey;
+.class public final Lcom/android/server/location/geofence/GeofenceKey;
 .super Ljava/lang/Object;
 .source "GeofenceKey.java"
 
@@ -7,13 +7,13 @@
 
 
 # instance fields
-.field private final mGeofence:Landroid/location/Geofence;
+.field public final mGeofence:Landroid/location/Geofence;
 
-.field private final mPendingIntent:Landroid/app/PendingIntent;
+.field public final mPendingIntent:Landroid/app/PendingIntent;
 
 
 # direct methods
-.method constructor <init>(Landroid/app/PendingIntent;Landroid/location/Geofence;)V
+.method public constructor <init>(Landroid/app/PendingIntent;Landroid/location/Geofence;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -24,15 +24,15 @@
 
     check-cast v0, Landroid/app/PendingIntent;
 
-    iput-object v0, p0, Lcom/android/server/location/geofence/GeofenceKey;->mPendingIntent:Landroid/app/PendingIntent;
+    iput-object p1, p0, Lcom/android/server/location/geofence/GeofenceKey;->mPendingIntent:Landroid/app/PendingIntent;
 
     invoke-static {p2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-object v0, p2
+    move-object p1, p2
 
-    check-cast v0, Landroid/location/Geofence;
+    check-cast p1, Landroid/location/Geofence;
 
-    iput-object v0, p0, Lcom/android/server/location/geofence/GeofenceKey;->mGeofence:Landroid/location/Geofence;
+    iput-object p2, p0, Lcom/android/server/location/geofence/GeofenceKey;->mGeofence:Landroid/location/Geofence;
 
     return-void
 .end method
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .locals 4
 
     const/4 v0, 0x1
 
@@ -58,29 +58,27 @@
     return v2
 
     :cond_1
-    move-object v1, p1
+    check-cast p1, Lcom/android/server/location/geofence/GeofenceKey;
 
-    check-cast v1, Lcom/android/server/location/geofence/GeofenceKey;
+    iget-object v1, p0, Lcom/android/server/location/geofence/GeofenceKey;->mPendingIntent:Landroid/app/PendingIntent;
 
-    iget-object v3, p0, Lcom/android/server/location/geofence/GeofenceKey;->mPendingIntent:Landroid/app/PendingIntent;
+    iget-object v3, p1, Lcom/android/server/location/geofence/GeofenceKey;->mPendingIntent:Landroid/app/PendingIntent;
 
-    iget-object v4, v1, Lcom/android/server/location/geofence/GeofenceKey;->mPendingIntent:Landroid/app/PendingIntent;
+    invoke-virtual {v1, v3}, Landroid/app/PendingIntent;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v3, v4}, Landroid/app/PendingIntent;->equals(Ljava/lang/Object;)Z
+    move-result v1
 
-    move-result v3
+    if-eqz v1, :cond_2
 
-    if-eqz v3, :cond_2
+    iget-object p0, p0, Lcom/android/server/location/geofence/GeofenceKey;->mGeofence:Landroid/location/Geofence;
 
-    iget-object v3, p0, Lcom/android/server/location/geofence/GeofenceKey;->mGeofence:Landroid/location/Geofence;
+    iget-object p1, p1, Lcom/android/server/location/geofence/GeofenceKey;->mGeofence:Landroid/location/Geofence;
 
-    iget-object v4, v1, Lcom/android/server/location/geofence/GeofenceKey;->mGeofence:Landroid/location/Geofence;
+    invoke-virtual {p0, p1}, Landroid/location/Geofence;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v3, v4}, Landroid/location/Geofence;->equals(Ljava/lang/Object;)Z
+    move-result p0
 
-    move-result v3
-
-    if-eqz v3, :cond_2
+    if-eqz p0, :cond_2
 
     goto :goto_0
 
@@ -92,21 +90,21 @@
 .end method
 
 .method public getPendingIntent()Landroid/app/PendingIntent;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/location/geofence/GeofenceKey;->mPendingIntent:Landroid/app/PendingIntent;
+    iget-object p0, p0, Lcom/android/server/location/geofence/GeofenceKey;->mPendingIntent:Landroid/app/PendingIntent;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/location/geofence/GeofenceKey;->mPendingIntent:Landroid/app/PendingIntent;
+    iget-object p0, p0, Lcom/android/server/location/geofence/GeofenceKey;->mPendingIntent:Landroid/app/PendingIntent;
 
-    invoke-virtual {v0}, Landroid/app/PendingIntent;->hashCode()I
+    invoke-virtual {p0}, Landroid/app/PendingIntent;->hashCode()I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method

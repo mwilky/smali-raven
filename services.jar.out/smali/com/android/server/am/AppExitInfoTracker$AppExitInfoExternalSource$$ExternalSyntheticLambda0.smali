@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/am/AppExitInfoTracker$AppExitInfoExternalSource$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -31,15 +32,15 @@
 
 # virtual methods
 .method public final run()V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/am/AppExitInfoTracker$AppExitInfoExternalSource$$ExternalSyntheticLambda0;->f$0:Ljava/util/function/BiConsumer;
 
     iget v1, p0, Lcom/android/server/am/AppExitInfoTracker$AppExitInfoExternalSource$$ExternalSyntheticLambda0;->f$1:I
 
-    iget v2, p0, Lcom/android/server/am/AppExitInfoTracker$AppExitInfoExternalSource$$ExternalSyntheticLambda0;->f$2:I
+    iget p0, p0, Lcom/android/server/am/AppExitInfoTracker$AppExitInfoExternalSource$$ExternalSyntheticLambda0;->f$2:I
 
-    invoke-static {v0, v1, v2}, Lcom/android/server/am/AppExitInfoTracker$AppExitInfoExternalSource;->lambda$onProcDied$0(Ljava/util/function/BiConsumer;II)V
+    invoke-static {v0, v1, p0}, Lcom/android/server/am/AppExitInfoTracker$AppExitInfoExternalSource;->$r8$lambda$nmCCfprBXSJ2b1yXDTJJGtn72Zg(Ljava/util/function/BiConsumer;II)V
 
     return-void
 .end method

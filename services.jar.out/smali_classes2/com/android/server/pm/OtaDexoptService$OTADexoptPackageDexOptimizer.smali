@@ -1,4 +1,4 @@
-.class Lcom/android/server/pm/OtaDexoptService$OTADexoptPackageDexOptimizer;
+.class public Lcom/android/server/pm/OtaDexoptService$OTADexoptPackageDexOptimizer;
 .super Lcom/android/server/pm/PackageDexOptimizer$ForcedUpdatePackageDexOptimizer;
 .source "OtaDexoptService.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "OTADexoptPackageDexOptimizer"
 .end annotation
 

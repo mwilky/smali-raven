@@ -1,4 +1,4 @@
-.class Lcom/android/server/usage/AppTimeLimitController$MyHandler;
+.class public Lcom/android/server/usage/AppTimeLimitController$MyHandler;
 .super Landroid/os/Handler;
 .source "AppTimeLimitController.java"
 
@@ -9,23 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "MyHandler"
 .end annotation
 
 
-# static fields
-.field static final MSG_CHECK_TIMEOUT:I = 0x1
-
-.field static final MSG_INFORM_LIMIT_REACHED_LISTENER:I = 0x2
-
-
 # instance fields
-.field final synthetic this$0:Lcom/android/server/usage/AppTimeLimitController;
+.field public final synthetic this$0:Lcom/android/server/usage/AppTimeLimitController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/usage/AppTimeLimitController;Landroid/os/Looper;)V
+.method public constructor <init>(Lcom/android/server/usage/AppTimeLimitController;Landroid/os/Looper;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/usage/AppTimeLimitController$MyHandler;->this$0:Lcom/android/server/usage/AppTimeLimitController;
@@ -38,86 +32,84 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 4
+    .locals 3
 
     iget v0, p1, Landroid/os/Message;->what:I
 
-    packed-switch v0, :pswitch_data_0
+    const/4 v1, 0x1
+
+    if-eq v0, v1, :cond_1
+
+    const/4 v1, 0x2
+
+    if-eq v0, v1, :cond_0
 
     invoke-super {p0, p1}, Landroid/os/Handler;->handleMessage(Landroid/os/Message;)V
 
     goto :goto_0
 
-    :pswitch_0
-    iget-object v0, p0, Lcom/android/server/usage/AppTimeLimitController$MyHandler;->this$0:Lcom/android/server/usage/AppTimeLimitController;
+    :cond_0
+    iget-object p0, p0, Lcom/android/server/usage/AppTimeLimitController$MyHandler;->this$0:Lcom/android/server/usage/AppTimeLimitController;
 
-    invoke-static {v0}, Lcom/android/server/usage/AppTimeLimitController;->access$700(Lcom/android/server/usage/AppTimeLimitController;)Lcom/android/server/usage/AppTimeLimitController$Lock;
+    invoke-static {p0}, Lcom/android/server/usage/AppTimeLimitController;->-$$Nest$fgetmLock(Lcom/android/server/usage/AppTimeLimitController;)Lcom/android/server/usage/AppTimeLimitController$Lock;
 
     move-result-object v0
 
     monitor-enter v0
 
     :try_start_0
-    iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+    iget-object p0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    check-cast v1, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;
+    check-cast p0, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;
 
-    invoke-virtual {v1}, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->onLimitReached()V
+    invoke-virtual {p0}, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->onLimitReached()V
 
     monitor-exit v0
 
     goto :goto_0
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 
-    :pswitch_1
+    :cond_1
     iget-object v0, p0, Lcom/android/server/usage/AppTimeLimitController$MyHandler;->this$0:Lcom/android/server/usage/AppTimeLimitController;
 
-    invoke-static {v0}, Lcom/android/server/usage/AppTimeLimitController;->access$700(Lcom/android/server/usage/AppTimeLimitController;)Lcom/android/server/usage/AppTimeLimitController$Lock;
+    invoke-static {v0}, Lcom/android/server/usage/AppTimeLimitController;->-$$Nest$fgetmLock(Lcom/android/server/usage/AppTimeLimitController;)Lcom/android/server/usage/AppTimeLimitController$Lock;
 
     move-result-object v0
 
     monitor-enter v0
 
     :try_start_1
-    iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+    iget-object p1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    check-cast v1, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;
+    check-cast p1, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;
 
-    iget-object v2, p0, Lcom/android/server/usage/AppTimeLimitController$MyHandler;->this$0:Lcom/android/server/usage/AppTimeLimitController;
+    iget-object p0, p0, Lcom/android/server/usage/AppTimeLimitController$MyHandler;->this$0:Lcom/android/server/usage/AppTimeLimitController;
 
-    invoke-virtual {v2}, Lcom/android/server/usage/AppTimeLimitController;->getElapsedRealtime()J
+    invoke-virtual {p0}, Lcom/android/server/usage/AppTimeLimitController;->getElapsedRealtime()J
 
-    move-result-wide v2
+    move-result-wide v1
 
-    invoke-virtual {v1, v2, v3}, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->checkTimeout(J)V
+    invoke-virtual {p1, v1, v2}, Lcom/android/server/usage/AppTimeLimitController$UsageGroup;->checkTimeout(J)V
 
     monitor-exit v0
 
-    goto :goto_0
+    :goto_0
+    return-void
 
     :catchall_1
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    throw v1
-
-    :goto_0
-    return-void
-
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
+    throw p0
 .end method

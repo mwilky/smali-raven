@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x60c
+    accessFlags = 0x609
     name = "ProviderTransport"
 .end annotation
 

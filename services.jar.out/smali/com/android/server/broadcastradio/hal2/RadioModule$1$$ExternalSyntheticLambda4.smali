@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/broadcastradio/hal2/RadioModule$1$$ExternalSyntheticLambda4;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -27,13 +28,13 @@
 
 # virtual methods
 .method public final run()V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/broadcastradio/hal2/RadioModule$1$$ExternalSyntheticLambda4;->f$0:Lcom/android/server/broadcastradio/hal2/RadioModule$1;
 
-    iget-object v1, p0, Lcom/android/server/broadcastradio/hal2/RadioModule$1$$ExternalSyntheticLambda4;->f$1:Landroid/hardware/broadcastradio/V2_0/ProgramInfo;
+    iget-object p0, p0, Lcom/android/server/broadcastradio/hal2/RadioModule$1$$ExternalSyntheticLambda4;->f$1:Landroid/hardware/broadcastradio/V2_0/ProgramInfo;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/broadcastradio/hal2/RadioModule$1;->lambda$onCurrentProgramInfoChanged$3$RadioModule$1(Landroid/hardware/broadcastradio/V2_0/ProgramInfo;)V
+    invoke-static {v0, p0}, Lcom/android/server/broadcastradio/hal2/RadioModule$1;->$r8$lambda$TBzfcStdiv-sNQfcjSu20wx_7Io(Lcom/android/server/broadcastradio/hal2/RadioModule$1;Landroid/hardware/broadcastradio/V2_0/ProgramInfo;)V
 
     return-void
 .end method

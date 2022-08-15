@@ -12,20 +12,10 @@
 .end annotation
 
 
-# static fields
-.field static final DEBUG:Z = false
-
-.field static final REPORT_TYPE_FINISHED:I = 0x1
-
-.field static final REPORT_TYPE_STATUS:I = 0x0
-
-.field static final TAG:Ljava/lang/String; = "ActivityManager"
-
-
 # instance fields
-.field final mLock:Ljava/lang/Object;
+.field public final mLock:Ljava/lang/Object;
 
-.field mPendingReports:Ljava/util/ArrayList;
+.field public mPendingReports:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/ArrayList<",
@@ -35,7 +25,7 @@
     .end annotation
 .end field
 
-.field mThread:Ljava/lang/Thread;
+.field public mThread:Ljava/lang/Thread;
 
 
 # direct methods
@@ -53,7 +43,9 @@
     return-void
 .end method
 
-.method private report(Lcom/android/server/am/InstrumentationReporter$Report;)V
+
+# virtual methods
+.method public final report(Lcom/android/server/am/InstrumentationReporter$Report;)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/server/am/InstrumentationReporter;->mLock:Ljava/lang/Object;
@@ -89,26 +81,24 @@
 
     invoke-virtual {v1, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    iget-object v1, p0, Lcom/android/server/am/InstrumentationReporter;->mLock:Ljava/lang/Object;
+    iget-object p0, p0, Lcom/android/server/am/InstrumentationReporter;->mLock:Ljava/lang/Object;
 
-    invoke-virtual {v1}, Ljava/lang/Object;->notifyAll()V
+    invoke-virtual {p0}, Ljava/lang/Object;->notifyAll()V
 
     monitor-exit v0
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
-
-# virtual methods
 .method public reportFinished(Landroid/app/IInstrumentationWatcher;Landroid/content/ComponentName;ILandroid/os/Bundle;)V
     .locals 8
 
@@ -130,7 +120,7 @@
 
     invoke-direct/range {v0 .. v6}, Lcom/android/server/am/InstrumentationReporter$Report;-><init>(Lcom/android/server/am/InstrumentationReporter;ILandroid/app/IInstrumentationWatcher;Landroid/content/ComponentName;ILandroid/os/Bundle;)V
 
-    invoke-direct {p0, v7}, Lcom/android/server/am/InstrumentationReporter;->report(Lcom/android/server/am/InstrumentationReporter$Report;)V
+    invoke-virtual {p0, v7}, Lcom/android/server/am/InstrumentationReporter;->report(Lcom/android/server/am/InstrumentationReporter$Report;)V
 
     return-void
 .end method
@@ -156,7 +146,7 @@
 
     invoke-direct/range {v0 .. v6}, Lcom/android/server/am/InstrumentationReporter$Report;-><init>(Lcom/android/server/am/InstrumentationReporter;ILandroid/app/IInstrumentationWatcher;Landroid/content/ComponentName;ILandroid/os/Bundle;)V
 
-    invoke-direct {p0, v7}, Lcom/android/server/am/InstrumentationReporter;->report(Lcom/android/server/am/InstrumentationReporter$Report;)V
+    invoke-virtual {p0, v7}, Lcom/android/server/am/InstrumentationReporter;->report(Lcom/android/server/am/InstrumentationReporter$Report;)V
 
     return-void
 .end method

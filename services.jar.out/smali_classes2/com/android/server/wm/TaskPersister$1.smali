@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/TaskPersister$1;
+.class public Lcom/android/server/wm/TaskPersister$1;
 .super Ljava/lang/Object;
 .source "TaskPersister.java"
 
@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
@@ -27,11 +27,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/wm/TaskPersister;
+.field public final synthetic this$0:Lcom/android/server/wm/TaskPersister;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/wm/TaskPersister;)V
+.method public constructor <init>(Lcom/android/server/wm/TaskPersister;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/wm/TaskPersister$1;->this$0:Lcom/android/server/wm/TaskPersister;
@@ -44,37 +44,35 @@
 
 # virtual methods
 .method public compare(Lcom/android/server/wm/Task;Lcom/android/server/wm/Task;)I
-    .locals 5
+    .locals 2
 
     iget-wide v0, p2, Lcom/android/server/wm/Task;->mLastTimeMoved:J
 
-    iget-wide v2, p1, Lcom/android/server/wm/Task;->mLastTimeMoved:J
+    iget-wide p0, p1, Lcom/android/server/wm/Task;->mLastTimeMoved:J
 
-    sub-long/2addr v0, v2
+    sub-long/2addr v0, p0
 
-    const-wide/16 v2, 0x0
+    const-wide/16 p0, 0x0
 
-    cmp-long v4, v0, v2
+    cmp-long p0, v0, p0
 
-    if-gez v4, :cond_0
+    if-gez p0, :cond_0
 
-    const/4 v2, -0x1
+    const/4 p0, -0x1
 
-    return v2
+    return p0
 
     :cond_0
-    cmp-long v2, v0, v2
+    if-lez p0, :cond_1
 
-    if-lez v2, :cond_1
+    const/4 p0, 0x1
 
-    const/4 v2, 0x1
-
-    return v2
+    return p0
 
     :cond_1
-    const/4 v2, 0x0
+    const/4 p0, 0x0
 
-    return v2
+    return p0
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
@@ -86,7 +84,7 @@
 
     invoke-virtual {p0, p1, p2}, Lcom/android/server/wm/TaskPersister$1;->compare(Lcom/android/server/wm/Task;Lcom/android/server/wm/Task;)I
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method

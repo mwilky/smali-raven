@@ -1,10 +1,10 @@
-.class Lcom/android/server/rollback/LocalIntentReceiver;
+.class public Lcom/android/server/rollback/LocalIntentReceiver;
 .super Ljava/lang/Object;
 .source "LocalIntentReceiver.java"
 
 
 # instance fields
-.field final mConsumer:Ljava/util/function/Consumer;
+.field public final mConsumer:Ljava/util/function/Consumer;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/function/Consumer<",
@@ -14,11 +14,11 @@
     .end annotation
 .end field
 
-.field private mLocalSender:Landroid/content/IIntentSender$Stub;
+.field public mLocalSender:Landroid/content/IIntentSender$Stub;
 
 
 # direct methods
-.method constructor <init>(Ljava/util/function/Consumer;)V
+.method public constructor <init>(Ljava/util/function/Consumer;)V
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -44,14 +44,14 @@
 
 
 # virtual methods
-.method getIntentSender()Landroid/content/IntentSender;
-    .locals 2
+.method public getIntentSender()Landroid/content/IntentSender;
+    .locals 1
 
     new-instance v0, Landroid/content/IntentSender;
 
-    iget-object v1, p0, Lcom/android/server/rollback/LocalIntentReceiver;->mLocalSender:Landroid/content/IIntentSender$Stub;
+    iget-object p0, p0, Lcom/android/server/rollback/LocalIntentReceiver;->mLocalSender:Landroid/content/IIntentSender$Stub;
 
-    invoke-direct {v0, v1}, Landroid/content/IntentSender;-><init>(Landroid/content/IIntentSender;)V
+    invoke-direct {v0, p0}, Landroid/content/IntentSender;-><init>(Landroid/content/IIntentSender;)V
 
     return-object v0
 .end method

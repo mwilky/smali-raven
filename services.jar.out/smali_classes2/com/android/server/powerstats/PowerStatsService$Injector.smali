@@ -4,22 +4,31 @@
 
 
 # annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/android/server/powerstats/PowerStatsService;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "Injector"
 .end annotation
 
 
 # instance fields
-.field private mPowerStatsHALWrapper:Lcom/android/server/powerstats/PowerStatsHALWrapper$IPowerStatsHALWrapper;
+.field public mPowerStatsHALWrapper:Lcom/android/server/powerstats/PowerStatsHALWrapper$IPowerStatsHALWrapper;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "this"
+        }
+    .end annotation
+.end field
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -29,79 +38,69 @@
 
 
 # virtual methods
-.method createBatteryTrigger(Landroid/content/Context;Lcom/android/server/powerstats/PowerStatsLogger;)Lcom/android/server/powerstats/BatteryTrigger;
+.method public createBatteryTrigger(Landroid/content/Context;Lcom/android/server/powerstats/PowerStatsLogger;)Lcom/android/server/powerstats/BatteryTrigger;
+    .locals 1
+
+    new-instance p0, Lcom/android/server/powerstats/BatteryTrigger;
+
+    const/4 v0, 0x1
+
+    invoke-direct {p0, p1, p2, v0}, Lcom/android/server/powerstats/BatteryTrigger;-><init>(Landroid/content/Context;Lcom/android/server/powerstats/PowerStatsLogger;Z)V
+
+    return-object p0
+.end method
+
+.method public createDataStoragePath()Ljava/io/File;
     .locals 2
 
-    new-instance v0, Lcom/android/server/powerstats/BatteryTrigger;
+    new-instance p0, Ljava/io/File;
 
-    const/4 v1, 0x1
+    const/4 v0, 0x0
 
-    invoke-direct {v0, p1, p2, v1}, Lcom/android/server/powerstats/BatteryTrigger;-><init>(Landroid/content/Context;Lcom/android/server/powerstats/PowerStatsLogger;Z)V
-
-    return-object v0
-.end method
-
-.method createDataStoragePath()Ljava/io/File;
-    .locals 3
-
-    new-instance v0, Ljava/io/File;
-
-    const/4 v1, 0x0
-
-    invoke-static {v1}, Landroid/os/Environment;->getDataSystemDeDirectory(I)Ljava/io/File;
-
-    move-result-object v1
-
-    const-string v2, "powerstats"
-
-    invoke-direct {v0, v1, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
-
-    return-object v0
-.end method
-
-.method createMeterCacheFilename()Ljava/lang/String;
-    .locals 1
-
-    const-string v0, "meterCache"
-
-    return-object v0
-.end method
-
-.method createMeterFilename()Ljava/lang/String;
-    .locals 1
-
-    const-string v0, "log.powerstats.meter.0"
-
-    return-object v0
-.end method
-
-.method createModelCacheFilename()Ljava/lang/String;
-    .locals 1
-
-    const-string v0, "modelCache"
-
-    return-object v0
-.end method
-
-.method createModelFilename()Ljava/lang/String;
-    .locals 1
-
-    const-string v0, "log.powerstats.model.0"
-
-    return-object v0
-.end method
-
-.method createPowerStatsHALWrapperImpl()Lcom/android/server/powerstats/PowerStatsHALWrapper$IPowerStatsHALWrapper;
-    .locals 1
-
-    invoke-static {}, Lcom/android/server/powerstats/PowerStatsHALWrapper;->getPowerStatsHalImpl()Lcom/android/server/powerstats/PowerStatsHALWrapper$IPowerStatsHALWrapper;
+    invoke-static {v0}, Landroid/os/Environment;->getDataSystemDeDirectory(I)Ljava/io/File;
 
     move-result-object v0
 
-    return-object v0
+    const-string v1, "powerstats"
+
+    invoke-direct {p0, v0, v1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    return-object p0
 .end method
 
-.method createPowerStatsLogger(Landroid/content/Context;Landroid/os/Looper;Ljava/io/File;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/android/server/powerstats/PowerStatsHALWrapper$IPowerStatsHALWrapper;)Lcom/android/server/powerstats/PowerStatsLogger;
+.method public createMeterCacheFilename()Ljava/lang/String;
+    .locals 0
+
+    const-string p0, "meterCache"
+
+    return-object p0
+.end method
+
+.method public createMeterFilename()Ljava/lang/String;
+    .locals 0
+
+    const-string p0, "log.powerstats.meter.0"
+
+    return-object p0
+.end method
+
+.method public createModelCacheFilename()Ljava/lang/String;
+    .locals 0
+
+    const-string p0, "modelCache"
+
+    return-object p0
+.end method
+
+.method public createModelFilename()Ljava/lang/String;
+    .locals 0
+
+    const-string p0, "log.powerstats.model.0"
+
+    return-object p0
+.end method
+
+.method public createPowerStatsLogger(Landroid/content/Context;Landroid/os/Looper;Ljava/io/File;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/android/server/powerstats/PowerStatsHALWrapper$IPowerStatsHALWrapper;)Lcom/android/server/powerstats/PowerStatsLogger;
     .locals 12
 
     new-instance v11, Lcom/android/server/powerstats/PowerStatsLogger;
@@ -133,45 +132,45 @@
     return-object v11
 .end method
 
-.method createResidencyCacheFilename()Ljava/lang/String;
+.method public createResidencyCacheFilename()Ljava/lang/String;
+    .locals 0
+
+    const-string p0, "residencyCache"
+
+    return-object p0
+.end method
+
+.method public createResidencyFilename()Ljava/lang/String;
+    .locals 0
+
+    const-string p0, "log.powerstats.residency.0"
+
+    return-object p0
+.end method
+
+.method public createStatsPullerImpl(Landroid/content/Context;Landroid/power/PowerStatsInternal;)Lcom/android/server/powerstats/StatsPullAtomCallbackImpl;
+    .locals 0
+
+    new-instance p0, Lcom/android/server/powerstats/StatsPullAtomCallbackImpl;
+
+    invoke-direct {p0, p1, p2}, Lcom/android/server/powerstats/StatsPullAtomCallbackImpl;-><init>(Landroid/content/Context;Landroid/power/PowerStatsInternal;)V
+
+    return-object p0
+.end method
+
+.method public createTimerTrigger(Landroid/content/Context;Lcom/android/server/powerstats/PowerStatsLogger;)Lcom/android/server/powerstats/TimerTrigger;
     .locals 1
 
-    const-string v0, "residencyCache"
+    new-instance p0, Lcom/android/server/powerstats/TimerTrigger;
 
-    return-object v0
+    const/4 v0, 0x1
+
+    invoke-direct {p0, p1, p2, v0}, Lcom/android/server/powerstats/TimerTrigger;-><init>(Landroid/content/Context;Lcom/android/server/powerstats/PowerStatsLogger;Z)V
+
+    return-object p0
 .end method
 
-.method createResidencyFilename()Ljava/lang/String;
-    .locals 1
-
-    const-string v0, "log.powerstats.residency.0"
-
-    return-object v0
-.end method
-
-.method createStatsPullerImpl(Landroid/content/Context;Landroid/power/PowerStatsInternal;)Lcom/android/server/powerstats/StatsPullAtomCallbackImpl;
-    .locals 1
-
-    new-instance v0, Lcom/android/server/powerstats/StatsPullAtomCallbackImpl;
-
-    invoke-direct {v0, p1, p2}, Lcom/android/server/powerstats/StatsPullAtomCallbackImpl;-><init>(Landroid/content/Context;Landroid/power/PowerStatsInternal;)V
-
-    return-object v0
-.end method
-
-.method createTimerTrigger(Landroid/content/Context;Lcom/android/server/powerstats/PowerStatsLogger;)Lcom/android/server/powerstats/TimerTrigger;
-    .locals 2
-
-    new-instance v0, Lcom/android/server/powerstats/TimerTrigger;
-
-    const/4 v1, 0x1
-
-    invoke-direct {v0, p1, p2, v1}, Lcom/android/server/powerstats/TimerTrigger;-><init>(Landroid/content/Context;Lcom/android/server/powerstats/PowerStatsLogger;Z)V
-
-    return-object v0
-.end method
-
-.method getPowerStatsHALWrapperImpl()Lcom/android/server/powerstats/PowerStatsHALWrapper$IPowerStatsHALWrapper;
+.method public getPowerStatsHALWrapperImpl()Lcom/android/server/powerstats/PowerStatsHALWrapper$IPowerStatsHALWrapper;
     .locals 1
 
     monitor-enter p0

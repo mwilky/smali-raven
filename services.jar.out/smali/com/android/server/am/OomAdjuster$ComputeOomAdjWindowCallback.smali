@@ -1,4 +1,4 @@
-.class final Lcom/android/server/am/OomAdjuster$ComputeOomAdjWindowCallback;
+.class public final Lcom/android/server/am/OomAdjuster$ComputeOomAdjWindowCallback;
 .super Ljava/lang/Object;
 .source "OomAdjuster.java"
 
@@ -12,37 +12,37 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x10
+    accessFlags = 0x11
     name = "ComputeOomAdjWindowCallback"
 .end annotation
 
 
 # instance fields
-.field adj:I
+.field public adj:I
 
-.field app:Lcom/android/server/am/ProcessRecord;
+.field public app:Lcom/android/server/am/ProcessRecord;
 
-.field appUid:I
+.field public appUid:I
 
-.field foregroundActivities:Z
+.field public foregroundActivities:Z
 
-.field logUid:I
+.field public logUid:I
 
-.field mHasVisibleActivities:Z
+.field public mHasVisibleActivities:Z
 
-.field mState:Lcom/android/server/am/ProcessStateRecord;
+.field public mState:Lcom/android/server/am/ProcessStateRecord;
 
-.field procState:I
+.field public procState:I
 
-.field processStateCurTop:I
+.field public processStateCurTop:I
 
-.field schedGroup:I
+.field public schedGroup:I
 
-.field final synthetic this$0:Lcom/android/server/am/OomAdjuster;
+.field public final synthetic this$0:Lcom/android/server/am/OomAdjuster;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/OomAdjuster;)V
+.method public constructor <init>(Lcom/android/server/am/OomAdjuster;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/am/OomAdjuster$ComputeOomAdjWindowCallback;->this$0:Lcom/android/server/am/OomAdjuster;
@@ -54,8 +54,8 @@
 
 
 # virtual methods
-.method initialize(Lcom/android/server/am/ProcessRecord;IZZIIIII)V
-    .locals 1
+.method public initialize(Lcom/android/server/am/ProcessRecord;IZZIIIII)V
+    .locals 0
 
     iput-object p1, p0, Lcom/android/server/am/OomAdjuster$ComputeOomAdjWindowCallback;->app:Lcom/android/server/am/ProcessRecord;
 
@@ -75,9 +75,9 @@
 
     iput p9, p0, Lcom/android/server/am/OomAdjuster$ComputeOomAdjWindowCallback;->processStateCurTop:I
 
-    iget-object v0, p1, Lcom/android/server/am/ProcessRecord;->mState:Lcom/android/server/am/ProcessStateRecord;
+    iget-object p1, p1, Lcom/android/server/am/ProcessRecord;->mState:Lcom/android/server/am/ProcessStateRecord;
 
-    iput-object v0, p0, Lcom/android/server/am/OomAdjuster$ComputeOomAdjWindowCallback;->mState:Lcom/android/server/am/ProcessStateRecord;
+    iput-object p1, p0, Lcom/android/server/am/OomAdjuster$ComputeOomAdjWindowCallback;->mState:Lcom/android/server/am/ProcessStateRecord;
 
     return-void
 .end method
@@ -125,7 +125,7 @@
 
     const-string v2, "ActivityManager"
 
-    invoke-static {v0, v2, v1}, Lcom/android/server/am/OomAdjuster;->access$100(Lcom/android/server/am/OomAdjuster;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v0, v2, v1}, Lcom/android/server/am/OomAdjuster;->-$$Nest$mreportOomAdjMessageLocked(Lcom/android/server/am/OomAdjuster;Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_0
     const/4 v0, 0x0
@@ -178,7 +178,7 @@
 
     move-result-object v3
 
-    invoke-static {v0, v1, v3}, Lcom/android/server/am/OomAdjuster;->access$100(Lcom/android/server/am/OomAdjuster;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v0, v1, v3}, Lcom/android/server/am/OomAdjuster;->-$$Nest$mreportOomAdjMessageLocked(Lcom/android/server/am/OomAdjuster;Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_0
     iget v0, p0, Lcom/android/server/am/OomAdjuster$ComputeOomAdjWindowCallback;->procState:I
@@ -217,7 +217,7 @@
 
     move-result-object v2
 
-    invoke-static {v0, v1, v2}, Lcom/android/server/am/OomAdjuster;->access$100(Lcom/android/server/am/OomAdjuster;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v0, v1, v2}, Lcom/android/server/am/OomAdjuster;->-$$Nest$mreportOomAdjMessageLocked(Lcom/android/server/am/OomAdjuster;Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_1
     iget v0, p0, Lcom/android/server/am/OomAdjuster$ComputeOomAdjWindowCallback;->schedGroup:I
@@ -291,65 +291,65 @@
 
     move-result-object v3
 
-    invoke-static {v0, v1, v3}, Lcom/android/server/am/OomAdjuster;->access$100(Lcom/android/server/am/OomAdjuster;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v0, v1, v3}, Lcom/android/server/am/OomAdjuster;->-$$Nest$mreportOomAdjMessageLocked(Lcom/android/server/am/OomAdjuster;Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_0
     if-nez p1, :cond_1
 
-    iget v0, p0, Lcom/android/server/am/OomAdjuster$ComputeOomAdjWindowCallback;->procState:I
+    iget p1, p0, Lcom/android/server/am/OomAdjuster$ComputeOomAdjWindowCallback;->procState:I
 
-    const/16 v3, 0xf
+    const/16 v0, 0xf
 
-    if-le v0, v3, :cond_1
+    if-le p1, v0, :cond_1
 
-    iput v3, p0, Lcom/android/server/am/OomAdjuster$ComputeOomAdjWindowCallback;->procState:I
+    iput v0, p0, Lcom/android/server/am/OomAdjuster$ComputeOomAdjWindowCallback;->procState:I
 
-    iget-object v0, p0, Lcom/android/server/am/OomAdjuster$ComputeOomAdjWindowCallback;->mState:Lcom/android/server/am/ProcessStateRecord;
+    iget-object p1, p0, Lcom/android/server/am/OomAdjuster$ComputeOomAdjWindowCallback;->mState:Lcom/android/server/am/ProcessStateRecord;
 
-    invoke-virtual {v0, v2}, Lcom/android/server/am/ProcessStateRecord;->setAdjType(Ljava/lang/String;)V
+    invoke-virtual {p1, v2}, Lcom/android/server/am/ProcessStateRecord;->setAdjType(Ljava/lang/String;)V
 
-    iget v0, p0, Lcom/android/server/am/OomAdjuster$ComputeOomAdjWindowCallback;->logUid:I
+    iget p1, p0, Lcom/android/server/am/OomAdjuster$ComputeOomAdjWindowCallback;->logUid:I
 
-    iget v2, p0, Lcom/android/server/am/OomAdjuster$ComputeOomAdjWindowCallback;->appUid:I
+    iget v0, p0, Lcom/android/server/am/OomAdjuster$ComputeOomAdjWindowCallback;->appUid:I
 
-    if-ne v0, v2, :cond_1
+    if-ne p1, v0, :cond_1
 
-    iget-object v0, p0, Lcom/android/server/am/OomAdjuster$ComputeOomAdjWindowCallback;->this$0:Lcom/android/server/am/OomAdjuster;
+    iget-object p1, p0, Lcom/android/server/am/OomAdjuster$ComputeOomAdjWindowCallback;->this$0:Lcom/android/server/am/OomAdjuster;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "Raise procstate to stop-activity: "
+    const-string v2, "Raise procstate to stop-activity: "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v3, p0, Lcom/android/server/am/OomAdjuster$ComputeOomAdjWindowCallback;->app:Lcom/android/server/am/ProcessRecord;
+    iget-object v2, p0, Lcom/android/server/am/OomAdjuster$ComputeOomAdjWindowCallback;->app:Lcom/android/server/am/ProcessRecord;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-static {v0, v1, v2}, Lcom/android/server/am/OomAdjuster;->access$100(Lcom/android/server/am/OomAdjuster;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {p1, v1, v0}, Lcom/android/server/am/OomAdjuster;->-$$Nest$mreportOomAdjMessageLocked(Lcom/android/server/am/OomAdjuster;Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_1
-    iget-object v0, p0, Lcom/android/server/am/OomAdjuster$ComputeOomAdjWindowCallback;->mState:Lcom/android/server/am/ProcessStateRecord;
+    iget-object p1, p0, Lcom/android/server/am/OomAdjuster$ComputeOomAdjWindowCallback;->mState:Lcom/android/server/am/ProcessStateRecord;
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    invoke-virtual {v0, v1}, Lcom/android/server/am/ProcessStateRecord;->setCached(Z)V
+    invoke-virtual {p1, v0}, Lcom/android/server/am/ProcessStateRecord;->setCached(Z)V
 
-    iget-object v0, p0, Lcom/android/server/am/OomAdjuster$ComputeOomAdjWindowCallback;->mState:Lcom/android/server/am/ProcessStateRecord;
+    iget-object p1, p0, Lcom/android/server/am/OomAdjuster$ComputeOomAdjWindowCallback;->mState:Lcom/android/server/am/ProcessStateRecord;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/am/ProcessStateRecord;->setEmpty(Z)V
+    invoke-virtual {p1, v0}, Lcom/android/server/am/ProcessStateRecord;->setEmpty(Z)V
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    iput-boolean v0, p0, Lcom/android/server/am/OomAdjuster$ComputeOomAdjWindowCallback;->foregroundActivities:Z
+    iput-boolean p1, p0, Lcom/android/server/am/OomAdjuster$ComputeOomAdjWindowCallback;->foregroundActivities:Z
 
-    iput-boolean v1, p0, Lcom/android/server/am/OomAdjuster$ComputeOomAdjWindowCallback;->mHasVisibleActivities:Z
+    iput-boolean v0, p0, Lcom/android/server/am/OomAdjuster$ComputeOomAdjWindowCallback;->mHasVisibleActivities:Z
 
     return-void
 .end method
@@ -397,7 +397,7 @@
 
     move-result-object v3
 
-    invoke-static {v0, v1, v3}, Lcom/android/server/am/OomAdjuster;->access$100(Lcom/android/server/am/OomAdjuster;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v0, v1, v3}, Lcom/android/server/am/OomAdjuster;->-$$Nest$mreportOomAdjMessageLocked(Lcom/android/server/am/OomAdjuster;Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_0
     iget v0, p0, Lcom/android/server/am/OomAdjuster$ComputeOomAdjWindowCallback;->procState:I
@@ -436,7 +436,7 @@
 
     move-result-object v2
 
-    invoke-static {v0, v1, v2}, Lcom/android/server/am/OomAdjuster;->access$100(Lcom/android/server/am/OomAdjuster;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v0, v1, v2}, Lcom/android/server/am/OomAdjuster;->-$$Nest$mreportOomAdjMessageLocked(Lcom/android/server/am/OomAdjuster;Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_1
     iget v0, p0, Lcom/android/server/am/OomAdjuster$ComputeOomAdjWindowCallback;->schedGroup:I

@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/broadcastradio/hal2/RadioModule$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/hardware/broadcastradio/V2_0/IBroadcastRadio$openSessionCallback;
+.implements Landroid/hardware/broadcastradio/V2_0/IBroadcastRadio$getAmFmRegionConfigCallback;
 
 
 # instance fields
@@ -22,12 +23,12 @@
 
 
 # virtual methods
-.method public final onValues(ILandroid/hardware/broadcastradio/V2_0/ITunerSession;)V
-    .locals 1
+.method public final onValues(ILandroid/hardware/broadcastradio/V2_0/AmFmRegionConfig;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/broadcastradio/hal2/RadioModule$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/broadcastradio/hal2/Mutable;
+    iget-object p0, p0, Lcom/android/server/broadcastradio/hal2/RadioModule$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/broadcastradio/hal2/Mutable;
 
-    invoke-static {v0, p1, p2}, Lcom/android/server/broadcastradio/hal2/RadioModule;->lambda$openSession$2(Lcom/android/server/broadcastradio/hal2/Mutable;ILandroid/hardware/broadcastradio/V2_0/ITunerSession;)V
+    invoke-static {p0, p1, p2}, Lcom/android/server/broadcastradio/hal2/RadioModule;->$r8$lambda$QGJ1KnE6jA17lltX4UvEaWTDlJE(Lcom/android/server/broadcastradio/hal2/Mutable;ILandroid/hardware/broadcastradio/V2_0/AmFmRegionConfig;)V
 
     return-void
 .end method

@@ -1,43 +1,44 @@
 .class public final synthetic Lcom/android/server/wm/Transition$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Consumer;
+.implements Ljava/util/function/Predicate;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/wm/Transition$$ExternalSyntheticLambda0;
+# instance fields
+.field public final synthetic f$0:I
+
+.field public final synthetic f$1:Landroid/util/ArraySet;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/wm/Transition$$ExternalSyntheticLambda0;
-
-    invoke-direct {v0}, Lcom/android/server/wm/Transition$$ExternalSyntheticLambda0;-><init>()V
-
-    sput-object v0, Lcom/android/server/wm/Transition$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/server/wm/Transition$$ExternalSyntheticLambda0;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(ILandroid/util/ArraySet;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput p1, p0, Lcom/android/server/wm/Transition$$ExternalSyntheticLambda0;->f$0:I
+
+    iput-object p2, p0, Lcom/android/server/wm/Transition$$ExternalSyntheticLambda0;->f$1:Landroid/util/ArraySet;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
-    .locals 0
+.method public final test(Ljava/lang/Object;)Z
+    .locals 1
 
-    check-cast p1, Landroid/os/IRemoteCallback;
+    iget v0, p0, Lcom/android/server/wm/Transition$$ExternalSyntheticLambda0;->f$0:I
 
-    invoke-static {p1}, Lcom/android/server/wm/Transition;->lambda$sendRemoteCallback$0(Landroid/os/IRemoteCallback;)V
+    iget-object p0, p0, Lcom/android/server/wm/Transition$$ExternalSyntheticLambda0;->f$1:Landroid/util/ArraySet;
 
-    return-void
+    check-cast p1, Lcom/android/server/wm/ActivityRecord;
+
+    invoke-static {v0, p0, p1}, Lcom/android/server/wm/Transition;->$r8$lambda$bLbrVBY9eltpGXZltAsjCeu5GC0(ILandroid/util/ArraySet;Lcom/android/server/wm/ActivityRecord;)Z
+
+    move-result p0
+
+    return p0
 .end method

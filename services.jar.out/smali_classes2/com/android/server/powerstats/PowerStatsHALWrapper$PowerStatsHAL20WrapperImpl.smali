@@ -18,7 +18,7 @@
 
 
 # static fields
-.field private static sVintfPowerStats:Ljava/util/function/Supplier;
+.field public static sVintfPowerStats:Ljava/util/function/Supplier;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/function/Supplier<",
@@ -31,30 +31,30 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 3
+    .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v0, Lcom/android/server/powerstats/PowerStatsHALWrapper$VintfHalCache;
+    new-instance p0, Lcom/android/server/powerstats/PowerStatsHALWrapper$VintfHalCache;
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    invoke-direct {v0, v1}, Lcom/android/server/powerstats/PowerStatsHALWrapper$VintfHalCache;-><init>(Lcom/android/server/powerstats/PowerStatsHALWrapper$1;)V
+    invoke-direct {p0, v0}, Lcom/android/server/powerstats/PowerStatsHALWrapper$VintfHalCache;-><init>(Lcom/android/server/powerstats/PowerStatsHALWrapper$VintfHalCache-IA;)V
 
-    sput-object v1, Lcom/android/server/powerstats/PowerStatsHALWrapper$PowerStatsHAL20WrapperImpl;->sVintfPowerStats:Ljava/util/function/Supplier;
+    sput-object v0, Lcom/android/server/powerstats/PowerStatsHALWrapper$PowerStatsHAL20WrapperImpl;->sVintfPowerStats:Ljava/util/function/Supplier;
 
-    invoke-interface {v0}, Ljava/util/function/Supplier;->get()Ljava/lang/Object;
+    invoke-interface {p0}, Ljava/util/function/Supplier;->get()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
-    if-nez v2, :cond_0
+    if-nez v1, :cond_0
 
-    sput-object v1, Lcom/android/server/powerstats/PowerStatsHALWrapper$PowerStatsHAL20WrapperImpl;->sVintfPowerStats:Ljava/util/function/Supplier;
+    sput-object v0, Lcom/android/server/powerstats/PowerStatsHALWrapper$PowerStatsHAL20WrapperImpl;->sVintfPowerStats:Ljava/util/function/Supplier;
 
     goto :goto_0
 
     :cond_0
-    sput-object v0, Lcom/android/server/powerstats/PowerStatsHALWrapper$PowerStatsHAL20WrapperImpl;->sVintfPowerStats:Ljava/util/function/Supplier;
+    sput-object p0, Lcom/android/server/powerstats/PowerStatsHALWrapper$PowerStatsHAL20WrapperImpl;->sVintfPowerStats:Ljava/util/function/Supplier;
 
     :goto_0
     return-void
@@ -63,277 +63,259 @@
 
 # virtual methods
 .method public getEnergyConsumed([I)[Landroid/hardware/power/stats/EnergyConsumerResult;
-    .locals 4
+    .locals 1
 
-    const/4 v0, 0x0
+    sget-object p0, Lcom/android/server/powerstats/PowerStatsHALWrapper$PowerStatsHAL20WrapperImpl;->sVintfPowerStats:Ljava/util/function/Supplier;
 
-    sget-object v1, Lcom/android/server/powerstats/PowerStatsHALWrapper$PowerStatsHAL20WrapperImpl;->sVintfPowerStats:Ljava/util/function/Supplier;
-
-    if-eqz v1, :cond_0
-
-    nop
+    if-eqz p0, :cond_0
 
     :try_start_0
-    invoke-interface {v1}, Ljava/util/function/Supplier;->get()Ljava/lang/Object;
+    invoke-interface {p0}, Ljava/util/function/Supplier;->get()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p0
 
-    check-cast v1, Landroid/hardware/power/stats/IPowerStats;
+    check-cast p0, Landroid/hardware/power/stats/IPowerStats;
 
-    invoke-interface {v1, p1}, Landroid/hardware/power/stats/IPowerStats;->getEnergyConsumed([I)[Landroid/hardware/power/stats/EnergyConsumerResult;
+    invoke-interface {p0, p1}, Landroid/hardware/power/stats/IPowerStats;->getEnergyConsumed([I)[Landroid/hardware/power/stats/EnergyConsumerResult;
 
-    move-result-object v1
+    move-result-object p0
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-object v0, v1
 
     goto :goto_0
 
     :catch_0
-    move-exception v1
+    move-exception p0
 
-    invoke-static {}, Lcom/android/server/powerstats/PowerStatsHALWrapper;->access$100()Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/powerstats/PowerStatsHALWrapper;->-$$Nest$sfgetTAG()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    const-string v3, "Failed to get energy consumer results: "
+    const-string v0, "Failed to get energy consumer results: "
 
-    invoke-static {v2, v3, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {p1, v0, p0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :cond_0
+    const/4 p0, 0x0
+
     :goto_0
-    return-object v0
+    return-object p0
 .end method
 
 .method public getEnergyConsumerInfo()[Landroid/hardware/power/stats/EnergyConsumer;
-    .locals 4
+    .locals 2
 
-    const/4 v0, 0x0
+    sget-object p0, Lcom/android/server/powerstats/PowerStatsHALWrapper$PowerStatsHAL20WrapperImpl;->sVintfPowerStats:Ljava/util/function/Supplier;
 
-    sget-object v1, Lcom/android/server/powerstats/PowerStatsHALWrapper$PowerStatsHAL20WrapperImpl;->sVintfPowerStats:Ljava/util/function/Supplier;
-
-    if-eqz v1, :cond_0
+    if-eqz p0, :cond_0
 
     :try_start_0
-    invoke-interface {v1}, Ljava/util/function/Supplier;->get()Ljava/lang/Object;
+    invoke-interface {p0}, Ljava/util/function/Supplier;->get()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p0
 
-    check-cast v1, Landroid/hardware/power/stats/IPowerStats;
+    check-cast p0, Landroid/hardware/power/stats/IPowerStats;
 
-    invoke-interface {v1}, Landroid/hardware/power/stats/IPowerStats;->getEnergyConsumerInfo()[Landroid/hardware/power/stats/EnergyConsumer;
+    invoke-interface {p0}, Landroid/hardware/power/stats/IPowerStats;->getEnergyConsumerInfo()[Landroid/hardware/power/stats/EnergyConsumer;
 
-    move-result-object v1
+    move-result-object p0
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-object v0, v1
 
     goto :goto_0
 
     :catch_0
-    move-exception v1
+    move-exception p0
 
-    invoke-static {}, Lcom/android/server/powerstats/PowerStatsHALWrapper;->access$100()Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/powerstats/PowerStatsHALWrapper;->-$$Nest$sfgetTAG()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    const-string v3, "Failed to get energy consumer info: "
+    const-string v1, "Failed to get energy consumer info: "
 
-    invoke-static {v2, v3, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v0, v1, p0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :cond_0
+    const/4 p0, 0x0
+
     :goto_0
-    return-object v0
+    return-object p0
 .end method
 
 .method public getEnergyMeterInfo()[Landroid/hardware/power/stats/Channel;
-    .locals 4
+    .locals 2
 
-    const/4 v0, 0x0
+    sget-object p0, Lcom/android/server/powerstats/PowerStatsHALWrapper$PowerStatsHAL20WrapperImpl;->sVintfPowerStats:Ljava/util/function/Supplier;
 
-    sget-object v1, Lcom/android/server/powerstats/PowerStatsHALWrapper$PowerStatsHAL20WrapperImpl;->sVintfPowerStats:Ljava/util/function/Supplier;
-
-    if-eqz v1, :cond_0
+    if-eqz p0, :cond_0
 
     :try_start_0
-    invoke-interface {v1}, Ljava/util/function/Supplier;->get()Ljava/lang/Object;
+    invoke-interface {p0}, Ljava/util/function/Supplier;->get()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p0
 
-    check-cast v1, Landroid/hardware/power/stats/IPowerStats;
+    check-cast p0, Landroid/hardware/power/stats/IPowerStats;
 
-    invoke-interface {v1}, Landroid/hardware/power/stats/IPowerStats;->getEnergyMeterInfo()[Landroid/hardware/power/stats/Channel;
+    invoke-interface {p0}, Landroid/hardware/power/stats/IPowerStats;->getEnergyMeterInfo()[Landroid/hardware/power/stats/Channel;
 
-    move-result-object v1
+    move-result-object p0
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-object v0, v1
 
     goto :goto_0
 
     :catch_0
-    move-exception v1
+    move-exception p0
 
-    invoke-static {}, Lcom/android/server/powerstats/PowerStatsHALWrapper;->access$100()Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/powerstats/PowerStatsHALWrapper;->-$$Nest$sfgetTAG()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    const-string v3, "Failed to get energy meter info: "
+    const-string v1, "Failed to get energy meter info: "
 
-    invoke-static {v2, v3, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v0, v1, p0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :cond_0
+    const/4 p0, 0x0
+
     :goto_0
-    return-object v0
+    return-object p0
 .end method
 
 .method public getPowerEntityInfo()[Landroid/hardware/power/stats/PowerEntity;
-    .locals 4
+    .locals 2
 
-    const/4 v0, 0x0
+    sget-object p0, Lcom/android/server/powerstats/PowerStatsHALWrapper$PowerStatsHAL20WrapperImpl;->sVintfPowerStats:Ljava/util/function/Supplier;
 
-    sget-object v1, Lcom/android/server/powerstats/PowerStatsHALWrapper$PowerStatsHAL20WrapperImpl;->sVintfPowerStats:Ljava/util/function/Supplier;
-
-    if-eqz v1, :cond_0
+    if-eqz p0, :cond_0
 
     :try_start_0
-    invoke-interface {v1}, Ljava/util/function/Supplier;->get()Ljava/lang/Object;
+    invoke-interface {p0}, Ljava/util/function/Supplier;->get()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p0
 
-    check-cast v1, Landroid/hardware/power/stats/IPowerStats;
+    check-cast p0, Landroid/hardware/power/stats/IPowerStats;
 
-    invoke-interface {v1}, Landroid/hardware/power/stats/IPowerStats;->getPowerEntityInfo()[Landroid/hardware/power/stats/PowerEntity;
+    invoke-interface {p0}, Landroid/hardware/power/stats/IPowerStats;->getPowerEntityInfo()[Landroid/hardware/power/stats/PowerEntity;
 
-    move-result-object v1
+    move-result-object p0
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-object v0, v1
 
     goto :goto_0
 
     :catch_0
-    move-exception v1
+    move-exception p0
 
-    invoke-static {}, Lcom/android/server/powerstats/PowerStatsHALWrapper;->access$100()Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/powerstats/PowerStatsHALWrapper;->-$$Nest$sfgetTAG()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    const-string v3, "Failed to get power entity info: "
+    const-string v1, "Failed to get power entity info: "
 
-    invoke-static {v2, v3, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v0, v1, p0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :cond_0
+    const/4 p0, 0x0
+
     :goto_0
-    return-object v0
+    return-object p0
 .end method
 
 .method public getStateResidency([I)[Landroid/hardware/power/stats/StateResidencyResult;
-    .locals 4
+    .locals 1
 
-    const/4 v0, 0x0
+    sget-object p0, Lcom/android/server/powerstats/PowerStatsHALWrapper$PowerStatsHAL20WrapperImpl;->sVintfPowerStats:Ljava/util/function/Supplier;
 
-    sget-object v1, Lcom/android/server/powerstats/PowerStatsHALWrapper$PowerStatsHAL20WrapperImpl;->sVintfPowerStats:Ljava/util/function/Supplier;
-
-    if-eqz v1, :cond_0
-
-    nop
+    if-eqz p0, :cond_0
 
     :try_start_0
-    invoke-interface {v1}, Ljava/util/function/Supplier;->get()Ljava/lang/Object;
+    invoke-interface {p0}, Ljava/util/function/Supplier;->get()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p0
 
-    check-cast v1, Landroid/hardware/power/stats/IPowerStats;
+    check-cast p0, Landroid/hardware/power/stats/IPowerStats;
 
-    invoke-interface {v1, p1}, Landroid/hardware/power/stats/IPowerStats;->getStateResidency([I)[Landroid/hardware/power/stats/StateResidencyResult;
+    invoke-interface {p0, p1}, Landroid/hardware/power/stats/IPowerStats;->getStateResidency([I)[Landroid/hardware/power/stats/StateResidencyResult;
 
-    move-result-object v1
+    move-result-object p0
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-object v0, v1
 
     goto :goto_0
 
     :catch_0
-    move-exception v1
+    move-exception p0
 
-    invoke-static {}, Lcom/android/server/powerstats/PowerStatsHALWrapper;->access$100()Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/powerstats/PowerStatsHALWrapper;->-$$Nest$sfgetTAG()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    const-string v3, "Failed to get state residency: "
+    const-string v0, "Failed to get state residency: "
 
-    invoke-static {v2, v3, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {p1, v0, p0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :cond_0
+    const/4 p0, 0x0
+
     :goto_0
-    return-object v0
+    return-object p0
 .end method
 
 .method public isInitialized()Z
-    .locals 1
+    .locals 0
 
-    sget-object v0, Lcom/android/server/powerstats/PowerStatsHALWrapper$PowerStatsHAL20WrapperImpl;->sVintfPowerStats:Ljava/util/function/Supplier;
+    sget-object p0, Lcom/android/server/powerstats/PowerStatsHALWrapper$PowerStatsHAL20WrapperImpl;->sVintfPowerStats:Ljava/util/function/Supplier;
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method public readEnergyMeter([I)[Landroid/hardware/power/stats/EnergyMeasurement;
-    .locals 4
+    .locals 1
 
-    const/4 v0, 0x0
+    sget-object p0, Lcom/android/server/powerstats/PowerStatsHALWrapper$PowerStatsHAL20WrapperImpl;->sVintfPowerStats:Ljava/util/function/Supplier;
 
-    sget-object v1, Lcom/android/server/powerstats/PowerStatsHALWrapper$PowerStatsHAL20WrapperImpl;->sVintfPowerStats:Ljava/util/function/Supplier;
-
-    if-eqz v1, :cond_0
-
-    nop
+    if-eqz p0, :cond_0
 
     :try_start_0
-    invoke-interface {v1}, Ljava/util/function/Supplier;->get()Ljava/lang/Object;
+    invoke-interface {p0}, Ljava/util/function/Supplier;->get()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p0
 
-    check-cast v1, Landroid/hardware/power/stats/IPowerStats;
+    check-cast p0, Landroid/hardware/power/stats/IPowerStats;
 
-    invoke-interface {v1, p1}, Landroid/hardware/power/stats/IPowerStats;->readEnergyMeter([I)[Landroid/hardware/power/stats/EnergyMeasurement;
+    invoke-interface {p0, p1}, Landroid/hardware/power/stats/IPowerStats;->readEnergyMeter([I)[Landroid/hardware/power/stats/EnergyMeasurement;
 
-    move-result-object v1
+    move-result-object p0
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-object v0, v1
 
     goto :goto_0
 
     :catch_0
-    move-exception v1
+    move-exception p0
 
-    invoke-static {}, Lcom/android/server/powerstats/PowerStatsHALWrapper;->access$100()Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/powerstats/PowerStatsHALWrapper;->-$$Nest$sfgetTAG()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    const-string v3, "Failed to get energy measurements: "
+    const-string v0, "Failed to get energy measurements: "
 
-    invoke-static {v2, v3, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {p1, v0, p0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :cond_0
+    const/4 p0, 0x0
+
     :goto_0
-    return-object v0
+    return-object p0
 .end method

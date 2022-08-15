@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x4018
+    accessFlags = 0x4019
     name = "State"
 .end annotation
 
@@ -23,7 +23,7 @@
 
 
 # static fields
-.field private static final synthetic $VALUES:[Lcom/android/server/wm/ActivityRecord$State;
+.field public static final synthetic $VALUES:[Lcom/android/server/wm/ActivityRecord$State;
 
 .field public static final enum DESTROYED:Lcom/android/server/wm/ActivityRecord$State;
 
@@ -49,7 +49,7 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 16
 
     new-instance v0, Lcom/android/server/wm/ActivityRecord$State;
@@ -207,7 +207,7 @@
     return-void
 .end method
 
-.method private constructor <init>(Ljava/lang/String;I)V
+.method public constructor <init>(Ljava/lang/String;I)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -227,11 +227,11 @@
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/android/server/wm/ActivityRecord$State;
+    check-cast p0, Lcom/android/server/wm/ActivityRecord$State;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/android/server/wm/ActivityRecord$State;

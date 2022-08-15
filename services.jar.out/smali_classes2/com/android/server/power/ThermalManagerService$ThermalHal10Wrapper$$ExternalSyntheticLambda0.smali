@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/power/ThermalManagerService$ThermalHal10Wrapper$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/hardware/thermal/V1_0/IThermal$getCoolingDevicesCallback;
+.implements Landroid/hardware/thermal/V1_0/IThermal$getTemperaturesCallback;
 
 
 # instance fields
@@ -31,15 +32,15 @@
 
 # virtual methods
 .method public final onValues(Landroid/hardware/thermal/V1_0/ThermalStatus;Ljava/util/ArrayList;)V
-    .locals 3
+    .locals 2
 
     iget-boolean v0, p0, Lcom/android/server/power/ThermalManagerService$ThermalHal10Wrapper$$ExternalSyntheticLambda0;->f$0:Z
 
     iget v1, p0, Lcom/android/server/power/ThermalManagerService$ThermalHal10Wrapper$$ExternalSyntheticLambda0;->f$1:I
 
-    iget-object v2, p0, Lcom/android/server/power/ThermalManagerService$ThermalHal10Wrapper$$ExternalSyntheticLambda0;->f$2:Ljava/util/List;
+    iget-object p0, p0, Lcom/android/server/power/ThermalManagerService$ThermalHal10Wrapper$$ExternalSyntheticLambda0;->f$2:Ljava/util/List;
 
-    invoke-static {v0, v1, v2, p1, p2}, Lcom/android/server/power/ThermalManagerService$ThermalHal10Wrapper;->lambda$getCurrentCoolingDevices$1(ZILjava/util/List;Landroid/hardware/thermal/V1_0/ThermalStatus;Ljava/util/ArrayList;)V
+    invoke-static {v0, v1, p0, p1, p2}, Lcom/android/server/power/ThermalManagerService$ThermalHal10Wrapper;->$r8$lambda$kPCH6rCCb2BP4C5Vkm0M417TwU0(ZILjava/util/List;Landroid/hardware/thermal/V1_0/ThermalStatus;Ljava/util/ArrayList;)V
 
     return-void
 .end method

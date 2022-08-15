@@ -1,31 +1,45 @@
-.class final Lcom/android/server/am/StrictModeViolationDialog;
+.class public final Lcom/android/server/am/StrictModeViolationDialog;
 .super Lcom/android/server/am/BaseErrorDialog;
 .source "StrictModeViolationDialog.java"
 
 
-# static fields
-.field static final ACTION_OK:I = 0x0
-
-.field static final ACTION_OK_AND_REPORT:I = 0x1
-
-.field static final DISMISS_TIMEOUT:J = 0xea60L
-
-.field private static final TAG:Ljava/lang/String; = "StrictModeViolationDialog"
-
-
 # instance fields
-.field private final mHandler:Landroid/os/Handler;
+.field public final mHandler:Landroid/os/Handler;
 
-.field private final mProc:Lcom/android/server/am/ProcessRecord;
+.field public final mProc:Lcom/android/server/am/ProcessRecord;
 
-.field private final mResult:Lcom/android/server/am/AppErrorResult;
+.field public final mResult:Lcom/android/server/am/AppErrorResult;
 
-.field private final mService:Lcom/android/server/am/ActivityManagerService;
+.field public final mService:Lcom/android/server/am/ActivityManagerService;
 
 
 # direct methods
+.method public static bridge synthetic -$$Nest$fgetmProc(Lcom/android/server/am/StrictModeViolationDialog;)Lcom/android/server/am/ProcessRecord;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/am/StrictModeViolationDialog;->mProc:Lcom/android/server/am/ProcessRecord;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmResult(Lcom/android/server/am/StrictModeViolationDialog;)Lcom/android/server/am/AppErrorResult;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/am/StrictModeViolationDialog;->mResult:Lcom/android/server/am/AppErrorResult;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmService(Lcom/android/server/am/StrictModeViolationDialog;)Lcom/android/server/am/ActivityManagerService;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/am/StrictModeViolationDialog;->mService:Lcom/android/server/am/ActivityManagerService;
+
+    return-object p0
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Lcom/android/server/am/ActivityManagerService;Lcom/android/server/am/AppErrorResult;Lcom/android/server/am/ProcessRecord;)V
-    .locals 8
+    .locals 4
 
     invoke-direct {p0, p1}, Lcom/android/server/am/BaseErrorDialog;-><init>(Landroid/content/Context;)V
 
@@ -47,200 +61,172 @@
 
     invoke-virtual {p4}, Lcom/android/server/am/ProcessRecord;->getPkgList()Lcom/android/server/am/PackageList;
 
-    move-result-object v2
+    move-result-object p2
 
-    invoke-virtual {v2}, Lcom/android/server/am/PackageList;->size()I
+    invoke-virtual {p2}, Lcom/android/server/am/PackageList;->size()I
 
-    move-result v2
+    move-result p2
 
-    const/4 v3, 0x1
+    const/4 p3, 0x1
 
-    const/4 v4, 0x0
+    const/4 v2, 0x0
 
-    if-ne v2, v3, :cond_0
+    if-ne p2, p3, :cond_0
 
     invoke-virtual {p1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v2
+    move-result-object p1
 
-    iget-object v5, p4, Lcom/android/server/am/ProcessRecord;->info:Landroid/content/pm/ApplicationInfo;
+    iget-object p2, p4, Lcom/android/server/am/ProcessRecord;->info:Landroid/content/pm/ApplicationInfo;
 
-    invoke-virtual {v2, v5}, Landroid/content/pm/PackageManager;->getApplicationLabel(Landroid/content/pm/ApplicationInfo;)Ljava/lang/CharSequence;
+    invoke-virtual {p1, p2}, Landroid/content/pm/PackageManager;->getApplicationLabel(Landroid/content/pm/ApplicationInfo;)Ljava/lang/CharSequence;
 
-    move-result-object v2
+    move-result-object p1
 
-    move-object v5, v2
+    if-eqz p1, :cond_0
 
-    if-eqz v2, :cond_0
+    const p2, 0x1040885
 
-    const v2, 0x1040810
+    const/4 v3, 0x2
 
-    const/4 v6, 0x2
+    new-array v3, v3, [Ljava/lang/Object;
 
-    new-array v6, v6, [Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
-    invoke-interface {v5}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v7
+    aput-object p1, v3, v2
 
-    aput-object v7, v6, v4
+    iget-object p1, p4, Lcom/android/server/am/ProcessRecord;->info:Landroid/content/pm/ApplicationInfo;
 
-    iget-object v7, p4, Lcom/android/server/am/ProcessRecord;->info:Landroid/content/pm/ApplicationInfo;
+    iget-object p1, p1, Landroid/content/pm/ApplicationInfo;->processName:Ljava/lang/String;
 
-    iget-object v7, v7, Landroid/content/pm/ApplicationInfo;->processName:Ljava/lang/String;
+    aput-object p1, v3, p3
 
-    aput-object v7, v6, v3
+    invoke-virtual {v1, p2, v3}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-virtual {v1, v2, v6}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v2
-
-    invoke-virtual {p0, v2}, Lcom/android/server/am/StrictModeViolationDialog;->setMessage(Ljava/lang/CharSequence;)V
+    invoke-virtual {p0, p1}, Landroid/app/AlertDialog;->setMessage(Ljava/lang/CharSequence;)V
 
     goto :goto_0
 
     :cond_0
-    iget-object v5, p4, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+    iget-object p1, p4, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
 
-    const v2, 0x1040811
+    const p2, 0x1040886
 
-    new-array v6, v3, [Ljava/lang/Object;
+    new-array v3, p3, [Ljava/lang/Object;
 
-    invoke-interface {v5}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+    invoke-interface {p1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object p1
 
-    aput-object v7, v6, v4
+    aput-object p1, v3, v2
 
-    invoke-virtual {v1, v2, v6}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {v1, p2, v3}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {p0, v2}, Lcom/android/server/am/StrictModeViolationDialog;->setMessage(Ljava/lang/CharSequence;)V
+    invoke-virtual {p0, p1}, Landroid/app/AlertDialog;->setMessage(Ljava/lang/CharSequence;)V
 
     :goto_0
-    invoke-virtual {p0, v4}, Lcom/android/server/am/StrictModeViolationDialog;->setCancelable(Z)V
+    invoke-virtual {p0, v2}, Landroid/app/AlertDialog;->setCancelable(Z)V
 
-    const/4 v2, -0x1
+    const/4 p1, -0x1
 
-    const v6, 0x10402f5
+    const p2, 0x1040323
 
-    invoke-virtual {v1, v6}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {v1, p2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
-    move-result-object v6
+    move-result-object p2
 
-    invoke-virtual {v0, v4}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
-
-    move-result-object v7
-
-    invoke-virtual {p0, v2, v6, v7}, Lcom/android/server/am/StrictModeViolationDialog;->setButton(ILjava/lang/CharSequence;Landroid/os/Message;)V
-
-    iget-object v2, p4, Lcom/android/server/am/ProcessRecord;->mErrorState:Lcom/android/server/am/ProcessErrorStateRecord;
-
-    invoke-virtual {v2}, Lcom/android/server/am/ProcessErrorStateRecord;->getErrorReportReceiver()Landroid/content/ComponentName;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_1
-
-    const/4 v2, -0x2
-
-    const v6, 0x1040777
-
-    invoke-virtual {v1, v6}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
-
-    move-result-object v6
-
-    invoke-virtual {v0, v3}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
+    invoke-virtual {v0, v2}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
     move-result-object v3
 
-    invoke-virtual {p0, v2, v6, v3}, Lcom/android/server/am/StrictModeViolationDialog;->setButton(ILjava/lang/CharSequence;Landroid/os/Message;)V
+    invoke-virtual {p0, p1, p2, v3}, Landroid/app/AlertDialog;->setButton(ILjava/lang/CharSequence;Landroid/os/Message;)V
+
+    iget-object p1, p4, Lcom/android/server/am/ProcessRecord;->mErrorState:Lcom/android/server/am/ProcessErrorStateRecord;
+
+    invoke-virtual {p1}, Lcom/android/server/am/ProcessErrorStateRecord;->getErrorReportReceiver()Landroid/content/ComponentName;
+
+    move-result-object p1
+
+    if-eqz p1, :cond_1
+
+    const/4 p1, -0x2
+
+    const p2, 0x10407e8
+
+    invoke-virtual {v1, p2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object p2
+
+    invoke-virtual {v0, p3}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
+
+    move-result-object p3
+
+    invoke-virtual {p0, p1, p2, p3}, Landroid/app/AlertDialog;->setButton(ILjava/lang/CharSequence;Landroid/os/Message;)V
 
     :cond_1
-    invoke-virtual {p0}, Lcom/android/server/am/StrictModeViolationDialog;->getWindow()Landroid/view/Window;
+    invoke-virtual {p0}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
 
-    move-result-object v2
+    move-result-object p1
 
-    const/16 v3, 0x100
+    const/16 p2, 0x100
 
-    invoke-virtual {v2, v3}, Landroid/view/Window;->addPrivateFlags(I)V
+    invoke-virtual {p1, p2}, Landroid/view/Window;->addPrivateFlags(I)V
 
-    invoke-virtual {p0}, Lcom/android/server/am/StrictModeViolationDialog;->getWindow()Landroid/view/Window;
+    invoke-virtual {p0}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
 
-    move-result-object v2
+    move-result-object p0
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v6, "Strict Mode Violation: "
+    const-string p2, "Strict Mode Violation: "
 
-    invoke-virtual {v3, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v6, p4, Lcom/android/server/am/ProcessRecord;->info:Landroid/content/pm/ApplicationInfo;
+    iget-object p2, p4, Lcom/android/server/am/ProcessRecord;->info:Landroid/content/pm/ApplicationInfo;
 
-    iget-object v6, v6, Landroid/content/pm/ApplicationInfo;->processName:Ljava/lang/String;
+    iget-object p2, p2, Landroid/content/pm/ApplicationInfo;->processName:Ljava/lang/String;
 
-    invoke-virtual {v3, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-virtual {v2, v3}, Landroid/view/Window;->setTitle(Ljava/lang/CharSequence;)V
+    invoke-virtual {p0, p1}, Landroid/view/Window;->setTitle(Ljava/lang/CharSequence;)V
 
-    nop
+    invoke-virtual {v0, v2}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
-    invoke-virtual {v0, v4}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
+    move-result-object p0
 
-    move-result-object v2
+    const-wide/32 p1, 0xea60
 
-    const-wide/32 v3, 0xea60
-
-    invoke-virtual {v0, v2, v3, v4}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
+    invoke-virtual {v0, p0, p1, p2}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/server/am/StrictModeViolationDialog;)Lcom/android/server/am/ActivityManagerService;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/am/StrictModeViolationDialog;->mService:Lcom/android/server/am/ActivityManagerService;
-
-    return-object v0
-.end method
-
-.method static synthetic access$100(Lcom/android/server/am/StrictModeViolationDialog;)Lcom/android/server/am/ProcessRecord;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/am/StrictModeViolationDialog;->mProc:Lcom/android/server/am/ProcessRecord;
-
-    return-object v0
-.end method
-
-.method static synthetic access$200(Lcom/android/server/am/StrictModeViolationDialog;)Lcom/android/server/am/AppErrorResult;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/am/StrictModeViolationDialog;->mResult:Lcom/android/server/am/AppErrorResult;
-
-    return-object v0
-.end method
-
 
 # virtual methods
-.method protected closeDialog()V
-    .locals 2
+.method public closeDialog()V
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/am/StrictModeViolationDialog;->mHandler:Landroid/os/Handler;
+    iget-object p0, p0, Lcom/android/server/am/StrictModeViolationDialog;->mHandler:Landroid/os/Handler;
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
+    invoke-virtual {p0, v0}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
+    invoke-virtual {p0}, Landroid/os/Message;->sendToTarget()V
 
     return-void
 .end method

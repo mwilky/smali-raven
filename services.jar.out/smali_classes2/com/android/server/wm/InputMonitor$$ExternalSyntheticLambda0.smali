@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/wm/InputMonitor$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/InputMonitor$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/wm/InputMonitor;
+    iget-object p0, p0, Lcom/android/server/wm/InputMonitor$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/wm/InputMonitor;
 
-    invoke-virtual {v0}, Lcom/android/server/wm/InputMonitor;->lambda$onDisplayRemoved$0$InputMonitor()V
+    invoke-static {p0}, Lcom/android/server/wm/InputMonitor;->$r8$lambda$6-4EGrtubVA8TazJMa7XwJ2uXwA(Lcom/android/server/wm/InputMonitor;)V
 
     return-void
 .end method

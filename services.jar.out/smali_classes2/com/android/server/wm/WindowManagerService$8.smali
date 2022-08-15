@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/WindowManagerService$8;
+.class public Lcom/android/server/wm/WindowManagerService$8;
 .super Landroid/content/BroadcastReceiver;
 .source "WindowManagerService.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/wm/WindowManagerService;
+.field public final synthetic this$0:Lcom/android/server/wm/WindowManagerService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/wm/WindowManagerService;)V
+.method public constructor <init>(Lcom/android/server/wm/WindowManagerService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/wm/WindowManagerService$8;->this$0:Lcom/android/server/wm/WindowManagerService;
@@ -32,39 +32,35 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 5
+    .locals 1
 
-    nop
+    const-string p1, "android.intent.extra.changed_package_list"
 
-    const-string v0, "android.intent.extra.changed_package_list"
+    invoke-virtual {p2, p1}, Landroid/content/Intent;->getStringArrayExtra(Ljava/lang/String;)[Ljava/lang/String;
 
-    invoke-virtual {p2, v0}, Landroid/content/Intent;->getStringArrayExtra(Ljava/lang/String;)[Ljava/lang/String;
-
-    move-result-object v0
-
-    nop
+    move-result-object p1
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    const-string v2, "android.intent.action.PACKAGES_SUSPENDED"
+    const-string v0, "android.intent.action.PACKAGES_SUSPENDED"
 
-    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result p2
 
-    iget-object v2, p0, Lcom/android/server/wm/WindowManagerService$8;->this$0:Lcom/android/server/wm/WindowManagerService;
+    iget-object p0, p0, Lcom/android/server/wm/WindowManagerService$8;->this$0:Lcom/android/server/wm/WindowManagerService;
 
-    new-instance v3, Landroid/util/ArraySet;
+    new-instance v0, Landroid/util/ArraySet;
 
-    invoke-static {v0}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+    invoke-static {p1}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
-    move-result-object v4
+    move-result-object p1
 
-    invoke-direct {v3, v4}, Landroid/util/ArraySet;-><init>(Ljava/util/Collection;)V
+    invoke-direct {v0, p1}, Landroid/util/ArraySet;-><init>(Ljava/util/Collection;)V
 
-    invoke-static {v2, v3, v1}, Lcom/android/server/wm/WindowManagerService;->access$500(Lcom/android/server/wm/WindowManagerService;Landroid/util/ArraySet;Z)V
+    invoke-static {p0, v0, p2}, Lcom/android/server/wm/WindowManagerService;->-$$Nest$mupdateHiddenWhileSuspendedState(Lcom/android/server/wm/WindowManagerService;Landroid/util/ArraySet;Z)V
 
     return-void
 .end method

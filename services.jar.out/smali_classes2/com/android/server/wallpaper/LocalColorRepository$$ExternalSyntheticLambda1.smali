@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/wallpaper/LocalColorRepository$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -35,7 +36,7 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 4
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/wallpaper/LocalColorRepository$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/wallpaper/LocalColorRepository;
 
@@ -43,11 +44,11 @@
 
     iget-object v2, p0, Lcom/android/server/wallpaper/LocalColorRepository$$ExternalSyntheticLambda1;->f$2:Landroid/graphics/RectF;
 
-    iget-object v3, p0, Lcom/android/server/wallpaper/LocalColorRepository$$ExternalSyntheticLambda1;->f$3:Ljava/util/function/Consumer;
+    iget-object p0, p0, Lcom/android/server/wallpaper/LocalColorRepository$$ExternalSyntheticLambda1;->f$3:Ljava/util/function/Consumer;
 
     check-cast p1, Landroid/app/ILocalWallpaperColorConsumer;
 
-    invoke-virtual {v0, v1, v2, v3, p1}, Lcom/android/server/wallpaper/LocalColorRepository;->lambda$forEachCallback$1$LocalColorRepository(ILandroid/graphics/RectF;Ljava/util/function/Consumer;Landroid/app/ILocalWallpaperColorConsumer;)V
+    invoke-static {v0, v1, v2, p0, p1}, Lcom/android/server/wallpaper/LocalColorRepository;->$r8$lambda$U-07RdMzxj0qcg3MG4AT194Meb0(Lcom/android/server/wallpaper/LocalColorRepository;ILandroid/graphics/RectF;Ljava/util/function/Consumer;Landroid/app/ILocalWallpaperColorConsumer;)V
 
     return-void
 .end method

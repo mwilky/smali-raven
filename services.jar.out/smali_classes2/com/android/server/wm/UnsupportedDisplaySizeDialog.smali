@@ -4,14 +4,22 @@
 
 
 # instance fields
-.field private final mDialog:Landroid/app/AlertDialog;
+.field public final mDialog:Landroid/app/AlertDialog;
 
-.field private final mPackageName:Ljava/lang/String;
+.field public final mPackageName:Ljava/lang/String;
 
 
 # direct methods
+.method public static synthetic $r8$lambda$BUdHKR2Woh5f9myNpktDGBFbRHk(Lcom/android/server/wm/UnsupportedDisplaySizeDialog;Lcom/android/server/wm/AppWarnings;Landroid/widget/CompoundButton;Z)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/wm/UnsupportedDisplaySizeDialog;->lambda$new$0(Lcom/android/server/wm/AppWarnings;Landroid/widget/CompoundButton;Z)V
+
+    return-void
+.end method
+
 .method public constructor <init>(Lcom/android/server/wm/AppWarnings;Landroid/content/Context;Landroid/content/pm/ApplicationInfo;)V
-    .locals 8
+    .locals 3
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -29,83 +37,97 @@
 
     invoke-virtual {p3, v0, v1, v2}, Landroid/content/pm/ApplicationInfo;->loadSafeLabel(Landroid/content/pm/PackageManager;FI)Ljava/lang/CharSequence;
 
-    move-result-object v1
+    move-result-object p3
 
-    const/4 v2, 0x1
+    const/4 v0, 0x1
 
-    new-array v3, v2, [Ljava/lang/Object;
+    new-array v1, v0, [Ljava/lang/Object;
 
-    const/4 v4, 0x0
+    const/4 v2, 0x0
 
-    aput-object v1, v3, v4
+    aput-object p3, v1, v2
 
-    const v4, 0x104087d
+    const p3, 0x10408f5
 
-    invoke-virtual {p2, v4, v3}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {p2, p3, v1}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p3
 
-    new-instance v4, Landroid/app/AlertDialog$Builder;
+    new-instance v1, Landroid/app/AlertDialog$Builder;
 
-    invoke-direct {v4, p2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+    invoke-direct {v1, p2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v5, 0x104000a
+    const p2, 0x104000a
 
-    const/4 v6, 0x0
+    const/4 v2, 0x0
 
-    invoke-virtual {v4, v5, v6}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v1, p2, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object v4
+    move-result-object p2
 
-    invoke-virtual {v4, v3}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {p2, p3}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object v4
+    move-result-object p2
 
-    const v5, 0x109013b
+    const p3, 0x1090147
 
-    invoke-virtual {v4, v5}, Landroid/app/AlertDialog$Builder;->setView(I)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {p2, p3}, Landroid/app/AlertDialog$Builder;->setView(I)Landroid/app/AlertDialog$Builder;
 
-    move-result-object v4
+    move-result-object p2
 
-    invoke-virtual {v4}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
+    invoke-virtual {p2}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
-    move-result-object v4
+    move-result-object p2
 
-    iput-object v4, p0, Lcom/android/server/wm/UnsupportedDisplaySizeDialog;->mDialog:Landroid/app/AlertDialog;
+    iput-object p2, p0, Lcom/android/server/wm/UnsupportedDisplaySizeDialog;->mDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v4}, Landroid/app/AlertDialog;->create()V
+    invoke-virtual {p2}, Landroid/app/AlertDialog;->create()V
 
-    invoke-virtual {v4}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
+    invoke-virtual {p2}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
 
-    move-result-object v5
+    move-result-object p3
 
-    const/16 v6, 0x7d2
+    const/16 v1, 0x7d2
 
-    invoke-virtual {v5, v6}, Landroid/view/Window;->setType(I)V
+    invoke-virtual {p3, v1}, Landroid/view/Window;->setType(I)V
 
-    invoke-virtual {v5}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
+    invoke-virtual {p3}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
 
-    move-result-object v6
+    move-result-object p3
 
-    const-string v7, "UnsupportedDisplaySizeDialog"
+    const-string v1, "UnsupportedDisplaySizeDialog"
 
-    invoke-virtual {v6, v7}, Landroid/view/WindowManager$LayoutParams;->setTitle(Ljava/lang/CharSequence;)V
+    invoke-virtual {p3, v1}, Landroid/view/WindowManager$LayoutParams;->setTitle(Ljava/lang/CharSequence;)V
 
-    const v6, 0x10201e2
+    const p3, 0x10201f4
 
-    invoke-virtual {v4, v6}, Landroid/app/AlertDialog;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p2, p3}, Landroid/app/AlertDialog;->findViewById(I)Landroid/view/View;
 
-    move-result-object v4
+    move-result-object p2
 
-    check-cast v4, Landroid/widget/CheckBox;
+    check-cast p2, Landroid/widget/CheckBox;
 
-    invoke-virtual {v4, v2}, Landroid/widget/CheckBox;->setChecked(Z)V
+    invoke-virtual {p2, v0}, Landroid/widget/CheckBox;->setChecked(Z)V
 
-    new-instance v2, Lcom/android/server/wm/UnsupportedDisplaySizeDialog$$ExternalSyntheticLambda0;
+    new-instance p3, Lcom/android/server/wm/UnsupportedDisplaySizeDialog$$ExternalSyntheticLambda0;
 
-    invoke-direct {v2, p0, p1}, Lcom/android/server/wm/UnsupportedDisplaySizeDialog$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/wm/UnsupportedDisplaySizeDialog;Lcom/android/server/wm/AppWarnings;)V
+    invoke-direct {p3, p0, p1}, Lcom/android/server/wm/UnsupportedDisplaySizeDialog$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/wm/UnsupportedDisplaySizeDialog;Lcom/android/server/wm/AppWarnings;)V
 
-    invoke-virtual {v4, v2}, Landroid/widget/CheckBox;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {p2, p3}, Landroid/widget/CheckBox;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+
+    return-void
+.end method
+
+.method private synthetic lambda$new$0(Lcom/android/server/wm/AppWarnings;Landroid/widget/CompoundButton;Z)V
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/wm/UnsupportedDisplaySizeDialog;->mPackageName:Ljava/lang/String;
+
+    const/4 p2, 0x1
+
+    xor-int/2addr p3, p2
+
+    invoke-virtual {p1, p0, p2, p3}, Lcom/android/server/wm/AppWarnings;->setPackageFlag(Ljava/lang/String;IZ)V
 
     return-void
 .end method
@@ -113,43 +135,29 @@
 
 # virtual methods
 .method public dismiss()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/UnsupportedDisplaySizeDialog;->mDialog:Landroid/app/AlertDialog;
+    iget-object p0, p0, Lcom/android/server/wm/UnsupportedDisplaySizeDialog;->mDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
+    invoke-virtual {p0}, Landroid/app/AlertDialog;->dismiss()V
 
     return-void
 .end method
 
 .method public getPackageName()Ljava/lang/String;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/UnsupportedDisplaySizeDialog;->mPackageName:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/wm/UnsupportedDisplaySizeDialog;->mPackageName:Ljava/lang/String;
 
-    return-object v0
-.end method
-
-.method public synthetic lambda$new$0$UnsupportedDisplaySizeDialog(Lcom/android/server/wm/AppWarnings;Landroid/widget/CompoundButton;Z)V
-    .locals 3
-
-    iget-object v0, p0, Lcom/android/server/wm/UnsupportedDisplaySizeDialog;->mPackageName:Ljava/lang/String;
-
-    xor-int/lit8 v1, p3, 0x1
-
-    const/4 v2, 0x1
-
-    invoke-virtual {p1, v0, v2, v1}, Lcom/android/server/wm/AppWarnings;->setPackageFlag(Ljava/lang/String;IZ)V
-
-    return-void
+    return-object p0
 .end method
 
 .method public show()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/UnsupportedDisplaySizeDialog;->mDialog:Landroid/app/AlertDialog;
+    iget-object p0, p0, Lcom/android/server/wm/UnsupportedDisplaySizeDialog;->mDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {p0}, Landroid/app/AlertDialog;->show()V
 
     return-void
 .end method

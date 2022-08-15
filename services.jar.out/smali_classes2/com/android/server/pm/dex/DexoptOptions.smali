@@ -3,40 +3,16 @@
 .source "DexoptOptions.java"
 
 
-# static fields
-.field public static final COMPILER_FILTER_NOOP:Ljava/lang/String; = "skip"
-
-.field public static final DEXOPT_AS_SHARED_LIBRARY:I = 0x40
-
-.field public static final DEXOPT_BOOT_COMPLETE:I = 0x4
-
-.field public static final DEXOPT_CHECK_FOR_PROFILES_UPDATES:I = 0x1
-
-.field public static final DEXOPT_DOWNGRADE:I = 0x20
-
-.field public static final DEXOPT_FORCE:I = 0x2
-
-.field public static final DEXOPT_FOR_RESTORE:I = 0x800
-
-.field public static final DEXOPT_IDLE_BACKGROUND_JOB:I = 0x200
-
-.field public static final DEXOPT_INSTALL_WITH_DEX_METADATA_FILE:I = 0x400
-
-.field public static final DEXOPT_ONLY_SECONDARY_DEX:I = 0x8
-
-.field public static final DEXOPT_ONLY_SHARED_DEX:I = 0x10
-
-
 # instance fields
-.field private final mCompilationReason:I
+.field public final mCompilationReason:I
 
-.field private final mCompilerFilter:Ljava/lang/String;
+.field public final mCompilerFilter:Ljava/lang/String;
 
-.field private final mFlags:I
+.field public final mFlags:I
 
-.field private final mPackageName:Ljava/lang/String;
+.field public final mPackageName:Ljava/lang/String;
 
-.field private final mSplitName:Ljava/lang/String;
+.field public final mSplitName:Ljava/lang/String;
 
 
 # direct methods
@@ -63,17 +39,13 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;I)V
-    .locals 4
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    const/16 v0, 0xe7f
+    and-int/lit16 v0, p5, -0xe80
 
-    not-int v1, v0
-
-    and-int/2addr v1, p5
-
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
     iput-object p1, p0, Lcom/android/server/pm/dex/DexoptOptions;->mPackageName:Ljava/lang/String;
 
@@ -88,307 +60,287 @@
     return-void
 
     :cond_0
-    new-instance v1, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "Invalid flags : "
+    const-string p2, "Invalid flags : "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-static {p5}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p2
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v1
-.end method
-
-.method public constructor <init>(Ljava/lang/String;Ljava/lang/String;I)V
-    .locals 6
-
-    const/4 v2, -0x1
-
-    const/4 v4, 0x0
-
-    move-object v0, p0
-
-    move-object v1, p1
-
-    move-object v3, p2
-
-    move v5, p3
-
-    invoke-direct/range {v0 .. v5}, Lcom/android/server/pm/dex/DexoptOptions;-><init>(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;I)V
-
-    return-void
+    throw p0
 .end method
 
 
 # virtual methods
 .method public getCompilationReason()I
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/pm/dex/DexoptOptions;->mCompilationReason:I
+    iget p0, p0, Lcom/android/server/pm/dex/DexoptOptions;->mCompilationReason:I
 
-    return v0
+    return p0
 .end method
 
 .method public getCompilerFilter()Ljava/lang/String;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/pm/dex/DexoptOptions;->mCompilerFilter:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/pm/dex/DexoptOptions;->mCompilerFilter:Ljava/lang/String;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getFlags()I
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/pm/dex/DexoptOptions;->mFlags:I
+    iget p0, p0, Lcom/android/server/pm/dex/DexoptOptions;->mFlags:I
 
-    return v0
+    return p0
 .end method
 
 .method public getPackageName()Ljava/lang/String;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/pm/dex/DexoptOptions;->mPackageName:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/pm/dex/DexoptOptions;->mPackageName:Ljava/lang/String;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getSplitName()Ljava/lang/String;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/pm/dex/DexoptOptions;->mSplitName:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/pm/dex/DexoptOptions;->mSplitName:Ljava/lang/String;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public isBootComplete()Z
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/pm/dex/DexoptOptions;->mFlags:I
+    iget p0, p0, Lcom/android/server/pm/dex/DexoptOptions;->mFlags:I
 
-    and-int/lit8 v0, v0, 0x4
+    and-int/lit8 p0, p0, 0x4
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method public isCheckForProfileUpdates()Z
-    .locals 2
+    .locals 1
 
-    iget v0, p0, Lcom/android/server/pm/dex/DexoptOptions;->mFlags:I
+    iget p0, p0, Lcom/android/server/pm/dex/DexoptOptions;->mFlags:I
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    and-int/2addr v0, v1
+    and-int/2addr p0, v0
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     :goto_0
-    return v1
+    return v0
 .end method
 
 .method public isCompilationEnabled()Z
-    .locals 2
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/pm/dex/DexoptOptions;->mCompilerFilter:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/pm/dex/DexoptOptions;->mCompilerFilter:Ljava/lang/String;
 
-    const-string v1, "skip"
+    const-string v0, "skip"
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p0
 
-    xor-int/lit8 v0, v0, 0x1
+    xor-int/lit8 p0, p0, 0x1
 
-    return v0
+    return p0
 .end method
 
 .method public isDexoptAsSharedLibrary()Z
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/pm/dex/DexoptOptions;->mFlags:I
+    iget p0, p0, Lcom/android/server/pm/dex/DexoptOptions;->mFlags:I
 
-    and-int/lit8 v0, v0, 0x40
+    and-int/lit8 p0, p0, 0x40
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method public isDexoptIdleBackgroundJob()Z
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/pm/dex/DexoptOptions;->mFlags:I
+    iget p0, p0, Lcom/android/server/pm/dex/DexoptOptions;->mFlags:I
 
-    and-int/lit16 v0, v0, 0x200
+    and-int/lit16 p0, p0, 0x200
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method public isDexoptInstallForRestore()Z
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/pm/dex/DexoptOptions;->mFlags:I
+    iget p0, p0, Lcom/android/server/pm/dex/DexoptOptions;->mFlags:I
 
-    and-int/lit16 v0, v0, 0x800
+    and-int/lit16 p0, p0, 0x800
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method public isDexoptInstallWithDexMetadata()Z
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/pm/dex/DexoptOptions;->mFlags:I
+    iget p0, p0, Lcom/android/server/pm/dex/DexoptOptions;->mFlags:I
 
-    and-int/lit16 v0, v0, 0x400
+    and-int/lit16 p0, p0, 0x400
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method public isDexoptOnlySecondaryDex()Z
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/pm/dex/DexoptOptions;->mFlags:I
+    iget p0, p0, Lcom/android/server/pm/dex/DexoptOptions;->mFlags:I
 
-    and-int/lit8 v0, v0, 0x8
+    and-int/lit8 p0, p0, 0x8
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method public isDexoptOnlySharedDex()Z
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/pm/dex/DexoptOptions;->mFlags:I
+    iget p0, p0, Lcom/android/server/pm/dex/DexoptOptions;->mFlags:I
 
-    and-int/lit8 v0, v0, 0x10
+    and-int/lit8 p0, p0, 0x10
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method public isDowngrade()Z
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/pm/dex/DexoptOptions;->mFlags:I
+    iget p0, p0, Lcom/android/server/pm/dex/DexoptOptions;->mFlags:I
 
-    and-int/lit8 v0, v0, 0x20
+    and-int/lit8 p0, p0, 0x20
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method public isForce()Z
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/pm/dex/DexoptOptions;->mFlags:I
+    iget p0, p0, Lcom/android/server/pm/dex/DexoptOptions;->mFlags:I
 
-    and-int/lit8 v0, v0, 0x2
+    and-int/lit8 p0, p0, 0x2
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method public overrideCompilerFilter(Ljava/lang/String;)Lcom/android/server/pm/dex/DexoptOptions;

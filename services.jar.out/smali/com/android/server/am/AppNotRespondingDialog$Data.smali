@@ -1,4 +1,4 @@
-.class Lcom/android/server/am/AppNotRespondingDialog$Data;
+.class public Lcom/android/server/am/AppNotRespondingDialog$Data;
 .super Ljava/lang/Object;
 .source "AppNotRespondingDialog.java"
 
@@ -9,21 +9,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "Data"
 .end annotation
 
 
 # instance fields
-.field final aInfo:Landroid/content/pm/ApplicationInfo;
+.field public final aInfo:Landroid/content/pm/ApplicationInfo;
 
-.field final aboveSystem:Z
+.field public final aboveSystem:Z
 
-.field final proc:Lcom/android/server/am/ProcessRecord;
+.field public final proc:Lcom/android/server/am/ProcessRecord;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/ProcessRecord;Landroid/content/pm/ApplicationInfo;Z)V
+.method public constructor <init>(Lcom/android/server/am/ProcessRecord;Landroid/content/pm/ApplicationInfo;Z)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

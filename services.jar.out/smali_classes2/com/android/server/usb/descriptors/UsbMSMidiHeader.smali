@@ -3,8 +3,8 @@
 .source "UsbMSMidiHeader.java"
 
 
-# static fields
-.field private static final TAG:Ljava/lang/String; = "UsbMSMidiHeader"
+# instance fields
+.field public mMidiStreamingClass:I
 
 
 # direct methods
@@ -18,10 +18,24 @@
 
 
 # virtual methods
+.method public getMidiStreamingClass()I
+    .locals 0
+
+    iget p0, p0, Lcom/android/server/usb/descriptors/UsbMSMidiHeader;->mMidiStreamingClass:I
+
+    return p0
+.end method
+
 .method public parseRawDescriptors(Lcom/android/server/usb/descriptors/ByteStream;)I
     .locals 2
 
-    iget v0, p0, Lcom/android/server/usb/descriptors/UsbMSMidiHeader;->mLength:I
+    invoke-virtual {p1}, Lcom/android/server/usb/descriptors/ByteStream;->unpackUsbShort()I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/server/usb/descriptors/UsbMSMidiHeader;->mMidiStreamingClass:I
+
+    iget v0, p0, Lcom/android/server/usb/descriptors/UsbDescriptor;->mLength:I
 
     invoke-virtual {p1}, Lcom/android/server/usb/descriptors/ByteStream;->getReadCount()I
 
@@ -31,9 +45,9 @@
 
     invoke-virtual {p1, v0}, Lcom/android/server/usb/descriptors/ByteStream;->advance(I)V
 
-    iget v0, p0, Lcom/android/server/usb/descriptors/UsbMSMidiHeader;->mLength:I
+    iget p0, p0, Lcom/android/server/usb/descriptors/UsbDescriptor;->mLength:I
 
-    return v0
+    return p0
 .end method
 
 .method public report(Lcom/android/server/usb/descriptors/report/ReportCanvas;)V
@@ -49,7 +63,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Lcom/android/server/usb/descriptors/UsbMSMidiHeader;->getType()B
+    invoke-virtual {p0}, Lcom/android/server/usb/descriptors/UsbDescriptor;->getType()B
 
     move-result v1
 
@@ -63,7 +77,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Lcom/android/server/usb/descriptors/UsbMSMidiHeader;->getSubclass()I
+    invoke-virtual {p0}, Lcom/android/server/usb/descriptors/UsbACInterface;->getSubclass()I
 
     move-result v1
 
@@ -77,19 +91,29 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Lcom/android/server/usb/descriptors/UsbMSMidiHeader;->getLength()I
+    invoke-virtual {p0}, Lcom/android/server/usb/descriptors/UsbDescriptor;->getLength()I
 
     move-result v1
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    const-string v1, " MidiStreamingClass :"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0}, Lcom/android/server/usb/descriptors/UsbMSMidiHeader;->getMidiStreamingClass()I
+
+    move-result p0
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    const/4 v1, 0x3
+    const/4 v0, 0x3
 
-    invoke-virtual {p1, v1, v0}, Lcom/android/server/usb/descriptors/report/ReportCanvas;->writeHeader(ILjava/lang/String;)V
+    invoke-virtual {p1, v0, p0}, Lcom/android/server/usb/descriptors/report/ReportCanvas;->writeHeader(ILjava/lang/String;)V
 
     return-void
 .end method

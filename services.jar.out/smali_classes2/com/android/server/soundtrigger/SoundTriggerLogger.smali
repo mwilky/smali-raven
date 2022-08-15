@@ -13,7 +13,7 @@
 
 
 # instance fields
-.field private final mEvents:Ljava/util/LinkedList;
+.field public final mEvents:Ljava/util/LinkedList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/LinkedList<",
@@ -23,9 +23,9 @@
     .end annotation
 .end field
 
-.field private final mMemSize:I
+.field public final mMemSize:I
 
-.field private final mTitle:Ljava/lang/String;
+.field public final mTitle:Ljava/lang/String;
 
 
 # direct methods
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public declared-synchronized dump(Ljava/io/PrintWriter;)V
-    .locals 3
+    .locals 2
 
     monitor-enter p0
 
@@ -94,9 +94,9 @@
 
     invoke-virtual {v1}, Lcom/android/server/soundtrigger/SoundTriggerLogger$Event;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {p1, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 

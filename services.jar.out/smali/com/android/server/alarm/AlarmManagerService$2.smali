@@ -1,4 +1,4 @@
-.class Lcom/android/server/alarm/AlarmManagerService$2;
+.class public Lcom/android/server/alarm/AlarmManagerService$2;
 .super Ljava/lang/Object;
 .source "AlarmManagerService.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/alarm/AlarmManagerService;
+.field public final synthetic this$0:Lcom/android/server/alarm/AlarmManagerService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/alarm/AlarmManagerService;)V
+.method public constructor <init>(Lcom/android/server/alarm/AlarmManagerService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/alarm/AlarmManagerService$2;->this$0:Lcom/android/server/alarm/AlarmManagerService;
@@ -41,17 +41,17 @@
 .end method
 
 .method public binderDied(Landroid/os/IBinder;)V
-    .locals 3
+    .locals 1
 
     invoke-static {p1}, Landroid/app/IAlarmListener$Stub;->asInterface(Landroid/os/IBinder;)Landroid/app/IAlarmListener;
 
-    move-result-object v0
+    move-result-object p1
 
-    iget-object v1, p0, Lcom/android/server/alarm/AlarmManagerService$2;->this$0:Lcom/android/server/alarm/AlarmManagerService;
+    iget-object p0, p0, Lcom/android/server/alarm/AlarmManagerService$2;->this$0:Lcom/android/server/alarm/AlarmManagerService;
 
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
-    invoke-virtual {v1, v2, v0}, Lcom/android/server/alarm/AlarmManagerService;->removeImpl(Landroid/app/PendingIntent;Landroid/app/IAlarmListener;)V
+    invoke-virtual {p0, v0, p1}, Lcom/android/server/alarm/AlarmManagerService;->removeImpl(Landroid/app/PendingIntent;Landroid/app/IAlarmListener;)V
 
     return-void
 .end method

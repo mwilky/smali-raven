@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/server/firewall/Filter;
+.class public interface abstract Lcom/android/server/firewall/Filter;
 .super Ljava/lang/Object;
 .source "Filter.java"
 

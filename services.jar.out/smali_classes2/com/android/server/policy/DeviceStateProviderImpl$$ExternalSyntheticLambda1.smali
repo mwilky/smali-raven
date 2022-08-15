@@ -1,28 +1,13 @@
 .class public final synthetic Lcom/android/server/policy/DeviceStateProviderImpl$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/BooleanSupplier;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/policy/DeviceStateProviderImpl$$ExternalSyntheticLambda1;
-
-
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/policy/DeviceStateProviderImpl$$ExternalSyntheticLambda1;
-
-    invoke-direct {v0}, Lcom/android/server/policy/DeviceStateProviderImpl$$ExternalSyntheticLambda1;-><init>()V
-
-    sput-object v0, Lcom/android/server/policy/DeviceStateProviderImpl$$ExternalSyntheticLambda1;->INSTANCE:Lcom/android/server/policy/DeviceStateProviderImpl$$ExternalSyntheticLambda1;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -33,11 +18,11 @@
 
 # virtual methods
 .method public final getAsBoolean()Z
-    .locals 1
+    .locals 0
 
-    invoke-static {}, Lcom/android/server/policy/DeviceStateProviderImpl;->lambda$static$1()Z
+    invoke-static {}, Lcom/android/server/policy/DeviceStateProviderImpl;->$r8$lambda$CY-kL5hQEjEmRiFK19Mn4tGjC8g()Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method

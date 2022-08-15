@@ -1,4 +1,4 @@
-.class Lcom/android/server/am/BugReportHandlerUtil$BugreportHandlerResponseBroadcastReceiver;
+.class public Lcom/android/server/am/BugReportHandlerUtil$BugreportHandlerResponseBroadcastReceiver;
 .super Landroid/content/BroadcastReceiver;
 .source "BugReportHandlerUtil.java"
 
@@ -9,19 +9,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "BugreportHandlerResponseBroadcastReceiver"
 .end annotation
 
 
 # instance fields
-.field private final handlerApp:Ljava/lang/String;
+.field public final handlerApp:Ljava/lang/String;
 
-.field private final handlerUser:I
+.field public final handlerUser:I
 
 
 # direct methods
-.method constructor <init>(Ljava/lang/String;I)V
+.method public constructor <init>(Ljava/lang/String;I)V
     .locals 0
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -36,48 +36,48 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 3
+    .locals 1
 
-    invoke-virtual {p0}, Lcom/android/server/am/BugReportHandlerUtil$BugreportHandlerResponseBroadcastReceiver;->getResultCode()I
+    invoke-virtual {p0}, Landroid/content/BroadcastReceiver;->getResultCode()I
 
-    move-result v0
+    move-result p2
 
-    const/4 v1, -0x1
+    const/4 v0, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne p2, v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/am/BugReportHandlerUtil$BugreportHandlerResponseBroadcastReceiver;->handlerApp:Ljava/lang/String;
+    iget-object p2, p0, Lcom/android/server/am/BugReportHandlerUtil$BugreportHandlerResponseBroadcastReceiver;->handlerApp:Ljava/lang/String;
 
-    iget v1, p0, Lcom/android/server/am/BugReportHandlerUtil$BugreportHandlerResponseBroadcastReceiver;->handlerUser:I
+    iget p0, p0, Lcom/android/server/am/BugReportHandlerUtil$BugreportHandlerResponseBroadcastReceiver;->handlerUser:I
 
-    invoke-static {p1, v0, v1}, Lcom/android/server/am/BugReportHandlerUtil;->access$000(Landroid/content/Context;Ljava/lang/String;I)V
+    invoke-static {p1, p2, p0}, Lcom/android/server/am/BugReportHandlerUtil;->-$$Nest$smlaunchBugReportHandlerApp(Landroid/content/Context;Ljava/lang/String;I)V
 
     return-void
 
     :cond_0
-    const-string v0, "ActivityManager"
+    const-string p0, "ActivityManager"
 
-    const-string v1, "Request bug report because no response from handler app."
+    const-string p2, "Request bug report because no response from handler app."
 
-    invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, p2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-class v0, Landroid/os/BugreportManager;
+    const-class p0, Landroid/os/BugreportManager;
 
-    invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-virtual {p1, p0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Landroid/os/BugreportManager;
+    check-cast p0, Landroid/os/BugreportManager;
 
-    new-instance v1, Landroid/os/BugreportParams;
+    new-instance p1, Landroid/os/BugreportParams;
 
-    const/4 v2, 0x1
+    const/4 p2, 0x1
 
-    invoke-direct {v1, v2}, Landroid/os/BugreportParams;-><init>(I)V
+    invoke-direct {p1, p2}, Landroid/os/BugreportParams;-><init>(I)V
 
-    const/4 v2, 0x0
+    const/4 p2, 0x0
 
-    invoke-virtual {v0, v1, v2, v2}, Landroid/os/BugreportManager;->requestBugreport(Landroid/os/BugreportParams;Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V
+    invoke-virtual {p0, p1, p2, p2}, Landroid/os/BugreportManager;->requestBugreport(Landroid/os/BugreportParams;Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V
 
     return-void
 .end method

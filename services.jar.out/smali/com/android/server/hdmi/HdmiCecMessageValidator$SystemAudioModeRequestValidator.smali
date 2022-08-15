@@ -1,4 +1,4 @@
-.class Lcom/android/server/hdmi/HdmiCecMessageValidator$SystemAudioModeRequestValidator;
+.class public Lcom/android/server/hdmi/HdmiCecMessageValidator$SystemAudioModeRequestValidator;
 .super Lcom/android/server/hdmi/HdmiCecMessageValidator$PhysicalAddressValidator;
 .source "HdmiCecMessageValidator.java"
 
@@ -9,32 +9,26 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x9
     name = "SystemAudioModeRequestValidator"
 .end annotation
 
 
-# instance fields
-.field final synthetic this$0:Lcom/android/server/hdmi/HdmiCecMessageValidator;
-
-
 # direct methods
-.method private constructor <init>(Lcom/android/server/hdmi/HdmiCecMessageValidator;)V
+.method public constructor <init>()V
     .locals 1
-
-    iput-object p1, p0, Lcom/android/server/hdmi/HdmiCecMessageValidator$SystemAudioModeRequestValidator;->this$0:Lcom/android/server/hdmi/HdmiCecMessageValidator;
 
     const/4 v0, 0x0
 
-    invoke-direct {p0, p1, v0}, Lcom/android/server/hdmi/HdmiCecMessageValidator$PhysicalAddressValidator;-><init>(Lcom/android/server/hdmi/HdmiCecMessageValidator;Lcom/android/server/hdmi/HdmiCecMessageValidator$1;)V
+    invoke-direct {p0, v0}, Lcom/android/server/hdmi/HdmiCecMessageValidator$PhysicalAddressValidator;-><init>(Lcom/android/server/hdmi/HdmiCecMessageValidator$PhysicalAddressValidator-IA;)V
 
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/hdmi/HdmiCecMessageValidator;Lcom/android/server/hdmi/HdmiCecMessageValidator$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/hdmi/HdmiCecMessageValidator$SystemAudioModeRequestValidator-IA;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/server/hdmi/HdmiCecMessageValidator$SystemAudioModeRequestValidator;-><init>(Lcom/android/server/hdmi/HdmiCecMessageValidator;)V
+    invoke-direct {p0}, Lcom/android/server/hdmi/HdmiCecMessageValidator$SystemAudioModeRequestValidator;-><init>()V
 
     return-void
 .end method
@@ -48,14 +42,14 @@
 
     if-nez v0, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 
     :cond_0
     invoke-super {p0, p1}, Lcom/android/server/hdmi/HdmiCecMessageValidator$PhysicalAddressValidator;->isValid([B)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method

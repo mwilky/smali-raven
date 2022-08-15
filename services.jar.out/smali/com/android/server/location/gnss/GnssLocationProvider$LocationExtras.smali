@@ -1,4 +1,4 @@
-.class Lcom/android/server/location/gnss/GnssLocationProvider$LocationExtras;
+.class public Lcom/android/server/location/gnss/GnssLocationProvider$LocationExtras;
 .super Ljava/lang/Object;
 .source "GnssLocationProvider.java"
 
@@ -9,23 +9,23 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "LocationExtras"
 .end annotation
 
 
 # instance fields
-.field private final mBundle:Landroid/os/Bundle;
+.field public final mBundle:Landroid/os/Bundle;
 
-.field private mMaxCn0:I
+.field public mMaxCn0:I
 
-.field private mMeanCn0:I
+.field public mMeanCn0:I
 
-.field private mSvCount:I
+.field public mSvCount:I
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -78,7 +78,7 @@
 .end method
 
 .method public set(III)V
-    .locals 1
+    .locals 0
 
     monitor-enter p0
 
@@ -93,21 +93,21 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    iget-object v0, p0, Lcom/android/server/location/gnss/GnssLocationProvider$LocationExtras;->mBundle:Landroid/os/Bundle;
+    iget-object p1, p0, Lcom/android/server/location/gnss/GnssLocationProvider$LocationExtras;->mBundle:Landroid/os/Bundle;
 
-    invoke-virtual {p0, v0}, Lcom/android/server/location/gnss/GnssLocationProvider$LocationExtras;->setBundle(Landroid/os/Bundle;)V
+    invoke-virtual {p0, p1}, Lcom/android/server/location/gnss/GnssLocationProvider$LocationExtras;->setBundle(Landroid/os/Bundle;)V
 
     return-void
 
     :catchall_0
-    move-exception v0
+    move-exception p1
 
     :try_start_1
     monitor-exit p0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v0
+    throw p1
 .end method
 
 .method public setBundle(Landroid/os/Bundle;)V
@@ -141,13 +141,13 @@
     goto :goto_0
 
     :catchall_0
-    move-exception v0
+    move-exception p1
 
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw p1
 
     :cond_0
     :goto_0

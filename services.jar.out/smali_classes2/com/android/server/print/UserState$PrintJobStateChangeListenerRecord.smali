@@ -1,4 +1,4 @@
-.class abstract Lcom/android/server/print/UserState$PrintJobStateChangeListenerRecord;
+.class public abstract Lcom/android/server/print/UserState$PrintJobStateChangeListenerRecord;
 .super Ljava/lang/Object;
 .source "UserState.java"
 
@@ -12,22 +12,22 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x402
+    accessFlags = 0x401
     name = "PrintJobStateChangeListenerRecord"
 .end annotation
 
 
 # instance fields
-.field final appId:I
+.field public final appId:I
 
-.field final listener:Landroid/print/IPrintJobStateChangeListener;
+.field public final listener:Landroid/print/IPrintJobStateChangeListener;
 
-.field final synthetic this$0:Lcom/android/server/print/UserState;
+.field public final synthetic this$0:Lcom/android/server/print/UserState;
 
 
 # direct methods
 .method public constructor <init>(Lcom/android/server/print/UserState;Landroid/print/IPrintJobStateChangeListener;I)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -46,9 +46,9 @@
 
     move-result-object p1
 
-    const/4 v0, 0x0
+    const/4 p2, 0x0
 
-    invoke-interface {p1, p0, v0}, Landroid/os/IBinder;->linkToDeath(Landroid/os/IBinder$DeathRecipient;I)V
+    invoke-interface {p1, p0, p2}, Landroid/os/IBinder;->linkToDeath(Landroid/os/IBinder$DeathRecipient;I)V
 
     return-void
 .end method

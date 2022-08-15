@@ -1,43 +1,58 @@
 .class public final synthetic Lcom/android/server/clipboard/ClipboardService$$ExternalSyntheticLambda5;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Consumer;
+.implements Ljava/lang/Runnable;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/clipboard/ClipboardService$$ExternalSyntheticLambda5;
+# instance fields
+.field public final synthetic f$0:Lcom/android/server/clipboard/ClipboardService;
+
+.field public final synthetic f$1:Ljava/lang/CharSequence;
+
+.field public final synthetic f$2:Landroid/content/ClipData;
+
+.field public final synthetic f$3:Landroid/view/textclassifier/TextClassifier;
+
+.field public final synthetic f$4:I
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/clipboard/ClipboardService$$ExternalSyntheticLambda5;
-
-    invoke-direct {v0}, Lcom/android/server/clipboard/ClipboardService$$ExternalSyntheticLambda5;-><init>()V
-
-    sput-object v0, Lcom/android/server/clipboard/ClipboardService$$ExternalSyntheticLambda5;->INSTANCE:Lcom/android/server/clipboard/ClipboardService$$ExternalSyntheticLambda5;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Lcom/android/server/clipboard/ClipboardService;Ljava/lang/CharSequence;Landroid/content/ClipData;Landroid/view/textclassifier/TextClassifier;I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/clipboard/ClipboardService$$ExternalSyntheticLambda5;->f$0:Lcom/android/server/clipboard/ClipboardService;
+
+    iput-object p2, p0, Lcom/android/server/clipboard/ClipboardService$$ExternalSyntheticLambda5;->f$1:Ljava/lang/CharSequence;
+
+    iput-object p3, p0, Lcom/android/server/clipboard/ClipboardService$$ExternalSyntheticLambda5;->f$2:Landroid/content/ClipData;
+
+    iput-object p4, p0, Lcom/android/server/clipboard/ClipboardService$$ExternalSyntheticLambda5;->f$3:Landroid/view/textclassifier/TextClassifier;
+
+    iput p5, p0, Lcom/android/server/clipboard/ClipboardService$$ExternalSyntheticLambda5;->f$4:I
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
-    .locals 0
+.method public final run()V
+    .locals 4
 
-    check-cast p1, Landroid/content/ClipData;
+    iget-object v0, p0, Lcom/android/server/clipboard/ClipboardService$$ExternalSyntheticLambda5;->f$0:Lcom/android/server/clipboard/ClipboardService;
 
-    invoke-static {p1}, Lcom/android/server/clipboard/ClipboardService;->lambda$new$1(Landroid/content/ClipData;)V
+    iget-object v1, p0, Lcom/android/server/clipboard/ClipboardService$$ExternalSyntheticLambda5;->f$1:Ljava/lang/CharSequence;
+
+    iget-object v2, p0, Lcom/android/server/clipboard/ClipboardService$$ExternalSyntheticLambda5;->f$2:Landroid/content/ClipData;
+
+    iget-object v3, p0, Lcom/android/server/clipboard/ClipboardService$$ExternalSyntheticLambda5;->f$3:Landroid/view/textclassifier/TextClassifier;
+
+    iget p0, p0, Lcom/android/server/clipboard/ClipboardService$$ExternalSyntheticLambda5;->f$4:I
+
+    invoke-static {v0, v1, v2, v3, p0}, Lcom/android/server/clipboard/ClipboardService;->$r8$lambda$aEH_LngoTXY0bejlWiPbHd6yLg4(Lcom/android/server/clipboard/ClipboardService;Ljava/lang/CharSequence;Landroid/content/ClipData;Landroid/view/textclassifier/TextClassifier;I)V
 
     return-void
 .end method

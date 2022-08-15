@@ -1,89 +1,52 @@
-.class Lcom/android/server/devicepolicy/DevicePolicyManagerService$6;
-.super Ljava/lang/Object;
+.class public Lcom/android/server/devicepolicy/DevicePolicyManagerService$6;
+.super Landroid/content/BroadcastReceiver;
 .source "DevicePolicyManagerService.java"
-
-# interfaces
-.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/devicepolicy/DevicePolicyManagerService;->uninstallPackageWithActiveAdmins(Ljava/lang/String;)V
+    value = Lcom/android/server/devicepolicy/DevicePolicyManagerService;->getRemoveWarning(Landroid/content/ComponentName;Landroid/os/RemoteCallback;I)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
+.field public final synthetic this$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
 
-.field final synthetic val$packageActiveAdmins:Ljava/util/List;
-
-.field final synthetic val$packageName:Ljava/lang/String;
-
-.field final synthetic val$userId:I
+.field public final synthetic val$result:Landroid/os/RemoteCallback;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/devicepolicy/DevicePolicyManagerService;Ljava/util/List;ILjava/lang/String;)V
+.method public constructor <init>(Lcom/android/server/devicepolicy/DevicePolicyManagerService;Landroid/os/RemoteCallback;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$6;->this$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
 
-    iput-object p2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$6;->val$packageActiveAdmins:Ljava/util/List;
+    iput-object p2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$6;->val$result:Landroid/os/RemoteCallback;
 
-    iput p3, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$6;->val$userId:I
-
-    iput-object p4, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$6;->val$packageName:Ljava/lang/String;
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public run()V
-    .locals 4
+.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$6;->val$packageActiveAdmins:Ljava/util/List;
+    iget-object p1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$6;->val$result:Landroid/os/RemoteCallback;
 
-    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    const/4 p2, 0x0
 
-    move-result-object v0
+    invoke-virtual {p0, p2}, Landroid/content/BroadcastReceiver;->getResultExtras(Z)Landroid/os/Bundle;
 
-    :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    move-result-object p0
 
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/content/ComponentName;
-
-    iget-object v2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$6;->this$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
-
-    iget v3, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$6;->val$userId:I
-
-    invoke-static {v2, v1, v3}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->access$2100(Lcom/android/server/devicepolicy/DevicePolicyManagerService;Landroid/content/ComponentName;I)V
-
-    goto :goto_0
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$6;->this$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
-
-    iget-object v1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$6;->val$packageName:Ljava/lang/String;
-
-    iget v2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$6;->val$userId:I
-
-    invoke-static {v0, v1, v2}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->access$4200(Lcom/android/server/devicepolicy/DevicePolicyManagerService;Ljava/lang/String;I)V
+    invoke-virtual {p1, p0}, Landroid/os/RemoteCallback;->sendResult(Landroid/os/Bundle;)V
 
     return-void
 .end method

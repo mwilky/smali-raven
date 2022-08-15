@@ -1,4 +1,4 @@
-.class Lcom/android/server/policy/SoftRestrictedPermissionPolicy$3;
+.class public Lcom/android/server/policy/SoftRestrictedPermissionPolicy$3;
 .super Lcom/android/server/policy/SoftRestrictedPermissionPolicy;
 .source "SoftRestrictedPermissionPolicy.java"
 
@@ -9,19 +9,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic val$isWhiteListed:Z
+.field public final synthetic val$isWhiteListed:Z
 
-.field final synthetic val$targetSDK:I
+.field public final synthetic val$targetSDK:I
 
 
 # direct methods
-.method constructor <init>(ZI)V
+.method public constructor <init>(ZI)V
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/server/policy/SoftRestrictedPermissionPolicy$3;->val$isWhiteListed:Z
@@ -36,29 +36,29 @@
 
 # virtual methods
 .method public mayGrantPermission()Z
-    .locals 2
+    .locals 1
 
     iget-boolean v0, p0, Lcom/android/server/policy/SoftRestrictedPermissionPolicy$3;->val$isWhiteListed:Z
 
     if-nez v0, :cond_1
 
-    iget v0, p0, Lcom/android/server/policy/SoftRestrictedPermissionPolicy$3;->val$targetSDK:I
+    iget p0, p0, Lcom/android/server/policy/SoftRestrictedPermissionPolicy$3;->val$targetSDK:I
 
-    const/16 v1, 0x1d
+    const/16 v0, 0x1d
 
-    if-lt v0, v1, :cond_0
+    if-lt p0, v0, :cond_0
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     goto :goto_1
 
     :cond_1
     :goto_0
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     :goto_1
-    return v0
+    return p0
 .end method

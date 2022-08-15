@@ -1,4 +1,4 @@
-.class Lcom/android/server/net/watchlist/WatchlistConfig$CrcShaDigests;
+.class public Lcom/android/server/net/watchlist/WatchlistConfig$CrcShaDigests;
 .super Ljava/lang/Object;
 .source "WatchlistConfig.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "CrcShaDigests"
 .end annotation
 
@@ -21,7 +21,7 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/net/watchlist/HarmfulCrcs;Lcom/android/server/net/watchlist/HarmfulDigests;)V
+.method public constructor <init>(Lcom/android/server/net/watchlist/HarmfulCrcs;Lcom/android/server/net/watchlist/HarmfulDigests;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;
+    iget-object p0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;
 
-    invoke-virtual {v0}, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->lambda$startListeningVisibleActivityChangedLocked$0$VoiceInteractionSessionConnection()V
+    invoke-static {p0}, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->$r8$lambda$tLgujjtygKou3QaDvz71jxh04zo(Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;)V
 
     return-void
 .end method

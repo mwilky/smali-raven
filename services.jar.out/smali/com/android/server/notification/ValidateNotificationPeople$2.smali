@@ -1,4 +1,4 @@
-.class Lcom/android/server/notification/ValidateNotificationPeople$2;
+.class public Lcom/android/server/notification/ValidateNotificationPeople$2;
 .super Ljava/lang/Object;
 .source "ValidateNotificationPeople.java"
 
@@ -12,21 +12,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/notification/ValidateNotificationPeople;
+.field public final synthetic this$0:Lcom/android/server/notification/ValidateNotificationPeople;
 
-.field final synthetic val$prr:Lcom/android/server/notification/ValidateNotificationPeople$PeopleRankingReconsideration;
+.field public final synthetic val$prr:Lcom/android/server/notification/ValidateNotificationPeople$PeopleRankingReconsideration;
 
-.field final synthetic val$s:Ljava/util/concurrent/Semaphore;
+.field public final synthetic val$s:Ljava/util/concurrent/Semaphore;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/notification/ValidateNotificationPeople;Lcom/android/server/notification/ValidateNotificationPeople$PeopleRankingReconsideration;Ljava/util/concurrent/Semaphore;)V
+.method public constructor <init>(Lcom/android/server/notification/ValidateNotificationPeople;Lcom/android/server/notification/ValidateNotificationPeople$PeopleRankingReconsideration;Ljava/util/concurrent/Semaphore;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/notification/ValidateNotificationPeople$2;->this$0:Lcom/android/server/notification/ValidateNotificationPeople;
@@ -49,9 +49,9 @@
 
     invoke-virtual {v0}, Lcom/android/server/notification/ValidateNotificationPeople$PeopleRankingReconsideration;->work()V
 
-    iget-object v0, p0, Lcom/android/server/notification/ValidateNotificationPeople$2;->val$s:Ljava/util/concurrent/Semaphore;
+    iget-object p0, p0, Lcom/android/server/notification/ValidateNotificationPeople$2;->val$s:Ljava/util/concurrent/Semaphore;
 
-    invoke-virtual {v0}, Ljava/util/concurrent/Semaphore;->release()V
+    invoke-virtual {p0}, Ljava/util/concurrent/Semaphore;->release()V
 
     return-void
 .end method

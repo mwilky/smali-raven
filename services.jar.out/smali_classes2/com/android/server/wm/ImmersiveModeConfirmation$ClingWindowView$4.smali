@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/ImmersiveModeConfirmation$ClingWindowView$4;
+.class public Lcom/android/server/wm/ImmersiveModeConfirmation$ClingWindowView$4;
 .super Ljava/lang/Object;
 .source "ImmersiveModeConfirmation.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$1:Lcom/android/server/wm/ImmersiveModeConfirmation$ClingWindowView;
+.field public final synthetic this$1:Lcom/android/server/wm/ImmersiveModeConfirmation$ClingWindowView;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/wm/ImmersiveModeConfirmation$ClingWindowView;)V
+.method public constructor <init>(Lcom/android/server/wm/ImmersiveModeConfirmation$ClingWindowView;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/wm/ImmersiveModeConfirmation$ClingWindowView$4;->this$1:Lcom/android/server/wm/ImmersiveModeConfirmation$ClingWindowView;
@@ -35,15 +35,15 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/ImmersiveModeConfirmation$ClingWindowView$4;->this$1:Lcom/android/server/wm/ImmersiveModeConfirmation$ClingWindowView;
+    iget-object p0, p0, Lcom/android/server/wm/ImmersiveModeConfirmation$ClingWindowView$4;->this$1:Lcom/android/server/wm/ImmersiveModeConfirmation$ClingWindowView;
 
-    invoke-static {v0}, Lcom/android/server/wm/ImmersiveModeConfirmation$ClingWindowView;->access$300(Lcom/android/server/wm/ImmersiveModeConfirmation$ClingWindowView;)Ljava/lang/Runnable;
+    invoke-static {p0}, Lcom/android/server/wm/ImmersiveModeConfirmation$ClingWindowView;->-$$Nest$fgetmConfirm(Lcom/android/server/wm/ImmersiveModeConfirmation$ClingWindowView;)Ljava/lang/Runnable;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-interface {v0}, Ljava/lang/Runnable;->run()V
+    invoke-interface {p0}, Ljava/lang/Runnable;->run()V
 
     return-void
 .end method

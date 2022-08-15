@@ -1,73 +1,55 @@
-.class Lcom/android/server/companion/CompanionDeviceManagerService$2;
-.super Lcom/android/internal/infra/PerUser;
+.class public Lcom/android/server/companion/CompanionDeviceManagerService$2;
+.super Ljava/lang/Object;
 .source "CompanionDeviceManagerService.java"
+
+# interfaces
+.implements Lcom/android/server/companion/presence/CompanionDevicePresenceMonitor$Callback;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/companion/CompanionDeviceManagerService;-><init>(Landroid/content/Context;)V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/server/companion/CompanionDeviceManagerService;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
-.end annotation
-
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Lcom/android/internal/infra/PerUser<",
-        "Landroid/util/ArrayMap<",
-        "Ljava/lang/String;",
-        "Lcom/android/internal/infra/ServiceConnector<",
-        "Landroid/companion/ICompanionDeviceService;",
-        ">;>;>;"
-    }
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/companion/CompanionDeviceManagerService;
+.field public final synthetic this$0:Lcom/android/server/companion/CompanionDeviceManagerService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/companion/CompanionDeviceManagerService;)V
+.method public constructor <init>(Lcom/android/server/companion/CompanionDeviceManagerService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/companion/CompanionDeviceManagerService$2;->this$0:Lcom/android/server/companion/CompanionDeviceManagerService;
 
-    invoke-direct {p0}, Lcom/android/internal/infra/PerUser;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method protected create(I)Landroid/util/ArrayMap;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(I)",
-            "Landroid/util/ArrayMap<",
-            "Ljava/lang/String;",
-            "Lcom/android/internal/infra/ServiceConnector<",
-            "Landroid/companion/ICompanionDeviceService;",
-            ">;>;"
-        }
-    .end annotation
-
-    new-instance v0, Landroid/util/ArrayMap;
-
-    invoke-direct {v0}, Landroid/util/ArrayMap;-><init>()V
-
-    return-object v0
-.end method
-
-.method protected bridge synthetic create(I)Ljava/lang/Object;
+.method public onDeviceAppeared(I)V
     .locals 0
 
-    invoke-virtual {p0, p1}, Lcom/android/server/companion/CompanionDeviceManagerService$2;->create(I)Landroid/util/ArrayMap;
+    iget-object p0, p0, Lcom/android/server/companion/CompanionDeviceManagerService$2;->this$0:Lcom/android/server/companion/CompanionDeviceManagerService;
 
-    move-result-object p1
+    invoke-static {p0, p1}, Lcom/android/server/companion/CompanionDeviceManagerService;->-$$Nest$monDeviceAppearedInternal(Lcom/android/server/companion/CompanionDeviceManagerService;I)V
 
-    return-object p1
+    return-void
+.end method
+
+.method public onDeviceDisappeared(I)V
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/companion/CompanionDeviceManagerService$2;->this$0:Lcom/android/server/companion/CompanionDeviceManagerService;
+
+    invoke-static {p0, p1}, Lcom/android/server/companion/CompanionDeviceManagerService;->-$$Nest$monDeviceDisappearedInternal(Lcom/android/server/companion/CompanionDeviceManagerService;I)V
+
+    return-void
 .end method

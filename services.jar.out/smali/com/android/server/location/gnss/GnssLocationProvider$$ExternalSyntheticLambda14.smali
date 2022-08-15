@@ -1,28 +1,13 @@
 .class public final synthetic Lcom/android/server/location/gnss/GnssLocationProvider$$ExternalSyntheticLambda14;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/ToLongFunction;
-
-
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/location/gnss/GnssLocationProvider$$ExternalSyntheticLambda14;
+.implements Ljava/util/function/ToIntFunction;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/location/gnss/GnssLocationProvider$$ExternalSyntheticLambda14;
-
-    invoke-direct {v0}, Lcom/android/server/location/gnss/GnssLocationProvider$$ExternalSyntheticLambda14;-><init>()V
-
-    sput-object v0, Lcom/android/server/location/gnss/GnssLocationProvider$$ExternalSyntheticLambda14;->INSTANCE:Lcom/android/server/location/gnss/GnssLocationProvider$$ExternalSyntheticLambda14;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,14 +17,14 @@
 
 
 # virtual methods
-.method public final applyAsLong(Ljava/lang/Object;)J
-    .locals 2
+.method public final applyAsInt(Ljava/lang/Object;)I
+    .locals 0
 
-    check-cast p1, Landroid/location/Location;
+    check-cast p1, Landroid/telephony/CellInfo;
 
-    invoke-virtual {p1}, Landroid/location/Location;->getTime()J
+    invoke-static {p1}, Lcom/android/server/location/gnss/GnssLocationProvider;->$r8$lambda$yz_HVASS6VSiEV6irt0_tkqZzjY(Landroid/telephony/CellInfo;)I
 
-    move-result-wide v0
+    move-result p0
 
-    return-wide v0
+    return p0
 .end method

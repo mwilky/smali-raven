@@ -4,23 +4,23 @@
 
 
 # instance fields
-.field private description:Ljava/lang/String;
+.field public description:Ljava/lang/String;
 
-.field private disabled:Ljava/lang/Boolean;
+.field public disabled:Ljava/lang/Boolean;
 
-.field private enableAfterTargetSdk:Ljava/lang/Integer;
+.field public enableAfterTargetSdk:Ljava/lang/Integer;
 
-.field private enableSinceTargetSdk:Ljava/lang/Integer;
+.field public enableSinceTargetSdk:Ljava/lang/Integer;
 
-.field private id:Ljava/lang/Long;
+.field public id:Ljava/lang/Long;
 
-.field private loggingOnly:Ljava/lang/Boolean;
+.field public loggingOnly:Ljava/lang/Boolean;
 
-.field private name:Ljava/lang/String;
+.field public name:Ljava/lang/String;
 
-.field private overridable:Ljava/lang/Boolean;
+.field public overridable:Ljava/lang/Boolean;
 
-.field private value:Ljava/lang/String;
+.field public value:Ljava/lang/String;
 
 
 # direct methods
@@ -32,8 +32,8 @@
     return-void
 .end method
 
-.method static read(Lorg/xmlpull/v1/XmlPullParser;)Lcom/android/server/compat/config/Change;
-    .locals 5
+.method public static read(Lorg/xmlpull/v1/XmlPullParser;)Lcom/android/server/compat/config/Change;
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -48,112 +48,106 @@
 
     const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    const-string v2, "id"
 
-    const-string v3, "id"
+    invoke-interface {p0, v1, v2}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-interface {p0, v2, v3}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    move-result-object v2
 
-    move-result-object v1
+    if-eqz v2, :cond_0
 
-    if-eqz v1, :cond_0
+    invoke-static {v2}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
-    invoke-static {v1}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+    move-result-wide v2
 
-    move-result-wide v3
-
-    invoke-virtual {v0, v3, v4}, Lcom/android/server/compat/config/Change;->setId(J)V
+    invoke-virtual {v0, v2, v3}, Lcom/android/server/compat/config/Change;->setId(J)V
 
     :cond_0
-    const-string/jumbo v3, "name"
+    const-string/jumbo v2, "name"
 
-    invoke-interface {p0, v2, v3}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {p0, v1, v2}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    if-eqz v1, :cond_1
+    if-eqz v2, :cond_1
 
-    move-object v3, v1
-
-    invoke-virtual {v0, v3}, Lcom/android/server/compat/config/Change;->setName(Ljava/lang/String;)V
+    invoke-virtual {v0, v2}, Lcom/android/server/compat/config/Change;->setName(Ljava/lang/String;)V
 
     :cond_1
-    const-string v3, "disabled"
+    const-string v2, "disabled"
 
-    invoke-interface {p0, v2, v3}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {p0, v1, v2}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    if-eqz v1, :cond_2
+    if-eqz v2, :cond_2
 
-    invoke-static {v1}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
+    invoke-static {v2}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
 
-    move-result v3
+    move-result v2
 
-    invoke-virtual {v0, v3}, Lcom/android/server/compat/config/Change;->setDisabled(Z)V
+    invoke-virtual {v0, v2}, Lcom/android/server/compat/config/Change;->setDisabled(Z)V
 
     :cond_2
-    const-string/jumbo v3, "loggingOnly"
+    const-string v2, "loggingOnly"
 
-    invoke-interface {p0, v2, v3}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {p0, v1, v2}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    if-eqz v1, :cond_3
+    if-eqz v2, :cond_3
 
-    invoke-static {v1}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
+    invoke-static {v2}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
 
-    move-result v3
+    move-result v2
 
-    invoke-virtual {v0, v3}, Lcom/android/server/compat/config/Change;->setLoggingOnly(Z)V
+    invoke-virtual {v0, v2}, Lcom/android/server/compat/config/Change;->setLoggingOnly(Z)V
 
     :cond_3
-    const-string v3, "enableAfterTargetSdk"
+    const-string v2, "enableAfterTargetSdk"
 
-    invoke-interface {p0, v2, v3}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {p0, v1, v2}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    if-eqz v1, :cond_4
+    if-eqz v2, :cond_4
 
-    invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static {v2}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    move-result v3
+    move-result v2
 
-    invoke-virtual {v0, v3}, Lcom/android/server/compat/config/Change;->setEnableAfterTargetSdk(I)V
+    invoke-virtual {v0, v2}, Lcom/android/server/compat/config/Change;->setEnableAfterTargetSdk(I)V
 
     :cond_4
-    const-string v3, "enableSinceTargetSdk"
+    const-string v2, "enableSinceTargetSdk"
 
-    invoke-interface {p0, v2, v3}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {p0, v1, v2}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    if-eqz v1, :cond_5
+    if-eqz v2, :cond_5
 
-    invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static {v2}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    move-result v3
+    move-result v2
 
-    invoke-virtual {v0, v3}, Lcom/android/server/compat/config/Change;->setEnableSinceTargetSdk(I)V
+    invoke-virtual {v0, v2}, Lcom/android/server/compat/config/Change;->setEnableSinceTargetSdk(I)V
 
     :cond_5
-    const-string v3, "description"
+    const-string v2, "description"
 
-    invoke-interface {p0, v2, v3}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {p0, v1, v2}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    if-eqz v1, :cond_6
+    if-eqz v2, :cond_6
 
-    move-object v3, v1
-
-    invoke-virtual {v0, v3}, Lcom/android/server/compat/config/Change;->setDescription(Ljava/lang/String;)V
+    invoke-virtual {v0, v2}, Lcom/android/server/compat/config/Change;->setDescription(Ljava/lang/String;)V
 
     :cond_6
-    const-string/jumbo v3, "overridable"
+    const-string/jumbo v2, "overridable"
 
-    invoke-interface {p0, v2, v3}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {p0, v1, v2}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -161,20 +155,18 @@
 
     invoke-static {v1}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
 
-    move-result v2
+    move-result v1
 
-    invoke-virtual {v0, v2}, Lcom/android/server/compat/config/Change;->setOverridable(Z)V
+    invoke-virtual {v0, v1}, Lcom/android/server/compat/config/Change;->setOverridable(Z)V
 
     :cond_7
     invoke-static {p0}, Lcom/android/server/compat/config/XmlParser;->readText(Lorg/xmlpull/v1/XmlPullParser;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    if-eqz v1, :cond_8
+    if-eqz p0, :cond_8
 
-    move-object v2, v1
-
-    invoke-virtual {v0, v2}, Lcom/android/server/compat/config/Change;->setValue(Ljava/lang/String;)V
+    invoke-virtual {v0, p0}, Lcom/android/server/compat/config/Change;->setValue(Ljava/lang/String;)V
 
     :cond_8
     return-object v0
@@ -183,83 +175,83 @@
 
 # virtual methods
 .method public getDescription()Ljava/lang/String;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/compat/config/Change;->description:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/compat/config/Change;->description:Ljava/lang/String;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getDisabled()Z
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/compat/config/Change;->disabled:Ljava/lang/Boolean;
+    iget-object p0, p0, Lcom/android/server/compat/config/Change;->disabled:Ljava/lang/Boolean;
 
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 
     :cond_0
-    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
+    invoke-virtual {p0}, Ljava/lang/Boolean;->booleanValue()Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public getEnableAfterTargetSdk()I
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/compat/config/Change;->enableAfterTargetSdk:Ljava/lang/Integer;
+    iget-object p0, p0, Lcom/android/server/compat/config/Change;->enableAfterTargetSdk:Ljava/lang/Integer;
 
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 
     :cond_0
-    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {p0}, Ljava/lang/Integer;->intValue()I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public getEnableSinceTargetSdk()I
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/compat/config/Change;->enableSinceTargetSdk:Ljava/lang/Integer;
+    iget-object p0, p0, Lcom/android/server/compat/config/Change;->enableSinceTargetSdk:Ljava/lang/Integer;
 
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 
     :cond_0
-    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {p0}, Ljava/lang/Integer;->intValue()I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public getId()J
     .locals 2
 
-    iget-object v0, p0, Lcom/android/server/compat/config/Change;->id:Ljava/lang/Long;
+    iget-object p0, p0, Lcom/android/server/compat/config/Change;->id:Ljava/lang/Long;
 
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
     const-wide/16 v0, 0x0
 
     return-wide v0
 
     :cond_0
-    invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
+    invoke-virtual {p0}, Ljava/lang/Long;->longValue()J
 
     move-result-wide v0
 
@@ -267,210 +259,49 @@
 .end method
 
 .method public getLoggingOnly()Z
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/compat/config/Change;->loggingOnly:Ljava/lang/Boolean;
+    iget-object p0, p0, Lcom/android/server/compat/config/Change;->loggingOnly:Ljava/lang/Boolean;
 
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 
     :cond_0
-    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
+    invoke-virtual {p0}, Ljava/lang/Boolean;->booleanValue()Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public getName()Ljava/lang/String;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/compat/config/Change;->name:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/compat/config/Change;->name:Ljava/lang/String;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getOverridable()Z
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/compat/config/Change;->overridable:Ljava/lang/Boolean;
+    iget-object p0, p0, Lcom/android/server/compat/config/Change;->overridable:Ljava/lang/Boolean;
 
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
-
-    :cond_0
-    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public getValue()Ljava/lang/String;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/compat/config/Change;->value:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method hasDescription()Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/compat/config/Change;->description:Ljava/lang/String;
-
-    if-nez v0, :cond_0
-
-    const/4 v0, 0x0
-
-    return v0
+    return p0
 
     :cond_0
-    const/4 v0, 0x1
+    invoke-virtual {p0}, Ljava/lang/Boolean;->booleanValue()Z
 
-    return v0
-.end method
+    move-result p0
 
-.method hasDisabled()Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/compat/config/Change;->disabled:Ljava/lang/Boolean;
-
-    if-nez v0, :cond_0
-
-    const/4 v0, 0x0
-
-    return v0
-
-    :cond_0
-    const/4 v0, 0x1
-
-    return v0
-.end method
-
-.method hasEnableAfterTargetSdk()Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/compat/config/Change;->enableAfterTargetSdk:Ljava/lang/Integer;
-
-    if-nez v0, :cond_0
-
-    const/4 v0, 0x0
-
-    return v0
-
-    :cond_0
-    const/4 v0, 0x1
-
-    return v0
-.end method
-
-.method hasEnableSinceTargetSdk()Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/compat/config/Change;->enableSinceTargetSdk:Ljava/lang/Integer;
-
-    if-nez v0, :cond_0
-
-    const/4 v0, 0x0
-
-    return v0
-
-    :cond_0
-    const/4 v0, 0x1
-
-    return v0
-.end method
-
-.method hasId()Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/compat/config/Change;->id:Ljava/lang/Long;
-
-    if-nez v0, :cond_0
-
-    const/4 v0, 0x0
-
-    return v0
-
-    :cond_0
-    const/4 v0, 0x1
-
-    return v0
-.end method
-
-.method hasLoggingOnly()Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/compat/config/Change;->loggingOnly:Ljava/lang/Boolean;
-
-    if-nez v0, :cond_0
-
-    const/4 v0, 0x0
-
-    return v0
-
-    :cond_0
-    const/4 v0, 0x1
-
-    return v0
-.end method
-
-.method hasName()Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/compat/config/Change;->name:Ljava/lang/String;
-
-    if-nez v0, :cond_0
-
-    const/4 v0, 0x0
-
-    return v0
-
-    :cond_0
-    const/4 v0, 0x1
-
-    return v0
-.end method
-
-.method hasOverridable()Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/compat/config/Change;->overridable:Ljava/lang/Boolean;
-
-    if-nez v0, :cond_0
-
-    const/4 v0, 0x0
-
-    return v0
-
-    :cond_0
-    const/4 v0, 0x1
-
-    return v0
-.end method
-
-.method hasValue()Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/compat/config/Change;->value:Ljava/lang/String;
-
-    if-nez v0, :cond_0
-
-    const/4 v0, 0x0
-
-    return v0
-
-    :cond_0
-    const/4 v0, 0x1
-
-    return v0
+    return p0
 .end method
 
 .method public setDescription(Ljava/lang/String;)V
@@ -482,61 +313,61 @@
 .end method
 
 .method public setDisabled(Z)V
-    .locals 1
+    .locals 0
 
     invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/android/server/compat/config/Change;->disabled:Ljava/lang/Boolean;
+    iput-object p1, p0, Lcom/android/server/compat/config/Change;->disabled:Ljava/lang/Boolean;
 
     return-void
 .end method
 
 .method public setEnableAfterTargetSdk(I)V
-    .locals 1
+    .locals 0
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/android/server/compat/config/Change;->enableAfterTargetSdk:Ljava/lang/Integer;
+    iput-object p1, p0, Lcom/android/server/compat/config/Change;->enableAfterTargetSdk:Ljava/lang/Integer;
 
     return-void
 .end method
 
 .method public setEnableSinceTargetSdk(I)V
-    .locals 1
+    .locals 0
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/android/server/compat/config/Change;->enableSinceTargetSdk:Ljava/lang/Integer;
+    iput-object p1, p0, Lcom/android/server/compat/config/Change;->enableSinceTargetSdk:Ljava/lang/Integer;
 
     return-void
 .end method
 
 .method public setId(J)V
-    .locals 1
+    .locals 0
 
     invoke-static {p1, p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/android/server/compat/config/Change;->id:Ljava/lang/Long;
+    iput-object p1, p0, Lcom/android/server/compat/config/Change;->id:Ljava/lang/Long;
 
     return-void
 .end method
 
 .method public setLoggingOnly(Z)V
-    .locals 1
+    .locals 0
 
     invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/android/server/compat/config/Change;->loggingOnly:Ljava/lang/Boolean;
+    iput-object p1, p0, Lcom/android/server/compat/config/Change;->loggingOnly:Ljava/lang/Boolean;
 
     return-void
 .end method
@@ -550,13 +381,13 @@
 .end method
 
 .method public setOverridable(Z)V
-    .locals 1
+    .locals 0
 
     invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/android/server/compat/config/Change;->overridable:Ljava/lang/Boolean;
+    iput-object p1, p0, Lcom/android/server/compat/config/Change;->overridable:Ljava/lang/Boolean;
 
     return-void
 .end method

@@ -44,11 +44,11 @@
 .end method
 
 .method public onAppTransitionStartingLocked(ZZJJJ)I
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
 .method public onAppTransitionTimeoutLocked()V

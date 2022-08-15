@@ -1,4 +1,4 @@
-.class Lcom/android/server/pm/ShortcutService$1;
+.class public Lcom/android/server/pm/ShortcutService$1;
 .super Ljava/lang/Object;
 .source "ShortcutService.java"
 
@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
@@ -27,7 +27,7 @@
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,15 +38,15 @@
 
 # virtual methods
 .method public test(Landroid/content/pm/ResolveInfo;)Z
-    .locals 1
+    .locals 0
 
-    iget-object v0, p1, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+    iget-object p0, p1, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    iget-boolean v0, v0, Landroid/content/pm/ActivityInfo;->exported:Z
+    iget-boolean p0, p0, Landroid/content/pm/ActivityInfo;->exported:Z
 
-    xor-int/lit8 v0, v0, 0x1
+    xor-int/lit8 p0, p0, 0x1
 
-    return v0
+    return p0
 .end method
 
 .method public bridge synthetic test(Ljava/lang/Object;)Z
@@ -56,7 +56,7 @@
 
     invoke-virtual {p0, p1}, Lcom/android/server/pm/ShortcutService$1;->test(Landroid/content/pm/ResolveInfo;)Z
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method

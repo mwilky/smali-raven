@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/wm/InsetsStateController$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Ljava/util/function/Function;
 
 
 # instance fields
@@ -22,12 +23,16 @@
 
 
 # virtual methods
-.method public final run()V
-    .locals 1
+.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/InsetsStateController$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/wm/InsetsStateController;
+    iget-object p0, p0, Lcom/android/server/wm/InsetsStateController$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/wm/InsetsStateController;
 
-    invoke-virtual {v0}, Lcom/android/server/wm/InsetsStateController;->lambda$notifyPendingInsetsControlChanged$6$InsetsStateController()V
+    check-cast p1, Ljava/lang/Integer;
 
-    return-void
+    invoke-static {p0, p1}, Lcom/android/server/wm/InsetsStateController;->$r8$lambda$Lm36Ods71Ln-ubo24aA0Q8kuJHU(Lcom/android/server/wm/InsetsStateController;Ljava/lang/Integer;)Lcom/android/server/wm/WindowContainerInsetsSourceProvider;
+
+    move-result-object p0
+
+    return-object p0
 .end method

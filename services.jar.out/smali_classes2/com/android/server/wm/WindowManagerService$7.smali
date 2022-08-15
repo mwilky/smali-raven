@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/WindowManagerService$7;
+.class public Lcom/android/server/wm/WindowManagerService$7;
 .super Landroid/app/AppOpsManager$OnOpChangedInternalListener;
 .source "WindowManagerService.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/wm/WindowManagerService;
+.field public final synthetic this$0:Lcom/android/server/wm/WindowManagerService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/wm/WindowManagerService;)V
+.method public constructor <init>(Lcom/android/server/wm/WindowManagerService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/wm/WindowManagerService$7;->this$0:Lcom/android/server/wm/WindowManagerService;
@@ -32,11 +32,11 @@
 
 # virtual methods
 .method public onOpChanged(ILjava/lang/String;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/WindowManagerService$7;->this$0:Lcom/android/server/wm/WindowManagerService;
+    iget-object p0, p0, Lcom/android/server/wm/WindowManagerService$7;->this$0:Lcom/android/server/wm/WindowManagerService;
 
-    invoke-static {v0}, Lcom/android/server/wm/WindowManagerService;->access$400(Lcom/android/server/wm/WindowManagerService;)V
+    invoke-static {p0}, Lcom/android/server/wm/WindowManagerService;->-$$Nest$mupdateAppOpsState(Lcom/android/server/wm/WindowManagerService;)V
 
     return-void
 .end method

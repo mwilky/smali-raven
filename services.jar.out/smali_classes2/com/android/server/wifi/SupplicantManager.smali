@@ -9,14 +9,8 @@
 .end annotation
 
 
-# static fields
-.field private static final TAG:Ljava/lang/String; = "SupplicantManager"
-
-.field private static final WPA_SUPPLICANT_DAEMON_NAME:Ljava/lang/String; = "wpa_supplicant"
-
-
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +19,7 @@
 .end method
 
 .method public static start()V
-    .locals 3
+    .locals 2
 
     :try_start_0
     const-string v0, "wpa_supplicant"
@@ -34,20 +28,16 @@
     :try_end_0
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
-    nop
-
     return-void
 
     :catch_0
-    move-exception v0
+    new-instance v0, Ljava/util/NoSuchElementException;
 
-    new-instance v1, Ljava/util/NoSuchElementException;
+    const-string v1, "Failed to start Supplicant"
 
-    const-string v2, "Failed to start Supplicant"
+    invoke-direct {v0, v1}, Ljava/util/NoSuchElementException;-><init>(Ljava/lang/String;)V
 
-    invoke-direct {v1, v2}, Ljava/util/NoSuchElementException;-><init>(Ljava/lang/String;)V
-
-    throw v1
+    throw v0
 .end method
 
 .method public static stop()V

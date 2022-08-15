@@ -1,4 +1,4 @@
-.class Lcom/android/server/power/ShutdownThread$4;
+.class public Lcom/android/server/power/ShutdownThread$4;
 .super Ljava/lang/Object;
 .source "ShutdownThread.java"
 
@@ -12,21 +12,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/power/ShutdownThread;
+.field public final synthetic this$0:Lcom/android/server/power/ShutdownThread;
 
-.field final synthetic val$message:Ljava/lang/CharSequence;
+.field public final synthetic val$message:Ljava/lang/CharSequence;
 
-.field final synthetic val$progress:I
+.field public final synthetic val$progress:I
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/power/ShutdownThread;ILjava/lang/CharSequence;)V
+.method public constructor <init>(Lcom/android/server/power/ShutdownThread;ILjava/lang/CharSequence;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/power/ShutdownThread$4;->this$0:Lcom/android/server/power/ShutdownThread;
@@ -47,7 +47,7 @@
 
     iget-object v0, p0, Lcom/android/server/power/ShutdownThread$4;->this$0:Lcom/android/server/power/ShutdownThread;
 
-    invoke-static {v0}, Lcom/android/server/power/ShutdownThread;->access$100(Lcom/android/server/power/ShutdownThread;)Landroid/app/ProgressDialog;
+    invoke-static {v0}, Lcom/android/server/power/ShutdownThread;->-$$Nest$fgetmProgressDialog(Lcom/android/server/power/ShutdownThread;)Landroid/app/ProgressDialog;
 
     move-result-object v0
 
@@ -55,7 +55,7 @@
 
     iget-object v0, p0, Lcom/android/server/power/ShutdownThread$4;->this$0:Lcom/android/server/power/ShutdownThread;
 
-    invoke-static {v0}, Lcom/android/server/power/ShutdownThread;->access$100(Lcom/android/server/power/ShutdownThread;)Landroid/app/ProgressDialog;
+    invoke-static {v0}, Lcom/android/server/power/ShutdownThread;->-$$Nest$fgetmProgressDialog(Lcom/android/server/power/ShutdownThread;)Landroid/app/ProgressDialog;
 
     move-result-object v0
 
@@ -69,13 +69,13 @@
 
     iget-object v0, p0, Lcom/android/server/power/ShutdownThread$4;->this$0:Lcom/android/server/power/ShutdownThread;
 
-    invoke-static {v0}, Lcom/android/server/power/ShutdownThread;->access$100(Lcom/android/server/power/ShutdownThread;)Landroid/app/ProgressDialog;
+    invoke-static {v0}, Lcom/android/server/power/ShutdownThread;->-$$Nest$fgetmProgressDialog(Lcom/android/server/power/ShutdownThread;)Landroid/app/ProgressDialog;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/server/power/ShutdownThread$4;->val$message:Ljava/lang/CharSequence;
+    iget-object p0, p0, Lcom/android/server/power/ShutdownThread$4;->val$message:Ljava/lang/CharSequence;
 
-    invoke-virtual {v0, v1}, Landroid/app/ProgressDialog;->setMessage(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, p0}, Landroid/app/ProgressDialog;->setMessage(Ljava/lang/CharSequence;)V
 
     :cond_0
     return-void

@@ -1,4 +1,4 @@
-.class Lcom/android/server/audio/AudioDeviceBroker$BrokerThread;
+.class public Lcom/android/server/audio/AudioDeviceBroker$BrokerThread;
 .super Ljava/lang/Thread;
 .source "AudioDeviceBroker.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "BrokerThread"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/audio/AudioDeviceBroker;
+.field public final synthetic this$0:Lcom/android/server/audio/AudioDeviceBroker;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/audio/AudioDeviceBroker;)V
+.method public constructor <init>(Lcom/android/server/audio/AudioDeviceBroker;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/audio/AudioDeviceBroker$BrokerThread;->this$0:Lcom/android/server/audio/AudioDeviceBroker;
@@ -51,13 +51,13 @@
 
     const/4 v4, 0x0
 
-    invoke-direct {v2, v3, v4}, Lcom/android/server/audio/AudioDeviceBroker$BrokerHandler;-><init>(Lcom/android/server/audio/AudioDeviceBroker;Lcom/android/server/audio/AudioDeviceBroker$1;)V
+    invoke-direct {v2, v3, v4}, Lcom/android/server/audio/AudioDeviceBroker$BrokerHandler;-><init>(Lcom/android/server/audio/AudioDeviceBroker;Lcom/android/server/audio/AudioDeviceBroker$BrokerHandler-IA;)V
 
-    invoke-static {v1, v2}, Lcom/android/server/audio/AudioDeviceBroker;->access$002(Lcom/android/server/audio/AudioDeviceBroker;Lcom/android/server/audio/AudioDeviceBroker$BrokerHandler;)Lcom/android/server/audio/AudioDeviceBroker$BrokerHandler;
+    invoke-static {v1, v2}, Lcom/android/server/audio/AudioDeviceBroker;->-$$Nest$fputmBrokerHandler(Lcom/android/server/audio/AudioDeviceBroker;Lcom/android/server/audio/AudioDeviceBroker$BrokerHandler;)V
 
-    iget-object v1, p0, Lcom/android/server/audio/AudioDeviceBroker$BrokerThread;->this$0:Lcom/android/server/audio/AudioDeviceBroker;
+    iget-object p0, p0, Lcom/android/server/audio/AudioDeviceBroker$BrokerThread;->this$0:Lcom/android/server/audio/AudioDeviceBroker;
 
-    invoke-virtual {v1}, Ljava/lang/Object;->notify()V
+    invoke-virtual {p0}, Ljava/lang/Object;->notify()V
 
     monitor-exit v0
     :try_end_0
@@ -68,12 +68,12 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     :try_start_1
     monitor-exit v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v1
+    throw p0
 .end method

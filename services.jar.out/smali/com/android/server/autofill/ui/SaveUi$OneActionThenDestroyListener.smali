@@ -1,4 +1,4 @@
-.class Lcom/android/server/autofill/ui/SaveUi$OneActionThenDestroyListener;
+.class public Lcom/android/server/autofill/ui/SaveUi$OneActionThenDestroyListener;
 .super Ljava/lang/Object;
 .source "SaveUi.java"
 
@@ -12,21 +12,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "OneActionThenDestroyListener"
 .end annotation
 
 
 # instance fields
-.field private mDone:Z
+.field public mDone:Z
 
-.field private final mRealListener:Lcom/android/server/autofill/ui/SaveUi$OnSaveListener;
+.field public final mRealListener:Lcom/android/server/autofill/ui/SaveUi$OnSaveListener;
 
-.field final synthetic this$0:Lcom/android/server/autofill/ui/SaveUi;
+.field public final synthetic this$0:Lcom/android/server/autofill/ui/SaveUi;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/autofill/ui/SaveUi;Lcom/android/server/autofill/ui/SaveUi$OnSaveListener;)V
+.method public constructor <init>(Lcom/android/server/autofill/ui/SaveUi;Lcom/android/server/autofill/ui/SaveUi$OnSaveListener;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/autofill/ui/SaveUi$OneActionThenDestroyListener;->this$0:Lcom/android/server/autofill/ui/SaveUi;
@@ -75,9 +75,9 @@
     return-void
 
     :cond_1
-    iget-object v0, p0, Lcom/android/server/autofill/ui/SaveUi$OneActionThenDestroyListener;->mRealListener:Lcom/android/server/autofill/ui/SaveUi$OnSaveListener;
+    iget-object p0, p0, Lcom/android/server/autofill/ui/SaveUi$OneActionThenDestroyListener;->mRealListener:Lcom/android/server/autofill/ui/SaveUi$OnSaveListener;
 
-    invoke-interface {v0, p1}, Lcom/android/server/autofill/ui/SaveUi$OnSaveListener;->onCancel(Landroid/content/IntentSender;)V
+    invoke-interface {p0, p1}, Lcom/android/server/autofill/ui/SaveUi$OnSaveListener;->onCancel(Landroid/content/IntentSender;)V
 
     return-void
 .end method
@@ -121,9 +121,9 @@
 
     iput-boolean v0, p0, Lcom/android/server/autofill/ui/SaveUi$OneActionThenDestroyListener;->mDone:Z
 
-    iget-object v0, p0, Lcom/android/server/autofill/ui/SaveUi$OneActionThenDestroyListener;->mRealListener:Lcom/android/server/autofill/ui/SaveUi$OnSaveListener;
+    iget-object p0, p0, Lcom/android/server/autofill/ui/SaveUi$OneActionThenDestroyListener;->mRealListener:Lcom/android/server/autofill/ui/SaveUi$OnSaveListener;
 
-    invoke-interface {v0}, Lcom/android/server/autofill/ui/SaveUi$OnSaveListener;->onDestroy()V
+    invoke-interface {p0}, Lcom/android/server/autofill/ui/SaveUi$OnSaveListener;->onDestroy()V
 
     return-void
 .end method
@@ -163,9 +163,9 @@
     return-void
 
     :cond_1
-    iget-object v0, p0, Lcom/android/server/autofill/ui/SaveUi$OneActionThenDestroyListener;->mRealListener:Lcom/android/server/autofill/ui/SaveUi$OnSaveListener;
+    iget-object p0, p0, Lcom/android/server/autofill/ui/SaveUi$OneActionThenDestroyListener;->mRealListener:Lcom/android/server/autofill/ui/SaveUi$OnSaveListener;
 
-    invoke-interface {v0}, Lcom/android/server/autofill/ui/SaveUi$OnSaveListener;->onSave()V
+    invoke-interface {p0}, Lcom/android/server/autofill/ui/SaveUi$OnSaveListener;->onSave()V
 
     return-void
 .end method
@@ -205,9 +205,9 @@
     return-void
 
     :cond_1
-    iget-object v0, p0, Lcom/android/server/autofill/ui/SaveUi$OneActionThenDestroyListener;->mRealListener:Lcom/android/server/autofill/ui/SaveUi$OnSaveListener;
+    iget-object p0, p0, Lcom/android/server/autofill/ui/SaveUi$OneActionThenDestroyListener;->mRealListener:Lcom/android/server/autofill/ui/SaveUi$OnSaveListener;
 
-    invoke-interface {v0, p1, p2}, Lcom/android/server/autofill/ui/SaveUi$OnSaveListener;->startIntentSender(Landroid/content/IntentSender;Landroid/content/Intent;)V
+    invoke-interface {p0, p1, p2}, Lcom/android/server/autofill/ui/SaveUi$OnSaveListener;->startIntentSender(Landroid/content/IntentSender;Landroid/content/Intent;)V
 
     return-void
 .end method

@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/server/accessibility/SystemActionPerformer$SystemActionsChangedListener;
+.class public interface abstract Lcom/android/server/accessibility/SystemActionPerformer$SystemActionsChangedListener;
 .super Ljava/lang/Object;
 .source "SystemActionPerformer.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
+    accessFlags = 0x609
     name = "SystemActionsChangedListener"
 .end annotation
 

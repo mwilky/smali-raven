@@ -1,67 +1,66 @@
 .class public final synthetic Lcom/android/server/appop/AppOpsService$$ExternalSyntheticLambda15;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Consumer;
-
-
-# instance fields
-.field public final synthetic f$0:Landroid/app/AsyncNotedAppOp;
-
-.field public final synthetic f$1:[Z
-
-.field public final synthetic f$2:I
-
-.field public final synthetic f$3:Ljava/lang/String;
-
-.field public final synthetic f$4:I
-
-.field public final synthetic f$5:Ljava/lang/String;
+.implements Lcom/android/internal/util/function/OctConsumer;
 
 
 # direct methods
-.method public synthetic constructor <init>(Landroid/app/AsyncNotedAppOp;[ZILjava/lang/String;ILjava/lang/String;)V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/server/appop/AppOpsService$$ExternalSyntheticLambda15;->f$0:Landroid/app/AsyncNotedAppOp;
-
-    iput-object p2, p0, Lcom/android/server/appop/AppOpsService$$ExternalSyntheticLambda15;->f$1:[Z
-
-    iput p3, p0, Lcom/android/server/appop/AppOpsService$$ExternalSyntheticLambda15;->f$2:I
-
-    iput-object p4, p0, Lcom/android/server/appop/AppOpsService$$ExternalSyntheticLambda15;->f$3:Ljava/lang/String;
-
-    iput p5, p0, Lcom/android/server/appop/AppOpsService$$ExternalSyntheticLambda15;->f$4:I
-
-    iput-object p6, p0, Lcom/android/server/appop/AppOpsService$$ExternalSyntheticLambda15;->f$5:Ljava/lang/String;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
-    .locals 7
+.method public final accept(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/appop/AppOpsService$$ExternalSyntheticLambda15;->f$0:Landroid/app/AsyncNotedAppOp;
+    move-object p0, p1
 
-    iget-object v1, p0, Lcom/android/server/appop/AppOpsService$$ExternalSyntheticLambda15;->f$1:[Z
+    check-cast p0, Lcom/android/server/appop/AppOpsService;
 
-    iget v2, p0, Lcom/android/server/appop/AppOpsService$$ExternalSyntheticLambda15;->f$2:I
+    move-object p1, p2
 
-    iget-object v3, p0, Lcom/android/server/appop/AppOpsService$$ExternalSyntheticLambda15;->f$3:Ljava/lang/String;
+    check-cast p1, Landroid/util/ArraySet;
 
-    iget v4, p0, Lcom/android/server/appop/AppOpsService$$ExternalSyntheticLambda15;->f$4:I
+    check-cast p3, Ljava/lang/Integer;
 
-    iget-object v5, p0, Lcom/android/server/appop/AppOpsService$$ExternalSyntheticLambda15;->f$5:Ljava/lang/String;
+    invoke-virtual {p3}, Ljava/lang/Integer;->intValue()I
 
-    move-object v6, p1
+    move-result p2
 
-    check-cast v6, Lcom/android/internal/app/IAppOpsAsyncNotedCallback;
+    check-cast p4, Ljava/lang/Integer;
 
-    invoke-static/range {v0 .. v6}, Lcom/android/server/appop/AppOpsService;->lambda$collectAsyncNotedOp$2(Landroid/app/AsyncNotedAppOp;[ZILjava/lang/String;ILjava/lang/String;Lcom/android/internal/app/IAppOpsAsyncNotedCallback;)V
+    invoke-virtual {p4}, Ljava/lang/Integer;->intValue()I
+
+    move-result p3
+
+    move-object p4, p5
+
+    check-cast p4, Ljava/lang/String;
+
+    move-object p5, p6
+
+    check-cast p5, Ljava/lang/String;
+
+    check-cast p7, Ljava/lang/Integer;
+
+    invoke-virtual {p7}, Ljava/lang/Integer;->intValue()I
+
+    move-result p6
+
+    check-cast p8, Ljava/lang/Integer;
+
+    invoke-virtual {p8}, Ljava/lang/Integer;->intValue()I
+
+    move-result p7
+
+    invoke-static/range {p0 .. p7}, Lcom/android/server/appop/AppOpsService;->$r8$lambda$6eUUjWoSV6jYQZnTSAKV3P6Zd3U(Lcom/android/server/appop/AppOpsService;Landroid/util/ArraySet;IILjava/lang/String;Ljava/lang/String;II)V
 
     return-void
 .end method

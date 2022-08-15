@@ -17,23 +17,25 @@
 
 
 # static fields
-.field private static final DEBUG:Z = true
-
-.field private static final TAG:Ljava/lang/String; = "SoundTriggerService"
-
-.field private static final sEventLogger:Lcom/android/server/soundtrigger/SoundTriggerLogger;
+.field public static final sEventLogger:Lcom/android/server/soundtrigger/SoundTriggerLogger;
 
 
 # instance fields
-.field final mContext:Landroid/content/Context;
+.field public final mContext:Landroid/content/Context;
 
-.field private mDbHelper:Lcom/android/server/soundtrigger/SoundTriggerDbHelper;
+.field public mDbHelper:Lcom/android/server/soundtrigger/SoundTriggerDbHelper;
 
-.field private final mLocalSoundTriggerService:Lcom/android/server/soundtrigger/SoundTriggerService$LocalSoundTriggerService;
+.field public final mLocalSoundTriggerService:Lcom/android/server/soundtrigger/SoundTriggerService$LocalSoundTriggerService;
 
-.field private mLock:Ljava/lang/Object;
+.field public mLock:Ljava/lang/Object;
 
-.field private final mNumOpsPerPackage:Landroid/util/ArrayMap;
+.field public final mNumOpsPerPackage:Landroid/util/ArrayMap;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/ArrayMap<",
@@ -44,13 +46,63 @@
     .end annotation
 .end field
 
-.field private final mServiceStub:Lcom/android/server/soundtrigger/SoundTriggerService$SoundTriggerServiceStub;
+.field public final mServiceStub:Lcom/android/server/soundtrigger/SoundTriggerService$SoundTriggerServiceStub;
 
-.field private final mSoundModelStatTracker:Lcom/android/server/soundtrigger/SoundTriggerService$SoundModelStatTracker;
+.field public final mSoundModelStatTracker:Lcom/android/server/soundtrigger/SoundTriggerService$SoundModelStatTracker;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static bridge synthetic -$$Nest$fgetmDbHelper(Lcom/android/server/soundtrigger/SoundTriggerService;)Lcom/android/server/soundtrigger/SoundTriggerDbHelper;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/soundtrigger/SoundTriggerService;->mDbHelper:Lcom/android/server/soundtrigger/SoundTriggerDbHelper;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmLock(Lcom/android/server/soundtrigger/SoundTriggerService;)Ljava/lang/Object;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/soundtrigger/SoundTriggerService;->mLock:Ljava/lang/Object;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmNumOpsPerPackage(Lcom/android/server/soundtrigger/SoundTriggerService;)Landroid/util/ArrayMap;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/soundtrigger/SoundTriggerService;->mNumOpsPerPackage:Landroid/util/ArrayMap;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmSoundModelStatTracker(Lcom/android/server/soundtrigger/SoundTriggerService;)Lcom/android/server/soundtrigger/SoundTriggerService$SoundModelStatTracker;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/soundtrigger/SoundTriggerService;->mSoundModelStatTracker:Lcom/android/server/soundtrigger/SoundTriggerService$SoundModelStatTracker;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$mnewSoundTriggerHelper(Lcom/android/server/soundtrigger/SoundTriggerService;)Lcom/android/server/soundtrigger/SoundTriggerHelper;
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/server/soundtrigger/SoundTriggerService;->newSoundTriggerHelper()Lcom/android/server/soundtrigger/SoundTriggerHelper;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$sfgetsEventLogger()Lcom/android/server/soundtrigger/SoundTriggerLogger;
+    .locals 1
+
+    sget-object v0, Lcom/android/server/soundtrigger/SoundTriggerService;->sEventLogger:Lcom/android/server/soundtrigger/SoundTriggerLogger;
+
+    return-object v0
+.end method
+
+.method public static constructor <clinit>()V
     .locals 3
 
     new-instance v0, Lcom/android/server/soundtrigger/SoundTriggerLogger;
@@ -91,72 +143,24 @@
 
     iput-object v0, p0, Lcom/android/server/soundtrigger/SoundTriggerService;->mLocalSoundTriggerService:Lcom/android/server/soundtrigger/SoundTriggerService$LocalSoundTriggerService;
 
-    new-instance v0, Ljava/lang/Object;
+    new-instance p1, Ljava/lang/Object;
 
-    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p1}, Ljava/lang/Object;-><init>()V
 
-    iput-object v0, p0, Lcom/android/server/soundtrigger/SoundTriggerService;->mLock:Ljava/lang/Object;
+    iput-object p1, p0, Lcom/android/server/soundtrigger/SoundTriggerService;->mLock:Ljava/lang/Object;
 
-    new-instance v0, Lcom/android/server/soundtrigger/SoundTriggerService$SoundModelStatTracker;
+    new-instance p1, Lcom/android/server/soundtrigger/SoundTriggerService$SoundModelStatTracker;
 
-    invoke-direct {v0, p0}, Lcom/android/server/soundtrigger/SoundTriggerService$SoundModelStatTracker;-><init>(Lcom/android/server/soundtrigger/SoundTriggerService;)V
+    invoke-direct {p1, p0}, Lcom/android/server/soundtrigger/SoundTriggerService$SoundModelStatTracker;-><init>(Lcom/android/server/soundtrigger/SoundTriggerService;)V
 
-    iput-object v0, p0, Lcom/android/server/soundtrigger/SoundTriggerService;->mSoundModelStatTracker:Lcom/android/server/soundtrigger/SoundTriggerService$SoundModelStatTracker;
+    iput-object p1, p0, Lcom/android/server/soundtrigger/SoundTriggerService;->mSoundModelStatTracker:Lcom/android/server/soundtrigger/SoundTriggerService$SoundModelStatTracker;
 
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/server/soundtrigger/SoundTriggerService;)Lcom/android/server/soundtrigger/SoundTriggerHelper;
-    .locals 1
 
-    invoke-direct {p0}, Lcom/android/server/soundtrigger/SoundTriggerService;->newSoundTriggerHelper()Lcom/android/server/soundtrigger/SoundTriggerHelper;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method static synthetic access$100()Lcom/android/server/soundtrigger/SoundTriggerLogger;
-    .locals 1
-
-    sget-object v0, Lcom/android/server/soundtrigger/SoundTriggerService;->sEventLogger:Lcom/android/server/soundtrigger/SoundTriggerLogger;
-
-    return-object v0
-.end method
-
-.method static synthetic access$200(Lcom/android/server/soundtrigger/SoundTriggerService;)Lcom/android/server/soundtrigger/SoundTriggerService$SoundModelStatTracker;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/soundtrigger/SoundTriggerService;->mSoundModelStatTracker:Lcom/android/server/soundtrigger/SoundTriggerService$SoundModelStatTracker;
-
-    return-object v0
-.end method
-
-.method static synthetic access$300(Lcom/android/server/soundtrigger/SoundTriggerService;)Lcom/android/server/soundtrigger/SoundTriggerDbHelper;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/soundtrigger/SoundTriggerService;->mDbHelper:Lcom/android/server/soundtrigger/SoundTriggerDbHelper;
-
-    return-object v0
-.end method
-
-.method static synthetic access$400(Lcom/android/server/soundtrigger/SoundTriggerService;)Ljava/lang/Object;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/soundtrigger/SoundTriggerService;->mLock:Ljava/lang/Object;
-
-    return-object v0
-.end method
-
-.method static synthetic access$500(Lcom/android/server/soundtrigger/SoundTriggerService;)Landroid/util/ArrayMap;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/soundtrigger/SoundTriggerService;->mNumOpsPerPackage:Landroid/util/ArrayMap;
-
-    return-object v0
-.end method
-
-.method private newSoundTriggerHelper()Lcom/android/server/soundtrigger/SoundTriggerHelper;
+# virtual methods
+.method public final newSoundTriggerHelper()Lcom/android/server/soundtrigger/SoundTriggerHelper;
     .locals 5
 
     new-instance v0, Landroid/media/permission/Identity;
@@ -186,8 +190,6 @@
     return-object v2
 .end method
 
-
-# virtual methods
 .method public onBootPhase(I)V
     .locals 2
 
@@ -205,7 +207,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Lcom/android/server/soundtrigger/SoundTriggerService;->isSafeMode()Z
+    invoke-virtual {p0}, Lcom/android/server/SystemService;->isSafeMode()Z
 
     move-result v1
 
@@ -223,13 +225,13 @@
 
     if-ne v0, p1, :cond_0
 
-    new-instance v0, Lcom/android/server/soundtrigger/SoundTriggerDbHelper;
+    new-instance p1, Lcom/android/server/soundtrigger/SoundTriggerDbHelper;
 
-    iget-object v1, p0, Lcom/android/server/soundtrigger/SoundTriggerService;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Lcom/android/server/soundtrigger/SoundTriggerService;->mContext:Landroid/content/Context;
 
-    invoke-direct {v0, v1}, Lcom/android/server/soundtrigger/SoundTriggerDbHelper;-><init>(Landroid/content/Context;)V
+    invoke-direct {p1, v0}, Lcom/android/server/soundtrigger/SoundTriggerDbHelper;-><init>(Landroid/content/Context;)V
 
-    iput-object v0, p0, Lcom/android/server/soundtrigger/SoundTriggerService;->mDbHelper:Lcom/android/server/soundtrigger/SoundTriggerDbHelper;
+    iput-object p1, p0, Lcom/android/server/soundtrigger/SoundTriggerService;->mDbHelper:Lcom/android/server/soundtrigger/SoundTriggerDbHelper;
 
     :cond_0
     return-void
@@ -242,13 +244,13 @@
 
     const-string v1, "soundtrigger"
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/server/soundtrigger/SoundTriggerService;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
+    invoke-virtual {p0, v1, v0}, Lcom/android/server/SystemService;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
 
     const-class v0, Lcom/android/server/soundtrigger/SoundTriggerInternal;
 
     iget-object v1, p0, Lcom/android/server/soundtrigger/SoundTriggerService;->mLocalSoundTriggerService:Lcom/android/server/soundtrigger/SoundTriggerService$LocalSoundTriggerService;
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/server/soundtrigger/SoundTriggerService;->publishLocalService(Ljava/lang/Class;Ljava/lang/Object;)V
+    invoke-virtual {p0, v0, v1}, Lcom/android/server/SystemService;->publishLocalService(Ljava/lang/Class;Ljava/lang/Object;)V
 
     return-void
 .end method

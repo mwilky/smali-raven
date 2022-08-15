@@ -1,4 +1,4 @@
-.class Lcom/android/server/inputmethod/InputMethodSubtypeSwitchingController$InputMethodAndSubtypeList;
+.class public Lcom/android/server/inputmethod/InputMethodSubtypeSwitchingController$InputMethodAndSubtypeList;
 .super Ljava/lang/Object;
 .source "InputMethodSubtypeSwitchingController.java"
 
@@ -9,24 +9,24 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "InputMethodAndSubtypeList"
 .end annotation
 
 
 # instance fields
-.field private final mContext:Landroid/content/Context;
+.field public final mContext:Landroid/content/Context;
 
-.field private final mPm:Landroid/content/pm/PackageManager;
+.field public final mPm:Landroid/content/pm/PackageManager;
 
-.field private final mSettings:Lcom/android/server/inputmethod/InputMethodUtils$InputMethodSettings;
+.field public final mSettings:Lcom/android/server/inputmethod/InputMethodUtils$InputMethodSettings;
 
-.field private final mSystemLocaleStr:Ljava/lang/String;
+.field public final mSystemLocaleStr:Ljava/lang/String;
 
 
 # direct methods
-.method constructor <init>(Landroid/content/Context;Lcom/android/server/inputmethod/InputMethodUtils$InputMethodSettings;)V
-    .locals 2
+.method public constructor <init>(Landroid/content/Context;Lcom/android/server/inputmethod/InputMethodUtils$InputMethodSettings;)V
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -36,33 +36,33 @@
 
     invoke-virtual {p1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v0
+    move-result-object p2
 
-    iput-object v0, p0, Lcom/android/server/inputmethod/InputMethodSubtypeSwitchingController$InputMethodAndSubtypeList;->mPm:Landroid/content/pm/PackageManager;
+    iput-object p2, p0, Lcom/android/server/inputmethod/InputMethodSubtypeSwitchingController$InputMethodAndSubtypeList;->mPm:Landroid/content/pm/PackageManager;
 
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+    invoke-virtual {p1}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
 
-    move-result-object v0
+    move-result-object p1
 
-    iget-object v0, v0, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
+    iget-object p1, p1, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    invoke-virtual {v0}, Ljava/util/Locale;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/util/Locale;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
     goto :goto_0
 
     :cond_0
-    const-string v1, ""
+    const-string p1, ""
 
     :goto_0
-    iput-object v1, p0, Lcom/android/server/inputmethod/InputMethodSubtypeSwitchingController$InputMethodAndSubtypeList;->mSystemLocaleStr:Ljava/lang/String;
+    iput-object p1, p0, Lcom/android/server/inputmethod/InputMethodSubtypeSwitchingController$InputMethodAndSubtypeList;->mSystemLocaleStr:Ljava/lang/String;
 
     return-void
 .end method
@@ -70,7 +70,7 @@
 
 # virtual methods
 .method public getSortedInputMethodAndSubtypeList(ZZZ)Ljava/util/List;
-    .locals 22
+    .locals 21
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(ZZZ)",
@@ -96,91 +96,88 @@
 
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
-    move-result-object v2
+    move-result-object v0
 
-    return-object v2
+    return-object v0
 
     :cond_0
     if-eqz p2, :cond_1
 
     if-eqz p1, :cond_1
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
     goto :goto_0
 
     :cond_1
-    move/from16 v2, p1
+    move/from16 v3, p1
 
     :goto_0
-    new-instance v3, Ljava/util/ArrayList;
+    new-instance v4, Ljava/util/ArrayList;
 
-    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
-    move-result v4
+    move-result v5
 
-    const/4 v5, 0x0
+    const/4 v6, 0x0
 
     :goto_1
-    if-ge v5, v4, :cond_a
+    if-ge v6, v5, :cond_9
 
-    invoke-virtual {v1, v5}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v6
-
-    check-cast v6, Landroid/view/inputmethod/InputMethodInfo;
-
-    if-eqz p3, :cond_2
-
-    invoke-virtual {v6}, Landroid/view/inputmethod/InputMethodInfo;->shouldShowInInputMethodPicker()Z
-
-    move-result v7
-
-    if-nez v7, :cond_2
-
-    move-object/from16 v19, v1
-
-    move/from16 p1, v2
-
-    goto/16 :goto_7
-
-    :cond_2
-    iget-object v7, v0, Lcom/android/server/inputmethod/InputMethodSubtypeSwitchingController$InputMethodAndSubtypeList;->mSettings:Lcom/android/server/inputmethod/InputMethodUtils$InputMethodSettings;
-
-    iget-object v8, v0, Lcom/android/server/inputmethod/InputMethodSubtypeSwitchingController$InputMethodAndSubtypeList;->mContext:Landroid/content/Context;
-
-    const/4 v9, 0x1
-
-    invoke-virtual {v7, v8, v6, v9}, Lcom/android/server/inputmethod/InputMethodUtils$InputMethodSettings;->getEnabledInputMethodSubtypeListLocked(Landroid/content/Context;Landroid/view/inputmethod/InputMethodInfo;Z)Ljava/util/List;
-
-    move-result-object v14
-
-    new-instance v7, Landroid/util/ArraySet;
-
-    invoke-direct {v7}, Landroid/util/ArraySet;-><init>()V
-
-    move-object v15, v7
-
-    invoke-interface {v14}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v1, v6}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v7
 
-    :goto_2
-    invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
+    check-cast v7, Landroid/view/inputmethod/InputMethodInfo;
+
+    if-eqz p3, :cond_3
+
+    invoke-virtual {v7}, Landroid/view/inputmethod/InputMethodInfo;->shouldShowInInputMethodPicker()Z
 
     move-result v8
 
-    if-eqz v8, :cond_3
+    if-nez v8, :cond_3
 
-    invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    :cond_2
+    move-object/from16 v19, v1
+
+    goto/16 :goto_6
+
+    :cond_3
+    iget-object v8, v0, Lcom/android/server/inputmethod/InputMethodSubtypeSwitchingController$InputMethodAndSubtypeList;->mSettings:Lcom/android/server/inputmethod/InputMethodUtils$InputMethodSettings;
+
+    iget-object v9, v0, Lcom/android/server/inputmethod/InputMethodSubtypeSwitchingController$InputMethodAndSubtypeList;->mContext:Landroid/content/Context;
+
+    const/4 v10, 0x1
+
+    invoke-virtual {v8, v9, v7, v10}, Lcom/android/server/inputmethod/InputMethodUtils$InputMethodSettings;->getEnabledInputMethodSubtypeListLocked(Landroid/content/Context;Landroid/view/inputmethod/InputMethodInfo;Z)Ljava/util/List;
 
     move-result-object v8
 
-    check-cast v8, Landroid/view/inputmethod/InputMethodSubtype;
+    new-instance v15, Landroid/util/ArraySet;
 
-    invoke-virtual {v8}, Landroid/view/inputmethod/InputMethodSubtype;->hashCode()I
+    invoke-direct {v15}, Landroid/util/ArraySet;-><init>()V
+
+    invoke-interface {v8}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v8
+
+    :goto_2
+    invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v9
+
+    if-eqz v9, :cond_4
+
+    invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v9
+
+    check-cast v9, Landroid/view/inputmethod/InputMethodSubtype;
+
+    invoke-virtual {v9}, Landroid/view/inputmethod/InputMethodSubtype;->hashCode()I
 
     move-result v9
 
@@ -192,168 +189,136 @@
 
     goto :goto_2
 
-    :cond_3
-    iget-object v7, v0, Lcom/android/server/inputmethod/InputMethodSubtypeSwitchingController$InputMethodAndSubtypeList;->mPm:Landroid/content/pm/PackageManager;
+    :cond_4
+    iget-object v8, v0, Lcom/android/server/inputmethod/InputMethodSubtypeSwitchingController$InputMethodAndSubtypeList;->mPm:Landroid/content/pm/PackageManager;
 
-    invoke-virtual {v6, v7}, Landroid/view/inputmethod/InputMethodInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
+    invoke-virtual {v7, v8}, Landroid/view/inputmethod/InputMethodInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
 
     move-result-object v16
 
     invoke-virtual {v15}, Landroid/util/ArraySet;->size()I
 
-    move-result v7
+    move-result v8
 
-    if-lez v7, :cond_9
+    if-lez v8, :cond_8
 
-    invoke-virtual {v6}, Landroid/view/inputmethod/InputMethodInfo;->getSubtypeCount()I
+    invoke-virtual {v7}, Landroid/view/inputmethod/InputMethodInfo;->getSubtypeCount()I
 
-    move-result v13
+    move-result v14
 
-    const/4 v7, 0x0
-
-    move v12, v7
+    const/4 v13, 0x0
 
     :goto_3
-    if-ge v12, v13, :cond_8
+    if-ge v13, v14, :cond_2
 
-    invoke-virtual {v6, v12}, Landroid/view/inputmethod/InputMethodInfo;->getSubtypeAt(I)Landroid/view/inputmethod/InputMethodSubtype;
-
-    move-result-object v11
-
-    invoke-virtual {v11}, Landroid/view/inputmethod/InputMethodSubtype;->hashCode()I
-
-    move-result v7
-
-    invoke-static {v7}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
-
-    move-result-object v10
-
-    invoke-virtual {v15, v10}, Landroid/util/ArraySet;->contains(Ljava/lang/Object;)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_7
-
-    if-nez v2, :cond_5
-
-    invoke-virtual {v11}, Landroid/view/inputmethod/InputMethodSubtype;->isAuxiliary()Z
-
-    move-result v7
-
-    if-nez v7, :cond_4
-
-    goto :goto_4
-
-    :cond_4
-    move-object/from16 v19, v1
-
-    move/from16 p1, v2
-
-    move/from16 v21, v12
-
-    move/from16 v17, v13
-
-    goto :goto_6
-
-    :cond_5
-    :goto_4
-    invoke-virtual {v11}, Landroid/view/inputmethod/InputMethodSubtype;->overridesImplicitlyEnabledSubtype()Z
-
-    move-result v7
-
-    if-eqz v7, :cond_6
-
-    const/4 v7, 0x0
-
-    move-object v9, v7
-
-    goto :goto_5
-
-    :cond_6
-    iget-object v7, v0, Lcom/android/server/inputmethod/InputMethodSubtypeSwitchingController$InputMethodAndSubtypeList;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v6}, Landroid/view/inputmethod/InputMethodInfo;->getPackageName()Ljava/lang/String;
+    invoke-virtual {v7, v13}, Landroid/view/inputmethod/InputMethodInfo;->getSubtypeAt(I)Landroid/view/inputmethod/InputMethodSubtype;
 
     move-result-object v8
 
-    invoke-virtual {v6}, Landroid/view/inputmethod/InputMethodInfo;->getServiceInfo()Landroid/content/pm/ServiceInfo;
+    invoke-virtual {v8}, Landroid/view/inputmethod/InputMethodSubtype;->hashCode()I
+
+    move-result v9
+
+    invoke-static {v9}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v12
+
+    invoke-virtual {v15, v12}, Landroid/util/ArraySet;->contains(Ljava/lang/Object;)Z
+
+    move-result v9
+
+    if-eqz v9, :cond_7
+
+    if-nez v3, :cond_5
+
+    invoke-virtual {v8}, Landroid/view/inputmethod/InputMethodSubtype;->isAuxiliary()Z
+
+    move-result v9
+
+    if-nez v9, :cond_7
+
+    :cond_5
+    invoke-virtual {v8}, Landroid/view/inputmethod/InputMethodSubtype;->overridesImplicitlyEnabledSubtype()Z
+
+    move-result v9
+
+    if-eqz v9, :cond_6
+
+    const/4 v9, 0x0
+
+    goto :goto_4
+
+    :cond_6
+    iget-object v9, v0, Lcom/android/server/inputmethod/InputMethodSubtypeSwitchingController$InputMethodAndSubtypeList;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v7}, Landroid/view/inputmethod/InputMethodInfo;->getPackageName()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-virtual {v7}, Landroid/view/inputmethod/InputMethodInfo;->getServiceInfo()Landroid/content/pm/ServiceInfo;
+
+    move-result-object v11
+
+    iget-object v11, v11, Landroid/content/pm/ServiceInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    invoke-virtual {v8, v9, v10, v11}, Landroid/view/inputmethod/InputMethodSubtype;->getDisplayName(Landroid/content/Context;Ljava/lang/String;Landroid/content/pm/ApplicationInfo;)Ljava/lang/CharSequence;
 
     move-result-object v9
 
-    iget-object v9, v9, Landroid/content/pm/ServiceInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+    :goto_4
+    move-object v10, v9
 
-    invoke-virtual {v11, v7, v8, v9}, Landroid/view/inputmethod/InputMethodSubtype;->getDisplayName(Landroid/content/Context;Ljava/lang/String;Landroid/content/pm/ApplicationInfo;)Ljava/lang/CharSequence;
+    new-instance v11, Lcom/android/server/inputmethod/InputMethodSubtypeSwitchingController$ImeSubtypeListItem;
 
-    move-result-object v7
-
-    move-object v9, v7
-
-    :goto_5
-    nop
-
-    new-instance v8, Lcom/android/server/inputmethod/InputMethodSubtypeSwitchingController$ImeSubtypeListItem;
-
-    invoke-virtual {v11}, Landroid/view/inputmethod/InputMethodSubtype;->getLocale()Ljava/lang/String;
+    invoke-virtual {v8}, Landroid/view/inputmethod/InputMethodSubtype;->getLocale()Ljava/lang/String;
 
     move-result-object v17
 
-    iget-object v7, v0, Lcom/android/server/inputmethod/InputMethodSubtypeSwitchingController$InputMethodAndSubtypeList;->mSystemLocaleStr:Ljava/lang/String;
+    iget-object v9, v0, Lcom/android/server/inputmethod/InputMethodSubtypeSwitchingController$InputMethodAndSubtypeList;->mSystemLocaleStr:Ljava/lang/String;
 
-    move-object/from16 v18, v7
+    move-object v8, v11
 
-    move-object v7, v8
+    move-object/from16 v18, v9
+
+    move-object/from16 v9, v16
+
+    move-object v2, v11
+
+    move-object v11, v7
 
     move-object/from16 v19, v1
 
-    move-object v1, v8
+    move-object v1, v12
 
-    move-object/from16 v8, v16
+    move v12, v13
 
-    move/from16 p1, v2
+    move/from16 v20, v13
 
-    move-object v2, v10
+    move-object/from16 v13, v17
 
-    move-object v10, v6
+    move/from16 v17, v14
 
-    move-object/from16 v20, v11
+    move-object/from16 v14, v18
 
-    move v11, v12
+    invoke-direct/range {v8 .. v14}, Lcom/android/server/inputmethod/InputMethodSubtypeSwitchingController$ImeSubtypeListItem;-><init>(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/view/inputmethod/InputMethodInfo;ILjava/lang/String;Ljava/lang/String;)V
 
-    move/from16 v21, v12
+    invoke-virtual {v4, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    move-object/from16 v12, v17
+    invoke-virtual {v15, v1}, Landroid/util/ArraySet;->remove(Ljava/lang/Object;)Z
 
-    move/from16 v17, v13
-
-    move-object/from16 v13, v18
-
-    invoke-direct/range {v7 .. v13}, Lcom/android/server/inputmethod/InputMethodSubtypeSwitchingController$ImeSubtypeListItem;-><init>(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/view/inputmethod/InputMethodInfo;ILjava/lang/String;Ljava/lang/String;)V
-
-    invoke-virtual {v3, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    invoke-virtual {v15, v2}, Landroid/util/ArraySet;->remove(Ljava/lang/Object;)Z
-
-    goto :goto_6
+    goto :goto_5
 
     :cond_7
     move-object/from16 v19, v1
 
-    move/from16 p1, v2
+    move/from16 v20, v13
 
-    move-object v2, v10
+    move/from16 v17, v14
 
-    move-object/from16 v20, v11
+    :goto_5
+    add-int/lit8 v13, v20, 0x1
 
-    move/from16 v21, v12
-
-    move/from16 v17, v13
-
-    :goto_6
-    add-int/lit8 v12, v21, 0x1
-
-    move/from16 v2, p1
-
-    move/from16 v13, v17
+    move/from16 v14, v17
 
     move-object/from16 v1, v19
 
@@ -362,50 +327,35 @@
     :cond_8
     move-object/from16 v19, v1
 
-    move/from16 p1, v2
-
-    move/from16 v21, v12
-
-    move/from16 v17, v13
-
-    goto :goto_7
-
-    :cond_9
-    move-object/from16 v19, v1
-
-    move/from16 p1, v2
-
     new-instance v1, Lcom/android/server/inputmethod/InputMethodSubtypeSwitchingController$ImeSubtypeListItem;
 
-    const/4 v9, 0x0
+    const/4 v10, 0x0
 
-    const/4 v11, -0x1
+    const/4 v12, -0x1
 
-    const/4 v12, 0x0
+    const/4 v13, 0x0
 
-    iget-object v13, v0, Lcom/android/server/inputmethod/InputMethodSubtypeSwitchingController$InputMethodAndSubtypeList;->mSystemLocaleStr:Ljava/lang/String;
+    iget-object v14, v0, Lcom/android/server/inputmethod/InputMethodSubtypeSwitchingController$InputMethodAndSubtypeList;->mSystemLocaleStr:Ljava/lang/String;
 
-    move-object v7, v1
+    move-object v8, v1
 
-    move-object/from16 v8, v16
+    move-object/from16 v9, v16
 
-    move-object v10, v6
+    move-object v11, v7
 
-    invoke-direct/range {v7 .. v13}, Lcom/android/server/inputmethod/InputMethodSubtypeSwitchingController$ImeSubtypeListItem;-><init>(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/view/inputmethod/InputMethodInfo;ILjava/lang/String;Ljava/lang/String;)V
+    invoke-direct/range {v8 .. v14}, Lcom/android/server/inputmethod/InputMethodSubtypeSwitchingController$ImeSubtypeListItem;-><init>(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/view/inputmethod/InputMethodInfo;ILjava/lang/String;Ljava/lang/String;)V
 
-    invoke-virtual {v3, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v4, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    :goto_7
-    add-int/lit8 v5, v5, 0x1
-
-    move/from16 v2, p1
+    :goto_6
+    add-int/lit8 v6, v6, 0x1
 
     move-object/from16 v1, v19
 
     goto/16 :goto_1
 
-    :cond_a
-    invoke-static {v3}, Ljava/util/Collections;->sort(Ljava/util/List;)V
+    :cond_9
+    invoke-static {v4}, Ljava/util/Collections;->sort(Ljava/util/List;)V
 
-    return-object v3
+    return-object v4
 .end method

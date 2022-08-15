@@ -3,16 +3,12 @@
 .source "Usb10ASGeneral.java"
 
 
-# static fields
-.field private static final TAG:Ljava/lang/String; = "Usb10ASGeneral"
-
-
 # instance fields
-.field private mDelay:B
+.field public mDelay:B
 
-.field private mFormatTag:I
+.field public mFormatTag:I
 
-.field private mTerminalLink:B
+.field public mTerminalLink:B
 
 
 # direct methods
@@ -26,30 +22,6 @@
 
 
 # virtual methods
-.method public getDelay()B
-    .locals 1
-
-    iget-byte v0, p0, Lcom/android/server/usb/descriptors/Usb10ASGeneral;->mDelay:B
-
-    return v0
-.end method
-
-.method public getFormatTag()I
-    .locals 1
-
-    iget v0, p0, Lcom/android/server/usb/descriptors/Usb10ASGeneral;->mFormatTag:I
-
-    return v0
-.end method
-
-.method public getTerminalLink()B
-    .locals 1
-
-    iget-byte v0, p0, Lcom/android/server/usb/descriptors/Usb10ASGeneral;->mTerminalLink:B
-
-    return v0
-.end method
-
 .method public parseRawDescriptors(Lcom/android/server/usb/descriptors/ByteStream;)I
     .locals 1
 
@@ -67,13 +39,13 @@
 
     invoke-virtual {p1}, Lcom/android/server/usb/descriptors/ByteStream;->unpackUsbShort()I
 
-    move-result v0
+    move-result p1
 
-    iput v0, p0, Lcom/android/server/usb/descriptors/Usb10ASGeneral;->mFormatTag:I
+    iput p1, p0, Lcom/android/server/usb/descriptors/Usb10ASGeneral;->mFormatTag:I
 
-    iget v0, p0, Lcom/android/server/usb/descriptors/Usb10ASGeneral;->mLength:I
+    iget p0, p0, Lcom/android/server/usb/descriptors/UsbDescriptor;->mLength:I
 
-    return v0
+    return p0
 .end method
 
 .method public report(Lcom/android/server/usb/descriptors/report/ReportCanvas;)V
@@ -139,19 +111,19 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v1, p0, Lcom/android/server/usb/descriptors/Usb10ASGeneral;->mFormatTag:I
+    iget p0, p0, Lcom/android/server/usb/descriptors/Usb10ASGeneral;->mFormatTag:I
 
-    invoke-static {v1}, Lcom/android/server/usb/descriptors/report/ReportCanvas;->getHexString(I)Ljava/lang/String;
+    invoke-static {p0}, Lcom/android/server/usb/descriptors/report/ReportCanvas;->getHexString(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {p1, v0}, Lcom/android/server/usb/descriptors/report/ReportCanvas;->writeListItem(Ljava/lang/String;)V
+    invoke-virtual {p1, p0}, Lcom/android/server/usb/descriptors/report/ReportCanvas;->writeListItem(Ljava/lang/String;)V
 
     invoke-virtual {p1}, Lcom/android/server/usb/descriptors/report/ReportCanvas;->closeList()V
 

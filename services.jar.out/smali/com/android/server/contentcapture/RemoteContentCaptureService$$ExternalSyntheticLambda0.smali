@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/contentcapture/RemoteContentCaptureService$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/internal/infra/AbstractRemoteService$AsyncRequest;
@@ -23,13 +24,13 @@
 
 # virtual methods
 .method public final run(Landroid/os/IInterface;)V
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/contentcapture/RemoteContentCaptureService$$ExternalSyntheticLambda0;->f$0:I
+    iget p0, p0, Lcom/android/server/contentcapture/RemoteContentCaptureService$$ExternalSyntheticLambda0;->f$0:I
 
     check-cast p1, Landroid/service/contentcapture/IContentCaptureService;
 
-    invoke-static {v0, p1}, Lcom/android/server/contentcapture/RemoteContentCaptureService;->lambda$onSessionFinished$1(ILandroid/service/contentcapture/IContentCaptureService;)V
+    invoke-static {p0, p1}, Lcom/android/server/contentcapture/RemoteContentCaptureService;->$r8$lambda$TwL4DPvinMgbMYGCnofRVll0MWY(ILandroid/service/contentcapture/IContentCaptureService;)V
 
     return-void
 .end method

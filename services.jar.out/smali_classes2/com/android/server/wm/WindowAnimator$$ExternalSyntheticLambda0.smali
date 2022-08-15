@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/wm/WindowAnimator$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/view/Choreographer$FrameCallback;
+.implements Ljava/lang/Runnable;
 
 
 # instance fields
@@ -22,12 +23,12 @@
 
 
 # virtual methods
-.method public final doFrame(J)V
-    .locals 1
+.method public final run()V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/WindowAnimator$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/wm/WindowAnimator;
+    iget-object p0, p0, Lcom/android/server/wm/WindowAnimator$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/wm/WindowAnimator;
 
-    invoke-virtual {v0, p1, p2}, Lcom/android/server/wm/WindowAnimator;->lambda$new$1$WindowAnimator(J)V
+    invoke-static {p0}, Lcom/android/server/wm/WindowAnimator;->$r8$lambda$xxZcME0qhgEm-qcGypG2VPv5aek(Lcom/android/server/wm/WindowAnimator;)V
 
     return-void
 .end method

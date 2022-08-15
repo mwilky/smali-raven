@@ -20,11 +20,11 @@
 
 
 # instance fields
-.field private volatile mKey:Ljava/lang/Object;
+.field public volatile mKey:Ljava/lang/Object;
 
 
 # direct methods
-.method protected constructor <init>(Ljava/util/concurrent/Executor;Ljava/lang/Object;Ljava/lang/Object;)V
+.method public constructor <init>(Ljava/util/concurrent/Executor;Ljava/lang/Object;Ljava/lang/Object;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -43,17 +43,17 @@
 
 
 # virtual methods
-.method protected final getKey()Ljava/lang/Object;
-    .locals 1
+.method public final getKey()Ljava/lang/Object;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/location/listeners/RemovableListenerRegistration;->mKey:Ljava/lang/Object;
+    iget-object p0, p0, Lcom/android/server/location/listeners/RemovableListenerRegistration;->mKey:Ljava/lang/Object;
 
-    invoke-static {v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    return-object v0
+    return-object p0
 .end method
 
-.method protected abstract getOwner()Lcom/android/server/location/listeners/ListenerMultiplexer;
+.method public abstract getOwner()Lcom/android/server/location/listeners/ListenerMultiplexer;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -65,7 +65,7 @@
     .end annotation
 .end method
 
-.method protected final onRegister(Ljava/lang/Object;)V
+.method public final onRegister(Ljava/lang/Object;)V
     .locals 0
 
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
@@ -77,19 +77,13 @@
     return-void
 .end method
 
-.method protected onRemovableListenerRegister()V
-    .locals 0
-
-    return-void
+.method public abstract onRemovableListenerRegister()V
 .end method
 
-.method protected onRemovableListenerUnregister()V
-    .locals 0
-
-    return-void
+.method public abstract onRemovableListenerUnregister()V
 .end method
 
-.method protected final onUnregister()V
+.method public final onUnregister()V
     .locals 1
 
     invoke-virtual {p0}, Lcom/android/server/location/listeners/RemovableListenerRegistration;->onRemovableListenerUnregister()V

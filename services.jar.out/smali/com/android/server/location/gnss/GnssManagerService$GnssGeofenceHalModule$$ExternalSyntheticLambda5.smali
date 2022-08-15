@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/location/gnss/GnssManagerService$GnssGeofenceHalModule$$ExternalSyntheticLambda5;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -10,15 +11,11 @@
 
 .field public final synthetic f$1:I
 
-.field public final synthetic f$2:Landroid/location/Location;
-
-.field public final synthetic f$3:I
-
-.field public final synthetic f$4:J
+.field public final synthetic f$2:I
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/location/gnss/GnssManagerService$GnssGeofenceHalModule;ILandroid/location/Location;IJ)V
+.method public synthetic constructor <init>(Lcom/android/server/location/gnss/GnssManagerService$GnssGeofenceHalModule;II)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -27,11 +24,7 @@
 
     iput p2, p0, Lcom/android/server/location/gnss/GnssManagerService$GnssGeofenceHalModule$$ExternalSyntheticLambda5;->f$1:I
 
-    iput-object p3, p0, Lcom/android/server/location/gnss/GnssManagerService$GnssGeofenceHalModule$$ExternalSyntheticLambda5;->f$2:Landroid/location/Location;
-
-    iput p4, p0, Lcom/android/server/location/gnss/GnssManagerService$GnssGeofenceHalModule$$ExternalSyntheticLambda5;->f$3:I
-
-    iput-wide p5, p0, Lcom/android/server/location/gnss/GnssManagerService$GnssGeofenceHalModule$$ExternalSyntheticLambda5;->f$4:J
+    iput p3, p0, Lcom/android/server/location/gnss/GnssManagerService$GnssGeofenceHalModule$$ExternalSyntheticLambda5;->f$2:I
 
     return-void
 .end method
@@ -39,19 +32,15 @@
 
 # virtual methods
 .method public final run()V
-    .locals 6
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/location/gnss/GnssManagerService$GnssGeofenceHalModule$$ExternalSyntheticLambda5;->f$0:Lcom/android/server/location/gnss/GnssManagerService$GnssGeofenceHalModule;
 
     iget v1, p0, Lcom/android/server/location/gnss/GnssManagerService$GnssGeofenceHalModule$$ExternalSyntheticLambda5;->f$1:I
 
-    iget-object v2, p0, Lcom/android/server/location/gnss/GnssManagerService$GnssGeofenceHalModule$$ExternalSyntheticLambda5;->f$2:Landroid/location/Location;
+    iget p0, p0, Lcom/android/server/location/gnss/GnssManagerService$GnssGeofenceHalModule$$ExternalSyntheticLambda5;->f$2:I
 
-    iget v3, p0, Lcom/android/server/location/gnss/GnssManagerService$GnssGeofenceHalModule$$ExternalSyntheticLambda5;->f$3:I
-
-    iget-wide v4, p0, Lcom/android/server/location/gnss/GnssManagerService$GnssGeofenceHalModule$$ExternalSyntheticLambda5;->f$4:J
-
-    invoke-virtual/range {v0 .. v5}, Lcom/android/server/location/gnss/GnssManagerService$GnssGeofenceHalModule;->lambda$onReportGeofenceTransition$0$GnssManagerService$GnssGeofenceHalModule(ILandroid/location/Location;IJ)V
+    invoke-static {v0, v1, p0}, Lcom/android/server/location/gnss/GnssManagerService$GnssGeofenceHalModule;->$r8$lambda$oLcrA6oCzv4oFoaMCrsIgaARxb0(Lcom/android/server/location/gnss/GnssManagerService$GnssGeofenceHalModule;II)V
 
     return-void
 .end method

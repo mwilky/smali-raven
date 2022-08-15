@@ -15,7 +15,7 @@
 
 
 # instance fields
-.field final mService:Lcom/android/server/pm/ShortcutService;
+.field public final mService:Lcom/android/server/pm/ShortcutService;
 
 
 # direct methods
@@ -36,11 +36,11 @@
 
 # virtual methods
 .method public onBootPhase(I)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/pm/ShortcutService$Lifecycle;->mService:Lcom/android/server/pm/ShortcutService;
+    iget-object p0, p0, Lcom/android/server/pm/ShortcutService$Lifecycle;->mService:Lcom/android/server/pm/ShortcutService;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/pm/ShortcutService;->onBootPhase(I)V
+    invoke-virtual {p0, p1}, Lcom/android/server/pm/ShortcutService;->onBootPhase(I)V
 
     return-void
 .end method
@@ -52,35 +52,35 @@
 
     const-string v1, "shortcut"
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/server/pm/ShortcutService$Lifecycle;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
+    invoke-virtual {p0, v1, v0}, Lcom/android/server/SystemService;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
 
     return-void
 .end method
 
 .method public onUserStopping(Lcom/android/server/SystemService$TargetUser;)V
-    .locals 2
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/pm/ShortcutService$Lifecycle;->mService:Lcom/android/server/pm/ShortcutService;
+    iget-object p0, p0, Lcom/android/server/pm/ShortcutService$Lifecycle;->mService:Lcom/android/server/pm/ShortcutService;
 
     invoke-virtual {p1}, Lcom/android/server/SystemService$TargetUser;->getUserIdentifier()I
 
-    move-result v1
+    move-result p1
 
-    invoke-virtual {v0, v1}, Lcom/android/server/pm/ShortcutService;->handleStopUser(I)V
+    invoke-virtual {p0, p1}, Lcom/android/server/pm/ShortcutService;->handleStopUser(I)V
 
     return-void
 .end method
 
 .method public onUserUnlocking(Lcom/android/server/SystemService$TargetUser;)V
-    .locals 2
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/pm/ShortcutService$Lifecycle;->mService:Lcom/android/server/pm/ShortcutService;
+    iget-object p0, p0, Lcom/android/server/pm/ShortcutService$Lifecycle;->mService:Lcom/android/server/pm/ShortcutService;
 
     invoke-virtual {p1}, Lcom/android/server/SystemService$TargetUser;->getUserIdentifier()I
 
-    move-result v1
+    move-result p1
 
-    invoke-virtual {v0, v1}, Lcom/android/server/pm/ShortcutService;->handleUnlockUser(I)V
+    invoke-virtual {p0, p1}, Lcom/android/server/pm/ShortcutService;->handleUnlockUser(I)V
 
     return-void
 .end method

@@ -3,10 +3,9 @@
 .source "AndroidTestBaseUpdater.java"
 
 
-# static fields
-.field private static final REMOVE_ANDROID_TEST_BASE:J = 0x7f379d2L
-
-.field private static final TAG:Ljava/lang/String; = "AndroidTestBaseUpdater"
+# annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+.end annotation
 
 
 # direct methods
@@ -18,16 +17,14 @@
     return-void
 .end method
 
-.method private static isChangeEnabled(Lcom/android/server/pm/parsing/pkg/AndroidPackage;)Z
+.method public static isChangeEnabled(Lcom/android/server/pm/parsing/pkg/AndroidPackage;)Z
     .locals 4
 
-    invoke-interface {p0}, Lcom/android/server/pm/parsing/pkg/AndroidPackage;->isSystem()Z
+    invoke-interface {p0}, Lcom/android/server/pm/pkg/AndroidPackageApi;->isSystem()Z
 
     move-result v0
 
     if-nez v0, :cond_0
-
-    nop
 
     const-string v0, "platform_compat"
 
@@ -42,69 +39,69 @@
     const-wide/32 v1, 0x7f379d2
 
     :try_start_0
-    invoke-interface {p0}, Lcom/android/server/pm/parsing/pkg/AndroidPackage;->toAppInfoWithoutState()Landroid/content/pm/ApplicationInfo;
+    invoke-static {p0}, Lcom/android/server/pm/parsing/pkg/AndroidPackageUtils;->generateAppInfoWithoutState(Lcom/android/server/pm/parsing/pkg/AndroidPackage;)Landroid/content/pm/ApplicationInfo;
 
     move-result-object v3
 
     invoke-interface {v0, v1, v2, v3}, Lcom/android/internal/compat/IPlatformCompat;->isChangeEnabled(JLandroid/content/pm/ApplicationInfo;)Z
 
-    move-result v1
+    move-result p0
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return v1
+    return p0
 
     :catch_0
-    move-exception v1
+    move-exception v0
 
-    const-string v2, "AndroidTestBaseUpdater"
+    const-string v1, "AndroidTestBaseUpdater"
 
-    const-string v3, "Failed to get a response from PLATFORM_COMPAT_SERVICE"
+    const-string v2, "Failed to get a response from PLATFORM_COMPAT_SERVICE"
 
-    invoke-static {v2, v3, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :cond_0
-    invoke-interface {p0}, Lcom/android/server/pm/parsing/pkg/AndroidPackage;->getTargetSdkVersion()I
+    invoke-interface {p0}, Lcom/android/server/pm/pkg/parsing/PkgWithoutStateAppInfo;->getTargetSdkVersion()I
 
-    move-result v0
+    move-result p0
 
-    const/16 v1, 0x1d
+    const/16 v0, 0x1d
 
-    if-le v0, v1, :cond_1
+    if-le p0, v0, :cond_1
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_1
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 
 # virtual methods
 .method public updatePackage(Lcom/android/server/pm/parsing/pkg/ParsedPackage;Z)V
-    .locals 2
+    .locals 1
 
     invoke-static {p1}, Lcom/android/server/pm/parsing/library/AndroidTestBaseUpdater;->isChangeEnabled(Lcom/android/server/pm/parsing/pkg/AndroidPackage;)Z
 
-    move-result v0
+    move-result p2
 
-    const-string v1, "android.test.base"
+    const-string v0, "android.test.base"
 
-    if-nez v0, :cond_0
+    if-nez p2, :cond_0
 
-    invoke-virtual {p0, p1, v1}, Lcom/android/server/pm/parsing/library/AndroidTestBaseUpdater;->prefixRequiredLibrary(Lcom/android/server/pm/parsing/pkg/ParsedPackage;Ljava/lang/String;)V
+    invoke-virtual {p0, p1, v0}, Lcom/android/server/pm/parsing/library/PackageSharedLibraryUpdater;->prefixRequiredLibrary(Lcom/android/server/pm/parsing/pkg/ParsedPackage;Ljava/lang/String;)V
 
     goto :goto_0
 
     :cond_0
-    const-string v0, "android.test.runner"
+    const-string p2, "android.test.runner"
 
-    invoke-virtual {p0, p1, v0, v1}, Lcom/android/server/pm/parsing/library/AndroidTestBaseUpdater;->prefixImplicitDependency(Lcom/android/server/pm/parsing/pkg/ParsedPackage;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, p1, p2, v0}, Lcom/android/server/pm/parsing/library/PackageSharedLibraryUpdater;->prefixImplicitDependency(Lcom/android/server/pm/parsing/pkg/ParsedPackage;Ljava/lang/String;Ljava/lang/String;)V
 
     :goto_0
     return-void

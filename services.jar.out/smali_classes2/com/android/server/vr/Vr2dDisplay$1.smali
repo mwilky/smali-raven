@@ -1,4 +1,4 @@
-.class Lcom/android/server/vr/Vr2dDisplay$1;
+.class public Lcom/android/server/vr/Vr2dDisplay$1;
 .super Landroid/service/vr/IPersistentVrStateCallbacks$Stub;
 .source "Vr2dDisplay.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/vr/Vr2dDisplay;
+.field public final synthetic this$0:Lcom/android/server/vr/Vr2dDisplay;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/vr/Vr2dDisplay;)V
+.method public constructor <init>(Lcom/android/server/vr/Vr2dDisplay;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/vr/Vr2dDisplay$1;->this$0:Lcom/android/server/vr/Vr2dDisplay;
@@ -36,7 +36,7 @@
 
     iget-object v0, p0, Lcom/android/server/vr/Vr2dDisplay$1;->this$0:Lcom/android/server/vr/Vr2dDisplay;
 
-    invoke-static {v0}, Lcom/android/server/vr/Vr2dDisplay;->access$000(Lcom/android/server/vr/Vr2dDisplay;)Z
+    invoke-static {v0}, Lcom/android/server/vr/Vr2dDisplay;->-$$Nest$fgetmIsPersistentVrModeEnabled(Lcom/android/server/vr/Vr2dDisplay;)Z
 
     move-result v0
 
@@ -44,11 +44,11 @@
 
     iget-object v0, p0, Lcom/android/server/vr/Vr2dDisplay$1;->this$0:Lcom/android/server/vr/Vr2dDisplay;
 
-    invoke-static {v0, p1}, Lcom/android/server/vr/Vr2dDisplay;->access$002(Lcom/android/server/vr/Vr2dDisplay;Z)Z
+    invoke-static {v0, p1}, Lcom/android/server/vr/Vr2dDisplay;->-$$Nest$fputmIsPersistentVrModeEnabled(Lcom/android/server/vr/Vr2dDisplay;Z)V
 
-    iget-object v0, p0, Lcom/android/server/vr/Vr2dDisplay$1;->this$0:Lcom/android/server/vr/Vr2dDisplay;
+    iget-object p0, p0, Lcom/android/server/vr/Vr2dDisplay$1;->this$0:Lcom/android/server/vr/Vr2dDisplay;
 
-    invoke-static {v0}, Lcom/android/server/vr/Vr2dDisplay;->access$100(Lcom/android/server/vr/Vr2dDisplay;)V
+    invoke-static {p0}, Lcom/android/server/vr/Vr2dDisplay;->-$$Nest$mupdateVirtualDisplay(Lcom/android/server/vr/Vr2dDisplay;)V
 
     :cond_0
     return-void

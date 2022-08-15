@@ -1,4 +1,4 @@
-.class Lcom/android/server/policy/PhoneWindowManager$MyWakeGestureListener;
+.class public Lcom/android/server/policy/PhoneWindowManager$MyWakeGestureListener;
 .super Lcom/android/server/policy/WakeGestureListener;
 .source "PhoneWindowManager.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = "MyWakeGestureListener"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/policy/PhoneWindowManager;
+.field public final synthetic this$0:Lcom/android/server/policy/PhoneWindowManager;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/policy/PhoneWindowManager;Landroid/content/Context;Landroid/os/Handler;)V
+.method public constructor <init>(Lcom/android/server/policy/PhoneWindowManager;Landroid/content/Context;Landroid/os/Handler;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/policy/PhoneWindowManager$MyWakeGestureListener;->this$0:Lcom/android/server/policy/PhoneWindowManager;
@@ -36,7 +36,7 @@
 
     iget-object v0, p0, Lcom/android/server/policy/PhoneWindowManager$MyWakeGestureListener;->this$0:Lcom/android/server/policy/PhoneWindowManager;
 
-    invoke-static {v0}, Lcom/android/server/policy/PhoneWindowManager;->access$1300(Lcom/android/server/policy/PhoneWindowManager;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/server/policy/PhoneWindowManager;->-$$Nest$fgetmLock(Lcom/android/server/policy/PhoneWindowManager;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -45,7 +45,7 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/server/policy/PhoneWindowManager$MyWakeGestureListener;->this$0:Lcom/android/server/policy/PhoneWindowManager;
 
-    invoke-static {v1}, Lcom/android/server/policy/PhoneWindowManager;->access$1400(Lcom/android/server/policy/PhoneWindowManager;)Z
+    invoke-static {v1}, Lcom/android/server/policy/PhoneWindowManager;->-$$Nest$mshouldEnableWakeGestureLp(Lcom/android/server/policy/PhoneWindowManager;)Z
 
     move-result v1
 
@@ -59,7 +59,7 @@
 
     const-string v4, "Wake Up"
 
-    invoke-static {v1, v2, v3, v4}, Lcom/android/server/policy/PhoneWindowManager;->access$1500(Lcom/android/server/policy/PhoneWindowManager;IZLjava/lang/String;)Z
+    invoke-static {v1, v2, v3, v4}, Lcom/android/server/policy/PhoneWindowManager;->-$$Nest$mperformHapticFeedback(Lcom/android/server/policy/PhoneWindowManager;IZLjava/lang/String;)Z
 
     iget-object v5, p0, Lcom/android/server/policy/PhoneWindowManager$MyWakeGestureListener;->this$0:Lcom/android/server/policy/PhoneWindowManager;
 
@@ -67,9 +67,9 @@
 
     move-result-wide v6
 
-    iget-object v1, p0, Lcom/android/server/policy/PhoneWindowManager$MyWakeGestureListener;->this$0:Lcom/android/server/policy/PhoneWindowManager;
+    iget-object p0, p0, Lcom/android/server/policy/PhoneWindowManager$MyWakeGestureListener;->this$0:Lcom/android/server/policy/PhoneWindowManager;
 
-    invoke-static {v1}, Lcom/android/server/policy/PhoneWindowManager;->access$1600(Lcom/android/server/policy/PhoneWindowManager;)Z
+    invoke-static {p0}, Lcom/android/server/policy/PhoneWindowManager;->-$$Nest$fgetmAllowTheaterModeWakeFromWakeGesture(Lcom/android/server/policy/PhoneWindowManager;)Z
 
     move-result v8
 
@@ -77,7 +77,7 @@
 
     const-string v10, "android.policy:GESTURE"
 
-    invoke-static/range {v5 .. v10}, Lcom/android/server/policy/PhoneWindowManager;->access$1700(Lcom/android/server/policy/PhoneWindowManager;JZILjava/lang/String;)Z
+    invoke-static/range {v5 .. v10}, Lcom/android/server/policy/PhoneWindowManager;->-$$Nest$mwakeUp(Lcom/android/server/policy/PhoneWindowManager;JZILjava/lang/String;)Z
 
     :cond_0
     monitor-exit v0
@@ -85,11 +85,11 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method

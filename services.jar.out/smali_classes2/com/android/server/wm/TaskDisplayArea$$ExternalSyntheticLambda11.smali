@@ -1,45 +1,42 @@
 .class public final synthetic Lcom/android/server/wm/TaskDisplayArea$$ExternalSyntheticLambda11;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Predicate;
+.implements Ljava/util/function/Consumer;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/wm/TaskDisplayArea$$ExternalSyntheticLambda11;
+# instance fields
+.field public final synthetic f$0:Lcom/android/server/wm/ActivityRecord;
+
+.field public final synthetic f$1:[I
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/wm/TaskDisplayArea$$ExternalSyntheticLambda11;
-
-    invoke-direct {v0}, Lcom/android/server/wm/TaskDisplayArea$$ExternalSyntheticLambda11;-><init>()V
-
-    sput-object v0, Lcom/android/server/wm/TaskDisplayArea$$ExternalSyntheticLambda11;->INSTANCE:Lcom/android/server/wm/TaskDisplayArea$$ExternalSyntheticLambda11;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Lcom/android/server/wm/ActivityRecord;[I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/wm/TaskDisplayArea$$ExternalSyntheticLambda11;->f$0:Lcom/android/server/wm/ActivityRecord;
+
+    iput-object p2, p0, Lcom/android/server/wm/TaskDisplayArea$$ExternalSyntheticLambda11;->f$1:[I
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final test(Ljava/lang/Object;)Z
-    .locals 0
+.method public final accept(Ljava/lang/Object;)V
+    .locals 1
 
-    check-cast p1, Lcom/android/server/wm/Task;
+    iget-object v0, p0, Lcom/android/server/wm/TaskDisplayArea$$ExternalSyntheticLambda11;->f$0:Lcom/android/server/wm/ActivityRecord;
 
-    invoke-static {p1}, Lcom/android/server/wm/TaskDisplayArea;->lambda$getBottomMostVisibleRootTask$11(Lcom/android/server/wm/Task;)Z
+    iget-object p0, p0, Lcom/android/server/wm/TaskDisplayArea$$ExternalSyntheticLambda11;->f$1:[I
 
-    move-result p1
+    check-cast p1, Lcom/android/server/wm/TaskFragment;
 
-    return p1
+    invoke-static {v0, p0, p1}, Lcom/android/server/wm/TaskDisplayArea;->$r8$lambda$px_Q_6UGE5WJJ2o4ebrA9hDlzVE(Lcom/android/server/wm/ActivityRecord;[ILcom/android/server/wm/TaskFragment;)V
+
+    return-void
 .end method

@@ -15,7 +15,7 @@
 
 
 # instance fields
-.field private final mService:Lcom/android/server/wm/ActivityTaskManagerService;
+.field public final mService:Lcom/android/server/wm/ActivityTaskManagerService;
 
 
 # direct methods
@@ -36,11 +36,11 @@
 
 # virtual methods
 .method public getService()Lcom/android/server/wm/ActivityTaskManagerService;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/ActivityTaskManagerService$Lifecycle;->mService:Lcom/android/server/wm/ActivityTaskManagerService;
+    iget-object p0, p0, Lcom/android/server/wm/ActivityTaskManagerService$Lifecycle;->mService:Lcom/android/server/wm/ActivityTaskManagerService;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public onStart()V
@@ -50,17 +50,17 @@
 
     const-string v1, "activity_task"
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/server/wm/ActivityTaskManagerService$Lifecycle;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
+    invoke-virtual {p0, v1, v0}, Lcom/android/server/SystemService;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
 
-    iget-object v0, p0, Lcom/android/server/wm/ActivityTaskManagerService$Lifecycle;->mService:Lcom/android/server/wm/ActivityTaskManagerService;
+    iget-object p0, p0, Lcom/android/server/wm/ActivityTaskManagerService$Lifecycle;->mService:Lcom/android/server/wm/ActivityTaskManagerService;
 
-    invoke-static {v0}, Lcom/android/server/wm/ActivityTaskManagerService;->access$300(Lcom/android/server/wm/ActivityTaskManagerService;)V
+    invoke-static {p0}, Lcom/android/server/wm/ActivityTaskManagerService;->-$$Nest$mstart(Lcom/android/server/wm/ActivityTaskManagerService;)V
 
     return-void
 .end method
 
 .method public onUserStopped(Lcom/android/server/SystemService$TargetUser;)V
-    .locals 3
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/wm/ActivityTaskManagerService$Lifecycle;->mService:Lcom/android/server/wm/ActivityTaskManagerService;
 
@@ -73,17 +73,17 @@
     :try_start_0
     invoke-static {}, Lcom/android/server/wm/WindowManagerService;->boostPriorityForLockedSection()V
 
-    iget-object v1, p0, Lcom/android/server/wm/ActivityTaskManagerService$Lifecycle;->mService:Lcom/android/server/wm/ActivityTaskManagerService;
+    iget-object p0, p0, Lcom/android/server/wm/ActivityTaskManagerService$Lifecycle;->mService:Lcom/android/server/wm/ActivityTaskManagerService;
 
-    iget-object v1, v1, Lcom/android/server/wm/ActivityTaskManagerService;->mTaskSupervisor:Lcom/android/server/wm/ActivityTaskSupervisor;
+    iget-object p0, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mTaskSupervisor:Lcom/android/server/wm/ActivityTaskSupervisor;
 
-    iget-object v1, v1, Lcom/android/server/wm/ActivityTaskSupervisor;->mLaunchParamsPersister:Lcom/android/server/wm/LaunchParamsPersister;
+    iget-object p0, p0, Lcom/android/server/wm/ActivityTaskSupervisor;->mLaunchParamsPersister:Lcom/android/server/wm/LaunchParamsPersister;
 
     invoke-virtual {p1}, Lcom/android/server/SystemService$TargetUser;->getUserIdentifier()I
 
-    move-result v2
+    move-result p1
 
-    invoke-virtual {v1, v2}, Lcom/android/server/wm/LaunchParamsPersister;->onCleanupUser(I)V
+    invoke-virtual {p0, p1}, Lcom/android/server/wm/LaunchParamsPersister;->onCleanupUser(I)V
 
     monitor-exit v0
     :try_end_0
@@ -94,7 +94,7 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     :try_start_1
     monitor-exit v0
@@ -103,11 +103,11 @@
 
     invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
 
-    throw v1
+    throw p0
 .end method
 
 .method public onUserUnlocked(Lcom/android/server/SystemService$TargetUser;)V
-    .locals 3
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/wm/ActivityTaskManagerService$Lifecycle;->mService:Lcom/android/server/wm/ActivityTaskManagerService;
 
@@ -120,15 +120,15 @@
     :try_start_0
     invoke-static {}, Lcom/android/server/wm/WindowManagerService;->boostPriorityForLockedSection()V
 
-    iget-object v1, p0, Lcom/android/server/wm/ActivityTaskManagerService$Lifecycle;->mService:Lcom/android/server/wm/ActivityTaskManagerService;
+    iget-object p0, p0, Lcom/android/server/wm/ActivityTaskManagerService$Lifecycle;->mService:Lcom/android/server/wm/ActivityTaskManagerService;
 
-    iget-object v1, v1, Lcom/android/server/wm/ActivityTaskManagerService;->mTaskSupervisor:Lcom/android/server/wm/ActivityTaskSupervisor;
+    iget-object p0, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mTaskSupervisor:Lcom/android/server/wm/ActivityTaskSupervisor;
 
     invoke-virtual {p1}, Lcom/android/server/SystemService$TargetUser;->getUserIdentifier()I
 
-    move-result v2
+    move-result p1
 
-    invoke-virtual {v1, v2}, Lcom/android/server/wm/ActivityTaskSupervisor;->onUserUnlocked(I)V
+    invoke-virtual {p0, p1}, Lcom/android/server/wm/ActivityTaskSupervisor;->onUserUnlocked(I)V
 
     monitor-exit v0
     :try_end_0
@@ -139,7 +139,7 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     :try_start_1
     monitor-exit v0
@@ -148,5 +148,5 @@
 
     invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
 
-    throw v1
+    throw p0
 .end method

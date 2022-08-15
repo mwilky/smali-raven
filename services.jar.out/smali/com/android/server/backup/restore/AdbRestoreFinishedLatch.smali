@@ -6,91 +6,83 @@
 .implements Lcom/android/server/backup/BackupRestoreTask;
 
 
-# static fields
-.field private static final TAG:Ljava/lang/String; = "AdbRestoreFinishedLatch"
-
-
 # instance fields
-.field private backupManagerService:Lcom/android/server/backup/UserBackupManagerService;
+.field public backupManagerService:Lcom/android/server/backup/UserBackupManagerService;
 
-.field private final mAgentTimeoutParameters:Lcom/android/server/backup/BackupAgentTimeoutParameters;
+.field public final mAgentTimeoutParameters:Lcom/android/server/backup/BackupAgentTimeoutParameters;
 
-.field private final mCurrentOpToken:I
+.field public final mCurrentOpToken:I
 
-.field final mLatch:Ljava/util/concurrent/CountDownLatch;
+.field public final mLatch:Ljava/util/concurrent/CountDownLatch;
+
+.field public final mOperationStorage:Lcom/android/server/backup/OperationStorage;
 
 
 # direct methods
-.method public constructor <init>(Lcom/android/server/backup/UserBackupManagerService;I)V
-    .locals 2
+.method public constructor <init>(Lcom/android/server/backup/UserBackupManagerService;Lcom/android/server/backup/OperationStorage;I)V
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/server/backup/restore/AdbRestoreFinishedLatch;->backupManagerService:Lcom/android/server/backup/UserBackupManagerService;
 
-    new-instance v0, Ljava/util/concurrent/CountDownLatch;
+    iput-object p2, p0, Lcom/android/server/backup/restore/AdbRestoreFinishedLatch;->mOperationStorage:Lcom/android/server/backup/OperationStorage;
 
-    const/4 v1, 0x1
+    new-instance p2, Ljava/util/concurrent/CountDownLatch;
 
-    invoke-direct {v0, v1}, Ljava/util/concurrent/CountDownLatch;-><init>(I)V
+    const/4 v0, 0x1
 
-    iput-object v0, p0, Lcom/android/server/backup/restore/AdbRestoreFinishedLatch;->mLatch:Ljava/util/concurrent/CountDownLatch;
+    invoke-direct {p2, v0}, Ljava/util/concurrent/CountDownLatch;-><init>(I)V
 
-    iput p2, p0, Lcom/android/server/backup/restore/AdbRestoreFinishedLatch;->mCurrentOpToken:I
+    iput-object p2, p0, Lcom/android/server/backup/restore/AdbRestoreFinishedLatch;->mLatch:Ljava/util/concurrent/CountDownLatch;
 
-    nop
+    iput p3, p0, Lcom/android/server/backup/restore/AdbRestoreFinishedLatch;->mCurrentOpToken:I
 
     invoke-virtual {p1}, Lcom/android/server/backup/UserBackupManagerService;->getAgentTimeoutParameters()Lcom/android/server/backup/BackupAgentTimeoutParameters;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v1, "Timeout parameters cannot be null"
+    const-string p2, "Timeout parameters cannot be null"
 
-    invoke-static {v0, v1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    invoke-static {p1, p2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    check-cast v0, Lcom/android/server/backup/BackupAgentTimeoutParameters;
+    move-object p2, p1
 
-    iput-object v0, p0, Lcom/android/server/backup/restore/AdbRestoreFinishedLatch;->mAgentTimeoutParameters:Lcom/android/server/backup/BackupAgentTimeoutParameters;
+    check-cast p2, Lcom/android/server/backup/BackupAgentTimeoutParameters;
+
+    iput-object p1, p0, Lcom/android/server/backup/restore/AdbRestoreFinishedLatch;->mAgentTimeoutParameters:Lcom/android/server/backup/BackupAgentTimeoutParameters;
 
     return-void
 .end method
 
 
 # virtual methods
-.method await()V
-    .locals 6
+.method public await()V
+    .locals 3
 
-    const/4 v0, 0x0
+    iget-object v0, p0, Lcom/android/server/backup/restore/AdbRestoreFinishedLatch;->mAgentTimeoutParameters:Lcom/android/server/backup/BackupAgentTimeoutParameters;
 
-    iget-object v1, p0, Lcom/android/server/backup/restore/AdbRestoreFinishedLatch;->mAgentTimeoutParameters:Lcom/android/server/backup/BackupAgentTimeoutParameters;
+    invoke-virtual {v0}, Lcom/android/server/backup/BackupAgentTimeoutParameters;->getFullBackupAgentTimeoutMillis()J
 
-    invoke-virtual {v1}, Lcom/android/server/backup/BackupAgentTimeoutParameters;->getFullBackupAgentTimeoutMillis()J
-
-    move-result-wide v1
+    move-result-wide v0
 
     :try_start_0
-    iget-object v3, p0, Lcom/android/server/backup/restore/AdbRestoreFinishedLatch;->mLatch:Ljava/util/concurrent/CountDownLatch;
+    iget-object p0, p0, Lcom/android/server/backup/restore/AdbRestoreFinishedLatch;->mLatch:Ljava/util/concurrent/CountDownLatch;
 
-    sget-object v4, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
+    sget-object v2, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
 
-    invoke-virtual {v3, v1, v2, v4}, Ljava/util/concurrent/CountDownLatch;->await(JLjava/util/concurrent/TimeUnit;)Z
-
-    move-result v3
+    invoke-virtual {p0, v0, v1, v2}, Ljava/util/concurrent/CountDownLatch;->await(JLjava/util/concurrent/TimeUnit;)Z
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move v0, v3
 
     goto :goto_0
 
     :catch_0
-    move-exception v3
+    const-string p0, "AdbRestoreFinishedLatch"
 
-    const-string v4, "AdbRestoreFinishedLatch"
+    const-string v0, "Interrupted!"
 
-    const-string v5, "Interrupted!"
-
-    invoke-static {v4, v5}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     :goto_0
     return-void
@@ -103,39 +95,39 @@
 .end method
 
 .method public handleCancel(Z)V
-    .locals 2
+    .locals 1
 
-    const-string v0, "AdbRestoreFinishedLatch"
+    const-string p1, "AdbRestoreFinishedLatch"
 
-    const-string v1, "adb onRestoreFinished() timed out"
+    const-string v0, "adb onRestoreFinished() timed out"
 
-    invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p1, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v0, p0, Lcom/android/server/backup/restore/AdbRestoreFinishedLatch;->mLatch:Ljava/util/concurrent/CountDownLatch;
+    iget-object p1, p0, Lcom/android/server/backup/restore/AdbRestoreFinishedLatch;->mLatch:Ljava/util/concurrent/CountDownLatch;
 
-    invoke-virtual {v0}, Ljava/util/concurrent/CountDownLatch;->countDown()V
+    invoke-virtual {p1}, Ljava/util/concurrent/CountDownLatch;->countDown()V
 
-    iget-object v0, p0, Lcom/android/server/backup/restore/AdbRestoreFinishedLatch;->backupManagerService:Lcom/android/server/backup/UserBackupManagerService;
+    iget-object p1, p0, Lcom/android/server/backup/restore/AdbRestoreFinishedLatch;->mOperationStorage:Lcom/android/server/backup/OperationStorage;
 
-    iget v1, p0, Lcom/android/server/backup/restore/AdbRestoreFinishedLatch;->mCurrentOpToken:I
+    iget p0, p0, Lcom/android/server/backup/restore/AdbRestoreFinishedLatch;->mCurrentOpToken:I
 
-    invoke-virtual {v0, v1}, Lcom/android/server/backup/UserBackupManagerService;->removeOperation(I)V
+    invoke-interface {p1, p0}, Lcom/android/server/backup/OperationStorage;->removeOperation(I)V
 
     return-void
 .end method
 
 .method public operationComplete(J)V
-    .locals 2
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/backup/restore/AdbRestoreFinishedLatch;->mLatch:Ljava/util/concurrent/CountDownLatch;
+    iget-object p1, p0, Lcom/android/server/backup/restore/AdbRestoreFinishedLatch;->mLatch:Ljava/util/concurrent/CountDownLatch;
 
-    invoke-virtual {v0}, Ljava/util/concurrent/CountDownLatch;->countDown()V
+    invoke-virtual {p1}, Ljava/util/concurrent/CountDownLatch;->countDown()V
 
-    iget-object v0, p0, Lcom/android/server/backup/restore/AdbRestoreFinishedLatch;->backupManagerService:Lcom/android/server/backup/UserBackupManagerService;
+    iget-object p1, p0, Lcom/android/server/backup/restore/AdbRestoreFinishedLatch;->mOperationStorage:Lcom/android/server/backup/OperationStorage;
 
-    iget v1, p0, Lcom/android/server/backup/restore/AdbRestoreFinishedLatch;->mCurrentOpToken:I
+    iget p0, p0, Lcom/android/server/backup/restore/AdbRestoreFinishedLatch;->mCurrentOpToken:I
 
-    invoke-virtual {v0, v1}, Lcom/android/server/backup/UserBackupManagerService;->removeOperation(I)V
+    invoke-interface {p1, p0}, Lcom/android/server/backup/OperationStorage;->removeOperation(I)V
 
     return-void
 .end method

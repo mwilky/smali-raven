@@ -4,13 +4,13 @@
 
 
 # instance fields
-.field private enabled:Ljava/lang/Boolean;
+.field public enabled:Ljava/lang/Boolean;
 
-.field private maxVersionCode:Ljava/lang/Long;
+.field public maxVersionCode:Ljava/lang/Long;
 
-.field private minVersionCode:Ljava/lang/Long;
+.field public minVersionCode:Ljava/lang/Long;
 
-.field private packageName:Ljava/lang/String;
+.field public packageName:Ljava/lang/String;
 
 
 # direct methods
@@ -22,8 +22,8 @@
     return-void
 .end method
 
-.method static read(Lorg/xmlpull/v1/XmlPullParser;)Lcom/android/server/compat/overrides/RawOverrideValue;
-    .locals 5
+.method public static read(Lorg/xmlpull/v1/XmlPullParser;)Lcom/android/server/compat/overrides/RawOverrideValue;
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -38,54 +38,50 @@
 
     const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    const-string/jumbo v2, "packageName"
 
-    const-string/jumbo v3, "packageName"
+    invoke-interface {p0, v1, v2}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-interface {p0, v2, v3}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    move-result-object v2
 
-    move-result-object v1
+    if-eqz v2, :cond_0
 
-    if-eqz v1, :cond_0
-
-    move-object v3, v1
-
-    invoke-virtual {v0, v3}, Lcom/android/server/compat/overrides/RawOverrideValue;->setPackageName(Ljava/lang/String;)V
+    invoke-virtual {v0, v2}, Lcom/android/server/compat/overrides/RawOverrideValue;->setPackageName(Ljava/lang/String;)V
 
     :cond_0
-    const-string/jumbo v3, "minVersionCode"
+    const-string/jumbo v2, "minVersionCode"
 
-    invoke-interface {p0, v2, v3}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {p0, v1, v2}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    if-eqz v1, :cond_1
+    if-eqz v2, :cond_1
 
-    invoke-static {v1}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+    invoke-static {v2}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
-    move-result-wide v3
+    move-result-wide v2
 
-    invoke-virtual {v0, v3, v4}, Lcom/android/server/compat/overrides/RawOverrideValue;->setMinVersionCode(J)V
+    invoke-virtual {v0, v2, v3}, Lcom/android/server/compat/overrides/RawOverrideValue;->setMinVersionCode(J)V
 
     :cond_1
-    const-string/jumbo v3, "maxVersionCode"
+    const-string/jumbo v2, "maxVersionCode"
 
-    invoke-interface {p0, v2, v3}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {p0, v1, v2}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    if-eqz v1, :cond_2
+    if-eqz v2, :cond_2
 
-    invoke-static {v1}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+    invoke-static {v2}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
-    move-result-wide v3
+    move-result-wide v2
 
-    invoke-virtual {v0, v3, v4}, Lcom/android/server/compat/overrides/RawOverrideValue;->setMaxVersionCode(J)V
+    invoke-virtual {v0, v2, v3}, Lcom/android/server/compat/overrides/RawOverrideValue;->setMaxVersionCode(J)V
 
     :cond_2
-    const-string v3, "enabled"
+    const-string v2, "enabled"
 
-    invoke-interface {p0, v2, v3}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {p0, v1, v2}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -93,9 +89,9 @@
 
     invoke-static {v1}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
 
-    move-result v2
+    move-result v1
 
-    invoke-virtual {v0, v2}, Lcom/android/server/compat/overrides/RawOverrideValue;->setEnabled(Z)V
+    invoke-virtual {v0, v1}, Lcom/android/server/compat/overrides/RawOverrideValue;->setEnabled(Z)V
 
     :cond_3
     invoke-static {p0}, Lcom/android/server/compat/overrides/XmlParser;->skip(Lorg/xmlpull/v1/XmlPullParser;)V
@@ -106,37 +102,37 @@
 
 # virtual methods
 .method public getEnabled()Z
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/compat/overrides/RawOverrideValue;->enabled:Ljava/lang/Boolean;
+    iget-object p0, p0, Lcom/android/server/compat/overrides/RawOverrideValue;->enabled:Ljava/lang/Boolean;
 
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 
     :cond_0
-    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
+    invoke-virtual {p0}, Ljava/lang/Boolean;->booleanValue()Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public getMaxVersionCode()J
     .locals 2
 
-    iget-object v0, p0, Lcom/android/server/compat/overrides/RawOverrideValue;->maxVersionCode:Ljava/lang/Long;
+    iget-object p0, p0, Lcom/android/server/compat/overrides/RawOverrideValue;->maxVersionCode:Ljava/lang/Long;
 
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
     const-wide/16 v0, 0x0
 
     return-wide v0
 
     :cond_0
-    invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
+    invoke-virtual {p0}, Ljava/lang/Long;->longValue()J
 
     move-result-wide v0
 
@@ -146,16 +142,16 @@
 .method public getMinVersionCode()J
     .locals 2
 
-    iget-object v0, p0, Lcom/android/server/compat/overrides/RawOverrideValue;->minVersionCode:Ljava/lang/Long;
+    iget-object p0, p0, Lcom/android/server/compat/overrides/RawOverrideValue;->minVersionCode:Ljava/lang/Long;
 
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
     const-wide/16 v0, 0x0
 
     return-wide v0
 
     :cond_0
-    invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
+    invoke-virtual {p0}, Ljava/lang/Long;->longValue()J
 
     move-result-wide v0
 
@@ -163,113 +159,113 @@
 .end method
 
 .method public getPackageName()Ljava/lang/String;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/compat/overrides/RawOverrideValue;->packageName:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/compat/overrides/RawOverrideValue;->packageName:Ljava/lang/String;
 
-    return-object v0
+    return-object p0
 .end method
 
-.method hasEnabled()Z
-    .locals 1
+.method public hasEnabled()Z
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/compat/overrides/RawOverrideValue;->enabled:Ljava/lang/Boolean;
+    iget-object p0, p0, Lcom/android/server/compat/overrides/RawOverrideValue;->enabled:Ljava/lang/Boolean;
 
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 
     :cond_0
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 .end method
 
-.method hasMaxVersionCode()Z
-    .locals 1
+.method public hasMaxVersionCode()Z
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/compat/overrides/RawOverrideValue;->maxVersionCode:Ljava/lang/Long;
+    iget-object p0, p0, Lcom/android/server/compat/overrides/RawOverrideValue;->maxVersionCode:Ljava/lang/Long;
 
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 
     :cond_0
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 .end method
 
-.method hasMinVersionCode()Z
-    .locals 1
+.method public hasMinVersionCode()Z
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/compat/overrides/RawOverrideValue;->minVersionCode:Ljava/lang/Long;
+    iget-object p0, p0, Lcom/android/server/compat/overrides/RawOverrideValue;->minVersionCode:Ljava/lang/Long;
 
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 
     :cond_0
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 .end method
 
-.method hasPackageName()Z
-    .locals 1
+.method public hasPackageName()Z
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/compat/overrides/RawOverrideValue;->packageName:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/compat/overrides/RawOverrideValue;->packageName:Ljava/lang/String;
 
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 
     :cond_0
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 .end method
 
 .method public setEnabled(Z)V
-    .locals 1
+    .locals 0
 
     invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/android/server/compat/overrides/RawOverrideValue;->enabled:Ljava/lang/Boolean;
+    iput-object p1, p0, Lcom/android/server/compat/overrides/RawOverrideValue;->enabled:Ljava/lang/Boolean;
 
     return-void
 .end method
 
 .method public setMaxVersionCode(J)V
-    .locals 1
+    .locals 0
 
     invoke-static {p1, p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/android/server/compat/overrides/RawOverrideValue;->maxVersionCode:Ljava/lang/Long;
+    iput-object p1, p0, Lcom/android/server/compat/overrides/RawOverrideValue;->maxVersionCode:Ljava/lang/Long;
 
     return-void
 .end method
 
 .method public setMinVersionCode(J)V
-    .locals 1
+    .locals 0
 
     invoke-static {p1, p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/android/server/compat/overrides/RawOverrideValue;->minVersionCode:Ljava/lang/Long;
+    iput-object p1, p0, Lcom/android/server/compat/overrides/RawOverrideValue;->minVersionCode:Ljava/lang/Long;
 
     return-void
 .end method
@@ -282,7 +278,7 @@
     return-void
 .end method
 
-.method write(Lcom/android/server/compat/overrides/XmlWriter;Ljava/lang/String;)V
+.method public write(Lcom/android/server/compat/overrides/XmlWriter;Ljava/lang/String;)V
     .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -385,38 +381,38 @@
 
     invoke-virtual {p0}, Lcom/android/server/compat/overrides/RawOverrideValue;->getEnabled()Z
 
-    move-result v0
+    move-result p0
 
-    invoke-static {v0}, Ljava/lang/Boolean;->toString(Z)Ljava/lang/String;
+    invoke-static {p0}, Ljava/lang/Boolean;->toString(Z)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {p1, v0}, Lcom/android/server/compat/overrides/XmlWriter;->print(Ljava/lang/String;)V
+    invoke-virtual {p1, p0}, Lcom/android/server/compat/overrides/XmlWriter;->print(Ljava/lang/String;)V
 
     invoke-virtual {p1, v1}, Lcom/android/server/compat/overrides/XmlWriter;->print(Ljava/lang/String;)V
 
     :cond_3
-    const-string v0, ">\n"
+    const-string p0, ">\n"
 
-    invoke-virtual {p1, v0}, Lcom/android/server/compat/overrides/XmlWriter;->print(Ljava/lang/String;)V
+    invoke-virtual {p1, p0}, Lcom/android/server/compat/overrides/XmlWriter;->print(Ljava/lang/String;)V
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "</"
+    const-string v1, "</"
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {p1, v0}, Lcom/android/server/compat/overrides/XmlWriter;->print(Ljava/lang/String;)V
+    invoke-virtual {p1, p0}, Lcom/android/server/compat/overrides/XmlWriter;->print(Ljava/lang/String;)V
 
     return-void
 .end method

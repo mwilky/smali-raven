@@ -6,3 +6,6 @@
 # virtual methods
 .method public abstract getSession(I)Lcom/android/server/pm/PackageInstallerSession;
 .end method
+
+.method public abstract getSessionVerifier()Lcom/android/server/pm/PackageSessionVerifier;
+.end method

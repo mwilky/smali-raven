@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/clipboard/ClipboardService$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/provider/DeviceConfig$OnPropertiesChangedListener;
+.implements Ljava/util/function/Consumer;
 
 
 # instance fields
@@ -22,12 +23,14 @@
 
 
 # virtual methods
-.method public final onPropertiesChanged(Landroid/provider/DeviceConfig$Properties;)V
-    .locals 1
+.method public final accept(Ljava/lang/Object;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/clipboard/ClipboardService$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/clipboard/ClipboardService;
+    iget-object p0, p0, Lcom/android/server/clipboard/ClipboardService$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/clipboard/ClipboardService;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/clipboard/ClipboardService;->lambda$new$2$ClipboardService(Landroid/provider/DeviceConfig$Properties;)V
+    check-cast p1, Landroid/content/ClipData;
+
+    invoke-static {p0, p1}, Lcom/android/server/clipboard/ClipboardService;->$r8$lambda$Cz6EF004PxXkHtbeKzrCDIbx1ZQ(Lcom/android/server/clipboard/ClipboardService;Landroid/content/ClipData;)V
 
     return-void
 .end method

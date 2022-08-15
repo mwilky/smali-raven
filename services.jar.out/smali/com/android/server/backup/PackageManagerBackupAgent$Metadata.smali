@@ -24,13 +24,13 @@
     .end annotation
 .end field
 
-.field final synthetic this$0:Lcom/android/server/backup/PackageManagerBackupAgent;
+.field public final synthetic this$0:Lcom/android/server/backup/PackageManagerBackupAgent;
 
 .field public versionCode:J
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/backup/PackageManagerBackupAgent;JLjava/util/ArrayList;)V
+.method public constructor <init>(Lcom/android/server/backup/PackageManagerBackupAgent;JLjava/util/ArrayList;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {

@@ -20,17 +20,39 @@
 
 
 # static fields
-.field private static final TAG:Ljava/lang/String;
+.field public static final TAG:Ljava/lang/String;
 
 
 # instance fields
 .field private final mIdleUnbindTimeoutMs:J
 
-.field private final mLock:Ljava/lang/Object;
-
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static synthetic $r8$lambda$6lJcwQF5EGpRQmKUfqPe5Firpms(Lcom/android/server/rotationresolver/RemoteRotationResolverService$RotationRequest;Landroid/service/rotationresolver/RotationResolutionRequest;Landroid/service/rotationresolver/IRotationResolverService;)V
+    .locals 0
+
+    invoke-static {p0, p1, p2}, Lcom/android/server/rotationresolver/RemoteRotationResolverService;->lambda$resolveRotation$0(Lcom/android/server/rotationresolver/RemoteRotationResolverService$RotationRequest;Landroid/service/rotationresolver/RotationResolutionRequest;Landroid/service/rotationresolver/IRotationResolverService;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$RAj7C9O8ctkG_MZcBQZ_ueltyDY(Lcom/android/server/rotationresolver/RemoteRotationResolverService$RotationRequest;)V
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/server/rotationresolver/RemoteRotationResolverService;->lambda$resolveRotation$1(Lcom/android/server/rotationresolver/RemoteRotationResolverService$RotationRequest;)V
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$sfgetTAG()Ljava/lang/String;
+    .locals 1
+
+    sget-object v0, Lcom/android/server/rotationresolver/RemoteRotationResolverService;->TAG:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public static constructor <clinit>()V
     .locals 1
 
     const-class v0, Lcom/android/server/rotationresolver/RemoteRotationResolverService;
@@ -44,7 +66,7 @@
     return-void
 .end method
 
-.method constructor <init>(Landroid/content/Context;Landroid/content/ComponentName;IJLjava/lang/Object;)V
+.method public constructor <init>(Landroid/content/Context;Landroid/content/ComponentName;IJ)V
     .locals 8
 
     new-instance v0, Landroid/content/Intent;
@@ -57,7 +79,9 @@
 
     move-result-object v4
 
-    sget-object v7, Lcom/android/server/rotationresolver/RemoteRotationResolverService$$ExternalSyntheticLambda2;->INSTANCE:Lcom/android/server/rotationresolver/RemoteRotationResolverService$$ExternalSyntheticLambda2;
+    new-instance v7, Lcom/android/server/rotationresolver/RemoteRotationResolverService$$ExternalSyntheticLambda2;
+
+    invoke-direct {v7}, Lcom/android/server/rotationresolver/RemoteRotationResolverService$$ExternalSyntheticLambda2;-><init>()V
 
     const v5, 0x4001000
 
@@ -71,42 +95,32 @@
 
     iput-wide p4, p0, Lcom/android/server/rotationresolver/RemoteRotationResolverService;->mIdleUnbindTimeoutMs:J
 
-    iput-object p6, p0, Lcom/android/server/rotationresolver/RemoteRotationResolverService;->mLock:Ljava/lang/Object;
-
-    invoke-virtual {p0}, Lcom/android/server/rotationresolver/RemoteRotationResolverService;->connect()Lcom/android/internal/infra/AndroidFuture;
+    invoke-virtual {p0}, Lcom/android/internal/infra/ServiceConnector$Impl;->connect()Lcom/android/internal/infra/AndroidFuture;
 
     return-void
 .end method
 
-.method static synthetic access$100()Ljava/lang/String;
-    .locals 1
-
-    sget-object v0, Lcom/android/server/rotationresolver/RemoteRotationResolverService;->TAG:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method static synthetic lambda$resolveRotationLocked$0(Lcom/android/server/rotationresolver/RemoteRotationResolverService$RotationRequest;Landroid/service/rotationresolver/RotationResolutionRequest;Landroid/service/rotationresolver/IRotationResolverService;)V
-    .locals 1
+.method public static synthetic lambda$resolveRotation$0(Lcom/android/server/rotationresolver/RemoteRotationResolverService$RotationRequest;Landroid/service/rotationresolver/RotationResolutionRequest;Landroid/service/rotationresolver/IRotationResolverService;)V
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    invoke-static {p0}, Lcom/android/server/rotationresolver/RemoteRotationResolverService$RotationRequest;->access$500(Lcom/android/server/rotationresolver/RemoteRotationResolverService$RotationRequest;)Landroid/service/rotationresolver/IRotationResolverCallback;
+    invoke-static {p0}, Lcom/android/server/rotationresolver/RemoteRotationResolverService$RotationRequest;->-$$Nest$fgetmIRotationResolverCallback(Lcom/android/server/rotationresolver/RemoteRotationResolverService$RotationRequest;)Landroid/service/rotationresolver/IRotationResolverCallback;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-interface {p2, v0, p1}, Landroid/service/rotationresolver/IRotationResolverService;->resolveRotation(Landroid/service/rotationresolver/IRotationResolverCallback;Landroid/service/rotationresolver/RotationResolutionRequest;)V
+    invoke-interface {p2, p0, p1}, Landroid/service/rotationresolver/IRotationResolverService;->resolveRotation(Landroid/service/rotationresolver/IRotationResolverCallback;Landroid/service/rotationresolver/RotationResolutionRequest;)V
 
     return-void
 .end method
 
-.method static synthetic lambda$resolveRotationLocked$1(Lcom/android/server/rotationresolver/RemoteRotationResolverService$RotationRequest;)V
+.method public static synthetic lambda$resolveRotation$1(Lcom/android/server/rotationresolver/RemoteRotationResolverService$RotationRequest;)V
     .locals 3
 
-    invoke-static {p0}, Lcom/android/server/rotationresolver/RemoteRotationResolverService$RotationRequest;->access$000(Lcom/android/server/rotationresolver/RemoteRotationResolverService$RotationRequest;)Ljava/lang/Object;
+    invoke-static {p0}, Lcom/android/server/rotationresolver/RemoteRotationResolverService$RotationRequest;->-$$Nest$fgetmLock(Lcom/android/server/rotationresolver/RemoteRotationResolverService$RotationRequest;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -137,18 +151,18 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
 
 # virtual methods
-.method protected getAutoDisconnectTimeoutMs()J
+.method public getAutoDisconnectTimeoutMs()J
     .locals 2
 
     const-wide/16 v0, -0x1
@@ -156,8 +170,8 @@
     return-wide v0
 .end method
 
-.method public resolveRotationLocked(Lcom/android/server/rotationresolver/RemoteRotationResolverService$RotationRequest;)V
-    .locals 5
+.method public resolveRotation(Lcom/android/server/rotationresolver/RemoteRotationResolverService$RotationRequest;)V
+    .locals 3
 
     iget-object v0, p1, Lcom/android/server/rotationresolver/RemoteRotationResolverService$RotationRequest;->mRemoteRequest:Landroid/service/rotationresolver/RotationResolutionRequest;
 
@@ -165,23 +179,23 @@
 
     invoke-direct {v1, p1, v0}, Lcom/android/server/rotationresolver/RemoteRotationResolverService$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/rotationresolver/RemoteRotationResolverService$RotationRequest;Landroid/service/rotationresolver/RotationResolutionRequest;)V
 
-    invoke-virtual {p0, v1}, Lcom/android/server/rotationresolver/RemoteRotationResolverService;->post(Lcom/android/internal/infra/ServiceConnector$VoidJob;)Lcom/android/internal/infra/AndroidFuture;
+    invoke-virtual {p0, v1}, Lcom/android/internal/infra/ServiceConnector$Impl;->post(Lcom/android/internal/infra/ServiceConnector$VoidJob;)Lcom/android/internal/infra/AndroidFuture;
 
-    invoke-virtual {p0}, Lcom/android/server/rotationresolver/RemoteRotationResolverService;->getJobHandler()Landroid/os/Handler;
+    invoke-virtual {p0}, Lcom/android/internal/infra/ServiceConnector$Impl;->getJobHandler()Landroid/os/Handler;
 
-    move-result-object v1
+    move-result-object p0
 
-    new-instance v2, Lcom/android/server/rotationresolver/RemoteRotationResolverService$$ExternalSyntheticLambda1;
+    new-instance v0, Lcom/android/server/rotationresolver/RemoteRotationResolverService$$ExternalSyntheticLambda1;
 
-    invoke-direct {v2, p1}, Lcom/android/server/rotationresolver/RemoteRotationResolverService$$ExternalSyntheticLambda1;-><init>(Lcom/android/server/rotationresolver/RemoteRotationResolverService$RotationRequest;)V
+    invoke-direct {v0, p1}, Lcom/android/server/rotationresolver/RemoteRotationResolverService$$ExternalSyntheticLambda1;-><init>(Lcom/android/server/rotationresolver/RemoteRotationResolverService$RotationRequest;)V
 
-    iget-object v3, p1, Lcom/android/server/rotationresolver/RemoteRotationResolverService$RotationRequest;->mRemoteRequest:Landroid/service/rotationresolver/RotationResolutionRequest;
+    iget-object p1, p1, Lcom/android/server/rotationresolver/RemoteRotationResolverService$RotationRequest;->mRemoteRequest:Landroid/service/rotationresolver/RotationResolutionRequest;
 
-    invoke-virtual {v3}, Landroid/service/rotationresolver/RotationResolutionRequest;->getTimeoutMillis()J
+    invoke-virtual {p1}, Landroid/service/rotationresolver/RotationResolutionRequest;->getTimeoutMillis()J
 
-    move-result-wide v3
+    move-result-wide v1
 
-    invoke-virtual {v1, v2, v3, v4}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+    invoke-virtual {p0, v0, v1, v2}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
     return-void
 .end method

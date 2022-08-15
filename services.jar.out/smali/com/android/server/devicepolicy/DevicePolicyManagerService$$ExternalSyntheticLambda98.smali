@@ -1,41 +1,30 @@
 .class public final synthetic Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda98;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/internal/util/FunctionalUtils$ThrowingSupplier;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
-
-.field public final synthetic f$1:Lcom/android/server/devicepolicy/CallerIdentity;
+.implements Ljava/util/function/Function;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/devicepolicy/DevicePolicyManagerService;Lcom/android/server/devicepolicy/CallerIdentity;)V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda98;->f$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
-
-    iput-object p2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda98;->f$1:Lcom/android/server/devicepolicy/CallerIdentity;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final getOrThrow()Ljava/lang/Object;
-    .locals 2
+.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda98;->f$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
+    check-cast p1, Lcom/android/server/devicepolicy/ActiveAdmin;
 
-    iget-object v1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda98;->f$1:Lcom/android/server/devicepolicy/CallerIdentity;
+    invoke-static {p1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->$r8$lambda$iLHfnwOZ5B4sj_dIKywXYneOvtg(Lcom/android/server/devicepolicy/ActiveAdmin;)Ljava/lang/Integer;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$isAlwaysOnVpnLockdownEnabled$44$DevicePolicyManagerService(Lcom/android/server/devicepolicy/CallerIdentity;)Ljava/lang/Boolean;
+    move-result-object p0
 
-    move-result-object v0
-
-    return-object v0
+    return-object p0
 .end method

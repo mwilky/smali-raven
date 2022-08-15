@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/wm/WindowOrganizerController$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -8,30 +9,26 @@
 # instance fields
 .field public final synthetic f$0:Lcom/android/server/wm/WindowOrganizerController;
 
-.field public final synthetic f$1:[Ljava/lang/Integer;
+.field public final synthetic f$1:Landroid/window/WindowContainerTransaction;
 
-.field public final synthetic f$2:Lcom/android/server/wm/WindowOrganizerController$CallerInfo;
+.field public final synthetic f$2:I
 
-.field public final synthetic f$3:I
-
-.field public final synthetic f$4:Lcom/android/server/wm/SafeActivityOptions;
+.field public final synthetic f$3:Lcom/android/server/wm/WindowOrganizerController$CallerInfo;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/wm/WindowOrganizerController;[Ljava/lang/Integer;Lcom/android/server/wm/WindowOrganizerController$CallerInfo;ILcom/android/server/wm/SafeActivityOptions;)V
+.method public synthetic constructor <init>(Lcom/android/server/wm/WindowOrganizerController;Landroid/window/WindowContainerTransaction;ILcom/android/server/wm/WindowOrganizerController$CallerInfo;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/server/wm/WindowOrganizerController$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/wm/WindowOrganizerController;
 
-    iput-object p2, p0, Lcom/android/server/wm/WindowOrganizerController$$ExternalSyntheticLambda1;->f$1:[Ljava/lang/Integer;
+    iput-object p2, p0, Lcom/android/server/wm/WindowOrganizerController$$ExternalSyntheticLambda1;->f$1:Landroid/window/WindowContainerTransaction;
 
-    iput-object p3, p0, Lcom/android/server/wm/WindowOrganizerController$$ExternalSyntheticLambda1;->f$2:Lcom/android/server/wm/WindowOrganizerController$CallerInfo;
+    iput p3, p0, Lcom/android/server/wm/WindowOrganizerController$$ExternalSyntheticLambda1;->f$2:I
 
-    iput p4, p0, Lcom/android/server/wm/WindowOrganizerController$$ExternalSyntheticLambda1;->f$3:I
-
-    iput-object p5, p0, Lcom/android/server/wm/WindowOrganizerController$$ExternalSyntheticLambda1;->f$4:Lcom/android/server/wm/SafeActivityOptions;
+    iput-object p4, p0, Lcom/android/server/wm/WindowOrganizerController$$ExternalSyntheticLambda1;->f$3:Lcom/android/server/wm/WindowOrganizerController$CallerInfo;
 
     return-void
 .end method
@@ -39,19 +36,17 @@
 
 # virtual methods
 .method public final run()V
-    .locals 5
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/wm/WindowOrganizerController$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/wm/WindowOrganizerController;
 
-    iget-object v1, p0, Lcom/android/server/wm/WindowOrganizerController$$ExternalSyntheticLambda1;->f$1:[Ljava/lang/Integer;
+    iget-object v1, p0, Lcom/android/server/wm/WindowOrganizerController$$ExternalSyntheticLambda1;->f$1:Landroid/window/WindowContainerTransaction;
 
-    iget-object v2, p0, Lcom/android/server/wm/WindowOrganizerController$$ExternalSyntheticLambda1;->f$2:Lcom/android/server/wm/WindowOrganizerController$CallerInfo;
+    iget v2, p0, Lcom/android/server/wm/WindowOrganizerController$$ExternalSyntheticLambda1;->f$2:I
 
-    iget v3, p0, Lcom/android/server/wm/WindowOrganizerController$$ExternalSyntheticLambda1;->f$3:I
+    iget-object p0, p0, Lcom/android/server/wm/WindowOrganizerController$$ExternalSyntheticLambda1;->f$3:Lcom/android/server/wm/WindowOrganizerController$CallerInfo;
 
-    iget-object v4, p0, Lcom/android/server/wm/WindowOrganizerController$$ExternalSyntheticLambda1;->f$4:Lcom/android/server/wm/SafeActivityOptions;
-
-    invoke-virtual {v0, v1, v2, v3, v4}, Lcom/android/server/wm/WindowOrganizerController;->lambda$applyHierarchyOp$3$WindowOrganizerController([Ljava/lang/Integer;Lcom/android/server/wm/WindowOrganizerController$CallerInfo;ILcom/android/server/wm/SafeActivityOptions;)V
+    invoke-static {v0, v1, v2, p0}, Lcom/android/server/wm/WindowOrganizerController;->$r8$lambda$lwTGdnp0GzcC6oiZ-3C9g3MTqFM(Lcom/android/server/wm/WindowOrganizerController;Landroid/window/WindowContainerTransaction;ILcom/android/server/wm/WindowOrganizerController$CallerInfo;)V
 
     return-void
 .end method

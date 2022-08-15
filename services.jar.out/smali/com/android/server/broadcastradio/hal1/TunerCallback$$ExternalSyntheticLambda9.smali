@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/broadcastradio/hal1/TunerCallback$$ExternalSyntheticLambda9;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/server/broadcastradio/hal1/TunerCallback$RunnableThrowingRemoteException;
@@ -27,13 +28,13 @@
 
 # virtual methods
 .method public final run()V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/broadcastradio/hal1/TunerCallback$$ExternalSyntheticLambda9;->f$0:Lcom/android/server/broadcastradio/hal1/TunerCallback;
 
-    iget-boolean v1, p0, Lcom/android/server/broadcastradio/hal1/TunerCallback$$ExternalSyntheticLambda9;->f$1:Z
+    iget-boolean p0, p0, Lcom/android/server/broadcastradio/hal1/TunerCallback$$ExternalSyntheticLambda9;->f$1:Z
 
-    invoke-virtual {v0, v1}, Lcom/android/server/broadcastradio/hal1/TunerCallback;->lambda$onEmergencyAnnouncement$4$TunerCallback(Z)V
+    invoke-static {v0, p0}, Lcom/android/server/broadcastradio/hal1/TunerCallback;->$r8$lambda$YX62M9EkC9lbPRmBZGnVnQzd1hE(Lcom/android/server/broadcastradio/hal1/TunerCallback;Z)V
 
     return-void
 .end method

@@ -1,4 +1,4 @@
-.class Lcom/android/server/pm/UserManagerService$5;
+.class public Lcom/android/server/pm/UserManagerService$5;
 .super Ljava/lang/Object;
 .source "UserManagerService.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/pm/UserManagerService;
+.field public final synthetic this$0:Lcom/android/server/pm/UserManagerService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/pm/UserManagerService;)V
+.method public constructor <init>(Lcom/android/server/pm/UserManagerService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/pm/UserManagerService$5;->this$0:Lcom/android/server/pm/UserManagerService;
@@ -48,11 +48,9 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    nop
-
     iget-object v1, p0, Lcom/android/server/pm/UserManagerService$5;->this$0:Lcom/android/server/pm/UserManagerService;
 
-    invoke-static {v1}, Lcom/android/server/pm/UserManagerService;->access$1100(Lcom/android/server/pm/UserManagerService;)Ljava/lang/Object;
+    invoke-static {v1}, Lcom/android/server/pm/UserManagerService;->-$$Nest$fgetmRestrictionsLock(Lcom/android/server/pm/UserManagerService;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -70,7 +68,7 @@
 
     aget v4, v0, v2
 
-    invoke-virtual {v3, v4}, Lcom/android/server/pm/UserManagerService;->applyUserRestrictionsLR(I)V
+    invoke-static {v3, v4}, Lcom/android/server/pm/UserManagerService;->-$$Nest$mapplyUserRestrictionsLR(Lcom/android/server/pm/UserManagerService;I)V
 
     add-int/lit8 v2, v2, 0x1
 
@@ -82,22 +80,20 @@
     return-void
 
     :catchall_0
-    move-exception v2
+    move-exception p0
 
     monitor-exit v1
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v2
+    throw p0
 
     :catch_0
-    move-exception v0
+    const-string p0, "UserManagerService"
 
-    const-string v1, "UserManagerService"
+    const-string v0, "Unable to access ActivityManagerService"
 
-    const-string v2, "Unable to access ActivityManagerService"
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 .end method

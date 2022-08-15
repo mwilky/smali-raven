@@ -1,4 +1,4 @@
-.class Lcom/android/server/usage/UsageStatsService$3;
+.class public Lcom/android/server/usage/UsageStatsService$3;
 .super Landroid/app/IUidObserver$Stub;
 .source "UsageStatsService.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/usage/UsageStatsService;
+.field public final synthetic this$0:Lcom/android/server/usage/UsageStatsService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/usage/UsageStatsService;)V
+.method public constructor <init>(Lcom/android/server/usage/UsageStatsService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/usage/UsageStatsService$3;->this$0:Lcom/android/server/usage/UsageStatsService;
@@ -67,20 +67,26 @@
     return-void
 .end method
 
+.method public onUidProcAdjChanged(I)V
+    .locals 0
+
+    return-void
+.end method
+
 .method public onUidStateChanged(IIJI)V
-    .locals 2
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/usage/UsageStatsService$3;->this$0:Lcom/android/server/usage/UsageStatsService;
+    iget-object p0, p0, Lcom/android/server/usage/UsageStatsService$3;->this$0:Lcom/android/server/usage/UsageStatsService;
 
-    iget-object v0, v0, Lcom/android/server/usage/UsageStatsService;->mHandler:Landroid/os/Handler;
+    iget-object p0, p0, Lcom/android/server/usage/UsageStatsService;->mHandler:Landroid/os/Handler;
 
-    const/4 v1, 0x3
+    const/4 p3, 0x3
 
-    invoke-virtual {v0, v1, p1, p2}, Landroid/os/Handler;->obtainMessage(III)Landroid/os/Message;
+    invoke-virtual {p0, p3, p1, p2}, Landroid/os/Handler;->obtainMessage(III)Landroid/os/Message;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
+    invoke-virtual {p0}, Landroid/os/Message;->sendToTarget()V
 
     return-void
 .end method

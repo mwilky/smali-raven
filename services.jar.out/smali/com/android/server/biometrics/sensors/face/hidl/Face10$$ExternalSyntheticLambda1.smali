@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/biometrics/sensors/face/hidl/Face10$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/server/biometrics/sensors/face/hidl/Face10$HalResultController$Callback;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final onHardwareUnavailable()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/biometrics/sensors/face/hidl/Face10$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/biometrics/sensors/face/hidl/Face10;
+    iget-object p0, p0, Lcom/android/server/biometrics/sensors/face/hidl/Face10$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/biometrics/sensors/face/hidl/Face10;
 
-    invoke-virtual {v0}, Lcom/android/server/biometrics/sensors/face/hidl/Face10;->lambda$new$0$Face10()V
+    invoke-static {p0}, Lcom/android/server/biometrics/sensors/face/hidl/Face10;->$r8$lambda$imYblmh9YHBOz6-UHmtfi-IGXQw(Lcom/android/server/biometrics/sensors/face/hidl/Face10;)V
 
     return-void
 .end method

@@ -1,4 +1,4 @@
-.class Lcom/android/server/power/ShutdownCheckPoints$IntentCheckPoint;
+.class public Lcom/android/server/power/ShutdownCheckPoints$IntentCheckPoint;
 .super Lcom/android/server/power/ShutdownCheckPoints$CheckPoint;
 .source "ShutdownCheckPoints.java"
 
@@ -9,19 +9,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "IntentCheckPoint"
 .end annotation
 
 
 # instance fields
-.field private final mIntentName:Ljava/lang/String;
+.field public final mIntentName:Ljava/lang/String;
 
-.field private final mPackageName:Ljava/lang/String;
+.field public final mPackageName:Ljava/lang/String;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/power/ShutdownCheckPoints$Injector;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+.method public constructor <init>(Lcom/android/server/power/ShutdownCheckPoints$Injector;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
 
     invoke-direct {p0, p1, p4}, Lcom/android/server/power/ShutdownCheckPoints$CheckPoint;-><init>(Lcom/android/server/power/ShutdownCheckPoints$Injector;Ljava/lang/String;)V
@@ -35,7 +35,7 @@
 
 
 # virtual methods
-.method dumpDetails(Ljava/io/PrintWriter;)V
+.method public dumpDetails(Ljava/io/PrintWriter;)V
     .locals 1
 
     const-string v0, "Intent: "
@@ -50,17 +50,17 @@
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    iget-object v0, p0, Lcom/android/server/power/ShutdownCheckPoints$IntentCheckPoint;->mPackageName:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/power/ShutdownCheckPoints$IntentCheckPoint;->mPackageName:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p1, p0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     return-void
 .end method
 
-.method getOrigin()Ljava/lang/String;
-    .locals 1
+.method public getOrigin()Ljava/lang/String;
+    .locals 0
 
-    const-string v0, "INTENT"
+    const-string p0, "INTENT"
 
-    return-object v0
+    return-object p0
 .end method

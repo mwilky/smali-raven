@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/wm/LetterboxUiController$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Supplier;
@@ -23,13 +24,13 @@
 
 # virtual methods
 .method public final get()Ljava/lang/Object;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/LetterboxUiController$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/wm/LetterboxUiController;
+    iget-object p0, p0, Lcom/android/server/wm/LetterboxUiController$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/wm/LetterboxUiController;
 
-    invoke-virtual {v0}, Lcom/android/server/wm/LetterboxUiController;->lambda$layoutLetterbox$0$LetterboxUiController()Landroid/view/SurfaceControl$Builder;
+    invoke-static {p0}, Lcom/android/server/wm/LetterboxUiController;->$r8$lambda$fbXQOb38bMYnfh1EWVA42TFBP0o(Lcom/android/server/wm/LetterboxUiController;)Landroid/graphics/Color;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

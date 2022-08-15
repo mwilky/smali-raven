@@ -4,26 +4,47 @@
 
 
 # annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/android/server/am/UserController;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "Injector"
 .end annotation
 
 
 # instance fields
-.field private final mService:Lcom/android/server/am/ActivityManagerService;
+.field public mHandler:Landroid/os/Handler;
 
-.field private mUserManager:Lcom/android/server/pm/UserManagerService;
+.field public final mService:Lcom/android/server/am/ActivityManagerService;
 
-.field private mUserManagerInternal:Lcom/android/server/pm/UserManagerInternal;
+.field public mUserManager:Lcom/android/server/pm/UserManagerService;
+
+.field public mUserManagerInternal:Lcom/android/server/pm/UserManagerInternal;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/ActivityManagerService;)V
+.method public static synthetic $r8$lambda$KWbZgLeBCFNybHqaJHtisAV9bto(Landroid/appwidget/AppWidgetManagerInternal;I)V
+    .locals 0
+
+    invoke-static {p0, p1}, Lcom/android/server/am/UserController$Injector;->lambda$startUserWidgets$0(Landroid/appwidget/AppWidgetManagerInternal;I)V
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmHandler(Lcom/android/server/am/UserController$Injector;)Landroid/os/Handler;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/am/UserController$Injector;->mHandler:Landroid/os/Handler;
+
+    return-object p0
+.end method
+
+.method public constructor <init>(Lcom/android/server/am/ActivityManagerService;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -33,7 +54,7 @@
     return-void
 .end method
 
-.method static synthetic lambda$startUserWidgets$0(Landroid/appwidget/AppWidgetManagerInternal;I)V
+.method public static synthetic lambda$startUserWidgets$0(Landroid/appwidget/AppWidgetManagerInternal;I)V
     .locals 0
 
     invoke-virtual {p0, p1}, Landroid/appwidget/AppWidgetManagerInternal;->unlockUser(I)V
@@ -43,7 +64,7 @@
 
 
 # virtual methods
-.method activityManagerForceStopPackage(ILjava/lang/String;)V
+.method public activityManagerForceStopPackage(ILjava/lang/String;)V
     .locals 11
 
     iget-object v0, p0, Lcom/android/server/am/UserController$Injector;->mService:Lcom/android/server/am/ActivityManagerService;
@@ -84,7 +105,7 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     :try_start_1
     monitor-exit v0
@@ -93,65 +114,58 @@
 
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
 
-    throw v1
+    throw p0
 .end method
 
-.method activityManagerOnUserStopped(I)V
-    .locals 1
+.method public activityManagerOnUserStopped(I)V
+    .locals 0
 
-    const-class v0, Lcom/android/server/wm/ActivityTaskManagerInternal;
+    const-class p0, Lcom/android/server/wm/ActivityTaskManagerInternal;
 
-    invoke-static {v0}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-static {p0}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/android/server/wm/ActivityTaskManagerInternal;
+    check-cast p0, Lcom/android/server/wm/ActivityTaskManagerInternal;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/wm/ActivityTaskManagerInternal;->onUserStopped(I)V
+    invoke-virtual {p0, p1}, Lcom/android/server/wm/ActivityTaskManagerInternal;->onUserStopped(I)V
 
     return-void
 .end method
 
-.method batteryStatsServiceNoteEvent(ILjava/lang/String;I)V
-    .locals 1
+.method public batteryStatsServiceNoteEvent(ILjava/lang/String;I)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/am/UserController$Injector;->mService:Lcom/android/server/am/ActivityManagerService;
+    iget-object p0, p0, Lcom/android/server/am/UserController$Injector;->mService:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mBatteryStatsService:Lcom/android/server/am/BatteryStatsService;
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService;->mBatteryStatsService:Lcom/android/server/am/BatteryStatsService;
 
-    invoke-virtual {v0, p1, p2, p3}, Lcom/android/server/am/BatteryStatsService;->noteEvent(ILjava/lang/String;I)V
+    invoke-virtual {p0, p1, p2, p3}, Lcom/android/server/am/BatteryStatsService;->noteEvent(ILjava/lang/String;I)V
 
     return-void
 .end method
 
-.method protected broadcastIntent(Landroid/content/Intent;Ljava/lang/String;Landroid/content/IIntentReceiver;ILjava/lang/String;Landroid/os/Bundle;[Ljava/lang/String;ILandroid/os/Bundle;ZZIIIII)I
-    .locals 26
+.method public broadcastIntent(Landroid/content/Intent;Ljava/lang/String;Landroid/content/IIntentReceiver;ILjava/lang/String;Landroid/os/Bundle;[Ljava/lang/String;ILandroid/os/Bundle;ZZIIIII)I
+    .locals 25
 
-    move-object/from16 v1, p0
+    move-object/from16 v0, p0
 
-    const-string v0, "android.intent.extra.user_handle"
+    const-string v1, "android.intent.extra.user_handle"
 
     const/16 v2, -0x2710
 
-    move-object/from16 v13, p1
+    move-object/from16 v7, p1
 
-    invoke-virtual {v13, v0, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {v7, v1, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    move-result v0
+    move-result v1
 
-    if-ne v0, v2, :cond_0
+    if-ne v1, v2, :cond_0
 
-    move/from16 v0, p16
-
-    move v2, v0
-
-    goto :goto_0
+    move/from16 v1, p16
 
     :cond_0
-    move v2, v0
-
-    :goto_0
-    const/16 v0, 0x7581
+    const/16 v2, 0x7581
 
     const/4 v3, 0x2
 
@@ -159,32 +173,30 @@
 
     const/4 v4, 0x0
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v5
+    move-result-object v1
 
-    aput-object v5, v3, v4
+    aput-object v1, v3, v4
 
-    const/4 v4, 0x1
+    const/4 v1, 0x1
 
     invoke-virtual/range {p1 .. p1}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v4
 
-    aput-object v5, v3, v4
+    aput-object v4, v3, v1
 
-    invoke-static {v0, v3}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
+    invoke-static {v2, v3}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
-    iget-object v12, v1, Lcom/android/server/am/UserController$Injector;->mService:Lcom/android/server/am/ActivityManagerService;
+    iget-object v1, v0, Lcom/android/server/am/UserController$Injector;->mService:Lcom/android/server/am/ActivityManagerService;
 
-    monitor-enter v12
+    monitor-enter v1
 
     :try_start_0
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->boostPriorityForLockedSection()V
 
-    iget-object v3, v1, Lcom/android/server/am/UserController$Injector;->mService:Lcom/android/server/am/ActivityManagerService;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    iget-object v3, v0, Lcom/android/server/am/UserController$Injector;->mService:Lcom/android/server/am/ActivityManagerService;
 
     const/4 v4, 0x0
 
@@ -205,8 +217,6 @@
     move/from16 v10, p4
 
     move-object/from16 v11, p5
-
-    move-object/from16 v25, v12
 
     move-object/from16 v12, p6
 
@@ -230,14 +240,13 @@
 
     move/from16 v24, p16
 
-    :try_start_1
     invoke-virtual/range {v3 .. v24}, Lcom/android/server/am/ActivityManagerService;->broadcastIntentLocked(Lcom/android/server/am/ProcessRecord;Ljava/lang/String;Ljava/lang/String;Landroid/content/Intent;Ljava/lang/String;Landroid/content/IIntentReceiver;ILjava/lang/String;Landroid/os/Bundle;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;ILandroid/os/Bundle;ZZIIIII)I
 
     move-result v0
 
-    monitor-exit v25
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    monitor-exit v1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
 
@@ -246,60 +255,76 @@
     :catchall_0
     move-exception v0
 
-    move-object/from16 v25, v12
-
-    :goto_1
-    :try_start_2
-    monitor-exit v25
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_start_1
+    monitor-exit v1
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
 
     throw v0
-
-    :catchall_1
-    move-exception v0
-
-    goto :goto_1
 .end method
 
-.method checkCallingPermission(Ljava/lang/String;)I
-    .locals 1
+.method public checkCallingPermission(Ljava/lang/String;)I
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/am/UserController$Injector;->mService:Lcom/android/server/am/ActivityManagerService;
+    iget-object p0, p0, Lcom/android/server/am/UserController$Injector;->mService:Lcom/android/server/am/ActivityManagerService;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/am/ActivityManagerService;->checkCallingPermission(Ljava/lang/String;)I
+    invoke-virtual {p0, p1}, Lcom/android/server/am/ActivityManagerService;->checkCallingPermission(Ljava/lang/String;)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
-.method checkComponentPermission(Ljava/lang/String;IIIZ)I
-    .locals 1
+.method public checkComponentPermission(Ljava/lang/String;IIIZ)I
+    .locals 0
 
     invoke-static {p1, p2, p3, p4, p5}, Lcom/android/server/am/ActivityManagerService;->checkComponentPermission(Ljava/lang/String;IIIZ)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
-.method protected clearAllLockedTasks(Ljava/lang/String;)V
-    .locals 1
+.method public checkPermissionForPreflight(Ljava/lang/String;IILjava/lang/String;)Z
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/am/UserController$Injector;->mService:Lcom/android/server/am/ActivityManagerService;
+    invoke-virtual {p0}, Lcom/android/server/am/UserController$Injector;->getContext()Landroid/content/Context;
 
-    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mAtmInternal:Lcom/android/server/wm/ActivityTaskManagerInternal;
+    move-result-object p0
 
-    invoke-virtual {v0, p1}, Lcom/android/server/wm/ActivityTaskManagerInternal;->clearLockedTasks(Ljava/lang/String;)V
+    invoke-static {p0, p1, p2, p3, p4}, Landroid/content/PermissionChecker;->checkPermissionForPreflight(Landroid/content/Context;Ljava/lang/String;IILjava/lang/String;)I
+
+    move-result p0
+
+    if-nez p0, :cond_0
+
+    const/4 p0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    :goto_0
+    return p0
+.end method
+
+.method public clearAllLockedTasks(Ljava/lang/String;)V
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/am/UserController$Injector;->mService:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService;->mAtmInternal:Lcom/android/server/wm/ActivityTaskManagerInternal;
+
+    invoke-virtual {p0, p1}, Lcom/android/server/wm/ActivityTaskManagerInternal;->clearLockedTasks(Ljava/lang/String;)V
 
     return-void
 .end method
 
-.method clearBroadcastQueueForUser(I)V
-    .locals 2
+.method public clearBroadcastQueueForUser(I)V
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/am/UserController$Injector;->mService:Lcom/android/server/am/ActivityManagerService;
 
@@ -308,9 +333,9 @@
     :try_start_0
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->boostPriorityForLockedSection()V
 
-    iget-object v1, p0, Lcom/android/server/am/UserController$Injector;->mService:Lcom/android/server/am/ActivityManagerService;
+    iget-object p0, p0, Lcom/android/server/am/UserController$Injector;->mService:Lcom/android/server/am/ActivityManagerService;
 
-    invoke-virtual {v1, p1}, Lcom/android/server/am/ActivityManagerService;->clearBroadcastQueueForUserLocked(I)Z
+    invoke-virtual {p0, p1}, Lcom/android/server/am/ActivityManagerService;->clearBroadcastQueueForUserLocked(I)Z
 
     monitor-exit v0
     :try_end_0
@@ -321,7 +346,7 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     :try_start_1
     monitor-exit v0
@@ -330,20 +355,36 @@
 
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
 
-    throw v1
+    throw p0
 .end method
 
-.method protected getContext()Landroid/content/Context;
-    .locals 1
+.method public dismissKeyguard(Ljava/lang/Runnable;Ljava/lang/String;)V
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/server/am/UserController$Injector;->mService:Lcom/android/server/am/ActivityManagerService;
+    invoke-virtual {p0}, Lcom/android/server/am/UserController$Injector;->getWindowManager()Lcom/android/server/wm/WindowManagerService;
 
-    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
+    move-result-object v0
 
-    return-object v0
+    new-instance v1, Lcom/android/server/am/UserController$Injector$2;
+
+    invoke-direct {v1, p0, p1}, Lcom/android/server/am/UserController$Injector$2;-><init>(Lcom/android/server/am/UserController$Injector;Ljava/lang/Runnable;)V
+
+    invoke-virtual {v0, v1, p2}, Lcom/android/server/wm/WindowManagerService;->dismissKeyguard(Lcom/android/internal/policy/IKeyguardDismissCallback;Ljava/lang/CharSequence;)V
+
+    return-void
 .end method
 
-.method protected getHandler(Landroid/os/Handler$Callback;)Landroid/os/Handler;
+.method public getContext()Landroid/content/Context;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/am/UserController$Injector;->mService:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
+
+    return-object p0
+.end method
+
+.method public getHandler(Landroid/os/Handler$Callback;)Landroid/os/Handler;
     .locals 2
 
     new-instance v0, Landroid/os/Handler;
@@ -352,93 +393,95 @@
 
     iget-object v1, v1, Lcom/android/server/am/ActivityManagerService;->mHandlerThread:Lcom/android/server/ServiceThread;
 
-    invoke-virtual {v1}, Lcom/android/server/ServiceThread;->getLooper()Landroid/os/Looper;
+    invoke-virtual {v1}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;
 
     move-result-object v1
 
     invoke-direct {v0, v1, p1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;Landroid/os/Handler$Callback;)V
 
-    return-object v0
-.end method
-
-.method getKeyguardManager()Landroid/app/KeyguardManager;
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/server/am/UserController$Injector;->mService:Lcom/android/server/am/ActivityManagerService;
-
-    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
-
-    const-class v1, Landroid/app/KeyguardManager;
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/app/KeyguardManager;
+    iput-object v0, p0, Lcom/android/server/am/UserController$Injector;->mHandler:Landroid/os/Handler;
 
     return-object v0
 .end method
 
-.method protected getLockPatternUtils()Lcom/android/internal/widget/LockPatternUtils;
-    .locals 2
+.method public getKeyguardManager()Landroid/app/KeyguardManager;
+    .locals 1
+
+    iget-object p0, p0, Lcom/android/server/am/UserController$Injector;->mService:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
+
+    const-class v0, Landroid/app/KeyguardManager;
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Landroid/app/KeyguardManager;
+
+    return-object p0
+.end method
+
+.method public getLockPatternUtils()Lcom/android/internal/widget/LockPatternUtils;
+    .locals 1
 
     new-instance v0, Lcom/android/internal/widget/LockPatternUtils;
 
     invoke-virtual {p0}, Lcom/android/server/am/UserController$Injector;->getContext()Landroid/content/Context;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-direct {v0, v1}, Lcom/android/internal/widget/LockPatternUtils;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, p0}, Lcom/android/internal/widget/LockPatternUtils;-><init>(Landroid/content/Context;)V
 
     return-object v0
 .end method
 
-.method protected getStorageManager()Landroid/os/storage/IStorageManager;
+.method public getStorageManager()Landroid/os/storage/IStorageManager;
+    .locals 0
+
+    const-string/jumbo p0, "mount"
+
+    invoke-static {p0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+
+    move-result-object p0
+
+    invoke-static {p0}, Landroid/os/storage/IStorageManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/storage/IStorageManager;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public getSystemServiceManager()Lcom/android/server/SystemServiceManager;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/am/UserController$Injector;->mService:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService;->mSystemServiceManager:Lcom/android/server/SystemServiceManager;
+
+    return-object p0
+.end method
+
+.method public getUiHandler(Landroid/os/Handler$Callback;)Landroid/os/Handler;
     .locals 1
-
-    const-string/jumbo v0, "mount"
-
-    invoke-static {v0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
-
-    move-result-object v0
-
-    invoke-static {v0}, Landroid/os/storage/IStorageManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/storage/IStorageManager;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method getSystemServiceManager()Lcom/android/server/SystemServiceManager;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/am/UserController$Injector;->mService:Lcom/android/server/am/ActivityManagerService;
-
-    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mSystemServiceManager:Lcom/android/server/SystemServiceManager;
-
-    return-object v0
-.end method
-
-.method protected getUiHandler(Landroid/os/Handler$Callback;)Landroid/os/Handler;
-    .locals 2
 
     new-instance v0, Landroid/os/Handler;
 
-    iget-object v1, p0, Lcom/android/server/am/UserController$Injector;->mService:Lcom/android/server/am/ActivityManagerService;
+    iget-object p0, p0, Lcom/android/server/am/UserController$Injector;->mService:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v1, v1, Lcom/android/server/am/ActivityManagerService;->mUiHandler:Landroid/os/Handler;
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService;->mUiHandler:Landroid/os/Handler;
 
-    invoke-virtual {v1}, Landroid/os/Handler;->getLooper()Landroid/os/Looper;
+    invoke-virtual {p0}, Landroid/os/Handler;->getLooper()Landroid/os/Looper;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-direct {v0, v1, p1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;Landroid/os/Handler$Callback;)V
+    invoke-direct {v0, p0, p1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;Landroid/os/Handler$Callback;)V
 
     return-object v0
 .end method
 
-.method protected getUserManager()Lcom/android/server/pm/UserManagerService;
-    .locals 2
+.method public getUserManager()Lcom/android/server/pm/UserManagerService;
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/am/UserController$Injector;->mUserManager:Lcom/android/server/pm/UserManagerService;
 
@@ -452,19 +495,19 @@
 
     invoke-static {v0}, Landroid/os/IUserManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/IUserManager;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Lcom/android/server/pm/UserManagerService;
+    check-cast v0, Lcom/android/server/pm/UserManagerService;
 
-    iput-object v1, p0, Lcom/android/server/am/UserController$Injector;->mUserManager:Lcom/android/server/pm/UserManagerService;
+    iput-object v0, p0, Lcom/android/server/am/UserController$Injector;->mUserManager:Lcom/android/server/pm/UserManagerService;
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/am/UserController$Injector;->mUserManager:Lcom/android/server/pm/UserManagerService;
+    iget-object p0, p0, Lcom/android/server/am/UserController$Injector;->mUserManager:Lcom/android/server/pm/UserManagerService;
 
-    return-object v0
+    return-object p0
 .end method
 
-.method getUserManagerInternal()Lcom/android/server/pm/UserManagerInternal;
+.method public getUserManagerInternal()Lcom/android/server/pm/UserManagerInternal;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/am/UserController$Injector;->mUserManagerInternal:Lcom/android/server/pm/UserManagerInternal;
@@ -482,140 +525,140 @@
     iput-object v0, p0, Lcom/android/server/am/UserController$Injector;->mUserManagerInternal:Lcom/android/server/pm/UserManagerInternal;
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/am/UserController$Injector;->mUserManagerInternal:Lcom/android/server/pm/UserManagerInternal;
+    iget-object p0, p0, Lcom/android/server/am/UserController$Injector;->mUserManagerInternal:Lcom/android/server/pm/UserManagerInternal;
 
-    return-object v0
+    return-object p0
 .end method
 
-.method getWindowManager()Lcom/android/server/wm/WindowManagerService;
-    .locals 1
+.method public getWindowManager()Lcom/android/server/wm/WindowManagerService;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/am/UserController$Injector;->mService:Lcom/android/server/am/ActivityManagerService;
+    iget-object p0, p0, Lcom/android/server/am/UserController$Injector;->mService:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
 
-    return-object v0
+    return-object p0
 .end method
 
-.method installEncryptionUnawareProviders(I)V
-    .locals 1
+.method public installEncryptionUnawareProviders(I)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/am/UserController$Injector;->mService:Lcom/android/server/am/ActivityManagerService;
+    iget-object p0, p0, Lcom/android/server/am/UserController$Injector;->mService:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mCpHelper:Lcom/android/server/am/ContentProviderHelper;
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService;->mCpHelper:Lcom/android/server/am/ContentProviderHelper;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/am/ContentProviderHelper;->installEncryptionUnawareProviders(I)V
+    invoke-virtual {p0, p1}, Lcom/android/server/am/ContentProviderHelper;->installEncryptionUnawareProviders(I)V
 
     return-void
 .end method
 
-.method protected isCallerRecents(I)Z
-    .locals 1
+.method public isCallerRecents(I)Z
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/am/UserController$Injector;->mService:Lcom/android/server/am/ActivityManagerService;
+    iget-object p0, p0, Lcom/android/server/am/UserController$Injector;->mService:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mAtmInternal:Lcom/android/server/wm/ActivityTaskManagerInternal;
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService;->mAtmInternal:Lcom/android/server/wm/ActivityTaskManagerInternal;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/wm/ActivityTaskManagerInternal;->isCallerRecents(I)Z
+    invoke-virtual {p0, p1}, Lcom/android/server/wm/ActivityTaskManagerInternal;->isCallerRecents(I)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
-.method isFirstBootOrUpgrade()Z
-    .locals 3
+.method public isFirstBootOrUpgrade()Z
+    .locals 1
 
     invoke-static {}, Landroid/app/AppGlobals;->getPackageManager()Landroid/content/pm/IPackageManager;
 
-    move-result-object v0
+    move-result-object p0
 
     :try_start_0
-    invoke-interface {v0}, Landroid/content/pm/IPackageManager;->isFirstBoot()Z
+    invoke-interface {p0}, Landroid/content/pm/IPackageManager;->isFirstBoot()Z
 
-    move-result v1
+    move-result v0
 
-    if-nez v1, :cond_1
+    if-nez v0, :cond_1
 
-    invoke-interface {v0}, Landroid/content/pm/IPackageManager;->isDeviceUpgrading()Z
+    invoke-interface {p0}, Landroid/content/pm/IPackageManager;->isDeviceUpgrading()Z
 
-    move-result v1
+    move-result p0
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    if-eqz v1, :cond_0
+    if-eqz p0, :cond_0
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 p0, 0x0
 
     goto :goto_1
 
     :cond_1
     :goto_0
-    const/4 v1, 0x1
+    const/4 p0, 0x1
 
     :goto_1
-    return v1
+    return p0
 
     :catch_0
-    move-exception v1
+    move-exception p0
 
-    invoke-virtual {v1}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
+    invoke-virtual {p0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
 
-    move-result-object v2
+    move-result-object p0
 
-    throw v2
+    throw p0
 .end method
 
-.method isRuntimeRestarted()Z
-    .locals 1
+.method public isRuntimeRestarted()Z
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/am/UserController$Injector;->mService:Lcom/android/server/am/ActivityManagerService;
+    invoke-virtual {p0}, Lcom/android/server/am/UserController$Injector;->getSystemServiceManager()Lcom/android/server/SystemServiceManager;
 
-    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mSystemServiceManager:Lcom/android/server/SystemServiceManager;
+    move-result-object p0
 
-    invoke-virtual {v0}, Lcom/android/server/SystemServiceManager;->isRuntimeRestarted()Z
+    invoke-virtual {p0}, Lcom/android/server/SystemServiceManager;->isRuntimeRestarted()Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
-.method loadUserRecents(I)V
-    .locals 1
+.method public loadUserRecents(I)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/am/UserController$Injector;->mService:Lcom/android/server/am/ActivityManagerService;
+    iget-object p0, p0, Lcom/android/server/am/UserController$Injector;->mService:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mAtmInternal:Lcom/android/server/wm/ActivityTaskManagerInternal;
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService;->mAtmInternal:Lcom/android/server/wm/ActivityTaskManagerInternal;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/wm/ActivityTaskManagerInternal;->loadRecentTasksForUser(I)V
+    invoke-virtual {p0, p1}, Lcom/android/server/wm/ActivityTaskManagerInternal;->loadRecentTasksForUser(I)V
 
     return-void
 .end method
 
-.method reportCurWakefulnessUsageEvent()V
-    .locals 1
+.method public reportCurWakefulnessUsageEvent()V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/am/UserController$Injector;->mService:Lcom/android/server/am/ActivityManagerService;
+    iget-object p0, p0, Lcom/android/server/am/UserController$Injector;->mService:Lcom/android/server/am/ActivityManagerService;
 
-    invoke-virtual {v0}, Lcom/android/server/am/ActivityManagerService;->reportCurWakefulnessUsageEvent()V
-
-    return-void
-.end method
-
-.method reportGlobalUsageEvent(I)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/am/UserController$Injector;->mService:Lcom/android/server/am/ActivityManagerService;
-
-    invoke-virtual {v0, p1}, Lcom/android/server/am/ActivityManagerService;->reportGlobalUsageEvent(I)V
+    invoke-virtual {p0}, Lcom/android/server/am/ActivityManagerService;->reportCurWakefulnessUsageEvent()V
 
     return-void
 .end method
 
-.method sendPreBootBroadcast(IZLjava/lang/Runnable;)V
+.method public reportGlobalUsageEvent(I)V
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/am/UserController$Injector;->mService:Lcom/android/server/am/ActivityManagerService;
+
+    invoke-virtual {p0, p1}, Lcom/android/server/am/ActivityManagerService;->reportGlobalUsageEvent(I)V
+
+    return-void
+.end method
+
+.method public sendPreBootBroadcast(IZLjava/lang/Runnable;)V
     .locals 9
 
     const/4 v0, 0x2
@@ -658,12 +701,12 @@
 
     invoke-direct/range {v2 .. v8}, Lcom/android/server/am/UserController$Injector$1;-><init>(Lcom/android/server/am/UserController$Injector;Lcom/android/server/am/ActivityManagerService;ILcom/android/internal/util/ProgressReporter;ZLjava/lang/Runnable;)V
 
-    invoke-virtual {v0}, Lcom/android/server/am/UserController$Injector$1;->sendNext()V
+    invoke-virtual {v0}, Lcom/android/server/am/PreBootBroadcaster;->sendNext()V
 
     return-void
 .end method
 
-.method showUserSwitchingDialog(Landroid/content/pm/UserInfo;Landroid/content/pm/UserInfo;Ljava/lang/String;Ljava/lang/String;)V
+.method public showUserSwitchingDialog(Landroid/content/pm/UserInfo;Landroid/content/pm/UserInfo;Ljava/lang/String;Ljava/lang/String;)V
     .locals 10
 
     iget-object v0, p0, Lcom/android/server/am/UserController$Injector;->mService:Lcom/android/server/am/ActivityManagerService;
@@ -714,115 +757,127 @@
     return-void
 .end method
 
-.method protected startHomeActivity(ILjava/lang/String;)V
-    .locals 1
+.method public startHomeActivity(ILjava/lang/String;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/am/UserController$Injector;->mService:Lcom/android/server/am/ActivityManagerService;
+    iget-object p0, p0, Lcom/android/server/am/UserController$Injector;->mService:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mAtmInternal:Lcom/android/server/wm/ActivityTaskManagerInternal;
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService;->mAtmInternal:Lcom/android/server/wm/ActivityTaskManagerInternal;
 
-    invoke-virtual {v0, p1, p2}, Lcom/android/server/wm/ActivityTaskManagerInternal;->startHomeActivity(ILjava/lang/String;)Z
-
-    return-void
-.end method
-
-.method startPersistentApps(I)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/am/UserController$Injector;->mService:Lcom/android/server/am/ActivityManagerService;
-
-    invoke-virtual {v0, p1}, Lcom/android/server/am/ActivityManagerService;->startPersistentApps(I)V
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/wm/ActivityTaskManagerInternal;->startHomeActivity(ILjava/lang/String;)Z
 
     return-void
 .end method
 
-.method startUserWidgets(I)V
-    .locals 3
+.method public startPersistentApps(I)V
+    .locals 0
 
-    const-class v0, Landroid/appwidget/AppWidgetManagerInternal;
+    iget-object p0, p0, Lcom/android/server/am/UserController$Injector;->mService:Lcom/android/server/am/ActivityManagerService;
 
-    invoke-static {v0}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Lcom/android/server/am/ActivityManagerService;->startPersistentApps(I)V
 
-    move-result-object v0
+    return-void
+.end method
 
-    check-cast v0, Landroid/appwidget/AppWidgetManagerInternal;
+.method public startUserWidgets(I)V
+    .locals 2
 
-    if-eqz v0, :cond_0
+    const-class p0, Landroid/appwidget/AppWidgetManagerInternal;
+
+    invoke-static {p0}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Landroid/appwidget/AppWidgetManagerInternal;
+
+    if-eqz p0, :cond_0
 
     invoke-static {}, Lcom/android/server/FgThread;->getHandler()Landroid/os/Handler;
 
-    move-result-object v1
+    move-result-object v0
 
-    new-instance v2, Lcom/android/server/am/UserController$Injector$$ExternalSyntheticLambda0;
+    new-instance v1, Lcom/android/server/am/UserController$Injector$$ExternalSyntheticLambda0;
 
-    invoke-direct {v2, v0, p1}, Lcom/android/server/am/UserController$Injector$$ExternalSyntheticLambda0;-><init>(Landroid/appwidget/AppWidgetManagerInternal;I)V
+    invoke-direct {v1, p0, p1}, Lcom/android/server/am/UserController$Injector$$ExternalSyntheticLambda0;-><init>(Landroid/appwidget/AppWidgetManagerInternal;I)V
 
-    invoke-virtual {v1, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     :cond_0
     return-void
 .end method
 
-.method systemServiceManagerOnUserStopped(I)V
-    .locals 1
+.method public systemServiceManagerOnUserCompletedEvent(II)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/am/UserController$Injector;->mService:Lcom/android/server/am/ActivityManagerService;
+    invoke-virtual {p0}, Lcom/android/server/am/UserController$Injector;->getSystemServiceManager()Lcom/android/server/SystemServiceManager;
 
-    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mSystemServiceManager:Lcom/android/server/SystemServiceManager;
+    move-result-object p0
 
-    invoke-virtual {v0, p1}, Lcom/android/server/SystemServiceManager;->onUserStopped(I)V
-
-    return-void
-.end method
-
-.method taskSupervisorRemoveUser(I)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/am/UserController$Injector;->mService:Lcom/android/server/am/ActivityManagerService;
-
-    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mAtmInternal:Lcom/android/server/wm/ActivityTaskManagerInternal;
-
-    invoke-virtual {v0, p1}, Lcom/android/server/wm/ActivityTaskManagerInternal;->removeUser(I)V
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/SystemServiceManager;->onUserCompletedEvent(II)V
 
     return-void
 .end method
 
-.method protected taskSupervisorResumeFocusedStackTopActivity()V
-    .locals 2
+.method public systemServiceManagerOnUserStopped(I)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/am/UserController$Injector;->mService:Lcom/android/server/am/ActivityManagerService;
+    invoke-virtual {p0}, Lcom/android/server/am/UserController$Injector;->getSystemServiceManager()Lcom/android/server/SystemServiceManager;
 
-    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mAtmInternal:Lcom/android/server/wm/ActivityTaskManagerInternal;
+    move-result-object p0
 
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Lcom/android/server/wm/ActivityTaskManagerInternal;->resumeTopActivities(Z)V
+    invoke-virtual {p0, p1}, Lcom/android/server/SystemServiceManager;->onUserStopped(I)V
 
     return-void
 .end method
 
-.method protected taskSupervisorSwitchUser(ILcom/android/server/am/UserState;)Z
-    .locals 1
+.method public taskSupervisorRemoveUser(I)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/am/UserController$Injector;->mService:Lcom/android/server/am/ActivityManagerService;
+    iget-object p0, p0, Lcom/android/server/am/UserController$Injector;->mService:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mAtmInternal:Lcom/android/server/wm/ActivityTaskManagerInternal;
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService;->mAtmInternal:Lcom/android/server/wm/ActivityTaskManagerInternal;
 
-    invoke-virtual {v0, p1, p2}, Lcom/android/server/wm/ActivityTaskManagerInternal;->switchUser(ILcom/android/server/am/UserState;)Z
+    invoke-virtual {p0, p1}, Lcom/android/server/wm/ActivityTaskManagerInternal;->removeUser(I)V
 
-    move-result v0
-
-    return v0
+    return-void
 .end method
 
-.method updateUserConfiguration()V
+.method public taskSupervisorResumeFocusedStackTopActivity()V
     .locals 1
 
-    iget-object v0, p0, Lcom/android/server/am/UserController$Injector;->mService:Lcom/android/server/am/ActivityManagerService;
+    iget-object p0, p0, Lcom/android/server/am/UserController$Injector;->mService:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mAtmInternal:Lcom/android/server/wm/ActivityTaskManagerInternal;
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService;->mAtmInternal:Lcom/android/server/wm/ActivityTaskManagerInternal;
 
-    invoke-virtual {v0}, Lcom/android/server/wm/ActivityTaskManagerInternal;->updateUserConfiguration()V
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Lcom/android/server/wm/ActivityTaskManagerInternal;->resumeTopActivities(Z)V
+
+    return-void
+.end method
+
+.method public taskSupervisorSwitchUser(ILcom/android/server/am/UserState;)Z
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/am/UserController$Injector;->mService:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService;->mAtmInternal:Lcom/android/server/wm/ActivityTaskManagerInternal;
+
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/wm/ActivityTaskManagerInternal;->switchUser(ILcom/android/server/am/UserState;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public updateUserConfiguration()V
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/am/UserController$Injector;->mService:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService;->mAtmInternal:Lcom/android/server/wm/ActivityTaskManagerInternal;
+
+    invoke-virtual {p0}, Lcom/android/server/wm/ActivityTaskManagerInternal;->updateUserConfiguration()V
 
     return-void
 .end method

@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/usb/UsbProfileGroupSettingsManager$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/server/usb/MtpNotificationManager$OnOpenInAppListener;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final onOpenInApp(Landroid/hardware/usb/UsbDevice;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/usb/UsbProfileGroupSettingsManager$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/usb/UsbProfileGroupSettingsManager;
+    iget-object p0, p0, Lcom/android/server/usb/UsbProfileGroupSettingsManager$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/usb/UsbProfileGroupSettingsManager;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/usb/UsbProfileGroupSettingsManager;->lambda$new$0$UsbProfileGroupSettingsManager(Landroid/hardware/usb/UsbDevice;)V
+    invoke-static {p0, p1}, Lcom/android/server/usb/UsbProfileGroupSettingsManager;->$r8$lambda$ImU1CVGqv_kbJYlYc5zqS-UD4AE(Lcom/android/server/usb/UsbProfileGroupSettingsManager;Landroid/hardware/usb/UsbDevice;)V
 
     return-void
 .end method

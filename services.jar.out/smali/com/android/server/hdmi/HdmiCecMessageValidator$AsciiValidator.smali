@@ -1,4 +1,4 @@
-.class Lcom/android/server/hdmi/HdmiCecMessageValidator$AsciiValidator;
+.class public Lcom/android/server/hdmi/HdmiCecMessageValidator$AsciiValidator;
 .super Ljava/lang/Object;
 .source "HdmiCecMessageValidator.java"
 
@@ -12,44 +12,38 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x9
     name = "AsciiValidator"
 .end annotation
 
 
 # instance fields
-.field private final mMaxLength:I
+.field public final mMaxLength:I
 
-.field private final mMinLength:I
-
-.field final synthetic this$0:Lcom/android/server/hdmi/HdmiCecMessageValidator;
+.field public final mMinLength:I
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/hdmi/HdmiCecMessageValidator;I)V
+.method public constructor <init>(I)V
     .locals 0
-
-    iput-object p1, p0, Lcom/android/server/hdmi/HdmiCecMessageValidator$AsciiValidator;->this$0:Lcom/android/server/hdmi/HdmiCecMessageValidator;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput p2, p0, Lcom/android/server/hdmi/HdmiCecMessageValidator$AsciiValidator;->mMinLength:I
+    iput p1, p0, Lcom/android/server/hdmi/HdmiCecMessageValidator$AsciiValidator;->mMinLength:I
 
-    iput p2, p0, Lcom/android/server/hdmi/HdmiCecMessageValidator$AsciiValidator;->mMaxLength:I
+    iput p1, p0, Lcom/android/server/hdmi/HdmiCecMessageValidator$AsciiValidator;->mMaxLength:I
 
     return-void
 .end method
 
-.method constructor <init>(Lcom/android/server/hdmi/HdmiCecMessageValidator;II)V
+.method public constructor <init>(II)V
     .locals 0
-
-    iput-object p1, p0, Lcom/android/server/hdmi/HdmiCecMessageValidator$AsciiValidator;->this$0:Lcom/android/server/hdmi/HdmiCecMessageValidator;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput p2, p0, Lcom/android/server/hdmi/HdmiCecMessageValidator$AsciiValidator;->mMinLength:I
+    iput p1, p0, Lcom/android/server/hdmi/HdmiCecMessageValidator$AsciiValidator;->mMinLength:I
 
-    iput p3, p0, Lcom/android/server/hdmi/HdmiCecMessageValidator$AsciiValidator;->mMaxLength:I
+    iput p2, p0, Lcom/android/server/hdmi/HdmiCecMessageValidator$AsciiValidator;->mMaxLength:I
 
     return-void
 .end method
@@ -57,7 +51,7 @@
 
 # virtual methods
 .method public isValid([B)I
-    .locals 3
+    .locals 2
 
     array-length v0, p1
 
@@ -65,24 +59,22 @@
 
     if-ge v0, v1, :cond_0
 
-    const/4 v0, 0x4
+    const/4 p0, 0x4
 
-    return v0
+    return p0
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecMessageValidator$AsciiValidator;->this$0:Lcom/android/server/hdmi/HdmiCecMessageValidator;
+    const/4 v0, 0x0
 
-    const/4 v1, 0x0
+    iget p0, p0, Lcom/android/server/hdmi/HdmiCecMessageValidator$AsciiValidator;->mMaxLength:I
 
-    iget v2, p0, Lcom/android/server/hdmi/HdmiCecMessageValidator$AsciiValidator;->mMaxLength:I
+    invoke-static {p1, v0, p0}, Lcom/android/server/hdmi/HdmiCecMessageValidator;->-$$Nest$smisValidAsciiString([BII)Z
 
-    invoke-static {v0, p1, v1, v2}, Lcom/android/server/hdmi/HdmiCecMessageValidator;->access$1900(Lcom/android/server/hdmi/HdmiCecMessageValidator;[BII)Z
+    move-result p0
 
-    move-result v0
+    invoke-static {p0}, Lcom/android/server/hdmi/HdmiCecMessageValidator;->-$$Nest$smtoErrorCode(Z)I
 
-    invoke-static {v0}, Lcom/android/server/hdmi/HdmiCecMessageValidator;->access$1700(Z)I
+    move-result p0
 
-    move-result v0
-
-    return v0
+    return p0
 .end method

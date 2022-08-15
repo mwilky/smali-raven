@@ -4,12 +4,15 @@
 
 
 # annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/android/server/appop/AppOpsService;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x10
+    accessFlags = 0x11
     name = "Constants"
 .end annotation
 
@@ -21,134 +24,37 @@
 
 .field public TOP_STATE_SETTLE_TIME:J
 
-.field private final mParser:Landroid/util/KeyValueListParser;
+.field public final mParser:Landroid/util/KeyValueListParser;
 
-.field private mResolver:Landroid/content/ContentResolver;
+.field public mResolver:Landroid/content/ContentResolver;
 
-.field final synthetic this$0:Lcom/android/server/appop/AppOpsService;
+.field public final synthetic this$0:Lcom/android/server/appop/AppOpsService;
 
 
 # direct methods
 .method public constructor <init>(Lcom/android/server/appop/AppOpsService;Landroid/os/Handler;)V
-    .locals 2
+    .locals 0
 
     iput-object p1, p0, Lcom/android/server/appop/AppOpsService$Constants;->this$0:Lcom/android/server/appop/AppOpsService;
 
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
-    new-instance v0, Landroid/util/KeyValueListParser;
+    new-instance p1, Landroid/util/KeyValueListParser;
 
-    const/16 v1, 0x2c
+    const/16 p2, 0x2c
 
-    invoke-direct {v0, v1}, Landroid/util/KeyValueListParser;-><init>(C)V
+    invoke-direct {p1, p2}, Landroid/util/KeyValueListParser;-><init>(C)V
 
-    iput-object v0, p0, Lcom/android/server/appop/AppOpsService$Constants;->mParser:Landroid/util/KeyValueListParser;
+    iput-object p1, p0, Lcom/android/server/appop/AppOpsService$Constants;->mParser:Landroid/util/KeyValueListParser;
 
-    invoke-direct {p0}, Lcom/android/server/appop/AppOpsService$Constants;->updateConstants()V
-
-    return-void
-.end method
-
-.method private updateConstants()V
-    .locals 6
-
-    iget-object v0, p0, Lcom/android/server/appop/AppOpsService$Constants;->mResolver:Landroid/content/ContentResolver;
-
-    if-eqz v0, :cond_0
-
-    const-string v1, "app_ops_constants"
-
-    invoke-static {v0, v1}, Landroid/provider/Settings$Global;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_0
-
-    :cond_0
-    const-string v0, ""
-
-    :goto_0
-    nop
-
-    iget-object v1, p0, Lcom/android/server/appop/AppOpsService$Constants;->this$0:Lcom/android/server/appop/AppOpsService;
-
-    monitor-enter v1
-
-    :try_start_0
-    iget-object v2, p0, Lcom/android/server/appop/AppOpsService$Constants;->mParser:Landroid/util/KeyValueListParser;
-
-    invoke-virtual {v2, v0}, Landroid/util/KeyValueListParser;->setString(Ljava/lang/String;)V
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    goto :goto_1
-
-    :catchall_0
-    move-exception v2
-
-    goto :goto_2
-
-    :catch_0
-    move-exception v2
-
-    :try_start_1
-    const-string v3, "AppOps"
-
-    const-string v4, "Bad app ops settings"
-
-    invoke-static {v3, v4, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    :goto_1
-    iget-object v2, p0, Lcom/android/server/appop/AppOpsService$Constants;->mParser:Landroid/util/KeyValueListParser;
-
-    const-string/jumbo v3, "top_state_settle_time"
-
-    const-wide/16 v4, 0x1388
-
-    invoke-virtual {v2, v3, v4, v5}, Landroid/util/KeyValueListParser;->getDurationMillis(Ljava/lang/String;J)J
-
-    move-result-wide v2
-
-    iput-wide v2, p0, Lcom/android/server/appop/AppOpsService$Constants;->TOP_STATE_SETTLE_TIME:J
-
-    iget-object v2, p0, Lcom/android/server/appop/AppOpsService$Constants;->mParser:Landroid/util/KeyValueListParser;
-
-    const-string v3, "fg_service_state_settle_time"
-
-    invoke-virtual {v2, v3, v4, v5}, Landroid/util/KeyValueListParser;->getDurationMillis(Ljava/lang/String;J)J
-
-    move-result-wide v2
-
-    iput-wide v2, p0, Lcom/android/server/appop/AppOpsService$Constants;->FG_SERVICE_STATE_SETTLE_TIME:J
-
-    iget-object v2, p0, Lcom/android/server/appop/AppOpsService$Constants;->mParser:Landroid/util/KeyValueListParser;
-
-    const-string v3, "bg_state_settle_time"
-
-    const-wide/16 v4, 0x3e8
-
-    invoke-virtual {v2, v3, v4, v5}, Landroid/util/KeyValueListParser;->getDurationMillis(Ljava/lang/String;J)J
-
-    move-result-wide v2
-
-    iput-wide v2, p0, Lcom/android/server/appop/AppOpsService$Constants;->BG_STATE_SETTLE_TIME:J
-
-    monitor-exit v1
+    invoke-virtual {p0}, Lcom/android/server/appop/AppOpsService$Constants;->updateConstants()V
 
     return-void
-
-    :goto_2
-    monitor-exit v1
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    throw v2
 .end method
 
 
 # virtual methods
-.method dump(Ljava/io/PrintWriter;)V
+.method public dump(Ljava/io/PrintWriter;)V
     .locals 4
 
     const-string v0, "  Settings:"
@@ -207,7 +113,7 @@
 .method public onChange(ZLandroid/net/Uri;)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/server/appop/AppOpsService$Constants;->updateConstants()V
+    invoke-virtual {p0}, Lcom/android/server/appop/AppOpsService$Constants;->updateConstants()V
 
     return-void
 .end method
@@ -216,8 +122,6 @@
     .locals 2
 
     iput-object p1, p0, Lcom/android/server/appop/AppOpsService$Constants;->mResolver:Landroid/content/ContentResolver;
-
-    nop
 
     const-string v0, "app_ops_constants"
 
@@ -229,7 +133,102 @@
 
     invoke-virtual {p1, v0, v1, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    invoke-direct {p0}, Lcom/android/server/appop/AppOpsService$Constants;->updateConstants()V
+    invoke-virtual {p0}, Lcom/android/server/appop/AppOpsService$Constants;->updateConstants()V
 
     return-void
+.end method
+
+.method public final updateConstants()V
+    .locals 7
+
+    iget-object v0, p0, Lcom/android/server/appop/AppOpsService$Constants;->mResolver:Landroid/content/ContentResolver;
+
+    if-eqz v0, :cond_0
+
+    const-string v1, "app_ops_constants"
+
+    invoke-static {v0, v1}, Landroid/provider/Settings$Global;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :cond_0
+    const-string v0, ""
+
+    :goto_0
+    iget-object v1, p0, Lcom/android/server/appop/AppOpsService$Constants;->this$0:Lcom/android/server/appop/AppOpsService;
+
+    monitor-enter v1
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/server/appop/AppOpsService$Constants;->mParser:Landroid/util/KeyValueListParser;
+
+    invoke-virtual {v2, v0}, Landroid/util/KeyValueListParser;->setString(Ljava/lang/String;)V
+    :try_end_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    goto :goto_1
+
+    :catchall_0
+    move-exception p0
+
+    goto :goto_2
+
+    :catch_0
+    move-exception v0
+
+    :try_start_1
+    const-string v2, "AppOps"
+
+    const-string v3, "Bad app ops settings"
+
+    invoke-static {v2, v3, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    :goto_1
+    iget-object v0, p0, Lcom/android/server/appop/AppOpsService$Constants;->mParser:Landroid/util/KeyValueListParser;
+
+    const-string/jumbo v2, "top_state_settle_time"
+
+    const-wide/16 v3, 0x1388
+
+    invoke-virtual {v0, v2, v3, v4}, Landroid/util/KeyValueListParser;->getDurationMillis(Ljava/lang/String;J)J
+
+    move-result-wide v5
+
+    iput-wide v5, p0, Lcom/android/server/appop/AppOpsService$Constants;->TOP_STATE_SETTLE_TIME:J
+
+    iget-object v0, p0, Lcom/android/server/appop/AppOpsService$Constants;->mParser:Landroid/util/KeyValueListParser;
+
+    const-string v2, "fg_service_state_settle_time"
+
+    invoke-virtual {v0, v2, v3, v4}, Landroid/util/KeyValueListParser;->getDurationMillis(Ljava/lang/String;J)J
+
+    move-result-wide v2
+
+    iput-wide v2, p0, Lcom/android/server/appop/AppOpsService$Constants;->FG_SERVICE_STATE_SETTLE_TIME:J
+
+    iget-object v0, p0, Lcom/android/server/appop/AppOpsService$Constants;->mParser:Landroid/util/KeyValueListParser;
+
+    const-string v2, "bg_state_settle_time"
+
+    const-wide/16 v3, 0x3e8
+
+    invoke-virtual {v0, v2, v3, v4}, Landroid/util/KeyValueListParser;->getDurationMillis(Ljava/lang/String;J)J
+
+    move-result-wide v2
+
+    iput-wide v2, p0, Lcom/android/server/appop/AppOpsService$Constants;->BG_STATE_SETTLE_TIME:J
+
+    monitor-exit v1
+
+    return-void
+
+    :goto_2
+    monitor-exit v1
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    throw p0
 .end method

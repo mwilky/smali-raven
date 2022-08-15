@@ -1,4 +1,4 @@
-.class final Lcom/android/server/audio/AudioDeviceBroker$CommunicationClientInfo;
+.class public final Lcom/android/server/audio/AudioDeviceBroker$CommunicationClientInfo;
 .super Ljava/lang/Object;
 .source "AudioDeviceBroker.java"
 
@@ -9,25 +9,25 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = "CommunicationClientInfo"
 .end annotation
 
 
 # instance fields
-.field final mCb:Landroid/os/IBinder;
+.field public final mCb:Landroid/os/IBinder;
 
-.field final mDevice:Landroid/media/AudioDeviceAttributes;
+.field public final mDevice:Landroid/media/AudioDeviceAttributes;
 
-.field final mEventSource:Ljava/lang/String;
+.field public final mEventSource:Ljava/lang/String;
 
-.field final mPid:I
+.field public final mPid:I
 
-.field final mScoAudioMode:I
+.field public final mScoAudioMode:I
 
 
 # direct methods
-.method constructor <init>(Landroid/os/IBinder;ILandroid/media/AudioDeviceAttributes;ILjava/lang/String;)V
+.method public constructor <init>(Landroid/os/IBinder;ILandroid/media/AudioDeviceAttributes;ILjava/lang/String;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -73,11 +73,9 @@
     :cond_2
     iget-object v2, p0, Lcom/android/server/audio/AudioDeviceBroker$CommunicationClientInfo;->mCb:Landroid/os/IBinder;
 
-    move-object v3, p1
+    check-cast p1, Lcom/android/server/audio/AudioDeviceBroker$CommunicationClientInfo;
 
-    check-cast v3, Lcom/android/server/audio/AudioDeviceBroker$CommunicationClientInfo;
-
-    iget-object v3, v3, Lcom/android/server/audio/AudioDeviceBroker$CommunicationClientInfo;->mCb:Landroid/os/IBinder;
+    iget-object v3, p1, Lcom/android/server/audio/AudioDeviceBroker$CommunicationClientInfo;->mCb:Landroid/os/IBinder;
 
     invoke-virtual {v2, v3}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
@@ -85,15 +83,11 @@
 
     if-eqz v2, :cond_3
 
-    iget v2, p0, Lcom/android/server/audio/AudioDeviceBroker$CommunicationClientInfo;->mPid:I
+    iget p0, p0, Lcom/android/server/audio/AudioDeviceBroker$CommunicationClientInfo;->mPid:I
 
-    move-object v3, p1
+    iget p1, p1, Lcom/android/server/audio/AudioDeviceBroker$CommunicationClientInfo;->mPid:I
 
-    check-cast v3, Lcom/android/server/audio/AudioDeviceBroker$CommunicationClientInfo;
-
-    iget v3, v3, Lcom/android/server/audio/AudioDeviceBroker$CommunicationClientInfo;->mPid:I
-
-    if-ne v2, v3, :cond_3
+    if-ne p0, p1, :cond_3
 
     move v0, v1
 
@@ -152,13 +146,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lcom/android/server/audio/AudioDeviceBroker$CommunicationClientInfo;->mEventSource:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/audio/AudioDeviceBroker$CommunicationClientInfo;->mEventSource:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

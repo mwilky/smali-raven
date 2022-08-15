@@ -1,4 +1,4 @@
-.class Lcom/android/server/accessibility/AccessibilityInputFilter$EventStreamState;
+.class public Lcom/android/server/accessibility/AccessibilityInputFilter$EventStreamState;
 .super Ljava/lang/Object;
 .source "AccessibilityInputFilter.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "EventStreamState"
 .end annotation
 
 
 # instance fields
-.field private mSource:I
+.field public mSource:I
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -34,21 +34,21 @@
 
 # virtual methods
 .method public inputSourceValid()Z
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/accessibility/AccessibilityInputFilter$EventStreamState;->mSource:I
+    iget p0, p0, Lcom/android/server/accessibility/AccessibilityInputFilter$EventStreamState;->mSource:I
 
-    if-ltz v0, :cond_0
+    if-ltz p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method public reset()V
@@ -62,27 +62,27 @@
 .end method
 
 .method public shouldProcessKeyEvent(Landroid/view/KeyEvent;)Z
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
 .method public shouldProcessMotionEvent(Landroid/view/MotionEvent;)Z
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
 .method public shouldProcessScroll()Z
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
 .method public updateInputSource(I)Z
@@ -92,16 +92,16 @@
 
     if-ne v0, p1, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 
     :cond_0
     invoke-virtual {p0}, Lcom/android/server/accessibility/AccessibilityInputFilter$EventStreamState;->reset()V
 
     iput p1, p0, Lcom/android/server/accessibility/AccessibilityInputFilter$EventStreamState;->mSource:I
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 .end method

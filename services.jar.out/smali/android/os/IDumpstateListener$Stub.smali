@@ -24,15 +24,15 @@
 
 
 # static fields
-.field static final TRANSACTION_onError:I = 0x2
+.field public static final TRANSACTION_onError:I = 0x2
 
-.field static final TRANSACTION_onFinished:I = 0x3
+.field public static final TRANSACTION_onFinished:I = 0x3
 
-.field static final TRANSACTION_onProgress:I = 0x1
+.field public static final TRANSACTION_onProgress:I = 0x1
 
-.field static final TRANSACTION_onScreenshotTaken:I = 0x4
+.field public static final TRANSACTION_onScreenshotTaken:I = 0x4
 
-.field static final TRANSACTION_onUiIntensiveBugreportDumpsFinished:I = 0x5
+.field public static final TRANSACTION_onUiIntensiveBugreportDumpsFinished:I = 0x5
 
 
 # direct methods
@@ -43,7 +43,7 @@
 
     const-string v0, "android.os.IDumpstateListener"
 
-    invoke-virtual {p0, p0, v0}, Landroid/os/IDumpstateListener$Stub;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
+    invoke-virtual {p0, p0, v0}, Landroid/os/Binder;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -53,9 +53,9 @@
 
     if-nez p0, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return-object v0
+    return-object p0
 
     :cond_0
     const-string v0, "android.os.IDumpstateListener"
@@ -70,56 +70,16 @@
 
     if-eqz v1, :cond_1
 
-    move-object v1, v0
-
-    check-cast v1, Landroid/os/IDumpstateListener;
-
-    return-object v1
-
-    :cond_1
-    new-instance v1, Landroid/os/IDumpstateListener$Stub$Proxy;
-
-    invoke-direct {v1, p0}, Landroid/os/IDumpstateListener$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
-
-    return-object v1
-.end method
-
-.method public static getDefaultImpl()Landroid/os/IDumpstateListener;
-    .locals 1
-
-    sget-object v0, Landroid/os/IDumpstateListener$Stub$Proxy;->sDefaultImpl:Landroid/os/IDumpstateListener;
+    check-cast v0, Landroid/os/IDumpstateListener;
 
     return-object v0
-.end method
-
-.method public static setDefaultImpl(Landroid/os/IDumpstateListener;)Z
-    .locals 2
-
-    sget-object v0, Landroid/os/IDumpstateListener$Stub$Proxy;->sDefaultImpl:Landroid/os/IDumpstateListener;
-
-    if-nez v0, :cond_1
-
-    if-eqz p0, :cond_0
-
-    sput-object p0, Landroid/os/IDumpstateListener$Stub$Proxy;->sDefaultImpl:Landroid/os/IDumpstateListener;
-
-    const/4 v0, 0x1
-
-    return v0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    return v0
 
     :cond_1
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance v0, Landroid/os/IDumpstateListener$Stub$Proxy;
 
-    const-string/jumbo v1, "setDefaultImpl() called twice"
+    invoke-direct {v0, p0}, Landroid/os/IDumpstateListener$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-object v0
 .end method
 
 
@@ -138,93 +98,93 @@
         }
     .end annotation
 
-    const-string v0, "android.os.IDumpstateListener"
+    const/4 v0, 0x1
 
-    const/4 v1, 0x1
+    const-string v1, "android.os.IDumpstateListener"
 
-    packed-switch p1, :pswitch_data_0
+    if-lt p1, v0, :cond_0
 
-    packed-switch p1, :pswitch_data_1
+    const v2, 0xffffff
+
+    if-gt p1, v2, :cond_0
+
+    invoke-virtual {p2, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    :cond_0
+    const v2, 0x5f4e5446
+
+    if-eq p1, v2, :cond_6
+
+    if-eq p1, v0, :cond_5
+
+    const/4 v1, 0x2
+
+    if-eq p1, v1, :cond_4
+
+    const/4 v1, 0x3
+
+    if-eq p1, v1, :cond_3
+
+    const/4 v1, 0x4
+
+    if-eq p1, v1, :cond_2
+
+    const/4 v1, 0x5
+
+    if-eq p1, v1, :cond_1
 
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    move-result v1
+    move-result p0
 
-    return v1
+    return p0
 
-    :pswitch_0
-    invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    return v1
-
-    :pswitch_1
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual {p0}, Landroid/os/IDumpstateListener$Stub;->onUiIntensiveBugreportDumpsFinished()V
-
-    return v1
-
-    :pswitch_2
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    move v2, v1
+    :cond_1
+    invoke-interface {p0}, Landroid/os/IDumpstateListener;->onUiIntensiveBugreportDumpsFinished()V
 
     goto :goto_0
 
-    :cond_0
-    const/4 v2, 0x0
+    :cond_2
+    invoke-virtual {p2}, Landroid/os/Parcel;->readBoolean()Z
+
+    move-result p1
+
+    invoke-virtual {p2}, Landroid/os/Parcel;->enforceNoDataAvail()V
+
+    invoke-interface {p0, p1}, Landroid/os/IDumpstateListener;->onScreenshotTaken(Z)V
+
+    goto :goto_0
+
+    :cond_3
+    invoke-interface {p0}, Landroid/os/IDumpstateListener;->onFinished()V
+
+    goto :goto_0
+
+    :cond_4
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result p1
+
+    invoke-virtual {p2}, Landroid/os/Parcel;->enforceNoDataAvail()V
+
+    invoke-interface {p0, p1}, Landroid/os/IDumpstateListener;->onError(I)V
+
+    goto :goto_0
+
+    :cond_5
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result p1
+
+    invoke-virtual {p2}, Landroid/os/Parcel;->enforceNoDataAvail()V
+
+    invoke-interface {p0, p1}, Landroid/os/IDumpstateListener;->onProgress(I)V
 
     :goto_0
-    invoke-virtual {p0, v2}, Landroid/os/IDumpstateListener$Stub;->onScreenshotTaken(Z)V
+    return v0
 
-    return v1
+    :cond_6
+    invoke-virtual {p3, v1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    :pswitch_3
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual {p0}, Landroid/os/IDumpstateListener$Stub;->onFinished()V
-
-    return v1
-
-    :pswitch_4
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v2
-
-    invoke-virtual {p0, v2}, Landroid/os/IDumpstateListener$Stub;->onError(I)V
-
-    return v1
-
-    :pswitch_5
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v2
-
-    invoke-virtual {p0, v2}, Landroid/os/IDumpstateListener$Stub;->onProgress(I)V
-
-    return v1
-
-    :pswitch_data_0
-    .packed-switch 0x5f4e5446
-        :pswitch_0
-    .end packed-switch
-
-    :pswitch_data_1
-    .packed-switch 0x1
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-    .end packed-switch
+    return v0
 .end method

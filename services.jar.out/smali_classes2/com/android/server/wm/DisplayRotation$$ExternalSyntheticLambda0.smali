@@ -1,35 +1,30 @@
 .class public final synthetic Lcom/android/server/wm/DisplayRotation$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Consumer;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/android/server/wm/DisplayRotation;
+.implements Ljava/util/function/Predicate;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/wm/DisplayRotation;)V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/server/wm/DisplayRotation$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/wm/DisplayRotation;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
-    .locals 1
+.method public final test(Ljava/lang/Object;)Z
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/DisplayRotation$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/wm/DisplayRotation;
+    check-cast p1, Lcom/android/server/wm/WindowState;
 
-    check-cast p1, Lcom/android/server/wm/Task;
+    invoke-static {p1}, Lcom/android/server/wm/DisplayRotation;->$r8$lambda$gTLjubg1x23KYG4k_brWSQniMmo(Lcom/android/server/wm/WindowState;)Z
 
-    invoke-virtual {v0, p1}, Lcom/android/server/wm/DisplayRotation;->lambda$continueRotation$0$DisplayRotation(Lcom/android/server/wm/Task;)V
+    move-result p0
 
-    return-void
+    return p0
 .end method

@@ -15,21 +15,21 @@
 
 
 # instance fields
-.field final persistedCreateTime:J
+.field public final persistedCreateTime:J
 
-.field final persistedModeFlags:I
+.field public final persistedModeFlags:I
 
-.field final sourcePkg:Ljava/lang/String;
+.field public final sourcePkg:Ljava/lang/String;
 
-.field final targetPkg:Ljava/lang/String;
+.field public final targetPkg:Ljava/lang/String;
 
-.field final targetUserId:I
+.field public final targetUserId:I
 
-.field final uri:Lcom/android/server/uri/GrantUri;
+.field public final uri:Lcom/android/server/uri/GrantUri;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/server/uri/UriPermission;)V
+.method public constructor <init>(Lcom/android/server/uri/UriPermission;)V
     .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -61,7 +61,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/uri/UriPermission;Lcom/android/server/uri/UriPermission$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/uri/UriPermission;Lcom/android/server/uri/UriPermission$Snapshot-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/uri/UriPermission$Snapshot;-><init>(Lcom/android/server/uri/UriPermission;)V

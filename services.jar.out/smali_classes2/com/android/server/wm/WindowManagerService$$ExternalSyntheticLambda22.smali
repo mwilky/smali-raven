@@ -1,37 +1,38 @@
 .class public final synthetic Lcom/android/server/wm/WindowManagerService$$ExternalSyntheticLambda22;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Predicate;
+.implements Ljava/util/function/BiConsumer;
 
 
 # instance fields
-.field public final synthetic f$0:I
+.field public final synthetic f$0:Ljava/io/PrintWriter;
 
 
 # direct methods
-.method public synthetic constructor <init>(I)V
+.method public synthetic constructor <init>(Ljava/io/PrintWriter;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput p1, p0, Lcom/android/server/wm/WindowManagerService$$ExternalSyntheticLambda22;->f$0:I
+    iput-object p1, p0, Lcom/android/server/wm/WindowManagerService$$ExternalSyntheticLambda22;->f$0:Ljava/io/PrintWriter;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final test(Ljava/lang/Object;)Z
-    .locals 1
+.method public final accept(Ljava/lang/Object;Ljava/lang/Object;)V
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/wm/WindowManagerService$$ExternalSyntheticLambda22;->f$0:I
+    iget-object p0, p0, Lcom/android/server/wm/WindowManagerService$$ExternalSyntheticLambda22;->f$0:Ljava/io/PrintWriter;
 
-    check-cast p1, Lcom/android/server/wm/WindowState;
+    check-cast p1, Lcom/android/server/wm/WindowContainer;
 
-    invoke-static {v0, p1}, Lcom/android/server/wm/WindowManagerService;->lambda$findWindow$5(ILcom/android/server/wm/WindowState;)Z
+    check-cast p2, Ljava/lang/Runnable;
 
-    move-result p1
+    invoke-static {p0, p1, p2}, Lcom/android/server/wm/WindowManagerService;->$r8$lambda$6qr3IgS7XyvOz8hhvhHHGDyfDRs(Ljava/io/PrintWriter;Lcom/android/server/wm/WindowContainer;Ljava/lang/Runnable;)V
 
-    return p1
+    return-void
 .end method

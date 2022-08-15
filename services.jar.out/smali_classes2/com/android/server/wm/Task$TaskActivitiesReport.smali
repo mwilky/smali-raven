@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/Task$TaskActivitiesReport;
+.class public Lcom/android/server/wm/Task$TaskActivitiesReport;
 .super Ljava/lang/Object;
 .source "Task.java"
 
@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "TaskActivitiesReport"
 .end annotation
 
@@ -27,17 +27,17 @@
 
 
 # instance fields
-.field base:Lcom/android/server/wm/ActivityRecord;
+.field public base:Lcom/android/server/wm/ActivityRecord;
 
-.field numActivities:I
+.field public numActivities:I
 
-.field numRunning:I
+.field public numRunning:I
 
-.field top:Lcom/android/server/wm/ActivityRecord;
+.field public top:Lcom/android/server/wm/ActivityRecord;
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -87,15 +87,15 @@
     :cond_2
     invoke-virtual {p1}, Lcom/android/server/wm/ActivityRecord;->attachedToProcess()Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_3
+    if-eqz p1, :cond_3
 
-    iget v0, p0, Lcom/android/server/wm/Task$TaskActivitiesReport;->numRunning:I
+    iget p1, p0, Lcom/android/server/wm/Task$TaskActivitiesReport;->numRunning:I
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 p1, p1, 0x1
 
-    iput v0, p0, Lcom/android/server/wm/Task$TaskActivitiesReport;->numRunning:I
+    iput p1, p0, Lcom/android/server/wm/Task$TaskActivitiesReport;->numRunning:I
 
     :cond_3
     return-void
@@ -111,7 +111,7 @@
     return-void
 .end method
 
-.method reset()V
+.method public reset()V
     .locals 1
 
     const/4 v0, 0x0

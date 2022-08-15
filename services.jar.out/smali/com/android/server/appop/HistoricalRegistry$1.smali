@@ -1,4 +1,4 @@
-.class Lcom/android/server/appop/HistoricalRegistry$1;
+.class public Lcom/android/server/appop/HistoricalRegistry$1;
 .super Landroid/database/ContentObserver;
 .source "HistoricalRegistry.java"
 
@@ -9,19 +9,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/appop/HistoricalRegistry;
+.field public final synthetic this$0:Lcom/android/server/appop/HistoricalRegistry;
 
-.field final synthetic val$resolver:Landroid/content/ContentResolver;
+.field public final synthetic val$resolver:Landroid/content/ContentResolver;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/appop/HistoricalRegistry;Landroid/os/Handler;Landroid/content/ContentResolver;)V
+.method public constructor <init>(Lcom/android/server/appop/HistoricalRegistry;Landroid/os/Handler;Landroid/content/ContentResolver;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/appop/HistoricalRegistry$1;->this$0:Lcom/android/server/appop/HistoricalRegistry;
@@ -36,13 +36,13 @@
 
 # virtual methods
 .method public onChange(Z)V
-    .locals 2
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/appop/HistoricalRegistry$1;->this$0:Lcom/android/server/appop/HistoricalRegistry;
+    iget-object p1, p0, Lcom/android/server/appop/HistoricalRegistry$1;->this$0:Lcom/android/server/appop/HistoricalRegistry;
 
-    iget-object v1, p0, Lcom/android/server/appop/HistoricalRegistry$1;->val$resolver:Landroid/content/ContentResolver;
+    iget-object p0, p0, Lcom/android/server/appop/HistoricalRegistry$1;->val$resolver:Landroid/content/ContentResolver;
 
-    invoke-static {v0, v1}, Lcom/android/server/appop/HistoricalRegistry;->access$000(Lcom/android/server/appop/HistoricalRegistry;Landroid/content/ContentResolver;)V
+    invoke-static {p1, p0}, Lcom/android/server/appop/HistoricalRegistry;->-$$Nest$mupdateParametersFromSetting(Lcom/android/server/appop/HistoricalRegistry;Landroid/content/ContentResolver;)V
 
     return-void
 .end method

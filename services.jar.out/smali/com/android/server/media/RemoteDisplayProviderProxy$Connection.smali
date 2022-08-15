@@ -1,4 +1,4 @@
-.class final Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;
+.class public final Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;
 .super Ljava/lang/Object;
 .source "RemoteDisplayProviderProxy.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "Connection"
 .end annotation
 
 
 # instance fields
-.field private final mCallback:Lcom/android/server/media/RemoteDisplayProviderProxy$ProviderCallback;
+.field public final mCallback:Lcom/android/server/media/RemoteDisplayProviderProxy$ProviderCallback;
 
-.field private final mProvider:Landroid/media/IRemoteDisplayProvider;
+.field public final mProvider:Landroid/media/IRemoteDisplayProvider;
 
-.field final synthetic this$0:Lcom/android/server/media/RemoteDisplayProviderProxy;
+.field public final synthetic this$0:Lcom/android/server/media/RemoteDisplayProviderProxy;
 
 
 # direct methods
@@ -47,25 +47,25 @@
 
 # virtual methods
 .method public adjustVolume(Ljava/lang/String;I)V
-    .locals 3
+    .locals 0
 
     :try_start_0
-    iget-object v0, p0, Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;->mProvider:Landroid/media/IRemoteDisplayProvider;
+    iget-object p0, p0, Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;->mProvider:Landroid/media/IRemoteDisplayProvider;
 
-    invoke-interface {v0, p1, p2}, Landroid/media/IRemoteDisplayProvider;->adjustVolume(Ljava/lang/String;I)V
+    invoke-interface {p0, p1, p2}, Landroid/media/IRemoteDisplayProvider;->adjustVolume(Ljava/lang/String;I)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    const-string v1, "RemoteDisplayProvider"
+    const-string p1, "RemoteDisplayProvider"
 
-    const-string v2, "Failed to deliver request to adjust display volume."
+    const-string p2, "Failed to deliver request to adjust display volume."
 
-    invoke-static {v1, v2, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {p1, p2, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_0
     return-void
@@ -76,7 +76,7 @@
 
     iget-object v0, p0, Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;->this$0:Lcom/android/server/media/RemoteDisplayProviderProxy;
 
-    invoke-static {v0}, Lcom/android/server/media/RemoteDisplayProviderProxy;->access$400(Lcom/android/server/media/RemoteDisplayProviderProxy;)Landroid/os/Handler;
+    invoke-static {v0}, Lcom/android/server/media/RemoteDisplayProviderProxy;->-$$Nest$fgetmHandler(Lcom/android/server/media/RemoteDisplayProviderProxy;)Landroid/os/Handler;
 
     move-result-object v0
 
@@ -90,50 +90,50 @@
 .end method
 
 .method public connect(Ljava/lang/String;)V
-    .locals 3
+    .locals 1
 
     :try_start_0
-    iget-object v0, p0, Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;->mProvider:Landroid/media/IRemoteDisplayProvider;
+    iget-object p0, p0, Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;->mProvider:Landroid/media/IRemoteDisplayProvider;
 
-    invoke-interface {v0, p1}, Landroid/media/IRemoteDisplayProvider;->connect(Ljava/lang/String;)V
+    invoke-interface {p0, p1}, Landroid/media/IRemoteDisplayProvider;->connect(Ljava/lang/String;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    const-string v1, "RemoteDisplayProvider"
+    const-string p1, "RemoteDisplayProvider"
 
-    const-string v2, "Failed to deliver request to connect to display."
+    const-string v0, "Failed to deliver request to connect to display."
 
-    invoke-static {v1, v2, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {p1, v0, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_0
     return-void
 .end method
 
 .method public disconnect(Ljava/lang/String;)V
-    .locals 3
+    .locals 1
 
     :try_start_0
-    iget-object v0, p0, Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;->mProvider:Landroid/media/IRemoteDisplayProvider;
+    iget-object p0, p0, Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;->mProvider:Landroid/media/IRemoteDisplayProvider;
 
-    invoke-interface {v0, p1}, Landroid/media/IRemoteDisplayProvider;->disconnect(Ljava/lang/String;)V
+    invoke-interface {p0, p1}, Landroid/media/IRemoteDisplayProvider;->disconnect(Ljava/lang/String;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    const-string v1, "RemoteDisplayProvider"
+    const-string p1, "RemoteDisplayProvider"
 
-    const-string v2, "Failed to deliver request to disconnect from display."
+    const-string v0, "Failed to deliver request to disconnect from display."
 
-    invoke-static {v1, v2, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {p1, v0, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_0
     return-void
@@ -152,19 +152,19 @@
 
     invoke-interface {v0, p0, v1}, Landroid/os/IBinder;->unlinkToDeath(Landroid/os/IBinder$DeathRecipient;I)Z
 
-    iget-object v0, p0, Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;->mCallback:Lcom/android/server/media/RemoteDisplayProviderProxy$ProviderCallback;
+    iget-object p0, p0, Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;->mCallback:Lcom/android/server/media/RemoteDisplayProviderProxy$ProviderCallback;
 
-    invoke-virtual {v0}, Lcom/android/server/media/RemoteDisplayProviderProxy$ProviderCallback;->dispose()V
+    invoke-virtual {p0}, Lcom/android/server/media/RemoteDisplayProviderProxy$ProviderCallback;->dispose()V
 
     return-void
 .end method
 
-.method postStateChanged(Landroid/media/RemoteDisplayState;)V
+.method public postStateChanged(Landroid/media/RemoteDisplayState;)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;->this$0:Lcom/android/server/media/RemoteDisplayProviderProxy;
 
-    invoke-static {v0}, Lcom/android/server/media/RemoteDisplayProviderProxy;->access$400(Lcom/android/server/media/RemoteDisplayProviderProxy;)Landroid/os/Handler;
+    invoke-static {v0}, Lcom/android/server/media/RemoteDisplayProviderProxy;->-$$Nest$fgetmHandler(Lcom/android/server/media/RemoteDisplayProviderProxy;)Landroid/os/Handler;
 
     move-result-object v0
 
@@ -199,7 +199,7 @@
 
     iget-object v1, p0, Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;->this$0:Lcom/android/server/media/RemoteDisplayProviderProxy;
 
-    invoke-static {v1}, Lcom/android/server/media/RemoteDisplayProviderProxy;->access$400(Lcom/android/server/media/RemoteDisplayProviderProxy;)Landroid/os/Handler;
+    invoke-static {v1}, Lcom/android/server/media/RemoteDisplayProviderProxy;->-$$Nest$fgetmHandler(Lcom/android/server/media/RemoteDisplayProviderProxy;)Landroid/os/Handler;
 
     move-result-object v1
 
@@ -211,63 +211,61 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 
     :catch_0
-    move-exception v1
-
     invoke-virtual {p0}, Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;->binderDied()V
 
     return v0
 .end method
 
 .method public setDiscoveryMode(I)V
-    .locals 3
+    .locals 1
 
     :try_start_0
-    iget-object v0, p0, Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;->mProvider:Landroid/media/IRemoteDisplayProvider;
+    iget-object p0, p0, Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;->mProvider:Landroid/media/IRemoteDisplayProvider;
 
-    invoke-interface {v0, p1}, Landroid/media/IRemoteDisplayProvider;->setDiscoveryMode(I)V
+    invoke-interface {p0, p1}, Landroid/media/IRemoteDisplayProvider;->setDiscoveryMode(I)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    const-string v1, "RemoteDisplayProvider"
+    const-string p1, "RemoteDisplayProvider"
 
-    const-string v2, "Failed to deliver request to set discovery mode."
+    const-string v0, "Failed to deliver request to set discovery mode."
 
-    invoke-static {v1, v2, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {p1, v0, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_0
     return-void
 .end method
 
 .method public setVolume(Ljava/lang/String;I)V
-    .locals 3
+    .locals 0
 
     :try_start_0
-    iget-object v0, p0, Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;->mProvider:Landroid/media/IRemoteDisplayProvider;
+    iget-object p0, p0, Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;->mProvider:Landroid/media/IRemoteDisplayProvider;
 
-    invoke-interface {v0, p1, p2}, Landroid/media/IRemoteDisplayProvider;->setVolume(Ljava/lang/String;I)V
+    invoke-interface {p0, p1, p2}, Landroid/media/IRemoteDisplayProvider;->setVolume(Ljava/lang/String;I)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    const-string v1, "RemoteDisplayProvider"
+    const-string p1, "RemoteDisplayProvider"
 
-    const-string v2, "Failed to deliver request to set display volume."
+    const-string p2, "Failed to deliver request to set display volume."
 
-    invoke-static {v1, v2, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {p1, p2, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_0
     return-void

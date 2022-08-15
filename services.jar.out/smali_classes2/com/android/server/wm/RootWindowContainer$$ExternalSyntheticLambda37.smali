@@ -1,31 +1,22 @@
 .class public final synthetic Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda37;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda37;
+# instance fields
+.field public final synthetic f$0:Ljava/util/ArrayList;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda37;
-
-    invoke-direct {v0}, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda37;-><init>()V
-
-    sput-object v0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda37;->INSTANCE:Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda37;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Ljava/util/ArrayList;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda37;->f$0:Ljava/util/ArrayList;
 
     return-void
 .end method
@@ -35,9 +26,11 @@
 .method public final accept(Ljava/lang/Object;)V
     .locals 0
 
-    check-cast p1, Lcom/android/server/wm/TaskFragment;
+    iget-object p0, p0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda37;->f$0:Ljava/util/ArrayList;
 
-    invoke-static {p1}, Lcom/android/server/wm/RootWindowContainer;->lambda$applySleepTokens$20(Lcom/android/server/wm/TaskFragment;)V
+    check-cast p1, Lcom/android/server/wm/ActivityRecord;
+
+    invoke-static {p0, p1}, Lcom/android/server/wm/RootWindowContainer;->$r8$lambda$JVOaWwTtGvpy9mIEgVqOCuiNirQ(Ljava/util/ArrayList;Lcom/android/server/wm/ActivityRecord;)V
 
     return-void
 .end method

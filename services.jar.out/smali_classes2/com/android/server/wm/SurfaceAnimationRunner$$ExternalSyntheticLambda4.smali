@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/wm/SurfaceAnimationRunner$$ExternalSyntheticLambda4;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Landroid/view/Choreographer$FrameCallback;
 
 
 # instance fields
@@ -22,12 +23,12 @@
 
 
 # virtual methods
-.method public final run()V
-    .locals 1
+.method public final doFrame(J)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/SurfaceAnimationRunner$$ExternalSyntheticLambda4;->f$0:Lcom/android/server/wm/SurfaceAnimationRunner;
+    iget-object p0, p0, Lcom/android/server/wm/SurfaceAnimationRunner$$ExternalSyntheticLambda4;->f$0:Lcom/android/server/wm/SurfaceAnimationRunner;
 
-    invoke-static {v0}, Lcom/android/server/wm/SurfaceAnimationRunner;->$r8$lambda$8BiFaxyZI4fLPiCLISxqvwS2SH0(Lcom/android/server/wm/SurfaceAnimationRunner;)V
+    invoke-static {p0, p1, p2}, Lcom/android/server/wm/SurfaceAnimationRunner;->$r8$lambda$u1Jh9N5fY2HKNOPRKT57txOp8-s(Lcom/android/server/wm/SurfaceAnimationRunner;J)V
 
     return-void
 .end method

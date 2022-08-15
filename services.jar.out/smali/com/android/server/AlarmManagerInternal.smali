@@ -12,7 +12,7 @@
 
 
 # virtual methods
-.method public abstract hasScheduleExactAlarm(Ljava/lang/String;I)Z
+.method public abstract hasExactAlarmPermission(Ljava/lang/String;I)Z
 .end method
 
 .method public abstract isIdling()Z

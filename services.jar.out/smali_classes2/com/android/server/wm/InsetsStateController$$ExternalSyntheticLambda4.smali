@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/wm/InsetsStateController$$ExternalSyntheticLambda4;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Function;
+.implements Ljava/lang/Runnable;
 
 
 # instance fields
@@ -22,16 +23,12 @@
 
 
 # virtual methods
-.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+.method public final run()V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/InsetsStateController$$ExternalSyntheticLambda4;->f$0:Lcom/android/server/wm/InsetsStateController;
+    iget-object p0, p0, Lcom/android/server/wm/InsetsStateController$$ExternalSyntheticLambda4;->f$0:Lcom/android/server/wm/InsetsStateController;
 
-    check-cast p1, Ljava/lang/Integer;
+    invoke-static {p0}, Lcom/android/server/wm/InsetsStateController;->$r8$lambda$ni7v3ZO6TRbLZqXOFahDjPeXTS0(Lcom/android/server/wm/InsetsStateController;)V
 
-    invoke-virtual {v0, p1}, Lcom/android/server/wm/InsetsStateController;->lambda$getSourceProvider$1$InsetsStateController(Ljava/lang/Integer;)Lcom/android/server/wm/InsetsSourceProvider;
-
-    move-result-object p1
-
-    return-object p1
+    return-void
 .end method

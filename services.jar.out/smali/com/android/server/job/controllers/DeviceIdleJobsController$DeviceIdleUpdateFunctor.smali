@@ -1,4 +1,4 @@
-.class final Lcom/android/server/job/controllers/DeviceIdleJobsController$DeviceIdleUpdateFunctor;
+.class public final Lcom/android/server/job/controllers/DeviceIdleJobsController$DeviceIdleUpdateFunctor;
 .super Ljava/lang/Object;
 .source "DeviceIdleJobsController.java"
 
@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x10
+    accessFlags = 0x11
     name = "DeviceIdleUpdateFunctor"
 .end annotation
 
@@ -27,20 +27,34 @@
 
 
 # instance fields
-.field mChanged:Z
+.field public final mChangedJobs:Landroid/util/ArraySet;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/util/ArraySet<",
+            "Lcom/android/server/job/controllers/JobStatus;",
+            ">;"
+        }
+    .end annotation
+.end field
 
-.field mUpdateTimeElapsed:J
+.field public mUpdateTimeElapsed:J
 
-.field final synthetic this$0:Lcom/android/server/job/controllers/DeviceIdleJobsController;
+.field public final synthetic this$0:Lcom/android/server/job/controllers/DeviceIdleJobsController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/job/controllers/DeviceIdleJobsController;)V
+.method public constructor <init>(Lcom/android/server/job/controllers/DeviceIdleJobsController;)V
     .locals 2
 
     iput-object p1, p0, Lcom/android/server/job/controllers/DeviceIdleJobsController$DeviceIdleUpdateFunctor;->this$0:Lcom/android/server/job/controllers/DeviceIdleJobsController;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    new-instance p1, Landroid/util/ArraySet;
+
+    invoke-direct {p1}, Landroid/util/ArraySet;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/job/controllers/DeviceIdleJobsController$DeviceIdleUpdateFunctor;->mChangedJobs:Landroid/util/ArraySet;
 
     const-wide/16 v0, 0x0
 
@@ -52,22 +66,23 @@
 
 # virtual methods
 .method public accept(Lcom/android/server/job/controllers/JobStatus;)V
-    .locals 4
+    .locals 3
 
-    iget-boolean v0, p0, Lcom/android/server/job/controllers/DeviceIdleJobsController$DeviceIdleUpdateFunctor;->mChanged:Z
+    iget-object v0, p0, Lcom/android/server/job/controllers/DeviceIdleJobsController$DeviceIdleUpdateFunctor;->this$0:Lcom/android/server/job/controllers/DeviceIdleJobsController;
 
-    iget-object v1, p0, Lcom/android/server/job/controllers/DeviceIdleJobsController$DeviceIdleUpdateFunctor;->this$0:Lcom/android/server/job/controllers/DeviceIdleJobsController;
+    iget-wide v1, p0, Lcom/android/server/job/controllers/DeviceIdleJobsController$DeviceIdleUpdateFunctor;->mUpdateTimeElapsed:J
 
-    iget-wide v2, p0, Lcom/android/server/job/controllers/DeviceIdleJobsController$DeviceIdleUpdateFunctor;->mUpdateTimeElapsed:J
+    invoke-static {v0, p1, v1, v2}, Lcom/android/server/job/controllers/DeviceIdleJobsController;->-$$Nest$mupdateTaskStateLocked(Lcom/android/server/job/controllers/DeviceIdleJobsController;Lcom/android/server/job/controllers/JobStatus;J)Z
 
-    invoke-static {v1, p1, v2, v3}, Lcom/android/server/job/controllers/DeviceIdleJobsController;->access$600(Lcom/android/server/job/controllers/DeviceIdleJobsController;Lcom/android/server/job/controllers/JobStatus;J)Z
+    move-result v0
 
-    move-result v1
+    if-eqz v0, :cond_0
 
-    or-int/2addr v0, v1
+    iget-object p0, p0, Lcom/android/server/job/controllers/DeviceIdleJobsController$DeviceIdleUpdateFunctor;->mChangedJobs:Landroid/util/ArraySet;
 
-    iput-boolean v0, p0, Lcom/android/server/job/controllers/DeviceIdleJobsController$DeviceIdleUpdateFunctor;->mChanged:Z
+    invoke-virtual {p0, p1}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
 
+    :cond_0
     return-void
 .end method
 
@@ -81,12 +96,12 @@
     return-void
 .end method
 
-.method prepare()V
+.method public prepare()V
     .locals 2
 
-    const/4 v0, 0x0
+    iget-object v0, p0, Lcom/android/server/job/controllers/DeviceIdleJobsController$DeviceIdleUpdateFunctor;->mChangedJobs:Landroid/util/ArraySet;
 
-    iput-boolean v0, p0, Lcom/android/server/job/controllers/DeviceIdleJobsController$DeviceIdleUpdateFunctor;->mChanged:Z
+    invoke-virtual {v0}, Landroid/util/ArraySet;->clear()V
 
     sget-object v0, Lcom/android/server/job/JobSchedulerService;->sElapsedRealtimeClock:Ljava/time/Clock;
 

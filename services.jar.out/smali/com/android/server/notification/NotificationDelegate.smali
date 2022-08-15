@@ -13,7 +13,7 @@
 .method public abstract grantInlineReplyUriPermission(Ljava/lang/String;Landroid/net/Uri;Landroid/os/UserHandle;Ljava/lang/String;I)V
 .end method
 
-.method public abstract onBubbleNotificationSuppressionChanged(Ljava/lang/String;ZZ)V
+.method public abstract onBubbleMetadataFlagChanged(Ljava/lang/String;I)V
 .end method
 
 .method public abstract onClearAll(III)V

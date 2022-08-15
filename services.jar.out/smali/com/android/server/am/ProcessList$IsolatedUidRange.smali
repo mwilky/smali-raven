@@ -1,4 +1,4 @@
-.class final Lcom/android/server/am/ProcessList$IsolatedUidRange;
+.class public final Lcom/android/server/am/ProcessList$IsolatedUidRange;
 .super Ljava/lang/Object;
 .source "ProcessList.java"
 
@@ -9,36 +9,54 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x10
+    accessFlags = 0x11
     name = "IsolatedUidRange"
 .end annotation
 
 
 # instance fields
 .field public final mFirstUid:I
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+.end field
 
 .field public final mLastUid:I
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+.end field
 
-.field private mNextUid:I
+.field public mNextUid:I
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "ProcessList.this.mService"
+        }
+    .end annotation
+.end field
 
-.field private final mUidUsed:Landroid/util/SparseBooleanArray;
+.field public final mUidUsed:Landroid/util/SparseBooleanArray;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "ProcessList.this.mService"
+        }
+    .end annotation
+.end field
 
-.field final synthetic this$0:Lcom/android/server/am/ProcessList;
+.field public final synthetic this$0:Lcom/android/server/am/ProcessList;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/ProcessList;II)V
-    .locals 1
+.method public constructor <init>(Lcom/android/server/am/ProcessList;II)V
+    .locals 0
 
     iput-object p1, p0, Lcom/android/server/am/ProcessList$IsolatedUidRange;->this$0:Lcom/android/server/am/ProcessList;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v0, Landroid/util/SparseBooleanArray;
+    new-instance p1, Landroid/util/SparseBooleanArray;
 
-    invoke-direct {v0}, Landroid/util/SparseBooleanArray;-><init>()V
+    invoke-direct {p1}, Landroid/util/SparseBooleanArray;-><init>()V
 
-    iput-object v0, p0, Lcom/android/server/am/ProcessList$IsolatedUidRange;->mUidUsed:Landroid/util/SparseBooleanArray;
+    iput-object p1, p0, Lcom/android/server/am/ProcessList$IsolatedUidRange;->mUidUsed:Landroid/util/SparseBooleanArray;
 
     iput p2, p0, Lcom/android/server/am/ProcessList$IsolatedUidRange;->mFirstUid:I
 
@@ -51,8 +69,13 @@
 
 
 # virtual methods
-.method allocateIsolatedUidLocked(I)I
-    .locals 6
+.method public allocateIsolatedUidLocked(I)I
+    .locals 7
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "ProcessList.this.mService"
+        }
+    .end annotation
 
     iget v0, p0, Lcom/android/server/am/ProcessList$IsolatedUidRange;->mLastUid:I
 
@@ -66,68 +89,73 @@
 
     const/4 v2, 0x0
 
+    move v3, v2
+
     :goto_0
-    if-ge v2, v0, :cond_3
-
-    iget v3, p0, Lcom/android/server/am/ProcessList$IsolatedUidRange;->mNextUid:I
-
-    iget v4, p0, Lcom/android/server/am/ProcessList$IsolatedUidRange;->mFirstUid:I
-
-    if-lt v3, v4, :cond_0
-
-    iget v5, p0, Lcom/android/server/am/ProcessList$IsolatedUidRange;->mLastUid:I
-
-    if-le v3, v5, :cond_1
-
-    :cond_0
-    iput v4, p0, Lcom/android/server/am/ProcessList$IsolatedUidRange;->mNextUid:I
-
-    :cond_1
-    iget v3, p0, Lcom/android/server/am/ProcessList$IsolatedUidRange;->mNextUid:I
-
-    invoke-static {p1, v3}, Landroid/os/UserHandle;->getUid(II)I
-
-    move-result v3
+    if-ge v3, v0, :cond_3
 
     iget v4, p0, Lcom/android/server/am/ProcessList$IsolatedUidRange;->mNextUid:I
 
-    add-int/2addr v4, v1
+    iget v5, p0, Lcom/android/server/am/ProcessList$IsolatedUidRange;->mFirstUid:I
 
-    iput v4, p0, Lcom/android/server/am/ProcessList$IsolatedUidRange;->mNextUid:I
+    if-lt v4, v5, :cond_0
 
-    iget-object v4, p0, Lcom/android/server/am/ProcessList$IsolatedUidRange;->mUidUsed:Landroid/util/SparseBooleanArray;
+    iget v6, p0, Lcom/android/server/am/ProcessList$IsolatedUidRange;->mLastUid:I
 
-    const/4 v5, 0x0
+    if-le v4, v6, :cond_1
 
-    invoke-virtual {v4, v3, v5}, Landroid/util/SparseBooleanArray;->get(IZ)Z
+    :cond_0
+    iput v5, p0, Lcom/android/server/am/ProcessList$IsolatedUidRange;->mNextUid:I
+
+    :cond_1
+    iget v4, p0, Lcom/android/server/am/ProcessList$IsolatedUidRange;->mNextUid:I
+
+    invoke-static {p1, v4}, Landroid/os/UserHandle;->getUid(II)I
 
     move-result v4
 
-    if-nez v4, :cond_2
+    iget v5, p0, Lcom/android/server/am/ProcessList$IsolatedUidRange;->mNextUid:I
 
-    iget-object v4, p0, Lcom/android/server/am/ProcessList$IsolatedUidRange;->mUidUsed:Landroid/util/SparseBooleanArray;
+    add-int/2addr v5, v1
 
-    invoke-virtual {v4, v3, v1}, Landroid/util/SparseBooleanArray;->put(IZ)V
+    iput v5, p0, Lcom/android/server/am/ProcessList$IsolatedUidRange;->mNextUid:I
 
-    return v3
+    iget-object v5, p0, Lcom/android/server/am/ProcessList$IsolatedUidRange;->mUidUsed:Landroid/util/SparseBooleanArray;
+
+    invoke-virtual {v5, v4, v2}, Landroid/util/SparseBooleanArray;->get(IZ)Z
+
+    move-result v5
+
+    if-nez v5, :cond_2
+
+    iget-object p0, p0, Lcom/android/server/am/ProcessList$IsolatedUidRange;->mUidUsed:Landroid/util/SparseBooleanArray;
+
+    invoke-virtual {p0, v4, v1}, Landroid/util/SparseBooleanArray;->put(IZ)V
+
+    return v4
 
     :cond_2
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
     :cond_3
-    const/4 v1, -0x1
+    const/4 p0, -0x1
 
-    return v1
+    return p0
 .end method
 
-.method freeIsolatedUidLocked(I)V
-    .locals 1
+.method public freeIsolatedUidLocked(I)V
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "ProcessList.this.mService"
+        }
+    .end annotation
 
-    iget-object v0, p0, Lcom/android/server/am/ProcessList$IsolatedUidRange;->mUidUsed:Landroid/util/SparseBooleanArray;
+    iget-object p0, p0, Lcom/android/server/am/ProcessList$IsolatedUidRange;->mUidUsed:Landroid/util/SparseBooleanArray;
 
-    invoke-virtual {v0, p1}, Landroid/util/SparseBooleanArray;->delete(I)V
+    invoke-virtual {p0, p1}, Landroid/util/SparseBooleanArray;->delete(I)V
 
     return-void
 .end method

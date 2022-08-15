@@ -1,4 +1,4 @@
-.class Lcom/android/server/pm/verify/domain/proxy/DomainVerificationProxyV1$Response;
+.class public Lcom/android/server/pm/verify/domain/proxy/DomainVerificationProxyV1$Response;
 .super Ljava/lang/Object;
 .source "DomainVerificationProxyV1.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "Response"
 .end annotation
 
@@ -33,8 +33,8 @@
 
 
 # direct methods
-.method private constructor <init>(IIILjava/util/List;)V
-    .locals 1
+.method public constructor <init>(IIILjava/util/List;)V
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(III",
@@ -56,20 +56,15 @@
 
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
-    move-result-object v0
-
-    goto :goto_0
+    move-result-object p4
 
     :cond_0
-    move-object v0, p4
-
-    :goto_0
-    iput-object v0, p0, Lcom/android/server/pm/verify/domain/proxy/DomainVerificationProxyV1$Response;->failedDomains:Ljava/util/List;
+    iput-object p4, p0, Lcom/android/server/pm/verify/domain/proxy/DomainVerificationProxyV1$Response;->failedDomains:Ljava/util/List;
 
     return-void
 .end method
 
-.method synthetic constructor <init>(IIILjava/util/List;Lcom/android/server/pm/verify/domain/proxy/DomainVerificationProxyV1$1;)V
+.method public synthetic constructor <init>(IIILjava/util/List;Lcom/android/server/pm/verify/domain/proxy/DomainVerificationProxyV1$Response-IA;)V
     .locals 0
 
     invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/server/pm/verify/domain/proxy/DomainVerificationProxyV1$Response;-><init>(IIILjava/util/List;)V

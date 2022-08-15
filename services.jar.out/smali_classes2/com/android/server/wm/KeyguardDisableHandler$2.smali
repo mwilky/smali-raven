@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/KeyguardDisableHandler$2;
+.class public Lcom/android/server/wm/KeyguardDisableHandler$2;
 .super Ljava/lang/Object;
 .source "KeyguardDisableHandler.java"
 
@@ -12,19 +12,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic val$policy:Lcom/android/server/policy/WindowManagerPolicy;
+.field public final synthetic val$policy:Lcom/android/server/policy/WindowManagerPolicy;
 
-.field final synthetic val$userManager:Lcom/android/server/pm/UserManagerInternal;
+.field public final synthetic val$userManager:Lcom/android/server/pm/UserManagerInternal;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/policy/WindowManagerPolicy;Lcom/android/server/pm/UserManagerInternal;)V
+.method public constructor <init>(Lcom/android/server/policy/WindowManagerPolicy;Lcom/android/server/pm/UserManagerInternal;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/wm/KeyguardDisableHandler$2;->val$policy:Lcom/android/server/policy/WindowManagerPolicy;
@@ -39,59 +39,59 @@
 
 # virtual methods
 .method public dpmRequiresPassword(I)Z
-    .locals 1
+    .locals 0
 
     invoke-static {}, Landroid/app/admin/DevicePolicyCache;->getInstance()Landroid/app/admin/DevicePolicyCache;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0, p1}, Landroid/app/admin/DevicePolicyCache;->getPasswordQuality(I)I
+    invoke-virtual {p0, p1}, Landroid/app/admin/DevicePolicyCache;->getPasswordQuality(I)I
 
-    move-result v0
+    move-result p0
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method public enableKeyguard(Z)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/KeyguardDisableHandler$2;->val$policy:Lcom/android/server/policy/WindowManagerPolicy;
+    iget-object p0, p0, Lcom/android/server/wm/KeyguardDisableHandler$2;->val$policy:Lcom/android/server/policy/WindowManagerPolicy;
 
-    invoke-interface {v0, p1}, Lcom/android/server/policy/WindowManagerPolicy;->enableKeyguard(Z)V
+    invoke-interface {p0, p1}, Lcom/android/server/policy/WindowManagerPolicy;->enableKeyguard(Z)V
 
     return-void
 .end method
 
 .method public getProfileParentId(I)I
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/KeyguardDisableHandler$2;->val$userManager:Lcom/android/server/pm/UserManagerInternal;
+    iget-object p0, p0, Lcom/android/server/wm/KeyguardDisableHandler$2;->val$userManager:Lcom/android/server/pm/UserManagerInternal;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/pm/UserManagerInternal;->getProfileParentId(I)I
+    invoke-virtual {p0, p1}, Lcom/android/server/pm/UserManagerInternal;->getProfileParentId(I)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public isKeyguardSecure(I)Z
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/KeyguardDisableHandler$2;->val$policy:Lcom/android/server/policy/WindowManagerPolicy;
+    iget-object p0, p0, Lcom/android/server/wm/KeyguardDisableHandler$2;->val$policy:Lcom/android/server/policy/WindowManagerPolicy;
 
-    invoke-interface {v0, p1}, Lcom/android/server/policy/WindowManagerPolicy;->isKeyguardSecure(I)Z
+    invoke-interface {p0, p1}, Lcom/android/server/policy/WindowManagerPolicy;->isKeyguardSecure(I)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method

@@ -4,11 +4,11 @@
 
 
 # static fields
-.field private static final UPDATE_APN_DB:Landroid/net/Uri;
+.field public static final UPDATE_APN_DB:Landroid/net/Uri;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 2
 
     sget-object v0, Landroid/provider/Telephony$Carriers;->CONTENT_URI:Landroid/net/Uri;
@@ -42,18 +42,18 @@
 
 
 # virtual methods
-.method protected postInstall(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 3
+.method public postInstall(Landroid/content/Context;Landroid/content/Intent;)V
+    .locals 0
 
     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v0
+    move-result-object p0
 
-    sget-object v1, Lcom/android/server/updates/ApnDbInstallReceiver;->UPDATE_APN_DB:Landroid/net/Uri;
+    sget-object p1, Lcom/android/server/updates/ApnDbInstallReceiver;->UPDATE_APN_DB:Landroid/net/Uri;
 
-    const/4 v2, 0x0
+    const/4 p2, 0x0
 
-    invoke-virtual {v0, v1, v2, v2}, Landroid/content/ContentResolver;->delete(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
+    invoke-virtual {p0, p1, p2, p2}, Landroid/content/ContentResolver;->delete(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
 
     return-void
 .end method

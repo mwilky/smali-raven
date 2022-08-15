@@ -11,22 +11,54 @@
 .end annotation
 
 
-# static fields
-.field private static final MSG_UPDATE_CPU_TIME:I = 0x2a
-
-
 # instance fields
-.field private mLastScheduledOnBattery:Z
+.field public mLastScheduledOnBattery:Z
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "this"
+        }
+    .end annotation
+.end field
 
-.field private mLastScheduledScreenOff:Z
+.field public mLastScheduledScreenOff:Z
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "this"
+        }
+    .end annotation
+.end field
 
-.field private mLastSystemServerCpuTimeMs:J
+.field public mLastSystemServerCpuTimeMs:J
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "this"
+        }
+    .end annotation
+.end field
 
-.field private mOnBattery:Z
+.field public mOnBattery:Z
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "this"
+        }
+    .end annotation
+.end field
 
-.field private mOomAdjRunTime:Lcom/android/server/am/OomAdjProfiler$CpuTimes;
+.field public mOomAdjRunTime:Lcom/android/server/am/OomAdjProfiler$CpuTimes;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "this"
+        }
+    .end annotation
+.end field
 
-.field final mOomAdjRunTimesHist:Lcom/android/internal/util/RingBuffer;
+.field public final mOomAdjRunTimesHist:Lcom/android/internal/util/RingBuffer;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "this"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/android/internal/util/RingBuffer<",
@@ -36,19 +68,55 @@
     .end annotation
 .end field
 
-.field private mOomAdjStartTimeUs:J
+.field public mOomAdjStartTimeUs:J
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "this"
+        }
+    .end annotation
+.end field
 
-.field private mOomAdjStarted:Z
+.field public mOomAdjStarted:Z
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "this"
+        }
+    .end annotation
+.end field
 
-.field private final mProcessCpuTracker:Lcom/android/internal/os/ProcessCpuTracker;
+.field public final mProcessCpuTracker:Lcom/android/internal/os/ProcessCpuTracker;
 
-.field private mScreenOff:Z
+.field public mScreenOff:Z
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "this"
+        }
+    .end annotation
+.end field
 
-.field private mSystemServerCpuTime:Lcom/android/server/am/OomAdjProfiler$CpuTimes;
+.field public mSystemServerCpuTime:Lcom/android/server/am/OomAdjProfiler$CpuTimes;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "this"
+        }
+    .end annotation
+.end field
 
-.field private mSystemServerCpuTimeUpdateScheduled:Z
+.field public mSystemServerCpuTimeUpdateScheduled:Z
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "this"
+        }
+    .end annotation
+.end field
 
-.field final mSystemServerCpuTimesHist:Lcom/android/internal/util/RingBuffer;
+.field public final mSystemServerCpuTimesHist:Lcom/android/internal/util/RingBuffer;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "this"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/android/internal/util/RingBuffer<",
@@ -58,223 +126,103 @@
     .end annotation
 .end field
 
-.field private mTotalOomAdjCalls:I
+.field public mTotalOomAdjCalls:I
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "this"
+        }
+    .end annotation
+.end field
 
-.field private mTotalOomAdjRunTimeUs:J
+.field public mTotalOomAdjRunTimeUs:J
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "this"
+        }
+    .end annotation
+.end field
 
 
 # direct methods
 .method public static synthetic $r8$lambda$WGvtgxkAhtMnJr3XT1WyqVb7_14(Lcom/android/server/am/OomAdjProfiler;ZZZ)V
     .locals 0
 
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/am/OomAdjProfiler;->updateSystemServerCpuTime(ZZZ)V
+    invoke-virtual {p0, p1, p2, p3}, Lcom/android/server/am/OomAdjProfiler;->updateSystemServerCpuTime(ZZZ)V
 
     return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmOnBattery(Lcom/android/server/am/OomAdjProfiler;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/server/am/OomAdjProfiler;->mOnBattery:Z
+
+    return p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmScreenOff(Lcom/android/server/am/OomAdjProfiler;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/server/am/OomAdjProfiler;->mScreenOff:Z
+
+    return p0
 .end method
 
 .method public constructor <init>()V
     .locals 3
 
+    const-class v0, Lcom/android/server/am/OomAdjProfiler$CpuTimes;
+
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v0, Lcom/android/server/am/OomAdjProfiler$CpuTimes;
-
-    const/4 v1, 0x0
-
-    invoke-direct {v0, p0, v1}, Lcom/android/server/am/OomAdjProfiler$CpuTimes;-><init>(Lcom/android/server/am/OomAdjProfiler;Lcom/android/server/am/OomAdjProfiler$1;)V
-
-    iput-object v0, p0, Lcom/android/server/am/OomAdjProfiler;->mOomAdjRunTime:Lcom/android/server/am/OomAdjProfiler$CpuTimes;
-
-    new-instance v0, Lcom/android/server/am/OomAdjProfiler$CpuTimes;
-
-    invoke-direct {v0, p0, v1}, Lcom/android/server/am/OomAdjProfiler$CpuTimes;-><init>(Lcom/android/server/am/OomAdjProfiler;Lcom/android/server/am/OomAdjProfiler$1;)V
-
-    iput-object v0, p0, Lcom/android/server/am/OomAdjProfiler;->mSystemServerCpuTime:Lcom/android/server/am/OomAdjProfiler$CpuTimes;
-
-    new-instance v0, Lcom/android/internal/os/ProcessCpuTracker;
-
-    const/4 v1, 0x0
-
-    invoke-direct {v0, v1}, Lcom/android/internal/os/ProcessCpuTracker;-><init>(Z)V
-
-    iput-object v0, p0, Lcom/android/server/am/OomAdjProfiler;->mProcessCpuTracker:Lcom/android/internal/os/ProcessCpuTracker;
-
-    new-instance v0, Lcom/android/internal/util/RingBuffer;
-
-    const-class v1, Lcom/android/server/am/OomAdjProfiler$CpuTimes;
-
-    const/16 v2, 0xa
-
-    invoke-direct {v0, v1, v2}, Lcom/android/internal/util/RingBuffer;-><init>(Ljava/lang/Class;I)V
-
-    iput-object v0, p0, Lcom/android/server/am/OomAdjProfiler;->mOomAdjRunTimesHist:Lcom/android/internal/util/RingBuffer;
-
-    new-instance v0, Lcom/android/internal/util/RingBuffer;
-
-    const-class v1, Lcom/android/server/am/OomAdjProfiler$CpuTimes;
-
-    invoke-direct {v0, v1, v2}, Lcom/android/internal/util/RingBuffer;-><init>(Ljava/lang/Class;I)V
-
-    iput-object v0, p0, Lcom/android/server/am/OomAdjProfiler;->mSystemServerCpuTimesHist:Lcom/android/internal/util/RingBuffer;
-
-    return-void
-.end method
-
-.method static synthetic access$100(Lcom/android/server/am/OomAdjProfiler;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/server/am/OomAdjProfiler;->mOnBattery:Z
-
-    return v0
-.end method
-
-.method static synthetic access$200(Lcom/android/server/am/OomAdjProfiler;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/server/am/OomAdjProfiler;->mScreenOff:Z
-
-    return v0
-.end method
-
-.method private scheduleSystemServerCpuTimeUpdate()V
-    .locals 4
-
-    monitor-enter p0
-
-    :try_start_0
-    iget-boolean v0, p0, Lcom/android/server/am/OomAdjProfiler;->mSystemServerCpuTimeUpdateScheduled:Z
-
-    if-eqz v0, :cond_0
-
-    monitor-exit p0
-
-    return-void
-
-    :cond_0
-    iget-boolean v0, p0, Lcom/android/server/am/OomAdjProfiler;->mOnBattery:Z
-
-    iput-boolean v0, p0, Lcom/android/server/am/OomAdjProfiler;->mLastScheduledOnBattery:Z
-
-    iget-boolean v0, p0, Lcom/android/server/am/OomAdjProfiler;->mScreenOff:Z
-
-    iput-boolean v0, p0, Lcom/android/server/am/OomAdjProfiler;->mLastScheduledScreenOff:Z
-
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/android/server/am/OomAdjProfiler;->mSystemServerCpuTimeUpdateScheduled:Z
-
-    sget-object v1, Lcom/android/server/am/OomAdjProfiler$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/server/am/OomAdjProfiler$$ExternalSyntheticLambda0;
-
-    iget-boolean v2, p0, Lcom/android/server/am/OomAdjProfiler;->mLastScheduledOnBattery:Z
-
-    invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v2
-
-    iget-boolean v3, p0, Lcom/android/server/am/OomAdjProfiler;->mLastScheduledScreenOff:Z
-
-    invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v3
-
-    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v0
-
-    invoke-static {v1, p0, v2, v3, v0}, Lcom/android/internal/util/function/pooled/PooledLambda;->obtainMessage(Lcom/android/internal/util/function/QuadConsumer;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Landroid/os/Message;
-
-    move-result-object v0
-
-    const/16 v1, 0x2a
-
-    invoke-virtual {v0, v1}, Landroid/os/Message;->setWhat(I)Landroid/os/Message;
-
-    invoke-static {}, Lcom/android/internal/os/BackgroundThread;->getHandler()Landroid/os/Handler;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
-
-    nop
-
-    monitor-exit p0
-
-    return-void
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v0
-.end method
-
-.method private updateSystemServerCpuTime(ZZZ)V
-    .locals 5
-
-    iget-object v0, p0, Lcom/android/server/am/OomAdjProfiler;->mProcessCpuTracker:Lcom/android/internal/os/ProcessCpuTracker;
-
-    invoke-static {}, Landroid/os/Process;->myPid()I
-
-    move-result v1
-
-    invoke-virtual {v0, v1}, Lcom/android/internal/os/ProcessCpuTracker;->getCpuTimeForPid(I)J
-
-    move-result-wide v0
-
-    monitor-enter p0
-
-    if-eqz p3, :cond_0
-
-    :try_start_0
-    iget-boolean v2, p0, Lcom/android/server/am/OomAdjProfiler;->mSystemServerCpuTimeUpdateScheduled:Z
-
-    if-nez v2, :cond_0
-
-    monitor-exit p0
-
-    return-void
-
-    :cond_0
-    iget-object v2, p0, Lcom/android/server/am/OomAdjProfiler;->mSystemServerCpuTime:Lcom/android/server/am/OomAdjProfiler$CpuTimes;
-
-    iget-wide v3, p0, Lcom/android/server/am/OomAdjProfiler;->mLastSystemServerCpuTimeMs:J
-
-    sub-long v3, v0, v3
-
-    invoke-virtual {v2, v3, v4, p1, p2}, Lcom/android/server/am/OomAdjProfiler$CpuTimes;->addCpuTimeMs(JZZ)V
-
-    iput-wide v0, p0, Lcom/android/server/am/OomAdjProfiler;->mLastSystemServerCpuTimeMs:J
+    new-instance v1, Lcom/android/server/am/OomAdjProfiler$CpuTimes;
 
     const/4 v2, 0x0
 
-    iput-boolean v2, p0, Lcom/android/server/am/OomAdjProfiler;->mSystemServerCpuTimeUpdateScheduled:Z
+    invoke-direct {v1, p0, v2}, Lcom/android/server/am/OomAdjProfiler$CpuTimes;-><init>(Lcom/android/server/am/OomAdjProfiler;Lcom/android/server/am/OomAdjProfiler$CpuTimes-IA;)V
 
-    monitor-exit p0
+    iput-object v1, p0, Lcom/android/server/am/OomAdjProfiler;->mOomAdjRunTime:Lcom/android/server/am/OomAdjProfiler$CpuTimes;
+
+    new-instance v1, Lcom/android/server/am/OomAdjProfiler$CpuTimes;
+
+    invoke-direct {v1, p0, v2}, Lcom/android/server/am/OomAdjProfiler$CpuTimes;-><init>(Lcom/android/server/am/OomAdjProfiler;Lcom/android/server/am/OomAdjProfiler$CpuTimes-IA;)V
+
+    iput-object v1, p0, Lcom/android/server/am/OomAdjProfiler;->mSystemServerCpuTime:Lcom/android/server/am/OomAdjProfiler$CpuTimes;
+
+    new-instance v1, Lcom/android/internal/os/ProcessCpuTracker;
+
+    const/4 v2, 0x0
+
+    invoke-direct {v1, v2}, Lcom/android/internal/os/ProcessCpuTracker;-><init>(Z)V
+
+    iput-object v1, p0, Lcom/android/server/am/OomAdjProfiler;->mProcessCpuTracker:Lcom/android/internal/os/ProcessCpuTracker;
+
+    new-instance v1, Lcom/android/internal/util/RingBuffer;
+
+    const/16 v2, 0xa
+
+    invoke-direct {v1, v0, v2}, Lcom/android/internal/util/RingBuffer;-><init>(Ljava/lang/Class;I)V
+
+    iput-object v1, p0, Lcom/android/server/am/OomAdjProfiler;->mOomAdjRunTimesHist:Lcom/android/internal/util/RingBuffer;
+
+    new-instance v1, Lcom/android/internal/util/RingBuffer;
+
+    invoke-direct {v1, v0, v2}, Lcom/android/internal/util/RingBuffer;-><init>(Ljava/lang/Class;I)V
+
+    iput-object v1, p0, Lcom/android/server/am/OomAdjProfiler;->mSystemServerCpuTimesHist:Lcom/android/internal/util/RingBuffer;
 
     return-void
-
-    :catchall_0
-    move-exception v2
-
-    monitor-exit p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v2
 .end method
 
 
 # virtual methods
-.method batteryPowerChanged(Z)V
-    .locals 1
+.method public batteryPowerChanged(Z)V
+    .locals 0
 
     monitor-enter p0
 
     :try_start_0
-    invoke-direct {p0}, Lcom/android/server/am/OomAdjProfiler;->scheduleSystemServerCpuTimeUpdate()V
+    invoke-virtual {p0}, Lcom/android/server/am/OomAdjProfiler;->scheduleSystemServerCpuTimeUpdate()V
 
     iput-boolean p1, p0, Lcom/android/server/am/OomAdjProfiler;->mOnBattery:Z
 
@@ -283,17 +231,17 @@
     return-void
 
     :catchall_0
-    move-exception v0
+    move-exception p1
 
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw p1
 .end method
 
-.method dump(Ljava/io/PrintWriter;)V
-    .locals 6
+.method public dump(Ljava/io/PrintWriter;)V
+    .locals 4
 
     monitor-enter p0
 
@@ -316,7 +264,7 @@
 
     iget-boolean v2, p0, Lcom/android/server/am/OomAdjProfiler;->mLastScheduledScreenOff:Z
 
-    invoke-direct {p0, v0, v2, v1}, Lcom/android/server/am/OomAdjProfiler;->updateSystemServerCpuTime(ZZZ)V
+    invoke-virtual {p0, v0, v2, v1}, Lcom/android/server/am/OomAdjProfiler;->updateSystemServerCpuTime(ZZZ)V
 
     goto :goto_0
 
@@ -325,7 +273,7 @@
 
     iget-boolean v2, p0, Lcom/android/server/am/OomAdjProfiler;->mScreenOff:Z
 
-    invoke-direct {p0, v0, v2, v1}, Lcom/android/server/am/OomAdjProfiler;->updateSystemServerCpuTime(ZZZ)V
+    invoke-virtual {p0, v0, v2, v1}, Lcom/android/server/am/OomAdjProfiler;->updateSystemServerCpuTime(ZZZ)V
 
     :goto_0
     const-string v0, "System server and oomAdj runtimes (ms) in recent battery sessions (most recent first):"
@@ -417,43 +365,43 @@
     goto :goto_1
 
     :cond_2
+    iget v0, p0, Lcom/android/server/am/OomAdjProfiler;->mTotalOomAdjCalls:I
+
+    if-eqz v0, :cond_3
+
+    const-string v0, "System server total oomAdj runtimes (us) since boot:"
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const-string v0, "  cpu time spent="
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget-wide v0, p0, Lcom/android/server/am/OomAdjProfiler;->mTotalOomAdjRunTimeUs:J
+
+    invoke-virtual {p1, v0, v1}, Ljava/io/PrintWriter;->print(J)V
+
+    const-string v0, "  number of calls="
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget v0, p0, Lcom/android/server/am/OomAdjProfiler;->mTotalOomAdjCalls:I
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(I)V
+
+    const-string v0, "  average="
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget-wide v0, p0, Lcom/android/server/am/OomAdjProfiler;->mTotalOomAdjRunTimeUs:J
+
     iget v2, p0, Lcom/android/server/am/OomAdjProfiler;->mTotalOomAdjCalls:I
 
-    if-eqz v2, :cond_3
+    int-to-long v2, v2
 
-    const-string v2, "System server total oomAdj runtimes (us) since boot:"
+    div-long/2addr v0, v2
 
-    invoke-virtual {p1, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    const-string v2, "  cpu time spent="
-
-    invoke-virtual {p1, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    iget-wide v2, p0, Lcom/android/server/am/OomAdjProfiler;->mTotalOomAdjRunTimeUs:J
-
-    invoke-virtual {p1, v2, v3}, Ljava/io/PrintWriter;->print(J)V
-
-    const-string v2, "  number of calls="
-
-    invoke-virtual {p1, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    iget v2, p0, Lcom/android/server/am/OomAdjProfiler;->mTotalOomAdjCalls:I
-
-    invoke-virtual {p1, v2}, Ljava/io/PrintWriter;->print(I)V
-
-    const-string v2, "  average="
-
-    invoke-virtual {p1, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    iget-wide v2, p0, Lcom/android/server/am/OomAdjProfiler;->mTotalOomAdjRunTimeUs:J
-
-    iget v4, p0, Lcom/android/server/am/OomAdjProfiler;->mTotalOomAdjCalls:I
-
-    int-to-long v4, v4
-
-    div-long/2addr v2, v4
-
-    invoke-virtual {p1, v2, v3}, Ljava/io/PrintWriter;->println(J)V
+    invoke-virtual {p1, v0, v1}, Ljava/io/PrintWriter;->println(J)V
 
     :cond_3
     monitor-exit p0
@@ -461,22 +409,22 @@
     return-void
 
     :catchall_0
-    move-exception v0
+    move-exception p1
 
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw p1
 .end method
 
-.method onWakefulnessChanged(I)V
+.method public onWakefulnessChanged(I)V
     .locals 1
 
     monitor-enter p0
 
     :try_start_0
-    invoke-direct {p0}, Lcom/android/server/am/OomAdjProfiler;->scheduleSystemServerCpuTimeUpdate()V
+    invoke-virtual {p0}, Lcom/android/server/am/OomAdjProfiler;->scheduleSystemServerCpuTimeUpdate()V
 
     const/4 v0, 0x1
 
@@ -495,16 +443,16 @@
     return-void
 
     :catchall_0
-    move-exception v0
+    move-exception p1
 
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw p1
 .end method
 
-.method oomAdjEnded()V
+.method public oomAdjEnded()V
     .locals 4
 
     monitor-enter p0
@@ -537,11 +485,11 @@
 
     iput-wide v2, p0, Lcom/android/server/am/OomAdjProfiler;->mTotalOomAdjRunTimeUs:J
 
-    iget v2, p0, Lcom/android/server/am/OomAdjProfiler;->mTotalOomAdjCalls:I
+    iget v0, p0, Lcom/android/server/am/OomAdjProfiler;->mTotalOomAdjCalls:I
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    iput v2, p0, Lcom/android/server/am/OomAdjProfiler;->mTotalOomAdjCalls:I
+    iput v0, p0, Lcom/android/server/am/OomAdjProfiler;->mTotalOomAdjCalls:I
 
     monitor-exit p0
 
@@ -557,7 +505,7 @@
     throw v0
 .end method
 
-.method oomAdjStarted()V
+.method public oomAdjStarted()V
     .locals 2
 
     monitor-enter p0
@@ -587,7 +535,7 @@
     throw v0
 .end method
 
-.method reset()V
+.method public reset()V
     .locals 2
 
     monitor-enter p0
@@ -622,13 +570,13 @@
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, p0, v1}, Lcom/android/server/am/OomAdjProfiler$CpuTimes;-><init>(Lcom/android/server/am/OomAdjProfiler;Lcom/android/server/am/OomAdjProfiler$1;)V
+    invoke-direct {v0, p0, v1}, Lcom/android/server/am/OomAdjProfiler$CpuTimes;-><init>(Lcom/android/server/am/OomAdjProfiler;Lcom/android/server/am/OomAdjProfiler$CpuTimes-IA;)V
 
     iput-object v0, p0, Lcom/android/server/am/OomAdjProfiler;->mOomAdjRunTime:Lcom/android/server/am/OomAdjProfiler$CpuTimes;
 
     new-instance v0, Lcom/android/server/am/OomAdjProfiler$CpuTimes;
 
-    invoke-direct {v0, p0, v1}, Lcom/android/server/am/OomAdjProfiler$CpuTimes;-><init>(Lcom/android/server/am/OomAdjProfiler;Lcom/android/server/am/OomAdjProfiler$1;)V
+    invoke-direct {v0, p0, v1}, Lcom/android/server/am/OomAdjProfiler$CpuTimes;-><init>(Lcom/android/server/am/OomAdjProfiler;Lcom/android/server/am/OomAdjProfiler$CpuTimes-IA;)V
 
     iput-object v0, p0, Lcom/android/server/am/OomAdjProfiler;->mSystemServerCpuTime:Lcom/android/server/am/OomAdjProfiler$CpuTimes;
 
@@ -644,4 +592,132 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
+.end method
+
+.method public final scheduleSystemServerCpuTimeUpdate()V
+    .locals 4
+
+    monitor-enter p0
+
+    :try_start_0
+    iget-boolean v0, p0, Lcom/android/server/am/OomAdjProfiler;->mSystemServerCpuTimeUpdateScheduled:Z
+
+    if-eqz v0, :cond_0
+
+    monitor-exit p0
+
+    return-void
+
+    :cond_0
+    iget-boolean v0, p0, Lcom/android/server/am/OomAdjProfiler;->mOnBattery:Z
+
+    iput-boolean v0, p0, Lcom/android/server/am/OomAdjProfiler;->mLastScheduledOnBattery:Z
+
+    iget-boolean v0, p0, Lcom/android/server/am/OomAdjProfiler;->mScreenOff:Z
+
+    iput-boolean v0, p0, Lcom/android/server/am/OomAdjProfiler;->mLastScheduledScreenOff:Z
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/server/am/OomAdjProfiler;->mSystemServerCpuTimeUpdateScheduled:Z
+
+    new-instance v0, Lcom/android/server/am/OomAdjProfiler$$ExternalSyntheticLambda0;
+
+    invoke-direct {v0}, Lcom/android/server/am/OomAdjProfiler$$ExternalSyntheticLambda0;-><init>()V
+
+    iget-boolean v1, p0, Lcom/android/server/am/OomAdjProfiler;->mLastScheduledOnBattery:Z
+
+    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v1
+
+    iget-boolean v2, p0, Lcom/android/server/am/OomAdjProfiler;->mLastScheduledScreenOff:Z
+
+    invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v2
+
+    sget-object v3, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
+
+    invoke-static {v0, p0, v1, v2, v3}, Lcom/android/internal/util/function/pooled/PooledLambda;->obtainMessage(Lcom/android/internal/util/function/QuadConsumer;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Landroid/os/Message;
+
+    move-result-object v0
+
+    const/16 v1, 0x2a
+
+    invoke-virtual {v0, v1}, Landroid/os/Message;->setWhat(I)Landroid/os/Message;
+
+    invoke-static {}, Lcom/android/internal/os/BackgroundThread;->getHandler()Landroid/os/Handler;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
+
+    monitor-exit p0
+
+    return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit p0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw v0
+.end method
+
+.method public final updateSystemServerCpuTime(ZZZ)V
+    .locals 4
+
+    iget-object v0, p0, Lcom/android/server/am/OomAdjProfiler;->mProcessCpuTracker:Lcom/android/internal/os/ProcessCpuTracker;
+
+    invoke-static {}, Landroid/os/Process;->myPid()I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Lcom/android/internal/os/ProcessCpuTracker;->getCpuTimeForPid(I)J
+
+    move-result-wide v0
+
+    monitor-enter p0
+
+    if-eqz p3, :cond_0
+
+    :try_start_0
+    iget-boolean p3, p0, Lcom/android/server/am/OomAdjProfiler;->mSystemServerCpuTimeUpdateScheduled:Z
+
+    if-nez p3, :cond_0
+
+    monitor-exit p0
+
+    return-void
+
+    :cond_0
+    iget-object p3, p0, Lcom/android/server/am/OomAdjProfiler;->mSystemServerCpuTime:Lcom/android/server/am/OomAdjProfiler$CpuTimes;
+
+    iget-wide v2, p0, Lcom/android/server/am/OomAdjProfiler;->mLastSystemServerCpuTimeMs:J
+
+    sub-long v2, v0, v2
+
+    invoke-virtual {p3, v2, v3, p1, p2}, Lcom/android/server/am/OomAdjProfiler$CpuTimes;->addCpuTimeMs(JZZ)V
+
+    iput-wide v0, p0, Lcom/android/server/am/OomAdjProfiler;->mLastSystemServerCpuTimeMs:J
+
+    const/4 p1, 0x0
+
+    iput-boolean p1, p0, Lcom/android/server/am/OomAdjProfiler;->mSystemServerCpuTimeUpdateScheduled:Z
+
+    monitor-exit p0
+
+    return-void
+
+    :catchall_0
+    move-exception p1
+
+    monitor-exit p0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw p1
 .end method

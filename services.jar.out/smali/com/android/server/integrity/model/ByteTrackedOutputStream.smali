@@ -4,9 +4,9 @@
 
 
 # instance fields
-.field private final mOutputStream:Ljava/io/OutputStream;
+.field public final mOutputStream:Ljava/io/OutputStream;
 
-.field private mWrittenBytesCount:I
+.field public mWrittenBytesCount:I
 
 
 # direct methods
@@ -27,11 +27,11 @@
 
 # virtual methods
 .method public getWrittenBytesCount()I
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/integrity/model/ByteTrackedOutputStream;->mWrittenBytesCount:I
+    iget p0, p0, Lcom/android/server/integrity/model/ByteTrackedOutputStream;->mWrittenBytesCount:I
 
-    return v0
+    return p0
 .end method
 
 .method public write(I)V
@@ -48,9 +48,9 @@
 
     iput v0, p0, Lcom/android/server/integrity/model/ByteTrackedOutputStream;->mWrittenBytesCount:I
 
-    iget-object v0, p0, Lcom/android/server/integrity/model/ByteTrackedOutputStream;->mOutputStream:Ljava/io/OutputStream;
+    iget-object p0, p0, Lcom/android/server/integrity/model/ByteTrackedOutputStream;->mOutputStream:Ljava/io/OutputStream;
 
-    invoke-virtual {v0, p1}, Ljava/io/OutputStream;->write(I)V
+    invoke-virtual {p0, p1}, Ljava/io/OutputStream;->write(I)V
 
     return-void
 .end method
@@ -86,9 +86,9 @@
 
     iput v0, p0, Lcom/android/server/integrity/model/ByteTrackedOutputStream;->mWrittenBytesCount:I
 
-    iget-object v0, p0, Lcom/android/server/integrity/model/ByteTrackedOutputStream;->mOutputStream:Ljava/io/OutputStream;
+    iget-object p0, p0, Lcom/android/server/integrity/model/ByteTrackedOutputStream;->mOutputStream:Ljava/io/OutputStream;
 
-    invoke-virtual {v0, p1, p2, p3}, Ljava/io/OutputStream;->write([BII)V
+    invoke-virtual {p0, p1, p2, p3}, Ljava/io/OutputStream;->write([BII)V
 
     return-void
 .end method

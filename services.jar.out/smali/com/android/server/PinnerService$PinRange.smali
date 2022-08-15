@@ -1,4 +1,4 @@
-.class final Lcom/android/server/PinnerService$PinRange;
+.class public final Lcom/android/server/PinnerService$PinRange;
 .super Ljava/lang/Object;
 .source "PinnerService.java"
 
@@ -9,19 +9,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = "PinRange"
 .end annotation
 
 
 # instance fields
-.field length:I
+.field public length:I
 
-.field start:I
+.field public start:I
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

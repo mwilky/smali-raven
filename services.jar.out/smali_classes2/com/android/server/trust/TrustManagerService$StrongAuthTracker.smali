@@ -1,4 +1,4 @@
-.class Lcom/android/server/trust/TrustManagerService$StrongAuthTracker;
+.class public Lcom/android/server/trust/TrustManagerService$StrongAuthTracker;
 .super Lcom/android/internal/widget/LockPatternUtils$StrongAuthTracker;
 .source "TrustManagerService.java"
 
@@ -9,15 +9,15 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "StrongAuthTracker"
 .end annotation
 
 
 # instance fields
-.field mStartFromSuccessfulUnlock:Landroid/util/SparseBooleanArray;
+.field public mStartFromSuccessfulUnlock:Landroid/util/SparseBooleanArray;
 
-.field final synthetic this$0:Lcom/android/server/trust/TrustManagerService;
+.field public final synthetic this$0:Lcom/android/server/trust/TrustManagerService;
 
 
 # direct methods
@@ -39,7 +39,7 @@
 
 
 # virtual methods
-.method allowTrustFromUnlock(I)V
+.method public allowTrustFromUnlock(I)V
     .locals 3
 
     if-ltz p1, :cond_2
@@ -72,7 +72,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0, p1}, Lcom/android/server/trust/TrustManagerService$StrongAuthTracker;->isTrustAllowedForUser(I)Z
+    invoke-virtual {p0, p1}, Lcom/android/internal/widget/LockPatternUtils$StrongAuthTracker;->isTrustAllowedForUser(I)Z
 
     move-result v2
 
@@ -103,36 +103,36 @@
 
     if-eq v1, v0, :cond_1
 
-    iget-object v1, p0, Lcom/android/server/trust/TrustManagerService$StrongAuthTracker;->this$0:Lcom/android/server/trust/TrustManagerService;
+    iget-object p0, p0, Lcom/android/server/trust/TrustManagerService$StrongAuthTracker;->this$0:Lcom/android/server/trust/TrustManagerService;
 
-    invoke-virtual {v1, p1}, Lcom/android/server/trust/TrustManagerService;->refreshAgentList(I)V
+    invoke-virtual {p0, p1}, Lcom/android/server/trust/TrustManagerService;->refreshAgentList(I)V
 
     :cond_1
     return-void
 
     :cond_2
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "userId must be a valid user: "
+    const-string v1, "userId must be a valid user: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
-.method canAgentsRunForUser(I)Z
+.method public canAgentsRunForUser(I)Z
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/trust/TrustManagerService$StrongAuthTracker;->mStartFromSuccessfulUnlock:Landroid/util/SparseBooleanArray;
@@ -145,27 +145,54 @@
 
     invoke-super {p0, p1}, Lcom/android/internal/widget/LockPatternUtils$StrongAuthTracker;->isTrustAllowedForUser(I)Z
 
-    move-result v0
+    move-result p0
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     goto :goto_1
 
     :cond_1
     :goto_0
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     :goto_1
-    return v0
+    return p0
+.end method
+
+.method public final cancelPendingAlarm(Lcom/android/server/trust/TrustManagerService$TrustTimeoutAlarmListener;)V
+    .locals 1
+
+    if-eqz p1, :cond_0
+
+    invoke-virtual {p1}, Lcom/android/server/trust/TrustManagerService$TrustTimeoutAlarmListener;->isQueued()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p1, v0}, Lcom/android/server/trust/TrustManagerService$TrustTimeoutAlarmListener;->setQueued(Z)V
+
+    iget-object p0, p0, Lcom/android/server/trust/TrustManagerService$StrongAuthTracker;->this$0:Lcom/android/server/trust/TrustManagerService;
+
+    invoke-static {p0}, Lcom/android/server/trust/TrustManagerService;->-$$Nest$fgetmAlarmManager(Lcom/android/server/trust/TrustManagerService;)Landroid/app/AlarmManager;
+
+    move-result-object p0
+
+    invoke-virtual {p0, p1}, Landroid/app/AlarmManager;->cancel(Landroid/app/AlarmManager$OnAlarmListener;)V
+
+    :cond_0
+    return-void
 .end method
 
 .method public onStrongAuthRequiredChanged(I)V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/trust/TrustManagerService$StrongAuthTracker;->mStartFromSuccessfulUnlock:Landroid/util/SparseBooleanArray;
 
@@ -189,7 +216,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0, p1}, Lcom/android/server/trust/TrustManagerService$StrongAuthTracker;->isTrustAllowedForUser(I)Z
+    invoke-virtual {p0, p1}, Lcom/android/internal/widget/LockPatternUtils$StrongAuthTracker;->isTrustAllowedForUser(I)Z
 
     move-result v1
 
@@ -214,56 +241,68 @@
     invoke-static {v1, v0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    invoke-virtual {p0, p1}, Lcom/android/server/trust/TrustManagerService$StrongAuthTracker;->isTrustAllowedForUser(I)Z
+    invoke-virtual {p0, p1}, Lcom/android/internal/widget/LockPatternUtils$StrongAuthTracker;->isTrustAllowedForUser(I)Z
 
     move-result v0
-
-    const/4 v1, 0x0
 
     if-nez v0, :cond_1
 
     iget-object v0, p0, Lcom/android/server/trust/TrustManagerService$StrongAuthTracker;->this$0:Lcom/android/server/trust/TrustManagerService;
 
-    invoke-static {v0}, Lcom/android/server/trust/TrustManagerService;->access$3100(Lcom/android/server/trust/TrustManagerService;)Landroid/util/ArrayMap;
+    invoke-static {v0}, Lcom/android/server/trust/TrustManagerService;->-$$Nest$fgetmTrustTimeoutAlarmListenerForUser(Lcom/android/server/trust/TrustManagerService;)Landroid/util/ArrayMap;
 
     move-result-object v0
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v0, v2}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, v1}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Lcom/android/server/trust/TrustManagerService$TrustTimeoutAlarmListener;
 
-    if-eqz v0, :cond_1
+    invoke-virtual {p0, v0}, Lcom/android/server/trust/TrustManagerService$StrongAuthTracker;->cancelPendingAlarm(Lcom/android/server/trust/TrustManagerService$TrustTimeoutAlarmListener;)V
 
-    invoke-virtual {v0}, Lcom/android/server/trust/TrustManagerService$TrustTimeoutAlarmListener;->isQueued()Z
+    iget-object v0, p0, Lcom/android/server/trust/TrustManagerService$StrongAuthTracker;->this$0:Lcom/android/server/trust/TrustManagerService;
 
-    move-result v2
+    invoke-static {v0}, Lcom/android/server/trust/TrustManagerService;->-$$Nest$fgetmTrustableTimeoutAlarmListenerForUser(Lcom/android/server/trust/TrustManagerService;)Landroid/util/SparseArray;
 
-    if-eqz v2, :cond_1
+    move-result-object v0
 
-    invoke-virtual {v0, v1}, Lcom/android/server/trust/TrustManagerService$TrustTimeoutAlarmListener;->setQueued(Z)V
+    invoke-virtual {v0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
-    iget-object v2, p0, Lcom/android/server/trust/TrustManagerService$StrongAuthTracker;->this$0:Lcom/android/server/trust/TrustManagerService;
+    move-result-object v0
 
-    invoke-static {v2}, Lcom/android/server/trust/TrustManagerService;->access$3200(Lcom/android/server/trust/TrustManagerService;)Landroid/app/AlarmManager;
+    check-cast v0, Lcom/android/server/trust/TrustManagerService$TrustTimeoutAlarmListener;
 
-    move-result-object v2
+    invoke-virtual {p0, v0}, Lcom/android/server/trust/TrustManagerService$StrongAuthTracker;->cancelPendingAlarm(Lcom/android/server/trust/TrustManagerService$TrustTimeoutAlarmListener;)V
 
-    invoke-virtual {v2, v0}, Landroid/app/AlarmManager;->cancel(Landroid/app/AlarmManager$OnAlarmListener;)V
+    iget-object v0, p0, Lcom/android/server/trust/TrustManagerService$StrongAuthTracker;->this$0:Lcom/android/server/trust/TrustManagerService;
+
+    invoke-static {v0}, Lcom/android/server/trust/TrustManagerService;->-$$Nest$fgetmIdleTrustableTimeoutAlarmListenerForUser(Lcom/android/server/trust/TrustManagerService;)Landroid/util/SparseArray;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/server/trust/TrustManagerService$TrustTimeoutAlarmListener;
+
+    invoke-virtual {p0, v0}, Lcom/android/server/trust/TrustManagerService$StrongAuthTracker;->cancelPendingAlarm(Lcom/android/server/trust/TrustManagerService$TrustTimeoutAlarmListener;)V
 
     :cond_1
     iget-object v0, p0, Lcom/android/server/trust/TrustManagerService$StrongAuthTracker;->this$0:Lcom/android/server/trust/TrustManagerService;
 
     invoke-virtual {v0, p1}, Lcom/android/server/trust/TrustManagerService;->refreshAgentList(I)V
 
-    iget-object v0, p0, Lcom/android/server/trust/TrustManagerService$StrongAuthTracker;->this$0:Lcom/android/server/trust/TrustManagerService;
+    iget-object p0, p0, Lcom/android/server/trust/TrustManagerService$StrongAuthTracker;->this$0:Lcom/android/server/trust/TrustManagerService;
 
-    invoke-virtual {v0, p1, v1}, Lcom/android/server/trust/TrustManagerService;->updateTrust(II)V
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, p1, v0}, Lcom/android/server/trust/TrustManagerService;->updateTrust(II)V
 
     return-void
 .end method

@@ -1,4 +1,4 @@
-.class final Lcom/android/server/wm/DisplayContent$ApplySurfaceChangesTransactionState;
+.class public final Lcom/android/server/wm/DisplayContent$ApplySurfaceChangesTransactionState;
 .super Ljava/lang/Object;
 .source "DisplayContent.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "ApplySurfaceChangesTransactionState"
 .end annotation
 
@@ -33,7 +33,7 @@
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/wm/DisplayContent$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/wm/DisplayContent$ApplySurfaceChangesTransactionState-IA;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/wm/DisplayContent$ApplySurfaceChangesTransactionState;-><init>()V
@@ -51,7 +51,7 @@
 
 
 # virtual methods
-.method reset()V
+.method public reset()V
     .locals 2
 
     const/4 v0, 0x0

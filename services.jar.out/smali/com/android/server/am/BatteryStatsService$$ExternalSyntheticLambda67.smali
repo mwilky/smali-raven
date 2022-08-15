@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda67;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -8,42 +9,26 @@
 # instance fields
 .field public final synthetic f$0:Lcom/android/server/am/BatteryStatsService;
 
-.field public final synthetic f$1:Landroid/os/WorkSource;
+.field public final synthetic f$1:I
 
-.field public final synthetic f$2:I
+.field public final synthetic f$2:J
 
-.field public final synthetic f$3:Ljava/lang/String;
-
-.field public final synthetic f$4:Ljava/lang/String;
-
-.field public final synthetic f$5:I
-
-.field public final synthetic f$6:J
-
-.field public final synthetic f$7:J
+.field public final synthetic f$3:J
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/am/BatteryStatsService;Landroid/os/WorkSource;ILjava/lang/String;Ljava/lang/String;IJJ)V
+.method public synthetic constructor <init>(Lcom/android/server/am/BatteryStatsService;IJJ)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda67;->f$0:Lcom/android/server/am/BatteryStatsService;
 
-    iput-object p2, p0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda67;->f$1:Landroid/os/WorkSource;
+    iput p2, p0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda67;->f$1:I
 
-    iput p3, p0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda67;->f$2:I
+    iput-wide p3, p0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda67;->f$2:J
 
-    iput-object p4, p0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda67;->f$3:Ljava/lang/String;
-
-    iput-object p5, p0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda67;->f$4:Ljava/lang/String;
-
-    iput p6, p0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda67;->f$5:I
-
-    iput-wide p7, p0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda67;->f$6:J
-
-    iput-wide p9, p0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda67;->f$7:J
+    iput-wide p5, p0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda67;->f$3:J
 
     return-void
 .end method
@@ -51,25 +36,17 @@
 
 # virtual methods
 .method public final run()V
-    .locals 10
+    .locals 6
 
     iget-object v0, p0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda67;->f$0:Lcom/android/server/am/BatteryStatsService;
 
-    iget-object v1, p0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda67;->f$1:Landroid/os/WorkSource;
+    iget v1, p0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda67;->f$1:I
 
-    iget v2, p0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda67;->f$2:I
+    iget-wide v2, p0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda67;->f$2:J
 
-    iget-object v3, p0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda67;->f$3:Ljava/lang/String;
+    iget-wide v4, p0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda67;->f$3:J
 
-    iget-object v4, p0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda67;->f$4:Ljava/lang/String;
-
-    iget v5, p0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda67;->f$5:I
-
-    iget-wide v6, p0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda67;->f$6:J
-
-    iget-wide v8, p0, Lcom/android/server/am/BatteryStatsService$$ExternalSyntheticLambda67;->f$7:J
-
-    invoke-virtual/range {v0 .. v9}, Lcom/android/server/am/BatteryStatsService;->lambda$noteStopWakelockFromSource$26$BatteryStatsService(Landroid/os/WorkSource;ILjava/lang/String;Ljava/lang/String;IJJ)V
+    invoke-static/range {v0 .. v5}, Lcom/android/server/am/BatteryStatsService;->$r8$lambda$CTl0vMvekX497E_CwudZTS-ep4I(Lcom/android/server/am/BatteryStatsService;IJJ)V
 
     return-void
 .end method

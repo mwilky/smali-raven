@@ -1,4 +1,4 @@
-.class Lcom/android/server/usage/AppStandbyController$Pool;
+.class public Lcom/android/server/usage/AppStandbyController$Pool;
 .super Ljava/lang/Object;
 .source "AppStandbyController.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "Pool"
 .end annotation
 
@@ -24,7 +24,7 @@
 
 
 # instance fields
-.field private final mArray:[Ljava/lang/Object;
+.field public final mArray:[Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "[TT;"
@@ -32,11 +32,11 @@
     .end annotation
 .end field
 
-.field private mSize:I
+.field public mSize:I
 
 
 # direct methods
-.method constructor <init>([Ljava/lang/Object;)V
+.method public constructor <init>([Ljava/lang/Object;)V
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -57,7 +57,7 @@
 
 
 # virtual methods
-.method declared-synchronized obtain()Ljava/lang/Object;
+.method public declared-synchronized obtain()Ljava/lang/Object;
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -100,7 +100,7 @@
     throw v0
 .end method
 
-.method declared-synchronized recycle(Ljava/lang/Object;)V
+.method public declared-synchronized recycle(Ljava/lang/Object;)V
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {

@@ -4,15 +4,7 @@
 
 
 # direct methods
-.method public constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-.method private static flipIfNativelyLittle(I)I
+.method public static flipIfNativelyLittle(I)I
     .locals 2
 
     sget-object v0, Ljava/nio/ByteOrder;->LITTLE_ENDIAN:Ljava/nio/ByteOrder;
@@ -25,15 +17,13 @@
 
     invoke-static {p0}, Ljava/lang/Integer;->reverseBytes(I)I
 
-    move-result v0
-
-    return v0
+    move-result p0
 
     :cond_0
     return p0
 .end method
 
-.method private static flipIfNativelyLittle(J)J
+.method public static flipIfNativelyLittle(J)J
     .locals 2
 
     sget-object v0, Ljava/nio/ByteOrder;->LITTLE_ENDIAN:Ljava/nio/ByteOrder;
@@ -46,47 +36,45 @@
 
     invoke-static {p0, p1}, Ljava/lang/Long;->reverseBytes(J)J
 
-    move-result-wide v0
-
-    return-wide v0
+    move-result-wide p0
 
     :cond_0
     return-wide p0
 .end method
 
-.method private static getInt([BI)I
+.method public static getInt([BI)I
     .locals 4
 
     const/4 v0, 0x0
 
-    const/4 v1, 0x0
+    move v1, v0
 
     :goto_0
     const/4 v2, 0x4
 
-    if-ge v1, v2, :cond_0
+    if-ge v0, v2, :cond_0
 
-    add-int v2, v1, p1
+    add-int v2, v0, p1
 
     aget-byte v2, p0, v2
 
     and-int/lit16 v2, v2, 0xff
 
-    mul-int/lit8 v3, v1, 0x8
+    mul-int/lit8 v3, v0, 0x8
 
     shl-int/2addr v2, v3
 
-    add-int/2addr v0, v2
+    add-int/2addr v1, v2
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     :cond_0
-    return v0
+    return v1
 .end method
 
-.method private static getLong([BI)J
+.method public static getLong([BI)J
     .locals 7
 
     const-wide/16 v0, 0x0
@@ -173,21 +161,19 @@
 
     invoke-static {v2, v3, v0, v4}, Lcom/android/server/biometrics/HardwareAuthTokenUtils;->writeLong(J[BI)V
 
-    iget-object v2, p0, Landroid/hardware/keymaster/HardwareAuthToken;->mac:[B
+    iget-object p0, p0, Landroid/hardware/keymaster/HardwareAuthToken;->mac:[B
 
-    iget-object v3, p0, Landroid/hardware/keymaster/HardwareAuthToken;->mac:[B
+    array-length v2, p0
 
-    array-length v3, v3
+    const/16 v3, 0x25
 
-    const/16 v4, 0x25
-
-    invoke-static {v2, v1, v0, v4, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {p0, v1, v0, v3, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     return-object v0
 .end method
 
 .method public static toHardwareAuthToken([B)Landroid/hardware/keymaster/HardwareAuthToken;
-    .locals 6
+    .locals 5
 
     new-instance v0, Landroid/hardware/keymaster/HardwareAuthToken;
 
@@ -247,24 +233,22 @@
 
     iput-object v1, v0, Landroid/hardware/keymaster/HardwareAuthToken;->timestamp:Landroid/hardware/keymaster/Timestamp;
 
-    const/16 v2, 0x20
+    const/16 v1, 0x20
 
-    new-array v3, v2, [B
+    new-array v2, v1, [B
 
-    iput-object v3, v0, Landroid/hardware/keymaster/HardwareAuthToken;->mac:[B
+    iput-object v2, v0, Landroid/hardware/keymaster/HardwareAuthToken;->mac:[B
 
-    iget-object v3, v0, Landroid/hardware/keymaster/HardwareAuthToken;->mac:[B
+    const/16 v3, 0x25
 
-    const/16 v4, 0x25
+    const/4 v4, 0x0
 
-    const/4 v5, 0x0
-
-    invoke-static {p0, v4, v3, v5, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {p0, v3, v2, v4, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     return-object v0
 .end method
 
-.method private static writeInt(I[BI)V
+.method public static writeInt(I[BI)V
     .locals 2
 
     add-int/lit8 v0, p2, 0x0
@@ -289,18 +273,18 @@
 
     aput-byte v1, p1, v0
 
-    add-int/lit8 v0, p2, 0x3
+    add-int/lit8 p2, p2, 0x3
 
-    shr-int/lit8 v1, p0, 0x18
+    shr-int/lit8 p0, p0, 0x18
 
-    int-to-byte v1, v1
+    int-to-byte p0, p0
 
-    aput-byte v1, p1, v0
+    aput-byte p0, p1, p2
 
     return-void
 .end method
 
-.method private static writeLong(J[BI)V
+.method public static writeLong(J[BI)V
     .locals 3
 
     add-int/lit8 v0, p3, 0x0
@@ -383,17 +367,17 @@
 
     aput-byte v1, p2, v0
 
-    add-int/lit8 v0, p3, 0x7
+    add-int/lit8 p3, p3, 0x7
 
-    const/16 v1, 0x38
+    const/16 v0, 0x38
 
-    shr-long v1, p0, v1
+    shr-long/2addr p0, v0
 
-    long-to-int v1, v1
+    long-to-int p0, p0
 
-    int-to-byte v1, v1
+    int-to-byte p0, p0
 
-    aput-byte v1, p2, v0
+    aput-byte p0, p2, p3
 
     return-void
 .end method

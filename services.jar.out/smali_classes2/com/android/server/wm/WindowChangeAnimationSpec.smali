@@ -14,22 +14,18 @@
 .end annotation
 
 
-# static fields
-.field static final ANIMATION_DURATION:I = 0x150
-
-
 # instance fields
-.field private mAnimation:Landroid/view/animation/Animation;
+.field public mAnimation:Landroid/view/animation/Animation;
 
-.field private final mEndBounds:Landroid/graphics/Rect;
+.field public final mEndBounds:Landroid/graphics/Rect;
 
-.field private final mIsAppAnimation:Z
+.field public final mIsAppAnimation:Z
 
-.field private final mIsThumbnail:Z
+.field public final mIsThumbnail:Z
 
-.field private final mStartBounds:Landroid/graphics/Rect;
+.field public final mStartBounds:Landroid/graphics/Rect;
 
-.field private final mThreadLocalTmps:Ljava/lang/ThreadLocal;
+.field public final mThreadLocalTmps:Ljava/lang/ThreadLocal;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/lang/ThreadLocal<",
@@ -39,16 +35,28 @@
     .end annotation
 .end field
 
-.field private final mTmpRect:Landroid/graphics/Rect;
+.field public final mTmpRect:Landroid/graphics/Rect;
 
 
 # direct methods
+.method public static synthetic $r8$lambda$a2PqJWhKykQtaQRSVuuvt30wRmU()Lcom/android/server/wm/WindowChangeAnimationSpec$TmpValues;
+    .locals 1
+
+    invoke-static {}, Lcom/android/server/wm/WindowChangeAnimationSpec;->lambda$new$0()Lcom/android/server/wm/WindowChangeAnimationSpec$TmpValues;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public constructor <init>(Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/view/DisplayInfo;FZZ)V
-    .locals 2
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    sget-object v0, Lcom/android/server/wm/WindowChangeAnimationSpec$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/server/wm/WindowChangeAnimationSpec$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/android/server/wm/WindowChangeAnimationSpec$$ExternalSyntheticLambda0;
+
+    invoke-direct {v0}, Lcom/android/server/wm/WindowChangeAnimationSpec$$ExternalSyntheticLambda0;-><init>()V
 
     invoke-static {v0}, Ljava/lang/ThreadLocal;->withInitial(Ljava/util/function/Supplier;)Ljava/lang/ThreadLocal;
 
@@ -68,329 +76,37 @@
 
     iput-object v0, p0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mStartBounds:Landroid/graphics/Rect;
 
-    new-instance v0, Landroid/graphics/Rect;
+    new-instance p1, Landroid/graphics/Rect;
 
-    invoke-direct {v0, p2}, Landroid/graphics/Rect;-><init>(Landroid/graphics/Rect;)V
+    invoke-direct {p1, p2}, Landroid/graphics/Rect;-><init>(Landroid/graphics/Rect;)V
 
-    iput-object v0, p0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mEndBounds:Landroid/graphics/Rect;
+    iput-object p1, p0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mEndBounds:Landroid/graphics/Rect;
 
     iput-boolean p5, p0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mIsAppAnimation:Z
 
     iput-boolean p6, p0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mIsThumbnail:Z
 
-    const/high16 v0, 0x43a80000    # 336.0f
+    const/high16 p1, 0x43a80000    # 336.0f
 
-    mul-float/2addr v0, p4
+    mul-float/2addr p4, p1
 
-    float-to-int v0, v0
+    float-to-int p1, p4
 
-    int-to-long v0, v0
+    int-to-long p1, p1
 
-    invoke-direct {p0, v0, v1, p3}, Lcom/android/server/wm/WindowChangeAnimationSpec;->createBoundsInterpolator(JLandroid/view/DisplayInfo;)V
+    invoke-virtual {p0, p1, p2, p3}, Lcom/android/server/wm/WindowChangeAnimationSpec;->createBoundsInterpolator(JLandroid/view/DisplayInfo;)V
 
     return-void
 .end method
 
-.method private createBoundsInterpolator(JLandroid/view/DisplayInfo;)V
-    .locals 18
-
-    move-object/from16 v0, p0
-
-    move-wide/from16 v1, p1
-
-    move-object/from16 v3, p3
-
-    iget-object v4, v0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mEndBounds:Landroid/graphics/Rect;
-
-    invoke-virtual {v4}, Landroid/graphics/Rect;->width()I
-
-    move-result v4
-
-    iget-object v5, v0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mStartBounds:Landroid/graphics/Rect;
-
-    invoke-virtual {v5}, Landroid/graphics/Rect;->width()I
-
-    move-result v5
-
-    sub-int/2addr v4, v5
-
-    iget-object v5, v0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mEndBounds:Landroid/graphics/Rect;
-
-    invoke-virtual {v5}, Landroid/graphics/Rect;->height()I
-
-    move-result v5
-
-    add-int/2addr v4, v5
-
-    iget-object v5, v0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mStartBounds:Landroid/graphics/Rect;
-
-    invoke-virtual {v5}, Landroid/graphics/Rect;->height()I
-
-    move-result v5
-
-    sub-int/2addr v4, v5
-
-    const/4 v5, 0x1
-
-    if-ltz v4, :cond_0
-
-    move v4, v5
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v4, 0x0
-
-    :goto_0
-    const v7, 0x3f333333    # 0.7f
-
-    long-to-float v8, v1
-
-    mul-float/2addr v8, v7
-
-    float-to-long v8, v8
-
-    iget-object v10, v0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mStartBounds:Landroid/graphics/Rect;
-
-    invoke-virtual {v10}, Landroid/graphics/Rect;->width()I
-
-    move-result v10
-
-    int-to-float v10, v10
-
-    mul-float/2addr v10, v7
-
-    iget-object v11, v0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mEndBounds:Landroid/graphics/Rect;
-
-    invoke-virtual {v11}, Landroid/graphics/Rect;->width()I
-
-    move-result v11
-
-    int-to-float v11, v11
-
-    div-float/2addr v10, v11
-
-    const/high16 v11, 0x3f800000    # 1.0f
-
-    sub-float v12, v11, v7
-
-    add-float/2addr v10, v12
-
-    iget-object v12, v0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mStartBounds:Landroid/graphics/Rect;
-
-    invoke-virtual {v12}, Landroid/graphics/Rect;->height()I
-
-    move-result v12
-
-    int-to-float v12, v12
-
-    mul-float/2addr v12, v7
-
-    iget-object v13, v0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mEndBounds:Landroid/graphics/Rect;
-
-    invoke-virtual {v13}, Landroid/graphics/Rect;->height()I
-
-    move-result v13
-
-    int-to-float v13, v13
-
-    div-float/2addr v12, v13
-
-    sub-float v13, v11, v7
-
-    add-float/2addr v12, v13
-
-    iget-boolean v13, v0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mIsThumbnail:Z
-
-    if-eqz v13, :cond_2
-
-    new-instance v6, Landroid/view/animation/AnimationSet;
-
-    invoke-direct {v6, v5}, Landroid/view/animation/AnimationSet;-><init>(Z)V
-
-    move-object v5, v6
-
-    new-instance v6, Landroid/view/animation/AlphaAnimation;
-
-    const/4 v13, 0x0
-
-    invoke-direct {v6, v11, v13}, Landroid/view/animation/AlphaAnimation;-><init>(FF)V
-
-    invoke-virtual {v6, v8, v9}, Landroid/view/animation/Animation;->setDuration(J)V
-
-    if-nez v4, :cond_1
-
-    sub-long v13, v1, v8
-
-    invoke-virtual {v6, v13, v14}, Landroid/view/animation/Animation;->setStartOffset(J)V
-
-    :cond_1
-    invoke-virtual {v5, v6}, Landroid/view/animation/AnimationSet;->addAnimation(Landroid/view/animation/Animation;)V
-
-    div-float v13, v11, v10
-
-    div-float/2addr v11, v12
-
-    new-instance v14, Landroid/view/animation/ScaleAnimation;
-
-    invoke-direct {v14, v13, v13, v11, v11}, Landroid/view/animation/ScaleAnimation;-><init>(FFFF)V
-
-    move-object v6, v14
-
-    invoke-virtual {v6, v1, v2}, Landroid/view/animation/Animation;->setDuration(J)V
-
-    invoke-virtual {v5, v6}, Landroid/view/animation/AnimationSet;->addAnimation(Landroid/view/animation/Animation;)V
-
-    iput-object v5, v0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mAnimation:Landroid/view/animation/Animation;
-
-    iget-object v14, v0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mStartBounds:Landroid/graphics/Rect;
-
-    invoke-virtual {v14}, Landroid/graphics/Rect;->width()I
-
-    move-result v14
-
-    iget-object v15, v0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mStartBounds:Landroid/graphics/Rect;
-
-    invoke-virtual {v15}, Landroid/graphics/Rect;->height()I
-
-    move-result v15
-
-    move-object/from16 v16, v6
-
-    iget-object v6, v0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mEndBounds:Landroid/graphics/Rect;
-
-    invoke-virtual {v6}, Landroid/graphics/Rect;->width()I
-
-    move-result v6
-
-    move/from16 v17, v7
-
-    iget-object v7, v0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mEndBounds:Landroid/graphics/Rect;
-
-    invoke-virtual {v7}, Landroid/graphics/Rect;->height()I
-
-    move-result v7
-
-    invoke-virtual {v5, v14, v15, v6, v7}, Landroid/view/animation/Animation;->initialize(IIII)V
-
-    goto :goto_1
-
-    :cond_2
-    move/from16 v17, v7
-
-    new-instance v7, Landroid/view/animation/AnimationSet;
-
-    invoke-direct {v7, v5}, Landroid/view/animation/AnimationSet;-><init>(Z)V
-
-    move-object v5, v7
-
-    new-instance v7, Landroid/view/animation/ScaleAnimation;
-
-    invoke-direct {v7, v10, v11, v12, v11}, Landroid/view/animation/ScaleAnimation;-><init>(FFFF)V
-
-    invoke-virtual {v7, v8, v9}, Landroid/view/animation/Animation;->setDuration(J)V
-
-    if-nez v4, :cond_3
-
-    sub-long v13, v1, v8
-
-    invoke-virtual {v7, v13, v14}, Landroid/view/animation/Animation;->setStartOffset(J)V
-
-    :cond_3
-    invoke-virtual {v5, v7}, Landroid/view/animation/AnimationSet;->addAnimation(Landroid/view/animation/Animation;)V
-
-    new-instance v11, Landroid/view/animation/TranslateAnimation;
-
-    iget-object v13, v0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mStartBounds:Landroid/graphics/Rect;
-
-    iget v13, v13, Landroid/graphics/Rect;->left:I
-
-    int-to-float v13, v13
-
-    iget-object v14, v0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mEndBounds:Landroid/graphics/Rect;
-
-    iget v14, v14, Landroid/graphics/Rect;->left:I
-
-    int-to-float v14, v14
-
-    iget-object v15, v0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mStartBounds:Landroid/graphics/Rect;
-
-    iget v15, v15, Landroid/graphics/Rect;->top:I
-
-    int-to-float v15, v15
-
-    iget-object v6, v0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mEndBounds:Landroid/graphics/Rect;
-
-    iget v6, v6, Landroid/graphics/Rect;->top:I
-
-    int-to-float v6, v6
-
-    invoke-direct {v11, v13, v14, v15, v6}, Landroid/view/animation/TranslateAnimation;-><init>(FFFF)V
-
-    move-object v6, v11
-
-    invoke-virtual {v6, v1, v2}, Landroid/view/animation/Animation;->setDuration(J)V
-
-    invoke-virtual {v5, v6}, Landroid/view/animation/AnimationSet;->addAnimation(Landroid/view/animation/Animation;)V
-
-    new-instance v11, Landroid/graphics/Rect;
-
-    iget-object v13, v0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mStartBounds:Landroid/graphics/Rect;
-
-    invoke-direct {v11, v13}, Landroid/graphics/Rect;-><init>(Landroid/graphics/Rect;)V
-
-    new-instance v13, Landroid/graphics/Rect;
-
-    iget-object v14, v0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mEndBounds:Landroid/graphics/Rect;
-
-    invoke-direct {v13, v14}, Landroid/graphics/Rect;-><init>(Landroid/graphics/Rect;)V
-
-    const/4 v14, 0x0
-
-    invoke-virtual {v11, v14, v14}, Landroid/graphics/Rect;->offsetTo(II)V
-
-    invoke-virtual {v13, v14, v14}, Landroid/graphics/Rect;->offsetTo(II)V
-
-    new-instance v14, Landroid/view/animation/ClipRectAnimation;
-
-    invoke-direct {v14, v11, v13}, Landroid/view/animation/ClipRectAnimation;-><init>(Landroid/graphics/Rect;Landroid/graphics/Rect;)V
-
-    invoke-virtual {v14, v1, v2}, Landroid/view/animation/Animation;->setDuration(J)V
-
-    invoke-virtual {v5, v14}, Landroid/view/animation/AnimationSet;->addAnimation(Landroid/view/animation/Animation;)V
-
-    iput-object v5, v0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mAnimation:Landroid/view/animation/Animation;
-
-    iget-object v15, v0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mStartBounds:Landroid/graphics/Rect;
-
-    invoke-virtual {v15}, Landroid/graphics/Rect;->width()I
-
-    move-result v15
-
-    iget-object v1, v0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mStartBounds:Landroid/graphics/Rect;
-
-    invoke-virtual {v1}, Landroid/graphics/Rect;->height()I
-
-    move-result v1
-
-    iget v2, v3, Landroid/view/DisplayInfo;->appWidth:I
-
-    iget v0, v3, Landroid/view/DisplayInfo;->appHeight:I
-
-    invoke-virtual {v5, v15, v1, v2, v0}, Landroid/view/animation/Animation;->initialize(IIII)V
-
-    :goto_1
-    return-void
-.end method
-
-.method static synthetic lambda$new$0()Lcom/android/server/wm/WindowChangeAnimationSpec$TmpValues;
+.method public static synthetic lambda$new$0()Lcom/android/server/wm/WindowChangeAnimationSpec$TmpValues;
     .locals 2
 
     new-instance v0, Lcom/android/server/wm/WindowChangeAnimationSpec$TmpValues;
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, v1}, Lcom/android/server/wm/WindowChangeAnimationSpec$TmpValues;-><init>(Lcom/android/server/wm/WindowChangeAnimationSpec$1;)V
+    invoke-direct {v0, v1}, Lcom/android/server/wm/WindowChangeAnimationSpec$TmpValues;-><init>(Lcom/android/server/wm/WindowChangeAnimationSpec$TmpValues-IA;)V
 
     return-object v0
 .end method
@@ -398,7 +114,7 @@
 
 # virtual methods
 .method public apply(Landroid/view/SurfaceControl$Transaction;Landroid/view/SurfaceControl;J)V
-    .locals 9
+    .locals 4
 
     iget-object v0, p0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mThreadLocalTmps:Ljava/lang/ThreadLocal;
 
@@ -412,31 +128,31 @@
 
     if-eqz v1, :cond_0
 
-    iget-object v1, p0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mAnimation:Landroid/view/animation/Animation;
-
-    iget-object v2, v0, Lcom/android/server/wm/WindowChangeAnimationSpec$TmpValues;->mTransformation:Landroid/view/animation/Transformation;
-
-    invoke-virtual {v1, p3, p4, v2}, Landroid/view/animation/Animation;->getTransformation(JLandroid/view/animation/Transformation;)Z
+    iget-object p0, p0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mAnimation:Landroid/view/animation/Animation;
 
     iget-object v1, v0, Lcom/android/server/wm/WindowChangeAnimationSpec$TmpValues;->mTransformation:Landroid/view/animation/Transformation;
 
-    invoke-virtual {v1}, Landroid/view/animation/Transformation;->getMatrix()Landroid/graphics/Matrix;
+    invoke-virtual {p0, p3, p4, v1}, Landroid/view/animation/Animation;->getTransformation(JLandroid/view/animation/Transformation;)Z
 
-    move-result-object v1
+    iget-object p0, v0, Lcom/android/server/wm/WindowChangeAnimationSpec$TmpValues;->mTransformation:Landroid/view/animation/Transformation;
 
-    iget-object v2, v0, Lcom/android/server/wm/WindowChangeAnimationSpec$TmpValues;->mFloats:[F
+    invoke-virtual {p0}, Landroid/view/animation/Transformation;->getMatrix()Landroid/graphics/Matrix;
 
-    invoke-virtual {p1, p2, v1, v2}, Landroid/view/SurfaceControl$Transaction;->setMatrix(Landroid/view/SurfaceControl;Landroid/graphics/Matrix;[F)Landroid/view/SurfaceControl$Transaction;
+    move-result-object p0
 
-    iget-object v1, v0, Lcom/android/server/wm/WindowChangeAnimationSpec$TmpValues;->mTransformation:Landroid/view/animation/Transformation;
+    iget-object p3, v0, Lcom/android/server/wm/WindowChangeAnimationSpec$TmpValues;->mFloats:[F
 
-    invoke-virtual {v1}, Landroid/view/animation/Transformation;->getAlpha()F
+    invoke-virtual {p1, p2, p0, p3}, Landroid/view/SurfaceControl$Transaction;->setMatrix(Landroid/view/SurfaceControl;Landroid/graphics/Matrix;[F)Landroid/view/SurfaceControl$Transaction;
 
-    move-result v1
+    iget-object p0, v0, Lcom/android/server/wm/WindowChangeAnimationSpec$TmpValues;->mTransformation:Landroid/view/animation/Transformation;
 
-    invoke-virtual {p1, p2, v1}, Landroid/view/SurfaceControl$Transaction;->setAlpha(Landroid/view/SurfaceControl;F)Landroid/view/SurfaceControl$Transaction;
+    invoke-virtual {p0}, Landroid/view/animation/Transformation;->getAlpha()F
 
-    goto/16 :goto_0
+    move-result p0
+
+    invoke-virtual {p1, p2, p0}, Landroid/view/SurfaceControl$Transaction;->setAlpha(Landroid/view/SurfaceControl;F)Landroid/view/SurfaceControl$Transaction;
+
+    goto :goto_0
 
     :cond_0
     iget-object v1, p0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mAnimation:Landroid/view/animation/Animation;
@@ -445,151 +161,119 @@
 
     invoke-virtual {v1, p3, p4, v2}, Landroid/view/animation/Animation;->getTransformation(JLandroid/view/animation/Transformation;)Z
 
-    iget-object v1, v0, Lcom/android/server/wm/WindowChangeAnimationSpec$TmpValues;->mTransformation:Landroid/view/animation/Transformation;
+    iget-object p3, v0, Lcom/android/server/wm/WindowChangeAnimationSpec$TmpValues;->mTransformation:Landroid/view/animation/Transformation;
 
-    invoke-virtual {v1}, Landroid/view/animation/Transformation;->getMatrix()Landroid/graphics/Matrix;
+    invoke-virtual {p3}, Landroid/view/animation/Transformation;->getMatrix()Landroid/graphics/Matrix;
 
-    move-result-object v1
+    move-result-object p3
 
-    iget-object v2, v0, Lcom/android/server/wm/WindowChangeAnimationSpec$TmpValues;->mFloats:[F
+    iget-object p4, v0, Lcom/android/server/wm/WindowChangeAnimationSpec$TmpValues;->mFloats:[F
 
-    invoke-virtual {p1, p2, v1, v2}, Landroid/view/SurfaceControl$Transaction;->setMatrix(Landroid/view/SurfaceControl;Landroid/graphics/Matrix;[F)Landroid/view/SurfaceControl$Transaction;
+    invoke-virtual {p1, p2, p3, p4}, Landroid/view/SurfaceControl$Transaction;->setMatrix(Landroid/view/SurfaceControl;Landroid/graphics/Matrix;[F)Landroid/view/SurfaceControl$Transaction;
 
-    iget-object v2, v0, Lcom/android/server/wm/WindowChangeAnimationSpec$TmpValues;->mVecs:[F
+    iget-object p4, v0, Lcom/android/server/wm/WindowChangeAnimationSpec$TmpValues;->mVecs:[F
 
-    const/4 v3, 0x1
+    const/4 v1, 0x1
 
-    iget-object v4, v0, Lcom/android/server/wm/WindowChangeAnimationSpec$TmpValues;->mVecs:[F
-
-    const/4 v5, 0x2
-
-    const/4 v6, 0x0
-
-    aput v6, v4, v5
-
-    aput v6, v2, v3
-
-    iget-object v2, v0, Lcom/android/server/wm/WindowChangeAnimationSpec$TmpValues;->mVecs:[F
-
-    iget-object v3, v0, Lcom/android/server/wm/WindowChangeAnimationSpec$TmpValues;->mVecs:[F
-
-    const/4 v4, 0x3
-
-    const/high16 v5, 0x3f800000    # 1.0f
-
-    aput v5, v3, v4
+    const/4 v2, 0x2
 
     const/4 v3, 0x0
 
-    aput v5, v2, v3
+    aput v3, p4, v2
 
-    iget-object v2, v0, Lcom/android/server/wm/WindowChangeAnimationSpec$TmpValues;->mVecs:[F
+    aput v3, p4, v1
 
-    invoke-virtual {v1, v2}, Landroid/graphics/Matrix;->mapVectors([F)V
+    const/4 v1, 0x3
 
-    iget-object v2, v0, Lcom/android/server/wm/WindowChangeAnimationSpec$TmpValues;->mVecs:[F
+    const/high16 v2, 0x3f800000    # 1.0f
 
-    iget-object v6, v0, Lcom/android/server/wm/WindowChangeAnimationSpec$TmpValues;->mVecs:[F
+    aput v2, p4, v1
 
-    aget v6, v6, v3
+    const/4 v3, 0x0
 
-    div-float v6, v5, v6
+    aput v2, p4, v3
 
-    aput v6, v2, v3
+    invoke-virtual {p3, p4}, Landroid/graphics/Matrix;->mapVectors([F)V
 
-    iget-object v2, v0, Lcom/android/server/wm/WindowChangeAnimationSpec$TmpValues;->mVecs:[F
+    iget-object p3, v0, Lcom/android/server/wm/WindowChangeAnimationSpec$TmpValues;->mVecs:[F
 
-    iget-object v6, v0, Lcom/android/server/wm/WindowChangeAnimationSpec$TmpValues;->mVecs:[F
+    aget p4, p3, v3
 
-    aget v6, v6, v4
+    div-float p4, v2, p4
 
-    div-float/2addr v5, v6
+    aput p4, p3, v3
 
-    aput v5, v2, v4
+    aget p4, p3, v1
 
-    iget-object v2, v0, Lcom/android/server/wm/WindowChangeAnimationSpec$TmpValues;->mTransformation:Landroid/view/animation/Transformation;
+    div-float/2addr v2, p4
 
-    invoke-virtual {v2}, Landroid/view/animation/Transformation;->getClipRect()Landroid/graphics/Rect;
+    aput v2, p3, v1
 
-    move-result-object v2
+    iget-object p3, v0, Lcom/android/server/wm/WindowChangeAnimationSpec$TmpValues;->mTransformation:Landroid/view/animation/Transformation;
 
-    iget-object v5, p0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mTmpRect:Landroid/graphics/Rect;
+    invoke-virtual {p3}, Landroid/view/animation/Transformation;->getClipRect()Landroid/graphics/Rect;
 
-    iget v6, v2, Landroid/graphics/Rect;->left:I
+    move-result-object p3
 
-    int-to-float v6, v6
+    iget-object p0, p0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mTmpRect:Landroid/graphics/Rect;
 
-    iget-object v7, v0, Lcom/android/server/wm/WindowChangeAnimationSpec$TmpValues;->mVecs:[F
+    iget p4, p3, Landroid/graphics/Rect;->left:I
 
-    aget v7, v7, v3
+    int-to-float p4, p4
 
-    mul-float/2addr v6, v7
+    iget-object v0, v0, Lcom/android/server/wm/WindowChangeAnimationSpec$TmpValues;->mVecs:[F
 
-    const/high16 v7, 0x3f000000    # 0.5f
+    aget v2, v0, v3
 
-    add-float/2addr v6, v7
+    mul-float/2addr p4, v2
 
-    float-to-int v6, v6
+    const/high16 v3, 0x3f000000    # 0.5f
 
-    iput v6, v5, Landroid/graphics/Rect;->left:I
+    add-float/2addr p4, v3
 
-    iget-object v5, p0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mTmpRect:Landroid/graphics/Rect;
+    float-to-int p4, p4
 
-    iget v6, v2, Landroid/graphics/Rect;->right:I
+    iput p4, p0, Landroid/graphics/Rect;->left:I
 
-    int-to-float v6, v6
+    iget p4, p3, Landroid/graphics/Rect;->right:I
 
-    iget-object v8, v0, Lcom/android/server/wm/WindowChangeAnimationSpec$TmpValues;->mVecs:[F
+    int-to-float p4, p4
 
-    aget v3, v8, v3
+    mul-float/2addr p4, v2
 
-    mul-float/2addr v6, v3
+    add-float/2addr p4, v3
 
-    add-float/2addr v6, v7
+    float-to-int p4, p4
 
-    float-to-int v3, v6
+    iput p4, p0, Landroid/graphics/Rect;->right:I
 
-    iput v3, v5, Landroid/graphics/Rect;->right:I
+    iget p4, p3, Landroid/graphics/Rect;->top:I
 
-    iget-object v3, p0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mTmpRect:Landroid/graphics/Rect;
+    int-to-float p4, p4
 
-    iget v5, v2, Landroid/graphics/Rect;->top:I
+    aget v0, v0, v1
 
-    int-to-float v5, v5
+    mul-float/2addr p4, v0
 
-    iget-object v6, v0, Lcom/android/server/wm/WindowChangeAnimationSpec$TmpValues;->mVecs:[F
+    add-float/2addr p4, v3
 
-    aget v6, v6, v4
+    float-to-int p4, p4
 
-    mul-float/2addr v5, v6
+    iput p4, p0, Landroid/graphics/Rect;->top:I
 
-    add-float/2addr v5, v7
+    iget p3, p3, Landroid/graphics/Rect;->bottom:I
 
-    float-to-int v5, v5
+    int-to-float p3, p3
 
-    iput v5, v3, Landroid/graphics/Rect;->top:I
+    mul-float/2addr p3, v0
 
-    iget-object v3, p0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mTmpRect:Landroid/graphics/Rect;
+    add-float/2addr p3, v3
 
-    iget v5, v2, Landroid/graphics/Rect;->bottom:I
+    float-to-int p3, p3
 
-    int-to-float v5, v5
+    iput p3, p0, Landroid/graphics/Rect;->bottom:I
 
-    iget-object v6, v0, Lcom/android/server/wm/WindowChangeAnimationSpec$TmpValues;->mVecs:[F
-
-    aget v4, v6, v4
-
-    mul-float/2addr v5, v4
-
-    add-float/2addr v5, v7
-
-    float-to-int v4, v5
-
-    iput v4, v3, Landroid/graphics/Rect;->bottom:I
-
-    iget-object v3, p0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mTmpRect:Landroid/graphics/Rect;
-
-    invoke-virtual {p1, p2, v3}, Landroid/view/SurfaceControl$Transaction;->setWindowCrop(Landroid/view/SurfaceControl;Landroid/graphics/Rect;)Landroid/view/SurfaceControl$Transaction;
+    invoke-virtual {p1, p2, p0}, Landroid/view/SurfaceControl$Transaction;->setWindowCrop(Landroid/view/SurfaceControl;Landroid/graphics/Rect;)Landroid/view/SurfaceControl$Transaction;
 
     :goto_0
     return-void
@@ -602,19 +286,19 @@
 
     move-result-wide v0
 
-    iget-object v2, p0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mAnimation:Landroid/view/animation/Animation;
+    iget-object p0, p0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mAnimation:Landroid/view/animation/Animation;
 
-    invoke-virtual {v2}, Landroid/view/animation/Animation;->getDuration()J
+    invoke-virtual {p0}, Landroid/view/animation/Animation;->getDuration()J
 
     move-result-wide v2
 
-    long-to-float v2, v2
+    long-to-float p0, v2
 
-    const v3, 0x3f7d70a4    # 0.99f
+    const v2, 0x3f7d70a4    # 0.99f
 
-    mul-float/2addr v2, v3
+    mul-float/2addr p0, v2
 
-    float-to-long v2, v2
+    float-to-long v2, p0
 
     add-long/2addr v2, v0
 
@@ -624,17 +308,283 @@
 
     invoke-static {v0, v1, v2, v3}, Ljava/lang/Math;->max(JJ)J
 
-    move-result-wide v2
+    move-result-wide v0
 
-    return-wide v2
+    return-wide v0
 .end method
 
 .method public canSkipFirstFrame()Z
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
+.end method
+
+.method public final createBoundsInterpolator(JLandroid/view/DisplayInfo;)V
+    .locals 9
+
+    iget-object v0, p0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mEndBounds:Landroid/graphics/Rect;
+
+    invoke-virtual {v0}, Landroid/graphics/Rect;->width()I
+
+    move-result v0
+
+    iget-object v1, p0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mStartBounds:Landroid/graphics/Rect;
+
+    invoke-virtual {v1}, Landroid/graphics/Rect;->width()I
+
+    move-result v1
+
+    sub-int/2addr v0, v1
+
+    iget-object v1, p0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mEndBounds:Landroid/graphics/Rect;
+
+    invoke-virtual {v1}, Landroid/graphics/Rect;->height()I
+
+    move-result v1
+
+    add-int/2addr v0, v1
+
+    iget-object v1, p0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mStartBounds:Landroid/graphics/Rect;
+
+    invoke-virtual {v1}, Landroid/graphics/Rect;->height()I
+
+    move-result v1
+
+    sub-int/2addr v0, v1
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
+
+    if-ltz v0, :cond_0
+
+    move v0, v1
+
+    goto :goto_0
+
+    :cond_0
+    move v0, v2
+
+    :goto_0
+    const v3, 0x3f333333    # 0.7f
+
+    long-to-float v4, p1
+
+    mul-float/2addr v4, v3
+
+    float-to-long v4, v4
+
+    iget-object v6, p0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mStartBounds:Landroid/graphics/Rect;
+
+    invoke-virtual {v6}, Landroid/graphics/Rect;->width()I
+
+    move-result v6
+
+    int-to-float v6, v6
+
+    mul-float/2addr v6, v3
+
+    iget-object v7, p0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mEndBounds:Landroid/graphics/Rect;
+
+    invoke-virtual {v7}, Landroid/graphics/Rect;->width()I
+
+    move-result v7
+
+    int-to-float v7, v7
+
+    div-float/2addr v6, v7
+
+    const v7, 0x3e99999a    # 0.3f
+
+    add-float/2addr v6, v7
+
+    iget-object v8, p0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mStartBounds:Landroid/graphics/Rect;
+
+    invoke-virtual {v8}, Landroid/graphics/Rect;->height()I
+
+    move-result v8
+
+    int-to-float v8, v8
+
+    mul-float/2addr v8, v3
+
+    iget-object v3, p0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mEndBounds:Landroid/graphics/Rect;
+
+    invoke-virtual {v3}, Landroid/graphics/Rect;->height()I
+
+    move-result v3
+
+    int-to-float v3, v3
+
+    div-float/2addr v8, v3
+
+    add-float/2addr v8, v7
+
+    iget-boolean v3, p0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mIsThumbnail:Z
+
+    const/high16 v7, 0x3f800000    # 1.0f
+
+    if-eqz v3, :cond_2
+
+    new-instance p3, Landroid/view/animation/AnimationSet;
+
+    invoke-direct {p3, v1}, Landroid/view/animation/AnimationSet;-><init>(Z)V
+
+    new-instance v1, Landroid/view/animation/AlphaAnimation;
+
+    const/4 v2, 0x0
+
+    invoke-direct {v1, v7, v2}, Landroid/view/animation/AlphaAnimation;-><init>(FF)V
+
+    invoke-virtual {v1, v4, v5}, Landroid/view/animation/Animation;->setDuration(J)V
+
+    if-nez v0, :cond_1
+
+    sub-long v2, p1, v4
+
+    invoke-virtual {v1, v2, v3}, Landroid/view/animation/Animation;->setStartOffset(J)V
+
+    :cond_1
+    invoke-virtual {p3, v1}, Landroid/view/animation/AnimationSet;->addAnimation(Landroid/view/animation/Animation;)V
+
+    div-float v0, v7, v6
+
+    div-float/2addr v7, v8
+
+    new-instance v1, Landroid/view/animation/ScaleAnimation;
+
+    invoke-direct {v1, v0, v0, v7, v7}, Landroid/view/animation/ScaleAnimation;-><init>(FFFF)V
+
+    invoke-virtual {v1, p1, p2}, Landroid/view/animation/Animation;->setDuration(J)V
+
+    invoke-virtual {p3, v1}, Landroid/view/animation/AnimationSet;->addAnimation(Landroid/view/animation/Animation;)V
+
+    iput-object p3, p0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mAnimation:Landroid/view/animation/Animation;
+
+    iget-object p1, p0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mStartBounds:Landroid/graphics/Rect;
+
+    invoke-virtual {p1}, Landroid/graphics/Rect;->width()I
+
+    move-result p1
+
+    iget-object p2, p0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mStartBounds:Landroid/graphics/Rect;
+
+    invoke-virtual {p2}, Landroid/graphics/Rect;->height()I
+
+    move-result p2
+
+    iget-object v0, p0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mEndBounds:Landroid/graphics/Rect;
+
+    invoke-virtual {v0}, Landroid/graphics/Rect;->width()I
+
+    move-result v0
+
+    iget-object p0, p0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mEndBounds:Landroid/graphics/Rect;
+
+    invoke-virtual {p0}, Landroid/graphics/Rect;->height()I
+
+    move-result p0
+
+    invoke-virtual {p3, p1, p2, v0, p0}, Landroid/view/animation/Animation;->initialize(IIII)V
+
+    goto :goto_1
+
+    :cond_2
+    new-instance v3, Landroid/view/animation/AnimationSet;
+
+    invoke-direct {v3, v1}, Landroid/view/animation/AnimationSet;-><init>(Z)V
+
+    new-instance v1, Landroid/view/animation/ScaleAnimation;
+
+    invoke-direct {v1, v6, v7, v8, v7}, Landroid/view/animation/ScaleAnimation;-><init>(FFFF)V
+
+    invoke-virtual {v1, v4, v5}, Landroid/view/animation/Animation;->setDuration(J)V
+
+    if-nez v0, :cond_3
+
+    sub-long v4, p1, v4
+
+    invoke-virtual {v1, v4, v5}, Landroid/view/animation/Animation;->setStartOffset(J)V
+
+    :cond_3
+    invoke-virtual {v3, v1}, Landroid/view/animation/AnimationSet;->addAnimation(Landroid/view/animation/Animation;)V
+
+    new-instance v0, Landroid/view/animation/TranslateAnimation;
+
+    iget-object v1, p0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mStartBounds:Landroid/graphics/Rect;
+
+    iget v4, v1, Landroid/graphics/Rect;->left:I
+
+    int-to-float v4, v4
+
+    iget-object v5, p0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mEndBounds:Landroid/graphics/Rect;
+
+    iget v6, v5, Landroid/graphics/Rect;->left:I
+
+    int-to-float v6, v6
+
+    iget v1, v1, Landroid/graphics/Rect;->top:I
+
+    int-to-float v1, v1
+
+    iget v5, v5, Landroid/graphics/Rect;->top:I
+
+    int-to-float v5, v5
+
+    invoke-direct {v0, v4, v6, v1, v5}, Landroid/view/animation/TranslateAnimation;-><init>(FFFF)V
+
+    invoke-virtual {v0, p1, p2}, Landroid/view/animation/Animation;->setDuration(J)V
+
+    invoke-virtual {v3, v0}, Landroid/view/animation/AnimationSet;->addAnimation(Landroid/view/animation/Animation;)V
+
+    new-instance v0, Landroid/graphics/Rect;
+
+    iget-object v1, p0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mStartBounds:Landroid/graphics/Rect;
+
+    invoke-direct {v0, v1}, Landroid/graphics/Rect;-><init>(Landroid/graphics/Rect;)V
+
+    new-instance v1, Landroid/graphics/Rect;
+
+    iget-object v4, p0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mEndBounds:Landroid/graphics/Rect;
+
+    invoke-direct {v1, v4}, Landroid/graphics/Rect;-><init>(Landroid/graphics/Rect;)V
+
+    invoke-virtual {v0, v2, v2}, Landroid/graphics/Rect;->offsetTo(II)V
+
+    invoke-virtual {v1, v2, v2}, Landroid/graphics/Rect;->offsetTo(II)V
+
+    new-instance v2, Landroid/view/animation/ClipRectAnimation;
+
+    invoke-direct {v2, v0, v1}, Landroid/view/animation/ClipRectAnimation;-><init>(Landroid/graphics/Rect;Landroid/graphics/Rect;)V
+
+    invoke-virtual {v2, p1, p2}, Landroid/view/animation/Animation;->setDuration(J)V
+
+    invoke-virtual {v3, v2}, Landroid/view/animation/AnimationSet;->addAnimation(Landroid/view/animation/Animation;)V
+
+    iput-object v3, p0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mAnimation:Landroid/view/animation/Animation;
+
+    iget-object p1, p0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mStartBounds:Landroid/graphics/Rect;
+
+    invoke-virtual {p1}, Landroid/graphics/Rect;->width()I
+
+    move-result p1
+
+    iget-object p0, p0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mStartBounds:Landroid/graphics/Rect;
+
+    invoke-virtual {p0}, Landroid/graphics/Rect;->height()I
+
+    move-result p0
+
+    iget p2, p3, Landroid/view/DisplayInfo;->appWidth:I
+
+    iget p3, p3, Landroid/view/DisplayInfo;->appHeight:I
+
+    invoke-virtual {v3, p1, p0, p2, p3}, Landroid/view/animation/Animation;->initialize(IIII)V
+
+    :goto_1
+    return-void
 .end method
 
 .method public dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
@@ -642,9 +592,9 @@
 
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    iget-object v0, p0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mAnimation:Landroid/view/animation/Animation;
+    iget-object p0, p0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mAnimation:Landroid/view/animation/Animation;
 
-    invoke-virtual {v0}, Landroid/view/animation/Animation;->getDuration()J
+    invoke-virtual {p0}, Landroid/view/animation/Animation;->getDuration()J
 
     move-result-wide v0
 
@@ -654,7 +604,7 @@
 .end method
 
 .method public dumpDebugInner(Landroid/util/proto/ProtoOutputStream;)V
-    .locals 5
+    .locals 4
 
     const-wide v0, 0x10b00000001L
 
@@ -662,15 +612,15 @@
 
     move-result-wide v0
 
-    iget-object v2, p0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mAnimation:Landroid/view/animation/Animation;
+    iget-object p0, p0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mAnimation:Landroid/view/animation/Animation;
 
-    invoke-virtual {v2}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p0
 
-    const-wide v3, 0x10900000001L
+    const-wide v2, 0x10900000001L
 
-    invoke-virtual {p1, v3, v4, v2}, Landroid/util/proto/ProtoOutputStream;->write(JLjava/lang/String;)V
+    invoke-virtual {p1, v2, v3, p0}, Landroid/util/proto/ProtoOutputStream;->write(JLjava/lang/String;)V
 
     invoke-virtual {p1, v0, v1}, Landroid/util/proto/ProtoOutputStream;->end(J)V
 
@@ -680,9 +630,9 @@
 .method public getDuration()J
     .locals 2
 
-    iget-object v0, p0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mAnimation:Landroid/view/animation/Animation;
+    iget-object p0, p0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mAnimation:Landroid/view/animation/Animation;
 
-    invoke-virtual {v0}, Landroid/view/animation/Animation;->getDuration()J
+    invoke-virtual {p0}, Landroid/view/animation/Animation;->getDuration()J
 
     move-result-wide v0
 
@@ -690,17 +640,9 @@
 .end method
 
 .method public getShowWallpaper()Z
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
-.end method
-
-.method public needsEarlyWakeup()Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/server/wm/WindowChangeAnimationSpec;->mIsAppAnimation:Z
-
-    return v0
+    return p0
 .end method

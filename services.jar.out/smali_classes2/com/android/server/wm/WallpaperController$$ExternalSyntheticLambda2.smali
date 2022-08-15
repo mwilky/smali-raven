@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/wm/WallpaperController$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -23,13 +24,13 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/WallpaperController$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/wm/WallpaperController;
+    iget-object p0, p0, Lcom/android/server/wm/WallpaperController$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/wm/WallpaperController;
 
     check-cast p1, Lcom/android/server/wm/WindowState;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/wm/WallpaperController;->lambda$new$1$WallpaperController(Lcom/android/server/wm/WindowState;)V
+    invoke-static {p0, p1}, Lcom/android/server/wm/WallpaperController;->$r8$lambda$D7w0PRblSwSAeTCuh4JaH2hP_6s(Lcom/android/server/wm/WallpaperController;Lcom/android/server/wm/WindowState;)V
 
     return-void
 .end method

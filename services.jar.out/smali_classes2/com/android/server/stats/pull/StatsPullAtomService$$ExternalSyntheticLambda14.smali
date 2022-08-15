@@ -1,33 +1,36 @@
 .class public final synthetic Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda14;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Ljava/util/function/Consumer;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/server/stats/pull/StatsPullAtomService;
+.field public final synthetic f$0:Landroid/util/SparseArray;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/stats/pull/StatsPullAtomService;)V
+.method public synthetic constructor <init>(Landroid/util/SparseArray;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda14;->f$0:Lcom/android/server/stats/pull/StatsPullAtomService;
+    iput-object p1, p0, Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda14;->f$0:Landroid/util/SparseArray;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final run()V
-    .locals 1
+.method public final accept(Ljava/lang/Object;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda14;->f$0:Lcom/android/server/stats/pull/StatsPullAtomService;
+    iget-object p0, p0, Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda14;->f$0:Landroid/util/SparseArray;
 
-    invoke-virtual {v0}, Lcom/android/server/stats/pull/StatsPullAtomService;->lambda$onBootPhase$0$StatsPullAtomService()V
+    check-cast p1, Landroid/app/ProcessMemoryState;
+
+    invoke-static {p0, p1}, Lcom/android/server/stats/pull/StatsPullAtomService;->$r8$lambda$gAmwYOe_-aER7bHg8mTx3QyeDGk(Landroid/util/SparseArray;Landroid/app/ProcessMemoryState;)V
 
     return-void
 .end method

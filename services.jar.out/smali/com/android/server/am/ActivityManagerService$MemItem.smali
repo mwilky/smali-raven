@@ -1,4 +1,4 @@
-.class final Lcom/android/server/am/ActivityManagerService$MemItem;
+.class public final Lcom/android/server/am/ActivityManagerService$MemItem;
 .super Ljava/lang/Object;
 .source "ActivityManagerService.java"
 
@@ -9,27 +9,27 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = "MemItem"
 .end annotation
 
 
 # instance fields
-.field final hasActivities:Z
+.field public final hasActivities:Z
 
-.field final id:I
+.field public final id:I
 
-.field final isProc:Z
+.field public final isProc:Z
 
-.field final label:Ljava/lang/String;
+.field public final label:Ljava/lang/String;
 
-.field final mRss:J
+.field public final mRss:J
 
-.field final pss:J
+.field public final pss:J
 
-.field final shortLabel:Ljava/lang/String;
+.field public final shortLabel:Ljava/lang/String;
 
-.field subitems:Ljava/util/ArrayList;
+.field public subitems:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/ArrayList<",
@@ -39,11 +39,11 @@
     .end annotation
 .end field
 
-.field final swapPss:J
+.field public final swapPss:J
 
 
 # direct methods
-.method constructor <init>(Ljava/lang/String;Ljava/lang/String;JJJI)V
+.method public constructor <init>(Ljava/lang/String;Ljava/lang/String;JJJI)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -69,7 +69,7 @@
     return-void
 .end method
 
-.method constructor <init>(Ljava/lang/String;Ljava/lang/String;JJJIZ)V
+.method public constructor <init>(Ljava/lang/String;Ljava/lang/String;JJJIZ)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

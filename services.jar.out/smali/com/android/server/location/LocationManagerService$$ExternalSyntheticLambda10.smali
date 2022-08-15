@@ -1,37 +1,46 @@
 .class public final synthetic Lcom/android/server/location/LocationManagerService$$ExternalSyntheticLambda10;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Function;
+.implements Ljava/lang/Runnable;
 
 
 # instance fields
-.field public final synthetic f$0:Z
+.field public final synthetic f$0:Landroid/location/LocationManagerInternal$LocationPackageTagsListener;
+
+.field public final synthetic f$1:I
+
+.field public final synthetic f$2:Landroid/os/PackageTagsList;
 
 
 # direct methods
-.method public synthetic constructor <init>(Z)V
+.method public synthetic constructor <init>(Landroid/location/LocationManagerInternal$LocationPackageTagsListener;ILandroid/os/PackageTagsList;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-boolean p1, p0, Lcom/android/server/location/LocationManagerService$$ExternalSyntheticLambda10;->f$0:Z
+    iput-object p1, p0, Lcom/android/server/location/LocationManagerService$$ExternalSyntheticLambda10;->f$0:Landroid/location/LocationManagerInternal$LocationPackageTagsListener;
+
+    iput p2, p0, Lcom/android/server/location/LocationManagerService$$ExternalSyntheticLambda10;->f$1:I
+
+    iput-object p3, p0, Lcom/android/server/location/LocationManagerService$$ExternalSyntheticLambda10;->f$2:Landroid/os/PackageTagsList;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+.method public final run()V
+    .locals 2
 
-    iget-boolean v0, p0, Lcom/android/server/location/LocationManagerService$$ExternalSyntheticLambda10;->f$0:Z
+    iget-object v0, p0, Lcom/android/server/location/LocationManagerService$$ExternalSyntheticLambda10;->f$0:Landroid/location/LocationManagerInternal$LocationPackageTagsListener;
 
-    check-cast p1, Lcom/android/server/location/settings/LocationUserSettings;
+    iget v1, p0, Lcom/android/server/location/LocationManagerService$$ExternalSyntheticLambda10;->f$1:I
 
-    invoke-static {v0, p1}, Lcom/android/server/location/LocationManagerService;->lambda$setAdasGnssLocationEnabledForUser$5(ZLcom/android/server/location/settings/LocationUserSettings;)Lcom/android/server/location/settings/LocationUserSettings;
+    iget-object p0, p0, Lcom/android/server/location/LocationManagerService$$ExternalSyntheticLambda10;->f$2:Landroid/os/PackageTagsList;
 
-    move-result-object p1
+    invoke-static {v0, v1, p0}, Lcom/android/server/location/LocationManagerService;->$r8$lambda$PIuAa-zVImuKZKfQguLvDH50pOk(Landroid/location/LocationManagerInternal$LocationPackageTagsListener;ILandroid/os/PackageTagsList;)V
 
-    return-object p1
+    return-void
 .end method

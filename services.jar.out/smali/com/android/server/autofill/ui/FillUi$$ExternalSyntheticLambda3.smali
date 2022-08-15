@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/autofill/ui/FillUi$$ExternalSyntheticLambda3;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/widget/AdapterView$OnItemClickListener;
@@ -35,7 +36,7 @@
 
     move-wide v4, p4
 
-    invoke-virtual/range {v0 .. v5}, Lcom/android/server/autofill/ui/FillUi;->lambda$new$3$FillUi(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
+    invoke-static/range {v0 .. v5}, Lcom/android/server/autofill/ui/FillUi;->$r8$lambda$NF5rvu5N1l5MX2BQjA47GeeRk2E(Lcom/android/server/autofill/ui/FillUi;Landroid/widget/AdapterView;Landroid/view/View;IJ)V
 
     return-void
 .end method

@@ -15,40 +15,22 @@
 
 
 # static fields
-.field private static final DEBUG:Z = false
-
-.field private static final TAG:Ljava/lang/String;
+.field public static final TAG:Ljava/lang/String; = "PowerStatsHALWrapper"
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    const-class v0, Lcom/android/server/powerstats/PowerStatsHALWrapper;
-
-    invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
-
-    move-result-object v0
-
-    sput-object v0, Lcom/android/server/powerstats/PowerStatsHALWrapper;->TAG:Ljava/lang/String;
-
-    return-void
-.end method
-
-.method public constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-.method static synthetic access$100()Ljava/lang/String;
+.method public static bridge synthetic -$$Nest$sfgetTAG()Ljava/lang/String;
     .locals 1
 
     sget-object v0, Lcom/android/server/powerstats/PowerStatsHALWrapper;->TAG:Ljava/lang/String;
 
     return-object v0
+.end method
+
+.method public static constructor <clinit>()V
+    .locals 0
+
+    return-void
 .end method
 
 .method public static getPowerStatsHalImpl()Lcom/android/server/powerstats/PowerStatsHALWrapper$IPowerStatsHALWrapper;
@@ -67,9 +49,9 @@
     return-object v0
 
     :cond_0
-    new-instance v1, Lcom/android/server/powerstats/PowerStatsHALWrapper$PowerStatsHAL10WrapperImpl;
+    new-instance v0, Lcom/android/server/powerstats/PowerStatsHALWrapper$PowerStatsHAL10WrapperImpl;
 
-    invoke-direct {v1}, Lcom/android/server/powerstats/PowerStatsHALWrapper$PowerStatsHAL10WrapperImpl;-><init>()V
+    invoke-direct {v0}, Lcom/android/server/powerstats/PowerStatsHALWrapper$PowerStatsHAL10WrapperImpl;-><init>()V
 
-    return-object v1
+    return-object v0
 .end method

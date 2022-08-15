@@ -1,4 +1,4 @@
-.class Lcom/android/server/policy/PhoneWindowManager$7;
+.class public Lcom/android/server/policy/PhoneWindowManager$7;
 .super Lcom/android/server/policy/KeyCombinationManager$TwoKeysCombinationRule;
 .source "PhoneWindowManager.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/policy/PhoneWindowManager;
+.field public final synthetic this$0:Lcom/android/server/policy/PhoneWindowManager;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/policy/PhoneWindowManager;II)V
+.method public constructor <init>(Lcom/android/server/policy/PhoneWindowManager;II)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/policy/PhoneWindowManager$7;->this$0:Lcom/android/server/policy/PhoneWindowManager;
@@ -31,18 +31,18 @@
 
 
 # virtual methods
-.method cancel()V
-    .locals 1
+.method public cancel()V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/policy/PhoneWindowManager$7;->this$0:Lcom/android/server/policy/PhoneWindowManager;
+    iget-object p0, p0, Lcom/android/server/policy/PhoneWindowManager$7;->this$0:Lcom/android/server/policy/PhoneWindowManager;
 
-    invoke-static {v0}, Lcom/android/server/policy/PhoneWindowManager;->access$3300(Lcom/android/server/policy/PhoneWindowManager;)V
+    invoke-static {p0}, Lcom/android/server/policy/PhoneWindowManager;->-$$Nest$mcancelPendingScreenshotChordAction(Lcom/android/server/policy/PhoneWindowManager;)V
 
     return-void
 .end method
 
-.method execute()V
-    .locals 2
+.method public execute()V
+    .locals 4
 
     iget-object v0, p0, Lcom/android/server/policy/PhoneWindowManager$7;->this$0:Lcom/android/server/policy/PhoneWindowManager;
 
@@ -50,9 +50,13 @@
 
     iput-boolean v1, v0, Lcom/android/server/policy/PhoneWindowManager;->mPowerKeyHandled:Z
 
-    iget-object v0, p0, Lcom/android/server/policy/PhoneWindowManager$7;->this$0:Lcom/android/server/policy/PhoneWindowManager;
+    iget-object p0, p0, Lcom/android/server/policy/PhoneWindowManager$7;->this$0:Lcom/android/server/policy/PhoneWindowManager;
 
-    invoke-static {v0}, Lcom/android/server/policy/PhoneWindowManager;->access$3200(Lcom/android/server/policy/PhoneWindowManager;)V
+    invoke-static {p0}, Lcom/android/server/policy/PhoneWindowManager;->-$$Nest$mgetScreenshotChordLongPressDelay(Lcom/android/server/policy/PhoneWindowManager;)J
+
+    move-result-wide v2
+
+    invoke-static {p0, v1, v1, v2, v3}, Lcom/android/server/policy/PhoneWindowManager;->-$$Nest$minterceptScreenshotChord(Lcom/android/server/policy/PhoneWindowManager;IIJ)V
 
     return-void
 .end method

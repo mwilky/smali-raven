@@ -1,4 +1,4 @@
-.class final Lcom/android/server/display/whitebalance/DisplayWhiteBalanceSettings$DisplayWhiteBalanceSettingsHandler;
+.class public final Lcom/android/server/display/whitebalance/DisplayWhiteBalanceSettings$DisplayWhiteBalanceSettingsHandler;
 .super Landroid/os/Handler;
 .source "DisplayWhiteBalanceSettings.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "DisplayWhiteBalanceSettingsHandler"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/display/whitebalance/DisplayWhiteBalanceSettings;
+.field public final synthetic this$0:Lcom/android/server/display/whitebalance/DisplayWhiteBalanceSettings;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/display/whitebalance/DisplayWhiteBalanceSettings;Landroid/os/Looper;)V
+.method public constructor <init>(Lcom/android/server/display/whitebalance/DisplayWhiteBalanceSettings;Landroid/os/Looper;)V
     .locals 1
 
     iput-object p1, p0, Lcom/android/server/display/whitebalance/DisplayWhiteBalanceSettings$DisplayWhiteBalanceSettingsHandler;->this$0:Lcom/android/server/display/whitebalance/DisplayWhiteBalanceSettings;
@@ -40,44 +40,39 @@
 
     iget v0, p1, Landroid/os/Message;->what:I
 
-    packed-switch v0, :pswitch_data_0
+    const/4 v1, 0x1
+
+    if-eq v0, v1, :cond_0
 
     goto :goto_1
 
-    :pswitch_0
+    :cond_0
     iget-object v0, p0, Lcom/android/server/display/whitebalance/DisplayWhiteBalanceSettings$DisplayWhiteBalanceSettingsHandler;->this$0:Lcom/android/server/display/whitebalance/DisplayWhiteBalanceSettings;
 
-    iget v1, p1, Landroid/os/Message;->arg1:I
+    iget p1, p1, Landroid/os/Message;->arg1:I
 
-    if-eqz v1, :cond_0
-
-    const/4 v1, 0x1
+    if-eqz p1, :cond_1
 
     goto :goto_0
 
-    :cond_0
+    :cond_1
     const/4 v1, 0x0
 
     :goto_0
-    invoke-static {v0, v1}, Lcom/android/server/display/whitebalance/DisplayWhiteBalanceSettings;->access$000(Lcom/android/server/display/whitebalance/DisplayWhiteBalanceSettings;Z)V
+    invoke-static {v0, v1}, Lcom/android/server/display/whitebalance/DisplayWhiteBalanceSettings;->-$$Nest$msetActive(Lcom/android/server/display/whitebalance/DisplayWhiteBalanceSettings;Z)V
 
-    iget-object v0, p0, Lcom/android/server/display/whitebalance/DisplayWhiteBalanceSettings$DisplayWhiteBalanceSettingsHandler;->this$0:Lcom/android/server/display/whitebalance/DisplayWhiteBalanceSettings;
+    iget-object p0, p0, Lcom/android/server/display/whitebalance/DisplayWhiteBalanceSettings$DisplayWhiteBalanceSettingsHandler;->this$0:Lcom/android/server/display/whitebalance/DisplayWhiteBalanceSettings;
 
-    invoke-static {v0}, Lcom/android/server/display/whitebalance/DisplayWhiteBalanceSettings;->access$100(Lcom/android/server/display/whitebalance/DisplayWhiteBalanceSettings;)Lcom/android/server/display/color/ColorDisplayService$ColorDisplayServiceInternal;
+    invoke-static {p0}, Lcom/android/server/display/whitebalance/DisplayWhiteBalanceSettings;->-$$Nest$fgetmCdsi(Lcom/android/server/display/whitebalance/DisplayWhiteBalanceSettings;)Lcom/android/server/display/color/ColorDisplayService$ColorDisplayServiceInternal;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v1}, Lcom/android/server/display/color/ColorDisplayService$ColorDisplayServiceInternal;->isDisplayWhiteBalanceEnabled()Z
+    invoke-virtual {p1}, Lcom/android/server/display/color/ColorDisplayService$ColorDisplayServiceInternal;->isDisplayWhiteBalanceEnabled()Z
 
-    move-result v1
+    move-result p1
 
-    invoke-static {v0, v1}, Lcom/android/server/display/whitebalance/DisplayWhiteBalanceSettings;->access$200(Lcom/android/server/display/whitebalance/DisplayWhiteBalanceSettings;Z)V
+    invoke-static {p0, p1}, Lcom/android/server/display/whitebalance/DisplayWhiteBalanceSettings;->-$$Nest$msetEnabled(Lcom/android/server/display/whitebalance/DisplayWhiteBalanceSettings;Z)V
 
     :goto_1
     return-void
-
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_0
-    .end packed-switch
 .end method

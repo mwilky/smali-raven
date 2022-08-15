@@ -1,4 +1,4 @@
-.class Lcom/android/server/media/MediaShellCommand$ControllerMonitor$1;
+.class public Lcom/android/server/media/MediaShellCommand$ControllerMonitor$1;
 .super Landroid/os/HandlerThread;
 .source "MediaShellCommand.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$1:Lcom/android/server/media/MediaShellCommand$ControllerMonitor;
+.field public final synthetic this$1:Lcom/android/server/media/MediaShellCommand$ControllerMonitor;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/media/MediaShellCommand$ControllerMonitor;Ljava/lang/String;)V
+.method public constructor <init>(Lcom/android/server/media/MediaShellCommand$ControllerMonitor;Ljava/lang/String;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/media/MediaShellCommand$ControllerMonitor$1;->this$1:Lcom/android/server/media/MediaShellCommand$ControllerMonitor;
@@ -31,19 +31,19 @@
 
 
 # virtual methods
-.method protected onLooperPrepared()V
-    .locals 3
+.method public onLooperPrepared()V
+    .locals 2
 
     :try_start_0
     iget-object v0, p0, Lcom/android/server/media/MediaShellCommand$ControllerMonitor$1;->this$1:Lcom/android/server/media/MediaShellCommand$ControllerMonitor;
 
-    invoke-static {v0}, Lcom/android/server/media/MediaShellCommand$ControllerMonitor;->access$200(Lcom/android/server/media/MediaShellCommand$ControllerMonitor;)Landroid/media/session/MediaController;
+    invoke-static {v0}, Lcom/android/server/media/MediaShellCommand$ControllerMonitor;->-$$Nest$fgetmController(Lcom/android/server/media/MediaShellCommand$ControllerMonitor;)Landroid/media/session/MediaController;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/server/media/MediaShellCommand$ControllerMonitor$1;->this$1:Lcom/android/server/media/MediaShellCommand$ControllerMonitor;
 
-    invoke-static {v1}, Lcom/android/server/media/MediaShellCommand$ControllerMonitor;->access$100(Lcom/android/server/media/MediaShellCommand$ControllerMonitor;)Lcom/android/server/media/MediaShellCommand$ControllerCallback;
+    invoke-static {v1}, Lcom/android/server/media/MediaShellCommand$ControllerMonitor;->-$$Nest$fgetmControllerCallback(Lcom/android/server/media/MediaShellCommand$ControllerMonitor;)Lcom/android/server/media/MediaShellCommand$ControllerCallback;
 
     move-result-object v1
 
@@ -54,19 +54,17 @@
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    iget-object p0, p0, Lcom/android/server/media/MediaShellCommand$ControllerMonitor$1;->this$1:Lcom/android/server/media/MediaShellCommand$ControllerMonitor;
 
-    iget-object v1, p0, Lcom/android/server/media/MediaShellCommand$ControllerMonitor$1;->this$1:Lcom/android/server/media/MediaShellCommand$ControllerMonitor;
+    iget-object p0, p0, Lcom/android/server/media/MediaShellCommand$ControllerMonitor;->this$0:Lcom/android/server/media/MediaShellCommand;
 
-    iget-object v1, v1, Lcom/android/server/media/MediaShellCommand$ControllerMonitor;->this$0:Lcom/android/server/media/MediaShellCommand;
+    invoke-static {p0}, Lcom/android/server/media/MediaShellCommand;->-$$Nest$fgetmErrorWriter(Lcom/android/server/media/MediaShellCommand;)Ljava/io/PrintWriter;
 
-    invoke-static {v1}, Lcom/android/server/media/MediaShellCommand;->access$300(Lcom/android/server/media/MediaShellCommand;)Ljava/io/PrintWriter;
+    move-result-object p0
 
-    move-result-object v1
+    const-string v0, "Error registering monitor callback"
 
-    const-string v2, "Error registering monitor callback"
-
-    invoke-virtual {v1, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     :goto_0
     return-void

@@ -4,9 +4,9 @@
 
 
 # instance fields
-.field private final mGenerationId:I
+.field public final mGenerationId:I
 
-.field private final mKey:Ljavax/crypto/SecretKey;
+.field public final mKey:Ljavax/crypto/SecretKey;
 
 
 # direct methods
@@ -25,17 +25,17 @@
 
 # virtual methods
 .method public getGenerationId()I
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/locksettings/recoverablekeystore/PlatformEncryptionKey;->mGenerationId:I
+    iget p0, p0, Lcom/android/server/locksettings/recoverablekeystore/PlatformEncryptionKey;->mGenerationId:I
 
-    return v0
+    return p0
 .end method
 
 .method public getKey()Ljavax/crypto/SecretKey;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/locksettings/recoverablekeystore/PlatformEncryptionKey;->mKey:Ljavax/crypto/SecretKey;
+    iget-object p0, p0, Lcom/android/server/locksettings/recoverablekeystore/PlatformEncryptionKey;->mKey:Ljavax/crypto/SecretKey;
 
-    return-object v0
+    return-object p0
 .end method

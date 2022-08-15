@@ -1,4 +1,4 @@
-.class Lcom/android/server/content/SyncManager$SyncTimeTracker;
+.class public Lcom/android/server/content/SyncManager$SyncTimeTracker;
 .super Ljava/lang/Object;
 .source "SyncManager.java"
 
@@ -9,23 +9,23 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "SyncTimeTracker"
 .end annotation
 
 
 # instance fields
-.field mLastWasSyncing:Z
+.field public mLastWasSyncing:Z
 
-.field private mTimeSpentSyncing:J
+.field public mTimeSpentSyncing:J
 
-.field mWhenSyncStarted:J
+.field public mWhenSyncStarted:J
 
-.field final synthetic this$0:Lcom/android/server/content/SyncManager;
+.field public final synthetic this$0:Lcom/android/server/content/SyncManager;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/server/content/SyncManager;)V
+.method public constructor <init>(Lcom/android/server/content/SyncManager;)V
     .locals 2
 
     iput-object p1, p0, Lcom/android/server/content/SyncManager$SyncTimeTracker;->this$0:Lcom/android/server/content/SyncManager;
@@ -43,7 +43,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/content/SyncManager;Lcom/android/server/content/SyncManager$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/content/SyncManager;Lcom/android/server/content/SyncManager$SyncTimeTracker-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/content/SyncManager$SyncTimeTracker;-><init>(Lcom/android/server/content/SyncManager;)V
@@ -83,9 +83,9 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    sub-long v4, v0, v4
+    sub-long/2addr v0, v4
 
-    add-long/2addr v2, v4
+    add-long/2addr v2, v0
 
     monitor-exit p0
 
@@ -150,9 +150,9 @@
 
     iget-wide v5, p0, Lcom/android/server/content/SyncManager$SyncTimeTracker;->mWhenSyncStarted:J
 
-    sub-long v5, v1, v5
+    sub-long/2addr v1, v5
 
-    add-long/2addr v3, v5
+    add-long/2addr v3, v1
 
     iput-wide v3, p0, Lcom/android/server/content/SyncManager$SyncTimeTracker;->mTimeSpentSyncing:J
 

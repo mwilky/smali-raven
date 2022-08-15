@@ -1,4 +1,4 @@
-.class final Lcom/android/server/inputmethod/InputMethodManagerService$StartInputHistory;
+.class public final Lcom/android/server/inputmethod/InputMethodManagerService$StartInputHistory;
 .super Ljava/lang/Object;
 .source "InputMethodManagerService.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "StartInputHistory"
 .end annotation
 
@@ -20,20 +20,14 @@
 .end annotation
 
 
-# static fields
-.field private static final ENTRY_SIZE_FOR_HIGH_RAM_DEVICE:I = 0x20
-
-.field private static final ENTRY_SIZE_FOR_LOW_RAM_DEVICE:I = 0x5
-
-
 # instance fields
-.field private final mEntries:[Lcom/android/server/inputmethod/InputMethodManagerService$StartInputHistory$Entry;
+.field public final mEntries:[Lcom/android/server/inputmethod/InputMethodManagerService$StartInputHistory$Entry;
 
-.field private mNextIndex:I
+.field public mNextIndex:I
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -53,7 +47,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/inputmethod/InputMethodManagerService$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/inputmethod/InputMethodManagerService$StartInputHistory-IA;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/inputmethod/InputMethodManagerService$StartInputHistory;-><init>()V
@@ -61,7 +55,7 @@
     return-void
 .end method
 
-.method private static getEntrySize()I
+.method public static getEntrySize()I
     .locals 1
 
     invoke-static {}, Landroid/app/ActivityManager;->isLowRamDeviceStatic()Z
@@ -82,7 +76,7 @@
 
 
 # virtual methods
-.method addEntry(Lcom/android/server/inputmethod/InputMethodManagerService$StartInputInfo;)V
+.method public addEntry(Lcom/android/server/inputmethod/InputMethodManagerService$StartInputInfo;)V
     .locals 3
 
     iget v0, p0, Lcom/android/server/inputmethod/InputMethodManagerService$StartInputHistory;->mNextIndex:I
@@ -102,27 +96,25 @@
     goto :goto_0
 
     :cond_0
-    aget-object v1, v1, v0
-
-    invoke-virtual {v1, p1}, Lcom/android/server/inputmethod/InputMethodManagerService$StartInputHistory$Entry;->set(Lcom/android/server/inputmethod/InputMethodManagerService$StartInputInfo;)V
+    invoke-virtual {v2, p1}, Lcom/android/server/inputmethod/InputMethodManagerService$StartInputHistory$Entry;->set(Lcom/android/server/inputmethod/InputMethodManagerService$StartInputInfo;)V
 
     :goto_0
-    iget v1, p0, Lcom/android/server/inputmethod/InputMethodManagerService$StartInputHistory;->mNextIndex:I
+    iget p1, p0, Lcom/android/server/inputmethod/InputMethodManagerService$StartInputHistory;->mNextIndex:I
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 p1, p1, 0x1
 
-    iget-object v2, p0, Lcom/android/server/inputmethod/InputMethodManagerService$StartInputHistory;->mEntries:[Lcom/android/server/inputmethod/InputMethodManagerService$StartInputHistory$Entry;
+    iget-object v0, p0, Lcom/android/server/inputmethod/InputMethodManagerService$StartInputHistory;->mEntries:[Lcom/android/server/inputmethod/InputMethodManagerService$StartInputHistory$Entry;
 
-    array-length v2, v2
+    array-length v0, v0
 
-    rem-int/2addr v1, v2
+    rem-int/2addr p1, v0
 
-    iput v1, p0, Lcom/android/server/inputmethod/InputMethodManagerService$StartInputHistory;->mNextIndex:I
+    iput p1, p0, Lcom/android/server/inputmethod/InputMethodManagerService$StartInputHistory;->mNextIndex:I
 
     return-void
 .end method
 
-.method dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
+.method public dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
     .locals 7
 
     new-instance v0, Ljava/text/SimpleDateFormat;
@@ -453,17 +445,17 @@
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v4, v2, Lcom/android/server/inputmethod/InputMethodManagerService$StartInputHistory$Entry;->mEditorInfo:Landroid/view/inputmethod/EditorInfo;
+    iget-object v2, v2, Lcom/android/server/inputmethod/InputMethodManagerService$StartInputHistory$Entry;->mEditorInfo:Landroid/view/inputmethod/EditorInfo;
 
-    iget-object v4, v4, Landroid/view/inputmethod/EditorInfo;->actionLabel:Ljava/lang/CharSequence;
+    iget-object v2, v2, Landroid/view/inputmethod/EditorInfo;->actionLabel:Ljava/lang/CharSequence;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {p1, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p1, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     :goto_1
     add-int/lit8 v1, v1, 0x1

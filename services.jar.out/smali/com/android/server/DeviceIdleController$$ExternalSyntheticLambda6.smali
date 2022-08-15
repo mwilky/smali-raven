@@ -1,43 +1,50 @@
 .class public final synthetic Lcom/android/server/DeviceIdleController$$ExternalSyntheticLambda6;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/IntFunction;
+.implements Ljava/util/function/Predicate;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/DeviceIdleController$$ExternalSyntheticLambda6;
+# instance fields
+.field public final synthetic f$0:Lcom/android/server/DeviceIdleController;
+
+.field public final synthetic f$1:I
+
+.field public final synthetic f$2:I
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/DeviceIdleController$$ExternalSyntheticLambda6;
-
-    invoke-direct {v0}, Lcom/android/server/DeviceIdleController$$ExternalSyntheticLambda6;-><init>()V
-
-    sput-object v0, Lcom/android/server/DeviceIdleController$$ExternalSyntheticLambda6;->INSTANCE:Lcom/android/server/DeviceIdleController$$ExternalSyntheticLambda6;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Lcom/android/server/DeviceIdleController;II)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/DeviceIdleController$$ExternalSyntheticLambda6;->f$0:Lcom/android/server/DeviceIdleController;
+
+    iput p2, p0, Lcom/android/server/DeviceIdleController$$ExternalSyntheticLambda6;->f$1:I
+
+    iput p3, p0, Lcom/android/server/DeviceIdleController$$ExternalSyntheticLambda6;->f$2:I
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final apply(I)Ljava/lang/Object;
-    .locals 0
+.method public final test(Ljava/lang/Object;)Z
+    .locals 2
 
-    invoke-static {p1}, Lcom/android/server/DeviceIdleController;->lambda$getSystemPowerWhitelistExceptIdleInternal$3(I)[Ljava/lang/String;
+    iget-object v0, p0, Lcom/android/server/DeviceIdleController$$ExternalSyntheticLambda6;->f$0:Lcom/android/server/DeviceIdleController;
 
-    move-result-object p1
+    iget v1, p0, Lcom/android/server/DeviceIdleController$$ExternalSyntheticLambda6;->f$1:I
 
-    return-object p1
+    iget p0, p0, Lcom/android/server/DeviceIdleController$$ExternalSyntheticLambda6;->f$2:I
+
+    check-cast p1, Ljava/lang/String;
+
+    invoke-static {v0, v1, p0, p1}, Lcom/android/server/DeviceIdleController;->$r8$lambda$brvXivBXP7yxuxnMCDJRIHOQtlg(Lcom/android/server/DeviceIdleController;IILjava/lang/String;)Z
+
+    move-result p0
+
+    return p0
 .end method

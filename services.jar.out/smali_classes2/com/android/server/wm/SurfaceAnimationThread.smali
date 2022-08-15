@@ -4,13 +4,21 @@
 
 
 # static fields
-.field private static sHandler:Landroid/os/Handler;
+.field public static sHandler:Landroid/os/Handler;
 
-.field private static sInstance:Lcom/android/server/wm/SurfaceAnimationThread;
+.field public static sInstance:Lcom/android/server/wm/SurfaceAnimationThread;
 
 
 # direct methods
-.method private constructor <init>()V
+.method public static synthetic $r8$lambda$B5iU5IYYJoh8uxV9fdpQwjRHAkY()V
+    .locals 0
+
+    invoke-static {}, Lcom/android/server/wm/SurfaceAnimationThread;->lambda$dispose$0()V
+
+    return-void
+.end method
+
+.method public constructor <init>()V
     .locals 3
 
     const-string v0, "android.anim.lf"
@@ -26,6 +34,8 @@
 
 .method public static dispose()V
     .locals 5
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
 
     const-class v0, Lcom/android/server/wm/SurfaceAnimationThread;
 
@@ -45,7 +55,9 @@
 
     move-result-object v1
 
-    sget-object v2, Lcom/android/server/wm/SurfaceAnimationThread$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/server/wm/SurfaceAnimationThread$$ExternalSyntheticLambda0;
+    new-instance v2, Lcom/android/server/wm/SurfaceAnimationThread$$ExternalSyntheticLambda0;
+
+    invoke-direct {v2}, Lcom/android/server/wm/SurfaceAnimationThread$$ExternalSyntheticLambda0;-><init>()V
 
     const-wide/16 v3, 0x0
 
@@ -69,7 +81,7 @@
     throw v1
 .end method
 
-.method private static ensureThreadLocked()V
+.method public static ensureThreadLocked()V
     .locals 3
 
     sget-object v0, Lcom/android/server/wm/SurfaceAnimationThread;->sInstance:Lcom/android/server/wm/SurfaceAnimationThread;
@@ -82,11 +94,11 @@
 
     sput-object v0, Lcom/android/server/wm/SurfaceAnimationThread;->sInstance:Lcom/android/server/wm/SurfaceAnimationThread;
 
-    invoke-virtual {v0}, Lcom/android/server/wm/SurfaceAnimationThread;->start()V
+    invoke-virtual {v0}, Landroid/os/HandlerThread;->start()V
 
     sget-object v0, Lcom/android/server/wm/SurfaceAnimationThread;->sInstance:Lcom/android/server/wm/SurfaceAnimationThread;
 
-    invoke-virtual {v0}, Lcom/android/server/wm/SurfaceAnimationThread;->getLooper()Landroid/os/Looper;
+    invoke-virtual {v0}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;
 
     move-result-object v0
 
@@ -98,7 +110,7 @@
 
     sget-object v1, Lcom/android/server/wm/SurfaceAnimationThread;->sInstance:Lcom/android/server/wm/SurfaceAnimationThread;
 
-    invoke-virtual {v1}, Lcom/android/server/wm/SurfaceAnimationThread;->getLooper()Landroid/os/Looper;
+    invoke-virtual {v1}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;
 
     move-result-object v1
 
@@ -162,12 +174,12 @@
     throw v1
 .end method
 
-.method static synthetic lambda$dispose$0()V
+.method public static synthetic lambda$dispose$0()V
     .locals 1
 
     sget-object v0, Lcom/android/server/wm/SurfaceAnimationThread;->sInstance:Lcom/android/server/wm/SurfaceAnimationThread;
 
-    invoke-virtual {v0}, Lcom/android/server/wm/SurfaceAnimationThread;->quit()Z
+    invoke-virtual {v0}, Landroid/os/HandlerThread;->quit()Z
 
     return-void
 .end method

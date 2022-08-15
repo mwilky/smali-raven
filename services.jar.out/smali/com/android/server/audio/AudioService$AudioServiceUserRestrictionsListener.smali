@@ -1,4 +1,4 @@
-.class Lcom/android/server/audio/AudioService$AudioServiceUserRestrictionsListener;
+.class public Lcom/android/server/audio/AudioService$AudioServiceUserRestrictionsListener;
 .super Ljava/lang/Object;
 .source "AudioService.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "AudioServiceUserRestrictionsListener"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/audio/AudioService;
+.field public final synthetic this$0:Lcom/android/server/audio/AudioService;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/server/audio/AudioService;)V
+.method public constructor <init>(Lcom/android/server/audio/AudioService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/audio/AudioService$AudioServiceUserRestrictionsListener;->this$0:Lcom/android/server/audio/AudioService;
@@ -32,7 +32,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/audio/AudioService;Lcom/android/server/audio/AudioService$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/audio/AudioService;Lcom/android/server/audio/AudioService$AudioServiceUserRestrictionsListener-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/audio/AudioService$AudioServiceUserRestrictionsListener;-><init>(Lcom/android/server/audio/AudioService;)V
@@ -45,15 +45,11 @@
 .method public onUserRestrictionsChanged(ILandroid/os/Bundle;Landroid/os/Bundle;)V
     .locals 5
 
-    nop
-
     const-string/jumbo v0, "no_unmute_microphone"
 
     invoke-virtual {p3, v0}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
 
     move-result v1
-
-    nop
 
     invoke-virtual {p2, v0}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
 
@@ -61,17 +57,15 @@
 
     if-eq v1, v0, :cond_0
 
-    iget-object v2, p0, Lcom/android/server/audio/AudioService$AudioServiceUserRestrictionsListener;->this$0:Lcom/android/server/audio/AudioService;
+    iget-object v1, p0, Lcom/android/server/audio/AudioService$AudioServiceUserRestrictionsListener;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v2, v0}, Lcom/android/server/audio/AudioService;->access$8802(Lcom/android/server/audio/AudioService;Z)Z
+    invoke-static {v1, v0}, Lcom/android/server/audio/AudioService;->-$$Nest$fputmMicMuteFromRestrictions(Lcom/android/server/audio/AudioService;Z)V
 
-    iget-object v2, p0, Lcom/android/server/audio/AudioService$AudioServiceUserRestrictionsListener;->this$0:Lcom/android/server/audio/AudioService;
+    iget-object v0, p0, Lcom/android/server/audio/AudioService$AudioServiceUserRestrictionsListener;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v2, p1}, Lcom/android/server/audio/AudioService;->access$8400(Lcom/android/server/audio/AudioService;I)V
+    invoke-static {v0, p1}, Lcom/android/server/audio/AudioService;->-$$Nest$msetMicrophoneMuteNoCallerCheck(Lcom/android/server/audio/AudioService;I)V
 
     :cond_0
-    nop
-
     const-string/jumbo v0, "no_adjust_volume"
 
     invoke-virtual {p3, v0}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
@@ -88,24 +82,22 @@
 
     invoke-virtual {p3, v2}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
 
-    move-result v1
+    move-result p3
 
-    if-eqz v1, :cond_1
+    if-eqz p3, :cond_1
 
     goto :goto_0
 
     :cond_1
-    move v1, v4
+    move p3, v4
 
     goto :goto_1
 
     :cond_2
     :goto_0
-    move v1, v3
+    move p3, v3
 
     :goto_1
-    nop
-
     invoke-virtual {p2, v0}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
 
     move-result v0
@@ -114,29 +106,22 @@
 
     invoke-virtual {p2, v2}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result p2
 
-    if-eqz v0, :cond_3
+    if-eqz p2, :cond_3
 
     goto :goto_2
 
     :cond_3
     move v3, v4
 
-    goto :goto_3
-
     :cond_4
     :goto_2
-    nop
+    if-eq p3, v3, :cond_5
 
-    :goto_3
-    move v0, v3
+    iget-object p0, p0, Lcom/android/server/audio/AudioService$AudioServiceUserRestrictionsListener;->this$0:Lcom/android/server/audio/AudioService;
 
-    if-eq v1, v0, :cond_5
-
-    iget-object v2, p0, Lcom/android/server/audio/AudioService$AudioServiceUserRestrictionsListener;->this$0:Lcom/android/server/audio/AudioService;
-
-    invoke-static {v2, v0, v4, p1}, Lcom/android/server/audio/AudioService;->access$8900(Lcom/android/server/audio/AudioService;ZII)V
+    invoke-static {p0, v3, v4, p1}, Lcom/android/server/audio/AudioService;->-$$Nest$msetMasterMuteInternalNoCallerCheck(Lcom/android/server/audio/AudioService;ZII)V
 
     :cond_5
     return-void

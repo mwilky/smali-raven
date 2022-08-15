@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/speech/RemoteSpeechRecognitionService$$ExternalSyntheticLambda3;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/internal/infra/ServiceConnector$VoidJob;
+.implements Ljava/lang/Runnable;
 
 
 # instance fields
@@ -22,14 +23,12 @@
 
 
 # virtual methods
-.method public final runNoResult(Ljava/lang/Object;)V
-    .locals 1
+.method public final run()V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/speech/RemoteSpeechRecognitionService$$ExternalSyntheticLambda3;->f$0:Lcom/android/server/speech/RemoteSpeechRecognitionService;
+    iget-object p0, p0, Lcom/android/server/speech/RemoteSpeechRecognitionService$$ExternalSyntheticLambda3;->f$0:Lcom/android/server/speech/RemoteSpeechRecognitionService;
 
-    check-cast p1, Landroid/speech/IRecognitionService;
-
-    invoke-virtual {v0, p1}, Lcom/android/server/speech/RemoteSpeechRecognitionService;->lambda$cancel$4$RemoteSpeechRecognitionService(Landroid/speech/IRecognitionService;)V
+    invoke-static {p0}, Lcom/android/server/speech/RemoteSpeechRecognitionService;->$r8$lambda$I3s64UJSh0ls7qeuWqUJ2UXN0q8(Lcom/android/server/speech/RemoteSpeechRecognitionService;)V
 
     return-void
 .end method

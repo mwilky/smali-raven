@@ -1,4 +1,4 @@
-.class Lcom/android/server/firewall/AndFilter;
+.class public Lcom/android/server/firewall/AndFilter;
 .super Lcom/android/server/firewall/FilterList;
 .source "AndFilter.java"
 
@@ -8,7 +8,7 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 2
 
     new-instance v0, Lcom/android/server/firewall/AndFilter$1;
@@ -22,7 +22,7 @@
     return-void
 .end method
 
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/firewall/FilterList;-><init>()V
@@ -33,62 +33,62 @@
 
 # virtual methods
 .method public matches(Lcom/android/server/firewall/IntentFirewall;Landroid/content/ComponentName;Landroid/content/Intent;IILjava/lang/String;I)Z
-    .locals 11
+    .locals 12
 
     move-object v0, p0
 
     const/4 v1, 0x0
 
+    move v2, v1
+
     :goto_0
-    iget-object v2, v0, Lcom/android/server/firewall/AndFilter;->children:Ljava/util/ArrayList;
+    iget-object v3, v0, Lcom/android/server/firewall/FilterList;->children:Ljava/util/ArrayList;
 
-    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
 
-    move-result v2
+    move-result v3
 
-    if-ge v1, v2, :cond_1
+    if-ge v2, v3, :cond_1
 
-    iget-object v2, v0, Lcom/android/server/firewall/AndFilter;->children:Ljava/util/ArrayList;
+    iget-object v3, v0, Lcom/android/server/firewall/FilterList;->children:Ljava/util/ArrayList;
 
-    invoke-virtual {v2, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v3, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v3
 
-    move-object v3, v2
+    move-object v4, v3
 
-    check-cast v3, Lcom/android/server/firewall/Filter;
+    check-cast v4, Lcom/android/server/firewall/Filter;
 
-    move-object v4, p1
+    move-object v5, p1
 
-    move-object v5, p2
+    move-object v6, p2
 
-    move-object v6, p3
+    move-object v7, p3
 
-    move v7, p4
+    move/from16 v8, p4
 
-    move/from16 v8, p5
+    move/from16 v9, p5
 
-    move-object/from16 v9, p6
+    move-object/from16 v10, p6
 
-    move/from16 v10, p7
+    move/from16 v11, p7
 
-    invoke-interface/range {v3 .. v10}, Lcom/android/server/firewall/Filter;->matches(Lcom/android/server/firewall/IntentFirewall;Landroid/content/ComponentName;Landroid/content/Intent;IILjava/lang/String;I)Z
+    invoke-interface/range {v4 .. v11}, Lcom/android/server/firewall/Filter;->matches(Lcom/android/server/firewall/IntentFirewall;Landroid/content/ComponentName;Landroid/content/Intent;IILjava/lang/String;I)Z
 
-    move-result v2
+    move-result v3
 
-    if-nez v2, :cond_0
+    if-nez v3, :cond_0
 
-    const/4 v2, 0x0
-
-    return v2
+    return v1
 
     :cond_0
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     :cond_1
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    return v1
+    return v0
 .end method

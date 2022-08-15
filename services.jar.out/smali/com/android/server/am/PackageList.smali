@@ -1,10 +1,10 @@
-.class final Lcom/android/server/am/PackageList;
+.class public final Lcom/android/server/am/PackageList;
 .super Ljava/lang/Object;
 .source "PackageList.java"
 
 
 # instance fields
-.field private final mPkgList:Landroid/util/ArrayMap;
+.field public final mPkgList:Landroid/util/ArrayMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/ArrayMap<",
@@ -15,11 +15,11 @@
     .end annotation
 .end field
 
-.field private final mProcess:Lcom/android/server/am/ProcessRecord;
+.field public final mProcess:Lcom/android/server/am/ProcessRecord;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/ProcessRecord;)V
+.method public constructor <init>(Lcom/android/server/am/ProcessRecord;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,7 +37,7 @@
 
 
 # virtual methods
-.method clear()V
+.method public clear()V
     .locals 1
 
     monitor-enter p0
@@ -69,7 +69,7 @@
     throw v0
 .end method
 
-.method containsKey(Ljava/lang/Object;)Z
+.method public containsKey(Ljava/lang/Object;)Z
     .locals 1
 
     monitor-enter p0
@@ -79,86 +79,86 @@
 
     invoke-virtual {v0, p1}, Landroid/util/ArrayMap;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
     monitor-exit p0
 
-    return v0
+    return p1
 
     :catchall_0
-    move-exception v0
+    move-exception p1
 
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw p1
 .end method
 
-.method dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
-    .locals 3
+.method public dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
+    .locals 2
 
     monitor-enter p0
 
     :try_start_0
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    const-string/jumbo v0, "packageList={"
+    const-string/jumbo p2, "packageList={"
 
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+    invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    const/4 v0, 0x0
+    const/4 p2, 0x0
 
-    iget-object v1, p0, Lcom/android/server/am/PackageList;->mPkgList:Landroid/util/ArrayMap;
+    iget-object v0, p0, Lcom/android/server/am/PackageList;->mPkgList:Landroid/util/ArrayMap;
 
-    invoke-virtual {v1}, Landroid/util/ArrayMap;->size()I
+    invoke-virtual {v0}, Landroid/util/ArrayMap;->size()I
 
-    move-result v1
+    move-result v0
 
     :goto_0
-    if-ge v0, v1, :cond_1
+    if-ge p2, v0, :cond_1
 
-    if-lez v0, :cond_0
+    if-lez p2, :cond_0
 
-    const-string v2, ", "
+    const-string v1, ", "
 
-    invoke-virtual {p1, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+    invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     :cond_0
-    iget-object v2, p0, Lcom/android/server/am/PackageList;->mPkgList:Landroid/util/ArrayMap;
+    iget-object v1, p0, Lcom/android/server/am/PackageList;->mPkgList:Landroid/util/ArrayMap;
 
-    invoke-virtual {v2, v0}, Landroid/util/ArrayMap;->keyAt(I)Ljava/lang/Object;
+    invoke-virtual {v1, p2}, Landroid/util/ArrayMap;->keyAt(I)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
-    check-cast v2, Ljava/lang/String;
+    check-cast v1, Ljava/lang/String;
 
-    invoke-virtual {p1, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+    invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 p2, p2, 0x1
 
     goto :goto_0
 
     :cond_1
-    const-string/jumbo v0, "}"
+    const-string/jumbo p2, "}"
 
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     monitor-exit p0
 
     return-void
 
     :catchall_0
-    move-exception v0
+    move-exception p1
 
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw p1
 .end method
 
-.method forEachPackage(Ljava/util/function/BiConsumer;)V
+.method public forEachPackage(Ljava/util/function/BiConsumer;)V
     .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -212,16 +212,16 @@
     return-void
 
     :catchall_0
-    move-exception v0
+    move-exception p1
 
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw p1
 .end method
 
-.method forEachPackage(Ljava/util/function/Consumer;)V
+.method public forEachPackage(Ljava/util/function/Consumer;)V
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -266,16 +266,16 @@
     return-void
 
     :catchall_0
-    move-exception v0
+    move-exception p1
 
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw p1
 .end method
 
-.method forEachPackageProcessStats(Ljava/util/function/Consumer;)V
+.method public forEachPackageProcessStats(Ljava/util/function/Consumer;)V
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -320,16 +320,16 @@
     return-void
 
     :catchall_0
-    move-exception v0
+    move-exception p1
 
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw p1
 .end method
 
-.method get(Ljava/lang/String;)Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;
+.method public get(Ljava/lang/String;)Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;
     .locals 1
 
     monitor-enter p0
@@ -339,25 +339,25 @@
 
     invoke-virtual {v0, p1}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;
+    check-cast p1, Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;
 
     monitor-exit p0
 
-    return-object v0
+    return-object p1
 
     :catchall_0
-    move-exception v0
+    move-exception p1
 
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw p1
 .end method
 
-.method getPackageList()[Ljava/lang/String;
+.method public getPackageList()[Ljava/lang/String;
     .locals 4
 
     monitor-enter p0
@@ -371,11 +371,11 @@
 
     if-nez v0, :cond_0
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     monitor-exit p0
 
-    return-object v1
+    return-object v0
 
     :cond_0
     new-array v1, v0, [Ljava/lang/String;
@@ -414,8 +414,14 @@
     throw v0
 .end method
 
-.method getPackageListLocked()Landroid/util/ArrayMap;
-    .locals 1
+.method public getPackageListLocked()Landroid/util/ArrayMap;
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "this"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -426,12 +432,12 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/android/server/am/PackageList;->mPkgList:Landroid/util/ArrayMap;
+    iget-object p0, p0, Lcom/android/server/am/PackageList;->mPkgList:Landroid/util/ArrayMap;
 
-    return-object v0
+    return-object p0
 .end method
 
-.method getPackageListWithVersionCode()Ljava/util/List;
+.method public getPackageListWithVersionCode()Ljava/util/List;
     .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -453,11 +459,11 @@
 
     if-nez v0, :cond_0
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     monitor-exit p0
 
-    return-object v1
+    return-object v0
 
     :cond_0
     new-instance v1, Ljava/util/ArrayList;
@@ -512,7 +518,7 @@
     throw v0
 .end method
 
-.method put(Ljava/lang/String;Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;)Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;
+.method public put(Ljava/lang/String;Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;)Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;
     .locals 1
 
     monitor-enter p0
@@ -530,25 +536,25 @@
 
     invoke-virtual {v0, p1, p2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;
+    check-cast p1, Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;
 
     monitor-exit p0
 
-    return-object v0
+    return-object p1
 
     :catchall_0
-    move-exception v0
+    move-exception p1
 
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw p1
 .end method
 
-.method searchEachPackage(Ljava/util/function/Function;)Ljava/lang/Object;
+.method public searchEachPackage(Ljava/util/function/Function;)Ljava/lang/Object;
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -601,21 +607,21 @@
     :cond_1
     monitor-exit p0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return-object v0
+    return-object p0
 
     :catchall_0
-    move-exception v0
+    move-exception p1
 
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw p1
 .end method
 
-.method size()I
+.method public size()I
     .locals 1
 
     monitor-enter p0

@@ -12,9 +12,7 @@
 
 
 # static fields
-.field private static final TAG:Ljava/lang/String; = "PerformanceTracker"
-
-.field private static sTrackers:Landroid/util/SparseArray;
+.field public static sTrackers:Landroid/util/SparseArray;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/SparseArray<",
@@ -26,7 +24,7 @@
 
 
 # instance fields
-.field private final mAllUsersInfo:Landroid/util/SparseArray;
+.field public final mAllUsersInfo:Landroid/util/SparseArray;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/SparseArray<",
@@ -36,11 +34,11 @@
     .end annotation
 .end field
 
-.field private mHALDeathCount:I
+.field public mHALDeathCount:I
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -51,31 +49,6 @@
 
     iput-object v0, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker;->mAllUsersInfo:Landroid/util/SparseArray;
 
-    return-void
-.end method
-
-.method private createUserEntryIfNecessary(I)V
-    .locals 3
-
-    iget-object v0, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker;->mAllUsersInfo:Landroid/util/SparseArray;
-
-    invoke-virtual {v0, p1}, Landroid/util/SparseArray;->contains(I)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker;->mAllUsersInfo:Landroid/util/SparseArray;
-
-    new-instance v1, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;
-
-    const/4 v2, 0x0
-
-    invoke-direct {v1, v2}, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;-><init>(Lcom/android/server/biometrics/sensors/PerformanceTracker$1;)V
-
-    invoke-virtual {v0, p1, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
-
-    :cond_0
     return-void
 .end method
 
@@ -114,11 +87,11 @@
 
     invoke-virtual {v0, p0}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/android/server/biometrics/sensors/PerformanceTracker;
+    check-cast p0, Lcom/android/server/biometrics/sensors/PerformanceTracker;
 
-    return-object v0
+    return-object p0
 .end method
 
 
@@ -137,6 +110,31 @@
     return-void
 .end method
 
+.method public final createUserEntryIfNecessary(I)V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker;->mAllUsersInfo:Landroid/util/SparseArray;
+
+    invoke-virtual {v0, p1}, Landroid/util/SparseArray;->contains(I)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    iget-object p0, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker;->mAllUsersInfo:Landroid/util/SparseArray;
+
+    new-instance v0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;
+
+    const/4 v1, 0x0
+
+    invoke-direct {v0, v1}, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;-><init>(Lcom/android/server/biometrics/sensors/PerformanceTracker$Info-IA;)V
+
+    invoke-virtual {p0, p1, v0}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+
+    :cond_0
+    return-void
+.end method
+
 .method public getAcceptCryptoForUser(I)I
     .locals 1
 
@@ -148,23 +146,23 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker;->mAllUsersInfo:Landroid/util/SparseArray;
+    iget-object p0, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker;->mAllUsersInfo:Landroid/util/SparseArray;
 
-    invoke-virtual {v0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;
+    check-cast p0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;
 
-    iget v0, v0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;->mAcceptCrypto:I
+    iget p0, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;->mAcceptCrypto:I
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method public getAcceptForUser(I)I
@@ -178,23 +176,23 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker;->mAllUsersInfo:Landroid/util/SparseArray;
+    iget-object p0, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker;->mAllUsersInfo:Landroid/util/SparseArray;
 
-    invoke-virtual {v0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;
+    check-cast p0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;
 
-    iget v0, v0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;->mAccept:I
+    iget p0, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;->mAccept:I
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method public getAcquireCryptoForUser(I)I
@@ -208,23 +206,23 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker;->mAllUsersInfo:Landroid/util/SparseArray;
+    iget-object p0, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker;->mAllUsersInfo:Landroid/util/SparseArray;
 
-    invoke-virtual {v0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;
+    check-cast p0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;
 
-    iget v0, v0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;->mAcquireCrypto:I
+    iget p0, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;->mAcquireCrypto:I
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method public getAcquireForUser(I)I
@@ -238,31 +236,31 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker;->mAllUsersInfo:Landroid/util/SparseArray;
+    iget-object p0, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker;->mAllUsersInfo:Landroid/util/SparseArray;
 
-    invoke-virtual {v0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;
+    check-cast p0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;
 
-    iget v0, v0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;->mAcquire:I
+    iget p0, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;->mAcquire:I
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method public getHALDeathCount()I
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker;->mHALDeathCount:I
+    iget p0, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker;->mHALDeathCount:I
 
-    return v0
+    return p0
 .end method
 
 .method public getPermanentLockoutForUser(I)I
@@ -276,23 +274,23 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker;->mAllUsersInfo:Landroid/util/SparseArray;
+    iget-object p0, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker;->mAllUsersInfo:Landroid/util/SparseArray;
 
-    invoke-virtual {v0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;
+    check-cast p0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;
 
-    iget v0, v0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;->mPermanentLockout:I
+    iget p0, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;->mPermanentLockout:I
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method public getRejectCryptoForUser(I)I
@@ -306,23 +304,23 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker;->mAllUsersInfo:Landroid/util/SparseArray;
+    iget-object p0, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker;->mAllUsersInfo:Landroid/util/SparseArray;
 
-    invoke-virtual {v0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;
+    check-cast p0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;
 
-    iget v0, v0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;->mRejectCrypto:I
+    iget p0, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;->mRejectCrypto:I
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method public getRejectForUser(I)I
@@ -336,23 +334,23 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker;->mAllUsersInfo:Landroid/util/SparseArray;
+    iget-object p0, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker;->mAllUsersInfo:Landroid/util/SparseArray;
 
-    invoke-virtual {v0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;
+    check-cast p0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;
 
-    iget v0, v0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;->mReject:I
+    iget p0, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;->mReject:I
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method public getTimedLockoutForUser(I)I
@@ -366,146 +364,146 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker;->mAllUsersInfo:Landroid/util/SparseArray;
+    iget-object p0, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker;->mAllUsersInfo:Landroid/util/SparseArray;
 
-    invoke-virtual {v0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;
+    check-cast p0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;
 
-    iget v0, v0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;->mTimedLockout:I
+    iget p0, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;->mTimedLockout:I
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
-.method incrementAcquireForUser(IZ)V
-    .locals 2
+.method public incrementAcquireForUser(IZ)V
+    .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/server/biometrics/sensors/PerformanceTracker;->createUserEntryIfNecessary(I)V
+    invoke-virtual {p0, p1}, Lcom/android/server/biometrics/sensors/PerformanceTracker;->createUserEntryIfNecessary(I)V
 
     if-eqz p2, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker;->mAllUsersInfo:Landroid/util/SparseArray;
+    iget-object p0, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker;->mAllUsersInfo:Landroid/util/SparseArray;
 
-    invoke-virtual {v0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;
+    check-cast p0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;
 
-    iget v1, v0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;->mAcquireCrypto:I
+    iget p1, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;->mAcquireCrypto:I
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 p1, p1, 0x1
 
-    iput v1, v0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;->mAcquireCrypto:I
+    iput p1, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;->mAcquireCrypto:I
 
     goto :goto_0
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker;->mAllUsersInfo:Landroid/util/SparseArray;
+    iget-object p0, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker;->mAllUsersInfo:Landroid/util/SparseArray;
 
-    invoke-virtual {v0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;
+    check-cast p0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;
 
-    iget v1, v0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;->mAcquire:I
+    iget p1, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;->mAcquire:I
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 p1, p1, 0x1
 
-    iput v1, v0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;->mAcquire:I
+    iput p1, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;->mAcquire:I
 
     :goto_0
     return-void
 .end method
 
 .method public incrementAuthForUser(IZ)V
-    .locals 2
+    .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/server/biometrics/sensors/PerformanceTracker;->createUserEntryIfNecessary(I)V
+    invoke-virtual {p0, p1}, Lcom/android/server/biometrics/sensors/PerformanceTracker;->createUserEntryIfNecessary(I)V
 
     if-eqz p2, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker;->mAllUsersInfo:Landroid/util/SparseArray;
+    iget-object p0, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker;->mAllUsersInfo:Landroid/util/SparseArray;
 
-    invoke-virtual {v0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;
+    check-cast p0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;
 
-    iget v1, v0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;->mAccept:I
+    iget p1, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;->mAccept:I
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 p1, p1, 0x1
 
-    iput v1, v0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;->mAccept:I
+    iput p1, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;->mAccept:I
 
     goto :goto_0
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker;->mAllUsersInfo:Landroid/util/SparseArray;
+    iget-object p0, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker;->mAllUsersInfo:Landroid/util/SparseArray;
 
-    invoke-virtual {v0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;
+    check-cast p0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;
 
-    iget v1, v0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;->mReject:I
+    iget p1, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;->mReject:I
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 p1, p1, 0x1
 
-    iput v1, v0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;->mReject:I
+    iput p1, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;->mReject:I
 
     :goto_0
     return-void
 .end method
 
-.method incrementCryptoAuthForUser(IZ)V
-    .locals 2
+.method public incrementCryptoAuthForUser(IZ)V
+    .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/server/biometrics/sensors/PerformanceTracker;->createUserEntryIfNecessary(I)V
+    invoke-virtual {p0, p1}, Lcom/android/server/biometrics/sensors/PerformanceTracker;->createUserEntryIfNecessary(I)V
 
     if-eqz p2, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker;->mAllUsersInfo:Landroid/util/SparseArray;
+    iget-object p0, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker;->mAllUsersInfo:Landroid/util/SparseArray;
 
-    invoke-virtual {v0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;
+    check-cast p0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;
 
-    iget v1, v0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;->mAcceptCrypto:I
+    iget p1, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;->mAcceptCrypto:I
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 p1, p1, 0x1
 
-    iput v1, v0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;->mAcceptCrypto:I
+    iput p1, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;->mAcceptCrypto:I
 
     goto :goto_0
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker;->mAllUsersInfo:Landroid/util/SparseArray;
+    iget-object p0, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker;->mAllUsersInfo:Landroid/util/SparseArray;
 
-    invoke-virtual {v0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;
+    check-cast p0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;
 
-    iget v1, v0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;->mRejectCrypto:I
+    iget p1, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;->mRejectCrypto:I
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 p1, p1, 0x1
 
-    iput v1, v0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;->mRejectCrypto:I
+    iput p1, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;->mRejectCrypto:I
 
     :goto_0
     return-void
@@ -523,46 +521,46 @@
     return-void
 .end method
 
-.method incrementPermanentLockoutForUser(I)V
-    .locals 2
+.method public incrementPermanentLockoutForUser(I)V
+    .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/server/biometrics/sensors/PerformanceTracker;->createUserEntryIfNecessary(I)V
+    invoke-virtual {p0, p1}, Lcom/android/server/biometrics/sensors/PerformanceTracker;->createUserEntryIfNecessary(I)V
 
-    iget-object v0, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker;->mAllUsersInfo:Landroid/util/SparseArray;
+    iget-object p0, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker;->mAllUsersInfo:Landroid/util/SparseArray;
 
-    invoke-virtual {v0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;
+    check-cast p0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;
 
-    iget v1, v0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;->mPermanentLockout:I
+    iget p1, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;->mPermanentLockout:I
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 p1, p1, 0x1
 
-    iput v1, v0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;->mPermanentLockout:I
+    iput p1, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;->mPermanentLockout:I
 
     return-void
 .end method
 
-.method incrementTimedLockoutForUser(I)V
-    .locals 2
+.method public incrementTimedLockoutForUser(I)V
+    .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/server/biometrics/sensors/PerformanceTracker;->createUserEntryIfNecessary(I)V
+    invoke-virtual {p0, p1}, Lcom/android/server/biometrics/sensors/PerformanceTracker;->createUserEntryIfNecessary(I)V
 
-    iget-object v0, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker;->mAllUsersInfo:Landroid/util/SparseArray;
+    iget-object p0, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker;->mAllUsersInfo:Landroid/util/SparseArray;
 
-    invoke-virtual {v0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;
+    check-cast p0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;
 
-    iget v1, v0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;->mTimedLockout:I
+    iget p1, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;->mTimedLockout:I
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 p1, p1, 0x1
 
-    iput v1, v0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;->mTimedLockout:I
+    iput p1, p0, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;->mTimedLockout:I
 
     return-void
 .end method

@@ -4,17 +4,23 @@
 
 
 # static fields
-.field private static final BASE_JOB_ID:I = 0xc315bd7
-
-.field private static final JOB_RUN_INTERVAL:J
+.field public static final JOB_RUN_INTERVAL:J
 
 
 # instance fields
-.field private mSignal:Landroid/os/CancellationSignal;
+.field public mSignal:Landroid/os/CancellationSignal;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static synthetic $r8$lambda$UHvqdJZVtPi8AE47j_OZg20tbV4(Lcom/android/server/people/data/DataMaintenanceService;ILandroid/app/job/JobParameters;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/server/people/data/DataMaintenanceService;->lambda$onStartJob$0(ILandroid/app/job/JobParameters;)V
+
+    return-void
+.end method
+
+.method public static constructor <clinit>()V
     .locals 3
 
     sget-object v0, Ljava/util/concurrent/TimeUnit;->HOURS:Ljava/util/concurrent/TimeUnit;
@@ -38,102 +44,47 @@
     return-void
 .end method
 
-.method static cancelJob(Landroid/content/Context;I)V
-    .locals 2
+.method public static cancelJob(Landroid/content/Context;I)V
+    .locals 1
 
     const-class v0, Landroid/app/job/JobScheduler;
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Landroid/app/job/JobScheduler;
+    check-cast p0, Landroid/app/job/JobScheduler;
 
     invoke-static {p1}, Lcom/android/server/people/data/DataMaintenanceService;->getJobId(I)I
 
-    move-result v1
+    move-result p1
 
-    invoke-virtual {v0, v1}, Landroid/app/job/JobScheduler;->cancel(I)V
+    invoke-virtual {p0, p1}, Landroid/app/job/JobScheduler;->cancel(I)V
 
     return-void
 .end method
 
-.method private static getJobId(I)I
+.method public static getJobId(I)I
     .locals 1
 
     const v0, 0xc315bd7
 
-    add-int/2addr v0, p0
+    add-int/2addr p0, v0
 
-    return v0
+    return p0
 .end method
 
-.method private static getUserId(I)I
+.method public static getUserId(I)I
     .locals 1
 
     const v0, 0xc315bd7
 
-    sub-int v0, p0, v0
+    sub-int/2addr p0, v0
 
-    return v0
+    return p0
 .end method
 
-.method static scheduleJob(Landroid/content/Context;I)V
-    .locals 6
-
-    invoke-static {p1}, Lcom/android/server/people/data/DataMaintenanceService;->getJobId(I)I
-
-    move-result v0
-
-    const-class v1, Landroid/app/job/JobScheduler;
-
-    invoke-virtual {p0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/app/job/JobScheduler;
-
-    invoke-virtual {v1, v0}, Landroid/app/job/JobScheduler;->getPendingJob(I)Landroid/app/job/JobInfo;
-
-    move-result-object v2
-
-    if-nez v2, :cond_0
-
-    new-instance v2, Landroid/content/ComponentName;
-
-    const-class v3, Lcom/android/server/people/data/DataMaintenanceService;
-
-    invoke-direct {v2, p0, v3}, Landroid/content/ComponentName;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
-
-    new-instance v3, Landroid/app/job/JobInfo$Builder;
-
-    invoke-direct {v3, v0, v2}, Landroid/app/job/JobInfo$Builder;-><init>(ILandroid/content/ComponentName;)V
-
-    const/4 v4, 0x1
-
-    invoke-virtual {v3, v4}, Landroid/app/job/JobInfo$Builder;->setRequiresDeviceIdle(Z)Landroid/app/job/JobInfo$Builder;
-
-    move-result-object v3
-
-    sget-wide v4, Lcom/android/server/people/data/DataMaintenanceService;->JOB_RUN_INTERVAL:J
-
-    invoke-virtual {v3, v4, v5}, Landroid/app/job/JobInfo$Builder;->setPeriodic(J)Landroid/app/job/JobInfo$Builder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Landroid/app/job/JobInfo$Builder;->build()Landroid/app/job/JobInfo;
-
-    move-result-object v3
-
-    invoke-virtual {v1, v3}, Landroid/app/job/JobScheduler;->schedule(Landroid/app/job/JobInfo;)I
-
-    :cond_0
-    return-void
-.end method
-
-
-# virtual methods
-.method public synthetic lambda$onStartJob$0$DataMaintenanceService(ILandroid/app/job/JobParameters;)V
+.method private synthetic lambda$onStartJob$0(ILandroid/app/job/JobParameters;)V
     .locals 2
 
     const-class v0, Lcom/android/server/people/PeopleServiceInternal;
@@ -148,17 +99,72 @@
 
     invoke-virtual {v0, p1, v1}, Lcom/android/server/people/PeopleServiceInternal;->pruneDataForUser(ILandroid/os/CancellationSignal;)V
 
-    iget-object v1, p0, Lcom/android/server/people/data/DataMaintenanceService;->mSignal:Landroid/os/CancellationSignal;
+    iget-object p1, p0, Lcom/android/server/people/data/DataMaintenanceService;->mSignal:Landroid/os/CancellationSignal;
 
-    invoke-virtual {v1}, Landroid/os/CancellationSignal;->isCanceled()Z
+    invoke-virtual {p1}, Landroid/os/CancellationSignal;->isCanceled()Z
 
-    move-result v1
+    move-result p1
 
-    invoke-virtual {p0, p2, v1}, Lcom/android/server/people/data/DataMaintenanceService;->jobFinished(Landroid/app/job/JobParameters;Z)V
+    invoke-virtual {p0, p2, p1}, Landroid/app/job/JobService;->jobFinished(Landroid/app/job/JobParameters;Z)V
 
     return-void
 .end method
 
+.method public static scheduleJob(Landroid/content/Context;I)V
+    .locals 3
+
+    invoke-static {p1}, Lcom/android/server/people/data/DataMaintenanceService;->getJobId(I)I
+
+    move-result p1
+
+    const-class v0, Landroid/app/job/JobScheduler;
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/app/job/JobScheduler;
+
+    invoke-virtual {v0, p1}, Landroid/app/job/JobScheduler;->getPendingJob(I)Landroid/app/job/JobInfo;
+
+    move-result-object v1
+
+    if-nez v1, :cond_0
+
+    new-instance v1, Landroid/content/ComponentName;
+
+    const-class v2, Lcom/android/server/people/data/DataMaintenanceService;
+
+    invoke-direct {v1, p0, v2}, Landroid/content/ComponentName;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+
+    new-instance p0, Landroid/app/job/JobInfo$Builder;
+
+    invoke-direct {p0, p1, v1}, Landroid/app/job/JobInfo$Builder;-><init>(ILandroid/content/ComponentName;)V
+
+    const/4 p1, 0x1
+
+    invoke-virtual {p0, p1}, Landroid/app/job/JobInfo$Builder;->setRequiresDeviceIdle(Z)Landroid/app/job/JobInfo$Builder;
+
+    move-result-object p0
+
+    sget-wide v1, Lcom/android/server/people/data/DataMaintenanceService;->JOB_RUN_INTERVAL:J
+
+    invoke-virtual {p0, v1, v2}, Landroid/app/job/JobInfo$Builder;->setPeriodic(J)Landroid/app/job/JobInfo$Builder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroid/app/job/JobInfo$Builder;->build()Landroid/app/job/JobInfo;
+
+    move-result-object p0
+
+    invoke-virtual {v0, p0}, Landroid/app/job/JobScheduler;->schedule(Landroid/app/job/JobInfo;)I
+
+    :cond_0
+    return-void
+.end method
+
+
+# virtual methods
 .method public onStartJob(Landroid/app/job/JobParameters;)Z
     .locals 3
 
@@ -186,22 +192,22 @@
 
     invoke-virtual {v1}, Ljava/lang/Thread;->start()V
 
-    const/4 v1, 0x1
+    const/4 p0, 0x1
 
-    return v1
+    return p0
 .end method
 
 .method public onStopJob(Landroid/app/job/JobParameters;)Z
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/people/data/DataMaintenanceService;->mSignal:Landroid/os/CancellationSignal;
+    iget-object p0, p0, Lcom/android/server/people/data/DataMaintenanceService;->mSignal:Landroid/os/CancellationSignal;
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    invoke-virtual {v0}, Landroid/os/CancellationSignal;->cancel()V
+    invoke-virtual {p0}, Landroid/os/CancellationSignal;->cancel()V
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method

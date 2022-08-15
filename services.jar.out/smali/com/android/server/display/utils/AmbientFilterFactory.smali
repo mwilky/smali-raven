@@ -4,16 +4,8 @@
 
 
 # direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
 .method public static createAmbientFilter(Ljava/lang/String;IF)Lcom/android/server/display/utils/AmbientFilter;
-    .locals 2
+    .locals 1
 
     invoke-static {p2}, Ljava/lang/Float;->isNaN(F)Z
 
@@ -28,61 +20,61 @@
     return-object v0
 
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string/jumbo v1, "missing configurations: expected config_displayWhiteBalanceBrightnessFilterIntercept"
+    const-string/jumbo p1, "missing configurations: expected config_displayWhiteBalanceBrightnessFilterIntercept"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static createBrightnessFilter(Ljava/lang/String;Landroid/content/res/Resources;)Lcom/android/server/display/utils/AmbientFilter;
-    .locals 3
+    .locals 2
 
-    const v0, 0x10e004f
+    const v0, 0x10e0057
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v0
 
-    const v1, 0x10500ad
+    const v1, 0x10500af
 
     invoke-static {p1, v1}, Lcom/android/server/display/utils/AmbientFilterFactory;->getFloat(Landroid/content/res/Resources;I)F
 
-    move-result v1
+    move-result p1
 
-    invoke-static {p0, v0, v1}, Lcom/android/server/display/utils/AmbientFilterFactory;->createAmbientFilter(Ljava/lang/String;IF)Lcom/android/server/display/utils/AmbientFilter;
+    invoke-static {p0, v0, p1}, Lcom/android/server/display/utils/AmbientFilterFactory;->createAmbientFilter(Ljava/lang/String;IF)Lcom/android/server/display/utils/AmbientFilter;
 
-    move-result-object v2
+    move-result-object p0
 
-    return-object v2
+    return-object p0
 .end method
 
 .method public static createColorTemperatureFilter(Ljava/lang/String;Landroid/content/res/Resources;)Lcom/android/server/display/utils/AmbientFilter;
-    .locals 3
+    .locals 2
 
-    const v0, 0x10e0052
+    const v0, 0x10e005a
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v0
 
-    const v1, 0x10500ae
+    const v1, 0x10500b0
 
     invoke-static {p1, v1}, Lcom/android/server/display/utils/AmbientFilterFactory;->getFloat(Landroid/content/res/Resources;I)F
 
-    move-result v1
+    move-result p1
 
-    invoke-static {p0, v0, v1}, Lcom/android/server/display/utils/AmbientFilterFactory;->createAmbientFilter(Ljava/lang/String;IF)Lcom/android/server/display/utils/AmbientFilter;
+    invoke-static {p0, v0, p1}, Lcom/android/server/display/utils/AmbientFilterFactory;->createAmbientFilter(Ljava/lang/String;IF)Lcom/android/server/display/utils/AmbientFilter;
 
-    move-result-object v2
+    move-result-object p0
 
-    return-object v2
+    return-object p0
 .end method
 
-.method private static getFloat(Landroid/content/res/Resources;I)F
-    .locals 3
+.method public static getFloat(Landroid/content/res/Resources;I)F
+    .locals 2
 
     new-instance v0, Landroid/util/TypedValue;
 
@@ -92,20 +84,20 @@
 
     invoke-virtual {p0, p1, v0, v1}, Landroid/content/res/Resources;->getValue(ILandroid/util/TypedValue;Z)V
 
-    iget v1, v0, Landroid/util/TypedValue;->type:I
+    iget p0, v0, Landroid/util/TypedValue;->type:I
 
-    const/4 v2, 0x4
+    const/4 p1, 0x4
 
-    if-eq v1, v2, :cond_0
+    if-eq p0, p1, :cond_0
 
-    const/high16 v1, 0x7fc00000    # Float.NaN
+    const/high16 p0, 0x7fc00000    # Float.NaN
 
-    return v1
+    return p0
 
     :cond_0
     invoke-virtual {v0}, Landroid/util/TypedValue;->getFloat()F
 
-    move-result v1
+    move-result p0
 
-    return v1
+    return p0
 .end method

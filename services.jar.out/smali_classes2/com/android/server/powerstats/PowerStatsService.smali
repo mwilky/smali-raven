@@ -14,58 +14,106 @@
 
 
 # static fields
-.field private static final DATA_STORAGE_SUBDIR:Ljava/lang/String; = "powerstats"
-
-.field private static final DATA_STORAGE_VERSION:I = 0x0
-
-.field private static final DEBUG:Z = false
-
-.field private static final METER_CACHE_FILENAME:Ljava/lang/String; = "meterCache"
-
-.field private static final METER_FILENAME:Ljava/lang/String; = "log.powerstats.meter.0"
-
-.field private static final MODEL_CACHE_FILENAME:Ljava/lang/String; = "modelCache"
-
-.field private static final MODEL_FILENAME:Ljava/lang/String; = "log.powerstats.model.0"
-
-.field private static final RESIDENCY_CACHE_FILENAME:Ljava/lang/String; = "residencyCache"
-
-.field private static final RESIDENCY_FILENAME:Ljava/lang/String; = "log.powerstats.residency.0"
-
-.field private static final TAG:Ljava/lang/String;
+.field public static final TAG:Ljava/lang/String; = "PowerStatsService"
 
 
 # instance fields
-.field private mBatteryTrigger:Lcom/android/server/powerstats/BatteryTrigger;
+.field public mBatteryTrigger:Lcom/android/server/powerstats/BatteryTrigger;
 
-.field private mContext:Landroid/content/Context;
+.field public mContext:Landroid/content/Context;
 
-.field private mDataStoragePath:Ljava/io/File;
+.field public mDataStoragePath:Ljava/io/File;
 
-.field private final mInjector:Lcom/android/server/powerstats/PowerStatsService$Injector;
+.field public final mInjector:Lcom/android/server/powerstats/PowerStatsService$Injector;
 
-.field private mLooper:Landroid/os/Looper;
+.field public mLooper:Landroid/os/Looper;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "this"
+        }
+    .end annotation
+.end field
 
-.field private mPowerStatsInternal:Landroid/power/PowerStatsInternal;
+.field public mPowerStatsInternal:Landroid/power/PowerStatsInternal;
 
-.field private mPowerStatsLogger:Lcom/android/server/powerstats/PowerStatsLogger;
+.field public mPowerStatsLogger:Lcom/android/server/powerstats/PowerStatsLogger;
 
-.field private mPullAtomCallback:Lcom/android/server/powerstats/StatsPullAtomCallbackImpl;
+.field public mPullAtomCallback:Lcom/android/server/powerstats/StatsPullAtomCallbackImpl;
 
-.field private mTimerTrigger:Lcom/android/server/powerstats/TimerTrigger;
+.field public mTimerTrigger:Lcom/android/server/powerstats/TimerTrigger;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static bridge synthetic -$$Nest$fgetmContext(Lcom/android/server/powerstats/PowerStatsService;)Landroid/content/Context;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/powerstats/PowerStatsService;->mContext:Landroid/content/Context;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmPowerStatsLogger(Lcom/android/server/powerstats/PowerStatsService;)Lcom/android/server/powerstats/PowerStatsLogger;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/powerstats/PowerStatsService;->mPowerStatsLogger:Lcom/android/server/powerstats/PowerStatsLogger;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$mgetEnergyConsumedAsync(Lcom/android/server/powerstats/PowerStatsService;Ljava/util/concurrent/CompletableFuture;[I)V
+    .locals 0
+
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/powerstats/PowerStatsService;->getEnergyConsumedAsync(Ljava/util/concurrent/CompletableFuture;[I)V
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$mgetLooper(Lcom/android/server/powerstats/PowerStatsService;)Landroid/os/Looper;
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/server/powerstats/PowerStatsService;->getLooper()Landroid/os/Looper;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$mgetPowerStatsHal(Lcom/android/server/powerstats/PowerStatsService;)Lcom/android/server/powerstats/PowerStatsHALWrapper$IPowerStatsHALWrapper;
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/server/powerstats/PowerStatsService;->getPowerStatsHal()Lcom/android/server/powerstats/PowerStatsHALWrapper$IPowerStatsHALWrapper;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$mgetStateResidencyAsync(Lcom/android/server/powerstats/PowerStatsService;Ljava/util/concurrent/CompletableFuture;[I)V
+    .locals 0
+
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/powerstats/PowerStatsService;->getStateResidencyAsync(Ljava/util/concurrent/CompletableFuture;[I)V
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$mreadEnergyMeterAsync(Lcom/android/server/powerstats/PowerStatsService;Ljava/util/concurrent/CompletableFuture;[I)V
+    .locals 0
+
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/powerstats/PowerStatsService;->readEnergyMeterAsync(Ljava/util/concurrent/CompletableFuture;[I)V
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$sfgetTAG()Ljava/lang/String;
     .locals 1
 
-    const-class v0, Lcom/android/server/powerstats/PowerStatsService;
+    sget-object v0, Lcom/android/server/powerstats/PowerStatsService;->TAG:Ljava/lang/String;
 
-    invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
+    return-object v0
+.end method
 
-    move-result-object v0
-
-    sput-object v0, Lcom/android/server/powerstats/PowerStatsService;->TAG:Ljava/lang/String;
+.method public static constructor <clinit>()V
+    .locals 0
 
     return-void
 .end method
@@ -84,6 +132,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Lcom/android/server/powerstats/PowerStatsService$Injector;)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
 
     invoke-direct {p0, p1}, Lcom/android/server/SystemService;-><init>(Landroid/content/Context;)V
 
@@ -94,76 +144,52 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/server/powerstats/PowerStatsService;)Landroid/content/Context;
-    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/powerstats/PowerStatsService;->mContext:Landroid/content/Context;
-
-    return-object v0
-.end method
-
-.method static synthetic access$100()Ljava/lang/String;
-    .locals 1
-
-    sget-object v0, Lcom/android/server/powerstats/PowerStatsService;->TAG:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method static synthetic access$200(Lcom/android/server/powerstats/PowerStatsService;)Lcom/android/server/powerstats/PowerStatsLogger;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/powerstats/PowerStatsService;->mPowerStatsLogger:Lcom/android/server/powerstats/PowerStatsLogger;
-
-    return-object v0
-.end method
-
-.method static synthetic access$300(Lcom/android/server/powerstats/PowerStatsService;)Lcom/android/server/powerstats/PowerStatsHALWrapper$IPowerStatsHALWrapper;
-    .locals 1
-
-    invoke-direct {p0}, Lcom/android/server/powerstats/PowerStatsService;->getPowerStatsHal()Lcom/android/server/powerstats/PowerStatsHALWrapper$IPowerStatsHALWrapper;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method static synthetic access$500(Lcom/android/server/powerstats/PowerStatsService;)Landroid/os/Looper;
-    .locals 1
-
-    invoke-direct {p0}, Lcom/android/server/powerstats/PowerStatsService;->getLooper()Landroid/os/Looper;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method static synthetic access$600(Lcom/android/server/powerstats/PowerStatsService;Ljava/util/concurrent/CompletableFuture;[I)V
+# virtual methods
+.method public getDeleteMeterDataOnBoot()Z
     .locals 0
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
 
-    invoke-direct {p0, p1, p2}, Lcom/android/server/powerstats/PowerStatsService;->readEnergyMeterAsync(Ljava/util/concurrent/CompletableFuture;[I)V
+    iget-object p0, p0, Lcom/android/server/powerstats/PowerStatsService;->mPowerStatsLogger:Lcom/android/server/powerstats/PowerStatsLogger;
 
-    return-void
+    invoke-virtual {p0}, Lcom/android/server/powerstats/PowerStatsLogger;->getDeleteMeterDataOnBoot()Z
+
+    move-result p0
+
+    return p0
 .end method
 
-.method static synthetic access$700(Lcom/android/server/powerstats/PowerStatsService;Ljava/util/concurrent/CompletableFuture;[I)V
+.method public getDeleteModelDataOnBoot()Z
     .locals 0
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
 
-    invoke-direct {p0, p1, p2}, Lcom/android/server/powerstats/PowerStatsService;->getStateResidencyAsync(Ljava/util/concurrent/CompletableFuture;[I)V
+    iget-object p0, p0, Lcom/android/server/powerstats/PowerStatsService;->mPowerStatsLogger:Lcom/android/server/powerstats/PowerStatsLogger;
 
-    return-void
+    invoke-virtual {p0}, Lcom/android/server/powerstats/PowerStatsLogger;->getDeleteModelDataOnBoot()Z
+
+    move-result p0
+
+    return p0
 .end method
 
-.method static synthetic access$800(Lcom/android/server/powerstats/PowerStatsService;Ljava/util/concurrent/CompletableFuture;[I)V
+.method public getDeleteResidencyDataOnBoot()Z
     .locals 0
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
 
-    invoke-direct {p0, p1, p2}, Lcom/android/server/powerstats/PowerStatsService;->getEnergyConsumedAsync(Ljava/util/concurrent/CompletableFuture;[I)V
+    iget-object p0, p0, Lcom/android/server/powerstats/PowerStatsService;->mPowerStatsLogger:Lcom/android/server/powerstats/PowerStatsLogger;
 
-    return-void
+    invoke-virtual {p0}, Lcom/android/server/powerstats/PowerStatsLogger;->getDeleteResidencyDataOnBoot()Z
+
+    move-result p0
+
+    return p0
 .end method
 
-.method private getEnergyConsumedAsync(Ljava/util/concurrent/CompletableFuture;[I)V
-    .locals 1
+.method public final getEnergyConsumedAsync(Ljava/util/concurrent/CompletableFuture;[I)V
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -174,20 +200,20 @@
         }
     .end annotation
 
-    invoke-direct {p0}, Lcom/android/server/powerstats/PowerStatsService;->getPowerStatsHal()Lcom/android/server/powerstats/PowerStatsHALWrapper$IPowerStatsHALWrapper;
+    invoke-virtual {p0}, Lcom/android/server/powerstats/PowerStatsService;->getPowerStatsHal()Lcom/android/server/powerstats/PowerStatsHALWrapper$IPowerStatsHALWrapper;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-interface {v0, p2}, Lcom/android/server/powerstats/PowerStatsHALWrapper$IPowerStatsHALWrapper;->getEnergyConsumed([I)[Landroid/hardware/power/stats/EnergyConsumerResult;
+    invoke-interface {p0, p2}, Lcom/android/server/powerstats/PowerStatsHALWrapper$IPowerStatsHALWrapper;->getEnergyConsumed([I)[Landroid/hardware/power/stats/EnergyConsumerResult;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {p1, v0}, Ljava/util/concurrent/CompletableFuture;->complete(Ljava/lang/Object;)Z
+    invoke-virtual {p1, p0}, Ljava/util/concurrent/CompletableFuture;->complete(Ljava/lang/Object;)Z
 
     return-void
 .end method
 
-.method private getLooper()Landroid/os/Looper;
+.method public final getLooper()Landroid/os/Looper;
     .locals 2
 
     monitor-enter p0
@@ -207,11 +233,11 @@
 
     invoke-virtual {v0}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;
 
-    move-result-object v1
+    move-result-object v0
 
     monitor-exit p0
 
-    return-object v1
+    return-object v0
 
     :cond_0
     monitor-exit p0
@@ -228,20 +254,20 @@
     throw v0
 .end method
 
-.method private getPowerStatsHal()Lcom/android/server/powerstats/PowerStatsHALWrapper$IPowerStatsHALWrapper;
-    .locals 1
+.method public final getPowerStatsHal()Lcom/android/server/powerstats/PowerStatsHALWrapper$IPowerStatsHALWrapper;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/powerstats/PowerStatsService;->mInjector:Lcom/android/server/powerstats/PowerStatsService$Injector;
+    iget-object p0, p0, Lcom/android/server/powerstats/PowerStatsService;->mInjector:Lcom/android/server/powerstats/PowerStatsService$Injector;
 
-    invoke-virtual {v0}, Lcom/android/server/powerstats/PowerStatsService$Injector;->getPowerStatsHALWrapperImpl()Lcom/android/server/powerstats/PowerStatsHALWrapper$IPowerStatsHALWrapper;
+    invoke-virtual {p0}, Lcom/android/server/powerstats/PowerStatsService$Injector;->getPowerStatsHALWrapperImpl()Lcom/android/server/powerstats/PowerStatsHALWrapper$IPowerStatsHALWrapper;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
-.method private getStateResidencyAsync(Ljava/util/concurrent/CompletableFuture;[I)V
-    .locals 1
+.method public final getStateResidencyAsync(Ljava/util/concurrent/CompletableFuture;[I)V
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -252,23 +278,23 @@
         }
     .end annotation
 
-    invoke-direct {p0}, Lcom/android/server/powerstats/PowerStatsService;->getPowerStatsHal()Lcom/android/server/powerstats/PowerStatsHALWrapper$IPowerStatsHALWrapper;
+    invoke-virtual {p0}, Lcom/android/server/powerstats/PowerStatsService;->getPowerStatsHal()Lcom/android/server/powerstats/PowerStatsHALWrapper$IPowerStatsHALWrapper;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-interface {v0, p2}, Lcom/android/server/powerstats/PowerStatsHALWrapper$IPowerStatsHALWrapper;->getStateResidency([I)[Landroid/hardware/power/stats/StateResidencyResult;
+    invoke-interface {p0, p2}, Lcom/android/server/powerstats/PowerStatsHALWrapper$IPowerStatsHALWrapper;->getStateResidency([I)[Landroid/hardware/power/stats/StateResidencyResult;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {p1, v0}, Ljava/util/concurrent/CompletableFuture;->complete(Ljava/lang/Object;)Z
+    invoke-virtual {p1, p0}, Ljava/util/concurrent/CompletableFuture;->complete(Ljava/lang/Object;)Z
 
     return-void
 .end method
 
-.method private onBootCompleted()V
+.method public final onBootCompleted()V
     .locals 12
 
-    invoke-direct {p0}, Lcom/android/server/powerstats/PowerStatsService;->getPowerStatsHal()Lcom/android/server/powerstats/PowerStatsHALWrapper$IPowerStatsHALWrapper;
+    invoke-virtual {p0}, Lcom/android/server/powerstats/PowerStatsService;->getPowerStatsHal()Lcom/android/server/powerstats/PowerStatsHALWrapper$IPowerStatsHALWrapper;
 
     move-result-object v0
 
@@ -290,7 +316,7 @@
 
     iget-object v2, p0, Lcom/android/server/powerstats/PowerStatsService;->mContext:Landroid/content/Context;
 
-    invoke-direct {p0}, Lcom/android/server/powerstats/PowerStatsService;->getLooper()Landroid/os/Looper;
+    invoke-virtual {p0}, Lcom/android/server/powerstats/PowerStatsService;->getLooper()Landroid/os/Looper;
 
     move-result-object v3
 
@@ -332,7 +358,7 @@
 
     move-result-object v10
 
-    invoke-direct {p0}, Lcom/android/server/powerstats/PowerStatsService;->getPowerStatsHal()Lcom/android/server/powerstats/PowerStatsHALWrapper$IPowerStatsHALWrapper;
+    invoke-virtual {p0}, Lcom/android/server/powerstats/PowerStatsService;->getPowerStatsHal()Lcom/android/server/powerstats/PowerStatsHALWrapper$IPowerStatsHALWrapper;
 
     move-result-object v11
 
@@ -367,95 +393,14 @@
     goto :goto_0
 
     :cond_0
-    sget-object v0, Lcom/android/server/powerstats/PowerStatsService;->TAG:Ljava/lang/String;
+    sget-object p0, Lcom/android/server/powerstats/PowerStatsService;->TAG:Ljava/lang/String;
 
-    const-string v1, "Failed to start PowerStatsService loggers"
+    const-string v0, "Failed to start PowerStatsService loggers"
 
-    invoke-static {v0, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     :goto_0
     return-void
-.end method
-
-.method private onSystemServicesReady()V
-    .locals 3
-
-    iget-object v0, p0, Lcom/android/server/powerstats/PowerStatsService;->mInjector:Lcom/android/server/powerstats/PowerStatsService$Injector;
-
-    iget-object v1, p0, Lcom/android/server/powerstats/PowerStatsService;->mContext:Landroid/content/Context;
-
-    iget-object v2, p0, Lcom/android/server/powerstats/PowerStatsService;->mPowerStatsInternal:Landroid/power/PowerStatsInternal;
-
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/powerstats/PowerStatsService$Injector;->createStatsPullerImpl(Landroid/content/Context;Landroid/power/PowerStatsInternal;)Lcom/android/server/powerstats/StatsPullAtomCallbackImpl;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/server/powerstats/PowerStatsService;->mPullAtomCallback:Lcom/android/server/powerstats/StatsPullAtomCallbackImpl;
-
-    return-void
-.end method
-
-.method private readEnergyMeterAsync(Ljava/util/concurrent/CompletableFuture;[I)V
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/concurrent/CompletableFuture<",
-            "[",
-            "Landroid/hardware/power/stats/EnergyMeasurement;",
-            ">;[I)V"
-        }
-    .end annotation
-
-    invoke-direct {p0}, Lcom/android/server/powerstats/PowerStatsService;->getPowerStatsHal()Lcom/android/server/powerstats/PowerStatsHALWrapper$IPowerStatsHALWrapper;
-
-    move-result-object v0
-
-    invoke-interface {v0, p2}, Lcom/android/server/powerstats/PowerStatsHALWrapper$IPowerStatsHALWrapper;->readEnergyMeter([I)[Landroid/hardware/power/stats/EnergyMeasurement;
-
-    move-result-object v0
-
-    invoke-virtual {p1, v0}, Ljava/util/concurrent/CompletableFuture;->complete(Ljava/lang/Object;)Z
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public getDeleteMeterDataOnBoot()Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/powerstats/PowerStatsService;->mPowerStatsLogger:Lcom/android/server/powerstats/PowerStatsLogger;
-
-    invoke-virtual {v0}, Lcom/android/server/powerstats/PowerStatsLogger;->getDeleteMeterDataOnBoot()Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public getDeleteModelDataOnBoot()Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/powerstats/PowerStatsService;->mPowerStatsLogger:Lcom/android/server/powerstats/PowerStatsLogger;
-
-    invoke-virtual {v0}, Lcom/android/server/powerstats/PowerStatsLogger;->getDeleteModelDataOnBoot()Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public getDeleteResidencyDataOnBoot()Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/powerstats/PowerStatsService;->mPowerStatsLogger:Lcom/android/server/powerstats/PowerStatsLogger;
-
-    invoke-virtual {v0}, Lcom/android/server/powerstats/PowerStatsLogger;->getDeleteResidencyDataOnBoot()Z
-
-    move-result v0
-
-    return v0
 .end method
 
 .method public onBootPhase(I)V
@@ -465,7 +410,7 @@
 
     if-ne p1, v0, :cond_0
 
-    invoke-direct {p0}, Lcom/android/server/powerstats/PowerStatsService;->onSystemServicesReady()V
+    invoke-virtual {p0}, Lcom/android/server/powerstats/PowerStatsService;->onSystemServicesReady()V
 
     goto :goto_0
 
@@ -474,7 +419,7 @@
 
     if-ne p1, v0, :cond_1
 
-    invoke-direct {p0}, Lcom/android/server/powerstats/PowerStatsService;->onBootCompleted()V
+    invoke-virtual {p0}, Lcom/android/server/powerstats/PowerStatsService;->onBootCompleted()V
 
     :cond_1
     :goto_0
@@ -484,7 +429,7 @@
 .method public onStart()V
     .locals 2
 
-    invoke-direct {p0}, Lcom/android/server/powerstats/PowerStatsService;->getPowerStatsHal()Lcom/android/server/powerstats/PowerStatsHALWrapper$IPowerStatsHALWrapper;
+    invoke-virtual {p0}, Lcom/android/server/powerstats/PowerStatsService;->getPowerStatsHal()Lcom/android/server/powerstats/PowerStatsHALWrapper$IPowerStatsHALWrapper;
 
     move-result-object v0
 
@@ -502,18 +447,61 @@
 
     const-class v1, Landroid/power/PowerStatsInternal;
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/server/powerstats/PowerStatsService;->publishLocalService(Ljava/lang/Class;Ljava/lang/Object;)V
+    invoke-virtual {p0, v1, v0}, Lcom/android/server/SystemService;->publishLocalService(Ljava/lang/Class;Ljava/lang/Object;)V
 
     :cond_0
     new-instance v0, Lcom/android/server/powerstats/PowerStatsService$BinderService;
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, p0, v1}, Lcom/android/server/powerstats/PowerStatsService$BinderService;-><init>(Lcom/android/server/powerstats/PowerStatsService;Lcom/android/server/powerstats/PowerStatsService$1;)V
+    invoke-direct {v0, p0, v1}, Lcom/android/server/powerstats/PowerStatsService$BinderService;-><init>(Lcom/android/server/powerstats/PowerStatsService;Lcom/android/server/powerstats/PowerStatsService$BinderService-IA;)V
 
     const-string v1, "powerstats"
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/server/powerstats/PowerStatsService;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
+    invoke-virtual {p0, v1, v0}, Lcom/android/server/SystemService;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
+
+    return-void
+.end method
+
+.method public final onSystemServicesReady()V
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/server/powerstats/PowerStatsService;->mInjector:Lcom/android/server/powerstats/PowerStatsService$Injector;
+
+    iget-object v1, p0, Lcom/android/server/powerstats/PowerStatsService;->mContext:Landroid/content/Context;
+
+    iget-object v2, p0, Lcom/android/server/powerstats/PowerStatsService;->mPowerStatsInternal:Landroid/power/PowerStatsInternal;
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/powerstats/PowerStatsService$Injector;->createStatsPullerImpl(Landroid/content/Context;Landroid/power/PowerStatsInternal;)Lcom/android/server/powerstats/StatsPullAtomCallbackImpl;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/server/powerstats/PowerStatsService;->mPullAtomCallback:Lcom/android/server/powerstats/StatsPullAtomCallbackImpl;
+
+    return-void
+.end method
+
+.method public final readEnergyMeterAsync(Ljava/util/concurrent/CompletableFuture;[I)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/concurrent/CompletableFuture<",
+            "[",
+            "Landroid/hardware/power/stats/EnergyMeasurement;",
+            ">;[I)V"
+        }
+    .end annotation
+
+    invoke-virtual {p0}, Lcom/android/server/powerstats/PowerStatsService;->getPowerStatsHal()Lcom/android/server/powerstats/PowerStatsHALWrapper$IPowerStatsHALWrapper;
+
+    move-result-object p0
+
+    invoke-interface {p0, p2}, Lcom/android/server/powerstats/PowerStatsHALWrapper$IPowerStatsHALWrapper;->readEnergyMeter([I)[Landroid/hardware/power/stats/EnergyMeasurement;
+
+    move-result-object p0
+
+    invoke-virtual {p1, p0}, Ljava/util/concurrent/CompletableFuture;->complete(Ljava/lang/Object;)Z
 
     return-void
 .end method

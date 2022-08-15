@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/server/om/PackageManagerHelper;
+.class public interface abstract Lcom/android/server/om/PackageManagerHelper;
 .super Ljava/lang/Object;
 .source "PackageManagerHelper.java"
 
@@ -61,9 +61,6 @@
             ">;"
         }
     .end annotation
-.end method
-
-.method public abstract isInstantApp(Ljava/lang/String;I)Z
 .end method
 
 .method public abstract signaturesMatching(Ljava/lang/String;Ljava/lang/String;I)Z

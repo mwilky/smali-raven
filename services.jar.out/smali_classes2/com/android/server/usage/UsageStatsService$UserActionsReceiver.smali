@@ -1,4 +1,4 @@
-.class Lcom/android/server/usage/UsageStatsService$UserActionsReceiver;
+.class public Lcom/android/server/usage/UsageStatsService$UserActionsReceiver;
 .super Landroid/content/BroadcastReceiver;
 .source "UsageStatsService.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "UserActionsReceiver"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/usage/UsageStatsService;
+.field public final synthetic this$0:Lcom/android/server/usage/UsageStatsService;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/server/usage/UsageStatsService;)V
+.method public constructor <init>(Lcom/android/server/usage/UsageStatsService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/usage/UsageStatsService$UserActionsReceiver;->this$0:Lcom/android/server/usage/UsageStatsService;
@@ -29,7 +29,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/usage/UsageStatsService;Lcom/android/server/usage/UsageStatsService$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/usage/UsageStatsService;Lcom/android/server/usage/UsageStatsService$UserActionsReceiver-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/usage/UsageStatsService$UserActionsReceiver;-><init>(Lcom/android/server/usage/UsageStatsService;)V
@@ -40,62 +40,70 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 5
+    .locals 2
 
-    const-string v0, "android.intent.extra.user_handle"
+    const-string p1, "android.intent.extra.user_handle"
 
-    const/4 v1, -0x1
+    const/4 v0, -0x1
 
-    invoke-virtual {p2, v0, v1}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {p2, p1, v0}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    move-result v0
+    move-result p1
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    const-string v2, "android.intent.action.USER_REMOVED"
+    const-string v0, "android.intent.action.USER_REMOVED"
 
-    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_0
+    if-eqz v0, :cond_0
 
-    if-ltz v0, :cond_1
+    if-ltz p1, :cond_1
 
-    iget-object v2, p0, Lcom/android/server/usage/UsageStatsService$UserActionsReceiver;->this$0:Lcom/android/server/usage/UsageStatsService;
+    iget-object p2, p0, Lcom/android/server/usage/UsageStatsService$UserActionsReceiver;->this$0:Lcom/android/server/usage/UsageStatsService;
 
-    iget-object v2, v2, Lcom/android/server/usage/UsageStatsService;->mHandler:Landroid/os/Handler;
+    iget-object p2, p2, Lcom/android/server/usage/UsageStatsService;->mHandler:Landroid/os/Handler;
 
-    const/4 v3, 0x2
+    const/4 v0, 0x2
 
-    const/4 v4, 0x0
+    const/4 v1, 0x0
 
-    invoke-virtual {v2, v3, v0, v4}, Landroid/os/Handler;->obtainMessage(III)Landroid/os/Message;
+    invoke-virtual {p2, v0, p1, v1}, Landroid/os/Handler;->obtainMessage(III)Landroid/os/Message;
 
-    move-result-object v2
+    move-result-object p2
 
-    invoke-virtual {v2}, Landroid/os/Message;->sendToTarget()V
+    invoke-virtual {p2}, Landroid/os/Message;->sendToTarget()V
+
+    iget-object p0, p0, Lcom/android/server/usage/UsageStatsService$UserActionsReceiver;->this$0:Lcom/android/server/usage/UsageStatsService;
+
+    invoke-static {p0}, Lcom/android/server/usage/UsageStatsService;->-$$Nest$fgetmResponseStatsTracker(Lcom/android/server/usage/UsageStatsService;)Lcom/android/server/usage/BroadcastResponseStatsTracker;
+
+    move-result-object p0
+
+    invoke-virtual {p0, p1}, Lcom/android/server/usage/BroadcastResponseStatsTracker;->onUserRemoved(I)V
 
     goto :goto_0
 
     :cond_0
-    const-string v2, "android.intent.action.USER_STARTED"
+    const-string v0, "android.intent.action.USER_STARTED"
 
-    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result p2
 
-    if-eqz v2, :cond_1
+    if-eqz p2, :cond_1
 
-    if-ltz v0, :cond_1
+    if-ltz p1, :cond_1
 
-    iget-object v2, p0, Lcom/android/server/usage/UsageStatsService$UserActionsReceiver;->this$0:Lcom/android/server/usage/UsageStatsService;
+    iget-object p0, p0, Lcom/android/server/usage/UsageStatsService$UserActionsReceiver;->this$0:Lcom/android/server/usage/UsageStatsService;
 
-    iget-object v2, v2, Lcom/android/server/usage/UsageStatsService;->mAppStandby:Lcom/android/server/usage/AppStandbyInternal;
+    iget-object p0, p0, Lcom/android/server/usage/UsageStatsService;->mAppStandby:Lcom/android/server/usage/AppStandbyInternal;
 
-    invoke-interface {v2, v0}, Lcom/android/server/usage/AppStandbyInternal;->postCheckIdleStates(I)V
+    invoke-interface {p0, p1}, Lcom/android/server/usage/AppStandbyInternal;->postCheckIdleStates(I)V
 
     :cond_1
     :goto_0

@@ -1,4 +1,4 @@
-.class final Lcom/android/server/pm/InstantAppRegistry$UninstalledInstantAppState;
+.class public final Lcom/android/server/pm/InstantAppRegistry$UninstalledInstantAppState;
 .super Ljava/lang/Object;
 .source "InstantAppRegistry.java"
 
@@ -9,15 +9,15 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "UninstalledInstantAppState"
 .end annotation
 
 
 # instance fields
-.field final mInstantAppInfo:Landroid/content/pm/InstantAppInfo;
+.field public final mInstantAppInfo:Landroid/content/pm/InstantAppInfo;
 
-.field final mTimestamp:J
+.field public final mTimestamp:J
 
 
 # direct methods

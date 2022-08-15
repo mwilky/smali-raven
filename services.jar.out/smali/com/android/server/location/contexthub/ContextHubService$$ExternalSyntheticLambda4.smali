@@ -1,25 +1,22 @@
 .class public final synthetic Lcom/android/server/location/contexthub/ContextHubService$$ExternalSyntheticLambda4;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
 
 
 # instance fields
-.field public final synthetic f$0:Ljava/lang/String;
-
-.field public final synthetic f$1:J
+.field public final synthetic f$0:Landroid/util/proto/ProtoOutputStream;
 
 
 # direct methods
-.method public synthetic constructor <init>(Ljava/lang/String;J)V
+.method public synthetic constructor <init>(Landroid/util/proto/ProtoOutputStream;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/location/contexthub/ContextHubService$$ExternalSyntheticLambda4;->f$0:Ljava/lang/String;
-
-    iput-wide p2, p0, Lcom/android/server/location/contexthub/ContextHubService$$ExternalSyntheticLambda4;->f$1:J
+    iput-object p1, p0, Lcom/android/server/location/contexthub/ContextHubService$$ExternalSyntheticLambda4;->f$0:Landroid/util/proto/ProtoOutputStream;
 
     return-void
 .end method
@@ -27,15 +24,13 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 3
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/location/contexthub/ContextHubService$$ExternalSyntheticLambda4;->f$0:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/location/contexthub/ContextHubService$$ExternalSyntheticLambda4;->f$0:Landroid/util/proto/ProtoOutputStream;
 
-    iget-wide v1, p0, Lcom/android/server/location/contexthub/ContextHubService$$ExternalSyntheticLambda4;->f$1:J
+    check-cast p1, Landroid/hardware/location/ContextHubInfo;
 
-    check-cast p1, Lcom/android/server/location/contexthub/ContextHubClientBroker;
-
-    invoke-static {v0, v1, v2, p1}, Lcom/android/server/location/contexthub/ContextHubService;->lambda$denyClientAuthState$3(Ljava/lang/String;JLcom/android/server/location/contexthub/ContextHubClientBroker;)V
+    invoke-static {p0, p1}, Lcom/android/server/location/contexthub/ContextHubService;->$r8$lambda$RgYKnGbgRWisJh3a6hKfyf6RHUM(Landroid/util/proto/ProtoOutputStream;Landroid/hardware/location/ContextHubInfo;)V
 
     return-void
 .end method

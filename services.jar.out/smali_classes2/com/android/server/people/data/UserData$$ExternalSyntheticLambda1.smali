@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/people/data/UserData$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Predicate;
@@ -23,15 +24,15 @@
 
 # virtual methods
 .method public final test(Ljava/lang/Object;)Z
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/people/data/UserData$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/people/data/UserData;
+    iget-object p0, p0, Lcom/android/server/people/data/UserData$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/people/data/UserData;
 
     check-cast p1, Ljava/lang/String;
 
-    invoke-static {v0, p1}, Lcom/android/server/people/data/UserData;->$r8$lambda$6PdLrJGHlGwu_DoqTJnYEj3j0A0(Lcom/android/server/people/data/UserData;Ljava/lang/String;)Z
+    invoke-static {p0, p1}, Lcom/android/server/people/data/UserData;->$r8$lambda$6PdLrJGHlGwu_DoqTJnYEj3j0A0(Lcom/android/server/people/data/UserData;Ljava/lang/String;)Z
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method

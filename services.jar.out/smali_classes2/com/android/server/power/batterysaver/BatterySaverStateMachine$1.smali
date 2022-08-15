@@ -1,4 +1,4 @@
-.class Lcom/android/server/power/batterysaver/BatterySaverStateMachine$1;
+.class public Lcom/android/server/power/batterysaver/BatterySaverStateMachine$1;
 .super Landroid/database/ContentObserver;
 .source "BatterySaverStateMachine.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/power/batterysaver/BatterySaverStateMachine;
+.field public final synthetic this$0:Lcom/android/server/power/batterysaver/BatterySaverStateMachine;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/power/batterysaver/BatterySaverStateMachine;Landroid/os/Handler;)V
+.method public constructor <init>(Lcom/android/server/power/batterysaver/BatterySaverStateMachine;Landroid/os/Handler;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/power/batterysaver/BatterySaverStateMachine$1;->this$0:Lcom/android/server/power/batterysaver/BatterySaverStateMachine;
@@ -32,31 +32,31 @@
 
 # virtual methods
 .method public onChange(Z)V
-    .locals 2
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/power/batterysaver/BatterySaverStateMachine$1;->this$0:Lcom/android/server/power/batterysaver/BatterySaverStateMachine;
+    iget-object p1, p0, Lcom/android/server/power/batterysaver/BatterySaverStateMachine$1;->this$0:Lcom/android/server/power/batterysaver/BatterySaverStateMachine;
 
-    invoke-static {v0}, Lcom/android/server/power/batterysaver/BatterySaverStateMachine;->access$000(Lcom/android/server/power/batterysaver/BatterySaverStateMachine;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/android/server/power/batterysaver/BatterySaverStateMachine;->-$$Nest$fgetmLock(Lcom/android/server/power/batterysaver/BatterySaverStateMachine;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    monitor-enter v0
+    monitor-enter p1
 
     :try_start_0
-    iget-object v1, p0, Lcom/android/server/power/batterysaver/BatterySaverStateMachine$1;->this$0:Lcom/android/server/power/batterysaver/BatterySaverStateMachine;
+    iget-object p0, p0, Lcom/android/server/power/batterysaver/BatterySaverStateMachine$1;->this$0:Lcom/android/server/power/batterysaver/BatterySaverStateMachine;
 
-    invoke-static {v1}, Lcom/android/server/power/batterysaver/BatterySaverStateMachine;->access$100(Lcom/android/server/power/batterysaver/BatterySaverStateMachine;)V
+    invoke-static {p0}, Lcom/android/server/power/batterysaver/BatterySaverStateMachine;->-$$Nest$mrefreshSettingsLocked(Lcom/android/server/power/batterysaver/BatterySaverStateMachine;)V
 
-    monitor-exit v0
+    monitor-exit p1
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
-    monitor-exit v0
+    monitor-exit p1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method

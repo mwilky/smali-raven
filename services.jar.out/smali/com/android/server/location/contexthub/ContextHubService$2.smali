@@ -1,4 +1,4 @@
-.class Lcom/android/server/location/contexthub/ContextHubService$2;
+.class public Lcom/android/server/location/contexthub/ContextHubService$2;
 .super Landroid/content/BroadcastReceiver;
 .source "ContextHubService.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/location/contexthub/ContextHubService;
+.field public final synthetic this$0:Lcom/android/server/location/contexthub/ContextHubService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/location/contexthub/ContextHubService;)V
+.method public constructor <init>(Lcom/android/server/location/contexthub/ContextHubService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/location/contexthub/ContextHubService$2;->this$0:Lcom/android/server/location/contexthub/ContextHubService;
@@ -32,38 +32,38 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 2
+    .locals 1
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v1, "android.net.wifi.WIFI_STATE_CHANGED"
+    const-string v0, "android.net.wifi.WIFI_STATE_CHANGED"
 
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v1, "android.net.wifi.action.WIFI_SCAN_AVAILABILITY_CHANGED"
+    const-string p2, "android.net.wifi.action.WIFI_SCAN_AVAILABILITY_CHANGED"
 
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_1
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/location/contexthub/ContextHubService$2;->this$0:Lcom/android/server/location/contexthub/ContextHubService;
+    iget-object p0, p0, Lcom/android/server/location/contexthub/ContextHubService$2;->this$0:Lcom/android/server/location/contexthub/ContextHubService;
 
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    invoke-static {v0, v1}, Lcom/android/server/location/contexthub/ContextHubService;->access$600(Lcom/android/server/location/contexthub/ContextHubService;Z)V
+    invoke-static {p0, p1}, Lcom/android/server/location/contexthub/ContextHubService;->-$$Nest$msendWifiSettingUpdate(Lcom/android/server/location/contexthub/ContextHubService;Z)V
 
     :cond_1
     return-void

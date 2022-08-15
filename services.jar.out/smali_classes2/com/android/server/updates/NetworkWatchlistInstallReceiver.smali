@@ -22,32 +22,30 @@
 
 
 # virtual methods
-.method protected postInstall(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 3
+.method public postInstall(Landroid/content/Context;Landroid/content/Intent;)V
+    .locals 0
 
     :try_start_0
-    const-class v0, Landroid/net/NetworkWatchlistManager;
+    const-class p0, Landroid/net/NetworkWatchlistManager;
 
-    invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-virtual {p1, p0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Landroid/net/NetworkWatchlistManager;
+    check-cast p0, Landroid/net/NetworkWatchlistManager;
 
-    invoke-virtual {v0}, Landroid/net/NetworkWatchlistManager;->reloadWatchlist()V
+    invoke-virtual {p0}, Landroid/net/NetworkWatchlistManager;->reloadWatchlist()V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    const-string p0, "NetworkWatchlistInstallReceiver"
 
-    const-string v1, "NetworkWatchlistInstallReceiver"
+    const-string p1, "Unable to reload watchlist"
 
-    const-string v2, "Unable to reload watchlist"
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, p1}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;)I
 
     :goto_0
     return-void

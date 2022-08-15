@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/os/IBinder$DeathRecipient;
+.implements Ljava/util/function/Consumer;
 
 
 # instance fields
@@ -22,12 +23,14 @@
 
 
 # virtual methods
-.method public final binderDied()V
-    .locals 1
+.method public final accept(Ljava/lang/Object;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/wm/DisplayContent;
+    iget-object p0, p0, Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/wm/DisplayContent;
 
-    invoke-virtual {v0}, Lcom/android/server/wm/DisplayContent;->lambda$new$0$DisplayContent()V
+    check-cast p1, Lcom/android/server/wm/DisplayArea;
+
+    invoke-static {p0, p1}, Lcom/android/server/wm/DisplayContent;->$r8$lambda$wql3ALhkJb1iZ9osw9Ti1ehDkx8(Lcom/android/server/wm/DisplayContent;Lcom/android/server/wm/DisplayArea;)V
 
     return-void
 .end method

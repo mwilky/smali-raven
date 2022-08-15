@@ -1,4 +1,4 @@
-.class Lcom/android/server/locksettings/LockSettingsService$GateKeeperDiedRecipient;
+.class public Lcom/android/server/locksettings/LockSettingsService$GateKeeperDiedRecipient;
 .super Ljava/lang/Object;
 .source "LockSettingsService.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "GateKeeperDiedRecipient"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/locksettings/LockSettingsService;
+.field public final synthetic this$0:Lcom/android/server/locksettings/LockSettingsService;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/server/locksettings/LockSettingsService;)V
+.method public constructor <init>(Lcom/android/server/locksettings/LockSettingsService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/locksettings/LockSettingsService$GateKeeperDiedRecipient;->this$0:Lcom/android/server/locksettings/LockSettingsService;
@@ -32,7 +32,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/locksettings/LockSettingsService;Lcom/android/server/locksettings/LockSettingsService$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/locksettings/LockSettingsService;Lcom/android/server/locksettings/LockSettingsService$GateKeeperDiedRecipient-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/locksettings/LockSettingsService$GateKeeperDiedRecipient;-><init>(Lcom/android/server/locksettings/LockSettingsService;)V
@@ -57,11 +57,11 @@
 
     invoke-interface {v0, p0, v1}, Landroid/os/IBinder;->unlinkToDeath(Landroid/os/IBinder$DeathRecipient;I)Z
 
-    iget-object v0, p0, Lcom/android/server/locksettings/LockSettingsService$GateKeeperDiedRecipient;->this$0:Lcom/android/server/locksettings/LockSettingsService;
+    iget-object p0, p0, Lcom/android/server/locksettings/LockSettingsService$GateKeeperDiedRecipient;->this$0:Lcom/android/server/locksettings/LockSettingsService;
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    iput-object v1, v0, Lcom/android/server/locksettings/LockSettingsService;->mGateKeeperService:Landroid/service/gatekeeper/IGateKeeperService;
+    iput-object v0, p0, Lcom/android/server/locksettings/LockSettingsService;->mGateKeeperService:Landroid/service/gatekeeper/IGateKeeperService;
 
     return-void
 .end method

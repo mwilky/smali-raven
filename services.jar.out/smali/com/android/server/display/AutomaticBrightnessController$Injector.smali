@@ -25,12 +25,22 @@
 
 
 # virtual methods
+.method public createClock()Lcom/android/server/display/AutomaticBrightnessController$Clock;
+    .locals 0
+
+    new-instance p0, Lcom/android/server/display/AutomaticBrightnessController$Injector$$ExternalSyntheticLambda0;
+
+    invoke-direct {p0}, Lcom/android/server/display/AutomaticBrightnessController$Injector$$ExternalSyntheticLambda0;-><init>()V
+
+    return-object p0
+.end method
+
 .method public getBackgroundThreadHandler()Landroid/os/Handler;
-    .locals 1
+    .locals 0
 
     invoke-static {}, Lcom/android/internal/os/BackgroundThread;->getHandler()Landroid/os/Handler;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

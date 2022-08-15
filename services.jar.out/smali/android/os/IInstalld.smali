@@ -24,6 +24,8 @@
 
 .field public static final FLAG_FORCE:I = 0x2000
 
+.field public static final FLAG_FREE_CACHE_DEFY_TARGET_FREE_BYTES:I = 0x800
+
 .field public static final FLAG_FREE_CACHE_NOOP:I = 0x400
 
 .field public static final FLAG_FREE_CACHE_V2:I = 0x100
@@ -36,11 +38,13 @@
 
 .field public static final FLAG_STORAGE_EXTERNAL:I = 0x4
 
+.field public static final FLAG_STORAGE_SDK:I = 0x8
+
 .field public static final FLAG_USE_QUOTA:I = 0x1000
 
 
 # virtual methods
-.method public abstract assertFsverityRootHashMatches(Ljava/lang/String;[B)V
+.method public abstract cleanupInvalidPackageDirs(Ljava/lang/String;II)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -72,6 +76,14 @@
     .end annotation
 .end method
 
+.method public abstract controlDexOptBlocking(Z)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract copySystemProfile(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -96,7 +108,7 @@
     .end annotation
 .end method
 
-.method public abstract createOatDir(Ljava/lang/String;Ljava/lang/String;)V
+.method public abstract createOatDir(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -120,7 +132,15 @@
     .end annotation
 .end method
 
-.method public abstract deleteOdex(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)J
+.method public abstract deleteOdex(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)J
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract deleteReferenceProfile(Ljava/lang/String;Ljava/lang/String;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -176,7 +196,7 @@
     .end annotation
 .end method
 
-.method public abstract dexopt(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;ILjava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+.method public abstract dexopt(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;ILjava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -184,7 +204,7 @@
     .end annotation
 .end method
 
-.method public abstract dumpProfiles(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
+.method public abstract dumpProfiles(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -200,7 +220,7 @@
     .end annotation
 .end method
 
-.method public abstract freeCache(Ljava/lang/String;JJI)V
+.method public abstract freeCache(Ljava/lang/String;JI)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -232,6 +252,14 @@
     .end annotation
 .end method
 
+.method public abstract getOdexVisibility(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract getUserCrates(Ljava/lang/String;I)[Landroid/os/storage/CrateMetadata;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -256,14 +284,6 @@
     .end annotation
 .end method
 
-.method public abstract installApkVerity(Ljava/lang/String;Ljava/io/FileDescriptor;I)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract invalidateMounts()V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -280,7 +300,7 @@
     .end annotation
 .end method
 
-.method public abstract linkFile(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+.method public abstract linkFile(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -320,7 +340,7 @@
     .end annotation
 .end method
 
-.method public abstract moveAb(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+.method public abstract moveAb(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -352,6 +372,14 @@
     .end annotation
 .end method
 
+.method public abstract reconcileSdkData(Landroid/os/ReconcileSdkDataArgs;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract reconcileSecondaryDexFile(Ljava/lang/String;Ljava/lang/String;I[Ljava/lang/String;Ljava/lang/String;I)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -376,7 +404,7 @@
     .end annotation
 .end method
 
-.method public abstract rmPackageDir(Ljava/lang/String;)V
+.method public abstract rmPackageDir(Ljava/lang/String;Ljava/lang/String;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -393,6 +421,14 @@
 .end method
 
 .method public abstract setAppQuota(Ljava/lang/String;IIJ)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract setFirstBoot()V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/server/graphics/fonts/UpdatableFontDir$FsverityUtil;
+.class public interface abstract Lcom/android/server/graphics/fonts/UpdatableFontDir$FsverityUtil;
 .super Ljava/lang/Object;
 .source "UpdatableFontDir.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
+    accessFlags = 0x609
     name = "FsverityUtil"
 .end annotation
 

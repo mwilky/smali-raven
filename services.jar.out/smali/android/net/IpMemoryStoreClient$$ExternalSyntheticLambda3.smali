@@ -1,5 +1,6 @@
 .class public final synthetic Landroid/net/IpMemoryStoreClient$$ExternalSyntheticLambda3;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/net/IpMemoryStoreClient$ThrowingRunnable;
@@ -31,15 +32,15 @@
 
 # virtual methods
 .method public final run()V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Landroid/net/IpMemoryStoreClient$$ExternalSyntheticLambda3;->f$0:Landroid/net/IIpMemoryStore;
 
     iget-object v1, p0, Landroid/net/IpMemoryStoreClient$$ExternalSyntheticLambda3;->f$1:Ljava/lang/String;
 
-    iget-object v2, p0, Landroid/net/IpMemoryStoreClient$$ExternalSyntheticLambda3;->f$2:Landroid/net/ipmemorystore/OnNetworkAttributesRetrievedListener;
+    iget-object p0, p0, Landroid/net/IpMemoryStoreClient$$ExternalSyntheticLambda3;->f$2:Landroid/net/ipmemorystore/OnNetworkAttributesRetrievedListener;
 
-    invoke-static {v0, v1, v2}, Landroid/net/IpMemoryStoreClient;->lambda$retrieveNetworkAttributes$12(Landroid/net/IIpMemoryStore;Ljava/lang/String;Landroid/net/ipmemorystore/OnNetworkAttributesRetrievedListener;)V
+    invoke-static {v0, v1, p0}, Landroid/net/IpMemoryStoreClient;->$r8$lambda$dSfhEOJMxAMnKNR7tRyrpKd8mSc(Landroid/net/IIpMemoryStore;Ljava/lang/String;Landroid/net/ipmemorystore/OnNetworkAttributesRetrievedListener;)V
 
     return-void
 .end method

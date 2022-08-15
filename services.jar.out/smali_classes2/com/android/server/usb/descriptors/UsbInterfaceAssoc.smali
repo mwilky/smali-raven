@@ -3,22 +3,18 @@
 .source "UsbInterfaceAssoc.java"
 
 
-# static fields
-.field private static final TAG:Ljava/lang/String; = "UsbInterfaceAssoc"
-
-
 # instance fields
-.field private mFirstInterface:B
+.field public mFirstInterface:B
 
-.field private mFunction:B
+.field public mFunction:B
 
-.field private mFunctionClass:B
+.field public mFunctionClass:B
 
-.field private mFunctionProtocol:B
+.field public mFunctionProtocol:B
 
-.field private mFunctionSubClass:B
+.field public mFunctionSubClass:B
 
-.field private mInterfaceCount:B
+.field public mInterfaceCount:B
 
 
 # direct methods
@@ -32,54 +28,6 @@
 
 
 # virtual methods
-.method public getFirstInterface()B
-    .locals 1
-
-    iget-byte v0, p0, Lcom/android/server/usb/descriptors/UsbInterfaceAssoc;->mFirstInterface:B
-
-    return v0
-.end method
-
-.method public getFunction()B
-    .locals 1
-
-    iget-byte v0, p0, Lcom/android/server/usb/descriptors/UsbInterfaceAssoc;->mFunction:B
-
-    return v0
-.end method
-
-.method public getFunctionClass()B
-    .locals 1
-
-    iget-byte v0, p0, Lcom/android/server/usb/descriptors/UsbInterfaceAssoc;->mFunctionClass:B
-
-    return v0
-.end method
-
-.method public getFunctionProtocol()B
-    .locals 1
-
-    iget-byte v0, p0, Lcom/android/server/usb/descriptors/UsbInterfaceAssoc;->mFunctionProtocol:B
-
-    return v0
-.end method
-
-.method public getFunctionSubClass()B
-    .locals 1
-
-    iget-byte v0, p0, Lcom/android/server/usb/descriptors/UsbInterfaceAssoc;->mFunctionSubClass:B
-
-    return v0
-.end method
-
-.method public getInterfaceCount()B
-    .locals 1
-
-    iget-byte v0, p0, Lcom/android/server/usb/descriptors/UsbInterfaceAssoc;->mInterfaceCount:B
-
-    return v0
-.end method
-
 .method public parseRawDescriptors(Lcom/android/server/usb/descriptors/ByteStream;)I
     .locals 1
 
@@ -115,11 +63,11 @@
 
     invoke-virtual {p1}, Lcom/android/server/usb/descriptors/ByteStream;->getByte()B
 
-    move-result v0
+    move-result p1
 
-    iput-byte v0, p0, Lcom/android/server/usb/descriptors/UsbInterfaceAssoc;->mFunction:B
+    iput-byte p1, p0, Lcom/android/server/usb/descriptors/UsbInterfaceAssoc;->mFunction:B
 
-    iget v0, p0, Lcom/android/server/usb/descriptors/UsbInterfaceAssoc;->mLength:I
+    iget p0, p0, Lcom/android/server/usb/descriptors/UsbDescriptor;->mLength:I
 
-    return v0
+    return p0
 .end method

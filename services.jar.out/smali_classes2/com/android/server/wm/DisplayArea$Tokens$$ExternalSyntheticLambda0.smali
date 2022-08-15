@@ -1,37 +1,30 @@
 .class public final synthetic Lcom/android/server/wm/DisplayArea$Tokens$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Predicate;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/android/server/wm/DisplayArea$Tokens;
+.implements Ljava/util/function/ToIntFunction;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/wm/DisplayArea$Tokens;)V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/server/wm/DisplayArea$Tokens$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/wm/DisplayArea$Tokens;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final test(Ljava/lang/Object;)Z
-    .locals 1
+.method public final applyAsInt(Ljava/lang/Object;)I
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/DisplayArea$Tokens$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/wm/DisplayArea$Tokens;
+    check-cast p1, Lcom/android/server/wm/WindowToken;
 
-    check-cast p1, Lcom/android/server/wm/WindowState;
+    invoke-virtual {p1}, Lcom/android/server/wm/WindowToken;->getWindowLayerFromType()I
 
-    invoke-virtual {v0, p1}, Lcom/android/server/wm/DisplayArea$Tokens;->lambda$new$0$DisplayArea$Tokens(Lcom/android/server/wm/WindowState;)Z
+    move-result p0
 
-    move-result p1
-
-    return p1
+    return p0
 .end method

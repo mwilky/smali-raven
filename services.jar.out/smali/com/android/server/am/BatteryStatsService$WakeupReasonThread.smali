@@ -1,4 +1,4 @@
-.class final Lcom/android/server/am/BatteryStatsService$WakeupReasonThread;
+.class public final Lcom/android/server/am/BatteryStatsService$WakeupReasonThread;
 .super Ljava/lang/Thread;
 .source "BatteryStatsService.java"
 
@@ -9,98 +9,32 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x10
+    accessFlags = 0x11
     name = "WakeupReasonThread"
 .end annotation
 
 
-# static fields
-.field private static final MAX_REASON_SIZE:I = 0x200
-
-
 # instance fields
-.field private mDecoder:Ljava/nio/charset/CharsetDecoder;
+.field public mDecoder:Ljava/nio/charset/CharsetDecoder;
 
-.field private mUtf16Buffer:Ljava/nio/CharBuffer;
+.field public mUtf16Buffer:Ljava/nio/CharBuffer;
 
-.field private mUtf8Buffer:Ljava/nio/ByteBuffer;
+.field public mUtf8Buffer:Ljava/nio/ByteBuffer;
 
-.field final synthetic this$0:Lcom/android/server/am/BatteryStatsService;
+.field public final synthetic this$0:Lcom/android/server/am/BatteryStatsService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/BatteryStatsService;)V
-    .locals 1
+.method public constructor <init>(Lcom/android/server/am/BatteryStatsService;)V
+    .locals 0
 
     iput-object p1, p0, Lcom/android/server/am/BatteryStatsService$WakeupReasonThread;->this$0:Lcom/android/server/am/BatteryStatsService;
 
-    const-string v0, "BatteryStats_wakeupReason"
+    const-string p1, "BatteryStats_wakeupReason"
 
-    invoke-direct {p0, v0}, Ljava/lang/Thread;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/Thread;-><init>(Ljava/lang/String;)V
 
     return-void
-.end method
-
-.method private waitWakeup()Ljava/lang/String;
-    .locals 5
-
-    iget-object v0, p0, Lcom/android/server/am/BatteryStatsService$WakeupReasonThread;->mUtf8Buffer:Ljava/nio/ByteBuffer;
-
-    invoke-virtual {v0}, Ljava/nio/ByteBuffer;->clear()Ljava/nio/Buffer;
-
-    iget-object v0, p0, Lcom/android/server/am/BatteryStatsService$WakeupReasonThread;->mUtf16Buffer:Ljava/nio/CharBuffer;
-
-    invoke-virtual {v0}, Ljava/nio/CharBuffer;->clear()Ljava/nio/Buffer;
-
-    iget-object v0, p0, Lcom/android/server/am/BatteryStatsService$WakeupReasonThread;->mDecoder:Ljava/nio/charset/CharsetDecoder;
-
-    invoke-virtual {v0}, Ljava/nio/charset/CharsetDecoder;->reset()Ljava/nio/charset/CharsetDecoder;
-
-    iget-object v0, p0, Lcom/android/server/am/BatteryStatsService$WakeupReasonThread;->mUtf8Buffer:Ljava/nio/ByteBuffer;
-
-    invoke-static {v0}, Lcom/android/server/am/BatteryStatsService;->access$600(Ljava/nio/ByteBuffer;)I
-
-    move-result v0
-
-    if-gez v0, :cond_0
-
-    const/4 v1, 0x0
-
-    return-object v1
-
-    :cond_0
-    if-nez v0, :cond_1
-
-    const-string/jumbo v1, "unknown"
-
-    return-object v1
-
-    :cond_1
-    iget-object v1, p0, Lcom/android/server/am/BatteryStatsService$WakeupReasonThread;->mUtf8Buffer:Ljava/nio/ByteBuffer;
-
-    invoke-virtual {v1, v0}, Ljava/nio/ByteBuffer;->limit(I)Ljava/nio/Buffer;
-
-    iget-object v1, p0, Lcom/android/server/am/BatteryStatsService$WakeupReasonThread;->mDecoder:Ljava/nio/charset/CharsetDecoder;
-
-    iget-object v2, p0, Lcom/android/server/am/BatteryStatsService$WakeupReasonThread;->mUtf8Buffer:Ljava/nio/ByteBuffer;
-
-    iget-object v3, p0, Lcom/android/server/am/BatteryStatsService$WakeupReasonThread;->mUtf16Buffer:Ljava/nio/CharBuffer;
-
-    const/4 v4, 0x1
-
-    invoke-virtual {v1, v2, v3, v4}, Ljava/nio/charset/CharsetDecoder;->decode(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;Z)Ljava/nio/charset/CoderResult;
-
-    iget-object v1, p0, Lcom/android/server/am/BatteryStatsService$WakeupReasonThread;->mUtf16Buffer:Ljava/nio/CharBuffer;
-
-    invoke-virtual {v1}, Ljava/nio/CharBuffer;->flip()Ljava/nio/Buffer;
-
-    iget-object v1, p0, Lcom/android/server/am/BatteryStatsService$WakeupReasonThread;->mUtf16Buffer:Ljava/nio/CharBuffer;
-
-    invoke-virtual {v1}, Ljava/nio/CharBuffer;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    return-object v1
 .end method
 
 
@@ -154,17 +88,15 @@
 
     :goto_0
     :try_start_0
-    invoke-direct {p0}, Lcom/android/server/am/BatteryStatsService$WakeupReasonThread;->waitWakeup()Ljava/lang/String;
+    invoke-virtual {p0}, Lcom/android/server/am/BatteryStatsService$WakeupReasonThread;->waitWakeup()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    move-object v2, v0
-
-    if-eqz v0, :cond_0
+    if-eqz v2, :cond_0
 
     iget-object v0, p0, Lcom/android/server/am/BatteryStatsService$WakeupReasonThread;->this$0:Lcom/android/server/am/BatteryStatsService;
 
-    invoke-static {v0}, Lcom/android/server/am/BatteryStatsService;->access$500(Lcom/android/server/am/BatteryStatsService;)V
+    invoke-static {v0}, Lcom/android/server/am/BatteryStatsService;->-$$Nest$mawaitCompletion(Lcom/android/server/am/BatteryStatsService;)V
 
     iget-object v0, p0, Lcom/android/server/am/BatteryStatsService$WakeupReasonThread;->this$0:Lcom/android/server/am/BatteryStatsService;
 
@@ -194,29 +126,88 @@
     goto :goto_0
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     :try_start_2
-    throw v1
+    throw p0
     :try_end_2
     .catch Ljava/lang/RuntimeException; {:try_start_2 .. :try_end_2} :catch_0
 
-    :cond_0
-    goto :goto_1
-
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    const-string v1, "BatteryStatsService"
+    const-string v0, "BatteryStatsService"
 
-    const-string v2, "Failure reading wakeup reasons"
+    const-string v1, "Failure reading wakeup reasons"
 
-    invoke-static {v1, v2, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v0, v1, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    :goto_1
+    :cond_0
     return-void
+.end method
+
+.method public final waitWakeup()Ljava/lang/String;
+    .locals 4
+
+    iget-object v0, p0, Lcom/android/server/am/BatteryStatsService$WakeupReasonThread;->mUtf8Buffer:Ljava/nio/ByteBuffer;
+
+    invoke-virtual {v0}, Ljava/nio/ByteBuffer;->clear()Ljava/nio/Buffer;
+
+    iget-object v0, p0, Lcom/android/server/am/BatteryStatsService$WakeupReasonThread;->mUtf16Buffer:Ljava/nio/CharBuffer;
+
+    invoke-virtual {v0}, Ljava/nio/CharBuffer;->clear()Ljava/nio/Buffer;
+
+    iget-object v0, p0, Lcom/android/server/am/BatteryStatsService$WakeupReasonThread;->mDecoder:Ljava/nio/charset/CharsetDecoder;
+
+    invoke-virtual {v0}, Ljava/nio/charset/CharsetDecoder;->reset()Ljava/nio/charset/CharsetDecoder;
+
+    iget-object v0, p0, Lcom/android/server/am/BatteryStatsService$WakeupReasonThread;->mUtf8Buffer:Ljava/nio/ByteBuffer;
+
+    invoke-static {v0}, Lcom/android/server/am/BatteryStatsService;->-$$Nest$smnativeWaitWakeup(Ljava/nio/ByteBuffer;)I
+
+    move-result v0
+
+    if-gez v0, :cond_0
+
+    const/4 p0, 0x0
+
+    return-object p0
+
+    :cond_0
+    if-nez v0, :cond_1
+
+    const-string/jumbo p0, "unknown"
+
+    return-object p0
+
+    :cond_1
+    iget-object v1, p0, Lcom/android/server/am/BatteryStatsService$WakeupReasonThread;->mUtf8Buffer:Ljava/nio/ByteBuffer;
+
+    invoke-virtual {v1, v0}, Ljava/nio/ByteBuffer;->limit(I)Ljava/nio/Buffer;
+
+    iget-object v0, p0, Lcom/android/server/am/BatteryStatsService$WakeupReasonThread;->mDecoder:Ljava/nio/charset/CharsetDecoder;
+
+    iget-object v1, p0, Lcom/android/server/am/BatteryStatsService$WakeupReasonThread;->mUtf8Buffer:Ljava/nio/ByteBuffer;
+
+    iget-object v2, p0, Lcom/android/server/am/BatteryStatsService$WakeupReasonThread;->mUtf16Buffer:Ljava/nio/CharBuffer;
+
+    const/4 v3, 0x1
+
+    invoke-virtual {v0, v1, v2, v3}, Ljava/nio/charset/CharsetDecoder;->decode(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;Z)Ljava/nio/charset/CoderResult;
+
+    iget-object v0, p0, Lcom/android/server/am/BatteryStatsService$WakeupReasonThread;->mUtf16Buffer:Ljava/nio/CharBuffer;
+
+    invoke-virtual {v0}, Ljava/nio/CharBuffer;->flip()Ljava/nio/Buffer;
+
+    iget-object p0, p0, Lcom/android/server/am/BatteryStatsService$WakeupReasonThread;->mUtf16Buffer:Ljava/nio/CharBuffer;
+
+    invoke-virtual {p0}, Ljava/nio/CharBuffer;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 .end method

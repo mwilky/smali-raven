@@ -1,28 +1,13 @@
 .class public final synthetic Lcom/android/server/pm/OtaDexoptService$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Predicate;
-
-
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/pm/OtaDexoptService$$ExternalSyntheticLambda1;
+.implements Ljava/util/function/ToLongFunction;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/pm/OtaDexoptService$$ExternalSyntheticLambda1;
-
-    invoke-direct {v0}, Lcom/android/server/pm/OtaDexoptService$$ExternalSyntheticLambda1;-><init>()V
-
-    sput-object v0, Lcom/android/server/pm/OtaDexoptService$$ExternalSyntheticLambda1;->INSTANCE:Lcom/android/server/pm/OtaDexoptService$$ExternalSyntheticLambda1;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,14 +17,14 @@
 
 
 # virtual methods
-.method public final test(Ljava/lang/Object;)Z
+.method public final applyAsLong(Ljava/lang/Object;)J
     .locals 0
 
-    check-cast p1, Lcom/android/server/pm/PackageSetting;
+    check-cast p1, Lcom/android/server/pm/pkg/PackageStateInternal;
 
-    invoke-static {p1}, Lcom/android/server/pm/OtaDexoptService;->lambda$prepare$0(Lcom/android/server/pm/PackageSetting;)Z
+    invoke-static {p1}, Lcom/android/server/pm/OtaDexoptService;->$r8$lambda$kVT16uUu7PUfM5w_HVAMYw4Y-sY(Lcom/android/server/pm/pkg/PackageStateInternal;)J
 
-    move-result p1
+    move-result-wide p0
 
-    return p1
+    return-wide p0
 .end method

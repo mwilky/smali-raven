@@ -1,5 +1,6 @@
 .class public final synthetic Landroid/net/NetworkStackClient$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/net/NetworkStackClient$NetworkStackCallback;
@@ -31,15 +32,15 @@
 
 # virtual methods
 .method public final onNetworkStackConnected(Landroid/net/INetworkStackConnector;)V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Landroid/net/NetworkStackClient$$ExternalSyntheticLambda2;->f$0:Ljava/lang/String;
 
     iget-object v1, p0, Landroid/net/NetworkStackClient$$ExternalSyntheticLambda2;->f$1:Landroid/net/dhcp/DhcpServingParamsParcel;
 
-    iget-object v2, p0, Landroid/net/NetworkStackClient$$ExternalSyntheticLambda2;->f$2:Landroid/net/dhcp/IDhcpServerCallbacks;
+    iget-object p0, p0, Landroid/net/NetworkStackClient$$ExternalSyntheticLambda2;->f$2:Landroid/net/dhcp/IDhcpServerCallbacks;
 
-    invoke-static {v0, v1, v2, p1}, Landroid/net/NetworkStackClient;->lambda$makeDhcpServer$0(Ljava/lang/String;Landroid/net/dhcp/DhcpServingParamsParcel;Landroid/net/dhcp/IDhcpServerCallbacks;Landroid/net/INetworkStackConnector;)V
+    invoke-static {v0, v1, p0, p1}, Landroid/net/NetworkStackClient;->$r8$lambda$HjVCLnOYfEOjLHCxGuOQm5Kj1gE(Ljava/lang/String;Landroid/net/dhcp/DhcpServingParamsParcel;Landroid/net/dhcp/IDhcpServerCallbacks;Landroid/net/INetworkStackConnector;)V
 
     return-void
 .end method

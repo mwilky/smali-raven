@@ -1,35 +1,34 @@
 .class public final synthetic Lcom/android/server/job/controllers/QuotaController$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Consumer;
+.implements Ljava/lang/Runnable;
 
 
 # instance fields
-.field public final synthetic f$0:J
+.field public final synthetic f$0:Lcom/android/server/job/controllers/QuotaController;
 
 
 # direct methods
-.method public synthetic constructor <init>(J)V
+.method public synthetic constructor <init>(Lcom/android/server/job/controllers/QuotaController;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-wide p1, p0, Lcom/android/server/job/controllers/QuotaController$$ExternalSyntheticLambda1;->f$0:J
+    iput-object p1, p0, Lcom/android/server/job/controllers/QuotaController$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/job/controllers/QuotaController;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
-    .locals 2
+.method public final run()V
+    .locals 0
 
-    iget-wide v0, p0, Lcom/android/server/job/controllers/QuotaController$$ExternalSyntheticLambda1;->f$0:J
+    iget-object p0, p0, Lcom/android/server/job/controllers/QuotaController$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/job/controllers/QuotaController;
 
-    check-cast p1, [Lcom/android/server/job/controllers/QuotaController$ExecutionStats;
-
-    invoke-static {v0, v1, p1}, Lcom/android/server/job/controllers/QuotaController;->lambda$invalidateAllExecutionStatsLocked$0(J[Lcom/android/server/job/controllers/QuotaController$ExecutionStats;)V
+    invoke-static {p0}, Lcom/android/server/job/controllers/QuotaController;->$r8$lambda$iVpxNtaWivXlWzMO0fHL9HkILQM(Lcom/android/server/job/controllers/QuotaController;)V
 
     return-void
 .end method

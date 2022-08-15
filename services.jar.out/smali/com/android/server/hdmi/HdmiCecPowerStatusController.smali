@@ -1,16 +1,16 @@
-.class Lcom/android/server/hdmi/HdmiCecPowerStatusController;
+.class public Lcom/android/server/hdmi/HdmiCecPowerStatusController;
 .super Ljava/lang/Object;
 .source "HdmiCecPowerStatusController.java"
 
 
 # instance fields
-.field private final mHdmiControlService:Lcom/android/server/hdmi/HdmiControlService;
+.field public final mHdmiControlService:Lcom/android/server/hdmi/HdmiControlService;
 
-.field private mPowerStatus:I
+.field public mPowerStatus:I
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/hdmi/HdmiControlService;)V
+.method public constructor <init>(Lcom/android/server/hdmi/HdmiControlService;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -24,8 +24,94 @@
     return-void
 .end method
 
-.method private sendReportPowerStatus(I)V
-    .locals 5
+
+# virtual methods
+.method public getPowerStatus()I
+    .locals 0
+
+    iget p0, p0, Lcom/android/server/hdmi/HdmiCecPowerStatusController;->mPowerStatus:I
+
+    return p0
+.end method
+
+.method public isPowerStatusOn()Z
+    .locals 0
+
+    iget p0, p0, Lcom/android/server/hdmi/HdmiCecPowerStatusController;->mPowerStatus:I
+
+    if-nez p0, :cond_0
+
+    const/4 p0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    :goto_0
+    return p0
+.end method
+
+.method public isPowerStatusStandby()Z
+    .locals 1
+
+    iget p0, p0, Lcom/android/server/hdmi/HdmiCecPowerStatusController;->mPowerStatus:I
+
+    const/4 v0, 0x1
+
+    if-ne p0, v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
+.end method
+
+.method public isPowerStatusTransientToOn()Z
+    .locals 1
+
+    iget p0, p0, Lcom/android/server/hdmi/HdmiCecPowerStatusController;->mPowerStatus:I
+
+    const/4 v0, 0x2
+
+    if-ne p0, v0, :cond_0
+
+    const/4 p0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    :goto_0
+    return p0
+.end method
+
+.method public isPowerStatusTransientToStandby()Z
+    .locals 1
+
+    iget p0, p0, Lcom/android/server/hdmi/HdmiCecPowerStatusController;->mPowerStatus:I
+
+    const/4 v0, 0x3
+
+    if-ne p0, v0, :cond_0
+
+    const/4 p0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    :goto_0
+    return p0
+.end method
+
+.method public final sendReportPowerStatus(I)V
+    .locals 4
 
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecPowerStatusController;->mHdmiControlService:Lcom/android/server/hdmi/HdmiControlService;
 
@@ -52,15 +138,21 @@
 
     iget-object v2, p0, Lcom/android/server/hdmi/HdmiCecPowerStatusController;->mHdmiControlService:Lcom/android/server/hdmi/HdmiControlService;
 
-    iget v3, v1, Lcom/android/server/hdmi/HdmiCecLocalDevice;->mAddress:I
+    invoke-virtual {v1}, Lcom/android/server/hdmi/HdmiCecLocalDevice;->getDeviceInfo()Landroid/hardware/hdmi/HdmiDeviceInfo;
 
-    const/16 v4, 0xf
+    move-result-object v1
 
-    invoke-static {v3, v4, p1}, Lcom/android/server/hdmi/HdmiCecMessageBuilder;->buildReportPowerStatus(III)Lcom/android/server/hdmi/HdmiCecMessage;
+    invoke-virtual {v1}, Landroid/hardware/hdmi/HdmiDeviceInfo;->getLogicalAddress()I
 
-    move-result-object v3
+    move-result v1
 
-    invoke-virtual {v2, v3}, Lcom/android/server/hdmi/HdmiControlService;->sendCecCommand(Lcom/android/server/hdmi/HdmiCecMessage;)V
+    const/16 v3, 0xf
+
+    invoke-static {v1, v3, p1}, Lcom/android/server/hdmi/HdmiCecMessageBuilder;->buildReportPowerStatus(III)Lcom/android/server/hdmi/HdmiCecMessage;
+
+    move-result-object v1
+
+    invoke-virtual {v2, v1}, Lcom/android/server/hdmi/HdmiControlService;->sendCecCommand(Lcom/android/server/hdmi/HdmiCecMessage;)V
 
     goto :goto_0
 
@@ -68,96 +160,8 @@
     return-void
 .end method
 
-
-# virtual methods
-.method getPowerStatus()I
+.method public setPowerStatus(I)V
     .locals 1
-
-    iget v0, p0, Lcom/android/server/hdmi/HdmiCecPowerStatusController;->mPowerStatus:I
-
-    return v0
-.end method
-
-.method isPowerStatusOn()Z
-    .locals 1
-
-    iget v0, p0, Lcom/android/server/hdmi/HdmiCecPowerStatusController;->mPowerStatus:I
-
-    if-nez v0, :cond_0
-
-    const/4 v0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    :goto_0
-    return v0
-.end method
-
-.method isPowerStatusStandby()Z
-    .locals 2
-
-    iget v0, p0, Lcom/android/server/hdmi/HdmiCecPowerStatusController;->mPowerStatus:I
-
-    const/4 v1, 0x1
-
-    if-ne v0, v1, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v1, 0x0
-
-    :goto_0
-    return v1
-.end method
-
-.method isPowerStatusTransientToOn()Z
-    .locals 2
-
-    iget v0, p0, Lcom/android/server/hdmi/HdmiCecPowerStatusController;->mPowerStatus:I
-
-    const/4 v1, 0x2
-
-    if-ne v0, v1, :cond_0
-
-    const/4 v0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    :goto_0
-    return v0
-.end method
-
-.method isPowerStatusTransientToStandby()Z
-    .locals 2
-
-    iget v0, p0, Lcom/android/server/hdmi/HdmiCecPowerStatusController;->mPowerStatus:I
-
-    const/4 v1, 0x3
-
-    if-ne v0, v1, :cond_0
-
-    const/4 v0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    :goto_0
-    return v0
-.end method
-
-.method setPowerStatus(I)V
-    .locals 1
-    .annotation runtime Lcom/android/server/hdmi/HdmiAnnotations$ServiceThreadOnly;
-    .end annotation
 
     const/4 v0, 0x1
 
@@ -166,10 +170,8 @@
     return-void
 .end method
 
-.method setPowerStatus(IZ)V
-    .locals 2
-    .annotation runtime Lcom/android/server/hdmi/HdmiAnnotations$ServiceThreadOnly;
-    .end annotation
+.method public setPowerStatus(IZ)V
+    .locals 1
 
     iget v0, p0, Lcom/android/server/hdmi/HdmiCecPowerStatusController;->mPowerStatus:I
 
@@ -182,19 +184,19 @@
 
     if-eqz p2, :cond_1
 
-    iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecPowerStatusController;->mHdmiControlService:Lcom/android/server/hdmi/HdmiControlService;
+    iget-object p1, p0, Lcom/android/server/hdmi/HdmiCecPowerStatusController;->mHdmiControlService:Lcom/android/server/hdmi/HdmiControlService;
 
-    invoke-virtual {v0}, Lcom/android/server/hdmi/HdmiControlService;->getCecVersion()I
+    invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiControlService;->getCecVersion()I
 
-    move-result v0
+    move-result p1
 
-    const/4 v1, 0x6
+    const/4 p2, 0x6
 
-    if-lt v0, v1, :cond_1
+    if-lt p1, p2, :cond_1
 
-    iget v0, p0, Lcom/android/server/hdmi/HdmiCecPowerStatusController;->mPowerStatus:I
+    iget p1, p0, Lcom/android/server/hdmi/HdmiCecPowerStatusController;->mPowerStatus:I
 
-    invoke-direct {p0, v0}, Lcom/android/server/hdmi/HdmiCecPowerStatusController;->sendReportPowerStatus(I)V
+    invoke-virtual {p0, p1}, Lcom/android/server/hdmi/HdmiCecPowerStatusController;->sendReportPowerStatus(I)V
 
     :cond_1
     return-void

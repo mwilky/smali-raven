@@ -1,25 +1,25 @@
-.class Lcom/android/server/input/InputManagerService$9;
+.class public Lcom/android/server/input/InputManagerService$9;
 .super Landroid/database/ContentObserver;
 .source "InputManagerService.java"
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/input/InputManagerService;->registerPointerSpeedSettingObserver()V
+    value = Lcom/android/server/input/InputManagerService;->registerBlockUntrustedTouchesModeSettingObserver()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/input/InputManagerService;
+.field public final synthetic this$0:Lcom/android/server/input/InputManagerService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/input/InputManagerService;Landroid/os/Handler;)V
+.method public constructor <init>(Lcom/android/server/input/InputManagerService;Landroid/os/Handler;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/input/InputManagerService$9;->this$0:Lcom/android/server/input/InputManagerService;
@@ -32,11 +32,11 @@
 
 # virtual methods
 .method public onChange(Z)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/input/InputManagerService$9;->this$0:Lcom/android/server/input/InputManagerService;
+    iget-object p0, p0, Lcom/android/server/input/InputManagerService$9;->this$0:Lcom/android/server/input/InputManagerService;
 
-    invoke-static {v0}, Lcom/android/server/input/InputManagerService;->access$100(Lcom/android/server/input/InputManagerService;)V
+    invoke-static {p0}, Lcom/android/server/input/InputManagerService;->-$$Nest$mupdateBlockUntrustedTouchesModeFromSettings(Lcom/android/server/input/InputManagerService;)V
 
     return-void
 .end method

@@ -12,139 +12,46 @@
         Lcom/android/server/policy/WindowManagerPolicy$OnKeyguardExitResult;,
         Lcom/android/server/policy/WindowManagerPolicy$ScreenOffListener;,
         Lcom/android/server/policy/WindowManagerPolicy$ScreenOnListener;,
-        Lcom/android/server/policy/WindowManagerPolicy$UserRotationMode;,
         Lcom/android/server/policy/WindowManagerPolicy$DisplayContentInfo;,
         Lcom/android/server/policy/WindowManagerPolicy$WindowManagerFuncs;,
-        Lcom/android/server/policy/WindowManagerPolicy$StartingSurface;,
-        Lcom/android/server/policy/WindowManagerPolicy$WindowState;,
-        Lcom/android/server/policy/WindowManagerPolicy$AltBarPosition;,
-        Lcom/android/server/policy/WindowManagerPolicy$NavigationBarPosition;
+        Lcom/android/server/policy/WindowManagerPolicy$WindowState;
     }
 .end annotation
-
-
-# static fields
-.field public static final ACTION_PASS_TO_USER:I = 0x1
-
-.field public static final COLOR_FADE_LAYER:I = 0x40000001
-
-.field public static final FINISH_LAYOUT_REDO_ANIM:I = 0x8
-
-.field public static final FINISH_LAYOUT_REDO_CONFIG:I = 0x2
-
-.field public static final FINISH_LAYOUT_REDO_LAYOUT:I = 0x1
-
-.field public static final FINISH_LAYOUT_REDO_WALLPAPER:I = 0x4
-
-.field public static final TRANSIT_ENTER:I = 0x1
-
-.field public static final TRANSIT_EXIT:I = 0x2
-
-.field public static final TRANSIT_HIDE:I = 0x4
-
-.field public static final TRANSIT_PREVIEW_DONE:I = 0x5
-
-.field public static final TRANSIT_SHOW:I = 0x3
-
-.field public static final USER_ROTATION_FREE:I = 0x0
-
-.field public static final USER_ROTATION_LOCKED:I = 0x1
 
 
 # direct methods
 .method public static userRotationModeToString(I)Ljava/lang/String;
     .locals 1
 
-    packed-switch p0, :pswitch_data_0
+    if-eqz p0, :cond_1
+
+    const/4 v0, 0x1
+
+    if-eq p0, v0, :cond_0
 
     invoke-static {p0}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
-    :pswitch_0
-    const-string v0, "USER_ROTATION_LOCKED"
+    :cond_0
+    const-string p0, "USER_ROTATION_LOCKED"
 
-    return-object v0
+    return-object p0
 
-    :pswitch_1
-    const-string v0, "USER_ROTATION_FREE"
+    :cond_1
+    const-string p0, "USER_ROTATION_FREE"
 
-    return-object v0
-
-    :pswitch_data_0
-    .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
+    return-object p0
 .end method
 
 
 # virtual methods
-.method public abstract addSplashScreen(Landroid/os/IBinder;ILjava/lang/String;ILandroid/content/res/CompatibilityInfo;Ljava/lang/CharSequence;IIIILandroid/content/res/Configuration;I)Lcom/android/server/policy/WindowManagerPolicy$StartingSurface;
-.end method
-
 .method public abstract adjustConfigurationLw(Landroid/content/res/Configuration;II)V
 .end method
 
 .method public abstract applyKeyguardOcclusionChange(Z)I
-.end method
-
-.method public canBeHiddenByKeyguardLw(Lcom/android/server/policy/WindowManagerPolicy$WindowState;)Z
-    .locals 3
-
-    invoke-interface {p1}, Lcom/android/server/policy/WindowManagerPolicy$WindowState;->getAppToken()Landroid/view/IApplicationToken;
-
-    move-result-object v0
-
-    const/4 v1, 0x0
-
-    if-eqz v0, :cond_0
-
-    return v1
-
-    :cond_0
-    invoke-interface {p1}, Lcom/android/server/policy/WindowManagerPolicy$WindowState;->getAttrs()Landroid/view/WindowManager$LayoutParams;
-
-    move-result-object v0
-
-    iget v0, v0, Landroid/view/WindowManager$LayoutParams;->type:I
-
-    sparse-switch v0, :sswitch_data_0
-
-    invoke-interface {p0, p1}, Lcom/android/server/policy/WindowManagerPolicy;->getWindowLayerLw(Lcom/android/server/policy/WindowManagerPolicy$WindowState;)I
-
-    move-result v0
-
-    const/16 v2, 0x7f8
-
-    invoke-interface {p0, v2}, Lcom/android/server/policy/WindowManagerPolicy;->getWindowLayerFromTypeLw(I)I
-
-    move-result v2
-
-    if-ge v0, v2, :cond_1
-
-    const/4 v1, 0x1
-
-    goto :goto_0
-
-    :sswitch_0
-    return v1
-
-    :cond_1
-    :goto_0
-    return v1
-
-    nop
-
-    :sswitch_data_0
-    .sparse-switch
-        0x7d0 -> :sswitch_0
-        0x7dd -> :sswitch_0
-        0x7e3 -> :sswitch_0
-        0x7f8 -> :sswitch_0
-    .end sparse-switch
 .end method
 
 .method public abstract canDismissBootAnimation()Z
@@ -187,74 +94,74 @@
 .end method
 
 .method public getFoldedArea()Landroid/graphics/Rect;
-    .locals 1
+    .locals 0
 
-    new-instance v0, Landroid/graphics/Rect;
+    new-instance p0, Landroid/graphics/Rect;
 
-    invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
+    invoke-direct {p0}, Landroid/graphics/Rect;-><init>()V
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getMaxWindowLayer()I
-    .locals 1
+    .locals 0
 
-    const/16 v0, 0x24
+    const/16 p0, 0x24
 
-    return v0
+    return p0
 .end method
 
 .method public getSubWindowLayerFromTypeLw(I)I
-    .locals 2
+    .locals 1
 
     packed-switch p1, :pswitch_data_0
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance p0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "Unknown sub-window type: "
+    const-string v0, "Unknown sub-window type: "
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    const-string v1, "WindowManager"
+    const-string p1, "WindowManager"
 
-    invoke-static {v1, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p1, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 
     :pswitch_0
-    const/4 v0, 0x3
+    const/4 p0, 0x3
 
-    return v0
+    return p0
 
     :pswitch_1
-    const/4 v0, -0x1
+    const/4 p0, -0x1
 
-    return v0
+    return p0
 
     :pswitch_2
-    const/4 v0, 0x2
+    const/4 p0, 0x2
 
-    return v0
+    return p0
 
     :pswitch_3
-    const/4 v0, -0x2
+    const/4 p0, -0x2
 
-    return v0
+    return p0
 
     :pswitch_4
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 
     nop
 
@@ -273,7 +180,7 @@
 .end method
 
 .method public getWindowLayerFromTypeLw(I)I
-    .locals 2
+    .locals 1
 
     invoke-static {p1}, Landroid/view/WindowManager$LayoutParams;->isSystemAlertWindowType(I)Z
 
@@ -285,18 +192,18 @@
 
     invoke-interface {p0, p1, v0}, Lcom/android/server/policy/WindowManagerPolicy;->getWindowLayerFromTypeLw(IZ)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Use getWindowLayerFromTypeLw() or getWindowLayerLw() for alert window types"
+    const-string p1, "Use getWindowLayerFromTypeLw() or getWindowLayerLw() for alert window types"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public getWindowLayerFromTypeLw(IZ)I
@@ -306,13 +213,13 @@
 
     invoke-interface {p0, p1, p2, v0}, Lcom/android/server/policy/WindowManagerPolicy;->getWindowLayerFromTypeLw(IZZ)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public getWindowLayerFromTypeLw(IZZ)I
-    .locals 3
+    .locals 1
 
     if-eqz p3, :cond_0
 
@@ -320,225 +227,229 @@
 
     invoke-interface {p0}, Lcom/android/server/policy/WindowManagerPolicy;->getMaxWindowLayer()I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 
     :cond_0
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    if-lt p1, v0, :cond_1
+    if-lt p1, p0, :cond_1
 
-    const/16 v1, 0x63
+    const/16 p3, 0x63
 
-    if-gt p1, v1, :cond_1
+    if-gt p1, p3, :cond_1
 
-    const/4 v0, 0x2
+    const/4 p0, 0x2
 
-    return v0
+    return p0
 
     :cond_1
-    const/16 v1, 0xa
+    const/16 p3, 0x9
 
-    const/4 v2, 0x3
+    const/4 v0, 0x3
 
     packed-switch p1, :pswitch_data_0
 
     :pswitch_0
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance p0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "Unknown window type: "
+    const-string p2, "Unknown window type: "
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    const-string v1, "WindowManager"
+    const-string p1, "WindowManager"
 
-    invoke-static {v1, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p1, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v2
+    return v0
 
     :pswitch_1
-    const/16 v0, 0x12
+    const/16 p0, 0x10
 
-    return v0
+    return p0
 
     :pswitch_2
-    const/16 v0, 0x13
+    const/16 p0, 0x11
 
-    return v0
+    return p0
 
     :pswitch_3
-    const/16 v0, 0x20
+    const/16 p0, 0x20
 
-    return v0
+    return p0
 
     :pswitch_4
-    const/16 v0, 0xc
+    const/16 p0, 0xb
 
-    return v0
+    return p0
 
     :pswitch_5
-    const/16 v0, 0x1a
+    const/16 p0, 0x1a
 
-    return v0
+    return p0
 
     :pswitch_6
-    const/16 v0, 0x1f
+    const/16 p0, 0x14
 
-    return v0
+    return p0
 
     :pswitch_7
-    const/4 v0, 0x5
+    const/16 p0, 0x1f
 
-    return v0
+    return p0
 
     :pswitch_8
-    const/16 v0, 0x1c
+    const/16 p0, 0x15
 
-    return v0
+    return p0
 
     :pswitch_9
-    const/16 v0, 0x1d
+    const/16 p0, 0x1c
 
-    return v0
+    return p0
 
     :pswitch_a
-    const/16 v0, 0x19
+    const/16 p0, 0x1d
 
-    return v0
+    return p0
 
     :pswitch_b
-    const/4 v0, 0x6
+    const/16 p0, 0x19
 
-    return v0
+    return p0
 
     :pswitch_c
-    const/16 v0, 0x22
+    const/4 p0, 0x5
 
-    return v0
+    return p0
 
     :pswitch_d
-    const/16 v0, 0x16
+    const/16 p0, 0x22
 
-    return v0
+    return p0
 
     :pswitch_e
-    const/16 v0, 0x18
+    const/16 p0, 0x16
 
-    return v0
+    return p0
 
     :pswitch_f
-    const/16 v0, 0x23
+    const/16 p0, 0x18
 
-    return v0
+    return p0
 
     :pswitch_10
-    const/16 v0, 0x14
+    const/16 p0, 0x23
 
-    return v0
+    return p0
 
     :pswitch_11
-    const/16 v0, 0x1e
+    const/16 p0, 0x12
 
-    return v0
+    return p0
 
     :pswitch_12
-    const/16 v0, 0x21
+    const/16 p0, 0x1e
 
-    return v0
+    return p0
 
     :pswitch_13
-    return v0
+    const/16 p0, 0x21
 
     :pswitch_14
-    const/16 v0, 0x10
-
-    return v0
+    return p0
 
     :pswitch_15
-    const/16 v0, 0xf
+    const/16 p0, 0xe
 
-    return v0
+    return p0
 
     :pswitch_16
-    if-eqz p2, :cond_2
+    const/16 p0, 0xd
 
-    const/16 v1, 0x1b
-
-    :cond_2
-    return v1
+    return p0
 
     :pswitch_17
-    const/16 v0, 0x15
+    if-eqz p2, :cond_2
 
-    return v0
+    const/16 p3, 0x1b
+
+    :cond_2
+    return p3
 
     :pswitch_18
-    const/4 v0, 0x7
+    const/16 p0, 0x13
 
-    return v0
+    return p0
 
     :pswitch_19
-    const/16 v0, 0x9
+    const/4 p0, 0x6
 
-    return v0
+    return p0
 
     :pswitch_1a
+    const/16 p0, 0x8
+
+    return p0
+
+    :pswitch_1b
     if-eqz p2, :cond_3
 
-    const/16 v0, 0x17
+    const/16 p0, 0x17
 
     goto :goto_0
 
     :cond_3
-    const/16 v0, 0xb
+    const/16 p0, 0xa
 
     :goto_0
-    return v0
-
-    :pswitch_1b
-    const/16 v0, 0x8
-
-    return v0
+    return p0
 
     :pswitch_1c
-    if-eqz p2, :cond_4
+    const/4 p0, 0x7
 
-    const/16 v1, 0xd
-
-    :cond_4
-    return v1
+    return p0
 
     :pswitch_1d
-    return v2
+    if-eqz p2, :cond_4
+
+    const/16 p3, 0xc
+
+    :cond_4
+    return p3
 
     :pswitch_1e
-    const/4 v0, 0x4
-
     return v0
 
     :pswitch_1f
-    const/16 v0, 0x11
+    const/4 p0, 0x4
 
-    return v0
+    return p0
+
+    :pswitch_20
+    const/16 p0, 0xf
+
+    return p0
 
     nop
 
     :pswitch_data_0
     .packed-switch 0x7d0
+        :pswitch_20
         :pswitch_1f
         :pswitch_1e
         :pswitch_1d
-        :pswitch_1c
         :pswitch_0
+        :pswitch_1c
         :pswitch_1b
         :pswitch_1a
         :pswitch_19
@@ -547,8 +458,8 @@
         :pswitch_16
         :pswitch_15
         :pswitch_14
-        :pswitch_13
         :pswitch_0
+        :pswitch_13
         :pswitch_12
         :pswitch_11
         :pswitch_10
@@ -556,22 +467,21 @@
         :pswitch_e
         :pswitch_d
         :pswitch_c
+        :pswitch_0
         :pswitch_b
         :pswitch_0
         :pswitch_a
-        :pswitch_0
         :pswitch_9
+        :pswitch_0
+        :pswitch_0
+        :pswitch_1e
         :pswitch_8
-        :pswitch_0
-        :pswitch_0
-        :pswitch_1d
         :pswitch_7
         :pswitch_6
         :pswitch_1e
-        :pswitch_1d
-        :pswitch_1d
+        :pswitch_1e
         :pswitch_5
-        :pswitch_1d
+        :pswitch_1e
         :pswitch_4
         :pswitch_3
         :pswitch_2
@@ -580,7 +490,7 @@
 .end method
 
 .method public getWindowLayerLw(Lcom/android/server/policy/WindowManagerPolicy$WindowState;)I
-    .locals 2
+    .locals 1
 
     invoke-interface {p1}, Lcom/android/server/policy/WindowManagerPolicy$WindowState;->getBaseType()I
 
@@ -588,22 +498,16 @@
 
     invoke-interface {p1}, Lcom/android/server/policy/WindowManagerPolicy$WindowState;->canAddInternalSystemWindow()Z
 
-    move-result v1
+    move-result p1
 
-    invoke-interface {p0, v0, v1}, Lcom/android/server/policy/WindowManagerPolicy;->getWindowLayerFromTypeLw(IZ)I
+    invoke-interface {p0, v0, p1}, Lcom/android/server/policy/WindowManagerPolicy;->getWindowLayerFromTypeLw(IZ)I
 
-    move-result v0
+    move-result p0
 
-    return v0
-.end method
-
-.method public abstract hasNavigationBar()Z
+    return p0
 .end method
 
 .method public abstract hideBootMessages()V
-.end method
-
-.method public abstract inKeyguardRestrictedKeyInputMode()Z
 .end method
 
 .method public abstract init(Landroid/content/Context;Landroid/view/IWindowManager;Lcom/android/server/policy/WindowManagerPolicy$WindowManagerFuncs;)V
@@ -643,11 +547,11 @@
 .end method
 
 .method public isKeyguardUnoccluding()Z
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
 .method public abstract isScreenOn()Z
@@ -681,6 +585,9 @@
 .end method
 
 .method public abstract onKeyguardOccludedChangedLw(Z)V
+.end method
+
+.method public abstract onPowerGroupWakefulnessChanged(IIII)V
 .end method
 
 .method public abstract onSystemUiStarted()V
@@ -758,9 +665,6 @@
 .end method
 
 .method public abstract showGlobalActions()V
-.end method
-
-.method public abstract showRecentApps()V
 .end method
 
 .method public abstract startKeyguardExitAnimation(JJ)V

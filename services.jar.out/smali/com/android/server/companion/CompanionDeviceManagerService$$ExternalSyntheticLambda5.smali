@@ -1,28 +1,13 @@
 .class public final synthetic Lcom/android/server/companion/CompanionDeviceManagerService$$ExternalSyntheticLambda5;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/internal/util/function/TriFunction;
-
-
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/companion/CompanionDeviceManagerService$$ExternalSyntheticLambda5;
+.implements Ljava/util/function/Function;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/companion/CompanionDeviceManagerService$$ExternalSyntheticLambda5;
-
-    invoke-direct {v0}, Lcom/android/server/companion/CompanionDeviceManagerService$$ExternalSyntheticLambda5;-><init>()V
-
-    sput-object v0, Lcom/android/server/companion/CompanionDeviceManagerService$$ExternalSyntheticLambda5;->INSTANCE:Lcom/android/server/companion/CompanionDeviceManagerService$$ExternalSyntheticLambda5;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,18 +17,14 @@
 
 
 # virtual methods
-.method public final apply(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
 
-    check-cast p1, Landroid/content/Context;
+    check-cast p1, Ljava/lang/String;
 
-    check-cast p2, Ljava/lang/String;
+    invoke-static {p1}, Lcom/android/server/companion/CompanionDeviceManagerService;->$r8$lambda$TMtyjV4Hu2PxW3eP6v-kOhT6CX4(Ljava/lang/String;)Ljava/util/Set;
 
-    check-cast p3, Ljava/lang/Integer;
+    move-result-object p0
 
-    invoke-static {p1, p2, p3}, Lcom/android/server/companion/CompanionDeviceManagerService;->lambda$getPackageInfo$5(Landroid/content/Context;Ljava/lang/String;Ljava/lang/Integer;)Landroid/content/pm/PackageInfo;
-
-    move-result-object p1
-
-    return-object p1
+    return-object p0
 .end method

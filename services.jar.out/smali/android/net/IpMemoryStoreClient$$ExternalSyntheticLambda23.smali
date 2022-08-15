@@ -1,5 +1,6 @@
 .class public final synthetic Landroid/net/IpMemoryStoreClient$$ExternalSyntheticLambda23;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -55,7 +56,7 @@
 
     check-cast v5, Landroid/net/IIpMemoryStore;
 
-    invoke-virtual/range {v0 .. v5}, Landroid/net/IpMemoryStoreClient;->lambda$retrieveBlob$16$IpMemoryStoreClient(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/net/ipmemorystore/OnBlobRetrievedListener;Landroid/net/IIpMemoryStore;)V
+    invoke-static/range {v0 .. v5}, Landroid/net/IpMemoryStoreClient;->$r8$lambda$VZnYGtoadf4WKLg_XFrypEJnbck(Landroid/net/IpMemoryStoreClient;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/net/ipmemorystore/OnBlobRetrievedListener;Landroid/net/IIpMemoryStore;)V
 
     return-void
 .end method

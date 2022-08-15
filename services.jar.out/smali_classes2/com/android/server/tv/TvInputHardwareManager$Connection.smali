@@ -1,4 +1,4 @@
-.class Lcom/android/server/tv/TvInputHardwareManager$Connection;
+.class public Lcom/android/server/tv/TvInputHardwareManager$Connection;
 .super Ljava/lang/Object;
 .source "TvInputHardwareManager.java"
 
@@ -12,36 +12,56 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "Connection"
 .end annotation
 
 
 # instance fields
-.field private mCallback:Landroid/media/tv/ITvInputHardwareCallback;
+.field public mCallback:Landroid/media/tv/ITvInputHardwareCallback;
 
-.field private mCallingUid:Ljava/lang/Integer;
+.field public mCallingUid:Ljava/lang/Integer;
 
-.field private mConfigs:[Landroid/media/tv/TvStreamConfig;
+.field public mConfigs:[Landroid/media/tv/TvStreamConfig;
 
-.field private mHardware:Lcom/android/server/tv/TvInputHardwareManager$TvInputHardwareImpl;
+.field public mHardware:Lcom/android/server/tv/TvInputHardwareManager$TvInputHardwareImpl;
 
-.field private mHardwareInfo:Landroid/media/tv/TvInputHardwareInfo;
+.field public mHardwareInfo:Landroid/media/tv/TvInputHardwareInfo;
 
-.field private mInfo:Landroid/media/tv/TvInputInfo;
+.field public mInfo:Landroid/media/tv/TvInputInfo;
 
-.field private mIsCableConnectionStatusUpdated:Z
+.field public mIsCableConnectionStatusUpdated:Z
 
-.field private mOnFirstFrameCaptured:Ljava/lang/Runnable;
+.field public mOnFirstFrameCaptured:Ljava/lang/Runnable;
 
-.field private mResolvedUserId:Ljava/lang/Integer;
+.field public mResolvedUserId:Ljava/lang/Integer;
 
-.field private mResourceClientProfile:Landroid/media/tv/tunerresourcemanager/ResourceClientProfile;
+.field public mResourceClientProfile:Landroid/media/tv/tunerresourcemanager/ResourceClientProfile;
 
-.field final synthetic this$0:Lcom/android/server/tv/TvInputHardwareManager;
+.field public final synthetic this$0:Lcom/android/server/tv/TvInputHardwareManager;
 
 
 # direct methods
+.method public static bridge synthetic -$$Nest$mgetConfigsLengthLocked(Lcom/android/server/tv/TvInputHardwareManager$Connection;)I
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/server/tv/TvInputHardwareManager$Connection;->getConfigsLengthLocked()I
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public static bridge synthetic -$$Nest$mgetInputStateLocked(Lcom/android/server/tv/TvInputHardwareManager$Connection;)I
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/server/tv/TvInputHardwareManager$Connection;->getInputStateLocked()I
+
+    move-result p0
+
+    return p0
+.end method
+
 .method public constructor <init>(Lcom/android/server/tv/TvInputHardwareManager;Landroid/media/tv/TvInputHardwareInfo;)V
     .locals 0
 
@@ -70,89 +90,6 @@
     return-void
 .end method
 
-.method static synthetic access$500(Lcom/android/server/tv/TvInputHardwareManager$Connection;)I
-    .locals 1
-
-    invoke-direct {p0}, Lcom/android/server/tv/TvInputHardwareManager$Connection;->getConfigsLengthLocked()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method static synthetic access$600(Lcom/android/server/tv/TvInputHardwareManager$Connection;)I
-    .locals 1
-
-    invoke-direct {p0}, Lcom/android/server/tv/TvInputHardwareManager$Connection;->getInputStateLocked()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method private getConfigsLengthLocked()I
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/tv/TvInputHardwareManager$Connection;->mConfigs:[Landroid/media/tv/TvStreamConfig;
-
-    if-nez v0, :cond_0
-
-    const/4 v0, 0x0
-
-    goto :goto_0
-
-    :cond_0
-    array-length v0, v0
-
-    :goto_0
-    return v0
-.end method
-
-.method private getInputStateLocked()I
-    .locals 3
-
-    invoke-direct {p0}, Lcom/android/server/tv/TvInputHardwareManager$Connection;->getConfigsLengthLocked()I
-
-    move-result v0
-
-    const/4 v1, 0x0
-
-    if-lez v0, :cond_0
-
-    iget-boolean v2, p0, Lcom/android/server/tv/TvInputHardwareManager$Connection;->mIsCableConnectionStatusUpdated:Z
-
-    if-nez v2, :cond_0
-
-    return v1
-
-    :cond_0
-    iget-object v2, p0, Lcom/android/server/tv/TvInputHardwareManager$Connection;->mHardwareInfo:Landroid/media/tv/TvInputHardwareInfo;
-
-    invoke-virtual {v2}, Landroid/media/tv/TvInputHardwareInfo;->getCableConnectionStatus()I
-
-    move-result v2
-
-    packed-switch v2, :pswitch_data_0
-
-    const/4 v1, 0x1
-
-    return v1
-
-    :pswitch_0
-    const/4 v1, 0x2
-
-    return v1
-
-    :pswitch_1
-    return v1
-
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
-.end method
-
 
 # virtual methods
 .method public binderDied()V
@@ -160,7 +97,7 @@
 
     iget-object v0, p0, Lcom/android/server/tv/TvInputHardwareManager$Connection;->this$0:Lcom/android/server/tv/TvInputHardwareManager;
 
-    invoke-static {v0}, Lcom/android/server/tv/TvInputHardwareManager;->access$1000(Lcom/android/server/tv/TvInputHardwareManager;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/server/tv/TvInputHardwareManager;->-$$Nest$fgetmLock(Lcom/android/server/tv/TvInputHardwareManager;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -188,93 +125,149 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
 .method public getCallbackLocked()Landroid/media/tv/ITvInputHardwareCallback;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/tv/TvInputHardwareManager$Connection;->mCallback:Landroid/media/tv/ITvInputHardwareCallback;
+    iget-object p0, p0, Lcom/android/server/tv/TvInputHardwareManager$Connection;->mCallback:Landroid/media/tv/ITvInputHardwareCallback;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getCallingUidLocked()Ljava/lang/Integer;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/tv/TvInputHardwareManager$Connection;->mCallingUid:Ljava/lang/Integer;
+    iget-object p0, p0, Lcom/android/server/tv/TvInputHardwareManager$Connection;->mCallingUid:Ljava/lang/Integer;
 
-    return-object v0
+    return-object p0
+.end method
+
+.method public final getConfigsLengthLocked()I
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/tv/TvInputHardwareManager$Connection;->mConfigs:[Landroid/media/tv/TvStreamConfig;
+
+    if-nez p0, :cond_0
+
+    const/4 p0, 0x0
+
+    goto :goto_0
+
+    :cond_0
+    array-length p0, p0
+
+    :goto_0
+    return p0
 .end method
 
 .method public getConfigsLocked()[Landroid/media/tv/TvStreamConfig;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/tv/TvInputHardwareManager$Connection;->mConfigs:[Landroid/media/tv/TvStreamConfig;
+    iget-object p0, p0, Lcom/android/server/tv/TvInputHardwareManager$Connection;->mConfigs:[Landroid/media/tv/TvStreamConfig;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getHardwareImplLocked()Lcom/android/server/tv/TvInputHardwareManager$TvInputHardwareImpl;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/tv/TvInputHardwareManager$Connection;->mHardware:Lcom/android/server/tv/TvInputHardwareManager$TvInputHardwareImpl;
+    iget-object p0, p0, Lcom/android/server/tv/TvInputHardwareManager$Connection;->mHardware:Lcom/android/server/tv/TvInputHardwareManager$TvInputHardwareImpl;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getHardwareInfoLocked()Landroid/media/tv/TvInputHardwareInfo;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/tv/TvInputHardwareManager$Connection;->mHardwareInfo:Landroid/media/tv/TvInputHardwareInfo;
+    iget-object p0, p0, Lcom/android/server/tv/TvInputHardwareManager$Connection;->mHardwareInfo:Landroid/media/tv/TvInputHardwareInfo;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getHardwareLocked()Landroid/media/tv/ITvInputHardware;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/tv/TvInputHardwareManager$Connection;->mHardware:Lcom/android/server/tv/TvInputHardwareManager$TvInputHardwareImpl;
+    iget-object p0, p0, Lcom/android/server/tv/TvInputHardwareManager$Connection;->mHardware:Lcom/android/server/tv/TvInputHardwareManager$TvInputHardwareImpl;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getInfoLocked()Landroid/media/tv/TvInputInfo;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/tv/TvInputHardwareManager$Connection;->mInfo:Landroid/media/tv/TvInputInfo;
+    iget-object p0, p0, Lcom/android/server/tv/TvInputHardwareManager$Connection;->mInfo:Landroid/media/tv/TvInputInfo;
 
-    return-object v0
+    return-object p0
+.end method
+
+.method public final getInputStateLocked()I
+    .locals 2
+
+    invoke-virtual {p0}, Lcom/android/server/tv/TvInputHardwareManager$Connection;->getConfigsLengthLocked()I
+
+    move-result v0
+
+    const/4 v1, 0x0
+
+    if-lez v0, :cond_0
+
+    iget-boolean v0, p0, Lcom/android/server/tv/TvInputHardwareManager$Connection;->mIsCableConnectionStatusUpdated:Z
+
+    if-nez v0, :cond_0
+
+    return v1
+
+    :cond_0
+    iget-object p0, p0, Lcom/android/server/tv/TvInputHardwareManager$Connection;->mHardwareInfo:Landroid/media/tv/TvInputHardwareInfo;
+
+    invoke-virtual {p0}, Landroid/media/tv/TvInputHardwareInfo;->getCableConnectionStatus()I
+
+    move-result p0
+
+    const/4 v0, 0x1
+
+    if-eq p0, v0, :cond_1
+
+    const/4 v1, 0x2
+
+    if-eq p0, v1, :cond_1
+
+    return v0
+
+    :cond_1
+    return v1
 .end method
 
 .method public getOnFirstFrameCapturedLocked()Ljava/lang/Runnable;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/tv/TvInputHardwareManager$Connection;->mOnFirstFrameCaptured:Ljava/lang/Runnable;
+    iget-object p0, p0, Lcom/android/server/tv/TvInputHardwareManager$Connection;->mOnFirstFrameCaptured:Ljava/lang/Runnable;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getResolvedUserIdLocked()Ljava/lang/Integer;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/tv/TvInputHardwareManager$Connection;->mResolvedUserId:Ljava/lang/Integer;
+    iget-object p0, p0, Lcom/android/server/tv/TvInputHardwareManager$Connection;->mResolvedUserId:Ljava/lang/Integer;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getResourceClientProfileLocked()Landroid/media/tv/tunerresourcemanager/ResourceClientProfile;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/tv/TvInputHardwareManager$Connection;->mResourceClientProfile:Landroid/media/tv/tunerresourcemanager/ResourceClientProfile;
+    iget-object p0, p0, Lcom/android/server/tv/TvInputHardwareManager$Connection;->mResourceClientProfile:Landroid/media/tv/tunerresourcemanager/ResourceClientProfile;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public resetLocked(Lcom/android/server/tv/TvInputHardwareManager$TvInputHardwareImpl;Landroid/media/tv/ITvInputHardwareCallback;Landroid/media/tv/TvInputInfo;Ljava/lang/Integer;Ljava/lang/Integer;Landroid/media/tv/tunerresourcemanager/ResourceClientProfile;)V
@@ -298,7 +291,7 @@
     :catch_0
     move-exception v0
 
-    invoke-static {}, Lcom/android/server/tv/TvInputHardwareManager;->access$900()Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/tv/TvInputHardwareManager;->-$$Nest$sfgetTAG()Ljava/lang/String;
 
     move-result-object v2
 
@@ -320,9 +313,9 @@
 
     iput-object p5, p0, Lcom/android/server/tv/TvInputHardwareManager$Connection;->mResolvedUserId:Ljava/lang/Integer;
 
-    const/4 v0, 0x0
+    const/4 p3, 0x0
 
-    iput-object v0, p0, Lcom/android/server/tv/TvInputHardwareManager$Connection;->mOnFirstFrameCaptured:Ljava/lang/Runnable;
+    iput-object p3, p0, Lcom/android/server/tv/TvInputHardwareManager$Connection;->mOnFirstFrameCaptured:Ljava/lang/Runnable;
 
     iput-object p6, p0, Lcom/android/server/tv/TvInputHardwareManager$Connection;->mResourceClientProfile:Landroid/media/tv/tunerresourcemanager/ResourceClientProfile;
 
@@ -333,22 +326,22 @@
     :try_start_1
     invoke-virtual {p0}, Lcom/android/server/tv/TvInputHardwareManager$Connection;->getConfigsLocked()[Landroid/media/tv/TvStreamConfig;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-interface {p2, v0}, Landroid/media/tv/ITvInputHardwareCallback;->onStreamConfigChanged([Landroid/media/tv/TvStreamConfig;)V
+    invoke-interface {p2, p0}, Landroid/media/tv/ITvInputHardwareCallback;->onStreamConfigChanged([Landroid/media/tv/TvStreamConfig;)V
     :try_end_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_1
 
     goto :goto_1
 
     :catch_1
-    move-exception v0
+    move-exception p0
 
-    invoke-static {}, Lcom/android/server/tv/TvInputHardwareManager;->access$900()Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/tv/TvInputHardwareManager;->-$$Nest$sfgetTAG()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-static {v2, v1, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {p1, v1, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :cond_1
     :goto_1
@@ -426,19 +419,19 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lcom/android/server/tv/TvInputHardwareManager$Connection;->mResourceClientProfile:Landroid/media/tv/tunerresourcemanager/ResourceClientProfile;
+    iget-object p0, p0, Lcom/android/server/tv/TvInputHardwareManager$Connection;->mResourceClientProfile:Landroid/media/tv/tunerresourcemanager/ResourceClientProfile;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string v1, " }"
+    const-string p0, " }"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public updateCableConnectionStatusLocked(I)Z
@@ -463,18 +456,18 @@
 
     invoke-virtual {v0, p1}, Landroid/media/tv/TvInputHardwareInfo$Builder;->cableConnectionStatus(I)Landroid/media/tv/TvInputHardwareInfo$Builder;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Landroid/media/tv/TvInputHardwareInfo$Builder;->build()Landroid/media/tv/TvInputHardwareInfo;
+    invoke-virtual {p1}, Landroid/media/tv/TvInputHardwareInfo$Builder;->build()Landroid/media/tv/TvInputHardwareInfo;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/android/server/tv/TvInputHardwareManager$Connection;->mHardwareInfo:Landroid/media/tv/TvInputHardwareInfo;
+    iput-object p1, p0, Lcom/android/server/tv/TvInputHardwareManager$Connection;->mHardwareInfo:Landroid/media/tv/TvInputHardwareInfo;
 
     :cond_1
-    iget-boolean v0, p0, Lcom/android/server/tv/TvInputHardwareManager$Connection;->mIsCableConnectionStatusUpdated:Z
+    iget-boolean p0, p0, Lcom/android/server/tv/TvInputHardwareManager$Connection;->mIsCableConnectionStatusUpdated:Z
 
-    return v0
+    return p0
 .end method
 
 .method public updateConfigsLocked([Landroid/media/tv/TvStreamConfig;)V

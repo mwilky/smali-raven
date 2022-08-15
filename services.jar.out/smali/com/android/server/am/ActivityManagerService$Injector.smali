@@ -4,6 +4,9 @@
 
 
 # annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/android/server/am/ActivityManagerService;
 .end annotation
@@ -15,9 +18,9 @@
 
 
 # instance fields
-.field private mContext:Landroid/content/Context;
+.field public mContext:Landroid/content/Context;
 
-.field private mNmi:Lcom/android/server/NetworkManagementInternal;
+.field public mNmi:Lcom/android/server/NetworkManagementInternal;
 
 
 # direct methods
@@ -31,7 +34,9 @@
     return-void
 .end method
 
-.method private ensureHasNetworkManagementInternal()Z
+
+# virtual methods
+.method public final ensureHasNetworkManagementInternal()Z
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$Injector;->mNmi:Lcom/android/server/NetworkManagementInternal;
@@ -49,86 +54,84 @@
     iput-object v0, p0, Lcom/android/server/am/ActivityManagerService$Injector;->mNmi:Lcom/android/server/NetworkManagementInternal;
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$Injector;->mNmi:Lcom/android/server/NetworkManagementInternal;
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService$Injector;->mNmi:Lcom/android/server/NetworkManagementInternal;
 
-    if-eqz v0, :cond_1
+    if-eqz p0, :cond_1
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_1
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
-
-# virtual methods
 .method public getAppOpsService(Ljava/io/File;Landroid/os/Handler;)Lcom/android/server/appop/AppOpsService;
-    .locals 2
+    .locals 1
 
     new-instance v0, Lcom/android/server/appop/AppOpsService;
 
     invoke-virtual {p0}, Lcom/android/server/am/ActivityManagerService$Injector;->getContext()Landroid/content/Context;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-direct {v0, p1, p2, v1}, Lcom/android/server/appop/AppOpsService;-><init>(Ljava/io/File;Landroid/os/Handler;Landroid/content/Context;)V
+    invoke-direct {v0, p1, p2, p0}, Lcom/android/server/appop/AppOpsService;-><init>(Ljava/io/File;Landroid/os/Handler;Landroid/content/Context;)V
 
     return-object v0
 .end method
 
 .method public getContext()Landroid/content/Context;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$Injector;->mContext:Landroid/content/Context;
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService$Injector;->mContext:Landroid/content/Context;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getProcessList(Lcom/android/server/am/ActivityManagerService;)Lcom/android/server/am/ProcessList;
-    .locals 1
+    .locals 0
 
-    new-instance v0, Lcom/android/server/am/ProcessList;
+    new-instance p0, Lcom/android/server/am/ProcessList;
 
-    invoke-direct {v0}, Lcom/android/server/am/ProcessList;-><init>()V
+    invoke-direct {p0}, Lcom/android/server/am/ProcessList;-><init>()V
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getUiHandler(Lcom/android/server/am/ActivityManagerService;)Landroid/os/Handler;
-    .locals 1
+    .locals 0
 
-    new-instance v0, Lcom/android/server/am/ActivityManagerService$UiHandler;
+    new-instance p0, Lcom/android/server/am/ActivityManagerService$UiHandler;
 
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-direct {v0, p1}, Lcom/android/server/am/ActivityManagerService$UiHandler;-><init>(Lcom/android/server/am/ActivityManagerService;)V
+    invoke-direct {p0, p1}, Lcom/android/server/am/ActivityManagerService$UiHandler;-><init>(Lcom/android/server/am/ActivityManagerService;)V
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public isNetworkRestrictedForUid(I)Z
     .locals 1
 
-    invoke-direct {p0}, Lcom/android/server/am/ActivityManagerService$Injector;->ensureHasNetworkManagementInternal()Z
+    invoke-virtual {p0}, Lcom/android/server/am/ActivityManagerService$Injector;->ensureHasNetworkManagementInternal()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$Injector;->mNmi:Lcom/android/server/NetworkManagementInternal;
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService$Injector;->mNmi:Lcom/android/server/NetworkManagementInternal;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/NetworkManagementInternal;->isNetworkRestrictedForUid(I)Z
+    invoke-virtual {p0, p1}, Lcom/android/server/NetworkManagementInternal;->isNetworkRestrictedForUid(I)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method

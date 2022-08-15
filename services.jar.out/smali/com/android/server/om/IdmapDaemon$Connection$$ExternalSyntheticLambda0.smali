@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/om/IdmapDaemon$Connection$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/om/IdmapDaemon$Connection$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/om/IdmapDaemon$Connection;
+    iget-object p0, p0, Lcom/android/server/om/IdmapDaemon$Connection$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/om/IdmapDaemon$Connection;
 
-    invoke-virtual {v0}, Lcom/android/server/om/IdmapDaemon$Connection;->lambda$close$0$IdmapDaemon$Connection()V
+    invoke-static {p0}, Lcom/android/server/om/IdmapDaemon$Connection;->$r8$lambda$_2yCKbqx6LtMHdAep9W0ZgQ-ivk(Lcom/android/server/om/IdmapDaemon$Connection;)V
 
     return-void
 .end method

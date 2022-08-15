@@ -15,7 +15,7 @@
 
 
 # instance fields
-.field private mService:Lcom/android/server/vibrator/VibratorManagerService;
+.field public mService:Lcom/android/server/vibrator/VibratorManagerService;
 
 
 # direct methods
@@ -36,9 +36,9 @@
 
     if-ne p1, v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/vibrator/VibratorManagerService$Lifecycle;->mService:Lcom/android/server/vibrator/VibratorManagerService;
+    iget-object p0, p0, Lcom/android/server/vibrator/VibratorManagerService$Lifecycle;->mService:Lcom/android/server/vibrator/VibratorManagerService;
 
-    invoke-virtual {v0}, Lcom/android/server/vibrator/VibratorManagerService;->systemReady()V
+    invoke-virtual {p0}, Lcom/android/server/vibrator/VibratorManagerService;->systemReady()V
 
     :cond_0
     return-void
@@ -49,7 +49,7 @@
 
     new-instance v0, Lcom/android/server/vibrator/VibratorManagerService;
 
-    invoke-virtual {p0}, Lcom/android/server/vibrator/VibratorManagerService$Lifecycle;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Lcom/android/server/SystemService;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
@@ -63,7 +63,7 @@
 
     const-string v1, "vibrator_manager"
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/server/vibrator/VibratorManagerService$Lifecycle;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
+    invoke-virtual {p0, v1, v0}, Lcom/android/server/SystemService;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
 
     return-void
 .end method

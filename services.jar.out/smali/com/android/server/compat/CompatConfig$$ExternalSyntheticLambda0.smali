@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/compat/CompatConfig$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Function;
@@ -41,9 +42,9 @@
 
     check-cast p1, Ljava/lang/Long;
 
-    invoke-virtual {v0, v1, v2, v3, p1}, Lcom/android/server/compat/CompatConfig;->lambda$registerListener$1$CompatConfig(Ljava/util/concurrent/atomic/AtomicBoolean;JLjava/lang/Long;)Lcom/android/server/compat/CompatChange;
+    invoke-static {v0, v1, v2, v3, p1}, Lcom/android/server/compat/CompatConfig;->$r8$lambda$xSJ-hEZ2EM_DHoIohZFc28nABcM(Lcom/android/server/compat/CompatConfig;Ljava/util/concurrent/atomic/AtomicBoolean;JLjava/lang/Long;)Lcom/android/server/compat/CompatChange;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method

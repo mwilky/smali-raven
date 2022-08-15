@@ -1,4 +1,4 @@
-.class final Lcom/android/server/PinnerService$PinnedFile;
+.class public final Lcom/android/server/PinnerService$PinnedFile;
 .super Ljava/lang/Object;
 .source "PinnerService.java"
 
@@ -12,23 +12,23 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "PinnedFile"
 .end annotation
 
 
 # instance fields
-.field final bytesPinned:I
+.field public final bytesPinned:I
 
-.field final fileName:Ljava/lang/String;
+.field public final fileName:Ljava/lang/String;
 
-.field private mAddress:J
+.field public mAddress:J
 
-.field final mapSize:I
+.field public final mapSize:I
 
 
 # direct methods
-.method constructor <init>(JILjava/lang/String;I)V
+.method public constructor <init>(JILjava/lang/String;I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -61,7 +61,7 @@
 
     int-to-long v2, v2
 
-    invoke-static {v0, v1, v2, v3}, Lcom/android/server/PinnerService;->access$1400(JJ)V
+    invoke-static {v0, v1, v2, v3}, Lcom/android/server/PinnerService;->-$$Nest$smsafeMunmap(JJ)V
 
     const-wide/16 v0, -0x1
 

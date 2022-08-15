@@ -6,14 +6,8 @@
 .implements Lcom/android/server/notification/NotificationSignalExtractor;
 
 
-# static fields
-.field private static final DBG:Z = false
-
-.field private static final TAG:Ljava/lang/String; = "PriorityExtractor"
-
-
 # instance fields
-.field private mConfig:Lcom/android/server/notification/RankingConfig;
+.field public mConfig:Lcom/android/server/notification/RankingConfig;
 
 
 # direct methods
@@ -49,34 +43,32 @@
     goto :goto_1
 
     :cond_0
-    iget-object v1, p0, Lcom/android/server/notification/PriorityExtractor;->mConfig:Lcom/android/server/notification/RankingConfig;
+    iget-object p0, p0, Lcom/android/server/notification/PriorityExtractor;->mConfig:Lcom/android/server/notification/RankingConfig;
 
-    if-nez v1, :cond_1
+    if-nez p0, :cond_1
 
     return-object v0
 
     :cond_1
     invoke-virtual {p1}, Lcom/android/server/notification/NotificationRecord;->getChannel()Landroid/app/NotificationChannel;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v1}, Landroid/app/NotificationChannel;->canBypassDnd()Z
+    invoke-virtual {p0}, Landroid/app/NotificationChannel;->canBypassDnd()Z
 
-    move-result v1
+    move-result p0
 
-    if-eqz v1, :cond_2
+    if-eqz p0, :cond_2
 
-    const/4 v1, 0x2
+    const/4 p0, 0x2
 
     goto :goto_0
 
     :cond_2
-    const/4 v1, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    invoke-virtual {p1, v1}, Lcom/android/server/notification/NotificationRecord;->setPackagePriority(I)V
-
-    return-object v0
+    invoke-virtual {p1, p0}, Lcom/android/server/notification/NotificationRecord;->setPackagePriority(I)V
 
     :cond_3
     :goto_1

@@ -4,7 +4,6 @@
 
 # interfaces
 .implements Lcom/android/server/pm/verify/domain/DomainVerificationEnforcer$Callback;
-.implements Landroid/content/pm/PackageSettingsSnapshotProvider;
 
 
 # annotations
@@ -28,8 +27,8 @@
 .method public abstract getCallingUserId()I
 .end method
 
-.method public abstract schedule(ILjava/lang/Object;)V
+.method public abstract scheduleWriteSettings()V
 .end method
 
-.method public abstract scheduleWriteSettings()V
+.method public abstract snapshot()Lcom/android/server/pm/Computer;
 .end method

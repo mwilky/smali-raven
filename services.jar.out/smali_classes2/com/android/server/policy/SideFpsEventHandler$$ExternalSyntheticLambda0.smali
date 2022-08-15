@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/policy/SideFpsEventHandler$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -33,7 +34,7 @@
 
     iget-wide v1, p0, Lcom/android/server/policy/SideFpsEventHandler$$ExternalSyntheticLambda0;->f$1:J
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/policy/SideFpsEventHandler;->lambda$onSinglePressDetected$0$SideFpsEventHandler(J)V
+    invoke-static {v0, v1, v2}, Lcom/android/server/policy/SideFpsEventHandler;->$r8$lambda$56NCRJQhLUkeE78ICfOk1tkxbRc(Lcom/android/server/policy/SideFpsEventHandler;J)V
 
     return-void
 .end method

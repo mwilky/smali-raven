@@ -1,4 +1,4 @@
-.class final Lcom/android/server/power/PowerManagerService$ProfilePowerState;
+.class public final Lcom/android/server/power/PowerManagerService$ProfilePowerState;
 .super Ljava/lang/Object;
 .source "PowerManagerService.java"
 
@@ -9,21 +9,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "ProfilePowerState"
 .end annotation
 
 
 # instance fields
-.field mLastUserActivityTime:J
+.field public mLastUserActivityTime:J
 
-.field mLockingNotified:Z
+.field public mLockingNotified:Z
 
-.field mScreenOffTimeout:J
+.field public mScreenOffTimeout:J
 
-.field final mUserId:I
+.field public final mUserId:I
 
-.field mWakeLockSummary:I
+.field public mWakeLockSummary:I
 
 
 # direct methods

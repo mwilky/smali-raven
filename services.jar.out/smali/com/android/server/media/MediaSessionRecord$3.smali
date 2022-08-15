@@ -1,4 +1,4 @@
-.class Lcom/android/server/media/MediaSessionRecord$3;
+.class public Lcom/android/server/media/MediaSessionRecord$3;
 .super Ljava/lang/Object;
 .source "MediaSessionRecord.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/media/MediaSessionRecord;
+.field public final synthetic this$0:Lcom/android/server/media/MediaSessionRecord;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/media/MediaSessionRecord;)V
+.method public constructor <init>(Lcom/android/server/media/MediaSessionRecord;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/media/MediaSessionRecord$3;->this$0:Lcom/android/server/media/MediaSessionRecord;
@@ -39,13 +39,13 @@
 
     iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord$3;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
-    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->access$600(Lcom/android/server/media/MediaSessionRecord;)I
+    invoke-static {v0}, Lcom/android/server/media/MediaSessionRecord;->-$$Nest$fgetmOptimisticVolume(Lcom/android/server/media/MediaSessionRecord;)I
 
     move-result v0
 
     iget-object v1, p0, Lcom/android/server/media/MediaSessionRecord$3;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
-    invoke-static {v1}, Lcom/android/server/media/MediaSessionRecord;->access$700(Lcom/android/server/media/MediaSessionRecord;)I
+    invoke-static {v1}, Lcom/android/server/media/MediaSessionRecord;->-$$Nest$fgetmCurrentVolume(Lcom/android/server/media/MediaSessionRecord;)I
 
     move-result v1
 
@@ -63,13 +63,13 @@
 
     const/4 v2, -0x1
 
-    invoke-static {v1, v2}, Lcom/android/server/media/MediaSessionRecord;->access$602(Lcom/android/server/media/MediaSessionRecord;I)I
+    invoke-static {v1, v2}, Lcom/android/server/media/MediaSessionRecord;->-$$Nest$fputmOptimisticVolume(Lcom/android/server/media/MediaSessionRecord;I)V
 
     if-eqz v0, :cond_1
 
-    iget-object v1, p0, Lcom/android/server/media/MediaSessionRecord$3;->this$0:Lcom/android/server/media/MediaSessionRecord;
+    iget-object p0, p0, Lcom/android/server/media/MediaSessionRecord$3;->this$0:Lcom/android/server/media/MediaSessionRecord;
 
-    invoke-static {v1}, Lcom/android/server/media/MediaSessionRecord;->access$800(Lcom/android/server/media/MediaSessionRecord;)V
+    invoke-static {p0}, Lcom/android/server/media/MediaSessionRecord;->-$$Nest$mpushVolumeUpdate(Lcom/android/server/media/MediaSessionRecord;)V
 
     :cond_1
     return-void

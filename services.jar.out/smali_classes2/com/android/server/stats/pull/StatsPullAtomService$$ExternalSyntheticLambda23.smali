@@ -1,37 +1,34 @@
 .class public final synthetic Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda23;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Predicate;
+.implements Landroid/os/IBinder$DeathRecipient;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/server/stats/pull/netstats/NetworkStatsExt;
+.field public final synthetic f$0:Lcom/android/server/stats/pull/StatsPullAtomService;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/stats/pull/netstats/NetworkStatsExt;)V
+.method public synthetic constructor <init>(Lcom/android/server/stats/pull/StatsPullAtomService;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda23;->f$0:Lcom/android/server/stats/pull/netstats/NetworkStatsExt;
+    iput-object p1, p0, Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda23;->f$0:Lcom/android/server/stats/pull/StatsPullAtomService;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final test(Ljava/lang/Object;)Z
-    .locals 1
+.method public final binderDied()V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda23;->f$0:Lcom/android/server/stats/pull/netstats/NetworkStatsExt;
+    iget-object p0, p0, Lcom/android/server/stats/pull/StatsPullAtomService$$ExternalSyntheticLambda23;->f$0:Lcom/android/server/stats/pull/StatsPullAtomService;
 
-    check-cast p1, Lcom/android/server/stats/pull/netstats/NetworkStatsExt;
+    invoke-static {p0}, Lcom/android/server/stats/pull/StatsPullAtomService;->$r8$lambda$wXD11FXCBadj7SDID3jnJj5RVws(Lcom/android/server/stats/pull/StatsPullAtomService;)V
 
-    invoke-static {v0, p1}, Lcom/android/server/stats/pull/StatsPullAtomService;->lambda$pullDataBytesTransferLocked$7(Lcom/android/server/stats/pull/netstats/NetworkStatsExt;Lcom/android/server/stats/pull/netstats/NetworkStatsExt;)Z
-
-    move-result p1
-
-    return p1
+    return-void
 .end method

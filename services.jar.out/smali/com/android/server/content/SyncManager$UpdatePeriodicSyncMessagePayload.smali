@@ -1,4 +1,4 @@
-.class Lcom/android/server/content/SyncManager$UpdatePeriodicSyncMessagePayload;
+.class public Lcom/android/server/content/SyncManager$UpdatePeriodicSyncMessagePayload;
 .super Ljava/lang/Object;
 .source "SyncManager.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "UpdatePeriodicSyncMessagePayload"
 .end annotation
 
@@ -23,11 +23,11 @@
 
 .field public final target:Lcom/android/server/content/SyncStorageEngine$EndPoint;
 
-.field final synthetic this$0:Lcom/android/server/content/SyncManager;
+.field public final synthetic this$0:Lcom/android/server/content/SyncManager;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/content/SyncManager;Lcom/android/server/content/SyncStorageEngine$EndPoint;JJLandroid/os/Bundle;)V
+.method public constructor <init>(Lcom/android/server/content/SyncManager;Lcom/android/server/content/SyncStorageEngine$EndPoint;JJLandroid/os/Bundle;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/content/SyncManager$UpdatePeriodicSyncMessagePayload;->this$0:Lcom/android/server/content/SyncManager;

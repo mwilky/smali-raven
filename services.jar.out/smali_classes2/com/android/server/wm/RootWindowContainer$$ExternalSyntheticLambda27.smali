@@ -1,37 +1,22 @@
 .class public final synthetic Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda27;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/server/wm/Task;
-
-.field public final synthetic f$1:[Z
-
-.field public final synthetic f$2:Z
-
-.field public final synthetic f$3:Landroid/app/ActivityOptions;
-
-.field public final synthetic f$4:Lcom/android/server/wm/ActivityRecord;
+.field public final synthetic f$0:Lcom/android/server/wm/RootWindowContainer;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/wm/Task;[ZZLandroid/app/ActivityOptions;Lcom/android/server/wm/ActivityRecord;)V
+.method public synthetic constructor <init>(Lcom/android/server/wm/RootWindowContainer;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda27;->f$0:Lcom/android/server/wm/Task;
-
-    iput-object p2, p0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda27;->f$1:[Z
-
-    iput-boolean p3, p0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda27;->f$2:Z
-
-    iput-object p4, p0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda27;->f$3:Landroid/app/ActivityOptions;
-
-    iput-object p5, p0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda27;->f$4:Lcom/android/server/wm/ActivityRecord;
+    iput-object p1, p0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda27;->f$0:Lcom/android/server/wm/RootWindowContainer;
 
     return-void
 .end method
@@ -39,23 +24,13 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 6
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda27;->f$0:Lcom/android/server/wm/Task;
+    iget-object p0, p0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda27;->f$0:Lcom/android/server/wm/RootWindowContainer;
 
-    iget-object v1, p0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda27;->f$1:[Z
+    check-cast p1, Lcom/android/server/wm/ActivityRecord;
 
-    iget-boolean v2, p0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda27;->f$2:Z
-
-    iget-object v3, p0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda27;->f$3:Landroid/app/ActivityOptions;
-
-    iget-object v4, p0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda27;->f$4:Lcom/android/server/wm/ActivityRecord;
-
-    move-object v5, p1
-
-    check-cast v5, Lcom/android/server/wm/Task;
-
-    invoke-static/range {v0 .. v5}, Lcom/android/server/wm/RootWindowContainer;->lambda$resumeFocusedTasksTopActivities$19(Lcom/android/server/wm/Task;[ZZLandroid/app/ActivityOptions;Lcom/android/server/wm/ActivityRecord;Lcom/android/server/wm/Task;)V
+    invoke-static {p0, p1}, Lcom/android/server/wm/RootWindowContainer;->$r8$lambda$U1JPR8HO_4BOZCATFm3KVD2VRaw(Lcom/android/server/wm/RootWindowContainer;Lcom/android/server/wm/ActivityRecord;)V
 
     return-void
 .end method

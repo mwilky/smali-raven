@@ -1,39 +1,36 @@
 .class public final synthetic Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/graphics/ImageDecoder$OnHeaderDecodedListener;
+.implements Ljava/util/function/Consumer;
 
 
 # instance fields
-.field public final synthetic f$0:I
-
-.field public final synthetic f$1:Landroid/graphics/Rect;
+.field public final synthetic f$0:Ljava/io/PrintWriter;
 
 
 # direct methods
-.method public synthetic constructor <init>(ILandroid/graphics/Rect;)V
+.method public synthetic constructor <init>(Ljava/io/PrintWriter;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput p1, p0, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda0;->f$0:I
-
-    iput-object p2, p0, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda0;->f$1:Landroid/graphics/Rect;
+    iput-object p1, p0, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda0;->f$0:Ljava/io/PrintWriter;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final onHeaderDecoded(Landroid/graphics/ImageDecoder;Landroid/graphics/ImageDecoder$ImageInfo;Landroid/graphics/ImageDecoder$Source;)V
-    .locals 2
+.method public final accept(Ljava/lang/Object;)V
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda0;->f$0:I
+    iget-object p0, p0, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda0;->f$0:Ljava/io/PrintWriter;
 
-    iget-object v1, p0, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda0;->f$1:Landroid/graphics/Rect;
+    check-cast p1, Lcom/android/server/wallpaper/WallpaperManagerService$DisplayData;
 
-    invoke-static {v0, v1, p1, p2, p3}, Lcom/android/server/wallpaper/WallpaperManagerService;->lambda$generateCrop$1(ILandroid/graphics/Rect;Landroid/graphics/ImageDecoder;Landroid/graphics/ImageDecoder$ImageInfo;Landroid/graphics/ImageDecoder$Source;)V
+    invoke-static {p0, p1}, Lcom/android/server/wallpaper/WallpaperManagerService;->$r8$lambda$goLxRCGNDIeR06R7mRH-z2VYVgw(Ljava/io/PrintWriter;Lcom/android/server/wallpaper/WallpaperManagerService$DisplayData;)V
 
     return-void
 .end method

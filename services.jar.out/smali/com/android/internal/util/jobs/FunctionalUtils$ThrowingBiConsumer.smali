@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public accept(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 2
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TA;TB;)V"
@@ -47,18 +47,16 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    nop
-
     return-void
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    invoke-static {v0}, Landroid/util/ExceptionUtils;->propagate(Ljava/lang/Throwable;)Ljava/lang/RuntimeException;
+    invoke-static {p0}, Landroid/util/ExceptionUtils;->propagate(Ljava/lang/Throwable;)Ljava/lang/RuntimeException;
 
-    move-result-object v1
+    move-result-object p0
 
-    throw v1
+    throw p0
 .end method
 
 .method public abstract acceptOrThrow(Ljava/lang/Object;Ljava/lang/Object;)V

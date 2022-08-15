@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/accessibility/PolicyWarningUIController$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/BiConsumer;
+.implements Ljava/util/function/Consumer;
 
 
 # instance fields
@@ -22,20 +23,18 @@
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 1
+.method public final accept(Ljava/lang/Object;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/accessibility/PolicyWarningUIController$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/accessibility/PolicyWarningUIController;
+    iget-object p0, p0, Lcom/android/server/accessibility/PolicyWarningUIController$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/accessibility/PolicyWarningUIController;
 
-    check-cast p1, Ljava/lang/Integer;
+    check-cast p1, Ljava/lang/Boolean;
 
-    invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result p1
 
-    check-cast p2, Landroid/content/ComponentName;
-
-    invoke-static {v0, p1, p2}, Lcom/android/server/accessibility/PolicyWarningUIController;->$r8$lambda$xcPczwbLJPTdxRqsAsiMQw01e1U(Lcom/android/server/accessibility/PolicyWarningUIController;ILandroid/content/ComponentName;)V
+    invoke-static {p0, p1}, Lcom/android/server/accessibility/PolicyWarningUIController;->$r8$lambda$w2srzKpukAc_S-inuaG0FoKUkPY(Lcom/android/server/accessibility/PolicyWarningUIController;Z)V
 
     return-void
 .end method

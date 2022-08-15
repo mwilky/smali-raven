@@ -7,13 +7,13 @@
 
 
 # instance fields
-.field private final mBluetoothConstraint:Lcom/android/server/deviceidle/BluetoothConstraint;
+.field public final mBluetoothConstraint:Lcom/android/server/deviceidle/BluetoothConstraint;
 
-.field private final mContext:Landroid/content/Context;
+.field public final mContext:Landroid/content/Context;
 
-.field private final mDeviceIdleService:Lcom/android/server/DeviceIdleInternal;
+.field public final mDeviceIdleService:Lcom/android/server/DeviceIdleInternal;
 
-.field private final mHandler:Landroid/os/Handler;
+.field public final mHandler:Landroid/os/Handler;
 
 
 # direct methods
@@ -44,21 +44,21 @@
 
     invoke-virtual {v1, v2}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_0
+    if-eqz v1, :cond_0
 
-    new-instance v2, Lcom/android/server/deviceidle/BluetoothConstraint;
+    new-instance v1, Lcom/android/server/deviceidle/BluetoothConstraint;
 
-    invoke-direct {v2, p1, p2, v0}, Lcom/android/server/deviceidle/BluetoothConstraint;-><init>(Landroid/content/Context;Landroid/os/Handler;Lcom/android/server/DeviceIdleInternal;)V
+    invoke-direct {v1, p1, p2, v0}, Lcom/android/server/deviceidle/BluetoothConstraint;-><init>(Landroid/content/Context;Landroid/os/Handler;Lcom/android/server/DeviceIdleInternal;)V
 
     goto :goto_0
 
     :cond_0
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
     :goto_0
-    iput-object v2, p0, Lcom/android/server/deviceidle/TvConstraintController;->mBluetoothConstraint:Lcom/android/server/deviceidle/BluetoothConstraint;
+    iput-object v1, p0, Lcom/android/server/deviceidle/TvConstraintController;->mBluetoothConstraint:Lcom/android/server/deviceidle/BluetoothConstraint;
 
     return-void
 .end method
@@ -66,34 +66,34 @@
 
 # virtual methods
 .method public start()V
-    .locals 4
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/deviceidle/TvConstraintController;->mBluetoothConstraint:Lcom/android/server/deviceidle/BluetoothConstraint;
 
     if-eqz v0, :cond_0
 
-    iget-object v1, p0, Lcom/android/server/deviceidle/TvConstraintController;->mDeviceIdleService:Lcom/android/server/DeviceIdleInternal;
+    iget-object p0, p0, Lcom/android/server/deviceidle/TvConstraintController;->mDeviceIdleService:Lcom/android/server/DeviceIdleInternal;
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    const-string v3, "bluetooth"
+    const-string v2, "bluetooth"
 
-    invoke-interface {v1, v0, v3, v2}, Lcom/android/server/DeviceIdleInternal;->registerDeviceIdleConstraint(Lcom/android/server/deviceidle/IDeviceIdleConstraint;Ljava/lang/String;I)V
+    invoke-interface {p0, v0, v2, v1}, Lcom/android/server/DeviceIdleInternal;->registerDeviceIdleConstraint(Lcom/android/server/deviceidle/IDeviceIdleConstraint;Ljava/lang/String;I)V
 
     :cond_0
     return-void
 .end method
 
 .method public stop()V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/deviceidle/TvConstraintController;->mBluetoothConstraint:Lcom/android/server/deviceidle/BluetoothConstraint;
 
     if-eqz v0, :cond_0
 
-    iget-object v1, p0, Lcom/android/server/deviceidle/TvConstraintController;->mDeviceIdleService:Lcom/android/server/DeviceIdleInternal;
+    iget-object p0, p0, Lcom/android/server/deviceidle/TvConstraintController;->mDeviceIdleService:Lcom/android/server/DeviceIdleInternal;
 
-    invoke-interface {v1, v0}, Lcom/android/server/DeviceIdleInternal;->unregisterDeviceIdleConstraint(Lcom/android/server/deviceidle/IDeviceIdleConstraint;)V
+    invoke-interface {p0, v0}, Lcom/android/server/DeviceIdleInternal;->unregisterDeviceIdleConstraint(Lcom/android/server/deviceidle/IDeviceIdleConstraint;)V
 
     :cond_0
     return-void

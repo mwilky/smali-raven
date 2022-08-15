@@ -1,4 +1,4 @@
-.class Lcom/android/server/trust/TrustManagerService$1$1;
+.class public Lcom/android/server/trust/TrustManagerService$1$1;
 .super Ljava/lang/Object;
 .source "TrustManagerService.java"
 
@@ -12,21 +12,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$1:Lcom/android/server/trust/TrustManagerService$1;
+.field public final synthetic this$1:Lcom/android/server/trust/TrustManagerService$1;
 
-.field final synthetic val$fout:Ljava/io/PrintWriter;
+.field public final synthetic val$fout:Ljava/io/PrintWriter;
 
-.field final synthetic val$userInfos:Ljava/util/List;
+.field public final synthetic val$userInfos:Ljava/util/List;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/trust/TrustManagerService$1;Ljava/io/PrintWriter;Ljava/util/List;)V
+.method public constructor <init>(Lcom/android/server/trust/TrustManagerService$1;Ljava/io/PrintWriter;Ljava/util/List;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/trust/TrustManagerService$1$1;->this$1:Lcom/android/server/trust/TrustManagerService$1;
@@ -76,11 +76,9 @@
 
     iget v4, v1, Landroid/content/pm/UserInfo;->id:I
 
-    iget-object v5, p0, Lcom/android/server/trust/TrustManagerService$1$1;->this$1:Lcom/android/server/trust/TrustManagerService$1;
+    iget-object v5, v2, Lcom/android/server/trust/TrustManagerService$1;->this$0:Lcom/android/server/trust/TrustManagerService;
 
-    iget-object v5, v5, Lcom/android/server/trust/TrustManagerService$1;->this$0:Lcom/android/server/trust/TrustManagerService;
-
-    invoke-static {v5}, Lcom/android/server/trust/TrustManagerService;->access$100(Lcom/android/server/trust/TrustManagerService;)I
+    invoke-static {v5}, Lcom/android/server/trust/TrustManagerService;->-$$Nest$fgetmCurrentUser(Lcom/android/server/trust/TrustManagerService;)I
 
     move-result v5
 
@@ -94,7 +92,7 @@
     const/4 v4, 0x0
 
     :goto_1
-    invoke-static {v2, v3, v1, v4}, Lcom/android/server/trust/TrustManagerService$1;->access$900(Lcom/android/server/trust/TrustManagerService$1;Ljava/io/PrintWriter;Landroid/content/pm/UserInfo;Z)V
+    invoke-static {v2, v3, v1, v4}, Lcom/android/server/trust/TrustManagerService$1;->-$$Nest$mdumpUser(Lcom/android/server/trust/TrustManagerService$1;Ljava/io/PrintWriter;Landroid/content/pm/UserInfo;Z)V
 
     goto :goto_0
 

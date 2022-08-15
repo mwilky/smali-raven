@@ -4,22 +4,33 @@
 
 
 # annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/android/server/display/HighBrightnessModeController;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = "HdrListener"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/display/HighBrightnessModeController;
+.field public final synthetic this$0:Lcom/android/server/display/HighBrightnessModeController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/display/HighBrightnessModeController;)V
+.method public static synthetic $r8$lambda$r1lbsH4bGo4__ef8k38i5NIU3W8(Lcom/android/server/display/HighBrightnessModeController$HdrListener;III)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/display/HighBrightnessModeController$HdrListener;->lambda$onHdrInfoChanged$0(III)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Lcom/android/server/display/HighBrightnessModeController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/display/HighBrightnessModeController$HdrListener;->this$0:Lcom/android/server/display/HighBrightnessModeController;
@@ -29,76 +40,94 @@
     return-void
 .end method
 
-
-# virtual methods
-.method public synthetic lambda$onHdrInfoChanged$0$HighBrightnessModeController$HdrListener(III)V
-    .locals 4
+.method private synthetic lambda$onHdrInfoChanged$0(III)V
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/display/HighBrightnessModeController$HdrListener;->this$0:Lcom/android/server/display/HighBrightnessModeController;
 
     if-lez p1, :cond_0
 
-    mul-int v1, p2, p3
+    mul-int/2addr p2, p3
 
-    int-to-float v1, v1
+    int-to-float p1, p2
 
-    invoke-static {v0}, Lcom/android/server/display/HighBrightnessModeController;->access$200(Lcom/android/server/display/HighBrightnessModeController;)I
+    invoke-static {v0}, Lcom/android/server/display/HighBrightnessModeController;->-$$Nest$fgetmWidth(Lcom/android/server/display/HighBrightnessModeController;)I
 
-    move-result v2
+    move-result p2
 
-    iget-object v3, p0, Lcom/android/server/display/HighBrightnessModeController$HdrListener;->this$0:Lcom/android/server/display/HighBrightnessModeController;
+    iget-object p3, p0, Lcom/android/server/display/HighBrightnessModeController$HdrListener;->this$0:Lcom/android/server/display/HighBrightnessModeController;
 
-    invoke-static {v3}, Lcom/android/server/display/HighBrightnessModeController;->access$300(Lcom/android/server/display/HighBrightnessModeController;)I
+    invoke-static {p3}, Lcom/android/server/display/HighBrightnessModeController;->-$$Nest$fgetmHeight(Lcom/android/server/display/HighBrightnessModeController;)I
 
-    move-result v3
+    move-result p3
 
-    mul-int/2addr v2, v3
+    mul-int/2addr p2, p3
 
-    int-to-float v2, v2
+    int-to-float p2, p2
 
-    const/high16 v3, 0x3f000000    # 0.5f
+    iget-object p3, p0, Lcom/android/server/display/HighBrightnessModeController$HdrListener;->this$0:Lcom/android/server/display/HighBrightnessModeController;
 
-    mul-float/2addr v2, v3
+    invoke-static {p3}, Lcom/android/server/display/HighBrightnessModeController;->-$$Nest$fgetmHbmData(Lcom/android/server/display/HighBrightnessModeController;)Lcom/android/server/display/DisplayDeviceConfig$HighBrightnessModeData;
 
-    cmpl-float v1, v1, v2
+    move-result-object p3
 
-    if-ltz v1, :cond_0
+    iget p3, p3, Lcom/android/server/display/DisplayDeviceConfig$HighBrightnessModeData;->minimumHdrPercentOfScreen:F
 
-    const/4 v1, 0x1
+    mul-float/2addr p2, p3
+
+    cmpl-float p1, p1, p2
+
+    if-ltz p1, :cond_0
+
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    invoke-static {v0, v1}, Lcom/android/server/display/HighBrightnessModeController;->access$102(Lcom/android/server/display/HighBrightnessModeController;Z)Z
+    invoke-static {v0, p1}, Lcom/android/server/display/HighBrightnessModeController;->-$$Nest$fputmIsHdrLayerPresent(Lcom/android/server/display/HighBrightnessModeController;Z)V
 
-    iget-object v0, p0, Lcom/android/server/display/HighBrightnessModeController$HdrListener;->this$0:Lcom/android/server/display/HighBrightnessModeController;
+    iget-object p1, p0, Lcom/android/server/display/HighBrightnessModeController$HdrListener;->this$0:Lcom/android/server/display/HighBrightnessModeController;
 
-    invoke-static {v0}, Lcom/android/server/display/HighBrightnessModeController;->access$400(Lcom/android/server/display/HighBrightnessModeController;)F
+    invoke-static {p1}, Lcom/android/server/display/HighBrightnessModeController;->-$$Nest$fgetmBrightness(Lcom/android/server/display/HighBrightnessModeController;)F
 
-    move-result v1
+    move-result p2
 
-    invoke-virtual {v0, v1}, Lcom/android/server/display/HighBrightnessModeController;->onBrightnessChanged(F)V
+    iget-object p3, p0, Lcom/android/server/display/HighBrightnessModeController$HdrListener;->this$0:Lcom/android/server/display/HighBrightnessModeController;
+
+    invoke-static {p3}, Lcom/android/server/display/HighBrightnessModeController;->-$$Nest$fgetmUnthrottledBrightness(Lcom/android/server/display/HighBrightnessModeController;)F
+
+    move-result p3
+
+    iget-object p0, p0, Lcom/android/server/display/HighBrightnessModeController$HdrListener;->this$0:Lcom/android/server/display/HighBrightnessModeController;
+
+    invoke-static {p0}, Lcom/android/server/display/HighBrightnessModeController;->-$$Nest$fgetmThrottlingReason(Lcom/android/server/display/HighBrightnessModeController;)I
+
+    move-result p0
+
+    invoke-virtual {p1, p2, p3, p0}, Lcom/android/server/display/HighBrightnessModeController;->onBrightnessChanged(FFI)V
 
     return-void
 .end method
 
+
+# virtual methods
 .method public onHdrInfoChanged(Landroid/os/IBinder;IIII)V
-    .locals 2
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/display/HighBrightnessModeController$HdrListener;->this$0:Lcom/android/server/display/HighBrightnessModeController;
+    iget-object p1, p0, Lcom/android/server/display/HighBrightnessModeController$HdrListener;->this$0:Lcom/android/server/display/HighBrightnessModeController;
 
-    invoke-static {v0}, Lcom/android/server/display/HighBrightnessModeController;->access$000(Lcom/android/server/display/HighBrightnessModeController;)Landroid/os/Handler;
+    invoke-static {p1}, Lcom/android/server/display/HighBrightnessModeController;->-$$Nest$fgetmHandler(Lcom/android/server/display/HighBrightnessModeController;)Landroid/os/Handler;
 
-    move-result-object v0
+    move-result-object p1
 
-    new-instance v1, Lcom/android/server/display/HighBrightnessModeController$HdrListener$$ExternalSyntheticLambda0;
+    new-instance p5, Lcom/android/server/display/HighBrightnessModeController$HdrListener$$ExternalSyntheticLambda0;
 
-    invoke-direct {v1, p0, p2, p3, p4}, Lcom/android/server/display/HighBrightnessModeController$HdrListener$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/display/HighBrightnessModeController$HdrListener;III)V
+    invoke-direct {p5, p0, p2, p3, p4}, Lcom/android/server/display/HighBrightnessModeController$HdrListener$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/display/HighBrightnessModeController$HdrListener;III)V
 
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {p1, p5}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     return-void
 .end method

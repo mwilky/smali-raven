@@ -7,8 +7,5 @@
 .method public abstract checkMemory()V
 .end method
 
-.method public abstract getMemoryLowThreshold()J
-.end method
-
 .method public abstract isMemoryLow()Z
 .end method

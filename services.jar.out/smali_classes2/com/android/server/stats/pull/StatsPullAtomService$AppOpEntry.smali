@@ -1,4 +1,4 @@
-.class Lcom/android/server/stats/pull/StatsPullAtomService$AppOpEntry;
+.class public Lcom/android/server/stats/pull/StatsPullAtomService$AppOpEntry;
 .super Ljava/lang/Object;
 .source "StatsPullAtomService.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "AppOpEntry"
 .end annotation
 
@@ -25,12 +25,12 @@
 
 .field public final mUid:I
 
-.field final synthetic this$0:Lcom/android/server/stats/pull/StatsPullAtomService;
+.field public final synthetic this$0:Lcom/android/server/stats/pull/StatsPullAtomService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/stats/pull/StatsPullAtomService;Ljava/lang/String;Ljava/lang/String;Landroid/app/AppOpsManager$HistoricalOp;I)V
-    .locals 1
+.method public constructor <init>(Lcom/android/server/stats/pull/StatsPullAtomService;Ljava/lang/String;Ljava/lang/String;Landroid/app/AppOpsManager$HistoricalOp;I)V
+    .locals 0
 
     iput-object p1, p0, Lcom/android/server/stats/pull/StatsPullAtomService$AppOpEntry;->this$0:Lcom/android/server/stats/pull/StatsPullAtomService;
 
@@ -48,15 +48,15 @@
 
     move-result p1
 
-    invoke-static {}, Lcom/android/server/stats/pull/StatsPullAtomService;->access$6000()I
+    invoke-static {}, Lcom/android/server/stats/pull/StatsPullAtomService;->-$$Nest$sfgetRANDOM_SEED()I
 
-    move-result v0
+    move-result p2
 
-    add-int/2addr p1, v0
+    add-int/2addr p1, p2
 
-    const v0, 0x7fffffff
+    const p2, 0x7fffffff
 
-    and-int/2addr p1, v0
+    and-int/2addr p1, p2
 
     rem-int/lit8 p1, p1, 0x64
 

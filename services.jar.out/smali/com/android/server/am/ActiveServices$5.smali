@@ -1,4 +1,4 @@
-.class Lcom/android/server/am/ActiveServices$5;
+.class public Lcom/android/server/am/ActiveServices$5;
 .super Ljava/lang/Object;
 .source "ActiveServices.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/am/ActiveServices;
+.field public final synthetic this$0:Lcom/android/server/am/ActiveServices;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/ActiveServices;)V
+.method public constructor <init>(Lcom/android/server/am/ActiveServices;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/am/ActiveServices$5;->this$0:Lcom/android/server/am/ActiveServices;
@@ -114,7 +114,7 @@
     return-void
 
     :catchall_0
-    move-exception v3
+    move-exception p0
 
     :try_start_1
     monitor-exit v2
@@ -123,5 +123,5 @@
 
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
 
-    throw v3
+    throw p0
 .end method

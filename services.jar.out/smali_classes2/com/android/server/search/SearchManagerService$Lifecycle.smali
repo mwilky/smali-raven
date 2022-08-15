@@ -15,10 +15,18 @@
 
 
 # instance fields
-.field private mService:Lcom/android/server/search/SearchManagerService;
+.field public mService:Lcom/android/server/search/SearchManagerService;
 
 
 # direct methods
+.method public static synthetic $r8$lambda$ypVX8oQvpZGvGCobQRxZusMCG5k(Lcom/android/server/search/SearchManagerService$Lifecycle;Lcom/android/server/SystemService$TargetUser;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/search/SearchManagerService$Lifecycle;->lambda$onUserUnlocking$0(Lcom/android/server/SystemService$TargetUser;)V
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 0
 
@@ -27,28 +35,28 @@
     return-void
 .end method
 
+.method private synthetic lambda$onUserUnlocking$0(Lcom/android/server/SystemService$TargetUser;)V
+    .locals 0
 
-# virtual methods
-.method public synthetic lambda$onUserUnlocking$0$SearchManagerService$Lifecycle(Lcom/android/server/SystemService$TargetUser;)V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/server/search/SearchManagerService$Lifecycle;->mService:Lcom/android/server/search/SearchManagerService;
+    iget-object p0, p0, Lcom/android/server/search/SearchManagerService$Lifecycle;->mService:Lcom/android/server/search/SearchManagerService;
 
     invoke-virtual {p1}, Lcom/android/server/SystemService$TargetUser;->getUserIdentifier()I
 
-    move-result v1
+    move-result p1
 
-    invoke-static {v0, v1}, Lcom/android/server/search/SearchManagerService;->access$100(Lcom/android/server/search/SearchManagerService;I)V
+    invoke-static {p0, p1}, Lcom/android/server/search/SearchManagerService;->-$$Nest$monUnlockUser(Lcom/android/server/search/SearchManagerService;I)V
 
     return-void
 .end method
 
+
+# virtual methods
 .method public onStart()V
     .locals 2
 
     new-instance v0, Lcom/android/server/search/SearchManagerService;
 
-    invoke-virtual {p0}, Lcom/android/server/search/SearchManagerService$Lifecycle;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Lcom/android/server/SystemService;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
@@ -58,21 +66,21 @@
 
     const-string v1, "search"
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/server/search/SearchManagerService$Lifecycle;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
+    invoke-virtual {p0, v1, v0}, Lcom/android/server/SystemService;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
 
     return-void
 .end method
 
 .method public onUserStopped(Lcom/android/server/SystemService$TargetUser;)V
-    .locals 2
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/search/SearchManagerService$Lifecycle;->mService:Lcom/android/server/search/SearchManagerService;
+    iget-object p0, p0, Lcom/android/server/search/SearchManagerService$Lifecycle;->mService:Lcom/android/server/search/SearchManagerService;
 
     invoke-virtual {p1}, Lcom/android/server/SystemService$TargetUser;->getUserIdentifier()I
 
-    move-result v1
+    move-result p1
 
-    invoke-static {v0, v1}, Lcom/android/server/search/SearchManagerService;->access$000(Lcom/android/server/search/SearchManagerService;I)V
+    invoke-static {p0, p1}, Lcom/android/server/search/SearchManagerService;->-$$Nest$monCleanupUser(Lcom/android/server/search/SearchManagerService;I)V
 
     return-void
 .end method

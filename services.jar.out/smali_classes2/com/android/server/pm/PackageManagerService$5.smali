@@ -1,102 +1,104 @@
-.class Lcom/android/server/pm/PackageManagerService$5;
-.super Landroid/content/pm/ParceledListSlice;
+.class public Lcom/android/server/pm/PackageManagerService$5;
+.super Landroid/content/BroadcastReceiver;
 .source "PackageManagerService.java"
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/pm/PackageManagerService;->getAllIntentFilters(Ljava/lang/String;)Landroid/content/pm/ParceledListSlice;
+    value = Lcom/android/server/pm/PackageManagerService;->systemReady()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
-.end annotation
-
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Landroid/content/pm/ParceledListSlice<",
-        "Landroid/content/IntentFilter;",
-        ">;"
-    }
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/pm/PackageManagerService;
+.field public final synthetic this$0:Lcom/android/server/pm/PackageManagerService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/pm/PackageManagerService;Ljava/util/List;)V
+.method public constructor <init>(Lcom/android/server/pm/PackageManagerService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/pm/PackageManagerService$5;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-direct {p0, p2}, Landroid/content/pm/ParceledListSlice;-><init>(Ljava/util/List;)V
+    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method protected writeElement(Landroid/content/IntentFilter;Landroid/os/Parcel;I)V
-    .locals 0
+.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+    .locals 7
 
-    invoke-virtual {p1, p2, p3}, Landroid/content/IntentFilter;->writeToParcel(Landroid/os/Parcel;I)V
-
-    return-void
-.end method
-
-.method protected bridge synthetic writeElement(Landroid/os/Parcelable;Landroid/os/Parcel;I)V
-    .locals 0
-
-    check-cast p1, Landroid/content/IntentFilter;
-
-    invoke-virtual {p0, p1, p2, p3}, Lcom/android/server/pm/PackageManagerService$5;->writeElement(Landroid/content/IntentFilter;Landroid/os/Parcel;I)V
+    if-nez p2, :cond_0
 
     return-void
-.end method
 
-.method protected bridge synthetic writeElement(Ljava/lang/Object;Landroid/os/Parcel;I)V
-    .locals 0
+    :cond_0
+    invoke-virtual {p2}, Landroid/content/Intent;->getData()Landroid/net/Uri;
 
-    check-cast p1, Landroid/content/IntentFilter;
+    move-result-object p1
 
-    invoke-virtual {p0, p1, p2, p3}, Lcom/android/server/pm/PackageManagerService$5;->writeElement(Landroid/content/IntentFilter;Landroid/os/Parcel;I)V
-
-    return-void
-.end method
-
-.method protected writeParcelableCreator(Landroid/content/IntentFilter;Landroid/os/Parcel;)V
-    .locals 1
-
-    const-class v0, Landroid/content/IntentFilter;
-
-    invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    if-nez p1, :cond_1
 
     return-void
-.end method
 
-.method protected bridge synthetic writeParcelableCreator(Landroid/os/Parcelable;Landroid/os/Parcel;)V
-    .locals 0
+    :cond_1
+    invoke-virtual {p1}, Landroid/net/Uri;->getSchemeSpecificPart()Ljava/lang/String;
 
-    check-cast p1, Landroid/content/IntentFilter;
+    move-result-object p1
 
-    invoke-virtual {p0, p1, p2}, Lcom/android/server/pm/PackageManagerService$5;->writeParcelableCreator(Landroid/content/IntentFilter;Landroid/os/Parcel;)V
+    if-nez p1, :cond_2
 
     return-void
-.end method
 
-.method protected bridge synthetic writeParcelableCreator(Ljava/lang/Object;Landroid/os/Parcel;)V
-    .locals 0
+    :cond_2
+    iget-object p2, p0, Lcom/android/server/pm/PackageManagerService$5;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    check-cast p1, Landroid/content/IntentFilter;
+    invoke-virtual {p2}, Lcom/android/server/pm/PackageManagerService;->snapshotComputer()Lcom/android/server/pm/Computer;
 
-    invoke-virtual {p0, p1, p2}, Lcom/android/server/pm/PackageManagerService$5;->writeParcelableCreator(Landroid/content/IntentFilter;Landroid/os/Parcel;)V
+    move-result-object v1
+
+    invoke-interface {v1, p1}, Lcom/android/server/pm/Computer;->getPackage(Ljava/lang/String;)Lcom/android/server/pm/parsing/pkg/AndroidPackage;
+
+    move-result-object p1
+
+    if-nez p1, :cond_3
+
+    return-void
+
+    :cond_3
+    iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$5;->this$0:Lcom/android/server/pm/PackageManagerService;
+
+    invoke-interface {p1}, Lcom/android/server/pm/pkg/parsing/PkgWithoutStatePackageInfo;->getPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    const/4 v3, 0x1
+
+    new-instance v4, Ljava/util/ArrayList;
+
+    invoke-interface {p1}, Lcom/android/server/pm/pkg/parsing/PkgWithoutStatePackageInfo;->getPackageName()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-static {p0}, Ljava/util/Collections;->singletonList(Ljava/lang/Object;)Ljava/util/List;
+
+    move-result-object p0
+
+    invoke-direct {v4, p0}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+
+    invoke-interface {p1}, Lcom/android/server/pm/pkg/AndroidPackageApi;->getUid()I
+
+    move-result v5
+
+    const-string v6, "android.intent.action.OVERLAY_CHANGED"
+
+    invoke-virtual/range {v0 .. v6}, Lcom/android/server/pm/PackageManagerService;->sendPackageChangedBroadcast(Lcom/android/server/pm/Computer;Ljava/lang/String;ZLjava/util/ArrayList;ILjava/lang/String;)V
 
     return-void
 .end method

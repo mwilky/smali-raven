@@ -1,4 +1,4 @@
-.class Lcom/android/server/os/NativeTombstoneManager$TombstoneFile;
+.class public Lcom/android/server/os/NativeTombstoneManager$TombstoneFile;
 .super Ljava/lang/Object;
 .source "NativeTombstoneManager.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "TombstoneFile"
 .end annotation
 
@@ -21,29 +21,29 @@
 
 
 # instance fields
-.field mAppId:I
+.field public mAppId:I
 
-.field mCrashReason:Ljava/lang/String;
+.field public mCrashReason:Ljava/lang/String;
 
-.field final mPfd:Landroid/os/ParcelFileDescriptor;
+.field public final mPfd:Landroid/os/ParcelFileDescriptor;
 
-.field mPid:I
+.field public mPid:I
 
-.field mProcessName:Ljava/lang/String;
+.field public mProcessName:Ljava/lang/String;
 
-.field mPurged:Z
+.field public mPurged:Z
 
-.field final mRetriever:Landroid/app/IParcelFileDescriptorRetriever;
+.field public final mRetriever:Landroid/app/IParcelFileDescriptorRetriever;
 
-.field mTimestampMs:J
+.field public mTimestampMs:J
 
-.field mUid:I
+.field public mUid:I
 
-.field mUserId:I
+.field public mUserId:I
 
 
 # direct methods
-.method constructor <init>(Landroid/os/ParcelFileDescriptor;)V
+.method public constructor <init>(Landroid/os/ParcelFileDescriptor;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -63,8 +63,8 @@
     return-void
 .end method
 
-.method static parse(Landroid/os/ParcelFileDescriptor;)Ljava/util/Optional;
-    .locals 17
+.method public static parse(Landroid/os/ParcelFileDescriptor;)Ljava/util/Optional;
+    .locals 15
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -78,381 +78,361 @@
 
     new-instance v0, Ljava/io/FileInputStream;
 
-    invoke-virtual/range {p0 .. p0}, Landroid/os/ParcelFileDescriptor;->getFileDescriptor()Ljava/io/FileDescriptor;
+    invoke-virtual {p0}, Landroid/os/ParcelFileDescriptor;->getFileDescriptor()Ljava/io/FileDescriptor;
 
     move-result-object v1
 
     invoke-direct {v0, v1}, Ljava/io/FileInputStream;-><init>(Ljava/io/FileDescriptor;)V
 
-    move-object v1, v0
+    new-instance v1, Landroid/util/proto/ProtoInputStream;
 
-    new-instance v0, Landroid/util/proto/ProtoInputStream;
-
-    invoke-direct {v0, v1}, Landroid/util/proto/ProtoInputStream;-><init>(Ljava/io/InputStream;)V
-
-    move-object v2, v0
+    invoke-direct {v1, v0}, Landroid/util/proto/ProtoInputStream;-><init>(Ljava/io/InputStream;)V
 
     const/4 v0, 0x0
 
+    const-string v2, ""
+
     const/4 v3, 0x0
 
-    const/4 v4, 0x0
-
-    const-string v5, ""
-
-    const-string v6, ""
-
-    move-object v7, v6
+    move-object v5, v2
 
     move-object v6, v5
 
-    move-object v5, v4
-
-    move v4, v3
+    move-object v4, v3
 
     move v3, v0
 
     :cond_0
     :goto_0
     :try_start_0
-    invoke-virtual {v2}, Landroid/util/proto/ProtoInputStream;->nextField()I
+    invoke-virtual {v1}, Landroid/util/proto/ProtoInputStream;->nextField()I
 
-    move-result v0
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Landroid/util/proto/ProtoParseException; {:try_start_0 .. :try_end_0} :catch_1
+    move-result v7
 
-    const-string v8, ""
+    const/4 v8, -0x1
 
-    const/4 v9, -0x1
+    if-eq v7, v8, :cond_9
 
-    if-eq v0, v9, :cond_3
+    invoke-virtual {v1}, Landroid/util/proto/ProtoInputStream;->getFieldNumber()I
 
-    :try_start_1
-    invoke-virtual {v2}, Landroid/util/proto/ProtoInputStream;->getFieldNumber()I
+    move-result v7
 
-    move-result v0
+    const/4 v9, 0x5
 
-    sparse-switch v0, :sswitch_data_0
+    if-eq v7, v9, :cond_8
 
-    goto :goto_0
+    const/16 v9, 0xf
 
-    :sswitch_0
-    invoke-virtual {v6, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    if-eq v7, v9, :cond_4
 
-    move-result v0
+    const/4 v8, 0x7
 
-    if-nez v0, :cond_1
+    if-eq v7, v8, :cond_3
+
+    const/16 v8, 0x8
+
+    if-eq v7, v8, :cond_2
+
+    const/16 v8, 0x9
+
+    if-eq v7, v8, :cond_1
 
     goto :goto_0
 
     :cond_1
-    const-wide v10, 0x20b0000000fL
+    if-nez v4, :cond_0
 
-    invoke-virtual {v2, v10, v11}, Landroid/util/proto/ProtoInputStream;->start(J)J
+    const-wide v7, 0x20900000009L
 
-    move-result-wide v10
+    invoke-virtual {v1, v7, v8}, Landroid/util/proto/ProtoInputStream;->readString(J)Ljava/lang/String;
 
-    :goto_1
-    invoke-virtual {v2}, Landroid/util/proto/ProtoInputStream;->nextField()I
+    move-result-object v4
 
-    move-result v0
-
-    if-eq v0, v9, :cond_2
-
-    invoke-virtual {v2}, Landroid/util/proto/ProtoInputStream;->getFieldNumber()I
-
-    move-result v0
-
-    packed-switch v0, :pswitch_data_0
-
-    goto :goto_1
-
-    :pswitch_0
-    const-wide v8, 0x10900000001L
-
-    invoke-virtual {v2, v8, v9}, Landroid/util/proto/ProtoInputStream;->readString(J)Ljava/lang/String;
-
-    move-result-object v0
-
-    move-object v6, v0
+    goto :goto_0
 
     :cond_2
-    invoke-virtual {v2, v10, v11}, Landroid/util/proto/ProtoInputStream;->end(J)V
+    const-wide v6, 0x10900000008L
 
-    goto :goto_0
+    invoke-virtual {v1, v6, v7}, Landroid/util/proto/ProtoInputStream;->readString(J)Ljava/lang/String;
 
-    :sswitch_1
-    if-nez v5, :cond_0
-
-    const-wide v8, 0x20900000009L
-
-    invoke-virtual {v2, v8, v9}, Landroid/util/proto/ProtoInputStream;->readString(J)Ljava/lang/String;
-
-    move-result-object v0
-
-    move-object v5, v0
-
-    goto :goto_0
-
-    :sswitch_2
-    const-wide v8, 0x10900000008L
-
-    invoke-virtual {v2, v8, v9}, Landroid/util/proto/ProtoInputStream;->readString(J)Ljava/lang/String;
-
-    move-result-object v0
-
-    move-object v7, v0
-
-    goto :goto_0
-
-    :sswitch_3
-    const-wide v8, 0x10d00000007L
-
-    invoke-virtual {v2, v8, v9}, Landroid/util/proto/ProtoInputStream;->readInt(J)I
-
-    move-result v0
-
-    move v4, v0
-
-    goto :goto_0
-
-    :sswitch_4
-    const-wide v8, 0x10d00000005L
-
-    invoke-virtual {v2, v8, v9}, Landroid/util/proto/ProtoInputStream;->readInt(J)I
-
-    move-result v0
-    :try_end_1
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
-    .catch Landroid/util/proto/ProtoParseException; {:try_start_1 .. :try_end_1} :catch_1
-
-    move v3, v0
+    move-result-object v6
 
     goto :goto_0
 
     :cond_3
-    nop
+    const-wide v7, 0x10d00000007L
 
-    invoke-static {v4}, Landroid/os/UserHandle;->isApp(I)Z
+    invoke-virtual {v1, v7, v8}, Landroid/util/proto/ProtoInputStream;->readInt(J)I
 
     move-result v0
 
-    if-nez v0, :cond_4
+    goto :goto_0
 
-    invoke-static {}, Lcom/android/server/os/NativeTombstoneManager;->access$200()Ljava/lang/String;
+    :cond_4
+    invoke-virtual {v5, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v7
+
+    if-nez v7, :cond_5
+
+    goto :goto_0
+
+    :cond_5
+    const-wide v9, 0x20b0000000fL
+
+    invoke-virtual {v1, v9, v10}, Landroid/util/proto/ProtoInputStream;->start(J)J
+
+    move-result-wide v9
+
+    :goto_1
+    invoke-virtual {v1}, Landroid/util/proto/ProtoInputStream;->nextField()I
+
+    move-result v7
+
+    if-eq v7, v8, :cond_7
+
+    invoke-virtual {v1}, Landroid/util/proto/ProtoInputStream;->getFieldNumber()I
+
+    move-result v7
+
+    const/4 v11, 0x1
+
+    if-eq v7, v11, :cond_6
+
+    goto :goto_1
+
+    :cond_6
+    const-wide v7, 0x10900000001L
+
+    invoke-virtual {v1, v7, v8}, Landroid/util/proto/ProtoInputStream;->readString(J)Ljava/lang/String;
+
+    move-result-object v5
+
+    :cond_7
+    invoke-virtual {v1, v9, v10}, Landroid/util/proto/ProtoInputStream;->end(J)V
+
+    goto :goto_0
+
+    :cond_8
+    const-wide v7, 0x10d00000005L
+
+    invoke-virtual {v1, v7, v8}, Landroid/util/proto/ProtoInputStream;->readInt(J)I
+
+    move-result v3
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Landroid/util/proto/ProtoParseException; {:try_start_0 .. :try_end_0} :catch_1
+
+    goto :goto_0
+
+    :cond_9
+    invoke-static {v0}, Landroid/os/UserHandle;->isApp(I)Z
+
+    move-result v1
+
+    if-nez v1, :cond_a
+
+    invoke-static {}, Lcom/android/server/os/NativeTombstoneManager;->-$$Nest$sfgetTAG()Ljava/lang/String;
+
+    move-result-object p0
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "Tombstone\'s UID ("
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v0, ") not an app, ignoring"
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v9, "Tombstone\'s UID ("
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v8, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v9, ") not an app, ignoring"
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v0, v8}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-static {}, Ljava/util/Optional;->empty()Ljava/util/Optional;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
-    :cond_4
-    const-wide/16 v9, 0x0
+    :cond_a
+    const-wide/16 v7, 0x0
 
-    :try_start_2
-    invoke-virtual/range {p0 .. p0}, Landroid/os/ParcelFileDescriptor;->getFileDescriptor()Ljava/io/FileDescriptor;
+    :try_start_1
+    invoke-virtual {p0}, Landroid/os/ParcelFileDescriptor;->getFileDescriptor()Ljava/io/FileDescriptor;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-static {v0}, Landroid/system/Os;->fstat(Ljava/io/FileDescriptor;)Landroid/system/StructStat;
+    invoke-static {v1}, Landroid/system/Os;->fstat(Ljava/io/FileDescriptor;)Landroid/system/StructStat;
 
-    move-result-object v0
+    move-result-object v1
 
-    iget-object v11, v0, Landroid/system/StructStat;->st_atim:Landroid/system/StructTimespec;
+    iget-object v1, v1, Landroid/system/StructStat;->st_atim:Landroid/system/StructTimespec;
 
-    iget-wide v11, v11, Landroid/system/StructTimespec;->tv_sec:J
+    iget-wide v9, v1, Landroid/system/StructTimespec;->tv_sec:J
 
-    const-wide/16 v13, 0x3e8
+    const-wide/16 v11, 0x3e8
 
-    mul-long/2addr v11, v13
+    mul-long/2addr v9, v11
 
-    iget-object v13, v0, Landroid/system/StructStat;->st_atim:Landroid/system/StructTimespec;
+    iget-wide v11, v1, Landroid/system/StructTimespec;->tv_nsec:J
 
-    iget-wide v13, v13, Landroid/system/StructTimespec;->tv_nsec:J
+    const-wide/32 v13, 0xf4240
 
-    const-wide/32 v15, 0xf4240
+    div-long/2addr v11, v13
+    :try_end_1
+    .catch Landroid/system/ErrnoException; {:try_start_1 .. :try_end_1} :catch_0
 
-    div-long/2addr v13, v15
-    :try_end_2
-    .catch Landroid/system/ErrnoException; {:try_start_2 .. :try_end_2} :catch_0
-
-    add-long v9, v11, v13
+    add-long v7, v9, v11
 
     goto :goto_2
 
     :catch_0
-    move-exception v0
+    move-exception v1
 
-    invoke-static {}, Lcom/android/server/os/NativeTombstoneManager;->access$200()Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/os/NativeTombstoneManager;->-$$Nest$sfgetTAG()Ljava/lang/String;
 
-    move-result-object v11
+    move-result-object v9
 
-    const-string v12, "Failed to get timestamp of tombstone"
+    const-string v10, "Failed to get timestamp of tombstone"
 
-    invoke-static {v11, v12, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v9, v10, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_2
-    invoke-static {v4}, Landroid/os/UserHandle;->getUserId(I)I
+    invoke-static {v0}, Landroid/os/UserHandle;->getUserId(I)I
 
-    move-result v0
+    move-result v1
 
-    invoke-static {v4}, Landroid/os/UserHandle;->getAppId(I)I
+    invoke-static {v0}, Landroid/os/UserHandle;->getAppId(I)I
 
-    move-result v11
+    move-result v9
 
-    const-string/jumbo v12, "u:r:untrusted_app"
+    const-string/jumbo v10, "u:r:untrusted_app"
 
-    invoke-virtual {v7, v12}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {v6, v10}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result v12
+    move-result v10
 
-    if-nez v12, :cond_5
+    if-nez v10, :cond_b
 
-    invoke-static {}, Lcom/android/server/os/NativeTombstoneManager;->access$200()Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/os/NativeTombstoneManager;->-$$Nest$sfgetTAG()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object p0
 
-    new-instance v12, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v13, "Tombstone has invalid selinux label ("
+    const-string v1, "Tombstone has invalid selinux label ("
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v12, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v13, "), ignoring"
+    const-string v1, "), ignoring"
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v12
+    move-result-object v0
 
-    invoke-static {v8, v12}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-static {}, Ljava/util/Optional;->empty()Ljava/util/Optional;
 
-    move-result-object v8
+    move-result-object p0
 
-    return-object v8
+    return-object p0
 
-    :cond_5
-    new-instance v12, Lcom/android/server/os/NativeTombstoneManager$TombstoneFile;
+    :cond_b
+    new-instance v6, Lcom/android/server/os/NativeTombstoneManager$TombstoneFile;
 
-    move-object/from16 v13, p0
+    invoke-direct {v6, p0}, Lcom/android/server/os/NativeTombstoneManager$TombstoneFile;-><init>(Landroid/os/ParcelFileDescriptor;)V
 
-    invoke-direct {v12, v13}, Lcom/android/server/os/NativeTombstoneManager$TombstoneFile;-><init>(Landroid/os/ParcelFileDescriptor;)V
+    iput v1, v6, Lcom/android/server/os/NativeTombstoneManager$TombstoneFile;->mUserId:I
 
-    iput v0, v12, Lcom/android/server/os/NativeTombstoneManager$TombstoneFile;->mUserId:I
+    iput v9, v6, Lcom/android/server/os/NativeTombstoneManager$TombstoneFile;->mAppId:I
 
-    iput v11, v12, Lcom/android/server/os/NativeTombstoneManager$TombstoneFile;->mAppId:I
+    iput v3, v6, Lcom/android/server/os/NativeTombstoneManager$TombstoneFile;->mPid:I
 
-    iput v3, v12, Lcom/android/server/os/NativeTombstoneManager$TombstoneFile;->mPid:I
+    iput v0, v6, Lcom/android/server/os/NativeTombstoneManager$TombstoneFile;->mUid:I
 
-    iput v4, v12, Lcom/android/server/os/NativeTombstoneManager$TombstoneFile;->mUid:I
-
-    if-nez v5, :cond_6
+    if-nez v4, :cond_c
 
     goto :goto_3
 
-    :cond_6
-    move-object v8, v5
+    :cond_c
+    move-object v2, v4
 
     :goto_3
-    iput-object v8, v12, Lcom/android/server/os/NativeTombstoneManager$TombstoneFile;->mProcessName:Ljava/lang/String;
+    iput-object v2, v6, Lcom/android/server/os/NativeTombstoneManager$TombstoneFile;->mProcessName:Ljava/lang/String;
 
-    iput-wide v9, v12, Lcom/android/server/os/NativeTombstoneManager$TombstoneFile;->mTimestampMs:J
+    iput-wide v7, v6, Lcom/android/server/os/NativeTombstoneManager$TombstoneFile;->mTimestampMs:J
 
-    iput-object v6, v12, Lcom/android/server/os/NativeTombstoneManager$TombstoneFile;->mCrashReason:Ljava/lang/String;
+    iput-object v5, v6, Lcom/android/server/os/NativeTombstoneManager$TombstoneFile;->mCrashReason:Ljava/lang/String;
 
-    invoke-static {v12}, Ljava/util/Optional;->of(Ljava/lang/Object;)Ljava/util/Optional;
+    invoke-static {v6}, Ljava/util/Optional;->of(Ljava/lang/Object;)Ljava/util/Optional;
 
-    move-result-object v8
+    move-result-object p0
 
-    return-object v8
+    return-object p0
 
     :catch_1
-    move-exception v0
+    move-exception p0
 
-    move-object/from16 v13, p0
+    invoke-static {}, Lcom/android/server/os/NativeTombstoneManager;->-$$Nest$sfgetTAG()Ljava/lang/String;
 
-    invoke-static {}, Lcom/android/server/os/NativeTombstoneManager;->access$200()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v8
+    const-string v1, "Failed to parse tombstone"
 
-    const-string v9, "Failed to parse tombstone"
-
-    invoke-static {v8, v9, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v0, v1, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     invoke-static {}, Ljava/util/Optional;->empty()Ljava/util/Optional;
 
-    move-result-object v8
+    move-result-object p0
 
-    return-object v8
-
-    :sswitch_data_0
-    .sparse-switch
-        0x5 -> :sswitch_4
-        0x7 -> :sswitch_3
-        0x8 -> :sswitch_2
-        0x9 -> :sswitch_1
-        0xf -> :sswitch_0
-    .end sparse-switch
-
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_0
-    .end packed-switch
+    return-object p0
 .end method
 
 
 # virtual methods
 .method public dispose()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/os/NativeTombstoneManager$TombstoneFile;->mPfd:Landroid/os/ParcelFileDescriptor;
+    iget-object p0, p0, Lcom/android/server/os/NativeTombstoneManager$TombstoneFile;->mPfd:Landroid/os/ParcelFileDescriptor;
 
-    invoke-static {v0}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
+    invoke-static {p0}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
     return-void
 .end method
 
 .method public getPfdRetriever()Landroid/app/IParcelFileDescriptorRetriever;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/os/NativeTombstoneManager$TombstoneFile;->mRetriever:Landroid/app/IParcelFileDescriptorRetriever;
+    iget-object p0, p0, Lcom/android/server/os/NativeTombstoneManager$TombstoneFile;->mRetriever:Landroid/app/IParcelFileDescriptorRetriever;
 
-    return-object v0
+    return-object p0
+.end method
+
+.method public getProcessName()Ljava/lang/String;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/os/NativeTombstoneManager$TombstoneFile;->mProcessName:Ljava/lang/String;
+
+    return-object p0
 .end method
 
 .method public matches(Landroid/app/ApplicationExitInfo;)Z
-    .locals 6
+    .locals 4
 
     invoke-virtual {p1}, Landroid/app/ApplicationExitInfo;->getReason()I
 
@@ -493,30 +473,30 @@
 
     move-result-wide v2
 
-    iget-wide v4, p0, Lcom/android/server/os/NativeTombstoneManager$TombstoneFile;->mTimestampMs:J
+    iget-wide p0, p0, Lcom/android/server/os/NativeTombstoneManager$TombstoneFile;->mTimestampMs:J
 
-    sub-long/2addr v2, v4
+    sub-long/2addr v2, p0
 
     invoke-static {v2, v3}, Ljava/lang/Math;->abs(J)J
 
-    move-result-wide v2
+    move-result-wide p0
 
-    const-wide/16 v4, 0x1388
+    const-wide/16 v2, 0x1388
 
-    cmp-long v0, v2, v4
+    cmp-long p0, p0, v2
 
-    if-lez v0, :cond_3
+    if-lez p0, :cond_3
 
     return v1
 
     :cond_3
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 .end method
 
 .method public matches(Ljava/util/Optional;Ljava/util/Optional;)Z
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -546,47 +526,47 @@
 
     invoke-virtual {p1}, Ljava/util/Optional;->get()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/lang/Integer;
+    check-cast p1, Ljava/lang/Integer;
 
-    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
 
-    move-result v0
+    move-result p1
 
-    iget v2, p0, Lcom/android/server/os/NativeTombstoneManager$TombstoneFile;->mUserId:I
+    iget v0, p0, Lcom/android/server/os/NativeTombstoneManager$TombstoneFile;->mUserId:I
 
-    if-eq v0, v2, :cond_1
+    if-eq p1, v0, :cond_1
 
     return v1
 
     :cond_1
     invoke-virtual {p2}, Ljava/util/Optional;->isPresent()Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_2
+    if-eqz p1, :cond_2
 
     invoke-virtual {p2}, Ljava/util/Optional;->get()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/lang/Integer;
+    check-cast p1, Ljava/lang/Integer;
 
-    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
 
-    move-result v0
+    move-result p1
 
-    iget v2, p0, Lcom/android/server/os/NativeTombstoneManager$TombstoneFile;->mAppId:I
+    iget p0, p0, Lcom/android/server/os/NativeTombstoneManager$TombstoneFile;->mAppId:I
 
-    if-eq v0, v2, :cond_2
+    if-eq p1, p0, :cond_2
 
     return v1
 
     :cond_2
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 .end method
 
 .method public purge()V
@@ -614,7 +594,7 @@
     :catch_0
     move-exception v0
 
-    invoke-static {}, Lcom/android/server/os/NativeTombstoneManager;->access$200()Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/os/NativeTombstoneManager;->-$$Nest$sfgetTAG()Ljava/lang/String;
 
     move-result-object v1
 
@@ -694,9 +674,9 @@
 
     invoke-virtual {v0, v1}, Landroid/app/ApplicationExitInfo;->setSubReason(I)V
 
-    iget-object v1, p0, Lcom/android/server/os/NativeTombstoneManager$TombstoneFile;->mRetriever:Landroid/app/IParcelFileDescriptorRetriever;
+    iget-object p0, p0, Lcom/android/server/os/NativeTombstoneManager$TombstoneFile;->mRetriever:Landroid/app/IParcelFileDescriptorRetriever;
 
-    invoke-virtual {v0, v1}, Landroid/app/ApplicationExitInfo;->setNativeTombstoneRetriever(Landroid/app/IParcelFileDescriptorRetriever;)V
+    invoke-virtual {v0, p0}, Landroid/app/ApplicationExitInfo;->setNativeTombstoneRetriever(Landroid/app/IParcelFileDescriptorRetriever;)V
 
     return-object v0
 .end method

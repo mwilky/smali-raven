@@ -4,6 +4,9 @@
 
 
 # annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/android/server/pm/CrossProfileAppsServiceImpl;
 .end annotation
@@ -18,12 +21,6 @@
 .method public abstract checkComponentPermission(Ljava/lang/String;IIZ)I
 .end method
 
-.method public abstract clearCallingIdentity()J
-.end method
-
-.method public abstract getActivityManagerInternal()Landroid/app/ActivityManagerInternal;
-.end method
-
 .method public abstract getActivityTaskManagerInternal()Lcom/android/server/wm/ActivityTaskManagerInternal;
 .end method
 
@@ -34,9 +31,6 @@
 .end method
 
 .method public abstract getCallingUid()I
-.end method
-
-.method public abstract getCallingUserHandle()Landroid/os/UserHandle;
 .end method
 
 .method public abstract getCallingUserId()I
@@ -58,9 +52,6 @@
 .end method
 
 .method public abstract killUid(I)V
-.end method
-
-.method public abstract restoreCallingIdentity(J)V
 .end method
 
 .method public abstract sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V

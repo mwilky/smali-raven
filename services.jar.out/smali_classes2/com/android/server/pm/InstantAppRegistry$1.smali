@@ -1,4 +1,4 @@
-.class Lcom/android/server/pm/InstantAppRegistry$1;
+.class public Lcom/android/server/pm/InstantAppRegistry$1;
 .super Lcom/android/server/utils/Watcher;
 .source "InstantAppRegistry.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/pm/InstantAppRegistry;
+.field public final synthetic this$0:Lcom/android/server/pm/InstantAppRegistry;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/pm/InstantAppRegistry;)V
+.method public constructor <init>(Lcom/android/server/pm/InstantAppRegistry;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/pm/InstantAppRegistry$1;->this$0:Lcom/android/server/pm/InstantAppRegistry;
@@ -32,11 +32,11 @@
 
 # virtual methods
 .method public onChange(Lcom/android/server/utils/Watchable;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/pm/InstantAppRegistry$1;->this$0:Lcom/android/server/pm/InstantAppRegistry;
+    iget-object p0, p0, Lcom/android/server/pm/InstantAppRegistry$1;->this$0:Lcom/android/server/pm/InstantAppRegistry;
 
-    invoke-static {v0}, Lcom/android/server/pm/InstantAppRegistry;->access$000(Lcom/android/server/pm/InstantAppRegistry;)V
+    invoke-static {p0}, Lcom/android/server/pm/InstantAppRegistry;->-$$Nest$monChanged(Lcom/android/server/pm/InstantAppRegistry;)V
 
     return-void
 .end method

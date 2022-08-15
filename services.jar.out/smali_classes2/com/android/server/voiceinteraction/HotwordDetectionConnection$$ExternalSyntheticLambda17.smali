@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda17;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/BiConsumer;
+.implements Lcom/android/internal/infra/ServiceConnector$VoidJob;
 
 
 # instance fields
@@ -22,16 +23,14 @@
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 1
+.method public final runNoResult(Ljava/lang/Object;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda17;->f$0:Lcom/android/server/voiceinteraction/HotwordDetectionConnection;
+    iget-object p0, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda17;->f$0:Lcom/android/server/voiceinteraction/HotwordDetectionConnection;
 
-    check-cast p1, Ljava/lang/Void;
+    check-cast p1, Landroid/service/voice/IHotwordDetectionService;
 
-    check-cast p2, Ljava/lang/Throwable;
-
-    invoke-virtual {v0, p1, p2}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->lambda$updateStateAfterProcessStart$2$HotwordDetectionConnection(Ljava/lang/Void;Ljava/lang/Throwable;)V
+    invoke-static {p0, p1}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->$r8$lambda$5AhLVOx1GVIBpgtRPs8NIk-5svo(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;Landroid/service/voice/IHotwordDetectionService;)V
 
     return-void
 .end method

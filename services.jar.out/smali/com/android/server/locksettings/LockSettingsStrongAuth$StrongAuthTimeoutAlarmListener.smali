@@ -7,22 +7,25 @@
 
 
 # annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/android/server/locksettings/LockSettingsStrongAuth;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x4
+    accessFlags = 0x1
     name = "StrongAuthTimeoutAlarmListener"
 .end annotation
 
 
 # instance fields
-.field private mLatestStrongAuthTime:J
+.field public mLatestStrongAuthTime:J
 
-.field private final mUserId:I
+.field public final mUserId:I
 
-.field final synthetic this$0:Lcom/android/server/locksettings/LockSettingsStrongAuth;
+.field public final synthetic this$0:Lcom/android/server/locksettings/LockSettingsStrongAuth;
 
 
 # direct methods
@@ -51,15 +54,15 @@
 .end method
 
 .method public onAlarm()V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/locksettings/LockSettingsStrongAuth$StrongAuthTimeoutAlarmListener;->this$0:Lcom/android/server/locksettings/LockSettingsStrongAuth;
 
-    iget v1, p0, Lcom/android/server/locksettings/LockSettingsStrongAuth$StrongAuthTimeoutAlarmListener;->mUserId:I
+    iget p0, p0, Lcom/android/server/locksettings/LockSettingsStrongAuth$StrongAuthTimeoutAlarmListener;->mUserId:I
 
-    const/16 v2, 0x10
+    const/16 v1, 0x10
 
-    invoke-virtual {v0, v2, v1}, Lcom/android/server/locksettings/LockSettingsStrongAuth;->requireStrongAuth(II)V
+    invoke-virtual {v0, v1, p0}, Lcom/android/server/locksettings/LockSettingsStrongAuth;->requireStrongAuth(II)V
 
     return-void
 .end method

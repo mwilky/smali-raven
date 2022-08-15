@@ -4,21 +4,13 @@
 
 
 # direct methods
-.method public constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-.method public static getNonLocalizedLabelAndIcon(Landroid/content/pm/parsing/component/ParsedComponent;Lcom/android/server/pm/PackageSetting;I)Landroid/util/Pair;
-    .locals 4
+.method public static getNonLocalizedLabelAndIcon(Lcom/android/server/pm/pkg/component/ParsedComponent;Lcom/android/server/pm/pkg/PackageStateInternal;I)Landroid/util/Pair;
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Landroid/content/pm/parsing/component/ParsedComponent;",
-            "Lcom/android/server/pm/PackageSetting;",
+            "Lcom/android/server/pm/pkg/component/ParsedComponent;",
+            "Lcom/android/server/pm/pkg/PackageStateInternal;",
             "I)",
             "Landroid/util/Pair<",
             "Ljava/lang/CharSequence;",
@@ -27,71 +19,63 @@
         }
     .end annotation
 
-    invoke-virtual {p0}, Landroid/content/pm/parsing/component/ParsedComponent;->getNonLocalizedLabel()Ljava/lang/CharSequence;
+    invoke-interface {p0}, Lcom/android/server/pm/pkg/component/ParsedComponent;->getNonLocalizedLabel()Ljava/lang/CharSequence;
 
     move-result-object v0
 
-    invoke-virtual {p0}, Landroid/content/pm/parsing/component/ParsedComponent;->getIcon()I
+    invoke-interface {p0}, Lcom/android/server/pm/pkg/component/ParsedComponent;->getIcon()I
 
     move-result v1
 
     if-nez p1, :cond_0
 
-    const/4 v2, 0x0
+    const/4 p0, 0x0
 
     goto :goto_0
 
     :cond_0
-    nop
+    invoke-interface {p1, p2}, Lcom/android/server/pm/pkg/PackageStateInternal;->getUserStateOrDefault(I)Lcom/android/server/pm/pkg/PackageUserStateInternal;
 
-    invoke-virtual {p1, p2}, Lcom/android/server/pm/PackageSetting;->readUserState(I)Landroid/content/pm/PackageUserState;
+    move-result-object p1
 
-    move-result-object v2
+    invoke-interface {p0}, Lcom/android/server/pm/pkg/component/ParsedComponent;->getComponentName()Landroid/content/ComponentName;
 
-    invoke-virtual {p0}, Landroid/content/pm/parsing/component/ParsedComponent;->getComponentName()Landroid/content/ComponentName;
+    move-result-object p0
 
-    move-result-object v3
+    invoke-interface {p1, p0}, Lcom/android/server/pm/pkg/PackageUserStateInternal;->getOverrideLabelIconForComponent(Landroid/content/ComponentName;)Landroid/util/Pair;
 
-    invoke-virtual {v2, v3}, Landroid/content/pm/PackageUserState;->getOverrideLabelIconForComponent(Landroid/content/ComponentName;)Landroid/util/Pair;
-
-    move-result-object v2
+    move-result-object p0
 
     :goto_0
-    nop
+    if-eqz p0, :cond_2
 
-    if-eqz v2, :cond_2
+    iget-object p1, p0, Landroid/util/Pair;->first:Ljava/lang/Object;
 
-    iget-object v3, v2, Landroid/util/Pair;->first:Ljava/lang/Object;
+    if-eqz p1, :cond_1
 
-    if-eqz v3, :cond_1
-
-    iget-object v3, v2, Landroid/util/Pair;->first:Ljava/lang/Object;
-
-    move-object v0, v3
+    move-object v0, p1
 
     check-cast v0, Ljava/lang/CharSequence;
 
     :cond_1
-    iget-object v3, v2, Landroid/util/Pair;->second:Ljava/lang/Object;
+    iget-object p0, p0, Landroid/util/Pair;->second:Ljava/lang/Object;
 
-    if-eqz v3, :cond_2
+    if-eqz p0, :cond_2
 
-    iget-object v3, v2, Landroid/util/Pair;->second:Ljava/lang/Object;
+    check-cast p0, Ljava/lang/Integer;
 
-    check-cast v3, Ljava/lang/Integer;
-
-    invoke-virtual {v3}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {p0}, Ljava/lang/Integer;->intValue()I
 
     move-result v1
 
     :cond_2
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object p0
 
-    invoke-static {v0, v3}, Landroid/util/Pair;->create(Ljava/lang/Object;Ljava/lang/Object;)Landroid/util/Pair;
+    invoke-static {v0, p0}, Landroid/util/Pair;->create(Ljava/lang/Object;Ljava/lang/Object;)Landroid/util/Pair;
 
-    move-result-object v3
+    move-result-object p0
 
-    return-object v3
+    return-object p0
 .end method

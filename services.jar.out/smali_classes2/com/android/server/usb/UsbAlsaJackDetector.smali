@@ -7,17 +7,17 @@
 
 
 # static fields
-.field private static final TAG:Ljava/lang/String; = "UsbAlsaJackDetector"
+.field public static final TAG:Ljava/lang/String; = "UsbAlsaJackDetector"
 
 
 # instance fields
-.field private mAlsaDevice:Lcom/android/server/usb/UsbAlsaDevice;
+.field public mAlsaDevice:Lcom/android/server/usb/UsbAlsaDevice;
 
-.field private mStopJackDetect:Z
+.field public mStopJackDetect:Z
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/server/usb/UsbAlsaDevice;)V
+.method public constructor <init>(Lcom/android/server/usb/UsbAlsaDevice;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -44,7 +44,7 @@
 .end method
 
 .method public static startJackDetect(Lcom/android/server/usb/UsbAlsaDevice;)Lcom/android/server/usb/UsbAlsaJackDetector;
-    .locals 3
+    .locals 2
 
     invoke-virtual {p0}, Lcom/android/server/usb/UsbAlsaDevice;->getCardNum()I
 
@@ -56,22 +56,22 @@
 
     if-nez v0, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return-object v0
+    return-object p0
 
     :cond_0
     new-instance v0, Lcom/android/server/usb/UsbAlsaJackDetector;
 
     invoke-direct {v0, p0}, Lcom/android/server/usb/UsbAlsaJackDetector;-><init>(Lcom/android/server/usb/UsbAlsaDevice;)V
 
-    new-instance v1, Ljava/lang/Thread;
+    new-instance p0, Ljava/lang/Thread;
 
-    const-string v2, "USB jack detect thread"
+    const-string v1, "USB jack detect thread"
 
-    invoke-direct {v1, v0, v2}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;Ljava/lang/String;)V
+    invoke-direct {p0, v0, v1}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;Ljava/lang/String;)V
 
-    invoke-virtual {v1}, Ljava/lang/Thread;->start()V
+    invoke-virtual {p0}, Ljava/lang/Thread;->start()V
 
     return-object v0
 .end method
@@ -89,9 +89,9 @@
 
     invoke-direct {p0, v0}, Lcom/android/server/usb/UsbAlsaJackDetector;->nativeInputJackConnected(I)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public isOutputJackConnected()Z
@@ -105,9 +105,9 @@
 
     invoke-direct {p0, v0}, Lcom/android/server/usb/UsbAlsaJackDetector;->nativeOutputJackConnected(I)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public jackDetectCallback()Z

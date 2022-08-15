@@ -1,4 +1,4 @@
-.class Lcom/android/server/job/JobSchedulerService$1;
+.class public Lcom/android/server/job/JobSchedulerService$1;
 .super Lcom/android/server/job/JobSchedulerService$MySimpleClock;
 .source "JobSchedulerService.java"
 
@@ -9,13 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # direct methods
-.method constructor <init>(Ljava/time/ZoneId;)V
+.method public constructor <init>(Ljava/time/ZoneId;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/job/JobSchedulerService$MySimpleClock;-><init>(Ljava/time/ZoneId;)V

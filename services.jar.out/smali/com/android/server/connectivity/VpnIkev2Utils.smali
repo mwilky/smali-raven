@@ -14,34 +14,18 @@
 
 
 # static fields
-.field private static final TAG:Ljava/lang/String;
+.field public static final TAG:Ljava/lang/String; = "VpnIkev2Utils"
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    const-class v0, Lcom/android/server/connectivity/VpnIkev2Utils;
-
-    invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
-
-    move-result-object v0
-
-    sput-object v0, Lcom/android/server/connectivity/VpnIkev2Utils;->TAG:Ljava/lang/String;
-
-    return-void
-.end method
-
-.method public constructor <init>()V
+.method public static constructor <clinit>()V
     .locals 0
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
     return-void
 .end method
 
-.method static buildChildSessionParams(Ljava/util/List;)Landroid/net/ipsec/ike/ChildSessionParams;
-    .locals 3
+.method public static buildChildSessionParams(Ljava/util/List;)Landroid/net/ipsec/ike/ChildSessionParams;
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -58,55 +42,55 @@
 
     invoke-static {p0}, Lcom/android/server/connectivity/VpnIkev2Utils;->getChildSaProposals(Ljava/util/List;)Ljava/util/List;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-interface {p0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v1
+    move-result-object p0
 
     :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_0
+    if-eqz v1, :cond_0
 
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
-    check-cast v2, Landroid/net/ipsec/ike/ChildSaProposal;
+    check-cast v1, Landroid/net/ipsec/ike/ChildSaProposal;
 
-    invoke-virtual {v0, v2}, Landroid/net/ipsec/ike/TunnelModeChildSessionParams$Builder;->addSaProposal(Landroid/net/ipsec/ike/ChildSaProposal;)Landroid/net/ipsec/ike/TunnelModeChildSessionParams$Builder;
+    invoke-virtual {v0, v1}, Landroid/net/ipsec/ike/TunnelModeChildSessionParams$Builder;->addSaProposal(Landroid/net/ipsec/ike/ChildSaProposal;)Landroid/net/ipsec/ike/TunnelModeChildSessionParams$Builder;
 
     goto :goto_0
 
     :cond_0
-    sget v1, Landroid/system/OsConstants;->AF_INET:I
+    sget p0, Landroid/system/OsConstants;->AF_INET:I
 
-    invoke-virtual {v0, v1}, Landroid/net/ipsec/ike/TunnelModeChildSessionParams$Builder;->addInternalAddressRequest(I)Landroid/net/ipsec/ike/TunnelModeChildSessionParams$Builder;
+    invoke-virtual {v0, p0}, Landroid/net/ipsec/ike/TunnelModeChildSessionParams$Builder;->addInternalAddressRequest(I)Landroid/net/ipsec/ike/TunnelModeChildSessionParams$Builder;
 
-    sget v1, Landroid/system/OsConstants;->AF_INET6:I
+    sget p0, Landroid/system/OsConstants;->AF_INET6:I
 
-    invoke-virtual {v0, v1}, Landroid/net/ipsec/ike/TunnelModeChildSessionParams$Builder;->addInternalAddressRequest(I)Landroid/net/ipsec/ike/TunnelModeChildSessionParams$Builder;
+    invoke-virtual {v0, p0}, Landroid/net/ipsec/ike/TunnelModeChildSessionParams$Builder;->addInternalAddressRequest(I)Landroid/net/ipsec/ike/TunnelModeChildSessionParams$Builder;
 
-    sget v1, Landroid/system/OsConstants;->AF_INET:I
+    sget p0, Landroid/system/OsConstants;->AF_INET:I
 
-    invoke-virtual {v0, v1}, Landroid/net/ipsec/ike/TunnelModeChildSessionParams$Builder;->addInternalDnsServerRequest(I)Landroid/net/ipsec/ike/TunnelModeChildSessionParams$Builder;
+    invoke-virtual {v0, p0}, Landroid/net/ipsec/ike/TunnelModeChildSessionParams$Builder;->addInternalDnsServerRequest(I)Landroid/net/ipsec/ike/TunnelModeChildSessionParams$Builder;
 
-    sget v1, Landroid/system/OsConstants;->AF_INET6:I
+    sget p0, Landroid/system/OsConstants;->AF_INET6:I
 
-    invoke-virtual {v0, v1}, Landroid/net/ipsec/ike/TunnelModeChildSessionParams$Builder;->addInternalDnsServerRequest(I)Landroid/net/ipsec/ike/TunnelModeChildSessionParams$Builder;
+    invoke-virtual {v0, p0}, Landroid/net/ipsec/ike/TunnelModeChildSessionParams$Builder;->addInternalDnsServerRequest(I)Landroid/net/ipsec/ike/TunnelModeChildSessionParams$Builder;
 
     invoke-virtual {v0}, Landroid/net/ipsec/ike/TunnelModeChildSessionParams$Builder;->build()Landroid/net/ipsec/ike/TunnelModeChildSessionParams;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method
 
-.method static buildIkeSessionParams(Landroid/content/Context;Landroid/net/Ikev2VpnProfile;Landroid/net/Network;)Landroid/net/ipsec/ike/IkeSessionParams;
-    .locals 5
+.method public static buildIkeSessionParams(Landroid/content/Context;Landroid/net/Ikev2VpnProfile;Landroid/net/Network;)Landroid/net/ipsec/ike/IkeSessionParams;
+    .locals 3
 
     invoke-virtual {p1}, Landroid/net/Ikev2VpnProfile;->getUserIdentity()Ljava/lang/String;
 
@@ -130,61 +114,61 @@
 
     invoke-virtual {p1}, Landroid/net/Ikev2VpnProfile;->getServerAddr()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p0
 
-    invoke-virtual {v2, v3}, Landroid/net/ipsec/ike/IkeSessionParams$Builder;->setServerHostname(Ljava/lang/String;)Landroid/net/ipsec/ike/IkeSessionParams$Builder;
+    invoke-virtual {v2, p0}, Landroid/net/ipsec/ike/IkeSessionParams$Builder;->setServerHostname(Ljava/lang/String;)Landroid/net/ipsec/ike/IkeSessionParams$Builder;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-virtual {v2, p2}, Landroid/net/ipsec/ike/IkeSessionParams$Builder;->setNetwork(Landroid/net/Network;)Landroid/net/ipsec/ike/IkeSessionParams$Builder;
+    invoke-virtual {p0, p2}, Landroid/net/ipsec/ike/IkeSessionParams$Builder;->setNetwork(Landroid/net/Network;)Landroid/net/ipsec/ike/IkeSessionParams$Builder;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-virtual {v2, v0}, Landroid/net/ipsec/ike/IkeSessionParams$Builder;->setLocalIdentification(Landroid/net/ipsec/ike/IkeIdentification;)Landroid/net/ipsec/ike/IkeSessionParams$Builder;
+    invoke-virtual {p0, v0}, Landroid/net/ipsec/ike/IkeSessionParams$Builder;->setLocalIdentification(Landroid/net/ipsec/ike/IkeIdentification;)Landroid/net/ipsec/ike/IkeSessionParams$Builder;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-virtual {v2, v1}, Landroid/net/ipsec/ike/IkeSessionParams$Builder;->setRemoteIdentification(Landroid/net/ipsec/ike/IkeIdentification;)Landroid/net/ipsec/ike/IkeSessionParams$Builder;
+    invoke-virtual {p0, v1}, Landroid/net/ipsec/ike/IkeSessionParams$Builder;->setRemoteIdentification(Landroid/net/ipsec/ike/IkeIdentification;)Landroid/net/ipsec/ike/IkeSessionParams$Builder;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-static {p1, v2}, Lcom/android/server/connectivity/VpnIkev2Utils;->setIkeAuth(Landroid/net/Ikev2VpnProfile;Landroid/net/ipsec/ike/IkeSessionParams$Builder;)V
+    invoke-static {p1, p0}, Lcom/android/server/connectivity/VpnIkev2Utils;->setIkeAuth(Landroid/net/Ikev2VpnProfile;Landroid/net/ipsec/ike/IkeSessionParams$Builder;)V
 
     invoke-static {}, Lcom/android/server/connectivity/VpnIkev2Utils;->getIkeSaProposals()Ljava/util/List;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-interface {v3}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v3
+    move-result-object p1
 
     :goto_0
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v4
+    move-result p2
 
-    if-eqz v4, :cond_0
+    if-eqz p2, :cond_0
 
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object p2
 
-    check-cast v4, Landroid/net/ipsec/ike/IkeSaProposal;
+    check-cast p2, Landroid/net/ipsec/ike/IkeSaProposal;
 
-    invoke-virtual {v2, v4}, Landroid/net/ipsec/ike/IkeSessionParams$Builder;->addSaProposal(Landroid/net/ipsec/ike/IkeSaProposal;)Landroid/net/ipsec/ike/IkeSessionParams$Builder;
+    invoke-virtual {p0, p2}, Landroid/net/ipsec/ike/IkeSessionParams$Builder;->addSaProposal(Landroid/net/ipsec/ike/IkeSaProposal;)Landroid/net/ipsec/ike/IkeSessionParams$Builder;
 
     goto :goto_0
 
     :cond_0
-    invoke-virtual {v2}, Landroid/net/ipsec/ike/IkeSessionParams$Builder;->build()Landroid/net/ipsec/ike/IkeSessionParams;
+    invoke-virtual {p0}, Landroid/net/ipsec/ike/IkeSessionParams$Builder;->build()Landroid/net/ipsec/ike/IkeSessionParams;
 
-    move-result-object v3
+    move-result-object p0
 
-    return-object v3
+    return-object p0
 .end method
 
-.method private static getChildSaProposals(Ljava/util/List;)Ljava/util/List;
-    .locals 12
+.method public static getChildSaProposals(Ljava/util/List;)Ljava/util/List;
+    .locals 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -251,41 +235,31 @@
 
     invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v7
-
-    :goto_0
-    invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v8
-
-    const/16 v9, 0xc
-
-    const/16 v10, 0xd
-
-    if-eqz v8, :cond_2
-
-    invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v8
-
-    check-cast v8, Ljava/lang/Integer;
-
-    invoke-virtual {v8}, Ljava/lang/Integer;->intValue()I
-
-    move-result v8
-
-    const-string/jumbo v11, "rfc3686(ctr(aes))"
-
-    invoke-interface {p0, v11}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
-
-    move-result v11
-
-    if-eqz v11, :cond_0
-
-    invoke-virtual {v6, v10, v8}, Landroid/net/ipsec/ike/ChildSaProposal$Builder;->addEncryptionAlgorithm(II)Landroid/net/ipsec/ike/ChildSaProposal$Builder;
+    move-result-object v1
 
     :cond_0
-    const-string v10, "cbc(aes)"
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v7
+
+    const/16 v8, 0xc
+
+    const/16 v9, 0xd
+
+    if-eqz v7, :cond_2
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v7
+
+    check-cast v7, Ljava/lang/Integer;
+
+    invoke-virtual {v7}, Ljava/lang/Integer;->intValue()I
+
+    move-result v7
+
+    const-string/jumbo v10, "rfc3686(ctr(aes))"
 
     invoke-interface {p0, v10}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
 
@@ -293,171 +267,181 @@
 
     if-eqz v10, :cond_1
 
-    invoke-virtual {v6, v9, v8}, Landroid/net/ipsec/ike/ChildSaProposal$Builder;->addEncryptionAlgorithm(II)Landroid/net/ipsec/ike/ChildSaProposal$Builder;
+    invoke-virtual {v6, v9, v7}, Landroid/net/ipsec/ike/ChildSaProposal$Builder;->addEncryptionAlgorithm(II)Landroid/net/ipsec/ike/ChildSaProposal$Builder;
 
     :cond_1
+    const-string v9, "cbc(aes)"
+
+    invoke-interface {p0, v9}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+
+    move-result v9
+
+    if-eqz v9, :cond_0
+
+    invoke-virtual {v6, v8, v7}, Landroid/net/ipsec/ike/ChildSaProposal$Builder;->addEncryptionAlgorithm(II)Landroid/net/ipsec/ike/ChildSaProposal$Builder;
+
     goto :goto_0
 
     :cond_2
-    const-string v7, "hmac(sha512)"
+    const-string v1, "hmac(sha512)"
 
-    invoke-interface {p0, v7}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+    invoke-interface {p0, v1}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
 
-    move-result v7
+    move-result v1
 
-    if-eqz v7, :cond_3
+    if-eqz v1, :cond_3
 
-    const/16 v7, 0xe
+    const/16 v1, 0xe
 
-    invoke-virtual {v6, v7}, Landroid/net/ipsec/ike/ChildSaProposal$Builder;->addIntegrityAlgorithm(I)Landroid/net/ipsec/ike/ChildSaProposal$Builder;
+    invoke-virtual {v6, v1}, Landroid/net/ipsec/ike/ChildSaProposal$Builder;->addIntegrityAlgorithm(I)Landroid/net/ipsec/ike/ChildSaProposal$Builder;
 
     :cond_3
-    const-string v7, "hmac(sha384)"
+    const-string v1, "hmac(sha384)"
 
-    invoke-interface {p0, v7}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+    invoke-interface {p0, v1}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
 
-    move-result v7
+    move-result v1
 
-    if-eqz v7, :cond_4
-
-    invoke-virtual {v6, v10}, Landroid/net/ipsec/ike/ChildSaProposal$Builder;->addIntegrityAlgorithm(I)Landroid/net/ipsec/ike/ChildSaProposal$Builder;
-
-    :cond_4
-    const-string v7, "hmac(sha256)"
-
-    invoke-interface {p0, v7}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_5
+    if-eqz v1, :cond_4
 
     invoke-virtual {v6, v9}, Landroid/net/ipsec/ike/ChildSaProposal$Builder;->addIntegrityAlgorithm(I)Landroid/net/ipsec/ike/ChildSaProposal$Builder;
 
+    :cond_4
+    const-string v1, "hmac(sha256)"
+
+    invoke-interface {p0, v1}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_5
+
+    invoke-virtual {v6, v8}, Landroid/net/ipsec/ike/ChildSaProposal$Builder;->addIntegrityAlgorithm(I)Landroid/net/ipsec/ike/ChildSaProposal$Builder;
+
     :cond_5
-    const-string/jumbo v7, "xcbc(aes)"
+    const-string/jumbo v1, "xcbc(aes)"
 
-    invoke-interface {p0, v7}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+    invoke-interface {p0, v1}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
 
-    move-result v7
+    move-result v1
 
-    if-eqz v7, :cond_6
+    if-eqz v1, :cond_6
 
-    const/4 v7, 0x5
+    const/4 v1, 0x5
 
-    invoke-virtual {v6, v7}, Landroid/net/ipsec/ike/ChildSaProposal$Builder;->addIntegrityAlgorithm(I)Landroid/net/ipsec/ike/ChildSaProposal$Builder;
+    invoke-virtual {v6, v1}, Landroid/net/ipsec/ike/ChildSaProposal$Builder;->addIntegrityAlgorithm(I)Landroid/net/ipsec/ike/ChildSaProposal$Builder;
 
     :cond_6
-    const-string v7, "cmac(aes)"
+    const-string v1, "cmac(aes)"
 
-    invoke-interface {p0, v7}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+    invoke-interface {p0, v1}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
 
-    move-result v7
+    move-result v1
 
-    if-eqz v7, :cond_7
+    if-eqz v1, :cond_7
 
-    const/16 v7, 0x8
+    const/16 v1, 0x8
 
-    invoke-virtual {v6, v7}, Landroid/net/ipsec/ike/ChildSaProposal$Builder;->addIntegrityAlgorithm(I)Landroid/net/ipsec/ike/ChildSaProposal$Builder;
+    invoke-virtual {v6, v1}, Landroid/net/ipsec/ike/ChildSaProposal$Builder;->addIntegrityAlgorithm(I)Landroid/net/ipsec/ike/ChildSaProposal$Builder;
 
     :cond_7
     invoke-virtual {v6}, Landroid/net/ipsec/ike/ChildSaProposal$Builder;->build()Landroid/net/ipsec/ike/ChildSaProposal;
 
-    move-result-object v7
+    move-result-object v1
 
-    invoke-virtual {v7}, Landroid/net/ipsec/ike/ChildSaProposal;->getIntegrityAlgorithms()Ljava/util/List;
+    invoke-virtual {v1}, Landroid/net/ipsec/ike/ChildSaProposal;->getIntegrityAlgorithms()Ljava/util/List;
 
-    move-result-object v8
+    move-result-object v1
 
-    invoke-interface {v8}, Ljava/util/List;->isEmpty()Z
+    invoke-interface {v1}, Ljava/util/List;->isEmpty()Z
 
-    move-result v8
+    move-result v1
 
-    if-eqz v8, :cond_8
+    if-eqz v1, :cond_8
 
-    sget-object v8, Lcom/android/server/connectivity/VpnIkev2Utils;->TAG:Ljava/lang/String;
+    sget-object v1, Lcom/android/server/connectivity/VpnIkev2Utils;->TAG:Ljava/lang/String;
 
-    const-string v9, "Missing integrity algorithm when buildling Child SA proposal"
+    const-string v6, "Missing integrity algorithm when buildling Child SA proposal"
 
-    invoke-static {v8, v9}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v6}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_1
 
     :cond_8
     invoke-virtual {v6}, Landroid/net/ipsec/ike/ChildSaProposal$Builder;->build()Landroid/net/ipsec/ike/ChildSaProposal;
 
-    move-result-object v8
+    move-result-object v1
 
-    invoke-interface {v0, v8}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     :cond_9
     :goto_1
     invoke-static {p0}, Landroid/net/Ikev2VpnProfile;->hasAeadAlgorithms(Ljava/util/List;)Z
 
+    move-result v1
+
+    if-eqz v1, :cond_c
+
+    new-instance v1, Landroid/net/ipsec/ike/ChildSaProposal$Builder;
+
+    invoke-direct {v1}, Landroid/net/ipsec/ike/ChildSaProposal$Builder;-><init>()V
+
+    const-string/jumbo v6, "rfc7539esp(chacha20,poly1305)"
+
+    invoke-interface {p0, v6}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+
     move-result v6
 
-    if-eqz v6, :cond_c
+    if-eqz v6, :cond_a
 
-    new-instance v6, Landroid/net/ipsec/ike/ChildSaProposal$Builder;
+    const/16 v6, 0x1c
 
-    invoke-direct {v6}, Landroid/net/ipsec/ike/ChildSaProposal$Builder;-><init>()V
-
-    const-string/jumbo v7, "rfc7539esp(chacha20,poly1305)"
-
-    invoke-interface {p0, v7}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_a
-
-    const/16 v7, 0x1c
-
-    invoke-virtual {v6, v7, v4}, Landroid/net/ipsec/ike/ChildSaProposal$Builder;->addEncryptionAlgorithm(II)Landroid/net/ipsec/ike/ChildSaProposal$Builder;
+    invoke-virtual {v1, v6, v4}, Landroid/net/ipsec/ike/ChildSaProposal$Builder;->addEncryptionAlgorithm(II)Landroid/net/ipsec/ike/ChildSaProposal$Builder;
 
     :cond_a
     const-string/jumbo v4, "rfc4106(gcm(aes))"
 
     invoke-interface {p0, v4}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result p0
 
-    if-eqz v4, :cond_b
+    if-eqz p0, :cond_b
 
-    const/16 v4, 0x14
+    const/16 p0, 0x14
 
-    invoke-virtual {v6, v4, v2}, Landroid/net/ipsec/ike/ChildSaProposal$Builder;->addEncryptionAlgorithm(II)Landroid/net/ipsec/ike/ChildSaProposal$Builder;
+    invoke-virtual {v1, p0, v2}, Landroid/net/ipsec/ike/ChildSaProposal$Builder;->addEncryptionAlgorithm(II)Landroid/net/ipsec/ike/ChildSaProposal$Builder;
 
-    const/16 v7, 0x13
+    const/16 v4, 0x13
 
-    invoke-virtual {v6, v7, v2}, Landroid/net/ipsec/ike/ChildSaProposal$Builder;->addEncryptionAlgorithm(II)Landroid/net/ipsec/ike/ChildSaProposal$Builder;
+    invoke-virtual {v1, v4, v2}, Landroid/net/ipsec/ike/ChildSaProposal$Builder;->addEncryptionAlgorithm(II)Landroid/net/ipsec/ike/ChildSaProposal$Builder;
 
-    const/16 v8, 0x12
+    const/16 v6, 0x12
 
-    invoke-virtual {v6, v8, v2}, Landroid/net/ipsec/ike/ChildSaProposal$Builder;->addEncryptionAlgorithm(II)Landroid/net/ipsec/ike/ChildSaProposal$Builder;
+    invoke-virtual {v1, v6, v2}, Landroid/net/ipsec/ike/ChildSaProposal$Builder;->addEncryptionAlgorithm(II)Landroid/net/ipsec/ike/ChildSaProposal$Builder;
 
-    invoke-virtual {v6, v4, v3}, Landroid/net/ipsec/ike/ChildSaProposal$Builder;->addEncryptionAlgorithm(II)Landroid/net/ipsec/ike/ChildSaProposal$Builder;
+    invoke-virtual {v1, p0, v3}, Landroid/net/ipsec/ike/ChildSaProposal$Builder;->addEncryptionAlgorithm(II)Landroid/net/ipsec/ike/ChildSaProposal$Builder;
 
-    invoke-virtual {v6, v7, v3}, Landroid/net/ipsec/ike/ChildSaProposal$Builder;->addEncryptionAlgorithm(II)Landroid/net/ipsec/ike/ChildSaProposal$Builder;
+    invoke-virtual {v1, v4, v3}, Landroid/net/ipsec/ike/ChildSaProposal$Builder;->addEncryptionAlgorithm(II)Landroid/net/ipsec/ike/ChildSaProposal$Builder;
 
-    invoke-virtual {v6, v8, v3}, Landroid/net/ipsec/ike/ChildSaProposal$Builder;->addEncryptionAlgorithm(II)Landroid/net/ipsec/ike/ChildSaProposal$Builder;
+    invoke-virtual {v1, v6, v3}, Landroid/net/ipsec/ike/ChildSaProposal$Builder;->addEncryptionAlgorithm(II)Landroid/net/ipsec/ike/ChildSaProposal$Builder;
 
-    invoke-virtual {v6, v4, v5}, Landroid/net/ipsec/ike/ChildSaProposal$Builder;->addEncryptionAlgorithm(II)Landroid/net/ipsec/ike/ChildSaProposal$Builder;
+    invoke-virtual {v1, p0, v5}, Landroid/net/ipsec/ike/ChildSaProposal$Builder;->addEncryptionAlgorithm(II)Landroid/net/ipsec/ike/ChildSaProposal$Builder;
 
-    invoke-virtual {v6, v7, v5}, Landroid/net/ipsec/ike/ChildSaProposal$Builder;->addEncryptionAlgorithm(II)Landroid/net/ipsec/ike/ChildSaProposal$Builder;
+    invoke-virtual {v1, v4, v5}, Landroid/net/ipsec/ike/ChildSaProposal$Builder;->addEncryptionAlgorithm(II)Landroid/net/ipsec/ike/ChildSaProposal$Builder;
 
-    invoke-virtual {v6, v8, v5}, Landroid/net/ipsec/ike/ChildSaProposal$Builder;->addEncryptionAlgorithm(II)Landroid/net/ipsec/ike/ChildSaProposal$Builder;
+    invoke-virtual {v1, v6, v5}, Landroid/net/ipsec/ike/ChildSaProposal$Builder;->addEncryptionAlgorithm(II)Landroid/net/ipsec/ike/ChildSaProposal$Builder;
 
     :cond_b
-    invoke-virtual {v6}, Landroid/net/ipsec/ike/ChildSaProposal$Builder;->build()Landroid/net/ipsec/ike/ChildSaProposal;
+    invoke-virtual {v1}, Landroid/net/ipsec/ike/ChildSaProposal$Builder;->build()Landroid/net/ipsec/ike/ChildSaProposal;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, p0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     :cond_c
     return-object v0
 .end method
 
-.method private static getIkeSaProposals()Ljava/util/List;
+.method public static getIkeSaProposals()Ljava/util/List;
     .locals 13
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -616,21 +600,21 @@
     :cond_0
     invoke-virtual {v1}, Landroid/net/ipsec/ike/IkeSaProposal$Builder;->build()Landroid/net/ipsec/ike/IkeSaProposal;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     invoke-virtual {v8}, Landroid/net/ipsec/ike/IkeSaProposal$Builder;->build()Landroid/net/ipsec/ike/IkeSaProposal;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     return-object v0
 .end method
 
-.method static getRoutesFromTrafficSelectors(Ljava/util/List;)Ljava/util/Collection;
-    .locals 8
+.method public static getRoutesFromTrafficSelectors(Ljava/util/List;)Ljava/util/Collection;
+    .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -649,6 +633,35 @@
 
     invoke-interface {p0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
+    move-result-object p0
+
+    :cond_0
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/net/ipsec/ike/IkeTrafficSelector;
+
+    new-instance v2, Lcom/android/net/module/util/IpRange;
+
+    iget-object v3, v1, Landroid/net/ipsec/ike/IkeTrafficSelector;->startingAddress:Ljava/net/InetAddress;
+
+    iget-object v1, v1, Landroid/net/ipsec/ike/IkeTrafficSelector;->endingAddress:Ljava/net/InetAddress;
+
+    invoke-direct {v2, v3, v1}, Lcom/android/net/module/util/IpRange;-><init>(Ljava/net/InetAddress;Ljava/net/InetAddress;)V
+
+    invoke-virtual {v2}, Lcom/android/net/module/util/IpRange;->asIpPrefixes()Ljava/util/List;
+
+    move-result-object v1
+
+    invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
     move-result-object v1
 
     :goto_0
@@ -656,63 +669,31 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_0
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v2
 
-    check-cast v2, Landroid/net/ipsec/ike/IkeTrafficSelector;
+    check-cast v2, Landroid/net/IpPrefix;
 
-    new-instance v3, Lcom/android/net/module/util/IpRange;
+    new-instance v3, Landroid/net/RouteInfo;
 
-    iget-object v4, v2, Landroid/net/ipsec/ike/IkeTrafficSelector;->startingAddress:Ljava/net/InetAddress;
+    const/4 v4, 0x1
 
-    iget-object v5, v2, Landroid/net/ipsec/ike/IkeTrafficSelector;->endingAddress:Ljava/net/InetAddress;
+    const/4 v5, 0x0
 
-    invoke-direct {v3, v4, v5}, Lcom/android/net/module/util/IpRange;-><init>(Ljava/net/InetAddress;Ljava/net/InetAddress;)V
+    invoke-direct {v3, v2, v5, v5, v4}, Landroid/net/RouteInfo;-><init>(Landroid/net/IpPrefix;Ljava/net/InetAddress;Ljava/lang/String;I)V
 
-    invoke-virtual {v3}, Lcom/android/net/module/util/IpRange;->asIpPrefixes()Ljava/util/List;
+    invoke-virtual {v0, v3}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    move-result-object v3
-
-    invoke-interface {v3}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v3
-
-    :goto_1
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_0
-
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Landroid/net/IpPrefix;
-
-    new-instance v5, Landroid/net/RouteInfo;
-
-    const/4 v6, 0x1
-
-    const/4 v7, 0x0
-
-    invoke-direct {v5, v4, v7, v7, v6}, Landroid/net/RouteInfo;-><init>(Landroid/net/IpPrefix;Ljava/net/InetAddress;Ljava/lang/String;I)V
-
-    invoke-virtual {v0, v5}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    goto :goto_1
-
-    :cond_0
     goto :goto_0
 
     :cond_1
     return-object v0
 .end method
 
-.method private static parseIkeIdentification(Ljava/lang/String;)Landroid/net/ipsec/ike/IkeIdentification;
+.method public static parseIkeIdentification(Ljava/lang/String;)Landroid/net/ipsec/ike/IkeIdentification;
     .locals 3
 
     const-string v0, "@"
@@ -735,17 +716,17 @@
 
     invoke-virtual {p0, v2}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    new-instance v1, Landroid/net/ipsec/ike/IkeKeyIdIdentification;
+    new-instance v0, Landroid/net/ipsec/ike/IkeKeyIdIdentification;
 
-    invoke-static {v0}, Lcom/android/internal/util/HexDump;->hexStringToByteArray(Ljava/lang/String;)[B
+    invoke-static {p0}, Lcom/android/internal/util/HexDump;->hexStringToByteArray(Ljava/lang/String;)[B
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-direct {v1, v2}, Landroid/net/ipsec/ike/IkeKeyIdIdentification;-><init>([B)V
+    invoke-direct {v0, p0}, Landroid/net/ipsec/ike/IkeKeyIdIdentification;-><init>([B)V
 
-    return-object v1
+    return-object v0
 
     :cond_0
     const-string v1, "@@"
@@ -760,9 +741,9 @@
 
     invoke-virtual {p0, v2}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-direct {v0, v1}, Landroid/net/ipsec/ike/IkeRfc822AddrIdentification;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p0}, Landroid/net/ipsec/ike/IkeRfc822AddrIdentification;-><init>(Ljava/lang/String;)V
 
     return-object v0
 
@@ -779,9 +760,9 @@
 
     invoke-virtual {p0, v1}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-direct {v0, v1}, Landroid/net/ipsec/ike/IkeFqdnIdentification;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p0}, Landroid/net/ipsec/ike/IkeFqdnIdentification;-><init>(Ljava/lang/String;)V
 
     return-object v0
 
@@ -801,45 +782,41 @@
 
     invoke-static {p0}, Landroid/net/InetAddresses;->parseNumericAddress(Ljava/lang/String;)Ljava/net/InetAddress;
 
-    move-result-object v0
+    move-result-object p0
 
-    instance-of v1, v0, Ljava/net/Inet4Address;
+    instance-of v0, p0, Ljava/net/Inet4Address;
 
-    if-eqz v1, :cond_4
+    if-eqz v0, :cond_4
 
-    new-instance v1, Landroid/net/ipsec/ike/IkeIpv4AddrIdentification;
+    new-instance v0, Landroid/net/ipsec/ike/IkeIpv4AddrIdentification;
 
-    move-object v2, v0
+    check-cast p0, Ljava/net/Inet4Address;
 
-    check-cast v2, Ljava/net/Inet4Address;
+    invoke-direct {v0, p0}, Landroid/net/ipsec/ike/IkeIpv4AddrIdentification;-><init>(Ljava/net/Inet4Address;)V
 
-    invoke-direct {v1, v2}, Landroid/net/ipsec/ike/IkeIpv4AddrIdentification;-><init>(Ljava/net/Inet4Address;)V
-
-    return-object v1
+    return-object v0
 
     :cond_4
-    instance-of v1, v0, Ljava/net/Inet6Address;
+    instance-of v0, p0, Ljava/net/Inet6Address;
 
-    if-eqz v1, :cond_5
+    if-eqz v0, :cond_5
 
-    new-instance v1, Landroid/net/ipsec/ike/IkeIpv6AddrIdentification;
+    new-instance v0, Landroid/net/ipsec/ike/IkeIpv6AddrIdentification;
 
-    move-object v2, v0
+    check-cast p0, Ljava/net/Inet6Address;
 
-    check-cast v2, Ljava/net/Inet6Address;
+    invoke-direct {v0, p0}, Landroid/net/ipsec/ike/IkeIpv6AddrIdentification;-><init>(Ljava/net/Inet6Address;)V
 
-    invoke-direct {v1, v2}, Landroid/net/ipsec/ike/IkeIpv6AddrIdentification;-><init>(Ljava/net/Inet6Address;)V
-
-    return-object v1
+    return-object v0
 
     :cond_5
-    new-instance v1, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v2, "IP version not supported"
+    const-string v0, "IP version not supported"
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p0
 
     :cond_6
     const-string v0, ":"
@@ -854,9 +831,9 @@
 
     invoke-virtual {p0}, Ljava/lang/String;->getBytes()[B
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-direct {v0, v1}, Landroid/net/ipsec/ike/IkeKeyIdIdentification;-><init>([B)V
+    invoke-direct {v0, p0}, Landroid/net/ipsec/ike/IkeKeyIdIdentification;-><init>([B)V
 
     return-object v0
 
@@ -868,25 +845,24 @@
     return-object v0
 .end method
 
-.method private static setIkeAuth(Landroid/net/Ikev2VpnProfile;Landroid/net/ipsec/ike/IkeSessionParams$Builder;)V
+.method public static setIkeAuth(Landroid/net/Ikev2VpnProfile;Landroid/net/ipsec/ike/IkeSessionParams$Builder;)V
     .locals 3
 
     invoke-virtual {p0}, Landroid/net/Ikev2VpnProfile;->getType()I
 
     move-result v0
 
-    packed-switch v0, :pswitch_data_0
+    const/4 v1, 0x6
 
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    if-eq v0, v1, :cond_2
 
-    const-string v1, "Unknown auth method set"
+    const/4 v1, 0x7
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    if-eq v0, v1, :cond_1
 
-    throw v0
+    const/16 v1, 0x8
 
-    :pswitch_0
-    nop
+    if-ne v0, v1, :cond_0
 
     invoke-virtual {p0}, Landroid/net/Ikev2VpnProfile;->getServerRootCaCert()Ljava/security/cert/X509Certificate;
 
@@ -898,22 +874,31 @@
 
     invoke-virtual {p0}, Landroid/net/Ikev2VpnProfile;->getRsaPrivateKey()Ljava/security/PrivateKey;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-virtual {p1, v0, v1, v2}, Landroid/net/ipsec/ike/IkeSessionParams$Builder;->setAuthDigitalSignature(Ljava/security/cert/X509Certificate;Ljava/security/cert/X509Certificate;Ljava/security/PrivateKey;)Landroid/net/ipsec/ike/IkeSessionParams$Builder;
+    invoke-virtual {p1, v0, v1, p0}, Landroid/net/ipsec/ike/IkeSessionParams$Builder;->setAuthDigitalSignature(Ljava/security/cert/X509Certificate;Ljava/security/cert/X509Certificate;Ljava/security/PrivateKey;)Landroid/net/ipsec/ike/IkeSessionParams$Builder;
 
     goto :goto_0
 
-    :pswitch_1
+    :cond_0
+    new-instance p0, Ljava/lang/IllegalArgumentException;
+
+    const-string p1, "Unknown auth method set"
+
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+
+    :cond_1
     invoke-virtual {p0}, Landroid/net/Ikev2VpnProfile;->getPresharedKey()[B
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {p1, v0}, Landroid/net/ipsec/ike/IkeSessionParams$Builder;->setAuthPsk([B)Landroid/net/ipsec/ike/IkeSessionParams$Builder;
+    invoke-virtual {p1, p0}, Landroid/net/ipsec/ike/IkeSessionParams$Builder;->setAuthPsk([B)Landroid/net/ipsec/ike/IkeSessionParams$Builder;
 
     goto :goto_0
 
-    :pswitch_2
+    :cond_2
     new-instance v0, Landroid/net/eap/EapSessionConfig$Builder;
 
     invoke-direct {v0}, Landroid/net/eap/EapSessionConfig$Builder;-><init>()V
@@ -936,19 +921,10 @@
 
     invoke-virtual {p0}, Landroid/net/Ikev2VpnProfile;->getServerRootCaCert()Ljava/security/cert/X509Certificate;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {p1, v1, v0}, Landroid/net/ipsec/ike/IkeSessionParams$Builder;->setAuthEap(Ljava/security/cert/X509Certificate;Landroid/net/eap/EapSessionConfig;)Landroid/net/ipsec/ike/IkeSessionParams$Builder;
-
-    nop
+    invoke-virtual {p1, p0, v0}, Landroid/net/ipsec/ike/IkeSessionParams$Builder;->setAuthEap(Ljava/security/cert/X509Certificate;Landroid/net/eap/EapSessionConfig;)Landroid/net/ipsec/ike/IkeSessionParams$Builder;
 
     :goto_0
     return-void
-
-    :pswitch_data_0
-    .packed-switch 0x6
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
 .end method

@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/job/JobStore$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -31,17 +32,17 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 4
+    .locals 3
 
     iget-wide v0, p0, Lcom/android/server/job/JobStore$$ExternalSyntheticLambda0;->f$0:J
 
     iget-object v2, p0, Lcom/android/server/job/JobStore$$ExternalSyntheticLambda0;->f$1:Ljava/util/ArrayList;
 
-    iget-object v3, p0, Lcom/android/server/job/JobStore$$ExternalSyntheticLambda0;->f$2:Ljava/util/ArrayList;
+    iget-object p0, p0, Lcom/android/server/job/JobStore$$ExternalSyntheticLambda0;->f$2:Ljava/util/ArrayList;
 
     check-cast p1, Lcom/android/server/job/controllers/JobStatus;
 
-    invoke-static {v0, v1, v2, v3, p1}, Lcom/android/server/job/JobStore;->lambda$getRtcCorrectedJobsLocked$0(JLjava/util/ArrayList;Ljava/util/ArrayList;Lcom/android/server/job/controllers/JobStatus;)V
+    invoke-static {v0, v1, v2, p0, p1}, Lcom/android/server/job/JobStore;->$r8$lambda$L5XOoOQPv5Wz9pQBx-LURhM8Heg(JLjava/util/ArrayList;Ljava/util/ArrayList;Lcom/android/server/job/controllers/JobStatus;)V
 
     return-void
 .end method

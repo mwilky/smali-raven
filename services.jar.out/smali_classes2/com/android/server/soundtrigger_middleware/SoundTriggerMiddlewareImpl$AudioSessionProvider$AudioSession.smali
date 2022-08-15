@@ -15,15 +15,15 @@
 
 
 # instance fields
-.field final mDeviceHandle:I
+.field public final mDeviceHandle:I
 
-.field final mIoHandle:I
+.field public final mIoHandle:I
 
-.field final mSessionHandle:I
+.field public final mSessionHandle:I
 
 
 # direct methods
-.method constructor <init>(III)V
+.method public constructor <init>(III)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/utils/ManagedApplicationService$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/utils/ManagedApplicationService$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/utils/ManagedApplicationService;
+    iget-object p0, p0, Lcom/android/server/utils/ManagedApplicationService$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/utils/ManagedApplicationService;
 
-    invoke-static {v0}, Lcom/android/server/utils/ManagedApplicationService;->$r8$lambda$xwJ81TMqaAXDd8WS_HSuNhrsmBE(Lcom/android/server/utils/ManagedApplicationService;)V
+    invoke-static {p0}, Lcom/android/server/utils/ManagedApplicationService;->$r8$lambda$xwJ81TMqaAXDd8WS_HSuNhrsmBE(Lcom/android/server/utils/ManagedApplicationService;)V
 
     return-void
 .end method

@@ -1,4 +1,4 @@
-.class final Lcom/android/server/biometrics/sensors/iris/IrisService$IrisServiceWrapper;
+.class public final Lcom/android/server/biometrics/sensors/iris/IrisService$IrisServiceWrapper;
 .super Landroid/hardware/iris/IIrisService$Stub;
 .source "IrisService.java"
 
@@ -9,17 +9,25 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "IrisServiceWrapper"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/biometrics/sensors/iris/IrisService;
+.field public final synthetic this$0:Lcom/android/server/biometrics/sensors/iris/IrisService;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/server/biometrics/sensors/iris/IrisService;)V
+.method public static synthetic $r8$lambda$6fvoJuPbVH9Vzt-GpKdiYXZzSNs(Lcom/android/server/biometrics/sensors/iris/IrisService$IrisServiceWrapper;Ljava/util/List;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/biometrics/sensors/iris/IrisService$IrisServiceWrapper;->lambda$registerAuthenticators$0(Ljava/util/List;)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Lcom/android/server/biometrics/sensors/iris/IrisService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/biometrics/sensors/iris/IrisService$IrisServiceWrapper;->this$0:Lcom/android/server/biometrics/sensors/iris/IrisService;
@@ -29,7 +37,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/biometrics/sensors/iris/IrisService;Lcom/android/server/biometrics/sensors/iris/IrisService$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/biometrics/sensors/iris/IrisService;Lcom/android/server/biometrics/sensors/iris/IrisService$IrisServiceWrapper-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/biometrics/sensors/iris/IrisService$IrisServiceWrapper;-><init>(Lcom/android/server/biometrics/sensors/iris/IrisService;)V
@@ -37,12 +45,8 @@
     return-void
 .end method
 
-
-# virtual methods
-.method public synthetic lambda$registerAuthenticators$0$IrisService$IrisServiceWrapper(Ljava/util/List;)V
-    .locals 9
-
-    nop
+.method private synthetic lambda$registerAuthenticators$0(Ljava/util/List;)V
+    .locals 5
 
     const-string v0, "biometric"
 
@@ -56,76 +60,75 @@
 
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v1
+    move-result-object p1
 
     :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_0
+    if-eqz v1, :cond_0
 
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
-    check-cast v2, Landroid/hardware/biometrics/SensorPropertiesInternal;
+    check-cast v1, Landroid/hardware/biometrics/SensorPropertiesInternal;
 
-    iget v3, v2, Landroid/hardware/biometrics/SensorPropertiesInternal;->sensorId:I
+    iget v2, v1, Landroid/hardware/biometrics/SensorPropertiesInternal;->sensorId:I
 
-    iget v4, v2, Landroid/hardware/biometrics/SensorPropertiesInternal;->sensorStrength:I
+    iget v1, v1, Landroid/hardware/biometrics/SensorPropertiesInternal;->sensorStrength:I
 
-    invoke-static {v4}, Lcom/android/server/biometrics/Utils;->propertyStrengthToAuthenticatorStrength(I)I
+    invoke-static {v1}, Lcom/android/server/biometrics/Utils;->propertyStrengthToAuthenticatorStrength(I)I
 
-    move-result v4
+    move-result v1
 
-    new-instance v5, Lcom/android/server/biometrics/sensors/iris/IrisAuthenticator;
+    new-instance v3, Lcom/android/server/biometrics/sensors/iris/IrisAuthenticator;
 
-    iget-object v6, p0, Lcom/android/server/biometrics/sensors/iris/IrisService$IrisServiceWrapper;->this$0:Lcom/android/server/biometrics/sensors/iris/IrisService;
+    iget-object v4, p0, Lcom/android/server/biometrics/sensors/iris/IrisService$IrisServiceWrapper;->this$0:Lcom/android/server/biometrics/sensors/iris/IrisService;
 
-    invoke-static {v6}, Lcom/android/server/biometrics/sensors/iris/IrisService;->access$000(Lcom/android/server/biometrics/sensors/iris/IrisService;)Lcom/android/server/biometrics/sensors/iris/IrisService$IrisServiceWrapper;
+    invoke-static {v4}, Lcom/android/server/biometrics/sensors/iris/IrisService;->-$$Nest$fgetmServiceWrapper(Lcom/android/server/biometrics/sensors/iris/IrisService;)Lcom/android/server/biometrics/sensors/iris/IrisService$IrisServiceWrapper;
 
-    move-result-object v6
+    move-result-object v4
 
-    invoke-direct {v5, v6, v3}, Lcom/android/server/biometrics/sensors/iris/IrisAuthenticator;-><init>(Landroid/hardware/iris/IIrisService;I)V
+    invoke-direct {v3, v4, v2}, Lcom/android/server/biometrics/sensors/iris/IrisAuthenticator;-><init>(Landroid/hardware/iris/IIrisService;I)V
 
-    const/4 v6, 0x4
+    const/4 v4, 0x4
 
     :try_start_0
-    invoke-interface {v0, v3, v6, v4, v5}, Landroid/hardware/biometrics/IBiometricService;->registerAuthenticator(IIILandroid/hardware/biometrics/IBiometricAuthenticator;)V
+    invoke-interface {v0, v2, v4, v1, v3}, Landroid/hardware/biometrics/IBiometricService;->registerAuthenticator(IIILandroid/hardware/biometrics/IBiometricAuthenticator;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_1
+    goto :goto_0
 
     :catch_0
-    move-exception v6
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v3, "Remote exception when registering sensorId: "
 
-    const-string v8, "Remote exception when registering sensorId: "
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v7, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v7
+    const-string v2, "IrisService"
 
-    const-string v8, "IrisService"
+    invoke-static {v2, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {v8, v7}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    :goto_1
     goto :goto_0
 
     :cond_0
     return-void
 .end method
 
+
+# virtual methods
 .method public registerAuthenticators(Ljava/util/List;)V
     .locals 4
     .annotation system Ldalvik/annotation/Signature;
@@ -139,7 +142,7 @@
 
     iget-object v0, p0, Lcom/android/server/biometrics/sensors/iris/IrisService$IrisServiceWrapper;->this$0:Lcom/android/server/biometrics/sensors/iris/IrisService;
 
-    invoke-virtual {v0}, Lcom/android/server/biometrics/sensors/iris/IrisService;->getContext()Landroid/content/Context;
+    invoke-virtual {v0}, Lcom/android/server/SystemService;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
@@ -157,21 +160,21 @@
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/ServiceThread;-><init>(Ljava/lang/String;IZ)V
 
-    invoke-virtual {v0}, Lcom/android/server/ServiceThread;->start()V
+    invoke-virtual {v0}, Landroid/os/HandlerThread;->start()V
 
     new-instance v1, Landroid/os/Handler;
 
-    invoke-virtual {v0}, Lcom/android/server/ServiceThread;->getLooper()Landroid/os/Looper;
+    invoke-virtual {v0}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-direct {v1, v2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
+    invoke-direct {v1, v0}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
-    new-instance v2, Lcom/android/server/biometrics/sensors/iris/IrisService$IrisServiceWrapper$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/android/server/biometrics/sensors/iris/IrisService$IrisServiceWrapper$$ExternalSyntheticLambda0;
 
-    invoke-direct {v2, p0, p1}, Lcom/android/server/biometrics/sensors/iris/IrisService$IrisServiceWrapper$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/biometrics/sensors/iris/IrisService$IrisServiceWrapper;Ljava/util/List;)V
+    invoke-direct {v0, p0, p1}, Lcom/android/server/biometrics/sensors/iris/IrisService$IrisServiceWrapper$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/biometrics/sensors/iris/IrisService$IrisServiceWrapper;Ljava/util/List;)V
 
-    invoke-virtual {v1, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {v1, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     return-void
 .end method

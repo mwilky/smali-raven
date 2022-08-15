@@ -1,5 +1,6 @@
 .class public final synthetic Landroid/net/IpMemoryStore$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/BiFunction;
@@ -23,17 +24,17 @@
 
 # virtual methods
 .method public final apply(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Landroid/net/IpMemoryStore$$ExternalSyntheticLambda0;->f$0:Ljava/util/function/Consumer;
+    iget-object p0, p0, Landroid/net/IpMemoryStore$$ExternalSyntheticLambda0;->f$0:Ljava/util/function/Consumer;
 
     check-cast p1, Landroid/net/IIpMemoryStore;
 
     check-cast p2, Ljava/lang/Throwable;
 
-    invoke-static {v0, p1, p2}, Landroid/net/IpMemoryStore;->lambda$runWhenServiceReady$0(Ljava/util/function/Consumer;Landroid/net/IIpMemoryStore;Ljava/lang/Throwable;)Landroid/net/IIpMemoryStore;
+    invoke-static {p0, p1, p2}, Landroid/net/IpMemoryStore;->$r8$lambda$iCgaOGIxfRBHVC8JuA-R4fwU96Q(Ljava/util/function/Consumer;Landroid/net/IIpMemoryStore;Ljava/lang/Throwable;)Landroid/net/IIpMemoryStore;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method

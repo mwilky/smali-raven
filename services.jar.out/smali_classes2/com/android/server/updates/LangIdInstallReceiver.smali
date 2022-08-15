@@ -22,10 +22,10 @@
 
 
 # virtual methods
-.method protected verifyVersion(II)Z
-    .locals 1
+.method public verifyVersion(II)Z
+    .locals 0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 .end method

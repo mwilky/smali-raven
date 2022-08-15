@@ -3,18 +3,12 @@
 .source "ActiveSourceAction.java"
 
 
-# static fields
-.field private static final STATE_FINISHED:I = 0x2
-
-.field private static final STATE_STARTED:I = 0x1
-
-
 # instance fields
-.field private final mDestination:I
+.field public final mDestination:I
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/hdmi/HdmiCecLocalDevice;I)V
+.method public constructor <init>(Lcom/android/server/hdmi/HdmiCecLocalDevice;I)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/hdmi/HdmiCecFeatureAction;-><init>(Lcom/android/server/hdmi/HdmiCecLocalDevice;)V
@@ -34,32 +28,32 @@
     return-void
 .end method
 
-.method handleTimerEvent(I)V
+.method public handleTimerEvent(I)V
     .locals 0
 
     return-void
 .end method
 
-.method processCommand(Lcom/android/server/hdmi/HdmiCecMessage;)Z
-    .locals 1
+.method public processCommand(Lcom/android/server/hdmi/HdmiCecMessage;)Z
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
-.method start()Z
+.method public start()Z
     .locals 5
 
     const/4 v0, 0x1
 
-    iput v0, p0, Lcom/android/server/hdmi/ActiveSourceAction;->mState:I
+    iput v0, p0, Lcom/android/server/hdmi/HdmiCecFeatureAction;->mState:I
 
-    invoke-virtual {p0}, Lcom/android/server/hdmi/ActiveSourceAction;->getSourceAddress()I
+    invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecFeatureAction;->getSourceAddress()I
 
     move-result v1
 
-    invoke-virtual {p0}, Lcom/android/server/hdmi/ActiveSourceAction;->getSourcePath()I
+    invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecFeatureAction;->getSourcePath()I
 
     move-result v2
 
@@ -67,13 +61,13 @@
 
     move-result-object v3
 
-    invoke-virtual {p0, v3}, Lcom/android/server/hdmi/ActiveSourceAction;->sendCommand(Lcom/android/server/hdmi/HdmiCecMessage;)V
+    invoke-virtual {p0, v3}, Lcom/android/server/hdmi/HdmiCecFeatureAction;->sendCommand(Lcom/android/server/hdmi/HdmiCecMessage;)V
 
-    invoke-virtual {p0}, Lcom/android/server/hdmi/ActiveSourceAction;->source()Lcom/android/server/hdmi/HdmiCecLocalDeviceSource;
+    invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecFeatureAction;->source()Lcom/android/server/hdmi/HdmiCecLocalDeviceSource;
 
     move-result-object v3
 
-    invoke-virtual {v3}, Lcom/android/server/hdmi/HdmiCecLocalDeviceSource;->getType()I
+    invoke-virtual {v3}, Lcom/android/server/hdmi/HdmiCecLocalDevice;->getType()I
 
     move-result v3
 
@@ -89,10 +83,10 @@
 
     move-result-object v3
 
-    invoke-virtual {p0, v3}, Lcom/android/server/hdmi/ActiveSourceAction;->sendCommand(Lcom/android/server/hdmi/HdmiCecMessage;)V
+    invoke-virtual {p0, v3}, Lcom/android/server/hdmi/HdmiCecFeatureAction;->sendCommand(Lcom/android/server/hdmi/HdmiCecMessage;)V
 
     :cond_0
-    invoke-virtual {p0}, Lcom/android/server/hdmi/ActiveSourceAction;->source()Lcom/android/server/hdmi/HdmiCecLocalDeviceSource;
+    invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecFeatureAction;->source()Lcom/android/server/hdmi/HdmiCecLocalDeviceSource;
 
     move-result-object v3
 
@@ -100,11 +94,11 @@
 
     invoke-virtual {v3, v1, v2, v4}, Lcom/android/server/hdmi/HdmiCecLocalDeviceSource;->setActiveSource(IILjava/lang/String;)V
 
-    const/4 v3, 0x2
+    const/4 v1, 0x2
 
-    iput v3, p0, Lcom/android/server/hdmi/ActiveSourceAction;->mState:I
+    iput v1, p0, Lcom/android/server/hdmi/HdmiCecFeatureAction;->mState:I
 
-    invoke-virtual {p0}, Lcom/android/server/hdmi/ActiveSourceAction;->finish()V
+    invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecFeatureAction;->finish()V
 
     return v0
 .end method

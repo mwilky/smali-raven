@@ -4,12 +4,28 @@
 
 
 # instance fields
-.field private mAppOps:Landroid/app/AppOpsManager;
+.field public mAppOps:Landroid/app/AppOpsManager;
 
-.field private final mContext:Landroid/content/Context;
+.field public final mContext:Landroid/content/Context;
 
 
 # direct methods
+.method public static synthetic $r8$lambda$CLGSyfxutfULAy19enjkBJzZIqM(Lcom/android/server/location/injector/SystemAppOpsHelper;Ljava/lang/String;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/location/injector/SystemAppOpsHelper;->lambda$onSystemReady$0(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$qQjoYrrPfn6mgnIOmXGjXLQeFjs(Lcom/android/server/location/injector/SystemAppOpsHelper;Ljava/lang/String;Ljava/lang/String;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/server/location/injector/SystemAppOpsHelper;->lambda$onSystemReady$1(Ljava/lang/String;Ljava/lang/String;)V
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 0
 
@@ -20,10 +36,34 @@
     return-void
 .end method
 
+.method private synthetic lambda$onSystemReady$0(Ljava/lang/String;)V
+    .locals 0
+
+    invoke-virtual {p0, p1}, Lcom/android/server/location/injector/AppOpsHelper;->notifyAppOpChanged(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method private synthetic lambda$onSystemReady$1(Ljava/lang/String;Ljava/lang/String;)V
+    .locals 1
+
+    invoke-static {}, Lcom/android/server/FgThread;->getHandler()Landroid/os/Handler;
+
+    move-result-object p1
+
+    new-instance v0, Lcom/android/server/location/injector/SystemAppOpsHelper$$ExternalSyntheticLambda1;
+
+    invoke-direct {v0, p0, p2}, Lcom/android/server/location/injector/SystemAppOpsHelper$$ExternalSyntheticLambda1;-><init>(Lcom/android/server/location/injector/SystemAppOpsHelper;Ljava/lang/String;)V
+
+    invoke-virtual {p1, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
+    return-void
+.end method
+
 
 # virtual methods
 .method public checkOpNoThrow(ILandroid/location/util/identity/CallerIdentity;)Z
-    .locals 7
+    .locals 5
 
     iget-object v0, p0, Lcom/android/server/location/injector/SystemAppOpsHelper;->mAppOps:Landroid/app/AppOpsManager;
 
@@ -48,23 +88,23 @@
     move-result-wide v3
 
     :try_start_0
-    iget-object v0, p0, Lcom/android/server/location/injector/SystemAppOpsHelper;->mAppOps:Landroid/app/AppOpsManager;
+    iget-object p0, p0, Lcom/android/server/location/injector/SystemAppOpsHelper;->mAppOps:Landroid/app/AppOpsManager;
 
     invoke-virtual {p2}, Landroid/location/util/identity/CallerIdentity;->getUid()I
 
-    move-result v5
+    move-result v0
 
     invoke-virtual {p2}, Landroid/location/util/identity/CallerIdentity;->getPackageName()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object p2
 
-    invoke-virtual {v0, p1, v5, v6}, Landroid/app/AppOpsManager;->checkOpNoThrow(IILjava/lang/String;)I
+    invoke-virtual {p0, p1, v0, p2}, Landroid/app/AppOpsManager;->checkOpNoThrow(IILjava/lang/String;)I
 
-    move-result v0
+    move-result p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-nez v0, :cond_1
+    if-nez p0, :cond_1
 
     goto :goto_1
 
@@ -77,15 +117,15 @@
     return v1
 
     :catchall_0
-    move-exception v0
+    move-exception p0
 
     invoke-static {v3, v4}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public finishOp(ILandroid/location/util/identity/CallerIdentity;)V
-    .locals 6
+    .locals 4
 
     iget-object v0, p0, Lcom/android/server/location/injector/SystemAppOpsHelper;->mAppOps:Landroid/app/AppOpsManager;
 
@@ -106,60 +146,34 @@
     move-result-wide v0
 
     :try_start_0
-    iget-object v2, p0, Lcom/android/server/location/injector/SystemAppOpsHelper;->mAppOps:Landroid/app/AppOpsManager;
+    iget-object p0, p0, Lcom/android/server/location/injector/SystemAppOpsHelper;->mAppOps:Landroid/app/AppOpsManager;
 
     invoke-virtual {p2}, Landroid/location/util/identity/CallerIdentity;->getUid()I
 
-    move-result v3
+    move-result v2
 
     invoke-virtual {p2}, Landroid/location/util/identity/CallerIdentity;->getPackageName()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v3
 
     invoke-virtual {p2}, Landroid/location/util/identity/CallerIdentity;->getAttributionTag()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object p2
 
-    invoke-virtual {v2, p1, v3, v4, v5}, Landroid/app/AppOpsManager;->finishOp(IILjava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, p1, v2, v3, p2}, Landroid/app/AppOpsManager;->finishOp(IILjava/lang/String;Ljava/lang/String;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    nop
-
     return-void
 
     :catchall_0
-    move-exception v2
+    move-exception p0
 
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    throw v2
-.end method
-
-.method public synthetic lambda$onSystemReady$0$SystemAppOpsHelper(Ljava/lang/String;)V
-    .locals 0
-
-    invoke-virtual {p0, p1}, Lcom/android/server/location/injector/SystemAppOpsHelper;->notifyAppOpChanged(Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method public synthetic lambda$onSystemReady$1$SystemAppOpsHelper(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 2
-
-    invoke-static {}, Lcom/android/server/FgThread;->getHandler()Landroid/os/Handler;
-
-    move-result-object v0
-
-    new-instance v1, Lcom/android/server/location/injector/SystemAppOpsHelper$$ExternalSyntheticLambda1;
-
-    invoke-direct {v1, p0, p2}, Lcom/android/server/location/injector/SystemAppOpsHelper$$ExternalSyntheticLambda1;-><init>(Lcom/android/server/location/injector/SystemAppOpsHelper;Ljava/lang/String;)V
-
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-
-    return-void
+    throw p0
 .end method
 
 .method public noteOp(ILandroid/location/util/identity/CallerIdentity;)Z
@@ -210,11 +224,11 @@
 
     invoke-virtual/range {v5 .. v10}, Landroid/app/AppOpsManager;->noteOp(IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result v0
+    move-result p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-nez v0, :cond_1
+    if-nez p0, :cond_1
 
     goto :goto_1
 
@@ -227,11 +241,11 @@
     return v1
 
     :catchall_0
-    move-exception v0
+    move-exception p0
 
     invoke-static {v3, v4}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public noteOpNoThrow(ILandroid/location/util/identity/CallerIdentity;)Z
@@ -282,11 +296,11 @@
 
     invoke-virtual/range {v5 .. v10}, Landroid/app/AppOpsManager;->noteOpNoThrow(IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result v0
+    move-result p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-nez v0, :cond_1
+    if-nez p0, :cond_1
 
     goto :goto_1
 
@@ -299,11 +313,11 @@
     return v1
 
     :catchall_0
-    move-exception v0
+    move-exception p0
 
     invoke-static {v3, v4}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public onSystemReady()V
@@ -328,7 +342,9 @@
 
     invoke-static {v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    check-cast v0, Landroid/app/AppOpsManager;
+    move-object v1, v0
+
+    check-cast v1, Landroid/app/AppOpsManager;
 
     iput-object v0, p0, Lcom/android/server/location/injector/SystemAppOpsHelper;->mAppOps:Landroid/app/AppOpsManager;
 
@@ -397,11 +413,11 @@
 
     invoke-virtual/range {v5 .. v11}, Landroid/app/AppOpsManager;->startOpNoThrow(IILjava/lang/String;ZLjava/lang/String;Ljava/lang/String;)I
 
-    move-result v0
+    move-result p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-nez v0, :cond_1
+    if-nez p0, :cond_1
 
     goto :goto_1
 
@@ -414,9 +430,9 @@
     return v1
 
     :catchall_0
-    move-exception v0
+    move-exception p0
 
     invoke-static {v3, v4}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    throw v0
+    throw p0
 .end method

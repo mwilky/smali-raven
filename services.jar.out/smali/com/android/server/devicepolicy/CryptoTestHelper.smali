@@ -4,16 +4,8 @@
 
 
 # direct methods
-.method public constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
 .method public static runAndLogSelfTest()V
-    .locals 4
+    .locals 3
 
     invoke-static {}, Lcom/android/server/devicepolicy/CryptoTestHelper;->runSelfTest()I
 
@@ -25,15 +17,15 @@
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v2
+    move-result-object v0
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    aput-object v2, v1, v3
+    aput-object v0, v1, v2
 
-    const v2, 0x3346f
+    const v0, 0x3346f
 
-    invoke-static {v2, v1}, Landroid/app/admin/SecurityLog;->writeEvent(I[Ljava/lang/Object;)I
+    invoke-static {v0, v1}, Landroid/app/admin/SecurityLog;->writeEvent(I[Ljava/lang/Object;)I
 
     return-void
 .end method

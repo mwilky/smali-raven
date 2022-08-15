@@ -15,7 +15,7 @@
 
 
 # instance fields
-.field private final mMsg:Ljava/lang/String;
+.field public final mMsg:Ljava/lang/String;
 
 
 # direct methods
@@ -32,9 +32,9 @@
 
 # virtual methods
 .method public eventToString()Ljava/lang/String;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/soundtrigger/SoundTriggerLogger$StringEvent;->mMsg:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/soundtrigger/SoundTriggerLogger$StringEvent;->mMsg:Ljava/lang/String;
 
-    return-object v0
+    return-object p0
 .end method

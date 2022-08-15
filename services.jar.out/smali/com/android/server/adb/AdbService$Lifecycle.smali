@@ -15,7 +15,7 @@
 
 
 # instance fields
-.field private mAdbService:Lcom/android/server/adb/AdbService;
+.field public mAdbService:Lcom/android/server/adb/AdbService;
 
 
 # direct methods
@@ -30,15 +30,15 @@
 
 # virtual methods
 .method public onBootPhase(I)V
-    .locals 3
+    .locals 1
 
     const/16 v0, 0x226
 
     if-ne p1, v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/adb/AdbService$Lifecycle;->mAdbService:Lcom/android/server/adb/AdbService;
+    iget-object p0, p0, Lcom/android/server/adb/AdbService$Lifecycle;->mAdbService:Lcom/android/server/adb/AdbService;
 
-    invoke-virtual {v0}, Lcom/android/server/adb/AdbService;->systemReady()V
+    invoke-virtual {p0}, Lcom/android/server/adb/AdbService;->systemReady()V
 
     goto :goto_0
 
@@ -49,17 +49,19 @@
 
     invoke-static {}, Lcom/android/server/FgThread;->getHandler()Landroid/os/Handler;
 
-    move-result-object v0
+    move-result-object p1
 
-    sget-object v1, Lcom/android/server/adb/AdbService$Lifecycle$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/server/adb/AdbService$Lifecycle$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/android/server/adb/AdbService$Lifecycle$$ExternalSyntheticLambda0;
 
-    iget-object v2, p0, Lcom/android/server/adb/AdbService$Lifecycle;->mAdbService:Lcom/android/server/adb/AdbService;
+    invoke-direct {v0}, Lcom/android/server/adb/AdbService$Lifecycle$$ExternalSyntheticLambda0;-><init>()V
 
-    invoke-static {v1, v2}, Lcom/android/internal/util/function/pooled/PooledLambda;->obtainMessage(Ljava/util/function/Consumer;Ljava/lang/Object;)Landroid/os/Message;
+    iget-object p0, p0, Lcom/android/server/adb/AdbService$Lifecycle;->mAdbService:Lcom/android/server/adb/AdbService;
 
-    move-result-object v1
+    invoke-static {v0, p0}, Lcom/android/internal/util/function/pooled/PooledLambda;->obtainMessage(Ljava/util/function/Consumer;Ljava/lang/Object;)Landroid/os/Message;
 
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
+    move-result-object p0
+
+    invoke-virtual {p1, p0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
     :cond_1
     :goto_0
@@ -71,19 +73,19 @@
 
     new-instance v0, Lcom/android/server/adb/AdbService;
 
-    invoke-virtual {p0}, Lcom/android/server/adb/AdbService$Lifecycle;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Lcom/android/server/SystemService;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
     const/4 v2, 0x0
 
-    invoke-direct {v0, v1, v2}, Lcom/android/server/adb/AdbService;-><init>(Landroid/content/Context;Lcom/android/server/adb/AdbService$1;)V
+    invoke-direct {v0, v1, v2}, Lcom/android/server/adb/AdbService;-><init>(Landroid/content/Context;Lcom/android/server/adb/AdbService-IA;)V
 
     iput-object v0, p0, Lcom/android/server/adb/AdbService$Lifecycle;->mAdbService:Lcom/android/server/adb/AdbService;
 
     const-string v1, "adb"
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/server/adb/AdbService$Lifecycle;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
+    invoke-virtual {p0, v1, v0}, Lcom/android/server/SystemService;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
 
     return-void
 .end method

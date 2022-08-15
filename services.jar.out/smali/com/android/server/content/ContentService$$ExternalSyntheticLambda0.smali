@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/content/ContentService$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/server/pm/permission/LegacyPermissionManagerInternal$SyncAdapterPackagesProvider;
@@ -23,13 +24,13 @@
 
 # virtual methods
 .method public final getPackages(Ljava/lang/String;I)[Ljava/lang/String;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/content/ContentService$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/content/ContentService;
+    iget-object p0, p0, Lcom/android/server/content/ContentService$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/content/ContentService;
 
-    invoke-virtual {v0, p1, p2}, Lcom/android/server/content/ContentService;->lambda$new$0$ContentService(Ljava/lang/String;I)[Ljava/lang/String;
+    invoke-static {p0, p1, p2}, Lcom/android/server/content/ContentService;->$r8$lambda$mH9LzsOWgTqAeeGKESJk2z3AkfM(Lcom/android/server/content/ContentService;Ljava/lang/String;I)[Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method

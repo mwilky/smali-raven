@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/AccessibilityController$WindowsForAccessibilityObserver$MyHandler;
+.class public Lcom/android/server/wm/AccessibilityController$WindowsForAccessibilityObserver$MyHandler;
 .super Landroid/os/Handler;
 .source "AccessibilityController.java"
 
@@ -9,17 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "MyHandler"
 .end annotation
 
 
-# static fields
-.field public static final MESSAGE_COMPUTE_CHANGED_WINDOWS:I = 0x1
-
-
 # instance fields
-.field final synthetic this$0:Lcom/android/server/wm/AccessibilityController$WindowsForAccessibilityObserver;
+.field public final synthetic this$0:Lcom/android/server/wm/AccessibilityController$WindowsForAccessibilityObserver;
 
 
 # direct methods
@@ -40,28 +36,23 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 2
+    .locals 1
 
-    iget v0, p1, Landroid/os/Message;->what:I
+    iget p1, p1, Landroid/os/Message;->what:I
 
-    packed-switch v0, :pswitch_data_0
+    const/4 v0, 0x1
+
+    if-eq p1, v0, :cond_0
 
     goto :goto_0
 
-    :pswitch_0
-    iget-object v0, p0, Lcom/android/server/wm/AccessibilityController$WindowsForAccessibilityObserver$MyHandler;->this$0:Lcom/android/server/wm/AccessibilityController$WindowsForAccessibilityObserver;
+    :cond_0
+    iget-object p0, p0, Lcom/android/server/wm/AccessibilityController$WindowsForAccessibilityObserver$MyHandler;->this$0:Lcom/android/server/wm/AccessibilityController$WindowsForAccessibilityObserver;
 
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    invoke-virtual {v0, v1}, Lcom/android/server/wm/AccessibilityController$WindowsForAccessibilityObserver;->computeChangedWindows(Z)V
+    invoke-virtual {p0, p1}, Lcom/android/server/wm/AccessibilityController$WindowsForAccessibilityObserver;->computeChangedWindows(Z)V
 
     :goto_0
     return-void
-
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_0
-    .end packed-switch
 .end method

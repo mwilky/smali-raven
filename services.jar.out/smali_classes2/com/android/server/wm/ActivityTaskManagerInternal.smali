@@ -15,30 +15,6 @@
 .end annotation
 
 
-# static fields
-.field public static final APP_TRANSITION_RECENTS_ANIM:I = 0x5
-
-.field public static final APP_TRANSITION_SNAPSHOT:I = 0x4
-
-.field public static final APP_TRANSITION_SPLASH_SCREEN:I = 0x1
-
-.field public static final APP_TRANSITION_TIMEOUT:I = 0x3
-
-.field public static final APP_TRANSITION_WINDOWS_DRAWN:I = 0x2
-
-.field public static final ASSIST_ACTIVITY_ID:Ljava/lang/String; = "activityId"
-
-.field public static final ASSIST_KEY_CONTENT:Ljava/lang/String; = "content"
-
-.field public static final ASSIST_KEY_DATA:Ljava/lang/String; = "data"
-
-.field public static final ASSIST_KEY_RECEIVER_EXTRAS:Ljava/lang/String; = "receiverExtras"
-
-.field public static final ASSIST_KEY_STRUCTURE:Ljava/lang/String; = "structure"
-
-.field public static final ASSIST_TASK_ID:Ljava/lang/String; = "taskId"
-
-
 # direct methods
 .method public constructor <init>()V
     .locals 0
@@ -103,9 +79,6 @@
     .end annotation
 .end method
 
-.method public abstract clearSavedANRState()V
-.end method
-
 .method public abstract closeSystemDialogs(Ljava/lang/String;)V
 .end method
 
@@ -124,7 +97,7 @@
 .method public abstract dump(Ljava/lang/String;Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;IZZLjava/lang/String;)V
 .end method
 
-.method public abstract dumpActivity(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;Ljava/lang/String;[Ljava/lang/String;IZZZ)Z
+.method public abstract dumpActivity(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;Ljava/lang/String;[Ljava/lang/String;IZZZI)Z
 .end method
 
 .method public abstract dumpForOom(Ljava/io/PrintWriter;)V
@@ -148,7 +121,23 @@
 .method public abstract getActivityName(Landroid/os/IBinder;)Landroid/content/ComponentName;
 .end method
 
+.method public abstract getAppTasks(Ljava/lang/String;I)Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            "I)",
+            "Ljava/util/List<",
+            "Landroid/app/ActivityManager$AppTask;",
+            ">;"
+        }
+    .end annotation
+.end method
+
 .method public abstract getApplicationConfig(Ljava/lang/String;I)Lcom/android/server/wm/ActivityTaskManagerInternal$PackageConfig;
+.end method
+
+.method public abstract getAttachedNonFinishingActivityForTask(ILandroid/os/IBinder;)Lcom/android/server/wm/ActivityTaskManagerInternal$ActivityTokens;
 .end method
 
 .method public abstract getHomeActivityForUser(I)Landroid/content/ComponentName;
@@ -163,13 +152,16 @@
 .method public abstract getLaunchObserverRegistry()Lcom/android/server/wm/ActivityMetricsLaunchObserverRegistry;
 .end method
 
+.method public abstract getMostRecentTaskFromBackground()Landroid/app/ActivityManager$RecentTaskInfo;
+.end method
+
 .method public abstract getServiceConnectionsHolder(Landroid/os/IBinder;)Lcom/android/server/wm/ActivityServiceConnectionsHolder;
 .end method
 
 .method public abstract getTaskSnapshotBlocking(IZ)Landroid/window/TaskSnapshot;
 .end method
 
-.method public abstract getTopActivityForTask(I)Lcom/android/server/wm/ActivityTaskManagerInternal$ActivityTokens;
+.method public abstract getTaskToShowPermissionDialogOn(Ljava/lang/String;I)I
 .end method
 
 .method public abstract getTopApp()Lcom/android/server/wm/WindowProcessController;
@@ -210,16 +202,10 @@
 .method public abstract isCallerRecents(I)Z
 .end method
 
-.method public abstract isDreaming()Z
-.end method
-
 .method public abstract isFactoryTestProcess(Lcom/android/server/wm/WindowProcessController;)Z
 .end method
 
 .method public abstract isGetTasksAllowed(Ljava/lang/String;II)Z
-.end method
-
-.method public abstract isRecentsComponentHomeActivity(I)Z
 .end method
 
 .method public abstract isShuttingDown()Z
@@ -238,12 +224,6 @@
 .end method
 
 .method public abstract notifyDreamStateChanged(Z)V
-.end method
-
-.method public abstract notifyKeyguardFlagsChanged(Ljava/lang/Runnable;I)V
-.end method
-
-.method public abstract notifyKeyguardTrustedChanged()V
 .end method
 
 .method public abstract notifyLockedProfile(II)V
@@ -267,13 +247,13 @@
 .method public abstract onPackageAdded(Ljava/lang/String;Z)V
 .end method
 
-.method public abstract onPackageDataCleared(Ljava/lang/String;)V
+.method public abstract onPackageDataCleared(Ljava/lang/String;I)V
 .end method
 
 .method public abstract onPackageReplaced(Landroid/content/pm/ApplicationInfo;)V
 .end method
 
-.method public abstract onPackageUninstalled(Ljava/lang/String;)V
+.method public abstract onPackageUninstalled(Ljava/lang/String;I)V
 .end method
 
 .method public abstract onPackagesSuspendedChanged([Ljava/lang/String;ZI)V
@@ -294,16 +274,10 @@
 .method public abstract onUidActive(II)V
 .end method
 
-.method public abstract onUidAddedToPendingTempAllowlist(ILjava/lang/String;)V
-.end method
-
 .method public abstract onUidInactive(I)V
 .end method
 
 .method public abstract onUidProcStateChanged(II)V
-.end method
-
-.method public abstract onUidRemovedFromPendingTempAllowlist(I)V
 .end method
 
 .method public abstract onUserStopped(I)V
@@ -324,10 +298,10 @@
 .method public abstract removeUser(I)V
 .end method
 
-.method public abstract resumeTopActivities(Z)V
+.method public abstract restartTaskActivityProcessIfVisible(ILjava/lang/String;)V
 .end method
 
-.method public abstract saveANRState(Ljava/lang/String;)V
+.method public abstract resumeTopActivities(Z)V
 .end method
 
 .method public abstract scheduleDestroyAllActivities(Ljava/lang/String;)V

@@ -1,35 +1,34 @@
 .class public final synthetic Lcom/android/server/wm/WindowProcessController$$ExternalSyntheticLambda10;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/IntPredicate;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/android/server/wm/ActivityTaskManagerService;
+.implements Ljava/util/function/BiConsumer;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/wm/ActivityTaskManagerService;)V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/server/wm/WindowProcessController$$ExternalSyntheticLambda10;->f$0:Lcom/android/server/wm/ActivityTaskManagerService;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final test(I)Z
-    .locals 1
+.method public final accept(Ljava/lang/Object;Ljava/lang/Object;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/WindowProcessController$$ExternalSyntheticLambda10;->f$0:Lcom/android/server/wm/ActivityTaskManagerService;
+    check-cast p1, Lcom/android/server/wm/WindowProcessListener;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/wm/ActivityTaskManagerService;->hasActiveVisibleWindow(I)Z
+    check-cast p2, Ljava/lang/Integer;
 
-    move-result p1
+    invoke-virtual {p2}, Ljava/lang/Integer;->intValue()I
 
-    return p1
+    move-result p0
+
+    invoke-interface {p1, p0}, Lcom/android/server/wm/WindowProcessListener;->setPendingUiCleanAndForceProcessStateUpTo(I)V
+
+    return-void
 .end method

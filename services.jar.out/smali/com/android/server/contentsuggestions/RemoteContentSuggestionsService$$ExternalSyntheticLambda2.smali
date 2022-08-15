@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/contentsuggestions/RemoteContentSuggestionsService$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/internal/infra/AbstractRemoteService$AsyncRequest;
@@ -27,15 +28,15 @@
 
 # virtual methods
 .method public final run(Landroid/os/IInterface;)V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/contentsuggestions/RemoteContentSuggestionsService$$ExternalSyntheticLambda2;->f$0:Landroid/app/contentsuggestions/SelectionsRequest;
 
-    iget-object v1, p0, Lcom/android/server/contentsuggestions/RemoteContentSuggestionsService$$ExternalSyntheticLambda2;->f$1:Landroid/app/contentsuggestions/ISelectionsCallback;
+    iget-object p0, p0, Lcom/android/server/contentsuggestions/RemoteContentSuggestionsService$$ExternalSyntheticLambda2;->f$1:Landroid/app/contentsuggestions/ISelectionsCallback;
 
     check-cast p1, Landroid/service/contentsuggestions/IContentSuggestionsService;
 
-    invoke-static {v0, v1, p1}, Lcom/android/server/contentsuggestions/RemoteContentSuggestionsService;->lambda$suggestContentSelections$1(Landroid/app/contentsuggestions/SelectionsRequest;Landroid/app/contentsuggestions/ISelectionsCallback;Landroid/service/contentsuggestions/IContentSuggestionsService;)V
+    invoke-static {v0, p0, p1}, Lcom/android/server/contentsuggestions/RemoteContentSuggestionsService;->$r8$lambda$FdTUPx3CZQ_9EDWfXe13q3KpnMA(Landroid/app/contentsuggestions/SelectionsRequest;Landroid/app/contentsuggestions/ISelectionsCallback;Landroid/service/contentsuggestions/IContentSuggestionsService;)V
 
     return-void
 .end method

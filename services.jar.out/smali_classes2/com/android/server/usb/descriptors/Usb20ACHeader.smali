@@ -3,14 +3,10 @@
 .source "Usb20ACHeader.java"
 
 
-# static fields
-.field private static final TAG:Ljava/lang/String; = "Usb20ACHeader"
-
-
 # instance fields
-.field private mCategory:B
+.field public mCategory:B
 
-.field private mControls:B
+.field public mControls:B
 
 
 # direct methods
@@ -25,19 +21,19 @@
 
 # virtual methods
 .method public getCategory()B
-    .locals 1
+    .locals 0
 
-    iget-byte v0, p0, Lcom/android/server/usb/descriptors/Usb20ACHeader;->mCategory:B
+    iget-byte p0, p0, Lcom/android/server/usb/descriptors/Usb20ACHeader;->mCategory:B
 
-    return v0
+    return p0
 .end method
 
 .method public getControls()B
-    .locals 1
+    .locals 0
 
-    iget-byte v0, p0, Lcom/android/server/usb/descriptors/Usb20ACHeader;->mControls:B
+    iget-byte p0, p0, Lcom/android/server/usb/descriptors/Usb20ACHeader;->mControls:B
 
-    return v0
+    return p0
 .end method
 
 .method public parseRawDescriptors(Lcom/android/server/usb/descriptors/ByteStream;)I
@@ -53,17 +49,17 @@
 
     move-result v0
 
-    iput v0, p0, Lcom/android/server/usb/descriptors/Usb20ACHeader;->mTotalLength:I
+    iput v0, p0, Lcom/android/server/usb/descriptors/UsbACHeaderInterface;->mTotalLength:I
 
     invoke-virtual {p1}, Lcom/android/server/usb/descriptors/ByteStream;->getByte()B
 
-    move-result v0
+    move-result p1
 
-    iput-byte v0, p0, Lcom/android/server/usb/descriptors/Usb20ACHeader;->mControls:B
+    iput-byte p1, p0, Lcom/android/server/usb/descriptors/Usb20ACHeader;->mControls:B
 
-    iget v0, p0, Lcom/android/server/usb/descriptors/Usb20ACHeader;->mLength:I
+    iget p0, p0, Lcom/android/server/usb/descriptors/UsbDescriptor;->mLength:I
 
-    return v0
+    return p0
 .end method
 
 .method public report(Lcom/android/server/usb/descriptors/report/ReportCanvas;)V
@@ -107,19 +103,19 @@
 
     invoke-virtual {p0}, Lcom/android/server/usb/descriptors/Usb20ACHeader;->getControls()B
 
-    move-result v1
+    move-result p0
 
-    invoke-static {v1}, Lcom/android/server/usb/descriptors/report/ReportCanvas;->getHexString(B)Ljava/lang/String;
+    invoke-static {p0}, Lcom/android/server/usb/descriptors/report/ReportCanvas;->getHexString(B)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {p1, v0}, Lcom/android/server/usb/descriptors/report/ReportCanvas;->writeListItem(Ljava/lang/String;)V
+    invoke-virtual {p1, p0}, Lcom/android/server/usb/descriptors/report/ReportCanvas;->writeListItem(Ljava/lang/String;)V
 
     invoke-virtual {p1}, Lcom/android/server/usb/descriptors/report/ReportCanvas;->closeList()V
 

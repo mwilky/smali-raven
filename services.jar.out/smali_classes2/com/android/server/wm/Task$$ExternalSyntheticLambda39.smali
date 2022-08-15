@@ -1,45 +1,36 @@
 .class public final synthetic Lcom/android/server/wm/Task$$ExternalSyntheticLambda39;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Predicate;
+.implements Ljava/util/function/Consumer;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/wm/Task$$ExternalSyntheticLambda39;
+# instance fields
+.field public final synthetic f$0:Landroid/view/SurfaceControl$Transaction;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda39;
-
-    invoke-direct {v0}, Lcom/android/server/wm/Task$$ExternalSyntheticLambda39;-><init>()V
-
-    sput-object v0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda39;->INSTANCE:Lcom/android/server/wm/Task$$ExternalSyntheticLambda39;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Landroid/view/SurfaceControl$Transaction;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda39;->f$0:Landroid/view/SurfaceControl$Transaction;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final test(Ljava/lang/Object;)Z
+.method public final accept(Ljava/lang/Object;)V
     .locals 0
 
-    check-cast p1, Lcom/android/server/wm/ActivityRecord;
+    iget-object p0, p0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda39;->f$0:Landroid/view/SurfaceControl$Transaction;
 
-    invoke-static {p1}, Lcom/android/server/wm/Task;->lambda$getTopWaitSplashScreenActivity$9(Lcom/android/server/wm/ActivityRecord;)Z
+    check-cast p1, Landroid/view/SurfaceControl$Transaction;
 
-    move-result p1
+    invoke-static {p0, p1}, Lcom/android/server/wm/Task;->$r8$lambda$JdJao7ApEFaCEwnEpn23vFCpiq8(Landroid/view/SurfaceControl$Transaction;Landroid/view/SurfaceControl$Transaction;)V
 
-    return p1
+    return-void
 .end method

@@ -1,4 +1,4 @@
-.class Lcom/android/server/autofill/ui/InlineSuggestionFactory$1;
+.class public Lcom/android/server/autofill/ui/InlineSuggestionFactory$1;
 .super Ljava/lang/Object;
 .source "InlineSuggestionFactory.java"
 
@@ -12,13 +12,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,13 +41,13 @@
 .end method
 
 .method public onError()V
-    .locals 2
+    .locals 1
 
-    const-string v0, "InlineSuggestionFactory"
+    const-string p0, "InlineSuggestionFactory"
 
-    const-string v1, "An error happened on the tooltip"
+    const-string v0, "An error happened on the tooltip"
 
-    invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 .end method

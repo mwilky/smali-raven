@@ -1,43 +1,46 @@
 .class public final synthetic Lcom/android/server/SystemServer$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/internal/os/RuntimeInit$ApplicationWtfHandler;
+.implements Ljava/lang/Runnable;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/SystemServer$$ExternalSyntheticLambda1;
+# instance fields
+.field public final synthetic f$0:I
+
+.field public final synthetic f$1:I
+
+.field public final synthetic f$2:I
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/SystemServer$$ExternalSyntheticLambda1;
-
-    invoke-direct {v0}, Lcom/android/server/SystemServer$$ExternalSyntheticLambda1;-><init>()V
-
-    sput-object v0, Lcom/android/server/SystemServer$$ExternalSyntheticLambda1;->INSTANCE:Lcom/android/server/SystemServer$$ExternalSyntheticLambda1;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(III)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput p1, p0, Lcom/android/server/SystemServer$$ExternalSyntheticLambda1;->f$0:I
+
+    iput p2, p0, Lcom/android/server/SystemServer$$ExternalSyntheticLambda1;->f$1:I
+
+    iput p3, p0, Lcom/android/server/SystemServer$$ExternalSyntheticLambda1;->f$2:I
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final handleApplicationWtf(Landroid/os/IBinder;Ljava/lang/String;ZLandroid/app/ApplicationErrorReport$ParcelableCrashInfo;I)Z
-    .locals 0
+.method public final run()V
+    .locals 2
 
-    invoke-static {p1, p2, p3, p4, p5}, Lcom/android/server/SystemServer;->$r8$lambda$8zxOYx-QEMffbYJtoGp6Ub2KG-8(Landroid/os/IBinder;Ljava/lang/String;ZLandroid/app/ApplicationErrorReport$ParcelableCrashInfo;I)Z
+    iget v0, p0, Lcom/android/server/SystemServer$$ExternalSyntheticLambda1;->f$0:I
 
-    move-result p1
+    iget v1, p0, Lcom/android/server/SystemServer$$ExternalSyntheticLambda1;->f$1:I
 
-    return p1
+    iget p0, p0, Lcom/android/server/SystemServer$$ExternalSyntheticLambda1;->f$2:I
+
+    invoke-static {v0, v1, p0}, Lcom/android/server/SystemServer;->$r8$lambda$v-psNxxn04XSmew8NxqdyfW0MfY(III)V
+
+    return-void
 .end method

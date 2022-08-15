@@ -1,156 +1,272 @@
-.class final Lcom/android/server/am/ProcessCachedOptimizerRecord;
+.class public final Lcom/android/server/am/ProcessCachedOptimizerRecord;
 .super Ljava/lang/Object;
 .source "ProcessCachedOptimizerRecord.java"
 
 
 # static fields
-.field static final IS_FROZEN:Ljava/lang/String; = "isFrozen"
+.field public static final IS_FROZEN:Ljava/lang/String; = "isFrozen"
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+.end field
 
 
 # instance fields
-.field private final mApp:Lcom/android/server/am/ProcessRecord;
+.field public final mApp:Lcom/android/server/am/ProcessRecord;
 
-.field private mFreezeExempt:Z
+.field public mForceCompact:Z
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProcLock"
+        }
+    .end annotation
+.end field
 
-.field private mFreezeUnfreezeTime:J
+.field public mFreezeExempt:Z
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProcLock"
+        }
+    .end annotation
+.end field
 
-.field mFreezerOverride:Z
+.field public mFreezeUnfreezeTime:J
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProcLock"
+        }
+    .end annotation
+.end field
 
-.field private mFrozen:Z
+.field public mFreezerOverride:Z
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProcLock"
+        }
+    .end annotation
+.end field
 
-.field private mLastCompactAction:I
+.field public mFrozen:Z
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProcLock"
+        }
+    .end annotation
+.end field
 
-.field private mLastCompactTime:J
+.field public mLastCompactAction:I
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProcLock"
+        }
+    .end annotation
+.end field
 
-.field private mPendingCompact:Z
+.field public mLastCompactTime:J
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProcLock"
+        }
+    .end annotation
+.end field
 
-.field private mPendingFreeze:Z
+.field public mPendingCompact:Z
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProcLock"
+        }
+    .end annotation
+.end field
 
-.field private final mProcLock:Lcom/android/server/am/ActivityManagerGlobalLock;
+.field public mPendingFreeze:Z
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProcLock"
+        }
+    .end annotation
+.end field
 
-.field private mReqCompactAction:I
+.field public final mProcLock:Lcom/android/server/am/ActivityManagerGlobalLock;
 
-.field private mShouldNotFreeze:Z
+.field public mReqCompactAction:I
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProcLock"
+        }
+    .end annotation
+.end field
+
+.field public mShouldNotFreeze:Z
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProcLock"
+        }
+    .end annotation
+.end field
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/ProcessRecord;)V
-    .locals 1
+.method public constructor <init>(Lcom/android/server/am/ProcessRecord;)V
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/server/am/ProcessCachedOptimizerRecord;->mApp:Lcom/android/server/am/ProcessRecord;
 
-    iget-object v0, p1, Lcom/android/server/am/ProcessRecord;->mService:Lcom/android/server/am/ActivityManagerService;
+    iget-object p1, p1, Lcom/android/server/am/ProcessRecord;->mService:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mProcLock:Lcom/android/server/am/ActivityManagerGlobalLock;
+    iget-object p1, p1, Lcom/android/server/am/ActivityManagerService;->mProcLock:Lcom/android/server/am/ActivityManagerGlobalLock;
 
-    iput-object v0, p0, Lcom/android/server/am/ProcessCachedOptimizerRecord;->mProcLock:Lcom/android/server/am/ActivityManagerGlobalLock;
+    iput-object p1, p0, Lcom/android/server/am/ProcessCachedOptimizerRecord;->mProcLock:Lcom/android/server/am/ActivityManagerGlobalLock;
 
     return-void
 .end method
 
 
 # virtual methods
-.method dump(Ljava/io/PrintWriter;Ljava/lang/String;J)V
-    .locals 2
+.method public dump(Ljava/io/PrintWriter;Ljava/lang/String;J)V
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProcLock"
+        }
+    .end annotation
 
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    const-string/jumbo v0, "lastCompactTime="
+    const-string p3, "lastCompactTime="
 
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+    invoke-virtual {p1, p3}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    iget-wide v0, p0, Lcom/android/server/am/ProcessCachedOptimizerRecord;->mLastCompactTime:J
+    iget-wide p3, p0, Lcom/android/server/am/ProcessCachedOptimizerRecord;->mLastCompactTime:J
 
-    invoke-virtual {p1, v0, v1}, Ljava/io/PrintWriter;->print(J)V
+    invoke-virtual {p1, p3, p4}, Ljava/io/PrintWriter;->print(J)V
 
-    const-string v0, " lastCompactAction="
+    const-string p3, " lastCompactAction="
 
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+    invoke-virtual {p1, p3}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    iget v0, p0, Lcom/android/server/am/ProcessCachedOptimizerRecord;->mLastCompactAction:I
+    iget p3, p0, Lcom/android/server/am/ProcessCachedOptimizerRecord;->mLastCompactAction:I
 
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(I)V
+    invoke-virtual {p1, p3}, Ljava/io/PrintWriter;->println(I)V
 
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    const-string v0, "isFreezeExempt="
+    const-string p3, "hasPendingCompaction="
 
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+    invoke-virtual {p1, p3}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    iget-boolean v0, p0, Lcom/android/server/am/ProcessCachedOptimizerRecord;->mFreezeExempt:Z
+    iget-boolean p3, p0, Lcom/android/server/am/ProcessCachedOptimizerRecord;->mPendingCompact:Z
 
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Z)V
+    invoke-virtual {p1, p3}, Ljava/io/PrintWriter;->print(Z)V
 
-    const-string v0, " isPendingFreeze="
+    invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+    const-string p2, "isFreezeExempt="
 
-    iget-boolean v0, p0, Lcom/android/server/am/ProcessCachedOptimizerRecord;->mPendingFreeze:Z
+    invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Z)V
+    iget-boolean p2, p0, Lcom/android/server/am/ProcessCachedOptimizerRecord;->mFreezeExempt:Z
 
-    const-string v0, " isFrozen="
+    invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Z)V
 
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+    const-string p2, " isPendingFreeze="
 
-    iget-boolean v0, p0, Lcom/android/server/am/ProcessCachedOptimizerRecord;->mFrozen:Z
+    invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Z)V
+    iget-boolean p2, p0, Lcom/android/server/am/ProcessCachedOptimizerRecord;->mPendingFreeze:Z
+
+    invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Z)V
+
+    const-string p2, " isFrozen="
+
+    invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget-boolean p0, p0, Lcom/android/server/am/ProcessCachedOptimizerRecord;->mFrozen:Z
+
+    invoke-virtual {p1, p0}, Ljava/io/PrintWriter;->println(Z)V
 
     return-void
 .end method
 
-.method getFreezeUnfreezeTime()J
+.method public getFreezeUnfreezeTime()J
     .locals 2
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProcLock"
+        }
+    .end annotation
 
     iget-wide v0, p0, Lcom/android/server/am/ProcessCachedOptimizerRecord;->mFreezeUnfreezeTime:J
 
     return-wide v0
 .end method
 
-.method getLastCompactAction()I
-    .locals 1
+.method public getLastCompactAction()I
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProcLock"
+        }
+    .end annotation
 
-    iget v0, p0, Lcom/android/server/am/ProcessCachedOptimizerRecord;->mLastCompactAction:I
+    iget p0, p0, Lcom/android/server/am/ProcessCachedOptimizerRecord;->mLastCompactAction:I
 
-    return v0
+    return p0
 .end method
 
-.method getLastCompactTime()J
+.method public getLastCompactTime()J
     .locals 2
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProcLock"
+        }
+    .end annotation
 
     iget-wide v0, p0, Lcom/android/server/am/ProcessCachedOptimizerRecord;->mLastCompactTime:J
 
     return-wide v0
 .end method
 
-.method getReqCompactAction()I
-    .locals 1
+.method public getReqCompactAction()I
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProcLock"
+        }
+    .end annotation
 
-    iget v0, p0, Lcom/android/server/am/ProcessCachedOptimizerRecord;->mReqCompactAction:I
+    iget p0, p0, Lcom/android/server/am/ProcessCachedOptimizerRecord;->mReqCompactAction:I
 
-    return v0
+    return p0
 .end method
 
-.method hasFreezerOverride()Z
-    .locals 1
+.method public hasFreezerOverride()Z
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProcLock"
+        }
+    .end annotation
 
-    iget-boolean v0, p0, Lcom/android/server/am/ProcessCachedOptimizerRecord;->mFreezerOverride:Z
+    iget-boolean p0, p0, Lcom/android/server/am/ProcessCachedOptimizerRecord;->mFreezerOverride:Z
 
-    return v0
+    return p0
 .end method
 
-.method hasPendingCompact()Z
-    .locals 1
+.method public hasPendingCompact()Z
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProcLock"
+        }
+    .end annotation
 
-    iget-boolean v0, p0, Lcom/android/server/am/ProcessCachedOptimizerRecord;->mPendingCompact:Z
+    iget-boolean p0, p0, Lcom/android/server/am/ProcessCachedOptimizerRecord;->mPendingCompact:Z
 
-    return v0
+    return p0
 .end method
 
-.method init(J)V
+.method public init(J)V
     .locals 0
 
     iput-wide p1, p0, Lcom/android/server/am/ProcessCachedOptimizerRecord;->mFreezeUnfreezeTime:J
@@ -158,114 +274,210 @@
     return-void
 .end method
 
-.method isFreezeExempt()Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/server/am/ProcessCachedOptimizerRecord;->mFreezeExempt:Z
-
-    return v0
-.end method
-
-.method isFrozen()Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/server/am/ProcessCachedOptimizerRecord;->mFrozen:Z
-
-    return v0
-.end method
-
-.method isPendingFreeze()Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/server/am/ProcessCachedOptimizerRecord;->mPendingFreeze:Z
-
-    return v0
-.end method
-
-.method setFreezeExempt(Z)V
+.method public isForceCompact()Z
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProcLock"
+        }
+    .end annotation
+
+    iget-boolean p0, p0, Lcom/android/server/am/ProcessCachedOptimizerRecord;->mForceCompact:Z
+
+    return p0
+.end method
+
+.method public isFreezeExempt()Z
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProcLock"
+        }
+    .end annotation
+
+    iget-boolean p0, p0, Lcom/android/server/am/ProcessCachedOptimizerRecord;->mFreezeExempt:Z
+
+    return p0
+.end method
+
+.method public isFrozen()Z
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProcLock"
+        }
+    .end annotation
+
+    iget-boolean p0, p0, Lcom/android/server/am/ProcessCachedOptimizerRecord;->mFrozen:Z
+
+    return p0
+.end method
+
+.method public isPendingFreeze()Z
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProcLock"
+        }
+    .end annotation
+
+    iget-boolean p0, p0, Lcom/android/server/am/ProcessCachedOptimizerRecord;->mPendingFreeze:Z
+
+    return p0
+.end method
+
+.method public setForceCompact(Z)V
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProcLock"
+        }
+    .end annotation
+
+    iput-boolean p1, p0, Lcom/android/server/am/ProcessCachedOptimizerRecord;->mForceCompact:Z
+
+    return-void
+.end method
+
+.method public setFreezeExempt(Z)V
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProcLock"
+        }
+    .end annotation
 
     iput-boolean p1, p0, Lcom/android/server/am/ProcessCachedOptimizerRecord;->mFreezeExempt:Z
 
     return-void
 .end method
 
-.method setFreezeUnfreezeTime(J)V
+.method public setFreezeUnfreezeTime(J)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProcLock"
+        }
+    .end annotation
 
     iput-wide p1, p0, Lcom/android/server/am/ProcessCachedOptimizerRecord;->mFreezeUnfreezeTime:J
 
     return-void
 .end method
 
-.method setFreezerOverride(Z)V
+.method public setFreezerOverride(Z)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProcLock"
+        }
+    .end annotation
 
     iput-boolean p1, p0, Lcom/android/server/am/ProcessCachedOptimizerRecord;->mFreezerOverride:Z
 
     return-void
 .end method
 
-.method setFrozen(Z)V
+.method public setFrozen(Z)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProcLock"
+        }
+    .end annotation
 
     iput-boolean p1, p0, Lcom/android/server/am/ProcessCachedOptimizerRecord;->mFrozen:Z
 
     return-void
 .end method
 
-.method setHasPendingCompact(Z)V
+.method public setHasPendingCompact(Z)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProcLock"
+        }
+    .end annotation
 
     iput-boolean p1, p0, Lcom/android/server/am/ProcessCachedOptimizerRecord;->mPendingCompact:Z
 
     return-void
 .end method
 
-.method setLastCompactAction(I)V
+.method public setLastCompactAction(I)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProcLock"
+        }
+    .end annotation
 
     iput p1, p0, Lcom/android/server/am/ProcessCachedOptimizerRecord;->mLastCompactAction:I
 
     return-void
 .end method
 
-.method setLastCompactTime(J)V
+.method public setLastCompactTime(J)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProcLock"
+        }
+    .end annotation
 
     iput-wide p1, p0, Lcom/android/server/am/ProcessCachedOptimizerRecord;->mLastCompactTime:J
 
     return-void
 .end method
 
-.method setPendingFreeze(Z)V
+.method public setPendingFreeze(Z)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProcLock"
+        }
+    .end annotation
 
     iput-boolean p1, p0, Lcom/android/server/am/ProcessCachedOptimizerRecord;->mPendingFreeze:Z
 
     return-void
 .end method
 
-.method setReqCompactAction(I)V
+.method public setReqCompactAction(I)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProcLock"
+        }
+    .end annotation
 
     iput p1, p0, Lcom/android/server/am/ProcessCachedOptimizerRecord;->mReqCompactAction:I
 
     return-void
 .end method
 
-.method setShouldNotFreeze(Z)V
+.method public setShouldNotFreeze(Z)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProcLock"
+        }
+    .end annotation
 
     iput-boolean p1, p0, Lcom/android/server/am/ProcessCachedOptimizerRecord;->mShouldNotFreeze:Z
 
     return-void
 .end method
 
-.method shouldNotFreeze()Z
-    .locals 1
+.method public shouldNotFreeze()Z
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProcLock"
+        }
+    .end annotation
 
-    iget-boolean v0, p0, Lcom/android/server/am/ProcessCachedOptimizerRecord;->mShouldNotFreeze:Z
+    iget-boolean p0, p0, Lcom/android/server/am/ProcessCachedOptimizerRecord;->mShouldNotFreeze:Z
 
-    return v0
+    return p0
 .end method

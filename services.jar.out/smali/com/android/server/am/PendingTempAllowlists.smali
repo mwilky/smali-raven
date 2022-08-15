@@ -1,10 +1,10 @@
-.class final Lcom/android/server/am/PendingTempAllowlists;
+.class public final Lcom/android/server/am/PendingTempAllowlists;
 .super Ljava/lang/Object;
 .source "PendingTempAllowlists.java"
 
 
 # instance fields
-.field private final mPendingTempAllowlist:Landroid/util/SparseArray;
+.field public final mPendingTempAllowlist:Landroid/util/SparseArray;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/SparseArray<",
@@ -14,11 +14,11 @@
     .end annotation
 .end field
 
-.field private mService:Lcom/android/server/am/ActivityManagerService;
+.field public mService:Lcom/android/server/am/ActivityManagerService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/ActivityManagerService;)V
+.method public constructor <init>(Lcom/android/server/am/ActivityManagerService;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,94 +36,170 @@
 
 
 # virtual methods
-.method get(I)Lcom/android/server/am/ActivityManagerService$PendingTempAllowlist;
+.method public get(I)Lcom/android/server/am/ActivityManagerService$PendingTempAllowlist;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/am/PendingTempAllowlists;->mPendingTempAllowlist:Landroid/util/SparseArray;
 
-    invoke-virtual {v0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    monitor-enter v0
 
-    move-result-object v0
+    :try_start_0
+    iget-object p0, p0, Lcom/android/server/am/PendingTempAllowlists;->mPendingTempAllowlist:Landroid/util/SparseArray;
 
-    check-cast v0, Lcom/android/server/am/ActivityManagerService$PendingTempAllowlist;
+    invoke-virtual {p0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
-    return-object v0
+    move-result-object p0
+
+    check-cast p0, Lcom/android/server/am/ActivityManagerService$PendingTempAllowlist;
+
+    monitor-exit v0
+
+    return-object p0
+
+    :catchall_0
+    move-exception p0
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw p0
 .end method
 
-.method indexOfKey(I)I
+.method public indexOfKey(I)I
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/am/PendingTempAllowlists;->mPendingTempAllowlist:Landroid/util/SparseArray;
 
-    invoke-virtual {v0, p1}, Landroid/util/SparseArray;->indexOfKey(I)I
+    monitor-enter v0
 
-    move-result v0
+    :try_start_0
+    iget-object p0, p0, Lcom/android/server/am/PendingTempAllowlists;->mPendingTempAllowlist:Landroid/util/SparseArray;
 
-    return v0
+    invoke-virtual {p0, p1}, Landroid/util/SparseArray;->indexOfKey(I)I
+
+    move-result p0
+
+    monitor-exit v0
+
+    return p0
+
+    :catchall_0
+    move-exception p0
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw p0
 .end method
 
-.method put(ILcom/android/server/am/ActivityManagerService$PendingTempAllowlist;)V
-    .locals 2
+.method public put(ILcom/android/server/am/ActivityManagerService$PendingTempAllowlist;)V
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/am/PendingTempAllowlists;->mPendingTempAllowlist:Landroid/util/SparseArray;
 
-    invoke-virtual {v0, p1, p2}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    monitor-enter v0
 
-    iget-object v0, p0, Lcom/android/server/am/PendingTempAllowlists;->mService:Lcom/android/server/am/ActivityManagerService;
+    :try_start_0
+    iget-object p0, p0, Lcom/android/server/am/PendingTempAllowlists;->mPendingTempAllowlist:Landroid/util/SparseArray;
 
-    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mAtmInternal:Lcom/android/server/wm/ActivityTaskManagerInternal;
+    invoke-virtual {p0, p1, p2}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    iget-object v1, p2, Lcom/android/server/am/ActivityManagerService$PendingTempAllowlist;->tag:Ljava/lang/String;
-
-    invoke-virtual {v0, p1, v1}, Lcom/android/server/wm/ActivityTaskManagerInternal;->onUidAddedToPendingTempAllowlist(ILjava/lang/String;)V
+    monitor-exit v0
 
     return-void
+
+    :catchall_0
+    move-exception p0
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw p0
 .end method
 
-.method removeAt(I)V
-    .locals 2
+.method public removeAt(I)V
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/am/PendingTempAllowlists;->mPendingTempAllowlist:Landroid/util/SparseArray;
 
-    invoke-virtual {v0, p1}, Landroid/util/SparseArray;->keyAt(I)I
+    monitor-enter v0
 
-    move-result v0
+    :try_start_0
+    iget-object p0, p0, Lcom/android/server/am/PendingTempAllowlists;->mPendingTempAllowlist:Landroid/util/SparseArray;
 
-    iget-object v1, p0, Lcom/android/server/am/PendingTempAllowlists;->mPendingTempAllowlist:Landroid/util/SparseArray;
+    invoke-virtual {p0, p1}, Landroid/util/SparseArray;->removeAt(I)V
 
-    invoke-virtual {v1, p1}, Landroid/util/SparseArray;->removeAt(I)V
-
-    iget-object v1, p0, Lcom/android/server/am/PendingTempAllowlists;->mService:Lcom/android/server/am/ActivityManagerService;
-
-    iget-object v1, v1, Lcom/android/server/am/ActivityManagerService;->mAtmInternal:Lcom/android/server/wm/ActivityTaskManagerInternal;
-
-    invoke-virtual {v1, v0}, Lcom/android/server/wm/ActivityTaskManagerInternal;->onUidRemovedFromPendingTempAllowlist(I)V
+    monitor-exit v0
 
     return-void
+
+    :catchall_0
+    move-exception p0
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw p0
 .end method
 
-.method size()I
+.method public size()I
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/am/PendingTempAllowlists;->mPendingTempAllowlist:Landroid/util/SparseArray;
 
-    invoke-virtual {v0}, Landroid/util/SparseArray;->size()I
+    monitor-enter v0
 
-    move-result v0
+    :try_start_0
+    iget-object p0, p0, Lcom/android/server/am/PendingTempAllowlists;->mPendingTempAllowlist:Landroid/util/SparseArray;
 
-    return v0
+    invoke-virtual {p0}, Landroid/util/SparseArray;->size()I
+
+    move-result p0
+
+    monitor-exit v0
+
+    return p0
+
+    :catchall_0
+    move-exception p0
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw p0
 .end method
 
-.method valueAt(I)Lcom/android/server/am/ActivityManagerService$PendingTempAllowlist;
+.method public valueAt(I)Lcom/android/server/am/ActivityManagerService$PendingTempAllowlist;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/am/PendingTempAllowlists;->mPendingTempAllowlist:Landroid/util/SparseArray;
 
-    invoke-virtual {v0, p1}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
+    monitor-enter v0
 
-    move-result-object v0
+    :try_start_0
+    iget-object p0, p0, Lcom/android/server/am/PendingTempAllowlists;->mPendingTempAllowlist:Landroid/util/SparseArray;
 
-    check-cast v0, Lcom/android/server/am/ActivityManagerService$PendingTempAllowlist;
+    invoke-virtual {p0, p1}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
 
-    return-object v0
+    move-result-object p0
+
+    check-cast p0, Lcom/android/server/am/ActivityManagerService$PendingTempAllowlist;
+
+    monitor-exit v0
+
+    return-object p0
+
+    :catchall_0
+    move-exception p0
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw p0
 .end method

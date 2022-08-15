@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/usb/UsbProfileGroupSettingsManager$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/usb/UsbProfileGroupSettingsManager$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/usb/UsbProfileGroupSettingsManager;
+    iget-object p0, p0, Lcom/android/server/usb/UsbProfileGroupSettingsManager$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/usb/UsbProfileGroupSettingsManager;
 
-    invoke-virtual {v0}, Lcom/android/server/usb/UsbProfileGroupSettingsManager;->lambda$scheduleWriteSettingsLocked$1$UsbProfileGroupSettingsManager()V
+    invoke-static {p0}, Lcom/android/server/usb/UsbProfileGroupSettingsManager;->$r8$lambda$HVdjH89iFFM-fo1Bw7Wdwu6iZXI(Lcom/android/server/usb/UsbProfileGroupSettingsManager;)V
 
     return-void
 .end method

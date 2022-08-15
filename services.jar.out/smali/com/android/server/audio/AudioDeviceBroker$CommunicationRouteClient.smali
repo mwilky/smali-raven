@@ -1,4 +1,4 @@
-.class Lcom/android/server/audio/AudioDeviceBroker$CommunicationRouteClient;
+.class public Lcom/android/server/audio/AudioDeviceBroker$CommunicationRouteClient;
 .super Ljava/lang/Object;
 .source "AudioDeviceBroker.java"
 
@@ -12,23 +12,23 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "CommunicationRouteClient"
 .end annotation
 
 
 # instance fields
-.field private final mCb:Landroid/os/IBinder;
+.field public final mCb:Landroid/os/IBinder;
 
-.field private mDevice:Landroid/media/AudioDeviceAttributes;
+.field public mDevice:Landroid/media/AudioDeviceAttributes;
 
-.field private final mPid:I
+.field public final mPid:I
 
-.field final synthetic this$0:Lcom/android/server/audio/AudioDeviceBroker;
+.field public final synthetic this$0:Lcom/android/server/audio/AudioDeviceBroker;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/audio/AudioDeviceBroker;Landroid/os/IBinder;ILandroid/media/AudioDeviceAttributes;)V
+.method public constructor <init>(Lcom/android/server/audio/AudioDeviceBroker;Landroid/os/IBinder;ILandroid/media/AudioDeviceAttributes;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/audio/AudioDeviceBroker$CommunicationRouteClient;->this$0:Lcom/android/server/audio/AudioDeviceBroker;
@@ -56,41 +56,39 @@
     return-void
 .end method
 
-.method getBinder()Landroid/os/IBinder;
-    .locals 1
+.method public getBinder()Landroid/os/IBinder;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/audio/AudioDeviceBroker$CommunicationRouteClient;->mCb:Landroid/os/IBinder;
+    iget-object p0, p0, Lcom/android/server/audio/AudioDeviceBroker$CommunicationRouteClient;->mCb:Landroid/os/IBinder;
 
-    return-object v0
+    return-object p0
 .end method
 
-.method getDevice()Landroid/media/AudioDeviceAttributes;
-    .locals 1
+.method public getDevice()Landroid/media/AudioDeviceAttributes;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/audio/AudioDeviceBroker$CommunicationRouteClient;->mDevice:Landroid/media/AudioDeviceAttributes;
+    iget-object p0, p0, Lcom/android/server/audio/AudioDeviceBroker$CommunicationRouteClient;->mDevice:Landroid/media/AudioDeviceAttributes;
 
-    return-object v0
+    return-object p0
 .end method
 
-.method getPid()I
-    .locals 1
+.method public getPid()I
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/audio/AudioDeviceBroker$CommunicationRouteClient;->mPid:I
+    iget p0, p0, Lcom/android/server/audio/AudioDeviceBroker$CommunicationRouteClient;->mPid:I
 
-    return v0
+    return p0
 .end method
 
 .method public registerDeathRecipient()Z
-    .locals 4
+    .locals 3
 
     const/4 v0, 0x0
 
     :try_start_0
     iget-object v1, p0, Lcom/android/server/audio/AudioDeviceBroker$CommunicationRouteClient;->mCb:Landroid/os/IBinder;
 
-    const/4 v2, 0x0
-
-    invoke-interface {v1, p0, v2}, Landroid/os/IBinder;->linkToDeath(Landroid/os/IBinder$DeathRecipient;I)V
+    invoke-interface {v1, p0, v0}, Landroid/os/IBinder;->linkToDeath(Landroid/os/IBinder$DeathRecipient;I)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -99,90 +97,88 @@
     goto :goto_0
 
     :catch_0
-    move-exception v1
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v2, "CommunicationRouteClient could not link to "
 
-    const-string v3, "CommunicationRouteClient could not link to "
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object p0, p0, Lcom/android/server/audio/AudioDeviceBroker$CommunicationRouteClient;->mCb:Landroid/os/IBinder;
 
-    iget-object v3, p0, Lcom/android/server/audio/AudioDeviceBroker$CommunicationRouteClient;->mCb:Landroid/os/IBinder;
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    const-string p0, " binder death"
 
-    const-string v3, " binder death"
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object v2
+    const-string v1, "AS.AudioDeviceBroker"
 
-    const-string v3, "AS.AudioDeviceBroker"
-
-    invoke-static {v3, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     :goto_0
     return v0
 .end method
 
-.method requestsBluetoothSco()Z
-    .locals 2
+.method public requestsBluetoothSco()Z
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/audio/AudioDeviceBroker$CommunicationRouteClient;->mDevice:Landroid/media/AudioDeviceAttributes;
+    iget-object p0, p0, Lcom/android/server/audio/AudioDeviceBroker$CommunicationRouteClient;->mDevice:Landroid/media/AudioDeviceAttributes;
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    invoke-virtual {v0}, Landroid/media/AudioDeviceAttributes;->getType()I
+    invoke-virtual {p0}, Landroid/media/AudioDeviceAttributes;->getType()I
 
-    move-result v0
+    move-result p0
 
-    const/4 v1, 0x7
+    const/4 v0, 0x7
 
-    if-ne v0, v1, :cond_0
+    if-ne p0, v0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
-.method requestsSpeakerphone()Z
-    .locals 2
+.method public requestsSpeakerphone()Z
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/audio/AudioDeviceBroker$CommunicationRouteClient;->mDevice:Landroid/media/AudioDeviceAttributes;
+    iget-object p0, p0, Lcom/android/server/audio/AudioDeviceBroker$CommunicationRouteClient;->mDevice:Landroid/media/AudioDeviceAttributes;
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    invoke-virtual {v0}, Landroid/media/AudioDeviceAttributes;->getType()I
+    invoke-virtual {p0}, Landroid/media/AudioDeviceAttributes;->getType()I
 
-    move-result v0
+    move-result p0
 
-    const/4 v1, 0x2
+    const/4 v0, 0x2
 
-    if-ne v0, v1, :cond_0
+    if-ne p0, v0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method public unregisterDeathRecipient()V
-    .locals 3
+    .locals 2
 
     :try_start_0
     iget-object v0, p0, Lcom/android/server/audio/AudioDeviceBroker$CommunicationRouteClient;->mCb:Landroid/os/IBinder;
@@ -196,13 +192,11 @@
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    const-string p0, "AS.AudioDeviceBroker"
 
-    const-string v1, "AS.AudioDeviceBroker"
+    const-string v0, "CommunicationRouteClient could not not unregistered to binder"
 
-    const-string v2, "CommunicationRouteClient could not not unregistered to binder"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     :goto_0
     return-void

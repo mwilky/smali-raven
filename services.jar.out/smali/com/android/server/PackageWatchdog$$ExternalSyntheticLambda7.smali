@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/PackageWatchdog$$ExternalSyntheticLambda7;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Ljava/util/function/Consumer;
 
 
 # instance fields
@@ -22,12 +23,14 @@
 
 
 # virtual methods
-.method public final run()V
-    .locals 1
+.method public final accept(Ljava/lang/Object;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/PackageWatchdog$$ExternalSyntheticLambda7;->f$0:Lcom/android/server/PackageWatchdog;
+    iget-object p0, p0, Lcom/android/server/PackageWatchdog$$ExternalSyntheticLambda7;->f$0:Lcom/android/server/PackageWatchdog;
 
-    invoke-static {v0}, Lcom/android/server/PackageWatchdog;->$r8$lambda$sB1AaENOScp2w-CsmK3S4QVgWFE(Lcom/android/server/PackageWatchdog;)Z
+    check-cast p1, Ljava/util/List;
+
+    invoke-static {p0, p1}, Lcom/android/server/PackageWatchdog;->$r8$lambda$gZWs-TyzQqbLM3R81XiXAOEkCKo(Lcom/android/server/PackageWatchdog;Ljava/util/List;)V
 
     return-void
 .end method

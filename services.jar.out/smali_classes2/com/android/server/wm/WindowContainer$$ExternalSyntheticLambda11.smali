@@ -1,28 +1,13 @@
 .class public final synthetic Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda11;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Predicate;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda11;
-
-
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda11;
-
-    invoke-direct {v0}, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda11;-><init>()V
-
-    sput-object v0, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda11;->INSTANCE:Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda11;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -35,11 +20,11 @@
 .method public final test(Ljava/lang/Object;)Z
     .locals 0
 
-    check-cast p1, Lcom/android/server/wm/Task;
+    check-cast p1, Lcom/android/server/wm/ActivityRecord;
 
-    invoke-static {p1}, Lcom/android/server/wm/WindowContainer;->lambda$getBottomMostTask$11(Lcom/android/server/wm/Task;)Z
+    invoke-static {p1}, Lcom/android/server/wm/WindowContainer;->$r8$lambda$6_hkr3I23L4mB0Mx_vdmFlx8srM(Lcom/android/server/wm/ActivityRecord;)Z
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method

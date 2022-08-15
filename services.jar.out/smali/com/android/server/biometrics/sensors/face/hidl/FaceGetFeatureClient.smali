@@ -13,45 +13,38 @@
 .end annotation
 
 
-# static fields
-.field private static final TAG:Ljava/lang/String; = "FaceGetFeatureClient"
-
-
 # instance fields
-.field private final mFaceId:I
+.field public final mFaceId:I
 
-.field private final mFeature:I
+.field public final mFeature:I
 
-.field private mValue:Z
+.field public mValue:Z
 
 
 # direct methods
-.method constructor <init>(Landroid/content/Context;Lcom/android/server/biometrics/sensors/HalClientMonitor$LazyDaemon;Landroid/os/IBinder;Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;ILjava/lang/String;III)V
-    .locals 13
+.method public constructor <init>(Landroid/content/Context;Ljava/util/function/Supplier;Landroid/os/IBinder;Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;ILjava/lang/String;ILcom/android/server/biometrics/log/BiometricLogger;Lcom/android/server/biometrics/log/BiometricContext;II)V
+    .locals 12
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Landroid/content/Context;",
-            "Lcom/android/server/biometrics/sensors/HalClientMonitor$LazyDaemon<",
+            "Ljava/util/function/Supplier<",
             "Landroid/hardware/biometrics/face/V1_0/IBiometricsFace;",
             ">;",
             "Landroid/os/IBinder;",
             "Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;",
             "I",
             "Ljava/lang/String;",
-            "III)V"
+            "I",
+            "Lcom/android/server/biometrics/log/BiometricLogger;",
+            "Lcom/android/server/biometrics/log/BiometricContext;",
+            "II)V"
         }
     .end annotation
 
-    move-object v12, p0
+    move-object v11, p0
 
     const/4 v7, 0x0
-
-    const/4 v9, 0x0
-
-    const/4 v10, 0x0
-
-    const/4 v11, 0x0
 
     move-object v0, p0
 
@@ -59,7 +52,7 @@
 
     move-object v2, p2
 
-    move-object/from16 v3, p3
+    move-object v3, p3
 
     move-object/from16 v4, p4
 
@@ -69,15 +62,19 @@
 
     move/from16 v8, p7
 
-    invoke-direct/range {v0 .. v11}, Lcom/android/server/biometrics/sensors/HalClientMonitor;-><init>(Landroid/content/Context;Lcom/android/server/biometrics/sensors/HalClientMonitor$LazyDaemon;Landroid/os/IBinder;Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;ILjava/lang/String;IIIII)V
+    move-object/from16 v9, p8
 
-    move/from16 v0, p8
+    move-object/from16 v10, p9
 
-    iput v0, v12, Lcom/android/server/biometrics/sensors/face/hidl/FaceGetFeatureClient;->mFeature:I
+    invoke-direct/range {v0 .. v10}, Lcom/android/server/biometrics/sensors/HalClientMonitor;-><init>(Landroid/content/Context;Ljava/util/function/Supplier;Landroid/os/IBinder;Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;ILjava/lang/String;IILcom/android/server/biometrics/log/BiometricLogger;Lcom/android/server/biometrics/log/BiometricContext;)V
 
-    move/from16 v1, p9
+    move/from16 v0, p10
 
-    iput v1, v12, Lcom/android/server/biometrics/sensors/face/hidl/FaceGetFeatureClient;->mFaceId:I
+    iput v0, v11, Lcom/android/server/biometrics/sensors/face/hidl/FaceGetFeatureClient;->mFeature:I
+
+    move/from16 v0, p11
+
+    iput v0, v11, Lcom/android/server/biometrics/sensors/face/hidl/FaceGetFeatureClient;->mFaceId:I
 
     return-void
 .end method
@@ -85,38 +82,38 @@
 
 # virtual methods
 .method public getProtoEnum()I
-    .locals 1
-
-    const/16 v0, 0x9
-
-    return v0
-.end method
-
-.method getValue()Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/server/biometrics/sensors/face/hidl/FaceGetFeatureClient;->mValue:Z
-
-    return v0
-.end method
-
-.method public start(Lcom/android/server/biometrics/sensors/BaseClientMonitor$Callback;)V
     .locals 0
 
-    invoke-super {p0, p1}, Lcom/android/server/biometrics/sensors/HalClientMonitor;->start(Lcom/android/server/biometrics/sensors/BaseClientMonitor$Callback;)V
+    const/16 p0, 0x9
+
+    return p0
+.end method
+
+.method public getValue()Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/server/biometrics/sensors/face/hidl/FaceGetFeatureClient;->mValue:Z
+
+    return p0
+.end method
+
+.method public start(Lcom/android/server/biometrics/sensors/ClientMonitorCallback;)V
+    .locals 0
+
+    invoke-super {p0, p1}, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->start(Lcom/android/server/biometrics/sensors/ClientMonitorCallback;)V
 
     invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/face/hidl/FaceGetFeatureClient;->startHalOperation()V
 
     return-void
 .end method
 
-.method protected startHalOperation()V
-    .locals 7
+.method public startHalOperation()V
+    .locals 6
 
     const/4 v0, 0x0
 
     :try_start_0
-    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/face/hidl/FaceGetFeatureClient;->getFreshDaemon()Ljava/lang/Object;
+    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/HalClientMonitor;->getFreshDaemon()Ljava/lang/Object;
 
     move-result-object v1
 
@@ -144,38 +141,36 @@
 
     aput-boolean v5, v4, v0
 
-    iget-boolean v5, v1, Landroid/hardware/biometrics/face/V1_0/OptionalBool;->value:Z
-
     iput-boolean v5, p0, Lcom/android/server/biometrics/sensors/face/hidl/FaceGetFeatureClient;->mValue:Z
 
-    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/face/hidl/FaceGetFeatureClient;->getListener()Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;
+    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->getListener()Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;
 
     move-result-object v5
 
     if-eqz v5, :cond_1
 
-    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/face/hidl/FaceGetFeatureClient;->getListener()Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;
+    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->getListener()Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;
 
     move-result-object v5
 
-    iget v6, v1, Landroid/hardware/biometrics/face/V1_0/OptionalBool;->status:I
+    iget v1, v1, Landroid/hardware/biometrics/face/V1_0/OptionalBool;->status:I
 
-    if-nez v6, :cond_0
+    if-nez v1, :cond_0
 
-    move v6, v2
+    move v1, v2
 
     goto :goto_0
 
     :cond_0
-    move v6, v0
+    move v1, v0
 
     :goto_0
-    invoke-virtual {v5, v6, v3, v4}, Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;->onFeatureGet(Z[I[Z)V
+    invoke-virtual {v5, v1, v3, v4}, Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;->onFeatureGet(Z[I[Z)V
 
     :cond_1
-    iget-object v5, p0, Lcom/android/server/biometrics/sensors/face/hidl/FaceGetFeatureClient;->mCallback:Lcom/android/server/biometrics/sensors/BaseClientMonitor$Callback;
+    iget-object v1, p0, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->mCallback:Lcom/android/server/biometrics/sensors/ClientMonitorCallback;
 
-    invoke-interface {v5, p0, v2}, Lcom/android/server/biometrics/sensors/BaseClientMonitor$Callback;->onClientFinished(Lcom/android/server/biometrics/sensors/BaseClientMonitor;Z)V
+    invoke-interface {v1, p0, v2}, Lcom/android/server/biometrics/sensors/ClientMonitorCallback;->onClientFinished(Lcom/android/server/biometrics/sensors/BaseClientMonitor;Z)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -190,50 +185,50 @@
 
     invoke-static {v2, v3, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    iget-object v2, p0, Lcom/android/server/biometrics/sensors/face/hidl/FaceGetFeatureClient;->mCallback:Lcom/android/server/biometrics/sensors/BaseClientMonitor$Callback;
+    iget-object v1, p0, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->mCallback:Lcom/android/server/biometrics/sensors/ClientMonitorCallback;
 
-    invoke-interface {v2, p0, v0}, Lcom/android/server/biometrics/sensors/BaseClientMonitor$Callback;->onClientFinished(Lcom/android/server/biometrics/sensors/BaseClientMonitor;Z)V
+    invoke-interface {v1, p0, v0}, Lcom/android/server/biometrics/sensors/ClientMonitorCallback;->onClientFinished(Lcom/android/server/biometrics/sensors/BaseClientMonitor;Z)V
 
     :goto_1
     return-void
 .end method
 
 .method public unableToStart()V
-    .locals 4
+    .locals 3
 
     :try_start_0
-    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/face/hidl/FaceGetFeatureClient;->getListener()Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;
+    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->getListener()Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/face/hidl/FaceGetFeatureClient;->getListener()Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;
+    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->getListener()Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;
 
-    move-result-object v0
+    move-result-object p0
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    new-array v2, v1, [I
+    new-array v1, v0, [I
 
-    new-array v3, v1, [Z
+    new-array v2, v0, [Z
 
-    invoke-virtual {v0, v1, v2, v3}, Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;->onFeatureGet(Z[I[Z)V
+    invoke-virtual {p0, v0, v1, v2}, Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;->onFeatureGet(Z[I[Z)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    :cond_0
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    const-string v1, "FaceGetFeatureClient"
+    const-string v0, "FaceGetFeatureClient"
 
-    const-string v2, "Unable to send error"
+    const-string v1, "Unable to send error"
 
-    invoke-static {v1, v2, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v0, v1, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
+    :cond_0
     :goto_0
     return-void
 .end method

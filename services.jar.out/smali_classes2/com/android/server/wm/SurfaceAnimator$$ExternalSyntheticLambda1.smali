@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/wm/SurfaceAnimator$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -35,7 +36,7 @@
 
 # virtual methods
 .method public final run()V
-    .locals 4
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/wm/SurfaceAnimator$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/wm/SurfaceAnimator;
 
@@ -43,9 +44,9 @@
 
     iget-object v2, p0, Lcom/android/server/wm/SurfaceAnimator$$ExternalSyntheticLambda1;->f$2:Lcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;
 
-    iget v3, p0, Lcom/android/server/wm/SurfaceAnimator$$ExternalSyntheticLambda1;->f$3:I
+    iget p0, p0, Lcom/android/server/wm/SurfaceAnimator$$ExternalSyntheticLambda1;->f$3:I
 
-    invoke-virtual {v0, v1, v2, v3}, Lcom/android/server/wm/SurfaceAnimator;->lambda$getFinishedCallback$0$SurfaceAnimator(Lcom/android/server/wm/AnimationAdapter;Lcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;I)V
+    invoke-static {v0, v1, v2, p0}, Lcom/android/server/wm/SurfaceAnimator;->$r8$lambda$lRxTVOJy8fX752UbrFno9INW9hE(Lcom/android/server/wm/SurfaceAnimator;Lcom/android/server/wm/AnimationAdapter;Lcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;I)V
 
     return-void
 .end method

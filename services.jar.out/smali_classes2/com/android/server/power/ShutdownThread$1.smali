@@ -1,4 +1,4 @@
-.class Lcom/android/server/power/ShutdownThread$1;
+.class public Lcom/android/server/power/ShutdownThread$1;
 .super Ljava/lang/Object;
 .source "ShutdownThread.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic val$context:Landroid/content/Context;
+.field public final synthetic val$context:Landroid/content/Context;
 
 
 # direct methods
-.method constructor <init>(Landroid/content/Context;)V
+.method public constructor <init>(Landroid/content/Context;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/power/ShutdownThread$1;->val$context:Landroid/content/Context;
@@ -35,11 +35,11 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/power/ShutdownThread$1;->val$context:Landroid/content/Context;
+    iget-object p0, p0, Lcom/android/server/power/ShutdownThread$1;->val$context:Landroid/content/Context;
 
-    invoke-static {v0}, Lcom/android/server/power/ShutdownThread;->access$000(Landroid/content/Context;)V
+    invoke-static {p0}, Lcom/android/server/power/ShutdownThread;->-$$Nest$smbeginShutdownSequence(Landroid/content/Context;)V
 
     return-void
 .end method

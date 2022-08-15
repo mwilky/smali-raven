@@ -1,4 +1,4 @@
-.class Lcom/android/server/StorageManagerService$11;
+.class public Lcom/android/server/StorageManagerService$11;
 .super Landroid/os/IVoldTaskListener$Stub;
 .source "StorageManagerService.java"
 
@@ -9,19 +9,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/StorageManagerService;
+.field public final synthetic this$0:Lcom/android/server/StorageManagerService;
 
-.field final synthetic val$callback:Ljava/lang/Runnable;
+.field public final synthetic val$callback:Ljava/lang/Runnable;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/StorageManagerService;Ljava/lang/Runnable;)V
+.method public constructor <init>(Lcom/android/server/StorageManagerService;Ljava/lang/Runnable;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/StorageManagerService$11;->this$0:Lcom/android/server/StorageManagerService;
@@ -36,19 +36,19 @@
 
 # virtual methods
 .method public onFinished(ILandroid/os/PersistableBundle;)V
-    .locals 2
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/StorageManagerService$11;->val$callback:Ljava/lang/Runnable;
+    iget-object p1, p0, Lcom/android/server/StorageManagerService$11;->val$callback:Ljava/lang/Runnable;
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     invoke-static {}, Lcom/android/internal/os/BackgroundThread;->getHandler()Landroid/os/Handler;
 
-    move-result-object v0
+    move-result-object p1
 
-    iget-object v1, p0, Lcom/android/server/StorageManagerService$11;->val$callback:Ljava/lang/Runnable;
+    iget-object p0, p0, Lcom/android/server/StorageManagerService$11;->val$callback:Ljava/lang/Runnable;
 
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {p1, p0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     :cond_0
     return-void

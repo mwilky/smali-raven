@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/hdmi/HdmiCecController$HdmiCecCallback$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -35,7 +36,7 @@
 
 # virtual methods
 .method public final run()V
-    .locals 4
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecController$HdmiCecCallback$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/hdmi/HdmiCecController$HdmiCecCallback;
 
@@ -43,9 +44,9 @@
 
     iget v2, p0, Lcom/android/server/hdmi/HdmiCecController$HdmiCecCallback$$ExternalSyntheticLambda0;->f$2:I
 
-    iget-object v3, p0, Lcom/android/server/hdmi/HdmiCecController$HdmiCecCallback$$ExternalSyntheticLambda0;->f$3:[B
+    iget-object p0, p0, Lcom/android/server/hdmi/HdmiCecController$HdmiCecCallback$$ExternalSyntheticLambda0;->f$3:[B
 
-    invoke-virtual {v0, v1, v2, v3}, Lcom/android/server/hdmi/HdmiCecController$HdmiCecCallback;->lambda$onCecMessage$0$HdmiCecController$HdmiCecCallback(II[B)V
+    invoke-static {v0, v1, v2, p0}, Lcom/android/server/hdmi/HdmiCecController$HdmiCecCallback;->$r8$lambda$Cm6cJtWBzXspZYifMkR1pa14zvw(Lcom/android/server/hdmi/HdmiCecController$HdmiCecCallback;II[B)V
 
     return-void
 .end method

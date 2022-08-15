@@ -1,4 +1,4 @@
-.class Lcom/android/server/display/WifiDisplayController$1;
+.class public Lcom/android/server/display/WifiDisplayController$1;
 .super Landroid/database/ContentObserver;
 .source "WifiDisplayController.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/display/WifiDisplayController;
+.field public final synthetic this$0:Lcom/android/server/display/WifiDisplayController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/display/WifiDisplayController;Landroid/os/Handler;)V
+.method public constructor <init>(Lcom/android/server/display/WifiDisplayController;Landroid/os/Handler;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/display/WifiDisplayController$1;->this$0:Lcom/android/server/display/WifiDisplayController;
@@ -32,11 +32,11 @@
 
 # virtual methods
 .method public onChange(ZLandroid/net/Uri;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/display/WifiDisplayController$1;->this$0:Lcom/android/server/display/WifiDisplayController;
+    iget-object p0, p0, Lcom/android/server/display/WifiDisplayController$1;->this$0:Lcom/android/server/display/WifiDisplayController;
 
-    invoke-static {v0}, Lcom/android/server/display/WifiDisplayController;->access$000(Lcom/android/server/display/WifiDisplayController;)V
+    invoke-static {p0}, Lcom/android/server/display/WifiDisplayController;->-$$Nest$mupdateSettings(Lcom/android/server/display/WifiDisplayController;)V
 
     return-void
 .end method

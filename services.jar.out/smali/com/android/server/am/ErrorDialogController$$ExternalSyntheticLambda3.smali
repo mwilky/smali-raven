@@ -1,43 +1,34 @@
 .class public final synthetic Lcom/android/server/am/ErrorDialogController$$ExternalSyntheticLambda3;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Consumer;
+.implements Ljava/lang/Runnable;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/am/ErrorDialogController$$ExternalSyntheticLambda3;
+# instance fields
+.field public final synthetic f$0:Lcom/android/server/am/ErrorDialogController;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/am/ErrorDialogController$$ExternalSyntheticLambda3;
-
-    invoke-direct {v0}, Lcom/android/server/am/ErrorDialogController$$ExternalSyntheticLambda3;-><init>()V
-
-    sput-object v0, Lcom/android/server/am/ErrorDialogController$$ExternalSyntheticLambda3;->INSTANCE:Lcom/android/server/am/ErrorDialogController$$ExternalSyntheticLambda3;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Lcom/android/server/am/ErrorDialogController;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/am/ErrorDialogController$$ExternalSyntheticLambda3;->f$0:Lcom/android/server/am/ErrorDialogController;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
+.method public final run()V
     .locals 0
 
-    check-cast p1, Lcom/android/server/am/BaseErrorDialog;
+    iget-object p0, p0, Lcom/android/server/am/ErrorDialogController$$ExternalSyntheticLambda3;->f$0:Lcom/android/server/am/ErrorDialogController;
 
-    invoke-virtual {p1}, Landroid/app/Dialog;->dismiss()V
+    invoke-static {p0}, Lcom/android/server/am/ErrorDialogController;->$r8$lambda$Vkf0tocZxbQ1ZBsu-Au2YBCGSko(Lcom/android/server/am/ErrorDialogController;)V
 
     return-void
 .end method

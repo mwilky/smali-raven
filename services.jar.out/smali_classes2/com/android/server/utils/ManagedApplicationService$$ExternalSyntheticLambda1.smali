@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/utils/ManagedApplicationService$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -33,7 +34,7 @@
 
     iget-wide v1, p0, Lcom/android/server/utils/ManagedApplicationService$$ExternalSyntheticLambda1;->f$1:J
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/utils/ManagedApplicationService;->lambda$checkAndDeliverServiceDiedCbLocked$0$ManagedApplicationService(J)V
+    invoke-static {v0, v1, v2}, Lcom/android/server/utils/ManagedApplicationService;->$r8$lambda$3hsvzFZGxH0zD0INFstpjcoVoYE(Lcom/android/server/utils/ManagedApplicationService;J)V
 
     return-void
 .end method

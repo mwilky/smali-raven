@@ -1,23 +1,19 @@
-.class Lcom/android/server/location/gnss/ExponentialBackOff;
+.class public Lcom/android/server/location/gnss/ExponentialBackOff;
 .super Ljava/lang/Object;
 .source "ExponentialBackOff.java"
 
 
-# static fields
-.field private static final MULTIPLIER:I = 0x2
-
-
 # instance fields
-.field private mCurrentIntervalMillis:J
+.field public mCurrentIntervalMillis:J
 
-.field private final mInitIntervalMillis:J
+.field public final mInitIntervalMillis:J
 
-.field private final mMaxIntervalMillis:J
+.field public final mMaxIntervalMillis:J
 
 
 # direct methods
-.method constructor <init>(JJ)V
-    .locals 2
+.method public constructor <init>(JJ)V
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -25,18 +21,18 @@
 
     iput-wide p3, p0, Lcom/android/server/location/gnss/ExponentialBackOff;->mMaxIntervalMillis:J
 
-    const-wide/16 v0, 0x2
+    const-wide/16 p3, 0x2
 
-    div-long v0, p1, v0
+    div-long/2addr p1, p3
 
-    iput-wide v0, p0, Lcom/android/server/location/gnss/ExponentialBackOff;->mCurrentIntervalMillis:J
+    iput-wide p1, p0, Lcom/android/server/location/gnss/ExponentialBackOff;->mCurrentIntervalMillis:J
 
     return-void
 .end method
 
 
 # virtual methods
-.method nextBackoffMillis()J
+.method public nextBackoffMillis()J
     .locals 5
 
     iget-wide v0, p0, Lcom/android/server/location/gnss/ExponentialBackOff;->mCurrentIntervalMillis:J
@@ -59,7 +55,7 @@
     return-wide v0
 .end method
 
-.method reset()V
+.method public reset()V
     .locals 4
 
     iget-wide v0, p0, Lcom/android/server/location/gnss/ExponentialBackOff;->mInitIntervalMillis:J

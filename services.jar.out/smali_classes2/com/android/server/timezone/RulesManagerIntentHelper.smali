@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/server/timezone/RulesManagerIntentHelper;
+.class public interface abstract Lcom/android/server/timezone/RulesManagerIntentHelper;
 .super Ljava/lang/Object;
 .source "RulesManagerIntentHelper.java"
 

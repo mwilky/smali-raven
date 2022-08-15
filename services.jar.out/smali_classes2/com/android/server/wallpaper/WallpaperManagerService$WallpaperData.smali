@@ -1,4 +1,4 @@
-.class Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;
+.class public Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;
 .super Ljava/lang/Object;
 .source "WallpaperManagerService.java"
 
@@ -9,15 +9,15 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "WallpaperData"
 .end annotation
 
 
 # instance fields
-.field allowBackup:Z
+.field public allowBackup:Z
 
-.field private callbacks:Landroid/os/RemoteCallbackList;
+.field public callbacks:Landroid/os/RemoteCallbackList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/RemoteCallbackList<",
@@ -27,43 +27,66 @@
     .end annotation
 .end field
 
-.field connection:Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection;
+.field public connection:Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection;
 
-.field final cropFile:Ljava/io/File;
+.field public final cropFile:Ljava/io/File;
 
-.field final cropHint:Landroid/graphics/Rect;
+.field public final cropHint:Landroid/graphics/Rect;
 
 .field public fromForegroundApp:Z
 
-.field imageWallpaperPending:Z
+.field public imageWallpaperPending:Z
 
-.field lastDiedTime:J
+.field public lastDiedTime:J
 
-.field name:Ljava/lang/String;
+.field public mIsColorExtractedFromDim:Z
 
-.field nextWallpaperComponent:Landroid/content/ComponentName;
+.field public mUidToDimAmount:Landroid/util/ArrayMap;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/util/ArrayMap<",
+            "Ljava/lang/Integer;",
+            "Ljava/lang/Float;",
+            ">;"
+        }
+    .end annotation
+.end field
 
-.field primaryColors:Landroid/app/WallpaperColors;
+.field public mWallpaperDimAmount:F
 
-.field setComplete:Landroid/app/IWallpaperManagerCallback;
+.field public name:Ljava/lang/String;
 
-.field userId:I
+.field public nextWallpaperComponent:Landroid/content/ComponentName;
 
-.field wallpaperComponent:Landroid/content/ComponentName;
+.field public primaryColors:Landroid/app/WallpaperColors;
 
-.field final wallpaperFile:Ljava/io/File;
+.field public setComplete:Landroid/app/IWallpaperManagerCallback;
 
-.field wallpaperId:I
+.field public userId:I
 
-.field wallpaperObserver:Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperObserver;
+.field public wallpaperComponent:Landroid/content/ComponentName;
 
-.field wallpaperUpdating:Z
+.field public final wallpaperFile:Ljava/io/File;
 
-.field whichPending:I
+.field public wallpaperId:I
+
+.field public wallpaperObserver:Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperObserver;
+
+.field public wallpaperUpdating:Z
+
+.field public whichPending:I
 
 
 # direct methods
-.method constructor <init>(ILjava/io/File;Ljava/lang/String;Ljava/lang/String;)V
+.method public static bridge synthetic -$$Nest$fgetcallbacks(Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;)Landroid/os/RemoteCallbackList;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->callbacks:Landroid/os/RemoteCallbackList;
+
+    return-object p0
+.end method
+
+.method public constructor <init>(ILjava/io/File;Ljava/lang/String;Ljava/lang/String;)V
     .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -71,6 +94,16 @@
     const-string v0, ""
 
     iput-object v0, p0, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->name:Ljava/lang/String;
+
+    const/4 v0, 0x0
+
+    iput v0, p0, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->mWallpaperDimAmount:F
+
+    new-instance v0, Landroid/util/ArrayMap;
+
+    invoke-direct {v0}, Landroid/util/ArrayMap;-><init>()V
+
+    iput-object v0, p0, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->mUidToDimAmount:Landroid/util/ArrayMap;
 
     new-instance v0, Landroid/os/RemoteCallbackList;
 
@@ -88,51 +121,43 @@
 
     iput p1, p0, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->userId:I
 
-    new-instance v0, Ljava/io/File;
+    new-instance p1, Ljava/io/File;
 
-    invoke-direct {v0, p2, p3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    invoke-direct {p1, p2, p3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    iput-object v0, p0, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->wallpaperFile:Ljava/io/File;
+    iput-object p1, p0, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->wallpaperFile:Ljava/io/File;
 
-    new-instance v0, Ljava/io/File;
+    new-instance p1, Ljava/io/File;
 
-    invoke-direct {v0, p2, p4}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    invoke-direct {p1, p2, p4}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    iput-object v0, p0, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->cropFile:Ljava/io/File;
+    iput-object p1, p0, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->cropFile:Ljava/io/File;
 
     return-void
 .end method
 
-.method static synthetic access$2900(Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;)Landroid/os/RemoteCallbackList;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->callbacks:Landroid/os/RemoteCallbackList;
-
-    return-object v0
-.end method
-
 
 # virtual methods
-.method cropExists()Z
-    .locals 1
+.method public cropExists()Z
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->cropFile:Ljava/io/File;
+    iget-object p0, p0, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->cropFile:Ljava/io/File;
 
-    invoke-virtual {v0}, Ljava/io/File;->exists()Z
+    invoke-virtual {p0}, Ljava/io/File;->exists()Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
-.method sourceExists()Z
-    .locals 1
+.method public sourceExists()Z
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->wallpaperFile:Ljava/io/File;
+    iget-object p0, p0, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->wallpaperFile:Ljava/io/File;
 
-    invoke-virtual {v0}, Ljava/io/File;->exists()Z
+    invoke-virtual {p0}, Ljava/io/File;->exists()Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method

@@ -18,7 +18,16 @@
 
 
 # virtual methods
+.method public abstract createSurfaceForGestureMonitor(Ljava/lang/String;I)Landroid/view/SurfaceControl;
+.end method
+
 .method public abstract dispatchUnhandledKey(Landroid/os/IBinder;Landroid/view/KeyEvent;I)Landroid/view/KeyEvent;
+.end method
+
+.method public abstract getCursorPosition()Landroid/graphics/PointF;
+.end method
+
+.method public abstract getParentSurfaceForPointers(I)Landroid/view/SurfaceControl;
 .end method
 
 .method public abstract getPointerDisplayId()I
@@ -48,22 +57,19 @@
 .method public abstract notifyFocusChanged(Landroid/os/IBinder;Landroid/os/IBinder;)V
 .end method
 
-.method public abstract notifyGestureMonitorResponsive(I)V
-.end method
-
-.method public abstract notifyGestureMonitorUnresponsive(ILjava/lang/String;)V
-.end method
-
 .method public abstract notifyInputChannelBroken(Landroid/os/IBinder;)V
 .end method
 
 .method public abstract notifyNoFocusedWindowAnr(Landroid/view/InputApplicationHandle;)V
 .end method
 
-.method public abstract notifyWindowResponsive(Landroid/os/IBinder;)V
+.method public abstract notifyPointerDisplayIdChanged(IFF)V
 .end method
 
-.method public abstract notifyWindowUnresponsive(Landroid/os/IBinder;Ljava/lang/String;)V
+.method public abstract notifyWindowResponsive(Landroid/os/IBinder;Ljava/util/OptionalInt;)V
+.end method
+
+.method public abstract notifyWindowUnresponsive(Landroid/os/IBinder;Ljava/util/OptionalInt;Ljava/lang/String;)V
 .end method
 
 .method public abstract onPointerDownOutsideFocus(Landroid/os/IBinder;)V

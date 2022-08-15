@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/server/wm/SurfaceAnimator$Animatable;
+.class public interface abstract Lcom/android/server/wm/SurfaceAnimator$Animatable;
 .super Ljava/lang/Object;
 .source "SurfaceAnimator.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
+    accessFlags = 0x609
     name = "Animatable"
 .end annotation
 
@@ -19,20 +19,17 @@
 .end method
 
 .method public getAnimationLeash()Landroid/view/SurfaceControl;
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public abstract getAnimationLeashParent()Landroid/view/SurfaceControl;
 .end method
 
 .method public abstract getParentSurfaceControl()Landroid/view/SurfaceControl;
-.end method
-
-.method public abstract getPendingTransaction()Landroid/view/SurfaceControl$Transaction;
 .end method
 
 .method public abstract getSurfaceControl()Landroid/view/SurfaceControl;
@@ -42,6 +39,9 @@
 .end method
 
 .method public abstract getSurfaceWidth()I
+.end method
+
+.method public abstract getSyncTransaction()Landroid/view/SurfaceControl$Transaction;
 .end method
 
 .method public abstract makeAnimationLeash()Landroid/view/SurfaceControl$Builder;
@@ -60,9 +60,9 @@
 .end method
 
 .method public shouldDeferAnimationFinish(Ljava/lang/Runnable;)Z
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method

@@ -1,4 +1,4 @@
-.class Lcom/android/server/accounts/AccountManagerService$18;
+.class public Lcom/android/server/accounts/AccountManagerService$18;
 .super Landroid/accounts/IAccountManagerResponse$Stub;
 .source "AccountManagerService.java"
 
@@ -9,21 +9,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/accounts/AccountManagerService;
+.field public final synthetic this$0:Lcom/android/server/accounts/AccountManagerService;
 
-.field final synthetic val$opPackageName:Ljava/lang/String;
+.field public final synthetic val$opPackageName:Ljava/lang/String;
 
-.field final synthetic val$response:Landroid/accounts/IAccountManagerResponse;
+.field public final synthetic val$response:Landroid/accounts/IAccountManagerResponse;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/accounts/AccountManagerService;Landroid/accounts/IAccountManagerResponse;Ljava/lang/String;)V
+.method public constructor <init>(Lcom/android/server/accounts/AccountManagerService;Landroid/accounts/IAccountManagerResponse;Ljava/lang/String;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/accounts/AccountManagerService$18;->this$0:Lcom/android/server/accounts/AccountManagerService;
@@ -51,7 +51,7 @@
 .end method
 
 .method public onResult(Landroid/os/Bundle;)V
-    .locals 5
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -62,37 +62,37 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getParcelableArray(Ljava/lang/String;)[Landroid/os/Parcelable;
 
-    move-result-object v0
+    move-result-object p1
 
-    array-length v1, v0
+    array-length v0, p1
 
-    new-array v1, v1, [Landroid/accounts/Account;
+    new-array v0, v0, [Landroid/accounts/Account;
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
     :goto_0
-    array-length v3, v0
+    array-length v2, p1
 
-    if-ge v2, v3, :cond_0
+    if-ge v1, v2, :cond_0
 
-    aget-object v3, v0, v2
+    aget-object v2, p1, v1
 
-    check-cast v3, Landroid/accounts/Account;
+    check-cast v2, Landroid/accounts/Account;
 
-    aput-object v3, v1, v2
+    aput-object v2, v0, v1
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     :cond_0
-    iget-object v2, p0, Lcom/android/server/accounts/AccountManagerService$18;->this$0:Lcom/android/server/accounts/AccountManagerService;
+    iget-object p1, p0, Lcom/android/server/accounts/AccountManagerService$18;->this$0:Lcom/android/server/accounts/AccountManagerService;
 
-    iget-object v3, p0, Lcom/android/server/accounts/AccountManagerService$18;->val$response:Landroid/accounts/IAccountManagerResponse;
+    iget-object v1, p0, Lcom/android/server/accounts/AccountManagerService$18;->val$response:Landroid/accounts/IAccountManagerResponse;
 
-    iget-object v4, p0, Lcom/android/server/accounts/AccountManagerService$18;->val$opPackageName:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/accounts/AccountManagerService$18;->val$opPackageName:Ljava/lang/String;
 
-    invoke-static {v2, v3, v1, v4}, Lcom/android/server/accounts/AccountManagerService;->access$2900(Lcom/android/server/accounts/AccountManagerService;Landroid/accounts/IAccountManagerResponse;[Landroid/accounts/Account;Ljava/lang/String;)V
+    invoke-static {p1, v1, v0, p0}, Lcom/android/server/accounts/AccountManagerService;->-$$Nest$mhandleGetAccountsResult(Lcom/android/server/accounts/AccountManagerService;Landroid/accounts/IAccountManagerResponse;[Landroid/accounts/Account;Ljava/lang/String;)V
 
     return-void
 .end method

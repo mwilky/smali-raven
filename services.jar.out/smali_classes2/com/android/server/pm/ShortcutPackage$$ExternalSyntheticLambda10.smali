@@ -1,35 +1,30 @@
 .class public final synthetic Lcom/android/server/pm/ShortcutPackage$$ExternalSyntheticLambda10;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Consumer;
-
-
-# instance fields
-.field public final synthetic f$0:Landroid/util/ArraySet;
+.implements Ljava/util/function/Function;
 
 
 # direct methods
-.method public synthetic constructor <init>(Landroid/util/ArraySet;)V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/server/pm/ShortcutPackage$$ExternalSyntheticLambda10;->f$0:Landroid/util/ArraySet;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/pm/ShortcutPackage$$ExternalSyntheticLambda10;->f$0:Landroid/util/ArraySet;
+.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 0
 
     check-cast p1, Landroid/content/pm/ShortcutInfo;
 
-    invoke-static {v0, p1}, Lcom/android/server/pm/ShortcutPackage;->lambda$publishManifestShortcuts$19(Landroid/util/ArraySet;Landroid/content/pm/ShortcutInfo;)V
+    invoke-virtual {p1}, Landroid/content/pm/ShortcutInfo;->getId()Ljava/lang/String;
 
-    return-void
+    move-result-object p0
+
+    return-object p0
 .end method

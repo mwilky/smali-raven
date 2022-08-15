@@ -1,35 +1,30 @@
 .class public final synthetic Lcom/android/server/wm/Task$$ExternalSyntheticLambda21;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Consumer;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/android/server/wm/Task;
+.implements Ljava/util/function/BiConsumer;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/wm/Task;)V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda21;->f$0:Lcom/android/server/wm/Task;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
-    .locals 1
+.method public final accept(Ljava/lang/Object;Ljava/lang/Object;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda21;->f$0:Lcom/android/server/wm/Task;
+    check-cast p1, Lcom/android/server/wm/Task;
 
-    check-cast p1, Lcom/android/server/wm/ActivityRecord;
+    check-cast p2, Lcom/android/server/wm/ActivityRecord;
 
-    invoke-static {v0, p1}, Lcom/android/server/wm/Task;->lambda$finishIfVoiceTask$18(Lcom/android/server/wm/Task;Lcom/android/server/wm/ActivityRecord;)V
+    invoke-virtual {p1, p2}, Lcom/android/server/wm/TaskFragment;->cleanUpActivityReferences(Lcom/android/server/wm/ActivityRecord;)V
 
     return-void
 .end method

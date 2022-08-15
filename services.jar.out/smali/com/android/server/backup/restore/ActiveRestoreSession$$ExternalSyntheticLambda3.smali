@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/backup/restore/ActiveRestoreSession$$ExternalSyntheticLambda3;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/BiFunction;
@@ -53,15 +54,15 @@
 
     move-object v6, p1
 
-    check-cast v6, Lcom/android/server/backup/transport/TransportClient;
+    check-cast v6, Lcom/android/server/backup/transport/TransportConnection;
 
     move-object v7, p2
 
     check-cast v7, Lcom/android/server/backup/internal/OnTaskFinishedListener;
 
-    invoke-virtual/range {v0 .. v7}, Lcom/android/server/backup/restore/ActiveRestoreSession;->lambda$restorePackage$3$ActiveRestoreSession(Landroid/app/backup/IRestoreObserver;Landroid/app/backup/IBackupManagerMonitor;JLandroid/content/pm/PackageInfo;Lcom/android/server/backup/transport/TransportClient;Lcom/android/server/backup/internal/OnTaskFinishedListener;)Lcom/android/server/backup/params/RestoreParams;
+    invoke-static/range {v0 .. v7}, Lcom/android/server/backup/restore/ActiveRestoreSession;->$r8$lambda$O75hSYOJ7hpdwxuGVIv7Q7Tg9qM(Lcom/android/server/backup/restore/ActiveRestoreSession;Landroid/app/backup/IRestoreObserver;Landroid/app/backup/IBackupManagerMonitor;JLandroid/content/pm/PackageInfo;Lcom/android/server/backup/transport/TransportConnection;Lcom/android/server/backup/internal/OnTaskFinishedListener;)Lcom/android/server/backup/params/RestoreParams;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method

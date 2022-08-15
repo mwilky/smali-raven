@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/appbinding/AppBindingService$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -23,13 +24,13 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/appbinding/AppBindingService$$ExternalSyntheticLambda1;->f$0:I
+    iget p0, p0, Lcom/android/server/appbinding/AppBindingService$$ExternalSyntheticLambda1;->f$0:I
 
     check-cast p1, Lcom/android/server/appbinding/finders/AppServiceFinder;
 
-    invoke-static {v0, p1}, Lcom/android/server/appbinding/AppBindingService;->lambda$onUserRemoved$0(ILcom/android/server/appbinding/finders/AppServiceFinder;)V
+    invoke-static {p0, p1}, Lcom/android/server/appbinding/AppBindingService;->$r8$lambda$-Rz0EdzeWwT41frPEW-lXb80eUA(ILcom/android/server/appbinding/finders/AppServiceFinder;)V
 
     return-void
 .end method

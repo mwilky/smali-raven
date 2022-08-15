@@ -1,4 +1,4 @@
-.class abstract Lcom/android/server/location/settings/SettingsStore;
+.class public abstract Lcom/android/server/location/settings/SettingsStore;
 .super Ljava/lang/Object;
 .source "SettingsStore.java"
 
@@ -21,7 +21,13 @@
 
 
 # instance fields
-.field private mCache:Lcom/android/server/location/settings/SettingsStore$VersionedSettings;
+.field public mCache:Lcom/android/server/location/settings/SettingsStore$VersionedSettings;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "this"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "TT;"
@@ -29,13 +35,35 @@
     .end annotation
 .end field
 
-.field private final mFile:Landroid/util/AtomicFile;
+.field public final mFile:Landroid/util/AtomicFile;
 
-.field private mInitialized:Z
+.field public mInitialized:Z
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "this"
+        }
+    .end annotation
+.end field
 
 
 # direct methods
-.method protected constructor <init>(Ljava/io/File;)V
+.method public static synthetic $r8$lambda$FL-gDajWxpcghSfXfrSr3vNQbPw(Lcom/android/server/location/settings/SettingsStore;Lcom/android/server/location/settings/SettingsStore$VersionedSettings;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/location/settings/SettingsStore;->lambda$writeLazily$1(Lcom/android/server/location/settings/SettingsStore$VersionedSettings;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$IDZmDQA9SWentQWNke5Bb0J8Yeg(Lcom/android/server/location/settings/SettingsStore;Ljava/util/concurrent/CountDownLatch;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/location/settings/SettingsStore;->lambda$deleteFile$0(Ljava/util/concurrent/CountDownLatch;)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Ljava/io/File;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -49,31 +77,130 @@
     return-void
 .end method
 
-.method private writeLazily(Lcom/android/server/location/settings/SettingsStore$VersionedSettings;)V
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(TT;)V"
-        }
-    .end annotation
+.method private synthetic lambda$deleteFile$0(Ljava/util/concurrent/CountDownLatch;)V
+    .locals 0
 
-    invoke-static {}, Lcom/android/internal/os/BackgroundThread;->getExecutor()Ljava/util/concurrent/Executor;
+    iget-object p0, p0, Lcom/android/server/location/settings/SettingsStore;->mFile:Landroid/util/AtomicFile;
+
+    invoke-virtual {p0}, Landroid/util/AtomicFile;->delete()V
+
+    invoke-virtual {p1}, Ljava/util/concurrent/CountDownLatch;->countDown()V
+
+    return-void
+.end method
+
+.method private synthetic lambda$writeLazily$1(Lcom/android/server/location/settings/SettingsStore$VersionedSettings;)V
+    .locals 3
+
+    const/4 v0, 0x0
+
+    :try_start_0
+    iget-object v1, p0, Lcom/android/server/location/settings/SettingsStore;->mFile:Landroid/util/AtomicFile;
+
+    invoke-virtual {v1}, Landroid/util/AtomicFile;->startWrite()Ljava/io/FileOutputStream;
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/server/location/settings/SettingsStore$$ExternalSyntheticLambda0;
+    new-instance v1, Ljava/io/DataOutputStream;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/server/location/settings/SettingsStore$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/location/settings/SettingsStore;Lcom/android/server/location/settings/SettingsStore$VersionedSettings;)V
+    invoke-direct {v1, v0}, Ljava/io/DataOutputStream;-><init>(Ljava/io/OutputStream;)V
 
-    invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
+    invoke-interface {p1}, Lcom/android/server/location/settings/SettingsStore$VersionedSettings;->getVersion()I
 
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
+
+    invoke-virtual {p0, v1, p1}, Lcom/android/server/location/settings/SettingsStore;->write(Ljava/io/DataOutput;Lcom/android/server/location/settings/SettingsStore$VersionedSettings;)V
+
+    iget-object p1, p0, Lcom/android/server/location/settings/SettingsStore;->mFile:Landroid/util/AtomicFile;
+
+    invoke-virtual {p1, v0}, Landroid/util/AtomicFile;->finishWrite(Ljava/io/FileOutputStream;)V
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception p1
+
+    iget-object p0, p0, Lcom/android/server/location/settings/SettingsStore;->mFile:Landroid/util/AtomicFile;
+
+    invoke-virtual {p0, v0}, Landroid/util/AtomicFile;->failWrite(Ljava/io/FileOutputStream;)V
+
+    throw p1
+
+    :catch_0
+    move-exception p1
+
+    iget-object p0, p0, Lcom/android/server/location/settings/SettingsStore;->mFile:Landroid/util/AtomicFile;
+
+    invoke-virtual {p0, v0}, Landroid/util/AtomicFile;->failWrite(Ljava/io/FileOutputStream;)V
+
+    const-string p0, "LocationManagerService"
+
+    const-string v0, "failure serializing location settings"
+
+    invoke-static {p0, v0, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    :goto_0
     return-void
 .end method
 
 
 # virtual methods
-.method declared-synchronized deleteFile()V
+.method public declared-synchronized deleteFile()V
     .locals 3
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/InterruptedException;
+        }
+    .end annotation
+
+    monitor-enter p0
+
+    :try_start_0
+    new-instance v0, Ljava/util/concurrent/CountDownLatch;
+
+    const/4 v1, 0x1
+
+    invoke-direct {v0, v1}, Ljava/util/concurrent/CountDownLatch;-><init>(I)V
+
+    invoke-static {}, Lcom/android/internal/os/BackgroundThread;->getExecutor()Ljava/util/concurrent/Executor;
+
+    move-result-object v1
+
+    new-instance v2, Lcom/android/server/location/settings/SettingsStore$$ExternalSyntheticLambda0;
+
+    invoke-direct {v2, p0, v0}, Lcom/android/server/location/settings/SettingsStore$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/location/settings/SettingsStore;Ljava/util/concurrent/CountDownLatch;)V
+
+    invoke-interface {v1, v2}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
+
+    invoke-virtual {v0}, Ljava/util/concurrent/CountDownLatch;->await()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit p0
+
+    return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit p0
+
+    throw v0
+.end method
+
+.method public declared-synchronized flushFile()V
+    .locals 3
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/InterruptedException;
@@ -95,52 +222,7 @@
 
     new-instance v2, Lcom/android/server/location/settings/SettingsStore$$ExternalSyntheticLambda1;
 
-    invoke-direct {v2, p0, v0}, Lcom/android/server/location/settings/SettingsStore$$ExternalSyntheticLambda1;-><init>(Lcom/android/server/location/settings/SettingsStore;Ljava/util/concurrent/CountDownLatch;)V
-
-    invoke-interface {v1, v2}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
-
-    invoke-virtual {v0}, Ljava/util/concurrent/CountDownLatch;->await()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    monitor-exit p0
-
-    return-void
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit p0
-
-    throw v0
-.end method
-
-.method declared-synchronized flushFile()V
-    .locals 3
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/lang/InterruptedException;
-        }
-    .end annotation
-
-    monitor-enter p0
-
-    :try_start_0
-    new-instance v0, Ljava/util/concurrent/CountDownLatch;
-
-    const/4 v1, 0x1
-
-    invoke-direct {v0, v1}, Ljava/util/concurrent/CountDownLatch;-><init>(I)V
-
-    invoke-static {}, Lcom/android/internal/os/BackgroundThread;->getExecutor()Ljava/util/concurrent/Executor;
-
-    move-result-object v1
-
-    invoke-static {v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v2, Lcom/android/server/location/settings/SettingsStore$$ExternalSyntheticLambda2;
-
-    invoke-direct {v2, v0}, Lcom/android/server/location/settings/SettingsStore$$ExternalSyntheticLambda2;-><init>(Ljava/util/concurrent/CountDownLatch;)V
+    invoke-direct {v2, v0}, Lcom/android/server/location/settings/SettingsStore$$ExternalSyntheticLambda1;-><init>(Ljava/util/concurrent/CountDownLatch;)V
 
     invoke-interface {v1, v2}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
@@ -277,10 +359,10 @@
     goto :goto_1
 
     :catchall_1
-    move-exception v5
+    move-exception v0
 
     :try_start_5
-    invoke-virtual {v4, v5}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
+    invoke-virtual {v4, v0}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
 
     :goto_1
     throw v4
@@ -386,82 +468,7 @@
     throw v0
 .end method
 
-.method public synthetic lambda$deleteFile$0$SettingsStore(Ljava/util/concurrent/CountDownLatch;)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/location/settings/SettingsStore;->mFile:Landroid/util/AtomicFile;
-
-    invoke-virtual {v0}, Landroid/util/AtomicFile;->delete()V
-
-    invoke-virtual {p1}, Ljava/util/concurrent/CountDownLatch;->countDown()V
-
-    return-void
-.end method
-
-.method public synthetic lambda$writeLazily$1$SettingsStore(Lcom/android/server/location/settings/SettingsStore$VersionedSettings;)V
-    .locals 4
-
-    const/4 v0, 0x0
-
-    :try_start_0
-    iget-object v1, p0, Lcom/android/server/location/settings/SettingsStore;->mFile:Landroid/util/AtomicFile;
-
-    invoke-virtual {v1}, Landroid/util/AtomicFile;->startWrite()Ljava/io/FileOutputStream;
-
-    move-result-object v1
-
-    move-object v0, v1
-
-    new-instance v1, Ljava/io/DataOutputStream;
-
-    invoke-direct {v1, v0}, Ljava/io/DataOutputStream;-><init>(Ljava/io/OutputStream;)V
-
-    invoke-interface {p1}, Lcom/android/server/location/settings/SettingsStore$VersionedSettings;->getVersion()I
-
-    move-result v2
-
-    invoke-virtual {v1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
-
-    invoke-virtual {p0, v1, p1}, Lcom/android/server/location/settings/SettingsStore;->write(Ljava/io/DataOutput;Lcom/android/server/location/settings/SettingsStore$VersionedSettings;)V
-
-    iget-object v2, p0, Lcom/android/server/location/settings/SettingsStore;->mFile:Landroid/util/AtomicFile;
-
-    invoke-virtual {v2, v0}, Landroid/util/AtomicFile;->finishWrite(Ljava/io/FileOutputStream;)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    goto :goto_0
-
-    :catchall_0
-    move-exception v1
-
-    iget-object v2, p0, Lcom/android/server/location/settings/SettingsStore;->mFile:Landroid/util/AtomicFile;
-
-    invoke-virtual {v2, v0}, Landroid/util/AtomicFile;->failWrite(Ljava/io/FileOutputStream;)V
-
-    throw v1
-
-    :catch_0
-    move-exception v1
-
-    iget-object v2, p0, Lcom/android/server/location/settings/SettingsStore;->mFile:Landroid/util/AtomicFile;
-
-    invoke-virtual {v2, v0}, Landroid/util/AtomicFile;->failWrite(Ljava/io/FileOutputStream;)V
-
-    const-string v2, "LocationManagerService"
-
-    const-string v3, "failure serializing location settings"
-
-    invoke-static {v2, v3, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    :goto_0
-    nop
-
-    return-void
-.end method
-
-.method protected abstract onChange(Lcom/android/server/location/settings/SettingsStore$VersionedSettings;Lcom/android/server/location/settings/SettingsStore$VersionedSettings;)V
+.method public abstract onChange(Lcom/android/server/location/settings/SettingsStore$VersionedSettings;Lcom/android/server/location/settings/SettingsStore$VersionedSettings;)V
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;TT;)V"
@@ -469,7 +476,7 @@
     .end annotation
 .end method
 
-.method protected abstract read(ILjava/io/DataInput;)Lcom/android/server/location/settings/SettingsStore$VersionedSettings;
+.method public abstract read(ILjava/io/DataInput;)Lcom/android/server/location/settings/SettingsStore$VersionedSettings;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -486,7 +493,7 @@
 .end method
 
 .method public declared-synchronized update(Ljava/util/function/Function;)V
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -504,21 +511,21 @@
 
     invoke-interface {p1, v0}, Ljava/util/function/Function;->apply(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    check-cast v1, Lcom/android/server/location/settings/SettingsStore$VersionedSettings;
+    check-cast p1, Lcom/android/server/location/settings/SettingsStore$VersionedSettings;
 
-    invoke-static {v1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    check-cast v1, Lcom/android/server/location/settings/SettingsStore$VersionedSettings;
+    check-cast p1, Lcom/android/server/location/settings/SettingsStore$VersionedSettings;
 
-    invoke-virtual {v0, v1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-eqz v2, :cond_0
+    if-eqz v1, :cond_0
 
     monitor-exit p0
 
@@ -526,29 +533,29 @@
 
     :cond_0
     :try_start_1
-    iput-object v1, p0, Lcom/android/server/location/settings/SettingsStore;->mCache:Lcom/android/server/location/settings/SettingsStore$VersionedSettings;
+    iput-object p1, p0, Lcom/android/server/location/settings/SettingsStore;->mCache:Lcom/android/server/location/settings/SettingsStore$VersionedSettings;
 
-    invoke-interface {v1}, Lcom/android/server/location/settings/SettingsStore$VersionedSettings;->getVersion()I
+    invoke-interface {p1}, Lcom/android/server/location/settings/SettingsStore$VersionedSettings;->getVersion()I
 
-    move-result v2
+    move-result v1
 
-    const v3, 0x7fffffff
+    const v2, 0x7fffffff
 
-    if-ge v2, v3, :cond_1
+    if-ge v1, v2, :cond_1
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
     goto :goto_0
 
     :cond_1
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
     :goto_0
-    invoke-static {v2}, Lcom/android/internal/util/Preconditions;->checkState(Z)V
+    invoke-static {v1}, Lcom/android/internal/util/Preconditions;->checkState(Z)V
 
-    invoke-direct {p0, v1}, Lcom/android/server/location/settings/SettingsStore;->writeLazily(Lcom/android/server/location/settings/SettingsStore$VersionedSettings;)V
+    invoke-virtual {p0, p1}, Lcom/android/server/location/settings/SettingsStore;->writeLazily(Lcom/android/server/location/settings/SettingsStore$VersionedSettings;)V
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/server/location/settings/SettingsStore;->onChange(Lcom/android/server/location/settings/SettingsStore$VersionedSettings;Lcom/android/server/location/settings/SettingsStore$VersionedSettings;)V
+    invoke-virtual {p0, v0, p1}, Lcom/android/server/location/settings/SettingsStore;->onChange(Lcom/android/server/location/settings/SettingsStore$VersionedSettings;Lcom/android/server/location/settings/SettingsStore$VersionedSettings;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -564,7 +571,7 @@
     throw p1
 .end method
 
-.method protected abstract write(Ljava/io/DataOutput;Lcom/android/server/location/settings/SettingsStore$VersionedSettings;)V
+.method public abstract write(Ljava/io/DataOutput;Lcom/android/server/location/settings/SettingsStore$VersionedSettings;)V
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -578,4 +585,25 @@
             Ljava/io/IOException;
         }
     .end annotation
+.end method
+
+.method public final writeLazily(Lcom/android/server/location/settings/SettingsStore$VersionedSettings;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(TT;)V"
+        }
+    .end annotation
+
+    invoke-static {}, Lcom/android/internal/os/BackgroundThread;->getExecutor()Ljava/util/concurrent/Executor;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/android/server/location/settings/SettingsStore$$ExternalSyntheticLambda2;
+
+    invoke-direct {v1, p0, p1}, Lcom/android/server/location/settings/SettingsStore$$ExternalSyntheticLambda2;-><init>(Lcom/android/server/location/settings/SettingsStore;Lcom/android/server/location/settings/SettingsStore$VersionedSettings;)V
+
+    invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
+
+    return-void
 .end method

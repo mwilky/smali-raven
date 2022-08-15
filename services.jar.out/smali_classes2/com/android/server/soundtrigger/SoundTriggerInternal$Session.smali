@@ -15,19 +15,28 @@
 
 
 # virtual methods
-.method public abstract dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-.end method
-
 .method public abstract getModuleProperties()Landroid/hardware/soundtrigger/SoundTrigger$ModuleProperties;
 .end method
 
 .method public abstract getParameter(II)I
+    .param p2    # I
+        .annotation build Landroid/hardware/soundtrigger/ModelParams;
+        .end annotation
+    .end param
 .end method
 
 .method public abstract queryParameter(II)Landroid/hardware/soundtrigger/SoundTrigger$ModelParamRange;
+    .param p2    # I
+        .annotation build Landroid/hardware/soundtrigger/ModelParams;
+        .end annotation
+    .end param
 .end method
 
 .method public abstract setParameter(III)I
+    .param p2    # I
+        .annotation build Landroid/hardware/soundtrigger/ModelParams;
+        .end annotation
+    .end param
 .end method
 
 .method public abstract startRecognition(ILandroid/hardware/soundtrigger/SoundTrigger$KeyphraseSoundModel;Landroid/hardware/soundtrigger/IRecognitionStatusCallback;Landroid/hardware/soundtrigger/SoundTrigger$RecognitionConfig;Z)I

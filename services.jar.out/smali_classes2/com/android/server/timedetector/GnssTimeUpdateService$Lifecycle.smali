@@ -15,7 +15,7 @@
 
 
 # instance fields
-.field private mService:Lcom/android/server/timedetector/GnssTimeUpdateService;
+.field public mService:Lcom/android/server/timedetector/GnssTimeUpdateService;
 
 
 # direct methods
@@ -36,9 +36,9 @@
 
     if-ne p1, v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/timedetector/GnssTimeUpdateService$Lifecycle;->mService:Lcom/android/server/timedetector/GnssTimeUpdateService;
+    iget-object p0, p0, Lcom/android/server/timedetector/GnssTimeUpdateService$Lifecycle;->mService:Lcom/android/server/timedetector/GnssTimeUpdateService;
 
-    invoke-virtual {v0}, Lcom/android/server/timedetector/GnssTimeUpdateService;->requestGnssTimeUpdates()V
+    invoke-virtual {p0}, Lcom/android/server/timedetector/GnssTimeUpdateService;->requestGnssTimeUpdates()V
 
     :cond_0
     return-void
@@ -49,7 +49,7 @@
 
     new-instance v0, Lcom/android/server/timedetector/GnssTimeUpdateService;
 
-    invoke-virtual {p0}, Lcom/android/server/timedetector/GnssTimeUpdateService$Lifecycle;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Lcom/android/server/SystemService;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
@@ -59,7 +59,7 @@
 
     const-string v1, "gnss_time_update_service"
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/server/timedetector/GnssTimeUpdateService$Lifecycle;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
+    invoke-virtual {p0, v1, v0}, Lcom/android/server/SystemService;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
 
     return-void
 .end method

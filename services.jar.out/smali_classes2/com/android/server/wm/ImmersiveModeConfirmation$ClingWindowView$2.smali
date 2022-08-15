@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/ImmersiveModeConfirmation$ClingWindowView$2;
+.class public Lcom/android/server/wm/ImmersiveModeConfirmation$ClingWindowView$2;
 .super Ljava/lang/Object;
 .source "ImmersiveModeConfirmation.java"
 
@@ -12,30 +12,30 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field private final mTmpInt2:[I
+.field public final mTmpInt2:[I
 
-.field final synthetic this$1:Lcom/android/server/wm/ImmersiveModeConfirmation$ClingWindowView;
+.field public final synthetic this$1:Lcom/android/server/wm/ImmersiveModeConfirmation$ClingWindowView;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/wm/ImmersiveModeConfirmation$ClingWindowView;)V
-    .locals 1
+.method public constructor <init>(Lcom/android/server/wm/ImmersiveModeConfirmation$ClingWindowView;)V
+    .locals 0
 
     iput-object p1, p0, Lcom/android/server/wm/ImmersiveModeConfirmation$ClingWindowView$2;->this$1:Lcom/android/server/wm/ImmersiveModeConfirmation$ClingWindowView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    const/4 v0, 0x2
+    const/4 p1, 0x2
 
-    new-array v0, v0, [I
+    new-array p1, p1, [I
 
-    iput-object v0, p0, Lcom/android/server/wm/ImmersiveModeConfirmation$ClingWindowView$2;->mTmpInt2:[I
+    iput-object p1, p0, Lcom/android/server/wm/ImmersiveModeConfirmation$ClingWindowView$2;->mTmpInt2:[I
 
     return-void
 .end method
@@ -43,11 +43,11 @@
 
 # virtual methods
 .method public onComputeInternalInsets(Landroid/view/ViewTreeObserver$InternalInsetsInfo;)V
-    .locals 6
+    .locals 5
 
     iget-object v0, p0, Lcom/android/server/wm/ImmersiveModeConfirmation$ClingWindowView$2;->this$1:Lcom/android/server/wm/ImmersiveModeConfirmation$ClingWindowView;
 
-    invoke-static {v0}, Lcom/android/server/wm/ImmersiveModeConfirmation$ClingWindowView;->access$000(Lcom/android/server/wm/ImmersiveModeConfirmation$ClingWindowView;)Landroid/view/ViewGroup;
+    invoke-static {v0}, Lcom/android/server/wm/ImmersiveModeConfirmation$ClingWindowView;->-$$Nest$fgetmClingLayout(Lcom/android/server/wm/ImmersiveModeConfirmation$ClingWindowView;)Landroid/view/ViewGroup;
 
     move-result-object v0
 
@@ -59,49 +59,47 @@
 
     invoke-virtual {p1, v0}, Landroid/view/ViewTreeObserver$InternalInsetsInfo;->setTouchableInsets(I)V
 
-    iget-object v0, p1, Landroid/view/ViewTreeObserver$InternalInsetsInfo;->touchableRegion:Landroid/graphics/Region;
+    iget-object p1, p1, Landroid/view/ViewTreeObserver$InternalInsetsInfo;->touchableRegion:Landroid/graphics/Region;
 
-    iget-object v1, p0, Lcom/android/server/wm/ImmersiveModeConfirmation$ClingWindowView$2;->mTmpInt2:[I
+    iget-object v0, p0, Lcom/android/server/wm/ImmersiveModeConfirmation$ClingWindowView$2;->mTmpInt2:[I
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    aget v3, v1, v2
+    aget v1, v0, v1
 
-    const/4 v4, 0x1
+    const/4 v2, 0x1
 
-    aget v5, v1, v4
+    aget v0, v0, v2
 
-    aget v1, v1, v2
+    iget-object v3, p0, Lcom/android/server/wm/ImmersiveModeConfirmation$ClingWindowView$2;->this$1:Lcom/android/server/wm/ImmersiveModeConfirmation$ClingWindowView;
 
-    iget-object v2, p0, Lcom/android/server/wm/ImmersiveModeConfirmation$ClingWindowView$2;->this$1:Lcom/android/server/wm/ImmersiveModeConfirmation$ClingWindowView;
+    invoke-static {v3}, Lcom/android/server/wm/ImmersiveModeConfirmation$ClingWindowView;->-$$Nest$fgetmClingLayout(Lcom/android/server/wm/ImmersiveModeConfirmation$ClingWindowView;)Landroid/view/ViewGroup;
 
-    invoke-static {v2}, Lcom/android/server/wm/ImmersiveModeConfirmation$ClingWindowView;->access$000(Lcom/android/server/wm/ImmersiveModeConfirmation$ClingWindowView;)Landroid/view/ViewGroup;
+    move-result-object v3
 
-    move-result-object v2
+    invoke-virtual {v3}, Landroid/view/ViewGroup;->getWidth()I
 
-    invoke-virtual {v2}, Landroid/view/ViewGroup;->getWidth()I
+    move-result v3
 
-    move-result v2
+    add-int/2addr v3, v1
 
-    add-int/2addr v1, v2
+    iget-object v4, p0, Lcom/android/server/wm/ImmersiveModeConfirmation$ClingWindowView$2;->mTmpInt2:[I
 
-    iget-object v2, p0, Lcom/android/server/wm/ImmersiveModeConfirmation$ClingWindowView$2;->mTmpInt2:[I
+    aget v2, v4, v2
 
-    aget v2, v2, v4
+    iget-object p0, p0, Lcom/android/server/wm/ImmersiveModeConfirmation$ClingWindowView$2;->this$1:Lcom/android/server/wm/ImmersiveModeConfirmation$ClingWindowView;
 
-    iget-object v4, p0, Lcom/android/server/wm/ImmersiveModeConfirmation$ClingWindowView$2;->this$1:Lcom/android/server/wm/ImmersiveModeConfirmation$ClingWindowView;
+    invoke-static {p0}, Lcom/android/server/wm/ImmersiveModeConfirmation$ClingWindowView;->-$$Nest$fgetmClingLayout(Lcom/android/server/wm/ImmersiveModeConfirmation$ClingWindowView;)Landroid/view/ViewGroup;
 
-    invoke-static {v4}, Lcom/android/server/wm/ImmersiveModeConfirmation$ClingWindowView;->access$000(Lcom/android/server/wm/ImmersiveModeConfirmation$ClingWindowView;)Landroid/view/ViewGroup;
+    move-result-object p0
 
-    move-result-object v4
+    invoke-virtual {p0}, Landroid/view/ViewGroup;->getHeight()I
 
-    invoke-virtual {v4}, Landroid/view/ViewGroup;->getHeight()I
+    move-result p0
 
-    move-result v4
+    add-int/2addr v2, p0
 
-    add-int/2addr v2, v4
-
-    invoke-virtual {v0, v3, v5, v1, v2}, Landroid/graphics/Region;->set(IIII)Z
+    invoke-virtual {p1, v1, v0, v3, v2}, Landroid/graphics/Region;->set(IIII)Z
 
     return-void
 .end method

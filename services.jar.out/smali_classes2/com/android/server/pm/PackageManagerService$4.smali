@@ -1,62 +1,50 @@
-.class Lcom/android/server/pm/PackageManagerService$4;
-.super Lcom/android/server/pm/parsing/PackageParser2$Callback;
+.class public Lcom/android/server/pm/PackageManagerService$4;
+.super Landroid/content/BroadcastReceiver;
 .source "PackageManagerService.java"
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/pm/PackageManagerService;-><init>(Lcom/android/server/pm/PackageManagerService$Injector;ZZLjava/lang/String;ZZILjava/lang/String;)V
+    value = Lcom/android/server/pm/PackageManagerService;->systemReady()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/pm/PackageManagerService;
-
-.field final synthetic val$platformCompat:Lcom/android/server/compat/PlatformCompat;
+.field public final synthetic this$0:Lcom/android/server/pm/PackageManagerService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/pm/PackageManagerService;Lcom/android/server/compat/PlatformCompat;)V
+.method public constructor <init>(Lcom/android/server/pm/PackageManagerService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/pm/PackageManagerService$4;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    iput-object p2, p0, Lcom/android/server/pm/PackageManagerService$4;->val$platformCompat:Lcom/android/server/compat/PlatformCompat;
-
-    invoke-direct {p0}, Lcom/android/server/pm/parsing/PackageParser2$Callback;-><init>()V
+    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public hasFeature(Ljava/lang/String;)Z
-    .locals 2
+.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$4;->this$0:Lcom/android/server/pm/PackageManagerService;
+    iget-object p1, p0, Lcom/android/server/pm/PackageManagerService$4;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    const/4 v1, 0x0
+    iget-object p1, p1, Lcom/android/server/pm/PackageManagerService;->mInstantAppResolverConnection:Lcom/android/server/pm/InstantAppResolverConnection;
 
-    invoke-virtual {v0, p1, v1}, Lcom/android/server/pm/PackageManagerService;->hasSystemFeature(Ljava/lang/String;I)Z
+    invoke-virtual {p1}, Lcom/android/server/pm/InstantAppResolverConnection;->optimisticBind()V
 
-    move-result v0
+    iget-object p1, p0, Lcom/android/server/pm/PackageManagerService$4;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    return v0
-.end method
+    iget-object p1, p1, Lcom/android/server/pm/PackageManagerService;->mContext:Landroid/content/Context;
 
-.method public isChangeEnabled(JLandroid/content/pm/ApplicationInfo;)Z
-    .locals 1
+    invoke-virtual {p1, p0}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$4;->val$platformCompat:Lcom/android/server/compat/PlatformCompat;
-
-    invoke-virtual {v0, p1, p2, p3}, Lcom/android/server/compat/PlatformCompat;->isChangeEnabled(JLandroid/content/pm/ApplicationInfo;)Z
-
-    move-result v0
-
-    return v0
+    return-void
 .end method

@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/server/timezonedetector/location/LocationTimeZoneProviderProxy$Listener;
+.class public interface abstract Lcom/android/server/timezonedetector/location/LocationTimeZoneProviderProxy$Listener;
 .super Ljava/lang/Object;
 .source "LocationTimeZoneProviderProxy.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
+    accessFlags = 0x609
     name = "Listener"
 .end annotation
 
@@ -21,5 +21,5 @@
 .method public abstract onProviderUnbound()V
 .end method
 
-.method public abstract onReportTimeZoneProviderEvent(Lcom/android/server/timezonedetector/location/TimeZoneProviderEvent;)V
+.method public abstract onReportTimeZoneProviderEvent(Landroid/service/timezone/TimeZoneProviderEvent;)V
 .end method

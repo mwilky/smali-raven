@@ -1,4 +1,4 @@
-.class final Lcom/android/server/am/ProcessList$ImperceptibleKillRunner$IdlenessReceiver;
+.class public final Lcom/android/server/am/ProcessList$ImperceptibleKillRunner$IdlenessReceiver;
 .super Landroid/content/BroadcastReceiver;
 .source "ProcessList.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "IdlenessReceiver"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$1:Lcom/android/server/am/ProcessList$ImperceptibleKillRunner;
+.field public final synthetic this$1:Lcom/android/server/am/ProcessList$ImperceptibleKillRunner;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/server/am/ProcessList$ImperceptibleKillRunner;)V
+.method public constructor <init>(Lcom/android/server/am/ProcessList$ImperceptibleKillRunner;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/am/ProcessList$ImperceptibleKillRunner$IdlenessReceiver;->this$1:Lcom/android/server/am/ProcessList$ImperceptibleKillRunner;
@@ -29,7 +29,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/am/ProcessList$ImperceptibleKillRunner;Lcom/android/server/am/ProcessList$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/am/ProcessList$ImperceptibleKillRunner;Lcom/android/server/am/ProcessList$ImperceptibleKillRunner$IdlenessReceiver-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/am/ProcessList$ImperceptibleKillRunner$IdlenessReceiver;-><init>(Lcom/android/server/am/ProcessList$ImperceptibleKillRunner;)V
@@ -40,105 +40,68 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 3
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/am/ProcessList$ImperceptibleKillRunner$IdlenessReceiver;->this$1:Lcom/android/server/am/ProcessList$ImperceptibleKillRunner;
+    iget-object p1, p0, Lcom/android/server/am/ProcessList$ImperceptibleKillRunner$IdlenessReceiver;->this$1:Lcom/android/server/am/ProcessList$ImperceptibleKillRunner;
 
-    iget-object v0, v0, Lcom/android/server/am/ProcessList$ImperceptibleKillRunner;->this$0:Lcom/android/server/am/ProcessList;
+    iget-object p1, p1, Lcom/android/server/am/ProcessList$ImperceptibleKillRunner;->this$0:Lcom/android/server/am/ProcessList;
 
-    iget-object v0, v0, Lcom/android/server/am/ProcessList;->mService:Lcom/android/server/am/ActivityManagerService;
+    iget-object p1, p1, Lcom/android/server/am/ProcessList;->mService:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
+    iget-object p1, p1, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
 
-    const-class v1, Landroid/os/PowerManager;
+    const-class v0, Landroid/os/PowerManager;
 
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Landroid/os/PowerManager;
+    check-cast p1, Landroid/os/PowerManager;
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-virtual {v1}, Ljava/lang/String;->hashCode()I
+    invoke-virtual {p2}, Ljava/lang/String;->hashCode()I
 
-    move-result v2
+    const-string v0, "android.os.action.LIGHT_DEVICE_IDLE_MODE_CHANGED"
 
-    sparse-switch v2, :sswitch_data_0
+    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    :cond_0
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    const-string v0, "android.os.action.DEVICE_IDLE_MODE_CHANGED"
+
+    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p2
+
+    if-nez p2, :cond_0
+
     goto :goto_0
 
-    :sswitch_0
-    const-string v2, "android.os.action.DEVICE_IDLE_MODE_CHANGED"
+    :cond_0
+    iget-object p0, p0, Lcom/android/server/am/ProcessList$ImperceptibleKillRunner$IdlenessReceiver;->this$1:Lcom/android/server/am/ProcessList$ImperceptibleKillRunner;
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1}, Landroid/os/PowerManager;->isDeviceIdleMode()Z
 
-    move-result v1
+    move-result p1
 
-    if-eqz v1, :cond_0
+    invoke-virtual {p0, p1}, Lcom/android/server/am/ProcessList$ImperceptibleKillRunner;->notifyDeviceIdleness(Z)V
 
-    const/4 v1, 0x1
+    goto :goto_0
 
-    goto :goto_1
+    :cond_1
+    iget-object p0, p0, Lcom/android/server/am/ProcessList$ImperceptibleKillRunner$IdlenessReceiver;->this$1:Lcom/android/server/am/ProcessList$ImperceptibleKillRunner;
 
-    :sswitch_1
-    const-string v2, "android.os.action.LIGHT_DEVICE_IDLE_MODE_CHANGED"
+    invoke-virtual {p1}, Landroid/os/PowerManager;->isLightDeviceIdleMode()Z
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result p1
 
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    const/4 v1, 0x0
-
-    goto :goto_1
+    invoke-virtual {p0, p1}, Lcom/android/server/am/ProcessList$ImperceptibleKillRunner;->notifyDeviceIdleness(Z)V
 
     :goto_0
-    const/4 v1, -0x1
-
-    :goto_1
-    packed-switch v1, :pswitch_data_0
-
-    goto :goto_2
-
-    :pswitch_0
-    iget-object v1, p0, Lcom/android/server/am/ProcessList$ImperceptibleKillRunner$IdlenessReceiver;->this$1:Lcom/android/server/am/ProcessList$ImperceptibleKillRunner;
-
-    invoke-virtual {v0}, Landroid/os/PowerManager;->isDeviceIdleMode()Z
-
-    move-result v2
-
-    invoke-virtual {v1, v2}, Lcom/android/server/am/ProcessList$ImperceptibleKillRunner;->notifyDeviceIdleness(Z)V
-
-    goto :goto_2
-
-    :pswitch_1
-    iget-object v1, p0, Lcom/android/server/am/ProcessList$ImperceptibleKillRunner$IdlenessReceiver;->this$1:Lcom/android/server/am/ProcessList$ImperceptibleKillRunner;
-
-    invoke-virtual {v0}, Landroid/os/PowerManager;->isLightDeviceIdleMode()Z
-
-    move-result v2
-
-    invoke-virtual {v1, v2}, Lcom/android/server/am/ProcessList$ImperceptibleKillRunner;->notifyDeviceIdleness(Z)V
-
-    nop
-
-    :goto_2
     return-void
-
-    :sswitch_data_0
-    .sparse-switch
-        0x1dbb32d0 -> :sswitch_1
-        0x33e5d967 -> :sswitch_0
-    .end sparse-switch
-
-    :pswitch_data_0
-    .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
 .end method

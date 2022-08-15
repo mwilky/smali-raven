@@ -1,4 +1,4 @@
-.class final Lcom/android/server/audio/MediaFocusControl$ForgetFadeUidInfo;
+.class public final Lcom/android/server/audio/MediaFocusControl$ForgetFadeUidInfo;
 .super Ljava/lang/Object;
 .source "MediaFocusControl.java"
 
@@ -9,17 +9,25 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "ForgetFadeUidInfo"
 .end annotation
 
 
 # instance fields
-.field private final mUid:I
+.field public final mUid:I
 
 
 # direct methods
-.method constructor <init>(I)V
+.method public static bridge synthetic -$$Nest$fgetmUid(Lcom/android/server/audio/MediaFocusControl$ForgetFadeUidInfo;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/server/audio/MediaFocusControl$ForgetFadeUidInfo;->mUid:I
+
+    return p0
+.end method
+
+.method public constructor <init>(I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -29,18 +37,10 @@
     return-void
 .end method
 
-.method static synthetic access$1000(Lcom/android/server/audio/MediaFocusControl$ForgetFadeUidInfo;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/server/audio/MediaFocusControl$ForgetFadeUidInfo;->mUid:I
-
-    return v0
-.end method
-
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .locals 4
 
     const/4 v0, 0x1
 
@@ -53,9 +53,7 @@
 
     if-eqz p1, :cond_3
 
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    move-result-object v2
+    const-class v2, Lcom/android/server/audio/MediaFocusControl$ForgetFadeUidInfo;
 
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -66,15 +64,13 @@
     goto :goto_0
 
     :cond_1
-    move-object v2, p1
+    check-cast p1, Lcom/android/server/audio/MediaFocusControl$ForgetFadeUidInfo;
 
-    check-cast v2, Lcom/android/server/audio/MediaFocusControl$ForgetFadeUidInfo;
+    iget p1, p1, Lcom/android/server/audio/MediaFocusControl$ForgetFadeUidInfo;->mUid:I
 
-    iget v3, v2, Lcom/android/server/audio/MediaFocusControl$ForgetFadeUidInfo;->mUid:I
+    iget p0, p0, Lcom/android/server/audio/MediaFocusControl$ForgetFadeUidInfo;->mUid:I
 
-    iget v4, p0, Lcom/android/server/audio/MediaFocusControl$ForgetFadeUidInfo;->mUid:I
-
-    if-eq v3, v4, :cond_2
+    if-eq p1, p0, :cond_2
 
     return v1
 
@@ -87,9 +83,9 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/audio/MediaFocusControl$ForgetFadeUidInfo;->mUid:I
+    iget p0, p0, Lcom/android/server/audio/MediaFocusControl$ForgetFadeUidInfo;->mUid:I
 
-    return v0
+    return p0
 .end method

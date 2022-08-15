@@ -1,47 +1,46 @@
 .class public final synthetic Lcom/android/server/blob/BlobStoreManagerService$$ExternalSyntheticLambda7;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Consumer;
+.implements Ljava/lang/Runnable;
 
 
 # instance fields
-.field public final synthetic f$0:I
+.field public final synthetic f$0:Lcom/android/server/blob/BlobStoreManagerService;
 
-.field public final synthetic f$1:Ljava/lang/String;
+.field public final synthetic f$1:Landroid/app/blob/BlobHandle;
 
-.field public final synthetic f$2:Ljava/util/concurrent/atomic/AtomicInteger;
+.field public final synthetic f$2:Lcom/android/server/blob/BlobMetadata;
 
 
 # direct methods
-.method public synthetic constructor <init>(ILjava/lang/String;Ljava/util/concurrent/atomic/AtomicInteger;)V
+.method public synthetic constructor <init>(Lcom/android/server/blob/BlobStoreManagerService;Landroid/app/blob/BlobHandle;Lcom/android/server/blob/BlobMetadata;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput p1, p0, Lcom/android/server/blob/BlobStoreManagerService$$ExternalSyntheticLambda7;->f$0:I
+    iput-object p1, p0, Lcom/android/server/blob/BlobStoreManagerService$$ExternalSyntheticLambda7;->f$0:Lcom/android/server/blob/BlobStoreManagerService;
 
-    iput-object p2, p0, Lcom/android/server/blob/BlobStoreManagerService$$ExternalSyntheticLambda7;->f$1:Ljava/lang/String;
+    iput-object p2, p0, Lcom/android/server/blob/BlobStoreManagerService$$ExternalSyntheticLambda7;->f$1:Landroid/app/blob/BlobHandle;
 
-    iput-object p3, p0, Lcom/android/server/blob/BlobStoreManagerService$$ExternalSyntheticLambda7;->f$2:Ljava/util/concurrent/atomic/AtomicInteger;
+    iput-object p3, p0, Lcom/android/server/blob/BlobStoreManagerService$$ExternalSyntheticLambda7;->f$2:Lcom/android/server/blob/BlobMetadata;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
-    .locals 3
+.method public final run()V
+    .locals 2
 
-    iget v0, p0, Lcom/android/server/blob/BlobStoreManagerService$$ExternalSyntheticLambda7;->f$0:I
+    iget-object v0, p0, Lcom/android/server/blob/BlobStoreManagerService$$ExternalSyntheticLambda7;->f$0:Lcom/android/server/blob/BlobStoreManagerService;
 
-    iget-object v1, p0, Lcom/android/server/blob/BlobStoreManagerService$$ExternalSyntheticLambda7;->f$1:Ljava/lang/String;
+    iget-object v1, p0, Lcom/android/server/blob/BlobStoreManagerService$$ExternalSyntheticLambda7;->f$1:Landroid/app/blob/BlobHandle;
 
-    iget-object v2, p0, Lcom/android/server/blob/BlobStoreManagerService$$ExternalSyntheticLambda7;->f$2:Ljava/util/concurrent/atomic/AtomicInteger;
+    iget-object p0, p0, Lcom/android/server/blob/BlobStoreManagerService$$ExternalSyntheticLambda7;->f$2:Lcom/android/server/blob/BlobMetadata;
 
-    check-cast p1, Lcom/android/server/blob/BlobStoreSession;
-
-    invoke-static {v0, v1, v2, p1}, Lcom/android/server/blob/BlobStoreManagerService;->lambda$getSessionsCountLocked$0(ILjava/lang/String;Ljava/util/concurrent/atomic/AtomicInteger;Lcom/android/server/blob/BlobStoreSession;)V
+    invoke-static {v0, v1, p0}, Lcom/android/server/blob/BlobStoreManagerService;->$r8$lambda$el6umvxtfqfr4DKBcZ8t-OVXm8Y(Lcom/android/server/blob/BlobStoreManagerService;Landroid/app/blob/BlobHandle;Lcom/android/server/blob/BlobMetadata;)V
 
     return-void
 .end method

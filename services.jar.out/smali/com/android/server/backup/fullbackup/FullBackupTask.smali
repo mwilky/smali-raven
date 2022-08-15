@@ -7,11 +7,11 @@
 
 
 # instance fields
-.field mObserver:Landroid/app/backup/IFullBackupRestoreObserver;
+.field public mObserver:Landroid/app/backup/IFullBackupRestoreObserver;
 
 
 # direct methods
-.method constructor <init>(Landroid/app/backup/IFullBackupRestoreObserver;)V
+.method public constructor <init>(Landroid/app/backup/IFullBackupRestoreObserver;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -23,8 +23,8 @@
 
 
 # virtual methods
-.method final sendEndBackup()V
-    .locals 3
+.method public final sendEndBackup()V
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/backup/fullbackup/FullBackupTask;->mObserver:Landroid/app/backup/IFullBackupRestoreObserver;
 
@@ -38,25 +38,23 @@
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    const-string v0, "BackupManagerService"
 
-    const-string v1, "BackupManagerService"
+    const-string v1, "full backup observer went away: endBackup"
 
-    const-string v2, "full backup observer went away: endBackup"
+    invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    const/4 v0, 0x0
 
-    const/4 v1, 0x0
-
-    iput-object v1, p0, Lcom/android/server/backup/fullbackup/FullBackupTask;->mObserver:Landroid/app/backup/IFullBackupRestoreObserver;
+    iput-object v0, p0, Lcom/android/server/backup/fullbackup/FullBackupTask;->mObserver:Landroid/app/backup/IFullBackupRestoreObserver;
 
     :cond_0
     :goto_0
     return-void
 .end method
 
-.method final sendOnBackupPackage(Ljava/lang/String;)V
-    .locals 3
+.method public final sendOnBackupPackage(Ljava/lang/String;)V
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/backup/fullbackup/FullBackupTask;->mObserver:Landroid/app/backup/IFullBackupRestoreObserver;
 
@@ -70,25 +68,23 @@
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    const-string p1, "BackupManagerService"
 
-    const-string v1, "BackupManagerService"
+    const-string v0, "full backup observer went away: backupPackage"
 
-    const-string v2, "full backup observer went away: backupPackage"
+    invoke-static {p1, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    const/4 p1, 0x0
 
-    const/4 v1, 0x0
-
-    iput-object v1, p0, Lcom/android/server/backup/fullbackup/FullBackupTask;->mObserver:Landroid/app/backup/IFullBackupRestoreObserver;
+    iput-object p1, p0, Lcom/android/server/backup/fullbackup/FullBackupTask;->mObserver:Landroid/app/backup/IFullBackupRestoreObserver;
 
     :cond_0
     :goto_0
     return-void
 .end method
 
-.method final sendStartBackup()V
-    .locals 3
+.method public final sendStartBackup()V
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/backup/fullbackup/FullBackupTask;->mObserver:Landroid/app/backup/IFullBackupRestoreObserver;
 
@@ -102,17 +98,15 @@
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    const-string v0, "BackupManagerService"
 
-    const-string v1, "BackupManagerService"
+    const-string v1, "full backup observer went away: startBackup"
 
-    const-string v2, "full backup observer went away: startBackup"
+    invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    const/4 v0, 0x0
 
-    const/4 v1, 0x0
-
-    iput-object v1, p0, Lcom/android/server/backup/fullbackup/FullBackupTask;->mObserver:Landroid/app/backup/IFullBackupRestoreObserver;
+    iput-object v0, p0, Lcom/android/server/backup/fullbackup/FullBackupTask;->mObserver:Landroid/app/backup/IFullBackupRestoreObserver;
 
     :cond_0
     :goto_0

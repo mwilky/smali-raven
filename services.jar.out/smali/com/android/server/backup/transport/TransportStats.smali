@@ -12,9 +12,9 @@
 
 
 # instance fields
-.field private final mStatsLock:Ljava/lang/Object;
+.field public final mStatsLock:Ljava/lang/Object;
 
-.field private final mTransportStats:Ljava/util/Map;
+.field public final mTransportStats:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Map<",
@@ -47,7 +47,7 @@
     return-void
 .end method
 
-.method private static dumpStats(Ljava/io/PrintWriter;Ljava/lang/String;Lcom/android/server/backup/transport/TransportStats$Stats;)V
+.method public static dumpStats(Ljava/io/PrintWriter;Ljava/lang/String;Lcom/android/server/backup/transport/TransportStats$Stats;)V
     .locals 8
 
     sget-object v0, Ljava/util/Locale;->US:Ljava/util/Locale;
@@ -74,11 +74,9 @@
 
     invoke-static {v0, v4, v2}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    sget-object v0, Ljava/util/Locale;->US:Ljava/util/Locale;
+    invoke-virtual {p0, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     new-array v2, v1, [Ljava/lang/Object;
 
@@ -96,11 +94,9 @@
 
     invoke-static {v0, v4, v2}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    sget-object v0, Ljava/util/Locale;->US:Ljava/util/Locale;
+    invoke-virtual {p0, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     new-array v2, v1, [Ljava/lang/Object;
 
@@ -118,31 +114,29 @@
 
     invoke-static {v0, v4, v2}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    sget-object v0, Ljava/util/Locale;->US:Ljava/util/Locale;
+    invoke-virtual {p0, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     new-array v1, v1, [Ljava/lang/Object;
 
     aput-object p1, v1, v3
 
-    iget v2, p2, Lcom/android/server/backup/transport/TransportStats$Stats;->n:I
+    iget p1, p2, Lcom/android/server/backup/transport/TransportStats$Stats;->n:I
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v2
+    move-result-object p1
 
-    aput-object v2, v1, v5
+    aput-object p1, v1, v5
 
-    const-string v2, "%sNumber of connections: %d "
+    const-string p1, "%sNumber of connections: %d "
 
-    invoke-static {v0, v2, v1}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v0, p1, v1}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p0, p1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     return-void
 .end method
@@ -150,7 +144,7 @@
 
 # virtual methods
 .method public dump(Ljava/io/PrintWriter;)V
-    .locals 7
+    .locals 6
 
     iget-object v0, p0, Lcom/android/server/backup/transport/TransportStats;->mStatsLock:Ljava/lang/Object;
 
@@ -167,7 +161,9 @@
 
     move-result-object v1
 
-    sget-object v2, Lcom/android/server/backup/transport/TransportStats$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/server/backup/transport/TransportStats$$ExternalSyntheticLambda0;
+    new-instance v2, Lcom/android/server/backup/transport/TransportStats$$ExternalSyntheticLambda0;
+
+    invoke-direct {v2}, Lcom/android/server/backup/transport/TransportStats$$ExternalSyntheticLambda0;-><init>()V
 
     invoke-interface {v1, v2}, Ljava/util/stream/Stream;->reduce(Ljava/util/function/BinaryOperator;)Ljava/util/Optional;
 
@@ -183,79 +179,79 @@
 
     invoke-virtual {v1}, Ljava/util/Optional;->get()Ljava/lang/Object;
 
+    move-result-object v1
+
+    check-cast v1, Lcom/android/server/backup/transport/TransportStats$Stats;
+
+    invoke-static {p1, v2, v1}, Lcom/android/server/backup/transport/TransportStats;->dumpStats(Ljava/io/PrintWriter;Ljava/lang/String;Lcom/android/server/backup/transport/TransportStats$Stats;)V
+
+    :cond_0
+    iget-object v1, p0, Lcom/android/server/backup/transport/TransportStats;->mTransportStats:Ljava/util/Map;
+
+    invoke-interface {v1}, Ljava/util/Map;->isEmpty()Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    const-string v1, "Per transport:"
+
+    invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    iget-object v1, p0, Lcom/android/server/backup/transport/TransportStats;->mTransportStats:Ljava/util/Map;
+
+    invoke-interface {v1}, Ljava/util/Map;->keySet()Ljava/util/Set;
+
+    move-result-object v1
+
+    invoke-interface {v1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/content/ComponentName;
+
+    iget-object v3, p0, Lcom/android/server/backup/transport/TransportStats;->mTransportStats:Ljava/util/Map;
+
+    invoke-interface {v3, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
     move-result-object v3
 
     check-cast v3, Lcom/android/server/backup/transport/TransportStats$Stats;
 
-    invoke-static {p1, v2, v3}, Lcom/android/server/backup/transport/TransportStats;->dumpStats(Ljava/io/PrintWriter;Ljava/lang/String;Lcom/android/server/backup/transport/TransportStats$Stats;)V
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    :cond_0
-    iget-object v2, p0, Lcom/android/server/backup/transport/TransportStats;->mTransportStats:Ljava/util/Map;
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-interface {v2}, Ljava/util/Map;->isEmpty()Z
+    const-string v5, "    "
 
-    move-result v2
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    if-nez v2, :cond_1
+    invoke-virtual {v2}, Landroid/content/ComponentName;->flattenToShortString()Ljava/lang/String;
 
-    const-string v2, "Per transport:"
+    move-result-object v2
+
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
 
     invoke-virtual {p1, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    iget-object v2, p0, Lcom/android/server/backup/transport/TransportStats;->mTransportStats:Ljava/util/Map;
+    const-string v2, "        "
 
-    invoke-interface {v2}, Ljava/util/Map;->keySet()Ljava/util/Set;
-
-    move-result-object v2
-
-    invoke-interface {v2}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
-
-    move-result-object v2
-
-    :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_1
-
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/content/ComponentName;
-
-    iget-object v4, p0, Lcom/android/server/backup/transport/TransportStats;->mTransportStats:Ljava/util/Map;
-
-    invoke-interface {v4, v3}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Lcom/android/server/backup/transport/TransportStats$Stats;
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v6, "    "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3}, Landroid/content/ComponentName;->flattenToShortString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {p1, v5}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    const-string v5, "        "
-
-    invoke-static {p1, v5, v4}, Lcom/android/server/backup/transport/TransportStats;->dumpStats(Ljava/io/PrintWriter;Ljava/lang/String;Lcom/android/server/backup/transport/TransportStats$Stats;)V
+    invoke-static {p1, v2, v3}, Lcom/android/server/backup/transport/TransportStats;->dumpStats(Ljava/io/PrintWriter;Ljava/lang/String;Lcom/android/server/backup/transport/TransportStats$Stats;)V
 
     goto :goto_0
 
@@ -265,60 +261,17 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
-.method public getStatsForTransport(Landroid/content/ComponentName;)Lcom/android/server/backup/transport/TransportStats$Stats;
-    .locals 4
-
-    iget-object v0, p0, Lcom/android/server/backup/transport/TransportStats;->mStatsLock:Ljava/lang/Object;
-
-    monitor-enter v0
-
-    :try_start_0
-    iget-object v1, p0, Lcom/android/server/backup/transport/TransportStats;->mTransportStats:Ljava/util/Map;
-
-    invoke-interface {v1, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/android/server/backup/transport/TransportStats$Stats;
-
-    const/4 v2, 0x0
-
-    if-nez v1, :cond_0
-
-    monitor-exit v0
-
-    return-object v2
-
-    :cond_0
-    new-instance v3, Lcom/android/server/backup/transport/TransportStats$Stats;
-
-    invoke-direct {v3, v1, v2}, Lcom/android/server/backup/transport/TransportStats$Stats;-><init>(Lcom/android/server/backup/transport/TransportStats$Stats;Lcom/android/server/backup/transport/TransportStats$1;)V
-
-    monitor-exit v0
-
-    return-object v3
-
-    :catchall_0
-    move-exception v1
-
-    monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v1
-.end method
-
-.method registerConnectionTime(Landroid/content/ComponentName;J)V
-    .locals 3
+.method public registerConnectionTime(Landroid/content/ComponentName;J)V
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/backup/transport/TransportStats;->mStatsLock:Ljava/lang/Object;
 
@@ -335,29 +288,27 @@
 
     if-nez v1, :cond_0
 
-    new-instance v2, Lcom/android/server/backup/transport/TransportStats$Stats;
+    new-instance v1, Lcom/android/server/backup/transport/TransportStats$Stats;
 
-    invoke-direct {v2}, Lcom/android/server/backup/transport/TransportStats$Stats;-><init>()V
+    invoke-direct {v1}, Lcom/android/server/backup/transport/TransportStats$Stats;-><init>()V
 
-    move-object v1, v2
+    iget-object p0, p0, Lcom/android/server/backup/transport/TransportStats;->mTransportStats:Ljava/util/Map;
 
-    iget-object v2, p0, Lcom/android/server/backup/transport/TransportStats;->mTransportStats:Ljava/util/Map;
-
-    invoke-interface {v2, p1, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p0, p1, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     :cond_0
-    invoke-static {v1, p2, p3}, Lcom/android/server/backup/transport/TransportStats$Stats;->access$000(Lcom/android/server/backup/transport/TransportStats$Stats;J)V
+    invoke-static {v1, p2, p3}, Lcom/android/server/backup/transport/TransportStats$Stats;->-$$Nest$mregister(Lcom/android/server/backup/transport/TransportStats$Stats;J)V
 
     monitor-exit v0
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method

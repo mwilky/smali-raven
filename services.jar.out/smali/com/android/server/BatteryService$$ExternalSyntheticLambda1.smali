@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/BatteryService$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/internal/util/FunctionalUtils$ThrowingRunnable;
@@ -27,13 +28,13 @@
 
 # virtual methods
 .method public final runOrThrow()V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/BatteryService$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/BatteryService;
 
-    iget-boolean v1, p0, Lcom/android/server/BatteryService$$ExternalSyntheticLambda1;->f$1:Z
+    iget-boolean p0, p0, Lcom/android/server/BatteryService$$ExternalSyntheticLambda1;->f$1:Z
 
-    invoke-virtual {v0, v1}, Lcom/android/server/BatteryService;->lambda$setChargerAcOnline$1$BatteryService(Z)V
+    invoke-static {v0, p0}, Lcom/android/server/BatteryService;->$r8$lambda$_mHC0WCE0sa8BZmFkwxzQRhhzHs(Lcom/android/server/BatteryService;Z)V
 
     return-void
 .end method

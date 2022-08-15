@@ -1,4 +1,4 @@
-.class Lcom/android/server/ThreadPriorityBooster$1;
+.class public Lcom/android/server/ThreadPriorityBooster$1;
 .super Ljava/lang/ThreadLocal;
 .source "ThreadPriorityBooster.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
@@ -23,11 +23,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/ThreadPriorityBooster;
+.field public final synthetic this$0:Lcom/android/server/ThreadPriorityBooster;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/ThreadPriorityBooster;)V
+.method public constructor <init>(Lcom/android/server/ThreadPriorityBooster;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/ThreadPriorityBooster$1;->this$0:Lcom/android/server/ThreadPriorityBooster;
@@ -39,24 +39,24 @@
 
 
 # virtual methods
-.method protected initialValue()Lcom/android/server/ThreadPriorityBooster$PriorityState;
-    .locals 2
+.method public initialValue()Lcom/android/server/ThreadPriorityBooster$PriorityState;
+    .locals 1
 
-    new-instance v0, Lcom/android/server/ThreadPriorityBooster$PriorityState;
+    new-instance p0, Lcom/android/server/ThreadPriorityBooster$PriorityState;
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    invoke-direct {v0, v1}, Lcom/android/server/ThreadPriorityBooster$PriorityState;-><init>(Lcom/android/server/ThreadPriorityBooster$1;)V
+    invoke-direct {p0, v0}, Lcom/android/server/ThreadPriorityBooster$PriorityState;-><init>(Lcom/android/server/ThreadPriorityBooster$PriorityState-IA;)V
 
-    return-object v0
+    return-object p0
 .end method
 
-.method protected bridge synthetic initialValue()Ljava/lang/Object;
-    .locals 1
+.method public bridge synthetic initialValue()Ljava/lang/Object;
+    .locals 0
 
     invoke-virtual {p0}, Lcom/android/server/ThreadPriorityBooster$1;->initialValue()Lcom/android/server/ThreadPriorityBooster$PriorityState;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

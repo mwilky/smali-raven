@@ -1,4 +1,4 @@
-.class abstract Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;
+.class public abstract Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;
 .super Lcom/android/server/display/DisplayDevice;
 .source "OverlayDisplayAdapter.java"
 
@@ -9,27 +9,27 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x402
+    accessFlags = 0x401
     name = "OverlayDisplayDevice"
 .end annotation
 
 
 # instance fields
-.field private mActiveMode:I
+.field public mActiveMode:I
 
-.field private final mDefaultMode:I
+.field public final mDefaultMode:I
 
-.field private final mDisplayPresentationDeadlineNanos:J
+.field public final mDisplayPresentationDeadlineNanos:J
 
-.field private final mFlags:Lcom/android/server/display/OverlayDisplayAdapter$OverlayFlags;
+.field public final mFlags:Lcom/android/server/display/OverlayDisplayAdapter$OverlayFlags;
 
-.field private mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+.field public mInfo:Lcom/android/server/display/DisplayDeviceInfo;
 
-.field private final mModes:[Landroid/view/Display$Mode;
+.field public final mModes:[Landroid/view/Display$Mode;
 
-.field private final mName:Ljava/lang/String;
+.field public final mName:Ljava/lang/String;
 
-.field private final mRawModes:Ljava/util/List;
+.field public final mRawModes:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -39,20 +39,20 @@
     .end annotation
 .end field
 
-.field private final mRefreshRate:F
+.field public final mRefreshRate:F
 
-.field private mState:I
+.field public mState:I
 
-.field private mSurface:Landroid/view/Surface;
+.field public mSurface:Landroid/view/Surface;
 
-.field private mSurfaceTexture:Landroid/graphics/SurfaceTexture;
+.field public mSurfaceTexture:Landroid/graphics/SurfaceTexture;
 
-.field final synthetic this$0:Lcom/android/server/display/OverlayDisplayAdapter;
+.field public final synthetic this$0:Lcom/android/server/display/OverlayDisplayAdapter;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/display/OverlayDisplayAdapter;Landroid/os/IBinder;Ljava/lang/String;Ljava/util/List;IIFJLcom/android/server/display/OverlayDisplayAdapter$OverlayFlags;ILandroid/graphics/SurfaceTexture;I)V
-    .locals 16
+.method public constructor <init>(Lcom/android/server/display/OverlayDisplayAdapter;Landroid/os/IBinder;Ljava/lang/String;Ljava/util/List;IIFJLcom/android/server/display/OverlayDisplayAdapter$OverlayFlags;ILandroid/graphics/SurfaceTexture;I)V
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -68,111 +68,85 @@
         }
     .end annotation
 
-    move-object/from16 v0, p0
+    iput-object p1, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->this$0:Lcom/android/server/display/OverlayDisplayAdapter;
 
-    move-object/from16 v1, p1
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    move-object/from16 v2, p4
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    move/from16 v3, p7
+    const-string/jumbo v1, "overlay:"
 
-    iput-object v1, v0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->this$0:Lcom/android/server/display/OverlayDisplayAdapter;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p13}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    const-string/jumbo v5, "overlay:"
+    move-result-object p13
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1}, Lcom/android/server/display/DisplayAdapter;->getContext()Landroid/content/Context;
 
-    move/from16 v5, p13
+    move-result-object v0
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-direct {p0, p1, p2, p13, v0}, Lcom/android/server/display/DisplayDevice;-><init>(Lcom/android/server/display/DisplayAdapter;Landroid/os/IBinder;Ljava/lang/String;Landroid/content/Context;)V
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    iput-object p3, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mName:Ljava/lang/String;
 
-    move-result-object v4
+    iput p7, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mRefreshRate:F
 
-    invoke-virtual/range {p1 .. p1}, Lcom/android/server/display/OverlayDisplayAdapter;->getContext()Landroid/content/Context;
+    iput-wide p8, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mDisplayPresentationDeadlineNanos:J
 
-    move-result-object v6
+    iput-object p10, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mFlags:Lcom/android/server/display/OverlayDisplayAdapter$OverlayFlags;
 
-    move-object/from16 v7, p2
+    iput p11, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mState:I
 
-    invoke-direct {v0, v1, v7, v4, v6}, Lcom/android/server/display/DisplayDevice;-><init>(Lcom/android/server/display/DisplayAdapter;Landroid/os/IBinder;Ljava/lang/String;Landroid/content/Context;)V
+    iput-object p12, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mSurfaceTexture:Landroid/graphics/SurfaceTexture;
 
-    move-object/from16 v1, p3
+    iput-object p4, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mRawModes:Ljava/util/List;
 
-    iput-object v1, v0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mName:Ljava/lang/String;
+    invoke-interface {p4}, Ljava/util/List;->size()I
 
-    iput v3, v0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mRefreshRate:F
+    move-result p1
 
-    move-wide/from16 v8, p8
+    new-array p1, p1, [Landroid/view/Display$Mode;
 
-    iput-wide v8, v0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mDisplayPresentationDeadlineNanos:J
+    iput-object p1, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mModes:[Landroid/view/Display$Mode;
 
-    move-object/from16 v4, p10
-
-    iput-object v4, v0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mFlags:Lcom/android/server/display/OverlayDisplayAdapter$OverlayFlags;
-
-    move/from16 v6, p11
-
-    iput v6, v0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mState:I
-
-    move-object/from16 v10, p12
-
-    iput-object v10, v0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mSurfaceTexture:Landroid/graphics/SurfaceTexture;
-
-    iput-object v2, v0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mRawModes:Ljava/util/List;
-
-    invoke-interface/range {p4 .. p4}, Ljava/util/List;->size()I
-
-    move-result v11
-
-    new-array v11, v11, [Landroid/view/Display$Mode;
-
-    iput-object v11, v0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mModes:[Landroid/view/Display$Mode;
-
-    const/4 v11, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    invoke-interface/range {p4 .. p4}, Ljava/util/List;->size()I
+    invoke-interface {p4}, Ljava/util/List;->size()I
 
-    move-result v12
+    move-result p2
 
-    if-ge v11, v12, :cond_0
+    if-ge p1, p2, :cond_0
 
-    invoke-interface {v2, v11}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {p4, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v12
+    move-result-object p2
 
-    check-cast v12, Lcom/android/server/display/OverlayDisplayAdapter$OverlayMode;
+    check-cast p2, Lcom/android/server/display/OverlayDisplayAdapter$OverlayMode;
 
-    iget-object v13, v0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mModes:[Landroid/view/Display$Mode;
+    iget-object p3, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mModes:[Landroid/view/Display$Mode;
 
-    iget v14, v12, Lcom/android/server/display/OverlayDisplayAdapter$OverlayMode;->mWidth:I
+    iget p8, p2, Lcom/android/server/display/OverlayDisplayAdapter$OverlayMode;->mWidth:I
 
-    iget v15, v12, Lcom/android/server/display/OverlayDisplayAdapter$OverlayMode;->mHeight:I
+    iget p2, p2, Lcom/android/server/display/OverlayDisplayAdapter$OverlayMode;->mHeight:I
 
-    invoke-static {v14, v15, v3}, Lcom/android/server/display/DisplayAdapter;->createMode(IIF)Landroid/view/Display$Mode;
+    invoke-static {p8, p2, p7}, Lcom/android/server/display/DisplayAdapter;->createMode(IIF)Landroid/view/Display$Mode;
 
-    move-result-object v14
+    move-result-object p2
 
-    aput-object v14, v13, v11
+    aput-object p2, p3, p1
 
-    add-int/lit8 v11, v11, 0x1
+    add-int/lit8 p1, p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    move/from16 v11, p5
+    iput p5, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mActiveMode:I
 
-    iput v11, v0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mActiveMode:I
-
-    move/from16 v12, p6
-
-    iput v12, v0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mDefaultMode:I
+    iput p6, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mDefaultMode:I
 
     return-void
 .end method
@@ -195,17 +169,17 @@
     iput-object v0, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mSurface:Landroid/view/Surface;
 
     :cond_0
-    invoke-virtual {p0}, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->getDisplayTokenLocked()Landroid/os/IBinder;
+    invoke-virtual {p0}, Lcom/android/server/display/DisplayDevice;->getDisplayTokenLocked()Landroid/os/IBinder;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0}, Landroid/view/SurfaceControl;->destroyDisplay(Landroid/os/IBinder;)V
+    invoke-static {p0}, Landroid/view/SurfaceControl;->destroyDisplay(Landroid/os/IBinder;)V
 
     return-void
 .end method
 
 .method public getDisplayDeviceInfoLocked()Lcom/android/server/display/DisplayDeviceInfo;
-    .locals 9
+    .locals 7
 
     iget-object v0, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
 
@@ -235,9 +209,7 @@
 
     iput-object v3, v2, Lcom/android/server/display/DisplayDeviceInfo;->name:Ljava/lang/String;
 
-    iget-object v2, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
-
-    invoke-virtual {p0}, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->getUniqueId()Ljava/lang/String;
+    invoke-virtual {p0}, Lcom/android/server/display/DisplayDevice;->getUniqueId()Ljava/lang/String;
 
     move-result-object v3
 
@@ -263,159 +235,127 @@
 
     invoke-virtual {v0}, Landroid/view/Display$Mode;->getModeId()I
 
-    move-result v3
+    move-result v0
 
-    iput v3, v2, Lcom/android/server/display/DisplayDeviceInfo;->modeId:I
+    iput v0, v2, Lcom/android/server/display/DisplayDeviceInfo;->modeId:I
 
-    iget-object v2, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+    iget-object v0, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
 
-    iget-object v3, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mModes:[Landroid/view/Display$Mode;
+    iget-object v2, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mModes:[Landroid/view/Display$Mode;
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    aget-object v3, v3, v4
+    aget-object v2, v2, v3
 
-    invoke-virtual {v3}, Landroid/view/Display$Mode;->getModeId()I
+    invoke-virtual {v2}, Landroid/view/Display$Mode;->getModeId()I
 
-    move-result v3
+    move-result v2
 
-    iput v3, v2, Lcom/android/server/display/DisplayDeviceInfo;->defaultModeId:I
+    iput v2, v0, Lcom/android/server/display/DisplayDeviceInfo;->defaultModeId:I
 
-    iget-object v2, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+    iget-object v0, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
 
-    iget-object v3, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mModes:[Landroid/view/Display$Mode;
+    iget-object v2, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mModes:[Landroid/view/Display$Mode;
 
-    iput-object v3, v2, Lcom/android/server/display/DisplayDeviceInfo;->supportedModes:[Landroid/view/Display$Mode;
+    iput-object v2, v0, Lcom/android/server/display/DisplayDeviceInfo;->supportedModes:[Landroid/view/Display$Mode;
 
-    iget-object v2, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+    iget v1, v1, Lcom/android/server/display/OverlayDisplayAdapter$OverlayMode;->mDensityDpi:I
 
-    iget v3, v1, Lcom/android/server/display/OverlayDisplayAdapter$OverlayMode;->mDensityDpi:I
+    iput v1, v0, Lcom/android/server/display/DisplayDeviceInfo;->densityDpi:I
 
-    iput v3, v2, Lcom/android/server/display/DisplayDeviceInfo;->densityDpi:I
+    int-to-float v2, v1
 
-    iget-object v2, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+    iput v2, v0, Lcom/android/server/display/DisplayDeviceInfo;->xDpi:F
 
-    iget v3, v1, Lcom/android/server/display/OverlayDisplayAdapter$OverlayMode;->mDensityDpi:I
+    int-to-float v1, v1
 
-    int-to-float v3, v3
+    iput v1, v0, Lcom/android/server/display/DisplayDeviceInfo;->yDpi:F
 
-    iput v3, v2, Lcom/android/server/display/DisplayDeviceInfo;->xDpi:F
+    iget-wide v1, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mDisplayPresentationDeadlineNanos:J
 
-    iget-object v2, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+    const-wide/32 v3, 0x3b9aca00
 
-    iget v3, v1, Lcom/android/server/display/OverlayDisplayAdapter$OverlayMode;->mDensityDpi:I
+    iget v5, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mRefreshRate:F
 
-    int-to-float v3, v3
+    float-to-int v5, v5
 
-    iput v3, v2, Lcom/android/server/display/DisplayDeviceInfo;->yDpi:F
+    int-to-long v5, v5
 
-    iget-object v2, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+    div-long/2addr v3, v5
 
-    iget-wide v3, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mDisplayPresentationDeadlineNanos:J
+    add-long/2addr v1, v3
 
-    const-wide/32 v5, 0x3b9aca00
+    iput-wide v1, v0, Lcom/android/server/display/DisplayDeviceInfo;->presentationDeadlineNanos:J
 
-    iget v7, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mRefreshRate:F
+    const/16 v1, 0x40
 
-    float-to-int v7, v7
+    iput v1, v0, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
 
-    int-to-long v7, v7
+    iget-object v1, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mFlags:Lcom/android/server/display/OverlayDisplayAdapter$OverlayFlags;
 
-    div-long/2addr v5, v7
-
-    add-long/2addr v3, v5
-
-    iput-wide v3, v2, Lcom/android/server/display/DisplayDeviceInfo;->presentationDeadlineNanos:J
-
-    iget-object v2, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
-
-    const/16 v3, 0x40
-
-    iput v3, v2, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
-
-    iget-object v2, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mFlags:Lcom/android/server/display/OverlayDisplayAdapter$OverlayFlags;
-
-    iget-boolean v2, v2, Lcom/android/server/display/OverlayDisplayAdapter$OverlayFlags;->mSecure:Z
+    iget-boolean v2, v1, Lcom/android/server/display/OverlayDisplayAdapter$OverlayFlags;->mSecure:Z
 
     const/4 v3, 0x4
 
     if-eqz v2, :cond_0
 
-    iget-object v2, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+    const/16 v2, 0x40
 
-    iget v4, v2, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
+    or-int/2addr v2, v3
 
-    or-int/2addr v4, v3
-
-    iput v4, v2, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
+    iput v2, v0, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
 
     :cond_0
-    iget-object v2, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mFlags:Lcom/android/server/display/OverlayDisplayAdapter$OverlayFlags;
-
-    iget-boolean v2, v2, Lcom/android/server/display/OverlayDisplayAdapter$OverlayFlags;->mOwnContentOnly:Z
+    iget-boolean v2, v1, Lcom/android/server/display/OverlayDisplayAdapter$OverlayFlags;->mOwnContentOnly:Z
 
     if-eqz v2, :cond_1
 
-    iget-object v2, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+    iget v2, v0, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
 
-    iget v4, v2, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
+    or-int/lit16 v2, v2, 0x80
 
-    or-int/lit16 v4, v4, 0x80
-
-    iput v4, v2, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
+    iput v2, v0, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
 
     :cond_1
-    iget-object v2, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mFlags:Lcom/android/server/display/OverlayDisplayAdapter$OverlayFlags;
+    iget-boolean v1, v1, Lcom/android/server/display/OverlayDisplayAdapter$OverlayFlags;->mShouldShowSystemDecorations:Z
 
-    iget-boolean v2, v2, Lcom/android/server/display/OverlayDisplayAdapter$OverlayFlags;->mShouldShowSystemDecorations:Z
+    if-eqz v1, :cond_2
 
-    if-eqz v2, :cond_2
+    iget v1, v0, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
 
-    iget-object v2, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+    or-int/lit16 v1, v1, 0x1000
 
-    iget v4, v2, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
-
-    or-int/lit16 v4, v4, 0x1000
-
-    iput v4, v2, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
+    iput v1, v0, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
 
     :cond_2
-    iget-object v2, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+    iput v3, v0, Lcom/android/server/display/DisplayDeviceInfo;->type:I
 
-    iput v3, v2, Lcom/android/server/display/DisplayDeviceInfo;->type:I
+    const/4 v1, 0x3
 
-    iget-object v2, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+    iput v1, v0, Lcom/android/server/display/DisplayDeviceInfo;->touch:I
 
-    const/4 v3, 0x3
+    iget v1, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mState:I
 
-    iput v3, v2, Lcom/android/server/display/DisplayDeviceInfo;->touch:I
+    iput v1, v0, Lcom/android/server/display/DisplayDeviceInfo;->state:I
 
-    iget-object v2, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+    iget v1, v0, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
 
-    iget v3, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mState:I
+    or-int/lit16 v1, v1, 0x2000
 
-    iput v3, v2, Lcom/android/server/display/DisplayDeviceInfo;->state:I
-
-    iget-object v2, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
-
-    iget v3, v2, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
-
-    or-int/lit16 v3, v3, 0x2000
-
-    iput v3, v2, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
+    iput v1, v0, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
 
     :cond_3
-    iget-object v0, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+    iget-object p0, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public hasStableUniqueId()Z
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
 .method public abstract onModeChangedLocked(I)V
@@ -443,115 +383,111 @@
     :cond_0
     iget-object v0, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mSurface:Landroid/view/Surface;
 
-    invoke-virtual {p0, p1, v0}, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->setSurfaceLocked(Landroid/view/SurfaceControl$Transaction;Landroid/view/Surface;)V
+    invoke-virtual {p0, p1, v0}, Lcom/android/server/display/DisplayDevice;->setSurfaceLocked(Landroid/view/SurfaceControl$Transaction;Landroid/view/Surface;)V
 
     :cond_1
     return-void
 .end method
 
 .method public setDesiredDisplayModeSpecsLocked(Lcom/android/server/display/DisplayModeDirector$DesiredDisplayModeSpecs;)V
-    .locals 5
+    .locals 4
 
-    iget v0, p1, Lcom/android/server/display/DisplayModeDirector$DesiredDisplayModeSpecs;->baseModeId:I
+    iget p1, p1, Lcom/android/server/display/DisplayModeDirector$DesiredDisplayModeSpecs;->baseModeId:I
+
+    const/4 v0, 0x0
 
     const/4 v1, -0x1
 
-    if-nez v0, :cond_0
-
-    const/4 v1, 0x0
+    if-nez p1, :cond_0
 
     goto :goto_1
 
     :cond_0
-    const/4 v2, 0x0
-
     :goto_0
-    iget-object v3, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mModes:[Landroid/view/Display$Mode;
+    iget-object v2, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mModes:[Landroid/view/Display$Mode;
 
-    array-length v4, v3
+    array-length v3, v2
 
-    if-ge v2, v4, :cond_2
+    if-ge v0, v3, :cond_2
 
-    aget-object v3, v3, v2
+    aget-object v2, v2, v0
 
-    invoke-virtual {v3}, Landroid/view/Display$Mode;->getModeId()I
+    invoke-virtual {v2}, Landroid/view/Display$Mode;->getModeId()I
 
-    move-result v3
+    move-result v2
 
-    if-ne v3, v0, :cond_1
-
-    move v1, v2
+    if-ne v2, p1, :cond_1
 
     goto :goto_1
 
     :cond_1
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     :cond_2
+    move v0, v1
+
     :goto_1
-    const/4 v2, -0x1
+    if-ne v0, v1, :cond_3
 
-    if-ne v1, v2, :cond_3
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "Unable to locate mode "
 
-    const-string v3, "Unable to locate mode "
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string p1, ", reverting to default."
 
-    const-string v3, ", reverting to default."
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v2
+    const-string v0, "OverlayDisplayAdapter"
 
-    const-string v3, "OverlayDisplayAdapter"
+    invoke-static {v0, p1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {v3, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget v1, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mDefaultMode:I
+    iget v0, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mDefaultMode:I
 
     :cond_3
-    iget v2, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mActiveMode:I
+    iget p1, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mActiveMode:I
 
-    if-ne v2, v1, :cond_4
+    if-ne p1, v0, :cond_4
 
     return-void
 
     :cond_4
-    iput v1, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mActiveMode:I
+    iput v0, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mActiveMode:I
 
-    const/4 v2, 0x0
+    const/4 p1, 0x0
 
-    iput-object v2, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+    iput-object p1, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
 
-    iget-object v2, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->this$0:Lcom/android/server/display/OverlayDisplayAdapter;
+    iget-object p1, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->this$0:Lcom/android/server/display/OverlayDisplayAdapter;
 
-    const/4 v3, 0x2
+    const/4 v1, 0x2
 
-    invoke-virtual {v2, p0, v3}, Lcom/android/server/display/OverlayDisplayAdapter;->sendDisplayDeviceEventLocked(Lcom/android/server/display/DisplayDevice;I)V
+    invoke-virtual {p1, p0, v1}, Lcom/android/server/display/DisplayAdapter;->sendDisplayDeviceEventLocked(Lcom/android/server/display/DisplayDevice;I)V
 
-    invoke-virtual {p0, v1}, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->onModeChangedLocked(I)V
+    invoke-virtual {p0, v0}, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->onModeChangedLocked(I)V
 
     return-void
 .end method
 
 .method public setStateLocked(I)V
-    .locals 1
+    .locals 0
 
     iput p1, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mState:I
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput-object v0, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+    iput-object p1, p0, Lcom/android/server/display/OverlayDisplayAdapter$OverlayDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
 
     return-void
 .end method

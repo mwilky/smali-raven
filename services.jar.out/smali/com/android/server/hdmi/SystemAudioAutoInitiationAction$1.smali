@@ -1,4 +1,4 @@
-.class Lcom/android/server/hdmi/SystemAudioAutoInitiationAction$1;
+.class public Lcom/android/server/hdmi/SystemAudioAutoInitiationAction$1;
 .super Ljava/lang/Object;
 .source "SystemAudioAutoInitiationAction.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;
+.field public final synthetic this$0:Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;)V
+.method public constructor <init>(Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction$1;->this$0:Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;
@@ -35,13 +35,13 @@
 
 # virtual methods
 .method public onSendCompleted(I)V
-    .locals 1
+    .locals 0
 
     if-eqz p1, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction$1;->this$0:Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;
+    iget-object p0, p0, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction$1;->this$0:Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;
 
-    invoke-static {v0}, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;->access$000(Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;)V
+    invoke-static {p0}, Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;->-$$Nest$mhandleSystemAudioModeStatusTimeout(Lcom/android/server/hdmi/SystemAudioAutoInitiationAction;)V
 
     :cond_0
     return-void

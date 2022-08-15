@@ -1,4 +1,4 @@
-.class Lcom/android/server/vr/VrManagerService$6;
+.class public Lcom/android/server/vr/VrManagerService$6;
 .super Ljava/lang/Object;
 .source "VrManagerService.java"
 
@@ -12,23 +12,23 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/vr/VrManagerService;
+.field public final synthetic this$0:Lcom/android/server/vr/VrManagerService;
 
-.field final synthetic val$b:Z
+.field public final synthetic val$b:Z
 
-.field final synthetic val$c:Landroid/content/ComponentName;
+.field public final synthetic val$c:Landroid/content/ComponentName;
 
-.field final synthetic val$pid:I
+.field public final synthetic val$pid:I
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/vr/VrManagerService;Landroid/content/ComponentName;ZI)V
+.method public constructor <init>(Lcom/android/server/vr/VrManagerService;Landroid/content/ComponentName;ZI)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/vr/VrManagerService$6;->this$0:Lcom/android/server/vr/VrManagerService;
@@ -47,24 +47,22 @@
 
 # virtual methods
 .method public runEvent(Landroid/os/IInterface;)V
-    .locals 4
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    move-object v0, p1
+    check-cast p1, Landroid/service/vr/IVrListener;
 
-    check-cast v0, Landroid/service/vr/IVrListener;
+    iget-object v0, p0, Lcom/android/server/vr/VrManagerService$6;->val$c:Landroid/content/ComponentName;
 
-    iget-object v1, p0, Lcom/android/server/vr/VrManagerService$6;->val$c:Landroid/content/ComponentName;
+    iget-boolean v1, p0, Lcom/android/server/vr/VrManagerService$6;->val$b:Z
 
-    iget-boolean v2, p0, Lcom/android/server/vr/VrManagerService$6;->val$b:Z
+    iget p0, p0, Lcom/android/server/vr/VrManagerService$6;->val$pid:I
 
-    iget v3, p0, Lcom/android/server/vr/VrManagerService$6;->val$pid:I
-
-    invoke-interface {v0, v1, v2, v3}, Landroid/service/vr/IVrListener;->focusedActivityChanged(Landroid/content/ComponentName;ZI)V
+    invoke-interface {p1, v0, v1, p0}, Landroid/service/vr/IVrListener;->focusedActivityChanged(Landroid/content/ComponentName;ZI)V
 
     return-void
 .end method

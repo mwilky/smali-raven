@@ -1,4 +1,4 @@
-.class Lcom/android/server/hdmi/RequestArcTerminationAction$1;
+.class public Lcom/android/server/hdmi/RequestArcTerminationAction$1;
 .super Ljava/lang/Object;
 .source "RequestArcTerminationAction.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/hdmi/RequestArcTerminationAction;
+.field public final synthetic this$0:Lcom/android/server/hdmi/RequestArcTerminationAction;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/hdmi/RequestArcTerminationAction;)V
+.method public constructor <init>(Lcom/android/server/hdmi/RequestArcTerminationAction;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/hdmi/RequestArcTerminationAction$1;->this$0:Lcom/android/server/hdmi/RequestArcTerminationAction;
@@ -35,17 +35,17 @@
 
 # virtual methods
 .method public onSendCompleted(I)V
-    .locals 1
+    .locals 0
 
     if-eqz p1, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/hdmi/RequestArcTerminationAction$1;->this$0:Lcom/android/server/hdmi/RequestArcTerminationAction;
+    iget-object p1, p0, Lcom/android/server/hdmi/RequestArcTerminationAction$1;->this$0:Lcom/android/server/hdmi/RequestArcTerminationAction;
 
-    invoke-virtual {v0}, Lcom/android/server/hdmi/RequestArcTerminationAction;->disableArcTransmission()V
+    invoke-virtual {p1}, Lcom/android/server/hdmi/RequestArcAction;->disableArcTransmission()V
 
-    iget-object v0, p0, Lcom/android/server/hdmi/RequestArcTerminationAction$1;->this$0:Lcom/android/server/hdmi/RequestArcTerminationAction;
+    iget-object p0, p0, Lcom/android/server/hdmi/RequestArcTerminationAction$1;->this$0:Lcom/android/server/hdmi/RequestArcTerminationAction;
 
-    invoke-virtual {v0}, Lcom/android/server/hdmi/RequestArcTerminationAction;->finish()V
+    invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecFeatureAction;->finish()V
 
     :cond_0
     return-void

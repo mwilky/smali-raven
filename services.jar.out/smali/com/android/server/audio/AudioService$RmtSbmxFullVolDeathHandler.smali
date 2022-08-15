@@ -1,4 +1,4 @@
-.class Lcom/android/server/audio/AudioService$RmtSbmxFullVolDeathHandler;
+.class public Lcom/android/server/audio/AudioService$RmtSbmxFullVolDeathHandler;
 .super Ljava/lang/Object;
 .source "AudioService.java"
 
@@ -12,20 +12,20 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "RmtSbmxFullVolDeathHandler"
 .end annotation
 
 
 # instance fields
-.field private mICallback:Landroid/os/IBinder;
+.field public mICallback:Landroid/os/IBinder;
 
-.field final synthetic this$0:Lcom/android/server/audio/AudioService;
+.field public final synthetic this$0:Lcom/android/server/audio/AudioService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/audio/AudioService;Landroid/os/IBinder;)V
-    .locals 2
+.method public constructor <init>(Lcom/android/server/audio/AudioService;Landroid/os/IBinder;)V
+    .locals 0
 
     iput-object p1, p0, Lcom/android/server/audio/AudioService$RmtSbmxFullVolDeathHandler;->this$0:Lcom/android/server/audio/AudioService;
 
@@ -43,13 +43,13 @@
     goto :goto_0
 
     :catch_0
-    move-exception p1
+    move-exception p0
 
-    const-string v0, "AS.AudioService"
+    const-string p1, "AS.AudioService"
 
-    const-string v1, "can\'t link to death"
+    const-string p2, "can\'t link to death"
 
-    invoke-static {v0, v1, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {p1, p2, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_0
     return-void
@@ -58,7 +58,7 @@
 
 # virtual methods
 .method public binderDied()V
-    .locals 3
+    .locals 2
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -82,17 +82,17 @@
 
     iget-object v0, p0, Lcom/android/server/audio/AudioService$RmtSbmxFullVolDeathHandler;->this$0:Lcom/android/server/audio/AudioService;
 
-    iget-object v1, p0, Lcom/android/server/audio/AudioService$RmtSbmxFullVolDeathHandler;->mICallback:Landroid/os/IBinder;
+    iget-object p0, p0, Lcom/android/server/audio/AudioService$RmtSbmxFullVolDeathHandler;->mICallback:Landroid/os/IBinder;
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    invoke-virtual {v0, v2, v1}, Lcom/android/server/audio/AudioService;->forceRemoteSubmixFullVolume(ZLandroid/os/IBinder;)V
+    invoke-virtual {v0, v1, p0}, Lcom/android/server/audio/AudioService;->forceRemoteSubmixFullVolume(ZLandroid/os/IBinder;)V
 
     return-void
 .end method
 
-.method forget()V
-    .locals 3
+.method public forget()V
+    .locals 2
 
     :try_start_0
     iget-object v0, p0, Lcom/android/server/audio/AudioService$RmtSbmxFullVolDeathHandler;->mICallback:Landroid/os/IBinder;
@@ -106,26 +106,26 @@
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    const-string v1, "AS.AudioService"
+    const-string v0, "AS.AudioService"
 
-    const-string v2, "error unlinking to death"
+    const-string v1, "error unlinking to death"
 
-    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v0, v1, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_0
     return-void
 .end method
 
-.method isHandlerFor(Landroid/os/IBinder;)Z
-    .locals 1
+.method public isHandlerFor(Landroid/os/IBinder;)Z
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/audio/AudioService$RmtSbmxFullVolDeathHandler;->mICallback:Landroid/os/IBinder;
+    iget-object p0, p0, Lcom/android/server/audio/AudioService$RmtSbmxFullVolDeathHandler;->mICallback:Landroid/os/IBinder;
 
-    invoke-virtual {v0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method

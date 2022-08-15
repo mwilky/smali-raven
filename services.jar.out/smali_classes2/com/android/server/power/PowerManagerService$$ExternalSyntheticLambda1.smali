@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/power/PowerManagerService$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -23,9 +24,9 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/power/PowerManagerService$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/power/PowerManagerService;
+    iget-object p0, p0, Lcom/android/server/power/PowerManagerService$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/power/PowerManagerService;
 
     check-cast p1, Ljava/lang/Boolean;
 
@@ -33,7 +34,7 @@
 
     move-result p1
 
-    invoke-static {v0, p1}, Lcom/android/server/power/PowerManagerService;->$r8$lambda$q7dp6tNnllSjuO6t2c5KypV49H8(Lcom/android/server/power/PowerManagerService;Z)V
+    invoke-static {p0, p1}, Lcom/android/server/power/PowerManagerService;->$r8$lambda$q7dp6tNnllSjuO6t2c5KypV49H8(Lcom/android/server/power/PowerManagerService;Z)V
 
     return-void
 .end method

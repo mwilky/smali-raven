@@ -3,18 +3,10 @@
 .source "RequestThrottle.java"
 
 
-# static fields
-.field private static final DEFAULT_BACKOFF_BASE:I = 0x2
-
-.field private static final DEFAULT_DELAY_MS:I = 0x3e8
-
-.field private static final DEFAULT_RETRY_MAX_ATTEMPTS:I = 0x5
-
-
 # instance fields
-.field private final mBackoffBase:I
+.field public final mBackoffBase:I
 
-.field private final mBlock:Ljava/util/function/Supplier;
+.field public final mBlock:Ljava/util/function/Supplier;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/function/Supplier<",
@@ -24,26 +16,26 @@
     .end annotation
 .end field
 
-.field private final mCurrentRetry:Ljava/util/concurrent/atomic/AtomicInteger;
+.field public final mCurrentRetry:Ljava/util/concurrent/atomic/AtomicInteger;
 
-.field private final mFirstDelay:I
+.field public final mFirstDelay:I
 
-.field private final mHandler:Landroid/os/Handler;
+.field public final mHandler:Landroid/os/Handler;
 
-.field private final mLastCommitted:Ljava/util/concurrent/atomic/AtomicInteger;
+.field public final mLastCommitted:Ljava/util/concurrent/atomic/AtomicInteger;
 
-.field private final mLastRequest:Ljava/util/concurrent/atomic/AtomicInteger;
+.field public final mLastRequest:Ljava/util/concurrent/atomic/AtomicInteger;
 
-.field private final mMaxAttempts:I
+.field public final mMaxAttempts:I
 
-.field private final mRunnable:Ljava/lang/Runnable;
+.field public final mRunnable:Ljava/lang/Runnable;
 
 
 # direct methods
 .method public static synthetic $r8$lambda$LIuT-CkJjHb_DkU1ftZFUUuq5gY(Lcom/android/server/pm/utils/RequestThrottle;)Z
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/server/pm/utils/RequestThrottle;->runInternal()Z
+    invoke-virtual {p0}, Lcom/android/server/pm/utils/RequestThrottle;->runInternal()Z
 
     move-result p0
 
@@ -97,11 +89,11 @@
 
     iput p4, p0, Lcom/android/server/pm/utils/RequestThrottle;->mBackoffBase:I
 
-    new-instance v0, Lcom/android/server/pm/utils/RequestThrottle$$ExternalSyntheticLambda0;
+    new-instance p1, Lcom/android/server/pm/utils/RequestThrottle$$ExternalSyntheticLambda0;
 
-    invoke-direct {v0, p0}, Lcom/android/server/pm/utils/RequestThrottle$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/pm/utils/RequestThrottle;)V
+    invoke-direct {p1, p0}, Lcom/android/server/pm/utils/RequestThrottle$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/pm/utils/RequestThrottle;)V
 
-    iput-object v0, p0, Lcom/android/server/pm/utils/RequestThrottle;->mRunnable:Ljava/lang/Runnable;
+    iput-object p1, p0, Lcom/android/server/pm/utils/RequestThrottle;->mRunnable:Ljava/lang/Runnable;
 
     return-void
 .end method
@@ -135,8 +127,10 @@
     return-void
 .end method
 
-.method private runInternal()Z
-    .locals 11
+
+# virtual methods
+.method public final runInternal()Z
+    .locals 8
 
     iget-object v0, p0, Lcom/android/server/pm/utils/RequestThrottle;->mLastRequest:Ljava/util/concurrent/atomic/AtomicInteger;
 
@@ -157,80 +151,78 @@
     return v2
 
     :cond_0
-    iget-object v3, p0, Lcom/android/server/pm/utils/RequestThrottle;->mBlock:Ljava/util/function/Supplier;
+    iget-object v1, p0, Lcom/android/server/pm/utils/RequestThrottle;->mBlock:Ljava/util/function/Supplier;
 
-    invoke-interface {v3}, Ljava/util/function/Supplier;->get()Ljava/lang/Object;
+    invoke-interface {v1}, Ljava/util/function/Supplier;->get()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v1
 
-    check-cast v3, Ljava/lang/Boolean;
+    check-cast v1, Ljava/lang/Boolean;
 
-    invoke-virtual {v3}, Ljava/lang/Boolean;->booleanValue()Z
+    invoke-virtual {v1}, Ljava/lang/Boolean;->booleanValue()Z
 
-    move-result v3
+    move-result v1
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    if-eqz v3, :cond_1
+    if-eqz v1, :cond_1
 
-    iget-object v3, p0, Lcom/android/server/pm/utils/RequestThrottle;->mCurrentRetry:Ljava/util/concurrent/atomic/AtomicInteger;
+    iget-object v1, p0, Lcom/android/server/pm/utils/RequestThrottle;->mCurrentRetry:Ljava/util/concurrent/atomic/AtomicInteger;
 
-    invoke-virtual {v3, v4}, Ljava/util/concurrent/atomic/AtomicInteger;->set(I)V
+    invoke-virtual {v1, v3}, Ljava/util/concurrent/atomic/AtomicInteger;->set(I)V
 
-    iget-object v3, p0, Lcom/android/server/pm/utils/RequestThrottle;->mLastCommitted:Ljava/util/concurrent/atomic/AtomicInteger;
+    iget-object p0, p0, Lcom/android/server/pm/utils/RequestThrottle;->mLastCommitted:Ljava/util/concurrent/atomic/AtomicInteger;
 
-    invoke-virtual {v3, v0}, Ljava/util/concurrent/atomic/AtomicInteger;->set(I)V
+    invoke-virtual {p0, v0}, Ljava/util/concurrent/atomic/AtomicInteger;->set(I)V
 
     return v2
 
     :cond_1
-    iget-object v2, p0, Lcom/android/server/pm/utils/RequestThrottle;->mCurrentRetry:Ljava/util/concurrent/atomic/AtomicInteger;
+    iget-object v0, p0, Lcom/android/server/pm/utils/RequestThrottle;->mCurrentRetry:Ljava/util/concurrent/atomic/AtomicInteger;
 
-    invoke-virtual {v2}, Ljava/util/concurrent/atomic/AtomicInteger;->getAndIncrement()I
+    invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->getAndIncrement()I
 
-    move-result v2
+    move-result v0
 
-    iget v3, p0, Lcom/android/server/pm/utils/RequestThrottle;->mMaxAttempts:I
+    iget v1, p0, Lcom/android/server/pm/utils/RequestThrottle;->mMaxAttempts:I
 
-    if-ge v2, v3, :cond_2
+    if-ge v0, v1, :cond_2
 
-    iget v3, p0, Lcom/android/server/pm/utils/RequestThrottle;->mFirstDelay:I
+    iget v1, p0, Lcom/android/server/pm/utils/RequestThrottle;->mFirstDelay:I
 
-    int-to-double v5, v3
+    int-to-double v1, v1
 
-    iget v3, p0, Lcom/android/server/pm/utils/RequestThrottle;->mBackoffBase:I
+    iget v4, p0, Lcom/android/server/pm/utils/RequestThrottle;->mBackoffBase:I
 
-    int-to-double v7, v3
+    int-to-double v4, v4
 
-    int-to-double v9, v2
+    int-to-double v6, v0
 
-    invoke-static {v7, v8, v9, v10}, Ljava/lang/Math;->pow(DD)D
+    invoke-static {v4, v5, v6, v7}, Ljava/lang/Math;->pow(DD)D
 
-    move-result-wide v7
+    move-result-wide v4
 
-    mul-double/2addr v5, v7
+    mul-double/2addr v1, v4
 
-    double-to-long v5, v5
+    double-to-long v0, v1
 
-    iget-object v3, p0, Lcom/android/server/pm/utils/RequestThrottle;->mHandler:Landroid/os/Handler;
+    iget-object v2, p0, Lcom/android/server/pm/utils/RequestThrottle;->mHandler:Landroid/os/Handler;
 
-    iget-object v7, p0, Lcom/android/server/pm/utils/RequestThrottle;->mRunnable:Ljava/lang/Runnable;
+    iget-object p0, p0, Lcom/android/server/pm/utils/RequestThrottle;->mRunnable:Ljava/lang/Runnable;
 
-    invoke-virtual {v3, v7, v5, v6}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+    invoke-virtual {v2, p0, v0, v1}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
     goto :goto_0
 
     :cond_2
-    iget-object v3, p0, Lcom/android/server/pm/utils/RequestThrottle;->mCurrentRetry:Ljava/util/concurrent/atomic/AtomicInteger;
+    iget-object p0, p0, Lcom/android/server/pm/utils/RequestThrottle;->mCurrentRetry:Ljava/util/concurrent/atomic/AtomicInteger;
 
-    invoke-virtual {v3, v4}, Ljava/util/concurrent/atomic/AtomicInteger;->set(I)V
+    invoke-virtual {p0, v3}, Ljava/util/concurrent/atomic/AtomicInteger;->set(I)V
 
     :goto_0
-    return v4
+    return v3
 .end method
 
-
-# virtual methods
 .method public runNow()Z
     .locals 1
 
@@ -238,15 +230,15 @@
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->incrementAndGet()I
 
-    invoke-direct {p0}, Lcom/android/server/pm/utils/RequestThrottle;->runInternal()Z
+    invoke-virtual {p0}, Lcom/android/server/pm/utils/RequestThrottle;->runInternal()Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public schedule()V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/pm/utils/RequestThrottle;->mLastRequest:Ljava/util/concurrent/atomic/AtomicInteger;
 
@@ -254,9 +246,9 @@
 
     iget-object v0, p0, Lcom/android/server/pm/utils/RequestThrottle;->mHandler:Landroid/os/Handler;
 
-    iget-object v1, p0, Lcom/android/server/pm/utils/RequestThrottle;->mRunnable:Ljava/lang/Runnable;
+    iget-object p0, p0, Lcom/android/server/pm/utils/RequestThrottle;->mRunnable:Ljava/lang/Runnable;
 
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {v0, p0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     return-void
 .end method

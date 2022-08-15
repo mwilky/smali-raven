@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/location/LocationManagerService$LocalService$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -31,15 +32,15 @@
 
 # virtual methods
 .method public final run()V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/location/LocationManagerService$LocalService$$ExternalSyntheticLambda0;->f$0:Landroid/location/LocationManagerInternal$LocationPackageTagsListener;
 
     iget v1, p0, Lcom/android/server/location/LocationManagerService$LocalService$$ExternalSyntheticLambda0;->f$1:I
 
-    iget-object v2, p0, Lcom/android/server/location/LocationManagerService$LocalService$$ExternalSyntheticLambda0;->f$2:Landroid/os/PackageTagsList;
+    iget-object p0, p0, Lcom/android/server/location/LocationManagerService$LocalService$$ExternalSyntheticLambda0;->f$2:Landroid/os/PackageTagsList;
 
-    invoke-static {v0, v1, v2}, Lcom/android/server/location/LocationManagerService$LocalService;->lambda$setLocationPackageTagsListener$0(Landroid/location/LocationManagerInternal$LocationPackageTagsListener;ILandroid/os/PackageTagsList;)V
+    invoke-static {v0, v1, p0}, Lcom/android/server/location/LocationManagerService$LocalService;->$r8$lambda$tX6UOdoYcTtA4XvJ_aItZvB_cvg(Landroid/location/LocationManagerInternal$LocationPackageTagsListener;ILandroid/os/PackageTagsList;)V
 
     return-void
 .end method

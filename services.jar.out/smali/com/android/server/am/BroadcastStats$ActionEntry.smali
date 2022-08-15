@@ -1,4 +1,4 @@
-.class final Lcom/android/server/am/BroadcastStats$ActionEntry;
+.class public final Lcom/android/server/am/BroadcastStats$ActionEntry;
 .super Ljava/lang/Object;
 .source "BroadcastStats.java"
 
@@ -9,15 +9,15 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = "ActionEntry"
 .end annotation
 
 
 # instance fields
-.field final mAction:Ljava/lang/String;
+.field public final mAction:Ljava/lang/String;
 
-.field final mBackgroundCheckViolations:Landroid/util/ArrayMap;
+.field public final mBackgroundCheckViolations:Landroid/util/ArrayMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/ArrayMap<",
@@ -28,9 +28,9 @@
     .end annotation
 .end field
 
-.field mMaxDispatchTime:J
+.field public mMaxDispatchTime:J
 
-.field final mPackages:Landroid/util/ArrayMap;
+.field public final mPackages:Landroid/util/ArrayMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/ArrayMap<",
@@ -41,15 +41,15 @@
     .end annotation
 .end field
 
-.field mReceiveCount:I
+.field public mReceiveCount:I
 
-.field mSkipCount:I
+.field public mSkipCount:I
 
-.field mTotalDispatchTime:J
+.field public mTotalDispatchTime:J
 
 
 # direct methods
-.method constructor <init>(Ljava/lang/String;)V
+.method public constructor <init>(Ljava/lang/String;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

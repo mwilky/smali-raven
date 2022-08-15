@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/alarm/AlarmManagerService$DeliveryTracker$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/server/alarm/AlarmStore$AlarmDeliveryCalculator;
@@ -35,7 +36,7 @@
 
 # virtual methods
 .method public final updateAlarmDelivery(Lcom/android/server/alarm/Alarm;)Z
-    .locals 4
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/alarm/AlarmManagerService$DeliveryTracker$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/alarm/AlarmManagerService$DeliveryTracker;
 
@@ -43,11 +44,11 @@
 
     iget-boolean v2, p0, Lcom/android/server/alarm/AlarmManagerService$DeliveryTracker$$ExternalSyntheticLambda1;->f$2:Z
 
-    iget-boolean v3, p0, Lcom/android/server/alarm/AlarmManagerService$DeliveryTracker$$ExternalSyntheticLambda1;->f$3:Z
+    iget-boolean p0, p0, Lcom/android/server/alarm/AlarmManagerService$DeliveryTracker$$ExternalSyntheticLambda1;->f$3:Z
 
-    invoke-virtual {v0, v1, v2, v3, p1}, Lcom/android/server/alarm/AlarmManagerService$DeliveryTracker;->lambda$deliverLocked$1$AlarmManagerService$DeliveryTracker(Lcom/android/server/alarm/Alarm;ZZLcom/android/server/alarm/Alarm;)Z
+    invoke-static {v0, v1, v2, p0, p1}, Lcom/android/server/alarm/AlarmManagerService$DeliveryTracker;->$r8$lambda$O9m-tZZ1aaHjvnL4ZNaWgX1xowA(Lcom/android/server/alarm/AlarmManagerService$DeliveryTracker;Lcom/android/server/alarm/Alarm;ZZLcom/android/server/alarm/Alarm;)Z
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method

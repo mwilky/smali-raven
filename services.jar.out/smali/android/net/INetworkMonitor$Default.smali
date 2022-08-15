@@ -29,11 +29,11 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public forceReevaluation(I)V
@@ -48,19 +48,19 @@
 .end method
 
 .method public getInterfaceHash()Ljava/lang/String;
-    .locals 1
+    .locals 0
 
-    const-string v0, ""
+    const-string p0, ""
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getInterfaceVersion()I
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
 .method public launchCaptivePortalApp()V
@@ -119,6 +119,17 @@
 .end method
 
 .method public notifyNetworkConnected(Landroid/net/LinkProperties;Landroid/net/NetworkCapabilities;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    return-void
+.end method
+
+.method public notifyNetworkConnectedParcel(Landroid/net/networkstack/aidl/NetworkMonitorParameters;)V
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {

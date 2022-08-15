@@ -1,35 +1,54 @@
 .class public final synthetic Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda4;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/server/pm/ApkChecksums$Injector$Producer;
+.implements Ljava/util/function/Consumer;
 
 
 # instance fields
-.field public final synthetic f$0:Landroid/os/Handler;
+.field public final synthetic f$0:I
+
+.field public final synthetic f$1:Landroid/content/ComponentName;
+
+.field public final synthetic f$2:Ljava/lang/String;
+
+.field public final synthetic f$3:Ljava/lang/Integer;
 
 
 # direct methods
-.method public synthetic constructor <init>(Landroid/os/Handler;)V
+.method public synthetic constructor <init>(ILandroid/content/ComponentName;Ljava/lang/String;Ljava/lang/Integer;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda4;->f$0:Landroid/os/Handler;
+    iput p1, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda4;->f$0:I
+
+    iput-object p2, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda4;->f$1:Landroid/content/ComponentName;
+
+    iput-object p3, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda4;->f$2:Ljava/lang/String;
+
+    iput-object p4, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda4;->f$3:Ljava/lang/Integer;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final produce()Ljava/lang/Object;
-    .locals 1
+.method public final accept(Ljava/lang/Object;)V
+    .locals 3
 
-    iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda4;->f$0:Landroid/os/Handler;
+    iget v0, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda4;->f$0:I
 
-    invoke-static {v0}, Lcom/android/server/pm/PackageManagerService;->lambda$requestChecksumsInternal$1(Landroid/os/Handler;)Landroid/os/Handler;
+    iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda4;->f$1:Landroid/content/ComponentName;
 
-    move-result-object v0
+    iget-object v2, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda4;->f$2:Ljava/lang/String;
 
-    return-object v0
+    iget-object p0, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda4;->f$3:Ljava/lang/Integer;
+
+    check-cast p1, Lcom/android/server/pm/pkg/mutate/PackageStateWrite;
+
+    invoke-static {v0, v1, v2, p0, p1}, Lcom/android/server/pm/PackageManagerService;->$r8$lambda$WMX60dj2EuEKa4J29qu6TalHlJQ(ILandroid/content/ComponentName;Ljava/lang/String;Ljava/lang/Integer;Lcom/android/server/pm/pkg/mutate/PackageStateWrite;)V
+
+    return-void
 .end method

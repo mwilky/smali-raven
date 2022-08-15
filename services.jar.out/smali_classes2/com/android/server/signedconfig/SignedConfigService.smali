@@ -11,39 +11,29 @@
 .end annotation
 
 
-# static fields
-.field private static final DBG:Z = false
-
-.field private static final KEY_GLOBAL_SETTINGS:Ljava/lang/String; = "android.settings.global"
-
-.field private static final KEY_GLOBAL_SETTINGS_SIGNATURE:Ljava/lang/String; = "android.settings.global.signature"
-
-.field private static final TAG:Ljava/lang/String; = "SignedConfig"
-
-
 # instance fields
-.field private final mContext:Landroid/content/Context;
+.field public final mContext:Landroid/content/Context;
 
-.field private final mPacMan:Landroid/content/pm/PackageManagerInternal;
+.field public final mPacMan:Landroid/content/pm/PackageManagerInternal;
 
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/server/signedconfig/SignedConfigService;->mContext:Landroid/content/Context;
 
-    const-class v0, Landroid/content/pm/PackageManagerInternal;
+    const-class p1, Landroid/content/pm/PackageManagerInternal;
 
-    invoke-static {v0}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Landroid/content/pm/PackageManagerInternal;
+    check-cast p1, Landroid/content/pm/PackageManagerInternal;
 
-    iput-object v0, p0, Lcom/android/server/signedconfig/SignedConfigService;->mPacMan:Landroid/content/pm/PackageManagerInternal;
+    iput-object p1, p0, Lcom/android/server/signedconfig/SignedConfigService;->mPacMan:Landroid/content/pm/PackageManagerInternal;
 
     return-void
 .end method
@@ -71,7 +61,7 @@
 
     const/4 v2, 0x0
 
-    invoke-direct {v1, v2}, Lcom/android/server/signedconfig/SignedConfigService$UpdateReceiver;-><init>(Lcom/android/server/signedconfig/SignedConfigService$1;)V
+    invoke-direct {v1, v2}, Lcom/android/server/signedconfig/SignedConfigService$UpdateReceiver;-><init>(Lcom/android/server/signedconfig/SignedConfigService$UpdateReceiver-IA;)V
 
     invoke-virtual {p0, v1, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
@@ -80,198 +70,196 @@
 
 
 # virtual methods
-.method handlePackageBroadcast(Landroid/content/Intent;)V
-    .locals 12
+.method public handlePackageBroadcast(Landroid/content/Intent;)V
+    .locals 7
 
     invoke-virtual {p1}, Landroid/content/Intent;->getData()Landroid/net/Uri;
 
-    move-result-object v0
+    move-result-object p1
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
     goto :goto_0
 
     :cond_0
-    invoke-virtual {v0}, Landroid/net/Uri;->getSchemeSpecificPart()Ljava/lang/String;
+    invoke-virtual {p1}, Landroid/net/Uri;->getSchemeSpecificPart()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
     :goto_0
-    if-nez v1, :cond_1
+    if-nez p1, :cond_1
 
     return-void
 
     :cond_1
-    iget-object v2, p0, Lcom/android/server/signedconfig/SignedConfigService;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Lcom/android/server/signedconfig/SignedConfigService;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v2}, Landroid/content/Context;->getUser()Landroid/os/UserHandle;
+    invoke-virtual {v0}, Landroid/content/Context;->getUser()Landroid/os/UserHandle;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v2}, Landroid/os/UserHandle;->getIdentifier()I
+    invoke-virtual {v0}, Landroid/os/UserHandle;->getIdentifier()I
 
-    move-result v2
+    move-result v6
 
-    iget-object v3, p0, Lcom/android/server/signedconfig/SignedConfigService;->mPacMan:Landroid/content/pm/PackageManagerInternal;
+    iget-object v0, p0, Lcom/android/server/signedconfig/SignedConfigService;->mPacMan:Landroid/content/pm/PackageManagerInternal;
 
-    const/16 v4, 0x80
+    const-wide/16 v2, 0x80
 
-    const/16 v5, 0x3e8
+    const/16 v4, 0x3e8
 
-    invoke-virtual {v3, v1, v4, v5, v2}, Landroid/content/pm/PackageManagerInternal;->getPackageInfo(Ljava/lang/String;III)Landroid/content/pm/PackageInfo;
+    move-object v1, p1
 
-    move-result-object v3
+    move v5, v6
 
-    const-string v4, "SignedConfig"
+    invoke-virtual/range {v0 .. v5}, Landroid/content/pm/PackageManagerInternal;->getPackageInfo(Ljava/lang/String;JII)Landroid/content/pm/PackageInfo;
 
-    if-nez v3, :cond_2
+    move-result-object v0
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    const-string v1, "SignedConfig"
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    if-nez v0, :cond_2
 
-    const-string v6, "Got null PackageInfo for "
+    new-instance p0, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v5, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, "Got null PackageInfo for "
 
-    const-string v6, "; user "
+    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string p1, "; user "
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    invoke-virtual {p0, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-static {v4, v5}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-static {v1, p0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
     :cond_2
-    iget-object v5, v3, Landroid/content/pm/PackageInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+    iget-object v0, v0, Landroid/content/pm/PackageInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
-    iget-object v5, v5, Landroid/content/pm/ApplicationInfo;->metaData:Landroid/os/Bundle;
+    iget-object v0, v0, Landroid/content/pm/ApplicationInfo;->metaData:Landroid/os/Bundle;
 
-    if-nez v5, :cond_3
+    if-nez v0, :cond_3
 
     return-void
 
     :cond_3
-    const-string v6, "android.settings.global"
+    const-string v2, "android.settings.global"
 
-    invoke-virtual {v5, v6}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
+    invoke-virtual {v0, v2}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
 
-    move-result v7
+    move-result v3
 
-    if-eqz v7, :cond_4
+    if-eqz v3, :cond_4
 
-    const-string v7, "android.settings.global.signature"
+    const-string v3, "android.settings.global.signature"
 
-    invoke-virtual {v5, v7}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
+    invoke-virtual {v0, v3}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
 
-    move-result v8
+    move-result v4
 
-    if-eqz v8, :cond_4
+    if-eqz v4, :cond_4
 
-    new-instance v8, Lcom/android/server/signedconfig/SignedConfigEvent;
+    new-instance v4, Lcom/android/server/signedconfig/SignedConfigEvent;
 
-    invoke-direct {v8}, Lcom/android/server/signedconfig/SignedConfigEvent;-><init>()V
+    invoke-direct {v4}, Lcom/android/server/signedconfig/SignedConfigEvent;-><init>()V
 
-    const/4 v9, 0x1
+    const/4 v5, 0x1
 
     :try_start_0
-    iput v9, v8, Lcom/android/server/signedconfig/SignedConfigEvent;->type:I
+    iput v5, v4, Lcom/android/server/signedconfig/SignedConfigEvent;->type:I
 
-    iput-object v1, v8, Lcom/android/server/signedconfig/SignedConfigEvent;->fromPackage:Ljava/lang/String;
+    iput-object p1, v4, Lcom/android/server/signedconfig/SignedConfigEvent;->fromPackage:Ljava/lang/String;
 
-    invoke-virtual {v5, v6}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0, v2}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v2
 
-    invoke-virtual {v5, v7}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0, v3}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :try_start_1
-    new-instance v9, Ljava/lang/String;
+    new-instance v3, Ljava/lang/String;
 
     invoke-static {}, Ljava/util/Base64;->getDecoder()Ljava/util/Base64$Decoder;
 
-    move-result-object v10
+    move-result-object v5
 
-    invoke-virtual {v10, v6}, Ljava/util/Base64$Decoder;->decode(Ljava/lang/String;)[B
+    invoke-virtual {v5, v2}, Ljava/util/Base64$Decoder;->decode(Ljava/lang/String;)[B
 
-    move-result-object v10
+    move-result-object v2
 
-    sget-object v11, Ljava/nio/charset/StandardCharsets;->UTF_8:Ljava/nio/charset/Charset;
+    sget-object v5, Ljava/nio/charset/StandardCharsets;->UTF_8:Ljava/nio/charset/Charset;
 
-    invoke-direct {v9, v10, v11}, Ljava/lang/String;-><init>([BLjava/nio/charset/Charset;)V
+    invoke-direct {v3, v2, v5}, Ljava/lang/String;-><init>([BLjava/nio/charset/Charset;)V
     :try_end_1
     .catch Ljava/lang/IllegalArgumentException; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    move-object v4, v9
-
-    nop
-
     :try_start_2
-    new-instance v6, Lcom/android/server/signedconfig/GlobalSettingsConfigApplicator;
+    new-instance v1, Lcom/android/server/signedconfig/GlobalSettingsConfigApplicator;
 
-    iget-object v9, p0, Lcom/android/server/signedconfig/SignedConfigService;->mContext:Landroid/content/Context;
+    iget-object p0, p0, Lcom/android/server/signedconfig/SignedConfigService;->mContext:Landroid/content/Context;
 
-    invoke-direct {v6, v9, v1, v8}, Lcom/android/server/signedconfig/GlobalSettingsConfigApplicator;-><init>(Landroid/content/Context;Ljava/lang/String;Lcom/android/server/signedconfig/SignedConfigEvent;)V
+    invoke-direct {v1, p0, p1, v4}, Lcom/android/server/signedconfig/GlobalSettingsConfigApplicator;-><init>(Landroid/content/Context;Ljava/lang/String;Lcom/android/server/signedconfig/SignedConfigEvent;)V
 
-    invoke-virtual {v6, v4, v7}, Lcom/android/server/signedconfig/GlobalSettingsConfigApplicator;->applyConfig(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v1, v3, v0}, Lcom/android/server/signedconfig/GlobalSettingsConfigApplicator;->applyConfig(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    invoke-virtual {v8}, Lcom/android/server/signedconfig/SignedConfigEvent;->send()V
+    invoke-virtual {v4}, Lcom/android/server/signedconfig/SignedConfigEvent;->send()V
 
     goto :goto_1
 
     :catch_0
-    move-exception v9
-
     :try_start_3
-    new-instance v10, Ljava/lang/StringBuilder;
+    new-instance p0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v11, "Failed to base64 decode global settings config from "
+    const-string v0, "Failed to base64 decode global settings config from "
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v10, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object p0
 
-    invoke-static {v4, v10}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 v4, 0x2
+    const/4 p0, 0x2
 
-    iput v4, v8, Lcom/android/server/signedconfig/SignedConfigEvent;->status:I
+    iput p0, v4, Lcom/android/server/signedconfig/SignedConfigEvent;->status:I
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    invoke-virtual {v8}, Lcom/android/server/signedconfig/SignedConfigEvent;->send()V
+    invoke-virtual {v4}, Lcom/android/server/signedconfig/SignedConfigEvent;->send()V
 
     return-void
 
     :catchall_0
-    move-exception v4
+    move-exception p0
 
-    invoke-virtual {v8}, Lcom/android/server/signedconfig/SignedConfigEvent;->send()V
+    invoke-virtual {v4}, Lcom/android/server/signedconfig/SignedConfigEvent;->send()V
 
-    throw v4
+    throw p0
 
     :cond_4
     :goto_1

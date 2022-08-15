@@ -1,4 +1,4 @@
-.class Lcom/android/server/pm/UserManagerService$DisableQuietModeUserUnlockedCallback;
+.class public Lcom/android/server/pm/UserManagerService$DisableQuietModeUserUnlockedCallback;
 .super Landroid/os/IProgressListener$Stub;
 .source "UserManagerService.java"
 
@@ -9,18 +9,26 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "DisableQuietModeUserUnlockedCallback"
 .end annotation
 
 
 # instance fields
-.field private final mTarget:Landroid/content/IntentSender;
+.field public final mTarget:Landroid/content/IntentSender;
 
-.field final synthetic this$0:Lcom/android/server/pm/UserManagerService;
+.field public final synthetic this$0:Lcom/android/server/pm/UserManagerService;
 
 
 # direct methods
+.method public static synthetic $r8$lambda$0vncIOJJ2B_koh41sYhxpGq6MFU(Lcom/android/server/pm/UserManagerService$DisableQuietModeUserUnlockedCallback;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/server/pm/UserManagerService$DisableQuietModeUserUnlockedCallback;->lambda$onFinished$0()V
+
+    return-void
+.end method
+
 .method public constructor <init>(Lcom/android/server/pm/UserManagerService;Landroid/content/IntentSender;)V
     .locals 0
 
@@ -35,15 +43,13 @@
     return-void
 .end method
 
-
-# virtual methods
-.method public synthetic lambda$onFinished$0$UserManagerService$DisableQuietModeUserUnlockedCallback()V
+.method private synthetic lambda$onFinished$0()V
     .locals 7
 
     :try_start_0
     iget-object v0, p0, Lcom/android/server/pm/UserManagerService$DisableQuietModeUserUnlockedCallback;->this$0:Lcom/android/server/pm/UserManagerService;
 
-    invoke-static {v0}, Lcom/android/server/pm/UserManagerService;->access$300(Lcom/android/server/pm/UserManagerService;)Landroid/content/Context;
+    invoke-static {v0}, Lcom/android/server/pm/UserManagerService;->-$$Nest$fgetmContext(Lcom/android/server/pm/UserManagerService;)Landroid/content/Context;
 
     move-result-object v1
 
@@ -64,32 +70,34 @@
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    const-string v1, "UserManagerService"
+    const-string v0, "UserManagerService"
 
-    const-string v2, "Failed to start the target in the callback"
+    const-string v1, "Failed to start the target in the callback"
 
-    invoke-static {v1, v2, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v0, v1, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_0
     return-void
 .end method
 
+
+# virtual methods
 .method public onFinished(ILandroid/os/Bundle;)V
-    .locals 2
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/pm/UserManagerService$DisableQuietModeUserUnlockedCallback;->this$0:Lcom/android/server/pm/UserManagerService;
+    iget-object p1, p0, Lcom/android/server/pm/UserManagerService$DisableQuietModeUserUnlockedCallback;->this$0:Lcom/android/server/pm/UserManagerService;
 
-    invoke-static {v0}, Lcom/android/server/pm/UserManagerService;->access$200(Lcom/android/server/pm/UserManagerService;)Landroid/os/Handler;
+    invoke-static {p1}, Lcom/android/server/pm/UserManagerService;->-$$Nest$fgetmHandler(Lcom/android/server/pm/UserManagerService;)Landroid/os/Handler;
 
-    move-result-object v0
+    move-result-object p1
 
-    new-instance v1, Lcom/android/server/pm/UserManagerService$DisableQuietModeUserUnlockedCallback$$ExternalSyntheticLambda0;
+    new-instance p2, Lcom/android/server/pm/UserManagerService$DisableQuietModeUserUnlockedCallback$$ExternalSyntheticLambda0;
 
-    invoke-direct {v1, p0}, Lcom/android/server/pm/UserManagerService$DisableQuietModeUserUnlockedCallback$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/pm/UserManagerService$DisableQuietModeUserUnlockedCallback;)V
+    invoke-direct {p2, p0}, Lcom/android/server/pm/UserManagerService$DisableQuietModeUserUnlockedCallback$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/pm/UserManagerService$DisableQuietModeUserUnlockedCallback;)V
 
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {p1, p2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     return-void
 .end method

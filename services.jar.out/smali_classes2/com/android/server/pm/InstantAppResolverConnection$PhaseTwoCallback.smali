@@ -25,7 +25,7 @@
 
 
 # virtual methods
-.method abstract onPhaseTwoResolved(Ljava/util/List;J)V
+.method public abstract onPhaseTwoResolved(Ljava/util/List;J)V
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

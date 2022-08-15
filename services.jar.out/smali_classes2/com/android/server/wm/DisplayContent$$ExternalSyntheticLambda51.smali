@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda51;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Predicate;
+.implements Ljava/util/function/Consumer;
 
 
 # instance fields
@@ -22,16 +23,14 @@
 
 
 # virtual methods
-.method public final test(Ljava/lang/Object;)Z
-    .locals 1
+.method public final accept(Ljava/lang/Object;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda51;->f$0:Lcom/android/server/wm/DisplayContent;
+    iget-object p0, p0, Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda51;->f$0:Lcom/android/server/wm/DisplayContent;
 
     check-cast p1, Lcom/android/server/wm/WindowState;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/wm/DisplayContent;->lambda$new$6$DisplayContent(Lcom/android/server/wm/WindowState;)Z
+    invoke-static {p0, p1}, Lcom/android/server/wm/DisplayContent;->$r8$lambda$n0aIMg2pZi8xBJ4PgeY7HAQw-4s(Lcom/android/server/wm/DisplayContent;Lcom/android/server/wm/WindowState;)V
 
-    move-result p1
-
-    return p1
+    return-void
 .end method

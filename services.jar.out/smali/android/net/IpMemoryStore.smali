@@ -4,7 +4,7 @@
 
 
 # static fields
-.field private static final TAG:Ljava/lang/String;
+.field private static final TAG:Ljava/lang/String; = "IpMemoryStore"
 
 
 # instance fields
@@ -31,16 +31,36 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
+.method public static synthetic $r8$lambda$Ihnw6-MHVZh3ixG4czqjUNYGbco(Ljava/util/function/Consumer;Ljava/util/concurrent/CompletableFuture;)Ljava/util/concurrent/CompletableFuture;
+    .locals 0
 
-    const-class v0, Landroid/net/IpMemoryStore;
+    invoke-static {p0, p1}, Landroid/net/IpMemoryStore;->lambda$runWhenServiceReady$1(Ljava/util/function/Consumer;Ljava/util/concurrent/CompletableFuture;)Ljava/util/concurrent/CompletableFuture;
 
-    invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object v0
+    return-object p0
+.end method
 
-    sput-object v0, Landroid/net/IpMemoryStore;->TAG:Ljava/lang/String;
+.method public static synthetic $r8$lambda$iCgaOGIxfRBHVC8JuA-R4fwU96Q(Ljava/util/function/Consumer;Landroid/net/IIpMemoryStore;Ljava/lang/Throwable;)Landroid/net/IIpMemoryStore;
+    .locals 0
+
+    invoke-static {p0, p1, p2}, Landroid/net/IpMemoryStore;->lambda$runWhenServiceReady$0(Ljava/util/function/Consumer;Landroid/net/IIpMemoryStore;Ljava/lang/Throwable;)Landroid/net/IIpMemoryStore;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmService(Landroid/net/IpMemoryStore;)Ljava/util/concurrent/CompletableFuture;
+    .locals 0
+
+    iget-object p0, p0, Landroid/net/IpMemoryStore;->mService:Ljava/util/concurrent/CompletableFuture;
+
+    return-object p0
+.end method
+
+.method public static constructor <clinit>()V
+    .locals 0
 
     return-void
 .end method
@@ -64,23 +84,15 @@
 
     invoke-virtual {p0, p1}, Landroid/net/IpMemoryStore;->getModuleNetworkStackClient(Landroid/content/Context;)Landroid/net/networkstack/ModuleNetworkStackClient;
 
-    move-result-object v0
+    move-result-object p1
 
-    new-instance v1, Landroid/net/IpMemoryStore$1;
+    new-instance v0, Landroid/net/IpMemoryStore$1;
 
-    invoke-direct {v1, p0}, Landroid/net/IpMemoryStore$1;-><init>(Landroid/net/IpMemoryStore;)V
+    invoke-direct {v0, p0}, Landroid/net/IpMemoryStore$1;-><init>(Landroid/net/IpMemoryStore;)V
 
-    invoke-virtual {v0, v1}, Landroid/net/networkstack/ModuleNetworkStackClient;->fetchIpMemoryStore(Landroid/net/IIpMemoryStoreCallbacks;)V
+    invoke-virtual {p1, v0}, Landroid/net/networkstack/NetworkStackClientBase;->fetchIpMemoryStore(Landroid/net/IIpMemoryStoreCallbacks;)V
 
     return-void
-.end method
-
-.method static synthetic access$000(Landroid/net/IpMemoryStore;)Ljava/util/concurrent/CompletableFuture;
-    .locals 1
-
-    iget-object v0, p0, Landroid/net/IpMemoryStore;->mService:Ljava/util/concurrent/CompletableFuture;
-
-    return-object v0
 .end method
 
 .method public static getMemoryStore(Landroid/content/Context;)Landroid/net/IpMemoryStore;
@@ -93,16 +105,16 @@
     return-object v0
 .end method
 
-.method static synthetic lambda$runWhenServiceReady$0(Ljava/util/function/Consumer;Landroid/net/IIpMemoryStore;Ljava/lang/Throwable;)Landroid/net/IIpMemoryStore;
-    .locals 4
+.method private static synthetic lambda$runWhenServiceReady$0(Ljava/util/function/Consumer;Landroid/net/IIpMemoryStore;Ljava/lang/Throwable;)Landroid/net/IIpMemoryStore;
+    .locals 2
 
     if-eqz p2, :cond_0
 
-    sget-object v0, Landroid/net/IpMemoryStore;->TAG:Ljava/lang/String;
+    sget-object p0, Landroid/net/IpMemoryStore;->TAG:Ljava/lang/String;
 
-    const-string v1, "Error fetching IpMemoryStore"
+    const-string v0, "Error fetching IpMemoryStore"
 
-    invoke-static {v0, v1, p2}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {p0, v0, p2}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     return-object p1
 
@@ -115,35 +127,35 @@
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    sget-object v1, Landroid/net/IpMemoryStore;->TAG:Ljava/lang/String;
+    sget-object p2, Landroid/net/IpMemoryStore;->TAG:Ljava/lang/String;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "Exception occurred: "
+    const-string v1, "Exception occurred: "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p0
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-static {v1, v2}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p2, p0}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;)I
 
     :goto_0
     return-object p1
 .end method
 
-.method static synthetic lambda$runWhenServiceReady$1(Ljava/util/function/Consumer;Ljava/util/concurrent/CompletableFuture;)Ljava/util/concurrent/CompletableFuture;
+.method private static synthetic lambda$runWhenServiceReady$1(Ljava/util/function/Consumer;Ljava/util/concurrent/CompletableFuture;)Ljava/util/concurrent/CompletableFuture;
     .locals 1
 
     new-instance v0, Landroid/net/IpMemoryStore$$ExternalSyntheticLambda0;
@@ -152,25 +164,27 @@
 
     invoke-virtual {p1, v0}, Ljava/util/concurrent/CompletableFuture;->handle(Ljava/util/function/BiFunction;)Ljava/util/concurrent/CompletableFuture;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 
 # virtual methods
-.method protected getModuleNetworkStackClient(Landroid/content/Context;)Landroid/net/networkstack/ModuleNetworkStackClient;
-    .locals 1
+.method public getModuleNetworkStackClient(Landroid/content/Context;)Landroid/net/networkstack/ModuleNetworkStackClient;
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
 
     invoke-static {p1}, Landroid/net/networkstack/ModuleNetworkStackClient;->getInstance(Landroid/content/Context;)Landroid/net/networkstack/ModuleNetworkStackClient;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
-.method protected runWhenServiceReady(Ljava/util/function/Consumer;)V
-    .locals 2
+.method public runWhenServiceReady(Ljava/util/function/Consumer;)V
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -186,13 +200,13 @@
         }
     .end annotation
 
-    iget-object v0, p0, Landroid/net/IpMemoryStore;->mTailNode:Ljava/util/concurrent/atomic/AtomicReference;
+    iget-object p0, p0, Landroid/net/IpMemoryStore;->mTailNode:Ljava/util/concurrent/atomic/AtomicReference;
 
-    new-instance v1, Landroid/net/IpMemoryStore$$ExternalSyntheticLambda1;
+    new-instance v0, Landroid/net/IpMemoryStore$$ExternalSyntheticLambda1;
 
-    invoke-direct {v1, p1}, Landroid/net/IpMemoryStore$$ExternalSyntheticLambda1;-><init>(Ljava/util/function/Consumer;)V
+    invoke-direct {v0, p1}, Landroid/net/IpMemoryStore$$ExternalSyntheticLambda1;-><init>(Ljava/util/function/Consumer;)V
 
-    invoke-virtual {v0, v1}, Ljava/util/concurrent/atomic/AtomicReference;->getAndUpdate(Ljava/util/function/UnaryOperator;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Ljava/util/concurrent/atomic/AtomicReference;->getAndUpdate(Ljava/util/function/UnaryOperator;)Ljava/lang/Object;
 
     return-void
 .end method

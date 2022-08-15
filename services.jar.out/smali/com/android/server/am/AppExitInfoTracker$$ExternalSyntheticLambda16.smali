@@ -1,37 +1,66 @@
 .class public final synthetic Lcom/android/server/am/AppExitInfoTracker$$ExternalSyntheticLambda16;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Predicate;
+.implements Lcom/android/internal/util/function/HexConsumer;
 
 
 # instance fields
-.field public final synthetic f$0:I
+.field public final synthetic f$0:Lcom/android/server/am/AppExitInfoTracker;
 
 
 # direct methods
-.method public synthetic constructor <init>(I)V
+.method public synthetic constructor <init>(Lcom/android/server/am/AppExitInfoTracker;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput p1, p0, Lcom/android/server/am/AppExitInfoTracker$$ExternalSyntheticLambda16;->f$0:I
+    iput-object p1, p0, Lcom/android/server/am/AppExitInfoTracker$$ExternalSyntheticLambda16;->f$0:Lcom/android/server/am/AppExitInfoTracker;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final test(Ljava/lang/Object;)Z
-    .locals 1
+.method public final accept(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+    .locals 9
 
-    iget v0, p0, Lcom/android/server/am/AppExitInfoTracker$$ExternalSyntheticLambda16;->f$0:I
+    iget-object v0, p0, Lcom/android/server/am/AppExitInfoTracker$$ExternalSyntheticLambda16;->f$0:Lcom/android/server/am/AppExitInfoTracker;
 
     check-cast p1, Ljava/lang/Integer;
 
-    invoke-static {v0, p1}, Lcom/android/server/am/AppExitInfoTracker;->lambda$removeByUserIdLocked$7(ILjava/lang/Integer;)Z
+    invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
 
-    move-result p1
+    move-result v1
 
-    return p1
+    check-cast p2, Ljava/lang/Integer;
+
+    invoke-virtual {p2}, Ljava/lang/Integer;->intValue()I
+
+    move-result v2
+
+    move-object v3, p3
+
+    check-cast v3, [Ljava/lang/String;
+
+    move-object v4, p4
+
+    check-cast v4, Ljava/io/File;
+
+    check-cast p5, Ljava/lang/Long;
+
+    invoke-virtual {p5}, Ljava/lang/Long;->longValue()J
+
+    move-result-wide v5
+
+    check-cast p6, Ljava/lang/Long;
+
+    invoke-virtual {p6}, Ljava/lang/Long;->longValue()J
+
+    move-result-wide v7
+
+    invoke-virtual/range {v0 .. v8}, Lcom/android/server/am/AppExitInfoTracker;->handleLogAnrTrace(II[Ljava/lang/String;Ljava/io/File;JJ)V
+
+    return-void
 .end method

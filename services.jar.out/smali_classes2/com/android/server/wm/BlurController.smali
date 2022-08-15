@@ -1,14 +1,14 @@
-.class final Lcom/android/server/wm/BlurController;
+.class public final Lcom/android/server/wm/BlurController;
 .super Ljava/lang/Object;
 .source "BlurController.java"
 
 
 # instance fields
-.field private mBlurDisabledSetting:Z
+.field public mBlurDisabledSetting:Z
 
-.field private volatile mBlurEnabled:Z
+.field public volatile mBlurEnabled:Z
 
-.field private final mBlurEnabledListeners:Landroid/os/RemoteCallbackList;
+.field public final mBlurEnabledListeners:Landroid/os/RemoteCallbackList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/RemoteCallbackList<",
@@ -18,22 +18,72 @@
     .end annotation
 .end field
 
-.field private final mContext:Landroid/content/Context;
+.field public final mContext:Landroid/content/Context;
 
-.field private mCriticalThermalStatus:Z
+.field public mCriticalThermalStatus:Z
 
-.field private mInPowerSaveMode:Z
+.field public mInPowerSaveMode:Z
 
-.field private final mLock:Ljava/lang/Object;
+.field public final mLock:Ljava/lang/Object;
 
-.field private mTunnelModeEnabled:Z
+.field public mTunnelModeEnabled:Z
 
-.field private mTunnelModeListener:Landroid/view/TunnelModeEnabledListener;
+.field public mTunnelModeListener:Landroid/view/TunnelModeEnabledListener;
 
 
 # direct methods
-.method constructor <init>(Landroid/content/Context;Landroid/os/PowerManager;)V
-    .locals 6
+.method public static synthetic $r8$lambda$MvA4SW0VwlFVTadaS8sztsY4N2Q(Lcom/android/server/wm/BlurController;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/wm/BlurController;->lambda$new$0(I)V
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$fputmBlurDisabledSetting(Lcom/android/server/wm/BlurController;Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/server/wm/BlurController;->mBlurDisabledSetting:Z
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$fputmInPowerSaveMode(Lcom/android/server/wm/BlurController;Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/server/wm/BlurController;->mInPowerSaveMode:Z
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$fputmTunnelModeEnabled(Lcom/android/server/wm/BlurController;Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/server/wm/BlurController;->mTunnelModeEnabled:Z
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$mgetBlurDisabledSetting(Lcom/android/server/wm/BlurController;)Z
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/server/wm/BlurController;->getBlurDisabledSetting()Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public static bridge synthetic -$$Nest$mupdateBlurEnabled(Lcom/android/server/wm/BlurController;)V
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/server/wm/BlurController;->updateBlurEnabled()V
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/content/Context;Landroid/os/PowerManager;)V
+    .locals 4
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -55,7 +105,9 @@
 
     new-instance v1, Lcom/android/server/wm/BlurController$1;
 
-    sget-object v2, Lcom/android/server/am/BatteryExternalStatsWorker$$ExternalSyntheticLambda7;->INSTANCE:Lcom/android/server/am/BatteryExternalStatsWorker$$ExternalSyntheticLambda7;
+    new-instance v2, Lcom/android/server/am/BatteryExternalStatsWorker$$ExternalSyntheticLambda8;
+
+    invoke-direct {v2}, Lcom/android/server/am/BatteryExternalStatsWorker$$ExternalSyntheticLambda8;-><init>()V
 
     invoke-direct {v1, p0, v2}, Lcom/android/server/wm/BlurController$1;-><init>(Lcom/android/server/wm/BlurController;Ljava/util/concurrent/Executor;)V
 
@@ -83,131 +135,121 @@
 
     invoke-virtual {p2}, Landroid/os/PowerManager;->isPowerSaveMode()Z
 
-    move-result v2
+    move-result v1
 
-    iput-boolean v2, p0, Lcom/android/server/wm/BlurController;->mInPowerSaveMode:Z
+    iput-boolean v1, p0, Lcom/android/server/wm/BlurController;->mInPowerSaveMode:Z
 
     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v2
+    move-result-object p1
 
-    const-string v4, "disable_window_blurs"
+    const-string v1, "disable_window_blurs"
 
-    invoke-static {v4}, Landroid/provider/Settings$Global;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+    invoke-static {v1}, Landroid/provider/Settings$Global;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
-    move-result-object v4
+    move-result-object v1
 
-    new-instance v5, Lcom/android/server/wm/BlurController$3;
+    new-instance v2, Lcom/android/server/wm/BlurController$3;
 
-    invoke-direct {v5, p0, v3}, Lcom/android/server/wm/BlurController$3;-><init>(Lcom/android/server/wm/BlurController;Landroid/os/Handler;)V
+    invoke-direct {v2, p0, v3}, Lcom/android/server/wm/BlurController$3;-><init>(Lcom/android/server/wm/BlurController;Landroid/os/Handler;)V
 
-    invoke-virtual {v2, v4, v0, v5}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
+    invoke-virtual {p1, v1, v0, v2}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    invoke-direct {p0}, Lcom/android/server/wm/BlurController;->getBlurDisabledSetting()Z
+    invoke-virtual {p0}, Lcom/android/server/wm/BlurController;->getBlurDisabledSetting()Z
 
-    move-result v2
+    move-result p1
 
-    iput-boolean v2, p0, Lcom/android/server/wm/BlurController;->mBlurDisabledSetting:Z
+    iput-boolean p1, p0, Lcom/android/server/wm/BlurController;->mBlurDisabledSetting:Z
 
-    new-instance v2, Lcom/android/server/wm/BlurController$$ExternalSyntheticLambda0;
+    new-instance p1, Lcom/android/server/wm/BlurController$$ExternalSyntheticLambda0;
 
-    invoke-direct {v2, p0}, Lcom/android/server/wm/BlurController$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/wm/BlurController;)V
+    invoke-direct {p1, p0}, Lcom/android/server/wm/BlurController$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/wm/BlurController;)V
 
-    invoke-virtual {p2, v2}, Landroid/os/PowerManager;->addThermalStatusListener(Landroid/os/PowerManager$OnThermalStatusChangedListener;)V
+    invoke-virtual {p2, p1}, Landroid/os/PowerManager;->addThermalStatusListener(Landroid/os/PowerManager$OnThermalStatusChangedListener;)V
 
     invoke-virtual {p2}, Landroid/os/PowerManager;->getCurrentThermalStatus()I
 
-    move-result v2
+    move-result p1
 
-    const/4 v3, 0x4
+    const/4 p2, 0x4
 
-    if-lt v2, v3, :cond_0
+    if-lt p1, p2, :cond_0
 
     const/4 v0, 0x1
 
     :cond_0
     iput-boolean v0, p0, Lcom/android/server/wm/BlurController;->mCriticalThermalStatus:Z
 
-    iget-object v0, p0, Lcom/android/server/wm/BlurController;->mTunnelModeListener:Landroid/view/TunnelModeEnabledListener;
+    iget-object p1, p0, Lcom/android/server/wm/BlurController;->mTunnelModeListener:Landroid/view/TunnelModeEnabledListener;
 
-    invoke-static {v0}, Landroid/view/TunnelModeEnabledListener;->register(Landroid/view/TunnelModeEnabledListener;)V
+    invoke-static {p1}, Landroid/view/TunnelModeEnabledListener;->register(Landroid/view/TunnelModeEnabledListener;)V
 
-    invoke-direct {p0}, Lcom/android/server/wm/BlurController;->updateBlurEnabled()V
-
-    return-void
-.end method
-
-.method static synthetic access$002(Lcom/android/server/wm/BlurController;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/server/wm/BlurController;->mTunnelModeEnabled:Z
-
-    return p1
-.end method
-
-.method static synthetic access$100(Lcom/android/server/wm/BlurController;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/server/wm/BlurController;->updateBlurEnabled()V
+    invoke-virtual {p0}, Lcom/android/server/wm/BlurController;->updateBlurEnabled()V
 
     return-void
 .end method
 
-.method static synthetic access$202(Lcom/android/server/wm/BlurController;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/server/wm/BlurController;->mInPowerSaveMode:Z
-
-    return p1
-.end method
-
-.method static synthetic access$302(Lcom/android/server/wm/BlurController;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/server/wm/BlurController;->mBlurDisabledSetting:Z
-
-    return p1
-.end method
-
-.method static synthetic access$400(Lcom/android/server/wm/BlurController;)Z
+.method private synthetic lambda$new$0(I)V
     .locals 1
 
-    invoke-direct {p0}, Lcom/android/server/wm/BlurController;->getBlurDisabledSetting()Z
+    const/4 v0, 0x4
 
-    move-result v0
+    if-lt p1, v0, :cond_0
 
-    return v0
-.end method
+    const/4 p1, 0x1
 
-.method private getBlurDisabledSetting()Z
-    .locals 3
-
-    iget-object v0, p0, Lcom/android/server/wm/BlurController;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v0
-
-    const-string v1, "disable_window_blurs"
-
-    const/4 v2, 0x0
-
-    invoke-static {v0, v1, v2}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v0
-
-    const/4 v1, 0x1
-
-    if-ne v0, v1, :cond_0
-
-    move v2, v1
+    goto :goto_0
 
     :cond_0
-    return v2
+    const/4 p1, 0x0
+
+    :goto_0
+    iput-boolean p1, p0, Lcom/android/server/wm/BlurController;->mCriticalThermalStatus:Z
+
+    invoke-virtual {p0}, Lcom/android/server/wm/BlurController;->updateBlurEnabled()V
+
+    return-void
 .end method
 
-.method private notifyBlurEnabledChangedLocked(Z)V
-    .locals 3
+
+# virtual methods
+.method public final getBlurDisabledSetting()Z
+    .locals 2
+
+    iget-object p0, p0, Lcom/android/server/wm/BlurController;->mContext:Landroid/content/Context;
+
+    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object p0
+
+    const-string v0, "disable_window_blurs"
+
+    const/4 v1, 0x0
+
+    invoke-static {p0, v0, v1}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result p0
+
+    const/4 v0, 0x1
+
+    if-ne p0, v0, :cond_0
+
+    move v1, v0
+
+    :cond_0
+    return v1
+.end method
+
+.method public getBlurEnabled()Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/server/wm/BlurController;->mBlurEnabled:Z
+
+    return p0
+.end method
+
+.method public final notifyBlurEnabledChangedLocked(Z)V
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/wm/BlurController;->mBlurEnabledListeners:Landroid/os/RemoteCallbackList;
 
@@ -215,6 +257,7 @@
 
     move-result v0
 
+    :catch_0
     :goto_0
     if-lez v0, :cond_0
 
@@ -233,23 +276,53 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_1
-
-    :catch_0
-    move-exception v2
-
-    :goto_1
     goto :goto_0
 
     :cond_0
-    iget-object v1, p0, Lcom/android/server/wm/BlurController;->mBlurEnabledListeners:Landroid/os/RemoteCallbackList;
+    iget-object p0, p0, Lcom/android/server/wm/BlurController;->mBlurEnabledListeners:Landroid/os/RemoteCallbackList;
 
-    invoke-virtual {v1}, Landroid/os/RemoteCallbackList;->finishBroadcast()V
+    invoke-virtual {p0}, Landroid/os/RemoteCallbackList;->finishBroadcast()V
 
     return-void
 .end method
 
-.method private updateBlurEnabled()V
+.method public registerCrossWindowBlurEnabledListener(Landroid/view/ICrossWindowBlurEnabledListener;)Z
+    .locals 1
+
+    if-nez p1, :cond_0
+
+    const/4 p0, 0x0
+
+    return p0
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/server/wm/BlurController;->mBlurEnabledListeners:Landroid/os/RemoteCallbackList;
+
+    invoke-virtual {v0, p1}, Landroid/os/RemoteCallbackList;->register(Landroid/os/IInterface;)Z
+
+    invoke-virtual {p0}, Lcom/android/server/wm/BlurController;->getBlurEnabled()Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public unregisterCrossWindowBlurEnabledListener(Landroid/view/ICrossWindowBlurEnabledListener;)V
+    .locals 0
+
+    if-nez p1, :cond_0
+
+    return-void
+
+    :cond_0
+    iget-object p0, p0, Lcom/android/server/wm/BlurController;->mBlurEnabledListeners:Landroid/os/RemoteCallbackList;
+
+    invoke-virtual {p0, p1}, Landroid/os/RemoteCallbackList;->unregister(Landroid/os/IInterface;)Z
+
+    return-void
+.end method
+
+.method public final updateBlurEnabled()V
     .locals 3
 
     iget-object v0, p0, Lcom/android/server/wm/BlurController;->mLock:Ljava/lang/Object;
@@ -296,86 +369,18 @@
     :cond_1
     iput-boolean v1, p0, Lcom/android/server/wm/BlurController;->mBlurEnabled:Z
 
-    invoke-direct {p0, v1}, Lcom/android/server/wm/BlurController;->notifyBlurEnabledChangedLocked(Z)V
+    invoke-virtual {p0, v1}, Lcom/android/server/wm/BlurController;->notifyBlurEnabledChangedLocked(Z)V
 
     monitor-exit v0
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
-.end method
-
-
-# virtual methods
-.method getBlurEnabled()Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/server/wm/BlurController;->mBlurEnabled:Z
-
-    return v0
-.end method
-
-.method public synthetic lambda$new$0$BlurController(I)V
-    .locals 1
-
-    const/4 v0, 0x4
-
-    if-lt p1, v0, :cond_0
-
-    const/4 v0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    :goto_0
-    iput-boolean v0, p0, Lcom/android/server/wm/BlurController;->mCriticalThermalStatus:Z
-
-    invoke-direct {p0}, Lcom/android/server/wm/BlurController;->updateBlurEnabled()V
-
-    return-void
-.end method
-
-.method registerCrossWindowBlurEnabledListener(Landroid/view/ICrossWindowBlurEnabledListener;)Z
-    .locals 1
-
-    if-nez p1, :cond_0
-
-    const/4 v0, 0x0
-
-    return v0
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/server/wm/BlurController;->mBlurEnabledListeners:Landroid/os/RemoteCallbackList;
-
-    invoke-virtual {v0, p1}, Landroid/os/RemoteCallbackList;->register(Landroid/os/IInterface;)Z
-
-    invoke-virtual {p0}, Lcom/android/server/wm/BlurController;->getBlurEnabled()Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method unregisterCrossWindowBlurEnabledListener(Landroid/view/ICrossWindowBlurEnabledListener;)V
-    .locals 1
-
-    if-nez p1, :cond_0
-
-    return-void
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/server/wm/BlurController;->mBlurEnabledListeners:Landroid/os/RemoteCallbackList;
-
-    invoke-virtual {v0, p1}, Landroid/os/RemoteCallbackList;->unregister(Landroid/os/IInterface;)Z
-
-    return-void
+    throw p0
 .end method

@@ -6,6 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Landroid/app/usage/UsageStatsManagerInternal$EstimatedLaunchTimeChangedListener;,
         Landroid/app/usage/UsageStatsManagerInternal$UsageEventListener;,
         Landroid/app/usage/UsageStatsManagerInternal$AppUsageLimitData;
     }
@@ -33,6 +34,9 @@
 .end method
 
 .method public abstract getBackupPayload(ILjava/lang/String;)[B
+.end method
+
+.method public abstract getEstimatedPackageLaunchTime(Ljava/lang/String;I)J
 .end method
 
 .method public abstract getIdleUidsForUser(I)[I
@@ -73,10 +77,13 @@
     .end annotation
 .end method
 
+.method public abstract registerLaunchTimeChangedListener(Landroid/app/usage/UsageStatsManagerInternal$EstimatedLaunchTimeChangedListener;)V
+.end method
+
 .method public abstract registerListener(Landroid/app/usage/UsageStatsManagerInternal$UsageEventListener;)V
 .end method
 
-.method public abstract reportAppJobState(Ljava/lang/String;IIJ)V
+.method public abstract reportBroadcastDispatched(ILjava/lang/String;Landroid/os/UserHandle;JJI)V
 .end method
 
 .method public abstract reportConfigurationChange(Landroid/content/res/Configuration;I)V
@@ -98,6 +105,15 @@
 .end method
 
 .method public abstract reportLocusUpdate(Landroid/content/ComponentName;ILandroid/content/LocusId;Landroid/os/IBinder;)V
+.end method
+
+.method public abstract reportNotificationPosted(Ljava/lang/String;Landroid/os/UserHandle;J)V
+.end method
+
+.method public abstract reportNotificationRemoved(Ljava/lang/String;Landroid/os/UserHandle;J)V
+.end method
+
+.method public abstract reportNotificationUpdated(Ljava/lang/String;Landroid/os/UserHandle;J)V
 .end method
 
 .method public abstract reportShortcutUsage(Ljava/lang/String;Ljava/lang/String;I)V

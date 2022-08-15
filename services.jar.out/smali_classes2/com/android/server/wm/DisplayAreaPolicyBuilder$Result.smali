@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/DisplayAreaPolicyBuilder$Result;
+.class public Lcom/android/server/wm/DisplayAreaPolicyBuilder$Result;
 .super Lcom/android/server/wm/DisplayAreaPolicy;
 .source "DisplayAreaPolicyBuilder.java"
 
@@ -9,15 +9,15 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "Result"
 .end annotation
 
 
 # instance fields
-.field private final mDefaultTaskDisplayArea:Lcom/android/server/wm/TaskDisplayArea;
+.field public final mDefaultTaskDisplayArea:Lcom/android/server/wm/TaskDisplayArea;
 
-.field final mDisplayAreaGroupRoots:Ljava/util/List;
+.field public final mDisplayAreaGroupRoots:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -27,7 +27,7 @@
     .end annotation
 .end field
 
-.field final mSelectRootForWindowFunc:Ljava/util/function/BiFunction;
+.field public final mSelectRootForWindowFunc:Ljava/util/function/BiFunction;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/function/BiFunction<",
@@ -39,10 +39,31 @@
     .end annotation
 .end field
 
+.field public final mSelectTaskDisplayAreaFunc:Ljava/util/function/Function;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/function/Function<",
+            "Landroid/os/Bundle;",
+            "Lcom/android/server/wm/TaskDisplayArea;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 
 # direct methods
-.method constructor <init>(Lcom/android/server/wm/WindowManagerService;Lcom/android/server/wm/RootDisplayArea;Ljava/util/List;Ljava/util/function/BiFunction;)V
-    .locals 2
+.method public static synthetic $r8$lambda$am8Z89jNU7AG9qZKA6dA1j44b84(Lcom/android/server/wm/TaskDisplayArea;)Lcom/android/server/wm/TaskDisplayArea;
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/server/wm/DisplayAreaPolicyBuilder$Result;->lambda$new$0(Lcom/android/server/wm/TaskDisplayArea;)Lcom/android/server/wm/TaskDisplayArea;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public constructor <init>(Lcom/android/server/wm/WindowManagerService;Lcom/android/server/wm/RootDisplayArea;Ljava/util/List;Ljava/util/function/BiFunction;Ljava/util/function/Function;)V
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -55,6 +76,10 @@
             "Ljava/lang/Integer;",
             "Landroid/os/Bundle;",
             "Lcom/android/server/wm/RootDisplayArea;",
+            ">;",
+            "Ljava/util/function/Function<",
+            "Landroid/os/Bundle;",
+            "Lcom/android/server/wm/TaskDisplayArea;",
             ">;)V"
         }
     .end annotation
@@ -63,39 +88,53 @@
 
     invoke-static {p3}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/android/server/wm/DisplayAreaPolicyBuilder$Result;->mDisplayAreaGroupRoots:Ljava/util/List;
+    iput-object p1, p0, Lcom/android/server/wm/DisplayAreaPolicyBuilder$Result;->mDisplayAreaGroupRoots:Ljava/util/List;
 
     iput-object p4, p0, Lcom/android/server/wm/DisplayAreaPolicyBuilder$Result;->mSelectRootForWindowFunc:Ljava/util/function/BiFunction;
 
-    iget-object v0, p0, Lcom/android/server/wm/DisplayAreaPolicyBuilder$Result;->mRoot:Lcom/android/server/wm/RootDisplayArea;
+    iget-object p1, p0, Lcom/android/server/wm/DisplayAreaPolicy;->mRoot:Lcom/android/server/wm/RootDisplayArea;
 
-    sget-object v1, Lcom/android/server/wm/DisplayAreaPolicyBuilder$Result$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/server/wm/DisplayAreaPolicyBuilder$Result$$ExternalSyntheticLambda0;
+    new-instance p2, Lcom/android/server/wm/DisplayAreaPolicyBuilder$Result$$ExternalSyntheticLambda0;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/wm/RootDisplayArea;->getItemFromTaskDisplayAreas(Ljava/util/function/Function;)Ljava/lang/Object;
+    invoke-direct {p2}, Lcom/android/server/wm/DisplayAreaPolicyBuilder$Result$$ExternalSyntheticLambda0;-><init>()V
 
-    move-result-object v0
+    invoke-virtual {p1, p2}, Lcom/android/server/wm/WindowContainer;->getItemFromTaskDisplayAreas(Ljava/util/function/Function;)Ljava/lang/Object;
 
-    check-cast v0, Lcom/android/server/wm/TaskDisplayArea;
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/android/server/wm/DisplayAreaPolicyBuilder$Result;->mDefaultTaskDisplayArea:Lcom/android/server/wm/TaskDisplayArea;
+    check-cast p1, Lcom/android/server/wm/TaskDisplayArea;
 
-    if-eqz v0, :cond_0
+    iput-object p1, p0, Lcom/android/server/wm/DisplayAreaPolicyBuilder$Result;->mDefaultTaskDisplayArea:Lcom/android/server/wm/TaskDisplayArea;
+
+    if-eqz p1, :cond_1
+
+    if-eqz p5, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    new-instance p5, Lcom/android/server/wm/DisplayAreaPolicyBuilder$DefaultSelectTaskDisplayAreaFunction;
+
+    invoke-direct {p5, p1}, Lcom/android/server/wm/DisplayAreaPolicyBuilder$DefaultSelectTaskDisplayAreaFunction;-><init>(Lcom/android/server/wm/TaskDisplayArea;)V
+
+    :goto_0
+    iput-object p5, p0, Lcom/android/server/wm/DisplayAreaPolicyBuilder$Result;->mSelectTaskDisplayAreaFunc:Ljava/util/function/Function;
 
     return-void
 
-    :cond_0
-    new-instance v0, Ljava/lang/IllegalStateException;
+    :cond_1
+    new-instance p0, Ljava/lang/IllegalStateException;
 
-    const-string v1, "No display area with FEATURE_DEFAULT_TASK_CONTAINER"
+    const-string p1, "No display area with FEATURE_DEFAULT_TASK_CONTAINER"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
-.method private static getDisplayAreas(Lcom/android/server/wm/RootDisplayArea;ILjava/util/List;)V
+.method public static getDisplayAreas(Lcom/android/server/wm/RootDisplayArea;ILjava/util/List;)V
     .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -127,7 +166,7 @@
 
     check-cast v2, Lcom/android/server/wm/DisplayAreaPolicyBuilder$Feature;
 
-    invoke-static {v2}, Lcom/android/server/wm/DisplayAreaPolicyBuilder$Feature;->access$800(Lcom/android/server/wm/DisplayAreaPolicyBuilder$Feature;)I
+    invoke-static {v2}, Lcom/android/server/wm/DisplayAreaPolicyBuilder$Feature;->-$$Nest$fgetmId(Lcom/android/server/wm/DisplayAreaPolicyBuilder$Feature;)I
 
     move-result v3
 
@@ -137,11 +176,11 @@
 
     invoke-interface {v3, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v2
 
-    check-cast v3, Ljava/util/Collection;
+    check-cast v2, Ljava/util/Collection;
 
-    invoke-interface {p2, v3}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
+    invoke-interface {p2, v2}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
 
     :cond_0
     add-int/lit8 v1, v1, 0x1
@@ -152,94 +191,82 @@
     return-void
 .end method
 
-.method static synthetic lambda$new$0(Lcom/android/server/wm/TaskDisplayArea;)Lcom/android/server/wm/TaskDisplayArea;
+.method public static synthetic lambda$new$0(Lcom/android/server/wm/TaskDisplayArea;)Lcom/android/server/wm/TaskDisplayArea;
     .locals 2
 
-    iget v0, p0, Lcom/android/server/wm/TaskDisplayArea;->mFeatureId:I
+    iget v0, p0, Lcom/android/server/wm/DisplayArea;->mFeatureId:I
 
     const/4 v1, 0x1
 
     if-ne v0, v1, :cond_0
 
-    move-object v0, p0
-
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return-object v0
+    return-object p0
 .end method
 
 
 # virtual methods
-.method public addWindow(Lcom/android/server/wm/WindowToken;)V
-    .locals 1
+.method public findAreaForToken(Lcom/android/server/wm/WindowToken;)Lcom/android/server/wm/DisplayArea$Tokens;
+    .locals 2
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
 
-    invoke-virtual {p0, p1}, Lcom/android/server/wm/DisplayAreaPolicyBuilder$Result;->findAreaForToken(Lcom/android/server/wm/WindowToken;)Lcom/android/server/wm/DisplayArea$Tokens;
+    iget-object p0, p0, Lcom/android/server/wm/DisplayAreaPolicyBuilder$Result;->mSelectRootForWindowFunc:Ljava/util/function/BiFunction;
 
-    move-result-object v0
+    iget v0, p1, Lcom/android/server/wm/WindowToken;->windowType:I
 
-    invoke-virtual {v0, p1}, Lcom/android/server/wm/DisplayArea$Tokens;->addChild(Lcom/android/server/wm/WindowToken;)V
-
-    return-void
-.end method
-
-.method findAreaForToken(Lcom/android/server/wm/WindowToken;)Lcom/android/server/wm/DisplayArea$Tokens;
-    .locals 3
-
-    iget-object v0, p0, Lcom/android/server/wm/DisplayAreaPolicyBuilder$Result;->mSelectRootForWindowFunc:Ljava/util/function/BiFunction;
-
-    iget v1, p1, Lcom/android/server/wm/WindowToken;->windowType:I
-
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    iget-object v2, p1, Lcom/android/server/wm/WindowToken;->mOptions:Landroid/os/Bundle;
-
-    invoke-interface {v0, v1, v2}, Ljava/util/function/BiFunction;->apply(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v0
 
-    check-cast v0, Lcom/android/server/wm/RootDisplayArea;
+    iget-object v1, p1, Lcom/android/server/wm/WindowToken;->mOptions:Landroid/os/Bundle;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/wm/RootDisplayArea;->findAreaForTokenInLayer(Lcom/android/server/wm/WindowToken;)Lcom/android/server/wm/DisplayArea$Tokens;
+    invoke-interface {p0, v0, v1}, Ljava/util/function/BiFunction;->apply(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    check-cast p0, Lcom/android/server/wm/RootDisplayArea;
+
+    invoke-virtual {p0, p1}, Lcom/android/server/wm/RootDisplayArea;->findAreaForTokenInLayer(Lcom/android/server/wm/WindowToken;)Lcom/android/server/wm/DisplayArea$Tokens;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method public findAreaForWindowType(ILandroid/os/Bundle;ZZ)Lcom/android/server/wm/DisplayArea$Tokens;
-    .locals 2
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/wm/DisplayAreaPolicyBuilder$Result;->mSelectRootForWindowFunc:Ljava/util/function/BiFunction;
+    iget-object p0, p0, Lcom/android/server/wm/DisplayAreaPolicyBuilder$Result;->mSelectRootForWindowFunc:Ljava/util/function/BiFunction;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v1
-
-    invoke-interface {v0, v1, p2}, Ljava/util/function/BiFunction;->apply(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
     move-result-object v0
 
-    check-cast v0, Lcom/android/server/wm/RootDisplayArea;
+    invoke-interface {p0, v0, p2}, Ljava/util/function/BiFunction;->apply(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {v0, p1, p3, p4}, Lcom/android/server/wm/RootDisplayArea;->findAreaForWindowTypeInLayer(IZZ)Lcom/android/server/wm/DisplayArea$Tokens;
+    move-result-object p0
 
-    move-result-object v0
+    check-cast p0, Lcom/android/server/wm/RootDisplayArea;
 
-    return-object v0
+    invoke-virtual {p0, p1, p3, p4}, Lcom/android/server/wm/RootDisplayArea;->findAreaForWindowTypeInLayer(IZZ)Lcom/android/server/wm/DisplayArea$Tokens;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method public getDefaultTaskDisplayArea()Lcom/android/server/wm/TaskDisplayArea;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/DisplayAreaPolicyBuilder$Result;->mDefaultTaskDisplayArea:Lcom/android/server/wm/TaskDisplayArea;
+    iget-object p0, p0, Lcom/android/server/wm/DisplayAreaPolicyBuilder$Result;->mDefaultTaskDisplayArea:Lcom/android/server/wm/TaskDisplayArea;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getDisplayAreas(I)Ljava/util/List;
@@ -259,7 +286,7 @@
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    iget-object v1, p0, Lcom/android/server/wm/DisplayAreaPolicyBuilder$Result;->mRoot:Lcom/android/server/wm/RootDisplayArea;
+    iget-object v1, p0, Lcom/android/server/wm/DisplayAreaPolicy;->mRoot:Lcom/android/server/wm/RootDisplayArea;
 
     invoke-static {v1, p1, v0}, Lcom/android/server/wm/DisplayAreaPolicyBuilder$Result;->getDisplayAreas(Lcom/android/server/wm/RootDisplayArea;ILjava/util/List;)V
 
@@ -292,8 +319,11 @@
     return-object v0
 .end method
 
-.method getFeatures()Ljava/util/List;
+.method public getFeatures()Ljava/util/List;
     .locals 3
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -307,7 +337,7 @@
 
     invoke-direct {v0}, Landroid/util/ArraySet;-><init>()V
 
-    iget-object v1, p0, Lcom/android/server/wm/DisplayAreaPolicyBuilder$Result;->mRoot:Lcom/android/server/wm/RootDisplayArea;
+    iget-object v1, p0, Lcom/android/server/wm/DisplayAreaPolicy;->mRoot:Lcom/android/server/wm/RootDisplayArea;
 
     iget-object v1, v1, Lcom/android/server/wm/RootDisplayArea;->mFeatures:Ljava/util/List;
 
@@ -341,9 +371,23 @@
     goto :goto_0
 
     :cond_0
-    new-instance v1, Ljava/util/ArrayList;
+    new-instance p0, Ljava/util/ArrayList;
 
-    invoke-direct {v1, v0}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+    invoke-direct {p0, v0}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
-    return-object v1
+    return-object p0
+.end method
+
+.method public getTaskDisplayArea(Landroid/os/Bundle;)Lcom/android/server/wm/TaskDisplayArea;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/wm/DisplayAreaPolicyBuilder$Result;->mSelectTaskDisplayAreaFunc:Ljava/util/function/Function;
+
+    invoke-interface {p0, p1}, Ljava/util/function/Function;->apply(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Lcom/android/server/wm/TaskDisplayArea;
+
+    return-object p0
 .end method

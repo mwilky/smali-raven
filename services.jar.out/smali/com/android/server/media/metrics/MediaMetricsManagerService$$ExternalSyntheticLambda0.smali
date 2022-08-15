@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/media/metrics/MediaMetricsManagerService$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/provider/DeviceConfig$OnPropertiesChangedListener;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final onPropertiesChanged(Landroid/provider/DeviceConfig$Properties;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/media/metrics/MediaMetricsManagerService$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/media/metrics/MediaMetricsManagerService;
+    iget-object p0, p0, Lcom/android/server/media/metrics/MediaMetricsManagerService$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/media/metrics/MediaMetricsManagerService;
 
-    invoke-static {v0, p1}, Lcom/android/server/media/metrics/MediaMetricsManagerService;->$r8$lambda$BR72rjORkunkbzOdTqo-EQhjEJY(Lcom/android/server/media/metrics/MediaMetricsManagerService;Landroid/provider/DeviceConfig$Properties;)V
+    invoke-static {p0, p1}, Lcom/android/server/media/metrics/MediaMetricsManagerService;->$r8$lambda$BR72rjORkunkbzOdTqo-EQhjEJY(Lcom/android/server/media/metrics/MediaMetricsManagerService;Landroid/provider/DeviceConfig$Properties;)V
 
     return-void
 .end method

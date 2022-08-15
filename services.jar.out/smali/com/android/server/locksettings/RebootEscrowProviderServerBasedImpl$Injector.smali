@@ -1,4 +1,4 @@
-.class Lcom/android/server/locksettings/RebootEscrowProviderServerBasedImpl$Injector;
+.class public Lcom/android/server/locksettings/RebootEscrowProviderServerBasedImpl$Injector;
 .super Ljava/lang/Object;
 .source "RebootEscrowProviderServerBasedImpl.java"
 
@@ -9,18 +9,28 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "Injector"
 .end annotation
 
 
 # instance fields
-.field private mServiceConnection:Lcom/android/server/locksettings/ResumeOnRebootServiceProvider$ResumeOnRebootServiceConnection;
+.field public mServiceConnection:Lcom/android/server/locksettings/ResumeOnRebootServiceProvider$ResumeOnRebootServiceConnection;
 
 
 # direct methods
-.method constructor <init>(Landroid/content/Context;)V
-    .locals 2
+.method public static bridge synthetic -$$Nest$mgetServiceConnection(Lcom/android/server/locksettings/RebootEscrowProviderServerBasedImpl$Injector;)Lcom/android/server/locksettings/ResumeOnRebootServiceProvider$ResumeOnRebootServiceConnection;
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/server/locksettings/RebootEscrowProviderServerBasedImpl$Injector;->getServiceConnection()Lcom/android/server/locksettings/ResumeOnRebootServiceProvider$ResumeOnRebootServiceConnection;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public constructor <init>(Landroid/content/Context;)V
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -34,82 +44,58 @@
 
     invoke-virtual {v0}, Lcom/android/server/locksettings/ResumeOnRebootServiceProvider;->getServiceConnection()Lcom/android/server/locksettings/ResumeOnRebootServiceProvider$ResumeOnRebootServiceConnection;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/android/server/locksettings/RebootEscrowProviderServerBasedImpl$Injector;->mServiceConnection:Lcom/android/server/locksettings/ResumeOnRebootServiceProvider$ResumeOnRebootServiceConnection;
+    iput-object p1, p0, Lcom/android/server/locksettings/RebootEscrowProviderServerBasedImpl$Injector;->mServiceConnection:Lcom/android/server/locksettings/ResumeOnRebootServiceProvider$ResumeOnRebootServiceConnection;
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
-    const-string v0, "RebootEscrowProviderServerBased"
+    const-string p0, "RebootEscrowProviderServerBased"
 
-    const-string v1, "Failed to resolve resume on reboot server service."
+    const-string p1, "Failed to resolve resume on reboot server service."
 
-    invoke-static {v0, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, p1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
     return-void
 .end method
 
-.method constructor <init>(Lcom/android/server/locksettings/ResumeOnRebootServiceProvider$ResumeOnRebootServiceConnection;)V
-    .locals 1
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/android/server/locksettings/RebootEscrowProviderServerBasedImpl$Injector;->mServiceConnection:Lcom/android/server/locksettings/ResumeOnRebootServiceProvider$ResumeOnRebootServiceConnection;
-
-    iput-object p1, p0, Lcom/android/server/locksettings/RebootEscrowProviderServerBasedImpl$Injector;->mServiceConnection:Lcom/android/server/locksettings/ResumeOnRebootServiceProvider$ResumeOnRebootServiceConnection;
-
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/server/locksettings/RebootEscrowProviderServerBasedImpl$Injector;)Lcom/android/server/locksettings/ResumeOnRebootServiceProvider$ResumeOnRebootServiceConnection;
-    .locals 1
-
-    invoke-direct {p0}, Lcom/android/server/locksettings/RebootEscrowProviderServerBasedImpl$Injector;->getServiceConnection()Lcom/android/server/locksettings/ResumeOnRebootServiceProvider$ResumeOnRebootServiceConnection;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method private getServiceConnection()Lcom/android/server/locksettings/ResumeOnRebootServiceProvider$ResumeOnRebootServiceConnection;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/locksettings/RebootEscrowProviderServerBasedImpl$Injector;->mServiceConnection:Lcom/android/server/locksettings/ResumeOnRebootServiceProvider$ResumeOnRebootServiceConnection;
-
-    return-object v0
-.end method
-
 
 # virtual methods
-.method getServerBlobLifetimeInMillis()J
-    .locals 4
+.method public getServerBlobLifetimeInMillis()J
+    .locals 3
 
-    const-string/jumbo v0, "ota"
+    const-string/jumbo p0, "ota"
 
-    const-string/jumbo v1, "server_based_server_blob_lifetime_in_millis"
+    const-string/jumbo v0, "server_based_server_blob_lifetime_in_millis"
 
-    const-wide/32 v2, 0x927c0
+    const-wide/32 v1, 0x927c0
 
-    invoke-static {v0, v1, v2, v3}, Landroid/provider/DeviceConfig;->getLong(Ljava/lang/String;Ljava/lang/String;J)J
+    invoke-static {p0, v0, v1, v2}, Landroid/provider/DeviceConfig;->getLong(Ljava/lang/String;Ljava/lang/String;J)J
 
     move-result-wide v0
 
     return-wide v0
 .end method
 
-.method getServiceTimeoutInSeconds()J
-    .locals 4
+.method public final getServiceConnection()Lcom/android/server/locksettings/ResumeOnRebootServiceProvider$ResumeOnRebootServiceConnection;
+    .locals 0
 
-    const-string/jumbo v0, "ota"
+    iget-object p0, p0, Lcom/android/server/locksettings/RebootEscrowProviderServerBasedImpl$Injector;->mServiceConnection:Lcom/android/server/locksettings/ResumeOnRebootServiceProvider$ResumeOnRebootServiceConnection;
 
-    const-string/jumbo v1, "server_based_service_timeout_in_seconds"
+    return-object p0
+.end method
 
-    const-wide/16 v2, 0xa
+.method public getServiceTimeoutInSeconds()J
+    .locals 3
 
-    invoke-static {v0, v1, v2, v3}, Landroid/provider/DeviceConfig;->getLong(Ljava/lang/String;Ljava/lang/String;J)J
+    const-string/jumbo p0, "ota"
+
+    const-string/jumbo v0, "server_based_service_timeout_in_seconds"
+
+    const-wide/16 v1, 0xa
+
+    invoke-static {p0, v0, v1, v2}, Landroid/provider/DeviceConfig;->getLong(Ljava/lang/String;Ljava/lang/String;J)J
 
     move-result-wide v0
 

@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/WindowOrientationListener$OrientationSensorJudge$1;
+.class public Lcom/android/server/wm/WindowOrientationListener$OrientationSensorJudge$1;
 .super Ljava/lang/Object;
 .source "WindowOrientationListener.java"
 
@@ -12,21 +12,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field private final mCallbackId:I
+.field public final mCallbackId:I
 
-.field final synthetic this$1:Lcom/android/server/wm/WindowOrientationListener$OrientationSensorJudge;
+.field public final synthetic this$1:Lcom/android/server/wm/WindowOrientationListener$OrientationSensorJudge;
 
-.field final synthetic val$reportedRotation:I
+.field public final synthetic val$reportedRotation:I
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/wm/WindowOrientationListener$OrientationSensorJudge;I)V
+.method public constructor <init>(Lcom/android/server/wm/WindowOrientationListener$OrientationSensorJudge;I)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/wm/WindowOrientationListener$OrientationSensorJudge$1;->this$1:Lcom/android/server/wm/WindowOrientationListener$OrientationSensorJudge;
@@ -35,23 +35,25 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    invoke-static {p1}, Lcom/android/server/wm/WindowOrientationListener$OrientationSensorJudge;->access$300(Lcom/android/server/wm/WindowOrientationListener$OrientationSensorJudge;)I
+    invoke-static {p1}, Lcom/android/server/wm/WindowOrientationListener$OrientationSensorJudge;->-$$Nest$fgetmCurrentCallbackId(Lcom/android/server/wm/WindowOrientationListener$OrientationSensorJudge;)I
 
-    move-result p2
+    move-result p1
 
-    iput p2, p0, Lcom/android/server/wm/WindowOrientationListener$OrientationSensorJudge$1;->mCallbackId:I
+    iput p1, p0, Lcom/android/server/wm/WindowOrientationListener$OrientationSensorJudge$1;->mCallbackId:I
 
     return-void
 .end method
 
-.method private finalizeRotationIfFresh(I)V
-    .locals 3
+
+# virtual methods
+.method public final finalizeRotationIfFresh(I)V
+    .locals 2
 
     iget v0, p0, Lcom/android/server/wm/WindowOrientationListener$OrientationSensorJudge$1;->mCallbackId:I
 
     iget-object v1, p0, Lcom/android/server/wm/WindowOrientationListener$OrientationSensorJudge$1;->this$1:Lcom/android/server/wm/WindowOrientationListener$OrientationSensorJudge;
 
-    invoke-static {v1}, Lcom/android/server/wm/WindowOrientationListener$OrientationSensorJudge;->access$300(Lcom/android/server/wm/WindowOrientationListener$OrientationSensorJudge;)I
+    invoke-static {v1}, Lcom/android/server/wm/WindowOrientationListener$OrientationSensorJudge;->-$$Nest$fgetmCurrentCallbackId(Lcom/android/server/wm/WindowOrientationListener$OrientationSensorJudge;)I
 
     move-result v1
 
@@ -67,69 +69,67 @@
 
     iget-object v1, p0, Lcom/android/server/wm/WindowOrientationListener$OrientationSensorJudge$1;->this$1:Lcom/android/server/wm/WindowOrientationListener$OrientationSensorJudge;
 
-    invoke-static {v1}, Lcom/android/server/wm/WindowOrientationListener$OrientationSensorJudge;->access$400(Lcom/android/server/wm/WindowOrientationListener$OrientationSensorJudge;)Ljava/lang/Runnable;
+    invoke-static {v1}, Lcom/android/server/wm/WindowOrientationListener$OrientationSensorJudge;->-$$Nest$fgetmCancelRotationResolverRequest(Lcom/android/server/wm/WindowOrientationListener$OrientationSensorJudge;)Ljava/lang/Runnable;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
-    iget-object v0, p0, Lcom/android/server/wm/WindowOrientationListener$OrientationSensorJudge$1;->this$1:Lcom/android/server/wm/WindowOrientationListener$OrientationSensorJudge;
+    iget-object p0, p0, Lcom/android/server/wm/WindowOrientationListener$OrientationSensorJudge$1;->this$1:Lcom/android/server/wm/WindowOrientationListener$OrientationSensorJudge;
 
-    invoke-static {v0, p1}, Lcom/android/server/wm/WindowOrientationListener$OrientationSensorJudge;->access$500(Lcom/android/server/wm/WindowOrientationListener$OrientationSensorJudge;I)V
+    invoke-static {p0, p1}, Lcom/android/server/wm/WindowOrientationListener$OrientationSensorJudge;->-$$Nest$mfinalizeRotation(Lcom/android/server/wm/WindowOrientationListener$OrientationSensorJudge;I)V
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x2
+    const/4 p1, 0x2
 
-    new-array v0, v0, [Ljava/lang/Object;
+    new-array p1, p1, [Ljava/lang/Object;
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    iget v2, p0, Lcom/android/server/wm/WindowOrientationListener$OrientationSensorJudge$1;->mCallbackId:I
+    iget v1, p0, Lcom/android/server/wm/WindowOrientationListener$OrientationSensorJudge$1;->mCallbackId:I
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v2
+    move-result-object v1
 
-    aput-object v2, v0, v1
+    aput-object v1, p1, v0
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    iget-object v2, p0, Lcom/android/server/wm/WindowOrientationListener$OrientationSensorJudge$1;->this$1:Lcom/android/server/wm/WindowOrientationListener$OrientationSensorJudge;
+    iget-object p0, p0, Lcom/android/server/wm/WindowOrientationListener$OrientationSensorJudge$1;->this$1:Lcom/android/server/wm/WindowOrientationListener$OrientationSensorJudge;
 
-    invoke-static {v2}, Lcom/android/server/wm/WindowOrientationListener$OrientationSensorJudge;->access$300(Lcom/android/server/wm/WindowOrientationListener$OrientationSensorJudge;)I
+    invoke-static {p0}, Lcom/android/server/wm/WindowOrientationListener$OrientationSensorJudge;->-$$Nest$fgetmCurrentCallbackId(Lcom/android/server/wm/WindowOrientationListener$OrientationSensorJudge;)I
 
-    move-result v2
+    move-result p0
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v2
+    move-result-object p0
 
-    aput-object v2, v0, v1
+    aput-object p0, p1, v0
 
-    const-string v1, "An outdated callback received [%s vs. %s]. Ignoring it."
+    const-string p0, "An outdated callback received [%s vs. %s]. Ignoring it."
 
-    invoke-static {v1, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p0, p1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    const-string v1, "WindowOrientationListener"
+    const-string p1, "WindowOrientationListener"
 
-    invoke-static {v1, v0}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p1, p0}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :goto_0
     return-void
 .end method
 
-
-# virtual methods
 .method public onFailure(I)V
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/wm/WindowOrientationListener$OrientationSensorJudge$1;->val$reportedRotation:I
+    iget p1, p0, Lcom/android/server/wm/WindowOrientationListener$OrientationSensorJudge$1;->val$reportedRotation:I
 
-    invoke-direct {p0, v0}, Lcom/android/server/wm/WindowOrientationListener$OrientationSensorJudge$1;->finalizeRotationIfFresh(I)V
+    invoke-virtual {p0, p1}, Lcom/android/server/wm/WindowOrientationListener$OrientationSensorJudge$1;->finalizeRotationIfFresh(I)V
 
     return-void
 .end method
@@ -137,7 +137,7 @@
 .method public onSuccess(I)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/server/wm/WindowOrientationListener$OrientationSensorJudge$1;->finalizeRotationIfFresh(I)V
+    invoke-virtual {p0, p1}, Lcom/android/server/wm/WindowOrientationListener$OrientationSensorJudge$1;->finalizeRotationIfFresh(I)V
 
     return-void
 .end method

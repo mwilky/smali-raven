@@ -1,4 +1,4 @@
-.class final Lcom/android/server/notification/ZenModeHelper$SettingsObserver;
+.class public final Lcom/android/server/notification/ZenModeHelper$SettingsObserver;
 .super Landroid/database/ContentObserver;
 .source "ZenModeHelper.java"
 
@@ -9,15 +9,15 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "SettingsObserver"
 .end annotation
 
 
 # instance fields
-.field private final ZEN_MODE:Landroid/net/Uri;
+.field public final ZEN_MODE:Landroid/net/Uri;
 
-.field final synthetic this$0:Lcom/android/server/notification/ZenModeHelper;
+.field public final synthetic this$0:Lcom/android/server/notification/ZenModeHelper;
 
 
 # direct methods
@@ -46,7 +46,7 @@
 
     iget-object v0, p0, Lcom/android/server/notification/ZenModeHelper$SettingsObserver;->this$0:Lcom/android/server/notification/ZenModeHelper;
 
-    invoke-static {v0}, Lcom/android/server/notification/ZenModeHelper;->access$700(Lcom/android/server/notification/ZenModeHelper;)Landroid/content/Context;
+    invoke-static {v0}, Lcom/android/server/notification/ZenModeHelper;->-$$Nest$fgetmContext(Lcom/android/server/notification/ZenModeHelper;)Landroid/content/Context;
 
     move-result-object v0
 
@@ -60,9 +60,9 @@
 
     invoke-virtual {v0, v1, v2, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    invoke-virtual {p0, v1}, Lcom/android/server/notification/ZenModeHelper$SettingsObserver;->update(Landroid/net/Uri;)V
+    invoke-virtual {p0, v0}, Lcom/android/server/notification/ZenModeHelper$SettingsObserver;->update(Landroid/net/Uri;)V
 
     return-void
 .end method
@@ -76,44 +76,42 @@
 .end method
 
 .method public update(Landroid/net/Uri;)V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/notification/ZenModeHelper$SettingsObserver;->ZEN_MODE:Landroid/net/Uri;
 
     invoke-virtual {v0, p1}, Landroid/net/Uri;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_1
 
-    iget-object v0, p0, Lcom/android/server/notification/ZenModeHelper$SettingsObserver;->this$0:Lcom/android/server/notification/ZenModeHelper;
+    iget-object p1, p0, Lcom/android/server/notification/ZenModeHelper$SettingsObserver;->this$0:Lcom/android/server/notification/ZenModeHelper;
 
-    iget v0, v0, Lcom/android/server/notification/ZenModeHelper;->mZenMode:I
+    iget v0, p1, Lcom/android/server/notification/ZenModeHelper;->mZenMode:I
 
-    iget-object v1, p0, Lcom/android/server/notification/ZenModeHelper$SettingsObserver;->this$0:Lcom/android/server/notification/ZenModeHelper;
+    invoke-static {p1}, Lcom/android/server/notification/ZenModeHelper;->-$$Nest$mgetZenModeSetting(Lcom/android/server/notification/ZenModeHelper;)I
 
-    invoke-static {v1}, Lcom/android/server/notification/ZenModeHelper;->access$800(Lcom/android/server/notification/ZenModeHelper;)I
+    move-result p1
 
-    move-result v1
+    if-eq v0, p1, :cond_1
 
-    if-eq v0, v1, :cond_1
+    sget-boolean p1, Lcom/android/server/notification/ZenModeHelper;->DEBUG:Z
 
-    sget-boolean v0, Lcom/android/server/notification/ZenModeHelper;->DEBUG:Z
+    if-eqz p1, :cond_0
 
-    if-eqz v0, :cond_0
+    const-string p1, "ZenModeHelper"
 
-    const-string v0, "ZenModeHelper"
+    const-string v0, "Fixing zen mode setting"
 
-    const-string v1, "Fixing zen mode setting"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/notification/ZenModeHelper$SettingsObserver;->this$0:Lcom/android/server/notification/ZenModeHelper;
+    iget-object p0, p0, Lcom/android/server/notification/ZenModeHelper$SettingsObserver;->this$0:Lcom/android/server/notification/ZenModeHelper;
 
-    iget v1, v0, Lcom/android/server/notification/ZenModeHelper;->mZenMode:I
+    iget p1, p0, Lcom/android/server/notification/ZenModeHelper;->mZenMode:I
 
-    invoke-virtual {v0, v1}, Lcom/android/server/notification/ZenModeHelper;->setZenModeSetting(I)V
+    invoke-virtual {p0, p1}, Lcom/android/server/notification/ZenModeHelper;->setZenModeSetting(I)V
 
     :cond_1
     return-void

@@ -15,11 +15,11 @@
 
 
 # instance fields
-.field private final mBinderCallsStats:Lcom/android/internal/os/BinderCallsStats;
+.field public final mBinderCallsStats:Lcom/android/internal/os/BinderCallsStats;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/internal/os/BinderCallsStats;)V
+.method public constructor <init>(Lcom/android/internal/os/BinderCallsStats;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,7 +32,7 @@
 
 # virtual methods
 .method public getExportedCallStats()Ljava/util/ArrayList;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -42,17 +42,17 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/android/server/BinderCallsStatsService$Internal;->mBinderCallsStats:Lcom/android/internal/os/BinderCallsStats;
+    iget-object p0, p0, Lcom/android/server/BinderCallsStatsService$Internal;->mBinderCallsStats:Lcom/android/internal/os/BinderCallsStats;
 
-    invoke-virtual {v0}, Lcom/android/internal/os/BinderCallsStats;->getExportedCallStats()Ljava/util/ArrayList;
+    invoke-virtual {p0}, Lcom/android/internal/os/BinderCallsStats;->getExportedCallStats()Ljava/util/ArrayList;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getExportedExceptionStats()Landroid/util/ArrayMap;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -63,21 +63,21 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/android/server/BinderCallsStatsService$Internal;->mBinderCallsStats:Lcom/android/internal/os/BinderCallsStats;
+    iget-object p0, p0, Lcom/android/server/BinderCallsStatsService$Internal;->mBinderCallsStats:Lcom/android/internal/os/BinderCallsStats;
 
-    invoke-virtual {v0}, Lcom/android/internal/os/BinderCallsStats;->getExportedExceptionStats()Landroid/util/ArrayMap;
+    invoke-virtual {p0}, Lcom/android/internal/os/BinderCallsStats;->getExportedExceptionStats()Landroid/util/ArrayMap;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public reset()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/BinderCallsStatsService$Internal;->mBinderCallsStats:Lcom/android/internal/os/BinderCallsStats;
+    iget-object p0, p0, Lcom/android/server/BinderCallsStatsService$Internal;->mBinderCallsStats:Lcom/android/internal/os/BinderCallsStats;
 
-    invoke-virtual {v0}, Lcom/android/internal/os/BinderCallsStats;->reset()V
+    invoke-virtual {p0}, Lcom/android/internal/os/BinderCallsStats;->reset()V
 
     return-void
 .end method

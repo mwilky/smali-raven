@@ -1,64 +1,64 @@
-.class Lcom/android/server/pm/PackageVerificationState;
+.class public Lcom/android/server/pm/PackageVerificationState;
 .super Ljava/lang/Object;
 .source "PackageVerificationState.java"
 
 
 # instance fields
-.field private mExtendedTimeout:Z
+.field public mExtendedTimeout:Z
 
-.field private mIntegrityVerificationComplete:Z
+.field public mIntegrityVerificationComplete:Z
 
-.field private final mParams:Lcom/android/server/pm/PackageManagerService$VerificationParams;
+.field public final mParams:Lcom/android/server/pm/VerificationParams;
 
-.field private mRequiredVerificationComplete:Z
+.field public mRequiredVerificationComplete:Z
 
-.field private mRequiredVerificationPassed:Z
+.field public mRequiredVerificationPassed:Z
 
-.field private mRequiredVerifierUid:I
+.field public mRequiredVerifierUid:I
 
-.field private mSufficientVerificationComplete:Z
+.field public mSufficientVerificationComplete:Z
 
-.field private mSufficientVerificationPassed:Z
+.field public mSufficientVerificationPassed:Z
 
-.field private final mSufficientVerifierUids:Landroid/util/SparseBooleanArray;
+.field public final mSufficientVerifierUids:Landroid/util/SparseBooleanArray;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/pm/PackageManagerService$VerificationParams;)V
-    .locals 1
+.method public constructor <init>(Lcom/android/server/pm/VerificationParams;)V
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/pm/PackageVerificationState;->mParams:Lcom/android/server/pm/PackageManagerService$VerificationParams;
+    iput-object p1, p0, Lcom/android/server/pm/PackageVerificationState;->mParams:Lcom/android/server/pm/VerificationParams;
 
-    new-instance v0, Landroid/util/SparseBooleanArray;
+    new-instance p1, Landroid/util/SparseBooleanArray;
 
-    invoke-direct {v0}, Landroid/util/SparseBooleanArray;-><init>()V
+    invoke-direct {p1}, Landroid/util/SparseBooleanArray;-><init>()V
 
-    iput-object v0, p0, Lcom/android/server/pm/PackageVerificationState;->mSufficientVerifierUids:Landroid/util/SparseBooleanArray;
+    iput-object p1, p0, Lcom/android/server/pm/PackageVerificationState;->mSufficientVerifierUids:Landroid/util/SparseBooleanArray;
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput-boolean v0, p0, Lcom/android/server/pm/PackageVerificationState;->mExtendedTimeout:Z
+    iput-boolean p1, p0, Lcom/android/server/pm/PackageVerificationState;->mExtendedTimeout:Z
 
     return-void
 .end method
 
 
 # virtual methods
-.method addSufficientVerifier(I)V
-    .locals 2
+.method public addSufficientVerifier(I)V
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/pm/PackageVerificationState;->mSufficientVerifierUids:Landroid/util/SparseBooleanArray;
+    iget-object p0, p0, Lcom/android/server/pm/PackageVerificationState;->mSufficientVerifierUids:Landroid/util/SparseBooleanArray;
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    invoke-virtual {v0, p1, v1}, Landroid/util/SparseBooleanArray;->put(IZ)V
+    invoke-virtual {p0, p1, v0}, Landroid/util/SparseBooleanArray;->put(IZ)V
 
     return-void
 .end method
 
-.method areAllVerificationsComplete()Z
+.method public areAllVerificationsComplete()Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/server/pm/PackageVerificationState;->mIntegrityVerificationComplete:Z
@@ -67,22 +67,22 @@
 
     invoke-virtual {p0}, Lcom/android/server/pm/PackageVerificationState;->isVerificationComplete()Z
 
-    move-result v0
+    move-result p0
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
-.method extendTimeout()V
+.method public extendTimeout()V
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/server/pm/PackageVerificationState;->mExtendedTimeout:Z
@@ -97,58 +97,58 @@
     return-void
 .end method
 
-.method getVerificationParams()Lcom/android/server/pm/PackageManagerService$VerificationParams;
-    .locals 1
+.method public getVerificationParams()Lcom/android/server/pm/VerificationParams;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/pm/PackageVerificationState;->mParams:Lcom/android/server/pm/PackageManagerService$VerificationParams;
+    iget-object p0, p0, Lcom/android/server/pm/PackageVerificationState;->mParams:Lcom/android/server/pm/VerificationParams;
 
-    return-object v0
+    return-object p0
 .end method
 
-.method isInstallAllowed()Z
+.method public isInstallAllowed()Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/server/pm/PackageVerificationState;->mRequiredVerificationPassed:Z
 
     if-nez v0, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 
     :cond_0
     iget-boolean v0, p0, Lcom/android/server/pm/PackageVerificationState;->mSufficientVerificationComplete:Z
 
     if-eqz v0, :cond_1
 
-    iget-boolean v0, p0, Lcom/android/server/pm/PackageVerificationState;->mSufficientVerificationPassed:Z
+    iget-boolean p0, p0, Lcom/android/server/pm/PackageVerificationState;->mSufficientVerificationPassed:Z
 
-    return v0
+    return p0
 
     :cond_1
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 .end method
 
-.method isIntegrityVerificationComplete()Z
-    .locals 1
+.method public isIntegrityVerificationComplete()Z
+    .locals 0
 
-    iget-boolean v0, p0, Lcom/android/server/pm/PackageVerificationState;->mIntegrityVerificationComplete:Z
+    iget-boolean p0, p0, Lcom/android/server/pm/PackageVerificationState;->mIntegrityVerificationComplete:Z
 
-    return v0
+    return p0
 .end method
 
-.method isVerificationComplete()Z
+.method public isVerificationComplete()Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/server/pm/PackageVerificationState;->mRequiredVerificationComplete:Z
 
     if-nez v0, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 
     :cond_0
     iget-object v0, p0, Lcom/android/server/pm/PackageVerificationState;->mSufficientVerifierUids:Landroid/util/SparseBooleanArray;
@@ -159,27 +159,27 @@
 
     if-nez v0, :cond_1
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 
     :cond_1
-    iget-boolean v0, p0, Lcom/android/server/pm/PackageVerificationState;->mSufficientVerificationComplete:Z
+    iget-boolean p0, p0, Lcom/android/server/pm/PackageVerificationState;->mSufficientVerificationComplete:Z
 
-    return v0
+    return p0
 .end method
 
-.method setIntegrityVerificationResult(I)V
-    .locals 1
+.method public setIntegrityVerificationResult(I)V
+    .locals 0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    iput-boolean v0, p0, Lcom/android/server/pm/PackageVerificationState;->mIntegrityVerificationComplete:Z
+    iput-boolean p1, p0, Lcom/android/server/pm/PackageVerificationState;->mIntegrityVerificationComplete:Z
 
     return-void
 .end method
 
-.method setRequiredVerifierUid(I)V
+.method public setRequiredVerifierUid(I)V
     .locals 0
 
     iput p1, p0, Lcom/android/server/pm/PackageVerificationState;->mRequiredVerifierUid:I
@@ -187,7 +187,7 @@
     return-void
 .end method
 
-.method setVerifierResponse(II)Z
+.method public setVerifierResponse(II)Z
     .locals 3
 
     iget v0, p0, Lcom/android/server/pm/PackageVerificationState;->mRequiredVerifierUid:I
@@ -196,76 +196,72 @@
 
     const/4 v2, 0x1
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_2
 
     iput-boolean v2, p0, Lcom/android/server/pm/PackageVerificationState;->mRequiredVerificationComplete:Z
 
-    packed-switch p2, :pswitch_data_0
+    if-eq p2, v2, :cond_1
+
+    const/4 p1, 0x2
+
+    if-eq p2, p1, :cond_0
 
     iput-boolean v1, p0, Lcom/android/server/pm/PackageVerificationState;->mRequiredVerificationPassed:Z
 
     goto :goto_0
 
-    :pswitch_0
-    iget-object v0, p0, Lcom/android/server/pm/PackageVerificationState;->mSufficientVerifierUids:Landroid/util/SparseBooleanArray;
+    :cond_0
+    iget-object p1, p0, Lcom/android/server/pm/PackageVerificationState;->mSufficientVerifierUids:Landroid/util/SparseBooleanArray;
 
-    invoke-virtual {v0}, Landroid/util/SparseBooleanArray;->clear()V
+    invoke-virtual {p1}, Landroid/util/SparseBooleanArray;->clear()V
 
-    :pswitch_1
+    :cond_1
     iput-boolean v2, p0, Lcom/android/server/pm/PackageVerificationState;->mRequiredVerificationPassed:Z
-
-    nop
 
     :goto_0
     return v2
 
-    :cond_0
+    :cond_2
     iget-object v0, p0, Lcom/android/server/pm/PackageVerificationState;->mSufficientVerifierUids:Landroid/util/SparseBooleanArray;
 
     invoke-virtual {v0, p1}, Landroid/util/SparseBooleanArray;->get(I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_5
 
-    if-ne p2, v2, :cond_1
+    if-ne p2, v2, :cond_3
 
     iput-boolean v2, p0, Lcom/android/server/pm/PackageVerificationState;->mSufficientVerificationComplete:Z
 
     iput-boolean v2, p0, Lcom/android/server/pm/PackageVerificationState;->mSufficientVerificationPassed:Z
 
-    :cond_1
-    iget-object v0, p0, Lcom/android/server/pm/PackageVerificationState;->mSufficientVerifierUids:Landroid/util/SparseBooleanArray;
+    :cond_3
+    iget-object p2, p0, Lcom/android/server/pm/PackageVerificationState;->mSufficientVerifierUids:Landroid/util/SparseBooleanArray;
 
-    invoke-virtual {v0, p1}, Landroid/util/SparseBooleanArray;->delete(I)V
+    invoke-virtual {p2, p1}, Landroid/util/SparseBooleanArray;->delete(I)V
 
-    iget-object v0, p0, Lcom/android/server/pm/PackageVerificationState;->mSufficientVerifierUids:Landroid/util/SparseBooleanArray;
+    iget-object p1, p0, Lcom/android/server/pm/PackageVerificationState;->mSufficientVerifierUids:Landroid/util/SparseBooleanArray;
 
-    invoke-virtual {v0}, Landroid/util/SparseBooleanArray;->size()I
+    invoke-virtual {p1}, Landroid/util/SparseBooleanArray;->size()I
 
-    move-result v0
+    move-result p1
 
-    if-nez v0, :cond_2
+    if-nez p1, :cond_4
 
     iput-boolean v2, p0, Lcom/android/server/pm/PackageVerificationState;->mSufficientVerificationComplete:Z
 
-    :cond_2
+    :cond_4
     return v2
 
-    :cond_3
+    :cond_5
     return v1
-
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
 .end method
 
-.method timeoutExtended()Z
-    .locals 1
+.method public timeoutExtended()Z
+    .locals 0
 
-    iget-boolean v0, p0, Lcom/android/server/pm/PackageVerificationState;->mExtendedTimeout:Z
+    iget-boolean p0, p0, Lcom/android/server/pm/PackageVerificationState;->mExtendedTimeout:Z
 
-    return v0
+    return p0
 .end method

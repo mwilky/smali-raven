@@ -1,4 +1,4 @@
-.class final Lcom/android/server/os/BugreportManagerServiceImpl$DumpstateListener;
+.class public final Lcom/android/server/os/BugreportManagerServiceImpl$DumpstateListener;
 .super Landroid/os/IDumpstateListener$Stub;
 .source "BugreportManagerServiceImpl.java"
 
@@ -12,24 +12,24 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "DumpstateListener"
 .end annotation
 
 
 # instance fields
-.field private mDone:Z
+.field public mDone:Z
 
-.field private final mDs:Landroid/os/IDumpstate;
+.field public final mDs:Landroid/os/IDumpstate;
 
-.field private final mListener:Landroid/os/IDumpstateListener;
+.field public final mListener:Landroid/os/IDumpstateListener;
 
-.field final synthetic this$0:Lcom/android/server/os/BugreportManagerServiceImpl;
+.field public final synthetic this$0:Lcom/android/server/os/BugreportManagerServiceImpl;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/os/BugreportManagerServiceImpl;Landroid/os/IDumpstateListener;Landroid/os/IDumpstate;)V
-    .locals 2
+.method public constructor <init>(Lcom/android/server/os/BugreportManagerServiceImpl;Landroid/os/IDumpstateListener;Landroid/os/IDumpstate;)V
+    .locals 0
 
     iput-object p1, p0, Lcom/android/server/os/BugreportManagerServiceImpl$DumpstateListener;->this$0:Lcom/android/server/os/BugreportManagerServiceImpl;
 
@@ -44,24 +44,24 @@
     iput-object p3, p0, Lcom/android/server/os/BugreportManagerServiceImpl$DumpstateListener;->mDs:Landroid/os/IDumpstate;
 
     :try_start_0
-    invoke-interface {p3}, Landroid/os/IDumpstate;->asBinder()Landroid/os/IBinder;
+    invoke-interface {p3}, Landroid/os/IInterface;->asBinder()Landroid/os/IBinder;
 
-    move-result-object v0
+    move-result-object p2
 
-    invoke-interface {v0, p0, p1}, Landroid/os/IBinder;->linkToDeath(Landroid/os/IBinder$DeathRecipient;I)V
+    invoke-interface {p2, p0, p1}, Landroid/os/IBinder;->linkToDeath(Landroid/os/IBinder$DeathRecipient;I)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
     :catch_0
-    move-exception p1
+    move-exception p0
 
-    const-string v0, "BugreportManagerService"
+    const-string p1, "BugreportManagerService"
 
-    const-string v1, "Unable to register Death Recipient for IDumpstate"
+    const-string p2, "Unable to register Death Recipient for IDumpstate"
 
-    invoke-static {v0, v1, p1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {p1, p2, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_0
     return-void
@@ -79,15 +79,10 @@
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
-
     :catch_0
-    move-exception v0
-
-    :goto_0
     iget-object v0, p0, Lcom/android/server/os/BugreportManagerServiceImpl$DumpstateListener;->this$0:Lcom/android/server/os/BugreportManagerServiceImpl;
 
-    invoke-static {v0}, Lcom/android/server/os/BugreportManagerServiceImpl;->access$000(Lcom/android/server/os/BugreportManagerServiceImpl;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/server/os/BugreportManagerServiceImpl;->-$$Nest$fgetmLock(Lcom/android/server/os/BugreportManagerServiceImpl;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -116,13 +111,8 @@
     .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_1
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    goto :goto_1
-
     :catch_1
-    move-exception v1
-
     :cond_0
-    :goto_1
     :try_start_3
     monitor-exit v0
     :try_end_3
@@ -130,7 +120,7 @@
 
     iget-object v0, p0, Lcom/android/server/os/BugreportManagerServiceImpl$DumpstateListener;->mDs:Landroid/os/IDumpstate;
 
-    invoke-interface {v0}, Landroid/os/IDumpstate;->asBinder()Landroid/os/IBinder;
+    invoke-interface {v0}, Landroid/os/IInterface;->asBinder()Landroid/os/IBinder;
 
     move-result-object v0
 
@@ -141,14 +131,14 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     :try_start_4
     monitor-exit v0
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
 .method public onError(I)V
@@ -161,7 +151,7 @@
 
     iget-object v0, p0, Lcom/android/server/os/BugreportManagerServiceImpl$DumpstateListener;->this$0:Lcom/android/server/os/BugreportManagerServiceImpl;
 
-    invoke-static {v0}, Lcom/android/server/os/BugreportManagerServiceImpl;->access$000(Lcom/android/server/os/BugreportManagerServiceImpl;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/server/os/BugreportManagerServiceImpl;->-$$Nest$fgetmLock(Lcom/android/server/os/BugreportManagerServiceImpl;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -176,21 +166,21 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    iget-object v0, p0, Lcom/android/server/os/BugreportManagerServiceImpl$DumpstateListener;->mListener:Landroid/os/IDumpstateListener;
+    iget-object p0, p0, Lcom/android/server/os/BugreportManagerServiceImpl$DumpstateListener;->mListener:Landroid/os/IDumpstateListener;
 
-    invoke-interface {v0, p1}, Landroid/os/IDumpstateListener;->onError(I)V
+    invoke-interface {p0, p1}, Landroid/os/IDumpstateListener;->onError(I)V
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     :try_start_1
     monitor-exit v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
 .method public onFinished()V
@@ -203,7 +193,7 @@
 
     iget-object v0, p0, Lcom/android/server/os/BugreportManagerServiceImpl$DumpstateListener;->this$0:Lcom/android/server/os/BugreportManagerServiceImpl;
 
-    invoke-static {v0}, Lcom/android/server/os/BugreportManagerServiceImpl;->access$000(Lcom/android/server/os/BugreportManagerServiceImpl;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/server/os/BugreportManagerServiceImpl;->-$$Nest$fgetmLock(Lcom/android/server/os/BugreportManagerServiceImpl;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -218,64 +208,64 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    iget-object v0, p0, Lcom/android/server/os/BugreportManagerServiceImpl$DumpstateListener;->mListener:Landroid/os/IDumpstateListener;
+    iget-object p0, p0, Lcom/android/server/os/BugreportManagerServiceImpl$DumpstateListener;->mListener:Landroid/os/IDumpstateListener;
 
-    invoke-interface {v0}, Landroid/os/IDumpstateListener;->onFinished()V
+    invoke-interface {p0}, Landroid/os/IDumpstateListener;->onFinished()V
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     :try_start_1
     monitor-exit v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
 .method public onProgress(I)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/android/server/os/BugreportManagerServiceImpl$DumpstateListener;->mListener:Landroid/os/IDumpstateListener;
+    iget-object p0, p0, Lcom/android/server/os/BugreportManagerServiceImpl$DumpstateListener;->mListener:Landroid/os/IDumpstateListener;
 
-    invoke-interface {v0, p1}, Landroid/os/IDumpstateListener;->onProgress(I)V
+    invoke-interface {p0, p1}, Landroid/os/IDumpstateListener;->onProgress(I)V
 
     return-void
 .end method
 
 .method public onScreenshotTaken(Z)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/android/server/os/BugreportManagerServiceImpl$DumpstateListener;->mListener:Landroid/os/IDumpstateListener;
+    iget-object p0, p0, Lcom/android/server/os/BugreportManagerServiceImpl$DumpstateListener;->mListener:Landroid/os/IDumpstateListener;
 
-    invoke-interface {v0, p1}, Landroid/os/IDumpstateListener;->onScreenshotTaken(Z)V
+    invoke-interface {p0, p1}, Landroid/os/IDumpstateListener;->onScreenshotTaken(Z)V
 
     return-void
 .end method
 
 .method public onUiIntensiveBugreportDumpsFinished()V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/android/server/os/BugreportManagerServiceImpl$DumpstateListener;->mListener:Landroid/os/IDumpstateListener;
+    iget-object p0, p0, Lcom/android/server/os/BugreportManagerServiceImpl$DumpstateListener;->mListener:Landroid/os/IDumpstateListener;
 
-    invoke-interface {v0}, Landroid/os/IDumpstateListener;->onUiIntensiveBugreportDumpsFinished()V
+    invoke-interface {p0}, Landroid/os/IDumpstateListener;->onUiIntensiveBugreportDumpsFinished()V
 
     return-void
 .end method

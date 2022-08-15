@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/vr/VrManagerService$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/vr/VrManagerService$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/vr/VrManagerService;
+    iget-object p0, p0, Lcom/android/server/vr/VrManagerService$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/vr/VrManagerService;
 
-    invoke-virtual {v0}, Lcom/android/server/vr/VrManagerService;->lambda$onUserSwitching$0$VrManagerService()V
+    invoke-static {p0}, Lcom/android/server/vr/VrManagerService;->$r8$lambda$CKoLjJL2Wj20zttxakv9XGG6YB8(Lcom/android/server/vr/VrManagerService;)V
 
     return-void
 .end method

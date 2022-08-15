@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/musicrecognition/MusicRecognitionManagerPerUserService$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -35,7 +36,7 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 4
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/musicrecognition/MusicRecognitionManagerPerUserService$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/musicrecognition/MusicRecognitionManagerPerUserService;
 
@@ -43,11 +44,11 @@
 
     iget-object v2, p0, Lcom/android/server/musicrecognition/MusicRecognitionManagerPerUserService$$ExternalSyntheticLambda0;->f$2:Landroid/media/musicrecognition/IMusicRecognitionManagerCallback;
 
-    iget-object v3, p0, Lcom/android/server/musicrecognition/MusicRecognitionManagerPerUserService$$ExternalSyntheticLambda0;->f$3:Landroid/os/ParcelFileDescriptor;
+    iget-object p0, p0, Lcom/android/server/musicrecognition/MusicRecognitionManagerPerUserService$$ExternalSyntheticLambda0;->f$3:Landroid/os/ParcelFileDescriptor;
 
     check-cast p1, Ljava/lang/String;
 
-    invoke-virtual {v0, v1, v2, v3, p1}, Lcom/android/server/musicrecognition/MusicRecognitionManagerPerUserService;->lambda$beginRecognitionLocked$0$MusicRecognitionManagerPerUserService(Landroid/media/musicrecognition/RecognitionRequest;Landroid/media/musicrecognition/IMusicRecognitionManagerCallback;Landroid/os/ParcelFileDescriptor;Ljava/lang/String;)V
+    invoke-static {v0, v1, v2, p0, p1}, Lcom/android/server/musicrecognition/MusicRecognitionManagerPerUserService;->$r8$lambda$8aLKnGDlivqSH0pbsIZU1lA6oI4(Lcom/android/server/musicrecognition/MusicRecognitionManagerPerUserService;Landroid/media/musicrecognition/RecognitionRequest;Landroid/media/musicrecognition/IMusicRecognitionManagerCallback;Landroid/os/ParcelFileDescriptor;Ljava/lang/String;)V
 
     return-void
 .end method

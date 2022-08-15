@@ -1,49 +1,50 @@
 .class public final synthetic Lcom/android/server/blob/BlobStoreManagerService$$ExternalSyntheticLambda6;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/BiConsumer;
+.implements Ljava/util/function/Predicate;
 
 
 # instance fields
-.field public final synthetic f$0:I
+.field public final synthetic f$0:Lcom/android/server/blob/BlobStoreManagerService;
 
-.field public final synthetic f$1:Ljava/util/function/Function;
+.field public final synthetic f$1:Ljava/lang/String;
 
-.field public final synthetic f$2:Ljava/util/ArrayList;
+.field public final synthetic f$2:I
 
 
 # direct methods
-.method public synthetic constructor <init>(ILjava/util/function/Function;Ljava/util/ArrayList;)V
+.method public synthetic constructor <init>(Lcom/android/server/blob/BlobStoreManagerService;Ljava/lang/String;I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput p1, p0, Lcom/android/server/blob/BlobStoreManagerService$$ExternalSyntheticLambda6;->f$0:I
+    iput-object p1, p0, Lcom/android/server/blob/BlobStoreManagerService$$ExternalSyntheticLambda6;->f$0:Lcom/android/server/blob/BlobStoreManagerService;
 
-    iput-object p2, p0, Lcom/android/server/blob/BlobStoreManagerService$$ExternalSyntheticLambda6;->f$1:Ljava/util/function/Function;
+    iput-object p2, p0, Lcom/android/server/blob/BlobStoreManagerService$$ExternalSyntheticLambda6;->f$1:Ljava/lang/String;
 
-    iput-object p3, p0, Lcom/android/server/blob/BlobStoreManagerService$$ExternalSyntheticLambda6;->f$2:Ljava/util/ArrayList;
+    iput p3, p0, Lcom/android/server/blob/BlobStoreManagerService$$ExternalSyntheticLambda6;->f$2:I
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 3
+.method public final test(Ljava/lang/Object;)Z
+    .locals 2
 
-    iget v0, p0, Lcom/android/server/blob/BlobStoreManagerService$$ExternalSyntheticLambda6;->f$0:I
+    iget-object v0, p0, Lcom/android/server/blob/BlobStoreManagerService$$ExternalSyntheticLambda6;->f$0:Lcom/android/server/blob/BlobStoreManagerService;
 
-    iget-object v1, p0, Lcom/android/server/blob/BlobStoreManagerService$$ExternalSyntheticLambda6;->f$1:Ljava/util/function/Function;
+    iget-object v1, p0, Lcom/android/server/blob/BlobStoreManagerService$$ExternalSyntheticLambda6;->f$1:Ljava/lang/String;
 
-    iget-object v2, p0, Lcom/android/server/blob/BlobStoreManagerService$$ExternalSyntheticLambda6;->f$2:Ljava/util/ArrayList;
+    iget p0, p0, Lcom/android/server/blob/BlobStoreManagerService$$ExternalSyntheticLambda6;->f$2:I
 
-    check-cast p1, Landroid/app/blob/BlobHandle;
+    check-cast p1, Ljava/util/Map$Entry;
 
-    check-cast p2, Lcom/android/server/blob/BlobMetadata;
+    invoke-static {v0, v1, p0, p1}, Lcom/android/server/blob/BlobStoreManagerService;->$r8$lambda$znZ8fI4Oip50vpJrKi4WbD04DC4(Lcom/android/server/blob/BlobStoreManagerService;Ljava/lang/String;ILjava/util/Map$Entry;)Z
 
-    invoke-static {v0, v1, v2, p1, p2}, Lcom/android/server/blob/BlobStoreManagerService;->lambda$queryBlobsForUserInternal$7(ILjava/util/function/Function;Ljava/util/ArrayList;Landroid/app/blob/BlobHandle;Lcom/android/server/blob/BlobMetadata;)V
+    move-result p0
 
-    return-void
+    return p0
 .end method

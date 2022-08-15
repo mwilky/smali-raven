@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/timezonedetector/location/LocationTimeZoneManagerService$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/server/timezonedetector/ConfigurationChangeListener;
+.implements Ljava/lang/Runnable;
 
 
 # instance fields
@@ -22,12 +23,12 @@
 
 
 # virtual methods
-.method public final onChange()V
-    .locals 1
+.method public final run()V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/timezonedetector/location/LocationTimeZoneManagerService$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/timezonedetector/location/LocationTimeZoneManagerService;
+    iget-object p0, p0, Lcom/android/server/timezonedetector/location/LocationTimeZoneManagerService$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/timezonedetector/location/LocationTimeZoneManagerService;
 
-    invoke-static {v0}, Lcom/android/server/timezonedetector/location/LocationTimeZoneManagerService;->$r8$lambda$O2dujrvJfJ0Eoz18kempr1qIkRM(Lcom/android/server/timezonedetector/location/LocationTimeZoneManagerService;)V
+    invoke-static {p0}, Lcom/android/server/timezonedetector/location/LocationTimeZoneManagerService;->$r8$lambda$-Dq9GOsbIl6svrOUawUoaEUsIvo(Lcom/android/server/timezonedetector/location/LocationTimeZoneManagerService;)V
 
     return-void
 .end method

@@ -3,12 +3,8 @@
 .source "BugreportManagerService.java"
 
 
-# static fields
-.field private static final TAG:Ljava/lang/String; = "BugreportManagerService"
-
-
 # instance fields
-.field private mService:Lcom/android/server/os/BugreportManagerServiceImpl;
+.field public mService:Lcom/android/server/os/BugreportManagerServiceImpl;
 
 
 # direct methods
@@ -27,7 +23,7 @@
 
     new-instance v0, Lcom/android/server/os/BugreportManagerServiceImpl;
 
-    invoke-virtual {p0}, Lcom/android/server/os/BugreportManagerService;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Lcom/android/server/SystemService;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
@@ -37,7 +33,7 @@
 
     const-string v1, "bugreport"
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/server/os/BugreportManagerService;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
+    invoke-virtual {p0, v1, v0}, Lcom/android/server/SystemService;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
 
     return-void
 .end method

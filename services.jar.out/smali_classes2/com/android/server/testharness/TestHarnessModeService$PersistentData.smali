@@ -14,22 +14,16 @@
 .end annotation
 
 
-# static fields
-.field static final VERSION_1:B = 0x1t
-
-.field static final VERSION_2:B = 0x2t
-
-
 # instance fields
-.field final mAdbKeys:[B
+.field public final mAdbKeys:[B
 
-.field final mAdbTempKeys:[B
+.field public final mAdbTempKeys:[B
 
-.field final mVersion:I
+.field public final mVersion:I
 
 
 # direct methods
-.method constructor <init>(I[B[B)V
+.method public constructor <init>(I[B[B)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,7 +37,7 @@
     return-void
 .end method
 
-.method constructor <init>([B[B)V
+.method public constructor <init>([B[B)V
     .locals 1
 
     const/4 v0, 0x2
@@ -53,8 +47,8 @@
     return-void
 .end method
 
-.method static fromBytes([B)Lcom/android/server/testharness/TestHarnessModeService$PersistentData;
-    .locals 7
+.method public static fromBytes([B)Lcom/android/server/testharness/TestHarnessModeService$PersistentData;
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/server/testharness/TestHarnessModeService$SetUpTestHarnessModeException;
@@ -72,52 +66,52 @@
 
     invoke-virtual {v0}, Ljava/io/DataInputStream;->readInt()I
 
-    move-result v1
+    move-result p0
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    if-ne v1, v2, :cond_0
+    if-ne p0, v1, :cond_0
 
     invoke-virtual {v0}, Ljava/io/DataInputStream;->readBoolean()Z
 
     :cond_0
     invoke-virtual {v0}, Ljava/io/DataInputStream;->readInt()I
 
-    move-result v2
+    move-result v1
 
-    new-array v3, v2, [B
+    new-array v1, v1, [B
 
-    invoke-virtual {v0, v3}, Ljava/io/DataInputStream;->readFully([B)V
+    invoke-virtual {v0, v1}, Ljava/io/DataInputStream;->readFully([B)V
 
     invoke-virtual {v0}, Ljava/io/DataInputStream;->readInt()I
 
-    move-result v4
+    move-result v2
 
-    new-array v5, v4, [B
+    new-array v2, v2, [B
 
-    invoke-virtual {v0, v5}, Ljava/io/DataInputStream;->readFully([B)V
+    invoke-virtual {v0, v2}, Ljava/io/DataInputStream;->readFully([B)V
 
-    new-instance v6, Lcom/android/server/testharness/TestHarnessModeService$PersistentData;
+    new-instance v0, Lcom/android/server/testharness/TestHarnessModeService$PersistentData;
 
-    invoke-direct {v6, v1, v3, v5}, Lcom/android/server/testharness/TestHarnessModeService$PersistentData;-><init>(I[B[B)V
+    invoke-direct {v0, p0, v1, v2}, Lcom/android/server/testharness/TestHarnessModeService$PersistentData;-><init>(I[B[B)V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v6
+    return-object v0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    new-instance v1, Lcom/android/server/testharness/TestHarnessModeService$SetUpTestHarnessModeException;
+    new-instance v0, Lcom/android/server/testharness/TestHarnessModeService$SetUpTestHarnessModeException;
 
-    invoke-direct {v1, v0}, Lcom/android/server/testharness/TestHarnessModeService$SetUpTestHarnessModeException;-><init>(Ljava/lang/Exception;)V
+    invoke-direct {v0, p0}, Lcom/android/server/testharness/TestHarnessModeService$SetUpTestHarnessModeException;-><init>(Ljava/lang/Exception;)V
 
-    throw v1
+    throw v0
 .end method
 
 
 # virtual methods
-.method toBytes()[B
+.method public toBytes()[B
     .locals 3
 
     :try_start_0
@@ -149,26 +143,26 @@
 
     invoke-virtual {v1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
 
-    iget-object v2, p0, Lcom/android/server/testharness/TestHarnessModeService$PersistentData;->mAdbTempKeys:[B
+    iget-object p0, p0, Lcom/android/server/testharness/TestHarnessModeService$PersistentData;->mAdbTempKeys:[B
 
-    invoke-virtual {v1, v2}, Ljava/io/DataOutputStream;->write([B)V
+    invoke-virtual {v1, p0}, Ljava/io/DataOutputStream;->write([B)V
 
     invoke-virtual {v1}, Ljava/io/DataOutputStream;->close()V
 
     invoke-virtual {v0}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
 
-    move-result-object v2
+    move-result-object p0
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v2
+    return-object p0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    new-instance v1, Ljava/lang/RuntimeException;
+    new-instance v0, Ljava/lang/RuntimeException;
 
-    invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {v0, p0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v1
+    throw v0
 .end method

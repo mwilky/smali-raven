@@ -3,18 +3,8 @@
 .source "UnixCalendar.java"
 
 
-# static fields
-.field public static final DAY_IN_MILLIS:J = 0x5265c00L
-
-.field public static final MONTH_IN_MILLIS:J = 0x9a7ec800L
-
-.field public static final WEEK_IN_MILLIS:J = 0x240c8400L
-
-.field public static final YEAR_IN_MILLIS:J = 0x757b12c00L
-
-
 # instance fields
-.field private mTime:J
+.field public mTime:J
 
 
 # direct methods

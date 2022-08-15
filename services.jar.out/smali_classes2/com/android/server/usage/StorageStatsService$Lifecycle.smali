@@ -15,7 +15,7 @@
 
 
 # instance fields
-.field private mService:Lcom/android/server/usage/StorageStatsService;
+.field public mService:Lcom/android/server/usage/StorageStatsService;
 
 
 # direct methods
@@ -34,7 +34,7 @@
 
     new-instance v0, Lcom/android/server/usage/StorageStatsService;
 
-    invoke-virtual {p0}, Lcom/android/server/usage/StorageStatsService$Lifecycle;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Lcom/android/server/SystemService;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
@@ -44,7 +44,7 @@
 
     const-string v1, "storagestats"
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/server/usage/StorageStatsService$Lifecycle;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
+    invoke-virtual {p0, v1, v0}, Lcom/android/server/SystemService;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
 
     return-void
 .end method

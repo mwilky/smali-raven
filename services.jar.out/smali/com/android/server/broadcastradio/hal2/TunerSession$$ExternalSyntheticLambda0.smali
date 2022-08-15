@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/broadcastradio/hal2/TunerSession$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/hardware/broadcastradio/V2_0/ITunerSession$isConfigFlagSetCallback;
@@ -27,13 +28,13 @@
 
 # virtual methods
 .method public final onValues(IZ)V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/broadcastradio/hal2/TunerSession$$ExternalSyntheticLambda0;->f$0:Landroid/util/MutableInt;
 
-    iget-object v1, p0, Lcom/android/server/broadcastradio/hal2/TunerSession$$ExternalSyntheticLambda0;->f$1:Landroid/util/MutableBoolean;
+    iget-object p0, p0, Lcom/android/server/broadcastradio/hal2/TunerSession$$ExternalSyntheticLambda0;->f$1:Landroid/util/MutableBoolean;
 
-    invoke-static {v0, v1, p1, p2}, Lcom/android/server/broadcastradio/hal2/TunerSession;->lambda$isConfigFlagSet$2(Landroid/util/MutableInt;Landroid/util/MutableBoolean;IZ)V
+    invoke-static {v0, p0, p1, p2}, Lcom/android/server/broadcastradio/hal2/TunerSession;->$r8$lambda$VlPtxiDqEMP12OgDIJyT6uOT5bA(Landroid/util/MutableInt;Landroid/util/MutableBoolean;IZ)V
 
     return-void
 .end method

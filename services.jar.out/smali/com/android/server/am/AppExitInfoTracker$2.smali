@@ -1,4 +1,4 @@
-.class Lcom/android/server/am/AppExitInfoTracker$2;
+.class public Lcom/android/server/am/AppExitInfoTracker$2;
 .super Landroid/content/BroadcastReceiver;
 .source "AppExitInfoTracker.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/am/AppExitInfoTracker;
+.field public final synthetic this$0:Lcom/android/server/am/AppExitInfoTracker;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/AppExitInfoTracker;)V
+.method public constructor <init>(Lcom/android/server/am/AppExitInfoTracker;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/am/AppExitInfoTracker$2;->this$0:Lcom/android/server/am/AppExitInfoTracker;
@@ -32,46 +32,46 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 5
+    .locals 2
 
-    const-string v0, "android.intent.extra.REPLACING"
+    const-string p1, "android.intent.extra.REPLACING"
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    invoke-virtual {p2, v0, v1}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+    invoke-virtual {p2, p1, v0}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     return-void
 
     :cond_0
-    const/16 v2, -0x2710
+    const/16 p1, -0x2710
 
-    const-string v3, "android.intent.extra.UID"
+    const-string v1, "android.intent.extra.UID"
 
-    invoke-virtual {p2, v3, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {p2, v1, p1}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    move-result v2
+    move-result p1
 
-    const-string v3, "android.intent.extra.REMOVED_FOR_ALL_USERS"
+    const-string v1, "android.intent.extra.REMOVED_FOR_ALL_USERS"
 
-    invoke-virtual {p2, v3, v1}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+    invoke-virtual {p2, v1, v0}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
-    move-result v1
+    move-result v0
 
-    iget-object v3, p0, Lcom/android/server/am/AppExitInfoTracker$2;->this$0:Lcom/android/server/am/AppExitInfoTracker;
+    iget-object p0, p0, Lcom/android/server/am/AppExitInfoTracker$2;->this$0:Lcom/android/server/am/AppExitInfoTracker;
 
     invoke-virtual {p2}, Landroid/content/Intent;->getData()Landroid/net/Uri;
 
-    move-result-object v4
+    move-result-object p2
 
-    invoke-virtual {v4}, Landroid/net/Uri;->getSchemeSpecificPart()Ljava/lang/String;
+    invoke-virtual {p2}, Landroid/net/Uri;->getSchemeSpecificPart()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object p2
 
-    invoke-virtual {v3, v4, v2, v1}, Lcom/android/server/am/AppExitInfoTracker;->onPackageRemoved(Ljava/lang/String;IZ)V
+    invoke-virtual {p0, p2, p1, v0}, Lcom/android/server/am/AppExitInfoTracker;->onPackageRemoved(Ljava/lang/String;IZ)V
 
     return-void
 .end method

@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/am/UserController$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -8,14 +9,18 @@
 # instance fields
 .field public final synthetic f$0:Lcom/android/server/am/UserController;
 
+.field public final synthetic f$1:Lcom/android/server/am/UserState;
+
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/am/UserController;)V
+.method public synthetic constructor <init>(Lcom/android/server/am/UserController;Lcom/android/server/am/UserState;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/server/am/UserController$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/am/UserController;
+
+    iput-object p2, p0, Lcom/android/server/am/UserController$$ExternalSyntheticLambda1;->f$1:Lcom/android/server/am/UserState;
 
     return-void
 .end method
@@ -27,7 +32,9 @@
 
     iget-object v0, p0, Lcom/android/server/am/UserController$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/am/UserController;
 
-    invoke-virtual {v0}, Lcom/android/server/am/UserController;->lambda$scheduleStartProfiles$12$UserController()V
+    iget-object p0, p0, Lcom/android/server/am/UserController$$ExternalSyntheticLambda1;->f$1:Lcom/android/server/am/UserState;
+
+    invoke-static {v0, p0}, Lcom/android/server/am/UserController;->$r8$lambda$jJ2Vc6SyqrZowBZ8imPA3oTeX0Q(Lcom/android/server/am/UserController;Lcom/android/server/am/UserState;)V
 
     return-void
 .end method

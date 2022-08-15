@@ -3,10 +3,6 @@
 .source "UsbACInterfaceUnparsed.java"
 
 
-# static fields
-.field private static final TAG:Ljava/lang/String; = "UsbACInterfaceUnparsed"
-
-
 # direct methods
 .method public constructor <init>(IBBI)V
     .locals 0

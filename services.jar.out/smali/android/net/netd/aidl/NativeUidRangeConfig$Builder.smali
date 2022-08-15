@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public build()Landroid/net/netd/aidl/NativeUidRangeConfig;
-    .locals 4
+    .locals 3
 
     new-instance v0, Landroid/net/netd/aidl/NativeUidRangeConfig;
 
@@ -48,9 +48,9 @@
 
     iget-object v2, p0, Landroid/net/netd/aidl/NativeUidRangeConfig$Builder;->uidRanges:[Landroid/net/UidRangeParcel;
 
-    iget v3, p0, Landroid/net/netd/aidl/NativeUidRangeConfig$Builder;->subPriority:I
+    iget p0, p0, Landroid/net/netd/aidl/NativeUidRangeConfig$Builder;->subPriority:I
 
-    invoke-direct {v0, v1, v2, v3}, Landroid/net/netd/aidl/NativeUidRangeConfig;-><init>(I[Landroid/net/UidRangeParcel;I)V
+    invoke-direct {v0, v1, v2, p0}, Landroid/net/netd/aidl/NativeUidRangeConfig;-><init>(I[Landroid/net/UidRangeParcel;I)V
 
     return-object v0
 .end method

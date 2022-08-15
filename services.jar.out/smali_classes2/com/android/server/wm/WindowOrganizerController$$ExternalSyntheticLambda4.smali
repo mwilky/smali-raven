@@ -1,63 +1,40 @@
 .class public final synthetic Lcom/android/server/wm/WindowOrganizerController$$ExternalSyntheticLambda4;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Function;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/android/server/wm/WindowContainer;
-
-.field public final synthetic f$1:Z
-
-.field public final synthetic f$2:Lcom/android/server/wm/TaskDisplayArea;
-
-.field public final synthetic f$3:Landroid/window/WindowContainerTransaction$HierarchyOp;
-
-.field public final synthetic f$4:Ljava/util/ArrayList;
+.implements Lcom/android/internal/util/function/TriConsumer;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/wm/WindowContainer;ZLcom/android/server/wm/TaskDisplayArea;Landroid/window/WindowContainerTransaction$HierarchyOp;Ljava/util/ArrayList;)V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/server/wm/WindowOrganizerController$$ExternalSyntheticLambda4;->f$0:Lcom/android/server/wm/WindowContainer;
-
-    iput-boolean p2, p0, Lcom/android/server/wm/WindowOrganizerController$$ExternalSyntheticLambda4;->f$1:Z
-
-    iput-object p3, p0, Lcom/android/server/wm/WindowOrganizerController$$ExternalSyntheticLambda4;->f$2:Lcom/android/server/wm/TaskDisplayArea;
-
-    iput-object p4, p0, Lcom/android/server/wm/WindowOrganizerController$$ExternalSyntheticLambda4;->f$3:Landroid/window/WindowContainerTransaction$HierarchyOp;
-
-    iput-object p5, p0, Lcom/android/server/wm/WindowOrganizerController$$ExternalSyntheticLambda4;->f$4:Ljava/util/ArrayList;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 6
+.method public final accept(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/WindowOrganizerController$$ExternalSyntheticLambda4;->f$0:Lcom/android/server/wm/WindowContainer;
+    check-cast p1, Lcom/android/server/wm/ActivityRecord;
 
-    iget-boolean v1, p0, Lcom/android/server/wm/WindowOrganizerController$$ExternalSyntheticLambda4;->f$1:Z
+    check-cast p2, Ljava/lang/Integer;
 
-    iget-object v2, p0, Lcom/android/server/wm/WindowOrganizerController$$ExternalSyntheticLambda4;->f$2:Lcom/android/server/wm/TaskDisplayArea;
+    invoke-virtual {p2}, Ljava/lang/Integer;->intValue()I
 
-    iget-object v3, p0, Lcom/android/server/wm/WindowOrganizerController$$ExternalSyntheticLambda4;->f$3:Landroid/window/WindowContainerTransaction$HierarchyOp;
+    move-result p0
 
-    iget-object v4, p0, Lcom/android/server/wm/WindowOrganizerController$$ExternalSyntheticLambda4;->f$4:Ljava/util/ArrayList;
+    check-cast p3, Ljava/lang/Boolean;
 
-    move-object v5, p1
+    invoke-virtual {p3}, Ljava/lang/Boolean;->booleanValue()Z
 
-    check-cast v5, Lcom/android/server/wm/Task;
+    move-result p2
 
-    invoke-static/range {v0 .. v5}, Lcom/android/server/wm/WindowOrganizerController;->lambda$reparentChildrenTasksHierarchyOp$4(Lcom/android/server/wm/WindowContainer;ZLcom/android/server/wm/TaskDisplayArea;Landroid/window/WindowContainerTransaction$HierarchyOp;Ljava/util/ArrayList;Lcom/android/server/wm/Task;)Ljava/lang/Boolean;
+    invoke-virtual {p1, p0, p2}, Lcom/android/server/wm/ActivityRecord;->ensureActivityConfiguration(IZ)Z
 
-    move-result-object p1
-
-    return-object p1
+    return-void
 .end method

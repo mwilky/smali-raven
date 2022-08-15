@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/oemlock/VendorLock$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/hardware/oemlock/V1_0/IOemLock$isOemUnlockAllowedByDeviceCallback;
@@ -27,13 +28,13 @@
 
 # virtual methods
 .method public final onValues(IZ)V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/oemlock/VendorLock$$ExternalSyntheticLambda2;->f$0:[Ljava/lang/Integer;
 
-    iget-object v1, p0, Lcom/android/server/oemlock/VendorLock$$ExternalSyntheticLambda2;->f$1:[Ljava/lang/Boolean;
+    iget-object p0, p0, Lcom/android/server/oemlock/VendorLock$$ExternalSyntheticLambda2;->f$1:[Ljava/lang/Boolean;
 
-    invoke-static {v0, v1, p1, p2}, Lcom/android/server/oemlock/VendorLock;->lambda$isOemUnlockAllowedByDevice$2([Ljava/lang/Integer;[Ljava/lang/Boolean;IZ)V
+    invoke-static {v0, p0, p1, p2}, Lcom/android/server/oemlock/VendorLock;->$r8$lambda$JHHC8HTgRj7lNvt5iYtfsUlNxSE([Ljava/lang/Integer;[Ljava/lang/Boolean;IZ)V
 
     return-void
 .end method

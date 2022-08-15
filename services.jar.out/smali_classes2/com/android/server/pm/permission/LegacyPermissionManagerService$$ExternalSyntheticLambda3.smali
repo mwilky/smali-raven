@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/pm/permission/LegacyPermissionManagerService$$ExternalSyntheticLambda3;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/internal/util/FunctionalUtils$ThrowingRunnable;
@@ -31,15 +32,15 @@
 
 # virtual methods
 .method public final runOrThrow()V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/pm/permission/LegacyPermissionManagerService$$ExternalSyntheticLambda3;->f$0:Lcom/android/server/pm/permission/LegacyPermissionManagerService;
 
     iget-object v1, p0, Lcom/android/server/pm/permission/LegacyPermissionManagerService$$ExternalSyntheticLambda3;->f$1:[Ljava/lang/String;
 
-    iget v2, p0, Lcom/android/server/pm/permission/LegacyPermissionManagerService$$ExternalSyntheticLambda3;->f$2:I
+    iget p0, p0, Lcom/android/server/pm/permission/LegacyPermissionManagerService$$ExternalSyntheticLambda3;->f$2:I
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/pm/permission/LegacyPermissionManagerService;->lambda$grantDefaultPermissionsToEnabledTelephonyDataServices$3$LegacyPermissionManagerService([Ljava/lang/String;I)V
+    invoke-static {v0, v1, p0}, Lcom/android/server/pm/permission/LegacyPermissionManagerService;->$r8$lambda$zcGdKsM2aK1YS4jdsYcxzTsWD9s(Lcom/android/server/pm/permission/LegacyPermissionManagerService;[Ljava/lang/String;I)V
 
     return-void
 .end method

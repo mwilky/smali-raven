@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/ScreenRotationAnimation$SurfaceRotationAnimationController$1;
+.class public Lcom/android/server/wm/ScreenRotationAnimation$SurfaceRotationAnimationController$1;
 .super Ljava/lang/Object;
 .source "ScreenRotationAnimation.java"
 
@@ -12,29 +12,29 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$1:Lcom/android/server/wm/ScreenRotationAnimation$SurfaceRotationAnimationController;
+.field public final synthetic this$1:Lcom/android/server/wm/ScreenRotationAnimation$SurfaceRotationAnimationController;
 
-.field final synthetic val$colorTransitionMs:I
+.field public final synthetic val$colorTransitionMs:I
 
-.field final synthetic val$duration:J
+.field public final synthetic val$duration:J
 
-.field final synthetic val$endColor:I
+.field public final synthetic val$endColor:I
 
-.field final synthetic val$rgbTmpFloat:[F
+.field public final synthetic val$rgbTmpFloat:[F
 
-.field final synthetic val$startColor:I
+.field public final synthetic val$startColor:I
 
-.field final synthetic val$va:Landroid/animation/ArgbEvaluator;
+.field public final synthetic val$va:Landroid/animation/ArgbEvaluator;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/wm/ScreenRotationAnimation$SurfaceRotationAnimationController;JLandroid/animation/ArgbEvaluator;II[FI)V
+.method public constructor <init>(Lcom/android/server/wm/ScreenRotationAnimation$SurfaceRotationAnimationController;JLandroid/animation/ArgbEvaluator;II[FI)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/wm/ScreenRotationAnimation$SurfaceRotationAnimationController$1;->this$1:Lcom/android/server/wm/ScreenRotationAnimation$SurfaceRotationAnimationController;
@@ -59,88 +59,88 @@
 
 # virtual methods
 .method public apply(Landroid/view/SurfaceControl$Transaction;Landroid/view/SurfaceControl;J)V
-    .locals 6
+    .locals 2
 
-    long-to-float v0, p3
+    long-to-float p3, p3
 
-    invoke-virtual {p0, v0}, Lcom/android/server/wm/ScreenRotationAnimation$SurfaceRotationAnimationController$1;->getFraction(F)F
+    invoke-interface {p0, p3}, Lcom/android/server/wm/LocalAnimationAdapter$AnimationSpec;->getFraction(F)F
 
-    move-result v0
+    move-result p3
 
-    iget-object v1, p0, Lcom/android/server/wm/ScreenRotationAnimation$SurfaceRotationAnimationController$1;->val$va:Landroid/animation/ArgbEvaluator;
+    iget-object p4, p0, Lcom/android/server/wm/ScreenRotationAnimation$SurfaceRotationAnimationController$1;->val$va:Landroid/animation/ArgbEvaluator;
 
-    iget v2, p0, Lcom/android/server/wm/ScreenRotationAnimation$SurfaceRotationAnimationController$1;->val$startColor:I
+    iget v0, p0, Lcom/android/server/wm/ScreenRotationAnimation$SurfaceRotationAnimationController$1;->val$startColor:I
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v2
+    move-result-object v0
 
-    iget v3, p0, Lcom/android/server/wm/ScreenRotationAnimation$SurfaceRotationAnimationController$1;->val$endColor:I
+    iget v1, p0, Lcom/android/server/wm/ScreenRotationAnimation$SurfaceRotationAnimationController$1;->val$endColor:I
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v1, v0, v2, v3}, Landroid/animation/ArgbEvaluator;->evaluate(FLjava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v1
 
-    check-cast v1, Ljava/lang/Integer;
+    invoke-virtual {p4, p3, v0, v1}, Landroid/animation/ArgbEvaluator;->evaluate(FLjava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
+    move-result-object p3
 
-    move-result v1
+    check-cast p3, Ljava/lang/Integer;
 
-    invoke-static {v1}, Landroid/graphics/Color;->valueOf(I)Landroid/graphics/Color;
+    invoke-virtual {p3}, Ljava/lang/Integer;->intValue()I
 
-    move-result-object v2
+    move-result p3
 
-    iget-object v3, p0, Lcom/android/server/wm/ScreenRotationAnimation$SurfaceRotationAnimationController$1;->val$rgbTmpFloat:[F
+    invoke-static {p3}, Landroid/graphics/Color;->valueOf(I)Landroid/graphics/Color;
 
-    invoke-virtual {v2}, Landroid/graphics/Color;->red()F
+    move-result-object p3
 
-    move-result v4
+    iget-object p4, p0, Lcom/android/server/wm/ScreenRotationAnimation$SurfaceRotationAnimationController$1;->val$rgbTmpFloat:[F
 
-    const/4 v5, 0x0
+    invoke-virtual {p3}, Landroid/graphics/Color;->red()F
 
-    aput v4, v3, v5
+    move-result v0
 
-    iget-object v3, p0, Lcom/android/server/wm/ScreenRotationAnimation$SurfaceRotationAnimationController$1;->val$rgbTmpFloat:[F
+    const/4 v1, 0x0
 
-    invoke-virtual {v2}, Landroid/graphics/Color;->green()F
+    aput v0, p4, v1
 
-    move-result v4
+    iget-object p4, p0, Lcom/android/server/wm/ScreenRotationAnimation$SurfaceRotationAnimationController$1;->val$rgbTmpFloat:[F
 
-    const/4 v5, 0x1
+    invoke-virtual {p3}, Landroid/graphics/Color;->green()F
 
-    aput v4, v3, v5
+    move-result v0
 
-    iget-object v3, p0, Lcom/android/server/wm/ScreenRotationAnimation$SurfaceRotationAnimationController$1;->val$rgbTmpFloat:[F
+    const/4 v1, 0x1
 
-    invoke-virtual {v2}, Landroid/graphics/Color;->blue()F
+    aput v0, p4, v1
 
-    move-result v4
+    iget-object p4, p0, Lcom/android/server/wm/ScreenRotationAnimation$SurfaceRotationAnimationController$1;->val$rgbTmpFloat:[F
 
-    const/4 v5, 0x2
+    invoke-virtual {p3}, Landroid/graphics/Color;->blue()F
 
-    aput v4, v3, v5
+    move-result p3
+
+    const/4 v0, 0x2
+
+    aput p3, p4, v0
 
     invoke-virtual {p2}, Landroid/view/SurfaceControl;->isValid()Z
 
-    move-result v3
+    move-result p3
 
-    if-eqz v3, :cond_0
+    if-eqz p3, :cond_0
 
-    iget-object v3, p0, Lcom/android/server/wm/ScreenRotationAnimation$SurfaceRotationAnimationController$1;->val$rgbTmpFloat:[F
+    iget-object p0, p0, Lcom/android/server/wm/ScreenRotationAnimation$SurfaceRotationAnimationController$1;->val$rgbTmpFloat:[F
 
-    invoke-virtual {p1, p2, v3}, Landroid/view/SurfaceControl$Transaction;->setColor(Landroid/view/SurfaceControl;[F)Landroid/view/SurfaceControl$Transaction;
+    invoke-virtual {p1, p2, p0}, Landroid/view/SurfaceControl$Transaction;->setColor(Landroid/view/SurfaceControl;[F)Landroid/view/SurfaceControl$Transaction;
 
     :cond_0
     return-void
 .end method
 
 .method public dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
-    .locals 2
+    .locals 1
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -148,47 +148,47 @@
 
     invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "startLuma="
+    const-string p2, "startLuma="
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lcom/android/server/wm/ScreenRotationAnimation$SurfaceRotationAnimationController$1;->this$1:Lcom/android/server/wm/ScreenRotationAnimation$SurfaceRotationAnimationController;
+    iget-object p2, p0, Lcom/android/server/wm/ScreenRotationAnimation$SurfaceRotationAnimationController$1;->this$1:Lcom/android/server/wm/ScreenRotationAnimation$SurfaceRotationAnimationController;
 
-    iget-object v1, v1, Lcom/android/server/wm/ScreenRotationAnimation$SurfaceRotationAnimationController;->this$0:Lcom/android/server/wm/ScreenRotationAnimation;
+    iget-object p2, p2, Lcom/android/server/wm/ScreenRotationAnimation$SurfaceRotationAnimationController;->this$0:Lcom/android/server/wm/ScreenRotationAnimation;
 
-    invoke-static {v1}, Lcom/android/server/wm/ScreenRotationAnimation;->access$900(Lcom/android/server/wm/ScreenRotationAnimation;)F
+    invoke-static {p2}, Lcom/android/server/wm/ScreenRotationAnimation;->-$$Nest$fgetmStartLuma(Lcom/android/server/wm/ScreenRotationAnimation;)F
 
-    move-result v1
+    move-result p2
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    const-string v1, " endLuma="
+    const-string p2, " endLuma="
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lcom/android/server/wm/ScreenRotationAnimation$SurfaceRotationAnimationController$1;->this$1:Lcom/android/server/wm/ScreenRotationAnimation$SurfaceRotationAnimationController;
+    iget-object p2, p0, Lcom/android/server/wm/ScreenRotationAnimation$SurfaceRotationAnimationController$1;->this$1:Lcom/android/server/wm/ScreenRotationAnimation$SurfaceRotationAnimationController;
 
-    iget-object v1, v1, Lcom/android/server/wm/ScreenRotationAnimation$SurfaceRotationAnimationController;->this$0:Lcom/android/server/wm/ScreenRotationAnimation;
+    iget-object p2, p2, Lcom/android/server/wm/ScreenRotationAnimation$SurfaceRotationAnimationController;->this$0:Lcom/android/server/wm/ScreenRotationAnimation;
 
-    invoke-static {v1}, Lcom/android/server/wm/ScreenRotationAnimation;->access$1000(Lcom/android/server/wm/ScreenRotationAnimation;)F
+    invoke-static {p2}, Lcom/android/server/wm/ScreenRotationAnimation;->-$$Nest$fgetmEndLuma(Lcom/android/server/wm/ScreenRotationAnimation;)F
 
-    move-result v1
+    move-result p2
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    const-string v1, " durationMs="
+    const-string p2, " durationMs="
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v1, p0, Lcom/android/server/wm/ScreenRotationAnimation$SurfaceRotationAnimationController$1;->val$colorTransitionMs:I
+    iget p0, p0, Lcom/android/server/wm/ScreenRotationAnimation$SurfaceRotationAnimationController$1;->val$colorTransitionMs:I
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p1, p0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     return-void
 .end method
@@ -206,7 +206,7 @@
 
     iget-object v2, v2, Lcom/android/server/wm/ScreenRotationAnimation$SurfaceRotationAnimationController;->this$0:Lcom/android/server/wm/ScreenRotationAnimation;
 
-    invoke-static {v2}, Lcom/android/server/wm/ScreenRotationAnimation;->access$900(Lcom/android/server/wm/ScreenRotationAnimation;)F
+    invoke-static {v2}, Lcom/android/server/wm/ScreenRotationAnimation;->-$$Nest$fgetmStartLuma(Lcom/android/server/wm/ScreenRotationAnimation;)F
 
     move-result v2
 
@@ -218,7 +218,7 @@
 
     iget-object v2, v2, Lcom/android/server/wm/ScreenRotationAnimation$SurfaceRotationAnimationController;->this$0:Lcom/android/server/wm/ScreenRotationAnimation;
 
-    invoke-static {v2}, Lcom/android/server/wm/ScreenRotationAnimation;->access$1000(Lcom/android/server/wm/ScreenRotationAnimation;)F
+    invoke-static {v2}, Lcom/android/server/wm/ScreenRotationAnimation;->-$$Nest$fgetmEndLuma(Lcom/android/server/wm/ScreenRotationAnimation;)F
 
     move-result v2
 
@@ -226,11 +226,11 @@
 
     invoke-virtual {p1, v3, v4, v2}, Landroid/util/proto/ProtoOutputStream;->write(JF)V
 
-    iget v2, p0, Lcom/android/server/wm/ScreenRotationAnimation$SurfaceRotationAnimationController$1;->val$colorTransitionMs:I
+    iget p0, p0, Lcom/android/server/wm/ScreenRotationAnimation$SurfaceRotationAnimationController$1;->val$colorTransitionMs:I
 
-    const-wide v3, 0x10300000003L
+    const-wide v2, 0x10300000003L
 
-    invoke-virtual {p1, v3, v4, v2}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
+    invoke-virtual {p1, v2, v3, p0}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
 
     invoke-virtual {p1, v0, v1}, Landroid/util/proto/ProtoOutputStream;->end(J)V
 

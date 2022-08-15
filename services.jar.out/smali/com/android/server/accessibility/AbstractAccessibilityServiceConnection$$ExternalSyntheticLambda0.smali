@@ -1,25 +1,30 @@
 .class public final synthetic Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
 
 
 # instance fields
-.field public final synthetic f$0:I
+.field public final synthetic f$0:Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;
 
-.field public final synthetic f$1:Landroid/os/RemoteCallback;
+.field public final synthetic f$1:I
+
+.field public final synthetic f$2:Landroid/os/RemoteCallback;
 
 
 # direct methods
-.method public synthetic constructor <init>(ILandroid/os/RemoteCallback;)V
+.method public synthetic constructor <init>(Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;ILandroid/os/RemoteCallback;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput p1, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection$$ExternalSyntheticLambda0;->f$0:I
+    iput-object p1, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;
 
-    iput-object p2, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection$$ExternalSyntheticLambda0;->f$1:Landroid/os/RemoteCallback;
+    iput p2, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection$$ExternalSyntheticLambda0;->f$1:I
+
+    iput-object p3, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection$$ExternalSyntheticLambda0;->f$2:Landroid/os/RemoteCallback;
 
     return-void
 .end method
@@ -29,11 +34,13 @@
 .method public final accept(Ljava/lang/Object;)V
     .locals 2
 
-    iget v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection$$ExternalSyntheticLambda0;->f$0:I
+    iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;
 
-    iget-object v1, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection$$ExternalSyntheticLambda0;->f$1:Landroid/os/RemoteCallback;
+    iget v1, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection$$ExternalSyntheticLambda0;->f$1:I
 
-    invoke-static {v0, v1, p1}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->lambda$sendScreenshotFailure$1(ILandroid/os/RemoteCallback;Ljava/lang/Object;)V
+    iget-object p0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection$$ExternalSyntheticLambda0;->f$2:Landroid/os/RemoteCallback;
+
+    invoke-static {v0, v1, p0, p1}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->$r8$lambda$JX9S5EsLuTAYOG8cMdfsnKjNsrA(Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;ILandroid/os/RemoteCallback;Ljava/lang/Object;)V
 
     return-void
 .end method

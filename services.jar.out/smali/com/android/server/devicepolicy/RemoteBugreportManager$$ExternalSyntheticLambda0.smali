@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/devicepolicy/RemoteBugreportManager$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/devicepolicy/RemoteBugreportManager$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/devicepolicy/RemoteBugreportManager;
+    iget-object p0, p0, Lcom/android/server/devicepolicy/RemoteBugreportManager$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/devicepolicy/RemoteBugreportManager;
 
-    invoke-virtual {v0}, Lcom/android/server/devicepolicy/RemoteBugreportManager;->lambda$new$0$RemoteBugreportManager()V
+    invoke-static {p0}, Lcom/android/server/devicepolicy/RemoteBugreportManager;->$r8$lambda$09uoz8oAKLetYjZtY1h9_UejaMA(Lcom/android/server/devicepolicy/RemoteBugreportManager;)V
 
     return-void
 .end method

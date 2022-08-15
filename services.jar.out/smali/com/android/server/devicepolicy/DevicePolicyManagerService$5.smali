@@ -1,32 +1,32 @@
-.class Lcom/android/server/devicepolicy/DevicePolicyManagerService$5;
+.class public Lcom/android/server/devicepolicy/DevicePolicyManagerService$5;
 .super Landroid/content/BroadcastReceiver;
 .source "DevicePolicyManagerService.java"
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/devicepolicy/DevicePolicyManagerService;->getRemoveWarning(Landroid/content/ComponentName;Landroid/os/RemoteCallback;I)V
+    value = Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$choosePrivateKeyAlias$39(Landroid/content/Intent;Lcom/android/server/devicepolicy/CallerIdentity;Landroid/os/IBinder;Z)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
+.field public final synthetic this$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
 
-.field final synthetic val$result:Landroid/os/RemoteCallback;
+.field public final synthetic val$response:Landroid/os/IBinder;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/devicepolicy/DevicePolicyManagerService;Landroid/os/RemoteCallback;)V
+.method public constructor <init>(Lcom/android/server/devicepolicy/DevicePolicyManagerService;Landroid/os/IBinder;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$5;->this$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
 
-    iput-object p2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$5;->val$result:Landroid/os/RemoteCallback;
+    iput-object p2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$5;->val$response:Landroid/os/IBinder;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
@@ -36,17 +36,17 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 2
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$5;->val$result:Landroid/os/RemoteCallback;
+    invoke-virtual {p0}, Landroid/content/BroadcastReceiver;->getResultData()Ljava/lang/String;
 
-    const/4 v1, 0x0
+    move-result-object p1
 
-    invoke-virtual {p0, v1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService$5;->getResultExtras(Z)Landroid/os/Bundle;
+    iget-object p2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$5;->this$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
 
-    move-result-object v1
+    iget-object p0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$5;->val$response:Landroid/os/IBinder;
 
-    invoke-virtual {v0, v1}, Landroid/os/RemoteCallback;->sendResult(Landroid/os/Bundle;)V
+    invoke-static {p2, p1, p0}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->-$$Nest$msendPrivateKeyAliasResponse(Lcom/android/server/devicepolicy/DevicePolicyManagerService;Ljava/lang/String;Landroid/os/IBinder;)V
 
     return-void
 .end method

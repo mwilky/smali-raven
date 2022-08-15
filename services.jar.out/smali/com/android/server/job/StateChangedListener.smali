@@ -4,7 +4,15 @@
 
 
 # virtual methods
-.method public abstract onControllerStateChanged()V
+.method public abstract onControllerStateChanged(Landroid/util/ArraySet;)V
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/util/ArraySet<",
+            "Lcom/android/server/job/controllers/JobStatus;",
+            ">;)V"
+        }
+    .end annotation
 .end method
 
 .method public abstract onDeviceIdleStateChanged(Z)V

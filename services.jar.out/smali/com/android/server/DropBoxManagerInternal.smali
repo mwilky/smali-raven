@@ -19,8 +19,3 @@
 
     return-void
 .end method
-
-
-# virtual methods
-.method public abstract addEntry(Ljava/lang/String;Lcom/android/server/DropBoxManagerInternal$EntrySource;I)V
-.end method

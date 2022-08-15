@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/autofill/RemoteInlineSuggestionRenderService$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/internal/infra/AbstractRemoteService$AsyncRequest;
@@ -73,7 +74,7 @@
 
     check-cast v8, Landroid/service/autofill/IInlineSuggestionRenderService;
 
-    invoke-static/range {v0 .. v8}, Lcom/android/server/autofill/RemoteInlineSuggestionRenderService;->lambda$renderSuggestion$0(Landroid/service/autofill/IInlineSuggestionUiCallback;Landroid/service/autofill/InlinePresentation;IILandroid/os/IBinder;IIILandroid/service/autofill/IInlineSuggestionRenderService;)V
+    invoke-static/range {v0 .. v8}, Lcom/android/server/autofill/RemoteInlineSuggestionRenderService;->$r8$lambda$nQmTpkQM9fpRS0pqARpArAY01_0(Landroid/service/autofill/IInlineSuggestionUiCallback;Landroid/service/autofill/InlinePresentation;IILandroid/os/IBinder;IIILandroid/service/autofill/IInlineSuggestionRenderService;)V
 
     return-void
 .end method

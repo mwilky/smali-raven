@@ -3,10 +3,6 @@
 .source "VrManagerInternal.java"
 
 
-# static fields
-.field public static final NO_ERROR:I
-
-
 # direct methods
 .method public constructor <init>()V
     .locals 0
@@ -21,9 +17,6 @@
 .method public abstract addPersistentVrModeStateListener(Landroid/service/vr/IPersistentVrStateCallbacks;)V
 .end method
 
-.method public abstract getVr2dDisplayId()I
-.end method
-
 .method public abstract hasVrPackage(Landroid/content/ComponentName;I)I
 .end method
 
@@ -31,12 +24,6 @@
 .end method
 
 .method public abstract onScreenStateChanged(Z)V
-.end method
-
-.method public abstract setPersistentVrModeEnabled(Z)V
-.end method
-
-.method public abstract setVr2dDisplayProperties(Landroid/app/Vr2dDisplayProperties;)V
 .end method
 
 .method public abstract setVrMode(ZLandroid/content/ComponentName;IILandroid/content/ComponentName;)V

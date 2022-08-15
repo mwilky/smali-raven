@@ -1,4 +1,4 @@
-.class Lcom/android/server/wallpaper/WallpaperManagerService$2;
+.class public Lcom/android/server/wallpaper/WallpaperManagerService$2;
 .super Landroid/content/BroadcastReceiver;
 .source "WallpaperManagerService.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/wallpaper/WallpaperManagerService;
+.field public final synthetic this$0:Lcom/android/server/wallpaper/WallpaperManagerService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/wallpaper/WallpaperManagerService;)V
+.method public constructor <init>(Lcom/android/server/wallpaper/WallpaperManagerService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/wallpaper/WallpaperManagerService$2;->this$0:Lcom/android/server/wallpaper/WallpaperManagerService;
@@ -32,31 +32,31 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 4
+    .locals 1
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v1, "android.intent.action.USER_REMOVED"
+    const-string v0, "android.intent.action.USER_REMOVED"
 
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result p1
 
-    if-eqz v1, :cond_0
+    if-eqz p1, :cond_0
 
-    iget-object v1, p0, Lcom/android/server/wallpaper/WallpaperManagerService$2;->this$0:Lcom/android/server/wallpaper/WallpaperManagerService;
+    iget-object p0, p0, Lcom/android/server/wallpaper/WallpaperManagerService$2;->this$0:Lcom/android/server/wallpaper/WallpaperManagerService;
 
-    const/16 v2, -0x2710
+    const/16 p1, -0x2710
 
-    const-string v3, "android.intent.extra.user_handle"
+    const-string v0, "android.intent.extra.user_handle"
 
-    invoke-virtual {p2, v3, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {p2, v0, p1}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    move-result v2
+    move-result p1
 
-    invoke-virtual {v1, v2}, Lcom/android/server/wallpaper/WallpaperManagerService;->onRemoveUser(I)V
+    invoke-virtual {p0, p1}, Lcom/android/server/wallpaper/WallpaperManagerService;->onRemoveUser(I)V
 
     :cond_0
     return-void

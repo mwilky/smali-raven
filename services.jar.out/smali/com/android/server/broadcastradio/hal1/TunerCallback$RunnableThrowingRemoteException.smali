@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/server/broadcastradio/hal1/TunerCallback$RunnableThrowingRemoteException;
+.class public interface abstract Lcom/android/server/broadcastradio/hal1/TunerCallback$RunnableThrowingRemoteException;
 .super Ljava/lang/Object;
 .source "TunerCallback.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x60a
+    accessFlags = 0x609
     name = "RunnableThrowingRemoteException"
 .end annotation
 

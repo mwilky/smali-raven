@@ -1,4 +1,4 @@
-.class Lcom/android/server/biometrics/sensors/LockoutResetDispatcher$ClientCallback$1;
+.class public Lcom/android/server/biometrics/sensors/LockoutResetDispatcher$ClientCallback$1;
 .super Landroid/os/IRemoteCallback$Stub;
 .source "LockoutResetDispatcher.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/biometrics/sensors/LockoutResetDispatcher$ClientCallback;
+.field public final synthetic this$0:Lcom/android/server/biometrics/sensors/LockoutResetDispatcher$ClientCallback;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/biometrics/sensors/LockoutResetDispatcher$ClientCallback;)V
+.method public constructor <init>(Lcom/android/server/biometrics/sensors/LockoutResetDispatcher$ClientCallback;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/biometrics/sensors/LockoutResetDispatcher$ClientCallback$1;->this$0:Lcom/android/server/biometrics/sensors/LockoutResetDispatcher$ClientCallback;
@@ -32,11 +32,11 @@
 
 # virtual methods
 .method public sendResult(Landroid/os/Bundle;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/biometrics/sensors/LockoutResetDispatcher$ClientCallback$1;->this$0:Lcom/android/server/biometrics/sensors/LockoutResetDispatcher$ClientCallback;
+    iget-object p0, p0, Lcom/android/server/biometrics/sensors/LockoutResetDispatcher$ClientCallback$1;->this$0:Lcom/android/server/biometrics/sensors/LockoutResetDispatcher$ClientCallback;
 
-    invoke-static {v0}, Lcom/android/server/biometrics/sensors/LockoutResetDispatcher$ClientCallback;->access$000(Lcom/android/server/biometrics/sensors/LockoutResetDispatcher$ClientCallback;)V
+    invoke-static {p0}, Lcom/android/server/biometrics/sensors/LockoutResetDispatcher$ClientCallback;->-$$Nest$mreleaseWakelock(Lcom/android/server/biometrics/sensors/LockoutResetDispatcher$ClientCallback;)V
 
     return-void
 .end method

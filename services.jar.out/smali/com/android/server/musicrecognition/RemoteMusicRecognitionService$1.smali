@@ -1,27 +1,27 @@
-.class Lcom/android/server/musicrecognition/RemoteMusicRecognitionService$1;
+.class public Lcom/android/server/musicrecognition/RemoteMusicRecognitionService$1;
 .super Landroid/media/musicrecognition/IMusicRecognitionAttributionTagCallback$Stub;
 .source "RemoteMusicRecognitionService.java"
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/musicrecognition/RemoteMusicRecognitionService;->lambda$getAttributionTag$1$RemoteMusicRecognitionService(Ljava/util/concurrent/CompletableFuture;Landroid/media/musicrecognition/IMusicRecognitionService;)V
+    value = Lcom/android/server/musicrecognition/RemoteMusicRecognitionService;->lambda$getAttributionTag$1(Ljava/util/concurrent/CompletableFuture;Landroid/media/musicrecognition/IMusicRecognitionService;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/musicrecognition/RemoteMusicRecognitionService;
+.field public final synthetic this$0:Lcom/android/server/musicrecognition/RemoteMusicRecognitionService;
 
-.field final synthetic val$attributionTagFuture:Ljava/util/concurrent/CompletableFuture;
+.field public final synthetic val$attributionTagFuture:Ljava/util/concurrent/CompletableFuture;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/musicrecognition/RemoteMusicRecognitionService;Ljava/util/concurrent/CompletableFuture;)V
+.method public constructor <init>(Lcom/android/server/musicrecognition/RemoteMusicRecognitionService;Ljava/util/concurrent/CompletableFuture;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/musicrecognition/RemoteMusicRecognitionService$1;->this$0:Lcom/android/server/musicrecognition/RemoteMusicRecognitionService;
@@ -36,16 +36,16 @@
 
 # virtual methods
 .method public onAttributionTag(Ljava/lang/String;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/android/server/musicrecognition/RemoteMusicRecognitionService$1;->val$attributionTagFuture:Ljava/util/concurrent/CompletableFuture;
+    iget-object p0, p0, Lcom/android/server/musicrecognition/RemoteMusicRecognitionService$1;->val$attributionTagFuture:Ljava/util/concurrent/CompletableFuture;
 
-    invoke-virtual {v0, p1}, Ljava/util/concurrent/CompletableFuture;->complete(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p1}, Ljava/util/concurrent/CompletableFuture;->complete(Ljava/lang/Object;)Z
 
     return-void
 .end method

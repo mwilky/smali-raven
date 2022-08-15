@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/wm/TaskPositioningController$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/TaskPositioningController$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/wm/TaskPositioningController;
+    iget-object p0, p0, Lcom/android/server/wm/TaskPositioningController$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/wm/TaskPositioningController;
 
-    invoke-virtual {v0}, Lcom/android/server/wm/TaskPositioningController;->lambda$finishTaskPositioning$1$TaskPositioningController()V
+    invoke-static {p0}, Lcom/android/server/wm/TaskPositioningController;->$r8$lambda$eZYDt90v7CDHmRMKiwkfwOrjT4g(Lcom/android/server/wm/TaskPositioningController;)V
 
     return-void
 .end method

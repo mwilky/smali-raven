@@ -1,35 +1,48 @@
 .class public final synthetic Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda5;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/server/pm/ApkChecksums$Injector$Producer;
+.implements Ljava/util/function/Consumer;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/server/pm/PackageManagerService;
+.field public final synthetic f$0:I
+
+.field public final synthetic f$1:Z
+
+.field public final synthetic f$2:Z
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/pm/PackageManagerService;)V
+.method public synthetic constructor <init>(IZZ)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda5;->f$0:Lcom/android/server/pm/PackageManagerService;
+    iput p1, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda5;->f$0:I
+
+    iput-boolean p2, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda5;->f$1:Z
+
+    iput-boolean p3, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda5;->f$2:Z
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final produce()Ljava/lang/Object;
-    .locals 1
+.method public final accept(Ljava/lang/Object;)V
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda5;->f$0:Lcom/android/server/pm/PackageManagerService;
+    iget v0, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda5;->f$0:I
 
-    invoke-virtual {v0}, Lcom/android/server/pm/PackageManagerService;->lambda$requestChecksumsInternal$0$PackageManagerService()Landroid/content/Context;
+    iget-boolean v1, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda5;->f$1:Z
 
-    move-result-object v0
+    iget-boolean p0, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda5;->f$2:Z
 
-    return-object v0
+    check-cast p1, Lcom/android/server/pm/pkg/mutate/PackageStateWrite;
+
+    invoke-static {v0, v1, p0, p1}, Lcom/android/server/pm/PackageManagerService;->$r8$lambda$BnwvzELhaLFkkCG0Sw4ME6XFBS0(IZZLcom/android/server/pm/pkg/mutate/PackageStateWrite;)V
+
+    return-void
 .end method

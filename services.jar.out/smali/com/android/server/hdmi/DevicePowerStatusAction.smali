@@ -1,37 +1,39 @@
-.class final Lcom/android/server/hdmi/DevicePowerStatusAction;
+.class public final Lcom/android/server/hdmi/DevicePowerStatusAction;
 .super Lcom/android/server/hdmi/HdmiCecFeatureAction;
 .source "DevicePowerStatusAction.java"
 
 
-# static fields
-.field private static final STATE_WAITING_FOR_REPORT_POWER_STATUS:I = 0x1
-
-.field private static final TAG:Ljava/lang/String; = "DevicePowerStatusAction"
-
-
 # instance fields
-.field private mRetriesOnTimeout:I
+.field public mRetriesOnTimeout:I
 
-.field private final mTargetAddress:I
+.field public final mTargetAddress:I
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/server/hdmi/HdmiCecLocalDevice;ILandroid/hardware/hdmi/IHdmiControlCallback;)V
-    .locals 1
+.method public static synthetic $r8$lambda$hqA39diJpBJrt9RPe7CkmwT246o(Lcom/android/server/hdmi/DevicePowerStatusAction;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/hdmi/DevicePowerStatusAction;->lambda$queryDevicePowerStatus$0(I)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Lcom/android/server/hdmi/HdmiCecLocalDevice;ILandroid/hardware/hdmi/IHdmiControlCallback;)V
+    .locals 0
 
     invoke-direct {p0, p1, p3}, Lcom/android/server/hdmi/HdmiCecFeatureAction;-><init>(Lcom/android/server/hdmi/HdmiCecLocalDevice;Landroid/hardware/hdmi/IHdmiControlCallback;)V
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    iput v0, p0, Lcom/android/server/hdmi/DevicePowerStatusAction;->mRetriesOnTimeout:I
+    iput p1, p0, Lcom/android/server/hdmi/DevicePowerStatusAction;->mRetriesOnTimeout:I
 
     iput p2, p0, Lcom/android/server/hdmi/DevicePowerStatusAction;->mTargetAddress:I
 
     return-void
 .end method
 
-.method static create(Lcom/android/server/hdmi/HdmiCecLocalDevice;ILandroid/hardware/hdmi/IHdmiControlCallback;)Lcom/android/server/hdmi/DevicePowerStatusAction;
-    .locals 2
+.method public static create(Lcom/android/server/hdmi/HdmiCecLocalDevice;ILandroid/hardware/hdmi/IHdmiControlCallback;)Lcom/android/server/hdmi/DevicePowerStatusAction;
+    .locals 1
 
     if-eqz p0, :cond_1
 
@@ -48,45 +50,38 @@
 
     :cond_1
     :goto_0
-    const-string v0, "DevicePowerStatusAction"
+    const-string p0, "DevicePowerStatusAction"
 
-    const-string v1, "Wrong arguments"
+    const-string p1, "Wrong arguments"
 
-    invoke-static {v0, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, p1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return-object v0
+    return-object p0
 .end method
 
-.method private queryDevicePowerStatus()V
-    .locals 2
+.method private synthetic lambda$queryDevicePowerStatus$0(I)V
+    .locals 1
 
-    invoke-virtual {p0}, Lcom/android/server/hdmi/DevicePowerStatusAction;->getSourceAddress()I
+    const/4 v0, 0x1
 
-    move-result v0
+    if-ne p1, v0, :cond_0
 
-    iget v1, p0, Lcom/android/server/hdmi/DevicePowerStatusAction;->mTargetAddress:I
+    const/4 p1, -0x1
 
-    invoke-static {v0, v1}, Lcom/android/server/hdmi/HdmiCecMessageBuilder;->buildGiveDevicePowerStatus(II)Lcom/android/server/hdmi/HdmiCecMessage;
+    invoke-virtual {p0, p1}, Lcom/android/server/hdmi/HdmiCecFeatureAction;->finishWithCallback(I)V
 
-    move-result-object v0
-
-    new-instance v1, Lcom/android/server/hdmi/DevicePowerStatusAction$$ExternalSyntheticLambda0;
-
-    invoke-direct {v1, p0}, Lcom/android/server/hdmi/DevicePowerStatusAction$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/hdmi/DevicePowerStatusAction;)V
-
-    invoke-virtual {p0, v0, v1}, Lcom/android/server/hdmi/DevicePowerStatusAction;->sendCommand(Lcom/android/server/hdmi/HdmiCecMessage;Lcom/android/server/hdmi/HdmiControlService$SendMessageCallback;)V
-
+    :cond_0
     return-void
 .end method
 
 
 # virtual methods
-.method handleTimerEvent(I)V
-    .locals 2
+.method public handleTimerEvent(I)V
+    .locals 1
 
-    iget v0, p0, Lcom/android/server/hdmi/DevicePowerStatusAction;->mState:I
+    iget v0, p0, Lcom/android/server/hdmi/HdmiCecFeatureAction;->mState:I
 
     if-eq v0, p1, :cond_0
 
@@ -97,52 +92,37 @@
 
     if-ne p1, v0, :cond_2
 
-    iget v1, p0, Lcom/android/server/hdmi/DevicePowerStatusAction;->mRetriesOnTimeout:I
+    iget p1, p0, Lcom/android/server/hdmi/DevicePowerStatusAction;->mRetriesOnTimeout:I
 
-    if-lez v1, :cond_1
+    if-lez p1, :cond_1
 
-    sub-int/2addr v1, v0
+    sub-int/2addr p1, v0
 
-    iput v1, p0, Lcom/android/server/hdmi/DevicePowerStatusAction;->mRetriesOnTimeout:I
+    iput p1, p0, Lcom/android/server/hdmi/DevicePowerStatusAction;->mRetriesOnTimeout:I
 
     invoke-virtual {p0}, Lcom/android/server/hdmi/DevicePowerStatusAction;->start()Z
 
     return-void
 
     :cond_1
-    const/4 v0, -0x1
+    const/4 p1, -0x1
 
-    invoke-virtual {p0, v0}, Lcom/android/server/hdmi/DevicePowerStatusAction;->finishWithCallback(I)V
+    invoke-virtual {p0, p1}, Lcom/android/server/hdmi/HdmiCecFeatureAction;->finishWithCallback(I)V
 
     :cond_2
     return-void
 .end method
 
-.method public synthetic lambda$queryDevicePowerStatus$0$DevicePowerStatusAction(I)V
-    .locals 1
-
-    const/4 v0, 0x1
-
-    if-ne p1, v0, :cond_0
-
-    const/4 v0, -0x1
-
-    invoke-virtual {p0, v0}, Lcom/android/server/hdmi/DevicePowerStatusAction;->finishWithCallback(I)V
-
-    :cond_0
-    return-void
-.end method
-
-.method processCommand(Lcom/android/server/hdmi/HdmiCecMessage;)Z
+.method public processCommand(Lcom/android/server/hdmi/HdmiCecMessage;)Z
     .locals 4
 
-    iget v0, p0, Lcom/android/server/hdmi/DevicePowerStatusAction;->mState:I
+    iget v0, p0, Lcom/android/server/hdmi/HdmiCecFeatureAction;->mState:I
 
     const/4 v1, 0x1
 
     const/4 v2, 0x0
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_1
 
     iget v0, p0, Lcom/android/server/hdmi/DevicePowerStatusAction;->mTargetAddress:I
 
@@ -165,26 +145,45 @@
 
     invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecMessage;->getParams()[B
 
-    move-result-object v0
+    move-result-object p1
 
-    aget-byte v0, v0, v2
+    aget-byte p1, p1, v2
 
-    invoke-virtual {p0, v0}, Lcom/android/server/hdmi/DevicePowerStatusAction;->finishWithCallback(I)V
+    invoke-virtual {p0, p1}, Lcom/android/server/hdmi/HdmiCecFeatureAction;->finishWithCallback(I)V
 
     return v1
 
     :cond_1
-    return v2
-
-    :cond_2
     :goto_0
     return v2
 .end method
 
-.method start()Z
-    .locals 5
+.method public final queryDevicePowerStatus()V
+    .locals 2
 
-    invoke-virtual {p0}, Lcom/android/server/hdmi/DevicePowerStatusAction;->localDevice()Lcom/android/server/hdmi/HdmiCecLocalDevice;
+    invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecFeatureAction;->getSourceAddress()I
+
+    move-result v0
+
+    iget v1, p0, Lcom/android/server/hdmi/DevicePowerStatusAction;->mTargetAddress:I
+
+    invoke-static {v0, v1}, Lcom/android/server/hdmi/HdmiCecMessageBuilder;->buildGiveDevicePowerStatus(II)Lcom/android/server/hdmi/HdmiCecMessage;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/android/server/hdmi/DevicePowerStatusAction$$ExternalSyntheticLambda0;
+
+    invoke-direct {v1, p0}, Lcom/android/server/hdmi/DevicePowerStatusAction$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/hdmi/DevicePowerStatusAction;)V
+
+    invoke-virtual {p0, v0, v1}, Lcom/android/server/hdmi/HdmiCecFeatureAction;->sendCommand(Lcom/android/server/hdmi/HdmiCecMessage;Lcom/android/server/hdmi/HdmiControlService$SendMessageCallback;)V
+
+    return-void
+.end method
+
+.method public start()Z
+    .locals 4
+
+    invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecFeatureAction;->localDevice()Lcom/android/server/hdmi/HdmiCecLocalDevice;
 
     move-result-object v0
 
@@ -202,44 +201,42 @@
 
     invoke-virtual {v0}, Lcom/android/server/hdmi/HdmiControlService;->getHdmiCecNetwork()Lcom/android/server/hdmi/HdmiCecNetwork;
 
-    move-result-object v1
+    move-result-object v0
 
-    iget v4, p0, Lcom/android/server/hdmi/DevicePowerStatusAction;->mTargetAddress:I
+    iget v1, p0, Lcom/android/server/hdmi/DevicePowerStatusAction;->mTargetAddress:I
 
-    invoke-virtual {v1, v4}, Lcom/android/server/hdmi/HdmiCecNetwork;->getCecDeviceInfo(I)Landroid/hardware/hdmi/HdmiDeviceInfo;
+    invoke-virtual {v0, v1}, Lcom/android/server/hdmi/HdmiCecNetwork;->getCecDeviceInfo(I)Landroid/hardware/hdmi/HdmiDeviceInfo;
 
-    move-result-object v1
+    move-result-object v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    invoke-virtual {v1}, Landroid/hardware/hdmi/HdmiDeviceInfo;->getCecVersion()I
+    invoke-virtual {v0}, Landroid/hardware/hdmi/HdmiDeviceInfo;->getCecVersion()I
 
-    move-result v4
+    move-result v1
 
-    if-lt v4, v2, :cond_0
+    if-lt v1, v2, :cond_0
 
-    invoke-virtual {v1}, Landroid/hardware/hdmi/HdmiDeviceInfo;->getDevicePowerStatus()I
+    invoke-virtual {v0}, Landroid/hardware/hdmi/HdmiDeviceInfo;->getDevicePowerStatus()I
 
-    move-result v2
+    move-result v0
 
-    const/4 v4, -0x1
+    const/4 v1, -0x1
 
-    if-eq v2, v4, :cond_0
+    if-eq v0, v1, :cond_0
 
-    invoke-virtual {p0, v2}, Lcom/android/server/hdmi/DevicePowerStatusAction;->finishWithCallback(I)V
+    invoke-virtual {p0, v0}, Lcom/android/server/hdmi/HdmiCecFeatureAction;->finishWithCallback(I)V
 
     return v3
 
     :cond_0
-    invoke-direct {p0}, Lcom/android/server/hdmi/DevicePowerStatusAction;->queryDevicePowerStatus()V
+    invoke-virtual {p0}, Lcom/android/server/hdmi/DevicePowerStatusAction;->queryDevicePowerStatus()V
 
-    iput v3, p0, Lcom/android/server/hdmi/DevicePowerStatusAction;->mState:I
+    iput v3, p0, Lcom/android/server/hdmi/HdmiCecFeatureAction;->mState:I
 
-    iget v1, p0, Lcom/android/server/hdmi/DevicePowerStatusAction;->mState:I
+    const/16 v0, 0x7d0
 
-    const/16 v2, 0x7d0
-
-    invoke-virtual {p0, v1, v2}, Lcom/android/server/hdmi/DevicePowerStatusAction;->addTimer(II)V
+    invoke-virtual {p0, v3, v0}, Lcom/android/server/hdmi/HdmiCecFeatureAction;->addTimer(II)V
 
     return v3
 .end method

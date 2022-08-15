@@ -1,4 +1,4 @@
-.class Lcom/android/server/soundtrigger/SoundTriggerService$1;
+.class public Lcom/android/server/soundtrigger/SoundTriggerService$1;
 .super Ljava/lang/Object;
 .source "SoundTriggerService.java"
 
@@ -12,21 +12,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/soundtrigger/SoundTriggerService;
+.field public final synthetic this$0:Lcom/android/server/soundtrigger/SoundTriggerService;
 
-.field final synthetic val$middlemanIdentity:Landroid/media/permission/Identity;
+.field public final synthetic val$middlemanIdentity:Landroid/media/permission/Identity;
 
-.field final synthetic val$originatorIdentity:Landroid/media/permission/Identity;
+.field public final synthetic val$originatorIdentity:Landroid/media/permission/Identity;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/soundtrigger/SoundTriggerService;Landroid/media/permission/Identity;Landroid/media/permission/Identity;)V
+.method public constructor <init>(Lcom/android/server/soundtrigger/SoundTriggerService;Landroid/media/permission/Identity;Landroid/media/permission/Identity;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/soundtrigger/SoundTriggerService$1;->this$0:Lcom/android/server/soundtrigger/SoundTriggerService;
@@ -43,23 +43,23 @@
 
 # virtual methods
 .method public getModule(ILandroid/hardware/soundtrigger/SoundTrigger$StatusListener;)Landroid/hardware/soundtrigger/SoundTriggerModule;
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/soundtrigger/SoundTriggerService$1;->val$middlemanIdentity:Landroid/media/permission/Identity;
 
-    iget-object v1, p0, Lcom/android/server/soundtrigger/SoundTriggerService$1;->val$originatorIdentity:Landroid/media/permission/Identity;
+    iget-object p0, p0, Lcom/android/server/soundtrigger/SoundTriggerService$1;->val$originatorIdentity:Landroid/media/permission/Identity;
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    invoke-static {p1, p2, v2, v0, v1}, Landroid/hardware/soundtrigger/SoundTrigger;->attachModuleAsMiddleman(ILandroid/hardware/soundtrigger/SoundTrigger$StatusListener;Landroid/os/Handler;Landroid/media/permission/Identity;Landroid/media/permission/Identity;)Landroid/hardware/soundtrigger/SoundTriggerModule;
+    invoke-static {p1, p2, v1, v0, p0}, Landroid/hardware/soundtrigger/SoundTrigger;->attachModuleAsMiddleman(ILandroid/hardware/soundtrigger/SoundTrigger$StatusListener;Landroid/os/Handler;Landroid/media/permission/Identity;Landroid/media/permission/Identity;)Landroid/hardware/soundtrigger/SoundTriggerModule;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public listModuleProperties(Ljava/util/ArrayList;)I
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -71,11 +71,11 @@
 
     iget-object v0, p0, Lcom/android/server/soundtrigger/SoundTriggerService$1;->val$middlemanIdentity:Landroid/media/permission/Identity;
 
-    iget-object v1, p0, Lcom/android/server/soundtrigger/SoundTriggerService$1;->val$originatorIdentity:Landroid/media/permission/Identity;
+    iget-object p0, p0, Lcom/android/server/soundtrigger/SoundTriggerService$1;->val$originatorIdentity:Landroid/media/permission/Identity;
 
-    invoke-static {p1, v0, v1}, Landroid/hardware/soundtrigger/SoundTrigger;->listModulesAsMiddleman(Ljava/util/ArrayList;Landroid/media/permission/Identity;Landroid/media/permission/Identity;)I
+    invoke-static {p1, v0, p0}, Landroid/hardware/soundtrigger/SoundTrigger;->listModulesAsMiddleman(Ljava/util/ArrayList;Landroid/media/permission/Identity;Landroid/media/permission/Identity;)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method

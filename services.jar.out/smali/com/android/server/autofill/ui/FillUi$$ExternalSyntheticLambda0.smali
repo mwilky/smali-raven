@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/autofill/ui/FillUi$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/view/View$OnClickListener;
+.implements Landroid/view/View$OnUnhandledKeyEventListener;
 
 
 # instance fields
@@ -22,12 +23,14 @@
 
 
 # virtual methods
-.method public final onClick(Landroid/view/View;)V
-    .locals 1
+.method public final onUnhandledKeyEvent(Landroid/view/View;Landroid/view/KeyEvent;)Z
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/autofill/ui/FillUi$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/autofill/ui/FillUi;
+    iget-object p0, p0, Lcom/android/server/autofill/ui/FillUi$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/autofill/ui/FillUi;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/autofill/ui/FillUi;->lambda$applyCancelAction$4$FillUi(Landroid/view/View;)V
+    invoke-static {p0, p1, p2}, Lcom/android/server/autofill/ui/FillUi;->$r8$lambda$iEAZXWQl6gLozTSZpVOzRHjgaYs(Lcom/android/server/autofill/ui/FillUi;Landroid/view/View;Landroid/view/KeyEvent;)Z
 
-    return-void
+    move-result p0
+
+    return p0
 .end method

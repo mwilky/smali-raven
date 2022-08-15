@@ -1,4 +1,4 @@
-.class Lcom/android/server/MasterClearReceiver$1;
+.class public Lcom/android/server/MasterClearReceiver$1;
 .super Ljava/lang/Thread;
 .source "MasterClearReceiver.java"
 
@@ -9,25 +9,25 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/MasterClearReceiver;
+.field public final synthetic this$0:Lcom/android/server/MasterClearReceiver;
 
-.field final synthetic val$context:Landroid/content/Context;
+.field public final synthetic val$context:Landroid/content/Context;
 
-.field final synthetic val$forceWipe:Z
+.field public final synthetic val$forceWipe:Z
 
-.field final synthetic val$reason:Ljava/lang/String;
+.field public final synthetic val$reason:Ljava/lang/String;
 
-.field final synthetic val$shutdown:Z
+.field public final synthetic val$shutdown:Z
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/MasterClearReceiver;Ljava/lang/String;ZLjava/lang/String;ZLandroid/content/Context;)V
+.method public constructor <init>(Lcom/android/server/MasterClearReceiver;Ljava/lang/String;ZLjava/lang/String;ZLandroid/content/Context;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/MasterClearReceiver$1;->this$0:Lcom/android/server/MasterClearReceiver;
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 7
+    .locals 6
 
     const-string v0, "Can\'t perform master clear/factory reset"
 
@@ -89,7 +89,7 @@
 
     iget-object v3, p0, Lcom/android/server/MasterClearReceiver$1;->this$0:Lcom/android/server/MasterClearReceiver;
 
-    invoke-static {v3}, Lcom/android/server/MasterClearReceiver;->access$000(Lcom/android/server/MasterClearReceiver;)Z
+    invoke-static {v3}, Lcom/android/server/MasterClearReceiver;->-$$Nest$fgetmWipeEsims(Lcom/android/server/MasterClearReceiver;)Z
 
     move-result v3
 
@@ -113,17 +113,17 @@
 
     iget-boolean v5, p0, Lcom/android/server/MasterClearReceiver$1;->val$forceWipe:Z
 
-    iget-object v6, p0, Lcom/android/server/MasterClearReceiver$1;->this$0:Lcom/android/server/MasterClearReceiver;
+    iget-object p0, p0, Lcom/android/server/MasterClearReceiver$1;->this$0:Lcom/android/server/MasterClearReceiver;
 
-    invoke-static {v6}, Lcom/android/server/MasterClearReceiver;->access$000(Lcom/android/server/MasterClearReceiver;)Z
+    invoke-static {p0}, Lcom/android/server/MasterClearReceiver;->-$$Nest$fgetmWipeEsims(Lcom/android/server/MasterClearReceiver;)Z
 
-    move-result v6
+    move-result p0
 
-    invoke-static {v2, v3, v4, v5, v6}, Landroid/os/RecoverySystem;->rebootWipeUserData(Landroid/content/Context;ZLjava/lang/String;ZZ)V
+    invoke-static {v2, v3, v4, v5, p0}, Landroid/os/RecoverySystem;->rebootWipeUserData(Landroid/content/Context;ZLjava/lang/String;ZZ)V
 
-    const-string v2, "Still running after master clear?!"
+    const-string p0, "Still running after master clear?!"
 
-    invoke-static {v1, v2}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, p0}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
@@ -131,20 +131,17 @@
     goto :goto_0
 
     :catch_0
-    move-exception v2
+    move-exception p0
 
-    invoke-static {v1, v0, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v1, v0, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_1
+    goto :goto_0
 
     :catch_1
-    move-exception v2
+    move-exception p0
 
-    invoke-static {v1, v0, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v1, v0, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_0
-    nop
-
-    :goto_1
     return-void
 .end method

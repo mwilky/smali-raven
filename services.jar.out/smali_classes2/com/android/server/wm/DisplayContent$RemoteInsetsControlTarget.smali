@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/DisplayContent$RemoteInsetsControlTarget;
+.class public Lcom/android/server/wm/DisplayContent$RemoteInsetsControlTarget;
 .super Ljava/lang/Object;
 .source "DisplayContent.java"
 
@@ -12,44 +12,44 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = "RemoteInsetsControlTarget"
 .end annotation
 
 
 # instance fields
-.field private final mRemoteInsetsController:Landroid/view/IDisplayWindowInsetsController;
+.field public final mRemoteInsetsController:Landroid/view/IDisplayWindowInsetsController;
 
-.field private final mRequestedVisibilities:Landroid/view/InsetsVisibilities;
+.field public final mRequestedVisibilities:Landroid/view/InsetsVisibilities;
 
-.field final synthetic this$0:Lcom/android/server/wm/DisplayContent;
+.field public final synthetic this$0:Lcom/android/server/wm/DisplayContent;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/wm/DisplayContent;Landroid/view/IDisplayWindowInsetsController;)V
-    .locals 1
+.method public static bridge synthetic -$$Nest$fgetmRemoteInsetsController(Lcom/android/server/wm/DisplayContent$RemoteInsetsControlTarget;)Landroid/view/IDisplayWindowInsetsController;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/wm/DisplayContent$RemoteInsetsControlTarget;->mRemoteInsetsController:Landroid/view/IDisplayWindowInsetsController;
+
+    return-object p0
+.end method
+
+.method public constructor <init>(Lcom/android/server/wm/DisplayContent;Landroid/view/IDisplayWindowInsetsController;)V
+    .locals 0
 
     iput-object p1, p0, Lcom/android/server/wm/DisplayContent$RemoteInsetsControlTarget;->this$0:Lcom/android/server/wm/DisplayContent;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v0, Landroid/view/InsetsVisibilities;
+    new-instance p1, Landroid/view/InsetsVisibilities;
 
-    invoke-direct {v0}, Landroid/view/InsetsVisibilities;-><init>()V
+    invoke-direct {p1}, Landroid/view/InsetsVisibilities;-><init>()V
 
-    iput-object v0, p0, Lcom/android/server/wm/DisplayContent$RemoteInsetsControlTarget;->mRequestedVisibilities:Landroid/view/InsetsVisibilities;
+    iput-object p1, p0, Lcom/android/server/wm/DisplayContent$RemoteInsetsControlTarget;->mRequestedVisibilities:Landroid/view/InsetsVisibilities;
 
     iput-object p2, p0, Lcom/android/server/wm/DisplayContent$RemoteInsetsControlTarget;->mRemoteInsetsController:Landroid/view/IDisplayWindowInsetsController;
 
     return-void
-.end method
-
-.method static synthetic access$100(Lcom/android/server/wm/DisplayContent$RemoteInsetsControlTarget;)Landroid/view/IDisplayWindowInsetsController;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/wm/DisplayContent$RemoteInsetsControlTarget;->mRemoteInsetsController:Landroid/view/IDisplayWindowInsetsController;
-
-    return-object v0
 .end method
 
 
@@ -61,94 +61,94 @@
 
     if-ne p1, v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/wm/DisplayContent$RemoteInsetsControlTarget;->this$0:Lcom/android/server/wm/DisplayContent;
+    iget-object p0, p0, Lcom/android/server/wm/DisplayContent$RemoteInsetsControlTarget;->this$0:Lcom/android/server/wm/DisplayContent;
 
-    invoke-virtual {v0}, Lcom/android/server/wm/DisplayContent;->getInsetsStateController()Lcom/android/server/wm/InsetsStateController;
+    invoke-virtual {p0}, Lcom/android/server/wm/DisplayContent;->getInsetsStateController()Lcom/android/server/wm/InsetsStateController;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Lcom/android/server/wm/InsetsStateController;->getImeSourceProvider()Lcom/android/server/wm/ImeInsetsSourceProvider;
+    invoke-virtual {p0}, Lcom/android/server/wm/InsetsStateController;->getImeSourceProvider()Lcom/android/server/wm/ImeInsetsSourceProvider;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Lcom/android/server/wm/ImeInsetsSourceProvider;->isImeShowing()Z
+    invoke-virtual {p0}, Lcom/android/server/wm/ImeInsetsSourceProvider;->isImeShowing()Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/wm/DisplayContent$RemoteInsetsControlTarget;->mRequestedVisibilities:Landroid/view/InsetsVisibilities;
+    iget-object p0, p0, Lcom/android/server/wm/DisplayContent$RemoteInsetsControlTarget;->mRequestedVisibilities:Landroid/view/InsetsVisibilities;
 
-    invoke-virtual {v0, p1}, Landroid/view/InsetsVisibilities;->getVisibility(I)Z
+    invoke-virtual {p0, p1}, Landroid/view/InsetsVisibilities;->getVisibility(I)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public hideInsets(IZ)V
-    .locals 3
+    .locals 0
 
     :try_start_0
-    iget-object v0, p0, Lcom/android/server/wm/DisplayContent$RemoteInsetsControlTarget;->mRemoteInsetsController:Landroid/view/IDisplayWindowInsetsController;
+    iget-object p0, p0, Lcom/android/server/wm/DisplayContent$RemoteInsetsControlTarget;->mRemoteInsetsController:Landroid/view/IDisplayWindowInsetsController;
 
-    invoke-interface {v0, p1, p2}, Landroid/view/IDisplayWindowInsetsController;->hideInsets(IZ)V
+    invoke-interface {p0, p1, p2}, Landroid/view/IDisplayWindowInsetsController;->hideInsets(IZ)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    const-string v1, "WindowManager"
+    const-string p1, "WindowManager"
 
-    const-string v2, "Failed to deliver showInsets"
+    const-string p2, "Failed to deliver showInsets"
 
-    invoke-static {v1, v2, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {p1, p2, p0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_0
     return-void
 .end method
 
-.method notifyInsetsChanged()V
-    .locals 3
+.method public notifyInsetsChanged()V
+    .locals 2
 
     :try_start_0
     iget-object v0, p0, Lcom/android/server/wm/DisplayContent$RemoteInsetsControlTarget;->mRemoteInsetsController:Landroid/view/IDisplayWindowInsetsController;
 
-    iget-object v1, p0, Lcom/android/server/wm/DisplayContent$RemoteInsetsControlTarget;->this$0:Lcom/android/server/wm/DisplayContent;
+    iget-object p0, p0, Lcom/android/server/wm/DisplayContent$RemoteInsetsControlTarget;->this$0:Lcom/android/server/wm/DisplayContent;
 
-    invoke-virtual {v1}, Lcom/android/server/wm/DisplayContent;->getInsetsStateController()Lcom/android/server/wm/InsetsStateController;
+    invoke-virtual {p0}, Lcom/android/server/wm/DisplayContent;->getInsetsStateController()Lcom/android/server/wm/InsetsStateController;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v1}, Lcom/android/server/wm/InsetsStateController;->getRawInsetsState()Landroid/view/InsetsState;
+    invoke-virtual {p0}, Lcom/android/server/wm/InsetsStateController;->getRawInsetsState()Landroid/view/InsetsState;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-interface {v0, v1}, Landroid/view/IDisplayWindowInsetsController;->insetsChanged(Landroid/view/InsetsState;)V
+    invoke-interface {v0, p0}, Landroid/view/IDisplayWindowInsetsController;->insetsChanged(Landroid/view/InsetsState;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    const-string v1, "WindowManager"
+    const-string v0, "WindowManager"
 
-    const-string v2, "Failed to deliver inset state change"
+    const-string v1, "Failed to deliver inset state change"
 
-    invoke-static {v1, v2, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v0, v1, p0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_0
     return-void
 .end method
 
 .method public notifyInsetsControlChanged()V
-    .locals 4
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/wm/DisplayContent$RemoteInsetsControlTarget;->this$0:Lcom/android/server/wm/DisplayContent;
 
@@ -165,82 +165,82 @@
 
     invoke-virtual {v0, p0}, Lcom/android/server/wm/InsetsStateController;->getControlsForDispatch(Lcom/android/server/wm/InsetsControlTarget;)[Landroid/view/InsetsSourceControl;
 
-    move-result-object v3
+    move-result-object p0
 
-    invoke-interface {v1, v2, v3}, Landroid/view/IDisplayWindowInsetsController;->insetsControlChanged(Landroid/view/InsetsState;[Landroid/view/InsetsSourceControl;)V
+    invoke-interface {v1, v2, p0}, Landroid/view/IDisplayWindowInsetsController;->insetsControlChanged(Landroid/view/InsetsState;[Landroid/view/InsetsSourceControl;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
     :catch_0
-    move-exception v1
+    move-exception p0
 
-    const-string v2, "WindowManager"
+    const-string v0, "WindowManager"
 
-    const-string v3, "Failed to deliver inset state change"
+    const-string v1, "Failed to deliver inset state change"
 
-    invoke-static {v2, v3, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v0, v1, p0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_0
     return-void
 .end method
 
-.method setRequestedVisibilities(Landroid/view/InsetsVisibilities;)V
-    .locals 1
+.method public setRequestedVisibilities(Landroid/view/InsetsVisibilities;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/DisplayContent$RemoteInsetsControlTarget;->mRequestedVisibilities:Landroid/view/InsetsVisibilities;
+    iget-object p0, p0, Lcom/android/server/wm/DisplayContent$RemoteInsetsControlTarget;->mRequestedVisibilities:Landroid/view/InsetsVisibilities;
 
-    invoke-virtual {v0, p1}, Landroid/view/InsetsVisibilities;->set(Landroid/view/InsetsVisibilities;)V
+    invoke-virtual {p0, p1}, Landroid/view/InsetsVisibilities;->set(Landroid/view/InsetsVisibilities;)V
 
     return-void
 .end method
 
 .method public showInsets(IZ)V
-    .locals 3
+    .locals 0
 
     :try_start_0
-    iget-object v0, p0, Lcom/android/server/wm/DisplayContent$RemoteInsetsControlTarget;->mRemoteInsetsController:Landroid/view/IDisplayWindowInsetsController;
+    iget-object p0, p0, Lcom/android/server/wm/DisplayContent$RemoteInsetsControlTarget;->mRemoteInsetsController:Landroid/view/IDisplayWindowInsetsController;
 
-    invoke-interface {v0, p1, p2}, Landroid/view/IDisplayWindowInsetsController;->showInsets(IZ)V
+    invoke-interface {p0, p1, p2}, Landroid/view/IDisplayWindowInsetsController;->showInsets(IZ)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    const-string v1, "WindowManager"
+    const-string p1, "WindowManager"
 
-    const-string v2, "Failed to deliver showInsets"
+    const-string p2, "Failed to deliver showInsets"
 
-    invoke-static {v1, v2, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {p1, p2, p0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_0
     return-void
 .end method
 
-.method topFocusedWindowChanged(Ljava/lang/String;)V
-    .locals 3
+.method public topFocusedWindowChanged(Ljava/lang/String;Landroid/view/InsetsVisibilities;)V
+    .locals 0
 
     :try_start_0
-    iget-object v0, p0, Lcom/android/server/wm/DisplayContent$RemoteInsetsControlTarget;->mRemoteInsetsController:Landroid/view/IDisplayWindowInsetsController;
+    iget-object p0, p0, Lcom/android/server/wm/DisplayContent$RemoteInsetsControlTarget;->mRemoteInsetsController:Landroid/view/IDisplayWindowInsetsController;
 
-    invoke-interface {v0, p1}, Landroid/view/IDisplayWindowInsetsController;->topFocusedWindowChanged(Ljava/lang/String;)V
+    invoke-interface {p0, p1, p2}, Landroid/view/IDisplayWindowInsetsController;->topFocusedWindowChanged(Ljava/lang/String;Landroid/view/InsetsVisibilities;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    const-string v1, "WindowManager"
+    const-string p1, "WindowManager"
 
-    const-string v2, "Failed to deliver package in top focused window change"
+    const-string p2, "Failed to deliver package in top focused window change"
 
-    invoke-static {v1, v2, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {p1, p2, p0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_0
     return-void

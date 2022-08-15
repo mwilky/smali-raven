@@ -1,4 +1,4 @@
-.class Lcom/android/server/am/BroadcastDispatcher$2;
+.class public Lcom/android/server/am/BroadcastDispatcher$2;
 .super Ljava/lang/Object;
 .source "BroadcastDispatcher.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/am/BroadcastDispatcher;
+.field public final synthetic this$0:Lcom/android/server/am/BroadcastDispatcher;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/BroadcastDispatcher;)V
+.method public constructor <init>(Lcom/android/server/am/BroadcastDispatcher;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/am/BroadcastDispatcher$2;->this$0:Lcom/android/server/am/BroadcastDispatcher;
@@ -35,11 +35,11 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/am/BroadcastDispatcher$2;->this$0:Lcom/android/server/am/BroadcastDispatcher;
 
-    invoke-static {v0}, Lcom/android/server/am/BroadcastDispatcher;->access$000(Lcom/android/server/am/BroadcastDispatcher;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/server/am/BroadcastDispatcher;->-$$Nest$fgetmLock(Lcom/android/server/am/BroadcastDispatcher;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -48,28 +48,28 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/server/am/BroadcastDispatcher$2;->this$0:Lcom/android/server/am/BroadcastDispatcher;
 
-    invoke-static {v1}, Lcom/android/server/am/BroadcastDispatcher;->access$400(Lcom/android/server/am/BroadcastDispatcher;)Lcom/android/server/am/BroadcastQueue;
+    invoke-static {v1}, Lcom/android/server/am/BroadcastDispatcher;->-$$Nest$fgetmQueue(Lcom/android/server/am/BroadcastDispatcher;)Lcom/android/server/am/BroadcastQueue;
 
     move-result-object v1
 
     invoke-virtual {v1}, Lcom/android/server/am/BroadcastQueue;->scheduleBroadcastsLocked()V
 
-    iget-object v1, p0, Lcom/android/server/am/BroadcastDispatcher$2;->this$0:Lcom/android/server/am/BroadcastDispatcher;
+    iget-object p0, p0, Lcom/android/server/am/BroadcastDispatcher$2;->this$0:Lcom/android/server/am/BroadcastDispatcher;
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    invoke-static {v1, v2}, Lcom/android/server/am/BroadcastDispatcher;->access$502(Lcom/android/server/am/BroadcastDispatcher;Z)Z
+    invoke-static {p0, v1}, Lcom/android/server/am/BroadcastDispatcher;->-$$Nest$fputmRecheckScheduled(Lcom/android/server/am/BroadcastDispatcher;Z)V
 
     monitor-exit v0
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method

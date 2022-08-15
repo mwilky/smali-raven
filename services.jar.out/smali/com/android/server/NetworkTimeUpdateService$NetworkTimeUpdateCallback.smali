@@ -1,4 +1,4 @@
-.class Lcom/android/server/NetworkTimeUpdateService$NetworkTimeUpdateCallback;
+.class public Lcom/android/server/NetworkTimeUpdateService$NetworkTimeUpdateCallback;
 .super Landroid/net/ConnectivityManager$NetworkCallback;
 .source "NetworkTimeUpdateService.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "NetworkTimeUpdateCallback"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/NetworkTimeUpdateService;
+.field public final synthetic this$0:Lcom/android/server/NetworkTimeUpdateService;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/server/NetworkTimeUpdateService;)V
+.method public constructor <init>(Lcom/android/server/NetworkTimeUpdateService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/NetworkTimeUpdateService$NetworkTimeUpdateCallback;->this$0:Lcom/android/server/NetworkTimeUpdateService;
@@ -29,7 +29,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/NetworkTimeUpdateService;Lcom/android/server/NetworkTimeUpdateService$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/NetworkTimeUpdateService;Lcom/android/server/NetworkTimeUpdateService$NetworkTimeUpdateCallback-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/NetworkTimeUpdateService$NetworkTimeUpdateCallback;-><init>(Lcom/android/server/NetworkTimeUpdateService;)V
@@ -62,37 +62,37 @@
 
     iget-object v0, p0, Lcom/android/server/NetworkTimeUpdateService$NetworkTimeUpdateCallback;->this$0:Lcom/android/server/NetworkTimeUpdateService;
 
-    invoke-static {v0, p1}, Lcom/android/server/NetworkTimeUpdateService;->access$302(Lcom/android/server/NetworkTimeUpdateService;Landroid/net/Network;)Landroid/net/Network;
+    invoke-static {v0, p1}, Lcom/android/server/NetworkTimeUpdateService;->-$$Nest$fputmDefaultNetwork(Lcom/android/server/NetworkTimeUpdateService;Landroid/net/Network;)V
 
-    iget-object v0, p0, Lcom/android/server/NetworkTimeUpdateService$NetworkTimeUpdateCallback;->this$0:Lcom/android/server/NetworkTimeUpdateService;
+    iget-object p0, p0, Lcom/android/server/NetworkTimeUpdateService$NetworkTimeUpdateCallback;->this$0:Lcom/android/server/NetworkTimeUpdateService;
 
-    const/4 v1, 0x3
+    const/4 p1, 0x3
 
-    invoke-static {v0, v1}, Lcom/android/server/NetworkTimeUpdateService;->access$200(Lcom/android/server/NetworkTimeUpdateService;I)V
+    invoke-static {p0, p1}, Lcom/android/server/NetworkTimeUpdateService;->-$$Nest$monPollNetworkTime(Lcom/android/server/NetworkTimeUpdateService;I)V
 
     return-void
 .end method
 
 .method public onLost(Landroid/net/Network;)V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/NetworkTimeUpdateService$NetworkTimeUpdateCallback;->this$0:Lcom/android/server/NetworkTimeUpdateService;
 
-    invoke-static {v0}, Lcom/android/server/NetworkTimeUpdateService;->access$300(Lcom/android/server/NetworkTimeUpdateService;)Landroid/net/Network;
+    invoke-static {v0}, Lcom/android/server/NetworkTimeUpdateService;->-$$Nest$fgetmDefaultNetwork(Lcom/android/server/NetworkTimeUpdateService;)Landroid/net/Network;
 
     move-result-object v0
 
     invoke-virtual {p1, v0}, Landroid/net/Network;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/NetworkTimeUpdateService$NetworkTimeUpdateCallback;->this$0:Lcom/android/server/NetworkTimeUpdateService;
+    iget-object p0, p0, Lcom/android/server/NetworkTimeUpdateService$NetworkTimeUpdateCallback;->this$0:Lcom/android/server/NetworkTimeUpdateService;
 
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    invoke-static {v0, v1}, Lcom/android/server/NetworkTimeUpdateService;->access$302(Lcom/android/server/NetworkTimeUpdateService;Landroid/net/Network;)Landroid/net/Network;
+    invoke-static {p0, p1}, Lcom/android/server/NetworkTimeUpdateService;->-$$Nest$fputmDefaultNetwork(Lcom/android/server/NetworkTimeUpdateService;Landroid/net/Network;)V
 
     :cond_0
     return-void

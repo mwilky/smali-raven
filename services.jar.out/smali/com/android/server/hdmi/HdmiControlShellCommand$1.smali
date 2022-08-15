@@ -1,4 +1,4 @@
-.class Lcom/android/server/hdmi/HdmiControlShellCommand$1;
+.class public Lcom/android/server/hdmi/HdmiControlShellCommand$1;
 .super Landroid/hardware/hdmi/IHdmiControlCallback$Stub;
 .source "HdmiControlShellCommand.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/hdmi/HdmiControlShellCommand;
+.field public final synthetic this$0:Lcom/android/server/hdmi/HdmiControlShellCommand;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/hdmi/HdmiControlShellCommand;)V
+.method public constructor <init>(Lcom/android/server/hdmi/HdmiControlShellCommand;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/hdmi/HdmiControlShellCommand$1;->this$0:Lcom/android/server/hdmi/HdmiControlShellCommand;
@@ -36,7 +36,7 @@
 
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlShellCommand$1;->this$0:Lcom/android/server/hdmi/HdmiControlShellCommand;
 
-    invoke-virtual {v0}, Lcom/android/server/hdmi/HdmiControlShellCommand;->getOutPrintWriter()Ljava/io/PrintWriter;
+    invoke-virtual {v0}, Landroid/os/ShellCommand;->getOutPrintWriter()Ljava/io/PrintWriter;
 
     move-result-object v0
 
@@ -50,7 +50,7 @@
 
     iget-object v2, p0, Lcom/android/server/hdmi/HdmiControlShellCommand$1;->this$0:Lcom/android/server/hdmi/HdmiControlShellCommand;
 
-    invoke-static {v2, p1}, Lcom/android/server/hdmi/HdmiControlShellCommand;->access$000(Lcom/android/server/hdmi/HdmiControlShellCommand;I)Ljava/lang/String;
+    invoke-static {v2, p1}, Lcom/android/server/hdmi/HdmiControlShellCommand;->-$$Nest$mgetResultString(Lcom/android/server/hdmi/HdmiControlShellCommand;I)Ljava/lang/String;
 
     move-result-object v2
 
@@ -72,11 +72,11 @@
 
     invoke-virtual {v0, p1}, Ljava/util/concurrent/atomic/AtomicInteger;->set(I)V
 
-    iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlShellCommand$1;->this$0:Lcom/android/server/hdmi/HdmiControlShellCommand;
+    iget-object p0, p0, Lcom/android/server/hdmi/HdmiControlShellCommand$1;->this$0:Lcom/android/server/hdmi/HdmiControlShellCommand;
 
-    iget-object v0, v0, Lcom/android/server/hdmi/HdmiControlShellCommand;->mLatch:Ljava/util/concurrent/CountDownLatch;
+    iget-object p0, p0, Lcom/android/server/hdmi/HdmiControlShellCommand;->mLatch:Ljava/util/concurrent/CountDownLatch;
 
-    invoke-virtual {v0}, Ljava/util/concurrent/CountDownLatch;->countDown()V
+    invoke-virtual {p0}, Ljava/util/concurrent/CountDownLatch;->countDown()V
 
     return-void
 .end method

@@ -1,4 +1,4 @@
-.class Lcom/android/server/textservices/TextServicesManagerService$Lifecycle$1;
+.class public Lcom/android/server/textservices/TextServicesManagerService$Lifecycle$1;
 .super Lcom/android/server/textservices/TextServicesManagerInternal;
 .source "TextServicesManagerService.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/textservices/TextServicesManagerService$Lifecycle;
+.field public final synthetic this$0:Lcom/android/server/textservices/TextServicesManagerService$Lifecycle;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/textservices/TextServicesManagerService$Lifecycle;)V
+.method public constructor <init>(Lcom/android/server/textservices/TextServicesManagerService$Lifecycle;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/textservices/TextServicesManagerService$Lifecycle$1;->this$0:Lcom/android/server/textservices/TextServicesManagerService$Lifecycle;
@@ -32,17 +32,17 @@
 
 # virtual methods
 .method public getCurrentSpellCheckerForUser(I)Landroid/view/textservice/SpellCheckerInfo;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/textservices/TextServicesManagerService$Lifecycle$1;->this$0:Lcom/android/server/textservices/TextServicesManagerService$Lifecycle;
+    iget-object p0, p0, Lcom/android/server/textservices/TextServicesManagerService$Lifecycle$1;->this$0:Lcom/android/server/textservices/TextServicesManagerService$Lifecycle;
 
-    invoke-static {v0}, Lcom/android/server/textservices/TextServicesManagerService$Lifecycle;->access$800(Lcom/android/server/textservices/TextServicesManagerService$Lifecycle;)Lcom/android/server/textservices/TextServicesManagerService;
+    invoke-static {p0}, Lcom/android/server/textservices/TextServicesManagerService$Lifecycle;->-$$Nest$fgetmService(Lcom/android/server/textservices/TextServicesManagerService$Lifecycle;)Lcom/android/server/textservices/TextServicesManagerService;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0, p1}, Lcom/android/server/textservices/TextServicesManagerService;->access$900(Lcom/android/server/textservices/TextServicesManagerService;I)Landroid/view/textservice/SpellCheckerInfo;
+    invoke-static {p0, p1}, Lcom/android/server/textservices/TextServicesManagerService;->-$$Nest$mgetCurrentSpellCheckerForUser(Lcom/android/server/textservices/TextServicesManagerService;I)Landroid/view/textservice/SpellCheckerInfo;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

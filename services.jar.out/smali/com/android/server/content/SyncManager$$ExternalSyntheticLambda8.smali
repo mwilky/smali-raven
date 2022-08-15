@@ -1,47 +1,42 @@
 .class public final synthetic Lcom/android/server/content/SyncManager$$ExternalSyntheticLambda8;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/Comparator;
+.implements Ljava/util/function/Function;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/content/SyncManager$$ExternalSyntheticLambda8;
+# instance fields
+.field public final synthetic f$0:Lcom/android/server/content/SyncManager;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/content/SyncManager$$ExternalSyntheticLambda8;
-
-    invoke-direct {v0}, Lcom/android/server/content/SyncManager$$ExternalSyntheticLambda8;-><init>()V
-
-    sput-object v0, Lcom/android/server/content/SyncManager$$ExternalSyntheticLambda8;->INSTANCE:Lcom/android/server/content/SyncManager$$ExternalSyntheticLambda8;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Lcom/android/server/content/SyncManager;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/content/SyncManager$$ExternalSyntheticLambda8;->f$0:Lcom/android/server/content/SyncManager;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final compare(Ljava/lang/Object;Ljava/lang/Object;)I
+.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
 
-    check-cast p1, Lcom/android/server/content/SyncOperation;
+    iget-object p0, p0, Lcom/android/server/content/SyncManager$$ExternalSyntheticLambda8;->f$0:Lcom/android/server/content/SyncManager;
 
-    check-cast p2, Lcom/android/server/content/SyncOperation;
+    check-cast p1, Ljava/lang/Integer;
 
-    invoke-static {p1, p2}, Lcom/android/server/content/SyncManager;->lambda$static$6(Lcom/android/server/content/SyncOperation;Lcom/android/server/content/SyncOperation;)I
+    invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
 
     move-result p1
 
-    return p1
+    invoke-static {p0, p1}, Lcom/android/server/content/SyncManager;->$r8$lambda$f_0Z1_2aO_5hA8fHgzsbmTPHbes(Lcom/android/server/content/SyncManager;I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 .end method

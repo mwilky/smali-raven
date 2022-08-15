@@ -1,45 +1,62 @@
 .class public final synthetic Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda12;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Ljava/util/function/Consumer;
 
 
 # instance fields
 .field public final synthetic f$0:Lcom/android/server/am/ActivityManagerService;
 
-.field public final synthetic f$1:Ljava/util/ArrayList;
+.field public final synthetic f$1:J
 
-.field public final synthetic f$2:Ljava/lang/String;
+.field public final synthetic f$2:J
+
+.field public final synthetic f$3:Z
+
+.field public final synthetic f$4:Z
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/am/ActivityManagerService;Ljava/util/ArrayList;Ljava/lang/String;)V
+.method public synthetic constructor <init>(Lcom/android/server/am/ActivityManagerService;JJZZ)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda12;->f$0:Lcom/android/server/am/ActivityManagerService;
 
-    iput-object p2, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda12;->f$1:Ljava/util/ArrayList;
+    iput-wide p2, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda12;->f$1:J
 
-    iput-object p3, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda12;->f$2:Ljava/lang/String;
+    iput-wide p4, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda12;->f$2:J
+
+    iput-boolean p6, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda12;->f$3:Z
+
+    iput-boolean p7, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda12;->f$4:Z
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final run()V
-    .locals 3
+.method public final accept(Ljava/lang/Object;)V
+    .locals 8
 
     iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda12;->f$0:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v1, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda12;->f$1:Ljava/util/ArrayList;
+    iget-wide v1, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda12;->f$1:J
 
-    iget-object v2, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda12;->f$2:Ljava/lang/String;
+    iget-wide v3, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda12;->f$2:J
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/am/ActivityManagerService;->lambda$killPids$4$ActivityManagerService(Ljava/util/ArrayList;Ljava/lang/String;)V
+    iget-boolean v5, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda12;->f$3:Z
+
+    iget-boolean v6, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda12;->f$4:Z
+
+    move-object v7, p1
+
+    check-cast v7, Lcom/android/server/am/ProcessRecord;
+
+    invoke-static/range {v0 .. v7}, Lcom/android/server/am/ActivityManagerService;->$r8$lambda$vSwcjZLInwE40j-EAbD7kDO2Uwo(Lcom/android/server/am/ActivityManagerService;JJZZLcom/android/server/am/ProcessRecord;)V
 
     return-void
 .end method

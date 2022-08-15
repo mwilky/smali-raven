@@ -1,4 +1,4 @@
-.class Lcom/android/server/sensors/SensorService$ProximityListenerDelegate;
+.class public Lcom/android/server/sensors/SensorService$ProximityListenerDelegate;
 .super Ljava/lang/Object;
 .source "SensorService.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "ProximityListenerDelegate"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/sensors/SensorService;
+.field public final synthetic this$0:Lcom/android/server/sensors/SensorService;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/server/sensors/SensorService;)V
+.method public constructor <init>(Lcom/android/server/sensors/SensorService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/sensors/SensorService$ProximityListenerDelegate;->this$0:Lcom/android/server/sensors/SensorService;
@@ -32,7 +32,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/sensors/SensorService;Lcom/android/server/sensors/SensorService$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/sensors/SensorService;Lcom/android/server/sensors/SensorService$ProximityListenerDelegate-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/sensors/SensorService$ProximityListenerDelegate;-><init>(Lcom/android/server/sensors/SensorService;)V
@@ -43,51 +43,51 @@
 
 # virtual methods
 .method public onProximityActive(Z)V
-    .locals 4
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/sensors/SensorService$ProximityListenerDelegate;->this$0:Lcom/android/server/sensors/SensorService;
 
-    invoke-static {v0}, Lcom/android/server/sensors/SensorService;->access$000(Lcom/android/server/sensors/SensorService;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/server/sensors/SensorService;->-$$Nest$fgetmLock(Lcom/android/server/sensors/SensorService;)Ljava/lang/Object;
 
     move-result-object v0
 
     monitor-enter v0
 
     :try_start_0
-    iget-object v1, p0, Lcom/android/server/sensors/SensorService$ProximityListenerDelegate;->this$0:Lcom/android/server/sensors/SensorService;
+    iget-object p0, p0, Lcom/android/server/sensors/SensorService$ProximityListenerDelegate;->this$0:Lcom/android/server/sensors/SensorService;
 
-    invoke-static {v1}, Lcom/android/server/sensors/SensorService;->access$100(Lcom/android/server/sensors/SensorService;)Landroid/util/ArrayMap;
+    invoke-static {p0}, Lcom/android/server/sensors/SensorService;->-$$Nest$fgetmProximityListeners(Lcom/android/server/sensors/SensorService;)Landroid/util/ArrayMap;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v1}, Landroid/util/ArrayMap;->values()Ljava/util/Collection;
+    invoke-virtual {p0}, Landroid/util/ArrayMap;->values()Ljava/util/Collection;
 
-    move-result-object v1
+    move-result-object p0
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    new-array v3, v2, [Lcom/android/server/sensors/SensorService$ProximityListenerProxy;
+    new-array v2, v1, [Lcom/android/server/sensors/SensorService$ProximityListenerProxy;
 
-    invoke-interface {v1, v3}, Ljava/util/Collection;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+    invoke-interface {p0, v2}, Ljava/util/Collection;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p0
 
-    check-cast v1, [Lcom/android/server/sensors/SensorService$ProximityListenerProxy;
+    check-cast p0, [Lcom/android/server/sensors/SensorService$ProximityListenerProxy;
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    array-length v0, v1
+    array-length v0, p0
 
     :goto_0
-    if-ge v2, v0, :cond_0
+    if-ge v1, v0, :cond_0
 
-    aget-object v3, v1, v2
+    aget-object v2, p0, v1
 
-    invoke-virtual {v3, p1}, Lcom/android/server/sensors/SensorService$ProximityListenerProxy;->onProximityActive(Z)V
+    invoke-virtual {v2, p1}, Lcom/android/server/sensors/SensorService$ProximityListenerProxy;->onProximityActive(Z)V
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
@@ -95,12 +95,12 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     :try_start_1
     monitor-exit v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v1
+    throw p0
 .end method

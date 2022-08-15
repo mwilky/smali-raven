@@ -1,4 +1,4 @@
-.class final Lcom/android/server/am/ContentProviderHelper$DevelopmentSettingsObserver;
+.class public final Lcom/android/server/am/ContentProviderHelper$DevelopmentSettingsObserver;
 .super Landroid/database/ContentObserver;
 .source "ContentProviderHelper.java"
 
@@ -9,26 +9,26 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "DevelopmentSettingsObserver"
 .end annotation
 
 
 # instance fields
-.field private final mBugreportStorageProvider:Landroid/content/ComponentName;
+.field public final mBugreportStorageProvider:Landroid/content/ComponentName;
 
-.field private final mUri:Landroid/net/Uri;
+.field public final mUri:Landroid/net/Uri;
 
-.field final synthetic this$0:Lcom/android/server/am/ContentProviderHelper;
+.field public final synthetic this$0:Lcom/android/server/am/ContentProviderHelper;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/ContentProviderHelper;)V
+.method public constructor <init>(Lcom/android/server/am/ContentProviderHelper;)V
     .locals 4
 
     iput-object p1, p0, Lcom/android/server/am/ContentProviderHelper$DevelopmentSettingsObserver;->this$0:Lcom/android/server/am/ContentProviderHelper;
 
-    invoke-static {p1}, Lcom/android/server/am/ContentProviderHelper;->access$000(Lcom/android/server/am/ContentProviderHelper;)Lcom/android/server/am/ActivityManagerService;
+    invoke-static {p1}, Lcom/android/server/am/ContentProviderHelper;->-$$Nest$fgetmService(Lcom/android/server/am/ContentProviderHelper;)Lcom/android/server/am/ActivityManagerService;
 
     move-result-object v0
 
@@ -54,7 +54,7 @@
 
     iput-object v1, p0, Lcom/android/server/am/ContentProviderHelper$DevelopmentSettingsObserver;->mBugreportStorageProvider:Landroid/content/ComponentName;
 
-    invoke-static {p1}, Lcom/android/server/am/ContentProviderHelper;->access$000(Lcom/android/server/am/ContentProviderHelper;)Lcom/android/server/am/ActivityManagerService;
+    invoke-static {p1}, Lcom/android/server/am/ContentProviderHelper;->-$$Nest$fgetmService(Lcom/android/server/am/ContentProviderHelper;)Lcom/android/server/am/ActivityManagerService;
 
     move-result-object p1
 
@@ -70,17 +70,19 @@
 
     invoke-virtual {p1, v0, v1, p0, v2}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
 
-    invoke-direct {p0}, Lcom/android/server/am/ContentProviderHelper$DevelopmentSettingsObserver;->onChange()V
+    invoke-virtual {p0}, Lcom/android/server/am/ContentProviderHelper$DevelopmentSettingsObserver;->onChange()V
 
     return-void
 .end method
 
-.method private onChange()V
-    .locals 5
+
+# virtual methods
+.method public final onChange()V
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/am/ContentProviderHelper$DevelopmentSettingsObserver;->this$0:Lcom/android/server/am/ContentProviderHelper;
 
-    invoke-static {v0}, Lcom/android/server/am/ContentProviderHelper;->access$000(Lcom/android/server/am/ContentProviderHelper;)Lcom/android/server/am/ActivityManagerService;
+    invoke-static {v0}, Lcom/android/server/am/ContentProviderHelper;->-$$Nest$fgetmService(Lcom/android/server/am/ContentProviderHelper;)Lcom/android/server/am/ActivityManagerService;
 
     move-result-object v0
 
@@ -98,63 +100,49 @@
 
     move-result v0
 
-    const/4 v1, 0x1
-
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
     if-eqz v0, :cond_0
 
-    move v0, v1
+    const/4 v0, 0x1
 
     goto :goto_0
 
     :cond_0
-    move v0, v2
+    move v0, v1
 
     :goto_0
-    iget-object v3, p0, Lcom/android/server/am/ContentProviderHelper$DevelopmentSettingsObserver;->this$0:Lcom/android/server/am/ContentProviderHelper;
+    iget-object v2, p0, Lcom/android/server/am/ContentProviderHelper$DevelopmentSettingsObserver;->this$0:Lcom/android/server/am/ContentProviderHelper;
 
-    invoke-static {v3}, Lcom/android/server/am/ContentProviderHelper;->access$000(Lcom/android/server/am/ContentProviderHelper;)Lcom/android/server/am/ActivityManagerService;
+    invoke-static {v2}, Lcom/android/server/am/ContentProviderHelper;->-$$Nest$fgetmService(Lcom/android/server/am/ContentProviderHelper;)Lcom/android/server/am/ActivityManagerService;
 
-    move-result-object v3
+    move-result-object v2
 
-    iget-object v3, v3, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
+    iget-object v2, v2, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v3}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {v2}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v3
+    move-result-object v2
 
-    iget-object v4, p0, Lcom/android/server/am/ContentProviderHelper$DevelopmentSettingsObserver;->mBugreportStorageProvider:Landroid/content/ComponentName;
+    iget-object p0, p0, Lcom/android/server/am/ContentProviderHelper$DevelopmentSettingsObserver;->mBugreportStorageProvider:Landroid/content/ComponentName;
 
-    if-eqz v0, :cond_1
-
-    goto :goto_1
-
-    :cond_1
-    move v1, v2
-
-    :goto_1
-    nop
-
-    invoke-virtual {v3, v4, v1, v2}, Landroid/content/pm/PackageManager;->setComponentEnabledSetting(Landroid/content/ComponentName;II)V
+    invoke-virtual {v2, p0, v0, v1}, Landroid/content/pm/PackageManager;->setComponentEnabledSetting(Landroid/content/ComponentName;II)V
 
     return-void
 .end method
 
-
-# virtual methods
 .method public onChange(ZLandroid/net/Uri;I)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/am/ContentProviderHelper$DevelopmentSettingsObserver;->mUri:Landroid/net/Uri;
+    iget-object p1, p0, Lcom/android/server/am/ContentProviderHelper$DevelopmentSettingsObserver;->mUri:Landroid/net/Uri;
 
-    invoke-virtual {v0, p2}, Landroid/net/Uri;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, p2}, Landroid/net/Uri;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    invoke-direct {p0}, Lcom/android/server/am/ContentProviderHelper$DevelopmentSettingsObserver;->onChange()V
+    invoke-virtual {p0}, Lcom/android/server/am/ContentProviderHelper$DevelopmentSettingsObserver;->onChange()V
 
     :cond_0
     return-void

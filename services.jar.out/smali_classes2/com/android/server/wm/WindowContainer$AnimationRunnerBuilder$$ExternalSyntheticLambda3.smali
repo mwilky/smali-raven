@@ -1,39 +1,34 @@
 .class public final synthetic Lcom/android/server/wm/WindowContainer$AnimationRunnerBuilder$$ExternalSyntheticLambda3;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Lcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;
 
 
 # instance fields
 .field public final synthetic f$0:Lcom/android/server/wm/WindowContainer$AnimationRunnerBuilder;
 
-.field public final synthetic f$1:Lcom/android/server/wm/InsetsSourceProvider;
-
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/wm/WindowContainer$AnimationRunnerBuilder;Lcom/android/server/wm/InsetsSourceProvider;)V
+.method public synthetic constructor <init>(Lcom/android/server/wm/WindowContainer$AnimationRunnerBuilder;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/server/wm/WindowContainer$AnimationRunnerBuilder$$ExternalSyntheticLambda3;->f$0:Lcom/android/server/wm/WindowContainer$AnimationRunnerBuilder;
 
-    iput-object p2, p0, Lcom/android/server/wm/WindowContainer$AnimationRunnerBuilder$$ExternalSyntheticLambda3;->f$1:Lcom/android/server/wm/InsetsSourceProvider;
-
     return-void
 .end method
 
 
 # virtual methods
-.method public final run()V
-    .locals 2
+.method public final onAnimationFinished(ILcom/android/server/wm/AnimationAdapter;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/WindowContainer$AnimationRunnerBuilder$$ExternalSyntheticLambda3;->f$0:Lcom/android/server/wm/WindowContainer$AnimationRunnerBuilder;
+    iget-object p0, p0, Lcom/android/server/wm/WindowContainer$AnimationRunnerBuilder$$ExternalSyntheticLambda3;->f$0:Lcom/android/server/wm/WindowContainer$AnimationRunnerBuilder;
 
-    iget-object v1, p0, Lcom/android/server/wm/WindowContainer$AnimationRunnerBuilder$$ExternalSyntheticLambda3;->f$1:Lcom/android/server/wm/InsetsSourceProvider;
-
-    invoke-virtual {v0, v1}, Lcom/android/server/wm/WindowContainer$AnimationRunnerBuilder;->lambda$hideInsetSourceViewOverflows$1$WindowContainer$AnimationRunnerBuilder(Lcom/android/server/wm/InsetsSourceProvider;)V
+    invoke-static {p0, p1, p2}, Lcom/android/server/wm/WindowContainer$AnimationRunnerBuilder;->$r8$lambda$L86DUsucxd2PjIvRYXz9DPH-J0s(Lcom/android/server/wm/WindowContainer$AnimationRunnerBuilder;ILcom/android/server/wm/AnimationAdapter;)V
 
     return-void
 .end method

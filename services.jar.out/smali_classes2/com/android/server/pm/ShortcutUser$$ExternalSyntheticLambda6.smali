@@ -1,31 +1,30 @@
 .class public final synthetic Lcom/android/server/pm/ShortcutUser$$ExternalSyntheticLambda6;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/pm/ShortcutUser$$ExternalSyntheticLambda6;
+# instance fields
+.field public final synthetic f$0:I
+
+.field public final synthetic f$1:Ljava/lang/String;
+
+.field public final synthetic f$2:Ljava/util/function/Consumer;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/pm/ShortcutUser$$ExternalSyntheticLambda6;
-
-    invoke-direct {v0}, Lcom/android/server/pm/ShortcutUser$$ExternalSyntheticLambda6;-><init>()V
-
-    sput-object v0, Lcom/android/server/pm/ShortcutUser$$ExternalSyntheticLambda6;->INSTANCE:Lcom/android/server/pm/ShortcutUser$$ExternalSyntheticLambda6;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(ILjava/lang/String;Ljava/util/function/Consumer;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput p1, p0, Lcom/android/server/pm/ShortcutUser$$ExternalSyntheticLambda6;->f$0:I
+
+    iput-object p2, p0, Lcom/android/server/pm/ShortcutUser$$ExternalSyntheticLambda6;->f$1:Ljava/lang/String;
+
+    iput-object p3, p0, Lcom/android/server/pm/ShortcutUser$$ExternalSyntheticLambda6;->f$2:Ljava/util/function/Consumer;
 
     return-void
 .end method
@@ -33,11 +32,17 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 0
+    .locals 2
 
-    check-cast p1, Lcom/android/server/pm/ShortcutPackage;
+    iget v0, p0, Lcom/android/server/pm/ShortcutUser$$ExternalSyntheticLambda6;->f$0:I
 
-    invoke-static {p1}, Lcom/android/server/pm/ShortcutUser;->lambda$detectLocaleChange$1(Lcom/android/server/pm/ShortcutPackage;)V
+    iget-object v1, p0, Lcom/android/server/pm/ShortcutUser$$ExternalSyntheticLambda6;->f$1:Ljava/lang/String;
+
+    iget-object p0, p0, Lcom/android/server/pm/ShortcutUser$$ExternalSyntheticLambda6;->f$2:Ljava/util/function/Consumer;
+
+    check-cast p1, Lcom/android/server/pm/ShortcutPackageItem;
+
+    invoke-static {v0, v1, p0, p1}, Lcom/android/server/pm/ShortcutUser;->$r8$lambda$Cro22bo0GMwtvt4MGtcaIYiFnT4(ILjava/lang/String;Ljava/util/function/Consumer;Lcom/android/server/pm/ShortcutPackageItem;)V
 
     return-void
 .end method

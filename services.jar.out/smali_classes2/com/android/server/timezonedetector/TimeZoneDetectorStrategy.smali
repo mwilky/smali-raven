@@ -4,20 +4,19 @@
 
 # interfaces
 .implements Lcom/android/server/timezonedetector/Dumpable;
-.implements Lcom/android/server/timezonedetector/Dumpable$Container;
 
 
 # virtual methods
-.method public abstract addConfigChangeListener(Lcom/android/server/timezonedetector/ConfigurationChangeListener;)V
+.method public abstract enableTelephonyTimeZoneFallback()V
 .end method
 
 .method public abstract generateMetricsState()Lcom/android/server/timezonedetector/MetricsTimeZoneDetectorState;
 .end method
 
-.method public abstract getConfigurationInternal(I)Lcom/android/server/timezonedetector/ConfigurationInternal;
+.method public abstract isGeoTimeZoneDetectionSupported()Z
 .end method
 
-.method public abstract getCurrentUserConfigurationInternal()Lcom/android/server/timezonedetector/ConfigurationInternal;
+.method public abstract isTelephonyTimeZoneDetectionSupported()Z
 .end method
 
 .method public abstract suggestGeolocationTimeZone(Lcom/android/server/timezonedetector/GeolocationTimeZoneSuggestion;)V
@@ -27,7 +26,4 @@
 .end method
 
 .method public abstract suggestTelephonyTimeZone(Landroid/app/timezonedetector/TelephonyTimeZoneSuggestion;)V
-.end method
-
-.method public abstract updateConfiguration(ILandroid/app/time/TimeZoneConfiguration;)Z
 .end method

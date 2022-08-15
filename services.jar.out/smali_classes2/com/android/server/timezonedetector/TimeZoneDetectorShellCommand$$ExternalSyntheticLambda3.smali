@@ -1,35 +1,36 @@
 .class public final synthetic Lcom/android/server/timezonedetector/TimeZoneDetectorShellCommand$$ExternalSyntheticLambda3;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Supplier;
+.implements Ljava/util/function/Consumer;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/server/timezonedetector/TimeZoneDetectorShellCommand;
+.field public final synthetic f$0:Lcom/android/server/timezonedetector/TimeZoneDetectorService;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/timezonedetector/TimeZoneDetectorShellCommand;)V
+.method public synthetic constructor <init>(Lcom/android/server/timezonedetector/TimeZoneDetectorService;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/timezonedetector/TimeZoneDetectorShellCommand$$ExternalSyntheticLambda3;->f$0:Lcom/android/server/timezonedetector/TimeZoneDetectorShellCommand;
+    iput-object p1, p0, Lcom/android/server/timezonedetector/TimeZoneDetectorShellCommand$$ExternalSyntheticLambda3;->f$0:Lcom/android/server/timezonedetector/TimeZoneDetectorService;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final get()Ljava/lang/Object;
-    .locals 1
+.method public final accept(Ljava/lang/Object;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/timezonedetector/TimeZoneDetectorShellCommand$$ExternalSyntheticLambda3;->f$0:Lcom/android/server/timezonedetector/TimeZoneDetectorShellCommand;
+    iget-object p0, p0, Lcom/android/server/timezonedetector/TimeZoneDetectorShellCommand$$ExternalSyntheticLambda3;->f$0:Lcom/android/server/timezonedetector/TimeZoneDetectorService;
 
-    invoke-virtual {v0}, Lcom/android/server/timezonedetector/TimeZoneDetectorShellCommand;->lambda$runSuggestGeolocationTimeZone$0$TimeZoneDetectorShellCommand()Lcom/android/server/timezonedetector/GeolocationTimeZoneSuggestion;
+    check-cast p1, Landroid/app/timezonedetector/ManualTimeZoneSuggestion;
 
-    move-result-object v0
+    invoke-virtual {p0, p1}, Lcom/android/server/timezonedetector/TimeZoneDetectorService;->suggestManualTimeZone(Landroid/app/timezonedetector/ManualTimeZoneSuggestion;)Z
 
-    return-object v0
+    return-void
 .end method

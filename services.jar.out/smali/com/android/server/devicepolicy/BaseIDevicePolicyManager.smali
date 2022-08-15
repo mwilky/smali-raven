@@ -1,14 +1,14 @@
-.class abstract Lcom/android/server/devicepolicy/BaseIDevicePolicyManager;
+.class public abstract Lcom/android/server/devicepolicy/BaseIDevicePolicyManager;
 .super Landroid/app/admin/IDevicePolicyManager$Stub;
 .source "BaseIDevicePolicyManager.java"
 
 
 # static fields
-.field private static final TAG:Ljava/lang/String;
+.field public static final TAG:Ljava/lang/String;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 1
 
     const-class v0, Lcom/android/server/devicepolicy/BaseIDevicePolicyManager;
@@ -22,7 +22,7 @@
     return-void
 .end method
 
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Landroid/app/admin/IDevicePolicyManager$Stub;-><init>()V
@@ -39,19 +39,19 @@
 .end method
 
 .method public canAdminGrantSensorsPermissionsForUser(I)Z
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
 .method public canProfileOwnerResetPasswordWhenLocked(I)Z
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
 .method public clearSystemUpdatePolicyFreezePeriodRecord()V
@@ -61,11 +61,11 @@
 .end method
 
 .method public createAndProvisionManagedProfile(Landroid/app/admin/ManagedProfileProvisioningParams;Ljava/lang/String;)Landroid/os/UserHandle;
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public finalizeWorkProfileProvisioning(Landroid/os/UserHandle;Landroid/accounts/Account;)V
@@ -75,71 +75,107 @@
 .end method
 
 .method public getDeviceOwnerType(Landroid/content/ComponentName;)I
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
+.end method
+
+.method public getDrawable(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/app/admin/ParcelableResource;
+    .locals 0
+
+    const/4 p0, 0x0
+
+    return-object p0
 .end method
 
 .method public getEnrollmentSpecificId(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .locals 0
 
-    const-string v0, ""
+    const-string p0, ""
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getManagedProfileMaximumTimeOff(Landroid/content/ComponentName;)J
-    .locals 2
+    .locals 0
 
-    const-wide/16 v0, 0x0
+    const-wide/16 p0, 0x0
 
-    return-wide v0
+    return-wide p0
 .end method
 
 .method public getPersonalAppsSuspendedReasons(Landroid/content/ComponentName;)I
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
-.method abstract handleOnUserUnlocked(I)V
+.method public getPolicyManagedProfiles(Landroid/os/UserHandle;)Ljava/util/List;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/os/UserHandle;",
+            ")",
+            "Ljava/util/List<",
+            "Landroid/os/UserHandle;",
+            ">;"
+        }
+    .end annotation
+
+    invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
-.method abstract handleStartUser(I)V
+.method public getString(Ljava/lang/String;)Landroid/app/admin/ParcelableResource;
+    .locals 0
+
+    const/4 p0, 0x0
+
+    return-object p0
 .end method
 
-.method abstract handleStopUser(I)V
+.method public abstract handleOnUserUnlocked(I)V
 .end method
 
-.method abstract handleUnlockUser(I)V
+.method public abstract handleStartUser(I)V
+.end method
+
+.method public abstract handleStopUser(I)V
+.end method
+
+.method public abstract handleUnlockUser(I)V
 .end method
 
 .method public isComplianceAcknowledgementRequired()Z
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
 .method public isKeyPairGrantedToWifiAuth(Ljava/lang/String;Ljava/lang/String;)Z
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
 .method public isOrganizationOwnedDeviceWithManagedProfile()Z
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
 .method public provisionFullyManagedDevice(Landroid/app/admin/FullyManagedDeviceProvisioningParams;Ljava/lang/String;)V
@@ -154,6 +190,34 @@
     return-void
 .end method
 
+.method public resetDrawables(Ljava/util/List;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List<",
+            "Ljava/lang/String;",
+            ">;)V"
+        }
+    .end annotation
+
+    return-void
+.end method
+
+.method public resetStrings(Ljava/util/List;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List<",
+            "Ljava/lang/String;",
+            ">;)V"
+        }
+    .end annotation
+
+    return-void
+.end method
+
 .method public setDeviceOwnerType(Landroid/content/ComponentName;I)V
     .locals 0
 
@@ -161,47 +225,61 @@
 .end method
 
 .method public setDevicePolicySafetyChecker(Landroid/app/admin/DevicePolicySafetyChecker;)V
-    .locals 3
+    .locals 2
 
-    sget-object v0, Lcom/android/server/devicepolicy/BaseIDevicePolicyManager;->TAG:Ljava/lang/String;
+    sget-object p1, Lcom/android/server/devicepolicy/BaseIDevicePolicyManager;->TAG:Ljava/lang/String;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v2, "setDevicePolicySafetyChecker() not implemented by "
+    const-string/jumbo v1, "setDevicePolicySafetyChecker() not implemented by "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p1, p0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+.end method
+
+.method public setDrawables(Ljava/util/List;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List<",
+            "Landroid/app/admin/DevicePolicyDrawableResource;",
+            ">;)V"
+        }
+    .end annotation
 
     return-void
 .end method
 
 .method public setKeyGrantForApp(Landroid/content/ComponentName;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Z
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
 .method public setKeyGrantToWifiAuth(Ljava/lang/String;Ljava/lang/String;Z)Z
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
 .method public setLocationEnabled(Landroid/content/ComponentName;Z)V
@@ -228,5 +306,27 @@
     return-void
 .end method
 
-.method abstract systemReady(I)V
+.method public setStrings(Ljava/util/List;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List<",
+            "Landroid/app/admin/DevicePolicyStringResource;",
+            ">;)V"
+        }
+    .end annotation
+
+    return-void
+.end method
+
+.method public shouldAllowBypassingDevicePolicyManagementRoleQualification()Z
+    .locals 0
+
+    const/4 p0, 0x0
+
+    return p0
+.end method
+
+.method public abstract systemReady(I)V
 .end method

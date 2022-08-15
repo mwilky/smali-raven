@@ -1,37 +1,34 @@
 .class public final synthetic Lcom/android/server/pm/StagingManager$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Predicate;
+.implements Ljava/lang/Runnable;
 
 
 # instance fields
-.field public final synthetic f$0:Ljava/lang/String;
+.field public final synthetic f$0:Lcom/android/server/pm/StagingManager$StagedSession;
 
 
 # direct methods
-.method public synthetic constructor <init>(Ljava/lang/String;)V
+.method public synthetic constructor <init>(Lcom/android/server/pm/StagingManager$StagedSession;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/pm/StagingManager$$ExternalSyntheticLambda1;->f$0:Ljava/lang/String;
+    iput-object p1, p0, Lcom/android/server/pm/StagingManager$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/pm/StagingManager$StagedSession;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final test(Ljava/lang/Object;)Z
-    .locals 1
+.method public final run()V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/pm/StagingManager$$ExternalSyntheticLambda1;->f$0:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/pm/StagingManager$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/pm/StagingManager$StagedSession;
 
-    check-cast p1, Lcom/android/server/pm/StagingManager$StagedSession;
+    invoke-static {p0}, Lcom/android/server/pm/StagingManager;->$r8$lambda$YZ0eMzdcMwBH2LONVoGS-jFvQqU(Lcom/android/server/pm/StagingManager$StagedSession;)V
 
-    invoke-static {v0, p1}, Lcom/android/server/pm/StagingManager;->lambda$checkNonOverlappingWithStagedSessions$0(Ljava/lang/String;Lcom/android/server/pm/StagingManager$StagedSession;)Z
-
-    move-result p1
-
-    return p1
+    return-void
 .end method

@@ -1,4 +1,4 @@
-.class final Lcom/android/server/am/ActivityManagerService$Association;
+.class public final Lcom/android/server/am/ActivityManagerService$Association;
 .super Ljava/lang/Object;
 .source "ActivityManagerService.java"
 
@@ -9,39 +9,39 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = "Association"
 .end annotation
 
 
 # instance fields
-.field mCount:I
+.field public mCount:I
 
-.field mLastState:I
+.field public mLastState:I
 
-.field mLastStateUptime:J
+.field public mLastStateUptime:J
 
-.field mNesting:I
+.field public mNesting:I
 
-.field final mSourceProcess:Ljava/lang/String;
+.field public final mSourceProcess:Ljava/lang/String;
 
-.field final mSourceUid:I
+.field public final mSourceUid:I
 
-.field mStartTime:J
+.field public mStartTime:J
 
-.field mStateTimes:[J
+.field public mStateTimes:[J
 
-.field final mTargetComponent:Landroid/content/ComponentName;
+.field public final mTargetComponent:Landroid/content/ComponentName;
 
-.field final mTargetProcess:Ljava/lang/String;
+.field public final mTargetProcess:Ljava/lang/String;
 
-.field final mTargetUid:I
+.field public final mTargetUid:I
 
-.field mTime:J
+.field public mTime:J
 
 
 # direct methods
-.method constructor <init>(ILjava/lang/String;ILandroid/content/ComponentName;Ljava/lang/String;)V
+.method public constructor <init>(ILjava/lang/String;ILandroid/content/ComponentName;Ljava/lang/String;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

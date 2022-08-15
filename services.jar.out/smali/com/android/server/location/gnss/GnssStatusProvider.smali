@@ -24,14 +24,42 @@
 
 
 # instance fields
-.field private final mAppOpsHelper:Lcom/android/server/location/injector/AppOpsHelper;
+.field public final mAppOpsHelper:Lcom/android/server/location/injector/AppOpsHelper;
 
-.field private mIsNavigating:Z
+.field public final mGnssNative:Lcom/android/server/location/gnss/hal/GnssNative;
 
-.field private final mLogger:Lcom/android/server/location/injector/LocationUsageLogger;
+.field public mIsNavigating:Z
+
+.field public final mLogger:Lcom/android/server/location/injector/LocationUsageLogger;
 
 
 # direct methods
+.method public static synthetic $r8$lambda$EC2tZ0S57UGvtweerkwOHhQQ1L4(Lcom/android/server/location/gnss/GnssStatusProvider;Landroid/location/GnssStatus;Lcom/android/server/location/gnss/GnssListenerMultiplexer$GnssListenerRegistration;)Lcom/android/internal/listeners/ListenerExecutor$ListenerOperation;
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/server/location/gnss/GnssStatusProvider;->lambda$onReportSvStatus$2(Landroid/location/GnssStatus;Lcom/android/server/location/gnss/GnssListenerMultiplexer$GnssListenerRegistration;)Lcom/android/internal/listeners/ListenerExecutor$ListenerOperation;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic $r8$lambda$OOvdvR7P8G5TmaEHtXnCA4lRTgs(ILandroid/location/IGnssStatusListener;)V
+    .locals 0
+
+    invoke-static {p0, p1}, Lcom/android/server/location/gnss/GnssStatusProvider;->lambda$onReportFirstFix$0(ILandroid/location/IGnssStatusListener;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$WZNS6OuNJPWjG5T913DErtG0aQU(Landroid/location/GnssStatus;Landroid/location/IGnssStatusListener;)V
+    .locals 0
+
+    invoke-static {p0, p1}, Lcom/android/server/location/gnss/GnssStatusProvider;->lambda$onReportSvStatus$1(Landroid/location/GnssStatus;Landroid/location/IGnssStatusListener;)V
+
+    return-void
+.end method
+
 .method public constructor <init>(Lcom/android/server/location/injector/Injector;Lcom/android/server/location/gnss/hal/GnssNative;)V
     .locals 1
 
@@ -49,9 +77,11 @@
 
     invoke-interface {p1}, Lcom/android/server/location/injector/Injector;->getLocationUsageLogger()Lcom/android/server/location/injector/LocationUsageLogger;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/android/server/location/gnss/GnssStatusProvider;->mLogger:Lcom/android/server/location/injector/LocationUsageLogger;
+    iput-object p1, p0, Lcom/android/server/location/gnss/GnssStatusProvider;->mLogger:Lcom/android/server/location/injector/LocationUsageLogger;
+
+    iput-object p2, p0, Lcom/android/server/location/gnss/GnssStatusProvider;->mGnssNative:Lcom/android/server/location/gnss/hal/GnssNative;
 
     invoke-virtual {p2, p0}, Lcom/android/server/location/gnss/hal/GnssNative;->addBaseCallbacks(Lcom/android/server/location/gnss/hal/GnssNative$BaseCallbacks;)V
 
@@ -62,7 +92,7 @@
     return-void
 .end method
 
-.method static synthetic lambda$onReportFirstFix$0(ILandroid/location/IGnssStatusListener;)V
+.method public static synthetic lambda$onReportFirstFix$0(ILandroid/location/IGnssStatusListener;)V
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -75,7 +105,7 @@
     return-void
 .end method
 
-.method static synthetic lambda$onReportSvStatus$1(Landroid/location/GnssStatus;Landroid/location/IGnssStatusListener;)V
+.method public static synthetic lambda$onReportSvStatus$1(Landroid/location/GnssStatus;Landroid/location/IGnssStatusListener;)V
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -88,6 +118,35 @@
     return-void
 .end method
 
+.method private synthetic lambda$onReportSvStatus$2(Landroid/location/GnssStatus;Lcom/android/server/location/gnss/GnssListenerMultiplexer$GnssListenerRegistration;)Lcom/android/internal/listeners/ListenerExecutor$ListenerOperation;
+    .locals 1
+
+    iget-object p0, p0, Lcom/android/server/location/gnss/GnssStatusProvider;->mAppOpsHelper:Lcom/android/server/location/injector/AppOpsHelper;
+
+    invoke-virtual {p2}, Lcom/android/server/location/listeners/RemoteListenerRegistration;->getIdentity()Landroid/location/util/identity/CallerIdentity;
+
+    move-result-object p2
+
+    const/4 v0, 0x1
+
+    invoke-virtual {p0, v0, p2}, Lcom/android/server/location/injector/AppOpsHelper;->noteOpNoThrow(ILandroid/location/util/identity/CallerIdentity;)Z
+
+    move-result p0
+
+    if-eqz p0, :cond_0
+
+    new-instance p0, Lcom/android/server/location/gnss/GnssStatusProvider$$ExternalSyntheticLambda4;
+
+    invoke-direct {p0, p1}, Lcom/android/server/location/gnss/GnssStatusProvider$$ExternalSyntheticLambda4;-><init>(Landroid/location/GnssStatus;)V
+
+    return-object p0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    return-object p0
+.end method
+
 
 # virtual methods
 .method public addListener(Landroid/location/util/identity/CallerIdentity;Landroid/location/IGnssStatusListener;)V
@@ -98,54 +157,15 @@
     return-void
 .end method
 
-.method public bridge synthetic addListener(Landroid/location/util/identity/CallerIdentity;Landroid/os/IInterface;)V
-    .locals 0
-
-    check-cast p2, Landroid/location/IGnssStatusListener;
-
-    invoke-virtual {p0, p1, p2}, Lcom/android/server/location/gnss/GnssStatusProvider;->addListener(Landroid/location/util/identity/CallerIdentity;Landroid/location/IGnssStatusListener;)V
-
-    return-void
-.end method
-
-.method public synthetic lambda$onReportSvStatus$2$GnssStatusProvider(Landroid/location/GnssStatus;Lcom/android/server/location/gnss/GnssListenerMultiplexer$GnssListenerRegistration;)Lcom/android/internal/listeners/ListenerExecutor$ListenerOperation;
-    .locals 3
-
-    iget-object v0, p0, Lcom/android/server/location/gnss/GnssStatusProvider;->mAppOpsHelper:Lcom/android/server/location/injector/AppOpsHelper;
-
-    invoke-virtual {p2}, Lcom/android/server/location/gnss/GnssListenerMultiplexer$GnssListenerRegistration;->getIdentity()Landroid/location/util/identity/CallerIdentity;
-
-    move-result-object v1
-
-    const/4 v2, 0x1
-
-    invoke-virtual {v0, v2, v1}, Lcom/android/server/location/injector/AppOpsHelper;->noteOpNoThrow(ILandroid/location/util/identity/CallerIdentity;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    new-instance v0, Lcom/android/server/location/gnss/GnssStatusProvider$$ExternalSyntheticLambda1;
-
-    invoke-direct {v0, p1}, Lcom/android/server/location/gnss/GnssStatusProvider$$ExternalSyntheticLambda1;-><init>(Landroid/location/GnssStatus;)V
-
-    return-object v0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    return-object v0
-.end method
-
 .method public onHalRestarted()V
     .locals 0
 
-    invoke-virtual {p0}, Lcom/android/server/location/gnss/GnssStatusProvider;->resetService()V
+    invoke-virtual {p0}, Lcom/android/server/location/listeners/ListenerMultiplexer;->resetService()V
 
     return-void
 .end method
 
-.method protected onRegistrationAdded(Landroid/os/IBinder;Lcom/android/server/location/gnss/GnssListenerMultiplexer$GnssListenerRegistration;)V
+.method public onRegistrationAdded(Landroid/os/IBinder;Lcom/android/server/location/gnss/GnssListenerMultiplexer$GnssListenerRegistration;)V
     .locals 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -163,19 +183,19 @@
 
     iget-object v0, p0, Lcom/android/server/location/gnss/GnssStatusProvider;->mLogger:Lcom/android/server/location/injector/LocationUsageLogger;
 
-    invoke-virtual {p2}, Lcom/android/server/location/gnss/GnssListenerMultiplexer$GnssListenerRegistration;->getIdentity()Landroid/location/util/identity/CallerIdentity;
+    invoke-virtual {p2}, Lcom/android/server/location/listeners/RemoteListenerRegistration;->getIdentity()Landroid/location/util/identity/CallerIdentity;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v1}, Landroid/location/util/identity/CallerIdentity;->getPackageName()Ljava/lang/String;
+    invoke-virtual {p0}, Landroid/location/util/identity/CallerIdentity;->getPackageName()Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-virtual {p2}, Lcom/android/server/location/gnss/GnssListenerMultiplexer$GnssListenerRegistration;->getIdentity()Landroid/location/util/identity/CallerIdentity;
+    invoke-virtual {p2}, Lcom/android/server/location/listeners/RemoteListenerRegistration;->getIdentity()Landroid/location/util/identity/CallerIdentity;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v1}, Landroid/location/util/identity/CallerIdentity;->getAttributionTag()Ljava/lang/String;
+    invoke-virtual {p0}, Landroid/location/util/identity/CallerIdentity;->getAttributionTag()Ljava/lang/String;
 
     move-result-object v4
 
@@ -202,7 +222,7 @@
     return-void
 .end method
 
-.method protected bridge synthetic onRegistrationAdded(Ljava/lang/Object;Lcom/android/server/location/listeners/ListenerRegistration;)V
+.method public bridge synthetic onRegistrationAdded(Ljava/lang/Object;Lcom/android/server/location/listeners/ListenerRegistration;)V
     .locals 0
 
     check-cast p1, Landroid/os/IBinder;
@@ -214,7 +234,7 @@
     return-void
 .end method
 
-.method protected onRegistrationRemoved(Landroid/os/IBinder;Lcom/android/server/location/gnss/GnssListenerMultiplexer$GnssListenerRegistration;)V
+.method public onRegistrationRemoved(Landroid/os/IBinder;Lcom/android/server/location/gnss/GnssListenerMultiplexer$GnssListenerRegistration;)V
     .locals 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -232,19 +252,19 @@
 
     iget-object v0, p0, Lcom/android/server/location/gnss/GnssStatusProvider;->mLogger:Lcom/android/server/location/injector/LocationUsageLogger;
 
-    invoke-virtual {p2}, Lcom/android/server/location/gnss/GnssListenerMultiplexer$GnssListenerRegistration;->getIdentity()Landroid/location/util/identity/CallerIdentity;
+    invoke-virtual {p2}, Lcom/android/server/location/listeners/RemoteListenerRegistration;->getIdentity()Landroid/location/util/identity/CallerIdentity;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v1}, Landroid/location/util/identity/CallerIdentity;->getPackageName()Ljava/lang/String;
+    invoke-virtual {p0}, Landroid/location/util/identity/CallerIdentity;->getPackageName()Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-virtual {p2}, Lcom/android/server/location/gnss/GnssListenerMultiplexer$GnssListenerRegistration;->getIdentity()Landroid/location/util/identity/CallerIdentity;
+    invoke-virtual {p2}, Lcom/android/server/location/listeners/RemoteListenerRegistration;->getIdentity()Landroid/location/util/identity/CallerIdentity;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v1}, Landroid/location/util/identity/CallerIdentity;->getAttributionTag()Ljava/lang/String;
+    invoke-virtual {p0}, Landroid/location/util/identity/CallerIdentity;->getAttributionTag()Ljava/lang/String;
 
     move-result-object v4
 
@@ -271,7 +291,7 @@
     return-void
 .end method
 
-.method protected bridge synthetic onRegistrationRemoved(Ljava/lang/Object;Lcom/android/server/location/listeners/ListenerRegistration;)V
+.method public bridge synthetic onRegistrationRemoved(Ljava/lang/Object;Lcom/android/server/location/listeners/ListenerRegistration;)V
     .locals 0
 
     check-cast p1, Landroid/os/IBinder;
@@ -290,90 +310,89 @@
 
     invoke-direct {v0, p1}, Lcom/android/server/location/gnss/GnssStatusProvider$$ExternalSyntheticLambda0;-><init>(I)V
 
-    invoke-virtual {p0, v0}, Lcom/android/server/location/gnss/GnssStatusProvider;->deliverToListeners(Lcom/android/internal/listeners/ListenerExecutor$ListenerOperation;)V
+    invoke-virtual {p0, v0}, Lcom/android/server/location/listeners/ListenerMultiplexer;->deliverToListeners(Lcom/android/internal/listeners/ListenerExecutor$ListenerOperation;)V
 
     return-void
 .end method
 
 .method public onReportStatus(I)V
-    .locals 2
+    .locals 1
 
-    packed-switch p1, :pswitch_data_0
+    const/4 v0, 0x1
 
-    :pswitch_0
+    if-eq p1, v0, :cond_1
+
+    const/4 v0, 0x2
+
+    if-eq p1, v0, :cond_0
+
+    const/4 v0, 0x4
+
+    if-eq p1, v0, :cond_0
+
     iget-boolean v0, p0, Lcom/android/server/location/gnss/GnssStatusProvider;->mIsNavigating:Z
 
     goto :goto_0
 
-    :pswitch_1
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_0
-
-    :pswitch_2
-    const/4 v0, 0x1
-
-    nop
-
+    :cond_1
     :goto_0
-    iget-boolean v1, p0, Lcom/android/server/location/gnss/GnssStatusProvider;->mIsNavigating:Z
+    iget-boolean p1, p0, Lcom/android/server/location/gnss/GnssStatusProvider;->mIsNavigating:Z
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, p1, :cond_3
 
     iput-boolean v0, p0, Lcom/android/server/location/gnss/GnssStatusProvider;->mIsNavigating:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2
 
-    sget-object v1, Lcom/android/server/location/gnss/GnssStatusProvider$$ExternalSyntheticLambda2;->INSTANCE:Lcom/android/server/location/gnss/GnssStatusProvider$$ExternalSyntheticLambda2;
+    new-instance p1, Lcom/android/server/location/gnss/GnssStatusProvider$$ExternalSyntheticLambda1;
 
-    invoke-virtual {p0, v1}, Lcom/android/server/location/gnss/GnssStatusProvider;->deliverToListeners(Lcom/android/internal/listeners/ListenerExecutor$ListenerOperation;)V
+    invoke-direct {p1}, Lcom/android/server/location/gnss/GnssStatusProvider$$ExternalSyntheticLambda1;-><init>()V
+
+    invoke-virtual {p0, p1}, Lcom/android/server/location/listeners/ListenerMultiplexer;->deliverToListeners(Lcom/android/internal/listeners/ListenerExecutor$ListenerOperation;)V
 
     goto :goto_1
 
-    :cond_0
-    sget-object v1, Lcom/android/server/location/gnss/GnssStatusProvider$$ExternalSyntheticLambda3;->INSTANCE:Lcom/android/server/location/gnss/GnssStatusProvider$$ExternalSyntheticLambda3;
+    :cond_2
+    new-instance p1, Lcom/android/server/location/gnss/GnssStatusProvider$$ExternalSyntheticLambda2;
 
-    invoke-virtual {p0, v1}, Lcom/android/server/location/gnss/GnssStatusProvider;->deliverToListeners(Lcom/android/internal/listeners/ListenerExecutor$ListenerOperation;)V
+    invoke-direct {p1}, Lcom/android/server/location/gnss/GnssStatusProvider$$ExternalSyntheticLambda2;-><init>()V
 
-    :cond_1
+    invoke-virtual {p0, p1}, Lcom/android/server/location/listeners/ListenerMultiplexer;->deliverToListeners(Lcom/android/internal/listeners/ListenerExecutor$ListenerOperation;)V
+
+    :cond_3
     :goto_1
     return-void
-
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-        :pswitch_1
-    .end packed-switch
 .end method
 
 .method public onReportSvStatus(Landroid/location/GnssStatus;)V
     .locals 1
 
-    new-instance v0, Lcom/android/server/location/gnss/GnssStatusProvider$$ExternalSyntheticLambda4;
+    new-instance v0, Lcom/android/server/location/gnss/GnssStatusProvider$$ExternalSyntheticLambda3;
 
-    invoke-direct {v0, p0, p1}, Lcom/android/server/location/gnss/GnssStatusProvider$$ExternalSyntheticLambda4;-><init>(Lcom/android/server/location/gnss/GnssStatusProvider;Landroid/location/GnssStatus;)V
+    invoke-direct {v0, p0, p1}, Lcom/android/server/location/gnss/GnssStatusProvider$$ExternalSyntheticLambda3;-><init>(Lcom/android/server/location/gnss/GnssStatusProvider;Landroid/location/GnssStatus;)V
 
-    invoke-virtual {p0, v0}, Lcom/android/server/location/gnss/GnssStatusProvider;->deliverToListeners(Ljava/util/function/Function;)V
+    invoke-virtual {p0, v0}, Lcom/android/server/location/listeners/ListenerMultiplexer;->deliverToListeners(Ljava/util/function/Function;)V
 
     return-void
 .end method
 
-.method protected bridge synthetic registerWithService(Ljava/lang/Object;Ljava/util/Collection;)Z
+.method public bridge synthetic registerWithService(Ljava/lang/Object;Ljava/util/Collection;)Z
     .locals 0
 
     check-cast p1, Ljava/lang/Void;
 
     invoke-virtual {p0, p1, p2}, Lcom/android/server/location/gnss/GnssStatusProvider;->registerWithService(Ljava/lang/Void;Ljava/util/Collection;)Z
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method
 
-.method protected registerWithService(Ljava/lang/Void;Ljava/util/Collection;)Z
-    .locals 2
+.method public registerWithService(Ljava/lang/Void;Ljava/util/Collection;)Z
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -389,35 +408,68 @@
         }
     .end annotation
 
-    sget-boolean v0, Lcom/android/server/location/gnss/GnssManagerService;->D:Z
+    iget-object p0, p0, Lcom/android/server/location/gnss/GnssStatusProvider;->mGnssNative:Lcom/android/server/location/gnss/hal/GnssNative;
 
-    if-eqz v0, :cond_0
+    invoke-virtual {p0}, Lcom/android/server/location/gnss/hal/GnssNative;->startSvStatusCollection()Z
 
-    const-string v0, "GnssManager"
+    move-result p0
 
-    const-string/jumbo v1, "starting gnss status"
+    const-string p1, "GnssManager"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    if-eqz p0, :cond_1
+
+    sget-boolean p0, Lcom/android/server/location/gnss/GnssManagerService;->D:Z
+
+    if-eqz p0, :cond_0
+
+    const-string/jumbo p0, "starting gnss sv status"
+
+    invoke-static {p1, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
+
+    :cond_1
+    const-string p0, "error starting gnss sv status"
+
+    invoke-static {p1, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 p0, 0x0
+
+    return p0
 .end method
 
-.method protected unregisterWithService()V
-    .locals 2
+.method public unregisterWithService()V
+    .locals 1
 
-    sget-boolean v0, Lcom/android/server/location/gnss/GnssManagerService;->D:Z
+    iget-object p0, p0, Lcom/android/server/location/gnss/GnssStatusProvider;->mGnssNative:Lcom/android/server/location/gnss/hal/GnssNative;
 
-    if-eqz v0, :cond_0
+    invoke-virtual {p0}, Lcom/android/server/location/gnss/hal/GnssNative;->stopSvStatusCollection()Z
+
+    move-result p0
 
     const-string v0, "GnssManager"
 
-    const-string/jumbo v1, "stopping gnss status"
+    if-eqz p0, :cond_0
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    sget-boolean p0, Lcom/android/server/location/gnss/GnssManagerService;->D:Z
+
+    if-eqz p0, :cond_1
+
+    const-string/jumbo p0, "stopping gnss sv status"
+
+    invoke-static {v0, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
 
     :cond_0
+    const-string p0, "error stopping gnss sv status"
+
+    invoke-static {v0, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_1
+    :goto_0
     return-void
 .end method

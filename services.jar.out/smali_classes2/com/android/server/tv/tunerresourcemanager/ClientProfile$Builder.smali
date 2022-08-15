@@ -15,17 +15,49 @@
 
 
 # instance fields
-.field private final mId:I
+.field public final mId:I
 
-.field private mProcessId:I
+.field public mProcessId:I
 
-.field private mTvInputSessionId:Ljava/lang/String;
+.field public mTvInputSessionId:Ljava/lang/String;
 
-.field private mUseCase:I
+.field public mUseCase:I
 
 
 # direct methods
-.method constructor <init>(I)V
+.method public static bridge synthetic -$$Nest$fgetmId(Lcom/android/server/tv/tunerresourcemanager/ClientProfile$Builder;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/server/tv/tunerresourcemanager/ClientProfile$Builder;->mId:I
+
+    return p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmProcessId(Lcom/android/server/tv/tunerresourcemanager/ClientProfile$Builder;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/server/tv/tunerresourcemanager/ClientProfile$Builder;->mProcessId:I
+
+    return p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmTvInputSessionId(Lcom/android/server/tv/tunerresourcemanager/ClientProfile$Builder;)Ljava/lang/String;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/tv/tunerresourcemanager/ClientProfile$Builder;->mTvInputSessionId:Ljava/lang/String;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmUseCase(Lcom/android/server/tv/tunerresourcemanager/ClientProfile$Builder;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/server/tv/tunerresourcemanager/ClientProfile$Builder;->mUseCase:I
+
+    return p0
+.end method
+
+.method public constructor <init>(I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -33,38 +65,6 @@
     iput p1, p0, Lcom/android/server/tv/tunerresourcemanager/ClientProfile$Builder;->mId:I
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/server/tv/tunerresourcemanager/ClientProfile$Builder;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/server/tv/tunerresourcemanager/ClientProfile$Builder;->mId:I
-
-    return v0
-.end method
-
-.method static synthetic access$100(Lcom/android/server/tv/tunerresourcemanager/ClientProfile$Builder;)Ljava/lang/String;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/tv/tunerresourcemanager/ClientProfile$Builder;->mTvInputSessionId:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method static synthetic access$200(Lcom/android/server/tv/tunerresourcemanager/ClientProfile$Builder;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/server/tv/tunerresourcemanager/ClientProfile$Builder;->mUseCase:I
-
-    return v0
-.end method
-
-.method static synthetic access$300(Lcom/android/server/tv/tunerresourcemanager/ClientProfile$Builder;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/server/tv/tunerresourcemanager/ClientProfile$Builder;->mProcessId:I
-
-    return v0
 .end method
 
 
@@ -76,7 +76,7 @@
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, p0, v1}, Lcom/android/server/tv/tunerresourcemanager/ClientProfile;-><init>(Lcom/android/server/tv/tunerresourcemanager/ClientProfile$Builder;Lcom/android/server/tv/tunerresourcemanager/ClientProfile$1;)V
+    invoke-direct {v0, p0, v1}, Lcom/android/server/tv/tunerresourcemanager/ClientProfile;-><init>(Lcom/android/server/tv/tunerresourcemanager/ClientProfile$Builder;Lcom/android/server/tv/tunerresourcemanager/ClientProfile-IA;)V
 
     return-object v0
 .end method

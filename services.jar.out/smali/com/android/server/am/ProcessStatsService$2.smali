@@ -1,4 +1,4 @@
-.class Lcom/android/server/am/ProcessStatsService$2;
+.class public Lcom/android/server/am/ProcessStatsService$2;
 .super Ljava/lang/Object;
 .source "ProcessStatsService.java"
 
@@ -12,19 +12,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/am/ProcessStatsService;
+.field public final synthetic this$0:Lcom/android/server/am/ProcessStatsService;
 
-.field final synthetic val$totalTime:J
+.field public final synthetic val$totalTime:J
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/ProcessStatsService;J)V
+.method public constructor <init>(Lcom/android/server/am/ProcessStatsService;J)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/am/ProcessStatsService$2;->this$0:Lcom/android/server/am/ProcessStatsService;
@@ -45,7 +45,7 @@
 
     iget-wide v1, p0, Lcom/android/server/am/ProcessStatsService$2;->val$totalTime:J
 
-    invoke-static {v0, v1, v2}, Lcom/android/server/am/ProcessStatsService;->access$100(Lcom/android/server/am/ProcessStatsService;J)V
+    invoke-static {v0, v1, v2}, Lcom/android/server/am/ProcessStatsService;->-$$Nest$mperformWriteState(Lcom/android/server/am/ProcessStatsService;J)V
 
     return-void
 .end method

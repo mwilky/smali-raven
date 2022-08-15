@@ -4,5 +4,5 @@
 
 
 # virtual methods
-.method public abstract create()Landroid/hardware/soundtrigger/V2_0/ISoundTriggerHw;
+.method public abstract create()Lcom/android/server/soundtrigger_middleware/ISoundTriggerHal;
 .end method

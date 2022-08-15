@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/media/MediaSessionDeviceConfig$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -23,13 +24,13 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/media/MediaSessionDeviceConfig$$ExternalSyntheticLambda1;->f$0:Landroid/provider/DeviceConfig$Properties;
+    iget-object p0, p0, Lcom/android/server/media/MediaSessionDeviceConfig$$ExternalSyntheticLambda1;->f$0:Landroid/provider/DeviceConfig$Properties;
 
     check-cast p1, Ljava/lang/String;
 
-    invoke-static {v0, p1}, Lcom/android/server/media/MediaSessionDeviceConfig;->lambda$refresh$0(Landroid/provider/DeviceConfig$Properties;Ljava/lang/String;)V
+    invoke-static {p0, p1}, Lcom/android/server/media/MediaSessionDeviceConfig;->$r8$lambda$OCQwTB7I68WM6xiQFtYarFYhaVU(Landroid/provider/DeviceConfig$Properties;Ljava/lang/String;)V
 
     return-void
 .end method

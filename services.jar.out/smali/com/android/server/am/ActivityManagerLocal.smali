@@ -10,6 +10,20 @@
 
 
 # virtual methods
+.method public abstract bindSdkSandboxService(Landroid/content/Intent;Landroid/content/ServiceConnection;ILjava/lang/String;Ljava/lang/String;I)Z
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "RethrowRemoteException"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract canAllowWhileInUsePermissionInFgs(IILjava/lang/String;)Z
 .end method
 

@@ -1,37 +1,46 @@
 .class public final synthetic Lcom/android/server/location/provider/LocationProviderManager$$ExternalSyntheticLambda16;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Predicate;
+.implements Landroid/os/CancellationSignal$OnCancelListener;
 
 
 # instance fields
-.field public final synthetic f$0:I
+.field public final synthetic f$0:Lcom/android/server/location/provider/LocationProviderManager;
+
+.field public final synthetic f$1:Landroid/location/ILocationCallback;
+
+.field public final synthetic f$2:Lcom/android/server/location/provider/LocationProviderManager$GetCurrentLocationListenerRegistration;
 
 
 # direct methods
-.method public synthetic constructor <init>(I)V
+.method public synthetic constructor <init>(Lcom/android/server/location/provider/LocationProviderManager;Landroid/location/ILocationCallback;Lcom/android/server/location/provider/LocationProviderManager$GetCurrentLocationListenerRegistration;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput p1, p0, Lcom/android/server/location/provider/LocationProviderManager$$ExternalSyntheticLambda16;->f$0:I
+    iput-object p1, p0, Lcom/android/server/location/provider/LocationProviderManager$$ExternalSyntheticLambda16;->f$0:Lcom/android/server/location/provider/LocationProviderManager;
+
+    iput-object p2, p0, Lcom/android/server/location/provider/LocationProviderManager$$ExternalSyntheticLambda16;->f$1:Landroid/location/ILocationCallback;
+
+    iput-object p3, p0, Lcom/android/server/location/provider/LocationProviderManager$$ExternalSyntheticLambda16;->f$2:Lcom/android/server/location/provider/LocationProviderManager$GetCurrentLocationListenerRegistration;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final test(Ljava/lang/Object;)Z
-    .locals 1
+.method public final onCancel()V
+    .locals 2
 
-    iget v0, p0, Lcom/android/server/location/provider/LocationProviderManager$$ExternalSyntheticLambda16;->f$0:I
+    iget-object v0, p0, Lcom/android/server/location/provider/LocationProviderManager$$ExternalSyntheticLambda16;->f$0:Lcom/android/server/location/provider/LocationProviderManager;
 
-    check-cast p1, Lcom/android/server/location/provider/LocationProviderManager$Registration;
+    iget-object v1, p0, Lcom/android/server/location/provider/LocationProviderManager$$ExternalSyntheticLambda16;->f$1:Landroid/location/ILocationCallback;
 
-    invoke-static {v0, p1}, Lcom/android/server/location/provider/LocationProviderManager;->lambda$flush$3(ILcom/android/server/location/provider/LocationProviderManager$Registration;)Z
+    iget-object p0, p0, Lcom/android/server/location/provider/LocationProviderManager$$ExternalSyntheticLambda16;->f$2:Lcom/android/server/location/provider/LocationProviderManager$GetCurrentLocationListenerRegistration;
 
-    move-result p1
+    invoke-static {v0, v1, p0}, Lcom/android/server/location/provider/LocationProviderManager;->$r8$lambda$CoyDDJvsDAVdhjzGX-_Q8Galtqc(Lcom/android/server/location/provider/LocationProviderManager;Landroid/location/ILocationCallback;Lcom/android/server/location/provider/LocationProviderManager$GetCurrentLocationListenerRegistration;)V
 
-    return p1
+    return-void
 .end method

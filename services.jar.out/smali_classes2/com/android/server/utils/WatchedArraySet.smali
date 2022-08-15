@@ -19,9 +19,9 @@
 
 
 # instance fields
-.field private final mObserver:Lcom/android/server/utils/Watcher;
+.field public final mObserver:Lcom/android/server/utils/Watcher;
 
-.field private final mStorage:Landroid/util/ArraySet;
+.field public final mStorage:Landroid/util/ArraySet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/ArraySet<",
@@ -30,7 +30,7 @@
     .end annotation
 .end field
 
-.field private volatile mWatching:Z
+.field public volatile mWatching:Z
 
 
 # direct methods
@@ -40,16 +40,6 @@
     const/4 v0, 0x0
 
     invoke-direct {p0, v0, v0}, Lcom/android/server/utils/WatchedArraySet;-><init>(IZ)V
-
-    return-void
-.end method
-
-.method public constructor <init>(I)V
-    .locals 1
-
-    const/4 v0, 0x0
-
-    invoke-direct {p0, p1, v0}, Lcom/android/server/utils/WatchedArraySet;-><init>(IZ)V
 
     return-void
 .end method
@@ -78,132 +68,8 @@
     return-void
 .end method
 
-.method public constructor <init>(Landroid/util/ArraySet;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/util/ArraySet<",
-            "TE;>;)V"
-        }
-    .end annotation
-
-    invoke-direct {p0}, Lcom/android/server/utils/WatchableImpl;-><init>()V
-
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/android/server/utils/WatchedArraySet;->mWatching:Z
-
-    new-instance v0, Lcom/android/server/utils/WatchedArraySet$1;
-
-    invoke-direct {v0, p0}, Lcom/android/server/utils/WatchedArraySet$1;-><init>(Lcom/android/server/utils/WatchedArraySet;)V
-
-    iput-object v0, p0, Lcom/android/server/utils/WatchedArraySet;->mObserver:Lcom/android/server/utils/Watcher;
-
-    new-instance v0, Landroid/util/ArraySet;
-
-    invoke-direct {v0, p1}, Landroid/util/ArraySet;-><init>(Landroid/util/ArraySet;)V
-
-    iput-object v0, p0, Lcom/android/server/utils/WatchedArraySet;->mStorage:Landroid/util/ArraySet;
-
-    return-void
-.end method
-
-.method public constructor <init>(Lcom/android/server/utils/WatchedArraySet;)V
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/android/server/utils/WatchedArraySet<",
-            "TE;>;)V"
-        }
-    .end annotation
-
-    invoke-direct {p0}, Lcom/android/server/utils/WatchableImpl;-><init>()V
-
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/android/server/utils/WatchedArraySet;->mWatching:Z
-
-    new-instance v0, Lcom/android/server/utils/WatchedArraySet$1;
-
-    invoke-direct {v0, p0}, Lcom/android/server/utils/WatchedArraySet$1;-><init>(Lcom/android/server/utils/WatchedArraySet;)V
-
-    iput-object v0, p0, Lcom/android/server/utils/WatchedArraySet;->mObserver:Lcom/android/server/utils/Watcher;
-
-    new-instance v0, Landroid/util/ArraySet;
-
-    iget-object v1, p1, Lcom/android/server/utils/WatchedArraySet;->mStorage:Landroid/util/ArraySet;
-
-    invoke-direct {v0, v1}, Landroid/util/ArraySet;-><init>(Landroid/util/ArraySet;)V
-
-    iput-object v0, p0, Lcom/android/server/utils/WatchedArraySet;->mStorage:Landroid/util/ArraySet;
-
-    return-void
-.end method
-
-.method public constructor <init>([Ljava/lang/Object;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "([TE;)V"
-        }
-    .end annotation
-
-    invoke-direct {p0}, Lcom/android/server/utils/WatchableImpl;-><init>()V
-
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/android/server/utils/WatchedArraySet;->mWatching:Z
-
-    new-instance v0, Lcom/android/server/utils/WatchedArraySet$1;
-
-    invoke-direct {v0, p0}, Lcom/android/server/utils/WatchedArraySet$1;-><init>(Lcom/android/server/utils/WatchedArraySet;)V
-
-    iput-object v0, p0, Lcom/android/server/utils/WatchedArraySet;->mObserver:Lcom/android/server/utils/Watcher;
-
-    new-instance v0, Landroid/util/ArraySet;
-
-    invoke-direct {v0, p1}, Landroid/util/ArraySet;-><init>([Ljava/lang/Object;)V
-
-    iput-object v0, p0, Lcom/android/server/utils/WatchedArraySet;->mStorage:Landroid/util/ArraySet;
-
-    return-void
-.end method
-
-.method private onChanged()V
-    .locals 0
-
-    invoke-virtual {p0, p0}, Lcom/android/server/utils/WatchedArraySet;->dispatchChange(Lcom/android/server/utils/Watchable;)V
-
-    return-void
-.end method
-
-.method private registerChild(Ljava/lang/Object;)V
-    .locals 2
-
-    iget-boolean v0, p0, Lcom/android/server/utils/WatchedArraySet;->mWatching:Z
-
-    if-eqz v0, :cond_0
-
-    instance-of v0, p1, Lcom/android/server/utils/Watchable;
-
-    if-eqz v0, :cond_0
-
-    move-object v0, p1
-
-    check-cast v0, Lcom/android/server/utils/Watchable;
-
-    iget-object v1, p0, Lcom/android/server/utils/WatchedArraySet;->mObserver:Lcom/android/server/utils/Watcher;
-
-    invoke-interface {v0, v1}, Lcom/android/server/utils/Watchable;->registerObserver(Lcom/android/server/utils/Watcher;)V
-
-    :cond_0
-    return-void
-.end method
-
 .method public static snapshot(Lcom/android/server/utils/WatchedArraySet;Lcom/android/server/utils/WatchedArraySet;)V
-    .locals 3
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -243,79 +109,27 @@
 
     move-result-object v2
 
-    invoke-virtual {p0, v2}, Lcom/android/server/utils/WatchedArraySet;->append(Ljava/lang/Object;)V
+    iget-object v3, p0, Lcom/android/server/utils/WatchedArraySet;->mStorage:Landroid/util/ArraySet;
+
+    invoke-virtual {v3, v2}, Landroid/util/ArraySet;->append(Ljava/lang/Object;)V
 
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     :cond_0
-    invoke-virtual {p0}, Lcom/android/server/utils/WatchedArraySet;->seal()V
+    invoke-virtual {p0}, Lcom/android/server/utils/WatchableImpl;->seal()V
 
     return-void
 
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "snapshot destination is not empty"
+    const-string p1, "snapshot destination is not empty"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
-.end method
-
-.method private unregisterChild(Ljava/lang/Object;)V
-    .locals 2
-
-    iget-boolean v0, p0, Lcom/android/server/utils/WatchedArraySet;->mWatching:Z
-
-    if-eqz v0, :cond_0
-
-    instance-of v0, p1, Lcom/android/server/utils/Watchable;
-
-    if-eqz v0, :cond_0
-
-    move-object v0, p1
-
-    check-cast v0, Lcom/android/server/utils/Watchable;
-
-    iget-object v1, p0, Lcom/android/server/utils/WatchedArraySet;->mObserver:Lcom/android/server/utils/Watcher;
-
-    invoke-interface {v0, v1}, Lcom/android/server/utils/Watchable;->unregisterObserver(Lcom/android/server/utils/Watcher;)V
-
-    :cond_0
-    return-void
-.end method
-
-.method private unregisterChildIf(Ljava/lang/Object;)V
-    .locals 2
-
-    iget-boolean v0, p0, Lcom/android/server/utils/WatchedArraySet;->mWatching:Z
-
-    if-eqz v0, :cond_0
-
-    instance-of v0, p1, Lcom/android/server/utils/Watchable;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/server/utils/WatchedArraySet;->mStorage:Landroid/util/ArraySet;
-
-    invoke-virtual {v0, p1}, Landroid/util/ArraySet;->contains(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    move-object v0, p1
-
-    check-cast v0, Lcom/android/server/utils/Watchable;
-
-    iget-object v1, p0, Lcom/android/server/utils/WatchedArraySet;->mObserver:Lcom/android/server/utils/Watcher;
-
-    invoke-interface {v0, v1}, Lcom/android/server/utils/Watchable;->unregisterObserver(Lcom/android/server/utils/Watcher;)V
-
-    :cond_0
-    return-void
+    throw p0
 .end method
 
 
@@ -334,94 +148,28 @@
 
     move-result v0
 
-    invoke-direct {p0, p1}, Lcom/android/server/utils/WatchedArraySet;->registerChild(Ljava/lang/Object;)V
+    invoke-virtual {p0, p1}, Lcom/android/server/utils/WatchedArraySet;->registerChild(Ljava/lang/Object;)V
 
-    invoke-direct {p0}, Lcom/android/server/utils/WatchedArraySet;->onChanged()V
+    invoke-virtual {p0}, Lcom/android/server/utils/WatchedArraySet;->onChanged()V
 
     return v0
 .end method
 
-.method public addAll(Landroid/util/ArraySet;)V
-    .locals 3
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/util/ArraySet<",
-            "+TE;>;)V"
-        }
-    .end annotation
-
-    invoke-virtual {p1}, Landroid/util/ArraySet;->size()I
-
-    move-result v0
-
-    const/4 v1, 0x0
-
-    :goto_0
-    if-ge v1, v0, :cond_0
-
-    invoke-virtual {p1, v1}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    invoke-virtual {p0, v2}, Lcom/android/server/utils/WatchedArraySet;->add(Ljava/lang/Object;)Z
-
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    return-void
-.end method
-
-.method public addAll(Lcom/android/server/utils/WatchedArraySet;)V
-    .locals 3
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/android/server/utils/WatchedArraySet<",
-            "+TE;>;)V"
-        }
-    .end annotation
-
-    invoke-virtual {p1}, Lcom/android/server/utils/WatchedArraySet;->size()I
-
-    move-result v0
-
-    const/4 v1, 0x0
-
-    :goto_0
-    if-ge v1, v0, :cond_0
-
-    invoke-virtual {p1, v1}, Lcom/android/server/utils/WatchedArraySet;->valueAt(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    invoke-virtual {p0, v2}, Lcom/android/server/utils/WatchedArraySet;->add(Ljava/lang/Object;)Z
-
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    return-void
-.end method
-
-.method public append(Ljava/lang/Object;)V
+.method public addAll(Ljava/util/Collection;)V
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "(TE;)V"
+            "(",
+            "Ljava/util/Collection<",
+            "+TE;>;)V"
         }
     .end annotation
 
     iget-object v0, p0, Lcom/android/server/utils/WatchedArraySet;->mStorage:Landroid/util/ArraySet;
 
-    invoke-virtual {v0, p1}, Landroid/util/ArraySet;->append(Ljava/lang/Object;)V
+    invoke-virtual {v0, p1}, Landroid/util/ArraySet;->addAll(Ljava/util/Collection;)Z
 
-    invoke-direct {p0, p1}, Lcom/android/server/utils/WatchedArraySet;->registerChild(Ljava/lang/Object;)V
-
-    invoke-direct {p0}, Lcom/android/server/utils/WatchedArraySet;->onChanged()V
+    invoke-virtual {p0}, Lcom/android/server/utils/WatchedArraySet;->onChanged()V
 
     return-void
 .end method
@@ -450,7 +198,7 @@
 
     move-result-object v2
 
-    invoke-direct {p0, v2}, Lcom/android/server/utils/WatchedArraySet;->unregisterChild(Ljava/lang/Object;)V
+    invoke-virtual {p0, v2}, Lcom/android/server/utils/WatchedArraySet;->unregisterChild(Ljava/lang/Object;)V
 
     add-int/lit8 v1, v1, 0x1
 
@@ -461,201 +209,140 @@
 
     invoke-virtual {v0}, Landroid/util/ArraySet;->clear()V
 
-    invoke-direct {p0}, Lcom/android/server/utils/WatchedArraySet;->onChanged()V
+    invoke-virtual {p0}, Lcom/android/server/utils/WatchedArraySet;->onChanged()V
 
     return-void
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/utils/WatchedArraySet;->mStorage:Landroid/util/ArraySet;
+    iget-object p0, p0, Lcom/android/server/utils/WatchedArraySet;->mStorage:Landroid/util/ArraySet;
 
-    invoke-virtual {v0, p1}, Landroid/util/ArraySet;->contains(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p1}, Landroid/util/ArraySet;->contains(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
-.end method
-
-.method public copyFrom(Landroid/util/ArraySet;)V
-    .locals 3
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/util/ArraySet<",
-            "TE;>;)V"
-        }
-    .end annotation
-
-    invoke-virtual {p0}, Lcom/android/server/utils/WatchedArraySet;->clear()V
-
-    invoke-virtual {p1}, Landroid/util/ArraySet;->size()I
-
-    move-result v0
-
-    iget-object v1, p0, Lcom/android/server/utils/WatchedArraySet;->mStorage:Landroid/util/ArraySet;
-
-    invoke-virtual {v1, v0}, Landroid/util/ArraySet;->ensureCapacity(I)V
-
-    const/4 v1, 0x0
-
-    :goto_0
-    if-ge v1, v0, :cond_0
-
-    invoke-virtual {p1, v1}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    invoke-virtual {p0, v2}, Lcom/android/server/utils/WatchedArraySet;->add(Ljava/lang/Object;)Z
-
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    return-void
-.end method
-
-.method public copyTo(Landroid/util/ArraySet;)V
-    .locals 3
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/util/ArraySet<",
-            "TE;>;)V"
-        }
-    .end annotation
-
-    invoke-virtual {p1}, Landroid/util/ArraySet;->clear()V
-
-    invoke-virtual {p0}, Lcom/android/server/utils/WatchedArraySet;->size()I
-
-    move-result v0
-
-    invoke-virtual {p1, v0}, Landroid/util/ArraySet;->ensureCapacity(I)V
-
-    const/4 v1, 0x0
-
-    :goto_0
-    if-ge v1, v0, :cond_0
-
-    invoke-virtual {p0, v1}, Lcom/android/server/utils/WatchedArraySet;->valueAt(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    invoke-virtual {p1, v2}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
-
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    return-void
+    return p0
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
+    .locals 1
 
     instance-of v0, p1, Lcom/android/server/utils/WatchedArraySet;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/utils/WatchedArraySet;->mStorage:Landroid/util/ArraySet;
+    iget-object p0, p0, Lcom/android/server/utils/WatchedArraySet;->mStorage:Landroid/util/ArraySet;
 
-    move-object v1, p1
+    check-cast p1, Lcom/android/server/utils/WatchedArraySet;
 
-    check-cast v1, Lcom/android/server/utils/WatchedArraySet;
+    iget-object p1, p1, Lcom/android/server/utils/WatchedArraySet;->mStorage:Landroid/util/ArraySet;
 
-    iget-object v1, v1, Lcom/android/server/utils/WatchedArraySet;->mStorage:Landroid/util/ArraySet;
+    invoke-virtual {p0, p1}, Landroid/util/ArraySet;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v0, v1}, Landroid/util/ArraySet;->equals(Ljava/lang/Object;)Z
+    move-result p0
 
-    move-result v0
-
-    return v0
+    return p0
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/utils/WatchedArraySet;->mStorage:Landroid/util/ArraySet;
+    iget-object p0, p0, Lcom/android/server/utils/WatchedArraySet;->mStorage:Landroid/util/ArraySet;
 
-    invoke-virtual {v0, p1}, Landroid/util/ArraySet;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p1}, Landroid/util/ArraySet;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/utils/WatchedArraySet;->mStorage:Landroid/util/ArraySet;
+    iget-object p0, p0, Lcom/android/server/utils/WatchedArraySet;->mStorage:Landroid/util/ArraySet;
 
-    invoke-virtual {v0}, Landroid/util/ArraySet;->hashCode()I
+    invoke-virtual {p0}, Landroid/util/ArraySet;->hashCode()I
 
-    move-result v0
+    move-result p0
 
-    return v0
-.end method
-
-.method public indexOf(Ljava/lang/Object;)I
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/utils/WatchedArraySet;->mStorage:Landroid/util/ArraySet;
-
-    invoke-virtual {v0, p1}, Landroid/util/ArraySet;->indexOf(Ljava/lang/Object;)I
-
-    move-result v0
-
-    return v0
+    return p0
 .end method
 
 .method public isEmpty()Z
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/utils/WatchedArraySet;->mStorage:Landroid/util/ArraySet;
+
+    invoke-virtual {p0}, Landroid/util/ArraySet;->isEmpty()Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public final onChanged()V
+    .locals 0
+
+    invoke-virtual {p0, p0}, Lcom/android/server/utils/WatchableImpl;->dispatchChange(Lcom/android/server/utils/Watchable;)V
+
+    return-void
+.end method
+
+.method public final registerChild(Ljava/lang/Object;)V
     .locals 1
 
-    iget-object v0, p0, Lcom/android/server/utils/WatchedArraySet;->mStorage:Landroid/util/ArraySet;
+    iget-boolean v0, p0, Lcom/android/server/utils/WatchedArraySet;->mWatching:Z
 
-    invoke-virtual {v0}, Landroid/util/ArraySet;->isEmpty()Z
+    if-eqz v0, :cond_0
 
-    move-result v0
+    instance-of v0, p1, Lcom/android/server/utils/Watchable;
 
-    return v0
+    if-eqz v0, :cond_0
+
+    check-cast p1, Lcom/android/server/utils/Watchable;
+
+    iget-object p0, p0, Lcom/android/server/utils/WatchedArraySet;->mObserver:Lcom/android/server/utils/Watcher;
+
+    invoke-interface {p1, p0}, Lcom/android/server/utils/Watchable;->registerObserver(Lcom/android/server/utils/Watcher;)V
+
+    :cond_0
+    return-void
 .end method
 
 .method public registerObserver(Lcom/android/server/utils/Watcher;)V
-    .locals 3
+    .locals 2
 
     invoke-super {p0, p1}, Lcom/android/server/utils/WatchableImpl;->registerObserver(Lcom/android/server/utils/Watcher;)V
 
-    invoke-virtual {p0}, Lcom/android/server/utils/WatchedArraySet;->registeredObserverCount()I
+    invoke-virtual {p0}, Lcom/android/server/utils/WatchableImpl;->registeredObserverCount()I
 
-    move-result v0
+    move-result p1
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne p1, v0, :cond_0
 
-    iput-boolean v1, p0, Lcom/android/server/utils/WatchedArraySet;->mWatching:Z
+    iput-boolean v0, p0, Lcom/android/server/utils/WatchedArraySet;->mWatching:Z
 
-    iget-object v0, p0, Lcom/android/server/utils/WatchedArraySet;->mStorage:Landroid/util/ArraySet;
+    iget-object p1, p0, Lcom/android/server/utils/WatchedArraySet;->mStorage:Landroid/util/ArraySet;
 
-    invoke-virtual {v0}, Landroid/util/ArraySet;->size()I
+    invoke-virtual {p1}, Landroid/util/ArraySet;->size()I
 
-    move-result v0
+    move-result p1
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     :goto_0
-    if-ge v1, v0, :cond_0
+    if-ge v0, p1, :cond_0
 
-    iget-object v2, p0, Lcom/android/server/utils/WatchedArraySet;->mStorage:Landroid/util/ArraySet;
+    iget-object v1, p0, Lcom/android/server/utils/WatchedArraySet;->mStorage:Landroid/util/ArraySet;
 
-    invoke-virtual {v2, v1}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {v1, v0}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-direct {p0, v2}, Lcom/android/server/utils/WatchedArraySet;->registerChild(Ljava/lang/Object;)V
+    invoke-virtual {p0, v1}, Lcom/android/server/utils/WatchedArraySet;->registerChild(Ljava/lang/Object;)V
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
@@ -674,73 +361,18 @@
 
     if-eqz v0, :cond_0
 
-    invoke-direct {p0, p1}, Lcom/android/server/utils/WatchedArraySet;->unregisterChildIf(Ljava/lang/Object;)V
+    invoke-virtual {p0, p1}, Lcom/android/server/utils/WatchedArraySet;->unregisterChildIf(Ljava/lang/Object;)V
 
-    invoke-direct {p0}, Lcom/android/server/utils/WatchedArraySet;->onChanged()V
+    invoke-virtual {p0}, Lcom/android/server/utils/WatchedArraySet;->onChanged()V
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    return v0
-.end method
-
-.method public removeAll(Landroid/util/ArraySet;)Z
-    .locals 4
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/util/ArraySet<",
-            "+TE;>;)Z"
-        }
-    .end annotation
-
-    invoke-virtual {p1}, Landroid/util/ArraySet;->size()I
-
-    move-result v0
-
-    const/4 v1, 0x0
-
-    const/4 v2, 0x0
-
-    :goto_0
-    if-ge v2, v0, :cond_2
-
-    invoke-virtual {p1, v2}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
-
-    move-result-object v3
-
-    invoke-virtual {p0, v3}, Lcom/android/server/utils/WatchedArraySet;->remove(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_1
-
-    if-eqz v1, :cond_0
-
-    goto :goto_1
+    return p0
 
     :cond_0
-    const/4 v3, 0x0
+    const/4 p0, 0x0
 
-    goto :goto_2
-
-    :cond_1
-    :goto_1
-    const/4 v3, 0x1
-
-    :goto_2
-    move v1, v3
-
-    add-int/lit8 v2, v2, 0x1
-
-    goto :goto_0
-
-    :cond_2
-    return v1
+    return p0
 .end method
 
 .method public removeAt(I)Ljava/lang/Object;
@@ -755,25 +387,25 @@
 
     invoke-virtual {v0, p1}, Landroid/util/ArraySet;->removeAt(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-direct {p0, v0}, Lcom/android/server/utils/WatchedArraySet;->unregisterChildIf(Ljava/lang/Object;)V
+    invoke-virtual {p0, p1}, Lcom/android/server/utils/WatchedArraySet;->unregisterChildIf(Ljava/lang/Object;)V
 
-    invoke-direct {p0}, Lcom/android/server/utils/WatchedArraySet;->onChanged()V
+    invoke-virtual {p0}, Lcom/android/server/utils/WatchedArraySet;->onChanged()V
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public size()I
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/utils/WatchedArraySet;->mStorage:Landroid/util/ArraySet;
+    iget-object p0, p0, Lcom/android/server/utils/WatchedArraySet;->mStorage:Landroid/util/ArraySet;
 
-    invoke-virtual {v0}, Landroid/util/ArraySet;->size()I
+    invoke-virtual {p0}, Landroid/util/ArraySet;->size()I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public snapshot()Lcom/android/server/utils/WatchedArraySet;
@@ -796,40 +428,75 @@
 .end method
 
 .method public bridge synthetic snapshot()Ljava/lang/Object;
-    .locals 1
+    .locals 0
 
     invoke-virtual {p0}, Lcom/android/server/utils/WatchedArraySet;->snapshot()Lcom/android/server/utils/WatchedArraySet;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
-.end method
-
-.method public snapshot(Lcom/android/server/utils/WatchedArraySet;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/android/server/utils/WatchedArraySet<",
-            "TE;>;)V"
-        }
-    .end annotation
-
-    invoke-static {p0, p1}, Lcom/android/server/utils/WatchedArraySet;->snapshot(Lcom/android/server/utils/WatchedArraySet;Lcom/android/server/utils/WatchedArraySet;)V
-
-    return-void
+    return-object p0
 .end method
 
 .method public toString()Ljava/lang/String;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/utils/WatchedArraySet;->mStorage:Landroid/util/ArraySet;
+
+    invoke-virtual {p0}, Landroid/util/ArraySet;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public final unregisterChild(Ljava/lang/Object;)V
     .locals 1
+
+    iget-boolean v0, p0, Lcom/android/server/utils/WatchedArraySet;->mWatching:Z
+
+    if-eqz v0, :cond_0
+
+    instance-of v0, p1, Lcom/android/server/utils/Watchable;
+
+    if-eqz v0, :cond_0
+
+    check-cast p1, Lcom/android/server/utils/Watchable;
+
+    iget-object p0, p0, Lcom/android/server/utils/WatchedArraySet;->mObserver:Lcom/android/server/utils/Watcher;
+
+    invoke-interface {p1, p0}, Lcom/android/server/utils/Watchable;->unregisterObserver(Lcom/android/server/utils/Watcher;)V
+
+    :cond_0
+    return-void
+.end method
+
+.method public final unregisterChildIf(Ljava/lang/Object;)V
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/server/utils/WatchedArraySet;->mWatching:Z
+
+    if-eqz v0, :cond_0
+
+    instance-of v0, p1, Lcom/android/server/utils/Watchable;
+
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/server/utils/WatchedArraySet;->mStorage:Landroid/util/ArraySet;
 
-    invoke-virtual {v0}, Landroid/util/ArraySet;->toString()Ljava/lang/String;
+    invoke-virtual {v0, p1}, Landroid/util/ArraySet;->contains(Ljava/lang/Object;)Z
 
-    move-result-object v0
+    move-result v0
 
-    return-object v0
+    if-nez v0, :cond_0
+
+    check-cast p1, Lcom/android/server/utils/Watchable;
+
+    iget-object p0, p0, Lcom/android/server/utils/WatchedArraySet;->mObserver:Lcom/android/server/utils/Watcher;
+
+    invoke-interface {p1, p0}, Lcom/android/server/utils/Watchable;->unregisterObserver(Lcom/android/server/utils/Watcher;)V
+
+    :cond_0
+    return-void
 .end method
 
 .method public unregisterObserver(Lcom/android/server/utils/Watcher;)V
@@ -837,22 +504,24 @@
 
     invoke-super {p0, p1}, Lcom/android/server/utils/WatchableImpl;->unregisterObserver(Lcom/android/server/utils/Watcher;)V
 
-    invoke-virtual {p0}, Lcom/android/server/utils/WatchedArraySet;->registeredObserverCount()I
+    invoke-virtual {p0}, Lcom/android/server/utils/WatchableImpl;->registeredObserverCount()I
 
-    move-result v0
+    move-result p1
 
-    if-nez v0, :cond_1
+    if-nez p1, :cond_1
 
-    iget-object v0, p0, Lcom/android/server/utils/WatchedArraySet;->mStorage:Landroid/util/ArraySet;
+    iget-object p1, p0, Lcom/android/server/utils/WatchedArraySet;->mStorage:Landroid/util/ArraySet;
 
-    invoke-virtual {v0}, Landroid/util/ArraySet;->size()I
+    invoke-virtual {p1}, Landroid/util/ArraySet;->size()I
 
-    move-result v0
+    move-result p1
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
+
+    move v1, v0
 
     :goto_0
-    if-ge v1, v0, :cond_0
+    if-ge v1, p1, :cond_0
 
     iget-object v2, p0, Lcom/android/server/utils/WatchedArraySet;->mStorage:Landroid/util/ArraySet;
 
@@ -860,23 +529,21 @@
 
     move-result-object v2
 
-    invoke-direct {p0, v2}, Lcom/android/server/utils/WatchedArraySet;->unregisterChild(Ljava/lang/Object;)V
+    invoke-virtual {p0, v2}, Lcom/android/server/utils/WatchedArraySet;->unregisterChild(Ljava/lang/Object;)V
 
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
-
-    iput-boolean v1, p0, Lcom/android/server/utils/WatchedArraySet;->mWatching:Z
+    iput-boolean v0, p0, Lcom/android/server/utils/WatchedArraySet;->mWatching:Z
 
     :cond_1
     return-void
 .end method
 
 .method public untrackedStorage()Landroid/util/ArraySet;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -885,24 +552,24 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/android/server/utils/WatchedArraySet;->mStorage:Landroid/util/ArraySet;
+    iget-object p0, p0, Lcom/android/server/utils/WatchedArraySet;->mStorage:Landroid/util/ArraySet;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public valueAt(I)Ljava/lang/Object;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)TE;"
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/android/server/utils/WatchedArraySet;->mStorage:Landroid/util/ArraySet;
+    iget-object p0, p0, Lcom/android/server/utils/WatchedArraySet;->mStorage:Landroid/util/ArraySet;
 
-    invoke-virtual {v0, p1}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

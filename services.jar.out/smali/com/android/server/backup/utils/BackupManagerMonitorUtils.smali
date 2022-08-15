@@ -4,16 +4,8 @@
 
 
 # direct methods
-.method public constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
 .method public static monitorEvent(Landroid/app/backup/IBackupManagerMonitor;ILandroid/content/pm/PackageInfo;ILandroid/os/Bundle;)Landroid/app/backup/IBackupManagerMonitor;
-    .locals 4
+    .locals 2
 
     if-eqz p0, :cond_2
 
@@ -26,31 +18,31 @@
 
     invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    const-string v1, "android.app.backup.extra.LOG_EVENT_CATEGORY"
+    const-string p1, "android.app.backup.extra.LOG_EVENT_CATEGORY"
 
-    invoke-virtual {v0, v1, p3}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
+    invoke-virtual {v0, p1, p3}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     if-eqz p2, :cond_0
 
-    const-string v1, "android.app.backup.extra.LOG_EVENT_PACKAGE_NAME"
+    const-string p1, "android.app.backup.extra.LOG_EVENT_PACKAGE_NAME"
 
-    iget-object v2, p2, Landroid/content/pm/PackageInfo;->packageName:Ljava/lang/String;
+    iget-object p3, p2, Landroid/content/pm/PackageInfo;->packageName:Ljava/lang/String;
 
-    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, p1, p3}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string v1, "android.app.backup.extra.LOG_EVENT_PACKAGE_VERSION"
+    const-string p1, "android.app.backup.extra.LOG_EVENT_PACKAGE_VERSION"
 
-    iget v2, p2, Landroid/content/pm/PackageInfo;->versionCode:I
+    iget p3, p2, Landroid/content/pm/PackageInfo;->versionCode:I
 
-    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
+    invoke-virtual {v0, p1, p3}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    const-string v1, "android.app.backup.extra.LOG_EVENT_PACKAGE_FULL_VERSION"
+    const-string p1, "android.app.backup.extra.LOG_EVENT_PACKAGE_FULL_VERSION"
 
     invoke-virtual {p2}, Landroid/content/pm/PackageInfo;->getLongVersionCode()J
 
-    move-result-wide v2
+    move-result-wide p2
 
-    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Bundle;->putLong(Ljava/lang/String;J)V
+    invoke-virtual {v0, p1, p2, p3}, Landroid/os/Bundle;->putLong(Ljava/lang/String;J)V
 
     :cond_0
     if-eqz p4, :cond_1
@@ -65,30 +57,26 @@
     return-object p0
 
     :catch_0
-    move-exception v0
+    const-string p0, "BackupManagerService"
 
-    const-string v1, "BackupManagerService"
+    const-string p1, "backup manager monitor went away"
 
-    const-string v2, "backup manager monitor went away"
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, p1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_2
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static putMonitoringExtra(Landroid/os/Bundle;Ljava/lang/String;J)Landroid/os/Bundle;
-    .locals 1
+    .locals 0
 
     if-nez p0, :cond_0
 
-    new-instance v0, Landroid/os/Bundle;
+    new-instance p0, Landroid/os/Bundle;
 
-    invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
-
-    move-object p0, v0
+    invoke-direct {p0}, Landroid/os/Bundle;-><init>()V
 
     :cond_0
     invoke-virtual {p0, p1, p2, p3}, Landroid/os/Bundle;->putLong(Ljava/lang/String;J)V
@@ -97,15 +85,13 @@
 .end method
 
 .method public static putMonitoringExtra(Landroid/os/Bundle;Ljava/lang/String;Ljava/lang/String;)Landroid/os/Bundle;
-    .locals 1
+    .locals 0
 
     if-nez p0, :cond_0
 
-    new-instance v0, Landroid/os/Bundle;
+    new-instance p0, Landroid/os/Bundle;
 
-    invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
-
-    move-object p0, v0
+    invoke-direct {p0}, Landroid/os/Bundle;-><init>()V
 
     :cond_0
     invoke-virtual {p0, p1, p2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
@@ -114,15 +100,13 @@
 .end method
 
 .method public static putMonitoringExtra(Landroid/os/Bundle;Ljava/lang/String;Z)Landroid/os/Bundle;
-    .locals 1
+    .locals 0
 
     if-nez p0, :cond_0
 
-    new-instance v0, Landroid/os/Bundle;
+    new-instance p0, Landroid/os/Bundle;
 
-    invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
-
-    move-object p0, v0
+    invoke-direct {p0}, Landroid/os/Bundle;-><init>()V
 
     :cond_0
     invoke-virtual {p0, p1, p2}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V

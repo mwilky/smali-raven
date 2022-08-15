@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/server/wm/LaunchParamsController$LaunchParamsModifier;
+.class public interface abstract Lcom/android/server/wm/LaunchParamsController$LaunchParamsModifier;
 .super Ljava/lang/Object;
 .source "LaunchParamsController.java"
 
@@ -9,32 +9,9 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
+    accessFlags = 0x609
     name = "LaunchParamsModifier"
 .end annotation
-
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/android/server/wm/LaunchParamsController$LaunchParamsModifier$Phase;,
-        Lcom/android/server/wm/LaunchParamsController$LaunchParamsModifier$Result;
-    }
-.end annotation
-
-
-# static fields
-.field public static final PHASE_BOUNDS:I = 0x3
-
-.field public static final PHASE_DISPLAY:I = 0x0
-
-.field public static final PHASE_DISPLAY_AREA:I = 0x2
-
-.field public static final PHASE_WINDOWING_MODE:I = 0x1
-
-.field public static final RESULT_CONTINUE:I = 0x2
-
-.field public static final RESULT_DONE:I = 0x1
-
-.field public static final RESULT_SKIP:I
 
 
 # virtual methods

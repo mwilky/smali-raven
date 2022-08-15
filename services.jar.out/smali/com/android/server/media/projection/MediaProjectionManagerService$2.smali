@@ -1,4 +1,4 @@
-.class Lcom/android/server/media/projection/MediaProjectionManagerService$2;
+.class public Lcom/android/server/media/projection/MediaProjectionManagerService$2;
 .super Ljava/lang/Object;
 .source "MediaProjectionManagerService.java"
 
@@ -12,19 +12,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/media/projection/MediaProjectionManagerService;
+.field public final synthetic this$0:Lcom/android/server/media/projection/MediaProjectionManagerService;
 
-.field final synthetic val$callback:Landroid/media/projection/IMediaProjectionWatcherCallback;
+.field public final synthetic val$callback:Landroid/media/projection/IMediaProjectionWatcherCallback;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/media/projection/MediaProjectionManagerService;Landroid/media/projection/IMediaProjectionWatcherCallback;)V
+.method public constructor <init>(Lcom/android/server/media/projection/MediaProjectionManagerService;Landroid/media/projection/IMediaProjectionWatcherCallback;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/media/projection/MediaProjectionManagerService$2;->this$0:Lcom/android/server/media/projection/MediaProjectionManagerService;
@@ -39,13 +39,13 @@
 
 # virtual methods
 .method public binderDied()V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/media/projection/MediaProjectionManagerService$2;->this$0:Lcom/android/server/media/projection/MediaProjectionManagerService;
 
-    iget-object v1, p0, Lcom/android/server/media/projection/MediaProjectionManagerService$2;->val$callback:Landroid/media/projection/IMediaProjectionWatcherCallback;
+    iget-object p0, p0, Lcom/android/server/media/projection/MediaProjectionManagerService$2;->val$callback:Landroid/media/projection/IMediaProjectionWatcherCallback;
 
-    invoke-static {v0, v1}, Lcom/android/server/media/projection/MediaProjectionManagerService;->access$300(Lcom/android/server/media/projection/MediaProjectionManagerService;Landroid/media/projection/IMediaProjectionWatcherCallback;)V
+    invoke-static {v0, p0}, Lcom/android/server/media/projection/MediaProjectionManagerService;->-$$Nest$mremoveCallback(Lcom/android/server/media/projection/MediaProjectionManagerService;Landroid/media/projection/IMediaProjectionWatcherCallback;)V
 
     return-void
 .end method

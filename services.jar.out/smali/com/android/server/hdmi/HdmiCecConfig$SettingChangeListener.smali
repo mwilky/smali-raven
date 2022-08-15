@@ -16,4 +16,8 @@
 
 # virtual methods
 .method public abstract onChange(Ljava/lang/String;)V
+    .param p1    # Ljava/lang/String;
+        .annotation build Landroid/hardware/hdmi/HdmiControlManager$CecSettingName;
+        .end annotation
+    .end param
 .end method

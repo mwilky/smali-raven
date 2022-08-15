@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/PersisterQueue;
+.class public Lcom/android/server/wm/PersisterQueue;
 .super Ljava/lang/Object;
 .source "PersisterQueue.java"
 
@@ -14,27 +14,15 @@
 
 
 # static fields
-.field private static final DEBUG:Z = false
-
-.field static final EMPTY_ITEM:Lcom/android/server/wm/PersisterQueue$WriteQueueItem;
-
-.field private static final FLUSH_QUEUE:J = -0x1L
-
-.field private static final INTER_WRITE_DELAY_MS:J = 0x1f4L
-
-.field private static final MAX_WRITE_QUEUE_LENGTH:I = 0x6
-
-.field private static final PRE_TASK_DELAY_MS:J = 0xbb8L
-
-.field private static final TAG:Ljava/lang/String; = "PersisterQueue"
+.field public static final EMPTY_ITEM:Lcom/android/server/wm/PersisterQueue$WriteQueueItem;
 
 
 # instance fields
-.field private final mInterWriteDelayMs:J
+.field public final mInterWriteDelayMs:J
 
-.field private final mLazyTaskWriterThread:Lcom/android/server/wm/PersisterQueue$LazyTaskWriterThread;
+.field public final mLazyTaskWriterThread:Lcom/android/server/wm/PersisterQueue$LazyTaskWriterThread;
 
-.field private final mListeners:Ljava/util/ArrayList;
+.field public final mListeners:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/ArrayList<",
@@ -44,11 +32,11 @@
     .end annotation
 .end field
 
-.field private mNextWriteTime:J
+.field public mNextWriteTime:J
 
-.field private final mPreTaskDelayMs:J
+.field public final mPreTaskDelayMs:J
 
-.field private final mWriteQueue:Ljava/util/ArrayList;
+.field public final mWriteQueue:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/ArrayList<",
@@ -60,17 +48,51 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static synthetic $r8$lambda$syVj9EGgTHDI9mYKZaXH4FHirr0()V
+    .locals 0
+
+    invoke-static {}, Lcom/android/server/wm/PersisterQueue;->lambda$static$0()V
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmListeners(Lcom/android/server/wm/PersisterQueue;)Ljava/util/ArrayList;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/wm/PersisterQueue;->mListeners:Ljava/util/ArrayList;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmWriteQueue(Lcom/android/server/wm/PersisterQueue;)Ljava/util/ArrayList;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/wm/PersisterQueue;->mWriteQueue:Ljava/util/ArrayList;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$mprocessNextItem(Lcom/android/server/wm/PersisterQueue;)V
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/server/wm/PersisterQueue;->processNextItem()V
+
+    return-void
+.end method
+
+.method public static constructor <clinit>()V
     .locals 1
 
-    sget-object v0, Lcom/android/server/wm/PersisterQueue$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/server/wm/PersisterQueue$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/android/server/wm/PersisterQueue$$ExternalSyntheticLambda1;
+
+    invoke-direct {v0}, Lcom/android/server/wm/PersisterQueue$$ExternalSyntheticLambda1;-><init>()V
 
     sput-object v0, Lcom/android/server/wm/PersisterQueue;->EMPTY_ITEM:Lcom/android/server/wm/PersisterQueue$WriteQueueItem;
 
     return-void
 .end method
 
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 4
 
     const-wide/16 v0, 0x1f4
@@ -82,8 +104,10 @@
     return-void
 .end method
 
-.method constructor <init>(JJ)V
+.method public constructor <init>(JJ)V
     .locals 3
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -115,82 +139,257 @@
 
     iput-wide p3, p0, Lcom/android/server/wm/PersisterQueue;->mPreTaskDelayMs:J
 
-    new-instance v0, Lcom/android/server/wm/PersisterQueue$LazyTaskWriterThread;
+    new-instance p1, Lcom/android/server/wm/PersisterQueue$LazyTaskWriterThread;
 
-    const/4 v1, 0x0
+    const/4 p2, 0x0
 
-    const-string v2, "LazyTaskWriterThread"
+    const-string p3, "LazyTaskWriterThread"
 
-    invoke-direct {v0, p0, v2, v1}, Lcom/android/server/wm/PersisterQueue$LazyTaskWriterThread;-><init>(Lcom/android/server/wm/PersisterQueue;Ljava/lang/String;Lcom/android/server/wm/PersisterQueue$1;)V
+    invoke-direct {p1, p0, p3, p2}, Lcom/android/server/wm/PersisterQueue$LazyTaskWriterThread;-><init>(Lcom/android/server/wm/PersisterQueue;Ljava/lang/String;Lcom/android/server/wm/PersisterQueue$LazyTaskWriterThread-IA;)V
 
-    iput-object v0, p0, Lcom/android/server/wm/PersisterQueue;->mLazyTaskWriterThread:Lcom/android/server/wm/PersisterQueue$LazyTaskWriterThread;
+    iput-object p1, p0, Lcom/android/server/wm/PersisterQueue;->mLazyTaskWriterThread:Lcom/android/server/wm/PersisterQueue$LazyTaskWriterThread;
 
     return-void
 
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "Both inter-write delay and pre-task delay need tobe non-negative. inter-write delay: "
+    const-string v1, "Both inter-write delay and pre-task delay need tobe non-negative. inter-write delay: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1, p2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1, p2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    const-string v2, "ms pre-task delay: "
+    const-string p1, "ms pre-task delay: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p3, p4}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p3, p4}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+.end method
+
+.method public static synthetic lambda$static$0()V
+    .locals 0
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public declared-synchronized addItem(Lcom/android/server/wm/PersisterQueue$WriteQueueItem;Z)V
+    .locals 2
+
+    monitor-enter p0
+
+    :try_start_0
+    iget-object v0, p0, Lcom/android/server/wm/PersisterQueue;->mWriteQueue:Ljava/util/ArrayList;
+
+    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    if-nez p2, :cond_1
+
+    iget-object p1, p0, Lcom/android/server/wm/PersisterQueue;->mWriteQueue:Ljava/util/ArrayList;
+
+    invoke-virtual {p1}, Ljava/util/ArrayList;->size()I
+
+    move-result p1
+
+    const/4 p2, 0x6
+
+    if-le p1, p2, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    iget-wide p1, p0, Lcom/android/server/wm/PersisterQueue;->mNextWriteTime:J
+
+    const-wide/16 v0, 0x0
+
+    cmp-long p1, p1, v0
+
+    if-nez p1, :cond_2
+
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+
+    move-result-wide p1
+
+    iget-wide v0, p0, Lcom/android/server/wm/PersisterQueue;->mPreTaskDelayMs:J
+
+    add-long/2addr p1, v0
+
+    iput-wide p1, p0, Lcom/android/server/wm/PersisterQueue;->mNextWriteTime:J
+
+    goto :goto_1
+
+    :cond_1
+    :goto_0
+    const-wide/16 p1, -0x1
+
+    iput-wide p1, p0, Lcom/android/server/wm/PersisterQueue;->mNextWriteTime:J
+
+    :cond_2
+    :goto_1
+    invoke-virtual {p0}, Ljava/lang/Object;->notify()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit p0
+
+    return-void
+
+    :catchall_0
+    move-exception p1
+
+    monitor-exit p0
+
+    throw p1
+.end method
+
+.method public addListener(Lcom/android/server/wm/PersisterQueue$Listener;)V
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/wm/PersisterQueue;->mListeners:Ljava/util/ArrayList;
+
+    invoke-virtual {p0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    return-void
+.end method
+
+.method public declared-synchronized findLastItem(Ljava/util/function/Predicate;Ljava/lang/Class;)Lcom/android/server/wm/PersisterQueue$WriteQueueItem;
+    .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<T::",
+            "Lcom/android/server/wm/PersisterQueue$WriteQueueItem;",
+            ">(",
+            "Ljava/util/function/Predicate<",
+            "TT;>;",
+            "Ljava/lang/Class<",
+            "TT;>;)TT;"
+        }
+    .end annotation
+
+    monitor-enter p0
+
+    :try_start_0
+    iget-object v0, p0, Lcom/android/server/wm/PersisterQueue;->mWriteQueue:Ljava/util/ArrayList;
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+
+    move-result v0
+
+    add-int/lit8 v0, v0, -0x1
+
+    :goto_0
+    if-ltz v0, :cond_1
+
+    iget-object v1, p0, Lcom/android/server/wm/PersisterQueue;->mWriteQueue:Ljava/util/ArrayList;
+
+    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    check-cast v1, Lcom/android/server/wm/PersisterQueue$WriteQueueItem;
+
+    invoke-virtual {p2, v1}, Ljava/lang/Class;->isInstance(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    invoke-virtual {p2, v1}, Ljava/lang/Class;->cast(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/server/wm/PersisterQueue$WriteQueueItem;
+
+    invoke-interface {p1, v1}, Ljava/util/function/Predicate;->test(Ljava/lang/Object;)Z
+
+    move-result v2
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    if-eqz v2, :cond_0
+
+    monitor-exit p0
+
+    return-object v1
+
+    :cond_0
+    add-int/lit8 v0, v0, -0x1
+
+    goto :goto_0
+
+    :cond_1
+    const/4 p1, 0x0
+
+    monitor-exit p0
+
+    return-object p1
+
+    :catchall_0
+    move-exception p1
+
+    monitor-exit p0
+
+    throw p1
+.end method
+
+.method public declared-synchronized flush()V
+    .locals 4
+
+    monitor-enter p0
+
+    const-wide/16 v0, -0x1
+
+    :try_start_0
+    iput-wide v0, p0, Lcom/android/server/wm/PersisterQueue;->mNextWriteTime:J
+
+    invoke-virtual {p0}, Ljava/lang/Object;->notifyAll()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :cond_0
+    :try_start_1
+    invoke-virtual {p0}, Ljava/lang/Object;->wait()V
+    :try_end_1
+    .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    :catch_0
+    :try_start_2
+    iget-wide v2, p0, Lcom/android/server/wm/PersisterQueue;->mNextWriteTime:J
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    cmp-long v2, v2, v0
+
+    if-eqz v2, :cond_0
+
+    monitor-exit p0
+
+    return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit p0
 
     throw v0
 .end method
 
-.method static synthetic access$100(Lcom/android/server/wm/PersisterQueue;)Ljava/util/ArrayList;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/wm/PersisterQueue;->mWriteQueue:Ljava/util/ArrayList;
-
-    return-object v0
-.end method
-
-.method static synthetic access$200(Lcom/android/server/wm/PersisterQueue;)Ljava/util/ArrayList;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/wm/PersisterQueue;->mListeners:Ljava/util/ArrayList;
-
-    return-object v0
-.end method
-
-.method static synthetic access$300(Lcom/android/server/wm/PersisterQueue;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/lang/InterruptedException;
-        }
-    .end annotation
-
-    invoke-direct {p0}, Lcom/android/server/wm/PersisterQueue;->processNextItem()V
-
-    return-void
-.end method
-
-.method static synthetic lambda$static$0()V
-    .locals 0
-
-    return-void
-.end method
-
-.method private processNextItem()V
+.method public final processNextItem()V
     .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -291,9 +490,7 @@
 
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
-    move-result-wide v3
-
-    move-wide v1, v3
+    move-result-wide v1
 
     goto :goto_1
 
@@ -317,217 +514,8 @@
     throw v0
 .end method
 
-
-# virtual methods
-.method declared-synchronized addItem(Lcom/android/server/wm/PersisterQueue$WriteQueueItem;Z)V
-    .locals 4
-
-    monitor-enter p0
-
-    :try_start_0
-    iget-object v0, p0, Lcom/android/server/wm/PersisterQueue;->mWriteQueue:Ljava/util/ArrayList;
-
-    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    if-nez p2, :cond_1
-
-    iget-object v0, p0, Lcom/android/server/wm/PersisterQueue;->mWriteQueue:Ljava/util/ArrayList;
-
-    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
-
-    move-result v0
-
-    const/4 v1, 0x6
-
-    if-le v0, v1, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    iget-wide v0, p0, Lcom/android/server/wm/PersisterQueue;->mNextWriteTime:J
-
-    const-wide/16 v2, 0x0
-
-    cmp-long v0, v0, v2
-
-    if-nez v0, :cond_2
-
-    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
-
-    move-result-wide v0
-
-    iget-wide v2, p0, Lcom/android/server/wm/PersisterQueue;->mPreTaskDelayMs:J
-
-    add-long/2addr v0, v2
-
-    iput-wide v0, p0, Lcom/android/server/wm/PersisterQueue;->mNextWriteTime:J
-
-    goto :goto_1
-
-    :cond_1
-    :goto_0
-    const-wide/16 v0, -0x1
-
-    iput-wide v0, p0, Lcom/android/server/wm/PersisterQueue;->mNextWriteTime:J
-
-    :cond_2
-    :goto_1
-    invoke-virtual {p0}, Ljava/lang/Object;->notify()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    monitor-exit p0
-
-    return-void
-
-    :catchall_0
-    move-exception p1
-
-    monitor-exit p0
-
-    throw p1
-.end method
-
-.method addListener(Lcom/android/server/wm/PersisterQueue$Listener;)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/wm/PersisterQueue;->mListeners:Ljava/util/ArrayList;
-
-    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    return-void
-.end method
-
-.method declared-synchronized findLastItem(Ljava/util/function/Predicate;Ljava/lang/Class;)Lcom/android/server/wm/PersisterQueue$WriteQueueItem;
-    .locals 4
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<T::",
-            "Lcom/android/server/wm/PersisterQueue$WriteQueueItem;",
-            ">(",
-            "Ljava/util/function/Predicate<",
-            "TT;>;",
-            "Ljava/lang/Class<",
-            "TT;>;)TT;"
-        }
-    .end annotation
-
-    monitor-enter p0
-
-    :try_start_0
-    iget-object v0, p0, Lcom/android/server/wm/PersisterQueue;->mWriteQueue:Ljava/util/ArrayList;
-
-    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
-
-    move-result v0
-
-    add-int/lit8 v0, v0, -0x1
-
-    :goto_0
-    if-ltz v0, :cond_1
-
-    iget-object v1, p0, Lcom/android/server/wm/PersisterQueue;->mWriteQueue:Ljava/util/ArrayList;
-
-    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/android/server/wm/PersisterQueue$WriteQueueItem;
-
-    invoke-virtual {p2, v1}, Ljava/lang/Class;->isInstance(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    invoke-virtual {p2, v1}, Ljava/lang/Class;->cast(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/android/server/wm/PersisterQueue$WriteQueueItem;
-
-    invoke-interface {p1, v2}, Ljava/util/function/Predicate;->test(Ljava/lang/Object;)Z
-
-    move-result v3
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    if-eqz v3, :cond_0
-
-    monitor-exit p0
-
-    return-object v2
-
-    :cond_0
-    add-int/lit8 v0, v0, -0x1
-
-    goto :goto_0
-
-    :cond_1
-    const/4 v0, 0x0
-
-    monitor-exit p0
-
-    return-object v0
-
-    :catchall_0
-    move-exception p1
-
-    monitor-exit p0
-
-    throw p1
-.end method
-
-.method declared-synchronized flush()V
-    .locals 4
-
-    monitor-enter p0
-
-    const-wide/16 v0, -0x1
-
-    :try_start_0
-    iput-wide v0, p0, Lcom/android/server/wm/PersisterQueue;->mNextWriteTime:J
-
-    invoke-virtual {p0}, Ljava/lang/Object;->notifyAll()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    :cond_0
-    :try_start_1
-    invoke-virtual {p0}, Ljava/lang/Object;->wait()V
-    :try_end_1
-    .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    goto :goto_0
-
-    :catch_0
-    move-exception v2
-
-    :goto_0
-    :try_start_2
-    iget-wide v2, p0, Lcom/android/server/wm/PersisterQueue;->mNextWriteTime:J
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
-
-    cmp-long v2, v2, v0
-
-    if-eqz v2, :cond_0
-
-    monitor-exit p0
-
-    return-void
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit p0
-
-    throw v0
-.end method
-
-.method declared-synchronized removeItems(Ljava/util/function/Predicate;Ljava/lang/Class;)V
-    .locals 4
+.method public declared-synchronized removeItems(Ljava/util/function/Predicate;Ljava/lang/Class;)V
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T::",
@@ -570,19 +558,19 @@
 
     invoke-virtual {p2, v1}, Ljava/lang/Class;->cast(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
-    check-cast v2, Lcom/android/server/wm/PersisterQueue$WriteQueueItem;
+    check-cast v1, Lcom/android/server/wm/PersisterQueue$WriteQueueItem;
 
-    invoke-interface {p1, v2}, Ljava/util/function/Predicate;->test(Ljava/lang/Object;)Z
+    invoke-interface {p1, v1}, Ljava/util/function/Predicate;->test(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v1
 
-    if-eqz v3, :cond_0
+    if-eqz v1, :cond_0
 
-    iget-object v3, p0, Lcom/android/server/wm/PersisterQueue;->mWriteQueue:Ljava/util/ArrayList;
+    iget-object v1, p0, Lcom/android/server/wm/PersisterQueue;->mWriteQueue:Ljava/util/ArrayList;
 
-    invoke-virtual {v3, v0}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
+    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -604,19 +592,21 @@
     throw p1
 .end method
 
-.method removeListener(Lcom/android/server/wm/PersisterQueue$Listener;)Z
-    .locals 1
+.method public removeListener(Lcom/android/server/wm/PersisterQueue$Listener;)Z
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
 
-    iget-object v0, p0, Lcom/android/server/wm/PersisterQueue;->mListeners:Ljava/util/ArrayList;
+    iget-object p0, p0, Lcom/android/server/wm/PersisterQueue;->mListeners:Ljava/util/ArrayList;
 
-    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
-.method declared-synchronized startPersisting()V
+.method public declared-synchronized startPersisting()V
     .locals 1
 
     monitor-enter p0
@@ -624,7 +614,7 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/server/wm/PersisterQueue;->mLazyTaskWriterThread:Lcom/android/server/wm/PersisterQueue$LazyTaskWriterThread;
 
-    invoke-virtual {v0}, Lcom/android/server/wm/PersisterQueue$LazyTaskWriterThread;->isAlive()Z
+    invoke-virtual {v0}, Ljava/lang/Thread;->isAlive()Z
 
     move-result v0
 
@@ -632,7 +622,7 @@
 
     iget-object v0, p0, Lcom/android/server/wm/PersisterQueue;->mLazyTaskWriterThread:Lcom/android/server/wm/PersisterQueue$LazyTaskWriterThread;
 
-    invoke-virtual {v0}, Lcom/android/server/wm/PersisterQueue$LazyTaskWriterThread;->start()V
+    invoke-virtual {v0}, Ljava/lang/Thread;->start()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -649,8 +639,11 @@
     throw v0
 .end method
 
-.method stopPersisting()V
+.method public stopPersisting()V
     .locals 1
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/InterruptedException;
@@ -659,7 +652,7 @@
 
     iget-object v0, p0, Lcom/android/server/wm/PersisterQueue;->mLazyTaskWriterThread:Lcom/android/server/wm/PersisterQueue$LazyTaskWriterThread;
 
-    invoke-virtual {v0}, Lcom/android/server/wm/PersisterQueue$LazyTaskWriterThread;->isAlive()Z
+    invoke-virtual {v0}, Ljava/lang/Thread;->isAlive()Z
 
     move-result v0
 
@@ -673,15 +666,15 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/server/wm/PersisterQueue;->mLazyTaskWriterThread:Lcom/android/server/wm/PersisterQueue$LazyTaskWriterThread;
 
-    invoke-virtual {v0}, Lcom/android/server/wm/PersisterQueue$LazyTaskWriterThread;->interrupt()V
+    invoke-virtual {v0}, Ljava/lang/Thread;->interrupt()V
 
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    iget-object v0, p0, Lcom/android/server/wm/PersisterQueue;->mLazyTaskWriterThread:Lcom/android/server/wm/PersisterQueue$LazyTaskWriterThread;
+    iget-object p0, p0, Lcom/android/server/wm/PersisterQueue;->mLazyTaskWriterThread:Lcom/android/server/wm/PersisterQueue$LazyTaskWriterThread;
 
-    invoke-virtual {v0}, Lcom/android/server/wm/PersisterQueue$LazyTaskWriterThread;->join()V
+    invoke-virtual {p0}, Ljava/lang/Thread;->join()V
 
     return-void
 
@@ -696,7 +689,7 @@
     throw v0
 .end method
 
-.method declared-synchronized updateLastOrAddItem(Lcom/android/server/wm/PersisterQueue$WriteQueueItem;Z)V
+.method public declared-synchronized updateLastOrAddItem(Lcom/android/server/wm/PersisterQueue$WriteQueueItem;Z)V
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -711,9 +704,9 @@
     :try_start_0
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    new-instance v0, Lcom/android/server/wm/PersisterQueue$$ExternalSyntheticLambda1;
+    new-instance v0, Lcom/android/server/wm/PersisterQueue$$ExternalSyntheticLambda0;
 
-    invoke-direct {v0, p1}, Lcom/android/server/wm/PersisterQueue$$ExternalSyntheticLambda1;-><init>(Lcom/android/server/wm/PersisterQueue$WriteQueueItem;)V
+    invoke-direct {v0, p1}, Lcom/android/server/wm/PersisterQueue$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/wm/PersisterQueue$WriteQueueItem;)V
 
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -749,25 +742,28 @@
     throw p1
 .end method
 
-.method yieldIfQueueTooDeep()V
-    .locals 5
-
-    const/4 v0, 0x0
+.method public yieldIfQueueTooDeep()V
+    .locals 4
 
     monitor-enter p0
 
     :try_start_0
-    iget-wide v1, p0, Lcom/android/server/wm/PersisterQueue;->mNextWriteTime:J
+    iget-wide v0, p0, Lcom/android/server/wm/PersisterQueue;->mNextWriteTime:J
 
-    const-wide/16 v3, -0x1
+    const-wide/16 v2, -0x1
 
-    cmp-long v1, v1, v3
+    cmp-long v0, v0, v2
 
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
     const/4 v0, 0x1
 
+    goto :goto_0
+
     :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -780,12 +776,12 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception v0
 
     :try_start_1
     monitor-exit p0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v1
+    throw v0
 .end method

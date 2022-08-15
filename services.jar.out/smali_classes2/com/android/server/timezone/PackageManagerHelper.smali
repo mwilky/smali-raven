@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/server/timezone/PackageManagerHelper;
+.class public interface abstract Lcom/android/server/timezone/PackageManagerHelper;
 .super Ljava/lang/Object;
 .source "PackageManagerHelper.java"
 

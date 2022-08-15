@@ -19,14 +19,6 @@
 .end annotation
 
 
-# static fields
-.field private static final TAG:Ljava/lang/String; = "RemoteFillService"
-
-.field private static final TIMEOUT_IDLE_BIND_MILLIS:J = 0x1388L
-
-.field private static final TIMEOUT_REMOTE_REQUEST_MILLIS:J = 0x1388L
-
-
 # instance fields
 .field private final mCallbacks:Lcom/android/server/autofill/RemoteFillService$FillServiceCallbacks;
 
@@ -48,7 +40,75 @@
 
 
 # direct methods
-.method constructor <init>(Landroid/content/Context;Landroid/content/ComponentName;ILcom/android/server/autofill/RemoteFillService$FillServiceCallbacks;Z)V
+.method public static synthetic $r8$lambda$0TyWXMubfml43srdXSJGaC2a_G8(Lcom/android/server/autofill/RemoteFillService;Landroid/content/IntentSender;Ljava/lang/Throwable;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/server/autofill/RemoteFillService;->lambda$onSaveRequest$5(Landroid/content/IntentSender;Ljava/lang/Throwable;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$RJPZj0Fb_BGqt_SpkpyEpzz3mE4(Lcom/android/server/autofill/RemoteFillService;Landroid/service/autofill/FillRequest;Ljava/util/concurrent/atomic/AtomicReference;Landroid/service/autofill/FillResponse;Ljava/lang/Throwable;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/server/autofill/RemoteFillService;->lambda$onFillRequest$2(Landroid/service/autofill/FillRequest;Ljava/util/concurrent/atomic/AtomicReference;Landroid/service/autofill/FillResponse;Ljava/lang/Throwable;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$_rj0r8n2KuLQiX8aYOdICIRJ1HI(Lcom/android/internal/os/IResultReceiver;Landroid/service/autofill/IAutoFillService;)V
+    .locals 0
+
+    invoke-static {p0, p1}, Lcom/android/server/autofill/RemoteFillService;->lambda$onSavedPasswordCountRequest$6(Lcom/android/internal/os/IResultReceiver;Landroid/service/autofill/IAutoFillService;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$bIuJSWKrOrIGPTrMFsTjx7sPZ6E(Lcom/android/server/autofill/RemoteFillService;Ljava/lang/Throwable;Landroid/content/IntentSender;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/server/autofill/RemoteFillService;->lambda$onSaveRequest$4(Ljava/lang/Throwable;Landroid/content/IntentSender;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$gnlMp01HzSOYQxSGAOFPCIAy6-Q(Lcom/android/server/autofill/RemoteFillService;Ljava/lang/Throwable;Landroid/service/autofill/FillRequest;Landroid/service/autofill/FillResponse;Ljava/util/concurrent/atomic/AtomicReference;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/server/autofill/RemoteFillService;->lambda$onFillRequest$1(Ljava/lang/Throwable;Landroid/service/autofill/FillRequest;Landroid/service/autofill/FillResponse;Ljava/util/concurrent/atomic/AtomicReference;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$kl-MGjPrX_tFnuG85fz60uEXUgw(Lcom/android/server/autofill/RemoteFillService;Landroid/service/autofill/SaveRequest;Landroid/service/autofill/IAutoFillService;)Ljava/util/concurrent/CompletableFuture;
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/server/autofill/RemoteFillService;->lambda$onSaveRequest$3(Landroid/service/autofill/SaveRequest;Landroid/service/autofill/IAutoFillService;)Ljava/util/concurrent/CompletableFuture;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic $r8$lambda$u9HVjGQc1x5sc6qU7ISdPBzaxxI(Lcom/android/server/autofill/RemoteFillService;Landroid/service/autofill/FillRequest;Ljava/util/concurrent/atomic/AtomicReference;Ljava/util/concurrent/atomic/AtomicReference;Landroid/service/autofill/IAutoFillService;)Ljava/util/concurrent/CompletableFuture;
+    .locals 0
+
+    invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/server/autofill/RemoteFillService;->lambda$onFillRequest$0(Landroid/service/autofill/FillRequest;Ljava/util/concurrent/atomic/AtomicReference;Ljava/util/concurrent/atomic/AtomicReference;Landroid/service/autofill/IAutoFillService;)Ljava/util/concurrent/CompletableFuture;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$mdispatchCancellationSignal(Lcom/android/server/autofill/RemoteFillService;Landroid/os/ICancellationSignal;)V
+    .locals 0
+
+    invoke-virtual {p0, p1}, Lcom/android/server/autofill/RemoteFillService;->dispatchCancellationSignal(Landroid/os/ICancellationSignal;)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/content/Context;Landroid/content/ComponentName;ILcom/android/server/autofill/RemoteFillService$FillServiceCallbacks;Z)V
     .locals 8
 
     new-instance v0, Landroid/content/Intent;
@@ -63,19 +123,21 @@
 
     if-eqz p5, :cond_0
 
-    const/high16 v0, 0x400000
+    const/high16 p5, 0x400000
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p5, 0x0
 
     :goto_0
-    const/high16 v1, 0x100000
+    const/high16 v0, 0x100000
 
-    or-int v5, v0, v1
+    or-int v5, p5, v0
 
-    sget-object v7, Lcom/android/server/autofill/RemoteFillService$$ExternalSyntheticLambda7;->INSTANCE:Lcom/android/server/autofill/RemoteFillService$$ExternalSyntheticLambda7;
+    new-instance v7, Lcom/android/server/autofill/RemoteFillService$$ExternalSyntheticLambda2;
+
+    invoke-direct {v7}, Lcom/android/server/autofill/RemoteFillService$$ExternalSyntheticLambda2;-><init>()V
 
     move-object v2, p0
 
@@ -85,15 +147,15 @@
 
     invoke-direct/range {v2 .. v7}, Lcom/android/internal/infra/ServiceConnector$Impl;-><init>(Landroid/content/Context;Landroid/content/Intent;IILjava/util/function/Function;)V
 
-    new-instance v0, Ljava/lang/Object;
+    new-instance p1, Ljava/lang/Object;
 
-    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p1}, Ljava/lang/Object;-><init>()V
 
-    iput-object v0, p0, Lcom/android/server/autofill/RemoteFillService;->mLock:Ljava/lang/Object;
+    iput-object p1, p0, Lcom/android/server/autofill/RemoteFillService;->mLock:Ljava/lang/Object;
 
-    const/high16 v0, -0x80000000
+    const/high16 p1, -0x80000000
 
-    iput v0, p0, Lcom/android/server/autofill/RemoteFillService;->mPendingFillRequestId:I
+    iput p1, p0, Lcom/android/server/autofill/RemoteFillService;->mPendingFillRequestId:I
 
     iput-object p4, p0, Lcom/android/server/autofill/RemoteFillService;->mCallbacks:Lcom/android/server/autofill/RemoteFillService$FillServiceCallbacks;
 
@@ -102,144 +164,7 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/server/autofill/RemoteFillService;Landroid/os/ICancellationSignal;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/server/autofill/RemoteFillService;->dispatchCancellationSignal(Landroid/os/ICancellationSignal;)V
-
-    return-void
-.end method
-
-.method private dispatchCancellationSignal(Landroid/os/ICancellationSignal;)V
-    .locals 3
-
-    if-nez p1, :cond_0
-
-    return-void
-
-    :cond_0
-    :try_start_0
-    invoke-interface {p1}, Landroid/os/ICancellationSignal;->cancel()V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_0
-
-    :catch_0
-    move-exception v0
-
-    const-string v1, "RemoteFillService"
-
-    const-string v2, "Error requesting a cancellation"
-
-    invoke-static {v1, v2, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    :goto_0
-    return-void
-.end method
-
-.method static synthetic lambda$onSavedPasswordCountRequest$6(Lcom/android/internal/os/IResultReceiver;Landroid/service/autofill/IAutoFillService;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/lang/Exception;
-        }
-    .end annotation
-
-    invoke-interface {p1, p0}, Landroid/service/autofill/IAutoFillService;->onSavedPasswordCountRequest(Lcom/android/internal/os/IResultReceiver;)V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public addLast(Lcom/android/internal/infra/ServiceConnector$Job;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/android/internal/infra/ServiceConnector$Job<",
-            "Landroid/service/autofill/IAutoFillService;",
-            "*>;)V"
-        }
-    .end annotation
-
-    invoke-virtual {p0}, Lcom/android/server/autofill/RemoteFillService;->cancelPendingJobs()V
-
-    invoke-super {p0, p1}, Lcom/android/internal/infra/ServiceConnector$Impl;->addLast(Ljava/lang/Object;)V
-
-    return-void
-.end method
-
-.method public bridge synthetic addLast(Ljava/lang/Object;)V
-    .locals 0
-
-    check-cast p1, Lcom/android/internal/infra/ServiceConnector$Job;
-
-    invoke-virtual {p0, p1}, Lcom/android/server/autofill/RemoteFillService;->addLast(Lcom/android/internal/infra/ServiceConnector$Job;)V
-
-    return-void
-.end method
-
-.method public cancelCurrentRequest()I
-    .locals 3
-
-    iget-object v0, p0, Lcom/android/server/autofill/RemoteFillService;->mLock:Ljava/lang/Object;
-
-    monitor-enter v0
-
-    :try_start_0
-    iget-object v1, p0, Lcom/android/server/autofill/RemoteFillService;->mPendingFillRequest:Ljava/util/concurrent/CompletableFuture;
-
-    if-eqz v1, :cond_0
-
-    const/4 v2, 0x0
-
-    invoke-virtual {v1, v2}, Ljava/util/concurrent/CompletableFuture;->cancel(Z)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    iget v1, p0, Lcom/android/server/autofill/RemoteFillService;->mPendingFillRequestId:I
-
-    goto :goto_0
-
-    :cond_0
-    const/high16 v1, -0x80000000
-
-    :goto_0
-    monitor-exit v0
-
-    return v1
-
-    :catchall_0
-    move-exception v1
-
-    monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v1
-.end method
-
-.method public destroy()V
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/server/autofill/RemoteFillService;->unbind()V
-
-    return-void
-.end method
-
-.method protected getAutoDisconnectTimeoutMs()J
-    .locals 2
-
-    const-wide/16 v0, 0x1388
-
-    return-wide v0
-.end method
-
-.method public synthetic lambda$onFillRequest$0$RemoteFillService(Landroid/service/autofill/FillRequest;Ljava/util/concurrent/atomic/AtomicReference;Ljava/util/concurrent/atomic/AtomicReference;Landroid/service/autofill/IAutoFillService;)Ljava/util/concurrent/CompletableFuture;
+.method private synthetic lambda$onFillRequest$0(Landroid/service/autofill/FillRequest;Ljava/util/concurrent/atomic/AtomicReference;Ljava/util/concurrent/atomic/AtomicReference;Landroid/service/autofill/IAutoFillService;)Ljava/util/concurrent/CompletableFuture;
     .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -287,8 +212,8 @@
     return-object v0
 .end method
 
-.method public synthetic lambda$onFillRequest$1$RemoteFillService(Ljava/lang/Throwable;Landroid/service/autofill/FillRequest;Landroid/service/autofill/FillResponse;Ljava/util/concurrent/atomic/AtomicReference;)V
-    .locals 4
+.method private synthetic lambda$onFillRequest$1(Ljava/lang/Throwable;Landroid/service/autofill/FillRequest;Landroid/service/autofill/FillResponse;Ljava/util/concurrent/atomic/AtomicReference;)V
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/autofill/RemoteFillService;->mLock:Ljava/lang/Object;
 
@@ -309,98 +234,98 @@
 
     if-nez p1, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/autofill/RemoteFillService;->mCallbacks:Lcom/android/server/autofill/RemoteFillService$FillServiceCallbacks;
+    iget-object p1, p0, Lcom/android/server/autofill/RemoteFillService;->mCallbacks:Lcom/android/server/autofill/RemoteFillService$FillServiceCallbacks;
 
     invoke-virtual {p2}, Landroid/service/autofill/FillRequest;->getId()I
 
-    move-result v1
+    move-result p4
 
-    iget-object v2, p0, Lcom/android/server/autofill/RemoteFillService;->mComponentName:Landroid/content/ComponentName;
+    iget-object p0, p0, Lcom/android/server/autofill/RemoteFillService;->mComponentName:Landroid/content/ComponentName;
 
-    invoke-virtual {v2}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+    invoke-virtual {p0}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p0
 
     invoke-virtual {p2}, Landroid/service/autofill/FillRequest;->getFlags()I
 
-    move-result v3
+    move-result p2
 
-    invoke-interface {v0, v1, p3, v2, v3}, Lcom/android/server/autofill/RemoteFillService$FillServiceCallbacks;->onFillRequestSuccess(ILandroid/service/autofill/FillResponse;Ljava/lang/String;I)V
+    invoke-interface {p1, p4, p3, p0, p2}, Lcom/android/server/autofill/RemoteFillService$FillServiceCallbacks;->onFillRequestSuccess(ILandroid/service/autofill/FillResponse;Ljava/lang/String;I)V
 
     goto :goto_0
 
     :cond_0
-    const-string v0, "RemoteFillService"
+    const-string p3, "RemoteFillService"
 
-    const-string v1, "Error calling on fill request"
+    const-string v0, "Error calling on fill request"
 
-    invoke-static {v0, v1, p1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {p3, v0, p1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    instance-of v0, p1, Ljava/util/concurrent/TimeoutException;
+    instance-of p3, p1, Ljava/util/concurrent/TimeoutException;
 
-    if-eqz v0, :cond_1
+    if-eqz p3, :cond_1
 
     invoke-virtual {p4}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Landroid/os/ICancellationSignal;
+    check-cast p1, Landroid/os/ICancellationSignal;
 
-    invoke-direct {p0, v0}, Lcom/android/server/autofill/RemoteFillService;->dispatchCancellationSignal(Landroid/os/ICancellationSignal;)V
+    invoke-virtual {p0, p1}, Lcom/android/server/autofill/RemoteFillService;->dispatchCancellationSignal(Landroid/os/ICancellationSignal;)V
 
-    iget-object v0, p0, Lcom/android/server/autofill/RemoteFillService;->mCallbacks:Lcom/android/server/autofill/RemoteFillService$FillServiceCallbacks;
+    iget-object p0, p0, Lcom/android/server/autofill/RemoteFillService;->mCallbacks:Lcom/android/server/autofill/RemoteFillService$FillServiceCallbacks;
 
     invoke-virtual {p2}, Landroid/service/autofill/FillRequest;->getId()I
 
-    move-result v1
+    move-result p1
 
-    invoke-interface {v0, v1}, Lcom/android/server/autofill/RemoteFillService$FillServiceCallbacks;->onFillRequestTimeout(I)V
+    invoke-interface {p0, p1}, Lcom/android/server/autofill/RemoteFillService$FillServiceCallbacks;->onFillRequestTimeout(I)V
 
     goto :goto_0
 
     :cond_1
-    instance-of v0, p1, Ljava/util/concurrent/CancellationException;
+    instance-of p3, p1, Ljava/util/concurrent/CancellationException;
 
-    if-eqz v0, :cond_2
+    if-eqz p3, :cond_2
 
     invoke-virtual {p4}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Landroid/os/ICancellationSignal;
+    check-cast p1, Landroid/os/ICancellationSignal;
 
-    invoke-direct {p0, v0}, Lcom/android/server/autofill/RemoteFillService;->dispatchCancellationSignal(Landroid/os/ICancellationSignal;)V
+    invoke-virtual {p0, p1}, Lcom/android/server/autofill/RemoteFillService;->dispatchCancellationSignal(Landroid/os/ICancellationSignal;)V
 
     goto :goto_0
 
     :cond_2
-    iget-object v0, p0, Lcom/android/server/autofill/RemoteFillService;->mCallbacks:Lcom/android/server/autofill/RemoteFillService$FillServiceCallbacks;
+    iget-object p0, p0, Lcom/android/server/autofill/RemoteFillService;->mCallbacks:Lcom/android/server/autofill/RemoteFillService$FillServiceCallbacks;
 
     invoke-virtual {p2}, Landroid/service/autofill/FillRequest;->getId()I
 
-    move-result v1
+    move-result p2
 
     invoke-virtual {p1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-interface {v0, v1, v2}, Lcom/android/server/autofill/RemoteFillService$FillServiceCallbacks;->onFillRequestFailure(ILjava/lang/CharSequence;)V
+    invoke-interface {p0, p2, p1}, Lcom/android/server/autofill/RemoteFillService$FillServiceCallbacks;->onFillRequestFailure(ILjava/lang/CharSequence;)V
 
     :goto_0
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     :try_start_1
     monitor-exit v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
-.method public synthetic lambda$onFillRequest$2$RemoteFillService(Landroid/service/autofill/FillRequest;Ljava/util/concurrent/atomic/AtomicReference;Landroid/service/autofill/FillResponse;Ljava/lang/Throwable;)V
+.method private synthetic lambda$onFillRequest$2(Landroid/service/autofill/FillRequest;Ljava/util/concurrent/atomic/AtomicReference;Landroid/service/autofill/FillResponse;Ljava/lang/Throwable;)V
     .locals 8
 
     invoke-static {}, Landroid/os/Handler;->getMain()Landroid/os/Handler;
@@ -428,7 +353,7 @@
     return-void
 .end method
 
-.method public synthetic lambda$onSaveRequest$3$RemoteFillService(Landroid/service/autofill/SaveRequest;Landroid/service/autofill/IAutoFillService;)Ljava/util/concurrent/CompletableFuture;
+.method private synthetic lambda$onSaveRequest$3(Landroid/service/autofill/SaveRequest;Landroid/service/autofill/IAutoFillService;)Ljava/util/concurrent/CompletableFuture;
     .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -460,56 +385,185 @@
     return-object v0
 .end method
 
-.method public synthetic lambda$onSaveRequest$4$RemoteFillService(Ljava/lang/Throwable;Landroid/content/IntentSender;)V
-    .locals 3
+.method private synthetic lambda$onSaveRequest$4(Ljava/lang/Throwable;Landroid/content/IntentSender;)V
+    .locals 0
 
     if-nez p1, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/autofill/RemoteFillService;->mCallbacks:Lcom/android/server/autofill/RemoteFillService$FillServiceCallbacks;
+    iget-object p1, p0, Lcom/android/server/autofill/RemoteFillService;->mCallbacks:Lcom/android/server/autofill/RemoteFillService$FillServiceCallbacks;
 
-    iget-object v1, p0, Lcom/android/server/autofill/RemoteFillService;->mComponentName:Landroid/content/ComponentName;
+    iget-object p0, p0, Lcom/android/server/autofill/RemoteFillService;->mComponentName:Landroid/content/ComponentName;
 
-    invoke-virtual {v1}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+    invoke-virtual {p0}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-interface {v0, v1, p2}, Lcom/android/server/autofill/RemoteFillService$FillServiceCallbacks;->onSaveRequestSuccess(Ljava/lang/String;Landroid/content/IntentSender;)V
+    invoke-interface {p1, p0, p2}, Lcom/android/server/autofill/RemoteFillService$FillServiceCallbacks;->onSaveRequestSuccess(Ljava/lang/String;Landroid/content/IntentSender;)V
 
     goto :goto_0
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/autofill/RemoteFillService;->mCallbacks:Lcom/android/server/autofill/RemoteFillService$FillServiceCallbacks;
+    iget-object p2, p0, Lcom/android/server/autofill/RemoteFillService;->mCallbacks:Lcom/android/server/autofill/RemoteFillService$FillServiceCallbacks;
 
-    iget-object v1, p0, Lcom/android/server/autofill/RemoteFillService;->mComponentName:Landroid/content/ComponentName;
+    iget-object p0, p0, Lcom/android/server/autofill/RemoteFillService;->mComponentName:Landroid/content/ComponentName;
 
-    invoke-virtual {v1}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+    invoke-virtual {p0}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
     invoke-virtual {p1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-interface {v0, v1, v2}, Lcom/android/server/autofill/RemoteFillService$FillServiceCallbacks;->onSaveRequestFailure(Ljava/lang/CharSequence;Ljava/lang/String;)V
+    invoke-interface {p2, p0, p1}, Lcom/android/server/autofill/RemoteFillService$FillServiceCallbacks;->onSaveRequestFailure(Ljava/lang/CharSequence;Ljava/lang/String;)V
 
     :goto_0
     return-void
 .end method
 
-.method public synthetic lambda$onSaveRequest$5$RemoteFillService(Landroid/content/IntentSender;Ljava/lang/Throwable;)V
+.method private synthetic lambda$onSaveRequest$5(Landroid/content/IntentSender;Ljava/lang/Throwable;)V
     .locals 2
 
     invoke-static {}, Landroid/os/Handler;->getMain()Landroid/os/Handler;
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/server/autofill/RemoteFillService$$ExternalSyntheticLambda3;
+    new-instance v1, Lcom/android/server/autofill/RemoteFillService$$ExternalSyntheticLambda7;
 
-    invoke-direct {v1, p0, p2, p1}, Lcom/android/server/autofill/RemoteFillService$$ExternalSyntheticLambda3;-><init>(Lcom/android/server/autofill/RemoteFillService;Ljava/lang/Throwable;Landroid/content/IntentSender;)V
+    invoke-direct {v1, p0, p2, p1}, Lcom/android/server/autofill/RemoteFillService$$ExternalSyntheticLambda7;-><init>(Lcom/android/server/autofill/RemoteFillService;Ljava/lang/Throwable;Landroid/content/IntentSender;)V
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     return-void
+.end method
+
+.method public static synthetic lambda$onSavedPasswordCountRequest$6(Lcom/android/internal/os/IResultReceiver;Landroid/service/autofill/IAutoFillService;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/Exception;
+        }
+    .end annotation
+
+    invoke-interface {p1, p0}, Landroid/service/autofill/IAutoFillService;->onSavedPasswordCountRequest(Lcom/android/internal/os/IResultReceiver;)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public addLast(Lcom/android/internal/infra/ServiceConnector$Job;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/android/internal/infra/ServiceConnector$Job<",
+            "Landroid/service/autofill/IAutoFillService;",
+            "*>;)V"
+        }
+    .end annotation
+
+    invoke-virtual {p0}, Lcom/android/internal/infra/ServiceConnector$Impl;->cancelPendingJobs()V
+
+    invoke-super {p0, p1}, Lcom/android/internal/infra/ServiceConnector$Impl;->addLast(Ljava/lang/Object;)V
+
+    return-void
+.end method
+
+.method public bridge synthetic addLast(Ljava/lang/Object;)V
+    .locals 0
+
+    check-cast p1, Lcom/android/internal/infra/ServiceConnector$Job;
+
+    invoke-virtual {p0, p1}, Lcom/android/server/autofill/RemoteFillService;->addLast(Lcom/android/internal/infra/ServiceConnector$Job;)V
+
+    return-void
+.end method
+
+.method public cancelCurrentRequest()I
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/server/autofill/RemoteFillService;->mLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
+    iget-object v1, p0, Lcom/android/server/autofill/RemoteFillService;->mPendingFillRequest:Ljava/util/concurrent/CompletableFuture;
+
+    if-eqz v1, :cond_0
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v1, v2}, Ljava/util/concurrent/CompletableFuture;->cancel(Z)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    iget p0, p0, Lcom/android/server/autofill/RemoteFillService;->mPendingFillRequestId:I
+
+    goto :goto_0
+
+    :cond_0
+    const/high16 p0, -0x80000000
+
+    :goto_0
+    monitor-exit v0
+
+    return p0
+
+    :catchall_0
+    move-exception p0
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw p0
+.end method
+
+.method public destroy()V
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/internal/infra/ServiceConnector$Impl;->unbind()V
+
+    return-void
+.end method
+
+.method public final dispatchCancellationSignal(Landroid/os/ICancellationSignal;)V
+    .locals 1
+
+    if-nez p1, :cond_0
+
+    return-void
+
+    :cond_0
+    :try_start_0
+    invoke-interface {p1}, Landroid/os/ICancellationSignal;->cancel()V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception p0
+
+    const-string p1, "RemoteFillService"
+
+    const-string v0, "Error requesting a cancellation"
+
+    invoke-static {p1, v0, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    :goto_0
+    return-void
+.end method
+
+.method public getAutoDisconnectTimeoutMs()J
+    .locals 2
+
+    const-wide/16 v0, 0x1388
+
+    return-wide v0
 .end method
 
 .method public onFillRequest(Landroid/service/autofill/FillRequest;)V
@@ -527,7 +581,7 @@
 
     invoke-direct {v2, p0, p1, v1, v0}, Lcom/android/server/autofill/RemoteFillService$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/autofill/RemoteFillService;Landroid/service/autofill/FillRequest;Ljava/util/concurrent/atomic/AtomicReference;Ljava/util/concurrent/atomic/AtomicReference;)V
 
-    invoke-virtual {p0, v2}, Lcom/android/server/autofill/RemoteFillService;->postAsync(Lcom/android/internal/infra/ServiceConnector$Job;)Lcom/android/internal/infra/AndroidFuture;
+    invoke-virtual {p0, v2}, Lcom/android/internal/infra/ServiceConnector$Impl;->postAsync(Lcom/android/internal/infra/ServiceConnector$Job;)Lcom/android/internal/infra/AndroidFuture;
 
     move-result-object v2
 
@@ -541,83 +595,83 @@
 
     invoke-virtual {v1, v2}, Ljava/util/concurrent/atomic/AtomicReference;->set(Ljava/lang/Object;)V
 
-    iget-object v3, p0, Lcom/android/server/autofill/RemoteFillService;->mLock:Ljava/lang/Object;
+    iget-object v1, p0, Lcom/android/server/autofill/RemoteFillService;->mLock:Ljava/lang/Object;
 
-    monitor-enter v3
+    monitor-enter v1
 
     :try_start_0
     iput-object v2, p0, Lcom/android/server/autofill/RemoteFillService;->mPendingFillRequest:Ljava/util/concurrent/CompletableFuture;
 
     invoke-virtual {p1}, Landroid/service/autofill/FillRequest;->getId()I
 
-    move-result v4
+    move-result v3
 
-    iput v4, p0, Lcom/android/server/autofill/RemoteFillService;->mPendingFillRequestId:I
+    iput v3, p0, Lcom/android/server/autofill/RemoteFillService;->mPendingFillRequestId:I
 
-    monitor-exit v3
+    monitor-exit v1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    new-instance v3, Lcom/android/server/autofill/RemoteFillService$$ExternalSyntheticLambda6;
+    new-instance v1, Lcom/android/server/autofill/RemoteFillService$$ExternalSyntheticLambda1;
 
-    invoke-direct {v3, p0, p1, v0}, Lcom/android/server/autofill/RemoteFillService$$ExternalSyntheticLambda6;-><init>(Lcom/android/server/autofill/RemoteFillService;Landroid/service/autofill/FillRequest;Ljava/util/concurrent/atomic/AtomicReference;)V
+    invoke-direct {v1, p0, p1, v0}, Lcom/android/server/autofill/RemoteFillService$$ExternalSyntheticLambda1;-><init>(Lcom/android/server/autofill/RemoteFillService;Landroid/service/autofill/FillRequest;Ljava/util/concurrent/atomic/AtomicReference;)V
 
-    invoke-virtual {v2, v3}, Ljava/util/concurrent/CompletableFuture;->whenComplete(Ljava/util/function/BiConsumer;)Ljava/util/concurrent/CompletableFuture;
+    invoke-virtual {v2, v1}, Ljava/util/concurrent/CompletableFuture;->whenComplete(Ljava/util/function/BiConsumer;)Ljava/util/concurrent/CompletableFuture;
 
     return-void
 
     :catchall_0
-    move-exception v4
+    move-exception p0
 
     :try_start_1
-    monitor-exit v3
+    monitor-exit v1
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v4
+    throw p0
 .end method
 
 .method public onSaveRequest(Landroid/service/autofill/SaveRequest;)V
-    .locals 4
+    .locals 3
 
-    new-instance v0, Lcom/android/server/autofill/RemoteFillService$$ExternalSyntheticLambda1;
+    new-instance v0, Lcom/android/server/autofill/RemoteFillService$$ExternalSyntheticLambda5;
 
-    invoke-direct {v0, p0, p1}, Lcom/android/server/autofill/RemoteFillService$$ExternalSyntheticLambda1;-><init>(Lcom/android/server/autofill/RemoteFillService;Landroid/service/autofill/SaveRequest;)V
+    invoke-direct {v0, p0, p1}, Lcom/android/server/autofill/RemoteFillService$$ExternalSyntheticLambda5;-><init>(Lcom/android/server/autofill/RemoteFillService;Landroid/service/autofill/SaveRequest;)V
 
-    invoke-virtual {p0, v0}, Lcom/android/server/autofill/RemoteFillService;->postAsync(Lcom/android/internal/infra/ServiceConnector$Job;)Lcom/android/internal/infra/AndroidFuture;
+    invoke-virtual {p0, v0}, Lcom/android/internal/infra/ServiceConnector$Impl;->postAsync(Lcom/android/internal/infra/ServiceConnector$Job;)Lcom/android/internal/infra/AndroidFuture;
 
-    move-result-object v0
+    move-result-object p1
 
-    sget-object v1, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
+    sget-object v0, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
 
-    const-wide/16 v2, 0x1388
+    const-wide/16 v1, 0x1388
 
-    invoke-virtual {v0, v2, v3, v1}, Lcom/android/internal/infra/AndroidFuture;->orTimeout(JLjava/util/concurrent/TimeUnit;)Lcom/android/internal/infra/AndroidFuture;
+    invoke-virtual {p1, v1, v2, v0}, Lcom/android/internal/infra/AndroidFuture;->orTimeout(JLjava/util/concurrent/TimeUnit;)Lcom/android/internal/infra/AndroidFuture;
 
-    move-result-object v0
+    move-result-object p1
 
-    new-instance v1, Lcom/android/server/autofill/RemoteFillService$$ExternalSyntheticLambda5;
+    new-instance v0, Lcom/android/server/autofill/RemoteFillService$$ExternalSyntheticLambda6;
 
-    invoke-direct {v1, p0}, Lcom/android/server/autofill/RemoteFillService$$ExternalSyntheticLambda5;-><init>(Lcom/android/server/autofill/RemoteFillService;)V
+    invoke-direct {v0, p0}, Lcom/android/server/autofill/RemoteFillService$$ExternalSyntheticLambda6;-><init>(Lcom/android/server/autofill/RemoteFillService;)V
 
-    invoke-virtual {v0, v1}, Lcom/android/internal/infra/AndroidFuture;->whenComplete(Ljava/util/function/BiConsumer;)Lcom/android/internal/infra/AndroidFuture;
+    invoke-virtual {p1, v0}, Lcom/android/internal/infra/AndroidFuture;->whenComplete(Ljava/util/function/BiConsumer;)Lcom/android/internal/infra/AndroidFuture;
 
     return-void
 .end method
 
-.method onSavedPasswordCountRequest(Lcom/android/internal/os/IResultReceiver;)V
+.method public onSavedPasswordCountRequest(Lcom/android/internal/os/IResultReceiver;)V
     .locals 1
 
-    new-instance v0, Lcom/android/server/autofill/RemoteFillService$$ExternalSyntheticLambda2;
+    new-instance v0, Lcom/android/server/autofill/RemoteFillService$$ExternalSyntheticLambda3;
 
-    invoke-direct {v0, p1}, Lcom/android/server/autofill/RemoteFillService$$ExternalSyntheticLambda2;-><init>(Lcom/android/internal/os/IResultReceiver;)V
+    invoke-direct {v0, p1}, Lcom/android/server/autofill/RemoteFillService$$ExternalSyntheticLambda3;-><init>(Lcom/android/internal/os/IResultReceiver;)V
 
-    invoke-virtual {p0, v0}, Lcom/android/server/autofill/RemoteFillService;->run(Lcom/android/internal/infra/ServiceConnector$VoidJob;)Z
+    invoke-virtual {p0, v0}, Lcom/android/internal/infra/ServiceConnector$Impl;->run(Lcom/android/internal/infra/ServiceConnector$VoidJob;)Z
 
     return-void
 .end method
 
-.method protected bridge synthetic onServiceConnectionStatusChanged(Landroid/os/IInterface;Z)V
+.method public bridge synthetic onServiceConnectionStatusChanged(Landroid/os/IInterface;Z)V
     .locals 0
 
     check-cast p1, Landroid/service/autofill/IAutoFillService;
@@ -627,8 +681,8 @@
     return-void
 .end method
 
-.method protected onServiceConnectionStatusChanged(Landroid/service/autofill/IAutoFillService;Z)V
-    .locals 3
+.method public onServiceConnectionStatusChanged(Landroid/service/autofill/IAutoFillService;Z)V
+    .locals 1
 
     :try_start_0
     invoke-interface {p1, p2}, Landroid/service/autofill/IAutoFillService;->onConnectedStateChanged(Z)V
@@ -638,31 +692,31 @@
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "Exception calling onConnectedStateChanged("
+    const-string v0, "Exception calling onConnectedStateChanged("
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    const-string v2, "): "
+    const-string p2, "): "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    const-string v2, "RemoteFillService"
+    const-string p1, "RemoteFillService"
 
-    invoke-static {v2, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p1, p0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     :goto_0
     return-void

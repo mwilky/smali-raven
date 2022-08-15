@@ -1,4 +1,4 @@
-.class Lcom/android/server/location/gnss/GnssMetrics$StatsPullAtomCallbackImpl;
+.class public Lcom/android/server/location/gnss/GnssMetrics$StatsPullAtomCallbackImpl;
 .super Ljava/lang/Object;
 .source "GnssMetrics.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "StatsPullAtomCallbackImpl"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/location/gnss/GnssMetrics;
+.field public final synthetic this$0:Lcom/android/server/location/gnss/GnssMetrics;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/location/gnss/GnssMetrics;)V
+.method public constructor <init>(Lcom/android/server/location/gnss/GnssMetrics;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/location/gnss/GnssMetrics$StatsPullAtomCallbackImpl;->this$0:Lcom/android/server/location/gnss/GnssMetrics;
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onPullAtom(ILjava/util/List;)I
-    .locals 38
+    .locals 37
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -149,307 +149,297 @@
 
     move-result-wide v20
 
-    iget-object v1, v0, Lcom/android/server/location/gnss/GnssMetrics$StatsPullAtomCallbackImpl;->this$0:Lcom/android/server/location/gnss/GnssMetrics;
+    iget-object v0, v0, Lcom/android/server/location/gnss/GnssMetrics$StatsPullAtomCallbackImpl;->this$0:Lcom/android/server/location/gnss/GnssMetrics;
 
-    iget-wide v1, v1, Lcom/android/server/location/gnss/GnssMetrics;->mSvStatusReports:J
+    iget-wide v1, v0, Lcom/android/server/location/gnss/GnssMetrics;->mSvStatusReports:J
 
     move-wide/from16 v22, v1
 
-    iget-object v1, v0, Lcom/android/server/location/gnss/GnssMetrics$StatsPullAtomCallbackImpl;->this$0:Lcom/android/server/location/gnss/GnssMetrics;
-
-    iget-wide v1, v1, Lcom/android/server/location/gnss/GnssMetrics;->mSvStatusReportsUsedInFix:J
+    iget-wide v1, v0, Lcom/android/server/location/gnss/GnssMetrics;->mSvStatusReportsUsedInFix:J
 
     move-wide/from16 v24, v1
 
-    iget-object v1, v0, Lcom/android/server/location/gnss/GnssMetrics$StatsPullAtomCallbackImpl;->this$0:Lcom/android/server/location/gnss/GnssMetrics;
-
-    iget-wide v1, v1, Lcom/android/server/location/gnss/GnssMetrics;->mL5SvStatusReports:J
+    iget-wide v1, v0, Lcom/android/server/location/gnss/GnssMetrics;->mL5SvStatusReports:J
 
     move-wide/from16 v26, v1
 
-    iget-object v1, v0, Lcom/android/server/location/gnss/GnssMetrics$StatsPullAtomCallbackImpl;->this$0:Lcom/android/server/location/gnss/GnssMetrics;
+    iget-wide v0, v0, Lcom/android/server/location/gnss/GnssMetrics;->mL5SvStatusReportsUsedInFix:J
 
-    iget-wide v1, v1, Lcom/android/server/location/gnss/GnssMetrics;->mL5SvStatusReportsUsedInFix:J
-
-    move-wide/from16 v28, v1
-
-    move/from16 v2, p1
+    move-wide/from16 v28, v0
 
     move/from16 v1, p1
-
-    move v0, v2
 
     move-wide/from16 v2, v30
 
     invoke-static/range {v1 .. v29}, Lcom/android/internal/util/FrameworkStatsLog;->buildStatsEvent(IJJJJJJJJJJJJJJ)Landroid/util/StatsEvent;
 
-    move-result-object v1
+    move-result-object v0
 
-    move-object/from16 v14, p2
+    move-object/from16 v15, p2
 
-    invoke-interface {v14, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v15, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    move-object v2, v14
-
-    const/16 v36, 0x0
+    const/16 v34, 0x0
 
     goto/16 :goto_1
 
     :cond_0
-    move v0, v1
+    move-object v15, v14
 
     const/16 v1, 0x2775
 
-    if-ne v0, v1, :cond_3
+    move/from16 v2, p1
 
-    move v1, v0
+    if-ne v2, v1, :cond_3
 
-    move-object/from16 v0, p0
+    iget-object v1, v0, Lcom/android/server/location/gnss/GnssMetrics$StatsPullAtomCallbackImpl;->this$0:Lcom/android/server/location/gnss/GnssMetrics;
 
-    iget-object v2, v0, Lcom/android/server/location/gnss/GnssMetrics$StatsPullAtomCallbackImpl;->this$0:Lcom/android/server/location/gnss/GnssMetrics;
+    invoke-static {v1}, Lcom/android/server/location/gnss/GnssMetrics;->-$$Nest$fgetmGnssNative(Lcom/android/server/location/gnss/GnssMetrics;)Lcom/android/server/location/gnss/hal/GnssNative;
 
-    invoke-static {v2}, Lcom/android/server/location/gnss/GnssMetrics;->access$000(Lcom/android/server/location/gnss/GnssMetrics;)Lcom/android/server/location/gnss/hal/GnssNative;
+    move-result-object v1
 
-    move-result-object v2
+    invoke-virtual {v1}, Lcom/android/server/location/gnss/hal/GnssNative;->requestPowerStats()V
 
-    invoke-virtual {v2}, Lcom/android/server/location/gnss/hal/GnssNative;->requestPowerStats()V
+    iget-object v0, v0, Lcom/android/server/location/gnss/GnssMetrics$StatsPullAtomCallbackImpl;->this$0:Lcom/android/server/location/gnss/GnssMetrics;
 
-    iget-object v2, v0, Lcom/android/server/location/gnss/GnssMetrics$StatsPullAtomCallbackImpl;->this$0:Lcom/android/server/location/gnss/GnssMetrics;
+    invoke-static {v0}, Lcom/android/server/location/gnss/GnssMetrics;->-$$Nest$fgetmGnssNative(Lcom/android/server/location/gnss/GnssMetrics;)Lcom/android/server/location/gnss/hal/GnssNative;
 
-    invoke-static {v2}, Lcom/android/server/location/gnss/GnssMetrics;->access$000(Lcom/android/server/location/gnss/GnssMetrics;)Lcom/android/server/location/gnss/hal/GnssNative;
+    move-result-object v0
 
-    move-result-object v2
+    invoke-virtual {v0}, Lcom/android/server/location/gnss/hal/GnssNative;->getPowerStats()Lcom/android/server/location/gnss/GnssPowerStats;
 
-    invoke-virtual {v2}, Lcom/android/server/location/gnss/hal/GnssNative;->getPowerStats()Lcom/android/server/location/gnss/GnssPowerStats;
-
-    move-result-object v35
+    move-result-object v0
 
     const/16 v16, 0x1
 
-    if-nez v35, :cond_1
+    if-nez v0, :cond_1
 
     return v16
 
     :cond_1
-    const/16 v2, 0xa
+    const/16 v1, 0xa
 
-    new-array v15, v2, [D
+    new-array v13, v1, [D
 
-    nop
+    invoke-virtual {v0}, Lcom/android/server/location/gnss/GnssPowerStats;->getOtherModesEnergyMilliJoule()[D
 
-    invoke-virtual/range {v35 .. v35}, Lcom/android/server/location/gnss/GnssPowerStats;->getOtherModesEnergyMilliJoule()[D
+    move-result-object v3
 
-    move-result-object v12
+    array-length v4, v3
 
-    array-length v3, v12
+    if-ge v4, v1, :cond_2
 
-    if-ge v3, v2, :cond_2
+    array-length v1, v3
 
-    array-length v2, v12
+    const/4 v14, 0x0
 
-    const/4 v13, 0x0
-
-    invoke-static {v12, v13, v15, v13, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v3, v14, v13, v14, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     goto :goto_0
 
     :cond_2
-    const/4 v13, 0x0
+    const/4 v14, 0x0
 
-    invoke-static {v12, v13, v15, v13, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v3, v14, v13, v14, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     :goto_0
-    nop
+    invoke-virtual {v0}, Lcom/android/server/location/gnss/GnssPowerStats;->getElapsedRealtimeUncertaintyNanos()D
 
-    invoke-virtual/range {v35 .. v35}, Lcom/android/server/location/gnss/GnssPowerStats;->getElapsedRealtimeUncertaintyNanos()D
+    move-result-wide v3
 
-    move-result-wide v2
+    double-to-long v3, v3
 
-    double-to-long v2, v2
+    move v11, v2
 
-    invoke-virtual/range {v35 .. v35}, Lcom/android/server/location/gnss/GnssPowerStats;->getTotalEnergyMilliJoule()D
+    move-wide v1, v3
 
-    move-result-wide v4
+    invoke-virtual {v0}, Lcom/android/server/location/gnss/GnssPowerStats;->getTotalEnergyMilliJoule()D
 
-    const-wide v32, 0x408f400000000000L    # 1000.0
+    move-result-wide v3
 
-    mul-double v4, v4, v32
+    const-wide v31, 0x408f400000000000L    # 1000.0
 
-    double-to-long v4, v4
+    mul-double v3, v3, v31
 
-    invoke-virtual/range {v35 .. v35}, Lcom/android/server/location/gnss/GnssPowerStats;->getSinglebandTrackingModeEnergyMilliJoule()D
+    double-to-long v3, v3
 
-    move-result-wide v6
+    invoke-virtual {v0}, Lcom/android/server/location/gnss/GnssPowerStats;->getSinglebandTrackingModeEnergyMilliJoule()D
 
-    mul-double v6, v6, v32
+    move-result-wide v5
 
-    double-to-long v6, v6
+    mul-double v5, v5, v31
 
-    invoke-virtual/range {v35 .. v35}, Lcom/android/server/location/gnss/GnssPowerStats;->getMultibandTrackingModeEnergyMilliJoule()D
+    double-to-long v5, v5
 
-    move-result-wide v8
+    invoke-virtual {v0}, Lcom/android/server/location/gnss/GnssPowerStats;->getMultibandTrackingModeEnergyMilliJoule()D
 
-    mul-double v8, v8, v32
+    move-result-wide v7
 
-    double-to-long v8, v8
+    mul-double v7, v7, v31
 
-    invoke-virtual/range {v35 .. v35}, Lcom/android/server/location/gnss/GnssPowerStats;->getSinglebandAcquisitionModeEnergyMilliJoule()D
+    double-to-long v7, v7
 
-    move-result-wide v10
+    invoke-virtual {v0}, Lcom/android/server/location/gnss/GnssPowerStats;->getSinglebandAcquisitionModeEnergyMilliJoule()D
 
-    mul-double v10, v10, v32
+    move-result-wide v9
 
-    double-to-long v10, v10
+    mul-double v9, v9, v31
 
-    invoke-virtual/range {v35 .. v35}, Lcom/android/server/location/gnss/GnssPowerStats;->getMultibandAcquisitionModeEnergyMilliJoule()D
+    double-to-long v9, v9
+
+    invoke-virtual {v0}, Lcom/android/server/location/gnss/GnssPowerStats;->getMultibandAcquisitionModeEnergyMilliJoule()D
 
     move-result-wide v17
 
-    mul-double v13, v17, v32
+    mul-double v14, v17, v31
 
-    double-to-long v13, v13
+    double-to-long v14, v14
 
-    move-object/from16 v34, v12
+    move v0, v11
 
-    const/16 v36, 0x0
+    move-wide v11, v14
 
-    move-wide v12, v13
+    const/4 v14, 0x0
 
-    aget-wide v17, v15, v36
+    aget-wide v17, v13, v14
 
-    mul-double v0, v17, v32
+    mul-double v14, v17, v31
 
-    double-to-long v0, v0
+    double-to-long v14, v14
 
-    move-object/from16 v37, v15
+    move-object/from16 v33, v13
 
-    move-wide v14, v0
+    const/16 v34, 0x0
 
-    aget-wide v0, v37, v16
+    move-wide v13, v14
 
-    mul-double v0, v0, v32
+    aget-wide v15, v33, v16
 
-    double-to-long v0, v0
+    move-wide/from16 v35, v1
 
-    move-wide/from16 v16, v0
-
-    const/4 v0, 0x2
-
-    aget-wide v0, v37, v0
-
-    mul-double v0, v0, v32
+    mul-double v0, v15, v31
 
     double-to-long v0, v0
-
-    move-wide/from16 v18, v0
-
-    const/4 v0, 0x3
-
-    aget-wide v0, v37, v0
-
-    mul-double v0, v0, v32
-
-    double-to-long v0, v0
-
-    move-wide/from16 v20, v0
-
-    const/4 v0, 0x4
-
-    aget-wide v0, v37, v0
-
-    mul-double v0, v0, v32
-
-    double-to-long v0, v0
-
-    move-wide/from16 v22, v0
-
-    const/4 v0, 0x5
-
-    aget-wide v0, v37, v0
-
-    mul-double v0, v0, v32
-
-    double-to-long v0, v0
-
-    move-wide/from16 v24, v0
-
-    const/4 v0, 0x6
-
-    aget-wide v0, v37, v0
-
-    mul-double v0, v0, v32
-
-    double-to-long v0, v0
-
-    move-wide/from16 v26, v0
-
-    const/4 v0, 0x7
-
-    aget-wide v0, v37, v0
-
-    mul-double v0, v0, v32
-
-    double-to-long v0, v0
-
-    move-wide/from16 v28, v0
-
-    const/16 v0, 0x8
-
-    aget-wide v0, v37, v0
-
-    mul-double v0, v0, v32
-
-    double-to-long v0, v0
-
-    move-wide/from16 v30, v0
-
-    const/16 v0, 0x9
-
-    aget-wide v0, v37, v0
-
-    mul-double v0, v0, v32
-
-    double-to-long v0, v0
-
-    move-wide/from16 v32, v0
-
-    move/from16 v0, p1
-
-    move/from16 v1, p1
-
-    invoke-static/range {v1 .. v33}, Lcom/android/internal/util/FrameworkStatsLog;->buildStatsEvent(IJJJJJJJJJJJJJJJJ)Landroid/util/StatsEvent;
-
-    move-result-object v1
 
     move-object/from16 v2, p2
 
-    invoke-interface {v2, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    move-wide v15, v0
 
-    nop
+    const/4 v0, 0x2
+
+    aget-wide v0, v33, v0
+
+    mul-double v0, v0, v31
+
+    double-to-long v0, v0
+
+    move-wide/from16 v17, v0
+
+    const/4 v0, 0x3
+
+    aget-wide v0, v33, v0
+
+    mul-double v0, v0, v31
+
+    double-to-long v0, v0
+
+    move-wide/from16 v19, v0
+
+    const/4 v0, 0x4
+
+    aget-wide v0, v33, v0
+
+    mul-double v0, v0, v31
+
+    double-to-long v0, v0
+
+    move-wide/from16 v21, v0
+
+    const/4 v0, 0x5
+
+    aget-wide v0, v33, v0
+
+    mul-double v0, v0, v31
+
+    double-to-long v0, v0
+
+    move-wide/from16 v23, v0
+
+    const/4 v0, 0x6
+
+    aget-wide v0, v33, v0
+
+    mul-double v0, v0, v31
+
+    double-to-long v0, v0
+
+    move-wide/from16 v25, v0
+
+    const/4 v0, 0x7
+
+    aget-wide v0, v33, v0
+
+    mul-double v0, v0, v31
+
+    double-to-long v0, v0
+
+    move-wide/from16 v27, v0
+
+    const/16 v0, 0x8
+
+    aget-wide v0, v33, v0
+
+    mul-double v0, v0, v31
+
+    double-to-long v0, v0
+
+    move-wide/from16 v29, v0
+
+    const/16 v0, 0x9
+
+    aget-wide v0, v33, v0
+
+    mul-double v0, v0, v31
+
+    double-to-long v0, v0
+
+    move-wide/from16 v31, v0
+
+    move/from16 v0, p1
+
+    move-wide/from16 v1, v35
+
+    invoke-static/range {v0 .. v32}, Lcom/android/internal/util/FrameworkStatsLog;->buildStatsEvent(IJJJJJJJJJJJJJJJJ)Landroid/util/StatsEvent;
+
+    move-result-object v0
+
+    move-object/from16 v1, p2
+
+    invoke-interface {v1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     :goto_1
-    return v36
+    return v34
 
     :cond_3
-    move-object v2, v14
+    new-instance v0, Ljava/lang/UnsupportedOperationException;
 
-    new-instance v1, Ljava/lang/UnsupportedOperationException;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v2, "Unknown tagId = "
 
-    const-string v4, "Unknown tagId = "
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move/from16 v2, p1
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-direct {v1, v3}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw v0
 .end method

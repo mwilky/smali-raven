@@ -1,45 +1,42 @@
 .class public final synthetic Lcom/android/server/speech/RemoteSpeechRecognitionService$$ExternalSyntheticLambda5;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Function;
+.implements Lcom/android/internal/infra/ServiceConnector$VoidJob;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/speech/RemoteSpeechRecognitionService$$ExternalSyntheticLambda5;
+# instance fields
+.field public final synthetic f$0:Landroid/speech/IRecognitionListener;
+
+.field public final synthetic f$1:Z
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/speech/RemoteSpeechRecognitionService$$ExternalSyntheticLambda5;
-
-    invoke-direct {v0}, Lcom/android/server/speech/RemoteSpeechRecognitionService$$ExternalSyntheticLambda5;-><init>()V
-
-    sput-object v0, Lcom/android/server/speech/RemoteSpeechRecognitionService$$ExternalSyntheticLambda5;->INSTANCE:Lcom/android/server/speech/RemoteSpeechRecognitionService$$ExternalSyntheticLambda5;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Landroid/speech/IRecognitionListener;Z)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/speech/RemoteSpeechRecognitionService$$ExternalSyntheticLambda5;->f$0:Landroid/speech/IRecognitionListener;
+
+    iput-boolean p2, p0, Lcom/android/server/speech/RemoteSpeechRecognitionService$$ExternalSyntheticLambda5;->f$1:Z
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+.method public final runNoResult(Ljava/lang/Object;)V
+    .locals 1
 
-    check-cast p1, Landroid/os/IBinder;
+    iget-object v0, p0, Lcom/android/server/speech/RemoteSpeechRecognitionService$$ExternalSyntheticLambda5;->f$0:Landroid/speech/IRecognitionListener;
 
-    invoke-static {p1}, Landroid/speech/IRecognitionService$Stub;->asInterface(Landroid/os/IBinder;)Landroid/speech/IRecognitionService;
+    iget-boolean p0, p0, Lcom/android/server/speech/RemoteSpeechRecognitionService$$ExternalSyntheticLambda5;->f$1:Z
 
-    move-result-object p1
+    check-cast p1, Landroid/speech/IRecognitionService;
 
-    return-object p1
+    invoke-static {v0, p0, p1}, Lcom/android/server/speech/RemoteSpeechRecognitionService;->$r8$lambda$IPjx8Iq-V2jlODygJkXmGYMIlLA(Landroid/speech/IRecognitionListener;ZLandroid/speech/IRecognitionService;)V
+
+    return-void
 .end method

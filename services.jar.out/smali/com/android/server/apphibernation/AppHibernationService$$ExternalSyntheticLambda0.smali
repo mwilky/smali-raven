@@ -1,33 +1,46 @@
 .class public final synthetic Lcom/android/server/apphibernation/AppHibernationService$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/app/usage/UsageStatsManagerInternal$UsageEventListener;
+.implements Ljava/lang/Runnable;
 
 
 # instance fields
 .field public final synthetic f$0:Lcom/android/server/apphibernation/AppHibernationService;
 
+.field public final synthetic f$1:Ljava/lang/String;
+
+.field public final synthetic f$2:Lcom/android/server/apphibernation/GlobalLevelState;
+
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/apphibernation/AppHibernationService;)V
+.method public synthetic constructor <init>(Lcom/android/server/apphibernation/AppHibernationService;Ljava/lang/String;Lcom/android/server/apphibernation/GlobalLevelState;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/server/apphibernation/AppHibernationService$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/apphibernation/AppHibernationService;
 
+    iput-object p2, p0, Lcom/android/server/apphibernation/AppHibernationService$$ExternalSyntheticLambda0;->f$1:Ljava/lang/String;
+
+    iput-object p3, p0, Lcom/android/server/apphibernation/AppHibernationService$$ExternalSyntheticLambda0;->f$2:Lcom/android/server/apphibernation/GlobalLevelState;
+
     return-void
 .end method
 
 
 # virtual methods
-.method public final onUsageEvent(ILandroid/app/usage/UsageEvents$Event;)V
-    .locals 1
+.method public final run()V
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/apphibernation/AppHibernationService$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/apphibernation/AppHibernationService;
 
-    invoke-virtual {v0, p1, p2}, Lcom/android/server/apphibernation/AppHibernationService;->lambda$new$6$AppHibernationService(ILandroid/app/usage/UsageEvents$Event;)V
+    iget-object v1, p0, Lcom/android/server/apphibernation/AppHibernationService$$ExternalSyntheticLambda0;->f$1:Ljava/lang/String;
+
+    iget-object p0, p0, Lcom/android/server/apphibernation/AppHibernationService$$ExternalSyntheticLambda0;->f$2:Lcom/android/server/apphibernation/GlobalLevelState;
+
+    invoke-static {v0, v1, p0}, Lcom/android/server/apphibernation/AppHibernationService;->$r8$lambda$afpG3bIxlB47iMVNi9B40VH92Ck(Lcom/android/server/apphibernation/AppHibernationService;Ljava/lang/String;Lcom/android/server/apphibernation/GlobalLevelState;)V
 
     return-void
 .end method

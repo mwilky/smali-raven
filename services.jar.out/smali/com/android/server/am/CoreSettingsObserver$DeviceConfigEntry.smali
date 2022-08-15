@@ -1,4 +1,4 @@
-.class Lcom/android/server/am/CoreSettingsObserver$DeviceConfigEntry;
+.class public Lcom/android/server/am/CoreSettingsObserver$DeviceConfigEntry;
 .super Ljava/lang/Object;
 .source "CoreSettingsObserver.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "DeviceConfigEntry"
 .end annotation
 
@@ -24,9 +24,9 @@
 
 
 # instance fields
-.field coreSettingKey:Ljava/lang/String;
+.field public coreSettingKey:Ljava/lang/String;
 
-.field defaultValue:Ljava/lang/Object;
+.field public defaultValue:Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "TT;"
@@ -34,11 +34,11 @@
     .end annotation
 .end field
 
-.field flag:Ljava/lang/String;
+.field public flag:Ljava/lang/String;
 
-.field namespace:Ljava/lang/String;
+.field public namespace:Ljava/lang/String;
 
-.field type:Ljava/lang/Class;
+.field public type:Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/lang/Class<",
@@ -49,7 +49,7 @@
 
 
 # direct methods
-.method constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/Object;)V
+.method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/Object;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {

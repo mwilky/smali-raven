@@ -1,4 +1,4 @@
-.class Lcom/android/server/am/ActivityManagerShellCommand$ProgressWaiter;
+.class public Lcom/android/server/am/ActivityManagerShellCommand$ProgressWaiter;
 .super Landroid/os/IProgressListener$Stub;
 .source "ActivityManagerShellCommand.java"
 
@@ -9,19 +9,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "ProgressWaiter"
 .end annotation
 
 
 # instance fields
-.field private final mFinishedLatch:Ljava/util/concurrent/CountDownLatch;
+.field public final mFinishedLatch:Ljava/util/concurrent/CountDownLatch;
 
-.field final synthetic this$0:Lcom/android/server/am/ActivityManagerShellCommand;
+.field public final synthetic this$0:Lcom/android/server/am/ActivityManagerShellCommand;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/server/am/ActivityManagerShellCommand;)V
+.method public constructor <init>(Lcom/android/server/am/ActivityManagerShellCommand;)V
     .locals 1
 
     iput-object p1, p0, Lcom/android/server/am/ActivityManagerShellCommand$ProgressWaiter;->this$0:Lcom/android/server/am/ActivityManagerShellCommand;
@@ -39,7 +39,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/am/ActivityManagerShellCommand;Lcom/android/server/am/ActivityManagerShellCommand$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/am/ActivityManagerShellCommand;Lcom/android/server/am/ActivityManagerShellCommand$ProgressWaiter-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/am/ActivityManagerShellCommand$ProgressWaiter;-><init>(Lcom/android/server/am/ActivityManagerShellCommand;)V
@@ -50,11 +50,11 @@
 
 # virtual methods
 .method public onFinished(ILandroid/os/Bundle;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/am/ActivityManagerShellCommand$ProgressWaiter;->mFinishedLatch:Ljava/util/concurrent/CountDownLatch;
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerShellCommand$ProgressWaiter;->mFinishedLatch:Ljava/util/concurrent/CountDownLatch;
 
-    invoke-virtual {v0}, Ljava/util/concurrent/CountDownLatch;->countDown()V
+    invoke-virtual {p0}, Ljava/util/concurrent/CountDownLatch;->countDown()V
 
     return-void
 .end method
@@ -72,31 +72,29 @@
 .end method
 
 .method public waitForFinish(J)Z
-    .locals 3
+    .locals 1
 
     :try_start_0
-    iget-object v0, p0, Lcom/android/server/am/ActivityManagerShellCommand$ProgressWaiter;->mFinishedLatch:Ljava/util/concurrent/CountDownLatch;
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerShellCommand$ProgressWaiter;->mFinishedLatch:Ljava/util/concurrent/CountDownLatch;
 
-    sget-object v1, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
+    sget-object v0, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
 
-    invoke-virtual {v0, p1, p2, v1}, Ljava/util/concurrent/CountDownLatch;->await(JLjava/util/concurrent/TimeUnit;)Z
+    invoke-virtual {p0, p1, p2, v0}, Ljava/util/concurrent/CountDownLatch;->await(JLjava/util/concurrent/TimeUnit;)Z
 
-    move-result v0
+    move-result p0
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return v0
+    return p0
 
     :catch_0
-    move-exception v0
+    sget-object p0, Ljava/lang/System;->err:Ljava/io/PrintStream;
 
-    sget-object v1, Ljava/lang/System;->err:Ljava/io/PrintStream;
+    const-string p1, "Thread interrupted unexpectedly."
 
-    const-string v2, "Thread interrupted unexpectedly."
+    invoke-virtual {p0, p1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    const/4 p0, 0x0
 
-    const/4 v1, 0x0
-
-    return v1
+    return p0
 .end method

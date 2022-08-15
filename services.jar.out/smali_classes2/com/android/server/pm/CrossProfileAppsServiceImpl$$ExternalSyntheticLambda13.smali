@@ -1,47 +1,46 @@
 .class public final synthetic Lcom/android/server/pm/CrossProfileAppsServiceImpl$$ExternalSyntheticLambda13;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/internal/util/FunctionalUtils$ThrowingSupplier;
+.implements Lcom/android/internal/util/FunctionalUtils$ThrowingRunnable;
 
 
 # instance fields
 .field public final synthetic f$0:Lcom/android/server/pm/CrossProfileAppsServiceImpl;
 
-.field public final synthetic f$1:Ljava/lang/String;
+.field public final synthetic f$1:I
 
-.field public final synthetic f$2:Landroid/os/UserHandle;
+.field public final synthetic f$2:I
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/pm/CrossProfileAppsServiceImpl;Ljava/lang/String;Landroid/os/UserHandle;)V
+.method public synthetic constructor <init>(Lcom/android/server/pm/CrossProfileAppsServiceImpl;II)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/server/pm/CrossProfileAppsServiceImpl$$ExternalSyntheticLambda13;->f$0:Lcom/android/server/pm/CrossProfileAppsServiceImpl;
 
-    iput-object p2, p0, Lcom/android/server/pm/CrossProfileAppsServiceImpl$$ExternalSyntheticLambda13;->f$1:Ljava/lang/String;
+    iput p2, p0, Lcom/android/server/pm/CrossProfileAppsServiceImpl$$ExternalSyntheticLambda13;->f$1:I
 
-    iput-object p3, p0, Lcom/android/server/pm/CrossProfileAppsServiceImpl$$ExternalSyntheticLambda13;->f$2:Landroid/os/UserHandle;
+    iput p3, p0, Lcom/android/server/pm/CrossProfileAppsServiceImpl$$ExternalSyntheticLambda13;->f$2:I
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final getOrThrow()Ljava/lang/Object;
-    .locals 3
+.method public final runOrThrow()V
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/pm/CrossProfileAppsServiceImpl$$ExternalSyntheticLambda13;->f$0:Lcom/android/server/pm/CrossProfileAppsServiceImpl;
 
-    iget-object v1, p0, Lcom/android/server/pm/CrossProfileAppsServiceImpl$$ExternalSyntheticLambda13;->f$1:Ljava/lang/String;
+    iget v1, p0, Lcom/android/server/pm/CrossProfileAppsServiceImpl$$ExternalSyntheticLambda13;->f$1:I
 
-    iget-object v2, p0, Lcom/android/server/pm/CrossProfileAppsServiceImpl$$ExternalSyntheticLambda13;->f$2:Landroid/os/UserHandle;
+    iget p0, p0, Lcom/android/server/pm/CrossProfileAppsServiceImpl$$ExternalSyntheticLambda13;->f$2:I
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/pm/CrossProfileAppsServiceImpl;->lambda$haveProfilesGotInteractAcrossProfilesPermission$0$CrossProfileAppsServiceImpl(Ljava/lang/String;Landroid/os/UserHandle;)Ljava/lang/Integer;
+    invoke-static {v0, v1, p0}, Lcom/android/server/pm/CrossProfileAppsServiceImpl;->$r8$lambda$NAvQo2A_aRFohRnZAJs92Lih-sU(Lcom/android/server/pm/CrossProfileAppsServiceImpl;II)V
 
-    move-result-object v0
-
-    return-object v0
+    return-void
 .end method

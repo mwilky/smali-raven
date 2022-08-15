@@ -1,4 +1,4 @@
-.class final Lcom/android/server/locksettings/LockSettingsStorage$Cache$CacheKey;
+.class public final Lcom/android/server/locksettings/LockSettingsStorage$Cache$CacheKey;
 .super Ljava/lang/Object;
 .source "LockSettingsStorage.java"
 
@@ -9,29 +9,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "CacheKey"
 .end annotation
 
 
-# static fields
-.field static final TYPE_FETCHED:I = 0x2
-
-.field static final TYPE_FILE:I = 0x1
-
-.field static final TYPE_KEY_VALUE:I
-
-
 # instance fields
-.field key:Ljava/lang/String;
+.field public key:Ljava/lang/String;
 
-.field type:I
+.field public type:I
 
-.field userId:I
+.field public userId:I
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,7 +31,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/locksettings/LockSettingsStorage$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/locksettings/LockSettingsStorage$Cache$CacheKey-IA;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/locksettings/LockSettingsStorage$Cache$CacheKey;-><init>()V
@@ -50,7 +42,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .locals 3
 
     instance-of v0, p1, Lcom/android/server/locksettings/LockSettingsStorage$Cache$CacheKey;
 
@@ -61,31 +53,29 @@
     return v1
 
     :cond_0
-    move-object v0, p1
+    check-cast p1, Lcom/android/server/locksettings/LockSettingsStorage$Cache$CacheKey;
 
-    check-cast v0, Lcom/android/server/locksettings/LockSettingsStorage$Cache$CacheKey;
+    iget v0, p0, Lcom/android/server/locksettings/LockSettingsStorage$Cache$CacheKey;->userId:I
 
-    iget v2, p0, Lcom/android/server/locksettings/LockSettingsStorage$Cache$CacheKey;->userId:I
+    iget v2, p1, Lcom/android/server/locksettings/LockSettingsStorage$Cache$CacheKey;->userId:I
 
-    iget v3, v0, Lcom/android/server/locksettings/LockSettingsStorage$Cache$CacheKey;->userId:I
+    if-ne v0, v2, :cond_1
 
-    if-ne v2, v3, :cond_1
+    iget v0, p0, Lcom/android/server/locksettings/LockSettingsStorage$Cache$CacheKey;->type:I
 
-    iget v2, p0, Lcom/android/server/locksettings/LockSettingsStorage$Cache$CacheKey;->type:I
+    iget v2, p1, Lcom/android/server/locksettings/LockSettingsStorage$Cache$CacheKey;->type:I
 
-    iget v3, v0, Lcom/android/server/locksettings/LockSettingsStorage$Cache$CacheKey;->type:I
+    if-ne v0, v2, :cond_1
 
-    if-ne v2, v3, :cond_1
+    iget-object p0, p0, Lcom/android/server/locksettings/LockSettingsStorage$Cache$CacheKey;->key:Ljava/lang/String;
 
-    iget-object v2, p0, Lcom/android/server/locksettings/LockSettingsStorage$Cache$CacheKey;->key:Ljava/lang/String;
+    iget-object p1, p1, Lcom/android/server/locksettings/LockSettingsStorage$Cache$CacheKey;->key:Ljava/lang/String;
 
-    iget-object v3, v0, Lcom/android/server/locksettings/LockSettingsStorage$Cache$CacheKey;->key:Ljava/lang/String;
+    invoke-virtual {p0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result p0
 
-    move-result v2
-
-    if-eqz v2, :cond_1
+    if-eqz p0, :cond_1
 
     const/4 v1, 0x1
 
@@ -106,11 +96,11 @@
 
     xor-int/2addr v0, v1
 
-    iget v1, p0, Lcom/android/server/locksettings/LockSettingsStorage$Cache$CacheKey;->type:I
+    iget p0, p0, Lcom/android/server/locksettings/LockSettingsStorage$Cache$CacheKey;->type:I
 
-    xor-int/2addr v0, v1
+    xor-int/2addr p0, v0
 
-    return v0
+    return p0
 .end method
 
 .method public set(ILjava/lang/String;I)Lcom/android/server/locksettings/LockSettingsStorage$Cache$CacheKey;

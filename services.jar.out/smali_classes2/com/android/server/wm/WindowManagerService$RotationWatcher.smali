@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/WindowManagerService$RotationWatcher;
+.class public Lcom/android/server/wm/WindowManagerService$RotationWatcher;
 .super Ljava/lang/Object;
 .source "WindowManagerService.java"
 
@@ -9,23 +9,23 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = "RotationWatcher"
 .end annotation
 
 
 # instance fields
-.field final mDeathRecipient:Landroid/os/IBinder$DeathRecipient;
+.field public final mDeathRecipient:Landroid/os/IBinder$DeathRecipient;
 
-.field final mDisplayId:I
+.field public final mDisplayId:I
 
-.field final mWatcher:Landroid/view/IRotationWatcher;
+.field public final mWatcher:Landroid/view/IRotationWatcher;
 
-.field final synthetic this$0:Lcom/android/server/wm/WindowManagerService;
+.field public final synthetic this$0:Lcom/android/server/wm/WindowManagerService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/wm/WindowManagerService;Landroid/view/IRotationWatcher;Landroid/os/IBinder$DeathRecipient;I)V
+.method public constructor <init>(Lcom/android/server/wm/WindowManagerService;Landroid/view/IRotationWatcher;Landroid/os/IBinder$DeathRecipient;I)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/wm/WindowManagerService$RotationWatcher;->this$0:Lcom/android/server/wm/WindowManagerService;

@@ -6,16 +6,10 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/server/wm/ActivityInterceptorCallback$ActivityInterceptorInfo;,
-        Lcom/android/server/wm/ActivityInterceptorCallback$OrderedId;
+        Lcom/android/server/wm/ActivityInterceptorCallback$ActivityInterceptResult;,
+        Lcom/android/server/wm/ActivityInterceptorCallback$ActivityInterceptorInfo;
     }
 .end annotation
-
-
-# static fields
-.field static final FIRST_ORDERED_ID:I
-
-.field static final LAST_ORDERED_ID:I
 
 
 # direct methods
@@ -29,5 +23,11 @@
 
 
 # virtual methods
-.method public abstract intercept(Lcom/android/server/wm/ActivityInterceptorCallback$ActivityInterceptorInfo;)Landroid/content/Intent;
+.method public abstract intercept(Lcom/android/server/wm/ActivityInterceptorCallback$ActivityInterceptorInfo;)Lcom/android/server/wm/ActivityInterceptorCallback$ActivityInterceptResult;
+.end method
+
+.method public onActivityLaunched(Landroid/app/TaskInfo;Landroid/content/pm/ActivityInfo;Lcom/android/server/wm/ActivityInterceptorCallback$ActivityInterceptorInfo;)V
+    .locals 0
+
+    return-void
 .end method

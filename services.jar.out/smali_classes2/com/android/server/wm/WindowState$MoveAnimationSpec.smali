@@ -1,4 +1,4 @@
-.class final Lcom/android/server/wm/WindowState$MoveAnimationSpec;
+.class public final Lcom/android/server/wm/WindowState$MoveAnimationSpec;
 .super Ljava/lang/Object;
 .source "WindowState.java"
 
@@ -12,25 +12,25 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "MoveAnimationSpec"
 .end annotation
 
 
 # instance fields
-.field private final mDuration:J
+.field public final mDuration:J
 
-.field private mFrom:Landroid/graphics/Point;
+.field public mFrom:Landroid/graphics/Point;
 
-.field private mInterpolator:Landroid/view/animation/Interpolator;
+.field public mInterpolator:Landroid/view/animation/Interpolator;
 
-.field private mTo:Landroid/graphics/Point;
+.field public mTo:Landroid/graphics/Point;
 
-.field final synthetic this$0:Lcom/android/server/wm/WindowState;
+.field public final synthetic this$0:Lcom/android/server/wm/WindowState;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/server/wm/WindowState;IIII)V
+.method public constructor <init>(Lcom/android/server/wm/WindowState;IIII)V
     .locals 3
 
     iput-object p1, p0, Lcom/android/server/wm/WindowState$MoveAnimationSpec;->this$0:Lcom/android/server/wm/WindowState;
@@ -57,15 +57,13 @@
 
     move-result-object v0
 
-    nop
-
     invoke-virtual {v0}, Landroid/view/animation/Animation;->computeDurationHint()J
 
     move-result-wide v1
 
     long-to-float v1, v1
 
-    iget-object p1, p1, Lcom/android/server/wm/WindowState;->mWmService:Lcom/android/server/wm/WindowManagerService;
+    iget-object p1, p1, Lcom/android/server/wm/WindowContainer;->mWmService:Lcom/android/server/wm/WindowManagerService;
 
     invoke-virtual {p1}, Lcom/android/server/wm/WindowManagerService;->getWindowAnimationScaleLocked()F
 
@@ -87,14 +85,14 @@
 
     invoke-virtual {p1, p2, p3}, Landroid/graphics/Point;->set(II)V
 
-    iget-object p1, p0, Lcom/android/server/wm/WindowState$MoveAnimationSpec;->mTo:Landroid/graphics/Point;
+    iget-object p0, p0, Lcom/android/server/wm/WindowState$MoveAnimationSpec;->mTo:Landroid/graphics/Point;
 
-    invoke-virtual {p1, p4, p5}, Landroid/graphics/Point;->set(II)V
+    invoke-virtual {p0, p4, p5}, Landroid/graphics/Point;->set(II)V
 
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/wm/WindowState;IIIILcom/android/server/wm/WindowState$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/wm/WindowState;IIIILcom/android/server/wm/WindowState$MoveAnimationSpec-IA;)V
     .locals 0
 
     invoke-direct/range {p0 .. p5}, Lcom/android/server/wm/WindowState$MoveAnimationSpec;-><init>(Lcom/android/server/wm/WindowState;IIII)V
@@ -105,65 +103,53 @@
 
 # virtual methods
 .method public apply(Landroid/view/SurfaceControl$Transaction;Landroid/view/SurfaceControl;J)V
-    .locals 6
+    .locals 3
 
-    long-to-float v0, p3
+    long-to-float p3, p3
 
-    invoke-virtual {p0, v0}, Lcom/android/server/wm/WindowState$MoveAnimationSpec;->getFraction(F)F
+    invoke-interface {p0, p3}, Lcom/android/server/wm/LocalAnimationAdapter$AnimationSpec;->getFraction(F)F
 
-    move-result v0
+    move-result p3
 
-    iget-object v1, p0, Lcom/android/server/wm/WindowState$MoveAnimationSpec;->mInterpolator:Landroid/view/animation/Interpolator;
+    iget-object p4, p0, Lcom/android/server/wm/WindowState$MoveAnimationSpec;->mInterpolator:Landroid/view/animation/Interpolator;
 
-    invoke-interface {v1, v0}, Landroid/view/animation/Interpolator;->getInterpolation(F)F
+    invoke-interface {p4, p3}, Landroid/view/animation/Interpolator;->getInterpolation(F)F
 
-    move-result v1
+    move-result p3
 
-    iget-object v2, p0, Lcom/android/server/wm/WindowState$MoveAnimationSpec;->mFrom:Landroid/graphics/Point;
+    iget-object p4, p0, Lcom/android/server/wm/WindowState$MoveAnimationSpec;->mFrom:Landroid/graphics/Point;
 
-    iget v2, v2, Landroid/graphics/Point;->x:I
+    iget v0, p4, Landroid/graphics/Point;->x:I
 
-    int-to-float v2, v2
+    int-to-float v1, v0
 
-    iget-object v3, p0, Lcom/android/server/wm/WindowState$MoveAnimationSpec;->mTo:Landroid/graphics/Point;
+    iget-object p0, p0, Lcom/android/server/wm/WindowState$MoveAnimationSpec;->mTo:Landroid/graphics/Point;
 
-    iget v3, v3, Landroid/graphics/Point;->x:I
+    iget v2, p0, Landroid/graphics/Point;->x:I
 
-    iget-object v4, p0, Lcom/android/server/wm/WindowState$MoveAnimationSpec;->mFrom:Landroid/graphics/Point;
+    sub-int/2addr v2, v0
 
-    iget v4, v4, Landroid/graphics/Point;->x:I
+    int-to-float v0, v2
 
-    sub-int/2addr v3, v4
+    mul-float/2addr v0, p3
 
-    int-to-float v3, v3
+    add-float/2addr v1, v0
 
-    mul-float/2addr v3, v1
+    iget p4, p4, Landroid/graphics/Point;->y:I
 
-    add-float/2addr v2, v3
+    int-to-float v0, p4
 
-    iget-object v3, p0, Lcom/android/server/wm/WindowState$MoveAnimationSpec;->mFrom:Landroid/graphics/Point;
+    iget p0, p0, Landroid/graphics/Point;->y:I
 
-    iget v3, v3, Landroid/graphics/Point;->y:I
+    sub-int/2addr p0, p4
 
-    int-to-float v3, v3
+    int-to-float p0, p0
 
-    iget-object v4, p0, Lcom/android/server/wm/WindowState$MoveAnimationSpec;->mTo:Landroid/graphics/Point;
+    mul-float/2addr p0, p3
 
-    iget v4, v4, Landroid/graphics/Point;->y:I
+    add-float/2addr v0, p0
 
-    iget-object v5, p0, Lcom/android/server/wm/WindowState$MoveAnimationSpec;->mFrom:Landroid/graphics/Point;
-
-    iget v5, v5, Landroid/graphics/Point;->y:I
-
-    sub-int/2addr v4, v5
-
-    int-to-float v4, v4
-
-    mul-float/2addr v4, v1
-
-    add-float/2addr v3, v4
-
-    invoke-virtual {p1, p2, v2, v3}, Landroid/view/SurfaceControl$Transaction;->setPosition(Landroid/view/SurfaceControl;FF)Landroid/view/SurfaceControl$Transaction;
+    invoke-virtual {p1, p2, v1, v0}, Landroid/view/SurfaceControl$Transaction;->setPosition(Landroid/view/SurfaceControl;FF)Landroid/view/SurfaceControl$Transaction;
 
     return-void
 .end method
@@ -177,25 +163,25 @@
 
     invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "from="
+    const-string p2, "from="
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lcom/android/server/wm/WindowState$MoveAnimationSpec;->mFrom:Landroid/graphics/Point;
+    iget-object p2, p0, Lcom/android/server/wm/WindowState$MoveAnimationSpec;->mFrom:Landroid/graphics/Point;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string v1, " to="
+    const-string p2, " to="
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lcom/android/server/wm/WindowState$MoveAnimationSpec;->mTo:Landroid/graphics/Point;
+    iget-object p2, p0, Lcom/android/server/wm/WindowState$MoveAnimationSpec;->mTo:Landroid/graphics/Point;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string v1, " duration="
+    const-string p2, " duration="
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     iget-wide v1, p0, Lcom/android/server/wm/WindowState$MoveAnimationSpec;->mDuration:J
 
@@ -203,9 +189,9 @@
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p1, p0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     return-void
 .end method

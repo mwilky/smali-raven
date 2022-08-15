@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda25;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Consumer;
+.implements Lcom/android/internal/os/BinderCallHeavyHitterWatcher$BinderCallHeavyHitterListener;
 
 
 # instance fields
@@ -22,14 +23,20 @@
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
-    .locals 1
+.method public final onHeavyHit(Ljava/util/List;IFJ)V
+    .locals 6
 
     iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda25;->f$0:Lcom/android/server/am/ActivityManagerService;
 
-    check-cast p1, Lcom/android/server/am/ProcessRecord;
+    move-object v1, p1
 
-    invoke-virtual {v0, p1}, Lcom/android/server/am/ActivityManagerService;->lambda$startBinderTracking$26$ActivityManagerService(Lcom/android/server/am/ProcessRecord;)V
+    move v2, p2
+
+    move v3, p3
+
+    move-wide v4, p4
+
+    invoke-static/range {v0 .. v5}, Lcom/android/server/am/ActivityManagerService;->$r8$lambda$MBq_TO5xM6vosvThITtif1Nn53w(Lcom/android/server/am/ActivityManagerService;Ljava/util/List;IFJ)V
 
     return-void
 .end method

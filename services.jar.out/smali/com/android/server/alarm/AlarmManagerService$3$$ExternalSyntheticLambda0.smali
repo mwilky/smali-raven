@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/alarm/AlarmManagerService$3$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -27,13 +28,13 @@
 
 # virtual methods
 .method public final run()V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/alarm/AlarmManagerService$3$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/alarm/AlarmManagerService$3;
 
-    iget-object v1, p0, Lcom/android/server/alarm/AlarmManagerService$3$$ExternalSyntheticLambda0;->f$1:Landroid/app/IAlarmCompleteListener;
+    iget-object p0, p0, Lcom/android/server/alarm/AlarmManagerService$3$$ExternalSyntheticLambda0;->f$1:Landroid/app/IAlarmCompleteListener;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/alarm/AlarmManagerService$3;->lambda$doAlarm$0$AlarmManagerService$3(Landroid/app/IAlarmCompleteListener;)V
+    invoke-static {v0, p0}, Lcom/android/server/alarm/AlarmManagerService$3;->$r8$lambda$Rr3r7n2HsPKFnJ_be679IBA4-vw(Lcom/android/server/alarm/AlarmManagerService$3;Landroid/app/IAlarmCompleteListener;)V
 
     return-void
 .end method

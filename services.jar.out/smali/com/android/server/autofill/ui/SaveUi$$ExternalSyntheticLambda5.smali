@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/autofill/ui/SaveUi$$ExternalSyntheticLambda5;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Predicate;
@@ -23,15 +24,15 @@
 
 # virtual methods
 .method public final test(Ljava/lang/Object;)Z
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/autofill/ui/SaveUi$$ExternalSyntheticLambda5;->f$0:Ljava/util/List;
+    iget-object p0, p0, Lcom/android/server/autofill/ui/SaveUi$$ExternalSyntheticLambda5;->f$0:Ljava/util/List;
 
     check-cast p1, Landroid/view/View;
 
-    invoke-static {v0, p1}, Lcom/android/server/autofill/ui/SaveUi;->lambda$applyTextViewStyle$5(Ljava/util/List;Landroid/view/View;)Z
+    invoke-static {p0, p1}, Lcom/android/server/autofill/ui/SaveUi;->$r8$lambda$foa4M7E9nMBv2PKGQSMo891hJsg(Ljava/util/List;Landroid/view/View;)Z
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method

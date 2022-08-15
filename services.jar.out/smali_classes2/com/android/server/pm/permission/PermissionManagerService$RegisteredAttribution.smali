@@ -1,4 +1,4 @@
-.class final Lcom/android/server/pm/permission/PermissionManagerService$RegisteredAttribution;
+.class public final Lcom/android/server/pm/permission/PermissionManagerService$RegisteredAttribution;
 .super Ljava/lang/Object;
 .source "PermissionManagerService.java"
 
@@ -9,21 +9,29 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "RegisteredAttribution"
 .end annotation
 
 
 # instance fields
-.field private final mDeathRecipient:Landroid/os/IBinder$DeathRecipient;
+.field public final mDeathRecipient:Landroid/os/IBinder$DeathRecipient;
 
-.field private final mFinished:Ljava/util/concurrent/atomic/AtomicBoolean;
+.field public final mFinished:Ljava/util/concurrent/atomic/AtomicBoolean;
 
-.field private final mToken:Landroid/os/IBinder;
+.field public final mToken:Landroid/os/IBinder;
 
 
 # direct methods
-.method constructor <init>(Landroid/content/Context;ILandroid/content/AttributionSource;Z)V
+.method public static synthetic $r8$lambda$9eGEysiSQ-F3P0mCT2HztQoqOdk(Lcom/android/server/pm/permission/PermissionManagerService$RegisteredAttribution;Landroid/content/Context;ILandroid/content/AttributionSource;Z)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/server/pm/permission/PermissionManagerService$RegisteredAttribution;->lambda$new$0(Landroid/content/Context;ILandroid/content/AttributionSource;Z)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/content/Context;ILandroid/content/AttributionSource;Z)V
     .locals 8
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -56,56 +64,52 @@
 
     invoke-virtual {p3}, Landroid/content/AttributionSource;->getToken()Landroid/os/IBinder;
 
-    move-result-object v2
+    move-result-object p1
 
-    iput-object v2, p0, Lcom/android/server/pm/permission/PermissionManagerService$RegisteredAttribution;->mToken:Landroid/os/IBinder;
+    iput-object p1, p0, Lcom/android/server/pm/permission/PermissionManagerService$RegisteredAttribution;->mToken:Landroid/os/IBinder;
 
-    if-eqz v2, :cond_0
+    if-eqz p1, :cond_0
 
     :try_start_0
-    invoke-interface {v2, v0, v1}, Landroid/os/IBinder;->linkToDeath(Landroid/os/IBinder$DeathRecipient;I)V
+    invoke-interface {p1, v0, v1}, Landroid/os/IBinder;->linkToDeath(Landroid/os/IBinder$DeathRecipient;I)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    iget-object p0, p0, Lcom/android/server/pm/permission/PermissionManagerService$RegisteredAttribution;->mDeathRecipient:Landroid/os/IBinder$DeathRecipient;
 
-    iget-object v1, p0, Lcom/android/server/pm/permission/PermissionManagerService$RegisteredAttribution;->mDeathRecipient:Landroid/os/IBinder$DeathRecipient;
-
-    invoke-interface {v1}, Landroid/os/IBinder$DeathRecipient;->binderDied()V
+    invoke-interface {p0}, Landroid/os/IBinder$DeathRecipient;->binderDied()V
 
     :cond_0
     :goto_0
     return-void
 .end method
 
-
-# virtual methods
-.method public synthetic lambda$new$0$PermissionManagerService$RegisteredAttribution(Landroid/content/Context;ILandroid/content/AttributionSource;Z)V
-    .locals 1
+.method private synthetic lambda$new$0(Landroid/content/Context;ILandroid/content/AttributionSource;Z)V
+    .locals 0
 
     invoke-virtual {p0}, Lcom/android/server/pm/permission/PermissionManagerService$RegisteredAttribution;->unregister()Z
 
-    move-result v0
+    move-result p0
 
-    if-eqz v0, :cond_0
-
-    nop
+    if-eqz p0, :cond_0
 
     invoke-virtual {p3}, Landroid/content/AttributionSource;->asState()Landroid/content/AttributionSourceState;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {p1, p2, v0, p4}, Lcom/android/server/pm/permission/PermissionManagerService$PermissionCheckerService;->access$4200(Landroid/content/Context;ILandroid/content/AttributionSourceState;Z)V
+    invoke-static {p1, p2, p0, p4}, Lcom/android/server/pm/permission/PermissionManagerService$PermissionCheckerService;->-$$Nest$smfinishDataDelivery(Landroid/content/Context;ILandroid/content/AttributionSourceState;Z)V
 
     :cond_0
     return-void
 .end method
 
+
+# virtual methods
 .method public unregister()Z
-    .locals 4
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/pm/permission/PermissionManagerService$RegisteredAttribution;->mFinished:Ljava/util/concurrent/atomic/AtomicBoolean;
 
@@ -124,19 +128,14 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v3, p0, Lcom/android/server/pm/permission/PermissionManagerService$RegisteredAttribution;->mDeathRecipient:Landroid/os/IBinder$DeathRecipient;
+    iget-object p0, p0, Lcom/android/server/pm/permission/PermissionManagerService$RegisteredAttribution;->mDeathRecipient:Landroid/os/IBinder$DeathRecipient;
 
-    invoke-interface {v0, v3, v1}, Landroid/os/IBinder;->unlinkToDeath(Landroid/os/IBinder$DeathRecipient;I)Z
+    invoke-interface {v0, p0, v1}, Landroid/os/IBinder;->unlinkToDeath(Landroid/os/IBinder$DeathRecipient;I)Z
     :try_end_0
     .catch Ljava/util/NoSuchElementException; {:try_start_0 .. :try_end_0} :catch_0
 
-    :cond_0
-    goto :goto_0
-
     :catch_0
-    move-exception v0
-
-    :goto_0
+    :cond_0
     return v2
 
     :cond_1

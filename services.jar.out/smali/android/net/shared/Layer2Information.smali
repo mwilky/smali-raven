@@ -27,13 +27,13 @@
 .end method
 
 .method public static fromStableParcelable(Landroid/net/Layer2InformationParcelable;)Landroid/net/shared/Layer2Information;
-    .locals 4
+    .locals 3
 
     if-nez p0, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return-object v0
+    return-object p0
 
     :cond_0
     new-instance v0, Landroid/net/shared/Layer2Information;
@@ -42,9 +42,9 @@
 
     iget-object v2, p0, Landroid/net/Layer2InformationParcelable;->cluster:Ljava/lang/String;
 
-    iget-object v3, p0, Landroid/net/Layer2InformationParcelable;->bssid:Landroid/net/MacAddress;
+    iget-object p0, p0, Landroid/net/Layer2InformationParcelable;->bssid:Landroid/net/MacAddress;
 
-    invoke-direct {v0, v1, v2, v3}, Landroid/net/shared/Layer2Information;-><init>(Ljava/lang/String;Ljava/lang/String;Landroid/net/MacAddress;)V
+    invoke-direct {v0, v1, v2, p0}, Landroid/net/shared/Layer2Information;-><init>(Ljava/lang/String;Ljava/lang/String;Landroid/net/MacAddress;)V
 
     return-object v0
 .end method
@@ -52,7 +52,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .locals 3
 
     instance-of v0, p1, Landroid/net/shared/Layer2Information;
 
@@ -63,48 +63,41 @@
     return v1
 
     :cond_0
-    move-object v0, p1
+    check-cast p1, Landroid/net/shared/Layer2Information;
 
-    check-cast v0, Landroid/net/shared/Layer2Information;
+    iget-object v0, p0, Landroid/net/shared/Layer2Information;->mL2Key:Ljava/lang/String;
 
-    iget-object v2, p0, Landroid/net/shared/Layer2Information;->mL2Key:Ljava/lang/String;
+    iget-object v2, p1, Landroid/net/shared/Layer2Information;->mL2Key:Ljava/lang/String;
 
-    iget-object v3, v0, Landroid/net/shared/Layer2Information;->mL2Key:Ljava/lang/String;
+    invoke-static {v0, v2}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    invoke-static {v2, v3}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+    move-result v0
 
-    move-result v2
+    if-eqz v0, :cond_1
 
-    if-eqz v2, :cond_1
+    iget-object v0, p0, Landroid/net/shared/Layer2Information;->mCluster:Ljava/lang/String;
 
-    iget-object v2, p0, Landroid/net/shared/Layer2Information;->mCluster:Ljava/lang/String;
+    iget-object v2, p1, Landroid/net/shared/Layer2Information;->mCluster:Ljava/lang/String;
 
-    iget-object v3, v0, Landroid/net/shared/Layer2Information;->mCluster:Ljava/lang/String;
+    invoke-static {v0, v2}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    invoke-static {v2, v3}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+    move-result v0
 
-    move-result v2
+    if-eqz v0, :cond_1
 
-    if-eqz v2, :cond_1
+    iget-object p0, p0, Landroid/net/shared/Layer2Information;->mBssid:Landroid/net/MacAddress;
 
-    iget-object v2, p0, Landroid/net/shared/Layer2Information;->mBssid:Landroid/net/MacAddress;
+    iget-object p1, p1, Landroid/net/shared/Layer2Information;->mBssid:Landroid/net/MacAddress;
 
-    iget-object v3, v0, Landroid/net/shared/Layer2Information;->mBssid:Landroid/net/MacAddress;
+    invoke-static {p0, p1}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    invoke-static {v2, v3}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+    move-result p0
 
-    move-result v2
-
-    if-eqz v2, :cond_1
+    if-eqz p0, :cond_1
 
     const/4 v1, 0x1
 
-    goto :goto_0
-
     :cond_1
-    nop
-
-    :goto_0
     return v1
 .end method
 
@@ -127,17 +120,17 @@
 
     aput-object v1, v0, v2
 
-    iget-object v1, p0, Landroid/net/shared/Layer2Information;->mBssid:Landroid/net/MacAddress;
+    iget-object p0, p0, Landroid/net/shared/Layer2Information;->mBssid:Landroid/net/MacAddress;
 
-    const/4 v2, 0x2
+    const/4 v1, 0x2
 
-    aput-object v1, v0, v2
+    aput-object p0, v0, v1
 
     invoke-static {v0}, Ljava/util/Objects;->hash([Ljava/lang/Object;)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public toStableParcelable()Landroid/net/Layer2InformationParcelable;
@@ -155,9 +148,9 @@
 
     iput-object v1, v0, Landroid/net/Layer2InformationParcelable;->cluster:Ljava/lang/String;
 
-    iget-object v1, p0, Landroid/net/shared/Layer2Information;->mBssid:Landroid/net/MacAddress;
+    iget-object p0, p0, Landroid/net/shared/Layer2Information;->mBssid:Landroid/net/MacAddress;
 
-    iput-object v1, v0, Landroid/net/Layer2InformationParcelable;->bssid:Landroid/net/MacAddress;
+    iput-object p0, v0, Landroid/net/Layer2InformationParcelable;->bssid:Landroid/net/MacAddress;
 
     return-object v0
 .end method
@@ -189,13 +182,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    iget-object v1, p0, Landroid/net/shared/Layer2Information;->mBssid:Landroid/net/MacAddress;
+    iget-object p0, p0, Landroid/net/shared/Layer2Information;->mBssid:Landroid/net/MacAddress;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/Object;)Ljava/lang/StringBuffer;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuffer;->append(Ljava/lang/Object;)Ljava/lang/StringBuffer;
 
     invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method

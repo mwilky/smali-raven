@@ -1,4 +1,4 @@
-.class final Lcom/android/server/media/RemoteDisplayProviderProxy$ProviderCallback;
+.class public final Lcom/android/server/media/RemoteDisplayProviderProxy$ProviderCallback;
 .super Landroid/media/IRemoteDisplayCallback$Stub;
 .source "RemoteDisplayProviderProxy.java"
 
@@ -9,13 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "ProviderCallback"
 .end annotation
 
 
 # instance fields
-.field private final mConnectionRef:Ljava/lang/ref/WeakReference;
+.field public final mConnectionRef:Ljava/lang/ref/WeakReference;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/lang/ref/WeakReference<",
@@ -44,34 +44,34 @@
 
 # virtual methods
 .method public dispose()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/media/RemoteDisplayProviderProxy$ProviderCallback;->mConnectionRef:Ljava/lang/ref/WeakReference;
+    iget-object p0, p0, Lcom/android/server/media/RemoteDisplayProviderProxy$ProviderCallback;->mConnectionRef:Ljava/lang/ref/WeakReference;
 
-    invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->clear()V
+    invoke-virtual {p0}, Ljava/lang/ref/WeakReference;->clear()V
 
     return-void
 .end method
 
 .method public onStateChanged(Landroid/media/RemoteDisplayState;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/android/server/media/RemoteDisplayProviderProxy$ProviderCallback;->mConnectionRef:Ljava/lang/ref/WeakReference;
+    iget-object p0, p0, Lcom/android/server/media/RemoteDisplayProviderProxy$ProviderCallback;->mConnectionRef:Ljava/lang/ref/WeakReference;
 
-    invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+    invoke-virtual {p0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;
+    check-cast p0, Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    invoke-virtual {v0, p1}, Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;->postStateChanged(Landroid/media/RemoteDisplayState;)V
+    invoke-virtual {p0, p1}, Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;->postStateChanged(Landroid/media/RemoteDisplayState;)V
 
     :cond_0
     return-void

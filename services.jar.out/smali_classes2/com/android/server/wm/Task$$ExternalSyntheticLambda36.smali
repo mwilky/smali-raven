@@ -1,28 +1,13 @@
 .class public final synthetic Lcom/android/server/wm/Task$$ExternalSyntheticLambda36;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Predicate;
-
-
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/wm/Task$$ExternalSyntheticLambda36;
+.implements Ljava/util/function/BiPredicate;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda36;
-
-    invoke-direct {v0}, Lcom/android/server/wm/Task$$ExternalSyntheticLambda36;-><init>()V
-
-    sput-object v0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda36;->INSTANCE:Lcom/android/server/wm/Task$$ExternalSyntheticLambda36;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,14 +17,16 @@
 
 
 # virtual methods
-.method public final test(Ljava/lang/Object;)Z
+.method public final test(Ljava/lang/Object;Ljava/lang/Object;)Z
     .locals 0
 
     check-cast p1, Lcom/android/server/wm/ActivityRecord;
 
-    invoke-virtual {p1}, Lcom/android/server/wm/ActivityRecord;->isVisible()Z
+    check-cast p2, Lcom/android/server/wm/ActivityRecord;
 
-    move-result p1
+    invoke-static {p1, p2}, Lcom/android/server/wm/Task;->$r8$lambda$-nHv3hp3munhu4Gy96iX2y0sRuI(Lcom/android/server/wm/ActivityRecord;Lcom/android/server/wm/ActivityRecord;)Z
 
-    return p1
+    move-result p0
+
+    return p0
 .end method

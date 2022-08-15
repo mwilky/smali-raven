@@ -1,150 +1,600 @@
-.class final Lcom/android/server/am/ProcessStateRecord;
+.class public final Lcom/android/server/am/ProcessStateRecord;
 .super Ljava/lang/Object;
 .source "ProcessStateRecord.java"
 
 
-# static fields
-.field private static final VALUE_FALSE:I = 0x0
-
-.field private static final VALUE_INVALID:I = -0x1
-
-.field private static final VALUE_TRUE:I = 0x1
-
-
 # instance fields
-.field private mAdjSeq:I
-
-.field private mAdjSource:Ljava/lang/Object;
-
-.field private mAdjSourceProcState:I
-
-.field private mAdjTarget:Ljava/lang/Object;
-
-.field private mAdjType:Ljava/lang/String;
-
-.field private mAdjTypeCode:I
-
-.field private mAllowStartFgsState:I
-
-.field private final mApp:Lcom/android/server/am/ProcessRecord;
-
-.field private mCacheOomRankerRss:J
-
-.field private mCacheOomRankerRssTimeMs:J
-
-.field private mCacheOomRankerUseCount:I
-
-.field private mCached:Z
-
-.field private mCachedAdj:I
-
-.field private mCachedCompatChanges:[I
-
-.field private mCachedForegroundActivities:Z
-
-.field private mCachedHasActivities:I
-
-.field private mCachedHasRecentTasks:I
-
-.field private mCachedHasVisibleActivities:I
-
-.field private mCachedIsHeavyWeight:I
-
-.field private mCachedIsHomeProcess:I
-
-.field private mCachedIsPreviousProcess:I
-
-.field private mCachedIsReceivingBroadcast:I
-
-.field private mCachedProcState:I
-
-.field private mCachedSchedGroup:I
-
-.field private mCompletedAdjSeq:I
-
-.field private mContainsCycle:Z
-
-.field private mCurAdj:I
-
-.field private mCurCapability:I
-
-.field private mCurProcState:I
-
-.field private mCurRawAdj:I
-
-.field private mCurRawProcState:I
-
-.field private mCurSchedGroup:I
-
-.field private mEmpty:Z
-
-.field private mFgInteractionTime:J
-
-.field private mForcingToImportant:Ljava/lang/Object;
-
-.field private mHasForegroundActivities:Z
-
-.field private mHasOverlayUi:Z
-
-.field private mHasShownUi:Z
-
-.field private mHasStartedServices:Z
-
-.field private mHasTopUi:Z
-
-.field private mInteractionEventTime:J
-
-.field private mLastInvisibleTime:J
-
-.field private mLastStateTime:J
-
-.field private mLastTopTime:J
-
-.field private mMaxAdj:I
-
-.field private mNotCachedSinceIdle:Z
-
-.field private final mProcLock:Lcom/android/server/am/ActivityManagerGlobalLock;
-
-.field private mProcStateChanged:Z
-
-.field private mReachable:Z
-
-.field private mRepForegroundActivities:Z
-
-.field private mRepProcState:I
-
-.field private mReportedInteraction:Z
-
-.field private mRunningRemoteAnimation:Z
-
-.field private mSavedPriority:I
-
-.field private final mService:Lcom/android/server/am/ActivityManagerService;
-
-.field private mServiceB:Z
-
-.field private mServiceHighRam:Z
-
-.field private mSetAdj:I
-
-.field private mSetCapability:I
-
-.field private mSetProcState:I
-
-.field private mSetRawAdj:I
-
-.field private mSetSchedGroup:I
-
-.field private mSystemNoUi:Z
-
-.field private mVerifiedAdj:I
-
-.field private mWhenUnimportant:J
+.field public mAdjSeq:I
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
+.end field
+
+.field public mAdjSource:Ljava/lang/Object;
+    .annotation build Lcom/android/internal/annotations/CompositeRWLock;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
+.end field
+
+.field public mAdjSourceProcState:I
+    .annotation build Lcom/android/internal/annotations/CompositeRWLock;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
+.end field
+
+.field public mAdjTarget:Ljava/lang/Object;
+    .annotation build Lcom/android/internal/annotations/CompositeRWLock;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
+.end field
+
+.field public mAdjType:Ljava/lang/String;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
+.end field
+
+.field public mAdjTypeCode:I
+    .annotation build Lcom/android/internal/annotations/CompositeRWLock;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
+.end field
+
+.field public final mApp:Lcom/android/server/am/ProcessRecord;
+
+.field public mBackgroundRestricted:Z
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
+.end field
+
+.field public mCacheOomRankerRss:J
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
+.end field
+
+.field public mCacheOomRankerRssTimeMs:J
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
+.end field
+
+.field public mCacheOomRankerUseCount:I
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
+.end field
+
+.field public mCached:Z
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
+.end field
+
+.field public mCachedAdj:I
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
+.end field
+
+.field public mCachedCompatChanges:[I
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
+.end field
+
+.field public mCachedForegroundActivities:Z
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
+.end field
+
+.field public mCachedHasActivities:I
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
+.end field
+
+.field public mCachedHasRecentTasks:I
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
+.end field
+
+.field public mCachedHasVisibleActivities:I
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
+.end field
+
+.field public mCachedIsHeavyWeight:I
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
+.end field
+
+.field public mCachedIsHomeProcess:I
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
+.end field
+
+.field public mCachedIsPreviousProcess:I
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
+.end field
+
+.field public mCachedIsReceivingBroadcast:I
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
+.end field
+
+.field public mCachedProcState:I
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
+.end field
+
+.field public mCachedSchedGroup:I
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
+.end field
+
+.field public mCompletedAdjSeq:I
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
+.end field
+
+.field public mContainsCycle:Z
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
+.end field
+
+.field public mCurAdj:I
+    .annotation build Lcom/android/internal/annotations/CompositeRWLock;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
+.end field
+
+.field public mCurBoundByNonBgRestrictedApp:Z
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
+.end field
+
+.field public mCurCapability:I
+    .annotation build Lcom/android/internal/annotations/CompositeRWLock;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
+.end field
+
+.field public mCurProcState:I
+    .annotation build Lcom/android/internal/annotations/CompositeRWLock;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
+.end field
+
+.field public mCurRawAdj:I
+    .annotation build Lcom/android/internal/annotations/CompositeRWLock;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
+.end field
+
+.field public mCurRawProcState:I
+    .annotation build Lcom/android/internal/annotations/CompositeRWLock;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
+.end field
+
+.field public mCurSchedGroup:I
+    .annotation build Lcom/android/internal/annotations/CompositeRWLock;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
+.end field
+
+.field public mEmpty:Z
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
+.end field
+
+.field public mFgInteractionTime:J
+    .annotation build Lcom/android/internal/annotations/CompositeRWLock;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
+.end field
+
+.field public mForcingToImportant:Ljava/lang/Object;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
+.end field
+
+.field public mHasForegroundActivities:Z
+    .annotation build Lcom/android/internal/annotations/CompositeRWLock;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
+.end field
+
+.field public mHasOverlayUi:Z
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
+.end field
+
+.field public mHasShownUi:Z
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
+.end field
+
+.field public mHasStartedServices:Z
+    .annotation build Lcom/android/internal/annotations/CompositeRWLock;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
+.end field
+
+.field public mHasTopUi:Z
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
+.end field
+
+.field public mInteractionEventTime:J
+    .annotation build Lcom/android/internal/annotations/CompositeRWLock;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
+.end field
+
+.field public mLastCanKillOnBgRestrictedAndIdleTime:J
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
+.end field
+
+.field public mLastInvisibleTime:J
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
+.end field
+
+.field public mLastStateTime:J
+    .annotation build Lcom/android/internal/annotations/CompositeRWLock;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
+.end field
+
+.field public mLastTopTime:J
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
+.end field
+
+.field public mMaxAdj:I
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
+.end field
+
+.field public mNoKillOnBgRestrictedAndIdle:Z
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
+.end field
+
+.field public mNotCachedSinceIdle:Z
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProcLock"
+        }
+    .end annotation
+.end field
+
+.field public final mProcLock:Lcom/android/server/am/ActivityManagerGlobalLock;
+
+.field public mProcStateChanged:Z
+    .annotation build Lcom/android/internal/annotations/CompositeRWLock;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
+.end field
+
+.field public mReachable:Z
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
+.end field
+
+.field public mRepForegroundActivities:Z
+    .annotation build Lcom/android/internal/annotations/CompositeRWLock;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
+.end field
+
+.field public mRepProcState:I
+    .annotation build Lcom/android/internal/annotations/CompositeRWLock;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
+.end field
+
+.field public mReportedInteraction:Z
+    .annotation build Lcom/android/internal/annotations/CompositeRWLock;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
+.end field
+
+.field public mRunningRemoteAnimation:Z
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
+.end field
+
+.field public mSavedPriority:I
+    .annotation build Lcom/android/internal/annotations/CompositeRWLock;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
+.end field
+
+.field public final mService:Lcom/android/server/am/ActivityManagerService;
+
+.field public mServiceB:Z
+    .annotation build Lcom/android/internal/annotations/CompositeRWLock;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
+.end field
+
+.field public mServiceHighRam:Z
+    .annotation build Lcom/android/internal/annotations/CompositeRWLock;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
+.end field
+
+.field public mSetAdj:I
+    .annotation build Lcom/android/internal/annotations/CompositeRWLock;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
+.end field
+
+.field public mSetBoundByNonBgRestrictedApp:Z
+
+.field public mSetCached:Z
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
+.end field
+
+.field public mSetCapability:I
+    .annotation build Lcom/android/internal/annotations/CompositeRWLock;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
+.end field
+
+.field public mSetNoKillOnBgRestrictedAndIdle:Z
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
+.end field
+
+.field public mSetProcState:I
+    .annotation build Lcom/android/internal/annotations/CompositeRWLock;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
+.end field
+
+.field public mSetRawAdj:I
+    .annotation build Lcom/android/internal/annotations/CompositeRWLock;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
+.end field
+
+.field public mSetSchedGroup:I
+    .annotation build Lcom/android/internal/annotations/CompositeRWLock;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
+.end field
+
+.field public mSystemNoUi:Z
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
+.end field
+
+.field public mVerifiedAdj:I
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
+.end field
+
+.field public mWhenUnimportant:J
+    .annotation build Lcom/android/internal/annotations/CompositeRWLock;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
+.end field
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/ProcessRecord;)V
+.method public static synthetic $r8$lambda$0T30tD6TkAoY0hWolDQyjgAPC1s(Lcom/android/server/am/ProcessStateRecord;Ljava/lang/String;Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/server/am/ProcessStateRecord;->lambda$forceProcessStateUpTo$1(Ljava/lang/String;Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$bIiYeLi_RQfV33p2KZda84nfLfo(Lcom/android/server/am/ProcessStateRecord;Ljava/lang/String;Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/server/am/ProcessStateRecord;->lambda$setReportedProcState$0(Ljava/lang/String;Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Lcom/android/server/am/ProcessRecord;)V
     .locals 3
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -185,7 +635,11 @@
 
     iput v2, p0, Lcom/android/server/am/ProcessStateRecord;->mSetProcState:I
 
-    iput v2, p0, Lcom/android/server/am/ProcessStateRecord;->mAllowStartFgsState:I
+    iput-boolean v1, p0, Lcom/android/server/am/ProcessStateRecord;->mBackgroundRestricted:Z
+
+    iput-boolean v1, p0, Lcom/android/server/am/ProcessStateRecord;->mCurBoundByNonBgRestrictedApp:Z
+
+    iput-boolean v1, p0, Lcom/android/server/am/ProcessStateRecord;->mSetBoundByNonBgRestrictedApp:Z
 
     const/4 v2, -0x1
 
@@ -223,13 +677,13 @@
 
     iput-object p1, p0, Lcom/android/server/am/ProcessStateRecord;->mApp:Lcom/android/server/am/ProcessRecord;
 
-    iget-object v0, p1, Lcom/android/server/am/ProcessRecord;->mService:Lcom/android/server/am/ActivityManagerService;
+    iget-object p1, p1, Lcom/android/server/am/ProcessRecord;->mService:Lcom/android/server/am/ActivityManagerService;
 
-    iput-object v0, p0, Lcom/android/server/am/ProcessStateRecord;->mService:Lcom/android/server/am/ActivityManagerService;
+    iput-object p1, p0, Lcom/android/server/am/ProcessStateRecord;->mService:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mProcLock:Lcom/android/server/am/ActivityManagerGlobalLock;
+    iget-object p1, p1, Lcom/android/server/am/ActivityManagerService;->mProcLock:Lcom/android/server/am/ActivityManagerGlobalLock;
 
-    iput-object v0, p0, Lcom/android/server/am/ProcessStateRecord;->mProcLock:Lcom/android/server/am/ActivityManagerGlobalLock;
+    iput-object p1, p0, Lcom/android/server/am/ProcessStateRecord;->mProcLock:Lcom/android/server/am/ActivityManagerGlobalLock;
 
     return-void
 
@@ -241,23 +695,67 @@
     .end array-data
 .end method
 
+.method private synthetic lambda$forceProcessStateUpTo$1(Ljava/lang/String;Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;)V
+    .locals 8
 
-# virtual methods
-.method bumpAllowStartFgsState(I)V
-    .locals 1
+    iget-object v0, p0, Lcom/android/server/am/ProcessStateRecord;->mApp:Lcom/android/server/am/ProcessRecord;
 
-    iget v0, p0, Lcom/android/server/am/ProcessStateRecord;->mAllowStartFgsState:I
+    iget v2, v0, Lcom/android/server/am/ProcessRecord;->uid:I
 
-    if-ge p1, v0, :cond_0
+    iget-object v3, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
 
-    iput p1, p0, Lcom/android/server/am/ProcessStateRecord;->mAllowStartFgsState:I
+    iget p0, p0, Lcom/android/server/am/ProcessStateRecord;->mRepProcState:I
 
-    :cond_0
+    invoke-static {p0}, Landroid/app/ActivityManager;->processStateAmToProto(I)I
+
+    move-result v5
+
+    iget-wide v6, p2, Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;->appVersion:J
+
+    const/4 v1, 0x3
+
+    move-object v4, p1
+
+    invoke-static/range {v1 .. v7}, Lcom/android/internal/util/FrameworkStatsLog;->write(IILjava/lang/String;Ljava/lang/String;IJ)V
+
     return-void
 .end method
 
-.method computeOomAdjFromActivitiesIfNecessary(Lcom/android/server/am/OomAdjuster$ComputeOomAdjWindowCallback;IZZIIIII)V
+.method private synthetic lambda$setReportedProcState$0(Ljava/lang/String;Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;)V
+    .locals 8
+
+    iget-object v0, p0, Lcom/android/server/am/ProcessStateRecord;->mApp:Lcom/android/server/am/ProcessRecord;
+
+    iget v2, v0, Lcom/android/server/am/ProcessRecord;->uid:I
+
+    iget-object v3, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+
+    iget p0, p0, Lcom/android/server/am/ProcessStateRecord;->mRepProcState:I
+
+    invoke-static {p0}, Landroid/app/ActivityManager;->processStateAmToProto(I)I
+
+    move-result v5
+
+    iget-wide v6, p2, Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;->appVersion:J
+
+    const/4 v1, 0x3
+
+    move-object v4, p1
+
+    invoke-static/range {v1 .. v7}, Lcom/android/internal/util/FrameworkStatsLog;->write(IILjava/lang/String;Ljava/lang/String;IJ)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public computeOomAdjFromActivitiesIfNecessary(Lcom/android/server/am/OomAdjuster$ComputeOomAdjWindowCallback;IZZIIIII)V
     .locals 12
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
     move-object v0, p0
 
@@ -314,23 +812,21 @@
 
     iput v2, v0, Lcom/android/server/am/ProcessStateRecord;->mCachedAdj:I
 
-    iget-boolean v2, v11, Lcom/android/server/am/OomAdjuster$ComputeOomAdjWindowCallback;->foregroundActivities:Z
+    iget-boolean v3, v11, Lcom/android/server/am/OomAdjuster$ComputeOomAdjWindowCallback;->foregroundActivities:Z
 
-    iput-boolean v2, v0, Lcom/android/server/am/ProcessStateRecord;->mCachedForegroundActivities:Z
+    iput-boolean v3, v0, Lcom/android/server/am/ProcessStateRecord;->mCachedForegroundActivities:Z
 
-    iget-boolean v2, v11, Lcom/android/server/am/OomAdjuster$ComputeOomAdjWindowCallback;->mHasVisibleActivities:Z
+    iget-boolean v3, v11, Lcom/android/server/am/OomAdjuster$ComputeOomAdjWindowCallback;->mHasVisibleActivities:Z
 
-    iput v2, v0, Lcom/android/server/am/ProcessStateRecord;->mCachedHasVisibleActivities:I
+    iput v3, v0, Lcom/android/server/am/ProcessStateRecord;->mCachedHasVisibleActivities:I
 
-    iget v2, v11, Lcom/android/server/am/OomAdjuster$ComputeOomAdjWindowCallback;->procState:I
+    iget v3, v11, Lcom/android/server/am/OomAdjuster$ComputeOomAdjWindowCallback;->procState:I
 
-    iput v2, v0, Lcom/android/server/am/ProcessStateRecord;->mCachedProcState:I
+    iput v3, v0, Lcom/android/server/am/ProcessStateRecord;->mCachedProcState:I
 
-    iget v2, v11, Lcom/android/server/am/OomAdjuster$ComputeOomAdjWindowCallback;->schedGroup:I
+    iget v3, v11, Lcom/android/server/am/OomAdjuster$ComputeOomAdjWindowCallback;->schedGroup:I
 
-    iput v2, v0, Lcom/android/server/am/ProcessStateRecord;->mCachedSchedGroup:I
-
-    iget v2, v0, Lcom/android/server/am/ProcessStateRecord;->mCachedAdj:I
+    iput v3, v0, Lcom/android/server/am/ProcessStateRecord;->mCachedSchedGroup:I
 
     const/16 v3, 0x64
 
@@ -344,16 +840,26 @@
     return-void
 .end method
 
-.method containsCycle()Z
-    .locals 1
+.method public containsCycle()Z
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
-    iget-boolean v0, p0, Lcom/android/server/am/ProcessStateRecord;->mContainsCycle:Z
+    iget-boolean p0, p0, Lcom/android/server/am/ProcessStateRecord;->mContainsCycle:Z
 
-    return v0
+    return p0
 .end method
 
-.method decAdjSeq()V
+.method public decAdjSeq()V
     .locals 1
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
     iget v0, p0, Lcom/android/server/am/ProcessStateRecord;->mAdjSeq:I
 
@@ -364,8 +870,13 @@
     return-void
 .end method
 
-.method decCompletedAdjSeq()V
+.method public decCompletedAdjSeq()V
     .locals 1
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
     iget v0, p0, Lcom/android/server/am/ProcessStateRecord;->mCompletedAdjSeq:I
 
@@ -376,8 +887,14 @@
     return-void
 .end method
 
-.method dump(Ljava/io/PrintWriter;Ljava/lang/String;J)V
-    .locals 8
+.method public dump(Ljava/io/PrintWriter;Ljava/lang/String;J)V
+    .locals 7
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
     iget-boolean v0, p0, Lcom/android/server/am/ProcessStateRecord;->mReportedInteraction:Z
 
@@ -593,19 +1110,32 @@
 
     invoke-virtual {p1}, Ljava/io/PrintWriter;->println()V
 
-    invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+    iget-boolean v0, p0, Lcom/android/server/am/ProcessStateRecord;->mBackgroundRestricted:Z
 
-    const-string v0, "allowStartFgsState="
+    if-eqz v0, :cond_4
+
+    const-string v0, " backgroundRestricted="
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    iget v0, p0, Lcom/android/server/am/ProcessStateRecord;->mAllowStartFgsState:I
+    iget-boolean v0, p0, Lcom/android/server/am/ProcessStateRecord;->mBackgroundRestricted:Z
 
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(I)V
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Z)V
+
+    const-string v0, " boundByNonBgRestrictedApp="
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget-boolean v0, p0, Lcom/android/server/am/ProcessStateRecord;->mSetBoundByNonBgRestrictedApp:Z
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Z)V
+
+    :cond_4
+    invoke-virtual {p1}, Ljava/io/PrintWriter;->println()V
 
     iget-boolean v0, p0, Lcom/android/server/am/ProcessStateRecord;->mHasShownUi:Z
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_5
 
     iget-object v0, p0, Lcom/android/server/am/ProcessStateRecord;->mApp:Lcom/android/server/am/ProcessRecord;
 
@@ -615,9 +1145,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_6
 
-    :cond_4
+    :cond_5
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     const-string v0, "hasShownUi="
@@ -642,7 +1172,7 @@
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Z)V
 
-    :cond_5
+    :cond_6
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     const-string v0, "cached="
@@ -663,7 +1193,7 @@
 
     iget-boolean v0, p0, Lcom/android/server/am/ProcessStateRecord;->mServiceB:Z
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_7
 
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
@@ -683,10 +1213,10 @@
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Z)V
 
-    :cond_6
+    :cond_7
     iget-boolean v0, p0, Lcom/android/server/am/ProcessStateRecord;->mNotCachedSinceIdle:Z
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_8
 
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
@@ -712,24 +1242,24 @@
 
     invoke-virtual {p1, v3, v4}, Ljava/io/PrintWriter;->println(J)V
 
-    :cond_7
+    :cond_8
     invoke-virtual {p0}, Lcom/android/server/am/ProcessStateRecord;->hasTopUi()Z
 
     move-result v0
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_9
 
     invoke-virtual {p0}, Lcom/android/server/am/ProcessStateRecord;->hasOverlayUi()Z
 
     move-result v0
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_9
 
     iget-boolean v0, p0, Lcom/android/server/am/ProcessStateRecord;->mRunningRemoteAnimation:Z
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_a
 
-    :cond_8
+    :cond_9
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     const-string v0, "hasTopUi="
@@ -760,16 +1290,16 @@
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Z)V
 
-    :cond_9
+    :cond_a
     iget-boolean v0, p0, Lcom/android/server/am/ProcessStateRecord;->mHasForegroundActivities:Z
 
-    if-nez v0, :cond_a
+    if-nez v0, :cond_b
 
     iget-boolean v0, p0, Lcom/android/server/am/ProcessStateRecord;->mRepForegroundActivities:Z
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_c
 
-    :cond_a
+    :cond_b
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     const-string v0, "foregroundActivities="
@@ -792,12 +1322,12 @@
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    :cond_b
+    :cond_c
     iget v0, p0, Lcom/android/server/am/ProcessStateRecord;->mSetProcState:I
 
     const/16 v3, 0xa
 
-    if-le v0, v3, :cond_c
+    if-le v0, v3, :cond_d
 
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
@@ -813,16 +1343,16 @@
 
     invoke-virtual {p1}, Ljava/io/PrintWriter;->println()V
 
-    :cond_c
+    :cond_d
     iget-wide v3, p0, Lcom/android/server/am/ProcessStateRecord;->mLastTopTime:J
 
     cmp-long v0, v3, v1
 
-    if-lez v0, :cond_d
+    if-lez v0, :cond_e
 
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    const-string/jumbo v0, "lastTopTime="
+    const-string v0, "lastTopTime="
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
@@ -832,64 +1362,69 @@
 
     invoke-virtual {p1}, Ljava/io/PrintWriter;->println()V
 
-    :cond_d
-    iget-wide v3, p0, Lcom/android/server/am/ProcessStateRecord;->mLastInvisibleTime:J
+    :cond_e
+    iget-wide p3, p0, Lcom/android/server/am/ProcessStateRecord;->mLastInvisibleTime:J
 
-    cmp-long v0, v3, v1
+    cmp-long v0, p3, v1
 
-    if-lez v0, :cond_e
+    if-lez v0, :cond_f
 
     const-wide v0, 0x7fffffffffffffffL
 
-    cmp-long v0, v3, v0
+    cmp-long p3, p3, v0
 
-    if-gez v0, :cond_e
+    if-gez p3, :cond_f
 
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    const-string/jumbo v0, "lastInvisibleTime="
+    const-string p3, "lastInvisibleTime="
 
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+    invoke-virtual {p1, p3}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
-    move-result-wide v0
+    move-result-wide p3
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v2
+    move-result-wide v0
 
-    sub-long v4, v2, v0
+    sub-long p3, v0, p3
 
-    iget-wide v6, p0, Lcom/android/server/am/ProcessStateRecord;->mLastInvisibleTime:J
+    iget-wide v2, p0, Lcom/android/server/am/ProcessStateRecord;->mLastInvisibleTime:J
 
-    add-long/2addr v4, v6
+    add-long/2addr p3, v2
 
-    invoke-static {p1, v4, v5, v2, v3}, Landroid/util/TimeUtils;->dumpTimeWithDelta(Ljava/io/PrintWriter;JJ)V
+    invoke-static {p1, p3, p4, v0, v1}, Landroid/util/TimeUtils;->dumpTimeWithDelta(Ljava/io/PrintWriter;JJ)V
 
     invoke-virtual {p1}, Ljava/io/PrintWriter;->println()V
 
-    :cond_e
-    iget-boolean v0, p0, Lcom/android/server/am/ProcessStateRecord;->mHasStartedServices:Z
+    :cond_f
+    iget-boolean p3, p0, Lcom/android/server/am/ProcessStateRecord;->mHasStartedServices:Z
 
-    if-eqz v0, :cond_f
+    if-eqz p3, :cond_10
 
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    const-string v0, "hasStartedServices="
+    const-string p2, "hasStartedServices="
 
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+    invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    iget-boolean v0, p0, Lcom/android/server/am/ProcessStateRecord;->mHasStartedServices:Z
+    iget-boolean p0, p0, Lcom/android/server/am/ProcessStateRecord;->mHasStartedServices:Z
 
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Z)V
+    invoke-virtual {p1, p0}, Ljava/io/PrintWriter;->println(Z)V
 
-    :cond_f
+    :cond_10
     return-void
 .end method
 
-.method forceProcessStateUpTo(I)V
-    .locals 3
+.method public forceProcessStateUpTo(I)V
+    .locals 2
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
     iget v0, p0, Lcom/android/server/am/ProcessStateRecord;->mRepProcState:I
 
@@ -908,17 +1443,17 @@
 
     invoke-virtual {p0, p1}, Lcom/android/server/am/ProcessStateRecord;->setCurRawProcState(I)V
 
-    iget-object v1, p0, Lcom/android/server/am/ProcessStateRecord;->mApp:Lcom/android/server/am/ProcessRecord;
+    iget-object p1, p0, Lcom/android/server/am/ProcessStateRecord;->mApp:Lcom/android/server/am/ProcessRecord;
 
-    invoke-virtual {v1}, Lcom/android/server/am/ProcessRecord;->getPkgList()Lcom/android/server/am/PackageList;
+    invoke-virtual {p1}, Lcom/android/server/am/ProcessRecord;->getPkgList()Lcom/android/server/am/PackageList;
 
-    move-result-object v1
+    move-result-object p1
 
-    new-instance v2, Lcom/android/server/am/ProcessStateRecord$$ExternalSyntheticLambda0;
+    new-instance v1, Lcom/android/server/am/ProcessStateRecord$$ExternalSyntheticLambda0;
 
-    invoke-direct {v2, p0}, Lcom/android/server/am/ProcessStateRecord$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/am/ProcessStateRecord;)V
+    invoke-direct {v1, p0}, Lcom/android/server/am/ProcessStateRecord$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/am/ProcessStateRecord;)V
 
-    invoke-virtual {v1, v2}, Lcom/android/server/am/PackageList;->forEachPackage(Ljava/util/function/BiConsumer;)V
+    invoke-virtual {p1, v1}, Lcom/android/server/am/PackageList;->forEachPackage(Ljava/util/function/BiConsumer;)V
 
     monitor-exit v0
     :try_end_0
@@ -929,7 +1464,7 @@
     goto :goto_0
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     :try_start_1
     monitor-exit v0
@@ -938,71 +1473,102 @@
 
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterProcLockedSection()V
 
-    throw v1
+    throw p0
 
     :cond_0
     :goto_0
     return-void
 .end method
 
-.method getAdjSeq()I
-    .locals 1
+.method public getAdjSeq()I
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
-    iget v0, p0, Lcom/android/server/am/ProcessStateRecord;->mAdjSeq:I
+    iget p0, p0, Lcom/android/server/am/ProcessStateRecord;->mAdjSeq:I
 
-    return v0
+    return p0
 .end method
 
-.method getAdjSource()Ljava/lang/Object;
-    .locals 1
+.method public getAdjSource()Ljava/lang/Object;
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        anyOf = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
-    iget-object v0, p0, Lcom/android/server/am/ProcessStateRecord;->mAdjSource:Ljava/lang/Object;
+    iget-object p0, p0, Lcom/android/server/am/ProcessStateRecord;->mAdjSource:Ljava/lang/Object;
 
-    return-object v0
+    return-object p0
 .end method
 
-.method getAdjSourceProcState()I
-    .locals 1
+.method public getAdjSourceProcState()I
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        anyOf = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
-    iget v0, p0, Lcom/android/server/am/ProcessStateRecord;->mAdjSourceProcState:I
+    iget p0, p0, Lcom/android/server/am/ProcessStateRecord;->mAdjSourceProcState:I
 
-    return v0
+    return p0
 .end method
 
-.method getAdjTarget()Ljava/lang/Object;
-    .locals 1
+.method public getAdjTarget()Ljava/lang/Object;
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        anyOf = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
-    iget-object v0, p0, Lcom/android/server/am/ProcessStateRecord;->mAdjTarget:Ljava/lang/Object;
+    iget-object p0, p0, Lcom/android/server/am/ProcessStateRecord;->mAdjTarget:Ljava/lang/Object;
 
-    return-object v0
+    return-object p0
 .end method
 
-.method getAdjType()Ljava/lang/String;
-    .locals 1
+.method public getAdjType()Ljava/lang/String;
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
-    iget-object v0, p0, Lcom/android/server/am/ProcessStateRecord;->mAdjType:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/am/ProcessStateRecord;->mAdjType:Ljava/lang/String;
 
-    return-object v0
+    return-object p0
 .end method
 
-.method getAdjTypeCode()I
-    .locals 1
+.method public getAdjTypeCode()I
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        anyOf = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
-    iget v0, p0, Lcom/android/server/am/ProcessStateRecord;->mAdjTypeCode:I
+    iget p0, p0, Lcom/android/server/am/ProcessStateRecord;->mAdjTypeCode:I
 
-    return v0
-.end method
-
-.method getAllowStartFgsState()I
-    .locals 1
-
-    iget v0, p0, Lcom/android/server/am/ProcessStateRecord;->mAllowStartFgsState:I
-
-    return v0
+    return p0
 .end method
 
 .method public getCacheOomRankerRss()J
     .locals 2
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
     iget-wide v0, p0, Lcom/android/server/am/ProcessStateRecord;->mCacheOomRankerRss:J
 
@@ -1011,30 +1577,50 @@
 
 .method public getCacheOomRankerRssTimeMs()J
     .locals 2
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
     iget-wide v0, p0, Lcom/android/server/am/ProcessStateRecord;->mCacheOomRankerRssTimeMs:J
 
     return-wide v0
 .end method
 
-.method getCacheOomRankerUseCount()I
-    .locals 1
+.method public getCacheOomRankerUseCount()I
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
-    iget v0, p0, Lcom/android/server/am/ProcessStateRecord;->mCacheOomRankerUseCount:I
+    iget p0, p0, Lcom/android/server/am/ProcessStateRecord;->mCacheOomRankerUseCount:I
 
-    return v0
+    return p0
 .end method
 
-.method getCachedAdj()I
-    .locals 1
+.method public getCachedAdj()I
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
-    iget v0, p0, Lcom/android/server/am/ProcessStateRecord;->mCachedAdj:I
+    iget p0, p0, Lcom/android/server/am/ProcessStateRecord;->mCachedAdj:I
 
-    return v0
+    return p0
 .end method
 
-.method getCachedCompatChange(I)Z
-    .locals 5
+.method public getCachedCompatChange(I)Z
+    .locals 4
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
     iget-object v0, p0, Lcom/android/server/am/ProcessStateRecord;->mCachedCompatChanges:[I
 
@@ -1042,71 +1628,67 @@
 
     const/4 v2, 0x0
 
-    const/4 v3, 0x1
+    const/4 v3, -0x1
 
-    const/4 v4, -0x1
-
-    if-ne v1, v4, :cond_1
-
-    nop
+    if-ne v1, v3, :cond_0
 
     iget-object v1, p0, Lcom/android/server/am/ProcessStateRecord;->mService:Lcom/android/server/am/ActivityManagerService;
 
     iget-object v1, v1, Lcom/android/server/am/ActivityManagerService;->mOomAdjuster:Lcom/android/server/am/OomAdjuster;
 
-    iget-object v4, p0, Lcom/android/server/am/ProcessStateRecord;->mApp:Lcom/android/server/am/ProcessRecord;
+    iget-object v3, p0, Lcom/android/server/am/ProcessStateRecord;->mApp:Lcom/android/server/am/ProcessRecord;
 
-    iget-object v4, v4, Lcom/android/server/am/ProcessRecord;->info:Landroid/content/pm/ApplicationInfo;
+    iget-object v3, v3, Lcom/android/server/am/ProcessRecord;->info:Landroid/content/pm/ApplicationInfo;
 
-    invoke-virtual {v1, p1, v4, v2}, Lcom/android/server/am/OomAdjuster;->isChangeEnabled(ILandroid/content/pm/ApplicationInfo;Z)Z
+    invoke-virtual {v1, p1, v3, v2}, Lcom/android/server/am/OomAdjuster;->isChangeEnabled(ILandroid/content/pm/ApplicationInfo;Z)Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
-
-    move v1, v3
-
-    goto :goto_0
-
-    :cond_0
-    move v1, v2
-
-    :goto_0
     aput v1, v0, p1
 
+    :cond_0
+    iget-object p0, p0, Lcom/android/server/am/ProcessStateRecord;->mCachedCompatChanges:[I
+
+    aget p0, p0, p1
+
+    const/4 p1, 0x1
+
+    if-ne p0, p1, :cond_1
+
+    move v2, p1
+
     :cond_1
-    iget-object v0, p0, Lcom/android/server/am/ProcessStateRecord;->mCachedCompatChanges:[I
-
-    aget v0, v0, p1
-
-    if-ne v0, v3, :cond_2
-
-    move v2, v3
-
-    :cond_2
     return v2
 .end method
 
-.method getCachedForegroundActivities()Z
-    .locals 1
+.method public getCachedForegroundActivities()Z
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
-    iget-boolean v0, p0, Lcom/android/server/am/ProcessStateRecord;->mCachedForegroundActivities:Z
+    iget-boolean p0, p0, Lcom/android/server/am/ProcessStateRecord;->mCachedForegroundActivities:Z
 
-    return v0
+    return p0
 .end method
 
-.method getCachedHasActivities()Z
-    .locals 4
+.method public getCachedHasActivities()Z
+    .locals 3
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
     iget v0, p0, Lcom/android/server/am/ProcessStateRecord;->mCachedHasActivities:I
 
-    const/4 v1, 0x0
+    const/4 v1, 0x1
 
-    const/4 v2, 0x1
+    const/4 v2, -0x1
 
-    const/4 v3, -0x1
-
-    if-ne v0, v3, :cond_1
+    if-ne v0, v2, :cond_1
 
     iget-object v0, p0, Lcom/android/server/am/ProcessStateRecord;->mApp:Lcom/android/server/am/ProcessRecord;
 
@@ -1118,41 +1700,55 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    iput v0, p0, Lcom/android/server/am/ProcessStateRecord;->mCachedHasActivities:I
 
-    move v0, v2
+    const/16 v2, 0x10
+
+    if-ne v0, v1, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/am/ProcessStateRecord;->mApp:Lcom/android/server/am/ProcessRecord;
+
+    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->mProfile:Lcom/android/server/am/ProcessProfileRecord;
+
+    invoke-virtual {v0, v2}, Lcom/android/server/am/ProcessProfileRecord;->addHostingComponentType(I)V
 
     goto :goto_0
 
     :cond_0
-    move v0, v1
+    iget-object v0, p0, Lcom/android/server/am/ProcessStateRecord;->mApp:Lcom/android/server/am/ProcessRecord;
 
-    :goto_0
-    iput v0, p0, Lcom/android/server/am/ProcessStateRecord;->mCachedHasActivities:I
+    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->mProfile:Lcom/android/server/am/ProcessProfileRecord;
+
+    invoke-virtual {v0, v2}, Lcom/android/server/am/ProcessProfileRecord;->clearHostingComponentType(I)V
 
     :cond_1
-    iget v0, p0, Lcom/android/server/am/ProcessStateRecord;->mCachedHasActivities:I
+    :goto_0
+    iget p0, p0, Lcom/android/server/am/ProcessStateRecord;->mCachedHasActivities:I
 
-    if-ne v0, v2, :cond_2
+    if-ne p0, v1, :cond_2
 
-    move v1, v2
+    goto :goto_1
 
     :cond_2
+    const/4 v1, 0x0
+
+    :goto_1
     return v1
 .end method
 
-.method getCachedHasRecentTasks()Z
-    .locals 4
+.method public getCachedHasRecentTasks()Z
+    .locals 2
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
     iget v0, p0, Lcom/android/server/am/ProcessStateRecord;->mCachedHasRecentTasks:I
 
-    const/4 v1, 0x0
+    const/4 v1, -0x1
 
-    const/4 v2, 0x1
-
-    const/4 v3, -0x1
-
-    if-ne v0, v3, :cond_1
+    if-ne v0, v1, :cond_0
 
     iget-object v0, p0, Lcom/android/server/am/ProcessStateRecord;->mApp:Lcom/android/server/am/ProcessRecord;
 
@@ -1164,41 +1760,37 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    iput v0, p0, Lcom/android/server/am/ProcessStateRecord;->mCachedHasRecentTasks:I
 
-    move v0, v2
+    :cond_0
+    iget p0, p0, Lcom/android/server/am/ProcessStateRecord;->mCachedHasRecentTasks:I
+
+    const/4 v0, 0x1
+
+    if-ne p0, v0, :cond_1
 
     goto :goto_0
 
-    :cond_0
-    move v0, v1
+    :cond_1
+    const/4 v0, 0x0
 
     :goto_0
-    iput v0, p0, Lcom/android/server/am/ProcessStateRecord;->mCachedHasRecentTasks:I
-
-    :cond_1
-    iget v0, p0, Lcom/android/server/am/ProcessStateRecord;->mCachedHasRecentTasks:I
-
-    if-ne v0, v2, :cond_2
-
-    move v1, v2
-
-    :cond_2
-    return v1
+    return v0
 .end method
 
-.method getCachedHasVisibleActivities()Z
-    .locals 4
+.method public getCachedHasVisibleActivities()Z
+    .locals 2
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
     iget v0, p0, Lcom/android/server/am/ProcessStateRecord;->mCachedHasVisibleActivities:I
 
-    const/4 v1, 0x0
+    const/4 v1, -0x1
 
-    const/4 v2, 0x1
-
-    const/4 v3, -0x1
-
-    if-ne v0, v3, :cond_1
+    if-ne v0, v1, :cond_0
 
     iget-object v0, p0, Lcom/android/server/am/ProcessStateRecord;->mApp:Lcom/android/server/am/ProcessRecord;
 
@@ -1210,41 +1802,37 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    iput v0, p0, Lcom/android/server/am/ProcessStateRecord;->mCachedHasVisibleActivities:I
 
-    move v0, v2
+    :cond_0
+    iget p0, p0, Lcom/android/server/am/ProcessStateRecord;->mCachedHasVisibleActivities:I
+
+    const/4 v0, 0x1
+
+    if-ne p0, v0, :cond_1
 
     goto :goto_0
 
-    :cond_0
-    move v0, v1
+    :cond_1
+    const/4 v0, 0x0
 
     :goto_0
-    iput v0, p0, Lcom/android/server/am/ProcessStateRecord;->mCachedHasVisibleActivities:I
-
-    :cond_1
-    iget v0, p0, Lcom/android/server/am/ProcessStateRecord;->mCachedHasVisibleActivities:I
-
-    if-ne v0, v2, :cond_2
-
-    move v1, v2
-
-    :cond_2
-    return v1
+    return v0
 .end method
 
-.method getCachedIsHeavyWeight()Z
-    .locals 4
+.method public getCachedIsHeavyWeight()Z
+    .locals 2
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
     iget v0, p0, Lcom/android/server/am/ProcessStateRecord;->mCachedIsHeavyWeight:I
 
-    const/4 v1, 0x0
+    const/4 v1, -0x1
 
-    const/4 v2, 0x1
-
-    const/4 v3, -0x1
-
-    if-ne v0, v3, :cond_1
+    if-ne v0, v1, :cond_0
 
     iget-object v0, p0, Lcom/android/server/am/ProcessStateRecord;->mApp:Lcom/android/server/am/ProcessRecord;
 
@@ -1256,31 +1844,31 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    iput v0, p0, Lcom/android/server/am/ProcessStateRecord;->mCachedIsHeavyWeight:I
 
-    move v0, v2
+    :cond_0
+    iget p0, p0, Lcom/android/server/am/ProcessStateRecord;->mCachedIsHeavyWeight:I
+
+    const/4 v0, 0x1
+
+    if-ne p0, v0, :cond_1
 
     goto :goto_0
 
-    :cond_0
-    move v0, v1
+    :cond_1
+    const/4 v0, 0x0
 
     :goto_0
-    iput v0, p0, Lcom/android/server/am/ProcessStateRecord;->mCachedIsHeavyWeight:I
-
-    :cond_1
-    iget v0, p0, Lcom/android/server/am/ProcessStateRecord;->mCachedIsHeavyWeight:I
-
-    if-ne v0, v2, :cond_2
-
-    move v1, v2
-
-    :cond_2
-    return v1
+    return v0
 .end method
 
-.method getCachedIsHomeProcess()Z
+.method public getCachedIsHomeProcess()Z
     .locals 4
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
     iget v0, p0, Lcom/android/server/am/ProcessStateRecord;->mCachedIsHomeProcess:I
 
@@ -1319,9 +1907,9 @@
 
     :cond_1
     :goto_0
-    iget v0, p0, Lcom/android/server/am/ProcessStateRecord;->mCachedIsHomeProcess:I
+    iget p0, p0, Lcom/android/server/am/ProcessStateRecord;->mCachedIsHomeProcess:I
 
-    if-ne v0, v2, :cond_2
+    if-ne p0, v2, :cond_2
 
     move v1, v2
 
@@ -1329,8 +1917,13 @@
     return v1
 .end method
 
-.method getCachedIsPreviousProcess()Z
+.method public getCachedIsPreviousProcess()Z
     .locals 4
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
     iget v0, p0, Lcom/android/server/am/ProcessStateRecord;->mCachedIsPreviousProcess:I
 
@@ -1369,9 +1962,9 @@
 
     :cond_1
     :goto_0
-    iget v0, p0, Lcom/android/server/am/ProcessStateRecord;->mCachedIsPreviousProcess:I
+    iget p0, p0, Lcom/android/server/am/ProcessStateRecord;->mCachedIsPreviousProcess:I
 
-    if-ne v0, v2, :cond_2
+    if-ne p0, v2, :cond_2
 
     move v1, v2
 
@@ -1379,8 +1972,14 @@
     return v1
 .end method
 
-.method getCachedIsReceivingBroadcast(Landroid/util/ArraySet;)Z
+.method public getCachedIsReceivingBroadcast(Landroid/util/ArraySet;)Z
     .locals 4
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1410,19 +2009,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
-
-    move v0, v2
-
-    goto :goto_0
-
-    :cond_0
-    move v0, v1
-
-    :goto_0
     iput v0, p0, Lcom/android/server/am/ProcessStateRecord;->mCachedIsReceivingBroadcast:I
 
-    if-ne v0, v2, :cond_2
+    const/16 v3, 0x20
+
+    if-ne v0, v2, :cond_1
 
     iget-object v0, p0, Lcom/android/server/am/ProcessStateRecord;->mService:Lcom/android/server/am/ActivityManagerService;
 
@@ -1430,24 +2021,40 @@
 
     invoke-virtual {p1, v0}, Landroid/util/ArraySet;->contains(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_0
 
-    const/4 v0, 0x2
+    const/4 p1, 0x2
+
+    goto :goto_0
+
+    :cond_0
+    move p1, v1
+
+    :goto_0
+    iput p1, p0, Lcom/android/server/am/ProcessStateRecord;->mCachedSchedGroup:I
+
+    iget-object p1, p0, Lcom/android/server/am/ProcessStateRecord;->mApp:Lcom/android/server/am/ProcessRecord;
+
+    iget-object p1, p1, Lcom/android/server/am/ProcessRecord;->mProfile:Lcom/android/server/am/ProcessProfileRecord;
+
+    invoke-virtual {p1, v3}, Lcom/android/server/am/ProcessProfileRecord;->addHostingComponentType(I)V
 
     goto :goto_1
 
     :cond_1
-    move v0, v1
+    iget-object p1, p0, Lcom/android/server/am/ProcessStateRecord;->mApp:Lcom/android/server/am/ProcessRecord;
 
-    :goto_1
-    iput v0, p0, Lcom/android/server/am/ProcessStateRecord;->mCachedSchedGroup:I
+    iget-object p1, p1, Lcom/android/server/am/ProcessRecord;->mProfile:Lcom/android/server/am/ProcessProfileRecord;
+
+    invoke-virtual {p1, v3}, Lcom/android/server/am/ProcessProfileRecord;->clearHostingComponentType(I)V
 
     :cond_2
-    iget v0, p0, Lcom/android/server/am/ProcessStateRecord;->mCachedIsReceivingBroadcast:I
+    :goto_1
+    iget p0, p0, Lcom/android/server/am/ProcessStateRecord;->mCachedIsReceivingBroadcast:I
 
-    if-ne v0, v2, :cond_3
+    if-ne p0, v2, :cond_3
 
     move v1, v2
 
@@ -1455,160 +2062,286 @@
     return v1
 .end method
 
-.method getCachedProcState()I
-    .locals 1
+.method public getCachedProcState()I
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
-    iget v0, p0, Lcom/android/server/am/ProcessStateRecord;->mCachedProcState:I
+    iget p0, p0, Lcom/android/server/am/ProcessStateRecord;->mCachedProcState:I
 
-    return v0
+    return p0
 .end method
 
-.method getCachedSchedGroup()I
-    .locals 1
+.method public getCachedSchedGroup()I
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
-    iget v0, p0, Lcom/android/server/am/ProcessStateRecord;->mCachedSchedGroup:I
+    iget p0, p0, Lcom/android/server/am/ProcessStateRecord;->mCachedSchedGroup:I
 
-    return v0
+    return p0
 .end method
 
-.method getCompletedAdjSeq()I
-    .locals 1
+.method public getCompletedAdjSeq()I
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
-    iget v0, p0, Lcom/android/server/am/ProcessStateRecord;->mCompletedAdjSeq:I
+    iget p0, p0, Lcom/android/server/am/ProcessStateRecord;->mCompletedAdjSeq:I
 
-    return v0
+    return p0
 .end method
 
-.method getCurAdj()I
-    .locals 1
+.method public getCurAdj()I
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        anyOf = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
-    iget v0, p0, Lcom/android/server/am/ProcessStateRecord;->mCurAdj:I
+    iget p0, p0, Lcom/android/server/am/ProcessStateRecord;->mCurAdj:I
 
-    return v0
+    return p0
 .end method
 
-.method getCurCapability()I
-    .locals 1
+.method public getCurCapability()I
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        anyOf = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
-    iget v0, p0, Lcom/android/server/am/ProcessStateRecord;->mCurCapability:I
+    iget p0, p0, Lcom/android/server/am/ProcessStateRecord;->mCurCapability:I
 
-    return v0
+    return p0
 .end method
 
-.method getCurProcState()I
-    .locals 1
+.method public getCurProcState()I
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        anyOf = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
-    iget v0, p0, Lcom/android/server/am/ProcessStateRecord;->mCurProcState:I
+    iget p0, p0, Lcom/android/server/am/ProcessStateRecord;->mCurProcState:I
 
-    return v0
+    return p0
 .end method
 
-.method getCurRawAdj()I
-    .locals 1
+.method public getCurRawAdj()I
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        anyOf = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
-    iget v0, p0, Lcom/android/server/am/ProcessStateRecord;->mCurRawAdj:I
+    iget p0, p0, Lcom/android/server/am/ProcessStateRecord;->mCurRawAdj:I
 
-    return v0
+    return p0
 .end method
 
-.method getCurRawProcState()I
-    .locals 1
+.method public getCurRawProcState()I
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        anyOf = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
-    iget v0, p0, Lcom/android/server/am/ProcessStateRecord;->mCurRawProcState:I
+    iget p0, p0, Lcom/android/server/am/ProcessStateRecord;->mCurRawProcState:I
 
-    return v0
+    return p0
 .end method
 
-.method getCurrentSchedulingGroup()I
-    .locals 1
+.method public getCurrentSchedulingGroup()I
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        anyOf = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
-    iget v0, p0, Lcom/android/server/am/ProcessStateRecord;->mCurSchedGroup:I
+    iget p0, p0, Lcom/android/server/am/ProcessStateRecord;->mCurSchedGroup:I
 
-    return v0
+    return p0
 .end method
 
-.method getFgInteractionTime()J
+.method public getFgInteractionTime()J
     .locals 2
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        anyOf = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
     iget-wide v0, p0, Lcom/android/server/am/ProcessStateRecord;->mFgInteractionTime:J
 
     return-wide v0
 .end method
 
-.method getForcingToImportant()Ljava/lang/Object;
-    .locals 1
+.method public getForcingToImportant()Ljava/lang/Object;
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
-    iget-object v0, p0, Lcom/android/server/am/ProcessStateRecord;->mForcingToImportant:Ljava/lang/Object;
+    iget-object p0, p0, Lcom/android/server/am/ProcessStateRecord;->mForcingToImportant:Ljava/lang/Object;
 
-    return-object v0
+    return-object p0
 .end method
 
-.method getInteractionEventTime()J
+.method public getInteractionEventTime()J
     .locals 2
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        anyOf = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
     iget-wide v0, p0, Lcom/android/server/am/ProcessStateRecord;->mInteractionEventTime:J
 
     return-wide v0
 .end method
 
-.method getLastInvisibleTime()J
+.method public getLastCanKillOnBgRestrictedAndIdleTime()J
     .locals 2
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
+
+    iget-wide v0, p0, Lcom/android/server/am/ProcessStateRecord;->mLastCanKillOnBgRestrictedAndIdleTime:J
+
+    return-wide v0
+.end method
+
+.method public getLastInvisibleTime()J
+    .locals 2
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
     iget-wide v0, p0, Lcom/android/server/am/ProcessStateRecord;->mLastInvisibleTime:J
 
     return-wide v0
 .end method
 
-.method getLastStateTime()J
+.method public getLastStateTime()J
     .locals 2
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        anyOf = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
     iget-wide v0, p0, Lcom/android/server/am/ProcessStateRecord;->mLastStateTime:J
 
     return-wide v0
 .end method
 
-.method getLastTopTime()J
+.method public getLastTopTime()J
     .locals 2
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
     iget-wide v0, p0, Lcom/android/server/am/ProcessStateRecord;->mLastTopTime:J
 
     return-wide v0
 .end method
 
-.method getMaxAdj()I
-    .locals 1
+.method public getMaxAdj()I
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
-    iget v0, p0, Lcom/android/server/am/ProcessStateRecord;->mMaxAdj:I
+    iget p0, p0, Lcom/android/server/am/ProcessStateRecord;->mMaxAdj:I
 
-    return v0
+    return p0
 .end method
 
-.method getReportedProcState()I
-    .locals 1
+.method public getReportedProcState()I
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        anyOf = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
-    iget v0, p0, Lcom/android/server/am/ProcessStateRecord;->mRepProcState:I
+    iget p0, p0, Lcom/android/server/am/ProcessStateRecord;->mRepProcState:I
 
-    return v0
+    return p0
 .end method
 
-.method getSavedPriority()I
-    .locals 1
+.method public getSavedPriority()I
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        anyOf = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
-    iget v0, p0, Lcom/android/server/am/ProcessStateRecord;->mSavedPriority:I
+    iget p0, p0, Lcom/android/server/am/ProcessStateRecord;->mSavedPriority:I
 
-    return v0
+    return p0
 .end method
 
-.method getSetAdj()I
-    .locals 1
+.method public getSetAdj()I
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        anyOf = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
-    iget v0, p0, Lcom/android/server/am/ProcessStateRecord;->mSetAdj:I
+    iget p0, p0, Lcom/android/server/am/ProcessStateRecord;->mSetAdj:I
 
-    return v0
+    return p0
 .end method
 
-.method getSetAdjWithServices()I
+.method public getSetAdjWithServices()I
     .locals 2
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        anyOf = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
     iget v0, p0, Lcom/android/server/am/ProcessStateRecord;->mSetAdj:I
 
@@ -1616,131 +2349,197 @@
 
     if-lt v0, v1, :cond_0
 
-    iget-boolean v1, p0, Lcom/android/server/am/ProcessStateRecord;->mHasStartedServices:Z
+    iget-boolean p0, p0, Lcom/android/server/am/ProcessStateRecord;->mHasStartedServices:Z
 
-    if-eqz v1, :cond_0
+    if-eqz p0, :cond_0
 
-    const/16 v0, 0x320
+    const/16 p0, 0x320
 
-    return v0
+    return p0
 
     :cond_0
     return v0
 .end method
 
-.method getSetCapability()I
-    .locals 1
+.method public getSetCapability()I
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        anyOf = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
-    iget v0, p0, Lcom/android/server/am/ProcessStateRecord;->mSetCapability:I
+    iget p0, p0, Lcom/android/server/am/ProcessStateRecord;->mSetCapability:I
 
-    return v0
+    return p0
 .end method
 
-.method getSetProcState()I
-    .locals 1
+.method public getSetProcState()I
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        anyOf = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
-    iget v0, p0, Lcom/android/server/am/ProcessStateRecord;->mSetProcState:I
+    iget p0, p0, Lcom/android/server/am/ProcessStateRecord;->mSetProcState:I
 
-    return v0
+    return p0
 .end method
 
-.method getSetRawAdj()I
-    .locals 1
+.method public getSetRawAdj()I
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        anyOf = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
-    iget v0, p0, Lcom/android/server/am/ProcessStateRecord;->mSetRawAdj:I
+    iget p0, p0, Lcom/android/server/am/ProcessStateRecord;->mSetRawAdj:I
 
-    return v0
+    return p0
 .end method
 
-.method getSetSchedGroup()I
-    .locals 1
+.method public getSetSchedGroup()I
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        anyOf = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
-    iget v0, p0, Lcom/android/server/am/ProcessStateRecord;->mSetSchedGroup:I
+    iget p0, p0, Lcom/android/server/am/ProcessStateRecord;->mSetSchedGroup:I
 
-    return v0
+    return p0
 .end method
 
-.method getVerifiedAdj()I
-    .locals 1
+.method public getVerifiedAdj()I
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
-    iget v0, p0, Lcom/android/server/am/ProcessStateRecord;->mVerifiedAdj:I
+    iget p0, p0, Lcom/android/server/am/ProcessStateRecord;->mVerifiedAdj:I
 
-    return v0
+    return p0
 .end method
 
-.method getWhenUnimportant()J
+.method public getWhenUnimportant()J
     .locals 2
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        anyOf = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
     iget-wide v0, p0, Lcom/android/server/am/ProcessStateRecord;->mWhenUnimportant:J
 
     return-wide v0
 .end method
 
-.method hasForegroundActivities()Z
-    .locals 1
+.method public hasForegroundActivities()Z
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        anyOf = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
-    iget-boolean v0, p0, Lcom/android/server/am/ProcessStateRecord;->mHasForegroundActivities:Z
+    iget-boolean p0, p0, Lcom/android/server/am/ProcessStateRecord;->mHasForegroundActivities:Z
 
-    return v0
+    return p0
 .end method
 
-.method hasOverlayUi()Z
-    .locals 1
+.method public hasOverlayUi()Z
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
-    iget-boolean v0, p0, Lcom/android/server/am/ProcessStateRecord;->mHasOverlayUi:Z
+    iget-boolean p0, p0, Lcom/android/server/am/ProcessStateRecord;->mHasOverlayUi:Z
 
-    return v0
+    return p0
 .end method
 
-.method hasProcStateChanged()Z
-    .locals 1
+.method public hasProcStateChanged()Z
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        anyOf = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
-    iget-boolean v0, p0, Lcom/android/server/am/ProcessStateRecord;->mProcStateChanged:Z
+    iget-boolean p0, p0, Lcom/android/server/am/ProcessStateRecord;->mProcStateChanged:Z
 
-    return v0
+    return p0
 .end method
 
-.method hasRepForegroundActivities()Z
-    .locals 1
+.method public hasRepForegroundActivities()Z
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        anyOf = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
-    iget-boolean v0, p0, Lcom/android/server/am/ProcessStateRecord;->mRepForegroundActivities:Z
+    iget-boolean p0, p0, Lcom/android/server/am/ProcessStateRecord;->mRepForegroundActivities:Z
 
-    return v0
+    return p0
 .end method
 
-.method hasReportedInteraction()Z
-    .locals 1
+.method public hasReportedInteraction()Z
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        anyOf = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
-    iget-boolean v0, p0, Lcom/android/server/am/ProcessStateRecord;->mReportedInteraction:Z
+    iget-boolean p0, p0, Lcom/android/server/am/ProcessStateRecord;->mReportedInteraction:Z
 
-    return v0
+    return p0
 .end method
 
-.method hasShownUi()Z
-    .locals 1
+.method public hasShownUi()Z
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
-    iget-boolean v0, p0, Lcom/android/server/am/ProcessStateRecord;->mHasShownUi:Z
+    iget-boolean p0, p0, Lcom/android/server/am/ProcessStateRecord;->mHasShownUi:Z
 
-    return v0
+    return p0
 .end method
 
-.method hasStartedServices()Z
-    .locals 1
+.method public hasTopUi()Z
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
-    iget-boolean v0, p0, Lcom/android/server/am/ProcessStateRecord;->mHasStartedServices:Z
+    iget-boolean p0, p0, Lcom/android/server/am/ProcessStateRecord;->mHasTopUi:Z
 
-    return v0
+    return p0
 .end method
 
-.method hasTopUi()Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/server/am/ProcessStateRecord;->mHasTopUi:Z
-
-    return v0
-.end method
-
-.method init(J)V
+.method public init(J)V
     .locals 0
 
     iput-wide p1, p0, Lcom/android/server/am/ProcessStateRecord;->mLastStateTime:J
@@ -1748,148 +2547,196 @@
     return-void
 .end method
 
-.method isAllowedStartFgsState()Z
-    .locals 2
+.method public isAllowedStartFgs()Z
+    .locals 1
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
-    iget v0, p0, Lcom/android/server/am/ProcessStateRecord;->mAllowStartFgsState:I
+    iget p0, p0, Lcom/android/server/am/ProcessStateRecord;->mCurProcState:I
 
-    const/4 v1, 0x5
+    const/4 v0, 0x5
 
-    if-gt v0, v1, :cond_0
+    if-gt p0, v0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
-.method isCached()Z
-    .locals 1
+.method public isBackgroundRestricted()Z
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
-    iget-boolean v0, p0, Lcom/android/server/am/ProcessStateRecord;->mCached:Z
+    iget-boolean p0, p0, Lcom/android/server/am/ProcessStateRecord;->mBackgroundRestricted:Z
 
-    return v0
+    return p0
 .end method
 
-.method isEmpty()Z
-    .locals 1
+.method public isCached()Z
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
-    iget-boolean v0, p0, Lcom/android/server/am/ProcessStateRecord;->mEmpty:Z
+    iget-boolean p0, p0, Lcom/android/server/am/ProcessStateRecord;->mCached:Z
 
-    return v0
+    return p0
 .end method
 
-.method isNotCachedSinceIdle()Z
-    .locals 1
+.method public isCurBoundByNonBgRestrictedApp()Z
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
-    iget-boolean v0, p0, Lcom/android/server/am/ProcessStateRecord;->mNotCachedSinceIdle:Z
+    iget-boolean p0, p0, Lcom/android/server/am/ProcessStateRecord;->mCurBoundByNonBgRestrictedApp:Z
 
-    return v0
+    return p0
 .end method
 
-.method isReachable()Z
-    .locals 1
+.method public isEmpty()Z
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
-    iget-boolean v0, p0, Lcom/android/server/am/ProcessStateRecord;->mReachable:Z
+    iget-boolean p0, p0, Lcom/android/server/am/ProcessStateRecord;->mEmpty:Z
 
-    return v0
+    return p0
 .end method
 
-.method isRunningRemoteAnimation()Z
-    .locals 1
+.method public isNotCachedSinceIdle()Z
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProcLock"
+        }
+    .end annotation
 
-    iget-boolean v0, p0, Lcom/android/server/am/ProcessStateRecord;->mRunningRemoteAnimation:Z
+    iget-boolean p0, p0, Lcom/android/server/am/ProcessStateRecord;->mNotCachedSinceIdle:Z
 
-    return v0
+    return p0
 .end method
 
-.method isServiceB()Z
-    .locals 1
+.method public isReachable()Z
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
-    iget-boolean v0, p0, Lcom/android/server/am/ProcessStateRecord;->mServiceB:Z
+    iget-boolean p0, p0, Lcom/android/server/am/ProcessStateRecord;->mReachable:Z
 
-    return v0
+    return p0
 .end method
 
-.method isServiceHighRam()Z
-    .locals 1
+.method public isRunningRemoteAnimation()Z
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
-    iget-boolean v0, p0, Lcom/android/server/am/ProcessStateRecord;->mServiceHighRam:Z
+    iget-boolean p0, p0, Lcom/android/server/am/ProcessStateRecord;->mRunningRemoteAnimation:Z
 
-    return v0
+    return p0
 .end method
 
-.method isSystemNoUi()Z
-    .locals 1
+.method public isServiceB()Z
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        anyOf = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
-    iget-boolean v0, p0, Lcom/android/server/am/ProcessStateRecord;->mSystemNoUi:Z
+    iget-boolean p0, p0, Lcom/android/server/am/ProcessStateRecord;->mServiceB:Z
 
-    return v0
+    return p0
 .end method
 
-.method public synthetic lambda$forceProcessStateUpTo$1$ProcessStateRecord(Ljava/lang/String;Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;)V
-    .locals 8
+.method public isSetBoundByNonBgRestrictedApp()Z
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
-    iget-object v0, p0, Lcom/android/server/am/ProcessStateRecord;->mApp:Lcom/android/server/am/ProcessRecord;
+    iget-boolean p0, p0, Lcom/android/server/am/ProcessStateRecord;->mSetBoundByNonBgRestrictedApp:Z
 
-    iget v2, v0, Lcom/android/server/am/ProcessRecord;->uid:I
-
-    iget-object v0, p0, Lcom/android/server/am/ProcessStateRecord;->mApp:Lcom/android/server/am/ProcessRecord;
-
-    iget-object v3, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
-
-    iget v0, p0, Lcom/android/server/am/ProcessStateRecord;->mRepProcState:I
-
-    invoke-static {v0}, Landroid/app/ActivityManager;->processStateAmToProto(I)I
-
-    move-result v5
-
-    iget-wide v6, p2, Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;->appVersion:J
-
-    const/4 v1, 0x3
-
-    move-object v4, p1
-
-    invoke-static/range {v1 .. v7}, Lcom/android/internal/util/FrameworkStatsLog;->write(IILjava/lang/String;Ljava/lang/String;IJ)V
-
-    return-void
+    return p0
 .end method
 
-.method public synthetic lambda$setReportedProcState$0$ProcessStateRecord(Ljava/lang/String;Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;)V
-    .locals 8
+.method public isSetCached()Z
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
-    iget-object v0, p0, Lcom/android/server/am/ProcessStateRecord;->mApp:Lcom/android/server/am/ProcessRecord;
+    iget-boolean p0, p0, Lcom/android/server/am/ProcessStateRecord;->mSetCached:Z
 
-    iget v2, v0, Lcom/android/server/am/ProcessRecord;->uid:I
+    return p0
+.end method
 
-    iget-object v0, p0, Lcom/android/server/am/ProcessStateRecord;->mApp:Lcom/android/server/am/ProcessRecord;
+.method public isSetNoKillOnBgRestrictedAndIdle()Z
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
-    iget-object v3, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+    iget-boolean p0, p0, Lcom/android/server/am/ProcessStateRecord;->mSetNoKillOnBgRestrictedAndIdle:Z
 
-    iget v0, p0, Lcom/android/server/am/ProcessStateRecord;->mRepProcState:I
+    return p0
+.end method
 
-    invoke-static {v0}, Landroid/app/ActivityManager;->processStateAmToProto(I)I
+.method public isSystemNoUi()Z
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
-    move-result v5
+    iget-boolean p0, p0, Lcom/android/server/am/ProcessStateRecord;->mSystemNoUi:Z
 
-    iget-wide v6, p2, Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;->appVersion:J
-
-    const/4 v1, 0x3
-
-    move-object v4, p1
-
-    invoke-static/range {v1 .. v7}, Lcom/android/internal/util/FrameworkStatsLog;->write(IILjava/lang/String;Ljava/lang/String;IJ)V
-
-    return-void
+    return p0
 .end method
 
 .method public makeAdjReason()Ljava/lang/String;
     .locals 4
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        anyOf = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
     iget-object v0, p0, Lcom/android/server/am/ProcessStateRecord;->mAdjSource:Ljava/lang/Object;
 
@@ -1902,9 +2749,9 @@
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return-object v0
+    return-object p0
 
     :cond_1
     :goto_0
@@ -1965,19 +2812,19 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lcom/android/server/am/ProcessStateRecord;->mAdjSource:Ljava/lang/Object;
+    iget-object p0, p0, Lcom/android/server/am/ProcessStateRecord;->mAdjSource:Ljava/lang/Object;
 
-    check-cast v1, Lcom/android/server/am/ProcessRecord;
+    check-cast p0, Lcom/android/server/am/ProcessRecord;
 
-    invoke-virtual {v1}, Lcom/android/server/am/ProcessRecord;->toShortString()Ljava/lang/String;
+    invoke-virtual {p0}, Lcom/android/server/am/ProcessRecord;->toShortString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v1, "}"
+    const-string/jumbo p0, "}"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     goto :goto_2
 
@@ -1986,9 +2833,9 @@
 
     invoke-virtual {v1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     goto :goto_2
 
@@ -1998,13 +2845,19 @@
     :goto_2
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method
 
-.method onCleanupApplicationRecordLSP()V
+.method public onCleanupApplicationRecordLSP()V
     .locals 3
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
     const/4 v0, 0x0
 
@@ -2036,17 +2889,13 @@
 
     iput v0, p0, Lcom/android/server/am/ProcessStateRecord;->mCurSchedGroup:I
 
-    const/16 v0, 0x14
+    const/16 v1, 0x14
 
-    iput v0, p0, Lcom/android/server/am/ProcessStateRecord;->mAllowStartFgsState:I
+    iput v1, p0, Lcom/android/server/am/ProcessStateRecord;->mSetProcState:I
 
-    iput v0, p0, Lcom/android/server/am/ProcessStateRecord;->mSetProcState:I
+    iput v1, p0, Lcom/android/server/am/ProcessStateRecord;->mCurRawProcState:I
 
-    iput v0, p0, Lcom/android/server/am/ProcessStateRecord;->mCurRawProcState:I
-
-    iput v0, p0, Lcom/android/server/am/ProcessStateRecord;->mCurProcState:I
-
-    const/4 v0, 0x0
+    iput v1, p0, Lcom/android/server/am/ProcessStateRecord;->mCurProcState:I
 
     :goto_0
     iget-object v1, p0, Lcom/android/server/am/ProcessStateRecord;->mCachedCompatChanges:[I
@@ -2067,18 +2916,13 @@
     return-void
 .end method
 
-.method resetAllowStartFgsState()V
-    .locals 1
-
-    const/16 v0, 0x14
-
-    iput v0, p0, Lcom/android/server/am/ProcessStateRecord;->mAllowStartFgsState:I
-
-    return-void
-.end method
-
-.method resetCachedInfo()V
+.method public resetCachedInfo()V
     .locals 2
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
     const/4 v0, -0x1
 
@@ -2113,50 +2957,97 @@
     return-void
 .end method
 
-.method setAdjSeq(I)V
+.method public setAdjSeq(I)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
     iput p1, p0, Lcom/android/server/am/ProcessStateRecord;->mAdjSeq:I
 
     return-void
 .end method
 
-.method setAdjSource(Ljava/lang/Object;)V
+.method public setAdjSource(Ljava/lang/Object;)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
     iput-object p1, p0, Lcom/android/server/am/ProcessStateRecord;->mAdjSource:Ljava/lang/Object;
 
     return-void
 .end method
 
-.method setAdjSourceProcState(I)V
+.method public setAdjSourceProcState(I)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
     iput p1, p0, Lcom/android/server/am/ProcessStateRecord;->mAdjSourceProcState:I
 
     return-void
 .end method
 
-.method setAdjTarget(Ljava/lang/Object;)V
+.method public setAdjTarget(Ljava/lang/Object;)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
     iput-object p1, p0, Lcom/android/server/am/ProcessStateRecord;->mAdjTarget:Ljava/lang/Object;
 
     return-void
 .end method
 
-.method setAdjType(Ljava/lang/String;)V
+.method public setAdjType(Ljava/lang/String;)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
     iput-object p1, p0, Lcom/android/server/am/ProcessStateRecord;->mAdjType:Ljava/lang/String;
 
     return-void
 .end method
 
-.method setAdjTypeCode(I)V
+.method public setAdjTypeCode(I)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
     iput p1, p0, Lcom/android/server/am/ProcessStateRecord;->mAdjTypeCode:I
+
+    return-void
+.end method
+
+.method public setBackgroundRestricted(Z)V
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
+
+    iput-boolean p1, p0, Lcom/android/server/am/ProcessStateRecord;->mBackgroundRestricted:Z
 
     return-void
 .end method
@@ -2171,286 +3062,494 @@
     return-void
 .end method
 
-.method setCached(Z)V
+.method public setCached(Z)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
     iput-boolean p1, p0, Lcom/android/server/am/ProcessStateRecord;->mCached:Z
 
     return-void
 .end method
 
-.method setCompletedAdjSeq(I)V
+.method public setCompletedAdjSeq(I)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
     iput p1, p0, Lcom/android/server/am/ProcessStateRecord;->mCompletedAdjSeq:I
 
     return-void
 .end method
 
-.method setContainsCycle(Z)V
+.method public setContainsCycle(Z)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
     iput-boolean p1, p0, Lcom/android/server/am/ProcessStateRecord;->mContainsCycle:Z
 
     return-void
 .end method
 
-.method setCurAdj(I)V
+.method public setCurAdj(I)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
     iput p1, p0, Lcom/android/server/am/ProcessStateRecord;->mCurAdj:I
 
     return-void
 .end method
 
-.method setCurCapability(I)V
+.method public setCurBoundByNonBgRestrictedApp(Z)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
+
+    iput-boolean p1, p0, Lcom/android/server/am/ProcessStateRecord;->mCurBoundByNonBgRestrictedApp:Z
+
+    return-void
+.end method
+
+.method public setCurCapability(I)V
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
     iput p1, p0, Lcom/android/server/am/ProcessStateRecord;->mCurCapability:I
 
     return-void
 .end method
 
-.method setCurProcState(I)V
-    .locals 2
+.method public setCurProcState(I)V
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
     iput p1, p0, Lcom/android/server/am/ProcessStateRecord;->mCurProcState:I
 
-    iget-object v0, p0, Lcom/android/server/am/ProcessStateRecord;->mApp:Lcom/android/server/am/ProcessRecord;
+    iget-object p1, p0, Lcom/android/server/am/ProcessStateRecord;->mApp:Lcom/android/server/am/ProcessRecord;
 
-    invoke-virtual {v0}, Lcom/android/server/am/ProcessRecord;->getWindowProcessController()Lcom/android/server/wm/WindowProcessController;
+    invoke-virtual {p1}, Lcom/android/server/am/ProcessRecord;->getWindowProcessController()Lcom/android/server/wm/WindowProcessController;
 
-    move-result-object v0
+    move-result-object p1
 
-    iget v1, p0, Lcom/android/server/am/ProcessStateRecord;->mCurProcState:I
+    iget p0, p0, Lcom/android/server/am/ProcessStateRecord;->mCurProcState:I
 
-    invoke-virtual {v0, v1}, Lcom/android/server/wm/WindowProcessController;->setCurrentProcState(I)V
+    invoke-virtual {p1, p0}, Lcom/android/server/wm/WindowProcessController;->setCurrentProcState(I)V
 
     return-void
 .end method
 
-.method setCurRawAdj(I)V
-    .locals 2
+.method public setCurRawAdj(I)V
+    .locals 1
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
     iput p1, p0, Lcom/android/server/am/ProcessStateRecord;->mCurRawAdj:I
 
-    iget-object v0, p0, Lcom/android/server/am/ProcessStateRecord;->mApp:Lcom/android/server/am/ProcessRecord;
+    iget-object p0, p0, Lcom/android/server/am/ProcessStateRecord;->mApp:Lcom/android/server/am/ProcessRecord;
 
-    invoke-virtual {v0}, Lcom/android/server/am/ProcessRecord;->getWindowProcessController()Lcom/android/server/wm/WindowProcessController;
+    invoke-virtual {p0}, Lcom/android/server/am/ProcessRecord;->getWindowProcessController()Lcom/android/server/wm/WindowProcessController;
 
-    move-result-object v0
+    move-result-object p0
 
-    const/16 v1, 0xc8
+    const/16 v0, 0xc8
 
-    if-gt p1, v1, :cond_0
+    if-gt p1, v0, :cond_0
 
-    const/4 v1, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    invoke-virtual {v0, v1}, Lcom/android/server/wm/WindowProcessController;->setPerceptible(Z)V
+    invoke-virtual {p0, p1}, Lcom/android/server/wm/WindowProcessController;->setPerceptible(Z)V
 
     return-void
 .end method
 
-.method setCurRawProcState(I)V
+.method public setCurRawProcState(I)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
     iput p1, p0, Lcom/android/server/am/ProcessStateRecord;->mCurRawProcState:I
 
     return-void
 .end method
 
-.method setCurrentSchedulingGroup(I)V
-    .locals 1
+.method public setCurrentSchedulingGroup(I)V
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
     iput p1, p0, Lcom/android/server/am/ProcessStateRecord;->mCurSchedGroup:I
 
-    iget-object v0, p0, Lcom/android/server/am/ProcessStateRecord;->mApp:Lcom/android/server/am/ProcessRecord;
+    iget-object p0, p0, Lcom/android/server/am/ProcessStateRecord;->mApp:Lcom/android/server/am/ProcessRecord;
 
-    invoke-virtual {v0}, Lcom/android/server/am/ProcessRecord;->getWindowProcessController()Lcom/android/server/wm/WindowProcessController;
+    invoke-virtual {p0}, Lcom/android/server/am/ProcessRecord;->getWindowProcessController()Lcom/android/server/wm/WindowProcessController;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0, p1}, Lcom/android/server/wm/WindowProcessController;->setCurrentSchedulingGroup(I)V
+    invoke-virtual {p0, p1}, Lcom/android/server/wm/WindowProcessController;->setCurrentSchedulingGroup(I)V
 
     return-void
 .end method
 
-.method setEmpty(Z)V
+.method public setEmpty(Z)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
     iput-boolean p1, p0, Lcom/android/server/am/ProcessStateRecord;->mEmpty:Z
 
     return-void
 .end method
 
-.method setFgInteractionTime(J)V
-    .locals 1
+.method public setFgInteractionTime(J)V
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
     iput-wide p1, p0, Lcom/android/server/am/ProcessStateRecord;->mFgInteractionTime:J
 
-    iget-object v0, p0, Lcom/android/server/am/ProcessStateRecord;->mApp:Lcom/android/server/am/ProcessRecord;
+    iget-object p0, p0, Lcom/android/server/am/ProcessStateRecord;->mApp:Lcom/android/server/am/ProcessRecord;
 
-    invoke-virtual {v0}, Lcom/android/server/am/ProcessRecord;->getWindowProcessController()Lcom/android/server/wm/WindowProcessController;
+    invoke-virtual {p0}, Lcom/android/server/am/ProcessRecord;->getWindowProcessController()Lcom/android/server/wm/WindowProcessController;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0, p1, p2}, Lcom/android/server/wm/WindowProcessController;->setFgInteractionTime(J)V
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/wm/WindowProcessController;->setFgInteractionTime(J)V
 
     return-void
 .end method
 
-.method setForcingToImportant(Ljava/lang/Object;)V
+.method public setForcingToImportant(Ljava/lang/Object;)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
     iput-object p1, p0, Lcom/android/server/am/ProcessStateRecord;->mForcingToImportant:Ljava/lang/Object;
 
     return-void
 .end method
 
-.method setHasForegroundActivities(Z)V
+.method public setHasForegroundActivities(Z)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
     iput-boolean p1, p0, Lcom/android/server/am/ProcessStateRecord;->mHasForegroundActivities:Z
 
     return-void
 .end method
 
-.method setHasOverlayUi(Z)V
-    .locals 1
+.method public setHasOverlayUi(Z)V
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
     iput-boolean p1, p0, Lcom/android/server/am/ProcessStateRecord;->mHasOverlayUi:Z
 
-    iget-object v0, p0, Lcom/android/server/am/ProcessStateRecord;->mApp:Lcom/android/server/am/ProcessRecord;
+    iget-object p0, p0, Lcom/android/server/am/ProcessStateRecord;->mApp:Lcom/android/server/am/ProcessRecord;
 
-    invoke-virtual {v0}, Lcom/android/server/am/ProcessRecord;->getWindowProcessController()Lcom/android/server/wm/WindowProcessController;
+    invoke-virtual {p0}, Lcom/android/server/am/ProcessRecord;->getWindowProcessController()Lcom/android/server/wm/WindowProcessController;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0, p1}, Lcom/android/server/wm/WindowProcessController;->setHasOverlayUi(Z)V
+    invoke-virtual {p0, p1}, Lcom/android/server/wm/WindowProcessController;->setHasOverlayUi(Z)V
 
     return-void
 .end method
 
-.method setHasShownUi(Z)V
+.method public setHasShownUi(Z)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
     iput-boolean p1, p0, Lcom/android/server/am/ProcessStateRecord;->mHasShownUi:Z
 
     return-void
 .end method
 
-.method setHasStartedServices(Z)V
-    .locals 0
+.method public setHasStartedServices(Z)V
+    .locals 1
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProcLock"
+        }
+    .end annotation
 
     iput-boolean p1, p0, Lcom/android/server/am/ProcessStateRecord;->mHasStartedServices:Z
 
+    const/16 v0, 0x80
+
+    if-eqz p1, :cond_0
+
+    iget-object p0, p0, Lcom/android/server/am/ProcessStateRecord;->mApp:Lcom/android/server/am/ProcessRecord;
+
+    iget-object p0, p0, Lcom/android/server/am/ProcessRecord;->mProfile:Lcom/android/server/am/ProcessProfileRecord;
+
+    invoke-virtual {p0, v0}, Lcom/android/server/am/ProcessProfileRecord;->addHostingComponentType(I)V
+
+    goto :goto_0
+
+    :cond_0
+    iget-object p0, p0, Lcom/android/server/am/ProcessStateRecord;->mApp:Lcom/android/server/am/ProcessRecord;
+
+    iget-object p0, p0, Lcom/android/server/am/ProcessRecord;->mProfile:Lcom/android/server/am/ProcessProfileRecord;
+
+    invoke-virtual {p0, v0}, Lcom/android/server/am/ProcessProfileRecord;->clearHostingComponentType(I)V
+
+    :goto_0
     return-void
 .end method
 
-.method setHasTopUi(Z)V
-    .locals 1
+.method public setHasTopUi(Z)V
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
     iput-boolean p1, p0, Lcom/android/server/am/ProcessStateRecord;->mHasTopUi:Z
 
-    iget-object v0, p0, Lcom/android/server/am/ProcessStateRecord;->mApp:Lcom/android/server/am/ProcessRecord;
+    iget-object p0, p0, Lcom/android/server/am/ProcessStateRecord;->mApp:Lcom/android/server/am/ProcessRecord;
 
-    invoke-virtual {v0}, Lcom/android/server/am/ProcessRecord;->getWindowProcessController()Lcom/android/server/wm/WindowProcessController;
+    invoke-virtual {p0}, Lcom/android/server/am/ProcessRecord;->getWindowProcessController()Lcom/android/server/wm/WindowProcessController;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0, p1}, Lcom/android/server/wm/WindowProcessController;->setHasTopUi(Z)V
+    invoke-virtual {p0, p1}, Lcom/android/server/wm/WindowProcessController;->setHasTopUi(Z)V
 
     return-void
 .end method
 
-.method setInteractionEventTime(J)V
-    .locals 1
+.method public setInteractionEventTime(J)V
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
     iput-wide p1, p0, Lcom/android/server/am/ProcessStateRecord;->mInteractionEventTime:J
 
-    iget-object v0, p0, Lcom/android/server/am/ProcessStateRecord;->mApp:Lcom/android/server/am/ProcessRecord;
+    iget-object p0, p0, Lcom/android/server/am/ProcessStateRecord;->mApp:Lcom/android/server/am/ProcessRecord;
 
-    invoke-virtual {v0}, Lcom/android/server/am/ProcessRecord;->getWindowProcessController()Lcom/android/server/wm/WindowProcessController;
+    invoke-virtual {p0}, Lcom/android/server/am/ProcessRecord;->getWindowProcessController()Lcom/android/server/wm/WindowProcessController;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0, p1, p2}, Lcom/android/server/wm/WindowProcessController;->setInteractionEventTime(J)V
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/wm/WindowProcessController;->setInteractionEventTime(J)V
 
     return-void
 .end method
 
-.method setLastStateTime(J)V
+.method public setLastCanKillOnBgRestrictedAndIdleTime(J)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
+
+    iput-wide p1, p0, Lcom/android/server/am/ProcessStateRecord;->mLastCanKillOnBgRestrictedAndIdleTime:J
+
+    return-void
+.end method
+
+.method public setLastStateTime(J)V
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
     iput-wide p1, p0, Lcom/android/server/am/ProcessStateRecord;->mLastStateTime:J
 
     return-void
 .end method
 
-.method setLastTopTime(J)V
+.method public setLastTopTime(J)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
     iput-wide p1, p0, Lcom/android/server/am/ProcessStateRecord;->mLastTopTime:J
 
     return-void
 .end method
 
-.method setMaxAdj(I)V
+.method public setMaxAdj(I)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
     iput p1, p0, Lcom/android/server/am/ProcessStateRecord;->mMaxAdj:I
 
     return-void
 .end method
 
-.method setNotCachedSinceIdle(Z)V
+.method public setNoKillOnBgRestrictedAndIdle(Z)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
+
+    iput-boolean p1, p0, Lcom/android/server/am/ProcessStateRecord;->mNoKillOnBgRestrictedAndIdle:Z
+
+    return-void
+.end method
+
+.method public setNotCachedSinceIdle(Z)V
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mProcLock"
+        }
+    .end annotation
 
     iput-boolean p1, p0, Lcom/android/server/am/ProcessStateRecord;->mNotCachedSinceIdle:Z
 
     return-void
 .end method
 
-.method setProcStateChanged(Z)V
+.method public setProcStateChanged(Z)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
     iput-boolean p1, p0, Lcom/android/server/am/ProcessStateRecord;->mProcStateChanged:Z
 
     return-void
 .end method
 
-.method setReachable(Z)V
+.method public setReachable(Z)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
     iput-boolean p1, p0, Lcom/android/server/am/ProcessStateRecord;->mReachable:Z
 
     return-void
 .end method
 
-.method setRepForegroundActivities(Z)V
+.method public setRepForegroundActivities(Z)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
     iput-boolean p1, p0, Lcom/android/server/am/ProcessStateRecord;->mRepForegroundActivities:Z
 
     return-void
 .end method
 
-.method setReportedInteraction(Z)V
+.method public setReportedInteraction(Z)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
     iput-boolean p1, p0, Lcom/android/server/am/ProcessStateRecord;->mReportedInteraction:Z
 
     return-void
 .end method
 
-.method setReportedProcState(I)V
+.method public setReportedProcState(I)V
     .locals 2
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
     iput p1, p0, Lcom/android/server/am/ProcessStateRecord;->mRepProcState:I
 
@@ -2466,19 +3565,24 @@
 
     invoke-virtual {v0, v1}, Lcom/android/server/am/PackageList;->forEachPackage(Ljava/util/function/BiConsumer;)V
 
-    iget-object v0, p0, Lcom/android/server/am/ProcessStateRecord;->mApp:Lcom/android/server/am/ProcessRecord;
+    iget-object p0, p0, Lcom/android/server/am/ProcessStateRecord;->mApp:Lcom/android/server/am/ProcessRecord;
 
-    invoke-virtual {v0}, Lcom/android/server/am/ProcessRecord;->getWindowProcessController()Lcom/android/server/wm/WindowProcessController;
+    invoke-virtual {p0}, Lcom/android/server/am/ProcessRecord;->getWindowProcessController()Lcom/android/server/wm/WindowProcessController;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0, p1}, Lcom/android/server/wm/WindowProcessController;->setReportedProcState(I)V
+    invoke-virtual {p0, p1}, Lcom/android/server/wm/WindowProcessController;->setReportedProcState(I)V
 
     return-void
 .end method
 
-.method setRunningRemoteAnimation(Z)V
-    .locals 3
+.method public setRunningRemoteAnimation(Z)V
+    .locals 1
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
     iget-boolean v0, p0, Lcom/android/server/am/ProcessStateRecord;->mRunningRemoteAnimation:Z
 
@@ -2489,59 +3593,134 @@
     :cond_0
     iput-boolean p1, p0, Lcom/android/server/am/ProcessStateRecord;->mRunningRemoteAnimation:Z
 
-    iget-object v0, p0, Lcom/android/server/am/ProcessStateRecord;->mService:Lcom/android/server/am/ActivityManagerService;
+    iget-object p1, p0, Lcom/android/server/am/ProcessStateRecord;->mService:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v1, p0, Lcom/android/server/am/ProcessStateRecord;->mApp:Lcom/android/server/am/ProcessRecord;
+    iget-object p0, p0, Lcom/android/server/am/ProcessStateRecord;->mApp:Lcom/android/server/am/ProcessRecord;
 
-    const-string/jumbo v2, "updateOomAdj_uiVisibility"
+    const-string/jumbo v0, "updateOomAdj_uiVisibility"
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/am/ActivityManagerService;->updateOomAdjLocked(Lcom/android/server/am/ProcessRecord;Ljava/lang/String;)Z
+    invoke-virtual {p1, p0, v0}, Lcom/android/server/am/ActivityManagerService;->updateOomAdjLocked(Lcom/android/server/am/ProcessRecord;Ljava/lang/String;)Z
 
     return-void
 .end method
 
-.method setSavedPriority(I)V
+.method public setSavedPriority(I)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
     iput p1, p0, Lcom/android/server/am/ProcessStateRecord;->mSavedPriority:I
 
     return-void
 .end method
 
-.method setServiceB(Z)V
+.method public setServiceB(Z)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
     iput-boolean p1, p0, Lcom/android/server/am/ProcessStateRecord;->mServiceB:Z
 
     return-void
 .end method
 
-.method setServiceHighRam(Z)V
+.method public setServiceHighRam(Z)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
     iput-boolean p1, p0, Lcom/android/server/am/ProcessStateRecord;->mServiceHighRam:Z
 
     return-void
 .end method
 
-.method setSetAdj(I)V
+.method public setSetAdj(I)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
     iput p1, p0, Lcom/android/server/am/ProcessStateRecord;->mSetAdj:I
 
     return-void
 .end method
 
-.method setSetCapability(I)V
+.method public setSetBoundByNonBgRestrictedApp(Z)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
+
+    iput-boolean p1, p0, Lcom/android/server/am/ProcessStateRecord;->mSetBoundByNonBgRestrictedApp:Z
+
+    return-void
+.end method
+
+.method public setSetCached(Z)V
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
+
+    iput-boolean p1, p0, Lcom/android/server/am/ProcessStateRecord;->mSetCached:Z
+
+    return-void
+.end method
+
+.method public setSetCapability(I)V
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
     iput p1, p0, Lcom/android/server/am/ProcessStateRecord;->mSetCapability:I
 
     return-void
 .end method
 
-.method setSetProcState(I)V
+.method public setSetNoKillOnBgRestrictedAndIdle(Z)V
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
+
+    iput-boolean p1, p0, Lcom/android/server/am/ProcessStateRecord;->mSetNoKillOnBgRestrictedAndIdle:Z
+
+    return-void
+.end method
+
+.method public setSetProcState(I)V
     .locals 1
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
     iget v0, p0, Lcom/android/server/am/ProcessStateRecord;->mSetProcState:I
 
@@ -2569,56 +3748,102 @@
     return-void
 .end method
 
-.method setSetRawAdj(I)V
+.method public setSetRawAdj(I)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
     iput p1, p0, Lcom/android/server/am/ProcessStateRecord;->mSetRawAdj:I
 
     return-void
 .end method
 
-.method setSetSchedGroup(I)V
+.method public setSetSchedGroup(I)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
     iput p1, p0, Lcom/android/server/am/ProcessStateRecord;->mSetSchedGroup:I
 
     return-void
 .end method
 
-.method setSystemNoUi(Z)V
+.method public setSystemNoUi(Z)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
     iput-boolean p1, p0, Lcom/android/server/am/ProcessStateRecord;->mSystemNoUi:Z
 
     return-void
 .end method
 
-.method setVerifiedAdj(I)V
+.method public setVerifiedAdj(I)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
     iput p1, p0, Lcom/android/server/am/ProcessStateRecord;->mVerifiedAdj:I
 
     return-void
 .end method
 
-.method setWhenUnimportant(J)V
-    .locals 1
+.method public setWhenUnimportant(J)V
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService",
+            "mProcLock"
+        }
+    .end annotation
 
     iput-wide p1, p0, Lcom/android/server/am/ProcessStateRecord;->mWhenUnimportant:J
 
-    iget-object v0, p0, Lcom/android/server/am/ProcessStateRecord;->mApp:Lcom/android/server/am/ProcessRecord;
+    iget-object p0, p0, Lcom/android/server/am/ProcessStateRecord;->mApp:Lcom/android/server/am/ProcessRecord;
 
-    invoke-virtual {v0}, Lcom/android/server/am/ProcessRecord;->getWindowProcessController()Lcom/android/server/wm/WindowProcessController;
+    invoke-virtual {p0}, Lcom/android/server/am/ProcessRecord;->getWindowProcessController()Lcom/android/server/wm/WindowProcessController;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0, p1, p2}, Lcom/android/server/wm/WindowProcessController;->setWhenUnimportant(J)V
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/wm/WindowProcessController;->setWhenUnimportant(J)V
 
     return-void
 .end method
 
-.method updateLastInvisibleTime(Z)V
+.method public shouldNotKillOnBgRestrictedAndIdle()Z
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
+
+    iget-boolean p0, p0, Lcom/android/server/am/ProcessStateRecord;->mNoKillOnBgRestrictedAndIdle:Z
+
+    return p0
+.end method
+
+.method public updateLastInvisibleTime(Z)V
     .locals 4
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mService"
+        }
+    .end annotation
 
     const-wide v0, 0x7fffffffffffffffL
 
@@ -2631,9 +3856,9 @@
     :cond_0
     iget-wide v2, p0, Lcom/android/server/am/ProcessStateRecord;->mLastInvisibleTime:J
 
-    cmp-long v0, v2, v0
+    cmp-long p1, v2, v0
 
-    if-nez v0, :cond_1
+    if-nez p1, :cond_1
 
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 

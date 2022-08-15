@@ -4,6 +4,9 @@
 
 
 # virtual methods
+.method public abstract areNotificationsEnabledForPackage(Ljava/lang/String;I)Z
+.end method
+
 .method public abstract cancelNotification(Ljava/lang/String;Ljava/lang/String;IILjava/lang/String;II)V
 .end method
 
@@ -16,7 +19,7 @@
 .method public abstract getNotificationChannelGroup(Ljava/lang/String;ILjava/lang/String;)Landroid/app/NotificationChannelGroup;
 .end method
 
-.method public abstract isNotificationShown(Ljava/lang/String;Ljava/lang/String;II)Z
+.method public abstract getNumNotificationChannelsForPackage(Ljava/lang/String;IZ)I
 .end method
 
 .method public abstract onConversationRemoved(Ljava/lang/String;ILjava/util/Set;)V
@@ -33,4 +36,7 @@
 .end method
 
 .method public abstract removeForegroundServiceFlagFromNotification(Ljava/lang/String;II)V
+.end method
+
+.method public abstract sendReviewPermissionsNotification()V
 .end method

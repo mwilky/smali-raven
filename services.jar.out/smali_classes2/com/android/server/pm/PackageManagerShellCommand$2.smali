@@ -1,4 +1,4 @@
-.class Lcom/android/server/pm/PackageManagerShellCommand$2;
+.class public Lcom/android/server/pm/PackageManagerShellCommand$2;
 .super Ljava/lang/Object;
 .source "PackageManagerShellCommand.java"
 
@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
@@ -27,11 +27,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/pm/PackageManagerShellCommand;
+.field public final synthetic this$0:Lcom/android/server/pm/PackageManagerShellCommand;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/pm/PackageManagerShellCommand;)V
+.method public constructor <init>(Lcom/android/server/pm/PackageManagerShellCommand;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/pm/PackageManagerShellCommand$2;->this$0:Lcom/android/server/pm/PackageManagerShellCommand;
@@ -44,17 +44,17 @@
 
 # virtual methods
 .method public compare(Landroid/content/pm/InstrumentationInfo;Landroid/content/pm/InstrumentationInfo;)I
-    .locals 2
+    .locals 0
 
-    iget-object v0, p1, Landroid/content/pm/InstrumentationInfo;->targetPackage:Ljava/lang/String;
+    iget-object p0, p1, Landroid/content/pm/InstrumentationInfo;->targetPackage:Ljava/lang/String;
 
-    iget-object v1, p2, Landroid/content/pm/InstrumentationInfo;->targetPackage:Ljava/lang/String;
+    iget-object p1, p2, Landroid/content/pm/InstrumentationInfo;->targetPackage:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->compareTo(Ljava/lang/String;)I
+    invoke-virtual {p0, p1}, Ljava/lang/String;->compareTo(Ljava/lang/String;)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
@@ -66,7 +66,7 @@
 
     invoke-virtual {p0, p1, p2}, Lcom/android/server/pm/PackageManagerShellCommand$2;->compare(Landroid/content/pm/InstrumentationInfo;Landroid/content/pm/InstrumentationInfo;)I
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method

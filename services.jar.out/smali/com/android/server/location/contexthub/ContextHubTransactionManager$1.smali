@@ -1,4 +1,4 @@
-.class Lcom/android/server/location/contexthub/ContextHubTransactionManager$1;
+.class public Lcom/android/server/location/contexthub/ContextHubTransactionManager$1;
 .super Lcom/android/server/location/contexthub/ContextHubServiceTransaction;
 .source "ContextHubTransactionManager.java"
 
@@ -9,30 +9,30 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/location/contexthub/ContextHubTransactionManager;
+.field public final synthetic this$0:Lcom/android/server/location/contexthub/ContextHubTransactionManager;
 
-.field final synthetic val$contextHubId:I
+.field public final synthetic val$contextHubId:I
 
-.field final synthetic val$nanoAppBinary:Landroid/hardware/location/NanoAppBinary;
+.field public final synthetic val$nanoAppBinary:Landroid/hardware/location/NanoAppBinary;
 
-.field final synthetic val$onCompleteCallback:Landroid/hardware/location/IContextHubTransactionCallback;
+.field public final synthetic val$onCompleteCallback:Landroid/hardware/location/IContextHubTransactionCallback;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/location/contexthub/ContextHubTransactionManager;IIJLjava/lang/String;Landroid/hardware/location/NanoAppBinary;ILandroid/hardware/location/IContextHubTransactionCallback;)V
+.method public constructor <init>(Lcom/android/server/location/contexthub/ContextHubTransactionManager;IIJLjava/lang/String;ILandroid/hardware/location/NanoAppBinary;Landroid/hardware/location/IContextHubTransactionCallback;)V
     .locals 6
 
     iput-object p1, p0, Lcom/android/server/location/contexthub/ContextHubTransactionManager$1;->this$0:Lcom/android/server/location/contexthub/ContextHubTransactionManager;
 
-    iput-object p7, p0, Lcom/android/server/location/contexthub/ContextHubTransactionManager$1;->val$nanoAppBinary:Landroid/hardware/location/NanoAppBinary;
+    iput p7, p0, Lcom/android/server/location/contexthub/ContextHubTransactionManager$1;->val$contextHubId:I
 
-    iput p8, p0, Lcom/android/server/location/contexthub/ContextHubTransactionManager$1;->val$contextHubId:I
+    iput-object p8, p0, Lcom/android/server/location/contexthub/ContextHubTransactionManager$1;->val$nanoAppBinary:Landroid/hardware/location/NanoAppBinary;
 
     iput-object p9, p0, Lcom/android/server/location/contexthub/ContextHubTransactionManager$1;->val$onCompleteCallback:Landroid/hardware/location/IContextHubTransactionCallback;
 
@@ -53,80 +53,100 @@
 
 
 # virtual methods
-.method onTransact()I
-    .locals 5
+.method public onTransact()I
+    .locals 4
 
-    iget-object v0, p0, Lcom/android/server/location/contexthub/ContextHubTransactionManager$1;->val$nanoAppBinary:Landroid/hardware/location/NanoAppBinary;
+    :try_start_0
+    iget-object v0, p0, Lcom/android/server/location/contexthub/ContextHubTransactionManager$1;->this$0:Lcom/android/server/location/contexthub/ContextHubTransactionManager;
 
-    invoke-static {v0}, Lcom/android/server/location/contexthub/ContextHubServiceUtil;->createHidlNanoAppBinary(Landroid/hardware/location/NanoAppBinary;)Landroid/hardware/contexthub/V1_0/NanoAppBinary;
+    invoke-static {v0}, Lcom/android/server/location/contexthub/ContextHubTransactionManager;->-$$Nest$fgetmContextHubProxy(Lcom/android/server/location/contexthub/ContextHubTransactionManager;)Lcom/android/server/location/contexthub/IContextHubWrapper;
 
     move-result-object v0
 
-    :try_start_0
-    iget-object v1, p0, Lcom/android/server/location/contexthub/ContextHubTransactionManager$1;->this$0:Lcom/android/server/location/contexthub/ContextHubTransactionManager;
+    iget v1, p0, Lcom/android/server/location/contexthub/ContextHubTransactionManager$1;->val$contextHubId:I
 
-    invoke-static {v1}, Lcom/android/server/location/contexthub/ContextHubTransactionManager;->access$100(Lcom/android/server/location/contexthub/ContextHubTransactionManager;)Landroid/hardware/contexthub/V1_0/IContexthub;
+    iget-object v2, p0, Lcom/android/server/location/contexthub/ContextHubTransactionManager$1;->val$nanoAppBinary:Landroid/hardware/location/NanoAppBinary;
 
-    move-result-object v1
-
-    iget v2, p0, Lcom/android/server/location/contexthub/ContextHubTransactionManager$1;->val$contextHubId:I
-
-    invoke-virtual {p0}, Lcom/android/server/location/contexthub/ContextHubTransactionManager$1;->getTransactionId()I
+    invoke-virtual {p0}, Lcom/android/server/location/contexthub/ContextHubServiceTransaction;->getTransactionId()I
 
     move-result v3
 
-    invoke-interface {v1, v2, v0, v3}, Landroid/hardware/contexthub/V1_0/IContexthub;->loadNanoApp(ILandroid/hardware/contexthub/V1_0/NanoAppBinary;I)I
+    invoke-virtual {v0, v1, v2, v3}, Lcom/android/server/location/contexthub/IContextHubWrapper;->loadNanoapp(ILandroid/hardware/location/NanoAppBinary;I)I
 
-    move-result v1
+    move-result p0
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return v1
+    return p0
 
     :catch_0
-    move-exception v1
+    move-exception v0
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "RemoteException while trying to load nanoapp with ID 0x"
+    const-string v2, "RemoteException while trying to load nanoapp with ID 0x"
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v3, p0, Lcom/android/server/location/contexthub/ContextHubTransactionManager$1;->val$nanoAppBinary:Landroid/hardware/location/NanoAppBinary;
+    iget-object p0, p0, Lcom/android/server/location/contexthub/ContextHubTransactionManager$1;->val$nanoAppBinary:Landroid/hardware/location/NanoAppBinary;
 
-    invoke-virtual {v3}, Landroid/hardware/location/NanoAppBinary;->getNanoAppId()J
+    invoke-virtual {p0}, Landroid/hardware/location/NanoAppBinary;->getNanoAppId()J
 
-    move-result-wide v3
+    move-result-wide v2
 
-    invoke-static {v3, v4}, Ljava/lang/Long;->toHexString(J)Ljava/lang/String;
+    invoke-static {v2, v3}, Ljava/lang/Long;->toHexString(J)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p0
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p0
 
-    const-string v3, "ContextHubTransactionManager"
+    const-string v1, "ContextHubTransactionManager"
 
-    invoke-static {v3, v2, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v1, p0, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    const/4 v2, 0x1
+    const/4 p0, 0x1
 
-    return v2
+    return p0
 .end method
 
-.method onTransactionComplete(I)V
-    .locals 5
+.method public onTransactionComplete(I)V
+    .locals 7
+
+    iget-object v0, p0, Lcom/android/server/location/contexthub/ContextHubTransactionManager$1;->val$nanoAppBinary:Landroid/hardware/location/NanoAppBinary;
+
+    invoke-virtual {v0}, Landroid/hardware/location/NanoAppBinary;->getNanoAppId()J
+
+    move-result-wide v2
+
+    iget-object v0, p0, Lcom/android/server/location/contexthub/ContextHubTransactionManager$1;->val$nanoAppBinary:Landroid/hardware/location/NanoAppBinary;
+
+    invoke-virtual {v0}, Landroid/hardware/location/NanoAppBinary;->getNanoAppVersion()I
+
+    move-result v4
+
+    iget-object v0, p0, Lcom/android/server/location/contexthub/ContextHubTransactionManager$1;->this$0:Lcom/android/server/location/contexthub/ContextHubTransactionManager;
+
+    invoke-static {v0, p1}, Lcom/android/server/location/contexthub/ContextHubTransactionManager;->-$$Nest$mtoStatsTransactionResult(Lcom/android/server/location/contexthub/ContextHubTransactionManager;I)I
+
+    move-result v6
+
+    const/16 v1, 0x191
+
+    const/4 v5, 0x1
+
+    invoke-static/range {v1 .. v6}, Lcom/android/server/location/contexthub/ContextHubStatsLog;->write(IJIII)V
 
     if-nez p1, :cond_0
 
     iget-object v0, p0, Lcom/android/server/location/contexthub/ContextHubTransactionManager$1;->this$0:Lcom/android/server/location/contexthub/ContextHubTransactionManager;
 
-    invoke-static {v0}, Lcom/android/server/location/contexthub/ContextHubTransactionManager;->access$200(Lcom/android/server/location/contexthub/ContextHubTransactionManager;)Lcom/android/server/location/contexthub/NanoAppStateManager;
+    invoke-static {v0}, Lcom/android/server/location/contexthub/ContextHubTransactionManager;->-$$Nest$fgetmNanoAppStateManager(Lcom/android/server/location/contexthub/ContextHubTransactionManager;)Lcom/android/server/location/contexthub/NanoAppStateManager;
 
     move-result-object v0
 
@@ -154,36 +174,36 @@
 
     if-nez p1, :cond_1
 
-    iget-object v0, p0, Lcom/android/server/location/contexthub/ContextHubTransactionManager$1;->this$0:Lcom/android/server/location/contexthub/ContextHubTransactionManager;
+    iget-object p1, p0, Lcom/android/server/location/contexthub/ContextHubTransactionManager$1;->this$0:Lcom/android/server/location/contexthub/ContextHubTransactionManager;
 
-    invoke-static {v0}, Lcom/android/server/location/contexthub/ContextHubTransactionManager;->access$300(Lcom/android/server/location/contexthub/ContextHubTransactionManager;)Lcom/android/server/location/contexthub/ContextHubClientManager;
+    invoke-static {p1}, Lcom/android/server/location/contexthub/ContextHubTransactionManager;->-$$Nest$fgetmClientManager(Lcom/android/server/location/contexthub/ContextHubTransactionManager;)Lcom/android/server/location/contexthub/ContextHubClientManager;
 
-    move-result-object v0
+    move-result-object p1
 
-    iget v1, p0, Lcom/android/server/location/contexthub/ContextHubTransactionManager$1;->val$contextHubId:I
+    iget v0, p0, Lcom/android/server/location/contexthub/ContextHubTransactionManager$1;->val$contextHubId:I
 
-    iget-object v2, p0, Lcom/android/server/location/contexthub/ContextHubTransactionManager$1;->val$nanoAppBinary:Landroid/hardware/location/NanoAppBinary;
+    iget-object p0, p0, Lcom/android/server/location/contexthub/ContextHubTransactionManager$1;->val$nanoAppBinary:Landroid/hardware/location/NanoAppBinary;
 
-    invoke-virtual {v2}, Landroid/hardware/location/NanoAppBinary;->getNanoAppId()J
+    invoke-virtual {p0}, Landroid/hardware/location/NanoAppBinary;->getNanoAppId()J
 
-    move-result-wide v2
+    move-result-wide v1
 
-    invoke-virtual {v0, v1, v2, v3}, Lcom/android/server/location/contexthub/ContextHubClientManager;->onNanoAppLoaded(IJ)V
+    invoke-virtual {p1, v0, v1, v2}, Lcom/android/server/location/contexthub/ContextHubClientManager;->onNanoAppLoaded(IJ)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    :cond_1
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    const-string v1, "ContextHubTransactionManager"
+    const-string p1, "ContextHubTransactionManager"
 
-    const-string v2, "RemoteException while calling client onTransactionComplete"
+    const-string v0, "RemoteException while calling client onTransactionComplete"
 
-    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {p1, v0, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
+    :cond_1
     :goto_0
     return-void
 .end method

@@ -1,33 +1,30 @@
 .class public final synthetic Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/android/server/wm/WindowContainer;
+.implements Ljava/util/function/Predicate;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/wm/WindowContainer;)V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/wm/WindowContainer;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final onAnimationFinished(ILcom/android/server/wm/AnimationAdapter;)V
-    .locals 1
+.method public final test(Ljava/lang/Object;)Z
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/wm/WindowContainer;
+    check-cast p1, Lcom/android/server/wm/ActivityRecord;
 
-    invoke-virtual {v0, p1, p2}, Lcom/android/server/wm/WindowContainer;->onAnimationFinished(ILcom/android/server/wm/AnimationAdapter;)V
+    invoke-static {p1}, Lcom/android/server/wm/WindowContainer;->$r8$lambda$jr26c-L38rk1QuoaOZNCYvglH4s(Lcom/android/server/wm/ActivityRecord;)Z
 
-    return-void
+    move-result p0
+
+    return p0
 .end method

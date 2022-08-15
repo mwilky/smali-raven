@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/lights/LightsService$LightsManagerBinderService$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/os/IBinder$DeathRecipient;
@@ -27,13 +28,13 @@
 
 # virtual methods
 .method public final binderDied()V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/lights/LightsService$LightsManagerBinderService$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/lights/LightsService$LightsManagerBinderService;
 
-    iget-object v1, p0, Lcom/android/server/lights/LightsService$LightsManagerBinderService$$ExternalSyntheticLambda0;->f$1:Landroid/os/IBinder;
+    iget-object p0, p0, Lcom/android/server/lights/LightsService$LightsManagerBinderService$$ExternalSyntheticLambda0;->f$1:Landroid/os/IBinder;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/lights/LightsService$LightsManagerBinderService;->lambda$openSession$0$LightsService$LightsManagerBinderService(Landroid/os/IBinder;)V
+    invoke-static {v0, p0}, Lcom/android/server/lights/LightsService$LightsManagerBinderService;->$r8$lambda$XDl_X5VWl2U5-tfES8W5Mh1_qjk(Lcom/android/server/lights/LightsService$LightsManagerBinderService;Landroid/os/IBinder;)V
 
     return-void
 .end method

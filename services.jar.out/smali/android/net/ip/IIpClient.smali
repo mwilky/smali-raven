@@ -18,9 +18,21 @@
 # static fields
 .field public static final DESCRIPTOR:Ljava/lang/String;
 
-.field public static final HASH:Ljava/lang/String; = "4925f4fdbb270e4f35cc5519a15ed8dd8c69a549"
+.field public static final HASH:Ljava/lang/String; = "c7a085b65072b36dc02239895cac021b6daee530"
 
-.field public static final VERSION:I = 0xa
+.field public static final PROV_IPV4_DHCP:I = 0x2
+
+.field public static final PROV_IPV4_DISABLED:I = 0x0
+
+.field public static final PROV_IPV4_STATIC:I = 0x1
+
+.field public static final PROV_IPV6_DISABLED:I = 0x0
+
+.field public static final PROV_IPV6_LINKLOCAL:I = 0x2
+
+.field public static final PROV_IPV6_SLAAC:I = 0x1
+
+.field public static final VERSION:I = 0xf
 
 
 # direct methods

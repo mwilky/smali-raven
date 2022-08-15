@@ -1,45 +1,34 @@
 .class public final synthetic Lcom/android/server/slice/PinnedSliceState$$ExternalSyntheticLambda5;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Predicate;
+.implements Ljava/lang/Runnable;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/slice/PinnedSliceState$$ExternalSyntheticLambda5;
+# instance fields
+.field public final synthetic f$0:Lcom/android/server/slice/PinnedSliceState;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/slice/PinnedSliceState$$ExternalSyntheticLambda5;
-
-    invoke-direct {v0}, Lcom/android/server/slice/PinnedSliceState$$ExternalSyntheticLambda5;-><init>()V
-
-    sput-object v0, Lcom/android/server/slice/PinnedSliceState$$ExternalSyntheticLambda5;->INSTANCE:Lcom/android/server/slice/PinnedSliceState$$ExternalSyntheticLambda5;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Lcom/android/server/slice/PinnedSliceState;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/slice/PinnedSliceState$$ExternalSyntheticLambda5;->f$0:Lcom/android/server/slice/PinnedSliceState;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final test(Ljava/lang/Object;)Z
+.method public final run()V
     .locals 0
 
-    check-cast p1, Landroid/app/slice/SliceSpec;
+    iget-object p0, p0, Lcom/android/server/slice/PinnedSliceState$$ExternalSyntheticLambda5;->f$0:Lcom/android/server/slice/PinnedSliceState;
 
-    invoke-static {p1}, Lcom/android/server/slice/PinnedSliceState;->lambda$mergeSpecs$1(Landroid/app/slice/SliceSpec;)Z
+    invoke-static {p0}, Lcom/android/server/slice/PinnedSliceState;->$r8$lambda$SQzZQ-4v_riZaVmzcSSOK1h8Fsw(Lcom/android/server/slice/PinnedSliceState;)V
 
-    move-result p1
-
-    return p1
+    return-void
 .end method

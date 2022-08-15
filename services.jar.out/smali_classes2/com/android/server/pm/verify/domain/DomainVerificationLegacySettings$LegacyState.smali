@@ -1,4 +1,4 @@
-.class Lcom/android/server/pm/verify/domain/DomainVerificationLegacySettings$LegacyState;
+.class public Lcom/android/server/pm/verify/domain/DomainVerificationLegacySettings$LegacyState;
 .super Ljava/lang/Object;
 .source "DomainVerificationLegacySettings.java"
 
@@ -9,21 +9,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "LegacyState"
 .end annotation
 
 
 # instance fields
-.field private attached:Z
+.field public attached:Z
 
-.field private mInfo:Landroid/content/pm/IntentFilterVerificationInfo;
+.field public mInfo:Landroid/content/pm/IntentFilterVerificationInfo;
 
-.field private mUserStates:Landroid/util/SparseIntArray;
+.field public mUserStates:Landroid/util/SparseIntArray;
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -49,49 +49,49 @@
     iput-object v0, p0, Lcom/android/server/pm/verify/domain/DomainVerificationLegacySettings$LegacyState;->mUserStates:Landroid/util/SparseIntArray;
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/pm/verify/domain/DomainVerificationLegacySettings$LegacyState;->mUserStates:Landroid/util/SparseIntArray;
+    iget-object p0, p0, Lcom/android/server/pm/verify/domain/DomainVerificationLegacySettings$LegacyState;->mUserStates:Landroid/util/SparseIntArray;
 
-    invoke-virtual {v0, p1, p2}, Landroid/util/SparseIntArray;->put(II)V
+    invoke-virtual {p0, p1, p2}, Landroid/util/SparseIntArray;->put(II)V
 
     return-void
 .end method
 
 .method public getInfo()Landroid/content/pm/IntentFilterVerificationInfo;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/pm/verify/domain/DomainVerificationLegacySettings$LegacyState;->mInfo:Landroid/content/pm/IntentFilterVerificationInfo;
+    iget-object p0, p0, Lcom/android/server/pm/verify/domain/DomainVerificationLegacySettings$LegacyState;->mInfo:Landroid/content/pm/IntentFilterVerificationInfo;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getUserState(I)I
-    .locals 2
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/pm/verify/domain/DomainVerificationLegacySettings$LegacyState;->mUserStates:Landroid/util/SparseIntArray;
+    iget-object p0, p0, Lcom/android/server/pm/verify/domain/DomainVerificationLegacySettings$LegacyState;->mUserStates:Landroid/util/SparseIntArray;
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    invoke-virtual {v0, p1, v1}, Landroid/util/SparseIntArray;->get(II)I
+    invoke-virtual {p0, p1, v0}, Landroid/util/SparseIntArray;->get(II)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public getUserStates()Landroid/util/SparseIntArray;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/pm/verify/domain/DomainVerificationLegacySettings$LegacyState;->mUserStates:Landroid/util/SparseIntArray;
+    iget-object p0, p0, Lcom/android/server/pm/verify/domain/DomainVerificationLegacySettings$LegacyState;->mUserStates:Landroid/util/SparseIntArray;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public isAttached()Z
-    .locals 1
+    .locals 0
 
-    iget-boolean v0, p0, Lcom/android/server/pm/verify/domain/DomainVerificationLegacySettings$LegacyState;->attached:Z
+    iget-boolean p0, p0, Lcom/android/server/pm/verify/domain/DomainVerificationLegacySettings$LegacyState;->attached:Z
 
-    return v0
+    return p0
 .end method
 
 .method public markAttached()V

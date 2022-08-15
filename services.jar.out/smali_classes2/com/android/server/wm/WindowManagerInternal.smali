@@ -9,7 +9,7 @@
         Lcom/android/server/wm/WindowManagerInternal$ImeTargetInfo;,
         Lcom/android/server/wm/WindowManagerInternal$IDragDropCallback;,
         Lcom/android/server/wm/WindowManagerInternal$OnHardKeyboardStatusChangeListener;,
-        Lcom/android/server/wm/WindowManagerInternal$KeyguardExitAnimationStartListener;,
+        Lcom/android/server/wm/WindowManagerInternal$TaskSystemBarsListener;,
         Lcom/android/server/wm/WindowManagerInternal$AppTransitionListener;,
         Lcom/android/server/wm/WindowManagerInternal$MagnificationCallbacks;,
         Lcom/android/server/wm/WindowManagerInternal$WindowsForAccessibilityCallback;,
@@ -29,7 +29,10 @@
 
 
 # virtual methods
-.method public abstract addNonHighRefreshRatePackage(Ljava/lang/String;)V
+.method public abstract addRefreshRateRangeForPackage(Ljava/lang/String;FF)V
+.end method
+
+.method public abstract addTrustedTaskOverlay(ILandroid/view/SurfaceControlViewHost$SurfacePackage;)V
 .end method
 
 .method public abstract addWindowToken(Landroid/os/IBinder;IILandroid/os/Bundle;)V
@@ -47,16 +50,21 @@
 .method public abstract getAccessibilityController()Lcom/android/server/wm/WindowManagerInternal$AccessibilityControllerInternal;
 .end method
 
-.method public abstract getCompatibleMagnificationSpecForWindow(Landroid/os/IBinder;)Landroid/view/MagnificationSpec;
-.end method
-
 .method public abstract getDisplayIdForWindow(Landroid/os/IBinder;)I
 .end method
 
 .method public abstract getDisplayImePolicy(I)I
+    .annotation build Landroid/view/WindowManager$DisplayImePolicy;
+    .end annotation
 .end method
 
 .method public abstract getFocusedWindowToken()Landroid/os/IBinder;
+.end method
+
+.method public abstract getFocusedWindowTokenFromWindowStates()Landroid/os/IBinder;
+.end method
+
+.method public abstract getHandwritingSurfaceForDisplay(I)Landroid/view/SurfaceControl;
 .end method
 
 .method public abstract getInputMethodWindowVisibleHeight(I)I
@@ -83,19 +91,36 @@
 .method public abstract getWindowOwnerUserId(Landroid/os/IBinder;)I
 .end method
 
+.method public abstract getWindowTransformationMatrixAndMagnificationSpec(Landroid/os/IBinder;)Landroid/util/Pair;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/os/IBinder;",
+            ")",
+            "Landroid/util/Pair<",
+            "Landroid/graphics/Matrix;",
+            "Landroid/view/MagnificationSpec;",
+            ">;"
+        }
+    .end annotation
+.end method
+
+.method public abstract hasInputMethodClientFocus(Landroid/os/IBinder;III)I
+.end method
+
 .method public abstract hideIme(Landroid/os/IBinder;I)V
 .end method
 
 .method public abstract isHardKeyboardAvailable()Z
 .end method
 
-.method public abstract isInputMethodClientFocus(III)Z
-.end method
-
 .method public abstract isKeyguardLocked()Z
 .end method
 
 .method public abstract isKeyguardShowingAndNotOccluded()Z
+.end method
+
+.method public abstract isPointInsideWindow(Landroid/os/IBinder;IFF)Z
 .end method
 
 .method public abstract isTouchOrFaketouchDevice()Z
@@ -110,22 +135,19 @@
 .method public abstract lockNow()V
 .end method
 
-.method public abstract moveWindowTokenToDisplay(Landroid/os/IBinder;I)V
-.end method
-
 .method public abstract onToggleImeRequested(ZLandroid/os/IBinder;Landroid/os/IBinder;I)Lcom/android/server/wm/WindowManagerInternal$ImeTargetInfo;
 .end method
 
 .method public abstract registerAppTransitionListener(Lcom/android/server/wm/WindowManagerInternal$AppTransitionListener;)V
 .end method
 
-.method public abstract registerDragDropControllerCallback(Lcom/android/server/wm/WindowManagerInternal$IDragDropCallback;)V
+.method public abstract registerTaskSystemBarsListener(Lcom/android/server/wm/WindowManagerInternal$TaskSystemBarsListener;)V
 .end method
 
-.method public abstract registerKeyguardExitAnimationStartListener(Lcom/android/server/wm/WindowManagerInternal$KeyguardExitAnimationStartListener;)V
+.method public abstract removeRefreshRateRangeForPackage(Ljava/lang/String;)V
 .end method
 
-.method public abstract removeNonHighRefreshRatePackage(Ljava/lang/String;)V
+.method public abstract removeTrustedTaskOverlay(ILandroid/view/SurfaceControlViewHost$SurfacePackage;)V
 .end method
 
 .method public final removeWindowToken(Landroid/os/IBinder;ZI)V
@@ -148,6 +170,9 @@
 .end method
 
 .method public abstract setAccessibilityIdToSurfaceMetadata(Landroid/os/IBinder;I)V
+.end method
+
+.method public abstract setContentRecordingSession(Landroid/view/ContentRecordingSession;)V
 .end method
 
 .method public abstract setDismissImeOnBackKeyPressed(Z)V
@@ -174,7 +199,7 @@
 .method public abstract setVr2dDisplayId(I)V
 .end method
 
-.method public abstract setWindowsForAccessibilityCallback(ILcom/android/server/wm/WindowManagerInternal$WindowsForAccessibilityCallback;)Z
+.method public abstract setWindowsForAccessibilityCallback(ILcom/android/server/wm/WindowManagerInternal$WindowsForAccessibilityCallback;)V
 .end method
 
 .method public abstract shouldRestoreImeVisibility(Landroid/os/IBinder;)Z
@@ -187,6 +212,9 @@
 .end method
 
 .method public abstract showImePostLayout(Landroid/os/IBinder;)V
+.end method
+
+.method public abstract unregisterTaskSystemBarsListener(Lcom/android/server/wm/WindowManagerInternal$TaskSystemBarsListener;)V
 .end method
 
 .method public abstract updateInputMethodTargetWindow(Landroid/os/IBinder;Landroid/os/IBinder;)V

@@ -1,21 +1,22 @@
 .class public final synthetic Lcom/android/server/wm/WindowManagerService$$ExternalSyntheticLambda8;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
 
 
 # instance fields
-.field public final synthetic f$0:I
+.field public final synthetic f$0:Ljava/util/ArrayList;
 
 
 # direct methods
-.method public synthetic constructor <init>(I)V
+.method public synthetic constructor <init>(Ljava/util/ArrayList;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput p1, p0, Lcom/android/server/wm/WindowManagerService$$ExternalSyntheticLambda8;->f$0:I
+    iput-object p1, p0, Lcom/android/server/wm/WindowManagerService$$ExternalSyntheticLambda8;->f$0:Ljava/util/ArrayList;
 
     return-void
 .end method
@@ -23,13 +24,13 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/wm/WindowManagerService$$ExternalSyntheticLambda8;->f$0:I
+    iget-object p0, p0, Lcom/android/server/wm/WindowManagerService$$ExternalSyntheticLambda8;->f$0:Ljava/util/ArrayList;
 
-    check-cast p1, Lcom/android/server/wm/DisplayContent;
+    check-cast p1, Lcom/android/server/wm/WindowState;
 
-    invoke-static {v0, p1}, Lcom/android/server/wm/WindowManagerService;->lambda$setCurrentUser$2(ILcom/android/server/wm/DisplayContent;)V
+    invoke-static {p0, p1}, Lcom/android/server/wm/WindowManagerService;->$r8$lambda$1sVNZRHjSnC8DQXWks5wxIn3ch0(Ljava/util/ArrayList;Lcom/android/server/wm/WindowState;)V
 
     return-void
 .end method

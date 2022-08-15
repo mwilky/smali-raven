@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/server/connectivity/Vpn$RetryScheduler;
+.class public interface abstract Lcom/android/server/connectivity/Vpn$RetryScheduler;
 .super Ljava/lang/Object;
 .source "Vpn.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
+    accessFlags = 0x609
     name = "RetryScheduler"
 .end annotation
 

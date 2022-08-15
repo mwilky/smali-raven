@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/telecom/TelecomLoaderService$$ExternalSyntheticLambda3;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/server/pm/permission/LegacyPermissionManagerInternal$PackagesProvider;
+.implements Landroid/app/role/OnRoleHoldersChangedListener;
 
 
 # instance fields
@@ -22,14 +23,12 @@
 
 
 # virtual methods
-.method public final getPackages(I)[Ljava/lang/String;
-    .locals 1
+.method public final onRoleHoldersChanged(Ljava/lang/String;Landroid/os/UserHandle;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/telecom/TelecomLoaderService$$ExternalSyntheticLambda3;->f$0:Lcom/android/server/telecom/TelecomLoaderService;
+    iget-object p0, p0, Lcom/android/server/telecom/TelecomLoaderService$$ExternalSyntheticLambda3;->f$0:Lcom/android/server/telecom/TelecomLoaderService;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/telecom/TelecomLoaderService;->lambda$registerDefaultAppProviders$2$TelecomLoaderService(I)[Ljava/lang/String;
+    invoke-static {p0, p1, p2}, Lcom/android/server/telecom/TelecomLoaderService;->$r8$lambda$xg-UIxkabAX3NfXZvxXPnX7oji4(Lcom/android/server/telecom/TelecomLoaderService;Ljava/lang/String;Landroid/os/UserHandle;)V
 
-    move-result-object p1
-
-    return-object p1
+    return-void
 .end method

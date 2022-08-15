@@ -3,10 +3,6 @@
 .source "TaskException.java"
 
 
-# static fields
-.field private static final DEFAULT_STATUS:I = -0x3e8
-
-
 # instance fields
 .field private final mStateCompromised:Z
 
@@ -14,7 +10,7 @@
 
 
 # direct methods
-.method private constructor <init>(Ljava/lang/Exception;ZI)V
+.method public constructor <init>(Ljava/lang/Exception;ZI)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/backup/keyvalue/BackupException;-><init>(Ljava/lang/Exception;)V
@@ -26,7 +22,7 @@
     return-void
 .end method
 
-.method private constructor <init>(ZI)V
+.method public constructor <init>(ZI)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/backup/keyvalue/BackupException;-><init>()V
@@ -38,18 +34,16 @@
     return-void
 .end method
 
-.method static causedBy(Ljava/lang/Exception;)Lcom/android/server/backup/keyvalue/TaskException;
+.method public static causedBy(Ljava/lang/Exception;)Lcom/android/server/backup/keyvalue/TaskException;
     .locals 3
 
     instance-of v0, p0, Lcom/android/server/backup/keyvalue/TaskException;
 
     if-eqz v0, :cond_0
 
-    move-object v0, p0
+    check-cast p0, Lcom/android/server/backup/keyvalue/TaskException;
 
-    check-cast v0, Lcom/android/server/backup/keyvalue/TaskException;
-
-    return-object v0
+    return-object p0
 
     :cond_0
     new-instance v0, Lcom/android/server/backup/keyvalue/TaskException;
@@ -63,7 +57,7 @@
     return-object v0
 .end method
 
-.method static create()Lcom/android/server/backup/keyvalue/TaskException;
+.method public static create()Lcom/android/server/backup/keyvalue/TaskException;
     .locals 3
 
     new-instance v0, Lcom/android/server/backup/keyvalue/TaskException;
@@ -77,7 +71,7 @@
     return-object v0
 .end method
 
-.method static forStatus(I)Lcom/android/server/backup/keyvalue/TaskException;
+.method public static forStatus(I)Lcom/android/server/backup/keyvalue/TaskException;
     .locals 3
 
     const/4 v0, 0x0
@@ -103,7 +97,7 @@
     return-object v1
 .end method
 
-.method static stateCompromised()Lcom/android/server/backup/keyvalue/TaskException;
+.method public static stateCompromised()Lcom/android/server/backup/keyvalue/TaskException;
     .locals 3
 
     new-instance v0, Lcom/android/server/backup/keyvalue/TaskException;
@@ -117,8 +111,8 @@
     return-object v0
 .end method
 
-.method static stateCompromised(Ljava/lang/Exception;)Lcom/android/server/backup/keyvalue/TaskException;
-    .locals 4
+.method public static stateCompromised(Ljava/lang/Exception;)Lcom/android/server/backup/keyvalue/TaskException;
+    .locals 3
 
     instance-of v0, p0, Lcom/android/server/backup/keyvalue/TaskException;
 
@@ -134,9 +128,9 @@
 
     invoke-virtual {v0}, Lcom/android/server/backup/keyvalue/TaskException;->getStatus()I
 
-    move-result v3
+    move-result v0
 
-    invoke-direct {v2, p0, v1, v3}, Lcom/android/server/backup/keyvalue/TaskException;-><init>(Ljava/lang/Exception;ZI)V
+    invoke-direct {v2, p0, v1, v0}, Lcom/android/server/backup/keyvalue/TaskException;-><init>(Ljava/lang/Exception;ZI)V
 
     return-object v2
 
@@ -152,18 +146,18 @@
 
 
 # virtual methods
-.method getStatus()I
-    .locals 1
+.method public getStatus()I
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/backup/keyvalue/TaskException;->mStatus:I
+    iget p0, p0, Lcom/android/server/backup/keyvalue/TaskException;->mStatus:I
 
-    return v0
+    return p0
 .end method
 
-.method isStateCompromised()Z
-    .locals 1
+.method public isStateCompromised()Z
+    .locals 0
 
-    iget-boolean v0, p0, Lcom/android/server/backup/keyvalue/TaskException;->mStateCompromised:Z
+    iget-boolean p0, p0, Lcom/android/server/backup/keyvalue/TaskException;->mStateCompromised:Z
 
-    return v0
+    return p0
 .end method

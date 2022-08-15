@@ -7,7 +7,7 @@
 
 
 # instance fields
-.field private mNext:Lcom/android/server/accessibility/EventStreamTransformation;
+.field public mNext:Lcom/android/server/accessibility/EventStreamTransformation;
 
 
 # direct methods
@@ -22,11 +22,11 @@
 
 # virtual methods
 .method public getNext()Lcom/android/server/accessibility/EventStreamTransformation;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/accessibility/BaseEventStreamTransformation;->mNext:Lcom/android/server/accessibility/EventStreamTransformation;
+    iget-object p0, p0, Lcom/android/server/accessibility/BaseEventStreamTransformation;->mNext:Lcom/android/server/accessibility/EventStreamTransformation;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public setNext(Lcom/android/server/accessibility/EventStreamTransformation;)V

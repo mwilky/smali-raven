@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/display/AmbientBrightnessStatsTracker$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/server/display/AmbientBrightnessStatsTracker$Clock;
@@ -25,9 +26,9 @@
 .method public final elapsedTimeMillis()J
     .locals 2
 
-    iget-object v0, p0, Lcom/android/server/display/AmbientBrightnessStatsTracker$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/display/AmbientBrightnessStatsTracker;
+    iget-object p0, p0, Lcom/android/server/display/AmbientBrightnessStatsTracker$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/display/AmbientBrightnessStatsTracker;
 
-    invoke-virtual {v0}, Lcom/android/server/display/AmbientBrightnessStatsTracker;->lambda$new$0$AmbientBrightnessStatsTracker()J
+    invoke-static {p0}, Lcom/android/server/display/AmbientBrightnessStatsTracker;->$r8$lambda$PpdGe5Aypn-LWzDAucX-R3O7B_k(Lcom/android/server/display/AmbientBrightnessStatsTracker;)J
 
     move-result-wide v0
 

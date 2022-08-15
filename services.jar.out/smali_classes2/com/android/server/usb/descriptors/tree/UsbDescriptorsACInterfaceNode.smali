@@ -3,24 +3,8 @@
 .source "UsbDescriptorsACInterfaceNode.java"
 
 
-# static fields
-.field private static final TAG:Ljava/lang/String; = "UsbDescriptorsACInterfaceNode"
-
-
 # instance fields
-.field private final mACInterface:Lcom/android/server/usb/descriptors/UsbACInterface;
-
-
-# direct methods
-.method public constructor <init>(Lcom/android/server/usb/descriptors/UsbACInterface;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/server/usb/descriptors/tree/UsbDescriptorsTreeNode;-><init>()V
-
-    iput-object p1, p0, Lcom/android/server/usb/descriptors/tree/UsbDescriptorsACInterfaceNode;->mACInterface:Lcom/android/server/usb/descriptors/UsbACInterface;
-
-    return-void
-.end method
+.field public final mACInterface:Lcom/android/server/usb/descriptors/UsbACInterface;
 
 
 # virtual methods
@@ -55,9 +39,9 @@
 
     invoke-virtual {p1}, Lcom/android/server/usb/descriptors/report/ReportCanvas;->openList()V
 
-    iget-object v0, p0, Lcom/android/server/usb/descriptors/tree/UsbDescriptorsACInterfaceNode;->mACInterface:Lcom/android/server/usb/descriptors/UsbACInterface;
+    iget-object p0, p0, Lcom/android/server/usb/descriptors/tree/UsbDescriptorsACInterfaceNode;->mACInterface:Lcom/android/server/usb/descriptors/UsbACInterface;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/usb/descriptors/UsbACInterface;->report(Lcom/android/server/usb/descriptors/report/ReportCanvas;)V
+    invoke-virtual {p0, p1}, Lcom/android/server/usb/descriptors/UsbACInterface;->report(Lcom/android/server/usb/descriptors/report/ReportCanvas;)V
 
     invoke-virtual {p1}, Lcom/android/server/usb/descriptors/report/ReportCanvas;->closeList()V
 

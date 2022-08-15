@@ -1,28 +1,13 @@
 .class public final synthetic Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda40;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda40;
-
-
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda40;
-
-    invoke-direct {v0}, Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda40;-><init>()V
-
-    sput-object v0, Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda40;->INSTANCE:Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda40;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,7 +22,7 @@
 
     check-cast p1, Lcom/android/server/wm/Task;
 
-    invoke-static {p1}, Lcom/android/server/wm/DisplayContent;->lambda$removeAllTasks$47(Lcom/android/server/wm/Task;)V
+    invoke-static {p1}, Lcom/android/server/wm/DisplayContent;->$r8$lambda$Y57pIXsibYJBNxHvKzCDjaQ5vuY(Lcom/android/server/wm/Task;)V
 
     return-void
 .end method

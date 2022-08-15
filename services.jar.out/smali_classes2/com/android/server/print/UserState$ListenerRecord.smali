@@ -1,4 +1,4 @@
-.class abstract Lcom/android/server/print/UserState$ListenerRecord;
+.class public abstract Lcom/android/server/print/UserState$ListenerRecord;
 .super Ljava/lang/Object;
 .source "UserState.java"
 
@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x402
+    accessFlags = 0x401
     name = "ListenerRecord"
 .end annotation
 
@@ -28,7 +28,7 @@
 
 
 # instance fields
-.field final listener:Landroid/os/IInterface;
+.field public final listener:Landroid/os/IInterface;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "TT;"
@@ -36,12 +36,12 @@
     .end annotation
 .end field
 
-.field final synthetic this$0:Lcom/android/server/print/UserState;
+.field public final synthetic this$0:Lcom/android/server/print/UserState;
 
 
 # direct methods
 .method public constructor <init>(Lcom/android/server/print/UserState;Landroid/os/IInterface;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -64,9 +64,9 @@
 
     move-result-object p1
 
-    const/4 v0, 0x0
+    const/4 p2, 0x0
 
-    invoke-interface {p1, p0, v0}, Landroid/os/IBinder;->linkToDeath(Landroid/os/IBinder$DeathRecipient;I)V
+    invoke-interface {p1, p0, p2}, Landroid/os/IBinder;->linkToDeath(Landroid/os/IBinder$DeathRecipient;I)V
 
     return-void
 .end method

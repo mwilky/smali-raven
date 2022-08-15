@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/timedetector/EnvironmentImpl$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/timedetector/EnvironmentImpl$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/timedetector/EnvironmentImpl;
+    iget-object p0, p0, Lcom/android/server/timedetector/EnvironmentImpl$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/timedetector/EnvironmentImpl;
 
-    invoke-static {v0}, Lcom/android/server/timedetector/EnvironmentImpl;->$r8$lambda$H9NtT9tLMwyofCpiDPLlDw83ais(Lcom/android/server/timedetector/EnvironmentImpl;)V
+    invoke-static {p0}, Lcom/android/server/timedetector/EnvironmentImpl;->$r8$lambda$H9NtT9tLMwyofCpiDPLlDw83ais(Lcom/android/server/timedetector/EnvironmentImpl;)V
 
     return-void
 .end method

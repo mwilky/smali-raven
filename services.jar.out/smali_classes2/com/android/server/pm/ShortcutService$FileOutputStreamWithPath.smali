@@ -4,18 +4,21 @@
 
 
 # annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/android/server/pm/ShortcutService;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "FileOutputStreamWithPath"
 .end annotation
 
 
 # instance fields
-.field private final mFile:Ljava/io/File;
+.field public final mFile:Ljava/io/File;
 
 
 # direct methods
@@ -37,9 +40,9 @@
 
 # virtual methods
 .method public getFile()Ljava/io/File;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/pm/ShortcutService$FileOutputStreamWithPath;->mFile:Ljava/io/File;
+    iget-object p0, p0, Lcom/android/server/pm/ShortcutService$FileOutputStreamWithPath;->mFile:Ljava/io/File;
 
-    return-object v0
+    return-object p0
 .end method

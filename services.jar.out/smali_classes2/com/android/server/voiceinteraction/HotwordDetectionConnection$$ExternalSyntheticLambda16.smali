@@ -1,45 +1,36 @@
 .class public final synthetic Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda16;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Lcom/android/internal/infra/ServiceConnector$VoidJob;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/server/voiceinteraction/HotwordDetectionConnection;
-
-.field public final synthetic f$1:Ljava/io/InputStream;
-
-.field public final synthetic f$2:Landroid/os/ParcelFileDescriptor;
+.field public final synthetic f$0:Landroid/os/IBinder;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/voiceinteraction/HotwordDetectionConnection;Ljava/io/InputStream;Landroid/os/ParcelFileDescriptor;)V
+.method public synthetic constructor <init>(Landroid/os/IBinder;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda16;->f$0:Lcom/android/server/voiceinteraction/HotwordDetectionConnection;
-
-    iput-object p2, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda16;->f$1:Ljava/io/InputStream;
-
-    iput-object p3, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda16;->f$2:Landroid/os/ParcelFileDescriptor;
+    iput-object p1, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda16;->f$0:Landroid/os/IBinder;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final run()V
-    .locals 3
+.method public final runNoResult(Ljava/lang/Object;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda16;->f$0:Lcom/android/server/voiceinteraction/HotwordDetectionConnection;
+    iget-object p0, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda16;->f$0:Landroid/os/IBinder;
 
-    iget-object v1, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda16;->f$1:Ljava/io/InputStream;
+    check-cast p1, Landroid/service/voice/IHotwordDetectionService;
 
-    iget-object v2, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$$ExternalSyntheticLambda16;->f$2:Landroid/os/ParcelFileDescriptor;
-
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->lambda$handleExternalSourceHotwordDetection$9$HotwordDetectionConnection(Ljava/io/InputStream;Landroid/os/ParcelFileDescriptor;)V
+    invoke-static {p0, p1}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->$r8$lambda$j3YZVRjJwE5VaIcb38KuXgJ7ll8(Landroid/os/IBinder;Landroid/service/voice/IHotwordDetectionService;)V
 
     return-void
 .end method

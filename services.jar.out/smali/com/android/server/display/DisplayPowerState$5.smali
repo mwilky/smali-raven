@@ -1,4 +1,4 @@
-.class Lcom/android/server/display/DisplayPowerState$5;
+.class public Lcom/android/server/display/DisplayPowerState$5;
 .super Ljava/lang/Object;
 .source "DisplayPowerState.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/display/DisplayPowerState;
+.field public final synthetic this$0:Lcom/android/server/display/DisplayPowerState;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/display/DisplayPowerState;)V
+.method public constructor <init>(Lcom/android/server/display/DisplayPowerState;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/display/DisplayPowerState$5;->this$0:Lcom/android/server/display/DisplayPowerState;
@@ -41,11 +41,11 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/android/server/display/DisplayPowerState;->access$902(Lcom/android/server/display/DisplayPowerState;Z)Z
+    invoke-static {v0, v1}, Lcom/android/server/display/DisplayPowerState;->-$$Nest$fputmColorFadeDrawPending(Lcom/android/server/display/DisplayPowerState;Z)V
 
     iget-object v0, p0, Lcom/android/server/display/DisplayPowerState$5;->this$0:Lcom/android/server/display/DisplayPowerState;
 
-    invoke-static {v0}, Lcom/android/server/display/DisplayPowerState;->access$1000(Lcom/android/server/display/DisplayPowerState;)Z
+    invoke-static {v0}, Lcom/android/server/display/DisplayPowerState;->-$$Nest$fgetmColorFadePrepared(Lcom/android/server/display/DisplayPowerState;)Z
 
     move-result v0
 
@@ -53,13 +53,13 @@
 
     iget-object v0, p0, Lcom/android/server/display/DisplayPowerState$5;->this$0:Lcom/android/server/display/DisplayPowerState;
 
-    invoke-static {v0}, Lcom/android/server/display/DisplayPowerState;->access$1100(Lcom/android/server/display/DisplayPowerState;)Lcom/android/server/display/ColorFade;
+    invoke-static {v0}, Lcom/android/server/display/DisplayPowerState;->-$$Nest$fgetmColorFade(Lcom/android/server/display/DisplayPowerState;)Lcom/android/server/display/ColorFade;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/server/display/DisplayPowerState$5;->this$0:Lcom/android/server/display/DisplayPowerState;
 
-    invoke-static {v1}, Lcom/android/server/display/DisplayPowerState;->access$200(Lcom/android/server/display/DisplayPowerState;)F
+    invoke-static {v1}, Lcom/android/server/display/DisplayPowerState;->-$$Nest$fgetmColorFadeLevel(Lcom/android/server/display/DisplayPowerState;)F
 
     move-result v1
 
@@ -67,13 +67,13 @@
 
     const-wide/32 v0, 0x20000
 
-    invoke-static {}, Lcom/android/server/display/DisplayPowerState;->access$1200()Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/display/DisplayPowerState;->-$$Nest$sfgetCOUNTER_COLOR_FADE()Ljava/lang/String;
 
     move-result-object v2
 
     iget-object v3, p0, Lcom/android/server/display/DisplayPowerState$5;->this$0:Lcom/android/server/display/DisplayPowerState;
 
-    invoke-static {v3}, Lcom/android/server/display/DisplayPowerState;->access$200(Lcom/android/server/display/DisplayPowerState;)F
+    invoke-static {v3}, Lcom/android/server/display/DisplayPowerState;->-$$Nest$fgetmColorFadeLevel(Lcom/android/server/display/DisplayPowerState;)F
 
     move-result v3
 
@@ -92,11 +92,11 @@
 
     const/4 v1, 0x1
 
-    invoke-static {v0, v1}, Lcom/android/server/display/DisplayPowerState;->access$1302(Lcom/android/server/display/DisplayPowerState;Z)Z
+    invoke-static {v0, v1}, Lcom/android/server/display/DisplayPowerState;->-$$Nest$fputmColorFadeReady(Lcom/android/server/display/DisplayPowerState;Z)V
 
-    iget-object v0, p0, Lcom/android/server/display/DisplayPowerState$5;->this$0:Lcom/android/server/display/DisplayPowerState;
+    iget-object p0, p0, Lcom/android/server/display/DisplayPowerState$5;->this$0:Lcom/android/server/display/DisplayPowerState;
 
-    invoke-static {v0}, Lcom/android/server/display/DisplayPowerState;->access$800(Lcom/android/server/display/DisplayPowerState;)V
+    invoke-static {p0}, Lcom/android/server/display/DisplayPowerState;->-$$Nest$minvokeCleanListenerIfNeeded(Lcom/android/server/display/DisplayPowerState;)V
 
     return-void
 .end method

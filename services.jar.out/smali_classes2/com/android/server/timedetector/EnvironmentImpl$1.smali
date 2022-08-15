@@ -1,4 +1,4 @@
-.class Lcom/android/server/timedetector/EnvironmentImpl$1;
+.class public Lcom/android/server/timedetector/EnvironmentImpl$1;
 .super Landroid/database/ContentObserver;
 .source "EnvironmentImpl.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/timedetector/EnvironmentImpl;
+.field public final synthetic this$0:Lcom/android/server/timedetector/EnvironmentImpl;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/timedetector/EnvironmentImpl;Landroid/os/Handler;)V
+.method public constructor <init>(Lcom/android/server/timedetector/EnvironmentImpl;Landroid/os/Handler;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/timedetector/EnvironmentImpl$1;->this$0:Lcom/android/server/timedetector/EnvironmentImpl;
@@ -32,11 +32,11 @@
 
 # virtual methods
 .method public onChange(Z)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/timedetector/EnvironmentImpl$1;->this$0:Lcom/android/server/timedetector/EnvironmentImpl;
+    iget-object p0, p0, Lcom/android/server/timedetector/EnvironmentImpl$1;->this$0:Lcom/android/server/timedetector/EnvironmentImpl;
 
-    invoke-static {v0}, Lcom/android/server/timedetector/EnvironmentImpl;->access$000(Lcom/android/server/timedetector/EnvironmentImpl;)V
+    invoke-static {p0}, Lcom/android/server/timedetector/EnvironmentImpl;->-$$Nest$mhandleAutoTimeDetectionChangedOnHandlerThread(Lcom/android/server/timedetector/EnvironmentImpl;)V
 
     return-void
 .end method

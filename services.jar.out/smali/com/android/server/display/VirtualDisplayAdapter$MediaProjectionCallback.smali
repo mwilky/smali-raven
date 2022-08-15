@@ -1,4 +1,4 @@
-.class final Lcom/android/server/display/VirtualDisplayAdapter$MediaProjectionCallback;
+.class public final Lcom/android/server/display/VirtualDisplayAdapter$MediaProjectionCallback;
 .super Landroid/media/projection/IMediaProjectionCallback$Stub;
 .source "VirtualDisplayAdapter.java"
 
@@ -9,15 +9,15 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "MediaProjectionCallback"
 .end annotation
 
 
 # instance fields
-.field private mAppToken:Landroid/os/IBinder;
+.field public mAppToken:Landroid/os/IBinder;
 
-.field final synthetic this$0:Lcom/android/server/display/VirtualDisplayAdapter;
+.field public final synthetic this$0:Lcom/android/server/display/VirtualDisplayAdapter;
 
 
 # direct methods
@@ -36,11 +36,11 @@
 
 # virtual methods
 .method public onStop()V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/display/VirtualDisplayAdapter$MediaProjectionCallback;->this$0:Lcom/android/server/display/VirtualDisplayAdapter;
 
-    invoke-virtual {v0}, Lcom/android/server/display/VirtualDisplayAdapter;->getSyncRoot()Lcom/android/server/display/DisplayManagerService$SyncRoot;
+    invoke-virtual {v0}, Lcom/android/server/display/DisplayAdapter;->getSyncRoot()Lcom/android/server/display/DisplayManagerService$SyncRoot;
 
     move-result-object v0
 
@@ -49,20 +49,20 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$MediaProjectionCallback;->this$0:Lcom/android/server/display/VirtualDisplayAdapter;
 
-    iget-object v2, p0, Lcom/android/server/display/VirtualDisplayAdapter$MediaProjectionCallback;->mAppToken:Landroid/os/IBinder;
+    iget-object p0, p0, Lcom/android/server/display/VirtualDisplayAdapter$MediaProjectionCallback;->mAppToken:Landroid/os/IBinder;
 
-    invoke-static {v1, v2}, Lcom/android/server/display/VirtualDisplayAdapter;->access$200(Lcom/android/server/display/VirtualDisplayAdapter;Landroid/os/IBinder;)V
+    invoke-static {v1, p0}, Lcom/android/server/display/VirtualDisplayAdapter;->-$$Nest$mhandleMediaProjectionStoppedLocked(Lcom/android/server/display/VirtualDisplayAdapter;Landroid/os/IBinder;)V
 
     monitor-exit v0
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method

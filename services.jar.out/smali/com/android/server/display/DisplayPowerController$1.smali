@@ -1,4 +1,4 @@
-.class Lcom/android/server/display/DisplayPowerController$1;
+.class public Lcom/android/server/display/DisplayPowerController$1;
 .super Ljava/lang/Object;
 .source "DisplayPowerController.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/display/DisplayPowerController;
+.field public final synthetic this$0:Lcom/android/server/display/DisplayPowerController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/display/DisplayPowerController;)V
+.method public constructor <init>(Lcom/android/server/display/DisplayPowerController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/display/DisplayPowerController$1;->this$0:Lcom/android/server/display/DisplayPowerController;
@@ -35,27 +35,21 @@
 
 # virtual methods
 .method public onReduceBrightColorsActivationChanged(ZZ)V
-    .locals 2
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/display/DisplayPowerController$1;->this$0:Lcom/android/server/display/DisplayPowerController;
+    iget-object p0, p0, Lcom/android/server/display/DisplayPowerController$1;->this$0:Lcom/android/server/display/DisplayPowerController;
 
-    const/4 v1, 0x0
-
-    invoke-static {v0, v1, p1}, Lcom/android/server/display/DisplayPowerController;->access$100(Lcom/android/server/display/DisplayPowerController;ZZ)V
+    invoke-static {p0}, Lcom/android/server/display/DisplayPowerController;->-$$Nest$mapplyReduceBrightColorsSplineAdjustment(Lcom/android/server/display/DisplayPowerController;)V
 
     return-void
 .end method
 
 .method public onReduceBrightColorsStrengthChanged(I)V
-    .locals 3
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/display/DisplayPowerController$1;->this$0:Lcom/android/server/display/DisplayPowerController;
+    iget-object p0, p0, Lcom/android/server/display/DisplayPowerController$1;->this$0:Lcom/android/server/display/DisplayPowerController;
 
-    const/4 v1, 0x1
-
-    const/4 v2, 0x0
-
-    invoke-static {v0, v1, v2}, Lcom/android/server/display/DisplayPowerController;->access$100(Lcom/android/server/display/DisplayPowerController;ZZ)V
+    invoke-static {p0}, Lcom/android/server/display/DisplayPowerController;->-$$Nest$mapplyReduceBrightColorsSplineAdjustment(Lcom/android/server/display/DisplayPowerController;)V
 
     return-void
 .end method

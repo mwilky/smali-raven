@@ -4,28 +4,31 @@
 
 
 # annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/android/server/wallpaper/WallpaperManagerService;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = "DisplayData"
 .end annotation
 
 
 # instance fields
-.field final mDisplayId:I
+.field public final mDisplayId:I
 
-.field mHeight:I
+.field public mHeight:I
 
-.field final mPadding:Landroid/graphics/Rect;
+.field public final mPadding:Landroid/graphics/Rect;
 
-.field mWidth:I
+.field public mWidth:I
 
 
 # direct methods
-.method constructor <init>(I)V
+.method public constructor <init>(I)V
     .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/server/inputmethod/InputMethodManagerService$ImeDisplayValidator;
+.class public interface abstract Lcom/android/server/inputmethod/InputMethodManagerService$ImeDisplayValidator;
 .super Ljava/lang/Object;
 .source "InputMethodManagerService.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
+    accessFlags = 0x609
     name = "ImeDisplayValidator"
 .end annotation
 
@@ -19,4 +19,6 @@
 
 # virtual methods
 .method public abstract getDisplayImePolicy(I)I
+    .annotation build Landroid/view/WindowManager$DisplayImePolicy;
+    .end annotation
 .end method

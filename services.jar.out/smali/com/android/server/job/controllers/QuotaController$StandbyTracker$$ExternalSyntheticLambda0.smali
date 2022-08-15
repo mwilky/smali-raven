@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/job/controllers/QuotaController$StandbyTracker$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -35,7 +36,7 @@
 
 # virtual methods
 .method public final run()V
-    .locals 4
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/job/controllers/QuotaController$StandbyTracker$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/job/controllers/QuotaController$StandbyTracker;
 
@@ -43,9 +44,9 @@
 
     iget v2, p0, Lcom/android/server/job/controllers/QuotaController$StandbyTracker$$ExternalSyntheticLambda0;->f$2:I
 
-    iget-object v3, p0, Lcom/android/server/job/controllers/QuotaController$StandbyTracker$$ExternalSyntheticLambda0;->f$3:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/job/controllers/QuotaController$StandbyTracker$$ExternalSyntheticLambda0;->f$3:Ljava/lang/String;
 
-    invoke-virtual {v0, v1, v2, v3}, Lcom/android/server/job/controllers/QuotaController$StandbyTracker;->lambda$onAppIdleStateChanged$0$QuotaController$StandbyTracker(IILjava/lang/String;)V
+    invoke-static {v0, v1, v2, p0}, Lcom/android/server/job/controllers/QuotaController$StandbyTracker;->$r8$lambda$C-YfNmS_gBSa44wPjbZKaUFRs2k(Lcom/android/server/job/controllers/QuotaController$StandbyTracker;IILjava/lang/String;)V
 
     return-void
 .end method

@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/SurfaceAnimationRunner$SfValueAnimator;
+.class public Lcom/android/server/wm/SurfaceAnimationRunner$SfValueAnimator;
 .super Landroid/animation/ValueAnimator;
 .source "SurfaceAnimationRunner.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "SfValueAnimator"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/wm/SurfaceAnimationRunner;
+.field public final synthetic this$0:Lcom/android/server/wm/SurfaceAnimationRunner;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/wm/SurfaceAnimationRunner;)V
+.method public constructor <init>(Lcom/android/server/wm/SurfaceAnimationRunner;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/wm/SurfaceAnimationRunner$SfValueAnimator;->this$0:Lcom/android/server/wm/SurfaceAnimationRunner;
@@ -32,7 +32,7 @@
 
     fill-array-data p1, :array_0
 
-    invoke-virtual {p0, p1}, Lcom/android/server/wm/SurfaceAnimationRunner$SfValueAnimator;->setFloatValues([F)V
+    invoke-virtual {p0, p1}, Landroid/animation/ValueAnimator;->setFloatValues([F)V
 
     return-void
 
@@ -48,13 +48,13 @@
 
 # virtual methods
 .method public getAnimationHandler()Landroid/animation/AnimationHandler;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/SurfaceAnimationRunner$SfValueAnimator;->this$0:Lcom/android/server/wm/SurfaceAnimationRunner;
+    iget-object p0, p0, Lcom/android/server/wm/SurfaceAnimationRunner$SfValueAnimator;->this$0:Lcom/android/server/wm/SurfaceAnimationRunner;
 
-    invoke-static {v0}, Lcom/android/server/wm/SurfaceAnimationRunner;->access$500(Lcom/android/server/wm/SurfaceAnimationRunner;)Landroid/animation/AnimationHandler;
+    invoke-static {p0}, Lcom/android/server/wm/SurfaceAnimationRunner;->-$$Nest$fgetmAnimationHandler(Lcom/android/server/wm/SurfaceAnimationRunner;)Landroid/animation/AnimationHandler;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

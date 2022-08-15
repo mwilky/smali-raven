@@ -1,4 +1,4 @@
-.class final Lcom/android/server/net/NetworkPolicyLogger$LogBuffer;
+.class public final Lcom/android/server/net/NetworkPolicyLogger$LogBuffer;
 .super Lcom/android/internal/util/RingBuffer;
 .source "NetworkPolicyLogger.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "LogBuffer"
 .end annotation
 
@@ -23,13 +23,13 @@
 
 
 # static fields
-.field private static final sDate:Ljava/util/Date;
+.field public static final sDate:Ljava/util/Date;
 
-.field private static final sFormatter:Ljava/text/SimpleDateFormat;
+.field public static final sFormatter:Ljava/text/SimpleDateFormat;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 2
 
     new-instance v0, Ljava/text/SimpleDateFormat;
@@ -59,401 +59,427 @@
     return-void
 .end method
 
-.method private formatDate(J)Ljava/lang/String;
-    .locals 2
-
-    sget-object v0, Lcom/android/server/net/NetworkPolicyLogger$LogBuffer;->sDate:Ljava/util/Date;
-
-    invoke-virtual {v0, p1, p2}, Ljava/util/Date;->setTime(J)V
-
-    sget-object v1, Lcom/android/server/net/NetworkPolicyLogger$LogBuffer;->sFormatter:Ljava/text/SimpleDateFormat;
-
-    invoke-virtual {v1, v0}, Ljava/text/SimpleDateFormat;->format(Ljava/util/Date;)Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
 
 # virtual methods
 .method public appIdleStateChanged(IZ)V
-    .locals 3
+    .locals 1
 
-    invoke-virtual {p0}, Lcom/android/server/net/NetworkPolicyLogger$LogBuffer;->getNextSlot()Ljava/lang/Object;
+    invoke-virtual {p0}, Lcom/android/internal/util/RingBuffer;->getNextSlot()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/android/server/net/NetworkPolicyLogger$Data;
+    check-cast p0, Lcom/android/server/net/NetworkPolicyLogger$Data;
 
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
     return-void
 
     :cond_0
-    invoke-virtual {v0}, Lcom/android/server/net/NetworkPolicyLogger$Data;->reset()V
+    invoke-virtual {p0}, Lcom/android/server/net/NetworkPolicyLogger$Data;->reset()V
 
-    const/16 v1, 0x8
+    const/16 v0, 0x8
 
-    iput v1, v0, Lcom/android/server/net/NetworkPolicyLogger$Data;->type:I
+    iput v0, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->type:I
 
-    iput p1, v0, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield1:I
+    iput p1, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield1:I
 
-    iput-boolean p2, v0, Lcom/android/server/net/NetworkPolicyLogger$Data;->bfield1:Z
+    iput-boolean p2, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->bfield1:Z
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v1
+    move-result-wide p1
 
-    iput-wide v1, v0, Lcom/android/server/net/NetworkPolicyLogger$Data;->timeStamp:J
+    iput-wide p1, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->timeStamp:J
 
     return-void
 .end method
 
 .method public appIdleWlChanged(IZ)V
-    .locals 3
+    .locals 1
 
-    invoke-virtual {p0}, Lcom/android/server/net/NetworkPolicyLogger$LogBuffer;->getNextSlot()Ljava/lang/Object;
+    invoke-virtual {p0}, Lcom/android/internal/util/RingBuffer;->getNextSlot()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/android/server/net/NetworkPolicyLogger$Data;
+    check-cast p0, Lcom/android/server/net/NetworkPolicyLogger$Data;
 
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
     return-void
 
     :cond_0
-    invoke-virtual {v0}, Lcom/android/server/net/NetworkPolicyLogger$Data;->reset()V
+    invoke-virtual {p0}, Lcom/android/server/net/NetworkPolicyLogger$Data;->reset()V
 
-    const/16 v1, 0xe
+    const/16 v0, 0xe
 
-    iput v1, v0, Lcom/android/server/net/NetworkPolicyLogger$Data;->type:I
+    iput v0, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->type:I
 
-    iput p1, v0, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield1:I
+    iput p1, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield1:I
 
-    iput-boolean p2, v0, Lcom/android/server/net/NetworkPolicyLogger$Data;->bfield1:Z
+    iput-boolean p2, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->bfield1:Z
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v1
+    move-result-wide p1
 
-    iput-wide v1, v0, Lcom/android/server/net/NetworkPolicyLogger$Data;->timeStamp:J
+    iput-wide p1, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->timeStamp:J
 
     return-void
 .end method
 
 .method public deviceIdleModeEnabled(Z)V
-    .locals 3
+    .locals 2
 
-    invoke-virtual {p0}, Lcom/android/server/net/NetworkPolicyLogger$LogBuffer;->getNextSlot()Ljava/lang/Object;
+    invoke-virtual {p0}, Lcom/android/internal/util/RingBuffer;->getNextSlot()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/android/server/net/NetworkPolicyLogger$Data;
+    check-cast p0, Lcom/android/server/net/NetworkPolicyLogger$Data;
 
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
     return-void
 
     :cond_0
-    invoke-virtual {v0}, Lcom/android/server/net/NetworkPolicyLogger$Data;->reset()V
+    invoke-virtual {p0}, Lcom/android/server/net/NetworkPolicyLogger$Data;->reset()V
 
-    const/4 v1, 0x7
+    const/4 v0, 0x7
 
-    iput v1, v0, Lcom/android/server/net/NetworkPolicyLogger$Data;->type:I
+    iput v0, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->type:I
 
-    iput-boolean p1, v0, Lcom/android/server/net/NetworkPolicyLogger$Data;->bfield1:Z
+    iput-boolean p1, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->bfield1:Z
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v1
+    move-result-wide v0
 
-    iput-wide v1, v0, Lcom/android/server/net/NetworkPolicyLogger$Data;->timeStamp:J
+    iput-wide v0, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->timeStamp:J
 
     return-void
 .end method
 
 .method public event(Ljava/lang/String;)V
-    .locals 3
+    .locals 2
 
-    invoke-virtual {p0}, Lcom/android/server/net/NetworkPolicyLogger$LogBuffer;->getNextSlot()Ljava/lang/Object;
+    invoke-virtual {p0}, Lcom/android/internal/util/RingBuffer;->getNextSlot()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/android/server/net/NetworkPolicyLogger$Data;
+    check-cast p0, Lcom/android/server/net/NetworkPolicyLogger$Data;
 
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
     return-void
 
     :cond_0
-    invoke-virtual {v0}, Lcom/android/server/net/NetworkPolicyLogger$Data;->reset()V
+    invoke-virtual {p0}, Lcom/android/server/net/NetworkPolicyLogger$Data;->reset()V
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    iput v1, v0, Lcom/android/server/net/NetworkPolicyLogger$Data;->type:I
+    iput v0, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->type:I
 
-    iput-object p1, v0, Lcom/android/server/net/NetworkPolicyLogger$Data;->sfield1:Ljava/lang/String;
+    iput-object p1, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->sfield1:Ljava/lang/String;
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v1
+    move-result-wide v0
 
-    iput-wide v1, v0, Lcom/android/server/net/NetworkPolicyLogger$Data;->timeStamp:J
+    iput-wide v0, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->timeStamp:J
 
     return-void
 .end method
 
 .method public firewallChainEnabled(IZ)V
-    .locals 3
+    .locals 1
 
-    invoke-virtual {p0}, Lcom/android/server/net/NetworkPolicyLogger$LogBuffer;->getNextSlot()Ljava/lang/Object;
+    invoke-virtual {p0}, Lcom/android/internal/util/RingBuffer;->getNextSlot()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/android/server/net/NetworkPolicyLogger$Data;
+    check-cast p0, Lcom/android/server/net/NetworkPolicyLogger$Data;
 
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
     return-void
 
     :cond_0
-    invoke-virtual {v0}, Lcom/android/server/net/NetworkPolicyLogger$Data;->reset()V
+    invoke-virtual {p0}, Lcom/android/server/net/NetworkPolicyLogger$Data;->reset()V
 
-    const/16 v1, 0xc
+    const/16 v0, 0xc
 
-    iput v1, v0, Lcom/android/server/net/NetworkPolicyLogger$Data;->type:I
+    iput v0, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->type:I
 
-    iput p1, v0, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield1:I
+    iput p1, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield1:I
 
-    iput-boolean p2, v0, Lcom/android/server/net/NetworkPolicyLogger$Data;->bfield1:Z
+    iput-boolean p2, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->bfield1:Z
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v1
+    move-result-wide p1
 
-    iput-wide v1, v0, Lcom/android/server/net/NetworkPolicyLogger$Data;->timeStamp:J
+    iput-wide p1, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->timeStamp:J
 
     return-void
 .end method
 
+.method public final formatDate(J)Ljava/lang/String;
+    .locals 0
+
+    sget-object p0, Lcom/android/server/net/NetworkPolicyLogger$LogBuffer;->sDate:Ljava/util/Date;
+
+    invoke-virtual {p0, p1, p2}, Ljava/util/Date;->setTime(J)V
+
+    sget-object p1, Lcom/android/server/net/NetworkPolicyLogger$LogBuffer;->sFormatter:Ljava/text/SimpleDateFormat;
+
+    invoke-virtual {p1, p0}, Ljava/text/SimpleDateFormat;->format(Ljava/util/Date;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method public getContent(Lcom/android/server/net/NetworkPolicyLogger$Data;)Ljava/lang/String;
-    .locals 4
+    .locals 2
 
-    iget v0, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->type:I
+    iget p0, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->type:I
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch p0, :pswitch_data_0
 
     :pswitch_0
-    iget v0, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->type:I
+    invoke-static {p0}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    invoke-static {v0}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object v0
-
-    return-object v0
+    return-object p0
 
     :pswitch_1
-    iget v0, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield1:I
+    iget p0, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield1:I
 
-    iget-boolean v1, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->bfield1:Z
+    iget-boolean p1, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->bfield1:Z
 
-    invoke-static {v0, v1}, Lcom/android/server/net/NetworkPolicyLogger;->access$700(IZ)Ljava/lang/String;
+    invoke-static {p0, p1}, Lcom/android/server/net/NetworkPolicyLogger;->-$$Nest$smgetMeteredDenylistChangedLog(IZ)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     :pswitch_2
-    iget v0, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield1:I
+    iget p0, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield1:I
 
-    iget-boolean v1, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->bfield1:Z
+    iget-boolean p1, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->bfield1:Z
 
-    invoke-static {v0, v1}, Lcom/android/server/net/NetworkPolicyLogger;->access$1100(IZ)Ljava/lang/String;
+    invoke-static {p0, p1}, Lcom/android/server/net/NetworkPolicyLogger;->-$$Nest$smgetMeteredAllowlistChangedLog(IZ)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     :pswitch_3
-    iget v0, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield1:I
+    iget p0, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield1:I
 
-    iget v1, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield2:I
+    iget-boolean p1, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->bfield1:Z
 
-    iget v2, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield3:I
+    invoke-static {p0, p1}, Lcom/android/server/net/NetworkPolicyLogger;->-$$Nest$smgetAppIdleWlChangedLog(IZ)Ljava/lang/String;
 
-    invoke-static {v0, v1, v2}, Lcom/android/server/net/NetworkPolicyLogger;->access$1000(III)Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object v0
-
-    return-object v0
+    return-object p0
 
     :pswitch_4
-    iget v0, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield1:I
+    iget p0, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield1:I
 
-    iget-boolean v1, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->bfield1:Z
+    iget-boolean p1, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->bfield1:Z
 
-    iget v2, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield2:I
+    invoke-static {p0, p1}, Lcom/android/server/net/NetworkPolicyLogger;->-$$Nest$smgetFirewallChainEnabledLog(IZ)Ljava/lang/String;
 
-    iget-object v3, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->sfield1:Ljava/lang/String;
+    move-result-object p0
 
-    invoke-static {v0, v1, v2, v3}, Lcom/android/server/net/NetworkPolicyLogger;->access$900(IZILjava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
+    return-object p0
 
     :pswitch_5
-    iget-boolean v0, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->bfield1:Z
+    iget p0, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield1:I
 
-    invoke-static {v0}, Lcom/android/server/net/NetworkPolicyLogger;->access$800(Z)Ljava/lang/String;
+    iget v0, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield2:I
 
-    move-result-object v0
+    iget p1, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield3:I
 
-    return-object v0
+    invoke-static {p0, v0, p1}, Lcom/android/server/net/NetworkPolicyLogger;->-$$Nest$smgetUidFirewallRuleChangedLog(III)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 
     :pswitch_6
-    iget v0, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield1:I
+    iget p0, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield1:I
 
-    iget-boolean v1, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->bfield1:Z
+    iget-boolean v0, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->bfield1:Z
 
-    invoke-static {v0, v1}, Lcom/android/server/net/NetworkPolicyLogger;->access$600(IZ)Ljava/lang/String;
+    iget v1, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield2:I
 
-    move-result-object v0
+    iget-object p1, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->sfield1:Ljava/lang/String;
 
-    return-object v0
+    invoke-static {p0, v0, v1, p1}, Lcom/android/server/net/NetworkPolicyLogger;->-$$Nest$smgetTempPowerSaveWlChangedLog(IZILjava/lang/String;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 
     :pswitch_7
-    iget-boolean v0, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->bfield1:Z
+    iget-boolean p0, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->bfield1:Z
 
-    invoke-static {v0}, Lcom/android/server/net/NetworkPolicyLogger;->access$500(Z)Ljava/lang/String;
+    invoke-static {p0}, Lcom/android/server/net/NetworkPolicyLogger;->-$$Nest$smgetParoleStateChanged(Z)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     :pswitch_8
-    iget-boolean v0, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->bfield1:Z
+    iget p0, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield1:I
 
-    iget-boolean v1, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->bfield2:Z
+    iget-boolean p1, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->bfield1:Z
 
-    invoke-static {v0, v1}, Lcom/android/server/net/NetworkPolicyLogger;->access$400(ZZ)Ljava/lang/String;
+    invoke-static {p0, p1}, Lcom/android/server/net/NetworkPolicyLogger;->-$$Nest$smgetAppIdleChangedLog(IZ)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     :pswitch_9
-    iget v0, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield1:I
+    iget-boolean p0, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->bfield1:Z
 
-    invoke-static {v0}, Lcom/android/server/net/NetworkPolicyLogger;->access$300(I)Ljava/lang/String;
+    invoke-static {p0}, Lcom/android/server/net/NetworkPolicyLogger;->-$$Nest$smgetDeviceIdleModeEnabled(Z)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     :pswitch_a
-    iget v0, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield1:I
+    iget-boolean p0, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->bfield1:Z
 
-    iget-boolean v1, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->bfield1:Z
+    iget-boolean p1, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->bfield2:Z
 
-    invoke-static {v0, v1}, Lcom/android/server/net/NetworkPolicyLogger;->access$200(IZ)Ljava/lang/String;
+    invoke-static {p0, p1}, Lcom/android/server/net/NetworkPolicyLogger;->-$$Nest$smgetRestrictBackgroundChangedLog(ZZ)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     :pswitch_b
-    iget v0, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield1:I
+    iget p0, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield1:I
 
-    iget v1, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield2:I
+    invoke-static {p0}, Lcom/android/server/net/NetworkPolicyLogger;->-$$Nest$smgetUserRemovedLog(I)Ljava/lang/String;
 
-    iget v2, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield3:I
+    move-result-object p0
 
-    invoke-static {v0, v1, v2}, Lcom/android/server/net/NetworkPolicyLogger;->access$100(III)Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
+    return-object p0
 
     :pswitch_c
-    new-instance v0, Ljava/lang/StringBuilder;
+    iget p0, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield1:I
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    iget-boolean p1, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->bfield1:Z
 
-    iget v1, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield1:I
+    invoke-static {p0, p1}, Lcom/android/server/net/NetworkPolicyLogger;->-$$Nest$smgetMeterednessChangedLog(IZ)Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object p0
 
-    const-string v1, ":"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget v2, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield2:I
-
-    invoke-static {v2}, Lcom/android/server/am/ProcessList;->makeProcStateString(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget v2, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield3:I
-
-    invoke-static {v2}, Landroid/app/ActivityManager;->getCapabilitiesSummary(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-wide v1, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->lfield1:J
-
-    invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
+    return-object p0
 
     :pswitch_d
-    new-instance v0, Ljava/lang/StringBuilder;
+    iget p0, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield1:I
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    iget v0, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield2:I
 
-    iget v1, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield1:I
+    iget p1, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield3:I
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-static {p0, v0, p1}, Lcom/android/server/net/NetworkPolicyLogger;->-$$Nest$smgetPolicyChangedLog(III)Ljava/lang/String;
 
-    const-string v1, "-"
+    move-result-object p0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    return-object p0
+
+    :pswitch_e
+    new-instance p0, Ljava/lang/StringBuilder;
+
+    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
+
+    iget v0, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield1:I
+
+    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v0, ":"
+
+    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     iget v1, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield2:I
 
-    invoke-static {v1}, Lcom/android/server/net/NetworkPolicyLogger;->access$000(I)Ljava/lang/String;
+    invoke-static {v1}, Lcom/android/server/am/ProcessList;->makeProcStateString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    iget v1, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield3:I
 
-    return-object v0
+    invoke-static {v1}, Landroid/app/ActivityManager;->getCapabilitiesSummary(I)Ljava/lang/String;
 
-    :pswitch_e
-    iget-object v0, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->sfield1:Ljava/lang/String;
+    move-result-object v1
 
-    return-object v0
+    invoke-virtual {p0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-wide v0, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->lfield1:J
+
+    invoke-virtual {p0, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    :pswitch_f
+    new-instance p0, Ljava/lang/StringBuilder;
+
+    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
+
+    iget v0, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield1:I
+
+    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v0, "-"
+
+    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget v0, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield2:I
+
+    iget v1, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield3:I
+
+    iget p1, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield4:I
+
+    invoke-static {v0, v1, p1}, Lcom/android/server/net/NetworkPolicyManagerService$UidBlockedState;->toString(III)Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    :pswitch_10
+    iget-object p0, p1, Lcom/android/server/net/NetworkPolicyLogger$Data;->sfield1:Ljava/lang/String;
+
+    return-object p0
 
     :pswitch_data_0
     .packed-switch 0x0
+        :pswitch_10
+        :pswitch_f
         :pswitch_e
         :pswitch_d
         :pswitch_c
@@ -465,139 +491,209 @@
         :pswitch_6
         :pswitch_5
         :pswitch_4
+        :pswitch_0
         :pswitch_3
         :pswitch_2
-        :pswitch_0
         :pswitch_1
     .end packed-switch
 .end method
 
-.method public meterednessChanged(IZ)V
-    .locals 3
+.method public meteredAllowlistChanged(IZ)V
+    .locals 1
 
-    invoke-virtual {p0}, Lcom/android/server/net/NetworkPolicyLogger$LogBuffer;->getNextSlot()Ljava/lang/Object;
+    invoke-virtual {p0}, Lcom/android/internal/util/RingBuffer;->getNextSlot()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/android/server/net/NetworkPolicyLogger$Data;
+    check-cast p0, Lcom/android/server/net/NetworkPolicyLogger$Data;
 
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
     return-void
 
     :cond_0
-    invoke-virtual {v0}, Lcom/android/server/net/NetworkPolicyLogger$Data;->reset()V
+    invoke-virtual {p0}, Lcom/android/server/net/NetworkPolicyLogger$Data;->reset()V
 
-    const/4 v1, 0x4
+    const/16 v0, 0xf
 
-    iput v1, v0, Lcom/android/server/net/NetworkPolicyLogger$Data;->type:I
+    iput v0, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->type:I
 
-    iput p1, v0, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield1:I
+    iput p1, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield1:I
 
-    iput-boolean p2, v0, Lcom/android/server/net/NetworkPolicyLogger$Data;->bfield1:Z
+    iput-boolean p2, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->bfield1:Z
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v1
+    move-result-wide p1
 
-    iput-wide v1, v0, Lcom/android/server/net/NetworkPolicyLogger$Data;->timeStamp:J
+    iput-wide p1, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->timeStamp:J
 
     return-void
 .end method
 
-.method public networkBlocked(II)V
-    .locals 3
+.method public meteredDenylistChanged(IZ)V
+    .locals 1
 
-    invoke-virtual {p0}, Lcom/android/server/net/NetworkPolicyLogger$LogBuffer;->getNextSlot()Ljava/lang/Object;
+    invoke-virtual {p0}, Lcom/android/internal/util/RingBuffer;->getNextSlot()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/android/server/net/NetworkPolicyLogger$Data;
+    check-cast p0, Lcom/android/server/net/NetworkPolicyLogger$Data;
 
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
     return-void
 
     :cond_0
-    invoke-virtual {v0}, Lcom/android/server/net/NetworkPolicyLogger$Data;->reset()V
+    invoke-virtual {p0}, Lcom/android/server/net/NetworkPolicyLogger$Data;->reset()V
 
-    const/4 v1, 0x1
+    const/16 v0, 0x10
 
-    iput v1, v0, Lcom/android/server/net/NetworkPolicyLogger$Data;->type:I
+    iput v0, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->type:I
 
-    iput p1, v0, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield1:I
+    iput p1, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield1:I
 
-    iput p2, v0, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield2:I
+    iput-boolean p2, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->bfield1:Z
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v1
+    move-result-wide p1
 
-    iput-wide v1, v0, Lcom/android/server/net/NetworkPolicyLogger$Data;->timeStamp:J
+    iput-wide p1, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->timeStamp:J
+
+    return-void
+.end method
+
+.method public meterednessChanged(IZ)V
+    .locals 1
+
+    invoke-virtual {p0}, Lcom/android/internal/util/RingBuffer;->getNextSlot()Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Lcom/android/server/net/NetworkPolicyLogger$Data;
+
+    if-nez p0, :cond_0
+
+    return-void
+
+    :cond_0
+    invoke-virtual {p0}, Lcom/android/server/net/NetworkPolicyLogger$Data;->reset()V
+
+    const/4 v0, 0x4
+
+    iput v0, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->type:I
+
+    iput p1, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield1:I
+
+    iput-boolean p2, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->bfield1:Z
+
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide p1
+
+    iput-wide p1, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->timeStamp:J
+
+    return-void
+.end method
+
+.method public networkBlocked(IIII)V
+    .locals 1
+
+    invoke-virtual {p0}, Lcom/android/internal/util/RingBuffer;->getNextSlot()Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Lcom/android/server/net/NetworkPolicyLogger$Data;
+
+    if-nez p0, :cond_0
+
+    return-void
+
+    :cond_0
+    invoke-virtual {p0}, Lcom/android/server/net/NetworkPolicyLogger$Data;->reset()V
+
+    const/4 v0, 0x1
+
+    iput v0, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->type:I
+
+    iput p1, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield1:I
+
+    iput p2, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield2:I
+
+    iput p3, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield3:I
+
+    iput p4, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield4:I
+
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide p1
+
+    iput-wide p1, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->timeStamp:J
 
     return-void
 .end method
 
 .method public paroleStateChanged(Z)V
-    .locals 3
+    .locals 2
 
-    invoke-virtual {p0}, Lcom/android/server/net/NetworkPolicyLogger$LogBuffer;->getNextSlot()Ljava/lang/Object;
+    invoke-virtual {p0}, Lcom/android/internal/util/RingBuffer;->getNextSlot()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/android/server/net/NetworkPolicyLogger$Data;
+    check-cast p0, Lcom/android/server/net/NetworkPolicyLogger$Data;
 
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
     return-void
 
     :cond_0
-    invoke-virtual {v0}, Lcom/android/server/net/NetworkPolicyLogger$Data;->reset()V
+    invoke-virtual {p0}, Lcom/android/server/net/NetworkPolicyLogger$Data;->reset()V
 
-    const/16 v1, 0x9
+    const/16 v0, 0x9
 
-    iput v1, v0, Lcom/android/server/net/NetworkPolicyLogger$Data;->type:I
+    iput v0, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->type:I
 
-    iput-boolean p1, v0, Lcom/android/server/net/NetworkPolicyLogger$Data;->bfield1:Z
+    iput-boolean p1, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->bfield1:Z
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v1
+    move-result-wide v0
 
-    iput-wide v1, v0, Lcom/android/server/net/NetworkPolicyLogger$Data;->timeStamp:J
+    iput-wide v0, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->timeStamp:J
 
     return-void
 .end method
 
 .method public restrictBackgroundChanged(ZZ)V
-    .locals 3
+    .locals 1
 
-    invoke-virtual {p0}, Lcom/android/server/net/NetworkPolicyLogger$LogBuffer;->getNextSlot()Ljava/lang/Object;
+    invoke-virtual {p0}, Lcom/android/internal/util/RingBuffer;->getNextSlot()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/android/server/net/NetworkPolicyLogger$Data;
+    check-cast p0, Lcom/android/server/net/NetworkPolicyLogger$Data;
 
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
     return-void
 
     :cond_0
-    invoke-virtual {v0}, Lcom/android/server/net/NetworkPolicyLogger$Data;->reset()V
+    invoke-virtual {p0}, Lcom/android/server/net/NetworkPolicyLogger$Data;->reset()V
 
-    const/4 v1, 0x6
+    const/4 v0, 0x6
 
-    iput v1, v0, Lcom/android/server/net/NetworkPolicyLogger$Data;->type:I
+    iput v0, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->type:I
 
-    iput-boolean p1, v0, Lcom/android/server/net/NetworkPolicyLogger$Data;->bfield1:Z
+    iput-boolean p1, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->bfield1:Z
 
-    iput-boolean p2, v0, Lcom/android/server/net/NetworkPolicyLogger$Data;->bfield2:Z
+    iput-boolean p2, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->bfield2:Z
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v1
+    move-result-wide p1
 
-    iput-wide v1, v0, Lcom/android/server/net/NetworkPolicyLogger$Data;->timeStamp:J
+    iput-wide p1, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->timeStamp:J
 
     return-void
 .end method
@@ -605,7 +701,7 @@
 .method public reverseDump(Lcom/android/internal/util/IndentingPrintWriter;)V
     .locals 4
 
-    invoke-virtual {p0}, Lcom/android/server/net/NetworkPolicyLogger$LogBuffer;->toArray()[Ljava/lang/Object;
+    invoke-virtual {p0}, Lcom/android/internal/util/RingBuffer;->toArray()[Ljava/lang/Object;
 
     move-result-object v0
 
@@ -629,11 +725,9 @@
     goto :goto_1
 
     :cond_0
-    aget-object v2, v0, v1
-
     iget-wide v2, v2, Lcom/android/server/net/NetworkPolicyLogger$Data;->timeStamp:J
 
-    invoke-direct {p0, v2, v3}, Lcom/android/server/net/NetworkPolicyLogger$LogBuffer;->formatDate(J)Ljava/lang/String;
+    invoke-virtual {p0, v2, v3}, Lcom/android/server/net/NetworkPolicyLogger$LogBuffer;->formatDate(J)Ljava/lang/String;
 
     move-result-object v2
 
@@ -661,176 +755,176 @@
 .end method
 
 .method public tempPowerSaveWlChanged(IZILjava/lang/String;)V
-    .locals 3
+    .locals 1
 
-    invoke-virtual {p0}, Lcom/android/server/net/NetworkPolicyLogger$LogBuffer;->getNextSlot()Ljava/lang/Object;
+    invoke-virtual {p0}, Lcom/android/internal/util/RingBuffer;->getNextSlot()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/android/server/net/NetworkPolicyLogger$Data;
+    check-cast p0, Lcom/android/server/net/NetworkPolicyLogger$Data;
 
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
     return-void
 
     :cond_0
-    invoke-virtual {v0}, Lcom/android/server/net/NetworkPolicyLogger$Data;->reset()V
+    invoke-virtual {p0}, Lcom/android/server/net/NetworkPolicyLogger$Data;->reset()V
 
-    const/16 v1, 0xa
+    const/16 v0, 0xa
 
-    iput v1, v0, Lcom/android/server/net/NetworkPolicyLogger$Data;->type:I
+    iput v0, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->type:I
 
-    iput p1, v0, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield1:I
+    iput p1, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield1:I
 
-    iput p3, v0, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield2:I
+    iput p3, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield2:I
 
-    iput-boolean p2, v0, Lcom/android/server/net/NetworkPolicyLogger$Data;->bfield1:Z
+    iput-boolean p2, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->bfield1:Z
 
-    iput-object p4, v0, Lcom/android/server/net/NetworkPolicyLogger$Data;->sfield1:Ljava/lang/String;
+    iput-object p4, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->sfield1:Ljava/lang/String;
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v1
+    move-result-wide p1
 
-    iput-wide v1, v0, Lcom/android/server/net/NetworkPolicyLogger$Data;->timeStamp:J
+    iput-wide p1, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->timeStamp:J
 
     return-void
 .end method
 
 .method public uidFirewallRuleChanged(III)V
-    .locals 3
+    .locals 1
 
-    invoke-virtual {p0}, Lcom/android/server/net/NetworkPolicyLogger$LogBuffer;->getNextSlot()Ljava/lang/Object;
+    invoke-virtual {p0}, Lcom/android/internal/util/RingBuffer;->getNextSlot()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/android/server/net/NetworkPolicyLogger$Data;
+    check-cast p0, Lcom/android/server/net/NetworkPolicyLogger$Data;
 
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
     return-void
 
     :cond_0
-    invoke-virtual {v0}, Lcom/android/server/net/NetworkPolicyLogger$Data;->reset()V
+    invoke-virtual {p0}, Lcom/android/server/net/NetworkPolicyLogger$Data;->reset()V
 
-    const/16 v1, 0xb
+    const/16 v0, 0xb
 
-    iput v1, v0, Lcom/android/server/net/NetworkPolicyLogger$Data;->type:I
+    iput v0, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->type:I
 
-    iput p1, v0, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield1:I
+    iput p1, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield1:I
 
-    iput p2, v0, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield2:I
+    iput p2, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield2:I
 
-    iput p3, v0, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield3:I
+    iput p3, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield3:I
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v1
+    move-result-wide p1
 
-    iput-wide v1, v0, Lcom/android/server/net/NetworkPolicyLogger$Data;->timeStamp:J
+    iput-wide p1, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->timeStamp:J
 
     return-void
 .end method
 
 .method public uidPolicyChanged(III)V
-    .locals 3
+    .locals 1
 
-    invoke-virtual {p0}, Lcom/android/server/net/NetworkPolicyLogger$LogBuffer;->getNextSlot()Ljava/lang/Object;
+    invoke-virtual {p0}, Lcom/android/internal/util/RingBuffer;->getNextSlot()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/android/server/net/NetworkPolicyLogger$Data;
+    check-cast p0, Lcom/android/server/net/NetworkPolicyLogger$Data;
 
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
     return-void
 
     :cond_0
-    invoke-virtual {v0}, Lcom/android/server/net/NetworkPolicyLogger$Data;->reset()V
+    invoke-virtual {p0}, Lcom/android/server/net/NetworkPolicyLogger$Data;->reset()V
 
-    const/4 v1, 0x3
+    const/4 v0, 0x3
 
-    iput v1, v0, Lcom/android/server/net/NetworkPolicyLogger$Data;->type:I
+    iput v0, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->type:I
 
-    iput p1, v0, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield1:I
+    iput p1, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield1:I
 
-    iput p2, v0, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield2:I
+    iput p2, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield2:I
 
-    iput p3, v0, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield3:I
+    iput p3, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield3:I
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v1
+    move-result-wide p1
 
-    iput-wide v1, v0, Lcom/android/server/net/NetworkPolicyLogger$Data;->timeStamp:J
+    iput-wide p1, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->timeStamp:J
 
     return-void
 .end method
 
 .method public uidStateChanged(IIJI)V
-    .locals 3
+    .locals 1
 
-    invoke-virtual {p0}, Lcom/android/server/net/NetworkPolicyLogger$LogBuffer;->getNextSlot()Ljava/lang/Object;
+    invoke-virtual {p0}, Lcom/android/internal/util/RingBuffer;->getNextSlot()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/android/server/net/NetworkPolicyLogger$Data;
+    check-cast p0, Lcom/android/server/net/NetworkPolicyLogger$Data;
 
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
     return-void
 
     :cond_0
-    invoke-virtual {v0}, Lcom/android/server/net/NetworkPolicyLogger$Data;->reset()V
+    invoke-virtual {p0}, Lcom/android/server/net/NetworkPolicyLogger$Data;->reset()V
 
-    const/4 v1, 0x2
+    const/4 v0, 0x2
 
-    iput v1, v0, Lcom/android/server/net/NetworkPolicyLogger$Data;->type:I
+    iput v0, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->type:I
 
-    iput p1, v0, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield1:I
+    iput p1, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield1:I
 
-    iput p2, v0, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield2:I
+    iput p2, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield2:I
 
-    iput p5, v0, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield3:I
+    iput p5, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield3:I
 
-    iput-wide p3, v0, Lcom/android/server/net/NetworkPolicyLogger$Data;->lfield1:J
+    iput-wide p3, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->lfield1:J
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v1
+    move-result-wide p1
 
-    iput-wide v1, v0, Lcom/android/server/net/NetworkPolicyLogger$Data;->timeStamp:J
+    iput-wide p1, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->timeStamp:J
 
     return-void
 .end method
 
 .method public userRemoved(I)V
-    .locals 3
+    .locals 2
 
-    invoke-virtual {p0}, Lcom/android/server/net/NetworkPolicyLogger$LogBuffer;->getNextSlot()Ljava/lang/Object;
+    invoke-virtual {p0}, Lcom/android/internal/util/RingBuffer;->getNextSlot()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/android/server/net/NetworkPolicyLogger$Data;
+    check-cast p0, Lcom/android/server/net/NetworkPolicyLogger$Data;
 
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
     return-void
 
     :cond_0
-    invoke-virtual {v0}, Lcom/android/server/net/NetworkPolicyLogger$Data;->reset()V
+    invoke-virtual {p0}, Lcom/android/server/net/NetworkPolicyLogger$Data;->reset()V
 
-    const/4 v1, 0x5
+    const/4 v0, 0x5
 
-    iput v1, v0, Lcom/android/server/net/NetworkPolicyLogger$Data;->type:I
+    iput v0, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->type:I
 
-    iput p1, v0, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield1:I
+    iput p1, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->ifield1:I
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v1
+    move-result-wide v0
 
-    iput-wide v1, v0, Lcom/android/server/net/NetworkPolicyLogger$Data;->timeStamp:J
+    iput-wide v0, p0, Lcom/android/server/net/NetworkPolicyLogger$Data;->timeStamp:J
 
     return-void
 .end method

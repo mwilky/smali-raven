@@ -1,4 +1,4 @@
-.class abstract Lcom/android/server/timedetector/ServiceConfigAccessor$BaseOriginPrioritiesSupplier;
+.class public abstract Lcom/android/server/timedetector/ServiceConfigAccessor$BaseOriginPrioritiesSupplier;
 .super Ljava/lang/Object;
 .source "ServiceConfigAccessor.java"
 
@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x40a
+    accessFlags = 0x409
     name = "BaseOriginPrioritiesSupplier"
 .end annotation
 
@@ -26,13 +26,25 @@
 
 
 # instance fields
-.field private mLastPriorityInts:[I
+.field public mLastPriorityInts:[I
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "this"
+        }
+    .end annotation
+.end field
 
-.field private mLastPriorityStrings:[Ljava/lang/String;
+.field public mLastPriorityStrings:[Ljava/lang/String;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "this"
+        }
+    .end annotation
+.end field
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,7 +52,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/timedetector/ServiceConfigAccessor$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/timedetector/ServiceConfigAccessor$BaseOriginPrioritiesSupplier-IA;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/timedetector/ServiceConfigAccessor$BaseOriginPrioritiesSupplier;-><init>()V
@@ -51,17 +63,17 @@
 
 # virtual methods
 .method public bridge synthetic get()Ljava/lang/Object;
-    .locals 1
+    .locals 0
 
     invoke-virtual {p0}, Lcom/android/server/timedetector/ServiceConfigAccessor$BaseOriginPrioritiesSupplier;->get()[I
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public get()[I
-    .locals 5
+    .locals 8
 
     invoke-virtual {p0}, Lcom/android/server/timedetector/ServiceConfigAccessor$BaseOriginPrioritiesSupplier;->lookupPriorityStrings()[Ljava/lang/String;
 
@@ -78,11 +90,11 @@
 
     if-eqz v1, :cond_0
 
-    iget-object v1, p0, Lcom/android/server/timedetector/ServiceConfigAccessor$BaseOriginPrioritiesSupplier;->mLastPriorityInts:[I
+    iget-object v0, p0, Lcom/android/server/timedetector/ServiceConfigAccessor$BaseOriginPrioritiesSupplier;->mLastPriorityInts:[I
 
     monitor-exit p0
 
-    return-object v1
+    return-object v0
 
     :cond_0
     const/4 v1, 0x0
@@ -95,63 +107,54 @@
 
     array-length v2, v0
 
-    new-array v2, v2, [I
+    new-array v3, v2, [I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-object v1, v2
+    const/4 v4, 0x0
 
-    const/4 v2, 0x0
+    move v5, v4
 
     :goto_0
+    if-ge v5, v2, :cond_2
+
     :try_start_1
-    array-length v3, v1
+    aget-object v6, v0, v5
 
-    if-ge v2, v3, :cond_2
+    if-eqz v6, :cond_1
 
-    aget-object v3, v0, v2
-
-    if-eqz v3, :cond_1
-
-    const/4 v4, 0x1
+    const/4 v7, 0x1
 
     goto :goto_1
 
     :cond_1
-    const/4 v4, 0x0
+    move v7, v4
 
     :goto_1
-    invoke-static {v4}, Lcom/android/internal/util/Preconditions;->checkArgument(Z)V
+    invoke-static {v7}, Lcom/android/internal/util/Preconditions;->checkArgument(Z)V
 
-    invoke-virtual {v3}, Ljava/lang/String;->trim()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/String;->trim()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v6
 
-    move-object v3, v4
+    invoke-static {v6}, Lcom/android/server/timedetector/TimeDetectorStrategy;->stringToOrigin(Ljava/lang/String;)I
 
-    invoke-static {v3}, Lcom/android/server/timedetector/TimeDetectorStrategy;->stringToOrigin(Ljava/lang/String;)I
+    move-result v6
 
-    move-result v4
-
-    aput v4, v1, v2
+    aput v6, v3, v5
     :try_end_1
     .catch Ljava/lang/IllegalArgumentException; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v5, v5, 0x1
 
     goto :goto_0
 
     :cond_2
-    goto :goto_2
+    move-object v1, v3
 
     :catch_0
-    move-exception v2
-
-    const/4 v1, 0x0
-
     :cond_3
-    :goto_2
     :try_start_2
     iput-object v0, p0, Lcom/android/server/timedetector/ServiceConfigAccessor$BaseOriginPrioritiesSupplier;->mLastPriorityStrings:[Ljava/lang/String;
 
@@ -162,14 +165,14 @@
     return-object v1
 
     :catchall_0
-    move-exception v1
+    move-exception v0
 
     monitor-exit p0
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    throw v1
+    throw v0
 .end method
 
-.method protected abstract lookupPriorityStrings()[Ljava/lang/String;
+.method public abstract lookupPriorityStrings()[Ljava/lang/String;
 .end method

@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/server/soundtrigger_middleware/UptimeTimer$Task;
+.class public interface abstract Lcom/android/server/soundtrigger_middleware/UptimeTimer$Task;
 .super Ljava/lang/Object;
 .source "UptimeTimer.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
+    accessFlags = 0x609
     name = "Task"
 .end annotation
 

@@ -1,4 +1,4 @@
-.class Lcom/android/server/accessibility/magnification/FullScreenMagnificationController$ScreenStateObserver;
+.class public Lcom/android/server/accessibility/magnification/FullScreenMagnificationController$ScreenStateObserver;
 .super Landroid/content/BroadcastReceiver;
 .source "FullScreenMagnificationController.java"
 
@@ -9,21 +9,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "ScreenStateObserver"
 .end annotation
 
 
 # instance fields
-.field private final mContext:Landroid/content/Context;
+.field public final mContext:Landroid/content/Context;
 
-.field private final mController:Lcom/android/server/accessibility/magnification/FullScreenMagnificationController;
+.field public final mController:Lcom/android/server/accessibility/magnification/FullScreenMagnificationController;
 
-.field private mRegistered:Z
+.field public mRegistered:Z
 
 
 # direct methods
-.method constructor <init>(Landroid/content/Context;Lcom/android/server/accessibility/magnification/FullScreenMagnificationController;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/android/server/accessibility/magnification/FullScreenMagnificationController;)V
     .locals 1
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -42,11 +42,11 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/accessibility/magnification/FullScreenMagnificationController$ScreenStateObserver;->mController:Lcom/android/server/accessibility/magnification/FullScreenMagnificationController;
+    iget-object p0, p0, Lcom/android/server/accessibility/magnification/FullScreenMagnificationController$ScreenStateObserver;->mController:Lcom/android/server/accessibility/magnification/FullScreenMagnificationController;
 
-    invoke-static {v0}, Lcom/android/server/accessibility/magnification/FullScreenMagnificationController;->access$1000(Lcom/android/server/accessibility/magnification/FullScreenMagnificationController;)V
+    invoke-static {p0}, Lcom/android/server/accessibility/magnification/FullScreenMagnificationController;->-$$Nest$monScreenTurnedOff(Lcom/android/server/accessibility/magnification/FullScreenMagnificationController;)V
 
     return-void
 .end method

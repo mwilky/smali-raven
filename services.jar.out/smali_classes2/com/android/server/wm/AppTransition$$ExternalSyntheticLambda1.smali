@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/wm/AppTransition$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -27,13 +28,13 @@
 
 # virtual methods
 .method public final run()V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/wm/AppTransition$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/wm/AppTransition;
 
-    iget-object v1, p0, Lcom/android/server/wm/AppTransition$$ExternalSyntheticLambda1;->f$1:Landroid/view/IAppTransitionAnimationSpecsFuture;
+    iget-object p0, p0, Lcom/android/server/wm/AppTransition$$ExternalSyntheticLambda1;->f$1:Landroid/view/IAppTransitionAnimationSpecsFuture;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/wm/AppTransition;->lambda$fetchAppTransitionSpecsFromFuture$1$AppTransition(Landroid/view/IAppTransitionAnimationSpecsFuture;)V
+    invoke-static {v0, p0}, Lcom/android/server/wm/AppTransition;->$r8$lambda$NtxOrTq-_6B5RHmaXqlkWVSTDGQ(Lcom/android/server/wm/AppTransition;Landroid/view/IAppTransitionAnimationSpecsFuture;)V
 
     return-void
 .end method

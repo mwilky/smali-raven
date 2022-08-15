@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;
+.class public Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;
 .super Ljava/lang/Object;
 .source "ActivityRecord.java"
 
@@ -9,369 +9,332 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "CompatDisplayInsets"
 .end annotation
 
 
 # instance fields
-.field private final mHeight:I
+.field public final mHeight:I
 
-.field final mIsFloating:Z
+.field public final mIsFloating:Z
 
-.field final mIsInFixedOrientationLetterbox:Z
+.field public final mIsInFixedOrientationLetterbox:Z
 
-.field final mNonDecorInsets:[Landroid/graphics/Rect;
+.field public final mNonDecorInsets:[Landroid/graphics/Rect;
 
-.field final mOriginalRotation:I
+.field public final mOriginalRequestedOrientation:I
+    .annotation build Landroid/content/res/Configuration$Orientation;
+    .end annotation
+.end field
 
-.field final mStableInsets:[Landroid/graphics/Rect;
+.field public final mOriginalRotation:I
 
-.field private final mWidth:I
+.field public final mStableInsets:[Landroid/graphics/Rect;
+
+.field public final mWidth:I
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/wm/DisplayContent;Lcom/android/server/wm/ActivityRecord;Landroid/graphics/Rect;)V
-    .locals 20
+.method public constructor <init>(Lcom/android/server/wm/DisplayContent;Lcom/android/server/wm/ActivityRecord;Landroid/graphics/Rect;)V
+    .locals 10
 
-    move-object/from16 v0, p0
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    move-object/from16 v1, p1
+    const/4 v0, 0x4
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    new-array v1, v0, [Landroid/graphics/Rect;
 
-    const/4 v2, 0x4
+    iput-object v1, p0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mNonDecorInsets:[Landroid/graphics/Rect;
 
-    new-array v3, v2, [Landroid/graphics/Rect;
+    new-array v1, v0, [Landroid/graphics/Rect;
 
-    iput-object v3, v0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mNonDecorInsets:[Landroid/graphics/Rect;
+    iput-object v1, p0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mStableInsets:[Landroid/graphics/Rect;
 
-    new-array v3, v2, [Landroid/graphics/Rect;
+    invoke-virtual {p1}, Lcom/android/server/wm/DisplayContent;->getRotation()I
 
-    iput-object v3, v0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mStableInsets:[Landroid/graphics/Rect;
+    move-result v1
 
-    invoke-virtual/range {p1 .. p1}, Lcom/android/server/wm/DisplayContent;->getRotation()I
+    iput v1, p0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mOriginalRotation:I
 
-    move-result v3
+    invoke-virtual {p2}, Lcom/android/server/wm/ConfigurationContainer;->getWindowConfiguration()Landroid/app/WindowConfiguration;
 
-    iput v3, v0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mOriginalRotation:I
+    move-result-object v1
 
-    invoke-virtual/range {p2 .. p2}, Lcom/android/server/wm/ActivityRecord;->getWindowConfiguration()Landroid/app/WindowConfiguration;
+    invoke-virtual {v1}, Landroid/app/WindowConfiguration;->tasksAreFloating()Z
 
-    move-result-object v3
+    move-result v1
 
-    invoke-virtual {v3}, Landroid/app/WindowConfiguration;->tasksAreFloating()Z
+    iput-boolean v1, p0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mIsFloating:Z
 
-    move-result v3
+    invoke-virtual {p2}, Lcom/android/server/wm/WindowContainer;->getRequestedConfigurationOrientation()I
 
-    iput-boolean v3, v0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mIsFloating:Z
+    move-result v2
 
-    const/4 v4, 0x0
+    iput v2, p0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mOriginalRequestedOrientation:I
 
-    if-eqz v3, :cond_1
+    const/4 v2, 0x0
 
-    invoke-virtual/range {p2 .. p2}, Lcom/android/server/wm/ActivityRecord;->getWindowConfiguration()Landroid/app/WindowConfiguration;
+    if-eqz v1, :cond_1
 
-    move-result-object v3
+    invoke-virtual {p2}, Lcom/android/server/wm/ConfigurationContainer;->getWindowConfiguration()Landroid/app/WindowConfiguration;
 
-    invoke-virtual {v3}, Landroid/app/WindowConfiguration;->getBounds()Landroid/graphics/Rect;
+    move-result-object p1
 
-    move-result-object v3
+    invoke-virtual {p1}, Landroid/app/WindowConfiguration;->getBounds()Landroid/graphics/Rect;
 
-    invoke-virtual {v3}, Landroid/graphics/Rect;->width()I
+    move-result-object p1
 
-    move-result v5
+    invoke-virtual {p1}, Landroid/graphics/Rect;->width()I
 
-    iput v5, v0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mWidth:I
+    move-result p2
 
-    invoke-virtual {v3}, Landroid/graphics/Rect;->height()I
+    iput p2, p0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mWidth:I
 
-    move-result v5
+    invoke-virtual {p1}, Landroid/graphics/Rect;->height()I
 
-    iput v5, v0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mHeight:I
+    move-result p1
 
-    new-instance v5, Landroid/graphics/Rect;
+    iput p1, p0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mHeight:I
 
-    invoke-direct {v5}, Landroid/graphics/Rect;-><init>()V
+    new-instance p1, Landroid/graphics/Rect;
 
-    const/4 v6, 0x0
+    invoke-direct {p1}, Landroid/graphics/Rect;-><init>()V
+
+    move p2, v2
 
     :goto_0
-    if-ge v6, v2, :cond_0
+    if-ge p2, v0, :cond_0
 
-    iget-object v7, v0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mNonDecorInsets:[Landroid/graphics/Rect;
+    iget-object p3, p0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mNonDecorInsets:[Landroid/graphics/Rect;
 
-    aput-object v5, v7, v6
+    aput-object p1, p3, p2
 
-    iget-object v7, v0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mStableInsets:[Landroid/graphics/Rect;
+    iget-object p3, p0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mStableInsets:[Landroid/graphics/Rect;
 
-    aput-object v5, v7, v6
+    aput-object p1, p3, p2
 
-    add-int/lit8 v6, v6, 0x1
+    add-int/lit8 p2, p2, 0x1
 
     goto :goto_0
 
     :cond_0
-    iput-boolean v4, v0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mIsInFixedOrientationLetterbox:Z
+    iput-boolean v2, p0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mIsInFixedOrientationLetterbox:Z
 
     return-void
 
     :cond_1
-    invoke-virtual/range {p2 .. p2}, Lcom/android/server/wm/ActivityRecord;->getTask()Lcom/android/server/wm/Task;
+    invoke-virtual {p2}, Lcom/android/server/wm/ActivityRecord;->getTask()Lcom/android/server/wm/Task;
 
-    move-result-object v3
+    move-result-object p2
 
-    const/4 v5, 0x1
+    const/4 v1, 0x1
 
     if-eqz p3, :cond_2
 
-    move v6, v5
+    move v3, v1
 
     goto :goto_1
 
     :cond_2
-    move v6, v4
+    move v3, v2
 
     :goto_1
-    iput-boolean v6, v0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mIsInFixedOrientationLetterbox:Z
+    iput-boolean v3, p0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mIsInFixedOrientationLetterbox:Z
 
-    if-eqz v6, :cond_3
-
-    move-object/from16 v6, p3
+    if-eqz v3, :cond_3
 
     goto :goto_2
 
     :cond_3
-    if-eqz v3, :cond_4
+    if-eqz p2, :cond_4
 
-    invoke-virtual {v3}, Lcom/android/server/wm/Task;->getBounds()Landroid/graphics/Rect;
+    invoke-virtual {p2}, Lcom/android/server/wm/ConfigurationContainer;->getBounds()Landroid/graphics/Rect;
 
-    move-result-object v6
+    move-result-object p3
 
     goto :goto_2
 
     :cond_4
-    invoke-virtual/range {p1 .. p1}, Lcom/android/server/wm/DisplayContent;->getBounds()Landroid/graphics/Rect;
+    invoke-virtual {p1}, Lcom/android/server/wm/ConfigurationContainer;->getBounds()Landroid/graphics/Rect;
 
-    move-result-object v6
+    move-result-object p3
 
     :goto_2
-    nop
+    if-eqz p2, :cond_5
 
-    if-eqz v3, :cond_5
+    invoke-virtual {p2}, Lcom/android/server/wm/ConfigurationContainer;->getConfiguration()Landroid/content/res/Configuration;
 
-    invoke-virtual {v3}, Lcom/android/server/wm/Task;->getConfiguration()Landroid/content/res/Configuration;
+    move-result-object p2
 
-    move-result-object v7
+    iget-object p2, p2, Landroid/content/res/Configuration;->windowConfiguration:Landroid/app/WindowConfiguration;
 
-    iget-object v7, v7, Landroid/content/res/Configuration;->windowConfiguration:Landroid/app/WindowConfiguration;
+    invoke-virtual {p2}, Landroid/app/WindowConfiguration;->getRotation()I
 
-    invoke-virtual {v7}, Landroid/app/WindowConfiguration;->getRotation()I
-
-    move-result v7
+    move-result p2
 
     goto :goto_3
 
     :cond_5
-    invoke-virtual/range {p1 .. p1}, Lcom/android/server/wm/DisplayContent;->getConfiguration()Landroid/content/res/Configuration;
+    invoke-virtual {p1}, Lcom/android/server/wm/ConfigurationContainer;->getConfiguration()Landroid/content/res/Configuration;
 
-    move-result-object v7
+    move-result-object p2
 
-    iget-object v7, v7, Landroid/content/res/Configuration;->windowConfiguration:Landroid/app/WindowConfiguration;
+    iget-object p2, p2, Landroid/content/res/Configuration;->windowConfiguration:Landroid/app/WindowConfiguration;
 
-    invoke-virtual {v7}, Landroid/app/WindowConfiguration;->getRotation()I
+    invoke-virtual {p2}, Landroid/app/WindowConfiguration;->getRotation()I
 
-    move-result v7
+    move-result p2
 
     :goto_3
-    nop
+    invoke-static {p3, p2}, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->getRotationZeroDimensions(Landroid/graphics/Rect;I)Landroid/graphics/Point;
 
-    invoke-static {v6, v7}, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->getRotationZeroDimensions(Landroid/graphics/Rect;I)Landroid/graphics/Point;
+    move-result-object v3
 
-    move-result-object v8
+    iget v4, v3, Landroid/graphics/Point;->x:I
 
-    iget v9, v8, Landroid/graphics/Point;->x:I
+    iput v4, p0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mWidth:I
 
-    iput v9, v0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mWidth:I
+    iget v3, v3, Landroid/graphics/Point;->y:I
 
-    iget v9, v8, Landroid/graphics/Point;->y:I
+    iput v3, p0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mHeight:I
 
-    iput v9, v0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mHeight:I
+    invoke-virtual {p1}, Lcom/android/server/wm/ConfigurationContainer;->getBounds()Landroid/graphics/Rect;
 
-    invoke-virtual/range {p1 .. p1}, Lcom/android/server/wm/DisplayContent;->getBounds()Landroid/graphics/Rect;
+    move-result-object v3
 
-    move-result-object v9
+    invoke-virtual {p3, v3}, Landroid/graphics/Rect;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v6, v9}, Landroid/graphics/Rect;->equals(Ljava/lang/Object;)Z
+    move-result v3
 
-    move-result v9
+    if-eqz v3, :cond_6
 
-    if-eqz v9, :cond_6
-
-    const/4 v9, 0x0
+    const/4 v3, 0x0
 
     goto :goto_4
 
     :cond_6
-    new-instance v9, Landroid/graphics/Rect;
+    new-instance v3, Landroid/graphics/Rect;
 
-    invoke-direct {v9}, Landroid/graphics/Rect;-><init>()V
+    invoke-direct {v3}, Landroid/graphics/Rect;-><init>()V
 
     :goto_4
-    invoke-virtual/range {p1 .. p1}, Lcom/android/server/wm/DisplayContent;->getDisplayPolicy()Lcom/android/server/wm/DisplayPolicy;
+    invoke-virtual {p1}, Lcom/android/server/wm/DisplayContent;->getDisplayPolicy()Lcom/android/server/wm/DisplayPolicy;
 
-    move-result-object v15
+    move-result-object v4
 
-    const/4 v10, 0x0
-
-    move v14, v10
+    move v5, v2
 
     :goto_5
-    if-ge v14, v2, :cond_c
+    if-ge v5, v0, :cond_c
 
-    iget-object v10, v0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mNonDecorInsets:[Landroid/graphics/Rect;
+    iget-object v6, p0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mNonDecorInsets:[Landroid/graphics/Rect;
 
-    new-instance v11, Landroid/graphics/Rect;
+    new-instance v7, Landroid/graphics/Rect;
 
-    invoke-direct {v11}, Landroid/graphics/Rect;-><init>()V
+    invoke-direct {v7}, Landroid/graphics/Rect;-><init>()V
 
-    aput-object v11, v10, v14
+    aput-object v7, v6, v5
 
-    iget-object v10, v0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mStableInsets:[Landroid/graphics/Rect;
+    iget-object v6, p0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mStableInsets:[Landroid/graphics/Rect;
 
-    new-instance v11, Landroid/graphics/Rect;
+    new-instance v7, Landroid/graphics/Rect;
 
-    invoke-direct {v11}, Landroid/graphics/Rect;-><init>()V
+    invoke-direct {v7}, Landroid/graphics/Rect;-><init>()V
 
-    aput-object v11, v10, v14
+    aput-object v7, v6, v5
 
-    if-eq v14, v5, :cond_8
+    if-eq v5, v1, :cond_8
 
-    const/4 v10, 0x3
+    const/4 v6, 0x3
 
-    if-ne v14, v10, :cond_7
+    if-ne v5, v6, :cond_7
 
     goto :goto_6
 
     :cond_7
-    move v10, v4
+    move v6, v2
 
     goto :goto_7
 
     :cond_8
     :goto_6
-    move v10, v5
+    move v6, v1
 
     :goto_7
-    move/from16 v16, v10
+    if-eqz v6, :cond_9
 
-    if-eqz v16, :cond_9
-
-    iget v10, v1, Lcom/android/server/wm/DisplayContent;->mBaseDisplayHeight:I
+    iget v7, p1, Lcom/android/server/wm/DisplayContent;->mBaseDisplayHeight:I
 
     goto :goto_8
 
     :cond_9
-    iget v10, v1, Lcom/android/server/wm/DisplayContent;->mBaseDisplayWidth:I
+    iget v7, p1, Lcom/android/server/wm/DisplayContent;->mBaseDisplayWidth:I
 
     :goto_8
-    move v13, v10
+    if-eqz v6, :cond_a
 
-    if-eqz v16, :cond_a
-
-    iget v10, v1, Lcom/android/server/wm/DisplayContent;->mBaseDisplayWidth:I
+    iget v6, p1, Lcom/android/server/wm/DisplayContent;->mBaseDisplayWidth:I
 
     goto :goto_9
 
     :cond_a
-    iget v10, v1, Lcom/android/server/wm/DisplayContent;->mBaseDisplayHeight:I
+    iget v6, p1, Lcom/android/server/wm/DisplayContent;->mBaseDisplayHeight:I
 
     :goto_9
-    move v12, v10
+    invoke-virtual {p1, v5}, Lcom/android/server/wm/DisplayContent;->calculateDisplayCutoutForRotation(I)Lcom/android/server/wm/utils/WmDisplayCutout;
 
-    invoke-virtual {v1, v14}, Lcom/android/server/wm/DisplayContent;->calculateDisplayCutoutForRotation(I)Lcom/android/server/wm/utils/WmDisplayCutout;
+    move-result-object v8
 
-    move-result-object v10
+    invoke-virtual {v8}, Lcom/android/server/wm/utils/WmDisplayCutout;->getDisplayCutout()Landroid/view/DisplayCutout;
 
-    invoke-virtual {v10}, Lcom/android/server/wm/utils/WmDisplayCutout;->getDisplayCutout()Landroid/view/DisplayCutout;
+    move-result-object v8
 
-    move-result-object v17
+    iget-object v9, p0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mNonDecorInsets:[Landroid/graphics/Rect;
 
-    iget-object v10, v0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mNonDecorInsets:[Landroid/graphics/Rect;
+    aget-object v9, v9, v5
 
-    aget-object v18, v10, v14
+    invoke-virtual {v4, v5, v8, v9}, Lcom/android/server/wm/DisplayPolicy;->getNonDecorInsetsLw(ILandroid/view/DisplayCutout;Landroid/graphics/Rect;)V
 
-    move-object v10, v15
+    iget-object v8, p0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mStableInsets:[Landroid/graphics/Rect;
 
-    move v11, v14
+    aget-object v8, v8, v5
 
-    move/from16 v19, v12
+    iget-object v9, p0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mNonDecorInsets:[Landroid/graphics/Rect;
 
-    move v12, v13
+    aget-object v9, v9, v5
 
-    move v2, v13
+    invoke-virtual {v8, v9}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
 
-    move/from16 v13, v19
+    iget-object v8, p0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mStableInsets:[Landroid/graphics/Rect;
 
-    move v4, v14
+    aget-object v8, v8, v5
 
-    move-object/from16 v14, v17
+    invoke-virtual {v4, v8, v5}, Lcom/android/server/wm/DisplayPolicy;->convertNonDecorInsetsToStableInsets(Landroid/graphics/Rect;I)V
 
-    move-object v5, v15
-
-    move-object/from16 v15, v18
-
-    invoke-virtual/range {v10 .. v15}, Lcom/android/server/wm/DisplayPolicy;->getNonDecorInsetsLw(IIILandroid/view/DisplayCutout;Landroid/graphics/Rect;)V
-
-    iget-object v10, v0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mStableInsets:[Landroid/graphics/Rect;
-
-    aget-object v10, v10, v4
-
-    iget-object v11, v0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mNonDecorInsets:[Landroid/graphics/Rect;
-
-    aget-object v11, v11, v4
-
-    invoke-virtual {v10, v11}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
-
-    iget-object v10, v0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mStableInsets:[Landroid/graphics/Rect;
-
-    aget-object v10, v10, v4
-
-    invoke-virtual {v5, v10, v4}, Lcom/android/server/wm/DisplayPolicy;->convertNonDecorInsetsToStableInsets(Landroid/graphics/Rect;I)V
-
-    if-nez v9, :cond_b
+    if-nez v3, :cond_b
 
     goto :goto_a
 
     :cond_b
-    invoke-virtual {v9, v6}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
+    invoke-virtual {v3, p3}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
 
-    invoke-virtual {v1, v7, v4, v9}, Lcom/android/server/wm/DisplayContent;->rotateBounds(IILandroid/graphics/Rect;)V
+    invoke-virtual {p1, p2, v5, v3}, Lcom/android/server/wm/DisplayContent;->rotateBounds(IILandroid/graphics/Rect;)V
 
-    iget-object v10, v0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mNonDecorInsets:[Landroid/graphics/Rect;
+    iget-object v8, p0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mNonDecorInsets:[Landroid/graphics/Rect;
 
-    aget-object v10, v10, v4
+    aget-object v8, v8, v5
 
-    move/from16 v11, v19
+    invoke-static {v3, v7, v6, v8}, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->updateInsetsForBounds(Landroid/graphics/Rect;IILandroid/graphics/Rect;)V
 
-    invoke-static {v9, v2, v11, v10}, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->updateInsetsForBounds(Landroid/graphics/Rect;IILandroid/graphics/Rect;)V
+    iget-object v8, p0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mStableInsets:[Landroid/graphics/Rect;
 
-    iget-object v10, v0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mStableInsets:[Landroid/graphics/Rect;
+    aget-object v8, v8, v5
 
-    aget-object v10, v10, v4
-
-    invoke-static {v9, v2, v11, v10}, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->updateInsetsForBounds(Landroid/graphics/Rect;IILandroid/graphics/Rect;)V
+    invoke-static {v3, v7, v6, v8}, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->updateInsetsForBounds(Landroid/graphics/Rect;IILandroid/graphics/Rect;)V
 
     :goto_a
-    add-int/lit8 v14, v4, 0x1
-
-    move-object v15, v5
-
-    const/4 v2, 0x4
-
-    const/4 v4, 0x0
-
-    const/4 v5, 0x1
+    add-int/lit8 v5, v5, 0x1
 
     goto :goto_5
 
@@ -379,8 +342,8 @@
     return-void
 .end method
 
-.method private static getRotationZeroDimensions(Landroid/graphics/Rect;I)Landroid/graphics/Point;
-    .locals 4
+.method public static getRotationZeroDimensions(Landroid/graphics/Rect;I)Landroid/graphics/Point;
+    .locals 2
 
     const/4 v0, 0x1
 
@@ -399,28 +362,30 @@
     :goto_0
     invoke-virtual {p0}, Landroid/graphics/Rect;->width()I
 
-    move-result v1
+    move-result p1
 
     invoke-virtual {p0}, Landroid/graphics/Rect;->height()I
 
-    move-result v2
-
-    new-instance v3, Landroid/graphics/Point;
+    move-result p0
 
     if-eqz v0, :cond_2
 
-    invoke-direct {v3, v2, v1}, Landroid/graphics/Point;-><init>(II)V
+    new-instance v0, Landroid/graphics/Point;
+
+    invoke-direct {v0, p0, p1}, Landroid/graphics/Point;-><init>(II)V
 
     goto :goto_1
 
     :cond_2
-    invoke-direct {v3, v1, v2}, Landroid/graphics/Point;-><init>(II)V
+    new-instance v0, Landroid/graphics/Point;
+
+    invoke-direct {v0, p1, p0}, Landroid/graphics/Point;-><init>(II)V
 
     :goto_1
-    return-object v3
+    return-object v0
 .end method
 
-.method private static updateInsetsForBounds(Landroid/graphics/Rect;IILandroid/graphics/Rect;)V
+.method public static updateInsetsForBounds(Landroid/graphics/Rect;IILandroid/graphics/Rect;)V
     .locals 3
 
     iget v0, p3, Landroid/graphics/Rect;->left:I
@@ -453,37 +418,37 @@
 
     sub-int/2addr v0, p1
 
-    iget v2, p3, Landroid/graphics/Rect;->right:I
+    iget p1, p3, Landroid/graphics/Rect;->right:I
 
-    add-int/2addr v0, v2
-
-    invoke-static {v1, v0}, Ljava/lang/Math;->max(II)I
-
-    move-result v0
-
-    iput v0, p3, Landroid/graphics/Rect;->right:I
-
-    iget v0, p0, Landroid/graphics/Rect;->bottom:I
-
-    sub-int/2addr v0, p2
-
-    iget v2, p3, Landroid/graphics/Rect;->bottom:I
-
-    add-int/2addr v0, v2
+    add-int/2addr v0, p1
 
     invoke-static {v1, v0}, Ljava/lang/Math;->max(II)I
 
-    move-result v0
+    move-result p1
 
-    iput v0, p3, Landroid/graphics/Rect;->bottom:I
+    iput p1, p3, Landroid/graphics/Rect;->right:I
+
+    iget p0, p0, Landroid/graphics/Rect;->bottom:I
+
+    sub-int/2addr p0, p2
+
+    iget p1, p3, Landroid/graphics/Rect;->bottom:I
+
+    add-int/2addr p0, p1
+
+    invoke-static {v1, p0}, Ljava/lang/Math;->max(II)I
+
+    move-result p0
+
+    iput p0, p3, Landroid/graphics/Rect;->bottom:I
 
     return-void
 .end method
 
 
 # virtual methods
-.method getBoundsByRotation(Landroid/graphics/Rect;I)V
-    .locals 4
+.method public getBoundsByRotation(Landroid/graphics/Rect;I)V
+    .locals 3
 
     const/4 v0, 0x1
 
@@ -504,30 +469,30 @@
     :goto_0
     if-eqz v0, :cond_2
 
-    iget v2, p0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mHeight:I
+    iget p2, p0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mHeight:I
 
     goto :goto_1
 
     :cond_2
-    iget v2, p0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mWidth:I
+    iget p2, p0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mWidth:I
 
     :goto_1
     if-eqz v0, :cond_3
 
-    iget v3, p0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mWidth:I
+    iget p0, p0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mWidth:I
 
     goto :goto_2
 
     :cond_3
-    iget v3, p0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mHeight:I
+    iget p0, p0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mHeight:I
 
     :goto_2
-    invoke-virtual {p1, v1, v1, v2, v3}, Landroid/graphics/Rect;->set(IIII)V
+    invoke-virtual {p1, v1, v1, p2, p0}, Landroid/graphics/Rect;->set(IIII)V
 
     return-void
 .end method
 
-.method getContainerBounds(Landroid/graphics/Rect;Landroid/graphics/Rect;IIZZ)V
+.method public getContainerBounds(Landroid/graphics/Rect;Landroid/graphics/Rect;IIZZ)V
     .locals 6
 
     invoke-virtual {p0, p2, p4}, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->getFrameByOrientation(Landroid/graphics/Rect;I)V
@@ -550,8 +515,6 @@
     invoke-virtual {p1}, Landroid/graphics/Rect;->height()I
 
     move-result v1
-
-    nop
 
     invoke-virtual {p2}, Landroid/graphics/Rect;->width()I
 
@@ -593,31 +556,27 @@
     move v4, v5
 
     :goto_2
-    move v2, v4
-
-    if-eqz v2, :cond_5
+    if-eqz v4, :cond_5
 
     if-eqz p6, :cond_5
 
     if-eqz p5, :cond_5
 
-    const/4 v3, 0x2
+    const/4 p5, 0x2
 
-    if-ne p4, v3, :cond_4
+    if-ne p4, p5, :cond_4
 
-    int-to-float v3, v0
+    int-to-float p4, v0
 
-    int-to-float v4, v0
+    mul-float/2addr p4, p4
 
-    mul-float/2addr v3, v4
+    int-to-float p5, v1
 
-    int-to-float v4, v1
+    div-float/2addr p4, p5
 
-    div-float/2addr v3, v4
+    float-to-int p4, p4
 
-    float-to-int v3, v3
-
-    iput v3, p2, Landroid/graphics/Rect;->bottom:I
+    iput p4, p2, Landroid/graphics/Rect;->bottom:I
 
     iput v0, p2, Landroid/graphics/Rect;->right:I
 
@@ -626,79 +585,72 @@
     :cond_4
     iput v1, p2, Landroid/graphics/Rect;->bottom:I
 
-    int-to-float v3, v1
+    int-to-float p4, v1
 
-    int-to-float v4, v1
+    mul-float/2addr p4, p4
 
-    mul-float/2addr v3, v4
+    int-to-float p5, v0
 
-    int-to-float v4, v0
+    div-float/2addr p4, p5
 
-    div-float/2addr v3, v4
+    float-to-int p4, p4
 
-    float-to-int v3, v3
-
-    iput v3, p2, Landroid/graphics/Rect;->right:I
+    iput p4, p2, Landroid/graphics/Rect;->right:I
 
     :goto_3
-    iget v3, p0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mWidth:I
+    iget p4, p0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mWidth:I
 
     invoke-virtual {p2}, Landroid/graphics/Rect;->width()I
 
-    move-result v4
+    move-result p5
 
-    invoke-static {v3, v4}, Lcom/android/server/wm/ActivityRecord;->access$800(II)I
+    invoke-static {p4, p5}, Lcom/android/server/wm/ActivityRecord;->-$$Nest$smgetHorizontalCenterOffset(II)I
 
-    move-result v3
+    move-result p4
 
-    invoke-virtual {p2, v3, v5}, Landroid/graphics/Rect;->offset(II)V
+    invoke-virtual {p2, p4, v5}, Landroid/graphics/Rect;->offset(II)V
 
     :cond_5
     invoke-virtual {p1, p2}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
 
-    if-eqz v2, :cond_6
+    if-eqz v4, :cond_6
 
-    iget-object v3, p0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mNonDecorInsets:[Landroid/graphics/Rect;
+    iget-object p0, p0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mNonDecorInsets:[Landroid/graphics/Rect;
 
-    aget-object v3, v3, p3
+    aget-object p0, p0, p3
 
-    iget v4, v3, Landroid/graphics/Rect;->left:I
+    iget p3, p0, Landroid/graphics/Rect;->left:I
 
-    iget v5, v3, Landroid/graphics/Rect;->top:I
+    iget p4, p0, Landroid/graphics/Rect;->top:I
 
-    invoke-virtual {p2, v4, v5}, Landroid/graphics/Rect;->offset(II)V
+    invoke-virtual {p2, p3, p4}, Landroid/graphics/Rect;->offset(II)V
 
-    iget v4, v3, Landroid/graphics/Rect;->left:I
+    iget p2, p0, Landroid/graphics/Rect;->left:I
 
-    iget v5, v3, Landroid/graphics/Rect;->top:I
+    iget p0, p0, Landroid/graphics/Rect;->top:I
 
-    invoke-virtual {p1, v4, v5}, Landroid/graphics/Rect;->offset(II)V
+    invoke-virtual {p1, p2, p0}, Landroid/graphics/Rect;->offset(II)V
 
     goto :goto_4
 
     :cond_6
-    const/4 v3, -0x1
+    const/4 p4, -0x1
 
-    if-eq p3, v3, :cond_7
+    if-eq p3, p4, :cond_7
 
-    iget-object v3, p0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mNonDecorInsets:[Landroid/graphics/Rect;
+    iget-object p0, p0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mNonDecorInsets:[Landroid/graphics/Rect;
 
-    aget-object v3, v3, p3
+    aget-object p0, p0, p3
 
-    invoke-static {p1, p2, v3}, Lcom/android/server/wm/TaskFragment;->intersectWithInsetsIfFits(Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;)V
-
-    goto :goto_5
+    invoke-static {p1, p2, p0}, Lcom/android/server/wm/TaskFragment;->intersectWithInsetsIfFits(Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;)V
 
     :cond_7
     :goto_4
-    nop
-
-    :goto_5
     return-void
 .end method
 
-.method getFrameByOrientation(Landroid/graphics/Rect;I)V
-    .locals 6
+.method public getFrameByOrientation(Landroid/graphics/Rect;I)V
+    .locals 3
 
     iget v0, p0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mWidth:I
 
@@ -710,47 +662,42 @@
 
     iget v1, p0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mWidth:I
 
-    iget v2, p0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mHeight:I
+    iget p0, p0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mHeight:I
 
-    invoke-static {v1, v2}, Ljava/lang/Math;->min(II)I
+    invoke-static {v1, p0}, Ljava/lang/Math;->min(II)I
 
-    move-result v1
+    move-result p0
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    const/4 v3, 0x2
+    const/4 v2, 0x2
 
-    if-ne p2, v3, :cond_0
+    if-ne p2, v2, :cond_0
 
-    const/4 v3, 0x1
+    const/4 p2, 0x1
 
     goto :goto_0
 
     :cond_0
-    move v3, v2
+    move p2, v1
 
     :goto_0
-    if-eqz v3, :cond_1
+    if-eqz p2, :cond_1
 
-    move v4, v0
+    move v2, v0
 
     goto :goto_1
 
     :cond_1
-    move v4, v1
+    move v2, p0
 
     :goto_1
-    if-eqz v3, :cond_2
+    if-eqz p2, :cond_2
 
-    move v5, v1
-
-    goto :goto_2
+    move v0, p0
 
     :cond_2
-    move v5, v0
-
-    :goto_2
-    invoke-virtual {p1, v2, v2, v4, v5}, Landroid/graphics/Rect;->set(IIII)V
+    invoke-virtual {p1, v1, v1, v2, v0}, Landroid/graphics/Rect;->set(IIII)V
 
     return-void
 .end method

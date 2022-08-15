@@ -4,9 +4,9 @@
 
 
 # instance fields
-.field private mEndIndex:I
+.field public mEndIndex:I
 
-.field private mStartIndex:I
+.field public mStartIndex:I
 
 
 # direct methods
@@ -29,53 +29,47 @@
 
     iget v0, p0, Lcom/android/server/integrity/parser/RuleIndexRange;->mStartIndex:I
 
-    move-object v1, p1
+    check-cast p1, Lcom/android/server/integrity/parser/RuleIndexRange;
 
-    check-cast v1, Lcom/android/server/integrity/parser/RuleIndexRange;
-
-    invoke-virtual {v1}, Lcom/android/server/integrity/parser/RuleIndexRange;->getStartIndex()I
+    invoke-virtual {p1}, Lcom/android/server/integrity/parser/RuleIndexRange;->getStartIndex()I
 
     move-result v1
 
     if-ne v0, v1, :cond_0
 
-    iget v0, p0, Lcom/android/server/integrity/parser/RuleIndexRange;->mEndIndex:I
+    iget p0, p0, Lcom/android/server/integrity/parser/RuleIndexRange;->mEndIndex:I
 
-    move-object v1, p1
+    invoke-virtual {p1}, Lcom/android/server/integrity/parser/RuleIndexRange;->getEndIndex()I
 
-    check-cast v1, Lcom/android/server/integrity/parser/RuleIndexRange;
+    move-result p1
 
-    invoke-virtual {v1}, Lcom/android/server/integrity/parser/RuleIndexRange;->getEndIndex()I
+    if-ne p0, p1, :cond_0
 
-    move-result v1
-
-    if-ne v0, v1, :cond_0
-
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method public getEndIndex()I
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/integrity/parser/RuleIndexRange;->mEndIndex:I
+    iget p0, p0, Lcom/android/server/integrity/parser/RuleIndexRange;->mEndIndex:I
 
-    return v0
+    return p0
 .end method
 
 .method public getStartIndex()I
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/integrity/parser/RuleIndexRange;->mStartIndex:I
+    iget p0, p0, Lcom/android/server/integrity/parser/RuleIndexRange;->mStartIndex:I
 
-    return v0
+    return p0
 .end method
 
 .method public toString()Ljava/lang/String;
@@ -95,21 +89,21 @@
 
     aput-object v1, v0, v2
 
-    iget v1, p0, Lcom/android/server/integrity/parser/RuleIndexRange;->mEndIndex:I
+    iget p0, p0, Lcom/android/server/integrity/parser/RuleIndexRange;->mEndIndex:I
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v1
+    move-result-object p0
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    aput-object v1, v0, v2
+    aput-object p0, v0, v1
 
-    const-string v1, "Range{%d, %d}"
+    const-string p0, "Range{%d, %d}"
 
-    invoke-static {v1, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p0, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

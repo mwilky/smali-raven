@@ -1,4 +1,4 @@
-.class Lcom/android/server/hdmi/RequestArcInitiationAction$1;
+.class public Lcom/android/server/hdmi/RequestArcInitiationAction$1;
 .super Ljava/lang/Object;
 .source "RequestArcInitiationAction.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/hdmi/RequestArcInitiationAction;
+.field public final synthetic this$0:Lcom/android/server/hdmi/RequestArcInitiationAction;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/hdmi/RequestArcInitiationAction;)V
+.method public constructor <init>(Lcom/android/server/hdmi/RequestArcInitiationAction;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/hdmi/RequestArcInitiationAction$1;->this$0:Lcom/android/server/hdmi/RequestArcInitiationAction;
@@ -35,23 +35,21 @@
 
 # virtual methods
 .method public onSendCompleted(I)V
-    .locals 2
+    .locals 0
 
     if-eqz p1, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/hdmi/RequestArcInitiationAction$1;->this$0:Lcom/android/server/hdmi/RequestArcInitiationAction;
+    iget-object p1, p0, Lcom/android/server/hdmi/RequestArcInitiationAction$1;->this$0:Lcom/android/server/hdmi/RequestArcInitiationAction;
 
-    invoke-virtual {v0}, Lcom/android/server/hdmi/RequestArcInitiationAction;->tv()Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;
+    invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecFeatureAction;->tv()Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;
 
-    move-result-object v0
+    move-result-object p1
 
-    const/4 v1, 0x0
+    invoke-virtual {p1}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->disableArc()V
 
-    invoke-virtual {v0, v1}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->setArcStatus(Z)Z
+    iget-object p0, p0, Lcom/android/server/hdmi/RequestArcInitiationAction$1;->this$0:Lcom/android/server/hdmi/RequestArcInitiationAction;
 
-    iget-object v0, p0, Lcom/android/server/hdmi/RequestArcInitiationAction$1;->this$0:Lcom/android/server/hdmi/RequestArcInitiationAction;
-
-    invoke-virtual {v0}, Lcom/android/server/hdmi/RequestArcInitiationAction;->finish()V
+    invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiCecFeatureAction;->finish()V
 
     :cond_0
     return-void

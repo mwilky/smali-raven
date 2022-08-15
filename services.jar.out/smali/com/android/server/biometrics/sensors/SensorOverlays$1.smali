@@ -1,4 +1,4 @@
-.class Lcom/android/server/biometrics/sensors/SensorOverlays$1;
+.class public Lcom/android/server/biometrics/sensors/SensorOverlays$1;
 .super Landroid/hardware/fingerprint/IUdfpsOverlayControllerCallback$Stub;
 .source "SensorOverlays.java"
 
@@ -9,19 +9,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/biometrics/sensors/SensorOverlays;
+.field public final synthetic this$0:Lcom/android/server/biometrics/sensors/SensorOverlays;
 
-.field final synthetic val$client:Lcom/android/server/biometrics/sensors/AcquisitionClient;
+.field public final synthetic val$client:Lcom/android/server/biometrics/sensors/AcquisitionClient;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/biometrics/sensors/SensorOverlays;Lcom/android/server/biometrics/sensors/AcquisitionClient;)V
+.method public constructor <init>(Lcom/android/server/biometrics/sensors/SensorOverlays;Lcom/android/server/biometrics/sensors/AcquisitionClient;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/biometrics/sensors/SensorOverlays$1;->this$0:Lcom/android/server/biometrics/sensors/SensorOverlays;
@@ -36,11 +36,11 @@
 
 # virtual methods
 .method public onUserCanceled()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/biometrics/sensors/SensorOverlays$1;->val$client:Lcom/android/server/biometrics/sensors/AcquisitionClient;
+    iget-object p0, p0, Lcom/android/server/biometrics/sensors/SensorOverlays$1;->val$client:Lcom/android/server/biometrics/sensors/AcquisitionClient;
 
-    invoke-virtual {v0}, Lcom/android/server/biometrics/sensors/AcquisitionClient;->onUserCanceled()V
+    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/AcquisitionClient;->onUserCanceled()V
 
     return-void
 .end method

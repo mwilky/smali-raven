@@ -7,6 +7,10 @@
 
 
 # annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    visibility = .enum Lcom/android/internal/annotations/VisibleForTesting$Visibility;->PACKAGE:Lcom/android/internal/annotations/VisibleForTesting$Visibility;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/android/server/accessibility/AccessibilityWindowManager;
 .end annotation
@@ -18,21 +22,21 @@
 
 
 # instance fields
-.field private final mConnection:Landroid/view/accessibility/IAccessibilityInteractionConnection;
+.field public final mConnection:Landroid/view/accessibility/IAccessibilityInteractionConnection;
 
-.field private final mPackageName:Ljava/lang/String;
+.field public final mPackageName:Ljava/lang/String;
 
-.field private final mUid:I
+.field public final mUid:I
 
-.field private final mUserId:I
+.field public final mUserId:I
 
-.field private final mWindowId:I
+.field public final mWindowId:I
 
-.field final synthetic this$0:Lcom/android/server/accessibility/AccessibilityWindowManager;
+.field public final synthetic this$0:Lcom/android/server/accessibility/AccessibilityWindowManager;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/accessibility/AccessibilityWindowManager;ILandroid/view/accessibility/IAccessibilityInteractionConnection;Ljava/lang/String;II)V
+.method public constructor <init>(Lcom/android/server/accessibility/AccessibilityWindowManager;ILandroid/view/accessibility/IAccessibilityInteractionConnection;Ljava/lang/String;II)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->this$0:Lcom/android/server/accessibility/AccessibilityWindowManager;
@@ -55,13 +59,13 @@
 
 # virtual methods
 .method public binderDied()V
-    .locals 4
+    .locals 3
 
     invoke-virtual {p0}, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->unlinkToDeath()V
 
     iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->this$0:Lcom/android/server/accessibility/AccessibilityWindowManager;
 
-    invoke-static {v0}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$500(Lcom/android/server/accessibility/AccessibilityWindowManager;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/server/accessibility/AccessibilityWindowManager;->-$$Nest$fgetmLock(Lcom/android/server/accessibility/AccessibilityWindowManager;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -72,49 +76,49 @@
 
     iget v2, p0, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->mWindowId:I
 
-    iget v3, p0, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->mUserId:I
+    iget p0, p0, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->mUserId:I
 
-    invoke-static {v1, v2, v3}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$1500(Lcom/android/server/accessibility/AccessibilityWindowManager;II)V
+    invoke-static {v1, v2, p0}, Lcom/android/server/accessibility/AccessibilityWindowManager;->-$$Nest$mremoveAccessibilityInteractionConnectionLocked(Lcom/android/server/accessibility/AccessibilityWindowManager;II)V
 
     monitor-exit v0
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
-.method getPackageName()Ljava/lang/String;
-    .locals 1
+.method public getPackageName()Ljava/lang/String;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->mPackageName:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->mPackageName:Ljava/lang/String;
 
-    return-object v0
+    return-object p0
 .end method
 
-.method getRemote()Landroid/view/accessibility/IAccessibilityInteractionConnection;
-    .locals 1
+.method public getRemote()Landroid/view/accessibility/IAccessibilityInteractionConnection;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->mConnection:Landroid/view/accessibility/IAccessibilityInteractionConnection;
+    iget-object p0, p0, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->mConnection:Landroid/view/accessibility/IAccessibilityInteractionConnection;
 
-    return-object v0
+    return-object p0
 .end method
 
-.method getUid()I
-    .locals 1
+.method public getUid()I
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->mUid:I
+    iget p0, p0, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->mUid:I
 
-    return v0
+    return p0
 .end method
 
-.method linkToDeath()V
+.method public linkToDeath()V
     .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -135,7 +139,7 @@
     return-void
 .end method
 
-.method unlinkToDeath()V
+.method public unlinkToDeath()V
     .locals 2
 
     iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->mConnection:Landroid/view/accessibility/IAccessibilityInteractionConnection;

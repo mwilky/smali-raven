@@ -1,4 +1,4 @@
-.class Lcom/android/server/policy/SoftRestrictedPermissionPolicy$2;
+.class public Lcom/android/server/policy/SoftRestrictedPermissionPolicy$2;
 .super Lcom/android/server/policy/SoftRestrictedPermissionPolicy;
 .source "SoftRestrictedPermissionPolicy.java"
 
@@ -9,31 +9,31 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic val$hasLegacyExternalStorage:Z
+.field public final synthetic val$hasLegacyExternalStorage:Z
 
-.field final synthetic val$hasRequestedLegacyExternalStorage:Z
+.field public final synthetic val$hasRequestedLegacyExternalStorage:Z
 
-.field final synthetic val$hasRequestedPreserveLegacyExternalStorage:Z
+.field public final synthetic val$hasRequestedPreserveLegacyExternalStorage:Z
 
-.field final synthetic val$hasWriteMediaStorageGrantedForUid:Z
+.field public final synthetic val$hasWriteMediaStorageGrantedForUid:Z
 
-.field final synthetic val$isForcedScopedStorage:Z
+.field public final synthetic val$isForcedScopedStorage:Z
 
-.field final synthetic val$isWhiteListed:Z
+.field public final synthetic val$isWhiteListed:Z
 
-.field final synthetic val$shouldApplyRestriction:Z
+.field public final synthetic val$shouldApplyRestriction:Z
 
-.field final synthetic val$targetSDK:I
+.field public final synthetic val$targetSDK:I
 
 
 # direct methods
-.method constructor <init>(ZIZZZZZZ)V
+.method public constructor <init>(ZIZZZZZZ)V
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/server/policy/SoftRestrictedPermissionPolicy$2;->val$isWhiteListed:Z
@@ -60,11 +60,11 @@
 
 # virtual methods
 .method public getExtraAppOpCode()I
-    .locals 1
+    .locals 0
 
-    const/16 v0, 0x57
+    const/16 p0, 0x57
 
-    return v0
+    return p0
 .end method
 
 .method public mayAllowExtraAppOp()Z
@@ -103,9 +103,9 @@
 
     if-nez v0, :cond_3
 
-    iget-boolean v0, p0, Lcom/android/server/policy/SoftRestrictedPermissionPolicy$2;->val$hasRequestedLegacyExternalStorage:Z
+    iget-boolean p0, p0, Lcom/android/server/policy/SoftRestrictedPermissionPolicy$2;->val$hasRequestedLegacyExternalStorage:Z
 
-    if-eqz v0, :cond_4
+    if-eqz p0, :cond_4
 
     :cond_3
     const/4 v1, 0x1
@@ -127,11 +127,11 @@
 
     invoke-virtual {p0}, Lcom/android/server/policy/SoftRestrictedPermissionPolicy$2;->mayAllowExtraAppOp()Z
 
-    move-result v0
+    move-result p0
 
-    xor-int/2addr v0, v1
+    xor-int/2addr p0, v1
 
-    return v0
+    return p0
 
     :cond_0
     iget-boolean v0, p0, Lcom/android/server/policy/SoftRestrictedPermissionPolicy$2;->val$shouldApplyRestriction:Z
@@ -148,42 +148,42 @@
     return v1
 
     :cond_2
-    iget-boolean v0, p0, Lcom/android/server/policy/SoftRestrictedPermissionPolicy$2;->val$hasRequestedPreserveLegacyExternalStorage:Z
+    iget-boolean p0, p0, Lcom/android/server/policy/SoftRestrictedPermissionPolicy$2;->val$hasRequestedPreserveLegacyExternalStorage:Z
 
-    if-nez v0, :cond_3
+    if-nez p0, :cond_3
 
     return v1
 
     :cond_3
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
 .method public mayGrantPermission()Z
-    .locals 2
+    .locals 1
 
     iget-boolean v0, p0, Lcom/android/server/policy/SoftRestrictedPermissionPolicy$2;->val$isWhiteListed:Z
 
     if-nez v0, :cond_1
 
-    iget v0, p0, Lcom/android/server/policy/SoftRestrictedPermissionPolicy$2;->val$targetSDK:I
+    iget p0, p0, Lcom/android/server/policy/SoftRestrictedPermissionPolicy$2;->val$targetSDK:I
 
-    const/16 v1, 0x1d
+    const/16 v0, 0x1d
 
-    if-lt v0, v1, :cond_0
+    if-lt p0, v0, :cond_0
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     goto :goto_1
 
     :cond_1
     :goto_0
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     :goto_1
-    return v0
+    return p0
 .end method

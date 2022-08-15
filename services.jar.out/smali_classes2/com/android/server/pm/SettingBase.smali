@@ -7,45 +7,27 @@
 .implements Lcom/android/server/utils/Snappable;
 
 
+# annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    visibility = .enum Lcom/android/internal/annotations/VisibleForTesting$Visibility;->PACKAGE:Lcom/android/internal/annotations/VisibleForTesting$Visibility;
+.end annotation
+
+
 # instance fields
-.field protected final mLegacyPermissionsState:Lcom/android/server/pm/permission/LegacyPermissionState;
+.field public final mLegacyPermissionsState:Lcom/android/server/pm/permission/LegacyPermissionState;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 .end field
 
-.field private final mWatchable:Lcom/android/server/utils/Watchable;
+.field public mPkgFlags:I
 
-.field pkgFlags:I
+.field public mPkgPrivateFlags:I
 
-.field pkgPrivateFlags:I
+.field public final mWatchable:Lcom/android/server/utils/Watchable;
 
 
 # direct methods
-.method constructor <init>(II)V
-    .locals 1
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    new-instance v0, Lcom/android/server/utils/WatchableImpl;
-
-    invoke-direct {v0}, Lcom/android/server/utils/WatchableImpl;-><init>()V
-
-    iput-object v0, p0, Lcom/android/server/pm/SettingBase;->mWatchable:Lcom/android/server/utils/Watchable;
-
-    invoke-virtual {p0, p1}, Lcom/android/server/pm/SettingBase;->setFlags(I)V
-
-    invoke-virtual {p0, p2}, Lcom/android/server/pm/SettingBase;->setPrivateFlags(I)V
-
-    new-instance v0, Lcom/android/server/pm/permission/LegacyPermissionState;
-
-    invoke-direct {v0}, Lcom/android/server/pm/permission/LegacyPermissionState;-><init>()V
-
-    iput-object v0, p0, Lcom/android/server/pm/SettingBase;->mLegacyPermissionsState:Lcom/android/server/pm/permission/LegacyPermissionState;
-
-    return-void
-.end method
-
-.method constructor <init>(Lcom/android/server/pm/SettingBase;)V
+.method public constructor <init>(II)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -62,77 +44,114 @@
 
     iput-object v0, p0, Lcom/android/server/pm/SettingBase;->mLegacyPermissionsState:Lcom/android/server/pm/permission/LegacyPermissionState;
 
-    invoke-direct {p0, p1}, Lcom/android/server/pm/SettingBase;->doCopy(Lcom/android/server/pm/SettingBase;)V
+    invoke-virtual {p0, p1}, Lcom/android/server/pm/SettingBase;->setFlags(I)Lcom/android/server/pm/SettingBase;
+
+    invoke-virtual {p0, p2}, Lcom/android/server/pm/SettingBase;->setPrivateFlags(I)Lcom/android/server/pm/SettingBase;
 
     return-void
 .end method
 
-.method private doCopy(Lcom/android/server/pm/SettingBase;)V
-    .locals 2
+.method public constructor <init>(Lcom/android/server/pm/SettingBase;)V
+    .locals 1
 
-    iget v0, p1, Lcom/android/server/pm/SettingBase;->pkgFlags:I
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput v0, p0, Lcom/android/server/pm/SettingBase;->pkgFlags:I
+    new-instance v0, Lcom/android/server/utils/WatchableImpl;
 
-    iget v0, p1, Lcom/android/server/pm/SettingBase;->pkgPrivateFlags:I
+    invoke-direct {v0}, Lcom/android/server/utils/WatchableImpl;-><init>()V
 
-    iput v0, p0, Lcom/android/server/pm/SettingBase;->pkgPrivateFlags:I
+    iput-object v0, p0, Lcom/android/server/pm/SettingBase;->mWatchable:Lcom/android/server/utils/Watchable;
+
+    new-instance v0, Lcom/android/server/pm/permission/LegacyPermissionState;
+
+    invoke-direct {v0}, Lcom/android/server/pm/permission/LegacyPermissionState;-><init>()V
+
+    iput-object v0, p0, Lcom/android/server/pm/SettingBase;->mLegacyPermissionsState:Lcom/android/server/pm/permission/LegacyPermissionState;
+
+    if-eqz p1, :cond_0
+
+    invoke-virtual {p0, p1}, Lcom/android/server/pm/SettingBase;->copySettingBase(Lcom/android/server/pm/SettingBase;)V
+
+    :cond_0
+    return-void
+.end method
+
+
+# virtual methods
+.method public final copySettingBase(Lcom/android/server/pm/SettingBase;)V
+    .locals 1
+
+    iget v0, p1, Lcom/android/server/pm/SettingBase;->mPkgFlags:I
+
+    iput v0, p0, Lcom/android/server/pm/SettingBase;->mPkgFlags:I
+
+    iget v0, p1, Lcom/android/server/pm/SettingBase;->mPkgPrivateFlags:I
+
+    iput v0, p0, Lcom/android/server/pm/SettingBase;->mPkgPrivateFlags:I
 
     iget-object v0, p0, Lcom/android/server/pm/SettingBase;->mLegacyPermissionsState:Lcom/android/server/pm/permission/LegacyPermissionState;
 
-    iget-object v1, p1, Lcom/android/server/pm/SettingBase;->mLegacyPermissionsState:Lcom/android/server/pm/permission/LegacyPermissionState;
+    iget-object p1, p1, Lcom/android/server/pm/SettingBase;->mLegacyPermissionsState:Lcom/android/server/pm/permission/LegacyPermissionState;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/pm/permission/LegacyPermissionState;->copyFrom(Lcom/android/server/pm/permission/LegacyPermissionState;)V
+    invoke-virtual {v0, p1}, Lcom/android/server/pm/permission/LegacyPermissionState;->copyFrom(Lcom/android/server/pm/permission/LegacyPermissionState;)V
 
     invoke-virtual {p0}, Lcom/android/server/pm/SettingBase;->onChanged()V
 
     return-void
 .end method
 
-
-# virtual methods
-.method public copyFrom(Lcom/android/server/pm/SettingBase;)V
+.method public dispatchChange(Lcom/android/server/utils/Watchable;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/server/pm/SettingBase;->doCopy(Lcom/android/server/pm/SettingBase;)V
+    iget-object p0, p0, Lcom/android/server/pm/SettingBase;->mWatchable:Lcom/android/server/utils/Watchable;
+
+    invoke-interface {p0, p1}, Lcom/android/server/utils/Watchable;->dispatchChange(Lcom/android/server/utils/Watchable;)V
 
     return-void
 .end method
 
-.method public dispatchChange(Lcom/android/server/utils/Watchable;)V
-    .locals 1
+.method public getFlags()I
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/pm/SettingBase;->mWatchable:Lcom/android/server/utils/Watchable;
+    iget p0, p0, Lcom/android/server/pm/SettingBase;->mPkgFlags:I
 
-    invoke-interface {v0, p1}, Lcom/android/server/utils/Watchable;->dispatchChange(Lcom/android/server/utils/Watchable;)V
-
-    return-void
+    return p0
 .end method
 
 .method public getLegacyPermissionState()Lcom/android/server/pm/permission/LegacyPermissionState;
-    .locals 1
+    .locals 0
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    iget-object v0, p0, Lcom/android/server/pm/SettingBase;->mLegacyPermissionsState:Lcom/android/server/pm/permission/LegacyPermissionState;
+    iget-object p0, p0, Lcom/android/server/pm/SettingBase;->mLegacyPermissionsState:Lcom/android/server/pm/permission/LegacyPermissionState;
 
-    return-object v0
+    return-object p0
+.end method
+
+.method public getPrivateFlags()I
+    .locals 0
+
+    iget p0, p0, Lcom/android/server/pm/SettingBase;->mPkgPrivateFlags:I
+
+    return p0
 .end method
 
 .method public isRegisteredObserver(Lcom/android/server/utils/Watcher;)Z
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/pm/SettingBase;->mWatchable:Lcom/android/server/utils/Watchable;
+    iget-object p0, p0, Lcom/android/server/pm/SettingBase;->mWatchable:Lcom/android/server/utils/Watchable;
 
-    invoke-interface {v0, p1}, Lcom/android/server/utils/Watchable;->isRegisteredObserver(Lcom/android/server/utils/Watcher;)Z
+    invoke-interface {p0, p1}, Lcom/android/server/utils/Watchable;->isRegisteredObserver(Lcom/android/server/utils/Watcher;)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
-.method protected onChanged()V
+.method public onChanged()V
     .locals 0
+
+    invoke-static {}, Lcom/android/server/pm/pkg/mutate/PackageStateMutator;->onPackageStateChanged()V
 
     invoke-virtual {p0, p0}, Lcom/android/server/pm/SettingBase;->dispatchChange(Lcom/android/server/utils/Watchable;)V
 
@@ -140,49 +159,49 @@
 .end method
 
 .method public registerObserver(Lcom/android/server/utils/Watcher;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/pm/SettingBase;->mWatchable:Lcom/android/server/utils/Watchable;
+    iget-object p0, p0, Lcom/android/server/pm/SettingBase;->mWatchable:Lcom/android/server/utils/Watchable;
 
-    invoke-interface {v0, p1}, Lcom/android/server/utils/Watchable;->registerObserver(Lcom/android/server/utils/Watcher;)V
+    invoke-interface {p0, p1}, Lcom/android/server/utils/Watchable;->registerObserver(Lcom/android/server/utils/Watcher;)V
 
     return-void
 .end method
 
-.method setFlags(I)V
+.method public setFlags(I)Lcom/android/server/pm/SettingBase;
     .locals 1
 
-    const v0, 0x40001
+    const v0, 0x40101
 
-    and-int/2addr v0, p1
+    and-int/2addr p1, v0
 
-    iput v0, p0, Lcom/android/server/pm/SettingBase;->pkgFlags:I
+    iput p1, p0, Lcom/android/server/pm/SettingBase;->mPkgFlags:I
 
     invoke-virtual {p0}, Lcom/android/server/pm/SettingBase;->onChanged()V
 
-    return-void
+    return-object p0
 .end method
 
-.method setPrivateFlags(I)V
+.method public setPrivateFlags(I)Lcom/android/server/pm/SettingBase;
     .locals 1
 
     const v0, 0x402e0208
 
-    and-int/2addr v0, p1
+    and-int/2addr p1, v0
 
-    iput v0, p0, Lcom/android/server/pm/SettingBase;->pkgPrivateFlags:I
+    iput p1, p0, Lcom/android/server/pm/SettingBase;->mPkgPrivateFlags:I
 
     invoke-virtual {p0}, Lcom/android/server/pm/SettingBase;->onChanged()V
 
-    return-void
+    return-object p0
 .end method
 
 .method public unregisterObserver(Lcom/android/server/utils/Watcher;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/pm/SettingBase;->mWatchable:Lcom/android/server/utils/Watchable;
+    iget-object p0, p0, Lcom/android/server/pm/SettingBase;->mWatchable:Lcom/android/server/utils/Watchable;
 
-    invoke-interface {v0, p1}, Lcom/android/server/utils/Watchable;->unregisterObserver(Lcom/android/server/utils/Watcher;)V
+    invoke-interface {p0, p1}, Lcom/android/server/utils/Watchable;->unregisterObserver(Lcom/android/server/utils/Watcher;)V
 
     return-void
 .end method

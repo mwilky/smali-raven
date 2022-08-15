@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/texttospeech/TextToSpeechManagerService$TextToSpeechManagerServiceStub$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/server/texttospeech/TextToSpeechManagerPerUserService$ThrowingRunnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final runOrThrow()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/texttospeech/TextToSpeechManagerService$TextToSpeechManagerServiceStub$$ExternalSyntheticLambda0;->f$0:Landroid/speech/tts/ITextToSpeechSessionCallback;
+    iget-object p0, p0, Lcom/android/server/texttospeech/TextToSpeechManagerService$TextToSpeechManagerServiceStub$$ExternalSyntheticLambda0;->f$0:Landroid/speech/tts/ITextToSpeechSessionCallback;
 
-    invoke-static {v0}, Lcom/android/server/texttospeech/TextToSpeechManagerService$TextToSpeechManagerServiceStub;->lambda$createSession$0(Landroid/speech/tts/ITextToSpeechSessionCallback;)V
+    invoke-static {p0}, Lcom/android/server/texttospeech/TextToSpeechManagerService$TextToSpeechManagerServiceStub;->$r8$lambda$sQ9315NPE2nE3-rwlPxkhHxCWhI(Landroid/speech/tts/ITextToSpeechSessionCallback;)V
 
     return-void
 .end method

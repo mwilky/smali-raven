@@ -1,4 +1,4 @@
-.class Lcom/ibm/icu/impl/CalendarAstronomer$2;
+.class public Lcom/ibm/icu/impl/CalendarAstronomer$2;
 .super Ljava/lang/Object;
 .source "CalendarAstronomer.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/ibm/icu/impl/CalendarAstronomer;
+.field public final synthetic this$0:Lcom/ibm/icu/impl/CalendarAstronomer;
 
 
 # direct methods
-.method constructor <init>(Lcom/ibm/icu/impl/CalendarAstronomer;)V
+.method public constructor <init>(Lcom/ibm/icu/impl/CalendarAstronomer;)V
     .locals 0
 
     iput-object p1, p0, Lcom/ibm/icu/impl/CalendarAstronomer$2;->this$0:Lcom/ibm/icu/impl/CalendarAstronomer;
@@ -35,13 +35,13 @@
 
 # virtual methods
 .method public eval()Lcom/ibm/icu/impl/CalendarAstronomer$Equatorial;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/ibm/icu/impl/CalendarAstronomer$2;->this$0:Lcom/ibm/icu/impl/CalendarAstronomer;
+    iget-object p0, p0, Lcom/ibm/icu/impl/CalendarAstronomer$2;->this$0:Lcom/ibm/icu/impl/CalendarAstronomer;
 
-    invoke-virtual {v0}, Lcom/ibm/icu/impl/CalendarAstronomer;->getSunPosition()Lcom/ibm/icu/impl/CalendarAstronomer$Equatorial;
+    invoke-virtual {p0}, Lcom/ibm/icu/impl/CalendarAstronomer;->getSunPosition()Lcom/ibm/icu/impl/CalendarAstronomer$Equatorial;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

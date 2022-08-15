@@ -1,47 +1,54 @@
 .class public final synthetic Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda20;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Consumer;
+.implements Ljava/util/function/BiConsumer;
 
 
 # instance fields
-.field public final synthetic f$0:I
+.field public final synthetic f$0:Ljava/io/PrintWriter;
 
-.field public final synthetic f$1:[Ljava/lang/String;
+.field public final synthetic f$1:J
 
-.field public final synthetic f$2:Ljava/util/ArrayList;
+.field public final synthetic f$2:J
 
 
 # direct methods
-.method public synthetic constructor <init>(I[Ljava/lang/String;Ljava/util/ArrayList;)V
+.method public synthetic constructor <init>(Ljava/io/PrintWriter;JJ)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput p1, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda20;->f$0:I
+    iput-object p1, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda20;->f$0:Ljava/io/PrintWriter;
 
-    iput-object p2, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda20;->f$1:[Ljava/lang/String;
+    iput-wide p2, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda20;->f$1:J
 
-    iput-object p3, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda20;->f$2:Ljava/util/ArrayList;
+    iput-wide p4, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda20;->f$2:J
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
-    .locals 3
+.method public final accept(Ljava/lang/Object;Ljava/lang/Object;)V
+    .locals 7
 
-    iget v0, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda20;->f$0:I
+    iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda20;->f$0:Ljava/io/PrintWriter;
 
-    iget-object v1, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda20;->f$1:[Ljava/lang/String;
+    iget-wide v1, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda20;->f$1:J
 
-    iget-object v2, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda20;->f$2:Ljava/util/ArrayList;
+    iget-wide v3, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda20;->f$2:J
 
-    check-cast p1, Lcom/android/internal/os/ProcessCpuTracker$Stats;
+    move-object v5, p1
 
-    invoke-static {v0, v1, v2, p1}, Lcom/android/server/am/ActivityManagerService;->lambda$dumpApplicationMemoryUsage$14(I[Ljava/lang/String;Ljava/util/ArrayList;Lcom/android/internal/os/ProcessCpuTracker$Stats;)V
+    check-cast v5, Ljava/lang/Integer;
+
+    move-object v6, p2
+
+    check-cast v6, Landroid/util/Pair;
+
+    invoke-static/range {v0 .. v6}, Lcom/android/server/am/ActivityManagerService;->$r8$lambda$WlMFtvrq0uop4jO4VZEXmqGH32w(Ljava/io/PrintWriter;JJLjava/lang/Integer;Landroid/util/Pair;)V
 
     return-void
 .end method

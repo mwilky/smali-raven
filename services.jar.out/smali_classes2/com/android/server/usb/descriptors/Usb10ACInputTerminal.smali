@@ -3,18 +3,14 @@
 .source "Usb10ACInputTerminal.java"
 
 
-# static fields
-.field private static final TAG:Ljava/lang/String; = "Usb10ACInputTerminal"
-
-
 # instance fields
-.field private mChannelConfig:I
+.field public mChannelConfig:I
 
-.field private mChannelNames:B
+.field public mChannelNames:B
 
-.field private mNrChannels:B
+.field public mNrChannels:B
 
-.field private mTerminal:B
+.field public mTerminal:B
 
 
 # direct methods
@@ -29,35 +25,19 @@
 
 # virtual methods
 .method public getChannelConfig()I
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/usb/descriptors/Usb10ACInputTerminal;->mChannelConfig:I
+    iget p0, p0, Lcom/android/server/usb/descriptors/Usb10ACInputTerminal;->mChannelConfig:I
 
-    return v0
-.end method
-
-.method public getChannelNames()B
-    .locals 1
-
-    iget-byte v0, p0, Lcom/android/server/usb/descriptors/Usb10ACInputTerminal;->mChannelNames:B
-
-    return v0
+    return p0
 .end method
 
 .method public getNrChannels()B
-    .locals 1
+    .locals 0
 
-    iget-byte v0, p0, Lcom/android/server/usb/descriptors/Usb10ACInputTerminal;->mNrChannels:B
+    iget-byte p0, p0, Lcom/android/server/usb/descriptors/Usb10ACInputTerminal;->mNrChannels:B
 
-    return v0
-.end method
-
-.method public getTerminal()B
-    .locals 1
-
-    iget-byte v0, p0, Lcom/android/server/usb/descriptors/Usb10ACInputTerminal;->mTerminal:B
-
-    return v0
+    return p0
 .end method
 
 .method public parseRawDescriptors(Lcom/android/server/usb/descriptors/ByteStream;)I
@@ -85,13 +65,13 @@
 
     invoke-virtual {p1}, Lcom/android/server/usb/descriptors/ByteStream;->getByte()B
 
-    move-result v0
+    move-result p1
 
-    iput-byte v0, p0, Lcom/android/server/usb/descriptors/Usb10ACInputTerminal;->mTerminal:B
+    iput-byte p1, p0, Lcom/android/server/usb/descriptors/Usb10ACInputTerminal;->mTerminal:B
 
-    iget v0, p0, Lcom/android/server/usb/descriptors/Usb10ACInputTerminal;->mLength:I
+    iget p0, p0, Lcom/android/server/usb/descriptors/UsbDescriptor;->mLength:I
 
-    return v0
+    return p0
 .end method
 
 .method public report(Lcom/android/server/usb/descriptors/report/ReportCanvas;)V
@@ -109,7 +89,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Lcom/android/server/usb/descriptors/Usb10ACInputTerminal;->getAssocTerminal()B
+    invoke-virtual {p0}, Lcom/android/server/usb/descriptors/UsbACTerminal;->getAssocTerminal()B
 
     move-result v1
 
@@ -145,19 +125,19 @@
 
     invoke-virtual {p0}, Lcom/android/server/usb/descriptors/Usb10ACInputTerminal;->getChannelConfig()I
 
-    move-result v1
+    move-result p0
 
-    invoke-static {v1}, Lcom/android/server/usb/descriptors/report/ReportCanvas;->getHexString(I)Ljava/lang/String;
+    invoke-static {p0}, Lcom/android/server/usb/descriptors/report/ReportCanvas;->getHexString(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {p1, v0}, Lcom/android/server/usb/descriptors/report/ReportCanvas;->writeListItem(Ljava/lang/String;)V
+    invoke-virtual {p1, p0}, Lcom/android/server/usb/descriptors/report/ReportCanvas;->writeListItem(Ljava/lang/String;)V
 
     invoke-virtual {p1}, Lcom/android/server/usb/descriptors/report/ReportCanvas;->closeList()V
 

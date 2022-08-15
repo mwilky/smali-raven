@@ -1,4 +1,4 @@
-.class Lcom/android/server/people/prediction/SharesheetModelScorer$ShareTargetRankingScore;
+.class public Lcom/android/server/people/prediction/SharesheetModelScorer$ShareTargetRankingScore;
 .super Ljava/lang/Object;
 .source "SharesheetModelScorer.java"
 
@@ -9,23 +9,23 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "ShareTargetRankingScore"
 .end annotation
 
 
 # instance fields
-.field private mFrequencyScore:F
+.field public mFrequencyScore:F
 
-.field private mMimeFrequencyScore:F
+.field public mMimeFrequencyScore:F
 
-.field private mRecencyScore:F
+.field public mRecencyScore:F
 
-.field private mTotalScore:F
+.field public mTotalScore:F
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,7 +43,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/people/prediction/SharesheetModelScorer$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/people/prediction/SharesheetModelScorer$ShareTargetRankingScore-IA;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/people/prediction/SharesheetModelScorer$ShareTargetRankingScore;-><init>()V
@@ -53,39 +53,39 @@
 
 
 # virtual methods
-.method getFrequencyScore()F
-    .locals 1
+.method public getFrequencyScore()F
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/people/prediction/SharesheetModelScorer$ShareTargetRankingScore;->mFrequencyScore:F
+    iget p0, p0, Lcom/android/server/people/prediction/SharesheetModelScorer$ShareTargetRankingScore;->mFrequencyScore:F
 
-    return v0
+    return p0
 .end method
 
-.method getMimeFrequencyScore()F
-    .locals 1
+.method public getMimeFrequencyScore()F
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/people/prediction/SharesheetModelScorer$ShareTargetRankingScore;->mMimeFrequencyScore:F
+    iget p0, p0, Lcom/android/server/people/prediction/SharesheetModelScorer$ShareTargetRankingScore;->mMimeFrequencyScore:F
 
-    return v0
+    return p0
 .end method
 
-.method getRecencyScore()F
-    .locals 1
+.method public getRecencyScore()F
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/people/prediction/SharesheetModelScorer$ShareTargetRankingScore;->mRecencyScore:F
+    iget p0, p0, Lcom/android/server/people/prediction/SharesheetModelScorer$ShareTargetRankingScore;->mRecencyScore:F
 
-    return v0
+    return p0
 .end method
 
-.method getTotalScore()F
-    .locals 1
+.method public getTotalScore()F
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/people/prediction/SharesheetModelScorer$ShareTargetRankingScore;->mTotalScore:F
+    iget p0, p0, Lcom/android/server/people/prediction/SharesheetModelScorer$ShareTargetRankingScore;->mTotalScore:F
 
-    return v0
+    return p0
 .end method
 
-.method incrementFrequencyScore(F)V
+.method public incrementFrequencyScore(F)V
     .locals 1
 
     iget v0, p0, Lcom/android/server/people/prediction/SharesheetModelScorer$ShareTargetRankingScore;->mFrequencyScore:F
@@ -97,7 +97,7 @@
     return-void
 .end method
 
-.method incrementMimeFrequencyScore(F)V
+.method public incrementMimeFrequencyScore(F)V
     .locals 1
 
     iget v0, p0, Lcom/android/server/people/prediction/SharesheetModelScorer$ShareTargetRankingScore;->mMimeFrequencyScore:F
@@ -109,7 +109,7 @@
     return-void
 .end method
 
-.method setFrequencyScore(F)V
+.method public setFrequencyScore(F)V
     .locals 0
 
     iput p1, p0, Lcom/android/server/people/prediction/SharesheetModelScorer$ShareTargetRankingScore;->mFrequencyScore:F
@@ -117,7 +117,7 @@
     return-void
 .end method
 
-.method setMimeFrequencyScore(F)V
+.method public setMimeFrequencyScore(F)V
     .locals 0
 
     iput p1, p0, Lcom/android/server/people/prediction/SharesheetModelScorer$ShareTargetRankingScore;->mMimeFrequencyScore:F
@@ -125,7 +125,7 @@
     return-void
 .end method
 
-.method setRecencyScore(F)V
+.method public setRecencyScore(F)V
     .locals 0
 
     iput p1, p0, Lcom/android/server/people/prediction/SharesheetModelScorer$ShareTargetRankingScore;->mRecencyScore:F
@@ -133,7 +133,7 @@
     return-void
 .end method
 
-.method setTotalScore(F)V
+.method public setTotalScore(F)V
     .locals 0
 
     iput p1, p0, Lcom/android/server/people/prediction/SharesheetModelScorer$ShareTargetRankingScore;->mTotalScore:F

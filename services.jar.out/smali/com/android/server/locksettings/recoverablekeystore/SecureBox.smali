@@ -12,57 +12,34 @@
 
 
 # static fields
-.field private static final BIG_INT_02:Ljava/math/BigInteger;
+.field public static final BIG_INT_02:Ljava/math/BigInteger;
 
-.field private static final CIPHER_ALG:Ljava/lang/String; = "AES"
+.field public static final CONSTANT_01:[B
 
-.field private static final CONSTANT_01:[B
+.field public static final EC_PARAM_A:Ljava/math/BigInteger;
 
-.field private static final EC_ALG:Ljava/lang/String; = "EC"
+.field public static final EC_PARAM_B:Ljava/math/BigInteger;
 
-.field private static final EC_COORDINATE_LEN_BYTES:I = 0x20
+.field public static final EC_PARAM_P:Ljava/math/BigInteger;
 
-.field private static final EC_P256_COMMON_NAME:Ljava/lang/String; = "secp256r1"
+.field public static final EC_PARAM_SPEC:Ljava/security/spec/ECParameterSpec;
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+.end field
 
-.field private static final EC_P256_OPENSSL_NAME:Ljava/lang/String; = "prime256v1"
+.field public static final EMPTY_BYTE_ARRAY:[B
 
-.field private static final EC_PARAM_A:Ljava/math/BigInteger;
+.field public static final HKDF_INFO_WITHOUT_PUBLIC_KEY:[B
 
-.field private static final EC_PARAM_B:Ljava/math/BigInteger;
+.field public static final HKDF_INFO_WITH_PUBLIC_KEY:[B
 
-.field private static final EC_PARAM_P:Ljava/math/BigInteger;
+.field public static final HKDF_SALT:[B
 
-.field static final EC_PARAM_SPEC:Ljava/security/spec/ECParameterSpec;
-
-.field private static final EC_PUBLIC_KEY_LEN_BYTES:I = 0x41
-
-.field private static final EC_PUBLIC_KEY_PREFIX:B = 0x4t
-
-.field private static final EMPTY_BYTE_ARRAY:[B
-
-.field private static final ENC_ALG:Ljava/lang/String; = "AES/GCM/NoPadding"
-
-.field private static final GCM_KEY_LEN_BYTES:I = 0x10
-
-.field private static final GCM_NONCE_LEN_BYTES:I = 0xc
-
-.field private static final GCM_TAG_LEN_BYTES:I = 0x10
-
-.field private static final HKDF_INFO_WITHOUT_PUBLIC_KEY:[B
-
-.field private static final HKDF_INFO_WITH_PUBLIC_KEY:[B
-
-.field private static final HKDF_SALT:[B
-
-.field private static final KA_ALG:Ljava/lang/String; = "ECDH"
-
-.field private static final MAC_ALG:Ljava/lang/String; = "HmacSHA256"
-
-.field private static final VERSION:[B
+.field public static final VERSION:[B
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 7
 
     const/4 v0, 0x2
@@ -173,37 +150,33 @@
 
     invoke-direct {v5, v6, v1, v4}, Ljava/security/spec/EllipticCurve;-><init>(Ljava/security/spec/ECField;Ljava/math/BigInteger;Ljava/math/BigInteger;)V
 
-    move-object v0, v5
+    new-instance v0, Ljava/security/spec/ECPoint;
 
-    new-instance v1, Ljava/security/spec/ECPoint;
+    new-instance v1, Ljava/math/BigInteger;
+
+    const-string v4, "6b17d1f2e12c4247f8bce6e563a440f277037d812deb33a0f4a13945d898c296"
+
+    invoke-direct {v1, v4, v3}, Ljava/math/BigInteger;-><init>(Ljava/lang/String;I)V
 
     new-instance v4, Ljava/math/BigInteger;
-
-    const-string v5, "6b17d1f2e12c4247f8bce6e563a440f277037d812deb33a0f4a13945d898c296"
-
-    invoke-direct {v4, v5, v3}, Ljava/math/BigInteger;-><init>(Ljava/lang/String;I)V
-
-    new-instance v5, Ljava/math/BigInteger;
 
     const-string v6, "4fe342e2fe1a7f9b8ee7eb4a7c0f9e162bce33576b315ececbb6406837bf51f5"
 
-    invoke-direct {v5, v6, v3}, Ljava/math/BigInteger;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v4, v6, v3}, Ljava/math/BigInteger;-><init>(Ljava/lang/String;I)V
 
-    invoke-direct {v1, v4, v5}, Ljava/security/spec/ECPoint;-><init>(Ljava/math/BigInteger;Ljava/math/BigInteger;)V
+    invoke-direct {v0, v1, v4}, Ljava/security/spec/ECPoint;-><init>(Ljava/math/BigInteger;Ljava/math/BigInteger;)V
 
-    new-instance v4, Ljava/math/BigInteger;
+    new-instance v1, Ljava/math/BigInteger;
 
-    const-string v5, "ffffffff00000000ffffffffffffffffbce6faada7179e84f3b9cac2fc632551"
+    const-string v4, "ffffffff00000000ffffffffffffffffbce6faada7179e84f3b9cac2fc632551"
 
-    invoke-direct {v4, v5, v3}, Ljava/math/BigInteger;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v1, v4, v3}, Ljava/math/BigInteger;-><init>(Ljava/lang/String;I)V
 
-    move-object v3, v4
+    new-instance v3, Ljava/security/spec/ECParameterSpec;
 
-    new-instance v4, Ljava/security/spec/ECParameterSpec;
+    invoke-direct {v3, v5, v0, v1, v2}, Ljava/security/spec/ECParameterSpec;-><init>(Ljava/security/spec/EllipticCurve;Ljava/security/spec/ECPoint;Ljava/math/BigInteger;I)V
 
-    invoke-direct {v4, v0, v1, v3, v2}, Ljava/security/spec/ECParameterSpec;-><init>(Ljava/security/spec/EllipticCurve;Ljava/security/spec/ECPoint;Ljava/math/BigInteger;I)V
-
-    sput-object v4, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->EC_PARAM_SPEC:Ljava/security/spec/ECParameterSpec;
+    sput-object v3, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->EC_PARAM_SPEC:Ljava/security/spec/ECParameterSpec;
 
     return-void
 
@@ -216,15 +189,7 @@
     .end array-data
 .end method
 
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-.method private static aesGcmDecrypt(Ljavax/crypto/SecretKey;[B[B[B)[B
+.method public static aesGcmDecrypt(Ljavax/crypto/SecretKey;[B[B[B)[B
     .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -238,13 +203,13 @@
 
     invoke-static {v0, p0, p1, p2, p3}, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->aesGcmInternal(Lcom/android/server/locksettings/recoverablekeystore/SecureBox$AesGcmOperation;Ljavax/crypto/SecretKey;[B[B[B)[B
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
-.method private static aesGcmEncrypt(Ljavax/crypto/SecretKey;[B[B[B)[B
-    .locals 2
+.method public static aesGcmEncrypt(Ljavax/crypto/SecretKey;[B[B[B)[B
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/NoSuchAlgorithmException;,
@@ -257,24 +222,24 @@
 
     invoke-static {v0, p0, p1, p2, p3}, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->aesGcmInternal(Lcom/android/server/locksettings/recoverablekeystore/SecureBox$AesGcmOperation;Ljavax/crypto/SecretKey;[B[B[B)[B
 
-    move-result-object v0
+    move-result-object p0
     :try_end_0
     .catch Ljavax/crypto/AEADBadTagException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object p0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    new-instance v1, Ljava/lang/RuntimeException;
+    new-instance p1, Ljava/lang/RuntimeException;
 
-    invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {p1, p0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v1
+    throw p1
 .end method
 
-.method private static aesGcmInternal(Lcom/android/server/locksettings/recoverablekeystore/SecureBox$AesGcmOperation;Ljavax/crypto/SecretKey;[B[B[B)[B
-    .locals 4
+.method public static aesGcmInternal(Lcom/android/server/locksettings/recoverablekeystore/SecureBox$AesGcmOperation;Ljavax/crypto/SecretKey;[B[B[B)[B
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/NoSuchAlgorithmException;,
@@ -292,8 +257,6 @@
     :try_end_0
     .catch Ljavax/crypto/NoSuchPaddingException; {:try_start_0 .. :try_end_0} :catch_3
 
-    nop
-
     new-instance v1, Ljavax/crypto/spec/GCMParameterSpec;
 
     const/16 v2, 0x80
@@ -301,128 +264,128 @@
     invoke-direct {v1, v2, p2}, Ljavax/crypto/spec/GCMParameterSpec;-><init>(I[B)V
 
     :try_start_1
-    sget-object v2, Lcom/android/server/locksettings/recoverablekeystore/SecureBox$AesGcmOperation;->DECRYPT:Lcom/android/server/locksettings/recoverablekeystore/SecureBox$AesGcmOperation;
+    sget-object p2, Lcom/android/server/locksettings/recoverablekeystore/SecureBox$AesGcmOperation;->DECRYPT:Lcom/android/server/locksettings/recoverablekeystore/SecureBox$AesGcmOperation;
 
-    if-ne p0, v2, :cond_0
+    if-ne p0, p2, :cond_0
 
-    const/4 v2, 0x2
+    const/4 p0, 0x2
 
-    invoke-virtual {v0, v2, p1, v1}, Ljavax/crypto/Cipher;->init(ILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V
+    invoke-virtual {v0, p0, p1, v1}, Ljavax/crypto/Cipher;->init(ILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V
 
     goto :goto_0
 
     :cond_0
-    const/4 v2, 0x1
+    const/4 p0, 0x1
 
-    invoke-virtual {v0, v2, p1, v1}, Ljavax/crypto/Cipher;->init(ILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V
+    invoke-virtual {v0, p0, p1, v1}, Ljavax/crypto/Cipher;->init(ILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V
     :try_end_1
     .catch Ljava/security/InvalidAlgorithmParameterException; {:try_start_1 .. :try_end_1} :catch_2
 
     :goto_0
-    nop
-
     :try_start_2
     invoke-virtual {v0, p4}, Ljavax/crypto/Cipher;->updateAAD([B)V
 
     invoke-virtual {v0, p3}, Ljavax/crypto/Cipher;->doFinal([B)[B
 
-    move-result-object v2
+    move-result-object p0
     :try_end_2
     .catch Ljavax/crypto/AEADBadTagException; {:try_start_2 .. :try_end_2} :catch_1
     .catch Ljavax/crypto/IllegalBlockSizeException; {:try_start_2 .. :try_end_2} :catch_0
     .catch Ljavax/crypto/BadPaddingException; {:try_start_2 .. :try_end_2} :catch_0
 
-    return-object v2
+    return-object p0
 
     :catch_0
-    move-exception v2
+    move-exception p0
 
-    new-instance v3, Ljava/lang/RuntimeException;
+    new-instance p1, Ljava/lang/RuntimeException;
 
-    invoke-direct {v3, v2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {p1, p0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v3
+    throw p1
 
     :catch_1
-    move-exception v2
+    move-exception p0
 
-    throw v2
+    throw p0
 
     :catch_2
-    move-exception v2
+    move-exception p0
 
-    new-instance v3, Ljava/lang/RuntimeException;
+    new-instance p1, Ljava/lang/RuntimeException;
 
-    invoke-direct {v3, v2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {p1, p0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v3
+    throw p1
 
     :catch_3
-    move-exception v0
+    move-exception p0
 
-    new-instance v1, Ljava/lang/RuntimeException;
+    new-instance p1, Ljava/lang/RuntimeException;
 
-    invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {p1, p0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v1
+    throw p1
 .end method
 
-.method static varargs concat([[B)[B
-    .locals 8
+.method public static varargs concat([[B)[B
+    .locals 7
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
 
     const/4 v0, 0x0
 
-    const/4 v1, 0x0
+    move v1, v0
+
+    move v2, v1
 
     :goto_0
-    array-length v2, p0
+    array-length v3, p0
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v3, :cond_1
 
-    aget-object v2, p0, v1
+    aget-object v3, p0, v1
 
-    if-nez v2, :cond_0
+    if-nez v3, :cond_0
 
-    sget-object v2, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->EMPTY_BYTE_ARRAY:[B
+    sget-object v3, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->EMPTY_BYTE_ARRAY:[B
 
-    aput-object v2, p0, v1
+    aput-object v3, p0, v1
 
     :cond_0
-    aget-object v2, p0, v1
+    aget-object v3, p0, v1
 
-    array-length v2, v2
+    array-length v3, v3
 
-    add-int/2addr v0, v2
+    add-int/2addr v2, v3
 
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     :cond_1
-    new-array v1, v0, [B
+    new-array v1, v2, [B
 
-    const/4 v2, 0x0
+    array-length v2, p0
 
-    array-length v3, p0
+    move v3, v0
 
-    const/4 v4, 0x0
-
-    move v5, v4
+    move v4, v3
 
     :goto_1
-    if-ge v5, v3, :cond_2
+    if-ge v3, v2, :cond_2
 
-    aget-object v6, p0, v5
+    aget-object v5, p0, v3
 
-    array-length v7, v6
+    array-length v6, v5
 
-    invoke-static {v6, v4, v1, v2, v7}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v5, v0, v1, v4, v6}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    array-length v7, v6
+    array-length v5, v5
 
-    add-int/2addr v2, v7
+    add-int/2addr v4, v5
 
-    add-int/lit8 v5, v5, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_1
 
@@ -430,8 +393,11 @@
     return-object v1
 .end method
 
-.method static decodePublicKey([B)Ljava/security/PublicKey;
-    .locals 6
+.method public static decodePublicKey([B)Ljava/security/PublicKey;
+    .locals 5
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/NoSuchAlgorithmException;,
@@ -457,51 +423,49 @@
 
     invoke-static {p0, v2, v4}, Ljava/util/Arrays;->copyOfRange([BII)[B
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-direct {v3, v1, v2}, Ljava/math/BigInteger;-><init>(I[B)V
+    invoke-direct {v3, v1, p0}, Ljava/math/BigInteger;-><init>(I[B)V
 
-    move-object v1, v3
+    invoke-static {v0, v3}, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->validateEcPoint(Ljava/math/BigInteger;Ljava/math/BigInteger;)V
 
-    invoke-static {v0, v1}, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->validateEcPoint(Ljava/math/BigInteger;Ljava/math/BigInteger;)V
+    const-string p0, "EC"
 
-    const-string v2, "EC"
+    invoke-static {p0}, Ljava/security/KeyFactory;->getInstance(Ljava/lang/String;)Ljava/security/KeyFactory;
 
-    invoke-static {v2}, Ljava/security/KeyFactory;->getInstance(Ljava/lang/String;)Ljava/security/KeyFactory;
-
-    move-result-object v2
+    move-result-object p0
 
     :try_start_0
-    new-instance v3, Ljava/security/spec/ECPublicKeySpec;
+    new-instance v1, Ljava/security/spec/ECPublicKeySpec;
 
-    new-instance v4, Ljava/security/spec/ECPoint;
+    new-instance v2, Ljava/security/spec/ECPoint;
 
-    invoke-direct {v4, v0, v1}, Ljava/security/spec/ECPoint;-><init>(Ljava/math/BigInteger;Ljava/math/BigInteger;)V
+    invoke-direct {v2, v0, v3}, Ljava/security/spec/ECPoint;-><init>(Ljava/math/BigInteger;Ljava/math/BigInteger;)V
 
-    sget-object v5, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->EC_PARAM_SPEC:Ljava/security/spec/ECParameterSpec;
+    sget-object v0, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->EC_PARAM_SPEC:Ljava/security/spec/ECParameterSpec;
 
-    invoke-direct {v3, v4, v5}, Ljava/security/spec/ECPublicKeySpec;-><init>(Ljava/security/spec/ECPoint;Ljava/security/spec/ECParameterSpec;)V
+    invoke-direct {v1, v2, v0}, Ljava/security/spec/ECPublicKeySpec;-><init>(Ljava/security/spec/ECPoint;Ljava/security/spec/ECParameterSpec;)V
 
-    invoke-virtual {v2, v3}, Ljava/security/KeyFactory;->generatePublic(Ljava/security/spec/KeySpec;)Ljava/security/PublicKey;
+    invoke-virtual {p0, v1}, Ljava/security/KeyFactory;->generatePublic(Ljava/security/spec/KeySpec;)Ljava/security/PublicKey;
 
-    move-result-object v3
+    move-result-object p0
     :try_end_0
     .catch Ljava/security/spec/InvalidKeySpecException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v3
+    return-object p0
 
     :catch_0
-    move-exception v3
+    move-exception p0
 
-    new-instance v4, Ljava/lang/RuntimeException;
+    new-instance v0, Ljava/lang/RuntimeException;
 
-    invoke-direct {v4, v3}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {v0, p0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v4
+    throw v0
 .end method
 
 .method public static decrypt(Ljava/security/PrivateKey;[B[B[B)[B
-    .locals 9
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/NoSuchAlgorithmException;,
@@ -523,13 +487,13 @@
     goto :goto_0
 
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Both the private key and shared secret are empty"
+    const-string p1, "Both the private key and shared secret are empty"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 
     :cond_1
     :goto_0
@@ -541,115 +505,111 @@
 
     invoke-static {p3}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
 
-    move-result-object v0
+    move-result-object p3
 
-    sget-object v1, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->VERSION:[B
+    sget-object v0, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->VERSION:[B
 
-    array-length v2, v1
+    array-length v1, v0
 
-    invoke-static {v0, v2}, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->readEncryptedPayload(Ljava/nio/ByteBuffer;I)[B
+    invoke-static {p3, v1}, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->readEncryptedPayload(Ljava/nio/ByteBuffer;I)[B
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-static {v2, v1}, Ljava/util/Arrays;->equals([B[B)Z
+    invoke-static {v1, v0}, Ljava/util/Arrays;->equals([B[B)Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_3
+    if-eqz v0, :cond_3
 
     if-nez p0, :cond_2
 
-    sget-object v1, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->EMPTY_BYTE_ARRAY:[B
+    sget-object p0, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->EMPTY_BYTE_ARRAY:[B
 
-    sget-object v3, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->HKDF_INFO_WITHOUT_PUBLIC_KEY:[B
+    sget-object v0, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->HKDF_INFO_WITHOUT_PUBLIC_KEY:[B
 
     goto :goto_1
 
     :cond_2
-    const/16 v1, 0x41
+    const/16 v0, 0x41
 
-    invoke-static {v0, v1}, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->readEncryptedPayload(Ljava/nio/ByteBuffer;I)[B
+    invoke-static {p3, v0}, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->readEncryptedPayload(Ljava/nio/ByteBuffer;I)[B
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->decodePublicKey([B)Ljava/security/PublicKey;
+
+    move-result-object v0
+
+    invoke-static {p0, v0}, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->dhComputeSecret(Ljava/security/PrivateKey;Ljava/security/PublicKey;)[B
+
+    move-result-object p0
+
+    sget-object v0, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->HKDF_INFO_WITH_PUBLIC_KEY:[B
+
+    :goto_1
+    const/16 v1, 0xc
+
+    invoke-static {p3, v1}, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->readEncryptedPayload(Ljava/nio/ByteBuffer;I)[B
 
     move-result-object v1
 
-    invoke-static {v1}, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->decodePublicKey([B)Ljava/security/PublicKey;
+    invoke-virtual {p3}, Ljava/nio/ByteBuffer;->remaining()I
 
-    move-result-object v3
+    move-result v2
 
-    invoke-static {p0, v3}, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->dhComputeSecret(Ljava/security/PrivateKey;Ljava/security/PublicKey;)[B
+    invoke-static {p3, v2}, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->readEncryptedPayload(Ljava/nio/ByteBuffer;I)[B
 
-    move-result-object v3
+    move-result-object p3
 
-    sget-object v4, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->HKDF_INFO_WITH_PUBLIC_KEY:[B
+    const/4 v2, 0x2
 
-    move-object v1, v3
+    new-array v2, v2, [[B
 
-    move-object v3, v4
+    const/4 v3, 0x0
 
-    :goto_1
-    const/16 v4, 0xc
+    aput-object p0, v2, v3
 
-    invoke-static {v0, v4}, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->readEncryptedPayload(Ljava/nio/ByteBuffer;I)[B
+    const/4 p0, 0x1
 
-    move-result-object v4
+    aput-object p1, v2, p0
 
-    invoke-virtual {v0}, Ljava/nio/ByteBuffer;->remaining()I
+    invoke-static {v2}, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->concat([[B)[B
 
-    move-result v5
+    move-result-object p0
 
-    invoke-static {v0, v5}, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->readEncryptedPayload(Ljava/nio/ByteBuffer;I)[B
+    sget-object p1, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->HKDF_SALT:[B
 
-    move-result-object v5
+    invoke-static {p0, p1, v0}, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->hkdfDeriveKey([B[B[B)Ljavax/crypto/SecretKey;
 
-    const/4 v6, 0x2
+    move-result-object p0
 
-    new-array v6, v6, [[B
+    invoke-static {p0, v1, p3, p2}, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->aesGcmDecrypt(Ljavax/crypto/SecretKey;[B[B[B)[B
 
-    const/4 v7, 0x0
+    move-result-object p0
 
-    aput-object v1, v6, v7
-
-    const/4 v7, 0x1
-
-    aput-object p1, v6, v7
-
-    invoke-static {v6}, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->concat([[B)[B
-
-    move-result-object v6
-
-    sget-object v7, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->HKDF_SALT:[B
-
-    invoke-static {v6, v7, v3}, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->hkdfDeriveKey([B[B[B)Ljavax/crypto/SecretKey;
-
-    move-result-object v7
-
-    invoke-static {v7, v4, v5, p2}, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->aesGcmDecrypt(Ljavax/crypto/SecretKey;[B[B[B)[B
-
-    move-result-object v8
-
-    return-object v8
+    return-object p0
 
     :cond_3
-    new-instance v1, Ljavax/crypto/AEADBadTagException;
+    new-instance p0, Ljavax/crypto/AEADBadTagException;
 
-    const-string v3, "The payload was not encrypted by SecureBox v2"
+    const-string p1, "The payload was not encrypted by SecureBox v2"
 
-    invoke-direct {v1, v3}, Ljavax/crypto/AEADBadTagException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljavax/crypto/AEADBadTagException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p0
 
     :cond_4
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p0, Ljava/lang/NullPointerException;
 
-    const-string v1, "Encrypted payload must not be null."
+    const-string p1, "Encrypted payload must not be null."
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
-.method private static dhComputeSecret(Ljava/security/PrivateKey;Ljava/security/PublicKey;)[B
-    .locals 3
+.method public static dhComputeSecret(Ljava/security/PrivateKey;Ljava/security/PublicKey;)[B
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/NoSuchAlgorithmException;,
@@ -668,102 +628,93 @@
     :try_end_0
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
-    nop
+    const/4 p0, 0x1
 
-    const/4 v1, 0x1
-
-    invoke-virtual {v0, p1, v1}, Ljavax/crypto/KeyAgreement;->doPhase(Ljava/security/Key;Z)Ljava/security/Key;
+    invoke-virtual {v0, p1, p0}, Ljavax/crypto/KeyAgreement;->doPhase(Ljava/security/Key;Z)Ljava/security/Key;
 
     invoke-virtual {v0}, Ljavax/crypto/KeyAgreement;->generateSecret()[B
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 
     :catch_0
-    move-exception v1
+    move-exception p0
 
-    new-instance v2, Ljava/security/InvalidKeyException;
+    new-instance p1, Ljava/security/InvalidKeyException;
 
-    invoke-direct {v2, v1}, Ljava/security/InvalidKeyException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {p1, p0}, Ljava/security/InvalidKeyException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v2
+    throw p1
 .end method
 
-.method private static emptyByteArrayIfNull([B)[B
-    .locals 1
+.method public static emptyByteArrayIfNull([B)[B
+    .locals 0
 
     if-nez p0, :cond_0
 
-    sget-object v0, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->EMPTY_BYTE_ARRAY:[B
-
-    goto :goto_0
+    sget-object p0, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->EMPTY_BYTE_ARRAY:[B
 
     :cond_0
-    move-object v0, p0
-
-    :goto_0
-    return-object v0
+    return-object p0
 .end method
 
-.method static encodePublicKey(Ljava/security/PublicKey;)[B
-    .locals 7
+.method public static encodePublicKey(Ljava/security/PublicKey;)[B
+    .locals 5
 
-    move-object v0, p0
+    check-cast p0, Ljava/security/interfaces/ECPublicKey;
 
-    check-cast v0, Ljava/security/interfaces/ECPublicKey;
+    invoke-interface {p0}, Ljava/security/interfaces/ECPublicKey;->getW()Ljava/security/spec/ECPoint;
 
-    invoke-interface {v0}, Ljava/security/interfaces/ECPublicKey;->getW()Ljava/security/spec/ECPoint;
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/security/spec/ECPoint;->getAffineX()Ljava/math/BigInteger;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Ljava/security/spec/ECPoint;->getAffineX()Ljava/math/BigInteger;
+    invoke-virtual {v0}, Ljava/math/BigInteger;->toByteArray()[B
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1}, Ljava/math/BigInteger;->toByteArray()[B
+    invoke-virtual {p0}, Ljava/security/spec/ECPoint;->getAffineY()Ljava/math/BigInteger;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v0}, Ljava/security/spec/ECPoint;->getAffineY()Ljava/math/BigInteger;
+    invoke-virtual {p0}, Ljava/math/BigInteger;->toByteArray()[B
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-virtual {v2}, Ljava/math/BigInteger;->toByteArray()[B
+    const/16 v1, 0x41
 
-    move-result-object v2
+    new-array v2, v1, [B
 
-    const/16 v3, 0x41
+    array-length v3, p0
 
-    new-array v4, v3, [B
+    sub-int/2addr v1, v3
 
-    array-length v5, v2
+    array-length v3, p0
 
-    sub-int/2addr v3, v5
+    const/4 v4, 0x0
 
-    array-length v5, v2
+    invoke-static {p0, v4, v2, v1, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    const/4 v6, 0x0
+    array-length p0, v0
 
-    invoke-static {v2, v6, v4, v3, v5}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    rsub-int/lit8 p0, p0, 0x21
 
-    array-length v3, v1
+    array-length v1, v0
 
-    rsub-int/lit8 v3, v3, 0x21
+    invoke-static {v0, v4, v2, p0, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    array-length v5, v1
+    const/4 p0, 0x4
 
-    invoke-static {v1, v6, v4, v3, v5}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    aput-byte p0, v2, v4
 
-    const/4 v3, 0x4
-
-    aput-byte v3, v4, v6
-
-    return-object v4
+    return-object v2
 .end method
 
 .method public static encrypt(Ljava/security/PublicKey;[B[B[B)[B
-    .locals 17
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/NoSuchAlgorithmException;,
@@ -771,147 +722,151 @@
         }
     .end annotation
 
-    move-object/from16 v0, p0
+    invoke-static {p1}, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->emptyByteArrayIfNull([B)[B
 
-    invoke-static/range {p1 .. p1}, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->emptyByteArrayIfNull([B)[B
+    move-result-object p1
 
-    move-result-object v1
+    if-nez p0, :cond_1
 
-    if-nez v0, :cond_1
+    array-length v0, p1
 
-    array-length v2, v1
-
-    if-eqz v2, :cond_0
+    if-eqz v0, :cond_0
 
     goto :goto_0
 
     :cond_0
-    new-instance v2, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v3, "Both the public key and shared secret are empty"
+    const-string p1, "Both the public key and shared secret are empty"
 
-    invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw p0
 
     :cond_1
     :goto_0
-    invoke-static/range {p2 .. p2}, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->emptyByteArrayIfNull([B)[B
+    invoke-static {p2}, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->emptyByteArrayIfNull([B)[B
 
-    move-result-object v2
+    move-result-object p2
 
-    invoke-static/range {p3 .. p3}, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->emptyByteArrayIfNull([B)[B
+    invoke-static {p3}, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->emptyByteArrayIfNull([B)[B
 
-    move-result-object v3
+    move-result-object p3
 
-    if-nez v0, :cond_2
+    if-nez p0, :cond_2
 
-    const/4 v4, 0x0
+    const/4 p0, 0x0
 
-    sget-object v5, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->EMPTY_BYTE_ARRAY:[B
+    sget-object v0, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->EMPTY_BYTE_ARRAY:[B
 
-    sget-object v6, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->HKDF_INFO_WITHOUT_PUBLIC_KEY:[B
+    sget-object v1, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->HKDF_INFO_WITHOUT_PUBLIC_KEY:[B
 
     goto :goto_1
 
     :cond_2
     invoke-static {}, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->genKeyPair()Ljava/security/KeyPair;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-virtual {v4}, Ljava/security/KeyPair;->getPrivate()Ljava/security/PrivateKey;
+    invoke-virtual {v0}, Ljava/security/KeyPair;->getPrivate()Ljava/security/PrivateKey;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-static {v5, v0}, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->dhComputeSecret(Ljava/security/PrivateKey;Ljava/security/PublicKey;)[B
+    invoke-static {v1, p0}, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->dhComputeSecret(Ljava/security/PrivateKey;Ljava/security/PublicKey;)[B
 
-    move-result-object v5
+    move-result-object p0
 
-    sget-object v6, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->HKDF_INFO_WITH_PUBLIC_KEY:[B
+    sget-object v1, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->HKDF_INFO_WITH_PUBLIC_KEY:[B
+
+    move-object v6, v0
+
+    move-object v0, p0
+
+    move-object p0, v6
 
     :goto_1
     invoke-static {}, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->genRandomNonce()[B
 
-    move-result-object v7
+    move-result-object v2
 
-    const/4 v8, 0x2
+    const/4 v3, 0x2
 
-    new-array v9, v8, [[B
+    new-array v4, v3, [[B
 
-    const/4 v10, 0x0
+    const/4 v5, 0x0
 
-    aput-object v5, v9, v10
+    aput-object v0, v4, v5
 
-    const/4 v11, 0x1
+    const/4 v0, 0x1
 
-    aput-object v1, v9, v11
+    aput-object p1, v4, v0
 
-    invoke-static {v9}, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->concat([[B)[B
+    invoke-static {v4}, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->concat([[B)[B
 
-    move-result-object v9
+    move-result-object p1
 
-    sget-object v12, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->HKDF_SALT:[B
+    sget-object v4, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->HKDF_SALT:[B
 
-    invoke-static {v9, v12, v6}, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->hkdfDeriveKey([B[B[B)Ljavax/crypto/SecretKey;
+    invoke-static {p1, v4, v1}, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->hkdfDeriveKey([B[B[B)Ljavax/crypto/SecretKey;
 
-    move-result-object v12
+    move-result-object p1
 
-    invoke-static {v12, v7, v3, v2}, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->aesGcmEncrypt(Ljavax/crypto/SecretKey;[B[B[B)[B
+    invoke-static {p1, v2, p3, p2}, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->aesGcmEncrypt(Ljavax/crypto/SecretKey;[B[B[B)[B
 
-    move-result-object v13
+    move-result-object p1
 
-    const/4 v14, 0x3
+    const/4 p2, 0x3
 
-    if-nez v4, :cond_3
+    if-nez p0, :cond_3
 
-    new-array v14, v14, [[B
+    new-array p0, p2, [[B
 
-    sget-object v15, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->VERSION:[B
+    sget-object p2, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->VERSION:[B
 
-    aput-object v15, v14, v10
+    aput-object p2, p0, v5
 
-    aput-object v7, v14, v11
+    aput-object v2, p0, v0
 
-    aput-object v13, v14, v8
+    aput-object p1, p0, v3
 
-    invoke-static {v14}, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->concat([[B)[B
+    invoke-static {p0}, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->concat([[B)[B
 
-    move-result-object v8
+    move-result-object p0
 
-    return-object v8
+    return-object p0
 
     :cond_3
-    const/4 v15, 0x4
+    const/4 p3, 0x4
 
-    new-array v15, v15, [[B
+    new-array p3, p3, [[B
 
-    sget-object v16, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->VERSION:[B
+    sget-object v1, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->VERSION:[B
 
-    aput-object v16, v15, v10
+    aput-object v1, p3, v5
 
-    invoke-virtual {v4}, Ljava/security/KeyPair;->getPublic()Ljava/security/PublicKey;
+    invoke-virtual {p0}, Ljava/security/KeyPair;->getPublic()Ljava/security/PublicKey;
 
-    move-result-object v10
+    move-result-object p0
 
-    invoke-static {v10}, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->encodePublicKey(Ljava/security/PublicKey;)[B
+    invoke-static {p0}, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->encodePublicKey(Ljava/security/PublicKey;)[B
 
-    move-result-object v10
+    move-result-object p0
 
-    aput-object v10, v15, v11
+    aput-object p0, p3, v0
 
-    aput-object v7, v15, v8
+    aput-object v2, p3, v3
 
-    aput-object v13, v15, v14
+    aput-object p1, p3, p2
 
-    invoke-static {v15}, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->concat([[B)[B
+    invoke-static {p3}, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->concat([[B)[B
 
-    move-result-object v8
+    move-result-object p0
 
-    return-object v8
+    return-object p0
 .end method
 
 .method public static genKeyPair()Ljava/security/KeyPair;
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/NoSuchAlgorithmException;
@@ -935,15 +890,13 @@
 
     invoke-virtual {v0}, Ljava/security/KeyPairGenerator;->generateKeyPair()Ljava/security/KeyPair;
 
-    move-result-object v1
+    move-result-object v0
     :try_end_0
     .catch Ljava/security/InvalidAlgorithmParameterException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v1
+    return-object v0
 
     :catch_0
-    move-exception v1
-
     :try_start_1
     new-instance v1, Ljava/security/spec/ECGenParameterSpec;
 
@@ -955,25 +908,25 @@
 
     invoke-virtual {v0}, Ljava/security/KeyPairGenerator;->generateKeyPair()Ljava/security/KeyPair;
 
-    move-result-object v1
+    move-result-object v0
     :try_end_1
     .catch Ljava/security/InvalidAlgorithmParameterException; {:try_start_1 .. :try_end_1} :catch_1
 
-    return-object v1
+    return-object v0
 
     :catch_1
-    move-exception v1
+    move-exception v0
 
-    new-instance v2, Ljava/security/NoSuchAlgorithmException;
+    new-instance v1, Ljava/security/NoSuchAlgorithmException;
 
-    const-string v3, "Unable to find the NIST P-256 curve"
+    const-string v2, "Unable to find the NIST P-256 curve"
 
-    invoke-direct {v2, v3, v1}, Ljava/security/NoSuchAlgorithmException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {v1, v2, v0}, Ljava/security/NoSuchAlgorithmException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    throw v2
+    throw v1
 .end method
 
-.method private static genRandomNonce()[B
+.method public static genRandomNonce()[B
     .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -994,8 +947,8 @@
     return-object v0
 .end method
 
-.method private static hkdfDeriveKey([B[B[B)Ljavax/crypto/SecretKey;
-    .locals 6
+.method public static hkdfDeriveKey([B[B[B)Ljavax/crypto/SecretKey;
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/NoSuchAlgorithmException;
@@ -1017,97 +970,89 @@
     :try_end_0
     .catch Ljava/security/InvalidKeyException; {:try_start_0 .. :try_end_0} :catch_1
 
-    nop
-
     invoke-virtual {v1, p0}, Ljavax/crypto/Mac;->doFinal([B)[B
 
-    move-result-object v2
+    move-result-object p0
 
     :try_start_1
-    new-instance v3, Ljavax/crypto/spec/SecretKeySpec;
+    new-instance p1, Ljavax/crypto/spec/SecretKeySpec;
 
-    invoke-direct {v3, v2, v0}, Ljavax/crypto/spec/SecretKeySpec;-><init>([BLjava/lang/String;)V
+    invoke-direct {p1, p0, v0}, Ljavax/crypto/spec/SecretKeySpec;-><init>([BLjava/lang/String;)V
 
-    invoke-virtual {v1, v3}, Ljavax/crypto/Mac;->init(Ljava/security/Key;)V
+    invoke-virtual {v1, p1}, Ljavax/crypto/Mac;->init(Ljava/security/Key;)V
     :try_end_1
     .catch Ljava/security/InvalidKeyException; {:try_start_1 .. :try_end_1} :catch_0
 
-    nop
-
     invoke-virtual {v1, p2}, Ljavax/crypto/Mac;->update([B)V
 
-    sget-object v0, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->CONSTANT_01:[B
+    sget-object p0, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->CONSTANT_01:[B
 
-    invoke-virtual {v1, v0}, Ljavax/crypto/Mac;->doFinal([B)[B
+    invoke-virtual {v1, p0}, Ljavax/crypto/Mac;->doFinal([B)[B
 
-    move-result-object v0
+    move-result-object p0
 
-    new-instance v3, Ljavax/crypto/spec/SecretKeySpec;
+    new-instance p1, Ljavax/crypto/spec/SecretKeySpec;
 
-    const/16 v4, 0x10
+    const/16 p2, 0x10
 
-    invoke-static {v0, v4}, Ljava/util/Arrays;->copyOf([BI)[B
+    invoke-static {p0, p2}, Ljava/util/Arrays;->copyOf([BI)[B
 
-    move-result-object v4
+    move-result-object p0
 
-    const-string v5, "AES"
+    const-string p2, "AES"
 
-    invoke-direct {v3, v4, v5}, Ljavax/crypto/spec/SecretKeySpec;-><init>([BLjava/lang/String;)V
+    invoke-direct {p1, p0, p2}, Ljavax/crypto/spec/SecretKeySpec;-><init>([BLjava/lang/String;)V
 
-    return-object v3
+    return-object p1
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    new-instance v3, Ljava/lang/RuntimeException;
+    new-instance p1, Ljava/lang/RuntimeException;
 
-    invoke-direct {v3, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {p1, p0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v3
+    throw p1
 
     :catch_1
-    move-exception v0
+    move-exception p0
 
-    new-instance v2, Ljava/lang/RuntimeException;
+    new-instance p1, Ljava/lang/RuntimeException;
 
-    invoke-direct {v2, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {p1, p0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v2
+    throw p1
 .end method
 
-.method private static readEncryptedPayload(Ljava/nio/ByteBuffer;I)[B
-    .locals 4
+.method public static readEncryptedPayload(Ljava/nio/ByteBuffer;I)[B
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljavax/crypto/AEADBadTagException;
         }
     .end annotation
 
-    new-array v0, p1, [B
+    new-array p1, p1, [B
 
     :try_start_0
-    invoke-virtual {p0, v0}, Ljava/nio/ByteBuffer;->get([B)Ljava/nio/ByteBuffer;
+    invoke-virtual {p0, p1}, Ljava/nio/ByteBuffer;->get([B)Ljava/nio/ByteBuffer;
     :try_end_0
     .catch Ljava/nio/BufferUnderflowException; {:try_start_0 .. :try_end_0} :catch_0
 
-    nop
-
-    return-object v0
+    return-object p1
 
     :catch_0
-    move-exception v1
+    new-instance p0, Ljavax/crypto/AEADBadTagException;
 
-    new-instance v2, Ljavax/crypto/AEADBadTagException;
+    const-string p1, "The encrypted payload is too short"
 
-    const-string v3, "The encrypted payload is too short"
+    invoke-direct {p0, p1}, Ljavax/crypto/AEADBadTagException;-><init>(Ljava/lang/String;)V
 
-    invoke-direct {v2, v3}, Ljavax/crypto/AEADBadTagException;-><init>(Ljava/lang/String;)V
-
-    throw v2
+    throw p0
 .end method
 
-.method private static validateEcPoint(Ljava/math/BigInteger;Ljava/math/BigInteger;)V
-    .locals 5
+.method public static validateEcPoint(Ljava/math/BigInteger;Ljava/math/BigInteger;)V
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/InvalidKeyException;
@@ -1148,17 +1093,15 @@
 
     invoke-virtual {p1, v1, v0}, Ljava/math/BigInteger;->modPow(Ljava/math/BigInteger;Ljava/math/BigInteger;)Ljava/math/BigInteger;
 
-    move-result-object v3
-
-    nop
+    move-result-object p1
 
     invoke-virtual {p0, v1, v0}, Ljava/math/BigInteger;->modPow(Ljava/math/BigInteger;Ljava/math/BigInteger;)Ljava/math/BigInteger;
 
     move-result-object v1
 
-    sget-object v4, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->EC_PARAM_A:Ljava/math/BigInteger;
+    sget-object v3, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->EC_PARAM_A:Ljava/math/BigInteger;
 
-    invoke-virtual {v1, v4}, Ljava/math/BigInteger;->add(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+    invoke-virtual {v1, v3}, Ljava/math/BigInteger;->add(Ljava/math/BigInteger;)Ljava/math/BigInteger;
 
     move-result-object v1
 
@@ -1168,37 +1111,37 @@
 
     invoke-virtual {v1, p0}, Ljava/math/BigInteger;->multiply(Ljava/math/BigInteger;)Ljava/math/BigInteger;
 
-    move-result-object v1
+    move-result-object p0
 
-    sget-object v4, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->EC_PARAM_B:Ljava/math/BigInteger;
+    sget-object v1, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->EC_PARAM_B:Ljava/math/BigInteger;
 
-    invoke-virtual {v1, v4}, Ljava/math/BigInteger;->add(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+    invoke-virtual {p0, v1}, Ljava/math/BigInteger;->add(Ljava/math/BigInteger;)Ljava/math/BigInteger;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v1, v0}, Ljava/math/BigInteger;->mod(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+    invoke-virtual {p0, v0}, Ljava/math/BigInteger;->mod(Ljava/math/BigInteger;)Ljava/math/BigInteger;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v3, v0}, Ljava/math/BigInteger;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, p0}, Ljava/math/BigInteger;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result p0
 
-    if-eqz v1, :cond_0
+    if-eqz p0, :cond_0
 
     return-void
 
     :cond_0
-    new-instance v1, Ljava/security/InvalidKeyException;
+    new-instance p0, Ljava/security/InvalidKeyException;
 
-    invoke-direct {v1, v2}, Ljava/security/InvalidKeyException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v2}, Ljava/security/InvalidKeyException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p0
 
     :cond_1
-    new-instance v0, Ljava/security/InvalidKeyException;
+    new-instance p0, Ljava/security/InvalidKeyException;
 
-    invoke-direct {v0, v2}, Ljava/security/InvalidKeyException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v2}, Ljava/security/InvalidKeyException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method

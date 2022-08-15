@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/location/gnss/GnssLocationProvider$$ExternalSyntheticLambda4;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/location/LocationListener;
+.implements Ljava/lang/Runnable;
 
 
 # instance fields
@@ -22,12 +23,12 @@
 
 
 # virtual methods
-.method public final onLocationChanged(Landroid/location/Location;)V
-    .locals 1
+.method public final run()V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/location/gnss/GnssLocationProvider$$ExternalSyntheticLambda4;->f$0:Lcom/android/server/location/gnss/GnssLocationProvider;
+    iget-object p0, p0, Lcom/android/server/location/gnss/GnssLocationProvider$$ExternalSyntheticLambda4;->f$0:Lcom/android/server/location/gnss/GnssLocationProvider;
 
-    invoke-static {v0, p1}, Lcom/android/server/location/gnss/GnssLocationProvider;->$r8$lambda$Wg-yoEB-VMU5sJo1WeAMRYSmm_Y(Lcom/android/server/location/gnss/GnssLocationProvider;Landroid/location/Location;)V
+    invoke-static {p0}, Lcom/android/server/location/gnss/GnssLocationProvider;->$r8$lambda$2TVxEDDZNUBBc-BZkc4TSpBsNaU(Lcom/android/server/location/gnss/GnssLocationProvider;)V
 
     return-void
 .end method

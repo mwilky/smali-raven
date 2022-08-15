@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x60c
+    accessFlags = 0x609
     name = "Callback"
 .end annotation
 
@@ -18,7 +18,7 @@
 .method public abstract addAutoGroup(Ljava/lang/String;)V
 .end method
 
-.method public abstract addAutoGroupSummary(ILjava/lang/String;Ljava/lang/String;)V
+.method public abstract addAutoGroupSummary(ILjava/lang/String;Ljava/lang/String;Z)V
 .end method
 
 .method public abstract removeAutoGroup(Ljava/lang/String;)V
@@ -27,5 +27,5 @@
 .method public abstract removeAutoGroupSummary(ILjava/lang/String;)V
 .end method
 
-.method public abstract updateAutogroupSummary(Ljava/lang/String;Z)V
+.method public abstract updateAutogroupSummary(ILjava/lang/String;Z)V
 .end method

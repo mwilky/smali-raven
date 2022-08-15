@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/am/PhantomProcessList$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/os/MessageQueue$OnFileDescriptorEventListener;
+.implements Ljava/util/function/Consumer;
 
 
 # instance fields
@@ -22,14 +23,14 @@
 
 
 # virtual methods
-.method public final onFileDescriptorEvents(Ljava/io/FileDescriptor;I)I
-    .locals 1
+.method public final accept(Ljava/lang/Object;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/am/PhantomProcessList$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/am/PhantomProcessList;
+    iget-object p0, p0, Lcom/android/server/am/PhantomProcessList$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/am/PhantomProcessList;
 
-    invoke-static {v0, p1, p2}, Lcom/android/server/am/PhantomProcessList;->$r8$lambda$hpwNNTyxzGWZAqmB6EftBRf3tx4(Lcom/android/server/am/PhantomProcessList;Ljava/io/FileDescriptor;I)I
+    check-cast p1, Lcom/android/server/am/PhantomProcessRecord;
 
-    move-result p1
+    invoke-static {p0, p1}, Lcom/android/server/am/PhantomProcessList;->$r8$lambda$DV2oO0oBIWu9yWxcWhpeHYoWXn4(Lcom/android/server/am/PhantomProcessList;Lcom/android/server/am/PhantomProcessRecord;)V
 
-    return p1
+    return-void
 .end method

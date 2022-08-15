@@ -1,4 +1,4 @@
-.class Lcom/android/server/accessibility/magnification/MotionEventDispatcherDelegate;
+.class public Lcom/android/server/accessibility/magnification/MotionEventDispatcherDelegate;
 .super Ljava/lang/Object;
 .source "MotionEventDispatcherDelegate.java"
 
@@ -12,21 +12,21 @@
 
 
 # static fields
-.field private static final DBG:Z
+.field public static final DBG:Z
 
-.field private static final TAG:Ljava/lang/String;
+.field public static final TAG:Ljava/lang/String; = "MotionEventDispatcherDelegate"
 
 
 # instance fields
-.field private final mEventDispatcher:Lcom/android/server/accessibility/magnification/MotionEventDispatcherDelegate$EventDispatcher;
+.field public final mEventDispatcher:Lcom/android/server/accessibility/magnification/MotionEventDispatcherDelegate$EventDispatcher;
 
-.field private mLastDelegatedDownEventTime:J
+.field public mLastDelegatedDownEventTime:J
 
-.field private final mMultiTapMaxDelay:I
+.field public final mMultiTapMaxDelay:I
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 2
 
     const-class v0, Lcom/android/server/accessibility/magnification/MotionEventDispatcherDelegate;
@@ -34,8 +34,6 @@
     invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
 
     move-result-object v0
-
-    sput-object v0, Lcom/android/server/accessibility/magnification/MotionEventDispatcherDelegate;->TAG:Ljava/lang/String;
 
     const/4 v1, 0x3
 
@@ -48,8 +46,8 @@
     return-void
 .end method
 
-.method constructor <init>(Landroid/content/Context;Lcom/android/server/accessibility/magnification/MotionEventDispatcherDelegate$EventDispatcher;)V
-    .locals 3
+.method public constructor <init>(Landroid/content/Context;Lcom/android/server/accessibility/magnification/MotionEventDispatcherDelegate$EventDispatcher;)V
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -57,28 +55,28 @@
 
     invoke-static {}, Landroid/view/ViewConfiguration;->getDoubleTapTimeout()I
 
-    move-result v0
+    move-result p2
 
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v1
+    move-result-object p1
 
-    const v2, 0x10e00c4
+    const v0, 0x10e00d0
 
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
+    invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getInteger(I)I
 
-    move-result v1
+    move-result p1
 
-    add-int/2addr v0, v1
+    add-int/2addr p2, p1
 
-    iput v0, p0, Lcom/android/server/accessibility/magnification/MotionEventDispatcherDelegate;->mMultiTapMaxDelay:I
+    iput p2, p0, Lcom/android/server/accessibility/magnification/MotionEventDispatcherDelegate;->mMultiTapMaxDelay:I
 
     return-void
 .end method
 
 
 # virtual methods
-.method dispatchMotionEvent(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
+.method public dispatchMotionEvent(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
     .locals 4
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
@@ -149,15 +147,15 @@
 
     invoke-virtual {p1, v0, v1}, Landroid/view/MotionEvent;->setDownTime(J)V
 
-    iget-object v0, p0, Lcom/android/server/accessibility/magnification/MotionEventDispatcherDelegate;->mEventDispatcher:Lcom/android/server/accessibility/magnification/MotionEventDispatcherDelegate$EventDispatcher;
+    iget-object p0, p0, Lcom/android/server/accessibility/magnification/MotionEventDispatcherDelegate;->mEventDispatcher:Lcom/android/server/accessibility/magnification/MotionEventDispatcherDelegate$EventDispatcher;
 
-    invoke-interface {v0, p1, p2, p3}, Lcom/android/server/accessibility/magnification/MotionEventDispatcherDelegate$EventDispatcher;->dispatchMotionEvent(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
+    invoke-interface {p0, p1, p2, p3}, Lcom/android/server/accessibility/magnification/MotionEventDispatcherDelegate$EventDispatcher;->dispatchMotionEvent(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
 
     return-void
 .end method
 
-.method sendDelayedMotionEvents(Ljava/util/List;J)V
-    .locals 7
+.method public sendDelayedMotionEvents(Ljava/util/List;J)V
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -178,52 +176,50 @@
 
     sub-long/2addr v0, p2
 
-    iget v2, p0, Lcom/android/server/accessibility/magnification/MotionEventDispatcherDelegate;->mMultiTapMaxDelay:I
+    iget p2, p0, Lcom/android/server/accessibility/magnification/MotionEventDispatcherDelegate;->mMultiTapMaxDelay:I
 
-    int-to-long v2, v2
+    int-to-long p2, p2
 
-    invoke-static {v0, v1, v2, v3}, Ljava/lang/Math;->min(JJ)J
+    invoke-static {v0, v1, p2, p3}, Ljava/lang/Math;->min(JJ)J
 
-    move-result-wide v0
+    move-result-wide p2
 
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v2
+    move-result-object p1
 
     :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v3
+    move-result v0
 
-    if-eqz v3, :cond_1
+    if-eqz v0, :cond_1
 
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v0
 
-    check-cast v3, Lcom/android/server/accessibility/magnification/MotionEventInfo;
+    check-cast v0, Lcom/android/server/accessibility/magnification/MotionEventInfo;
 
-    iget-object v4, v3, Lcom/android/server/accessibility/magnification/MotionEventInfo;->mEvent:Landroid/view/MotionEvent;
+    iget-object v1, v0, Lcom/android/server/accessibility/magnification/MotionEventInfo;->mEvent:Landroid/view/MotionEvent;
 
-    iget-object v5, v3, Lcom/android/server/accessibility/magnification/MotionEventInfo;->mEvent:Landroid/view/MotionEvent;
+    invoke-virtual {v1}, Landroid/view/MotionEvent;->getDownTime()J
 
-    invoke-virtual {v5}, Landroid/view/MotionEvent;->getDownTime()J
+    move-result-wide v2
 
-    move-result-wide v5
+    add-long/2addr v2, p2
 
-    add-long/2addr v5, v0
+    invoke-virtual {v1, v2, v3}, Landroid/view/MotionEvent;->setDownTime(J)V
 
-    invoke-virtual {v4, v5, v6}, Landroid/view/MotionEvent;->setDownTime(J)V
+    iget-object v1, v0, Lcom/android/server/accessibility/magnification/MotionEventInfo;->mEvent:Landroid/view/MotionEvent;
 
-    iget-object v4, v3, Lcom/android/server/accessibility/magnification/MotionEventInfo;->mEvent:Landroid/view/MotionEvent;
+    iget-object v2, v0, Lcom/android/server/accessibility/magnification/MotionEventInfo;->mRawEvent:Landroid/view/MotionEvent;
 
-    iget-object v5, v3, Lcom/android/server/accessibility/magnification/MotionEventInfo;->mRawEvent:Landroid/view/MotionEvent;
+    iget v3, v0, Lcom/android/server/accessibility/magnification/MotionEventInfo;->mPolicyFlags:I
 
-    iget v6, v3, Lcom/android/server/accessibility/magnification/MotionEventInfo;->mPolicyFlags:I
+    invoke-virtual {p0, v1, v2, v3}, Lcom/android/server/accessibility/magnification/MotionEventDispatcherDelegate;->dispatchMotionEvent(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
 
-    invoke-virtual {p0, v4, v5, v6}, Lcom/android/server/accessibility/magnification/MotionEventDispatcherDelegate;->dispatchMotionEvent(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
-
-    invoke-virtual {v3}, Lcom/android/server/accessibility/magnification/MotionEventInfo;->recycle()V
+    invoke-virtual {v0}, Lcom/android/server/accessibility/magnification/MotionEventInfo;->recycle()V
 
     goto :goto_0
 

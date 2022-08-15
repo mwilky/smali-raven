@@ -1,14 +1,14 @@
-.class final Lcom/android/server/voiceinteraction/SoundTriggerSessionBinderProxy;
+.class public final Lcom/android/server/voiceinteraction/SoundTriggerSessionBinderProxy;
 .super Lcom/android/internal/app/IVoiceInteractionSoundTriggerSession$Stub;
 .source "SoundTriggerSessionBinderProxy.java"
 
 
 # instance fields
-.field private final mDelegate:Lcom/android/internal/app/IVoiceInteractionSoundTriggerSession;
+.field public final mDelegate:Lcom/android/internal/app/IVoiceInteractionSoundTriggerSession;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/internal/app/IVoiceInteractionSoundTriggerSession;)V
+.method public constructor <init>(Lcom/android/internal/app/IVoiceInteractionSoundTriggerSession;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/internal/app/IVoiceInteractionSoundTriggerSession$Stub;-><init>()V
@@ -21,71 +21,71 @@
 
 # virtual methods
 .method public getDspModuleProperties()Landroid/hardware/soundtrigger/SoundTrigger$ModuleProperties;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/android/server/voiceinteraction/SoundTriggerSessionBinderProxy;->mDelegate:Lcom/android/internal/app/IVoiceInteractionSoundTriggerSession;
+    iget-object p0, p0, Lcom/android/server/voiceinteraction/SoundTriggerSessionBinderProxy;->mDelegate:Lcom/android/internal/app/IVoiceInteractionSoundTriggerSession;
 
-    invoke-interface {v0}, Lcom/android/internal/app/IVoiceInteractionSoundTriggerSession;->getDspModuleProperties()Landroid/hardware/soundtrigger/SoundTrigger$ModuleProperties;
+    invoke-interface {p0}, Lcom/android/internal/app/IVoiceInteractionSoundTriggerSession;->getDspModuleProperties()Landroid/hardware/soundtrigger/SoundTrigger$ModuleProperties;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getParameter(II)I
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/android/server/voiceinteraction/SoundTriggerSessionBinderProxy;->mDelegate:Lcom/android/internal/app/IVoiceInteractionSoundTriggerSession;
+    iget-object p0, p0, Lcom/android/server/voiceinteraction/SoundTriggerSessionBinderProxy;->mDelegate:Lcom/android/internal/app/IVoiceInteractionSoundTriggerSession;
 
-    invoke-interface {v0, p1, p2}, Lcom/android/internal/app/IVoiceInteractionSoundTriggerSession;->getParameter(II)I
+    invoke-interface {p0, p1, p2}, Lcom/android/internal/app/IVoiceInteractionSoundTriggerSession;->getParameter(II)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public queryParameter(II)Landroid/hardware/soundtrigger/SoundTrigger$ModelParamRange;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/android/server/voiceinteraction/SoundTriggerSessionBinderProxy;->mDelegate:Lcom/android/internal/app/IVoiceInteractionSoundTriggerSession;
+    iget-object p0, p0, Lcom/android/server/voiceinteraction/SoundTriggerSessionBinderProxy;->mDelegate:Lcom/android/internal/app/IVoiceInteractionSoundTriggerSession;
 
-    invoke-interface {v0, p1, p2}, Lcom/android/internal/app/IVoiceInteractionSoundTriggerSession;->queryParameter(II)Landroid/hardware/soundtrigger/SoundTrigger$ModelParamRange;
+    invoke-interface {p0, p1, p2}, Lcom/android/internal/app/IVoiceInteractionSoundTriggerSession;->queryParameter(II)Landroid/hardware/soundtrigger/SoundTrigger$ModelParamRange;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public setParameter(III)I
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/android/server/voiceinteraction/SoundTriggerSessionBinderProxy;->mDelegate:Lcom/android/internal/app/IVoiceInteractionSoundTriggerSession;
+    iget-object p0, p0, Lcom/android/server/voiceinteraction/SoundTriggerSessionBinderProxy;->mDelegate:Lcom/android/internal/app/IVoiceInteractionSoundTriggerSession;
 
-    invoke-interface {v0, p1, p2, p3}, Lcom/android/internal/app/IVoiceInteractionSoundTriggerSession;->setParameter(III)I
+    invoke-interface {p0, p1, p2, p3}, Lcom/android/internal/app/IVoiceInteractionSoundTriggerSession;->setParameter(III)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public startRecognition(ILjava/lang/String;Lcom/android/internal/app/IHotwordRecognitionStatusCallback;Landroid/hardware/soundtrigger/SoundTrigger$RecognitionConfig;Z)I
@@ -110,24 +110,24 @@
 
     invoke-interface/range {v0 .. v5}, Lcom/android/internal/app/IVoiceInteractionSoundTriggerSession;->startRecognition(ILjava/lang/String;Lcom/android/internal/app/IHotwordRecognitionStatusCallback;Landroid/hardware/soundtrigger/SoundTrigger$RecognitionConfig;Z)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public stopRecognition(ILcom/android/internal/app/IHotwordRecognitionStatusCallback;)I
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/android/server/voiceinteraction/SoundTriggerSessionBinderProxy;->mDelegate:Lcom/android/internal/app/IVoiceInteractionSoundTriggerSession;
+    iget-object p0, p0, Lcom/android/server/voiceinteraction/SoundTriggerSessionBinderProxy;->mDelegate:Lcom/android/internal/app/IVoiceInteractionSoundTriggerSession;
 
-    invoke-interface {v0, p1, p2}, Lcom/android/internal/app/IVoiceInteractionSoundTriggerSession;->stopRecognition(ILcom/android/internal/app/IHotwordRecognitionStatusCallback;)I
+    invoke-interface {p0, p1, p2}, Lcom/android/internal/app/IVoiceInteractionSoundTriggerSession;->stopRecognition(ILcom/android/internal/app/IHotwordRecognitionStatusCallback;)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method

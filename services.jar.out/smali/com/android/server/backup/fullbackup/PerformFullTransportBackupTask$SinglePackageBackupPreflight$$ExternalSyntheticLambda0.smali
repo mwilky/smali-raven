@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/backup/fullbackup/PerformFullTransportBackupTask$SinglePackageBackupPreflight$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/server/backup/remote/RemoteCallable;
@@ -41,7 +42,7 @@
 
     check-cast p1, Landroid/app/backup/IBackupCallback;
 
-    invoke-virtual {v0, v1, v2, v3, p1}, Lcom/android/server/backup/fullbackup/PerformFullTransportBackupTask$SinglePackageBackupPreflight;->lambda$preflightFullBackup$0$PerformFullTransportBackupTask$SinglePackageBackupPreflight(Landroid/app/IBackupAgent;JLandroid/app/backup/IBackupCallback;)V
+    invoke-static {v0, v1, v2, v3, p1}, Lcom/android/server/backup/fullbackup/PerformFullTransportBackupTask$SinglePackageBackupPreflight;->$r8$lambda$Rgmk7YU1vz3J_t49StN24e7mhCc(Lcom/android/server/backup/fullbackup/PerformFullTransportBackupTask$SinglePackageBackupPreflight;Landroid/app/IBackupAgent;JLandroid/app/backup/IBackupCallback;)V
 
     return-void
 .end method

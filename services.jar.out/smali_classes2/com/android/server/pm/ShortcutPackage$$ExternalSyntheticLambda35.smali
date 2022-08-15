@@ -1,37 +1,36 @@
 .class public final synthetic Lcom/android/server/pm/ShortcutPackage$$ExternalSyntheticLambda35;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Function;
+.implements Ljava/util/function/Consumer;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/server/pm/ShortcutPackage;
+.field public final synthetic f$0:Ljava/util/List;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/pm/ShortcutPackage;)V
+.method public synthetic constructor <init>(Ljava/util/List;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/pm/ShortcutPackage$$ExternalSyntheticLambda35;->f$0:Lcom/android/server/pm/ShortcutPackage;
+    iput-object p1, p0, Lcom/android/server/pm/ShortcutPackage$$ExternalSyntheticLambda35;->f$0:Ljava/util/List;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+.method public final accept(Ljava/lang/Object;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/pm/ShortcutPackage$$ExternalSyntheticLambda35;->f$0:Lcom/android/server/pm/ShortcutPackage;
+    iget-object p0, p0, Lcom/android/server/pm/ShortcutPackage$$ExternalSyntheticLambda35;->f$0:Ljava/util/List;
 
-    check-cast p1, Landroid/app/appsearch/AppSearchSession;
+    check-cast p1, Landroid/content/pm/ShortcutInfo;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/pm/ShortcutPackage;->lambda$removeShortcuts$42$ShortcutPackage(Landroid/app/appsearch/AppSearchSession;)Ljava/util/concurrent/CompletableFuture;
+    invoke-static {p0, p1}, Lcom/android/server/pm/ShortcutPackage;->$r8$lambda$Chd2VWERIW0jZAxCgu5Jbum-nFY(Ljava/util/List;Landroid/content/pm/ShortcutInfo;)V
 
-    move-result-object p1
-
-    return-object p1
+    return-void
 .end method

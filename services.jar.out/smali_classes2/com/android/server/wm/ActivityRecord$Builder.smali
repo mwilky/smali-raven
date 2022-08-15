@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/ActivityRecord$Builder;
+.class public Lcom/android/server/wm/ActivityRecord$Builder;
 .super Ljava/lang/Object;
 .source "ActivityRecord.java"
 
@@ -9,55 +9,85 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "Builder"
 .end annotation
 
 
 # instance fields
-.field private mActivityInfo:Landroid/content/pm/ActivityInfo;
+.field public mActivityInfo:Landroid/content/pm/ActivityInfo;
 
-.field private final mAtmService:Lcom/android/server/wm/ActivityTaskManagerService;
+.field public final mAtmService:Lcom/android/server/wm/ActivityTaskManagerService;
 
-.field private mCallerApp:Lcom/android/server/wm/WindowProcessController;
+.field public mCallerApp:Lcom/android/server/wm/WindowProcessController;
 
-.field private mComponentSpecified:Z
+.field public mComponentSpecified:Z
 
-.field private mConfiguration:Landroid/content/res/Configuration;
+.field public mConfiguration:Landroid/content/res/Configuration;
 
-.field private mCreateTime:J
+.field public mCreateTime:J
 
-.field private mIntent:Landroid/content/Intent;
+.field public mIntent:Landroid/content/Intent;
 
-.field private mLaunchedFromFeature:Ljava/lang/String;
+.field public mLaunchedFromFeature:Ljava/lang/String;
 
-.field private mLaunchedFromPackage:Ljava/lang/String;
+.field public mLaunchedFromPackage:Ljava/lang/String;
 
-.field private mLaunchedFromPid:I
+.field public mLaunchedFromPid:I
 
-.field private mLaunchedFromUid:I
+.field public mLaunchedFromUid:I
 
-.field private mOptions:Landroid/app/ActivityOptions;
+.field public mOptions:Landroid/app/ActivityOptions;
 
-.field private mPersistentState:Landroid/os/PersistableBundle;
+.field public mPersistentState:Landroid/os/PersistableBundle;
 
-.field private mRequestCode:I
+.field public mRequestCode:I
 
-.field private mResolvedType:Ljava/lang/String;
+.field public mResolvedType:Ljava/lang/String;
 
-.field private mResultTo:Lcom/android/server/wm/ActivityRecord;
+.field public mResultTo:Lcom/android/server/wm/ActivityRecord;
 
-.field private mResultWho:Ljava/lang/String;
+.field public mResultWho:Ljava/lang/String;
 
-.field private mRootVoiceInteraction:Z
+.field public mRootVoiceInteraction:Z
 
-.field private mSourceRecord:Lcom/android/server/wm/ActivityRecord;
+.field public mSourceRecord:Lcom/android/server/wm/ActivityRecord;
 
-.field private mTaskDescription:Landroid/app/ActivityManager$TaskDescription;
+.field public mTaskDescription:Landroid/app/ActivityManager$TaskDescription;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/wm/ActivityTaskManagerService;)V
+.method public static bridge synthetic -$$Nest$msetCreateTime(Lcom/android/server/wm/ActivityRecord$Builder;J)Lcom/android/server/wm/ActivityRecord$Builder;
+    .locals 0
+
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/wm/ActivityRecord$Builder;->setCreateTime(J)Lcom/android/server/wm/ActivityRecord$Builder;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$msetPersistentState(Lcom/android/server/wm/ActivityRecord$Builder;Landroid/os/PersistableBundle;)Lcom/android/server/wm/ActivityRecord$Builder;
+    .locals 0
+
+    invoke-virtual {p0, p1}, Lcom/android/server/wm/ActivityRecord$Builder;->setPersistentState(Landroid/os/PersistableBundle;)Lcom/android/server/wm/ActivityRecord$Builder;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$msetTaskDescription(Lcom/android/server/wm/ActivityRecord$Builder;Landroid/app/ActivityManager$TaskDescription;)Lcom/android/server/wm/ActivityRecord$Builder;
+    .locals 0
+
+    invoke-virtual {p0, p1}, Lcom/android/server/wm/ActivityRecord$Builder;->setTaskDescription(Landroid/app/ActivityManager$TaskDescription;)Lcom/android/server/wm/ActivityRecord$Builder;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public constructor <init>(Lcom/android/server/wm/ActivityTaskManagerService;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -67,63 +97,9 @@
     return-void
 .end method
 
-.method static synthetic access$500(Lcom/android/server/wm/ActivityRecord$Builder;Landroid/os/PersistableBundle;)Lcom/android/server/wm/ActivityRecord$Builder;
-    .locals 1
-
-    invoke-direct {p0, p1}, Lcom/android/server/wm/ActivityRecord$Builder;->setPersistentState(Landroid/os/PersistableBundle;)Lcom/android/server/wm/ActivityRecord$Builder;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method static synthetic access$600(Lcom/android/server/wm/ActivityRecord$Builder;Landroid/app/ActivityManager$TaskDescription;)Lcom/android/server/wm/ActivityRecord$Builder;
-    .locals 1
-
-    invoke-direct {p0, p1}, Lcom/android/server/wm/ActivityRecord$Builder;->setTaskDescription(Landroid/app/ActivityManager$TaskDescription;)Lcom/android/server/wm/ActivityRecord$Builder;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method static synthetic access$700(Lcom/android/server/wm/ActivityRecord$Builder;J)Lcom/android/server/wm/ActivityRecord$Builder;
-    .locals 1
-
-    invoke-direct {p0, p1, p2}, Lcom/android/server/wm/ActivityRecord$Builder;->setCreateTime(J)Lcom/android/server/wm/ActivityRecord$Builder;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method private setCreateTime(J)Lcom/android/server/wm/ActivityRecord$Builder;
-    .locals 0
-
-    iput-wide p1, p0, Lcom/android/server/wm/ActivityRecord$Builder;->mCreateTime:J
-
-    return-object p0
-.end method
-
-.method private setPersistentState(Landroid/os/PersistableBundle;)Lcom/android/server/wm/ActivityRecord$Builder;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/server/wm/ActivityRecord$Builder;->mPersistentState:Landroid/os/PersistableBundle;
-
-    return-object p0
-.end method
-
-.method private setTaskDescription(Landroid/app/ActivityManager$TaskDescription;)Lcom/android/server/wm/ActivityRecord$Builder;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/server/wm/ActivityRecord$Builder;->mTaskDescription:Landroid/app/ActivityManager$TaskDescription;
-
-    return-object p0
-.end method
-
 
 # virtual methods
-.method build()Lcom/android/server/wm/ActivityRecord;
+.method public build()Lcom/android/server/wm/ActivityRecord;
     .locals 28
 
     move-object/from16 v0, p0
@@ -209,20 +185,20 @@
 
     move-object/from16 v22, v1
 
-    iget-wide v1, v0, Lcom/android/server/wm/ActivityRecord$Builder;->mCreateTime:J
+    iget-wide v0, v0, Lcom/android/server/wm/ActivityRecord$Builder;->mCreateTime:J
 
-    move-wide/from16 v23, v1
+    move-wide/from16 v23, v0
 
     const/16 v25, 0x0
 
     move-object/from16 v2, v27
 
-    invoke-direct/range {v2 .. v25}, Lcom/android/server/wm/ActivityRecord;-><init>(Lcom/android/server/wm/ActivityTaskManagerService;Lcom/android/server/wm/WindowProcessController;IILjava/lang/String;Ljava/lang/String;Landroid/content/Intent;Ljava/lang/String;Landroid/content/pm/ActivityInfo;Landroid/content/res/Configuration;Lcom/android/server/wm/ActivityRecord;Ljava/lang/String;IZZLcom/android/server/wm/ActivityTaskSupervisor;Landroid/app/ActivityOptions;Lcom/android/server/wm/ActivityRecord;Landroid/os/PersistableBundle;Landroid/app/ActivityManager$TaskDescription;JLcom/android/server/wm/ActivityRecord$1;)V
+    invoke-direct/range {v2 .. v25}, Lcom/android/server/wm/ActivityRecord;-><init>(Lcom/android/server/wm/ActivityTaskManagerService;Lcom/android/server/wm/WindowProcessController;IILjava/lang/String;Ljava/lang/String;Landroid/content/Intent;Ljava/lang/String;Landroid/content/pm/ActivityInfo;Landroid/content/res/Configuration;Lcom/android/server/wm/ActivityRecord;Ljava/lang/String;IZZLcom/android/server/wm/ActivityTaskSupervisor;Landroid/app/ActivityOptions;Lcom/android/server/wm/ActivityRecord;Landroid/os/PersistableBundle;Landroid/app/ActivityManager$TaskDescription;JLcom/android/server/wm/ActivityRecord-IA;)V
 
     return-object v26
 .end method
 
-.method setActivityInfo(Landroid/content/pm/ActivityInfo;)Lcom/android/server/wm/ActivityRecord$Builder;
+.method public setActivityInfo(Landroid/content/pm/ActivityInfo;)Lcom/android/server/wm/ActivityRecord$Builder;
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/wm/ActivityRecord$Builder;->mActivityInfo:Landroid/content/pm/ActivityInfo;
@@ -230,7 +206,7 @@
     return-object p0
 .end method
 
-.method setActivityOptions(Landroid/app/ActivityOptions;)Lcom/android/server/wm/ActivityRecord$Builder;
+.method public setActivityOptions(Landroid/app/ActivityOptions;)Lcom/android/server/wm/ActivityRecord$Builder;
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/wm/ActivityRecord$Builder;->mOptions:Landroid/app/ActivityOptions;
@@ -238,7 +214,7 @@
     return-object p0
 .end method
 
-.method setCaller(Lcom/android/server/wm/WindowProcessController;)Lcom/android/server/wm/ActivityRecord$Builder;
+.method public setCaller(Lcom/android/server/wm/WindowProcessController;)Lcom/android/server/wm/ActivityRecord$Builder;
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/wm/ActivityRecord$Builder;->mCallerApp:Lcom/android/server/wm/WindowProcessController;
@@ -246,7 +222,7 @@
     return-object p0
 .end method
 
-.method setComponentSpecified(Z)Lcom/android/server/wm/ActivityRecord$Builder;
+.method public setComponentSpecified(Z)Lcom/android/server/wm/ActivityRecord$Builder;
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/server/wm/ActivityRecord$Builder;->mComponentSpecified:Z
@@ -254,7 +230,7 @@
     return-object p0
 .end method
 
-.method setConfiguration(Landroid/content/res/Configuration;)Lcom/android/server/wm/ActivityRecord$Builder;
+.method public setConfiguration(Landroid/content/res/Configuration;)Lcom/android/server/wm/ActivityRecord$Builder;
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/wm/ActivityRecord$Builder;->mConfiguration:Landroid/content/res/Configuration;
@@ -262,7 +238,15 @@
     return-object p0
 .end method
 
-.method setIntent(Landroid/content/Intent;)Lcom/android/server/wm/ActivityRecord$Builder;
+.method public final setCreateTime(J)Lcom/android/server/wm/ActivityRecord$Builder;
+    .locals 0
+
+    iput-wide p1, p0, Lcom/android/server/wm/ActivityRecord$Builder;->mCreateTime:J
+
+    return-object p0
+.end method
+
+.method public setIntent(Landroid/content/Intent;)Lcom/android/server/wm/ActivityRecord$Builder;
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/wm/ActivityRecord$Builder;->mIntent:Landroid/content/Intent;
@@ -270,7 +254,7 @@
     return-object p0
 .end method
 
-.method setLaunchedFromFeature(Ljava/lang/String;)Lcom/android/server/wm/ActivityRecord$Builder;
+.method public setLaunchedFromFeature(Ljava/lang/String;)Lcom/android/server/wm/ActivityRecord$Builder;
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/wm/ActivityRecord$Builder;->mLaunchedFromFeature:Ljava/lang/String;
@@ -278,7 +262,7 @@
     return-object p0
 .end method
 
-.method setLaunchedFromPackage(Ljava/lang/String;)Lcom/android/server/wm/ActivityRecord$Builder;
+.method public setLaunchedFromPackage(Ljava/lang/String;)Lcom/android/server/wm/ActivityRecord$Builder;
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/wm/ActivityRecord$Builder;->mLaunchedFromPackage:Ljava/lang/String;
@@ -286,7 +270,7 @@
     return-object p0
 .end method
 
-.method setLaunchedFromPid(I)Lcom/android/server/wm/ActivityRecord$Builder;
+.method public setLaunchedFromPid(I)Lcom/android/server/wm/ActivityRecord$Builder;
     .locals 0
 
     iput p1, p0, Lcom/android/server/wm/ActivityRecord$Builder;->mLaunchedFromPid:I
@@ -294,7 +278,7 @@
     return-object p0
 .end method
 
-.method setLaunchedFromUid(I)Lcom/android/server/wm/ActivityRecord$Builder;
+.method public setLaunchedFromUid(I)Lcom/android/server/wm/ActivityRecord$Builder;
     .locals 0
 
     iput p1, p0, Lcom/android/server/wm/ActivityRecord$Builder;->mLaunchedFromUid:I
@@ -302,7 +286,15 @@
     return-object p0
 .end method
 
-.method setRequestCode(I)Lcom/android/server/wm/ActivityRecord$Builder;
+.method public final setPersistentState(Landroid/os/PersistableBundle;)Lcom/android/server/wm/ActivityRecord$Builder;
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/server/wm/ActivityRecord$Builder;->mPersistentState:Landroid/os/PersistableBundle;
+
+    return-object p0
+.end method
+
+.method public setRequestCode(I)Lcom/android/server/wm/ActivityRecord$Builder;
     .locals 0
 
     iput p1, p0, Lcom/android/server/wm/ActivityRecord$Builder;->mRequestCode:I
@@ -310,7 +302,7 @@
     return-object p0
 .end method
 
-.method setResolvedType(Ljava/lang/String;)Lcom/android/server/wm/ActivityRecord$Builder;
+.method public setResolvedType(Ljava/lang/String;)Lcom/android/server/wm/ActivityRecord$Builder;
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/wm/ActivityRecord$Builder;->mResolvedType:Ljava/lang/String;
@@ -318,7 +310,7 @@
     return-object p0
 .end method
 
-.method setResultTo(Lcom/android/server/wm/ActivityRecord;)Lcom/android/server/wm/ActivityRecord$Builder;
+.method public setResultTo(Lcom/android/server/wm/ActivityRecord;)Lcom/android/server/wm/ActivityRecord$Builder;
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/wm/ActivityRecord$Builder;->mResultTo:Lcom/android/server/wm/ActivityRecord;
@@ -326,7 +318,7 @@
     return-object p0
 .end method
 
-.method setResultWho(Ljava/lang/String;)Lcom/android/server/wm/ActivityRecord$Builder;
+.method public setResultWho(Ljava/lang/String;)Lcom/android/server/wm/ActivityRecord$Builder;
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/wm/ActivityRecord$Builder;->mResultWho:Ljava/lang/String;
@@ -334,7 +326,7 @@
     return-object p0
 .end method
 
-.method setRootVoiceInteraction(Z)Lcom/android/server/wm/ActivityRecord$Builder;
+.method public setRootVoiceInteraction(Z)Lcom/android/server/wm/ActivityRecord$Builder;
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/server/wm/ActivityRecord$Builder;->mRootVoiceInteraction:Z
@@ -342,10 +334,18 @@
     return-object p0
 .end method
 
-.method setSourceRecord(Lcom/android/server/wm/ActivityRecord;)Lcom/android/server/wm/ActivityRecord$Builder;
+.method public setSourceRecord(Lcom/android/server/wm/ActivityRecord;)Lcom/android/server/wm/ActivityRecord$Builder;
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/wm/ActivityRecord$Builder;->mSourceRecord:Lcom/android/server/wm/ActivityRecord;
+
+    return-object p0
+.end method
+
+.method public final setTaskDescription(Landroid/app/ActivityManager$TaskDescription;)Lcom/android/server/wm/ActivityRecord$Builder;
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/server/wm/ActivityRecord$Builder;->mTaskDescription:Landroid/app/ActivityManager$TaskDescription;
 
     return-object p0
 .end method

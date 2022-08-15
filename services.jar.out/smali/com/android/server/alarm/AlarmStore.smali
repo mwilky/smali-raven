@@ -54,9 +54,6 @@
     .end annotation
 .end method
 
-.method public abstract getName()Ljava/lang/String;
-.end method
-
 .method public abstract getNextDeliveryTime()J
 .end method
 

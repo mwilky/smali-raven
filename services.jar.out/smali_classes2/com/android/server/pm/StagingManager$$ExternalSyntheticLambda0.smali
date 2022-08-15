@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/pm/StagingManager$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/pm/StagingManager$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/pm/StagingManager;
+    iget-object p0, p0, Lcom/android/server/pm/StagingManager$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/pm/StagingManager;
 
-    invoke-virtual {v0}, Lcom/android/server/pm/StagingManager;->lambda$onBootCompletedBroadcastReceived$1$StagingManager()V
+    invoke-static {p0}, Lcom/android/server/pm/StagingManager;->$r8$lambda$IR-Oi9-i5DObtjRVY7hL9YJ7Bc8(Lcom/android/server/pm/StagingManager;)V
 
     return-void
 .end method

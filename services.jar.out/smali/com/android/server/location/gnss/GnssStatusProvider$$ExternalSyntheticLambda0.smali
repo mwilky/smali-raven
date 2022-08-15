@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/location/gnss/GnssStatusProvider$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/internal/listeners/ListenerExecutor$ListenerOperation;
@@ -23,13 +24,13 @@
 
 # virtual methods
 .method public final operate(Ljava/lang/Object;)V
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/location/gnss/GnssStatusProvider$$ExternalSyntheticLambda0;->f$0:I
+    iget p0, p0, Lcom/android/server/location/gnss/GnssStatusProvider$$ExternalSyntheticLambda0;->f$0:I
 
     check-cast p1, Landroid/location/IGnssStatusListener;
 
-    invoke-static {v0, p1}, Lcom/android/server/location/gnss/GnssStatusProvider;->lambda$onReportFirstFix$0(ILandroid/location/IGnssStatusListener;)V
+    invoke-static {p0, p1}, Lcom/android/server/location/gnss/GnssStatusProvider;->$r8$lambda$OOvdvR7P8G5TmaEHtXnCA4lRTgs(ILandroid/location/IGnssStatusListener;)V
 
     return-void
 .end method

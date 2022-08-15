@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/BlurController$3;
+.class public Lcom/android/server/wm/BlurController$3;
 .super Landroid/database/ContentObserver;
 .source "BlurController.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/wm/BlurController;
+.field public final synthetic this$0:Lcom/android/server/wm/BlurController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/wm/BlurController;Landroid/os/Handler;)V
+.method public constructor <init>(Lcom/android/server/wm/BlurController;Landroid/os/Handler;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/wm/BlurController$3;->this$0:Lcom/android/server/wm/BlurController;
@@ -32,21 +32,21 @@
 
 # virtual methods
 .method public onChange(Z)V
-    .locals 2
+    .locals 1
 
     invoke-super {p0, p1}, Landroid/database/ContentObserver;->onChange(Z)V
 
-    iget-object v0, p0, Lcom/android/server/wm/BlurController$3;->this$0:Lcom/android/server/wm/BlurController;
+    iget-object p1, p0, Lcom/android/server/wm/BlurController$3;->this$0:Lcom/android/server/wm/BlurController;
 
-    invoke-static {v0}, Lcom/android/server/wm/BlurController;->access$400(Lcom/android/server/wm/BlurController;)Z
+    invoke-static {p1}, Lcom/android/server/wm/BlurController;->-$$Nest$mgetBlurDisabledSetting(Lcom/android/server/wm/BlurController;)Z
 
-    move-result v1
+    move-result v0
 
-    invoke-static {v0, v1}, Lcom/android/server/wm/BlurController;->access$302(Lcom/android/server/wm/BlurController;Z)Z
+    invoke-static {p1, v0}, Lcom/android/server/wm/BlurController;->-$$Nest$fputmBlurDisabledSetting(Lcom/android/server/wm/BlurController;Z)V
 
-    iget-object v0, p0, Lcom/android/server/wm/BlurController$3;->this$0:Lcom/android/server/wm/BlurController;
+    iget-object p0, p0, Lcom/android/server/wm/BlurController$3;->this$0:Lcom/android/server/wm/BlurController;
 
-    invoke-static {v0}, Lcom/android/server/wm/BlurController;->access$100(Lcom/android/server/wm/BlurController;)V
+    invoke-static {p0}, Lcom/android/server/wm/BlurController;->-$$Nest$mupdateBlurEnabled(Lcom/android/server/wm/BlurController;)V
 
     return-void
 .end method

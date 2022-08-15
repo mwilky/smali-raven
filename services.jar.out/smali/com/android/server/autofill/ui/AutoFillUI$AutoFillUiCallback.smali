@@ -27,13 +27,19 @@
 .method public abstract dispatchUnhandledKey(Landroid/view/autofill/AutofillId;Landroid/view/KeyEvent;)V
 .end method
 
-.method public abstract fill(IILandroid/service/autofill/Dataset;)V
+.method public abstract fill(IILandroid/service/autofill/Dataset;I)V
+.end method
+
+.method public abstract requestFallbackFromFillDialog()V
 .end method
 
 .method public abstract requestHideFillUi(Landroid/view/autofill/AutofillId;)V
 .end method
 
 .method public abstract requestShowFillUi(Landroid/view/autofill/AutofillId;IILandroid/view/autofill/IAutofillWindowPresenter;)V
+.end method
+
+.method public abstract requestShowSoftInput(Landroid/view/autofill/AutofillId;)V
 .end method
 
 .method public abstract save()V

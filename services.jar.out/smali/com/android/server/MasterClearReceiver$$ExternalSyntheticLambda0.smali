@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/MasterClearReceiver$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/internal/util/FunctionalUtils$ThrowingSupplier;
@@ -35,7 +36,7 @@
 
 # virtual methods
 .method public final getOrThrow()Ljava/lang/Object;
-    .locals 4
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/MasterClearReceiver$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/MasterClearReceiver;
 
@@ -43,11 +44,11 @@
 
     iget v2, p0, Lcom/android/server/MasterClearReceiver$$ExternalSyntheticLambda0;->f$2:I
 
-    iget-object v3, p0, Lcom/android/server/MasterClearReceiver$$ExternalSyntheticLambda0;->f$3:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/MasterClearReceiver$$ExternalSyntheticLambda0;->f$3:Ljava/lang/String;
 
-    invoke-virtual {v0, v1, v2, v3}, Lcom/android/server/MasterClearReceiver;->lambda$onReceive$0$MasterClearReceiver(Landroid/content/Context;ILjava/lang/String;)Ljava/lang/Boolean;
+    invoke-static {v0, v1, v2, p0}, Lcom/android/server/MasterClearReceiver;->$r8$lambda$IyRXnBO1wCkHURmiT3KqI2gVh9Q(Lcom/android/server/MasterClearReceiver;Landroid/content/Context;ILjava/lang/String;)Ljava/lang/Boolean;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

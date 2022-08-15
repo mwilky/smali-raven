@@ -1,4 +1,4 @@
-.class final Lcom/android/server/am/ActivityManagerService$PidMap;
+.class public final Lcom/android/server/am/ActivityManagerService$PidMap;
 .super Ljava/lang/Object;
 .source "ActivityManagerService.java"
 
@@ -9,13 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = "PidMap"
 .end annotation
 
 
 # instance fields
-.field private final mPidMap:Landroid/util/SparseArray;
+.field public final mPidMap:Landroid/util/SparseArray;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/SparseArray<",
@@ -27,7 +27,7 @@
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,17 +43,17 @@
 
 
 # virtual methods
-.method doAddInternal(ILcom/android/server/am/ProcessRecord;)V
-    .locals 1
+.method public doAddInternal(ILcom/android/server/am/ProcessRecord;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$PidMap;->mPidMap:Landroid/util/SparseArray;
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService$PidMap;->mPidMap:Landroid/util/SparseArray;
 
-    invoke-virtual {v0, p1, p2}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    invoke-virtual {p0, p1, p2}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     return-void
 .end method
 
-.method doRemoveIfNoThreadInternal(ILcom/android/server/am/ProcessRecord;)Z
+.method public doRemoveIfNoThreadInternal(ILcom/android/server/am/ProcessRecord;)Z
     .locals 1
 
     if-eqz p2, :cond_1
@@ -69,19 +69,19 @@
     :cond_0
     invoke-virtual {p0, p1, p2}, Lcom/android/server/am/ActivityManagerService$PidMap;->doRemoveInternal(ILcom/android/server/am/ProcessRecord;)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 
     :cond_1
     :goto_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
-.method doRemoveInternal(ILcom/android/server/am/ProcessRecord;)Z
-    .locals 5
+.method public doRemoveInternal(ILcom/android/server/am/ProcessRecord;)Z
+    .locals 4
 
     iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$PidMap;->mPidMap:Landroid/util/SparseArray;
 
@@ -95,90 +95,90 @@
 
     invoke-virtual {v0}, Lcom/android/server/am/ProcessRecord;->getStartSeq()J
 
-    move-result-wide v1
+    move-result-wide v0
 
     invoke-virtual {p2}, Lcom/android/server/am/ProcessRecord;->getStartSeq()J
 
-    move-result-wide v3
+    move-result-wide v2
 
-    cmp-long v1, v1, v3
+    cmp-long p2, v0, v2
 
-    if-nez v1, :cond_0
+    if-nez p2, :cond_0
 
-    iget-object v1, p0, Lcom/android/server/am/ActivityManagerService$PidMap;->mPidMap:Landroid/util/SparseArray;
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService$PidMap;->mPidMap:Landroid/util/SparseArray;
 
-    invoke-virtual {v1, p1}, Landroid/util/SparseArray;->remove(I)V
+    invoke-virtual {p0, p1}, Landroid/util/SparseArray;->remove(I)V
 
-    const/4 v1, 0x1
+    const/4 p0, 0x1
 
-    return v1
+    return p0
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 p0, 0x0
 
-    return v1
+    return p0
 .end method
 
-.method get(I)Lcom/android/server/am/ProcessRecord;
-    .locals 1
+.method public get(I)Lcom/android/server/am/ProcessRecord;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$PidMap;->mPidMap:Landroid/util/SparseArray;
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService$PidMap;->mPidMap:Landroid/util/SparseArray;
 
-    invoke-virtual {v0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/android/server/am/ProcessRecord;
+    check-cast p0, Lcom/android/server/am/ProcessRecord;
 
-    return-object v0
+    return-object p0
 .end method
 
-.method indexOfKey(I)I
-    .locals 1
+.method public indexOfKey(I)I
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$PidMap;->mPidMap:Landroid/util/SparseArray;
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService$PidMap;->mPidMap:Landroid/util/SparseArray;
 
-    invoke-virtual {v0, p1}, Landroid/util/SparseArray;->indexOfKey(I)I
+    invoke-virtual {p0, p1}, Landroid/util/SparseArray;->indexOfKey(I)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
-.method keyAt(I)I
-    .locals 1
+.method public keyAt(I)I
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$PidMap;->mPidMap:Landroid/util/SparseArray;
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService$PidMap;->mPidMap:Landroid/util/SparseArray;
 
-    invoke-virtual {v0, p1}, Landroid/util/SparseArray;->keyAt(I)I
+    invoke-virtual {p0, p1}, Landroid/util/SparseArray;->keyAt(I)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
-.method size()I
-    .locals 1
+.method public size()I
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$PidMap;->mPidMap:Landroid/util/SparseArray;
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService$PidMap;->mPidMap:Landroid/util/SparseArray;
 
-    invoke-virtual {v0}, Landroid/util/SparseArray;->size()I
+    invoke-virtual {p0}, Landroid/util/SparseArray;->size()I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
-.method valueAt(I)Lcom/android/server/am/ProcessRecord;
-    .locals 1
+.method public valueAt(I)Lcom/android/server/am/ProcessRecord;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$PidMap;->mPidMap:Landroid/util/SparseArray;
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService$PidMap;->mPidMap:Landroid/util/SparseArray;
 
-    invoke-virtual {v0, p1}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/android/server/am/ProcessRecord;
+    check-cast p0, Lcom/android/server/am/ProcessRecord;
 
-    return-object v0
+    return-object p0
 .end method

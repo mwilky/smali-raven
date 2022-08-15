@@ -1,4 +1,4 @@
-.class final Lcom/android/server/textservices/TextServicesManagerService$ISpellCheckerServiceCallbackBinder;
+.class public final Lcom/android/server/textservices/TextServicesManagerService$ISpellCheckerServiceCallbackBinder;
 .super Lcom/android/internal/textservice/ISpellCheckerServiceCallback$Stub;
 .source "TextServicesManagerService.java"
 
@@ -9,13 +9,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "ISpellCheckerServiceCallbackBinder"
 .end annotation
 
 
 # instance fields
-.field private mBindGroup:Ljava/lang/ref/WeakReference;
+.field public mBindGroup:Ljava/lang/ref/WeakReference;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mCallbackLock"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/lang/ref/WeakReference<",
@@ -25,9 +31,15 @@
     .end annotation
 .end field
 
-.field private final mCallbackLock:Ljava/lang/Object;
+.field public final mCallbackLock:Ljava/lang/Object;
 
-.field private mRequest:Ljava/lang/ref/WeakReference;
+.field public mRequest:Ljava/lang/ref/WeakReference;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mCallbackLock"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/lang/ref/WeakReference<",
@@ -39,7 +51,7 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/textservices/TextServicesManagerService$SpellCheckerBindGroup;Lcom/android/server/textservices/TextServicesManagerService$SessionRequest;)V
+.method public constructor <init>(Lcom/android/server/textservices/TextServicesManagerService$SpellCheckerBindGroup;Lcom/android/server/textservices/TextServicesManagerService$SessionRequest;)V
     .locals 2
 
     invoke-direct {p0}, Lcom/android/internal/textservice/ISpellCheckerServiceCallback$Stub;-><init>()V
@@ -59,24 +71,24 @@
 
     iput-object v1, p0, Lcom/android/server/textservices/TextServicesManagerService$ISpellCheckerServiceCallbackBinder;->mBindGroup:Ljava/lang/ref/WeakReference;
 
-    new-instance v1, Ljava/lang/ref/WeakReference;
+    new-instance p1, Ljava/lang/ref/WeakReference;
 
-    invoke-direct {v1, p2}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
+    invoke-direct {p1, p2}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
-    iput-object v1, p0, Lcom/android/server/textservices/TextServicesManagerService$ISpellCheckerServiceCallbackBinder;->mRequest:Ljava/lang/ref/WeakReference;
+    iput-object p1, p0, Lcom/android/server/textservices/TextServicesManagerService$ISpellCheckerServiceCallbackBinder;->mRequest:Ljava/lang/ref/WeakReference;
 
     monitor-exit v0
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
 
@@ -141,11 +153,11 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v1
+    throw p0
 .end method

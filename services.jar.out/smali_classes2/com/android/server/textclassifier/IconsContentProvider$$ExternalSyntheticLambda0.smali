@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/textclassifier/IconsContentProvider$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/content/ContentProvider$PipeDataWriter;
@@ -39,7 +40,7 @@
 
     move-object v4, p4
 
-    invoke-virtual/range {v0 .. v5}, Lcom/android/server/textclassifier/IconsContentProvider;->lambda$new$0$IconsContentProvider(Landroid/os/ParcelFileDescriptor;Landroid/net/Uri;Ljava/lang/String;Landroid/os/Bundle;Landroid/util/Pair;)V
+    invoke-static/range {v0 .. v5}, Lcom/android/server/textclassifier/IconsContentProvider;->$r8$lambda$jTokAbzW_SVvyhrkiNRxI_8kO8I(Lcom/android/server/textclassifier/IconsContentProvider;Landroid/os/ParcelFileDescriptor;Landroid/net/Uri;Ljava/lang/String;Landroid/os/Bundle;Landroid/util/Pair;)V
 
     return-void
 .end method

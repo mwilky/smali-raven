@@ -1,4 +1,4 @@
-.class Lcom/android/internal/util/jobs/ConcurrentUtils$DirectExecutor;
+.class public Lcom/android/internal/util/jobs/ConcurrentUtils$DirectExecutor;
 .super Ljava/lang/Object;
 .source "ConcurrentUtils.java"
 
@@ -12,13 +12,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "DirectExecutor"
 .end annotation
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/internal/util/jobs/ConcurrentUtils$1;)V
+.method public synthetic constructor <init>(Lcom/android/internal/util/jobs/ConcurrentUtils$DirectExecutor-IA;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/internal/util/jobs/ConcurrentUtils$DirectExecutor;-><init>()V
@@ -45,9 +45,9 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .locals 0
 
-    const-string v0, "DIRECT_EXECUTOR"
+    const-string p0, "DIRECT_EXECUTOR"
 
-    return-object v0
+    return-object p0
 .end method

@@ -1,45 +1,56 @@
 .class public final synthetic Lcom/android/server/people/data/DataManager$$ExternalSyntheticLambda14;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/ToLongFunction;
+.implements Ljava/util/function/Consumer;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/people/data/DataManager$$ExternalSyntheticLambda14;
+# instance fields
+.field public final synthetic f$0:Lcom/android/server/people/data/DataManager;
+
+.field public final synthetic f$1:J
+
+.field public final synthetic f$2:Lcom/android/server/people/data/ConversationStore;
+
+.field public final synthetic f$3:Lcom/android/server/people/data/PackageData;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/people/data/DataManager$$ExternalSyntheticLambda14;
-
-    invoke-direct {v0}, Lcom/android/server/people/data/DataManager$$ExternalSyntheticLambda14;-><init>()V
-
-    sput-object v0, Lcom/android/server/people/data/DataManager$$ExternalSyntheticLambda14;->INSTANCE:Lcom/android/server/people/data/DataManager$$ExternalSyntheticLambda14;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Lcom/android/server/people/data/DataManager;JLcom/android/server/people/data/ConversationStore;Lcom/android/server/people/data/PackageData;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/people/data/DataManager$$ExternalSyntheticLambda14;->f$0:Lcom/android/server/people/data/DataManager;
+
+    iput-wide p2, p0, Lcom/android/server/people/data/DataManager$$ExternalSyntheticLambda14;->f$1:J
+
+    iput-object p4, p0, Lcom/android/server/people/data/DataManager$$ExternalSyntheticLambda14;->f$2:Lcom/android/server/people/data/ConversationStore;
+
+    iput-object p5, p0, Lcom/android/server/people/data/DataManager$$ExternalSyntheticLambda14;->f$3:Lcom/android/server/people/data/PackageData;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final applyAsLong(Ljava/lang/Object;)J
-    .locals 2
+.method public final accept(Ljava/lang/Object;)V
+    .locals 6
 
-    check-cast p1, Landroid/util/Pair;
+    iget-object v0, p0, Lcom/android/server/people/data/DataManager$$ExternalSyntheticLambda14;->f$0:Lcom/android/server/people/data/DataManager;
 
-    invoke-static {p1}, Lcom/android/server/people/data/DataManager;->lambda$cleanupCachedShortcuts$13(Landroid/util/Pair;)J
+    iget-wide v1, p0, Lcom/android/server/people/data/DataManager$$ExternalSyntheticLambda14;->f$1:J
 
-    move-result-wide v0
+    iget-object v3, p0, Lcom/android/server/people/data/DataManager$$ExternalSyntheticLambda14;->f$2:Lcom/android/server/people/data/ConversationStore;
 
-    return-wide v0
+    iget-object v4, p0, Lcom/android/server/people/data/DataManager$$ExternalSyntheticLambda14;->f$3:Lcom/android/server/people/data/PackageData;
+
+    move-object v5, p1
+
+    check-cast v5, Lcom/android/server/people/data/ConversationInfo;
+
+    invoke-static/range {v0 .. v5}, Lcom/android/server/people/data/DataManager;->$r8$lambda$SnrAudnIII2089rcGYyIeqViWFA(Lcom/android/server/people/data/DataManager;JLcom/android/server/people/data/ConversationStore;Lcom/android/server/people/data/PackageData;Lcom/android/server/people/data/ConversationInfo;)V
+
+    return-void
 .end method

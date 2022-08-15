@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/server/wm/SystemGesturesPointerEventListener$Callbacks;
+.class public interface abstract Lcom/android/server/wm/SystemGesturesPointerEventListener$Callbacks;
 .super Ljava/lang/Object;
 .source "SystemGesturesPointerEventListener.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
+    accessFlags = 0x609
     name = "Callbacks"
 .end annotation
 

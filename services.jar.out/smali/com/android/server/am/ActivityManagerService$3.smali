@@ -1,4 +1,4 @@
-.class Lcom/android/server/am/ActivityManagerService$3;
+.class public Lcom/android/server/am/ActivityManagerService$3;
 .super Lcom/android/server/IntentResolver;
 .source "ActivityManagerService.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
@@ -24,11 +24,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/am/ActivityManagerService;
+.field public final synthetic this$0:Lcom/android/server/am/ActivityManagerService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/ActivityManagerService;)V
+.method public constructor <init>(Lcom/android/server/am/ActivityManagerService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/am/ActivityManagerService$3;->this$0:Lcom/android/server/am/ActivityManagerService;
@@ -40,8 +40,8 @@
 
 
 # virtual methods
-.method protected allowFilterResult(Lcom/android/server/am/BroadcastFilter;Ljava/util/List;)Z
-    .locals 4
+.method public allowFilterResult(Lcom/android/server/am/BroadcastFilter;Ljava/util/List;)Z
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -52,167 +52,165 @@
         }
     .end annotation
 
-    iget-object v0, p1, Lcom/android/server/am/BroadcastFilter;->receiverList:Lcom/android/server/am/ReceiverList;
+    iget-object p0, p1, Lcom/android/server/am/BroadcastFilter;->receiverList:Lcom/android/server/am/ReceiverList;
 
-    iget-object v0, v0, Lcom/android/server/am/ReceiverList;->receiver:Landroid/content/IIntentReceiver;
+    iget-object p0, p0, Lcom/android/server/am/ReceiverList;->receiver:Landroid/content/IIntentReceiver;
 
-    invoke-interface {v0}, Landroid/content/IIntentReceiver;->asBinder()Landroid/os/IBinder;
+    invoke-interface {p0}, Landroid/content/IIntentReceiver;->asBinder()Landroid/os/IBinder;
 
-    move-result-object v0
+    move-result-object p0
 
     invoke-interface {p2}, Ljava/util/List;->size()I
 
-    move-result v1
+    move-result p1
 
-    const/4 v2, 0x1
+    const/4 v0, 0x1
 
-    sub-int/2addr v1, v2
+    sub-int/2addr p1, v0
 
     :goto_0
-    if-ltz v1, :cond_1
+    if-ltz p1, :cond_1
 
-    invoke-interface {p2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {p2, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v1
 
-    check-cast v3, Lcom/android/server/am/BroadcastFilter;
+    check-cast v1, Lcom/android/server/am/BroadcastFilter;
 
-    iget-object v3, v3, Lcom/android/server/am/BroadcastFilter;->receiverList:Lcom/android/server/am/ReceiverList;
+    iget-object v1, v1, Lcom/android/server/am/BroadcastFilter;->receiverList:Lcom/android/server/am/ReceiverList;
 
-    iget-object v3, v3, Lcom/android/server/am/ReceiverList;->receiver:Landroid/content/IIntentReceiver;
+    iget-object v1, v1, Lcom/android/server/am/ReceiverList;->receiver:Landroid/content/IIntentReceiver;
 
-    invoke-interface {v3}, Landroid/content/IIntentReceiver;->asBinder()Landroid/os/IBinder;
+    invoke-interface {v1}, Landroid/content/IIntentReceiver;->asBinder()Landroid/os/IBinder;
 
-    move-result-object v3
+    move-result-object v1
 
-    if-ne v3, v0, :cond_0
+    if-ne v1, p0, :cond_0
 
-    const/4 v2, 0x0
+    const/4 p0, 0x0
 
-    return v2
+    return p0
 
     :cond_0
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 p1, p1, -0x1
 
     goto :goto_0
 
     :cond_1
-    return v2
+    return v0
 .end method
 
-.method protected bridge synthetic allowFilterResult(Ljava/lang/Object;Ljava/util/List;)Z
+.method public bridge synthetic allowFilterResult(Ljava/lang/Object;Ljava/util/List;)Z
     .locals 0
 
     check-cast p1, Lcom/android/server/am/BroadcastFilter;
 
     invoke-virtual {p0, p1, p2}, Lcom/android/server/am/ActivityManagerService$3;->allowFilterResult(Lcom/android/server/am/BroadcastFilter;Ljava/util/List;)Z
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method
 
-.method protected getIntentFilter(Lcom/android/server/am/BroadcastFilter;)Landroid/content/IntentFilter;
+.method public getIntentFilter(Lcom/android/server/am/BroadcastFilter;)Landroid/content/IntentFilter;
     .locals 0
 
     return-object p1
 .end method
 
-.method protected bridge synthetic getIntentFilter(Ljava/lang/Object;)Landroid/content/IntentFilter;
+.method public bridge synthetic getIntentFilter(Ljava/lang/Object;)Landroid/content/IntentFilter;
     .locals 0
 
     check-cast p1, Lcom/android/server/am/BroadcastFilter;
 
     invoke-virtual {p0, p1}, Lcom/android/server/am/ActivityManagerService$3;->getIntentFilter(Lcom/android/server/am/BroadcastFilter;)Landroid/content/IntentFilter;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method
 
-.method protected isPackageForFilter(Ljava/lang/String;Lcom/android/server/am/BroadcastFilter;)Z
-    .locals 1
+.method public isPackageForFilter(Ljava/lang/String;Lcom/android/server/am/BroadcastFilter;)Z
+    .locals 0
 
-    iget-object v0, p2, Lcom/android/server/am/BroadcastFilter;->packageName:Ljava/lang/String;
+    iget-object p0, p2, Lcom/android/server/am/BroadcastFilter;->packageName:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
-.method protected bridge synthetic isPackageForFilter(Ljava/lang/String;Ljava/lang/Object;)Z
+.method public bridge synthetic isPackageForFilter(Ljava/lang/String;Ljava/lang/Object;)Z
     .locals 0
 
     check-cast p2, Lcom/android/server/am/BroadcastFilter;
 
     invoke-virtual {p0, p1, p2}, Lcom/android/server/am/ActivityManagerService$3;->isPackageForFilter(Ljava/lang/String;Lcom/android/server/am/BroadcastFilter;)Z
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method
 
-.method protected newArray(I)[Lcom/android/server/am/BroadcastFilter;
-    .locals 1
+.method public newArray(I)[Lcom/android/server/am/BroadcastFilter;
+    .locals 0
 
-    new-array v0, p1, [Lcom/android/server/am/BroadcastFilter;
+    new-array p0, p1, [Lcom/android/server/am/BroadcastFilter;
 
-    return-object v0
+    return-object p0
 .end method
 
-.method protected bridge synthetic newArray(I)[Ljava/lang/Object;
+.method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 0
 
     invoke-virtual {p0, p1}, Lcom/android/server/am/ActivityManagerService$3;->newArray(I)[Lcom/android/server/am/BroadcastFilter;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method
 
-.method protected newResult(Lcom/android/server/am/BroadcastFilter;II)Lcom/android/server/am/BroadcastFilter;
+.method public newResult(Lcom/android/server/pm/Computer;Lcom/android/server/am/BroadcastFilter;IIJ)Lcom/android/server/am/BroadcastFilter;
     .locals 2
 
     const/4 v0, -0x1
 
-    if-eq p3, v0, :cond_1
+    if-eq p4, v0, :cond_1
 
-    iget v1, p1, Lcom/android/server/am/BroadcastFilter;->owningUserId:I
+    iget v1, p2, Lcom/android/server/am/BroadcastFilter;->owningUserId:I
 
     if-eq v1, v0, :cond_1
 
-    iget v0, p1, Lcom/android/server/am/BroadcastFilter;->owningUserId:I
-
-    if-ne p3, v0, :cond_0
+    if-ne p4, v1, :cond_0
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return-object v0
+    return-object p0
 
     :cond_1
     :goto_0
-    invoke-super {p0, p1, p2, p3}, Lcom/android/server/IntentResolver;->newResult(Ljava/lang/Object;II)Ljava/lang/Object;
+    invoke-super/range {p0 .. p6}, Lcom/android/server/IntentResolver;->newResult(Lcom/android/server/pm/Computer;Ljava/lang/Object;IIJ)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/android/server/am/BroadcastFilter;
+    check-cast p0, Lcom/android/server/am/BroadcastFilter;
 
-    return-object v0
+    return-object p0
 .end method
 
-.method protected bridge synthetic newResult(Ljava/lang/Object;II)Ljava/lang/Object;
+.method public bridge synthetic newResult(Lcom/android/server/pm/Computer;Ljava/lang/Object;IIJ)Ljava/lang/Object;
     .locals 0
 
-    check-cast p1, Lcom/android/server/am/BroadcastFilter;
+    check-cast p2, Lcom/android/server/am/BroadcastFilter;
 
-    invoke-virtual {p0, p1, p2, p3}, Lcom/android/server/am/ActivityManagerService$3;->newResult(Lcom/android/server/am/BroadcastFilter;II)Lcom/android/server/am/BroadcastFilter;
+    invoke-virtual/range {p0 .. p6}, Lcom/android/server/am/ActivityManagerService$3;->newResult(Lcom/android/server/pm/Computer;Lcom/android/server/am/BroadcastFilter;IIJ)Lcom/android/server/am/BroadcastFilter;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method

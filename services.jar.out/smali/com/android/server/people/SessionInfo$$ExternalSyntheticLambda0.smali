@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/people/SessionInfo$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -23,13 +24,13 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/people/SessionInfo$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/people/SessionInfo;
+    iget-object p0, p0, Lcom/android/server/people/SessionInfo$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/people/SessionInfo;
 
     check-cast p1, Ljava/util/List;
 
-    invoke-static {v0, p1}, Lcom/android/server/people/SessionInfo;->$r8$lambda$RIOUQ-rGCiMN5TmMPFQFPJqUXbY(Lcom/android/server/people/SessionInfo;Ljava/util/List;)V
+    invoke-static {p0, p1}, Lcom/android/server/people/SessionInfo;->$r8$lambda$RIOUQ-rGCiMN5TmMPFQFPJqUXbY(Lcom/android/server/people/SessionInfo;Ljava/util/List;)V
 
     return-void
 .end method

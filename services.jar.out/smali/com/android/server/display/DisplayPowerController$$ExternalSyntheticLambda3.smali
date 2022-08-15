@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/display/DisplayPowerController$$ExternalSyntheticLambda3;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/display/DisplayPowerController$$ExternalSyntheticLambda3;->f$0:Lcom/android/server/display/DisplayPowerController;
+    iget-object p0, p0, Lcom/android/server/display/DisplayPowerController$$ExternalSyntheticLambda3;->f$0:Lcom/android/server/display/DisplayPowerController;
 
-    invoke-static {v0}, Lcom/android/server/display/DisplayPowerController;->$r8$lambda$tDAjTa-HJrq6OAaVFhgoCDgC2lM(Lcom/android/server/display/DisplayPowerController;)V
+    invoke-static {p0}, Lcom/android/server/display/DisplayPowerController;->$r8$lambda$pWFTwGyzIzHG-XuCBSZvHdeZmcY(Lcom/android/server/display/DisplayPowerController;)V
 
     return-void
 .end method

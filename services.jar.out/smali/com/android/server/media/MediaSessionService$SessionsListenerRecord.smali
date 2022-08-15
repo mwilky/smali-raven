@@ -1,4 +1,4 @@
-.class final Lcom/android/server/media/MediaSessionService$SessionsListenerRecord;
+.class public final Lcom/android/server/media/MediaSessionService$SessionsListenerRecord;
 .super Ljava/lang/Object;
 .source "MediaSessionService.java"
 
@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x10
+    accessFlags = 0x11
     name = "SessionsListenerRecord"
 .end annotation
 
@@ -24,7 +24,7 @@
 
 .field public final pid:I
 
-.field final synthetic this$0:Lcom/android/server/media/MediaSessionService;
+.field public final synthetic this$0:Lcom/android/server/media/MediaSessionService;
 
 .field public final uid:I
 
@@ -32,7 +32,7 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/media/MediaSessionService;Landroid/media/session/IActiveSessionsListener;Landroid/content/ComponentName;III)V
+.method public constructor <init>(Lcom/android/server/media/MediaSessionService;Landroid/media/session/IActiveSessionsListener;Landroid/content/ComponentName;III)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/media/MediaSessionService$SessionsListenerRecord;->this$0:Lcom/android/server/media/MediaSessionService;
@@ -59,7 +59,7 @@
 
     iget-object v0, p0, Lcom/android/server/media/MediaSessionService$SessionsListenerRecord;->this$0:Lcom/android/server/media/MediaSessionService;
 
-    invoke-static {v0}, Lcom/android/server/media/MediaSessionService;->access$100(Lcom/android/server/media/MediaSessionService;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/server/media/MediaSessionService;->-$$Nest$fgetmLock(Lcom/android/server/media/MediaSessionService;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -68,7 +68,7 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/server/media/MediaSessionService$SessionsListenerRecord;->this$0:Lcom/android/server/media/MediaSessionService;
 
-    invoke-static {v1}, Lcom/android/server/media/MediaSessionService;->access$2000(Lcom/android/server/media/MediaSessionService;)Ljava/util/ArrayList;
+    invoke-static {v1}, Lcom/android/server/media/MediaSessionService;->-$$Nest$fgetmSessionsListeners(Lcom/android/server/media/MediaSessionService;)Ljava/util/ArrayList;
 
     move-result-object v1
 
@@ -79,11 +79,11 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method

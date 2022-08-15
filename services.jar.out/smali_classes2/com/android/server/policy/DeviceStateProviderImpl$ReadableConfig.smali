@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/server/policy/DeviceStateProviderImpl$ReadableConfig;
+.class public interface abstract Lcom/android/server/policy/DeviceStateProviderImpl$ReadableConfig;
 .super Ljava/lang/Object;
 .source "DeviceStateProviderImpl.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
+    accessFlags = 0x609
     name = "ReadableConfig"
 .end annotation
 

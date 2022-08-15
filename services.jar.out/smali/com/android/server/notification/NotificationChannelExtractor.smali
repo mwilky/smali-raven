@@ -6,16 +6,10 @@
 .implements Lcom/android/server/notification/NotificationSignalExtractor;
 
 
-# static fields
-.field private static final DBG:Z = false
-
-.field private static final TAG:Ljava/lang/String; = "ChannelExtractor"
-
-
 # instance fields
-.field private mConfig:Lcom/android/server/notification/RankingConfig;
+.field public mConfig:Lcom/android/server/notification/RankingConfig;
 
-.field private mContext:Landroid/content/Context;
+.field public mContext:Landroid/content/Context;
 
 
 # direct methods
@@ -60,37 +54,35 @@
     return-object v0
 
     :cond_1
-    nop
-
     invoke-virtual {p1}, Lcom/android/server/notification/NotificationRecord;->getSbn()Landroid/service/notification/StatusBarNotification;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v1}, Landroid/service/notification/StatusBarNotification;->getPackageName()Ljava/lang/String;
+    invoke-virtual {p0}, Landroid/service/notification/StatusBarNotification;->getPackageName()Ljava/lang/String;
 
     move-result-object v3
 
     invoke-virtual {p1}, Lcom/android/server/notification/NotificationRecord;->getSbn()Landroid/service/notification/StatusBarNotification;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v1}, Landroid/service/notification/StatusBarNotification;->getUid()I
+    invoke-virtual {p0}, Landroid/service/notification/StatusBarNotification;->getUid()I
 
     move-result v4
 
     invoke-virtual {p1}, Lcom/android/server/notification/NotificationRecord;->getChannel()Landroid/app/NotificationChannel;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v1}, Landroid/app/NotificationChannel;->getId()Ljava/lang/String;
+    invoke-virtual {p0}, Landroid/app/NotificationChannel;->getId()Ljava/lang/String;
 
     move-result-object v5
 
     invoke-virtual {p1}, Lcom/android/server/notification/NotificationRecord;->getSbn()Landroid/service/notification/StatusBarNotification;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v1}, Landroid/service/notification/StatusBarNotification;->getShortcutId()Ljava/lang/String;
+    invoke-virtual {p0}, Landroid/service/notification/StatusBarNotification;->getShortcutId()Ljava/lang/String;
 
     move-result-object v6
 
@@ -100,11 +92,9 @@
 
     invoke-interface/range {v2 .. v8}, Lcom/android/server/notification/RankingConfig;->getConversationNotificationChannel(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;ZZ)Landroid/app/NotificationChannel;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {p1, v1}, Lcom/android/server/notification/NotificationRecord;->updateNotificationChannel(Landroid/app/NotificationChannel;)V
-
-    return-object v0
+    invoke-virtual {p1, p0}, Lcom/android/server/notification/NotificationRecord;->updateNotificationChannel(Landroid/app/NotificationChannel;)V
 
     :cond_2
     :goto_0

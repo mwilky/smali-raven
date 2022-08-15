@@ -1,4 +1,4 @@
-.class Lcom/android/server/hdmi/HdmiCecMessageValidator$AnalogueTimerValidator;
+.class public Lcom/android/server/hdmi/HdmiCecMessageValidator$AnalogueTimerValidator;
 .super Ljava/lang/Object;
 .source "HdmiCecMessageValidator.java"
 
@@ -12,30 +12,24 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x9
     name = "AnalogueTimerValidator"
 .end annotation
 
 
-# instance fields
-.field final synthetic this$0:Lcom/android/server/hdmi/HdmiCecMessageValidator;
-
-
 # direct methods
-.method private constructor <init>(Lcom/android/server/hdmi/HdmiCecMessageValidator;)V
+.method public constructor <init>()V
     .locals 0
-
-    iput-object p1, p0, Lcom/android/server/hdmi/HdmiCecMessageValidator$AnalogueTimerValidator;->this$0:Lcom/android/server/hdmi/HdmiCecMessageValidator;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/hdmi/HdmiCecMessageValidator;Lcom/android/server/hdmi/HdmiCecMessageValidator$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/hdmi/HdmiCecMessageValidator$AnalogueTimerValidator-IA;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/server/hdmi/HdmiCecMessageValidator$AnalogueTimerValidator;-><init>(Lcom/android/server/hdmi/HdmiCecMessageValidator;)V
+    invoke-direct {p0}, Lcom/android/server/hdmi/HdmiCecMessageValidator$AnalogueTimerValidator;-><init>()V
 
     return-void
 .end method
@@ -43,150 +37,125 @@
 
 # virtual methods
 .method public isValid([B)I
-    .locals 5
+    .locals 3
 
-    array-length v0, p1
+    array-length p0, p1
 
-    const/4 v1, 0x4
+    const/4 v0, 0x4
 
-    const/16 v2, 0xb
+    const/16 v1, 0xb
 
-    if-ge v0, v2, :cond_0
+    if-ge p0, v1, :cond_0
 
-    return v1
+    return v0
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecMessageValidator$AnalogueTimerValidator;->this$0:Lcom/android/server/hdmi/HdmiCecMessageValidator;
+    const/4 p0, 0x0
 
-    const/4 v2, 0x0
+    aget-byte v1, p1, p0
 
-    aget-byte v3, p1, v2
-
-    invoke-static {v0, v3}, Lcom/android/server/hdmi/HdmiCecMessageValidator;->access$2100(Lcom/android/server/hdmi/HdmiCecMessageValidator;I)Z
-
-    move-result v0
-
-    const/4 v3, 0x1
-
-    if-eqz v0, :cond_1
-
-    iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecMessageValidator$AnalogueTimerValidator;->this$0:Lcom/android/server/hdmi/HdmiCecMessageValidator;
-
-    aget-byte v4, p1, v3
-
-    invoke-static {v0, v4}, Lcom/android/server/hdmi/HdmiCecMessageValidator;->access$2200(Lcom/android/server/hdmi/HdmiCecMessageValidator;I)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecMessageValidator$AnalogueTimerValidator;->this$0:Lcom/android/server/hdmi/HdmiCecMessageValidator;
-
-    const/4 v4, 0x2
-
-    aget-byte v4, p1, v4
-
-    invoke-static {v0, v4}, Lcom/android/server/hdmi/HdmiCecMessageValidator;->access$2300(Lcom/android/server/hdmi/HdmiCecMessageValidator;I)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecMessageValidator$AnalogueTimerValidator;->this$0:Lcom/android/server/hdmi/HdmiCecMessageValidator;
-
-    const/4 v4, 0x3
-
-    aget-byte v4, p1, v4
-
-    invoke-static {v0, v4}, Lcom/android/server/hdmi/HdmiCecMessageValidator;->access$2400(Lcom/android/server/hdmi/HdmiCecMessageValidator;I)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecMessageValidator$AnalogueTimerValidator;->this$0:Lcom/android/server/hdmi/HdmiCecMessageValidator;
-
-    aget-byte v1, p1, v1
-
-    invoke-static {v0, v1}, Lcom/android/server/hdmi/HdmiCecMessageValidator;->access$2500(Lcom/android/server/hdmi/HdmiCecMessageValidator;I)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecMessageValidator$AnalogueTimerValidator;->this$0:Lcom/android/server/hdmi/HdmiCecMessageValidator;
-
-    const/4 v1, 0x5
-
-    aget-byte v1, p1, v1
-
-    invoke-static {v0, v1}, Lcom/android/server/hdmi/HdmiCecMessageValidator;->access$2400(Lcom/android/server/hdmi/HdmiCecMessageValidator;I)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecMessageValidator$AnalogueTimerValidator;->this$0:Lcom/android/server/hdmi/HdmiCecMessageValidator;
-
-    const/4 v1, 0x6
-
-    aget-byte v1, p1, v1
-
-    invoke-static {v0, v1}, Lcom/android/server/hdmi/HdmiCecMessageValidator;->access$2600(Lcom/android/server/hdmi/HdmiCecMessageValidator;I)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecMessageValidator$AnalogueTimerValidator;->this$0:Lcom/android/server/hdmi/HdmiCecMessageValidator;
-
-    const/4 v1, 0x7
-
-    aget-byte v1, p1, v1
-
-    invoke-static {v0, v1}, Lcom/android/server/hdmi/HdmiCecMessageValidator;->access$2700(Lcom/android/server/hdmi/HdmiCecMessageValidator;I)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecMessageValidator$AnalogueTimerValidator;->this$0:Lcom/android/server/hdmi/HdmiCecMessageValidator;
-
-    const/16 v1, 0x8
-
-    invoke-static {p1, v1}, Lcom/android/server/hdmi/HdmiUtils;->twoBytesToInt([BI)I
+    invoke-static {v1}, Lcom/android/server/hdmi/HdmiCecMessageValidator;->-$$Nest$smisValidDayOfMonth(I)Z
 
     move-result v1
 
-    invoke-static {v0, v1}, Lcom/android/server/hdmi/HdmiCecMessageValidator;->access$2800(Lcom/android/server/hdmi/HdmiCecMessageValidator;I)Z
+    const/4 v2, 0x1
 
-    move-result v0
+    if-eqz v1, :cond_1
 
-    if-eqz v0, :cond_1
+    aget-byte v1, p1, v2
 
-    iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecMessageValidator$AnalogueTimerValidator;->this$0:Lcom/android/server/hdmi/HdmiCecMessageValidator;
+    invoke-static {v1}, Lcom/android/server/hdmi/HdmiCecMessageValidator;->-$$Nest$smisValidMonthOfYear(I)Z
 
-    const/16 v1, 0xa
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    const/4 v1, 0x2
 
     aget-byte v1, p1, v1
 
-    invoke-static {v0, v1}, Lcom/android/server/hdmi/HdmiCecMessageValidator;->access$2900(Lcom/android/server/hdmi/HdmiCecMessageValidator;I)Z
+    invoke-static {v1}, Lcom/android/server/hdmi/HdmiCecMessageValidator;->-$$Nest$smisValidHour(I)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    const/4 v1, 0x3
+
+    aget-byte v1, p1, v1
+
+    invoke-static {v1}, Lcom/android/server/hdmi/HdmiCecMessageValidator;->-$$Nest$smisValidMinute(I)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    aget-byte v0, p1, v0
+
+    invoke-static {v0}, Lcom/android/server/hdmi/HdmiCecMessageValidator;->-$$Nest$smisValidDurationHours(I)Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    move v2, v3
+    const/4 v0, 0x5
 
-    goto :goto_0
+    aget-byte v0, p1, v0
 
-    :cond_1
-    nop
-
-    :goto_0
-    invoke-static {v2}, Lcom/android/server/hdmi/HdmiCecMessageValidator;->access$1700(Z)I
+    invoke-static {v0}, Lcom/android/server/hdmi/HdmiCecMessageValidator;->-$$Nest$smisValidMinute(I)Z
 
     move-result v0
 
-    return v0
+    if-eqz v0, :cond_1
+
+    const/4 v0, 0x6
+
+    aget-byte v0, p1, v0
+
+    invoke-static {v0}, Lcom/android/server/hdmi/HdmiCecMessageValidator;->-$$Nest$smisValidRecordingSequence(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    const/4 v0, 0x7
+
+    aget-byte v0, p1, v0
+
+    invoke-static {v0}, Lcom/android/server/hdmi/HdmiCecMessageValidator;->-$$Nest$smisValidAnalogueBroadcastType(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    const/16 v0, 0x8
+
+    invoke-static {p1, v0}, Lcom/android/server/hdmi/HdmiUtils;->twoBytesToInt([BI)I
+
+    move-result v0
+
+    invoke-static {v0}, Lcom/android/server/hdmi/HdmiCecMessageValidator;->-$$Nest$smisValidAnalogueFrequency(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    const/16 v0, 0xa
+
+    aget-byte p1, p1, v0
+
+    invoke-static {p1}, Lcom/android/server/hdmi/HdmiCecMessageValidator;->-$$Nest$smisValidBroadcastSystem(I)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_1
+
+    move p0, v2
+
+    :cond_1
+    invoke-static {p0}, Lcom/android/server/hdmi/HdmiCecMessageValidator;->-$$Nest$smtoErrorCode(Z)I
+
+    move-result p0
+
+    return p0
 .end method

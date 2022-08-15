@@ -1,4 +1,4 @@
-.class Lcom/android/server/connectivity/PacProxyService$3$1;
+.class public Lcom/android/server/connectivity/PacProxyService$3$1;
 .super Lcom/android/net/IProxyPortListener$Stub;
 .source "PacProxyService.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$1:Lcom/android/server/connectivity/PacProxyService$3;
+.field public final synthetic this$1:Lcom/android/server/connectivity/PacProxyService$3;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/connectivity/PacProxyService$3;)V
+.method public constructor <init>(Lcom/android/server/connectivity/PacProxyService$3;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/connectivity/PacProxyService$3$1;->this$1:Lcom/android/server/connectivity/PacProxyService$3;
@@ -38,7 +38,7 @@
 
     iget-object v0, v0, Lcom/android/server/connectivity/PacProxyService$3;->this$0:Lcom/android/server/connectivity/PacProxyService;
 
-    invoke-static {v0}, Lcom/android/server/connectivity/PacProxyService;->access$1200(Lcom/android/server/connectivity/PacProxyService;)I
+    invoke-static {v0}, Lcom/android/server/connectivity/PacProxyService;->-$$Nest$fgetmLastPort(Lcom/android/server/connectivity/PacProxyService;)I
 
     move-result v0
 
@@ -52,14 +52,14 @@
 
     const/4 v2, 0x0
 
-    invoke-static {v0, v2}, Lcom/android/server/connectivity/PacProxyService;->access$1302(Lcom/android/server/connectivity/PacProxyService;Z)Z
+    invoke-static {v0, v2}, Lcom/android/server/connectivity/PacProxyService;->-$$Nest$fputmHasSentBroadcast(Lcom/android/server/connectivity/PacProxyService;Z)V
 
     :cond_0
     iget-object v0, p0, Lcom/android/server/connectivity/PacProxyService$3$1;->this$1:Lcom/android/server/connectivity/PacProxyService$3;
 
     iget-object v0, v0, Lcom/android/server/connectivity/PacProxyService$3;->this$0:Lcom/android/server/connectivity/PacProxyService;
 
-    invoke-static {v0, p1}, Lcom/android/server/connectivity/PacProxyService;->access$1202(Lcom/android/server/connectivity/PacProxyService;I)I
+    invoke-static {v0, p1}, Lcom/android/server/connectivity/PacProxyService;->-$$Nest$fputmLastPort(Lcom/android/server/connectivity/PacProxyService;I)V
 
     const-string v0, "PacProxyService"
 
@@ -77,22 +77,22 @@
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v0, p0, Lcom/android/server/connectivity/PacProxyService$3$1;->this$1:Lcom/android/server/connectivity/PacProxyService$3;
+    iget-object p0, p0, Lcom/android/server/connectivity/PacProxyService$3$1;->this$1:Lcom/android/server/connectivity/PacProxyService$3;
 
-    iget-object v0, v0, Lcom/android/server/connectivity/PacProxyService$3;->this$0:Lcom/android/server/connectivity/PacProxyService;
+    iget-object p0, p0, Lcom/android/server/connectivity/PacProxyService$3;->this$0:Lcom/android/server/connectivity/PacProxyService;
 
-    invoke-static {v0}, Lcom/android/server/connectivity/PacProxyService;->access$600(Lcom/android/server/connectivity/PacProxyService;)V
+    invoke-static {p0}, Lcom/android/server/connectivity/PacProxyService;->-$$Nest$msendProxyIfNeeded(Lcom/android/server/connectivity/PacProxyService;)V
 
     goto :goto_0
 
     :cond_1
-    const-string v1, "Received invalid port from Local Proxy, PAC will not be operational"
+    const-string p0, "Received invalid port from Local Proxy, PAC will not be operational"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     :goto_0
     return-void

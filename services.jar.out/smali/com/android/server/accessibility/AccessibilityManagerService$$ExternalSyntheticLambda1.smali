@@ -1,35 +1,34 @@
 .class public final synthetic Lcom/android/server/accessibility/AccessibilityManagerService$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/internal/util/FunctionalUtils$RemoteExceptionIgnoringConsumer;
-
-
-# instance fields
-.field public final synthetic f$0:J
+.implements Ljava/util/function/BiConsumer;
 
 
 # direct methods
-.method public synthetic constructor <init>(J)V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-wide p1, p0, Lcom/android/server/accessibility/AccessibilityManagerService$$ExternalSyntheticLambda1;->f$0:J
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final acceptOrThrow(Ljava/lang/Object;)V
-    .locals 2
+.method public final accept(Ljava/lang/Object;Ljava/lang/Object;)V
+    .locals 0
 
-    iget-wide v0, p0, Lcom/android/server/accessibility/AccessibilityManagerService$$ExternalSyntheticLambda1;->f$0:J
+    check-cast p1, Lcom/android/server/accessibility/AccessibilityManagerService;
 
-    check-cast p1, Landroid/view/accessibility/IAccessibilityManagerClient;
+    check-cast p2, Ljava/lang/Integer;
 
-    invoke-static {v0, v1, p1}, Lcom/android/server/accessibility/AccessibilityManagerService;->lambda$notifyClientsOfServicesStateChange$11(JLandroid/view/accessibility/IAccessibilityManagerClient;)V
+    invoke-virtual {p2}, Ljava/lang/Integer;->intValue()I
+
+    move-result p0
+
+    invoke-static {p1, p0}, Lcom/android/server/accessibility/AccessibilityManagerService;->$r8$lambda$sb8dFcnuZBsHq6n4u1rt5LabMqk(Lcom/android/server/accessibility/AccessibilityManagerService;I)V
 
     return-void
 .end method

@@ -1,4 +1,4 @@
-.class Lcom/android/server/print/UserState$1;
+.class public Lcom/android/server/print/UserState$1;
 .super Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;
 .source "UserState.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/print/UserState;
+.field public final synthetic this$0:Lcom/android/server/print/UserState;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/print/UserState;)V
+.method public constructor <init>(Lcom/android/server/print/UserState;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/print/UserState$1;->this$0:Lcom/android/server/print/UserState;
@@ -32,13 +32,13 @@
 
 # virtual methods
 .method public onDestroyed()V
-    .locals 2
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/print/UserState$1;->this$0:Lcom/android/server/print/UserState;
+    iget-object p0, p0, Lcom/android/server/print/UserState$1;->this$0:Lcom/android/server/print/UserState;
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    invoke-static {v0, v1}, Lcom/android/server/print/UserState;->access$102(Lcom/android/server/print/UserState;Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;)Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;
+    invoke-static {p0, v0}, Lcom/android/server/print/UserState;->-$$Nest$fputmPrinterDiscoverySession(Lcom/android/server/print/UserState;Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;)V
 
     return-void
 .end method

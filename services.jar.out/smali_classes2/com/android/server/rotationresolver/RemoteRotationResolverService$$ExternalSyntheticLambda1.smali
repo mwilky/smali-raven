@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/rotationresolver/RemoteRotationResolverService$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/rotationresolver/RemoteRotationResolverService$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/rotationresolver/RemoteRotationResolverService$RotationRequest;
+    iget-object p0, p0, Lcom/android/server/rotationresolver/RemoteRotationResolverService$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/rotationresolver/RemoteRotationResolverService$RotationRequest;
 
-    invoke-static {v0}, Lcom/android/server/rotationresolver/RemoteRotationResolverService;->lambda$resolveRotationLocked$1(Lcom/android/server/rotationresolver/RemoteRotationResolverService$RotationRequest;)V
+    invoke-static {p0}, Lcom/android/server/rotationresolver/RemoteRotationResolverService;->$r8$lambda$RAj7C9O8ctkG_MZcBQZ_ueltyDY(Lcom/android/server/rotationresolver/RemoteRotationResolverService$RotationRequest;)V
 
     return-void
 .end method

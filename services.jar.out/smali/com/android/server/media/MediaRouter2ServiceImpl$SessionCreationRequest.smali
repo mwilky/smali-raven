@@ -1,4 +1,4 @@
-.class final Lcom/android/server/media/MediaRouter2ServiceImpl$SessionCreationRequest;
+.class public final Lcom/android/server/media/MediaRouter2ServiceImpl$SessionCreationRequest;
 .super Ljava/lang/Object;
 .source "MediaRouter2ServiceImpl.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = "SessionCreationRequest"
 .end annotation
 
@@ -27,7 +27,7 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/media/MediaRouter2ServiceImpl$RouterRecord;JJLandroid/media/RoutingSessionInfo;Landroid/media/MediaRoute2Info;)V
+.method public constructor <init>(Lcom/android/server/media/MediaRouter2ServiceImpl$RouterRecord;JJLandroid/media/RoutingSessionInfo;Landroid/media/MediaRoute2Info;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

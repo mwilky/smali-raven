@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/ActivityStarter$DefaultFactory;
+.class public Lcom/android/server/wm/ActivityStarter$DefaultFactory;
 .super Ljava/lang/Object;
 .source "ActivityStarter.java"
 
@@ -12,21 +12,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "DefaultFactory"
 .end annotation
 
 
 # instance fields
-.field private final MAX_STARTER_COUNT:I
+.field public final MAX_STARTER_COUNT:I
 
-.field private mController:Lcom/android/server/wm/ActivityStartController;
+.field public mController:Lcom/android/server/wm/ActivityStartController;
 
-.field private mInterceptor:Lcom/android/server/wm/ActivityStartInterceptor;
+.field public mInterceptor:Lcom/android/server/wm/ActivityStartInterceptor;
 
-.field private mService:Lcom/android/server/wm/ActivityTaskManagerService;
+.field public mService:Lcom/android/server/wm/ActivityTaskManagerService;
 
-.field private mStarterPool:Landroid/util/Pools$SynchronizedPool;
+.field public mStarterPool:Landroid/util/Pools$SynchronizedPool;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/Pools$SynchronizedPool<",
@@ -36,11 +36,11 @@
     .end annotation
 .end field
 
-.field private mSupervisor:Lcom/android/server/wm/ActivityTaskSupervisor;
+.field public mSupervisor:Lcom/android/server/wm/ActivityTaskSupervisor;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/wm/ActivityTaskManagerService;Lcom/android/server/wm/ActivityTaskSupervisor;Lcom/android/server/wm/ActivityStartInterceptor;)V
+.method public constructor <init>(Lcom/android/server/wm/ActivityTaskManagerService;Lcom/android/server/wm/ActivityTaskSupervisor;Lcom/android/server/wm/ActivityStartInterceptor;)V
     .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -67,7 +67,7 @@
 
 # virtual methods
 .method public obtain()Lcom/android/server/wm/ActivityStarter;
-    .locals 6
+    .locals 4
 
     iget-object v0, p0, Lcom/android/server/wm/ActivityStarter$DefaultFactory;->mStarterPool:Landroid/util/Pools$SynchronizedPool;
 
@@ -79,9 +79,9 @@
 
     if-nez v0, :cond_1
 
-    iget-object v1, p0, Lcom/android/server/wm/ActivityStarter$DefaultFactory;->mService:Lcom/android/server/wm/ActivityTaskManagerService;
+    iget-object v0, p0, Lcom/android/server/wm/ActivityStarter$DefaultFactory;->mService:Lcom/android/server/wm/ActivityTaskManagerService;
 
-    iget-object v1, v1, Lcom/android/server/wm/ActivityTaskManagerService;->mRootWindowContainer:Lcom/android/server/wm/RootWindowContainer;
+    iget-object v1, v0, Lcom/android/server/wm/ActivityTaskManagerService;->mRootWindowContainer:Lcom/android/server/wm/RootWindowContainer;
 
     if-eqz v1, :cond_0
 
@@ -89,26 +89,24 @@
 
     iget-object v2, p0, Lcom/android/server/wm/ActivityStarter$DefaultFactory;->mController:Lcom/android/server/wm/ActivityStartController;
 
-    iget-object v3, p0, Lcom/android/server/wm/ActivityStarter$DefaultFactory;->mService:Lcom/android/server/wm/ActivityTaskManagerService;
+    iget-object v3, p0, Lcom/android/server/wm/ActivityStarter$DefaultFactory;->mSupervisor:Lcom/android/server/wm/ActivityTaskSupervisor;
 
-    iget-object v4, p0, Lcom/android/server/wm/ActivityStarter$DefaultFactory;->mSupervisor:Lcom/android/server/wm/ActivityTaskSupervisor;
+    iget-object p0, p0, Lcom/android/server/wm/ActivityStarter$DefaultFactory;->mInterceptor:Lcom/android/server/wm/ActivityStartInterceptor;
 
-    iget-object v5, p0, Lcom/android/server/wm/ActivityStarter$DefaultFactory;->mInterceptor:Lcom/android/server/wm/ActivityStartInterceptor;
-
-    invoke-direct {v1, v2, v3, v4, v5}, Lcom/android/server/wm/ActivityStarter;-><init>(Lcom/android/server/wm/ActivityStartController;Lcom/android/server/wm/ActivityTaskManagerService;Lcom/android/server/wm/ActivityTaskSupervisor;Lcom/android/server/wm/ActivityStartInterceptor;)V
+    invoke-direct {v1, v2, v0, v3, p0}, Lcom/android/server/wm/ActivityStarter;-><init>(Lcom/android/server/wm/ActivityStartController;Lcom/android/server/wm/ActivityTaskManagerService;Lcom/android/server/wm/ActivityTaskSupervisor;Lcom/android/server/wm/ActivityStartInterceptor;)V
 
     move-object v0, v1
 
     goto :goto_0
 
     :cond_0
-    new-instance v1, Ljava/lang/IllegalStateException;
+    new-instance p0, Ljava/lang/IllegalStateException;
 
-    const-string v2, "Too early to start activity."
+    const-string v0, "Too early to start activity."
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p0
 
     :cond_1
     :goto_0
@@ -122,9 +120,9 @@
 
     invoke-virtual {p1, v0}, Lcom/android/server/wm/ActivityStarter;->reset(Z)V
 
-    iget-object v0, p0, Lcom/android/server/wm/ActivityStarter$DefaultFactory;->mStarterPool:Landroid/util/Pools$SynchronizedPool;
+    iget-object p0, p0, Lcom/android/server/wm/ActivityStarter$DefaultFactory;->mStarterPool:Landroid/util/Pools$SynchronizedPool;
 
-    invoke-virtual {v0, p1}, Landroid/util/Pools$SynchronizedPool;->release(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p1}, Landroid/util/Pools$SynchronizedPool;->release(Ljava/lang/Object;)Z
 
     return-void
 .end method

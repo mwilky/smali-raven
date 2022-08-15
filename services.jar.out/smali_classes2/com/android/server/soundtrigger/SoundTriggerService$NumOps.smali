@@ -1,4 +1,4 @@
-.class Lcom/android/server/soundtrigger/SoundTriggerService$NumOps;
+.class public Lcom/android/server/soundtrigger/SoundTriggerService$NumOps;
 .super Ljava/lang/Object;
 .source "SoundTriggerService.java"
 
@@ -9,21 +9,33 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "NumOps"
 .end annotation
 
 
 # instance fields
-.field private mLastOpsHourSinceBoot:J
+.field public mLastOpsHourSinceBoot:J
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
+.end field
 
-.field private final mLock:Ljava/lang/Object;
+.field public final mLock:Ljava/lang/Object;
 
-.field private mNumOps:[I
+.field public mNumOps:[I
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
+.end field
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,7 +55,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/soundtrigger/SoundTriggerService$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/soundtrigger/SoundTriggerService$NumOps-IA;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/soundtrigger/SoundTriggerService$NumOps;-><init>()V
@@ -53,8 +65,8 @@
 
 
 # virtual methods
-.method addOp(J)V
-    .locals 6
+.method public addOp(J)V
+    .locals 4
 
     iget-object v0, p0, Lcom/android/server/soundtrigger/SoundTriggerService$NumOps;->mLock:Ljava/lang/Object;
 
@@ -67,40 +79,40 @@
 
     invoke-virtual {v1, p1, p2, v2}, Ljava/util/concurrent/TimeUnit;->convert(JLjava/util/concurrent/TimeUnit;)J
 
-    move-result-wide v1
+    move-result-wide p1
 
-    iget-object v3, p0, Lcom/android/server/soundtrigger/SoundTriggerService$NumOps;->mNumOps:[I
+    iget-object v1, p0, Lcom/android/server/soundtrigger/SoundTriggerService$NumOps;->mNumOps:[I
 
-    const-wide/16 v4, 0x18
+    const-wide/16 v2, 0x18
 
-    rem-long v4, v1, v4
+    rem-long v2, p1, v2
 
-    long-to-int v4, v4
+    long-to-int v2, v2
 
-    aget v5, v3, v4
+    aget v3, v1, v2
 
-    add-int/lit8 v5, v5, 0x1
+    add-int/lit8 v3, v3, 0x1
 
-    aput v5, v3, v4
+    aput v3, v1, v2
 
-    iput-wide v1, p0, Lcom/android/server/soundtrigger/SoundTriggerService$NumOps;->mLastOpsHourSinceBoot:J
+    iput-wide p1, p0, Lcom/android/server/soundtrigger/SoundTriggerService$NumOps;->mLastOpsHourSinceBoot:J
 
     monitor-exit v0
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
-.method clearOldOps(J)V
-    .locals 10
+.method public clearOldOps(J)V
+    .locals 8
 
     iget-object v0, p0, Lcom/android/server/soundtrigger/SoundTriggerService$NumOps;->mLock:Ljava/lang/Object;
 
@@ -113,38 +125,36 @@
 
     invoke-virtual {v1, p1, p2, v2}, Ljava/util/concurrent/TimeUnit;->convert(JLjava/util/concurrent/TimeUnit;)J
 
-    move-result-wide v1
+    move-result-wide p1
 
-    iget-wide v3, p0, Lcom/android/server/soundtrigger/SoundTriggerService$NumOps;->mLastOpsHourSinceBoot:J
+    iget-wide v1, p0, Lcom/android/server/soundtrigger/SoundTriggerService$NumOps;->mLastOpsHourSinceBoot:J
 
-    const-wide/16 v5, 0x0
+    const-wide/16 v3, 0x0
 
-    cmp-long v5, v3, v5
+    cmp-long v3, v1, v3
 
-    if-eqz v5, :cond_0
+    if-eqz v3, :cond_0
 
-    const-wide/16 v5, 0x1
-
-    add-long/2addr v3, v5
+    const-wide/16 v3, 0x1
 
     :goto_0
-    cmp-long v7, v3, v1
+    add-long/2addr v1, v3
 
-    if-gtz v7, :cond_0
+    cmp-long v5, v1, p1
 
-    iget-object v7, p0, Lcom/android/server/soundtrigger/SoundTriggerService$NumOps;->mNumOps:[I
+    if-gtz v5, :cond_0
 
-    const-wide/16 v8, 0x18
+    iget-object v5, p0, Lcom/android/server/soundtrigger/SoundTriggerService$NumOps;->mNumOps:[I
 
-    rem-long v8, v3, v8
+    const-wide/16 v6, 0x18
 
-    long-to-int v8, v8
+    rem-long v6, v1, v6
 
-    const/4 v9, 0x0
+    long-to-int v6, v6
 
-    aput v9, v7, v8
+    const/4 v7, 0x0
 
-    add-long/2addr v3, v5
+    aput v7, v5, v6
 
     goto :goto_0
 
@@ -154,16 +164,16 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
-.method getOpsAdded()I
+.method public getOpsAdded()I
     .locals 4
 
     iget-object v0, p0, Lcom/android/server/soundtrigger/SoundTriggerService$NumOps;->mLock:Ljava/lang/Object;
@@ -172,35 +182,35 @@
 
     const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    move v2, v1
 
     :goto_0
     const/16 v3, 0x18
 
-    if-ge v2, v3, :cond_0
+    if-ge v1, v3, :cond_0
 
     :try_start_0
     iget-object v3, p0, Lcom/android/server/soundtrigger/SoundTriggerService$NumOps;->mNumOps:[I
 
-    aget v3, v3, v2
+    aget v3, v3, v1
 
-    add-int/2addr v1, v3
+    add-int/2addr v2, v3
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     :cond_0
     monitor-exit v0
 
-    return v1
+    return v2
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method

@@ -3,12 +3,8 @@
 .source "NativeTombstoneManagerService.java"
 
 
-# static fields
-.field private static final TAG:Ljava/lang/String; = "NativeTombstoneManagerService"
-
-
 # instance fields
-.field private mManager:Lcom/android/server/os/NativeTombstoneManager;
+.field public mManager:Lcom/android/server/os/NativeTombstoneManager;
 
 
 # direct methods
@@ -29,9 +25,9 @@
 
     if-ne p1, v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/os/NativeTombstoneManagerService;->mManager:Lcom/android/server/os/NativeTombstoneManager;
+    iget-object p0, p0, Lcom/android/server/os/NativeTombstoneManagerService;->mManager:Lcom/android/server/os/NativeTombstoneManager;
 
-    invoke-virtual {v0}, Lcom/android/server/os/NativeTombstoneManager;->onSystemReady()V
+    invoke-virtual {p0}, Lcom/android/server/os/NativeTombstoneManager;->onSystemReady()V
 
     :cond_0
     return-void
@@ -42,7 +38,7 @@
 
     new-instance v0, Lcom/android/server/os/NativeTombstoneManager;
 
-    invoke-virtual {p0}, Lcom/android/server/os/NativeTombstoneManagerService;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Lcom/android/server/SystemService;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
@@ -50,9 +46,9 @@
 
     iput-object v0, p0, Lcom/android/server/os/NativeTombstoneManagerService;->mManager:Lcom/android/server/os/NativeTombstoneManager;
 
-    const-class v1, Lcom/android/server/os/NativeTombstoneManager;
+    const-class p0, Lcom/android/server/os/NativeTombstoneManager;
 
-    invoke-static {v1, v0}, Lcom/android/server/LocalServices;->addService(Ljava/lang/Class;Ljava/lang/Object;)V
+    invoke-static {p0, v0}, Lcom/android/server/LocalServices;->addService(Ljava/lang/Class;Ljava/lang/Object;)V
 
     return-void
 .end method

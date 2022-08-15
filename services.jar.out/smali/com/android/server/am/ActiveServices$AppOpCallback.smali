@@ -1,4 +1,4 @@
-.class final Lcom/android/server/am/ActiveServices$AppOpCallback;
+.class public final Lcom/android/server/am/ActiveServices$AppOpCallback;
 .super Ljava/lang/Object;
 .source "ActiveServices.java"
 
@@ -9,39 +9,71 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "AppOpCallback"
 .end annotation
 
 
 # static fields
-.field private static final LOGGED_AP_OPS:[I
+.field public static final LOGGED_AP_OPS:[I
 
 
 # instance fields
-.field private final mAcceptedOps:Landroid/util/SparseIntArray;
+.field public final mAcceptedOps:Landroid/util/SparseIntArray;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mCounterLock"
+        }
+    .end annotation
+.end field
 
-.field private final mAppOpModes:Landroid/util/SparseIntArray;
+.field public final mAppOpModes:Landroid/util/SparseIntArray;
 
-.field private final mAppOpsManager:Landroid/app/AppOpsManager;
+.field public final mAppOpsManager:Landroid/app/AppOpsManager;
 
-.field private final mCounterLock:Ljava/lang/Object;
+.field public final mCounterLock:Ljava/lang/Object;
 
-.field private mDestroyed:Z
+.field public mDestroyed:Z
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mAm"
+        }
+    .end annotation
+.end field
 
-.field private mNumFgs:I
+.field public mNumFgs:I
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mAm"
+        }
+    .end annotation
+.end field
 
-.field private final mOpNotedCallback:Landroid/app/AppOpsManager$OnOpNotedListener;
+.field public final mOpNotedCallback:Landroid/app/AppOpsManager$OnOpNotedListener;
 
-.field private final mOpStartedCallback:Landroid/app/AppOpsManager$OnOpStartedListener;
+.field public final mOpStartedCallback:Landroid/app/AppOpsManager$OnOpStartedListener;
 
-.field private final mProcessRecord:Lcom/android/server/am/ProcessRecord;
+.field public final mProcessRecord:Lcom/android/server/am/ProcessRecord;
 
-.field private final mRejectedOps:Landroid/util/SparseIntArray;
+.field public final mRejectedOps:Landroid/util/SparseIntArray;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mCounterLock"
+        }
+    .end annotation
+.end field
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static bridge synthetic -$$Nest$mincrementOpCountIfNeeded(Lcom/android/server/am/ActiveServices$AppOpCallback;III)V
+    .locals 0
+
+    invoke-virtual {p0, p1, p2, p3}, Lcom/android/server/am/ActiveServices$AppOpCallback;->incrementOpCountIfNeeded(III)V
+
+    return-void
+.end method
+
+.method public static constructor <clinit>()V
     .locals 1
 
     const/4 v0, 0x4
@@ -65,7 +97,7 @@
     .end array-data
 .end method
 
-.method constructor <init>(Lcom/android/server/am/ProcessRecord;Landroid/app/AppOpsManager;)V
+.method public constructor <init>(Lcom/android/server/am/ProcessRecord;Landroid/app/AppOpsManager;)V
     .locals 6
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -147,16 +179,41 @@
     return-void
 .end method
 
-.method static synthetic access$400(Lcom/android/server/am/ActiveServices$AppOpCallback;III)V
-    .locals 0
+.method public static modeToEnum(I)I
+    .locals 1
 
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/am/ActiveServices$AppOpCallback;->incrementOpCountIfNeeded(III)V
+    const/4 v0, 0x1
 
-    return-void
+    if-eqz p0, :cond_2
+
+    if-eq p0, v0, :cond_1
+
+    const/4 v0, 0x4
+
+    if-eq p0, v0, :cond_0
+
+    const/4 p0, 0x0
+
+    return p0
+
+    :cond_0
+    const/4 p0, 0x3
+
+    return p0
+
+    :cond_1
+    const/4 p0, 0x2
+
+    return p0
+
+    :cond_2
+    return v0
 .end method
 
-.method private incrementOpCount(IZ)V
-    .locals 5
+
+# virtual methods
+.method public final incrementOpCount(IZ)V
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/am/ActiveServices$AppOpCallback;->mCounterLock:Ljava/lang/Object;
 
@@ -165,34 +222,34 @@
     if-eqz p2, :cond_0
 
     :try_start_0
-    iget-object v1, p0, Lcom/android/server/am/ActiveServices$AppOpCallback;->mAcceptedOps:Landroid/util/SparseIntArray;
+    iget-object p0, p0, Lcom/android/server/am/ActiveServices$AppOpCallback;->mAcceptedOps:Landroid/util/SparseIntArray;
 
     goto :goto_0
 
     :cond_0
-    iget-object v1, p0, Lcom/android/server/am/ActiveServices$AppOpCallback;->mRejectedOps:Landroid/util/SparseIntArray;
+    iget-object p0, p0, Lcom/android/server/am/ActiveServices$AppOpCallback;->mRejectedOps:Landroid/util/SparseIntArray;
 
     :goto_0
-    invoke-virtual {v1, p1}, Landroid/util/SparseIntArray;->indexOfKey(I)I
+    invoke-virtual {p0, p1}, Landroid/util/SparseIntArray;->indexOfKey(I)I
 
-    move-result v2
+    move-result p2
 
-    const/4 v3, 0x1
+    const/4 v1, 0x1
 
-    if-gez v2, :cond_1
+    if-gez p2, :cond_1
 
-    invoke-virtual {v1, p1, v3}, Landroid/util/SparseIntArray;->put(II)V
+    invoke-virtual {p0, p1, v1}, Landroid/util/SparseIntArray;->put(II)V
 
     goto :goto_1
 
     :cond_1
-    invoke-virtual {v1, v2}, Landroid/util/SparseIntArray;->valueAt(I)I
+    invoke-virtual {p0, p2}, Landroid/util/SparseIntArray;->valueAt(I)I
 
-    move-result v4
+    move-result p1
 
-    add-int/2addr v4, v3
+    add-int/2addr p1, v1
 
-    invoke-virtual {v1, v2, v4}, Landroid/util/SparseIntArray;->setValueAt(II)V
+    invoke-virtual {p0, p2, p1}, Landroid/util/SparseIntArray;->setValueAt(II)V
 
     :goto_1
     monitor-exit v0
@@ -200,16 +257,16 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
-.method private incrementOpCountIfNeeded(III)V
+.method public final incrementOpCountIfNeeded(III)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/am/ActiveServices$AppOpCallback;->mProcessRecord:Lcom/android/server/am/ProcessRecord;
@@ -218,56 +275,64 @@
 
     if-ne p2, v0, :cond_1
 
-    invoke-direct {p0}, Lcom/android/server/am/ActiveServices$AppOpCallback;->isNotTop()Z
+    invoke-virtual {p0}, Lcom/android/server/am/ActiveServices$AppOpCallback;->isNotTop()Z
 
-    move-result v0
+    move-result p2
 
-    if-eqz v0, :cond_1
+    if-eqz p2, :cond_1
 
     if-nez p3, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p2, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p2, 0x0
 
     :goto_0
-    invoke-direct {p0, p1, v0}, Lcom/android/server/am/ActiveServices$AppOpCallback;->incrementOpCount(IZ)V
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/am/ActiveServices$AppOpCallback;->incrementOpCount(IZ)V
 
     :cond_1
     return-void
 .end method
 
-.method private isNotTop()Z
-    .locals 2
+.method public final isNotTop()Z
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/am/ActiveServices$AppOpCallback;->mProcessRecord:Lcom/android/server/am/ProcessRecord;
+    iget-object p0, p0, Lcom/android/server/am/ActiveServices$AppOpCallback;->mProcessRecord:Lcom/android/server/am/ProcessRecord;
 
-    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->mState:Lcom/android/server/am/ProcessStateRecord;
+    iget-object p0, p0, Lcom/android/server/am/ProcessRecord;->mState:Lcom/android/server/am/ProcessStateRecord;
 
-    invoke-virtual {v0}, Lcom/android/server/am/ProcessStateRecord;->getCurProcState()I
+    invoke-virtual {p0}, Lcom/android/server/am/ProcessStateRecord;->getCurProcState()I
 
-    move-result v0
+    move-result p0
 
-    const/4 v1, 0x2
+    const/4 v0, 0x2
 
-    if-eq v0, v1, :cond_0
+    if-eq p0, v0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
-.method private logFinalValues()V
-    .locals 13
+.method public isObsoleteLocked()Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/server/am/ActiveServices$AppOpCallback;->mDestroyed:Z
+
+    return p0
+.end method
+
+.method public final logFinalValues()V
+    .locals 10
 
     iget-object v0, p0, Lcom/android/server/am/ActiveServices$AppOpCallback;->mCounterLock:Ljava/lang/Object;
 
@@ -283,52 +348,42 @@
     :goto_0
     if-ge v3, v2, :cond_2
 
-    aget v4, v1, v3
+    aget v6, v1, v3
 
-    iget-object v5, p0, Lcom/android/server/am/ActiveServices$AppOpCallback;->mAcceptedOps:Landroid/util/SparseIntArray;
+    iget-object v4, p0, Lcom/android/server/am/ActiveServices$AppOpCallback;->mAcceptedOps:Landroid/util/SparseIntArray;
 
-    invoke-virtual {v5, v4}, Landroid/util/SparseIntArray;->get(I)I
+    invoke-virtual {v4, v6}, Landroid/util/SparseIntArray;->get(I)I
 
-    move-result v5
+    move-result v8
 
-    move v11, v5
+    iget-object v4, p0, Lcom/android/server/am/ActiveServices$AppOpCallback;->mRejectedOps:Landroid/util/SparseIntArray;
 
-    iget-object v5, p0, Lcom/android/server/am/ActiveServices$AppOpCallback;->mRejectedOps:Landroid/util/SparseIntArray;
+    invoke-virtual {v4, v6}, Landroid/util/SparseIntArray;->get(I)I
 
-    invoke-virtual {v5, v4}, Landroid/util/SparseIntArray;->get(I)I
+    move-result v9
 
-    move-result v5
+    if-gtz v8, :cond_0
 
-    move v12, v5
-
-    if-gtz v11, :cond_0
-
-    if-lez v12, :cond_1
+    if-lez v9, :cond_1
 
     :cond_0
-    const/16 v5, 0x100
+    const/16 v4, 0x100
 
-    iget-object v6, p0, Lcom/android/server/am/ActiveServices$AppOpCallback;->mProcessRecord:Lcom/android/server/am/ProcessRecord;
+    iget-object v5, p0, Lcom/android/server/am/ActiveServices$AppOpCallback;->mProcessRecord:Lcom/android/server/am/ProcessRecord;
 
-    iget v6, v6, Lcom/android/server/am/ProcessRecord;->uid:I
+    iget v5, v5, Lcom/android/server/am/ProcessRecord;->uid:I
 
     iget-object v7, p0, Lcom/android/server/am/ActiveServices$AppOpCallback;->mAppOpModes:Landroid/util/SparseIntArray;
 
-    invoke-virtual {v7, v4}, Landroid/util/SparseIntArray;->get(I)I
+    invoke-virtual {v7, v6}, Landroid/util/SparseIntArray;->get(I)I
 
     move-result v7
 
     invoke-static {v7}, Lcom/android/server/am/ActiveServices$AppOpCallback;->modeToEnum(I)I
 
-    move-result v8
+    move-result v7
 
-    move v7, v4
-
-    move v9, v11
-
-    move v10, v12
-
-    invoke-static/range {v5 .. v10}, Lcom/android/internal/util/FrameworkStatsLog;->write(IIIIII)V
+    invoke-static/range {v4 .. v9}, Lcom/android/internal/util/FrameworkStatsLog;->write(IIIIII)V
 
     :cond_1
     add-int/lit8 v3, v3, 0x1
@@ -341,63 +396,16 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
-.method private static modeToEnum(I)I
-    .locals 1
-
-    packed-switch p0, :pswitch_data_0
-
-    :pswitch_0
-    const/4 v0, 0x0
-
-    return v0
-
-    :pswitch_1
-    const/4 v0, 0x3
-
-    return v0
-
-    :pswitch_2
-    const/4 v0, 0x2
-
-    return v0
-
-    :pswitch_3
-    const/4 v0, 0x1
-
-    return v0
-
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0x0
-        :pswitch_3
-        :pswitch_2
-        :pswitch_0
-        :pswitch_0
-        :pswitch_1
-    .end packed-switch
-.end method
-
-
-# virtual methods
-.method isObsoleteLocked()Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/server/am/ActiveServices$AppOpCallback;->mDestroyed:Z
-
-    return v0
-.end method
-
-.method registerLocked()V
+.method public registerLocked()V
     .locals 3
 
     invoke-virtual {p0}, Lcom/android/server/am/ActiveServices$AppOpCallback;->isObsoleteLocked()Z
@@ -406,11 +414,11 @@
 
     if-eqz v0, :cond_0
 
-    const-string v0, "ActivityManager"
+    const-string p0, "ActivityManager"
 
-    const-string v1, "Trying to register on a stale AppOpCallback."
+    const-string v0, "Trying to register on a stale AppOpCallback."
 
-    invoke-static {v0, v1}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, v0}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
@@ -435,15 +443,15 @@
 
     iget-object v0, p0, Lcom/android/server/am/ActiveServices$AppOpCallback;->mAppOpsManager:Landroid/app/AppOpsManager;
 
-    iget-object v2, p0, Lcom/android/server/am/ActiveServices$AppOpCallback;->mOpStartedCallback:Landroid/app/AppOpsManager$OnOpStartedListener;
+    iget-object p0, p0, Lcom/android/server/am/ActiveServices$AppOpCallback;->mOpStartedCallback:Landroid/app/AppOpsManager$OnOpStartedListener;
 
-    invoke-virtual {v0, v1, v2}, Landroid/app/AppOpsManager;->startWatchingStarted([ILandroid/app/AppOpsManager$OnOpStartedListener;)V
+    invoke-virtual {v0, v1, p0}, Landroid/app/AppOpsManager;->startWatchingStarted([ILandroid/app/AppOpsManager$OnOpStartedListener;)V
 
     :cond_1
     return-void
 .end method
 
-.method unregisterLocked()V
+.method public unregisterLocked()V
     .locals 2
 
     iget v0, p0, Lcom/android/server/am/ActiveServices$AppOpCallback;->mNumFgs:I
@@ -458,7 +466,7 @@
 
     iput-boolean v1, p0, Lcom/android/server/am/ActiveServices$AppOpCallback;->mDestroyed:Z
 
-    invoke-direct {p0}, Lcom/android/server/am/ActiveServices$AppOpCallback;->logFinalValues()V
+    invoke-virtual {p0}, Lcom/android/server/am/ActiveServices$AppOpCallback;->logFinalValues()V
 
     iget-object v0, p0, Lcom/android/server/am/ActiveServices$AppOpCallback;->mAppOpsManager:Landroid/app/AppOpsManager;
 
@@ -468,9 +476,9 @@
 
     iget-object v0, p0, Lcom/android/server/am/ActiveServices$AppOpCallback;->mAppOpsManager:Landroid/app/AppOpsManager;
 
-    iget-object v1, p0, Lcom/android/server/am/ActiveServices$AppOpCallback;->mOpStartedCallback:Landroid/app/AppOpsManager$OnOpStartedListener;
+    iget-object p0, p0, Lcom/android/server/am/ActiveServices$AppOpCallback;->mOpStartedCallback:Landroid/app/AppOpsManager$OnOpStartedListener;
 
-    invoke-virtual {v0, v1}, Landroid/app/AppOpsManager;->stopWatchingStarted(Landroid/app/AppOpsManager$OnOpStartedListener;)V
+    invoke-virtual {v0, p0}, Landroid/app/AppOpsManager;->stopWatchingStarted(Landroid/app/AppOpsManager$OnOpStartedListener;)V
 
     :cond_0
     return-void

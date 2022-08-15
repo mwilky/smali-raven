@@ -1,4 +1,4 @@
-.class Lcom/android/server/am/ActivityManagerService$MainHandler$1;
+.class public Lcom/android/server/am/ActivityManagerService$MainHandler$1;
 .super Ljava/lang/Thread;
 .source "ActivityManagerService.java"
 
@@ -9,19 +9,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$1:Lcom/android/server/am/ActivityManagerService$MainHandler;
+.field public final synthetic this$1:Lcom/android/server/am/ActivityManagerService$MainHandler;
 
-.field final synthetic val$memInfos:Ljava/util/ArrayList;
+.field public final synthetic val$memInfos:Ljava/util/ArrayList;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/ActivityManagerService$MainHandler;Ljava/util/ArrayList;)V
+.method public constructor <init>(Lcom/android/server/am/ActivityManagerService$MainHandler;Ljava/util/ArrayList;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/am/ActivityManagerService$MainHandler$1;->this$1:Lcom/android/server/am/ActivityManagerService$MainHandler;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$MainHandler$1;->this$1:Lcom/android/server/am/ActivityManagerService$MainHandler;
 
@@ -44,9 +44,9 @@
 
     iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mAppProfiler:Lcom/android/server/am/AppProfiler;
 
-    iget-object v1, p0, Lcom/android/server/am/ActivityManagerService$MainHandler$1;->val$memInfos:Ljava/util/ArrayList;
+    iget-object p0, p0, Lcom/android/server/am/ActivityManagerService$MainHandler$1;->val$memInfos:Ljava/util/ArrayList;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/am/AppProfiler;->reportMemUsage(Ljava/util/ArrayList;)V
+    invoke-virtual {v0, p0}, Lcom/android/server/am/AppProfiler;->reportMemUsage(Ljava/util/ArrayList;)V
 
     return-void
 .end method

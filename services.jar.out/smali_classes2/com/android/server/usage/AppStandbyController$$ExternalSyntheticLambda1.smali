@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/usage/AppStandbyController$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/usage/AppStandbyController$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/usage/AppStandbyController;
+    iget-object p0, p0, Lcom/android/server/usage/AppStandbyController$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/usage/AppStandbyController;
 
-    invoke-static {v0}, Lcom/android/server/usage/AppStandbyController;->$r8$lambda$roX42uTlnyWAZwhsobgAdPnGAlE(Lcom/android/server/usage/AppStandbyController;)V
+    invoke-static {p0}, Lcom/android/server/usage/AppStandbyController;->$r8$lambda$gMEbbc5yTkDMdWT1TuPDkVMx0NQ(Lcom/android/server/usage/AppStandbyController;)V
 
     return-void
 .end method

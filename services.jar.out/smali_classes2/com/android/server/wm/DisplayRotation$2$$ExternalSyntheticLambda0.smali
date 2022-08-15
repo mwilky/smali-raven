@@ -1,28 +1,13 @@
 .class public final synthetic Lcom/android/server/wm/DisplayRotation$2$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/internal/util/function/TriConsumer;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/wm/DisplayRotation$2$$ExternalSyntheticLambda0;
-
-
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/wm/DisplayRotation$2$$ExternalSyntheticLambda0;
-
-    invoke-direct {v0}, Lcom/android/server/wm/DisplayRotation$2$$ExternalSyntheticLambda0;-><init>()V
-
-    sput-object v0, Lcom/android/server/wm/DisplayRotation$2$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/server/wm/DisplayRotation$2$$ExternalSyntheticLambda0;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,11 +26,11 @@
 
     invoke-virtual {p2}, Ljava/lang/Integer;->intValue()I
 
-    move-result p2
+    move-result p0
 
     check-cast p3, Landroid/window/WindowContainerTransaction;
 
-    invoke-static {p1, p2, p3}, Lcom/android/server/wm/DisplayRotation$2;->lambda$continueRotateDisplay$0(Ljava/lang/Object;ILandroid/window/WindowContainerTransaction;)V
+    invoke-static {p1, p0, p3}, Lcom/android/server/wm/DisplayRotation$2;->$r8$lambda$HRnOc5B33L_wXNCdOaZiBpzHkBk(Ljava/lang/Object;ILandroid/window/WindowContainerTransaction;)V
 
     return-void
 .end method

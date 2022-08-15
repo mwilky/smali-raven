@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/ExplicitHealthCheckController$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/os/RemoteCallback$OnResultListener;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final onResult(Landroid/os/Bundle;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/ExplicitHealthCheckController$$ExternalSyntheticLambda1;->f$0:Ljava/util/function/Consumer;
+    iget-object p0, p0, Lcom/android/server/ExplicitHealthCheckController$$ExternalSyntheticLambda1;->f$0:Ljava/util/function/Consumer;
 
-    invoke-static {v0, p1}, Lcom/android/server/ExplicitHealthCheckController;->lambda$getRequestedPackages$5(Ljava/util/function/Consumer;Landroid/os/Bundle;)V
+    invoke-static {p0, p1}, Lcom/android/server/ExplicitHealthCheckController;->$r8$lambda$SRa9fw8RTJfzefVJ1-zsa9_9yG0(Ljava/util/function/Consumer;Landroid/os/Bundle;)V
 
     return-void
 .end method

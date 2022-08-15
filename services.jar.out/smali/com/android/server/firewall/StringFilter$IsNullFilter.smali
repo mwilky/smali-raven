@@ -1,4 +1,4 @@
-.class Lcom/android/server/firewall/StringFilter$IsNullFilter;
+.class public Lcom/android/server/firewall/StringFilter$IsNullFilter;
 .super Lcom/android/server/firewall/StringFilter;
 .source "StringFilter.java"
 
@@ -9,13 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "IsNullFilter"
 .end annotation
 
 
 # instance fields
-.field private final mIsNull:Z
+.field public final mIsNull:Z
 
 
 # direct methods
@@ -24,13 +24,13 @@
 
     const/4 v0, 0x0
 
-    invoke-direct {p0, p1, v0}, Lcom/android/server/firewall/StringFilter;-><init>(Lcom/android/server/firewall/StringFilter$ValueProvider;Lcom/android/server/firewall/StringFilter$1;)V
+    invoke-direct {p0, p1, v0}, Lcom/android/server/firewall/StringFilter;-><init>(Lcom/android/server/firewall/StringFilter$ValueProvider;Lcom/android/server/firewall/StringFilter-IA;)V
 
     invoke-static {p2}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result p1
 
-    iput-boolean v0, p0, Lcom/android/server/firewall/StringFilter$IsNullFilter;->mIsNull:Z
+    iput-boolean p1, p0, Lcom/android/server/firewall/StringFilter$IsNullFilter;->mIsNull:Z
 
     return-void
 .end method
@@ -40,7 +40,7 @@
 
     const/4 v0, 0x0
 
-    invoke-direct {p0, p1, v0}, Lcom/android/server/firewall/StringFilter;-><init>(Lcom/android/server/firewall/StringFilter$ValueProvider;Lcom/android/server/firewall/StringFilter$1;)V
+    invoke-direct {p0, p1, v0}, Lcom/android/server/firewall/StringFilter;-><init>(Lcom/android/server/firewall/StringFilter$ValueProvider;Lcom/android/server/firewall/StringFilter-IA;)V
 
     iput-boolean p2, p0, Lcom/android/server/firewall/StringFilter$IsNullFilter;->mIsNull:Z
 
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public matchesValue(Ljava/lang/String;)Z
-    .locals 4
+    .locals 2
 
     const/4 v0, 0x1
 
@@ -58,17 +58,17 @@
 
     if-nez p1, :cond_0
 
-    move v2, v0
+    move p1, v0
 
     goto :goto_0
 
     :cond_0
-    move v2, v1
+    move p1, v1
 
     :goto_0
-    iget-boolean v3, p0, Lcom/android/server/firewall/StringFilter$IsNullFilter;->mIsNull:Z
+    iget-boolean p0, p0, Lcom/android/server/firewall/StringFilter$IsNullFilter;->mIsNull:Z
 
-    if-ne v2, v3, :cond_1
+    if-ne p1, p0, :cond_1
 
     goto :goto_1
 

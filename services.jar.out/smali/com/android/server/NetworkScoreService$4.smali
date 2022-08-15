@@ -1,4 +1,4 @@
-.class Lcom/android/server/NetworkScoreService$4;
+.class public Lcom/android/server/NetworkScoreService$4;
 .super Ljava/lang/Object;
 .source "NetworkScoreService.java"
 
@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
@@ -28,11 +28,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/NetworkScoreService;
+.field public final synthetic this$0:Lcom/android/server/NetworkScoreService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/NetworkScoreService;)V
+.method public constructor <init>(Lcom/android/server/NetworkScoreService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/NetworkScoreService$4;->this$0:Lcom/android/server/NetworkScoreService;
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public accept(Landroid/net/INetworkScoreCache;Ljava/lang/Object;)V
-    .locals 3
+    .locals 0
 
     :try_start_0
     invoke-interface {p1}, Landroid/net/INetworkScoreCache;->clearScores()V
@@ -55,21 +55,21 @@
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    const/4 v1, 0x2
+    const/4 p1, 0x2
 
-    const-string v2, "NetworkScoreService"
+    const-string p2, "NetworkScoreService"
 
-    invoke-static {v2, v1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
+    invoke-static {p2, p1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
 
-    move-result v1
+    move-result p1
 
-    if-eqz v1, :cond_0
+    if-eqz p1, :cond_0
 
-    const-string v1, "Unable to clear scores"
+    const-string p1, "Unable to clear scores"
 
-    invoke-static {v2, v1, v0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {p2, p1, p0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :cond_0
     :goto_0

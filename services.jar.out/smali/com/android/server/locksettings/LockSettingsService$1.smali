@@ -1,4 +1,4 @@
-.class Lcom/android/server/locksettings/LockSettingsService$1;
+.class public Lcom/android/server/locksettings/LockSettingsService$1;
 .super Ljava/lang/Object;
 .source "LockSettingsService.java"
 
@@ -12,19 +12,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/locksettings/LockSettingsService;
+.field public final synthetic this$0:Lcom/android/server/locksettings/LockSettingsService;
 
-.field final synthetic val$userId:I
+.field public final synthetic val$userId:I
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/locksettings/LockSettingsService;I)V
+.method public constructor <init>(Lcom/android/server/locksettings/LockSettingsService;I)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/locksettings/LockSettingsService$1;->this$0:Lcom/android/server/locksettings/LockSettingsService;
@@ -45,13 +45,13 @@
 
     iget v1, p0, Lcom/android/server/locksettings/LockSettingsService$1;->val$userId:I
 
-    invoke-static {v0, v1}, Lcom/android/server/locksettings/LockSettingsService;->access$400(Lcom/android/server/locksettings/LockSettingsService;I)V
+    invoke-static {v0, v1}, Lcom/android/server/locksettings/LockSettingsService;->-$$Nest$mcleanupDataForReusedUserIdIfNecessary(Lcom/android/server/locksettings/LockSettingsService;I)V
 
     iget-object v0, p0, Lcom/android/server/locksettings/LockSettingsService$1;->this$0:Lcom/android/server/locksettings/LockSettingsService;
 
     iget v1, p0, Lcom/android/server/locksettings/LockSettingsService$1;->val$userId:I
 
-    invoke-static {v0, v1}, Lcom/android/server/locksettings/LockSettingsService;->access$500(Lcom/android/server/locksettings/LockSettingsService;I)V
+    invoke-static {v0, v1}, Lcom/android/server/locksettings/LockSettingsService;->-$$Nest$mensureProfileKeystoreUnlocked(Lcom/android/server/locksettings/LockSettingsService;I)V
 
     iget-object v0, p0, Lcom/android/server/locksettings/LockSettingsService$1;->this$0:Lcom/android/server/locksettings/LockSettingsService;
 
@@ -61,21 +61,13 @@
 
     invoke-direct {v1, v2}, Landroid/os/UserHandle;-><init>(I)V
 
-    invoke-static {v0, v1}, Lcom/android/server/locksettings/LockSettingsService;->access$600(Lcom/android/server/locksettings/LockSettingsService;Landroid/os/UserHandle;)V
+    invoke-static {v0, v1}, Lcom/android/server/locksettings/LockSettingsService;->-$$Nest$mhideEncryptionNotification(Lcom/android/server/locksettings/LockSettingsService;Landroid/os/UserHandle;)V
 
     iget-object v0, p0, Lcom/android/server/locksettings/LockSettingsService$1;->this$0:Lcom/android/server/locksettings/LockSettingsService;
 
-    invoke-static {v0}, Lcom/android/server/locksettings/LockSettingsService;->access$700(Lcom/android/server/locksettings/LockSettingsService;)Landroid/os/UserManager;
-
-    move-result-object v0
-
     iget v1, p0, Lcom/android/server/locksettings/LockSettingsService$1;->val$userId:I
 
-    invoke-virtual {v0, v1}, Landroid/os/UserManager;->getUserInfo(I)Landroid/content/pm/UserInfo;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/content/pm/UserInfo;->isManagedProfile()Z
+    invoke-virtual {v0, v1}, Lcom/android/server/locksettings/LockSettingsService;->isCredentialSharableWithParent(I)Z
 
     move-result v0
 
@@ -89,14 +81,12 @@
 
     move-result-object v2
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/locksettings/LockSettingsService;->tieManagedProfileLockIfNecessary(ILcom/android/internal/widget/LockscreenCredential;)V
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/locksettings/LockSettingsService;->tieProfileLockIfNecessary(ILcom/android/internal/widget/LockscreenCredential;)V
 
     :cond_0
     iget-object v0, p0, Lcom/android/server/locksettings/LockSettingsService$1;->this$0:Lcom/android/server/locksettings/LockSettingsService;
 
-    invoke-static {v0}, Lcom/android/server/locksettings/LockSettingsService;->access$700(Lcom/android/server/locksettings/LockSettingsService;)Landroid/os/UserManager;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/server/locksettings/LockSettingsService;->mUserManager:Landroid/os/UserManager;
 
     iget v1, p0, Lcom/android/server/locksettings/LockSettingsService$1;->val$userId:I
 
@@ -114,7 +104,7 @@
 
     iget v1, p0, Lcom/android/server/locksettings/LockSettingsService$1;->val$userId:I
 
-    invoke-static {v0, v1}, Lcom/android/server/locksettings/LockSettingsService;->access$800(Lcom/android/server/locksettings/LockSettingsService;I)Z
+    invoke-static {v0, v1}, Lcom/android/server/locksettings/LockSettingsService;->-$$Nest$misUserSecure(Lcom/android/server/locksettings/LockSettingsService;I)Z
 
     move-result v0
 
@@ -122,9 +112,9 @@
 
     iget-object v0, p0, Lcom/android/server/locksettings/LockSettingsService$1;->this$0:Lcom/android/server/locksettings/LockSettingsService;
 
-    iget v1, p0, Lcom/android/server/locksettings/LockSettingsService$1;->val$userId:I
+    iget p0, p0, Lcom/android/server/locksettings/LockSettingsService$1;->val$userId:I
 
-    invoke-static {v0, v1}, Lcom/android/server/locksettings/LockSettingsService;->access$900(Lcom/android/server/locksettings/LockSettingsService;I)V
+    invoke-static {v0, p0}, Lcom/android/server/locksettings/LockSettingsService;->-$$Nest$mtryDeriveAuthTokenForUnsecuredPrimaryUser(Lcom/android/server/locksettings/LockSettingsService;I)V
 
     :cond_1
     return-void

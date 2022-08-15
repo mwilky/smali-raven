@@ -7,24 +7,27 @@
 
 
 # annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/android/server/wm/TaskOrganizerController;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "DeathRecipient"
 .end annotation
 
 
 # instance fields
-.field mTaskOrganizer:Landroid/window/ITaskOrganizer;
+.field public mTaskOrganizer:Landroid/window/ITaskOrganizer;
 
-.field final synthetic this$0:Lcom/android/server/wm/TaskOrganizerController;
+.field public final synthetic this$0:Lcom/android/server/wm/TaskOrganizerController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/wm/TaskOrganizerController;Landroid/window/ITaskOrganizer;)V
+.method public constructor <init>(Lcom/android/server/wm/TaskOrganizerController;Landroid/window/ITaskOrganizer;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/wm/TaskOrganizerController$DeathRecipient;->this$0:Lcom/android/server/wm/TaskOrganizerController;
@@ -39,11 +42,11 @@
 
 # virtual methods
 .method public binderDied()V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/wm/TaskOrganizerController$DeathRecipient;->this$0:Lcom/android/server/wm/TaskOrganizerController;
 
-    invoke-static {v0}, Lcom/android/server/wm/TaskOrganizerController;->access$000(Lcom/android/server/wm/TaskOrganizerController;)Lcom/android/server/wm/WindowManagerGlobalLock;
+    invoke-static {v0}, Lcom/android/server/wm/TaskOrganizerController;->-$$Nest$fgetmGlobalLock(Lcom/android/server/wm/TaskOrganizerController;)Lcom/android/server/wm/WindowManagerGlobalLock;
 
     move-result-object v0
 
@@ -54,25 +57,25 @@
 
     iget-object v1, p0, Lcom/android/server/wm/TaskOrganizerController$DeathRecipient;->this$0:Lcom/android/server/wm/TaskOrganizerController;
 
-    invoke-static {v1}, Lcom/android/server/wm/TaskOrganizerController;->access$100(Lcom/android/server/wm/TaskOrganizerController;)Ljava/util/HashMap;
+    invoke-static {v1}, Lcom/android/server/wm/TaskOrganizerController;->-$$Nest$fgetmTaskOrganizerStates(Lcom/android/server/wm/TaskOrganizerController;)Ljava/util/HashMap;
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/android/server/wm/TaskOrganizerController$DeathRecipient;->mTaskOrganizer:Landroid/window/ITaskOrganizer;
+    iget-object p0, p0, Lcom/android/server/wm/TaskOrganizerController$DeathRecipient;->mTaskOrganizer:Landroid/window/ITaskOrganizer;
 
-    invoke-interface {v2}, Landroid/window/ITaskOrganizer;->asBinder()Landroid/os/IBinder;
+    invoke-interface {p0}, Landroid/window/ITaskOrganizer;->asBinder()Landroid/os/IBinder;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-virtual {v1, v2}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, p0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p0
 
-    check-cast v1, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;
+    check-cast p0, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;
 
-    if-eqz v1, :cond_0
+    if-eqz p0, :cond_0
 
-    invoke-virtual {v1}, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;->dispose()V
+    invoke-virtual {p0}, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;->dispose()V
 
     :cond_0
     monitor-exit v0
@@ -84,7 +87,7 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     :try_start_1
     monitor-exit v0
@@ -93,5 +96,5 @@
 
     invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
 
-    throw v1
+    throw p0
 .end method

@@ -1,26 +1,20 @@
-.class Lcom/android/server/net/watchlist/WatchlistSettings;
+.class public Lcom/android/server/net/watchlist/WatchlistSettings;
 .super Ljava/lang/Object;
 .source "WatchlistSettings.java"
 
 
 # static fields
-.field private static final FILE_NAME:Ljava/lang/String; = "watchlist_settings.xml"
-
-.field private static final SECRET_KEY_LENGTH:I = 0x30
-
-.field private static final TAG:Ljava/lang/String; = "WatchlistSettings"
-
-.field private static final sInstance:Lcom/android/server/net/watchlist/WatchlistSettings;
+.field public static final sInstance:Lcom/android/server/net/watchlist/WatchlistSettings;
 
 
 # instance fields
-.field private mPrivacySecretKey:[B
+.field public mPrivacySecretKey:[B
 
-.field private final mXmlFile:Landroid/util/AtomicFile;
+.field public final mXmlFile:Landroid/util/AtomicFile;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 1
 
     new-instance v0, Lcom/android/server/net/watchlist/WatchlistSettings;
@@ -32,7 +26,7 @@
     return-void
 .end method
 
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 1
 
     invoke-static {}, Lcom/android/server/net/watchlist/WatchlistSettings;->getSystemWatchlistFile()Ljava/io/File;
@@ -44,8 +38,10 @@
     return-void
 .end method
 
-.method protected constructor <init>(Ljava/io/File;)V
+.method public constructor <init>(Ljava/io/File;)V
     .locals 2
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -61,38 +57,22 @@
 
     iput-object v0, p0, Lcom/android/server/net/watchlist/WatchlistSettings;->mXmlFile:Landroid/util/AtomicFile;
 
-    invoke-direct {p0}, Lcom/android/server/net/watchlist/WatchlistSettings;->reloadSettings()V
+    invoke-virtual {p0}, Lcom/android/server/net/watchlist/WatchlistSettings;->reloadSettings()V
 
-    iget-object v0, p0, Lcom/android/server/net/watchlist/WatchlistSettings;->mPrivacySecretKey:[B
+    iget-object p1, p0, Lcom/android/server/net/watchlist/WatchlistSettings;->mPrivacySecretKey:[B
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
-    invoke-direct {p0}, Lcom/android/server/net/watchlist/WatchlistSettings;->generatePrivacySecretKey()[B
+    invoke-virtual {p0}, Lcom/android/server/net/watchlist/WatchlistSettings;->generatePrivacySecretKey()[B
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/android/server/net/watchlist/WatchlistSettings;->mPrivacySecretKey:[B
+    iput-object p1, p0, Lcom/android/server/net/watchlist/WatchlistSettings;->mPrivacySecretKey:[B
 
-    invoke-direct {p0}, Lcom/android/server/net/watchlist/WatchlistSettings;->saveSettings()V
+    invoke-virtual {p0}, Lcom/android/server/net/watchlist/WatchlistSettings;->saveSettings()V
 
     :cond_0
     return-void
-.end method
-
-.method private generatePrivacySecretKey()[B
-    .locals 2
-
-    const/16 v0, 0x30
-
-    new-array v0, v0, [B
-
-    new-instance v1, Ljava/security/SecureRandom;
-
-    invoke-direct {v1}, Ljava/security/SecureRandom;-><init>()V
-
-    invoke-virtual {v1, v0}, Ljava/security/SecureRandom;->nextBytes([B)V
-
-    return-object v0
 .end method
 
 .method public static getInstance()Lcom/android/server/net/watchlist/WatchlistSettings;
@@ -103,7 +83,7 @@
     return-object v0
 .end method
 
-.method static getSystemWatchlistFile()Ljava/io/File;
+.method public static getSystemWatchlistFile()Ljava/io/File;
     .locals 3
 
     new-instance v0, Ljava/io/File;
@@ -119,8 +99,56 @@
     return-object v0
 .end method
 
-.method private parseSecretKey(Lorg/xmlpull/v1/XmlPullParser;)[B
+
+# virtual methods
+.method public final generatePrivacySecretKey()[B
+    .locals 1
+
+    const/16 p0, 0x30
+
+    new-array p0, p0, [B
+
+    new-instance v0, Ljava/security/SecureRandom;
+
+    invoke-direct {v0}, Ljava/security/SecureRandom;-><init>()V
+
+    invoke-virtual {v0, p0}, Ljava/security/SecureRandom;->nextBytes([B)V
+
+    return-object p0
+.end method
+
+.method public declared-synchronized getPrivacySecretKey()[B
     .locals 4
+
+    monitor-enter p0
+
+    const/16 v0, 0x30
+
+    :try_start_0
+    new-array v1, v0, [B
+
+    iget-object v2, p0, Lcom/android/server/net/watchlist/WatchlistSettings;->mPrivacySecretKey:[B
+
+    const/4 v3, 0x0
+
+    invoke-static {v2, v3, v1, v3, v0}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit p0
+
+    return-object v1
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit p0
+
+    throw v0
+.end method
+
+.method public final parseSecretKey(Lorg/xmlpull/v1/XmlPullParser;)[B
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -128,51 +156,51 @@
         }
     .end annotation
 
-    const/4 v0, 0x2
+    const/4 p0, 0x2
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    const-string/jumbo v2, "secret-key"
+    const-string/jumbo v1, "secret-key"
 
-    invoke-interface {p1, v0, v1, v2}, Lorg/xmlpull/v1/XmlPullParser;->require(ILjava/lang/String;Ljava/lang/String;)V
+    invoke-interface {p1, p0, v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->require(ILjava/lang/String;Ljava/lang/String;)V
 
     invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->nextText()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0}, Lcom/android/internal/util/HexDump;->hexStringToByteArray(Ljava/lang/String;)[B
+    invoke-static {p0}, Lcom/android/internal/util/HexDump;->hexStringToByteArray(Ljava/lang/String;)[B
 
-    move-result-object v0
+    move-result-object p0
 
-    const/4 v3, 0x3
+    const/4 v2, 0x3
 
-    invoke-interface {p1, v3, v1, v2}, Lorg/xmlpull/v1/XmlPullParser;->require(ILjava/lang/String;Ljava/lang/String;)V
+    invoke-interface {p1, v2, v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->require(ILjava/lang/String;Ljava/lang/String;)V
 
-    if-eqz v0, :cond_1
+    if-eqz p0, :cond_1
 
-    array-length v2, v0
+    array-length p1, p0
 
-    const/16 v3, 0x30
+    const/16 v1, 0x30
 
-    if-eq v2, v3, :cond_0
+    if-eq p1, v1, :cond_0
 
     goto :goto_0
 
     :cond_0
-    return-object v0
+    return-object p0
 
     :cond_1
     :goto_0
-    const-string v2, "WatchlistSettings"
+    const-string p0, "WatchlistSettings"
 
-    const-string v3, "Unable to parse secret key"
+    const-string p1, "Unable to parse secret key"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    return-object v1
+    return-object v0
 .end method
 
-.method private reloadSettings()V
+.method public final reloadSettings()V
     .locals 6
 
     const-string v0, "WatchlistSettings"
@@ -235,7 +263,7 @@
 
     if-eqz v4, :cond_1
 
-    invoke-direct {p0, v2}, Lcom/android/server/net/watchlist/WatchlistSettings;->parseSecretKey(Lorg/xmlpull/v1/XmlPullParser;)[B
+    invoke-virtual {p0, v2}, Lcom/android/server/net/watchlist/WatchlistSettings;->parseSecretKey(Lorg/xmlpull/v1/XmlPullParser;)[B
 
     move-result-object v4
 
@@ -244,13 +272,13 @@
     goto :goto_0
 
     :cond_2
-    const-string v4, "Reload watchlist settings done"
+    const-string p0, "Reload watchlist settings done"
 
-    invoke-static {v0, v4}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, p0}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_4
 
     :try_start_2
     invoke-virtual {v1}, Ljava/io/FileInputStream;->close()V
@@ -262,13 +290,12 @@
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
     .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_2 .. :try_end_2} :catch_0
 
-    :cond_3
     goto :goto_2
 
     :catchall_0
-    move-exception v2
+    move-exception p0
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_3
 
     :try_start_3
     invoke-virtual {v1}, Ljava/io/FileInputStream;->close()V
@@ -278,14 +305,14 @@
     goto :goto_1
 
     :catchall_1
-    move-exception v3
+    move-exception v1
 
     :try_start_4
-    invoke-virtual {v2, v3}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
+    invoke-virtual {p0, v1}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
 
-    :cond_4
+    :cond_3
     :goto_1
-    throw v2
+    throw p0
     :try_end_4
     .catch Ljava/lang/IllegalStateException; {:try_start_4 .. :try_end_4} :catch_0
     .catch Ljava/lang/NullPointerException; {:try_start_4 .. :try_end_4} :catch_0
@@ -295,17 +322,18 @@
     .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_4 .. :try_end_4} :catch_0
 
     :catch_0
-    move-exception v1
+    move-exception p0
 
-    const-string v2, "Failed parsing xml"
+    const-string v1, "Failed parsing xml"
 
-    invoke-static {v0, v2, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v0, v1, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
+    :cond_4
     :goto_2
     return-void
 .end method
 
-.method private saveSettings()V
+.method public final saveSettings()V
     .locals 7
 
     const-string/jumbo v0, "secret-key"
@@ -323,18 +351,12 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
 
-    nop
-
     :try_start_1
     invoke-static {v3}, Landroid/util/Xml;->resolveSerializer(Ljava/io/OutputStream;)Landroid/util/TypedXmlSerializer;
 
     move-result-object v4
 
-    const/4 v5, 0x1
-
-    invoke-static {v5}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v5
+    sget-object v5, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
 
     const/4 v6, 0x0
 
@@ -373,63 +395,31 @@
 
     invoke-static {v2, v1, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    iget-object v1, p0, Lcom/android/server/net/watchlist/WatchlistSettings;->mXmlFile:Landroid/util/AtomicFile;
+    iget-object p0, p0, Lcom/android/server/net/watchlist/WatchlistSettings;->mXmlFile:Landroid/util/AtomicFile;
 
-    invoke-virtual {v1, v3}, Landroid/util/AtomicFile;->failWrite(Ljava/io/FileOutputStream;)V
+    invoke-virtual {p0, v3}, Landroid/util/AtomicFile;->failWrite(Ljava/io/FileOutputStream;)V
 
     :goto_0
     return-void
 
     :catch_1
-    move-exception v0
+    move-exception p0
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "Failed to write display settings: "
+    const-string v1, "Failed to write display settings: "
 
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-static {v2, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
-.end method
-
-
-# virtual methods
-.method declared-synchronized getPrivacySecretKey()[B
-    .locals 4
-
-    monitor-enter p0
-
-    const/16 v0, 0x30
-
-    :try_start_0
-    new-array v1, v0, [B
-
-    iget-object v2, p0, Lcom/android/server/net/watchlist/WatchlistSettings;->mPrivacySecretKey:[B
-
-    const/4 v3, 0x0
-
-    invoke-static {v2, v3, v1, v3, v0}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    monitor-exit p0
-
-    return-object v1
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit p0
-
-    throw v0
 .end method

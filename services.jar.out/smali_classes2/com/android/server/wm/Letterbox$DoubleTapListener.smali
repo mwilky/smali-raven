@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/Letterbox$DoubleTapListener;
+.class public Lcom/android/server/wm/Letterbox$DoubleTapListener;
 .super Landroid/view/GestureDetector$SimpleOnGestureListener;
 .source "Letterbox.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "DoubleTapListener"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/wm/Letterbox;
+.field public final synthetic this$0:Lcom/android/server/wm/Letterbox;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/server/wm/Letterbox;)V
+.method public constructor <init>(Lcom/android/server/wm/Letterbox;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/wm/Letterbox$DoubleTapListener;->this$0:Lcom/android/server/wm/Letterbox;
@@ -29,7 +29,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/wm/Letterbox;Lcom/android/server/wm/Letterbox$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/wm/Letterbox;Lcom/android/server/wm/Letterbox$DoubleTapListener-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/wm/Letterbox$DoubleTapListener;-><init>(Lcom/android/server/wm/Letterbox;)V
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public onDoubleTapEvent(Landroid/view/MotionEvent;)Z
-    .locals 3
+    .locals 2
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
@@ -50,24 +50,24 @@
 
     if-ne v0, v1, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/wm/Letterbox$DoubleTapListener;->this$0:Lcom/android/server/wm/Letterbox;
+    iget-object p0, p0, Lcom/android/server/wm/Letterbox$DoubleTapListener;->this$0:Lcom/android/server/wm/Letterbox;
 
-    invoke-static {v0}, Lcom/android/server/wm/Letterbox;->access$400(Lcom/android/server/wm/Letterbox;)Ljava/util/function/IntConsumer;
+    invoke-static {p0}, Lcom/android/server/wm/Letterbox;->-$$Nest$fgetmDoubleTapCallback(Lcom/android/server/wm/Letterbox;)Ljava/util/function/IntConsumer;
 
-    move-result-object v0
+    move-result-object p0
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
-    move-result v2
+    move-result p1
 
-    float-to-int v2, v2
+    float-to-int p1, p1
 
-    invoke-interface {v0, v2}, Ljava/util/function/IntConsumer;->accept(I)V
+    invoke-interface {p0, p1}, Ljava/util/function/IntConsumer;->accept(I)V
 
     return v1
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method

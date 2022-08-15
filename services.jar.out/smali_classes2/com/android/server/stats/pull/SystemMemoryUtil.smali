@@ -1,4 +1,4 @@
-.class final Lcom/android/server/stats/pull/SystemMemoryUtil;
+.class public final Lcom/android/server/stats/pull/SystemMemoryUtil;
 .super Ljava/lang/Object;
 .source "SystemMemoryUtil.java"
 
@@ -12,16 +12,8 @@
 
 
 # direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-.method static getMetrics()Lcom/android/server/stats/pull/SystemMemoryUtil$Metrics;
-    .locals 16
+.method public static getMetrics()Lcom/android/server/stats/pull/SystemMemoryUtil$Metrics;
+    .locals 15
 
     invoke-static {}, Landroid/os/Debug;->getDmabufHeapTotalExportedKb()J
 
@@ -63,9 +55,9 @@
 
     if-nez v7, :cond_0
 
-    const/4 v7, 0x6
+    const/4 v5, 0x6
 
-    aget-wide v5, v4, v7
+    aget-wide v5, v4, v5
 
     :cond_0
     const/4 v7, 0x1
@@ -110,118 +102,121 @@
 
     add-long/2addr v7, v5
 
-    const/16 v10, 0xc
+    const/16 v5, 0xc
 
-    aget-wide v11, v4, v10
+    aget-wide v10, v4, v5
 
-    add-long/2addr v7, v11
+    add-long/2addr v7, v10
 
-    const/16 v11, 0xd
+    const/16 v6, 0xd
+
+    aget-wide v10, v4, v6
+
+    add-long/2addr v7, v10
+
+    invoke-static {}, Landroid/os/Debug;->isVmapStack()Z
+
+    move-result v10
+
+    const/16 v11, 0xe
+
+    if-nez v10, :cond_1
 
     aget-wide v12, v4, v11
 
     add-long/2addr v7, v12
 
-    invoke-static {}, Landroid/os/Debug;->isVmapStack()Z
-
-    move-result v12
-
-    const/16 v13, 0xe
-
-    if-nez v12, :cond_1
-
-    aget-wide v14, v4, v13
-
-    add-long/2addr v7, v14
-
     :cond_1
-    const/4 v12, 0x0
+    const/4 v10, 0x0
 
     if-ltz v3, :cond_2
 
     if-ltz v2, :cond_2
 
-    add-int v14, v3, v2
+    add-int v12, v3, v2
 
-    int-to-long v14, v14
-
-    add-long/2addr v7, v14
+    int-to-long v12, v12
 
     goto :goto_0
 
     :cond_2
-    invoke-static {v12, v1}, Ljava/lang/Math;->max(II)I
+    invoke-static {v10, v1}, Ljava/lang/Math;->max(II)I
 
-    move-result v14
+    move-result v12
 
-    int-to-long v14, v14
+    int-to-long v12, v12
 
-    add-long/2addr v7, v14
+    add-long/2addr v7, v12
 
     if-ltz v3, :cond_3
 
-    int-to-long v14, v3
+    int-to-long v12, v3
 
-    add-long/2addr v7, v14
+    :goto_0
+    add-long/2addr v7, v12
 
-    goto :goto_0
+    goto :goto_1
 
     :cond_3
     if-ltz v0, :cond_4
 
-    int-to-long v14, v0
+    int-to-long v12, v0
 
-    add-long/2addr v7, v14
+    goto :goto_0
 
     :cond_4
-    :goto_0
-    new-instance v14, Lcom/android/server/stats/pull/SystemMemoryUtil$Metrics;
+    :goto_1
+    new-instance v12, Lcom/android/server/stats/pull/SystemMemoryUtil$Metrics;
 
-    invoke-direct {v14}, Lcom/android/server/stats/pull/SystemMemoryUtil$Metrics;-><init>()V
+    invoke-direct {v12}, Lcom/android/server/stats/pull/SystemMemoryUtil$Metrics;-><init>()V
 
-    aget-wide v12, v4, v9
+    aget-wide v13, v4, v9
 
-    long-to-int v9, v12
+    long-to-int v9, v13
 
-    iput v9, v14, Lcom/android/server/stats/pull/SystemMemoryUtil$Metrics;->unreclaimableSlabKb:I
+    iput v9, v12, Lcom/android/server/stats/pull/SystemMemoryUtil$Metrics;->unreclaimableSlabKb:I
 
-    aget-wide v9, v4, v10
+    aget-wide v13, v4, v5
 
-    long-to-int v9, v9
+    long-to-int v5, v13
 
-    iput v9, v14, Lcom/android/server/stats/pull/SystemMemoryUtil$Metrics;->vmallocUsedKb:I
+    iput v5, v12, Lcom/android/server/stats/pull/SystemMemoryUtil$Metrics;->vmallocUsedKb:I
 
-    aget-wide v9, v4, v11
+    aget-wide v5, v4, v6
 
-    long-to-int v9, v9
+    long-to-int v5, v5
 
-    iput v9, v14, Lcom/android/server/stats/pull/SystemMemoryUtil$Metrics;->pageTablesKb:I
+    iput v5, v12, Lcom/android/server/stats/pull/SystemMemoryUtil$Metrics;->pageTablesKb:I
 
-    const/16 v9, 0xe
+    aget-wide v5, v4, v11
 
-    aget-wide v9, v4, v9
+    long-to-int v5, v5
 
-    long-to-int v9, v9
+    iput v5, v12, Lcom/android/server/stats/pull/SystemMemoryUtil$Metrics;->kernelStackKb:I
 
-    iput v9, v14, Lcom/android/server/stats/pull/SystemMemoryUtil$Metrics;->kernelStackKb:I
+    const/4 v5, 0x4
 
-    iput v0, v14, Lcom/android/server/stats/pull/SystemMemoryUtil$Metrics;->totalIonKb:I
+    aget-wide v5, v4, v5
 
-    iput v1, v14, Lcom/android/server/stats/pull/SystemMemoryUtil$Metrics;->gpuTotalUsageKb:I
+    long-to-int v5, v5
 
-    iput v2, v14, Lcom/android/server/stats/pull/SystemMemoryUtil$Metrics;->gpuPrivateAllocationsKb:I
+    iput v5, v12, Lcom/android/server/stats/pull/SystemMemoryUtil$Metrics;->shmemKb:I
 
-    iput v3, v14, Lcom/android/server/stats/pull/SystemMemoryUtil$Metrics;->dmaBufTotalExportedKb:I
+    iput v0, v12, Lcom/android/server/stats/pull/SystemMemoryUtil$Metrics;->totalIonKb:I
 
-    const/4 v9, 0x0
+    iput v1, v12, Lcom/android/server/stats/pull/SystemMemoryUtil$Metrics;->gpuTotalUsageKb:I
 
-    aget-wide v9, v4, v9
+    iput v2, v12, Lcom/android/server/stats/pull/SystemMemoryUtil$Metrics;->gpuPrivateAllocationsKb:I
 
-    sub-long/2addr v9, v7
+    iput v3, v12, Lcom/android/server/stats/pull/SystemMemoryUtil$Metrics;->dmaBufTotalExportedKb:I
 
-    long-to-int v9, v9
+    aget-wide v0, v4, v10
 
-    iput v9, v14, Lcom/android/server/stats/pull/SystemMemoryUtil$Metrics;->unaccountedKb:I
+    sub-long/2addr v0, v7
 
-    return-object v14
+    long-to-int v0, v0
+
+    iput v0, v12, Lcom/android/server/stats/pull/SystemMemoryUtil$Metrics;->unaccountedKb:I
+
+    return-object v12
 .end method

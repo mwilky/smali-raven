@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda13;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -10,31 +11,13 @@
 
 .field public final synthetic f$1:I
 
-.field public final synthetic f$10:I
+.field public final synthetic f$2:I
 
-.field public final synthetic f$11:Z
-
-.field public final synthetic f$12:Z
-
-.field public final synthetic f$2:Landroid/os/IBinder;
-
-.field public final synthetic f$3:J
-
-.field public final synthetic f$4:Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;
-
-.field public final synthetic f$5:I
-
-.field public final synthetic f$6:J
-
-.field public final synthetic f$7:Z
-
-.field public final synthetic f$8:Ljava/lang/String;
-
-.field public final synthetic f$9:I
+.field public final synthetic f$3:[B
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;ILandroid/os/IBinder;JLcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;IJZLjava/lang/String;IIZZ)V
+.method public synthetic constructor <init>(Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;II[B)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,27 +26,9 @@
 
     iput p2, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda13;->f$1:I
 
-    iput-object p3, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda13;->f$2:Landroid/os/IBinder;
+    iput p3, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda13;->f$2:I
 
-    iput-wide p4, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda13;->f$3:J
-
-    iput-object p6, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda13;->f$4:Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;
-
-    iput p7, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda13;->f$5:I
-
-    iput-wide p8, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda13;->f$6:J
-
-    iput-boolean p10, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda13;->f$7:Z
-
-    iput-object p11, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda13;->f$8:Ljava/lang/String;
-
-    iput p12, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda13;->f$9:I
-
-    iput p13, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda13;->f$10:I
-
-    iput-boolean p14, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda13;->f$11:Z
-
-    iput-boolean p15, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda13;->f$12:Z
+    iput-object p4, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda13;->f$3:[B
 
     return-void
 .end method
@@ -71,35 +36,17 @@
 
 # virtual methods
 .method public final run()V
-    .locals 15
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda13;->f$0:Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;
 
     iget v1, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda13;->f$1:I
 
-    iget-object v2, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda13;->f$2:Landroid/os/IBinder;
+    iget v2, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda13;->f$2:I
 
-    iget-wide v3, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda13;->f$3:J
+    iget-object p0, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda13;->f$3:[B
 
-    iget-object v5, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda13;->f$4:Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;
-
-    iget v6, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda13;->f$5:I
-
-    iget-wide v7, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda13;->f$6:J
-
-    iget-boolean v9, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda13;->f$7:Z
-
-    iget-object v10, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda13;->f$8:Ljava/lang/String;
-
-    iget v11, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda13;->f$9:I
-
-    iget v12, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda13;->f$10:I
-
-    iget-boolean v13, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda13;->f$11:Z
-
-    iget-boolean v14, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda13;->f$12:Z
-
-    invoke-virtual/range {v0 .. v14}, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;->lambda$scheduleAuthenticate$9$FaceProvider(ILandroid/os/IBinder;JLcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;IJZLjava/lang/String;IIZZ)V
+    invoke-static {v0, v1, v2, p0}, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;->$r8$lambda$ptJ7KSXnU7dzTOhjNgqRxm-AK5k(Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;II[B)V
 
     return-void
 .end method

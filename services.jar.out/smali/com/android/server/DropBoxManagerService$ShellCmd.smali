@@ -1,4 +1,4 @@
-.class Lcom/android/server/DropBoxManagerService$ShellCmd;
+.class public Lcom/android/server/DropBoxManagerService$ShellCmd;
 .super Landroid/os/ShellCommand;
 .source "DropBoxManagerService.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "ShellCmd"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/DropBoxManagerService;
+.field public final synthetic this$0:Lcom/android/server/DropBoxManagerService;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/server/DropBoxManagerService;)V
+.method public constructor <init>(Lcom/android/server/DropBoxManagerService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/DropBoxManagerService$ShellCmd;->this$0:Lcom/android/server/DropBoxManagerService;
@@ -29,7 +29,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/DropBoxManagerService;Lcom/android/server/DropBoxManagerService$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/DropBoxManagerService;Lcom/android/server/DropBoxManagerService$ShellCmd-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/DropBoxManagerService$ShellCmd;-><init>(Lcom/android/server/DropBoxManagerService;)V
@@ -40,18 +40,18 @@
 
 # virtual methods
 .method public onCommand(Ljava/lang/String;)I
-    .locals 5
+    .locals 7
 
     if-nez p1, :cond_0
 
-    invoke-virtual {p0, p1}, Lcom/android/server/DropBoxManagerService$ShellCmd;->handleDefaultCommands(Ljava/lang/String;)I
+    invoke-virtual {p0, p1}, Landroid/os/ShellCommand;->handleDefaultCommands(Ljava/lang/String;)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 
     :cond_0
-    invoke-virtual {p0}, Lcom/android/server/DropBoxManagerService$ShellCmd;->getOutPrintWriter()Ljava/io/PrintWriter;
+    invoke-virtual {p0}, Landroid/os/ShellCommand;->getOutPrintWriter()Ljava/io/PrintWriter;
 
     move-result-object v0
 
@@ -64,9 +64,14 @@
 
     move-result v3
 
+    const/4 v4, 0x3
+
+    const/4 v5, 0x2
+
+    const/4 v6, 0x1
+
     sparse-switch v3, :sswitch_data_0
 
-    :cond_1
     goto :goto_0
 
     :sswitch_0
@@ -91,7 +96,7 @@
 
     if-eqz v3, :cond_1
 
-    const/4 v1, 0x2
+    move v1, v5
 
     goto :goto_0
 
@@ -104,7 +109,7 @@
 
     if-eqz v3, :cond_1
 
-    const/4 v1, 0x1
+    move v1, v6
 
     goto :goto_0
 
@@ -117,75 +122,76 @@
 
     if-eqz v3, :cond_1
 
-    const/4 v1, 0x3
+    move v1, v4
 
+    :cond_1
     :goto_0
-    packed-switch v1, :pswitch_data_0
+    if-eqz v1, :cond_5
 
-    invoke-virtual {p0, p1}, Lcom/android/server/DropBoxManagerService$ShellCmd;->handleDefaultCommands(Ljava/lang/String;)I
+    if-eq v1, v6, :cond_4
 
-    move-result v1
+    if-eq v1, v5, :cond_3
 
-    goto :goto_2
+    if-eq v1, v4, :cond_2
 
-    :pswitch_0
-    iget-object v1, p0, Lcom/android/server/DropBoxManagerService$ShellCmd;->this$0:Lcom/android/server/DropBoxManagerService;
+    invoke-virtual {p0, p1}, Landroid/os/ShellCommand;->handleDefaultCommands(Ljava/lang/String;)I
 
-    invoke-static {v1}, Lcom/android/server/DropBoxManagerService;->access$700(Lcom/android/server/DropBoxManagerService;)V
+    move-result p0
 
-    goto :goto_1
+    return p0
 
-    :pswitch_1
-    invoke-virtual {p0}, Lcom/android/server/DropBoxManagerService$ShellCmd;->getNextArgRequired()Ljava/lang/String;
+    :cond_2
+    iget-object p0, p0, Lcom/android/server/DropBoxManagerService$ShellCmd;->this$0:Lcom/android/server/DropBoxManagerService;
 
-    move-result-object v1
-
-    iget-object v3, p0, Lcom/android/server/DropBoxManagerService$ShellCmd;->this$0:Lcom/android/server/DropBoxManagerService;
-
-    invoke-static {v3, v1}, Lcom/android/server/DropBoxManagerService;->access$600(Lcom/android/server/DropBoxManagerService;Ljava/lang/String;)V
+    invoke-static {p0}, Lcom/android/server/DropBoxManagerService;->-$$Nest$mrestoreDefaults(Lcom/android/server/DropBoxManagerService;)V
 
     goto :goto_1
 
-    :pswitch_2
-    invoke-virtual {p0}, Lcom/android/server/DropBoxManagerService$ShellCmd;->getNextArgRequired()Ljava/lang/String;
+    :cond_3
+    invoke-virtual {p0}, Landroid/os/ShellCommand;->getNextArgRequired()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    iget-object v3, p0, Lcom/android/server/DropBoxManagerService$ShellCmd;->this$0:Lcom/android/server/DropBoxManagerService;
+    iget-object p0, p0, Lcom/android/server/DropBoxManagerService$ShellCmd;->this$0:Lcom/android/server/DropBoxManagerService;
 
-    invoke-static {v3, v1}, Lcom/android/server/DropBoxManagerService;->access$500(Lcom/android/server/DropBoxManagerService;Ljava/lang/String;)V
+    invoke-static {p0, p1}, Lcom/android/server/DropBoxManagerService;->-$$Nest$mremoveLowPriorityTag(Lcom/android/server/DropBoxManagerService;Ljava/lang/String;)V
 
     goto :goto_1
 
-    :pswitch_3
-    invoke-virtual {p0}, Lcom/android/server/DropBoxManagerService$ShellCmd;->getNextArgRequired()Ljava/lang/String;
+    :cond_4
+    invoke-virtual {p0}, Landroid/os/ShellCommand;->getNextArgRequired()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-static {v1}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+    iget-object p0, p0, Lcom/android/server/DropBoxManagerService$ShellCmd;->this$0:Lcom/android/server/DropBoxManagerService;
+
+    invoke-static {p0, p1}, Lcom/android/server/DropBoxManagerService;->-$$Nest$maddLowPriorityTag(Lcom/android/server/DropBoxManagerService;Ljava/lang/String;)V
+
+    goto :goto_1
+
+    :cond_5
+    invoke-virtual {p0}, Landroid/os/ShellCommand;->getNextArgRequired()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-static {p1}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
     move-result-wide v3
 
-    iget-object v1, p0, Lcom/android/server/DropBoxManagerService$ShellCmd;->this$0:Lcom/android/server/DropBoxManagerService;
+    iget-object p0, p0, Lcom/android/server/DropBoxManagerService$ShellCmd;->this$0:Lcom/android/server/DropBoxManagerService;
 
-    invoke-static {v1, v3, v4}, Lcom/android/server/DropBoxManagerService;->access$400(Lcom/android/server/DropBoxManagerService;J)V
+    invoke-static {p0, v3, v4}, Lcom/android/server/DropBoxManagerService;->-$$Nest$msetLowPriorityRateLimit(Lcom/android/server/DropBoxManagerService;J)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    nop
-
-    :goto_1
-    goto :goto_3
-
-    :goto_2
-    return v1
+    goto :goto_1
 
     :catch_0
-    move-exception v1
+    move-exception p0
 
-    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
+    invoke-virtual {v0, p0}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
 
-    :goto_3
+    :goto_1
     return v2
 
     :sswitch_data_0
@@ -195,66 +201,58 @@
         -0x1a85055a -> :sswitch_1
         0x737302d9 -> :sswitch_0
     .end sparse-switch
-
-    :pswitch_data_0
-    .packed-switch 0x0
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
 .end method
 
 .method public onHelp()V
-    .locals 2
+    .locals 1
 
-    invoke-virtual {p0}, Lcom/android/server/DropBoxManagerService$ShellCmd;->getOutPrintWriter()Ljava/io/PrintWriter;
+    invoke-virtual {p0}, Landroid/os/ShellCommand;->getOutPrintWriter()Ljava/io/PrintWriter;
 
-    move-result-object v0
+    move-result-object p0
 
-    const-string v1, "Dropbox manager service commands:"
+    const-string v0, "Dropbox manager service commands:"
 
-    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    const-string v1, "  help"
+    const-string v0, "  help"
 
-    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    const-string v1, "    Print this help text."
+    const-string v0, "    Print this help text."
 
-    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    const-string v1, "  set-rate-limit PERIOD"
+    const-string v0, "  set-rate-limit PERIOD"
 
-    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    const-string v1, "    Sets low priority broadcast rate limit period to PERIOD ms"
+    const-string v0, "    Sets low priority broadcast rate limit period to PERIOD ms"
 
-    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    const-string v1, "  add-low-priority TAG"
+    const-string v0, "  add-low-priority TAG"
 
-    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    const-string v1, "    Add TAG to dropbox low priority list"
+    const-string v0, "    Add TAG to dropbox low priority list"
 
-    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    const-string v1, "  remove-low-priority TAG"
+    const-string v0, "  remove-low-priority TAG"
 
-    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    const-string v1, "    Remove TAG from dropbox low priority list"
+    const-string v0, "    Remove TAG from dropbox low priority list"
 
-    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    const-string v1, "  restore-defaults"
+    const-string v0, "  restore-defaults"
 
-    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    const-string v1, "    restore dropbox settings to defaults"
+    const-string v0, "    restore dropbox settings to defaults"
 
-    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     return-void
 .end method

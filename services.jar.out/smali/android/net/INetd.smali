@@ -16,6 +16,8 @@
 
 
 # static fields
+.field public static final CLAT_MARK:I = -0x21523e59
+
 .field public static final CONF:I = 0x1
 
 .field public static final DUMMY_NET_ID:I = 0x33
@@ -48,7 +50,7 @@
     .end annotation
 .end field
 
-.field public static final HASH:Ljava/lang/String; = "850353de5d19a0dd718f8fd20791f0532e6a34c7"
+.field public static final HASH:Ljava/lang/String; = "3943383e838f39851675e3640fcdf27b42f8c9fc"
 
 .field public static final IF_FLAG_BROADCAST:Ljava/lang/String; = "broadcast"
 
@@ -112,7 +114,7 @@
 
 .field public static final UNREACHABLE_NET_ID:I = 0x34
 
-.field public static final VERSION:I = 0x7
+.field public static final VERSION:I = 0xa
 
 
 # virtual methods
@@ -202,6 +204,9 @@
             Landroid/os/RemoteException;
         }
     .end annotation
+
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 .end method
 
 .method public abstract clatdStop(Ljava/lang/String;)V
@@ -209,6 +214,9 @@
         value = {
             Landroid/os/RemoteException;
         }
+    .end annotation
+
+    .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 .end method
 
@@ -896,6 +904,9 @@
             Landroid/os/RemoteException;
         }
     .end annotation
+
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 .end method
 
 .method public abstract tetherOffloadGetStats()[Landroid/net/TetherStatsParcel;
@@ -903,6 +914,9 @@
         value = {
             Landroid/os/RemoteException;
         }
+    .end annotation
+
+    .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 .end method
 
@@ -912,6 +926,9 @@
             Landroid/os/RemoteException;
         }
     .end annotation
+
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 .end method
 
 .method public abstract tetherOffloadRuleRemove(Landroid/net/TetherOffloadRuleParcel;)V
@@ -920,6 +937,9 @@
             Landroid/os/RemoteException;
         }
     .end annotation
+
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 .end method
 
 .method public abstract tetherOffloadSetInterfaceQuota(IJ)V
@@ -927,6 +947,9 @@
         value = {
             Landroid/os/RemoteException;
         }
+    .end annotation
+
+    .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 .end method
 

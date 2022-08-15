@@ -3,24 +3,20 @@
 .source "Usb20ASGeneral.java"
 
 
-# static fields
-.field private static final TAG:Ljava/lang/String; = "Usb20ASGeneral"
-
-
 # instance fields
-.field private mChannelConfig:I
+.field public mChannelConfig:I
 
-.field private mChannelNames:B
+.field public mChannelNames:B
 
-.field private mControls:B
+.field public mControls:B
 
-.field private mFormatType:B
+.field public mFormatType:B
 
-.field private mFormats:I
+.field public mFormats:I
 
-.field private mNumChannels:B
+.field public mNumChannels:B
 
-.field private mTerminalLink:B
+.field public mTerminalLink:B
 
 
 # direct methods
@@ -35,59 +31,59 @@
 
 # virtual methods
 .method public getChannelConfig()I
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/usb/descriptors/Usb20ASGeneral;->mChannelConfig:I
+    iget p0, p0, Lcom/android/server/usb/descriptors/Usb20ASGeneral;->mChannelConfig:I
 
-    return v0
+    return p0
 .end method
 
 .method public getChannelNames()B
-    .locals 1
+    .locals 0
 
-    iget-byte v0, p0, Lcom/android/server/usb/descriptors/Usb20ASGeneral;->mChannelNames:B
+    iget-byte p0, p0, Lcom/android/server/usb/descriptors/Usb20ASGeneral;->mChannelNames:B
 
-    return v0
+    return p0
 .end method
 
 .method public getControls()B
-    .locals 1
+    .locals 0
 
-    iget-byte v0, p0, Lcom/android/server/usb/descriptors/Usb20ASGeneral;->mControls:B
+    iget-byte p0, p0, Lcom/android/server/usb/descriptors/Usb20ASGeneral;->mControls:B
 
-    return v0
+    return p0
 .end method
 
 .method public getFormatType()B
-    .locals 1
+    .locals 0
 
-    iget-byte v0, p0, Lcom/android/server/usb/descriptors/Usb20ASGeneral;->mFormatType:B
+    iget-byte p0, p0, Lcom/android/server/usb/descriptors/Usb20ASGeneral;->mFormatType:B
 
-    return v0
+    return p0
 .end method
 
 .method public getFormats()I
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/usb/descriptors/Usb20ASGeneral;->mFormats:I
+    iget p0, p0, Lcom/android/server/usb/descriptors/Usb20ASGeneral;->mFormats:I
 
-    return v0
+    return p0
 .end method
 
 .method public getNumChannels()B
-    .locals 1
+    .locals 0
 
-    iget-byte v0, p0, Lcom/android/server/usb/descriptors/Usb20ASGeneral;->mNumChannels:B
+    iget-byte p0, p0, Lcom/android/server/usb/descriptors/Usb20ASGeneral;->mNumChannels:B
 
-    return v0
+    return p0
 .end method
 
 .method public getTerminalLink()B
-    .locals 1
+    .locals 0
 
-    iget-byte v0, p0, Lcom/android/server/usb/descriptors/Usb20ASGeneral;->mTerminalLink:B
+    iget-byte p0, p0, Lcom/android/server/usb/descriptors/Usb20ASGeneral;->mTerminalLink:B
 
-    return v0
+    return p0
 .end method
 
 .method public parseRawDescriptors(Lcom/android/server/usb/descriptors/ByteStream;)I
@@ -131,13 +127,13 @@
 
     invoke-virtual {p1}, Lcom/android/server/usb/descriptors/ByteStream;->getByte()B
 
-    move-result v0
+    move-result p1
 
-    iput-byte v0, p0, Lcom/android/server/usb/descriptors/Usb20ASGeneral;->mChannelNames:B
+    iput-byte p1, p0, Lcom/android/server/usb/descriptors/Usb20ASGeneral;->mChannelNames:B
 
-    iget v0, p0, Lcom/android/server/usb/descriptors/Usb20ASGeneral;->mLength:I
+    iget p0, p0, Lcom/android/server/usb/descriptors/UsbDescriptor;->mLength:I
 
-    return v0
+    return p0
 .end method
 
 .method public report(Lcom/android/server/usb/descriptors/report/ReportCanvas;)V
@@ -293,15 +289,15 @@
 
     invoke-virtual {p0}, Lcom/android/server/usb/descriptors/Usb20ASGeneral;->getChannelNames()B
 
-    move-result v1
+    move-result p0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {p1, v0}, Lcom/android/server/usb/descriptors/report/ReportCanvas;->writeListItem(Ljava/lang/String;)V
+    invoke-virtual {p1, p0}, Lcom/android/server/usb/descriptors/report/ReportCanvas;->writeListItem(Ljava/lang/String;)V
 
     invoke-virtual {p1}, Lcom/android/server/usb/descriptors/report/ReportCanvas;->closeList()V
 

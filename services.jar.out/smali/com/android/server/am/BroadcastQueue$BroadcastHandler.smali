@@ -1,4 +1,4 @@
-.class final Lcom/android/server/am/BroadcastQueue$BroadcastHandler;
+.class public final Lcom/android/server/am/BroadcastQueue$BroadcastHandler;
 .super Landroid/os/Handler;
 .source "BroadcastQueue.java"
 
@@ -9,13 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "BroadcastHandler"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/am/BroadcastQueue;
+.field public final synthetic this$0:Lcom/android/server/am/BroadcastQueue;
 
 
 # direct methods
@@ -36,31 +36,37 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 3
+    .locals 2
 
-    iget v0, p1, Landroid/os/Message;->what:I
+    iget p1, p1, Landroid/os/Message;->what:I
+
+    const/16 v0, 0xc8
 
     const/4 v1, 0x1
 
-    packed-switch v0, :pswitch_data_0
+    if-eq p1, v0, :cond_1
+
+    const/16 v0, 0xc9
+
+    if-eq p1, v0, :cond_0
 
     goto :goto_0
 
-    :pswitch_0
-    iget-object v0, p0, Lcom/android/server/am/BroadcastQueue$BroadcastHandler;->this$0:Lcom/android/server/am/BroadcastQueue;
+    :cond_0
+    iget-object p1, p0, Lcom/android/server/am/BroadcastQueue$BroadcastHandler;->this$0:Lcom/android/server/am/BroadcastQueue;
 
-    iget-object v0, v0, Lcom/android/server/am/BroadcastQueue;->mService:Lcom/android/server/am/ActivityManagerService;
+    iget-object p1, p1, Lcom/android/server/am/BroadcastQueue;->mService:Lcom/android/server/am/ActivityManagerService;
 
-    monitor-enter v0
+    monitor-enter p1
 
     :try_start_0
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->boostPriorityForLockedSection()V
 
-    iget-object v2, p0, Lcom/android/server/am/BroadcastQueue$BroadcastHandler;->this$0:Lcom/android/server/am/BroadcastQueue;
+    iget-object p0, p0, Lcom/android/server/am/BroadcastQueue$BroadcastHandler;->this$0:Lcom/android/server/am/BroadcastQueue;
 
-    invoke-virtual {v2, v1}, Lcom/android/server/am/BroadcastQueue;->broadcastTimeoutLocked(Z)V
+    invoke-virtual {p0, v1}, Lcom/android/server/am/BroadcastQueue;->broadcastTimeoutLocked(Z)V
 
-    monitor-exit v0
+    monitor-exit p1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -69,30 +75,22 @@
     goto :goto_0
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     :try_start_1
-    monitor-exit v0
+    monitor-exit p1
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
 
-    throw v1
+    throw p0
 
-    :pswitch_1
-    iget-object v0, p0, Lcom/android/server/am/BroadcastQueue$BroadcastHandler;->this$0:Lcom/android/server/am/BroadcastQueue;
+    :cond_1
+    iget-object p0, p0, Lcom/android/server/am/BroadcastQueue$BroadcastHandler;->this$0:Lcom/android/server/am/BroadcastQueue;
 
-    invoke-static {v0, v1}, Lcom/android/server/am/BroadcastQueue;->access$000(Lcom/android/server/am/BroadcastQueue;Z)V
-
-    nop
+    invoke-static {p0, v1}, Lcom/android/server/am/BroadcastQueue;->-$$Nest$mprocessNextBroadcast(Lcom/android/server/am/BroadcastQueue;Z)V
 
     :goto_0
     return-void
-
-    :pswitch_data_0
-    .packed-switch 0xc8
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
 .end method

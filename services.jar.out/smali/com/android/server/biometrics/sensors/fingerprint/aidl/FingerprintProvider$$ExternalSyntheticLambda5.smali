@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintProvider$$ExternalSyntheticLambda5;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Ljava/util/function/Consumer;
 
 
 # instance fields
@@ -12,11 +13,13 @@
 
 .field public final synthetic f$2:I
 
-.field public final synthetic f$3:Lcom/android/server/biometrics/sensors/BaseClientMonitor$Callback;
+.field public final synthetic f$3:F
+
+.field public final synthetic f$4:F
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintProvider;IILcom/android/server/biometrics/sensors/BaseClientMonitor$Callback;)V
+.method public synthetic constructor <init>(Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintProvider;IIFF)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -27,15 +30,17 @@
 
     iput p3, p0, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintProvider$$ExternalSyntheticLambda5;->f$2:I
 
-    iput-object p4, p0, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintProvider$$ExternalSyntheticLambda5;->f$3:Lcom/android/server/biometrics/sensors/BaseClientMonitor$Callback;
+    iput p4, p0, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintProvider$$ExternalSyntheticLambda5;->f$3:F
+
+    iput p5, p0, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintProvider$$ExternalSyntheticLambda5;->f$4:F
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final run()V
-    .locals 4
+.method public final accept(Ljava/lang/Object;)V
+    .locals 6
 
     iget-object v0, p0, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintProvider$$ExternalSyntheticLambda5;->f$0:Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintProvider;
 
@@ -43,9 +48,15 @@
 
     iget v2, p0, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintProvider$$ExternalSyntheticLambda5;->f$2:I
 
-    iget-object v3, p0, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintProvider$$ExternalSyntheticLambda5;->f$3:Lcom/android/server/biometrics/sensors/BaseClientMonitor$Callback;
+    iget v3, p0, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintProvider$$ExternalSyntheticLambda5;->f$3:F
 
-    invoke-virtual {v0, v1, v2, v3}, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintProvider;->lambda$scheduleInternalCleanup$12$FingerprintProvider(IILcom/android/server/biometrics/sensors/BaseClientMonitor$Callback;)V
+    iget v4, p0, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintProvider$$ExternalSyntheticLambda5;->f$4:F
+
+    move-object v5, p1
+
+    check-cast v5, Lcom/android/server/biometrics/sensors/BaseClientMonitor;
+
+    invoke-static/range {v0 .. v5}, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintProvider;->$r8$lambda$sxq6EX2j5-xSDME6sgnPKtOPSy4(Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintProvider;IIFFLcom/android/server/biometrics/sensors/BaseClientMonitor;)V
 
     return-void
 .end method

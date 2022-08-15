@@ -4,6 +4,10 @@
 
 
 # annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    visibility = .enum Lcom/android/internal/annotations/VisibleForTesting$Visibility;->PRIVATE:Lcom/android/internal/annotations/VisibleForTesting$Visibility;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/android/server/VcnManagementService;
 .end annotation
@@ -15,7 +19,7 @@
 
 
 # instance fields
-.field private mHandlerThread:Landroid/os/HandlerThread;
+.field public mHandlerThread:Landroid/os/HandlerThread;
 
 
 # direct methods
@@ -30,13 +34,13 @@
 
 # virtual methods
 .method public getBinderCallingUid()I
-    .locals 1
+    .locals 0
 
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public getLooper()Landroid/os/Looper;
@@ -55,7 +59,7 @@
 
     new-instance v0, Landroid/os/HandlerThread;
 
-    invoke-static {}, Lcom/android/server/VcnManagementService;->access$300()Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/VcnManagementService;->-$$Nest$sfgetTAG()Ljava/lang/String;
 
     move-result-object v1
 
@@ -81,65 +85,45 @@
 
     :cond_1
     :goto_0
-    iget-object v0, p0, Lcom/android/server/VcnManagementService$Dependencies;->mHandlerThread:Landroid/os/HandlerThread;
+    iget-object p0, p0, Lcom/android/server/VcnManagementService$Dependencies;->mHandlerThread:Landroid/os/HandlerThread;
 
-    invoke-virtual {v0}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;
+    invoke-virtual {p0}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
-.end method
-
-.method public getSubIdForWifiInfo(Landroid/net/wifi/WifiInfo;)I
-    .locals 1
-
-    invoke-virtual {p1}, Landroid/net/wifi/WifiInfo;->getSubscriptionId()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public newLocationPermissionChecker(Landroid/content/Context;)Lcom/android/net/module/util/LocationPermissionChecker;
-    .locals 1
-
-    new-instance v0, Lcom/android/net/module/util/LocationPermissionChecker;
-
-    invoke-direct {v0, p1}, Lcom/android/net/module/util/LocationPermissionChecker;-><init>(Landroid/content/Context;)V
-
-    return-object v0
+    return-object p0
 .end method
 
 .method public newPersistableBundleLockingReadWriteHelper(Ljava/lang/String;)Lcom/android/server/vcn/util/PersistableBundleUtils$LockingReadWriteHelper;
-    .locals 1
+    .locals 0
 
-    new-instance v0, Lcom/android/server/vcn/util/PersistableBundleUtils$LockingReadWriteHelper;
+    new-instance p0, Lcom/android/server/vcn/util/PersistableBundleUtils$LockingReadWriteHelper;
 
-    invoke-direct {v0, p1}, Lcom/android/server/vcn/util/PersistableBundleUtils$LockingReadWriteHelper;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Lcom/android/server/vcn/util/PersistableBundleUtils$LockingReadWriteHelper;-><init>(Ljava/lang/String;)V
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public newTelephonySubscriptionTracker(Landroid/content/Context;Landroid/os/Looper;Lcom/android/server/vcn/TelephonySubscriptionTracker$TelephonySubscriptionTrackerCallback;)Lcom/android/server/vcn/TelephonySubscriptionTracker;
-    .locals 2
+    .locals 1
 
-    new-instance v0, Lcom/android/server/vcn/TelephonySubscriptionTracker;
+    new-instance p0, Lcom/android/server/vcn/TelephonySubscriptionTracker;
 
-    new-instance v1, Landroid/os/Handler;
+    new-instance v0, Landroid/os/Handler;
 
-    invoke-direct {v1, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
+    invoke-direct {v0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
-    invoke-direct {v0, p1, v1, p3}, Lcom/android/server/vcn/TelephonySubscriptionTracker;-><init>(Landroid/content/Context;Landroid/os/Handler;Lcom/android/server/vcn/TelephonySubscriptionTracker$TelephonySubscriptionTrackerCallback;)V
+    invoke-direct {p0, p1, v0, p3}, Lcom/android/server/vcn/TelephonySubscriptionTracker;-><init>(Landroid/content/Context;Landroid/os/Handler;Lcom/android/server/vcn/TelephonySubscriptionTracker$TelephonySubscriptionTrackerCallback;)V
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public newVcn(Lcom/android/server/vcn/VcnContext;Landroid/os/ParcelUuid;Landroid/net/vcn/VcnConfig;Lcom/android/server/vcn/TelephonySubscriptionTracker$TelephonySubscriptionSnapshot;Lcom/android/server/VcnManagementService$VcnCallback;)Lcom/android/server/vcn/Vcn;
-    .locals 7
+    .locals 6
 
-    new-instance v6, Lcom/android/server/vcn/Vcn;
+    new-instance p0, Lcom/android/server/vcn/Vcn;
 
-    move-object v0, v6
+    move-object v0, p0
 
     move-object v1, p1
 
@@ -153,15 +137,15 @@
 
     invoke-direct/range {v0 .. v5}, Lcom/android/server/vcn/Vcn;-><init>(Lcom/android/server/vcn/VcnContext;Landroid/os/ParcelUuid;Landroid/net/vcn/VcnConfig;Lcom/android/server/vcn/TelephonySubscriptionTracker$TelephonySubscriptionSnapshot;Lcom/android/server/VcnManagementService$VcnCallback;)V
 
-    return-object v6
+    return-object p0
 .end method
 
 .method public newVcnContext(Landroid/content/Context;Landroid/os/Looper;Lcom/android/server/vcn/VcnNetworkProvider;Z)Lcom/android/server/vcn/VcnContext;
-    .locals 1
+    .locals 0
 
-    new-instance v0, Lcom/android/server/vcn/VcnContext;
+    new-instance p0, Lcom/android/server/vcn/VcnContext;
 
-    invoke-direct {v0, p1, p2, p3, p4}, Lcom/android/server/vcn/VcnContext;-><init>(Landroid/content/Context;Landroid/os/Looper;Lcom/android/server/vcn/VcnNetworkProvider;Z)V
+    invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/server/vcn/VcnContext;-><init>(Landroid/content/Context;Landroid/os/Looper;Lcom/android/server/vcn/VcnNetworkProvider;Z)V
 
-    return-object v0
+    return-object p0
 .end method

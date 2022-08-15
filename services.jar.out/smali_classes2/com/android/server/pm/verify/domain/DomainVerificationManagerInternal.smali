@@ -6,38 +6,17 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/server/pm/verify/domain/DomainVerificationManagerInternal$Connection;,
-        Lcom/android/server/pm/verify/domain/DomainVerificationManagerInternal$ApprovalLevel;
+        Lcom/android/server/pm/verify/domain/DomainVerificationManagerInternal$Connection;
     }
 .end annotation
 
 
 # static fields
-.field public static final APPROVAL_LEVEL_DISABLED:I = -0x3
-
-.field public static final APPROVAL_LEVEL_INSTANT_APP:I = 0x5
-
-.field public static final APPROVAL_LEVEL_LEGACY_ALWAYS:I = 0x2
-
-.field public static final APPROVAL_LEVEL_LEGACY_ASK:I = 0x1
-
-.field public static final APPROVAL_LEVEL_NONE:I = 0x0
-
-.field public static final APPROVAL_LEVEL_NOT_INSTALLED:I = -0x4
-
-.field public static final APPROVAL_LEVEL_SELECTION:I = 0x3
-
-.field public static final APPROVAL_LEVEL_UNDECLARED:I = -0x2
-
-.field public static final APPROVAL_LEVEL_UNVERIFIED:I = -0x1
-
-.field public static final APPROVAL_LEVEL_VERIFIED:I = 0x4
-
 .field public static final DISABLED_ID:Ljava/util/UUID;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 3
 
     new-instance v0, Ljava/util/UUID;
@@ -52,63 +31,63 @@
 .end method
 
 .method public static approvalLevelToDebugString(I)Ljava/lang/String;
-    .locals 1
+    .locals 0
 
     packed-switch p0, :pswitch_data_0
 
-    const-string v0, "UNKNOWN"
+    const-string p0, "UNKNOWN"
 
-    return-object v0
+    return-object p0
 
     :pswitch_0
-    const-string v0, "INSTANT_APP"
+    const-string p0, "INSTANT_APP"
 
-    return-object v0
+    return-object p0
 
     :pswitch_1
-    const-string v0, "VERIFIED"
+    const-string p0, "VERIFIED"
 
-    return-object v0
+    return-object p0
 
     :pswitch_2
-    const-string v0, "USER_SELECTION"
+    const-string p0, "USER_SELECTION"
 
-    return-object v0
+    return-object p0
 
     :pswitch_3
-    const-string v0, "LEGACY_ALWAYS"
+    const-string p0, "LEGACY_ALWAYS"
 
-    return-object v0
+    return-object p0
 
     :pswitch_4
-    const-string v0, "LEGACY_ASK"
+    const-string p0, "LEGACY_ASK"
 
-    return-object v0
+    return-object p0
 
     :pswitch_5
-    const-string v0, "NONE"
+    const-string p0, "NONE"
 
-    return-object v0
+    return-object p0
 
     :pswitch_6
-    const-string v0, "UNVERIFIED"
+    const-string p0, "UNVERIFIED"
 
-    return-object v0
+    return-object p0
 
     :pswitch_7
-    const-string v0, "UNDECLARED"
+    const-string p0, "UNDECLARED"
 
-    return-object v0
+    return-object p0
 
     :pswitch_8
-    const-string v0, "DISABLED"
+    const-string p0, "DISABLED"
 
-    return-object v0
+    return-object p0
 
     :pswitch_9
-    const-string v0, "NOT_INSTALLED"
+    const-string p0, "NOT_INSTALLED"
 
-    return-object v0
+    return-object p0
 
     :pswitch_data_0
     .packed-switch -0x4
@@ -130,10 +109,10 @@
 .method public abstract addLegacySetting(Ljava/lang/String;Landroid/content/pm/IntentFilterVerificationInfo;)V
 .end method
 
-.method public abstract addPackage(Lcom/android/server/pm/PackageSetting;)V
+.method public abstract addPackage(Lcom/android/server/pm/pkg/PackageStateInternal;)V
 .end method
 
-.method public abstract approvalLevelForDomain(Lcom/android/server/pm/PackageSetting;Landroid/content/Intent;II)I
+.method public abstract approvalLevelForDomain(Lcom/android/server/pm/pkg/PackageStateInternal;Landroid/content/Intent;JI)I
 .end method
 
 .method public abstract clearPackage(Ljava/lang/String;)V
@@ -155,7 +134,7 @@
             ">;I",
             "Ljava/util/function/Function<",
             "Ljava/lang/String;",
-            "Lcom/android/server/pm/PackageSetting;",
+            "Lcom/android/server/pm/pkg/PackageStateInternal;",
             ">;)",
             "Landroid/util/Pair<",
             "Ljava/util/List<",
@@ -174,6 +153,13 @@
 .end method
 
 .method public abstract getDomainVerificationInfo(Ljava/lang/String;)Landroid/content/pm/verify/domain/DomainVerificationInfo;
+    .annotation build Landroid/annotation/RequiresPermission;
+        anyOf = {
+            "android.permission.DOMAIN_VERIFICATION_AGENT",
+            "android.permission.UPDATE_DOMAIN_VERIFICATION_USER_SELECTION"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/pm/PackageManager$NameNotFoundException;
@@ -193,23 +179,10 @@
 .method public abstract getShell()Lcom/android/server/pm/verify/domain/DomainVerificationShell;
 .end method
 
-.method public abstract migrateState(Lcom/android/server/pm/PackageSetting;Lcom/android/server/pm/PackageSetting;)V
+.method public abstract migrateState(Lcom/android/server/pm/pkg/PackageStateInternal;Lcom/android/server/pm/pkg/PackageStateInternal;)V
 .end method
 
-.method public abstract printState(Landroid/util/IndentingPrintWriter;Ljava/lang/String;Ljava/lang/Integer;Ljava/util/function/Function;)V
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/util/IndentingPrintWriter;",
-            "Ljava/lang/String;",
-            "Ljava/lang/Integer;",
-            "Ljava/util/function/Function<",
-            "Ljava/lang/String;",
-            "Lcom/android/server/pm/PackageSetting;",
-            ">;)V"
-        }
-    .end annotation
-
+.method public abstract printState(Lcom/android/server/pm/Computer;Landroid/util/IndentingPrintWriter;Ljava/lang/String;Ljava/lang/Integer;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/pm/PackageManager$NameNotFoundException;
@@ -226,7 +199,7 @@
     .end annotation
 .end method
 
-.method public abstract readSettings(Landroid/util/TypedXmlPullParser;)V
+.method public abstract readSettings(Lcom/android/server/pm/Computer;Landroid/util/TypedXmlPullParser;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -235,7 +208,7 @@
     .end annotation
 .end method
 
-.method public abstract restoreSettings(Landroid/util/TypedXmlPullParser;)V
+.method public abstract restoreSettings(Lcom/android/server/pm/Computer;Landroid/util/TypedXmlPullParser;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -251,6 +224,13 @@
 .end method
 
 .method public abstract setDomainVerificationStatusInternal(ILjava/util/UUID;Ljava/util/Set;I)I
+    .annotation build Landroid/annotation/RequiresPermission;
+        value = "android.permission.DOMAIN_VERIFICATION_AGENT"
+    .end annotation
+
+    .annotation build Landroid/content/pm/verify/domain/DomainVerificationManager$Error;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -274,7 +254,7 @@
 .method public abstract setProxy(Lcom/android/server/pm/verify/domain/proxy/DomainVerificationProxy;)V
 .end method
 
-.method public abstract writeSettings(Landroid/util/TypedXmlSerializer;ZI)V
+.method public abstract writeSettings(Lcom/android/server/pm/Computer;Landroid/util/TypedXmlSerializer;ZI)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

@@ -1,4 +1,4 @@
-.class Lcom/android/server/storage/DeviceStorageMonitorService$Shell;
+.class public Lcom/android/server/storage/DeviceStorageMonitorService$Shell;
 .super Landroid/os/ShellCommand;
 .source "DeviceStorageMonitorService.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = "Shell"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/storage/DeviceStorageMonitorService;
+.field public final synthetic this$0:Lcom/android/server/storage/DeviceStorageMonitorService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/storage/DeviceStorageMonitorService;)V
+.method public constructor <init>(Lcom/android/server/storage/DeviceStorageMonitorService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/storage/DeviceStorageMonitorService$Shell;->this$0:Lcom/android/server/storage/DeviceStorageMonitorService;
@@ -38,19 +38,19 @@
 
     invoke-virtual {v0, p0, p1}, Lcom/android/server/storage/DeviceStorageMonitorService;->onShellCommand(Lcom/android/server/storage/DeviceStorageMonitorService$Shell;Ljava/lang/String;)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public onHelp()V
-    .locals 1
+    .locals 0
 
-    invoke-virtual {p0}, Lcom/android/server/storage/DeviceStorageMonitorService$Shell;->getOutPrintWriter()Ljava/io/PrintWriter;
+    invoke-virtual {p0}, Landroid/os/ShellCommand;->getOutPrintWriter()Ljava/io/PrintWriter;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0}, Lcom/android/server/storage/DeviceStorageMonitorService;->dumpHelp(Ljava/io/PrintWriter;)V
+    invoke-static {p0}, Lcom/android/server/storage/DeviceStorageMonitorService;->dumpHelp(Ljava/io/PrintWriter;)V
 
     return-void
 .end method

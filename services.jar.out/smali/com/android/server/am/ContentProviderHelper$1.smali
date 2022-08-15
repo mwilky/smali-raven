@@ -1,4 +1,4 @@
-.class Lcom/android/server/am/ContentProviderHelper$1;
+.class public Lcom/android/server/am/ContentProviderHelper$1;
 .super Ljava/lang/Object;
 .source "ContentProviderHelper.java"
 
@@ -12,21 +12,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/am/ContentProviderHelper;
+.field public final synthetic this$0:Lcom/android/server/am/ContentProviderHelper;
 
-.field final synthetic val$providerConnection:Landroid/os/IBinder;
+.field public final synthetic val$providerConnection:Landroid/os/IBinder;
 
-.field final synthetic val$providerName:Landroid/content/ComponentName;
+.field public final synthetic val$providerName:Landroid/content/ComponentName;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/ContentProviderHelper;Landroid/content/ComponentName;Landroid/os/IBinder;)V
+.method public constructor <init>(Lcom/android/server/am/ContentProviderHelper;Landroid/content/ComponentName;Landroid/os/IBinder;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/am/ContentProviderHelper$1;->this$0:Lcom/android/server/am/ContentProviderHelper;
@@ -71,9 +71,9 @@
 
     iget-object v0, p0, Lcom/android/server/am/ContentProviderHelper$1;->this$0:Lcom/android/server/am/ContentProviderHelper;
 
-    iget-object v1, p0, Lcom/android/server/am/ContentProviderHelper$1;->val$providerConnection:Landroid/os/IBinder;
+    iget-object p0, p0, Lcom/android/server/am/ContentProviderHelper$1;->val$providerConnection:Landroid/os/IBinder;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/am/ContentProviderHelper;->appNotRespondingViaProvider(Landroid/os/IBinder;)V
+    invoke-virtual {v0, p0}, Lcom/android/server/am/ContentProviderHelper;->appNotRespondingViaProvider(Landroid/os/IBinder;)V
 
     return-void
 .end method

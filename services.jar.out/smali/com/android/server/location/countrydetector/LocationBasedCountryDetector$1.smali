@@ -1,4 +1,4 @@
-.class Lcom/android/server/location/countrydetector/LocationBasedCountryDetector$1;
+.class public Lcom/android/server/location/countrydetector/LocationBasedCountryDetector$1;
 .super Ljava/lang/Object;
 .source "LocationBasedCountryDetector.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/location/countrydetector/LocationBasedCountryDetector;
+.field public final synthetic this$0:Lcom/android/server/location/countrydetector/LocationBasedCountryDetector;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/location/countrydetector/LocationBasedCountryDetector;)V
+.method public constructor <init>(Lcom/android/server/location/countrydetector/LocationBasedCountryDetector;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/location/countrydetector/LocationBasedCountryDetector$1;->this$0:Lcom/android/server/location/countrydetector/LocationBasedCountryDetector;
@@ -43,9 +43,9 @@
 
     invoke-virtual {v0}, Lcom/android/server/location/countrydetector/LocationBasedCountryDetector;->stop()V
 
-    iget-object v0, p0, Lcom/android/server/location/countrydetector/LocationBasedCountryDetector$1;->this$0:Lcom/android/server/location/countrydetector/LocationBasedCountryDetector;
+    iget-object p0, p0, Lcom/android/server/location/countrydetector/LocationBasedCountryDetector$1;->this$0:Lcom/android/server/location/countrydetector/LocationBasedCountryDetector;
 
-    invoke-static {v0, p1}, Lcom/android/server/location/countrydetector/LocationBasedCountryDetector;->access$000(Lcom/android/server/location/countrydetector/LocationBasedCountryDetector;Landroid/location/Location;)V
+    invoke-static {p0, p1}, Lcom/android/server/location/countrydetector/LocationBasedCountryDetector;->-$$Nest$mqueryCountryCode(Lcom/android/server/location/countrydetector/LocationBasedCountryDetector;Landroid/location/Location;)V
 
     :cond_0
     return-void

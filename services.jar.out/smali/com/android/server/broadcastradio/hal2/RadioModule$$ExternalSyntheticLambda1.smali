@@ -1,33 +1,40 @@
 .class public final synthetic Lcom/android/server/broadcastradio/hal2/RadioModule$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/hardware/broadcastradio/V2_0/IBroadcastRadio$getDabRegionConfigCallback;
+.implements Ljava/lang/Runnable;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/server/broadcastradio/hal2/Mutable;
+.field public final synthetic f$0:Lcom/android/server/broadcastradio/hal2/RadioModule;
+
+.field public final synthetic f$1:Ljava/lang/Runnable;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/broadcastradio/hal2/Mutable;)V
+.method public synthetic constructor <init>(Lcom/android/server/broadcastradio/hal2/RadioModule;Ljava/lang/Runnable;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/broadcastradio/hal2/RadioModule$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/broadcastradio/hal2/Mutable;
+    iput-object p1, p0, Lcom/android/server/broadcastradio/hal2/RadioModule$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/broadcastradio/hal2/RadioModule;
+
+    iput-object p2, p0, Lcom/android/server/broadcastradio/hal2/RadioModule$$ExternalSyntheticLambda1;->f$1:Ljava/lang/Runnable;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final onValues(ILjava/util/ArrayList;)V
+.method public final run()V
     .locals 1
 
-    iget-object v0, p0, Lcom/android/server/broadcastradio/hal2/RadioModule$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/broadcastradio/hal2/Mutable;
+    iget-object v0, p0, Lcom/android/server/broadcastradio/hal2/RadioModule$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/broadcastradio/hal2/RadioModule;
 
-    invoke-static {v0, p1, p2}, Lcom/android/server/broadcastradio/hal2/RadioModule;->lambda$tryLoadingModule$1(Lcom/android/server/broadcastradio/hal2/Mutable;ILjava/util/ArrayList;)V
+    iget-object p0, p0, Lcom/android/server/broadcastradio/hal2/RadioModule$$ExternalSyntheticLambda1;->f$1:Ljava/lang/Runnable;
+
+    invoke-static {v0, p0}, Lcom/android/server/broadcastradio/hal2/RadioModule;->$r8$lambda$FBoyBydoZync5i6aWIP9834Rrwg(Lcom/android/server/broadcastradio/hal2/RadioModule;Ljava/lang/Runnable;)V
 
     return-void
 .end method

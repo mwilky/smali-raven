@@ -14,16 +14,14 @@
 .end annotation
 
 
-# static fields
-.field private static final ATTR_INVALIDATION:Ljava/lang/String; = "authenticatorIdInvalidation_attr"
-
-.field private static final TAG:Ljava/lang/String; = "UserState"
-
-.field private static final TAG_INVALIDATION:Ljava/lang/String; = "authenticatorIdInvalidation_tag"
-
-
 # instance fields
-.field protected final mBiometrics:Ljava/util/ArrayList;
+.field public final mBiometrics:Ljava/util/ArrayList;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "this"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/ArrayList<",
@@ -32,20 +30,20 @@
     .end annotation
 .end field
 
-.field protected final mContext:Landroid/content/Context;
+.field public final mContext:Landroid/content/Context;
 
-.field protected final mFile:Ljava/io/File;
+.field public final mFile:Ljava/io/File;
 
-.field protected mInvalidationInProgress:Z
+.field public mInvalidationInProgress:Z
 
-.field private final mWriteStateRunnable:Ljava/lang/Runnable;
+.field public final mWriteStateRunnable:Ljava/lang/Runnable;
 
 
 # direct methods
 .method public static synthetic $r8$lambda$oJ_rhDM--0IGhnHj5ZfT-eTkOVE(Lcom/android/server/biometrics/sensors/BiometricUserState;)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/server/biometrics/sensors/BiometricUserState;->doWriteStateInternal()V
+    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/BiometricUserState;->doWriteStateInternal()V
 
     return-void
 .end method
@@ -67,392 +65,31 @@
 
     iput-object v0, p0, Lcom/android/server/biometrics/sensors/BiometricUserState;->mWriteStateRunnable:Ljava/lang/Runnable;
 
-    invoke-direct {p0, p2, p3}, Lcom/android/server/biometrics/sensors/BiometricUserState;->getFileForUser(ILjava/lang/String;)Ljava/io/File;
+    invoke-virtual {p0, p2, p3}, Lcom/android/server/biometrics/sensors/BiometricUserState;->getFileForUser(ILjava/lang/String;)Ljava/io/File;
 
-    move-result-object v0
+    move-result-object p2
 
-    iput-object v0, p0, Lcom/android/server/biometrics/sensors/BiometricUserState;->mFile:Ljava/io/File;
+    iput-object p2, p0, Lcom/android/server/biometrics/sensors/BiometricUserState;->mFile:Ljava/io/File;
 
     iput-object p1, p0, Lcom/android/server/biometrics/sensors/BiometricUserState;->mContext:Landroid/content/Context;
 
     monitor-enter p0
 
     :try_start_0
-    invoke-direct {p0}, Lcom/android/server/biometrics/sensors/BiometricUserState;->readStateSyncLocked()V
+    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/BiometricUserState;->readStateSyncLocked()V
 
     monitor-exit p0
 
     return-void
 
     :catchall_0
-    move-exception v0
+    move-exception p1
 
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
-.end method
-
-.method private doWriteStateInternal()V
-    .locals 7
-
-    const-string v0, "authenticatorIdInvalidation_tag"
-
-    new-instance v1, Landroid/util/AtomicFile;
-
-    iget-object v2, p0, Lcom/android/server/biometrics/sensors/BiometricUserState;->mFile:Ljava/io/File;
-
-    invoke-direct {v1, v2}, Landroid/util/AtomicFile;-><init>(Ljava/io/File;)V
-
-    const/4 v2, 0x0
-
-    :try_start_0
-    invoke-virtual {v1}, Landroid/util/AtomicFile;->startWrite()Ljava/io/FileOutputStream;
-
-    move-result-object v3
-
-    move-object v2, v3
-
-    invoke-static {v2}, Landroid/util/Xml;->resolveSerializer(Ljava/io/OutputStream;)Landroid/util/TypedXmlSerializer;
-
-    move-result-object v3
-
-    const-string v4, "http://xmlpull.org/v1/doc/features.html#indent-output"
-
-    const/4 v5, 0x1
-
-    invoke-interface {v3, v4, v5}, Landroid/util/TypedXmlSerializer;->setFeature(Ljava/lang/String;Z)V
-
-    invoke-static {v5}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v4
-
-    const/4 v5, 0x0
-
-    invoke-interface {v3, v5, v4}, Landroid/util/TypedXmlSerializer;->startDocument(Ljava/lang/String;Ljava/lang/Boolean;)V
-
-    invoke-interface {v3, v5, v0}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
-
-    const-string v4, "authenticatorIdInvalidation_attr"
-
-    iget-boolean v6, p0, Lcom/android/server/biometrics/sensors/BiometricUserState;->mInvalidationInProgress:Z
-
-    invoke-interface {v3, v5, v4, v6}, Landroid/util/TypedXmlSerializer;->attributeBoolean(Ljava/lang/String;Ljava/lang/String;Z)Lorg/xmlpull/v1/XmlSerializer;
-
-    invoke-interface {v3, v5, v0}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
-
-    invoke-virtual {p0, v3}, Lcom/android/server/biometrics/sensors/BiometricUserState;->doWriteState(Landroid/util/TypedXmlSerializer;)V
-
-    invoke-interface {v3}, Landroid/util/TypedXmlSerializer;->endDocument()V
-
-    invoke-virtual {v1, v2}, Landroid/util/AtomicFile;->finishWrite(Ljava/io/FileOutputStream;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    invoke-static {v2}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
-
-    nop
-
-    return-void
-
-    :catchall_0
-    move-exception v0
-
-    :try_start_1
-    const-string v3, "UserState"
-
-    const-string v4, "Failed to write settings, restoring backup"
-
-    invoke-static {v3, v4, v0}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    invoke-virtual {v1, v2}, Landroid/util/AtomicFile;->failWrite(Ljava/io/FileOutputStream;)V
-
-    new-instance v3, Ljava/lang/IllegalStateException;
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v5, "Failed to write to file: "
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v5, p0, Lcom/android/server/biometrics/sensors/BiometricUserState;->mFile:Ljava/io/File;
-
-    invoke-virtual {v5}, Ljava/io/File;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-direct {v3, v4, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
-
-    throw v3
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
-
-    :catchall_1
-    move-exception v0
-
-    invoke-static {v2}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
-
-    throw v0
-.end method
-
-.method private getFileForUser(ILjava/lang/String;)Ljava/io/File;
-    .locals 2
-
-    new-instance v0, Ljava/io/File;
-
-    invoke-static {p1}, Landroid/os/Environment;->getUserSystemDirectory(I)Ljava/io/File;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1, p2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
-
-    return-object v0
-.end method
-
-.method private isUnique(Ljava/lang/String;)Z
-    .locals 3
-
-    iget-object v0, p0, Lcom/android/server/biometrics/sensors/BiometricUserState;->mBiometrics:Ljava/util/ArrayList;
-
-    invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
-
-    move-result-object v0
-
-    :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/hardware/biometrics/BiometricAuthenticator$Identifier;
-
-    invoke-virtual {v1}, Landroid/hardware/biometrics/BiometricAuthenticator$Identifier;->getName()Ljava/lang/CharSequence;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    const/4 v0, 0x0
-
-    return v0
-
-    :cond_0
-    goto :goto_0
-
-    :cond_1
-    const/4 v0, 0x1
-
-    return v0
-.end method
-
-.method private parseStateLocked(Landroid/util/TypedXmlPullParser;)V
-    .locals 5
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;,
-            Lorg/xmlpull/v1/XmlPullParserException;
-        }
-    .end annotation
-
-    invoke-interface {p1}, Landroid/util/TypedXmlPullParser;->getDepth()I
-
-    move-result v0
-
-    :cond_0
-    :goto_0
-    invoke-interface {p1}, Landroid/util/TypedXmlPullParser;->next()I
-
-    move-result v1
-
-    move v2, v1
-
-    const/4 v3, 0x1
-
-    if-eq v1, v3, :cond_5
-
-    const/4 v1, 0x3
-
-    if-ne v2, v1, :cond_1
-
-    invoke-interface {p1}, Landroid/util/TypedXmlPullParser;->getDepth()I
-
-    move-result v3
-
-    if-le v3, v0, :cond_5
-
-    :cond_1
-    if-eq v2, v1, :cond_0
-
-    const/4 v1, 0x4
-
-    if-ne v2, v1, :cond_2
-
-    goto :goto_0
-
-    :cond_2
-    invoke-interface {p1}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/BiometricUserState;->getBiometricsTag()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_3
-
-    invoke-virtual {p0, p1}, Lcom/android/server/biometrics/sensors/BiometricUserState;->parseBiometricsLocked(Landroid/util/TypedXmlPullParser;)V
-
-    goto :goto_1
-
-    :cond_3
-    const-string v3, "authenticatorIdInvalidation_tag"
-
-    invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_4
-
-    const/4 v3, 0x0
-
-    const-string v4, "authenticatorIdInvalidation_attr"
-
-    invoke-interface {p1, v3, v4}, Landroid/util/TypedXmlPullParser;->getAttributeBoolean(Ljava/lang/String;Ljava/lang/String;)Z
-
-    move-result v3
-
-    iput-boolean v3, p0, Lcom/android/server/biometrics/sensors/BiometricUserState;->mInvalidationInProgress:Z
-
-    :cond_4
-    :goto_1
-    goto :goto_0
-
-    :cond_5
-    return-void
-.end method
-
-.method private readStateSyncLocked()V
-    .locals 5
-
-    iget-object v0, p0, Lcom/android/server/biometrics/sensors/BiometricUserState;->mFile:Ljava/io/File;
-
-    invoke-virtual {v0}, Ljava/io/File;->exists()Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    return-void
-
-    :cond_0
-    :try_start_0
-    new-instance v0, Ljava/io/FileInputStream;
-
-    iget-object v1, p0, Lcom/android/server/biometrics/sensors/BiometricUserState;->mFile:Ljava/io/File;
-
-    invoke-direct {v0, v1}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
-    :try_end_0
-    .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_1
-
-    nop
-
-    :try_start_1
-    invoke-static {v0}, Landroid/util/Xml;->resolvePullParser(Ljava/io/InputStream;)Landroid/util/TypedXmlPullParser;
-
-    move-result-object v1
-
-    invoke-direct {p0, v1}, Lcom/android/server/biometrics/sensors/BiometricUserState;->parseStateLocked(Landroid/util/TypedXmlPullParser;)V
-    :try_end_1
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_1 .. :try_end_1} :catch_0
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    invoke-static {v0}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
-
-    nop
-
-    return-void
-
-    :catchall_0
-    move-exception v1
-
-    goto :goto_0
-
-    :catch_0
-    move-exception v1
-
-    :try_start_2
-    new-instance v2, Ljava/lang/IllegalStateException;
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "Failed parsing settings file: "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v4, p0, Lcom/android/server/biometrics/sensors/BiometricUserState;->mFile:Ljava/io/File;
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-direct {v2, v3, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
-
-    throw v2
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
-
-    :goto_0
-    invoke-static {v0}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
-
-    throw v1
-
-    :catch_1
-    move-exception v0
-
-    const-string v1, "UserState"
-
-    const-string v2, "No fingerprint state"
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-.end method
-
-.method private scheduleWriteStateLocked()V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/biometrics/sensors/BiometricUserState;->mWriteStateRunnable:Ljava/lang/Runnable;
-
-    invoke-static {v0}, Landroid/os/AsyncTask;->execute(Ljava/lang/Runnable;)V
-
-    return-void
+    throw p1
 .end method
 
 
@@ -472,28 +109,141 @@
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    invoke-direct {p0}, Lcom/android/server/biometrics/sensors/BiometricUserState;->scheduleWriteStateLocked()V
+    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/BiometricUserState;->scheduleWriteStateLocked()V
 
     monitor-exit p0
 
     return-void
 
     :catchall_0
-    move-exception v0
+    move-exception p1
 
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw p1
 .end method
 
-.method protected abstract doWriteState(Landroid/util/TypedXmlSerializer;)V
+.method public abstract doWriteState(Landroid/util/TypedXmlSerializer;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
+.end method
+
+.method public final doWriteStateInternal()V
+    .locals 7
+
+    const-string v0, "authenticatorIdInvalidation_tag"
+
+    new-instance v1, Landroid/util/AtomicFile;
+
+    iget-object v2, p0, Lcom/android/server/biometrics/sensors/BiometricUserState;->mFile:Ljava/io/File;
+
+    invoke-direct {v1, v2}, Landroid/util/AtomicFile;-><init>(Ljava/io/File;)V
+
+    const/4 v2, 0x0
+
+    :try_start_0
+    invoke-virtual {v1}, Landroid/util/AtomicFile;->startWrite()Ljava/io/FileOutputStream;
+
+    move-result-object v3
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+
+    :try_start_1
+    invoke-static {v3}, Landroid/util/Xml;->resolveSerializer(Ljava/io/OutputStream;)Landroid/util/TypedXmlSerializer;
+
+    move-result-object v4
+
+    const-string v5, "http://xmlpull.org/v1/doc/features.html#indent-output"
+
+    const/4 v6, 0x1
+
+    invoke-interface {v4, v5, v6}, Landroid/util/TypedXmlSerializer;->setFeature(Ljava/lang/String;Z)V
+
+    sget-object v5, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
+
+    invoke-interface {v4, v2, v5}, Landroid/util/TypedXmlSerializer;->startDocument(Ljava/lang/String;Ljava/lang/Boolean;)V
+
+    invoke-interface {v4, v2, v0}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+
+    const-string v5, "authenticatorIdInvalidation_attr"
+
+    iget-boolean v6, p0, Lcom/android/server/biometrics/sensors/BiometricUserState;->mInvalidationInProgress:Z
+
+    invoke-interface {v4, v2, v5, v6}, Landroid/util/TypedXmlSerializer;->attributeBoolean(Ljava/lang/String;Ljava/lang/String;Z)Lorg/xmlpull/v1/XmlSerializer;
+
+    invoke-interface {v4, v2, v0}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+
+    invoke-virtual {p0, v4}, Lcom/android/server/biometrics/sensors/BiometricUserState;->doWriteState(Landroid/util/TypedXmlSerializer;)V
+
+    invoke-interface {v4}, Landroid/util/TypedXmlSerializer;->endDocument()V
+
+    invoke-virtual {v1, v3}, Landroid/util/AtomicFile;->finishWrite(Ljava/io/FileOutputStream;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    invoke-static {v3}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
+
+    return-void
+
+    :catchall_0
+    move-exception v0
+
+    move-object v2, v3
+
+    goto :goto_0
+
+    :catchall_1
+    move-exception v0
+
+    :goto_0
+    :try_start_2
+    const-string v3, "UserState"
+
+    const-string v4, "Failed to write settings, restoring backup"
+
+    invoke-static {v3, v4, v0}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    invoke-virtual {v1, v2}, Landroid/util/AtomicFile;->failWrite(Ljava/io/FileOutputStream;)V
+
+    new-instance v1, Ljava/lang/IllegalStateException;
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "Failed to write to file: "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object p0, p0, Lcom/android/server/biometrics/sensors/BiometricUserState;->mFile:Ljava/io/File;
+
+    invoke-virtual {p0}, Ljava/io/File;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {v3, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-direct {v1, p0, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    throw v1
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_2
+
+    :catchall_2
+    move-exception p0
+
+    invoke-static {v2}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
+
+    throw p0
 .end method
 
 .method public getBiometrics()Ljava/util/List;
@@ -529,10 +279,10 @@
     throw v0
 .end method
 
-.method protected abstract getBiometricsTag()Ljava/lang/String;
+.method public abstract getBiometricsTag()Ljava/lang/String;
 .end method
 
-.method protected abstract getCopy(Ljava/util/ArrayList;)Ljava/util/ArrayList;
+.method public abstract getCopy(Ljava/util/ArrayList;)Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -544,49 +294,61 @@
     .end annotation
 .end method
 
-.method protected abstract getNameTemplateResource()I
+.method public final getFileForUser(ILjava/lang/String;)Ljava/io/File;
+    .locals 0
+
+    new-instance p0, Ljava/io/File;
+
+    invoke-static {p1}, Landroid/os/Environment;->getUserSystemDirectory(I)Ljava/io/File;
+
+    move-result-object p1
+
+    invoke-direct {p0, p1, p2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    return-object p0
+.end method
+
+.method public abstract getNameTemplateResource()I
 .end method
 
 .method public getUniqueName()Ljava/lang/String;
-    .locals 6
+    .locals 7
 
     const/4 v0, 0x1
 
+    move v1, v0
+
     :goto_0
-    iget-object v1, p0, Lcom/android/server/biometrics/sensors/BiometricUserState;->mContext:Landroid/content/Context;
+    iget-object v2, p0, Lcom/android/server/biometrics/sensors/BiometricUserState;->mContext:Landroid/content/Context;
 
     invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/BiometricUserState;->getNameTemplateResource()I
 
-    move-result v2
+    move-result v3
 
-    const/4 v3, 0x1
+    new-array v4, v0, [Ljava/lang/Object;
 
-    new-array v3, v3, [Ljava/lang/Object;
+    const/4 v5, 0x0
 
-    const/4 v4, 0x0
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v6
 
-    move-result-object v5
+    aput-object v6, v4, v5
 
-    aput-object v5, v3, v4
+    invoke-virtual {v2, v3, v4}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-virtual {v1, v2, v3}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    move-result-object v2
 
-    move-result-object v1
+    invoke-virtual {p0, v2}, Lcom/android/server/biometrics/sensors/BiometricUserState;->isUnique(Ljava/lang/String;)Z
 
-    invoke-direct {p0, v1}, Lcom/android/server/biometrics/sensors/BiometricUserState;->isUnique(Ljava/lang/String;)Z
+    move-result v3
 
-    move-result v2
+    if-eqz v3, :cond_0
 
-    if-eqz v2, :cond_0
-
-    return-object v1
+    return-object v2
 
     :cond_0
-    nop
-
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 .end method
@@ -613,13 +375,238 @@
     throw v0
 .end method
 
-.method protected abstract parseBiometricsLocked(Landroid/util/TypedXmlPullParser;)V
+.method public final isUnique(Ljava/lang/String;)Z
+    .locals 1
+
+    iget-object p0, p0, Lcom/android/server/biometrics/sensors/BiometricUserState;->mBiometrics:Ljava/util/ArrayList;
+
+    invoke-virtual {p0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object p0
+
+    :cond_0
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/hardware/biometrics/BiometricAuthenticator$Identifier;
+
+    invoke-virtual {v0}, Landroid/hardware/biometrics/BiometricAuthenticator$Identifier;->getName()Ljava/lang/CharSequence;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 p0, 0x0
+
+    return p0
+
+    :cond_1
+    const/4 p0, 0x1
+
+    return p0
+.end method
+
+.method public abstract parseBiometricsLocked(Landroid/util/TypedXmlPullParser;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
             Lorg/xmlpull/v1/XmlPullParserException;
         }
     .end annotation
+.end method
+
+.method public final parseStateLocked(Landroid/util/TypedXmlPullParser;)V
+    .locals 4
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "this"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;,
+            Lorg/xmlpull/v1/XmlPullParserException;
+        }
+    .end annotation
+
+    invoke-interface {p1}, Landroid/util/TypedXmlPullParser;->getDepth()I
+
+    move-result v0
+
+    :cond_0
+    :goto_0
+    invoke-interface {p1}, Landroid/util/TypedXmlPullParser;->next()I
+
+    move-result v1
+
+    const/4 v2, 0x1
+
+    if-eq v1, v2, :cond_4
+
+    const/4 v2, 0x3
+
+    if-ne v1, v2, :cond_1
+
+    invoke-interface {p1}, Landroid/util/TypedXmlPullParser;->getDepth()I
+
+    move-result v3
+
+    if-le v3, v0, :cond_4
+
+    :cond_1
+    if-eq v1, v2, :cond_0
+
+    const/4 v2, 0x4
+
+    if-ne v1, v2, :cond_2
+
+    goto :goto_0
+
+    :cond_2
+    invoke-interface {p1}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/BiometricUserState;->getBiometricsTag()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
+
+    invoke-virtual {p0, p1}, Lcom/android/server/biometrics/sensors/BiometricUserState;->parseBiometricsLocked(Landroid/util/TypedXmlPullParser;)V
+
+    goto :goto_0
+
+    :cond_3
+    const-string v2, "authenticatorIdInvalidation_tag"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    const/4 v1, 0x0
+
+    const-string v2, "authenticatorIdInvalidation_attr"
+
+    invoke-interface {p1, v1, v2}, Landroid/util/TypedXmlPullParser;->getAttributeBoolean(Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-result v1
+
+    iput-boolean v1, p0, Lcom/android/server/biometrics/sensors/BiometricUserState;->mInvalidationInProgress:Z
+
+    goto :goto_0
+
+    :cond_4
+    return-void
+.end method
+
+.method public final readStateSyncLocked()V
+    .locals 5
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "this"
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/android/server/biometrics/sensors/BiometricUserState;->mFile:Ljava/io/File;
+
+    invoke-virtual {v0}, Ljava/io/File;->exists()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    :try_start_0
+    new-instance v0, Ljava/io/FileInputStream;
+
+    iget-object v1, p0, Lcom/android/server/biometrics/sensors/BiometricUserState;->mFile:Ljava/io/File;
+
+    invoke-direct {v0, v1}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
+    :try_end_0
+    .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_1
+
+    :try_start_1
+    invoke-static {v0}, Landroid/util/Xml;->resolvePullParser(Ljava/io/InputStream;)Landroid/util/TypedXmlPullParser;
+
+    move-result-object v1
+
+    invoke-virtual {p0, v1}, Lcom/android/server/biometrics/sensors/BiometricUserState;->parseStateLocked(Landroid/util/TypedXmlPullParser;)V
+    :try_end_1
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_1 .. :try_end_1} :catch_0
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    invoke-static {v0}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
+
+    return-void
+
+    :catchall_0
+    move-exception p0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v1
+
+    :try_start_2
+    new-instance v2, Ljava/lang/IllegalStateException;
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "Failed parsing settings file: "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object p0, p0, Lcom/android/server/biometrics/sensors/BiometricUserState;->mFile:Ljava/io/File;
+
+    invoke-virtual {v3, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-direct {v2, p0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    throw v2
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    :goto_0
+    invoke-static {v0}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
+
+    throw p0
+
+    :catch_1
+    const-string p0, "UserState"
+
+    const-string v0, "No fingerprint state"
+
+    invoke-static {p0, v0}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
 .end method
 
 .method public removeBiometric(I)V
@@ -653,11 +640,11 @@
 
     if-ne v1, p1, :cond_0
 
-    iget-object v1, p0, Lcom/android/server/biometrics/sensors/BiometricUserState;->mBiometrics:Ljava/util/ArrayList;
+    iget-object p1, p0, Lcom/android/server/biometrics/sensors/BiometricUserState;->mBiometrics:Ljava/util/ArrayList;
 
-    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
+    invoke-virtual {p1, v0}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
 
-    invoke-direct {p0}, Lcom/android/server/biometrics/sensors/BiometricUserState;->scheduleWriteStateLocked()V
+    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/BiometricUserState;->scheduleWriteStateLocked()V
 
     goto :goto_1
 
@@ -673,13 +660,13 @@
     return-void
 
     :catchall_0
-    move-exception v0
+    move-exception p1
 
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw p1
 .end method
 
 .method public renameBiometric(ILjava/lang/CharSequence;)V
@@ -713,17 +700,17 @@
 
     if-ne v1, p1, :cond_0
 
-    iget-object v1, p0, Lcom/android/server/biometrics/sensors/BiometricUserState;->mBiometrics:Ljava/util/ArrayList;
+    iget-object p1, p0, Lcom/android/server/biometrics/sensors/BiometricUserState;->mBiometrics:Ljava/util/ArrayList;
 
-    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {p1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    check-cast v1, Landroid/hardware/biometrics/BiometricAuthenticator$Identifier;
+    check-cast p1, Landroid/hardware/biometrics/BiometricAuthenticator$Identifier;
 
-    invoke-virtual {v1, p2}, Landroid/hardware/biometrics/BiometricAuthenticator$Identifier;->setName(Ljava/lang/CharSequence;)V
+    invoke-virtual {p1, p2}, Landroid/hardware/biometrics/BiometricAuthenticator$Identifier;->setName(Ljava/lang/CharSequence;)V
 
-    invoke-direct {p0}, Lcom/android/server/biometrics/sensors/BiometricUserState;->scheduleWriteStateLocked()V
+    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/BiometricUserState;->scheduleWriteStateLocked()V
 
     goto :goto_1
 
@@ -739,35 +726,45 @@
     return-void
 
     :catchall_0
-    move-exception v0
+    move-exception p1
 
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw p1
+.end method
+
+.method public final scheduleWriteStateLocked()V
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/biometrics/sensors/BiometricUserState;->mWriteStateRunnable:Ljava/lang/Runnable;
+
+    invoke-static {p0}, Landroid/os/AsyncTask;->execute(Ljava/lang/Runnable;)V
+
+    return-void
 .end method
 
 .method public setInvalidationInProgress(Z)V
-    .locals 1
+    .locals 0
 
     monitor-enter p0
 
     :try_start_0
     iput-boolean p1, p0, Lcom/android/server/biometrics/sensors/BiometricUserState;->mInvalidationInProgress:Z
 
-    invoke-direct {p0}, Lcom/android/server/biometrics/sensors/BiometricUserState;->scheduleWriteStateLocked()V
+    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/BiometricUserState;->scheduleWriteStateLocked()V
 
     monitor-exit p0
 
     return-void
 
     :catchall_0
-    move-exception v0
+    move-exception p1
 
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw p1
 .end method

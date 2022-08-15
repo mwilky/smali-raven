@@ -1,47 +1,44 @@
 .class public final synthetic Lcom/android/server/pm/PackageManagerServiceUtils$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/Comparator;
+.implements Ljava/util/function/Predicate;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/pm/PackageManagerServiceUtils$$ExternalSyntheticLambda0;
+# instance fields
+.field public final synthetic f$0:Landroid/content/Intent;
+
+.field public final synthetic f$1:Ljava/lang/String;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/pm/PackageManagerServiceUtils$$ExternalSyntheticLambda0;
-
-    invoke-direct {v0}, Lcom/android/server/pm/PackageManagerServiceUtils$$ExternalSyntheticLambda0;-><init>()V
-
-    sput-object v0, Lcom/android/server/pm/PackageManagerServiceUtils$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/server/pm/PackageManagerServiceUtils$$ExternalSyntheticLambda0;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Landroid/content/Intent;Ljava/lang/String;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/pm/PackageManagerServiceUtils$$ExternalSyntheticLambda0;->f$0:Landroid/content/Intent;
+
+    iput-object p2, p0, Lcom/android/server/pm/PackageManagerServiceUtils$$ExternalSyntheticLambda0;->f$1:Ljava/lang/String;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 0
+.method public final test(Ljava/lang/Object;)Z
+    .locals 1
 
-    check-cast p1, Lcom/android/server/pm/PackageSetting;
+    iget-object v0, p0, Lcom/android/server/pm/PackageManagerServiceUtils$$ExternalSyntheticLambda0;->f$0:Landroid/content/Intent;
 
-    check-cast p2, Lcom/android/server/pm/PackageSetting;
+    iget-object p0, p0, Lcom/android/server/pm/PackageManagerServiceUtils$$ExternalSyntheticLambda0;->f$1:Ljava/lang/String;
 
-    invoke-static {p1, p2}, Lcom/android/server/pm/PackageManagerServiceUtils;->lambda$getPackagesForDexopt$5(Lcom/android/server/pm/PackageSetting;Lcom/android/server/pm/PackageSetting;)I
+    check-cast p1, Lcom/android/server/pm/pkg/component/ParsedIntentInfo;
 
-    move-result p1
+    invoke-static {v0, p0, p1}, Lcom/android/server/pm/PackageManagerServiceUtils;->$r8$lambda$DfU-frVeYVl3--0HQjqUKDAZs_c(Landroid/content/Intent;Ljava/lang/String;Lcom/android/server/pm/pkg/component/ParsedIntentInfo;)Z
 
-    return p1
+    move-result p0
+
+    return p0
 .end method

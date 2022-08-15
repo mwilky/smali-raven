@@ -1,4 +1,4 @@
-.class Lcom/android/server/pm/UserManagerService$7;
+.class public Lcom/android/server/pm/UserManagerService$7;
 .super Landroid/content/BroadcastReceiver;
 .source "UserManagerService.java"
 
@@ -9,19 +9,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/pm/UserManagerService;
+.field public final synthetic this$0:Lcom/android/server/pm/UserManagerService;
 
-.field final synthetic val$userId:I
+.field public final synthetic val$userId:I
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/pm/UserManagerService;I)V
+.method public constructor <init>(Lcom/android/server/pm/UserManagerService;I)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/pm/UserManagerService$7;->this$0:Lcom/android/server/pm/UserManagerService;
@@ -36,13 +36,13 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 1
+    .locals 0
 
-    new-instance v0, Lcom/android/server/pm/UserManagerService$7$1;
+    new-instance p1, Lcom/android/server/pm/UserManagerService$7$1;
 
-    invoke-direct {v0, p0}, Lcom/android/server/pm/UserManagerService$7$1;-><init>(Lcom/android/server/pm/UserManagerService$7;)V
+    invoke-direct {p1, p0}, Lcom/android/server/pm/UserManagerService$7$1;-><init>(Lcom/android/server/pm/UserManagerService$7;)V
 
-    invoke-virtual {v0}, Lcom/android/server/pm/UserManagerService$7$1;->start()V
+    invoke-virtual {p1}, Ljava/lang/Thread;->start()V
 
     return-void
 .end method

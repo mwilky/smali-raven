@@ -1,4 +1,4 @@
-.class Lcom/android/server/job/controllers/QuotaController$1;
+.class public Lcom/android/server/job/controllers/QuotaController$1;
 .super Ljava/lang/Object;
 .source "QuotaController.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/job/controllers/QuotaController;
+.field public final synthetic this$0:Lcom/android/server/job/controllers/QuotaController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/job/controllers/QuotaController;)V
+.method public constructor <init>(Lcom/android/server/job/controllers/QuotaController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/job/controllers/QuotaController$1;->this$0:Lcom/android/server/job/controllers/QuotaController;
@@ -35,21 +35,21 @@
 
 # virtual methods
 .method public onAlarm()V
-    .locals 2
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/job/controllers/QuotaController$1;->this$0:Lcom/android/server/job/controllers/QuotaController;
+    iget-object p0, p0, Lcom/android/server/job/controllers/QuotaController$1;->this$0:Lcom/android/server/job/controllers/QuotaController;
 
-    invoke-static {v0}, Lcom/android/server/job/controllers/QuotaController;->access$300(Lcom/android/server/job/controllers/QuotaController;)Lcom/android/server/job/controllers/QuotaController$QcHandler;
+    invoke-static {p0}, Lcom/android/server/job/controllers/QuotaController;->-$$Nest$fgetmHandler(Lcom/android/server/job/controllers/QuotaController;)Lcom/android/server/job/controllers/QuotaController$QcHandler;
 
-    move-result-object v0
+    move-result-object p0
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    invoke-virtual {v0, v1}, Lcom/android/server/job/controllers/QuotaController$QcHandler;->obtainMessage(I)Landroid/os/Message;
+    invoke-virtual {p0, v0}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
+    invoke-virtual {p0}, Landroid/os/Message;->sendToTarget()V
 
     return-void
 .end method

@@ -1,43 +1,30 @@
 .class public final synthetic Lcom/android/server/devicepolicy/DevicePolicyManagerService$DpmsUpgradeDataProvider$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Function;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService$DpmsUpgradeDataProvider;
-
-.field public final synthetic f$1:I
+.implements Ljava/util/function/ToIntFunction;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/devicepolicy/DevicePolicyManagerService$DpmsUpgradeDataProvider;I)V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$DpmsUpgradeDataProvider$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService$DpmsUpgradeDataProvider;
-
-    iput p2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$DpmsUpgradeDataProvider$$ExternalSyntheticLambda0;->f$1:I
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+.method public final applyAsInt(Ljava/lang/Object;)I
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$DpmsUpgradeDataProvider$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService$DpmsUpgradeDataProvider;
+    check-cast p1, Landroid/content/pm/UserInfo;
 
-    iget v1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$DpmsUpgradeDataProvider$$ExternalSyntheticLambda0;->f$1:I
+    invoke-static {p1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService$DpmsUpgradeDataProvider;->$r8$lambda$BZGTcXGaTWuVF-tKV_WPLFVwMDA(Landroid/content/pm/UserInfo;)I
 
-    check-cast p1, Landroid/content/ComponentName;
+    move-result p0
 
-    invoke-virtual {v0, v1, p1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService$DpmsUpgradeDataProvider;->lambda$getAdminInfoSupplier$0$DevicePolicyManagerService$DpmsUpgradeDataProvider(ILandroid/content/ComponentName;)Landroid/app/admin/DeviceAdminInfo;
-
-    move-result-object p1
-
-    return-object p1
+    return p0
 .end method

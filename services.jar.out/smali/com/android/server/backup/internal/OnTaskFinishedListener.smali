@@ -8,10 +8,20 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static synthetic $r8$lambda$oeBgztBFhkLstOt5uU4vzRLgDig(Ljava/lang/String;)V
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/server/backup/internal/OnTaskFinishedListener;->lambda$static$0(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method public static constructor <clinit>()V
     .locals 1
 
-    sget-object v0, Lcom/android/server/backup/internal/OnTaskFinishedListener$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/server/backup/internal/OnTaskFinishedListener$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/android/server/backup/internal/OnTaskFinishedListener$$ExternalSyntheticLambda0;
+
+    invoke-direct {v0}, Lcom/android/server/backup/internal/OnTaskFinishedListener$$ExternalSyntheticLambda0;-><init>()V
 
     sput-object v0, Lcom/android/server/backup/internal/OnTaskFinishedListener;->NOP:Lcom/android/server/backup/internal/OnTaskFinishedListener;
 

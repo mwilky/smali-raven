@@ -1,70 +1,121 @@
-.class Lcom/android/server/dreams/DreamManagerService$1;
-.super Landroid/content/BroadcastReceiver;
+.class public Lcom/android/server/dreams/DreamManagerService$1;
+.super Lcom/android/server/wm/ActivityInterceptorCallback;
 .source "DreamManagerService.java"
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/dreams/DreamManagerService;->onBootPhase(I)V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/server/dreams/DreamManagerService;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/dreams/DreamManagerService;
+.field public final synthetic this$0:Lcom/android/server/dreams/DreamManagerService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/dreams/DreamManagerService;)V
+.method public constructor <init>(Lcom/android/server/dreams/DreamManagerService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/dreams/DreamManagerService$1;->this$0:Lcom/android/server/dreams/DreamManagerService;
 
-    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
+    invoke-direct {p0}, Lcom/android/server/wm/ActivityInterceptorCallback;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 4
+.method public intercept(Lcom/android/server/wm/ActivityInterceptorCallback$ActivityInterceptorInfo;)Lcom/android/server/wm/ActivityInterceptorCallback$ActivityInterceptResult;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/dreams/DreamManagerService$1;->this$0:Lcom/android/server/dreams/DreamManagerService;
+    const/4 p0, 0x0
 
-    invoke-static {v0}, Lcom/android/server/dreams/DreamManagerService;->access$200(Lcom/android/server/dreams/DreamManagerService;)V
+    return-object p0
+.end method
 
-    iget-object v0, p0, Lcom/android/server/dreams/DreamManagerService$1;->this$0:Lcom/android/server/dreams/DreamManagerService;
+.method public onActivityLaunched(Landroid/app/TaskInfo;Landroid/content/pm/ActivityInfo;Lcom/android/server/wm/ActivityInterceptorCallback$ActivityInterceptorInfo;)V
+    .locals 0
 
-    invoke-static {v0}, Lcom/android/server/dreams/DreamManagerService;->access$300(Lcom/android/server/dreams/DreamManagerService;)Ljava/lang/Object;
+    invoke-virtual {p1}, Landroid/app/TaskInfo;->getActivityType()I
 
-    move-result-object v0
+    move-result p1
 
-    monitor-enter v0
+    const/4 p3, 0x2
 
-    :try_start_0
-    iget-object v1, p0, Lcom/android/server/dreams/DreamManagerService$1;->this$0:Lcom/android/server/dreams/DreamManagerService;
+    if-eq p1, p3, :cond_1
 
-    const/4 v2, 0x0
+    const/4 p3, 0x5
 
-    const-string/jumbo v3, "user switched"
+    if-eq p1, p3, :cond_1
 
-    invoke-static {v1, v2, v3}, Lcom/android/server/dreams/DreamManagerService;->access$400(Lcom/android/server/dreams/DreamManagerService;ZLjava/lang/String;)V
+    const/4 p3, 0x4
 
-    monitor-exit v0
+    if-ne p1, p3, :cond_0
 
+    goto :goto_0
+
+    :cond_0
+    const/4 p1, 0x0
+
+    goto :goto_1
+
+    :cond_1
+    :goto_0
+    const/4 p1, 0x1
+
+    :goto_1
+    iget-object p3, p0, Lcom/android/server/dreams/DreamManagerService$1;->this$0:Lcom/android/server/dreams/DreamManagerService;
+
+    invoke-static {p3}, Lcom/android/server/dreams/DreamManagerService;->-$$Nest$fgetmCurrentDreamToken(Lcom/android/server/dreams/DreamManagerService;)Landroid/os/Binder;
+
+    move-result-object p3
+
+    if-eqz p3, :cond_2
+
+    iget-object p3, p0, Lcom/android/server/dreams/DreamManagerService$1;->this$0:Lcom/android/server/dreams/DreamManagerService;
+
+    invoke-static {p3}, Lcom/android/server/dreams/DreamManagerService;->-$$Nest$fgetmCurrentDreamIsWaking(Lcom/android/server/dreams/DreamManagerService;)Z
+
+    move-result p3
+
+    if-nez p3, :cond_2
+
+    iget-object p3, p0, Lcom/android/server/dreams/DreamManagerService$1;->this$0:Lcom/android/server/dreams/DreamManagerService;
+
+    invoke-static {p3}, Lcom/android/server/dreams/DreamManagerService;->-$$Nest$fgetmCurrentDreamIsDozing(Lcom/android/server/dreams/DreamManagerService;)Z
+
+    move-result p3
+
+    if-nez p3, :cond_2
+
+    if-nez p1, :cond_2
+
+    iget-object p0, p0, Lcom/android/server/dreams/DreamManagerService$1;->this$0:Lcom/android/server/dreams/DreamManagerService;
+
+    new-instance p1, Ljava/lang/StringBuilder;
+
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo p3, "stopping dream due to activity start: "
+
+    invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object p2, p2, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
+
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-static {p0, p1}, Lcom/android/server/dreams/DreamManagerService;->-$$Nest$mrequestAwakenInternal(Lcom/android/server/dreams/DreamManagerService;Ljava/lang/String;)V
+
+    :cond_2
     return-void
-
-    :catchall_0
-    move-exception v1
-
-    monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v1
 .end method

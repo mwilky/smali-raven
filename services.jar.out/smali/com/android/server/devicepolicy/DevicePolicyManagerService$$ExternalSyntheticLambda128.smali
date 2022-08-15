@@ -1,67 +1,52 @@
 .class public final synthetic Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda128;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Consumer;
+.implements Lcom/android/internal/util/FunctionalUtils$ThrowingRunnable;
 
 
 # instance fields
-.field public final synthetic f$0:Z
+.field public final synthetic f$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
 
-.field public final synthetic f$1:Landroid/os/RemoteCallback;
+.field public final synthetic f$1:I
 
-.field public final synthetic f$2:Lcom/android/server/devicepolicy/CallerIdentity;
+.field public final synthetic f$2:Ljava/util/ArrayList;
 
-.field public final synthetic f$3:Ljava/lang/String;
-
-.field public final synthetic f$4:I
-
-.field public final synthetic f$5:Landroid/content/ComponentName;
+.field public final synthetic f$3:Ljava/util/function/Predicate;
 
 
 # direct methods
-.method public synthetic constructor <init>(ZLandroid/os/RemoteCallback;Lcom/android/server/devicepolicy/CallerIdentity;Ljava/lang/String;ILandroid/content/ComponentName;)V
+.method public synthetic constructor <init>(Lcom/android/server/devicepolicy/DevicePolicyManagerService;ILjava/util/ArrayList;Ljava/util/function/Predicate;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-boolean p1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda128;->f$0:Z
+    iput-object p1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda128;->f$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
 
-    iput-object p2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda128;->f$1:Landroid/os/RemoteCallback;
+    iput p2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda128;->f$1:I
 
-    iput-object p3, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda128;->f$2:Lcom/android/server/devicepolicy/CallerIdentity;
+    iput-object p3, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda128;->f$2:Ljava/util/ArrayList;
 
-    iput-object p4, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda128;->f$3:Ljava/lang/String;
-
-    iput p5, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda128;->f$4:I
-
-    iput-object p6, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda128;->f$5:Landroid/content/ComponentName;
+    iput-object p4, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda128;->f$3:Ljava/util/function/Predicate;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
-    .locals 7
+.method public final runOrThrow()V
+    .locals 3
 
-    iget-boolean v0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda128;->f$0:Z
+    iget-object v0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda128;->f$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
 
-    iget-object v1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda128;->f$1:Landroid/os/RemoteCallback;
+    iget v1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda128;->f$1:I
 
-    iget-object v2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda128;->f$2:Lcom/android/server/devicepolicy/CallerIdentity;
+    iget-object v2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda128;->f$2:Ljava/util/ArrayList;
 
-    iget-object v3, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda128;->f$3:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda128;->f$3:Ljava/util/function/Predicate;
 
-    iget v4, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda128;->f$4:I
-
-    iget-object v5, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda128;->f$5:Landroid/content/ComponentName;
-
-    move-object v6, p1
-
-    check-cast v6, Ljava/lang/Boolean;
-
-    invoke-static/range {v0 .. v6}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$setPermissionGrantState$100(ZLandroid/os/RemoteCallback;Lcom/android/server/devicepolicy/CallerIdentity;Ljava/lang/String;ILandroid/content/ComponentName;Ljava/lang/Boolean;)V
+    invoke-static {v0, v1, v2, p0}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->$r8$lambda$11pQH2rtx2c0oiPI_FqS-2J3AXI(Lcom/android/server/devicepolicy/DevicePolicyManagerService;ILjava/util/ArrayList;Ljava/util/function/Predicate;)V
 
     return-void
 .end method

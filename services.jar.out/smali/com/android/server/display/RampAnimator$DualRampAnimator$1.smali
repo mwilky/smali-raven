@@ -1,4 +1,4 @@
-.class Lcom/android/server/display/RampAnimator$DualRampAnimator$1;
+.class public Lcom/android/server/display/RampAnimator$DualRampAnimator$1;
 .super Ljava/lang/Object;
 .source "RampAnimator.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/display/RampAnimator$DualRampAnimator;
+.field public final synthetic this$0:Lcom/android/server/display/RampAnimator$DualRampAnimator;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/display/RampAnimator$DualRampAnimator;)V
+.method public constructor <init>(Lcom/android/server/display/RampAnimator$DualRampAnimator;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/display/RampAnimator$DualRampAnimator$1;->this$0:Lcom/android/server/display/RampAnimator$DualRampAnimator;
@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Lcom/android/server/display/RampAnimator$DualRampAnimator$1;->this$0:Lcom/android/server/display/RampAnimator$DualRampAnimator;
 
-    invoke-static {v0}, Lcom/android/server/display/RampAnimator$DualRampAnimator;->access$1000(Lcom/android/server/display/RampAnimator$DualRampAnimator;)Lcom/android/server/display/RampAnimator$Listener;
+    invoke-static {v0}, Lcom/android/server/display/RampAnimator$DualRampAnimator;->-$$Nest$fgetmListener(Lcom/android/server/display/RampAnimator$DualRampAnimator;)Lcom/android/server/display/RampAnimator$Listener;
 
     move-result-object v0
 
@@ -53,13 +53,13 @@
 
     if-nez v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/display/RampAnimator$DualRampAnimator$1;->this$0:Lcom/android/server/display/RampAnimator$DualRampAnimator;
+    iget-object p0, p0, Lcom/android/server/display/RampAnimator$DualRampAnimator$1;->this$0:Lcom/android/server/display/RampAnimator$DualRampAnimator;
 
-    invoke-static {v0}, Lcom/android/server/display/RampAnimator$DualRampAnimator;->access$1000(Lcom/android/server/display/RampAnimator$DualRampAnimator;)Lcom/android/server/display/RampAnimator$Listener;
+    invoke-static {p0}, Lcom/android/server/display/RampAnimator$DualRampAnimator;->-$$Nest$fgetmListener(Lcom/android/server/display/RampAnimator$DualRampAnimator;)Lcom/android/server/display/RampAnimator$Listener;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-interface {v0}, Lcom/android/server/display/RampAnimator$Listener;->onAnimationEnd()V
+    invoke-interface {p0}, Lcom/android/server/display/RampAnimator$Listener;->onAnimationEnd()V
 
     :cond_0
     return-void

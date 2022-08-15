@@ -1,4 +1,4 @@
-.class Lcom/android/server/blob/BlobStoreManagerService$StatsPullAtomCallbackImpl;
+.class public Lcom/android/server/blob/BlobStoreManagerService$StatsPullAtomCallbackImpl;
 .super Ljava/lang/Object;
 .source "BlobStoreManagerService.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "StatsPullAtomCallbackImpl"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/blob/BlobStoreManagerService;
+.field public final synthetic this$0:Lcom/android/server/blob/BlobStoreManagerService;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/server/blob/BlobStoreManagerService;)V
+.method public constructor <init>(Lcom/android/server/blob/BlobStoreManagerService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/blob/BlobStoreManagerService$StatsPullAtomCallbackImpl;->this$0:Lcom/android/server/blob/BlobStoreManagerService;
@@ -32,7 +32,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/blob/BlobStoreManagerService;Lcom/android/server/blob/BlobStoreManagerService$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/blob/BlobStoreManagerService;Lcom/android/server/blob/BlobStoreManagerService$StatsPullAtomCallbackImpl-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/blob/BlobStoreManagerService$StatsPullAtomCallbackImpl;-><init>(Lcom/android/server/blob/BlobStoreManagerService;)V
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public onPullAtom(ILjava/util/List;)I
-    .locals 3
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -53,41 +53,36 @@
         }
     .end annotation
 
-    packed-switch p1, :pswitch_data_0
+    const/16 v0, 0x2761
 
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    if-ne p1, v0, :cond_0
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    iget-object p0, p0, Lcom/android/server/blob/BlobStoreManagerService$StatsPullAtomCallbackImpl;->this$0:Lcom/android/server/blob/BlobStoreManagerService;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {p0, p1, p2}, Lcom/android/server/blob/BlobStoreManagerService;->-$$Nest$mpullBlobData(Lcom/android/server/blob/BlobStoreManagerService;ILjava/util/List;)I
 
-    const-string v2, "Unknown tagId="
+    move-result p0
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    return p0
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    :cond_0
+    new-instance p0, Ljava/lang/UnsupportedOperationException;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    const-string v0, "Unknown tagId="
 
-    throw v0
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :pswitch_0
-    iget-object v0, p0, Lcom/android/server/blob/BlobStoreManagerService$StatsPullAtomCallbackImpl;->this$0:Lcom/android/server/blob/BlobStoreManagerService;
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-static {v0, p1, p2}, Lcom/android/server/blob/BlobStoreManagerService;->access$3100(Lcom/android/server/blob/BlobStoreManagerService;ILjava/util/List;)I
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result v0
+    move-result-object p1
 
-    return v0
+    invoke-direct {p0, p1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0x2761
-        :pswitch_0
-    .end packed-switch
+    throw p0
 .end method

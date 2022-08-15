@@ -4,14 +4,6 @@
 
 
 # direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
 .method public static serialize(Landroid/security/keystore/recovery/KeyChainSnapshot;Ljava/io/OutputStream;)V
     .locals 3
     .annotation system Ldalvik/annotation/Throws;
@@ -23,46 +15,40 @@
 
     invoke-static {p1}, Landroid/util/Xml;->resolveSerializer(Ljava/io/OutputStream;)Landroid/util/TypedXmlSerializer;
 
-    move-result-object v0
+    move-result-object p1
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    invoke-interface {v0, v1, v1}, Landroid/util/TypedXmlSerializer;->startDocument(Ljava/lang/String;Ljava/lang/Boolean;)V
+    invoke-interface {p1, v0, v0}, Landroid/util/TypedXmlSerializer;->startDocument(Ljava/lang/String;Ljava/lang/Boolean;)V
 
-    sget-object v1, Lcom/android/server/locksettings/recoverablekeystore/serialization/KeyChainSnapshotSchema;->NAMESPACE:Ljava/lang/String;
+    sget-object v0, Lcom/android/server/locksettings/recoverablekeystore/serialization/KeyChainSnapshotSchema;->NAMESPACE:Ljava/lang/String;
 
-    const-string/jumbo v2, "keyChainSnapshot"
+    const-string v1, "keyChainSnapshot"
 
-    invoke-interface {v0, v1, v2}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p1, v0, v1}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    invoke-static {v0, p0}, Lcom/android/server/locksettings/recoverablekeystore/serialization/KeyChainSnapshotSerializer;->writeKeyChainSnapshotProperties(Landroid/util/TypedXmlSerializer;Landroid/security/keystore/recovery/KeyChainSnapshot;)V
-
-    nop
+    invoke-static {p1, p0}, Lcom/android/server/locksettings/recoverablekeystore/serialization/KeyChainSnapshotSerializer;->writeKeyChainSnapshotProperties(Landroid/util/TypedXmlSerializer;Landroid/security/keystore/recovery/KeyChainSnapshot;)V
 
     invoke-virtual {p0}, Landroid/security/keystore/recovery/KeyChainSnapshot;->getKeyChainProtectionParams()Ljava/util/List;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-static {v0, v1}, Lcom/android/server/locksettings/recoverablekeystore/serialization/KeyChainSnapshotSerializer;->writeKeyChainProtectionParams(Landroid/util/TypedXmlSerializer;Ljava/util/List;)V
-
-    nop
+    invoke-static {p1, v2}, Lcom/android/server/locksettings/recoverablekeystore/serialization/KeyChainSnapshotSerializer;->writeKeyChainProtectionParams(Landroid/util/TypedXmlSerializer;Ljava/util/List;)V
 
     invoke-virtual {p0}, Landroid/security/keystore/recovery/KeyChainSnapshot;->getWrappedApplicationKeys()Ljava/util/List;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-static {v0, v1}, Lcom/android/server/locksettings/recoverablekeystore/serialization/KeyChainSnapshotSerializer;->writeApplicationKeys(Landroid/util/TypedXmlSerializer;Ljava/util/List;)V
+    invoke-static {p1, p0}, Lcom/android/server/locksettings/recoverablekeystore/serialization/KeyChainSnapshotSerializer;->writeApplicationKeys(Landroid/util/TypedXmlSerializer;Ljava/util/List;)V
 
-    sget-object v1, Lcom/android/server/locksettings/recoverablekeystore/serialization/KeyChainSnapshotSchema;->NAMESPACE:Ljava/lang/String;
+    invoke-interface {p1, v0, v1}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    invoke-interface {v0, v1, v2}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
-
-    invoke-interface {v0}, Landroid/util/TypedXmlSerializer;->endDocument()V
+    invoke-interface {p1}, Landroid/util/TypedXmlSerializer;->endDocument()V
 
     return-void
 .end method
 
-.method private static writeApplicationKeyProperties(Landroid/util/TypedXmlSerializer;Landroid/security/keystore/recovery/WrappedApplicationKey;)V
+.method public static writeApplicationKeyProperties(Landroid/util/TypedXmlSerializer;Landroid/security/keystore/recovery/WrappedApplicationKey;)V
     .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -82,23 +68,23 @@
 
     move-result-object v0
 
-    const-string/jumbo v1, "keyMaterial"
+    const-string v1, "keyMaterial"
 
     invoke-static {p0, v1, v0}, Lcom/android/server/locksettings/recoverablekeystore/serialization/KeyChainSnapshotSerializer;->writePropertyTag(Landroid/util/TypedXmlSerializer;Ljava/lang/String;[B)V
 
     invoke-virtual {p1}, Landroid/security/keystore/recovery/WrappedApplicationKey;->getMetadata()[B
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string/jumbo v1, "keyMetadata"
+    const-string v0, "keyMetadata"
 
-    invoke-static {p0, v1, v0}, Lcom/android/server/locksettings/recoverablekeystore/serialization/KeyChainSnapshotSerializer;->writePropertyTag(Landroid/util/TypedXmlSerializer;Ljava/lang/String;[B)V
+    invoke-static {p0, v0, p1}, Lcom/android/server/locksettings/recoverablekeystore/serialization/KeyChainSnapshotSerializer;->writePropertyTag(Landroid/util/TypedXmlSerializer;Ljava/lang/String;[B)V
 
     return-void
 .end method
 
-.method private static writeApplicationKeys(Landroid/util/TypedXmlSerializer;Ljava/util/List;)V
-    .locals 5
+.method public static writeApplicationKeys(Landroid/util/TypedXmlSerializer;Ljava/util/List;)V
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -123,45 +109,43 @@
 
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p1
 
     :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_0
+    if-eqz v0, :cond_0
 
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
-    check-cast v2, Landroid/security/keystore/recovery/WrappedApplicationKey;
+    check-cast v0, Landroid/security/keystore/recovery/WrappedApplicationKey;
 
-    sget-object v3, Lcom/android/server/locksettings/recoverablekeystore/serialization/KeyChainSnapshotSchema;->NAMESPACE:Ljava/lang/String;
+    sget-object v2, Lcom/android/server/locksettings/recoverablekeystore/serialization/KeyChainSnapshotSchema;->NAMESPACE:Ljava/lang/String;
 
-    const-string v4, "applicationKey"
+    const-string v3, "applicationKey"
 
-    invoke-interface {p0, v3, v4}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p0, v2, v3}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    invoke-static {p0, v2}, Lcom/android/server/locksettings/recoverablekeystore/serialization/KeyChainSnapshotSerializer;->writeApplicationKeyProperties(Landroid/util/TypedXmlSerializer;Landroid/security/keystore/recovery/WrappedApplicationKey;)V
+    invoke-static {p0, v0}, Lcom/android/server/locksettings/recoverablekeystore/serialization/KeyChainSnapshotSerializer;->writeApplicationKeyProperties(Landroid/util/TypedXmlSerializer;Landroid/security/keystore/recovery/WrappedApplicationKey;)V
 
-    sget-object v3, Lcom/android/server/locksettings/recoverablekeystore/serialization/KeyChainSnapshotSchema;->NAMESPACE:Ljava/lang/String;
-
-    invoke-interface {p0, v3, v4}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p0, v2, v3}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     goto :goto_0
 
     :cond_0
-    sget-object v0, Lcom/android/server/locksettings/recoverablekeystore/serialization/KeyChainSnapshotSchema;->NAMESPACE:Ljava/lang/String;
+    sget-object p1, Lcom/android/server/locksettings/recoverablekeystore/serialization/KeyChainSnapshotSchema;->NAMESPACE:Ljava/lang/String;
 
-    invoke-interface {p0, v0, v1}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p0, p1, v1}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     return-void
 .end method
 
-.method private static writeKeyChainProtectionParams(Landroid/util/TypedXmlSerializer;Ljava/util/List;)V
-    .locals 5
+.method public static writeKeyChainProtectionParams(Landroid/util/TypedXmlSerializer;Ljava/util/List;)V
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -180,58 +164,54 @@
 
     sget-object v0, Lcom/android/server/locksettings/recoverablekeystore/serialization/KeyChainSnapshotSchema;->NAMESPACE:Ljava/lang/String;
 
-    const-string/jumbo v1, "keyChainProtectionParamsList"
+    const-string v1, "keyChainProtectionParamsList"
 
     invoke-interface {p0, v0, v1}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p1
 
     :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_0
+    if-eqz v0, :cond_0
 
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
-    check-cast v2, Landroid/security/keystore/recovery/KeyChainProtectionParams;
+    check-cast v0, Landroid/security/keystore/recovery/KeyChainProtectionParams;
 
-    sget-object v3, Lcom/android/server/locksettings/recoverablekeystore/serialization/KeyChainSnapshotSchema;->NAMESPACE:Ljava/lang/String;
+    sget-object v2, Lcom/android/server/locksettings/recoverablekeystore/serialization/KeyChainSnapshotSchema;->NAMESPACE:Ljava/lang/String;
 
-    const-string/jumbo v4, "keyChainProtectionParams"
+    const-string v3, "keyChainProtectionParams"
 
-    invoke-interface {p0, v3, v4}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p0, v2, v3}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    invoke-static {p0, v2}, Lcom/android/server/locksettings/recoverablekeystore/serialization/KeyChainSnapshotSerializer;->writeKeyChainProtectionParamsProperties(Landroid/util/TypedXmlSerializer;Landroid/security/keystore/recovery/KeyChainProtectionParams;)V
+    invoke-static {p0, v0}, Lcom/android/server/locksettings/recoverablekeystore/serialization/KeyChainSnapshotSerializer;->writeKeyChainProtectionParamsProperties(Landroid/util/TypedXmlSerializer;Landroid/security/keystore/recovery/KeyChainProtectionParams;)V
 
-    sget-object v3, Lcom/android/server/locksettings/recoverablekeystore/serialization/KeyChainSnapshotSchema;->NAMESPACE:Ljava/lang/String;
-
-    invoke-interface {p0, v3, v4}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p0, v2, v3}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     goto :goto_0
 
     :cond_0
-    sget-object v0, Lcom/android/server/locksettings/recoverablekeystore/serialization/KeyChainSnapshotSchema;->NAMESPACE:Ljava/lang/String;
+    sget-object p1, Lcom/android/server/locksettings/recoverablekeystore/serialization/KeyChainSnapshotSchema;->NAMESPACE:Ljava/lang/String;
 
-    invoke-interface {p0, v0, v1}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p0, p1, v1}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     return-void
 .end method
 
-.method private static writeKeyChainProtectionParamsProperties(Landroid/util/TypedXmlSerializer;Landroid/security/keystore/recovery/KeyChainProtectionParams;)V
+.method public static writeKeyChainProtectionParamsProperties(Landroid/util/TypedXmlSerializer;Landroid/security/keystore/recovery/KeyChainProtectionParams;)V
     .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
-
-    nop
 
     invoke-virtual {p1}, Landroid/security/keystore/recovery/KeyChainProtectionParams;->getUserSecretType()I
 
@@ -243,28 +223,26 @@
 
     invoke-static {p0, v2, v0, v1}, Lcom/android/server/locksettings/recoverablekeystore/serialization/KeyChainSnapshotSerializer;->writePropertyTag(Landroid/util/TypedXmlSerializer;Ljava/lang/String;J)V
 
-    nop
-
     invoke-virtual {p1}, Landroid/security/keystore/recovery/KeyChainProtectionParams;->getLockScreenUiFormat()I
 
     move-result v0
 
     int-to-long v0, v0
 
-    const-string/jumbo v2, "lockScreenUiType"
+    const-string v2, "lockScreenUiType"
 
     invoke-static {p0, v2, v0, v1}, Lcom/android/server/locksettings/recoverablekeystore/serialization/KeyChainSnapshotSerializer;->writePropertyTag(Landroid/util/TypedXmlSerializer;Ljava/lang/String;J)V
 
     invoke-virtual {p1}, Landroid/security/keystore/recovery/KeyChainProtectionParams;->getKeyDerivationParams()Landroid/security/keystore/recovery/KeyDerivationParams;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-static {p0, v0}, Lcom/android/server/locksettings/recoverablekeystore/serialization/KeyChainSnapshotSerializer;->writeKeyDerivationParams(Landroid/util/TypedXmlSerializer;Landroid/security/keystore/recovery/KeyDerivationParams;)V
+    invoke-static {p0, p1}, Lcom/android/server/locksettings/recoverablekeystore/serialization/KeyChainSnapshotSerializer;->writeKeyDerivationParams(Landroid/util/TypedXmlSerializer;Landroid/security/keystore/recovery/KeyDerivationParams;)V
 
     return-void
 .end method
 
-.method private static writeKeyChainSnapshotProperties(Landroid/util/TypedXmlSerializer;Landroid/security/keystore/recovery/KeyChainSnapshot;)V
+.method public static writeKeyChainSnapshotProperties(Landroid/util/TypedXmlSerializer;Landroid/security/keystore/recovery/KeyChainSnapshot;)V
     .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -272,8 +250,6 @@
             Ljava/security/cert/CertificateEncodingException;
         }
     .end annotation
-
-    nop
 
     invoke-virtual {p1}, Landroid/security/keystore/recovery/KeyChainSnapshot;->getSnapshotVersion()I
 
@@ -303,8 +279,6 @@
 
     invoke-static {p0, v2, v0, v1}, Lcom/android/server/locksettings/recoverablekeystore/serialization/KeyChainSnapshotSerializer;->writePropertyTag(Landroid/util/TypedXmlSerializer;Ljava/lang/String;J)V
 
-    nop
-
     invoke-virtual {p1}, Landroid/security/keystore/recovery/KeyChainSnapshot;->getEncryptedRecoveryKeyBlob()[B
 
     move-result-object v0
@@ -321,20 +295,18 @@
 
     invoke-static {p0, v1, v0}, Lcom/android/server/locksettings/recoverablekeystore/serialization/KeyChainSnapshotSerializer;->writePropertyTag(Landroid/util/TypedXmlSerializer;Ljava/lang/String;[B)V
 
-    nop
-
     invoke-virtual {p1}, Landroid/security/keystore/recovery/KeyChainSnapshot;->getTrustedHardwareCertPath()Ljava/security/cert/CertPath;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string/jumbo v1, "thmCertPath"
+    const-string/jumbo v0, "thmCertPath"
 
-    invoke-static {p0, v1, v0}, Lcom/android/server/locksettings/recoverablekeystore/serialization/KeyChainSnapshotSerializer;->writePropertyTag(Landroid/util/TypedXmlSerializer;Ljava/lang/String;Ljava/security/cert/CertPath;)V
+    invoke-static {p0, v0, p1}, Lcom/android/server/locksettings/recoverablekeystore/serialization/KeyChainSnapshotSerializer;->writePropertyTag(Landroid/util/TypedXmlSerializer;Ljava/lang/String;Ljava/security/cert/CertPath;)V
 
     return-void
 .end method
 
-.method private static writeKeyDerivationParams(Landroid/util/TypedXmlSerializer;Landroid/security/keystore/recovery/KeyDerivationParams;)V
+.method public static writeKeyDerivationParams(Landroid/util/TypedXmlSerializer;Landroid/security/keystore/recovery/KeyDerivationParams;)V
     .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -344,20 +316,18 @@
 
     sget-object v0, Lcom/android/server/locksettings/recoverablekeystore/serialization/KeyChainSnapshotSchema;->NAMESPACE:Ljava/lang/String;
 
-    const-string/jumbo v1, "keyDerivationParams"
+    const-string v1, "keyDerivationParams"
 
     invoke-interface {p0, v0, v1}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     invoke-static {p0, p1}, Lcom/android/server/locksettings/recoverablekeystore/serialization/KeyChainSnapshotSerializer;->writeKeyDerivationParamsProperties(Landroid/util/TypedXmlSerializer;Landroid/security/keystore/recovery/KeyDerivationParams;)V
-
-    sget-object v0, Lcom/android/server/locksettings/recoverablekeystore/serialization/KeyChainSnapshotSchema;->NAMESPACE:Ljava/lang/String;
 
     invoke-interface {p0, v0, v1}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     return-void
 .end method
 
-.method private static writeKeyDerivationParamsProperties(Landroid/util/TypedXmlSerializer;Landroid/security/keystore/recovery/KeyDerivationParams;)V
+.method public static writeKeyDerivationParamsProperties(Landroid/util/TypedXmlSerializer;Landroid/security/keystore/recovery/KeyDerivationParams;)V
     .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -383,22 +353,20 @@
 
     invoke-static {p0, v1, v0}, Lcom/android/server/locksettings/recoverablekeystore/serialization/KeyChainSnapshotSerializer;->writePropertyTag(Landroid/util/TypedXmlSerializer;Ljava/lang/String;[B)V
 
-    nop
-
     invoke-virtual {p1}, Landroid/security/keystore/recovery/KeyDerivationParams;->getMemoryDifficulty()I
 
-    move-result v0
+    move-result p1
 
-    int-to-long v0, v0
+    int-to-long v0, p1
 
-    const-string/jumbo v2, "memoryDifficulty"
+    const-string/jumbo p1, "memoryDifficulty"
 
-    invoke-static {p0, v2, v0, v1}, Lcom/android/server/locksettings/recoverablekeystore/serialization/KeyChainSnapshotSerializer;->writePropertyTag(Landroid/util/TypedXmlSerializer;Ljava/lang/String;J)V
+    invoke-static {p0, p1, v0, v1}, Lcom/android/server/locksettings/recoverablekeystore/serialization/KeyChainSnapshotSerializer;->writePropertyTag(Landroid/util/TypedXmlSerializer;Ljava/lang/String;J)V
 
     return-void
 .end method
 
-.method private static writePropertyTag(Landroid/util/TypedXmlSerializer;Ljava/lang/String;J)V
+.method public static writePropertyTag(Landroid/util/TypedXmlSerializer;Ljava/lang/String;J)V
     .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -412,18 +380,16 @@
 
     invoke-static {p2, p3}, Ljava/lang/Long;->toString(J)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p2
 
-    invoke-interface {p0, v0}, Landroid/util/TypedXmlSerializer;->text(Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
-
-    sget-object v0, Lcom/android/server/locksettings/recoverablekeystore/serialization/KeyChainSnapshotSchema;->NAMESPACE:Ljava/lang/String;
+    invoke-interface {p0, p2}, Landroid/util/TypedXmlSerializer;->text(Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     invoke-interface {p0, v0, p1}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     return-void
 .end method
 
-.method private static writePropertyTag(Landroid/util/TypedXmlSerializer;Ljava/lang/String;Ljava/lang/String;)V
+.method public static writePropertyTag(Landroid/util/TypedXmlSerializer;Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -437,14 +403,12 @@
 
     invoke-interface {p0, p2}, Landroid/util/TypedXmlSerializer;->text(Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    sget-object v0, Lcom/android/server/locksettings/recoverablekeystore/serialization/KeyChainSnapshotSchema;->NAMESPACE:Ljava/lang/String;
-
     invoke-interface {p0, v0, p1}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     return-void
 .end method
 
-.method private static writePropertyTag(Landroid/util/TypedXmlSerializer;Ljava/lang/String;Ljava/security/cert/CertPath;)V
+.method public static writePropertyTag(Landroid/util/TypedXmlSerializer;Ljava/lang/String;Ljava/security/cert/CertPath;)V
     .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -457,15 +421,15 @@
 
     invoke-virtual {p2, v0}, Ljava/security/cert/CertPath;->getEncoded(Ljava/lang/String;)[B
 
-    move-result-object v0
+    move-result-object p2
 
-    invoke-static {p0, p1, v0}, Lcom/android/server/locksettings/recoverablekeystore/serialization/KeyChainSnapshotSerializer;->writePropertyTag(Landroid/util/TypedXmlSerializer;Ljava/lang/String;[B)V
+    invoke-static {p0, p1, p2}, Lcom/android/server/locksettings/recoverablekeystore/serialization/KeyChainSnapshotSerializer;->writePropertyTag(Landroid/util/TypedXmlSerializer;Ljava/lang/String;[B)V
 
     return-void
 .end method
 
-.method private static writePropertyTag(Landroid/util/TypedXmlSerializer;Ljava/lang/String;[B)V
-    .locals 1
+.method public static writePropertyTag(Landroid/util/TypedXmlSerializer;Ljava/lang/String;[B)V
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -481,15 +445,13 @@
 
     invoke-interface {p0, v0, p1}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    invoke-static {p2, v0}, Landroid/util/Base64;->encodeToString([BI)Ljava/lang/String;
+    invoke-static {p2, v1}, Landroid/util/Base64;->encodeToString([BI)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p2
 
-    invoke-interface {p0, v0}, Landroid/util/TypedXmlSerializer;->text(Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
-
-    sget-object v0, Lcom/android/server/locksettings/recoverablekeystore/serialization/KeyChainSnapshotSchema;->NAMESPACE:Ljava/lang/String;
+    invoke-interface {p0, p2}, Landroid/util/TypedXmlSerializer;->text(Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     invoke-interface {p0, v0, p1}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 

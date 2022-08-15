@@ -1,4 +1,4 @@
-.class Lcom/android/server/recoverysystem/RecoverySystemService$Injector;
+.class public Lcom/android/server/recoverysystem/RecoverySystemService$Injector;
 .super Ljava/lang/Object;
 .source "RecoverySystemService.java"
 
@@ -9,19 +9,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "Injector"
 .end annotation
 
 
 # instance fields
-.field protected final mContext:Landroid/content/Context;
+.field public final mContext:Landroid/content/Context;
 
-.field protected final mPrefs:Lcom/android/server/recoverysystem/RecoverySystemService$PreferencesManager;
+.field public final mPrefs:Lcom/android/server/recoverysystem/RecoverySystemService$PreferencesManager;
 
 
 # direct methods
-.method constructor <init>(Landroid/content/Context;)V
+.method public constructor <init>(Landroid/content/Context;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,81 +40,75 @@
 
 # virtual methods
 .method public connectService()Lcom/android/server/recoverysystem/RecoverySystemService$UncryptSocket;
-    .locals 2
+    .locals 1
 
-    new-instance v0, Lcom/android/server/recoverysystem/RecoverySystemService$UncryptSocket;
+    new-instance p0, Lcom/android/server/recoverysystem/RecoverySystemService$UncryptSocket;
 
-    invoke-direct {v0}, Lcom/android/server/recoverysystem/RecoverySystemService$UncryptSocket;-><init>()V
+    invoke-direct {p0}, Lcom/android/server/recoverysystem/RecoverySystemService$UncryptSocket;-><init>()V
 
-    invoke-virtual {v0}, Lcom/android/server/recoverysystem/RecoverySystemService$UncryptSocket;->connectService()Z
+    invoke-virtual {p0}, Lcom/android/server/recoverysystem/RecoverySystemService$UncryptSocket;->connectService()Z
 
-    move-result v1
+    move-result v0
 
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
-    invoke-virtual {v0}, Lcom/android/server/recoverysystem/RecoverySystemService$UncryptSocket;->close()V
+    invoke-virtual {p0}, Lcom/android/server/recoverysystem/RecoverySystemService$UncryptSocket;->close()V
 
-    const/4 v1, 0x0
-
-    return-object v1
+    const/4 p0, 0x0
 
     :cond_0
-    return-object v0
+    return-object p0
 .end method
 
 .method public getBootControl()Landroid/hardware/boot/V1_2/IBootControl;
-    .locals 4
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    invoke-static {v0}, Landroid/hardware/boot/V1_0/IBootControl;->getService(Z)Landroid/hardware/boot/V1_0/IBootControl;
+    invoke-static {p0}, Landroid/hardware/boot/V1_0/IBootControl;->getService(Z)Landroid/hardware/boot/V1_0/IBootControl;
 
-    move-result-object v0
+    move-result-object p0
 
-    if-eqz v0, :cond_1
+    if-eqz p0, :cond_1
 
-    nop
+    invoke-static {p0}, Landroid/hardware/boot/V1_2/IBootControl;->castFrom(Landroid/os/IHwInterface;)Landroid/hardware/boot/V1_2/IBootControl;
 
-    invoke-static {v0}, Landroid/hardware/boot/V1_2/IBootControl;->castFrom(Landroid/os/IHwInterface;)Landroid/hardware/boot/V1_2/IBootControl;
+    move-result-object p0
 
-    move-result-object v1
+    if-nez p0, :cond_0
 
-    if-nez v1, :cond_0
+    const-string p0, "RecoverySystemService"
 
-    const-string v2, "RecoverySystemService"
+    const-string v0, "Device doesn\'t implement boot control HAL V1_2."
 
-    const-string v3, "Device doesn\'t implement boot control HAL V1_2."
+    invoke-static {p0, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {v2, v3}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v2, 0x0
-
-    return-object v2
+    const/4 p0, 0x0
 
     :cond_0
-    return-object v1
+    return-object p0
 
     :cond_1
-    new-instance v1, Landroid/os/RemoteException;
+    new-instance p0, Landroid/os/RemoteException;
 
-    const-string v2, "Failed to get boot control HAL V1_0."
+    const-string v0, "Failed to get boot control HAL V1_0."
 
-    invoke-direct {v1, v2}, Landroid/os/RemoteException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Landroid/os/RemoteException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p0
 .end method
 
 .method public getContext()Landroid/content/Context;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/recoverysystem/RecoverySystemService$Injector;->mContext:Landroid/content/Context;
+    iget-object p0, p0, Lcom/android/server/recoverysystem/RecoverySystemService$Injector;->mContext:Landroid/content/Context;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getCurrentTimeMillis()J
@@ -128,134 +122,132 @@
 .end method
 
 .method public getLockSettingsService()Lcom/android/internal/widget/LockSettingsInternal;
-    .locals 1
+    .locals 0
 
-    const-class v0, Lcom/android/internal/widget/LockSettingsInternal;
+    const-class p0, Lcom/android/internal/widget/LockSettingsInternal;
 
-    invoke-static {v0}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-static {p0}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/android/internal/widget/LockSettingsInternal;
+    check-cast p0, Lcom/android/internal/widget/LockSettingsInternal;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getMetricsPrefs()Lcom/android/server/recoverysystem/RecoverySystemService$PreferencesManager;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/recoverysystem/RecoverySystemService$Injector;->mPrefs:Lcom/android/server/recoverysystem/RecoverySystemService$PreferencesManager;
+    iget-object p0, p0, Lcom/android/server/recoverysystem/RecoverySystemService$Injector;->mPrefs:Lcom/android/server/recoverysystem/RecoverySystemService$PreferencesManager;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getPowerManager()Landroid/os/PowerManager;
-    .locals 2
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/recoverysystem/RecoverySystemService$Injector;->mContext:Landroid/content/Context;
+    iget-object p0, p0, Lcom/android/server/recoverysystem/RecoverySystemService$Injector;->mContext:Landroid/content/Context;
 
-    const-string v1, "power"
+    const-string v0, "power"
 
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Landroid/os/PowerManager;
+    check-cast p0, Landroid/os/PowerManager;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getUidFromPackageName(Ljava/lang/String;)I
-    .locals 3
+    .locals 1
 
     :try_start_0
-    iget-object v0, p0, Lcom/android/server/recoverysystem/RecoverySystemService$Injector;->mContext:Landroid/content/Context;
+    iget-object p0, p0, Lcom/android/server/recoverysystem/RecoverySystemService$Injector;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v0
+    move-result-object p0
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    invoke-virtual {v0, p1, v1}, Landroid/content/pm/PackageManager;->getPackageUidAsUser(Ljava/lang/String;I)I
+    invoke-virtual {p0, p1, v0}, Landroid/content/pm/PackageManager;->getPackageUidAsUser(Ljava/lang/String;I)I
 
-    move-result v0
+    move-result p0
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return v0
+    return p0
 
     :catch_0
-    move-exception v0
+    new-instance p0, Ljava/lang/StringBuilder;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v0, "Failed to find uid for "
 
-    const-string v2, "Failed to find uid for "
+    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object v1
+    const-string p1, "RecoverySystemService"
 
-    const-string v2, "RecoverySystemService"
+    invoke-static {p1, p0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {v2, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    const/4 p0, -0x1
 
-    const/4 v0, -0x1
-
-    return v0
+    return p0
 .end method
 
 .method public getUncryptPackageFileName()Ljava/lang/String;
-    .locals 1
+    .locals 0
 
-    sget-object v0, Landroid/os/RecoverySystem;->UNCRYPT_PACKAGE_FILE:Ljava/io/File;
+    sget-object p0, Landroid/os/RecoverySystem;->UNCRYPT_PACKAGE_FILE:Ljava/io/File;
 
-    invoke-virtual {v0}, Ljava/io/File;->getName()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/io/File;->getName()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getUncryptPackageFileWriter()Ljava/io/FileWriter;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    new-instance v0, Ljava/io/FileWriter;
+    new-instance p0, Ljava/io/FileWriter;
 
-    sget-object v1, Landroid/os/RecoverySystem;->UNCRYPT_PACKAGE_FILE:Ljava/io/File;
+    sget-object v0, Landroid/os/RecoverySystem;->UNCRYPT_PACKAGE_FILE:Ljava/io/File;
 
-    invoke-direct {v0, v1}, Ljava/io/FileWriter;-><init>(Ljava/io/File;)V
+    invoke-direct {p0, v0}, Ljava/io/FileWriter;-><init>(Ljava/io/File;)V
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public reportRebootEscrowLskfCapturedMetrics(III)V
-    .locals 1
+    .locals 0
 
-    const/16 v0, 0x154
+    const/16 p0, 0x154
 
-    invoke-static {v0, p1, p2, p3}, Lcom/android/internal/util/FrameworkStatsLog;->write(IIII)V
+    invoke-static {p0, p1, p2, p3}, Lcom/android/internal/util/FrameworkStatsLog;->write(IIII)V
 
     return-void
 .end method
 
 .method public reportRebootEscrowPreparationMetrics(III)V
-    .locals 1
+    .locals 0
 
-    const/16 v0, 0x153
+    const/16 p0, 0x153
 
-    invoke-static {v0, p1, p2, p3}, Lcom/android/internal/util/FrameworkStatsLog;->write(IIII)V
+    invoke-static {p0, p1, p2, p3}, Lcom/android/internal/util/FrameworkStatsLog;->write(IIII)V
 
     return-void
 .end method
@@ -287,13 +279,13 @@
 .end method
 
 .method public systemPropertiesGet(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .locals 0
 
     invoke-static {p1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public systemPropertiesSet(Ljava/lang/String;Ljava/lang/String;)V
@@ -318,13 +310,13 @@
 .end method
 
 .method public uncryptPackageFileDelete()Z
-    .locals 1
+    .locals 0
 
-    sget-object v0, Landroid/os/RecoverySystem;->UNCRYPT_PACKAGE_FILE:Ljava/io/File;
+    sget-object p0, Landroid/os/RecoverySystem;->UNCRYPT_PACKAGE_FILE:Ljava/io/File;
 
-    invoke-virtual {v0}, Ljava/io/File;->delete()Z
+    invoke-virtual {p0}, Ljava/io/File;->delete()Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method

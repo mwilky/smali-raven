@@ -1,4 +1,4 @@
-.class final Lcom/android/server/display/HighBrightnessModeController$SkinThermalStatusObserver;
+.class public final Lcom/android/server/display/HighBrightnessModeController$SkinThermalStatusObserver;
 .super Landroid/os/IThermalEventListener$Stub;
 .source "HighBrightnessModeController.java"
 
@@ -9,25 +9,33 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "SkinThermalStatusObserver"
 .end annotation
 
 
 # instance fields
-.field private final mHandler:Landroid/os/Handler;
+.field public final mHandler:Landroid/os/Handler;
 
-.field private final mInjector:Lcom/android/server/display/HighBrightnessModeController$Injector;
+.field public final mInjector:Lcom/android/server/display/HighBrightnessModeController$Injector;
 
-.field private mStarted:Z
+.field public mStarted:Z
 
-.field private mThermalService:Landroid/os/IThermalService;
+.field public mThermalService:Landroid/os/IThermalService;
 
-.field final synthetic this$0:Lcom/android/server/display/HighBrightnessModeController;
+.field public final synthetic this$0:Lcom/android/server/display/HighBrightnessModeController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/display/HighBrightnessModeController;Lcom/android/server/display/HighBrightnessModeController$Injector;Landroid/os/Handler;)V
+.method public static synthetic $r8$lambda$jle4RAfd1f0qorg84L_kZGMJ0zQ(Lcom/android/server/display/HighBrightnessModeController$SkinThermalStatusObserver;Landroid/os/Temperature;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/display/HighBrightnessModeController$SkinThermalStatusObserver;->lambda$notifyThrottling$0(Landroid/os/Temperature;)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Lcom/android/server/display/HighBrightnessModeController;Lcom/android/server/display/HighBrightnessModeController$Injector;Landroid/os/Handler;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/display/HighBrightnessModeController$SkinThermalStatusObserver;->this$0:Lcom/android/server/display/HighBrightnessModeController;
@@ -41,9 +49,45 @@
     return-void
 .end method
 
+.method private synthetic lambda$notifyThrottling$0(Landroid/os/Temperature;)V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/display/HighBrightnessModeController$SkinThermalStatusObserver;->this$0:Lcom/android/server/display/HighBrightnessModeController;
+
+    invoke-virtual {p1}, Landroid/os/Temperature;->getStatus()I
+
+    move-result p1
+
+    iget-object v1, p0, Lcom/android/server/display/HighBrightnessModeController$SkinThermalStatusObserver;->this$0:Lcom/android/server/display/HighBrightnessModeController;
+
+    invoke-static {v1}, Lcom/android/server/display/HighBrightnessModeController;->-$$Nest$fgetmHbmData(Lcom/android/server/display/HighBrightnessModeController;)Lcom/android/server/display/DisplayDeviceConfig$HighBrightnessModeData;
+
+    move-result-object v1
+
+    iget v1, v1, Lcom/android/server/display/DisplayDeviceConfig$HighBrightnessModeData;->thermalStatusLimit:I
+
+    if-gt p1, v1, :cond_0
+
+    const/4 p1, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p1, 0x0
+
+    :goto_0
+    invoke-static {v0, p1}, Lcom/android/server/display/HighBrightnessModeController;->-$$Nest$fputmIsThermalStatusWithinLimit(Lcom/android/server/display/HighBrightnessModeController;Z)V
+
+    iget-object p0, p0, Lcom/android/server/display/HighBrightnessModeController$SkinThermalStatusObserver;->this$0:Lcom/android/server/display/HighBrightnessModeController;
+
+    invoke-static {p0}, Lcom/android/server/display/HighBrightnessModeController;->-$$Nest$mupdateHbmMode(Lcom/android/server/display/HighBrightnessModeController;)V
+
+    return-void
+.end method
+
 
 # virtual methods
-.method dump(Ljava/io/PrintWriter;)V
+.method public dump(Ljava/io/PrintWriter;)V
     .locals 2
 
     const-string v0, "  SkinThermalStatusObserver:"
@@ -68,58 +112,22 @@
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    iget-object v0, p0, Lcom/android/server/display/HighBrightnessModeController$SkinThermalStatusObserver;->mThermalService:Landroid/os/IThermalService;
+    iget-object p0, p0, Lcom/android/server/display/HighBrightnessModeController$SkinThermalStatusObserver;->mThermalService:Landroid/os/IThermalService;
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    const-string v0, "    ThermalService available"
+    const-string p0, "    ThermalService available"
 
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    goto :goto_0
-
-    :cond_0
-    const-string v0, "    ThermalService not available"
-
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    :goto_0
-    return-void
-.end method
-
-.method public synthetic lambda$notifyThrottling$0$HighBrightnessModeController$SkinThermalStatusObserver(Landroid/os/Temperature;)V
-    .locals 3
-
-    iget-object v0, p0, Lcom/android/server/display/HighBrightnessModeController$SkinThermalStatusObserver;->this$0:Lcom/android/server/display/HighBrightnessModeController;
-
-    invoke-virtual {p1}, Landroid/os/Temperature;->getStatus()I
-
-    move-result v1
-
-    iget-object v2, p0, Lcom/android/server/display/HighBrightnessModeController$SkinThermalStatusObserver;->this$0:Lcom/android/server/display/HighBrightnessModeController;
-
-    invoke-static {v2}, Lcom/android/server/display/HighBrightnessModeController;->access$600(Lcom/android/server/display/HighBrightnessModeController;)Lcom/android/server/display/DisplayDeviceConfig$HighBrightnessModeData;
-
-    move-result-object v2
-
-    iget v2, v2, Lcom/android/server/display/DisplayDeviceConfig$HighBrightnessModeData;->thermalStatusLimit:I
-
-    if-gt v1, v2, :cond_0
-
-    const/4 v1, 0x1
+    invoke-virtual {p1, p0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    const-string p0, "    ThermalService not available"
+
+    invoke-virtual {p1, p0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     :goto_0
-    invoke-static {v0, v1}, Lcom/android/server/display/HighBrightnessModeController;->access$502(Lcom/android/server/display/HighBrightnessModeController;Z)Z
-
-    iget-object v0, p0, Lcom/android/server/display/HighBrightnessModeController$SkinThermalStatusObserver;->this$0:Lcom/android/server/display/HighBrightnessModeController;
-
-    invoke-static {v0}, Lcom/android/server/display/HighBrightnessModeController;->access$700(Lcom/android/server/display/HighBrightnessModeController;)V
-
     return-void
 .end method
 
@@ -137,7 +145,7 @@
     return-void
 .end method
 
-.method startObserving()V
+.method public startObserving()V
     .locals 3
 
     iget-boolean v0, p0, Lcom/android/server/display/HighBrightnessModeController$SkinThermalStatusObserver;->mStarted:Z
@@ -159,9 +167,9 @@
 
     if-nez v0, :cond_1
 
-    const-string v0, "Could not observe thermal status. Service not available"
+    const-string p0, "Could not observe thermal status. Service not available"
 
-    invoke-static {v1, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, p0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
@@ -180,24 +188,24 @@
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    const-string v2, "Failed to register thermal status listener"
+    const-string v0, "Failed to register thermal status listener"
 
-    invoke-static {v1, v2, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v1, v0, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_0
     return-void
 .end method
 
-.method stopObserving()V
+.method public stopObserving()V
     .locals 3
 
     iget-object v0, p0, Lcom/android/server/display/HighBrightnessModeController$SkinThermalStatusObserver;->this$0:Lcom/android/server/display/HighBrightnessModeController;
 
     const/4 v1, 0x1
 
-    invoke-static {v0, v1}, Lcom/android/server/display/HighBrightnessModeController;->access$502(Lcom/android/server/display/HighBrightnessModeController;Z)Z
+    invoke-static {v0, v1}, Lcom/android/server/display/HighBrightnessModeController;->-$$Nest$fputmIsThermalStatusWithinLimit(Lcom/android/server/display/HighBrightnessModeController;Z)V
 
     iget-boolean v0, p0, Lcom/android/server/display/HighBrightnessModeController$SkinThermalStatusObserver;->mStarted:Z
 

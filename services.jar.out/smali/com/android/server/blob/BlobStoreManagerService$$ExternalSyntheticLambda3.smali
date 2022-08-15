@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/blob/BlobStoreManagerService$$ExternalSyntheticLambda3;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/blob/BlobStoreManagerService$$ExternalSyntheticLambda3;->f$0:Lcom/android/server/blob/BlobStoreManagerService;
+    iget-object p0, p0, Lcom/android/server/blob/BlobStoreManagerService$$ExternalSyntheticLambda3;->f$0:Lcom/android/server/blob/BlobStoreManagerService;
 
-    invoke-static {v0}, Lcom/android/server/blob/BlobStoreManagerService;->$r8$lambda$IjuYShneZHng_C5xDNH-7QjfNTg(Lcom/android/server/blob/BlobStoreManagerService;)V
+    invoke-static {p0}, Lcom/android/server/blob/BlobStoreManagerService;->$r8$lambda$IjuYShneZHng_C5xDNH-7QjfNTg(Lcom/android/server/blob/BlobStoreManagerService;)V
 
     return-void
 .end method

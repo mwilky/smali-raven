@@ -1,4 +1,4 @@
-.class Landroid/gsi/MappedImage$1;
+.class public Landroid/gsi/MappedImage$1;
 .super Ljava/lang/Object;
 .source "MappedImage.java"
 
@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
@@ -27,7 +27,7 @@
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,15 +38,15 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/gsi/MappedImage;
-    .locals 1
+    .locals 0
 
-    new-instance v0, Landroid/gsi/MappedImage;
+    new-instance p0, Landroid/gsi/MappedImage;
 
-    invoke-direct {v0}, Landroid/gsi/MappedImage;-><init>()V
+    invoke-direct {p0}, Landroid/gsi/MappedImage;-><init>()V
 
-    invoke-virtual {v0, p1}, Landroid/gsi/MappedImage;->readFromParcel(Landroid/os/Parcel;)V
+    invoke-virtual {p0, p1}, Landroid/gsi/MappedImage;->readFromParcel(Landroid/os/Parcel;)V
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -54,17 +54,17 @@
 
     invoke-virtual {p0, p1}, Landroid/gsi/MappedImage$1;->createFromParcel(Landroid/os/Parcel;)Landroid/gsi/MappedImage;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method
 
 .method public newArray(I)[Landroid/gsi/MappedImage;
-    .locals 1
+    .locals 0
 
-    new-array v0, p1, [Landroid/gsi/MappedImage;
+    new-array p0, p1, [Landroid/gsi/MappedImage;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
@@ -72,7 +72,7 @@
 
     invoke-virtual {p0, p1}, Landroid/gsi/MappedImage$1;->newArray(I)[Landroid/gsi/MappedImage;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method

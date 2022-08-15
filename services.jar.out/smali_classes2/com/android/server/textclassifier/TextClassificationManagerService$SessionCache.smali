@@ -1,4 +1,4 @@
-.class final Lcom/android/server/textclassifier/TextClassificationManagerService$SessionCache;
+.class public final Lcom/android/server/textclassifier/TextClassificationManagerService$SessionCache;
 .super Ljava/lang/Object;
 .source "TextClassificationManagerService.java"
 
@@ -9,17 +9,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = "SessionCache"
 .end annotation
 
 
-# static fields
-.field private static final MAX_CACHE_SIZE:I = 0x64
-
-
 # instance fields
-.field private final mCache:Landroid/util/LruCache;
+.field public final mCache:Landroid/util/LruCache;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/LruCache<",
@@ -30,7 +32,13 @@
     .end annotation
 .end field
 
-.field private final mDeathRecipients:Ljava/util/Map;
+.field public final mDeathRecipients:Ljava/util/Map;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Map<",
@@ -41,11 +49,19 @@
     .end annotation
 .end field
 
-.field private final mLock:Ljava/lang/Object;
+.field public final mLock:Ljava/lang/Object;
 
 
 # direct methods
-.method constructor <init>(Ljava/lang/Object;)V
+.method public static synthetic $r8$lambda$XLvrJbfQ_042X2S26Y-uabAc2Po(Lcom/android/server/textclassifier/TextClassificationManagerService$SessionCache;Landroid/view/textclassifier/TextClassificationSessionId;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/textclassifier/TextClassificationManagerService$SessionCache;->lambda$put$0(Landroid/view/textclassifier/TextClassificationSessionId;)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Ljava/lang/Object;)V
     .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -71,10 +87,18 @@
     return-void
 .end method
 
+.method private synthetic lambda$put$0(Landroid/view/textclassifier/TextClassificationSessionId;)V
+    .locals 0
+
+    invoke-virtual {p0, p1}, Lcom/android/server/textclassifier/TextClassificationManagerService$SessionCache;->remove(Landroid/view/textclassifier/TextClassificationSessionId;)V
+
+    return-void
+.end method
+
 
 # virtual methods
-.method get(Landroid/view/textclassifier/TextClassificationSessionId;)Lcom/android/server/textclassifier/TextClassificationManagerService$StrippedTextClassificationContext;
-    .locals 2
+.method public get(Landroid/view/textclassifier/TextClassificationSessionId;)Lcom/android/server/textclassifier/TextClassificationManagerService$StrippedTextClassificationContext;
+    .locals 1
 
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -83,38 +107,30 @@
     monitor-enter v0
 
     :try_start_0
-    iget-object v1, p0, Lcom/android/server/textclassifier/TextClassificationManagerService$SessionCache;->mCache:Landroid/util/LruCache;
+    iget-object p0, p0, Lcom/android/server/textclassifier/TextClassificationManagerService$SessionCache;->mCache:Landroid/util/LruCache;
 
-    invoke-virtual {v1, p1}, Landroid/util/LruCache;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Landroid/util/LruCache;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p0
 
-    check-cast v1, Lcom/android/server/textclassifier/TextClassificationManagerService$StrippedTextClassificationContext;
+    check-cast p0, Lcom/android/server/textclassifier/TextClassificationManagerService$StrippedTextClassificationContext;
 
     monitor-exit v0
 
-    return-object v1
+    return-object p0
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
-.method public synthetic lambda$put$0$TextClassificationManagerService$SessionCache(Landroid/view/textclassifier/TextClassificationSessionId;)V
-    .locals 0
-
-    invoke-virtual {p0, p1}, Lcom/android/server/textclassifier/TextClassificationManagerService$SessionCache;->remove(Landroid/view/textclassifier/TextClassificationSessionId;)V
-
-    return-void
-.end method
-
-.method put(Landroid/view/textclassifier/TextClassificationSessionId;Landroid/view/textclassifier/TextClassificationContext;)V
-    .locals 4
+.method public put(Landroid/view/textclassifier/TextClassificationSessionId;Landroid/view/textclassifier/TextClassificationContext;)V
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/textclassifier/TextClassificationManagerService$SessionCache;->mLock:Ljava/lang/Object;
 
@@ -132,21 +148,21 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :try_start_1
-    new-instance v1, Lcom/android/server/textclassifier/TextClassificationManagerService$SessionCache$$ExternalSyntheticLambda0;
+    new-instance p2, Lcom/android/server/textclassifier/TextClassificationManagerService$SessionCache$$ExternalSyntheticLambda0;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/server/textclassifier/TextClassificationManagerService$SessionCache$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/textclassifier/TextClassificationManagerService$SessionCache;Landroid/view/textclassifier/TextClassificationSessionId;)V
+    invoke-direct {p2, p0, p1}, Lcom/android/server/textclassifier/TextClassificationManagerService$SessionCache$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/textclassifier/TextClassificationManagerService$SessionCache;Landroid/view/textclassifier/TextClassificationSessionId;)V
 
     invoke-virtual {p1}, Landroid/view/textclassifier/TextClassificationSessionId;->getToken()Landroid/os/IBinder;
 
-    move-result-object v2
+    move-result-object v1
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    invoke-interface {v2, v1, v3}, Landroid/os/IBinder;->linkToDeath(Landroid/os/IBinder$DeathRecipient;I)V
+    invoke-interface {v1, p2, v2}, Landroid/os/IBinder;->linkToDeath(Landroid/os/IBinder$DeathRecipient;I)V
 
-    iget-object v2, p0, Lcom/android/server/textclassifier/TextClassificationManagerService$SessionCache;->mDeathRecipients:Ljava/util/Map;
+    iget-object p0, p0, Lcom/android/server/textclassifier/TextClassificationManagerService$SessionCache;->mDeathRecipients:Ljava/util/Map;
 
-    invoke-interface {v2, p1, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p0, p1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
@@ -154,14 +170,14 @@
     goto :goto_0
 
     :catch_0
-    move-exception v1
+    move-exception p0
 
     :try_start_2
-    const-string v2, "TextClassificationManagerService"
+    const-string p1, "TextClassificationManagerService"
 
-    const-string v3, "SessionCache: Failed to link to death"
+    const-string p2, "SessionCache: Failed to link to death"
 
-    invoke-static {v2, v3, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {p1, p2, p0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_0
     monitor-exit v0
@@ -169,16 +185,16 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
-.method remove(Landroid/view/textclassifier/TextClassificationSessionId;)V
+.method public remove(Landroid/view/textclassifier/TextClassificationSessionId;)V
     .locals 4
 
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
@@ -207,54 +223,52 @@
     invoke-interface {v2, v1, v3}, Landroid/os/IBinder;->unlinkToDeath(Landroid/os/IBinder$DeathRecipient;I)Z
 
     :cond_0
-    iget-object v2, p0, Lcom/android/server/textclassifier/TextClassificationManagerService$SessionCache;->mDeathRecipients:Ljava/util/Map;
+    iget-object v1, p0, Lcom/android/server/textclassifier/TextClassificationManagerService$SessionCache;->mDeathRecipients:Ljava/util/Map;
 
-    invoke-interface {v2, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v1, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v2, p0, Lcom/android/server/textclassifier/TextClassificationManagerService$SessionCache;->mCache:Landroid/util/LruCache;
+    iget-object p0, p0, Lcom/android/server/textclassifier/TextClassificationManagerService$SessionCache;->mCache:Landroid/util/LruCache;
 
-    invoke-virtual {v2, p1}, Landroid/util/LruCache;->remove(Ljava/lang/Object;)Ljava/lang/Object;
-
-    nop
+    invoke-virtual {p0, p1}, Landroid/util/LruCache;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     monitor-exit v0
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
-.method size()I
-    .locals 2
+.method public size()I
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/textclassifier/TextClassificationManagerService$SessionCache;->mLock:Ljava/lang/Object;
 
     monitor-enter v0
 
     :try_start_0
-    iget-object v1, p0, Lcom/android/server/textclassifier/TextClassificationManagerService$SessionCache;->mCache:Landroid/util/LruCache;
+    iget-object p0, p0, Lcom/android/server/textclassifier/TextClassificationManagerService$SessionCache;->mCache:Landroid/util/LruCache;
 
-    invoke-virtual {v1}, Landroid/util/LruCache;->size()I
+    invoke-virtual {p0}, Landroid/util/LruCache;->size()I
 
-    move-result v1
+    move-result p0
 
     monitor-exit v0
 
-    return v1
+    return p0
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method

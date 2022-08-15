@@ -14,6 +14,20 @@
 
 
 # virtual methods
+.method public abstract getBatteryUsageStats(Ljava/util/List;)Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List<",
+            "Landroid/os/BatteryUsageStatsQuery;",
+            ">;)",
+            "Ljava/util/List<",
+            "Landroid/os/BatteryUsageStats;",
+            ">;"
+        }
+    .end annotation
+.end method
+
 .method public abstract getMobileIfaces()[Ljava/lang/String;
 .end method
 

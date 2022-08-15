@@ -38,17 +38,17 @@
 
 # virtual methods
 .method public compare(Lcom/android/server/uri/UriPermission;Lcom/android/server/uri/UriPermission;)I
-    .locals 4
+    .locals 2
 
-    iget-wide v0, p1, Lcom/android/server/uri/UriPermission;->persistedCreateTime:J
+    iget-wide p0, p1, Lcom/android/server/uri/UriPermission;->persistedCreateTime:J
 
-    iget-wide v2, p2, Lcom/android/server/uri/UriPermission;->persistedCreateTime:J
+    iget-wide v0, p2, Lcom/android/server/uri/UriPermission;->persistedCreateTime:J
 
-    invoke-static {v0, v1, v2, v3}, Ljava/lang/Long;->compare(JJ)I
+    invoke-static {p0, p1, v0, v1}, Ljava/lang/Long;->compare(JJ)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
@@ -60,7 +60,7 @@
 
     invoke-virtual {p0, p1, p2}, Lcom/android/server/uri/UriPermission$PersistedTimeComparator;->compare(Lcom/android/server/uri/UriPermission;Lcom/android/server/uri/UriPermission;)I
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method

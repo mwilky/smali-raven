@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/WindowToken$FixedRotationTransformState;
+.class public Lcom/android/server/wm/WindowToken$FixedRotationTransformState;
 .super Ljava/lang/Object;
 .source "WindowToken.java"
 
@@ -9,13 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "FixedRotationTransformState"
 .end annotation
 
 
 # instance fields
-.field final mAssociatedTokens:Ljava/util/ArrayList;
+.field public final mAssociatedTokens:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/ArrayList<",
@@ -25,23 +25,13 @@
     .end annotation
 .end field
 
-.field final mBarContentFrames:Landroid/util/SparseArray;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Landroid/util/SparseArray<",
-            "Landroid/graphics/Rect;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final mDisplayFrames:Lcom/android/server/wm/DisplayFrames;
 
-.field final mDisplayFrames:Lcom/android/server/wm/DisplayFrames;
+.field public final mDisplayInfo:Landroid/view/DisplayInfo;
 
-.field final mDisplayInfo:Landroid/view/DisplayInfo;
+.field public mIsTransforming:Z
 
-.field mIsTransforming:Z
-
-.field final mRotatedContainers:Ljava/util/ArrayList;
+.field public final mRotatedContainers:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/ArrayList<",
@@ -51,14 +41,14 @@
     .end annotation
 .end field
 
-.field final mRotatedOverrideConfiguration:Landroid/content/res/Configuration;
+.field public final mRotatedOverrideConfiguration:Landroid/content/res/Configuration;
 
-.field final mRotator:Lcom/android/server/wm/SeamlessRotator;
+.field public final mRotator:Lcom/android/server/wm/SeamlessRotator;
 
 
 # direct methods
-.method constructor <init>(Landroid/view/DisplayInfo;Lcom/android/server/wm/DisplayFrames;Landroid/content/res/Configuration;I)V
-    .locals 3
+.method public constructor <init>(Landroid/view/DisplayInfo;Lcom/android/server/wm/DisplayFrames;Landroid/content/res/Configuration;I)V
+    .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -76,12 +66,6 @@
 
     iput-object v0, p0, Lcom/android/server/wm/WindowToken$FixedRotationTransformState;->mRotatedContainers:Ljava/util/ArrayList;
 
-    new-instance v0, Landroid/util/SparseArray;
-
-    invoke-direct {v0}, Landroid/util/SparseArray;-><init>()V
-
-    iput-object v0, p0, Lcom/android/server/wm/WindowToken$FixedRotationTransformState;->mBarContentFrames:Landroid/util/SparseArray;
-
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/server/wm/WindowToken$FixedRotationTransformState;->mIsTransforming:Z
@@ -92,34 +76,34 @@
 
     iput-object p3, p0, Lcom/android/server/wm/WindowToken$FixedRotationTransformState;->mRotatedOverrideConfiguration:Landroid/content/res/Configuration;
 
-    new-instance v1, Lcom/android/server/wm/SeamlessRotator;
+    new-instance p2, Lcom/android/server/wm/SeamlessRotator;
 
-    iget v2, p1, Landroid/view/DisplayInfo;->rotation:I
+    iget p3, p1, Landroid/view/DisplayInfo;->rotation:I
 
-    invoke-direct {v1, v2, p4, p1, v0}, Lcom/android/server/wm/SeamlessRotator;-><init>(IILandroid/view/DisplayInfo;Z)V
+    invoke-direct {p2, p3, p4, p1, v0}, Lcom/android/server/wm/SeamlessRotator;-><init>(IILandroid/view/DisplayInfo;Z)V
 
-    iput-object v1, p0, Lcom/android/server/wm/WindowToken$FixedRotationTransformState;->mRotator:Lcom/android/server/wm/SeamlessRotator;
+    iput-object p2, p0, Lcom/android/server/wm/WindowToken$FixedRotationTransformState;->mRotator:Lcom/android/server/wm/SeamlessRotator;
 
     return-void
 .end method
 
 
 # virtual methods
-.method disassociate(Lcom/android/server/wm/WindowToken;)V
+.method public disassociate(Lcom/android/server/wm/WindowToken;)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/wm/WindowToken$FixedRotationTransformState;->mAssociatedTokens:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
-    iget-object v0, p0, Lcom/android/server/wm/WindowToken$FixedRotationTransformState;->mRotatedContainers:Ljava/util/ArrayList;
+    iget-object p0, p0, Lcom/android/server/wm/WindowToken$FixedRotationTransformState;->mRotatedContainers:Ljava/util/ArrayList;
 
-    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
     return-void
 .end method
 
-.method resetTransform()V
+.method public resetTransform()V
     .locals 4
 
     iget-object v0, p0, Lcom/android/server/wm/WindowToken$FixedRotationTransformState;->mRotatedContainers:Ljava/util/ArrayList;
@@ -164,7 +148,7 @@
     return-void
 .end method
 
-.method transform(Lcom/android/server/wm/WindowContainer;)V
+.method public transform(Lcom/android/server/wm/WindowContainer;)V
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -190,9 +174,9 @@
 
     if-nez v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/wm/WindowToken$FixedRotationTransformState;->mRotatedContainers:Ljava/util/ArrayList;
+    iget-object p0, p0, Lcom/android/server/wm/WindowToken$FixedRotationTransformState;->mRotatedContainers:Ljava/util/ArrayList;
 
-    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     :cond_0
     return-void

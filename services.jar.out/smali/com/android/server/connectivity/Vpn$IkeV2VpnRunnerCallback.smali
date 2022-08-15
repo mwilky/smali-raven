@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/server/connectivity/Vpn$IkeV2VpnRunnerCallback;
+.class public interface abstract Lcom/android/server/connectivity/Vpn$IkeV2VpnRunnerCallback;
 .super Ljava/lang/Object;
 .source "Vpn.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
+    accessFlags = 0x609
     name = "IkeV2VpnRunnerCallback"
 .end annotation
 
@@ -21,7 +21,13 @@
 .method public abstract onChildTransformCreated(Landroid/net/Network;Landroid/net/IpSecTransform;I)V
 .end method
 
+.method public abstract onDefaultNetworkCapabilitiesChanged(Landroid/net/NetworkCapabilities;)V
+.end method
+
 .method public abstract onDefaultNetworkChanged(Landroid/net/Network;)V
+.end method
+
+.method public abstract onDefaultNetworkLinkPropertiesChanged(Landroid/net/LinkProperties;)V
 .end method
 
 .method public abstract onSessionLost(Landroid/net/Network;Ljava/lang/Exception;)V

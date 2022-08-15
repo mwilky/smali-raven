@@ -1,4 +1,4 @@
-.class final Lcom/android/server/policy/DeviceStateProviderImpl$AndBooleanSupplier;
+.class public final Lcom/android/server/policy/DeviceStateProviderImpl$AndBooleanSupplier;
 .super Ljava/lang/Object;
 .source "DeviceStateProviderImpl.java"
 
@@ -12,13 +12,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "AndBooleanSupplier"
 .end annotation
 
 
 # instance fields
-.field mBooleanSuppliers:Ljava/util/List;
+.field public mBooleanSuppliers:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -30,7 +30,7 @@
 
 
 # direct methods
-.method constructor <init>(Ljava/util/List;)V
+.method public constructor <init>(Ljava/util/List;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -51,44 +51,44 @@
 
 # virtual methods
 .method public getAsBoolean()Z
-    .locals 2
+    .locals 3
 
     const/4 v0, 0x0
 
+    move v1, v0
+
     :goto_0
-    iget-object v1, p0, Lcom/android/server/policy/DeviceStateProviderImpl$AndBooleanSupplier;->mBooleanSuppliers:Ljava/util/List;
+    iget-object v2, p0, Lcom/android/server/policy/DeviceStateProviderImpl$AndBooleanSupplier;->mBooleanSuppliers:Ljava/util/List;
 
-    invoke-interface {v1}, Ljava/util/List;->size()I
+    invoke-interface {v2}, Ljava/util/List;->size()I
 
-    move-result v1
+    move-result v2
 
-    if-ge v0, v1, :cond_1
+    if-ge v1, v2, :cond_1
 
-    iget-object v1, p0, Lcom/android/server/policy/DeviceStateProviderImpl$AndBooleanSupplier;->mBooleanSuppliers:Ljava/util/List;
+    iget-object v2, p0, Lcom/android/server/policy/DeviceStateProviderImpl$AndBooleanSupplier;->mBooleanSuppliers:Ljava/util/List;
 
-    invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v2
 
-    check-cast v1, Ljava/util/function/BooleanSupplier;
+    check-cast v2, Ljava/util/function/BooleanSupplier;
 
-    invoke-interface {v1}, Ljava/util/function/BooleanSupplier;->getAsBoolean()Z
+    invoke-interface {v2}, Ljava/util/function/BooleanSupplier;->getAsBoolean()Z
 
-    move-result v1
+    move-result v2
 
-    if-nez v1, :cond_0
+    if-nez v2, :cond_0
 
-    const/4 v1, 0x0
-
-    return v1
+    return v0
 
     :cond_0
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     :cond_1
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 .end method

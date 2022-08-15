@@ -1,4 +1,4 @@
-.class Lcom/android/server/content/SyncManager$OnUnsyncableAccountCheck$1;
+.class public Lcom/android/server/content/SyncManager$OnUnsyncableAccountCheck$1;
 .super Landroid/content/ISyncAdapterUnsyncableAccountCallback$Stub;
 .source "SyncManager.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/content/SyncManager$OnUnsyncableAccountCheck;
+.field public final synthetic this$0:Lcom/android/server/content/SyncManager$OnUnsyncableAccountCheck;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/content/SyncManager$OnUnsyncableAccountCheck;)V
+.method public constructor <init>(Lcom/android/server/content/SyncManager$OnUnsyncableAccountCheck;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/content/SyncManager$OnUnsyncableAccountCheck$1;->this$0:Lcom/android/server/content/SyncManager$OnUnsyncableAccountCheck;
@@ -32,13 +32,13 @@
 
 # virtual methods
 .method public onUnsyncableAccountDone(Z)V
-    .locals 1
+    .locals 0
 
     if-eqz p1, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/content/SyncManager$OnUnsyncableAccountCheck$1;->this$0:Lcom/android/server/content/SyncManager$OnUnsyncableAccountCheck;
+    iget-object p0, p0, Lcom/android/server/content/SyncManager$OnUnsyncableAccountCheck$1;->this$0:Lcom/android/server/content/SyncManager$OnUnsyncableAccountCheck;
 
-    invoke-static {v0}, Lcom/android/server/content/SyncManager$OnUnsyncableAccountCheck;->access$2200(Lcom/android/server/content/SyncManager$OnUnsyncableAccountCheck;)V
+    invoke-static {p0}, Lcom/android/server/content/SyncManager$OnUnsyncableAccountCheck;->-$$Nest$monReady(Lcom/android/server/content/SyncManager$OnUnsyncableAccountCheck;)V
 
     :cond_0
     return-void

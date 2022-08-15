@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/wm/TaskPositioningController$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -35,7 +36,7 @@
 
 # virtual methods
 .method public final run()V
-    .locals 4
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/wm/TaskPositioningController$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/wm/TaskPositioningController;
 
@@ -43,9 +44,9 @@
 
     iget v2, p0, Lcom/android/server/wm/TaskPositioningController$$ExternalSyntheticLambda1;->f$2:I
 
-    iget v3, p0, Lcom/android/server/wm/TaskPositioningController$$ExternalSyntheticLambda1;->f$3:I
+    iget p0, p0, Lcom/android/server/wm/TaskPositioningController$$ExternalSyntheticLambda1;->f$3:I
 
-    invoke-virtual {v0, v1, v2, v3}, Lcom/android/server/wm/TaskPositioningController;->lambda$handleTapOutsideTask$0$TaskPositioningController(Lcom/android/server/wm/DisplayContent;II)V
+    invoke-static {v0, v1, v2, p0}, Lcom/android/server/wm/TaskPositioningController;->$r8$lambda$m2iIkiA8DBKYGOpL7kFqkIODyW4(Lcom/android/server/wm/TaskPositioningController;Lcom/android/server/wm/DisplayContent;II)V
 
     return-void
 .end method

@@ -12,9 +12,9 @@
 
 
 # instance fields
-.field private final mEffect:Lcom/android/server/integrity/model/IntegrityCheckResult$Effect;
+.field public final mEffect:Lcom/android/server/integrity/model/IntegrityCheckResult$Effect;
 
-.field private final mRuleList:Ljava/util/List;
+.field public final mRuleList:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -26,7 +26,27 @@
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/server/integrity/model/IntegrityCheckResult$Effect;Ljava/util/List;)V
+.method public static synthetic $r8$lambda$7R5dI0EzN7bSJcTl6vjvBZDdveA(Landroid/content/integrity/Rule;)Z
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/server/integrity/model/IntegrityCheckResult;->lambda$isCausedByAppCertRule$0(Landroid/content/integrity/Rule;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public static synthetic $r8$lambda$Rr3Ve_Mln_IcycjIZ9OQLZ-yWGs(Landroid/content/integrity/Rule;)Z
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/server/integrity/model/IntegrityCheckResult;->lambda$isCausedByInstallerRule$1(Landroid/content/integrity/Rule;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public constructor <init>(Lcom/android/server/integrity/model/IntegrityCheckResult$Effect;Ljava/util/List;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -105,42 +125,42 @@
     return-object v0
 .end method
 
-.method static synthetic lambda$isCausedByAppCertRule$0(Landroid/content/integrity/Rule;)Z
-    .locals 1
+.method public static synthetic lambda$isCausedByAppCertRule$0(Landroid/content/integrity/Rule;)Z
+    .locals 0
 
     invoke-virtual {p0}, Landroid/content/integrity/Rule;->getFormula()Landroid/content/integrity/IntegrityFormula;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Landroid/content/integrity/IntegrityFormula;->isAppCertificateFormula()Z
+    invoke-virtual {p0}, Landroid/content/integrity/IntegrityFormula;->isAppCertificateFormula()Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
-.method static synthetic lambda$isCausedByInstallerRule$1(Landroid/content/integrity/Rule;)Z
-    .locals 1
+.method public static synthetic lambda$isCausedByInstallerRule$1(Landroid/content/integrity/Rule;)Z
+    .locals 0
 
     invoke-virtual {p0}, Landroid/content/integrity/Rule;->getFormula()Landroid/content/integrity/IntegrityFormula;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Landroid/content/integrity/IntegrityFormula;->isInstallerFormula()Z
+    invoke-virtual {p0}, Landroid/content/integrity/IntegrityFormula;->isInstallerFormula()Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 
 # virtual methods
 .method public getEffect()Lcom/android/server/integrity/model/IntegrityCheckResult$Effect;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/integrity/model/IntegrityCheckResult;->mEffect:Lcom/android/server/integrity/model/IntegrityCheckResult$Effect;
+    iget-object p0, p0, Lcom/android/server/integrity/model/IntegrityCheckResult;->mEffect:Lcom/android/server/integrity/model/IntegrityCheckResult$Effect;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getLoggingResponse()I
@@ -154,9 +174,9 @@
 
     if-ne v0, v1, :cond_0
 
-    const/4 v0, 0x2
+    const/4 p0, 0x2
 
-    return v0
+    return p0
 
     :cond_0
     invoke-virtual {p0}, Lcom/android/server/integrity/model/IntegrityCheckResult;->getEffect()Lcom/android/server/integrity/model/IntegrityCheckResult$Effect;
@@ -177,45 +197,43 @@
 
     if-eqz v0, :cond_1
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 
     :cond_1
     invoke-virtual {p0}, Lcom/android/server/integrity/model/IntegrityCheckResult;->getEffect()Lcom/android/server/integrity/model/IntegrityCheckResult$Effect;
 
     move-result-object v0
 
-    sget-object v1, Lcom/android/server/integrity/model/IntegrityCheckResult$Effect;->ALLOW:Lcom/android/server/integrity/model/IntegrityCheckResult$Effect;
-
     if-ne v0, v1, :cond_2
 
     invoke-virtual {p0}, Lcom/android/server/integrity/model/IntegrityCheckResult;->getMatchedRules()Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
+    invoke-interface {p0}, Ljava/util/List;->isEmpty()Z
 
-    move-result v0
+    move-result p0
 
-    if-nez v0, :cond_2
+    if-nez p0, :cond_2
 
-    const/4 v0, 0x3
+    const/4 p0, 0x3
 
-    return v0
+    return p0
 
     :cond_2
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p0, Ljava/lang/IllegalStateException;
 
-    const-string v1, "IntegrityCheckResult is not valid."
+    const-string v0, "IntegrityCheckResult is not valid."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public getMatchedRules()Ljava/util/List;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -225,43 +243,47 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/android/server/integrity/model/IntegrityCheckResult;->mRuleList:Ljava/util/List;
+    iget-object p0, p0, Lcom/android/server/integrity/model/IntegrityCheckResult;->mRuleList:Ljava/util/List;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public isCausedByAppCertRule()Z
-    .locals 2
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/integrity/model/IntegrityCheckResult;->mRuleList:Ljava/util/List;
+    iget-object p0, p0, Lcom/android/server/integrity/model/IntegrityCheckResult;->mRuleList:Ljava/util/List;
 
-    invoke-interface {v0}, Ljava/util/List;->stream()Ljava/util/stream/Stream;
+    invoke-interface {p0}, Ljava/util/List;->stream()Ljava/util/stream/Stream;
 
-    move-result-object v0
+    move-result-object p0
 
-    sget-object v1, Lcom/android/server/integrity/model/IntegrityCheckResult$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/server/integrity/model/IntegrityCheckResult$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/android/server/integrity/model/IntegrityCheckResult$$ExternalSyntheticLambda1;
 
-    invoke-interface {v0, v1}, Ljava/util/stream/Stream;->anyMatch(Ljava/util/function/Predicate;)Z
+    invoke-direct {v0}, Lcom/android/server/integrity/model/IntegrityCheckResult$$ExternalSyntheticLambda1;-><init>()V
 
-    move-result v0
+    invoke-interface {p0, v0}, Ljava/util/stream/Stream;->anyMatch(Ljava/util/function/Predicate;)Z
 
-    return v0
+    move-result p0
+
+    return p0
 .end method
 
 .method public isCausedByInstallerRule()Z
-    .locals 2
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/integrity/model/IntegrityCheckResult;->mRuleList:Ljava/util/List;
+    iget-object p0, p0, Lcom/android/server/integrity/model/IntegrityCheckResult;->mRuleList:Ljava/util/List;
 
-    invoke-interface {v0}, Ljava/util/List;->stream()Ljava/util/stream/Stream;
+    invoke-interface {p0}, Ljava/util/List;->stream()Ljava/util/stream/Stream;
 
-    move-result-object v0
+    move-result-object p0
 
-    sget-object v1, Lcom/android/server/integrity/model/IntegrityCheckResult$$ExternalSyntheticLambda1;->INSTANCE:Lcom/android/server/integrity/model/IntegrityCheckResult$$ExternalSyntheticLambda1;
+    new-instance v0, Lcom/android/server/integrity/model/IntegrityCheckResult$$ExternalSyntheticLambda0;
 
-    invoke-interface {v0, v1}, Ljava/util/stream/Stream;->anyMatch(Ljava/util/function/Predicate;)Z
+    invoke-direct {v0}, Lcom/android/server/integrity/model/IntegrityCheckResult$$ExternalSyntheticLambda0;-><init>()V
 
-    move-result v0
+    invoke-interface {p0, v0}, Ljava/util/stream/Stream;->anyMatch(Ljava/util/function/Predicate;)Z
 
-    return v0
+    move-result p0
+
+    return p0
 .end method

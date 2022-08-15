@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/WindowManagerService$2;
+.class public Lcom/android/server/wm/WindowManagerService$2;
 .super Landroid/content/BroadcastReceiver;
 .source "WindowManagerService.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/wm/WindowManagerService;
+.field public final synthetic this$0:Lcom/android/server/wm/WindowManagerService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/wm/WindowManagerService;)V
+.method public constructor <init>(Lcom/android/server/wm/WindowManagerService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/wm/WindowManagerService$2;->this$0:Lcom/android/server/wm/WindowManagerService;
@@ -32,67 +32,37 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 2
+    .locals 0
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+    invoke-virtual {p1}, Ljava/lang/String;->hashCode()I
 
-    move-result v1
+    const-string p2, "android.app.action.DEVICE_POLICY_MANAGER_STATE_CHANGED"
 
-    packed-switch v1, :pswitch_data_0
+    invoke-virtual {p1, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    :cond_0
+    move-result p1
+
+    if-nez p1, :cond_0
+
     goto :goto_0
 
-    :pswitch_0
-    const-string v1, "android.app.action.DEVICE_POLICY_MANAGER_STATE_CHANGED"
+    :cond_0
+    iget-object p1, p0, Lcom/android/server/wm/WindowManagerService$2;->this$0:Lcom/android/server/wm/WindowManagerService;
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-static {p1}, Lcom/android/server/wm/WindowManagerService;->-$$Nest$fgetmKeyguardDisableHandler(Lcom/android/server/wm/WindowManagerService;)Lcom/android/server/wm/KeyguardDisableHandler;
 
-    move-result v0
+    move-result-object p1
 
-    if-eqz v0, :cond_0
+    invoke-virtual {p0}, Landroid/content/BroadcastReceiver;->getSendingUserId()I
 
-    const/4 v0, 0x0
+    move-result p0
 
-    goto :goto_1
+    invoke-virtual {p1, p0}, Lcom/android/server/wm/KeyguardDisableHandler;->updateKeyguardEnabled(I)V
 
     :goto_0
-    const/4 v0, -0x1
-
-    :goto_1
-    packed-switch v0, :pswitch_data_1
-
-    goto :goto_2
-
-    :pswitch_1
-    iget-object v0, p0, Lcom/android/server/wm/WindowManagerService$2;->this$0:Lcom/android/server/wm/WindowManagerService;
-
-    invoke-static {v0}, Lcom/android/server/wm/WindowManagerService;->access$000(Lcom/android/server/wm/WindowManagerService;)Lcom/android/server/wm/KeyguardDisableHandler;
-
-    move-result-object v0
-
-    invoke-virtual {p0}, Lcom/android/server/wm/WindowManagerService$2;->getSendingUserId()I
-
-    move-result v1
-
-    invoke-virtual {v0, v1}, Lcom/android/server/wm/KeyguardDisableHandler;->updateKeyguardEnabled(I)V
-
-    :goto_2
     return-void
-
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0x3ae4d524
-        :pswitch_0
-    .end packed-switch
-
-    :pswitch_data_1
-    .packed-switch 0x0
-        :pswitch_1
-    .end packed-switch
 .end method

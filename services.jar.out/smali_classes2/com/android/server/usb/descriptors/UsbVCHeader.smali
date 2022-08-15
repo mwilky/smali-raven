@@ -3,10 +3,6 @@
 .source "UsbVCHeader.java"
 
 
-# static fields
-.field private static final TAG:Ljava/lang/String; = "UsbVCHeader"
-
-
 # direct methods
 .method public constructor <init>(IBBI)V
     .locals 0
@@ -19,13 +15,13 @@
 
 # virtual methods
 .method public parseRawDescriptors(Lcom/android/server/usb/descriptors/ByteStream;)I
-    .locals 1
+    .locals 0
 
-    invoke-super {p0, p1}, Lcom/android/server/usb/descriptors/UsbVCHeaderInterface;->parseRawDescriptors(Lcom/android/server/usb/descriptors/ByteStream;)I
+    invoke-super {p0, p1}, Lcom/android/server/usb/descriptors/UsbDescriptor;->parseRawDescriptors(Lcom/android/server/usb/descriptors/ByteStream;)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public report(Lcom/android/server/usb/descriptors/report/ReportCanvas;)V

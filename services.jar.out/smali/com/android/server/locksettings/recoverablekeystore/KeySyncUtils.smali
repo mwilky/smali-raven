@@ -4,29 +4,21 @@
 
 
 # static fields
-.field private static final ENCRYPTED_APPLICATION_KEY_HEADER:[B
+.field public static final ENCRYPTED_APPLICATION_KEY_HEADER:[B
 
-.field private static final KEY_CLAIMANT_LENGTH_BYTES:I = 0x10
+.field public static final LOCALLY_ENCRYPTED_RECOVERY_KEY_HEADER:[B
 
-.field private static final LOCALLY_ENCRYPTED_RECOVERY_KEY_HEADER:[B
+.field public static final RECOVERY_CLAIM_HEADER:[B
 
-.field private static final PUBLIC_KEY_FACTORY_ALGORITHM:Ljava/lang/String; = "EC"
+.field public static final RECOVERY_RESPONSE_HEADER:[B
 
-.field private static final RECOVERY_CLAIM_HEADER:[B
+.field public static final THM_ENCRYPTED_RECOVERY_KEY_HEADER:[B
 
-.field private static final RECOVERY_KEY_ALGORITHM:Ljava/lang/String; = "AES"
-
-.field private static final RECOVERY_KEY_SIZE_BITS:I = 0x100
-
-.field private static final RECOVERY_RESPONSE_HEADER:[B
-
-.field private static final THM_ENCRYPTED_RECOVERY_KEY_HEADER:[B
-
-.field private static final THM_KF_HASH_PREFIX:[B
+.field public static final THM_KF_HASH_PREFIX:[B
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 2
 
     sget-object v0, Ljava/nio/charset/StandardCharsets;->UTF_8:Ljava/nio/charset/Charset;
@@ -92,14 +84,6 @@
     return-void
 .end method
 
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
 .method public static calculateThmKfHash([B)[B
     .locals 2
     .annotation system Ldalvik/annotation/Throws;
@@ -122,63 +106,65 @@
 
     invoke-virtual {v0}, Ljava/security/MessageDigest;->digest()[B
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method
 
-.method static varargs concat([[B)[B
-    .locals 8
+.method public static varargs concat([[B)[B
+    .locals 7
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
 
-    const/4 v0, 0x0
+    array-length v0, p0
 
-    array-length v1, p0
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    move v2, v1
 
     move v3, v2
 
     :goto_0
-    if-ge v3, v1, :cond_0
+    if-ge v2, v0, :cond_0
 
-    aget-object v4, p0, v3
+    aget-object v4, p0, v2
 
-    array-length v5, v4
+    array-length v4, v4
 
-    add-int/2addr v0, v5
+    add-int/2addr v3, v4
 
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     :cond_0
-    new-array v1, v0, [B
+    new-array v0, v3, [B
 
-    const/4 v3, 0x0
+    array-length v2, p0
 
-    array-length v4, p0
+    move v3, v1
 
-    move v5, v2
+    move v4, v3
 
     :goto_1
-    if-ge v5, v4, :cond_1
+    if-ge v3, v2, :cond_1
 
-    aget-object v6, p0, v5
+    aget-object v5, p0, v3
 
-    array-length v7, v6
+    array-length v6, v5
 
-    invoke-static {v6, v2, v1, v3, v7}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v5, v1, v0, v4, v6}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    array-length v7, v6
+    array-length v5, v5
 
-    add-int/2addr v3, v7
+    add-int/2addr v4, v5
 
-    add-int/lit8 v5, v5, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_1
 
     :cond_1
-    return-object v1
+    return-object v0
 .end method
 
 .method public static decryptApplicationKey([B[B[B)[B
@@ -193,7 +179,7 @@
 
     if-nez p2, :cond_0
 
-    sget-object v0, Lcom/android/server/locksettings/recoverablekeystore/KeySyncUtils;->ENCRYPTED_APPLICATION_KEY_HEADER:[B
+    sget-object p2, Lcom/android/server/locksettings/recoverablekeystore/KeySyncUtils;->ENCRYPTED_APPLICATION_KEY_HEADER:[B
 
     goto :goto_0
 
@@ -214,16 +200,16 @@
 
     invoke-static {v0}, Lcom/android/server/locksettings/recoverablekeystore/KeySyncUtils;->concat([[B)[B
 
-    move-result-object v0
+    move-result-object p2
 
     :goto_0
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    invoke-static {v1, p0, v0, p1}, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->decrypt(Ljava/security/PrivateKey;[B[B[B)[B
+    invoke-static {v0, p0, p2, p1}, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->decrypt(Ljava/security/PrivateKey;[B[B[B)[B
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method
 
 .method public static decryptRecoveryClaimResponse([B[B[B)[B
@@ -252,15 +238,15 @@
 
     invoke-static {v0}, Lcom/android/server/locksettings/recoverablekeystore/KeySyncUtils;->concat([[B)[B
 
-    move-result-object v0
+    move-result-object p1
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    invoke-static {v1, p0, v0, p2}, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->decrypt(Ljava/security/PrivateKey;[B[B[B)[B
+    invoke-static {v0, p0, p1, p2}, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->decrypt(Ljava/security/PrivateKey;[B[B[B)[B
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static decryptRecoveryKey([B[B)[B
@@ -279,13 +265,13 @@
 
     invoke-static {v1, p0, v0, p1}, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->decrypt(Ljava/security/PrivateKey;[B[B[B)[B
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static deserializePublicKey([B)Ljava/security/PublicKey;
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/spec/InvalidKeySpecException;
@@ -301,30 +287,28 @@
     :try_end_0
     .catch Ljava/security/NoSuchAlgorithmException; {:try_start_0 .. :try_end_0} :catch_0
 
-    nop
-
     new-instance v1, Ljava/security/spec/X509EncodedKeySpec;
 
     invoke-direct {v1, p0}, Ljava/security/spec/X509EncodedKeySpec;-><init>([B)V
 
     invoke-virtual {v0, v1}, Ljava/security/KeyFactory;->generatePublic(Ljava/security/spec/KeySpec;)Ljava/security/PublicKey;
 
-    move-result-object v2
+    move-result-object p0
 
-    return-object v2
+    return-object p0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    new-instance v1, Ljava/lang/RuntimeException;
+    new-instance v0, Ljava/lang/RuntimeException;
 
-    invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {v0, p0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v1
+    throw v0
 .end method
 
 .method public static encryptKeysWithRecoveryKey(Ljavax/crypto/SecretKey;Ljava/util/Map;)Ljava/util/Map;
-    .locals 9
+    .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -394,7 +378,7 @@
 
     if-nez v4, :cond_0
 
-    sget-object v5, Lcom/android/server/locksettings/recoverablekeystore/KeySyncUtils;->ENCRYPTED_APPLICATION_KEY_HEADER:[B
+    sget-object v4, Lcom/android/server/locksettings/recoverablekeystore/KeySyncUtils;->ENCRYPTED_APPLICATION_KEY_HEADER:[B
 
     goto :goto_1
 
@@ -415,24 +399,24 @@
 
     invoke-static {v5}, Lcom/android/server/locksettings/recoverablekeystore/KeySyncUtils;->concat([[B)[B
 
-    move-result-object v5
+    move-result-object v4
 
     :goto_1
-    const/4 v6, 0x0
+    const/4 v5, 0x0
 
     invoke-interface {p0}, Ljavax/crypto/SecretKey;->getEncoded()[B
 
-    move-result-object v7
+    move-result-object v6
 
     invoke-interface {v3}, Ljavax/crypto/SecretKey;->getEncoded()[B
 
-    move-result-object v8
+    move-result-object v3
 
-    invoke-static {v6, v7, v5, v8}, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->encrypt(Ljava/security/PublicKey;[B[B[B)[B
+    invoke-static {v5, v6, v4, v3}, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->encrypt(Ljava/security/PublicKey;[B[B[B)[B
 
-    move-result-object v6
+    move-result-object v3
 
-    invoke-virtual {v0, v2, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, v2, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_0
 
@@ -441,7 +425,7 @@
 .end method
 
 .method public static encryptRecoveryClaim(Ljava/security/PublicKey;[B[B[B[B)[B
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/NoSuchAlgorithmException;,
@@ -463,31 +447,31 @@
 
     aput-object p1, v0, v1
 
-    const/4 v3, 0x2
+    const/4 p1, 0x2
 
-    aput-object p2, v0, v3
+    aput-object p2, v0, p1
 
     invoke-static {v0}, Lcom/android/server/locksettings/recoverablekeystore/KeySyncUtils;->concat([[B)[B
 
-    move-result-object v0
+    move-result-object p2
 
-    new-array v3, v3, [[B
+    new-array p1, p1, [[B
 
-    aput-object p3, v3, v2
+    aput-object p3, p1, v2
 
-    aput-object p4, v3, v1
+    aput-object p4, p1, v1
 
-    invoke-static {v3}, Lcom/android/server/locksettings/recoverablekeystore/KeySyncUtils;->concat([[B)[B
+    invoke-static {p1}, Lcom/android/server/locksettings/recoverablekeystore/KeySyncUtils;->concat([[B)[B
 
-    move-result-object v1
+    move-result-object p1
 
-    const/4 v2, 0x0
+    const/4 p3, 0x0
 
-    invoke-static {p0, v2, v0, v1}, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->encrypt(Ljava/security/PublicKey;[B[B[B)[B
+    invoke-static {p0, p3, p2, p1}, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->encrypt(Ljava/security/PublicKey;[B[B[B)[B
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static generateKeyClaimant()[B
@@ -506,37 +490,11 @@
     return-object v1
 .end method
 
-.method public static generateRecoveryKey()Ljavax/crypto/SecretKey;
-    .locals 3
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/security/NoSuchAlgorithmException;
-        }
+.method public static locallyEncryptRecoveryKey([BLjavax/crypto/SecretKey;)[B
+    .locals 2
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 
-    const-string v0, "AES"
-
-    invoke-static {v0}, Ljavax/crypto/KeyGenerator;->getInstance(Ljava/lang/String;)Ljavax/crypto/KeyGenerator;
-
-    move-result-object v0
-
-    new-instance v1, Ljava/security/SecureRandom;
-
-    invoke-direct {v1}, Ljava/security/SecureRandom;-><init>()V
-
-    const/16 v2, 0x100
-
-    invoke-virtual {v0, v2, v1}, Ljavax/crypto/KeyGenerator;->init(ILjava/security/SecureRandom;)V
-
-    invoke-virtual {v0}, Ljavax/crypto/KeyGenerator;->generateKey()Ljavax/crypto/SecretKey;
-
-    move-result-object v1
-
-    return-object v1
-.end method
-
-.method static locallyEncryptRecoveryKey([BLjavax/crypto/SecretKey;)[B
-    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/NoSuchAlgorithmException;,
@@ -548,19 +506,19 @@
 
     invoke-interface {p1}, Ljavax/crypto/SecretKey;->getEncoded()[B
 
-    move-result-object v1
+    move-result-object p1
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    invoke-static {v2, p0, v0, v1}, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->encrypt(Ljava/security/PublicKey;[B[B[B)[B
+    invoke-static {v1, p0, v0, p1}, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->encrypt(Ljava/security/PublicKey;[B[B[B)[B
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static packVaultParams(Ljava/security/PublicKey;JI[B)[B
-    .locals 3
+    .locals 2
 
     array-length v0, p4
 
@@ -568,43 +526,43 @@
 
     invoke-static {v0}, Ljava/nio/ByteBuffer;->allocate(I)Ljava/nio/ByteBuffer;
 
-    move-result-object v1
+    move-result-object v0
 
-    sget-object v2, Ljava/nio/ByteOrder;->LITTLE_ENDIAN:Ljava/nio/ByteOrder;
+    sget-object v1, Ljava/nio/ByteOrder;->LITTLE_ENDIAN:Ljava/nio/ByteOrder;
 
-    invoke-virtual {v1, v2}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
+    invoke-virtual {v0, v1}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
 
-    move-result-object v1
+    move-result-object v0
 
     invoke-static {p0}, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->encodePublicKey(Ljava/security/PublicKey;)[B
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-virtual {v1, v2}, Ljava/nio/ByteBuffer;->put([B)Ljava/nio/ByteBuffer;
+    invoke-virtual {v0, p0}, Ljava/nio/ByteBuffer;->put([B)Ljava/nio/ByteBuffer;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v1, p1, p2}, Ljava/nio/ByteBuffer;->putLong(J)Ljava/nio/ByteBuffer;
+    invoke-virtual {p0, p1, p2}, Ljava/nio/ByteBuffer;->putLong(J)Ljava/nio/ByteBuffer;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v1, p3}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
+    invoke-virtual {p0, p3}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v1, p4}, Ljava/nio/ByteBuffer;->put([B)Ljava/nio/ByteBuffer;
+    invoke-virtual {p0, p4}, Ljava/nio/ByteBuffer;->put([B)Ljava/nio/ByteBuffer;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v1}, Ljava/nio/ByteBuffer;->array()[B
+    invoke-virtual {p0}, Ljava/nio/ByteBuffer;->array()[B
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method
 
 .method public static thmEncryptRecoveryKey(Ljava/security/PublicKey;[B[BLjavax/crypto/SecretKey;)[B
-    .locals 5
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/NoSuchAlgorithmException;,
@@ -614,33 +572,33 @@
 
     invoke-static {p1, p3}, Lcom/android/server/locksettings/recoverablekeystore/KeySyncUtils;->locallyEncryptRecoveryKey([BLjavax/crypto/SecretKey;)[B
 
-    move-result-object v0
+    move-result-object p3
 
     invoke-static {p1}, Lcom/android/server/locksettings/recoverablekeystore/KeySyncUtils;->calculateThmKfHash([B)[B
 
-    move-result-object v1
+    move-result-object p1
 
-    const/4 v2, 0x2
+    const/4 v0, 0x2
 
-    new-array v2, v2, [[B
+    new-array v0, v0, [[B
 
-    sget-object v3, Lcom/android/server/locksettings/recoverablekeystore/KeySyncUtils;->THM_ENCRYPTED_RECOVERY_KEY_HEADER:[B
+    sget-object v1, Lcom/android/server/locksettings/recoverablekeystore/KeySyncUtils;->THM_ENCRYPTED_RECOVERY_KEY_HEADER:[B
 
-    const/4 v4, 0x0
+    const/4 v2, 0x0
 
-    aput-object v3, v2, v4
+    aput-object v1, v0, v2
 
-    const/4 v3, 0x1
+    const/4 v1, 0x1
 
-    aput-object p2, v2, v3
+    aput-object p2, v0, v1
 
-    invoke-static {v2}, Lcom/android/server/locksettings/recoverablekeystore/KeySyncUtils;->concat([[B)[B
+    invoke-static {v0}, Lcom/android/server/locksettings/recoverablekeystore/KeySyncUtils;->concat([[B)[B
 
-    move-result-object v2
+    move-result-object p2
 
-    invoke-static {p0, v1, v2, v0}, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->encrypt(Ljava/security/PublicKey;[B[B[B)[B
+    invoke-static {p0, p1, p2, p3}, Lcom/android/server/locksettings/recoverablekeystore/SecureBox;->encrypt(Ljava/security/PublicKey;[B[B[B)[B
 
-    move-result-object v3
+    move-result-object p0
 
-    return-object v3
+    return-object p0
 .end method

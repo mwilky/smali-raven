@@ -91,7 +91,7 @@
 .method public abstract onPackageAdded(Lcom/android/server/pm/parsing/pkg/AndroidPackage;ZLcom/android/server/pm/parsing/pkg/AndroidPackage;)V
 .end method
 
-.method public abstract onPackageInstalled(Lcom/android/server/pm/parsing/pkg/AndroidPackage;Lcom/android/server/pm/permission/PermissionManagerServiceInternal$PackageInstalledParams;I)V
+.method public abstract onPackageInstalled(Lcom/android/server/pm/parsing/pkg/AndroidPackage;ILcom/android/server/pm/permission/PermissionManagerServiceInternal$PackageInstalledParams;I)V
 .end method
 
 .method public abstract onPackageRemoved(Lcom/android/server/pm/parsing/pkg/AndroidPackage;)V
@@ -127,9 +127,6 @@
 .end method
 
 .method public abstract readLegacyPermissionsTEMP(Lcom/android/server/pm/permission/LegacyPermissionSettings;)V
-.end method
-
-.method public abstract removeOnRuntimePermissionStateChangedListener(Lcom/android/server/pm/permission/PermissionManagerServiceInternal$OnRuntimePermissionStateChangedListener;)V
 .end method
 
 .method public abstract resetRuntimePermissions(Lcom/android/server/pm/parsing/pkg/AndroidPackage;I)V

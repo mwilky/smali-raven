@@ -1,28 +1,13 @@
 .class public final synthetic Lcom/android/server/people/data/EventIndex$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Function;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/people/data/EventIndex$$ExternalSyntheticLambda2;
-
-
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/people/data/EventIndex$$ExternalSyntheticLambda2;
-
-    invoke-direct {v0}, Lcom/android/server/people/data/EventIndex$$ExternalSyntheticLambda2;-><init>()V
-
-    sput-object v0, Lcom/android/server/people/data/EventIndex$$ExternalSyntheticLambda2;->INSTANCE:Lcom/android/server/people/data/EventIndex$$ExternalSyntheticLambda2;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -33,17 +18,17 @@
 
 # virtual methods
 .method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .locals 0
 
     check-cast p1, Ljava/lang/Long;
 
     invoke-virtual {p1}, Ljava/lang/Long;->longValue()J
 
-    move-result-wide v0
+    move-result-wide p0
 
-    invoke-static {v0, v1}, Lcom/android/server/people/data/EventIndex;->$r8$lambda$ky5s_Q51WvF3zZTzaSUFPNb-wB4(J)Landroid/util/Range;
+    invoke-static {p0, p1}, Lcom/android/server/people/data/EventIndex;->$r8$lambda$ky5s_Q51WvF3zZTzaSUFPNb-wB4(J)Landroid/util/Range;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method

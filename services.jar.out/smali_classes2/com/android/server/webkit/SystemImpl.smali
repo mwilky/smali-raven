@@ -15,113 +15,85 @@
 
 
 # static fields
-.field private static final PACKAGE_FLAGS:I = 0x104004c0
-
-.field private static final TAG:Ljava/lang/String;
-
-.field private static final TAG_AVAILABILITY:Ljava/lang/String; = "availableByDefault"
-
-.field private static final TAG_DESCRIPTION:Ljava/lang/String; = "description"
-
-.field private static final TAG_FALLBACK:Ljava/lang/String; = "isFallback"
-
-.field private static final TAG_PACKAGE_NAME:Ljava/lang/String; = "packageName"
-
-.field private static final TAG_SIGNATURE:Ljava/lang/String; = "signature"
-
-.field private static final TAG_START:Ljava/lang/String; = "webviewproviders"
-
-.field private static final TAG_WEBVIEW_PROVIDER:Ljava/lang/String; = "webviewprovider"
+.field public static final TAG:Ljava/lang/String; = "SystemImpl"
 
 
 # instance fields
-.field private final mWebViewProviderPackages:[Landroid/webkit/WebViewProviderInfo;
+.field public final mWebViewProviderPackages:[Landroid/webkit/WebViewProviderInfo;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    const-class v0, Lcom/android/server/webkit/SystemImpl;
-
-    invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
-
-    move-result-object v0
-
-    sput-object v0, Lcom/android/server/webkit/SystemImpl;->TAG:Ljava/lang/String;
+.method public static constructor <clinit>()V
+    .locals 0
 
     return-void
 .end method
 
-.method private constructor <init>()V
-    .locals 15
+.method public constructor <init>()V
+    .locals 13
 
     const-string v0, "true"
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    const/4 v1, 0x0
+    new-instance v1, Ljava/util/ArrayList;
+
+    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
     const/4 v2, 0x0
-
-    const/4 v3, 0x0
-
-    new-instance v4, Ljava/util/ArrayList;
-
-    invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
 
     :try_start_0
     invoke-static {}, Landroid/app/AppGlobals;->getInitialApplication()Landroid/app/Application;
 
-    move-result-object v5
+    move-result-object v3
 
-    invoke-virtual {v5}, Landroid/app/Application;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v3}, Landroid/app/Application;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v5
+    move-result-object v3
 
-    const v6, 0x1170007
+    const v4, 0x1170007
 
-    invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getXml(I)Landroid/content/res/XmlResourceParser;
+    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getXml(I)Landroid/content/res/XmlResourceParser;
 
-    move-result-object v5
+    move-result-object v3
+    :try_end_0
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
+    .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
-    move-object v3, v5
+    :try_start_1
+    const-string v4, "webviewproviders"
 
-    const-string v5, "webviewproviders"
+    invoke-static {v3, v4}, Lcom/android/internal/util/XmlUtils;->beginDocument(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)V
 
-    invoke-static {v3, v5}, Lcom/android/internal/util/XmlUtils;->beginDocument(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)V
+    const/4 v4, 0x0
+
+    move v5, v4
 
     :goto_0
     invoke-static {v3}, Lcom/android/internal/util/XmlUtils;->nextElement(Lorg/xmlpull/v1/XmlPullParser;)V
 
     invoke-interface {v3}, Landroid/content/res/XmlResourceParser;->getName()Ljava/lang/String;
 
-    move-result-object v5
-    :try_end_0
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    move-result-object v6
+    :try_end_1
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_1 .. :try_end_1} :catch_0
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    if-nez v5, :cond_2
-
-    nop
-
-    if-eqz v3, :cond_0
+    if-nez v6, :cond_1
 
     invoke-interface {v3}, Landroid/content/res/XmlResourceParser;->close()V
 
-    :cond_0
-    if-eqz v2, :cond_1
+    if-eqz v4, :cond_0
 
-    nop
-
-    invoke-interface {v4}, Ljava/util/List;->size()I
+    invoke-interface {v1}, Ljava/util/List;->size()I
 
     move-result v0
 
     new-array v0, v0, [Landroid/webkit/WebViewProviderInfo;
 
-    invoke-interface {v4, v0}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+    invoke-interface {v1, v0}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
     move-result-object v0
 
@@ -131,201 +103,205 @@
 
     return-void
 
+    :cond_0
+    new-instance p0, Landroid/util/AndroidRuntimeException;
+
+    const-string v0, "There must be at least one WebView package that is available by default"
+
+    invoke-direct {p0, v0}, Landroid/util/AndroidRuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+
     :cond_1
-    new-instance v0, Landroid/util/AndroidRuntimeException;
+    :try_start_2
+    const-string v7, "webviewprovider"
 
-    const-string v5, "There must be at least one WebView package that is available by default"
-
-    invoke-direct {v0, v5}, Landroid/util/AndroidRuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    :cond_2
-    :try_start_1
-    const-string v6, "webviewprovider"
-
-    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_9
+    if-eqz v6, :cond_8
 
     const-string v6, "packageName"
 
-    const/4 v7, 0x0
+    invoke-interface {v3, v2, v6}, Landroid/content/res/XmlResourceParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-interface {v3, v7, v6}, Landroid/content/res/XmlResourceParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    move-result-object v8
+
+    if-eqz v8, :cond_7
+
+    const-string v6, "description"
+
+    invoke-interface {v3, v2, v6}, Landroid/content/res/XmlResourceParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v9
+
+    if-eqz v9, :cond_6
+
+    const-string v6, "availableByDefault"
+
+    invoke-interface {v3, v2, v6}, Landroid/content/res/XmlResourceParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v6
 
-    if-eqz v6, :cond_8
+    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    const-string v8, "description"
+    move-result v10
 
-    invoke-interface {v3, v7, v8}, Landroid/content/res/XmlResourceParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    const-string v6, "isFallback"
 
-    move-result-object v8
+    invoke-interface {v3, v2, v6}, Landroid/content/res/XmlResourceParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-object v14, v8
+    move-result-object v6
 
-    if-eqz v14, :cond_7
-
-    const-string v8, "availableByDefault"
-
-    invoke-interface {v3, v7, v8}, Landroid/content/res/XmlResourceParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-virtual {v0, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v11
 
-    const-string v8, "isFallback"
-
-    invoke-interface {v3, v7, v8}, Landroid/content/res/XmlResourceParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v0, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v12
-
-    new-instance v7, Landroid/webkit/WebViewProviderInfo;
+    new-instance v6, Landroid/webkit/WebViewProviderInfo;
 
     invoke-static {v3}, Lcom/android/server/webkit/SystemImpl;->readSignatures(Landroid/content/res/XmlResourceParser;)[Ljava/lang/String;
 
-    move-result-object v13
+    move-result-object v12
 
-    move-object v8, v7
+    move-object v7, v6
 
-    move-object v9, v6
+    invoke-direct/range {v7 .. v12}, Landroid/webkit/WebViewProviderInfo;-><init>(Ljava/lang/String;Ljava/lang/String;ZZ[Ljava/lang/String;)V
 
-    move-object v10, v14
+    iget-boolean v7, v6, Landroid/webkit/WebViewProviderInfo;->isFallback:Z
 
-    invoke-direct/range {v8 .. v13}, Landroid/webkit/WebViewProviderInfo;-><init>(Ljava/lang/String;Ljava/lang/String;ZZ[Ljava/lang/String;)V
+    if-eqz v7, :cond_4
 
-    iget-boolean v8, v7, Landroid/webkit/WebViewProviderInfo;->isFallback:Z
+    add-int/lit8 v5, v5, 0x1
 
-    if-eqz v8, :cond_5
+    iget-boolean v7, v6, Landroid/webkit/WebViewProviderInfo;->availableByDefault:Z
 
-    add-int/lit8 v1, v1, 0x1
+    if-eqz v7, :cond_3
 
-    iget-boolean v8, v7, Landroid/webkit/WebViewProviderInfo;->availableByDefault:Z
+    const/4 v7, 0x1
 
-    if-eqz v8, :cond_4
-
-    const/4 v8, 0x1
-
-    if-gt v1, v8, :cond_3
+    if-gt v5, v7, :cond_2
 
     goto :goto_1
 
+    :cond_2
+    new-instance p0, Landroid/util/AndroidRuntimeException;
+
+    const-string v0, "There can be at most one WebView fallback package."
+
+    invoke-direct {p0, v0}, Landroid/util/AndroidRuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+
     :cond_3
-    new-instance v0, Landroid/util/AndroidRuntimeException;
+    new-instance p0, Landroid/util/AndroidRuntimeException;
 
-    const-string v8, "There can be at most one WebView fallback package."
+    const-string v0, "Each WebView fallback package must be available by default."
 
-    invoke-direct {v0, v8}, Landroid/util/AndroidRuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Landroid/util/AndroidRuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 
     :cond_4
-    new-instance v0, Landroid/util/AndroidRuntimeException;
+    :goto_1
+    iget-boolean v7, v6, Landroid/webkit/WebViewProviderInfo;->availableByDefault:Z
 
-    const-string v8, "Each WebView fallback package must be available by default."
+    if-eqz v7, :cond_5
 
-    invoke-direct {v0, v8}, Landroid/util/AndroidRuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    add-int/lit8 v4, v4, 0x1
 
     :cond_5
-    :goto_1
-    iget-boolean v8, v7, Landroid/webkit/WebViewProviderInfo;->availableByDefault:Z
+    invoke-interface {v1, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    if-eqz v8, :cond_6
-
-    add-int/lit8 v2, v2, 0x1
+    goto/16 :goto_0
 
     :cond_6
-    invoke-interface {v4, v7}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    new-instance p0, Landroid/util/AndroidRuntimeException;
 
-    nop
+    const-string v0, "WebView provider in framework resources missing description"
 
-    goto :goto_2
+    invoke-direct {p0, v0}, Landroid/util/AndroidRuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw p0
 
     :cond_7
-    new-instance v0, Landroid/util/AndroidRuntimeException;
+    new-instance p0, Landroid/util/AndroidRuntimeException;
 
-    const-string v7, "WebView provider in framework resources missing description"
+    const-string v0, "WebView provider in framework resources missing package name"
 
-    invoke-direct {v0, v7}, Landroid/util/AndroidRuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Landroid/util/AndroidRuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 
     :cond_8
-    new-instance v0, Landroid/util/AndroidRuntimeException;
-
-    const-string v7, "WebView provider in framework resources missing package name"
-
-    invoke-direct {v0, v7}, Landroid/util/AndroidRuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    :cond_9
     sget-object v6, Lcom/android/server/webkit/SystemImpl;->TAG:Ljava/lang/String;
 
     const-string v7, "Found an element that is not a WebView provider"
 
     invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_1
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_1 .. :try_end_1} :catch_0
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_2
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_2 .. :try_end_2} :catch_0
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    :goto_2
     goto/16 :goto_0
 
     :catchall_0
-    move-exception v0
+    move-exception p0
+
+    move-object v2, v3
 
     goto :goto_3
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    :try_start_2
-    new-instance v5, Landroid/util/AndroidRuntimeException;
+    move-object v2, v3
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    goto :goto_2
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    :catchall_1
+    move-exception p0
 
-    const-string v7, "Error when parsing WebView config "
+    goto :goto_3
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    :catch_1
+    move-exception p0
 
-    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    :goto_2
+    :try_start_3
+    new-instance v0, Landroid/util/AndroidRuntimeException;
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v5, v6}, Landroid/util/AndroidRuntimeException;-><init>(Ljava/lang/String;)V
+    const-string v3, "Error when parsing WebView config "
 
-    throw v5
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-direct {v0, p0}, Landroid/util/AndroidRuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
     :goto_3
-    if-eqz v3, :cond_a
+    if-eqz v2, :cond_9
 
-    invoke-interface {v3}, Landroid/content/res/XmlResourceParser;->close()V
+    invoke-interface {v2}, Landroid/content/res/XmlResourceParser;->close()V
 
-    :cond_a
-    throw v0
+    :cond_9
+    throw p0
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/webkit/SystemImpl$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/webkit/SystemImpl-IA;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/webkit/SystemImpl;-><init>()V
@@ -333,103 +309,17 @@
     return-void
 .end method
 
-.method private enablePackageForUser(Ljava/lang/String;ZI)V
-    .locals 6
-
-    :try_start_0
-    invoke-static {}, Landroid/app/AppGlobals;->getPackageManager()Landroid/content/pm/IPackageManager;
-
-    move-result-object v0
-
-    if-eqz p2, :cond_0
-
-    const/4 v1, 0x0
-
-    move v2, v1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v1, 0x3
-
-    move v2, v1
-
-    :goto_0
-    const/4 v3, 0x0
-
-    const/4 v5, 0x0
-
-    move-object v1, p1
-
-    move v4, p3
-
-    invoke-interface/range {v0 .. v5}, Landroid/content/pm/IPackageManager;->setApplicationEnabledSetting(Ljava/lang/String;IIILjava/lang/String;)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_2
-
-    :catch_0
-    move-exception v0
-
-    sget-object v1, Lcom/android/server/webkit/SystemImpl;->TAG:Ljava/lang/String;
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "Tried to "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    if-eqz p2, :cond_1
-
-    const-string v3, "enable "
-
-    goto :goto_1
-
-    :cond_1
-    const-string v3, "disable "
-
-    :goto_1
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v3, " for user "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v3, ": "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    :goto_2
-    return-void
-.end method
-
 .method public static getInstance()Lcom/android/server/webkit/SystemImpl;
     .locals 1
 
-    invoke-static {}, Lcom/android/server/webkit/SystemImpl$LazyHolder;->access$100()Lcom/android/server/webkit/SystemImpl;
+    invoke-static {}, Lcom/android/server/webkit/SystemImpl$LazyHolder;->-$$Nest$sfgetINSTANCE()Lcom/android/server/webkit/SystemImpl;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method private static readSignatures(Landroid/content/res/XmlResourceParser;)[Ljava/lang/String;
+.method public static readSignatures(Landroid/content/res/XmlResourceParser;)[Ljava/lang/String;
     .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -485,60 +375,144 @@
     :cond_1
     invoke-interface {v0}, Ljava/util/List;->size()I
 
-    move-result v2
+    move-result p0
 
-    new-array v2, v2, [Ljava/lang/String;
+    new-array p0, p0, [Ljava/lang/String;
 
-    invoke-interface {v0, v2}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+    invoke-interface {v0, p0}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p0
 
-    check-cast v2, [Ljava/lang/String;
+    check-cast p0, [Ljava/lang/String;
 
-    return-object v2
+    return-object p0
 .end method
 
 
 # virtual methods
 .method public enablePackageForAllUsers(Landroid/content/Context;Ljava/lang/String;Z)V
-    .locals 4
+    .locals 1
 
     const-string v0, "user"
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Landroid/os/UserManager;
+    check-cast p1, Landroid/os/UserManager;
 
-    invoke-virtual {v0}, Landroid/os/UserManager;->getUsers()Ljava/util/List;
+    invoke-virtual {p1}, Landroid/os/UserManager;->getUsers()Ljava/util/List;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v1
+    move-result-object p1
 
     :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_0
+    if-eqz v0, :cond_0
 
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
-    check-cast v2, Landroid/content/pm/UserInfo;
+    check-cast v0, Landroid/content/pm/UserInfo;
 
-    iget v3, v2, Landroid/content/pm/UserInfo;->id:I
+    iget v0, v0, Landroid/content/pm/UserInfo;->id:I
 
-    invoke-direct {p0, p2, p3, v3}, Lcom/android/server/webkit/SystemImpl;->enablePackageForUser(Ljava/lang/String;ZI)V
+    invoke-virtual {p0, p2, p3, v0}, Lcom/android/server/webkit/SystemImpl;->enablePackageForUser(Ljava/lang/String;ZI)V
 
     goto :goto_0
 
     :cond_0
+    return-void
+.end method
+
+.method public final enablePackageForUser(Ljava/lang/String;ZI)V
+    .locals 6
+
+    :try_start_0
+    invoke-static {}, Landroid/app/AppGlobals;->getPackageManager()Landroid/content/pm/IPackageManager;
+
+    move-result-object v0
+
+    if-eqz p2, :cond_0
+
+    const/4 p0, 0x0
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x3
+
+    :goto_0
+    move v2, p0
+
+    const/4 v3, 0x0
+
+    const/4 v5, 0x0
+
+    move-object v1, p1
+
+    move v4, p3
+
+    invoke-interface/range {v0 .. v5}, Landroid/content/pm/IPackageManager;->setApplicationEnabledSetting(Ljava/lang/String;IIILjava/lang/String;)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_2
+
+    :catch_0
+    move-exception p0
+
+    sget-object v0, Lcom/android/server/webkit/SystemImpl;->TAG:Ljava/lang/String;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "Tried to "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    if-eqz p2, :cond_1
+
+    const-string p2, "enable "
+
+    goto :goto_1
+
+    :cond_1
+    const-string p2, "disable "
+
+    :goto_1
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string p1, " for user "
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string p1, ": "
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-static {v0, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    :goto_2
     return-void
 .end method
 
@@ -551,7 +525,7 @@
 .end method
 
 .method public getFactoryPackageVersion(Ljava/lang/String;)J
-    .locals 3
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/pm/PackageManager$NameNotFoundException;
@@ -560,45 +534,45 @@
 
     invoke-static {}, Landroid/app/AppGlobals;->getInitialApplication()Landroid/app/Application;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Landroid/app/Application;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {p0}, Landroid/app/Application;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v0
+    move-result-object p0
 
-    const/high16 v1, 0x200000
+    const/high16 v0, 0x200000
 
-    invoke-virtual {v0, p1, v1}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
+    invoke-virtual {p0, p1, v0}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v1}, Landroid/content/pm/PackageInfo;->getLongVersionCode()J
+    invoke-virtual {p0}, Landroid/content/pm/PackageInfo;->getLongVersionCode()J
 
-    move-result-wide v1
+    move-result-wide p0
 
-    return-wide v1
+    return-wide p0
 .end method
 
 .method public getMultiProcessSetting(Landroid/content/Context;)I
-    .locals 3
+    .locals 1
 
     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v0
+    move-result-object p0
 
-    const-string v1, "webview_multiprocess"
+    const-string p1, "webview_multiprocess"
 
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
-    invoke-static {v0, v1, v2}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {p0, p1, v0}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public getPackageInfoForProvider(Landroid/webkit/WebViewProviderInfo;)Landroid/content/pm/PackageInfo;
-    .locals 3
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/pm/PackageManager$NameNotFoundException;
@@ -607,25 +581,25 @@
 
     invoke-static {}, Landroid/app/AppGlobals;->getInitialApplication()Landroid/app/Application;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Landroid/app/Application;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {p0}, Landroid/app/Application;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v0
+    move-result-object p0
 
-    iget-object v1, p1, Landroid/webkit/WebViewProviderInfo;->packageName:Ljava/lang/String;
+    iget-object p1, p1, Landroid/webkit/WebViewProviderInfo;->packageName:Ljava/lang/String;
 
-    const v2, 0x104004c0
+    const v0, 0x104004c0
 
-    invoke-virtual {v0, v1, v2}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
+    invoke-virtual {p0, p1, v0}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method
 
 .method public getPackageInfoForProviderAllUsers(Landroid/content/Context;Landroid/webkit/WebViewProviderInfo;)Ljava/util/List;
-    .locals 2
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -638,69 +612,64 @@
         }
     .end annotation
 
-    iget-object v0, p2, Landroid/webkit/WebViewProviderInfo;->packageName:Ljava/lang/String;
+    iget-object p0, p2, Landroid/webkit/WebViewProviderInfo;->packageName:Ljava/lang/String;
 
-    const v1, 0x104004c0
+    const p2, 0x104004c0
 
-    invoke-static {p1, v0, v1}, Landroid/webkit/UserPackage;->getPackageInfosAllUsers(Landroid/content/Context;Ljava/lang/String;I)Ljava/util/List;
+    invoke-static {p1, p0, p2}, Landroid/webkit/UserPackage;->getPackageInfosAllUsers(Landroid/content/Context;Ljava/lang/String;I)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getUserChosenWebViewProvider(Landroid/content/Context;)Ljava/lang/String;
-    .locals 2
+    .locals 0
 
     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v0
+    move-result-object p0
 
-    const-string v1, "webview_provider"
+    const-string p1, "webview_provider"
 
-    invoke-static {v0, v1}, Landroid/provider/Settings$Global;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {p0, p1}, Landroid/provider/Settings$Global;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getWebViewPackages()[Landroid/webkit/WebViewProviderInfo;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/webkit/SystemImpl;->mWebViewProviderPackages:[Landroid/webkit/WebViewProviderInfo;
+    iget-object p0, p0, Lcom/android/server/webkit/SystemImpl;->mWebViewProviderPackages:[Landroid/webkit/WebViewProviderInfo;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public isMultiProcessDefaultEnabled()Z
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 .end method
 
 .method public killPackageDependents(Ljava/lang/String;)V
-    .locals 2
+    .locals 1
 
     :try_start_0
     invoke-static {}, Landroid/app/ActivityManager;->getService()Landroid/app/IActivityManager;
 
-    move-result-object v0
+    move-result-object p0
 
-    const/4 v1, -0x1
+    const/4 v0, -0x1
 
-    invoke-interface {v0, p1, v1}, Landroid/app/IActivityManager;->killPackageDependents(Ljava/lang/String;I)V
+    invoke-interface {p0, p1, v0}, Landroid/app/IActivityManager;->killPackageDependents(Ljava/lang/String;I)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
-
     :catch_0
-    move-exception v0
-
-    :goto_0
     return-void
 .end method
 
@@ -713,57 +682,52 @@
 .end method
 
 .method public onWebViewProviderChanged(Landroid/content/pm/PackageInfo;)I
-    .locals 1
+    .locals 0
 
     invoke-static {p1}, Landroid/webkit/WebViewFactory;->onWebViewProviderChanged(Landroid/content/pm/PackageInfo;)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public setMultiProcessSetting(Landroid/content/Context;I)V
-    .locals 2
+    .locals 0
 
     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v0
+    move-result-object p0
 
-    const-string v1, "webview_multiprocess"
+    const-string p1, "webview_multiprocess"
 
-    invoke-static {v0, v1, p2}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    invoke-static {p0, p1, p2}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
     return-void
 .end method
 
 .method public systemIsDebuggable()Z
-    .locals 1
+    .locals 0
 
-    sget-boolean v0, Landroid/os/Build;->IS_DEBUGGABLE:Z
+    sget-boolean p0, Landroid/os/Build;->IS_DEBUGGABLE:Z
 
-    return v0
+    return p0
 .end method
 
 .method public updateUserSetting(Landroid/content/Context;Ljava/lang/String;)V
-    .locals 3
+    .locals 0
 
     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v0
+    move-result-object p0
 
     if-nez p2, :cond_0
 
-    const-string v1, ""
-
-    goto :goto_0
+    const-string p2, ""
 
     :cond_0
-    move-object v1, p2
+    const-string p1, "webview_provider"
 
-    :goto_0
-    const-string v2, "webview_provider"
-
-    invoke-static {v0, v2, v1}, Landroid/provider/Settings$Global;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
+    invoke-static {p0, p1, p2}, Landroid/provider/Settings$Global;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
 
     return-void
 .end method

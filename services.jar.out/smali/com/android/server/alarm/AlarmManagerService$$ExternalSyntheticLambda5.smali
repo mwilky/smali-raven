@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/alarm/AlarmManagerService$$ExternalSyntheticLambda5;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/server/alarm/AlarmStore$AlarmDeliveryCalculator;
+.implements Ljava/util/function/Supplier;
 
 
 # instance fields
@@ -22,14 +23,14 @@
 
 
 # virtual methods
-.method public final updateAlarmDelivery(Lcom/android/server/alarm/Alarm;)Z
-    .locals 1
+.method public final get()Ljava/lang/Object;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/alarm/AlarmManagerService$$ExternalSyntheticLambda5;->f$0:Lcom/android/server/alarm/AlarmManagerService;
+    iget-object p0, p0, Lcom/android/server/alarm/AlarmManagerService$$ExternalSyntheticLambda5;->f$0:Lcom/android/server/alarm/AlarmManagerService;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/alarm/AlarmManagerService;->lambda$setImplLocked$10$AlarmManagerService(Lcom/android/server/alarm/Alarm;)Z
+    invoke-static {p0}, Lcom/android/server/alarm/AlarmManagerService;->$r8$lambda$qQoIheeyJ4NxnZpP1ymQjxNaQPY(Lcom/android/server/alarm/AlarmManagerService;)Lcom/android/server/alarm/AlarmStore;
 
-    move-result p1
+    move-result-object p0
 
-    return p1
+    return-object p0
 .end method

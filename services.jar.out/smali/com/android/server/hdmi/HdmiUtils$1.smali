@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
@@ -25,7 +25,7 @@
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 12
 
     invoke-direct {p0}, Ljava/util/HashMap;-><init>()V
@@ -50,7 +50,7 @@
 
     move-result-object v4
 
-    invoke-virtual {p0, v1, v4}, Lcom/android/server/hdmi/HdmiUtils$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v1, v4}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     new-array v4, v2, [Ljava/lang/Integer;
 
@@ -60,7 +60,7 @@
 
     move-result-object v4
 
-    invoke-virtual {p0, v3, v4}, Lcom/android/server/hdmi/HdmiUtils$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v3, v4}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     const/4 v4, 0x2
 
@@ -76,7 +76,7 @@
 
     move-result-object v6
 
-    invoke-virtual {p0, v5, v6}, Lcom/android/server/hdmi/HdmiUtils$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v5, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     const/4 v5, 0x3
 
@@ -92,7 +92,7 @@
 
     move-result-object v7
 
-    invoke-virtual {p0, v6, v7}, Lcom/android/server/hdmi/HdmiUtils$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v6, v7}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     const/4 v7, 0x4
 
@@ -108,7 +108,7 @@
 
     move-result-object v9
 
-    invoke-virtual {p0, v8, v9}, Lcom/android/server/hdmi/HdmiUtils$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v8, v9}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     const/4 v9, 0x5
 
@@ -124,7 +124,7 @@
 
     move-result-object v10
 
-    invoke-virtual {p0, v9, v10}, Lcom/android/server/hdmi/HdmiUtils$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v9, v10}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     const/4 v9, 0x6
 
@@ -140,7 +140,7 @@
 
     move-result-object v10
 
-    invoke-virtual {p0, v9, v10}, Lcom/android/server/hdmi/HdmiUtils$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v9, v10}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     const/4 v9, 0x7
 
@@ -156,7 +156,7 @@
 
     move-result-object v10
 
-    invoke-virtual {p0, v9, v10}, Lcom/android/server/hdmi/HdmiUtils$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v9, v10}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     const/16 v10, 0x8
 
@@ -172,7 +172,7 @@
 
     move-result-object v11
 
-    invoke-virtual {p0, v10, v11}, Lcom/android/server/hdmi/HdmiUtils$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v10, v11}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     const/16 v10, 0x9
 
@@ -188,7 +188,7 @@
 
     move-result-object v11
 
-    invoke-virtual {p0, v10, v11}, Lcom/android/server/hdmi/HdmiUtils$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v10, v11}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     const/16 v10, 0xa
 
@@ -204,7 +204,7 @@
 
     move-result-object v11
 
-    invoke-virtual {p0, v10, v11}, Lcom/android/server/hdmi/HdmiUtils$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v10, v11}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     const/16 v10, 0xb
 
@@ -220,7 +220,7 @@
 
     move-result-object v11
 
-    invoke-virtual {p0, v10, v11}, Lcom/android/server/hdmi/HdmiUtils$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v10, v11}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     const/16 v10, 0xc
 
@@ -242,7 +242,7 @@
 
     move-result-object v11
 
-    invoke-virtual {p0, v10, v11}, Lcom/android/server/hdmi/HdmiUtils$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v10, v11}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     const/16 v10, 0xd
 
@@ -264,7 +264,7 @@
 
     move-result-object v3
 
-    invoke-virtual {p0, v10, v3}, Lcom/android/server/hdmi/HdmiUtils$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v10, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     const/16 v3, 0xe
 
@@ -280,7 +280,7 @@
 
     move-result-object v0
 
-    invoke-virtual {p0, v3, v0}, Lcom/android/server/hdmi/HdmiUtils$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v3, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     const/16 v0, 0xf
 
@@ -292,7 +292,7 @@
 
     move-result-object v1
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/server/hdmi/HdmiUtils$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     return-void
 .end method

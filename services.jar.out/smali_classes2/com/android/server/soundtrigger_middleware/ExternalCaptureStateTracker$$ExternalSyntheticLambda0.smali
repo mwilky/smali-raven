@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/soundtrigger_middleware/ExternalCaptureStateTracker$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/soundtrigger_middleware/ExternalCaptureStateTracker$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/soundtrigger_middleware/ExternalCaptureStateTracker;
+    iget-object p0, p0, Lcom/android/server/soundtrigger_middleware/ExternalCaptureStateTracker$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/soundtrigger_middleware/ExternalCaptureStateTracker;
 
-    invoke-static {v0}, Lcom/android/server/soundtrigger_middleware/ExternalCaptureStateTracker;->$r8$lambda$RZMAt4xyair7XupdR0vc4Crojqo(Lcom/android/server/soundtrigger_middleware/ExternalCaptureStateTracker;)V
+    invoke-static {p0}, Lcom/android/server/soundtrigger_middleware/ExternalCaptureStateTracker;->$r8$lambda$RZMAt4xyair7XupdR0vc4Crojqo(Lcom/android/server/soundtrigger_middleware/ExternalCaptureStateTracker;)V
 
     return-void
 .end method

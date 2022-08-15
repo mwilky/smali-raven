@@ -1,4 +1,4 @@
-.class Lcom/android/server/content/SyncManager$AccountSyncStats;
+.class public Lcom/android/server/content/SyncManager$AccountSyncStats;
 .super Ljava/lang/Object;
 .source "SyncManager.java"
 
@@ -9,21 +9,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "AccountSyncStats"
 .end annotation
 
 
 # instance fields
-.field elapsedTime:J
+.field public elapsedTime:J
 
-.field name:Ljava/lang/String;
+.field public name:Ljava/lang/String;
 
-.field times:I
+.field public times:I
 
 
 # direct methods
-.method private constructor <init>(Ljava/lang/String;)V
+.method public constructor <init>(Ljava/lang/String;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -33,7 +33,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Ljava/lang/String;Lcom/android/server/content/SyncManager$1;)V
+.method public synthetic constructor <init>(Ljava/lang/String;Lcom/android/server/content/SyncManager$AccountSyncStats-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/content/SyncManager$AccountSyncStats;-><init>(Ljava/lang/String;)V

@@ -1,9 +1,9 @@
-.class Lcom/android/server/biometrics/sensors/InternalCleanupClient$2;
+.class public Lcom/android/server/biometrics/sensors/InternalCleanupClient$2;
 .super Ljava/lang/Object;
 .source "InternalCleanupClient.java"
 
 # interfaces
-.implements Lcom/android/server/biometrics/sensors/BaseClientMonitor$Callback;
+.implements Lcom/android/server/biometrics/sensors/ClientMonitorCallback;
 
 
 # annotations
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/biometrics/sensors/InternalCleanupClient;
+.field public final synthetic this$0:Lcom/android/server/biometrics/sensors/InternalCleanupClient;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/biometrics/sensors/InternalCleanupClient;)V
+.method public constructor <init>(Lcom/android/server/biometrics/sensors/InternalCleanupClient;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/biometrics/sensors/InternalCleanupClient$2;->this$0:Lcom/android/server/biometrics/sensors/InternalCleanupClient;
@@ -47,27 +47,25 @@
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string v1, ", success: "
+    const-string p1, ", success: "
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v1, "Biometrics/InternalCleanupClient"
+    const-string v0, "Biometrics/InternalCleanupClient"
 
-    invoke-static {v1, v0}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, p1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v0, p0, Lcom/android/server/biometrics/sensors/InternalCleanupClient$2;->this$0:Lcom/android/server/biometrics/sensors/InternalCleanupClient;
+    iget-object p0, p0, Lcom/android/server/biometrics/sensors/InternalCleanupClient$2;->this$0:Lcom/android/server/biometrics/sensors/InternalCleanupClient;
 
-    iget-object v0, v0, Lcom/android/server/biometrics/sensors/InternalCleanupClient;->mCallback:Lcom/android/server/biometrics/sensors/BaseClientMonitor$Callback;
+    iget-object p1, p0, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->mCallback:Lcom/android/server/biometrics/sensors/ClientMonitorCallback;
 
-    iget-object v1, p0, Lcom/android/server/biometrics/sensors/InternalCleanupClient$2;->this$0:Lcom/android/server/biometrics/sensors/InternalCleanupClient;
-
-    invoke-interface {v0, v1, p2}, Lcom/android/server/biometrics/sensors/BaseClientMonitor$Callback;->onClientFinished(Lcom/android/server/biometrics/sensors/BaseClientMonitor;Z)V
+    invoke-interface {p1, p0, p2}, Lcom/android/server/biometrics/sensors/ClientMonitorCallback;->onClientFinished(Lcom/android/server/biometrics/sensors/BaseClientMonitor;Z)V
 
     return-void
 .end method

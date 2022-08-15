@@ -1,47 +1,38 @@
 .class public final synthetic Lcom/android/server/pm/ShortcutService$$ExternalSyntheticLambda24;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Consumer;
+.implements Ljava/util/function/Predicate;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/server/pm/ShortcutService;
-
-.field public final synthetic f$1:Lcom/android/server/pm/ShortcutUser;
-
-.field public final synthetic f$2:I
+.field public final synthetic f$0:Landroid/util/ArraySet;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/pm/ShortcutService;Lcom/android/server/pm/ShortcutUser;I)V
+.method public synthetic constructor <init>(Landroid/util/ArraySet;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/pm/ShortcutService$$ExternalSyntheticLambda24;->f$0:Lcom/android/server/pm/ShortcutService;
-
-    iput-object p2, p0, Lcom/android/server/pm/ShortcutService$$ExternalSyntheticLambda24;->f$1:Lcom/android/server/pm/ShortcutUser;
-
-    iput p3, p0, Lcom/android/server/pm/ShortcutService$$ExternalSyntheticLambda24;->f$2:I
+    iput-object p1, p0, Lcom/android/server/pm/ShortcutService$$ExternalSyntheticLambda24;->f$0:Landroid/util/ArraySet;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
-    .locals 3
+.method public final test(Ljava/lang/Object;)Z
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/pm/ShortcutService$$ExternalSyntheticLambda24;->f$0:Lcom/android/server/pm/ShortcutService;
+    iget-object p0, p0, Lcom/android/server/pm/ShortcutService$$ExternalSyntheticLambda24;->f$0:Landroid/util/ArraySet;
 
-    iget-object v1, p0, Lcom/android/server/pm/ShortcutService$$ExternalSyntheticLambda24;->f$1:Lcom/android/server/pm/ShortcutUser;
+    check-cast p1, Landroid/content/pm/ShortcutInfo;
 
-    iget v2, p0, Lcom/android/server/pm/ShortcutService$$ExternalSyntheticLambda24;->f$2:I
+    invoke-static {p0, p1}, Lcom/android/server/pm/ShortcutService;->$r8$lambda$suU3gahhXmjBjkXNs1NpUtetoFY(Landroid/util/ArraySet;Landroid/content/pm/ShortcutInfo;)Z
 
-    check-cast p1, Landroid/content/pm/ApplicationInfo;
+    move-result p0
 
-    invoke-virtual {v0, v1, v2, p1}, Lcom/android/server/pm/ShortcutService;->lambda$rescanUpdatedPackagesLocked$29$ShortcutService(Lcom/android/server/pm/ShortcutUser;ILandroid/content/pm/ApplicationInfo;)V
-
-    return-void
+    return p0
 .end method

@@ -1,43 +1,48 @@
 .class public final synthetic Lcom/android/server/wm/WindowManagerService$$ExternalSyntheticLambda24;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Supplier;
+.implements Ljava/util/function/Consumer;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/wm/WindowManagerService$$ExternalSyntheticLambda24;
+# instance fields
+.field public final synthetic f$0:Z
+
+.field public final synthetic f$1:Z
+
+.field public final synthetic f$2:Ljava/util/ArrayList;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/wm/WindowManagerService$$ExternalSyntheticLambda24;
-
-    invoke-direct {v0}, Lcom/android/server/wm/WindowManagerService$$ExternalSyntheticLambda24;-><init>()V
-
-    sput-object v0, Lcom/android/server/wm/WindowManagerService$$ExternalSyntheticLambda24;->INSTANCE:Lcom/android/server/wm/WindowManagerService$$ExternalSyntheticLambda24;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(ZZLjava/util/ArrayList;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-boolean p1, p0, Lcom/android/server/wm/WindowManagerService$$ExternalSyntheticLambda24;->f$0:Z
+
+    iput-boolean p2, p0, Lcom/android/server/wm/WindowManagerService$$ExternalSyntheticLambda24;->f$1:Z
+
+    iput-object p3, p0, Lcom/android/server/wm/WindowManagerService$$ExternalSyntheticLambda24;->f$2:Ljava/util/ArrayList;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final get()Ljava/lang/Object;
-    .locals 1
+.method public final accept(Ljava/lang/Object;)V
+    .locals 2
 
-    new-instance v0, Landroid/view/SurfaceControl$Transaction;
+    iget-boolean v0, p0, Lcom/android/server/wm/WindowManagerService$$ExternalSyntheticLambda24;->f$0:Z
 
-    invoke-direct {v0}, Landroid/view/SurfaceControl$Transaction;-><init>()V
+    iget-boolean v1, p0, Lcom/android/server/wm/WindowManagerService$$ExternalSyntheticLambda24;->f$1:Z
 
-    return-object v0
+    iget-object p0, p0, Lcom/android/server/wm/WindowManagerService$$ExternalSyntheticLambda24;->f$2:Ljava/util/ArrayList;
+
+    check-cast p1, Lcom/android/server/wm/WindowState;
+
+    invoke-static {v0, v1, p0, p1}, Lcom/android/server/wm/WindowManagerService;->$r8$lambda$zBHyoEcGF5jd8GIh27QKa-mBcN4(ZZLjava/util/ArrayList;Lcom/android/server/wm/WindowState;)V
+
+    return-void
 .end method

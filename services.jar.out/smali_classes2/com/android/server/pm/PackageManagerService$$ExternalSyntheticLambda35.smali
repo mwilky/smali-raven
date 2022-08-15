@@ -1,43 +1,36 @@
 .class public final synthetic Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda35;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/server/pm/PackageManagerService$Injector$ServiceProducer;
+.implements Lcom/android/server/pm/PackageManagerServiceInjector$Producer;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda35;
+# instance fields
+.field public final synthetic f$0:Landroid/content/Context;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda35;
-
-    invoke-direct {v0}, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda35;-><init>()V
-
-    sput-object v0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda35;->INSTANCE:Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda35;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Landroid/content/Context;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda35;->f$0:Landroid/content/Context;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final produce(Ljava/lang/Class;)Ljava/lang/Object;
+.method public final produce(Lcom/android/server/pm/PackageManagerServiceInjector;Lcom/android/server/pm/PackageManagerService;)Ljava/lang/Object;
     .locals 0
 
-    invoke-static {p1}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
+    iget-object p0, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda35;->f$0:Landroid/content/Context;
 
-    move-result-object p1
+    invoke-static {p0, p1, p2}, Lcom/android/server/pm/PackageManagerService;->$r8$lambda$u5xqJKe4zRZ5ZYQLkYlpkLmXaBo(Landroid/content/Context;Lcom/android/server/pm/PackageManagerServiceInjector;Lcom/android/server/pm/PackageManagerService;)Lcom/android/server/pm/permission/PermissionManagerServiceInternal;
 
-    return-object p1
+    move-result-object p0
+
+    return-object p0
 .end method

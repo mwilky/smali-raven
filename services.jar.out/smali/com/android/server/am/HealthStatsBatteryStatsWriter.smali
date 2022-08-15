@@ -4,9 +4,9 @@
 
 
 # instance fields
-.field private final mNowRealtimeMs:J
+.field public final mNowRealtimeMs:J
 
-.field private final mNowUptimeMs:J
+.field public final mNowUptimeMs:J
 
 
 # direct methods
@@ -30,7 +30,9 @@
     return-void
 .end method
 
-.method private addTimer(Landroid/os/health/HealthStatsWriter;ILandroid/os/BatteryStats$Timer;)V
+
+# virtual methods
+.method public final addTimer(Landroid/os/health/HealthStatsWriter;ILandroid/os/BatteryStats$Timer;)V
     .locals 6
 
     if-eqz p3, :cond_0
@@ -59,7 +61,7 @@
     return-void
 .end method
 
-.method private addTimers(Landroid/os/health/HealthStatsWriter;ILjava/lang/String;Landroid/os/BatteryStats$Timer;)V
+.method public final addTimers(Landroid/os/health/HealthStatsWriter;ILjava/lang/String;Landroid/os/BatteryStats$Timer;)V
     .locals 7
 
     if-eqz p4, :cond_0
@@ -92,39 +94,37 @@
     return-void
 .end method
 
-
-# virtual methods
 .method public writePid(Landroid/os/health/HealthStatsWriter;Landroid/os/BatteryStats$Uid$Pid;)V
-    .locals 3
+    .locals 2
 
     if-nez p2, :cond_0
 
     return-void
 
     :cond_0
-    const/16 v0, 0x4e21
+    const/16 p0, 0x4e21
 
-    iget v1, p2, Landroid/os/BatteryStats$Uid$Pid;->mWakeNesting:I
+    iget v0, p2, Landroid/os/BatteryStats$Uid$Pid;->mWakeNesting:I
 
-    int-to-long v1, v1
+    int-to-long v0, v0
 
-    invoke-virtual {p1, v0, v1, v2}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
+    invoke-virtual {p1, p0, v0, v1}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
 
     iget-wide v0, p2, Landroid/os/BatteryStats$Uid$Pid;->mWakeSumMs:J
 
-    const/16 v2, 0x4e22
+    const/16 p0, 0x4e22
 
-    invoke-virtual {p1, v2, v0, v1}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
+    invoke-virtual {p1, p0, v0, v1}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
 
     iget-wide v0, p2, Landroid/os/BatteryStats$Uid$Pid;->mWakeStartMs:J
 
-    invoke-virtual {p1, v2, v0, v1}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
+    invoke-virtual {p1, p0, v0, v1}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
 
     return-void
 .end method
 
 .method public writePkg(Landroid/os/health/HealthStatsWriter;Landroid/os/BatteryStats$Uid$Pkg;)V
-    .locals 7
+    .locals 4
 
     invoke-virtual {p2}, Landroid/os/BatteryStats$Uid$Pkg;->getServiceStats()Landroid/util/ArrayMap;
 
@@ -169,67 +169,67 @@
 
     invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v1
 
-    check-cast v4, Ljava/lang/String;
+    check-cast v1, Ljava/lang/String;
 
-    invoke-virtual {p1, v3, v4, v2}, Landroid/os/health/HealthStatsWriter;->addStats(ILjava/lang/String;Landroid/os/health/HealthStatsWriter;)V
+    invoke-virtual {p1, v3, v1, v2}, Landroid/os/health/HealthStatsWriter;->addStats(ILjava/lang/String;Landroid/os/health/HealthStatsWriter;)V
 
     goto :goto_0
 
     :cond_0
     invoke-virtual {p2}, Landroid/os/BatteryStats$Uid$Pkg;->getWakeupAlarmStats()Landroid/util/ArrayMap;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Landroid/util/ArrayMap;->entrySet()Ljava/util/Set;
+    invoke-virtual {p0}, Landroid/util/ArrayMap;->entrySet()Ljava/util/Set;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-interface {p0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
-
-    :goto_1
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_2
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/util/Map$Entry;
-
-    invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/os/BatteryStats$Counter;
-
-    if-eqz v2, :cond_1
-
-    const v3, 0x9c42
-
-    invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Ljava/lang/String;
-
-    const/4 v5, 0x0
-
-    invoke-virtual {v2, v5}, Landroid/os/BatteryStats$Counter;->getCountLocked(I)I
-
-    move-result v5
-
-    int-to-long v5, v5
-
-    invoke-virtual {p1, v3, v4, v5, v6}, Landroid/os/health/HealthStatsWriter;->addMeasurements(ILjava/lang/String;J)V
+    move-result-object p0
 
     :cond_1
+    :goto_1
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result p2
+
+    if-eqz p2, :cond_2
+
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object p2
+
+    check-cast p2, Ljava/util/Map$Entry;
+
+    invoke-interface {p2}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/os/BatteryStats$Counter;
+
+    if-eqz v0, :cond_1
+
+    const v1, 0x9c42
+
+    invoke-interface {p2}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+
+    move-result-object p2
+
+    check-cast p2, Ljava/lang/String;
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v2}, Landroid/os/BatteryStats$Counter;->getCountLocked(I)I
+
+    move-result v0
+
+    int-to-long v2, v0
+
+    invoke-virtual {p1, v1, p2, v2, v3}, Landroid/os/health/HealthStatsWriter;->addMeasurements(ILjava/lang/String;J)V
+
     goto :goto_1
 
     :cond_2
@@ -237,113 +237,97 @@
 .end method
 
 .method public writeProc(Landroid/os/health/HealthStatsWriter;Landroid/os/BatteryStats$Uid$Proc;)V
-    .locals 4
+    .locals 3
 
-    nop
+    const/4 p0, 0x0
 
-    const/4 v0, 0x0
-
-    invoke-virtual {p2, v0}, Landroid/os/BatteryStats$Uid$Proc;->getUserTime(I)J
-
-    move-result-wide v1
-
-    const/16 v3, 0x7531
-
-    invoke-virtual {p1, v3, v1, v2}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
-
-    nop
-
-    invoke-virtual {p2, v0}, Landroid/os/BatteryStats$Uid$Proc;->getSystemTime(I)J
-
-    move-result-wide v1
-
-    const/16 v3, 0x7532
-
-    invoke-virtual {p1, v3, v1, v2}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
-
-    nop
-
-    invoke-virtual {p2, v0}, Landroid/os/BatteryStats$Uid$Proc;->getStarts(I)I
-
-    move-result v1
-
-    int-to-long v1, v1
-
-    const/16 v3, 0x7533
-
-    invoke-virtual {p1, v3, v1, v2}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
-
-    nop
-
-    invoke-virtual {p2, v0}, Landroid/os/BatteryStats$Uid$Proc;->getNumCrashes(I)I
-
-    move-result v1
-
-    int-to-long v1, v1
-
-    const/16 v3, 0x7534
-
-    invoke-virtual {p1, v3, v1, v2}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
-
-    nop
-
-    invoke-virtual {p2, v0}, Landroid/os/BatteryStats$Uid$Proc;->getNumAnrs(I)I
-
-    move-result v1
-
-    int-to-long v1, v1
-
-    const/16 v3, 0x7535
-
-    invoke-virtual {p1, v3, v1, v2}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
-
-    nop
-
-    invoke-virtual {p2, v0}, Landroid/os/BatteryStats$Uid$Proc;->getForegroundTime(I)J
+    invoke-virtual {p2, p0}, Landroid/os/BatteryStats$Uid$Proc;->getUserTime(I)J
 
     move-result-wide v0
 
-    const/16 v2, 0x7536
+    const/16 v2, 0x7531
 
     invoke-virtual {p1, v2, v0, v1}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
 
-    return-void
-.end method
+    invoke-virtual {p2, p0}, Landroid/os/BatteryStats$Uid$Proc;->getSystemTime(I)J
 
-.method public writeServ(Landroid/os/health/HealthStatsWriter;Landroid/os/BatteryStats$Uid$Pkg$Serv;)V
-    .locals 4
+    move-result-wide v0
 
-    nop
+    const/16 v2, 0x7532
 
-    const/4 v0, 0x0
+    invoke-virtual {p1, v2, v0, v1}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
 
-    invoke-virtual {p2, v0}, Landroid/os/BatteryStats$Uid$Pkg$Serv;->getStarts(I)I
-
-    move-result v1
-
-    int-to-long v1, v1
-
-    const v3, 0xc351
-
-    invoke-virtual {p1, v3, v1, v2}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
-
-    nop
-
-    invoke-virtual {p2, v0}, Landroid/os/BatteryStats$Uid$Pkg$Serv;->getLaunches(I)I
+    invoke-virtual {p2, p0}, Landroid/os/BatteryStats$Uid$Proc;->getStarts(I)I
 
     move-result v0
 
     int-to-long v0, v0
 
-    const v2, 0xc352
+    const/16 v2, 0x7533
 
     invoke-virtual {p1, v2, v0, v1}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
+
+    invoke-virtual {p2, p0}, Landroid/os/BatteryStats$Uid$Proc;->getNumCrashes(I)I
+
+    move-result v0
+
+    int-to-long v0, v0
+
+    const/16 v2, 0x7534
+
+    invoke-virtual {p1, v2, v0, v1}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
+
+    invoke-virtual {p2, p0}, Landroid/os/BatteryStats$Uid$Proc;->getNumAnrs(I)I
+
+    move-result v0
+
+    int-to-long v0, v0
+
+    const/16 v2, 0x7535
+
+    invoke-virtual {p1, v2, v0, v1}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
+
+    invoke-virtual {p2, p0}, Landroid/os/BatteryStats$Uid$Proc;->getForegroundTime(I)J
+
+    move-result-wide v0
+
+    const/16 p0, 0x7536
+
+    invoke-virtual {p1, p0, v0, v1}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
+
+    return-void
+.end method
+
+.method public writeServ(Landroid/os/health/HealthStatsWriter;Landroid/os/BatteryStats$Uid$Pkg$Serv;)V
+    .locals 3
+
+    const/4 p0, 0x0
+
+    invoke-virtual {p2, p0}, Landroid/os/BatteryStats$Uid$Pkg$Serv;->getStarts(I)I
+
+    move-result v0
+
+    int-to-long v0, v0
+
+    const v2, 0xc351
+
+    invoke-virtual {p1, v2, v0, v1}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
+
+    invoke-virtual {p2, p0}, Landroid/os/BatteryStats$Uid$Pkg$Serv;->getLaunches(I)I
+
+    move-result p0
+
+    int-to-long v0, p0
+
+    const p0, 0xc352
+
+    invoke-virtual {p1, p0, v0, v1}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
 
     return-void
 .end method
 
 .method public writeUid(Landroid/os/health/HealthStatsWriter;Landroid/os/BatteryStats;Landroid/os/BatteryStats$Uid;)V
-    .locals 19
+    .locals 16
 
     move-object/from16 v0, p0
 
@@ -409,966 +393,940 @@
 
     div-long/2addr v4, v6
 
-    const/16 v9, 0x2714
+    const/16 v2, 0x2714
 
-    invoke-virtual {v1, v9, v4, v5}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
+    invoke-virtual {v1, v2, v4, v5}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/BatteryStats$Uid;->getWakelockStats()Landroid/util/ArrayMap;
 
-    move-result-object v4
+    move-result-object v2
 
-    invoke-virtual {v4}, Landroid/util/ArrayMap;->entrySet()Ljava/util/Set;
+    invoke-virtual {v2}, Landroid/util/ArrayMap;->entrySet()Ljava/util/Set;
 
-    move-result-object v4
+    move-result-object v2
 
-    invoke-interface {v4}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-interface {v2}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    move-result-object v4
+    move-result-object v2
 
     :goto_0
-    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v5
+    move-result v4
 
-    const/4 v9, 0x2
+    const/4 v5, 0x2
 
-    const/4 v10, 0x1
+    const/4 v9, 0x1
 
-    if-eqz v5, :cond_0
+    if-eqz v4, :cond_0
 
-    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Ljava/util/Map$Entry;
+
+    invoke-interface {v4}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+
+    move-result-object v10
+
+    check-cast v10, Ljava/lang/String;
+
+    invoke-interface {v4}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Landroid/os/BatteryStats$Uid$Wakelock;
+
+    invoke-virtual {v4, v9}, Landroid/os/BatteryStats$Uid$Wakelock;->getWakeTime(I)Landroid/os/BatteryStats$Timer;
+
+    move-result-object v9
+
+    const/16 v11, 0x2715
+
+    invoke-virtual {v0, v1, v11, v10, v9}, Lcom/android/server/am/HealthStatsBatteryStatsWriter;->addTimers(Landroid/os/health/HealthStatsWriter;ILjava/lang/String;Landroid/os/BatteryStats$Timer;)V
+
+    invoke-virtual {v4, v8}, Landroid/os/BatteryStats$Uid$Wakelock;->getWakeTime(I)Landroid/os/BatteryStats$Timer;
+
+    move-result-object v9
+
+    const/16 v11, 0x2716
+
+    invoke-virtual {v0, v1, v11, v10, v9}, Lcom/android/server/am/HealthStatsBatteryStatsWriter;->addTimers(Landroid/os/health/HealthStatsWriter;ILjava/lang/String;Landroid/os/BatteryStats$Timer;)V
+
+    invoke-virtual {v4, v5}, Landroid/os/BatteryStats$Uid$Wakelock;->getWakeTime(I)Landroid/os/BatteryStats$Timer;
 
     move-result-object v5
 
-    check-cast v5, Ljava/util/Map$Entry;
+    const/16 v9, 0x2717
 
-    invoke-interface {v5}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+    invoke-virtual {v0, v1, v9, v10, v5}, Lcom/android/server/am/HealthStatsBatteryStatsWriter;->addTimers(Landroid/os/health/HealthStatsWriter;ILjava/lang/String;Landroid/os/BatteryStats$Timer;)V
 
-    move-result-object v11
+    const/16 v5, 0x12
 
-    check-cast v11, Ljava/lang/String;
+    invoke-virtual {v4, v5}, Landroid/os/BatteryStats$Uid$Wakelock;->getWakeTime(I)Landroid/os/BatteryStats$Timer;
 
-    invoke-interface {v5}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+    move-result-object v4
 
-    move-result-object v12
+    const/16 v5, 0x2718
 
-    check-cast v12, Landroid/os/BatteryStats$Uid$Wakelock;
-
-    invoke-virtual {v12, v10}, Landroid/os/BatteryStats$Uid$Wakelock;->getWakeTime(I)Landroid/os/BatteryStats$Timer;
-
-    move-result-object v10
-
-    const/16 v13, 0x2715
-
-    invoke-direct {v0, v1, v13, v11, v10}, Lcom/android/server/am/HealthStatsBatteryStatsWriter;->addTimers(Landroid/os/health/HealthStatsWriter;ILjava/lang/String;Landroid/os/BatteryStats$Timer;)V
-
-    invoke-virtual {v12, v8}, Landroid/os/BatteryStats$Uid$Wakelock;->getWakeTime(I)Landroid/os/BatteryStats$Timer;
-
-    move-result-object v10
-
-    const/16 v13, 0x2716
-
-    invoke-direct {v0, v1, v13, v11, v10}, Lcom/android/server/am/HealthStatsBatteryStatsWriter;->addTimers(Landroid/os/health/HealthStatsWriter;ILjava/lang/String;Landroid/os/BatteryStats$Timer;)V
-
-    invoke-virtual {v12, v9}, Landroid/os/BatteryStats$Uid$Wakelock;->getWakeTime(I)Landroid/os/BatteryStats$Timer;
-
-    move-result-object v9
-
-    const/16 v10, 0x2717
-
-    invoke-direct {v0, v1, v10, v11, v9}, Lcom/android/server/am/HealthStatsBatteryStatsWriter;->addTimers(Landroid/os/health/HealthStatsWriter;ILjava/lang/String;Landroid/os/BatteryStats$Timer;)V
-
-    const/16 v10, 0x12
-
-    invoke-virtual {v12, v10}, Landroid/os/BatteryStats$Uid$Wakelock;->getWakeTime(I)Landroid/os/BatteryStats$Timer;
-
-    move-result-object v9
-
-    const/16 v10, 0x2718
-
-    invoke-direct {v0, v1, v10, v11, v9}, Lcom/android/server/am/HealthStatsBatteryStatsWriter;->addTimers(Landroid/os/health/HealthStatsWriter;ILjava/lang/String;Landroid/os/BatteryStats$Timer;)V
+    invoke-virtual {v0, v1, v5, v10, v4}, Lcom/android/server/am/HealthStatsBatteryStatsWriter;->addTimers(Landroid/os/health/HealthStatsWriter;ILjava/lang/String;Landroid/os/BatteryStats$Timer;)V
 
     goto :goto_0
 
     :cond_0
     invoke-virtual/range {p3 .. p3}, Landroid/os/BatteryStats$Uid;->getSyncStats()Landroid/util/ArrayMap;
 
-    move-result-object v4
+    move-result-object v2
 
-    invoke-virtual {v4}, Landroid/util/ArrayMap;->entrySet()Ljava/util/Set;
+    invoke-virtual {v2}, Landroid/util/ArrayMap;->entrySet()Ljava/util/Set;
 
-    move-result-object v4
+    move-result-object v2
 
-    invoke-interface {v4}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-interface {v2}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    move-result-object v4
+    move-result-object v2
 
     :goto_1
-    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v5
+    move-result v4
 
-    if-eqz v5, :cond_1
+    if-eqz v4, :cond_1
 
-    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v4
 
-    check-cast v5, Ljava/util/Map$Entry;
+    check-cast v4, Ljava/util/Map$Entry;
 
-    const/16 v11, 0x2719
+    const/16 v10, 0x2719
 
-    invoke-interface {v5}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+    invoke-interface {v4}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
-    move-result-object v12
+    move-result-object v11
 
-    check-cast v12, Ljava/lang/String;
+    check-cast v11, Ljava/lang/String;
 
-    invoke-interface {v5}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+    invoke-interface {v4}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v13
+    move-result-object v4
 
-    check-cast v13, Landroid/os/BatteryStats$Timer;
+    check-cast v4, Landroid/os/BatteryStats$Timer;
 
-    invoke-direct {v0, v1, v11, v12, v13}, Lcom/android/server/am/HealthStatsBatteryStatsWriter;->addTimers(Landroid/os/health/HealthStatsWriter;ILjava/lang/String;Landroid/os/BatteryStats$Timer;)V
+    invoke-virtual {v0, v1, v10, v11, v4}, Lcom/android/server/am/HealthStatsBatteryStatsWriter;->addTimers(Landroid/os/health/HealthStatsWriter;ILjava/lang/String;Landroid/os/BatteryStats$Timer;)V
 
     goto :goto_1
 
     :cond_1
     invoke-virtual/range {p3 .. p3}, Landroid/os/BatteryStats$Uid;->getJobStats()Landroid/util/ArrayMap;
 
-    move-result-object v4
+    move-result-object v2
 
-    invoke-virtual {v4}, Landroid/util/ArrayMap;->entrySet()Ljava/util/Set;
+    invoke-virtual {v2}, Landroid/util/ArrayMap;->entrySet()Ljava/util/Set;
 
-    move-result-object v4
+    move-result-object v2
 
-    invoke-interface {v4}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-interface {v2}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    move-result-object v4
+    move-result-object v2
 
     :goto_2
-    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v5
+    move-result v4
 
-    if-eqz v5, :cond_2
+    if-eqz v4, :cond_2
 
-    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v4
 
-    check-cast v5, Ljava/util/Map$Entry;
+    check-cast v4, Ljava/util/Map$Entry;
 
-    const/16 v11, 0x271a
+    const/16 v10, 0x271a
 
-    invoke-interface {v5}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+    invoke-interface {v4}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
-    move-result-object v12
+    move-result-object v11
 
-    check-cast v12, Ljava/lang/String;
+    check-cast v11, Ljava/lang/String;
 
-    invoke-interface {v5}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+    invoke-interface {v4}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v13
+    move-result-object v4
 
-    check-cast v13, Landroid/os/BatteryStats$Timer;
+    check-cast v4, Landroid/os/BatteryStats$Timer;
 
-    invoke-direct {v0, v1, v11, v12, v13}, Lcom/android/server/am/HealthStatsBatteryStatsWriter;->addTimers(Landroid/os/health/HealthStatsWriter;ILjava/lang/String;Landroid/os/BatteryStats$Timer;)V
+    invoke-virtual {v0, v1, v10, v11, v4}, Lcom/android/server/am/HealthStatsBatteryStatsWriter;->addTimers(Landroid/os/health/HealthStatsWriter;ILjava/lang/String;Landroid/os/BatteryStats$Timer;)V
 
     goto :goto_2
 
     :cond_2
     invoke-virtual/range {p3 .. p3}, Landroid/os/BatteryStats$Uid;->getSensorStats()Landroid/util/SparseArray;
 
-    move-result-object v4
+    move-result-object v2
 
-    invoke-virtual {v4}, Landroid/util/SparseArray;->size()I
+    invoke-virtual {v2}, Landroid/util/SparseArray;->size()I
 
-    move-result v5
+    move-result v4
 
-    const/4 v11, 0x0
+    move v10, v8
 
     :goto_3
-    if-ge v11, v5, :cond_4
+    if-ge v10, v4, :cond_4
 
-    invoke-virtual {v4, v11}, Landroid/util/SparseArray;->keyAt(I)I
+    invoke-virtual {v2, v10}, Landroid/util/SparseArray;->keyAt(I)I
 
-    move-result v12
+    move-result v11
 
-    const/16 v13, -0x2710
+    const/16 v12, -0x2710
 
-    if-ne v12, v13, :cond_3
+    if-ne v11, v12, :cond_3
 
-    const/16 v13, 0x271b
+    const/16 v11, 0x271b
 
-    invoke-virtual {v4, v11}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {v2, v10}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
 
-    move-result-object v14
+    move-result-object v12
 
-    check-cast v14, Landroid/os/BatteryStats$Uid$Sensor;
+    check-cast v12, Landroid/os/BatteryStats$Uid$Sensor;
 
-    invoke-virtual {v14}, Landroid/os/BatteryStats$Uid$Sensor;->getSensorTime()Landroid/os/BatteryStats$Timer;
+    invoke-virtual {v12}, Landroid/os/BatteryStats$Uid$Sensor;->getSensorTime()Landroid/os/BatteryStats$Timer;
 
-    move-result-object v14
+    move-result-object v12
 
-    invoke-direct {v0, v1, v13, v14}, Lcom/android/server/am/HealthStatsBatteryStatsWriter;->addTimer(Landroid/os/health/HealthStatsWriter;ILandroid/os/BatteryStats$Timer;)V
+    invoke-virtual {v0, v1, v11, v12}, Lcom/android/server/am/HealthStatsBatteryStatsWriter;->addTimer(Landroid/os/health/HealthStatsWriter;ILandroid/os/BatteryStats$Timer;)V
 
     goto :goto_4
 
     :cond_3
-    const/16 v13, 0x271c
+    const/16 v12, 0x271c
 
-    invoke-static {v12}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    invoke-static {v11}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    move-result-object v14
+    move-result-object v11
 
-    invoke-virtual {v4, v11}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {v2, v10}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
 
-    move-result-object v15
+    move-result-object v13
 
-    check-cast v15, Landroid/os/BatteryStats$Uid$Sensor;
+    check-cast v13, Landroid/os/BatteryStats$Uid$Sensor;
 
-    invoke-virtual {v15}, Landroid/os/BatteryStats$Uid$Sensor;->getSensorTime()Landroid/os/BatteryStats$Timer;
+    invoke-virtual {v13}, Landroid/os/BatteryStats$Uid$Sensor;->getSensorTime()Landroid/os/BatteryStats$Timer;
 
-    move-result-object v15
+    move-result-object v13
 
-    invoke-direct {v0, v1, v13, v14, v15}, Lcom/android/server/am/HealthStatsBatteryStatsWriter;->addTimers(Landroid/os/health/HealthStatsWriter;ILjava/lang/String;Landroid/os/BatteryStats$Timer;)V
+    invoke-virtual {v0, v1, v12, v11, v13}, Lcom/android/server/am/HealthStatsBatteryStatsWriter;->addTimers(Landroid/os/health/HealthStatsWriter;ILjava/lang/String;Landroid/os/BatteryStats$Timer;)V
 
     :goto_4
-    add-int/lit8 v11, v11, 0x1
+    add-int/lit8 v10, v10, 0x1
 
     goto :goto_3
 
     :cond_4
     invoke-virtual/range {p3 .. p3}, Landroid/os/BatteryStats$Uid;->getPidStats()Landroid/util/SparseArray;
 
-    move-result-object v11
+    move-result-object v2
 
-    invoke-virtual {v11}, Landroid/util/SparseArray;->size()I
+    invoke-virtual {v2}, Landroid/util/SparseArray;->size()I
 
-    move-result v5
+    move-result v4
 
-    const/4 v12, 0x0
+    move v10, v8
 
     :goto_5
-    if-ge v12, v5, :cond_5
+    if-ge v10, v4, :cond_5
 
-    new-instance v13, Landroid/os/health/HealthStatsWriter;
+    new-instance v11, Landroid/os/health/HealthStatsWriter;
 
-    sget-object v14, Landroid/os/health/PidHealthStats;->CONSTANTS:Landroid/os/health/HealthKeys$Constants;
+    sget-object v12, Landroid/os/health/PidHealthStats;->CONSTANTS:Landroid/os/health/HealthKeys$Constants;
 
-    invoke-direct {v13, v14}, Landroid/os/health/HealthStatsWriter;-><init>(Landroid/os/health/HealthKeys$Constants;)V
+    invoke-direct {v11, v12}, Landroid/os/health/HealthStatsWriter;-><init>(Landroid/os/health/HealthKeys$Constants;)V
 
-    invoke-virtual {v11, v12}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {v2, v10}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
 
-    move-result-object v14
+    move-result-object v12
 
-    check-cast v14, Landroid/os/BatteryStats$Uid$Pid;
+    check-cast v12, Landroid/os/BatteryStats$Uid$Pid;
 
-    invoke-virtual {v0, v13, v14}, Lcom/android/server/am/HealthStatsBatteryStatsWriter;->writePid(Landroid/os/health/HealthStatsWriter;Landroid/os/BatteryStats$Uid$Pid;)V
+    invoke-virtual {v0, v11, v12}, Lcom/android/server/am/HealthStatsBatteryStatsWriter;->writePid(Landroid/os/health/HealthStatsWriter;Landroid/os/BatteryStats$Uid$Pid;)V
 
-    const/16 v14, 0x271d
+    const/16 v12, 0x271d
 
-    invoke-virtual {v11, v12}, Landroid/util/SparseArray;->keyAt(I)I
+    invoke-virtual {v2, v10}, Landroid/util/SparseArray;->keyAt(I)I
 
-    move-result v15
+    move-result v13
 
-    invoke-static {v15}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    invoke-static {v13}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    move-result-object v15
+    move-result-object v13
 
-    invoke-virtual {v1, v14, v15, v13}, Landroid/os/health/HealthStatsWriter;->addStats(ILjava/lang/String;Landroid/os/health/HealthStatsWriter;)V
+    invoke-virtual {v1, v12, v13, v11}, Landroid/os/health/HealthStatsWriter;->addStats(ILjava/lang/String;Landroid/os/health/HealthStatsWriter;)V
 
-    add-int/lit8 v12, v12, 0x1
+    add-int/lit8 v10, v10, 0x1
 
     goto :goto_5
 
     :cond_5
     invoke-virtual/range {p3 .. p3}, Landroid/os/BatteryStats$Uid;->getProcessStats()Landroid/util/ArrayMap;
 
-    move-result-object v12
+    move-result-object v2
 
-    invoke-virtual {v12}, Landroid/util/ArrayMap;->entrySet()Ljava/util/Set;
+    invoke-virtual {v2}, Landroid/util/ArrayMap;->entrySet()Ljava/util/Set;
 
-    move-result-object v12
+    move-result-object v2
 
-    invoke-interface {v12}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-interface {v2}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    move-result-object v12
+    move-result-object v2
 
     :goto_6
-    invoke-interface {v12}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v13
+    move-result v4
 
-    if-eqz v13, :cond_6
+    if-eqz v4, :cond_6
 
-    invoke-interface {v12}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v13
+    move-result-object v4
 
-    check-cast v13, Ljava/util/Map$Entry;
+    check-cast v4, Ljava/util/Map$Entry;
 
-    new-instance v14, Landroid/os/health/HealthStatsWriter;
+    new-instance v10, Landroid/os/health/HealthStatsWriter;
 
-    sget-object v15, Landroid/os/health/ProcessHealthStats;->CONSTANTS:Landroid/os/health/HealthKeys$Constants;
+    sget-object v11, Landroid/os/health/ProcessHealthStats;->CONSTANTS:Landroid/os/health/HealthKeys$Constants;
 
-    invoke-direct {v14, v15}, Landroid/os/health/HealthStatsWriter;-><init>(Landroid/os/health/HealthKeys$Constants;)V
+    invoke-direct {v10, v11}, Landroid/os/health/HealthStatsWriter;-><init>(Landroid/os/health/HealthKeys$Constants;)V
 
-    invoke-interface {v13}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+    invoke-interface {v4}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v15
+    move-result-object v11
 
-    check-cast v15, Landroid/os/BatteryStats$Uid$Proc;
+    check-cast v11, Landroid/os/BatteryStats$Uid$Proc;
 
-    invoke-virtual {v0, v14, v15}, Lcom/android/server/am/HealthStatsBatteryStatsWriter;->writeProc(Landroid/os/health/HealthStatsWriter;Landroid/os/BatteryStats$Uid$Proc;)V
+    invoke-virtual {v0, v10, v11}, Lcom/android/server/am/HealthStatsBatteryStatsWriter;->writeProc(Landroid/os/health/HealthStatsWriter;Landroid/os/BatteryStats$Uid$Proc;)V
 
-    const/16 v15, 0x271e
+    const/16 v11, 0x271e
 
-    invoke-interface {v13}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+    invoke-interface {v4}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
-    move-result-object v16
+    move-result-object v4
 
-    move-object/from16 v9, v16
+    check-cast v4, Ljava/lang/String;
 
-    check-cast v9, Ljava/lang/String;
-
-    invoke-virtual {v1, v15, v9, v14}, Landroid/os/health/HealthStatsWriter;->addStats(ILjava/lang/String;Landroid/os/health/HealthStatsWriter;)V
-
-    const/4 v9, 0x2
+    invoke-virtual {v1, v11, v4, v10}, Landroid/os/health/HealthStatsWriter;->addStats(ILjava/lang/String;Landroid/os/health/HealthStatsWriter;)V
 
     goto :goto_6
 
     :cond_6
     invoke-virtual/range {p3 .. p3}, Landroid/os/BatteryStats$Uid;->getPackageStats()Landroid/util/ArrayMap;
 
-    move-result-object v9
+    move-result-object v2
 
-    invoke-virtual {v9}, Landroid/util/ArrayMap;->entrySet()Ljava/util/Set;
+    invoke-virtual {v2}, Landroid/util/ArrayMap;->entrySet()Ljava/util/Set;
 
-    move-result-object v9
+    move-result-object v2
 
-    invoke-interface {v9}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-interface {v2}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    move-result-object v9
+    move-result-object v2
 
     :goto_7
-    invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v12
+    move-result v4
 
-    if-eqz v12, :cond_7
+    if-eqz v4, :cond_7
 
-    invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v12
+    move-result-object v4
 
-    check-cast v12, Ljava/util/Map$Entry;
+    check-cast v4, Ljava/util/Map$Entry;
 
-    new-instance v13, Landroid/os/health/HealthStatsWriter;
+    new-instance v10, Landroid/os/health/HealthStatsWriter;
 
-    sget-object v14, Landroid/os/health/PackageHealthStats;->CONSTANTS:Landroid/os/health/HealthKeys$Constants;
+    sget-object v11, Landroid/os/health/PackageHealthStats;->CONSTANTS:Landroid/os/health/HealthKeys$Constants;
 
-    invoke-direct {v13, v14}, Landroid/os/health/HealthStatsWriter;-><init>(Landroid/os/health/HealthKeys$Constants;)V
+    invoke-direct {v10, v11}, Landroid/os/health/HealthStatsWriter;-><init>(Landroid/os/health/HealthKeys$Constants;)V
 
-    invoke-interface {v12}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+    invoke-interface {v4}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v14
+    move-result-object v11
 
-    check-cast v14, Landroid/os/BatteryStats$Uid$Pkg;
+    check-cast v11, Landroid/os/BatteryStats$Uid$Pkg;
 
-    invoke-virtual {v0, v13, v14}, Lcom/android/server/am/HealthStatsBatteryStatsWriter;->writePkg(Landroid/os/health/HealthStatsWriter;Landroid/os/BatteryStats$Uid$Pkg;)V
+    invoke-virtual {v0, v10, v11}, Lcom/android/server/am/HealthStatsBatteryStatsWriter;->writePkg(Landroid/os/health/HealthStatsWriter;Landroid/os/BatteryStats$Uid$Pkg;)V
 
-    const/16 v14, 0x271f
+    const/16 v11, 0x271f
 
-    invoke-interface {v12}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+    invoke-interface {v4}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
-    move-result-object v15
+    move-result-object v4
 
-    check-cast v15, Ljava/lang/String;
+    check-cast v4, Ljava/lang/String;
 
-    invoke-virtual {v1, v14, v15, v13}, Landroid/os/health/HealthStatsWriter;->addStats(ILjava/lang/String;Landroid/os/health/HealthStatsWriter;)V
+    invoke-virtual {v1, v11, v4, v10}, Landroid/os/health/HealthStatsWriter;->addStats(ILjava/lang/String;Landroid/os/health/HealthStatsWriter;)V
 
     goto :goto_7
 
     :cond_7
     invoke-virtual/range {p3 .. p3}, Landroid/os/BatteryStats$Uid;->getWifiControllerActivity()Landroid/os/BatteryStats$ControllerActivityCounter;
 
-    move-result-object v9
+    move-result-object v2
 
-    if-eqz v9, :cond_9
+    if-eqz v2, :cond_9
 
-    const/16 v12, 0x2720
+    const/16 v4, 0x2720
 
-    invoke-virtual {v9}, Landroid/os/BatteryStats$ControllerActivityCounter;->getIdleTimeCounter()Landroid/os/BatteryStats$LongCounter;
+    invoke-virtual {v2}, Landroid/os/BatteryStats$ControllerActivityCounter;->getIdleTimeCounter()Landroid/os/BatteryStats$LongCounter;
 
-    move-result-object v13
+    move-result-object v12
 
-    invoke-virtual {v13, v8}, Landroid/os/BatteryStats$LongCounter;->getCountLocked(I)J
+    invoke-virtual {v12, v8}, Landroid/os/BatteryStats$LongCounter;->getCountLocked(I)J
 
-    move-result-wide v13
+    move-result-wide v12
 
-    invoke-virtual {v1, v12, v13, v14}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
+    invoke-virtual {v1, v4, v12, v13}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
 
-    const/16 v12, 0x2721
+    const/16 v4, 0x2721
 
-    invoke-virtual {v9}, Landroid/os/BatteryStats$ControllerActivityCounter;->getRxTimeCounter()Landroid/os/BatteryStats$LongCounter;
+    invoke-virtual {v2}, Landroid/os/BatteryStats$ControllerActivityCounter;->getRxTimeCounter()Landroid/os/BatteryStats$LongCounter;
 
-    move-result-object v13
+    move-result-object v12
 
-    invoke-virtual {v13, v8}, Landroid/os/BatteryStats$LongCounter;->getCountLocked(I)J
+    invoke-virtual {v12, v8}, Landroid/os/BatteryStats$LongCounter;->getCountLocked(I)J
 
-    move-result-wide v13
+    move-result-wide v12
 
-    invoke-virtual {v1, v12, v13, v14}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
+    invoke-virtual {v1, v4, v12, v13}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
 
-    const-wide/16 v12, 0x0
+    invoke-virtual {v2}, Landroid/os/BatteryStats$ControllerActivityCounter;->getTxTimeCounters()[Landroid/os/BatteryStats$LongCounter;
 
-    invoke-virtual {v9}, Landroid/os/BatteryStats$ControllerActivityCounter;->getTxTimeCounters()[Landroid/os/BatteryStats$LongCounter;
+    move-result-object v4
 
-    move-result-object v14
+    array-length v12, v4
 
-    array-length v15, v14
+    move v13, v8
 
-    move v10, v8
+    const-wide/16 v14, 0x0
 
     :goto_8
-    if-ge v10, v15, :cond_8
+    if-ge v13, v12, :cond_8
 
-    aget-object v6, v14, v10
+    aget-object v10, v4, v13
 
-    invoke-virtual {v6, v8}, Landroid/os/BatteryStats$LongCounter;->getCountLocked(I)J
+    invoke-virtual {v10, v8}, Landroid/os/BatteryStats$LongCounter;->getCountLocked(I)J
 
-    move-result-wide v17
+    move-result-wide v10
 
-    add-long v12, v12, v17
+    add-long/2addr v14, v10
 
-    add-int/lit8 v10, v10, 0x1
-
-    const-wide/16 v6, 0x3e8
+    add-int/lit8 v13, v13, 0x1
 
     goto :goto_8
 
     :cond_8
-    const/16 v6, 0x2722
+    const/16 v4, 0x2722
 
-    invoke-virtual {v1, v6, v12, v13}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
+    invoke-virtual {v1, v4, v14, v15}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
 
-    const/16 v6, 0x2723
+    const/16 v4, 0x2723
 
-    invoke-virtual {v9}, Landroid/os/BatteryStats$ControllerActivityCounter;->getPowerCounter()Landroid/os/BatteryStats$LongCounter;
+    invoke-virtual {v2}, Landroid/os/BatteryStats$ControllerActivityCounter;->getPowerCounter()Landroid/os/BatteryStats$LongCounter;
 
-    move-result-object v7
+    move-result-object v2
 
-    invoke-virtual {v7, v8}, Landroid/os/BatteryStats$LongCounter;->getCountLocked(I)J
+    invoke-virtual {v2, v8}, Landroid/os/BatteryStats$LongCounter;->getCountLocked(I)J
 
-    move-result-wide v14
+    move-result-wide v10
 
-    invoke-virtual {v1, v6, v14, v15}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
+    invoke-virtual {v1, v4, v10, v11}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
 
     :cond_9
     invoke-virtual/range {p3 .. p3}, Landroid/os/BatteryStats$Uid;->getBluetoothControllerActivity()Landroid/os/BatteryStats$ControllerActivityCounter;
 
-    move-result-object v6
+    move-result-object v2
 
-    if-eqz v6, :cond_b
+    if-eqz v2, :cond_b
 
-    const/16 v7, 0x2724
+    const/16 v4, 0x2724
 
-    invoke-virtual {v6}, Landroid/os/BatteryStats$ControllerActivityCounter;->getIdleTimeCounter()Landroid/os/BatteryStats$LongCounter;
+    invoke-virtual {v2}, Landroid/os/BatteryStats$ControllerActivityCounter;->getIdleTimeCounter()Landroid/os/BatteryStats$LongCounter;
 
-    move-result-object v9
+    move-result-object v10
 
-    invoke-virtual {v9, v8}, Landroid/os/BatteryStats$LongCounter;->getCountLocked(I)J
+    invoke-virtual {v10, v8}, Landroid/os/BatteryStats$LongCounter;->getCountLocked(I)J
 
-    move-result-wide v9
+    move-result-wide v10
 
-    invoke-virtual {v1, v7, v9, v10}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
+    invoke-virtual {v1, v4, v10, v11}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
 
-    const/16 v7, 0x2725
+    const/16 v4, 0x2725
 
-    invoke-virtual {v6}, Landroid/os/BatteryStats$ControllerActivityCounter;->getRxTimeCounter()Landroid/os/BatteryStats$LongCounter;
+    invoke-virtual {v2}, Landroid/os/BatteryStats$ControllerActivityCounter;->getRxTimeCounter()Landroid/os/BatteryStats$LongCounter;
 
-    move-result-object v9
+    move-result-object v10
 
-    invoke-virtual {v9, v8}, Landroid/os/BatteryStats$LongCounter;->getCountLocked(I)J
+    invoke-virtual {v10, v8}, Landroid/os/BatteryStats$LongCounter;->getCountLocked(I)J
 
-    move-result-wide v9
+    move-result-wide v10
 
-    invoke-virtual {v1, v7, v9, v10}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
+    invoke-virtual {v1, v4, v10, v11}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
 
-    const-wide/16 v9, 0x0
+    invoke-virtual {v2}, Landroid/os/BatteryStats$ControllerActivityCounter;->getTxTimeCounters()[Landroid/os/BatteryStats$LongCounter;
 
-    invoke-virtual {v6}, Landroid/os/BatteryStats$ControllerActivityCounter;->getTxTimeCounters()[Landroid/os/BatteryStats$LongCounter;
+    move-result-object v4
 
-    move-result-object v7
+    array-length v10, v4
 
-    array-length v12, v7
+    move v11, v8
 
-    move v13, v8
+    const-wide/16 v12, 0x0
 
     :goto_9
-    if-ge v13, v12, :cond_a
+    if-ge v11, v10, :cond_a
 
-    aget-object v14, v7, v13
+    aget-object v14, v4, v11
 
     invoke-virtual {v14, v8}, Landroid/os/BatteryStats$LongCounter;->getCountLocked(I)J
 
-    move-result-wide v17
+    move-result-wide v14
 
-    add-long v9, v9, v17
+    add-long/2addr v12, v14
 
-    add-int/lit8 v13, v13, 0x1
+    add-int/lit8 v11, v11, 0x1
 
     goto :goto_9
 
     :cond_a
-    const/16 v7, 0x2726
+    const/16 v4, 0x2726
 
-    invoke-virtual {v1, v7, v9, v10}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
+    invoke-virtual {v1, v4, v12, v13}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
 
-    const/16 v7, 0x2727
+    const/16 v4, 0x2727
 
-    invoke-virtual {v6}, Landroid/os/BatteryStats$ControllerActivityCounter;->getPowerCounter()Landroid/os/BatteryStats$LongCounter;
+    invoke-virtual {v2}, Landroid/os/BatteryStats$ControllerActivityCounter;->getPowerCounter()Landroid/os/BatteryStats$LongCounter;
 
-    move-result-object v12
+    move-result-object v2
 
-    invoke-virtual {v12, v8}, Landroid/os/BatteryStats$LongCounter;->getCountLocked(I)J
+    invoke-virtual {v2, v8}, Landroid/os/BatteryStats$LongCounter;->getCountLocked(I)J
 
-    move-result-wide v12
+    move-result-wide v10
 
-    invoke-virtual {v1, v7, v12, v13}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
+    invoke-virtual {v1, v4, v10, v11}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
 
     :cond_b
     invoke-virtual/range {p3 .. p3}, Landroid/os/BatteryStats$Uid;->getModemControllerActivity()Landroid/os/BatteryStats$ControllerActivityCounter;
 
-    move-result-object v6
+    move-result-object v2
 
-    if-eqz v6, :cond_d
+    if-eqz v2, :cond_d
 
-    const/16 v7, 0x2728
+    const/16 v4, 0x2728
 
-    invoke-virtual {v6}, Landroid/os/BatteryStats$ControllerActivityCounter;->getIdleTimeCounter()Landroid/os/BatteryStats$LongCounter;
+    invoke-virtual {v2}, Landroid/os/BatteryStats$ControllerActivityCounter;->getIdleTimeCounter()Landroid/os/BatteryStats$LongCounter;
 
-    move-result-object v9
+    move-result-object v10
 
-    invoke-virtual {v9, v8}, Landroid/os/BatteryStats$LongCounter;->getCountLocked(I)J
+    invoke-virtual {v10, v8}, Landroid/os/BatteryStats$LongCounter;->getCountLocked(I)J
 
-    move-result-wide v9
+    move-result-wide v10
 
-    invoke-virtual {v1, v7, v9, v10}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
+    invoke-virtual {v1, v4, v10, v11}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
 
-    const/16 v7, 0x2729
+    const/16 v4, 0x2729
 
-    invoke-virtual {v6}, Landroid/os/BatteryStats$ControllerActivityCounter;->getRxTimeCounter()Landroid/os/BatteryStats$LongCounter;
+    invoke-virtual {v2}, Landroid/os/BatteryStats$ControllerActivityCounter;->getRxTimeCounter()Landroid/os/BatteryStats$LongCounter;
 
-    move-result-object v9
+    move-result-object v10
 
-    invoke-virtual {v9, v8}, Landroid/os/BatteryStats$LongCounter;->getCountLocked(I)J
+    invoke-virtual {v10, v8}, Landroid/os/BatteryStats$LongCounter;->getCountLocked(I)J
 
-    move-result-wide v9
+    move-result-wide v10
 
-    invoke-virtual {v1, v7, v9, v10}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
+    invoke-virtual {v1, v4, v10, v11}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
 
-    const-wide/16 v9, 0x0
+    invoke-virtual {v2}, Landroid/os/BatteryStats$ControllerActivityCounter;->getTxTimeCounters()[Landroid/os/BatteryStats$LongCounter;
 
-    invoke-virtual {v6}, Landroid/os/BatteryStats$ControllerActivityCounter;->getTxTimeCounters()[Landroid/os/BatteryStats$LongCounter;
+    move-result-object v4
 
-    move-result-object v7
+    array-length v10, v4
 
-    array-length v12, v7
+    move v11, v8
 
-    move v13, v8
+    const-wide/16 v12, 0x0
 
     :goto_a
-    if-ge v13, v12, :cond_c
+    if-ge v11, v10, :cond_c
 
-    aget-object v14, v7, v13
+    aget-object v14, v4, v11
 
     invoke-virtual {v14, v8}, Landroid/os/BatteryStats$LongCounter;->getCountLocked(I)J
 
-    move-result-wide v17
+    move-result-wide v14
 
-    add-long v9, v9, v17
+    add-long/2addr v12, v14
 
-    add-int/lit8 v13, v13, 0x1
+    add-int/lit8 v11, v11, 0x1
 
     goto :goto_a
 
     :cond_c
-    const/16 v7, 0x272a
+    const/16 v4, 0x272a
 
-    invoke-virtual {v1, v7, v9, v10}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
+    invoke-virtual {v1, v4, v12, v13}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
 
-    const/16 v7, 0x272b
+    const/16 v4, 0x272b
 
-    invoke-virtual {v6}, Landroid/os/BatteryStats$ControllerActivityCounter;->getPowerCounter()Landroid/os/BatteryStats$LongCounter;
+    invoke-virtual {v2}, Landroid/os/BatteryStats$ControllerActivityCounter;->getPowerCounter()Landroid/os/BatteryStats$LongCounter;
 
-    move-result-object v12
+    move-result-object v2
 
-    invoke-virtual {v12, v8}, Landroid/os/BatteryStats$LongCounter;->getCountLocked(I)J
+    invoke-virtual {v2, v8}, Landroid/os/BatteryStats$LongCounter;->getCountLocked(I)J
 
-    move-result-wide v12
+    move-result-wide v10
 
-    invoke-virtual {v1, v7, v12, v13}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
+    invoke-virtual {v1, v4, v10, v11}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
 
     :cond_d
-    const/16 v7, 0x272c
+    const/16 v2, 0x272c
 
-    iget-wide v9, v0, Lcom/android/server/am/HealthStatsBatteryStatsWriter;->mNowRealtimeMs:J
+    iget-wide v10, v0, Lcom/android/server/am/HealthStatsBatteryStatsWriter;->mNowRealtimeMs:J
 
-    const-wide/16 v12, 0x3e8
+    mul-long/2addr v10, v6
 
-    mul-long/2addr v9, v12
+    invoke-virtual {v3, v10, v11, v8}, Landroid/os/BatteryStats$Uid;->getWifiRunningTime(JI)J
 
-    invoke-virtual {v3, v9, v10, v8}, Landroid/os/BatteryStats$Uid;->getWifiRunningTime(JI)J
+    move-result-wide v10
 
-    move-result-wide v9
+    div-long/2addr v10, v6
 
-    div-long/2addr v9, v12
+    invoke-virtual {v1, v2, v10, v11}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
 
-    invoke-virtual {v1, v7, v9, v10}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
+    const/16 v2, 0x272d
 
-    const/16 v7, 0x272d
+    iget-wide v10, v0, Lcom/android/server/am/HealthStatsBatteryStatsWriter;->mNowRealtimeMs:J
 
-    iget-wide v9, v0, Lcom/android/server/am/HealthStatsBatteryStatsWriter;->mNowRealtimeMs:J
+    mul-long/2addr v10, v6
 
-    mul-long/2addr v9, v12
+    invoke-virtual {v3, v10, v11, v8}, Landroid/os/BatteryStats$Uid;->getFullWifiLockTime(JI)J
 
-    invoke-virtual {v3, v9, v10, v8}, Landroid/os/BatteryStats$Uid;->getFullWifiLockTime(JI)J
+    move-result-wide v10
 
-    move-result-wide v9
+    div-long/2addr v10, v6
 
-    div-long/2addr v9, v12
+    invoke-virtual {v1, v2, v10, v11}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
 
-    invoke-virtual {v1, v7, v9, v10}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
-
-    const/16 v7, 0x272e
+    const/16 v2, 0x272e
 
     invoke-virtual {v3, v8}, Landroid/os/BatteryStats$Uid;->getWifiScanCount(I)I
 
-    move-result v9
+    move-result v4
 
-    iget-wide v14, v0, Lcom/android/server/am/HealthStatsBatteryStatsWriter;->mNowRealtimeMs:J
+    iget-wide v10, v0, Lcom/android/server/am/HealthStatsBatteryStatsWriter;->mNowRealtimeMs:J
 
-    mul-long/2addr v14, v12
+    mul-long/2addr v10, v6
 
-    invoke-virtual {v3, v14, v15, v8}, Landroid/os/BatteryStats$Uid;->getWifiScanTime(JI)J
+    invoke-virtual {v3, v10, v11, v8}, Landroid/os/BatteryStats$Uid;->getWifiScanTime(JI)J
 
-    move-result-wide v14
+    move-result-wide v10
 
-    div-long/2addr v14, v12
+    div-long/2addr v10, v6
 
-    invoke-virtual {v1, v7, v9, v14, v15}, Landroid/os/health/HealthStatsWriter;->addTimer(IIJ)V
+    invoke-virtual {v1, v2, v4, v10, v11}, Landroid/os/health/HealthStatsWriter;->addTimer(IIJ)V
 
-    const/16 v7, 0x272f
+    const/16 v2, 0x272f
 
-    iget-wide v9, v0, Lcom/android/server/am/HealthStatsBatteryStatsWriter;->mNowRealtimeMs:J
+    iget-wide v10, v0, Lcom/android/server/am/HealthStatsBatteryStatsWriter;->mNowRealtimeMs:J
 
-    mul-long/2addr v9, v12
+    mul-long/2addr v10, v6
 
-    invoke-virtual {v3, v9, v10, v8}, Landroid/os/BatteryStats$Uid;->getWifiMulticastTime(JI)J
+    invoke-virtual {v3, v10, v11, v8}, Landroid/os/BatteryStats$Uid;->getWifiMulticastTime(JI)J
 
-    move-result-wide v9
+    move-result-wide v10
 
-    div-long/2addr v9, v12
+    div-long/2addr v10, v6
 
-    invoke-virtual {v1, v7, v9, v10}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
+    invoke-virtual {v1, v2, v10, v11}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
 
-    const/16 v7, 0x2730
+    const/16 v2, 0x2730
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/BatteryStats$Uid;->getAudioTurnedOnTimer()Landroid/os/BatteryStats$Timer;
 
-    move-result-object v9
+    move-result-object v4
 
-    invoke-direct {v0, v1, v7, v9}, Lcom/android/server/am/HealthStatsBatteryStatsWriter;->addTimer(Landroid/os/health/HealthStatsWriter;ILandroid/os/BatteryStats$Timer;)V
+    invoke-virtual {v0, v1, v2, v4}, Lcom/android/server/am/HealthStatsBatteryStatsWriter;->addTimer(Landroid/os/health/HealthStatsWriter;ILandroid/os/BatteryStats$Timer;)V
 
-    const/16 v7, 0x2731
+    const/16 v2, 0x2731
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/BatteryStats$Uid;->getVideoTurnedOnTimer()Landroid/os/BatteryStats$Timer;
 
-    move-result-object v9
+    move-result-object v4
 
-    invoke-direct {v0, v1, v7, v9}, Lcom/android/server/am/HealthStatsBatteryStatsWriter;->addTimer(Landroid/os/health/HealthStatsWriter;ILandroid/os/BatteryStats$Timer;)V
+    invoke-virtual {v0, v1, v2, v4}, Lcom/android/server/am/HealthStatsBatteryStatsWriter;->addTimer(Landroid/os/health/HealthStatsWriter;ILandroid/os/BatteryStats$Timer;)V
 
-    const/16 v7, 0x2732
+    const/16 v2, 0x2732
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/BatteryStats$Uid;->getFlashlightTurnedOnTimer()Landroid/os/BatteryStats$Timer;
 
-    move-result-object v9
+    move-result-object v4
 
-    invoke-direct {v0, v1, v7, v9}, Lcom/android/server/am/HealthStatsBatteryStatsWriter;->addTimer(Landroid/os/health/HealthStatsWriter;ILandroid/os/BatteryStats$Timer;)V
+    invoke-virtual {v0, v1, v2, v4}, Lcom/android/server/am/HealthStatsBatteryStatsWriter;->addTimer(Landroid/os/health/HealthStatsWriter;ILandroid/os/BatteryStats$Timer;)V
 
-    const/16 v7, 0x2733
+    const/16 v2, 0x2733
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/BatteryStats$Uid;->getCameraTurnedOnTimer()Landroid/os/BatteryStats$Timer;
 
-    move-result-object v9
+    move-result-object v4
 
-    invoke-direct {v0, v1, v7, v9}, Lcom/android/server/am/HealthStatsBatteryStatsWriter;->addTimer(Landroid/os/health/HealthStatsWriter;ILandroid/os/BatteryStats$Timer;)V
+    invoke-virtual {v0, v1, v2, v4}, Lcom/android/server/am/HealthStatsBatteryStatsWriter;->addTimer(Landroid/os/health/HealthStatsWriter;ILandroid/os/BatteryStats$Timer;)V
 
-    const/16 v7, 0x2734
+    const/16 v2, 0x2734
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/BatteryStats$Uid;->getForegroundActivityTimer()Landroid/os/BatteryStats$Timer;
 
-    move-result-object v9
+    move-result-object v4
 
-    invoke-direct {v0, v1, v7, v9}, Lcom/android/server/am/HealthStatsBatteryStatsWriter;->addTimer(Landroid/os/health/HealthStatsWriter;ILandroid/os/BatteryStats$Timer;)V
+    invoke-virtual {v0, v1, v2, v4}, Lcom/android/server/am/HealthStatsBatteryStatsWriter;->addTimer(Landroid/os/health/HealthStatsWriter;ILandroid/os/BatteryStats$Timer;)V
 
-    const/16 v7, 0x2735
+    const/16 v2, 0x2735
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/BatteryStats$Uid;->getBluetoothScanTimer()Landroid/os/BatteryStats$Timer;
 
-    move-result-object v9
+    move-result-object v4
 
-    invoke-direct {v0, v1, v7, v9}, Lcom/android/server/am/HealthStatsBatteryStatsWriter;->addTimer(Landroid/os/health/HealthStatsWriter;ILandroid/os/BatteryStats$Timer;)V
+    invoke-virtual {v0, v1, v2, v4}, Lcom/android/server/am/HealthStatsBatteryStatsWriter;->addTimer(Landroid/os/health/HealthStatsWriter;ILandroid/os/BatteryStats$Timer;)V
 
-    const/16 v7, 0x2736
+    const/16 v2, 0x2736
 
     invoke-virtual {v3, v8}, Landroid/os/BatteryStats$Uid;->getProcessStateTimer(I)Landroid/os/BatteryStats$Timer;
 
-    move-result-object v9
+    move-result-object v4
 
-    invoke-direct {v0, v1, v7, v9}, Lcom/android/server/am/HealthStatsBatteryStatsWriter;->addTimer(Landroid/os/health/HealthStatsWriter;ILandroid/os/BatteryStats$Timer;)V
+    invoke-virtual {v0, v1, v2, v4}, Lcom/android/server/am/HealthStatsBatteryStatsWriter;->addTimer(Landroid/os/health/HealthStatsWriter;ILandroid/os/BatteryStats$Timer;)V
 
-    const/16 v7, 0x2737
-
-    const/4 v9, 0x1
+    const/16 v2, 0x2737
 
     invoke-virtual {v3, v9}, Landroid/os/BatteryStats$Uid;->getProcessStateTimer(I)Landroid/os/BatteryStats$Timer;
 
+    move-result-object v4
+
+    invoke-virtual {v0, v1, v2, v4}, Lcom/android/server/am/HealthStatsBatteryStatsWriter;->addTimer(Landroid/os/health/HealthStatsWriter;ILandroid/os/BatteryStats$Timer;)V
+
+    const/16 v2, 0x2738
+
+    const/4 v4, 0x4
+
+    invoke-virtual {v3, v4}, Landroid/os/BatteryStats$Uid;->getProcessStateTimer(I)Landroid/os/BatteryStats$Timer;
+
     move-result-object v10
 
-    invoke-direct {v0, v1, v7, v10}, Lcom/android/server/am/HealthStatsBatteryStatsWriter;->addTimer(Landroid/os/health/HealthStatsWriter;ILandroid/os/BatteryStats$Timer;)V
+    invoke-virtual {v0, v1, v2, v10}, Lcom/android/server/am/HealthStatsBatteryStatsWriter;->addTimer(Landroid/os/health/HealthStatsWriter;ILandroid/os/BatteryStats$Timer;)V
 
-    const/16 v7, 0x2738
+    const/16 v2, 0x2739
 
-    const/4 v9, 0x4
-
-    invoke-virtual {v3, v9}, Landroid/os/BatteryStats$Uid;->getProcessStateTimer(I)Landroid/os/BatteryStats$Timer;
+    invoke-virtual {v3, v5}, Landroid/os/BatteryStats$Uid;->getProcessStateTimer(I)Landroid/os/BatteryStats$Timer;
 
     move-result-object v10
 
-    invoke-direct {v0, v1, v7, v10}, Lcom/android/server/am/HealthStatsBatteryStatsWriter;->addTimer(Landroid/os/health/HealthStatsWriter;ILandroid/os/BatteryStats$Timer;)V
+    invoke-virtual {v0, v1, v2, v10}, Lcom/android/server/am/HealthStatsBatteryStatsWriter;->addTimer(Landroid/os/health/HealthStatsWriter;ILandroid/os/BatteryStats$Timer;)V
 
-    const/16 v7, 0x2739
-
-    const/4 v10, 0x2
-
-    invoke-virtual {v3, v10}, Landroid/os/BatteryStats$Uid;->getProcessStateTimer(I)Landroid/os/BatteryStats$Timer;
-
-    move-result-object v12
-
-    invoke-direct {v0, v1, v7, v12}, Lcom/android/server/am/HealthStatsBatteryStatsWriter;->addTimer(Landroid/os/health/HealthStatsWriter;ILandroid/os/BatteryStats$Timer;)V
-
-    const/16 v7, 0x273a
+    const/16 v2, 0x273a
 
     const/4 v10, 0x3
 
     invoke-virtual {v3, v10}, Landroid/os/BatteryStats$Uid;->getProcessStateTimer(I)Landroid/os/BatteryStats$Timer;
 
-    move-result-object v12
+    move-result-object v11
 
-    invoke-direct {v0, v1, v7, v12}, Lcom/android/server/am/HealthStatsBatteryStatsWriter;->addTimer(Landroid/os/health/HealthStatsWriter;ILandroid/os/BatteryStats$Timer;)V
+    invoke-virtual {v0, v1, v2, v11}, Lcom/android/server/am/HealthStatsBatteryStatsWriter;->addTimer(Landroid/os/health/HealthStatsWriter;ILandroid/os/BatteryStats$Timer;)V
 
-    const/16 v7, 0x273b
+    const/16 v2, 0x273b
 
-    const/4 v12, 0x6
+    const/4 v11, 0x6
 
-    invoke-virtual {v3, v12}, Landroid/os/BatteryStats$Uid;->getProcessStateTimer(I)Landroid/os/BatteryStats$Timer;
+    invoke-virtual {v3, v11}, Landroid/os/BatteryStats$Uid;->getProcessStateTimer(I)Landroid/os/BatteryStats$Timer;
 
-    move-result-object v12
+    move-result-object v11
 
-    invoke-direct {v0, v1, v7, v12}, Lcom/android/server/am/HealthStatsBatteryStatsWriter;->addTimer(Landroid/os/health/HealthStatsWriter;ILandroid/os/BatteryStats$Timer;)V
+    invoke-virtual {v0, v1, v2, v11}, Lcom/android/server/am/HealthStatsBatteryStatsWriter;->addTimer(Landroid/os/health/HealthStatsWriter;ILandroid/os/BatteryStats$Timer;)V
 
-    const/16 v7, 0x273c
+    const/16 v2, 0x273c
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/BatteryStats$Uid;->getVibratorOnTimer()Landroid/os/BatteryStats$Timer;
 
-    move-result-object v12
+    move-result-object v11
 
-    invoke-direct {v0, v1, v7, v12}, Lcom/android/server/am/HealthStatsBatteryStatsWriter;->addTimer(Landroid/os/health/HealthStatsWriter;ILandroid/os/BatteryStats$Timer;)V
+    invoke-virtual {v0, v1, v2, v11}, Lcom/android/server/am/HealthStatsBatteryStatsWriter;->addTimer(Landroid/os/health/HealthStatsWriter;ILandroid/os/BatteryStats$Timer;)V
 
-    const/16 v7, 0x273d
+    const/16 v0, 0x273d
 
     invoke-virtual {v3, v8, v8}, Landroid/os/BatteryStats$Uid;->getUserActivityCount(II)I
 
-    move-result v12
+    move-result v2
 
-    int-to-long v12, v12
+    int-to-long v11, v2
 
-    invoke-virtual {v1, v7, v12, v13}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
+    invoke-virtual {v1, v0, v11, v12}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
 
-    const/16 v7, 0x273e
+    const/16 v0, 0x273e
 
-    const/4 v12, 0x1
+    invoke-virtual {v3, v9, v8}, Landroid/os/BatteryStats$Uid;->getUserActivityCount(II)I
 
-    invoke-virtual {v3, v12, v8}, Landroid/os/BatteryStats$Uid;->getUserActivityCount(II)I
+    move-result v2
 
-    move-result v13
+    int-to-long v11, v2
 
-    int-to-long v12, v13
+    invoke-virtual {v1, v0, v11, v12}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
 
-    invoke-virtual {v1, v7, v12, v13}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
+    const/16 v0, 0x273f
 
-    const/16 v7, 0x273f
+    invoke-virtual {v3, v5, v8}, Landroid/os/BatteryStats$Uid;->getUserActivityCount(II)I
 
-    const/4 v12, 0x2
+    move-result v2
 
-    invoke-virtual {v3, v12, v8}, Landroid/os/BatteryStats$Uid;->getUserActivityCount(II)I
+    int-to-long v11, v2
 
-    move-result v13
+    invoke-virtual {v1, v0, v11, v12}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
 
-    int-to-long v12, v13
-
-    invoke-virtual {v1, v7, v12, v13}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
-
-    const/16 v7, 0x2740
+    const/16 v0, 0x2740
 
     invoke-virtual {v3, v8, v8}, Landroid/os/BatteryStats$Uid;->getNetworkActivityBytes(II)J
 
-    move-result-wide v12
+    move-result-wide v11
 
-    invoke-virtual {v1, v7, v12, v13}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
+    invoke-virtual {v1, v0, v11, v12}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
 
-    const/16 v7, 0x2741
-
-    const/4 v12, 0x1
-
-    invoke-virtual {v3, v12, v8}, Landroid/os/BatteryStats$Uid;->getNetworkActivityBytes(II)J
-
-    move-result-wide v13
-
-    invoke-virtual {v1, v7, v13, v14}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
-
-    const/16 v7, 0x2742
-
-    const/4 v12, 0x2
-
-    invoke-virtual {v3, v12, v8}, Landroid/os/BatteryStats$Uid;->getNetworkActivityBytes(II)J
-
-    move-result-wide v13
-
-    invoke-virtual {v1, v7, v13, v14}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
-
-    const/16 v7, 0x2743
-
-    invoke-virtual {v3, v10, v8}, Landroid/os/BatteryStats$Uid;->getNetworkActivityBytes(II)J
-
-    move-result-wide v12
-
-    invoke-virtual {v1, v7, v12, v13}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
-
-    const/16 v7, 0x2744
+    const/16 v0, 0x2741
 
     invoke-virtual {v3, v9, v8}, Landroid/os/BatteryStats$Uid;->getNetworkActivityBytes(II)J
 
-    move-result-wide v12
+    move-result-wide v11
 
-    invoke-virtual {v1, v7, v12, v13}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
+    invoke-virtual {v1, v0, v11, v12}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
 
-    const/16 v7, 0x2745
+    const/16 v0, 0x2742
 
-    const/4 v12, 0x5
+    invoke-virtual {v3, v5, v8}, Landroid/os/BatteryStats$Uid;->getNetworkActivityBytes(II)J
 
-    invoke-virtual {v3, v12, v8}, Landroid/os/BatteryStats$Uid;->getNetworkActivityBytes(II)J
+    move-result-wide v11
 
-    move-result-wide v13
+    invoke-virtual {v1, v0, v11, v12}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
 
-    invoke-virtual {v1, v7, v13, v14}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
+    const/16 v0, 0x2743
 
-    const/16 v7, 0x2746
+    invoke-virtual {v3, v10, v8}, Landroid/os/BatteryStats$Uid;->getNetworkActivityBytes(II)J
+
+    move-result-wide v11
+
+    invoke-virtual {v1, v0, v11, v12}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
+
+    const/16 v0, 0x2744
+
+    invoke-virtual {v3, v4, v8}, Landroid/os/BatteryStats$Uid;->getNetworkActivityBytes(II)J
+
+    move-result-wide v11
+
+    invoke-virtual {v1, v0, v11, v12}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
+
+    const/16 v0, 0x2745
+
+    const/4 v2, 0x5
+
+    invoke-virtual {v3, v2, v8}, Landroid/os/BatteryStats$Uid;->getNetworkActivityBytes(II)J
+
+    move-result-wide v11
+
+    invoke-virtual {v1, v0, v11, v12}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
+
+    const/16 v0, 0x2746
 
     invoke-virtual {v3, v8, v8}, Landroid/os/BatteryStats$Uid;->getNetworkActivityPackets(II)J
 
-    move-result-wide v13
+    move-result-wide v11
 
-    invoke-virtual {v1, v7, v13, v14}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
+    invoke-virtual {v1, v0, v11, v12}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
 
-    const/16 v7, 0x2747
-
-    const/4 v13, 0x1
-
-    invoke-virtual {v3, v13, v8}, Landroid/os/BatteryStats$Uid;->getNetworkActivityPackets(II)J
-
-    move-result-wide v13
-
-    invoke-virtual {v1, v7, v13, v14}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
-
-    const/16 v7, 0x2748
-
-    const/4 v13, 0x2
-
-    invoke-virtual {v3, v13, v8}, Landroid/os/BatteryStats$Uid;->getNetworkActivityPackets(II)J
-
-    move-result-wide v13
-
-    invoke-virtual {v1, v7, v13, v14}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
-
-    const/16 v7, 0x2749
-
-    invoke-virtual {v3, v10, v8}, Landroid/os/BatteryStats$Uid;->getNetworkActivityPackets(II)J
-
-    move-result-wide v13
-
-    invoke-virtual {v1, v7, v13, v14}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
-
-    const/16 v7, 0x274a
+    const/16 v0, 0x2747
 
     invoke-virtual {v3, v9, v8}, Landroid/os/BatteryStats$Uid;->getNetworkActivityPackets(II)J
 
+    move-result-wide v11
+
+    invoke-virtual {v1, v0, v11, v12}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
+
+    const/16 v0, 0x2748
+
+    invoke-virtual {v3, v5, v8}, Landroid/os/BatteryStats$Uid;->getNetworkActivityPackets(II)J
+
+    move-result-wide v11
+
+    invoke-virtual {v1, v0, v11, v12}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
+
+    const/16 v0, 0x2749
+
+    invoke-virtual {v3, v10, v8}, Landroid/os/BatteryStats$Uid;->getNetworkActivityPackets(II)J
+
     move-result-wide v9
 
-    invoke-virtual {v1, v7, v9, v10}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
+    invoke-virtual {v1, v0, v9, v10}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
 
-    const/16 v7, 0x274b
+    const/16 v0, 0x274a
 
-    invoke-virtual {v3, v12, v8}, Landroid/os/BatteryStats$Uid;->getNetworkActivityPackets(II)J
+    invoke-virtual {v3, v4, v8}, Landroid/os/BatteryStats$Uid;->getNetworkActivityPackets(II)J
 
-    move-result-wide v9
+    move-result-wide v4
 
-    invoke-virtual {v1, v7, v9, v10}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
+    invoke-virtual {v1, v0, v4, v5}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
 
-    const/16 v7, 0x274d
+    const/16 v0, 0x274b
+
+    invoke-virtual {v3, v2, v8}, Landroid/os/BatteryStats$Uid;->getNetworkActivityPackets(II)J
+
+    move-result-wide v4
+
+    invoke-virtual {v1, v0, v4, v5}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
+
+    const/16 v0, 0x274d
 
     invoke-virtual {v3, v8}, Landroid/os/BatteryStats$Uid;->getMobileRadioActiveCount(I)I
 
-    move-result v9
+    move-result v2
 
     invoke-virtual {v3, v8}, Landroid/os/BatteryStats$Uid;->getMobileRadioActiveTime(I)J
 
-    move-result-wide v12
+    move-result-wide v4
 
-    invoke-virtual {v1, v7, v9, v12, v13}, Landroid/os/health/HealthStatsWriter;->addTimer(IIJ)V
+    invoke-virtual {v1, v0, v2, v4, v5}, Landroid/os/health/HealthStatsWriter;->addTimer(IIJ)V
 
-    const/16 v7, 0x274e
+    const/16 v0, 0x274e
 
     invoke-virtual {v3, v8}, Landroid/os/BatteryStats$Uid;->getUserCpuTimeUs(I)J
 
-    move-result-wide v9
+    move-result-wide v4
 
-    const-wide/16 v12, 0x3e8
+    div-long/2addr v4, v6
 
-    div-long/2addr v9, v12
+    invoke-virtual {v1, v0, v4, v5}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
 
-    invoke-virtual {v1, v7, v9, v10}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
-
-    const/16 v7, 0x274f
+    const/16 v0, 0x274f
 
     invoke-virtual {v3, v8}, Landroid/os/BatteryStats$Uid;->getSystemCpuTimeUs(I)J
 
-    move-result-wide v8
+    move-result-wide v2
 
-    div-long/2addr v8, v12
+    div-long/2addr v2, v6
 
-    invoke-virtual {v1, v7, v8, v9}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
+    invoke-virtual {v1, v0, v2, v3}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
 
-    const/16 v7, 0x2750
+    const/16 v0, 0x2750
 
-    const-wide/16 v8, 0x0
+    const-wide/16 v2, 0x0
 
-    invoke-virtual {v1, v7, v8, v9}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
+    invoke-virtual {v1, v0, v2, v3}, Landroid/os/health/HealthStatsWriter;->addMeasurement(IJ)V
 
     return-void
 .end method

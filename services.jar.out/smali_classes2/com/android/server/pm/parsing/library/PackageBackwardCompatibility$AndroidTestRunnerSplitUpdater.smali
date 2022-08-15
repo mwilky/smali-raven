@@ -4,6 +4,9 @@
 
 
 # annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/android/server/pm/parsing/library/PackageBackwardCompatibility;
 .end annotation
@@ -26,13 +29,13 @@
 
 # virtual methods
 .method public updatePackage(Lcom/android/server/pm/parsing/pkg/ParsedPackage;Z)V
-    .locals 2
+    .locals 1
 
-    const-string v0, "android.test.runner"
+    const-string p2, "android.test.runner"
 
-    const-string v1, "android.test.mock"
+    const-string v0, "android.test.mock"
 
-    invoke-virtual {p0, p1, v0, v1}, Lcom/android/server/pm/parsing/library/PackageBackwardCompatibility$AndroidTestRunnerSplitUpdater;->prefixImplicitDependency(Lcom/android/server/pm/parsing/pkg/ParsedPackage;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, p1, p2, v0}, Lcom/android/server/pm/parsing/library/PackageSharedLibraryUpdater;->prefixImplicitDependency(Lcom/android/server/pm/parsing/pkg/ParsedPackage;Ljava/lang/String;Ljava/lang/String;)V
 
     return-void
 .end method

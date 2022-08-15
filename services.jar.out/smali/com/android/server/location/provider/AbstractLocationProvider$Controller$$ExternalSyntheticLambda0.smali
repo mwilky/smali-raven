@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/location/provider/AbstractLocationProvider$Controller$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -39,7 +40,7 @@
 
 # virtual methods
 .method public final run()V
-    .locals 5
+    .locals 4
 
     iget-object v0, p0, Lcom/android/server/location/provider/AbstractLocationProvider$Controller$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/location/provider/AbstractLocationProvider$Controller;
 
@@ -49,9 +50,9 @@
 
     iget-object v3, p0, Lcom/android/server/location/provider/AbstractLocationProvider$Controller$$ExternalSyntheticLambda0;->f$3:Ljava/lang/String;
 
-    iget-object v4, p0, Lcom/android/server/location/provider/AbstractLocationProvider$Controller$$ExternalSyntheticLambda0;->f$4:Landroid/os/Bundle;
+    iget-object p0, p0, Lcom/android/server/location/provider/AbstractLocationProvider$Controller$$ExternalSyntheticLambda0;->f$4:Landroid/os/Bundle;
 
-    invoke-virtual {v0, v1, v2, v3, v4}, Lcom/android/server/location/provider/AbstractLocationProvider$Controller;->lambda$sendExtraCommand$3$AbstractLocationProvider$Controller(IILjava/lang/String;Landroid/os/Bundle;)V
+    invoke-static {v0, v1, v2, v3, p0}, Lcom/android/server/location/provider/AbstractLocationProvider$Controller;->$r8$lambda$FFpvgAmdRzEghaZKwCDHNbHdHiw(Lcom/android/server/location/provider/AbstractLocationProvider$Controller;IILjava/lang/String;Landroid/os/Bundle;)V
 
     return-void
 .end method

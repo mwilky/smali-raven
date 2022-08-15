@@ -1,4 +1,4 @@
-.class abstract Lcom/android/server/wm/TaskSnapshotPersister$WriteQueueItem;
+.class public abstract Lcom/android/server/wm/TaskSnapshotPersister$WriteQueueItem;
 .super Ljava/lang/Object;
 .source "TaskSnapshotPersister.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x402
+    accessFlags = 0x401
     name = "WriteQueueItem"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/wm/TaskSnapshotPersister;
+.field public final synthetic this$0:Lcom/android/server/wm/TaskSnapshotPersister;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/server/wm/TaskSnapshotPersister;)V
+.method public constructor <init>(Lcom/android/server/wm/TaskSnapshotPersister;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/wm/TaskSnapshotPersister$WriteQueueItem;->this$0:Lcom/android/server/wm/TaskSnapshotPersister;
@@ -29,7 +29,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/wm/TaskSnapshotPersister;Lcom/android/server/wm/TaskSnapshotPersister$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/wm/TaskSnapshotPersister;Lcom/android/server/wm/TaskSnapshotPersister$WriteQueueItem-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/wm/TaskSnapshotPersister$WriteQueueItem;-><init>(Lcom/android/server/wm/TaskSnapshotPersister;)V
@@ -39,25 +39,25 @@
 
 
 # virtual methods
-.method isReady()Z
-    .locals 1
+.method public isReady()Z
+    .locals 0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 .end method
 
-.method onDequeuedLocked()V
+.method public onDequeuedLocked()V
     .locals 0
 
     return-void
 .end method
 
-.method onQueuedLocked()V
+.method public onQueuedLocked()V
     .locals 0
 
     return-void
 .end method
 
-.method abstract write()V
+.method public abstract write()V
 .end method

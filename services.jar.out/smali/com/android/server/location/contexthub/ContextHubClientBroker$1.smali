@@ -1,4 +1,4 @@
-.class Lcom/android/server/location/contexthub/ContextHubClientBroker$1;
+.class public Lcom/android/server/location/contexthub/ContextHubClientBroker$1;
 .super Landroid/hardware/location/IContextHubTransactionCallback$Stub;
 .source "ContextHubClientBroker.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/location/contexthub/ContextHubClientBroker;
+.field public final synthetic this$0:Lcom/android/server/location/contexthub/ContextHubClientBroker;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/location/contexthub/ContextHubClientBroker;)V
+.method public constructor <init>(Lcom/android/server/location/contexthub/ContextHubClientBroker;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/location/contexthub/ContextHubClientBroker$1;->this$0:Lcom/android/server/location/contexthub/ContextHubClientBroker;
@@ -32,7 +32,7 @@
 
 # virtual methods
 .method public onQueryResponse(ILjava/util/List;)V
-    .locals 7
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -44,7 +44,7 @@
 
     iget-object v0, p0, Lcom/android/server/location/contexthub/ContextHubClientBroker$1;->this$0:Lcom/android/server/location/contexthub/ContextHubClientBroker;
 
-    invoke-static {v0}, Lcom/android/server/location/contexthub/ContextHubClientBroker;->access$000(Lcom/android/server/location/contexthub/ContextHubClientBroker;)Ljava/util/concurrent/atomic/AtomicBoolean;
+    invoke-static {v0}, Lcom/android/server/location/contexthub/ContextHubClientBroker;->-$$Nest$fgetmIsPermQueryIssued(Lcom/android/server/location/contexthub/ContextHubClientBroker;)Ljava/util/concurrent/atomic/AtomicBoolean;
 
     move-result-object v0
 
@@ -56,11 +56,11 @@
 
     if-eqz p2, :cond_0
 
-    const-string v0, "ContextHubClientBroker"
+    const-string p0, "ContextHubClientBroker"
 
-    const-string v1, "Permissions query failed, but still received nanoapp state"
+    const-string p1, "Permissions query failed, but still received nanoapp state"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_1
 
@@ -69,54 +69,54 @@
 
     invoke-interface {p2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
+    move-result-object p1
+
+    :cond_1
+    :goto_0
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result p2
+
+    if-eqz p2, :cond_2
+
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object p2
+
+    check-cast p2, Landroid/hardware/location/NanoAppState;
+
+    iget-object v0, p0, Lcom/android/server/location/contexthub/ContextHubClientBroker$1;->this$0:Lcom/android/server/location/contexthub/ContextHubClientBroker;
+
+    invoke-static {v0}, Lcom/android/server/location/contexthub/ContextHubClientBroker;->-$$Nest$fgetmMessageChannelNanoappIdMap(Lcom/android/server/location/contexthub/ContextHubClientBroker;)Ljava/util/Map;
+
     move-result-object v0
 
-    :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    invoke-virtual {p2}, Landroid/hardware/location/NanoAppState;->getNanoAppId()J
 
-    move-result v2
+    move-result-wide v2
 
-    if-eqz v2, :cond_2
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v2
 
-    check-cast v2, Landroid/hardware/location/NanoAppState;
+    invoke-interface {v0, v2}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
-    iget-object v3, p0, Lcom/android/server/location/contexthub/ContextHubClientBroker$1;->this$0:Lcom/android/server/location/contexthub/ContextHubClientBroker;
+    move-result v0
 
-    invoke-static {v3}, Lcom/android/server/location/contexthub/ContextHubClientBroker;->access$100(Lcom/android/server/location/contexthub/ContextHubClientBroker;)Ljava/util/Map;
+    if-eqz v0, :cond_1
 
-    move-result-object v3
+    invoke-virtual {p2}, Landroid/hardware/location/NanoAppState;->getNanoAppPermissions()Ljava/util/List;
 
-    invoke-virtual {v2}, Landroid/hardware/location/NanoAppState;->getNanoAppId()J
+    move-result-object v0
 
-    move-result-wide v4
+    iget-object v2, p0, Lcom/android/server/location/contexthub/ContextHubClientBroker$1;->this$0:Lcom/android/server/location/contexthub/ContextHubClientBroker;
 
-    invoke-static {v4, v5}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    invoke-virtual {p2}, Landroid/hardware/location/NanoAppState;->getNanoAppId()J
 
-    move-result-object v4
+    move-result-wide v3
 
-    invoke-interface {v3, v4}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+    invoke-static {v2, v3, v4, v0, v1}, Lcom/android/server/location/contexthub/ContextHubClientBroker;->-$$Nest$mupdateNanoAppAuthState(Lcom/android/server/location/contexthub/ContextHubClientBroker;JLjava/util/List;Z)I
 
-    move-result v3
-
-    if-eqz v3, :cond_1
-
-    invoke-virtual {v2}, Landroid/hardware/location/NanoAppState;->getNanoAppPermissions()Ljava/util/List;
-
-    move-result-object v3
-
-    iget-object v4, p0, Lcom/android/server/location/contexthub/ContextHubClientBroker$1;->this$0:Lcom/android/server/location/contexthub/ContextHubClientBroker;
-
-    invoke-virtual {v2}, Landroid/hardware/location/NanoAppState;->getNanoAppId()J
-
-    move-result-wide v5
-
-    invoke-static {v4, v5, v6, v3, v1}, Lcom/android/server/location/contexthub/ContextHubClientBroker;->access$200(Lcom/android/server/location/contexthub/ContextHubClientBroker;JLjava/util/List;Z)I
-
-    :cond_1
     goto :goto_0
 
     :cond_2

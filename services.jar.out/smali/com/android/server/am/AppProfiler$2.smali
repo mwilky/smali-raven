@@ -1,4 +1,4 @@
-.class Lcom/android/server/am/AppProfiler$2;
+.class public Lcom/android/server/am/AppProfiler$2;
 .super Ljava/lang/Object;
 .source "AppProfiler.java"
 
@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
@@ -27,11 +27,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/am/AppProfiler;
+.field public final synthetic this$0:Lcom/android/server/am/AppProfiler;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/AppProfiler;)V
+.method public constructor <init>(Lcom/android/server/am/AppProfiler;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/am/AppProfiler$2;->this$0:Lcom/android/server/am/AppProfiler;
@@ -44,58 +44,50 @@
 
 # virtual methods
 .method public compare(Lcom/android/server/am/ProcessMemInfo;Lcom/android/server/am/ProcessMemInfo;)I
-    .locals 6
+    .locals 5
 
-    iget v0, p1, Lcom/android/server/am/ProcessMemInfo;->oomAdj:I
+    iget p0, p1, Lcom/android/server/am/ProcessMemInfo;->oomAdj:I
 
-    iget v1, p2, Lcom/android/server/am/ProcessMemInfo;->oomAdj:I
+    iget v0, p2, Lcom/android/server/am/ProcessMemInfo;->oomAdj:I
 
-    const/4 v2, -0x1
+    const/4 v1, -0x1
 
-    const/4 v3, 0x1
+    const/4 v2, 0x1
 
-    if-eq v0, v1, :cond_1
+    if-eq p0, v0, :cond_1
 
-    iget v0, p1, Lcom/android/server/am/ProcessMemInfo;->oomAdj:I
-
-    iget v1, p2, Lcom/android/server/am/ProcessMemInfo;->oomAdj:I
-
-    if-ge v0, v1, :cond_0
+    if-ge p0, v0, :cond_0
 
     goto :goto_0
 
     :cond_0
-    move v2, v3
+    move v1, v2
 
     :goto_0
-    return v2
+    return v1
 
     :cond_1
-    iget-wide v0, p1, Lcom/android/server/am/ProcessMemInfo;->pss:J
+    iget-wide p0, p1, Lcom/android/server/am/ProcessMemInfo;->pss:J
 
-    iget-wide v4, p2, Lcom/android/server/am/ProcessMemInfo;->pss:J
+    iget-wide v3, p2, Lcom/android/server/am/ProcessMemInfo;->pss:J
 
-    cmp-long v0, v0, v4
+    cmp-long p2, p0, v3
 
-    if-eqz v0, :cond_3
+    if-eqz p2, :cond_3
 
-    iget-wide v0, p1, Lcom/android/server/am/ProcessMemInfo;->pss:J
+    cmp-long p0, p0, v3
 
-    iget-wide v4, p2, Lcom/android/server/am/ProcessMemInfo;->pss:J
+    if-gez p0, :cond_2
 
-    cmp-long v0, v0, v4
-
-    if-gez v0, :cond_2
-
-    move v2, v3
+    move v1, v2
 
     :cond_2
-    return v2
+    return v1
 
     :cond_3
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
@@ -107,7 +99,7 @@
 
     invoke-virtual {p0, p1, p2}, Lcom/android/server/am/AppProfiler$2;->compare(Lcom/android/server/am/ProcessMemInfo;Lcom/android/server/am/ProcessMemInfo;)I
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method

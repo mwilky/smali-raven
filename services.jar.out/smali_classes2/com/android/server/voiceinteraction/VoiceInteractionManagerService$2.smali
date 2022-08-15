@@ -1,4 +1,4 @@
-.class Lcom/android/server/voiceinteraction/VoiceInteractionManagerService$2;
+.class public Lcom/android/server/voiceinteraction/VoiceInteractionManagerService$2;
 .super Ljava/lang/Object;
 .source "VoiceInteractionManagerService.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/voiceinteraction/VoiceInteractionManagerService;
+.field public final synthetic this$0:Lcom/android/server/voiceinteraction/VoiceInteractionManagerService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/voiceinteraction/VoiceInteractionManagerService;)V
+.method public constructor <init>(Lcom/android/server/voiceinteraction/VoiceInteractionManagerService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerService$2;->this$0:Lcom/android/server/voiceinteraction/VoiceInteractionManagerService;
@@ -35,15 +35,15 @@
 
 # virtual methods
 .method public notifyActivityEventChanged()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerService$2;->this$0:Lcom/android/server/voiceinteraction/VoiceInteractionManagerService;
+    iget-object p0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerService$2;->this$0:Lcom/android/server/voiceinteraction/VoiceInteractionManagerService;
 
-    invoke-static {v0}, Lcom/android/server/voiceinteraction/VoiceInteractionManagerService;->access$000(Lcom/android/server/voiceinteraction/VoiceInteractionManagerService;)Lcom/android/server/voiceinteraction/VoiceInteractionManagerService$VoiceInteractionManagerServiceStub;
+    invoke-static {p0}, Lcom/android/server/voiceinteraction/VoiceInteractionManagerService;->-$$Nest$fgetmServiceStub(Lcom/android/server/voiceinteraction/VoiceInteractionManagerService;)Lcom/android/server/voiceinteraction/VoiceInteractionManagerService$VoiceInteractionManagerServiceStub;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Lcom/android/server/voiceinteraction/VoiceInteractionManagerService$VoiceInteractionManagerServiceStub;->notifyActivityEventChanged()V
+    invoke-virtual {p0}, Lcom/android/server/voiceinteraction/VoiceInteractionManagerService$VoiceInteractionManagerServiceStub;->notifyActivityEventChanged()V
 
     return-void
 .end method

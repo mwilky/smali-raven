@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/camera/CameraServiceProxy$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -23,13 +24,13 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/camera/CameraServiceProxy$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/camera/CameraServiceProxy;
+    iget-object p0, p0, Lcom/android/server/camera/CameraServiceProxy$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/camera/CameraServiceProxy;
 
     check-cast p1, Ljava/lang/Boolean;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/camera/CameraServiceProxy;->lambda$new$0$CameraServiceProxy(Ljava/lang/Boolean;)V
+    invoke-static {p0, p1}, Lcom/android/server/camera/CameraServiceProxy;->$r8$lambda$xKzwSr6VW_ozKS_nbX2lh0LGArc(Lcom/android/server/camera/CameraServiceProxy;Ljava/lang/Boolean;)V
 
     return-void
 .end method

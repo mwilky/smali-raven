@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/wm/EmbeddedWindowController$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/os/IBinder$DeathRecipient;
@@ -31,15 +32,15 @@
 
 # virtual methods
 .method public final binderDied()V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/wm/EmbeddedWindowController$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/wm/EmbeddedWindowController;
 
     iget-object v1, p0, Lcom/android/server/wm/EmbeddedWindowController$$ExternalSyntheticLambda0;->f$1:Landroid/os/IBinder;
 
-    iget-object v2, p0, Lcom/android/server/wm/EmbeddedWindowController$$ExternalSyntheticLambda0;->f$2:Landroid/os/IBinder;
+    iget-object p0, p0, Lcom/android/server/wm/EmbeddedWindowController$$ExternalSyntheticLambda0;->f$2:Landroid/os/IBinder;
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/wm/EmbeddedWindowController;->lambda$add$0$EmbeddedWindowController(Landroid/os/IBinder;Landroid/os/IBinder;)V
+    invoke-static {v0, v1, p0}, Lcom/android/server/wm/EmbeddedWindowController;->$r8$lambda$rZz1VqQZAvxSwtQ8OUtHc1fzvW4(Lcom/android/server/wm/EmbeddedWindowController;Landroid/os/IBinder;Landroid/os/IBinder;)V
 
     return-void
 .end method

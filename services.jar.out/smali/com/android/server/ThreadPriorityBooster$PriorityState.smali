@@ -1,4 +1,4 @@
-.class Lcom/android/server/ThreadPriorityBooster$PriorityState;
+.class public Lcom/android/server/ThreadPriorityBooster$PriorityState;
 .super Ljava/lang/Object;
 .source "ThreadPriorityBooster.java"
 
@@ -9,21 +9,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "PriorityState"
 .end annotation
 
 
 # instance fields
-.field prevPriority:I
+.field public prevPriority:I
 
-.field regionCounter:I
+.field public regionCounter:I
 
-.field final tid:I
+.field public final tid:I
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/ThreadPriorityBooster$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/ThreadPriorityBooster$PriorityState-IA;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/ThreadPriorityBooster$PriorityState;-><init>()V

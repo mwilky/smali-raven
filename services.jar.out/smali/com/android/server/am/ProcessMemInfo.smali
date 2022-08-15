@@ -4,23 +4,23 @@
 
 
 # instance fields
-.field final adjReason:Ljava/lang/String;
+.field public final adjReason:Ljava/lang/String;
 
-.field final adjType:Ljava/lang/String;
+.field public final adjType:Ljava/lang/String;
 
-.field memtrack:J
+.field public memtrack:J
 
-.field final name:Ljava/lang/String;
+.field public final name:Ljava/lang/String;
 
-.field final oomAdj:I
+.field public final oomAdj:I
 
-.field final pid:I
+.field public final pid:I
 
-.field final procState:I
+.field public final procState:I
 
-.field pss:J
+.field public pss:J
 
-.field swapPss:J
+.field public swapPss:J
 
 
 # direct methods

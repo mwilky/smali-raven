@@ -1,28 +1,13 @@
 .class public final synthetic Lcom/android/server/appop/AppOpsService$$ExternalSyntheticLambda6;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/internal/util/function/QuintConsumer;
-
-
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/appop/AppOpsService$$ExternalSyntheticLambda6;
+.implements Lcom/android/internal/util/function/TriConsumer;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/appop/AppOpsService$$ExternalSyntheticLambda6;
-
-    invoke-direct {v0}, Lcom/android/server/appop/AppOpsService$$ExternalSyntheticLambda6;-><init>()V
-
-    sput-object v0, Lcom/android/server/appop/AppOpsService$$ExternalSyntheticLambda6;->INSTANCE:Lcom/android/server/appop/AppOpsService$$ExternalSyntheticLambda6;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,28 +17,24 @@
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 0
+.method public final accept(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+    .locals 2
 
     check-cast p1, Lcom/android/server/appop/AppOpsService;
 
-    check-cast p2, Lcom/android/server/appop/AppOpsService$ModeCallback;
+    check-cast p2, Ljava/lang/Long;
+
+    invoke-virtual {p2}, Ljava/lang/Long;->longValue()J
+
+    move-result-wide v0
 
     check-cast p3, Ljava/lang/Integer;
 
     invoke-virtual {p3}, Ljava/lang/Integer;->intValue()I
 
-    move-result p3
+    move-result p0
 
-    check-cast p4, Ljava/lang/Integer;
-
-    invoke-virtual {p4}, Ljava/lang/Integer;->intValue()I
-
-    move-result p4
-
-    check-cast p5, Ljava/lang/String;
-
-    invoke-static {p1, p2, p3, p4, p5}, Lcom/android/server/appop/AppOpsService;->$r8$lambda$cQF62lZT2B382dOHCevnBWdZGys(Lcom/android/server/appop/AppOpsService;Lcom/android/server/appop/AppOpsService$ModeCallback;IILjava/lang/String;)V
+    invoke-static {p1, v0, v1, p0}, Lcom/android/server/appop/AppOpsService;->$r8$lambda$zNYjiRegD7DR2rGVXmVvy9TP0eI(Lcom/android/server/appop/AppOpsService;JI)V
 
     return-void
 .end method

@@ -1,35 +1,38 @@
 .class public final synthetic Lcom/android/server/alarm/AlarmManagerService$$ExternalSyntheticLambda6;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/server/alarm/AlarmStore$AlarmDeliveryCalculator;
+.implements Ljava/util/function/Predicate;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/server/alarm/AlarmManagerService;
+.field public final synthetic f$0:I
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/alarm/AlarmManagerService;)V
+.method public synthetic constructor <init>(I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/alarm/AlarmManagerService$$ExternalSyntheticLambda6;->f$0:Lcom/android/server/alarm/AlarmManagerService;
+    iput p1, p0, Lcom/android/server/alarm/AlarmManagerService$$ExternalSyntheticLambda6;->f$0:I
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final updateAlarmDelivery(Lcom/android/server/alarm/Alarm;)Z
-    .locals 1
+.method public final test(Ljava/lang/Object;)Z
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/alarm/AlarmManagerService$$ExternalSyntheticLambda6;->f$0:Lcom/android/server/alarm/AlarmManagerService;
+    iget p0, p0, Lcom/android/server/alarm/AlarmManagerService$$ExternalSyntheticLambda6;->f$0:I
 
-    invoke-virtual {v0, p1}, Lcom/android/server/alarm/AlarmManagerService;->lambda$setImplLocked$8$AlarmManagerService(Lcom/android/server/alarm/Alarm;)Z
+    check-cast p1, Lcom/android/server/alarm/Alarm;
 
-    move-result p1
+    invoke-static {p0, p1}, Lcom/android/server/alarm/AlarmManagerService;->$r8$lambda$x6vmXkQqLKftoeqBCKhhXEMcjAA(ILcom/android/server/alarm/Alarm;)Z
 
-    return p1
+    move-result p0
+
+    return p0
 .end method

@@ -1,4 +1,4 @@
-.class Lcom/android/server/RescueParty$1;
+.class public Lcom/android/server/RescueParty$1;
 .super Ljava/lang/Object;
 .source "RescueParty.java"
 
@@ -12,21 +12,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic val$context:Landroid/content/Context;
+.field public final synthetic val$context:Landroid/content/Context;
 
-.field final synthetic val$failedPackage:Ljava/lang/String;
+.field public final synthetic val$failedPackage:Ljava/lang/String;
 
-.field final synthetic val$level:I
+.field public final synthetic val$level:I
 
 
 # direct methods
-.method constructor <init>(Landroid/content/Context;ILjava/lang/String;)V
+.method public constructor <init>(Landroid/content/Context;ILjava/lang/String;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/RescueParty$1;->val$context:Landroid/content/Context;
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .locals 2
 
     :try_start_0
     iget-object v0, p0, Lcom/android/server/RescueParty$1;->val$context:Landroid/content/Context;
@@ -61,9 +61,9 @@
 
     iget v1, p0, Lcom/android/server/RescueParty$1;->val$level:I
 
-    iget-object v2, p0, Lcom/android/server/RescueParty$1;->val$failedPackage:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/RescueParty$1;->val$failedPackage:Ljava/lang/String;
 
-    invoke-static {v1, v2, v0}, Lcom/android/server/RescueParty;->access$300(ILjava/lang/String;Ljava/lang/Throwable;)V
+    invoke-static {v1, p0, v0}, Lcom/android/server/RescueParty;->-$$Nest$smlogRescueException(ILjava/lang/String;Ljava/lang/Throwable;)V
 
     :goto_0
     return-void

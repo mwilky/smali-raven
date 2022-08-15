@@ -1,4 +1,4 @@
-.class Lcom/android/server/oemlock/OemLockService$1;
+.class public Lcom/android/server/oemlock/OemLockService$1;
 .super Ljava/lang/Object;
 .source "OemLockService.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/oemlock/OemLockService;
+.field public final synthetic this$0:Lcom/android/server/oemlock/OemLockService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/oemlock/OemLockService;)V
+.method public constructor <init>(Lcom/android/server/oemlock/OemLockService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/oemlock/OemLockService$1;->this$0:Lcom/android/server/oemlock/OemLockService;
@@ -35,43 +35,41 @@
 
 # virtual methods
 .method public onUserRestrictionsChanged(ILandroid/os/Bundle;Landroid/os/Bundle;)V
-    .locals 3
+    .locals 1
 
-    const-string/jumbo v0, "no_factory_reset"
+    const-string/jumbo p1, "no_factory_reset"
 
-    filled-new-array {v0}, [Ljava/lang/String;
+    filled-new-array {p1}, [Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-static {p3, p2, v1}, Lcom/android/server/pm/UserRestrictionsUtils;->restrictionsChanged(Landroid/os/Bundle;Landroid/os/Bundle;[Ljava/lang/String;)Z
+    invoke-static {p3, p2, v0}, Lcom/android/server/pm/UserRestrictionsUtils;->restrictionsChanged(Landroid/os/Bundle;Landroid/os/Bundle;[Ljava/lang/String;)Z
 
-    move-result v1
+    move-result p3
 
-    if-eqz v1, :cond_0
+    if-eqz p3, :cond_0
 
-    nop
+    invoke-virtual {p2, p1}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
 
-    invoke-virtual {p2, v0}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
+    move-result p1
 
-    move-result v0
+    xor-int/lit8 p1, p1, 0x1
 
-    xor-int/lit8 v0, v0, 0x1
+    if-nez p1, :cond_0
 
-    if-nez v0, :cond_0
+    iget-object p1, p0, Lcom/android/server/oemlock/OemLockService$1;->this$0:Lcom/android/server/oemlock/OemLockService;
 
-    iget-object v1, p0, Lcom/android/server/oemlock/OemLockService$1;->this$0:Lcom/android/server/oemlock/OemLockService;
+    invoke-static {p1}, Lcom/android/server/oemlock/OemLockService;->-$$Nest$fgetmOemLock(Lcom/android/server/oemlock/OemLockService;)Lcom/android/server/oemlock/OemLock;
 
-    invoke-static {v1}, Lcom/android/server/oemlock/OemLockService;->access$000(Lcom/android/server/oemlock/OemLockService;)Lcom/android/server/oemlock/OemLock;
+    move-result-object p1
 
-    move-result-object v1
+    const/4 p2, 0x0
 
-    const/4 v2, 0x0
+    invoke-virtual {p1, p2}, Lcom/android/server/oemlock/OemLock;->setOemUnlockAllowedByDevice(Z)V
 
-    invoke-virtual {v1, v2}, Lcom/android/server/oemlock/OemLock;->setOemUnlockAllowedByDevice(Z)V
+    iget-object p0, p0, Lcom/android/server/oemlock/OemLockService$1;->this$0:Lcom/android/server/oemlock/OemLockService;
 
-    iget-object v1, p0, Lcom/android/server/oemlock/OemLockService$1;->this$0:Lcom/android/server/oemlock/OemLockService;
-
-    invoke-static {v1, v2}, Lcom/android/server/oemlock/OemLockService;->access$100(Lcom/android/server/oemlock/OemLockService;Z)V
+    invoke-static {p0, p2}, Lcom/android/server/oemlock/OemLockService;->-$$Nest$msetPersistentDataBlockOemUnlockAllowedBit(Lcom/android/server/oemlock/OemLockService;Z)V
 
     :cond_0
     return-void

@@ -1,4 +1,4 @@
-.class Lcom/android/server/media/MediaRouterService$1$1;
+.class public Lcom/android/server/media/MediaRouterService$1$1;
 .super Ljava/lang/Object;
 .source "MediaRouterService.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$1:Lcom/android/server/media/MediaRouterService$1;
+.field public final synthetic this$1:Lcom/android/server/media/MediaRouterService$1;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/media/MediaRouterService$1;)V
+.method public constructor <init>(Lcom/android/server/media/MediaRouterService$1;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/media/MediaRouterService$1$1;->this$1:Lcom/android/server/media/MediaRouterService$1;
@@ -35,13 +35,13 @@
 
 # virtual methods
 .method public run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/media/MediaRouterService$1$1;->this$1:Lcom/android/server/media/MediaRouterService$1;
+    iget-object p0, p0, Lcom/android/server/media/MediaRouterService$1$1;->this$1:Lcom/android/server/media/MediaRouterService$1;
 
-    iget-object v0, v0, Lcom/android/server/media/MediaRouterService$1;->this$0:Lcom/android/server/media/MediaRouterService;
+    iget-object p0, p0, Lcom/android/server/media/MediaRouterService$1;->this$0:Lcom/android/server/media/MediaRouterService;
 
-    invoke-virtual {v0}, Lcom/android/server/media/MediaRouterService;->restoreBluetoothA2dp()V
+    invoke-virtual {p0}, Lcom/android/server/media/MediaRouterService;->restoreBluetoothA2dp()V
 
     return-void
 .end method

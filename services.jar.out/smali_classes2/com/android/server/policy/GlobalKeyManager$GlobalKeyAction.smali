@@ -1,4 +1,4 @@
-.class Lcom/android/server/policy/GlobalKeyManager$GlobalKeyAction;
+.class public Lcom/android/server/policy/GlobalKeyManager$GlobalKeyAction;
 .super Ljava/lang/Object;
 .source "GlobalKeyManager.java"
 
@@ -9,22 +9,38 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = "GlobalKeyAction"
 .end annotation
 
 
 # instance fields
-.field private mComponentName:Landroid/content/ComponentName;
+.field public final mComponentName:Landroid/content/ComponentName;
 
-.field private mDispatchWhenNonInteractive:Z
+.field public final mDispatchWhenNonInteractive:Z
 
-.field final synthetic this$0:Lcom/android/server/policy/GlobalKeyManager;
+.field public final synthetic this$0:Lcom/android/server/policy/GlobalKeyManager;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/policy/GlobalKeyManager;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 1
+.method public static bridge synthetic -$$Nest$fgetmComponentName(Lcom/android/server/policy/GlobalKeyManager$GlobalKeyAction;)Landroid/content/ComponentName;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/policy/GlobalKeyManager$GlobalKeyAction;->mComponentName:Landroid/content/ComponentName;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmDispatchWhenNonInteractive(Lcom/android/server/policy/GlobalKeyManager$GlobalKeyAction;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/server/policy/GlobalKeyManager$GlobalKeyAction;->mDispatchWhenNonInteractive:Z
+
+    return p0
+.end method
+
+.method public constructor <init>(Lcom/android/server/policy/GlobalKeyManager;Ljava/lang/String;Ljava/lang/String;)V
+    .locals 0
 
     iput-object p1, p0, Lcom/android/server/policy/GlobalKeyManager$GlobalKeyAction;->this$0:Lcom/android/server/policy/GlobalKeyManager;
 
@@ -32,35 +48,15 @@
 
     invoke-static {p2}, Landroid/content/ComponentName;->unflattenFromString(Ljava/lang/String;)Landroid/content/ComponentName;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/android/server/policy/GlobalKeyManager$GlobalKeyAction;->mComponentName:Landroid/content/ComponentName;
+    iput-object p1, p0, Lcom/android/server/policy/GlobalKeyManager$GlobalKeyAction;->mComponentName:Landroid/content/ComponentName;
 
-    invoke-static {p3}, Ljava/lang/Boolean;->valueOf(Ljava/lang/String;)Ljava/lang/Boolean;
+    invoke-static {p3}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
 
-    move-result-object v0
+    move-result p1
 
-    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v0
-
-    iput-boolean v0, p0, Lcom/android/server/policy/GlobalKeyManager$GlobalKeyAction;->mDispatchWhenNonInteractive:Z
+    iput-boolean p1, p0, Lcom/android/server/policy/GlobalKeyManager$GlobalKeyAction;->mDispatchWhenNonInteractive:Z
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/server/policy/GlobalKeyManager$GlobalKeyAction;)Landroid/content/ComponentName;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/policy/GlobalKeyManager$GlobalKeyAction;->mComponentName:Landroid/content/ComponentName;
-
-    return-object v0
-.end method
-
-.method static synthetic access$100(Lcom/android/server/policy/GlobalKeyManager$GlobalKeyAction;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/server/policy/GlobalKeyManager$GlobalKeyAction;->mDispatchWhenNonInteractive:Z
-
-    return v0
 .end method

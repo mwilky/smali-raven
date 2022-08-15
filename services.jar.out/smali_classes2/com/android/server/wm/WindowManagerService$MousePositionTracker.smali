@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/WindowManagerService$MousePositionTracker;
+.class public Lcom/android/server/wm/WindowManagerService$MousePositionTracker;
 .super Ljava/lang/Object;
 .source "WindowManagerService.java"
 
@@ -12,58 +12,72 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "MousePositionTracker"
 .end annotation
 
 
 # instance fields
-.field private mLatestEventWasMouse:Z
+.field public mLatestEventWasMouse:Z
 
-.field private mLatestMouseX:F
+.field public mLatestMouseX:F
 
-.field private mLatestMouseY:F
+.field public mLatestMouseY:F
+
+.field public mPointerDisplayId:I
 
 
 # direct methods
-.method private constructor <init>()V
+.method public static bridge synthetic -$$Nest$fgetmLatestEventWasMouse(Lcom/android/server/wm/WindowManagerService$MousePositionTracker;)Z
     .locals 0
 
+    iget-boolean p0, p0, Lcom/android/server/wm/WindowManagerService$MousePositionTracker;->mLatestEventWasMouse:Z
+
+    return p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmLatestMouseX(Lcom/android/server/wm/WindowManagerService$MousePositionTracker;)F
+    .locals 0
+
+    iget p0, p0, Lcom/android/server/wm/WindowManagerService$MousePositionTracker;->mLatestMouseX:F
+
+    return p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmLatestMouseY(Lcom/android/server/wm/WindowManagerService$MousePositionTracker;)F
+    .locals 0
+
+    iget p0, p0, Lcom/android/server/wm/WindowManagerService$MousePositionTracker;->mLatestMouseY:F
+
+    return p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmPointerDisplayId(Lcom/android/server/wm/WindowManagerService$MousePositionTracker;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/server/wm/WindowManagerService$MousePositionTracker;->mPointerDisplayId:I
+
+    return p0
+.end method
+
+.method public constructor <init>()V
+    .locals 1
+
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    const/4 v0, -0x1
+
+    iput v0, p0, Lcom/android/server/wm/WindowManagerService$MousePositionTracker;->mPointerDisplayId:I
 
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/wm/WindowManagerService$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/wm/WindowManagerService$MousePositionTracker-IA;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/wm/WindowManagerService$MousePositionTracker;-><init>()V
 
     return-void
-.end method
-
-.method static synthetic access$1700(Lcom/android/server/wm/WindowManagerService$MousePositionTracker;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/server/wm/WindowManagerService$MousePositionTracker;->mLatestEventWasMouse:Z
-
-    return v0
-.end method
-
-.method static synthetic access$1800(Lcom/android/server/wm/WindowManagerService$MousePositionTracker;)F
-    .locals 1
-
-    iget v0, p0, Lcom/android/server/wm/WindowManagerService$MousePositionTracker;->mLatestMouseX:F
-
-    return v0
-.end method
-
-.method static synthetic access$1900(Lcom/android/server/wm/WindowManagerService$MousePositionTracker;)F
-    .locals 1
-
-    iget v0, p0, Lcom/android/server/wm/WindowManagerService$MousePositionTracker;->mLatestMouseY:F
-
-    return v0
 .end method
 
 
@@ -79,25 +93,29 @@
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getRawX()F
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getDisplayId()I
 
     move-result v0
 
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getRawY()F
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getRawX()F
 
     move-result v1
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/server/wm/WindowManagerService$MousePositionTracker;->updatePosition(FF)V
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getRawY()F
+
+    move-result p1
+
+    invoke-virtual {p0, v0, v1, p1}, Lcom/android/server/wm/WindowManagerService$MousePositionTracker;->updatePosition(IFF)Z
 
     goto :goto_0
 
     :cond_0
     monitor-enter p0
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :try_start_0
-    iput-boolean v0, p0, Lcom/android/server/wm/WindowManagerService$MousePositionTracker;->mLatestEventWasMouse:Z
+    iput-boolean p1, p0, Lcom/android/server/wm/WindowManagerService$MousePositionTracker;->mLatestEventWasMouse:Z
 
     monitor-exit p0
 
@@ -105,17 +123,39 @@
     return-void
 
     :catchall_0
-    move-exception v0
+    move-exception p1
 
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw p1
 .end method
 
-.method updatePosition(FF)V
-    .locals 1
+.method public setPointerDisplayId(I)V
+    .locals 0
+
+    monitor-enter p0
+
+    :try_start_0
+    iput p1, p0, Lcom/android/server/wm/WindowManagerService$MousePositionTracker;->mPointerDisplayId:I
+
+    monitor-exit p0
+
+    return-void
+
+    :catchall_0
+    move-exception p1
+
+    monitor-exit p0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw p1
+.end method
+
+.method public updatePosition(IFF)Z
+    .locals 2
 
     monitor-enter p0
 
@@ -124,20 +164,31 @@
     :try_start_0
     iput-boolean v0, p0, Lcom/android/server/wm/WindowManagerService$MousePositionTracker;->mLatestEventWasMouse:Z
 
-    iput p1, p0, Lcom/android/server/wm/WindowManagerService$MousePositionTracker;->mLatestMouseX:F
+    iget v1, p0, Lcom/android/server/wm/WindowManagerService$MousePositionTracker;->mPointerDisplayId:I
 
-    iput p2, p0, Lcom/android/server/wm/WindowManagerService$MousePositionTracker;->mLatestMouseY:F
+    if-eq p1, v1, :cond_0
+
+    const/4 p1, 0x0
 
     monitor-exit p0
 
-    return-void
+    return p1
+
+    :cond_0
+    iput p2, p0, Lcom/android/server/wm/WindowManagerService$MousePositionTracker;->mLatestMouseX:F
+
+    iput p3, p0, Lcom/android/server/wm/WindowManagerService$MousePositionTracker;->mLatestMouseY:F
+
+    monitor-exit p0
+
+    return v0
 
     :catchall_0
-    move-exception v0
+    move-exception p1
 
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw p1
 .end method

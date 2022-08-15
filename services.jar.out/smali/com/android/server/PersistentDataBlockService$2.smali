@@ -1,4 +1,4 @@
-.class Lcom/android/server/PersistentDataBlockService$2;
+.class public Lcom/android/server/PersistentDataBlockService$2;
 .super Ljava/lang/Object;
 .source "PersistentDataBlockService.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/PersistentDataBlockService;
+.field public final synthetic this$0:Lcom/android/server/PersistentDataBlockService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/PersistentDataBlockService;)V
+.method public constructor <init>(Lcom/android/server/PersistentDataBlockService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/PersistentDataBlockService$2;->this$0:Lcom/android/server/PersistentDataBlockService;
@@ -32,12 +32,135 @@
     return-void
 .end method
 
-.method private readInternal(JI)[B
+
+# virtual methods
+.method public clearTestHarnessModeData()V
+    .locals 3
+
+    invoke-virtual {p0}, Lcom/android/server/PersistentDataBlockService$2;->getTestHarnessModeData()[B
+
+    move-result-object v0
+
+    array-length v0, v0
+
+    const/16 v1, 0x270c
+
+    invoke-static {v1, v0}, Ljava/lang/Math;->min(II)I
+
+    move-result v0
+
+    add-int/lit8 v0, v0, 0x4
+
+    iget-object v1, p0, Lcom/android/server/PersistentDataBlockService$2;->this$0:Lcom/android/server/PersistentDataBlockService;
+
+    invoke-static {v1}, Lcom/android/server/PersistentDataBlockService;->-$$Nest$mgetTestHarnessModeDataOffset(Lcom/android/server/PersistentDataBlockService;)J
+
+    move-result-wide v1
+
+    invoke-static {v0}, Ljava/nio/ByteBuffer;->allocate(I)Ljava/nio/ByteBuffer;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v1, v2, v0}, Lcom/android/server/PersistentDataBlockService$2;->writeDataBuffer(JLjava/nio/ByteBuffer;)V
+
+    return-void
+.end method
+
+.method public forceOemUnlockEnabled(Z)V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/PersistentDataBlockService$2;->this$0:Lcom/android/server/PersistentDataBlockService;
+
+    invoke-static {v0}, Lcom/android/server/PersistentDataBlockService;->-$$Nest$fgetmLock(Lcom/android/server/PersistentDataBlockService;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    monitor-enter v0
+
+    :try_start_0
+    iget-object v1, p0, Lcom/android/server/PersistentDataBlockService$2;->this$0:Lcom/android/server/PersistentDataBlockService;
+
+    invoke-static {v1, p1}, Lcom/android/server/PersistentDataBlockService;->-$$Nest$mdoSetOemUnlockEnabledLocked(Lcom/android/server/PersistentDataBlockService;Z)V
+
+    iget-object p0, p0, Lcom/android/server/PersistentDataBlockService$2;->this$0:Lcom/android/server/PersistentDataBlockService;
+
+    invoke-static {p0}, Lcom/android/server/PersistentDataBlockService;->-$$Nest$mcomputeAndWriteDigestLocked(Lcom/android/server/PersistentDataBlockService;)Z
+
+    monitor-exit v0
+
+    return-void
+
+    :catchall_0
+    move-exception p0
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw p0
+.end method
+
+.method public getAllowedUid()I
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/PersistentDataBlockService$2;->this$0:Lcom/android/server/PersistentDataBlockService;
+
+    invoke-static {p0}, Lcom/android/server/PersistentDataBlockService;->-$$Nest$fgetmAllowedUid(Lcom/android/server/PersistentDataBlockService;)I
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public getFrpCredentialHandle()[B
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/server/PersistentDataBlockService$2;->this$0:Lcom/android/server/PersistentDataBlockService;
+
+    invoke-static {v0}, Lcom/android/server/PersistentDataBlockService;->-$$Nest$mgetFrpCredentialDataOffset(Lcom/android/server/PersistentDataBlockService;)J
+
+    move-result-wide v0
+
+    const/16 v2, 0x3e4
+
+    invoke-virtual {p0, v0, v1, v2}, Lcom/android/server/PersistentDataBlockService$2;->readInternal(JI)[B
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public getTestHarnessModeData()[B
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/server/PersistentDataBlockService$2;->this$0:Lcom/android/server/PersistentDataBlockService;
+
+    invoke-static {v0}, Lcom/android/server/PersistentDataBlockService;->-$$Nest$mgetTestHarnessModeDataOffset(Lcom/android/server/PersistentDataBlockService;)J
+
+    move-result-wide v0
+
+    const/16 v2, 0x270c
+
+    invoke-virtual {p0, v0, v1, v2}, Lcom/android/server/PersistentDataBlockService$2;->readInternal(JI)[B
+
+    move-result-object p0
+
+    if-nez p0, :cond_0
+
+    const/4 p0, 0x0
+
+    new-array p0, p0, [B
+
+    :cond_0
+    return-object p0
+.end method
+
+.method public final readInternal(JI)[B
     .locals 4
 
     iget-object v0, p0, Lcom/android/server/PersistentDataBlockService$2;->this$0:Lcom/android/server/PersistentDataBlockService;
 
-    invoke-static {v0}, Lcom/android/server/PersistentDataBlockService;->access$700(Lcom/android/server/PersistentDataBlockService;)Z
+    invoke-static {v0}, Lcom/android/server/PersistentDataBlockService;->-$$Nest$menforceChecksumValidity(Lcom/android/server/PersistentDataBlockService;)Z
 
     move-result v0
 
@@ -52,7 +175,7 @@
 
     iget-object v3, p0, Lcom/android/server/PersistentDataBlockService$2;->this$0:Lcom/android/server/PersistentDataBlockService;
 
-    invoke-static {v3}, Lcom/android/server/PersistentDataBlockService;->access$800(Lcom/android/server/PersistentDataBlockService;)Ljava/lang/String;
+    invoke-static {v3}, Lcom/android/server/PersistentDataBlockService;->-$$Nest$fgetmDataBlockFile(Lcom/android/server/PersistentDataBlockService;)Ljava/lang/String;
 
     move-result-object v3
 
@@ -64,16 +187,14 @@
     :try_end_0
     .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_1
 
-    nop
-
     :try_start_1
-    iget-object v1, p0, Lcom/android/server/PersistentDataBlockService$2;->this$0:Lcom/android/server/PersistentDataBlockService;
+    iget-object p0, p0, Lcom/android/server/PersistentDataBlockService$2;->this$0:Lcom/android/server/PersistentDataBlockService;
 
-    invoke-static {v1}, Lcom/android/server/PersistentDataBlockService;->access$400(Lcom/android/server/PersistentDataBlockService;)Ljava/lang/Object;
+    invoke-static {p0}, Lcom/android/server/PersistentDataBlockService;->-$$Nest$fgetmLock(Lcom/android/server/PersistentDataBlockService;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p0
 
-    monitor-enter v1
+    monitor-enter p0
     :try_end_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
@@ -83,105 +204,135 @@
 
     invoke-virtual {v0}, Ljava/io/DataInputStream;->readInt()I
 
-    move-result v2
+    move-result p1
 
-    if-lez v2, :cond_1
+    if-lez p1, :cond_1
 
-    if-le v2, p3, :cond_0
+    if-le p1, p3, :cond_0
 
     goto :goto_0
 
     :cond_0
-    new-array v3, v2, [B
+    new-array p1, p1, [B
 
-    invoke-virtual {v0, v3}, Ljava/io/DataInputStream;->readFully([B)V
+    invoke-virtual {v0, p1}, Ljava/io/DataInputStream;->readFully([B)V
 
-    monitor-exit v1
+    monitor-exit p0
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     invoke-static {v0}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
-    return-object v3
+    return-object p1
 
     :cond_1
     :goto_0
-    const/4 v3, 0x0
+    const/4 p1, 0x0
 
     :try_start_3
-    monitor-exit v1
+    monitor-exit p0
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     invoke-static {v0}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
-    return-object v3
+    return-object p1
 
     :catchall_0
-    move-exception v2
+    move-exception p1
 
     :try_start_4
-    monitor-exit v1
+    monitor-exit p0
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
     :try_start_5
-    throw v2
+    throw p1
     :try_end_5
     .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_0
     .catchall {:try_start_5 .. :try_end_5} :catchall_1
 
     :catchall_1
-    move-exception v1
+    move-exception p0
 
     goto :goto_1
 
     :catch_0
-    move-exception v1
+    move-exception p0
 
     :try_start_6
-    new-instance v2, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string/jumbo v3, "persistent partition not readable"
+    const-string/jumbo p2, "persistent partition not readable"
 
-    invoke-direct {v2, v3, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {p1, p2, p0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    throw v2
+    throw p1
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_1
 
     :goto_1
     invoke-static {v0}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
-    throw v1
+    throw p0
 
     :catch_1
-    move-exception v0
+    new-instance p0, Ljava/lang/IllegalStateException;
 
-    new-instance v1, Ljava/lang/IllegalStateException;
+    const-string/jumbo p1, "persistent partition not available"
 
-    const-string/jumbo v2, "persistent partition not available"
+    invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    throw v1
+    throw p0
 
     :cond_2
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p0, Ljava/lang/IllegalStateException;
 
-    const-string v1, "invalid checksum"
+    const-string p1, "invalid checksum"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
-.method private writeDataBuffer(JLjava/nio/ByteBuffer;)V
-    .locals 4
+.method public setFrpCredentialHandle([B)V
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/PersistentDataBlockService$2;->this$0:Lcom/android/server/PersistentDataBlockService;
 
-    invoke-static {v0}, Lcom/android/server/PersistentDataBlockService;->access$400(Lcom/android/server/PersistentDataBlockService;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/server/PersistentDataBlockService;->-$$Nest$mgetFrpCredentialDataOffset(Lcom/android/server/PersistentDataBlockService;)J
+
+    move-result-wide v0
+
+    const/16 v2, 0x3e4
+
+    invoke-virtual {p0, p1, v0, v1, v2}, Lcom/android/server/PersistentDataBlockService$2;->writeInternal([BJI)V
+
+    return-void
+.end method
+
+.method public setTestHarnessModeData([B)V
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/server/PersistentDataBlockService$2;->this$0:Lcom/android/server/PersistentDataBlockService;
+
+    invoke-static {v0}, Lcom/android/server/PersistentDataBlockService;->-$$Nest$mgetTestHarnessModeDataOffset(Lcom/android/server/PersistentDataBlockService;)J
+
+    move-result-wide v0
+
+    const/16 v2, 0x270c
+
+    invoke-virtual {p0, p1, v0, v1, v2}, Lcom/android/server/PersistentDataBlockService$2;->writeInternal([BJI)V
+
+    return-void
+.end method
+
+.method public final writeDataBuffer(JLjava/nio/ByteBuffer;)V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/PersistentDataBlockService$2;->this$0:Lcom/android/server/PersistentDataBlockService;
+
+    invoke-static {v0}, Lcom/android/server/PersistentDataBlockService;->-$$Nest$fgetmLock(Lcom/android/server/PersistentDataBlockService;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -190,7 +341,7 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/server/PersistentDataBlockService$2;->this$0:Lcom/android/server/PersistentDataBlockService;
 
-    invoke-static {v1}, Lcom/android/server/PersistentDataBlockService;->access$500(Lcom/android/server/PersistentDataBlockService;)Z
+    invoke-static {v1}, Lcom/android/server/PersistentDataBlockService;->-$$Nest$fgetmIsWritable(Lcom/android/server/PersistentDataBlockService;)Z
 
     move-result v1
 
@@ -206,7 +357,7 @@
     :try_start_1
     iget-object v1, p0, Lcom/android/server/PersistentDataBlockService$2;->this$0:Lcom/android/server/PersistentDataBlockService;
 
-    invoke-static {v1}, Lcom/android/server/PersistentDataBlockService;->access$200(Lcom/android/server/PersistentDataBlockService;)Ljava/nio/channels/FileChannel;
+    invoke-static {v1}, Lcom/android/server/PersistentDataBlockService;->-$$Nest$mgetBlockOutputChannel(Lcom/android/server/PersistentDataBlockService;)Ljava/nio/channels/FileChannel;
 
     move-result-object v1
 
@@ -214,50 +365,48 @@
 
     invoke-virtual {v1, p3}, Ljava/nio/channels/FileChannel;->write(Ljava/nio/ByteBuffer;)I
 
-    const/4 v2, 0x1
+    const/4 p1, 0x1
 
-    invoke-virtual {v1, v2}, Ljava/nio/channels/FileChannel;->force(Z)V
+    invoke-virtual {v1, p1}, Ljava/nio/channels/FileChannel;->force(Z)V
     :try_end_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    nop
-
     :try_start_2
-    iget-object v1, p0, Lcom/android/server/PersistentDataBlockService$2;->this$0:Lcom/android/server/PersistentDataBlockService;
+    iget-object p0, p0, Lcom/android/server/PersistentDataBlockService$2;->this$0:Lcom/android/server/PersistentDataBlockService;
 
-    invoke-static {v1}, Lcom/android/server/PersistentDataBlockService;->access$600(Lcom/android/server/PersistentDataBlockService;)Z
+    invoke-static {p0}, Lcom/android/server/PersistentDataBlockService;->-$$Nest$mcomputeAndWriteDigestLocked(Lcom/android/server/PersistentDataBlockService;)Z
 
     monitor-exit v0
 
     return-void
 
     :catch_0
-    move-exception v1
+    move-exception p0
 
-    invoke-static {}, Lcom/android/server/PersistentDataBlockService;->access$300()Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/PersistentDataBlockService;->-$$Nest$sfgetTAG()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    const-string/jumbo v3, "unable to access persistent partition"
+    const-string/jumbo p2, "unable to access persistent partition"
 
-    invoke-static {v2, v3, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {p1, p2, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     monitor-exit v0
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
-.method private writeInternal([BJI)V
+.method public final writeInternal([BJI)V
     .locals 4
 
     const/4 v0, 0x1
@@ -315,11 +464,11 @@
 
     invoke-static {v0, v2}, Lcom/android/internal/util/Preconditions;->checkArgument(ZLjava/lang/Object;)V
 
-    add-int/lit8 v0, p4, 0x4
+    add-int/lit8 p4, p4, 0x4
 
-    invoke-static {v0}, Ljava/nio/ByteBuffer;->allocate(I)Ljava/nio/ByteBuffer;
+    invoke-static {p4}, Ljava/nio/ByteBuffer;->allocate(I)Ljava/nio/ByteBuffer;
 
-    move-result-object v0
+    move-result-object p4
 
     if-nez p1, :cond_4
 
@@ -329,173 +478,16 @@
     array-length v1, p1
 
     :goto_3
-    invoke-virtual {v0, v1}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
+    invoke-virtual {p4, v1}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
 
     if-eqz p1, :cond_5
 
-    invoke-virtual {v0, p1}, Ljava/nio/ByteBuffer;->put([B)Ljava/nio/ByteBuffer;
+    invoke-virtual {p4, p1}, Ljava/nio/ByteBuffer;->put([B)Ljava/nio/ByteBuffer;
 
     :cond_5
-    invoke-virtual {v0}, Ljava/nio/ByteBuffer;->flip()Ljava/nio/Buffer;
+    invoke-virtual {p4}, Ljava/nio/ByteBuffer;->flip()Ljava/nio/Buffer;
 
-    invoke-direct {p0, p2, p3, v0}, Lcom/android/server/PersistentDataBlockService$2;->writeDataBuffer(JLjava/nio/ByteBuffer;)V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public clearTestHarnessModeData()V
-    .locals 4
-
-    invoke-virtual {p0}, Lcom/android/server/PersistentDataBlockService$2;->getTestHarnessModeData()[B
-
-    move-result-object v0
-
-    array-length v0, v0
-
-    const/16 v1, 0x270c
-
-    invoke-static {v1, v0}, Ljava/lang/Math;->min(II)I
-
-    move-result v0
-
-    add-int/lit8 v0, v0, 0x4
-
-    iget-object v1, p0, Lcom/android/server/PersistentDataBlockService$2;->this$0:Lcom/android/server/PersistentDataBlockService;
-
-    invoke-static {v1}, Lcom/android/server/PersistentDataBlockService;->access$2000(Lcom/android/server/PersistentDataBlockService;)J
-
-    move-result-wide v1
-
-    invoke-static {v0}, Ljava/nio/ByteBuffer;->allocate(I)Ljava/nio/ByteBuffer;
-
-    move-result-object v3
-
-    invoke-direct {p0, v1, v2, v3}, Lcom/android/server/PersistentDataBlockService$2;->writeDataBuffer(JLjava/nio/ByteBuffer;)V
-
-    return-void
-.end method
-
-.method public forceOemUnlockEnabled(Z)V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/server/PersistentDataBlockService$2;->this$0:Lcom/android/server/PersistentDataBlockService;
-
-    invoke-static {v0}, Lcom/android/server/PersistentDataBlockService;->access$400(Lcom/android/server/PersistentDataBlockService;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    monitor-enter v0
-
-    :try_start_0
-    iget-object v1, p0, Lcom/android/server/PersistentDataBlockService$2;->this$0:Lcom/android/server/PersistentDataBlockService;
-
-    invoke-static {v1, p1}, Lcom/android/server/PersistentDataBlockService;->access$1400(Lcom/android/server/PersistentDataBlockService;Z)V
-
-    iget-object v1, p0, Lcom/android/server/PersistentDataBlockService$2;->this$0:Lcom/android/server/PersistentDataBlockService;
-
-    invoke-static {v1}, Lcom/android/server/PersistentDataBlockService;->access$600(Lcom/android/server/PersistentDataBlockService;)Z
-
-    monitor-exit v0
-
-    return-void
-
-    :catchall_0
-    move-exception v1
-
-    monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v1
-.end method
-
-.method public getAllowedUid()I
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/PersistentDataBlockService$2;->this$0:Lcom/android/server/PersistentDataBlockService;
-
-    invoke-static {v0}, Lcom/android/server/PersistentDataBlockService;->access$2100(Lcom/android/server/PersistentDataBlockService;)I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public getFrpCredentialHandle()[B
-    .locals 3
-
-    iget-object v0, p0, Lcom/android/server/PersistentDataBlockService$2;->this$0:Lcom/android/server/PersistentDataBlockService;
-
-    invoke-static {v0}, Lcom/android/server/PersistentDataBlockService;->access$1900(Lcom/android/server/PersistentDataBlockService;)J
-
-    move-result-wide v0
-
-    const/16 v2, 0x3e4
-
-    invoke-direct {p0, v0, v1, v2}, Lcom/android/server/PersistentDataBlockService$2;->readInternal(JI)[B
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public getTestHarnessModeData()[B
-    .locals 3
-
-    iget-object v0, p0, Lcom/android/server/PersistentDataBlockService$2;->this$0:Lcom/android/server/PersistentDataBlockService;
-
-    invoke-static {v0}, Lcom/android/server/PersistentDataBlockService;->access$2000(Lcom/android/server/PersistentDataBlockService;)J
-
-    move-result-wide v0
-
-    const/16 v2, 0x270c
-
-    invoke-direct {p0, v0, v1, v2}, Lcom/android/server/PersistentDataBlockService$2;->readInternal(JI)[B
-
-    move-result-object v0
-
-    if-nez v0, :cond_0
-
-    const/4 v1, 0x0
-
-    new-array v1, v1, [B
-
-    return-object v1
-
-    :cond_0
-    return-object v0
-.end method
-
-.method public setFrpCredentialHandle([B)V
-    .locals 3
-
-    iget-object v0, p0, Lcom/android/server/PersistentDataBlockService$2;->this$0:Lcom/android/server/PersistentDataBlockService;
-
-    invoke-static {v0}, Lcom/android/server/PersistentDataBlockService;->access$1900(Lcom/android/server/PersistentDataBlockService;)J
-
-    move-result-wide v0
-
-    const/16 v2, 0x3e4
-
-    invoke-direct {p0, p1, v0, v1, v2}, Lcom/android/server/PersistentDataBlockService$2;->writeInternal([BJI)V
-
-    return-void
-.end method
-
-.method public setTestHarnessModeData([B)V
-    .locals 3
-
-    iget-object v0, p0, Lcom/android/server/PersistentDataBlockService$2;->this$0:Lcom/android/server/PersistentDataBlockService;
-
-    invoke-static {v0}, Lcom/android/server/PersistentDataBlockService;->access$2000(Lcom/android/server/PersistentDataBlockService;)J
-
-    move-result-wide v0
-
-    const/16 v2, 0x270c
-
-    invoke-direct {p0, p1, v0, v1, v2}, Lcom/android/server/PersistentDataBlockService$2;->writeInternal([BJI)V
+    invoke-virtual {p0, p2, p3, p4}, Lcom/android/server/PersistentDataBlockService$2;->writeDataBuffer(JLjava/nio/ByteBuffer;)V
 
     return-void
 .end method

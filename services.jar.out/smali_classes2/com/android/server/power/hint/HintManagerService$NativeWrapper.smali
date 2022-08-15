@@ -4,6 +4,9 @@
 
 
 # annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/android/server/power/hint/HintManagerService;
 .end annotation
@@ -58,13 +61,13 @@
 .end method
 
 .method public halCreateHintSession(II[IJ)J
-    .locals 2
+    .locals 0
 
     invoke-static {p1, p2, p3, p4, p5}, Lcom/android/server/power/hint/HintManagerService$NativeWrapper;->nativeCreateHintSession(II[IJ)J
 
-    move-result-wide v0
+    move-result-wide p0
 
-    return-wide v0
+    return-wide p0
 .end method
 
 .method public halGetHintSessionPreferredRate()J

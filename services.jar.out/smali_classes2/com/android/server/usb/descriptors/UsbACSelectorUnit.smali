@@ -3,18 +3,14 @@
 .source "UsbACSelectorUnit.java"
 
 
-# static fields
-.field private static final TAG:Ljava/lang/String; = "UsbACSelectorUnit"
-
-
 # instance fields
-.field private mNameIndex:B
+.field public mNameIndex:B
 
-.field private mNumPins:B
+.field public mNumPins:B
 
-.field private mSourceIDs:[B
+.field public mSourceIDs:[B
 
-.field private mUnitID:B
+.field public mUnitID:B
 
 
 # direct methods
@@ -28,38 +24,6 @@
 
 
 # virtual methods
-.method public getNameIndex()B
-    .locals 1
-
-    iget-byte v0, p0, Lcom/android/server/usb/descriptors/UsbACSelectorUnit;->mNameIndex:B
-
-    return v0
-.end method
-
-.method public getNumPins()B
-    .locals 1
-
-    iget-byte v0, p0, Lcom/android/server/usb/descriptors/UsbACSelectorUnit;->mNumPins:B
-
-    return v0
-.end method
-
-.method public getSourceIDs()[B
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/usb/descriptors/UsbACSelectorUnit;->mSourceIDs:[B
-
-    return-object v0
-.end method
-
-.method public getUnitID()B
-    .locals 1
-
-    iget-byte v0, p0, Lcom/android/server/usb/descriptors/UsbACSelectorUnit;->mUnitID:B
-
-    return v0
-.end method
-
 .method public parseRawDescriptors(Lcom/android/server/usb/descriptors/ByteStream;)I
     .locals 3
 
@@ -101,11 +65,11 @@
     :cond_0
     invoke-virtual {p1}, Lcom/android/server/usb/descriptors/ByteStream;->getByte()B
 
-    move-result v0
+    move-result p1
 
-    iput-byte v0, p0, Lcom/android/server/usb/descriptors/UsbACSelectorUnit;->mNameIndex:B
+    iput-byte p1, p0, Lcom/android/server/usb/descriptors/UsbACSelectorUnit;->mNameIndex:B
 
-    iget v0, p0, Lcom/android/server/usb/descriptors/UsbACSelectorUnit;->mLength:I
+    iget p0, p0, Lcom/android/server/usb/descriptors/UsbDescriptor;->mLength:I
 
-    return v0
+    return p0
 .end method

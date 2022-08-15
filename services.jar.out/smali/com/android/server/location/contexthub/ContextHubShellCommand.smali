@@ -4,9 +4,9 @@
 
 
 # instance fields
-.field private final mContext:Landroid/content/Context;
+.field public final mContext:Landroid/content/Context;
 
-.field private final mInternal:Lcom/android/server/location/contexthub/ContextHubService;
+.field public final mInternal:Lcom/android/server/location/contexthub/ContextHubService;
 
 
 # direct methods
@@ -20,46 +20,6 @@
     iput-object p1, p0, Lcom/android/server/location/contexthub/ContextHubShellCommand;->mContext:Landroid/content/Context;
 
     return-void
-.end method
-
-.method private runDisableAuth()I
-    .locals 5
-
-    invoke-virtual {p0}, Lcom/android/server/location/contexthub/ContextHubShellCommand;->getNextArgRequired()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v0}, Ljava/lang/Integer;->decode(Ljava/lang/String;)Ljava/lang/Integer;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
-
-    move-result v0
-
-    invoke-virtual {p0}, Lcom/android/server/location/contexthub/ContextHubShellCommand;->getNextArgRequired()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {p0}, Lcom/android/server/location/contexthub/ContextHubShellCommand;->getNextArgRequired()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v2}, Ljava/lang/Long;->decode(Ljava/lang/String;)Ljava/lang/Long;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/Long;->longValue()J
-
-    move-result-wide v2
-
-    iget-object v4, p0, Lcom/android/server/location/contexthub/ContextHubShellCommand;->mInternal:Lcom/android/server/location/contexthub/ContextHubService;
-
-    invoke-virtual {v4, v0, v1, v2, v3}, Lcom/android/server/location/contexthub/ContextHubService;->denyClientAuthState(ILjava/lang/String;J)V
-
-    const/4 v4, 0x0
-
-    return v4
 .end method
 
 
@@ -83,50 +43,90 @@
 
     if-eqz v0, :cond_0
 
-    invoke-direct {p0}, Lcom/android/server/location/contexthub/ContextHubShellCommand;->runDisableAuth()I
+    invoke-virtual {p0}, Lcom/android/server/location/contexthub/ContextHubShellCommand;->runDisableAuth()I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 
     :cond_0
-    invoke-virtual {p0, p1}, Lcom/android/server/location/contexthub/ContextHubShellCommand;->handleDefaultCommands(Ljava/lang/String;)I
+    invoke-virtual {p0, p1}, Landroid/os/ShellCommand;->handleDefaultCommands(Ljava/lang/String;)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public onHelp()V
-    .locals 2
+    .locals 1
 
-    invoke-virtual {p0}, Lcom/android/server/location/contexthub/ContextHubShellCommand;->getOutPrintWriter()Ljava/io/PrintWriter;
+    invoke-virtual {p0}, Landroid/os/ShellCommand;->getOutPrintWriter()Ljava/io/PrintWriter;
+
+    move-result-object p0
+
+    const-string v0, "ContextHub commands:"
+
+    invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const-string v0, "  help"
+
+    invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const-string v0, "      Print this help text."
+
+    invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const-string v0, "  deny [contextHubId] [packageName] [nanoAppId]"
+
+    invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const-string v0, "    Immediately transitions the package\'s authentication state to denied so"
+
+    invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const-string v0, "    can no longer communciate with the nanoapp."
+
+    invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method public final runDisableAuth()I
+    .locals 4
+
+    invoke-virtual {p0}, Landroid/os/ShellCommand;->getNextArgRequired()Ljava/lang/String;
 
     move-result-object v0
 
-    const-string v1, "ContextHub commands:"
+    invoke-static {v0}, Ljava/lang/Integer;->decode(Ljava/lang/String;)Ljava/lang/Integer;
 
-    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    move-result-object v0
 
-    const-string v1, "  help"
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
-    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    move-result v0
 
-    const-string v1, "      Print this help text."
+    invoke-virtual {p0}, Landroid/os/ShellCommand;->getNextArgRequired()Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    move-result-object v1
 
-    const-string v1, "  deny [contextHubId] [packageName] [nanoAppId]"
+    invoke-virtual {p0}, Landroid/os/ShellCommand;->getNextArgRequired()Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    move-result-object v2
 
-    const-string v1, "    Immediately transitions the package\'s authentication state to denied so"
+    invoke-static {v2}, Ljava/lang/Long;->decode(Ljava/lang/String;)Ljava/lang/Long;
 
-    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    move-result-object v2
 
-    const-string v1, "    can no longer communciate with the nanoapp."
+    invoke-virtual {v2}, Ljava/lang/Long;->longValue()J
 
-    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    move-result-wide v2
 
-    return-void
+    iget-object p0, p0, Lcom/android/server/location/contexthub/ContextHubShellCommand;->mInternal:Lcom/android/server/location/contexthub/ContextHubService;
+
+    invoke-virtual {p0, v0, v1, v2, v3}, Lcom/android/server/location/contexthub/ContextHubService;->denyClientAuthState(ILjava/lang/String;J)V
+
+    const/4 p0, 0x0
+
+    return p0
 .end method

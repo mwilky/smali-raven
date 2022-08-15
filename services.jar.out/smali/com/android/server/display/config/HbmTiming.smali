@@ -4,11 +4,11 @@
 
 
 # instance fields
-.field private timeMaxSecs_all:Ljava/math/BigInteger;
+.field public timeMaxSecs_all:Ljava/math/BigInteger;
 
-.field private timeMinSecs_all:Ljava/math/BigInteger;
+.field public timeMinSecs_all:Ljava/math/BigInteger;
 
-.field private timeWindowSecs_all:Ljava/math/BigInteger;
+.field public timeWindowSecs_all:Ljava/math/BigInteger;
 
 
 # direct methods
@@ -20,8 +20,8 @@
     return-void
 .end method
 
-.method static read(Lorg/xmlpull/v1/XmlPullParser;)Lcom/android/server/display/config/HbmTiming;
-    .locals 7
+.method public static read(Lorg/xmlpull/v1/XmlPullParser;)Lcom/android/server/display/config/HbmTiming;
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -34,200 +34,142 @@
 
     invoke-direct {v0}, Lcom/android/server/display/config/HbmTiming;-><init>()V
 
-    const/4 v1, 0x0
-
     invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->getDepth()I
-
-    move-result v2
 
     :goto_0
     invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
-    move-result v3
+    move-result v1
 
-    move v4, v3
+    const/4 v2, 0x1
 
-    const/4 v5, 0x1
+    const/4 v3, 0x3
 
-    const/4 v6, 0x3
+    if-eq v1, v2, :cond_4
 
-    if-eq v3, v5, :cond_4
-
-    if-eq v4, v6, :cond_4
+    if-eq v1, v3, :cond_4
 
     invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->getEventType()I
 
-    move-result v3
+    move-result v1
 
-    const/4 v5, 0x2
+    const/4 v2, 0x2
 
-    if-eq v3, v5, :cond_0
+    if-eq v1, v2, :cond_0
 
     goto :goto_0
 
     :cond_0
     invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v1
 
-    const-string/jumbo v5, "timeWindowSecs"
+    const-string/jumbo v2, "timeWindowSecs"
 
-    invoke-virtual {v3, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v2
 
-    if-eqz v5, :cond_1
+    if-eqz v2, :cond_1
 
     invoke-static {p0}, Lcom/android/server/display/config/XmlParser;->readText(Lorg/xmlpull/v1/XmlPullParser;)Ljava/lang/String;
 
     move-result-object v1
 
-    new-instance v5, Ljava/math/BigInteger;
+    new-instance v2, Ljava/math/BigInteger;
 
-    invoke-direct {v5, v1}, Ljava/math/BigInteger;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v1}, Ljava/math/BigInteger;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0, v5}, Lcom/android/server/display/config/HbmTiming;->setTimeWindowSecs_all(Ljava/math/BigInteger;)V
+    invoke-virtual {v0, v2}, Lcom/android/server/display/config/HbmTiming;->setTimeWindowSecs_all(Ljava/math/BigInteger;)V
 
-    goto :goto_1
+    goto :goto_0
 
     :cond_1
-    const-string/jumbo v5, "timeMaxSecs"
+    const-string/jumbo v2, "timeMaxSecs"
 
-    invoke-virtual {v3, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v2
 
-    if-eqz v5, :cond_2
+    if-eqz v2, :cond_2
 
     invoke-static {p0}, Lcom/android/server/display/config/XmlParser;->readText(Lorg/xmlpull/v1/XmlPullParser;)Ljava/lang/String;
 
     move-result-object v1
 
-    new-instance v5, Ljava/math/BigInteger;
+    new-instance v2, Ljava/math/BigInteger;
 
-    invoke-direct {v5, v1}, Ljava/math/BigInteger;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v1}, Ljava/math/BigInteger;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0, v5}, Lcom/android/server/display/config/HbmTiming;->setTimeMaxSecs_all(Ljava/math/BigInteger;)V
+    invoke-virtual {v0, v2}, Lcom/android/server/display/config/HbmTiming;->setTimeMaxSecs_all(Ljava/math/BigInteger;)V
 
-    goto :goto_1
+    goto :goto_0
 
     :cond_2
-    const-string/jumbo v5, "timeMinSecs"
+    const-string/jumbo v2, "timeMinSecs"
 
-    invoke-virtual {v3, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v1
 
-    if-eqz v5, :cond_3
+    if-eqz v1, :cond_3
 
     invoke-static {p0}, Lcom/android/server/display/config/XmlParser;->readText(Lorg/xmlpull/v1/XmlPullParser;)Ljava/lang/String;
 
     move-result-object v1
 
-    new-instance v5, Ljava/math/BigInteger;
+    new-instance v2, Ljava/math/BigInteger;
 
-    invoke-direct {v5, v1}, Ljava/math/BigInteger;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v1}, Ljava/math/BigInteger;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0, v5}, Lcom/android/server/display/config/HbmTiming;->setTimeMinSecs_all(Ljava/math/BigInteger;)V
+    invoke-virtual {v0, v2}, Lcom/android/server/display/config/HbmTiming;->setTimeMinSecs_all(Ljava/math/BigInteger;)V
 
-    goto :goto_1
+    goto :goto_0
 
     :cond_3
     invoke-static {p0}, Lcom/android/server/display/config/XmlParser;->skip(Lorg/xmlpull/v1/XmlPullParser;)V
 
-    :goto_1
     goto :goto_0
 
     :cond_4
-    if-ne v4, v6, :cond_5
+    if-ne v1, v3, :cond_5
 
     return-object v0
 
     :cond_5
-    new-instance v3, Ljavax/xml/datatype/DatatypeConfigurationException;
+    new-instance p0, Ljavax/xml/datatype/DatatypeConfigurationException;
 
-    const-string v5, "HbmTiming is not closed"
+    const-string v0, "HbmTiming is not closed"
 
-    invoke-direct {v3, v5}, Ljavax/xml/datatype/DatatypeConfigurationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljavax/xml/datatype/DatatypeConfigurationException;-><init>(Ljava/lang/String;)V
 
-    throw v3
+    throw p0
 .end method
 
 
 # virtual methods
 .method public final getTimeMaxSecs_all()Ljava/math/BigInteger;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/display/config/HbmTiming;->timeMaxSecs_all:Ljava/math/BigInteger;
+    iget-object p0, p0, Lcom/android/server/display/config/HbmTiming;->timeMaxSecs_all:Ljava/math/BigInteger;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public final getTimeMinSecs_all()Ljava/math/BigInteger;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/display/config/HbmTiming;->timeMinSecs_all:Ljava/math/BigInteger;
+    iget-object p0, p0, Lcom/android/server/display/config/HbmTiming;->timeMinSecs_all:Ljava/math/BigInteger;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public final getTimeWindowSecs_all()Ljava/math/BigInteger;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/display/config/HbmTiming;->timeWindowSecs_all:Ljava/math/BigInteger;
+    iget-object p0, p0, Lcom/android/server/display/config/HbmTiming;->timeWindowSecs_all:Ljava/math/BigInteger;
 
-    return-object v0
-.end method
-
-.method hasTimeMaxSecs_all()Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/display/config/HbmTiming;->timeMaxSecs_all:Ljava/math/BigInteger;
-
-    if-nez v0, :cond_0
-
-    const/4 v0, 0x0
-
-    return v0
-
-    :cond_0
-    const/4 v0, 0x1
-
-    return v0
-.end method
-
-.method hasTimeMinSecs_all()Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/display/config/HbmTiming;->timeMinSecs_all:Ljava/math/BigInteger;
-
-    if-nez v0, :cond_0
-
-    const/4 v0, 0x0
-
-    return v0
-
-    :cond_0
-    const/4 v0, 0x1
-
-    return v0
-.end method
-
-.method hasTimeWindowSecs_all()Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/display/config/HbmTiming;->timeWindowSecs_all:Ljava/math/BigInteger;
-
-    if-nez v0, :cond_0
-
-    const/4 v0, 0x0
-
-    return v0
-
-    :cond_0
-    const/4 v0, 0x1
-
-    return v0
+    return-object p0
 .end method
 
 .method public final setTimeMaxSecs_all(Ljava/math/BigInteger;)V

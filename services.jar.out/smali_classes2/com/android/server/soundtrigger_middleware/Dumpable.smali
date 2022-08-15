@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/server/soundtrigger_middleware/Dumpable;
+.class public interface abstract Lcom/android/server/soundtrigger_middleware/Dumpable;
 .super Ljava/lang/Object;
 .source "Dumpable.java"
 

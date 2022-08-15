@@ -1,4 +1,4 @@
-.class Lcom/android/server/location/gnss/GnssSatelliteBlocklistHelper$1;
+.class public Lcom/android/server/location/gnss/GnssSatelliteBlocklistHelper$1;
 .super Landroid/database/ContentObserver;
 .source "GnssSatelliteBlocklistHelper.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/location/gnss/GnssSatelliteBlocklistHelper;
+.field public final synthetic this$0:Lcom/android/server/location/gnss/GnssSatelliteBlocklistHelper;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/location/gnss/GnssSatelliteBlocklistHelper;Landroid/os/Handler;)V
+.method public constructor <init>(Lcom/android/server/location/gnss/GnssSatelliteBlocklistHelper;Landroid/os/Handler;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/location/gnss/GnssSatelliteBlocklistHelper$1;->this$0:Lcom/android/server/location/gnss/GnssSatelliteBlocklistHelper;
@@ -32,11 +32,11 @@
 
 # virtual methods
 .method public onChange(Z)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/location/gnss/GnssSatelliteBlocklistHelper$1;->this$0:Lcom/android/server/location/gnss/GnssSatelliteBlocklistHelper;
+    iget-object p0, p0, Lcom/android/server/location/gnss/GnssSatelliteBlocklistHelper$1;->this$0:Lcom/android/server/location/gnss/GnssSatelliteBlocklistHelper;
 
-    invoke-virtual {v0}, Lcom/android/server/location/gnss/GnssSatelliteBlocklistHelper;->updateSatelliteBlocklist()V
+    invoke-virtual {p0}, Lcom/android/server/location/gnss/GnssSatelliteBlocklistHelper;->updateSatelliteBlocklist()V
 
     return-void
 .end method

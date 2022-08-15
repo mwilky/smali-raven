@@ -1,4 +1,4 @@
-.class Lcom/android/server/pm/DynamicCodeLoggingService$IdleLoggingThread;
+.class public Lcom/android/server/pm/DynamicCodeLoggingService$IdleLoggingThread;
 .super Ljava/lang/Thread;
 .source "DynamicCodeLoggingService.java"
 
@@ -9,19 +9,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "IdleLoggingThread"
 .end annotation
 
 
 # instance fields
-.field private final mParams:Landroid/app/job/JobParameters;
+.field public final mParams:Landroid/app/job/JobParameters;
 
-.field final synthetic this$0:Lcom/android/server/pm/DynamicCodeLoggingService;
+.field public final synthetic this$0:Lcom/android/server/pm/DynamicCodeLoggingService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/pm/DynamicCodeLoggingService;Landroid/app/job/JobParameters;)V
+.method public constructor <init>(Lcom/android/server/pm/DynamicCodeLoggingService;Landroid/app/job/JobParameters;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/pm/DynamicCodeLoggingService$IdleLoggingThread;->this$0:Lcom/android/server/pm/DynamicCodeLoggingService;
@@ -40,7 +40,7 @@
 .method public run()V
     .locals 4
 
-    invoke-static {}, Lcom/android/server/pm/DynamicCodeLoggingService;->access$000()Lcom/android/server/pm/dex/DynamicCodeLogger;
+    invoke-static {}, Lcom/android/server/pm/DynamicCodeLoggingService;->-$$Nest$smgetDynamicCodeLogger()Lcom/android/server/pm/dex/DynamicCodeLogger;
 
     move-result-object v0
 
@@ -67,19 +67,19 @@
 
     iget-object v3, p0, Lcom/android/server/pm/DynamicCodeLoggingService$IdleLoggingThread;->this$0:Lcom/android/server/pm/DynamicCodeLoggingService;
 
-    invoke-static {v3}, Lcom/android/server/pm/DynamicCodeLoggingService;->access$100(Lcom/android/server/pm/DynamicCodeLoggingService;)Z
+    invoke-static {v3}, Lcom/android/server/pm/DynamicCodeLoggingService;->-$$Nest$fgetmIdleLoggingStopRequested(Lcom/android/server/pm/DynamicCodeLoggingService;)Z
 
     move-result v3
 
     if-eqz v3, :cond_0
 
-    invoke-static {}, Lcom/android/server/pm/DynamicCodeLoggingService;->access$200()Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/pm/DynamicCodeLoggingService;->-$$Nest$sfgetTAG()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    const-string v3, "Stopping IdleLoggingJob run at scheduler request"
+    const-string v0, "Stopping IdleLoggingJob run at scheduler request"
 
-    invoke-static {v1, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
@@ -89,13 +89,13 @@
     goto :goto_0
 
     :cond_1
-    iget-object v1, p0, Lcom/android/server/pm/DynamicCodeLoggingService$IdleLoggingThread;->this$0:Lcom/android/server/pm/DynamicCodeLoggingService;
+    iget-object v0, p0, Lcom/android/server/pm/DynamicCodeLoggingService$IdleLoggingThread;->this$0:Lcom/android/server/pm/DynamicCodeLoggingService;
 
-    iget-object v2, p0, Lcom/android/server/pm/DynamicCodeLoggingService$IdleLoggingThread;->mParams:Landroid/app/job/JobParameters;
+    iget-object p0, p0, Lcom/android/server/pm/DynamicCodeLoggingService$IdleLoggingThread;->mParams:Landroid/app/job/JobParameters;
 
-    const/4 v3, 0x0
+    const/4 v1, 0x0
 
-    invoke-virtual {v1, v2, v3}, Lcom/android/server/pm/DynamicCodeLoggingService;->jobFinished(Landroid/app/job/JobParameters;Z)V
+    invoke-virtual {v0, p0, v1}, Landroid/app/job/JobService;->jobFinished(Landroid/app/job/JobParameters;Z)V
 
     return-void
 .end method

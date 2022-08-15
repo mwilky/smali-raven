@@ -4,13 +4,13 @@
 
 
 # instance fields
-.field private final mKey:Ljava/lang/String;
+.field public final mKey:Ljava/lang/String;
 
-.field private final mPackageName:Ljava/lang/String;
+.field public final mPackageName:Ljava/lang/String;
 
-.field private final mPermissionOwner:Landroid/os/IBinder;
+.field public final mPermissionOwner:Landroid/os/IBinder;
 
-.field private final mUris:Landroid/util/ArraySet;
+.field public final mUris:Landroid/util/ArraySet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/ArraySet<",
@@ -20,22 +20,22 @@
     .end annotation
 .end field
 
-.field private final mUser:Landroid/os/UserHandle;
+.field public final mUser:Landroid/os/UserHandle;
 
 
 # direct methods
 .method public constructor <init>(Landroid/os/IBinder;Landroid/os/UserHandle;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 1
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/server/notification/InlineReplyUriRecord;->mPermissionOwner:Landroid/os/IBinder;
 
-    new-instance v0, Landroid/util/ArraySet;
+    new-instance p1, Landroid/util/ArraySet;
 
-    invoke-direct {v0}, Landroid/util/ArraySet;-><init>()V
+    invoke-direct {p1}, Landroid/util/ArraySet;-><init>()V
 
-    iput-object v0, p0, Lcom/android/server/notification/InlineReplyUriRecord;->mUris:Landroid/util/ArraySet;
+    iput-object p1, p0, Lcom/android/server/notification/InlineReplyUriRecord;->mUris:Landroid/util/ArraySet;
 
     iput-object p2, p0, Lcom/android/server/notification/InlineReplyUriRecord;->mUser:Landroid/os/UserHandle;
 
@@ -49,87 +49,69 @@
 
 # virtual methods
 .method public addUri(Landroid/net/Uri;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/notification/InlineReplyUriRecord;->mUris:Landroid/util/ArraySet;
+    iget-object p0, p0, Lcom/android/server/notification/InlineReplyUriRecord;->mUris:Landroid/util/ArraySet;
 
-    invoke-virtual {v0, p1}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p1}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
 
     return-void
 .end method
 
 .method public getKey()Ljava/lang/String;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/notification/InlineReplyUriRecord;->mKey:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/notification/InlineReplyUriRecord;->mKey:Ljava/lang/String;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getPackageName()Ljava/lang/String;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/notification/InlineReplyUriRecord;->mPackageName:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/notification/InlineReplyUriRecord;->mPackageName:Ljava/lang/String;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getPermissionOwner()Landroid/os/IBinder;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/notification/InlineReplyUriRecord;->mPermissionOwner:Landroid/os/IBinder;
+    iget-object p0, p0, Lcom/android/server/notification/InlineReplyUriRecord;->mPermissionOwner:Landroid/os/IBinder;
 
-    return-object v0
-.end method
-
-.method public getUris()Landroid/util/ArraySet;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Landroid/util/ArraySet<",
-            "Landroid/net/Uri;",
-            ">;"
-        }
-    .end annotation
-
-    iget-object v0, p0, Lcom/android/server/notification/InlineReplyUriRecord;->mUris:Landroid/util/ArraySet;
-
-    return-object v0
+    return-object p0
 .end method
 
 .method public getUserId()I
-    .locals 3
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/server/notification/InlineReplyUriRecord;->mUser:Landroid/os/UserHandle;
+    iget-object p0, p0, Lcom/android/server/notification/InlineReplyUriRecord;->mUser:Landroid/os/UserHandle;
 
-    invoke-virtual {v0}, Landroid/os/UserHandle;->getIdentifier()I
+    invoke-virtual {p0}, Landroid/os/UserHandle;->getIdentifier()I
 
-    move-result v0
+    move-result p0
 
     invoke-static {}, Landroid/os/UserManager;->isHeadlessSystemUserMode()Z
 
-    move-result v1
+    move-result v0
 
-    const/4 v2, -0x1
+    const/4 v1, -0x1
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    if-ne v0, v2, :cond_0
+    if-ne p0, v1, :cond_0
 
     invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
 
-    move-result v1
+    move-result p0
 
-    return v1
+    return p0
 
     :cond_0
-    if-ne v0, v2, :cond_1
+    if-ne p0, v1, :cond_1
 
-    const/4 v1, 0x0
-
-    return v1
+    const/4 p0, 0x0
 
     :cond_1
-    return v0
+    return p0
 .end method

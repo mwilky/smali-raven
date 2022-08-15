@@ -1,5 +1,6 @@
 .class public final synthetic Landroid/net/shared/InitialConfiguration$$ExternalSyntheticLambda3;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Predicate;
@@ -23,15 +24,15 @@
 
 # virtual methods
 .method public final test(Ljava/lang/Object;)Z
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Landroid/net/shared/InitialConfiguration$$ExternalSyntheticLambda3;->f$0:Landroid/net/LinkAddress;
+    iget-object p0, p0, Landroid/net/shared/InitialConfiguration$$ExternalSyntheticLambda3;->f$0:Landroid/net/LinkAddress;
 
     check-cast p1, Landroid/net/IpPrefix;
 
-    invoke-static {v0, p1}, Landroid/net/shared/InitialConfiguration;->lambda$isValid$0(Landroid/net/LinkAddress;Landroid/net/IpPrefix;)Z
+    invoke-static {p0, p1}, Landroid/net/shared/InitialConfiguration;->$r8$lambda$dBpmJZYxHOn7g6saJbm0sJiMbQg(Landroid/net/LinkAddress;Landroid/net/IpPrefix;)Z
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method

@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/wm/DisplayPolicy$2$$ExternalSyntheticLambda3;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -39,7 +40,7 @@
 
     iget-wide v3, p0, Lcom/android/server/wm/DisplayPolicy$2$$ExternalSyntheticLambda3;->f$2:J
 
-    invoke-virtual {v0, v1, v2, v3, v4}, Lcom/android/server/wm/DisplayPolicy$2;->lambda$onAppTransitionStartingLocked$3$DisplayPolicy$2(JJ)V
+    invoke-static {v0, v1, v2, v3, v4}, Lcom/android/server/wm/DisplayPolicy$2;->$r8$lambda$y57RjhncehIuHWJQg-fJKXXMhKw(Lcom/android/server/wm/DisplayPolicy$2;JJ)V
 
     return-void
 .end method

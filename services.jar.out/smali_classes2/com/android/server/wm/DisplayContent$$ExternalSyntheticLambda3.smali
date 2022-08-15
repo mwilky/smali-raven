@@ -1,28 +1,13 @@
 .class public final synthetic Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda3;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/internal/util/function/TriConsumer;
-
-
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda3;
+.implements Ljava/util/function/BiFunction;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda3;
-
-    invoke-direct {v0}, Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda3;-><init>()V
-
-    sput-object v0, Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda3;->INSTANCE:Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda3;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,24 +17,16 @@
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+.method public final apply(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
 
-    check-cast p1, Landroid/app/ActivityManagerInternal;
+    check-cast p1, Lcom/android/server/wm/TaskDisplayArea;
 
-    check-cast p2, Ljava/lang/Integer;
+    check-cast p2, Lcom/android/server/wm/Task;
 
-    invoke-virtual {p2}, Ljava/lang/Integer;->intValue()I
+    invoke-static {p1, p2}, Lcom/android/server/wm/DisplayContent;->$r8$lambda$6TsDFWqGNUCwoEYmcycSvBe_UWM(Lcom/android/server/wm/TaskDisplayArea;Lcom/android/server/wm/Task;)Lcom/android/server/wm/Task;
 
-    move-result p2
+    move-result-object p0
 
-    check-cast p3, Ljava/lang/Integer;
-
-    invoke-virtual {p3}, Ljava/lang/Integer;->intValue()I
-
-    move-result p3
-
-    invoke-virtual {p1, p2, p3}, Landroid/app/ActivityManagerInternal;->killAllBackgroundProcessesExcept(II)V
-
-    return-void
+    return-object p0
 .end method

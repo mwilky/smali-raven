@@ -4,16 +4,8 @@
 
 
 # direct methods
-.method public constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
 .method public static sendEndRestore(Landroid/app/backup/IFullBackupRestoreObserver;)Landroid/app/backup/IFullBackupRestoreObserver;
-    .locals 3
+    .locals 1
 
     if-eqz p0, :cond_0
 
@@ -25,13 +17,11 @@
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    const-string p0, "BackupManagerService"
 
-    const-string v1, "BackupManagerService"
+    const-string v0, "full restore observer went away: endRestore"
 
-    const-string v2, "full restore observer went away: endRestore"
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     const/4 p0, 0x0
 
@@ -41,7 +31,7 @@
 .end method
 
 .method public static sendOnRestorePackage(Landroid/app/backup/IFullBackupRestoreObserver;Ljava/lang/String;)Landroid/app/backup/IFullBackupRestoreObserver;
-    .locals 3
+    .locals 0
 
     if-eqz p0, :cond_0
 
@@ -53,13 +43,11 @@
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    const-string p0, "BackupManagerService"
 
-    const-string v1, "BackupManagerService"
+    const-string p1, "full restore observer went away: restorePackage"
 
-    const-string v2, "full restore observer went away: restorePackage"
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, p1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     const/4 p0, 0x0
 
@@ -69,7 +57,7 @@
 .end method
 
 .method public static sendStartRestore(Landroid/app/backup/IFullBackupRestoreObserver;)Landroid/app/backup/IFullBackupRestoreObserver;
-    .locals 3
+    .locals 1
 
     if-eqz p0, :cond_0
 
@@ -81,13 +69,11 @@
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    const-string p0, "BackupManagerService"
 
-    const-string v1, "BackupManagerService"
+    const-string v0, "full restore observer went away: startRestore"
 
-    const-string v2, "full restore observer went away: startRestore"
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     const/4 p0, 0x0
 

@@ -7,17 +7,15 @@
 
 
 # static fields
-.field private static final DEBUG:Z
-
-.field private static final TAG:Ljava/lang/String; = "SystemServerDexLoadReporter"
+.field public static final DEBUG:Z
 
 
 # instance fields
-.field private final mPackageManager:Landroid/content/pm/IPackageManager;
+.field public final mPackageManager:Landroid/content/pm/IPackageManager;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 2
 
     const-string v0, "SystemServerDexLoadReporter"
@@ -33,7 +31,7 @@
     return-void
 .end method
 
-.method private constructor <init>(Landroid/content/pm/IPackageManager;)V
+.method public constructor <init>(Landroid/content/pm/IPackageManager;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -44,7 +42,7 @@
 .end method
 
 .method public static configureSystemServerDexReporter(Landroid/content/pm/IPackageManager;)V
-    .locals 5
+    .locals 3
 
     const-string v0, "SystemServerDexLoadReporter"
 
@@ -58,50 +56,46 @@
 
     invoke-static {v1}, Ldalvik/system/BaseDexClassLoader;->setReporter(Ldalvik/system/BaseDexClassLoader$Reporter;)V
 
-    invoke-virtual {v1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    const-class p0, Lcom/android/server/pm/dex/SystemServerDexLoadReporter;
 
-    move-result-object v2
+    invoke-virtual {p0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
 
-    invoke-virtual {v2}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+    move-result-object p0
 
-    move-result-object v2
+    instance-of v1, p0, Ldalvik/system/BaseDexClassLoader;
 
-    instance-of v3, v2, Ldalvik/system/BaseDexClassLoader;
+    if-eqz v1, :cond_0
 
-    if-eqz v3, :cond_0
+    check-cast p0, Ldalvik/system/BaseDexClassLoader;
 
-    move-object v0, v2
-
-    check-cast v0, Ldalvik/system/BaseDexClassLoader;
-
-    invoke-virtual {v0}, Ldalvik/system/BaseDexClassLoader;->reportClassLoaderChain()V
+    invoke-virtual {p0}, Ldalvik/system/BaseDexClassLoader;->reportClassLoaderChain()V
 
     goto :goto_0
 
     :cond_0
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "System server class loader is not a BaseDexClassLoader. type="
+    const-string v2, "System server class loader is not a BaseDexClassLoader. type="
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v4
+    move-result-object p0
 
-    invoke-virtual {v4}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object p0
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p0
 
-    invoke-static {v0, v3}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, p0}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;)I
 
     :goto_0
     return-void
@@ -150,35 +144,30 @@
 
     if-eqz v0, :cond_1
 
-    const-string v0, "Bad call to DexLoadReporter: empty classLoaderContextMap"
+    const-string p0, "Bad call to DexLoadReporter: empty classLoaderContextMap"
 
-    invoke-static {v1, v0}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, p0}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
     :cond_1
     :try_start_0
-    iget-object v0, p0, Lcom/android/server/pm/dex/SystemServerDexLoadReporter;->mPackageManager:Landroid/content/pm/IPackageManager;
+    iget-object p0, p0, Lcom/android/server/pm/dex/SystemServerDexLoadReporter;->mPackageManager:Landroid/content/pm/IPackageManager;
 
-    const-string v1, "android"
+    const-string v0, "android"
 
     invoke-static {}, Ldalvik/system/VMRuntime;->getRuntime()Ldalvik/system/VMRuntime;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v2}, Ldalvik/system/VMRuntime;->vmInstructionSet()Ljava/lang/String;
+    invoke-virtual {v1}, Ldalvik/system/VMRuntime;->vmInstructionSet()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-interface {v0, v1, p1, v2}, Landroid/content/pm/IPackageManager;->notifyDexLoad(Ljava/lang/String;Ljava/util/Map;Ljava/lang/String;)V
+    invoke-interface {p0, v0, p1, v1}, Landroid/content/pm/IPackageManager;->notifyDexLoad(Ljava/lang/String;Ljava/util/Map;Ljava/lang/String;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
-
     :catch_0
-    move-exception v0
-
-    :goto_0
     return-void
 .end method

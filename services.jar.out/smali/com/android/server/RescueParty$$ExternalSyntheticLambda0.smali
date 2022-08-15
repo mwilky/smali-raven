@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/RescueParty$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/os/RemoteCallback$OnResultListener;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final onResult(Landroid/os/Bundle;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/RescueParty$$ExternalSyntheticLambda0;->f$0:Landroid/content/Context;
+    iget-object p0, p0, Lcom/android/server/RescueParty$$ExternalSyntheticLambda0;->f$0:Landroid/content/Context;
 
-    invoke-static {v0, p1}, Lcom/android/server/RescueParty;->lambda$onSettingsProviderPublished$0(Landroid/content/Context;Landroid/os/Bundle;)V
+    invoke-static {p0, p1}, Lcom/android/server/RescueParty;->$r8$lambda$22pAfMJucaCFFM4DEPjPoCmmWfQ(Landroid/content/Context;Landroid/os/Bundle;)V
 
     return-void
 .end method

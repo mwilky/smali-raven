@@ -1,59 +1,74 @@
 .class public final synthetic Lcom/android/server/autofill/Session$$ExternalSyntheticLambda4;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/internal/util/function/QuintConsumer;
+.implements Ljava/util/function/Consumer;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/autofill/Session$$ExternalSyntheticLambda4;
+# instance fields
+.field public final synthetic f$0:Lcom/android/server/autofill/Session;
+
+.field public final synthetic f$1:I
+
+.field public final synthetic f$2:Lcom/android/server/autofill/RemoteAugmentedAutofillService;
+
+.field public final synthetic f$3:Landroid/view/autofill/AutofillId;
+
+.field public final synthetic f$4:Z
+
+.field public final synthetic f$5:Landroid/view/autofill/AutofillValue;
+
+.field public final synthetic f$6:Ljava/util/function/Function;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/autofill/Session$$ExternalSyntheticLambda4;
-
-    invoke-direct {v0}, Lcom/android/server/autofill/Session$$ExternalSyntheticLambda4;-><init>()V
-
-    sput-object v0, Lcom/android/server/autofill/Session$$ExternalSyntheticLambda4;->INSTANCE:Lcom/android/server/autofill/Session$$ExternalSyntheticLambda4;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Lcom/android/server/autofill/Session;ILcom/android/server/autofill/RemoteAugmentedAutofillService;Landroid/view/autofill/AutofillId;ZLandroid/view/autofill/AutofillValue;Ljava/util/function/Function;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/autofill/Session$$ExternalSyntheticLambda4;->f$0:Lcom/android/server/autofill/Session;
+
+    iput p2, p0, Lcom/android/server/autofill/Session$$ExternalSyntheticLambda4;->f$1:I
+
+    iput-object p3, p0, Lcom/android/server/autofill/Session$$ExternalSyntheticLambda4;->f$2:Lcom/android/server/autofill/RemoteAugmentedAutofillService;
+
+    iput-object p4, p0, Lcom/android/server/autofill/Session$$ExternalSyntheticLambda4;->f$3:Landroid/view/autofill/AutofillId;
+
+    iput-boolean p5, p0, Lcom/android/server/autofill/Session$$ExternalSyntheticLambda4;->f$4:Z
+
+    iput-object p6, p0, Lcom/android/server/autofill/Session$$ExternalSyntheticLambda4;->f$5:Landroid/view/autofill/AutofillValue;
+
+    iput-object p7, p0, Lcom/android/server/autofill/Session$$ExternalSyntheticLambda4;->f$6:Ljava/util/function/Function;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 0
+.method public final accept(Ljava/lang/Object;)V
+    .locals 8
 
-    check-cast p1, Lcom/android/server/autofill/Session;
+    iget-object v0, p0, Lcom/android/server/autofill/Session$$ExternalSyntheticLambda4;->f$0:Lcom/android/server/autofill/Session;
 
-    check-cast p2, Ljava/lang/Integer;
+    iget v1, p0, Lcom/android/server/autofill/Session$$ExternalSyntheticLambda4;->f$1:I
 
-    invoke-virtual {p2}, Ljava/lang/Integer;->intValue()I
+    iget-object v2, p0, Lcom/android/server/autofill/Session$$ExternalSyntheticLambda4;->f$2:Lcom/android/server/autofill/RemoteAugmentedAutofillService;
 
-    move-result p2
+    iget-object v3, p0, Lcom/android/server/autofill/Session$$ExternalSyntheticLambda4;->f$3:Landroid/view/autofill/AutofillId;
 
-    check-cast p3, Landroid/content/IntentSender;
+    iget-boolean v4, p0, Lcom/android/server/autofill/Session$$ExternalSyntheticLambda4;->f$4:Z
 
-    check-cast p4, Landroid/content/Intent;
+    iget-object v5, p0, Lcom/android/server/autofill/Session$$ExternalSyntheticLambda4;->f$5:Landroid/view/autofill/AutofillValue;
 
-    check-cast p5, Ljava/lang/Boolean;
+    iget-object v6, p0, Lcom/android/server/autofill/Session$$ExternalSyntheticLambda4;->f$6:Ljava/util/function/Function;
 
-    invoke-virtual {p5}, Ljava/lang/Boolean;->booleanValue()Z
+    move-object v7, p1
 
-    move-result p5
+    check-cast v7, Landroid/view/inputmethod/InlineSuggestionsRequest;
 
-    invoke-static {p1, p2, p3, p4, p5}, Lcom/android/server/autofill/Session;->$r8$lambda$92rc8p5ur7GxIKq_CcXalnEwHwU(Lcom/android/server/autofill/Session;ILandroid/content/IntentSender;Landroid/content/Intent;Z)V
+    invoke-static/range {v0 .. v7}, Lcom/android/server/autofill/Session;->$r8$lambda$1ub_6tTUidAFQu-nf_0xBwjn5_0(Lcom/android/server/autofill/Session;ILcom/android/server/autofill/RemoteAugmentedAutofillService;Landroid/view/autofill/AutofillId;ZLandroid/view/autofill/AutofillValue;Ljava/util/function/Function;Landroid/view/inputmethod/InlineSuggestionsRequest;)V
 
     return-void
 .end method

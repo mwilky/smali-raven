@@ -1,4 +1,4 @@
-.class Lcom/android/server/pm/ApexManager$1;
+.class public Lcom/android/server/pm/ApexManager$1;
 .super Landroid/util/Singleton;
 .source "ApexManager.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
@@ -23,7 +23,7 @@
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Landroid/util/Singleton;-><init>()V
@@ -33,53 +33,47 @@
 
 
 # virtual methods
-.method protected create()Lcom/android/server/pm/ApexManager;
-    .locals 2
+.method public create()Lcom/android/server/pm/ApexManager;
+    .locals 1
 
     invoke-static {}, Landroid/sysprop/ApexProperties;->updatable()Ljava/util/Optional;
 
-    move-result-object v0
+    move-result-object p0
 
-    const/4 v1, 0x0
+    sget-object v0, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
 
-    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    invoke-virtual {p0, v0}, Ljava/util/Optional;->orElse(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v0, v1}, Ljava/util/Optional;->orElse(Ljava/lang/Object;)Ljava/lang/Object;
+    check-cast p0, Ljava/lang/Boolean;
 
-    move-result-object v0
+    invoke-virtual {p0}, Ljava/lang/Boolean;->booleanValue()Z
 
-    check-cast v0, Ljava/lang/Boolean;
+    move-result p0
 
-    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
+    if-eqz p0, :cond_0
 
-    move-result v0
+    new-instance p0, Lcom/android/server/pm/ApexManager$ApexManagerImpl;
 
-    if-eqz v0, :cond_0
+    invoke-direct {p0}, Lcom/android/server/pm/ApexManager$ApexManagerImpl;-><init>()V
 
-    new-instance v0, Lcom/android/server/pm/ApexManager$ApexManagerImpl;
-
-    invoke-direct {v0}, Lcom/android/server/pm/ApexManager$ApexManagerImpl;-><init>()V
-
-    return-object v0
+    return-object p0
 
     :cond_0
-    new-instance v0, Lcom/android/server/pm/ApexManager$ApexManagerFlattenedApex;
+    new-instance p0, Lcom/android/server/pm/ApexManager$ApexManagerFlattenedApex;
 
-    const/4 v1, 0x0
+    invoke-direct {p0}, Lcom/android/server/pm/ApexManager$ApexManagerFlattenedApex;-><init>()V
 
-    invoke-direct {v0, v1}, Lcom/android/server/pm/ApexManager$ApexManagerFlattenedApex;-><init>(Lcom/android/server/pm/ApexManager$1;)V
-
-    return-object v0
+    return-object p0
 .end method
 
-.method protected bridge synthetic create()Ljava/lang/Object;
-    .locals 1
+.method public bridge synthetic create()Ljava/lang/Object;
+    .locals 0
 
     invoke-virtual {p0}, Lcom/android/server/pm/ApexManager$1;->create()Lcom/android/server/pm/ApexManager;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

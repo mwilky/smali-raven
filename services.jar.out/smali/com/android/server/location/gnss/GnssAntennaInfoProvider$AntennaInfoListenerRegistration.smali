@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x4
+    accessFlags = 0x1
     name = "AntennaInfoListenerRegistration"
 .end annotation
 
@@ -24,38 +24,38 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/location/gnss/GnssAntennaInfoProvider;
+.field public final synthetic this$0:Lcom/android/server/location/gnss/GnssAntennaInfoProvider;
 
 
 # direct methods
-.method protected constructor <init>(Lcom/android/server/location/gnss/GnssAntennaInfoProvider;Landroid/location/util/identity/CallerIdentity;Landroid/location/IGnssAntennaInfoListener;)V
-    .locals 1
+.method public constructor <init>(Lcom/android/server/location/gnss/GnssAntennaInfoProvider;Landroid/location/util/identity/CallerIdentity;Landroid/location/IGnssAntennaInfoListener;)V
+    .locals 0
 
     iput-object p1, p0, Lcom/android/server/location/gnss/GnssAntennaInfoProvider$AntennaInfoListenerRegistration;->this$0:Lcom/android/server/location/gnss/GnssAntennaInfoProvider;
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    invoke-direct {p0, v0, p2, p3}, Lcom/android/server/location/listeners/BinderListenerRegistration;-><init>(Ljava/lang/Object;Landroid/location/util/identity/CallerIdentity;Ljava/lang/Object;)V
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/location/listeners/BinderListenerRegistration;-><init>(Ljava/lang/Object;Landroid/location/util/identity/CallerIdentity;Ljava/lang/Object;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method protected getOwner()Lcom/android/server/location/gnss/GnssAntennaInfoProvider;
-    .locals 1
+.method public getOwner()Lcom/android/server/location/gnss/GnssAntennaInfoProvider;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/location/gnss/GnssAntennaInfoProvider$AntennaInfoListenerRegistration;->this$0:Lcom/android/server/location/gnss/GnssAntennaInfoProvider;
+    iget-object p0, p0, Lcom/android/server/location/gnss/GnssAntennaInfoProvider$AntennaInfoListenerRegistration;->this$0:Lcom/android/server/location/gnss/GnssAntennaInfoProvider;
 
-    return-object v0
+    return-object p0
 .end method
 
-.method protected bridge synthetic getOwner()Lcom/android/server/location/listeners/ListenerMultiplexer;
-    .locals 1
+.method public bridge synthetic getOwner()Lcom/android/server/location/listeners/ListenerMultiplexer;
+    .locals 0
 
     invoke-virtual {p0}, Lcom/android/server/location/gnss/GnssAntennaInfoProvider$AntennaInfoListenerRegistration;->getOwner()Lcom/android/server/location/gnss/GnssAntennaInfoProvider;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

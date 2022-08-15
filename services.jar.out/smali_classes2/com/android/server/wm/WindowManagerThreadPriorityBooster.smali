@@ -1,22 +1,34 @@
-.class Lcom/android/server/wm/WindowManagerThreadPriorityBooster;
+.class public Lcom/android/server/wm/WindowManagerThreadPriorityBooster;
 .super Lcom/android/server/ThreadPriorityBooster;
 .source "WindowManagerThreadPriorityBooster.java"
 
 
 # instance fields
-.field private final mAnimationThreadId:I
+.field public final mAnimationThreadId:I
 
-.field private mAppTransitionRunning:Z
+.field public mAppTransitionRunning:Z
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
+.end field
 
-.field private mBoundsAnimationRunning:Z
+.field public mBoundsAnimationRunning:Z
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
+.end field
 
-.field private final mLock:Ljava/lang/Object;
+.field public final mLock:Ljava/lang/Object;
 
-.field private final mSurfaceAnimationThreadId:I
+.field public final mSurfaceAnimationThreadId:I
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 2
 
     const/4 v0, -0x4
@@ -35,7 +47,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/server/AnimationThread;->getThreadId()I
+    invoke-virtual {v0}, Landroid/os/HandlerThread;->getThreadId()I
 
     move-result v0
 
@@ -45,47 +57,11 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/server/wm/SurfaceAnimationThread;->getThreadId()I
+    invoke-virtual {v0}, Landroid/os/HandlerThread;->getThreadId()I
 
     move-result v0
 
     iput v0, p0, Lcom/android/server/wm/WindowManagerThreadPriorityBooster;->mSurfaceAnimationThreadId:I
-
-    return-void
-.end method
-
-.method private updatePriorityLocked()V
-    .locals 2
-
-    iget-boolean v0, p0, Lcom/android/server/wm/WindowManagerThreadPriorityBooster;->mAppTransitionRunning:Z
-
-    if-nez v0, :cond_1
-
-    iget-boolean v0, p0, Lcom/android/server/wm/WindowManagerThreadPriorityBooster;->mBoundsAnimationRunning:Z
-
-    if-eqz v0, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, -0x4
-
-    goto :goto_1
-
-    :cond_1
-    :goto_0
-    const/16 v0, -0xa
-
-    :goto_1
-    invoke-virtual {p0, v0}, Lcom/android/server/wm/WindowManagerThreadPriorityBooster;->setBoostToPriority(I)V
-
-    iget v1, p0, Lcom/android/server/wm/WindowManagerThreadPriorityBooster;->mAnimationThreadId:I
-
-    invoke-static {v1, v0}, Landroid/os/Process;->setThreadPriority(II)V
-
-    iget v1, p0, Lcom/android/server/wm/WindowManagerThreadPriorityBooster;->mSurfaceAnimationThreadId:I
-
-    invoke-static {v1, v0}, Landroid/os/Process;->setThreadPriority(II)V
 
     return-void
 .end method
@@ -112,8 +88,6 @@
     :cond_0
     invoke-super {p0}, Lcom/android/server/ThreadPriorityBooster;->boost()V
 
-    return-void
-
     :cond_1
     :goto_0
     return-void
@@ -139,14 +113,12 @@
     :cond_0
     invoke-super {p0}, Lcom/android/server/ThreadPriorityBooster;->reset()V
 
-    return-void
-
     :cond_1
     :goto_0
     return-void
 .end method
 
-.method setAppTransitionRunning(Z)V
+.method public setAppTransitionRunning(Z)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/server/wm/WindowManagerThreadPriorityBooster;->mLock:Ljava/lang/Object;
@@ -160,7 +132,7 @@
 
     iput-boolean p1, p0, Lcom/android/server/wm/WindowManagerThreadPriorityBooster;->mAppTransitionRunning:Z
 
-    invoke-direct {p0}, Lcom/android/server/wm/WindowManagerThreadPriorityBooster;->updatePriorityLocked()V
+    invoke-virtual {p0}, Lcom/android/server/wm/WindowManagerThreadPriorityBooster;->updatePriorityLocked()V
 
     :cond_0
     monitor-exit v0
@@ -168,42 +140,52 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
-.method setBoundsAnimationRunning(Z)V
+.method public final updatePriorityLocked()V
     .locals 2
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
 
-    iget-object v0, p0, Lcom/android/server/wm/WindowManagerThreadPriorityBooster;->mLock:Ljava/lang/Object;
+    iget-boolean v0, p0, Lcom/android/server/wm/WindowManagerThreadPriorityBooster;->mAppTransitionRunning:Z
 
-    monitor-enter v0
+    if-nez v0, :cond_1
 
-    :try_start_0
-    iget-boolean v1, p0, Lcom/android/server/wm/WindowManagerThreadPriorityBooster;->mBoundsAnimationRunning:Z
+    iget-boolean v0, p0, Lcom/android/server/wm/WindowManagerThreadPriorityBooster;->mBoundsAnimationRunning:Z
 
-    if-eq v1, p1, :cond_0
+    if-eqz v0, :cond_0
 
-    iput-boolean p1, p0, Lcom/android/server/wm/WindowManagerThreadPriorityBooster;->mBoundsAnimationRunning:Z
-
-    invoke-direct {p0}, Lcom/android/server/wm/WindowManagerThreadPriorityBooster;->updatePriorityLocked()V
+    goto :goto_0
 
     :cond_0
-    monitor-exit v0
+    const/4 v0, -0x4
+
+    goto :goto_1
+
+    :cond_1
+    :goto_0
+    const/16 v0, -0xa
+
+    :goto_1
+    invoke-virtual {p0, v0}, Lcom/android/server/ThreadPriorityBooster;->setBoostToPriority(I)V
+
+    iget v1, p0, Lcom/android/server/wm/WindowManagerThreadPriorityBooster;->mAnimationThreadId:I
+
+    invoke-static {v1, v0}, Landroid/os/Process;->setThreadPriority(II)V
+
+    iget p0, p0, Lcom/android/server/wm/WindowManagerThreadPriorityBooster;->mSurfaceAnimationThreadId:I
+
+    invoke-static {p0, v0}, Landroid/os/Process;->setThreadPriority(II)V
 
     return-void
-
-    :catchall_0
-    move-exception v1
-
-    monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v1
 .end method

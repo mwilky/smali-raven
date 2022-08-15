@@ -1,21 +1,26 @@
 .class public final synthetic Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda22;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/server/wm/DisplayContent;
+.field public final synthetic f$0:[I
+
+.field public final synthetic f$1:Ljava/util/ArrayList;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/wm/DisplayContent;)V
+.method public synthetic constructor <init>([ILjava/util/ArrayList;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda22;->f$0:Lcom/android/server/wm/DisplayContent;
+    iput-object p1, p0, Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda22;->f$0:[I
+
+    iput-object p2, p0, Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda22;->f$1:Ljava/util/ArrayList;
 
     return-void
 .end method
@@ -25,11 +30,13 @@
 .method public final accept(Ljava/lang/Object;)V
     .locals 1
 
-    iget-object v0, p0, Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda22;->f$0:Lcom/android/server/wm/DisplayContent;
+    iget-object v0, p0, Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda22;->f$0:[I
 
-    check-cast p1, Lcom/android/server/wm/TaskDisplayArea;
+    iget-object p0, p0, Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda22;->f$1:Ljava/util/ArrayList;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/wm/DisplayContent;->lambda$assignRootTaskOrdering$34$DisplayContent(Lcom/android/server/wm/TaskDisplayArea;)V
+    check-cast p1, Lcom/android/server/wm/Task;
+
+    invoke-static {v0, p0, p1}, Lcom/android/server/wm/DisplayContent;->$r8$lambda$QxAQSknn8GpnAsM9UEQMZs5qlvc([ILjava/util/ArrayList;Lcom/android/server/wm/Task;)V
 
     return-void
 .end method

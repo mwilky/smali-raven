@@ -4,9 +4,9 @@
 
 
 # instance fields
-.field private mChosenCount:I
+.field public mChosenCount:I
 
-.field private mLaunchCount:I
+.field public mLaunchCount:I
 
 
 # direct methods
@@ -20,6 +20,8 @@
 
 .method public constructor <init>(II)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -33,22 +35,22 @@
 
 # virtual methods
 .method public getChosenCount()I
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/people/data/AppUsageStatsData;->mChosenCount:I
+    iget p0, p0, Lcom/android/server/people/data/AppUsageStatsData;->mChosenCount:I
 
-    return v0
+    return p0
 .end method
 
 .method public getLaunchCount()I
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/people/data/AppUsageStatsData;->mLaunchCount:I
+    iget p0, p0, Lcom/android/server/people/data/AppUsageStatsData;->mLaunchCount:I
 
-    return v0
+    return p0
 .end method
 
-.method incrementChosenCountBy(I)V
+.method public incrementChosenCountBy(I)V
     .locals 1
 
     iget v0, p0, Lcom/android/server/people/data/AppUsageStatsData;->mChosenCount:I
@@ -60,7 +62,7 @@
     return-void
 .end method
 
-.method incrementLaunchCountBy(I)V
+.method public incrementLaunchCountBy(I)V
     .locals 1
 
     iget v0, p0, Lcom/android/server/people/data/AppUsageStatsData;->mLaunchCount:I

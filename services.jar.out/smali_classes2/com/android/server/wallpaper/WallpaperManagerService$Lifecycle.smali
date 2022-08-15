@@ -15,7 +15,7 @@
 
 
 # instance fields
-.field private mService:Lcom/android/server/wallpaper/IWallpaperManagerService;
+.field public mService:Lcom/android/server/wallpaper/IWallpaperManagerService;
 
 
 # direct methods
@@ -30,13 +30,13 @@
 
 # virtual methods
 .method public onBootPhase(I)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wallpaper/WallpaperManagerService$Lifecycle;->mService:Lcom/android/server/wallpaper/IWallpaperManagerService;
+    iget-object p0, p0, Lcom/android/server/wallpaper/WallpaperManagerService$Lifecycle;->mService:Lcom/android/server/wallpaper/IWallpaperManagerService;
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    invoke-interface {v0, p1}, Lcom/android/server/wallpaper/IWallpaperManagerService;->onBootPhase(I)V
+    invoke-interface {p0, p1}, Lcom/android/server/wallpaper/IWallpaperManagerService;->onBootPhase(I)V
 
     :cond_0
     return-void
@@ -45,10 +45,8 @@
 .method public onStart()V
     .locals 5
 
-    nop
-
     :try_start_0
-    invoke-virtual {p0}, Lcom/android/server/wallpaper/WallpaperManagerService$Lifecycle;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Lcom/android/server/SystemService;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
@@ -56,7 +54,7 @@
 
     move-result-object v0
 
-    const v1, 0x104028f
+    const v1, 0x10402ba
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -78,57 +76,57 @@
 
     invoke-virtual {v0, v2}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
 
-    move-result-object v2
+    move-result-object v0
 
     new-array v1, v1, [Ljava/lang/Object;
 
-    invoke-virtual {p0}, Lcom/android/server/wallpaper/WallpaperManagerService$Lifecycle;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Lcom/android/server/SystemService;->getContext()Landroid/content/Context;
 
-    move-result-object v3
+    move-result-object v2
 
-    aput-object v3, v1, v4
+    aput-object v2, v1, v4
 
-    invoke-virtual {v2, v1}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, v1}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Lcom/android/server/wallpaper/IWallpaperManagerService;
+    check-cast v0, Lcom/android/server/wallpaper/IWallpaperManagerService;
 
-    iput-object v1, p0, Lcom/android/server/wallpaper/WallpaperManagerService$Lifecycle;->mService:Lcom/android/server/wallpaper/IWallpaperManagerService;
+    iput-object v0, p0, Lcom/android/server/wallpaper/WallpaperManagerService$Lifecycle;->mService:Lcom/android/server/wallpaper/IWallpaperManagerService;
 
-    const-string v2, "wallpaper"
+    const-string v1, "wallpaper"
 
-    invoke-virtual {p0, v2, v1}, Lcom/android/server/wallpaper/WallpaperManagerService$Lifecycle;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
+    invoke-virtual {p0, v1, v0}, Lcom/android/server/SystemService;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    const-string v1, "WallpaperManagerService"
+    const-string v0, "WallpaperManagerService"
 
-    const-string v2, "Failed to instantiate WallpaperManagerService"
+    const-string v1, "Failed to instantiate WallpaperManagerService"
 
-    invoke-static {v1, v2, v0}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v0, v1, p0}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_0
     return-void
 .end method
 
 .method public onUserUnlocking(Lcom/android/server/SystemService$TargetUser;)V
-    .locals 2
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wallpaper/WallpaperManagerService$Lifecycle;->mService:Lcom/android/server/wallpaper/IWallpaperManagerService;
+    iget-object p0, p0, Lcom/android/server/wallpaper/WallpaperManagerService$Lifecycle;->mService:Lcom/android/server/wallpaper/IWallpaperManagerService;
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
     invoke-virtual {p1}, Lcom/android/server/SystemService$TargetUser;->getUserIdentifier()I
 
-    move-result v1
+    move-result p1
 
-    invoke-interface {v0, v1}, Lcom/android/server/wallpaper/IWallpaperManagerService;->onUnlockUser(I)V
+    invoke-interface {p0, p1}, Lcom/android/server/wallpaper/IWallpaperManagerService;->onUnlockUser(I)V
 
     :cond_0
     return-void

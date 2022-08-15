@@ -1,4 +1,4 @@
-.class Lcom/android/server/hdmi/PowerStatusMonitorAction$1;
+.class public Lcom/android/server/hdmi/PowerStatusMonitorAction$1;
 .super Ljava/lang/Object;
 .source "PowerStatusMonitorAction.java"
 
@@ -12,19 +12,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/hdmi/PowerStatusMonitorAction;
+.field public final synthetic this$0:Lcom/android/server/hdmi/PowerStatusMonitorAction;
 
-.field final synthetic val$logicalAddress:I
+.field public final synthetic val$logicalAddress:I
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/hdmi/PowerStatusMonitorAction;I)V
+.method public constructor <init>(Lcom/android/server/hdmi/PowerStatusMonitorAction;I)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/hdmi/PowerStatusMonitorAction$1;->this$0:Lcom/android/server/hdmi/PowerStatusMonitorAction;
@@ -39,19 +39,19 @@
 
 # virtual methods
 .method public onSendCompleted(I)V
-    .locals 4
+    .locals 2
 
     if-eqz p1, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/hdmi/PowerStatusMonitorAction$1;->this$0:Lcom/android/server/hdmi/PowerStatusMonitorAction;
+    iget-object p1, p0, Lcom/android/server/hdmi/PowerStatusMonitorAction$1;->this$0:Lcom/android/server/hdmi/PowerStatusMonitorAction;
 
-    iget v1, p0, Lcom/android/server/hdmi/PowerStatusMonitorAction$1;->val$logicalAddress:I
+    iget p0, p0, Lcom/android/server/hdmi/PowerStatusMonitorAction$1;->val$logicalAddress:I
 
-    const/4 v2, -0x1
+    const/4 v0, -0x1
 
-    const/4 v3, 0x1
+    const/4 v1, 0x1
 
-    invoke-static {v0, v1, v2, v3}, Lcom/android/server/hdmi/PowerStatusMonitorAction;->access$000(Lcom/android/server/hdmi/PowerStatusMonitorAction;IIZ)V
+    invoke-static {p1, p0, v0, v1}, Lcom/android/server/hdmi/PowerStatusMonitorAction;->-$$Nest$mupdatePowerStatus(Lcom/android/server/hdmi/PowerStatusMonitorAction;IIZ)V
 
     :cond_0
     return-void

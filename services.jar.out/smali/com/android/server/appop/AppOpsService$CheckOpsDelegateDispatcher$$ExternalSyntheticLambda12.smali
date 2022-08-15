@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/appop/AppOpsService$CheckOpsDelegateDispatcher$$ExternalSyntheticLambda12;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/internal/util/function/QuintConsumer;
@@ -23,9 +24,9 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/appop/AppOpsService$CheckOpsDelegateDispatcher$$ExternalSyntheticLambda12;->f$0:Lcom/android/server/appop/AppOpsService$CheckOpsDelegateDispatcher;
+    iget-object p0, p0, Lcom/android/server/appop/AppOpsService$CheckOpsDelegateDispatcher$$ExternalSyntheticLambda12;->f$0:Lcom/android/server/appop/AppOpsService$CheckOpsDelegateDispatcher;
 
     check-cast p1, Landroid/os/IBinder;
 
@@ -44,8 +45,6 @@
     check-cast p4, Ljava/lang/String;
 
     check-cast p5, Ljava/lang/String;
-
-    move-object p0, v0
 
     invoke-static/range {p0 .. p5}, Lcom/android/server/appop/AppOpsService$CheckOpsDelegateDispatcher;->$r8$lambda$4Xrg3LJImAePkUNQfKyEhwrAa4o(Lcom/android/server/appop/AppOpsService$CheckOpsDelegateDispatcher;Landroid/os/IBinder;IILjava/lang/String;Ljava/lang/String;)V
 

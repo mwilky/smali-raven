@@ -1,43 +1,36 @@
 .class public final synthetic Lcom/android/server/broadcastradio/hal2/Convert$$ExternalSyntheticLambda11;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/IntFunction;
+.implements Ljava/util/function/Consumer;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/broadcastradio/hal2/Convert$$ExternalSyntheticLambda11;
+# instance fields
+.field public final synthetic f$0:Landroid/hardware/broadcastradio/V2_0/ProgramFilter;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/broadcastradio/hal2/Convert$$ExternalSyntheticLambda11;
-
-    invoke-direct {v0}, Lcom/android/server/broadcastradio/hal2/Convert$$ExternalSyntheticLambda11;-><init>()V
-
-    sput-object v0, Lcom/android/server/broadcastradio/hal2/Convert$$ExternalSyntheticLambda11;->INSTANCE:Lcom/android/server/broadcastradio/hal2/Convert$$ExternalSyntheticLambda11;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Landroid/hardware/broadcastradio/V2_0/ProgramFilter;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/broadcastradio/hal2/Convert$$ExternalSyntheticLambda11;->f$0:Landroid/hardware/broadcastradio/V2_0/ProgramFilter;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final apply(I)Ljava/lang/Object;
+.method public final accept(Ljava/lang/Object;)V
     .locals 0
 
-    invoke-static {p1}, Lcom/android/server/broadcastradio/hal2/Convert;->lambda$programSelectorFromHal$2(I)[Landroid/hardware/radio/ProgramSelector$Identifier;
+    iget-object p0, p0, Lcom/android/server/broadcastradio/hal2/Convert$$ExternalSyntheticLambda11;->f$0:Landroid/hardware/broadcastradio/V2_0/ProgramFilter;
 
-    move-result-object p1
+    check-cast p1, Landroid/hardware/radio/ProgramSelector$Identifier;
 
-    return-object p1
+    invoke-static {p0, p1}, Lcom/android/server/broadcastradio/hal2/Convert;->$r8$lambda$Kq5ISKTfWPKegE_SsSFu2AJN9sk(Landroid/hardware/broadcastradio/V2_0/ProgramFilter;Landroid/hardware/radio/ProgramSelector$Identifier;)V
+
+    return-void
 .end method

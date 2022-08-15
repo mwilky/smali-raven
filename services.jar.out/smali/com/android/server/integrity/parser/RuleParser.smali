@@ -24,20 +24,3 @@
         }
     .end annotation
 .end method
-
-.method public abstract parse([B)Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "([B)",
-            "Ljava/util/List<",
-            "Landroid/content/integrity/Rule;",
-            ">;"
-        }
-    .end annotation
-
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Lcom/android/server/integrity/parser/RuleParseException;
-        }
-    .end annotation
-.end method

@@ -1,4 +1,4 @@
-.class Lcom/android/server/content/SyncManager$2;
+.class public Lcom/android/server/content/SyncManager$2;
 .super Landroid/content/BroadcastReceiver;
 .source "SyncManager.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/content/SyncManager;
+.field public final synthetic this$0:Lcom/android/server/content/SyncManager;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/content/SyncManager;)V
+.method public constructor <init>(Lcom/android/server/content/SyncManager;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/content/SyncManager$2;->this$0:Lcom/android/server/content/SyncManager;
@@ -32,52 +32,52 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 3
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/content/SyncManager$2;->this$0:Lcom/android/server/content/SyncManager;
+    iget-object p1, p0, Lcom/android/server/content/SyncManager$2;->this$0:Lcom/android/server/content/SyncManager;
 
-    invoke-static {v0}, Lcom/android/server/content/SyncManager;->access$100(Lcom/android/server/content/SyncManager;)Z
+    invoke-static {p1}, Lcom/android/server/content/SyncManager;->-$$Nest$fgetmDataConnectionIsConnected(Lcom/android/server/content/SyncManager;)Z
+
+    move-result p1
+
+    iget-object p2, p0, Lcom/android/server/content/SyncManager$2;->this$0:Lcom/android/server/content/SyncManager;
+
+    invoke-static {p2}, Lcom/android/server/content/SyncManager;->-$$Nest$mreadDataConnectionState(Lcom/android/server/content/SyncManager;)Z
 
     move-result v0
 
-    iget-object v1, p0, Lcom/android/server/content/SyncManager$2;->this$0:Lcom/android/server/content/SyncManager;
+    invoke-static {p2, v0}, Lcom/android/server/content/SyncManager;->-$$Nest$fputmDataConnectionIsConnected(Lcom/android/server/content/SyncManager;Z)V
 
-    invoke-static {v1}, Lcom/android/server/content/SyncManager;->access$200(Lcom/android/server/content/SyncManager;)Z
+    iget-object p2, p0, Lcom/android/server/content/SyncManager$2;->this$0:Lcom/android/server/content/SyncManager;
 
-    move-result v2
+    invoke-static {p2}, Lcom/android/server/content/SyncManager;->-$$Nest$fgetmDataConnectionIsConnected(Lcom/android/server/content/SyncManager;)Z
 
-    invoke-static {v1, v2}, Lcom/android/server/content/SyncManager;->access$102(Lcom/android/server/content/SyncManager;Z)Z
+    move-result p2
 
-    iget-object v1, p0, Lcom/android/server/content/SyncManager$2;->this$0:Lcom/android/server/content/SyncManager;
+    if-eqz p2, :cond_1
 
-    invoke-static {v1}, Lcom/android/server/content/SyncManager;->access$100(Lcom/android/server/content/SyncManager;)Z
+    if-nez p1, :cond_1
 
-    move-result v1
+    const/4 p1, 0x2
 
-    if-eqz v1, :cond_1
+    const-string p2, "SyncManager"
 
-    if-nez v0, :cond_1
+    invoke-static {p2, p1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
 
-    const/4 v1, 0x2
+    move-result p1
 
-    const-string v2, "SyncManager"
+    if-eqz p1, :cond_0
 
-    invoke-static {v2, v1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
+    const-string p1, "Reconnection detected: clearing all backoffs"
 
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    const-string v1, "Reconnection detected: clearing all backoffs"
-
-    invoke-static {v2, v1}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p2, p1}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    iget-object v1, p0, Lcom/android/server/content/SyncManager$2;->this$0:Lcom/android/server/content/SyncManager;
+    iget-object p0, p0, Lcom/android/server/content/SyncManager$2;->this$0:Lcom/android/server/content/SyncManager;
 
-    const-string/jumbo v2, "network reconnect"
+    const-string/jumbo p1, "network reconnect"
 
-    invoke-static {v1, v2}, Lcom/android/server/content/SyncManager;->access$300(Lcom/android/server/content/SyncManager;Ljava/lang/String;)V
+    invoke-static {p0, p1}, Lcom/android/server/content/SyncManager;->-$$Nest$mclearAllBackoffs(Lcom/android/server/content/SyncManager;Ljava/lang/String;)V
 
     :cond_1
     return-void

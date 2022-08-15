@@ -1,4 +1,4 @@
-.class Lcom/android/server/biometrics/BiometricService$InvalidationTracker$1;
+.class public Lcom/android/server/biometrics/BiometricService$InvalidationTracker$1;
 .super Landroid/hardware/biometrics/IInvalidationCallback$Stub;
 .source "BiometricService.java"
 
@@ -9,19 +9,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/biometrics/BiometricService$InvalidationTracker;
+.field public final synthetic this$0:Lcom/android/server/biometrics/BiometricService$InvalidationTracker;
 
-.field final synthetic val$sensor:Lcom/android/server/biometrics/BiometricSensor;
+.field public final synthetic val$sensor:Lcom/android/server/biometrics/BiometricSensor;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/biometrics/BiometricService$InvalidationTracker;Lcom/android/server/biometrics/BiometricSensor;)V
+.method public constructor <init>(Lcom/android/server/biometrics/BiometricService$InvalidationTracker;Lcom/android/server/biometrics/BiometricSensor;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/biometrics/BiometricService$InvalidationTracker$1;->this$0:Lcom/android/server/biometrics/BiometricService$InvalidationTracker;
@@ -36,15 +36,15 @@
 
 # virtual methods
 .method public onCompleted()V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/biometrics/BiometricService$InvalidationTracker$1;->this$0:Lcom/android/server/biometrics/BiometricService$InvalidationTracker;
 
-    iget-object v1, p0, Lcom/android/server/biometrics/BiometricService$InvalidationTracker$1;->val$sensor:Lcom/android/server/biometrics/BiometricSensor;
+    iget-object p0, p0, Lcom/android/server/biometrics/BiometricService$InvalidationTracker$1;->val$sensor:Lcom/android/server/biometrics/BiometricSensor;
 
-    iget v1, v1, Lcom/android/server/biometrics/BiometricSensor;->id:I
+    iget p0, p0, Lcom/android/server/biometrics/BiometricSensor;->id:I
 
-    invoke-virtual {v0, v1}, Lcom/android/server/biometrics/BiometricService$InvalidationTracker;->onInvalidated(I)V
+    invoke-virtual {v0, p0}, Lcom/android/server/biometrics/BiometricService$InvalidationTracker;->onInvalidated(I)V
 
     return-void
 .end method

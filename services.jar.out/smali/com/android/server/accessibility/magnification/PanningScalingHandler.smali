@@ -1,4 +1,4 @@
-.class Lcom/android/server/accessibility/magnification/PanningScalingHandler;
+.class public Lcom/android/server/accessibility/magnification/PanningScalingHandler;
 .super Landroid/view/GestureDetector$SimpleOnGestureListener;
 .source "PanningScalingHandler.java"
 
@@ -15,37 +15,35 @@
 
 
 # static fields
-.field private static final DEBUG:Z
-
-.field private static final TAG:Ljava/lang/String; = "PanningScalingHandler"
+.field public static final DEBUG:Z
 
 
 # instance fields
-.field private final mBlockScroll:Z
+.field public final mBlockScroll:Z
 
-.field private final mDisplayId:I
+.field public final mDisplayId:I
 
-.field private mEnable:Z
+.field public mEnable:Z
 
-.field private mInitialScaleFactor:F
+.field public mInitialScaleFactor:F
 
-.field private final mMagnificationDelegate:Lcom/android/server/accessibility/magnification/PanningScalingHandler$MagnificationDelegate;
+.field public final mMagnificationDelegate:Lcom/android/server/accessibility/magnification/PanningScalingHandler$MagnificationDelegate;
 
-.field private final mMaxScale:F
+.field public final mMaxScale:F
 
-.field private final mMinScale:F
+.field public final mMinScale:F
 
-.field private final mScaleGestureDetector:Landroid/view/ScaleGestureDetector;
+.field public final mScaleGestureDetector:Landroid/view/ScaleGestureDetector;
 
-.field private mScaling:Z
+.field public mScaling:Z
 
-.field private final mScalingThreshold:F
+.field public final mScalingThreshold:F
 
-.field private final mScrollGestureDetector:Landroid/view/GestureDetector;
+.field public final mScrollGestureDetector:Landroid/view/GestureDetector;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 2
 
     const-string v0, "PanningScalingHandler"
@@ -61,8 +59,8 @@
     return-void
 .end method
 
-.method constructor <init>(Landroid/content/Context;FFZLcom/android/server/accessibility/magnification/PanningScalingHandler$MagnificationDelegate;)V
-    .locals 4
+.method public constructor <init>(Landroid/content/Context;FFZLcom/android/server/accessibility/magnification/PanningScalingHandler$MagnificationDelegate;)V
+    .locals 1
 
     invoke-direct {p0}, Landroid/view/GestureDetector$SimpleOnGestureListener;-><init>()V
 
@@ -82,56 +80,56 @@
 
     iput-boolean p4, p0, Lcom/android/server/accessibility/magnification/PanningScalingHandler;->mBlockScroll:Z
 
-    new-instance v0, Landroid/view/ScaleGestureDetector;
+    new-instance p2, Landroid/view/ScaleGestureDetector;
 
     invoke-static {}, Landroid/os/Handler;->getMain()Landroid/os/Handler;
 
-    move-result-object v1
+    move-result-object p3
 
-    invoke-direct {v0, p1, p0, v1}, Landroid/view/ScaleGestureDetector;-><init>(Landroid/content/Context;Landroid/view/ScaleGestureDetector$OnScaleGestureListener;Landroid/os/Handler;)V
+    invoke-direct {p2, p1, p0, p3}, Landroid/view/ScaleGestureDetector;-><init>(Landroid/content/Context;Landroid/view/ScaleGestureDetector$OnScaleGestureListener;Landroid/os/Handler;)V
 
-    iput-object v0, p0, Lcom/android/server/accessibility/magnification/PanningScalingHandler;->mScaleGestureDetector:Landroid/view/ScaleGestureDetector;
+    iput-object p2, p0, Lcom/android/server/accessibility/magnification/PanningScalingHandler;->mScaleGestureDetector:Landroid/view/ScaleGestureDetector;
 
-    new-instance v1, Landroid/view/GestureDetector;
+    new-instance p3, Landroid/view/GestureDetector;
 
     invoke-static {}, Landroid/os/Handler;->getMain()Landroid/os/Handler;
 
-    move-result-object v2
+    move-result-object p4
 
-    invoke-direct {v1, p1, p0, v2}, Landroid/view/GestureDetector;-><init>(Landroid/content/Context;Landroid/view/GestureDetector$OnGestureListener;Landroid/os/Handler;)V
+    invoke-direct {p3, p1, p0, p4}, Landroid/view/GestureDetector;-><init>(Landroid/content/Context;Landroid/view/GestureDetector$OnGestureListener;Landroid/os/Handler;)V
 
-    iput-object v1, p0, Lcom/android/server/accessibility/magnification/PanningScalingHandler;->mScrollGestureDetector:Landroid/view/GestureDetector;
+    iput-object p3, p0, Lcom/android/server/accessibility/magnification/PanningScalingHandler;->mScrollGestureDetector:Landroid/view/GestureDetector;
 
-    const/4 v1, 0x0
+    const/4 p3, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/view/ScaleGestureDetector;->setQuickScaleEnabled(Z)V
+    invoke-virtual {p2, p3}, Landroid/view/ScaleGestureDetector;->setQuickScaleEnabled(Z)V
 
     iput-object p5, p0, Lcom/android/server/accessibility/magnification/PanningScalingHandler;->mMagnificationDelegate:Lcom/android/server/accessibility/magnification/PanningScalingHandler$MagnificationDelegate;
 
-    new-instance v0, Landroid/util/TypedValue;
+    new-instance p2, Landroid/util/TypedValue;
 
-    invoke-direct {v0}, Landroid/util/TypedValue;-><init>()V
+    invoke-direct {p2}, Landroid/util/TypedValue;-><init>()V
 
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v2
+    move-result-object p1
 
-    const v3, 0x10500d3
+    const p4, 0x10500d4
 
-    invoke-virtual {v2, v3, v0, v1}, Landroid/content/res/Resources;->getValue(ILandroid/util/TypedValue;Z)V
+    invoke-virtual {p1, p4, p2, p3}, Landroid/content/res/Resources;->getValue(ILandroid/util/TypedValue;Z)V
 
-    invoke-virtual {v0}, Landroid/util/TypedValue;->getFloat()F
+    invoke-virtual {p2}, Landroid/util/TypedValue;->getFloat()F
 
-    move-result v1
+    move-result p1
 
-    iput v1, p0, Lcom/android/server/accessibility/magnification/PanningScalingHandler;->mScalingThreshold:F
+    iput p1, p0, Lcom/android/server/accessibility/magnification/PanningScalingHandler;->mScalingThreshold:F
 
     return-void
 .end method
 
 
 # virtual methods
-.method clear()V
+.method public clear()V
     .locals 1
 
     const/high16 v0, -0x40800000    # -1.0f
@@ -146,7 +144,7 @@
 .end method
 
 .method public onScale(Landroid/view/ScaleGestureDetector;)Z
-    .locals 7
+    .locals 6
 
     sget-boolean v0, Lcom/android/server/accessibility/magnification/PanningScalingHandler;->DEBUG:Z
 
@@ -177,30 +175,30 @@
 
     invoke-virtual {p1}, Landroid/view/ScaleGestureDetector;->getScaleFactor()F
 
-    move-result v0
+    move-result p1
 
-    iput v0, p0, Lcom/android/server/accessibility/magnification/PanningScalingHandler;->mInitialScaleFactor:F
+    iput p1, p0, Lcom/android/server/accessibility/magnification/PanningScalingHandler;->mInitialScaleFactor:F
 
     return v1
 
     :cond_1
     invoke-virtual {p1}, Landroid/view/ScaleGestureDetector;->getScaleFactor()F
 
-    move-result v0
+    move-result p1
 
-    iget v2, p0, Lcom/android/server/accessibility/magnification/PanningScalingHandler;->mInitialScaleFactor:F
+    iget v0, p0, Lcom/android/server/accessibility/magnification/PanningScalingHandler;->mInitialScaleFactor:F
 
-    sub-float/2addr v0, v2
+    sub-float/2addr p1, v0
 
-    invoke-static {v0}, Ljava/lang/Math;->abs(F)F
+    invoke-static {p1}, Ljava/lang/Math;->abs(F)F
 
-    move-result v2
+    move-result p1
 
-    iget v4, p0, Lcom/android/server/accessibility/magnification/PanningScalingHandler;->mScalingThreshold:F
+    iget v0, p0, Lcom/android/server/accessibility/magnification/PanningScalingHandler;->mScalingThreshold:F
 
-    cmpl-float v2, v2, v4
+    cmpl-float p1, p1, v0
 
-    if-lez v2, :cond_2
+    if-lez p1, :cond_2
 
     goto :goto_0
 
@@ -223,58 +221,55 @@
 
     invoke-virtual {p1}, Landroid/view/ScaleGestureDetector;->getScaleFactor()F
 
-    move-result v4
+    move-result p1
 
-    mul-float/2addr v4, v2
+    mul-float/2addr p1, v2
 
-    iget v5, p0, Lcom/android/server/accessibility/magnification/PanningScalingHandler;->mMaxScale:F
+    iget v4, p0, Lcom/android/server/accessibility/magnification/PanningScalingHandler;->mMaxScale:F
 
-    cmpl-float v5, v4, v5
-
-    if-lez v5, :cond_4
-
-    cmpl-float v5, v4, v2
+    cmpl-float v5, p1, v4
 
     if-lez v5, :cond_4
 
-    iget v5, p0, Lcom/android/server/accessibility/magnification/PanningScalingHandler;->mMaxScale:F
+    cmpl-float v5, p1, v2
 
-    goto :goto_1
+    if-lez v5, :cond_4
+
+    :goto_1
+    move p1, v4
+
+    goto :goto_2
 
     :cond_4
-    iget v5, p0, Lcom/android/server/accessibility/magnification/PanningScalingHandler;->mMinScale:F
+    iget v4, p0, Lcom/android/server/accessibility/magnification/PanningScalingHandler;->mMinScale:F
 
-    cmpg-float v5, v4, v5
-
-    if-gez v5, :cond_5
-
-    cmpg-float v5, v4, v2
+    cmpg-float v5, p1, v4
 
     if-gez v5, :cond_5
 
-    iget v5, p0, Lcom/android/server/accessibility/magnification/PanningScalingHandler;->mMinScale:F
+    cmpg-float v2, p1, v2
+
+    if-gez v2, :cond_5
 
     goto :goto_1
 
     :cond_5
-    move v5, v4
-
-    :goto_1
+    :goto_2
     if-eqz v0, :cond_6
 
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v6, "Scaled content to: "
+    const-string v2, "Scaled content to: "
 
-    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v6, "x"
+    const-string/jumbo v2, "x"
 
-    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -285,19 +280,19 @@
     :cond_6
     iget-object v0, p0, Lcom/android/server/accessibility/magnification/PanningScalingHandler;->mMagnificationDelegate:Lcom/android/server/accessibility/magnification/PanningScalingHandler$MagnificationDelegate;
 
-    iget v1, p0, Lcom/android/server/accessibility/magnification/PanningScalingHandler;->mDisplayId:I
+    iget p0, p0, Lcom/android/server/accessibility/magnification/PanningScalingHandler;->mDisplayId:I
 
-    invoke-interface {v0, v1, v5}, Lcom/android/server/accessibility/magnification/PanningScalingHandler$MagnificationDelegate;->setScale(IF)V
+    invoke-interface {v0, p0, p1}, Lcom/android/server/accessibility/magnification/PanningScalingHandler$MagnificationDelegate;->setScale(IF)V
 
     return v3
 .end method
 
 .method public onScaleBegin(Landroid/view/ScaleGestureDetector;)Z
-    .locals 1
+    .locals 0
 
-    iget-boolean v0, p0, Lcom/android/server/accessibility/magnification/PanningScalingHandler;->mEnable:Z
+    iget-boolean p0, p0, Lcom/android/server/accessibility/magnification/PanningScalingHandler;->mEnable:Z
 
-    return v0
+    return p0
 .end method
 
 .method public onScaleEnd(Landroid/view/ScaleGestureDetector;)V
@@ -309,55 +304,55 @@
 .end method
 
 .method public onScroll(Landroid/view/MotionEvent;Landroid/view/MotionEvent;FF)Z
-    .locals 2
+    .locals 0
 
-    iget-boolean v0, p0, Lcom/android/server/accessibility/magnification/PanningScalingHandler;->mEnable:Z
+    iget-boolean p1, p0, Lcom/android/server/accessibility/magnification/PanningScalingHandler;->mEnable:Z
 
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_1
 
-    iget-boolean v0, p0, Lcom/android/server/accessibility/magnification/PanningScalingHandler;->mBlockScroll:Z
+    iget-boolean p1, p0, Lcom/android/server/accessibility/magnification/PanningScalingHandler;->mBlockScroll:Z
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    iget-boolean v0, p0, Lcom/android/server/accessibility/magnification/PanningScalingHandler;->mScaling:Z
+    iget-boolean p1, p0, Lcom/android/server/accessibility/magnification/PanningScalingHandler;->mScaling:Z
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     goto :goto_0
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/accessibility/magnification/PanningScalingHandler;->mMagnificationDelegate:Lcom/android/server/accessibility/magnification/PanningScalingHandler$MagnificationDelegate;
+    iget-object p1, p0, Lcom/android/server/accessibility/magnification/PanningScalingHandler;->mMagnificationDelegate:Lcom/android/server/accessibility/magnification/PanningScalingHandler$MagnificationDelegate;
 
-    iget v1, p0, Lcom/android/server/accessibility/magnification/PanningScalingHandler;->mDisplayId:I
+    iget p0, p0, Lcom/android/server/accessibility/magnification/PanningScalingHandler;->mDisplayId:I
 
-    invoke-interface {v0, v1, p3, p4}, Lcom/android/server/accessibility/magnification/PanningScalingHandler$MagnificationDelegate;->processScroll(IFF)Z
+    invoke-interface {p1, p0, p3, p4}, Lcom/android/server/accessibility/magnification/PanningScalingHandler$MagnificationDelegate;->processScroll(IFF)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 
     :cond_1
     :goto_0
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 .end method
 
-.method onTouchEvent(Landroid/view/MotionEvent;)V
+.method public onTouchEvent(Landroid/view/MotionEvent;)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/accessibility/magnification/PanningScalingHandler;->mScaleGestureDetector:Landroid/view/ScaleGestureDetector;
 
     invoke-virtual {v0, p1}, Landroid/view/ScaleGestureDetector;->onTouchEvent(Landroid/view/MotionEvent;)Z
 
-    iget-object v0, p0, Lcom/android/server/accessibility/magnification/PanningScalingHandler;->mScrollGestureDetector:Landroid/view/GestureDetector;
+    iget-object p0, p0, Lcom/android/server/accessibility/magnification/PanningScalingHandler;->mScrollGestureDetector:Landroid/view/GestureDetector;
 
-    invoke-virtual {v0, p1}, Landroid/view/GestureDetector;->onTouchEvent(Landroid/view/MotionEvent;)Z
+    invoke-virtual {p0, p1}, Landroid/view/GestureDetector;->onTouchEvent(Landroid/view/MotionEvent;)Z
 
     return-void
 .end method
 
-.method setEnabled(Z)V
+.method public setEnabled(Z)V
     .locals 0
 
     invoke-virtual {p0}, Lcom/android/server/accessibility/magnification/PanningScalingHandler;->clear()V
@@ -386,17 +381,17 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-boolean v1, p0, Lcom/android/server/accessibility/magnification/PanningScalingHandler;->mScaling:Z
+    iget-boolean p0, p0, Lcom/android/server/accessibility/magnification/PanningScalingHandler;->mScaling:Z
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    const/16 v1, 0x7d
+    const/16 p0, 0x7d
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/media/SystemMediaRoute2Provider$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/server/media/BluetoothRouteProvider$BluetoothRoutesUpdatedListener;
+.implements Ljava/lang/Runnable;
 
 
 # instance fields
@@ -22,12 +23,12 @@
 
 
 # virtual methods
-.method public final onBluetoothRoutesUpdated(Ljava/util/List;)V
-    .locals 1
+.method public final run()V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/media/SystemMediaRoute2Provider$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/media/SystemMediaRoute2Provider;
+    iget-object p0, p0, Lcom/android/server/media/SystemMediaRoute2Provider$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/media/SystemMediaRoute2Provider;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/media/SystemMediaRoute2Provider;->lambda$new$0$SystemMediaRoute2Provider(Ljava/util/List;)V
+    invoke-static {p0}, Lcom/android/server/media/SystemMediaRoute2Provider;->$r8$lambda$8H6wTd2ETFzeGdNGYmuUlZjQbtI(Lcom/android/server/media/SystemMediaRoute2Provider;)V
 
     return-void
 .end method

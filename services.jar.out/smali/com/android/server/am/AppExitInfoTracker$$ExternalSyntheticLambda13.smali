@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/am/AppExitInfoTracker$$ExternalSyntheticLambda13;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Consumer;
+.implements Ljava/util/function/BiFunction;
 
 
 # instance fields
@@ -22,14 +23,18 @@
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
-    .locals 1
+.method public final apply(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/am/AppExitInfoTracker$$ExternalSyntheticLambda13;->f$0:Landroid/util/ArraySet;
+    iget-object p0, p0, Lcom/android/server/am/AppExitInfoTracker$$ExternalSyntheticLambda13;->f$0:Landroid/util/ArraySet;
 
-    check-cast p1, Ljava/io/File;
+    check-cast p1, Ljava/lang/Integer;
 
-    invoke-static {v0, p1}, Lcom/android/server/am/AppExitInfoTracker;->lambda$pruneAnrTracesIfNecessaryLocked$15(Landroid/util/ArraySet;Ljava/io/File;)V
+    check-cast p2, Landroid/app/ApplicationExitInfo;
 
-    return-void
+    invoke-static {p0, p1, p2}, Lcom/android/server/am/AppExitInfoTracker;->$r8$lambda$jaxc00fP7hjwM81lCjgpwTh4_mU(Landroid/util/ArraySet;Ljava/lang/Integer;Landroid/app/ApplicationExitInfo;)Ljava/lang/Integer;
+
+    move-result-object p0
+
+    return-object p0
 .end method

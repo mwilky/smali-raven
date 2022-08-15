@@ -1,45 +1,34 @@
 .class public final synthetic Lcom/android/server/wm/ActivityTaskManagerService$$ExternalSyntheticLambda17;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/BiConsumer;
+.implements Ljava/lang/Runnable;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/wm/ActivityTaskManagerService$$ExternalSyntheticLambda17;
+# instance fields
+.field public final synthetic f$0:Landroid/app/ActivityManagerInternal;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/wm/ActivityTaskManagerService$$ExternalSyntheticLambda17;
-
-    invoke-direct {v0}, Lcom/android/server/wm/ActivityTaskManagerService$$ExternalSyntheticLambda17;-><init>()V
-
-    sput-object v0, Lcom/android/server/wm/ActivityTaskManagerService$$ExternalSyntheticLambda17;->INSTANCE:Lcom/android/server/wm/ActivityTaskManagerService$$ExternalSyntheticLambda17;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Landroid/app/ActivityManagerInternal;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/wm/ActivityTaskManagerService$$ExternalSyntheticLambda17;->f$0:Landroid/app/ActivityManagerInternal;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;Ljava/lang/Object;)V
+.method public final run()V
     .locals 0
 
-    check-cast p1, Lcom/android/server/wm/ActivityTaskManagerService;
+    iget-object p0, p0, Lcom/android/server/wm/ActivityTaskManagerService$$ExternalSyntheticLambda17;->f$0:Landroid/app/ActivityManagerInternal;
 
-    check-cast p2, Landroid/os/IBinder;
-
-    invoke-static {p1, p2}, Lcom/android/server/wm/ActivityTaskManagerService;->$r8$lambda$tPFRgtovnZu_2Zm4sCcLa9-oBto(Lcom/android/server/wm/ActivityTaskManagerService;Landroid/os/IBinder;)V
+    invoke-virtual {p0}, Landroid/app/ActivityManagerInternal;->updateCpuStats()V
 
     return-void
 .end method

@@ -1,4 +1,4 @@
-.class Lcom/android/server/content/SyncManager$ScheduleSyncMessagePayload;
+.class public Lcom/android/server/content/SyncManager$ScheduleSyncMessagePayload;
 .super Ljava/lang/Object;
 .source "SyncManager.java"
 
@@ -9,19 +9,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "ScheduleSyncMessagePayload"
 .end annotation
 
 
 # instance fields
-.field final minDelayMillis:J
+.field public final minDelayMillis:J
 
-.field final syncOperation:Lcom/android/server/content/SyncOperation;
+.field public final syncOperation:Lcom/android/server/content/SyncOperation;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/content/SyncOperation;J)V
+.method public constructor <init>(Lcom/android/server/content/SyncOperation;J)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

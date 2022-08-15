@@ -1,4 +1,4 @@
-.class Lcom/android/server/notification/NotificationUsageStats$ImportanceHistogram;
+.class public Lcom/android/server/notification/NotificationUsageStats$ImportanceHistogram;
 .super Ljava/lang/Object;
 .source "NotificationUsageStats.java"
 
@@ -9,36 +9,34 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "ImportanceHistogram"
 .end annotation
 
 
 # static fields
-.field private static final IMPORTANCE_NAMES:[Ljava/lang/String;
-
-.field private static final NUM_IMPORTANCES:I = 0x6
+.field public static final IMPORTANCE_NAMES:[Ljava/lang/String;
 
 
 # instance fields
-.field private final mContext:Landroid/content/Context;
+.field public final mContext:Landroid/content/Context;
 
-.field private mCount:[I
+.field public mCount:[I
 
-.field private final mCounterNames:[Ljava/lang/String;
+.field public final mCounterNames:[Ljava/lang/String;
 
-.field private final mPrefix:Ljava/lang/String;
+.field public final mPrefix:Ljava/lang/String;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 6
 
     const-string/jumbo v0, "none"
 
     const-string/jumbo v1, "min"
 
-    const-string/jumbo v2, "low"
+    const-string v2, "low"
 
     const-string v3, "default"
 
@@ -55,53 +53,53 @@
     return-void
 .end method
 
-.method constructor <init>(Landroid/content/Context;Ljava/lang/String;)V
-    .locals 5
+.method public constructor <init>(Landroid/content/Context;Ljava/lang/String;)V
+    .locals 3
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/server/notification/NotificationUsageStats$ImportanceHistogram;->mContext:Landroid/content/Context;
 
-    const/4 v0, 0x6
+    const/4 p1, 0x6
 
-    new-array v1, v0, [I
+    new-array v0, p1, [I
 
-    iput-object v1, p0, Lcom/android/server/notification/NotificationUsageStats$ImportanceHistogram;->mCount:[I
+    iput-object v0, p0, Lcom/android/server/notification/NotificationUsageStats$ImportanceHistogram;->mCount:[I
 
-    new-array v1, v0, [Ljava/lang/String;
+    new-array v0, p1, [Ljava/lang/String;
 
-    iput-object v1, p0, Lcom/android/server/notification/NotificationUsageStats$ImportanceHistogram;->mCounterNames:[Ljava/lang/String;
+    iput-object v0, p0, Lcom/android/server/notification/NotificationUsageStats$ImportanceHistogram;->mCounterNames:[Ljava/lang/String;
 
     iput-object p2, p0, Lcom/android/server/notification/NotificationUsageStats$ImportanceHistogram;->mPrefix:Ljava/lang/String;
 
-    const/4 v1, 0x0
+    const/4 p2, 0x0
 
     :goto_0
-    if-ge v1, v0, :cond_0
+    if-ge p2, p1, :cond_0
 
-    iget-object v2, p0, Lcom/android/server/notification/NotificationUsageStats$ImportanceHistogram;->mCounterNames:[Ljava/lang/String;
+    iget-object v0, p0, Lcom/android/server/notification/NotificationUsageStats$ImportanceHistogram;->mCounterNames:[Ljava/lang/String;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v4, p0, Lcom/android/server/notification/NotificationUsageStats$ImportanceHistogram;->mPrefix:Ljava/lang/String;
+    iget-object v2, p0, Lcom/android/server/notification/NotificationUsageStats$ImportanceHistogram;->mPrefix:Ljava/lang/String;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    sget-object v4, Lcom/android/server/notification/NotificationUsageStats$ImportanceHistogram;->IMPORTANCE_NAMES:[Ljava/lang/String;
+    sget-object v2, Lcom/android/server/notification/NotificationUsageStats$ImportanceHistogram;->IMPORTANCE_NAMES:[Ljava/lang/String;
 
-    aget-object v4, v4, v1
+    aget-object v2, v2, p2
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v1
 
-    aput-object v3, v2, v1
+    aput-object v1, v0, p2
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 p2, p2, 0x1
 
     goto :goto_0
 
@@ -111,8 +109,8 @@
 
 
 # virtual methods
-.method increment(I)V
-    .locals 2
+.method public increment(I)V
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/notification/NotificationUsageStats$ImportanceHistogram;->mCount:[I
 
@@ -122,26 +120,26 @@
 
     invoke-static {p1, v0}, Ljava/lang/Math;->min(II)I
 
-    move-result v0
+    move-result p1
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    invoke-static {v1, v0}, Ljava/lang/Math;->max(II)I
+    invoke-static {v0, p1}, Ljava/lang/Math;->max(II)I
 
     move-result p1
 
-    iget-object v0, p0, Lcom/android/server/notification/NotificationUsageStats$ImportanceHistogram;->mCount:[I
+    iget-object p0, p0, Lcom/android/server/notification/NotificationUsageStats$ImportanceHistogram;->mCount:[I
 
-    aget v1, v0, p1
+    aget v0, p0, p1
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    aput v1, v0, p1
+    aput v0, p0, p1
 
     return-void
 .end method
 
-.method maybeCount(Lcom/android/server/notification/NotificationUsageStats$ImportanceHistogram;)V
+.method public maybeCount(Lcom/android/server/notification/NotificationUsageStats$ImportanceHistogram;)V
     .locals 4
 
     const/4 v0, 0x0
@@ -181,22 +179,22 @@
 .end method
 
 .method public maybePut(Lorg/json/JSONObject;Lcom/android/server/notification/NotificationUsageStats$ImportanceHistogram;)V
-    .locals 3
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/json/JSONException;
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/android/server/notification/NotificationUsageStats$ImportanceHistogram;->mPrefix:Ljava/lang/String;
+    iget-object p2, p0, Lcom/android/server/notification/NotificationUsageStats$ImportanceHistogram;->mPrefix:Ljava/lang/String;
 
-    new-instance v1, Lorg/json/JSONArray;
+    new-instance v0, Lorg/json/JSONArray;
 
-    iget-object v2, p0, Lcom/android/server/notification/NotificationUsageStats$ImportanceHistogram;->mCount:[I
+    iget-object p0, p0, Lcom/android/server/notification/NotificationUsageStats$ImportanceHistogram;->mCount:[I
 
-    invoke-direct {v1, v2}, Lorg/json/JSONArray;-><init>(Ljava/lang/Object;)V
+    invoke-direct {v0, p0}, Lorg/json/JSONArray;-><init>(Ljava/lang/Object;)V
 
-    invoke-virtual {p1, v0, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    invoke-virtual {p1, p2, v0}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     return-void
 .end method
@@ -243,18 +241,18 @@
     goto :goto_0
 
     :cond_1
-    const-string v1, "]"
+    const-string p0, "]"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method
 
-.method update(Lcom/android/server/notification/NotificationUsageStats$ImportanceHistogram;)V
+.method public update(Lcom/android/server/notification/NotificationUsageStats$ImportanceHistogram;)V
     .locals 3
 
     const/4 v0, 0x0

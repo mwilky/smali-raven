@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/CountryDetectorService$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/location/CountryListener;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final onCountryDetected(Landroid/location/Country;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/CountryDetectorService$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/CountryDetectorService;
+    iget-object p0, p0, Lcom/android/server/CountryDetectorService$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/CountryDetectorService;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/CountryDetectorService;->lambda$initialize$2$CountryDetectorService(Landroid/location/Country;)V
+    invoke-static {p0, p1}, Lcom/android/server/CountryDetectorService;->$r8$lambda$ovIJ1C5IPvLu1cVC9mnVGfLbHwg(Lcom/android/server/CountryDetectorService;Landroid/location/Country;)V
 
     return-void
 .end method

@@ -1,37 +1,34 @@
 .class public final synthetic Lcom/android/server/am/AppExitInfoTracker$$ExternalSyntheticLambda17;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Predicate;
+.implements Ljava/lang/Runnable;
 
 
 # instance fields
-.field public final synthetic f$0:I
+.field public final synthetic f$0:Lcom/android/server/am/AppExitInfoTracker;
 
 
 # direct methods
-.method public synthetic constructor <init>(I)V
+.method public synthetic constructor <init>(Lcom/android/server/am/AppExitInfoTracker;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput p1, p0, Lcom/android/server/am/AppExitInfoTracker$$ExternalSyntheticLambda17;->f$0:I
+    iput-object p1, p0, Lcom/android/server/am/AppExitInfoTracker$$ExternalSyntheticLambda17;->f$0:Lcom/android/server/am/AppExitInfoTracker;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final test(Ljava/lang/Object;)Z
-    .locals 1
+.method public final run()V
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/am/AppExitInfoTracker$$ExternalSyntheticLambda17;->f$0:I
+    iget-object p0, p0, Lcom/android/server/am/AppExitInfoTracker$$ExternalSyntheticLambda17;->f$0:Lcom/android/server/am/AppExitInfoTracker;
 
-    check-cast p1, Ljava/lang/Integer;
+    invoke-static {p0}, Lcom/android/server/am/AppExitInfoTracker;->$r8$lambda$z-sWXn4GuRhvIFHHFHfIP2afCfE(Lcom/android/server/am/AppExitInfoTracker;)V
 
-    invoke-static {v0, p1}, Lcom/android/server/am/AppExitInfoTracker;->lambda$removeByUserIdLocked$8(ILjava/lang/Integer;)Z
-
-    move-result p1
-
-    return p1
+    return-void
 .end method

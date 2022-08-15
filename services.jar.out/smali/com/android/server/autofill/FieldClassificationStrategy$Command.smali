@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/server/autofill/FieldClassificationStrategy$Command;
+.class public interface abstract Lcom/android/server/autofill/FieldClassificationStrategy$Command;
 .super Ljava/lang/Object;
 .source "FieldClassificationStrategy.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x60a
+    accessFlags = 0x609
     name = "Command"
 .end annotation
 

@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/accessibility/AccessibilityManagerService$1$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Predicate;
@@ -23,15 +24,15 @@
 
 # virtual methods
 .method public final test(Ljava/lang/Object;)Z
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityManagerService$1$$ExternalSyntheticLambda0;->f$0:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/accessibility/AccessibilityManagerService$1$$ExternalSyntheticLambda0;->f$0:Ljava/lang/String;
 
     check-cast p1, Landroid/content/ComponentName;
 
-    invoke-static {v0, p1}, Lcom/android/server/accessibility/AccessibilityManagerService$1;->lambda$onPackageRemoved$2(Ljava/lang/String;Landroid/content/ComponentName;)Z
+    invoke-static {p0, p1}, Lcom/android/server/accessibility/AccessibilityManagerService$1;->$r8$lambda$1YvgIdoLCh8xqeB8OE8622D0NSs(Ljava/lang/String;Landroid/content/ComponentName;)Z
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method

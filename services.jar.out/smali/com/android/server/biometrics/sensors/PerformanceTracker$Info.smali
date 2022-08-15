@@ -1,4 +1,4 @@
-.class Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;
+.class public Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;
 .super Ljava/lang/Object;
 .source "PerformanceTracker.java"
 
@@ -9,31 +9,31 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "Info"
 .end annotation
 
 
 # instance fields
-.field mAccept:I
+.field public mAccept:I
 
-.field mAcceptCrypto:I
+.field public mAcceptCrypto:I
 
-.field mAcquire:I
+.field public mAcquire:I
 
-.field mAcquireCrypto:I
+.field public mAcquireCrypto:I
 
-.field mPermanentLockout:I
+.field public mPermanentLockout:I
 
-.field mReject:I
+.field public mReject:I
 
-.field mRejectCrypto:I
+.field public mRejectCrypto:I
 
-.field mTimedLockout:I
+.field public mTimedLockout:I
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/biometrics/sensors/PerformanceTracker$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/biometrics/sensors/PerformanceTracker$Info-IA;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/biometrics/sensors/PerformanceTracker$Info;-><init>()V

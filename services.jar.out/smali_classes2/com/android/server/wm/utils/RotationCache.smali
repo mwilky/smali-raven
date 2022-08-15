@@ -23,7 +23,7 @@
 
 
 # instance fields
-.field private final mCache:Landroid/util/SparseArray;
+.field public final mCache:Landroid/util/SparseArray;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/SparseArray<",
@@ -32,7 +32,7 @@
     .end annotation
 .end field
 
-.field private mCachedFor:Ljava/lang/Object;
+.field public mCachedFor:Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "TT;"
@@ -40,7 +40,7 @@
     .end annotation
 .end field
 
-.field private final mComputation:Lcom/android/server/wm/utils/RotationCache$RotationDependentComputation;
+.field public final mComputation:Lcom/android/server/wm/utils/RotationCache$RotationDependentComputation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/android/server/wm/utils/RotationCache$RotationDependentComputation<",
@@ -79,7 +79,7 @@
 
 # virtual methods
 .method public getOrCompute(Ljava/lang/Object;I)Ljava/lang/Object;
-    .locals 3
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;I)TR;"
@@ -105,24 +105,24 @@
 
     if-ltz v0, :cond_1
 
-    iget-object v1, p0, Lcom/android/server/wm/utils/RotationCache;->mCache:Landroid/util/SparseArray;
+    iget-object p0, p0, Lcom/android/server/wm/utils/RotationCache;->mCache:Landroid/util/SparseArray;
 
-    invoke-virtual {v1, v0}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 
     :cond_1
-    iget-object v1, p0, Lcom/android/server/wm/utils/RotationCache;->mComputation:Lcom/android/server/wm/utils/RotationCache$RotationDependentComputation;
+    iget-object v0, p0, Lcom/android/server/wm/utils/RotationCache;->mComputation:Lcom/android/server/wm/utils/RotationCache$RotationDependentComputation;
 
-    invoke-interface {v1, p1, p2}, Lcom/android/server/wm/utils/RotationCache$RotationDependentComputation;->compute(Ljava/lang/Object;I)Ljava/lang/Object;
+    invoke-interface {v0, p1, p2}, Lcom/android/server/wm/utils/RotationCache$RotationDependentComputation;->compute(Ljava/lang/Object;I)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    iget-object v2, p0, Lcom/android/server/wm/utils/RotationCache;->mCache:Landroid/util/SparseArray;
+    iget-object p0, p0, Lcom/android/server/wm/utils/RotationCache;->mCache:Landroid/util/SparseArray;
 
-    invoke-virtual {v2, p2, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    invoke-virtual {p0, p2, p1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    return-object v1
+    return-object p1
 .end method

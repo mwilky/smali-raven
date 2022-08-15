@@ -4,15 +4,15 @@
 
 
 # instance fields
-.field private final mContext:Landroid/content/Context;
+.field public final mContext:Landroid/content/Context;
 
-.field private mPowerManager:Landroid/os/PowerManager;
+.field public mPowerManager:Landroid/os/PowerManager;
 
-.field private mReceiver:Landroid/content/BroadcastReceiver;
+.field public mReceiver:Landroid/content/BroadcastReceiver;
 
-.field private mRegistrationRequired:Z
+.field public mRegistrationRequired:Z
 
-.field private mSystemReady:Z
+.field public mSystemReady:Z
 
 
 # direct methods
@@ -26,7 +26,35 @@
     return-void
 .end method
 
-.method private onRegistrationStateChanged()V
+
+# virtual methods
+.method public isDeviceIdle()Z
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/location/injector/SystemDeviceIdleHelper;->mPowerManager:Landroid/os/PowerManager;
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    invoke-static {v0}, Lcom/android/internal/util/Preconditions;->checkState(Z)V
+
+    iget-object p0, p0, Lcom/android/server/location/injector/SystemDeviceIdleHelper;->mPowerManager:Landroid/os/PowerManager;
+
+    invoke-virtual {p0}, Landroid/os/PowerManager;->isDeviceIdleMode()Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public final onRegistrationStateChanged()V
     .locals 7
 
     iget-boolean v0, p0, Lcom/android/server/location/injector/SystemDeviceIdleHelper;->mSystemReady:Z
@@ -80,63 +108,26 @@
 
     if-eqz v2, :cond_2
 
-    nop
-
     iput-object v3, p0, Lcom/android/server/location/injector/SystemDeviceIdleHelper;->mReceiver:Landroid/content/BroadcastReceiver;
 
-    iget-object v3, p0, Lcom/android/server/location/injector/SystemDeviceIdleHelper;->mContext:Landroid/content/Context;
+    iget-object p0, p0, Lcom/android/server/location/injector/SystemDeviceIdleHelper;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v3, v2}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
+    invoke-virtual {p0, v2}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    goto :goto_1
-
     :cond_2
     :goto_0
-    nop
-
-    :goto_1
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    nop
 
     return-void
 
     :catchall_0
-    move-exception v2
+    move-exception p0
 
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    throw v2
-.end method
-
-
-# virtual methods
-.method public isDeviceIdle()Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/location/injector/SystemDeviceIdleHelper;->mPowerManager:Landroid/os/PowerManager;
-
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    :goto_0
-    invoke-static {v0}, Lcom/android/internal/util/Preconditions;->checkState(Z)V
-
-    iget-object v0, p0, Lcom/android/server/location/injector/SystemDeviceIdleHelper;->mPowerManager:Landroid/os/PowerManager;
-
-    invoke-virtual {v0}, Landroid/os/PowerManager;->isDeviceIdleMode()Z
-
-    move-result v0
-
-    return v0
+    throw p0
 .end method
 
 .method public declared-synchronized onSystemReady()V
@@ -161,11 +152,13 @@
 
     invoke-static {v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    check-cast v0, Landroid/os/PowerManager;
+    move-object v1, v0
+
+    check-cast v1, Landroid/os/PowerManager;
 
     iput-object v0, p0, Lcom/android/server/location/injector/SystemDeviceIdleHelper;->mPowerManager:Landroid/os/PowerManager;
 
-    invoke-direct {p0}, Lcom/android/server/location/injector/SystemDeviceIdleHelper;->onRegistrationStateChanged()V
+    invoke-virtual {p0}, Lcom/android/server/location/injector/SystemDeviceIdleHelper;->onRegistrationStateChanged()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -181,7 +174,7 @@
     throw v0
 .end method
 
-.method protected declared-synchronized registerInternal()V
+.method public declared-synchronized registerInternal()V
     .locals 1
 
     monitor-enter p0
@@ -191,7 +184,7 @@
     :try_start_0
     iput-boolean v0, p0, Lcom/android/server/location/injector/SystemDeviceIdleHelper;->mRegistrationRequired:Z
 
-    invoke-direct {p0}, Lcom/android/server/location/injector/SystemDeviceIdleHelper;->onRegistrationStateChanged()V
+    invoke-virtual {p0}, Lcom/android/server/location/injector/SystemDeviceIdleHelper;->onRegistrationStateChanged()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -207,7 +200,7 @@
     throw v0
 .end method
 
-.method protected declared-synchronized unregisterInternal()V
+.method public declared-synchronized unregisterInternal()V
     .locals 1
 
     monitor-enter p0
@@ -217,7 +210,7 @@
     :try_start_0
     iput-boolean v0, p0, Lcom/android/server/location/injector/SystemDeviceIdleHelper;->mRegistrationRequired:Z
 
-    invoke-direct {p0}, Lcom/android/server/location/injector/SystemDeviceIdleHelper;->onRegistrationStateChanged()V
+    invoke-virtual {p0}, Lcom/android/server/location/injector/SystemDeviceIdleHelper;->onRegistrationStateChanged()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 

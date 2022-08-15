@@ -1,16 +1,16 @@
-.class final Lcom/android/server/timezone/PackageVersions;
+.class public final Lcom/android/server/timezone/PackageVersions;
 .super Ljava/lang/Object;
 .source "PackageVersions.java"
 
 
 # instance fields
-.field final mDataAppVersion:J
+.field public final mDataAppVersion:J
 
-.field final mUpdateAppVersion:J
+.field public final mUpdateAppVersion:J
 
 
 # direct methods
-.method constructor <init>(JJ)V
+.method public constructor <init>(JJ)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 7
+    .locals 6
 
     const/4 v0, 0x1
 
@@ -38,9 +38,7 @@
 
     if-eqz p1, :cond_4
 
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    move-result-object v2
+    const-class v2, Lcom/android/server/timezone/PackageVersions;
 
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -51,28 +49,26 @@
     goto :goto_1
 
     :cond_1
-    move-object v2, p1
+    check-cast p1, Lcom/android/server/timezone/PackageVersions;
 
-    check-cast v2, Lcom/android/server/timezone/PackageVersions;
+    iget-wide v2, p0, Lcom/android/server/timezone/PackageVersions;->mUpdateAppVersion:J
 
-    iget-wide v3, p0, Lcom/android/server/timezone/PackageVersions;->mUpdateAppVersion:J
+    iget-wide v4, p1, Lcom/android/server/timezone/PackageVersions;->mUpdateAppVersion:J
 
-    iget-wide v5, v2, Lcom/android/server/timezone/PackageVersions;->mUpdateAppVersion:J
+    cmp-long v2, v2, v4
 
-    cmp-long v3, v3, v5
-
-    if-eqz v3, :cond_2
+    if-eqz v2, :cond_2
 
     return v1
 
     :cond_2
-    iget-wide v3, p0, Lcom/android/server/timezone/PackageVersions;->mDataAppVersion:J
+    iget-wide v2, p0, Lcom/android/server/timezone/PackageVersions;->mDataAppVersion:J
 
-    iget-wide v5, v2, Lcom/android/server/timezone/PackageVersions;->mDataAppVersion:J
+    iget-wide p0, p1, Lcom/android/server/timezone/PackageVersions;->mDataAppVersion:J
 
-    cmp-long v3, v3, v5
+    cmp-long p0, v2, p0
 
-    if-nez v3, :cond_3
+    if-nez p0, :cond_3
 
     goto :goto_0
 
@@ -88,7 +84,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 4
+    .locals 3
 
     iget-wide v0, p0, Lcom/android/server/timezone/PackageVersions;->mUpdateAppVersion:J
 
@@ -96,17 +92,17 @@
 
     move-result v0
 
-    mul-int/lit8 v1, v0, 0x1f
+    mul-int/lit8 v0, v0, 0x1f
 
-    iget-wide v2, p0, Lcom/android/server/timezone/PackageVersions;->mDataAppVersion:J
+    iget-wide v1, p0, Lcom/android/server/timezone/PackageVersions;->mDataAppVersion:J
 
-    invoke-static {v2, v3}, Ljava/lang/Long;->hashCode(J)I
+    invoke-static {v1, v2}, Ljava/lang/Long;->hashCode(J)I
 
-    move-result v2
+    move-result p0
 
-    add-int/2addr v1, v2
+    add-int/2addr v0, p0
 
-    return v1
+    return v0
 .end method
 
 .method public toString()Ljava/lang/String;
@@ -132,13 +128,13 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    const/16 v1, 0x7d
+    const/16 p0, 0x7d
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

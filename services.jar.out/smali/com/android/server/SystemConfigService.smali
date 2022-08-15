@@ -4,12 +4,20 @@
 
 
 # instance fields
-.field private final mContext:Landroid/content/Context;
+.field public final mContext:Landroid/content/Context;
 
-.field private final mInterface:Landroid/os/ISystemConfig$Stub;
+.field public final mInterface:Landroid/os/ISystemConfig$Stub;
 
 
 # direct methods
+.method public static bridge synthetic -$$Nest$fgetmContext(Lcom/android/server/SystemConfigService;)Landroid/content/Context;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/SystemConfigService;->mContext:Landroid/content/Context;
+
+    return-object p0
+.end method
+
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
 
@@ -26,14 +34,6 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/server/SystemConfigService;)Landroid/content/Context;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/SystemConfigService;->mContext:Landroid/content/Context;
-
-    return-object v0
-.end method
-
 
 # virtual methods
 .method public onStart()V
@@ -43,7 +43,7 @@
 
     const-string/jumbo v1, "system_config"
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/server/SystemConfigService;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
+    invoke-virtual {p0, v1, v0}, Lcom/android/server/SystemService;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
 
     return-void
 .end method

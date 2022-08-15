@@ -4,7 +4,7 @@
 
 
 # instance fields
-.field private final mService:Landroid/os/IRecoverySystem;
+.field public final mService:Landroid/os/IRecoverySystem;
 
 
 # direct methods
@@ -18,15 +18,17 @@
     return-void
 .end method
 
-.method private clearLskf()I
-    .locals 7
+
+# virtual methods
+.method public final clearLskf()I
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    invoke-virtual {p0}, Lcom/android/server/recoverysystem/RecoverySystemShellCommand;->getNextArgRequired()Ljava/lang/String;
+    invoke-virtual {p0}, Landroid/os/ShellCommand;->getNextArgRequired()Ljava/lang/String;
 
     move-result-object v0
 
@@ -36,169 +38,100 @@
 
     move-result v1
 
-    invoke-virtual {p0}, Lcom/android/server/recoverysystem/RecoverySystemShellCommand;->getOutPrintWriter()Ljava/io/PrintWriter;
+    invoke-virtual {p0}, Landroid/os/ShellCommand;->getOutPrintWriter()Ljava/io/PrintWriter;
 
-    move-result-object v2
+    move-result-object p0
 
-    const/4 v3, 0x2
+    const/4 v2, 0x2
 
-    new-array v3, v3, [Ljava/lang/Object;
-
-    const/4 v4, 0x0
-
-    aput-object v0, v3, v4
-
-    if-eqz v1, :cond_0
-
-    const-string v5, "success"
-
-    goto :goto_0
-
-    :cond_0
-    const-string v5, "failure"
-
-    :goto_0
-    const/4 v6, 0x1
-
-    aput-object v5, v3, v6
-
-    const-string v5, "Clear LSKF for packageName: %s, status: %s\n"
-
-    invoke-virtual {v2, v5, v3}, Ljava/io/PrintWriter;->printf(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintWriter;
-
-    return v4
-.end method
-
-.method private rebootAndApply()I
-    .locals 8
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    invoke-virtual {p0}, Lcom/android/server/recoverysystem/RecoverySystemShellCommand;->getNextArgRequired()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {p0}, Lcom/android/server/recoverysystem/RecoverySystemShellCommand;->getNextArgRequired()Ljava/lang/String;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/android/server/recoverysystem/RecoverySystemShellCommand;->mService:Landroid/os/IRecoverySystem;
+    new-array v2, v2, [Ljava/lang/Object;
 
     const/4 v3, 0x0
 
-    invoke-interface {v2, v0, v1, v3}, Landroid/os/IRecoverySystem;->rebootWithLskf(Ljava/lang/String;Ljava/lang/String;Z)I
+    aput-object v0, v2, v3
 
-    move-result v2
+    if-eqz v1, :cond_0
 
-    const/4 v4, 0x1
-
-    if-nez v2, :cond_0
-
-    move v2, v4
+    const-string v0, "success"
 
     goto :goto_0
 
     :cond_0
-    move v2, v3
+    const-string v0, "failure"
 
     :goto_0
-    invoke-virtual {p0}, Lcom/android/server/recoverysystem/RecoverySystemShellCommand;->getOutPrintWriter()Ljava/io/PrintWriter;
+    const/4 v1, 0x1
 
-    move-result-object v5
+    aput-object v0, v2, v1
 
-    const/4 v6, 0x2
+    const-string v0, "Clear LSKF for packageName: %s, status: %s\n"
 
-    new-array v6, v6, [Ljava/lang/Object;
-
-    aput-object v0, v6, v3
-
-    if-eqz v2, :cond_1
-
-    const-string v7, "success"
-
-    goto :goto_1
-
-    :cond_1
-    const-string v7, "failure"
-
-    :goto_1
-    aput-object v7, v6, v4
-
-    const-string v4, "%s Reboot and apply status: %s\n"
-
-    invoke-virtual {v5, v4, v6}, Ljava/io/PrintWriter;->printf(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintWriter;
+    invoke-virtual {p0, v0, v2}, Ljava/io/PrintWriter;->printf(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintWriter;
 
     return v3
 .end method
 
-.method private requestLskf()I
-    .locals 7
+.method public final isLskfCaptured()I
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    invoke-virtual {p0}, Lcom/android/server/recoverysystem/RecoverySystemShellCommand;->getNextArgRequired()Ljava/lang/String;
+    invoke-virtual {p0}, Landroid/os/ShellCommand;->getNextArgRequired()Ljava/lang/String;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/server/recoverysystem/RecoverySystemShellCommand;->mService:Landroid/os/IRecoverySystem;
 
-    const/4 v2, 0x0
-
-    invoke-interface {v1, v0, v2}, Landroid/os/IRecoverySystem;->requestLskf(Ljava/lang/String;Landroid/content/IntentSender;)Z
+    invoke-interface {v1, v0}, Landroid/os/IRecoverySystem;->isLskfCaptured(Ljava/lang/String;)Z
 
     move-result v1
 
-    invoke-virtual {p0}, Lcom/android/server/recoverysystem/RecoverySystemShellCommand;->getOutPrintWriter()Ljava/io/PrintWriter;
+    invoke-virtual {p0}, Landroid/os/ShellCommand;->getOutPrintWriter()Ljava/io/PrintWriter;
 
-    move-result-object v2
+    move-result-object p0
 
-    const/4 v3, 0x2
+    const/4 v2, 0x2
 
-    new-array v3, v3, [Ljava/lang/Object;
+    new-array v2, v2, [Ljava/lang/Object;
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    aput-object v0, v3, v4
+    aput-object v0, v2, v3
 
     if-eqz v1, :cond_0
 
-    const-string v5, "success"
+    const-string v0, "true"
 
     goto :goto_0
 
     :cond_0
-    const-string v5, "failure"
+    const-string v0, "false"
 
     :goto_0
-    const/4 v6, 0x1
+    const/4 v1, 0x1
 
-    aput-object v5, v3, v6
+    aput-object v0, v2, v1
 
-    const-string v5, "Request LSKF for packageName: %s, status: %s\n"
+    const-string v0, "%s LSKF capture status: %s\n"
 
-    invoke-virtual {v2, v5, v3}, Ljava/io/PrintWriter;->printf(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintWriter;
+    invoke-virtual {p0, v0, v2}, Ljava/io/PrintWriter;->printf(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintWriter;
 
-    return v4
+    return v3
 .end method
 
-
-# virtual methods
 .method public onCommand(Ljava/lang/String;)I
     .locals 5
 
     if-nez p1, :cond_0
 
-    invoke-virtual {p0, p1}, Lcom/android/server/recoverysystem/RecoverySystemShellCommand;->handleDefaultCommands(Ljava/lang/String;)I
+    invoke-virtual {p0, p1}, Landroid/os/ShellCommand;->handleDefaultCommands(Ljava/lang/String;)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 
     :cond_0
     const/4 v0, -0x1
@@ -208,9 +141,14 @@
 
     move-result v1
 
+    const/4 v2, 0x3
+
+    const/4 v3, 0x2
+
+    const/4 v4, 0x1
+
     sparse-switch v1, :sswitch_data_0
 
-    :cond_1
     goto :goto_0
 
     :sswitch_0
@@ -222,7 +160,7 @@
 
     if-eqz v1, :cond_1
 
-    const/4 v1, 0x2
+    move v1, v2
 
     goto :goto_1
 
@@ -240,6 +178,19 @@
     goto :goto_1
 
     :sswitch_2
+    const-string v1, "is-lskf-captured"
+
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    move v1, v3
+
+    goto :goto_1
+
+    :sswitch_3
     const-string v1, "clear-lskf"
 
     invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -248,52 +199,63 @@
 
     if-eqz v1, :cond_1
 
-    const/4 v1, 0x1
+    move v1, v4
 
     goto :goto_1
 
+    :cond_1
     :goto_0
     move v1, v0
 
     :goto_1
-    packed-switch v1, :pswitch_data_0
+    if-eqz v1, :cond_5
 
-    invoke-virtual {p0, p1}, Lcom/android/server/recoverysystem/RecoverySystemShellCommand;->handleDefaultCommands(Ljava/lang/String;)I
+    if-eq v1, v4, :cond_4
 
-    move-result v0
+    if-eq v1, v3, :cond_3
 
-    goto :goto_2
+    if-eq v1, v2, :cond_2
 
-    :pswitch_0
-    invoke-direct {p0}, Lcom/android/server/recoverysystem/RecoverySystemShellCommand;->rebootAndApply()I
+    invoke-virtual {p0, p1}, Landroid/os/ShellCommand;->handleDefaultCommands(Ljava/lang/String;)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 
-    :pswitch_1
-    invoke-direct {p0}, Lcom/android/server/recoverysystem/RecoverySystemShellCommand;->clearLskf()I
+    :cond_2
+    invoke-virtual {p0}, Lcom/android/server/recoverysystem/RecoverySystemShellCommand;->rebootAndApply()I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 
-    :pswitch_2
-    invoke-direct {p0}, Lcom/android/server/recoverysystem/RecoverySystemShellCommand;->requestLskf()I
+    :cond_3
+    invoke-virtual {p0}, Lcom/android/server/recoverysystem/RecoverySystemShellCommand;->isLskfCaptured()I
 
-    move-result v0
+    move-result p0
+
+    return p0
+
+    :cond_4
+    invoke-virtual {p0}, Lcom/android/server/recoverysystem/RecoverySystemShellCommand;->clearLskf()I
+
+    move-result p0
+
+    return p0
+
+    :cond_5
+    invoke-virtual {p0}, Lcom/android/server/recoverysystem/RecoverySystemShellCommand;->requestLskf()I
+
+    move-result p0
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    return v0
-
-    :goto_2
-    return v0
+    return p0
 
     :catch_0
     move-exception v1
 
-    invoke-virtual {p0}, Lcom/android/server/recoverysystem/RecoverySystemShellCommand;->getErrPrintWriter()Ljava/io/PrintWriter;
+    invoke-virtual {p0}, Landroid/os/ShellCommand;->getErrPrintWriter()Ljava/io/PrintWriter;
 
     move-result-object v2
 
@@ -309,55 +271,171 @@
 
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-virtual {v2, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {v2, p1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    invoke-virtual {p0}, Lcom/android/server/recoverysystem/RecoverySystemShellCommand;->getErrPrintWriter()Ljava/io/PrintWriter;
+    invoke-virtual {p0}, Landroid/os/ShellCommand;->getErrPrintWriter()Ljava/io/PrintWriter;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-virtual {v1, v2}, Ljava/lang/Exception;->printStackTrace(Ljava/io/PrintWriter;)V
+    invoke-virtual {v1, p0}, Ljava/lang/Exception;->printStackTrace(Ljava/io/PrintWriter;)V
 
     return v0
 
     :sswitch_data_0
     .sparse-switch
-        -0x2e71d75e -> :sswitch_2
+        -0x2e71d75e -> :sswitch_3
+        0x485fa2c6 -> :sswitch_2
         0x4aea45a0 -> :sswitch_1
         0x53c163d0 -> :sswitch_0
     .end sparse-switch
-
-    :pswitch_data_0
-    .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
 .end method
 
 .method public onHelp()V
-    .locals 2
+    .locals 1
 
-    invoke-virtual {p0}, Lcom/android/server/recoverysystem/RecoverySystemShellCommand;->getOutPrintWriter()Ljava/io/PrintWriter;
+    invoke-virtual {p0}, Landroid/os/ShellCommand;->getOutPrintWriter()Ljava/io/PrintWriter;
+
+    move-result-object p0
+
+    const-string v0, "Recovery system commands:"
+
+    invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const-string v0, "  request-lskf <package_name>"
+
+    invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const-string v0, "  clear-lskf"
+
+    invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const-string v0, "  is-lskf-captured <package_name>"
+
+    invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const-string v0, "  reboot-and-apply <package_name> <reason>"
+
+    invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method public final rebootAndApply()I
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    invoke-virtual {p0}, Landroid/os/ShellCommand;->getNextArgRequired()Ljava/lang/String;
 
     move-result-object v0
 
-    const-string v1, "Recovery system commands:"
+    invoke-virtual {p0}, Landroid/os/ShellCommand;->getNextArgRequired()Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    move-result-object v1
 
-    const-string v1, "  request-lskf <token>"
+    iget-object v2, p0, Lcom/android/server/recoverysystem/RecoverySystemShellCommand;->mService:Landroid/os/IRecoverySystem;
 
-    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    const/4 v3, 0x0
 
-    const-string v1, "  clear-lskf"
+    invoke-interface {v2, v0, v1, v3}, Landroid/os/IRecoverySystem;->rebootWithLskf(Ljava/lang/String;Ljava/lang/String;Z)I
 
-    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    move-result v1
 
-    const-string v1, "  reboot-and-apply <token> <reason>"
+    const/4 v2, 0x1
 
-    invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    if-nez v1, :cond_0
 
-    return-void
+    move v1, v2
+
+    goto :goto_0
+
+    :cond_0
+    move v1, v3
+
+    :goto_0
+    invoke-virtual {p0}, Landroid/os/ShellCommand;->getOutPrintWriter()Ljava/io/PrintWriter;
+
+    move-result-object p0
+
+    const/4 v4, 0x2
+
+    new-array v4, v4, [Ljava/lang/Object;
+
+    aput-object v0, v4, v3
+
+    if-eqz v1, :cond_1
+
+    const-string v0, "success"
+
+    goto :goto_1
+
+    :cond_1
+    const-string v0, "failure"
+
+    :goto_1
+    aput-object v0, v4, v2
+
+    const-string v0, "%s Reboot and apply status: %s\n"
+
+    invoke-virtual {p0, v0, v4}, Ljava/io/PrintWriter;->printf(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintWriter;
+
+    return v3
+.end method
+
+.method public final requestLskf()I
+    .locals 4
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    invoke-virtual {p0}, Landroid/os/ShellCommand;->getNextArgRequired()Ljava/lang/String;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/server/recoverysystem/RecoverySystemShellCommand;->mService:Landroid/os/IRecoverySystem;
+
+    const/4 v2, 0x0
+
+    invoke-interface {v1, v0, v2}, Landroid/os/IRecoverySystem;->requestLskf(Ljava/lang/String;Landroid/content/IntentSender;)Z
+
+    move-result v1
+
+    invoke-virtual {p0}, Landroid/os/ShellCommand;->getOutPrintWriter()Ljava/io/PrintWriter;
+
+    move-result-object p0
+
+    const/4 v2, 0x2
+
+    new-array v2, v2, [Ljava/lang/Object;
+
+    const/4 v3, 0x0
+
+    aput-object v0, v2, v3
+
+    if-eqz v1, :cond_0
+
+    const-string v0, "success"
+
+    goto :goto_0
+
+    :cond_0
+    const-string v0, "failure"
+
+    :goto_0
+    const/4 v1, 0x1
+
+    aput-object v0, v2, v1
+
+    const-string v0, "Request LSKF for packageName: %s, status: %s\n"
+
+    invoke-virtual {p0, v0, v2}, Ljava/io/PrintWriter;->printf(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintWriter;
+
+    return v3
 .end method

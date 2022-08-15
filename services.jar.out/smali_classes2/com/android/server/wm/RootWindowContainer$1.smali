@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/RootWindowContainer$1;
+.class public Lcom/android/server/wm/RootWindowContainer$1;
 .super Ljava/lang/Object;
 .source "RootWindowContainer.java"
 
@@ -12,17 +12,25 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/wm/RootWindowContainer;
+.field public final synthetic this$0:Lcom/android/server/wm/RootWindowContainer;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/wm/RootWindowContainer;)V
+.method public static synthetic $r8$lambda$vsTvIjNav51bcY5lcy8Id17q7Ls(Ljava/lang/Object;Lcom/android/server/wm/ActivityRecord;)V
+    .locals 0
+
+    invoke-static {p0, p1}, Lcom/android/server/wm/RootWindowContainer$1;->lambda$run$0(Ljava/lang/Object;Lcom/android/server/wm/ActivityRecord;)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Lcom/android/server/wm/RootWindowContainer;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/wm/RootWindowContainer$1;->this$0:Lcom/android/server/wm/RootWindowContainer;
@@ -32,14 +40,12 @@
     return-void
 .end method
 
-.method static synthetic lambda$run$0(Ljava/lang/Object;Lcom/android/server/wm/ActivityRecord;)V
-    .locals 1
+.method public static synthetic lambda$run$0(Ljava/lang/Object;Lcom/android/server/wm/ActivityRecord;)V
+    .locals 0
 
-    move-object v0, p0
+    check-cast p0, Lcom/android/server/wm/RootWindowContainer;
 
-    check-cast v0, Lcom/android/server/wm/RootWindowContainer;
-
-    invoke-static {v0, p1}, Lcom/android/server/wm/RootWindowContainer;->access$100(Lcom/android/server/wm/RootWindowContainer;Lcom/android/server/wm/ActivityRecord;)V
+    invoke-static {p0, p1}, Lcom/android/server/wm/RootWindowContainer;->-$$Nest$mdestroyActivity(Lcom/android/server/wm/RootWindowContainer;Lcom/android/server/wm/ActivityRecord;)V
 
     return-void
 .end method
@@ -66,7 +72,9 @@
 
     invoke-virtual {v1}, Lcom/android/server/wm/ActivityTaskSupervisor;->beginDeferResume()V
 
-    sget-object v1, Lcom/android/server/wm/RootWindowContainer$1$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/server/wm/RootWindowContainer$1$$ExternalSyntheticLambda0;
+    new-instance v1, Lcom/android/server/wm/RootWindowContainer$1$$ExternalSyntheticLambda0;
+
+    invoke-direct {v1}, Lcom/android/server/wm/RootWindowContainer$1$$ExternalSyntheticLambda0;-><init>()V
 
     iget-object v2, p0, Lcom/android/server/wm/RootWindowContainer$1;->this$0:Lcom/android/server/wm/RootWindowContainer;
 
@@ -82,7 +90,7 @@
 
     iget-object v2, p0, Lcom/android/server/wm/RootWindowContainer$1;->this$0:Lcom/android/server/wm/RootWindowContainer;
 
-    invoke-virtual {v2, v1}, Lcom/android/server/wm/RootWindowContainer;->forAllActivities(Ljava/util/function/Consumer;)V
+    invoke-virtual {v2, v1}, Lcom/android/server/wm/WindowContainer;->forAllActivities(Ljava/util/function/Consumer;)V
 
     invoke-interface {v1}, Lcom/android/internal/util/function/pooled/PooledConsumer;->recycle()V
     :try_end_0
@@ -95,11 +103,9 @@
 
     invoke-virtual {v1}, Lcom/android/server/wm/ActivityTaskSupervisor;->endDeferResume()V
 
-    iget-object v1, p0, Lcom/android/server/wm/RootWindowContainer$1;->this$0:Lcom/android/server/wm/RootWindowContainer;
+    iget-object p0, p0, Lcom/android/server/wm/RootWindowContainer$1;->this$0:Lcom/android/server/wm/RootWindowContainer;
 
-    invoke-virtual {v1}, Lcom/android/server/wm/RootWindowContainer;->resumeFocusedTasksTopActivities()Z
-
-    nop
+    invoke-virtual {p0}, Lcom/android/server/wm/RootWindowContainer;->resumeFocusedTasksTopActivities()Z
 
     monitor-exit v0
     :try_end_1
@@ -119,16 +125,14 @@
 
     invoke-virtual {v2}, Lcom/android/server/wm/ActivityTaskSupervisor;->endDeferResume()V
 
-    iget-object v2, p0, Lcom/android/server/wm/RootWindowContainer$1;->this$0:Lcom/android/server/wm/RootWindowContainer;
+    iget-object p0, p0, Lcom/android/server/wm/RootWindowContainer$1;->this$0:Lcom/android/server/wm/RootWindowContainer;
 
-    invoke-virtual {v2}, Lcom/android/server/wm/RootWindowContainer;->resumeFocusedTasksTopActivities()Z
-
-    nop
+    invoke-virtual {p0}, Lcom/android/server/wm/RootWindowContainer;->resumeFocusedTasksTopActivities()Z
 
     throw v1
 
     :catchall_1
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_2
@@ -136,5 +140,5 @@
 
     invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
 
-    throw v1
+    throw p0
 .end method

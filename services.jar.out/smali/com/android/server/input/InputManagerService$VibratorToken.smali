@@ -1,4 +1,4 @@
-.class final Lcom/android/server/input/InputManagerService$VibratorToken;
+.class public final Lcom/android/server/input/InputManagerService$VibratorToken;
 .super Ljava/lang/Object;
 .source "InputManagerService.java"
 
@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "VibratorToken"
 .end annotation
 
@@ -26,7 +26,7 @@
 
 .field public mVibrating:Z
 
-.field final synthetic this$0:Lcom/android/server/input/InputManagerService;
+.field public final synthetic this$0:Lcom/android/server/input/InputManagerService;
 
 
 # direct methods

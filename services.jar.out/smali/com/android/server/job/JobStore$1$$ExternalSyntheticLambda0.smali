@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/job/JobStore$1$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -23,13 +24,13 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/job/JobStore$1$$ExternalSyntheticLambda0;->f$0:Ljava/util/List;
+    iget-object p0, p0, Lcom/android/server/job/JobStore$1$$ExternalSyntheticLambda0;->f$0:Ljava/util/List;
 
     check-cast p1, Lcom/android/server/job/controllers/JobStatus;
 
-    invoke-static {v0, p1}, Lcom/android/server/job/JobStore$1;->lambda$run$0(Ljava/util/List;Lcom/android/server/job/controllers/JobStatus;)V
+    invoke-static {p0, p1}, Lcom/android/server/job/JobStore$1;->$r8$lambda$ZikJkDDt5KQaHJN4EZAQQUHLdb8(Ljava/util/List;Lcom/android/server/job/controllers/JobStatus;)V
 
     return-void
 .end method

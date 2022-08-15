@@ -1,4 +1,4 @@
-.class final Lcom/android/server/wm/CompatModePackages$CompatHandler;
+.class public final Lcom/android/server/wm/CompatModePackages$CompatHandler;
 .super Landroid/os/Handler;
 .source "CompatModePackages.java"
 
@@ -9,13 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "CompatHandler"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/wm/CompatModePackages;
+.field public final synthetic this$0:Lcom/android/server/wm/CompatModePackages;
 
 
 # direct methods
@@ -38,22 +38,19 @@
 .method public handleMessage(Landroid/os/Message;)V
     .locals 1
 
-    iget v0, p1, Landroid/os/Message;->what:I
+    iget p1, p1, Landroid/os/Message;->what:I
 
-    packed-switch v0, :pswitch_data_0
+    const/16 v0, 0x12c
+
+    if-eq p1, v0, :cond_0
 
     goto :goto_0
 
-    :pswitch_0
-    iget-object v0, p0, Lcom/android/server/wm/CompatModePackages$CompatHandler;->this$0:Lcom/android/server/wm/CompatModePackages;
+    :cond_0
+    iget-object p0, p0, Lcom/android/server/wm/CompatModePackages$CompatHandler;->this$0:Lcom/android/server/wm/CompatModePackages;
 
-    invoke-static {v0}, Lcom/android/server/wm/CompatModePackages;->access$000(Lcom/android/server/wm/CompatModePackages;)V
+    invoke-static {p0}, Lcom/android/server/wm/CompatModePackages;->-$$Nest$msaveCompatModes(Lcom/android/server/wm/CompatModePackages;)V
 
     :goto_0
     return-void
-
-    :pswitch_data_0
-    .packed-switch 0x12c
-        :pswitch_0
-    .end packed-switch
 .end method

@@ -1,4 +1,4 @@
-.class Lcom/android/server/accessibility/KeyboardInterceptor$KeyEventHolder;
+.class public Lcom/android/server/accessibility/KeyboardInterceptor$KeyEventHolder;
 .super Ljava/lang/Object;
 .source "KeyboardInterceptor.java"
 
@@ -9,15 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "KeyEventHolder"
 .end annotation
 
 
 # static fields
-.field private static final MAX_POOL_SIZE:I = 0x20
-
-.field private static final sPool:Landroid/util/Pools$SimplePool;
+.field public static final sPool:Landroid/util/Pools$SimplePool;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/Pools$SimplePool<",
@@ -41,7 +39,7 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 2
 
     new-instance v0, Landroid/util/Pools$SimplePool;
@@ -55,7 +53,7 @@
     return-void
 .end method
 
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -64,7 +62,7 @@
 .end method
 
 .method public static obtain(Landroid/view/KeyEvent;IJ)Lcom/android/server/accessibility/KeyboardInterceptor$KeyEventHolder;
-    .locals 2
+    .locals 1
 
     sget-object v0, Lcom/android/server/accessibility/KeyboardInterceptor$KeyEventHolder;->sPool:Landroid/util/Pools$SimplePool;
 
@@ -76,18 +74,16 @@
 
     if-nez v0, :cond_0
 
-    new-instance v1, Lcom/android/server/accessibility/KeyboardInterceptor$KeyEventHolder;
+    new-instance v0, Lcom/android/server/accessibility/KeyboardInterceptor$KeyEventHolder;
 
-    invoke-direct {v1}, Lcom/android/server/accessibility/KeyboardInterceptor$KeyEventHolder;-><init>()V
-
-    move-object v0, v1
+    invoke-direct {v0}, Lcom/android/server/accessibility/KeyboardInterceptor$KeyEventHolder;-><init>()V
 
     :cond_0
     invoke-static {p0}, Landroid/view/KeyEvent;->obtain(Landroid/view/KeyEvent;)Landroid/view/KeyEvent;
 
-    move-result-object v1
+    move-result-object p0
 
-    iput-object v1, v0, Lcom/android/server/accessibility/KeyboardInterceptor$KeyEventHolder;->event:Landroid/view/KeyEvent;
+    iput-object p0, v0, Lcom/android/server/accessibility/KeyboardInterceptor$KeyEventHolder;->event:Landroid/view/KeyEvent;
 
     iput p1, v0, Lcom/android/server/accessibility/KeyboardInterceptor$KeyEventHolder;->policyFlags:I
 

@@ -7,7 +7,7 @@
 
 
 # instance fields
-.field private mCurrentUserLockoutMode:I
+.field public mCurrentUserLockoutMode:I
 
 
 # direct methods
@@ -22,11 +22,11 @@
 
 # virtual methods
 .method public getLockoutModeForUser(I)I
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/biometrics/sensors/face/LockoutHalImpl;->mCurrentUserLockoutMode:I
+    iget p0, p0, Lcom/android/server/biometrics/sensors/face/LockoutHalImpl;->mCurrentUserLockoutMode:I
 
-    return v0
+    return p0
 .end method
 
 .method public setCurrentUserLockoutMode(I)V

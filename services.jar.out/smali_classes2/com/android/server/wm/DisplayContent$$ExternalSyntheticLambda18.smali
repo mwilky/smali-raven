@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda18;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Consumer;
+.implements Ljava/util/function/Predicate;
 
 
 # instance fields
@@ -22,14 +23,16 @@
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
-    .locals 1
+.method public final test(Ljava/lang/Object;)Z
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda18;->f$0:Lcom/android/server/wm/DisplayContent;
+    iget-object p0, p0, Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda18;->f$0:Lcom/android/server/wm/DisplayContent;
 
-    check-cast p1, Lcom/android/server/wm/AccessibilityController;
+    check-cast p1, Lcom/android/server/wm/WindowState;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/wm/DisplayContent;->updateAccessibilityOnWindowFocusChanged(Lcom/android/server/wm/AccessibilityController;)V
+    invoke-static {p0, p1}, Lcom/android/server/wm/DisplayContent;->$r8$lambda$QzFsokI_6PDJm4hVl5PqxqECsow(Lcom/android/server/wm/DisplayContent;Lcom/android/server/wm/WindowState;)Z
 
-    return-void
+    move-result p0
+
+    return p0
 .end method

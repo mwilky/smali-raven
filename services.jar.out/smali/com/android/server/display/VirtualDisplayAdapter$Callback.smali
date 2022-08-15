@@ -1,4 +1,4 @@
-.class Lcom/android/server/display/VirtualDisplayAdapter$Callback;
+.class public Lcom/android/server/display/VirtualDisplayAdapter$Callback;
 .super Landroid/os/Handler;
 .source "VirtualDisplayAdapter.java"
 
@@ -9,32 +9,24 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "Callback"
 .end annotation
 
 
-# static fields
-.field private static final MSG_ON_DISPLAY_PAUSED:I = 0x0
-
-.field private static final MSG_ON_DISPLAY_RESUMED:I = 0x1
-
-.field private static final MSG_ON_DISPLAY_STOPPED:I = 0x2
-
-
 # instance fields
-.field private final mCallback:Landroid/hardware/display/IVirtualDisplayCallback;
+.field public final mCallback:Landroid/hardware/display/IVirtualDisplayCallback;
 
 
 # direct methods
 .method public constructor <init>(Landroid/hardware/display/IVirtualDisplayCallback;Landroid/os/Handler;)V
-    .locals 1
+    .locals 0
 
     invoke-virtual {p2}, Landroid/os/Handler;->getLooper()Landroid/os/Looper;
 
-    move-result-object v0
+    move-result-object p2
 
-    invoke-direct {p0, v0}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
+    invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
     iput-object p1, p0, Lcom/android/server/display/VirtualDisplayAdapter$Callback;->mCallback:Landroid/hardware/display/IVirtualDisplayCallback;
 
@@ -48,7 +40,7 @@
 
     const/4 v0, 0x0
 
-    invoke-virtual {p0, v0}, Lcom/android/server/display/VirtualDisplayAdapter$Callback;->sendEmptyMessage(I)Z
+    invoke-virtual {p0, v0}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
     return-void
 .end method
@@ -58,7 +50,7 @@
 
     const/4 v0, 0x1
 
-    invoke-virtual {p0, v0}, Lcom/android/server/display/VirtualDisplayAdapter$Callback;->sendEmptyMessage(I)Z
+    invoke-virtual {p0, v0}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
     return-void
 .end method
@@ -68,63 +60,61 @@
 
     const/4 v0, 0x2
 
-    invoke-virtual {p0, v0}, Lcom/android/server/display/VirtualDisplayAdapter$Callback;->sendEmptyMessage(I)Z
+    invoke-virtual {p0, v0}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
     return-void
 .end method
 
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 3
+    .locals 1
 
     :try_start_0
-    iget v0, p1, Landroid/os/Message;->what:I
+    iget p1, p1, Landroid/os/Message;->what:I
 
-    packed-switch v0, :pswitch_data_0
+    if-eqz p1, :cond_2
 
-    goto :goto_0
+    const/4 v0, 0x1
 
-    :pswitch_0
-    iget-object v0, p0, Lcom/android/server/display/VirtualDisplayAdapter$Callback;->mCallback:Landroid/hardware/display/IVirtualDisplayCallback;
+    if-eq p1, v0, :cond_1
 
-    invoke-interface {v0}, Landroid/hardware/display/IVirtualDisplayCallback;->onStopped()V
+    const/4 v0, 0x2
 
-    goto :goto_0
-
-    :pswitch_1
-    iget-object v0, p0, Lcom/android/server/display/VirtualDisplayAdapter$Callback;->mCallback:Landroid/hardware/display/IVirtualDisplayCallback;
-
-    invoke-interface {v0}, Landroid/hardware/display/IVirtualDisplayCallback;->onResumed()V
+    if-eq p1, v0, :cond_0
 
     goto :goto_0
 
-    :pswitch_2
-    iget-object v0, p0, Lcom/android/server/display/VirtualDisplayAdapter$Callback;->mCallback:Landroid/hardware/display/IVirtualDisplayCallback;
+    :cond_0
+    iget-object p0, p0, Lcom/android/server/display/VirtualDisplayAdapter$Callback;->mCallback:Landroid/hardware/display/IVirtualDisplayCallback;
 
-    invoke-interface {v0}, Landroid/hardware/display/IVirtualDisplayCallback;->onPaused()V
+    invoke-interface {p0}, Landroid/hardware/display/IVirtualDisplayCallback;->onStopped()V
+
+    goto :goto_0
+
+    :cond_1
+    iget-object p0, p0, Lcom/android/server/display/VirtualDisplayAdapter$Callback;->mCallback:Landroid/hardware/display/IVirtualDisplayCallback;
+
+    invoke-interface {p0}, Landroid/hardware/display/IVirtualDisplayCallback;->onResumed()V
+
+    goto :goto_0
+
+    :cond_2
+    iget-object p0, p0, Lcom/android/server/display/VirtualDisplayAdapter$Callback;->mCallback:Landroid/hardware/display/IVirtualDisplayCallback;
+
+    invoke-interface {p0}, Landroid/hardware/display/IVirtualDisplayCallback;->onPaused()V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    nop
-
-    :goto_0
-    goto :goto_1
+    goto :goto_0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    const-string v1, "VirtualDisplayAdapter"
+    const-string p1, "VirtualDisplayAdapter"
 
-    const-string v2, "Failed to notify listener of virtual display event."
+    const-string v0, "Failed to notify listener of virtual display event."
 
-    invoke-static {v1, v2, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {p1, v0, p0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    :goto_1
+    :goto_0
     return-void
-
-    :pswitch_data_0
-    .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
 .end method

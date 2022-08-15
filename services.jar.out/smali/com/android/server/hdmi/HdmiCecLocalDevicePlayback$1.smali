@@ -1,4 +1,4 @@
-.class Lcom/android/server/hdmi/HdmiCecLocalDevicePlayback$1;
+.class public Lcom/android/server/hdmi/HdmiCecLocalDevicePlayback$1;
 .super Ljava/lang/Object;
 .source "HdmiCecLocalDevicePlayback.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/hdmi/HdmiCecLocalDevicePlayback;
+.field public final synthetic this$0:Lcom/android/server/hdmi/HdmiCecLocalDevicePlayback;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/hdmi/HdmiCecLocalDevicePlayback;)V
+.method public constructor <init>(Lcom/android/server/hdmi/HdmiCecLocalDevicePlayback;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/hdmi/HdmiCecLocalDevicePlayback$1;->this$0:Lcom/android/server/hdmi/HdmiCecLocalDevicePlayback;
@@ -35,23 +35,23 @@
 
 # virtual methods
 .method public onSendCompleted(I)V
-    .locals 3
+    .locals 2
 
     if-eqz p1, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    new-array v1, v0, [Ljava/lang/Object;
+    new-array v0, p1, [Ljava/lang/Object;
 
-    const-string v2, "AVR did not respond to <Give System Audio Mode Status>"
+    const-string v1, "AVR did not respond to <Give System Audio Mode Status>"
 
-    invoke-static {v2, v1}, Lcom/android/server/hdmi/HdmiLogger;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v1, v0}, Lcom/android/server/hdmi/HdmiLogger;->debug(Ljava/lang/String;[Ljava/lang/Object;)V
 
-    iget-object v1, p0, Lcom/android/server/hdmi/HdmiCecLocalDevicePlayback$1;->this$0:Lcom/android/server/hdmi/HdmiCecLocalDevicePlayback;
+    iget-object p0, p0, Lcom/android/server/hdmi/HdmiCecLocalDevicePlayback$1;->this$0:Lcom/android/server/hdmi/HdmiCecLocalDevicePlayback;
 
-    iget-object v1, v1, Lcom/android/server/hdmi/HdmiCecLocalDevicePlayback;->mService:Lcom/android/server/hdmi/HdmiControlService;
+    iget-object p0, p0, Lcom/android/server/hdmi/HdmiCecLocalDevice;->mService:Lcom/android/server/hdmi/HdmiControlService;
 
-    invoke-virtual {v1, v0}, Lcom/android/server/hdmi/HdmiControlService;->setSystemAudioActivated(Z)V
+    invoke-virtual {p0, p1}, Lcom/android/server/hdmi/HdmiControlService;->setSystemAudioActivated(Z)V
 
     :cond_0
     return-void

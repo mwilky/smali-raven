@@ -18,7 +18,7 @@
 # static fields
 .field public static final DESCRIPTOR:Ljava/lang/String;
 
-.field public static final HASH:Ljava/lang/String; = "4925f4fdbb270e4f35cc5519a15ed8dd8c69a549"
+.field public static final HASH:Ljava/lang/String; = "c7a085b65072b36dc02239895cac021b6daee530"
 
 .field public static final NETWORK_TEST_RESULT_INVALID:I = 0x1
 
@@ -38,9 +38,11 @@
 
 .field public static final NETWORK_VALIDATION_RESULT_PARTIAL:I = 0x2
 
+.field public static final NETWORK_VALIDATION_RESULT_SKIPPED:I = 0x4
+
 .field public static final NETWORK_VALIDATION_RESULT_VALID:I = 0x1
 
-.field public static final VERSION:I = 0xa
+.field public static final VERSION:I = 0xf
 
 
 # direct methods
@@ -129,6 +131,14 @@
 .end method
 
 .method public abstract notifyNetworkConnected(Landroid/net/LinkProperties;Landroid/net/NetworkCapabilities;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract notifyNetworkConnectedParcel(Landroid/net/networkstack/aidl/NetworkMonitorParameters;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

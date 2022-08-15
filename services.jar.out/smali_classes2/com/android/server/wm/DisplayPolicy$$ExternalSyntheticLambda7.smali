@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/wm/DisplayPolicy$$ExternalSyntheticLambda7;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/internal/util/function/TriConsumer;
@@ -23,17 +24,17 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/DisplayPolicy$$ExternalSyntheticLambda7;->f$0:Lcom/android/server/wm/DisplayPolicy;
+    iget-object p0, p0, Lcom/android/server/wm/DisplayPolicy$$ExternalSyntheticLambda7;->f$0:Lcom/android/server/wm/DisplayPolicy;
 
     check-cast p1, Lcom/android/server/wm/DisplayFrames;
 
-    check-cast p2, Lcom/android/server/wm/WindowState;
+    check-cast p2, Lcom/android/server/wm/WindowContainer;
 
     check-cast p3, Landroid/graphics/Rect;
 
-    invoke-virtual {v0, p1, p2, p3}, Lcom/android/server/wm/DisplayPolicy;->lambda$getImeSourceFrameProvider$13$DisplayPolicy(Lcom/android/server/wm/DisplayFrames;Lcom/android/server/wm/WindowState;Landroid/graphics/Rect;)V
+    invoke-static {p0, p1, p2, p3}, Lcom/android/server/wm/DisplayPolicy;->$r8$lambda$UfdOVokg-SsamnmTuLU_K62qdyI(Lcom/android/server/wm/DisplayPolicy;Lcom/android/server/wm/DisplayFrames;Lcom/android/server/wm/WindowContainer;Landroid/graphics/Rect;)V
 
     return-void
 .end method

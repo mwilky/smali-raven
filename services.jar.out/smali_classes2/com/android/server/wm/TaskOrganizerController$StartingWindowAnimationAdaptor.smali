@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/TaskOrganizerController$StartingWindowAnimationAdaptor;
+.class public Lcom/android/server/wm/TaskOrganizerController$StartingWindowAnimationAdaptor;
 .super Ljava/lang/Object;
 .source "TaskOrganizerController.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "StartingWindowAnimationAdaptor"
 .end annotation
 
 
 # instance fields
-.field mAnimationLeash:Landroid/view/SurfaceControl;
+.field public mAnimationLeash:Landroid/view/SurfaceControl;
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
-    .locals 2
+    .locals 1
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -41,19 +41,19 @@
 
     invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "StartingWindowAnimationAdaptor mCapturedLeash="
+    const-string p2, "StartingWindowAnimationAdaptor mCapturedLeash="
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p2
 
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+    invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    iget-object v0, p0, Lcom/android/server/wm/TaskOrganizerController$StartingWindowAnimationAdaptor;->mAnimationLeash:Landroid/view/SurfaceControl;
+    iget-object p0, p0, Lcom/android/server/wm/TaskOrganizerController$StartingWindowAnimationAdaptor;->mAnimationLeash:Landroid/view/SurfaceControl;
 
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/Object;)V
+    invoke-virtual {p1, p0}, Ljava/io/PrintWriter;->print(Ljava/lang/Object;)V
 
     invoke-virtual {p1}, Ljava/io/PrintWriter;->println()V
 
@@ -75,11 +75,11 @@
 .end method
 
 .method public getShowWallpaper()Z
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
 .method public getStatusBarTransitionsStartTime()J
@@ -97,9 +97,9 @@
 
     if-ne v0, p1, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput-object v0, p0, Lcom/android/server/wm/TaskOrganizerController$StartingWindowAnimationAdaptor;->mAnimationLeash:Landroid/view/SurfaceControl;
+    iput-object p1, p0, Lcom/android/server/wm/TaskOrganizerController$StartingWindowAnimationAdaptor;->mAnimationLeash:Landroid/view/SurfaceControl;
 
     :cond_0
     return-void

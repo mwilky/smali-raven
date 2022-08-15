@@ -4,50 +4,17 @@
 
 
 # annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/android/server/display/DisplayModeDirector;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = "Vote"
 .end annotation
-
-
-# static fields
-.field public static final APP_REQUEST_REFRESH_RATE_RANGE_PRIORITY_CUTOFF:I = 0x4
-
-.field public static final INVALID_SIZE:I = -0x1
-
-.field public static final MAX_PRIORITY:I = 0xc
-
-.field public static final MIN_PRIORITY:I = 0x0
-
-.field public static final PRIORITY_APP_REQUEST_BASE_MODE_REFRESH_RATE:I = 0x5
-
-.field public static final PRIORITY_APP_REQUEST_REFRESH_RATE_RANGE:I = 0x4
-
-.field public static final PRIORITY_APP_REQUEST_SIZE:I = 0x6
-
-.field public static final PRIORITY_DEFAULT_REFRESH_RATE:I = 0x0
-
-.field public static final PRIORITY_FLICKER_REFRESH_RATE:I = 0x1
-
-.field public static final PRIORITY_FLICKER_REFRESH_RATE_SWITCH:I = 0x9
-
-.field public static final PRIORITY_HIGH_BRIGHTNESS_MODE:I = 0x2
-
-.field public static final PRIORITY_LOW_POWER_MODE:I = 0x8
-
-.field public static final PRIORITY_PROXIMITY:I = 0xb
-
-.field public static final PRIORITY_SKIN_TEMPERATURE:I = 0xa
-
-.field public static final PRIORITY_UDFPS:I = 0xc
-
-.field public static final PRIORITY_USER_SETTING_MIN_REFRESH_RATE:I = 0x3
-
-.field public static final PRIORITY_USER_SETTING_PEAK_REFRESH_RATE:I = 0x7
 
 
 # instance fields
@@ -63,8 +30,8 @@
 
 
 # direct methods
-.method private constructor <init>(IIFFZF)V
-    .locals 1
+.method public constructor <init>(IIFFZF)V
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -72,11 +39,11 @@
 
     iput p2, p0, Lcom/android/server/display/DisplayModeDirector$Vote;->height:I
 
-    new-instance v0, Landroid/hardware/display/DisplayManagerInternal$RefreshRateRange;
+    new-instance p1, Landroid/hardware/display/DisplayManagerInternal$RefreshRateRange;
 
-    invoke-direct {v0, p3, p4}, Landroid/hardware/display/DisplayManagerInternal$RefreshRateRange;-><init>(FF)V
+    invoke-direct {p1, p3, p4}, Landroid/hardware/display/DisplayManagerInternal$RefreshRateRange;-><init>(FF)V
 
-    iput-object v0, p0, Lcom/android/server/display/DisplayModeDirector$Vote;->refreshRateRange:Landroid/hardware/display/DisplayManagerInternal$RefreshRateRange;
+    iput-object p1, p0, Lcom/android/server/display/DisplayModeDirector$Vote;->refreshRateRange:Landroid/hardware/display/DisplayManagerInternal$RefreshRateRange;
 
     iput-boolean p5, p0, Lcom/android/server/display/DisplayModeDirector$Vote;->disableRefreshRateSwitching:Z
 
@@ -194,80 +161,80 @@
 .end method
 
 .method public static priorityToString(I)Ljava/lang/String;
-    .locals 1
+    .locals 0
 
     packed-switch p0, :pswitch_data_0
 
     invoke-static {p0}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     :pswitch_0
-    const-string v0, "PRIORITY_UDFPS"
+    const-string p0, "PRIORITY_UDFPS"
 
-    return-object v0
+    return-object p0
 
     :pswitch_1
-    const-string v0, "PRIORITY_PROXIMITY"
+    const-string p0, "PRIORITY_PROXIMITY"
 
-    return-object v0
+    return-object p0
 
     :pswitch_2
-    const-string v0, "PRIORITY_SKIN_TEMPERATURE"
+    const-string p0, "PRIORITY_SKIN_TEMPERATURE"
 
-    return-object v0
+    return-object p0
 
     :pswitch_3
-    const-string v0, "PRIORITY_FLICKER_REFRESH_RATE_SWITCH"
+    const-string p0, "PRIORITY_FLICKER_REFRESH_RATE_SWITCH"
 
-    return-object v0
+    return-object p0
 
     :pswitch_4
-    const-string v0, "PRIORITY_LOW_POWER_MODE"
+    const-string p0, "PRIORITY_LOW_POWER_MODE"
 
-    return-object v0
+    return-object p0
 
     :pswitch_5
-    const-string v0, "PRIORITY_USER_SETTING_PEAK_REFRESH_RATE"
+    const-string p0, "PRIORITY_USER_SETTING_PEAK_REFRESH_RATE"
 
-    return-object v0
+    return-object p0
 
     :pswitch_6
-    const-string v0, "PRIORITY_APP_REQUEST_SIZE"
+    const-string p0, "PRIORITY_APP_REQUEST_SIZE"
 
-    return-object v0
+    return-object p0
 
     :pswitch_7
-    const-string v0, "PRIORITY_APP_REQUEST_BASE_MODE_REFRESH_RATE"
+    const-string p0, "PRIORITY_APP_REQUEST_BASE_MODE_REFRESH_RATE"
 
-    return-object v0
+    return-object p0
 
     :pswitch_8
-    const-string v0, "PRIORITY_APP_REQUEST_REFRESH_RATE_RANGE"
+    const-string p0, "PRIORITY_APP_REQUEST_REFRESH_RATE_RANGE"
 
-    return-object v0
+    return-object p0
 
     :pswitch_9
-    const-string v0, "PRIORITY_USER_SETTING_MIN_REFRESH_RATE"
+    const-string p0, "PRIORITY_USER_SETTING_MIN_REFRESH_RATE"
 
-    return-object v0
+    return-object p0
 
     :pswitch_a
-    const-string v0, "PRIORITY_HIGH_BRIGHTNESS_MODE"
+    const-string p0, "PRIORITY_HIGH_BRIGHTNESS_MODE"
 
-    return-object v0
+    return-object p0
 
     :pswitch_b
-    const-string v0, "PRIORITY_FLICKER_REFRESH_RATE"
+    const-string p0, "PRIORITY_FLICKER_REFRESH_RATE"
 
-    return-object v0
+    return-object p0
 
     :pswitch_c
-    const-string v0, "PRIORITY_DEFAULT_REFRESH_RATE"
+    const-string p0, "PRIORITY_DEFAULT_REFRESH_RATE"
 
-    return-object v0
+    return-object p0
 
     nop
 
@@ -346,17 +313,17 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v1, p0, Lcom/android/server/display/DisplayModeDirector$Vote;->baseModeRefreshRate:F
+    iget p0, p0, Lcom/android/server/display/DisplayModeDirector$Vote;->baseModeRefreshRate:F
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v1, "}"
+    const-string/jumbo p0, "}"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

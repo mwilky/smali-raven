@@ -1,4 +1,4 @@
-.class final Lcom/android/server/am/ActivityManagerService$ProcessChangeItem;
+.class public final Lcom/android/server/am/ActivityManagerService$ProcessChangeItem;
 .super Ljava/lang/Object;
 .source "ActivityManagerService.java"
 
@@ -9,37 +9,27 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = "ProcessChangeItem"
 .end annotation
 
 
-# static fields
-.field static final CHANGE_ACTIVITIES:I = 0x1
-
-.field static final CHANGE_CAPABILITY:I = 0x4
-
-.field static final CHANGE_FOREGROUND_SERVICES:I = 0x2
-
-
 # instance fields
-.field capability:I
+.field public capability:I
 
-.field changes:I
+.field public changes:I
 
-.field foregroundActivities:Z
+.field public foregroundActivities:Z
 
-.field foregroundServiceTypes:I
+.field public foregroundServiceTypes:I
 
-.field pid:I
+.field public pid:I
 
-.field processState:I
-
-.field uid:I
+.field public uid:I
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

@@ -1,4 +1,4 @@
-.class Lcom/android/server/os/NativeTombstoneManager$1;
+.class public Lcom/android/server/os/NativeTombstoneManager$1;
 .super Landroid/content/BroadcastReceiver;
 .source "NativeTombstoneManager.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/os/NativeTombstoneManager;
+.field public final synthetic this$0:Lcom/android/server/os/NativeTombstoneManager;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/os/NativeTombstoneManager;)V
+.method public constructor <init>(Lcom/android/server/os/NativeTombstoneManager;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/os/NativeTombstoneManager$1;->this$0:Lcom/android/server/os/NativeTombstoneManager;
@@ -32,32 +32,32 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 3
+    .locals 2
 
-    const-string v0, "android.intent.extra.UID"
+    const-string p1, "android.intent.extra.UID"
 
-    const/16 v1, -0x2710
+    const/16 v0, -0x2710
 
-    invoke-virtual {p2, v0, v1}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {p2, p1, v0}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    move-result v0
+    move-result p1
 
-    if-ne v0, v1, :cond_0
+    if-ne p1, v0, :cond_0
 
     return-void
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    const-string v2, "android.intent.extra.REMOVED_FOR_ALL_USERS"
+    const-string v1, "android.intent.extra.REMOVED_FOR_ALL_USERS"
 
-    invoke-virtual {p2, v2, v1}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+    invoke-virtual {p2, v1, v0}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
-    move-result v1
+    move-result p2
 
-    iget-object v2, p0, Lcom/android/server/os/NativeTombstoneManager$1;->this$0:Lcom/android/server/os/NativeTombstoneManager;
+    iget-object p0, p0, Lcom/android/server/os/NativeTombstoneManager$1;->this$0:Lcom/android/server/os/NativeTombstoneManager;
 
-    invoke-static {v2, v0, v1}, Lcom/android/server/os/NativeTombstoneManager;->access$000(Lcom/android/server/os/NativeTombstoneManager;IZ)V
+    invoke-static {p0, p1, p2}, Lcom/android/server/os/NativeTombstoneManager;->-$$Nest$mpurgePackage(Lcom/android/server/os/NativeTombstoneManager;IZ)V
 
     return-void
 .end method

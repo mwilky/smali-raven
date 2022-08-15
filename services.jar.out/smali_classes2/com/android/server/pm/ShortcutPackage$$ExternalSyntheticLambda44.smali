@@ -1,43 +1,42 @@
 .class public final synthetic Lcom/android/server/pm/ShortcutPackage$$ExternalSyntheticLambda44;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Function;
+.implements Ljava/util/function/Consumer;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/server/pm/ShortcutPackage;
+.field public final synthetic f$0:Lcom/android/internal/infra/AndroidFuture;
 
-.field public final synthetic f$1:Ljava/util/List;
+.field public final synthetic f$1:Landroid/app/appsearch/AppSearchSession;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/pm/ShortcutPackage;Ljava/util/List;)V
+.method public synthetic constructor <init>(Lcom/android/internal/infra/AndroidFuture;Landroid/app/appsearch/AppSearchSession;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/pm/ShortcutPackage$$ExternalSyntheticLambda44;->f$0:Lcom/android/server/pm/ShortcutPackage;
+    iput-object p1, p0, Lcom/android/server/pm/ShortcutPackage$$ExternalSyntheticLambda44;->f$0:Lcom/android/internal/infra/AndroidFuture;
 
-    iput-object p2, p0, Lcom/android/server/pm/ShortcutPackage$$ExternalSyntheticLambda44;->f$1:Ljava/util/List;
+    iput-object p2, p0, Lcom/android/server/pm/ShortcutPackage$$ExternalSyntheticLambda44;->f$1:Landroid/app/appsearch/AppSearchSession;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+.method public final accept(Ljava/lang/Object;)V
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/pm/ShortcutPackage$$ExternalSyntheticLambda44;->f$0:Lcom/android/server/pm/ShortcutPackage;
+    iget-object v0, p0, Lcom/android/server/pm/ShortcutPackage$$ExternalSyntheticLambda44;->f$0:Lcom/android/internal/infra/AndroidFuture;
 
-    iget-object v1, p0, Lcom/android/server/pm/ShortcutPackage$$ExternalSyntheticLambda44;->f$1:Ljava/util/List;
+    iget-object p0, p0, Lcom/android/server/pm/ShortcutPackage$$ExternalSyntheticLambda44;->f$1:Landroid/app/appsearch/AppSearchSession;
 
-    check-cast p1, Landroid/app/appsearch/AppSearchSession;
+    check-cast p1, Landroid/app/appsearch/AppSearchResult;
 
-    invoke-virtual {v0, v1, p1}, Lcom/android/server/pm/ShortcutPackage;->lambda$getShortcutById$46$ShortcutPackage(Ljava/util/List;Landroid/app/appsearch/AppSearchSession;)Ljava/util/concurrent/CompletableFuture;
+    invoke-static {v0, p0, p1}, Lcom/android/server/pm/ShortcutPackage;->$r8$lambda$qcd2oTLAzuBJcVOHjCIPHRcoTq0(Lcom/android/internal/infra/AndroidFuture;Landroid/app/appsearch/AppSearchSession;Landroid/app/appsearch/AppSearchResult;)V
 
-    move-result-object p1
-
-    return-object p1
+    return-void
 .end method

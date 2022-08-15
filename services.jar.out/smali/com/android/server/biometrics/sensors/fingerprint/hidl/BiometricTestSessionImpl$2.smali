@@ -1,9 +1,9 @@
-.class Lcom/android/server/biometrics/sensors/fingerprint/hidl/BiometricTestSessionImpl$2;
+.class public Lcom/android/server/biometrics/sensors/fingerprint/hidl/BiometricTestSessionImpl$2;
 .super Ljava/lang/Object;
 .source "BiometricTestSessionImpl.java"
 
 # interfaces
-.implements Lcom/android/server/biometrics/sensors/BaseClientMonitor$Callback;
+.implements Lcom/android/server/biometrics/sensors/ClientMonitorCallback;
 
 
 # annotations
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/biometrics/sensors/fingerprint/hidl/BiometricTestSessionImpl;
+.field public final synthetic this$0:Lcom/android/server/biometrics/sensors/fingerprint/hidl/BiometricTestSessionImpl;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/biometrics/sensors/fingerprint/hidl/BiometricTestSessionImpl;)V
+.method public constructor <init>(Lcom/android/server/biometrics/sensors/fingerprint/hidl/BiometricTestSessionImpl;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/biometrics/sensors/fingerprint/hidl/BiometricTestSessionImpl$2;->this$0:Lcom/android/server/biometrics/sensors/fingerprint/hidl/BiometricTestSessionImpl;
@@ -35,66 +35,66 @@
 
 # virtual methods
 .method public onClientFinished(Lcom/android/server/biometrics/sensors/BaseClientMonitor;Z)V
-    .locals 3
+    .locals 0
 
     :try_start_0
-    iget-object v0, p0, Lcom/android/server/biometrics/sensors/fingerprint/hidl/BiometricTestSessionImpl$2;->this$0:Lcom/android/server/biometrics/sensors/fingerprint/hidl/BiometricTestSessionImpl;
+    iget-object p0, p0, Lcom/android/server/biometrics/sensors/fingerprint/hidl/BiometricTestSessionImpl$2;->this$0:Lcom/android/server/biometrics/sensors/fingerprint/hidl/BiometricTestSessionImpl;
 
-    invoke-static {v0}, Lcom/android/server/biometrics/sensors/fingerprint/hidl/BiometricTestSessionImpl;->access$000(Lcom/android/server/biometrics/sensors/fingerprint/hidl/BiometricTestSessionImpl;)Landroid/hardware/biometrics/ITestSessionCallback;
+    invoke-static {p0}, Lcom/android/server/biometrics/sensors/fingerprint/hidl/BiometricTestSessionImpl;->-$$Nest$fgetmCallback(Lcom/android/server/biometrics/sensors/fingerprint/hidl/BiometricTestSessionImpl;)Landroid/hardware/biometrics/ITestSessionCallback;
 
-    move-result-object v0
+    move-result-object p0
 
     invoke-virtual {p1}, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->getTargetUserId()I
 
-    move-result v1
+    move-result p1
 
-    invoke-interface {v0, v1}, Landroid/hardware/biometrics/ITestSessionCallback;->onCleanupFinished(I)V
+    invoke-interface {p0, p1}, Landroid/hardware/biometrics/ITestSessionCallback;->onCleanupFinished(I)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    const-string v1, "BiometricTestSessionImpl"
+    const-string p1, "BiometricTestSessionImpl"
 
-    const-string v2, "Remote exception"
+    const-string p2, "Remote exception"
 
-    invoke-static {v1, v2, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {p1, p2, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_0
     return-void
 .end method
 
 .method public onClientStarted(Lcom/android/server/biometrics/sensors/BaseClientMonitor;)V
-    .locals 3
+    .locals 1
 
     :try_start_0
-    iget-object v0, p0, Lcom/android/server/biometrics/sensors/fingerprint/hidl/BiometricTestSessionImpl$2;->this$0:Lcom/android/server/biometrics/sensors/fingerprint/hidl/BiometricTestSessionImpl;
+    iget-object p0, p0, Lcom/android/server/biometrics/sensors/fingerprint/hidl/BiometricTestSessionImpl$2;->this$0:Lcom/android/server/biometrics/sensors/fingerprint/hidl/BiometricTestSessionImpl;
 
-    invoke-static {v0}, Lcom/android/server/biometrics/sensors/fingerprint/hidl/BiometricTestSessionImpl;->access$000(Lcom/android/server/biometrics/sensors/fingerprint/hidl/BiometricTestSessionImpl;)Landroid/hardware/biometrics/ITestSessionCallback;
+    invoke-static {p0}, Lcom/android/server/biometrics/sensors/fingerprint/hidl/BiometricTestSessionImpl;->-$$Nest$fgetmCallback(Lcom/android/server/biometrics/sensors/fingerprint/hidl/BiometricTestSessionImpl;)Landroid/hardware/biometrics/ITestSessionCallback;
 
-    move-result-object v0
+    move-result-object p0
 
     invoke-virtual {p1}, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->getTargetUserId()I
 
-    move-result v1
+    move-result p1
 
-    invoke-interface {v0, v1}, Landroid/hardware/biometrics/ITestSessionCallback;->onCleanupStarted(I)V
+    invoke-interface {p0, p1}, Landroid/hardware/biometrics/ITestSessionCallback;->onCleanupStarted(I)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    const-string v1, "BiometricTestSessionImpl"
+    const-string p1, "BiometricTestSessionImpl"
 
-    const-string v2, "Remote exception"
+    const-string v0, "Remote exception"
 
-    invoke-static {v1, v2, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {p1, v0, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_0
     return-void

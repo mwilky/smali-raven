@@ -1,4 +1,4 @@
-.class Lcom/android/server/StorageManagerService$12;
+.class public Lcom/android/server/StorageManagerService$12;
 .super Landroid/os/IVoldTaskListener$Stub;
 .source "StorageManagerService.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/StorageManagerService;
+.field public final synthetic this$0:Lcom/android/server/StorageManagerService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/StorageManagerService;)V
+.method public constructor <init>(Lcom/android/server/StorageManagerService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/StorageManagerService$12;->this$0:Lcom/android/server/StorageManagerService;
@@ -38,31 +38,31 @@
 .end method
 
 .method public onStatus(ILandroid/os/PersistableBundle;)V
-    .locals 2
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/StorageManagerService$12;->this$0:Lcom/android/server/StorageManagerService;
+    iget-object p2, p0, Lcom/android/server/StorageManagerService$12;->this$0:Lcom/android/server/StorageManagerService;
 
-    invoke-static {v0}, Lcom/android/server/StorageManagerService;->access$3400(Lcom/android/server/StorageManagerService;)Ljava/lang/Object;
+    invoke-static {p2}, Lcom/android/server/StorageManagerService;->-$$Nest$fgetmLock(Lcom/android/server/StorageManagerService;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p2
 
-    monitor-enter v0
+    monitor-enter p2
 
     :try_start_0
-    iget-object v1, p0, Lcom/android/server/StorageManagerService$12;->this$0:Lcom/android/server/StorageManagerService;
+    iget-object p0, p0, Lcom/android/server/StorageManagerService$12;->this$0:Lcom/android/server/StorageManagerService;
 
-    invoke-static {v1, p1}, Lcom/android/server/StorageManagerService;->access$5500(Lcom/android/server/StorageManagerService;I)V
+    invoke-static {p0, p1}, Lcom/android/server/StorageManagerService;->-$$Nest$monMoveStatusLocked(Lcom/android/server/StorageManagerService;I)V
 
-    monitor-exit v0
+    monitor-exit p2
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
-    monitor-exit v0
+    monitor-exit p2
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method

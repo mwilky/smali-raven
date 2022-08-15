@@ -1,45 +1,34 @@
 .class public final synthetic Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda4;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Predicate;
+.implements Lcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda4;
+# instance fields
+.field public final synthetic f$0:Lcom/android/server/wm/WindowContainer;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda4;
-
-    invoke-direct {v0}, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda4;-><init>()V
-
-    sput-object v0, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda4;->INSTANCE:Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda4;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Lcom/android/server/wm/WindowContainer;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda4;->f$0:Lcom/android/server/wm/WindowContainer;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final test(Ljava/lang/Object;)Z
+.method public final onAnimationFinished(ILcom/android/server/wm/AnimationAdapter;)V
     .locals 0
 
-    check-cast p1, Lcom/android/server/wm/ActivityRecord;
+    iget-object p0, p0, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda4;->f$0:Lcom/android/server/wm/WindowContainer;
 
-    invoke-static {p1}, Lcom/android/server/wm/WindowContainer;->lambda$getBottomMostActivity$3(Lcom/android/server/wm/ActivityRecord;)Z
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/wm/WindowContainer;->onAnimationFinished(ILcom/android/server/wm/AnimationAdapter;)V
 
-    move-result p1
-
-    return p1
+    return-void
 .end method

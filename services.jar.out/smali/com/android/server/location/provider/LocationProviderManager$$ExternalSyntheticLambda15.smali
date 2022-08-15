@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/location/provider/LocationProviderManager$$ExternalSyntheticLambda15;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Predicate;
@@ -23,15 +24,15 @@
 
 # virtual methods
 .method public final test(Ljava/lang/Object;)Z
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/location/provider/LocationProviderManager$$ExternalSyntheticLambda15;->f$0:I
+    iget p0, p0, Lcom/android/server/location/provider/LocationProviderManager$$ExternalSyntheticLambda15;->f$0:I
 
     check-cast p1, Lcom/android/server/location/provider/LocationProviderManager$Registration;
 
-    invoke-static {v0, p1}, Lcom/android/server/location/provider/LocationProviderManager;->lambda$flush$2(ILcom/android/server/location/provider/LocationProviderManager$Registration;)Z
+    invoke-static {p0, p1}, Lcom/android/server/location/provider/LocationProviderManager;->$r8$lambda$7q_fhVl__5_HUatklTvERpHFwGY(ILcom/android/server/location/provider/LocationProviderManager$Registration;)Z
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method

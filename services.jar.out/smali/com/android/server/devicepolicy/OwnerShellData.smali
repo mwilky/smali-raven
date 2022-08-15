@@ -1,4 +1,4 @@
-.class final Lcom/android/server/devicepolicy/OwnerShellData;
+.class public final Lcom/android/server/devicepolicy/OwnerShellData;
 .super Ljava/lang/Object;
 .source "OwnerShellData.java"
 
@@ -20,7 +20,7 @@
 
 
 # direct methods
-.method private constructor <init>(IILandroid/content/ComponentName;ZZZ)V
+.method public constructor <init>(IILandroid/content/ComponentName;ZZZ)V
     .locals 5
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -57,7 +57,7 @@
 
     check-cast v3, Landroid/content/ComponentName;
 
-    iput-object v3, p0, Lcom/android/server/devicepolicy/OwnerShellData;->admin:Landroid/content/ComponentName;
+    iput-object p3, p0, Lcom/android/server/devicepolicy/OwnerShellData;->admin:Landroid/content/ComponentName;
 
     iput-boolean p4, p0, Lcom/android/server/devicepolicy/OwnerShellData;->isDeviceOwner:Z
 
@@ -69,45 +69,45 @@
 
     if-eq p2, v0, :cond_1
 
-    move v0, v1
+    move p0, v1
 
     goto :goto_1
 
     :cond_1
-    move v0, v2
+    move p0, v2
 
     :goto_1
-    const-string/jumbo v3, "parentUserId cannot be USER_NULL for managed profile owner"
+    const-string/jumbo p3, "parentUserId cannot be USER_NULL for managed profile owner"
 
-    invoke-static {v0, v3}, Lcom/android/internal/util/Preconditions;->checkArgument(ZLjava/lang/Object;)V
+    invoke-static {p0, p3}, Lcom/android/internal/util/Preconditions;->checkArgument(ZLjava/lang/Object;)V
 
     if-eq p2, p1, :cond_2
 
-    move v0, v1
+    move p0, v1
 
     goto :goto_2
 
     :cond_2
-    move v0, v2
+    move p0, v2
 
     :goto_2
-    new-array v1, v1, [Ljava/lang/Object;
+    new-array p2, v1, [Ljava/lang/Object;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object p1
 
-    aput-object v3, v1, v2
+    aput-object p1, p2, v2
 
-    const-string v2, "cannot be parent of itself (%d)"
+    const-string p1, "cannot be parent of itself (%d)"
 
-    invoke-static {v0, v2, v1}, Lcom/android/internal/util/Preconditions;->checkArgument(ZLjava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {p0, p1, p2}, Lcom/android/internal/util/Preconditions;->checkArgument(ZLjava/lang/String;[Ljava/lang/Object;)V
 
     :cond_3
     return-void
 .end method
 
-.method static forDeviceOwner(ILandroid/content/ComponentName;)Lcom/android/server/devicepolicy/OwnerShellData;
+.method public static forDeviceOwner(ILandroid/content/ComponentName;)Lcom/android/server/devicepolicy/OwnerShellData;
     .locals 8
 
     new-instance v7, Lcom/android/server/devicepolicy/OwnerShellData;
@@ -131,7 +131,7 @@
     return-object v7
 .end method
 
-.method static forManagedProfileOwner(IILandroid/content/ComponentName;)Lcom/android/server/devicepolicy/OwnerShellData;
+.method public static forManagedProfileOwner(IILandroid/content/ComponentName;)Lcom/android/server/devicepolicy/OwnerShellData;
     .locals 8
 
     new-instance v7, Lcom/android/server/devicepolicy/OwnerShellData;
@@ -155,7 +155,7 @@
     return-object v7
 .end method
 
-.method static forUserProfileOwner(ILandroid/content/ComponentName;)Lcom/android/server/devicepolicy/OwnerShellData;
+.method public static forUserProfileOwner(ILandroid/content/ComponentName;)Lcom/android/server/devicepolicy/OwnerShellData;
     .locals 8
 
     new-instance v7, Lcom/android/server/devicepolicy/OwnerShellData;
@@ -186,9 +186,7 @@
 
     new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    move-result-object v1
+    const-class v1, Lcom/android/server/devicepolicy/OwnerShellData;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
 
@@ -215,8 +213,6 @@
     move-result-object v1
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
 
     iget-boolean v1, p0, Lcom/android/server/devicepolicy/OwnerShellData;->isDeviceOwner:Z
 
@@ -260,22 +256,22 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     :cond_3
-    iget-boolean v1, p0, Lcom/android/server/devicepolicy/OwnerShellData;->isAffiliated:Z
+    iget-boolean p0, p0, Lcom/android/server/devicepolicy/OwnerShellData;->isAffiliated:Z
 
-    if-eqz v1, :cond_4
+    if-eqz p0, :cond_4
 
-    const-string v1, ",isAffiliated"
+    const-string p0, ",isAffiliated"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_4
-    const/16 v1, 0x5d
+    const/16 p0, 0x5d
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method

@@ -1,4 +1,4 @@
-.class Lcom/android/server/connectivity/Vpn$Connection;
+.class public Lcom/android/server/connectivity/Vpn$Connection;
 .super Ljava/lang/Object;
 .source "Vpn.java"
 
@@ -12,19 +12,27 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "Connection"
 .end annotation
 
 
 # instance fields
-.field private mService:Landroid/os/IBinder;
+.field public mService:Landroid/os/IBinder;
 
-.field final synthetic this$0:Lcom/android/server/connectivity/Vpn;
+.field public final synthetic this$0:Lcom/android/server/connectivity/Vpn;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/server/connectivity/Vpn;)V
+.method public static bridge synthetic -$$Nest$fgetmService(Lcom/android/server/connectivity/Vpn$Connection;)Landroid/os/IBinder;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/connectivity/Vpn$Connection;->mService:Landroid/os/IBinder;
+
+    return-object p0
+.end method
+
+.method public constructor <init>(Lcom/android/server/connectivity/Vpn;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/connectivity/Vpn$Connection;->this$0:Lcom/android/server/connectivity/Vpn;
@@ -34,20 +42,12 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/connectivity/Vpn;Lcom/android/server/connectivity/Vpn$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/connectivity/Vpn;Lcom/android/server/connectivity/Vpn$Connection-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/connectivity/Vpn$Connection;-><init>(Lcom/android/server/connectivity/Vpn;)V
 
     return-void
-.end method
-
-.method static synthetic access$100(Lcom/android/server/connectivity/Vpn$Connection;)Landroid/os/IBinder;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/connectivity/Vpn$Connection;->mService:Landroid/os/IBinder;
-
-    return-object v0
 .end method
 
 
@@ -61,11 +61,11 @@
 .end method
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput-object v0, p0, Lcom/android/server/connectivity/Vpn$Connection;->mService:Landroid/os/IBinder;
+    iput-object p1, p0, Lcom/android/server/connectivity/Vpn$Connection;->mService:Landroid/os/IBinder;
 
     return-void
 .end method

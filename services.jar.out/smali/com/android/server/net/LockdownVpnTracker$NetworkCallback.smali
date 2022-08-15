@@ -1,4 +1,4 @@
-.class Lcom/android/server/net/LockdownVpnTracker$NetworkCallback;
+.class public Lcom/android/server/net/LockdownVpnTracker$NetworkCallback;
 .super Landroid/net/ConnectivityManager$NetworkCallback;
 .source "LockdownVpnTracker.java"
 
@@ -9,21 +9,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "NetworkCallback"
 .end annotation
 
 
 # instance fields
-.field private mLinkProperties:Landroid/net/LinkProperties;
+.field public mLinkProperties:Landroid/net/LinkProperties;
 
-.field private mNetwork:Landroid/net/Network;
+.field public mNetwork:Landroid/net/Network;
 
-.field final synthetic this$0:Lcom/android/server/net/LockdownVpnTracker;
+.field public final synthetic this$0:Lcom/android/server/net/LockdownVpnTracker;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/server/net/LockdownVpnTracker;)V
+.method public constructor <init>(Lcom/android/server/net/LockdownVpnTracker;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/net/LockdownVpnTracker$NetworkCallback;->this$0:Lcom/android/server/net/LockdownVpnTracker;
@@ -39,7 +39,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/net/LockdownVpnTracker;Lcom/android/server/net/LockdownVpnTracker$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/net/LockdownVpnTracker;Lcom/android/server/net/LockdownVpnTracker$NetworkCallback-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/net/LockdownVpnTracker$NetworkCallback;-><init>(Lcom/android/server/net/LockdownVpnTracker;)V
@@ -50,106 +50,109 @@
 
 # virtual methods
 .method public getLinkProperties()Landroid/net/LinkProperties;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/net/LockdownVpnTracker$NetworkCallback;->mLinkProperties:Landroid/net/LinkProperties;
+    iget-object p0, p0, Lcom/android/server/net/LockdownVpnTracker$NetworkCallback;->mLinkProperties:Landroid/net/LinkProperties;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getNetwork()Landroid/net/Network;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/net/LockdownVpnTracker$NetworkCallback;->mNetwork:Landroid/net/Network;
+
+    return-object p0
+.end method
+
+.method public onLinkPropertiesChanged(Landroid/net/Network;Landroid/net/LinkProperties;)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/net/LockdownVpnTracker$NetworkCallback;->mNetwork:Landroid/net/Network;
 
-    return-object v0
-.end method
+    invoke-virtual {p1, v0}, Landroid/net/Network;->equals(Ljava/lang/Object;)Z
 
-.method public onLinkPropertiesChanged(Landroid/net/Network;Landroid/net/LinkProperties;)V
-    .locals 3
+    move-result v0
 
-    const/4 v0, 0x0
-
-    iget-object v1, p0, Lcom/android/server/net/LockdownVpnTracker$NetworkCallback;->mNetwork:Landroid/net/Network;
-
-    invoke-virtual {p1, v1}, Landroid/net/Network;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
     iput-object p1, p0, Lcom/android/server/net/LockdownVpnTracker$NetworkCallback;->mNetwork:Landroid/net/Network;
 
-    const/4 v0, 0x1
-
-    :cond_0
-    iput-object p2, p0, Lcom/android/server/net/LockdownVpnTracker$NetworkCallback;->mLinkProperties:Landroid/net/LinkProperties;
-
-    if-eqz v0, :cond_1
-
-    iget-object v1, p0, Lcom/android/server/net/LockdownVpnTracker$NetworkCallback;->this$0:Lcom/android/server/net/LockdownVpnTracker;
-
-    invoke-static {v1}, Lcom/android/server/net/LockdownVpnTracker;->access$200(Lcom/android/server/net/LockdownVpnTracker;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    monitor-enter v1
-
-    :try_start_0
-    iget-object v2, p0, Lcom/android/server/net/LockdownVpnTracker$NetworkCallback;->this$0:Lcom/android/server/net/LockdownVpnTracker;
-
-    invoke-static {v2}, Lcom/android/server/net/LockdownVpnTracker;->access$300(Lcom/android/server/net/LockdownVpnTracker;)V
-
-    monitor-exit v1
+    const/4 p1, 0x1
 
     goto :goto_0
 
-    :catchall_0
-    move-exception v2
+    :cond_0
+    const/4 p1, 0x0
 
-    monitor-exit v1
+    :goto_0
+    iput-object p2, p0, Lcom/android/server/net/LockdownVpnTracker$NetworkCallback;->mLinkProperties:Landroid/net/LinkProperties;
+
+    if-eqz p1, :cond_1
+
+    iget-object p1, p0, Lcom/android/server/net/LockdownVpnTracker$NetworkCallback;->this$0:Lcom/android/server/net/LockdownVpnTracker;
+
+    invoke-static {p1}, Lcom/android/server/net/LockdownVpnTracker;->-$$Nest$fgetmStateLock(Lcom/android/server/net/LockdownVpnTracker;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    monitor-enter p1
+
+    :try_start_0
+    iget-object p0, p0, Lcom/android/server/net/LockdownVpnTracker$NetworkCallback;->this$0:Lcom/android/server/net/LockdownVpnTracker;
+
+    invoke-static {p0}, Lcom/android/server/net/LockdownVpnTracker;->-$$Nest$mhandleStateChangedLocked(Lcom/android/server/net/LockdownVpnTracker;)V
+
+    monitor-exit p1
+
+    goto :goto_1
+
+    :catchall_0
+    move-exception p0
+
+    monitor-exit p1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v2
+    throw p0
 
     :cond_1
-    :goto_0
+    :goto_1
     return-void
 .end method
 
 .method public onLost(Landroid/net/Network;)V
-    .locals 2
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput-object v0, p0, Lcom/android/server/net/LockdownVpnTracker$NetworkCallback;->mNetwork:Landroid/net/Network;
+    iput-object p1, p0, Lcom/android/server/net/LockdownVpnTracker$NetworkCallback;->mNetwork:Landroid/net/Network;
 
-    iput-object v0, p0, Lcom/android/server/net/LockdownVpnTracker$NetworkCallback;->mLinkProperties:Landroid/net/LinkProperties;
+    iput-object p1, p0, Lcom/android/server/net/LockdownVpnTracker$NetworkCallback;->mLinkProperties:Landroid/net/LinkProperties;
 
-    iget-object v0, p0, Lcom/android/server/net/LockdownVpnTracker$NetworkCallback;->this$0:Lcom/android/server/net/LockdownVpnTracker;
+    iget-object p1, p0, Lcom/android/server/net/LockdownVpnTracker$NetworkCallback;->this$0:Lcom/android/server/net/LockdownVpnTracker;
 
-    invoke-static {v0}, Lcom/android/server/net/LockdownVpnTracker;->access$200(Lcom/android/server/net/LockdownVpnTracker;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/android/server/net/LockdownVpnTracker;->-$$Nest$fgetmStateLock(Lcom/android/server/net/LockdownVpnTracker;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    monitor-enter v0
+    monitor-enter p1
 
     :try_start_0
-    iget-object v1, p0, Lcom/android/server/net/LockdownVpnTracker$NetworkCallback;->this$0:Lcom/android/server/net/LockdownVpnTracker;
+    iget-object p0, p0, Lcom/android/server/net/LockdownVpnTracker$NetworkCallback;->this$0:Lcom/android/server/net/LockdownVpnTracker;
 
-    invoke-static {v1}, Lcom/android/server/net/LockdownVpnTracker;->access$300(Lcom/android/server/net/LockdownVpnTracker;)V
+    invoke-static {p0}, Lcom/android/server/net/LockdownVpnTracker;->-$$Nest$mhandleStateChangedLocked(Lcom/android/server/net/LockdownVpnTracker;)V
 
-    monitor-exit v0
+    monitor-exit p1
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
-    monitor-exit v0
+    monitor-exit p1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method

@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/blob/BlobStoreSession$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/os/ParcelFileDescriptor$OnCloseListener;
@@ -27,13 +28,13 @@
 
 # virtual methods
 .method public final onClose(Ljava/io/IOException;)V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/blob/BlobStoreSession$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/blob/BlobStoreSession;
 
-    iget-object v1, p0, Lcom/android/server/blob/BlobStoreSession$$ExternalSyntheticLambda0;->f$1:Landroid/os/RevocableFileDescriptor;
+    iget-object p0, p0, Lcom/android/server/blob/BlobStoreSession$$ExternalSyntheticLambda0;->f$1:Landroid/os/RevocableFileDescriptor;
 
-    invoke-virtual {v0, v1, p1}, Lcom/android/server/blob/BlobStoreSession;->lambda$trackRevocableFdLocked$0$BlobStoreSession(Landroid/os/RevocableFileDescriptor;Ljava/io/IOException;)V
+    invoke-static {v0, p0, p1}, Lcom/android/server/blob/BlobStoreSession;->$r8$lambda$RQ7jEAXanfbmh5XPIfRGkx9Tpjo(Lcom/android/server/blob/BlobStoreSession;Landroid/os/RevocableFileDescriptor;Ljava/io/IOException;)V
 
     return-void
 .end method

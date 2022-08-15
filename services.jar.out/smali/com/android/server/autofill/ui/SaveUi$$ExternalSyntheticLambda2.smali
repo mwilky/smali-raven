@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/autofill/ui/SaveUi$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/view/View$OnClickListener;
+.implements Landroid/content/DialogInterface$OnDismissListener;
 
 
 # instance fields
@@ -22,12 +23,12 @@
 
 
 # virtual methods
-.method public final onClick(Landroid/view/View;)V
-    .locals 1
+.method public final onDismiss(Landroid/content/DialogInterface;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/autofill/ui/SaveUi$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/autofill/ui/SaveUi;
+    iget-object p0, p0, Lcom/android/server/autofill/ui/SaveUi$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/autofill/ui/SaveUi;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/autofill/ui/SaveUi;->lambda$new$1$SaveUi(Landroid/view/View;)V
+    invoke-static {p0, p1}, Lcom/android/server/autofill/ui/SaveUi;->$r8$lambda$yuO95Oj4Gro38MWlfVkqVx7cM58(Lcom/android/server/autofill/ui/SaveUi;Landroid/content/DialogInterface;)V
 
     return-void
 .end method

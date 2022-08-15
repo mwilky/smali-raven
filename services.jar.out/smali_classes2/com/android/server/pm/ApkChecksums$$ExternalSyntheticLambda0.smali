@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/pm/ApkChecksums$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -57,7 +58,7 @@
 
     iget-wide v5, p0, Lcom/android/server/pm/ApkChecksums$$ExternalSyntheticLambda0;->f$5:J
 
-    invoke-static/range {v0 .. v6}, Lcom/android/server/pm/ApkChecksums;->lambda$processRequiredChecksums$0(Ljava/util/List;Ljava/util/List;ILandroid/content/pm/IOnChecksumsReadyListener;Lcom/android/server/pm/ApkChecksums$Injector;J)V
+    invoke-static/range {v0 .. v6}, Lcom/android/server/pm/ApkChecksums;->$r8$lambda$vxQ5QTwtPrj4XZor3Qd7p6DwGxw(Ljava/util/List;Ljava/util/List;ILandroid/content/pm/IOnChecksumsReadyListener;Lcom/android/server/pm/ApkChecksums$Injector;J)V
 
     return-void
 .end method

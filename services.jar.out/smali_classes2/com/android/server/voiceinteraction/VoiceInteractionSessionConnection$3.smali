@@ -1,4 +1,4 @@
-.class Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection$3;
+.class public Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection$3;
 .super Ljava/lang/Object;
 .source "VoiceInteractionSessionConnection.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;
+.field public final synthetic this$0:Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;)V
+.method public constructor <init>(Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection$3;->this$0:Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;
@@ -35,19 +35,19 @@
 
 # virtual methods
 .method public run()V
-    .locals 1
+    .locals 0
 
-    const-class v0, Lcom/android/server/statusbar/StatusBarManagerInternal;
+    const-class p0, Lcom/android/server/statusbar/StatusBarManagerInternal;
 
-    invoke-static {v0}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-static {p0}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/android/server/statusbar/StatusBarManagerInternal;
+    check-cast p0, Lcom/android/server/statusbar/StatusBarManagerInternal;
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    invoke-interface {v0}, Lcom/android/server/statusbar/StatusBarManagerInternal;->showAssistDisclosure()V
+    invoke-interface {p0}, Lcom/android/server/statusbar/StatusBarManagerInternal;->showAssistDisclosure()V
 
     :cond_0
     return-void

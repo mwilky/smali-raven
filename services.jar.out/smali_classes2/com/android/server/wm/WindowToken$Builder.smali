@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/WindowToken$Builder;
+.class public Lcom/android/server/wm/WindowToken$Builder;
 .super Ljava/lang/Object;
 .source "WindowToken.java"
 
@@ -9,33 +9,33 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "Builder"
 .end annotation
 
 
 # instance fields
-.field private mDisplayContent:Lcom/android/server/wm/DisplayContent;
+.field public mDisplayContent:Lcom/android/server/wm/DisplayContent;
 
-.field private mFromClientToken:Z
+.field public mFromClientToken:Z
 
-.field private mOptions:Landroid/os/Bundle;
+.field public mOptions:Landroid/os/Bundle;
 
-.field private mOwnerCanManageAppTokens:Z
+.field public mOwnerCanManageAppTokens:Z
 
-.field private mPersistOnEmpty:Z
+.field public mPersistOnEmpty:Z
 
-.field private mRoundedCornerOverlay:Z
+.field public mRoundedCornerOverlay:Z
 
-.field private final mService:Lcom/android/server/wm/WindowManagerService;
+.field public final mService:Lcom/android/server/wm/WindowManagerService;
 
-.field private final mToken:Landroid/os/IBinder;
+.field public final mToken:Landroid/os/IBinder;
 
-.field private final mType:I
+.field public final mType:I
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/wm/WindowManagerService;Landroid/os/IBinder;I)V
+.method public constructor <init>(Lcom/android/server/wm/WindowManagerService;Landroid/os/IBinder;I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -51,7 +51,7 @@
 
 
 # virtual methods
-.method build()Lcom/android/server/wm/WindowToken;
+.method public build()Lcom/android/server/wm/WindowToken;
     .locals 11
 
     new-instance v10, Lcom/android/server/wm/WindowToken;
@@ -81,7 +81,7 @@
     return-object v10
 .end method
 
-.method setDisplayContent(Lcom/android/server/wm/DisplayContent;)Lcom/android/server/wm/WindowToken$Builder;
+.method public setDisplayContent(Lcom/android/server/wm/DisplayContent;)Lcom/android/server/wm/WindowToken$Builder;
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/wm/WindowToken$Builder;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
@@ -89,7 +89,7 @@
     return-object p0
 .end method
 
-.method setFromClientToken(Z)Lcom/android/server/wm/WindowToken$Builder;
+.method public setFromClientToken(Z)Lcom/android/server/wm/WindowToken$Builder;
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/server/wm/WindowToken$Builder;->mFromClientToken:Z
@@ -97,7 +97,7 @@
     return-object p0
 .end method
 
-.method setOptions(Landroid/os/Bundle;)Lcom/android/server/wm/WindowToken$Builder;
+.method public setOptions(Landroid/os/Bundle;)Lcom/android/server/wm/WindowToken$Builder;
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/wm/WindowToken$Builder;->mOptions:Landroid/os/Bundle;
@@ -105,7 +105,7 @@
     return-object p0
 .end method
 
-.method setOwnerCanManageAppTokens(Z)Lcom/android/server/wm/WindowToken$Builder;
+.method public setOwnerCanManageAppTokens(Z)Lcom/android/server/wm/WindowToken$Builder;
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/server/wm/WindowToken$Builder;->mOwnerCanManageAppTokens:Z
@@ -113,7 +113,7 @@
     return-object p0
 .end method
 
-.method setPersistOnEmpty(Z)Lcom/android/server/wm/WindowToken$Builder;
+.method public setPersistOnEmpty(Z)Lcom/android/server/wm/WindowToken$Builder;
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/server/wm/WindowToken$Builder;->mPersistOnEmpty:Z
@@ -121,7 +121,7 @@
     return-object p0
 .end method
 
-.method setRoundedCornerOverlay(Z)Lcom/android/server/wm/WindowToken$Builder;
+.method public setRoundedCornerOverlay(Z)Lcom/android/server/wm/WindowToken$Builder;
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/server/wm/WindowToken$Builder;->mRoundedCornerOverlay:Z

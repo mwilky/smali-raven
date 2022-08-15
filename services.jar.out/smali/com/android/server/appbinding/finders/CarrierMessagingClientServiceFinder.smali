@@ -15,14 +15,22 @@
 
 
 # instance fields
-.field private final mRoleHolderChangedListener:Landroid/app/role/OnRoleHoldersChangedListener;
+.field public final mRoleHolderChangedListener:Landroid/app/role/OnRoleHoldersChangedListener;
 
-.field private final mRoleManager:Landroid/app/role/RoleManager;
+.field public final mRoleManager:Landroid/app/role/RoleManager;
 
 
 # direct methods
+.method public static synthetic $r8$lambda$nuXSbNTsOjNWD6_GEEQjIv5jgY8(Lcom/android/server/appbinding/finders/CarrierMessagingClientServiceFinder;Ljava/lang/String;Landroid/os/UserHandle;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/server/appbinding/finders/CarrierMessagingClientServiceFinder;->lambda$new$0(Ljava/lang/String;Landroid/os/UserHandle;)V
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Ljava/util/function/BiConsumer;Landroid/os/Handler;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -38,22 +46,49 @@
 
     invoke-direct {p0, p1, p2, p3}, Lcom/android/server/appbinding/finders/AppServiceFinder;-><init>(Landroid/content/Context;Ljava/util/function/BiConsumer;Landroid/os/Handler;)V
 
-    new-instance v0, Lcom/android/server/appbinding/finders/CarrierMessagingClientServiceFinder$$ExternalSyntheticLambda0;
+    new-instance p2, Lcom/android/server/appbinding/finders/CarrierMessagingClientServiceFinder$$ExternalSyntheticLambda0;
 
-    invoke-direct {v0, p0}, Lcom/android/server/appbinding/finders/CarrierMessagingClientServiceFinder$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/appbinding/finders/CarrierMessagingClientServiceFinder;)V
+    invoke-direct {p2, p0}, Lcom/android/server/appbinding/finders/CarrierMessagingClientServiceFinder$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/appbinding/finders/CarrierMessagingClientServiceFinder;)V
 
-    iput-object v0, p0, Lcom/android/server/appbinding/finders/CarrierMessagingClientServiceFinder;->mRoleHolderChangedListener:Landroid/app/role/OnRoleHoldersChangedListener;
+    iput-object p2, p0, Lcom/android/server/appbinding/finders/CarrierMessagingClientServiceFinder;->mRoleHolderChangedListener:Landroid/app/role/OnRoleHoldersChangedListener;
 
-    const-class v0, Landroid/app/role/RoleManager;
+    const-class p2, Landroid/app/role/RoleManager;
 
-    invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-virtual {p1, p2}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Landroid/app/role/RoleManager;
+    check-cast p1, Landroid/app/role/RoleManager;
 
-    iput-object v0, p0, Lcom/android/server/appbinding/finders/CarrierMessagingClientServiceFinder;->mRoleManager:Landroid/app/role/RoleManager;
+    iput-object p1, p0, Lcom/android/server/appbinding/finders/CarrierMessagingClientServiceFinder;->mRoleManager:Landroid/app/role/RoleManager;
 
+    return-void
+.end method
+
+.method private synthetic lambda$new$0(Ljava/lang/String;Landroid/os/UserHandle;)V
+    .locals 1
+
+    const-string v0, "android.app.role.SMS"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_0
+
+    iget-object p1, p0, Lcom/android/server/appbinding/finders/AppServiceFinder;->mListener:Ljava/util/function/BiConsumer;
+
+    invoke-virtual {p2}, Landroid/os/UserHandle;->getIdentifier()I
+
+    move-result p2
+
+    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object p2
+
+    invoke-interface {p1, p0, p2}, Ljava/util/function/BiConsumer;->accept(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    :cond_0
     return-void
 .end method
 
@@ -64,47 +99,47 @@
 
     invoke-virtual {p0, p1}, Lcom/android/server/appbinding/finders/CarrierMessagingClientServiceFinder;->asInterface(Landroid/os/IBinder;)Landroid/service/carrier/ICarrierMessagingClientService;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method
 
 .method public asInterface(Landroid/os/IBinder;)Landroid/service/carrier/ICarrierMessagingClientService;
-    .locals 1
+    .locals 0
 
     invoke-static {p1}, Landroid/service/carrier/ICarrierMessagingClientService$Stub;->asInterface(Landroid/os/IBinder;)Landroid/service/carrier/ICarrierMessagingClientService;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getAppDescription()Ljava/lang/String;
-    .locals 1
+    .locals 0
 
-    const-string v0, "[Default SMS app]"
+    const-string p0, "[Default SMS app]"
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getBindFlags(Lcom/android/server/appbinding/AppBindingConstants;)I
-    .locals 1
+    .locals 0
 
-    iget v0, p1, Lcom/android/server/appbinding/AppBindingConstants;->SMS_APP_BIND_FLAGS:I
+    iget p0, p1, Lcom/android/server/appbinding/AppBindingConstants;->SMS_APP_BIND_FLAGS:I
 
-    return v0
+    return p0
 .end method
 
-.method protected getServiceAction()Ljava/lang/String;
-    .locals 1
+.method public getServiceAction()Ljava/lang/String;
+    .locals 0
 
-    const-string v0, "android.telephony.action.CARRIER_MESSAGING_CLIENT_SERVICE"
+    const-string p0, "android.telephony.action.CARRIER_MESSAGING_CLIENT_SERVICE"
 
-    return-object v0
+    return-object p0
 .end method
 
-.method protected getServiceClass()Ljava/lang/Class;
-    .locals 1
+.method public getServiceClass()Ljava/lang/Class;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -114,104 +149,77 @@
         }
     .end annotation
 
-    const-class v0, Landroid/service/carrier/CarrierMessagingClientService;
+    const-class p0, Landroid/service/carrier/CarrierMessagingClientService;
 
-    return-object v0
+    return-object p0
 .end method
 
-.method protected getServicePermission()Ljava/lang/String;
-    .locals 1
+.method public getServicePermission()Ljava/lang/String;
+    .locals 0
 
-    const-string v0, "android.permission.BIND_CARRIER_MESSAGING_CLIENT_SERVICE"
+    const-string p0, "android.permission.BIND_CARRIER_MESSAGING_CLIENT_SERVICE"
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getTargetPackage(I)Ljava/lang/String;
-    .locals 3
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/appbinding/finders/CarrierMessagingClientServiceFinder;->mRoleManager:Landroid/app/role/RoleManager;
+    iget-object p0, p0, Lcom/android/server/appbinding/finders/CarrierMessagingClientServiceFinder;->mRoleManager:Landroid/app/role/RoleManager;
 
     invoke-static {p1}, Landroid/os/UserHandle;->of(I)Landroid/os/UserHandle;
 
-    move-result-object v1
+    move-result-object p1
 
-    const-string v2, "android.app.role.SMS"
+    const-string v0, "android.app.role.SMS"
 
-    invoke-virtual {v0, v2, v1}, Landroid/app/role/RoleManager;->getRoleHoldersAsUser(Ljava/lang/String;Landroid/os/UserHandle;)Ljava/util/List;
+    invoke-virtual {p0, v0, p1}, Landroid/app/role/RoleManager;->getRoleHoldersAsUser(Ljava/lang/String;Landroid/os/UserHandle;)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0}, Lcom/android/internal/util/CollectionUtils;->firstOrNull(Ljava/util/List;)Ljava/lang/Object;
+    invoke-static {p0}, Lcom/android/internal/util/CollectionUtils;->firstOrNull(Ljava/util/List;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Ljava/lang/String;
+    check-cast p0, Ljava/lang/String;
 
-    return-object v0
+    return-object p0
 .end method
 
-.method protected isEnabled(Lcom/android/server/appbinding/AppBindingConstants;)Z
-    .locals 2
+.method public isEnabled(Lcom/android/server/appbinding/AppBindingConstants;)Z
+    .locals 0
 
-    iget-boolean v0, p1, Lcom/android/server/appbinding/AppBindingConstants;->SMS_SERVICE_ENABLED:Z
+    iget-boolean p1, p1, Lcom/android/server/appbinding/AppBindingConstants;->SMS_SERVICE_ENABLED:Z
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/appbinding/finders/CarrierMessagingClientServiceFinder;->mContext:Landroid/content/Context;
+    iget-object p0, p0, Lcom/android/server/appbinding/finders/AppServiceFinder;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v0
+    move-result-object p0
 
-    const v1, 0x111016f
+    const p1, 0x11101e6
 
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
+    invoke-virtual {p0, p1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
-    move-result v0
+    move-result p0
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
-.end method
-
-.method public synthetic lambda$new$0$CarrierMessagingClientServiceFinder(Ljava/lang/String;Landroid/os/UserHandle;)V
-    .locals 2
-
-    const-string v0, "android.app.role.SMS"
-
-    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/server/appbinding/finders/CarrierMessagingClientServiceFinder;->mListener:Ljava/util/function/BiConsumer;
-
-    invoke-virtual {p2}, Landroid/os/UserHandle;->getIdentifier()I
-
-    move-result v1
-
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    invoke-interface {v0, p0, v1}, Ljava/util/function/BiConsumer;->accept(Ljava/lang/Object;Ljava/lang/Object;)V
-
-    :cond_0
-    return-void
+    return p0
 .end method
 
 .method public startMonitoring()V
-    .locals 4
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/appbinding/finders/CarrierMessagingClientServiceFinder;->mRoleManager:Landroid/app/role/RoleManager;
 
@@ -219,40 +227,40 @@
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/android/server/appbinding/finders/CarrierMessagingClientServiceFinder;->mRoleHolderChangedListener:Landroid/app/role/OnRoleHoldersChangedListener;
+    iget-object p0, p0, Lcom/android/server/appbinding/finders/CarrierMessagingClientServiceFinder;->mRoleHolderChangedListener:Landroid/app/role/OnRoleHoldersChangedListener;
 
-    sget-object v3, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
+    sget-object v2, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
 
-    invoke-virtual {v0, v1, v2, v3}, Landroid/app/role/RoleManager;->addOnRoleHoldersChangedListenerAsUser(Ljava/util/concurrent/Executor;Landroid/app/role/OnRoleHoldersChangedListener;Landroid/os/UserHandle;)V
+    invoke-virtual {v0, v1, p0, v2}, Landroid/app/role/RoleManager;->addOnRoleHoldersChangedListenerAsUser(Ljava/util/concurrent/Executor;Landroid/app/role/OnRoleHoldersChangedListener;Landroid/os/UserHandle;)V
 
     return-void
 .end method
 
-.method protected validateService(Landroid/content/pm/ServiceInfo;)Ljava/lang/String;
-    .locals 3
+.method public validateService(Landroid/content/pm/ServiceInfo;)Ljava/lang/String;
+    .locals 0
 
-    iget-object v0, p1, Landroid/content/pm/ServiceInfo;->packageName:Ljava/lang/String;
+    iget-object p0, p1, Landroid/content/pm/ServiceInfo;->packageName:Ljava/lang/String;
 
-    iget-object v1, p1, Landroid/content/pm/ServiceInfo;->processName:Ljava/lang/String;
+    iget-object p1, p1, Landroid/content/pm/ServiceInfo;->processName:Ljava/lang/String;
 
-    if-eqz v1, :cond_1
+    if-eqz p1, :cond_1
 
-    invoke-static {v0, v1}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+    invoke-static {p0, p1}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
 
-    move-result v2
+    move-result p0
 
-    if-eqz v2, :cond_0
+    if-eqz p0, :cond_0
 
     goto :goto_0
 
     :cond_0
-    const/4 v2, 0x0
+    const/4 p0, 0x0
 
-    return-object v2
+    return-object p0
 
     :cond_1
     :goto_0
-    const-string v2, "Service must not run on the main process"
+    const-string p0, "Service must not run on the main process"
 
-    return-object v2
+    return-object p0
 .end method

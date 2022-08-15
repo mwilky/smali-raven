@@ -1,40 +1,44 @@
-.class Lcom/android/server/Watchdog$1;
+.class public Lcom/android/server/Watchdog$1;
 .super Ljava/lang/Thread;
 .source "Watchdog.java"
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/Watchdog;->run()V
+    value = Lcom/android/server/Watchdog;->logWatchog(ZLjava/lang/String;Ljava/util/ArrayList;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/Watchdog;
+.field public final synthetic this$0:Lcom/android/server/Watchdog;
 
-.field final synthetic val$errorId:Ljava/util/UUID;
+.field public final synthetic val$dropboxTag:Ljava/lang/String;
 
-.field final synthetic val$report:Ljava/lang/StringBuilder;
+.field public final synthetic val$errorId:Ljava/util/UUID;
 
-.field final synthetic val$stack:Ljava/io/File;
+.field public final synthetic val$report:Ljava/lang/StringBuilder;
+
+.field public final synthetic val$stack:Ljava/io/File;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/Watchdog;Ljava/lang/String;Ljava/lang/StringBuilder;Ljava/io/File;Ljava/util/UUID;)V
+.method public constructor <init>(Lcom/android/server/Watchdog;Ljava/lang/String;Ljava/lang/String;Ljava/lang/StringBuilder;Ljava/io/File;Ljava/util/UUID;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/Watchdog$1;->this$0:Lcom/android/server/Watchdog;
 
-    iput-object p3, p0, Lcom/android/server/Watchdog$1;->val$report:Ljava/lang/StringBuilder;
+    iput-object p3, p0, Lcom/android/server/Watchdog$1;->val$dropboxTag:Ljava/lang/String;
 
-    iput-object p4, p0, Lcom/android/server/Watchdog$1;->val$stack:Ljava/io/File;
+    iput-object p4, p0, Lcom/android/server/Watchdog$1;->val$report:Ljava/lang/StringBuilder;
 
-    iput-object p5, p0, Lcom/android/server/Watchdog$1;->val$errorId:Ljava/util/UUID;
+    iput-object p5, p0, Lcom/android/server/Watchdog$1;->val$stack:Ljava/io/File;
+
+    iput-object p6, p0, Lcom/android/server/Watchdog$1;->val$errorId:Ljava/util/UUID;
 
     invoke-direct {p0, p2}, Ljava/lang/Thread;-><init>(Ljava/lang/String;)V
 
@@ -48,7 +52,7 @@
 
     iget-object v0, p0, Lcom/android/server/Watchdog$1;->this$0:Lcom/android/server/Watchdog;
 
-    invoke-static {v0}, Lcom/android/server/Watchdog;->access$200(Lcom/android/server/Watchdog;)Lcom/android/server/am/ActivityManagerService;
+    invoke-static {v0}, Lcom/android/server/Watchdog;->-$$Nest$fgetmActivity(Lcom/android/server/Watchdog;)Lcom/android/server/am/ActivityManagerService;
 
     move-result-object v0
 
@@ -56,9 +60,11 @@
 
     iget-object v0, p0, Lcom/android/server/Watchdog$1;->this$0:Lcom/android/server/Watchdog;
 
-    invoke-static {v0}, Lcom/android/server/Watchdog;->access$200(Lcom/android/server/Watchdog;)Lcom/android/server/am/ActivityManagerService;
+    invoke-static {v0}, Lcom/android/server/Watchdog;->-$$Nest$fgetmActivity(Lcom/android/server/Watchdog;)Lcom/android/server/am/ActivityManagerService;
 
     move-result-object v1
+
+    iget-object v2, p0, Lcom/android/server/Watchdog$1;->val$dropboxTag:Ljava/lang/String;
 
     const/4 v3, 0x0
 
@@ -85,8 +91,6 @@
     const/4 v13, 0x0
 
     iget-object v14, p0, Lcom/android/server/Watchdog$1;->val$errorId:Ljava/util/UUID;
-
-    const-string/jumbo v2, "watchdog"
 
     const-string/jumbo v4, "system_server"
 

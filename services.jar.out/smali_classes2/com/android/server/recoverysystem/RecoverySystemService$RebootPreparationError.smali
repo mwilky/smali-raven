@@ -1,4 +1,4 @@
-.class Lcom/android/server/recoverysystem/RecoverySystemService$RebootPreparationError;
+.class public Lcom/android/server/recoverysystem/RecoverySystemService$RebootPreparationError;
 .super Ljava/lang/Object;
 .source "RecoverySystemService.java"
 
@@ -9,19 +9,22 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "RebootPreparationError"
 .end annotation
 
 
 # instance fields
-.field final mProviderErrorCode:I
+.field public final mProviderErrorCode:I
 
-.field final mRebootErrorCode:I
+.field public final mRebootErrorCode:I
+    .annotation build Landroid/os/RecoverySystem$ResumeOnRebootRebootErrorCode;
+    .end annotation
+.end field
 
 
 # direct methods
-.method constructor <init>(II)V
+.method public constructor <init>(II)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -35,14 +38,14 @@
 
 
 # virtual methods
-.method getErrorCodeForMetrics()I
-    .locals 2
+.method public getErrorCodeForMetrics()I
+    .locals 1
 
     iget v0, p0, Lcom/android/server/recoverysystem/RecoverySystemService$RebootPreparationError;->mRebootErrorCode:I
 
-    iget v1, p0, Lcom/android/server/recoverysystem/RecoverySystemService$RebootPreparationError;->mProviderErrorCode:I
+    iget p0, p0, Lcom/android/server/recoverysystem/RecoverySystemService$RebootPreparationError;->mProviderErrorCode:I
 
-    add-int/2addr v0, v1
+    add-int/2addr v0, p0
 
     return v0
 .end method

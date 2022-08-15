@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/TelephonyRegistry$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/internal/util/FunctionalUtils$ThrowingSupplier;
+.implements Ljava/util/function/IntPredicate;
 
 
 # instance fields
@@ -22,14 +23,14 @@
 
 
 # virtual methods
-.method public final getOrThrow()Ljava/lang/Object;
-    .locals 1
+.method public final test(I)Z
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/TelephonyRegistry$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/TelephonyRegistry;
+    iget-object p0, p0, Lcom/android/server/TelephonyRegistry$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/TelephonyRegistry;
 
-    invoke-virtual {v0}, Lcom/android/server/TelephonyRegistry;->lambda$broadcastServiceStateChanged$1$TelephonyRegistry()Ljava/lang/Boolean;
+    invoke-static {p0, p1}, Lcom/android/server/TelephonyRegistry;->$r8$lambda$id9Dv4TMiRMb6Z3v-UJt9p6FFec(Lcom/android/server/TelephonyRegistry;I)Z
 
-    move-result-object v0
+    move-result p0
 
-    return-object v0
+    return p0
 .end method

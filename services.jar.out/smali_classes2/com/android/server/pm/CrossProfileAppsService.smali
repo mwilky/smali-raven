@@ -4,7 +4,7 @@
 
 
 # instance fields
-.field private mServiceImpl:Lcom/android/server/pm/CrossProfileAppsServiceImpl;
+.field public mServiceImpl:Lcom/android/server/pm/CrossProfileAppsServiceImpl;
 
 
 # direct methods
@@ -31,7 +31,7 @@
 
     const-string v1, "crossprofileapps"
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/server/pm/CrossProfileAppsService;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
+    invoke-virtual {p0, v1, v0}, Lcom/android/server/SystemService;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
 
     const-class v0, Landroid/content/pm/CrossProfileAppsInternal;
 
@@ -41,7 +41,7 @@
 
     move-result-object v1
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/server/pm/CrossProfileAppsService;->publishLocalService(Ljava/lang/Class;Ljava/lang/Object;)V
+    invoke-virtual {p0, v0, v1}, Lcom/android/server/SystemService;->publishLocalService(Ljava/lang/Class;Ljava/lang/Object;)V
 
     return-void
 .end method

@@ -15,14 +15,8 @@
 
 
 # virtual methods
-.method public abstract onShortcutTriggered(II)V
-.end method
-
 .method public abstract onTouchInteractionEnd(II)V
 .end method
 
 .method public abstract onTouchInteractionStart(II)V
-.end method
-
-.method public abstract onTripleTapped(II)V
 .end method

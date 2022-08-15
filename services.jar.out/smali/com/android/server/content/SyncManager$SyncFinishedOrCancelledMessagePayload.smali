@@ -1,4 +1,4 @@
-.class Lcom/android/server/content/SyncManager$SyncFinishedOrCancelledMessagePayload;
+.class public Lcom/android/server/content/SyncManager$SyncFinishedOrCancelledMessagePayload;
 .super Ljava/lang/Object;
 .source "SyncManager.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "SyncFinishedOrCancelledMessagePayload"
 .end annotation
 
@@ -19,11 +19,11 @@
 
 .field public final syncResult:Landroid/content/SyncResult;
 
-.field final synthetic this$0:Lcom/android/server/content/SyncManager;
+.field public final synthetic this$0:Lcom/android/server/content/SyncManager;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/content/SyncManager;Lcom/android/server/content/SyncManager$ActiveSyncContext;Landroid/content/SyncResult;)V
+.method public constructor <init>(Lcom/android/server/content/SyncManager;Lcom/android/server/content/SyncManager$ActiveSyncContext;Landroid/content/SyncResult;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/content/SyncManager$SyncFinishedOrCancelledMessagePayload;->this$0:Lcom/android/server/content/SyncManager;

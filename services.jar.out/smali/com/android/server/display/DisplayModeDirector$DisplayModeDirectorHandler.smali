@@ -1,4 +1,4 @@
-.class final Lcom/android/server/display/DisplayModeDirector$DisplayModeDirectorHandler;
+.class public final Lcom/android/server/display/DisplayModeDirector$DisplayModeDirectorHandler;
 .super Landroid/os/Handler;
 .source "DisplayModeDirector.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "DisplayModeDirectorHandler"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/display/DisplayModeDirector;
+.field public final synthetic this$0:Lcom/android/server/display/DisplayModeDirector;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/display/DisplayModeDirector;Landroid/os/Looper;)V
+.method public constructor <init>(Lcom/android/server/display/DisplayModeDirector;Landroid/os/Looper;)V
     .locals 1
 
     iput-object p1, p0, Lcom/android/server/display/DisplayModeDirector$DisplayModeDirectorHandler;->this$0:Lcom/android/server/display/DisplayModeDirector;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 4
+    .locals 1
 
     iget v0, p1, Landroid/os/Message;->what:I
 
@@ -45,129 +45,129 @@
     goto/16 :goto_0
 
     :pswitch_0
-    iget v0, p1, Landroid/os/Message;->arg1:I
+    iget p1, p1, Landroid/os/Message;->arg1:I
 
-    iget-object v1, p0, Lcom/android/server/display/DisplayModeDirector$DisplayModeDirectorHandler;->this$0:Lcom/android/server/display/DisplayModeDirector;
+    iget-object p0, p0, Lcom/android/server/display/DisplayModeDirector$DisplayModeDirectorHandler;->this$0:Lcom/android/server/display/DisplayModeDirector;
 
-    invoke-static {v1}, Lcom/android/server/display/DisplayModeDirector;->access$400(Lcom/android/server/display/DisplayModeDirector;)Lcom/android/server/display/DisplayModeDirector$HbmObserver;
+    invoke-static {p0}, Lcom/android/server/display/DisplayModeDirector;->-$$Nest$fgetmHbmObserver(Lcom/android/server/display/DisplayModeDirector;)Lcom/android/server/display/DisplayModeDirector$HbmObserver;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v1, v0}, Lcom/android/server/display/DisplayModeDirector$HbmObserver;->onDeviceConfigRefreshRateInHbmHdrChanged(I)V
+    invoke-virtual {p0, p1}, Lcom/android/server/display/DisplayModeDirector$HbmObserver;->onDeviceConfigRefreshRateInHbmHdrChanged(I)V
 
     goto :goto_0
 
     :pswitch_1
-    iget v0, p1, Landroid/os/Message;->arg1:I
+    iget p1, p1, Landroid/os/Message;->arg1:I
 
-    iget-object v1, p0, Lcom/android/server/display/DisplayModeDirector$DisplayModeDirectorHandler;->this$0:Lcom/android/server/display/DisplayModeDirector;
+    iget-object p0, p0, Lcom/android/server/display/DisplayModeDirector$DisplayModeDirectorHandler;->this$0:Lcom/android/server/display/DisplayModeDirector;
 
-    invoke-static {v1}, Lcom/android/server/display/DisplayModeDirector;->access$400(Lcom/android/server/display/DisplayModeDirector;)Lcom/android/server/display/DisplayModeDirector$HbmObserver;
+    invoke-static {p0}, Lcom/android/server/display/DisplayModeDirector;->-$$Nest$fgetmHbmObserver(Lcom/android/server/display/DisplayModeDirector;)Lcom/android/server/display/DisplayModeDirector$HbmObserver;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v1, v0}, Lcom/android/server/display/DisplayModeDirector$HbmObserver;->onDeviceConfigRefreshRateInHbmSunlightChanged(I)V
+    invoke-virtual {p0, p1}, Lcom/android/server/display/DisplayModeDirector$HbmObserver;->onDeviceConfigRefreshRateInHbmSunlightChanged(I)V
 
     goto :goto_0
 
     :pswitch_2
-    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+    iget-object p1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    check-cast v0, Landroid/util/Pair;
+    check-cast p1, Landroid/util/Pair;
 
-    iget-object v1, p0, Lcom/android/server/display/DisplayModeDirector$DisplayModeDirectorHandler;->this$0:Lcom/android/server/display/DisplayModeDirector;
+    iget-object p0, p0, Lcom/android/server/display/DisplayModeDirector$DisplayModeDirectorHandler;->this$0:Lcom/android/server/display/DisplayModeDirector;
 
-    invoke-static {v1}, Lcom/android/server/display/DisplayModeDirector;->access$200(Lcom/android/server/display/DisplayModeDirector;)Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;
+    invoke-static {p0}, Lcom/android/server/display/DisplayModeDirector;->-$$Nest$fgetmBrightnessObserver(Lcom/android/server/display/DisplayModeDirector;)Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;
 
-    move-result-object v1
+    move-result-object p0
 
-    iget-object v2, v0, Landroid/util/Pair;->first:Ljava/lang/Object;
+    iget-object v0, p1, Landroid/util/Pair;->first:Ljava/lang/Object;
 
-    check-cast v2, [I
+    check-cast v0, [I
 
-    iget-object v3, v0, Landroid/util/Pair;->second:Ljava/lang/Object;
+    iget-object p1, p1, Landroid/util/Pair;->second:Ljava/lang/Object;
 
-    check-cast v3, [I
+    check-cast p1, [I
 
-    invoke-virtual {v1, v2, v3}, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->onDeviceConfigHighBrightnessThresholdsChanged([I[I)V
+    invoke-virtual {p0, v0, p1}, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->onDeviceConfigHighBrightnessThresholdsChanged([I[I)V
 
     goto :goto_0
 
     :pswitch_3
-    iget v0, p1, Landroid/os/Message;->arg1:I
+    iget p1, p1, Landroid/os/Message;->arg1:I
 
-    iget-object v1, p0, Lcom/android/server/display/DisplayModeDirector$DisplayModeDirectorHandler;->this$0:Lcom/android/server/display/DisplayModeDirector;
+    iget-object p0, p0, Lcom/android/server/display/DisplayModeDirector$DisplayModeDirectorHandler;->this$0:Lcom/android/server/display/DisplayModeDirector;
 
-    invoke-static {v1}, Lcom/android/server/display/DisplayModeDirector;->access$200(Lcom/android/server/display/DisplayModeDirector;)Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;
+    invoke-static {p0}, Lcom/android/server/display/DisplayModeDirector;->-$$Nest$fgetmBrightnessObserver(Lcom/android/server/display/DisplayModeDirector;)Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v1, v0}, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->onDeviceConfigRefreshRateInHighZoneChanged(I)V
+    invoke-virtual {p0, p1}, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->onDeviceConfigRefreshRateInHighZoneChanged(I)V
 
     goto :goto_0
 
     :pswitch_4
-    iget v0, p1, Landroid/os/Message;->arg1:I
+    iget p1, p1, Landroid/os/Message;->arg1:I
 
-    iget-object v1, p0, Lcom/android/server/display/DisplayModeDirector$DisplayModeDirectorHandler;->this$0:Lcom/android/server/display/DisplayModeDirector;
+    iget-object p0, p0, Lcom/android/server/display/DisplayModeDirector$DisplayModeDirectorHandler;->this$0:Lcom/android/server/display/DisplayModeDirector;
 
-    invoke-static {v1}, Lcom/android/server/display/DisplayModeDirector;->access$200(Lcom/android/server/display/DisplayModeDirector;)Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;
+    invoke-static {p0}, Lcom/android/server/display/DisplayModeDirector;->-$$Nest$fgetmBrightnessObserver(Lcom/android/server/display/DisplayModeDirector;)Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v1, v0}, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->onDeviceConfigRefreshRateInLowZoneChanged(I)V
+    invoke-virtual {p0, p1}, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->onDeviceConfigRefreshRateInLowZoneChanged(I)V
 
     goto :goto_0
 
     :pswitch_5
-    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+    iget-object p1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    check-cast v0, Ljava/lang/Float;
+    check-cast p1, Ljava/lang/Float;
 
-    iget-object v1, p0, Lcom/android/server/display/DisplayModeDirector$DisplayModeDirectorHandler;->this$0:Lcom/android/server/display/DisplayModeDirector;
+    iget-object p0, p0, Lcom/android/server/display/DisplayModeDirector$DisplayModeDirectorHandler;->this$0:Lcom/android/server/display/DisplayModeDirector;
 
-    invoke-static {v1}, Lcom/android/server/display/DisplayModeDirector;->access$300(Lcom/android/server/display/DisplayModeDirector;)Lcom/android/server/display/DisplayModeDirector$SettingsObserver;
+    invoke-static {p0}, Lcom/android/server/display/DisplayModeDirector;->-$$Nest$fgetmSettingsObserver(Lcom/android/server/display/DisplayModeDirector;)Lcom/android/server/display/DisplayModeDirector$SettingsObserver;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v1, v0}, Lcom/android/server/display/DisplayModeDirector$SettingsObserver;->onDeviceConfigDefaultPeakRefreshRateChanged(Ljava/lang/Float;)V
+    invoke-virtual {p0, p1}, Lcom/android/server/display/DisplayModeDirector$SettingsObserver;->onDeviceConfigDefaultPeakRefreshRateChanged(Ljava/lang/Float;)V
 
     goto :goto_0
 
     :pswitch_6
-    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+    iget-object p1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    check-cast v0, Landroid/util/Pair;
+    check-cast p1, Landroid/util/Pair;
 
-    iget-object v1, p0, Lcom/android/server/display/DisplayModeDirector$DisplayModeDirectorHandler;->this$0:Lcom/android/server/display/DisplayModeDirector;
+    iget-object p0, p0, Lcom/android/server/display/DisplayModeDirector$DisplayModeDirectorHandler;->this$0:Lcom/android/server/display/DisplayModeDirector;
 
-    invoke-static {v1}, Lcom/android/server/display/DisplayModeDirector;->access$200(Lcom/android/server/display/DisplayModeDirector;)Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;
+    invoke-static {p0}, Lcom/android/server/display/DisplayModeDirector;->-$$Nest$fgetmBrightnessObserver(Lcom/android/server/display/DisplayModeDirector;)Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;
 
-    move-result-object v1
+    move-result-object p0
 
-    iget-object v2, v0, Landroid/util/Pair;->first:Ljava/lang/Object;
+    iget-object v0, p1, Landroid/util/Pair;->first:Ljava/lang/Object;
 
-    check-cast v2, [I
+    check-cast v0, [I
 
-    iget-object v3, v0, Landroid/util/Pair;->second:Ljava/lang/Object;
+    iget-object p1, p1, Landroid/util/Pair;->second:Ljava/lang/Object;
 
-    check-cast v3, [I
+    check-cast p1, [I
 
-    invoke-virtual {v1, v2, v3}, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->onDeviceConfigLowBrightnessThresholdsChanged([I[I)V
+    invoke-virtual {p0, v0, p1}, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->onDeviceConfigLowBrightnessThresholdsChanged([I[I)V
 
     goto :goto_0
 
     :pswitch_7
-    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+    iget-object p0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    check-cast v0, Lcom/android/server/display/DisplayModeDirector$DesiredDisplayModeSpecsListener;
+    check-cast p0, Lcom/android/server/display/DisplayModeDirector$DesiredDisplayModeSpecsListener;
 
-    invoke-interface {v0}, Lcom/android/server/display/DisplayModeDirector$DesiredDisplayModeSpecsListener;->onDesiredDisplayModeSpecsChanged()V
-
-    nop
+    invoke-interface {p0}, Lcom/android/server/display/DisplayModeDirector$DesiredDisplayModeSpecsListener;->onDesiredDisplayModeSpecsChanged()V
 
     :goto_0
     return-void
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x1

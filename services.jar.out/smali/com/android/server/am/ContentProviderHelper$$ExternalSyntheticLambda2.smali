@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/am/ContentProviderHelper$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -27,15 +28,15 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/am/ContentProviderHelper$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/am/ContentProviderHelper;
 
-    iget-object v1, p0, Lcom/android/server/am/ContentProviderHelper$$ExternalSyntheticLambda2;->f$1:Lcom/android/server/am/ProcessRecord;
+    iget-object p0, p0, Lcom/android/server/am/ContentProviderHelper$$ExternalSyntheticLambda2;->f$1:Lcom/android/server/am/ProcessRecord;
 
     check-cast p1, Ljava/lang/String;
 
-    invoke-virtual {v0, v1, p1}, Lcom/android/server/am/ContentProviderHelper;->lambda$installEncryptionUnawareProviders$1$ContentProviderHelper(Lcom/android/server/am/ProcessRecord;Ljava/lang/String;)V
+    invoke-static {v0, p0, p1}, Lcom/android/server/am/ContentProviderHelper;->$r8$lambda$CAwNLBeZVdF6JjfiVytvR_5jw18(Lcom/android/server/am/ContentProviderHelper;Lcom/android/server/am/ProcessRecord;Ljava/lang/String;)V
 
     return-void
 .end method

@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/accessibility/magnification/WindowMagnificationGestureHandler$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/server/accessibility/magnification/MotionEventDispatcherDelegate$EventDispatcher;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final dispatchMotionEvent(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/accessibility/magnification/WindowMagnificationGestureHandler$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/accessibility/magnification/WindowMagnificationGestureHandler;
+    iget-object p0, p0, Lcom/android/server/accessibility/magnification/WindowMagnificationGestureHandler$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/accessibility/magnification/WindowMagnificationGestureHandler;
 
-    invoke-virtual {v0, p1, p2, p3}, Lcom/android/server/accessibility/magnification/WindowMagnificationGestureHandler;->lambda$new$0$WindowMagnificationGestureHandler(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
+    invoke-static {p0, p1, p2, p3}, Lcom/android/server/accessibility/magnification/WindowMagnificationGestureHandler;->$r8$lambda$C-j8YWNpgczPOXCikGaWStgFIMQ(Lcom/android/server/accessibility/magnification/WindowMagnificationGestureHandler;Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
 
     return-void
 .end method

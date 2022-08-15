@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/server/wm/BLASTSyncEngine$TransactionReadyListener;
+.class public interface abstract Lcom/android/server/wm/BLASTSyncEngine$TransactionReadyListener;
 .super Ljava/lang/Object;
 .source "BLASTSyncEngine.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
+    accessFlags = 0x609
     name = "TransactionReadyListener"
 .end annotation
 

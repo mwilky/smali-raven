@@ -1,27 +1,27 @@
-.class Lcom/android/server/am/UserController$4;
+.class public Lcom/android/server/am/UserController$4;
 .super Landroid/content/IIntentReceiver$Stub;
 .source "UserController.java"
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/am/UserController;->lambda$stopSingleUserLU$8$UserController(ILjava/lang/Runnable;)V
+    value = Lcom/android/server/am/UserController;->lambda$stopSingleUserLU$8(ILjava/lang/Runnable;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/am/UserController;
+.field public final synthetic this$0:Lcom/android/server/am/UserController;
 
-.field final synthetic val$finishUserStoppingAsync:Ljava/lang/Runnable;
+.field public final synthetic val$finishUserStoppingAsync:Ljava/lang/Runnable;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/UserController;Ljava/lang/Runnable;)V
+.method public constructor <init>(Lcom/android/server/am/UserController;Ljava/lang/Runnable;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/am/UserController$4;->this$0:Lcom/android/server/am/UserController;
@@ -36,11 +36,11 @@
 
 # virtual methods
 .method public performReceive(Landroid/content/Intent;ILjava/lang/String;Landroid/os/Bundle;ZZI)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/am/UserController$4;->val$finishUserStoppingAsync:Ljava/lang/Runnable;
+    iget-object p0, p0, Lcom/android/server/am/UserController$4;->val$finishUserStoppingAsync:Ljava/lang/Runnable;
 
-    invoke-interface {v0}, Ljava/lang/Runnable;->run()V
+    invoke-interface {p0}, Ljava/lang/Runnable;->run()V
 
     return-void
 .end method

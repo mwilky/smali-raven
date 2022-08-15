@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/server/soundtrigger/SoundTriggerService$Operation$ExecuteOp;
+.class public interface abstract Lcom/android/server/soundtrigger/SoundTriggerService$Operation$ExecuteOp;
 .super Ljava/lang/Object;
 .source "SoundTriggerService.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x60a
+    accessFlags = 0x609
     name = "ExecuteOp"
 .end annotation
 

@@ -4,7 +4,7 @@
 
 
 # instance fields
-.field private final mCodePaths:Ljava/util/List;
+.field public final mCodePaths:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -14,7 +14,7 @@
     .end annotation
 .end field
 
-.field private final mInstructionSets:Ljava/util/List;
+.field public final mInstructionSets:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -24,9 +24,9 @@
     .end annotation
 .end field
 
-.field private final mOatDir:Ljava/lang/String;
+.field public final mOatDir:Ljava/lang/String;
 
-.field private final mPackageName:Ljava/lang/String;
+.field public final mPackageName:Ljava/lang/String;
 
 
 # direct methods
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method public getCodePaths()Ljava/util/List;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -73,13 +73,13 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/android/server/pm/dex/ArtPackageInfo;->mCodePaths:Ljava/util/List;
+    iget-object p0, p0, Lcom/android/server/pm/dex/ArtPackageInfo;->mCodePaths:Ljava/util/List;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getInstructionSets()Ljava/util/List;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -89,23 +89,23 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/android/server/pm/dex/ArtPackageInfo;->mInstructionSets:Ljava/util/List;
+    iget-object p0, p0, Lcom/android/server/pm/dex/ArtPackageInfo;->mInstructionSets:Ljava/util/List;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getOatDir()Ljava/lang/String;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/pm/dex/ArtPackageInfo;->mOatDir:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/pm/dex/ArtPackageInfo;->mOatDir:Ljava/lang/String;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getPackageName()Ljava/lang/String;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/pm/dex/ArtPackageInfo;->mPackageName:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/pm/dex/ArtPackageInfo;->mPackageName:Ljava/lang/String;
 
-    return-object v0
+    return-object p0
 .end method

@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
@@ -24,14 +24,84 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/location/gnss/GnssConfiguration;
+.field public final synthetic this$0:Lcom/android/server/location/gnss/GnssConfiguration;
 
-.field final synthetic val$gnssConfigurationIfaceVersion:Lcom/android/server/location/gnss/GnssConfiguration$HalInterfaceVersion;
+.field public final synthetic val$gnssConfigurationIfaceVersion:Lcom/android/server/location/gnss/GnssConfiguration$HalInterfaceVersion;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/location/gnss/GnssConfiguration;Lcom/android/server/location/gnss/GnssConfiguration$HalInterfaceVersion;)V
-    .locals 2
+.method public static synthetic $r8$lambda$6ZCQVGrLnT6FCYlOMGL7BXJDaCM(I)Z
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/server/location/gnss/GnssConfiguration$1;->lambda$new$6(I)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public static synthetic $r8$lambda$7fg3qwu5uQoXEE7_hs9ZehoVkkQ(I)Z
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/server/location/gnss/GnssConfiguration$1;->lambda$new$3(I)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public static synthetic $r8$lambda$FYuKTRc3ofbWmsqlYyhJiMahGU4(I)Z
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/server/location/gnss/GnssConfiguration$1;->lambda$new$5(I)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public static synthetic $r8$lambda$Hr8oFmO7hM8W-oTYKqGG7Us9Q30(I)Z
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/server/location/gnss/GnssConfiguration$1;->lambda$new$0(I)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public static synthetic $r8$lambda$U5lAoaIrLvYjJQ1q1TEdG6hqMeo(I)Z
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/server/location/gnss/GnssConfiguration$1;->lambda$new$4(I)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public static synthetic $r8$lambda$iIdf10sfPSYWJY1SSTbZnUe7dmw(I)Z
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/server/location/gnss/GnssConfiguration$1;->lambda$new$2(I)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public static synthetic $r8$lambda$rmwUrms2fF3DtUx5P4ZnHEfgm6I(I)Z
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/server/location/gnss/GnssConfiguration$1;->lambda$new$1(I)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public constructor <init>(Lcom/android/server/location/gnss/GnssConfiguration;Lcom/android/server/location/gnss/GnssConfiguration$HalInterfaceVersion;)V
+    .locals 1
 
     iput-object p1, p0, Lcom/android/server/location/gnss/GnssConfiguration$1;->this$0:Lcom/android/server/location/gnss/GnssConfiguration;
 
@@ -39,131 +109,145 @@
 
     invoke-direct {p0}, Ljava/util/HashMap;-><init>()V
 
-    sget-object v0, Lcom/android/server/location/gnss/GnssConfiguration$1$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/server/location/gnss/GnssConfiguration$1$$ExternalSyntheticLambda0;
+    new-instance p1, Lcom/android/server/location/gnss/GnssConfiguration$1$$ExternalSyntheticLambda0;
 
-    const-string v1, "SUPL_VER"
+    invoke-direct {p1}, Lcom/android/server/location/gnss/GnssConfiguration$1$$ExternalSyntheticLambda0;-><init>()V
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/server/location/gnss/GnssConfiguration$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    const-string v0, "SUPL_VER"
 
-    sget-object v0, Lcom/android/server/location/gnss/GnssConfiguration$1$$ExternalSyntheticLambda1;->INSTANCE:Lcom/android/server/location/gnss/GnssConfiguration$1$$ExternalSyntheticLambda1;
+    invoke-virtual {p0, v0, p1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const-string v1, "SUPL_MODE"
+    new-instance p1, Lcom/android/server/location/gnss/GnssConfiguration$1$$ExternalSyntheticLambda1;
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/server/location/gnss/GnssConfiguration$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-direct {p1}, Lcom/android/server/location/gnss/GnssConfiguration$1$$ExternalSyntheticLambda1;-><init>()V
 
-    invoke-static {p2}, Lcom/android/server/location/gnss/GnssConfiguration;->access$000(Lcom/android/server/location/gnss/GnssConfiguration$HalInterfaceVersion;)Z
+    const-string v0, "SUPL_MODE"
 
-    move-result v0
+    invoke-virtual {p0, v0, p1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    if-eqz v0, :cond_0
+    invoke-static {p2}, Lcom/android/server/location/gnss/GnssConfiguration;->-$$Nest$smisConfigSuplEsSupported(Lcom/android/server/location/gnss/GnssConfiguration$HalInterfaceVersion;)Z
 
-    sget-object v0, Lcom/android/server/location/gnss/GnssConfiguration$1$$ExternalSyntheticLambda2;->INSTANCE:Lcom/android/server/location/gnss/GnssConfiguration$1$$ExternalSyntheticLambda2;
+    move-result p1
 
-    const-string v1, "SUPL_ES"
+    if-eqz p1, :cond_0
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/server/location/gnss/GnssConfiguration$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    new-instance p1, Lcom/android/server/location/gnss/GnssConfiguration$1$$ExternalSyntheticLambda2;
+
+    invoke-direct {p1}, Lcom/android/server/location/gnss/GnssConfiguration$1$$ExternalSyntheticLambda2;-><init>()V
+
+    const-string v0, "SUPL_ES"
+
+    invoke-virtual {p0, v0, p1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     :cond_0
-    sget-object v0, Lcom/android/server/location/gnss/GnssConfiguration$1$$ExternalSyntheticLambda3;->INSTANCE:Lcom/android/server/location/gnss/GnssConfiguration$1$$ExternalSyntheticLambda3;
+    new-instance p1, Lcom/android/server/location/gnss/GnssConfiguration$1$$ExternalSyntheticLambda3;
 
-    const-string v1, "LPP_PROFILE"
+    invoke-direct {p1}, Lcom/android/server/location/gnss/GnssConfiguration$1$$ExternalSyntheticLambda3;-><init>()V
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/server/location/gnss/GnssConfiguration$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    const-string v0, "LPP_PROFILE"
 
-    sget-object v0, Lcom/android/server/location/gnss/GnssConfiguration$1$$ExternalSyntheticLambda4;->INSTANCE:Lcom/android/server/location/gnss/GnssConfiguration$1$$ExternalSyntheticLambda4;
+    invoke-virtual {p0, v0, p1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const-string v1, "A_GLONASS_POS_PROTOCOL_SELECT"
+    new-instance p1, Lcom/android/server/location/gnss/GnssConfiguration$1$$ExternalSyntheticLambda4;
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/server/location/gnss/GnssConfiguration$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-direct {p1}, Lcom/android/server/location/gnss/GnssConfiguration$1$$ExternalSyntheticLambda4;-><init>()V
 
-    sget-object v0, Lcom/android/server/location/gnss/GnssConfiguration$1$$ExternalSyntheticLambda5;->INSTANCE:Lcom/android/server/location/gnss/GnssConfiguration$1$$ExternalSyntheticLambda5;
+    const-string v0, "A_GLONASS_POS_PROTOCOL_SELECT"
 
-    const-string v1, "USE_EMERGENCY_PDN_FOR_EMERGENCY_SUPL"
+    invoke-virtual {p0, v0, p1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/server/location/gnss/GnssConfiguration$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    new-instance p1, Lcom/android/server/location/gnss/GnssConfiguration$1$$ExternalSyntheticLambda5;
 
-    invoke-static {p2}, Lcom/android/server/location/gnss/GnssConfiguration;->access$100(Lcom/android/server/location/gnss/GnssConfiguration$HalInterfaceVersion;)Z
+    invoke-direct {p1}, Lcom/android/server/location/gnss/GnssConfiguration$1$$ExternalSyntheticLambda5;-><init>()V
 
-    move-result p2
+    const-string v0, "USE_EMERGENCY_PDN_FOR_EMERGENCY_SUPL"
 
-    if-eqz p2, :cond_1
+    invoke-virtual {p0, v0, p1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    sget-object p2, Lcom/android/server/location/gnss/GnssConfiguration$1$$ExternalSyntheticLambda6;->INSTANCE:Lcom/android/server/location/gnss/GnssConfiguration$1$$ExternalSyntheticLambda6;
+    invoke-static {p2}, Lcom/android/server/location/gnss/GnssConfiguration;->-$$Nest$smisConfigGpsLockSupported(Lcom/android/server/location/gnss/GnssConfiguration$HalInterfaceVersion;)Z
 
-    const-string v0, "GPS_LOCK"
+    move-result p1
 
-    invoke-virtual {p0, v0, p2}, Lcom/android/server/location/gnss/GnssConfiguration$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    if-eqz p1, :cond_1
+
+    new-instance p1, Lcom/android/server/location/gnss/GnssConfiguration$1$$ExternalSyntheticLambda6;
+
+    invoke-direct {p1}, Lcom/android/server/location/gnss/GnssConfiguration$1$$ExternalSyntheticLambda6;-><init>()V
+
+    const-string p2, "GPS_LOCK"
+
+    invoke-virtual {p0, p2, p1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     :cond_1
     return-void
 .end method
 
-.method static synthetic lambda$new$0(I)Z
-    .locals 1
+.method public static synthetic lambda$new$0(I)Z
+    .locals 0
 
-    invoke-static {p0}, Lcom/android/server/location/gnss/GnssConfiguration;->access$800(I)Z
+    invoke-static {p0}, Lcom/android/server/location/gnss/GnssConfiguration;->-$$Nest$smnative_set_supl_version(I)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
-.method static synthetic lambda$new$1(I)Z
-    .locals 1
+.method public static synthetic lambda$new$1(I)Z
+    .locals 0
 
-    invoke-static {p0}, Lcom/android/server/location/gnss/GnssConfiguration;->access$700(I)Z
+    invoke-static {p0}, Lcom/android/server/location/gnss/GnssConfiguration;->-$$Nest$smnative_set_supl_mode(I)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
-.method static synthetic lambda$new$2(I)Z
-    .locals 1
+.method public static synthetic lambda$new$2(I)Z
+    .locals 0
 
-    invoke-static {p0}, Lcom/android/server/location/gnss/GnssConfiguration;->access$600(I)Z
+    invoke-static {p0}, Lcom/android/server/location/gnss/GnssConfiguration;->-$$Nest$smnative_set_supl_es(I)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
-.method static synthetic lambda$new$3(I)Z
-    .locals 1
+.method public static synthetic lambda$new$3(I)Z
+    .locals 0
 
-    invoke-static {p0}, Lcom/android/server/location/gnss/GnssConfiguration;->access$500(I)Z
+    invoke-static {p0}, Lcom/android/server/location/gnss/GnssConfiguration;->-$$Nest$smnative_set_lpp_profile(I)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
-.method static synthetic lambda$new$4(I)Z
-    .locals 1
+.method public static synthetic lambda$new$4(I)Z
+    .locals 0
 
-    invoke-static {p0}, Lcom/android/server/location/gnss/GnssConfiguration;->access$400(I)Z
+    invoke-static {p0}, Lcom/android/server/location/gnss/GnssConfiguration;->-$$Nest$smnative_set_gnss_pos_protocol_select(I)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
-.method static synthetic lambda$new$5(I)Z
-    .locals 1
+.method public static synthetic lambda$new$5(I)Z
+    .locals 0
 
-    invoke-static {p0}, Lcom/android/server/location/gnss/GnssConfiguration;->access$300(I)Z
+    invoke-static {p0}, Lcom/android/server/location/gnss/GnssConfiguration;->-$$Nest$smnative_set_emergency_supl_pdn(I)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
-.method static synthetic lambda$new$6(I)Z
-    .locals 1
+.method public static synthetic lambda$new$6(I)Z
+    .locals 0
 
-    invoke-static {p0}, Lcom/android/server/location/gnss/GnssConfiguration;->access$200(I)Z
+    invoke-static {p0}, Lcom/android/server/location/gnss/GnssConfiguration;->-$$Nest$smnative_set_gps_lock(I)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method

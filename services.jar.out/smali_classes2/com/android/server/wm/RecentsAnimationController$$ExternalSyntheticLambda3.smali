@@ -1,39 +1,42 @@
 .class public final synthetic Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda3;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Ljava/util/function/Consumer;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/server/wm/RecentsAnimationController;
+.field public final synthetic f$0:I
 
-.field public final synthetic f$1:I
+.field public final synthetic f$1:Lcom/android/server/wm/AnimationAdapter;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/wm/RecentsAnimationController;I)V
+.method public synthetic constructor <init>(ILcom/android/server/wm/AnimationAdapter;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda3;->f$0:Lcom/android/server/wm/RecentsAnimationController;
+    iput p1, p0, Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda3;->f$0:I
 
-    iput p2, p0, Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda3;->f$1:I
+    iput-object p2, p0, Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda3;->f$1:Lcom/android/server/wm/AnimationAdapter;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final run()V
-    .locals 2
+.method public final accept(Ljava/lang/Object;)V
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda3;->f$0:Lcom/android/server/wm/RecentsAnimationController;
+    iget v0, p0, Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda3;->f$0:I
 
-    iget v1, p0, Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda3;->f$1:I
+    iget-object p0, p0, Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda3;->f$1:Lcom/android/server/wm/AnimationAdapter;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/wm/RecentsAnimationController;->lambda$logRecentsAnimationStartTime$4$RecentsAnimationController(I)V
+    check-cast p1, Lcom/android/server/wm/WindowState;
+
+    invoke-static {v0, p0, p1}, Lcom/android/server/wm/RecentsAnimationController;->$r8$lambda$f7wlzX-2wJWRo4nvgusgrbDgdsM(ILcom/android/server/wm/AnimationAdapter;Lcom/android/server/wm/WindowState;)V
 
     return-void
 .end method

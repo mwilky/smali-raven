@@ -1,4 +1,4 @@
-.class final Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayHandler;
+.class public final Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayHandler;
 .super Landroid/os/Handler;
 .source "WifiDisplayAdapter.java"
 
@@ -9,13 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "WifiDisplayHandler"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/display/WifiDisplayAdapter;
+.field public final synthetic this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
 
 # direct methods
@@ -38,22 +38,19 @@
 .method public handleMessage(Landroid/os/Message;)V
     .locals 1
 
-    iget v0, p1, Landroid/os/Message;->what:I
+    iget p1, p1, Landroid/os/Message;->what:I
 
-    packed-switch v0, :pswitch_data_0
+    const/4 v0, 0x1
+
+    if-eq p1, v0, :cond_0
 
     goto :goto_0
 
-    :pswitch_0
-    iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayHandler;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
+    :cond_0
+    iget-object p0, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayHandler;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
-    invoke-static {v0}, Lcom/android/server/display/WifiDisplayAdapter;->access$1700(Lcom/android/server/display/WifiDisplayAdapter;)V
+    invoke-static {p0}, Lcom/android/server/display/WifiDisplayAdapter;->-$$Nest$mhandleSendStatusChangeBroadcast(Lcom/android/server/display/WifiDisplayAdapter;)V
 
     :goto_0
     return-void
-
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_0
-    .end packed-switch
 .end method

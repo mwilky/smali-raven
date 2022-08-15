@@ -1,4 +1,4 @@
-.class Lcom/android/server/graphics/fonts/FontManagerService$Lifecycle$1;
+.class public Lcom/android/server/graphics/fonts/FontManagerService$Lifecycle$1;
 .super Ljava/lang/Object;
 .source "FontManagerService.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/graphics/fonts/FontManagerService$Lifecycle;
+.field public final synthetic this$0:Lcom/android/server/graphics/fonts/FontManagerService$Lifecycle;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/graphics/fonts/FontManagerService$Lifecycle;)V
+.method public constructor <init>(Lcom/android/server/graphics/fonts/FontManagerService$Lifecycle;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/graphics/fonts/FontManagerService$Lifecycle$1;->this$0:Lcom/android/server/graphics/fonts/FontManagerService$Lifecycle;
@@ -35,17 +35,17 @@
 
 # virtual methods
 .method public getSerializedSystemFontMap()Landroid/os/SharedMemory;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/graphics/fonts/FontManagerService$Lifecycle$1;->this$0:Lcom/android/server/graphics/fonts/FontManagerService$Lifecycle;
+    iget-object p0, p0, Lcom/android/server/graphics/fonts/FontManagerService$Lifecycle$1;->this$0:Lcom/android/server/graphics/fonts/FontManagerService$Lifecycle;
 
-    invoke-static {v0}, Lcom/android/server/graphics/fonts/FontManagerService$Lifecycle;->access$100(Lcom/android/server/graphics/fonts/FontManagerService$Lifecycle;)Lcom/android/server/graphics/fonts/FontManagerService;
+    invoke-static {p0}, Lcom/android/server/graphics/fonts/FontManagerService$Lifecycle;->-$$Nest$fgetmService(Lcom/android/server/graphics/fonts/FontManagerService$Lifecycle;)Lcom/android/server/graphics/fonts/FontManagerService;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Lcom/android/server/graphics/fonts/FontManagerService;->getCurrentFontMap()Landroid/os/SharedMemory;
+    invoke-virtual {p0}, Lcom/android/server/graphics/fonts/FontManagerService;->getCurrentFontMap()Landroid/os/SharedMemory;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

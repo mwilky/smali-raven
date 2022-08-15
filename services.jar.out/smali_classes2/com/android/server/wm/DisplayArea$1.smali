@@ -1,4 +1,4 @@
-.class synthetic Lcom/android/server/wm/DisplayArea$1;
+.class public synthetic Lcom/android/server/wm/DisplayArea$1;
 .super Ljava/lang/Object;
 .source "DisplayArea.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
+    accessFlags = 0x1009
     name = null
 .end annotation
 
 
 # static fields
-.field static final synthetic $SwitchMap$com$android$server$wm$DisplayArea$Type:[I
+.field public static final synthetic $SwitchMap$com$android$server$wm$DisplayArea$Type:[I
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 3
 
     invoke-static {}, Lcom/android/server/wm/DisplayArea$Type;->values()[Lcom/android/server/wm/DisplayArea$Type;
@@ -35,7 +35,7 @@
     :try_start_0
     sget-object v1, Lcom/android/server/wm/DisplayArea$Type;->ABOVE_TASKS:Lcom/android/server/wm/DisplayArea$Type;
 
-    invoke-virtual {v1}, Lcom/android/server/wm/DisplayArea$Type;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -45,18 +45,13 @@
     :try_end_0
     .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
-
     :catch_0
-    move-exception v0
-
-    :goto_0
     :try_start_1
     sget-object v0, Lcom/android/server/wm/DisplayArea$1;->$SwitchMap$com$android$server$wm$DisplayArea$Type:[I
 
     sget-object v1, Lcom/android/server/wm/DisplayArea$Type;->BELOW_TASKS:Lcom/android/server/wm/DisplayArea$Type;
 
-    invoke-virtual {v1}, Lcom/android/server/wm/DisplayArea$Type;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -66,11 +61,6 @@
     :try_end_1
     .catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_1
 
-    goto :goto_1
-
     :catch_1
-    move-exception v0
-
-    :goto_1
     return-void
 .end method

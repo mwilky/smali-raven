@@ -24,10 +24,10 @@
 
 
 # virtual methods
-.method public abstract onUserStarted(ILjava/lang/Object;)V
+.method public abstract onUserStarted(ILjava/lang/Object;I)V
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "(ITU;)V"
+            "(ITU;I)V"
         }
     .end annotation
 .end method

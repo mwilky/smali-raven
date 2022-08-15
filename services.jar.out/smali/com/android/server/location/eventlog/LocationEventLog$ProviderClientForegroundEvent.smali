@@ -1,4 +1,4 @@
-.class final Lcom/android/server/location/eventlog/LocationEventLog$ProviderClientForegroundEvent;
+.class public final Lcom/android/server/location/eventlog/LocationEventLog$ProviderClientForegroundEvent;
 .super Lcom/android/server/location/eventlog/LocationEventLog$ProviderEvent;
 .source "LocationEventLog.java"
 
@@ -9,40 +9,40 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "ProviderClientForegroundEvent"
 .end annotation
 
 
 # instance fields
-.field private final mForeground:Z
+.field public final mForeground:Z
 
-.field private final mIdentity:Landroid/location/util/identity/CallerIdentity;
+.field public final mIdentity:Landroid/location/util/identity/CallerIdentity;
 
 
 # direct methods
-.method constructor <init>(JLjava/lang/String;ZLandroid/location/util/identity/CallerIdentity;)V
+.method public constructor <init>(Ljava/lang/String;ZLandroid/location/util/identity/CallerIdentity;)V
     .locals 0
 
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/location/eventlog/LocationEventLog$ProviderEvent;-><init>(JLjava/lang/String;)V
+    invoke-direct {p0, p1}, Lcom/android/server/location/eventlog/LocationEventLog$ProviderEvent;-><init>(Ljava/lang/String;)V
 
-    iput-boolean p4, p0, Lcom/android/server/location/eventlog/LocationEventLog$ProviderClientForegroundEvent;->mForeground:Z
+    iput-boolean p2, p0, Lcom/android/server/location/eventlog/LocationEventLog$ProviderClientForegroundEvent;->mForeground:Z
 
-    iput-object p5, p0, Lcom/android/server/location/eventlog/LocationEventLog$ProviderClientForegroundEvent;->mIdentity:Landroid/location/util/identity/CallerIdentity;
+    iput-object p3, p0, Lcom/android/server/location/eventlog/LocationEventLog$ProviderClientForegroundEvent;->mIdentity:Landroid/location/util/identity/CallerIdentity;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public getLogString()Ljava/lang/String;
+.method public toString()Ljava/lang/String;
     .locals 2
 
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v1, p0, Lcom/android/server/location/eventlog/LocationEventLog$ProviderClientForegroundEvent;->mProvider:Ljava/lang/String;
+    iget-object v1, p0, Lcom/android/server/location/eventlog/LocationEventLog$ProviderEvent;->mProvider:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -58,23 +58,23 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-boolean v1, p0, Lcom/android/server/location/eventlog/LocationEventLog$ProviderClientForegroundEvent;->mForeground:Z
+    iget-boolean p0, p0, Lcom/android/server/location/eventlog/LocationEventLog$ProviderClientForegroundEvent;->mForeground:Z
 
-    if-eqz v1, :cond_0
+    if-eqz p0, :cond_0
 
-    const-string v1, "foreground"
+    const-string p0, "foreground"
 
     goto :goto_0
 
     :cond_0
-    const-string v1, "background"
+    const-string p0, "background"
 
     :goto_0
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

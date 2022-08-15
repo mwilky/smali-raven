@@ -1,4 +1,4 @@
-.class Lcom/android/server/policy/WakeGestureListener$2;
+.class public Lcom/android/server/policy/WakeGestureListener$2;
 .super Ljava/lang/Object;
 .source "WakeGestureListener.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/policy/WakeGestureListener;
+.field public final synthetic this$0:Lcom/android/server/policy/WakeGestureListener;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/policy/WakeGestureListener;)V
+.method public constructor <init>(Lcom/android/server/policy/WakeGestureListener;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/policy/WakeGestureListener$2;->this$0:Lcom/android/server/policy/WakeGestureListener;
@@ -35,11 +35,11 @@
 
 # virtual methods
 .method public run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/policy/WakeGestureListener$2;->this$0:Lcom/android/server/policy/WakeGestureListener;
+    iget-object p0, p0, Lcom/android/server/policy/WakeGestureListener$2;->this$0:Lcom/android/server/policy/WakeGestureListener;
 
-    invoke-virtual {v0}, Lcom/android/server/policy/WakeGestureListener;->onWakeUp()V
+    invoke-virtual {p0}, Lcom/android/server/policy/WakeGestureListener;->onWakeUp()V
 
     return-void
 .end method

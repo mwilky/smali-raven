@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/location/listeners/ListenerRegistration$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/internal/listeners/ListenerExecutor$FailureCallback;
+.implements Ljava/util/function/Supplier;
 
 
 # instance fields
@@ -22,12 +23,14 @@
 
 
 # virtual methods
-.method public final onFailure(Lcom/android/internal/listeners/ListenerExecutor$ListenerOperation;Ljava/lang/Exception;)V
-    .locals 1
+.method public final get()Ljava/lang/Object;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/location/listeners/ListenerRegistration$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/location/listeners/ListenerRegistration;
+    iget-object p0, p0, Lcom/android/server/location/listeners/ListenerRegistration$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/location/listeners/ListenerRegistration;
 
-    invoke-virtual {v0, p1, p2}, Lcom/android/server/location/listeners/ListenerRegistration;->onOperationFailure(Lcom/android/internal/listeners/ListenerExecutor$ListenerOperation;Ljava/lang/Exception;)V
+    invoke-static {p0}, Lcom/android/server/location/listeners/ListenerRegistration;->$r8$lambda$xOIhIOzzo5r2z8R0vVp6VpGdQAg(Lcom/android/server/location/listeners/ListenerRegistration;)Ljava/lang/Object;
 
-    return-void
+    move-result-object p0
+
+    return-object p0
 .end method

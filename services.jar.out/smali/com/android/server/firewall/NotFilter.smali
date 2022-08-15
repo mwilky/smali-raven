@@ -1,4 +1,4 @@
-.class Lcom/android/server/firewall/NotFilter;
+.class public Lcom/android/server/firewall/NotFilter;
 .super Ljava/lang/Object;
 .source "NotFilter.java"
 
@@ -11,11 +11,11 @@
 
 
 # instance fields
-.field private final mChild:Lcom/android/server/firewall/Filter;
+.field public final mChild:Lcom/android/server/firewall/Filter;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 2
 
     new-instance v0, Lcom/android/server/firewall/NotFilter$1;
@@ -29,7 +29,7 @@
     return-void
 .end method
 
-.method private constructor <init>(Lcom/android/server/firewall/Filter;)V
+.method public constructor <init>(Lcom/android/server/firewall/Filter;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,7 +39,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/firewall/Filter;Lcom/android/server/firewall/NotFilter$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/firewall/Filter;Lcom/android/server/firewall/NotFilter-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/firewall/NotFilter;-><init>(Lcom/android/server/firewall/Filter;)V
@@ -70,9 +70,9 @@
 
     invoke-interface/range {v0 .. v7}, Lcom/android/server/firewall/Filter;->matches(Lcom/android/server/firewall/IntentFirewall;Landroid/content/ComponentName;Landroid/content/Intent;IILjava/lang/String;I)Z
 
-    move-result v0
+    move-result p0
 
-    xor-int/lit8 v0, v0, 0x1
+    xor-int/lit8 p0, p0, 0x1
 
-    return v0
+    return p0
 .end method

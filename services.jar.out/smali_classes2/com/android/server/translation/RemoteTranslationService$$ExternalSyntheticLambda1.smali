@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/translation/RemoteTranslationService$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/internal/infra/ServiceConnector$VoidJob;
@@ -31,17 +32,17 @@
 
 # virtual methods
 .method public final runNoResult(Ljava/lang/Object;)V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/translation/RemoteTranslationService$$ExternalSyntheticLambda1;->f$0:Landroid/view/translation/TranslationContext;
 
     iget v1, p0, Lcom/android/server/translation/RemoteTranslationService$$ExternalSyntheticLambda1;->f$1:I
 
-    iget-object v2, p0, Lcom/android/server/translation/RemoteTranslationService$$ExternalSyntheticLambda1;->f$2:Lcom/android/internal/os/IResultReceiver;
+    iget-object p0, p0, Lcom/android/server/translation/RemoteTranslationService$$ExternalSyntheticLambda1;->f$2:Lcom/android/internal/os/IResultReceiver;
 
     check-cast p1, Landroid/service/translation/ITranslationService;
 
-    invoke-static {v0, v1, v2, p1}, Lcom/android/server/translation/RemoteTranslationService;->lambda$onSessionCreated$0(Landroid/view/translation/TranslationContext;ILcom/android/internal/os/IResultReceiver;Landroid/service/translation/ITranslationService;)V
+    invoke-static {v0, v1, p0, p1}, Lcom/android/server/translation/RemoteTranslationService;->$r8$lambda$0TKANU3rMWV-gTQfuhNO9hZTWLc(Landroid/view/translation/TranslationContext;ILcom/android/internal/os/IResultReceiver;Landroid/service/translation/ITranslationService;)V
 
     return-void
 .end method

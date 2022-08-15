@@ -1,4 +1,4 @@
-.class Lcom/android/server/locksettings/BiometricDeferredQueue$UserAuthInfo;
+.class public Lcom/android/server/locksettings/BiometricDeferredQueue$UserAuthInfo;
 .super Ljava/lang/Object;
 .source "BiometricDeferredQueue.java"
 
@@ -9,19 +9,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "UserAuthInfo"
 .end annotation
 
 
 # instance fields
-.field final gatekeeperPassword:[B
+.field public final gatekeeperPassword:[B
 
-.field final userId:I
+.field public final userId:I
 
 
 # direct methods
-.method constructor <init>(I[B)V
+.method public constructor <init>(I[B)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

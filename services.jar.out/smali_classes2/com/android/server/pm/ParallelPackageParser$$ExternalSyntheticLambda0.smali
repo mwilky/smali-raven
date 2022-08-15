@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/pm/ParallelPackageParser$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -31,15 +32,15 @@
 
 # virtual methods
 .method public final run()V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/pm/ParallelPackageParser$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/pm/ParallelPackageParser;
 
     iget-object v1, p0, Lcom/android/server/pm/ParallelPackageParser$$ExternalSyntheticLambda0;->f$1:Ljava/io/File;
 
-    iget v2, p0, Lcom/android/server/pm/ParallelPackageParser$$ExternalSyntheticLambda0;->f$2:I
+    iget p0, p0, Lcom/android/server/pm/ParallelPackageParser$$ExternalSyntheticLambda0;->f$2:I
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/pm/ParallelPackageParser;->lambda$submit$0$ParallelPackageParser(Ljava/io/File;I)V
+    invoke-static {v0, v1, p0}, Lcom/android/server/pm/ParallelPackageParser;->$r8$lambda$RlSHohckYCKFYLTIR8oHENWLew0(Lcom/android/server/pm/ParallelPackageParser;Ljava/io/File;I)V
 
     return-void
 .end method

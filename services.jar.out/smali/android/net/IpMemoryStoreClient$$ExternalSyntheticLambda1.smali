@@ -1,45 +1,54 @@
 .class public final synthetic Landroid/net/IpMemoryStoreClient$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/net/IpMemoryStoreClient$ThrowingRunnable;
+.implements Ljava/util/function/Consumer;
 
 
 # instance fields
-.field public final synthetic f$0:Landroid/net/IIpMemoryStore;
+.field public final synthetic f$0:Landroid/net/IpMemoryStoreClient;
 
-.field public final synthetic f$1:Landroid/net/ipmemorystore/NetworkAttributes;
+.field public final synthetic f$1:Ljava/lang/String;
 
-.field public final synthetic f$2:Landroid/net/ipmemorystore/OnL2KeyResponseListener;
+.field public final synthetic f$2:Z
+
+.field public final synthetic f$3:Landroid/net/ipmemorystore/OnDeleteStatusListener;
 
 
 # direct methods
-.method public synthetic constructor <init>(Landroid/net/IIpMemoryStore;Landroid/net/ipmemorystore/NetworkAttributes;Landroid/net/ipmemorystore/OnL2KeyResponseListener;)V
+.method public synthetic constructor <init>(Landroid/net/IpMemoryStoreClient;Ljava/lang/String;ZLandroid/net/ipmemorystore/OnDeleteStatusListener;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Landroid/net/IpMemoryStoreClient$$ExternalSyntheticLambda1;->f$0:Landroid/net/IIpMemoryStore;
+    iput-object p1, p0, Landroid/net/IpMemoryStoreClient$$ExternalSyntheticLambda1;->f$0:Landroid/net/IpMemoryStoreClient;
 
-    iput-object p2, p0, Landroid/net/IpMemoryStoreClient$$ExternalSyntheticLambda1;->f$1:Landroid/net/ipmemorystore/NetworkAttributes;
+    iput-object p2, p0, Landroid/net/IpMemoryStoreClient$$ExternalSyntheticLambda1;->f$1:Ljava/lang/String;
 
-    iput-object p3, p0, Landroid/net/IpMemoryStoreClient$$ExternalSyntheticLambda1;->f$2:Landroid/net/ipmemorystore/OnL2KeyResponseListener;
+    iput-boolean p3, p0, Landroid/net/IpMemoryStoreClient$$ExternalSyntheticLambda1;->f$2:Z
+
+    iput-object p4, p0, Landroid/net/IpMemoryStoreClient$$ExternalSyntheticLambda1;->f$3:Landroid/net/ipmemorystore/OnDeleteStatusListener;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final run()V
+.method public final accept(Ljava/lang/Object;)V
     .locals 3
 
-    iget-object v0, p0, Landroid/net/IpMemoryStoreClient$$ExternalSyntheticLambda1;->f$0:Landroid/net/IIpMemoryStore;
+    iget-object v0, p0, Landroid/net/IpMemoryStoreClient$$ExternalSyntheticLambda1;->f$0:Landroid/net/IpMemoryStoreClient;
 
-    iget-object v1, p0, Landroid/net/IpMemoryStoreClient$$ExternalSyntheticLambda1;->f$1:Landroid/net/ipmemorystore/NetworkAttributes;
+    iget-object v1, p0, Landroid/net/IpMemoryStoreClient$$ExternalSyntheticLambda1;->f$1:Ljava/lang/String;
 
-    iget-object v2, p0, Landroid/net/IpMemoryStoreClient$$ExternalSyntheticLambda1;->f$2:Landroid/net/ipmemorystore/OnL2KeyResponseListener;
+    iget-boolean v2, p0, Landroid/net/IpMemoryStoreClient$$ExternalSyntheticLambda1;->f$2:Z
 
-    invoke-static {v0, v1, v2}, Landroid/net/IpMemoryStoreClient;->lambda$findL2Key$6(Landroid/net/IIpMemoryStore;Landroid/net/ipmemorystore/NetworkAttributes;Landroid/net/ipmemorystore/OnL2KeyResponseListener;)V
+    iget-object p0, p0, Landroid/net/IpMemoryStoreClient$$ExternalSyntheticLambda1;->f$3:Landroid/net/ipmemorystore/OnDeleteStatusListener;
+
+    check-cast p1, Landroid/net/IIpMemoryStore;
+
+    invoke-static {v0, v1, v2, p0, p1}, Landroid/net/IpMemoryStoreClient;->$r8$lambda$Std0opQTRo-Y6lBnnNlxKycmvQQ(Landroid/net/IpMemoryStoreClient;Ljava/lang/String;ZLandroid/net/ipmemorystore/OnDeleteStatusListener;Landroid/net/IIpMemoryStore;)V
 
     return-void
 .end method

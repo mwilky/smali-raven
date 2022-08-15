@@ -1,4 +1,4 @@
-.class interface abstract Landroid/net/NetworkFactoryShim;
+.class public interface abstract Landroid/net/NetworkFactoryShim;
 .super Ljava/lang/Object;
 .source "NetworkFactoryShim.java"
 
@@ -20,6 +20,8 @@
 .end method
 
 .method public abstract obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
 .end method
 
 .method public abstract reevaluateAllRequests()V
@@ -29,13 +31,13 @@
 .end method
 
 .method public registerIgnoringScore(Ljava/lang/String;)V
-    .locals 1
+    .locals 0
 
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p0, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p0}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p0
 .end method
 
 .method public abstract releaseRequestAsUnfulfillableByAnyFactory(Landroid/net/NetworkRequest;)V

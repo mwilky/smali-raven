@@ -3,22 +3,6 @@
 .source "AppBindingConstants.java"
 
 
-# static fields
-.field private static final SERVICE_RECONNECT_BACKOFF_INCREASE_KEY:Ljava/lang/String; = "service_reconnect_backoff_increase"
-
-.field private static final SERVICE_RECONNECT_BACKOFF_SEC_KEY:Ljava/lang/String; = "service_reconnect_backoff_sec"
-
-.field private static final SERVICE_RECONNECT_MAX_BACKOFF_SEC_KEY:Ljava/lang/String; = "service_reconnect_max_backoff_sec"
-
-.field private static final SERVICE_STABLE_CONNECTION_THRESHOLD_SEC_KEY:Ljava/lang/String; = "service_stable_connection_threshold_sec"
-
-.field private static final SMS_APP_BIND_FLAGS_KEY:Ljava/lang/String; = "sms_app_bind_flags"
-
-.field private static final SMS_SERVICE_ENABLED_KEY:Ljava/lang/String; = "sms_service_enabled"
-
-.field private static final TAG:Ljava/lang/String; = "AppBindingService"
-
-
 # instance fields
 .field public final SERVICE_RECONNECT_BACKOFF_INCREASE:D
 
@@ -36,8 +20,8 @@
 
 
 # direct methods
-.method private constructor <init>(Ljava/lang/String;)V
-    .locals 13
+.method public constructor <init>(Ljava/lang/String;)V
+    .locals 12
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -57,116 +41,114 @@
     goto :goto_0
 
     :catch_0
-    move-exception v1
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v2, "Bad setting: "
 
-    const-string v3, "Bad setting: "
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v2
+    const-string v1, "AppBindingService"
 
-    const-string v3, "AppBindingService"
-
-    invoke-static {v3, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, p1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     :goto_0
     const-wide/16 v1, 0xa
 
-    const-string/jumbo v3, "service_reconnect_backoff_sec"
+    const-string/jumbo p1, "service_reconnect_backoff_sec"
 
-    invoke-virtual {v0, v3, v1, v2}, Landroid/util/KeyValueListParser;->getLong(Ljava/lang/String;J)J
+    invoke-virtual {v0, p1, v1, v2}, Landroid/util/KeyValueListParser;->getLong(Ljava/lang/String;J)J
 
     move-result-wide v1
 
-    const/high16 v3, 0x40000000    # 2.0f
+    const/high16 p1, 0x40000000    # 2.0f
 
-    const-string/jumbo v4, "service_reconnect_backoff_increase"
+    const-string/jumbo v3, "service_reconnect_backoff_increase"
 
-    invoke-virtual {v0, v4, v3}, Landroid/util/KeyValueListParser;->getFloat(Ljava/lang/String;F)F
+    invoke-virtual {v0, v3, p1}, Landroid/util/KeyValueListParser;->getFloat(Ljava/lang/String;F)F
 
-    move-result v3
+    move-result p1
 
-    float-to-double v3, v3
+    float-to-double v3, p1
 
-    sget-object v5, Ljava/util/concurrent/TimeUnit;->HOURS:Ljava/util/concurrent/TimeUnit;
+    sget-object p1, Ljava/util/concurrent/TimeUnit;->HOURS:Ljava/util/concurrent/TimeUnit;
 
-    const-wide/16 v6, 0x1
+    const-wide/16 v5, 0x1
 
-    invoke-virtual {v5, v6, v7}, Ljava/util/concurrent/TimeUnit;->toSeconds(J)J
-
-    move-result-wide v5
-
-    const-string/jumbo v7, "service_reconnect_max_backoff_sec"
-
-    invoke-virtual {v0, v7, v5, v6}, Landroid/util/KeyValueListParser;->getLong(Ljava/lang/String;J)J
+    invoke-virtual {p1, v5, v6}, Ljava/util/concurrent/TimeUnit;->toSeconds(J)J
 
     move-result-wide v5
 
-    const/4 v7, 0x1
+    const-string/jumbo p1, "service_reconnect_max_backoff_sec"
 
-    const-string/jumbo v8, "sms_service_enabled"
+    invoke-virtual {v0, p1, v5, v6}, Landroid/util/KeyValueListParser;->getLong(Ljava/lang/String;J)J
 
-    invoke-virtual {v0, v8, v7}, Landroid/util/KeyValueListParser;->getBoolean(Ljava/lang/String;Z)Z
+    move-result-wide v5
+
+    const/4 p1, 0x1
+
+    const-string/jumbo v7, "sms_service_enabled"
+
+    invoke-virtual {v0, v7, p1}, Landroid/util/KeyValueListParser;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result p1
+
+    const/high16 v7, 0x44000000    # 512.0f
+
+    const-string/jumbo v8, "sms_app_bind_flags"
+
+    invoke-virtual {v0, v8, v7}, Landroid/util/KeyValueListParser;->getInt(Ljava/lang/String;I)I
 
     move-result v7
 
-    const/high16 v8, 0x44000000    # 512.0f
+    sget-object v8, Ljava/util/concurrent/TimeUnit;->MINUTES:Ljava/util/concurrent/TimeUnit;
 
-    const-string/jumbo v9, "sms_app_bind_flags"
+    const-wide/16 v9, 0x2
 
-    invoke-virtual {v0, v9, v8}, Landroid/util/KeyValueListParser;->getInt(Ljava/lang/String;I)I
+    invoke-virtual {v8, v9, v10}, Ljava/util/concurrent/TimeUnit;->toSeconds(J)J
 
-    move-result v8
+    move-result-wide v8
 
-    sget-object v9, Ljava/util/concurrent/TimeUnit;->MINUTES:Ljava/util/concurrent/TimeUnit;
+    const-string/jumbo v10, "service_stable_connection_threshold_sec"
 
-    const-wide/16 v10, 0x2
+    invoke-virtual {v0, v10, v8, v9}, Landroid/util/KeyValueListParser;->getLong(Ljava/lang/String;J)J
 
-    invoke-virtual {v9, v10, v11}, Ljava/util/concurrent/TimeUnit;->toSeconds(J)J
+    move-result-wide v8
 
-    move-result-wide v9
+    const-wide/16 v10, 0x5
 
-    const-string/jumbo v11, "service_stable_connection_threshold_sec"
+    invoke-static {v10, v11, v1, v2}, Ljava/lang/Math;->max(JJ)J
 
-    invoke-virtual {v0, v11, v9, v10}, Landroid/util/KeyValueListParser;->getLong(Ljava/lang/String;J)J
+    move-result-wide v0
 
-    move-result-wide v9
+    const-wide/high16 v10, 0x3ff0000000000000L    # 1.0
 
-    const-wide/16 v11, 0x5
+    invoke-static {v10, v11, v3, v4}, Ljava/lang/Math;->max(DD)D
 
-    invoke-static {v11, v12, v1, v2}, Ljava/lang/Math;->max(JJ)J
+    move-result-wide v2
 
-    move-result-wide v1
+    invoke-static {v0, v1, v5, v6}, Ljava/lang/Math;->max(JJ)J
 
-    const-wide/high16 v11, 0x3ff0000000000000L    # 1.0
+    move-result-wide v4
 
-    invoke-static {v11, v12, v3, v4}, Ljava/lang/Math;->max(DD)D
+    iput-wide v0, p0, Lcom/android/server/appbinding/AppBindingConstants;->SERVICE_RECONNECT_BACKOFF_SEC:J
 
-    move-result-wide v3
+    iput-wide v2, p0, Lcom/android/server/appbinding/AppBindingConstants;->SERVICE_RECONNECT_BACKOFF_INCREASE:D
 
-    invoke-static {v1, v2, v5, v6}, Ljava/lang/Math;->max(JJ)J
+    iput-wide v4, p0, Lcom/android/server/appbinding/AppBindingConstants;->SERVICE_RECONNECT_MAX_BACKOFF_SEC:J
 
-    move-result-wide v5
+    iput-wide v8, p0, Lcom/android/server/appbinding/AppBindingConstants;->SERVICE_STABLE_CONNECTION_THRESHOLD_SEC:J
 
-    iput-wide v1, p0, Lcom/android/server/appbinding/AppBindingConstants;->SERVICE_RECONNECT_BACKOFF_SEC:J
+    iput-boolean p1, p0, Lcom/android/server/appbinding/AppBindingConstants;->SMS_SERVICE_ENABLED:Z
 
-    iput-wide v3, p0, Lcom/android/server/appbinding/AppBindingConstants;->SERVICE_RECONNECT_BACKOFF_INCREASE:D
-
-    iput-wide v5, p0, Lcom/android/server/appbinding/AppBindingConstants;->SERVICE_RECONNECT_MAX_BACKOFF_SEC:J
-
-    iput-wide v9, p0, Lcom/android/server/appbinding/AppBindingConstants;->SERVICE_STABLE_CONNECTION_THRESHOLD_SEC:J
-
-    iput-boolean v7, p0, Lcom/android/server/appbinding/AppBindingConstants;->SMS_SERVICE_ENABLED:Z
-
-    iput v8, p0, Lcom/android/server/appbinding/AppBindingConstants;->SMS_APP_BIND_FLAGS:I
+    iput v7, p0, Lcom/android/server/appbinding/AppBindingConstants;->SMS_APP_BIND_FLAGS:I
 
     return-void
 .end method
@@ -248,17 +230,17 @@
 
     invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    const-string v0, "  SMS_APP_BIND_FLAGS: 0x"
+    const-string p1, "  SMS_APP_BIND_FLAGS: 0x"
 
-    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+    invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    iget v0, p0, Lcom/android/server/appbinding/AppBindingConstants;->SMS_APP_BIND_FLAGS:I
+    iget p0, p0, Lcom/android/server/appbinding/AppBindingConstants;->SMS_APP_BIND_FLAGS:I
 
-    invoke-static {v0}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+    invoke-static {p0}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p2, p0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     return-void
 .end method

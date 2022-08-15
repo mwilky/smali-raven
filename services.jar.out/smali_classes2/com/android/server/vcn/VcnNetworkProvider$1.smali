@@ -1,4 +1,4 @@
-.class Lcom/android/server/vcn/VcnNetworkProvider$1;
+.class public Lcom/android/server/vcn/VcnNetworkProvider$1;
 .super Ljava/lang/Object;
 .source "VcnNetworkProvider.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/vcn/VcnNetworkProvider;
+.field public final synthetic this$0:Lcom/android/server/vcn/VcnNetworkProvider;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/vcn/VcnNetworkProvider;)V
+.method public constructor <init>(Lcom/android/server/vcn/VcnNetworkProvider;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/vcn/VcnNetworkProvider$1;->this$0:Lcom/android/server/vcn/VcnNetworkProvider;
@@ -35,21 +35,21 @@
 
 # virtual methods
 .method public onNetworkNeeded(Landroid/net/NetworkRequest;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/vcn/VcnNetworkProvider$1;->this$0:Lcom/android/server/vcn/VcnNetworkProvider;
+    iget-object p0, p0, Lcom/android/server/vcn/VcnNetworkProvider$1;->this$0:Lcom/android/server/vcn/VcnNetworkProvider;
 
-    invoke-static {v0, p1}, Lcom/android/server/vcn/VcnNetworkProvider;->access$000(Lcom/android/server/vcn/VcnNetworkProvider;Landroid/net/NetworkRequest;)V
+    invoke-static {p0, p1}, Lcom/android/server/vcn/VcnNetworkProvider;->-$$Nest$mhandleNetworkRequested(Lcom/android/server/vcn/VcnNetworkProvider;Landroid/net/NetworkRequest;)V
 
     return-void
 .end method
 
 .method public onNetworkUnneeded(Landroid/net/NetworkRequest;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/vcn/VcnNetworkProvider$1;->this$0:Lcom/android/server/vcn/VcnNetworkProvider;
+    iget-object p0, p0, Lcom/android/server/vcn/VcnNetworkProvider$1;->this$0:Lcom/android/server/vcn/VcnNetworkProvider;
 
-    invoke-static {v0, p1}, Lcom/android/server/vcn/VcnNetworkProvider;->access$100(Lcom/android/server/vcn/VcnNetworkProvider;Landroid/net/NetworkRequest;)V
+    invoke-static {p0, p1}, Lcom/android/server/vcn/VcnNetworkProvider;->-$$Nest$mhandleNetworkRequestWithdrawn(Lcom/android/server/vcn/VcnNetworkProvider;Landroid/net/NetworkRequest;)V
 
     return-void
 .end method

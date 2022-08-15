@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/pm/InstantAppResolverConnection$1$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -39,7 +40,7 @@
 
     iget-wide v2, p0, Lcom/android/server/pm/InstantAppResolverConnection$1$$ExternalSyntheticLambda0;->f$2:J
 
-    invoke-static {v0, v1, v2, v3}, Lcom/android/server/pm/InstantAppResolverConnection$1;->lambda$sendResult$0(Lcom/android/server/pm/InstantAppResolverConnection$PhaseTwoCallback;Ljava/util/ArrayList;J)V
+    invoke-static {v0, v1, v2, v3}, Lcom/android/server/pm/InstantAppResolverConnection$1;->$r8$lambda$DYhZls6FCFTgCFB9gm8icp-pXsQ(Lcom/android/server/pm/InstantAppResolverConnection$PhaseTwoCallback;Ljava/util/ArrayList;J)V
 
     return-void
 .end method

@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/speech/SpeechRecognitionManagerServiceImpl$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/os/IBinder$DeathRecipient;
@@ -31,15 +32,15 @@
 
 # virtual methods
 .method public final binderDied()V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/speech/SpeechRecognitionManagerServiceImpl$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/speech/SpeechRecognitionManagerServiceImpl;
 
     iget v1, p0, Lcom/android/server/speech/SpeechRecognitionManagerServiceImpl$$ExternalSyntheticLambda0;->f$1:I
 
-    iget-object v2, p0, Lcom/android/server/speech/SpeechRecognitionManagerServiceImpl$$ExternalSyntheticLambda0;->f$2:Lcom/android/server/speech/RemoteSpeechRecognitionService;
+    iget-object p0, p0, Lcom/android/server/speech/SpeechRecognitionManagerServiceImpl$$ExternalSyntheticLambda0;->f$2:Lcom/android/server/speech/RemoteSpeechRecognitionService;
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/speech/SpeechRecognitionManagerServiceImpl;->lambda$createSessionLocked$0$SpeechRecognitionManagerServiceImpl(ILcom/android/server/speech/RemoteSpeechRecognitionService;)V
+    invoke-static {v0, v1, p0}, Lcom/android/server/speech/SpeechRecognitionManagerServiceImpl;->$r8$lambda$uPXleECJRAyvpAuEwWF04sMqwXQ(Lcom/android/server/speech/SpeechRecognitionManagerServiceImpl;ILcom/android/server/speech/RemoteSpeechRecognitionService;)V
 
     return-void
 .end method

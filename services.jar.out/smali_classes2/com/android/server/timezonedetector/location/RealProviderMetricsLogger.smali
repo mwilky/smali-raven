@@ -1,4 +1,4 @@
-.class public Lcom/android/server/timezonedetector/location/RealProviderMetricsLogger;
+.class public final Lcom/android/server/timezonedetector/location/RealProviderMetricsLogger;
 .super Ljava/lang/Object;
 .source "RealProviderMetricsLogger.java"
 
@@ -7,7 +7,7 @@
 
 
 # instance fields
-.field private final mProviderIndex:I
+.field public final mProviderIndex:I
 
 
 # direct methods
@@ -21,44 +21,44 @@
     return-void
 .end method
 
-.method private static metricsProviderState(I)I
-    .locals 1
+.method public static metricsProviderState(I)I
+    .locals 0
 
     packed-switch p0, :pswitch_data_0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 
     :pswitch_0
-    const/4 v0, 0x6
+    const/4 p0, 0x6
 
-    return v0
+    return p0
 
     :pswitch_1
-    const/4 v0, 0x5
+    const/4 p0, 0x5
 
-    return v0
+    return p0
 
     :pswitch_2
-    const/4 v0, 0x4
+    const/4 p0, 0x4
 
-    return v0
+    return p0
 
     :pswitch_3
-    const/4 v0, 0x3
+    const/4 p0, 0x3
 
-    return v0
+    return p0
 
     :pswitch_4
-    const/4 v0, 0x2
+    const/4 p0, 0x2
 
-    return v0
+    return p0
 
     :pswitch_5
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 
     nop
 
@@ -76,17 +76,17 @@
 
 # virtual methods
 .method public onProviderStateChanged(I)V
-    .locals 3
+    .locals 1
 
-    iget v0, p0, Lcom/android/server/timezonedetector/location/RealProviderMetricsLogger;->mProviderIndex:I
+    iget p0, p0, Lcom/android/server/timezonedetector/location/RealProviderMetricsLogger;->mProviderIndex:I
 
     invoke-static {p1}, Lcom/android/server/timezonedetector/location/RealProviderMetricsLogger;->metricsProviderState(I)I
 
-    move-result v1
+    move-result p1
 
-    const/16 v2, 0x167
+    const/16 v0, 0x167
 
-    invoke-static {v2, v0, v1}, Lcom/android/internal/util/FrameworkStatsLog;->write(III)V
+    invoke-static {v0, p0, p1}, Lcom/android/internal/util/FrameworkStatsLog;->write(III)V
 
     return-void
 .end method

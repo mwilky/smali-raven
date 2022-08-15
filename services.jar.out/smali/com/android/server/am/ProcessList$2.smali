@@ -1,4 +1,4 @@
-.class Lcom/android/server/am/ProcessList$2;
+.class public Lcom/android/server/am/ProcessList$2;
 .super Ljava/lang/Object;
 .source "ProcessList.java"
 
@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
@@ -29,7 +29,7 @@
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public compare(Landroid/util/Pair;Landroid/util/Pair;)I
-    .locals 4
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -55,7 +55,17 @@
         }
     .end annotation
 
-    iget-object v0, p2, Landroid/util/Pair;->first:Ljava/lang/Object;
+    iget-object p0, p2, Landroid/util/Pair;->first:Ljava/lang/Object;
+
+    check-cast p0, Lcom/android/server/am/ProcessRecord;
+
+    iget-object p0, p0, Lcom/android/server/am/ProcessRecord;->mState:Lcom/android/server/am/ProcessStateRecord;
+
+    invoke-virtual {p0}, Lcom/android/server/am/ProcessStateRecord;->getSetAdj()I
+
+    move-result p0
+
+    iget-object v0, p1, Landroid/util/Pair;->first:Ljava/lang/Object;
 
     check-cast v0, Lcom/android/server/am/ProcessRecord;
 
@@ -65,76 +75,66 @@
 
     move-result v0
 
-    iget-object v1, p1, Landroid/util/Pair;->first:Ljava/lang/Object;
+    sub-int/2addr p0, v0
 
-    check-cast v1, Lcom/android/server/am/ProcessRecord;
+    if-eqz p0, :cond_0
 
-    iget-object v1, v1, Lcom/android/server/am/ProcessRecord;->mState:Lcom/android/server/am/ProcessStateRecord;
-
-    invoke-virtual {v1}, Lcom/android/server/am/ProcessStateRecord;->getSetAdj()I
-
-    move-result v1
-
-    sub-int/2addr v0, v1
-
-    if-eqz v0, :cond_0
-
-    return v0
+    return p0
 
     :cond_0
-    iget-object v1, p2, Landroid/util/Pair;->first:Ljava/lang/Object;
+    iget-object p0, p2, Landroid/util/Pair;->first:Ljava/lang/Object;
 
-    check-cast v1, Lcom/android/server/am/ProcessRecord;
+    check-cast p0, Lcom/android/server/am/ProcessRecord;
 
-    iget-object v1, v1, Lcom/android/server/am/ProcessRecord;->mState:Lcom/android/server/am/ProcessStateRecord;
+    iget-object p0, p0, Lcom/android/server/am/ProcessRecord;->mState:Lcom/android/server/am/ProcessStateRecord;
 
-    invoke-virtual {v1}, Lcom/android/server/am/ProcessStateRecord;->getSetProcState()I
+    invoke-virtual {p0}, Lcom/android/server/am/ProcessStateRecord;->getSetProcState()I
 
-    move-result v1
+    move-result p0
 
-    iget-object v2, p1, Landroid/util/Pair;->first:Ljava/lang/Object;
+    iget-object v0, p1, Landroid/util/Pair;->first:Ljava/lang/Object;
 
-    check-cast v2, Lcom/android/server/am/ProcessRecord;
+    check-cast v0, Lcom/android/server/am/ProcessRecord;
 
-    iget-object v2, v2, Lcom/android/server/am/ProcessRecord;->mState:Lcom/android/server/am/ProcessStateRecord;
+    iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->mState:Lcom/android/server/am/ProcessStateRecord;
 
-    invoke-virtual {v2}, Lcom/android/server/am/ProcessStateRecord;->getSetProcState()I
+    invoke-virtual {v0}, Lcom/android/server/am/ProcessStateRecord;->getSetProcState()I
 
-    move-result v2
+    move-result v0
 
-    sub-int/2addr v1, v2
+    sub-int/2addr p0, v0
 
-    if-eqz v1, :cond_1
+    if-eqz p0, :cond_1
 
-    return v1
+    return p0
 
     :cond_1
-    iget-object v2, p2, Landroid/util/Pair;->second:Ljava/lang/Object;
+    iget-object p0, p2, Landroid/util/Pair;->second:Ljava/lang/Object;
 
-    check-cast v2, Ljava/lang/Integer;
+    check-cast p0, Ljava/lang/Integer;
 
-    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {p0}, Ljava/lang/Integer;->intValue()I
 
-    move-result v2
+    move-result p0
 
-    iget-object v3, p1, Landroid/util/Pair;->second:Ljava/lang/Object;
+    iget-object p1, p1, Landroid/util/Pair;->second:Ljava/lang/Object;
 
-    check-cast v3, Ljava/lang/Integer;
+    check-cast p1, Ljava/lang/Integer;
 
-    invoke-virtual {v3}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
 
-    move-result v3
+    move-result p1
 
-    sub-int/2addr v2, v3
+    sub-int/2addr p0, p1
 
-    if-eqz v2, :cond_2
+    if-eqz p0, :cond_2
 
-    return v2
+    return p0
 
     :cond_2
-    const/4 v3, 0x0
+    const/4 p0, 0x0
 
-    return v3
+    return p0
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
@@ -146,7 +146,7 @@
 
     invoke-virtual {p0, p1, p2}, Lcom/android/server/am/ProcessList$2;->compare(Landroid/util/Pair;Landroid/util/Pair;)I
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method

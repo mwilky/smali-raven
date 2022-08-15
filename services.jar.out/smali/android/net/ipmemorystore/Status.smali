@@ -33,11 +33,13 @@
 .end method
 
 .method public constructor <init>(Landroid/net/ipmemorystore/StatusParcelable;)V
-    .locals 1
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
 
-    iget v0, p1, Landroid/net/ipmemorystore/StatusParcelable;->resultCode:I
+    iget p1, p1, Landroid/net/ipmemorystore/StatusParcelable;->resultCode:I
 
-    invoke-direct {p0, v0}, Landroid/net/ipmemorystore/Status;-><init>(I)V
+    invoke-direct {p0, p1}, Landroid/net/ipmemorystore/Status;-><init>(I)V
 
     return-void
 .end method
@@ -45,33 +47,33 @@
 
 # virtual methods
 .method public isSuccess()Z
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Landroid/net/ipmemorystore/Status;->resultCode:I
+    iget p0, p0, Landroid/net/ipmemorystore/Status;->resultCode:I
 
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method public toParcelable()Landroid/net/ipmemorystore/StatusParcelable;
-    .locals 2
+    .locals 1
 
     new-instance v0, Landroid/net/ipmemorystore/StatusParcelable;
 
     invoke-direct {v0}, Landroid/net/ipmemorystore/StatusParcelable;-><init>()V
 
-    iget v1, p0, Landroid/net/ipmemorystore/Status;->resultCode:I
+    iget p0, p0, Landroid/net/ipmemorystore/Status;->resultCode:I
 
-    iput v1, v0, Landroid/net/ipmemorystore/StatusParcelable;->resultCode:I
+    iput p0, v0, Landroid/net/ipmemorystore/StatusParcelable;->resultCode:I
 
     return-object v0
 .end method
@@ -79,47 +81,52 @@
 .method public toString()Ljava/lang/String;
     .locals 1
 
-    iget v0, p0, Landroid/net/ipmemorystore/Status;->resultCode:I
+    iget p0, p0, Landroid/net/ipmemorystore/Status;->resultCode:I
 
-    packed-switch v0, :pswitch_data_0
+    const/4 v0, -0x4
 
-    const-string v0, "Unknown value ?!"
+    if-eq p0, v0, :cond_4
 
-    return-object v0
+    const/4 v0, -0x3
 
-    :pswitch_0
-    const-string v0, "SUCCESS"
+    if-eq p0, v0, :cond_3
 
-    return-object v0
+    const/4 v0, -0x2
 
-    :pswitch_1
-    const-string v0, "GENERIC ERROR"
+    if-eq p0, v0, :cond_2
 
-    return-object v0
+    const/4 v0, -0x1
 
-    :pswitch_2
-    const-string v0, "ILLEGAL ARGUMENT"
+    if-eq p0, v0, :cond_1
 
-    return-object v0
+    if-eqz p0, :cond_0
 
-    :pswitch_3
-    const-string v0, "DATABASE CANNOT BE OPENED"
+    const-string p0, "Unknown value ?!"
 
-    return-object v0
+    return-object p0
 
-    :pswitch_4
-    const-string v0, "DATABASE STORAGE ERROR"
+    :cond_0
+    const-string p0, "SUCCESS"
 
-    return-object v0
+    return-object p0
 
-    nop
+    :cond_1
+    const-string p0, "GENERIC ERROR"
 
-    :pswitch_data_0
-    .packed-switch -0x4
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
+    return-object p0
+
+    :cond_2
+    const-string p0, "ILLEGAL ARGUMENT"
+
+    return-object p0
+
+    :cond_3
+    const-string p0, "DATABASE CANNOT BE OPENED"
+
+    return-object p0
+
+    :cond_4
+    const-string p0, "DATABASE STORAGE ERROR"
+
+    return-object p0
 .end method

@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/wm/WindowState$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -23,13 +24,13 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/WindowState$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/wm/WindowState;
+    iget-object p0, p0, Lcom/android/server/wm/WindowState$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/wm/WindowState;
 
     check-cast p1, Landroid/view/SurfaceControl$Transaction;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/wm/WindowState;->lambda$new$0$WindowState(Landroid/view/SurfaceControl$Transaction;)V
+    invoke-static {p0, p1}, Lcom/android/server/wm/WindowState;->$r8$lambda$NT7WFsAMtgJOW3JXl33VeUnZuCs(Lcom/android/server/wm/WindowState;Landroid/view/SurfaceControl$Transaction;)V
 
     return-void
 .end method

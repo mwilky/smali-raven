@@ -1,4 +1,4 @@
-.class Lcom/android/server/am/NativeCrashListener$NativeCrashReporter;
+.class public Lcom/android/server/am/NativeCrashListener$NativeCrashReporter;
 .super Ljava/lang/Thread;
 .source "NativeCrashListener.java"
 
@@ -9,30 +9,30 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = "NativeCrashReporter"
 .end annotation
 
 
 # instance fields
-.field mApp:Lcom/android/server/am/ProcessRecord;
+.field public mApp:Lcom/android/server/am/ProcessRecord;
 
-.field mCrashReport:Ljava/lang/String;
+.field public mCrashReport:Ljava/lang/String;
 
-.field mSignal:I
+.field public mSignal:I
 
-.field final synthetic this$0:Lcom/android/server/am/NativeCrashListener;
+.field public final synthetic this$0:Lcom/android/server/am/NativeCrashListener;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/NativeCrashListener;Lcom/android/server/am/ProcessRecord;ILjava/lang/String;)V
-    .locals 1
+.method public constructor <init>(Lcom/android/server/am/NativeCrashListener;Lcom/android/server/am/ProcessRecord;ILjava/lang/String;)V
+    .locals 0
 
     iput-object p1, p0, Lcom/android/server/am/NativeCrashListener$NativeCrashReporter;->this$0:Lcom/android/server/am/NativeCrashListener;
 
-    const-string v0, "NativeCrashReport"
+    const-string p1, "NativeCrashReport"
 
-    invoke-direct {p0, v0}, Ljava/lang/Thread;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/Thread;-><init>(Ljava/lang/String;)V
 
     iput-object p2, p0, Lcom/android/server/am/NativeCrashListener$NativeCrashReporter;->mApp:Lcom/android/server/am/ProcessRecord;
 
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 5
+    .locals 4
 
     const-string/jumbo v0, "unknown"
 
@@ -83,24 +83,24 @@
 
     const-string/jumbo v2, "native_crash"
 
-    iget-object v3, p0, Lcom/android/server/am/NativeCrashListener$NativeCrashReporter;->mApp:Lcom/android/server/am/ProcessRecord;
+    iget-object p0, p0, Lcom/android/server/am/NativeCrashListener$NativeCrashReporter;->mApp:Lcom/android/server/am/ProcessRecord;
 
-    iget-object v4, v3, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+    iget-object v3, p0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
 
-    invoke-virtual {v0, v2, v3, v4, v1}, Lcom/android/server/am/ActivityManagerService;->handleApplicationCrashInner(Ljava/lang/String;Lcom/android/server/am/ProcessRecord;Ljava/lang/String;Landroid/app/ApplicationErrorReport$CrashInfo;)V
+    invoke-virtual {v0, v2, p0, v3, v1}, Lcom/android/server/am/ActivityManagerService;->handleApplicationCrashInner(Ljava/lang/String;Lcom/android/server/am/ProcessRecord;Ljava/lang/String;Landroid/app/ApplicationErrorReport$CrashInfo;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    const-string v1, "NativeCrashListener"
+    const-string v0, "NativeCrashListener"
 
-    const-string v2, "Unable to report native crash"
+    const-string v1, "Unable to report native crash"
 
-    invoke-static {v1, v2, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v0, v1, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_0
     return-void

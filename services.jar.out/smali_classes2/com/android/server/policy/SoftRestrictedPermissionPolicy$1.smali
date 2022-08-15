@@ -1,4 +1,4 @@
-.class Lcom/android/server/policy/SoftRestrictedPermissionPolicy$1;
+.class public Lcom/android/server/policy/SoftRestrictedPermissionPolicy$1;
 .super Lcom/android/server/policy/SoftRestrictedPermissionPolicy;
 .source "SoftRestrictedPermissionPolicy.java"
 
@@ -9,13 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/policy/SoftRestrictedPermissionPolicy;-><init>()V
@@ -26,9 +26,9 @@
 
 # virtual methods
 .method public mayGrantPermission()Z
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 .end method

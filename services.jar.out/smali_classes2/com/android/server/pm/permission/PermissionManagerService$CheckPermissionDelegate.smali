@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/server/pm/permission/PermissionManagerService$CheckPermissionDelegate;
+.class public interface abstract Lcom/android/server/pm/permission/PermissionManagerService$CheckPermissionDelegate;
 .super Ljava/lang/Object;
 .source "PermissionManagerService.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x60a
+    accessFlags = 0x609
     name = "CheckPermissionDelegate"
 .end annotation
 

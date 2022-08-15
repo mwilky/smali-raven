@@ -15,7 +15,7 @@
 
 
 # instance fields
-.field private final mService:Lcom/android/server/NetworkScoreService;
+.field public final mService:Lcom/android/server/NetworkScoreService;
 
 
 # direct methods
@@ -42,9 +42,9 @@
 
     if-ne p1, v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/NetworkScoreService$Lifecycle;->mService:Lcom/android/server/NetworkScoreService;
+    iget-object p0, p0, Lcom/android/server/NetworkScoreService$Lifecycle;->mService:Lcom/android/server/NetworkScoreService;
 
-    invoke-virtual {v0}, Lcom/android/server/NetworkScoreService;->systemReady()V
+    invoke-virtual {p0}, Lcom/android/server/NetworkScoreService;->systemReady()V
 
     goto :goto_0
 
@@ -53,9 +53,9 @@
 
     if-ne p1, v0, :cond_1
 
-    iget-object v0, p0, Lcom/android/server/NetworkScoreService$Lifecycle;->mService:Lcom/android/server/NetworkScoreService;
+    iget-object p0, p0, Lcom/android/server/NetworkScoreService$Lifecycle;->mService:Lcom/android/server/NetworkScoreService;
 
-    invoke-virtual {v0}, Lcom/android/server/NetworkScoreService;->systemRunning()V
+    invoke-virtual {p0}, Lcom/android/server/NetworkScoreService;->systemRunning()V
 
     :cond_1
     :goto_0
@@ -75,7 +75,7 @@
 
     const-string/jumbo v1, "network_score"
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/server/NetworkScoreService$Lifecycle;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
+    invoke-virtual {p0, v1, v0}, Lcom/android/server/SystemService;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
 
     return-void
 .end method

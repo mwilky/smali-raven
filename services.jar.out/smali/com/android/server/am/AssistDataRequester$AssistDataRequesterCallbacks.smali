@@ -16,22 +16,42 @@
 
 # virtual methods
 .method public abstract canHandleReceivedAssistDataLocked()Z
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mCallbacksLock"
+        }
+    .end annotation
 .end method
 
 .method public onAssistDataReceivedLocked(Landroid/os/Bundle;II)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mCallbacksLock"
+        }
+    .end annotation
 
     return-void
 .end method
 
 .method public onAssistRequestCompleted()V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mCallbacksLock"
+        }
+    .end annotation
 
     return-void
 .end method
 
 .method public onAssistScreenshotReceivedLocked(Landroid/graphics/Bitmap;)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mCallbacksLock"
+        }
+    .end annotation
 
     return-void
 .end method

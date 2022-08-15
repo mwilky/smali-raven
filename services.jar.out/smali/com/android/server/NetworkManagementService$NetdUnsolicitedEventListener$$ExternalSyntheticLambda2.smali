@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/NetworkManagementService$NetdUnsolicitedEventListener$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -10,9 +11,11 @@
 
 .field public final synthetic f$1:Ljava/lang/String;
 
+.field public final synthetic f$2:Landroid/net/LinkAddress;
+
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/NetworkManagementService$NetdUnsolicitedEventListener;Ljava/lang/String;)V
+.method public synthetic constructor <init>(Lcom/android/server/NetworkManagementService$NetdUnsolicitedEventListener;Ljava/lang/String;Landroid/net/LinkAddress;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -20,6 +23,8 @@
     iput-object p1, p0, Lcom/android/server/NetworkManagementService$NetdUnsolicitedEventListener$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/NetworkManagementService$NetdUnsolicitedEventListener;
 
     iput-object p2, p0, Lcom/android/server/NetworkManagementService$NetdUnsolicitedEventListener$$ExternalSyntheticLambda2;->f$1:Ljava/lang/String;
+
+    iput-object p3, p0, Lcom/android/server/NetworkManagementService$NetdUnsolicitedEventListener$$ExternalSyntheticLambda2;->f$2:Landroid/net/LinkAddress;
 
     return-void
 .end method
@@ -33,7 +38,9 @@
 
     iget-object v1, p0, Lcom/android/server/NetworkManagementService$NetdUnsolicitedEventListener$$ExternalSyntheticLambda2;->f$1:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/NetworkManagementService$NetdUnsolicitedEventListener;->lambda$onInterfaceRemoved$6$NetworkManagementService$NetdUnsolicitedEventListener(Ljava/lang/String;)V
+    iget-object p0, p0, Lcom/android/server/NetworkManagementService$NetdUnsolicitedEventListener$$ExternalSyntheticLambda2;->f$2:Landroid/net/LinkAddress;
+
+    invoke-static {v0, v1, p0}, Lcom/android/server/NetworkManagementService$NetdUnsolicitedEventListener;->$r8$lambda$0p2kfruhw5ccbr_vXSkUwNRW6Yc(Lcom/android/server/NetworkManagementService$NetdUnsolicitedEventListener;Ljava/lang/String;Landroid/net/LinkAddress;)V
 
     return-void
 .end method

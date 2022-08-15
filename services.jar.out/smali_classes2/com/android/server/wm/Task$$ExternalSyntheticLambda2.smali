@@ -1,53 +1,48 @@
 .class public final synthetic Lcom/android/server/wm/Task$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/internal/util/function/TriFunction;
+.implements Ljava/util/function/Consumer;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/wm/Task$$ExternalSyntheticLambda2;
+# instance fields
+.field public final synthetic f$0:Lcom/android/server/wm/Task;
+
+.field public final synthetic f$1:Z
+
+.field public final synthetic f$2:Ljava/lang/String;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda2;
-
-    invoke-direct {v0}, Lcom/android/server/wm/Task$$ExternalSyntheticLambda2;-><init>()V
-
-    sput-object v0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda2;->INSTANCE:Lcom/android/server/wm/Task$$ExternalSyntheticLambda2;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Lcom/android/server/wm/Task;ZLjava/lang/String;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/wm/Task;
+
+    iput-boolean p2, p0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda2;->f$1:Z
+
+    iput-object p3, p0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda2;->f$2:Ljava/lang/String;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final apply(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+.method public final accept(Ljava/lang/Object;)V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/wm/Task;
+
+    iget-boolean v1, p0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda2;->f$1:Z
+
+    iget-object p0, p0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda2;->f$2:Ljava/lang/String;
 
     check-cast p1, Lcom/android/server/wm/ActivityRecord;
 
-    check-cast p2, Lcom/android/server/wm/ActivityRecord;
+    invoke-static {v0, v1, p0, p1}, Lcom/android/server/wm/Task;->$r8$lambda$cJuDeentnYOr7U4K3gFCG_ICh8k(Lcom/android/server/wm/Task;ZLjava/lang/String;Lcom/android/server/wm/ActivityRecord;)V
 
-    check-cast p3, Landroid/app/ActivityManager$TaskDescription;
-
-    invoke-static {p1, p2, p3}, Lcom/android/server/wm/Task;->$r8$lambda$3xH7pQV3TePK6a8j4i6TaVmj4QQ(Lcom/android/server/wm/ActivityRecord;Lcom/android/server/wm/ActivityRecord;Landroid/app/ActivityManager$TaskDescription;)Z
-
-    move-result p1
-
-    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object p1
-
-    return-object p1
+    return-void
 .end method

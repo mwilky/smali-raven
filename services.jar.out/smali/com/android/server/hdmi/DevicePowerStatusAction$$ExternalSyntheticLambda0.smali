@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/hdmi/DevicePowerStatusAction$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/server/hdmi/HdmiControlService$SendMessageCallback;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final onSendCompleted(I)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/hdmi/DevicePowerStatusAction$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/hdmi/DevicePowerStatusAction;
+    iget-object p0, p0, Lcom/android/server/hdmi/DevicePowerStatusAction$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/hdmi/DevicePowerStatusAction;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/hdmi/DevicePowerStatusAction;->lambda$queryDevicePowerStatus$0$DevicePowerStatusAction(I)V
+    invoke-static {p0, p1}, Lcom/android/server/hdmi/DevicePowerStatusAction;->$r8$lambda$hqA39diJpBJrt9RPe7CkmwT246o(Lcom/android/server/hdmi/DevicePowerStatusAction;I)V
 
     return-void
 .end method

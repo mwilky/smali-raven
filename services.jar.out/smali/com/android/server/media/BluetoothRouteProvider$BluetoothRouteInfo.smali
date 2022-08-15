@@ -1,4 +1,4 @@
-.class Lcom/android/server/media/BluetoothRouteProvider$BluetoothRouteInfo;
+.class public Lcom/android/server/media/BluetoothRouteProvider$BluetoothRouteInfo;
 .super Ljava/lang/Object;
 .source "BluetoothRouteProvider.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "BluetoothRouteInfo"
 .end annotation
 
@@ -21,11 +21,11 @@
 
 .field public route:Landroid/media/MediaRoute2Info;
 
-.field final synthetic this$0:Lcom/android/server/media/BluetoothRouteProvider;
+.field public final synthetic this$0:Lcom/android/server/media/BluetoothRouteProvider;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/server/media/BluetoothRouteProvider;)V
+.method public constructor <init>(Lcom/android/server/media/BluetoothRouteProvider;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/media/BluetoothRouteProvider$BluetoothRouteInfo;->this$0:Lcom/android/server/media/BluetoothRouteProvider;
@@ -35,7 +35,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/media/BluetoothRouteProvider;Lcom/android/server/media/BluetoothRouteProvider$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/media/BluetoothRouteProvider;Lcom/android/server/media/BluetoothRouteProvider$BluetoothRouteInfo-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/media/BluetoothRouteProvider$BluetoothRouteInfo;-><init>(Lcom/android/server/media/BluetoothRouteProvider;)V
@@ -45,7 +45,7 @@
 
 
 # virtual methods
-.method getRouteType()I
+.method public getRouteType()I
     .locals 3
 
     iget-object v0, p0, Lcom/android/server/media/BluetoothRouteProvider$BluetoothRouteInfo;->connectedProfiles:Landroid/util/SparseBooleanArray;
@@ -60,12 +60,27 @@
 
     if-eqz v0, :cond_0
 
-    const/16 v0, 0x17
+    const/16 p0, 0x17
 
-    return v0
+    return p0
 
     :cond_0
-    const/16 v0, 0x8
+    iget-object p0, p0, Lcom/android/server/media/BluetoothRouteProvider$BluetoothRouteInfo;->connectedProfiles:Landroid/util/SparseBooleanArray;
 
-    return v0
+    const/16 v0, 0x16
+
+    invoke-virtual {p0, v0, v2}, Landroid/util/SparseBooleanArray;->get(IZ)Z
+
+    move-result p0
+
+    if-eqz p0, :cond_1
+
+    const/16 p0, 0x1a
+
+    return p0
+
+    :cond_1
+    const/16 p0, 0x8
+
+    return p0
 .end method

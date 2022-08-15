@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/server/wm/WindowContainer$IAnimationStarter;
+.class public interface abstract Lcom/android/server/wm/WindowContainer$IAnimationStarter;
 .super Ljava/lang/Object;
 .source "WindowContainer.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x60a
+    accessFlags = 0x609
     name = "IAnimationStarter"
 .end annotation
 

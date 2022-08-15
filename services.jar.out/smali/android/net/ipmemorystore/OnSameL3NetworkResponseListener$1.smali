@@ -1,4 +1,4 @@
-.class Landroid/net/ipmemorystore/OnSameL3NetworkResponseListener$1;
+.class public Landroid/net/ipmemorystore/OnSameL3NetworkResponseListener$1;
 .super Landroid/net/ipmemorystore/IOnSameL3NetworkResponseListener$Stub;
 .source "OnSameL3NetworkResponseListener.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic val$listener:Landroid/net/ipmemorystore/OnSameL3NetworkResponseListener;
+.field public final synthetic val$listener:Landroid/net/ipmemorystore/OnSameL3NetworkResponseListener;
 
 
 # direct methods
-.method constructor <init>(Landroid/net/ipmemorystore/OnSameL3NetworkResponseListener;)V
+.method public constructor <init>(Landroid/net/ipmemorystore/OnSameL3NetworkResponseListener;)V
     .locals 0
 
     iput-object p1, p0, Landroid/net/ipmemorystore/OnSameL3NetworkResponseListener$1;->val$listener:Landroid/net/ipmemorystore/OnSameL3NetworkResponseListener;
@@ -32,37 +32,37 @@
 
 # virtual methods
 .method public getInterfaceHash()Ljava/lang/String;
-    .locals 1
+    .locals 0
 
-    const-string v0, "d5ea5eb3ddbdaa9a986ce6ba70b0804ca3e39b0c"
+    const-string p0, "d5ea5eb3ddbdaa9a986ce6ba70b0804ca3e39b0c"
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getInterfaceVersion()I
-    .locals 1
+    .locals 0
 
-    const/16 v0, 0xa
+    const/16 p0, 0xa
 
-    return v0
+    return p0
 .end method
 
 .method public onSameL3NetworkResponse(Landroid/net/ipmemorystore/StatusParcelable;Landroid/net/ipmemorystore/SameL3NetworkResponseParcelable;)V
-    .locals 3
+    .locals 1
 
-    iget-object v0, p0, Landroid/net/ipmemorystore/OnSameL3NetworkResponseListener$1;->val$listener:Landroid/net/ipmemorystore/OnSameL3NetworkResponseListener;
+    iget-object p0, p0, Landroid/net/ipmemorystore/OnSameL3NetworkResponseListener$1;->val$listener:Landroid/net/ipmemorystore/OnSameL3NetworkResponseListener;
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    new-instance v1, Landroid/net/ipmemorystore/Status;
+    new-instance v0, Landroid/net/ipmemorystore/Status;
 
-    invoke-direct {v1, p1}, Landroid/net/ipmemorystore/Status;-><init>(Landroid/net/ipmemorystore/StatusParcelable;)V
+    invoke-direct {v0, p1}, Landroid/net/ipmemorystore/Status;-><init>(Landroid/net/ipmemorystore/StatusParcelable;)V
 
-    new-instance v2, Landroid/net/ipmemorystore/SameL3NetworkResponse;
+    new-instance p1, Landroid/net/ipmemorystore/SameL3NetworkResponse;
 
-    invoke-direct {v2, p2}, Landroid/net/ipmemorystore/SameL3NetworkResponse;-><init>(Landroid/net/ipmemorystore/SameL3NetworkResponseParcelable;)V
+    invoke-direct {p1, p2}, Landroid/net/ipmemorystore/SameL3NetworkResponse;-><init>(Landroid/net/ipmemorystore/SameL3NetworkResponseParcelable;)V
 
-    invoke-interface {v0, v1, v2}, Landroid/net/ipmemorystore/OnSameL3NetworkResponseListener;->onSameL3NetworkResponse(Landroid/net/ipmemorystore/Status;Landroid/net/ipmemorystore/SameL3NetworkResponse;)V
+    invoke-interface {p0, v0, p1}, Landroid/net/ipmemorystore/OnSameL3NetworkResponseListener;->onSameL3NetworkResponse(Landroid/net/ipmemorystore/Status;Landroid/net/ipmemorystore/SameL3NetworkResponse;)V
 
     :cond_0
     return-void

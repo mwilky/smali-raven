@@ -1,4 +1,4 @@
-.class final Lcom/android/server/tv/TvInputManagerService$UserState;
+.class public final Lcom/android/server/tv/TvInputManagerService$UserState;
 .super Ljava/lang/Object;
 .source "TvInputManagerService.java"
 
@@ -9,13 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "UserState"
 .end annotation
 
 
 # instance fields
-.field private final callbackPidUidMap:Ljava/util/Map;
+.field public final callbackPidUidMap:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Map<",
@@ -28,7 +28,7 @@
     .end annotation
 .end field
 
-.field private final clientStateMap:Ljava/util/Map;
+.field public final clientStateMap:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Map<",
@@ -39,7 +39,7 @@
     .end annotation
 .end field
 
-.field private final contentRatingSystemList:Ljava/util/List;
+.field public final contentRatingSystemList:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -49,7 +49,7 @@
     .end annotation
 .end field
 
-.field private inputMap:Ljava/util/Map;
+.field public inputMap:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Map<",
@@ -60,7 +60,13 @@
     .end annotation
 .end field
 
-.field private final mAppTagMap:Ljava/util/Map;
+.field public final mAppTagMap:Ljava/util/Map;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "TvInputManagerService.this.mLock"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Map<",
@@ -71,7 +77,7 @@
     .end annotation
 .end field
 
-.field private final mCallbacks:Landroid/os/RemoteCallbackList;
+.field public final mCallbacks:Landroid/os/RemoteCallbackList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/os/RemoteCallbackList<",
@@ -81,11 +87,17 @@
     .end annotation
 .end field
 
-.field private mNextAppTag:I
+.field public mNextAppTag:I
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "TvInputManagerService.this.mLock"
+        }
+    .end annotation
+.end field
 
-.field private mainSessionToken:Landroid/os/IBinder;
+.field public mainSessionToken:Landroid/os/IBinder;
 
-.field private final packageSet:Ljava/util/Set;
+.field public final packageSet:Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Set<",
@@ -95,9 +107,9 @@
     .end annotation
 .end field
 
-.field private final persistentDataStore:Lcom/android/server/tv/PersistentDataStore;
+.field public final persistentDataStore:Lcom/android/server/tv/PersistentDataStore;
 
-.field private final serviceStateMap:Ljava/util/Map;
+.field public final serviceStateMap:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Map<",
@@ -108,7 +120,7 @@
     .end annotation
 .end field
 
-.field private final sessionStateMap:Ljava/util/Map;
+.field public final sessionStateMap:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Map<",
@@ -121,7 +133,127 @@
 
 
 # direct methods
-.method private constructor <init>(Landroid/content/Context;I)V
+.method public static bridge synthetic -$$Nest$fgetcallbackPidUidMap(Lcom/android/server/tv/TvInputManagerService$UserState;)Ljava/util/Map;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/tv/TvInputManagerService$UserState;->callbackPidUidMap:Ljava/util/Map;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetclientStateMap(Lcom/android/server/tv/TvInputManagerService$UserState;)Ljava/util/Map;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/tv/TvInputManagerService$UserState;->clientStateMap:Ljava/util/Map;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetcontentRatingSystemList(Lcom/android/server/tv/TvInputManagerService$UserState;)Ljava/util/List;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/tv/TvInputManagerService$UserState;->contentRatingSystemList:Ljava/util/List;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetinputMap(Lcom/android/server/tv/TvInputManagerService$UserState;)Ljava/util/Map;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/tv/TvInputManagerService$UserState;->inputMap:Ljava/util/Map;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmAppTagMap(Lcom/android/server/tv/TvInputManagerService$UserState;)Ljava/util/Map;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/tv/TvInputManagerService$UserState;->mAppTagMap:Ljava/util/Map;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmCallbacks(Lcom/android/server/tv/TvInputManagerService$UserState;)Landroid/os/RemoteCallbackList;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/tv/TvInputManagerService$UserState;->mCallbacks:Landroid/os/RemoteCallbackList;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmNextAppTag(Lcom/android/server/tv/TvInputManagerService$UserState;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/server/tv/TvInputManagerService$UserState;->mNextAppTag:I
+
+    return p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmainSessionToken(Lcom/android/server/tv/TvInputManagerService$UserState;)Landroid/os/IBinder;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/tv/TvInputManagerService$UserState;->mainSessionToken:Landroid/os/IBinder;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetpackageSet(Lcom/android/server/tv/TvInputManagerService$UserState;)Ljava/util/Set;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/tv/TvInputManagerService$UserState;->packageSet:Ljava/util/Set;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetpersistentDataStore(Lcom/android/server/tv/TvInputManagerService$UserState;)Lcom/android/server/tv/PersistentDataStore;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/tv/TvInputManagerService$UserState;->persistentDataStore:Lcom/android/server/tv/PersistentDataStore;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetserviceStateMap(Lcom/android/server/tv/TvInputManagerService$UserState;)Ljava/util/Map;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/tv/TvInputManagerService$UserState;->serviceStateMap:Ljava/util/Map;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetsessionStateMap(Lcom/android/server/tv/TvInputManagerService$UserState;)Ljava/util/Map;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/tv/TvInputManagerService$UserState;->sessionStateMap:Ljava/util/Map;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fputinputMap(Lcom/android/server/tv/TvInputManagerService$UserState;Ljava/util/Map;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/server/tv/TvInputManagerService$UserState;->inputMap:Ljava/util/Map;
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$fputmNextAppTag(Lcom/android/server/tv/TvInputManagerService$UserState;I)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/server/tv/TvInputManagerService$UserState;->mNextAppTag:I
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$fputmainSessionToken(Lcom/android/server/tv/TvInputManagerService$UserState;Landroid/os/IBinder;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/server/tv/TvInputManagerService$UserState;->mainSessionToken:Landroid/os/IBinder;
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/content/Context;I)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -197,126 +329,10 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Landroid/content/Context;ILcom/android/server/tv/TvInputManagerService$1;)V
+.method public synthetic constructor <init>(Landroid/content/Context;ILcom/android/server/tv/TvInputManagerService$UserState-IA;)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/tv/TvInputManagerService$UserState;-><init>(Landroid/content/Context;I)V
 
     return-void
-.end method
-
-.method static synthetic access$1100(Lcom/android/server/tv/TvInputManagerService$UserState;)Ljava/util/Set;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/tv/TvInputManagerService$UserState;->packageSet:Ljava/util/Set;
-
-    return-object v0
-.end method
-
-.method static synthetic access$1200(Lcom/android/server/tv/TvInputManagerService$UserState;)Ljava/util/Map;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/tv/TvInputManagerService$UserState;->serviceStateMap:Ljava/util/Map;
-
-    return-object v0
-.end method
-
-.method static synthetic access$1500(Lcom/android/server/tv/TvInputManagerService$UserState;)Ljava/util/Map;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/tv/TvInputManagerService$UserState;->inputMap:Ljava/util/Map;
-
-    return-object v0
-.end method
-
-.method static synthetic access$1502(Lcom/android/server/tv/TvInputManagerService$UserState;Ljava/util/Map;)Ljava/util/Map;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/server/tv/TvInputManagerService$UserState;->inputMap:Ljava/util/Map;
-
-    return-object p1
-.end method
-
-.method static synthetic access$2000(Lcom/android/server/tv/TvInputManagerService$UserState;)Ljava/util/List;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/tv/TvInputManagerService$UserState;->contentRatingSystemList:Ljava/util/List;
-
-    return-object v0
-.end method
-
-.method static synthetic access$2100(Lcom/android/server/tv/TvInputManagerService$UserState;)Ljava/util/Map;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/tv/TvInputManagerService$UserState;->sessionStateMap:Ljava/util/Map;
-
-    return-object v0
-.end method
-
-.method static synthetic access$3500(Lcom/android/server/tv/TvInputManagerService$UserState;)Ljava/util/Map;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/tv/TvInputManagerService$UserState;->clientStateMap:Ljava/util/Map;
-
-    return-object v0
-.end method
-
-.method static synthetic access$3600(Lcom/android/server/tv/TvInputManagerService$UserState;)Landroid/os/RemoteCallbackList;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/tv/TvInputManagerService$UserState;->mCallbacks:Landroid/os/RemoteCallbackList;
-
-    return-object v0
-.end method
-
-.method static synthetic access$3700(Lcom/android/server/tv/TvInputManagerService$UserState;)Landroid/os/IBinder;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/tv/TvInputManagerService$UserState;->mainSessionToken:Landroid/os/IBinder;
-
-    return-object v0
-.end method
-
-.method static synthetic access$3702(Lcom/android/server/tv/TvInputManagerService$UserState;Landroid/os/IBinder;)Landroid/os/IBinder;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/server/tv/TvInputManagerService$UserState;->mainSessionToken:Landroid/os/IBinder;
-
-    return-object p1
-.end method
-
-.method static synthetic access$4900(Lcom/android/server/tv/TvInputManagerService$UserState;)Ljava/util/Map;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/tv/TvInputManagerService$UserState;->callbackPidUidMap:Ljava/util/Map;
-
-    return-object v0
-.end method
-
-.method static synthetic access$5500(Lcom/android/server/tv/TvInputManagerService$UserState;)Lcom/android/server/tv/PersistentDataStore;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/tv/TvInputManagerService$UserState;->persistentDataStore:Lcom/android/server/tv/PersistentDataStore;
-
-    return-object v0
-.end method
-
-.method static synthetic access$8300(Lcom/android/server/tv/TvInputManagerService$UserState;)Ljava/util/Map;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/tv/TvInputManagerService$UserState;->mAppTagMap:Ljava/util/Map;
-
-    return-object v0
-.end method
-
-.method static synthetic access$8408(Lcom/android/server/tv/TvInputManagerService$UserState;)I
-    .locals 2
-
-    iget v0, p0, Lcom/android/server/tv/TvInputManagerService$UserState;->mNextAppTag:I
-
-    add-int/lit8 v1, v0, 0x1
-
-    iput v1, p0, Lcom/android/server/tv/TvInputManagerService$UserState;->mNextAppTag:I
-
-    return v0
 .end method

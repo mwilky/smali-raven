@@ -1,49 +1,36 @@
 .class public final synthetic Lcom/android/server/wm/WindowProcessController$$ExternalSyntheticLambda5;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/BiConsumer;
+.implements Ljava/util/function/IntPredicate;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/wm/WindowProcessController$$ExternalSyntheticLambda5;
+# instance fields
+.field public final synthetic f$0:Lcom/android/server/wm/ActivityTaskManagerService;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/wm/WindowProcessController$$ExternalSyntheticLambda5;
-
-    invoke-direct {v0}, Lcom/android/server/wm/WindowProcessController$$ExternalSyntheticLambda5;-><init>()V
-
-    sput-object v0, Lcom/android/server/wm/WindowProcessController$$ExternalSyntheticLambda5;->INSTANCE:Lcom/android/server/wm/WindowProcessController$$ExternalSyntheticLambda5;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Lcom/android/server/wm/ActivityTaskManagerService;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/wm/WindowProcessController$$ExternalSyntheticLambda5;->f$0:Lcom/android/server/wm/ActivityTaskManagerService;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;Ljava/lang/Object;)V
+.method public final test(I)Z
     .locals 0
 
-    check-cast p1, Lcom/android/server/wm/WindowProcessListener;
+    iget-object p0, p0, Lcom/android/server/wm/WindowProcessController$$ExternalSyntheticLambda5;->f$0:Lcom/android/server/wm/ActivityTaskManagerService;
 
-    check-cast p2, Ljava/lang/Boolean;
+    invoke-virtual {p0, p1}, Lcom/android/server/wm/ActivityTaskManagerService;->hasActiveVisibleWindow(I)Z
 
-    invoke-virtual {p2}, Ljava/lang/Boolean;->booleanValue()Z
+    move-result p0
 
-    move-result p2
-
-    invoke-interface {p1, p2}, Lcom/android/server/wm/WindowProcessListener;->setRunningRemoteAnimation(Z)V
-
-    return-void
+    return p0
 .end method

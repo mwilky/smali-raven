@@ -36,27 +36,27 @@
 .end method
 
 .method public getDateFormat()Ljava/text/SimpleDateFormat;
-    .locals 1
+    .locals 0
 
-    invoke-static {}, Lcom/android/server/power/WakeLockLog;->access$000()Ljava/text/SimpleDateFormat;
+    invoke-static {}, Lcom/android/server/power/WakeLockLog;->-$$Nest$sfgetDATE_FORMAT()Ljava/text/SimpleDateFormat;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getLogSize()I
-    .locals 1
+    .locals 0
 
-    const/16 v0, 0x2800
+    const/16 p0, 0x2800
 
-    return v0
+    return p0
 .end method
 
 .method public getTagDatabaseSize()I
-    .locals 1
+    .locals 0
 
-    const/16 v0, 0x80
+    const/16 p0, 0x80
 
-    return v0
+    return p0
 .end method

@@ -15,7 +15,7 @@
 
 
 # instance fields
-.field private mService:Lcom/android/server/app/GameManagerService;
+.field public mService:Lcom/android/server/app/GameManagerService;
 
 
 # direct methods
@@ -36,9 +36,9 @@
 
     if-ne p1, v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/app/GameManagerService$Lifecycle;->mService:Lcom/android/server/app/GameManagerService;
+    iget-object p0, p0, Lcom/android/server/app/GameManagerService$Lifecycle;->mService:Lcom/android/server/app/GameManagerService;
 
-    invoke-virtual {v0}, Lcom/android/server/app/GameManagerService;->onBootCompleted()V
+    invoke-virtual {p0}, Lcom/android/server/app/GameManagerService;->onBootCompleted()V
 
     :cond_0
     return-void
@@ -47,69 +47,67 @@
 .method public onStart()V
     .locals 2
 
-    new-instance v0, Lcom/android/server/app/GameManagerService;
+    invoke-virtual {p0}, Lcom/android/server/SystemService;->getContext()Landroid/content/Context;
 
-    invoke-virtual {p0}, Lcom/android/server/app/GameManagerService$Lifecycle;->getContext()Landroid/content/Context;
+    move-result-object v0
 
-    move-result-object v1
+    new-instance v1, Lcom/android/server/app/GameManagerService;
 
-    invoke-direct {v0, v1}, Lcom/android/server/app/GameManagerService;-><init>(Landroid/content/Context;)V
+    invoke-direct {v1, v0}, Lcom/android/server/app/GameManagerService;-><init>(Landroid/content/Context;)V
 
-    iput-object v0, p0, Lcom/android/server/app/GameManagerService$Lifecycle;->mService:Lcom/android/server/app/GameManagerService;
+    iput-object v1, p0, Lcom/android/server/app/GameManagerService$Lifecycle;->mService:Lcom/android/server/app/GameManagerService;
 
-    const-string v1, "game"
+    const-string v0, "game"
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/server/app/GameManagerService$Lifecycle;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
-
-    iget-object v0, p0, Lcom/android/server/app/GameManagerService$Lifecycle;->mService:Lcom/android/server/app/GameManagerService;
-
-    invoke-static {v0}, Lcom/android/server/app/GameManagerService;->access$800(Lcom/android/server/app/GameManagerService;)V
+    invoke-virtual {p0, v0, v1}, Lcom/android/server/SystemService;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
 
     iget-object v0, p0, Lcom/android/server/app/GameManagerService$Lifecycle;->mService:Lcom/android/server/app/GameManagerService;
 
-    invoke-static {v0}, Lcom/android/server/app/GameManagerService;->access$900(Lcom/android/server/app/GameManagerService;)V
+    invoke-static {v0}, Lcom/android/server/app/GameManagerService;->-$$Nest$mregisterDeviceConfigListener(Lcom/android/server/app/GameManagerService;)V
+
+    iget-object p0, p0, Lcom/android/server/app/GameManagerService$Lifecycle;->mService:Lcom/android/server/app/GameManagerService;
+
+    invoke-static {p0}, Lcom/android/server/app/GameManagerService;->-$$Nest$mregisterPackageReceiver(Lcom/android/server/app/GameManagerService;)V
 
     return-void
 .end method
 
 .method public onUserStarting(Lcom/android/server/SystemService$TargetUser;)V
-    .locals 2
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/app/GameManagerService$Lifecycle;->mService:Lcom/android/server/app/GameManagerService;
+    iget-object p0, p0, Lcom/android/server/app/GameManagerService$Lifecycle;->mService:Lcom/android/server/app/GameManagerService;
 
-    invoke-virtual {p1}, Lcom/android/server/SystemService$TargetUser;->getUserIdentifier()I
-
-    move-result v1
-
-    invoke-virtual {v0, v1}, Lcom/android/server/app/GameManagerService;->onUserStarting(I)V
+    invoke-virtual {p0, p1}, Lcom/android/server/app/GameManagerService;->onUserStarting(Lcom/android/server/SystemService$TargetUser;)V
 
     return-void
 .end method
 
 .method public onUserStopping(Lcom/android/server/SystemService$TargetUser;)V
-    .locals 2
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/app/GameManagerService$Lifecycle;->mService:Lcom/android/server/app/GameManagerService;
+    iget-object p0, p0, Lcom/android/server/app/GameManagerService$Lifecycle;->mService:Lcom/android/server/app/GameManagerService;
 
-    invoke-virtual {p1}, Lcom/android/server/SystemService$TargetUser;->getUserIdentifier()I
-
-    move-result v1
-
-    invoke-virtual {v0, v1}, Lcom/android/server/app/GameManagerService;->onUserStopping(I)V
+    invoke-virtual {p0, p1}, Lcom/android/server/app/GameManagerService;->onUserStopping(Lcom/android/server/SystemService$TargetUser;)V
 
     return-void
 .end method
 
 .method public onUserSwitching(Lcom/android/server/SystemService$TargetUser;Lcom/android/server/SystemService$TargetUser;)V
-    .locals 2
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/app/GameManagerService$Lifecycle;->mService:Lcom/android/server/app/GameManagerService;
+    iget-object p0, p0, Lcom/android/server/app/GameManagerService$Lifecycle;->mService:Lcom/android/server/app/GameManagerService;
 
-    invoke-virtual {p2}, Lcom/android/server/SystemService$TargetUser;->getUserIdentifier()I
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/app/GameManagerService;->onUserSwitching(Lcom/android/server/SystemService$TargetUser;Lcom/android/server/SystemService$TargetUser;)V
 
-    move-result v1
+    return-void
+.end method
 
-    invoke-virtual {v0, p1, v1}, Lcom/android/server/app/GameManagerService;->onUserSwitching(Lcom/android/server/SystemService$TargetUser;I)V
+.method public onUserUnlocking(Lcom/android/server/SystemService$TargetUser;)V
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/app/GameManagerService$Lifecycle;->mService:Lcom/android/server/app/GameManagerService;
+
+    invoke-virtual {p0, p1}, Lcom/android/server/app/GameManagerService;->onUserUnlocking(Lcom/android/server/SystemService$TargetUser;)V
 
     return-void
 .end method

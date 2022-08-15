@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/notification/NotificationManagerService$$ExternalSyntheticLambda3;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/server/notification/SnoozeHelper$Callback;
+.implements Lcom/android/internal/util/function/TriPredicate;
 
 
 # instance fields
@@ -22,12 +23,20 @@
 
 
 # virtual methods
-.method public final repost(ILcom/android/server/notification/NotificationRecord;Z)V
-    .locals 1
+.method public final test(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$$ExternalSyntheticLambda3;->f$0:Lcom/android/server/notification/NotificationManagerService;
+    iget-object p0, p0, Lcom/android/server/notification/NotificationManagerService$$ExternalSyntheticLambda3;->f$0:Lcom/android/server/notification/NotificationManagerService;
 
-    invoke-virtual {v0, p1, p2, p3}, Lcom/android/server/notification/NotificationManagerService;->lambda$onStart$0$NotificationManagerService(ILcom/android/server/notification/NotificationRecord;Z)V
+    check-cast p1, Ljava/lang/String;
 
-    return-void
+    check-cast p2, Ljava/lang/Integer;
+
+    check-cast p3, Ljava/lang/String;
+
+    invoke-virtual {p0, p1, p2, p3}, Lcom/android/server/notification/NotificationManagerService;->canUseManagedServices(Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/String;)Z
+
+    move-result p0
+
+    return p0
 .end method

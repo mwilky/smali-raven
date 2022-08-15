@@ -15,7 +15,7 @@
 
 
 # instance fields
-.field private mLockSettingsService:Lcom/android/server/locksettings/LockSettingsService;
+.field public mLockSettingsService:Lcom/android/server/locksettings/LockSettingsService;
 
 
 # direct methods
@@ -38,13 +38,13 @@
 
     if-ne p1, v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/locksettings/LockSettingsService$Lifecycle;->mLockSettingsService:Lcom/android/server/locksettings/LockSettingsService;
+    iget-object p1, p0, Lcom/android/server/locksettings/LockSettingsService$Lifecycle;->mLockSettingsService:Lcom/android/server/locksettings/LockSettingsService;
 
-    invoke-static {v0}, Lcom/android/server/locksettings/LockSettingsService;->access$000(Lcom/android/server/locksettings/LockSettingsService;)V
+    invoke-static {p1}, Lcom/android/server/locksettings/LockSettingsService;->-$$Nest$mmigrateOldDataAfterSystemReady(Lcom/android/server/locksettings/LockSettingsService;)V
 
-    iget-object v0, p0, Lcom/android/server/locksettings/LockSettingsService$Lifecycle;->mLockSettingsService:Lcom/android/server/locksettings/LockSettingsService;
+    iget-object p0, p0, Lcom/android/server/locksettings/LockSettingsService$Lifecycle;->mLockSettingsService:Lcom/android/server/locksettings/LockSettingsService;
 
-    invoke-static {v0}, Lcom/android/server/locksettings/LockSettingsService;->access$100(Lcom/android/server/locksettings/LockSettingsService;)V
+    invoke-static {p0}, Lcom/android/server/locksettings/LockSettingsService;->-$$Nest$mloadEscrowData(Lcom/android/server/locksettings/LockSettingsService;)V
 
     :cond_0
     return-void
@@ -57,7 +57,7 @@
 
     new-instance v0, Lcom/android/server/locksettings/LockSettingsService;
 
-    invoke-virtual {p0}, Lcom/android/server/locksettings/LockSettingsService$Lifecycle;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Lcom/android/server/SystemService;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
@@ -65,51 +65,51 @@
 
     iput-object v0, p0, Lcom/android/server/locksettings/LockSettingsService$Lifecycle;->mLockSettingsService:Lcom/android/server/locksettings/LockSettingsService;
 
-    const-string/jumbo v1, "lock_settings"
+    const-string v1, "lock_settings"
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/server/locksettings/LockSettingsService$Lifecycle;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
+    invoke-virtual {p0, v1, v0}, Lcom/android/server/SystemService;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
 
     return-void
 .end method
 
 .method public onUserStarting(Lcom/android/server/SystemService$TargetUser;)V
-    .locals 2
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/locksettings/LockSettingsService$Lifecycle;->mLockSettingsService:Lcom/android/server/locksettings/LockSettingsService;
+    iget-object p0, p0, Lcom/android/server/locksettings/LockSettingsService$Lifecycle;->mLockSettingsService:Lcom/android/server/locksettings/LockSettingsService;
 
     invoke-virtual {p1}, Lcom/android/server/SystemService$TargetUser;->getUserIdentifier()I
 
-    move-result v1
+    move-result p1
 
-    invoke-virtual {v0, v1}, Lcom/android/server/locksettings/LockSettingsService;->onStartUser(I)V
+    invoke-virtual {p0, p1}, Lcom/android/server/locksettings/LockSettingsService;->onStartUser(I)V
 
     return-void
 .end method
 
 .method public onUserStopped(Lcom/android/server/SystemService$TargetUser;)V
-    .locals 2
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/locksettings/LockSettingsService$Lifecycle;->mLockSettingsService:Lcom/android/server/locksettings/LockSettingsService;
+    iget-object p0, p0, Lcom/android/server/locksettings/LockSettingsService$Lifecycle;->mLockSettingsService:Lcom/android/server/locksettings/LockSettingsService;
 
     invoke-virtual {p1}, Lcom/android/server/SystemService$TargetUser;->getUserIdentifier()I
 
-    move-result v1
+    move-result p1
 
-    invoke-virtual {v0, v1}, Lcom/android/server/locksettings/LockSettingsService;->onCleanupUser(I)V
+    invoke-virtual {p0, p1}, Lcom/android/server/locksettings/LockSettingsService;->onCleanupUser(I)V
 
     return-void
 .end method
 
 .method public onUserUnlocking(Lcom/android/server/SystemService$TargetUser;)V
-    .locals 2
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/locksettings/LockSettingsService$Lifecycle;->mLockSettingsService:Lcom/android/server/locksettings/LockSettingsService;
+    iget-object p0, p0, Lcom/android/server/locksettings/LockSettingsService$Lifecycle;->mLockSettingsService:Lcom/android/server/locksettings/LockSettingsService;
 
     invoke-virtual {p1}, Lcom/android/server/SystemService$TargetUser;->getUserIdentifier()I
 
-    move-result v1
+    move-result p1
 
-    invoke-virtual {v0, v1}, Lcom/android/server/locksettings/LockSettingsService;->onUnlockUser(I)V
+    invoke-virtual {p0, p1}, Lcom/android/server/locksettings/LockSettingsService;->onUnlockUser(I)V
 
     return-void
 .end method

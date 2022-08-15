@@ -1,4 +1,4 @@
-.class final Lcom/android/server/textservices/TextServicesManagerService$SessionRequest;
+.class public final Lcom/android/server/textservices/TextServicesManagerService$SessionRequest;
 .super Ljava/lang/Object;
 .source "TextServicesManagerService.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "SessionRequest"
 .end annotation
 
@@ -29,7 +29,7 @@
 
 
 # direct methods
-.method constructor <init>(ILjava/lang/String;Lcom/android/internal/textservice/ITextServicesSessionListener;Lcom/android/internal/textservice/ISpellCheckerSessionListener;Landroid/os/Bundle;I)V
+.method public constructor <init>(ILjava/lang/String;Lcom/android/internal/textservice/ITextServicesSessionListener;Lcom/android/internal/textservice/ISpellCheckerSessionListener;Landroid/os/Bundle;I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

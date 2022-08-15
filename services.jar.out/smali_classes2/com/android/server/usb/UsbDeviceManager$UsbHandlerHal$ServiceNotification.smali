@@ -1,4 +1,4 @@
-.class final Lcom/android/server/usb/UsbDeviceManager$UsbHandlerHal$ServiceNotification;
+.class public final Lcom/android/server/usb/UsbDeviceManager$UsbHandlerHal$ServiceNotification;
 .super Landroid/hidl/manager/V1_0/IServiceNotification$Stub;
 .source "UsbDeviceManager.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x10
+    accessFlags = 0x11
     name = "ServiceNotification"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/usb/UsbDeviceManager$UsbHandlerHal;
+.field public final synthetic this$0:Lcom/android/server/usb/UsbDeviceManager$UsbHandlerHal;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/usb/UsbDeviceManager$UsbHandlerHal;)V
+.method public constructor <init>(Lcom/android/server/usb/UsbDeviceManager$UsbHandlerHal;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/usb/UsbDeviceManager$UsbHandlerHal$ServiceNotification;->this$0:Lcom/android/server/usb/UsbDeviceManager$UsbHandlerHal;
@@ -34,7 +34,7 @@
 .method public onRegistration(Ljava/lang/String;Ljava/lang/String;Z)V
     .locals 3
 
-    invoke-static {}, Lcom/android/server/usb/UsbDeviceManager;->access$400()Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/usb/UsbDeviceManager;->-$$Nest$sfgetTAG()Ljava/lang/String;
 
     move-result-object v0
 
@@ -56,34 +56,34 @@
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, p2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string v0, "android.hardware.usb.gadget@1.0::IUsbGadget"
+    const-string p2, "android.hardware.usb.gadget@1.0::IUsbGadget"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
-    invoke-static {}, Lcom/android/server/usb/UsbDeviceManager;->access$400()Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/usb/UsbDeviceManager;->-$$Nest$sfgetTAG()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    const-string v1, "fqName does not match"
+    const-string p1, "fqName does not match"
 
-    invoke-static {v0, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, p1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/usb/UsbDeviceManager$UsbHandlerHal$ServiceNotification;->this$0:Lcom/android/server/usb/UsbDeviceManager$UsbHandlerHal;
+    iget-object p0, p0, Lcom/android/server/usb/UsbDeviceManager$UsbHandlerHal$ServiceNotification;->this$0:Lcom/android/server/usb/UsbDeviceManager$UsbHandlerHal;
 
-    const/16 v1, 0x12
+    const/16 p1, 0x12
 
-    invoke-virtual {v0, v1, p3}, Lcom/android/server/usb/UsbDeviceManager$UsbHandlerHal;->sendMessage(IZ)V
+    invoke-virtual {p0, p1, p3}, Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->sendMessage(IZ)V
 
     return-void
 .end method

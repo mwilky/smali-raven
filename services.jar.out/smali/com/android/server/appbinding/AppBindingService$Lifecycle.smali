@@ -15,7 +15,7 @@
 
 
 # instance fields
-.field final mService:Lcom/android/server/appbinding/AppBindingService;
+.field public final mService:Lcom/android/server/appbinding/AppBindingService;
 
 
 # direct methods
@@ -31,7 +31,7 @@
     return-void
 .end method
 
-.method constructor <init>(Landroid/content/Context;Lcom/android/server/appbinding/AppBindingService$Injector;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/android/server/appbinding/AppBindingService$Injector;)V
     .locals 2
 
     invoke-direct {p0, p1}, Lcom/android/server/SystemService;-><init>(Landroid/content/Context;)V
@@ -40,7 +40,7 @@
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, p2, p1, v1}, Lcom/android/server/appbinding/AppBindingService;-><init>(Lcom/android/server/appbinding/AppBindingService$Injector;Landroid/content/Context;Lcom/android/server/appbinding/AppBindingService$1;)V
+    invoke-direct {v0, p2, p1, v1}, Lcom/android/server/appbinding/AppBindingService;-><init>(Lcom/android/server/appbinding/AppBindingService$Injector;Landroid/content/Context;Lcom/android/server/appbinding/AppBindingService-IA;)V
 
     iput-object v0, p0, Lcom/android/server/appbinding/AppBindingService$Lifecycle;->mService:Lcom/android/server/appbinding/AppBindingService;
 
@@ -50,11 +50,11 @@
 
 # virtual methods
 .method public onBootPhase(I)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/appbinding/AppBindingService$Lifecycle;->mService:Lcom/android/server/appbinding/AppBindingService;
+    iget-object p0, p0, Lcom/android/server/appbinding/AppBindingService$Lifecycle;->mService:Lcom/android/server/appbinding/AppBindingService;
 
-    invoke-static {v0, p1}, Lcom/android/server/appbinding/AppBindingService;->access$100(Lcom/android/server/appbinding/AppBindingService;I)V
+    invoke-static {p0, p1}, Lcom/android/server/appbinding/AppBindingService;->-$$Nest$monBootPhase(Lcom/android/server/appbinding/AppBindingService;I)V
 
     return-void
 .end method
@@ -66,49 +66,49 @@
 
     const-string v1, "app_binding"
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/server/appbinding/AppBindingService$Lifecycle;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
+    invoke-virtual {p0, v1, v0}, Lcom/android/server/SystemService;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
 
     return-void
 .end method
 
 .method public onUserStarting(Lcom/android/server/SystemService$TargetUser;)V
-    .locals 2
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/appbinding/AppBindingService$Lifecycle;->mService:Lcom/android/server/appbinding/AppBindingService;
+    iget-object p0, p0, Lcom/android/server/appbinding/AppBindingService$Lifecycle;->mService:Lcom/android/server/appbinding/AppBindingService;
 
     invoke-virtual {p1}, Lcom/android/server/SystemService$TargetUser;->getUserIdentifier()I
 
-    move-result v1
+    move-result p1
 
-    invoke-static {v0, v1}, Lcom/android/server/appbinding/AppBindingService;->access$200(Lcom/android/server/appbinding/AppBindingService;I)V
+    invoke-static {p0, p1}, Lcom/android/server/appbinding/AppBindingService;->-$$Nest$monStartUser(Lcom/android/server/appbinding/AppBindingService;I)V
 
     return-void
 .end method
 
 .method public onUserStopping(Lcom/android/server/SystemService$TargetUser;)V
-    .locals 2
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/appbinding/AppBindingService$Lifecycle;->mService:Lcom/android/server/appbinding/AppBindingService;
+    iget-object p0, p0, Lcom/android/server/appbinding/AppBindingService$Lifecycle;->mService:Lcom/android/server/appbinding/AppBindingService;
 
     invoke-virtual {p1}, Lcom/android/server/SystemService$TargetUser;->getUserIdentifier()I
 
-    move-result v1
+    move-result p1
 
-    invoke-static {v0, v1}, Lcom/android/server/appbinding/AppBindingService;->access$400(Lcom/android/server/appbinding/AppBindingService;I)V
+    invoke-static {p0, p1}, Lcom/android/server/appbinding/AppBindingService;->-$$Nest$monStopUser(Lcom/android/server/appbinding/AppBindingService;I)V
 
     return-void
 .end method
 
 .method public onUserUnlocking(Lcom/android/server/SystemService$TargetUser;)V
-    .locals 2
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/appbinding/AppBindingService$Lifecycle;->mService:Lcom/android/server/appbinding/AppBindingService;
+    iget-object p0, p0, Lcom/android/server/appbinding/AppBindingService$Lifecycle;->mService:Lcom/android/server/appbinding/AppBindingService;
 
     invoke-virtual {p1}, Lcom/android/server/SystemService$TargetUser;->getUserIdentifier()I
 
-    move-result v1
+    move-result p1
 
-    invoke-static {v0, v1}, Lcom/android/server/appbinding/AppBindingService;->access$300(Lcom/android/server/appbinding/AppBindingService;I)V
+    invoke-static {p0, p1}, Lcom/android/server/appbinding/AppBindingService;->-$$Nest$monUnlockUser(Lcom/android/server/appbinding/AppBindingService;I)V
 
     return-void
 .end method

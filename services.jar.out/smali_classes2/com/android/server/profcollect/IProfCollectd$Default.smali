@@ -29,49 +29,38 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .locals 1
-
-    const/4 v0, 0x0
-
-    return-object v0
-.end method
-
-.method public copy_report_to_bb(ILjava/lang/String;)V
     .locals 0
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
 
-    return-void
-.end method
+    const/4 p0, 0x0
 
-.method public delete_report(Ljava/lang/String;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    return-void
+    return-object p0
 .end method
 
 .method public get_supported_provider()Ljava/lang/String;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return-object v0
+    return-object p0
 .end method
 
-.method public process(Z)V
+.method public process()V
+    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    return-void
+.end method
+
+.method public registerProviderStatusCallback(Lcom/android/server/profcollect/IProviderStatusCallback;)V
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -83,19 +72,6 @@
 .end method
 
 .method public report()Ljava/lang/String;
-    .locals 1
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    const/4 v0, 0x0
-
-    return-object v0
-.end method
-
-.method public schedule()V
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -103,18 +79,9 @@
         }
     .end annotation
 
-    return-void
-.end method
+    const/4 p0, 0x0
 
-.method public terminate()V
-    .locals 0
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    return-void
+    return-object p0
 .end method
 
 .method public trace_once(Ljava/lang/String;)V

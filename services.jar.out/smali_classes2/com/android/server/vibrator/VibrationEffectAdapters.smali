@@ -6,23 +6,14 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/server/vibrator/VibrationEffectAdapters$EffectAdapter;,
         Lcom/android/server/vibrator/VibrationEffectAdapters$SegmentsAdapter;
     }
 .end annotation
 
 
 # direct methods
-.method public constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
 .method public static apply(Landroid/os/VibrationEffect;Ljava/util/List;Ljava/lang/Object;)Landroid/os/VibrationEffect;
-    .locals 6
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -43,49 +34,47 @@
     return-object p0
 
     :cond_0
-    move-object v0, p0
+    check-cast p0, Landroid/os/VibrationEffect$Composed;
 
-    check-cast v0, Landroid/os/VibrationEffect$Composed;
+    new-instance v0, Ljava/util/ArrayList;
 
-    new-instance v1, Ljava/util/ArrayList;
+    invoke-virtual {p0}, Landroid/os/VibrationEffect$Composed;->getSegments()Ljava/util/List;
 
-    invoke-virtual {v0}, Landroid/os/VibrationEffect$Composed;->getSegments()Ljava/util/List;
+    move-result-object v1
 
-    move-result-object v2
+    invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
-    invoke-direct {v1, v2}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+    invoke-virtual {p0}, Landroid/os/VibrationEffect$Composed;->getRepeatIndex()I
 
-    invoke-virtual {v0}, Landroid/os/VibrationEffect$Composed;->getRepeatIndex()I
-
-    move-result v2
+    move-result p0
 
     invoke-interface {p1}, Ljava/util/List;->size()I
 
-    move-result v3
+    move-result v1
 
-    const/4 v4, 0x0
+    const/4 v2, 0x0
 
     :goto_0
-    if-ge v4, v3, :cond_1
+    if-ge v2, v1, :cond_1
 
-    invoke-interface {p1, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {p1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v3
 
-    check-cast v5, Lcom/android/server/vibrator/VibrationEffectAdapters$SegmentsAdapter;
+    check-cast v3, Lcom/android/server/vibrator/VibrationEffectAdapters$SegmentsAdapter;
 
-    invoke-interface {v5, v1, v2, p2}, Lcom/android/server/vibrator/VibrationEffectAdapters$SegmentsAdapter;->apply(Ljava/util/List;ILjava/lang/Object;)I
+    invoke-interface {v3, v0, p0, p2}, Lcom/android/server/vibrator/VibrationEffectAdapters$SegmentsAdapter;->apply(Ljava/util/List;ILjava/lang/Object;)I
 
-    move-result v2
+    move-result p0
 
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     :cond_1
-    new-instance v4, Landroid/os/VibrationEffect$Composed;
+    new-instance p1, Landroid/os/VibrationEffect$Composed;
 
-    invoke-direct {v4, v1, v2}, Landroid/os/VibrationEffect$Composed;-><init>(Ljava/util/List;I)V
+    invoke-direct {p1, v0, p0}, Landroid/os/VibrationEffect$Composed;-><init>(Ljava/util/List;I)V
 
-    return-object v4
+    return-object p1
 .end method

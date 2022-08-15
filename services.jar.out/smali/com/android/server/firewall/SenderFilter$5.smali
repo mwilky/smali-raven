@@ -1,4 +1,4 @@
-.class Lcom/android/server/firewall/SenderFilter$5;
+.class public Lcom/android/server/firewall/SenderFilter$5;
 .super Ljava/lang/Object;
 .source "SenderFilter.java"
 
@@ -12,13 +12,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -45,7 +45,7 @@
 
     invoke-virtual/range {v0 .. v5}, Lcom/android/server/firewall/IntentFirewall;->checkComponentPermission(Ljava/lang/String;IIIZ)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method

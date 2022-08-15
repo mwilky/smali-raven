@@ -1,4 +1,4 @@
-.class Lcom/android/server/statusbar/StatusBarManagerService$UiState;
+.class public Lcom/android/server/statusbar/StatusBarManagerService$UiState;
 .super Ljava/lang/Object;
 .source "StatusBarManagerService.java"
 
@@ -9,37 +9,37 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "UiState"
 .end annotation
 
 
 # instance fields
-.field private mAppearance:I
+.field public mAppearance:I
 
-.field private mAppearanceRegions:[Lcom/android/internal/view/AppearanceRegion;
+.field public mAppearanceRegions:[Lcom/android/internal/view/AppearanceRegion;
 
-.field private mBehavior:I
+.field public mBehavior:I
 
-.field private mDisabled1:I
+.field public mDisabled1:I
 
-.field private mDisabled2:I
+.field public mDisabled2:I
 
-.field private mImeBackDisposition:I
+.field public mImeBackDisposition:I
 
-.field private mImeToken:Landroid/os/IBinder;
+.field public mImeToken:Landroid/os/IBinder;
 
-.field private mImeWindowVis:I
+.field public mImeWindowVis:I
 
-.field private mNavbarColorManagedByIme:Z
+.field public mNavbarColorManagedByIme:Z
 
-.field private mPackageName:Ljava/lang/String;
+.field public mPackageName:Ljava/lang/String;
 
-.field private mRequestedVisibilities:Landroid/view/InsetsVisibilities;
+.field public mRequestedVisibilities:Landroid/view/InsetsVisibilities;
 
-.field private mShowImeSwitcher:Z
+.field public mShowImeSwitcher:Z
 
-.field private final mTransientBarTypes:Landroid/util/ArraySet;
+.field public final mTransientBarTypes:Landroid/util/ArraySet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/ArraySet<",
@@ -51,7 +51,165 @@
 
 
 # direct methods
-.method private constructor <init>()V
+.method public static bridge synthetic -$$Nest$fgetmAppearance(Lcom/android/server/statusbar/StatusBarManagerService$UiState;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/server/statusbar/StatusBarManagerService$UiState;->mAppearance:I
+
+    return p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmAppearanceRegions(Lcom/android/server/statusbar/StatusBarManagerService$UiState;)[Lcom/android/internal/view/AppearanceRegion;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/statusbar/StatusBarManagerService$UiState;->mAppearanceRegions:[Lcom/android/internal/view/AppearanceRegion;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmBehavior(Lcom/android/server/statusbar/StatusBarManagerService$UiState;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/server/statusbar/StatusBarManagerService$UiState;->mBehavior:I
+
+    return p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmImeBackDisposition(Lcom/android/server/statusbar/StatusBarManagerService$UiState;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/server/statusbar/StatusBarManagerService$UiState;->mImeBackDisposition:I
+
+    return p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmImeToken(Lcom/android/server/statusbar/StatusBarManagerService$UiState;)Landroid/os/IBinder;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/statusbar/StatusBarManagerService$UiState;->mImeToken:Landroid/os/IBinder;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmImeWindowVis(Lcom/android/server/statusbar/StatusBarManagerService$UiState;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/server/statusbar/StatusBarManagerService$UiState;->mImeWindowVis:I
+
+    return p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmNavbarColorManagedByIme(Lcom/android/server/statusbar/StatusBarManagerService$UiState;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/server/statusbar/StatusBarManagerService$UiState;->mNavbarColorManagedByIme:Z
+
+    return p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmPackageName(Lcom/android/server/statusbar/StatusBarManagerService$UiState;)Ljava/lang/String;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/statusbar/StatusBarManagerService$UiState;->mPackageName:Ljava/lang/String;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmRequestedVisibilities(Lcom/android/server/statusbar/StatusBarManagerService$UiState;)Landroid/view/InsetsVisibilities;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/statusbar/StatusBarManagerService$UiState;->mRequestedVisibilities:Landroid/view/InsetsVisibilities;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmShowImeSwitcher(Lcom/android/server/statusbar/StatusBarManagerService$UiState;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/server/statusbar/StatusBarManagerService$UiState;->mShowImeSwitcher:Z
+
+    return p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmTransientBarTypes(Lcom/android/server/statusbar/StatusBarManagerService$UiState;)Landroid/util/ArraySet;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/statusbar/StatusBarManagerService$UiState;->mTransientBarTypes:Landroid/util/ArraySet;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$mclearTransient(Lcom/android/server/statusbar/StatusBarManagerService$UiState;[I)V
+    .locals 0
+
+    invoke-virtual {p0, p1}, Lcom/android/server/statusbar/StatusBarManagerService$UiState;->clearTransient([I)V
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$mdisableEquals(Lcom/android/server/statusbar/StatusBarManagerService$UiState;II)Z
+    .locals 0
+
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/statusbar/StatusBarManagerService$UiState;->disableEquals(II)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public static bridge synthetic -$$Nest$mgetDisabled1(Lcom/android/server/statusbar/StatusBarManagerService$UiState;)I
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/server/statusbar/StatusBarManagerService$UiState;->getDisabled1()I
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public static bridge synthetic -$$Nest$mgetDisabled2(Lcom/android/server/statusbar/StatusBarManagerService$UiState;)I
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/server/statusbar/StatusBarManagerService$UiState;->getDisabled2()I
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public static bridge synthetic -$$Nest$msetBarAttributes(Lcom/android/server/statusbar/StatusBarManagerService$UiState;I[Lcom/android/internal/view/AppearanceRegion;ZILandroid/view/InsetsVisibilities;Ljava/lang/String;)V
+    .locals 0
+
+    invoke-virtual/range {p0 .. p6}, Lcom/android/server/statusbar/StatusBarManagerService$UiState;->setBarAttributes(I[Lcom/android/internal/view/AppearanceRegion;ZILandroid/view/InsetsVisibilities;Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$msetDisabled(Lcom/android/server/statusbar/StatusBarManagerService$UiState;II)V
+    .locals 0
+
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/statusbar/StatusBarManagerService$UiState;->setDisabled(II)V
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$msetImeWindowState(Lcom/android/server/statusbar/StatusBarManagerService$UiState;IIZLandroid/os/IBinder;)V
+    .locals 0
+
+    invoke-virtual {p0, p1, p2, p3, p4}, Lcom/android/server/statusbar/StatusBarManagerService$UiState;->setImeWindowState(IIZLandroid/os/IBinder;)V
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$mshowTransient(Lcom/android/server/statusbar/StatusBarManagerService$UiState;[I)V
+    .locals 0
+
+    invoke-virtual {p0, p1}, Lcom/android/server/statusbar/StatusBarManagerService$UiState;->showTransient([I)V
+
+    return-void
+.end method
+
+.method public constructor <init>()V
     .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -99,7 +257,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/statusbar/StatusBarManagerService$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/statusbar/StatusBarManagerService$UiState-IA;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/statusbar/StatusBarManagerService$UiState;-><init>()V
@@ -107,166 +265,10 @@
     return-void
 .end method
 
-.method static synthetic access$1100(Lcom/android/server/statusbar/StatusBarManagerService$UiState;I[Lcom/android/internal/view/AppearanceRegion;ZILandroid/view/InsetsVisibilities;Ljava/lang/String;)V
-    .locals 0
 
-    invoke-direct/range {p0 .. p6}, Lcom/android/server/statusbar/StatusBarManagerService$UiState;->setBarAttributes(I[Lcom/android/internal/view/AppearanceRegion;ZILandroid/view/InsetsVisibilities;Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method static synthetic access$1200(Lcom/android/server/statusbar/StatusBarManagerService$UiState;[I)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/server/statusbar/StatusBarManagerService$UiState;->showTransient([I)V
-
-    return-void
-.end method
-
-.method static synthetic access$1300(Lcom/android/server/statusbar/StatusBarManagerService$UiState;[I)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/server/statusbar/StatusBarManagerService$UiState;->clearTransient([I)V
-
-    return-void
-.end method
-
-.method static synthetic access$1700(Lcom/android/server/statusbar/StatusBarManagerService$UiState;)I
-    .locals 1
-
-    invoke-direct {p0}, Lcom/android/server/statusbar/StatusBarManagerService$UiState;->getDisabled2()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method static synthetic access$1900(Lcom/android/server/statusbar/StatusBarManagerService$UiState;II)Z
-    .locals 1
-
-    invoke-direct {p0, p1, p2}, Lcom/android/server/statusbar/StatusBarManagerService$UiState;->disableEquals(II)Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method static synthetic access$2000(Lcom/android/server/statusbar/StatusBarManagerService$UiState;II)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/server/statusbar/StatusBarManagerService$UiState;->setDisabled(II)V
-
-    return-void
-.end method
-
-.method static synthetic access$2100(Lcom/android/server/statusbar/StatusBarManagerService$UiState;IIZLandroid/os/IBinder;)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/server/statusbar/StatusBarManagerService$UiState;->setImeWindowState(IIZLandroid/os/IBinder;)V
-
-    return-void
-.end method
-
-.method static synthetic access$2200(Lcom/android/server/statusbar/StatusBarManagerService$UiState;)Landroid/util/ArraySet;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/statusbar/StatusBarManagerService$UiState;->mTransientBarTypes:Landroid/util/ArraySet;
-
-    return-object v0
-.end method
-
-.method static synthetic access$2300(Lcom/android/server/statusbar/StatusBarManagerService$UiState;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/server/statusbar/StatusBarManagerService$UiState;->mAppearance:I
-
-    return v0
-.end method
-
-.method static synthetic access$2400(Lcom/android/server/statusbar/StatusBarManagerService$UiState;)[Lcom/android/internal/view/AppearanceRegion;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/statusbar/StatusBarManagerService$UiState;->mAppearanceRegions:[Lcom/android/internal/view/AppearanceRegion;
-
-    return-object v0
-.end method
-
-.method static synthetic access$2500(Lcom/android/server/statusbar/StatusBarManagerService$UiState;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/server/statusbar/StatusBarManagerService$UiState;->mImeWindowVis:I
-
-    return v0
-.end method
-
-.method static synthetic access$2600(Lcom/android/server/statusbar/StatusBarManagerService$UiState;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/server/statusbar/StatusBarManagerService$UiState;->mImeBackDisposition:I
-
-    return v0
-.end method
-
-.method static synthetic access$2700(Lcom/android/server/statusbar/StatusBarManagerService$UiState;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/server/statusbar/StatusBarManagerService$UiState;->mShowImeSwitcher:Z
-
-    return v0
-.end method
-
-.method static synthetic access$2800(Lcom/android/server/statusbar/StatusBarManagerService$UiState;)Landroid/os/IBinder;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/statusbar/StatusBarManagerService$UiState;->mImeToken:Landroid/os/IBinder;
-
-    return-object v0
-.end method
-
-.method static synthetic access$2900(Lcom/android/server/statusbar/StatusBarManagerService$UiState;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/server/statusbar/StatusBarManagerService$UiState;->mNavbarColorManagedByIme:Z
-
-    return v0
-.end method
-
-.method static synthetic access$3000(Lcom/android/server/statusbar/StatusBarManagerService$UiState;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/server/statusbar/StatusBarManagerService$UiState;->mBehavior:I
-
-    return v0
-.end method
-
-.method static synthetic access$3100(Lcom/android/server/statusbar/StatusBarManagerService$UiState;)Landroid/view/InsetsVisibilities;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/statusbar/StatusBarManagerService$UiState;->mRequestedVisibilities:Landroid/view/InsetsVisibilities;
-
-    return-object v0
-.end method
-
-.method static synthetic access$3200(Lcom/android/server/statusbar/StatusBarManagerService$UiState;)Ljava/lang/String;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/statusbar/StatusBarManagerService$UiState;->mPackageName:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method static synthetic access$3300(Lcom/android/server/statusbar/StatusBarManagerService$UiState;)I
-    .locals 1
-
-    invoke-direct {p0}, Lcom/android/server/statusbar/StatusBarManagerService$UiState;->getDisabled1()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method private clearTransient([I)V
-    .locals 5
+# virtual methods
+.method public final clearTransient([I)V
+    .locals 4
 
     array-length v0, p1
 
@@ -281,9 +283,9 @@
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v4
+    move-result-object v2
 
-    invoke-virtual {v3, v4}, Landroid/util/ArraySet;->remove(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v2}, Landroid/util/ArraySet;->remove(Ljava/lang/Object;)Z
 
     add-int/lit8 v1, v1, 0x1
 
@@ -293,45 +295,45 @@
     return-void
 .end method
 
-.method private disableEquals(II)Z
+.method public final disableEquals(II)Z
     .locals 1
 
     iget v0, p0, Lcom/android/server/statusbar/StatusBarManagerService$UiState;->mDisabled1:I
 
     if-ne v0, p1, :cond_0
 
-    iget v0, p0, Lcom/android/server/statusbar/StatusBarManagerService$UiState;->mDisabled2:I
+    iget p0, p0, Lcom/android/server/statusbar/StatusBarManagerService$UiState;->mDisabled2:I
 
-    if-ne v0, p2, :cond_0
+    if-ne p0, p2, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
-.method private getDisabled1()I
-    .locals 1
+.method public final getDisabled1()I
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/statusbar/StatusBarManagerService$UiState;->mDisabled1:I
+    iget p0, p0, Lcom/android/server/statusbar/StatusBarManagerService$UiState;->mDisabled1:I
 
-    return v0
+    return p0
 .end method
 
-.method private getDisabled2()I
-    .locals 1
+.method public final getDisabled2()I
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/statusbar/StatusBarManagerService$UiState;->mDisabled2:I
+    iget p0, p0, Lcom/android/server/statusbar/StatusBarManagerService$UiState;->mDisabled2:I
 
-    return v0
+    return p0
 .end method
 
-.method private setBarAttributes(I[Lcom/android/internal/view/AppearanceRegion;ZILandroid/view/InsetsVisibilities;Ljava/lang/String;)V
+.method public final setBarAttributes(I[Lcom/android/internal/view/AppearanceRegion;ZILandroid/view/InsetsVisibilities;Ljava/lang/String;)V
     .locals 0
 
     iput p1, p0, Lcom/android/server/statusbar/StatusBarManagerService$UiState;->mAppearance:I
@@ -349,7 +351,7 @@
     return-void
 .end method
 
-.method private setDisabled(II)V
+.method public final setDisabled(II)V
     .locals 0
 
     iput p1, p0, Lcom/android/server/statusbar/StatusBarManagerService$UiState;->mDisabled1:I
@@ -359,7 +361,7 @@
     return-void
 .end method
 
-.method private setImeWindowState(IIZLandroid/os/IBinder;)V
+.method public final setImeWindowState(IIZLandroid/os/IBinder;)V
     .locals 0
 
     iput p1, p0, Lcom/android/server/statusbar/StatusBarManagerService$UiState;->mImeWindowVis:I
@@ -373,8 +375,8 @@
     return-void
 .end method
 
-.method private showTransient([I)V
-    .locals 5
+.method public final showTransient([I)V
+    .locals 4
 
     array-length v0, p1
 
@@ -389,9 +391,9 @@
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v4
+    move-result-object v2
 
-    invoke-virtual {v3, v4}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v2}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
 
     add-int/lit8 v1, v1, 0x1
 

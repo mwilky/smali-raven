@@ -1,4 +1,4 @@
-.class final Lcom/android/server/appop/DiscreteRegistry$DiscretePackageOps;
+.class public final Lcom/android/server/appop/DiscreteRegistry$DiscretePackageOps;
 .super Ljava/lang/Object;
 .source "DiscreteRegistry.java"
 
@@ -9,13 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "DiscretePackageOps"
 .end annotation
 
 
 # instance fields
-.field mPackageOps:Landroid/util/ArrayMap;
+.field public mPackageOps:Landroid/util/ArrayMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/ArrayMap<",
@@ -26,11 +26,43 @@
     .end annotation
 .end field
 
-.field final synthetic this$0:Lcom/android/server/appop/DiscreteRegistry;
+.field public final synthetic this$0:Lcom/android/server/appop/DiscreteRegistry;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/appop/DiscreteRegistry;)V
+.method public static bridge synthetic -$$Nest$mapplyToHistory(Lcom/android/server/appop/DiscreteRegistry$DiscretePackageOps;Landroid/app/AppOpsManager$HistoricalOps;ILjava/lang/String;Landroid/util/ArrayMap;)V
+    .locals 0
+
+    invoke-virtual {p0, p1, p2, p3, p4}, Lcom/android/server/appop/DiscreteRegistry$DiscretePackageOps;->applyToHistory(Landroid/app/AppOpsManager$HistoricalOps;ILjava/lang/String;Landroid/util/ArrayMap;)V
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$mdump(Lcom/android/server/appop/DiscreteRegistry$DiscretePackageOps;Ljava/io/PrintWriter;Ljava/text/SimpleDateFormat;Ljava/util/Date;Ljava/lang/String;I)V
+    .locals 0
+
+    invoke-virtual/range {p0 .. p5}, Lcom/android/server/appop/DiscreteRegistry$DiscretePackageOps;->dump(Ljava/io/PrintWriter;Ljava/text/SimpleDateFormat;Ljava/util/Date;Ljava/lang/String;I)V
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$mfilter(Lcom/android/server/appop/DiscreteRegistry$DiscretePackageOps;JJI[Ljava/lang/String;Ljava/lang/String;IILjava/lang/String;Landroid/util/ArrayMap;)V
+    .locals 0
+
+    invoke-virtual/range {p0 .. p11}, Lcom/android/server/appop/DiscreteRegistry$DiscretePackageOps;->filter(JJI[Ljava/lang/String;Ljava/lang/String;IILjava/lang/String;Landroid/util/ArrayMap;)V
+
+    return-void
+.end method
+
+.method public static bridge synthetic -$$Nest$moffsetHistory(Lcom/android/server/appop/DiscreteRegistry$DiscretePackageOps;J)V
+    .locals 0
+
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/appop/DiscreteRegistry$DiscretePackageOps;->offsetHistory(J)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Lcom/android/server/appop/DiscreteRegistry;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/appop/DiscreteRegistry$DiscretePackageOps;->this$0:Lcom/android/server/appop/DiscreteRegistry;
@@ -46,39 +78,35 @@
     return-void
 .end method
 
-.method static synthetic access$1300(Lcom/android/server/appop/DiscreteRegistry$DiscretePackageOps;JJI[Ljava/lang/String;Ljava/lang/String;IILjava/lang/String;Landroid/util/ArrayMap;)V
-    .locals 0
 
-    invoke-direct/range {p0 .. p11}, Lcom/android/server/appop/DiscreteRegistry$DiscretePackageOps;->filter(JJI[Ljava/lang/String;Ljava/lang/String;IILjava/lang/String;Landroid/util/ArrayMap;)V
+# virtual methods
+.method public addDiscreteAccess(ILjava/lang/String;IIJJII)V
+    .locals 10
 
-    return-void
-.end method
+    invoke-virtual {p0, p1}, Lcom/android/server/appop/DiscreteRegistry$DiscretePackageOps;->getOrCreateDiscreteOp(I)Lcom/android/server/appop/DiscreteRegistry$DiscreteOp;
 
-.method static synthetic access$1400(Lcom/android/server/appop/DiscreteRegistry$DiscretePackageOps;J)V
-    .locals 0
+    move-result-object v0
 
-    invoke-direct {p0, p1, p2}, Lcom/android/server/appop/DiscreteRegistry$DiscretePackageOps;->offsetHistory(J)V
+    move-object v1, p2
 
-    return-void
-.end method
+    move v2, p3
 
-.method static synthetic access$1500(Lcom/android/server/appop/DiscreteRegistry$DiscretePackageOps;Landroid/app/AppOpsManager$HistoricalOps;ILjava/lang/String;Landroid/util/ArrayMap;)V
-    .locals 0
+    move v3, p4
 
-    invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/server/appop/DiscreteRegistry$DiscretePackageOps;->applyToHistory(Landroid/app/AppOpsManager$HistoricalOps;ILjava/lang/String;Landroid/util/ArrayMap;)V
+    move-wide v4, p5
 
-    return-void
-.end method
+    move-wide/from16 v6, p7
 
-.method static synthetic access$1600(Lcom/android/server/appop/DiscreteRegistry$DiscretePackageOps;Ljava/io/PrintWriter;Ljava/text/SimpleDateFormat;Ljava/util/Date;Ljava/lang/String;I)V
-    .locals 0
+    move/from16 v8, p9
 
-    invoke-direct/range {p0 .. p5}, Lcom/android/server/appop/DiscreteRegistry$DiscretePackageOps;->dump(Ljava/io/PrintWriter;Ljava/text/SimpleDateFormat;Ljava/util/Date;Ljava/lang/String;I)V
+    move/from16 v9, p10
+
+    invoke-virtual/range {v0 .. v9}, Lcom/android/server/appop/DiscreteRegistry$DiscreteOp;->addDiscreteAccess(Ljava/lang/String;IIJJII)V
 
     return-void
 .end method
 
-.method private applyToHistory(Landroid/app/AppOpsManager$HistoricalOps;ILjava/lang/String;Landroid/util/ArrayMap;)V
+.method public final applyToHistory(Landroid/app/AppOpsManager$HistoricalOps;ILjava/lang/String;Landroid/util/ArrayMap;)V
     .locals 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -134,7 +162,7 @@
 
     move-object v8, p4
 
-    invoke-static/range {v3 .. v8}, Lcom/android/server/appop/DiscreteRegistry$DiscreteOp;->access$1900(Lcom/android/server/appop/DiscreteRegistry$DiscreteOp;Landroid/app/AppOpsManager$HistoricalOps;ILjava/lang/String;ILandroid/util/ArrayMap;)V
+    invoke-static/range {v3 .. v8}, Lcom/android/server/appop/DiscreteRegistry$DiscreteOp;->-$$Nest$mapplyToHistory(Lcom/android/server/appop/DiscreteRegistry$DiscreteOp;Landroid/app/AppOpsManager$HistoricalOps;ILjava/lang/String;ILandroid/util/ArrayMap;)V
 
     add-int/lit8 v1, v1, 0x1
 
@@ -144,7 +172,59 @@
     return-void
 .end method
 
-.method private dump(Ljava/io/PrintWriter;Ljava/text/SimpleDateFormat;Ljava/util/Date;Ljava/lang/String;I)V
+.method public deserialize(Landroid/util/TypedXmlPullParser;J)V
+    .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/Exception;
+        }
+    .end annotation
+
+    invoke-interface {p1}, Landroid/util/TypedXmlPullParser;->getDepth()I
+
+    move-result v0
+
+    :cond_0
+    :goto_0
+    invoke-static {p1, v0}, Lcom/android/internal/util/XmlUtils;->nextElementWithin(Lorg/xmlpull/v1/XmlPullParser;I)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    invoke-interface {p1}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "o"
+
+    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    const/4 v1, 0x0
+
+    const-string/jumbo v2, "op"
+
+    invoke-interface {p1, v1, v2}, Landroid/util/TypedXmlPullParser;->getAttributeInt(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
+
+    invoke-virtual {p0, v1}, Lcom/android/server/appop/DiscreteRegistry$DiscretePackageOps;->getOrCreateDiscreteOp(I)Lcom/android/server/appop/DiscreteRegistry$DiscreteOp;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1, p2, p3}, Lcom/android/server/appop/DiscreteRegistry$DiscreteOp;->deserialize(Landroid/util/TypedXmlPullParser;J)V
+
+    goto :goto_0
+
+    :cond_1
+    return-void
+.end method
+
+.method public final dump(Ljava/io/PrintWriter;Ljava/text/SimpleDateFormat;Ljava/util/Date;Ljava/lang/String;I)V
     .locals 9
 
     iget-object v0, p0, Lcom/android/server/appop/DiscreteRegistry$DiscretePackageOps;->mPackageOps:Landroid/util/ArrayMap;
@@ -212,7 +292,7 @@
 
     move v8, p5
 
-    invoke-static/range {v3 .. v8}, Lcom/android/server/appop/DiscreteRegistry$DiscreteOp;->access$2000(Lcom/android/server/appop/DiscreteRegistry$DiscreteOp;Ljava/io/PrintWriter;Ljava/text/SimpleDateFormat;Ljava/util/Date;Ljava/lang/String;I)V
+    invoke-static/range {v3 .. v8}, Lcom/android/server/appop/DiscreteRegistry$DiscreteOp;->-$$Nest$mdump(Lcom/android/server/appop/DiscreteRegistry$DiscreteOp;Ljava/io/PrintWriter;Ljava/text/SimpleDateFormat;Ljava/util/Date;Ljava/lang/String;I)V
 
     add-int/lit8 v1, v1, 0x1
 
@@ -222,7 +302,7 @@
     return-void
 .end method
 
-.method private filter(JJI[Ljava/lang/String;Ljava/lang/String;IILjava/lang/String;Landroid/util/ArrayMap;)V
+.method public final filter(JJI[Ljava/lang/String;Ljava/lang/String;IILjava/lang/String;Landroid/util/ArrayMap;)V
     .locals 16
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -246,42 +326,42 @@
 
     move-result v1
 
-    add-int/lit8 v2, v1, -0x1
+    add-int/lit8 v1, v1, -0x1
 
     :goto_0
-    if-ltz v2, :cond_3
+    if-ltz v1, :cond_3
 
-    iget-object v3, v0, Lcom/android/server/appop/DiscreteRegistry$DiscretePackageOps;->mPackageOps:Landroid/util/ArrayMap;
+    iget-object v2, v0, Lcom/android/server/appop/DiscreteRegistry$DiscretePackageOps;->mPackageOps:Landroid/util/ArrayMap;
 
-    invoke-virtual {v3, v2}, Landroid/util/ArrayMap;->keyAt(I)Ljava/lang/Object;
+    invoke-virtual {v2, v1}, Landroid/util/ArrayMap;->keyAt(I)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v2
 
-    check-cast v3, Ljava/lang/Integer;
+    check-cast v2, Ljava/lang/Integer;
 
-    invoke-virtual {v3}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
 
-    move-result v3
+    move-result v2
 
-    and-int/lit8 v4, p5, 0x8
+    and-int/lit8 v3, p5, 0x8
 
-    if-eqz v4, :cond_0
+    if-eqz v3, :cond_0
 
-    invoke-static {v3}, Landroid/app/AppOpsManager;->opToPublicName(I)Ljava/lang/String;
+    invoke-static {v2}, Landroid/app/AppOpsManager;->opToPublicName(I)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v2
 
     move-object/from16 v15, p6
 
-    invoke-static {v15, v4}, Lcom/android/internal/util/ArrayUtils;->contains([Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v15, v2}, Lcom/android/internal/util/ArrayUtils;->contains([Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result v2
 
-    if-nez v4, :cond_1
+    if-nez v2, :cond_1
 
-    iget-object v4, v0, Lcom/android/server/appop/DiscreteRegistry$DiscretePackageOps;->mPackageOps:Landroid/util/ArrayMap;
+    iget-object v2, v0, Lcom/android/server/appop/DiscreteRegistry$DiscretePackageOps;->mPackageOps:Landroid/util/ArrayMap;
 
-    invoke-virtual {v4, v2}, Landroid/util/ArrayMap;->removeAt(I)Ljava/lang/Object;
+    invoke-virtual {v2, v1}, Landroid/util/ArrayMap;->removeAt(I)Ljava/lang/Object;
 
     goto :goto_1
 
@@ -289,65 +369,67 @@
     move-object/from16 v15, p6
 
     :cond_1
-    iget-object v4, v0, Lcom/android/server/appop/DiscreteRegistry$DiscretePackageOps;->mPackageOps:Landroid/util/ArrayMap;
+    iget-object v2, v0, Lcom/android/server/appop/DiscreteRegistry$DiscretePackageOps;->mPackageOps:Landroid/util/ArrayMap;
 
-    invoke-virtual {v4, v2}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {v2, v1}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v2
 
-    check-cast v4, Lcom/android/server/appop/DiscreteRegistry$DiscreteOp;
+    move-object v3, v2
 
-    iget-object v5, v0, Lcom/android/server/appop/DiscreteRegistry$DiscretePackageOps;->mPackageOps:Landroid/util/ArrayMap;
+    check-cast v3, Lcom/android/server/appop/DiscreteRegistry$DiscreteOp;
 
-    invoke-virtual {v5, v2}, Landroid/util/ArrayMap;->keyAt(I)Ljava/lang/Object;
+    iget-object v2, v0, Lcom/android/server/appop/DiscreteRegistry$DiscretePackageOps;->mPackageOps:Landroid/util/ArrayMap;
 
-    move-result-object v5
+    invoke-virtual {v2, v1}, Landroid/util/ArrayMap;->keyAt(I)Ljava/lang/Object;
 
-    check-cast v5, Ljava/lang/Integer;
+    move-result-object v2
 
-    invoke-virtual {v5}, Ljava/lang/Integer;->intValue()I
+    check-cast v2, Ljava/lang/Integer;
 
-    move-result v14
+    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
 
-    move-wide/from16 v5, p1
+    move-result v13
 
-    move-wide/from16 v7, p3
+    move-wide/from16 v4, p1
 
-    move/from16 v9, p5
+    move-wide/from16 v6, p3
 
-    move-object/from16 v10, p7
+    move/from16 v8, p5
 
-    move/from16 v11, p8
+    move-object/from16 v9, p7
 
-    move/from16 v12, p9
+    move/from16 v10, p8
 
-    move-object/from16 v13, p10
+    move/from16 v11, p9
 
-    move-object/from16 v15, p11
+    move-object/from16 v12, p10
 
-    invoke-static/range {v4 .. v15}, Lcom/android/server/appop/DiscreteRegistry$DiscreteOp;->access$1700(Lcom/android/server/appop/DiscreteRegistry$DiscreteOp;JJILjava/lang/String;IILjava/lang/String;ILandroid/util/ArrayMap;)V
+    move-object/from16 v14, p11
 
-    iget-object v4, v0, Lcom/android/server/appop/DiscreteRegistry$DiscretePackageOps;->mPackageOps:Landroid/util/ArrayMap;
+    invoke-static/range {v3 .. v14}, Lcom/android/server/appop/DiscreteRegistry$DiscreteOp;->-$$Nest$mfilter(Lcom/android/server/appop/DiscreteRegistry$DiscreteOp;JJILjava/lang/String;IILjava/lang/String;ILandroid/util/ArrayMap;)V
 
-    invoke-virtual {v4, v2}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
+    iget-object v2, v0, Lcom/android/server/appop/DiscreteRegistry$DiscretePackageOps;->mPackageOps:Landroid/util/ArrayMap;
 
-    move-result-object v4
+    invoke-virtual {v2, v1}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
 
-    check-cast v4, Lcom/android/server/appop/DiscreteRegistry$DiscreteOp;
+    move-result-object v2
 
-    invoke-virtual {v4}, Lcom/android/server/appop/DiscreteRegistry$DiscreteOp;->isEmpty()Z
+    check-cast v2, Lcom/android/server/appop/DiscreteRegistry$DiscreteOp;
 
-    move-result v4
+    invoke-virtual {v2}, Lcom/android/server/appop/DiscreteRegistry$DiscreteOp;->isEmpty()Z
 
-    if-eqz v4, :cond_2
+    move-result v2
 
-    iget-object v4, v0, Lcom/android/server/appop/DiscreteRegistry$DiscretePackageOps;->mPackageOps:Landroid/util/ArrayMap;
+    if-eqz v2, :cond_2
 
-    invoke-virtual {v4, v2}, Landroid/util/ArrayMap;->removeAt(I)Ljava/lang/Object;
+    iget-object v2, v0, Lcom/android/server/appop/DiscreteRegistry$DiscretePackageOps;->mPackageOps:Landroid/util/ArrayMap;
+
+    invoke-virtual {v2, v1}, Landroid/util/ArrayMap;->removeAt(I)Ljava/lang/Object;
 
     :cond_2
     :goto_1
-    add-int/lit8 v2, v2, -0x1
+    add-int/lit8 v1, v1, -0x1
 
     goto :goto_0
 
@@ -355,8 +437,8 @@
     return-void
 .end method
 
-.method private getOrCreateDiscreteOp(I)Lcom/android/server/appop/DiscreteRegistry$DiscreteOp;
-    .locals 3
+.method public final getOrCreateDiscreteOp(I)Lcom/android/server/appop/DiscreteRegistry$DiscreteOp;
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/appop/DiscreteRegistry$DiscretePackageOps;->mPackageOps:Landroid/util/ArrayMap;
 
@@ -372,152 +454,38 @@
 
     if-nez v0, :cond_0
 
-    new-instance v1, Lcom/android/server/appop/DiscreteRegistry$DiscreteOp;
+    new-instance v0, Lcom/android/server/appop/DiscreteRegistry$DiscreteOp;
 
-    iget-object v2, p0, Lcom/android/server/appop/DiscreteRegistry$DiscretePackageOps;->this$0:Lcom/android/server/appop/DiscreteRegistry;
+    iget-object v1, p0, Lcom/android/server/appop/DiscreteRegistry$DiscretePackageOps;->this$0:Lcom/android/server/appop/DiscreteRegistry;
 
-    invoke-direct {v1, v2}, Lcom/android/server/appop/DiscreteRegistry$DiscreteOp;-><init>(Lcom/android/server/appop/DiscreteRegistry;)V
+    invoke-direct {v0, v1}, Lcom/android/server/appop/DiscreteRegistry$DiscreteOp;-><init>(Lcom/android/server/appop/DiscreteRegistry;)V
 
-    move-object v0, v1
-
-    iget-object v1, p0, Lcom/android/server/appop/DiscreteRegistry$DiscretePackageOps;->mPackageOps:Landroid/util/ArrayMap;
+    iget-object p0, p0, Lcom/android/server/appop/DiscreteRegistry$DiscretePackageOps;->mPackageOps:Landroid/util/ArrayMap;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {v1, v2, v0}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, p1, v0}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     :cond_0
     return-object v0
 .end method
 
-.method private offsetHistory(J)V
-    .locals 3
+.method public isEmpty()Z
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/appop/DiscreteRegistry$DiscretePackageOps;->mPackageOps:Landroid/util/ArrayMap;
+    iget-object p0, p0, Lcom/android/server/appop/DiscreteRegistry$DiscretePackageOps;->mPackageOps:Landroid/util/ArrayMap;
 
-    invoke-virtual {v0}, Landroid/util/ArrayMap;->size()I
+    invoke-virtual {p0}, Landroid/util/ArrayMap;->isEmpty()Z
 
-    move-result v0
+    move-result p0
 
-    const/4 v1, 0x0
-
-    :goto_0
-    if-ge v1, v0, :cond_0
-
-    iget-object v2, p0, Lcom/android/server/appop/DiscreteRegistry$DiscretePackageOps;->mPackageOps:Landroid/util/ArrayMap;
-
-    invoke-virtual {v2, v1}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/android/server/appop/DiscreteRegistry$DiscreteOp;
-
-    invoke-static {v2, p1, p2}, Lcom/android/server/appop/DiscreteRegistry$DiscreteOp;->access$1800(Lcom/android/server/appop/DiscreteRegistry$DiscreteOp;J)V
-
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    return-void
+    return p0
 .end method
 
-
-# virtual methods
-.method addDiscreteAccess(ILjava/lang/String;IIJJII)V
-    .locals 10
-
-    invoke-direct {p0, p1}, Lcom/android/server/appop/DiscreteRegistry$DiscretePackageOps;->getOrCreateDiscreteOp(I)Lcom/android/server/appop/DiscreteRegistry$DiscreteOp;
-
-    move-result-object v0
-
-    move-object v1, p2
-
-    move v2, p3
-
-    move v3, p4
-
-    move-wide v4, p5
-
-    move-wide/from16 v6, p7
-
-    move/from16 v8, p9
-
-    move/from16 v9, p10
-
-    invoke-virtual/range {v0 .. v9}, Lcom/android/server/appop/DiscreteRegistry$DiscreteOp;->addDiscreteAccess(Ljava/lang/String;IIJJII)V
-
-    return-void
-.end method
-
-.method deserialize(Landroid/util/TypedXmlPullParser;J)V
-    .locals 3
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/lang/Exception;
-        }
-    .end annotation
-
-    invoke-interface {p1}, Landroid/util/TypedXmlPullParser;->getDepth()I
-
-    move-result v0
-
-    :cond_0
-    :goto_0
-    invoke-static {p1, v0}, Lcom/android/internal/util/XmlUtils;->nextElementWithin(Lorg/xmlpull/v1/XmlPullParser;I)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    invoke-interface {p1}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "o"
-
-    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    const/4 v1, 0x0
-
-    const-string/jumbo v2, "op"
-
-    invoke-interface {p1, v1, v2}, Landroid/util/TypedXmlPullParser;->getAttributeInt(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-result v1
-
-    invoke-direct {p0, v1}, Lcom/android/server/appop/DiscreteRegistry$DiscretePackageOps;->getOrCreateDiscreteOp(I)Lcom/android/server/appop/DiscreteRegistry$DiscreteOp;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p1, p2, p3}, Lcom/android/server/appop/DiscreteRegistry$DiscreteOp;->deserialize(Landroid/util/TypedXmlPullParser;J)V
-
-    goto :goto_0
-
-    :cond_1
-    return-void
-.end method
-
-.method isEmpty()Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/appop/DiscreteRegistry$DiscretePackageOps;->mPackageOps:Landroid/util/ArrayMap;
-
-    invoke-virtual {v0}, Landroid/util/ArrayMap;->isEmpty()Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method merge(Lcom/android/server/appop/DiscreteRegistry$DiscretePackageOps;)V
-    .locals 5
+.method public merge(Lcom/android/server/appop/DiscreteRegistry$DiscretePackageOps;)V
+    .locals 4
 
     iget-object v0, p1, Lcom/android/server/appop/DiscreteRegistry$DiscretePackageOps;->mPackageOps:Landroid/util/ArrayMap;
 
@@ -550,11 +518,11 @@
 
     check-cast v3, Lcom/android/server/appop/DiscreteRegistry$DiscreteOp;
 
-    invoke-direct {p0, v2}, Lcom/android/server/appop/DiscreteRegistry$DiscretePackageOps;->getOrCreateDiscreteOp(I)Lcom/android/server/appop/DiscreteRegistry$DiscreteOp;
+    invoke-virtual {p0, v2}, Lcom/android/server/appop/DiscreteRegistry$DiscretePackageOps;->getOrCreateDiscreteOp(I)Lcom/android/server/appop/DiscreteRegistry$DiscreteOp;
 
-    move-result-object v4
+    move-result-object v2
 
-    invoke-virtual {v4, v3}, Lcom/android/server/appop/DiscreteRegistry$DiscreteOp;->merge(Lcom/android/server/appop/DiscreteRegistry$DiscreteOp;)V
+    invoke-virtual {v2, v3}, Lcom/android/server/appop/DiscreteRegistry$DiscreteOp;->merge(Lcom/android/server/appop/DiscreteRegistry$DiscreteOp;)V
 
     add-int/lit8 v1, v1, 0x1
 
@@ -564,7 +532,39 @@
     return-void
 .end method
 
-.method serialize(Landroid/util/TypedXmlSerializer;)V
+.method public final offsetHistory(J)V
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/server/appop/DiscreteRegistry$DiscretePackageOps;->mPackageOps:Landroid/util/ArrayMap;
+
+    invoke-virtual {v0}, Landroid/util/ArrayMap;->size()I
+
+    move-result v0
+
+    const/4 v1, 0x0
+
+    :goto_0
+    if-ge v1, v0, :cond_0
+
+    iget-object v2, p0, Lcom/android/server/appop/DiscreteRegistry$DiscretePackageOps;->mPackageOps:Landroid/util/ArrayMap;
+
+    invoke-virtual {v2, v1}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/server/appop/DiscreteRegistry$DiscreteOp;
+
+    invoke-static {v2, p1, p2}, Lcom/android/server/appop/DiscreteRegistry$DiscreteOp;->-$$Nest$moffsetHistory(Lcom/android/server/appop/DiscreteRegistry$DiscreteOp;J)V
+
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    return-void
+.end method
+
+.method public serialize(Landroid/util/TypedXmlSerializer;)V
     .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {

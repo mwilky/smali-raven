@@ -1,4 +1,4 @@
-.class Lcom/android/server/devicepolicy/CertificateMonitor$1;
+.class public Lcom/android/server/devicepolicy/CertificateMonitor$1;
 .super Landroid/content/BroadcastReceiver;
 .source "CertificateMonitor.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/devicepolicy/CertificateMonitor;
+.field public final synthetic this$0:Lcom/android/server/devicepolicy/CertificateMonitor;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/devicepolicy/CertificateMonitor;)V
+.method public constructor <init>(Lcom/android/server/devicepolicy/CertificateMonitor;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/devicepolicy/CertificateMonitor$1;->this$0:Lcom/android/server/devicepolicy/CertificateMonitor;
@@ -32,34 +32,25 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 3
+    .locals 1
 
-    invoke-static {}, Landroid/os/storage/StorageManager;->inCryptKeeperBounce()Z
+    invoke-virtual {p0}, Landroid/content/BroadcastReceiver;->getSendingUserId()I
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    const-string v0, "android.intent.extra.user_handle"
 
-    return-void
+    invoke-virtual {p2, v0, p1}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    :cond_0
-    invoke-virtual {p0}, Lcom/android/server/devicepolicy/CertificateMonitor$1;->getSendingUserId()I
+    move-result p1
 
-    move-result v0
+    iget-object p0, p0, Lcom/android/server/devicepolicy/CertificateMonitor$1;->this$0:Lcom/android/server/devicepolicy/CertificateMonitor;
 
-    const-string v1, "android.intent.extra.user_handle"
+    invoke-static {p1}, Landroid/os/UserHandle;->of(I)Landroid/os/UserHandle;
 
-    invoke-virtual {p2, v1, v0}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    move-result-object p1
 
-    move-result v0
-
-    iget-object v1, p0, Lcom/android/server/devicepolicy/CertificateMonitor$1;->this$0:Lcom/android/server/devicepolicy/CertificateMonitor;
-
-    invoke-static {v0}, Landroid/os/UserHandle;->of(I)Landroid/os/UserHandle;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Lcom/android/server/devicepolicy/CertificateMonitor;->access$000(Lcom/android/server/devicepolicy/CertificateMonitor;Landroid/os/UserHandle;)V
+    invoke-static {p0, p1}, Lcom/android/server/devicepolicy/CertificateMonitor;->-$$Nest$mupdateInstalledCertificates(Lcom/android/server/devicepolicy/CertificateMonitor;Landroid/os/UserHandle;)V
 
     return-void
 .end method

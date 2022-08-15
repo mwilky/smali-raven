@@ -1,4 +1,4 @@
-.class Lcom/android/server/WiredAccessoryManager$WiredAccessoryExtconObserver;
+.class public Lcom/android/server/WiredAccessoryManager$WiredAccessoryExtconObserver;
 .super Lcom/android/server/ExtconStateObserver;
 .source "WiredAccessoryManager.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "WiredAccessoryExtconObserver"
 .end annotation
 
@@ -25,7 +25,7 @@
 
 
 # instance fields
-.field private final mExtconInfos:Ljava/util/List;
+.field public final mExtconInfos:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -35,20 +35,38 @@
     .end annotation
 .end field
 
-.field final synthetic this$0:Lcom/android/server/WiredAccessoryManager;
+.field public final synthetic this$0:Lcom/android/server/WiredAccessoryManager;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/WiredAccessoryManager;)V
+.method public static bridge synthetic -$$Nest$minit(Lcom/android/server/WiredAccessoryManager$WiredAccessoryExtconObserver;)V
     .locals 0
+
+    invoke-virtual {p0}, Lcom/android/server/WiredAccessoryManager$WiredAccessoryExtconObserver;->init()V
+
+    return-void
+.end method
+
+.method public constructor <init>(Lcom/android/server/WiredAccessoryManager;)V
+    .locals 3
 
     iput-object p1, p0, Lcom/android/server/WiredAccessoryManager$WiredAccessoryExtconObserver;->this$0:Lcom/android/server/WiredAccessoryManager;
 
     invoke-direct {p0}, Lcom/android/server/ExtconStateObserver;-><init>()V
 
-    const-string p1, ".*audio.*"
+    const-string p1, "HEADPHONE"
 
-    invoke-static {p1}, Lcom/android/server/ExtconUEventObserver$ExtconInfo;->getExtconInfos(Ljava/lang/String;)Ljava/util/List;
+    const-string v0, "MICROPHONE"
+
+    const-string v1, "HDMI"
+
+    const-string v2, "LINE-OUT"
+
+    filled-new-array {p1, v0, v1, v2}, [Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-static {p1}, Lcom/android/server/ExtconUEventObserver$ExtconInfo;->getExtconInfoForTypes([Ljava/lang/String;)Ljava/util/List;
 
     move-result-object p1
 
@@ -57,15 +75,9 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/server/WiredAccessoryManager$WiredAccessoryExtconObserver;)V
-    .locals 0
 
-    invoke-direct {p0}, Lcom/android/server/WiredAccessoryManager$WiredAccessoryExtconObserver;->init()V
-
-    return-void
-.end method
-
-.method private init()V
+# virtual methods
+.method public final init()V
     .locals 7
 
     iget-object v0, p0, Lcom/android/server/WiredAccessoryManager$WiredAccessoryExtconObserver;->mExtconInfos:Ljava/util/List;
@@ -90,7 +102,7 @@
     const/4 v2, 0x0
 
     :try_start_0
-    invoke-virtual {p0, v1}, Lcom/android/server/WiredAccessoryManager$WiredAccessoryExtconObserver;->parseStateFromFile(Lcom/android/server/ExtconUEventObserver$ExtconInfo;)Ljava/lang/Object;
+    invoke-virtual {p0, v1}, Lcom/android/server/ExtconStateObserver;->parseStateFromFile(Lcom/android/server/ExtconUEventObserver$ExtconInfo;)Ljava/lang/Object;
 
     move-result-object v3
 
@@ -101,13 +113,12 @@
 
     move-object v2, v3
 
-    :goto_1
-    goto :goto_2
+    goto :goto_1
 
     :catch_0
     move-exception v3
 
-    invoke-static {}, Lcom/android/server/WiredAccessoryManager;->access$500()Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/WiredAccessoryManager;->-$$Nest$sfgetTAG()Ljava/lang/String;
 
     move-result-object v4
 
@@ -135,12 +146,12 @@
 
     invoke-static {v4, v5, v3}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_2
+    goto :goto_1
 
     :catch_1
     move-exception v3
 
-    invoke-static {}, Lcom/android/server/WiredAccessoryManager;->access$500()Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/WiredAccessoryManager;->-$$Nest$sfgetTAG()Ljava/lang/String;
 
     move-result-object v4
 
@@ -164,9 +175,7 @@
 
     invoke-static {v4, v5, v3}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_1
-
-    :goto_2
+    :goto_1
     if-eqz v2, :cond_0
 
     invoke-virtual {v1}, Lcom/android/server/ExtconUEventObserver$ExtconInfo;->getName()Ljava/lang/String;
@@ -176,7 +185,7 @@
     invoke-virtual {p0, v1, v3, v2}, Lcom/android/server/WiredAccessoryManager$WiredAccessoryExtconObserver;->updateState(Lcom/android/server/ExtconUEventObserver$ExtconInfo;Ljava/lang/String;Landroid/util/Pair;)V
 
     :cond_0
-    invoke-virtual {p0, v1}, Lcom/android/server/WiredAccessoryManager$WiredAccessoryExtconObserver;->startObserving(Lcom/android/server/ExtconUEventObserver$ExtconInfo;)V
+    invoke-virtual {p0, v1}, Lcom/android/server/ExtconUEventObserver;->startObserving(Lcom/android/server/ExtconUEventObserver$ExtconInfo;)V
 
     goto :goto_0
 
@@ -184,10 +193,8 @@
     return-void
 .end method
 
-
-# virtual methods
 .method public parseState(Lcom/android/server/ExtconUEventObserver$ExtconInfo;Ljava/lang/String;)Landroid/util/Pair;
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -201,53 +208,81 @@
         }
     .end annotation
 
-    const/4 v0, 0x2
+    const/4 p0, 0x2
 
-    new-array v1, v0, [I
+    new-array v0, p0, [I
 
-    fill-array-data v1, :array_0
+    fill-array-data v0, :array_0
 
-    const-string v2, "HEADPHONE"
+    const-string v1, "HEADPHONE"
 
-    invoke-static {v1, v0, p2, v2}, Lcom/android/server/WiredAccessoryManager;->access$900([IILjava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p1, v1}, Lcom/android/server/ExtconUEventObserver$ExtconInfo;->hasCableType(Ljava/lang/String;)Z
 
-    const/4 v0, 0x1
+    move-result v2
 
-    const-string v2, "MICROPHONE"
+    if-eqz v2, :cond_0
 
-    invoke-static {v1, v0, p2, v2}, Lcom/android/server/WiredAccessoryManager;->access$900([IILjava/lang/String;Ljava/lang/String;)V
+    invoke-static {v0, p0, p2, v1}, Lcom/android/server/WiredAccessoryManager;->-$$Nest$smupdateBit([IILjava/lang/String;Ljava/lang/String;)V
 
-    const/16 v2, 0x10
+    :cond_0
+    const-string p0, "MICROPHONE"
 
-    const-string v3, "HDMI"
+    invoke-virtual {p1, p0}, Lcom/android/server/ExtconUEventObserver$ExtconInfo;->hasCableType(Ljava/lang/String;)Z
 
-    invoke-static {v1, v2, p2, v3}, Lcom/android/server/WiredAccessoryManager;->access$900([IILjava/lang/String;Ljava/lang/String;)V
+    move-result v1
 
-    const/16 v2, 0x20
+    const/4 v2, 0x1
 
-    const-string v3, "LINE-OUT"
+    if-eqz v1, :cond_1
 
-    invoke-static {v1, v2, p2, v3}, Lcom/android/server/WiredAccessoryManager;->access$900([IILjava/lang/String;Ljava/lang/String;)V
+    invoke-static {v0, v2, p2, p0}, Lcom/android/server/WiredAccessoryManager;->-$$Nest$smupdateBit([IILjava/lang/String;Ljava/lang/String;)V
 
-    const/4 v2, 0x0
+    :cond_1
+    const-string p0, "HDMI"
 
-    aget v2, v1, v2
+    invoke-virtual {p1, p0}, Lcom/android/server/ExtconUEventObserver$ExtconInfo;->hasCableType(Ljava/lang/String;)Z
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result v1
 
-    move-result-object v2
+    if-eqz v1, :cond_2
 
-    aget v0, v1, v0
+    const/16 v1, 0x10
 
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v0, v1, p2, p0}, Lcom/android/server/WiredAccessoryManager;->-$$Nest$smupdateBit([IILjava/lang/String;Ljava/lang/String;)V
 
-    move-result-object v0
+    :cond_2
+    const-string p0, "LINE-OUT"
 
-    invoke-static {v2, v0}, Landroid/util/Pair;->create(Ljava/lang/Object;Ljava/lang/Object;)Landroid/util/Pair;
+    invoke-virtual {p1, p0}, Lcom/android/server/ExtconUEventObserver$ExtconInfo;->hasCableType(Ljava/lang/String;)Z
 
-    move-result-object v0
+    move-result p1
 
-    return-object v0
+    if-eqz p1, :cond_3
+
+    const/16 p1, 0x20
+
+    invoke-static {v0, p1, p2, p0}, Lcom/android/server/WiredAccessoryManager;->-$$Nest$smupdateBit([IILjava/lang/String;Ljava/lang/String;)V
+
+    :cond_3
+    const/4 p0, 0x0
+
+    aget p0, v0, p0
+
+    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object p0
+
+    aget p1, v0, v2
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object p1
+
+    invoke-static {p0, p1}, Landroid/util/Pair;->create(Ljava/lang/Object;Ljava/lang/Object;)Landroid/util/Pair;
+
+    move-result-object p0
+
+    return-object p0
 
     nop
 
@@ -263,13 +298,13 @@
 
     invoke-virtual {p0, p1, p2}, Lcom/android/server/WiredAccessoryManager$WiredAccessoryExtconObserver;->parseState(Lcom/android/server/ExtconUEventObserver$ExtconInfo;Ljava/lang/String;)Landroid/util/Pair;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method
 
 .method public updateState(Lcom/android/server/ExtconUEventObserver$ExtconInfo;Ljava/lang/String;Landroid/util/Pair;)V
-    .locals 6
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -282,63 +317,63 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/android/server/WiredAccessoryManager$WiredAccessoryExtconObserver;->this$0:Lcom/android/server/WiredAccessoryManager;
+    iget-object p1, p0, Lcom/android/server/WiredAccessoryManager$WiredAccessoryExtconObserver;->this$0:Lcom/android/server/WiredAccessoryManager;
 
-    invoke-static {v0}, Lcom/android/server/WiredAccessoryManager;->access$400(Lcom/android/server/WiredAccessoryManager;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/android/server/WiredAccessoryManager;->-$$Nest$fgetmLock(Lcom/android/server/WiredAccessoryManager;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    monitor-enter v0
+    monitor-enter p1
 
     :try_start_0
-    iget-object v1, p3, Landroid/util/Pair;->first:Ljava/lang/Object;
+    iget-object v0, p3, Landroid/util/Pair;->first:Ljava/lang/Object;
 
-    check-cast v1, Ljava/lang/Integer;
+    check-cast v0, Ljava/lang/Integer;
 
-    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+
+    move-result v0
+
+    iget-object p3, p3, Landroid/util/Pair;->second:Ljava/lang/Object;
+
+    check-cast p3, Ljava/lang/Integer;
+
+    invoke-virtual {p3}, Ljava/lang/Integer;->intValue()I
+
+    move-result p3
+
+    iget-object p0, p0, Lcom/android/server/WiredAccessoryManager$WiredAccessoryExtconObserver;->this$0:Lcom/android/server/WiredAccessoryManager;
+
+    invoke-static {p0}, Lcom/android/server/WiredAccessoryManager;->-$$Nest$fgetmHeadsetState(Lcom/android/server/WiredAccessoryManager;)I
 
     move-result v1
 
-    iget-object v2, p3, Landroid/util/Pair;->second:Ljava/lang/Object;
+    not-int v2, p3
 
-    check-cast v2, Ljava/lang/Integer;
+    and-int/2addr v2, v0
 
-    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
+    not-int v2, v2
 
-    move-result v2
+    and-int/2addr v1, v2
 
-    iget-object v3, p0, Lcom/android/server/WiredAccessoryManager$WiredAccessoryExtconObserver;->this$0:Lcom/android/server/WiredAccessoryManager;
+    and-int/2addr p3, v0
 
-    invoke-static {v3}, Lcom/android/server/WiredAccessoryManager;->access$700(Lcom/android/server/WiredAccessoryManager;)I
+    or-int/2addr p3, v1
 
-    move-result v4
+    invoke-static {p0, p2, p3}, Lcom/android/server/WiredAccessoryManager;->-$$Nest$mupdateLocked(Lcom/android/server/WiredAccessoryManager;Ljava/lang/String;I)V
 
-    not-int v5, v2
-
-    and-int/2addr v5, v1
-
-    not-int v5, v5
-
-    and-int/2addr v4, v5
-
-    and-int v5, v1, v2
-
-    or-int/2addr v4, v5
-
-    invoke-static {v3, p2, v4}, Lcom/android/server/WiredAccessoryManager;->access$800(Lcom/android/server/WiredAccessoryManager;Ljava/lang/String;I)V
-
-    monitor-exit v0
+    monitor-exit p1
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
-    monitor-exit v0
+    monitor-exit p1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
 .method public bridge synthetic updateState(Lcom/android/server/ExtconUEventObserver$ExtconInfo;Ljava/lang/String;Ljava/lang/Object;)V

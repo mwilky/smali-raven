@@ -1,41 +1,56 @@
 .class public final synthetic Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/internal/os/BinderCallHeavyHitterWatcher$BinderCallHeavyHitterListener;
+.implements Ljava/util/function/Consumer;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/server/am/ActivityManagerService;
+.field public final synthetic f$0:Lcom/android/server/am/ProcessRecord;
+
+.field public final synthetic f$1:Landroid/os/Debug$MemoryInfo;
+
+.field public final synthetic f$2:J
+
+.field public final synthetic f$3:Lcom/android/server/am/ProcessProfileRecord;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/am/ActivityManagerService;)V
+.method public synthetic constructor <init>(Lcom/android/server/am/ProcessRecord;Landroid/os/Debug$MemoryInfo;JLcom/android/server/am/ProcessProfileRecord;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/am/ActivityManagerService;
+    iput-object p1, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/am/ProcessRecord;
+
+    iput-object p2, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda0;->f$1:Landroid/os/Debug$MemoryInfo;
+
+    iput-wide p3, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda0;->f$2:J
+
+    iput-object p5, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda0;->f$3:Lcom/android/server/am/ProcessProfileRecord;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final onHeavyHit(Ljava/util/List;IFJ)V
+.method public final accept(Ljava/lang/Object;)V
     .locals 6
 
-    iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/am/ActivityManagerService;
+    iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/am/ProcessRecord;
 
-    move-object v1, p1
+    iget-object v1, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda0;->f$1:Landroid/os/Debug$MemoryInfo;
 
-    move v2, p2
+    iget-wide v2, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda0;->f$2:J
 
-    move v3, p3
+    iget-object v4, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda0;->f$3:Lcom/android/server/am/ProcessProfileRecord;
 
-    move-wide v4, p4
+    move-object v5, p1
 
-    invoke-virtual/range {v0 .. v5}, Lcom/android/server/am/ActivityManagerService;->lambda$scheduleBinderHeavyHitterAutoSampler$34$ActivityManagerService(Ljava/util/List;IFJ)V
+    check-cast v5, Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;
+
+    invoke-static/range {v0 .. v5}, Lcom/android/server/am/ActivityManagerService;->$r8$lambda$2WweV4ZlzWdWugjgv4Qek4UBmVU(Lcom/android/server/am/ProcessRecord;Landroid/os/Debug$MemoryInfo;JLcom/android/server/am/ProcessProfileRecord;Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;)V
 
     return-void
 .end method

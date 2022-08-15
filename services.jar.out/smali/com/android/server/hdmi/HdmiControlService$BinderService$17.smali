@@ -1,4 +1,4 @@
-.class Lcom/android/server/hdmi/HdmiControlService$BinderService$17;
+.class public Lcom/android/server/hdmi/HdmiControlService$BinderService$17;
 .super Ljava/lang/Object;
 .source "HdmiControlService.java"
 
@@ -12,21 +12,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$1:Lcom/android/server/hdmi/HdmiControlService$BinderService;
+.field public final synthetic this$1:Lcom/android/server/hdmi/HdmiControlService$BinderService;
 
-.field final synthetic val$recordSource:[B
+.field public final synthetic val$recordSource:[B
 
-.field final synthetic val$recorderAddress:I
+.field public final synthetic val$recorderAddress:I
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/hdmi/HdmiControlService$BinderService;I[B)V
+.method public constructor <init>(Lcom/android/server/hdmi/HdmiControlService$BinderService;I[B)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService$17;->this$1:Lcom/android/server/hdmi/HdmiControlService$BinderService;
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService$17;->this$1:Lcom/android/server/hdmi/HdmiControlService$BinderService;
 
@@ -55,11 +55,11 @@
 
     if-nez v0, :cond_0
 
-    const-string v0, "HdmiControlService"
+    const-string p0, "HdmiControlService"
 
-    const-string v1, "TV device is not enabled."
+    const-string v0, "TV device is not enabled."
 
-    invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
@@ -74,9 +74,9 @@
 
     iget v1, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService$17;->val$recorderAddress:I
 
-    iget-object v2, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService$17;->val$recordSource:[B
+    iget-object p0, p0, Lcom/android/server/hdmi/HdmiControlService$BinderService$17;->val$recordSource:[B
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->startOneTouchRecord(I[B)I
+    invoke-virtual {v0, v1, p0}, Lcom/android/server/hdmi/HdmiCecLocalDeviceTv;->startOneTouchRecord(I[B)I
 
     return-void
 .end method

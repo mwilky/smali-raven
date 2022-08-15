@@ -83,7 +83,7 @@
     return-void
 .end method
 
-.method public addUserKeyAuth(IILjava/lang/String;Ljava/lang/String;)V
+.method public addUserKeyAuth(IILjava/lang/String;)V
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -95,11 +95,11 @@
 .end method
 
 .method public asBinder()Landroid/os/IBinder;
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public benchmark(Ljava/lang/String;Landroid/os/IVoldTaskListener;)V
@@ -124,7 +124,7 @@
     return-void
 .end method
 
-.method public clearUserKeyAuth(IILjava/lang/String;Ljava/lang/String;)V
+.method public clearUserKeyAuth(IILjava/lang/String;)V
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -146,30 +146,30 @@
     return-void
 .end method
 
-.method public createObb(Ljava/lang/String;Ljava/lang/String;I)Ljava/lang/String;
-    .locals 1
+.method public createObb(Ljava/lang/String;I)Ljava/lang/String;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public createStubVolume(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)Ljava/lang/String;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public createUserKey(IIZ)V
@@ -293,135 +293,6 @@
     return-void
 .end method
 
-.method public fdeChangePassword(ILjava/lang/String;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    return-void
-.end method
-
-.method public fdeCheckPassword(Ljava/lang/String;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    return-void
-.end method
-
-.method public fdeClearPassword()V
-    .locals 0
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    return-void
-.end method
-
-.method public fdeComplete()I
-    .locals 1
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    const/4 v0, 0x0
-
-    return v0
-.end method
-
-.method public fdeEnable(ILjava/lang/String;I)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    return-void
-.end method
-
-.method public fdeGetField(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    const/4 v0, 0x0
-
-    return-object v0
-.end method
-
-.method public fdeGetPassword()Ljava/lang/String;
-    .locals 1
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    const/4 v0, 0x0
-
-    return-object v0
-.end method
-
-.method public fdeGetPasswordType()I
-    .locals 1
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    const/4 v0, 0x0
-
-    return v0
-.end method
-
-.method public fdeRestart()V
-    .locals 0
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    return-void
-.end method
-
-.method public fdeSetField(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    return-void
-.end method
-
-.method public fdeVerifyPassword(Ljava/lang/String;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    return-void
-.end method
-
 .method public fixateNewestUserKeyAuth(I)V
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
@@ -477,30 +348,56 @@
     return-void
 .end method
 
-.method public getUnlockedUsers()[I
-    .locals 1
+.method public getStorageLifeTime()I
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return-object v0
+    return p0
+.end method
+
+.method public getUnlockedUsers()[I
+    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    const/4 p0, 0x0
+
+    return-object p0
+.end method
+
+.method public getWriteAmount()I
+    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    const/4 p0, 0x0
+
+    return p0
 .end method
 
 .method public incFsEnabled()Z
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
 .method public initUser0()V
@@ -515,29 +412,16 @@
 .end method
 
 .method public isCheckpointing()Z
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
-.end method
-
-.method public isConvertibleToFbe()Z
-    .locals 1
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    const/4 v0, 0x0
-
-    return v0
+    return p0
 .end method
 
 .method public lockUserKey(I)V
@@ -585,19 +469,6 @@
 .end method
 
 .method public mountAppFuse(II)Ljava/io/FileDescriptor;
-    .locals 1
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    const/4 v0, 0x0
-
-    return-object v0
-.end method
-
-.method public mountDefaultEncrypted()V
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -605,7 +476,9 @@
         }
     .end annotation
 
-    return-void
+    const/4 p0, 0x0
+
+    return-object p0
 .end method
 
 .method public mountFstab(Ljava/lang/String;Ljava/lang/String;)V
@@ -620,16 +493,16 @@
 .end method
 
 .method public mountIncFs(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;)Landroid/os/incremental/IncrementalFileSystemControlParcel;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public moveStorage(Ljava/lang/String;Ljava/lang/String;Landroid/os/IVoldTaskListener;)V
@@ -644,29 +517,29 @@
 .end method
 
 .method public needsCheckpoint()Z
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
 .method public needsRollback()Z
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
 .method public onSecureKeyguardStateChanged(Z)V
@@ -725,16 +598,16 @@
 .end method
 
 .method public openAppFuseFile(IIII)Ljava/io/FileDescriptor;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public partition(Ljava/lang/String;II)V
@@ -771,6 +644,17 @@
 .end method
 
 .method public prepareUserStorage(Ljava/lang/String;III)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    return-void
+.end method
+
+.method public refreshLatestWrite()V
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -847,7 +731,18 @@
     return-void
 .end method
 
-.method public runIdleMaint(Landroid/os/IVoldTaskListener;)V
+.method public runIdleMaint(ZLandroid/os/IVoldTaskListener;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    return-void
+.end method
+
+.method public setGCUrgentPace(IIFFI)V
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -925,45 +820,45 @@
 .end method
 
 .method public supportsBlockCheckpoint()Z
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
 .method public supportsCheckpoint()Z
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
 .method public supportsFileCheckpoint()Z
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
-.method public unlockUserKey(IILjava/lang/String;Ljava/lang/String;)V
+.method public unlockUserKey(IILjava/lang/String;)V
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {

@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/wm/ActivityRecord$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/os/IBinder$DeathRecipient;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final binderDied()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/ActivityRecord$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/wm/ActivityRecord;
+    iget-object p0, p0, Lcom/android/server/wm/ActivityRecord$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/wm/ActivityRecord;
 
-    invoke-virtual {v0}, Lcom/android/server/wm/ActivityRecord;->unregisterRemoteAnimations()V
+    invoke-virtual {p0}, Lcom/android/server/wm/ActivityRecord;->unregisterRemoteAnimations()V
 
     return-void
 .end method

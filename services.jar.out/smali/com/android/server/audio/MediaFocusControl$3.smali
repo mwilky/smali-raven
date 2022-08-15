@@ -1,4 +1,4 @@
-.class Lcom/android/server/audio/MediaFocusControl$3;
+.class public Lcom/android/server/audio/MediaFocusControl$3;
 .super Landroid/os/Handler;
 .source "MediaFocusControl.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/audio/MediaFocusControl;
+.field public final synthetic this$0:Lcom/android/server/audio/MediaFocusControl;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/audio/MediaFocusControl;Landroid/os/Looper;)V
+.method public constructor <init>(Lcom/android/server/audio/MediaFocusControl;Landroid/os/Looper;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/audio/MediaFocusControl$3;->this$0:Lcom/android/server/audio/MediaFocusControl;
@@ -32,87 +32,83 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 4
+    .locals 2
 
     iget v0, p1, Landroid/os/Message;->what:I
 
-    packed-switch v0, :pswitch_data_0
+    const/4 v1, 0x1
+
+    if-eq v0, v1, :cond_1
+
+    const/4 v1, 0x2
+
+    if-eq v0, v1, :cond_0
 
     goto :goto_0
 
-    :pswitch_0
-    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+    :cond_0
+    iget-object p1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    check-cast v0, Lcom/android/server/audio/MediaFocusControl$ForgetFadeUidInfo;
+    check-cast p1, Lcom/android/server/audio/MediaFocusControl$ForgetFadeUidInfo;
 
-    invoke-static {v0}, Lcom/android/server/audio/MediaFocusControl$ForgetFadeUidInfo;->access$1000(Lcom/android/server/audio/MediaFocusControl$ForgetFadeUidInfo;)I
+    invoke-static {p1}, Lcom/android/server/audio/MediaFocusControl$ForgetFadeUidInfo;->-$$Nest$fgetmUid(Lcom/android/server/audio/MediaFocusControl$ForgetFadeUidInfo;)I
 
-    move-result v0
+    move-result p1
 
-    iget-object v1, p0, Lcom/android/server/audio/MediaFocusControl$3;->this$0:Lcom/android/server/audio/MediaFocusControl;
+    iget-object p0, p0, Lcom/android/server/audio/MediaFocusControl$3;->this$0:Lcom/android/server/audio/MediaFocusControl;
 
-    invoke-static {v1}, Lcom/android/server/audio/MediaFocusControl;->access$800(Lcom/android/server/audio/MediaFocusControl;)Lcom/android/server/audio/PlayerFocusEnforcer;
+    invoke-static {p0}, Lcom/android/server/audio/MediaFocusControl;->-$$Nest$fgetmFocusEnforcer(Lcom/android/server/audio/MediaFocusControl;)Lcom/android/server/audio/PlayerFocusEnforcer;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-interface {v1, v0}, Lcom/android/server/audio/PlayerFocusEnforcer;->forgetUid(I)V
+    invoke-interface {p0, p1}, Lcom/android/server/audio/PlayerFocusEnforcer;->forgetUid(I)V
 
     goto :goto_0
 
-    :pswitch_1
-    invoke-static {}, Lcom/android/server/audio/MediaFocusControl;->access$000()Ljava/lang/Object;
+    :cond_1
+    invoke-static {}, Lcom/android/server/audio/MediaFocusControl;->-$$Nest$sfgetmAudioFocusLock()Ljava/lang/Object;
 
     move-result-object v0
 
     monitor-enter v0
 
     :try_start_0
-    iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+    iget-object p1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    check-cast v1, Lcom/android/server/audio/FocusRequester;
+    check-cast p1, Lcom/android/server/audio/FocusRequester;
 
-    invoke-virtual {v1}, Lcom/android/server/audio/FocusRequester;->isInFocusLossLimbo()Z
+    invoke-virtual {p1}, Lcom/android/server/audio/FocusRequester;->isInFocusLossLimbo()Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_0
+    if-eqz v1, :cond_2
 
-    const/4 v2, -0x1
+    const/4 v1, -0x1
 
-    invoke-virtual {v1, v2}, Lcom/android/server/audio/FocusRequester;->dispatchFocusChange(I)I
+    invoke-virtual {p1, v1}, Lcom/android/server/audio/FocusRequester;->dispatchFocusChange(I)I
 
-    invoke-virtual {v1}, Lcom/android/server/audio/FocusRequester;->release()V
+    invoke-virtual {p1}, Lcom/android/server/audio/FocusRequester;->release()V
 
-    iget-object v2, p0, Lcom/android/server/audio/MediaFocusControl$3;->this$0:Lcom/android/server/audio/MediaFocusControl;
+    iget-object p0, p0, Lcom/android/server/audio/MediaFocusControl$3;->this$0:Lcom/android/server/audio/MediaFocusControl;
 
-    invoke-virtual {v1}, Lcom/android/server/audio/FocusRequester;->getClientUid()I
+    invoke-virtual {p1}, Lcom/android/server/audio/FocusRequester;->getClientUid()I
 
-    move-result v3
+    move-result p1
 
-    invoke-static {v2, v3}, Lcom/android/server/audio/MediaFocusControl;->access$900(Lcom/android/server/audio/MediaFocusControl;I)V
+    invoke-static {p0, p1}, Lcom/android/server/audio/MediaFocusControl;->-$$Nest$mpostForgetUidLater(Lcom/android/server/audio/MediaFocusControl;I)V
 
-    :cond_0
+    :cond_2
     monitor-exit v0
 
-    goto :goto_0
+    :goto_0
+    return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
-
-    :goto_0
-    return-void
-
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
+    throw p0
 .end method

@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/Watchdog$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/Watchdog$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/Watchdog;
+    iget-object p0, p0, Lcom/android/server/Watchdog$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/Watchdog;
 
-    invoke-static {v0}, Lcom/android/server/Watchdog;->$r8$lambda$W7y-nlYuEBh_r4--InIAt97WYPU(Lcom/android/server/Watchdog;)V
+    invoke-static {p0}, Lcom/android/server/Watchdog;->$r8$lambda$W7y-nlYuEBh_r4--InIAt97WYPU(Lcom/android/server/Watchdog;)V
 
     return-void
 .end method

@@ -15,7 +15,7 @@
 
 
 # instance fields
-.field protected mConfig:Landroid/net/shared/ProvisioningConfiguration;
+.field public mConfig:Landroid/net/shared/ProvisioningConfiguration;
 
 
 # direct methods
@@ -38,11 +38,34 @@
 .method public build()Landroid/net/shared/ProvisioningConfiguration;
     .locals 2
 
+    iget-object p0, p0, Landroid/net/shared/ProvisioningConfiguration$Builder;->mConfig:Landroid/net/shared/ProvisioningConfiguration;
+
+    iget v0, p0, Landroid/net/shared/ProvisioningConfiguration;->mIPv6ProvisioningMode:I
+
+    const/4 v1, 0x2
+
+    if-ne v0, v1, :cond_1
+
+    iget v0, p0, Landroid/net/shared/ProvisioningConfiguration;->mIPv4ProvisioningMode:I
+
+    if-nez v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    new-instance p0, Ljava/lang/IllegalArgumentException;
+
+    const-string v0, "IPv4 must be disabled in IPv6 link-localonly mode."
+
+    invoke-direct {p0, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+
+    :cond_1
+    :goto_0
     new-instance v0, Landroid/net/shared/ProvisioningConfiguration;
 
-    iget-object v1, p0, Landroid/net/shared/ProvisioningConfiguration$Builder;->mConfig:Landroid/net/shared/ProvisioningConfiguration;
-
-    invoke-direct {v0, v1}, Landroid/net/shared/ProvisioningConfiguration;-><init>(Landroid/net/shared/ProvisioningConfiguration;)V
+    invoke-direct {v0, p0}, Landroid/net/shared/ProvisioningConfiguration;-><init>(Landroid/net/shared/ProvisioningConfiguration;)V
 
     return-object v0
 .end method
@@ -92,6 +115,18 @@
     iget-object v0, p0, Landroid/net/shared/ProvisioningConfiguration$Builder;->mConfig:Landroid/net/shared/ProvisioningConfiguration;
 
     iput-object p1, v0, Landroid/net/shared/ProvisioningConfiguration;->mInitialConfig:Landroid/net/shared/InitialConfiguration;
+
+    return-object p0
+.end method
+
+.method public withIpv6LinkLocalOnly()Landroid/net/shared/ProvisioningConfiguration$Builder;
+    .locals 2
+
+    iget-object v0, p0, Landroid/net/shared/ProvisioningConfiguration$Builder;->mConfig:Landroid/net/shared/ProvisioningConfiguration;
+
+    const/4 v1, 0x2
+
+    iput v1, v0, Landroid/net/shared/ProvisioningConfiguration;->mIPv6ProvisioningMode:I
 
     return-object p0
 .end method
@@ -195,9 +230,13 @@
 .end method
 
 .method public withStaticConfiguration(Landroid/net/StaticIpConfiguration;)Landroid/net/shared/ProvisioningConfiguration$Builder;
-    .locals 1
+    .locals 2
 
     iget-object v0, p0, Landroid/net/shared/ProvisioningConfiguration$Builder;->mConfig:Landroid/net/shared/ProvisioningConfiguration;
+
+    const/4 v1, 0x1
+
+    iput v1, v0, Landroid/net/shared/ProvisioningConfiguration;->mIPv4ProvisioningMode:I
 
     iput-object p1, v0, Landroid/net/shared/ProvisioningConfiguration;->mStaticIpConfig:Landroid/net/StaticIpConfiguration;
 
@@ -211,7 +250,7 @@
 
     const/4 v1, 0x0
 
-    iput-boolean v1, v0, Landroid/net/shared/ProvisioningConfiguration;->mEnableIPv4:Z
+    iput v1, v0, Landroid/net/shared/ProvisioningConfiguration;->mIPv4ProvisioningMode:I
 
     return-object p0
 .end method
@@ -223,7 +262,7 @@
 
     const/4 v1, 0x0
 
-    iput-boolean v1, v0, Landroid/net/shared/ProvisioningConfiguration;->mEnableIPv6:Z
+    iput v1, v0, Landroid/net/shared/ProvisioningConfiguration;->mIPv6ProvisioningMode:I
 
     return-object p0
 .end method

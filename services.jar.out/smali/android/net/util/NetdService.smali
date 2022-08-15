@@ -16,20 +16,12 @@
 
 .field private static final MAX_TIMEOUT_MS:J = 0x3e8L
 
-.field private static final TAG:Ljava/lang/String;
+.field private static final TAG:Ljava/lang/String; = "NetdService"
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    const-class v0, Landroid/net/util/NetdService;
-
-    invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
-
-    move-result-object v0
-
-    sput-object v0, Landroid/net/util/NetdService;->TAG:Ljava/lang/String;
+.method public static constructor <clinit>()V
+    .locals 0
 
     return-void
 .end method
@@ -55,7 +47,7 @@
 .end method
 
 .method public static get(J)Landroid/net/INetd;
-    .locals 13
+    .locals 8
 
     const-wide/16 v0, 0x0
 
@@ -65,13 +57,11 @@
 
     invoke-static {}, Landroid/net/util/NetdService;->getInstance()Landroid/net/INetd;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     :cond_0
-    cmp-long v2, p0, v0
-
     if-lez v2, :cond_1
 
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
@@ -86,70 +76,58 @@
     const-wide v2, 0x7fffffffffffffffL
 
     :goto_0
-    nop
+    move-wide p0, v0
 
-    const-wide/16 v4, 0x0
-
+    :catch_0
     :goto_1
     invoke-static {}, Landroid/net/util/NetdService;->getInstance()Landroid/net/INetd;
 
-    move-result-object v6
+    move-result-object v4
 
-    if-eqz v6, :cond_2
+    if-eqz v4, :cond_2
 
-    return-object v6
+    return-object v4
 
     :cond_2
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
-    move-result-wide v7
+    move-result-wide v4
 
-    sub-long v7, v2, v7
+    sub-long v4, v2, v4
 
-    cmp-long v9, v7, v0
+    cmp-long v6, v4, v0
 
-    if-gtz v9, :cond_3
+    if-gtz v6, :cond_3
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return-object v0
+    return-object p0
 
     :cond_3
-    const-wide/16 v9, 0x64
+    const-wide/16 v6, 0x64
 
-    add-long/2addr v9, v4
+    add-long/2addr p0, v6
 
-    const-wide/16 v11, 0x3e8
+    const-wide/16 v6, 0x3e8
 
-    invoke-static {v9, v10, v11, v12}, Ljava/lang/Math;->min(JJ)J
+    invoke-static {p0, p1, v6, v7}, Ljava/lang/Math;->min(JJ)J
 
-    move-result-wide v4
+    move-result-wide p0
 
-    invoke-static {v4, v5, v7, v8}, Ljava/lang/Math;->min(JJ)J
+    invoke-static {p0, p1, v4, v5}, Ljava/lang/Math;->min(JJ)J
 
-    move-result-wide v4
+    move-result-wide p0
 
     :try_start_0
-    invoke-static {v4, v5}, Ljava/lang/Thread;->sleep(J)V
+    invoke-static {p0, p1}, Ljava/lang/Thread;->sleep(J)V
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
-    :goto_2
-    goto :goto_3
-
-    :catch_0
-    move-exception v9
-
-    goto :goto_2
-
-    :goto_3
     goto :goto_1
 .end method
 
 .method public static getInstance()Landroid/net/INetd;
     .locals 3
-
-    nop
 
     const-string/jumbo v0, "netd"
 
@@ -205,9 +183,9 @@
 
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 .end method

@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/people/data/DataManager$ShortcutServiceCallback$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -35,7 +36,7 @@
 
 # virtual methods
 .method public final run()V
-    .locals 4
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/people/data/DataManager$ShortcutServiceCallback$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/people/data/DataManager$ShortcutServiceCallback;
 
@@ -43,9 +44,9 @@
 
     iget-object v2, p0, Lcom/android/server/people/data/DataManager$ShortcutServiceCallback$$ExternalSyntheticLambda0;->f$2:Landroid/os/UserHandle;
 
-    iget-object v3, p0, Lcom/android/server/people/data/DataManager$ShortcutServiceCallback$$ExternalSyntheticLambda0;->f$3:Ljava/util/List;
+    iget-object p0, p0, Lcom/android/server/people/data/DataManager$ShortcutServiceCallback$$ExternalSyntheticLambda0;->f$3:Ljava/util/List;
 
-    invoke-virtual {v0, v1, v2, v3}, Lcom/android/server/people/data/DataManager$ShortcutServiceCallback;->lambda$onShortcutsAddedOrUpdated$0$DataManager$ShortcutServiceCallback(Ljava/lang/String;Landroid/os/UserHandle;Ljava/util/List;)V
+    invoke-static {v0, v1, v2, p0}, Lcom/android/server/people/data/DataManager$ShortcutServiceCallback;->$r8$lambda$G15IkHYUSZ_KlResIjWZbLe2mQs(Lcom/android/server/people/data/DataManager$ShortcutServiceCallback;Ljava/lang/String;Landroid/os/UserHandle;Ljava/util/List;)V
 
     return-void
 .end method

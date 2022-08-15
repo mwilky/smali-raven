@@ -15,7 +15,7 @@
 
 
 # instance fields
-.field private mService:Lcom/android/server/audio/AudioService;
+.field public mService:Lcom/android/server/audio/AudioService;
 
 
 # direct methods
@@ -42,9 +42,9 @@
 
     if-ne p1, v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/audio/AudioService$Lifecycle;->mService:Lcom/android/server/audio/AudioService;
+    iget-object p0, p0, Lcom/android/server/audio/AudioService$Lifecycle;->mService:Lcom/android/server/audio/AudioService;
 
-    invoke-virtual {v0}, Lcom/android/server/audio/AudioService;->systemReady()V
+    invoke-virtual {p0}, Lcom/android/server/audio/AudioService;->systemReady()V
 
     :cond_0
     return-void
@@ -57,7 +57,7 @@
 
     const-string v1, "audio"
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/server/audio/AudioService$Lifecycle;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
+    invoke-virtual {p0, v1, v0}, Lcom/android/server/SystemService;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
 
     return-void
 .end method

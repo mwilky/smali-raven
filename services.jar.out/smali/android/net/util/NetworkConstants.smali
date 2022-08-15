@@ -40,7 +40,7 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 3
 
     const/16 v0, 0xff
@@ -85,23 +85,23 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 2
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v0, Ljava/lang/RuntimeException;
+    new-instance p0, Ljava/lang/RuntimeException;
 
-    const-string/jumbo v1, "no instance permitted"
+    const-string/jumbo v0, "no instance permitted"
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static asByte(I)B
-    .locals 1
+    .locals 0
 
-    int-to-byte v0, p0
+    int-to-byte p0, p0
 
-    return v0
+    return p0
 .end method

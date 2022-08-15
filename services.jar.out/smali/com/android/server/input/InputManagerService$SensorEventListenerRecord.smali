@@ -1,4 +1,4 @@
-.class final Lcom/android/server/input/InputManagerService$SensorEventListenerRecord;
+.class public final Lcom/android/server/input/InputManagerService$SensorEventListenerRecord;
 .super Ljava/lang/Object;
 .source "InputManagerService.java"
 
@@ -12,21 +12,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "SensorEventListenerRecord"
 .end annotation
 
 
 # instance fields
-.field private final mListener:Landroid/hardware/input/IInputSensorEventListener;
+.field public final mListener:Landroid/hardware/input/IInputSensorEventListener;
 
-.field private final mPid:I
+.field public final mPid:I
 
-.field final synthetic this$0:Lcom/android/server/input/InputManagerService;
+.field public final synthetic this$0:Lcom/android/server/input/InputManagerService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/input/InputManagerService;ILandroid/hardware/input/IInputSensorEventListener;)V
+.method public constructor <init>(Lcom/android/server/input/InputManagerService;ILandroid/hardware/input/IInputSensorEventListener;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/input/InputManagerService$SensorEventListenerRecord;->this$0:Lcom/android/server/input/InputManagerService;
@@ -43,27 +43,27 @@
 
 # virtual methods
 .method public binderDied()V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/input/InputManagerService$SensorEventListenerRecord;->this$0:Lcom/android/server/input/InputManagerService;
 
-    iget v1, p0, Lcom/android/server/input/InputManagerService$SensorEventListenerRecord;->mPid:I
+    iget p0, p0, Lcom/android/server/input/InputManagerService$SensorEventListenerRecord;->mPid:I
 
-    invoke-static {v0, v1}, Lcom/android/server/input/InputManagerService;->access$2500(Lcom/android/server/input/InputManagerService;I)V
+    invoke-static {v0, p0}, Lcom/android/server/input/InputManagerService;->-$$Nest$monSensorEventListenerDied(Lcom/android/server/input/InputManagerService;I)V
 
     return-void
 .end method
 
 .method public getListener()Landroid/hardware/input/IInputSensorEventListener;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/input/InputManagerService$SensorEventListenerRecord;->mListener:Landroid/hardware/input/IInputSensorEventListener;
+    iget-object p0, p0, Lcom/android/server/input/InputManagerService$SensorEventListenerRecord;->mListener:Landroid/hardware/input/IInputSensorEventListener;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public notifySensorAccuracy(III)V
-    .locals 3
+    .locals 1
 
     :try_start_0
     iget-object v0, p0, Lcom/android/server/input/InputManagerService$SensorEventListenerRecord;->mListener:Landroid/hardware/input/IInputSensorEventListener;
@@ -75,31 +75,31 @@
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    move-exception p1
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "Failed to notify process "
+    const-string p3, "Failed to notify process "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v2, p0, Lcom/android/server/input/InputManagerService$SensorEventListenerRecord;->mPid:I
+    iget p3, p0, Lcom/android/server/input/InputManagerService$SensorEventListenerRecord;->mPid:I
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v2, " that sensor accuracy notified, assuming it died."
+    const-string p3, " that sensor accuracy notified, assuming it died."
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    const-string v2, "InputManager"
+    const-string p3, "InputManager"
 
-    invoke-static {v2, v1, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {p3, p2, p1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     invoke-virtual {p0}, Lcom/android/server/input/InputManagerService$SensorEventListenerRecord;->binderDied()V
 
@@ -130,31 +130,31 @@
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    move-exception p1
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "Failed to notify process "
+    const-string p3, "Failed to notify process "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v2, p0, Lcom/android/server/input/InputManagerService$SensorEventListenerRecord;->mPid:I
+    iget p3, p0, Lcom/android/server/input/InputManagerService$SensorEventListenerRecord;->mPid:I
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v2, " that sensor event notified, assuming it died."
+    const-string p3, " that sensor event notified, assuming it died."
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    const-string v2, "InputManager"
+    const-string p3, "InputManager"
 
-    invoke-static {v2, v1, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {p3, p2, p1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     invoke-virtual {p0}, Lcom/android/server/input/InputManagerService$SensorEventListenerRecord;->binderDied()V
 

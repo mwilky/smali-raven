@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private mIsInitialized:Z
+.field public mIsInitialized:Z
 
 
 # direct methods
@@ -66,69 +66,69 @@
 
 # virtual methods
 .method public getEnergyConsumed([I)[Landroid/hardware/power/stats/EnergyConsumerResult;
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    new-array v0, v0, [Landroid/hardware/power/stats/EnergyConsumerResult;
+    new-array p0, p0, [Landroid/hardware/power/stats/EnergyConsumerResult;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getEnergyConsumerInfo()[Landroid/hardware/power/stats/EnergyConsumer;
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    new-array v0, v0, [Landroid/hardware/power/stats/EnergyConsumer;
+    new-array p0, p0, [Landroid/hardware/power/stats/EnergyConsumer;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getEnergyMeterInfo()[Landroid/hardware/power/stats/Channel;
-    .locals 1
+    .locals 0
 
     invoke-static {}, Lcom/android/server/powerstats/PowerStatsHALWrapper$PowerStatsHAL10WrapperImpl;->nativeGetEnergyMeterInfo()[Landroid/hardware/power/stats/Channel;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getPowerEntityInfo()[Landroid/hardware/power/stats/PowerEntity;
-    .locals 1
+    .locals 0
 
     invoke-static {}, Lcom/android/server/powerstats/PowerStatsHALWrapper$PowerStatsHAL10WrapperImpl;->nativeGetPowerEntityInfo()[Landroid/hardware/power/stats/PowerEntity;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getStateResidency([I)[Landroid/hardware/power/stats/StateResidencyResult;
-    .locals 1
+    .locals 0
 
     invoke-static {p1}, Lcom/android/server/powerstats/PowerStatsHALWrapper$PowerStatsHAL10WrapperImpl;->nativeGetStateResidency([I)[Landroid/hardware/power/stats/StateResidencyResult;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public isInitialized()Z
-    .locals 1
+    .locals 0
 
-    iget-boolean v0, p0, Lcom/android/server/powerstats/PowerStatsHALWrapper$PowerStatsHAL10WrapperImpl;->mIsInitialized:Z
+    iget-boolean p0, p0, Lcom/android/server/powerstats/PowerStatsHALWrapper$PowerStatsHAL10WrapperImpl;->mIsInitialized:Z
 
-    return v0
+    return p0
 .end method
 
 .method public readEnergyMeter([I)[Landroid/hardware/power/stats/EnergyMeasurement;
-    .locals 1
+    .locals 0
 
     invoke-static {p1}, Lcom/android/server/powerstats/PowerStatsHALWrapper$PowerStatsHAL10WrapperImpl;->nativeReadEnergyMeters([I)[Landroid/hardware/power/stats/EnergyMeasurement;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

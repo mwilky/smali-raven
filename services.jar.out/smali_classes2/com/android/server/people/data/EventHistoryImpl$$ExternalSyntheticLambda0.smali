@@ -1,43 +1,34 @@
 .class public final synthetic Lcom/android/server/people/data/EventHistoryImpl$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/io/FileFilter;
+.implements Ljava/lang/Runnable;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/people/data/EventHistoryImpl$$ExternalSyntheticLambda0;
+# instance fields
+.field public final synthetic f$0:Lcom/android/server/people/data/EventHistoryImpl;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/people/data/EventHistoryImpl$$ExternalSyntheticLambda0;
-
-    invoke-direct {v0}, Lcom/android/server/people/data/EventHistoryImpl$$ExternalSyntheticLambda0;-><init>()V
-
-    sput-object v0, Lcom/android/server/people/data/EventHistoryImpl$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/server/people/data/EventHistoryImpl$$ExternalSyntheticLambda0;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Lcom/android/server/people/data/EventHistoryImpl;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/people/data/EventHistoryImpl$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/people/data/EventHistoryImpl;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/io/File;)Z
+.method public final run()V
     .locals 0
 
-    invoke-virtual {p1}, Ljava/io/File;->isDirectory()Z
+    iget-object p0, p0, Lcom/android/server/people/data/EventHistoryImpl$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/people/data/EventHistoryImpl;
 
-    move-result p1
+    invoke-static {p0}, Lcom/android/server/people/data/EventHistoryImpl;->$r8$lambda$J0dvz9aiGfrrx7-Gvk5KsdSo--Q(Lcom/android/server/people/data/EventHistoryImpl;)V
 
-    return p1
+    return-void
 .end method

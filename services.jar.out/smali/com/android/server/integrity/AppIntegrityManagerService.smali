@@ -4,9 +4,9 @@
 
 
 # instance fields
-.field private mContext:Landroid/content/Context;
+.field public mContext:Landroid/content/Context;
 
-.field private mService:Lcom/android/server/integrity/AppIntegrityManagerServiceImpl;
+.field public mService:Lcom/android/server/integrity/AppIntegrityManagerServiceImpl;
 
 
 # direct methods
@@ -35,7 +35,7 @@
 
     const-string v1, "app_integrity"
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/server/integrity/AppIntegrityManagerService;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
+    invoke-virtual {p0, v1, v0}, Lcom/android/server/SystemService;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
 
     return-void
 .end method

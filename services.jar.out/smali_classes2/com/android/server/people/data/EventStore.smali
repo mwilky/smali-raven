@@ -1,30 +1,16 @@
-.class Lcom/android/server/people/data/EventStore;
+.class public Lcom/android/server/people/data/EventStore;
 .super Ljava/lang/Object;
 .source "EventStore.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/android/server/people/data/EventStore$EventCategory;
-    }
-.end annotation
-
-
-# static fields
-.field static final CATEGORY_CALL:I = 0x2
-
-.field static final CATEGORY_CLASS_BASED:I = 0x4
-
-.field static final CATEGORY_LOCUS_ID_BASED:I = 0x1
-
-.field static final CATEGORY_SHORTCUT_BASED:I = 0x0
-
-.field static final CATEGORY_SMS:I = 0x3
-
-
 # instance fields
-.field private final mEventHistoryMaps:Ljava/util/List;
+.field public final mEventHistoryMaps:Ljava/util/List;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "this"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -36,7 +22,7 @@
     .end annotation
 .end field
 
-.field private final mEventsCategoryDirs:Ljava/util/List;
+.field public final mEventsCategoryDirs:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -46,12 +32,22 @@
     .end annotation
 .end field
 
-.field private final mScheduledExecutorService:Ljava/util/concurrent/ScheduledExecutorService;
+.field public final mScheduledExecutorService:Ljava/util/concurrent/ScheduledExecutorService;
 
 
 # direct methods
-.method constructor <init>(Ljava/io/File;Ljava/util/concurrent/ScheduledExecutorService;)V
-    .locals 9
+.method public static synthetic $r8$lambda$hIr_vqLjIPHbScqy2vjg16Ts_G4(Lcom/android/server/people/data/EventStore;ILjava/lang/String;Ljava/lang/String;)Lcom/android/server/people/data/EventHistoryImpl;
+    .locals 0
+
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/people/data/EventStore;->lambda$getOrCreateEventHistory$0(ILjava/lang/String;Ljava/lang/String;)Lcom/android/server/people/data/EventHistoryImpl;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public constructor <init>(Ljava/io/File;Ljava/util/concurrent/ScheduledExecutorService;)V
+    .locals 8
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -113,54 +109,82 @@
 
     invoke-direct {v0, p1, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    new-instance v2, Ljava/io/File;
+    new-instance p1, Ljava/io/File;
 
-    const-string v8, "shortcut"
+    const-string v2, "shortcut"
 
-    invoke-direct {v2, v0, v8}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    invoke-direct {p1, v0, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    invoke-interface {v1, v3, v2}, Ljava/util/List;->add(ILjava/lang/Object;)V
+    invoke-interface {v1, v3, p1}, Ljava/util/List;->add(ILjava/lang/Object;)V
 
-    new-instance v2, Ljava/io/File;
+    new-instance p1, Ljava/io/File;
 
-    const-string v3, "locus"
+    const-string v2, "locus"
 
-    invoke-direct {v2, v0, v3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    invoke-direct {p1, v0, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    invoke-interface {v1, v4, v2}, Ljava/util/List;->add(ILjava/lang/Object;)V
+    invoke-interface {v1, v4, p1}, Ljava/util/List;->add(ILjava/lang/Object;)V
 
-    new-instance v2, Ljava/io/File;
+    new-instance p1, Ljava/io/File;
 
-    const-string v3, "call"
+    const-string v2, "call"
 
-    invoke-direct {v2, v0, v3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    invoke-direct {p1, v0, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    invoke-interface {v1, v5, v2}, Ljava/util/List;->add(ILjava/lang/Object;)V
+    invoke-interface {v1, v5, p1}, Ljava/util/List;->add(ILjava/lang/Object;)V
 
-    new-instance v2, Ljava/io/File;
+    new-instance p1, Ljava/io/File;
 
-    const-string v3, "sms"
+    const-string v2, "sms"
 
-    invoke-direct {v2, v0, v3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    invoke-direct {p1, v0, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    invoke-interface {v1, v6, v2}, Ljava/util/List;->add(ILjava/lang/Object;)V
+    invoke-interface {v1, v6, p1}, Ljava/util/List;->add(ILjava/lang/Object;)V
 
-    new-instance v2, Ljava/io/File;
+    new-instance p1, Ljava/io/File;
 
-    const-string v3, "class"
+    const-string v2, "class"
 
-    invoke-direct {v2, v0, v3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    invoke-direct {p1, v0, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    invoke-interface {v1, v7, v2}, Ljava/util/List;->add(ILjava/lang/Object;)V
+    invoke-interface {v1, v7, p1}, Ljava/util/List;->add(ILjava/lang/Object;)V
 
     iput-object p2, p0, Lcom/android/server/people/data/EventStore;->mScheduledExecutorService:Ljava/util/concurrent/ScheduledExecutorService;
 
     return-void
 .end method
 
+.method private synthetic lambda$getOrCreateEventHistory$0(ILjava/lang/String;Ljava/lang/String;)Lcom/android/server/people/data/EventHistoryImpl;
+    .locals 2
+
+    new-instance p3, Lcom/android/server/people/data/EventHistoryImpl;
+
+    new-instance v0, Ljava/io/File;
+
+    iget-object v1, p0, Lcom/android/server/people/data/EventStore;->mEventsCategoryDirs:Ljava/util/List;
+
+    invoke-interface {v1, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Ljava/io/File;
+
+    invoke-static {p2}, Landroid/net/Uri;->encode(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p2
+
+    invoke-direct {v0, p1, p2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    iget-object p0, p0, Lcom/android/server/people/data/EventStore;->mScheduledExecutorService:Ljava/util/concurrent/ScheduledExecutorService;
+
+    invoke-direct {p3, v0, p0}, Lcom/android/server/people/data/EventHistoryImpl;-><init>(Ljava/io/File;Ljava/util/concurrent/ScheduledExecutorService;)V
+
+    return-object p3
+.end method
+
 
 # virtual methods
-.method declared-synchronized deleteEventHistories(I)V
+.method public declared-synchronized deleteEventHistories(I)V
     .locals 2
 
     monitor-enter p0
@@ -204,11 +228,11 @@
 
     invoke-interface {v0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/util/Map;
+    check-cast p1, Ljava/util/Map;
 
-    invoke-interface {v0}, Ljava/util/Map;->clear()V
+    invoke-interface {p1}, Ljava/util/Map;->clear()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -224,7 +248,7 @@
     throw p1
 .end method
 
-.method declared-synchronized deleteEventHistory(ILjava/lang/String;)V
+.method public declared-synchronized deleteEventHistory(ILjava/lang/String;)V
     .locals 1
 
     monitor-enter p0
@@ -234,19 +258,19 @@
 
     invoke-interface {v0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/util/Map;
+    check-cast p1, Ljava/util/Map;
 
-    invoke-interface {v0, p2}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p1, p2}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/android/server/people/data/EventHistoryImpl;
+    check-cast p1, Lcom/android/server/people/data/EventHistoryImpl;
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    invoke-virtual {v0}, Lcom/android/server/people/data/EventHistoryImpl;->onDestroy()V
+    invoke-virtual {p1}, Lcom/android/server/people/data/EventHistoryImpl;->onDestroy()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -263,7 +287,7 @@
     throw p1
 .end method
 
-.method declared-synchronized getEventHistory(ILjava/lang/String;)Lcom/android/server/people/data/EventHistory;
+.method public declared-synchronized getEventHistory(ILjava/lang/String;)Lcom/android/server/people/data/EventHistory;
     .locals 1
 
     monitor-enter p0
@@ -273,21 +297,21 @@
 
     invoke-interface {v0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/util/Map;
+    check-cast p1, Ljava/util/Map;
 
-    invoke-interface {v0, p2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p1, p2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/android/server/people/data/EventHistory;
+    check-cast p1, Lcom/android/server/people/data/EventHistory;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
-    return-object v0
+    return-object p1
 
     :catchall_0
     move-exception p1
@@ -297,7 +321,7 @@
     throw p1
 .end method
 
-.method declared-synchronized getOrCreateEventHistory(ILjava/lang/String;)Lcom/android/server/people/data/EventHistoryImpl;
+.method public declared-synchronized getOrCreateEventHistory(ILjava/lang/String;)Lcom/android/server/people/data/EventHistoryImpl;
     .locals 2
 
     monitor-enter p0
@@ -317,15 +341,15 @@
 
     invoke-interface {v0, p2, v1}, Ljava/util/Map;->computeIfAbsent(Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/android/server/people/data/EventHistoryImpl;
+    check-cast p1, Lcom/android/server/people/data/EventHistoryImpl;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
-    return-object v0
+    return-object p1
 
     :catchall_0
     move-exception p1
@@ -335,36 +359,8 @@
     throw p1
 .end method
 
-.method public synthetic lambda$getOrCreateEventHistory$0$EventStore(ILjava/lang/String;Ljava/lang/String;)Lcom/android/server/people/data/EventHistoryImpl;
-    .locals 4
-
-    new-instance v0, Lcom/android/server/people/data/EventHistoryImpl;
-
-    new-instance v1, Ljava/io/File;
-
-    iget-object v2, p0, Lcom/android/server/people/data/EventStore;->mEventsCategoryDirs:Ljava/util/List;
-
-    invoke-interface {v2, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Ljava/io/File;
-
-    invoke-static {p2}, Landroid/net/Uri;->encode(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-direct {v1, v2, v3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
-
-    iget-object v2, p0, Lcom/android/server/people/data/EventStore;->mScheduledExecutorService:Ljava/util/concurrent/ScheduledExecutorService;
-
-    invoke-direct {v0, v1, v2}, Lcom/android/server/people/data/EventHistoryImpl;-><init>(Ljava/io/File;Ljava/util/concurrent/ScheduledExecutorService;)V
-
-    return-object v0
-.end method
-
-.method declared-synchronized loadFromDisk()V
-    .locals 4
+.method public declared-synchronized loadFromDisk()V
+    .locals 3
 
     monitor-enter p0
 
@@ -392,17 +388,17 @@
 
     invoke-static {v1, v2}, Lcom/android/server/people/data/EventHistoryImpl;->eventHistoriesImplFromDisk(Ljava/io/File;Ljava/util/concurrent/ScheduledExecutorService;)Ljava/util/Map;
 
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/server/people/data/EventStore;->mEventHistoryMaps:Ljava/util/List;
+
+    invoke-interface {v2, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
     move-result-object v2
 
-    iget-object v3, p0, Lcom/android/server/people/data/EventStore;->mEventHistoryMaps:Ljava/util/List;
+    check-cast v2, Ljava/util/Map;
 
-    invoke-interface {v3, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Ljava/util/Map;
-
-    invoke-interface {v3, v2}, Ljava/util/Map;->putAll(Ljava/util/Map;)V
+    invoke-interface {v2, v1}, Ljava/util/Map;->putAll(Ljava/util/Map;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -423,8 +419,8 @@
     throw v0
 .end method
 
-.method declared-synchronized onDestroy()V
-    .locals 4
+.method public declared-synchronized onDestroy()V
+    .locals 3
 
     monitor-enter p0
 
@@ -435,7 +431,7 @@
 
     move-result-object v0
 
-    :goto_0
+    :cond_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
@@ -450,32 +446,29 @@
 
     invoke-interface {v1}, Ljava/util/Map;->values()Ljava/util/Collection;
 
+    move-result-object v1
+
+    invoke-interface {v1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
     move-result-object v2
 
-    invoke-interface {v2}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+    check-cast v2, Lcom/android/server/people/data/EventHistoryImpl;
 
-    move-result-object v2
-
-    :goto_1
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Lcom/android/server/people/data/EventHistoryImpl;
-
-    invoke-virtual {v3}, Lcom/android/server/people/data/EventHistoryImpl;->onDestroy()V
+    invoke-virtual {v2}, Lcom/android/server/people/data/EventHistoryImpl;->onDestroy()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    goto :goto_1
-
-    :cond_0
     goto :goto_0
 
     :cond_1
@@ -491,8 +484,8 @@
     throw v0
 .end method
 
-.method declared-synchronized pruneOldEvents()V
-    .locals 4
+.method public declared-synchronized pruneOldEvents()V
+    .locals 3
 
     monitor-enter p0
 
@@ -503,7 +496,7 @@
 
     move-result-object v0
 
-    :goto_0
+    :cond_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
@@ -518,32 +511,29 @@
 
     invoke-interface {v1}, Ljava/util/Map;->values()Ljava/util/Collection;
 
+    move-result-object v1
+
+    invoke-interface {v1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
     move-result-object v2
 
-    invoke-interface {v2}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+    check-cast v2, Lcom/android/server/people/data/EventHistoryImpl;
 
-    move-result-object v2
-
-    :goto_1
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Lcom/android/server/people/data/EventHistoryImpl;
-
-    invoke-virtual {v3}, Lcom/android/server/people/data/EventHistoryImpl;->pruneOldEvents()V
+    invoke-virtual {v2}, Lcom/android/server/people/data/EventHistoryImpl;->pruneOldEvents()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    goto :goto_1
-
-    :cond_0
     goto :goto_0
 
     :cond_1
@@ -559,8 +549,8 @@
     throw v0
 .end method
 
-.method declared-synchronized pruneOrphanEventHistories(ILjava/util/function/Predicate;)V
-    .locals 6
+.method public declared-synchronized pruneOrphanEventHistories(ILjava/util/function/Predicate;)V
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -591,71 +581,71 @@
 
     invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
+    move-result-object v0
+
+    :cond_0
+    :goto_0
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
     move-result-object v2
 
-    :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    check-cast v2, Ljava/lang/String;
+
+    invoke-interface {p2, v2}, Ljava/util/function/Predicate;->test(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-nez v3, :cond_0
 
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    move-result-object v3
-
-    check-cast v3, Ljava/lang/String;
-
-    invoke-interface {p2, v3}, Ljava/util/function/Predicate;->test(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_0
-
-    invoke-interface {v1, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    :cond_0
     goto :goto_0
 
     :cond_1
-    iget-object v2, p0, Lcom/android/server/people/data/EventStore;->mEventHistoryMaps:Ljava/util/List;
+    iget-object p2, p0, Lcom/android/server/people/data/EventStore;->mEventHistoryMaps:Ljava/util/List;
 
-    invoke-interface {v2, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {p2, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p1
 
-    check-cast v2, Ljava/util/Map;
+    check-cast p1, Ljava/util/Map;
 
     invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v3
+    move-result-object p2
 
+    :cond_2
     :goto_1
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p2}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v4
+    move-result v0
 
-    if-eqz v4, :cond_3
+    if-eqz v0, :cond_3
 
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v0
 
-    check-cast v4, Ljava/lang/String;
+    check-cast v0, Ljava/lang/String;
 
-    invoke-interface {v2, v4}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p1, v0}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v0
 
-    check-cast v5, Lcom/android/server/people/data/EventHistoryImpl;
+    check-cast v0, Lcom/android/server/people/data/EventHistoryImpl;
 
-    if-eqz v5, :cond_2
+    if-eqz v0, :cond_2
 
-    invoke-virtual {v5}, Lcom/android/server/people/data/EventHistoryImpl;->onDestroy()V
+    invoke-virtual {v0}, Lcom/android/server/people/data/EventHistoryImpl;->onDestroy()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :cond_2
     goto :goto_1
 
     :cond_3
@@ -671,8 +661,8 @@
     throw p1
 .end method
 
-.method declared-synchronized saveToDisk()V
-    .locals 4
+.method public declared-synchronized saveToDisk()V
+    .locals 3
 
     monitor-enter p0
 
@@ -683,7 +673,7 @@
 
     move-result-object v0
 
-    :goto_0
+    :cond_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
@@ -698,32 +688,29 @@
 
     invoke-interface {v1}, Ljava/util/Map;->values()Ljava/util/Collection;
 
+    move-result-object v1
+
+    invoke-interface {v1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
     move-result-object v2
 
-    invoke-interface {v2}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+    check-cast v2, Lcom/android/server/people/data/EventHistoryImpl;
 
-    move-result-object v2
-
-    :goto_1
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Lcom/android/server/people/data/EventHistoryImpl;
-
-    invoke-virtual {v3}, Lcom/android/server/people/data/EventHistoryImpl;->saveToDisk()V
+    invoke-virtual {v2}, Lcom/android/server/people/data/EventHistoryImpl;->saveToDisk()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    goto :goto_1
-
-    :cond_0
     goto :goto_0
 
     :cond_1

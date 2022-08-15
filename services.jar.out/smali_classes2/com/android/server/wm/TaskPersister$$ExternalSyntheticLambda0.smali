@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/wm/TaskPersister$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Predicate;
@@ -23,15 +24,15 @@
 
 # virtual methods
 .method public final test(Ljava/lang/Object;)Z
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/TaskPersister$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/wm/Task;
+    iget-object p0, p0, Lcom/android/server/wm/TaskPersister$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/wm/Task;
 
-    check-cast p1, Lcom/android/server/wm/TaskPersister$ImageWriteQueueItem;
+    check-cast p1, Lcom/android/server/wm/TaskPersister$TaskWriteQueueItem;
 
-    invoke-static {v0, p1}, Lcom/android/server/wm/TaskPersister;->lambda$removeThumbnails$0(Lcom/android/server/wm/Task;Lcom/android/server/wm/TaskPersister$ImageWriteQueueItem;)Z
+    invoke-static {p0, p1}, Lcom/android/server/wm/TaskPersister;->$r8$lambda$usLLDXWS96hyMiD8IJHbKobcZRQ(Lcom/android/server/wm/Task;Lcom/android/server/wm/TaskPersister$TaskWriteQueueItem;)Z
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method

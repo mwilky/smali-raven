@@ -15,16 +15,3 @@
 
 .annotation runtime Ljava/lang/FunctionalInterface;
 .end annotation
-
-
-# virtual methods
-.method public abstract onValues(ILjava/util/ArrayList;)V
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(I",
-            "Ljava/util/ArrayList<",
-            "Landroid/hardware/health/V2_0/StorageInfo;",
-            ">;)V"
-        }
-    .end annotation
-.end method

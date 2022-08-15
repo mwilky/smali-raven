@@ -82,6 +82,16 @@
     return-void
 .end method
 
+.method public onReachabilityFailure(Landroid/net/networkstack/aidl/ip/ReachabilityLossInfoParcelable;)V
+    .locals 0
+
+    iget-object p1, p1, Landroid/net/networkstack/aidl/ip/ReachabilityLossInfoParcelable;->message:Ljava/lang/String;
+
+    invoke-virtual {p0, p1}, Landroid/net/ip/IpClientCallbacks;->onReachabilityLost(Ljava/lang/String;)V
+
+    return-void
+.end method
+
 .method public onReachabilityLost(Ljava/lang/String;)V
     .locals 0
 

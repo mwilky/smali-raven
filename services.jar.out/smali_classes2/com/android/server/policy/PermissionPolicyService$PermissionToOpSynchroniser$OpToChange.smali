@@ -1,4 +1,4 @@
-.class Lcom/android/server/policy/PermissionPolicyService$PermissionToOpSynchroniser$OpToChange;
+.class public Lcom/android/server/policy/PermissionPolicyService$PermissionToOpSynchroniser$OpToChange;
 .super Ljava/lang/Object;
 .source "PermissionPolicyService.java"
 
@@ -9,23 +9,23 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "OpToChange"
 .end annotation
 
 
 # instance fields
-.field final code:I
+.field public final code:I
 
-.field final packageName:Ljava/lang/String;
+.field public final packageName:Ljava/lang/String;
 
-.field final synthetic this$1:Lcom/android/server/policy/PermissionPolicyService$PermissionToOpSynchroniser;
+.field public final synthetic this$1:Lcom/android/server/policy/PermissionPolicyService$PermissionToOpSynchroniser;
 
-.field final uid:I
+.field public final uid:I
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/policy/PermissionPolicyService$PermissionToOpSynchroniser;ILjava/lang/String;I)V
+.method public constructor <init>(Lcom/android/server/policy/PermissionPolicyService$PermissionToOpSynchroniser;ILjava/lang/String;I)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/policy/PermissionPolicyService$PermissionToOpSynchroniser$OpToChange;->this$1:Lcom/android/server/policy/PermissionPolicyService$PermissionToOpSynchroniser;

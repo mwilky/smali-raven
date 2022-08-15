@@ -1,4 +1,4 @@
-.class Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController$1;
+.class public Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController$1;
 .super Landroid/database/ContentObserver;
 .source "WindowMagnificationPromptController.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController;
+.field public final synthetic this$0:Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController;Landroid/os/Handler;)V
+.method public constructor <init>(Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController;Landroid/os/Handler;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController$1;->this$0:Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController;
@@ -32,13 +32,13 @@
 
 # virtual methods
 .method public onChange(Z)V
-    .locals 1
+    .locals 0
 
     invoke-super {p0, p1}, Landroid/database/ContentObserver;->onChange(Z)V
 
-    iget-object v0, p0, Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController$1;->this$0:Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController;
+    iget-object p0, p0, Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController$1;->this$0:Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController;
 
-    invoke-virtual {v0}, Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController;->onPromptSettingsValueChanged()V
+    invoke-virtual {p0}, Lcom/android/server/accessibility/magnification/WindowMagnificationPromptController;->onPromptSettingsValueChanged()V
 
     return-void
 .end method

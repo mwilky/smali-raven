@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/media/MediaRoute2ProviderServiceProxy$Connection$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/media/MediaRoute2ProviderServiceProxy$Connection$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/media/MediaRoute2ProviderServiceProxy$Connection;
+    iget-object p0, p0, Lcom/android/server/media/MediaRoute2ProviderServiceProxy$Connection$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/media/MediaRoute2ProviderServiceProxy$Connection;
 
-    invoke-virtual {v0}, Lcom/android/server/media/MediaRoute2ProviderServiceProxy$Connection;->lambda$binderDied$1$MediaRoute2ProviderServiceProxy$Connection()V
+    invoke-static {p0}, Lcom/android/server/media/MediaRoute2ProviderServiceProxy$Connection;->$r8$lambda$ZbIWHi3bCfKF3ByRU6VwEFQBJIE(Lcom/android/server/media/MediaRoute2ProviderServiceProxy$Connection;)V
 
     return-void
 .end method

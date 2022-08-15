@@ -1,4 +1,4 @@
-.class final Lcom/android/server/timezonedetector/location/LocationTimeZoneManagerServiceState$Builder;
+.class public final Lcom/android/server/timezonedetector/location/LocationTimeZoneManagerServiceState$Builder;
 .super Ljava/lang/Object;
 .source "LocationTimeZoneManagerServiceState.java"
 
@@ -9,15 +9,27 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = "Builder"
 .end annotation
 
 
 # instance fields
-.field private mLastSuggestion:Lcom/android/server/timezonedetector/GeolocationTimeZoneSuggestion;
+.field public mControllerState:Ljava/lang/String;
 
-.field private mPrimaryProviderStates:Ljava/util/List;
+.field public mControllerStates:Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/List<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public mLastSuggestion:Lcom/android/server/timezonedetector/GeolocationTimeZoneSuggestion;
+
+.field public mPrimaryProviderStates:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -27,7 +39,7 @@
     .end annotation
 .end field
 
-.field private mSecondaryProviderStates:Ljava/util/List;
+.field public mSecondaryProviderStates:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -39,7 +51,47 @@
 
 
 # direct methods
-.method constructor <init>()V
+.method public static bridge synthetic -$$Nest$fgetmControllerState(Lcom/android/server/timezonedetector/location/LocationTimeZoneManagerServiceState$Builder;)Ljava/lang/String;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/timezonedetector/location/LocationTimeZoneManagerServiceState$Builder;->mControllerState:Ljava/lang/String;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmControllerStates(Lcom/android/server/timezonedetector/location/LocationTimeZoneManagerServiceState$Builder;)Ljava/util/List;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/timezonedetector/location/LocationTimeZoneManagerServiceState$Builder;->mControllerStates:Ljava/util/List;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmLastSuggestion(Lcom/android/server/timezonedetector/location/LocationTimeZoneManagerServiceState$Builder;)Lcom/android/server/timezonedetector/GeolocationTimeZoneSuggestion;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/timezonedetector/location/LocationTimeZoneManagerServiceState$Builder;->mLastSuggestion:Lcom/android/server/timezonedetector/GeolocationTimeZoneSuggestion;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmPrimaryProviderStates(Lcom/android/server/timezonedetector/location/LocationTimeZoneManagerServiceState$Builder;)Ljava/util/List;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/timezonedetector/location/LocationTimeZoneManagerServiceState$Builder;->mPrimaryProviderStates:Ljava/util/List;
+
+    return-object p0
+.end method
+
+.method public static bridge synthetic -$$Nest$fgetmSecondaryProviderStates(Lcom/android/server/timezonedetector/location/LocationTimeZoneManagerServiceState$Builder;)Ljava/util/List;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/timezonedetector/location/LocationTimeZoneManagerServiceState$Builder;->mSecondaryProviderStates:Ljava/util/List;
+
+    return-object p0
+.end method
+
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -47,33 +99,9 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/server/timezonedetector/location/LocationTimeZoneManagerServiceState$Builder;)Lcom/android/server/timezonedetector/GeolocationTimeZoneSuggestion;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/timezonedetector/location/LocationTimeZoneManagerServiceState$Builder;->mLastSuggestion:Lcom/android/server/timezonedetector/GeolocationTimeZoneSuggestion;
-
-    return-object v0
-.end method
-
-.method static synthetic access$100(Lcom/android/server/timezonedetector/location/LocationTimeZoneManagerServiceState$Builder;)Ljava/util/List;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/timezonedetector/location/LocationTimeZoneManagerServiceState$Builder;->mPrimaryProviderStates:Ljava/util/List;
-
-    return-object v0
-.end method
-
-.method static synthetic access$200(Lcom/android/server/timezonedetector/location/LocationTimeZoneManagerServiceState$Builder;)Ljava/util/List;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/timezonedetector/location/LocationTimeZoneManagerServiceState$Builder;->mSecondaryProviderStates:Ljava/util/List;
-
-    return-object v0
-.end method
-
 
 # virtual methods
-.method build()Lcom/android/server/timezonedetector/location/LocationTimeZoneManagerServiceState;
+.method public build()Lcom/android/server/timezonedetector/location/LocationTimeZoneManagerServiceState;
     .locals 1
 
     new-instance v0, Lcom/android/server/timezonedetector/location/LocationTimeZoneManagerServiceState;
@@ -83,21 +111,25 @@
     return-object v0
 .end method
 
-.method setLastSuggestion(Lcom/android/server/timezonedetector/GeolocationTimeZoneSuggestion;)Lcom/android/server/timezonedetector/location/LocationTimeZoneManagerServiceState$Builder;
-    .locals 1
+.method public setControllerState(Ljava/lang/String;)Lcom/android/server/timezonedetector/location/LocationTimeZoneManagerServiceState$Builder;
+    .locals 0
 
-    invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-object v0, p1
-
-    check-cast v0, Lcom/android/server/timezonedetector/GeolocationTimeZoneSuggestion;
-
-    iput-object v0, p0, Lcom/android/server/timezonedetector/location/LocationTimeZoneManagerServiceState$Builder;->mLastSuggestion:Lcom/android/server/timezonedetector/GeolocationTimeZoneSuggestion;
+    iput-object p1, p0, Lcom/android/server/timezonedetector/location/LocationTimeZoneManagerServiceState$Builder;->mControllerState:Ljava/lang/String;
 
     return-object p0
 .end method
 
-.method setPrimaryProviderStateChanges(Ljava/util/List;)Lcom/android/server/timezonedetector/location/LocationTimeZoneManagerServiceState$Builder;
+.method public setLastSuggestion(Lcom/android/server/timezonedetector/GeolocationTimeZoneSuggestion;)Lcom/android/server/timezonedetector/location/LocationTimeZoneManagerServiceState$Builder;
+    .locals 0
+
+    invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+
+    iput-object p1, p0, Lcom/android/server/timezonedetector/location/LocationTimeZoneManagerServiceState$Builder;->mLastSuggestion:Lcom/android/server/timezonedetector/GeolocationTimeZoneSuggestion;
+
+    return-object p0
+.end method
+
+.method public setPrimaryProviderStateChanges(Ljava/util/List;)Lcom/android/server/timezonedetector/location/LocationTimeZoneManagerServiceState$Builder;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -118,7 +150,7 @@
     return-object p0
 .end method
 
-.method setSecondaryProviderStateChanges(Ljava/util/List;)Lcom/android/server/timezonedetector/location/LocationTimeZoneManagerServiceState$Builder;
+.method public setSecondaryProviderStateChanges(Ljava/util/List;)Lcom/android/server/timezonedetector/location/LocationTimeZoneManagerServiceState$Builder;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -135,6 +167,27 @@
     invoke-direct {v0, p1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
     iput-object v0, p0, Lcom/android/server/timezonedetector/location/LocationTimeZoneManagerServiceState$Builder;->mSecondaryProviderStates:Ljava/util/List;
+
+    return-object p0
+.end method
+
+.method public setStateChanges(Ljava/util/List;)Lcom/android/server/timezonedetector/location/LocationTimeZoneManagerServiceState$Builder;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List<",
+            "Ljava/lang/String;",
+            ">;)",
+            "Lcom/android/server/timezonedetector/location/LocationTimeZoneManagerServiceState$Builder;"
+        }
+    .end annotation
+
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0, p1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+
+    iput-object v0, p0, Lcom/android/server/timezonedetector/location/LocationTimeZoneManagerServiceState$Builder;->mControllerStates:Ljava/util/List;
 
     return-object p0
 .end method

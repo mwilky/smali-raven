@@ -1,24 +1,18 @@
-.class Lcom/android/server/backup/PeopleBackupHelper;
+.class public Lcom/android/server/backup/PeopleBackupHelper;
 .super Landroid/app/backup/BlobBackupHelper;
 .source "PeopleBackupHelper.java"
 
 
 # static fields
-.field private static final DEBUG:Z = false
-
-.field private static final KEY_CONVERSATIONS:Ljava/lang/String; = "people_conversation_infos"
-
-.field private static final STATE_VERSION:I = 0x1
-
-.field private static final TAG:Ljava/lang/String;
+.field public static final TAG:Ljava/lang/String;
 
 
 # instance fields
-.field private final mUserId:I
+.field public final mUserId:I
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 1
 
     const-class v0, Lcom/android/server/backup/PeopleBackupHelper;
@@ -32,7 +26,7 @@
     return-void
 .end method
 
-.method constructor <init>(I)V
+.method public constructor <init>(I)V
     .locals 2
 
     const-string/jumbo v0, "people_conversation_infos"
@@ -52,8 +46,8 @@
 
 
 # virtual methods
-.method protected applyRestoredPayload(Ljava/lang/String;[B)V
-    .locals 3
+.method public applyRestoredPayload(Ljava/lang/String;[B)V
+    .locals 1
 
     const-string/jumbo v0, "people_conversation_infos"
 
@@ -63,44 +57,44 @@
 
     if-nez v0, :cond_0
 
-    sget-object v0, Lcom/android/server/backup/PeopleBackupHelper;->TAG:Ljava/lang/String;
+    sget-object p0, Lcom/android/server/backup/PeopleBackupHelper;->TAG:Ljava/lang/String;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "Unexpected restore key "
+    const-string v0, "Unexpected restore key "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, p1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
     :cond_0
-    const-class v0, Lcom/android/server/people/PeopleServiceInternal;
+    const-class p1, Lcom/android/server/people/PeopleServiceInternal;
 
-    invoke-static {v0}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/android/server/people/PeopleServiceInternal;
+    check-cast p1, Lcom/android/server/people/PeopleServiceInternal;
 
-    iget v1, p0, Lcom/android/server/backup/PeopleBackupHelper;->mUserId:I
+    iget p0, p0, Lcom/android/server/backup/PeopleBackupHelper;->mUserId:I
 
-    invoke-virtual {v0, v1, p2}, Lcom/android/server/people/PeopleServiceInternal;->restore(I[B)V
+    invoke-virtual {p1, p0, p2}, Lcom/android/server/people/PeopleServiceInternal;->restore(I[B)V
 
     return-void
 .end method
 
-.method protected getBackupPayload(Ljava/lang/String;)[B
-    .locals 3
+.method public getBackupPayload(Ljava/lang/String;)[B
+    .locals 2
 
     const-string/jumbo v0, "people_conversation_infos"
 
@@ -110,44 +104,44 @@
 
     if-nez v0, :cond_0
 
-    sget-object v0, Lcom/android/server/backup/PeopleBackupHelper;->TAG:Ljava/lang/String;
+    sget-object p0, Lcom/android/server/backup/PeopleBackupHelper;->TAG:Ljava/lang/String;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "Unexpected backup key "
+    const-string v1, "Unexpected backup key "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, p1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    new-array v0, v0, [B
+    new-array p0, p0, [B
 
-    return-object v0
+    return-object p0
 
     :cond_0
-    const-class v0, Lcom/android/server/people/PeopleServiceInternal;
+    const-class p1, Lcom/android/server/people/PeopleServiceInternal;
 
-    invoke-static {v0}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/android/server/people/PeopleServiceInternal;
+    check-cast p1, Lcom/android/server/people/PeopleServiceInternal;
 
-    iget v1, p0, Lcom/android/server/backup/PeopleBackupHelper;->mUserId:I
+    iget p0, p0, Lcom/android/server/backup/PeopleBackupHelper;->mUserId:I
 
-    invoke-virtual {v0, v1}, Lcom/android/server/people/PeopleServiceInternal;->getBackupPayload(I)[B
+    invoke-virtual {p1, p0}, Lcom/android/server/people/PeopleServiceInternal;->getBackupPayload(I)[B
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method

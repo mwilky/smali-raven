@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/am/ProcessErrorStateRecord$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/am/ProcessErrorStateRecord$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/am/ProcessErrorStateRecord;
+    iget-object p0, p0, Lcom/android/server/am/ProcessErrorStateRecord$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/am/ProcessErrorStateRecord;
 
-    invoke-virtual {v0}, Lcom/android/server/am/ProcessErrorStateRecord;->lambda$appNotResponding$3$ProcessErrorStateRecord()V
+    invoke-static {p0}, Lcom/android/server/am/ProcessErrorStateRecord;->$r8$lambda$bCeqMXWRfHTKELw2_rvTBDNRjgk(Lcom/android/server/am/ProcessErrorStateRecord;)V
 
     return-void
 .end method

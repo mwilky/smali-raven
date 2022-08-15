@@ -1,4 +1,4 @@
-.class Lcom/android/server/pm/PackageManagerService$FindPreferredActivityBodyResult;
+.class public Lcom/android/server/pm/PackageManagerService$FindPreferredActivityBodyResult;
 .super Ljava/lang/Object;
 .source "PackageManagerService.java"
 
@@ -9,30 +9,22 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "FindPreferredActivityBodyResult"
 .end annotation
 
 
 # instance fields
-.field mChanged:Z
+.field public mChanged:Z
 
-.field mPreferredResolveInfo:Landroid/content/pm/ResolveInfo;
+.field public mPreferredResolveInfo:Landroid/content/pm/ResolveInfo;
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-.method synthetic constructor <init>(Lcom/android/server/pm/PackageManagerService$1;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/server/pm/PackageManagerService$FindPreferredActivityBodyResult;-><init>()V
 
     return-void
 .end method

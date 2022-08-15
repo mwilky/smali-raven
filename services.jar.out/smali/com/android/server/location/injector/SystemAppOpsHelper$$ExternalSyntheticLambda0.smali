@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/location/injector/SystemAppOpsHelper$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/app/AppOpsManager$OnOpChangedListener;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final onOpChanged(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/location/injector/SystemAppOpsHelper$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/location/injector/SystemAppOpsHelper;
+    iget-object p0, p0, Lcom/android/server/location/injector/SystemAppOpsHelper$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/location/injector/SystemAppOpsHelper;
 
-    invoke-virtual {v0, p1, p2}, Lcom/android/server/location/injector/SystemAppOpsHelper;->lambda$onSystemReady$1$SystemAppOpsHelper(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {p0, p1, p2}, Lcom/android/server/location/injector/SystemAppOpsHelper;->$r8$lambda$qQjoYrrPfn6mgnIOmXGjXLQeFjs(Lcom/android/server/location/injector/SystemAppOpsHelper;Ljava/lang/String;Ljava/lang/String;)V
 
     return-void
 .end method

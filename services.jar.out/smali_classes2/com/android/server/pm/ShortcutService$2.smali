@@ -1,4 +1,4 @@
-.class Lcom/android/server/pm/ShortcutService$2;
+.class public Lcom/android/server/pm/ShortcutService$2;
 .super Ljava/lang/Object;
 .source "ShortcutService.java"
 
@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
@@ -27,7 +27,7 @@
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,15 +38,15 @@
 
 # virtual methods
 .method public test(Landroid/content/pm/PackageInfo;)Z
-    .locals 1
+    .locals 0
 
-    invoke-static {p1}, Lcom/android/server/pm/ShortcutService;->access$000(Landroid/content/pm/PackageInfo;)Z
+    invoke-static {p1}, Lcom/android/server/pm/ShortcutService;->-$$Nest$smisInstalled(Landroid/content/pm/PackageInfo;)Z
 
-    move-result v0
+    move-result p0
 
-    xor-int/lit8 v0, v0, 0x1
+    xor-int/lit8 p0, p0, 0x1
 
-    return v0
+    return p0
 .end method
 
 .method public bridge synthetic test(Ljava/lang/Object;)Z
@@ -56,7 +56,7 @@
 
     invoke-virtual {p0, p1}, Lcom/android/server/pm/ShortcutService$2;->test(Landroid/content/pm/PackageInfo;)Z
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method

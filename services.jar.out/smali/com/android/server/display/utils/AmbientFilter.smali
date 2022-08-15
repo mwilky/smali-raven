@@ -11,76 +11,39 @@
 .end annotation
 
 
-# static fields
-.field protected static final DEBUG:Z = false
-
-
 # instance fields
-.field private final mBuffer:Lcom/android/server/display/utils/RollingBuffer;
+.field public final mBuffer:Lcom/android/server/display/utils/RollingBuffer;
 
-.field private final mHorizon:I
+.field public final mHorizon:I
 
-.field protected mLoggingEnabled:Z
+.field public mLoggingEnabled:Z
 
-.field protected final mTag:Ljava/lang/String;
+.field public final mTag:Ljava/lang/String;
 
 
 # direct methods
-.method constructor <init>(Ljava/lang/String;I)V
-    .locals 1
+.method public constructor <init>(Ljava/lang/String;I)V
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    invoke-direct {p0, p2}, Lcom/android/server/display/utils/AmbientFilter;->validateArguments(I)V
+    invoke-virtual {p0, p2}, Lcom/android/server/display/utils/AmbientFilter;->validateArguments(I)V
 
     iput-object p1, p0, Lcom/android/server/display/utils/AmbientFilter;->mTag:Ljava/lang/String;
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput-boolean v0, p0, Lcom/android/server/display/utils/AmbientFilter;->mLoggingEnabled:Z
+    iput-boolean p1, p0, Lcom/android/server/display/utils/AmbientFilter;->mLoggingEnabled:Z
 
     iput p2, p0, Lcom/android/server/display/utils/AmbientFilter;->mHorizon:I
 
-    new-instance v0, Lcom/android/server/display/utils/RollingBuffer;
+    new-instance p1, Lcom/android/server/display/utils/RollingBuffer;
 
-    invoke-direct {v0}, Lcom/android/server/display/utils/RollingBuffer;-><init>()V
+    invoke-direct {p1}, Lcom/android/server/display/utils/RollingBuffer;-><init>()V
 
-    iput-object v0, p0, Lcom/android/server/display/utils/AmbientFilter;->mBuffer:Lcom/android/server/display/utils/RollingBuffer;
-
-    return-void
-.end method
-
-.method private truncateOldValues(J)V
-    .locals 3
-
-    iget v0, p0, Lcom/android/server/display/utils/AmbientFilter;->mHorizon:I
-
-    int-to-long v0, v0
-
-    sub-long v0, p1, v0
-
-    iget-object v2, p0, Lcom/android/server/display/utils/AmbientFilter;->mBuffer:Lcom/android/server/display/utils/RollingBuffer;
-
-    invoke-virtual {v2, v0, v1}, Lcom/android/server/display/utils/RollingBuffer;->truncate(J)V
+    iput-object p1, p0, Lcom/android/server/display/utils/AmbientFilter;->mBuffer:Lcom/android/server/display/utils/RollingBuffer;
 
     return-void
-.end method
-
-.method private validateArguments(I)V
-    .locals 2
-
-    if-lez p1, :cond_0
-
-    return-void
-
-    :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
-
-    const-string v1, "horizon must be positive"
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v0
 .end method
 
 
@@ -94,12 +57,12 @@
 
     if-gez v0, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 
     :cond_0
-    invoke-direct {p0, p1, p2}, Lcom/android/server/display/utils/AmbientFilter;->truncateOldValues(J)V
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/display/utils/AmbientFilter;->truncateOldValues(J)V
 
     iget-boolean v0, p0, Lcom/android/server/display/utils/AmbientFilter;->mLoggingEnabled:Z
 
@@ -130,21 +93,21 @@
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_1
-    iget-object v0, p0, Lcom/android/server/display/utils/AmbientFilter;->mBuffer:Lcom/android/server/display/utils/RollingBuffer;
+    iget-object p0, p0, Lcom/android/server/display/utils/AmbientFilter;->mBuffer:Lcom/android/server/display/utils/RollingBuffer;
 
-    invoke-virtual {v0, p1, p2, p3}, Lcom/android/server/display/utils/RollingBuffer;->add(JF)V
+    invoke-virtual {p0, p1, p2, p3}, Lcom/android/server/display/utils/RollingBuffer;->add(JF)V
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 .end method
 
 .method public clear()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/display/utils/AmbientFilter;->mBuffer:Lcom/android/server/display/utils/RollingBuffer;
+    iget-object p0, p0, Lcom/android/server/display/utils/AmbientFilter;->mBuffer:Lcom/android/server/display/utils/RollingBuffer;
 
-    invoke-virtual {v0}, Lcom/android/server/display/utils/RollingBuffer;->clear()V
+    invoke-virtual {p0}, Lcom/android/server/display/utils/RollingBuffer;->clear()V
 
     return-void
 .end method
@@ -214,26 +177,26 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lcom/android/server/display/utils/AmbientFilter;->mBuffer:Lcom/android/server/display/utils/RollingBuffer;
+    iget-object p0, p0, Lcom/android/server/display/utils/AmbientFilter;->mBuffer:Lcom/android/server/display/utils/RollingBuffer;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p1, p0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     return-void
 .end method
 
-.method protected abstract filter(JLcom/android/server/display/utils/RollingBuffer;)F
+.method public abstract filter(JLcom/android/server/display/utils/RollingBuffer;)F
 .end method
 
 .method public getEstimate(J)F
-    .locals 4
+    .locals 3
 
-    invoke-direct {p0, p1, p2}, Lcom/android/server/display/utils/AmbientFilter;->truncateOldValues(J)V
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/display/utils/AmbientFilter;->truncateOldValues(J)V
 
     iget-object v0, p0, Lcom/android/server/display/utils/AmbientFilter;->mBuffer:Lcom/android/server/display/utils/RollingBuffer;
 
@@ -245,29 +208,29 @@
 
     if-eqz v1, :cond_0
 
-    iget-object v1, p0, Lcom/android/server/display/utils/AmbientFilter;->mTag:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/display/utils/AmbientFilter;->mTag:Ljava/lang/String;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "get estimate: "
+    const-string v2, "get estimate: "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    const-string v3, " @ "
+    const-string v2, " @ "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p1, p2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1, p2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, p1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
     return v0
@@ -280,14 +243,47 @@
 
     if-ne v0, p1, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 
     :cond_0
     iput-boolean p1, p0, Lcom/android/server/display/utils/AmbientFilter;->mLoggingEnabled:Z
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
+.end method
+
+.method public final truncateOldValues(J)V
+    .locals 2
+
+    iget v0, p0, Lcom/android/server/display/utils/AmbientFilter;->mHorizon:I
+
+    int-to-long v0, v0
+
+    sub-long/2addr p1, v0
+
+    iget-object p0, p0, Lcom/android/server/display/utils/AmbientFilter;->mBuffer:Lcom/android/server/display/utils/RollingBuffer;
+
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/display/utils/RollingBuffer;->truncate(J)V
+
+    return-void
+.end method
+
+.method public final validateArguments(I)V
+    .locals 0
+
+    if-lez p1, :cond_0
+
+    return-void
+
+    :cond_0
+    new-instance p0, Ljava/lang/IllegalArgumentException;
+
+    const-string p1, "horizon must be positive"
+
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p0
 .end method

@@ -1,20 +1,20 @@
-.class final Lcom/android/server/devicestate/OverrideRequest;
+.class public final Lcom/android/server/devicestate/OverrideRequest;
 .super Ljava/lang/Object;
 .source "OverrideRequest.java"
 
 
 # instance fields
-.field private final mFlags:I
+.field public final mFlags:I
 
-.field private final mPid:I
+.field public final mPid:I
 
-.field private final mRequestedState:I
+.field public final mRequestedState:I
 
-.field private final mToken:Landroid/os/IBinder;
+.field public final mToken:Landroid/os/IBinder;
 
 
 # direct methods
-.method constructor <init>(Landroid/os/IBinder;III)V
+.method public constructor <init>(Landroid/os/IBinder;III)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,34 +32,34 @@
 
 
 # virtual methods
-.method getFlags()I
-    .locals 1
+.method public getFlags()I
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/devicestate/OverrideRequest;->mFlags:I
+    iget p0, p0, Lcom/android/server/devicestate/OverrideRequest;->mFlags:I
 
-    return v0
+    return p0
 .end method
 
-.method getPid()I
-    .locals 1
+.method public getPid()I
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/devicestate/OverrideRequest;->mPid:I
+    iget p0, p0, Lcom/android/server/devicestate/OverrideRequest;->mPid:I
 
-    return v0
+    return p0
 .end method
 
-.method getRequestedState()I
-    .locals 1
+.method public getRequestedState()I
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/devicestate/OverrideRequest;->mRequestedState:I
+    iget p0, p0, Lcom/android/server/devicestate/OverrideRequest;->mRequestedState:I
 
-    return v0
+    return p0
 .end method
 
-.method getToken()Landroid/os/IBinder;
-    .locals 1
+.method public getToken()Landroid/os/IBinder;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/devicestate/OverrideRequest;->mToken:Landroid/os/IBinder;
+    iget-object p0, p0, Lcom/android/server/devicestate/OverrideRequest;->mToken:Landroid/os/IBinder;
 
-    return-object v0
+    return-object p0
 .end method

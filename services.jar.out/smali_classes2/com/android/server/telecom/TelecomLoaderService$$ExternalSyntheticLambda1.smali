@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/telecom/TelecomLoaderService$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/server/pm/permission/LegacyPermissionManagerInternal$PackagesProvider;
@@ -23,13 +24,13 @@
 
 # virtual methods
 .method public final getPackages(I)[Ljava/lang/String;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/telecom/TelecomLoaderService$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/telecom/TelecomLoaderService;
+    iget-object p0, p0, Lcom/android/server/telecom/TelecomLoaderService$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/telecom/TelecomLoaderService;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/telecom/TelecomLoaderService;->lambda$registerDefaultAppProviders$0$TelecomLoaderService(I)[Ljava/lang/String;
+    invoke-static {p0, p1}, Lcom/android/server/telecom/TelecomLoaderService;->$r8$lambda$29uo3akrJVM9ql-ynPZGjI7w7cs(Lcom/android/server/telecom/TelecomLoaderService;I)[Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method

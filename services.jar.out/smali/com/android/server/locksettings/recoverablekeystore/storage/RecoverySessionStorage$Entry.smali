@@ -18,16 +18,24 @@
 
 
 # instance fields
-.field private final mKeyClaimant:[B
+.field public final mKeyClaimant:[B
 
-.field private final mLskfHash:[B
+.field public final mLskfHash:[B
 
-.field private final mSessionId:Ljava/lang/String;
+.field public final mSessionId:Ljava/lang/String;
 
-.field private final mVaultParams:[B
+.field public final mVaultParams:[B
 
 
 # direct methods
+.method public static bridge synthetic -$$Nest$fgetmSessionId(Lcom/android/server/locksettings/recoverablekeystore/storage/RecoverySessionStorage$Entry;)Ljava/lang/String;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/locksettings/recoverablekeystore/storage/RecoverySessionStorage$Entry;->mSessionId:Ljava/lang/String;
+
+    return-object p0
+.end method
+
 .method public constructor <init>(Ljava/lang/String;[B[B[B)V
     .locals 0
 
@@ -44,14 +52,6 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/server/locksettings/recoverablekeystore/storage/RecoverySessionStorage$Entry;)Ljava/lang/String;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/locksettings/recoverablekeystore/storage/RecoverySessionStorage$Entry;->mSessionId:Ljava/lang/String;
-
-    return-object v0
-.end method
-
 
 # virtual methods
 .method public destroy()V
@@ -63,33 +63,33 @@
 
     invoke-static {v0, v1}, Ljava/util/Arrays;->fill([BB)V
 
-    iget-object v0, p0, Lcom/android/server/locksettings/recoverablekeystore/storage/RecoverySessionStorage$Entry;->mKeyClaimant:[B
+    iget-object p0, p0, Lcom/android/server/locksettings/recoverablekeystore/storage/RecoverySessionStorage$Entry;->mKeyClaimant:[B
 
-    invoke-static {v0, v1}, Ljava/util/Arrays;->fill([BB)V
+    invoke-static {p0, v1}, Ljava/util/Arrays;->fill([BB)V
 
     return-void
 .end method
 
 .method public getKeyClaimant()[B
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/locksettings/recoverablekeystore/storage/RecoverySessionStorage$Entry;->mKeyClaimant:[B
+    iget-object p0, p0, Lcom/android/server/locksettings/recoverablekeystore/storage/RecoverySessionStorage$Entry;->mKeyClaimant:[B
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getLskfHash()[B
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/locksettings/recoverablekeystore/storage/RecoverySessionStorage$Entry;->mLskfHash:[B
+    iget-object p0, p0, Lcom/android/server/locksettings/recoverablekeystore/storage/RecoverySessionStorage$Entry;->mLskfHash:[B
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getVaultParams()[B
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/locksettings/recoverablekeystore/storage/RecoverySessionStorage$Entry;->mVaultParams:[B
+    iget-object p0, p0, Lcom/android/server/locksettings/recoverablekeystore/storage/RecoverySessionStorage$Entry;->mVaultParams:[B
 
-    return-object v0
+    return-object p0
 .end method

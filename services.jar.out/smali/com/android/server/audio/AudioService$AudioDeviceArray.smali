@@ -1,4 +1,4 @@
-.class final Lcom/android/server/audio/AudioService$AudioDeviceArray;
+.class public final Lcom/android/server/audio/AudioService$AudioDeviceArray;
 .super Ljava/lang/Object;
 .source "AudioService.java"
 
@@ -9,19 +9,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "AudioDeviceArray"
 .end annotation
 
 
 # instance fields
-.field final mDeviceAddresses:[Ljava/lang/String;
+.field public final mDeviceAddresses:[Ljava/lang/String;
 
-.field final mDeviceTypes:[I
+.field public final mDeviceTypes:[I
 
 
 # direct methods
-.method constructor <init>([I[Ljava/lang/String;)V
+.method public constructor <init>([I[Ljava/lang/String;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

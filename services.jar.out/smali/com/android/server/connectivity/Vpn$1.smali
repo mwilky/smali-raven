@@ -1,4 +1,4 @@
-.class Lcom/android/server/connectivity/Vpn$1;
+.class public Lcom/android/server/connectivity/Vpn$1;
 .super Landroid/net/NetworkAgent;
 .source "Vpn.java"
 
@@ -9,26 +9,24 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/connectivity/Vpn;
+.field public final synthetic this$0:Lcom/android/server/connectivity/Vpn;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/connectivity/Vpn;Landroid/content/Context;Landroid/os/Looper;Ljava/lang/String;Landroid/net/NetworkCapabilities;Landroid/net/LinkProperties;Landroid/net/NetworkScore;Landroid/net/NetworkAgentConfig;Landroid/net/NetworkProvider;)V
-    .locals 11
-
-    move-object v9, p0
-
-    move-object v10, p1
-
-    iput-object v10, v9, Lcom/android/server/connectivity/Vpn$1;->this$0:Lcom/android/server/connectivity/Vpn;
+.method public constructor <init>(Lcom/android/server/connectivity/Vpn;Landroid/content/Context;Landroid/os/Looper;Ljava/lang/String;Landroid/net/NetworkCapabilities;Landroid/net/LinkProperties;Landroid/net/NetworkScore;Landroid/net/NetworkAgentConfig;Landroid/net/NetworkProvider;)V
+    .locals 9
 
     move-object v0, p0
+
+    move-object v1, p1
+
+    iput-object v1, v0, Lcom/android/server/connectivity/Vpn$1;->this$0:Lcom/android/server/connectivity/Vpn;
 
     move-object v1, p2
 
@@ -36,9 +34,9 @@
 
     move-object v3, p4
 
-    move-object/from16 v4, p5
+    move-object v4, p5
 
-    move-object/from16 v5, p6
+    move-object v5, p6
 
     move-object/from16 v6, p7
 

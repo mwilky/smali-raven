@@ -35,7 +35,7 @@
 
 
 # virtual methods
-.method addToEventStats(Ljava/util/List;IJJ)V
+.method public addToEventStats(Ljava/util/List;IJJ)V
     .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -65,9 +65,9 @@
 
     iput p2, v0, Landroid/app/usage/EventStats;->mEventType:I
 
-    iget v1, p0, Lcom/android/server/usage/IntervalStats$EventTracker;->count:I
+    iget p2, p0, Lcom/android/server/usage/IntervalStats$EventTracker;->count:I
 
-    iput v1, v0, Landroid/app/usage/EventStats;->mCount:I
+    iput p2, v0, Landroid/app/usage/EventStats;->mCount:I
 
     iget-wide v1, p0, Lcom/android/server/usage/IntervalStats$EventTracker;->duration:J
 
@@ -100,9 +100,9 @@
 
     iget-wide v4, p0, Lcom/android/server/usage/IntervalStats$EventTracker;->duration:J
 
-    sub-long v0, p1, v0
+    sub-long/2addr p1, v0
 
-    add-long/2addr v4, v0
+    add-long/2addr v4, p1
 
     iput-wide v4, p0, Lcom/android/server/usage/IntervalStats$EventTracker;->duration:J
 

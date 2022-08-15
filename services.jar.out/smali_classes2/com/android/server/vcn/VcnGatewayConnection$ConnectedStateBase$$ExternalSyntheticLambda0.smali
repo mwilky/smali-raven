@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/vcn/VcnGatewayConnection$ConnectedStateBase$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -23,13 +24,13 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/vcn/VcnGatewayConnection$ConnectedStateBase$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/vcn/VcnGatewayConnection$ConnectedStateBase;
+    iget-object p0, p0, Lcom/android/server/vcn/VcnGatewayConnection$ConnectedStateBase$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/vcn/VcnGatewayConnection$ConnectedStateBase;
 
     check-cast p1, Lcom/android/server/vcn/VcnGatewayConnection$VcnNetworkAgent;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/vcn/VcnGatewayConnection$ConnectedStateBase;->lambda$buildNetworkAgent$0$VcnGatewayConnection$ConnectedStateBase(Lcom/android/server/vcn/VcnGatewayConnection$VcnNetworkAgent;)V
+    invoke-static {p0, p1}, Lcom/android/server/vcn/VcnGatewayConnection$ConnectedStateBase;->$r8$lambda$f-EsbdIIQFxUk5ilDttx5lAW6kw(Lcom/android/server/vcn/VcnGatewayConnection$ConnectedStateBase;Lcom/android/server/vcn/VcnGatewayConnection$VcnNetworkAgent;)V
 
     return-void
 .end method

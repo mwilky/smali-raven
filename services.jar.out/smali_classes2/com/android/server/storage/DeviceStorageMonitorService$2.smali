@@ -1,4 +1,4 @@
-.class Lcom/android/server/storage/DeviceStorageMonitorService$2;
+.class public Lcom/android/server/storage/DeviceStorageMonitorService$2;
 .super Ljava/lang/Object;
 .source "DeviceStorageMonitorService.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/storage/DeviceStorageMonitorService;
+.field public final synthetic this$0:Lcom/android/server/storage/DeviceStorageMonitorService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/storage/DeviceStorageMonitorService;)V
+.method public constructor <init>(Lcom/android/server/storage/DeviceStorageMonitorService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/storage/DeviceStorageMonitorService$2;->this$0:Lcom/android/server/storage/DeviceStorageMonitorService;
@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Lcom/android/server/storage/DeviceStorageMonitorService$2;->this$0:Lcom/android/server/storage/DeviceStorageMonitorService;
 
-    invoke-static {v0}, Lcom/android/server/storage/DeviceStorageMonitorService;->access$200(Lcom/android/server/storage/DeviceStorageMonitorService;)Landroid/os/Handler;
+    invoke-static {v0}, Lcom/android/server/storage/DeviceStorageMonitorService;->-$$Nest$fgetmHandler(Lcom/android/server/storage/DeviceStorageMonitorService;)Landroid/os/Handler;
 
     move-result-object v0
 
@@ -47,17 +47,17 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
 
-    iget-object v0, p0, Lcom/android/server/storage/DeviceStorageMonitorService$2;->this$0:Lcom/android/server/storage/DeviceStorageMonitorService;
+    iget-object p0, p0, Lcom/android/server/storage/DeviceStorageMonitorService$2;->this$0:Lcom/android/server/storage/DeviceStorageMonitorService;
 
-    invoke-static {v0}, Lcom/android/server/storage/DeviceStorageMonitorService;->access$200(Lcom/android/server/storage/DeviceStorageMonitorService;)Landroid/os/Handler;
+    invoke-static {p0}, Lcom/android/server/storage/DeviceStorageMonitorService;->-$$Nest$fgetmHandler(Lcom/android/server/storage/DeviceStorageMonitorService;)Landroid/os/Handler;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
+    invoke-virtual {p0, v1}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
+    invoke-virtual {p0}, Landroid/os/Message;->sendToTarget()V
 
     return-void
 .end method
@@ -65,25 +65,25 @@
 .method public getMemoryLowThreshold()J
     .locals 2
 
-    iget-object v0, p0, Lcom/android/server/storage/DeviceStorageMonitorService$2;->this$0:Lcom/android/server/storage/DeviceStorageMonitorService;
+    iget-object p0, p0, Lcom/android/server/storage/DeviceStorageMonitorService$2;->this$0:Lcom/android/server/storage/DeviceStorageMonitorService;
 
-    invoke-virtual {v0}, Lcom/android/server/storage/DeviceStorageMonitorService;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Lcom/android/server/SystemService;->getContext()Landroid/content/Context;
 
-    move-result-object v0
+    move-result-object p0
 
-    const-class v1, Landroid/os/storage/StorageManager;
+    const-class v0, Landroid/os/storage/StorageManager;
 
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Landroid/os/storage/StorageManager;
+    check-cast p0, Landroid/os/storage/StorageManager;
 
     invoke-static {}, Landroid/os/Environment;->getDataDirectory()Ljava/io/File;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v0, v1}, Landroid/os/storage/StorageManager;->getStorageLowBytes(Ljava/io/File;)J
+    invoke-virtual {p0, v0}, Landroid/os/storage/StorageManager;->getStorageLowBytes(Ljava/io/File;)J
 
     move-result-wide v0
 
@@ -105,17 +105,17 @@
 
     move-result-wide v2
 
-    cmp-long v0, v0, v2
+    cmp-long p0, v0, v2
 
-    if-gez v0, :cond_0
+    if-gez p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method

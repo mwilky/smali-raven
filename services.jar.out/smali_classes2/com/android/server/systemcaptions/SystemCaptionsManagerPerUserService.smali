@@ -1,4 +1,4 @@
-.class final Lcom/android/server/systemcaptions/SystemCaptionsManagerPerUserService;
+.class public final Lcom/android/server/systemcaptions/SystemCaptionsManagerPerUserService;
 .super Lcom/android/server/infra/AbstractPerUserSystemService;
 .source "SystemCaptionsManagerPerUserService.java"
 
@@ -15,29 +15,27 @@
 
 
 # static fields
-.field private static final TAG:Ljava/lang/String;
+.field public static final TAG:Ljava/lang/String; = "SystemCaptionsManagerPerUserService"
 
 
 # instance fields
-.field private mRemoteService:Lcom/android/server/systemcaptions/RemoteSystemCaptionsManagerService;
+.field public mRemoteService:Lcom/android/server/systemcaptions/RemoteSystemCaptionsManagerService;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
+.end field
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    const-class v0, Lcom/android/server/systemcaptions/SystemCaptionsManagerPerUserService;
-
-    invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
-
-    move-result-object v0
-
-    sput-object v0, Lcom/android/server/systemcaptions/SystemCaptionsManagerPerUserService;->TAG:Ljava/lang/String;
+.method public static constructor <clinit>()V
+    .locals 0
 
     return-void
 .end method
 
-.method constructor <init>(Lcom/android/server/systemcaptions/SystemCaptionsManagerService;Ljava/lang/Object;ZI)V
+.method public constructor <init>(Lcom/android/server/systemcaptions/SystemCaptionsManagerService;Ljava/lang/Object;ZI)V
     .locals 0
 
     invoke-direct {p0, p1, p2, p4}, Lcom/android/server/infra/AbstractPerUserSystemService;-><init>(Lcom/android/server/infra/AbstractMasterSystemService;Ljava/lang/Object;I)V
@@ -45,110 +43,21 @@
     return-void
 .end method
 
-.method private getRemoteServiceLocked()Lcom/android/server/systemcaptions/RemoteSystemCaptionsManagerService;
-    .locals 6
-
-    iget-object v0, p0, Lcom/android/server/systemcaptions/SystemCaptionsManagerPerUserService;->mRemoteService:Lcom/android/server/systemcaptions/RemoteSystemCaptionsManagerService;
-
-    if-nez v0, :cond_3
-
-    invoke-virtual {p0}, Lcom/android/server/systemcaptions/SystemCaptionsManagerPerUserService;->getComponentNameLocked()Ljava/lang/String;
-
-    move-result-object v0
-
-    if-nez v0, :cond_1
-
-    iget-object v1, p0, Lcom/android/server/systemcaptions/SystemCaptionsManagerPerUserService;->mMaster:Lcom/android/server/infra/AbstractMasterSystemService;
-
-    check-cast v1, Lcom/android/server/systemcaptions/SystemCaptionsManagerService;
-
-    iget-boolean v1, v1, Lcom/android/server/systemcaptions/SystemCaptionsManagerService;->verbose:Z
-
-    if-eqz v1, :cond_0
-
-    sget-object v1, Lcom/android/server/systemcaptions/SystemCaptionsManagerPerUserService;->TAG:Ljava/lang/String;
-
-    const-string v2, "getRemoteServiceLocked(): Not set"
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
-    const/4 v1, 0x0
-
-    return-object v1
-
-    :cond_1
-    invoke-static {v0}, Landroid/content/ComponentName;->unflattenFromString(Ljava/lang/String;)Landroid/content/ComponentName;
-
-    move-result-object v1
-
-    new-instance v2, Lcom/android/server/systemcaptions/RemoteSystemCaptionsManagerService;
-
-    invoke-virtual {p0}, Lcom/android/server/systemcaptions/SystemCaptionsManagerPerUserService;->getContext()Landroid/content/Context;
-
-    move-result-object v3
-
-    iget v4, p0, Lcom/android/server/systemcaptions/SystemCaptionsManagerPerUserService;->mUserId:I
-
-    iget-object v5, p0, Lcom/android/server/systemcaptions/SystemCaptionsManagerPerUserService;->mMaster:Lcom/android/server/infra/AbstractMasterSystemService;
-
-    check-cast v5, Lcom/android/server/systemcaptions/SystemCaptionsManagerService;
-
-    iget-boolean v5, v5, Lcom/android/server/systemcaptions/SystemCaptionsManagerService;->verbose:Z
-
-    invoke-direct {v2, v3, v1, v4, v5}, Lcom/android/server/systemcaptions/RemoteSystemCaptionsManagerService;-><init>(Landroid/content/Context;Landroid/content/ComponentName;IZ)V
-
-    iput-object v2, p0, Lcom/android/server/systemcaptions/SystemCaptionsManagerPerUserService;->mRemoteService:Lcom/android/server/systemcaptions/RemoteSystemCaptionsManagerService;
-
-    iget-object v2, p0, Lcom/android/server/systemcaptions/SystemCaptionsManagerPerUserService;->mMaster:Lcom/android/server/infra/AbstractMasterSystemService;
-
-    check-cast v2, Lcom/android/server/systemcaptions/SystemCaptionsManagerService;
-
-    iget-boolean v2, v2, Lcom/android/server/systemcaptions/SystemCaptionsManagerService;->verbose:Z
-
-    if-eqz v2, :cond_2
-
-    sget-object v2, Lcom/android/server/systemcaptions/SystemCaptionsManagerPerUserService;->TAG:Ljava/lang/String;
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "getRemoteServiceLocked(): initialize for user "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget v4, p0, Lcom/android/server/systemcaptions/SystemCaptionsManagerPerUserService;->mUserId:I
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_2
-    iget-object v2, p0, Lcom/android/server/systemcaptions/SystemCaptionsManagerPerUserService;->mRemoteService:Lcom/android/server/systemcaptions/RemoteSystemCaptionsManagerService;
-
-    invoke-virtual {v2}, Lcom/android/server/systemcaptions/RemoteSystemCaptionsManagerService;->initialize()V
-
-    :cond_3
-    iget-object v0, p0, Lcom/android/server/systemcaptions/SystemCaptionsManagerPerUserService;->mRemoteService:Lcom/android/server/systemcaptions/RemoteSystemCaptionsManagerService;
-
-    return-object v0
-.end method
-
 
 # virtual methods
-.method destroyLocked()V
+.method public destroyLocked()V
     .locals 2
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
 
-    iget-object v0, p0, Lcom/android/server/systemcaptions/SystemCaptionsManagerPerUserService;->mMaster:Lcom/android/server/infra/AbstractMasterSystemService;
+    iget-object v0, p0, Lcom/android/server/infra/AbstractPerUserSystemService;->mMaster:Lcom/android/server/infra/AbstractMasterSystemService;
 
     check-cast v0, Lcom/android/server/systemcaptions/SystemCaptionsManagerService;
 
-    iget-boolean v0, v0, Lcom/android/server/systemcaptions/SystemCaptionsManagerService;->verbose:Z
+    iget-boolean v0, v0, Lcom/android/server/infra/AbstractMasterSystemService;->verbose:Z
 
     if-eqz v0, :cond_0
 
@@ -173,14 +82,118 @@
     return-void
 .end method
 
-.method initializeLocked()V
-    .locals 3
+.method public final getRemoteServiceLocked()Lcom/android/server/systemcaptions/RemoteSystemCaptionsManagerService;
+    .locals 5
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
 
-    iget-object v0, p0, Lcom/android/server/systemcaptions/SystemCaptionsManagerPerUserService;->mMaster:Lcom/android/server/infra/AbstractMasterSystemService;
+    iget-object v0, p0, Lcom/android/server/systemcaptions/SystemCaptionsManagerPerUserService;->mRemoteService:Lcom/android/server/systemcaptions/RemoteSystemCaptionsManagerService;
+
+    if-nez v0, :cond_3
+
+    invoke-virtual {p0}, Lcom/android/server/infra/AbstractPerUserSystemService;->getComponentNameLocked()Ljava/lang/String;
+
+    move-result-object v0
+
+    if-nez v0, :cond_1
+
+    iget-object p0, p0, Lcom/android/server/infra/AbstractPerUserSystemService;->mMaster:Lcom/android/server/infra/AbstractMasterSystemService;
+
+    check-cast p0, Lcom/android/server/systemcaptions/SystemCaptionsManagerService;
+
+    iget-boolean p0, p0, Lcom/android/server/infra/AbstractMasterSystemService;->verbose:Z
+
+    if-eqz p0, :cond_0
+
+    sget-object p0, Lcom/android/server/systemcaptions/SystemCaptionsManagerPerUserService;->TAG:Ljava/lang/String;
+
+    const-string v0, "getRemoteServiceLocked(): Not set"
+
+    invoke-static {p0, v0}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    const/4 p0, 0x0
+
+    return-object p0
+
+    :cond_1
+    invoke-static {v0}, Landroid/content/ComponentName;->unflattenFromString(Ljava/lang/String;)Landroid/content/ComponentName;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/android/server/systemcaptions/RemoteSystemCaptionsManagerService;
+
+    invoke-virtual {p0}, Lcom/android/server/infra/AbstractPerUserSystemService;->getContext()Landroid/content/Context;
+
+    move-result-object v2
+
+    iget v3, p0, Lcom/android/server/infra/AbstractPerUserSystemService;->mUserId:I
+
+    iget-object v4, p0, Lcom/android/server/infra/AbstractPerUserSystemService;->mMaster:Lcom/android/server/infra/AbstractMasterSystemService;
+
+    check-cast v4, Lcom/android/server/systemcaptions/SystemCaptionsManagerService;
+
+    iget-boolean v4, v4, Lcom/android/server/infra/AbstractMasterSystemService;->verbose:Z
+
+    invoke-direct {v1, v2, v0, v3, v4}, Lcom/android/server/systemcaptions/RemoteSystemCaptionsManagerService;-><init>(Landroid/content/Context;Landroid/content/ComponentName;IZ)V
+
+    iput-object v1, p0, Lcom/android/server/systemcaptions/SystemCaptionsManagerPerUserService;->mRemoteService:Lcom/android/server/systemcaptions/RemoteSystemCaptionsManagerService;
+
+    iget-object v0, p0, Lcom/android/server/infra/AbstractPerUserSystemService;->mMaster:Lcom/android/server/infra/AbstractMasterSystemService;
 
     check-cast v0, Lcom/android/server/systemcaptions/SystemCaptionsManagerService;
 
-    iget-boolean v0, v0, Lcom/android/server/systemcaptions/SystemCaptionsManagerService;->verbose:Z
+    iget-boolean v0, v0, Lcom/android/server/infra/AbstractMasterSystemService;->verbose:Z
+
+    if-eqz v0, :cond_2
+
+    sget-object v0, Lcom/android/server/systemcaptions/SystemCaptionsManagerPerUserService;->TAG:Ljava/lang/String;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "getRemoteServiceLocked(): initialize for user "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget v2, p0, Lcom/android/server/infra/AbstractPerUserSystemService;->mUserId:I
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_2
+    iget-object v0, p0, Lcom/android/server/systemcaptions/SystemCaptionsManagerPerUserService;->mRemoteService:Lcom/android/server/systemcaptions/RemoteSystemCaptionsManagerService;
+
+    invoke-virtual {v0}, Lcom/android/server/systemcaptions/RemoteSystemCaptionsManagerService;->initialize()V
+
+    :cond_3
+    iget-object p0, p0, Lcom/android/server/systemcaptions/SystemCaptionsManagerPerUserService;->mRemoteService:Lcom/android/server/systemcaptions/RemoteSystemCaptionsManagerService;
+
+    return-object p0
+.end method
+
+.method public initializeLocked()V
+    .locals 2
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/android/server/infra/AbstractPerUserSystemService;->mMaster:Lcom/android/server/infra/AbstractMasterSystemService;
+
+    check-cast v0, Lcom/android/server/systemcaptions/SystemCaptionsManagerService;
+
+    iget-boolean v0, v0, Lcom/android/server/infra/AbstractMasterSystemService;->verbose:Z
 
     if-eqz v0, :cond_0
 
@@ -191,32 +204,32 @@
     invoke-static {v0, v1}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    invoke-direct {p0}, Lcom/android/server/systemcaptions/SystemCaptionsManagerPerUserService;->getRemoteServiceLocked()Lcom/android/server/systemcaptions/RemoteSystemCaptionsManagerService;
+    invoke-virtual {p0}, Lcom/android/server/systemcaptions/SystemCaptionsManagerPerUserService;->getRemoteServiceLocked()Lcom/android/server/systemcaptions/RemoteSystemCaptionsManagerService;
 
     move-result-object v0
 
     if-nez v0, :cond_1
 
-    iget-object v1, p0, Lcom/android/server/systemcaptions/SystemCaptionsManagerPerUserService;->mMaster:Lcom/android/server/infra/AbstractMasterSystemService;
+    iget-object p0, p0, Lcom/android/server/infra/AbstractPerUserSystemService;->mMaster:Lcom/android/server/infra/AbstractMasterSystemService;
 
-    check-cast v1, Lcom/android/server/systemcaptions/SystemCaptionsManagerService;
+    check-cast p0, Lcom/android/server/systemcaptions/SystemCaptionsManagerService;
 
-    iget-boolean v1, v1, Lcom/android/server/systemcaptions/SystemCaptionsManagerService;->verbose:Z
+    iget-boolean p0, p0, Lcom/android/server/infra/AbstractMasterSystemService;->verbose:Z
 
-    if-eqz v1, :cond_1
+    if-eqz p0, :cond_1
 
-    sget-object v1, Lcom/android/server/systemcaptions/SystemCaptionsManagerPerUserService;->TAG:Ljava/lang/String;
+    sget-object p0, Lcom/android/server/systemcaptions/SystemCaptionsManagerPerUserService;->TAG:Ljava/lang/String;
 
-    const-string v2, "initialize(): Failed to init remote server"
+    const-string v0, "initialize(): Failed to init remote server"
 
-    invoke-static {v1, v2}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, v0}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_1
     return-void
 .end method
 
-.method protected newServiceInfoLocked(Landroid/content/ComponentName;)Landroid/content/pm/ServiceInfo;
-    .locals 4
+.method public newServiceInfoLocked(Landroid/content/ComponentName;)Landroid/content/pm/ServiceInfo;
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/pm/PackageManager$NameNotFoundException;
@@ -228,38 +241,36 @@
 
     move-result-object v0
 
-    const/16 v1, 0x80
+    const-wide/16 v1, 0x80
 
-    iget v2, p0, Lcom/android/server/systemcaptions/SystemCaptionsManagerPerUserService;->mUserId:I
+    iget p0, p0, Lcom/android/server/infra/AbstractPerUserSystemService;->mUserId:I
 
-    invoke-interface {v0, p1, v1, v2}, Landroid/content/pm/IPackageManager;->getServiceInfo(Landroid/content/ComponentName;II)Landroid/content/pm/ServiceInfo;
+    invoke-interface {v0, p1, v1, v2, p0}, Landroid/content/pm/IPackageManager;->getServiceInfo(Landroid/content/ComponentName;JI)Landroid/content/pm/ServiceInfo;
 
-    move-result-object v0
+    move-result-object p0
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object p0
 
     :catch_0
-    move-exception v0
+    new-instance p0, Landroid/content/pm/PackageManager$NameNotFoundException;
 
-    new-instance v1, Landroid/content/pm/PackageManager$NameNotFoundException;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "Could not get service for "
 
-    const-string v3, "Could not get service for "
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v2
+    invoke-direct {p0, p1}, Landroid/content/pm/PackageManager$NameNotFoundException;-><init>(Ljava/lang/String;)V
 
-    invoke-direct {v1, v2}, Landroid/content/pm/PackageManager$NameNotFoundException;-><init>(Ljava/lang/String;)V
-
-    throw v1
+    throw p0
 .end method

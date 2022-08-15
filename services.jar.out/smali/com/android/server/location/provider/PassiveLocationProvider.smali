@@ -4,11 +4,11 @@
 
 
 # static fields
-.field private static final PROPERTIES:Landroid/location/provider/ProviderProperties;
+.field public static final PROPERTIES:Landroid/location/provider/ProviderProperties;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 2
 
     new-instance v0, Landroid/location/provider/ProviderProperties$Builder;
@@ -35,25 +35,25 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 4
+    .locals 3
 
     sget-object v0, Lcom/android/internal/util/ConcurrentUtils;->DIRECT_EXECUTOR:Ljava/util/concurrent/Executor;
 
     invoke-static {p1}, Landroid/location/util/identity/CallerIdentity;->fromContext(Landroid/content/Context;)Landroid/location/util/identity/CallerIdentity;
 
-    move-result-object v1
+    move-result-object p1
 
-    sget-object v2, Lcom/android/server/location/provider/PassiveLocationProvider;->PROPERTIES:Landroid/location/provider/ProviderProperties;
+    sget-object v1, Lcom/android/server/location/provider/PassiveLocationProvider;->PROPERTIES:Landroid/location/provider/ProviderProperties;
 
     invoke-static {}, Ljava/util/Collections;->emptySet()Ljava/util/Set;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-direct {p0, v0, v1, v2, v3}, Lcom/android/server/location/provider/AbstractLocationProvider;-><init>(Ljava/util/concurrent/Executor;Landroid/location/util/identity/CallerIdentity;Landroid/location/provider/ProviderProperties;Ljava/util/Set;)V
+    invoke-direct {p0, v0, p1, v1, v2}, Lcom/android/server/location/provider/AbstractLocationProvider;-><init>(Ljava/util/concurrent/Executor;Landroid/location/util/identity/CallerIdentity;Landroid/location/provider/ProviderProperties;Ljava/util/Set;)V
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    invoke-virtual {p0, v0}, Lcom/android/server/location/provider/PassiveLocationProvider;->setAllowed(Z)V
+    invoke-virtual {p0, p1}, Lcom/android/server/location/provider/AbstractLocationProvider;->setAllowed(Z)V
 
     return-void
 .end method
@@ -66,13 +66,13 @@
     return-void
 .end method
 
-.method protected onExtraCommand(IILjava/lang/String;Landroid/os/Bundle;)V
+.method public onExtraCommand(IILjava/lang/String;Landroid/os/Bundle;)V
     .locals 0
 
     return-void
 .end method
 
-.method protected onFlush(Ljava/lang/Runnable;)V
+.method public onFlush(Ljava/lang/Runnable;)V
     .locals 0
 
     invoke-interface {p1}, Ljava/lang/Runnable;->run()V
@@ -89,7 +89,7 @@
 .method public updateLocation(Landroid/location/LocationResult;)V
     .locals 0
 
-    invoke-virtual {p0, p1}, Lcom/android/server/location/provider/PassiveLocationProvider;->reportLocation(Landroid/location/LocationResult;)V
+    invoke-virtual {p0, p1}, Lcom/android/server/location/provider/AbstractLocationProvider;->reportLocation(Landroid/location/LocationResult;)V
 
     return-void
 .end method

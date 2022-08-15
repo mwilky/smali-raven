@@ -4,18 +4,18 @@
 
 
 # static fields
-.field private static final TAG:Ljava/lang/String; = "RuleEvaluation"
-
-.field private static sRuleEvaluationEngine:Lcom/android/server/integrity/engine/RuleEvaluationEngine;
+.field public static sRuleEvaluationEngine:Lcom/android/server/integrity/engine/RuleEvaluationEngine;
 
 
 # instance fields
-.field private final mIntegrityFileManager:Lcom/android/server/integrity/IntegrityFileManager;
+.field public final mIntegrityFileManager:Lcom/android/server/integrity/IntegrityFileManager;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/integrity/IntegrityFileManager;)V
+.method public constructor <init>(Lcom/android/server/integrity/IntegrityFileManager;)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -63,8 +63,24 @@
     throw v1
 .end method
 
-.method private loadRules(Landroid/content/integrity/AppInstallMetadata;)Ljava/util/List;
-    .locals 3
+
+# virtual methods
+.method public evaluate(Landroid/content/integrity/AppInstallMetadata;)Lcom/android/server/integrity/model/IntegrityCheckResult;
+    .locals 0
+
+    invoke-virtual {p0, p1}, Lcom/android/server/integrity/engine/RuleEvaluationEngine;->loadRules(Landroid/content/integrity/AppInstallMetadata;)Ljava/util/List;
+
+    move-result-object p0
+
+    invoke-static {p0, p1}, Lcom/android/server/integrity/engine/RuleEvaluator;->evaluateRules(Ljava/util/List;Landroid/content/integrity/AppInstallMetadata;)Lcom/android/server/integrity/model/IntegrityCheckResult;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public final loadRules(Landroid/content/integrity/AppInstallMetadata;)Ljava/util/List;
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -86,54 +102,38 @@
 
     if-nez v0, :cond_0
 
-    const-string v0, "Integrity rule files are not available."
+    const-string p0, "Integrity rule files are not available."
 
-    invoke-static {v1, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, p0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     :cond_0
     :try_start_0
-    iget-object v0, p0, Lcom/android/server/integrity/engine/RuleEvaluationEngine;->mIntegrityFileManager:Lcom/android/server/integrity/IntegrityFileManager;
+    iget-object p0, p0, Lcom/android/server/integrity/engine/RuleEvaluationEngine;->mIntegrityFileManager:Lcom/android/server/integrity/IntegrityFileManager;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/integrity/IntegrityFileManager;->readRules(Landroid/content/integrity/AppInstallMetadata;)Ljava/util/List;
+    invoke-virtual {p0, p1}, Lcom/android/server/integrity/IntegrityFileManager;->readRules(Landroid/content/integrity/AppInstallMetadata;)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p0
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object p0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    const-string v2, "Error loading rules."
+    const-string p1, "Error loading rules."
 
-    invoke-static {v1, v2, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v1, p1, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    new-instance v1, Ljava/util/ArrayList;
+    new-instance p0, Ljava/util/ArrayList;
 
-    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {p0}, Ljava/util/ArrayList;-><init>()V
 
-    return-object v1
-.end method
-
-
-# virtual methods
-.method public evaluate(Landroid/content/integrity/AppInstallMetadata;)Lcom/android/server/integrity/model/IntegrityCheckResult;
-    .locals 2
-
-    invoke-direct {p0, p1}, Lcom/android/server/integrity/engine/RuleEvaluationEngine;->loadRules(Landroid/content/integrity/AppInstallMetadata;)Ljava/util/List;
-
-    move-result-object v0
-
-    invoke-static {v0, p1}, Lcom/android/server/integrity/engine/RuleEvaluator;->evaluateRules(Ljava/util/List;Landroid/content/integrity/AppInstallMetadata;)Lcom/android/server/integrity/model/IntegrityCheckResult;
-
-    move-result-object v1
-
-    return-object v1
+    return-object p0
 .end method

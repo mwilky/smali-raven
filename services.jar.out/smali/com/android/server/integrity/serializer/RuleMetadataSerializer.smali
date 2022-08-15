@@ -4,16 +4,8 @@
 
 
 # direct methods
-.method public constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
 .method public static serialize(Lcom/android/server/integrity/model/RuleMetadata;Ljava/io/OutputStream;)V
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -22,30 +14,30 @@
 
     invoke-static {p1}, Landroid/util/Xml;->resolveSerializer(Ljava/io/OutputStream;)Landroid/util/TypedXmlSerializer;
 
-    move-result-object v0
+    move-result-object p1
 
     invoke-virtual {p0}, Lcom/android/server/integrity/model/RuleMetadata;->getRuleProvider()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    const-string v2, "P"
+    const-string v1, "P"
 
-    invoke-static {v0, v2, v1}, Lcom/android/server/integrity/serializer/RuleMetadataSerializer;->serializeTaggedValue(Landroid/util/TypedXmlSerializer;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {p1, v1, v0}, Lcom/android/server/integrity/serializer/RuleMetadataSerializer;->serializeTaggedValue(Landroid/util/TypedXmlSerializer;Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-virtual {p0}, Lcom/android/server/integrity/model/RuleMetadata;->getVersion()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    const-string v2, "V"
+    const-string v0, "V"
 
-    invoke-static {v0, v2, v1}, Lcom/android/server/integrity/serializer/RuleMetadataSerializer;->serializeTaggedValue(Landroid/util/TypedXmlSerializer;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {p1, v0, p0}, Lcom/android/server/integrity/serializer/RuleMetadataSerializer;->serializeTaggedValue(Landroid/util/TypedXmlSerializer;Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-interface {v0}, Landroid/util/TypedXmlSerializer;->endDocument()V
+    invoke-interface {p1}, Landroid/util/TypedXmlSerializer;->endDocument()V
 
     return-void
 .end method
 
-.method private static serializeTaggedValue(Landroid/util/TypedXmlSerializer;Ljava/lang/String;Ljava/lang/String;)V
+.method public static serializeTaggedValue(Landroid/util/TypedXmlSerializer;Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {

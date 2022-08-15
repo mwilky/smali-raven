@@ -1,4 +1,4 @@
-.class Lcom/android/server/firewall/IntentFirewall$Rule;
+.class public Lcom/android/server/firewall/IntentFirewall$Rule;
 .super Lcom/android/server/firewall/AndFilter;
 .source "IntentFirewall.java"
 
@@ -9,29 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "Rule"
 .end annotation
 
 
-# static fields
-.field private static final ATTR_BLOCK:Ljava/lang/String; = "block"
-
-.field private static final ATTR_LOG:Ljava/lang/String; = "log"
-
-.field private static final ATTR_NAME:Ljava/lang/String; = "name"
-
-.field private static final TAG_COMPONENT_FILTER:Ljava/lang/String; = "component-filter"
-
-.field private static final TAG_INTENT_FILTER:Ljava/lang/String; = "intent-filter"
-
-
 # instance fields
-.field private block:Z
+.field public block:Z
 
-.field private log:Z
+.field public log:Z
 
-.field private final mComponentFilters:Ljava/util/ArrayList;
+.field public final mComponentFilters:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/ArrayList<",
@@ -41,7 +29,7 @@
     .end annotation
 .end field
 
-.field private final mIntentFilters:Ljava/util/ArrayList;
+.field public final mIntentFilters:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/ArrayList<",
@@ -53,7 +41,7 @@
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 2
 
     invoke-direct {p0}, Lcom/android/server/firewall/AndFilter;-><init>()V
@@ -77,7 +65,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/firewall/IntentFirewall$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/firewall/IntentFirewall$Rule-IA;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/firewall/IntentFirewall$Rule;-><init>()V
@@ -88,75 +76,75 @@
 
 # virtual methods
 .method public getBlock()Z
-    .locals 1
+    .locals 0
 
-    iget-boolean v0, p0, Lcom/android/server/firewall/IntentFirewall$Rule;->block:Z
+    iget-boolean p0, p0, Lcom/android/server/firewall/IntentFirewall$Rule;->block:Z
 
-    return v0
+    return p0
 .end method
 
 .method public getComponentFilter(I)Landroid/content/ComponentName;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/firewall/IntentFirewall$Rule;->mComponentFilters:Ljava/util/ArrayList;
+    iget-object p0, p0, Lcom/android/server/firewall/IntentFirewall$Rule;->mComponentFilters:Ljava/util/ArrayList;
 
-    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Landroid/content/ComponentName;
+    check-cast p0, Landroid/content/ComponentName;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getComponentFilterCount()I
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/firewall/IntentFirewall$Rule;->mComponentFilters:Ljava/util/ArrayList;
+    iget-object p0, p0, Lcom/android/server/firewall/IntentFirewall$Rule;->mComponentFilters:Ljava/util/ArrayList;
 
-    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {p0}, Ljava/util/ArrayList;->size()I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public getIntentFilter(I)Lcom/android/server/firewall/IntentFirewall$FirewallIntentFilter;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/firewall/IntentFirewall$Rule;->mIntentFilters:Ljava/util/ArrayList;
+    iget-object p0, p0, Lcom/android/server/firewall/IntentFirewall$Rule;->mIntentFilters:Ljava/util/ArrayList;
 
-    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/android/server/firewall/IntentFirewall$FirewallIntentFilter;
+    check-cast p0, Lcom/android/server/firewall/IntentFirewall$FirewallIntentFilter;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getIntentFilterCount()I
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/firewall/IntentFirewall$Rule;->mIntentFilters:Ljava/util/ArrayList;
+    iget-object p0, p0, Lcom/android/server/firewall/IntentFirewall$Rule;->mIntentFilters:Ljava/util/ArrayList;
 
-    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {p0}, Ljava/util/ArrayList;->size()I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public getLog()Z
-    .locals 1
+    .locals 0
 
-    iget-boolean v0, p0, Lcom/android/server/firewall/IntentFirewall$Rule;->log:Z
+    iget-boolean p0, p0, Lcom/android/server/firewall/IntentFirewall$Rule;->log:Z
 
-    return v0
+    return p0
 .end method
 
-.method protected readChild(Lorg/xmlpull/v1/XmlPullParser;)V
-    .locals 6
+.method public readChild(Lorg/xmlpull/v1/XmlPullParser;)V
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -176,15 +164,15 @@
 
     if-eqz v1, :cond_0
 
-    new-instance v1, Lcom/android/server/firewall/IntentFirewall$FirewallIntentFilter;
+    new-instance v0, Lcom/android/server/firewall/IntentFirewall$FirewallIntentFilter;
 
-    invoke-direct {v1, p0}, Lcom/android/server/firewall/IntentFirewall$FirewallIntentFilter;-><init>(Lcom/android/server/firewall/IntentFirewall$Rule;)V
+    invoke-direct {v0, p0}, Lcom/android/server/firewall/IntentFirewall$FirewallIntentFilter;-><init>(Lcom/android/server/firewall/IntentFirewall$Rule;)V
 
-    invoke-virtual {v1, p1}, Lcom/android/server/firewall/IntentFirewall$FirewallIntentFilter;->readFromXml(Lorg/xmlpull/v1/XmlPullParser;)V
+    invoke-virtual {v0, p1}, Landroid/content/IntentFilter;->readFromXml(Lorg/xmlpull/v1/XmlPullParser;)V
 
-    iget-object v2, p0, Lcom/android/server/firewall/IntentFirewall$Rule;->mIntentFilters:Ljava/util/ArrayList;
+    iget-object p0, p0, Lcom/android/server/firewall/IntentFirewall$Rule;->mIntentFilters:Ljava/util/ArrayList;
 
-    invoke-virtual {v2, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p0, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
@@ -193,64 +181,64 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_3
+    if-eqz v0, :cond_3
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    const-string/jumbo v2, "name"
+    const-string/jumbo v1, "name"
 
-    invoke-interface {p1, v1, v2}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_2
-
-    invoke-static {v2}, Landroid/content/ComponentName;->unflattenFromString(Ljava/lang/String;)Landroid/content/ComponentName;
+    invoke-interface {p1, v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2
 
-    iget-object v3, p0, Lcom/android/server/firewall/IntentFirewall$Rule;->mComponentFilters:Ljava/util/ArrayList;
+    invoke-static {v1}, Landroid/content/ComponentName;->unflattenFromString(Ljava/lang/String;)Landroid/content/ComponentName;
 
-    invoke-virtual {v3, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    move-result-object p1
+
+    if-eqz p1, :cond_1
+
+    iget-object p0, p0, Lcom/android/server/firewall/IntentFirewall$Rule;->mComponentFilters:Ljava/util/ArrayList;
+
+    invoke-virtual {p0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
     :cond_1
-    new-instance v3, Lorg/xmlpull/v1/XmlPullParserException;
+    new-instance p0, Lorg/xmlpull/v1/XmlPullParserException;
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "Invalid component name: "
+    const-string v0, "Invalid component name: "
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object p1
 
-    invoke-direct {v3, v4}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
 
-    throw v3
+    throw p0
 
     :cond_2
-    new-instance v3, Lorg/xmlpull/v1/XmlPullParserException;
+    new-instance p0, Lorg/xmlpull/v1/XmlPullParserException;
 
-    const-string v4, "Component name must be specified."
+    const-string v1, "Component name must be specified."
 
-    invoke-direct {v3, v4, p1, v1}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/Throwable;)V
+    invoke-direct {p0, v1, p1, v0}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/Throwable;)V
 
-    throw v3
+    throw p0
 
     :cond_3
-    invoke-super {p0, p1}, Lcom/android/server/firewall/AndFilter;->readChild(Lorg/xmlpull/v1/XmlPullParser;)V
+    invoke-super {p0, p1}, Lcom/android/server/firewall/FilterList;->readChild(Lorg/xmlpull/v1/XmlPullParser;)V
 
     :goto_0
     return-void
@@ -267,9 +255,9 @@
 
     invoke-virtual {p0, p1}, Lcom/android/server/firewall/IntentFirewall$Rule;->readFromXml(Lorg/xmlpull/v1/XmlPullParser;)Lcom/android/server/firewall/IntentFirewall$Rule;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method
 
 .method public readFromXml(Lorg/xmlpull/v1/XmlPullParser;)Lcom/android/server/firewall/IntentFirewall$Rule;
@@ -295,7 +283,7 @@
 
     iput-boolean v1, p0, Lcom/android/server/firewall/IntentFirewall$Rule;->block:Z
 
-    const-string/jumbo v1, "log"
+    const-string v1, "log"
 
     invoke-interface {p1, v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
@@ -307,7 +295,7 @@
 
     iput-boolean v0, p0, Lcom/android/server/firewall/IntentFirewall$Rule;->log:Z
 
-    invoke-super {p0, p1}, Lcom/android/server/firewall/AndFilter;->readFromXml(Lorg/xmlpull/v1/XmlPullParser;)Lcom/android/server/firewall/FilterList;
+    invoke-super {p0, p1}, Lcom/android/server/firewall/FilterList;->readFromXml(Lorg/xmlpull/v1/XmlPullParser;)Lcom/android/server/firewall/FilterList;
 
     return-object p0
 .end method

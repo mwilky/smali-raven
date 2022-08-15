@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/location/provider/AbstractLocationProvider$Controller$$ExternalSyntheticLambda4;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/location/provider/AbstractLocationProvider$Controller$$ExternalSyntheticLambda4;->f$0:Lcom/android/server/location/provider/AbstractLocationProvider;
+    iget-object p0, p0, Lcom/android/server/location/provider/AbstractLocationProvider$Controller$$ExternalSyntheticLambda4;->f$0:Lcom/android/server/location/provider/AbstractLocationProvider;
 
-    invoke-virtual {v0}, Lcom/android/server/location/provider/AbstractLocationProvider;->onStop()V
+    invoke-virtual {p0}, Lcom/android/server/location/provider/AbstractLocationProvider;->onStop()V
 
     return-void
 .end method

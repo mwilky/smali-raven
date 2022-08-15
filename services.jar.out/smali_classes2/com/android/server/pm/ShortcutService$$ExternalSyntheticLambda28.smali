@@ -1,41 +1,46 @@
 .class public final synthetic Lcom/android/server/pm/ShortcutService$$ExternalSyntheticLambda28;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Consumer;
+.implements Ljava/lang/Runnable;
 
 
 # instance fields
-.field public final synthetic f$0:Ljava/util/List;
+.field public final synthetic f$0:Lcom/android/server/pm/ShortcutService;
 
-.field public final synthetic f$1:Landroid/content/IntentFilter;
+.field public final synthetic f$1:I
+
+.field public final synthetic f$2:Ljava/lang/String;
 
 
 # direct methods
-.method public synthetic constructor <init>(Ljava/util/List;Landroid/content/IntentFilter;)V
+.method public synthetic constructor <init>(Lcom/android/server/pm/ShortcutService;ILjava/lang/String;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/pm/ShortcutService$$ExternalSyntheticLambda28;->f$0:Ljava/util/List;
+    iput-object p1, p0, Lcom/android/server/pm/ShortcutService$$ExternalSyntheticLambda28;->f$0:Lcom/android/server/pm/ShortcutService;
 
-    iput-object p2, p0, Lcom/android/server/pm/ShortcutService$$ExternalSyntheticLambda28;->f$1:Landroid/content/IntentFilter;
+    iput p2, p0, Lcom/android/server/pm/ShortcutService$$ExternalSyntheticLambda28;->f$1:I
+
+    iput-object p3, p0, Lcom/android/server/pm/ShortcutService$$ExternalSyntheticLambda28;->f$2:Ljava/lang/String;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
+.method public final run()V
     .locals 2
 
-    iget-object v0, p0, Lcom/android/server/pm/ShortcutService$$ExternalSyntheticLambda28;->f$0:Ljava/util/List;
+    iget-object v0, p0, Lcom/android/server/pm/ShortcutService$$ExternalSyntheticLambda28;->f$0:Lcom/android/server/pm/ShortcutService;
 
-    iget-object v1, p0, Lcom/android/server/pm/ShortcutService$$ExternalSyntheticLambda28;->f$1:Landroid/content/IntentFilter;
+    iget v1, p0, Lcom/android/server/pm/ShortcutService$$ExternalSyntheticLambda28;->f$1:I
 
-    check-cast p1, Lcom/android/server/pm/ShortcutPackage;
+    iget-object p0, p0, Lcom/android/server/pm/ShortcutService$$ExternalSyntheticLambda28;->f$2:Ljava/lang/String;
 
-    invoke-static {v0, v1, p1}, Lcom/android/server/pm/ShortcutService;->lambda$getShareTargets$20(Ljava/util/List;Landroid/content/IntentFilter;Lcom/android/server/pm/ShortcutPackage;)V
+    invoke-static {v0, v1, p0}, Lcom/android/server/pm/ShortcutService;->$r8$lambda$zijvvwSyhVkExww_yiUjY4-zTQw(Lcom/android/server/pm/ShortcutService;ILjava/lang/String;)V
 
     return-void
 .end method

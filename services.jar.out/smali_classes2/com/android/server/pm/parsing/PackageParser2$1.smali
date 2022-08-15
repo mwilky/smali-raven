@@ -1,4 +1,4 @@
-.class Lcom/android/server/pm/parsing/PackageParser2$1;
+.class public Lcom/android/server/pm/parsing/PackageParser2$1;
 .super Lcom/android/server/pm/parsing/PackageParser2$Callback;
 .source "PackageParser2.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic val$platformCompat:Lcom/android/internal/compat/IPlatformCompat;
+.field public final synthetic val$platformCompat:Lcom/android/internal/compat/IPlatformCompat;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/internal/compat/IPlatformCompat;)V
+.method public constructor <init>(Lcom/android/internal/compat/IPlatformCompat;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/pm/parsing/PackageParser2$1;->val$platformCompat:Lcom/android/internal/compat/IPlatformCompat;
@@ -32,37 +32,37 @@
 
 # virtual methods
 .method public hasFeature(Ljava/lang/String;)Z
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
 .method public isChangeEnabled(JLandroid/content/pm/ApplicationInfo;)Z
-    .locals 3
+    .locals 0
 
     :try_start_0
-    iget-object v0, p0, Lcom/android/server/pm/parsing/PackageParser2$1;->val$platformCompat:Lcom/android/internal/compat/IPlatformCompat;
+    iget-object p0, p0, Lcom/android/server/pm/parsing/PackageParser2$1;->val$platformCompat:Lcom/android/internal/compat/IPlatformCompat;
 
-    invoke-interface {v0, p1, p2, p3}, Lcom/android/internal/compat/IPlatformCompat;->isChangeEnabled(JLandroid/content/pm/ApplicationInfo;)Z
+    invoke-interface {p0, p1, p2, p3}, Lcom/android/internal/compat/IPlatformCompat;->isChangeEnabled(JLandroid/content/pm/ApplicationInfo;)Z
 
-    move-result v0
+    move-result p0
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    return v0
+    return p0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    const-string v1, "PackageParsing"
+    const-string p1, "PackageParsing"
 
-    const-string v2, "IPlatformCompat query failed"
+    const-string p2, "IPlatformCompat query failed"
 
-    invoke-static {v1, v2, v0}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {p1, p2, p0}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    const/4 v1, 0x1
+    const/4 p0, 0x1
 
-    return v1
+    return p0
 .end method

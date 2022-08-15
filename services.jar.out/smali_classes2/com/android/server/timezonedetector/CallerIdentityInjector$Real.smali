@@ -18,7 +18,7 @@
 
 
 # direct methods
-.method protected constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,13 +39,13 @@
 .end method
 
 .method public getCallingUserId()I
-    .locals 1
+    .locals 0
 
     invoke-static {}, Landroid/os/UserHandle;->getCallingUserId()I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public restoreCallingIdentity(J)V

@@ -1,31 +1,22 @@
 .class public final synthetic Lcom/android/server/location/provider/LocationProviderManager$$ExternalSyntheticLambda27;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Predicate;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/location/provider/LocationProviderManager$$ExternalSyntheticLambda27;
+# instance fields
+.field public final synthetic f$0:Ljava/lang/String;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/location/provider/LocationProviderManager$$ExternalSyntheticLambda27;
-
-    invoke-direct {v0}, Lcom/android/server/location/provider/LocationProviderManager$$ExternalSyntheticLambda27;-><init>()V
-
-    sput-object v0, Lcom/android/server/location/provider/LocationProviderManager$$ExternalSyntheticLambda27;->INSTANCE:Lcom/android/server/location/provider/LocationProviderManager$$ExternalSyntheticLambda27;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Ljava/lang/String;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/location/provider/LocationProviderManager$$ExternalSyntheticLambda27;->f$0:Ljava/lang/String;
 
     return-void
 .end method
@@ -35,11 +26,13 @@
 .method public final test(Ljava/lang/Object;)Z
     .locals 0
 
+    iget-object p0, p0, Lcom/android/server/location/provider/LocationProviderManager$$ExternalSyntheticLambda27;->f$0:Ljava/lang/String;
+
     check-cast p1, Lcom/android/server/location/provider/LocationProviderManager$Registration;
 
-    invoke-static {p1}, Lcom/android/server/location/provider/LocationProviderManager;->lambda$onLocationPowerSaveModeChanged$8(Lcom/android/server/location/provider/LocationProviderManager$Registration;)Z
+    invoke-static {p0, p1}, Lcom/android/server/location/provider/LocationProviderManager;->$r8$lambda$xYl1Cn4QeWr4LzIG-AiYMSyjCZM(Ljava/lang/String;Lcom/android/server/location/provider/LocationProviderManager$Registration;)Z
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method

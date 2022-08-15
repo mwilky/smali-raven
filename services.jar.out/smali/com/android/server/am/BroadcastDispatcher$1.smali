@@ -1,4 +1,4 @@
-.class Lcom/android/server/am/BroadcastDispatcher$1;
+.class public Lcom/android/server/am/BroadcastDispatcher$1;
 .super Ljava/lang/Object;
 .source "BroadcastDispatcher.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/am/BroadcastDispatcher;
+.field public final synthetic this$0:Lcom/android/server/am/BroadcastDispatcher;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/BroadcastDispatcher;)V
+.method public constructor <init>(Lcom/android/server/am/BroadcastDispatcher;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/am/BroadcastDispatcher$1;->this$0:Lcom/android/server/am/BroadcastDispatcher;
@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Lcom/android/server/am/BroadcastDispatcher$1;->this$0:Lcom/android/server/am/BroadcastDispatcher;
 
-    invoke-static {v0}, Lcom/android/server/am/BroadcastDispatcher;->access$000(Lcom/android/server/am/BroadcastDispatcher;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/server/am/BroadcastDispatcher;->-$$Nest$fgetmLock(Lcom/android/server/am/BroadcastDispatcher;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -60,11 +60,11 @@
 
     if-ltz v1, :cond_0
 
-    iget-object v2, p0, Lcom/android/server/am/BroadcastDispatcher$1;->this$0:Lcom/android/server/am/BroadcastDispatcher;
+    iget-object v3, p0, Lcom/android/server/am/BroadcastDispatcher$1;->this$0:Lcom/android/server/am/BroadcastDispatcher;
 
-    iget-object v2, v2, Lcom/android/server/am/BroadcastDispatcher;->mAlarmUids:Landroid/util/SparseIntArray;
+    iget-object v3, v3, Lcom/android/server/am/BroadcastDispatcher;->mAlarmUids:Landroid/util/SparseIntArray;
 
-    invoke-virtual {v2, p1, v1}, Landroid/util/SparseIntArray;->put(II)V
+    invoke-virtual {v3, p1, v1}, Landroid/util/SparseIntArray;->put(II)V
 
     goto :goto_0
 
@@ -96,61 +96,59 @@
     :goto_0
     if-gtz v1, :cond_2
 
-    iget-object v2, p0, Lcom/android/server/am/BroadcastDispatcher$1;->this$0:Lcom/android/server/am/BroadcastDispatcher;
+    iget-object v1, p0, Lcom/android/server/am/BroadcastDispatcher$1;->this$0:Lcom/android/server/am/BroadcastDispatcher;
 
-    invoke-static {v2}, Lcom/android/server/am/BroadcastDispatcher;->access$200(Lcom/android/server/am/BroadcastDispatcher;)Ljava/util/ArrayList;
+    invoke-static {v1}, Lcom/android/server/am/BroadcastDispatcher;->-$$Nest$fgetmAlarmBroadcasts(Lcom/android/server/am/BroadcastDispatcher;)Ljava/util/ArrayList;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
-    move-result v2
-
-    const/4 v3, 0x0
+    move-result v1
 
     :goto_1
-    if-ge v3, v2, :cond_2
+    if-ge v2, v1, :cond_2
 
-    iget-object v4, p0, Lcom/android/server/am/BroadcastDispatcher$1;->this$0:Lcom/android/server/am/BroadcastDispatcher;
+    iget-object v3, p0, Lcom/android/server/am/BroadcastDispatcher$1;->this$0:Lcom/android/server/am/BroadcastDispatcher;
 
-    invoke-static {v4}, Lcom/android/server/am/BroadcastDispatcher;->access$200(Lcom/android/server/am/BroadcastDispatcher;)Ljava/util/ArrayList;
+    invoke-static {v3}, Lcom/android/server/am/BroadcastDispatcher;->-$$Nest$fgetmAlarmBroadcasts(Lcom/android/server/am/BroadcastDispatcher;)Ljava/util/ArrayList;
 
-    move-result-object v4
+    move-result-object v3
 
-    invoke-virtual {v4, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v3, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v3
 
-    check-cast v4, Lcom/android/server/am/BroadcastDispatcher$Deferrals;
+    check-cast v3, Lcom/android/server/am/BroadcastDispatcher$Deferrals;
 
-    iget v4, v4, Lcom/android/server/am/BroadcastDispatcher$Deferrals;->uid:I
+    iget v3, v3, Lcom/android/server/am/BroadcastDispatcher$Deferrals;->uid:I
 
-    if-ne p1, v4, :cond_1
+    if-ne p1, v3, :cond_1
 
-    iget-object v4, p0, Lcom/android/server/am/BroadcastDispatcher$1;->this$0:Lcom/android/server/am/BroadcastDispatcher;
+    iget-object p1, p0, Lcom/android/server/am/BroadcastDispatcher$1;->this$0:Lcom/android/server/am/BroadcastDispatcher;
 
-    invoke-static {v4}, Lcom/android/server/am/BroadcastDispatcher;->access$200(Lcom/android/server/am/BroadcastDispatcher;)Ljava/util/ArrayList;
+    invoke-static {p1}, Lcom/android/server/am/BroadcastDispatcher;->-$$Nest$fgetmAlarmBroadcasts(Lcom/android/server/am/BroadcastDispatcher;)Ljava/util/ArrayList;
 
-    move-result-object v4
+    move-result-object p1
 
-    invoke-virtual {v4, v3}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
+    invoke-virtual {p1, v2}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object p1
 
-    check-cast v4, Lcom/android/server/am/BroadcastDispatcher$Deferrals;
+    check-cast p1, Lcom/android/server/am/BroadcastDispatcher$Deferrals;
 
-    iget-object v5, p0, Lcom/android/server/am/BroadcastDispatcher$1;->this$0:Lcom/android/server/am/BroadcastDispatcher;
+    iget-object p0, p0, Lcom/android/server/am/BroadcastDispatcher$1;->this$0:Lcom/android/server/am/BroadcastDispatcher;
 
-    invoke-static {v5}, Lcom/android/server/am/BroadcastDispatcher;->access$100(Lcom/android/server/am/BroadcastDispatcher;)Ljava/util/ArrayList;
+    invoke-static {p0}, Lcom/android/server/am/BroadcastDispatcher;->-$$Nest$fgetmDeferredBroadcasts(Lcom/android/server/am/BroadcastDispatcher;)Ljava/util/ArrayList;
 
-    move-result-object v5
+    move-result-object p0
 
-    invoke-static {v5, v4}, Lcom/android/server/am/BroadcastDispatcher;->access$300(Ljava/util/ArrayList;Lcom/android/server/am/BroadcastDispatcher$Deferrals;)V
+    invoke-static {p0, p1}, Lcom/android/server/am/BroadcastDispatcher;->-$$Nest$sminsertLocked(Ljava/util/ArrayList;Lcom/android/server/am/BroadcastDispatcher$Deferrals;)V
 
     goto :goto_2
 
     :cond_1
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_1
 
@@ -161,21 +159,21 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
 .method public broadcastAlarmPending(I)V
-    .locals 6
+    .locals 4
 
     iget-object v0, p0, Lcom/android/server/am/BroadcastDispatcher$1;->this$0:Lcom/android/server/am/BroadcastDispatcher;
 
-    invoke-static {v0}, Lcom/android/server/am/BroadcastDispatcher;->access$000(Lcom/android/server/am/BroadcastDispatcher;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/server/am/BroadcastDispatcher;->-$$Nest$fgetmLock(Lcom/android/server/am/BroadcastDispatcher;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -194,67 +192,65 @@
 
     add-int/lit8 v1, v1, 0x1
 
-    iget-object v2, p0, Lcom/android/server/am/BroadcastDispatcher$1;->this$0:Lcom/android/server/am/BroadcastDispatcher;
+    iget-object v3, p0, Lcom/android/server/am/BroadcastDispatcher$1;->this$0:Lcom/android/server/am/BroadcastDispatcher;
 
-    iget-object v2, v2, Lcom/android/server/am/BroadcastDispatcher;->mAlarmUids:Landroid/util/SparseIntArray;
+    iget-object v3, v3, Lcom/android/server/am/BroadcastDispatcher;->mAlarmUids:Landroid/util/SparseIntArray;
 
-    invoke-virtual {v2, p1, v1}, Landroid/util/SparseIntArray;->put(II)V
+    invoke-virtual {v3, p1, v1}, Landroid/util/SparseIntArray;->put(II)V
 
-    iget-object v2, p0, Lcom/android/server/am/BroadcastDispatcher$1;->this$0:Lcom/android/server/am/BroadcastDispatcher;
+    iget-object v1, p0, Lcom/android/server/am/BroadcastDispatcher$1;->this$0:Lcom/android/server/am/BroadcastDispatcher;
 
-    invoke-static {v2}, Lcom/android/server/am/BroadcastDispatcher;->access$100(Lcom/android/server/am/BroadcastDispatcher;)Ljava/util/ArrayList;
+    invoke-static {v1}, Lcom/android/server/am/BroadcastDispatcher;->-$$Nest$fgetmDeferredBroadcasts(Lcom/android/server/am/BroadcastDispatcher;)Ljava/util/ArrayList;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
-    move-result v2
-
-    const/4 v3, 0x0
+    move-result v1
 
     :goto_0
-    if-ge v3, v2, :cond_1
+    if-ge v2, v1, :cond_1
 
-    iget-object v4, p0, Lcom/android/server/am/BroadcastDispatcher$1;->this$0:Lcom/android/server/am/BroadcastDispatcher;
+    iget-object v3, p0, Lcom/android/server/am/BroadcastDispatcher$1;->this$0:Lcom/android/server/am/BroadcastDispatcher;
 
-    invoke-static {v4}, Lcom/android/server/am/BroadcastDispatcher;->access$100(Lcom/android/server/am/BroadcastDispatcher;)Ljava/util/ArrayList;
+    invoke-static {v3}, Lcom/android/server/am/BroadcastDispatcher;->-$$Nest$fgetmDeferredBroadcasts(Lcom/android/server/am/BroadcastDispatcher;)Ljava/util/ArrayList;
 
-    move-result-object v4
+    move-result-object v3
 
-    invoke-virtual {v4, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v3, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v3
 
-    check-cast v4, Lcom/android/server/am/BroadcastDispatcher$Deferrals;
+    check-cast v3, Lcom/android/server/am/BroadcastDispatcher$Deferrals;
 
-    iget v4, v4, Lcom/android/server/am/BroadcastDispatcher$Deferrals;->uid:I
+    iget v3, v3, Lcom/android/server/am/BroadcastDispatcher$Deferrals;->uid:I
 
-    if-ne p1, v4, :cond_0
+    if-ne p1, v3, :cond_0
 
-    iget-object v4, p0, Lcom/android/server/am/BroadcastDispatcher$1;->this$0:Lcom/android/server/am/BroadcastDispatcher;
+    iget-object p1, p0, Lcom/android/server/am/BroadcastDispatcher$1;->this$0:Lcom/android/server/am/BroadcastDispatcher;
 
-    invoke-static {v4}, Lcom/android/server/am/BroadcastDispatcher;->access$100(Lcom/android/server/am/BroadcastDispatcher;)Ljava/util/ArrayList;
+    invoke-static {p1}, Lcom/android/server/am/BroadcastDispatcher;->-$$Nest$fgetmDeferredBroadcasts(Lcom/android/server/am/BroadcastDispatcher;)Ljava/util/ArrayList;
 
-    move-result-object v4
+    move-result-object p1
 
-    invoke-virtual {v4, v3}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
+    invoke-virtual {p1, v2}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object p1
 
-    check-cast v4, Lcom/android/server/am/BroadcastDispatcher$Deferrals;
+    check-cast p1, Lcom/android/server/am/BroadcastDispatcher$Deferrals;
 
-    iget-object v5, p0, Lcom/android/server/am/BroadcastDispatcher$1;->this$0:Lcom/android/server/am/BroadcastDispatcher;
+    iget-object p0, p0, Lcom/android/server/am/BroadcastDispatcher$1;->this$0:Lcom/android/server/am/BroadcastDispatcher;
 
-    invoke-static {v5}, Lcom/android/server/am/BroadcastDispatcher;->access$200(Lcom/android/server/am/BroadcastDispatcher;)Ljava/util/ArrayList;
+    invoke-static {p0}, Lcom/android/server/am/BroadcastDispatcher;->-$$Nest$fgetmAlarmBroadcasts(Lcom/android/server/am/BroadcastDispatcher;)Ljava/util/ArrayList;
 
-    move-result-object v5
+    move-result-object p0
 
-    invoke-virtual {v5, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_1
 
     :cond_0
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
@@ -265,11 +261,11 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method

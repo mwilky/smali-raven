@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/location/geofence/GeofenceManager$GeofenceRegistration$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/app/PendingIntent$OnFinished;
+.implements Lcom/android/internal/listeners/ListenerExecutor$ListenerOperation;
 
 
 # instance fields
@@ -22,22 +23,14 @@
 
 
 # virtual methods
-.method public final onSendFinished(Landroid/app/PendingIntent;Landroid/content/Intent;ILjava/lang/String;Landroid/os/Bundle;)V
-    .locals 6
+.method public final operate(Ljava/lang/Object;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/location/geofence/GeofenceManager$GeofenceRegistration$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/location/geofence/GeofenceManager$GeofenceRegistration;
+    iget-object p0, p0, Lcom/android/server/location/geofence/GeofenceManager$GeofenceRegistration$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/location/geofence/GeofenceManager$GeofenceRegistration;
 
-    move-object v1, p1
+    check-cast p1, Landroid/app/PendingIntent;
 
-    move-object v2, p2
-
-    move v3, p3
-
-    move-object v4, p4
-
-    move-object v5, p5
-
-    invoke-virtual/range {v0 .. v5}, Lcom/android/server/location/geofence/GeofenceManager$GeofenceRegistration;->lambda$sendIntent$2$GeofenceManager$GeofenceRegistration(Landroid/app/PendingIntent;Landroid/content/Intent;ILjava/lang/String;Landroid/os/Bundle;)V
+    invoke-static {p0, p1}, Lcom/android/server/location/geofence/GeofenceManager$GeofenceRegistration;->$r8$lambda$7D_l-PLlSOtlrKTXVjUcSZQxvAw(Lcom/android/server/location/geofence/GeofenceManager$GeofenceRegistration;Landroid/app/PendingIntent;)V
 
     return-void
 .end method

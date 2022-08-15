@@ -1,35 +1,42 @@
 .class public final synthetic Lcom/android/server/TelephonyRegistry$$ExternalSyntheticLambda4;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/IntPredicate;
+.implements Lcom/android/internal/util/FunctionalUtils$ThrowingSupplier;
 
 
 # instance fields
 .field public final synthetic f$0:Lcom/android/server/TelephonyRegistry;
 
+.field public final synthetic f$1:Landroid/telephony/LocationAccessPolicy$LocationPermissionQuery;
+
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/TelephonyRegistry;)V
+.method public synthetic constructor <init>(Lcom/android/server/TelephonyRegistry;Landroid/telephony/LocationAccessPolicy$LocationPermissionQuery;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/server/TelephonyRegistry$$ExternalSyntheticLambda4;->f$0:Lcom/android/server/TelephonyRegistry;
 
+    iput-object p2, p0, Lcom/android/server/TelephonyRegistry$$ExternalSyntheticLambda4;->f$1:Landroid/telephony/LocationAccessPolicy$LocationPermissionQuery;
+
     return-void
 .end method
 
 
 # virtual methods
-.method public final test(I)Z
+.method public final getOrThrow()Ljava/lang/Object;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/TelephonyRegistry$$ExternalSyntheticLambda4;->f$0:Lcom/android/server/TelephonyRegistry;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/TelephonyRegistry;->lambda$notifyCarrierNetworkChange$0$TelephonyRegistry(I)Z
+    iget-object p0, p0, Lcom/android/server/TelephonyRegistry$$ExternalSyntheticLambda4;->f$1:Landroid/telephony/LocationAccessPolicy$LocationPermissionQuery;
 
-    move-result p1
+    invoke-static {v0, p0}, Lcom/android/server/TelephonyRegistry;->$r8$lambda$I6ZJrELAENgzq9yggYZPaRFMTG8(Lcom/android/server/TelephonyRegistry;Landroid/telephony/LocationAccessPolicy$LocationPermissionQuery;)Ljava/lang/Boolean;
 
-    return p1
+    move-result-object p0
+
+    return-object p0
 .end method

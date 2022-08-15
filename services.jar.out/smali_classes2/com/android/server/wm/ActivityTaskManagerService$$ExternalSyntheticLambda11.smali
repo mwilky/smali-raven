@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/wm/ActivityTaskManagerService$$ExternalSyntheticLambda11;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Ljava/util/function/Consumer;
 
 
 # instance fields
@@ -10,9 +11,11 @@
 
 .field public final synthetic f$1:Z
 
+.field public final synthetic f$2:Z
+
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/wm/ActivityTaskManagerService;Z)V
+.method public synthetic constructor <init>(Lcom/android/server/wm/ActivityTaskManagerService;ZZ)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -21,19 +24,25 @@
 
     iput-boolean p2, p0, Lcom/android/server/wm/ActivityTaskManagerService$$ExternalSyntheticLambda11;->f$1:Z
 
+    iput-boolean p3, p0, Lcom/android/server/wm/ActivityTaskManagerService$$ExternalSyntheticLambda11;->f$2:Z
+
     return-void
 .end method
 
 
 # virtual methods
-.method public final run()V
+.method public final accept(Ljava/lang/Object;)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/server/wm/ActivityTaskManagerService$$ExternalSyntheticLambda11;->f$0:Lcom/android/server/wm/ActivityTaskManagerService;
 
     iget-boolean v1, p0, Lcom/android/server/wm/ActivityTaskManagerService$$ExternalSyntheticLambda11;->f$1:Z
 
-    invoke-virtual {v0, v1}, Lcom/android/server/wm/ActivityTaskManagerService;->lambda$setLockScreenShown$1$ActivityTaskManagerService(Z)V
+    iget-boolean p0, p0, Lcom/android/server/wm/ActivityTaskManagerService$$ExternalSyntheticLambda11;->f$2:Z
+
+    check-cast p1, Lcom/android/server/wm/DisplayContent;
+
+    invoke-static {v0, v1, p0, p1}, Lcom/android/server/wm/ActivityTaskManagerService;->$r8$lambda$LyQkbVg42yAH9p4mmExxe-lDwPU(Lcom/android/server/wm/ActivityTaskManagerService;ZZLcom/android/server/wm/DisplayContent;)V
 
     return-void
 .end method

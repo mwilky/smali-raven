@@ -26,27 +26,27 @@
 .end method
 
 .method public static dumpIpClient(Landroid/net/ip/IIpClient;Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    .locals 1
+    .locals 0
 
-    const-string v0, "IpClient logs have moved to dumpsys network_stack"
+    const-string p0, "IpClient logs have moved to dumpsys network_stack"
 
-    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p2, p0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     return-void
 .end method
 
 .method public static makeIpClient(Landroid/content/Context;Ljava/lang/String;Landroid/net/ip/IpClientCallbacks;)V
-    .locals 2
+    .locals 1
 
     invoke-static {p0}, Landroid/net/networkstack/ModuleNetworkStackClient;->getInstance(Landroid/content/Context;)Landroid/net/networkstack/ModuleNetworkStackClient;
 
-    move-result-object v0
+    move-result-object p0
 
-    new-instance v1, Landroid/net/ip/IpClientUtil$IpClientCallbacksProxy;
+    new-instance v0, Landroid/net/ip/IpClientUtil$IpClientCallbacksProxy;
 
-    invoke-direct {v1, p2}, Landroid/net/ip/IpClientUtil$IpClientCallbacksProxy;-><init>(Landroid/net/ip/IpClientCallbacks;)V
+    invoke-direct {v0, p2}, Landroid/net/ip/IpClientUtil$IpClientCallbacksProxy;-><init>(Landroid/net/ip/IpClientCallbacks;)V
 
-    invoke-virtual {v0, p1, v1}, Landroid/net/networkstack/ModuleNetworkStackClient;->makeIpClient(Ljava/lang/String;Landroid/net/ip/IIpClientCallbacks;)V
+    invoke-virtual {p0, p1, v0}, Landroid/net/networkstack/NetworkStackClientBase;->makeIpClient(Ljava/lang/String;Landroid/net/ip/IIpClientCallbacks;)V
 
     return-void
 .end method

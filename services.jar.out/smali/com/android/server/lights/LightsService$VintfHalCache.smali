@@ -1,4 +1,4 @@
-.class Lcom/android/server/lights/LightsService$VintfHalCache;
+.class public Lcom/android/server/lights/LightsService$VintfHalCache;
 .super Ljava/lang/Object;
 .source "LightsService.java"
 
@@ -13,7 +13,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "VintfHalCache"
 .end annotation
 
@@ -29,11 +29,17 @@
 
 
 # instance fields
-.field private mInstance:Landroid/hardware/light/ILights;
+.field public mInstance:Landroid/hardware/light/ILights;
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "this"
+        }
+    .end annotation
+.end field
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -45,7 +51,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/lights/LightsService$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/lights/LightsService$VintfHalCache-IA;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/lights/LightsService$VintfHalCache;-><init>()V
@@ -80,7 +86,7 @@
 .end method
 
 .method public declared-synchronized get()Landroid/hardware/light/ILights;
-    .locals 5
+    .locals 3
 
     monitor-enter p0
 
@@ -134,28 +140,26 @@
     goto :goto_0
 
     :catch_0
-    move-exception v1
-
     :try_start_2
-    const-string v2, "LightsService"
+    const-string v0, "LightsService"
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "Unable to register DeathRecipient for "
+    const-string v2, "Unable to register DeathRecipient for "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v4, p0, Lcom/android/server/lights/LightsService$VintfHalCache;->mInstance:Landroid/hardware/light/ILights;
+    iget-object v2, p0, Lcom/android/server/lights/LightsService$VintfHalCache;->mInstance:Landroid/hardware/light/ILights;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-static {v2, v3}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
     :goto_0
@@ -176,11 +180,11 @@
 .end method
 
 .method public bridge synthetic get()Ljava/lang/Object;
-    .locals 1
+    .locals 0
 
     invoke-virtual {p0}, Lcom/android/server/lights/LightsService$VintfHalCache;->get()Landroid/hardware/light/ILights;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

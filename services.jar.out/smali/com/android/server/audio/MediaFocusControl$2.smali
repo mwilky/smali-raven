@@ -1,4 +1,4 @@
-.class Lcom/android/server/audio/MediaFocusControl$2;
+.class public Lcom/android/server/audio/MediaFocusControl$2;
 .super Ljava/lang/Thread;
 .source "MediaFocusControl.java"
 
@@ -9,19 +9,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/audio/MediaFocusControl;
+.field public final synthetic this$0:Lcom/android/server/audio/MediaFocusControl;
 
-.field final synthetic val$enteringRingOrCall:Z
+.field public final synthetic val$enteringRingOrCall:Z
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/audio/MediaFocusControl;Z)V
+.method public constructor <init>(Lcom/android/server/audio/MediaFocusControl;Z)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/audio/MediaFocusControl$2;->this$0:Lcom/android/server/audio/MediaFocusControl;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .locals 2
 
     iget-boolean v0, p0, Lcom/android/server/audio/MediaFocusControl$2;->val$enteringRingOrCall:Z
 
@@ -58,7 +58,7 @@
 
     :cond_0
     :goto_0
-    invoke-static {}, Lcom/android/server/audio/MediaFocusControl;->access$000()Ljava/lang/Object;
+    invoke-static {}, Lcom/android/server/audio/MediaFocusControl;->-$$Nest$sfgetmAudioFocusLock()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -67,34 +67,34 @@
     :try_start_1
     iget-object v1, p0, Lcom/android/server/audio/MediaFocusControl$2;->this$0:Lcom/android/server/audio/MediaFocusControl;
 
-    invoke-static {v1}, Lcom/android/server/audio/MediaFocusControl;->access$600(Lcom/android/server/audio/MediaFocusControl;)Z
+    invoke-static {v1}, Lcom/android/server/audio/MediaFocusControl;->-$$Nest$fgetmRingOrCallActive(Lcom/android/server/audio/MediaFocusControl;)Z
 
     move-result v1
 
     if-eqz v1, :cond_1
 
-    iget-object v1, p0, Lcom/android/server/audio/MediaFocusControl$2;->this$0:Lcom/android/server/audio/MediaFocusControl;
+    iget-object p0, p0, Lcom/android/server/audio/MediaFocusControl$2;->this$0:Lcom/android/server/audio/MediaFocusControl;
 
-    invoke-static {v1}, Lcom/android/server/audio/MediaFocusControl;->access$800(Lcom/android/server/audio/MediaFocusControl;)Lcom/android/server/audio/PlayerFocusEnforcer;
+    invoke-static {p0}, Lcom/android/server/audio/MediaFocusControl;->-$$Nest$fgetmFocusEnforcer(Lcom/android/server/audio/MediaFocusControl;)Lcom/android/server/audio/PlayerFocusEnforcer;
+
+    move-result-object p0
+
+    invoke-static {}, Lcom/android/server/audio/MediaFocusControl;->-$$Nest$sfgetUSAGES_TO_MUTE_IN_RING_OR_CALL()[I
 
     move-result-object v1
 
-    invoke-static {}, Lcom/android/server/audio/MediaFocusControl;->access$700()[I
-
-    move-result-object v2
-
-    invoke-interface {v1, v2}, Lcom/android/server/audio/PlayerFocusEnforcer;->mutePlayersForCall([I)V
+    invoke-interface {p0, v1}, Lcom/android/server/audio/PlayerFocusEnforcer;->mutePlayersForCall([I)V
 
     goto :goto_1
 
     :cond_1
-    iget-object v1, p0, Lcom/android/server/audio/MediaFocusControl$2;->this$0:Lcom/android/server/audio/MediaFocusControl;
+    iget-object p0, p0, Lcom/android/server/audio/MediaFocusControl$2;->this$0:Lcom/android/server/audio/MediaFocusControl;
 
-    invoke-static {v1}, Lcom/android/server/audio/MediaFocusControl;->access$800(Lcom/android/server/audio/MediaFocusControl;)Lcom/android/server/audio/PlayerFocusEnforcer;
+    invoke-static {p0}, Lcom/android/server/audio/MediaFocusControl;->-$$Nest$fgetmFocusEnforcer(Lcom/android/server/audio/MediaFocusControl;)Lcom/android/server/audio/PlayerFocusEnforcer;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-interface {v1}, Lcom/android/server/audio/PlayerFocusEnforcer;->unmutePlayersForCall()V
+    invoke-interface {p0}, Lcom/android/server/audio/PlayerFocusEnforcer;->unmutePlayersForCall()V
 
     :goto_1
     monitor-exit v0
@@ -102,11 +102,11 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v1
+    throw p0
 .end method

@@ -1,4 +1,4 @@
-.class Lcom/android/server/pm/UserManagerService$WatchedUserStates;
+.class public Lcom/android/server/pm/UserManagerService$WatchedUserStates;
 .super Ljava/lang/Object;
 .source "UserManagerService.java"
 
@@ -9,15 +9,15 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "WatchedUserStates"
 .end annotation
 
 
 # instance fields
-.field final states:Landroid/util/SparseIntArray;
+.field public final states:Landroid/util/SparseIntArray;
 
-.field final synthetic this$0:Lcom/android/server/pm/UserManagerService;
+.field public final synthetic this$0:Lcom/android/server/pm/UserManagerService;
 
 
 # direct methods
@@ -34,15 +34,7 @@
 
     iput-object p1, p0, Lcom/android/server/pm/UserManagerService$WatchedUserStates;->states:Landroid/util/SparseIntArray;
 
-    invoke-direct {p0}, Lcom/android/server/pm/UserManagerService$WatchedUserStates;->invalidateIsUserUnlockedCache()V
-
-    return-void
-.end method
-
-.method private invalidateIsUserUnlockedCache()V
-    .locals 0
-
-    invoke-static {}, Landroid/os/UserManager;->invalidateIsUserUnlockedCache()V
+    invoke-virtual {p0}, Lcom/android/server/pm/UserManagerService$WatchedUserStates;->invalidateIsUserUnlockedCache()V
 
     return-void
 .end method
@@ -56,21 +48,9 @@
 
     invoke-virtual {v0, p1}, Landroid/util/SparseIntArray;->delete(I)V
 
-    invoke-direct {p0}, Lcom/android/server/pm/UserManagerService$WatchedUserStates;->invalidateIsUserUnlockedCache()V
+    invoke-virtual {p0}, Lcom/android/server/pm/UserManagerService$WatchedUserStates;->invalidateIsUserUnlockedCache()V
 
     return-void
-.end method
-
-.method public get(I)I
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/pm/UserManagerService$WatchedUserStates;->states:Landroid/util/SparseIntArray;
-
-    invoke-virtual {v0, p1}, Landroid/util/SparseIntArray;->get(I)I
-
-    move-result v0
-
-    return v0
 .end method
 
 .method public get(II)I
@@ -84,43 +64,46 @@
 
     if-ltz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/pm/UserManagerService$WatchedUserStates;->states:Landroid/util/SparseIntArray;
+    iget-object p0, p0, Lcom/android/server/pm/UserManagerService$WatchedUserStates;->states:Landroid/util/SparseIntArray;
 
-    invoke-virtual {v0, p1}, Landroid/util/SparseIntArray;->get(I)I
+    invoke-virtual {p0, p1}, Landroid/util/SparseIntArray;->get(I)I
 
-    move-result v0
-
-    goto :goto_0
+    move-result p2
 
     :cond_0
-    move v0, p2
-
-    :goto_0
-    return v0
+    return p2
 .end method
 
 .method public has(I)Z
-    .locals 2
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/pm/UserManagerService$WatchedUserStates;->states:Landroid/util/SparseIntArray;
+    iget-object p0, p0, Lcom/android/server/pm/UserManagerService$WatchedUserStates;->states:Landroid/util/SparseIntArray;
 
-    const/16 v1, -0x2710
+    const/16 v0, -0x2710
 
-    invoke-virtual {v0, p1, v1}, Landroid/util/SparseIntArray;->get(II)I
+    invoke-virtual {p0, p1, v0}, Landroid/util/SparseIntArray;->get(II)I
 
-    move-result v0
+    move-result p0
 
-    if-eq v0, v1, :cond_0
+    if-eq p0, v0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
+.end method
+
+.method public final invalidateIsUserUnlockedCache()V
+    .locals 0
+
+    invoke-static {}, Landroid/os/UserManager;->invalidateIsUserUnlockedCache()V
+
+    return-void
 .end method
 
 .method public put(II)V
@@ -130,19 +113,19 @@
 
     invoke-virtual {v0, p1, p2}, Landroid/util/SparseIntArray;->put(II)V
 
-    invoke-direct {p0}, Lcom/android/server/pm/UserManagerService$WatchedUserStates;->invalidateIsUserUnlockedCache()V
+    invoke-virtual {p0}, Lcom/android/server/pm/UserManagerService$WatchedUserStates;->invalidateIsUserUnlockedCache()V
 
     return-void
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/pm/UserManagerService$WatchedUserStates;->states:Landroid/util/SparseIntArray;
+    iget-object p0, p0, Lcom/android/server/pm/UserManagerService$WatchedUserStates;->states:Landroid/util/SparseIntArray;
 
-    invoke-virtual {v0}, Landroid/util/SparseIntArray;->toString()Ljava/lang/String;
+    invoke-virtual {p0}, Landroid/util/SparseIntArray;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

@@ -1,45 +1,34 @@
 .class public final synthetic Lcom/android/server/hdmi/HdmiControlService$$ExternalSyntheticLambda4;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Function;
+.implements Ljava/lang/Runnable;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/hdmi/HdmiControlService$$ExternalSyntheticLambda4;
+# instance fields
+.field public final synthetic f$0:Lcom/android/server/hdmi/HdmiControlService;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/hdmi/HdmiControlService$$ExternalSyntheticLambda4;
-
-    invoke-direct {v0}, Lcom/android/server/hdmi/HdmiControlService$$ExternalSyntheticLambda4;-><init>()V
-
-    sput-object v0, Lcom/android/server/hdmi/HdmiControlService$$ExternalSyntheticLambda4;->INSTANCE:Lcom/android/server/hdmi/HdmiControlService$$ExternalSyntheticLambda4;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Lcom/android/server/hdmi/HdmiControlService;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/hdmi/HdmiControlService$$ExternalSyntheticLambda4;->f$0:Lcom/android/server/hdmi/HdmiControlService;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
+.method public final run()V
     .locals 0
 
-    check-cast p1, Landroid/sysprop/HdmiProperties$cec_device_types_values;
+    iget-object p0, p0, Lcom/android/server/hdmi/HdmiControlService$$ExternalSyntheticLambda4;->f$0:Lcom/android/server/hdmi/HdmiControlService;
 
-    invoke-static {p1}, Lcom/android/server/hdmi/HdmiControlService;->$r8$lambda$JKG6smqwetJwOwg-4sZJ4mlKqYA(Landroid/sysprop/HdmiProperties$cec_device_types_values;)Ljava/lang/Integer;
+    invoke-static {p0}, Lcom/android/server/hdmi/HdmiControlService;->$r8$lambda$KZAwVHsDjIYwp0ydzfuqedDp5D0(Lcom/android/server/hdmi/HdmiControlService;)V
 
-    move-result-object p1
-
-    return-object p1
+    return-void
 .end method

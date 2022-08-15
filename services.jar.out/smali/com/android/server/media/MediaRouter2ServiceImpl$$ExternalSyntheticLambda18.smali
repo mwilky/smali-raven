@@ -1,28 +1,13 @@
 .class public final synthetic Lcom/android/server/media/MediaRouter2ServiceImpl$$ExternalSyntheticLambda18;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/internal/util/function/TriConsumer;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/media/MediaRouter2ServiceImpl$$ExternalSyntheticLambda18;
-
-
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/media/MediaRouter2ServiceImpl$$ExternalSyntheticLambda18;
-
-    invoke-direct {v0}, Lcom/android/server/media/MediaRouter2ServiceImpl$$ExternalSyntheticLambda18;-><init>()V
-
-    sput-object v0, Lcom/android/server/media/MediaRouter2ServiceImpl$$ExternalSyntheticLambda18;->INSTANCE:Lcom/android/server/media/MediaRouter2ServiceImpl$$ExternalSyntheticLambda18;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,11 +22,15 @@
 
     check-cast p1, Lcom/android/server/media/MediaRouter2ServiceImpl$UserHandler;
 
-    check-cast p2, Ljava/lang/String;
+    check-cast p2, Lcom/android/server/media/MediaRouter2ServiceImpl$RouterRecord;
 
-    check-cast p3, Ljava/util/List;
+    check-cast p3, Ljava/lang/Integer;
 
-    invoke-static {p1, p2, p3}, Lcom/android/server/media/MediaRouter2ServiceImpl;->lambda$unregisterRouter2Locked$4(Ljava/lang/Object;Ljava/lang/String;Ljava/util/List;)V
+    invoke-virtual {p3}, Ljava/lang/Integer;->intValue()I
+
+    move-result p0
+
+    invoke-static {p1, p2, p0}, Lcom/android/server/media/MediaRouter2ServiceImpl;->$r8$lambda$YHHhWTP3AUpj-SVxx8JvluOqx8Q(Ljava/lang/Object;Lcom/android/server/media/MediaRouter2ServiceImpl$RouterRecord;I)V
 
     return-void
 .end method

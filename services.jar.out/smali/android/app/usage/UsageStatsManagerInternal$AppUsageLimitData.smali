@@ -15,9 +15,9 @@
 
 
 # instance fields
-.field private final mTotalUsageLimit:J
+.field public final mTotalUsageLimit:J
 
-.field private final mUsageRemaining:J
+.field public final mUsageRemaining:J
 
 
 # direct methods

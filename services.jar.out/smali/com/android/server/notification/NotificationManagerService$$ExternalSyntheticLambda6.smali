@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/notification/NotificationManagerService$$ExternalSyntheticLambda6;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -31,15 +32,15 @@
 
 # virtual methods
 .method public final run()V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$$ExternalSyntheticLambda6;->f$0:Lcom/android/server/notification/NotificationManagerService;
 
     iget-object v1, p0, Lcom/android/server/notification/NotificationManagerService$$ExternalSyntheticLambda6;->f$1:Lcom/android/server/notification/NotificationRecord;
 
-    iget-object v2, p0, Lcom/android/server/notification/NotificationManagerService$$ExternalSyntheticLambda6;->f$2:Landroid/os/VibrationEffect;
+    iget-object p0, p0, Lcom/android/server/notification/NotificationManagerService$$ExternalSyntheticLambda6;->f$2:Landroid/os/VibrationEffect;
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/notification/NotificationManagerService;->lambda$playVibration$6$NotificationManagerService(Lcom/android/server/notification/NotificationRecord;Landroid/os/VibrationEffect;)V
+    invoke-static {v0, v1, p0}, Lcom/android/server/notification/NotificationManagerService;->$r8$lambda$JKIkpUUsC-a0gVq6S_VHzawrIj4(Lcom/android/server/notification/NotificationManagerService;Lcom/android/server/notification/NotificationRecord;Landroid/os/VibrationEffect;)V
 
     return-void
 .end method

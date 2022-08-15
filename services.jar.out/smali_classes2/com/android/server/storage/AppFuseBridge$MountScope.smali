@@ -18,9 +18,9 @@
 
 
 # instance fields
-.field private mMountResult:Z
+.field public mMountResult:Z
 
-.field private final mMounted:Ljava/util/concurrent/CountDownLatch;
+.field public final mMounted:Ljava/util/concurrent/CountDownLatch;
 
 .field public final mountId:I
 
@@ -57,7 +57,7 @@
 .method public abstract open()Landroid/os/ParcelFileDescriptor;
     .annotation system Ldalvik/annotation/Throws;
         value = {
-            Lcom/android/server/NativeDaemonConnectorException;
+            Lcom/android/server/AppFuseMountException;
         }
     .end annotation
 .end method
@@ -65,13 +65,18 @@
 .method public abstract openFile(III)Landroid/os/ParcelFileDescriptor;
     .annotation system Ldalvik/annotation/Throws;
         value = {
-            Lcom/android/server/NativeDaemonConnectorException;
+            Lcom/android/server/AppFuseMountException;
         }
     .end annotation
 .end method
 
-.method setMountResultLocked(Z)V
+.method public setMountResultLocked(Z)V
     .locals 4
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "AppFuseBridge.this"
+        }
+    .end annotation
 
     iget-object v0, p0, Lcom/android/server/storage/AppFuseBridge$MountScope;->mMounted:Ljava/util/concurrent/CountDownLatch;
 
@@ -90,14 +95,14 @@
     :cond_0
     iput-boolean p1, p0, Lcom/android/server/storage/AppFuseBridge$MountScope;->mMountResult:Z
 
-    iget-object v0, p0, Lcom/android/server/storage/AppFuseBridge$MountScope;->mMounted:Ljava/util/concurrent/CountDownLatch;
+    iget-object p0, p0, Lcom/android/server/storage/AppFuseBridge$MountScope;->mMounted:Ljava/util/concurrent/CountDownLatch;
 
-    invoke-virtual {v0}, Ljava/util/concurrent/CountDownLatch;->countDown()V
+    invoke-virtual {p0}, Ljava/util/concurrent/CountDownLatch;->countDown()V
 
     return-void
 .end method
 
-.method waitForMount()Z
+.method public waitForMount()Z
     .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -109,7 +114,7 @@
 
     invoke-virtual {v0}, Ljava/util/concurrent/CountDownLatch;->await()V
 
-    iget-boolean v0, p0, Lcom/android/server/storage/AppFuseBridge$MountScope;->mMountResult:Z
+    iget-boolean p0, p0, Lcom/android/server/storage/AppFuseBridge$MountScope;->mMountResult:Z
 
-    return v0
+    return p0
 .end method

@@ -1,4 +1,4 @@
-.class Lcom/android/server/power/WakeLockLog$TheLog$1;
+.class public Lcom/android/server/power/WakeLockLog$TheLog$1;
 .super Ljava/lang/Object;
 .source "WakeLockLog.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/power/WakeLockLog$TheLog;
+.field public final synthetic this$0:Lcom/android/server/power/WakeLockLog$TheLog;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/power/WakeLockLog$TheLog;)V
+.method public constructor <init>(Lcom/android/server/power/WakeLockLog$TheLog;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/power/WakeLockLog$TheLog$1;->this$0:Lcom/android/server/power/WakeLockLog$TheLog;
@@ -35,11 +35,11 @@
 
 # virtual methods
 .method public onIndexRemoved(I)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/power/WakeLockLog$TheLog$1;->this$0:Lcom/android/server/power/WakeLockLog$TheLog;
+    iget-object p0, p0, Lcom/android/server/power/WakeLockLog$TheLog$1;->this$0:Lcom/android/server/power/WakeLockLog$TheLog;
 
-    invoke-static {v0, p1}, Lcom/android/server/power/WakeLockLog$TheLog;->access$200(Lcom/android/server/power/WakeLockLog$TheLog;I)V
+    invoke-static {p0, p1}, Lcom/android/server/power/WakeLockLog$TheLog;->-$$Nest$mremoveTagIndex(Lcom/android/server/power/WakeLockLog$TheLog;I)V
 
     return-void
 .end method

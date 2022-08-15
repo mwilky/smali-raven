@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/biometrics/sensors/face/aidl/Sensor$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/server/biometrics/sensors/UserAwareBiometricScheduler$CurrentUserRetriever;
+.implements Ljava/util/function/Supplier;
 
 
 # instance fields
@@ -22,14 +23,14 @@
 
 
 # virtual methods
-.method public final getCurrentUserId()I
-    .locals 1
+.method public final get()Ljava/lang/Object;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/biometrics/sensors/face/aidl/Sensor$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/biometrics/sensors/face/aidl/Sensor;
+    iget-object p0, p0, Lcom/android/server/biometrics/sensors/face/aidl/Sensor$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/biometrics/sensors/face/aidl/Sensor;
 
-    invoke-virtual {v0}, Lcom/android/server/biometrics/sensors/face/aidl/Sensor;->lambda$new$0$Sensor()I
+    invoke-static {p0}, Lcom/android/server/biometrics/sensors/face/aidl/Sensor;->$r8$lambda$ckV_sfQXrvOBRD7rLXDNui_jmm0(Lcom/android/server/biometrics/sensors/face/aidl/Sensor;)Lcom/android/server/biometrics/sensors/face/aidl/AidlSession;
 
-    move-result v0
+    move-result-object p0
 
-    return v0
+    return-object p0
 .end method

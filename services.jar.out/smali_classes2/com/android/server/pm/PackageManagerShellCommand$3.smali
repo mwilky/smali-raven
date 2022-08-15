@@ -1,4 +1,4 @@
-.class Lcom/android/server/pm/PackageManagerShellCommand$3;
+.class public Lcom/android/server/pm/PackageManagerShellCommand$3;
 .super Ljava/lang/Object;
 .source "PackageManagerShellCommand.java"
 
@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
@@ -27,11 +27,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/pm/PackageManagerShellCommand;
+.field public final synthetic this$0:Lcom/android/server/pm/PackageManagerShellCommand;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/pm/PackageManagerShellCommand;)V
+.method public constructor <init>(Lcom/android/server/pm/PackageManagerShellCommand;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/pm/PackageManagerShellCommand$3;->this$0:Lcom/android/server/pm/PackageManagerShellCommand;
@@ -52,38 +52,38 @@
 
     invoke-virtual {p0, p1, p2}, Lcom/android/server/pm/PackageManagerShellCommand$3;->compare(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method
 
 .method public compare(Ljava/lang/String;Ljava/lang/String;)I
-    .locals 1
+    .locals 0
 
     if-ne p1, p2, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 
     :cond_0
     if-nez p1, :cond_1
 
-    const/4 v0, -0x1
+    const/4 p0, -0x1
 
-    return v0
+    return p0
 
     :cond_1
     if-nez p2, :cond_2
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 
     :cond_2
     invoke-virtual {p1, p2}, Ljava/lang/String;->compareTo(Ljava/lang/String;)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method

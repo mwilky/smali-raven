@@ -1,28 +1,13 @@
 .class public final synthetic Lcom/android/server/wm/SurfaceFreezer$Snapshot$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/wm/SurfaceFreezer$Snapshot$$ExternalSyntheticLambda0;
-
-
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/wm/SurfaceFreezer$Snapshot$$ExternalSyntheticLambda0;
-
-    invoke-direct {v0}, Lcom/android/server/wm/SurfaceFreezer$Snapshot$$ExternalSyntheticLambda0;-><init>()V
-
-    sput-object v0, Lcom/android/server/wm/SurfaceFreezer$Snapshot$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/server/wm/SurfaceFreezer$Snapshot$$ExternalSyntheticLambda0;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -35,7 +20,7 @@
 .method public final onAnimationFinished(ILcom/android/server/wm/AnimationAdapter;)V
     .locals 0
 
-    invoke-static {p1, p2}, Lcom/android/server/wm/SurfaceFreezer$Snapshot;->lambda$startAnimation$0(ILcom/android/server/wm/AnimationAdapter;)V
+    invoke-static {p1, p2}, Lcom/android/server/wm/SurfaceFreezer$Snapshot;->$r8$lambda$V6nuYzcC-CCueHi3OcKeQGN9c-g(ILcom/android/server/wm/AnimationAdapter;)V
 
     return-void
 .end method

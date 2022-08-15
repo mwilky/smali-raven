@@ -1,43 +1,34 @@
 .class public final synthetic Lcom/android/server/PackageWatchdog$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/server/PackageWatchdog$SystemClock;
+.implements Ljava/lang/Runnable;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/PackageWatchdog$$ExternalSyntheticLambda2;
+# instance fields
+.field public final synthetic f$0:Lcom/android/server/PackageWatchdog;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/PackageWatchdog$$ExternalSyntheticLambda2;
-
-    invoke-direct {v0}, Lcom/android/server/PackageWatchdog$$ExternalSyntheticLambda2;-><init>()V
-
-    sput-object v0, Lcom/android/server/PackageWatchdog$$ExternalSyntheticLambda2;->INSTANCE:Lcom/android/server/PackageWatchdog$$ExternalSyntheticLambda2;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Lcom/android/server/PackageWatchdog;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/PackageWatchdog$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/PackageWatchdog;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final uptimeMillis()J
-    .locals 2
+.method public final run()V
+    .locals 0
 
-    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+    iget-object p0, p0, Lcom/android/server/PackageWatchdog$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/PackageWatchdog;
 
-    move-result-wide v0
+    invoke-static {p0}, Lcom/android/server/PackageWatchdog;->$r8$lambda$ynWNQmq6XL4jo-iPgeNDgXz9iyk(Lcom/android/server/PackageWatchdog;)V
 
-    return-wide v0
+    return-void
 .end method

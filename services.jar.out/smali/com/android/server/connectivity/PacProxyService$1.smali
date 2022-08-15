@@ -1,4 +1,4 @@
-.class Lcom/android/server/connectivity/PacProxyService$1;
+.class public Lcom/android/server/connectivity/PacProxyService$1;
 .super Ljava/lang/Object;
 .source "PacProxyService.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/connectivity/PacProxyService;
+.field public final synthetic this$0:Lcom/android/server/connectivity/PacProxyService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/connectivity/PacProxyService;)V
+.method public constructor <init>(Lcom/android/server/connectivity/PacProxyService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/connectivity/PacProxyService$1;->this$0:Lcom/android/server/connectivity/PacProxyService;
@@ -35,11 +35,11 @@
 
 # virtual methods
 .method public run()V
-    .locals 7
+    .locals 6
 
     iget-object v0, p0, Lcom/android/server/connectivity/PacProxyService$1;->this$0:Lcom/android/server/connectivity/PacProxyService;
 
-    invoke-static {v0}, Lcom/android/server/connectivity/PacProxyService;->access$000(Lcom/android/server/connectivity/PacProxyService;)Landroid/net/Uri;
+    invoke-static {v0}, Lcom/android/server/connectivity/PacProxyService;->-$$Nest$fgetmPacUrl(Lcom/android/server/connectivity/PacProxyService;)Landroid/net/Uri;
 
     move-result-object v0
 
@@ -61,9 +61,9 @@
     move-result v1
 
     :try_start_0
-    invoke-static {v0}, Lcom/android/server/connectivity/PacProxyService;->access$100(Landroid/net/Uri;)Ljava/lang/String;
+    invoke-static {v0}, Lcom/android/server/connectivity/PacProxyService;->-$$Nest$smget(Landroid/net/Uri;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -73,105 +73,103 @@
     goto :goto_0
 
     :catchall_0
-    move-exception v2
+    move-exception p0
 
     goto :goto_2
 
     :catch_0
-    move-exception v2
+    move-exception v0
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
     :try_start_1
-    const-string v4, "PacProxyService"
+    const-string v3, "PacProxyService"
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v6, "Failed to load PAC file: "
+    const-string v5, "Failed to load PAC file: "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v0
 
-    invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    nop
-
     invoke-static {v1}, Landroid/net/TrafficStats;->setThreadStatsTag(I)V
 
-    move-object v2, v3
+    move-object v0, v2
 
     :goto_0
-    if-eqz v2, :cond_2
+    if-eqz v0, :cond_2
 
-    iget-object v3, p0, Lcom/android/server/connectivity/PacProxyService$1;->this$0:Lcom/android/server/connectivity/PacProxyService;
+    iget-object v1, p0, Lcom/android/server/connectivity/PacProxyService$1;->this$0:Lcom/android/server/connectivity/PacProxyService;
 
-    invoke-static {v3}, Lcom/android/server/connectivity/PacProxyService;->access$200(Lcom/android/server/connectivity/PacProxyService;)Ljava/lang/Object;
+    invoke-static {v1}, Lcom/android/server/connectivity/PacProxyService;->-$$Nest$fgetmProxyLock(Lcom/android/server/connectivity/PacProxyService;)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v1
 
-    monitor-enter v3
+    monitor-enter v1
 
     :try_start_2
-    iget-object v4, p0, Lcom/android/server/connectivity/PacProxyService$1;->this$0:Lcom/android/server/connectivity/PacProxyService;
+    iget-object v2, p0, Lcom/android/server/connectivity/PacProxyService$1;->this$0:Lcom/android/server/connectivity/PacProxyService;
 
-    invoke-static {v4}, Lcom/android/server/connectivity/PacProxyService;->access$300(Lcom/android/server/connectivity/PacProxyService;)Ljava/lang/String;
+    invoke-static {v2}, Lcom/android/server/connectivity/PacProxyService;->-$$Nest$fgetmCurrentPac(Lcom/android/server/connectivity/PacProxyService;)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v2
 
-    invoke-virtual {v2, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result v2
 
-    if-nez v4, :cond_1
+    if-nez v2, :cond_1
 
-    iget-object v4, p0, Lcom/android/server/connectivity/PacProxyService$1;->this$0:Lcom/android/server/connectivity/PacProxyService;
+    iget-object v2, p0, Lcom/android/server/connectivity/PacProxyService$1;->this$0:Lcom/android/server/connectivity/PacProxyService;
 
-    invoke-static {v4, v2}, Lcom/android/server/connectivity/PacProxyService;->access$400(Lcom/android/server/connectivity/PacProxyService;Ljava/lang/String;)V
+    invoke-static {v2, v0}, Lcom/android/server/connectivity/PacProxyService;->-$$Nest$msetCurrentProxyScript(Lcom/android/server/connectivity/PacProxyService;Ljava/lang/String;)V
 
     :cond_1
-    monitor-exit v3
+    monitor-exit v1
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    iget-object v3, p0, Lcom/android/server/connectivity/PacProxyService$1;->this$0:Lcom/android/server/connectivity/PacProxyService;
+    iget-object v0, p0, Lcom/android/server/connectivity/PacProxyService$1;->this$0:Lcom/android/server/connectivity/PacProxyService;
 
-    const/4 v4, 0x1
+    const/4 v1, 0x1
 
-    invoke-static {v3, v4}, Lcom/android/server/connectivity/PacProxyService;->access$502(Lcom/android/server/connectivity/PacProxyService;Z)Z
+    invoke-static {v0, v1}, Lcom/android/server/connectivity/PacProxyService;->-$$Nest$fputmHasDownloaded(Lcom/android/server/connectivity/PacProxyService;Z)V
 
-    iget-object v3, p0, Lcom/android/server/connectivity/PacProxyService$1;->this$0:Lcom/android/server/connectivity/PacProxyService;
+    iget-object v0, p0, Lcom/android/server/connectivity/PacProxyService$1;->this$0:Lcom/android/server/connectivity/PacProxyService;
 
-    invoke-static {v3}, Lcom/android/server/connectivity/PacProxyService;->access$600(Lcom/android/server/connectivity/PacProxyService;)V
+    invoke-static {v0}, Lcom/android/server/connectivity/PacProxyService;->-$$Nest$msendProxyIfNeeded(Lcom/android/server/connectivity/PacProxyService;)V
 
-    iget-object v3, p0, Lcom/android/server/connectivity/PacProxyService$1;->this$0:Lcom/android/server/connectivity/PacProxyService;
+    iget-object p0, p0, Lcom/android/server/connectivity/PacProxyService$1;->this$0:Lcom/android/server/connectivity/PacProxyService;
 
-    invoke-static {v3}, Lcom/android/server/connectivity/PacProxyService;->access$700(Lcom/android/server/connectivity/PacProxyService;)V
+    invoke-static {p0}, Lcom/android/server/connectivity/PacProxyService;->-$$Nest$mlongSchedule(Lcom/android/server/connectivity/PacProxyService;)V
 
     goto :goto_1
 
     :catchall_1
-    move-exception v4
+    move-exception p0
 
     :try_start_3
-    monitor-exit v3
+    monitor-exit v1
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
-    throw v4
+    throw p0
 
     :cond_2
-    iget-object v3, p0, Lcom/android/server/connectivity/PacProxyService$1;->this$0:Lcom/android/server/connectivity/PacProxyService;
+    iget-object p0, p0, Lcom/android/server/connectivity/PacProxyService$1;->this$0:Lcom/android/server/connectivity/PacProxyService;
 
-    invoke-static {v3}, Lcom/android/server/connectivity/PacProxyService;->access$800(Lcom/android/server/connectivity/PacProxyService;)V
+    invoke-static {p0}, Lcom/android/server/connectivity/PacProxyService;->-$$Nest$mreschedule(Lcom/android/server/connectivity/PacProxyService;)V
 
     :goto_1
     return-void
@@ -179,5 +177,5 @@
     :goto_2
     invoke-static {v1}, Landroid/net/TrafficStats;->setThreadStatsTag(I)V
 
-    throw v2
+    throw p0
 .end method

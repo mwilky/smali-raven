@@ -18,11 +18,11 @@
 
 
 # instance fields
-.field mBackupManager:Lcom/android/server/backup/UserBackupManagerService;
+.field public mBackupManager:Lcom/android/server/backup/UserBackupManagerService;
 
-.field mSession:Lcom/android/server/backup/restore/ActiveRestoreSession;
+.field public mSession:Lcom/android/server/backup/restore/ActiveRestoreSession;
 
-.field final synthetic this$0:Lcom/android/server/backup/restore/ActiveRestoreSession;
+.field public final synthetic this$0:Lcom/android/server/backup/restore/ActiveRestoreSession;
 
 
 # direct methods
@@ -60,21 +60,19 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    iget-object v0, p0, Lcom/android/server/backup/restore/ActiveRestoreSession$EndRestoreRunnable;->mBackupManager:Lcom/android/server/backup/UserBackupManagerService;
+    iget-object p0, p0, Lcom/android/server/backup/restore/ActiveRestoreSession$EndRestoreRunnable;->mBackupManager:Lcom/android/server/backup/UserBackupManagerService;
 
-    iget-object v1, p0, Lcom/android/server/backup/restore/ActiveRestoreSession$EndRestoreRunnable;->mSession:Lcom/android/server/backup/restore/ActiveRestoreSession;
-
-    invoke-virtual {v0, v1}, Lcom/android/server/backup/UserBackupManagerService;->clearRestoreSession(Lcom/android/server/backup/restore/ActiveRestoreSession;)V
+    invoke-virtual {p0, v1}, Lcom/android/server/backup/UserBackupManagerService;->clearRestoreSession(Lcom/android/server/backup/restore/ActiveRestoreSession;)V
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     :try_start_1
     monitor-exit v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v1
+    throw p0
 .end method

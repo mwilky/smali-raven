@@ -1,21 +1,22 @@
 .class public final synthetic Lcom/android/server/am/ErrorDialogController$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/server/am/ErrorDialogController;
+.field public final synthetic f$0:Lcom/android/server/am/BaseErrorDialog;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/am/ErrorDialogController;)V
+.method public synthetic constructor <init>(Lcom/android/server/am/BaseErrorDialog;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/am/ErrorDialogController$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/am/ErrorDialogController;
+    iput-object p1, p0, Lcom/android/server/am/ErrorDialogController$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/am/BaseErrorDialog;
 
     return-void
 .end method
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/am/ErrorDialogController$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/am/ErrorDialogController;
+    iget-object p0, p0, Lcom/android/server/am/ErrorDialogController$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/am/BaseErrorDialog;
 
-    invoke-virtual {v0}, Lcom/android/server/am/ErrorDialogController;->lambda$showCrashDialogs$1$ErrorDialogController()V
+    invoke-virtual {p0}, Landroid/app/Dialog;->dismiss()V
 
     return-void
 .end method

@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/pm/UserManagerService$DisableQuietModeUserUnlockedCallback$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/pm/UserManagerService$DisableQuietModeUserUnlockedCallback$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/pm/UserManagerService$DisableQuietModeUserUnlockedCallback;
+    iget-object p0, p0, Lcom/android/server/pm/UserManagerService$DisableQuietModeUserUnlockedCallback$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/pm/UserManagerService$DisableQuietModeUserUnlockedCallback;
 
-    invoke-virtual {v0}, Lcom/android/server/pm/UserManagerService$DisableQuietModeUserUnlockedCallback;->lambda$onFinished$0$UserManagerService$DisableQuietModeUserUnlockedCallback()V
+    invoke-static {p0}, Lcom/android/server/pm/UserManagerService$DisableQuietModeUserUnlockedCallback;->$r8$lambda$0vncIOJJ2B_koh41sYhxpGq6MFU(Lcom/android/server/pm/UserManagerService$DisableQuietModeUserUnlockedCallback;)V
 
     return-void
 .end method

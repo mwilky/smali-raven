@@ -1,45 +1,46 @@
 .class public final synthetic Lcom/android/server/wm/TaskSnapshotController$$ExternalSyntheticLambda4;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Predicate;
+.implements Ljava/lang/Runnable;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/wm/TaskSnapshotController$$ExternalSyntheticLambda4;
+# instance fields
+.field public final synthetic f$0:Lcom/android/server/wm/TaskSnapshotController;
+
+.field public final synthetic f$1:I
+
+.field public final synthetic f$2:Lcom/android/server/policy/WindowManagerPolicy$ScreenOffListener;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/wm/TaskSnapshotController$$ExternalSyntheticLambda4;
-
-    invoke-direct {v0}, Lcom/android/server/wm/TaskSnapshotController$$ExternalSyntheticLambda4;-><init>()V
-
-    sput-object v0, Lcom/android/server/wm/TaskSnapshotController$$ExternalSyntheticLambda4;->INSTANCE:Lcom/android/server/wm/TaskSnapshotController$$ExternalSyntheticLambda4;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Lcom/android/server/wm/TaskSnapshotController;ILcom/android/server/policy/WindowManagerPolicy$ScreenOffListener;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/wm/TaskSnapshotController$$ExternalSyntheticLambda4;->f$0:Lcom/android/server/wm/TaskSnapshotController;
+
+    iput p2, p0, Lcom/android/server/wm/TaskSnapshotController$$ExternalSyntheticLambda4;->f$1:I
+
+    iput-object p3, p0, Lcom/android/server/wm/TaskSnapshotController$$ExternalSyntheticLambda4;->f$2:Lcom/android/server/policy/WindowManagerPolicy$ScreenOffListener;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final test(Ljava/lang/Object;)Z
-    .locals 0
+.method public final run()V
+    .locals 2
 
-    check-cast p1, Lcom/android/server/wm/ActivityRecord;
+    iget-object v0, p0, Lcom/android/server/wm/TaskSnapshotController$$ExternalSyntheticLambda4;->f$0:Lcom/android/server/wm/TaskSnapshotController;
 
-    invoke-static {p1}, Lcom/android/server/wm/TaskSnapshotController;->lambda$findAppTokenForSnapshot$1(Lcom/android/server/wm/ActivityRecord;)Z
+    iget v1, p0, Lcom/android/server/wm/TaskSnapshotController$$ExternalSyntheticLambda4;->f$1:I
 
-    move-result p1
+    iget-object p0, p0, Lcom/android/server/wm/TaskSnapshotController$$ExternalSyntheticLambda4;->f$2:Lcom/android/server/policy/WindowManagerPolicy$ScreenOffListener;
 
-    return p1
+    invoke-static {v0, v1, p0}, Lcom/android/server/wm/TaskSnapshotController;->$r8$lambda$lwASpKwcoFZ7xfJ_ZGsNUPV_Pyc(Lcom/android/server/wm/TaskSnapshotController;ILcom/android/server/policy/WindowManagerPolicy$ScreenOffListener;)V
+
+    return-void
 .end method

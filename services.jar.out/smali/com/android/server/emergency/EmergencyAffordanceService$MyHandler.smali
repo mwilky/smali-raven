@@ -1,4 +1,4 @@
-.class Lcom/android/server/emergency/EmergencyAffordanceService$MyHandler;
+.class public Lcom/android/server/emergency/EmergencyAffordanceService$MyHandler;
 .super Landroid/os/Handler;
 .source "EmergencyAffordanceService.java"
 
@@ -9,13 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "MyHandler"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/emergency/EmergencyAffordanceService;
+.field public final synthetic this$0:Lcom/android/server/emergency/EmergencyAffordanceService;
 
 
 # direct methods
@@ -32,78 +32,80 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 3
+    .locals 2
 
     iget v0, p1, Landroid/os/Message;->what:I
 
-    packed-switch v0, :pswitch_data_0
+    const/4 v1, 0x1
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    if-eq v0, v1, :cond_3
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    const/4 v1, 0x2
 
-    const-string v1, "Unexpected message received: "
+    if-eq v0, v1, :cond_2
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const/4 v1, 0x3
 
-    iget v1, p1, Landroid/os/Message;->what:I
+    if-eq v0, v1, :cond_1
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const/4 v1, 0x4
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    if-eq v0, v1, :cond_0
 
-    move-result-object v0
+    new-instance p0, Ljava/lang/StringBuilder;
 
-    const-string v1, "EmergencyAffordanceService"
+    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-static {v1, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    const-string v0, "Unexpected message received: "
+
+    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget p1, p1, Landroid/os/Message;->what:I
+
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    const-string p1, "EmergencyAffordanceService"
+
+    invoke-static {p1, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
-    :pswitch_0
-    iget-object v0, p0, Lcom/android/server/emergency/EmergencyAffordanceService$MyHandler;->this$0:Lcom/android/server/emergency/EmergencyAffordanceService;
+    :cond_0
+    iget-object p0, p0, Lcom/android/server/emergency/EmergencyAffordanceService$MyHandler;->this$0:Lcom/android/server/emergency/EmergencyAffordanceService;
 
-    invoke-static {v0}, Lcom/android/server/emergency/EmergencyAffordanceService;->access$500(Lcom/android/server/emergency/EmergencyAffordanceService;)V
-
-    goto :goto_0
-
-    :pswitch_1
-    iget-object v0, p0, Lcom/android/server/emergency/EmergencyAffordanceService$MyHandler;->this$0:Lcom/android/server/emergency/EmergencyAffordanceService;
-
-    invoke-static {v0}, Lcom/android/server/emergency/EmergencyAffordanceService;->access$400(Lcom/android/server/emergency/EmergencyAffordanceService;)V
+    invoke-static {p0}, Lcom/android/server/emergency/EmergencyAffordanceService;->-$$Nest$mhandleUpdateAirplaneModeStatus(Lcom/android/server/emergency/EmergencyAffordanceService;)V
 
     goto :goto_0
 
-    :pswitch_2
+    :cond_1
+    iget-object p0, p0, Lcom/android/server/emergency/EmergencyAffordanceService$MyHandler;->this$0:Lcom/android/server/emergency/EmergencyAffordanceService;
+
+    invoke-static {p0}, Lcom/android/server/emergency/EmergencyAffordanceService;->-$$Nest$mhandleUpdateSimSubscriptionInfo(Lcom/android/server/emergency/EmergencyAffordanceService;)V
+
+    goto :goto_0
+
+    :cond_2
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Ljava/lang/String;
 
-    iget v1, p1, Landroid/os/Message;->arg1:I
+    iget p1, p1, Landroid/os/Message;->arg1:I
 
-    iget-object v2, p0, Lcom/android/server/emergency/EmergencyAffordanceService$MyHandler;->this$0:Lcom/android/server/emergency/EmergencyAffordanceService;
+    iget-object p0, p0, Lcom/android/server/emergency/EmergencyAffordanceService$MyHandler;->this$0:Lcom/android/server/emergency/EmergencyAffordanceService;
 
-    invoke-static {v2, v0, v1}, Lcom/android/server/emergency/EmergencyAffordanceService;->access$300(Lcom/android/server/emergency/EmergencyAffordanceService;Ljava/lang/String;I)V
+    invoke-static {p0, v0, p1}, Lcom/android/server/emergency/EmergencyAffordanceService;->-$$Nest$mhandleNetworkCountryChanged(Lcom/android/server/emergency/EmergencyAffordanceService;Ljava/lang/String;I)V
 
     goto :goto_0
 
-    :pswitch_3
-    iget-object v0, p0, Lcom/android/server/emergency/EmergencyAffordanceService$MyHandler;->this$0:Lcom/android/server/emergency/EmergencyAffordanceService;
+    :cond_3
+    iget-object p0, p0, Lcom/android/server/emergency/EmergencyAffordanceService$MyHandler;->this$0:Lcom/android/server/emergency/EmergencyAffordanceService;
 
-    invoke-static {v0}, Lcom/android/server/emergency/EmergencyAffordanceService;->access$200(Lcom/android/server/emergency/EmergencyAffordanceService;)V
-
-    nop
+    invoke-static {p0}, Lcom/android/server/emergency/EmergencyAffordanceService;->-$$Nest$mhandleInitializeState(Lcom/android/server/emergency/EmergencyAffordanceService;)V
 
     :goto_0
     return-void
-
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
 .end method

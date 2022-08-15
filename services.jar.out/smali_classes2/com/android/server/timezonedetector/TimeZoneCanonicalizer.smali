@@ -1,4 +1,4 @@
-.class final Lcom/android/server/timezonedetector/TimeZoneCanonicalizer;
+.class public final Lcom/android/server/timezonedetector/TimeZoneCanonicalizer;
 .super Ljava/lang/Object;
 .source "TimeZoneCanonicalizer.java"
 
@@ -19,7 +19,7 @@
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,35 +36,33 @@
 
     invoke-virtual {p0, p1}, Lcom/android/server/timezonedetector/TimeZoneCanonicalizer;->apply(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method
 
 .method public apply(Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+    .locals 0
 
     invoke-static {}, Lcom/android/i18n/timezone/TimeZoneFinder;->getInstance()Lcom/android/i18n/timezone/TimeZoneFinder;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Lcom/android/i18n/timezone/TimeZoneFinder;->getCountryZonesFinder()Lcom/android/i18n/timezone/CountryZonesFinder;
+    invoke-virtual {p0}, Lcom/android/i18n/timezone/TimeZoneFinder;->getCountryZonesFinder()Lcom/android/i18n/timezone/CountryZonesFinder;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0, p1}, Lcom/android/i18n/timezone/CountryZonesFinder;->findCanonicalTimeZoneId(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, p1}, Lcom/android/i18n/timezone/CountryZonesFinder;->findCanonicalTimeZoneId(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    if-nez v0, :cond_0
-
-    move-object v1, p1
+    if-nez p0, :cond_0
 
     goto :goto_0
 
     :cond_0
-    move-object v1, v0
+    move-object p1, p0
 
     :goto_0
-    return-object v1
+    return-object p1
 .end method

@@ -1,16 +1,16 @@
-.class final Lcom/android/server/am/AppErrorResult;
+.class public final Lcom/android/server/am/AppErrorResult;
 .super Ljava/lang/Object;
 .source "AppErrorResult.java"
 
 
 # instance fields
-.field mHasResult:Z
+.field public mHasResult:Z
 
-.field mResult:I
+.field public mResult:I
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -29,6 +29,7 @@
 
     monitor-enter p0
 
+    :catch_0
     :goto_0
     :try_start_0
     iget-boolean v0, p0, Lcom/android/server/am/AppErrorResult;->mHasResult:Z
@@ -43,13 +44,7 @@
     .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    :goto_1
     goto :goto_0
-
-    :catch_0
-    move-exception v0
-
-    goto :goto_1
 
     :cond_0
     :try_start_2
@@ -57,9 +52,9 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    iget v0, p0, Lcom/android/server/am/AppErrorResult;->mResult:I
+    iget p0, p0, Lcom/android/server/am/AppErrorResult;->mResult:I
 
-    return v0
+    return p0
 
     :catchall_0
     move-exception v0
@@ -91,11 +86,11 @@
     return-void
 
     :catchall_0
-    move-exception v0
+    move-exception p1
 
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw p1
 .end method

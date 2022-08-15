@@ -1,66 +1,89 @@
-.class Lcom/android/server/wm/AppTransition$1;
+.class public Lcom/android/server/wm/AppTransition$1;
 .super Ljava/lang/Object;
 .source "AppTransition.java"
 
 # interfaces
-.implements Landroid/view/animation/Interpolator;
+.implements Landroid/view/animation/Animation$AnimationListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/wm/AppTransition;-><init>(Landroid/content/Context;Lcom/android/server/wm/WindowManagerService;Lcom/android/server/wm/DisplayContent;)V
+    value = Lcom/android/server/wm/AppTransition;->setAppTransitionFinishedCallbackIfNeeded(Landroid/view/animation/Animation;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/wm/AppTransition;
+.field public final synthetic this$0:Lcom/android/server/wm/AppTransition;
+
+.field public final synthetic val$callback:Landroid/os/IRemoteCallback;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/wm/AppTransition;)V
+.method public static synthetic $r8$lambda$RtKKOo1KmgySK0uj_n1NbJB5FxI(Landroid/os/IRemoteCallback;)V
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/server/wm/AppTransition$1;->lambda$onAnimationEnd$0(Landroid/os/IRemoteCallback;)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Lcom/android/server/wm/AppTransition;Landroid/os/IRemoteCallback;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/wm/AppTransition$1;->this$0:Lcom/android/server/wm/AppTransition;
+
+    iput-object p2, p0, Lcom/android/server/wm/AppTransition$1;->val$callback:Landroid/os/IRemoteCallback;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
+.method public static synthetic lambda$onAnimationEnd$0(Landroid/os/IRemoteCallback;)V
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/server/wm/AppTransition;->-$$Nest$smdoAnimationCallback(Landroid/os/IRemoteCallback;)V
+
+    return-void
+.end method
+
 
 # virtual methods
-.method public getInterpolation(F)F
-    .locals 2
+.method public onAnimationEnd(Landroid/view/animation/Animation;)V
+    .locals 1
 
-    const/high16 v0, 0x3f000000    # 0.5f
+    iget-object p1, p0, Lcom/android/server/wm/AppTransition$1;->this$0:Lcom/android/server/wm/AppTransition;
 
-    cmpg-float v1, p1, v0
+    iget-object p1, p1, Lcom/android/server/wm/AppTransition;->mHandler:Landroid/os/Handler;
 
-    if-gez v1, :cond_0
+    new-instance v0, Lcom/android/server/wm/AppTransition$1$$ExternalSyntheticLambda0;
 
-    const/4 v0, 0x0
+    invoke-direct {v0}, Lcom/android/server/wm/AppTransition$1$$ExternalSyntheticLambda0;-><init>()V
 
-    return v0
+    iget-object p0, p0, Lcom/android/server/wm/AppTransition$1;->val$callback:Landroid/os/IRemoteCallback;
 
-    :cond_0
-    sub-float v1, p1, v0
+    invoke-static {v0, p0}, Lcom/android/internal/util/function/pooled/PooledLambda;->obtainMessage(Ljava/util/function/Consumer;Ljava/lang/Object;)Landroid/os/Message;
 
-    div-float/2addr v1, v0
+    move-result-object p0
 
-    iget-object v0, p0, Lcom/android/server/wm/AppTransition$1;->this$0:Lcom/android/server/wm/AppTransition;
+    invoke-virtual {p1, p0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    invoke-static {v0}, Lcom/android/server/wm/AppTransition;->access$000(Lcom/android/server/wm/AppTransition;)Landroid/view/animation/Interpolator;
+    return-void
+.end method
 
-    move-result-object v0
+.method public onAnimationRepeat(Landroid/view/animation/Animation;)V
+    .locals 0
 
-    invoke-interface {v0, v1}, Landroid/view/animation/Interpolator;->getInterpolation(F)F
+    return-void
+.end method
 
-    move-result v0
+.method public onAnimationStart(Landroid/view/animation/Animation;)V
+    .locals 0
 
-    return v0
+    return-void
 .end method

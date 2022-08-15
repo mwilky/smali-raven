@@ -1,35 +1,56 @@
 .class public final synthetic Lcom/android/server/am/AppProfiler$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/internal/os/ProcessCpuTracker$FilterStats;
+.implements Ljava/util/function/Consumer;
 
 
 # instance fields
-.field public final synthetic f$0:Ljava/util/function/Predicate;
+.field public final synthetic f$0:Lcom/android/server/am/AppProfiler;
+
+.field public final synthetic f$1:Z
+
+.field public final synthetic f$2:Z
+
+.field public final synthetic f$3:J
 
 
 # direct methods
-.method public synthetic constructor <init>(Ljava/util/function/Predicate;)V
+.method public synthetic constructor <init>(Lcom/android/server/am/AppProfiler;ZZJ)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/am/AppProfiler$$ExternalSyntheticLambda0;->f$0:Ljava/util/function/Predicate;
+    iput-object p1, p0, Lcom/android/server/am/AppProfiler$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/am/AppProfiler;
+
+    iput-boolean p2, p0, Lcom/android/server/am/AppProfiler$$ExternalSyntheticLambda0;->f$1:Z
+
+    iput-boolean p3, p0, Lcom/android/server/am/AppProfiler$$ExternalSyntheticLambda0;->f$2:Z
+
+    iput-wide p4, p0, Lcom/android/server/am/AppProfiler$$ExternalSyntheticLambda0;->f$3:J
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final needed(Lcom/android/internal/os/ProcessCpuTracker$Stats;)Z
-    .locals 1
+.method public final accept(Ljava/lang/Object;)V
+    .locals 6
 
-    iget-object v0, p0, Lcom/android/server/am/AppProfiler$$ExternalSyntheticLambda0;->f$0:Ljava/util/function/Predicate;
+    iget-object v0, p0, Lcom/android/server/am/AppProfiler$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/am/AppProfiler;
 
-    invoke-static {v0, p1}, Lcom/android/server/am/AppProfiler;->lambda$getCpuStats$7(Ljava/util/function/Predicate;Lcom/android/internal/os/ProcessCpuTracker$Stats;)Z
+    iget-boolean v1, p0, Lcom/android/server/am/AppProfiler$$ExternalSyntheticLambda0;->f$1:Z
 
-    move-result p1
+    iget-boolean v2, p0, Lcom/android/server/am/AppProfiler$$ExternalSyntheticLambda0;->f$2:Z
 
-    return p1
+    iget-wide v3, p0, Lcom/android/server/am/AppProfiler$$ExternalSyntheticLambda0;->f$3:J
+
+    move-object v5, p1
+
+    check-cast v5, Lcom/android/server/am/ProcessRecord;
+
+    invoke-static/range {v0 .. v5}, Lcom/android/server/am/AppProfiler;->$r8$lambda$8A3VEf1Ljk2peGJ0VdBb6czFUUg(Lcom/android/server/am/AppProfiler;ZZJLcom/android/server/am/ProcessRecord;)V
+
+    return-void
 .end method

@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/wm/InsetsStateController$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -27,15 +28,15 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/wm/InsetsStateController$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/wm/InsetsStateController;
 
-    iget-object v1, p0, Lcom/android/server/wm/InsetsStateController$$ExternalSyntheticLambda2;->f$1:Ljava/util/ArrayList;
+    iget-object p0, p0, Lcom/android/server/wm/InsetsStateController$$ExternalSyntheticLambda2;->f$1:Ljava/util/ArrayList;
 
     check-cast p1, Lcom/android/server/wm/WindowState;
 
-    invoke-virtual {v0, v1, p1}, Lcom/android/server/wm/InsetsStateController;->lambda$onDisplayInfoUpdated$4$InsetsStateController(Ljava/util/ArrayList;Lcom/android/server/wm/WindowState;)V
+    invoke-static {v0, p0, p1}, Lcom/android/server/wm/InsetsStateController;->$r8$lambda$lWrT1E6A4H9l9iIY4w_0f4yyRic(Lcom/android/server/wm/InsetsStateController;Ljava/util/ArrayList;Lcom/android/server/wm/WindowState;)V
 
     return-void
 .end method

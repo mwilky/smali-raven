@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/location/provider/LocationProviderManager$$ExternalSyntheticLambda9;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/server/location/settings/LocationSettings$LocationUserSettingsListener;
+.implements Lcom/android/server/location/injector/AppForegroundHelper$AppForegroundListener;
 
 
 # instance fields
@@ -22,12 +23,12 @@
 
 
 # virtual methods
-.method public final onLocationUserSettingsChanged(ILcom/android/server/location/settings/LocationUserSettings;Lcom/android/server/location/settings/LocationUserSettings;)V
-    .locals 1
+.method public final onAppForegroundChanged(IZ)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/location/provider/LocationProviderManager$$ExternalSyntheticLambda9;->f$0:Lcom/android/server/location/provider/LocationProviderManager;
+    iget-object p0, p0, Lcom/android/server/location/provider/LocationProviderManager$$ExternalSyntheticLambda9;->f$0:Lcom/android/server/location/provider/LocationProviderManager;
 
-    invoke-static {v0, p1, p2, p3}, Lcom/android/server/location/provider/LocationProviderManager;->$r8$lambda$F6B3GDX_9_-C_GEaZvMsTrj69Ig(Lcom/android/server/location/provider/LocationProviderManager;ILcom/android/server/location/settings/LocationUserSettings;Lcom/android/server/location/settings/LocationUserSettings;)V
+    invoke-static {p0, p1, p2}, Lcom/android/server/location/provider/LocationProviderManager;->$r8$lambda$h4yxqFMnHPWXkTr04uDEnkKXNeQ(Lcom/android/server/location/provider/LocationProviderManager;IZ)V
 
     return-void
 .end method

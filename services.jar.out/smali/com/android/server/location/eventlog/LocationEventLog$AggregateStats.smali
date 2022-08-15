@@ -15,33 +15,105 @@
 
 
 # instance fields
-.field private mActiveRequestCount:I
+.field public mActiveRequestCount:I
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "this"
+        }
+    .end annotation
+.end field
 
-.field private mActiveTimeLastUpdateRealtimeMs:J
+.field public mActiveTimeLastUpdateRealtimeMs:J
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "this"
+        }
+    .end annotation
+.end field
 
-.field private mActiveTimeTotalMs:J
+.field public mActiveTimeTotalMs:J
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "this"
+        }
+    .end annotation
+.end field
 
-.field private mAddedRequestCount:I
+.field public mAddedRequestCount:I
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "this"
+        }
+    .end annotation
+.end field
 
-.field private mAddedTimeLastUpdateRealtimeMs:J
+.field public mAddedTimeLastUpdateRealtimeMs:J
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "this"
+        }
+    .end annotation
+.end field
 
-.field private mAddedTimeTotalMs:J
+.field public mAddedTimeTotalMs:J
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "this"
+        }
+    .end annotation
+.end field
 
-.field private mDeliveredLocationCount:I
+.field public mDeliveredLocationCount:I
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "this"
+        }
+    .end annotation
+.end field
 
-.field private mFastestIntervalMs:J
+.field public mFastestIntervalMs:J
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "this"
+        }
+    .end annotation
+.end field
 
-.field private mForegroundRequestCount:I
+.field public mForegroundRequestCount:I
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "this"
+        }
+    .end annotation
+.end field
 
-.field private mForegroundTimeLastUpdateRealtimeMs:J
+.field public mForegroundTimeLastUpdateRealtimeMs:J
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "this"
+        }
+    .end annotation
+.end field
 
-.field private mForegroundTimeTotalMs:J
+.field public mForegroundTimeTotalMs:J
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "this"
+        }
+    .end annotation
+.end field
 
-.field private mSlowestIntervalMs:J
+.field public mSlowestIntervalMs:J
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "this"
+        }
+    .end annotation
+.end field
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -57,8 +129,8 @@
     return-void
 .end method
 
-.method private static intervalToString(J)Ljava/lang/String;
-    .locals 3
+.method public static intervalToString(J)Ljava/lang/String;
+    .locals 2
 
     const-wide v0, 0x7fffffffffffffffL
 
@@ -66,9 +138,9 @@
 
     if-nez v0, :cond_0
 
-    const-string/jumbo v0, "passive"
+    const-string/jumbo p0, "passive"
 
-    return-object v0
+    return-object p0
 
     :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
@@ -79,24 +151,24 @@
 
     invoke-virtual {v1, p0, p1}, Ljava/util/concurrent/TimeUnit;->toSeconds(J)J
 
-    move-result-wide v1
+    move-result-wide p0
 
-    invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0, p1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v1, "s"
+    const-string/jumbo p0, "s"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 
 # virtual methods
-.method declared-synchronized markLocationDelivered()V
+.method public declared-synchronized markLocationDelivered()V
     .locals 1
 
     monitor-enter p0
@@ -122,7 +194,7 @@
     throw v0
 .end method
 
-.method declared-synchronized markRequestActive()V
+.method public declared-synchronized markRequestActive()V
     .locals 2
 
     monitor-enter p0
@@ -171,7 +243,7 @@
     throw v0
 .end method
 
-.method declared-synchronized markRequestAdded(J)V
+.method public declared-synchronized markRequestAdded(J)V
     .locals 2
 
     monitor-enter p0
@@ -204,9 +276,9 @@
 
     invoke-static {p1, p2, v0, v1}, Ljava/lang/Math;->max(JJ)J
 
-    move-result-wide v0
+    move-result-wide p1
 
-    iput-wide v0, p0, Lcom/android/server/location/eventlog/LocationEventLog$AggregateStats;->mSlowestIntervalMs:J
+    iput-wide p1, p0, Lcom/android/server/location/eventlog/LocationEventLog$AggregateStats;->mSlowestIntervalMs:J
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -222,7 +294,7 @@
     throw p1
 .end method
 
-.method declared-synchronized markRequestBackground()V
+.method public declared-synchronized markRequestBackground()V
     .locals 2
 
     monitor-enter p0
@@ -262,7 +334,7 @@
     throw v0
 .end method
 
-.method declared-synchronized markRequestForeground()V
+.method public declared-synchronized markRequestForeground()V
     .locals 2
 
     monitor-enter p0
@@ -311,7 +383,7 @@
     throw v0
 .end method
 
-.method declared-synchronized markRequestInactive()V
+.method public declared-synchronized markRequestInactive()V
     .locals 2
 
     monitor-enter p0
@@ -351,7 +423,7 @@
     throw v0
 .end method
 
-.method declared-synchronized markRequestRemoved()V
+.method public declared-synchronized markRequestRemoved()V
     .locals 2
 
     monitor-enter p0

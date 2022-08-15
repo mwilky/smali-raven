@@ -3,23 +3,9 @@
 .source "EventLogTags.java"
 
 
-# static fields
-.field public static final INTERCEPT_POWER:I = 0x11171
-
-.field public static final SCREEN_TOGGLED:I = 0x11170
-
-
 # direct methods
-.method private constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
 .method public static writeInterceptPower(Ljava/lang/String;II)V
-    .locals 3
+    .locals 2
 
     const/4 v0, 0x3
 
@@ -31,23 +17,23 @@
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v1
+    move-result-object p0
 
-    const/4 v2, 0x1
+    const/4 p1, 0x1
 
-    aput-object v1, v0, v2
+    aput-object p0, v0, p1
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v1
+    move-result-object p0
 
-    const/4 v2, 0x2
+    const/4 p1, 0x2
 
-    aput-object v1, v0, v2
+    aput-object p0, v0, p1
 
-    const v1, 0x11171
+    const p0, 0x11171
 
-    invoke-static {v1, v0}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
+    invoke-static {p0, v0}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
     return-void
 .end method

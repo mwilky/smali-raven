@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/wm/TaskFragment$$ExternalSyntheticLambda7;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Predicate;
@@ -23,15 +24,15 @@
 
 # virtual methods
 .method public final test(Ljava/lang/Object;)Z
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/TaskFragment$$ExternalSyntheticLambda7;->f$0:Lcom/android/server/wm/TaskFragment;
+    iget-object p0, p0, Lcom/android/server/wm/TaskFragment$$ExternalSyntheticLambda7;->f$0:Lcom/android/server/wm/TaskFragment;
 
     check-cast p1, Lcom/android/server/wm/ActivityRecord;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/wm/TaskFragment;->lambda$topRunningActivity$5$TaskFragment(Lcom/android/server/wm/ActivityRecord;)Z
+    invoke-static {p0, p1}, Lcom/android/server/wm/TaskFragment;->$r8$lambda$A43_159L2n9H2kETAVsFLG521C0(Lcom/android/server/wm/TaskFragment;Lcom/android/server/wm/ActivityRecord;)Z
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method

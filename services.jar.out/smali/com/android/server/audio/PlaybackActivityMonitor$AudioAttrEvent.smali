@@ -1,4 +1,4 @@
-.class final Lcom/android/server/audio/PlaybackActivityMonitor$AudioAttrEvent;
+.class public final Lcom/android/server/audio/PlaybackActivityMonitor$AudioAttrEvent;
 .super Lcom/android/server/audio/AudioEventLogger$Event;
 .source "PlaybackActivityMonitor.java"
 
@@ -9,19 +9,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "AudioAttrEvent"
 .end annotation
 
 
 # instance fields
-.field private final mPlayerAttr:Landroid/media/AudioAttributes;
+.field public final mPlayerAttr:Landroid/media/AudioAttributes;
 
-.field private final mPlayerIId:I
+.field public final mPlayerIId:I
 
 
 # direct methods
-.method constructor <init>(ILandroid/media/AudioAttributes;)V
+.method public constructor <init>(ILandroid/media/AudioAttributes;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/audio/AudioEventLogger$Event;-><init>()V
@@ -56,15 +56,15 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v2, p0, Lcom/android/server/audio/PlaybackActivityMonitor$AudioAttrEvent;->mPlayerAttr:Landroid/media/AudioAttributes;
+    iget-object p0, p0, Lcom/android/server/audio/PlaybackActivityMonitor$AudioAttrEvent;->mPlayerAttr:Landroid/media/AudioAttributes;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-direct {v0, v1}, Ljava/lang/String;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p0}, Ljava/lang/String;-><init>(Ljava/lang/String;)V
 
     return-object v0
 .end method

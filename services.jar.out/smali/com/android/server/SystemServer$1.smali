@@ -1,4 +1,4 @@
-.class Lcom/android/server/SystemServer$1;
+.class public Lcom/android/server/SystemServer$1;
 .super Ljava/lang/Object;
 .source "SystemServer.java"
 
@@ -12,21 +12,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/SystemServer;
+.field public final synthetic this$0:Lcom/android/server/SystemServer;
 
-.field final synthetic val$reason:Ljava/lang/String;
+.field public final synthetic val$reason:Ljava/lang/String;
 
-.field final synthetic val$reboot:Z
+.field public final synthetic val$reboot:Z
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/SystemServer;ZLjava/lang/String;)V
+.method public constructor <init>(Lcom/android/server/SystemServer;ZLjava/lang/String;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/SystemServer$1;->this$0:Lcom/android/server/SystemServer;

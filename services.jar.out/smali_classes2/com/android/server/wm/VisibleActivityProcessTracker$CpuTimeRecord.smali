@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/VisibleActivityProcessTracker$CpuTimeRecord;
+.class public Lcom/android/server/wm/VisibleActivityProcessTracker$CpuTimeRecord;
 .super Ljava/lang/Object;
 .source "VisibleActivityProcessTracker.java"
 
@@ -12,25 +12,25 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "CpuTimeRecord"
 .end annotation
 
 
 # instance fields
-.field private mCpuTime:J
+.field public mCpuTime:J
 
-.field private mHasStartCpuTime:Z
+.field public mHasStartCpuTime:Z
 
-.field private final mProc:Lcom/android/server/wm/WindowProcessController;
+.field public final mProc:Lcom/android/server/wm/WindowProcessController;
 
-.field mShouldGetCpuTime:Z
+.field public mShouldGetCpuTime:Z
 
-.field final synthetic this$0:Lcom/android/server/wm/VisibleActivityProcessTracker;
+.field public final synthetic this$0:Lcom/android/server/wm/VisibleActivityProcessTracker;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/wm/VisibleActivityProcessTracker;Lcom/android/server/wm/WindowProcessController;)V
+.method public constructor <init>(Lcom/android/server/wm/VisibleActivityProcessTracker;Lcom/android/server/wm/WindowProcessController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/wm/VisibleActivityProcessTracker$CpuTimeRecord;->this$0:Lcom/android/server/wm/VisibleActivityProcessTracker;
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 5
+    .locals 4
 
     iget-object v0, p0, Lcom/android/server/wm/VisibleActivityProcessTracker$CpuTimeRecord;->mProc:Lcom/android/server/wm/WindowProcessController;
 
@@ -99,19 +99,15 @@
 
     iget-object v2, v2, Lcom/android/server/wm/ActivityTaskManagerService;->mAmInternal:Landroid/app/ActivityManagerInternal;
 
-    iget-object v3, p0, Lcom/android/server/wm/VisibleActivityProcessTracker$CpuTimeRecord;->mProc:Lcom/android/server/wm/WindowProcessController;
+    iget-object p0, p0, Lcom/android/server/wm/VisibleActivityProcessTracker$CpuTimeRecord;->mProc:Lcom/android/server/wm/WindowProcessController;
 
-    iget-object v3, v3, Lcom/android/server/wm/WindowProcessController;->mInfo:Landroid/content/pm/ApplicationInfo;
+    iget-object p0, p0, Lcom/android/server/wm/WindowProcessController;->mInfo:Landroid/content/pm/ApplicationInfo;
 
-    iget-object v3, v3, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+    iget-object v3, p0, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
-    iget-object v4, p0, Lcom/android/server/wm/VisibleActivityProcessTracker$CpuTimeRecord;->mProc:Lcom/android/server/wm/WindowProcessController;
+    iget p0, p0, Landroid/content/pm/ApplicationInfo;->uid:I
 
-    iget-object v4, v4, Lcom/android/server/wm/WindowProcessController;->mInfo:Landroid/content/pm/ApplicationInfo;
-
-    iget v4, v4, Landroid/content/pm/ApplicationInfo;->uid:I
-
-    invoke-virtual {v2, v3, v4, v0, v1}, Landroid/app/ActivityManagerInternal;->updateForegroundTimeIfOnBattery(Ljava/lang/String;IJ)V
+    invoke-virtual {v2, v3, p0, v0, v1}, Landroid/app/ActivityManagerInternal;->updateForegroundTimeIfOnBattery(Ljava/lang/String;IJ)V
 
     :cond_2
     :goto_0

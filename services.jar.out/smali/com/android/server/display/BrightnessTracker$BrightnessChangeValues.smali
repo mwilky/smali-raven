@@ -1,4 +1,4 @@
-.class Lcom/android/server/display/BrightnessTracker$BrightnessChangeValues;
+.class public Lcom/android/server/display/BrightnessTracker$BrightnessChangeValues;
 .super Ljava/lang/Object;
 .source "BrightnessTracker.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "BrightnessChangeValues"
 .end annotation
 
@@ -29,7 +29,7 @@
 
 
 # direct methods
-.method constructor <init>(FFZZJLjava/lang/String;)V
+.method public constructor <init>(FFZZJLjava/lang/String;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

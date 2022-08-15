@@ -1,4 +1,4 @@
-.class Lcom/android/server/broadcastradio/hal2/RadioModule$3;
+.class public Lcom/android/server/broadcastradio/hal2/RadioModule$3;
 .super Landroid/hardware/radio/ICloseHandle$Stub;
 .source "RadioModule.java"
 
@@ -9,19 +9,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/broadcastradio/hal2/RadioModule;
+.field public final synthetic this$0:Lcom/android/server/broadcastradio/hal2/RadioModule;
 
-.field final synthetic val$hwCloseHandle:Lcom/android/server/broadcastradio/hal2/Mutable;
+.field public final synthetic val$hwCloseHandle:Lcom/android/server/broadcastradio/hal2/Mutable;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/broadcastradio/hal2/RadioModule;Lcom/android/server/broadcastradio/hal2/Mutable;)V
+.method public constructor <init>(Lcom/android/server/broadcastradio/hal2/RadioModule;Lcom/android/server/broadcastradio/hal2/Mutable;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/broadcastradio/hal2/RadioModule$3;->this$0:Lcom/android/server/broadcastradio/hal2/RadioModule;
@@ -61,11 +61,11 @@
     invoke-static {v1, v2, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_0
-    iget-object v0, p0, Lcom/android/server/broadcastradio/hal2/RadioModule$3;->val$hwCloseHandle:Lcom/android/server/broadcastradio/hal2/Mutable;
+    iget-object p0, p0, Lcom/android/server/broadcastradio/hal2/RadioModule$3;->val$hwCloseHandle:Lcom/android/server/broadcastradio/hal2/Mutable;
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    iput-object v1, v0, Lcom/android/server/broadcastradio/hal2/Mutable;->value:Ljava/lang/Object;
+    iput-object v0, p0, Lcom/android/server/broadcastradio/hal2/Mutable;->value:Ljava/lang/Object;
 
     return-void
 .end method

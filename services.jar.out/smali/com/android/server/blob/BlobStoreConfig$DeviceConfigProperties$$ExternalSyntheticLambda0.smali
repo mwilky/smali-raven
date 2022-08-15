@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/blob/BlobStoreConfig$DeviceConfigProperties$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -23,13 +24,13 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/blob/BlobStoreConfig$DeviceConfigProperties$$ExternalSyntheticLambda0;->f$0:Landroid/provider/DeviceConfig$Properties;
+    iget-object p0, p0, Lcom/android/server/blob/BlobStoreConfig$DeviceConfigProperties$$ExternalSyntheticLambda0;->f$0:Landroid/provider/DeviceConfig$Properties;
 
     check-cast p1, Ljava/lang/String;
 
-    invoke-static {v0, p1}, Lcom/android/server/blob/BlobStoreConfig$DeviceConfigProperties;->lambda$refresh$0(Landroid/provider/DeviceConfig$Properties;Ljava/lang/String;)V
+    invoke-static {p0, p1}, Lcom/android/server/blob/BlobStoreConfig$DeviceConfigProperties;->$r8$lambda$dfRuliwBCBJkrL5-qLD5NUzCXxk(Landroid/provider/DeviceConfig$Properties;Ljava/lang/String;)V
 
     return-void
 .end method

@@ -25,6 +25,14 @@
 
 
 # direct methods
+.method public static bridge synthetic -$$Nest$mregister(Lcom/android/server/backup/transport/TransportStats$Stats;J)V
+    .locals 0
+
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/backup/transport/TransportStats$Stats;->register(J)V
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 2
 
@@ -49,7 +57,7 @@
     return-void
 .end method
 
-.method private constructor <init>(IDJJ)V
+.method public constructor <init>(IDJJ)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -61,40 +69,6 @@
     iput-wide p4, p0, Lcom/android/server/backup/transport/TransportStats$Stats;->max:J
 
     iput-wide p6, p0, Lcom/android/server/backup/transport/TransportStats$Stats;->min:J
-
-    return-void
-.end method
-
-.method private constructor <init>(Lcom/android/server/backup/transport/TransportStats$Stats;)V
-    .locals 8
-
-    iget v1, p1, Lcom/android/server/backup/transport/TransportStats$Stats;->n:I
-
-    iget-wide v2, p1, Lcom/android/server/backup/transport/TransportStats$Stats;->average:D
-
-    iget-wide v4, p1, Lcom/android/server/backup/transport/TransportStats$Stats;->max:J
-
-    iget-wide v6, p1, Lcom/android/server/backup/transport/TransportStats$Stats;->min:J
-
-    move-object v0, p0
-
-    invoke-direct/range {v0 .. v7}, Lcom/android/server/backup/transport/TransportStats$Stats;-><init>(IDJJ)V
-
-    return-void
-.end method
-
-.method synthetic constructor <init>(Lcom/android/server/backup/transport/TransportStats$Stats;Lcom/android/server/backup/transport/TransportStats$1;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/server/backup/transport/TransportStats$Stats;-><init>(Lcom/android/server/backup/transport/TransportStats$Stats;)V
-
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/server/backup/transport/TransportStats$Stats;J)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/server/backup/transport/TransportStats$Stats;->register(J)V
 
     return-void
 .end method
@@ -140,11 +114,11 @@
 
     iget-wide v0, p0, Lcom/android/server/backup/transport/TransportStats$Stats;->min:J
 
-    iget-wide v9, p1, Lcom/android/server/backup/transport/TransportStats$Stats;->min:J
+    iget-wide p0, p1, Lcom/android/server/backup/transport/TransportStats$Stats;->min:J
 
-    invoke-static {v0, v1, v9, v10}, Ljava/lang/Math;->min(JJ)J
+    invoke-static {v0, v1, p0, p1}, Ljava/lang/Math;->min(JJ)J
 
-    move-result-wide v9
+    move-result-wide p0
 
     move-object v0, v8
 
@@ -154,14 +128,16 @@
 
     move-wide v4, v5
 
-    move-wide v6, v9
+    move-wide v6, p0
 
     invoke-direct/range {v0 .. v7}, Lcom/android/server/backup/transport/TransportStats$Stats;-><init>(IDJJ)V
 
     return-object v8
 .end method
 
-.method private register(J)V
+
+# virtual methods
+.method public final register(J)V
     .locals 5
 
     iget-wide v0, p0, Lcom/android/server/backup/transport/TransportStats$Stats;->average:D
@@ -200,9 +176,9 @@
 
     invoke-static {v0, v1, p1, p2}, Ljava/lang/Math;->min(JJ)J
 
-    move-result-wide v0
+    move-result-wide p1
 
-    iput-wide v0, p0, Lcom/android/server/backup/transport/TransportStats$Stats;->min:J
+    iput-wide p1, p0, Lcom/android/server/backup/transport/TransportStats$Stats;->min:J
 
     return-void
 .end method

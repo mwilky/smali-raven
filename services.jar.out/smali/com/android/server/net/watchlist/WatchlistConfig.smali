@@ -1,4 +1,4 @@
-.class Lcom/android/server/net/watchlist/WatchlistConfig;
+.class public Lcom/android/server/net/watchlist/WatchlistConfig;
 .super Ljava/lang/Object;
 .source "WatchlistConfig.java"
 
@@ -6,34 +6,27 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/server/net/watchlist/WatchlistConfig$CrcShaDigests;,
-        Lcom/android/server/net/watchlist/WatchlistConfig$XmlTags;
+        Lcom/android/server/net/watchlist/WatchlistConfig$CrcShaDigests;
     }
 .end annotation
 
 
 # static fields
-.field private static final NETWORK_WATCHLIST_DB_FOR_TEST_PATH:Ljava/lang/String; = "/data/misc/network_watchlist/network_watchlist_for_test.xml"
-
-.field private static final NETWORK_WATCHLIST_DB_PATH:Ljava/lang/String; = "/data/misc/network_watchlist/network_watchlist.xml"
-
-.field private static final TAG:Ljava/lang/String; = "WatchlistConfig"
-
-.field private static final sInstance:Lcom/android/server/net/watchlist/WatchlistConfig;
+.field public static final sInstance:Lcom/android/server/net/watchlist/WatchlistConfig;
 
 
 # instance fields
-.field private volatile mDomainDigests:Lcom/android/server/net/watchlist/WatchlistConfig$CrcShaDigests;
+.field public volatile mDomainDigests:Lcom/android/server/net/watchlist/WatchlistConfig$CrcShaDigests;
 
-.field private volatile mIpDigests:Lcom/android/server/net/watchlist/WatchlistConfig$CrcShaDigests;
+.field public volatile mIpDigests:Lcom/android/server/net/watchlist/WatchlistConfig$CrcShaDigests;
 
-.field private mIsSecureConfig:Z
+.field public mIsSecureConfig:Z
 
-.field private mXmlFile:Ljava/io/File;
+.field public mXmlFile:Ljava/io/File;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 1
 
     new-instance v0, Lcom/android/server/net/watchlist/WatchlistConfig;
@@ -45,7 +38,7 @@
     return-void
 .end method
 
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 2
 
     new-instance v0, Ljava/io/File;
@@ -59,8 +52,10 @@
     return-void
 .end method
 
-.method protected constructor <init>(Ljava/io/File;)V
+.method public constructor <init>(Ljava/io/File;)V
     .locals 1
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -75,126 +70,12 @@
     return-void
 .end method
 
-.method private getCrc32(Ljava/lang/String;)I
-    .locals 3
-
-    new-instance v0, Ljava/util/zip/CRC32;
-
-    invoke-direct {v0}, Ljava/util/zip/CRC32;-><init>()V
-
-    invoke-virtual {p1}, Ljava/lang/String;->getBytes()[B
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/util/zip/CRC32;->update([B)V
-
-    invoke-virtual {v0}, Ljava/util/zip/CRC32;->getValue()J
-
-    move-result-wide v1
-
-    long-to-int v1, v1
-
-    return v1
-.end method
-
 .method public static getInstance()Lcom/android/server/net/watchlist/WatchlistConfig;
     .locals 1
 
     sget-object v0, Lcom/android/server/net/watchlist/WatchlistConfig;->sInstance:Lcom/android/server/net/watchlist/WatchlistConfig;
 
     return-object v0
-.end method
-
-.method private getSha256(Ljava/lang/String;)[B
-    .locals 2
-
-    :try_start_0
-    const-string v0, "SHA256"
-
-    invoke-static {v0}, Ljava/security/MessageDigest;->getInstance(Ljava/lang/String;)Ljava/security/MessageDigest;
-
-    move-result-object v0
-    :try_end_0
-    .catch Ljava/security/NoSuchAlgorithmException; {:try_start_0 .. :try_end_0} :catch_0
-
-    nop
-
-    invoke-virtual {p1}, Ljava/lang/String;->getBytes()[B
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/security/MessageDigest;->update([B)V
-
-    invoke-virtual {v0}, Ljava/security/MessageDigest;->digest()[B
-
-    move-result-object v1
-
-    return-object v1
-
-    :catch_0
-    move-exception v0
-
-    const/4 v1, 0x0
-
-    return-object v1
-.end method
-
-.method private parseHashes(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;Ljava/util/List;)V
-    .locals 5
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lorg/xmlpull/v1/XmlPullParser;",
-            "Ljava/lang/String;",
-            "Ljava/util/List<",
-            "[B>;)V"
-        }
-    .end annotation
-
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;,
-            Lorg/xmlpull/v1/XmlPullParserException;
-        }
-    .end annotation
-
-    const/4 v0, 0x2
-
-    const/4 v1, 0x0
-
-    invoke-interface {p1, v0, v1, p2}, Lorg/xmlpull/v1/XmlPullParser;->require(ILjava/lang/String;Ljava/lang/String;)V
-
-    :goto_0
-    invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->nextTag()I
-
-    move-result v2
-
-    const/4 v3, 0x3
-
-    if-ne v2, v0, :cond_0
-
-    const-string v2, "hash"
-
-    invoke-interface {p1, v0, v1, v2}, Lorg/xmlpull/v1/XmlPullParser;->require(ILjava/lang/String;Ljava/lang/String;)V
-
-    invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->nextText()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v4}, Lcom/android/internal/util/HexDump;->hexStringToByteArray(Ljava/lang/String;)[B
-
-    move-result-object v4
-
-    invoke-interface {p1, v3, v1, v2}, Lorg/xmlpull/v1/XmlPullParser;->require(ILjava/lang/String;Ljava/lang/String;)V
-
-    invoke-interface {p3, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    goto :goto_0
-
-    :cond_0
-    invoke-interface {p1, v3, v1, p2}, Lorg/xmlpull/v1/XmlPullParser;->require(ILjava/lang/String;Ljava/lang/String;)V
-
-    return-void
 .end method
 
 
@@ -211,7 +92,7 @@
     return v1
 
     :cond_0
-    invoke-direct {p0, p1}, Lcom/android/server/net/watchlist/WatchlistConfig;->getCrc32(Ljava/lang/String;)I
+    invoke-virtual {p0, p1}, Lcom/android/server/net/watchlist/WatchlistConfig;->getCrc32(Ljava/lang/String;)I
 
     move-result v2
 
@@ -219,24 +100,24 @@
 
     invoke-virtual {v3, v2}, Lcom/android/server/net/watchlist/HarmfulCrcs;->contains(I)Z
 
-    move-result v3
+    move-result v2
 
-    if-nez v3, :cond_1
+    if-nez v2, :cond_1
 
     return v1
 
     :cond_1
-    invoke-direct {p0, p1}, Lcom/android/server/net/watchlist/WatchlistConfig;->getSha256(Ljava/lang/String;)[B
+    invoke-virtual {p0, p1}, Lcom/android/server/net/watchlist/WatchlistConfig;->getSha256(Ljava/lang/String;)[B
 
-    move-result-object v1
+    move-result-object p0
 
-    iget-object v3, v0, Lcom/android/server/net/watchlist/WatchlistConfig$CrcShaDigests;->sha256Digests:Lcom/android/server/net/watchlist/HarmfulDigests;
+    iget-object p1, v0, Lcom/android/server/net/watchlist/WatchlistConfig$CrcShaDigests;->sha256Digests:Lcom/android/server/net/watchlist/HarmfulDigests;
 
-    invoke-virtual {v3, v1}, Lcom/android/server/net/watchlist/HarmfulDigests;->contains([B)Z
+    invoke-virtual {p1, p0}, Lcom/android/server/net/watchlist/HarmfulDigests;->contains([B)Z
 
-    move-result v3
+    move-result p0
 
-    return v3
+    return p0
 .end method
 
 .method public containsIp(Ljava/lang/String;)Z
@@ -251,7 +132,7 @@
     return v1
 
     :cond_0
-    invoke-direct {p0, p1}, Lcom/android/server/net/watchlist/WatchlistConfig;->getCrc32(Ljava/lang/String;)I
+    invoke-virtual {p0, p1}, Lcom/android/server/net/watchlist/WatchlistConfig;->getCrc32(Ljava/lang/String;)I
 
     move-result v2
 
@@ -259,24 +140,24 @@
 
     invoke-virtual {v3, v2}, Lcom/android/server/net/watchlist/HarmfulCrcs;->contains(I)Z
 
-    move-result v3
+    move-result v2
 
-    if-nez v3, :cond_1
+    if-nez v2, :cond_1
 
     return v1
 
     :cond_1
-    invoke-direct {p0, p1}, Lcom/android/server/net/watchlist/WatchlistConfig;->getSha256(Ljava/lang/String;)[B
+    invoke-virtual {p0, p1}, Lcom/android/server/net/watchlist/WatchlistConfig;->getSha256(Ljava/lang/String;)[B
 
-    move-result-object v1
+    move-result-object p0
 
-    iget-object v3, v0, Lcom/android/server/net/watchlist/WatchlistConfig$CrcShaDigests;->sha256Digests:Lcom/android/server/net/watchlist/HarmfulDigests;
+    iget-object p1, v0, Lcom/android/server/net/watchlist/WatchlistConfig$CrcShaDigests;->sha256Digests:Lcom/android/server/net/watchlist/HarmfulDigests;
 
-    invoke-virtual {v3, v1}, Lcom/android/server/net/watchlist/HarmfulDigests;->contains([B)Z
+    invoke-virtual {p1, p0}, Lcom/android/server/net/watchlist/HarmfulDigests;->contains([B)Z
 
-    move-result v3
+    move-result p0
 
-    return v3
+    return p0
 .end method
 
 .method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
@@ -298,87 +179,139 @@
 
     invoke-static {v0}, Lcom/android/internal/util/HexDump;->toHexString([B)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
     goto :goto_0
 
     :cond_0
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
     :goto_0
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {p2, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    const-string v1, "Domain CRC32 digest list:"
+    const-string v0, "Domain CRC32 digest list:"
 
-    invoke-virtual {p2, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    iget-object v1, p0, Lcom/android/server/net/watchlist/WatchlistConfig;->mDomainDigests:Lcom/android/server/net/watchlist/WatchlistConfig$CrcShaDigests;
+    iget-object v0, p0, Lcom/android/server/net/watchlist/WatchlistConfig;->mDomainDigests:Lcom/android/server/net/watchlist/WatchlistConfig$CrcShaDigests;
 
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
-    iget-object v1, p0, Lcom/android/server/net/watchlist/WatchlistConfig;->mDomainDigests:Lcom/android/server/net/watchlist/WatchlistConfig$CrcShaDigests;
+    iget-object v0, p0, Lcom/android/server/net/watchlist/WatchlistConfig;->mDomainDigests:Lcom/android/server/net/watchlist/WatchlistConfig$CrcShaDigests;
 
-    iget-object v1, v1, Lcom/android/server/net/watchlist/WatchlistConfig$CrcShaDigests;->crc32s:Lcom/android/server/net/watchlist/HarmfulCrcs;
+    iget-object v0, v0, Lcom/android/server/net/watchlist/WatchlistConfig$CrcShaDigests;->crc32s:Lcom/android/server/net/watchlist/HarmfulCrcs;
 
-    invoke-virtual {v1, p1, p2, p3}, Lcom/android/server/net/watchlist/HarmfulCrcs;->dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
+    invoke-virtual {v0, p1, p2, p3}, Lcom/android/server/net/watchlist/HarmfulCrcs;->dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
 
     :cond_1
-    const-string v1, "Domain SHA256 digest list:"
+    const-string v0, "Domain SHA256 digest list:"
 
-    invoke-virtual {p2, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    iget-object v1, p0, Lcom/android/server/net/watchlist/WatchlistConfig;->mDomainDigests:Lcom/android/server/net/watchlist/WatchlistConfig$CrcShaDigests;
+    iget-object v0, p0, Lcom/android/server/net/watchlist/WatchlistConfig;->mDomainDigests:Lcom/android/server/net/watchlist/WatchlistConfig$CrcShaDigests;
 
-    if-eqz v1, :cond_2
+    if-eqz v0, :cond_2
 
-    iget-object v1, p0, Lcom/android/server/net/watchlist/WatchlistConfig;->mDomainDigests:Lcom/android/server/net/watchlist/WatchlistConfig$CrcShaDigests;
+    iget-object v0, p0, Lcom/android/server/net/watchlist/WatchlistConfig;->mDomainDigests:Lcom/android/server/net/watchlist/WatchlistConfig$CrcShaDigests;
 
-    iget-object v1, v1, Lcom/android/server/net/watchlist/WatchlistConfig$CrcShaDigests;->sha256Digests:Lcom/android/server/net/watchlist/HarmfulDigests;
+    iget-object v0, v0, Lcom/android/server/net/watchlist/WatchlistConfig$CrcShaDigests;->sha256Digests:Lcom/android/server/net/watchlist/HarmfulDigests;
 
-    invoke-virtual {v1, p1, p2, p3}, Lcom/android/server/net/watchlist/HarmfulDigests;->dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
+    invoke-virtual {v0, p1, p2, p3}, Lcom/android/server/net/watchlist/HarmfulDigests;->dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
 
     :cond_2
-    const-string v1, "Ip CRC32 digest list:"
+    const-string v0, "Ip CRC32 digest list:"
 
-    invoke-virtual {p2, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    iget-object v1, p0, Lcom/android/server/net/watchlist/WatchlistConfig;->mIpDigests:Lcom/android/server/net/watchlist/WatchlistConfig$CrcShaDigests;
+    iget-object v0, p0, Lcom/android/server/net/watchlist/WatchlistConfig;->mIpDigests:Lcom/android/server/net/watchlist/WatchlistConfig$CrcShaDigests;
 
-    if-eqz v1, :cond_3
+    if-eqz v0, :cond_3
 
-    iget-object v1, p0, Lcom/android/server/net/watchlist/WatchlistConfig;->mIpDigests:Lcom/android/server/net/watchlist/WatchlistConfig$CrcShaDigests;
+    iget-object v0, p0, Lcom/android/server/net/watchlist/WatchlistConfig;->mIpDigests:Lcom/android/server/net/watchlist/WatchlistConfig$CrcShaDigests;
 
-    iget-object v1, v1, Lcom/android/server/net/watchlist/WatchlistConfig$CrcShaDigests;->crc32s:Lcom/android/server/net/watchlist/HarmfulCrcs;
+    iget-object v0, v0, Lcom/android/server/net/watchlist/WatchlistConfig$CrcShaDigests;->crc32s:Lcom/android/server/net/watchlist/HarmfulCrcs;
 
-    invoke-virtual {v1, p1, p2, p3}, Lcom/android/server/net/watchlist/HarmfulCrcs;->dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
+    invoke-virtual {v0, p1, p2, p3}, Lcom/android/server/net/watchlist/HarmfulCrcs;->dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
 
     :cond_3
-    const-string v1, "Ip SHA256 digest list:"
+    const-string v0, "Ip SHA256 digest list:"
 
-    invoke-virtual {p2, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    iget-object v1, p0, Lcom/android/server/net/watchlist/WatchlistConfig;->mIpDigests:Lcom/android/server/net/watchlist/WatchlistConfig$CrcShaDigests;
+    iget-object v0, p0, Lcom/android/server/net/watchlist/WatchlistConfig;->mIpDigests:Lcom/android/server/net/watchlist/WatchlistConfig$CrcShaDigests;
 
-    if-eqz v1, :cond_4
+    if-eqz v0, :cond_4
 
-    iget-object v1, p0, Lcom/android/server/net/watchlist/WatchlistConfig;->mIpDigests:Lcom/android/server/net/watchlist/WatchlistConfig$CrcShaDigests;
+    iget-object p0, p0, Lcom/android/server/net/watchlist/WatchlistConfig;->mIpDigests:Lcom/android/server/net/watchlist/WatchlistConfig$CrcShaDigests;
 
-    iget-object v1, v1, Lcom/android/server/net/watchlist/WatchlistConfig$CrcShaDigests;->sha256Digests:Lcom/android/server/net/watchlist/HarmfulDigests;
+    iget-object p0, p0, Lcom/android/server/net/watchlist/WatchlistConfig$CrcShaDigests;->sha256Digests:Lcom/android/server/net/watchlist/HarmfulDigests;
 
-    invoke-virtual {v1, p1, p2, p3}, Lcom/android/server/net/watchlist/HarmfulDigests;->dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
+    invoke-virtual {p0, p1, p2, p3}, Lcom/android/server/net/watchlist/HarmfulDigests;->dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
 
     :cond_4
     return-void
 .end method
 
+.method public final getCrc32(Ljava/lang/String;)I
+    .locals 0
+
+    new-instance p0, Ljava/util/zip/CRC32;
+
+    invoke-direct {p0}, Ljava/util/zip/CRC32;-><init>()V
+
+    invoke-virtual {p1}, Ljava/lang/String;->getBytes()[B
+
+    move-result-object p1
+
+    invoke-virtual {p0, p1}, Ljava/util/zip/CRC32;->update([B)V
+
+    invoke-virtual {p0}, Ljava/util/zip/CRC32;->getValue()J
+
+    move-result-wide p0
+
+    long-to-int p0, p0
+
+    return p0
+.end method
+
+.method public final getSha256(Ljava/lang/String;)[B
+    .locals 0
+
+    :try_start_0
+    const-string p0, "SHA256"
+
+    invoke-static {p0}, Ljava/security/MessageDigest;->getInstance(Ljava/lang/String;)Ljava/security/MessageDigest;
+
+    move-result-object p0
+    :try_end_0
+    .catch Ljava/security/NoSuchAlgorithmException; {:try_start_0 .. :try_end_0} :catch_0
+
+    invoke-virtual {p1}, Ljava/lang/String;->getBytes()[B
+
+    move-result-object p1
+
+    invoke-virtual {p0, p1}, Ljava/security/MessageDigest;->update([B)V
+
+    invoke-virtual {p0}, Ljava/security/MessageDigest;->digest()[B
+
+    move-result-object p0
+
+    return-object p0
+
+    :catch_0
+    const/4 p0, 0x0
+
+    return-object p0
+.end method
+
 .method public getWatchlistConfigHash()[B
-    .locals 4
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/net/watchlist/WatchlistConfig;->mXmlFile:Ljava/io/File;
 
@@ -394,39 +327,97 @@
 
     :cond_0
     :try_start_0
-    iget-object v0, p0, Lcom/android/server/net/watchlist/WatchlistConfig;->mXmlFile:Ljava/io/File;
+    iget-object p0, p0, Lcom/android/server/net/watchlist/WatchlistConfig;->mXmlFile:Ljava/io/File;
 
-    invoke-static {v0}, Lcom/android/server/net/watchlist/DigestUtils;->getSha256Hash(Ljava/io/File;)[B
+    invoke-static {p0}, Lcom/android/server/net/watchlist/DigestUtils;->getSha256Hash(Ljava/io/File;)[B
 
-    move-result-object v0
+    move-result-object p0
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/security/NoSuchAlgorithmException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object p0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    const-string v2, "WatchlistConfig"
+    const-string v0, "WatchlistConfig"
 
-    const-string v3, "Unable to get watchlist config hash"
+    const-string v2, "Unable to get watchlist config hash"
 
-    invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v0, v2, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     return-object v1
 .end method
 
 .method public isConfigSecure()Z
-    .locals 1
+    .locals 0
 
-    iget-boolean v0, p0, Lcom/android/server/net/watchlist/WatchlistConfig;->mIsSecureConfig:Z
+    iget-boolean p0, p0, Lcom/android/server/net/watchlist/WatchlistConfig;->mIsSecureConfig:Z
 
-    return v0
+    return p0
+.end method
+
+.method public final parseHashes(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;Ljava/util/List;)V
+    .locals 4
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lorg/xmlpull/v1/XmlPullParser;",
+            "Ljava/lang/String;",
+            "Ljava/util/List<",
+            "[B>;)V"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;,
+            Lorg/xmlpull/v1/XmlPullParserException;
+        }
+    .end annotation
+
+    const/4 p0, 0x2
+
+    const/4 v0, 0x0
+
+    invoke-interface {p1, p0, v0, p2}, Lorg/xmlpull/v1/XmlPullParser;->require(ILjava/lang/String;Ljava/lang/String;)V
+
+    :goto_0
+    invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->nextTag()I
+
+    move-result v1
+
+    const/4 v2, 0x3
+
+    if-ne v1, p0, :cond_0
+
+    const-string v1, "hash"
+
+    invoke-interface {p1, p0, v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->require(ILjava/lang/String;Ljava/lang/String;)V
+
+    invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->nextText()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v3}, Lcom/android/internal/util/HexDump;->hexStringToByteArray(Ljava/lang/String;)[B
+
+    move-result-object v3
+
+    invoke-interface {p1, v2, v0, v1}, Lorg/xmlpull/v1/XmlPullParser;->require(ILjava/lang/String;Ljava/lang/String;)V
+
+    invoke-interface {p3, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    goto :goto_0
+
+    :cond_0
+    invoke-interface {p1, v2, v0, p2}, Lorg/xmlpull/v1/XmlPullParser;->require(ILjava/lang/String;Ljava/lang/String;)V
+
+    return-void
 .end method
 
 .method public reloadConfig()V
-    .locals 14
+    .locals 15
 
     const-string/jumbo v0, "watchlist-config"
 
@@ -501,7 +492,7 @@
 
     const/4 v11, 0x3
 
-    if-ne v10, v9, :cond_2
+    if-ne v10, v9, :cond_6
 
     invoke-interface {v7}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
@@ -513,23 +504,24 @@
 
     move-result v13
 
+    const/4 v14, 0x1
+
     sparse-switch v13, :sswitch_data_0
 
-    :cond_1
     goto :goto_1
 
     :sswitch_0
-    const-string v11, "crc32-ip"
+    const-string v13, "crc32-ip"
 
-    invoke-virtual {v10, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v10, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v11
+    move-result v13
 
-    if-eqz v11, :cond_1
+    if-eqz v13, :cond_1
 
-    const/4 v11, 0x1
+    move v12, v14
 
-    goto :goto_2
+    goto :goto_1
 
     :sswitch_1
     const-string/jumbo v13, "sha256-ip"
@@ -540,122 +532,122 @@
 
     if-eqz v13, :cond_1
 
-    goto :goto_2
+    move v12, v11
+
+    goto :goto_1
 
     :sswitch_2
-    const-string/jumbo v11, "sha256-domain"
+    const-string/jumbo v13, "sha256-domain"
 
-    invoke-virtual {v10, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v10, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v11
+    move-result v13
 
-    if-eqz v11, :cond_1
+    if-eqz v13, :cond_1
 
-    move v11, v9
+    move v12, v9
 
-    goto :goto_2
+    goto :goto_1
 
     :sswitch_3
-    const-string v11, "crc32-domain"
+    const-string v13, "crc32-domain"
 
-    invoke-virtual {v10, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v10, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v11
+    move-result v13
 
-    if-eqz v11, :cond_1
+    if-eqz v13, :cond_1
 
-    const/4 v11, 0x0
+    const/4 v12, 0x0
 
-    goto :goto_2
-
+    :cond_1
     :goto_1
-    move v11, v12
+    if-eqz v12, :cond_5
 
-    :goto_2
-    packed-switch v11, :pswitch_data_0
+    if-eq v12, v14, :cond_4
 
-    goto :goto_3
+    if-eq v12, v9, :cond_3
 
-    :pswitch_0
-    invoke-direct {p0, v7, v10, v6}, Lcom/android/server/net/watchlist/WatchlistConfig;->parseHashes(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;Ljava/util/List;)V
+    if-eq v12, v11, :cond_2
 
-    goto :goto_4
+    new-instance v10, Ljava/lang/StringBuilder;
 
-    :pswitch_1
-    invoke-direct {p0, v7, v10, v4}, Lcom/android/server/net/watchlist/WatchlistConfig;->parseHashes(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;Ljava/util/List;)V
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
-    goto :goto_4
+    const-string v11, "Unknown element: "
 
-    :pswitch_2
-    invoke-direct {p0, v7, v10, v5}, Lcom/android/server/net/watchlist/WatchlistConfig;->parseHashes(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;Ljava/util/List;)V
-
-    goto :goto_4
-
-    :pswitch_3
-    invoke-direct {p0, v7, v10, v3}, Lcom/android/server/net/watchlist/WatchlistConfig;->parseHashes(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;Ljava/util/List;)V
-
-    goto :goto_4
-
-    :goto_3
-    new-instance v11, Ljava/lang/StringBuilder;
-
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v12, "Unknown element: "
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-interface {v7}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v12
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
     move-result-object v11
 
-    invoke-static {v1, v11}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v1, v10}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-static {v7}, Lcom/android/internal/util/XmlUtils;->skipCurrentTag(Lorg/xmlpull/v1/XmlPullParser;)V
 
-    :goto_4
     goto :goto_0
 
     :cond_2
+    invoke-virtual {p0, v7, v10, v6}, Lcom/android/server/net/watchlist/WatchlistConfig;->parseHashes(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;Ljava/util/List;)V
+
+    goto :goto_0
+
+    :cond_3
+    invoke-virtual {p0, v7, v10, v4}, Lcom/android/server/net/watchlist/WatchlistConfig;->parseHashes(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;Ljava/util/List;)V
+
+    goto :goto_0
+
+    :cond_4
+    invoke-virtual {p0, v7, v10, v5}, Lcom/android/server/net/watchlist/WatchlistConfig;->parseHashes(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;Ljava/util/List;)V
+
+    goto :goto_0
+
+    :cond_5
+    invoke-virtual {p0, v7, v10, v3}, Lcom/android/server/net/watchlist/WatchlistConfig;->parseHashes(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;Ljava/util/List;)V
+
+    goto :goto_0
+
+    :cond_6
     invoke-interface {v7, v11, v8, v0}, Lorg/xmlpull/v1/XmlPullParser;->require(ILjava/lang/String;Ljava/lang/String;)V
 
     new-instance v0, Lcom/android/server/net/watchlist/WatchlistConfig$CrcShaDigests;
 
-    new-instance v8, Lcom/android/server/net/watchlist/HarmfulCrcs;
+    new-instance v7, Lcom/android/server/net/watchlist/HarmfulCrcs;
 
-    invoke-direct {v8, v3}, Lcom/android/server/net/watchlist/HarmfulCrcs;-><init>(Ljava/util/List;)V
+    invoke-direct {v7, v3}, Lcom/android/server/net/watchlist/HarmfulCrcs;-><init>(Ljava/util/List;)V
 
-    new-instance v9, Lcom/android/server/net/watchlist/HarmfulDigests;
+    new-instance v3, Lcom/android/server/net/watchlist/HarmfulDigests;
 
-    invoke-direct {v9, v4}, Lcom/android/server/net/watchlist/HarmfulDigests;-><init>(Ljava/util/List;)V
+    invoke-direct {v3, v4}, Lcom/android/server/net/watchlist/HarmfulDigests;-><init>(Ljava/util/List;)V
 
-    invoke-direct {v0, v8, v9}, Lcom/android/server/net/watchlist/WatchlistConfig$CrcShaDigests;-><init>(Lcom/android/server/net/watchlist/HarmfulCrcs;Lcom/android/server/net/watchlist/HarmfulDigests;)V
+    invoke-direct {v0, v7, v3}, Lcom/android/server/net/watchlist/WatchlistConfig$CrcShaDigests;-><init>(Lcom/android/server/net/watchlist/HarmfulCrcs;Lcom/android/server/net/watchlist/HarmfulDigests;)V
 
     iput-object v0, p0, Lcom/android/server/net/watchlist/WatchlistConfig;->mDomainDigests:Lcom/android/server/net/watchlist/WatchlistConfig$CrcShaDigests;
 
     new-instance v0, Lcom/android/server/net/watchlist/WatchlistConfig$CrcShaDigests;
 
-    new-instance v8, Lcom/android/server/net/watchlist/HarmfulCrcs;
+    new-instance v3, Lcom/android/server/net/watchlist/HarmfulCrcs;
 
-    invoke-direct {v8, v5}, Lcom/android/server/net/watchlist/HarmfulCrcs;-><init>(Ljava/util/List;)V
+    invoke-direct {v3, v5}, Lcom/android/server/net/watchlist/HarmfulCrcs;-><init>(Ljava/util/List;)V
 
-    new-instance v9, Lcom/android/server/net/watchlist/HarmfulDigests;
+    new-instance v4, Lcom/android/server/net/watchlist/HarmfulDigests;
 
-    invoke-direct {v9, v6}, Lcom/android/server/net/watchlist/HarmfulDigests;-><init>(Ljava/util/List;)V
+    invoke-direct {v4, v6}, Lcom/android/server/net/watchlist/HarmfulDigests;-><init>(Ljava/util/List;)V
 
-    invoke-direct {v0, v8, v9}, Lcom/android/server/net/watchlist/WatchlistConfig$CrcShaDigests;-><init>(Lcom/android/server/net/watchlist/HarmfulCrcs;Lcom/android/server/net/watchlist/HarmfulDigests;)V
+    invoke-direct {v0, v3, v4}, Lcom/android/server/net/watchlist/WatchlistConfig$CrcShaDigests;-><init>(Lcom/android/server/net/watchlist/HarmfulCrcs;Lcom/android/server/net/watchlist/HarmfulDigests;)V
 
     iput-object v0, p0, Lcom/android/server/net/watchlist/WatchlistConfig;->mIpDigests:Lcom/android/server/net/watchlist/WatchlistConfig$CrcShaDigests;
 
-    const-string v0, "Reload watchlist done"
+    const-string p0, "Reload watchlist done"
 
-    invoke-static {v1, v0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, p0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -669,26 +661,26 @@
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
     .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_2 .. :try_end_2} :catch_0
 
-    goto :goto_6
+    goto :goto_3
 
     :catchall_0
-    move-exception v0
+    move-exception p0
 
     :try_start_3
     invoke-virtual {v2}, Ljava/io/FileInputStream;->close()V
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
-    goto :goto_5
+    goto :goto_2
 
     :catchall_1
-    move-exception v3
+    move-exception v0
 
     :try_start_4
-    invoke-virtual {v0, v3}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
+    invoke-virtual {p0, v0}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
 
-    :goto_5
-    throw v0
+    :goto_2
+    throw p0
     :try_end_4
     .catch Ljava/lang/IllegalStateException; {:try_start_4 .. :try_end_4} :catch_0
     .catch Ljava/lang/NullPointerException; {:try_start_4 .. :try_end_4} :catch_0
@@ -698,13 +690,13 @@
     .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_4 .. :try_end_4} :catch_0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    const-string v2, "Failed parsing xml"
+    const-string v0, "Failed parsing xml"
 
-    invoke-static {v1, v2, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v1, v0, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    :goto_6
+    :goto_3
     return-void
 
     nop
@@ -716,48 +708,38 @@
         0x31cafa8d -> :sswitch_1
         0x6670a201 -> :sswitch_0
     .end sparse-switch
-
-    :pswitch_data_0
-    .packed-switch 0x0
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
 .end method
 
 .method public removeTestModeConfig()V
-    .locals 3
+    .locals 1
 
     :try_start_0
-    new-instance v0, Ljava/io/File;
+    new-instance p0, Ljava/io/File;
 
-    const-string v1, "/data/misc/network_watchlist/network_watchlist_for_test.xml"
+    const-string v0, "/data/misc/network_watchlist/network_watchlist_for_test.xml"
 
-    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0}, Ljava/io/File;->exists()Z
+    invoke-virtual {p0}, Ljava/io/File;->exists()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    invoke-virtual {v0}, Ljava/io/File;->delete()Z
+    invoke-virtual {p0}, Ljava/io/File;->delete()Z
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    :cond_0
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    const-string p0, "WatchlistConfig"
 
-    const-string v1, "WatchlistConfig"
+    const-string v0, "Unable to delete test config"
 
-    const-string v2, "Unable to delete test config"
+    invoke-static {p0, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
+    :cond_0
     :goto_0
     return-void
 .end method
@@ -784,15 +766,15 @@
 
     invoke-static {p1, v0}, Landroid/os/FileUtils;->copyToFileOrThrow(Ljava/io/InputStream;Ljava/io/File;)V
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput-boolean v0, p0, Lcom/android/server/net/watchlist/WatchlistConfig;->mIsSecureConfig:Z
+    iput-boolean p1, p0, Lcom/android/server/net/watchlist/WatchlistConfig;->mIsSecureConfig:Z
 
-    new-instance v0, Ljava/io/File;
+    new-instance p1, Ljava/io/File;
 
-    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    iput-object v0, p0, Lcom/android/server/net/watchlist/WatchlistConfig;->mXmlFile:Ljava/io/File;
+    iput-object p1, p0, Lcom/android/server/net/watchlist/WatchlistConfig;->mXmlFile:Ljava/io/File;
 
     invoke-virtual {p0}, Lcom/android/server/net/watchlist/WatchlistConfig;->reloadConfig()V
 

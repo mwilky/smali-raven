@@ -3,74 +3,46 @@
 .source "LmkdStatsReporter.java"
 
 
-# static fields
-.field private static final DIRECT_RECL_AND_THRASHING:I = 0x5
-
-.field public static final KILL_OCCURRED_MSG_SIZE:I = 0x50
-
-.field private static final LOW_FILECACHE_AFTER_THRASHING:I = 0x7
-
-.field private static final LOW_MEM_AND_SWAP:I = 0x3
-
-.field private static final LOW_MEM_AND_SWAP_UTIL:I = 0x6
-
-.field private static final LOW_MEM_AND_THRASHING:I = 0x4
-
-.field private static final LOW_SWAP_AND_THRASHING:I = 0x2
-
-.field private static final NOT_RESPONDING:I = 0x1
-
-.field private static final PRESSURE_AFTER_KILL:I = 0x0
-
-.field public static final STATE_CHANGED_MSG_SIZE:I = 0x8
-
-.field static final TAG:Ljava/lang/String; = "ActivityManager"
-
-
 # direct methods
-.method public constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
 .method public static logKillOccurred(Ljava/io/DataInputStream;)V
     .locals 23
 
     :try_start_0
     invoke-virtual/range {p0 .. p0}, Ljava/io/DataInputStream;->readLong()J
 
-    move-result-wide v5
+    move-result-wide v4
 
     invoke-virtual/range {p0 .. p0}, Ljava/io/DataInputStream;->readLong()J
 
-    move-result-wide v7
+    move-result-wide v6
 
     invoke-virtual/range {p0 .. p0}, Ljava/io/DataInputStream;->readLong()J
 
-    move-result-wide v9
+    move-result-wide v8
 
     invoke-virtual/range {p0 .. p0}, Ljava/io/DataInputStream;->readLong()J
 
-    move-result-wide v11
+    move-result-wide v10
 
     invoke-virtual/range {p0 .. p0}, Ljava/io/DataInputStream;->readLong()J
 
-    move-result-wide v13
+    move-result-wide v12
 
     invoke-virtual/range {p0 .. p0}, Ljava/io/DataInputStream;->readLong()J
 
-    move-result-wide v15
+    move-result-wide v14
 
     invoke-virtual/range {p0 .. p0}, Ljava/io/DataInputStream;->readInt()I
 
-    move-result v2
+    move-result v1
 
     invoke-virtual/range {p0 .. p0}, Ljava/io/DataInputStream;->readInt()I
 
-    move-result v4
+    move-result v3
+
+    invoke-virtual/range {p0 .. p0}, Ljava/io/DataInputStream;->readInt()I
+
+    move-result v16
 
     invoke-virtual/range {p0 .. p0}, Ljava/io/DataInputStream;->readInt()I
 
@@ -82,46 +54,42 @@
 
     invoke-virtual/range {p0 .. p0}, Ljava/io/DataInputStream;->readInt()I
 
-    move-result v19
+    move-result v0
 
     invoke-virtual/range {p0 .. p0}, Ljava/io/DataInputStream;->readInt()I
 
-    move-result v0
+    move-result v20
 
     invoke-virtual/range {p0 .. p0}, Ljava/io/DataInputStream;->readInt()I
 
     move-result v21
 
-    invoke-virtual/range {p0 .. p0}, Ljava/io/DataInputStream;->readInt()I
-
-    move-result v22
-
     invoke-virtual/range {p0 .. p0}, Ljava/io/DataInputStream;->readUTF()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    const/16 v1, 0x33
+    const/16 v19, 0x33
 
     invoke-static {v0}, Lcom/android/server/am/LmkdStatsReporter;->mapKillReason(I)I
 
-    move-result v20
+    move-result v22
 
-    invoke-static/range {v1 .. v22}, Lcom/android/internal/util/FrameworkStatsLog;->write(IILjava/lang/String;IJJJJJJIIIIII)V
+    move/from16 v0, v19
+
+    move/from16 v19, v22
+
+    invoke-static/range {v0 .. v21}, Lcom/android/internal/util/FrameworkStatsLog;->write(IILjava/lang/String;IJJJJJJIIIIII)V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
-
-    nop
 
     return-void
 
     :catch_0
-    move-exception v0
+    const-string v0, "ActivityManager"
 
-    const-string v1, "ActivityManager"
+    const-string v1, "Invalid buffer data. Failed to log LMK_KILL_OCCURRED"
 
-    const-string v2, "Invalid buffer data. Failed to log LMK_KILL_OCCURRED"
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 .end method
@@ -136,54 +104,54 @@
     return-void
 .end method
 
-.method private static mapKillReason(I)I
-    .locals 1
+.method public static mapKillReason(I)I
+    .locals 0
 
     packed-switch p0, :pswitch_data_0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 
     :pswitch_0
-    const/16 v0, 0x8
+    const/16 p0, 0x8
 
-    return v0
+    return p0
 
     :pswitch_1
-    const/4 v0, 0x7
+    const/4 p0, 0x7
 
-    return v0
+    return p0
 
     :pswitch_2
-    const/4 v0, 0x6
+    const/4 p0, 0x6
 
-    return v0
+    return p0
 
     :pswitch_3
-    const/4 v0, 0x5
+    const/4 p0, 0x5
 
-    return v0
+    return p0
 
     :pswitch_4
-    const/4 v0, 0x4
+    const/4 p0, 0x4
 
-    return v0
+    return p0
 
     :pswitch_5
-    const/4 v0, 0x3
+    const/4 p0, 0x3
 
-    return v0
+    return p0
 
     :pswitch_6
-    const/4 v0, 0x2
+    const/4 p0, 0x2
 
-    return v0
+    return p0
 
     :pswitch_7
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 
     :pswitch_data_0
     .packed-switch 0x0

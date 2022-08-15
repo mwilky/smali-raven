@@ -1,4 +1,4 @@
-.class Lcom/android/server/IntentResolver$1;
+.class public Lcom/android/server/IntentResolver$1;
 .super Ljava/lang/Object;
 .source "IntentResolver.java"
 
@@ -12,13 +12,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -29,40 +29,36 @@
 
 # virtual methods
 .method public compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 3
+    .locals 0
 
-    move-object v0, p1
+    check-cast p1, Landroid/content/IntentFilter;
 
-    check-cast v0, Landroid/content/IntentFilter;
+    invoke-virtual {p1}, Landroid/content/IntentFilter;->getPriority()I
 
-    invoke-virtual {v0}, Landroid/content/IntentFilter;->getPriority()I
+    move-result p0
 
-    move-result v0
+    check-cast p2, Landroid/content/IntentFilter;
 
-    move-object v1, p2
+    invoke-virtual {p2}, Landroid/content/IntentFilter;->getPriority()I
 
-    check-cast v1, Landroid/content/IntentFilter;
+    move-result p1
 
-    invoke-virtual {v1}, Landroid/content/IntentFilter;->getPriority()I
+    if-le p0, p1, :cond_0
 
-    move-result v1
-
-    if-le v0, v1, :cond_0
-
-    const/4 v2, -0x1
+    const/4 p0, -0x1
 
     goto :goto_0
 
     :cond_0
-    if-ge v0, v1, :cond_1
+    if-ge p0, p1, :cond_1
 
-    const/4 v2, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_1
-    const/4 v2, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v2
+    return p0
 .end method

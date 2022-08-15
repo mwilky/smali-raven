@@ -4,61 +4,23 @@
 
 
 # static fields
-.field private static final DEBUG:Z = false
+.field public static final FORMAT:Ljava/text/SimpleDateFormat;
 
-.field private static final FORMAT:Ljava/text/SimpleDateFormat;
+.field public static final MSGS:[Ljava/lang/String;
 
-.field private static final MSGS:[Ljava/lang/String;
+.field public static final SIZE:I
 
-.field private static final SIZE:I
+.field public static final TIMES:[J
 
-.field private static final TAG:Ljava/lang/String; = "ZenLog"
+.field public static final TYPES:[I
 
-.field private static final TIMES:[J
+.field public static sNext:I
 
-.field private static final TYPES:[I
-
-.field private static final TYPE_ALLOW_DISABLE:I = 0x2
-
-.field private static final TYPE_CONFIG:I = 0xb
-
-.field private static final TYPE_DISABLE_EFFECTS:I = 0xd
-
-.field private static final TYPE_DOWNTIME:I = 0x5
-
-.field private static final TYPE_EXIT_CONDITION:I = 0x8
-
-.field private static final TYPE_INTERCEPTED:I = 0x1
-
-.field private static final TYPE_LISTENER_HINTS_CHANGED:I = 0xf
-
-.field private static final TYPE_NOT_INTERCEPTED:I = 0xc
-
-.field private static final TYPE_SET_CONSOLIDATED_ZEN_POLICY:I = 0x11
-
-.field private static final TYPE_SET_NOTIFICATION_POLICY:I = 0x10
-
-.field private static final TYPE_SET_RINGER_MODE_EXTERNAL:I = 0x3
-
-.field private static final TYPE_SET_RINGER_MODE_INTERNAL:I = 0x4
-
-.field private static final TYPE_SET_ZEN_MODE:I = 0x6
-
-.field private static final TYPE_SUBSCRIBE:I = 0x9
-
-.field private static final TYPE_SUPPRESSOR_CHANGED:I = 0xe
-
-.field private static final TYPE_UNSUBSCRIBE:I = 0xa
-
-.field private static final TYPE_UPDATE_ZEN_MODE:I = 0x7
-
-.field private static sNext:I
-
-.field private static sSize:I
+.field public static sSize:I
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 2
 
     sget-boolean v0, Landroid/os/Build;->IS_DEBUGGABLE:Z
@@ -98,15 +60,7 @@
     return-void
 .end method
 
-.method public constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-.method private static append(ILjava/lang/String;)V
+.method public static append(ILjava/lang/String;)V
     .locals 5
 
     sget-object v0, Lcom/android/server/notification/ZenLog;->MSGS:[Ljava/lang/String;
@@ -134,19 +88,19 @@
 
     add-int/lit8 v2, v2, 0x1
 
-    sget v1, Lcom/android/server/notification/ZenLog;->SIZE:I
+    sget p0, Lcom/android/server/notification/ZenLog;->SIZE:I
 
-    rem-int/2addr v2, v1
+    rem-int/2addr v2, p0
 
     sput v2, Lcom/android/server/notification/ZenLog;->sNext:I
 
-    sget v2, Lcom/android/server/notification/ZenLog;->sSize:I
+    sget p1, Lcom/android/server/notification/ZenLog;->sSize:I
 
-    if-ge v2, v1, :cond_0
+    if-ge p1, p0, :cond_0
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 p1, p1, 0x1
 
-    sput v2, Lcom/android/server/notification/ZenLog;->sSize:I
+    sput p1, Lcom/android/server/notification/ZenLog;->sSize:I
 
     :cond_0
     monitor-exit v0
@@ -154,16 +108,16 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
-.method private static componentListToString(Ljava/util/List;)Ljava/lang/String;
+.method public static componentListToString(Ljava/util/List;)Ljava/lang/String;
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -214,27 +168,27 @@
     :cond_1
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method
 
-.method private static componentToString(Landroid/content/ComponentName;)Ljava/lang/String;
-    .locals 1
+.method public static componentToString(Landroid/content/ComponentName;)Ljava/lang/String;
+    .locals 0
 
     if-eqz p0, :cond_0
 
     invoke-virtual {p0}, Landroid/content/ComponentName;->toShortString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return-object v0
+    return-object p0
 .end method
 
 .method public static dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
@@ -308,9 +262,9 @@
 
     sget-object v4, Lcom/android/server/notification/ZenLog;->MSGS:[Ljava/lang/String;
 
-    aget-object v4, v4, v3
+    aget-object v3, v4, v3
 
-    invoke-virtual {p0, v4}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p0, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     add-int/lit8 v2, v2, 0x1
 
@@ -322,99 +276,98 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
-.method private static hintsToString(I)Ljava/lang/String;
+.method public static hintsToString(I)Ljava/lang/String;
     .locals 1
 
-    packed-switch p0, :pswitch_data_0
+    if-eqz p0, :cond_3
 
-    :pswitch_0
+    const/4 v0, 0x1
+
+    if-eq p0, v0, :cond_2
+
+    const/4 v0, 0x2
+
+    if-eq p0, v0, :cond_1
+
+    const/4 v0, 0x4
+
+    if-eq p0, v0, :cond_0
+
     invoke-static {p0}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
-    :pswitch_1
-    const-string v0, "disable_call_effects"
+    :cond_0
+    const-string p0, "disable_call_effects"
 
-    return-object v0
+    return-object p0
 
-    :pswitch_2
-    const-string v0, "disable_notification_effects"
+    :cond_1
+    const-string p0, "disable_notification_effects"
 
-    return-object v0
+    return-object p0
 
-    :pswitch_3
-    const-string v0, "disable_effects"
+    :cond_2
+    const-string p0, "disable_effects"
 
-    return-object v0
+    return-object p0
 
-    :pswitch_4
-    const-string/jumbo v0, "none"
+    :cond_3
+    const-string/jumbo p0, "none"
 
-    return-object v0
-
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0x0
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_0
-        :pswitch_1
-    .end packed-switch
+    return-object p0
 .end method
 
-.method private static ringerModeToString(I)Ljava/lang/String;
+.method public static ringerModeToString(I)Ljava/lang/String;
     .locals 1
 
-    packed-switch p0, :pswitch_data_0
+    if-eqz p0, :cond_2
 
-    const-string/jumbo v0, "unknown"
+    const/4 v0, 0x1
 
-    return-object v0
+    if-eq p0, v0, :cond_1
 
-    :pswitch_0
-    const-string/jumbo v0, "normal"
+    const/4 v0, 0x2
 
-    return-object v0
+    if-eq p0, v0, :cond_0
 
-    :pswitch_1
-    const-string/jumbo v0, "vibrate"
+    const-string/jumbo p0, "unknown"
 
-    return-object v0
+    return-object p0
 
-    :pswitch_2
-    const-string/jumbo v0, "silent"
+    :cond_0
+    const-string/jumbo p0, "normal"
 
-    return-object v0
+    return-object p0
 
-    nop
+    :cond_1
+    const-string/jumbo p0, "vibrate"
 
-    :pswitch_data_0
-    .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
+    return-object p0
+
+    :cond_2
+    const-string/jumbo p0, "silent"
+
+    return-object p0
 .end method
 
-.method private static subscribeResult(Landroid/service/notification/IConditionProvider;Landroid/os/RemoteException;)Ljava/lang/String;
-    .locals 1
+.method public static subscribeResult(Landroid/service/notification/IConditionProvider;Landroid/os/RemoteException;)Ljava/lang/String;
+    .locals 0
 
     if-nez p0, :cond_0
 
-    const-string/jumbo v0, "no provider"
+    const-string/jumbo p0, "no provider"
 
     goto :goto_0
 
@@ -423,19 +376,19 @@
 
     invoke-virtual {p1}, Landroid/os/RemoteException;->getMessage()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
     goto :goto_0
 
     :cond_1
-    const-string/jumbo v0, "ok"
+    const-string/jumbo p0, "ok"
 
     :goto_0
-    return-object v0
+    return-object p0
 .end method
 
 .method public static traceConfig(Ljava/lang/String;Landroid/service/notification/ZenModeConfig;Landroid/service/notification/ZenModeConfig;)V
-    .locals 5
+    .locals 3
 
     invoke-static {p1, p2}, Landroid/service/notification/ZenModeConfig;->diff(Landroid/service/notification/ZenModeConfig;Landroid/service/notification/ZenModeConfig;)Landroid/service/notification/ZenModeConfig$Diff;
 
@@ -443,75 +396,75 @@
 
     invoke-virtual {v0}, Landroid/service/notification/ZenModeConfig$Diff;->isEmpty()Z
 
-    move-result v1
+    move-result v0
 
-    const/16 v2, 0xb
+    const/16 v1, 0xb
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, " no changes"
+    const-string p0, " no changes"
 
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-static {v2, v1}, Lcom/android/server/notification/ZenLog;->append(ILjava/lang/String;)V
+    invoke-static {v1, p0}, Lcom/android/server/notification/ZenLog;->append(ILjava/lang/String;)V
 
     goto :goto_1
 
     :cond_0
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, ",\n"
+    const-string p0, ",\n"
 
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     if-eqz p2, :cond_1
 
     invoke-virtual {p2}, Landroid/service/notification/ZenModeConfig;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v2
 
     goto :goto_0
 
     :cond_1
-    const/4 v4, 0x0
+    const/4 v2, 0x0
 
     :goto_0
-    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-static {p1, p2}, Landroid/service/notification/ZenModeConfig;->diff(Landroid/service/notification/ZenModeConfig;Landroid/service/notification/ZenModeConfig;)Landroid/service/notification/ZenModeConfig$Diff;
 
-    move-result-object v3
+    move-result-object p0
 
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-static {v2, v1}, Lcom/android/server/notification/ZenLog;->append(ILjava/lang/String;)V
+    invoke-static {v1, p0}, Lcom/android/server/notification/ZenLog;->append(ILjava/lang/String;)V
 
     :goto_1
     return-void
 .end method
 
 .method public static traceDisableEffects(Lcom/android/server/notification/NotificationRecord;Ljava/lang/String;)V
-    .locals 2
+    .locals 1
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -519,33 +472,23 @@
 
     invoke-virtual {p0}, Lcom/android/server/notification/NotificationRecord;->getKey()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, ","
+    const-string p0, ","
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    const/16 v1, 0xd
+    const/16 p1, 0xd
 
-    invoke-static {v1, v0}, Lcom/android/server/notification/ZenLog;->append(ILjava/lang/String;)V
-
-    return-void
-.end method
-
-.method public static traceDowntimeAutotrigger(Ljava/lang/String;)V
-    .locals 1
-
-    const/4 v0, 0x5
-
-    invoke-static {v0, p0}, Lcom/android/server/notification/ZenLog;->append(ILjava/lang/String;)V
+    invoke-static {p1, p0}, Lcom/android/server/notification/ZenLog;->append(ILjava/lang/String;)V
 
     return-void
 .end method
@@ -574,73 +517,39 @@
 
     invoke-virtual {v0, p2, p3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    const-string v1, ","
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-static {p0}, Lcom/android/server/notification/ZenLog;->componentListToString(Ljava/util/List;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v1, "->"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-static {p1}, Lcom/android/server/notification/ZenLog;->componentListToString(Ljava/util/List;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    const/16 v1, 0xe
-
-    invoke-static {v1, v0}, Lcom/android/server/notification/ZenLog;->append(ILjava/lang/String;)V
-
-    return-void
-.end method
-
-.method public static traceExitCondition(Landroid/service/notification/Condition;Landroid/content/ComponentName;Ljava/lang/String;)V
-    .locals 3
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    const-string v1, ","
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-static {p1}, Lcom/android/server/notification/ZenLog;->componentToString(Landroid/content/ComponentName;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string p2, ","
 
     invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    invoke-static {p0}, Lcom/android/server/notification/ZenLog;->componentListToString(Ljava/util/List;)Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string p0, "->"
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-static {p1}, Lcom/android/server/notification/ZenLog;->componentListToString(Ljava/util/List;)Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    const/16 v1, 0x8
+    const/16 p1, 0xe
 
-    invoke-static {v1, v0}, Lcom/android/server/notification/ZenLog;->append(ILjava/lang/String;)V
+    invoke-static {p1, p0}, Lcom/android/server/notification/ZenLog;->append(ILjava/lang/String;)V
 
     return-void
 .end method
 
 .method public static traceIntercepted(Lcom/android/server/notification/NotificationRecord;Ljava/lang/String;)V
-    .locals 3
+    .locals 2
 
     if-eqz p0, :cond_0
 
@@ -661,27 +570,27 @@
 
     invoke-virtual {p0}, Lcom/android/server/notification/NotificationRecord;->getKey()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, ","
+    const-string p0, ","
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-static {v0, v1}, Lcom/android/server/notification/ZenLog;->append(ILjava/lang/String;)V
+    invoke-static {v0, p0}, Lcom/android/server/notification/ZenLog;->append(ILjava/lang/String;)V
 
     return-void
 .end method
 
 .method public static traceListenerHintsChanged(III)V
-    .locals 2
+    .locals 1
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -689,39 +598,69 @@
 
     invoke-static {p0}, Lcom/android/server/notification/ZenLog;->hintsToString(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "->"
+    const-string p0, "->"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-static {p1}, Lcom/android/server/notification/ZenLog;->hintsToString(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, ",listeners="
+    const-string p0, ",listeners="
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    const/16 v1, 0xf
+    const/16 p1, 0xf
 
-    invoke-static {v1, v0}, Lcom/android/server/notification/ZenLog;->append(ILjava/lang/String;)V
+    invoke-static {p1, p0}, Lcom/android/server/notification/ZenLog;->append(ILjava/lang/String;)V
+
+    return-void
+.end method
+
+.method public static traceMatchesCallFilter(ZLjava/lang/String;)V
+    .locals 2
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "result="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    const-string p0, ", reason="
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    const/16 p1, 0x12
+
+    invoke-static {p1, p0}, Lcom/android/server/notification/ZenLog;->append(ILjava/lang/String;)V
 
     return-void
 .end method
 
 .method public static traceNotIntercepted(Lcom/android/server/notification/NotificationRecord;Ljava/lang/String;)V
-    .locals 3
+    .locals 2
 
     if-eqz p0, :cond_0
 
@@ -740,27 +679,27 @@
 
     invoke-virtual {p0}, Lcom/android/server/notification/NotificationRecord;->getKey()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, ","
+    const-string p0, ","
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-static {v0, v1}, Lcom/android/server/notification/ZenLog;->append(ILjava/lang/String;)V
+    invoke-static {v0, p0}, Lcom/android/server/notification/ZenLog;->append(ILjava/lang/String;)V
 
     return-void
 .end method
 
 .method public static traceSetConsolidatedZenPolicy(Landroid/app/NotificationManager$Policy;Ljava/lang/String;)V
-    .locals 2
+    .locals 1
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -768,29 +707,29 @@
 
     invoke-virtual {p0}, Landroid/app/NotificationManager$Policy;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, ","
+    const-string p0, ","
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    const/16 v1, 0x11
+    const/16 p1, 0x11
 
-    invoke-static {v1, v0}, Lcom/android/server/notification/ZenLog;->append(ILjava/lang/String;)V
+    invoke-static {p1, p0}, Lcom/android/server/notification/ZenLog;->append(ILjava/lang/String;)V
 
     return-void
 .end method
 
 .method public static traceSetNotificationPolicy(Ljava/lang/String;ILandroid/app/NotificationManager$Policy;)V
-    .locals 3
+    .locals 2
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -802,53 +741,53 @@
 
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, " targetSdk="
+    const-string p0, " targetSdk="
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v1, " NotificationPolicy="
+    const-string p0, " NotificationPolicy="
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {p2}, Landroid/app/NotificationManager$Policy;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    const/16 v1, 0x10
+    const/16 p1, 0x10
 
-    invoke-static {v1, v0}, Lcom/android/server/notification/ZenLog;->append(ILjava/lang/String;)V
+    invoke-static {p1, p0}, Lcom/android/server/notification/ZenLog;->append(ILjava/lang/String;)V
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "Zen Policy Changed: "
+    const-string p2, "Zen Policy Changed: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    const-string v2, "ZenLog"
+    const-string p1, "ZenLog"
 
-    invoke-static {v2, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p1, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 .end method
 
 .method public static traceSetRingerModeExternal(IILjava/lang/String;II)V
-    .locals 3
+    .locals 1
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -856,57 +795,57 @@
 
     invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, ",e:"
+    const-string p2, ",e:"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-static {p0}, Lcom/android/server/notification/ZenLog;->ringerModeToString(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "->"
+    const-string p0, "->"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-static {p1}, Lcom/android/server/notification/ZenLog;->ringerModeToString(I)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, ",i:"
+    const-string p1, ",i:"
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-static {p3}, Lcom/android/server/notification/ZenLog;->ringerModeToString(I)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-static {p4}, Lcom/android/server/notification/ZenLog;->ringerModeToString(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    const/4 v1, 0x3
+    const/4 p1, 0x3
 
-    invoke-static {v1, v0}, Lcom/android/server/notification/ZenLog;->append(ILjava/lang/String;)V
+    invoke-static {p1, p0}, Lcom/android/server/notification/ZenLog;->append(ILjava/lang/String;)V
 
     return-void
 .end method
 
 .method public static traceSetRingerModeInternal(IILjava/lang/String;II)V
-    .locals 3
+    .locals 1
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -914,57 +853,57 @@
 
     invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, ",i:"
+    const-string p2, ",i:"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-static {p0}, Lcom/android/server/notification/ZenLog;->ringerModeToString(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "->"
+    const-string p0, "->"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-static {p1}, Lcom/android/server/notification/ZenLog;->ringerModeToString(I)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, ",e:"
+    const-string p1, ",e:"
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-static {p3}, Lcom/android/server/notification/ZenLog;->ringerModeToString(I)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-static {p4}, Lcom/android/server/notification/ZenLog;->ringerModeToString(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    const/4 v1, 0x4
+    const/4 p1, 0x4
 
-    invoke-static {v1, v0}, Lcom/android/server/notification/ZenLog;->append(ILjava/lang/String;)V
+    invoke-static {p1, p0}, Lcom/android/server/notification/ZenLog;->append(ILjava/lang/String;)V
 
     return-void
 .end method
 
 .method public static traceSetZenMode(ILjava/lang/String;)V
-    .locals 2
+    .locals 1
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -972,29 +911,29 @@
 
     invoke-static {p0}, Lcom/android/server/notification/ZenLog;->zenModeToString(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, ","
+    const-string p0, ","
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    const/4 v1, 0x6
+    const/4 p1, 0x6
 
-    invoke-static {v1, v0}, Lcom/android/server/notification/ZenLog;->append(ILjava/lang/String;)V
+    invoke-static {p1, p0}, Lcom/android/server/notification/ZenLog;->append(ILjava/lang/String;)V
 
     return-void
 .end method
 
 .method public static traceSubscribe(Landroid/net/Uri;Landroid/service/notification/IConditionProvider;Landroid/os/RemoteException;)V
-    .locals 2
+    .locals 1
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -1002,29 +941,29 @@
 
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string v1, ","
+    const-string p0, ","
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-static {p1, p2}, Lcom/android/server/notification/ZenLog;->subscribeResult(Landroid/service/notification/IConditionProvider;Landroid/os/RemoteException;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    const/16 v1, 0x9
+    const/16 p1, 0x9
 
-    invoke-static {v1, v0}, Lcom/android/server/notification/ZenLog;->append(ILjava/lang/String;)V
+    invoke-static {p1, p0}, Lcom/android/server/notification/ZenLog;->append(ILjava/lang/String;)V
 
     return-void
 .end method
 
 .method public static traceUnsubscribe(Landroid/net/Uri;Landroid/service/notification/IConditionProvider;Landroid/os/RemoteException;)V
-    .locals 2
+    .locals 1
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -1032,159 +971,129 @@
 
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string v1, ","
+    const-string p0, ","
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-static {p1, p2}, Lcom/android/server/notification/ZenLog;->subscribeResult(Landroid/service/notification/IConditionProvider;Landroid/os/RemoteException;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    const/16 v1, 0xa
+    const/16 p1, 0xa
 
-    invoke-static {v1, v0}, Lcom/android/server/notification/ZenLog;->append(ILjava/lang/String;)V
+    invoke-static {p1, p0}, Lcom/android/server/notification/ZenLog;->append(ILjava/lang/String;)V
 
     return-void
 .end method
 
-.method public static traceUpdateZenMode(II)V
-    .locals 2
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-static {p0}, Lcom/android/server/notification/ZenLog;->zenModeToString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v1, " -> "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-static {p1}, Lcom/android/server/notification/ZenLog;->zenModeToString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    const/4 v1, 0x7
-
-    invoke-static {v1, v0}, Lcom/android/server/notification/ZenLog;->append(ILjava/lang/String;)V
-
-    return-void
-.end method
-
-.method private static typeToString(I)Ljava/lang/String;
-    .locals 1
+.method public static typeToString(I)Ljava/lang/String;
+    .locals 0
 
     packed-switch p0, :pswitch_data_0
 
-    const-string/jumbo v0, "unknown"
+    const-string/jumbo p0, "unknown"
 
-    return-object v0
+    return-object p0
 
     :pswitch_0
-    const-string/jumbo v0, "set_consolidated_policy"
+    const-string/jumbo p0, "matches_call_filter"
 
-    return-object v0
+    return-object p0
 
     :pswitch_1
-    const-string/jumbo v0, "set_notification_policy"
+    const-string/jumbo p0, "set_consolidated_policy"
 
-    return-object v0
+    return-object p0
 
     :pswitch_2
-    const-string/jumbo v0, "listener_hints_changed"
+    const-string/jumbo p0, "set_notification_policy"
 
-    return-object v0
+    return-object p0
 
     :pswitch_3
-    const-string/jumbo v0, "suppressor_changed"
+    const-string p0, "listener_hints_changed"
 
-    return-object v0
+    return-object p0
 
     :pswitch_4
-    const-string v0, "disable_effects"
+    const-string/jumbo p0, "suppressor_changed"
 
-    return-object v0
+    return-object p0
 
     :pswitch_5
-    const-string/jumbo v0, "not_intercepted"
+    const-string p0, "disable_effects"
 
-    return-object v0
+    return-object p0
 
     :pswitch_6
-    const-string v0, "config"
+    const-string/jumbo p0, "not_intercepted"
 
-    return-object v0
+    return-object p0
 
     :pswitch_7
-    const-string/jumbo v0, "unsubscribe"
+    const-string p0, "config"
 
-    return-object v0
+    return-object p0
 
     :pswitch_8
-    const-string/jumbo v0, "subscribe"
+    const-string/jumbo p0, "unsubscribe"
 
-    return-object v0
+    return-object p0
 
     :pswitch_9
-    const-string v0, "exit_condition"
+    const-string/jumbo p0, "subscribe"
 
-    return-object v0
+    return-object p0
 
     :pswitch_a
-    const-string/jumbo v0, "update_zen_mode"
+    const-string p0, "exit_condition"
 
-    return-object v0
+    return-object p0
 
     :pswitch_b
-    const-string/jumbo v0, "set_zen_mode"
+    const-string/jumbo p0, "update_zen_mode"
 
-    return-object v0
+    return-object p0
 
     :pswitch_c
-    const-string v0, "downtime"
+    const-string/jumbo p0, "set_zen_mode"
 
-    return-object v0
+    return-object p0
 
     :pswitch_d
-    const-string/jumbo v0, "set_ringer_mode_internal"
+    const-string p0, "downtime"
 
-    return-object v0
+    return-object p0
 
     :pswitch_e
-    const-string/jumbo v0, "set_ringer_mode_external"
+    const-string/jumbo p0, "set_ringer_mode_internal"
 
-    return-object v0
+    return-object p0
 
     :pswitch_f
-    const-string v0, "allow_disable"
+    const-string/jumbo p0, "set_ringer_mode_external"
 
-    return-object v0
+    return-object p0
 
     :pswitch_10
-    const-string v0, "intercepted"
+    const-string p0, "allow_disable"
 
-    return-object v0
+    return-object p0
 
-    nop
+    :pswitch_11
+    const-string p0, "intercepted"
+
+    return-object p0
 
     :pswitch_data_0
     .packed-switch 0x1
+        :pswitch_11
         :pswitch_10
         :pswitch_f
         :pswitch_e
@@ -1205,42 +1114,44 @@
     .end packed-switch
 .end method
 
-.method private static zenModeToString(I)Ljava/lang/String;
+.method public static zenModeToString(I)Ljava/lang/String;
     .locals 1
 
-    packed-switch p0, :pswitch_data_0
+    if-eqz p0, :cond_3
 
-    const-string/jumbo v0, "unknown"
+    const/4 v0, 0x1
 
-    return-object v0
+    if-eq p0, v0, :cond_2
 
-    :pswitch_0
-    const-string v0, "alarms"
+    const/4 v0, 0x2
 
-    return-object v0
+    if-eq p0, v0, :cond_1
 
-    :pswitch_1
-    const-string/jumbo v0, "no_interruptions"
+    const/4 v0, 0x3
 
-    return-object v0
+    if-eq p0, v0, :cond_0
 
-    :pswitch_2
-    const-string v0, "important_interruptions"
+    const-string/jumbo p0, "unknown"
 
-    return-object v0
+    return-object p0
 
-    :pswitch_3
-    const-string/jumbo v0, "off"
+    :cond_0
+    const-string p0, "alarms"
 
-    return-object v0
+    return-object p0
 
-    nop
+    :cond_1
+    const-string/jumbo p0, "no_interruptions"
 
-    :pswitch_data_0
-    .packed-switch 0x0
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
+    return-object p0
+
+    :cond_2
+    const-string p0, "important_interruptions"
+
+    return-object p0
+
+    :cond_3
+    const-string/jumbo p0, "off"
+
+    return-object p0
 .end method

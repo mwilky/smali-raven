@@ -4,6 +4,9 @@
 
 
 # annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/android/server/pm/PackageAbiHelper$Abis;,
@@ -39,12 +42,13 @@
     .end annotation
 .end method
 
-.method public abstract getAdjustedAbiForSharedUser(Ljava/util/Set;Lcom/android/server/pm/parsing/pkg/AndroidPackage;)Ljava/lang/String;
+.method public abstract getAdjustedAbiForSharedUser(Landroid/util/ArraySet;Lcom/android/server/pm/parsing/pkg/AndroidPackage;)Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/Set<",
-            "Lcom/android/server/pm/PackageSetting;",
+            "Landroid/util/ArraySet<",
+            "+",
+            "Lcom/android/server/pm/pkg/PackageStateInternal;",
             ">;",
             "Lcom/android/server/pm/parsing/pkg/AndroidPackage;",
             ")",

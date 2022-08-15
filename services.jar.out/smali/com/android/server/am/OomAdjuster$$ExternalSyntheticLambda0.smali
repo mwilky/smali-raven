@@ -1,28 +1,13 @@
 .class public final synthetic Lcom/android/server/am/OomAdjuster$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/os/Handler$Callback;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/am/OomAdjuster$$ExternalSyntheticLambda0;
-
-
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/am/OomAdjuster$$ExternalSyntheticLambda0;
-
-    invoke-direct {v0}, Lcom/android/server/am/OomAdjuster$$ExternalSyntheticLambda0;-><init>()V
-
-    sput-object v0, Lcom/android/server/am/OomAdjuster$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/server/am/OomAdjuster$$ExternalSyntheticLambda0;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -35,9 +20,9 @@
 .method public final handleMessage(Landroid/os/Message;)Z
     .locals 0
 
-    invoke-static {p1}, Lcom/android/server/am/OomAdjuster;->lambda$new$0(Landroid/os/Message;)Z
+    invoke-static {p1}, Lcom/android/server/am/OomAdjuster;->$r8$lambda$G9qaeCQ1bE6cG3uK32c_XCnZvYk(Landroid/os/Message;)Z
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method

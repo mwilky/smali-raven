@@ -15,50 +15,36 @@
 
 
 # static fields
-.field private static final DELETE_AGE_MILLIS:J = 0xa4cb800L
-
-.field private static final MILLISECONDS_PER_HOUR:J = 0x36ee80L
-
-.field private static final ROTATE_AGE_MILLIS:J = 0xdbba00L
-
-.field private static final TAG:Ljava/lang/String;
+.field public static final TAG:Ljava/lang/String; = "PowerStatsDataStorage"
 
 
 # instance fields
-.field private final mDataStorageDir:Ljava/io/File;
+.field public final mDataStorageDir:Ljava/io/File;
 
-.field private final mDataStorageFilename:Ljava/lang/String;
+.field public final mDataStorageFilename:Ljava/lang/String;
 
-.field private final mFileRotator:Lcom/android/internal/util/FileRotator;
+.field public final mFileRotator:Lcom/android/internal/util/FileRotator;
 
-.field private final mLock:Ljava/util/concurrent/locks/ReentrantLock;
+.field public final mLock:Ljava/util/concurrent/locks/ReentrantLock;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    const-class v0, Lcom/android/server/powerstats/PowerStatsDataStorage;
-
-    invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
-
-    move-result-object v0
-
-    sput-object v0, Lcom/android/server/powerstats/PowerStatsDataStorage;->TAG:Ljava/lang/String;
+.method public static constructor <clinit>()V
+    .locals 0
 
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Ljava/io/File;Ljava/lang/String;)V
-    .locals 9
+    .locals 7
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v0, Ljava/util/concurrent/locks/ReentrantLock;
+    new-instance p1, Ljava/util/concurrent/locks/ReentrantLock;
 
-    invoke-direct {v0}, Ljava/util/concurrent/locks/ReentrantLock;-><init>()V
+    invoke-direct {p1}, Ljava/util/concurrent/locks/ReentrantLock;-><init>()V
 
-    iput-object v0, p0, Lcom/android/server/powerstats/PowerStatsDataStorage;->mLock:Ljava/util/concurrent/locks/ReentrantLock;
+    iput-object p1, p0, Lcom/android/server/powerstats/PowerStatsDataStorage;->mLock:Ljava/util/concurrent/locks/ReentrantLock;
 
     iput-object p2, p0, Lcom/android/server/powerstats/PowerStatsDataStorage;->mDataStorageDir:Ljava/io/File;
 
@@ -66,123 +52,123 @@
 
     invoke-virtual {p2}, Ljava/io/File;->exists()Z
 
-    move-result v0
+    move-result p1
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
     invoke-virtual {p2}, Ljava/io/File;->mkdirs()Z
 
-    move-result v0
+    move-result p1
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
-    sget-object v0, Lcom/android/server/powerstats/PowerStatsDataStorage;->TAG:Ljava/lang/String;
+    sget-object p1, Lcom/android/server/powerstats/PowerStatsDataStorage;->TAG:Ljava/lang/String;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance p3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "mDataStorageDir does not exist: "
+    const-string v0, "mDataStorageDir does not exist: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {p2}, Ljava/io/File;->getPath()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p2
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-static {v0, v1}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p1, p2}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput-object v0, p0, Lcom/android/server/powerstats/PowerStatsDataStorage;->mFileRotator:Lcom/android/internal/util/FileRotator;
+    iput-object p1, p0, Lcom/android/server/powerstats/PowerStatsDataStorage;->mFileRotator:Lcom/android/internal/util/FileRotator;
 
     goto :goto_1
 
     :cond_0
     invoke-virtual {p2}, Ljava/io/File;->listFiles()[Ljava/io/File;
 
-    move-result-object v0
+    move-result-object p1
 
-    const/4 v1, 0x0
+    const/4 p2, 0x0
+
+    move p3, p2
 
     :goto_0
-    array-length v2, v0
+    array-length v0, p1
 
-    if-ge v1, v2, :cond_2
+    if-ge p3, v0, :cond_2
 
-    iget-object v2, p0, Lcom/android/server/powerstats/PowerStatsDataStorage;->mDataStorageFilename:Ljava/lang/String;
+    iget-object v0, p0, Lcom/android/server/powerstats/PowerStatsDataStorage;->mDataStorageFilename:Ljava/lang/String;
 
-    const/16 v3, 0x2e
+    const/16 v1, 0x2e
 
-    invoke-virtual {v2, v3}, Ljava/lang/String;->lastIndexOf(I)I
+    invoke-virtual {v0, v1}, Ljava/lang/String;->lastIndexOf(I)I
 
-    move-result v2
+    move-result v0
 
-    iget-object v3, p0, Lcom/android/server/powerstats/PowerStatsDataStorage;->mDataStorageFilename:Ljava/lang/String;
+    iget-object v1, p0, Lcom/android/server/powerstats/PowerStatsDataStorage;->mDataStorageFilename:Ljava/lang/String;
 
-    const/4 v4, 0x0
+    invoke-virtual {v1, p2, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    invoke-virtual {v3, v4, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v3
+    aget-object v1, p1, p3
 
-    aget-object v4, v0, v1
+    invoke-virtual {v1}, Ljava/io/File;->getName()Ljava/lang/String;
 
-    invoke-virtual {v4}, Ljava/io/File;->getName()Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v4
+    invoke-virtual {v1, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    invoke-virtual {v4, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    move-result v0
 
-    move-result v4
+    if-eqz v0, :cond_1
 
-    if-eqz v4, :cond_1
+    aget-object v0, p1, p3
 
-    aget-object v4, v0, v1
+    invoke-virtual {v0}, Ljava/io/File;->getName()Ljava/lang/String;
 
-    invoke-virtual {v4}, Ljava/io/File;->getName()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v4
+    iget-object v1, p0, Lcom/android/server/powerstats/PowerStatsDataStorage;->mDataStorageFilename:Ljava/lang/String;
 
-    iget-object v5, p0, Lcom/android/server/powerstats/PowerStatsDataStorage;->mDataStorageFilename:Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    invoke-virtual {v4, v5}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    move-result v0
 
-    move-result v4
+    if-nez v0, :cond_1
 
-    if-nez v4, :cond_1
+    aget-object v0, p1, p3
 
-    aget-object v4, v0, v1
-
-    invoke-virtual {v4}, Ljava/io/File;->delete()Z
+    invoke-virtual {v0}, Ljava/io/File;->delete()Z
 
     :cond_1
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 p3, p3, 0x1
 
     goto :goto_0
 
     :cond_2
-    new-instance v1, Lcom/android/internal/util/FileRotator;
+    new-instance p1, Lcom/android/internal/util/FileRotator;
 
-    iget-object v3, p0, Lcom/android/server/powerstats/PowerStatsDataStorage;->mDataStorageDir:Ljava/io/File;
+    iget-object v1, p0, Lcom/android/server/powerstats/PowerStatsDataStorage;->mDataStorageDir:Ljava/io/File;
 
-    iget-object v4, p0, Lcom/android/server/powerstats/PowerStatsDataStorage;->mDataStorageFilename:Ljava/lang/String;
+    iget-object v2, p0, Lcom/android/server/powerstats/PowerStatsDataStorage;->mDataStorageFilename:Ljava/lang/String;
 
-    const-wide/32 v5, 0xdbba00
+    const-wide/32 v3, 0xdbba00
 
-    const-wide/32 v7, 0xa4cb800
+    const-wide/32 v5, 0xa4cb800
 
-    move-object v2, v1
+    move-object v0, p1
 
-    invoke-direct/range {v2 .. v8}, Lcom/android/internal/util/FileRotator;-><init>(Ljava/io/File;Ljava/lang/String;JJ)V
+    invoke-direct/range {v0 .. v6}, Lcom/android/internal/util/FileRotator;-><init>(Ljava/io/File;Ljava/lang/String;JJ)V
 
-    iput-object v1, p0, Lcom/android/server/powerstats/PowerStatsDataStorage;->mFileRotator:Lcom/android/internal/util/FileRotator;
+    iput-object p1, p0, Lcom/android/server/powerstats/PowerStatsDataStorage;->mFileRotator:Lcom/android/internal/util/FileRotator;
 
     :goto_1
     return-void
@@ -201,28 +187,28 @@
 
     const/4 v1, 0x0
 
+    move v2, v1
+
     :goto_0
-    array-length v2, v0
+    array-length v3, v0
 
-    if-ge v1, v2, :cond_1
-
-    iget-object v2, p0, Lcom/android/server/powerstats/PowerStatsDataStorage;->mDataStorageFilename:Ljava/lang/String;
-
-    const/16 v3, 0x2e
-
-    invoke-virtual {v2, v3}, Ljava/lang/String;->lastIndexOf(I)I
-
-    move-result v2
+    if-ge v2, v3, :cond_1
 
     iget-object v3, p0, Lcom/android/server/powerstats/PowerStatsDataStorage;->mDataStorageFilename:Ljava/lang/String;
 
-    const/4 v4, 0x0
+    const/16 v4, 0x2e
 
-    invoke-virtual {v3, v4, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    invoke-virtual {v3, v4}, Ljava/lang/String;->lastIndexOf(I)I
+
+    move-result v3
+
+    iget-object v4, p0, Lcom/android/server/powerstats/PowerStatsDataStorage;->mDataStorageFilename:Ljava/lang/String;
+
+    invoke-virtual {v4, v1, v3}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v3
 
-    aget-object v4, v0, v1
+    aget-object v4, v0, v2
 
     invoke-virtual {v4}, Ljava/io/File;->getName()Ljava/lang/String;
 
@@ -230,16 +216,16 @@
 
     invoke-virtual {v4, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result v4
+    move-result v3
 
-    if-eqz v4, :cond_0
+    if-eqz v3, :cond_0
 
-    aget-object v4, v0, v1
+    aget-object v3, v0, v2
 
-    invoke-virtual {v4}, Ljava/io/File;->delete()Z
+    invoke-virtual {v3}, Ljava/io/File;->delete()Z
 
     :cond_0
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
@@ -271,7 +257,7 @@
 .end method
 
 .method public write([B)V
-    .locals 6
+    .locals 4
 
     if-eqz p1, :cond_0
 
@@ -292,53 +278,53 @@
 
     const/4 v3, 0x0
 
-    invoke-direct {v2, p1, v3}, Lcom/android/server/powerstats/PowerStatsDataStorage$DataElement;-><init>([BLcom/android/server/powerstats/PowerStatsDataStorage$1;)V
+    invoke-direct {v2, p1, v3}, Lcom/android/server/powerstats/PowerStatsDataStorage$DataElement;-><init>([BLcom/android/server/powerstats/PowerStatsDataStorage$DataElement-IA;)V
 
-    iget-object v3, p0, Lcom/android/server/powerstats/PowerStatsDataStorage;->mFileRotator:Lcom/android/internal/util/FileRotator;
+    iget-object p1, p0, Lcom/android/server/powerstats/PowerStatsDataStorage;->mFileRotator:Lcom/android/internal/util/FileRotator;
 
-    new-instance v4, Lcom/android/server/powerstats/PowerStatsDataStorage$DataRewriter;
+    new-instance v3, Lcom/android/server/powerstats/PowerStatsDataStorage$DataRewriter;
 
-    invoke-static {v2}, Lcom/android/server/powerstats/PowerStatsDataStorage$DataElement;->access$200(Lcom/android/server/powerstats/PowerStatsDataStorage$DataElement;)[B
+    invoke-static {v2}, Lcom/android/server/powerstats/PowerStatsDataStorage$DataElement;->-$$Nest$mtoByteArray(Lcom/android/server/powerstats/PowerStatsDataStorage$DataElement;)[B
 
-    move-result-object v5
+    move-result-object v2
 
-    invoke-direct {v4, v5}, Lcom/android/server/powerstats/PowerStatsDataStorage$DataRewriter;-><init>([B)V
+    invoke-direct {v3, v2}, Lcom/android/server/powerstats/PowerStatsDataStorage$DataRewriter;-><init>([B)V
 
-    invoke-virtual {v3, v4, v0, v1}, Lcom/android/internal/util/FileRotator;->rewriteActive(Lcom/android/internal/util/FileRotator$Rewriter;J)V
+    invoke-virtual {p1, v3, v0, v1}, Lcom/android/internal/util/FileRotator;->rewriteActive(Lcom/android/internal/util/FileRotator$Rewriter;J)V
 
-    iget-object v3, p0, Lcom/android/server/powerstats/PowerStatsDataStorage;->mFileRotator:Lcom/android/internal/util/FileRotator;
+    iget-object p1, p0, Lcom/android/server/powerstats/PowerStatsDataStorage;->mFileRotator:Lcom/android/internal/util/FileRotator;
 
-    invoke-virtual {v3, v0, v1}, Lcom/android/internal/util/FileRotator;->maybeRotate(J)V
+    invoke-virtual {p1, v0, v1}, Lcom/android/internal/util/FileRotator;->maybeRotate(J)V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
     :catch_0
-    move-exception v2
+    move-exception p1
 
-    sget-object v3, Lcom/android/server/powerstats/PowerStatsDataStorage;->TAG:Ljava/lang/String;
+    sget-object v0, Lcom/android/server/powerstats/PowerStatsDataStorage;->TAG:Ljava/lang/String;
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "Failed to write to on-device storage: "
+    const-string v2, "Failed to write to on-device storage: "
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object p1
 
-    invoke-static {v3, v4}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, p1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     :goto_0
-    iget-object v2, p0, Lcom/android/server/powerstats/PowerStatsDataStorage;->mLock:Ljava/util/concurrent/locks/ReentrantLock;
+    iget-object p0, p0, Lcom/android/server/powerstats/PowerStatsDataStorage;->mLock:Ljava/util/concurrent/locks/ReentrantLock;
 
-    invoke-virtual {v2}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
+    invoke-virtual {p0}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
     :cond_0
     return-void

@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/wm/PinnedTaskController$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/PinnedTaskController$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/wm/PinnedTaskController;
+    iget-object p0, p0, Lcom/android/server/wm/PinnedTaskController$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/wm/PinnedTaskController;
 
-    invoke-virtual {v0}, Lcom/android/server/wm/PinnedTaskController;->lambda$new$0$PinnedTaskController()V
+    invoke-static {p0}, Lcom/android/server/wm/PinnedTaskController;->$r8$lambda$zkBBH31qmAMd5VI2EmwQ8cjLh-w(Lcom/android/server/wm/PinnedTaskController;)V
 
     return-void
 .end method

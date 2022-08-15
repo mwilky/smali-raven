@@ -1,4 +1,4 @@
-.class Lcom/android/server/servicewatcher/ServiceWatcherImpl$1;
+.class public Lcom/android/server/servicewatcher/ServiceWatcherImpl$1;
 .super Lcom/android/internal/content/PackageMonitor;
 .source "ServiceWatcherImpl.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/servicewatcher/ServiceWatcherImpl;
+.field public final synthetic this$0:Lcom/android/server/servicewatcher/ServiceWatcherImpl;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/servicewatcher/ServiceWatcherImpl;)V
+.method public constructor <init>(Lcom/android/server/servicewatcher/ServiceWatcherImpl;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/servicewatcher/ServiceWatcherImpl$1;->this$0:Lcom/android/server/servicewatcher/ServiceWatcherImpl;
@@ -32,21 +32,21 @@
 
 # virtual methods
 .method public onPackageChanged(Ljava/lang/String;I[Ljava/lang/String;)Z
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 .end method
 
 .method public onSomePackagesChanged()V
-    .locals 2
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/servicewatcher/ServiceWatcherImpl$1;->this$0:Lcom/android/server/servicewatcher/ServiceWatcherImpl;
+    iget-object p0, p0, Lcom/android/server/servicewatcher/ServiceWatcherImpl$1;->this$0:Lcom/android/server/servicewatcher/ServiceWatcherImpl;
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    invoke-virtual {v0, v1}, Lcom/android/server/servicewatcher/ServiceWatcherImpl;->onServiceChanged(Z)V
+    invoke-virtual {p0, v0}, Lcom/android/server/servicewatcher/ServiceWatcherImpl;->onServiceChanged(Z)V
 
     return-void
 .end method

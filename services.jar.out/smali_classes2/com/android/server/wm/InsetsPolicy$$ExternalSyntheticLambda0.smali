@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/wm/InsetsPolicy$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/view/Choreographer$FrameCallback;
+.implements Ljava/lang/Runnable;
 
 
 # instance fields
@@ -22,12 +23,12 @@
 
 
 # virtual methods
-.method public final doFrame(J)V
-    .locals 1
+.method public final run()V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/InsetsPolicy$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/wm/InsetsPolicy;
+    iget-object p0, p0, Lcom/android/server/wm/InsetsPolicy$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/wm/InsetsPolicy;
 
-    invoke-virtual {v0, p1, p2}, Lcom/android/server/wm/InsetsPolicy;->lambda$showTransient$0$InsetsPolicy(J)V
+    invoke-static {p0}, Lcom/android/server/wm/InsetsPolicy;->$r8$lambda$6jeOPQpS33xdU3fHbSTvvxep_XI(Lcom/android/server/wm/InsetsPolicy;)V
 
     return-void
 .end method

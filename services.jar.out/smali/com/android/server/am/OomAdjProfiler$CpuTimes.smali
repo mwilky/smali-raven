@@ -1,4 +1,4 @@
-.class Lcom/android/server/am/OomAdjProfiler$CpuTimes;
+.class public Lcom/android/server/am/OomAdjProfiler$CpuTimes;
 .super Ljava/lang/Object;
 .source "OomAdjProfiler.java"
 
@@ -9,21 +9,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "CpuTimes"
 .end annotation
 
 
 # instance fields
-.field private mOnBatteryScreenOffTimeUs:J
+.field public mOnBatteryScreenOffTimeUs:J
 
-.field private mOnBatteryTimeUs:J
+.field public mOnBatteryTimeUs:J
 
-.field final synthetic this$0:Lcom/android/server/am/OomAdjProfiler;
+.field public final synthetic this$0:Lcom/android/server/am/OomAdjProfiler;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/server/am/OomAdjProfiler;)V
+.method public constructor <init>(Lcom/android/server/am/OomAdjProfiler;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/am/OomAdjProfiler$CpuTimes;->this$0:Lcom/android/server/am/OomAdjProfiler;
@@ -33,7 +33,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/am/OomAdjProfiler;Lcom/android/server/am/OomAdjProfiler$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/am/OomAdjProfiler;Lcom/android/server/am/OomAdjProfiler$CpuTimes-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/am/OomAdjProfiler$CpuTimes;-><init>(Lcom/android/server/am/OomAdjProfiler;)V
@@ -43,38 +43,14 @@
 
 
 # virtual methods
-.method public addCpuTimeMs(J)V
-    .locals 4
-
-    const-wide/16 v0, 0x3e8
-
-    mul-long/2addr v0, p1
-
-    iget-object v2, p0, Lcom/android/server/am/OomAdjProfiler$CpuTimes;->this$0:Lcom/android/server/am/OomAdjProfiler;
-
-    invoke-static {v2}, Lcom/android/server/am/OomAdjProfiler;->access$100(Lcom/android/server/am/OomAdjProfiler;)Z
-
-    move-result v2
-
-    iget-object v3, p0, Lcom/android/server/am/OomAdjProfiler$CpuTimes;->this$0:Lcom/android/server/am/OomAdjProfiler;
-
-    invoke-static {v3}, Lcom/android/server/am/OomAdjProfiler;->access$200(Lcom/android/server/am/OomAdjProfiler;)Z
-
-    move-result v3
-
-    invoke-virtual {p0, v0, v1, v2, v3}, Lcom/android/server/am/OomAdjProfiler$CpuTimes;->addCpuTimeUs(JZZ)V
-
-    return-void
-.end method
-
 .method public addCpuTimeMs(JZZ)V
     .locals 2
 
     const-wide/16 v0, 0x3e8
 
-    mul-long/2addr v0, p1
+    mul-long/2addr p1, v0
 
-    invoke-virtual {p0, v0, v1, p3, p4}, Lcom/android/server/am/OomAdjProfiler$CpuTimes;->addCpuTimeUs(JZZ)V
+    invoke-virtual {p0, p1, p2, p3, p4}, Lcom/android/server/am/OomAdjProfiler$CpuTimes;->addCpuTimeUs(JZZ)V
 
     return-void
 .end method
@@ -84,13 +60,13 @@
 
     iget-object v0, p0, Lcom/android/server/am/OomAdjProfiler$CpuTimes;->this$0:Lcom/android/server/am/OomAdjProfiler;
 
-    invoke-static {v0}, Lcom/android/server/am/OomAdjProfiler;->access$100(Lcom/android/server/am/OomAdjProfiler;)Z
+    invoke-static {v0}, Lcom/android/server/am/OomAdjProfiler;->-$$Nest$fgetmOnBattery(Lcom/android/server/am/OomAdjProfiler;)Z
 
     move-result v0
 
     iget-object v1, p0, Lcom/android/server/am/OomAdjProfiler$CpuTimes;->this$0:Lcom/android/server/am/OomAdjProfiler;
 
-    invoke-static {v1}, Lcom/android/server/am/OomAdjProfiler;->access$200(Lcom/android/server/am/OomAdjProfiler;)Z
+    invoke-static {v1}, Lcom/android/server/am/OomAdjProfiler;->-$$Nest$fgetmScreenOff(Lcom/android/server/am/OomAdjProfiler;)Z
 
     move-result v1
 
@@ -112,11 +88,11 @@
 
     if-eqz p4, :cond_0
 
-    iget-wide v0, p0, Lcom/android/server/am/OomAdjProfiler$CpuTimes;->mOnBatteryScreenOffTimeUs:J
+    iget-wide p3, p0, Lcom/android/server/am/OomAdjProfiler$CpuTimes;->mOnBatteryScreenOffTimeUs:J
 
-    add-long/2addr v0, p1
+    add-long/2addr p3, p1
 
-    iput-wide v0, p0, Lcom/android/server/am/OomAdjProfiler$CpuTimes;->mOnBatteryScreenOffTimeUs:J
+    iput-wide p3, p0, Lcom/android/server/am/OomAdjProfiler$CpuTimes;->mOnBatteryScreenOffTimeUs:J
 
     :cond_0
     return-void
@@ -135,19 +111,19 @@
 
     iget-wide v0, p0, Lcom/android/server/am/OomAdjProfiler$CpuTimes;->mOnBatteryScreenOffTimeUs:J
 
-    cmp-long v0, v0, v2
+    cmp-long p0, v0, v2
 
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method public toString()Ljava/lang/String;
@@ -179,13 +155,13 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    const-string v1, "]"
+    const-string p0, "]"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

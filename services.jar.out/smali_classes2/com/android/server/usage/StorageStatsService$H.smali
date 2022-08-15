@@ -1,4 +1,4 @@
-.class Lcom/android/server/usage/StorageStatsService$H;
+.class public Lcom/android/server/usage/StorageStatsService$H;
 .super Landroid/os/Handler;
 .source "StorageStatsService.java"
 
@@ -9,36 +9,24 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "H"
 .end annotation
 
 
-# static fields
-.field private static final DEBUG:Z = false
-
-.field private static final MINIMUM_CHANGE_DELTA:D = 0.05
-
-.field private static final MSG_CHECK_STORAGE_DELTA:I = 0x64
-
-.field private static final MSG_LOAD_CACHED_QUOTAS_FROM_FILE:I = 0x65
-
-.field private static final UNSET:I = -0x1
-
-
 # instance fields
-.field private mMinimumThresholdBytes:D
+.field public mPreviousBytes:J
 
-.field private mPreviousBytes:J
+.field public final mStats:Landroid/os/StatFs;
 
-.field private final mStats:Landroid/os/StatFs;
+.field public mTotalBytes:J
 
-.field final synthetic this$0:Lcom/android/server/usage/StorageStatsService;
+.field public final synthetic this$0:Lcom/android/server/usage/StorageStatsService;
 
 
 # direct methods
 .method public constructor <init>(Lcom/android/server/usage/StorageStatsService;Landroid/os/Looper;)V
-    .locals 4
+    .locals 2
 
     iput-object p1, p0, Lcom/android/server/usage/StorageStatsService$H;->this$0:Lcom/android/server/usage/StorageStatsService;
 
@@ -48,13 +36,13 @@
 
     invoke-static {}, Landroid/os/Environment;->getDataDirectory()Ljava/io/File;
 
-    move-result-object v0
+    move-result-object p2
 
-    invoke-virtual {v0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p2
 
-    invoke-direct {p1, v0}, Landroid/os/StatFs;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Landroid/os/StatFs;-><init>(Ljava/lang/String;)V
 
     iput-object p1, p0, Lcom/android/server/usage/StorageStatsService$H;->mStats:Landroid/os/StatFs;
 
@@ -66,21 +54,17 @@
 
     invoke-virtual {p1}, Landroid/os/StatFs;->getTotalBytes()J
 
-    move-result-wide v0
+    move-result-wide p1
 
-    long-to-double v0, v0
-
-    const-wide v2, 0x3fa999999999999aL    # 0.05
-
-    mul-double/2addr v0, v2
-
-    iput-wide v0, p0, Lcom/android/server/usage/StorageStatsService$H;->mMinimumThresholdBytes:D
+    iput-wide p1, p0, Lcom/android/server/usage/StorageStatsService$H;->mTotalBytes:J
 
     return-void
 .end method
 
-.method private getInitializedStrategy()Lcom/android/server/storage/CacheQuotaStrategy;
-    .locals 5
+
+# virtual methods
+.method public final getInitializedStrategy()Lcom/android/server/storage/CacheQuotaStrategy;
+    .locals 4
 
     const-class v0, Landroid/app/usage/UsageStatsManagerInternal;
 
@@ -94,86 +78,98 @@
 
     iget-object v2, p0, Lcom/android/server/usage/StorageStatsService$H;->this$0:Lcom/android/server/usage/StorageStatsService;
 
-    invoke-static {v2}, Lcom/android/server/usage/StorageStatsService;->access$200(Lcom/android/server/usage/StorageStatsService;)Landroid/content/Context;
+    invoke-static {v2}, Lcom/android/server/usage/StorageStatsService;->-$$Nest$fgetmContext(Lcom/android/server/usage/StorageStatsService;)Landroid/content/Context;
 
     move-result-object v2
 
     iget-object v3, p0, Lcom/android/server/usage/StorageStatsService$H;->this$0:Lcom/android/server/usage/StorageStatsService;
 
-    invoke-static {v3}, Lcom/android/server/usage/StorageStatsService;->access$300(Lcom/android/server/usage/StorageStatsService;)Lcom/android/server/pm/Installer;
+    invoke-static {v3}, Lcom/android/server/usage/StorageStatsService;->-$$Nest$fgetmInstaller(Lcom/android/server/usage/StorageStatsService;)Lcom/android/server/pm/Installer;
 
     move-result-object v3
 
-    iget-object v4, p0, Lcom/android/server/usage/StorageStatsService$H;->this$0:Lcom/android/server/usage/StorageStatsService;
+    iget-object p0, p0, Lcom/android/server/usage/StorageStatsService$H;->this$0:Lcom/android/server/usage/StorageStatsService;
 
-    invoke-static {v4}, Lcom/android/server/usage/StorageStatsService;->access$400(Lcom/android/server/usage/StorageStatsService;)Landroid/util/ArrayMap;
+    invoke-static {p0}, Lcom/android/server/usage/StorageStatsService;->-$$Nest$fgetmCacheQuotas(Lcom/android/server/usage/StorageStatsService;)Landroid/util/ArrayMap;
 
-    move-result-object v4
+    move-result-object p0
 
-    invoke-direct {v1, v2, v0, v3, v4}, Lcom/android/server/storage/CacheQuotaStrategy;-><init>(Landroid/content/Context;Landroid/app/usage/UsageStatsManagerInternal;Lcom/android/server/pm/Installer;Landroid/util/ArrayMap;)V
+    invoke-direct {v1, v2, v0, v3, p0}, Lcom/android/server/storage/CacheQuotaStrategy;-><init>(Landroid/content/Context;Landroid/app/usage/UsageStatsManagerInternal;Lcom/android/server/pm/Installer;Landroid/util/ArrayMap;)V
 
     return-object v1
 .end method
 
-.method private recalculateQuotas(Lcom/android/server/storage/CacheQuotaStrategy;)V
-    .locals 0
-
-    invoke-virtual {p1}, Lcom/android/server/storage/CacheQuotaStrategy;->recalculateQuotas()V
-
-    return-void
-.end method
-
-
-# virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 9
+    .locals 11
 
-    const-string v0, "StorageStatsService"
+    iget-object v0, p0, Lcom/android/server/usage/StorageStatsService$H;->this$0:Lcom/android/server/usage/StorageStatsService;
 
-    iget-object v1, p0, Lcom/android/server/usage/StorageStatsService$H;->this$0:Lcom/android/server/usage/StorageStatsService;
+    invoke-static {v0}, Lcom/android/server/usage/StorageStatsService;->-$$Nest$fgetmContext(Lcom/android/server/usage/StorageStatsService;)Landroid/content/Context;
 
-    invoke-static {v1}, Lcom/android/server/usage/StorageStatsService;->access$200(Lcom/android/server/usage/StorageStatsService;)Landroid/content/Context;
+    move-result-object v0
 
-    move-result-object v1
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    move-result-object v0
 
-    move-result-object v1
+    invoke-static {v0}, Lcom/android/server/usage/StorageStatsService;->isCacheQuotaCalculationsEnabled(Landroid/content/ContentResolver;)Z
 
-    invoke-static {v1}, Lcom/android/server/usage/StorageStatsService;->isCacheQuotaCalculationsEnabled(Landroid/content/ContentResolver;)Z
+    move-result v0
 
-    move-result v1
-
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
     return-void
 
     :cond_0
-    iget v1, p1, Landroid/os/Message;->what:I
+    iget p1, p1, Landroid/os/Message;->what:I
 
-    const-wide/16 v2, 0x7530
+    const-wide/16 v0, 0x7530
 
-    const/16 v4, 0x64
+    const/16 v2, 0x64
 
-    packed-switch v1, :pswitch_data_0
+    const-wide/32 v3, 0x2255100
+
+    const/16 v5, 0x66
+
+    packed-switch p1, :pswitch_data_0
 
     return-void
 
     :pswitch_0
-    invoke-direct {p0}, Lcom/android/server/usage/StorageStatsService$H;->getInitializedStrategy()Lcom/android/server/storage/CacheQuotaStrategy;
+    invoke-virtual {p0}, Lcom/android/server/usage/StorageStatsService$H;->getInitializedStrategy()Lcom/android/server/storage/CacheQuotaStrategy;
 
-    move-result-object v1
+    move-result-object p1
 
-    const-wide/16 v5, -0x1
+    invoke-virtual {p0, p1}, Lcom/android/server/usage/StorageStatsService$H;->recalculateQuotas(Lcom/android/server/storage/CacheQuotaStrategy;)V
 
-    iput-wide v5, p0, Lcom/android/server/usage/StorageStatsService$H;->mPreviousBytes:J
+    goto/16 :goto_2
+
+    :pswitch_1
+    invoke-virtual {p0}, Lcom/android/server/usage/StorageStatsService$H;->getInitializedStrategy()Lcom/android/server/storage/CacheQuotaStrategy;
+
+    move-result-object p1
+
+    invoke-virtual {p0, p1}, Lcom/android/server/usage/StorageStatsService$H;->recalculateQuotas(Lcom/android/server/storage/CacheQuotaStrategy;)V
+
+    invoke-virtual {p0, v5, v3, v4}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
+
+    goto/16 :goto_2
+
+    :pswitch_2
+    invoke-virtual {p0}, Lcom/android/server/usage/StorageStatsService$H;->getInitializedStrategy()Lcom/android/server/storage/CacheQuotaStrategy;
+
+    move-result-object p1
+
+    const-wide/16 v6, -0x1
+
+    iput-wide v6, p0, Lcom/android/server/usage/StorageStatsService$H;->mPreviousBytes:J
 
     :try_start_0
-    invoke-virtual {v1}, Lcom/android/server/storage/CacheQuotaStrategy;->setupQuotasFromFile()J
+    invoke-virtual {p1}, Lcom/android/server/storage/CacheQuotaStrategy;->setupQuotasFromFile()J
 
-    move-result-wide v5
+    move-result-wide v6
 
-    iput-wide v5, p0, Lcom/android/server/usage/StorageStatsService$H;->mPreviousBytes:J
+    iput-wide v6, p0, Lcom/android/server/usage/StorageStatsService$H;->mPreviousBytes:J
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
@@ -181,100 +177,202 @@
     goto :goto_0
 
     :catch_0
-    move-exception v5
+    move-exception v6
 
-    const-string v6, "Cache quota XML file is malformed?"
+    const-string v7, "StorageStatsService"
 
-    invoke-static {v0, v6, v5}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    const-string v8, "Cache quota XML file is malformed?"
 
-    goto :goto_1
+    invoke-static {v7, v8, v6}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
 
     :catch_1
-    move-exception v5
+    move-exception v6
 
-    const-string v6, "An error occurred while reading the cache quota file."
+    const-string v7, "StorageStatsService"
 
-    invoke-static {v0, v6, v5}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    const-string v8, "An error occurred while reading the cache quota file."
+
+    invoke-static {v7, v8, v6}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_0
-    nop
+    iget-wide v6, p0, Lcom/android/server/usage/StorageStatsService$H;->mPreviousBytes:J
 
-    :goto_1
-    iget-wide v5, p0, Lcom/android/server/usage/StorageStatsService$H;->mPreviousBytes:J
+    const-wide/16 v8, 0x0
 
-    const-wide/16 v7, 0x0
+    cmp-long v6, v6, v8
 
-    cmp-long v0, v5, v7
+    if-gez v6, :cond_1
 
-    if-gez v0, :cond_1
+    iget-object v6, p0, Lcom/android/server/usage/StorageStatsService$H;->mStats:Landroid/os/StatFs;
 
-    iget-object v0, p0, Lcom/android/server/usage/StorageStatsService$H;->mStats:Landroid/os/StatFs;
+    invoke-static {}, Landroid/os/Environment;->getDataDirectory()Ljava/io/File;
 
-    invoke-virtual {v0}, Landroid/os/StatFs;->getAvailableBytes()J
+    move-result-object v7
 
-    move-result-wide v5
+    invoke-virtual {v7}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
-    iput-wide v5, p0, Lcom/android/server/usage/StorageStatsService$H;->mPreviousBytes:J
+    move-result-object v7
 
-    invoke-direct {p0, v1}, Lcom/android/server/usage/StorageStatsService$H;->recalculateQuotas(Lcom/android/server/storage/CacheQuotaStrategy;)V
+    invoke-virtual {v6, v7}, Landroid/os/StatFs;->restat(Ljava/lang/String;)V
+
+    iget-object v6, p0, Lcom/android/server/usage/StorageStatsService$H;->mStats:Landroid/os/StatFs;
+
+    invoke-virtual {v6}, Landroid/os/StatFs;->getAvailableBytes()J
+
+    move-result-wide v6
+
+    iput-wide v6, p0, Lcom/android/server/usage/StorageStatsService$H;->mPreviousBytes:J
+
+    invoke-virtual {p0, p1}, Lcom/android/server/usage/StorageStatsService$H;->recalculateQuotas(Lcom/android/server/storage/CacheQuotaStrategy;)V
 
     :cond_1
-    invoke-virtual {p0, v4, v2, v3}, Lcom/android/server/usage/StorageStatsService$H;->sendEmptyMessageDelayed(IJ)Z
+    invoke-virtual {p0, v2, v0, v1}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
+
+    invoke-virtual {p0, v5, v3, v4}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
     goto :goto_2
 
-    :pswitch_1
-    iget-wide v0, p0, Lcom/android/server/usage/StorageStatsService$H;->mPreviousBytes:J
+    :pswitch_3
+    iget-object p1, p0, Lcom/android/server/usage/StorageStatsService$H;->mStats:Landroid/os/StatFs;
 
+    invoke-static {}, Landroid/os/Environment;->getDataDirectory()Ljava/io/File;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {p1, v3}, Landroid/os/StatFs;->restat(Ljava/lang/String;)V
+
+    iget-wide v3, p0, Lcom/android/server/usage/StorageStatsService$H;->mPreviousBytes:J
+
+    iget-object p1, p0, Lcom/android/server/usage/StorageStatsService$H;->mStats:Landroid/os/StatFs;
+
+    invoke-virtual {p1}, Landroid/os/StatFs;->getAvailableBytes()J
+
+    move-result-wide v5
+
+    sub-long/2addr v3, v5
+
+    invoke-static {v3, v4}, Ljava/lang/Math;->abs(J)J
+
+    move-result-wide v3
+
+    iget-object p1, p0, Lcom/android/server/usage/StorageStatsService$H;->this$0:Lcom/android/server/usage/StorageStatsService;
+
+    invoke-static {p1}, Lcom/android/server/usage/StorageStatsService;->-$$Nest$fgetmLock(Lcom/android/server/usage/StorageStatsService;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    monitor-enter p1
+
+    :try_start_1
     iget-object v5, p0, Lcom/android/server/usage/StorageStatsService$H;->mStats:Landroid/os/StatFs;
 
     invoke-virtual {v5}, Landroid/os/StatFs;->getAvailableBytes()J
 
     move-result-wide v5
 
-    sub-long/2addr v0, v5
+    iget-wide v7, p0, Lcom/android/server/usage/StorageStatsService$H;->mTotalBytes:J
 
-    invoke-static {v0, v1}, Ljava/lang/Math;->abs(J)J
+    iget-object v9, p0, Lcom/android/server/usage/StorageStatsService$H;->this$0:Lcom/android/server/usage/StorageStatsService;
 
-    move-result-wide v0
+    invoke-static {v9}, Lcom/android/server/usage/StorageStatsService;->-$$Nest$fgetmStorageThresholdPercentHigh(Lcom/android/server/usage/StorageStatsService;)I
 
-    long-to-double v5, v0
+    move-result v9
 
-    iget-wide v7, p0, Lcom/android/server/usage/StorageStatsService$H;->mMinimumThresholdBytes:D
+    int-to-long v9, v9
 
-    cmpl-double v5, v5, v7
+    mul-long/2addr v7, v9
+
+    const-wide/16 v9, 0x64
+
+    div-long/2addr v7, v9
+
+    cmp-long v5, v5, v7
 
     if-lez v5, :cond_2
 
-    iget-object v5, p0, Lcom/android/server/usage/StorageStatsService$H;->mStats:Landroid/os/StatFs;
+    iget-wide v5, p0, Lcom/android/server/usage/StorageStatsService$H;->mTotalBytes:J
 
-    invoke-virtual {v5}, Landroid/os/StatFs;->getAvailableBytes()J
+    const-wide/16 v7, 0x5
 
-    move-result-wide v5
+    mul-long/2addr v5, v7
 
-    iput-wide v5, p0, Lcom/android/server/usage/StorageStatsService$H;->mPreviousBytes:J
+    div-long/2addr v5, v9
 
-    invoke-direct {p0}, Lcom/android/server/usage/StorageStatsService$H;->getInitializedStrategy()Lcom/android/server/storage/CacheQuotaStrategy;
-
-    move-result-object v5
-
-    invoke-direct {p0, v5}, Lcom/android/server/usage/StorageStatsService$H;->recalculateQuotas(Lcom/android/server/storage/CacheQuotaStrategy;)V
-
-    iget-object v5, p0, Lcom/android/server/usage/StorageStatsService$H;->this$0:Lcom/android/server/usage/StorageStatsService;
-
-    invoke-virtual {v5}, Lcom/android/server/usage/StorageStatsService;->notifySignificantDelta()V
+    goto :goto_1
 
     :cond_2
-    invoke-virtual {p0, v4, v2, v3}, Lcom/android/server/usage/StorageStatsService$H;->sendEmptyMessageDelayed(IJ)Z
+    iget-wide v5, p0, Lcom/android/server/usage/StorageStatsService$H;->mTotalBytes:J
 
-    nop
+    const-wide/16 v7, 0x2
+
+    mul-long/2addr v5, v7
+
+    div-long/2addr v5, v9
+
+    :goto_1
+    monitor-exit p1
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    cmp-long p1, v3, v5
+
+    if-lez p1, :cond_3
+
+    iget-object p1, p0, Lcom/android/server/usage/StorageStatsService$H;->mStats:Landroid/os/StatFs;
+
+    invoke-virtual {p1}, Landroid/os/StatFs;->getAvailableBytes()J
+
+    move-result-wide v3
+
+    iput-wide v3, p0, Lcom/android/server/usage/StorageStatsService$H;->mPreviousBytes:J
+
+    invoke-virtual {p0}, Lcom/android/server/usage/StorageStatsService$H;->getInitializedStrategy()Lcom/android/server/storage/CacheQuotaStrategy;
+
+    move-result-object p1
+
+    invoke-virtual {p0, p1}, Lcom/android/server/usage/StorageStatsService$H;->recalculateQuotas(Lcom/android/server/storage/CacheQuotaStrategy;)V
+
+    iget-object p1, p0, Lcom/android/server/usage/StorageStatsService$H;->this$0:Lcom/android/server/usage/StorageStatsService;
+
+    invoke-virtual {p1}, Lcom/android/server/usage/StorageStatsService;->notifySignificantDelta()V
+
+    :cond_3
+    invoke-virtual {p0, v2, v0, v1}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
     :goto_2
     return-void
 
+    :catchall_0
+    move-exception p0
+
+    :try_start_2
+    monitor-exit p1
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    throw p0
+
+    nop
+
     :pswitch_data_0
     .packed-switch 0x64
+        :pswitch_3
+        :pswitch_2
         :pswitch_1
         :pswitch_0
     .end packed-switch
+.end method
+
+.method public final recalculateQuotas(Lcom/android/server/storage/CacheQuotaStrategy;)V
+    .locals 0
+
+    invoke-virtual {p1}, Lcom/android/server/storage/CacheQuotaStrategy;->recalculateQuotas()V
+
+    return-void
 .end method

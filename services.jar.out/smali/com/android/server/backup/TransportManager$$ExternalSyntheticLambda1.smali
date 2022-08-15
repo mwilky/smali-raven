@@ -1,21 +1,16 @@
 .class public final synthetic Lcom/android/server/backup/TransportManager$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Predicate;
 
 
-# instance fields
-.field public final synthetic f$0:Ljava/lang/String;
-
-
 # direct methods
-.method public synthetic constructor <init>(Ljava/lang/String;)V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/server/backup/TransportManager$$ExternalSyntheticLambda1;->f$0:Ljava/lang/String;
 
     return-void
 .end method
@@ -23,15 +18,13 @@
 
 # virtual methods
 .method public final test(Ljava/lang/Object;)Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/backup/TransportManager$$ExternalSyntheticLambda1;->f$0:Ljava/lang/String;
+    .locals 0
 
     check-cast p1, Landroid/content/ComponentName;
 
-    invoke-static {v0, p1}, Lcom/android/server/backup/TransportManager;->lambda$fromPackageFilter$3(Ljava/lang/String;Landroid/content/ComponentName;)Z
+    invoke-static {p1}, Lcom/android/server/backup/TransportManager;->$r8$lambda$VdLWXXS3KmyjvqMPKCdg0edE854(Landroid/content/ComponentName;)Z
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method

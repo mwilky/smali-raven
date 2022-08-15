@@ -1,61 +1,38 @@
 .class public final synthetic Lcom/android/server/am/AppExitInfoTracker$$ExternalSyntheticLambda10;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/BiFunction;
+.implements Ljava/util/function/Predicate;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/server/am/AppExitInfoTracker;
-
-.field public final synthetic f$1:I
-
-.field public final synthetic f$2:Ljava/util/ArrayList;
-
-.field public final synthetic f$3:I
+.field public final synthetic f$0:I
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/am/AppExitInfoTracker;ILjava/util/ArrayList;I)V
+.method public synthetic constructor <init>(I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/am/AppExitInfoTracker$$ExternalSyntheticLambda10;->f$0:Lcom/android/server/am/AppExitInfoTracker;
-
-    iput p2, p0, Lcom/android/server/am/AppExitInfoTracker$$ExternalSyntheticLambda10;->f$1:I
-
-    iput-object p3, p0, Lcom/android/server/am/AppExitInfoTracker$$ExternalSyntheticLambda10;->f$2:Ljava/util/ArrayList;
-
-    iput p4, p0, Lcom/android/server/am/AppExitInfoTracker$$ExternalSyntheticLambda10;->f$3:I
+    iput p1, p0, Lcom/android/server/am/AppExitInfoTracker$$ExternalSyntheticLambda10;->f$0:I
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final apply(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 6
+.method public final test(Ljava/lang/Object;)Z
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/am/AppExitInfoTracker$$ExternalSyntheticLambda10;->f$0:Lcom/android/server/am/AppExitInfoTracker;
+    iget p0, p0, Lcom/android/server/am/AppExitInfoTracker$$ExternalSyntheticLambda10;->f$0:I
 
-    iget v1, p0, Lcom/android/server/am/AppExitInfoTracker$$ExternalSyntheticLambda10;->f$1:I
+    check-cast p1, Ljava/lang/Integer;
 
-    iget-object v2, p0, Lcom/android/server/am/AppExitInfoTracker$$ExternalSyntheticLambda10;->f$2:Ljava/util/ArrayList;
+    invoke-static {p0, p1}, Lcom/android/server/am/AppExitInfoTracker;->$r8$lambda$zZjI1SbHtxek36sFZkd0ENgxs5E(ILjava/lang/Integer;)Z
 
-    iget v3, p0, Lcom/android/server/am/AppExitInfoTracker$$ExternalSyntheticLambda10;->f$3:I
+    move-result p0
 
-    move-object v4, p1
-
-    check-cast v4, Ljava/lang/String;
-
-    move-object v5, p2
-
-    check-cast v5, Landroid/util/SparseArray;
-
-    invoke-virtual/range {v0 .. v5}, Lcom/android/server/am/AppExitInfoTracker;->lambda$getExitInfo$3$AppExitInfoTracker(ILjava/util/ArrayList;ILjava/lang/String;Landroid/util/SparseArray;)Ljava/lang/Integer;
-
-    move-result-object p1
-
-    return-object p1
+    return p0
 .end method

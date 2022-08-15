@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/am/ProcessRecord$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -23,13 +24,13 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/am/ProcessRecord$$ExternalSyntheticLambda1;->f$0:Lcom/android/internal/app/procstats/ProcessState;
+    iget-object p0, p0, Lcom/android/server/am/ProcessRecord$$ExternalSyntheticLambda1;->f$0:Lcom/android/internal/app/procstats/ProcessState;
 
     check-cast p1, Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;
 
-    invoke-static {v0, p1}, Lcom/android/server/am/ProcessRecord;->lambda$resetPackageList$1(Lcom/android/internal/app/procstats/ProcessState;Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;)V
+    invoke-static {p0, p1}, Lcom/android/server/am/ProcessRecord;->$r8$lambda$gOjZktupKcGseVKoseUJD543GZQ(Lcom/android/internal/app/procstats/ProcessState;Lcom/android/internal/app/procstats/ProcessStats$ProcessStateHolder;)V
 
     return-void
 .end method

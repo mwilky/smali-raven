@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/server/texttospeech/TextToSpeechManagerPerUserService$ThrowingRunnable;
+.class public interface abstract Lcom/android/server/texttospeech/TextToSpeechManagerPerUserService$ThrowingRunnable;
 .super Ljava/lang/Object;
 .source "TextToSpeechManagerPerUserService.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
+    accessFlags = 0x609
     name = "ThrowingRunnable"
 .end annotation
 

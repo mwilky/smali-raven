@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/RootWindowContainer$RankTaskLayersRunnable;
+.class public Lcom/android/server/wm/RootWindowContainer$RankTaskLayersRunnable;
 .super Ljava/lang/Object;
 .source "RootWindowContainer.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "RankTaskLayersRunnable"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/wm/RootWindowContainer;
+.field public final synthetic this$0:Lcom/android/server/wm/RootWindowContainer;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/server/wm/RootWindowContainer;)V
+.method public constructor <init>(Lcom/android/server/wm/RootWindowContainer;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/wm/RootWindowContainer$RankTaskLayersRunnable;->this$0:Lcom/android/server/wm/RootWindowContainer;
@@ -32,7 +32,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/wm/RootWindowContainer;Lcom/android/server/wm/RootWindowContainer$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/wm/RootWindowContainer;Lcom/android/server/wm/RootWindowContainer$RankTaskLayersRunnable-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/wm/RootWindowContainer$RankTaskLayersRunnable;-><init>(Lcom/android/server/wm/RootWindowContainer;)V
@@ -58,7 +58,7 @@
 
     iget-object v1, p0, Lcom/android/server/wm/RootWindowContainer$RankTaskLayersRunnable;->this$0:Lcom/android/server/wm/RootWindowContainer;
 
-    invoke-static {v1}, Lcom/android/server/wm/RootWindowContainer;->access$500(Lcom/android/server/wm/RootWindowContainer;)Z
+    invoke-static {v1}, Lcom/android/server/wm/RootWindowContainer;->-$$Nest$fgetmTaskLayersChanged(Lcom/android/server/wm/RootWindowContainer;)Z
 
     move-result v1
 
@@ -68,11 +68,11 @@
 
     const/4 v2, 0x0
 
-    invoke-static {v1, v2}, Lcom/android/server/wm/RootWindowContainer;->access$502(Lcom/android/server/wm/RootWindowContainer;Z)Z
+    invoke-static {v1, v2}, Lcom/android/server/wm/RootWindowContainer;->-$$Nest$fputmTaskLayersChanged(Lcom/android/server/wm/RootWindowContainer;Z)V
 
-    iget-object v1, p0, Lcom/android/server/wm/RootWindowContainer$RankTaskLayersRunnable;->this$0:Lcom/android/server/wm/RootWindowContainer;
+    iget-object p0, p0, Lcom/android/server/wm/RootWindowContainer$RankTaskLayersRunnable;->this$0:Lcom/android/server/wm/RootWindowContainer;
 
-    invoke-virtual {v1}, Lcom/android/server/wm/RootWindowContainer;->rankTaskLayers()V
+    invoke-virtual {p0}, Lcom/android/server/wm/RootWindowContainer;->rankTaskLayers()V
 
     :cond_0
     monitor-exit v0
@@ -84,7 +84,7 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     :try_start_1
     monitor-exit v0
@@ -93,5 +93,5 @@
 
     invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
 
-    throw v1
+    throw p0
 .end method

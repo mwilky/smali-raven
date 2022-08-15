@@ -1,4 +1,4 @@
-.class Lcom/android/server/accessibility/AccessibilityInputFilter$TouchScreenEventStreamState;
+.class public Lcom/android/server/accessibility/AccessibilityInputFilter$TouchScreenEventStreamState;
 .super Lcom/android/server/accessibility/AccessibilityInputFilter$EventStreamState;
 .source "AccessibilityInputFilter.java"
 
@@ -9,15 +9,15 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "TouchScreenEventStreamState"
 .end annotation
 
 
 # instance fields
-.field private mHoverSequenceStarted:Z
+.field public mHoverSequenceStarted:Z
 
-.field private mTouchSequenceStarted:Z
+.field public mTouchSequenceStarted:Z
 
 
 # direct methods
@@ -48,7 +48,7 @@
 .end method
 
 .method public final shouldProcessMotionEvent(Landroid/view/MotionEvent;)Z
-    .locals 4
+    .locals 3
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->isTouchEvent()Z
 
@@ -69,9 +69,9 @@
     :cond_0
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
 
-    move-result v0
+    move-result p1
 
-    if-nez v0, :cond_1
+    if-nez p1, :cond_1
 
     move v1, v2
 
@@ -90,11 +90,11 @@
     :cond_3
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
 
-    move-result v0
+    move-result p1
 
-    const/16 v3, 0x9
+    const/16 v0, 0x9
 
-    if-ne v0, v3, :cond_4
+    if-ne p1, v0, :cond_4
 
     move v1, v2
 

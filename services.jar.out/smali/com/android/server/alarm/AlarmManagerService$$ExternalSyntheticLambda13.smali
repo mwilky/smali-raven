@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/alarm/AlarmManagerService$$ExternalSyntheticLambda13;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Predicate;
@@ -23,15 +24,15 @@
 
 # virtual methods
 .method public final test(Ljava/lang/Object;)Z
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/alarm/AlarmManagerService$$ExternalSyntheticLambda13;->f$0:I
+    iget p0, p0, Lcom/android/server/alarm/AlarmManagerService$$ExternalSyntheticLambda13;->f$0:I
 
     check-cast p1, Lcom/android/server/alarm/Alarm;
 
-    invoke-static {v0, p1}, Lcom/android/server/alarm/AlarmManagerService;->lambda$removeLocked$15(ILcom/android/server/alarm/Alarm;)Z
+    invoke-static {p0, p1}, Lcom/android/server/alarm/AlarmManagerService;->$r8$lambda$vvI2GdXs8XKS9MToEcxoAP1in2Q(ILcom/android/server/alarm/Alarm;)Z
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method

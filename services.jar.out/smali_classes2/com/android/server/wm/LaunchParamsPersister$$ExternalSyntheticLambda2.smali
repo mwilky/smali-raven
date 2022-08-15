@@ -1,43 +1,38 @@
 .class public final synthetic Lcom/android/server/wm/LaunchParamsPersister$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/IntFunction;
+.implements Ljava/util/function/Function;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/wm/LaunchParamsPersister$$ExternalSyntheticLambda2;
+# instance fields
+.field public final synthetic f$0:Lcom/android/server/wm/LaunchParamsPersister;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/wm/LaunchParamsPersister$$ExternalSyntheticLambda2;
-
-    invoke-direct {v0}, Lcom/android/server/wm/LaunchParamsPersister$$ExternalSyntheticLambda2;-><init>()V
-
-    sput-object v0, Lcom/android/server/wm/LaunchParamsPersister$$ExternalSyntheticLambda2;->INSTANCE:Lcom/android/server/wm/LaunchParamsPersister$$ExternalSyntheticLambda2;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Lcom/android/server/wm/LaunchParamsPersister;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/wm/LaunchParamsPersister$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/wm/LaunchParamsPersister;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final apply(I)Ljava/lang/Object;
+.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
 
-    invoke-static {p1}, Landroid/os/Environment;->getDataSystemCeDirectory(I)Ljava/io/File;
+    iget-object p0, p0, Lcom/android/server/wm/LaunchParamsPersister$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/wm/LaunchParamsPersister;
 
-    move-result-object p1
+    check-cast p1, Landroid/content/ComponentName;
 
-    return-object p1
+    invoke-static {p0, p1}, Lcom/android/server/wm/LaunchParamsPersister;->$r8$lambda$NFFd1vprOhE8FxlUfkIFrf3D97c(Lcom/android/server/wm/LaunchParamsPersister;Landroid/content/ComponentName;)Lcom/android/server/wm/LaunchParamsPersister$PersistableLaunchParams;
+
+    move-result-object p0
+
+    return-object p0
 .end method

@@ -1,4 +1,4 @@
-.class Lcom/android/server/usb/UsbMidiDevice$3;
+.class public Lcom/android/server/usb/UsbMidiDevice$3;
 .super Ljava/lang/Thread;
 .source "UsbMidiDevice.java"
 
@@ -9,23 +9,23 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/usb/UsbMidiDevice;
+.field public final synthetic this$0:Lcom/android/server/usb/UsbMidiDevice;
 
-.field final synthetic val$eventSchedulerF:Lcom/android/internal/midi/MidiEventScheduler;
+.field public final synthetic val$eventSchedulerF:Lcom/android/internal/midi/MidiEventScheduler;
 
-.field final synthetic val$outputStreamF:Ljava/io/FileOutputStream;
+.field public final synthetic val$outputStreamF:Ljava/io/FileOutputStream;
 
-.field final synthetic val$portF:I
+.field public final synthetic val$portF:I
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/usb/UsbMidiDevice;Ljava/lang/String;Lcom/android/internal/midi/MidiEventScheduler;Ljava/io/FileOutputStream;I)V
+.method public constructor <init>(Lcom/android/server/usb/UsbMidiDevice;Ljava/lang/String;Lcom/android/internal/midi/MidiEventScheduler;Ljava/io/FileOutputStream;I)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/usb/UsbMidiDevice$3;->this$0:Lcom/android/server/usb/UsbMidiDevice;
@@ -46,6 +46,7 @@
 .method public run()V
     .locals 6
 
+    :catch_0
     :goto_0
     :try_start_0
     iget-object v0, p0, Lcom/android/server/usb/UsbMidiDevice$3;->val$eventSchedulerF:Lcom/android/internal/midi/MidiEventScheduler;
@@ -56,19 +57,15 @@
 
     check-cast v0, Lcom/android/internal/midi/MidiEventScheduler$MidiEvent;
     :try_end_0
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_1
-
-    nop
+    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
     const-string v1, "UsbMidiDevice"
 
     if-nez v0, :cond_0
 
-    nop
+    const-string p0, "output thread exit"
 
-    const-string v0, "output thread exit"
-
-    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
@@ -84,40 +81,33 @@
 
     invoke-virtual {v2, v3, v4, v5}, Ljava/io/FileOutputStream;->write([BII)V
     :try_end_1
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
 
     goto :goto_1
 
-    :catch_0
-    move-exception v2
+    :catch_1
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v3, "write failed for port "
 
-    const-string v4, "write failed for port "
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget v3, p0, Lcom/android/server/usb/UsbMidiDevice$3;->val$portF:I
 
-    iget v4, p0, Lcom/android/server/usb/UsbMidiDevice$3;->val$portF:I
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v2
 
-    move-result-object v3
-
-    invoke-static {v1, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     :goto_1
     iget-object v1, p0, Lcom/android/server/usb/UsbMidiDevice$3;->val$eventSchedulerF:Lcom/android/internal/midi/MidiEventScheduler;
 
     invoke-virtual {v1, v0}, Lcom/android/internal/midi/MidiEventScheduler;->addEventToPool(Lcom/android/internal/midi/EventScheduler$SchedulableEvent;)V
-
-    goto :goto_0
-
-    :catch_1
-    move-exception v0
 
     goto :goto_0
 .end method

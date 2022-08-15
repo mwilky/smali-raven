@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/wallpaper/LocalColorRepository$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/os/IBinder$DeathRecipient;
@@ -27,13 +28,13 @@
 
 # virtual methods
 .method public final binderDied()V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/wallpaper/LocalColorRepository$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/wallpaper/LocalColorRepository;
 
-    iget-object v1, p0, Lcom/android/server/wallpaper/LocalColorRepository$$ExternalSyntheticLambda0;->f$1:Landroid/app/ILocalWallpaperColorConsumer;
+    iget-object p0, p0, Lcom/android/server/wallpaper/LocalColorRepository$$ExternalSyntheticLambda0;->f$1:Landroid/app/ILocalWallpaperColorConsumer;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/wallpaper/LocalColorRepository;->lambda$addAreas$0$LocalColorRepository(Landroid/app/ILocalWallpaperColorConsumer;)V
+    invoke-static {v0, p0}, Lcom/android/server/wallpaper/LocalColorRepository;->$r8$lambda$dj7_Lg3CQCn6S-BChf-mzYrKCFY(Lcom/android/server/wallpaper/LocalColorRepository;Landroid/app/ILocalWallpaperColorConsumer;)V
 
     return-void
 .end method

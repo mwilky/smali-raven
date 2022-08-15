@@ -1,35 +1,30 @@
 .class public final synthetic Lcom/android/server/autofill/RemoteFillService$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/internal/infra/ServiceConnector$VoidJob;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/android/internal/os/IResultReceiver;
+.implements Ljava/util/function/Function;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/internal/os/IResultReceiver;)V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/server/autofill/RemoteFillService$$ExternalSyntheticLambda2;->f$0:Lcom/android/internal/os/IResultReceiver;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final runNoResult(Ljava/lang/Object;)V
-    .locals 1
+.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/autofill/RemoteFillService$$ExternalSyntheticLambda2;->f$0:Lcom/android/internal/os/IResultReceiver;
+    check-cast p1, Landroid/os/IBinder;
 
-    check-cast p1, Landroid/service/autofill/IAutoFillService;
+    invoke-static {p1}, Landroid/service/autofill/IAutoFillService$Stub;->asInterface(Landroid/os/IBinder;)Landroid/service/autofill/IAutoFillService;
 
-    invoke-static {v0, p1}, Lcom/android/server/autofill/RemoteFillService;->lambda$onSavedPasswordCountRequest$6(Lcom/android/internal/os/IResultReceiver;Landroid/service/autofill/IAutoFillService;)V
+    move-result-object p0
 
-    return-void
+    return-object p0
 .end method

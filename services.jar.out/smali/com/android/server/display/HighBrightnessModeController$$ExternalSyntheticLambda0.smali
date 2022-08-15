@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/display/HighBrightnessModeController$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/display/HighBrightnessModeController$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/display/HighBrightnessModeController;
+    iget-object p0, p0, Lcom/android/server/display/HighBrightnessModeController$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/display/HighBrightnessModeController;
 
-    invoke-static {v0}, Lcom/android/server/display/HighBrightnessModeController;->$r8$lambda$yl94PRiW-f7m4RO5bHtT-VWcNds(Lcom/android/server/display/HighBrightnessModeController;)V
+    invoke-static {p0}, Lcom/android/server/display/HighBrightnessModeController;->$r8$lambda$yl94PRiW-f7m4RO5bHtT-VWcNds(Lcom/android/server/display/HighBrightnessModeController;)V
 
     return-void
 .end method

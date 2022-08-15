@@ -1,4 +1,4 @@
-.class Lcom/android/server/backup/restore/RestoreFileRunnable;
+.class public Lcom/android/server/backup/restore/RestoreFileRunnable;
 .super Ljava/lang/Object;
 .source "RestoreFileRunnable.java"
 
@@ -7,20 +7,20 @@
 
 
 # instance fields
-.field private final mAgent:Landroid/app/IBackupAgent;
+.field public final mAgent:Landroid/app/IBackupAgent;
 
-.field private final mBackupManagerService:Lcom/android/server/backup/UserBackupManagerService;
+.field public final mBackupManagerService:Lcom/android/server/backup/UserBackupManagerService;
 
-.field private final mInfo:Lcom/android/server/backup/FileMetadata;
+.field public final mInfo:Lcom/android/server/backup/FileMetadata;
 
-.field private final mSocket:Landroid/os/ParcelFileDescriptor;
+.field public final mSocket:Landroid/os/ParcelFileDescriptor;
 
-.field private final mToken:I
+.field public final mToken:I
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/backup/UserBackupManagerService;Landroid/app/IBackupAgent;Lcom/android/server/backup/FileMetadata;Landroid/os/ParcelFileDescriptor;I)V
-    .locals 1
+.method public constructor <init>(Lcom/android/server/backup/UserBackupManagerService;Landroid/app/IBackupAgent;Lcom/android/server/backup/FileMetadata;Landroid/os/ParcelFileDescriptor;I)V
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -37,13 +37,13 @@
 
     invoke-virtual {p4}, Landroid/os/ParcelFileDescriptor;->getFileDescriptor()Ljava/io/FileDescriptor;
 
-    move-result-object v0
+    move-result-object p2
 
-    invoke-static {v0}, Landroid/os/ParcelFileDescriptor;->dup(Ljava/io/FileDescriptor;)Landroid/os/ParcelFileDescriptor;
+    invoke-static {p2}, Landroid/os/ParcelFileDescriptor;->dup(Ljava/io/FileDescriptor;)Landroid/os/ParcelFileDescriptor;
 
-    move-result-object v0
+    move-result-object p2
 
-    iput-object v0, p0, Lcom/android/server/backup/restore/RestoreFileRunnable;->mSocket:Landroid/os/ParcelFileDescriptor;
+    iput-object p2, p0, Lcom/android/server/backup/restore/RestoreFileRunnable;->mSocket:Landroid/os/ParcelFileDescriptor;
 
     iput-object p1, p0, Lcom/android/server/backup/restore/RestoreFileRunnable;->mBackupManagerService:Lcom/android/server/backup/UserBackupManagerService;
 
@@ -62,45 +62,46 @@
 
     iget-object v2, p0, Lcom/android/server/backup/restore/RestoreFileRunnable;->mInfo:Lcom/android/server/backup/FileMetadata;
 
-    iget-wide v2, v2, Lcom/android/server/backup/FileMetadata;->size:J
+    iget-wide v3, v2, Lcom/android/server/backup/FileMetadata;->size:J
 
-    iget-object v4, p0, Lcom/android/server/backup/restore/RestoreFileRunnable;->mInfo:Lcom/android/server/backup/FileMetadata;
+    iget v5, v2, Lcom/android/server/backup/FileMetadata;->type:I
 
-    iget v4, v4, Lcom/android/server/backup/FileMetadata;->type:I
+    iget-object v6, v2, Lcom/android/server/backup/FileMetadata;->domain:Ljava/lang/String;
 
-    iget-object v5, p0, Lcom/android/server/backup/restore/RestoreFileRunnable;->mInfo:Lcom/android/server/backup/FileMetadata;
+    iget-object v7, v2, Lcom/android/server/backup/FileMetadata;->path:Ljava/lang/String;
 
-    iget-object v5, v5, Lcom/android/server/backup/FileMetadata;->domain:Ljava/lang/String;
+    iget-wide v8, v2, Lcom/android/server/backup/FileMetadata;->mode:J
 
-    iget-object v6, p0, Lcom/android/server/backup/restore/RestoreFileRunnable;->mInfo:Lcom/android/server/backup/FileMetadata;
+    iget-wide v10, v2, Lcom/android/server/backup/FileMetadata;->mtime:J
 
-    iget-object v6, v6, Lcom/android/server/backup/FileMetadata;->path:Ljava/lang/String;
+    iget v12, p0, Lcom/android/server/backup/restore/RestoreFileRunnable;->mToken:I
 
-    iget-object v7, p0, Lcom/android/server/backup/restore/RestoreFileRunnable;->mInfo:Lcom/android/server/backup/FileMetadata;
+    iget-object p0, p0, Lcom/android/server/backup/restore/RestoreFileRunnable;->mBackupManagerService:Lcom/android/server/backup/UserBackupManagerService;
 
-    iget-wide v7, v7, Lcom/android/server/backup/FileMetadata;->mode:J
+    invoke-virtual {p0}, Lcom/android/server/backup/UserBackupManagerService;->getBackupManagerBinder()Landroid/app/backup/IBackupManager;
 
-    iget-object v9, p0, Lcom/android/server/backup/restore/RestoreFileRunnable;->mInfo:Lcom/android/server/backup/FileMetadata;
+    move-result-object p0
 
-    iget-wide v9, v9, Lcom/android/server/backup/FileMetadata;->mtime:J
+    move-wide v2, v3
 
-    iget v11, p0, Lcom/android/server/backup/restore/RestoreFileRunnable;->mToken:I
+    move v4, v5
 
-    iget-object v12, p0, Lcom/android/server/backup/restore/RestoreFileRunnable;->mBackupManagerService:Lcom/android/server/backup/UserBackupManagerService;
+    move-object v5, v6
 
-    invoke-virtual {v12}, Lcom/android/server/backup/UserBackupManagerService;->getBackupManagerBinder()Landroid/app/backup/IBackupManager;
+    move-object v6, v7
 
-    move-result-object v12
+    move-wide v7, v8
+
+    move-wide v9, v10
+
+    move v11, v12
+
+    move-object v12, p0
 
     invoke-interface/range {v0 .. v12}, Landroid/app/IBackupAgent;->doRestoreFile(Landroid/os/ParcelFileDescriptor;JILjava/lang/String;Ljava/lang/String;JJILandroid/app/backup/IBackupManager;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
-
     :catch_0
-    move-exception v0
-
-    :goto_0
     return-void
 .end method

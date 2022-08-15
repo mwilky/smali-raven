@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/wm/BlurController$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/os/PowerManager$OnThermalStatusChangedListener;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final onThermalStatusChanged(I)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/BlurController$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/wm/BlurController;
+    iget-object p0, p0, Lcom/android/server/wm/BlurController$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/wm/BlurController;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/wm/BlurController;->lambda$new$0$BlurController(I)V
+    invoke-static {p0, p1}, Lcom/android/server/wm/BlurController;->$r8$lambda$MvA4SW0VwlFVTadaS8sztsY4N2Q(Lcom/android/server/wm/BlurController;I)V
 
     return-void
 .end method

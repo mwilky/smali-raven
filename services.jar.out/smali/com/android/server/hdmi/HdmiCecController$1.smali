@@ -1,4 +1,4 @@
-.class Lcom/android/server/hdmi/HdmiCecController$1;
+.class public Lcom/android/server/hdmi/HdmiCecController$1;
 .super Ljava/lang/Object;
 .source "HdmiCecController.java"
 
@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
@@ -27,11 +27,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/hdmi/HdmiCecController;
+.field public final synthetic this$0:Lcom/android/server/hdmi/HdmiCecController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/hdmi/HdmiCecController;)V
+.method public constructor <init>(Lcom/android/server/hdmi/HdmiCecController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/hdmi/HdmiCecController$1;->this$0:Lcom/android/server/hdmi/HdmiCecController;
@@ -44,29 +44,29 @@
 
 # virtual methods
 .method public test(Ljava/lang/Integer;)Z
-    .locals 2
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecController$1;->this$0:Lcom/android/server/hdmi/HdmiCecController;
+    iget-object p0, p0, Lcom/android/server/hdmi/HdmiCecController$1;->this$0:Lcom/android/server/hdmi/HdmiCecController;
 
-    invoke-static {v0}, Lcom/android/server/hdmi/HdmiCecController;->access$000(Lcom/android/server/hdmi/HdmiCecController;)Lcom/android/server/hdmi/HdmiControlService;
+    invoke-static {p0}, Lcom/android/server/hdmi/HdmiCecController;->-$$Nest$fgetmService(Lcom/android/server/hdmi/HdmiCecController;)Lcom/android/server/hdmi/HdmiControlService;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Lcom/android/server/hdmi/HdmiControlService;->getHdmiCecNetwork()Lcom/android/server/hdmi/HdmiCecNetwork;
+    invoke-virtual {p0}, Lcom/android/server/hdmi/HdmiControlService;->getHdmiCecNetwork()Lcom/android/server/hdmi/HdmiCecNetwork;
 
-    move-result-object v0
+    move-result-object p0
 
     invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
 
-    move-result v1
+    move-result p1
 
-    invoke-virtual {v0, v1}, Lcom/android/server/hdmi/HdmiCecNetwork;->isAllocatedLocalDeviceAddress(I)Z
+    invoke-virtual {p0, p1}, Lcom/android/server/hdmi/HdmiCecNetwork;->isAllocatedLocalDeviceAddress(I)Z
 
-    move-result v0
+    move-result p0
 
-    xor-int/lit8 v0, v0, 0x1
+    xor-int/lit8 p0, p0, 0x1
 
-    return v0
+    return p0
 .end method
 
 .method public bridge synthetic test(Ljava/lang/Object;)Z
@@ -76,7 +76,7 @@
 
     invoke-virtual {p0, p1}, Lcom/android/server/hdmi/HdmiCecController$1;->test(Ljava/lang/Integer;)Z
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method

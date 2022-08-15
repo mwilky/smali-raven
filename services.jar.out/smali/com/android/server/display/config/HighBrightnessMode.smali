@@ -4,19 +4,23 @@
 
 
 # instance fields
-.field private allowInLowPowerMode_all:Ljava/lang/Boolean;
+.field public allowInLowPowerMode_all:Ljava/lang/Boolean;
 
-.field private enabled:Ljava/lang/Boolean;
+.field public enabled:Ljava/lang/Boolean;
 
-.field private minimumLux_all:Ljava/math/BigDecimal;
+.field public minimumHdrPercentOfScreen_all:Ljava/math/BigDecimal;
 
-.field private refreshRate_all:Lcom/android/server/display/config/RefreshRateRange;
+.field public minimumLux_all:Ljava/math/BigDecimal;
 
-.field private thermalStatusLimit_all:Lcom/android/server/display/config/ThermalStatus;
+.field public refreshRate_all:Lcom/android/server/display/config/RefreshRateRange;
 
-.field private timing_all:Lcom/android/server/display/config/HbmTiming;
+.field public sdrHdrRatioMap_all:Lcom/android/server/display/config/SdrHdrRatioMap;
 
-.field private transitionPoint_all:Ljava/math/BigDecimal;
+.field public thermalStatusLimit_all:Lcom/android/server/display/config/ThermalStatus;
+
+.field public timing_all:Lcom/android/server/display/config/HbmTiming;
+
+.field public transitionPoint_all:Ljava/math/BigDecimal;
 
 
 # direct methods
@@ -28,8 +32,8 @@
     return-void
 .end method
 
-.method static read(Lorg/xmlpull/v1/XmlPullParser;)Lcom/android/server/display/config/HighBrightnessMode;
-    .locals 7
+.method public static read(Lorg/xmlpull/v1/XmlPullParser;)Lcom/android/server/display/config/HighBrightnessMode;
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -44,11 +48,9 @@
 
     const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    const-string v2, "enabled"
 
-    const-string v3, "enabled"
-
-    invoke-interface {p0, v2, v3}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {p0, v1, v2}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -56,128 +58,124 @@
 
     invoke-static {v1}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
 
-    move-result v2
+    move-result v1
 
-    invoke-virtual {v0, v2}, Lcom/android/server/display/config/HighBrightnessMode;->setEnabled(Z)V
+    invoke-virtual {v0, v1}, Lcom/android/server/display/config/HighBrightnessMode;->setEnabled(Z)V
 
     :cond_0
     invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->getDepth()I
 
-    move-result v2
-
     :goto_0
     invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
-    move-result v3
+    move-result v1
 
-    move v4, v3
+    const/4 v2, 0x1
 
-    const/4 v5, 0x1
+    const/4 v3, 0x3
 
-    const/4 v6, 0x3
+    if-eq v1, v2, :cond_a
 
-    if-eq v3, v5, :cond_8
-
-    if-eq v4, v6, :cond_8
+    if-eq v1, v3, :cond_a
 
     invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->getEventType()I
 
-    move-result v3
+    move-result v1
 
-    const/4 v5, 0x2
+    const/4 v2, 0x2
 
-    if-eq v3, v5, :cond_1
+    if-eq v1, v2, :cond_1
 
     goto :goto_0
 
     :cond_1
     invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v1
 
-    const-string/jumbo v5, "transitionPoint"
+    const-string/jumbo v2, "transitionPoint"
 
-    invoke-virtual {v3, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v2
 
-    if-eqz v5, :cond_2
+    if-eqz v2, :cond_2
 
     invoke-static {p0}, Lcom/android/server/display/config/XmlParser;->readText(Lorg/xmlpull/v1/XmlPullParser;)Ljava/lang/String;
 
     move-result-object v1
 
-    new-instance v5, Ljava/math/BigDecimal;
+    new-instance v2, Ljava/math/BigDecimal;
 
-    invoke-direct {v5, v1}, Ljava/math/BigDecimal;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v1}, Ljava/math/BigDecimal;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0, v5}, Lcom/android/server/display/config/HighBrightnessMode;->setTransitionPoint_all(Ljava/math/BigDecimal;)V
+    invoke-virtual {v0, v2}, Lcom/android/server/display/config/HighBrightnessMode;->setTransitionPoint_all(Ljava/math/BigDecimal;)V
 
-    goto :goto_1
+    goto :goto_0
 
     :cond_2
-    const-string/jumbo v5, "minimumLux"
+    const-string/jumbo v2, "minimumLux"
 
-    invoke-virtual {v3, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v2
 
-    if-eqz v5, :cond_3
+    if-eqz v2, :cond_3
 
     invoke-static {p0}, Lcom/android/server/display/config/XmlParser;->readText(Lorg/xmlpull/v1/XmlPullParser;)Ljava/lang/String;
 
     move-result-object v1
 
-    new-instance v5, Ljava/math/BigDecimal;
+    new-instance v2, Ljava/math/BigDecimal;
 
-    invoke-direct {v5, v1}, Ljava/math/BigDecimal;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v1}, Ljava/math/BigDecimal;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0, v5}, Lcom/android/server/display/config/HighBrightnessMode;->setMinimumLux_all(Ljava/math/BigDecimal;)V
+    invoke-virtual {v0, v2}, Lcom/android/server/display/config/HighBrightnessMode;->setMinimumLux_all(Ljava/math/BigDecimal;)V
 
-    goto :goto_1
+    goto :goto_0
 
     :cond_3
-    const-string/jumbo v5, "timing"
+    const-string/jumbo v2, "timing"
 
-    invoke-virtual {v3, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v2
 
-    if-eqz v5, :cond_4
+    if-eqz v2, :cond_4
 
     invoke-static {p0}, Lcom/android/server/display/config/HbmTiming;->read(Lorg/xmlpull/v1/XmlPullParser;)Lcom/android/server/display/config/HbmTiming;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-virtual {v0, v5}, Lcom/android/server/display/config/HighBrightnessMode;->setTiming_all(Lcom/android/server/display/config/HbmTiming;)V
+    invoke-virtual {v0, v1}, Lcom/android/server/display/config/HighBrightnessMode;->setTiming_all(Lcom/android/server/display/config/HbmTiming;)V
 
-    goto :goto_1
+    goto :goto_0
 
     :cond_4
-    const-string/jumbo v5, "refreshRate"
+    const-string/jumbo v2, "refreshRate"
 
-    invoke-virtual {v3, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v2
 
-    if-eqz v5, :cond_5
+    if-eqz v2, :cond_5
 
     invoke-static {p0}, Lcom/android/server/display/config/RefreshRateRange;->read(Lorg/xmlpull/v1/XmlPullParser;)Lcom/android/server/display/config/RefreshRateRange;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-virtual {v0, v5}, Lcom/android/server/display/config/HighBrightnessMode;->setRefreshRate_all(Lcom/android/server/display/config/RefreshRateRange;)V
+    invoke-virtual {v0, v1}, Lcom/android/server/display/config/HighBrightnessMode;->setRefreshRate_all(Lcom/android/server/display/config/RefreshRateRange;)V
 
-    goto :goto_1
+    goto :goto_0
 
     :cond_5
-    const-string/jumbo v5, "thermalStatusLimit"
+    const-string/jumbo v2, "thermalStatusLimit"
 
-    invoke-virtual {v3, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v2
 
-    if-eqz v5, :cond_6
+    if-eqz v2, :cond_6
 
     invoke-static {p0}, Lcom/android/server/display/config/XmlParser;->readText(Lorg/xmlpull/v1/XmlPullParser;)Ljava/lang/String;
 
@@ -185,20 +183,20 @@
 
     invoke-static {v1}, Lcom/android/server/display/config/ThermalStatus;->fromString(Ljava/lang/String;)Lcom/android/server/display/config/ThermalStatus;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-virtual {v0, v5}, Lcom/android/server/display/config/HighBrightnessMode;->setThermalStatusLimit_all(Lcom/android/server/display/config/ThermalStatus;)V
+    invoke-virtual {v0, v1}, Lcom/android/server/display/config/HighBrightnessMode;->setThermalStatusLimit_all(Lcom/android/server/display/config/ThermalStatus;)V
 
-    goto :goto_1
+    goto :goto_0
 
     :cond_6
-    const-string v5, "allowInLowPowerMode"
+    const-string v2, "allowInLowPowerMode"
 
-    invoke-virtual {v3, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v2
 
-    if-eqz v5, :cond_7
+    if-eqz v2, :cond_7
 
     invoke-static {p0}, Lcom/android/server/display/config/XmlParser;->readText(Lorg/xmlpull/v1/XmlPullParser;)Ljava/lang/String;
 
@@ -206,252 +204,194 @@
 
     invoke-static {v1}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
 
-    move-result v5
+    move-result v1
 
-    invoke-virtual {v0, v5}, Lcom/android/server/display/config/HighBrightnessMode;->setAllowInLowPowerMode_all(Z)V
+    invoke-virtual {v0, v1}, Lcom/android/server/display/config/HighBrightnessMode;->setAllowInLowPowerMode_all(Z)V
 
-    goto :goto_1
+    goto/16 :goto_0
 
     :cond_7
-    invoke-static {p0}, Lcom/android/server/display/config/XmlParser;->skip(Lorg/xmlpull/v1/XmlPullParser;)V
+    const-string/jumbo v2, "minimumHdrPercentOfScreen"
 
-    :goto_1
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_8
+
+    invoke-static {p0}, Lcom/android/server/display/config/XmlParser;->readText(Lorg/xmlpull/v1/XmlPullParser;)Ljava/lang/String;
+
+    move-result-object v1
+
+    new-instance v2, Ljava/math/BigDecimal;
+
+    invoke-direct {v2, v1}, Ljava/math/BigDecimal;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v0, v2}, Lcom/android/server/display/config/HighBrightnessMode;->setMinimumHdrPercentOfScreen_all(Ljava/math/BigDecimal;)V
+
     goto/16 :goto_0
 
     :cond_8
-    if-ne v4, v6, :cond_9
+    const-string/jumbo v2, "sdrHdrRatioMap"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_9
+
+    invoke-static {p0}, Lcom/android/server/display/config/SdrHdrRatioMap;->read(Lorg/xmlpull/v1/XmlPullParser;)Lcom/android/server/display/config/SdrHdrRatioMap;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/android/server/display/config/HighBrightnessMode;->setSdrHdrRatioMap_all(Lcom/android/server/display/config/SdrHdrRatioMap;)V
+
+    goto/16 :goto_0
+
+    :cond_9
+    invoke-static {p0}, Lcom/android/server/display/config/XmlParser;->skip(Lorg/xmlpull/v1/XmlPullParser;)V
+
+    goto/16 :goto_0
+
+    :cond_a
+    if-ne v1, v3, :cond_b
 
     return-object v0
 
-    :cond_9
-    new-instance v3, Ljavax/xml/datatype/DatatypeConfigurationException;
+    :cond_b
+    new-instance p0, Ljavax/xml/datatype/DatatypeConfigurationException;
 
-    const-string v5, "HighBrightnessMode is not closed"
+    const-string v0, "HighBrightnessMode is not closed"
 
-    invoke-direct {v3, v5}, Ljavax/xml/datatype/DatatypeConfigurationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljavax/xml/datatype/DatatypeConfigurationException;-><init>(Ljava/lang/String;)V
 
-    throw v3
+    throw p0
 .end method
 
 
 # virtual methods
 .method public final getAllowInLowPowerMode_all()Z
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/display/config/HighBrightnessMode;->allowInLowPowerMode_all:Ljava/lang/Boolean;
+    iget-object p0, p0, Lcom/android/server/display/config/HighBrightnessMode;->allowInLowPowerMode_all:Ljava/lang/Boolean;
 
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 
     :cond_0
-    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
+    invoke-virtual {p0}, Ljava/lang/Boolean;->booleanValue()Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public getEnabled()Z
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/display/config/HighBrightnessMode;->enabled:Ljava/lang/Boolean;
+    iget-object p0, p0, Lcom/android/server/display/config/HighBrightnessMode;->enabled:Ljava/lang/Boolean;
 
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 
     :cond_0
-    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
+    invoke-virtual {p0}, Ljava/lang/Boolean;->booleanValue()Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
+.end method
+
+.method public final getMinimumHdrPercentOfScreen_all()Ljava/math/BigDecimal;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/display/config/HighBrightnessMode;->minimumHdrPercentOfScreen_all:Ljava/math/BigDecimal;
+
+    return-object p0
 .end method
 
 .method public final getMinimumLux_all()Ljava/math/BigDecimal;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/display/config/HighBrightnessMode;->minimumLux_all:Ljava/math/BigDecimal;
+    iget-object p0, p0, Lcom/android/server/display/config/HighBrightnessMode;->minimumLux_all:Ljava/math/BigDecimal;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public final getRefreshRate_all()Lcom/android/server/display/config/RefreshRateRange;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/display/config/HighBrightnessMode;->refreshRate_all:Lcom/android/server/display/config/RefreshRateRange;
+    iget-object p0, p0, Lcom/android/server/display/config/HighBrightnessMode;->refreshRate_all:Lcom/android/server/display/config/RefreshRateRange;
 
-    return-object v0
+    return-object p0
+.end method
+
+.method public final getSdrHdrRatioMap_all()Lcom/android/server/display/config/SdrHdrRatioMap;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/display/config/HighBrightnessMode;->sdrHdrRatioMap_all:Lcom/android/server/display/config/SdrHdrRatioMap;
+
+    return-object p0
 .end method
 
 .method public final getThermalStatusLimit_all()Lcom/android/server/display/config/ThermalStatus;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/display/config/HighBrightnessMode;->thermalStatusLimit_all:Lcom/android/server/display/config/ThermalStatus;
+    iget-object p0, p0, Lcom/android/server/display/config/HighBrightnessMode;->thermalStatusLimit_all:Lcom/android/server/display/config/ThermalStatus;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public getTiming_all()Lcom/android/server/display/config/HbmTiming;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/display/config/HighBrightnessMode;->timing_all:Lcom/android/server/display/config/HbmTiming;
+    iget-object p0, p0, Lcom/android/server/display/config/HighBrightnessMode;->timing_all:Lcom/android/server/display/config/HbmTiming;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public final getTransitionPoint_all()Ljava/math/BigDecimal;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/display/config/HighBrightnessMode;->transitionPoint_all:Ljava/math/BigDecimal;
+    iget-object p0, p0, Lcom/android/server/display/config/HighBrightnessMode;->transitionPoint_all:Ljava/math/BigDecimal;
 
-    return-object v0
-.end method
-
-.method hasAllowInLowPowerMode_all()Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/display/config/HighBrightnessMode;->allowInLowPowerMode_all:Ljava/lang/Boolean;
-
-    if-nez v0, :cond_0
-
-    const/4 v0, 0x0
-
-    return v0
-
-    :cond_0
-    const/4 v0, 0x1
-
-    return v0
-.end method
-
-.method hasEnabled()Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/display/config/HighBrightnessMode;->enabled:Ljava/lang/Boolean;
-
-    if-nez v0, :cond_0
-
-    const/4 v0, 0x0
-
-    return v0
-
-    :cond_0
-    const/4 v0, 0x1
-
-    return v0
-.end method
-
-.method hasMinimumLux_all()Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/display/config/HighBrightnessMode;->minimumLux_all:Ljava/math/BigDecimal;
-
-    if-nez v0, :cond_0
-
-    const/4 v0, 0x0
-
-    return v0
-
-    :cond_0
-    const/4 v0, 0x1
-
-    return v0
-.end method
-
-.method hasRefreshRate_all()Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/display/config/HighBrightnessMode;->refreshRate_all:Lcom/android/server/display/config/RefreshRateRange;
-
-    if-nez v0, :cond_0
-
-    const/4 v0, 0x0
-
-    return v0
-
-    :cond_0
-    const/4 v0, 0x1
-
-    return v0
-.end method
-
-.method hasThermalStatusLimit_all()Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/display/config/HighBrightnessMode;->thermalStatusLimit_all:Lcom/android/server/display/config/ThermalStatus;
-
-    if-nez v0, :cond_0
-
-    const/4 v0, 0x0
-
-    return v0
-
-    :cond_0
-    const/4 v0, 0x1
-
-    return v0
-.end method
-
-.method hasTiming_all()Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/display/config/HighBrightnessMode;->timing_all:Lcom/android/server/display/config/HbmTiming;
-
-    if-nez v0, :cond_0
-
-    const/4 v0, 0x0
-
-    return v0
-
-    :cond_0
-    const/4 v0, 0x1
-
-    return v0
-.end method
-
-.method hasTransitionPoint_all()Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/display/config/HighBrightnessMode;->transitionPoint_all:Ljava/math/BigDecimal;
-
-    if-nez v0, :cond_0
-
-    const/4 v0, 0x0
-
-    return v0
-
-    :cond_0
-    const/4 v0, 0x1
-
-    return v0
+    return-object p0
 .end method
 
 .method public final setAllowInLowPowerMode_all(Z)V
-    .locals 1
+    .locals 0
 
     invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/android/server/display/config/HighBrightnessMode;->allowInLowPowerMode_all:Ljava/lang/Boolean;
+    iput-object p1, p0, Lcom/android/server/display/config/HighBrightnessMode;->allowInLowPowerMode_all:Ljava/lang/Boolean;
 
     return-void
 .end method
 
 .method public setEnabled(Z)V
-    .locals 1
+    .locals 0
 
     invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/android/server/display/config/HighBrightnessMode;->enabled:Ljava/lang/Boolean;
+    iput-object p1, p0, Lcom/android/server/display/config/HighBrightnessMode;->enabled:Ljava/lang/Boolean;
+
+    return-void
+.end method
+
+.method public final setMinimumHdrPercentOfScreen_all(Ljava/math/BigDecimal;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/server/display/config/HighBrightnessMode;->minimumHdrPercentOfScreen_all:Ljava/math/BigDecimal;
 
     return-void
 .end method
@@ -468,6 +408,14 @@
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/display/config/HighBrightnessMode;->refreshRate_all:Lcom/android/server/display/config/RefreshRateRange;
+
+    return-void
+.end method
+
+.method public final setSdrHdrRatioMap_all(Lcom/android/server/display/config/SdrHdrRatioMap;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/server/display/config/HighBrightnessMode;->sdrHdrRatioMap_all:Lcom/android/server/display/config/SdrHdrRatioMap;
 
     return-void
 .end method

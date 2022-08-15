@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/pm/Installer$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Landroid/os/IBinder$DeathRecipient;
 
 
 # instance fields
@@ -22,12 +23,12 @@
 
 
 # virtual methods
-.method public final run()V
-    .locals 1
+.method public final binderDied()V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/pm/Installer$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/pm/Installer;
+    iget-object p0, p0, Lcom/android/server/pm/Installer$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/pm/Installer;
 
-    invoke-virtual {v0}, Lcom/android/server/pm/Installer;->lambda$connect$0$Installer()V
+    invoke-static {p0}, Lcom/android/server/pm/Installer;->$r8$lambda$98qnie4iVIJW_SY0EKv0j7AdY2s(Lcom/android/server/pm/Installer;)V
 
     return-void
 .end method

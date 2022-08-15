@@ -1,4 +1,4 @@
-.class Lcom/android/server/pm/PersistentPreferredActivity$1;
+.class public Lcom/android/server/pm/PersistentPreferredActivity$1;
 .super Lcom/android/server/utils/SnapshotCache;
 .source "PersistentPreferredActivity.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
@@ -23,11 +23,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/pm/PersistentPreferredActivity;
+.field public final synthetic this$0:Lcom/android/server/pm/PersistentPreferredActivity;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/pm/PersistentPreferredActivity;Lcom/android/server/pm/PersistentPreferredActivity;Lcom/android/server/utils/Watchable;)V
+.method public constructor <init>(Lcom/android/server/pm/PersistentPreferredActivity;Lcom/android/server/pm/PersistentPreferredActivity;Lcom/android/server/utils/Watchable;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/pm/PersistentPreferredActivity$1;->this$0:Lcom/android/server/pm/PersistentPreferredActivity;
@@ -40,29 +40,29 @@
 
 # virtual methods
 .method public createSnapshot()Lcom/android/server/pm/PersistentPreferredActivity;
-    .locals 3
+    .locals 2
 
     new-instance v0, Lcom/android/server/pm/PersistentPreferredActivity;
 
-    iget-object v1, p0, Lcom/android/server/pm/PersistentPreferredActivity$1;->mSource:Ljava/lang/Object;
+    iget-object p0, p0, Lcom/android/server/utils/SnapshotCache;->mSource:Ljava/lang/Object;
 
-    check-cast v1, Lcom/android/server/pm/PersistentPreferredActivity;
+    check-cast p0, Lcom/android/server/pm/PersistentPreferredActivity;
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    invoke-direct {v0, v1, v2}, Lcom/android/server/pm/PersistentPreferredActivity;-><init>(Lcom/android/server/pm/PersistentPreferredActivity;Lcom/android/server/pm/PersistentPreferredActivity$1;)V
+    invoke-direct {v0, p0, v1}, Lcom/android/server/pm/PersistentPreferredActivity;-><init>(Lcom/android/server/pm/PersistentPreferredActivity;Lcom/android/server/pm/PersistentPreferredActivity-IA;)V
 
-    invoke-virtual {v0}, Lcom/android/server/pm/PersistentPreferredActivity;->seal()V
+    invoke-virtual {v0}, Lcom/android/server/utils/WatchableImpl;->seal()V
 
     return-object v0
 .end method
 
 .method public bridge synthetic createSnapshot()Ljava/lang/Object;
-    .locals 1
+    .locals 0
 
     invoke-virtual {p0}, Lcom/android/server/pm/PersistentPreferredActivity$1;->createSnapshot()Lcom/android/server/pm/PersistentPreferredActivity;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

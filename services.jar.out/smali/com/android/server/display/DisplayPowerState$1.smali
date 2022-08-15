@@ -1,4 +1,4 @@
-.class Lcom/android/server/display/DisplayPowerState$1;
+.class public Lcom/android/server/display/DisplayPowerState$1;
 .super Landroid/util/FloatProperty;
 .source "DisplayPowerState.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
@@ -23,7 +23,7 @@
 
 
 # direct methods
-.method constructor <init>(Ljava/lang/String;)V
+.method public constructor <init>(Ljava/lang/String;)V
     .locals 0
 
     invoke-direct {p0, p1}, Landroid/util/FloatProperty;-><init>(Ljava/lang/String;)V
@@ -34,17 +34,17 @@
 
 # virtual methods
 .method public get(Lcom/android/server/display/DisplayPowerState;)Ljava/lang/Float;
-    .locals 1
+    .locals 0
 
     invoke-virtual {p1}, Lcom/android/server/display/DisplayPowerState;->getColorFadeLevel()F
 
-    move-result v0
+    move-result p0
 
-    invoke-static {v0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+    invoke-static {p0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public bridge synthetic get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -54,9 +54,9 @@
 
     invoke-virtual {p0, p1}, Lcom/android/server/display/DisplayPowerState$1;->get(Lcom/android/server/display/DisplayPowerState;)Ljava/lang/Float;
 
-    move-result-object p1
+    move-result-object p0
 
-    return-object p1
+    return-object p0
 .end method
 
 .method public setValue(Lcom/android/server/display/DisplayPowerState;F)V

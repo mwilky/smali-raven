@@ -23,6 +23,9 @@
 
 
 # virtual methods
+.method public abstract addAdasAllowlistChangedListener(Lcom/android/server/location/injector/SettingsHelper$GlobalSettingChangedListener;)V
+.end method
+
 .method public abstract addIgnoreSettingsAllowlistChangedListener(Lcom/android/server/location/injector/SettingsHelper$GlobalSettingChangedListener;)V
 .end method
 
@@ -42,6 +45,9 @@
 .end method
 
 .method public abstract dump(Ljava/io/FileDescriptor;Landroid/util/IndentingPrintWriter;[Ljava/lang/String;)V
+.end method
+
+.method public abstract getAdasAllowlist()Landroid/os/PackageTagsList;
 .end method
 
 .method public abstract getBackgroundThrottleIntervalMs()J
@@ -74,6 +80,9 @@
 .end method
 
 .method public abstract isLocationPackageBlacklisted(ILjava/lang/String;)Z
+.end method
+
+.method public abstract removeAdasAllowlistChangedListener(Lcom/android/server/location/injector/SettingsHelper$GlobalSettingChangedListener;)V
 .end method
 
 .method public abstract removeIgnoreSettingsAllowlistChangedListener(Lcom/android/server/location/injector/SettingsHelper$GlobalSettingChangedListener;)V

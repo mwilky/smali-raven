@@ -1,4 +1,4 @@
-.class Lcom/android/server/devicepolicy/DevicePolicyManagerService$DevicePolicyConstantsObserver;
+.class public Lcom/android/server/devicepolicy/DevicePolicyManagerService$DevicePolicyConstantsObserver;
 .super Landroid/database/ContentObserver;
 .source "DevicePolicyManagerService.java"
 
@@ -9,26 +9,32 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "DevicePolicyConstantsObserver"
 .end annotation
 
 
 # instance fields
-.field final mConstantsUri:Landroid/net/Uri;
+.field public final mConstantsUri:Landroid/net/Uri;
 
-.field final synthetic this$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
+.field public final synthetic this$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/devicepolicy/DevicePolicyManagerService;Landroid/os/Handler;)V
+.method public static synthetic $r8$lambda$DmiqnPVpmKuPvZnkz3xXIwk_iDE(Lcom/android/server/devicepolicy/DevicePolicyManagerService$DevicePolicyConstantsObserver;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/server/devicepolicy/DevicePolicyManagerService$DevicePolicyConstantsObserver;->lambda$onChange$0()V
+
+    return-void
+.end method
+
+.method public constructor <init>(Lcom/android/server/devicepolicy/DevicePolicyManagerService;Landroid/os/Handler;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$DevicePolicyConstantsObserver;->this$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
 
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
-
-    nop
 
     const-string p1, "device_policy_constants"
 
@@ -41,9 +47,7 @@
     return-void
 .end method
 
-
-# virtual methods
-.method public synthetic lambda$onChange$0$DevicePolicyManagerService$DevicePolicyConstantsObserver()V
+.method private synthetic lambda$onChange$0()V
     .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -104,31 +108,35 @@
     return-void
 .end method
 
+
+# virtual methods
 .method public onChange(ZLandroid/net/Uri;I)V
-    .locals 2
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$DevicePolicyConstantsObserver;->this$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
+    iget-object p1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$DevicePolicyConstantsObserver;->this$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
 
-    invoke-static {v0}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->access$3100(Lcom/android/server/devicepolicy/DevicePolicyManagerService;)Lcom/android/server/devicepolicy/DevicePolicyConstants;
+    invoke-static {p1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->-$$Nest$mloadConstants(Lcom/android/server/devicepolicy/DevicePolicyManagerService;)Lcom/android/server/devicepolicy/DevicePolicyConstants;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-static {v0, v1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->access$3002(Lcom/android/server/devicepolicy/DevicePolicyManagerService;Lcom/android/server/devicepolicy/DevicePolicyConstants;)Lcom/android/server/devicepolicy/DevicePolicyConstants;
+    invoke-static {p1, p2}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->-$$Nest$fputmConstants(Lcom/android/server/devicepolicy/DevicePolicyManagerService;Lcom/android/server/devicepolicy/DevicePolicyConstants;)V
 
-    iget-object v0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$DevicePolicyConstantsObserver;->this$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
+    invoke-static {}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->invalidateBinderCaches()V
 
-    iget-object v0, v0, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->mInjector:Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;
+    iget-object p1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$DevicePolicyConstantsObserver;->this$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
 
-    new-instance v1, Lcom/android/server/devicepolicy/DevicePolicyManagerService$DevicePolicyConstantsObserver$$ExternalSyntheticLambda0;
+    iget-object p1, p1, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->mInjector:Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;
 
-    invoke-direct {v1, p0}, Lcom/android/server/devicepolicy/DevicePolicyManagerService$DevicePolicyConstantsObserver$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/devicepolicy/DevicePolicyManagerService$DevicePolicyConstantsObserver;)V
+    new-instance p2, Lcom/android/server/devicepolicy/DevicePolicyManagerService$DevicePolicyConstantsObserver$$ExternalSyntheticLambda0;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;->binderWithCleanCallingIdentity(Lcom/android/internal/util/FunctionalUtils$ThrowingRunnable;)V
+    invoke-direct {p2, p0}, Lcom/android/server/devicepolicy/DevicePolicyManagerService$DevicePolicyConstantsObserver$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/devicepolicy/DevicePolicyManagerService$DevicePolicyConstantsObserver;)V
+
+    invoke-virtual {p1, p2}, Lcom/android/server/devicepolicy/DevicePolicyManagerService$Injector;->binderWithCleanCallingIdentity(Lcom/android/internal/util/FunctionalUtils$ThrowingRunnable;)V
 
     return-void
 .end method
 
-.method register()V
+.method public register()V
     .locals 4
 
     iget-object v0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$DevicePolicyConstantsObserver;->this$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;

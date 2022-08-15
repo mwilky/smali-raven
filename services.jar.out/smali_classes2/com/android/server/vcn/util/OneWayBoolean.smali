@@ -4,7 +4,7 @@
 
 
 # instance fields
-.field private mValue:Z
+.field public mValue:Z
 
 
 # direct methods
@@ -23,11 +23,11 @@
 
 # virtual methods
 .method public getValue()Z
-    .locals 1
+    .locals 0
 
-    iget-boolean v0, p0, Lcom/android/server/vcn/util/OneWayBoolean;->mValue:Z
+    iget-boolean p0, p0, Lcom/android/server/vcn/util/OneWayBoolean;->mValue:Z
 
-    return v0
+    return p0
 .end method
 
 .method public setTrue()V

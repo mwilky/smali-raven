@@ -1,45 +1,38 @@
 .class public final synthetic Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda11;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/BiConsumer;
+.implements Lcom/android/server/wm/utils/RotationCache$RotationDependentComputation;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda11;
+# instance fields
+.field public final synthetic f$0:Lcom/android/server/wm/DisplayContent;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda11;
-
-    invoke-direct {v0}, Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda11;-><init>()V
-
-    sput-object v0, Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda11;->INSTANCE:Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda11;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Lcom/android/server/wm/DisplayContent;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda11;->f$0:Lcom/android/server/wm/DisplayContent;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;Ljava/lang/Object;)V
+.method public final compute(Ljava/lang/Object;I)Ljava/lang/Object;
     .locals 0
 
-    check-cast p1, Lcom/android/server/wm/ActivityRecord;
+    iget-object p0, p0, Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda11;->f$0:Lcom/android/server/wm/DisplayContent;
 
-    check-cast p2, Landroid/util/IntArray;
+    check-cast p1, Landroid/view/PrivacyIndicatorBounds;
 
-    invoke-static {p1, p2}, Lcom/android/server/wm/DisplayContent;->$r8$lambda$uekS_jelz0nfzqiQ_YsMay2Q9CA(Lcom/android/server/wm/ActivityRecord;Landroid/util/IntArray;)V
+    invoke-static {p0, p1, p2}, Lcom/android/server/wm/DisplayContent;->$r8$lambda$f4tTlChocR4giHzOfORjysIyw_g(Lcom/android/server/wm/DisplayContent;Landroid/view/PrivacyIndicatorBounds;I)Landroid/view/PrivacyIndicatorBounds;
 
-    return-void
+    move-result-object p0
+
+    return-object p0
 .end method

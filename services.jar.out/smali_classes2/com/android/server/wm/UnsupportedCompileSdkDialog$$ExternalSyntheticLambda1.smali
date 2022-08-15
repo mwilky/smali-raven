@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/wm/UnsupportedCompileSdkDialog$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/widget/CompoundButton$OnCheckedChangeListener;
@@ -27,13 +28,13 @@
 
 # virtual methods
 .method public final onCheckedChanged(Landroid/widget/CompoundButton;Z)V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/wm/UnsupportedCompileSdkDialog$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/wm/UnsupportedCompileSdkDialog;
 
-    iget-object v1, p0, Lcom/android/server/wm/UnsupportedCompileSdkDialog$$ExternalSyntheticLambda1;->f$1:Lcom/android/server/wm/AppWarnings;
+    iget-object p0, p0, Lcom/android/server/wm/UnsupportedCompileSdkDialog$$ExternalSyntheticLambda1;->f$1:Lcom/android/server/wm/AppWarnings;
 
-    invoke-virtual {v0, v1, p1, p2}, Lcom/android/server/wm/UnsupportedCompileSdkDialog;->lambda$new$1$UnsupportedCompileSdkDialog(Lcom/android/server/wm/AppWarnings;Landroid/widget/CompoundButton;Z)V
+    invoke-static {v0, p0, p1, p2}, Lcom/android/server/wm/UnsupportedCompileSdkDialog;->$r8$lambda$w86ahA3-NXFI8s2k3ov8sioips8(Lcom/android/server/wm/UnsupportedCompileSdkDialog;Lcom/android/server/wm/AppWarnings;Landroid/widget/CompoundButton;Z)V
 
     return-void
 .end method

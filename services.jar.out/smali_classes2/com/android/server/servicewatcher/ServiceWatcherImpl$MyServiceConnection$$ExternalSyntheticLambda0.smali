@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/servicewatcher/ServiceWatcherImpl$MyServiceConnection$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/servicewatcher/ServiceWatcherImpl$MyServiceConnection$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/servicewatcher/ServiceWatcherImpl$MyServiceConnection;
+    iget-object p0, p0, Lcom/android/server/servicewatcher/ServiceWatcherImpl$MyServiceConnection$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/servicewatcher/ServiceWatcherImpl$MyServiceConnection;
 
-    invoke-virtual {v0}, Lcom/android/server/servicewatcher/ServiceWatcherImpl$MyServiceConnection;->bind()V
+    invoke-static {p0}, Lcom/android/server/servicewatcher/ServiceWatcherImpl$MyServiceConnection;->$r8$lambda$LxD2zfF_4h5eYoTvDMJcElTL0as(Lcom/android/server/servicewatcher/ServiceWatcherImpl$MyServiceConnection;)V
 
     return-void
 .end method

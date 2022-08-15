@@ -1,4 +1,4 @@
-.class final Lcom/android/server/am/ActivityManagerService$PendingTempAllowlist;
+.class public final Lcom/android/server/am/ActivityManagerService$PendingTempAllowlist;
 .super Ljava/lang/Object;
 .source "ActivityManagerService.java"
 
@@ -9,27 +9,27 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = "PendingTempAllowlist"
 .end annotation
 
 
 # instance fields
-.field final callingUid:I
+.field public final callingUid:I
 
-.field final duration:J
+.field public final duration:J
 
-.field final reasonCode:I
+.field public final reasonCode:I
 
-.field final tag:Ljava/lang/String;
+.field public final tag:Ljava/lang/String;
 
-.field final targetUid:I
+.field public final targetUid:I
 
-.field final type:I
+.field public final type:I
 
 
 # direct methods
-.method constructor <init>(IJILjava/lang/String;II)V
+.method public constructor <init>(IJILjava/lang/String;II)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -51,50 +51,50 @@
 
 
 # virtual methods
-.method dumpDebug(Landroid/util/proto/ProtoOutputStream;J)V
-    .locals 6
+.method public dumpDebug(Landroid/util/proto/ProtoOutputStream;J)V
+    .locals 4
 
     invoke-virtual {p1, p2, p3}, Landroid/util/proto/ProtoOutputStream;->start(J)J
 
-    move-result-wide v0
+    move-result-wide p2
 
-    iget v2, p0, Lcom/android/server/am/ActivityManagerService$PendingTempAllowlist;->targetUid:I
+    iget v0, p0, Lcom/android/server/am/ActivityManagerService$PendingTempAllowlist;->targetUid:I
 
-    const-wide v3, 0x10500000001L
+    const-wide v1, 0x10500000001L
 
-    invoke-virtual {p1, v3, v4, v2}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
+    invoke-virtual {p1, v1, v2, v0}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
 
-    iget-wide v2, p0, Lcom/android/server/am/ActivityManagerService$PendingTempAllowlist;->duration:J
+    iget-wide v0, p0, Lcom/android/server/am/ActivityManagerService$PendingTempAllowlist;->duration:J
 
-    const-wide v4, 0x10300000002L
+    const-wide v2, 0x10300000002L
 
-    invoke-virtual {p1, v4, v5, v2, v3}, Landroid/util/proto/ProtoOutputStream;->write(JJ)V
+    invoke-virtual {p1, v2, v3, v0, v1}, Landroid/util/proto/ProtoOutputStream;->write(JJ)V
 
-    iget-object v2, p0, Lcom/android/server/am/ActivityManagerService$PendingTempAllowlist;->tag:Ljava/lang/String;
+    iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$PendingTempAllowlist;->tag:Ljava/lang/String;
 
-    const-wide v3, 0x10900000003L
+    const-wide v1, 0x10900000003L
 
-    invoke-virtual {p1, v3, v4, v2}, Landroid/util/proto/ProtoOutputStream;->write(JLjava/lang/String;)V
+    invoke-virtual {p1, v1, v2, v0}, Landroid/util/proto/ProtoOutputStream;->write(JLjava/lang/String;)V
 
-    iget v2, p0, Lcom/android/server/am/ActivityManagerService$PendingTempAllowlist;->type:I
+    iget v0, p0, Lcom/android/server/am/ActivityManagerService$PendingTempAllowlist;->type:I
 
-    const-wide v3, 0x10500000004L
+    const-wide v1, 0x10500000004L
 
-    invoke-virtual {p1, v3, v4, v2}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
+    invoke-virtual {p1, v1, v2, v0}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
 
-    iget v2, p0, Lcom/android/server/am/ActivityManagerService$PendingTempAllowlist;->reasonCode:I
+    iget v0, p0, Lcom/android/server/am/ActivityManagerService$PendingTempAllowlist;->reasonCode:I
 
-    const-wide v3, 0x10500000005L
+    const-wide v1, 0x10500000005L
 
-    invoke-virtual {p1, v3, v4, v2}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
+    invoke-virtual {p1, v1, v2, v0}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
 
-    iget v2, p0, Lcom/android/server/am/ActivityManagerService$PendingTempAllowlist;->callingUid:I
+    iget p0, p0, Lcom/android/server/am/ActivityManagerService$PendingTempAllowlist;->callingUid:I
 
-    const-wide v3, 0x10500000006L
+    const-wide v0, 0x10500000006L
 
-    invoke-virtual {p1, v3, v4, v2}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
+    invoke-virtual {p1, v0, v1, p0}, Landroid/util/proto/ProtoOutputStream;->write(JI)V
 
-    invoke-virtual {p1, v0, v1}, Landroid/util/proto/ProtoOutputStream;->end(J)V
+    invoke-virtual {p1, p2, p3}, Landroid/util/proto/ProtoOutputStream;->end(J)V
 
     return-void
 .end method

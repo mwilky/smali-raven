@@ -4,100 +4,95 @@
 
 
 # annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/android/server/wm/ActivityStarter;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "Request"
 .end annotation
 
 
-# static fields
-.field private static final DEFAULT_CALLING_PID:I = 0x0
-
-.field private static final DEFAULT_CALLING_UID:I = -0x1
-
-.field static final DEFAULT_REAL_CALLING_PID:I = 0x0
-
-.field static final DEFAULT_REAL_CALLING_UID:I = -0x1
-
-
 # instance fields
-.field activityInfo:Landroid/content/pm/ActivityInfo;
+.field public activityInfo:Landroid/content/pm/ActivityInfo;
 
-.field activityOptions:Lcom/android/server/wm/SafeActivityOptions;
+.field public activityOptions:Lcom/android/server/wm/SafeActivityOptions;
 
-.field allowBackgroundActivityStart:Z
+.field public allowBackgroundActivityStart:Z
 
-.field allowPendingRemoteAnimationRegistryLookup:Z
+.field public allowPendingRemoteAnimationRegistryLookup:Z
 
-.field avoidMoveToFront:Z
+.field public avoidMoveToFront:Z
 
-.field caller:Landroid/app/IApplicationThread;
+.field public caller:Landroid/app/IApplicationThread;
 
-.field callingFeatureId:Ljava/lang/String;
+.field public callingFeatureId:Ljava/lang/String;
 
-.field callingPackage:Ljava/lang/String;
+.field public callingPackage:Ljava/lang/String;
 
-.field callingPid:I
+.field public callingPid:I
 
-.field callingUid:I
+.field public callingUid:I
 
-.field componentSpecified:Z
+.field public componentSpecified:Z
 
-.field ephemeralIntent:Landroid/content/Intent;
+.field public ephemeralIntent:Landroid/content/Intent;
 
-.field filterCallingUid:I
+.field public errorCallbackToken:Landroid/os/IBinder;
 
-.field globalConfig:Landroid/content/res/Configuration;
+.field public filterCallingUid:I
 
-.field ignoreTargetSecurity:Z
+.field public globalConfig:Landroid/content/res/Configuration;
 
-.field inTask:Lcom/android/server/wm/Task;
+.field public ignoreTargetSecurity:Z
 
-.field inTaskFragment:Lcom/android/server/wm/TaskFragment;
+.field public inTask:Lcom/android/server/wm/Task;
 
-.field intent:Landroid/content/Intent;
+.field public inTaskFragment:Lcom/android/server/wm/TaskFragment;
 
-.field intentGrants:Lcom/android/server/uri/NeededUriGrants;
+.field public intent:Landroid/content/Intent;
 
-.field originatingPendingIntent:Lcom/android/server/am/PendingIntentRecord;
+.field public intentGrants:Lcom/android/server/uri/NeededUriGrants;
 
-.field outActivity:[Lcom/android/server/wm/ActivityRecord;
+.field public originatingPendingIntent:Lcom/android/server/am/PendingIntentRecord;
 
-.field profilerInfo:Landroid/app/ProfilerInfo;
+.field public outActivity:[Lcom/android/server/wm/ActivityRecord;
 
-.field realCallingPid:I
+.field public profilerInfo:Landroid/app/ProfilerInfo;
 
-.field realCallingUid:I
+.field public realCallingPid:I
 
-.field reason:Ljava/lang/String;
+.field public realCallingUid:I
 
-.field requestCode:I
+.field public reason:Ljava/lang/String;
 
-.field resolveInfo:Landroid/content/pm/ResolveInfo;
+.field public requestCode:I
 
-.field resolvedType:Ljava/lang/String;
+.field public resolveInfo:Landroid/content/pm/ResolveInfo;
 
-.field resultTo:Landroid/os/IBinder;
+.field public resolvedType:Ljava/lang/String;
 
-.field resultWho:Ljava/lang/String;
+.field public resultTo:Landroid/os/IBinder;
 
-.field startFlags:I
+.field public resultWho:Ljava/lang/String;
 
-.field userId:I
+.field public startFlags:I
 
-.field voiceInteractor:Lcom/android/internal/app/IVoiceInteractor;
+.field public userId:I
 
-.field voiceSession:Landroid/service/voice/IVoiceInteractionSession;
+.field public voiceInteractor:Lcom/android/internal/app/IVoiceInteractor;
 
-.field waitResult:Landroid/app/WaitResult;
+.field public voiceSession:Landroid/service/voice/IVoiceInteractionSession;
+
+.field public waitResult:Landroid/app/WaitResult;
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -121,7 +116,7 @@
 
 
 # virtual methods
-.method reset()V
+.method public reset()V
     .locals 3
 
     const/4 v0, 0x0
@@ -204,11 +199,13 @@
 
     iput-boolean v1, p0, Lcom/android/server/wm/ActivityStarter$Request;->allowBackgroundActivityStart:Z
 
+    iput-object v0, p0, Lcom/android/server/wm/ActivityStarter$Request;->errorCallbackToken:Landroid/os/IBinder;
+
     return-void
 .end method
 
-.method resolveActivity(Lcom/android/server/wm/ActivityTaskSupervisor;)V
-    .locals 13
+.method public resolveActivity(Lcom/android/server/wm/ActivityTaskSupervisor;)V
+    .locals 10
 
     iget v0, p0, Lcom/android/server/wm/ActivityStarter$Request;->realCallingPid:I
 
@@ -288,11 +285,9 @@
 
     if-eqz v2, :cond_4
 
-    iget-object v3, v2, Lcom/android/server/wm/WindowProcessController;->mInfo:Landroid/content/pm/ApplicationInfo;
+    iget-object v0, v2, Lcom/android/server/wm/WindowProcessController;->mInfo:Landroid/content/pm/ApplicationInfo;
 
-    iget v3, v3, Landroid/content/pm/ApplicationInfo;->uid:I
-
-    move v0, v3
+    iget v0, v0, Landroid/content/pm/ApplicationInfo;->uid:I
 
     :cond_4
     monitor-exit v1
@@ -304,7 +299,7 @@
     goto :goto_1
 
     :catchall_0
-    move-exception v2
+    move-exception p0
 
     :try_start_1
     monitor-exit v1
@@ -313,7 +308,7 @@
 
     invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
 
-    throw v2
+    throw p0
 
     :cond_5
     :goto_1
@@ -453,101 +448,95 @@
 
     invoke-virtual {v1}, Landroid/content/pm/UserInfo;->isManagedProfile()Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_9
+    if-eqz v1, :cond_9
 
-    iget-object v2, p1, Lcom/android/server/wm/ActivityTaskSupervisor;->mService:Lcom/android/server/wm/ActivityTaskManagerService;
+    iget-object v1, p1, Lcom/android/server/wm/ActivityTaskSupervisor;->mService:Lcom/android/server/wm/ActivityTaskManagerService;
 
-    iget-object v2, v2, Lcom/android/server/wm/ActivityTaskManagerService;->mContext:Landroid/content/Context;
+    iget-object v1, v1, Lcom/android/server/wm/ActivityTaskManagerService;->mContext:Landroid/content/Context;
 
-    invoke-static {v2}, Landroid/os/UserManager;->get(Landroid/content/Context;)Landroid/os/UserManager;
+    invoke-static {v1}, Landroid/os/UserManager;->get(Landroid/content/Context;)Landroid/os/UserManager;
 
-    move-result-object v2
-
-    const/4 v3, 0x0
+    move-result-object v1
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
-    move-result-wide v4
+    move-result-wide v2
 
     :try_start_2
-    iget v6, p0, Lcom/android/server/wm/ActivityStarter$Request;->userId:I
+    iget v4, p0, Lcom/android/server/wm/ActivityStarter$Request;->userId:I
 
-    invoke-virtual {v2, v6}, Landroid/os/UserManager;->getProfileParent(I)Landroid/content/pm/UserInfo;
+    invoke-virtual {v1, v4}, Landroid/os/UserManager;->getProfileParent(I)Landroid/content/pm/UserInfo;
 
-    move-result-object v6
+    move-result-object v4
 
-    if-eqz v6, :cond_8
+    if-eqz v4, :cond_8
 
-    iget v7, v6, Landroid/content/pm/UserInfo;->id:I
+    iget v4, v4, Landroid/content/pm/UserInfo;->id:I
 
-    invoke-virtual {v2, v7}, Landroid/os/UserManager;->isUserUnlockingOrUnlocked(I)Z
+    invoke-virtual {v1, v4}, Landroid/os/UserManager;->isUserUnlockingOrUnlocked(I)Z
 
-    move-result v7
+    move-result v4
 
-    if-eqz v7, :cond_8
+    if-eqz v4, :cond_8
 
-    iget v7, p0, Lcom/android/server/wm/ActivityStarter$Request;->userId:I
+    iget v4, p0, Lcom/android/server/wm/ActivityStarter$Request;->userId:I
 
-    invoke-virtual {v2, v7}, Landroid/os/UserManager;->isUserUnlockingOrUnlocked(I)Z
+    invoke-virtual {v1, v4}, Landroid/os/UserManager;->isUserUnlockingOrUnlocked(I)Z
 
-    move-result v7
+    move-result v1
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    if-nez v7, :cond_8
+    if-nez v1, :cond_8
 
-    const/4 v7, 0x1
+    const/4 v1, 0x1
 
     goto :goto_2
 
     :cond_8
-    const/4 v7, 0x0
+    const/4 v1, 0x0
 
     :goto_2
-    move v3, v7
+    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    if-eqz v1, :cond_9
 
-    nop
+    iget-object v5, p0, Lcom/android/server/wm/ActivityStarter$Request;->intent:Landroid/content/Intent;
 
-    if-eqz v3, :cond_9
+    iget-object v6, p0, Lcom/android/server/wm/ActivityStarter$Request;->resolvedType:Ljava/lang/String;
 
-    iget-object v7, p0, Lcom/android/server/wm/ActivityStarter$Request;->intent:Landroid/content/Intent;
+    iget v7, p0, Lcom/android/server/wm/ActivityStarter$Request;->userId:I
 
-    iget-object v8, p0, Lcom/android/server/wm/ActivityStarter$Request;->resolvedType:Ljava/lang/String;
+    const/high16 v8, 0xc0000
 
-    iget v9, p0, Lcom/android/server/wm/ActivityStarter$Request;->userId:I
+    iget v1, p0, Lcom/android/server/wm/ActivityStarter$Request;->callingUid:I
 
-    const/high16 v10, 0xc0000
+    iget v2, p0, Lcom/android/server/wm/ActivityStarter$Request;->realCallingUid:I
 
-    iget v6, p0, Lcom/android/server/wm/ActivityStarter$Request;->callingUid:I
+    iget v3, p0, Lcom/android/server/wm/ActivityStarter$Request;->filterCallingUid:I
 
-    iget v11, p0, Lcom/android/server/wm/ActivityStarter$Request;->realCallingUid:I
+    invoke-static {v1, v2, v3}, Lcom/android/server/wm/ActivityStarter;->computeResolveFilterUid(III)I
 
-    iget v12, p0, Lcom/android/server/wm/ActivityStarter$Request;->filterCallingUid:I
+    move-result v9
 
-    invoke-static {v6, v11, v12}, Lcom/android/server/wm/ActivityStarter;->computeResolveFilterUid(III)I
+    move-object v4, p1
 
-    move-result v11
+    invoke-virtual/range {v4 .. v9}, Lcom/android/server/wm/ActivityTaskSupervisor;->resolveIntent(Landroid/content/Intent;Ljava/lang/String;III)Landroid/content/pm/ResolveInfo;
 
-    move-object v6, p1
+    move-result-object v1
 
-    invoke-virtual/range {v6 .. v11}, Lcom/android/server/wm/ActivityTaskSupervisor;->resolveIntent(Landroid/content/Intent;Ljava/lang/String;III)Landroid/content/pm/ResolveInfo;
-
-    move-result-object v6
-
-    iput-object v6, p0, Lcom/android/server/wm/ActivityStarter$Request;->resolveInfo:Landroid/content/pm/ResolveInfo;
+    iput-object v1, p0, Lcom/android/server/wm/ActivityStarter$Request;->resolveInfo:Landroid/content/pm/ResolveInfo;
 
     goto :goto_3
 
     :catchall_1
-    move-exception v6
+    move-exception p0
 
-    invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    throw v6
+    throw p0
 
     :cond_9
     :goto_3
@@ -567,39 +556,33 @@
 
     if-eqz v1, :cond_a
 
-    iget-object v1, p1, Lcom/android/server/wm/ActivityTaskSupervisor;->mService:Lcom/android/server/wm/ActivityTaskManagerService;
+    iget-object p1, p1, Lcom/android/server/wm/ActivityTaskSupervisor;->mService:Lcom/android/server/wm/ActivityTaskManagerService;
 
-    iget-object v1, v1, Lcom/android/server/wm/ActivityTaskManagerService;->mUgmInternal:Lcom/android/server/uri/UriGrantsManagerInternal;
+    iget-object p1, p1, Lcom/android/server/wm/ActivityTaskManagerService;->mUgmInternal:Lcom/android/server/uri/UriGrantsManagerInternal;
 
     iget-object v2, p0, Lcom/android/server/wm/ActivityStarter$Request;->intent:Landroid/content/Intent;
 
-    iget-object v3, p0, Lcom/android/server/wm/ActivityStarter$Request;->activityInfo:Landroid/content/pm/ActivityInfo;
+    iget-object v1, v1, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
-    iget-object v3, v3, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+    iget-object v3, v1, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
-    iget-object v3, v3, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+    iget v1, v1, Landroid/content/pm/ApplicationInfo;->uid:I
 
-    iget-object v4, p0, Lcom/android/server/wm/ActivityStarter$Request;->activityInfo:Landroid/content/pm/ActivityInfo;
+    invoke-static {v1}, Landroid/os/UserHandle;->getUserId(I)I
 
-    iget-object v4, v4, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+    move-result v1
 
-    iget v4, v4, Landroid/content/pm/ApplicationInfo;->uid:I
+    invoke-interface {p1, v2, v0, v3, v1}, Lcom/android/server/uri/UriGrantsManagerInternal;->checkGrantUriPermissionFromIntent(Landroid/content/Intent;ILjava/lang/String;I)Lcom/android/server/uri/NeededUriGrants;
 
-    invoke-static {v4}, Landroid/os/UserHandle;->getUserId(I)I
+    move-result-object p1
 
-    move-result v4
-
-    invoke-interface {v1, v2, v0, v3, v4}, Lcom/android/server/uri/UriGrantsManagerInternal;->checkGrantUriPermissionFromIntent(Landroid/content/Intent;ILjava/lang/String;I)Lcom/android/server/uri/NeededUriGrants;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lcom/android/server/wm/ActivityStarter$Request;->intentGrants:Lcom/android/server/uri/NeededUriGrants;
+    iput-object p1, p0, Lcom/android/server/wm/ActivityStarter$Request;->intentGrants:Lcom/android/server/uri/NeededUriGrants;
 
     :cond_a
     return-void
 .end method
 
-.method set(Lcom/android/server/wm/ActivityStarter$Request;)V
+.method public set(Lcom/android/server/wm/ActivityStarter$Request;)V
     .locals 1
 
     iget-object v0, p1, Lcom/android/server/wm/ActivityStarter$Request;->caller:Landroid/app/IApplicationThread;
@@ -741,6 +724,10 @@
     iget-boolean v0, p1, Lcom/android/server/wm/ActivityStarter$Request;->allowBackgroundActivityStart:Z
 
     iput-boolean v0, p0, Lcom/android/server/wm/ActivityStarter$Request;->allowBackgroundActivityStart:Z
+
+    iget-object p1, p1, Lcom/android/server/wm/ActivityStarter$Request;->errorCallbackToken:Landroid/os/IBinder;
+
+    iput-object p1, p0, Lcom/android/server/wm/ActivityStarter$Request;->errorCallbackToken:Landroid/os/IBinder;
 
     return-void
 .end method

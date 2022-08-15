@@ -1,16 +1,16 @@
-.class Lcom/android/server/wm/InputWindowHandleWrapper;
+.class public Lcom/android/server/wm/InputWindowHandleWrapper;
 .super Ljava/lang/Object;
 .source "InputWindowHandleWrapper.java"
 
 
 # instance fields
-.field private mChanged:Z
+.field public mChanged:Z
 
-.field private final mHandle:Landroid/view/InputWindowHandle;
+.field public final mHandle:Landroid/view/InputWindowHandle;
 
 
 # direct methods
-.method constructor <init>(Landroid/view/InputWindowHandle;)V
+.method public constructor <init>(Landroid/view/InputWindowHandle;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,21 +26,21 @@
 
 
 # virtual methods
-.method applyChangesToSurface(Landroid/view/SurfaceControl$Transaction;Landroid/view/SurfaceControl;)V
+.method public applyChangesToSurface(Landroid/view/SurfaceControl$Transaction;Landroid/view/SurfaceControl;)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
 
     invoke-virtual {p1, p2, v0}, Landroid/view/SurfaceControl$Transaction;->setInputWindowInfo(Landroid/view/SurfaceControl;Landroid/view/InputWindowHandle;)Landroid/view/SurfaceControl$Transaction;
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput-boolean v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mChanged:Z
+    iput-boolean p1, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mChanged:Z
 
     return-void
 .end method
 
-.method clearTouchableRegion()V
+.method public clearTouchableRegion()V
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
@@ -69,7 +69,7 @@
     return-void
 .end method
 
-.method forceChange()V
+.method public forceChange()V
     .locals 1
 
     const/4 v0, 0x1
@@ -79,98 +79,172 @@
     return-void
 .end method
 
-.method getDisplayId()I
-    .locals 1
+.method public getDisplayId()I
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
+
+    iget p0, p0, Landroid/view/InputWindowHandle;->displayId:I
+
+    return p0
+.end method
+
+.method public getInputApplicationHandle()Landroid/view/InputApplicationHandle;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
+
+    iget-object p0, p0, Landroid/view/InputWindowHandle;->inputApplicationHandle:Landroid/view/InputApplicationHandle;
+
+    return-object p0
+.end method
+
+.method public hasWallpaper()Z
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
+
+    iget p0, p0, Landroid/view/InputWindowHandle;->inputConfig:I
+
+    and-int/lit8 p0, p0, 0x20
+
+    if-eqz p0, :cond_0
+
+    const/4 p0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    :goto_0
+    return p0
+.end method
+
+.method public isChanged()Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mChanged:Z
+
+    return p0
+.end method
+
+.method public isFocusable()Z
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
+
+    iget p0, p0, Landroid/view/InputWindowHandle;->inputConfig:I
+
+    and-int/lit8 p0, p0, 0x4
+
+    if-nez p0, :cond_0
+
+    const/4 p0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    :goto_0
+    return p0
+.end method
+
+.method public isPaused()Z
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
+
+    iget p0, p0, Landroid/view/InputWindowHandle;->inputConfig:I
+
+    and-int/lit16 p0, p0, 0x80
+
+    if-eqz p0, :cond_0
+
+    const/4 p0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    :goto_0
+    return p0
+.end method
+
+.method public isTrustedOverlay()Z
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
+
+    iget p0, p0, Landroid/view/InputWindowHandle;->inputConfig:I
+
+    and-int/lit16 p0, p0, 0x100
+
+    if-eqz p0, :cond_0
+
+    const/4 p0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    :goto_0
+    return p0
+.end method
+
+.method public setDispatchingTimeoutMillis(J)V
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
 
-    iget v0, v0, Landroid/view/InputWindowHandle;->displayId:I
+    iget-wide v1, v0, Landroid/view/InputWindowHandle;->dispatchingTimeoutMillis:J
 
-    return v0
+    cmp-long v1, v1, p1
+
+    if-nez v1, :cond_0
+
+    return-void
+
+    :cond_0
+    iput-wide p1, v0, Landroid/view/InputWindowHandle;->dispatchingTimeoutMillis:J
+
+    const/4 p1, 0x1
+
+    iput-boolean p1, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mChanged:Z
+
+    return-void
 .end method
 
-.method getInputApplicationHandle()Landroid/view/InputApplicationHandle;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
-
-    iget-object v0, v0, Landroid/view/InputWindowHandle;->inputApplicationHandle:Landroid/view/InputApplicationHandle;
-
-    return-object v0
-.end method
-
-.method isChanged()Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mChanged:Z
-
-    return v0
-.end method
-
-.method isFocusable()Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
-
-    iget-boolean v0, v0, Landroid/view/InputWindowHandle;->focusable:Z
-
-    return v0
-.end method
-
-.method setDispatchingTimeoutMillis(J)V
+.method public setDisplayId(I)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
 
-    iget-wide v0, v0, Landroid/view/InputWindowHandle;->dispatchingTimeoutMillis:J
+    iget v1, v0, Landroid/view/InputWindowHandle;->displayId:I
 
-    cmp-long v0, v0, p1
-
-    if-nez v0, :cond_0
+    if-ne v1, p1, :cond_0
 
     return-void
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
-
-    iput-wide p1, v0, Landroid/view/InputWindowHandle;->dispatchingTimeoutMillis:J
-
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mChanged:Z
-
-    return-void
-.end method
-
-.method setDisplayId(I)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
-
-    iget v0, v0, Landroid/view/InputWindowHandle;->displayId:I
-
-    if-ne v0, p1, :cond_0
-
-    return-void
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
-
     iput p1, v0, Landroid/view/InputWindowHandle;->displayId:I
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    iput-boolean v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mChanged:Z
+    iput-boolean p1, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mChanged:Z
 
     return-void
 .end method
 
-.method setFocusable(Z)V
-    .locals 1
+.method public setFocusable(Z)V
+    .locals 3
 
-    iget-object v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
+    invoke-virtual {p0}, Lcom/android/server/wm/InputWindowHandleWrapper;->isFocusable()Z
 
-    iget-boolean v0, v0, Landroid/view/InputWindowHandle;->focusable:Z
+    move-result v0
 
     if-ne v0, p1, :cond_0
 
@@ -179,74 +253,25 @@
     :cond_0
     iget-object v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
 
-    iput-boolean p1, v0, Landroid/view/InputWindowHandle;->focusable:Z
+    const/4 v1, 0x4
 
-    const/4 v0, 0x1
+    const/4 v2, 0x1
 
-    iput-boolean v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mChanged:Z
+    xor-int/2addr p1, v2
 
-    return-void
-.end method
+    invoke-virtual {v0, v1, p1}, Landroid/view/InputWindowHandle;->setInputConfig(IZ)V
 
-.method setFrame(IIII)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
-
-    iget v0, v0, Landroid/view/InputWindowHandle;->frameLeft:I
-
-    if-ne v0, p1, :cond_0
-
-    iget-object v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
-
-    iget v0, v0, Landroid/view/InputWindowHandle;->frameTop:I
-
-    if-ne v0, p2, :cond_0
-
-    iget-object v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
-
-    iget v0, v0, Landroid/view/InputWindowHandle;->frameRight:I
-
-    if-ne v0, p3, :cond_0
-
-    iget-object v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
-
-    iget v0, v0, Landroid/view/InputWindowHandle;->frameBottom:I
-
-    if-ne v0, p4, :cond_0
-
-    return-void
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
-
-    iput p1, v0, Landroid/view/InputWindowHandle;->frameLeft:I
-
-    iget-object v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
-
-    iput p2, v0, Landroid/view/InputWindowHandle;->frameTop:I
-
-    iget-object v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
-
-    iput p3, v0, Landroid/view/InputWindowHandle;->frameRight:I
-
-    iget-object v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
-
-    iput p4, v0, Landroid/view/InputWindowHandle;->frameBottom:I
-
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mChanged:Z
+    iput-boolean v2, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mChanged:Z
 
     return-void
 .end method
 
-.method setHasWallpaper(Z)V
-    .locals 1
+.method public setHasWallpaper(Z)V
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
+    invoke-virtual {p0}, Lcom/android/server/wm/InputWindowHandleWrapper;->hasWallpaper()Z
 
-    iget-boolean v0, v0, Landroid/view/InputWindowHandle;->hasWallpaper:Z
+    move-result v0
 
     if-ne v0, p1, :cond_0
 
@@ -255,108 +280,112 @@
     :cond_0
     iget-object v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
 
-    iput-boolean p1, v0, Landroid/view/InputWindowHandle;->hasWallpaper:Z
+    const/16 v1, 0x20
 
-    const/4 v0, 0x1
+    invoke-virtual {v0, v1, p1}, Landroid/view/InputWindowHandle;->setInputConfig(IZ)V
 
-    iput-boolean v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mChanged:Z
+    const/4 p1, 0x1
+
+    iput-boolean p1, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mChanged:Z
 
     return-void
 .end method
 
-.method setInputApplicationHandle(Landroid/view/InputApplicationHandle;)V
-    .locals 1
+.method public setInputApplicationHandle(Landroid/view/InputApplicationHandle;)V
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
 
-    iget-object v0, v0, Landroid/view/InputWindowHandle;->inputApplicationHandle:Landroid/view/InputApplicationHandle;
+    iget-object v1, v0, Landroid/view/InputWindowHandle;->inputApplicationHandle:Landroid/view/InputApplicationHandle;
 
-    if-ne v0, p1, :cond_0
+    if-ne v1, p1, :cond_0
 
     return-void
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
-
     iput-object p1, v0, Landroid/view/InputWindowHandle;->inputApplicationHandle:Landroid/view/InputApplicationHandle;
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    iput-boolean v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mChanged:Z
-
-    return-void
-.end method
-
-.method setInputFeatures(I)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
-
-    iget v0, v0, Landroid/view/InputWindowHandle;->inputFeatures:I
-
-    if-ne v0, p1, :cond_0
-
-    return-void
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
-
-    iput p1, v0, Landroid/view/InputWindowHandle;->inputFeatures:I
-
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mChanged:Z
+    iput-boolean p1, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mChanged:Z
 
     return-void
 .end method
 
-.method setLayoutParamsFlags(I)V
-    .locals 1
+.method public setInputConfigMasked(II)V
+    .locals 3
+
+    and-int/2addr p1, p2
 
     iget-object v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
 
-    iget v0, v0, Landroid/view/InputWindowHandle;->layoutParamsFlags:I
+    iget v1, v0, Landroid/view/InputWindowHandle;->inputConfig:I
 
-    if-ne v0, p1, :cond_0
+    and-int v2, v1, p2
+
+    if-ne p1, v2, :cond_0
 
     return-void
 
     :cond_0
+    not-int p2, p2
+
+    and-int/2addr p2, v1
+
+    or-int/2addr p1, p2
+
+    iput p1, v0, Landroid/view/InputWindowHandle;->inputConfig:I
+
+    const/4 p1, 0x1
+
+    iput-boolean p1, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mChanged:Z
+
+    return-void
+.end method
+
+.method public setLayoutParamsFlags(I)V
+    .locals 2
+
     iget-object v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
 
+    iget v1, v0, Landroid/view/InputWindowHandle;->layoutParamsFlags:I
+
+    if-ne v1, p1, :cond_0
+
+    return-void
+
+    :cond_0
     iput p1, v0, Landroid/view/InputWindowHandle;->layoutParamsFlags:I
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    iput-boolean v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mChanged:Z
+    iput-boolean p1, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mChanged:Z
 
     return-void
 .end method
 
-.method setLayoutParamsType(I)V
-    .locals 1
+.method public setLayoutParamsType(I)V
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
 
-    iget v0, v0, Landroid/view/InputWindowHandle;->layoutParamsType:I
+    iget v1, v0, Landroid/view/InputWindowHandle;->layoutParamsType:I
 
-    if-ne v0, p1, :cond_0
+    if-ne v1, p1, :cond_0
 
     return-void
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
-
     iput p1, v0, Landroid/view/InputWindowHandle;->layoutParamsType:I
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    iput-boolean v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mChanged:Z
+    iput-boolean p1, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mChanged:Z
 
     return-void
 .end method
 
-.method setName(Ljava/lang/String;)V
+.method public setName(Ljava/lang/String;)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
@@ -376,60 +405,56 @@
 
     iput-object p1, v0, Landroid/view/InputWindowHandle;->name:Ljava/lang/String;
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    iput-boolean v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mChanged:Z
+    iput-boolean p1, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mChanged:Z
 
     return-void
 .end method
 
-.method setOwnerPid(I)V
-    .locals 1
+.method public setOwnerPid(I)V
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
 
-    iget v0, v0, Landroid/view/InputWindowHandle;->ownerPid:I
+    iget v1, v0, Landroid/view/InputWindowHandle;->ownerPid:I
 
-    if-ne v0, p1, :cond_0
+    if-ne v1, p1, :cond_0
 
     return-void
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
-
     iput p1, v0, Landroid/view/InputWindowHandle;->ownerPid:I
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    iput-boolean v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mChanged:Z
+    iput-boolean p1, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mChanged:Z
 
     return-void
 .end method
 
-.method setOwnerUid(I)V
-    .locals 1
+.method public setOwnerUid(I)V
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
 
-    iget v0, v0, Landroid/view/InputWindowHandle;->ownerUid:I
+    iget v1, v0, Landroid/view/InputWindowHandle;->ownerUid:I
 
-    if-ne v0, p1, :cond_0
+    if-ne v1, p1, :cond_0
 
     return-void
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
-
     iput p1, v0, Landroid/view/InputWindowHandle;->ownerUid:I
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    iput-boolean v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mChanged:Z
+    iput-boolean p1, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mChanged:Z
 
     return-void
 .end method
 
-.method setPackageName(Ljava/lang/String;)V
+.method public setPackageName(Ljava/lang/String;)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
@@ -449,19 +474,19 @@
 
     iput-object p1, v0, Landroid/view/InputWindowHandle;->packageName:Ljava/lang/String;
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    iput-boolean v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mChanged:Z
+    iput-boolean p1, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mChanged:Z
 
     return-void
 .end method
 
-.method setPaused(Z)V
-    .locals 1
+.method public setPaused(Z)V
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
+    invoke-virtual {p0}, Lcom/android/server/wm/InputWindowHandleWrapper;->isPaused()Z
 
-    iget-boolean v0, v0, Landroid/view/InputWindowHandle;->paused:Z
+    move-result v0
 
     if-ne v0, p1, :cond_0
 
@@ -470,156 +495,125 @@
     :cond_0
     iget-object v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
 
-    iput-boolean p1, v0, Landroid/view/InputWindowHandle;->paused:Z
+    const/16 v1, 0x80
 
-    const/4 v0, 0x1
+    invoke-virtual {v0, v1, p1}, Landroid/view/InputWindowHandle;->setInputConfig(IZ)V
 
-    iput-boolean v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mChanged:Z
+    const/4 p1, 0x1
 
-    return-void
-.end method
-
-.method setPortalToDisplayId(I)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
-
-    iget v0, v0, Landroid/view/InputWindowHandle;->portalToDisplayId:I
-
-    if-ne v0, p1, :cond_0
-
-    return-void
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
-
-    iput p1, v0, Landroid/view/InputWindowHandle;->portalToDisplayId:I
-
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mChanged:Z
+    iput-boolean p1, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mChanged:Z
 
     return-void
 .end method
 
-.method setReplaceTouchableRegionWithCrop(Z)V
-    .locals 1
+.method public setReplaceTouchableRegionWithCrop(Z)V
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
 
-    iget-boolean v0, v0, Landroid/view/InputWindowHandle;->replaceTouchableRegionWithCrop:Z
+    iget-boolean v1, v0, Landroid/view/InputWindowHandle;->replaceTouchableRegionWithCrop:Z
 
-    if-ne v0, p1, :cond_0
+    if-ne v1, p1, :cond_0
 
     return-void
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
-
     iput-boolean p1, v0, Landroid/view/InputWindowHandle;->replaceTouchableRegionWithCrop:Z
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    iput-boolean v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mChanged:Z
+    iput-boolean p1, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mChanged:Z
 
     return-void
 .end method
 
-.method setScaleFactor(F)V
-    .locals 1
+.method public setScaleFactor(F)V
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
 
-    iget v0, v0, Landroid/view/InputWindowHandle;->scaleFactor:F
+    iget v1, v0, Landroid/view/InputWindowHandle;->scaleFactor:F
 
-    cmpl-float v0, v0, p1
+    cmpl-float v1, v1, p1
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
     return-void
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
-
     iput p1, v0, Landroid/view/InputWindowHandle;->scaleFactor:F
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    iput-boolean v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mChanged:Z
+    iput-boolean p1, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mChanged:Z
 
     return-void
 .end method
 
-.method setSurfaceInset(I)V
-    .locals 1
+.method public setSurfaceInset(I)V
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
 
-    iget v0, v0, Landroid/view/InputWindowHandle;->surfaceInset:I
+    iget v1, v0, Landroid/view/InputWindowHandle;->surfaceInset:I
 
-    if-ne v0, p1, :cond_0
+    if-ne v1, p1, :cond_0
 
     return-void
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
-
     iput p1, v0, Landroid/view/InputWindowHandle;->surfaceInset:I
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    iput-boolean v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mChanged:Z
+    iput-boolean p1, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mChanged:Z
 
     return-void
 .end method
 
-.method setToken(Landroid/os/IBinder;)V
-    .locals 1
+.method public setToken(Landroid/os/IBinder;)V
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
 
-    iget-object v0, v0, Landroid/view/InputWindowHandle;->token:Landroid/os/IBinder;
+    iget-object v1, v0, Landroid/view/InputWindowHandle;->token:Landroid/os/IBinder;
 
-    if-ne v0, p1, :cond_0
+    if-ne v1, p1, :cond_0
 
     return-void
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
-
     iput-object p1, v0, Landroid/view/InputWindowHandle;->token:Landroid/os/IBinder;
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    iput-boolean v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mChanged:Z
+    iput-boolean p1, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mChanged:Z
 
     return-void
 .end method
 
-.method setTouchOcclusionMode(I)V
-    .locals 1
+.method public setTouchOcclusionMode(I)V
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
 
-    iget v0, v0, Landroid/view/InputWindowHandle;->touchOcclusionMode:I
+    iget v1, v0, Landroid/view/InputWindowHandle;->touchOcclusionMode:I
 
-    if-ne v0, p1, :cond_0
+    if-ne v1, p1, :cond_0
 
     return-void
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
-
     iput p1, v0, Landroid/view/InputWindowHandle;->touchOcclusionMode:I
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    iput-boolean v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mChanged:Z
+    iput-boolean p1, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mChanged:Z
 
     return-void
 .end method
 
-.method setTouchableRegion(Landroid/graphics/Region;)V
+.method public setTouchableRegion(Landroid/graphics/Region;)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
@@ -641,14 +635,14 @@
 
     invoke-virtual {v0, p1}, Landroid/graphics/Region;->set(Landroid/graphics/Region;)Z
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    iput-boolean v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mChanged:Z
+    iput-boolean p1, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mChanged:Z
 
     return-void
 .end method
 
-.method setTouchableRegionCrop(Landroid/view/SurfaceControl;)V
+.method public setTouchableRegionCrop(Landroid/view/SurfaceControl;)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
@@ -668,19 +662,19 @@
 
     invoke-virtual {v0, p1}, Landroid/view/InputWindowHandle;->setTouchableRegionCrop(Landroid/view/SurfaceControl;)V
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    iput-boolean v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mChanged:Z
+    iput-boolean p1, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mChanged:Z
 
     return-void
 .end method
 
-.method setTrustedOverlay(Z)V
-    .locals 1
+.method public setTrustedOverlay(Z)V
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
+    invoke-virtual {p0}, Lcom/android/server/wm/InputWindowHandleWrapper;->isTrustedOverlay()Z
 
-    iget-boolean v0, v0, Landroid/view/InputWindowHandle;->trustedOverlay:Z
+    move-result v0
 
     if-ne v0, p1, :cond_0
 
@@ -689,39 +683,18 @@
     :cond_0
     iget-object v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
 
-    iput-boolean p1, v0, Landroid/view/InputWindowHandle;->trustedOverlay:Z
+    const/16 v1, 0x100
 
-    const/4 v0, 0x1
+    invoke-virtual {v0, v1, p1}, Landroid/view/InputWindowHandle;->setInputConfig(IZ)V
 
-    iput-boolean v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mChanged:Z
+    const/4 p1, 0x1
 
-    return-void
-.end method
-
-.method setVisible(Z)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
-
-    iget-boolean v0, v0, Landroid/view/InputWindowHandle;->visible:Z
-
-    if-ne v0, p1, :cond_0
-
-    return-void
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
-
-    iput-boolean p1, v0, Landroid/view/InputWindowHandle;->visible:Z
-
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mChanged:Z
+    iput-boolean p1, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mChanged:Z
 
     return-void
 .end method
 
-.method setWindowToken(Landroid/view/IWindow;)V
+.method public setWindowToken(Landroid/view/IWindow;)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
@@ -739,9 +712,9 @@
 
     invoke-virtual {v0, p1}, Landroid/view/InputWindowHandle;->setWindowToken(Landroid/view/IWindow;)V
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    iput-boolean v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mChanged:Z
+    iput-boolean p1, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mChanged:Z
 
     return-void
 .end method
@@ -761,13 +734,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-boolean v1, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mChanged:Z
+    iget-boolean p0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mChanged:Z
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

@@ -59,13 +59,13 @@
 .method public abstract isHardwareDetected(I)Z
 .end method
 
-.method public abstract onPointerDown(IIIFF)V
+.method public abstract onPointerDown(JIIIFF)V
 .end method
 
-.method public abstract onPointerUp(I)V
+.method public abstract onPointerUp(JI)V
 .end method
 
-.method public abstract onUiReady(I)V
+.method public abstract onUiReady(JI)V
 .end method
 
 .method public abstract rename(IIILjava/lang/String;)V
@@ -84,9 +84,6 @@
 .end method
 
 .method public abstract scheduleGenerateChallenge(IILandroid/os/IBinder;Landroid/hardware/fingerprint/IFingerprintServiceReceiver;Ljava/lang/String;)V
-.end method
-
-.method public abstract scheduleInternalCleanup(IILcom/android/server/biometrics/sensors/BaseClientMonitor$Callback;)V
 .end method
 
 .method public abstract scheduleInvalidateAuthenticatorId(IILandroid/hardware/biometrics/IInvalidationCallback;)V

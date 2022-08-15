@@ -1,4 +1,4 @@
-.class final Lcom/android/server/accessibility/KeyEventDispatcher$PendingKeyEvent;
+.class public final Lcom/android/server/accessibility/KeyEventDispatcher$PendingKeyEvent;
 .super Ljava/lang/Object;
 .source "KeyEventDispatcher.java"
 
@@ -9,23 +9,23 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "PendingKeyEvent"
 .end annotation
 
 
 # instance fields
-.field event:Landroid/view/KeyEvent;
+.field public event:Landroid/view/KeyEvent;
 
-.field handled:Z
+.field public handled:Z
 
-.field policyFlags:I
+.field public policyFlags:I
 
-.field referenceCount:I
+.field public referenceCount:I
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -33,7 +33,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/accessibility/KeyEventDispatcher$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/accessibility/KeyEventDispatcher$PendingKeyEvent-IA;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/accessibility/KeyEventDispatcher$PendingKeyEvent;-><init>()V

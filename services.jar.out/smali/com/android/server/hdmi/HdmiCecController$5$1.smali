@@ -1,4 +1,4 @@
-.class Lcom/android/server/hdmi/HdmiCecController$5$1;
+.class public Lcom/android/server/hdmi/HdmiCecController$5$1;
 .super Ljava/lang/Object;
 .source "HdmiCecController.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$1:Lcom/android/server/hdmi/HdmiCecController$5;
+.field public final synthetic this$1:Lcom/android/server/hdmi/HdmiCecController$5;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/hdmi/HdmiCecController$5;)V
+.method public constructor <init>(Lcom/android/server/hdmi/HdmiCecController$5;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/hdmi/HdmiCecController$5$1;->this$1:Lcom/android/server/hdmi/HdmiCecController$5;
@@ -35,33 +35,23 @@
 
 # virtual methods
 .method public run()V
-    .locals 7
+    .locals 6
 
-    iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecController$5$1;->this$1:Lcom/android/server/hdmi/HdmiCecController$5;
+    iget-object p0, p0, Lcom/android/server/hdmi/HdmiCecController$5$1;->this$1:Lcom/android/server/hdmi/HdmiCecController$5;
 
-    iget-object v1, v0, Lcom/android/server/hdmi/HdmiCecController$5;->this$0:Lcom/android/server/hdmi/HdmiCecController;
+    iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecController$5;->this$0:Lcom/android/server/hdmi/HdmiCecController;
 
-    iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecController$5$1;->this$1:Lcom/android/server/hdmi/HdmiCecController$5;
+    iget v1, p0, Lcom/android/server/hdmi/HdmiCecController$5;->val$sourceAddress:I
 
-    iget v2, v0, Lcom/android/server/hdmi/HdmiCecController$5;->val$sourceAddress:I
+    iget-object v2, p0, Lcom/android/server/hdmi/HdmiCecController$5;->val$candidates:Ljava/util/List;
 
-    iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecController$5$1;->this$1:Lcom/android/server/hdmi/HdmiCecController$5;
+    iget v3, p0, Lcom/android/server/hdmi/HdmiCecController$5;->val$retryCount:I
 
-    iget-object v3, v0, Lcom/android/server/hdmi/HdmiCecController$5;->val$candidates:Ljava/util/List;
+    iget-object v4, p0, Lcom/android/server/hdmi/HdmiCecController$5;->val$callback:Lcom/android/server/hdmi/HdmiControlService$DevicePollingCallback;
 
-    iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecController$5$1;->this$1:Lcom/android/server/hdmi/HdmiCecController$5;
+    iget-object v5, p0, Lcom/android/server/hdmi/HdmiCecController$5;->val$allocated:Ljava/util/List;
 
-    iget v4, v0, Lcom/android/server/hdmi/HdmiCecController$5;->val$retryCount:I
-
-    iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecController$5$1;->this$1:Lcom/android/server/hdmi/HdmiCecController$5;
-
-    iget-object v5, v0, Lcom/android/server/hdmi/HdmiCecController$5;->val$callback:Lcom/android/server/hdmi/HdmiControlService$DevicePollingCallback;
-
-    iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecController$5$1;->this$1:Lcom/android/server/hdmi/HdmiCecController$5;
-
-    iget-object v6, v0, Lcom/android/server/hdmi/HdmiCecController$5;->val$allocated:Ljava/util/List;
-
-    invoke-static/range {v1 .. v6}, Lcom/android/server/hdmi/HdmiCecController;->access$500(Lcom/android/server/hdmi/HdmiCecController;ILjava/util/List;ILcom/android/server/hdmi/HdmiControlService$DevicePollingCallback;Ljava/util/List;)V
+    invoke-static/range {v0 .. v5}, Lcom/android/server/hdmi/HdmiCecController;->-$$Nest$mrunDevicePolling(Lcom/android/server/hdmi/HdmiCecController;ILjava/util/List;ILcom/android/server/hdmi/HdmiControlService$DevicePollingCallback;Ljava/util/List;)V
 
     return-void
 .end method

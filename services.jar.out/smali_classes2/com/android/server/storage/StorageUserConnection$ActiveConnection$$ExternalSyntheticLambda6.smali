@@ -1,49 +1,54 @@
 .class public final synthetic Lcom/android/server/storage/StorageUserConnection$ActiveConnection$$ExternalSyntheticLambda6;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Function;
+.implements Ljava/util/function/Consumer;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/server/storage/StorageUserConnection$AsyncStorageServiceCall;
+.field public final synthetic f$0:Ljava/lang/String;
 
-.field public final synthetic f$1:Landroid/os/RemoteCallback;
+.field public final synthetic f$1:I
 
-.field public final synthetic f$2:Ljava/util/concurrent/CompletableFuture;
+.field public final synthetic f$2:I
+
+.field public final synthetic f$3:I
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/storage/StorageUserConnection$AsyncStorageServiceCall;Landroid/os/RemoteCallback;Ljava/util/concurrent/CompletableFuture;)V
+.method public synthetic constructor <init>(Ljava/lang/String;III)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/storage/StorageUserConnection$ActiveConnection$$ExternalSyntheticLambda6;->f$0:Lcom/android/server/storage/StorageUserConnection$AsyncStorageServiceCall;
+    iput-object p1, p0, Lcom/android/server/storage/StorageUserConnection$ActiveConnection$$ExternalSyntheticLambda6;->f$0:Ljava/lang/String;
 
-    iput-object p2, p0, Lcom/android/server/storage/StorageUserConnection$ActiveConnection$$ExternalSyntheticLambda6;->f$1:Landroid/os/RemoteCallback;
+    iput p2, p0, Lcom/android/server/storage/StorageUserConnection$ActiveConnection$$ExternalSyntheticLambda6;->f$1:I
 
-    iput-object p3, p0, Lcom/android/server/storage/StorageUserConnection$ActiveConnection$$ExternalSyntheticLambda6;->f$2:Ljava/util/concurrent/CompletableFuture;
+    iput p3, p0, Lcom/android/server/storage/StorageUserConnection$ActiveConnection$$ExternalSyntheticLambda6;->f$2:I
+
+    iput p4, p0, Lcom/android/server/storage/StorageUserConnection$ActiveConnection$$ExternalSyntheticLambda6;->f$3:I
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
+.method public final accept(Ljava/lang/Object;)V
     .locals 3
 
-    iget-object v0, p0, Lcom/android/server/storage/StorageUserConnection$ActiveConnection$$ExternalSyntheticLambda6;->f$0:Lcom/android/server/storage/StorageUserConnection$AsyncStorageServiceCall;
+    iget-object v0, p0, Lcom/android/server/storage/StorageUserConnection$ActiveConnection$$ExternalSyntheticLambda6;->f$0:Ljava/lang/String;
 
-    iget-object v1, p0, Lcom/android/server/storage/StorageUserConnection$ActiveConnection$$ExternalSyntheticLambda6;->f$1:Landroid/os/RemoteCallback;
+    iget v1, p0, Lcom/android/server/storage/StorageUserConnection$ActiveConnection$$ExternalSyntheticLambda6;->f$1:I
 
-    iget-object v2, p0, Lcom/android/server/storage/StorageUserConnection$ActiveConnection$$ExternalSyntheticLambda6;->f$2:Ljava/util/concurrent/CompletableFuture;
+    iget v2, p0, Lcom/android/server/storage/StorageUserConnection$ActiveConnection$$ExternalSyntheticLambda6;->f$2:I
+
+    iget p0, p0, Lcom/android/server/storage/StorageUserConnection$ActiveConnection$$ExternalSyntheticLambda6;->f$3:I
 
     check-cast p1, Landroid/service/storage/IExternalStorageService;
 
-    invoke-static {v0, v1, v2, p1}, Lcom/android/server/storage/StorageUserConnection$ActiveConnection;->lambda$waitForAsync$1(Lcom/android/server/storage/StorageUserConnection$AsyncStorageServiceCall;Landroid/os/RemoteCallback;Ljava/util/concurrent/CompletableFuture;Landroid/service/storage/IExternalStorageService;)Ljava/util/concurrent/CompletionStage;
+    invoke-static {v0, v1, v2, p0, p1}, Lcom/android/server/storage/StorageUserConnection$ActiveConnection;->$r8$lambda$t54DbLzgfkkBR4Ra6mYNtOW2Up4(Ljava/lang/String;IIILandroid/service/storage/IExternalStorageService;)V
 
-    move-result-object p1
-
-    return-object p1
+    return-void
 .end method

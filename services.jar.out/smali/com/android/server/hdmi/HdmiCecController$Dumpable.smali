@@ -15,11 +15,11 @@
 
 
 # instance fields
-.field protected final mTime:J
+.field public final mTime:J
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -35,5 +35,5 @@
 
 
 # virtual methods
-.method abstract dump(Lcom/android/internal/util/IndentingPrintWriter;Ljava/text/SimpleDateFormat;)V
+.method public abstract dump(Lcom/android/internal/util/IndentingPrintWriter;Ljava/text/SimpleDateFormat;)V
 .end method

@@ -1,4 +1,4 @@
-.class Lcom/android/server/powerstats/PowerStatsLogger$3;
+.class public Lcom/android/server/powerstats/PowerStatsLogger$3;
 .super Ljava/lang/Object;
 .source "PowerStatsLogger.java"
 
@@ -12,19 +12,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/powerstats/PowerStatsLogger;
+.field public final synthetic this$0:Lcom/android/server/powerstats/PowerStatsLogger;
 
-.field final synthetic val$pos:Landroid/util/proto/ProtoOutputStream;
+.field public final synthetic val$pos:Landroid/util/proto/ProtoOutputStream;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/powerstats/PowerStatsLogger;Landroid/util/proto/ProtoOutputStream;)V
+.method public constructor <init>(Lcom/android/server/powerstats/PowerStatsLogger;Landroid/util/proto/ProtoOutputStream;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/powerstats/PowerStatsLogger$3;->this$0:Lcom/android/server/powerstats/PowerStatsLogger;
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public onReadDataElement([B)V
-    .locals 3
+    .locals 2
 
     :try_start_0
     new-instance v0, Landroid/util/proto/ProtoInputStream;
@@ -50,30 +50,26 @@
 
     invoke-direct {v0, v1}, Landroid/util/proto/ProtoInputStream;-><init>(Ljava/io/InputStream;)V
 
-    nop
-
     invoke-static {p1}, Lcom/android/server/powerstats/ProtoStreamUtils$StateResidencyResultUtils;->unpackProtoMessage([B)[Landroid/hardware/power/stats/StateResidencyResult;
 
-    move-result-object v1
+    move-result-object p1
 
-    iget-object v2, p0, Lcom/android/server/powerstats/PowerStatsLogger$3;->val$pos:Landroid/util/proto/ProtoOutputStream;
+    iget-object p0, p0, Lcom/android/server/powerstats/PowerStatsLogger$3;->val$pos:Landroid/util/proto/ProtoOutputStream;
 
-    invoke-static {v1, v2}, Lcom/android/server/powerstats/ProtoStreamUtils$StateResidencyResultUtils;->packProtoMessage([Landroid/hardware/power/stats/StateResidencyResult;Landroid/util/proto/ProtoOutputStream;)V
+    invoke-static {p1, p0}, Lcom/android/server/powerstats/ProtoStreamUtils$StateResidencyResultUtils;->packProtoMessage([Landroid/hardware/power/stats/StateResidencyResult;Landroid/util/proto/ProtoOutputStream;)V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    invoke-static {}, Lcom/android/server/powerstats/PowerStatsLogger;->-$$Nest$sfgetTAG()Ljava/lang/String;
 
-    invoke-static {}, Lcom/android/server/powerstats/PowerStatsLogger;->access$000()Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object v1
+    const-string p1, "Failed to write residency data to incident report."
 
-    const-string v2, "Failed to write residency data to incident report."
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, p1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     :goto_0
     return-void

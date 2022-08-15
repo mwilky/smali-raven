@@ -41,7 +41,7 @@
 
     iput-object p2, p0, Lcom/android/server/wm/DisplayFrames;->mInsetsState:Landroid/view/InsetsState;
 
-    invoke-virtual {p0, p3, p4, p5, p6}, Lcom/android/server/wm/DisplayFrames;->onDisplayInfoUpdated(Landroid/view/DisplayInfo;Lcom/android/server/wm/utils/WmDisplayCutout;Landroid/view/RoundedCorners;Landroid/view/PrivacyIndicatorBounds;)Z
+    invoke-virtual {p0, p3, p4, p5, p6}, Lcom/android/server/wm/DisplayFrames;->update(Landroid/view/DisplayInfo;Lcom/android/server/wm/utils/WmDisplayCutout;Landroid/view/RoundedCorners;Landroid/view/PrivacyIndicatorBounds;)Z
 
     return-void
 .end method
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public dump(Ljava/lang/String;Ljava/io/PrintWriter;)V
-    .locals 2
+    .locals 1
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -57,300 +57,224 @@
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "DisplayFrames w="
+    const-string p1, "DisplayFrames w="
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v1, p0, Lcom/android/server/wm/DisplayFrames;->mDisplayWidth:I
+    iget p1, p0, Lcom/android/server/wm/DisplayFrames;->mDisplayWidth:I
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v1, " h="
+    const-string p1, " h="
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v1, p0, Lcom/android/server/wm/DisplayFrames;->mDisplayHeight:I
+    iget p1, p0, Lcom/android/server/wm/DisplayFrames;->mDisplayHeight:I
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v1, " r="
+    const-string p1, " r="
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v1, p0, Lcom/android/server/wm/DisplayFrames;->mRotation:I
+    iget p0, p0, Lcom/android/server/wm/DisplayFrames;->mRotation:I
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p2, p0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     return-void
 .end method
 
 .method public dumpDebug(Landroid/util/proto/ProtoOutputStream;J)V
-    .locals 2
+    .locals 0
 
     invoke-virtual {p1, p2, p3}, Landroid/util/proto/ProtoOutputStream;->start(J)J
 
-    move-result-wide v0
+    move-result-wide p2
 
-    invoke-virtual {p1, v0, v1}, Landroid/util/proto/ProtoOutputStream;->end(J)V
+    invoke-virtual {p1, p2, p3}, Landroid/util/proto/ProtoOutputStream;->end(J)V
 
     return-void
 .end method
 
-.method public onDisplayInfoUpdated(Landroid/view/DisplayInfo;Lcom/android/server/wm/utils/WmDisplayCutout;Landroid/view/RoundedCorners;Landroid/view/PrivacyIndicatorBounds;)Z
-    .locals 16
+.method public update(Landroid/view/DisplayInfo;Lcom/android/server/wm/utils/WmDisplayCutout;Landroid/view/RoundedCorners;Landroid/view/PrivacyIndicatorBounds;)Z
+    .locals 6
 
-    move-object/from16 v0, p0
+    iget-object v0, p0, Lcom/android/server/wm/DisplayFrames;->mInsetsState:Landroid/view/InsetsState;
 
-    move-object/from16 v1, p1
+    iget-object v1, p0, Lcom/android/server/wm/DisplayFrames;->mDisplayCutoutSafe:Landroid/graphics/Rect;
 
-    move-object/from16 v2, p3
+    invoke-virtual {p2}, Lcom/android/server/wm/utils/WmDisplayCutout;->getDisplayCutout()Landroid/view/DisplayCutout;
 
-    move-object/from16 v3, p4
+    move-result-object p2
 
-    iget v4, v1, Landroid/view/DisplayInfo;->rotation:I
+    iget v2, p0, Lcom/android/server/wm/DisplayFrames;->mDisplayWidth:I
 
-    iput v4, v0, Lcom/android/server/wm/DisplayFrames;->mRotation:I
+    iget v3, p1, Landroid/view/DisplayInfo;->logicalWidth:I
 
-    iget-object v4, v0, Lcom/android/server/wm/DisplayFrames;->mInsetsState:Landroid/view/InsetsState;
+    const/4 v4, 0x0
 
-    iget-object v5, v0, Lcom/android/server/wm/DisplayFrames;->mDisplayCutoutSafe:Landroid/graphics/Rect;
+    if-ne v2, v3, :cond_0
 
-    invoke-virtual/range {p2 .. p2}, Lcom/android/server/wm/utils/WmDisplayCutout;->getDisplayCutout()Landroid/view/DisplayCutout;
+    iget v2, p0, Lcom/android/server/wm/DisplayFrames;->mDisplayHeight:I
 
-    move-result-object v6
+    iget v3, p1, Landroid/view/DisplayInfo;->logicalHeight:I
 
-    iget v7, v0, Lcom/android/server/wm/DisplayFrames;->mDisplayWidth:I
+    if-ne v2, v3, :cond_0
 
-    iget v8, v1, Landroid/view/DisplayInfo;->logicalWidth:I
+    iget v2, p0, Lcom/android/server/wm/DisplayFrames;->mRotation:I
 
-    const/4 v9, 0x0
+    iget v3, p1, Landroid/view/DisplayInfo;->rotation:I
 
-    if-ne v7, v8, :cond_0
+    if-ne v2, v3, :cond_0
 
-    iget v7, v0, Lcom/android/server/wm/DisplayFrames;->mDisplayHeight:I
+    invoke-virtual {v0}, Landroid/view/InsetsState;->getDisplayCutout()Landroid/view/DisplayCutout;
 
-    iget v8, v1, Landroid/view/DisplayInfo;->logicalHeight:I
+    move-result-object v2
 
-    if-ne v7, v8, :cond_0
+    invoke-virtual {v2, p2}, Landroid/view/DisplayCutout;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v4}, Landroid/view/InsetsState;->getDisplayCutout()Landroid/view/DisplayCutout;
+    move-result v2
 
-    move-result-object v7
+    if-eqz v2, :cond_0
 
-    invoke-virtual {v7, v6}, Landroid/view/DisplayCutout;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0}, Landroid/view/InsetsState;->getRoundedCorners()Landroid/view/RoundedCorners;
 
-    move-result v7
+    move-result-object v2
 
-    if-eqz v7, :cond_0
+    invoke-virtual {v2, p3}, Landroid/view/RoundedCorners;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v4}, Landroid/view/InsetsState;->getRoundedCorners()Landroid/view/RoundedCorners;
+    move-result v2
 
-    move-result-object v7
+    if-eqz v2, :cond_0
 
-    invoke-virtual {v7, v2}, Landroid/view/RoundedCorners;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0}, Landroid/view/InsetsState;->getPrivacyIndicatorBounds()Landroid/view/PrivacyIndicatorBounds;
 
-    move-result v7
+    move-result-object v2
 
-    if-eqz v7, :cond_0
+    invoke-virtual {v2, p4}, Landroid/view/PrivacyIndicatorBounds;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v4}, Landroid/view/InsetsState;->getPrivacyIndicatorBounds()Landroid/view/PrivacyIndicatorBounds;
+    move-result v2
 
-    move-result-object v7
+    if-eqz v2, :cond_0
 
-    invoke-virtual {v7, v3}, Landroid/view/PrivacyIndicatorBounds;->equals(Ljava/lang/Object;)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_0
-
-    return v9
+    return v4
 
     :cond_0
-    iget v7, v1, Landroid/view/DisplayInfo;->logicalWidth:I
+    iget v2, p1, Landroid/view/DisplayInfo;->logicalWidth:I
 
-    iput v7, v0, Lcom/android/server/wm/DisplayFrames;->mDisplayWidth:I
+    iput v2, p0, Lcom/android/server/wm/DisplayFrames;->mDisplayWidth:I
 
-    iget v7, v1, Landroid/view/DisplayInfo;->logicalHeight:I
+    iget v3, p1, Landroid/view/DisplayInfo;->logicalHeight:I
 
-    iput v7, v0, Lcom/android/server/wm/DisplayFrames;->mDisplayHeight:I
+    iput v3, p0, Lcom/android/server/wm/DisplayFrames;->mDisplayHeight:I
 
-    iget-object v8, v0, Lcom/android/server/wm/DisplayFrames;->mUnrestricted:Landroid/graphics/Rect;
+    iget p1, p1, Landroid/view/DisplayInfo;->rotation:I
 
-    iget v10, v0, Lcom/android/server/wm/DisplayFrames;->mDisplayWidth:I
+    iput p1, p0, Lcom/android/server/wm/DisplayFrames;->mRotation:I
 
-    invoke-virtual {v8, v9, v9, v10, v7}, Landroid/graphics/Rect;->set(IIII)V
+    iget-object p0, p0, Lcom/android/server/wm/DisplayFrames;->mUnrestricted:Landroid/graphics/Rect;
 
-    const/high16 v7, -0x80000000
+    invoke-virtual {p0, v4, v4, v2, v3}, Landroid/graphics/Rect;->set(IIII)V
 
-    const v9, 0x7fffffff
+    invoke-virtual {v0, p0}, Landroid/view/InsetsState;->setDisplayFrame(Landroid/graphics/Rect;)V
 
-    invoke-virtual {v5, v7, v7, v9, v9}, Landroid/graphics/Rect;->set(IIII)V
+    invoke-virtual {v0, p2}, Landroid/view/InsetsState;->setDisplayCutout(Landroid/view/DisplayCutout;)V
 
-    invoke-virtual {v4, v8}, Landroid/view/InsetsState;->setDisplayFrame(Landroid/graphics/Rect;)V
+    invoke-virtual {v0, p3}, Landroid/view/InsetsState;->setRoundedCorners(Landroid/view/RoundedCorners;)V
 
-    invoke-virtual {v4, v6}, Landroid/view/InsetsState;->setDisplayCutout(Landroid/view/DisplayCutout;)V
+    invoke-virtual {v0, p4}, Landroid/view/InsetsState;->setPrivacyIndicatorBounds(Landroid/view/PrivacyIndicatorBounds;)V
 
-    invoke-virtual {v4, v2}, Landroid/view/InsetsState;->setRoundedCorners(Landroid/view/RoundedCorners;)V
+    invoke-virtual {v0, v1}, Landroid/view/InsetsState;->getDisplayCutoutSafe(Landroid/graphics/Rect;)V
 
-    invoke-virtual {v4, v3}, Landroid/view/InsetsState;->setPrivacyIndicatorBounds(Landroid/view/PrivacyIndicatorBounds;)V
+    invoke-virtual {p2}, Landroid/view/DisplayCutout;->isEmpty()Z
 
-    invoke-virtual {v6}, Landroid/view/DisplayCutout;->isEmpty()Z
+    move-result p1
 
-    move-result v7
+    const/16 p2, 0xe
 
-    const/16 v9, 0xe
+    const/16 p3, 0xd
 
-    const/16 v10, 0xd
+    const/16 p4, 0xc
 
-    const/16 v11, 0xc
+    const/16 v2, 0xb
 
-    const/16 v12, 0xb
+    if-nez p1, :cond_1
 
-    if-nez v7, :cond_5
+    invoke-virtual {v0, v2}, Landroid/view/InsetsState;->getSource(I)Landroid/view/InsetsSource;
 
-    invoke-virtual {v6}, Landroid/view/DisplayCutout;->getSafeInsetLeft()I
+    move-result-object p1
 
-    move-result v7
+    iget v2, p0, Landroid/graphics/Rect;->left:I
 
-    if-lez v7, :cond_1
+    iget v3, p0, Landroid/graphics/Rect;->top:I
 
-    iget v7, v8, Landroid/graphics/Rect;->left:I
+    iget v4, v1, Landroid/graphics/Rect;->left:I
 
-    invoke-virtual {v6}, Landroid/view/DisplayCutout;->getSafeInsetLeft()I
+    iget v5, p0, Landroid/graphics/Rect;->bottom:I
 
-    move-result v13
+    invoke-virtual {p1, v2, v3, v4, v5}, Landroid/view/InsetsSource;->setFrame(IIII)V
 
-    add-int/2addr v7, v13
+    invoke-virtual {v0, p4}, Landroid/view/InsetsState;->getSource(I)Landroid/view/InsetsSource;
 
-    iput v7, v5, Landroid/graphics/Rect;->left:I
+    move-result-object p1
 
-    :cond_1
-    invoke-virtual {v6}, Landroid/view/DisplayCutout;->getSafeInsetTop()I
+    iget p4, p0, Landroid/graphics/Rect;->left:I
 
-    move-result v7
+    iget v2, p0, Landroid/graphics/Rect;->top:I
 
-    if-lez v7, :cond_2
+    iget v3, p0, Landroid/graphics/Rect;->right:I
 
-    iget v7, v8, Landroid/graphics/Rect;->top:I
+    iget v4, v1, Landroid/graphics/Rect;->top:I
 
-    invoke-virtual {v6}, Landroid/view/DisplayCutout;->getSafeInsetTop()I
+    invoke-virtual {p1, p4, v2, v3, v4}, Landroid/view/InsetsSource;->setFrame(IIII)V
 
-    move-result v13
+    invoke-virtual {v0, p3}, Landroid/view/InsetsState;->getSource(I)Landroid/view/InsetsSource;
 
-    add-int/2addr v7, v13
+    move-result-object p1
 
-    iput v7, v5, Landroid/graphics/Rect;->top:I
+    iget p3, v1, Landroid/graphics/Rect;->right:I
 
-    :cond_2
-    invoke-virtual {v6}, Landroid/view/DisplayCutout;->getSafeInsetRight()I
+    iget p4, p0, Landroid/graphics/Rect;->top:I
 
-    move-result v7
+    iget v2, p0, Landroid/graphics/Rect;->right:I
 
-    if-lez v7, :cond_3
+    iget v3, p0, Landroid/graphics/Rect;->bottom:I
 
-    iget v7, v8, Landroid/graphics/Rect;->right:I
+    invoke-virtual {p1, p3, p4, v2, v3}, Landroid/view/InsetsSource;->setFrame(IIII)V
 
-    invoke-virtual {v6}, Landroid/view/DisplayCutout;->getSafeInsetRight()I
+    invoke-virtual {v0, p2}, Landroid/view/InsetsState;->getSource(I)Landroid/view/InsetsSource;
 
-    move-result v13
+    move-result-object p1
 
-    sub-int/2addr v7, v13
+    iget p2, p0, Landroid/graphics/Rect;->left:I
 
-    iput v7, v5, Landroid/graphics/Rect;->right:I
+    iget p3, v1, Landroid/graphics/Rect;->bottom:I
 
-    :cond_3
-    invoke-virtual {v6}, Landroid/view/DisplayCutout;->getSafeInsetBottom()I
+    iget p4, p0, Landroid/graphics/Rect;->right:I
 
-    move-result v7
+    iget p0, p0, Landroid/graphics/Rect;->bottom:I
 
-    if-lez v7, :cond_4
-
-    iget v7, v8, Landroid/graphics/Rect;->bottom:I
-
-    invoke-virtual {v6}, Landroid/view/DisplayCutout;->getSafeInsetBottom()I
-
-    move-result v13
-
-    sub-int/2addr v7, v13
-
-    iput v7, v5, Landroid/graphics/Rect;->bottom:I
-
-    :cond_4
-    invoke-virtual {v4, v12}, Landroid/view/InsetsState;->getSource(I)Landroid/view/InsetsSource;
-
-    move-result-object v7
-
-    iget v12, v8, Landroid/graphics/Rect;->left:I
-
-    iget v13, v8, Landroid/graphics/Rect;->top:I
-
-    iget v14, v5, Landroid/graphics/Rect;->left:I
-
-    iget v15, v8, Landroid/graphics/Rect;->bottom:I
-
-    invoke-virtual {v7, v12, v13, v14, v15}, Landroid/view/InsetsSource;->setFrame(IIII)V
-
-    invoke-virtual {v4, v11}, Landroid/view/InsetsState;->getSource(I)Landroid/view/InsetsSource;
-
-    move-result-object v7
-
-    iget v11, v8, Landroid/graphics/Rect;->left:I
-
-    iget v12, v8, Landroid/graphics/Rect;->top:I
-
-    iget v13, v8, Landroid/graphics/Rect;->right:I
-
-    iget v14, v5, Landroid/graphics/Rect;->top:I
-
-    invoke-virtual {v7, v11, v12, v13, v14}, Landroid/view/InsetsSource;->setFrame(IIII)V
-
-    invoke-virtual {v4, v10}, Landroid/view/InsetsState;->getSource(I)Landroid/view/InsetsSource;
-
-    move-result-object v7
-
-    iget v10, v5, Landroid/graphics/Rect;->right:I
-
-    iget v11, v8, Landroid/graphics/Rect;->top:I
-
-    iget v12, v8, Landroid/graphics/Rect;->right:I
-
-    iget v13, v8, Landroid/graphics/Rect;->bottom:I
-
-    invoke-virtual {v7, v10, v11, v12, v13}, Landroid/view/InsetsSource;->setFrame(IIII)V
-
-    invoke-virtual {v4, v9}, Landroid/view/InsetsState;->getSource(I)Landroid/view/InsetsSource;
-
-    move-result-object v7
-
-    iget v9, v8, Landroid/graphics/Rect;->left:I
-
-    iget v10, v5, Landroid/graphics/Rect;->bottom:I
-
-    iget v11, v8, Landroid/graphics/Rect;->right:I
-
-    iget v12, v8, Landroid/graphics/Rect;->bottom:I
-
-    invoke-virtual {v7, v9, v10, v11, v12}, Landroid/view/InsetsSource;->setFrame(IIII)V
+    invoke-virtual {p1, p2, p3, p4, p0}, Landroid/view/InsetsSource;->setFrame(IIII)V
 
     goto :goto_0
 
-    :cond_5
-    invoke-virtual {v4, v12}, Landroid/view/InsetsState;->removeSource(I)Z
+    :cond_1
+    invoke-virtual {v0, v2}, Landroid/view/InsetsState;->removeSource(I)Z
 
-    invoke-virtual {v4, v11}, Landroid/view/InsetsState;->removeSource(I)Z
+    invoke-virtual {v0, p4}, Landroid/view/InsetsState;->removeSource(I)Z
 
-    invoke-virtual {v4, v10}, Landroid/view/InsetsState;->removeSource(I)Z
+    invoke-virtual {v0, p3}, Landroid/view/InsetsState;->removeSource(I)Z
 
-    invoke-virtual {v4, v9}, Landroid/view/InsetsState;->removeSource(I)Z
+    invoke-virtual {v0, p2}, Landroid/view/InsetsState;->removeSource(I)Z
 
     :goto_0
-    const/4 v7, 0x1
+    const/4 p0, 0x1
 
-    return v7
+    return p0
 .end method

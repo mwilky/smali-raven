@@ -1,4 +1,4 @@
-.class Lcom/android/server/webkit/WebViewUpdateServiceImpl$ProviderAndPackageInfo;
+.class public Lcom/android/server/webkit/WebViewUpdateServiceImpl$ProviderAndPackageInfo;
 .super Ljava/lang/Object;
 .source "WebViewUpdateServiceImpl.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "ProviderAndPackageInfo"
 .end annotation
 
@@ -21,7 +21,7 @@
 
 
 # direct methods
-.method constructor <init>(Landroid/webkit/WebViewProviderInfo;Landroid/content/pm/PackageInfo;)V
+.method public constructor <init>(Landroid/webkit/WebViewProviderInfo;Landroid/content/pm/PackageInfo;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

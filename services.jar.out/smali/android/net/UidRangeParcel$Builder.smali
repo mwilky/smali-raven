@@ -38,15 +38,15 @@
 
 # virtual methods
 .method public build()Landroid/net/UidRangeParcel;
-    .locals 3
+    .locals 2
 
     new-instance v0, Landroid/net/UidRangeParcel;
 
     iget v1, p0, Landroid/net/UidRangeParcel$Builder;->start:I
 
-    iget v2, p0, Landroid/net/UidRangeParcel$Builder;->stop:I
+    iget p0, p0, Landroid/net/UidRangeParcel$Builder;->stop:I
 
-    invoke-direct {v0, v1, v2}, Landroid/net/UidRangeParcel;-><init>(II)V
+    invoke-direct {v0, v1, p0}, Landroid/net/UidRangeParcel;-><init>(II)V
 
     return-object v0
 .end method

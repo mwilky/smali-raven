@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/location/gnss/GnssListenerMultiplexer$$ExternalSyntheticLambda6;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Predicate;
@@ -23,15 +24,15 @@
 
 # virtual methods
 .method public final test(Ljava/lang/Object;)Z
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/location/gnss/GnssListenerMultiplexer$$ExternalSyntheticLambda6;->f$0:I
+    iget p0, p0, Lcom/android/server/location/gnss/GnssListenerMultiplexer$$ExternalSyntheticLambda6;->f$0:I
 
     check-cast p1, Lcom/android/server/location/gnss/GnssListenerMultiplexer$GnssListenerRegistration;
 
-    invoke-static {v0, p1}, Lcom/android/server/location/gnss/GnssListenerMultiplexer;->lambda$onLocationPermissionsChanged$5(ILcom/android/server/location/gnss/GnssListenerMultiplexer$GnssListenerRegistration;)Z
+    invoke-static {p0, p1}, Lcom/android/server/location/gnss/GnssListenerMultiplexer;->$r8$lambda$SQi0jawVjf-Evx-t1CSPBM6Mbn8(ILcom/android/server/location/gnss/GnssListenerMultiplexer$GnssListenerRegistration;)Z
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method

@@ -1,35 +1,21 @@
-.class final Lcom/android/server/backup/UserBackupManagerFiles;
+.class public final Lcom/android/server/backup/UserBackupManagerFiles;
 .super Ljava/lang/Object;
 .source "UserBackupManagerFiles.java"
 
 
-# static fields
-.field private static final BACKUP_PERSISTENT_DIR:Ljava/lang/String; = "backup"
-
-.field private static final BACKUP_STAGING_DIR:Ljava/lang/String; = "backup_stage"
-
-
 # direct methods
-.method constructor <init>()V
+.method public static getBaseDir(I)Ljava/io/File;
     .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-.method private static getBaseDir(I)Ljava/io/File;
-    .locals 1
 
     invoke-static {p0}, Landroid/os/Environment;->getDataSystemCeDirectory(I)Ljava/io/File;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
-.method static getBaseStateDir(I)Ljava/io/File;
-    .locals 3
+.method public static getBaseStateDir(I)Ljava/io/File;
+    .locals 2
 
     const-string v0, "backup"
 
@@ -39,26 +25,26 @@
 
     invoke-static {p0}, Lcom/android/server/backup/UserBackupManagerFiles;->getBaseDir(I)Ljava/io/File;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-direct {v1, v2, v0}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    invoke-direct {v1, p0, v0}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
     return-object v1
 
     :cond_0
-    new-instance v1, Ljava/io/File;
+    new-instance p0, Ljava/io/File;
 
     invoke-static {}, Landroid/os/Environment;->getDataDirectory()Ljava/io/File;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-direct {v1, v2, v0}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    invoke-direct {p0, v1, v0}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    return-object v1
+    return-object p0
 .end method
 
-.method static getDataDir(I)Ljava/io/File;
-    .locals 3
+.method public static getDataDir(I)Ljava/io/File;
+    .locals 2
 
     const-string v0, "backup_stage"
 
@@ -68,25 +54,25 @@
 
     invoke-static {p0}, Lcom/android/server/backup/UserBackupManagerFiles;->getBaseDir(I)Ljava/io/File;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-direct {v1, v2, v0}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    invoke-direct {v1, p0, v0}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
     return-object v1
 
     :cond_0
-    new-instance v1, Ljava/io/File;
+    new-instance p0, Ljava/io/File;
 
     invoke-static {}, Landroid/os/Environment;->getDownloadCacheDirectory()Ljava/io/File;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-direct {v1, v2, v0}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    invoke-direct {p0, v1, v0}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    return-object v1
+    return-object p0
 .end method
 
-.method static getStateDirInSystemDir(I)Ljava/io/File;
+.method public static getStateDirInSystemDir(I)Ljava/io/File;
     .locals 4
 
     new-instance v0, Ljava/io/File;
@@ -109,23 +95,23 @@
 
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-direct {v0, v1, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    invoke-direct {v0, v1, p0}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
     return-object v0
 .end method
 
-.method static getStateFileInSystemDir(Ljava/lang/String;I)Ljava/io/File;
-    .locals 2
+.method public static getStateFileInSystemDir(Ljava/lang/String;I)Ljava/io/File;
+    .locals 1
 
     new-instance v0, Ljava/io/File;
 
     invoke-static {p1}, Lcom/android/server/backup/UserBackupManagerFiles;->getStateDirInSystemDir(I)Ljava/io/File;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1, p0}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    invoke-direct {v0, p1, p0}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
     return-object v0
 .end method

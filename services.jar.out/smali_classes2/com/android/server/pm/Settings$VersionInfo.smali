@@ -15,11 +15,11 @@
 
 
 # instance fields
-.field databaseVersion:I
+.field public databaseVersion:I
 
-.field fingerprint:Ljava/lang/String;
+.field public fingerprint:Ljava/lang/String;
 
-.field sdkVersion:I
+.field public sdkVersion:I
 
 
 # direct methods
@@ -44,7 +44,7 @@
 
     iput v0, p0, Lcom/android/server/pm/Settings$VersionInfo;->databaseVersion:I
 
-    sget-object v0, Landroid/os/Build;->FINGERPRINT:Ljava/lang/String;
+    sget-object v0, Landroid/content/pm/PackagePartitions;->FINGERPRINT:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/android/server/pm/Settings$VersionInfo;->fingerprint:Ljava/lang/String;
 

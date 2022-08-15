@@ -1,25 +1,22 @@
 .class public final synthetic Lcom/android/server/speech/RemoteSpeechRecognitionService$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/internal/infra/ServiceConnector$VoidJob;
 
 
 # instance fields
-.field public final synthetic f$0:Landroid/speech/IRecognitionListener;
-
-.field public final synthetic f$1:Z
+.field public final synthetic f$0:Landroid/content/Intent;
 
 
 # direct methods
-.method public synthetic constructor <init>(Landroid/speech/IRecognitionListener;Z)V
+.method public synthetic constructor <init>(Landroid/content/Intent;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/speech/RemoteSpeechRecognitionService$$ExternalSyntheticLambda1;->f$0:Landroid/speech/IRecognitionListener;
-
-    iput-boolean p2, p0, Lcom/android/server/speech/RemoteSpeechRecognitionService$$ExternalSyntheticLambda1;->f$1:Z
+    iput-object p1, p0, Lcom/android/server/speech/RemoteSpeechRecognitionService$$ExternalSyntheticLambda1;->f$0:Landroid/content/Intent;
 
     return-void
 .end method
@@ -27,15 +24,13 @@
 
 # virtual methods
 .method public final runNoResult(Ljava/lang/Object;)V
-    .locals 2
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/speech/RemoteSpeechRecognitionService$$ExternalSyntheticLambda1;->f$0:Landroid/speech/IRecognitionListener;
-
-    iget-boolean v1, p0, Lcom/android/server/speech/RemoteSpeechRecognitionService$$ExternalSyntheticLambda1;->f$1:Z
+    iget-object p0, p0, Lcom/android/server/speech/RemoteSpeechRecognitionService$$ExternalSyntheticLambda1;->f$0:Landroid/content/Intent;
 
     check-cast p1, Landroid/speech/IRecognitionService;
 
-    invoke-static {v0, v1, p1}, Lcom/android/server/speech/RemoteSpeechRecognitionService;->lambda$cancel$3(Landroid/speech/IRecognitionListener;ZLandroid/speech/IRecognitionService;)V
+    invoke-static {p0, p1}, Lcom/android/server/speech/RemoteSpeechRecognitionService;->$r8$lambda$AxxEYUaC5NuEQ22e9YBtWnTaJI4(Landroid/content/Intent;Landroid/speech/IRecognitionService;)V
 
     return-void
 .end method

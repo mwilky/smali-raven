@@ -1,4 +1,4 @@
-.class Lcom/android/server/hdmi/HdmiCecMessageValidator$TimerClearedStatusValidator;
+.class public Lcom/android/server/hdmi/HdmiCecMessageValidator$TimerClearedStatusValidator;
 .super Ljava/lang/Object;
 .source "HdmiCecMessageValidator.java"
 
@@ -12,30 +12,24 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x9
     name = "TimerClearedStatusValidator"
 .end annotation
 
 
-# instance fields
-.field final synthetic this$0:Lcom/android/server/hdmi/HdmiCecMessageValidator;
-
-
 # direct methods
-.method private constructor <init>(Lcom/android/server/hdmi/HdmiCecMessageValidator;)V
+.method public constructor <init>()V
     .locals 0
-
-    iput-object p1, p0, Lcom/android/server/hdmi/HdmiCecMessageValidator$TimerClearedStatusValidator;->this$0:Lcom/android/server/hdmi/HdmiCecMessageValidator;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/hdmi/HdmiCecMessageValidator;Lcom/android/server/hdmi/HdmiCecMessageValidator$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/hdmi/HdmiCecMessageValidator$TimerClearedStatusValidator-IA;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/server/hdmi/HdmiCecMessageValidator$TimerClearedStatusValidator;-><init>(Lcom/android/server/hdmi/HdmiCecMessageValidator;)V
+    invoke-direct {p0}, Lcom/android/server/hdmi/HdmiCecMessageValidator$TimerClearedStatusValidator;-><init>()V
 
     return-void
 .end method
@@ -43,51 +37,49 @@
 
 # virtual methods
 .method public isValid([B)I
-    .locals 5
+    .locals 3
 
-    array-length v0, p1
+    array-length p0, p1
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    if-ge v0, v1, :cond_0
+    if-ge p0, v0, :cond_0
 
-    const/4 v0, 0x4
+    const/4 p0, 0x4
 
-    return v0
+    return p0
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/hdmi/HdmiCecMessageValidator$TimerClearedStatusValidator;->this$0:Lcom/android/server/hdmi/HdmiCecMessageValidator;
+    const/4 p0, 0x0
 
-    const/4 v2, 0x0
+    aget-byte v1, p1, p0
 
-    aget-byte v3, p1, v2
+    const/4 v2, 0x2
 
-    const/4 v4, 0x2
+    invoke-static {v1, p0, v2}, Lcom/android/server/hdmi/HdmiCecMessageValidator;->-$$Nest$smisWithinRange(III)Z
 
-    invoke-static {v0, v3, v2, v4}, Lcom/android/server/hdmi/HdmiCecMessageValidator;->access$1800(Lcom/android/server/hdmi/HdmiCecMessageValidator;III)Z
+    move-result v1
 
-    move-result v0
+    if-nez v1, :cond_2
 
-    if-nez v0, :cond_2
+    aget-byte p1, p1, p0
 
-    aget-byte v0, p1, v2
+    and-int/lit16 p1, p1, 0xff
 
-    and-int/lit16 v0, v0, 0xff
+    const/16 v1, 0x80
 
-    const/16 v3, 0x80
-
-    if-ne v0, v3, :cond_1
+    if-ne p1, v1, :cond_1
 
     goto :goto_0
 
     :cond_1
-    move v1, v2
+    move v0, p0
 
     :cond_2
     :goto_0
-    invoke-static {v1}, Lcom/android/server/hdmi/HdmiCecMessageValidator;->access$1700(Z)I
+    invoke-static {v0}, Lcom/android/server/hdmi/HdmiCecMessageValidator;->-$$Nest$smtoErrorCode(Z)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method

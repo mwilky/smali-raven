@@ -1,39 +1,38 @@
 .class public final synthetic Lcom/android/server/wm/LockTaskController$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Ljava/util/function/Predicate;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/server/wm/LockTaskController;
-
-.field public final synthetic f$1:Lcom/android/server/wm/Task;
+.field public final synthetic f$0:Lcom/android/server/wm/ActivityRecord;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/wm/LockTaskController;Lcom/android/server/wm/Task;)V
+.method public synthetic constructor <init>(Lcom/android/server/wm/ActivityRecord;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/wm/LockTaskController$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/wm/LockTaskController;
-
-    iput-object p2, p0, Lcom/android/server/wm/LockTaskController$$ExternalSyntheticLambda2;->f$1:Lcom/android/server/wm/Task;
+    iput-object p1, p0, Lcom/android/server/wm/LockTaskController$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/wm/ActivityRecord;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final run()V
-    .locals 2
+.method public final test(Ljava/lang/Object;)Z
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/LockTaskController$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/wm/LockTaskController;
+    iget-object p0, p0, Lcom/android/server/wm/LockTaskController$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/wm/ActivityRecord;
 
-    iget-object v1, p0, Lcom/android/server/wm/LockTaskController$$ExternalSyntheticLambda2;->f$1:Lcom/android/server/wm/Task;
+    check-cast p1, Lcom/android/server/wm/ActivityRecord;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/wm/LockTaskController;->lambda$removeLockedTask$2$LockTaskController(Lcom/android/server/wm/Task;)V
+    invoke-static {p0, p1}, Lcom/android/server/wm/LockTaskController;->$r8$lambda$6xbbr7Efi-T-VU6w56BUXkdj7MY(Lcom/android/server/wm/ActivityRecord;Lcom/android/server/wm/ActivityRecord;)Z
 
-    return-void
+    move-result p0
+
+    return p0
 .end method

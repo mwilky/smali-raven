@@ -1,45 +1,34 @@
 .class public final synthetic Lcom/android/server/accounts/AccountManagerService$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Landroid/content/pm/PackageManager$OnPermissionsChangedListener;
 
 
 # instance fields
-.field public final synthetic f$0:Landroid/accounts/AccountManagerInternal$OnAppPermissionChangeListener;
-
-.field public final synthetic f$1:Landroid/accounts/Account;
-
-.field public final synthetic f$2:I
+.field public final synthetic f$0:Lcom/android/server/accounts/AccountManagerService;
 
 
 # direct methods
-.method public synthetic constructor <init>(Landroid/accounts/AccountManagerInternal$OnAppPermissionChangeListener;Landroid/accounts/Account;I)V
+.method public synthetic constructor <init>(Lcom/android/server/accounts/AccountManagerService;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/accounts/AccountManagerService$$ExternalSyntheticLambda1;->f$0:Landroid/accounts/AccountManagerInternal$OnAppPermissionChangeListener;
-
-    iput-object p2, p0, Lcom/android/server/accounts/AccountManagerService$$ExternalSyntheticLambda1;->f$1:Landroid/accounts/Account;
-
-    iput p3, p0, Lcom/android/server/accounts/AccountManagerService$$ExternalSyntheticLambda1;->f$2:I
+    iput-object p1, p0, Lcom/android/server/accounts/AccountManagerService$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/accounts/AccountManagerService;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final run()V
-    .locals 3
+.method public final onPermissionsChanged(I)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/accounts/AccountManagerService$$ExternalSyntheticLambda1;->f$0:Landroid/accounts/AccountManagerInternal$OnAppPermissionChangeListener;
+    iget-object p0, p0, Lcom/android/server/accounts/AccountManagerService$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/accounts/AccountManagerService;
 
-    iget-object v1, p0, Lcom/android/server/accounts/AccountManagerService$$ExternalSyntheticLambda1;->f$1:Landroid/accounts/Account;
-
-    iget v2, p0, Lcom/android/server/accounts/AccountManagerService$$ExternalSyntheticLambda1;->f$2:I
-
-    invoke-static {v0, v1, v2}, Lcom/android/server/accounts/AccountManagerService;->lambda$grantAppPermission$3(Landroid/accounts/AccountManagerInternal$OnAppPermissionChangeListener;Landroid/accounts/Account;I)V
+    invoke-static {p0, p1}, Lcom/android/server/accounts/AccountManagerService;->$r8$lambda$Zd5rIkdqSc73-5BH_ZwCn3r8Tjk(Lcom/android/server/accounts/AccountManagerService;I)V
 
     return-void
 .end method

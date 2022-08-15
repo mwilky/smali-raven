@@ -1,4 +1,4 @@
-.class final Lcom/android/server/wm/ActivityMetricsLogger$PackageCompatStateInfo;
+.class public final Lcom/android/server/wm/ActivityMetricsLogger$PackageCompatStateInfo;
 .super Ljava/lang/Object;
 .source "ActivityMetricsLogger.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "PackageCompatStateInfo"
 .end annotation
 
 
 # instance fields
-.field mLastLoggedActivity:Lcom/android/server/wm/ActivityRecord;
+.field public mLastLoggedActivity:Lcom/android/server/wm/ActivityRecord;
 
-.field mLastLoggedState:I
+.field public mLastLoggedState:I
 
-.field final mVisibleActivities:Ljava/util/ArrayList;
+.field public final mVisibleActivities:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/ArrayList<",
@@ -31,7 +31,7 @@
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -49,7 +49,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/wm/ActivityMetricsLogger$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/wm/ActivityMetricsLogger$PackageCompatStateInfo-IA;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/wm/ActivityMetricsLogger$PackageCompatStateInfo;-><init>()V

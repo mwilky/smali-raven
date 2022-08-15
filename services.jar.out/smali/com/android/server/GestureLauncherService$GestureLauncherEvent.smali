@@ -7,6 +7,9 @@
 
 
 # annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/android/server/GestureLauncherService;
 .end annotation
@@ -27,7 +30,7 @@
 
 
 # static fields
-.field private static final synthetic $VALUES:[Lcom/android/server/GestureLauncherService$GestureLauncherEvent;
+.field public static final synthetic $VALUES:[Lcom/android/server/GestureLauncherService$GestureLauncherEvent;
 
 .field public static final enum GESTURE_CAMERA_DOUBLE_TAP_POWER:Lcom/android/server/GestureLauncherService$GestureLauncherEvent;
 
@@ -43,7 +46,7 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 10
 
     new-instance v0, Lcom/android/server/GestureLauncherService$GestureLauncherEvent;
@@ -111,7 +114,7 @@
     return-void
 .end method
 
-.method private constructor <init>(Ljava/lang/String;II)V
+.method public constructor <init>(Ljava/lang/String;II)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -133,11 +136,11 @@
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/android/server/GestureLauncherService$GestureLauncherEvent;
+    check-cast p0, Lcom/android/server/GestureLauncherService$GestureLauncherEvent;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/android/server/GestureLauncherService$GestureLauncherEvent;
@@ -157,9 +160,9 @@
 
 # virtual methods
 .method public getId()I
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/GestureLauncherService$GestureLauncherEvent;->mId:I
+    iget p0, p0, Lcom/android/server/GestureLauncherService$GestureLauncherEvent;->mId:I
 
-    return v0
+    return p0
 .end method

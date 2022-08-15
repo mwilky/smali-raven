@@ -1,4 +1,4 @@
-.class Lcom/android/server/testharness/TestHarnessModeService$1;
+.class public Lcom/android/server/testharness/TestHarnessModeService$1;
 .super Landroid/os/Binder;
 .source "TestHarnessModeService.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/testharness/TestHarnessModeService;
+.field public final synthetic this$0:Lcom/android/server/testharness/TestHarnessModeService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/testharness/TestHarnessModeService;)V
+.method public constructor <init>(Lcom/android/server/testharness/TestHarnessModeService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/testharness/TestHarnessModeService$1;->this$0:Lcom/android/server/testharness/TestHarnessModeService;
@@ -40,7 +40,7 @@
 
     const/4 v2, 0x0
 
-    invoke-direct {v0, v1, v2}, Lcom/android/server/testharness/TestHarnessModeService$TestHarnessModeShellCommand;-><init>(Lcom/android/server/testharness/TestHarnessModeService;Lcom/android/server/testharness/TestHarnessModeService$1;)V
+    invoke-direct {v0, v1, v2}, Lcom/android/server/testharness/TestHarnessModeService$TestHarnessModeShellCommand;-><init>(Lcom/android/server/testharness/TestHarnessModeService;Lcom/android/server/testharness/TestHarnessModeService$TestHarnessModeShellCommand-IA;)V
 
     move-object v1, p0
 
@@ -56,7 +56,7 @@
 
     move-object v7, p6
 
-    invoke-virtual/range {v0 .. v7}, Lcom/android/server/testharness/TestHarnessModeService$TestHarnessModeShellCommand;->exec(Landroid/os/Binder;Ljava/io/FileDescriptor;Ljava/io/FileDescriptor;Ljava/io/FileDescriptor;[Ljava/lang/String;Landroid/os/ShellCallback;Landroid/os/ResultReceiver;)I
+    invoke-virtual/range {v0 .. v7}, Landroid/os/ShellCommand;->exec(Landroid/os/Binder;Ljava/io/FileDescriptor;Ljava/io/FileDescriptor;Ljava/io/FileDescriptor;[Ljava/lang/String;Landroid/os/ShellCallback;Landroid/os/ResultReceiver;)I
 
     return-void
 .end method

@@ -1,4 +1,4 @@
-.class Lcom/android/server/pm/PackageInstallerSession$4;
+.class public Lcom/android/server/pm/PackageInstallerSession$4;
 .super Ljava/lang/Object;
 .source "PackageInstallerSession.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/pm/PackageInstallerSession;
+.field public final synthetic this$0:Lcom/android/server/pm/PackageInstallerSession;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/pm/PackageInstallerSession;)V
+.method public constructor <init>(Lcom/android/server/pm/PackageInstallerSession;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/pm/PackageInstallerSession$4;->this$0:Lcom/android/server/pm/PackageInstallerSession;
@@ -35,132 +35,119 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)Z
-    .locals 17
+    .locals 11
 
-    move-object/from16 v0, p0
+    iget v0, p1, Landroid/os/Message;->what:I
 
-    move-object/from16 v1, p1
+    const/4 v1, 0x1
 
-    iget v2, v1, Landroid/os/Message;->what:I
+    if-eq v0, v1, :cond_4
 
-    packed-switch v2, :pswitch_data_0
+    const/4 v2, 0x2
 
-    goto :goto_0
+    if-eq v0, v2, :cond_3
 
-    :pswitch_0
-    iget v2, v1, Landroid/os/Message;->arg1:I
+    const/4 v2, 0x3
 
-    iget-object v3, v1, Landroid/os/Message;->obj:Ljava/lang/Object;
+    if-eq v0, v2, :cond_2
 
-    check-cast v3, Ljava/lang/String;
+    const/4 v2, 0x4
 
-    iget-object v4, v0, Lcom/android/server/pm/PackageInstallerSession$4;->this$0:Lcom/android/server/pm/PackageInstallerSession;
+    if-eq v0, v2, :cond_1
 
-    invoke-static {v4, v2, v3}, Lcom/android/server/pm/PackageInstallerSession;->access$2400(Lcom/android/server/pm/PackageInstallerSession;ILjava/lang/String;)V
+    const/4 v2, 0x5
 
-    goto :goto_0
-
-    :pswitch_1
-    iget-object v2, v1, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v2, Lcom/android/internal/os/SomeArgs;
-
-    iget-object v3, v2, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
-
-    check-cast v3, Ljava/lang/String;
-
-    iget-object v4, v2, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
-
-    move-object v13, v4
-
-    check-cast v13, Ljava/lang/String;
-
-    iget-object v4, v2, Lcom/android/internal/os/SomeArgs;->arg3:Ljava/lang/Object;
-
-    move-object v14, v4
-
-    check-cast v14, Landroid/os/Bundle;
-
-    iget-object v4, v2, Lcom/android/internal/os/SomeArgs;->arg4:Ljava/lang/Object;
-
-    move-object v15, v4
-
-    check-cast v15, Landroid/content/IntentSender;
-
-    iget v12, v2, Lcom/android/internal/os/SomeArgs;->argi1:I
-
-    invoke-virtual {v2}, Lcom/android/internal/os/SomeArgs;->recycle()V
-
-    iget-object v4, v0, Lcom/android/server/pm/PackageInstallerSession$4;->this$0:Lcom/android/server/pm/PackageInstallerSession;
-
-    invoke-static {v4}, Lcom/android/server/pm/PackageInstallerSession;->access$2100(Lcom/android/server/pm/PackageInstallerSession;)Landroid/content/Context;
-
-    move-result-object v4
-
-    iget-object v5, v0, Lcom/android/server/pm/PackageInstallerSession$4;->this$0:Lcom/android/server/pm/PackageInstallerSession;
-
-    iget v6, v5, Lcom/android/server/pm/PackageInstallerSession;->sessionId:I
-
-    iget-object v5, v0, Lcom/android/server/pm/PackageInstallerSession$4;->this$0:Lcom/android/server/pm/PackageInstallerSession;
-
-    invoke-static {v5}, Lcom/android/server/pm/PackageInstallerSession;->access$2200(Lcom/android/server/pm/PackageInstallerSession;)Z
-
-    move-result v7
-
-    iget-object v5, v0, Lcom/android/server/pm/PackageInstallerSession$4;->this$0:Lcom/android/server/pm/PackageInstallerSession;
-
-    iget v8, v5, Lcom/android/server/pm/PackageInstallerSession;->userId:I
-
-    move-object v5, v15
-
-    move-object v9, v3
-
-    move v10, v12
-
-    move-object v11, v13
-
-    move/from16 v16, v12
-
-    move-object v12, v14
-
-    invoke-static/range {v4 .. v12}, Lcom/android/server/pm/PackageInstallerSession;->access$2300(Landroid/content/Context;Landroid/content/IntentSender;IZILjava/lang/String;ILjava/lang/String;Landroid/os/Bundle;)V
+    if-eq v0, v2, :cond_0
 
     goto :goto_0
 
-    :pswitch_2
-    iget-object v2, v0, Lcom/android/server/pm/PackageInstallerSession$4;->this$0:Lcom/android/server/pm/PackageInstallerSession;
+    :cond_0
+    iget v0, p1, Landroid/os/Message;->arg1:I
 
-    invoke-static {v2}, Lcom/android/server/pm/PackageInstallerSession;->access$2000(Lcom/android/server/pm/PackageInstallerSession;)V
+    iget-object p1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    check-cast p1, Ljava/lang/String;
+
+    iget-object p0, p0, Lcom/android/server/pm/PackageInstallerSession$4;->this$0:Lcom/android/server/pm/PackageInstallerSession;
+
+    invoke-static {p0, v0, p1}, Lcom/android/server/pm/PackageInstallerSession;->-$$Nest$monSessionValidationFailure(Lcom/android/server/pm/PackageInstallerSession;ILjava/lang/String;)V
 
     goto :goto_0
 
-    :pswitch_3
-    iget-object v2, v0, Lcom/android/server/pm/PackageInstallerSession$4;->this$0:Lcom/android/server/pm/PackageInstallerSession;
+    :cond_1
+    iget-object p1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    invoke-static {v2}, Lcom/android/server/pm/PackageInstallerSession;->access$1900(Lcom/android/server/pm/PackageInstallerSession;)V
+    check-cast p1, Lcom/android/internal/os/SomeArgs;
+
+    iget-object v0, p1, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
+
+    move-object v7, v0
+
+    check-cast v7, Ljava/lang/String;
+
+    iget-object v0, p1, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
+
+    move-object v9, v0
+
+    check-cast v9, Ljava/lang/String;
+
+    iget-object v0, p1, Lcom/android/internal/os/SomeArgs;->arg3:Ljava/lang/Object;
+
+    move-object v10, v0
+
+    check-cast v10, Landroid/os/Bundle;
+
+    iget-object v0, p1, Lcom/android/internal/os/SomeArgs;->arg4:Ljava/lang/Object;
+
+    move-object v3, v0
+
+    check-cast v3, Landroid/content/IntentSender;
+
+    iget v8, p1, Lcom/android/internal/os/SomeArgs;->argi1:I
+
+    invoke-virtual {p1}, Lcom/android/internal/os/SomeArgs;->recycle()V
+
+    iget-object p1, p0, Lcom/android/server/pm/PackageInstallerSession$4;->this$0:Lcom/android/server/pm/PackageInstallerSession;
+
+    invoke-static {p1}, Lcom/android/server/pm/PackageInstallerSession;->-$$Nest$fgetmContext(Lcom/android/server/pm/PackageInstallerSession;)Landroid/content/Context;
+
+    move-result-object v2
+
+    iget-object p1, p0, Lcom/android/server/pm/PackageInstallerSession$4;->this$0:Lcom/android/server/pm/PackageInstallerSession;
+
+    iget v4, p1, Lcom/android/server/pm/PackageInstallerSession;->sessionId:I
+
+    invoke-static {p1}, Lcom/android/server/pm/PackageInstallerSession;->-$$Nest$misInstallerDeviceOwnerOrAffiliatedProfileOwner(Lcom/android/server/pm/PackageInstallerSession;)Z
+
+    move-result v5
+
+    iget-object p0, p0, Lcom/android/server/pm/PackageInstallerSession$4;->this$0:Lcom/android/server/pm/PackageInstallerSession;
+
+    iget v6, p0, Lcom/android/server/pm/PackageInstallerSession;->userId:I
+
+    invoke-static/range {v2 .. v10}, Lcom/android/server/pm/PackageInstallerSession;->-$$Nest$smsendOnPackageInstalled(Landroid/content/Context;Landroid/content/IntentSender;IZILjava/lang/String;ILjava/lang/String;Landroid/os/Bundle;)V
 
     goto :goto_0
 
-    :pswitch_4
-    iget-object v2, v0, Lcom/android/server/pm/PackageInstallerSession$4;->this$0:Lcom/android/server/pm/PackageInstallerSession;
+    :cond_2
+    iget-object p0, p0, Lcom/android/server/pm/PackageInstallerSession$4;->this$0:Lcom/android/server/pm/PackageInstallerSession;
 
-    invoke-static {v2}, Lcom/android/server/pm/PackageInstallerSession;->access$1800(Lcom/android/server/pm/PackageInstallerSession;)V
+    invoke-static {p0}, Lcom/android/server/pm/PackageInstallerSession;->-$$Nest$mhandleInstall(Lcom/android/server/pm/PackageInstallerSession;)V
 
-    nop
+    goto :goto_0
+
+    :cond_3
+    iget-object p0, p0, Lcom/android/server/pm/PackageInstallerSession$4;->this$0:Lcom/android/server/pm/PackageInstallerSession;
+
+    invoke-static {p0}, Lcom/android/server/pm/PackageInstallerSession;->-$$Nest$mhandleStreamValidateAndCommit(Lcom/android/server/pm/PackageInstallerSession;)V
+
+    goto :goto_0
+
+    :cond_4
+    iget-object p0, p0, Lcom/android/server/pm/PackageInstallerSession$4;->this$0:Lcom/android/server/pm/PackageInstallerSession;
+
+    invoke-static {p0}, Lcom/android/server/pm/PackageInstallerSession;->-$$Nest$mhandleSessionSealed(Lcom/android/server/pm/PackageInstallerSession;)V
 
     :goto_0
-    const/4 v2, 0x1
-
-    return v2
-
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
+    return v1
 .end method

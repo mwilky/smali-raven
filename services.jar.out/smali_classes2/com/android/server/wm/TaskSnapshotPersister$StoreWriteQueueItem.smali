@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/TaskSnapshotPersister$StoreWriteQueueItem;
+.class public Lcom/android/server/wm/TaskSnapshotPersister$StoreWriteQueueItem;
 .super Lcom/android/server/wm/TaskSnapshotPersister$WriteQueueItem;
 .source "TaskSnapshotPersister.java"
 
@@ -9,30 +9,38 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "StoreWriteQueueItem"
 .end annotation
 
 
 # instance fields
-.field private final mSnapshot:Landroid/window/TaskSnapshot;
+.field public final mSnapshot:Landroid/window/TaskSnapshot;
 
-.field private final mTaskId:I
+.field public final mTaskId:I
 
-.field private final mUserId:I
+.field public final mUserId:I
 
-.field final synthetic this$0:Lcom/android/server/wm/TaskSnapshotPersister;
+.field public final synthetic this$0:Lcom/android/server/wm/TaskSnapshotPersister;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/wm/TaskSnapshotPersister;IILandroid/window/TaskSnapshot;)V
+.method public static bridge synthetic -$$Nest$fgetmTaskId(Lcom/android/server/wm/TaskSnapshotPersister$StoreWriteQueueItem;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/server/wm/TaskSnapshotPersister$StoreWriteQueueItem;->mTaskId:I
+
+    return p0
+.end method
+
+.method public constructor <init>(Lcom/android/server/wm/TaskSnapshotPersister;IILandroid/window/TaskSnapshot;)V
     .locals 1
 
     iput-object p1, p0, Lcom/android/server/wm/TaskSnapshotPersister$StoreWriteQueueItem;->this$0:Lcom/android/server/wm/TaskSnapshotPersister;
 
     const/4 v0, 0x0
 
-    invoke-direct {p0, p1, v0}, Lcom/android/server/wm/TaskSnapshotPersister$WriteQueueItem;-><init>(Lcom/android/server/wm/TaskSnapshotPersister;Lcom/android/server/wm/TaskSnapshotPersister$1;)V
+    invoke-direct {p0, p1, v0}, Lcom/android/server/wm/TaskSnapshotPersister$WriteQueueItem;-><init>(Lcom/android/server/wm/TaskSnapshotPersister;Lcom/android/server/wm/TaskSnapshotPersister$WriteQueueItem-IA;)V
 
     iput p2, p0, Lcom/android/server/wm/TaskSnapshotPersister$StoreWriteQueueItem;->mTaskId:I
 
@@ -43,40 +51,37 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/server/wm/TaskSnapshotPersister$StoreWriteQueueItem;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/server/wm/TaskSnapshotPersister$StoreWriteQueueItem;->mTaskId:I
-
-    return v0
-.end method
-
 
 # virtual methods
-.method isReady()Z
-    .locals 2
+.method public isReady()Z
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/wm/TaskSnapshotPersister$StoreWriteQueueItem;->this$0:Lcom/android/server/wm/TaskSnapshotPersister;
 
-    invoke-static {v0}, Lcom/android/server/wm/TaskSnapshotPersister;->access$700(Lcom/android/server/wm/TaskSnapshotPersister;)Lcom/android/server/pm/UserManagerInternal;
+    invoke-static {v0}, Lcom/android/server/wm/TaskSnapshotPersister;->-$$Nest$fgetmUserManagerInternal(Lcom/android/server/wm/TaskSnapshotPersister;)Lcom/android/server/pm/UserManagerInternal;
 
     move-result-object v0
 
-    iget v1, p0, Lcom/android/server/wm/TaskSnapshotPersister$StoreWriteQueueItem;->mUserId:I
+    iget p0, p0, Lcom/android/server/wm/TaskSnapshotPersister$StoreWriteQueueItem;->mUserId:I
 
-    invoke-virtual {v0, v1}, Lcom/android/server/pm/UserManagerInternal;->isUserUnlocked(I)Z
+    invoke-virtual {v0, p0}, Lcom/android/server/pm/UserManagerInternal;->isUserUnlocked(I)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
-.method onDequeuedLocked()V
+.method public onDequeuedLocked()V
     .locals 1
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
 
     iget-object v0, p0, Lcom/android/server/wm/TaskSnapshotPersister$StoreWriteQueueItem;->this$0:Lcom/android/server/wm/TaskSnapshotPersister;
 
-    invoke-static {v0}, Lcom/android/server/wm/TaskSnapshotPersister;->access$600(Lcom/android/server/wm/TaskSnapshotPersister;)Ljava/util/ArrayDeque;
+    invoke-static {v0}, Lcom/android/server/wm/TaskSnapshotPersister;->-$$Nest$fgetmStoreQueueItems(Lcom/android/server/wm/TaskSnapshotPersister;)Ljava/util/ArrayDeque;
 
     move-result-object v0
 
@@ -85,12 +90,17 @@
     return-void
 .end method
 
-.method onQueuedLocked()V
+.method public onQueuedLocked()V
     .locals 1
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "mLock"
+        }
+    .end annotation
 
     iget-object v0, p0, Lcom/android/server/wm/TaskSnapshotPersister$StoreWriteQueueItem;->this$0:Lcom/android/server/wm/TaskSnapshotPersister;
 
-    invoke-static {v0}, Lcom/android/server/wm/TaskSnapshotPersister;->access$600(Lcom/android/server/wm/TaskSnapshotPersister;)Ljava/util/ArrayDeque;
+    invoke-static {v0}, Lcom/android/server/wm/TaskSnapshotPersister;->-$$Nest$fgetmStoreQueueItems(Lcom/android/server/wm/TaskSnapshotPersister;)Ljava/util/ArrayDeque;
 
     move-result-object v0
 
@@ -99,14 +109,14 @@
     return-void
 .end method
 
-.method write()V
-    .locals 4
+.method public write()V
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/wm/TaskSnapshotPersister$StoreWriteQueueItem;->this$0:Lcom/android/server/wm/TaskSnapshotPersister;
 
     iget v1, p0, Lcom/android/server/wm/TaskSnapshotPersister$StoreWriteQueueItem;->mUserId:I
 
-    invoke-static {v0, v1}, Lcom/android/server/wm/TaskSnapshotPersister;->access$800(Lcom/android/server/wm/TaskSnapshotPersister;I)Z
+    invoke-static {v0, v1}, Lcom/android/server/wm/TaskSnapshotPersister;->-$$Nest$mcreateDirectory(Lcom/android/server/wm/TaskSnapshotPersister;I)Z
 
     move-result v0
 
@@ -124,7 +134,7 @@
 
     iget v2, p0, Lcom/android/server/wm/TaskSnapshotPersister$StoreWriteQueueItem;->mUserId:I
 
-    invoke-static {v1, v2}, Lcom/android/server/wm/TaskSnapshotPersister;->access$900(Lcom/android/server/wm/TaskSnapshotPersister;I)Ljava/io/File;
+    invoke-static {v1, v2}, Lcom/android/server/wm/TaskSnapshotPersister;->-$$Nest$mgetDirectory(Lcom/android/server/wm/TaskSnapshotPersister;I)Ljava/io/File;
 
     move-result-object v1
 
@@ -139,42 +149,42 @@
     invoke-static {v1, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    const/4 v0, 0x0
-
     invoke-virtual {p0}, Lcom/android/server/wm/TaskSnapshotPersister$StoreWriteQueueItem;->writeProto()Z
 
-    move-result v1
+    move-result v0
 
-    if-nez v1, :cond_1
+    const/4 v1, 0x1
 
-    const/4 v0, 0x1
+    xor-int/2addr v0, v1
 
-    :cond_1
     invoke-virtual {p0}, Lcom/android/server/wm/TaskSnapshotPersister$StoreWriteQueueItem;->writeBuffer()Z
 
-    move-result v1
+    move-result v2
 
-    if-nez v1, :cond_2
+    if-nez v2, :cond_1
 
-    const/4 v0, 0x1
+    goto :goto_0
+
+    :cond_1
+    move v1, v0
+
+    :goto_0
+    if-eqz v1, :cond_2
+
+    iget-object v0, p0, Lcom/android/server/wm/TaskSnapshotPersister$StoreWriteQueueItem;->this$0:Lcom/android/server/wm/TaskSnapshotPersister;
+
+    iget v1, p0, Lcom/android/server/wm/TaskSnapshotPersister$StoreWriteQueueItem;->mTaskId:I
+
+    iget p0, p0, Lcom/android/server/wm/TaskSnapshotPersister$StoreWriteQueueItem;->mUserId:I
+
+    invoke-static {v0, v1, p0}, Lcom/android/server/wm/TaskSnapshotPersister;->-$$Nest$mdeleteSnapshot(Lcom/android/server/wm/TaskSnapshotPersister;II)V
 
     :cond_2
-    if-eqz v0, :cond_3
-
-    iget-object v1, p0, Lcom/android/server/wm/TaskSnapshotPersister$StoreWriteQueueItem;->this$0:Lcom/android/server/wm/TaskSnapshotPersister;
-
-    iget v2, p0, Lcom/android/server/wm/TaskSnapshotPersister$StoreWriteQueueItem;->mTaskId:I
-
-    iget v3, p0, Lcom/android/server/wm/TaskSnapshotPersister$StoreWriteQueueItem;->mUserId:I
-
-    invoke-static {v1, v2, v3}, Lcom/android/server/wm/TaskSnapshotPersister;->access$1000(Lcom/android/server/wm/TaskSnapshotPersister;II)V
-
-    :cond_3
     return-void
 .end method
 
-.method writeBuffer()Z
-    .locals 13
+.method public writeBuffer()Z
+    .locals 10
 
     const-string v0, " for persisting."
 
@@ -186,29 +196,62 @@
 
     move-result-object v2
 
-    iget-object v3, p0, Lcom/android/server/wm/TaskSnapshotPersister$StoreWriteQueueItem;->mSnapshot:Landroid/window/TaskSnapshot;
+    invoke-static {v2}, Lcom/android/server/wm/TaskSnapshotController;->isInvalidHardwareBuffer(Landroid/hardware/HardwareBuffer;)Z
 
-    invoke-virtual {v3}, Landroid/window/TaskSnapshot;->getColorSpace()Landroid/graphics/ColorSpace;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/graphics/Bitmap;->wrapHardwareBuffer(Landroid/hardware/HardwareBuffer;Landroid/graphics/ColorSpace;)Landroid/graphics/Bitmap;
-
-    move-result-object v2
+    move-result v2
 
     const-string v3, "WindowManager"
 
     const/4 v4, 0x0
 
-    if-nez v2, :cond_0
+    if-eqz v2, :cond_0
 
-    const-string v0, "Invalid task snapshot hw bitmap"
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-static {v3, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "Invalid task snapshot hw buffer, taskId="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget p0, p0, Lcom/android/server/wm/TaskSnapshotPersister$StoreWriteQueueItem;->mTaskId:I
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-static {v3, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     return v4
 
     :cond_0
+    iget-object v2, p0, Lcom/android/server/wm/TaskSnapshotPersister$StoreWriteQueueItem;->mSnapshot:Landroid/window/TaskSnapshot;
+
+    invoke-virtual {v2}, Landroid/window/TaskSnapshot;->getHardwareBuffer()Landroid/hardware/HardwareBuffer;
+
+    move-result-object v2
+
+    iget-object v5, p0, Lcom/android/server/wm/TaskSnapshotPersister$StoreWriteQueueItem;->mSnapshot:Landroid/window/TaskSnapshot;
+
+    invoke-virtual {v5}, Landroid/window/TaskSnapshot;->getColorSpace()Landroid/graphics/ColorSpace;
+
+    move-result-object v5
+
+    invoke-static {v2, v5}, Landroid/graphics/Bitmap;->wrapHardwareBuffer(Landroid/hardware/HardwareBuffer;Landroid/graphics/ColorSpace;)Landroid/graphics/Bitmap;
+
+    move-result-object v2
+
+    if-nez v2, :cond_1
+
+    const-string p0, "Invalid task snapshot hw bitmap"
+
+    invoke-static {v3, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v4
+
+    :cond_1
     sget-object v5, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
     invoke-virtual {v2, v5, v4}, Landroid/graphics/Bitmap;->copy(Landroid/graphics/Bitmap$Config;Z)Landroid/graphics/Bitmap;
@@ -240,137 +283,131 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
 
-    nop
+    iget-object v6, p0, Lcom/android/server/wm/TaskSnapshotPersister$StoreWriteQueueItem;->this$0:Lcom/android/server/wm/TaskSnapshotPersister;
 
-    iget-object v7, p0, Lcom/android/server/wm/TaskSnapshotPersister$StoreWriteQueueItem;->this$0:Lcom/android/server/wm/TaskSnapshotPersister;
+    invoke-static {v6}, Lcom/android/server/wm/TaskSnapshotPersister;->-$$Nest$fgetmEnableLowResSnapshots(Lcom/android/server/wm/TaskSnapshotPersister;)Z
 
-    invoke-static {v7}, Lcom/android/server/wm/TaskSnapshotPersister;->access$1100(Lcom/android/server/wm/TaskSnapshotPersister;)Z
+    move-result v6
 
-    move-result v7
+    const/4 v7, 0x1
 
-    const/4 v8, 0x1
-
-    if-nez v7, :cond_1
+    if-nez v6, :cond_2
 
     invoke-virtual {v5}, Landroid/graphics/Bitmap;->recycle()V
 
-    return v8
+    return v7
 
-    :cond_1
-    nop
-
+    :cond_2
     invoke-virtual {v2}, Landroid/graphics/Bitmap;->getWidth()I
 
-    move-result v7
+    move-result v6
 
-    int-to-float v7, v7
+    int-to-float v6, v6
 
-    iget-object v10, p0, Lcom/android/server/wm/TaskSnapshotPersister$StoreWriteQueueItem;->this$0:Lcom/android/server/wm/TaskSnapshotPersister;
+    iget-object v8, p0, Lcom/android/server/wm/TaskSnapshotPersister$StoreWriteQueueItem;->this$0:Lcom/android/server/wm/TaskSnapshotPersister;
 
-    invoke-static {v10}, Lcom/android/server/wm/TaskSnapshotPersister;->access$1200(Lcom/android/server/wm/TaskSnapshotPersister;)F
+    invoke-static {v8}, Lcom/android/server/wm/TaskSnapshotPersister;->-$$Nest$fgetmLowResScaleFactor(Lcom/android/server/wm/TaskSnapshotPersister;)F
 
-    move-result v10
+    move-result v8
 
-    mul-float/2addr v7, v10
+    mul-float/2addr v6, v8
 
-    float-to-int v7, v7
+    float-to-int v6, v6
 
     invoke-virtual {v2}, Landroid/graphics/Bitmap;->getHeight()I
 
-    move-result v10
+    move-result v2
 
-    int-to-float v10, v10
+    int-to-float v2, v2
 
-    iget-object v11, p0, Lcom/android/server/wm/TaskSnapshotPersister$StoreWriteQueueItem;->this$0:Lcom/android/server/wm/TaskSnapshotPersister;
+    iget-object v8, p0, Lcom/android/server/wm/TaskSnapshotPersister$StoreWriteQueueItem;->this$0:Lcom/android/server/wm/TaskSnapshotPersister;
 
-    invoke-static {v11}, Lcom/android/server/wm/TaskSnapshotPersister;->access$1200(Lcom/android/server/wm/TaskSnapshotPersister;)F
+    invoke-static {v8}, Lcom/android/server/wm/TaskSnapshotPersister;->-$$Nest$fgetmLowResScaleFactor(Lcom/android/server/wm/TaskSnapshotPersister;)F
 
-    move-result v11
+    move-result v8
 
-    mul-float/2addr v10, v11
+    mul-float/2addr v2, v8
 
-    float-to-int v10, v10
+    float-to-int v2, v2
 
-    invoke-static {v5, v7, v10, v8}, Landroid/graphics/Bitmap;->createScaledBitmap(Landroid/graphics/Bitmap;IIZ)Landroid/graphics/Bitmap;
+    invoke-static {v5, v6, v2, v7}, Landroid/graphics/Bitmap;->createScaledBitmap(Landroid/graphics/Bitmap;IIZ)Landroid/graphics/Bitmap;
 
-    move-result-object v7
+    move-result-object v2
 
     invoke-virtual {v5}, Landroid/graphics/Bitmap;->recycle()V
 
-    iget-object v10, p0, Lcom/android/server/wm/TaskSnapshotPersister$StoreWriteQueueItem;->this$0:Lcom/android/server/wm/TaskSnapshotPersister;
+    iget-object v5, p0, Lcom/android/server/wm/TaskSnapshotPersister$StoreWriteQueueItem;->this$0:Lcom/android/server/wm/TaskSnapshotPersister;
 
-    iget v11, p0, Lcom/android/server/wm/TaskSnapshotPersister$StoreWriteQueueItem;->mTaskId:I
+    iget v6, p0, Lcom/android/server/wm/TaskSnapshotPersister$StoreWriteQueueItem;->mTaskId:I
 
-    iget v12, p0, Lcom/android/server/wm/TaskSnapshotPersister$StoreWriteQueueItem;->mUserId:I
+    iget p0, p0, Lcom/android/server/wm/TaskSnapshotPersister$StoreWriteQueueItem;->mUserId:I
 
-    invoke-virtual {v10, v11, v12}, Lcom/android/server/wm/TaskSnapshotPersister;->getLowResolutionBitmapFile(II)Ljava/io/File;
+    invoke-virtual {v5, v6, p0}, Lcom/android/server/wm/TaskSnapshotPersister;->getLowResolutionBitmapFile(II)Ljava/io/File;
 
-    move-result-object v10
+    move-result-object p0
 
     :try_start_1
-    new-instance v11, Ljava/io/FileOutputStream;
+    new-instance v5, Ljava/io/FileOutputStream;
 
-    invoke-direct {v11, v10}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
+    invoke-direct {v5, p0}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
 
-    sget-object v12, Landroid/graphics/Bitmap$CompressFormat;->JPEG:Landroid/graphics/Bitmap$CompressFormat;
+    sget-object v6, Landroid/graphics/Bitmap$CompressFormat;->JPEG:Landroid/graphics/Bitmap$CompressFormat;
 
-    invoke-virtual {v7, v12, v9, v11}, Landroid/graphics/Bitmap;->compress(Landroid/graphics/Bitmap$CompressFormat;ILjava/io/OutputStream;)Z
+    invoke-virtual {v2, v6, v9, v5}, Landroid/graphics/Bitmap;->compress(Landroid/graphics/Bitmap$CompressFormat;ILjava/io/OutputStream;)Z
 
-    invoke-virtual {v11}, Ljava/io/FileOutputStream;->close()V
+    invoke-virtual {v5}, Ljava/io/FileOutputStream;->close()V
     :try_end_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
 
-    nop
+    invoke-virtual {v2}, Landroid/graphics/Bitmap;->recycle()V
 
-    invoke-virtual {v7}, Landroid/graphics/Bitmap;->recycle()V
-
-    return v8
+    return v7
 
     :catch_0
-    move-exception v8
+    move-exception v2
 
-    new-instance v9, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v9, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v9, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v3, v0, v8}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v3, p0, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     return v4
 
     :catch_1
-    move-exception v7
+    move-exception p0
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v8, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v8, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v8, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-static {v3, v0, v7}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v3, v0, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     return v4
 .end method
 
-.method writeProto()Z
-    .locals 8
+.method public writeProto()Z
+    .locals 3
 
     new-instance v0, Lcom/android/server/wm/nano/WindowManagerProtos$TaskSnapshotProto;
 
@@ -546,73 +583,78 @@
 
     invoke-static {v0}, Lcom/android/server/wm/nano/WindowManagerProtos$TaskSnapshotProto;->toByteArray(Lcom/android/framework/protobuf/nano/MessageNano;)[B
 
-    move-result-object v1
+    move-result-object v0
 
-    iget-object v2, p0, Lcom/android/server/wm/TaskSnapshotPersister$StoreWriteQueueItem;->this$0:Lcom/android/server/wm/TaskSnapshotPersister;
+    iget-object v1, p0, Lcom/android/server/wm/TaskSnapshotPersister$StoreWriteQueueItem;->this$0:Lcom/android/server/wm/TaskSnapshotPersister;
 
-    iget v3, p0, Lcom/android/server/wm/TaskSnapshotPersister$StoreWriteQueueItem;->mTaskId:I
+    iget v2, p0, Lcom/android/server/wm/TaskSnapshotPersister$StoreWriteQueueItem;->mTaskId:I
 
-    iget v4, p0, Lcom/android/server/wm/TaskSnapshotPersister$StoreWriteQueueItem;->mUserId:I
+    iget p0, p0, Lcom/android/server/wm/TaskSnapshotPersister$StoreWriteQueueItem;->mUserId:I
 
-    invoke-virtual {v2, v3, v4}, Lcom/android/server/wm/TaskSnapshotPersister;->getProtoFile(II)Ljava/io/File;
+    invoke-virtual {v1, v2, p0}, Lcom/android/server/wm/TaskSnapshotPersister;->getProtoFile(II)Ljava/io/File;
 
-    move-result-object v2
+    move-result-object p0
 
-    new-instance v3, Landroid/util/AtomicFile;
+    new-instance v1, Landroid/util/AtomicFile;
 
-    invoke-direct {v3, v2}, Landroid/util/AtomicFile;-><init>(Ljava/io/File;)V
-
-    const/4 v4, 0x0
+    invoke-direct {v1, p0}, Landroid/util/AtomicFile;-><init>(Ljava/io/File;)V
 
     :try_start_0
-    invoke-virtual {v3}, Landroid/util/AtomicFile;->startWrite()Ljava/io/FileOutputStream;
+    invoke-virtual {v1}, Landroid/util/AtomicFile;->startWrite()Ljava/io/FileOutputStream;
 
-    move-result-object v5
-
-    move-object v4, v5
-
-    invoke-virtual {v4, v1}, Ljava/io/FileOutputStream;->write([B)V
-
-    invoke-virtual {v3, v4}, Landroid/util/AtomicFile;->finishWrite(Ljava/io/FileOutputStream;)V
+    move-result-object v2
     :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
 
-    nop
+    :try_start_1
+    invoke-virtual {v2, v0}, Ljava/io/FileOutputStream;->write([B)V
 
-    const/4 v5, 0x1
+    invoke-virtual {v1, v2}, Landroid/util/AtomicFile;->finishWrite(Ljava/io/FileOutputStream;)V
+    :try_end_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
 
-    return v5
+    const/4 p0, 0x1
+
+    return p0
 
     :catch_0
-    move-exception v5
+    move-exception v0
 
-    invoke-virtual {v3, v4}, Landroid/util/AtomicFile;->failWrite(Ljava/io/FileOutputStream;)V
+    goto :goto_0
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    :catch_1
+    move-exception v0
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    const/4 v2, 0x0
 
-    const-string v7, "Unable to open "
+    :goto_0
+    invoke-virtual {v1, v2}, Landroid/util/AtomicFile;->failWrite(Ljava/io/FileOutputStream;)V
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v7, " for persisting. "
+    const-string v2, "Unable to open "
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string p0, " for persisting. "
 
-    move-result-object v6
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v7, "WindowManager"
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-static {v7, v6}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    const/4 v6, 0x0
+    move-result-object p0
 
-    return v6
+    const-string v0, "WindowManager"
+
+    invoke-static {v0, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 p0, 0x0
+
+    return p0
 .end method

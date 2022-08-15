@@ -1,4 +1,4 @@
-.class Lcom/android/server/slice/PinnedSliceState$ListenerInfo;
+.class public Lcom/android/server/slice/PinnedSliceState$ListenerInfo;
 .super Ljava/lang/Object;
 .source "PinnedSliceState.java"
 
@@ -9,26 +9,34 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "ListenerInfo"
 .end annotation
 
 
 # instance fields
-.field private callingPid:I
+.field public callingPid:I
 
-.field private callingUid:I
+.field public callingUid:I
 
-.field private hasPermission:Z
+.field public hasPermission:Z
 
-.field private pkg:Ljava/lang/String;
+.field public pkg:Ljava/lang/String;
 
-.field final synthetic this$0:Lcom/android/server/slice/PinnedSliceState;
+.field public final synthetic this$0:Lcom/android/server/slice/PinnedSliceState;
 
-.field private token:Landroid/os/IBinder;
+.field public token:Landroid/os/IBinder;
 
 
 # direct methods
+.method public static bridge synthetic -$$Nest$fgettoken(Lcom/android/server/slice/PinnedSliceState$ListenerInfo;)Landroid/os/IBinder;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/slice/PinnedSliceState$ListenerInfo;->token:Landroid/os/IBinder;
+
+    return-object p0
+.end method
+
 .method public constructor <init>(Lcom/android/server/slice/PinnedSliceState;Landroid/os/IBinder;Ljava/lang/String;ZII)V
     .locals 0
 
@@ -47,12 +55,4 @@
     iput p6, p0, Lcom/android/server/slice/PinnedSliceState$ListenerInfo;->callingPid:I
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/server/slice/PinnedSliceState$ListenerInfo;)Landroid/os/IBinder;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/slice/PinnedSliceState$ListenerInfo;->token:Landroid/os/IBinder;
-
-    return-object v0
 .end method

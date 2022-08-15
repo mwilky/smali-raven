@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/location/gnss/GnssListenerMultiplexer$$ExternalSyntheticLambda4;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/server/location/injector/UserInfoHelper$UserListener;
+.implements Lcom/android/server/location/injector/AppForegroundHelper$AppForegroundListener;
 
 
 # instance fields
@@ -22,12 +23,12 @@
 
 
 # virtual methods
-.method public final onUserChanged(II)V
-    .locals 1
+.method public final onAppForegroundChanged(IZ)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/location/gnss/GnssListenerMultiplexer$$ExternalSyntheticLambda4;->f$0:Lcom/android/server/location/gnss/GnssListenerMultiplexer;
+    iget-object p0, p0, Lcom/android/server/location/gnss/GnssListenerMultiplexer$$ExternalSyntheticLambda4;->f$0:Lcom/android/server/location/gnss/GnssListenerMultiplexer;
 
-    invoke-static {v0, p1, p2}, Lcom/android/server/location/gnss/GnssListenerMultiplexer;->$r8$lambda$GiVpExniosYFEYhFiZMi3GOu8kw(Lcom/android/server/location/gnss/GnssListenerMultiplexer;II)V
+    invoke-static {p0, p1, p2}, Lcom/android/server/location/gnss/GnssListenerMultiplexer;->$r8$lambda$D0snTG2JOzVWN9aUQx5r-qo2MkU(Lcom/android/server/location/gnss/GnssListenerMultiplexer;IZ)V
 
     return-void
 .end method

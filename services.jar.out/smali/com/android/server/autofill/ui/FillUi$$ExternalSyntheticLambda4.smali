@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/autofill/ui/FillUi$$ExternalSyntheticLambda4;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/widget/Filter$FilterListener;
@@ -27,13 +28,13 @@
 
 # virtual methods
 .method public final onFilterComplete(I)V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/autofill/ui/FillUi$$ExternalSyntheticLambda4;->f$0:Lcom/android/server/autofill/ui/FillUi;
 
-    iget v1, p0, Lcom/android/server/autofill/ui/FillUi$$ExternalSyntheticLambda4;->f$1:I
+    iget p0, p0, Lcom/android/server/autofill/ui/FillUi$$ExternalSyntheticLambda4;->f$1:I
 
-    invoke-virtual {v0, v1, p1}, Lcom/android/server/autofill/ui/FillUi;->lambda$applyNewFilterText$6$FillUi(II)V
+    invoke-static {v0, p0, p1}, Lcom/android/server/autofill/ui/FillUi;->$r8$lambda$IKp4uKqNFLpaXAxRtiMd5BMeoyc(Lcom/android/server/autofill/ui/FillUi;II)V
 
     return-void
 .end method

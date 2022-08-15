@@ -3,10 +3,6 @@
 .source "UsbUnknown.java"
 
 
-# static fields
-.field static final TAG:Ljava/lang/String; = "UsbUnknown"
-
-
 # direct methods
 .method public constructor <init>(IB)V
     .locals 0

@@ -3,20 +3,16 @@
 .source "Usb20ACMixerUnit.java"
 
 
-# static fields
-.field private static final TAG:Ljava/lang/String; = "Usb20ACMixerUnit"
-
-
 # instance fields
-.field private mChanConfig:I
+.field public mChanConfig:I
 
-.field private mChanNames:B
+.field public mChanNames:B
 
-.field private mControls:[B
+.field public mControls:[B
 
-.field private mControlsMask:B
+.field public mControlsMask:B
 
-.field private mNameID:B
+.field public mNameID:B
 
 
 # direct methods
@@ -47,11 +43,11 @@
 
     iput-byte v0, p0, Lcom/android/server/usb/descriptors/Usb20ACMixerUnit;->mChanNames:B
 
-    iget-byte v0, p0, Lcom/android/server/usb/descriptors/Usb20ACMixerUnit;->mNumInputs:B
+    iget-byte v0, p0, Lcom/android/server/usb/descriptors/UsbACMixerUnit;->mNumInputs:B
 
-    iget-byte v1, p0, Lcom/android/server/usb/descriptors/Usb20ACMixerUnit;->mNumOutputs:B
+    iget-byte v1, p0, Lcom/android/server/usb/descriptors/UsbACMixerUnit;->mNumOutputs:B
 
-    invoke-static {v0, v1}, Lcom/android/server/usb/descriptors/Usb20ACMixerUnit;->calcControlArraySize(II)I
+    invoke-static {v0, v1}, Lcom/android/server/usb/descriptors/UsbACMixerUnit;->calcControlArraySize(II)I
 
     move-result v0
 
@@ -79,17 +75,17 @@
     :cond_0
     invoke-virtual {p1}, Lcom/android/server/usb/descriptors/ByteStream;->getByte()B
 
-    move-result v1
+    move-result v0
 
-    iput-byte v1, p0, Lcom/android/server/usb/descriptors/Usb20ACMixerUnit;->mControlsMask:B
+    iput-byte v0, p0, Lcom/android/server/usb/descriptors/Usb20ACMixerUnit;->mControlsMask:B
 
     invoke-virtual {p1}, Lcom/android/server/usb/descriptors/ByteStream;->getByte()B
 
-    move-result v1
+    move-result p1
 
-    iput-byte v1, p0, Lcom/android/server/usb/descriptors/Usb20ACMixerUnit;->mNameID:B
+    iput-byte p1, p0, Lcom/android/server/usb/descriptors/Usb20ACMixerUnit;->mNameID:B
 
-    iget v1, p0, Lcom/android/server/usb/descriptors/Usb20ACMixerUnit;->mLength:I
+    iget p0, p0, Lcom/android/server/usb/descriptors/UsbDescriptor;->mLength:I
 
-    return v1
+    return p0
 .end method

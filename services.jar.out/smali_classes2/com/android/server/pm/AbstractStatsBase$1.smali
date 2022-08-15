@@ -1,4 +1,4 @@
-.class Lcom/android/server/pm/AbstractStatsBase$1;
+.class public Lcom/android/server/pm/AbstractStatsBase$1;
 .super Ljava/lang/Thread;
 .source "AbstractStatsBase.java"
 
@@ -9,19 +9,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/pm/AbstractStatsBase;
+.field public final synthetic this$0:Lcom/android/server/pm/AbstractStatsBase;
 
-.field final synthetic val$data:Ljava/lang/Object;
+.field public final synthetic val$data:Ljava/lang/Object;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/pm/AbstractStatsBase;Ljava/lang/String;Ljava/lang/Object;)V
+.method public constructor <init>(Lcom/android/server/pm/AbstractStatsBase;Ljava/lang/String;Ljava/lang/Object;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/pm/AbstractStatsBase$1;->this$0:Lcom/android/server/pm/AbstractStatsBase;
@@ -45,11 +45,11 @@
 
     iget-object v2, p0, Lcom/android/server/pm/AbstractStatsBase$1;->val$data:Ljava/lang/Object;
 
-    invoke-static {v1, v2}, Lcom/android/server/pm/AbstractStatsBase;->access$000(Lcom/android/server/pm/AbstractStatsBase;Ljava/lang/Object;)V
+    invoke-static {v1, v2}, Lcom/android/server/pm/AbstractStatsBase;->-$$Nest$mwriteImpl(Lcom/android/server/pm/AbstractStatsBase;Ljava/lang/Object;)V
 
     iget-object v1, p0, Lcom/android/server/pm/AbstractStatsBase$1;->this$0:Lcom/android/server/pm/AbstractStatsBase;
 
-    invoke-static {v1}, Lcom/android/server/pm/AbstractStatsBase;->access$100(Lcom/android/server/pm/AbstractStatsBase;)Ljava/util/concurrent/atomic/AtomicLong;
+    invoke-static {v1}, Lcom/android/server/pm/AbstractStatsBase;->-$$Nest$fgetmLastTimeWritten(Lcom/android/server/pm/AbstractStatsBase;)Ljava/util/concurrent/atomic/AtomicLong;
 
     move-result-object v1
 
@@ -61,28 +61,26 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    iget-object v1, p0, Lcom/android/server/pm/AbstractStatsBase$1;->this$0:Lcom/android/server/pm/AbstractStatsBase;
+    iget-object p0, p0, Lcom/android/server/pm/AbstractStatsBase$1;->this$0:Lcom/android/server/pm/AbstractStatsBase;
 
-    invoke-static {v1}, Lcom/android/server/pm/AbstractStatsBase;->access$200(Lcom/android/server/pm/AbstractStatsBase;)Ljava/util/concurrent/atomic/AtomicBoolean;
+    invoke-static {p0}, Lcom/android/server/pm/AbstractStatsBase;->-$$Nest$fgetmBackgroundWriteRunning(Lcom/android/server/pm/AbstractStatsBase;)Ljava/util/concurrent/atomic/AtomicBoolean;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v1, v0}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
-
-    nop
+    invoke-virtual {p0, v0}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
     return-void
 
     :catchall_0
     move-exception v1
 
-    iget-object v2, p0, Lcom/android/server/pm/AbstractStatsBase$1;->this$0:Lcom/android/server/pm/AbstractStatsBase;
+    iget-object p0, p0, Lcom/android/server/pm/AbstractStatsBase$1;->this$0:Lcom/android/server/pm/AbstractStatsBase;
 
-    invoke-static {v2}, Lcom/android/server/pm/AbstractStatsBase;->access$200(Lcom/android/server/pm/AbstractStatsBase;)Ljava/util/concurrent/atomic/AtomicBoolean;
+    invoke-static {p0}, Lcom/android/server/pm/AbstractStatsBase;->-$$Nest$fgetmBackgroundWriteRunning(Lcom/android/server/pm/AbstractStatsBase;)Ljava/util/concurrent/atomic/AtomicBoolean;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-virtual {v2, v0}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
+    invoke-virtual {p0, v0}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
     throw v1
 .end method

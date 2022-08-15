@@ -13,22 +13,6 @@
 .end annotation
 
 
-# static fields
-.field private static final ATTR_DEVICE_ID:Ljava/lang/String; = "deviceId"
-
-.field private static final ATTR_FINGER_ID:Ljava/lang/String; = "fingerId"
-
-.field private static final ATTR_GROUP_ID:Ljava/lang/String; = "groupId"
-
-.field private static final ATTR_NAME:Ljava/lang/String; = "name"
-
-.field private static final TAG:Ljava/lang/String; = "FingerprintState"
-
-.field private static final TAG_FINGERPRINT:Ljava/lang/String; = "fingerprint"
-
-.field private static final TAG_FINGERPRINTS:Ljava/lang/String; = "fingerprints"
-
-
 # direct methods
 .method public constructor <init>(Landroid/content/Context;ILjava/lang/String;)V
     .locals 0
@@ -40,8 +24,8 @@
 
 
 # virtual methods
-.method protected doWriteState(Landroid/util/TypedXmlSerializer;)V
-    .locals 8
+.method public doWriteState(Landroid/util/TypedXmlSerializer;)V
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -51,7 +35,7 @@
     monitor-enter p0
 
     :try_start_0
-    iget-object v0, p0, Lcom/android/server/biometrics/sensors/fingerprint/FingerprintUserState;->mBiometrics:Ljava/util/ArrayList;
+    iget-object v0, p0, Lcom/android/server/biometrics/sensors/BiometricUserState;->mBiometrics:Ljava/util/ArrayList;
 
     invoke-virtual {p0, v0}, Lcom/android/server/biometrics/sensors/fingerprint/FingerprintUserState;->getCopy(Ljava/util/ArrayList;)Ljava/util/ArrayList;
 
@@ -61,103 +45,103 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    const-string v1, "fingerprints"
+    const-string p0, "fingerprints"
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    invoke-interface {p1, v2, v1}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p1, v1, p0}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
-    move-result v1
+    move-result p0
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
     :goto_0
-    if-ge v3, v1, :cond_0
+    if-ge v2, p0, :cond_0
 
-    invoke-virtual {v0, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v3
 
-    check-cast v4, Landroid/hardware/fingerprint/Fingerprint;
+    check-cast v3, Landroid/hardware/fingerprint/Fingerprint;
 
-    const-string v5, "fingerprint"
+    const-string v4, "fingerprint"
 
-    invoke-interface {p1, v2, v5}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p1, v1, v4}, Landroid/util/TypedXmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    const-string v5, "fingerId"
+    const-string v4, "fingerId"
 
-    invoke-virtual {v4}, Landroid/hardware/fingerprint/Fingerprint;->getBiometricId()I
+    invoke-virtual {v3}, Landroid/hardware/fingerprint/Fingerprint;->getBiometricId()I
 
-    move-result v6
+    move-result v5
 
-    invoke-interface {p1, v2, v5, v6}, Landroid/util/TypedXmlSerializer;->attributeInt(Ljava/lang/String;Ljava/lang/String;I)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p1, v1, v4, v5}, Landroid/util/TypedXmlSerializer;->attributeInt(Ljava/lang/String;Ljava/lang/String;I)Lorg/xmlpull/v1/XmlSerializer;
 
-    const-string/jumbo v5, "name"
+    const-string/jumbo v4, "name"
 
-    invoke-virtual {v4}, Landroid/hardware/fingerprint/Fingerprint;->getName()Ljava/lang/CharSequence;
+    invoke-virtual {v3}, Landroid/hardware/fingerprint/Fingerprint;->getName()Ljava/lang/CharSequence;
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-interface {v6}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+    invoke-interface {v5}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-interface {p1, v2, v5, v6}, Landroid/util/TypedXmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p1, v1, v4, v5}, Landroid/util/TypedXmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    const-string v5, "groupId"
+    const-string v4, "groupId"
 
-    invoke-virtual {v4}, Landroid/hardware/fingerprint/Fingerprint;->getGroupId()I
+    invoke-virtual {v3}, Landroid/hardware/fingerprint/Fingerprint;->getGroupId()I
 
-    move-result v6
+    move-result v5
 
-    invoke-interface {p1, v2, v5, v6}, Landroid/util/TypedXmlSerializer;->attributeInt(Ljava/lang/String;Ljava/lang/String;I)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p1, v1, v4, v5}, Landroid/util/TypedXmlSerializer;->attributeInt(Ljava/lang/String;Ljava/lang/String;I)Lorg/xmlpull/v1/XmlSerializer;
 
-    const-string v5, "deviceId"
+    const-string v4, "deviceId"
 
-    invoke-virtual {v4}, Landroid/hardware/fingerprint/Fingerprint;->getDeviceId()J
+    invoke-virtual {v3}, Landroid/hardware/fingerprint/Fingerprint;->getDeviceId()J
 
-    move-result-wide v6
+    move-result-wide v5
 
-    invoke-interface {p1, v2, v5, v6, v7}, Landroid/util/TypedXmlSerializer;->attributeLong(Ljava/lang/String;Ljava/lang/String;J)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p1, v1, v4, v5, v6}, Landroid/util/TypedXmlSerializer;->attributeLong(Ljava/lang/String;Ljava/lang/String;J)Lorg/xmlpull/v1/XmlSerializer;
 
-    const-string v5, "fingerprint"
+    const-string v3, "fingerprint"
 
-    invoke-interface {p1, v2, v5}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p1, v1, v3}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     :cond_0
-    const-string v3, "fingerprints"
+    const-string p0, "fingerprints"
 
-    invoke-interface {p1, v2, v3}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p1, v1, p0}, Landroid/util/TypedXmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     return-void
 
     :catchall_0
-    move-exception v0
+    move-exception p1
 
     :try_start_1
     monitor-exit p0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v0
+    throw p1
 .end method
 
-.method protected getBiometricsTag()Ljava/lang/String;
-    .locals 1
+.method public getBiometricsTag()Ljava/lang/String;
+    .locals 0
 
-    const-string v0, "fingerprints"
+    const-string p0, "fingerprints"
 
-    return-object v0
+    return-object p0
 .end method
 
-.method protected getCopy(Ljava/util/ArrayList;)Ljava/util/ArrayList;
-    .locals 10
+.method public getCopy(Ljava/util/ArrayList;)Ljava/util/ArrayList;
+    .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -170,67 +154,73 @@
         }
     .end annotation
 
-    new-instance v0, Ljava/util/ArrayList;
+    new-instance p0, Ljava/util/ArrayList;
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {p0}, Ljava/util/ArrayList;-><init>()V
 
     invoke-virtual {p1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
-    move-result-object v1
+    move-result-object p1
 
     :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_0
+    if-eqz v0, :cond_0
 
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/hardware/fingerprint/Fingerprint;
+
+    new-instance v7, Landroid/hardware/fingerprint/Fingerprint;
+
+    invoke-virtual {v0}, Landroid/hardware/fingerprint/Fingerprint;->getName()Ljava/lang/CharSequence;
 
     move-result-object v2
 
-    check-cast v2, Landroid/hardware/fingerprint/Fingerprint;
+    invoke-virtual {v0}, Landroid/hardware/fingerprint/Fingerprint;->getGroupId()I
 
-    new-instance v9, Landroid/hardware/fingerprint/Fingerprint;
+    move-result v3
 
-    invoke-virtual {v2}, Landroid/hardware/fingerprint/Fingerprint;->getName()Ljava/lang/CharSequence;
+    invoke-virtual {v0}, Landroid/hardware/fingerprint/Fingerprint;->getBiometricId()I
 
-    move-result-object v4
+    move-result v4
 
-    invoke-virtual {v2}, Landroid/hardware/fingerprint/Fingerprint;->getGroupId()I
+    invoke-virtual {v0}, Landroid/hardware/fingerprint/Fingerprint;->getDeviceId()J
 
-    move-result v5
+    move-result-wide v5
 
-    invoke-virtual {v2}, Landroid/hardware/fingerprint/Fingerprint;->getBiometricId()I
+    move-object v1, v7
 
-    move-result v6
+    invoke-direct/range {v1 .. v6}, Landroid/hardware/fingerprint/Fingerprint;-><init>(Ljava/lang/CharSequence;IIJ)V
 
-    invoke-virtual {v2}, Landroid/hardware/fingerprint/Fingerprint;->getDeviceId()J
-
-    move-result-wide v7
-
-    move-object v3, v9
-
-    invoke-direct/range {v3 .. v8}, Landroid/hardware/fingerprint/Fingerprint;-><init>(Ljava/lang/CharSequence;IIJ)V
-
-    invoke-virtual {v0, v9}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p0, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
     :cond_0
-    return-object v0
+    return-object p0
 .end method
 
-.method protected getNameTemplateResource()I
-    .locals 1
+.method public getNameTemplateResource()I
+    .locals 0
 
-    const v0, 0x10403a0
+    const p0, 0x10403e1
 
-    return v0
+    return p0
 .end method
 
-.method protected parseBiometricsLocked(Landroid/util/TypedXmlPullParser;)V
-    .locals 17
+.method public parseBiometricsLocked(Landroid/util/TypedXmlPullParser;)V
+    .locals 9
+    .annotation build Lcom/android/internal/annotations/GuardedBy;
+        value = {
+            "this"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -238,145 +228,90 @@
         }
     .end annotation
 
-    move-object/from16 v0, p1
+    invoke-interface {p1}, Landroid/util/TypedXmlPullParser;->getDepth()I
 
-    invoke-interface/range {p1 .. p1}, Landroid/util/TypedXmlPullParser;->getDepth()I
+    move-result v0
+
+    :cond_0
+    :goto_0
+    invoke-interface {p1}, Landroid/util/TypedXmlPullParser;->next()I
 
     move-result v1
 
-    :goto_0
-    invoke-interface/range {p1 .. p1}, Landroid/util/TypedXmlPullParser;->next()I
+    const/4 v2, 0x1
 
-    move-result v2
-
-    move v3, v2
-
-    const/4 v4, 0x1
-
-    if-eq v2, v4, :cond_5
+    if-eq v1, v2, :cond_3
 
     const/4 v2, 0x3
 
-    if-ne v3, v2, :cond_1
+    if-ne v1, v2, :cond_1
 
-    invoke-interface/range {p1 .. p1}, Landroid/util/TypedXmlPullParser;->getDepth()I
+    invoke-interface {p1}, Landroid/util/TypedXmlPullParser;->getDepth()I
 
-    move-result v4
+    move-result v3
 
-    if-le v4, v1, :cond_0
-
-    goto :goto_1
-
-    :cond_0
-    move-object/from16 v4, p0
-
-    move/from16 v16, v1
-
-    goto :goto_3
+    if-le v3, v0, :cond_3
 
     :cond_1
-    :goto_1
-    if-eq v3, v2, :cond_4
+    if-eq v1, v2, :cond_0
 
     const/4 v2, 0x4
 
-    if-ne v3, v2, :cond_2
+    if-ne v1, v2, :cond_2
 
     goto :goto_0
 
     :cond_2
-    invoke-interface/range {p1 .. p1}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
+    invoke-interface {p1}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    const-string v4, "fingerprint"
+    const-string v2, "fingerprint"
 
-    invoke-virtual {v2, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result v1
 
-    if-eqz v4, :cond_3
+    if-eqz v1, :cond_0
 
-    const/4 v4, 0x0
+    const/4 v1, 0x0
 
-    const-string/jumbo v5, "name"
+    const-string/jumbo v2, "name"
 
-    invoke-interface {v0, v4, v5}, Landroid/util/TypedXmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {p1, v1, v2}, Landroid/util/TypedXmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v4
 
-    const-string v6, "groupId"
+    const-string v2, "groupId"
 
-    invoke-interface {v0, v4, v6}, Landroid/util/TypedXmlPullParser;->getAttributeInt(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-interface {p1, v1, v2}, Landroid/util/TypedXmlPullParser;->getAttributeInt(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result v12
+    move-result v5
 
-    const-string v6, "fingerId"
+    const-string v2, "fingerId"
 
-    invoke-interface {v0, v4, v6}, Landroid/util/TypedXmlPullParser;->getAttributeInt(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-interface {p1, v1, v2}, Landroid/util/TypedXmlPullParser;->getAttributeInt(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result v13
+    move-result v6
 
-    const-string v6, "deviceId"
+    const-string v2, "deviceId"
 
-    invoke-interface {v0, v4, v6}, Landroid/util/TypedXmlPullParser;->getAttributeLong(Ljava/lang/String;Ljava/lang/String;)J
+    invoke-interface {p1, v1, v2}, Landroid/util/TypedXmlPullParser;->getAttributeLong(Ljava/lang/String;Ljava/lang/String;)J
 
-    move-result-wide v14
+    move-result-wide v7
 
-    move-object/from16 v4, p0
+    iget-object v1, p0, Lcom/android/server/biometrics/sensors/BiometricUserState;->mBiometrics:Ljava/util/ArrayList;
 
-    iget-object v10, v4, Lcom/android/server/biometrics/sensors/fingerprint/FingerprintUserState;->mBiometrics:Ljava/util/ArrayList;
+    new-instance v2, Landroid/hardware/fingerprint/Fingerprint;
 
-    new-instance v11, Landroid/hardware/fingerprint/Fingerprint;
+    move-object v3, v2
 
-    move-object v6, v11
+    invoke-direct/range {v3 .. v8}, Landroid/hardware/fingerprint/Fingerprint;-><init>(Ljava/lang/CharSequence;IIJ)V
 
-    move-object v7, v5
+    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    move v8, v12
-
-    move v9, v13
-
-    move/from16 v16, v1
-
-    move-object v0, v10
-
-    move-object v1, v11
-
-    move-wide v10, v14
-
-    invoke-direct/range {v6 .. v11}, Landroid/hardware/fingerprint/Fingerprint;-><init>(Ljava/lang/CharSequence;IIJ)V
-
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    goto :goto_2
+    goto :goto_0
 
     :cond_3
-    move-object/from16 v4, p0
-
-    move/from16 v16, v1
-
-    :goto_2
-    move-object/from16 v0, p1
-
-    move/from16 v1, v16
-
-    goto :goto_0
-
-    :cond_4
-    move-object/from16 v4, p0
-
-    move/from16 v16, v1
-
-    move-object/from16 v0, p1
-
-    goto :goto_0
-
-    :cond_5
-    move-object/from16 v4, p0
-
-    move/from16 v16, v1
-
-    :goto_3
     return-void
 .end method

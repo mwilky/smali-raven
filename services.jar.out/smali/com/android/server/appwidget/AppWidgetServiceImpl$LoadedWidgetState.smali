@@ -1,4 +1,4 @@
-.class Lcom/android/server/appwidget/AppWidgetServiceImpl$LoadedWidgetState;
+.class public Lcom/android/server/appwidget/AppWidgetServiceImpl$LoadedWidgetState;
 .super Ljava/lang/Object;
 .source "AppWidgetServiceImpl.java"
 
@@ -9,19 +9,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "LoadedWidgetState"
 .end annotation
 
 
 # instance fields
-.field final hostTag:I
+.field public final hostTag:I
 
-.field final providerTag:I
+.field public final providerTag:I
 
-.field final synthetic this$0:Lcom/android/server/appwidget/AppWidgetServiceImpl;
+.field public final synthetic this$0:Lcom/android/server/appwidget/AppWidgetServiceImpl;
 
-.field final widget:Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;
+.field public final widget:Lcom/android/server/appwidget/AppWidgetServiceImpl$Widget;
 
 
 # direct methods

@@ -1,4 +1,4 @@
-.class Lcom/android/server/textclassifier/TextClassificationManagerService$StrippedTextClassificationContext;
+.class public Lcom/android/server/textclassifier/TextClassificationManagerService$StrippedTextClassificationContext;
 .super Ljava/lang/Object;
 .source "TextClassificationManagerService.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "StrippedTextClassificationContext"
 .end annotation
 
@@ -21,28 +21,26 @@
 
 
 # direct methods
-.method constructor <init>(Landroid/view/textclassifier/TextClassificationContext;)V
-    .locals 2
+.method public constructor <init>(Landroid/view/textclassifier/TextClassificationContext;)V
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    nop
-
     invoke-virtual {p1}, Landroid/view/textclassifier/TextClassificationContext;->getSystemTextClassifierMetadata()Landroid/view/textclassifier/SystemTextClassifierMetadata;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Landroid/view/textclassifier/SystemTextClassifierMetadata;->getUserId()I
+    invoke-virtual {p1}, Landroid/view/textclassifier/SystemTextClassifierMetadata;->getUserId()I
 
-    move-result v1
+    move-result v0
 
-    iput v1, p0, Lcom/android/server/textclassifier/TextClassificationManagerService$StrippedTextClassificationContext;->userId:I
+    iput v0, p0, Lcom/android/server/textclassifier/TextClassificationManagerService$StrippedTextClassificationContext;->userId:I
 
-    invoke-virtual {v0}, Landroid/view/textclassifier/SystemTextClassifierMetadata;->useDefaultTextClassifier()Z
+    invoke-virtual {p1}, Landroid/view/textclassifier/SystemTextClassifierMetadata;->useDefaultTextClassifier()Z
 
-    move-result v1
+    move-result p1
 
-    iput-boolean v1, p0, Lcom/android/server/textclassifier/TextClassificationManagerService$StrippedTextClassificationContext;->useDefaultTextClassifier:Z
+    iput-boolean p1, p0, Lcom/android/server/textclassifier/TextClassificationManagerService$StrippedTextClassificationContext;->useDefaultTextClassifier:Z
 
     return-void
 .end method

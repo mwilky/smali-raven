@@ -1,4 +1,4 @@
-.class final Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;
+.class public final Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;
 .super Lcom/android/server/display/DisplayDevice;
 .source "WifiDisplayAdapter.java"
 
@@ -9,31 +9,31 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "WifiDisplayDevice"
 .end annotation
 
 
 # instance fields
-.field private final mAddress:Landroid/view/DisplayAddress;
+.field public final mAddress:Landroid/view/DisplayAddress;
 
-.field private final mFlags:I
+.field public final mFlags:I
 
-.field private final mHeight:I
+.field public final mHeight:I
 
-.field private mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+.field public mInfo:Lcom/android/server/display/DisplayDeviceInfo;
 
-.field private final mMode:Landroid/view/Display$Mode;
+.field public final mMode:Landroid/view/Display$Mode;
 
-.field private mName:Ljava/lang/String;
+.field public mName:Ljava/lang/String;
 
-.field private final mRefreshRate:F
+.field public final mRefreshRate:F
 
-.field private mSurface:Landroid/view/Surface;
+.field public mSurface:Landroid/view/Surface;
 
-.field private final mWidth:I
+.field public final mWidth:I
 
-.field final synthetic this$0:Lcom/android/server/display/WifiDisplayAdapter;
+.field public final synthetic this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
 
 # direct methods
@@ -56,7 +56,7 @@
 
     move-result-object v0
 
-    invoke-virtual {p1}, Lcom/android/server/display/WifiDisplayAdapter;->getContext()Landroid/content/Context;
+    invoke-virtual {p1}, Lcom/android/server/display/DisplayAdapter;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
@@ -105,11 +105,11 @@
     iput-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mSurface:Landroid/view/Surface;
 
     :cond_0
-    invoke-virtual {p0}, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->getDisplayTokenLocked()Landroid/os/IBinder;
+    invoke-virtual {p0}, Lcom/android/server/display/DisplayDevice;->getDisplayTokenLocked()Landroid/os/IBinder;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0}, Landroid/view/SurfaceControl;->destroyDisplay(Landroid/os/IBinder;)V
+    invoke-static {p0}, Landroid/view/SurfaceControl;->destroyDisplay(Landroid/os/IBinder;)V
 
     return-void
 .end method
@@ -131,9 +131,7 @@
 
     iput-object v1, v0, Lcom/android/server/display/DisplayDeviceInfo;->name:Ljava/lang/String;
 
-    iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
-
-    invoke-virtual {p0}, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->getUniqueId()Ljava/lang/String;
+    invoke-virtual {p0}, Lcom/android/server/display/DisplayDevice;->getUniqueId()Ljava/lang/String;
 
     move-result-object v1
 
@@ -145,13 +143,9 @@
 
     iput v1, v0, Lcom/android/server/display/DisplayDeviceInfo;->width:I
 
-    iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
-
     iget v1, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mHeight:I
 
     iput v1, v0, Lcom/android/server/display/DisplayDeviceInfo;->height:I
-
-    iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
 
     iget-object v1, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mMode:Landroid/view/Display$Mode;
 
@@ -185,8 +179,6 @@
 
     iput-object v1, v0, Lcom/android/server/display/DisplayDeviceInfo;->supportedModes:[Landroid/view/Display$Mode;
 
-    iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
-
     const-wide/32 v1, 0x3b9aca00
 
     iget v3, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mRefreshRate:F
@@ -199,31 +191,21 @@
 
     iput-wide v1, v0, Lcom/android/server/display/DisplayDeviceInfo;->presentationDeadlineNanos:J
 
-    iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
-
     iget v1, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mFlags:I
 
     iput v1, v0, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
-
-    iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
 
     const/4 v1, 0x3
 
     iput v1, v0, Lcom/android/server/display/DisplayDeviceInfo;->type:I
 
-    iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
-
     iget-object v1, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mAddress:Landroid/view/DisplayAddress;
 
     iput-object v1, v0, Lcom/android/server/display/DisplayDeviceInfo;->address:Landroid/view/DisplayAddress;
 
-    iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
-
     const/4 v1, 0x2
 
     iput v1, v0, Lcom/android/server/display/DisplayDeviceInfo;->touch:I
-
-    iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
 
     iget v1, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mWidth:I
 
@@ -240,17 +222,17 @@
     iput v1, v0, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+    iget-object p0, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public hasStableUniqueId()Z
-    .locals 1
+    .locals 0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 .end method
 
 .method public performTraversalLocked(Landroid/view/SurfaceControl$Transaction;)V
@@ -260,20 +242,20 @@
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {p0, p1, v0}, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->setSurfaceLocked(Landroid/view/SurfaceControl$Transaction;Landroid/view/Surface;)V
+    invoke-virtual {p0, p1, v0}, Lcom/android/server/display/DisplayDevice;->setSurfaceLocked(Landroid/view/SurfaceControl$Transaction;Landroid/view/Surface;)V
 
     :cond_0
     return-void
 .end method
 
 .method public setNameLocked(Ljava/lang/String;)V
-    .locals 1
+    .locals 0
 
     iput-object p1, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mName:Ljava/lang/String;
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+    iput-object p1, p0, Lcom/android/server/display/WifiDisplayAdapter$WifiDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
 
     return-void
 .end method

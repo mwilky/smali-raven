@@ -1,45 +1,38 @@
 .class public final synthetic Lcom/android/server/location/provider/LocationProviderManager$$ExternalSyntheticLambda26;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Predicate;
+.implements Ljava/util/function/Function;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/location/provider/LocationProviderManager$$ExternalSyntheticLambda26;
+# instance fields
+.field public final synthetic f$0:Landroid/location/LocationResult;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/location/provider/LocationProviderManager$$ExternalSyntheticLambda26;
-
-    invoke-direct {v0}, Lcom/android/server/location/provider/LocationProviderManager$$ExternalSyntheticLambda26;-><init>()V
-
-    sput-object v0, Lcom/android/server/location/provider/LocationProviderManager$$ExternalSyntheticLambda26;->INSTANCE:Lcom/android/server/location/provider/LocationProviderManager$$ExternalSyntheticLambda26;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Landroid/location/LocationResult;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/location/provider/LocationProviderManager$$ExternalSyntheticLambda26;->f$0:Landroid/location/LocationResult;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final test(Ljava/lang/Object;)Z
+.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
+
+    iget-object p0, p0, Lcom/android/server/location/provider/LocationProviderManager$$ExternalSyntheticLambda26;->f$0:Landroid/location/LocationResult;
 
     check-cast p1, Lcom/android/server/location/provider/LocationProviderManager$Registration;
 
-    invoke-virtual {p1}, Lcom/android/server/location/provider/LocationProviderManager$Registration;->onProviderPropertiesChanged()Z
+    invoke-static {p0, p1}, Lcom/android/server/location/provider/LocationProviderManager;->$r8$lambda$ihfV-HMXg-my-CaVbbglxlT808A(Landroid/location/LocationResult;Lcom/android/server/location/provider/LocationProviderManager$Registration;)Lcom/android/internal/listeners/ListenerExecutor$ListenerOperation;
 
-    move-result p1
+    move-result-object p0
 
-    return p1
+    return-object p0
 .end method

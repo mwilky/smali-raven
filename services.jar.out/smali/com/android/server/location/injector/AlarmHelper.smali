@@ -41,5 +41,5 @@
     return-void
 .end method
 
-.method protected abstract setDelayedAlarmInternal(JLandroid/app/AlarmManager$OnAlarmListener;Landroid/os/WorkSource;)V
+.method public abstract setDelayedAlarmInternal(JLandroid/app/AlarmManager$OnAlarmListener;Landroid/os/WorkSource;)V
 .end method

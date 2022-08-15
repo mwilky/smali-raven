@@ -1,138 +1,50 @@
-.class Lcom/android/server/biometrics/BiometricService$3;
-.super Landroid/hardware/biometrics/IBiometricSysuiReceiver$Stub;
+.class public Lcom/android/server/biometrics/BiometricService$3;
+.super Landroid/app/UserSwitchObserver;
 .source "BiometricService.java"
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/android/server/biometrics/BiometricService;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/android/server/biometrics/BiometricService;-><init>(Landroid/content/Context;Lcom/android/server/biometrics/BiometricService$Injector;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/biometrics/BiometricService;
+.field public final synthetic this$0:Lcom/android/server/biometrics/BiometricService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/biometrics/BiometricService;)V
+.method public constructor <init>(Lcom/android/server/biometrics/BiometricService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/biometrics/BiometricService$3;->this$0:Lcom/android/server/biometrics/BiometricService;
 
-    invoke-direct {p0}, Landroid/hardware/biometrics/IBiometricSysuiReceiver$Stub;-><init>()V
+    invoke-direct {p0}, Landroid/app/UserSwitchObserver;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onDeviceCredentialPressed()V
-    .locals 2
+.method public onUserSwitchComplete(I)V
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/biometrics/BiometricService$3;->this$0:Lcom/android/server/biometrics/BiometricService;
 
-    iget-object v0, v0, Lcom/android/server/biometrics/BiometricService;->mHandler:Landroid/os/Handler;
+    iget-object v0, v0, Lcom/android/server/biometrics/BiometricService;->mSettingObserver:Lcom/android/server/biometrics/BiometricService$SettingObserver;
 
-    const/16 v1, 0xc
+    invoke-virtual {v0}, Lcom/android/server/biometrics/BiometricService$SettingObserver;->updateContentObserver()V
 
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
+    iget-object p0, p0, Lcom/android/server/biometrics/BiometricService$3;->this$0:Lcom/android/server/biometrics/BiometricService;
 
-    return-void
-.end method
+    iget-object p0, p0, Lcom/android/server/biometrics/BiometricService;->mSettingObserver:Lcom/android/server/biometrics/BiometricService$SettingObserver;
 
-.method public onDialogAnimatedIn()V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/server/biometrics/BiometricService$3;->this$0:Lcom/android/server/biometrics/BiometricService;
-
-    iget-object v0, v0, Lcom/android/server/biometrics/BiometricService;->mHandler:Landroid/os/Handler;
-
-    const/16 v1, 0xf
-
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
-
-    return-void
-.end method
-
-.method public onDialogDismissed(I[B)V
-    .locals 3
-
-    iget-object v0, p0, Lcom/android/server/biometrics/BiometricService$3;->this$0:Lcom/android/server/biometrics/BiometricService;
-
-    iget-object v0, v0, Lcom/android/server/biometrics/BiometricService;->mHandler:Landroid/os/Handler;
-
-    const/4 v1, 0x6
-
-    const/4 v2, 0x0
-
-    invoke-virtual {v0, v1, p1, v2, p2}, Landroid/os/Handler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
-
-    return-void
-.end method
-
-.method public onStartFingerprintNow()V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/server/biometrics/BiometricService$3;->this$0:Lcom/android/server/biometrics/BiometricService;
-
-    iget-object v0, v0, Lcom/android/server/biometrics/BiometricService;->mHandler:Landroid/os/Handler;
-
-    const/16 v1, 0x10
-
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
-
-    return-void
-.end method
-
-.method public onSystemEvent(I)V
-    .locals 3
-
-    iget-object v0, p0, Lcom/android/server/biometrics/BiometricService$3;->this$0:Lcom/android/server/biometrics/BiometricService;
-
-    iget-object v0, v0, Lcom/android/server/biometrics/BiometricService;->mHandler:Landroid/os/Handler;
-
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    const/16 v2, 0xd
-
-    invoke-virtual {v0, v2, v1}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
-
-    return-void
-.end method
-
-.method public onTryAgainPressed()V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/server/biometrics/BiometricService$3;->this$0:Lcom/android/server/biometrics/BiometricService;
-
-    iget-object v0, v0, Lcom/android/server/biometrics/BiometricService;->mHandler:Landroid/os/Handler;
-
-    const/4 v1, 0x7
-
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
+    invoke-virtual {p0, p1}, Lcom/android/server/biometrics/BiometricService$SettingObserver;->notifyEnabledOnKeyguardCallbacks(I)V
 
     return-void
 .end method

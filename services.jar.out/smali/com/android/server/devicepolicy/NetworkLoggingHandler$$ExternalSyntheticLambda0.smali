@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/devicepolicy/NetworkLoggingHandler$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -33,7 +34,7 @@
 
     iget-wide v1, p0, Lcom/android/server/devicepolicy/NetworkLoggingHandler$$ExternalSyntheticLambda0;->f$1:J
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/devicepolicy/NetworkLoggingHandler;->lambda$retrieveFullLogBatch$0$NetworkLoggingHandler(J)V
+    invoke-static {v0, v1, v2}, Lcom/android/server/devicepolicy/NetworkLoggingHandler;->$r8$lambda$mNgodSPil4nAx4z4bfEh8ShRuGk(Lcom/android/server/devicepolicy/NetworkLoggingHandler;J)V
 
     return-void
 .end method

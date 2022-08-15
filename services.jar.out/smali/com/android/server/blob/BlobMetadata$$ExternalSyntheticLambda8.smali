@@ -1,31 +1,22 @@
 .class public final synthetic Lcom/android/server/blob/BlobMetadata$$ExternalSyntheticLambda8;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Predicate;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/blob/BlobMetadata$$ExternalSyntheticLambda8;
+# instance fields
+.field public final synthetic f$0:I
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/blob/BlobMetadata$$ExternalSyntheticLambda8;
-
-    invoke-direct {v0}, Lcom/android/server/blob/BlobMetadata$$ExternalSyntheticLambda8;-><init>()V
-
-    sput-object v0, Lcom/android/server/blob/BlobMetadata$$ExternalSyntheticLambda8;->INSTANCE:Lcom/android/server/blob/BlobMetadata$$ExternalSyntheticLambda8;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput p1, p0, Lcom/android/server/blob/BlobMetadata$$ExternalSyntheticLambda8;->f$0:I
 
     return-void
 .end method
@@ -35,11 +26,13 @@
 .method public final test(Ljava/lang/Object;)Z
     .locals 0
 
-    check-cast p1, Lcom/android/server/blob/BlobMetadata$Leasee;
+    iget p0, p0, Lcom/android/server/blob/BlobMetadata$$ExternalSyntheticLambda8;->f$0:I
 
-    invoke-static {p1}, Lcom/android/server/blob/BlobMetadata;->lambda$removeExpiredLeases$4(Lcom/android/server/blob/BlobMetadata$Leasee;)Z
+    check-cast p1, Ljava/util/Map$Entry;
 
-    move-result p1
+    invoke-static {p0, p1}, Lcom/android/server/blob/BlobMetadata;->$r8$lambda$xg8ZjMaQmjABUx7RAZeoQopGNqs(ILjava/util/Map$Entry;)Z
 
-    return p1
+    move-result p0
+
+    return p0
 .end method

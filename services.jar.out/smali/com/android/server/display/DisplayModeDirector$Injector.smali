@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/server/display/DisplayModeDirector$Injector;
+.class public interface abstract Lcom/android/server/display/DisplayModeDirector$Injector;
 .super Ljava/lang/Object;
 .source "DisplayModeDirector.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
+    accessFlags = 0x609
     name = "Injector"
 .end annotation
 
@@ -19,7 +19,7 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 1
 
     const-string/jumbo v0, "peak_refresh_rate"
@@ -38,7 +38,7 @@
 .method public abstract getBrightnessInfo(I)Landroid/hardware/display/BrightnessInfo;
 .end method
 
-.method public abstract getDeviceConfig()Lcom/android/server/utils/DeviceConfigInterface;
+.method public abstract getDeviceConfig()Landroid/provider/DeviceConfigInterface;
 .end method
 
 .method public abstract getThermalService()Landroid/os/IThermalService;

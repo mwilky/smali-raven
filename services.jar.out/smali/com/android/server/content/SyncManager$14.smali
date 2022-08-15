@@ -1,4 +1,4 @@
-.class Lcom/android/server/content/SyncManager$14;
+.class public Lcom/android/server/content/SyncManager$14;
 .super Ljava/lang/Object;
 .source "SyncManager.java"
 
@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
@@ -27,11 +27,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/content/SyncManager;
+.field public final synthetic this$0:Lcom/android/server/content/SyncManager;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/content/SyncManager;)V
+.method public constructor <init>(Lcom/android/server/content/SyncManager;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/content/SyncManager$14;->this$0:Lcom/android/server/content/SyncManager;
@@ -44,28 +44,28 @@
 
 # virtual methods
 .method public compare(Lcom/android/server/content/SyncManager$AccountSyncStats;Lcom/android/server/content/SyncManager$AccountSyncStats;)I
-    .locals 5
+    .locals 2
 
-    iget v0, p2, Lcom/android/server/content/SyncManager$AccountSyncStats;->times:I
+    iget p0, p2, Lcom/android/server/content/SyncManager$AccountSyncStats;->times:I
 
-    iget v1, p1, Lcom/android/server/content/SyncManager$AccountSyncStats;->times:I
+    iget v0, p1, Lcom/android/server/content/SyncManager$AccountSyncStats;->times:I
 
-    invoke-static {v0, v1}, Ljava/lang/Integer;->compare(II)I
+    invoke-static {p0, v0}, Ljava/lang/Integer;->compare(II)I
 
-    move-result v0
+    move-result p0
 
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
-    iget-wide v1, p2, Lcom/android/server/content/SyncManager$AccountSyncStats;->elapsedTime:J
+    iget-wide v0, p2, Lcom/android/server/content/SyncManager$AccountSyncStats;->elapsedTime:J
 
-    iget-wide v3, p1, Lcom/android/server/content/SyncManager$AccountSyncStats;->elapsedTime:J
+    iget-wide p0, p1, Lcom/android/server/content/SyncManager$AccountSyncStats;->elapsedTime:J
 
-    invoke-static {v1, v2, v3, v4}, Ljava/lang/Long;->compare(JJ)I
+    invoke-static {v0, v1, p0, p1}, Ljava/lang/Long;->compare(JJ)I
 
-    move-result v0
+    move-result p0
 
     :cond_0
-    return v0
+    return p0
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
@@ -77,7 +77,7 @@
 
     invoke-virtual {p0, p1, p2}, Lcom/android/server/content/SyncManager$14;->compare(Lcom/android/server/content/SyncManager$AccountSyncStats;Lcom/android/server/content/SyncManager$AccountSyncStats;)I
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method

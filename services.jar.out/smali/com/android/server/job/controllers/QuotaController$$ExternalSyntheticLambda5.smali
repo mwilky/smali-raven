@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/job/controllers/QuotaController$$ExternalSyntheticLambda5;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -31,17 +32,17 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/job/controllers/QuotaController$$ExternalSyntheticLambda5;->f$0:Lcom/android/server/job/controllers/QuotaController;
 
     iget-object v1, p0, Lcom/android/server/job/controllers/QuotaController$$ExternalSyntheticLambda5;->f$1:Ljava/util/function/Predicate;
 
-    iget-object v2, p0, Lcom/android/server/job/controllers/QuotaController$$ExternalSyntheticLambda5;->f$2:Landroid/util/proto/ProtoOutputStream;
+    iget-object p0, p0, Lcom/android/server/job/controllers/QuotaController$$ExternalSyntheticLambda5;->f$2:Landroid/util/proto/ProtoOutputStream;
 
     check-cast p1, Landroid/util/ArraySet;
 
-    invoke-virtual {v0, v1, v2, p1}, Lcom/android/server/job/controllers/QuotaController;->lambda$dumpControllerStateLocked$5$QuotaController(Ljava/util/function/Predicate;Landroid/util/proto/ProtoOutputStream;Landroid/util/ArraySet;)V
+    invoke-static {v0, v1, p0, p1}, Lcom/android/server/job/controllers/QuotaController;->$r8$lambda$VAobMJumGD3SMYue1zaDcmP_q7Q(Lcom/android/server/job/controllers/QuotaController;Ljava/util/function/Predicate;Landroid/util/proto/ProtoOutputStream;Landroid/util/ArraySet;)V
 
     return-void
 .end method

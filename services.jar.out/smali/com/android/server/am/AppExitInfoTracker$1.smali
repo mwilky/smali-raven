@@ -1,4 +1,4 @@
-.class Lcom/android/server/am/AppExitInfoTracker$1;
+.class public Lcom/android/server/am/AppExitInfoTracker$1;
 .super Landroid/content/BroadcastReceiver;
 .source "AppExitInfoTracker.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/am/AppExitInfoTracker;
+.field public final synthetic this$0:Lcom/android/server/am/AppExitInfoTracker;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/AppExitInfoTracker;)V
+.method public constructor <init>(Lcom/android/server/am/AppExitInfoTracker;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/am/AppExitInfoTracker$1;->this$0:Lcom/android/server/am/AppExitInfoTracker;
@@ -32,26 +32,26 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 2
+    .locals 1
 
-    const-string v0, "android.intent.extra.user_handle"
+    const-string p1, "android.intent.extra.user_handle"
 
-    const/4 v1, -0x1
+    const/4 v0, -0x1
 
-    invoke-virtual {p2, v0, v1}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {p2, p1, v0}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    move-result v0
+    move-result p1
 
-    const/4 v1, 0x1
+    const/4 p2, 0x1
 
-    if-ge v0, v1, :cond_0
+    if-ge p1, p2, :cond_0
 
     return-void
 
     :cond_0
-    iget-object v1, p0, Lcom/android/server/am/AppExitInfoTracker$1;->this$0:Lcom/android/server/am/AppExitInfoTracker;
+    iget-object p0, p0, Lcom/android/server/am/AppExitInfoTracker$1;->this$0:Lcom/android/server/am/AppExitInfoTracker;
 
-    invoke-virtual {v1, v0}, Lcom/android/server/am/AppExitInfoTracker;->onUserRemoved(I)V
+    invoke-virtual {p0, p1}, Lcom/android/server/am/AppExitInfoTracker;->onUserRemoved(I)V
 
     return-void
 .end method

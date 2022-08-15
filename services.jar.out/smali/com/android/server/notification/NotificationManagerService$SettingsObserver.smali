@@ -1,4 +1,4 @@
-.class final Lcom/android/server/notification/NotificationManagerService$SettingsObserver;
+.class public final Lcom/android/server/notification/NotificationManagerService$SettingsObserver;
 .super Landroid/database/ContentObserver;
 .source "NotificationManagerService.java"
 
@@ -9,40 +9,38 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "SettingsObserver"
 .end annotation
 
 
 # instance fields
-.field private final LOCK_SCREEN_ALLOW_PRIVATE_NOTIFICATIONS:Landroid/net/Uri;
+.field public final LOCK_SCREEN_ALLOW_PRIVATE_NOTIFICATIONS:Landroid/net/Uri;
 
-.field private final LOCK_SCREEN_SHOW_NOTIFICATIONS:Landroid/net/Uri;
+.field public final LOCK_SCREEN_SHOW_NOTIFICATIONS:Landroid/net/Uri;
 
-.field private final NOTIFICATION_BADGING_URI:Landroid/net/Uri;
+.field public final NOTIFICATION_BADGING_URI:Landroid/net/Uri;
 
-.field private final NOTIFICATION_BUBBLES_URI:Landroid/net/Uri;
+.field public final NOTIFICATION_BUBBLES_URI:Landroid/net/Uri;
 
-.field private final NOTIFICATION_HISTORY_ENABLED:Landroid/net/Uri;
+.field public final NOTIFICATION_HISTORY_ENABLED:Landroid/net/Uri;
 
-.field private final NOTIFICATION_LIGHT_PULSE_URI:Landroid/net/Uri;
+.field public final NOTIFICATION_LIGHT_PULSE_URI:Landroid/net/Uri;
 
-.field private final NOTIFICATION_RATE_LIMIT_URI:Landroid/net/Uri;
+.field public final NOTIFICATION_RATE_LIMIT_URI:Landroid/net/Uri;
 
-.field private final NOTIFICATION_SHOW_MEDIA_ON_QUICK_SETTINGS_URI:Landroid/net/Uri;
+.field public final NOTIFICATION_SHOW_MEDIA_ON_QUICK_SETTINGS_URI:Landroid/net/Uri;
 
-.field final synthetic this$0:Lcom/android/server/notification/NotificationManagerService;
+.field public final synthetic this$0:Lcom/android/server/notification/NotificationManagerService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/notification/NotificationManagerService;Landroid/os/Handler;)V
+.method public constructor <init>(Lcom/android/server/notification/NotificationManagerService;Landroid/os/Handler;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/notification/NotificationManagerService$SettingsObserver;->this$0:Lcom/android/server/notification/NotificationManagerService;
 
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
-
-    nop
 
     const-string/jumbo p1, "notification_badging"
 
@@ -52,8 +50,6 @@
 
     iput-object p1, p0, Lcom/android/server/notification/NotificationManagerService$SettingsObserver;->NOTIFICATION_BADGING_URI:Landroid/net/Uri;
 
-    nop
-
     const-string/jumbo p1, "notification_bubbles"
 
     invoke-static {p1}, Landroid/provider/Settings$Secure;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
@@ -61,8 +57,6 @@
     move-result-object p1
 
     iput-object p1, p0, Lcom/android/server/notification/NotificationManagerService$SettingsObserver;->NOTIFICATION_BUBBLES_URI:Landroid/net/Uri;
-
-    nop
 
     const-string/jumbo p1, "notification_light_pulse"
 
@@ -72,8 +66,6 @@
 
     iput-object p1, p0, Lcom/android/server/notification/NotificationManagerService$SettingsObserver;->NOTIFICATION_LIGHT_PULSE_URI:Landroid/net/Uri;
 
-    nop
-
     const-string/jumbo p1, "max_notification_enqueue_rate"
 
     invoke-static {p1}, Landroid/provider/Settings$Global;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
@@ -81,8 +73,6 @@
     move-result-object p1
 
     iput-object p1, p0, Lcom/android/server/notification/NotificationManagerService$SettingsObserver;->NOTIFICATION_RATE_LIMIT_URI:Landroid/net/Uri;
-
-    nop
 
     const-string/jumbo p1, "notification_history_enabled"
 
@@ -92,8 +82,6 @@
 
     iput-object p1, p0, Lcom/android/server/notification/NotificationManagerService$SettingsObserver;->NOTIFICATION_HISTORY_ENABLED:Landroid/net/Uri;
 
-    nop
-
     const-string/jumbo p1, "qs_media_controls"
 
     invoke-static {p1}, Landroid/provider/Settings$Global;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
@@ -102,9 +90,7 @@
 
     iput-object p1, p0, Lcom/android/server/notification/NotificationManagerService$SettingsObserver;->NOTIFICATION_SHOW_MEDIA_ON_QUICK_SETTINGS_URI:Landroid/net/Uri;
 
-    nop
-
-    const-string/jumbo p1, "lock_screen_allow_private_notifications"
+    const-string p1, "lock_screen_allow_private_notifications"
 
     invoke-static {p1}, Landroid/provider/Settings$Secure;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
@@ -112,9 +98,7 @@
 
     iput-object p1, p0, Lcom/android/server/notification/NotificationManagerService$SettingsObserver;->LOCK_SCREEN_ALLOW_PRIVATE_NOTIFICATIONS:Landroid/net/Uri;
 
-    nop
-
-    const-string/jumbo p1, "lock_screen_show_notifications"
+    const-string p1, "lock_screen_show_notifications"
 
     invoke-static {p1}, Landroid/provider/Settings$Secure;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
@@ -127,12 +111,12 @@
 
 
 # virtual methods
-.method observe()V
+.method public observe()V
     .locals 4
 
     iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$SettingsObserver;->this$0:Lcom/android/server/notification/NotificationManagerService;
 
-    invoke-virtual {v0}, Lcom/android/server/notification/NotificationManagerService;->getContext()Landroid/content/Context;
+    invoke-virtual {v0}, Lcom/android/server/SystemService;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
@@ -176,9 +160,9 @@
 
     invoke-virtual {v0, v1, v2, p0, v3}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    invoke-virtual {p0, v1}, Lcom/android/server/notification/NotificationManagerService$SettingsObserver;->update(Landroid/net/Uri;)V
+    invoke-virtual {p0, v0}, Lcom/android/server/notification/NotificationManagerService$SettingsObserver;->update(Landroid/net/Uri;)V
 
     return-void
 .end method
@@ -196,7 +180,7 @@
 
     iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$SettingsObserver;->this$0:Lcom/android/server/notification/NotificationManagerService;
 
-    invoke-virtual {v0}, Lcom/android/server/notification/NotificationManagerService;->getContext()Landroid/content/Context;
+    invoke-virtual {v0}, Lcom/android/server/SystemService;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
@@ -239,17 +223,13 @@
     :goto_0
     iget-object v4, p0, Lcom/android/server/notification/NotificationManagerService$SettingsObserver;->this$0:Lcom/android/server/notification/NotificationManagerService;
 
-    iget-boolean v4, v4, Lcom/android/server/notification/NotificationManagerService;->mNotificationPulseEnabled:Z
+    iget-boolean v5, v4, Lcom/android/server/notification/NotificationManagerService;->mNotificationPulseEnabled:Z
 
-    if-eq v4, v3, :cond_2
-
-    iget-object v4, p0, Lcom/android/server/notification/NotificationManagerService$SettingsObserver;->this$0:Lcom/android/server/notification/NotificationManagerService;
+    if-eq v5, v3, :cond_2
 
     iput-boolean v3, v4, Lcom/android/server/notification/NotificationManagerService;->mNotificationPulseEnabled:Z
 
-    iget-object v4, p0, Lcom/android/server/notification/NotificationManagerService$SettingsObserver;->this$0:Lcom/android/server/notification/NotificationManagerService;
-
-    invoke-static {v4}, Lcom/android/server/notification/NotificationManagerService;->access$2500(Lcom/android/server/notification/NotificationManagerService;)V
+    invoke-static {v4}, Lcom/android/server/notification/NotificationManagerService;->-$$Nest$mupdateNotificationPulse(Lcom/android/server/notification/NotificationManagerService;)V
 
     :cond_2
     if-eqz p1, :cond_3
@@ -265,7 +245,7 @@
     :cond_3
     iget-object v3, p0, Lcom/android/server/notification/NotificationManagerService$SettingsObserver;->this$0:Lcom/android/server/notification/NotificationManagerService;
 
-    invoke-static {v3}, Lcom/android/server/notification/NotificationManagerService;->access$2900(Lcom/android/server/notification/NotificationManagerService;)F
+    invoke-static {v3}, Lcom/android/server/notification/NotificationManagerService;->-$$Nest$fgetmMaxPackageEnqueueRate(Lcom/android/server/notification/NotificationManagerService;)F
 
     move-result v4
 
@@ -275,7 +255,7 @@
 
     move-result v4
 
-    invoke-static {v3, v4}, Lcom/android/server/notification/NotificationManagerService;->access$2902(Lcom/android/server/notification/NotificationManagerService;F)F
+    invoke-static {v3, v4}, Lcom/android/server/notification/NotificationManagerService;->-$$Nest$fputmMaxPackageEnqueueRate(Lcom/android/server/notification/NotificationManagerService;F)V
 
     :cond_4
     if-eqz p1, :cond_5
@@ -327,7 +307,7 @@
     :cond_9
     iget-object v3, p0, Lcom/android/server/notification/NotificationManagerService$SettingsObserver;->this$0:Lcom/android/server/notification/NotificationManagerService;
 
-    invoke-static {v3}, Lcom/android/server/notification/NotificationManagerService;->access$2700(Lcom/android/server/notification/NotificationManagerService;)Lcom/android/server/notification/ManagedServices$UserProfiles;
+    invoke-static {v3}, Lcom/android/server/notification/NotificationManagerService;->-$$Nest$fgetmUserProfiles(Lcom/android/server/notification/NotificationManagerService;)Lcom/android/server/notification/ManagedServices$UserProfiles;
 
     move-result-object v3
 
@@ -335,7 +315,7 @@
 
     move-result-object v3
 
-    const/4 v4, 0x0
+    move v4, v2
 
     :goto_1
     invoke-virtual {v3}, Landroid/util/IntArray;->size()I
@@ -346,7 +326,7 @@
 
     iget-object v5, p0, Lcom/android/server/notification/NotificationManagerService$SettingsObserver;->this$0:Lcom/android/server/notification/NotificationManagerService;
 
-    invoke-static {v5}, Lcom/android/server/notification/NotificationManagerService;->access$3000(Lcom/android/server/notification/NotificationManagerService;)Lcom/android/server/notification/NotificationManagerService$Archive;
+    invoke-static {v5}, Lcom/android/server/notification/NotificationManagerService;->-$$Nest$fgetmArchive(Lcom/android/server/notification/NotificationManagerService;)Lcom/android/server/notification/NotificationManagerService$Archive;
 
     move-result-object v5
 
@@ -383,56 +363,56 @@
     :cond_b
     if-eqz p1, :cond_c
 
-    iget-object v1, p0, Lcom/android/server/notification/NotificationManagerService$SettingsObserver;->NOTIFICATION_SHOW_MEDIA_ON_QUICK_SETTINGS_URI:Landroid/net/Uri;
+    iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$SettingsObserver;->NOTIFICATION_SHOW_MEDIA_ON_QUICK_SETTINGS_URI:Landroid/net/Uri;
 
-    invoke-virtual {v1, p1}, Landroid/net/Uri;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Landroid/net/Uri;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_d
+    if-eqz v0, :cond_d
 
     :cond_c
-    iget-object v1, p0, Lcom/android/server/notification/NotificationManagerService$SettingsObserver;->this$0:Lcom/android/server/notification/NotificationManagerService;
+    iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$SettingsObserver;->this$0:Lcom/android/server/notification/NotificationManagerService;
 
-    iget-object v1, v1, Lcom/android/server/notification/NotificationManagerService;->mPreferencesHelper:Lcom/android/server/notification/PreferencesHelper;
+    iget-object v0, v0, Lcom/android/server/notification/NotificationManagerService;->mPreferencesHelper:Lcom/android/server/notification/PreferencesHelper;
 
-    invoke-virtual {v1}, Lcom/android/server/notification/PreferencesHelper;->updateMediaNotificationFilteringEnabled()V
+    invoke-virtual {v0}, Lcom/android/server/notification/PreferencesHelper;->updateMediaNotificationFilteringEnabled()V
 
     :cond_d
     if-eqz p1, :cond_e
 
-    iget-object v1, p0, Lcom/android/server/notification/NotificationManagerService$SettingsObserver;->LOCK_SCREEN_ALLOW_PRIVATE_NOTIFICATIONS:Landroid/net/Uri;
+    iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$SettingsObserver;->LOCK_SCREEN_ALLOW_PRIVATE_NOTIFICATIONS:Landroid/net/Uri;
 
-    invoke-virtual {v1, p1}, Landroid/net/Uri;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Landroid/net/Uri;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_f
+    if-eqz v0, :cond_f
 
     :cond_e
-    iget-object v1, p0, Lcom/android/server/notification/NotificationManagerService$SettingsObserver;->this$0:Lcom/android/server/notification/NotificationManagerService;
+    iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$SettingsObserver;->this$0:Lcom/android/server/notification/NotificationManagerService;
 
-    iget-object v1, v1, Lcom/android/server/notification/NotificationManagerService;->mPreferencesHelper:Lcom/android/server/notification/PreferencesHelper;
+    iget-object v0, v0, Lcom/android/server/notification/NotificationManagerService;->mPreferencesHelper:Lcom/android/server/notification/PreferencesHelper;
 
-    invoke-virtual {v1}, Lcom/android/server/notification/PreferencesHelper;->updateLockScreenPrivateNotifications()V
+    invoke-virtual {v0}, Lcom/android/server/notification/PreferencesHelper;->updateLockScreenPrivateNotifications()V
 
     :cond_f
     if-eqz p1, :cond_10
 
-    iget-object v1, p0, Lcom/android/server/notification/NotificationManagerService$SettingsObserver;->LOCK_SCREEN_SHOW_NOTIFICATIONS:Landroid/net/Uri;
+    iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$SettingsObserver;->LOCK_SCREEN_SHOW_NOTIFICATIONS:Landroid/net/Uri;
 
-    invoke-virtual {v1, p1}, Landroid/net/Uri;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Landroid/net/Uri;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result p1
 
-    if-eqz v1, :cond_11
+    if-eqz p1, :cond_11
 
     :cond_10
-    iget-object v1, p0, Lcom/android/server/notification/NotificationManagerService$SettingsObserver;->this$0:Lcom/android/server/notification/NotificationManagerService;
+    iget-object p0, p0, Lcom/android/server/notification/NotificationManagerService$SettingsObserver;->this$0:Lcom/android/server/notification/NotificationManagerService;
 
-    iget-object v1, v1, Lcom/android/server/notification/NotificationManagerService;->mPreferencesHelper:Lcom/android/server/notification/PreferencesHelper;
+    iget-object p0, p0, Lcom/android/server/notification/NotificationManagerService;->mPreferencesHelper:Lcom/android/server/notification/PreferencesHelper;
 
-    invoke-virtual {v1}, Lcom/android/server/notification/PreferencesHelper;->updateLockScreenShowNotifications()V
+    invoke-virtual {p0}, Lcom/android/server/notification/PreferencesHelper;->updateLockScreenShowNotifications()V
 
     :cond_11
     return-void

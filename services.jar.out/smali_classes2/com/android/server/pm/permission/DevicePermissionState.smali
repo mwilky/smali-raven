@@ -4,7 +4,7 @@
 
 
 # instance fields
-.field private final mUserStates:Landroid/util/SparseArray;
+.field public final mUserStates:Landroid/util/SparseArray;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/SparseArray<",
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public getOrCreateUserState(I)Lcom/android/server/pm/permission/UserPermissionState;
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/pm/permission/DevicePermissionState;->mUserStates:Landroid/util/SparseArray;
 
@@ -45,15 +45,13 @@
 
     if-nez v0, :cond_0
 
-    new-instance v1, Lcom/android/server/pm/permission/UserPermissionState;
+    new-instance v0, Lcom/android/server/pm/permission/UserPermissionState;
 
-    invoke-direct {v1}, Lcom/android/server/pm/permission/UserPermissionState;-><init>()V
+    invoke-direct {v0}, Lcom/android/server/pm/permission/UserPermissionState;-><init>()V
 
-    move-object v0, v1
+    iget-object p0, p0, Lcom/android/server/pm/permission/DevicePermissionState;->mUserStates:Landroid/util/SparseArray;
 
-    iget-object v1, p0, Lcom/android/server/pm/permission/DevicePermissionState;->mUserStates:Landroid/util/SparseArray;
-
-    invoke-virtual {v1, p1, v0}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    invoke-virtual {p0, p1, v0}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     :cond_0
     return-object v0
@@ -92,25 +90,25 @@
 .end method
 
 .method public getUserState(I)Lcom/android/server/pm/permission/UserPermissionState;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/pm/permission/DevicePermissionState;->mUserStates:Landroid/util/SparseArray;
+    iget-object p0, p0, Lcom/android/server/pm/permission/DevicePermissionState;->mUserStates:Landroid/util/SparseArray;
 
-    invoke-virtual {v0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/android/server/pm/permission/UserPermissionState;
+    check-cast p0, Lcom/android/server/pm/permission/UserPermissionState;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public removeUserState(I)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/pm/permission/DevicePermissionState;->mUserStates:Landroid/util/SparseArray;
+    iget-object p0, p0, Lcom/android/server/pm/permission/DevicePermissionState;->mUserStates:Landroid/util/SparseArray;
 
-    invoke-virtual {v0, p1}, Landroid/util/SparseArray;->delete(I)V
+    invoke-virtual {p0, p1}, Landroid/util/SparseArray;->delete(I)V
 
     return-void
 .end method

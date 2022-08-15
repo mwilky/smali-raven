@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/server/PackageWatchdog$$ExternalSyntheticLambda5;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Landroid/provider/DeviceConfig$OnPropertiesChangedListener;
 
 
 # instance fields
@@ -22,12 +23,12 @@
 
 
 # virtual methods
-.method public final run()V
-    .locals 1
+.method public final onPropertiesChanged(Landroid/provider/DeviceConfig$Properties;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/PackageWatchdog$$ExternalSyntheticLambda5;->f$0:Lcom/android/server/PackageWatchdog;
+    iget-object p0, p0, Lcom/android/server/PackageWatchdog$$ExternalSyntheticLambda5;->f$0:Lcom/android/server/PackageWatchdog;
 
-    invoke-static {v0}, Lcom/android/server/PackageWatchdog;->$r8$lambda$AMVDPZHVujkiZUWfDH32AfGzgt8(Lcom/android/server/PackageWatchdog;)V
+    invoke-static {p0, p1}, Lcom/android/server/PackageWatchdog;->$r8$lambda$w1vQJKtbyU69AvL6u4s8Z-dPb8o(Lcom/android/server/PackageWatchdog;Landroid/provider/DeviceConfig$Properties;)V
 
     return-void
 .end method

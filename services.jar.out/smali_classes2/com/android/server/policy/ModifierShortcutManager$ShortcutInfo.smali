@@ -1,4 +1,4 @@
-.class final Lcom/android/server/policy/ModifierShortcutManager$ShortcutInfo;
+.class public final Lcom/android/server/policy/ModifierShortcutManager$ShortcutInfo;
 .super Ljava/lang/Object;
 .source "ModifierShortcutManager.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "ShortcutInfo"
 .end annotation
 
@@ -21,7 +21,7 @@
 
 
 # direct methods
-.method constructor <init>(Ljava/lang/String;Landroid/content/Intent;)V
+.method public constructor <init>(Ljava/lang/String;Landroid/content/Intent;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

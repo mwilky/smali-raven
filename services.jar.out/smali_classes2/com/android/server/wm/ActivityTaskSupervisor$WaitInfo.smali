@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/ActivityTaskSupervisor$WaitInfo;
+.class public Lcom/android/server/wm/ActivityTaskSupervisor$WaitInfo;
 .super Ljava/lang/Object;
 .source "ActivityTaskSupervisor.java"
 
@@ -9,21 +9,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "WaitInfo"
 .end annotation
 
 
 # instance fields
-.field final mLaunchingState:Lcom/android/server/wm/ActivityMetricsLogger$LaunchingState;
+.field public final mLaunchingState:Lcom/android/server/wm/ActivityMetricsLogger$LaunchingState;
 
-.field final mResult:Landroid/app/WaitResult;
+.field public final mResult:Landroid/app/WaitResult;
 
-.field final mTargetComponent:Landroid/content/ComponentName;
+.field public final mTargetComponent:Landroid/content/ComponentName;
 
 
 # direct methods
-.method constructor <init>(Landroid/app/WaitResult;Landroid/content/ComponentName;Lcom/android/server/wm/ActivityMetricsLogger$LaunchingState;)V
+.method public constructor <init>(Landroid/app/WaitResult;Landroid/content/ComponentName;Lcom/android/server/wm/ActivityMetricsLogger$LaunchingState;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,8 +39,8 @@
 
 
 # virtual methods
-.method dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
-    .locals 3
+.method public dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
+    .locals 2
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -94,29 +94,29 @@
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    iget-object v0, p0, Lcom/android/server/wm/ActivityTaskSupervisor$WaitInfo;->mResult:Landroid/app/WaitResult;
+    iget-object p0, p0, Lcom/android/server/wm/ActivityTaskSupervisor$WaitInfo;->mResult:Landroid/app/WaitResult;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, "    "
+    const-string p2, "    "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-virtual {v0, p1, v1}, Landroid/app/WaitResult;->dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
+    invoke-virtual {p0, p1, p2}, Landroid/app/WaitResult;->dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
 
     return-void
 .end method
 
-.method matches(Lcom/android/server/wm/ActivityRecord;)Z
-    .locals 2
+.method public matches(Lcom/android/server/wm/ActivityRecord;)Z
+    .locals 1
 
     iget-object v0, p0, Lcom/android/server/wm/ActivityTaskSupervisor$WaitInfo;->mLaunchingState:Lcom/android/server/wm/ActivityMetricsLogger$LaunchingState;
 
@@ -126,22 +126,22 @@
 
     if-nez v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/wm/ActivityTaskSupervisor$WaitInfo;->mTargetComponent:Landroid/content/ComponentName;
+    iget-object p0, p0, Lcom/android/server/wm/ActivityTaskSupervisor$WaitInfo;->mTargetComponent:Landroid/content/ComponentName;
 
-    iget-object v1, p1, Lcom/android/server/wm/ActivityRecord;->mActivityComponent:Landroid/content/ComponentName;
+    iget-object p1, p1, Lcom/android/server/wm/ActivityRecord;->mActivityComponent:Landroid/content/ComponentName;
 
-    invoke-virtual {v0, v1}, Landroid/content/ComponentName;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p1}, Landroid/content/ComponentName;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/wm/ActivityTaskSupervisor$WaitInfo;->mLaunchingState:Lcom/android/server/wm/ActivityMetricsLogger$LaunchingState;
+    iget-object p0, p0, Lcom/android/server/wm/ActivityTaskSupervisor$WaitInfo;->mLaunchingState:Lcom/android/server/wm/ActivityMetricsLogger$LaunchingState;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/wm/ActivityMetricsLogger$LaunchingState;->contains(Lcom/android/server/wm/ActivityRecord;)Z
+    invoke-virtual {p0, p1}, Lcom/android/server/wm/ActivityMetricsLogger$LaunchingState;->contains(Lcom/android/server/wm/ActivityRecord;)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method

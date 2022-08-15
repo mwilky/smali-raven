@@ -4,9 +4,6 @@
 
 
 # virtual methods
-.method public abstract isPointerDown()Z
-.end method
-
 .method public abstract onPointerDown(IIFF)V
 .end method
 

@@ -15,24 +15,6 @@
 .end annotation
 
 
-# static fields
-.field public static final DESCRIPTOR:Ljava/lang/String; = "android.gsi.IGsiService"
-
-.field public static final INSTALL_ERROR_FILE_SYSTEM_CLUTTERED:I = 0x3
-
-.field public static final INSTALL_ERROR_GENERIC:I = 0x1
-
-.field public static final INSTALL_ERROR_NO_SPACE:I = 0x2
-
-.field public static final INSTALL_OK:I = 0x0
-
-.field public static final STATUS_COMPLETE:I = 0x2
-
-.field public static final STATUS_NO_OPERATION:I = 0x0
-
-.field public static final STATUS_WORKING:I = 0x1
-
-
 # virtual methods
 .method public abstract cancelGsiInstall()Z
     .annotation system Ldalvik/annotation/Throws;

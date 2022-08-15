@@ -4,15 +4,15 @@
 
 
 # static fields
-.field private static sHandler:Landroid/os/Handler;
+.field public static sHandler:Landroid/os/Handler;
 
-.field private static sHandlerExecutor:Landroid/os/HandlerExecutor;
+.field public static sHandlerExecutor:Landroid/os/HandlerExecutor;
 
-.field private static sInstance:Lcom/android/server/IoThread;
+.field public static sInstance:Lcom/android/server/IoThread;
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 3
 
     const-string v0, "android.io"
@@ -26,7 +26,7 @@
     return-void
 .end method
 
-.method private static ensureThreadLocked()V
+.method public static ensureThreadLocked()V
     .locals 3
 
     sget-object v0, Lcom/android/server/IoThread;->sInstance:Lcom/android/server/IoThread;
@@ -39,11 +39,11 @@
 
     sput-object v0, Lcom/android/server/IoThread;->sInstance:Lcom/android/server/IoThread;
 
-    invoke-virtual {v0}, Lcom/android/server/IoThread;->start()V
+    invoke-virtual {v0}, Landroid/os/HandlerThread;->start()V
 
     sget-object v0, Lcom/android/server/IoThread;->sInstance:Lcom/android/server/IoThread;
 
-    invoke-virtual {v0}, Lcom/android/server/IoThread;->getLooper()Landroid/os/Looper;
+    invoke-virtual {v0}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;
 
     move-result-object v0
 
@@ -55,7 +55,7 @@
 
     sget-object v1, Lcom/android/server/IoThread;->sInstance:Lcom/android/server/IoThread;
 
-    invoke-virtual {v1}, Lcom/android/server/IoThread;->getLooper()Landroid/os/Looper;
+    invoke-virtual {v1}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;
 
     move-result-object v1
 
@@ -86,32 +86,6 @@
     invoke-static {}, Lcom/android/server/IoThread;->ensureThreadLocked()V
 
     sget-object v1, Lcom/android/server/IoThread;->sInstance:Lcom/android/server/IoThread;
-
-    monitor-exit v0
-
-    return-object v1
-
-    :catchall_0
-    move-exception v1
-
-    monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v1
-.end method
-
-.method public static getExecutor()Ljava/util/concurrent/Executor;
-    .locals 2
-
-    const-class v0, Lcom/android/server/IoThread;
-
-    monitor-enter v0
-
-    :try_start_0
-    invoke-static {}, Lcom/android/server/IoThread;->ensureThreadLocked()V
-
-    sget-object v1, Lcom/android/server/IoThread;->sHandlerExecutor:Landroid/os/HandlerExecutor;
 
     monitor-exit v0
 

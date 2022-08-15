@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/integrity/engine/RuleEvaluator$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Predicate;
@@ -23,15 +24,15 @@
 
 # virtual methods
 .method public final test(Ljava/lang/Object;)Z
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/integrity/engine/RuleEvaluator$$ExternalSyntheticLambda0;->f$0:Landroid/content/integrity/AppInstallMetadata;
+    iget-object p0, p0, Lcom/android/server/integrity/engine/RuleEvaluator$$ExternalSyntheticLambda0;->f$0:Landroid/content/integrity/AppInstallMetadata;
 
     check-cast p1, Landroid/content/integrity/Rule;
 
-    invoke-static {v0, p1}, Lcom/android/server/integrity/engine/RuleEvaluator;->lambda$evaluateRules$0(Landroid/content/integrity/AppInstallMetadata;Landroid/content/integrity/Rule;)Z
+    invoke-static {p0, p1}, Lcom/android/server/integrity/engine/RuleEvaluator;->$r8$lambda$GJDMRD8Iqxqinj3POpBqo6Ha8Us(Landroid/content/integrity/AppInstallMetadata;Landroid/content/integrity/Rule;)Z
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method

@@ -4,7 +4,7 @@
 
 
 # instance fields
-.field final mFrom:Lcom/android/server/wm/ActivityRecord;
+.field public final mFrom:Lcom/android/server/wm/ActivityRecord;
 
 
 # direct methods

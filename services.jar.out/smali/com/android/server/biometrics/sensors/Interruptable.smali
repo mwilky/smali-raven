@@ -7,5 +7,5 @@
 .method public abstract cancel()V
 .end method
 
-.method public abstract cancelWithoutStarting(Lcom/android/server/biometrics/sensors/BaseClientMonitor$Callback;)V
+.method public abstract cancelWithoutStarting(Lcom/android/server/biometrics/sensors/ClientMonitorCallback;)V
 .end method

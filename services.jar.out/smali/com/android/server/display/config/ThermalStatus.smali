@@ -14,7 +14,7 @@
 
 
 # static fields
-.field private static final synthetic $VALUES:[Lcom/android/server/display/config/ThermalStatus;
+.field public static final synthetic $VALUES:[Lcom/android/server/display/config/ThermalStatus;
 
 .field public static final enum critical:Lcom/android/server/display/config/ThermalStatus;
 
@@ -36,7 +36,7 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 15
 
     new-instance v0, Lcom/android/server/display/config/ThermalStatus;
@@ -51,7 +51,7 @@
 
     new-instance v1, Lcom/android/server/display/config/ThermalStatus;
 
-    const-string/jumbo v3, "light"
+    const-string v3, "light"
 
     const/4 v4, 0x1
 
@@ -132,7 +132,7 @@
     return-void
 .end method
 
-.method private constructor <init>(Ljava/lang/String;ILjava/lang/String;)V
+.method public constructor <init>(Ljava/lang/String;ILjava/lang/String;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -149,7 +149,7 @@
     return-void
 .end method
 
-.method static fromString(Ljava/lang/String;)Lcom/android/server/display/config/ThermalStatus;
+.method public static fromString(Ljava/lang/String;)Lcom/android/server/display/config/ThermalStatus;
     .locals 5
 
     invoke-static {}, Lcom/android/server/display/config/ThermalStatus;->values()[Lcom/android/server/display/config/ThermalStatus;
@@ -197,11 +197,11 @@
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/android/server/display/config/ThermalStatus;
+    check-cast p0, Lcom/android/server/display/config/ThermalStatus;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/android/server/display/config/ThermalStatus;
@@ -221,9 +221,9 @@
 
 # virtual methods
 .method public getRawName()Ljava/lang/String;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/display/config/ThermalStatus;->rawName:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/display/config/ThermalStatus;->rawName:Ljava/lang/String;
 
-    return-object v0
+    return-object p0
 .end method

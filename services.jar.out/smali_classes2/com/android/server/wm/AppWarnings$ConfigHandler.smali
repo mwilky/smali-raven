@@ -1,4 +1,4 @@
-.class final Lcom/android/server/wm/AppWarnings$ConfigHandler;
+.class public final Lcom/android/server/wm/AppWarnings$ConfigHandler;
 .super Landroid/os/Handler;
 .source "AppWarnings.java"
 
@@ -9,19 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "ConfigHandler"
 .end annotation
 
 
-# static fields
-.field private static final DELAY_MSG_WRITE:I = 0x2710
-
-.field private static final MSG_WRITE:I = 0x1
-
-
 # instance fields
-.field final synthetic this$0:Lcom/android/server/wm/AppWarnings;
+.field public final synthetic this$0:Lcom/android/server/wm/AppWarnings;
 
 
 # direct methods
@@ -44,24 +38,21 @@
 .method public handleMessage(Landroid/os/Message;)V
     .locals 1
 
-    iget v0, p1, Landroid/os/Message;->what:I
+    iget p1, p1, Landroid/os/Message;->what:I
 
-    packed-switch v0, :pswitch_data_0
+    const/4 v0, 0x1
+
+    if-eq p1, v0, :cond_0
 
     goto :goto_0
 
-    :pswitch_0
-    iget-object v0, p0, Lcom/android/server/wm/AppWarnings$ConfigHandler;->this$0:Lcom/android/server/wm/AppWarnings;
+    :cond_0
+    iget-object p0, p0, Lcom/android/server/wm/AppWarnings$ConfigHandler;->this$0:Lcom/android/server/wm/AppWarnings;
 
-    invoke-static {v0}, Lcom/android/server/wm/AppWarnings;->access$500(Lcom/android/server/wm/AppWarnings;)V
+    invoke-static {p0}, Lcom/android/server/wm/AppWarnings;->-$$Nest$mwriteConfigToFileAmsThread(Lcom/android/server/wm/AppWarnings;)V
 
     :goto_0
     return-void
-
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_0
-    .end packed-switch
 .end method
 
 .method public scheduleWrite()V
@@ -69,11 +60,11 @@
 
     const/4 v0, 0x1
 
-    invoke-virtual {p0, v0}, Lcom/android/server/wm/AppWarnings$ConfigHandler;->removeMessages(I)V
+    invoke-virtual {p0, v0}, Landroid/os/Handler;->removeMessages(I)V
 
     const-wide/16 v1, 0x2710
 
-    invoke-virtual {p0, v0, v1, v2}, Lcom/android/server/wm/AppWarnings$ConfigHandler;->sendEmptyMessageDelayed(IJ)Z
+    invoke-virtual {p0, v0, v1, v2}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
     return-void
 .end method

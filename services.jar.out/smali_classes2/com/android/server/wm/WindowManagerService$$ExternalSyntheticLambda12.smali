@@ -1,35 +1,30 @@
 .class public final synthetic Lcom/android/server/wm/WindowManagerService$$ExternalSyntheticLambda12;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Consumer;
-
-
-# instance fields
-.field public final synthetic f$0:Ljava/io/PrintWriter;
+.implements Ljava/util/function/Function;
 
 
 # direct methods
-.method public synthetic constructor <init>(Ljava/io/PrintWriter;)V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/server/wm/WindowManagerService$$ExternalSyntheticLambda12;->f$0:Ljava/io/PrintWriter;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
-    .locals 1
+.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/WindowManagerService$$ExternalSyntheticLambda12;->f$0:Ljava/io/PrintWriter;
+    new-instance p0, Landroid/view/SurfaceControl$Builder;
 
-    check-cast p1, Lcom/android/server/wm/WindowState;
+    check-cast p1, Landroid/view/SurfaceSession;
 
-    invoke-static {v0, p1}, Lcom/android/server/wm/WindowManagerService;->lambda$doDump$11(Ljava/io/PrintWriter;Lcom/android/server/wm/WindowState;)V
+    invoke-direct {p0, p1}, Landroid/view/SurfaceControl$Builder;-><init>(Landroid/view/SurfaceSession;)V
 
-    return-void
+    return-object p0
 .end method

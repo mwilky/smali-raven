@@ -4,7 +4,7 @@
 
 
 # instance fields
-.field private mInfo:Landroid/view/DisplayInfo;
+.field public mInfo:Landroid/view/DisplayInfo;
 
 
 # direct methods
@@ -21,11 +21,11 @@
 
 # virtual methods
 .method public get()Landroid/view/DisplayInfo;
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/display/DisplayInfoProxy;->mInfo:Landroid/view/DisplayInfo;
+    iget-object p0, p0, Lcom/android/server/display/DisplayInfoProxy;->mInfo:Landroid/view/DisplayInfo;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public set(Landroid/view/DisplayInfo;)V

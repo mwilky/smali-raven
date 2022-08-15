@@ -1,4 +1,4 @@
-.class final Lcom/android/server/am/InstrumentationReporter$Report;
+.class public final Lcom/android/server/am/InstrumentationReporter$Report;
 .super Ljava/lang/Object;
 .source "InstrumentationReporter.java"
 
@@ -9,28 +9,28 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x10
+    accessFlags = 0x11
     name = "Report"
 .end annotation
 
 
 # instance fields
-.field final mName:Landroid/content/ComponentName;
+.field public final mName:Landroid/content/ComponentName;
 
-.field final mResultCode:I
+.field public final mResultCode:I
 
-.field final mResults:Landroid/os/Bundle;
+.field public final mResults:Landroid/os/Bundle;
 
-.field final mType:I
+.field public final mType:I
 
-.field final mWatcher:Landroid/app/IInstrumentationWatcher;
+.field public final mWatcher:Landroid/app/IInstrumentationWatcher;
 
-.field final synthetic this$0:Lcom/android/server/am/InstrumentationReporter;
+.field public final synthetic this$0:Lcom/android/server/am/InstrumentationReporter;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/InstrumentationReporter;ILandroid/app/IInstrumentationWatcher;Landroid/content/ComponentName;ILandroid/os/Bundle;)V
-    .locals 1
+.method public constructor <init>(Lcom/android/server/am/InstrumentationReporter;ILandroid/app/IInstrumentationWatcher;Landroid/content/ComponentName;ILandroid/os/Bundle;)V
+    .locals 0
 
     iput-object p1, p0, Lcom/android/server/am/InstrumentationReporter$Report;->this$0:Lcom/android/server/am/InstrumentationReporter;
 
@@ -48,9 +48,9 @@
 
     invoke-interface {p3}, Landroid/app/IInstrumentationWatcher;->asBinder()Landroid/os/IBinder;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0}, Landroid/os/Binder;->allowBlocking(Landroid/os/IBinder;)Landroid/os/IBinder;
+    invoke-static {p0}, Landroid/os/Binder;->allowBlocking(Landroid/os/IBinder;)Landroid/os/IBinder;
 
     return-void
 .end method

@@ -1,35 +1,30 @@
 .class public final synthetic Lcom/android/server/audio/AudioDeviceInventory$$ExternalSyntheticLambda6;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Consumer;
-
-
-# instance fields
-.field public final synthetic f$0:Landroid/util/ArraySet;
+.implements Ljava/util/function/ToIntFunction;
 
 
 # direct methods
-.method public synthetic constructor <init>(Landroid/util/ArraySet;)V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/server/audio/AudioDeviceInventory$$ExternalSyntheticLambda6;->f$0:Landroid/util/ArraySet;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
-    .locals 1
+.method public final applyAsInt(Ljava/lang/Object;)I
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/audio/AudioDeviceInventory$$ExternalSyntheticLambda6;->f$0:Landroid/util/ArraySet;
+    check-cast p1, Ljava/lang/Integer;
 
-    check-cast p1, Lcom/android/server/audio/AudioDeviceInventory$DeviceInfo;
+    invoke-static {p1}, Lcom/android/server/audio/AudioDeviceInventory;->$r8$lambda$JWenRQxI5PepB4-d0kO-Nk6S2ZQ(Ljava/lang/Integer;)I
 
-    invoke-static {v0, p1}, Lcom/android/server/audio/AudioDeviceInventory;->lambda$disconnectA2dpSink$8(Landroid/util/ArraySet;Lcom/android/server/audio/AudioDeviceInventory$DeviceInfo;)V
+    move-result p0
 
-    return-void
+    return p0
 .end method

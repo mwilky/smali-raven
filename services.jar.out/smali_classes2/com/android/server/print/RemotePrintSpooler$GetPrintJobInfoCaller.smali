@@ -1,4 +1,4 @@
-.class final Lcom/android/server/print/RemotePrintSpooler$GetPrintJobInfoCaller;
+.class public final Lcom/android/server/print/RemotePrintSpooler$GetPrintJobInfoCaller;
 .super Landroid/util/TimedRemoteCaller;
 .source "RemotePrintSpooler.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "GetPrintJobInfoCaller"
 .end annotation
 
@@ -23,7 +23,7 @@
 
 
 # instance fields
-.field private final mCallback:Landroid/print/IPrintSpoolerCallbacks;
+.field public final mCallback:Landroid/print/IPrintSpoolerCallbacks;
 
 
 # direct methods
@@ -43,10 +43,10 @@
     return-void
 .end method
 
-.method static synthetic access$700(Lcom/android/server/print/RemotePrintSpooler$GetPrintJobInfoCaller;Ljava/lang/Object;I)V
+.method public static synthetic access$100(Lcom/android/server/print/RemotePrintSpooler$GetPrintJobInfoCaller;Ljava/lang/Object;I)V
     .locals 0
 
-    invoke-virtual {p0, p1, p2}, Lcom/android/server/print/RemotePrintSpooler$GetPrintJobInfoCaller;->onRemoteMethodResult(Ljava/lang/Object;I)V
+    invoke-virtual {p0, p1, p2}, Landroid/util/TimedRemoteCaller;->onRemoteMethodResult(Ljava/lang/Object;I)V
 
     return-void
 .end method
@@ -62,7 +62,7 @@
         }
     .end annotation
 
-    invoke-virtual {p0}, Lcom/android/server/print/RemotePrintSpooler$GetPrintJobInfoCaller;->onBeforeRemoteCall()I
+    invoke-virtual {p0}, Landroid/util/TimedRemoteCaller;->onBeforeRemoteCall()I
 
     move-result v0
 
@@ -70,11 +70,11 @@
 
     invoke-interface {p1, p2, v1, p3, v0}, Landroid/print/IPrintSpooler;->getPrintJobInfo(Landroid/print/PrintJobId;Landroid/print/IPrintSpoolerCallbacks;II)V
 
-    invoke-virtual {p0, v0}, Lcom/android/server/print/RemotePrintSpooler$GetPrintJobInfoCaller;->getResultTimed(I)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Landroid/util/TimedRemoteCaller;->getResultTimed(I)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p0
 
-    check-cast v1, Landroid/print/PrintJobInfo;
+    check-cast p0, Landroid/print/PrintJobInfo;
 
-    return-object v1
+    return-object p0
 .end method

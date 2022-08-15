@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/wm/WallpaperAnimationAdapter$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -55,7 +56,7 @@
 
     check-cast v7, Lcom/android/server/wm/WallpaperWindowToken;
 
-    invoke-static/range {v0 .. v7}, Lcom/android/server/wm/WallpaperAnimationAdapter;->lambda$startWallpaperAnimations$0(JJLjava/util/function/Consumer;Ljava/util/ArrayList;Ljava/util/ArrayList;Lcom/android/server/wm/WallpaperWindowToken;)V
+    invoke-static/range {v0 .. v7}, Lcom/android/server/wm/WallpaperAnimationAdapter;->$r8$lambda$pFt1sM34mQb-FFZsZckZ6IVTj_M(JJLjava/util/function/Consumer;Ljava/util/ArrayList;Ljava/util/ArrayList;Lcom/android/server/wm/WallpaperWindowToken;)V
 
     return-void
 .end method

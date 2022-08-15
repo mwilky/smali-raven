@@ -1,4 +1,4 @@
-.class final Lcom/android/server/notification/ZenModeHelper$H$ConfigMessageData;
+.class public final Lcom/android/server/notification/ZenModeHelper$H$ConfigMessageData;
 .super Ljava/lang/Object;
 .source "ZenModeHelper.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "ConfigMessageData"
 .end annotation
 
@@ -21,13 +21,13 @@
 
 .field public final setRingerMode:Z
 
-.field final synthetic this$1:Lcom/android/server/notification/ZenModeHelper$H;
+.field public final synthetic this$1:Lcom/android/server/notification/ZenModeHelper$H;
 
 .field public triggeringComponent:Landroid/content/ComponentName;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/notification/ZenModeHelper$H;Landroid/service/notification/ZenModeConfig;Ljava/lang/String;Landroid/content/ComponentName;Z)V
+.method public constructor <init>(Lcom/android/server/notification/ZenModeHelper$H;Landroid/service/notification/ZenModeConfig;Ljava/lang/String;Landroid/content/ComponentName;Z)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/notification/ZenModeHelper$H$ConfigMessageData;->this$1:Lcom/android/server/notification/ZenModeHelper$H;

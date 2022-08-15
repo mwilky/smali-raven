@@ -4,6 +4,9 @@
 
 
 # annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/android/server/location/gnss/hal/GnssNative;
 .end annotation
@@ -15,7 +18,7 @@
 
 
 # direct methods
-.method protected constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,410 +28,450 @@
 
 
 # virtual methods
-.method protected addGeofence(IDDDIIII)Z
-    .locals 1
-
-    invoke-static/range {p1 .. p11}, Lcom/android/server/location/gnss/hal/GnssNative;->access$3200(IDDDIIII)Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method protected classInitOnce()V
+.method public addGeofence(IDDDIIII)Z
     .locals 0
 
-    invoke-static {}, Lcom/android/server/location/gnss/hal/GnssNative;->access$000()V
+    invoke-static/range {p1 .. p11}, Lcom/android/server/location/gnss/hal/GnssNative;->-$$Nest$smnative_add_geofence(IDDDIIII)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public classInitOnce()V
+    .locals 0
+
+    invoke-static {}, Lcom/android/server/location/gnss/hal/GnssNative;->-$$Nest$smnative_class_init_once()V
 
     return-void
 .end method
 
-.method protected cleanup()V
+.method public cleanup()V
     .locals 0
 
-    invoke-static {}, Lcom/android/server/location/gnss/hal/GnssNative;->access$400()V
+    invoke-static {}, Lcom/android/server/location/gnss/hal/GnssNative;->-$$Nest$smnative_cleanup()V
 
     return-void
 .end method
 
-.method protected cleanupBatching()V
+.method public cleanupBatching()V
     .locals 0
 
-    invoke-static {}, Lcom/android/server/location/gnss/hal/GnssNative;->access$2700()V
+    invoke-static {}, Lcom/android/server/location/gnss/hal/GnssNative;->-$$Nest$smnative_cleanup_batching()V
 
     return-void
 .end method
 
-.method protected deleteAidingData(I)V
+.method public deleteAidingData(I)V
     .locals 0
 
-    invoke-static {p1}, Lcom/android/server/location/gnss/hal/GnssNative;->access$900(I)V
+    invoke-static {p1}, Lcom/android/server/location/gnss/hal/GnssNative;->-$$Nest$smnative_delete_aiding_data(I)V
 
     return-void
 .end method
 
-.method protected flushBatch()V
+.method public flushBatch()V
     .locals 0
 
-    invoke-static {}, Lcom/android/server/location/gnss/hal/GnssNative;->access$2900()V
+    invoke-static {}, Lcom/android/server/location/gnss/hal/GnssNative;->-$$Nest$smnative_flush_batch()V
 
     return-void
 .end method
 
-.method protected getBatchSize()I
-    .locals 1
-
-    invoke-static {}, Lcom/android/server/location/gnss/hal/GnssNative;->access$2500()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method protected getInternalState()Ljava/lang/String;
-    .locals 1
-
-    invoke-static {}, Lcom/android/server/location/gnss/hal/GnssNative;->access$800()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method protected init()Z
-    .locals 1
-
-    invoke-static {}, Lcom/android/server/location/gnss/hal/GnssNative;->access$300()Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method protected initBatching()Z
-    .locals 1
-
-    invoke-static {}, Lcom/android/server/location/gnss/hal/GnssNative;->access$2600()Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method protected initOnce(Lcom/android/server/location/gnss/hal/GnssNative;Z)V
+.method public getBatchSize()I
     .locals 0
 
-    invoke-static {p1, p2}, Lcom/android/server/location/gnss/hal/GnssNative;->access$200(Lcom/android/server/location/gnss/hal/GnssNative;Z)V
+    invoke-static {}, Lcom/android/server/location/gnss/hal/GnssNative;->-$$Nest$smnative_get_batch_size()I
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public getInternalState()Ljava/lang/String;
+    .locals 0
+
+    invoke-static {}, Lcom/android/server/location/gnss/hal/GnssNative;->-$$Nest$smnative_get_internal_state()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public init()Z
+    .locals 0
+
+    invoke-static {}, Lcom/android/server/location/gnss/hal/GnssNative;->-$$Nest$smnative_init()Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public initBatching()Z
+    .locals 0
+
+    invoke-static {}, Lcom/android/server/location/gnss/hal/GnssNative;->-$$Nest$smnative_init_batching()Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public initOnce(Lcom/android/server/location/gnss/hal/GnssNative;Z)V
+    .locals 0
+
+    invoke-static {p1, p2}, Lcom/android/server/location/gnss/hal/GnssNative;->-$$Nest$mnative_init_once(Lcom/android/server/location/gnss/hal/GnssNative;Z)V
 
     return-void
 .end method
 
-.method protected injectBestLocation(IDDDFFFFFFJIJD)V
+.method public injectBestLocation(IDDDFFFFFFJIJD)V
     .locals 0
 
-    invoke-static/range {p1 .. p20}, Lcom/android/server/location/gnss/hal/GnssNative;->access$1200(IDDDFFFFFFJIJD)V
+    invoke-static/range {p1 .. p20}, Lcom/android/server/location/gnss/hal/GnssNative;->-$$Nest$smnative_inject_best_location(IDDDFFFFFFJIJD)V
 
     return-void
 .end method
 
-.method protected injectLocation(DDF)V
+.method public injectLocation(IDDDFFFFFFJIJD)V
     .locals 0
 
-    invoke-static {p1, p2, p3, p4, p5}, Lcom/android/server/location/gnss/hal/GnssNative;->access$1100(DDF)V
+    invoke-static/range {p1 .. p20}, Lcom/android/server/location/gnss/hal/GnssNative;->-$$Nest$smnative_inject_location(IDDDFFFFFFJIJD)V
 
     return-void
 .end method
 
-.method protected injectMeasurementCorrections(Landroid/location/GnssMeasurementCorrections;)Z
-    .locals 1
-
-    invoke-static {p1}, Lcom/android/server/location/gnss/hal/GnssNative;->access$2400(Landroid/location/GnssMeasurementCorrections;)Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method protected injectPsdsData([BII)V
+.method public injectMeasurementCorrections(Landroid/location/GnssMeasurementCorrections;)Z
     .locals 0
 
-    invoke-static {p1, p2, p3}, Lcom/android/server/location/gnss/hal/GnssNative;->access$4300([BII)V
+    invoke-static {p1}, Lcom/android/server/location/gnss/hal/GnssNative;->-$$Nest$smnative_inject_measurement_corrections(Landroid/location/GnssMeasurementCorrections;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public injectPsdsData([BII)V
+    .locals 0
+
+    invoke-static {p1, p2, p3}, Lcom/android/server/location/gnss/hal/GnssNative;->-$$Nest$smnative_inject_psds_data([BII)V
 
     return-void
 .end method
 
-.method protected injectTime(JJI)V
+.method public injectTime(JJI)V
     .locals 0
 
-    invoke-static {p1, p2, p3, p4, p5}, Lcom/android/server/location/gnss/hal/GnssNative;->access$1300(JJI)V
+    invoke-static {p1, p2, p3, p4, p5}, Lcom/android/server/location/gnss/hal/GnssNative;->-$$Nest$smnative_inject_time(JJI)V
 
     return-void
 .end method
 
-.method protected isAntennaInfoSupported()Z
-    .locals 1
-
-    invoke-static {}, Lcom/android/server/location/gnss/hal/GnssNative;->access$1700()Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method protected isGeofencingSupported()Z
-    .locals 1
-
-    invoke-static {}, Lcom/android/server/location/gnss/hal/GnssNative;->access$3100()Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method protected isGnssVisibilityControlSupported()Z
-    .locals 1
-
-    invoke-static {}, Lcom/android/server/location/gnss/hal/GnssNative;->access$3600()Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method protected isMeasurementCorrectionsSupported()Z
-    .locals 1
-
-    invoke-static {}, Lcom/android/server/location/gnss/hal/GnssNative;->access$2300()Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method protected isMeasurementSupported()Z
-    .locals 1
-
-    invoke-static {}, Lcom/android/server/location/gnss/hal/GnssNative;->access$2000()Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method protected isNavigationMessageCollectionSupported()Z
-    .locals 1
-
-    invoke-static {}, Lcom/android/server/location/gnss/hal/GnssNative;->access$1400()Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method protected isPsdsSupported()Z
-    .locals 1
-
-    invoke-static {}, Lcom/android/server/location/gnss/hal/GnssNative;->access$4200()Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method protected isSupported()Z
-    .locals 1
-
-    invoke-static {}, Lcom/android/server/location/gnss/hal/GnssNative;->access$100()Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method protected pauseGeofence(I)Z
-    .locals 1
-
-    invoke-static {p1}, Lcom/android/server/location/gnss/hal/GnssNative;->access$3400(I)Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method protected readNmea([BI)I
-    .locals 1
-
-    invoke-static {p1, p2}, Lcom/android/server/location/gnss/hal/GnssNative;->access$1000([BI)I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method protected removeGeofence(I)Z
-    .locals 1
-
-    invoke-static {p1}, Lcom/android/server/location/gnss/hal/GnssNative;->access$3500(I)Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method protected requestPowerStats()V
+.method public isAntennaInfoSupported()Z
     .locals 0
 
-    invoke-static {}, Lcom/android/server/location/gnss/hal/GnssNative;->access$3800()V
+    invoke-static {}, Lcom/android/server/location/gnss/hal/GnssNative;->-$$Nest$smnative_is_antenna_info_supported()Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public isGeofencingSupported()Z
+    .locals 0
+
+    invoke-static {}, Lcom/android/server/location/gnss/hal/GnssNative;->-$$Nest$smnative_is_geofence_supported()Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public isGnssVisibilityControlSupported()Z
+    .locals 0
+
+    invoke-static {}, Lcom/android/server/location/gnss/hal/GnssNative;->-$$Nest$smnative_is_gnss_visibility_control_supported()Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public isMeasurementCorrectionsSupported()Z
+    .locals 0
+
+    invoke-static {}, Lcom/android/server/location/gnss/hal/GnssNative;->-$$Nest$smnative_is_measurement_corrections_supported()Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public isMeasurementSupported()Z
+    .locals 0
+
+    invoke-static {}, Lcom/android/server/location/gnss/hal/GnssNative;->-$$Nest$smnative_is_measurement_supported()Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public isNavigationMessageCollectionSupported()Z
+    .locals 0
+
+    invoke-static {}, Lcom/android/server/location/gnss/hal/GnssNative;->-$$Nest$smnative_is_navigation_message_supported()Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public isPsdsSupported()Z
+    .locals 0
+
+    invoke-static {}, Lcom/android/server/location/gnss/hal/GnssNative;->-$$Nest$smnative_supports_psds()Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public isSupported()Z
+    .locals 0
+
+    invoke-static {}, Lcom/android/server/location/gnss/hal/GnssNative;->-$$Nest$smnative_is_supported()Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public pauseGeofence(I)Z
+    .locals 0
+
+    invoke-static {p1}, Lcom/android/server/location/gnss/hal/GnssNative;->-$$Nest$smnative_pause_geofence(I)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public readNmea([BI)I
+    .locals 0
+
+    invoke-static {p1, p2}, Lcom/android/server/location/gnss/hal/GnssNative;->-$$Nest$smnative_read_nmea([BI)I
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public removeGeofence(I)Z
+    .locals 0
+
+    invoke-static {p1}, Lcom/android/server/location/gnss/hal/GnssNative;->-$$Nest$smnative_remove_geofence(I)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public requestPowerStats()V
+    .locals 0
+
+    invoke-static {}, Lcom/android/server/location/gnss/hal/GnssNative;->-$$Nest$smnative_request_power_stats()V
 
     return-void
 .end method
 
-.method protected resumeGeofence(II)Z
-    .locals 1
-
-    invoke-static {p1, p2}, Lcom/android/server/location/gnss/hal/GnssNative;->access$3300(II)Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method protected sendNiResponse(II)V
+.method public resumeGeofence(II)Z
     .locals 0
 
-    invoke-static {p1, p2}, Lcom/android/server/location/gnss/hal/GnssNative;->access$3700(II)V
+    invoke-static {p1, p2}, Lcom/android/server/location/gnss/hal/GnssNative;->-$$Nest$smnative_resume_geofence(II)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public sendNiResponse(II)V
+    .locals 0
+
+    invoke-static {p1, p2}, Lcom/android/server/location/gnss/hal/GnssNative;->-$$Nest$smnative_send_ni_response(II)V
 
     return-void
 .end method
 
-.method protected setAgpsReferenceLocationCellId(IIIII)V
+.method public setAgpsReferenceLocationCellId(IIIIJIII)V
     .locals 0
 
-    invoke-static {p1, p2, p3, p4, p5}, Lcom/android/server/location/gnss/hal/GnssNative;->access$4100(IIIII)V
+    invoke-static/range {p1 .. p9}, Lcom/android/server/location/gnss/hal/GnssNative;->-$$Nest$smnative_agps_set_ref_location_cellid(IIIIJIII)V
 
     return-void
 .end method
 
-.method protected setAgpsServer(ILjava/lang/String;I)V
+.method public setAgpsServer(ILjava/lang/String;I)V
     .locals 0
 
-    invoke-static {p1, p2, p3}, Lcom/android/server/location/gnss/hal/GnssNative;->access$3900(ILjava/lang/String;I)V
+    invoke-static {p1, p2, p3}, Lcom/android/server/location/gnss/hal/GnssNative;->-$$Nest$smnative_set_agps_server(ILjava/lang/String;I)V
 
     return-void
 .end method
 
-.method protected setAgpsSetId(ILjava/lang/String;)V
+.method public setAgpsSetId(ILjava/lang/String;)V
     .locals 0
 
-    invoke-static {p1, p2}, Lcom/android/server/location/gnss/hal/GnssNative;->access$4000(ILjava/lang/String;)V
+    invoke-static {p1, p2}, Lcom/android/server/location/gnss/hal/GnssNative;->-$$Nest$smnative_agps_set_id(ILjava/lang/String;)V
 
     return-void
 .end method
 
-.method protected setPositionMode(IIIIIZ)Z
-    .locals 1
-
-    invoke-static/range {p1 .. p6}, Lcom/android/server/location/gnss/hal/GnssNative;->access$700(IIIIIZ)Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method protected start()Z
-    .locals 1
-
-    invoke-static {}, Lcom/android/server/location/gnss/hal/GnssNative;->access$500()Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method protected startAntennaInfoListening()Z
-    .locals 1
-
-    invoke-static {}, Lcom/android/server/location/gnss/hal/GnssNative;->access$1800()Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method protected startBatch(JZ)Z
-    .locals 1
-
-    invoke-static {p1, p2, p3}, Lcom/android/server/location/gnss/hal/GnssNative;->access$2800(JZ)Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method protected startMeasurementCollection(ZZ)Z
-    .locals 1
-
-    invoke-static {p1, p2}, Lcom/android/server/location/gnss/hal/GnssNative;->access$2100(ZZ)Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method protected startNavigationMessageCollection()Z
-    .locals 1
-
-    invoke-static {}, Lcom/android/server/location/gnss/hal/GnssNative;->access$1500()Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method protected stop()Z
-    .locals 1
-
-    invoke-static {}, Lcom/android/server/location/gnss/hal/GnssNative;->access$600()Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method protected stopAntennaInfoListening()Z
-    .locals 1
-
-    invoke-static {}, Lcom/android/server/location/gnss/hal/GnssNative;->access$1900()Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method protected stopBatch()V
+.method public setPositionMode(IIIIIZ)Z
     .locals 0
 
-    invoke-static {}, Lcom/android/server/location/gnss/hal/GnssNative;->access$3000()Z
+    invoke-static/range {p1 .. p6}, Lcom/android/server/location/gnss/hal/GnssNative;->-$$Nest$smnative_set_position_mode(IIIIIZ)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public start()Z
+    .locals 0
+
+    invoke-static {}, Lcom/android/server/location/gnss/hal/GnssNative;->-$$Nest$smnative_start()Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public startAntennaInfoListening()Z
+    .locals 0
+
+    invoke-static {}, Lcom/android/server/location/gnss/hal/GnssNative;->-$$Nest$smnative_start_antenna_info_listening()Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public startBatch(JFZ)Z
+    .locals 0
+
+    invoke-static {p1, p2, p3, p4}, Lcom/android/server/location/gnss/hal/GnssNative;->-$$Nest$smnative_start_batch(JFZ)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public startMeasurementCollection(ZZI)Z
+    .locals 0
+
+    invoke-static {p1, p2, p3}, Lcom/android/server/location/gnss/hal/GnssNative;->-$$Nest$smnative_start_measurement_collection(ZZI)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public startNavigationMessageCollection()Z
+    .locals 0
+
+    invoke-static {}, Lcom/android/server/location/gnss/hal/GnssNative;->-$$Nest$smnative_start_navigation_message_collection()Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public startNmeaMessageCollection()Z
+    .locals 0
+
+    invoke-static {}, Lcom/android/server/location/gnss/hal/GnssNative;->-$$Nest$smnative_start_nmea_message_collection()Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public startSvStatusCollection()Z
+    .locals 0
+
+    invoke-static {}, Lcom/android/server/location/gnss/hal/GnssNative;->-$$Nest$smnative_start_sv_status_collection()Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public stop()Z
+    .locals 0
+
+    invoke-static {}, Lcom/android/server/location/gnss/hal/GnssNative;->-$$Nest$smnative_stop()Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public stopAntennaInfoListening()Z
+    .locals 0
+
+    invoke-static {}, Lcom/android/server/location/gnss/hal/GnssNative;->-$$Nest$smnative_stop_antenna_info_listening()Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public stopBatch()V
+    .locals 0
+
+    invoke-static {}, Lcom/android/server/location/gnss/hal/GnssNative;->-$$Nest$smnative_stop_batch()Z
 
     return-void
 .end method
 
-.method protected stopMeasurementCollection()Z
-    .locals 1
+.method public stopMeasurementCollection()Z
+    .locals 0
 
-    invoke-static {}, Lcom/android/server/location/gnss/hal/GnssNative;->access$2200()Z
+    invoke-static {}, Lcom/android/server/location/gnss/hal/GnssNative;->-$$Nest$smnative_stop_measurement_collection()Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
-.method protected stopNavigationMessageCollection()Z
-    .locals 1
+.method public stopNavigationMessageCollection()Z
+    .locals 0
 
-    invoke-static {}, Lcom/android/server/location/gnss/hal/GnssNative;->access$1600()Z
+    invoke-static {}, Lcom/android/server/location/gnss/hal/GnssNative;->-$$Nest$smnative_stop_navigation_message_collection()Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
+.end method
+
+.method public stopNmeaMessageCollection()Z
+    .locals 0
+
+    invoke-static {}, Lcom/android/server/location/gnss/hal/GnssNative;->-$$Nest$smnative_stop_nmea_message_collection()Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public stopSvStatusCollection()Z
+    .locals 0
+
+    invoke-static {}, Lcom/android/server/location/gnss/hal/GnssNative;->-$$Nest$smnative_stop_sv_status_collection()Z
+
+    move-result p0
+
+    return p0
 .end method

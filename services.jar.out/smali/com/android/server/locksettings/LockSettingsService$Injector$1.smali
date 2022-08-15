@@ -1,4 +1,4 @@
-.class Lcom/android/server/locksettings/LockSettingsService$Injector$1;
+.class public Lcom/android/server/locksettings/LockSettingsService$Injector$1;
 .super Ljava/lang/Object;
 .source "LockSettingsService.java"
 
@@ -12,19 +12,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/locksettings/LockSettingsService$Injector;
+.field public final synthetic this$0:Lcom/android/server/locksettings/LockSettingsService$Injector;
 
-.field final synthetic val$storage:Lcom/android/server/locksettings/LockSettingsStorage;
+.field public final synthetic val$storage:Lcom/android/server/locksettings/LockSettingsStorage;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/locksettings/LockSettingsService$Injector;Lcom/android/server/locksettings/LockSettingsStorage;)V
+.method public constructor <init>(Lcom/android/server/locksettings/LockSettingsService$Injector;Lcom/android/server/locksettings/LockSettingsStorage;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/locksettings/LockSettingsService$Injector$1;->this$0:Lcom/android/server/locksettings/LockSettingsService$Injector;
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public initialize(Landroid/database/sqlite/SQLiteDatabase;)V
-    .locals 5
+    .locals 3
 
     const-string/jumbo v0, "ro.lockscreen.disable.default"
 
@@ -51,13 +51,13 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v2, p0, Lcom/android/server/locksettings/LockSettingsService$Injector$1;->val$storage:Lcom/android/server/locksettings/LockSettingsStorage;
+    iget-object p0, p0, Lcom/android/server/locksettings/LockSettingsService$Injector$1;->val$storage:Lcom/android/server/locksettings/LockSettingsStorage;
 
-    const-string/jumbo v3, "lockscreen.disabled"
+    const-string v0, "lockscreen.disabled"
 
-    const-string v4, "1"
+    const-string v2, "1"
 
-    invoke-virtual {v2, p1, v3, v4, v1}, Lcom/android/server/locksettings/LockSettingsStorage;->writeKeyValue(Landroid/database/sqlite/SQLiteDatabase;Ljava/lang/String;Ljava/lang/String;I)V
+    invoke-virtual {p0, p1, v0, v2, v1}, Lcom/android/server/locksettings/LockSettingsStorage;->writeKeyValue(Landroid/database/sqlite/SQLiteDatabase;Ljava/lang/String;Ljava/lang/String;I)V
 
     :cond_0
     return-void

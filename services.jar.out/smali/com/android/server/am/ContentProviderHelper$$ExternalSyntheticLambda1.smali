@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/am/ContentProviderHelper$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -35,7 +36,7 @@
 
 # virtual methods
 .method public final run()V
-    .locals 4
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/am/ContentProviderHelper$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/am/ContentProviderHelper;
 
@@ -43,9 +44,9 @@
 
     iget-boolean v2, p0, Lcom/android/server/am/ContentProviderHelper$$ExternalSyntheticLambda1;->f$2:Z
 
-    iget-boolean v3, p0, Lcom/android/server/am/ContentProviderHelper$$ExternalSyntheticLambda1;->f$3:Z
+    iget-boolean p0, p0, Lcom/android/server/am/ContentProviderHelper$$ExternalSyntheticLambda1;->f$3:Z
 
-    invoke-virtual {v0, v1, v2, v3}, Lcom/android/server/am/ContentProviderHelper;->lambda$decProviderCountLocked$2$ContentProviderHelper(Lcom/android/server/am/ContentProviderConnection;ZZ)V
+    invoke-static {v0, v1, v2, p0}, Lcom/android/server/am/ContentProviderHelper;->$r8$lambda$GhmQuasr_hrtilsPbwLJWABdB2o(Lcom/android/server/am/ContentProviderHelper;Lcom/android/server/am/ContentProviderConnection;ZZ)V
 
     return-void
 .end method

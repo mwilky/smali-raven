@@ -1,4 +1,4 @@
-.class Lcom/android/server/job/controllers/ComponentController$1;
+.class public Lcom/android/server/job/controllers/ComponentController$1;
 .super Landroid/content/BroadcastReceiver;
 .source "ComponentController.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/job/controllers/ComponentController;
+.field public final synthetic this$0:Lcom/android/server/job/controllers/ComponentController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/job/controllers/ComponentController;)V
+.method public constructor <init>(Lcom/android/server/job/controllers/ComponentController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/job/controllers/ComponentController$1;->this$0:Lcom/android/server/job/controllers/ComponentController;
@@ -32,196 +32,199 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 7
+    .locals 4
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
-    const-string v1, "JobScheduler.Component"
+    const-string p0, "JobScheduler.Component"
 
-    const-string v2, "Intent action was null"
+    const-string p1, "Intent action was null"
 
-    invoke-static {v1, v2}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, p1}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
     :cond_0
-    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+    invoke-virtual {p1}, Ljava/lang/String;->hashCode()I
 
-    move-result v1
+    move-result v0
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    const/4 v3, -0x1
+    const/4 v2, -0x1
 
-    sparse-switch v1, :sswitch_data_0
+    sparse-switch v0, :sswitch_data_0
 
-    :cond_1
-    goto :goto_0
+    :goto_0
+    move p1, v2
+
+    goto :goto_1
 
     :sswitch_0
-    const-string v1, "android.intent.action.PACKAGE_ADDED"
+    const-string v0, "android.intent.action.PACKAGE_ADDED"
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result p1
 
-    if-eqz v1, :cond_1
+    if-nez p1, :cond_1
 
-    move v1, v2
+    goto :goto_0
+
+    :cond_1
+    const/4 p1, 0x3
 
     goto :goto_1
 
     :sswitch_1
-    const-string v1, "android.intent.action.USER_UNLOCKED"
+    const-string v0, "android.intent.action.USER_UNLOCKED"
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result p1
 
-    if-eqz v1, :cond_1
+    if-nez p1, :cond_2
 
-    const/4 v1, 0x2
+    goto :goto_0
+
+    :cond_2
+    const/4 p1, 0x2
 
     goto :goto_1
 
     :sswitch_2
-    const-string v1, "android.intent.action.PACKAGE_CHANGED"
+    const-string v0, "android.intent.action.PACKAGE_CHANGED"
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result p1
 
-    if-eqz v1, :cond_1
+    if-nez p1, :cond_3
 
-    const/4 v1, 0x1
+    goto :goto_0
+
+    :cond_3
+    const/4 p1, 0x1
 
     goto :goto_1
 
     :sswitch_3
-    const-string v1, "android.intent.action.USER_STOPPED"
+    const-string v0, "android.intent.action.USER_STOPPED"
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result p1
 
-    if-eqz v1, :cond_1
+    if-nez p1, :cond_4
 
-    const/4 v1, 0x3
+    goto :goto_0
 
-    goto :goto_1
-
-    :goto_0
-    move v1, v3
+    :cond_4
+    move p1, v1
 
     :goto_1
-    const-string v4, "android.intent.extra.UID"
+    const-string v0, "android.intent.extra.UID"
 
-    const/4 v5, 0x0
+    const/4 v3, 0x0
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_0
 
     goto :goto_2
 
     :pswitch_0
-    const-string v1, "android.intent.extra.user_handle"
+    const-string p1, "android.intent.extra.REPLACING"
 
-    invoke-virtual {p2, v1, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {p2, p1, v1}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
-    move-result v1
+    move-result p1
 
-    iget-object v2, p0, Lcom/android/server/job/controllers/ComponentController$1;->this$0:Lcom/android/server/job/controllers/ComponentController;
+    if-eqz p1, :cond_7
 
-    invoke-static {v2, v1}, Lcom/android/server/job/controllers/ComponentController;->access$100(Lcom/android/server/job/controllers/ComponentController;I)V
+    invoke-virtual {p2}, Landroid/content/Intent;->getData()Landroid/net/Uri;
+
+    move-result-object p1
+
+    if-eqz p1, :cond_5
+
+    invoke-virtual {p1}, Landroid/net/Uri;->getSchemeSpecificPart()Ljava/lang/String;
+
+    move-result-object v3
+
+    :cond_5
+    if-eqz v3, :cond_7
+
+    invoke-virtual {p2, v0, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+
+    move-result p1
+
+    invoke-static {p1}, Landroid/os/UserHandle;->getUserId(I)I
+
+    move-result p1
+
+    iget-object p0, p0, Lcom/android/server/job/controllers/ComponentController$1;->this$0:Lcom/android/server/job/controllers/ComponentController;
+
+    invoke-static {p0, p1, v3}, Lcom/android/server/job/controllers/ComponentController;->-$$Nest$mupdateComponentStateForPackage(Lcom/android/server/job/controllers/ComponentController;ILjava/lang/String;)V
 
     goto :goto_2
 
     :pswitch_1
     invoke-virtual {p2}, Landroid/content/Intent;->getData()Landroid/net/Uri;
 
-    move-result-object v1
+    move-result-object p1
 
-    if-eqz v1, :cond_2
+    if-eqz p1, :cond_6
 
-    invoke-virtual {v1}, Landroid/net/Uri;->getSchemeSpecificPart()Ljava/lang/String;
+    invoke-virtual {p1}, Landroid/net/Uri;->getSchemeSpecificPart()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v3
 
-    :cond_2
-    move-object v2, v5
+    :cond_6
+    const-string p1, "android.intent.extra.changed_component_name_list"
 
-    const-string v5, "android.intent.extra.changed_component_name_list"
+    invoke-virtual {p2, p1}, Landroid/content/Intent;->getStringArrayExtra(Ljava/lang/String;)[Ljava/lang/String;
 
-    invoke-virtual {p2, v5}, Landroid/content/Intent;->getStringArrayExtra(Ljava/lang/String;)[Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v5
+    if-eqz v3, :cond_7
 
-    if-eqz v2, :cond_4
+    if-eqz p1, :cond_7
 
-    if-eqz v5, :cond_4
+    array-length p1, p1
 
-    array-length v6, v5
+    if-lez p1, :cond_7
 
-    if-lez v6, :cond_4
+    invoke-virtual {p2, v0, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    invoke-virtual {p2, v4, v3}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    move-result p1
 
-    move-result v3
+    invoke-static {p1}, Landroid/os/UserHandle;->getUserId(I)I
 
-    invoke-static {v3}, Landroid/os/UserHandle;->getUserId(I)I
+    move-result p1
 
-    move-result v4
+    iget-object p0, p0, Lcom/android/server/job/controllers/ComponentController$1;->this$0:Lcom/android/server/job/controllers/ComponentController;
 
-    iget-object v6, p0, Lcom/android/server/job/controllers/ComponentController$1;->this$0:Lcom/android/server/job/controllers/ComponentController;
-
-    invoke-static {v6, v4, v2}, Lcom/android/server/job/controllers/ComponentController;->access$000(Lcom/android/server/job/controllers/ComponentController;ILjava/lang/String;)V
+    invoke-static {p0, p1, v3}, Lcom/android/server/job/controllers/ComponentController;->-$$Nest$mupdateComponentStateForPackage(Lcom/android/server/job/controllers/ComponentController;ILjava/lang/String;)V
 
     goto :goto_2
 
     :pswitch_2
-    const-string v1, "android.intent.extra.REPLACING"
+    const-string p1, "android.intent.extra.user_handle"
 
-    invoke-virtual {p2, v1, v2}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+    invoke-virtual {p2, p1, v1}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    move-result v1
+    move-result p1
 
-    if-eqz v1, :cond_4
+    iget-object p0, p0, Lcom/android/server/job/controllers/ComponentController$1;->this$0:Lcom/android/server/job/controllers/ComponentController;
 
-    invoke-virtual {p2}, Landroid/content/Intent;->getData()Landroid/net/Uri;
+    invoke-static {p0, p1}, Lcom/android/server/job/controllers/ComponentController;->-$$Nest$mupdateComponentStateForUser(Lcom/android/server/job/controllers/ComponentController;I)V
 
-    move-result-object v1
-
-    if-eqz v1, :cond_3
-
-    invoke-virtual {v1}, Landroid/net/Uri;->getSchemeSpecificPart()Ljava/lang/String;
-
-    move-result-object v5
-
-    :cond_3
-    move-object v2, v5
-
-    if-eqz v2, :cond_4
-
-    invoke-virtual {p2, v4, v3}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
-
-    move-result v3
-
-    invoke-static {v3}, Landroid/os/UserHandle;->getUserId(I)I
-
-    move-result v4
-
-    iget-object v5, p0, Lcom/android/server/job/controllers/ComponentController$1;->this$0:Lcom/android/server/job/controllers/ComponentController;
-
-    invoke-static {v5, v4, v2}, Lcom/android/server/job/controllers/ComponentController;->access$000(Lcom/android/server/job/controllers/ComponentController;ILjava/lang/String;)V
-
-    :cond_4
+    :cond_7
     :goto_2
     return-void
-
-    nop
 
     :sswitch_data_0
     .sparse-switch
@@ -235,7 +238,7 @@
     .packed-switch 0x0
         :pswitch_2
         :pswitch_1
-        :pswitch_0
+        :pswitch_2
         :pswitch_0
     .end packed-switch
 .end method

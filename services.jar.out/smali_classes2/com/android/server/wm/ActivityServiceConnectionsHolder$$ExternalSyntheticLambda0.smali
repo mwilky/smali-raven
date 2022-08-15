@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/wm/ActivityServiceConnectionsHolder$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/ActivityServiceConnectionsHolder$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/wm/ActivityServiceConnectionsHolder;
+    iget-object p0, p0, Lcom/android/server/wm/ActivityServiceConnectionsHolder$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/wm/ActivityServiceConnectionsHolder;
 
-    invoke-virtual {v0}, Lcom/android/server/wm/ActivityServiceConnectionsHolder;->lambda$disconnectActivityFromServices$0$ActivityServiceConnectionsHolder()V
+    invoke-static {p0}, Lcom/android/server/wm/ActivityServiceConnectionsHolder;->$r8$lambda$9icb9ywlQNrOTGlJtPRg1rj483M(Lcom/android/server/wm/ActivityServiceConnectionsHolder;)V
 
     return-void
 .end method

@@ -1,4 +1,4 @@
-.class Lcom/android/server/wm/DisplayArea$Dimmable;
+.class public Lcom/android/server/wm/DisplayArea$Dimmable;
 .super Lcom/android/server/wm/DisplayArea;
 .source "DisplayArea.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "Dimmable"
 .end annotation
 
@@ -23,70 +23,76 @@
 
 
 # instance fields
-.field private final mDimmer:Lcom/android/server/wm/Dimmer;
+.field public final mDimmer:Lcom/android/server/wm/Dimmer;
 
-.field private final mTmpDimBoundsRect:Landroid/graphics/Rect;
+.field public final mTmpDimBoundsRect:Landroid/graphics/Rect;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/wm/WindowManagerService;Lcom/android/server/wm/DisplayArea$Type;Ljava/lang/String;I)V
-    .locals 1
+.method public static synthetic $r8$lambda$HtkkoZkIXcEGrDXi5mCl8NOjNNQ(Lcom/android/server/wm/Task;)Z
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/server/wm/DisplayArea$Dimmable;->lambda$prepareSurfaces$0(Lcom/android/server/wm/Task;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public constructor <init>(Lcom/android/server/wm/WindowManagerService;Lcom/android/server/wm/DisplayArea$Type;Ljava/lang/String;I)V
+    .locals 0
 
     invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/server/wm/DisplayArea;-><init>(Lcom/android/server/wm/WindowManagerService;Lcom/android/server/wm/DisplayArea$Type;Ljava/lang/String;I)V
 
-    new-instance v0, Lcom/android/server/wm/Dimmer;
+    new-instance p1, Lcom/android/server/wm/Dimmer;
 
-    invoke-direct {v0, p0}, Lcom/android/server/wm/Dimmer;-><init>(Lcom/android/server/wm/WindowContainer;)V
+    invoke-direct {p1, p0}, Lcom/android/server/wm/Dimmer;-><init>(Lcom/android/server/wm/WindowContainer;)V
 
-    iput-object v0, p0, Lcom/android/server/wm/DisplayArea$Dimmable;->mDimmer:Lcom/android/server/wm/Dimmer;
+    iput-object p1, p0, Lcom/android/server/wm/DisplayArea$Dimmable;->mDimmer:Lcom/android/server/wm/Dimmer;
 
-    new-instance v0, Landroid/graphics/Rect;
+    new-instance p1, Landroid/graphics/Rect;
 
-    invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
+    invoke-direct {p1}, Landroid/graphics/Rect;-><init>()V
 
-    iput-object v0, p0, Lcom/android/server/wm/DisplayArea$Dimmable;->mTmpDimBoundsRect:Landroid/graphics/Rect;
+    iput-object p1, p0, Lcom/android/server/wm/DisplayArea$Dimmable;->mTmpDimBoundsRect:Landroid/graphics/Rect;
 
     return-void
 .end method
 
-.method static synthetic lambda$prepareSurfaces$0(Lcom/android/server/wm/Task;)Ljava/lang/Boolean;
-    .locals 1
+.method public static synthetic lambda$prepareSurfaces$0(Lcom/android/server/wm/Task;)Z
+    .locals 0
 
     invoke-virtual {p0}, Lcom/android/server/wm/Task;->canAffectSystemUiFlags()Z
 
-    move-result v0
+    move-result p0
 
-    xor-int/lit8 v0, v0, 0x1
+    xor-int/lit8 p0, p0, 0x1
 
-    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v0
-
-    return-object v0
+    return p0
 .end method
 
 
 # virtual methods
-.method getDimmer()Lcom/android/server/wm/Dimmer;
-    .locals 1
+.method public getDimmer()Lcom/android/server/wm/Dimmer;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/DisplayArea$Dimmable;->mDimmer:Lcom/android/server/wm/Dimmer;
+    iget-object p0, p0, Lcom/android/server/wm/DisplayArea$Dimmable;->mDimmer:Lcom/android/server/wm/Dimmer;
 
-    return-object v0
+    return-object p0
 .end method
 
-.method prepareSurfaces()V
+.method public prepareSurfaces()V
     .locals 3
 
     iget-object v0, p0, Lcom/android/server/wm/DisplayArea$Dimmable;->mDimmer:Lcom/android/server/wm/Dimmer;
 
     invoke-virtual {v0}, Lcom/android/server/wm/Dimmer;->resetDimStates()V
 
-    invoke-super {p0}, Lcom/android/server/wm/DisplayArea;->prepareSurfaces()V
+    invoke-super {p0}, Lcom/android/server/wm/WindowContainer;->prepareSurfaces()V
 
     iget-object v0, p0, Lcom/android/server/wm/DisplayArea$Dimmable;->mTmpDimBoundsRect:Landroid/graphics/Rect;
 
-    invoke-virtual {p0, v0}, Lcom/android/server/wm/DisplayArea$Dimmable;->getBounds(Landroid/graphics/Rect;)V
+    invoke-virtual {p0, v0}, Lcom/android/server/wm/ConfigurationContainer;->getBounds(Landroid/graphics/Rect;)V
 
     iget-object v0, p0, Lcom/android/server/wm/DisplayArea$Dimmable;->mTmpDimBoundsRect:Landroid/graphics/Rect;
 
@@ -94,9 +100,11 @@
 
     invoke-virtual {v0, v1, v1}, Landroid/graphics/Rect;->offsetTo(II)V
 
-    sget-object v0, Lcom/android/server/wm/DisplayArea$Dimmable$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/server/wm/DisplayArea$Dimmable$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/android/server/wm/DisplayArea$Dimmable$$ExternalSyntheticLambda0;
 
-    invoke-virtual {p0, v0}, Lcom/android/server/wm/DisplayArea$Dimmable;->forAllTasks(Ljava/util/function/Function;)Z
+    invoke-direct {v0}, Lcom/android/server/wm/DisplayArea$Dimmable$$ExternalSyntheticLambda0;-><init>()V
+
+    invoke-virtual {p0, v0}, Lcom/android/server/wm/WindowContainer;->forAllTasks(Ljava/util/function/Predicate;)Z
 
     move-result v0
 
@@ -109,7 +117,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/server/wm/DisplayArea$Dimmable;->mDimmer:Lcom/android/server/wm/Dimmer;
 
-    invoke-virtual {p0}, Lcom/android/server/wm/DisplayArea$Dimmable;->getPendingTransaction()Landroid/view/SurfaceControl$Transaction;
+    invoke-virtual {p0}, Lcom/android/server/wm/DisplayArea;->getSyncTransaction()Landroid/view/SurfaceControl$Transaction;
 
     move-result-object v1
 
@@ -121,7 +129,7 @@
 
     if-eqz v0, :cond_1
 
-    invoke-virtual {p0}, Lcom/android/server/wm/DisplayArea$Dimmable;->scheduleAnimation()V
+    invoke-virtual {p0}, Lcom/android/server/wm/WindowContainer;->scheduleAnimation()V
 
     :cond_1
     return-void

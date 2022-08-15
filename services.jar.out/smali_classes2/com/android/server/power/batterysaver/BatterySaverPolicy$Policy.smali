@@ -1,4 +1,4 @@
-.class Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;
+.class public Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;
 .super Ljava/lang/Object;
 .source "BatterySaverPolicy.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "Policy"
 .end annotation
 
@@ -18,10 +18,6 @@
 .field public final adjustBrightnessFactor:F
 
 .field public final advertiseIsEnabled:Z
-
-.field public final cpuFrequenciesForInteractive:Lcom/android/server/power/batterysaver/CpuFrequencies;
-
-.field public final cpuFrequenciesForNoninteractive:Lcom/android/server/power/batterysaver/CpuFrequencies;
 
 .field public final deferFullBackup:Z
 
@@ -53,358 +49,342 @@
 
 .field public final locationMode:I
 
-.field private final mHashCode:I
+.field public final mHashCode:I
 
 .field public final soundTriggerMode:I
 
 
 # direct methods
-.method constructor <init>(FZLcom/android/server/power/batterysaver/CpuFrequencies;Lcom/android/server/power/batterysaver/CpuFrequencies;ZZZZZZZZZZZZZZII)V
+.method public static bridge synthetic -$$Nest$smfromSettings(Ljava/lang/String;Ljava/lang/String;Landroid/provider/DeviceConfig$Properties;Ljava/lang/String;Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;)Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;
+    .locals 0
+
+    invoke-static {p0, p1, p2, p3, p4}, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->fromSettings(Ljava/lang/String;Ljava/lang/String;Landroid/provider/DeviceConfig$Properties;Ljava/lang/String;Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;)Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public constructor <init>(FZZZZZZZZZZZZZZZII)V
     .locals 16
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, p3
+    move/from16 v1, p17
 
-    move-object/from16 v2, p4
-
-    move/from16 v3, p19
-
-    move/from16 v4, p20
+    move/from16 v2, p18
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    const/4 v5, 0x0
+    const/4 v3, 0x0
 
-    move/from16 v6, p1
+    move/from16 v4, p1
 
-    invoke-static {v5, v6}, Ljava/lang/Math;->max(FF)F
+    invoke-static {v3, v4}, Ljava/lang/Math;->max(FF)F
 
-    move-result v5
+    move-result v3
 
-    const/high16 v7, 0x3f800000    # 1.0f
+    const/high16 v5, 0x3f800000    # 1.0f
 
-    invoke-static {v7, v5}, Ljava/lang/Math;->min(FF)F
+    invoke-static {v5, v3}, Ljava/lang/Math;->min(FF)F
 
-    move-result v5
+    move-result v3
 
-    iput v5, v0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->adjustBrightnessFactor:F
+    iput v3, v0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->adjustBrightnessFactor:F
 
-    move/from16 v5, p2
+    move/from16 v3, p2
 
-    iput-boolean v5, v0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->advertiseIsEnabled:Z
+    iput-boolean v3, v0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->advertiseIsEnabled:Z
 
-    iput-object v1, v0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->cpuFrequenciesForInteractive:Lcom/android/server/power/batterysaver/CpuFrequencies;
+    move/from16 v5, p3
 
-    iput-object v2, v0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->cpuFrequenciesForNoninteractive:Lcom/android/server/power/batterysaver/CpuFrequencies;
+    iput-boolean v5, v0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->deferFullBackup:Z
+
+    move/from16 v6, p4
+
+    iput-boolean v6, v0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->deferKeyValueBackup:Z
 
     move/from16 v7, p5
 
-    iput-boolean v7, v0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->deferFullBackup:Z
+    iput-boolean v7, v0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->disableAnimation:Z
 
     move/from16 v8, p6
 
-    iput-boolean v8, v0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->deferKeyValueBackup:Z
+    iput-boolean v8, v0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->disableAod:Z
 
     move/from16 v9, p7
 
-    iput-boolean v9, v0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->disableAnimation:Z
+    iput-boolean v9, v0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->disableLaunchBoost:Z
 
     move/from16 v10, p8
 
-    iput-boolean v10, v0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->disableAod:Z
+    iput-boolean v10, v0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->disableOptionalSensors:Z
 
     move/from16 v11, p9
 
-    iput-boolean v11, v0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->disableLaunchBoost:Z
+    iput-boolean v11, v0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->disableVibration:Z
 
     move/from16 v12, p10
 
-    iput-boolean v12, v0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->disableOptionalSensors:Z
+    iput-boolean v12, v0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->enableAdjustBrightness:Z
 
     move/from16 v13, p11
 
-    iput-boolean v13, v0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->disableVibration:Z
+    iput-boolean v13, v0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->enableDataSaver:Z
 
     move/from16 v14, p12
 
-    iput-boolean v14, v0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->enableAdjustBrightness:Z
+    iput-boolean v14, v0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->enableFirewall:Z
 
     move/from16 v15, p13
 
-    iput-boolean v15, v0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->enableDataSaver:Z
+    iput-boolean v15, v0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->enableNightMode:Z
 
-    move/from16 v5, p14
+    move/from16 v3, p14
 
-    iput-boolean v5, v0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->enableFirewall:Z
+    iput-boolean v3, v0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->enableQuickDoze:Z
 
-    move/from16 v5, p15
+    move/from16 v3, p15
 
-    iput-boolean v5, v0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->enableNightMode:Z
+    iput-boolean v3, v0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->forceAllAppsStandby:Z
 
-    move/from16 v5, p16
+    move/from16 v3, p16
 
-    iput-boolean v5, v0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->enableQuickDoze:Z
+    iput-boolean v3, v0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->forceBackgroundCheck:Z
 
-    move/from16 v5, p17
+    const-string v3, "BatterySaverPolicy"
 
-    iput-boolean v5, v0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->forceAllAppsStandby:Z
+    if-ltz v1, :cond_1
 
-    move/from16 v5, p18
+    const/4 v4, 0x4
 
-    iput-boolean v5, v0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->forceBackgroundCheck:Z
-
-    const-string v5, "BatterySaverPolicy"
-
-    if-ltz v3, :cond_1
-
-    const/4 v6, 0x4
-
-    if-ge v6, v3, :cond_0
+    if-ge v4, v1, :cond_0
 
     goto :goto_0
 
     :cond_0
-    iput v3, v0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->locationMode:I
+    iput v1, v0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->locationMode:I
 
     goto :goto_1
 
     :cond_1
     :goto_0
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v7, "Invalid location mode: "
+    const-string v5, "Invalid location mode: "
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v4
 
-    invoke-static {v5, v6}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 v6, 0x0
+    const/4 v4, 0x0
 
-    iput v6, v0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->locationMode:I
+    iput v4, v0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->locationMode:I
 
     :goto_1
-    const/4 v6, 0x2
+    const/4 v4, 0x2
 
-    if-ltz v4, :cond_3
+    if-ltz v2, :cond_3
 
-    if-le v4, v6, :cond_2
+    if-le v2, v4, :cond_2
 
     goto :goto_2
 
     :cond_2
-    iput v4, v0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->soundTriggerMode:I
+    iput v2, v0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->soundTriggerMode:I
 
-    const/4 v5, 0x0
+    const/4 v3, 0x0
 
     goto :goto_3
 
     :cond_3
     :goto_2
-    new-instance v7, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v6, "Invalid SoundTrigger mode: "
+    const-string v4, "Invalid SoundTrigger mode: "
 
-    invoke-virtual {v7, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v7, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v4
 
-    invoke-static {v5, v6}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 v5, 0x0
+    const/4 v3, 0x0
 
-    iput v5, v0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->soundTriggerMode:I
+    iput v3, v0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->soundTriggerMode:I
 
     :goto_3
-    const/16 v6, 0x14
+    const/16 v4, 0x12
 
-    new-array v6, v6, [Ljava/lang/Object;
+    new-array v4, v4, [Ljava/lang/Object;
 
     invoke-static/range {p1 .. p1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
-    move-result-object v7
+    move-result-object v5
 
-    aput-object v7, v6, v5
+    aput-object v5, v4, v3
 
-    const/4 v5, 0x1
+    const/4 v3, 0x1
 
     invoke-static/range {p2 .. p2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v7
+    move-result-object v5
 
-    aput-object v7, v6, v5
+    aput-object v5, v4, v3
+
+    invoke-static/range {p3 .. p3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v3
 
     const/4 v5, 0x2
 
-    aput-object v1, v6, v5
+    aput-object v3, v4, v5
 
-    const/4 v5, 0x3
+    const/4 v3, 0x3
 
-    aput-object v2, v6, v5
-
-    invoke-static/range {p5 .. p5}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    invoke-static/range {p4 .. p4}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v5
 
-    const/4 v7, 0x4
+    aput-object v5, v4, v3
 
-    aput-object v5, v6, v7
+    invoke-static/range {p5 .. p5}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    const/4 v5, 0x5
+    move-result-object v3
+
+    const/4 v5, 0x4
+
+    aput-object v3, v4, v5
+
+    const/4 v3, 0x5
 
     invoke-static/range {p6 .. p6}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v7
+    move-result-object v5
 
-    aput-object v7, v6, v5
+    aput-object v5, v4, v3
 
-    const/4 v5, 0x6
+    const/4 v3, 0x6
 
     invoke-static/range {p7 .. p7}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v7
+    move-result-object v5
 
-    aput-object v7, v6, v5
+    aput-object v5, v4, v3
 
-    const/4 v5, 0x7
+    const/4 v3, 0x7
 
     invoke-static/range {p8 .. p8}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v7
+    move-result-object v5
 
-    aput-object v7, v6, v5
+    aput-object v5, v4, v3
 
-    const/16 v5, 0x8
+    const/16 v3, 0x8
 
     invoke-static/range {p9 .. p9}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v7
+    move-result-object v5
 
-    aput-object v7, v6, v5
+    aput-object v5, v4, v3
 
-    const/16 v5, 0x9
+    const/16 v3, 0x9
 
     invoke-static/range {p10 .. p10}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v7
+    move-result-object v5
 
-    aput-object v7, v6, v5
+    aput-object v5, v4, v3
 
-    const/16 v5, 0xa
+    const/16 v3, 0xa
 
     invoke-static/range {p11 .. p11}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v7
+    move-result-object v5
 
-    aput-object v7, v6, v5
+    aput-object v5, v4, v3
 
-    const/16 v5, 0xb
+    const/16 v3, 0xb
 
     invoke-static/range {p12 .. p12}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v7
+    move-result-object v5
 
-    aput-object v7, v6, v5
+    aput-object v5, v4, v3
 
-    const/16 v5, 0xc
+    const/16 v3, 0xc
 
     invoke-static/range {p13 .. p13}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v7
+    move-result-object v5
 
-    aput-object v7, v6, v5
+    aput-object v5, v4, v3
 
-    const/16 v5, 0xd
+    const/16 v3, 0xd
 
     invoke-static/range {p14 .. p14}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v7
+    move-result-object v5
 
-    aput-object v7, v6, v5
+    aput-object v5, v4, v3
 
-    const/16 v5, 0xe
+    const/16 v3, 0xe
 
     invoke-static/range {p15 .. p15}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v7
+    move-result-object v5
 
-    aput-object v7, v6, v5
+    aput-object v5, v4, v3
 
-    const/16 v5, 0xf
+    const/16 v3, 0xf
 
     invoke-static/range {p16 .. p16}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v7
+    move-result-object v5
 
-    aput-object v7, v6, v5
+    aput-object v5, v4, v3
 
-    const/16 v5, 0x10
+    const/16 v3, 0x10
 
-    invoke-static/range {p17 .. p17}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    invoke-static/range {p17 .. p17}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v7
+    move-result-object v1
 
-    aput-object v7, v6, v5
+    aput-object v1, v4, v3
 
-    const/16 v5, 0x11
+    const/16 v1, 0x11
 
-    invoke-static/range {p18 .. p18}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    invoke-static/range {p18 .. p18}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v7
+    move-result-object v2
 
-    aput-object v7, v6, v5
+    aput-object v2, v4, v1
 
-    const/16 v5, 0x12
+    invoke-static {v4}, Ljava/util/Objects;->hash([Ljava/lang/Object;)I
 
-    invoke-static/range {p19 .. p19}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result v1
 
-    move-result-object v7
-
-    aput-object v7, v6, v5
-
-    const/16 v5, 0x13
-
-    invoke-static/range {p20 .. p20}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v7
-
-    aput-object v7, v6, v5
-
-    invoke-static {v6}, Ljava/util/Objects;->hash([Ljava/lang/Object;)I
-
-    move-result v5
-
-    iput v5, v0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->mHashCode:I
+    iput v1, v0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->mHashCode:I
 
     return-void
 .end method
 
-.method static synthetic access$200(Ljava/lang/String;Ljava/lang/String;Landroid/provider/DeviceConfig$Properties;Ljava/lang/String;Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;)Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;
-    .locals 1
-
-    invoke-static {p0, p1, p2, p3, p4}, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->fromSettings(Ljava/lang/String;Ljava/lang/String;Landroid/provider/DeviceConfig$Properties;Ljava/lang/String;Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;)Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method static fromConfig(Landroid/os/BatterySaverPolicyConfig;)Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;
-    .locals 25
+.method public static fromConfig(Landroid/os/BatterySaverPolicyConfig;)Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;
+    .locals 20
 
     if-nez p0, :cond_0
 
@@ -421,755 +401,639 @@
     :cond_0
     invoke-virtual/range {p0 .. p0}, Landroid/os/BatterySaverPolicyConfig;->getDeviceSpecificSettings()Ljava/util/Map;
 
-    move-result-object v0
+    new-instance v0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;
 
-    nop
-
-    const-string v1, "cpufreq-i"
-
-    const-string v2, ""
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->getOrDefault(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/lang/String;
-
-    nop
-
-    const-string v3, "cpufreq-n"
-
-    invoke-interface {v0, v3, v2}, Ljava/util/Map;->getOrDefault(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Ljava/lang/String;
-
-    new-instance v24, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;
-
-    move-object/from16 v3, v24
+    move-object v1, v0
 
     invoke-virtual/range {p0 .. p0}, Landroid/os/BatterySaverPolicyConfig;->getAdjustBrightnessFactor()F
 
-    move-result v4
+    move-result v2
 
     invoke-virtual/range {p0 .. p0}, Landroid/os/BatterySaverPolicyConfig;->getAdvertiseIsEnabled()Z
 
-    move-result v5
-
-    new-instance v6, Lcom/android/server/power/batterysaver/CpuFrequencies;
-
-    invoke-direct {v6}, Lcom/android/server/power/batterysaver/CpuFrequencies;-><init>()V
-
-    invoke-virtual {v6, v1}, Lcom/android/server/power/batterysaver/CpuFrequencies;->parseString(Ljava/lang/String;)Lcom/android/server/power/batterysaver/CpuFrequencies;
-
-    move-result-object v6
-
-    new-instance v7, Lcom/android/server/power/batterysaver/CpuFrequencies;
-
-    invoke-direct {v7}, Lcom/android/server/power/batterysaver/CpuFrequencies;-><init>()V
-
-    invoke-virtual {v7, v2}, Lcom/android/server/power/batterysaver/CpuFrequencies;->parseString(Ljava/lang/String;)Lcom/android/server/power/batterysaver/CpuFrequencies;
-
-    move-result-object v7
+    move-result v3
 
     invoke-virtual/range {p0 .. p0}, Landroid/os/BatterySaverPolicyConfig;->getDeferFullBackup()Z
 
-    move-result v8
+    move-result v4
 
     invoke-virtual/range {p0 .. p0}, Landroid/os/BatterySaverPolicyConfig;->getDeferKeyValueBackup()Z
 
-    move-result v9
+    move-result v5
 
     invoke-virtual/range {p0 .. p0}, Landroid/os/BatterySaverPolicyConfig;->getDisableAnimation()Z
 
-    move-result v10
+    move-result v6
 
     invoke-virtual/range {p0 .. p0}, Landroid/os/BatterySaverPolicyConfig;->getDisableAod()Z
 
-    move-result v11
+    move-result v7
 
     invoke-virtual/range {p0 .. p0}, Landroid/os/BatterySaverPolicyConfig;->getDisableLaunchBoost()Z
 
-    move-result v12
+    move-result v8
 
     invoke-virtual/range {p0 .. p0}, Landroid/os/BatterySaverPolicyConfig;->getDisableOptionalSensors()Z
 
-    move-result v13
+    move-result v9
 
     invoke-virtual/range {p0 .. p0}, Landroid/os/BatterySaverPolicyConfig;->getDisableVibration()Z
 
-    move-result v14
+    move-result v10
 
     invoke-virtual/range {p0 .. p0}, Landroid/os/BatterySaverPolicyConfig;->getEnableAdjustBrightness()Z
 
-    move-result v15
+    move-result v11
 
     invoke-virtual/range {p0 .. p0}, Landroid/os/BatterySaverPolicyConfig;->getEnableDataSaver()Z
 
-    move-result v16
+    move-result v12
 
     invoke-virtual/range {p0 .. p0}, Landroid/os/BatterySaverPolicyConfig;->getEnableFirewall()Z
 
-    move-result v17
+    move-result v13
 
     invoke-virtual/range {p0 .. p0}, Landroid/os/BatterySaverPolicyConfig;->getEnableNightMode()Z
 
-    move-result v18
+    move-result v14
 
     invoke-virtual/range {p0 .. p0}, Landroid/os/BatterySaverPolicyConfig;->getEnableQuickDoze()Z
 
-    move-result v19
+    move-result v15
 
     invoke-virtual/range {p0 .. p0}, Landroid/os/BatterySaverPolicyConfig;->getForceAllAppsStandby()Z
 
-    move-result v20
+    move-result v16
 
     invoke-virtual/range {p0 .. p0}, Landroid/os/BatterySaverPolicyConfig;->getForceBackgroundCheck()Z
 
-    move-result v21
+    move-result v17
 
     invoke-virtual/range {p0 .. p0}, Landroid/os/BatterySaverPolicyConfig;->getLocationMode()I
 
-    move-result v22
+    move-result v18
 
     invoke-virtual/range {p0 .. p0}, Landroid/os/BatterySaverPolicyConfig;->getSoundTriggerMode()I
 
-    move-result v23
+    move-result v19
 
-    invoke-direct/range {v3 .. v23}, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;-><init>(FZLcom/android/server/power/batterysaver/CpuFrequencies;Lcom/android/server/power/batterysaver/CpuFrequencies;ZZZZZZZZZZZZZZII)V
+    invoke-direct/range {v1 .. v19}, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;-><init>(FZZZZZZZZZZZZZZZII)V
 
-    return-object v24
+    return-object v0
 .end method
 
-.method static fromSettings(Ljava/lang/String;Ljava/lang/String;Landroid/provider/DeviceConfig$Properties;Ljava/lang/String;)Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;
+.method public static fromSettings(Ljava/lang/String;Ljava/lang/String;Landroid/provider/DeviceConfig$Properties;Ljava/lang/String;)Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;
     .locals 1
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
 
     sget-object v0, Lcom/android/server/power/batterysaver/BatterySaverPolicy;->OFF_POLICY:Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;
 
     invoke-static {p0, p1, p2, p3, v0}, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->fromSettings(Ljava/lang/String;Ljava/lang/String;Landroid/provider/DeviceConfig$Properties;Ljava/lang/String;Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;)Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
-.method private static fromSettings(Ljava/lang/String;Ljava/lang/String;Landroid/provider/DeviceConfig$Properties;Ljava/lang/String;Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;)Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;
-    .locals 48
+.method public static fromSettings(Ljava/lang/String;Ljava/lang/String;Landroid/provider/DeviceConfig$Properties;Ljava/lang/String;Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;)Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;
+    .locals 25
 
-    move-object/from16 v1, p0
+    move-object/from16 v0, p0
 
-    move-object/from16 v2, p1
+    move-object/from16 v1, p1
 
-    move-object/from16 v3, p2
+    move-object/from16 v2, p2
 
-    move-object/from16 v4, p4
+    move-object/from16 v3, p4
 
-    new-instance v0, Landroid/util/KeyValueListParser;
+    new-instance v4, Landroid/util/KeyValueListParser;
 
     const/16 v5, 0x2c
 
-    invoke-direct {v0, v5}, Landroid/util/KeyValueListParser;-><init>(C)V
-
-    move-object v5, v0
+    invoke-direct {v4, v5}, Landroid/util/KeyValueListParser;-><init>(C)V
 
     invoke-static/range {p3 .. p3}, Landroid/text/TextUtils;->emptyIfNull(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v5
 
-    const-string v7, "BatterySaverPolicy"
+    const-string v6, "BatterySaverPolicy"
 
-    const-string v8, ""
+    const-string v7, ""
 
-    if-nez v2, :cond_0
+    if-nez v1, :cond_0
 
-    move-object v0, v8
+    move-object v8, v7
 
     goto :goto_0
 
     :cond_0
-    move-object v0, v2
+    move-object v8, v1
 
     :goto_0
     :try_start_0
-    invoke-virtual {v5, v0}, Landroid/util/KeyValueListParser;->setString(Ljava/lang/String;)V
+    invoke-virtual {v4, v8}, Landroid/util/KeyValueListParser;->setString(Ljava/lang/String;)V
     :try_end_0
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_1
 
     :catch_0
-    move-exception v0
+    new-instance v8, Ljava/lang/StringBuilder;
 
-    move-object v9, v0
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-object v0, v9
+    const-string v9, "Bad device specific battery saver constants: "
 
-    new-instance v9, Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v8, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v10, "Bad device specific battery saver constants: "
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    invoke-virtual {v9, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-static {v7, v9}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v1}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;)I
 
     :goto_1
-    const-string v0, "cpufreq-i"
-
-    invoke-virtual {v5, v0, v8}, Landroid/util/KeyValueListParser;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v9
-
-    const-string v0, "cpufreq-n"
-
-    invoke-virtual {v5, v0, v8}, Landroid/util/KeyValueListParser;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v10
-
-    if-nez v1, :cond_1
+    if-nez v0, :cond_1
 
     goto :goto_2
 
     :cond_1
-    move-object v8, v1
+    move-object v7, v0
 
     :goto_2
     :try_start_1
-    invoke-virtual {v5, v8}, Landroid/util/KeyValueListParser;->setString(Ljava/lang/String;)V
+    invoke-virtual {v4, v7}, Landroid/util/KeyValueListParser;->setString(Ljava/lang/String;)V
     :try_end_1
     .catch Ljava/lang/IllegalArgumentException; {:try_start_1 .. :try_end_1} :catch_1
 
     goto :goto_3
 
     :catch_1
-    move-exception v0
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    move-object v8, v0
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-object v0, v8
+    const-string v7, "Bad battery saver constants: "
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v11, "Bad battery saver constants: "
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v8, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    invoke-virtual {v8, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v7, v8}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v0}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;)I
 
     :goto_3
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v7, "adjust_brightness_factor"
+    const-string v1, "adjust_brightness_factor"
 
-    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    iget v8, v4, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->adjustBrightnessFactor:F
+    iget v6, v3, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->adjustBrightnessFactor:F
 
-    invoke-virtual {v3, v0, v8}, Landroid/provider/DeviceConfig$Properties;->getFloat(Ljava/lang/String;F)F
-
-    move-result v0
-
-    invoke-virtual {v5, v7, v0}, Landroid/util/KeyValueListParser;->getFloat(Ljava/lang/String;F)F
+    invoke-virtual {v2, v0, v6}, Landroid/provider/DeviceConfig$Properties;->getFloat(Ljava/lang/String;F)F
 
     move-result v0
 
-    move v12, v0
-
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v8, "advertise_is_enabled"
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v7, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    iget-boolean v11, v4, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->advertiseIsEnabled:Z
-
-    invoke-virtual {v3, v7, v11}, Landroid/provider/DeviceConfig$Properties;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-virtual {v4, v1, v0}, Landroid/util/KeyValueListParser;->getFloat(Ljava/lang/String;F)F
 
     move-result v7
 
-    invoke-virtual {v5, v8, v7}, Landroid/util/KeyValueListParser;->getBoolean(Ljava/lang/String;Z)Z
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    move-result v7
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    move v13, v7
+    const-string v1, "advertise_is_enabled"
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v11, "defer_full_backup"
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v8, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    invoke-virtual {v8, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-boolean v6, v3, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->advertiseIsEnabled:Z
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2, v0, v6}, Landroid/provider/DeviceConfig$Properties;->getBoolean(Ljava/lang/String;Z)Z
 
-    move-result-object v8
+    move-result v0
 
-    iget-boolean v14, v4, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->deferFullBackup:Z
-
-    invoke-virtual {v3, v8, v14}, Landroid/provider/DeviceConfig$Properties;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-virtual {v4, v1, v0}, Landroid/util/KeyValueListParser;->getBoolean(Ljava/lang/String;Z)Z
 
     move-result v8
 
-    invoke-virtual {v5, v11, v8}, Landroid/util/KeyValueListParser;->getBoolean(Ljava/lang/String;Z)Z
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    move-result v8
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    move/from16 v16, v8
+    const-string v1, "defer_full_backup"
 
-    new-instance v11, Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v14, "defer_keyvalue_backup"
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v11, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    invoke-virtual {v11, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-boolean v6, v3, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->deferFullBackup:Z
 
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2, v0, v6}, Landroid/provider/DeviceConfig$Properties;->getBoolean(Ljava/lang/String;Z)Z
 
-    move-result-object v11
+    move-result v0
 
-    iget-boolean v15, v4, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->deferKeyValueBackup:Z
+    invoke-virtual {v4, v1, v0}, Landroid/util/KeyValueListParser;->getBoolean(Ljava/lang/String;Z)Z
 
-    invoke-virtual {v3, v11, v15}, Landroid/provider/DeviceConfig$Properties;->getBoolean(Ljava/lang/String;Z)Z
+    move-result v9
 
-    move-result v11
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v14, v11}, Landroid/util/KeyValueListParser;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result v32
+    const-string v1, "defer_keyvalue_backup"
 
-    move/from16 v17, v32
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    new-instance v11, Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    const-string v14, "disable_animation"
+    move-result-object v0
 
-    invoke-virtual {v11, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-boolean v6, v3, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->deferKeyValueBackup:Z
 
-    invoke-virtual {v11, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0, v6}, Landroid/provider/DeviceConfig$Properties;->getBoolean(Ljava/lang/String;Z)Z
 
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result v0
 
-    move-result-object v11
+    invoke-virtual {v4, v1, v0}, Landroid/util/KeyValueListParser;->getBoolean(Ljava/lang/String;Z)Z
 
-    iget-boolean v15, v4, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->disableAnimation:Z
+    move-result v10
 
-    invoke-virtual {v3, v11, v15}, Landroid/provider/DeviceConfig$Properties;->getBoolean(Ljava/lang/String;Z)Z
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    move-result v11
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v5, v14, v11}, Landroid/util/KeyValueListParser;->getBoolean(Ljava/lang/String;Z)Z
+    const-string v1, "disable_animation"
 
-    move-result v33
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move/from16 v18, v33
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    new-instance v11, Ljava/lang/StringBuilder;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object v0
 
-    const-string v14, "disable_aod"
+    iget-boolean v6, v3, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->disableAnimation:Z
 
-    invoke-virtual {v11, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0, v6}, Landroid/provider/DeviceConfig$Properties;->getBoolean(Ljava/lang/String;Z)Z
 
-    invoke-virtual {v11, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result v0
 
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v11
-
-    iget-boolean v15, v4, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->disableAod:Z
-
-    invoke-virtual {v3, v11, v15}, Landroid/provider/DeviceConfig$Properties;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-virtual {v4, v1, v0}, Landroid/util/KeyValueListParser;->getBoolean(Ljava/lang/String;Z)Z
 
     move-result v11
 
-    invoke-virtual {v5, v14, v11}, Landroid/util/KeyValueListParser;->getBoolean(Ljava/lang/String;Z)Z
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    move-result v34
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    move/from16 v19, v34
+    const-string v1, "disable_aod"
 
-    new-instance v11, Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v14, "disable_launch_boost"
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v11, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    invoke-virtual {v11, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-boolean v6, v3, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->disableAod:Z
 
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2, v0, v6}, Landroid/provider/DeviceConfig$Properties;->getBoolean(Ljava/lang/String;Z)Z
 
-    move-result-object v11
+    move-result v0
 
-    iget-boolean v15, v4, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->disableLaunchBoost:Z
+    invoke-virtual {v4, v1, v0}, Landroid/util/KeyValueListParser;->getBoolean(Ljava/lang/String;Z)Z
 
-    invoke-virtual {v3, v11, v15}, Landroid/provider/DeviceConfig$Properties;->getBoolean(Ljava/lang/String;Z)Z
+    move-result v12
 
-    move-result v11
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v14, v11}, Landroid/util/KeyValueListParser;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result v35
+    const-string v1, "disable_launch_boost"
 
-    move/from16 v20, v35
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    new-instance v11, Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    const-string v14, "disable_optional_sensors"
+    move-result-object v0
 
-    invoke-virtual {v11, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-boolean v6, v3, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->disableLaunchBoost:Z
 
-    invoke-virtual {v11, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0, v6}, Landroid/provider/DeviceConfig$Properties;->getBoolean(Ljava/lang/String;Z)Z
 
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result v0
 
-    move-result-object v11
+    invoke-virtual {v4, v1, v0}, Landroid/util/KeyValueListParser;->getBoolean(Ljava/lang/String;Z)Z
 
-    iget-boolean v15, v4, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->disableOptionalSensors:Z
+    move-result v13
 
-    invoke-virtual {v3, v11, v15}, Landroid/provider/DeviceConfig$Properties;->getBoolean(Ljava/lang/String;Z)Z
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    move-result v11
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v5, v14, v11}, Landroid/util/KeyValueListParser;->getBoolean(Ljava/lang/String;Z)Z
+    const-string v1, "disable_optional_sensors"
 
-    move-result v36
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move/from16 v21, v36
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    new-instance v11, Ljava/lang/StringBuilder;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object v0
 
-    const-string v14, "disable_vibration"
+    iget-boolean v6, v3, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->disableOptionalSensors:Z
 
-    invoke-virtual {v11, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0, v6}, Landroid/provider/DeviceConfig$Properties;->getBoolean(Ljava/lang/String;Z)Z
 
-    invoke-virtual {v11, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result v0
 
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4, v1, v0}, Landroid/util/KeyValueListParser;->getBoolean(Ljava/lang/String;Z)Z
 
-    move-result-object v11
+    move-result v14
 
-    iget-boolean v15, v4, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->disableVibration:Z
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v11, v15}, Landroid/provider/DeviceConfig$Properties;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result v11
+    const-string v1, "disable_vibration"
 
-    invoke-virtual {v5, v14, v11}, Landroid/util/KeyValueListParser;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result v37
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move/from16 v22, v37
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    new-instance v11, Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+    iget-boolean v6, v3, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->disableVibration:Z
 
-    const-string v14, "enable_brightness_adjustment"
+    invoke-virtual {v2, v0, v6}, Landroid/provider/DeviceConfig$Properties;->getBoolean(Ljava/lang/String;Z)Z
 
-    invoke-virtual {v11, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result v0
 
-    invoke-virtual {v11, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v1, v0}, Landroid/util/KeyValueListParser;->getBoolean(Ljava/lang/String;Z)Z
 
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result v15
 
-    move-result-object v11
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    iget-boolean v15, v4, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->enableAdjustBrightness:Z
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v3, v11, v15}, Landroid/provider/DeviceConfig$Properties;->getBoolean(Ljava/lang/String;Z)Z
+    const-string v1, "enable_brightness_adjustment"
 
-    move-result v11
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v14, v11}, Landroid/util/KeyValueListParser;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result v38
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move/from16 v23, v38
+    move-result-object v0
 
-    new-instance v11, Ljava/lang/StringBuilder;
+    iget-boolean v6, v3, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->enableAdjustBrightness:Z
 
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v2, v0, v6}, Landroid/provider/DeviceConfig$Properties;->getBoolean(Ljava/lang/String;Z)Z
 
-    const-string v14, "enable_datasaver"
+    move-result v0
 
-    invoke-virtual {v11, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v1, v0}, Landroid/util/KeyValueListParser;->getBoolean(Ljava/lang/String;Z)Z
 
-    invoke-virtual {v11, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result v16
 
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-boolean v15, v4, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->enableDataSaver:Z
+    const-string v1, "enable_datasaver"
 
-    invoke-virtual {v3, v11, v15}, Landroid/provider/DeviceConfig$Properties;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result v11
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v14, v11}, Landroid/util/KeyValueListParser;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result v39
+    move-result-object v0
 
-    move/from16 v24, v39
+    iget-boolean v6, v3, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->enableDataSaver:Z
 
-    new-instance v11, Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0, v6}, Landroid/provider/DeviceConfig$Properties;->getBoolean(Ljava/lang/String;Z)Z
 
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+    move-result v0
 
-    const-string v14, "enable_firewall"
+    invoke-virtual {v4, v1, v0}, Landroid/util/KeyValueListParser;->getBoolean(Ljava/lang/String;Z)Z
 
-    invoke-virtual {v11, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result v17
 
-    invoke-virtual {v11, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object v11
+    const-string v1, "enable_firewall"
 
-    iget-boolean v15, v4, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->enableFirewall:Z
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v11, v15}, Landroid/provider/DeviceConfig$Properties;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result v11
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v5, v14, v11}, Landroid/util/KeyValueListParser;->getBoolean(Ljava/lang/String;Z)Z
+    move-result-object v0
 
-    move-result v40
+    iget-boolean v6, v3, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->enableFirewall:Z
 
-    move/from16 v25, v40
+    invoke-virtual {v2, v0, v6}, Landroid/provider/DeviceConfig$Properties;->getBoolean(Ljava/lang/String;Z)Z
 
-    new-instance v11, Ljava/lang/StringBuilder;
+    move-result v0
 
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v4, v1, v0}, Landroid/util/KeyValueListParser;->getBoolean(Ljava/lang/String;Z)Z
 
-    const-string v14, "enable_night_mode"
+    move-result v18
 
-    invoke-virtual {v11, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v11, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string v1, "enable_night_mode"
 
-    move-result-object v11
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-boolean v15, v4, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->enableNightMode:Z
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v11, v15}, Landroid/provider/DeviceConfig$Properties;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result v11
+    move-result-object v0
 
-    invoke-virtual {v5, v14, v11}, Landroid/util/KeyValueListParser;->getBoolean(Ljava/lang/String;Z)Z
+    iget-boolean v6, v3, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->enableNightMode:Z
 
-    move-result v41
+    invoke-virtual {v2, v0, v6}, Landroid/provider/DeviceConfig$Properties;->getBoolean(Ljava/lang/String;Z)Z
 
-    move/from16 v26, v41
+    move-result v0
 
-    new-instance v11, Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v1, v0}, Landroid/util/KeyValueListParser;->getBoolean(Ljava/lang/String;Z)Z
 
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+    move-result v19
 
-    const-string v14, "enable_quick_doze"
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v11, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v11, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, "enable_quick_doze"
 
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-boolean v15, v4, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->enableQuickDoze:Z
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v3, v11, v15}, Landroid/provider/DeviceConfig$Properties;->getBoolean(Ljava/lang/String;Z)Z
+    move-result-object v0
 
-    move-result v11
+    iget-boolean v6, v3, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->enableQuickDoze:Z
 
-    invoke-virtual {v5, v14, v11}, Landroid/util/KeyValueListParser;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-virtual {v2, v0, v6}, Landroid/provider/DeviceConfig$Properties;->getBoolean(Ljava/lang/String;Z)Z
 
-    move-result v42
+    move-result v0
 
-    move/from16 v27, v42
+    invoke-virtual {v4, v1, v0}, Landroid/util/KeyValueListParser;->getBoolean(Ljava/lang/String;Z)Z
 
-    new-instance v11, Ljava/lang/StringBuilder;
+    move-result v20
 
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    const-string v14, "force_all_apps_standby"
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v11, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, "force_all_apps_standby"
 
-    invoke-virtual {v11, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    iget-boolean v15, v4, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->forceAllAppsStandby:Z
+    move-result-object v0
 
-    invoke-virtual {v3, v11, v15}, Landroid/provider/DeviceConfig$Properties;->getBoolean(Ljava/lang/String;Z)Z
+    iget-boolean v6, v3, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->forceAllAppsStandby:Z
 
-    move-result v11
+    invoke-virtual {v2, v0, v6}, Landroid/provider/DeviceConfig$Properties;->getBoolean(Ljava/lang/String;Z)Z
 
-    invoke-virtual {v5, v14, v11}, Landroid/util/KeyValueListParser;->getBoolean(Ljava/lang/String;Z)Z
+    move-result v0
 
-    move-result v43
+    invoke-virtual {v4, v1, v0}, Landroid/util/KeyValueListParser;->getBoolean(Ljava/lang/String;Z)Z
 
-    move/from16 v28, v43
+    move-result v21
 
-    new-instance v11, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v14, "force_background_check"
+    const-string v1, "force_background_check"
 
-    invoke-virtual {v11, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v11, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v11
+    move-result-object v0
 
-    iget-boolean v15, v4, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->forceBackgroundCheck:Z
+    iget-boolean v6, v3, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->forceBackgroundCheck:Z
 
-    invoke-virtual {v3, v11, v15}, Landroid/provider/DeviceConfig$Properties;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-virtual {v2, v0, v6}, Landroid/provider/DeviceConfig$Properties;->getBoolean(Ljava/lang/String;Z)Z
 
-    move-result v11
+    move-result v0
 
-    invoke-virtual {v5, v14, v11}, Landroid/util/KeyValueListParser;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-virtual {v4, v1, v0}, Landroid/util/KeyValueListParser;->getBoolean(Ljava/lang/String;Z)Z
 
-    move-result v44
+    move-result v22
 
-    move/from16 v29, v44
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    new-instance v11, Ljava/lang/StringBuilder;
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "location_mode"
 
-    const-string v14, "location_mode"
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v11, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v11, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v11
+    iget v6, v3, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->locationMode:I
 
-    iget v15, v4, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->locationMode:I
+    invoke-virtual {v2, v0, v6}, Landroid/provider/DeviceConfig$Properties;->getInt(Ljava/lang/String;I)I
 
-    invoke-virtual {v3, v11, v15}, Landroid/provider/DeviceConfig$Properties;->getInt(Ljava/lang/String;I)I
+    move-result v0
 
-    move-result v11
+    invoke-virtual {v4, v1, v0}, Landroid/util/KeyValueListParser;->getInt(Ljava/lang/String;I)I
 
-    invoke-virtual {v5, v14, v11}, Landroid/util/KeyValueListParser;->getInt(Ljava/lang/String;I)I
+    move-result v23
 
-    move-result v45
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    move/from16 v30, v45
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    new-instance v11, Ljava/lang/StringBuilder;
+    const-string v1, "soundtrigger_mode"
 
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v14, "soundtrigger_mode"
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v11, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v11, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    iget v3, v3, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->soundTriggerMode:I
 
-    move-result-object v11
+    invoke-virtual {v2, v0, v3}, Landroid/provider/DeviceConfig$Properties;->getInt(Ljava/lang/String;I)I
 
-    iget v15, v4, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->soundTriggerMode:I
+    move-result v0
 
-    invoke-virtual {v3, v11, v15}, Landroid/provider/DeviceConfig$Properties;->getInt(Ljava/lang/String;I)I
+    invoke-virtual {v4, v1, v0}, Landroid/util/KeyValueListParser;->getInt(Ljava/lang/String;I)I
 
-    move-result v11
+    move-result v24
 
-    invoke-virtual {v5, v14, v11}, Landroid/util/KeyValueListParser;->getInt(Ljava/lang/String;I)I
+    new-instance v0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;
 
-    move-result v46
+    move-object v6, v0
 
-    move/from16 v31, v46
+    invoke-direct/range {v6 .. v24}, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;-><init>(FZZZZZZZZZZZZZZZII)V
 
-    new-instance v47, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;
-
-    move-object/from16 v11, v47
-
-    new-instance v14, Lcom/android/server/power/batterysaver/CpuFrequencies;
-
-    invoke-direct {v14}, Lcom/android/server/power/batterysaver/CpuFrequencies;-><init>()V
-
-    invoke-virtual {v14, v9}, Lcom/android/server/power/batterysaver/CpuFrequencies;->parseString(Ljava/lang/String;)Lcom/android/server/power/batterysaver/CpuFrequencies;
-
-    move-result-object v14
-
-    new-instance v15, Lcom/android/server/power/batterysaver/CpuFrequencies;
-
-    invoke-direct {v15}, Lcom/android/server/power/batterysaver/CpuFrequencies;-><init>()V
-
-    invoke-virtual {v15, v10}, Lcom/android/server/power/batterysaver/CpuFrequencies;->parseString(Ljava/lang/String;)Lcom/android/server/power/batterysaver/CpuFrequencies;
-
-    move-result-object v15
-
-    invoke-direct/range {v11 .. v31}, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;-><init>(FZLcom/android/server/power/batterysaver/CpuFrequencies;Lcom/android/server/power/batterysaver/CpuFrequencies;ZZZZZZZZZZZZZZII)V
-
-    return-object v47
+    return-object v0
 .end method
 
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
+    .locals 4
 
     const/4 v0, 0x1
 
@@ -1187,141 +1051,119 @@
     return v2
 
     :cond_1
-    move-object v1, p1
+    check-cast p1, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;
 
-    check-cast v1, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;
+    iget v1, p1, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->adjustBrightnessFactor:F
 
-    iget v3, v1, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->adjustBrightnessFactor:F
+    iget v3, p0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->adjustBrightnessFactor:F
 
-    iget v4, p0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->adjustBrightnessFactor:F
+    invoke-static {v1, v3}, Ljava/lang/Float;->compare(FF)I
 
-    invoke-static {v3, v4}, Ljava/lang/Float;->compare(FF)I
+    move-result v1
 
-    move-result v3
+    if-nez v1, :cond_2
 
-    if-nez v3, :cond_2
+    iget-boolean v1, p0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->advertiseIsEnabled:Z
 
-    iget-boolean v3, p0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->advertiseIsEnabled:Z
+    iget-boolean v3, p1, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->advertiseIsEnabled:Z
 
-    iget-boolean v4, v1, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->advertiseIsEnabled:Z
+    if-ne v1, v3, :cond_2
 
-    if-ne v3, v4, :cond_2
+    iget-boolean v1, p0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->deferFullBackup:Z
 
-    iget-boolean v3, p0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->deferFullBackup:Z
+    iget-boolean v3, p1, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->deferFullBackup:Z
 
-    iget-boolean v4, v1, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->deferFullBackup:Z
+    if-ne v1, v3, :cond_2
 
-    if-ne v3, v4, :cond_2
+    iget-boolean v1, p0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->deferKeyValueBackup:Z
 
-    iget-boolean v3, p0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->deferKeyValueBackup:Z
+    iget-boolean v3, p1, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->deferKeyValueBackup:Z
 
-    iget-boolean v4, v1, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->deferKeyValueBackup:Z
+    if-ne v1, v3, :cond_2
 
-    if-ne v3, v4, :cond_2
+    iget-boolean v1, p0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->disableAnimation:Z
 
-    iget-boolean v3, p0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->disableAnimation:Z
+    iget-boolean v3, p1, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->disableAnimation:Z
 
-    iget-boolean v4, v1, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->disableAnimation:Z
+    if-ne v1, v3, :cond_2
 
-    if-ne v3, v4, :cond_2
+    iget-boolean v1, p0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->disableAod:Z
 
-    iget-boolean v3, p0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->disableAod:Z
+    iget-boolean v3, p1, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->disableAod:Z
 
-    iget-boolean v4, v1, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->disableAod:Z
+    if-ne v1, v3, :cond_2
 
-    if-ne v3, v4, :cond_2
+    iget-boolean v1, p0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->disableLaunchBoost:Z
 
-    iget-boolean v3, p0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->disableLaunchBoost:Z
+    iget-boolean v3, p1, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->disableLaunchBoost:Z
 
-    iget-boolean v4, v1, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->disableLaunchBoost:Z
+    if-ne v1, v3, :cond_2
 
-    if-ne v3, v4, :cond_2
+    iget-boolean v1, p0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->disableOptionalSensors:Z
 
-    iget-boolean v3, p0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->disableOptionalSensors:Z
+    iget-boolean v3, p1, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->disableOptionalSensors:Z
 
-    iget-boolean v4, v1, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->disableOptionalSensors:Z
+    if-ne v1, v3, :cond_2
 
-    if-ne v3, v4, :cond_2
+    iget-boolean v1, p0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->disableVibration:Z
 
-    iget-boolean v3, p0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->disableVibration:Z
+    iget-boolean v3, p1, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->disableVibration:Z
 
-    iget-boolean v4, v1, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->disableVibration:Z
+    if-ne v1, v3, :cond_2
 
-    if-ne v3, v4, :cond_2
+    iget-boolean v1, p0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->enableAdjustBrightness:Z
 
-    iget-boolean v3, p0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->enableAdjustBrightness:Z
+    iget-boolean v3, p1, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->enableAdjustBrightness:Z
 
-    iget-boolean v4, v1, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->enableAdjustBrightness:Z
+    if-ne v1, v3, :cond_2
 
-    if-ne v3, v4, :cond_2
+    iget-boolean v1, p0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->enableDataSaver:Z
 
-    iget-boolean v3, p0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->enableDataSaver:Z
+    iget-boolean v3, p1, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->enableDataSaver:Z
 
-    iget-boolean v4, v1, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->enableDataSaver:Z
+    if-ne v1, v3, :cond_2
 
-    if-ne v3, v4, :cond_2
+    iget-boolean v1, p0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->enableFirewall:Z
 
-    iget-boolean v3, p0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->enableFirewall:Z
+    iget-boolean v3, p1, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->enableFirewall:Z
 
-    iget-boolean v4, v1, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->enableFirewall:Z
+    if-ne v1, v3, :cond_2
 
-    if-ne v3, v4, :cond_2
+    iget-boolean v1, p0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->enableNightMode:Z
 
-    iget-boolean v3, p0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->enableNightMode:Z
+    iget-boolean v3, p1, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->enableNightMode:Z
 
-    iget-boolean v4, v1, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->enableNightMode:Z
+    if-ne v1, v3, :cond_2
 
-    if-ne v3, v4, :cond_2
+    iget-boolean v1, p0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->enableQuickDoze:Z
 
-    iget-boolean v3, p0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->enableQuickDoze:Z
+    iget-boolean v3, p1, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->enableQuickDoze:Z
 
-    iget-boolean v4, v1, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->enableQuickDoze:Z
+    if-ne v1, v3, :cond_2
 
-    if-ne v3, v4, :cond_2
+    iget-boolean v1, p0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->forceAllAppsStandby:Z
 
-    iget-boolean v3, p0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->forceAllAppsStandby:Z
+    iget-boolean v3, p1, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->forceAllAppsStandby:Z
 
-    iget-boolean v4, v1, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->forceAllAppsStandby:Z
+    if-ne v1, v3, :cond_2
 
-    if-ne v3, v4, :cond_2
+    iget-boolean v1, p0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->forceBackgroundCheck:Z
 
-    iget-boolean v3, p0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->forceBackgroundCheck:Z
+    iget-boolean v3, p1, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->forceBackgroundCheck:Z
 
-    iget-boolean v4, v1, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->forceBackgroundCheck:Z
+    if-ne v1, v3, :cond_2
 
-    if-ne v3, v4, :cond_2
+    iget v1, p0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->locationMode:I
 
-    iget v3, p0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->locationMode:I
+    iget v3, p1, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->locationMode:I
 
-    iget v4, v1, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->locationMode:I
+    if-ne v1, v3, :cond_2
 
-    if-ne v3, v4, :cond_2
+    iget p0, p0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->soundTriggerMode:I
 
-    iget v3, p0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->soundTriggerMode:I
+    iget p1, p1, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->soundTriggerMode:I
 
-    iget v4, v1, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->soundTriggerMode:I
-
-    if-ne v3, v4, :cond_2
-
-    iget-object v3, p0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->cpuFrequenciesForInteractive:Lcom/android/server/power/batterysaver/CpuFrequencies;
-
-    iget-object v4, v1, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->cpuFrequenciesForInteractive:Lcom/android/server/power/batterysaver/CpuFrequencies;
-
-    invoke-virtual {v3, v4}, Lcom/android/server/power/batterysaver/CpuFrequencies;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_2
-
-    iget-object v3, p0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->cpuFrequenciesForNoninteractive:Lcom/android/server/power/batterysaver/CpuFrequencies;
-
-    iget-object v4, v1, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->cpuFrequenciesForNoninteractive:Lcom/android/server/power/batterysaver/CpuFrequencies;
-
-    invoke-virtual {v3, v4}, Lcom/android/server/power/batterysaver/CpuFrequencies;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_2
+    if-ne p0, p1, :cond_2
 
     goto :goto_0
 
@@ -1333,43 +1175,19 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .locals 0
 
-    iget v0, p0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->mHashCode:I
+    iget p0, p0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->mHashCode:I
 
-    return v0
+    return p0
 .end method
 
-.method toConfig()Landroid/os/BatterySaverPolicyConfig;
-    .locals 3
+.method public toConfig()Landroid/os/BatterySaverPolicyConfig;
+    .locals 2
 
     new-instance v0, Landroid/os/BatterySaverPolicyConfig$Builder;
 
     invoke-direct {v0}, Landroid/os/BatterySaverPolicyConfig$Builder;-><init>()V
-
-    iget-object v1, p0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->cpuFrequenciesForInteractive:Lcom/android/server/power/batterysaver/CpuFrequencies;
-
-    invoke-virtual {v1}, Lcom/android/server/power/batterysaver/CpuFrequencies;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    const-string v2, "cpufreq-i"
-
-    invoke-virtual {v0, v2, v1}, Landroid/os/BatterySaverPolicyConfig$Builder;->addDeviceSpecificSetting(Ljava/lang/String;Ljava/lang/String;)Landroid/os/BatterySaverPolicyConfig$Builder;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->cpuFrequenciesForNoninteractive:Lcom/android/server/power/batterysaver/CpuFrequencies;
-
-    invoke-virtual {v1}, Lcom/android/server/power/batterysaver/CpuFrequencies;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    const-string v2, "cpufreq-n"
-
-    invoke-virtual {v0, v2, v1}, Landroid/os/BatterySaverPolicyConfig$Builder;->addDeviceSpecificSetting(Ljava/lang/String;Ljava/lang/String;)Landroid/os/BatterySaverPolicyConfig$Builder;
-
-    move-result-object v0
 
     iget v1, p0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->adjustBrightnessFactor:F
 
@@ -1473,15 +1291,15 @@
 
     move-result-object v0
 
-    iget v1, p0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->soundTriggerMode:I
+    iget p0, p0, Lcom/android/server/power/batterysaver/BatterySaverPolicy$Policy;->soundTriggerMode:I
 
-    invoke-virtual {v0, v1}, Landroid/os/BatterySaverPolicyConfig$Builder;->setSoundTriggerMode(I)Landroid/os/BatterySaverPolicyConfig$Builder;
+    invoke-virtual {v0, p0}, Landroid/os/BatterySaverPolicyConfig$Builder;->setSoundTriggerMode(I)Landroid/os/BatterySaverPolicyConfig$Builder;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Landroid/os/BatterySaverPolicyConfig$Builder;->build()Landroid/os/BatterySaverPolicyConfig;
+    invoke-virtual {p0}, Landroid/os/BatterySaverPolicyConfig$Builder;->build()Landroid/os/BatterySaverPolicyConfig;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

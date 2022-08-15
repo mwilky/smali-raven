@@ -1,4 +1,4 @@
-.class abstract Lcom/android/server/power/ThermalManagerService$ThermalHalWrapper;
+.class public abstract Lcom/android/server/power/ThermalManagerService$ThermalHalWrapper;
 .super Ljava/lang/Object;
 .source "ThermalManagerService.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x408
+    accessFlags = 0x409
     name = "ThermalHalWrapper"
 .end annotation
 
@@ -22,33 +22,23 @@
 
 
 # static fields
-.field protected static final TAG:Ljava/lang/String;
-
-.field protected static final THERMAL_HAL_DEATH_COOKIE:I = 0x15ec
+.field public static final TAG:Ljava/lang/String; = "ThermalHalWrapper"
 
 
 # instance fields
-.field protected mCallback:Lcom/android/server/power/ThermalManagerService$ThermalHalWrapper$TemperatureChangedCallback;
+.field public mCallback:Lcom/android/server/power/ThermalManagerService$ThermalHalWrapper$TemperatureChangedCallback;
 
-.field protected final mHalLock:Ljava/lang/Object;
+.field public final mHalLock:Ljava/lang/Object;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    const-class v0, Lcom/android/server/power/ThermalManagerService$ThermalHalWrapper;
-
-    invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
-
-    move-result-object v0
-
-    sput-object v0, Lcom/android/server/power/ThermalManagerService$ThermalHalWrapper;->TAG:Ljava/lang/String;
+.method public static constructor <clinit>()V
+    .locals 0
 
     return-void
 .end method
 
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -64,13 +54,13 @@
 
 
 # virtual methods
-.method protected abstract connectToHal()Z
+.method public abstract connectToHal()Z
 .end method
 
-.method protected abstract dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
+.method public abstract dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
 .end method
 
-.method protected abstract getCurrentCoolingDevices(ZI)Ljava/util/List;
+.method public abstract getCurrentCoolingDevices(ZI)Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(ZI)",
@@ -81,7 +71,7 @@
     .end annotation
 .end method
 
-.method protected abstract getCurrentTemperatures(ZI)Ljava/util/List;
+.method public abstract getCurrentTemperatures(ZI)Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(ZI)",
@@ -92,7 +82,7 @@
     .end annotation
 .end method
 
-.method protected abstract getTemperatureThresholds(ZI)Ljava/util/List;
+.method public abstract getTemperatureThresholds(ZI)Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(ZI)",
@@ -103,7 +93,7 @@
     .end annotation
 .end method
 
-.method protected resendCurrentTemperatures()V
+.method public resendCurrentTemperatures()V
     .locals 6
 
     iget-object v0, p0, Lcom/android/server/power/ThermalManagerService$ThermalHalWrapper;->mHalLock:Ljava/lang/Object;
@@ -115,20 +105,18 @@
     :try_start_0
     invoke-virtual {p0, v1, v1}, Lcom/android/server/power/ThermalManagerService$ThermalHalWrapper;->getCurrentTemperatures(ZI)Ljava/util/List;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-interface {v1}, Ljava/util/List;->size()I
+    invoke-interface {v2}, Ljava/util/List;->size()I
 
-    move-result v2
-
-    const/4 v3, 0x0
+    move-result v3
 
     :goto_0
-    if-ge v3, v2, :cond_0
+    if-ge v1, v3, :cond_0
 
     iget-object v4, p0, Lcom/android/server/power/ThermalManagerService$ThermalHalWrapper;->mCallback:Lcom/android/server/power/ThermalManagerService$ThermalHalWrapper$TemperatureChangedCallback;
 
-    invoke-interface {v1, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v5
 
@@ -136,7 +124,7 @@
 
     invoke-interface {v4, v5}, Lcom/android/server/power/ThermalManagerService$ThermalHalWrapper$TemperatureChangedCallback;->onValues(Landroid/os/Temperature;)V
 
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
@@ -146,17 +134,19 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
-.method protected setCallback(Lcom/android/server/power/ThermalManagerService$ThermalHalWrapper$TemperatureChangedCallback;)V
+.method public setCallback(Lcom/android/server/power/ThermalManagerService$ThermalHalWrapper$TemperatureChangedCallback;)V
     .locals 0
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
 
     iput-object p1, p0, Lcom/android/server/power/ThermalManagerService$ThermalHalWrapper;->mCallback:Lcom/android/server/power/ThermalManagerService$ThermalHalWrapper$TemperatureChangedCallback;
 

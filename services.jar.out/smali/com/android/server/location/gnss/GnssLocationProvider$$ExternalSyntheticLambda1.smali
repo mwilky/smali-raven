@@ -1,33 +1,30 @@
 .class public final synthetic Lcom/android/server/location/gnss/GnssLocationProvider$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/app/AlarmManager$OnAlarmListener;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/android/server/location/gnss/GnssLocationProvider;
+.implements Ljava/util/function/ToLongFunction;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/location/gnss/GnssLocationProvider;)V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/server/location/gnss/GnssLocationProvider$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/location/gnss/GnssLocationProvider;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final onAlarm()V
-    .locals 1
+.method public final applyAsLong(Ljava/lang/Object;)J
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/location/gnss/GnssLocationProvider$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/location/gnss/GnssLocationProvider;
+    check-cast p1, Landroid/location/Location;
 
-    invoke-static {v0}, Lcom/android/server/location/gnss/GnssLocationProvider;->$r8$lambda$iZbaMN6kmJERVk6bydXJVkR45Gs(Lcom/android/server/location/gnss/GnssLocationProvider;)V
+    invoke-virtual {p1}, Landroid/location/Location;->getTime()J
 
-    return-void
+    move-result-wide p0
+
+    return-wide p0
 .end method

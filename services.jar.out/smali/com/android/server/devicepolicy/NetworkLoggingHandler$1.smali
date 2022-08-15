@@ -1,4 +1,4 @@
-.class Lcom/android/server/devicepolicy/NetworkLoggingHandler$1;
+.class public Lcom/android/server/devicepolicy/NetworkLoggingHandler$1;
 .super Ljava/lang/Object;
 .source "NetworkLoggingHandler.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/devicepolicy/NetworkLoggingHandler;
+.field public final synthetic this$0:Lcom/android/server/devicepolicy/NetworkLoggingHandler;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/devicepolicy/NetworkLoggingHandler;)V
+.method public constructor <init>(Lcom/android/server/devicepolicy/NetworkLoggingHandler;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/devicepolicy/NetworkLoggingHandler$1;->this$0:Lcom/android/server/devicepolicy/NetworkLoggingHandler;
@@ -37,7 +37,7 @@
 .method public onAlarm()V
     .locals 3
 
-    invoke-static {}, Lcom/android/server/devicepolicy/NetworkLoggingHandler;->access$000()Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/devicepolicy/NetworkLoggingHandler;->-$$Nest$sfgetTAG()Ljava/lang/String;
 
     move-result-object v0
 
@@ -51,7 +51,7 @@
 
     iget-object v2, p0, Lcom/android/server/devicepolicy/NetworkLoggingHandler$1;->this$0:Lcom/android/server/devicepolicy/NetworkLoggingHandler;
 
-    invoke-static {v2}, Lcom/android/server/devicepolicy/NetworkLoggingHandler;->access$100(Lcom/android/server/devicepolicy/NetworkLoggingHandler;)Ljava/util/ArrayList;
+    invoke-static {v2}, Lcom/android/server/devicepolicy/NetworkLoggingHandler;->-$$Nest$fgetmNetworkEvents(Lcom/android/server/devicepolicy/NetworkLoggingHandler;)Ljava/util/ArrayList;
 
     move-result-object v2
 
@@ -71,41 +71,37 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 v0, 0x0
+    iget-object v0, p0, Lcom/android/server/devicepolicy/NetworkLoggingHandler$1;->this$0:Lcom/android/server/devicepolicy/NetworkLoggingHandler;
 
-    iget-object v1, p0, Lcom/android/server/devicepolicy/NetworkLoggingHandler$1;->this$0:Lcom/android/server/devicepolicy/NetworkLoggingHandler;
-
-    monitor-enter v1
+    monitor-enter v0
 
     :try_start_0
-    iget-object v2, p0, Lcom/android/server/devicepolicy/NetworkLoggingHandler$1;->this$0:Lcom/android/server/devicepolicy/NetworkLoggingHandler;
+    iget-object v1, p0, Lcom/android/server/devicepolicy/NetworkLoggingHandler$1;->this$0:Lcom/android/server/devicepolicy/NetworkLoggingHandler;
 
-    invoke-static {v2}, Lcom/android/server/devicepolicy/NetworkLoggingHandler;->access$200(Lcom/android/server/devicepolicy/NetworkLoggingHandler;)Landroid/os/Bundle;
+    invoke-static {v1}, Lcom/android/server/devicepolicy/NetworkLoggingHandler;->-$$Nest$mfinalizeBatchAndBuildAdminMessageLocked(Lcom/android/server/devicepolicy/NetworkLoggingHandler;)Landroid/os/Bundle;
 
-    move-result-object v2
+    move-result-object v1
 
-    move-object v0, v2
-
-    monitor-exit v1
+    monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    iget-object v1, p0, Lcom/android/server/devicepolicy/NetworkLoggingHandler$1;->this$0:Lcom/android/server/devicepolicy/NetworkLoggingHandler;
+    iget-object p0, p0, Lcom/android/server/devicepolicy/NetworkLoggingHandler$1;->this$0:Lcom/android/server/devicepolicy/NetworkLoggingHandler;
 
-    invoke-static {v1, v0}, Lcom/android/server/devicepolicy/NetworkLoggingHandler;->access$300(Lcom/android/server/devicepolicy/NetworkLoggingHandler;Landroid/os/Bundle;)V
+    invoke-static {p0, v1}, Lcom/android/server/devicepolicy/NetworkLoggingHandler;->-$$Nest$mnotifyDeviceOwnerOrProfileOwner(Lcom/android/server/devicepolicy/NetworkLoggingHandler;Landroid/os/Bundle;)V
 
     :cond_0
     return-void
 
     :catchall_0
-    move-exception v2
+    move-exception p0
 
     :try_start_1
-    monitor-exit v1
+    monitor-exit v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v2
+    throw p0
 .end method

@@ -1,4 +1,4 @@
-.class Lcom/android/server/am/UserSwitchingDialog$1;
+.class public Lcom/android/server/am/UserSwitchingDialog$1;
 .super Landroid/os/Handler;
 .source "UserSwitchingDialog.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/am/UserSwitchingDialog;
+.field public final synthetic this$0:Lcom/android/server/am/UserSwitchingDialog;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/UserSwitchingDialog;)V
+.method public constructor <init>(Lcom/android/server/am/UserSwitchingDialog;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/am/UserSwitchingDialog$1;->this$0:Lcom/android/server/am/UserSwitchingDialog;
@@ -32,30 +32,27 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 2
+    .locals 1
 
-    iget v0, p1, Landroid/os/Message;->what:I
+    iget p1, p1, Landroid/os/Message;->what:I
 
-    packed-switch v0, :pswitch_data_0
+    const/4 v0, 0x1
+
+    if-eq p1, v0, :cond_0
 
     goto :goto_0
 
-    :pswitch_0
-    const-string v0, "ActivityManagerUserSwitchingDialog"
+    :cond_0
+    const-string p1, "ActivityManagerUserSwitchingDialog"
 
-    const-string/jumbo v1, "user switch window not shown in 3000 ms"
+    const-string/jumbo v0, "user switch window not shown in 3000 ms"
 
-    invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p1, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v0, p0, Lcom/android/server/am/UserSwitchingDialog$1;->this$0:Lcom/android/server/am/UserSwitchingDialog;
+    iget-object p0, p0, Lcom/android/server/am/UserSwitchingDialog$1;->this$0:Lcom/android/server/am/UserSwitchingDialog;
 
-    invoke-virtual {v0}, Lcom/android/server/am/UserSwitchingDialog;->startUser()V
+    invoke-virtual {p0}, Lcom/android/server/am/UserSwitchingDialog;->startUser()V
 
     :goto_0
     return-void
-
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_0
-    .end packed-switch
 .end method

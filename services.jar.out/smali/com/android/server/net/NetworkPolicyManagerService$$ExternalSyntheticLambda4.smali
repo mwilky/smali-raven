@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/net/NetworkPolicyManagerService$$ExternalSyntheticLambda4;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/IntConsumer;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final accept(I)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService$$ExternalSyntheticLambda4;->f$0:Lcom/android/server/net/NetworkPolicyManagerService;
+    iget-object p0, p0, Lcom/android/server/net/NetworkPolicyManagerService$$ExternalSyntheticLambda4;->f$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/net/NetworkPolicyManagerService;->lambda$updateRulesForRestrictBackgroundUL$5$NetworkPolicyManagerService(I)V
+    invoke-static {p0, p1}, Lcom/android/server/net/NetworkPolicyManagerService;->$r8$lambda$BpuB_irtnCNVtrk0FN5EPIRCMGE(Lcom/android/server/net/NetworkPolicyManagerService;I)V
 
     return-void
 .end method

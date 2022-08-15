@@ -1,4 +1,4 @@
-.class final Lcom/android/server/PinnerService$BinderService;
+.class public final Lcom/android/server/PinnerService$BinderService;
 .super Landroid/os/Binder;
 .source "PinnerService.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "BinderService"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/PinnerService;
+.field public final synthetic this$0:Lcom/android/server/PinnerService;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/server/PinnerService;)V
+.method public constructor <init>(Lcom/android/server/PinnerService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/PinnerService$BinderService;->this$0:Lcom/android/server/PinnerService;
@@ -29,7 +29,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/PinnerService;Lcom/android/server/PinnerService$1;)V
+.method public synthetic constructor <init>(Lcom/android/server/PinnerService;Lcom/android/server/PinnerService$BinderService-IA;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/PinnerService$BinderService;-><init>(Lcom/android/server/PinnerService;)V
@@ -37,109 +37,212 @@
     return-void
 .end method
 
-.method private printError(Ljava/io/FileDescriptor;Ljava/lang/String;)V
-    .locals 2
-
-    new-instance v0, Ljava/io/PrintWriter;
-
-    new-instance v1, Ljava/io/FileOutputStream;
-
-    invoke-direct {v1, p1}, Ljava/io/FileOutputStream;-><init>(Ljava/io/FileDescriptor;)V
-
-    invoke-direct {v0, v1}, Ljava/io/PrintWriter;-><init>(Ljava/io/OutputStream;)V
-
-    invoke-virtual {v0, p2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    invoke-virtual {v0}, Ljava/io/PrintWriter;->flush()V
-
-    return-void
-.end method
-
-.method private repin()V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/server/PinnerService$BinderService;->this$0:Lcom/android/server/PinnerService;
-
-    invoke-static {v0}, Lcom/android/server/PinnerService;->access$1200(Lcom/android/server/PinnerService;)V
-
-    iget-object v0, p0, Lcom/android/server/PinnerService$BinderService;->this$0:Lcom/android/server/PinnerService;
-
-    const/4 v1, 0x0
-
-    invoke-static {v0, v1}, Lcom/android/server/PinnerService;->access$1300(Lcom/android/server/PinnerService;I)V
-
-    return-void
-.end method
-
 
 # virtual methods
-.method protected dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    .locals 16
+.method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
+    .locals 10
 
-    move-object/from16 v1, p0
+    iget-object p1, p0, Lcom/android/server/PinnerService$BinderService;->this$0:Lcom/android/server/PinnerService;
 
-    move-object/from16 v2, p2
+    invoke-static {p1}, Lcom/android/server/PinnerService;->-$$Nest$fgetmContext(Lcom/android/server/PinnerService;)Landroid/content/Context;
 
-    iget-object v0, v1, Lcom/android/server/PinnerService$BinderService;->this$0:Lcom/android/server/PinnerService;
+    move-result-object p1
 
-    invoke-static {v0}, Lcom/android/server/PinnerService;->access$700(Lcom/android/server/PinnerService;)Landroid/content/Context;
+    const-string p3, "PinnerService"
 
-    move-result-object v0
+    invoke-static {p1, p3, p2}, Lcom/android/internal/util/DumpUtils;->checkDumpPermission(Landroid/content/Context;Ljava/lang/String;Ljava/io/PrintWriter;)Z
 
-    const-string v3, "PinnerService"
+    move-result p1
 
-    invoke-static {v0, v3, v2}, Lcom/android/internal/util/DumpUtils;->checkDumpPermission(Landroid/content/Context;Ljava/lang/String;Ljava/io/PrintWriter;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
     return-void
 
     :cond_0
-    iget-object v3, v1, Lcom/android/server/PinnerService$BinderService;->this$0:Lcom/android/server/PinnerService;
+    iget-object p1, p0, Lcom/android/server/PinnerService$BinderService;->this$0:Lcom/android/server/PinnerService;
 
-    monitor-enter v3
+    monitor-enter p1
 
-    const-wide/16 v4, 0x0
+    const-wide/16 v0, 0x0
 
     :try_start_0
-    iget-object v0, v1, Lcom/android/server/PinnerService$BinderService;->this$0:Lcom/android/server/PinnerService;
+    iget-object p3, p0, Lcom/android/server/PinnerService$BinderService;->this$0:Lcom/android/server/PinnerService;
 
-    invoke-static {v0}, Lcom/android/server/PinnerService;->access$800(Lcom/android/server/PinnerService;)Ljava/util/ArrayList;
+    invoke-static {p3}, Lcom/android/server/PinnerService;->-$$Nest$fgetmPinnedFiles(Lcom/android/server/PinnerService;)Ljava/util/ArrayList;
 
-    move-result-object v0
+    move-result-object p3
 
-    invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {p3}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p3
 
     :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p3}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    const/4 v3, 0x2
+
+    const/4 v4, 0x1
+
+    const/4 v5, 0x0
+
+    if-eqz v2, :cond_1
+
+    invoke-interface {p3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/server/PinnerService$PinnedFile;
+
+    const-string v6, "%s %s\n"
+
+    new-array v3, v3, [Ljava/lang/Object;
+
+    iget-object v7, v2, Lcom/android/server/PinnerService$PinnedFile;->fileName:Ljava/lang/String;
+
+    aput-object v7, v3, v5
+
+    iget v5, v2, Lcom/android/server/PinnerService$PinnedFile;->bytesPinned:I
+
+    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v5
+
+    aput-object v5, v3, v4
+
+    invoke-virtual {p2, v6, v3}, Ljava/io/PrintWriter;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintWriter;
+
+    iget v2, v2, Lcom/android/server/PinnerService$PinnedFile;->bytesPinned:I
+
+    int-to-long v2, v2
+
+    add-long/2addr v0, v2
+
+    goto :goto_0
+
+    :cond_1
+    invoke-virtual {p2}, Ljava/io/PrintWriter;->println()V
+
+    iget-object p3, p0, Lcom/android/server/PinnerService$BinderService;->this$0:Lcom/android/server/PinnerService;
+
+    invoke-static {p3}, Lcom/android/server/PinnerService;->-$$Nest$fgetmPinnedApps(Lcom/android/server/PinnerService;)Landroid/util/ArrayMap;
+
+    move-result-object p3
+
+    invoke-virtual {p3}, Landroid/util/ArrayMap;->keySet()Ljava/util/Set;
+
+    move-result-object p3
+
+    invoke-interface {p3}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object p3
+
+    :cond_2
+    invoke-interface {p3}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
+
+    invoke-interface {p3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/lang/Integer;
+
+    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
+
+    move-result v2
+
+    iget-object v6, p0, Lcom/android/server/PinnerService$BinderService;->this$0:Lcom/android/server/PinnerService;
+
+    invoke-static {v6}, Lcom/android/server/PinnerService;->-$$Nest$fgetmPinnedApps(Lcom/android/server/PinnerService;)Landroid/util/ArrayMap;
+
+    move-result-object v6
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v7
+
+    invoke-virtual {v6, v7}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Lcom/android/server/PinnerService$PinnedApp;
+
+    iget-object v7, p0, Lcom/android/server/PinnerService$BinderService;->this$0:Lcom/android/server/PinnerService;
+
+    invoke-static {v7, v2}, Lcom/android/server/PinnerService;->-$$Nest$mgetNameForKey(Lcom/android/server/PinnerService;I)Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual {p2, v7}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    const-string v7, " uid="
+
+    invoke-virtual {p2, v7}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget v7, v6, Lcom/android/server/PinnerService$PinnedApp;->uid:I
+
+    invoke-virtual {p2, v7}, Ljava/io/PrintWriter;->print(I)V
+
+    const-string v7, " active="
+
+    invoke-virtual {p2, v7}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget-boolean v6, v6, Lcom/android/server/PinnerService$PinnedApp;->active:Z
+
+    invoke-virtual {p2, v6}, Ljava/io/PrintWriter;->print(Z)V
+
+    invoke-virtual {p2}, Ljava/io/PrintWriter;->println()V
+
+    iget-object v6, p0, Lcom/android/server/PinnerService$BinderService;->this$0:Lcom/android/server/PinnerService;
+
+    invoke-static {v6}, Lcom/android/server/PinnerService;->-$$Nest$fgetmPinnedApps(Lcom/android/server/PinnerService;)Landroid/util/ArrayMap;
+
+    move-result-object v6
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    invoke-virtual {v6, v2}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/server/PinnerService$PinnedApp;
+
+    iget-object v2, v2, Lcom/android/server/PinnerService$PinnedApp;->mFiles:Ljava/util/ArrayList;
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v2
+
+    :goto_1
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    const/4 v7, 0x2
+    if-eqz v6, :cond_2
 
-    const/4 v8, 0x1
-
-    const/4 v9, 0x0
-
-    if-eqz v6, :cond_1
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v6
 
     check-cast v6, Lcom/android/server/PinnerService$PinnedFile;
 
-    const-string v10, "%s %s\n"
+    const-string v7, "  "
 
-    new-array v7, v7, [Ljava/lang/Object;
+    invoke-virtual {p2, v7}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    iget-object v11, v6, Lcom/android/server/PinnerService$PinnedFile;->fileName:Ljava/lang/String;
+    const-string v7, "%s %s\n"
 
-    aput-object v11, v7, v9
+    new-array v8, v3, [Ljava/lang/Object;
+
+    iget-object v9, v6, Lcom/android/server/PinnerService$PinnedFile;->fileName:Ljava/lang/String;
+
+    aput-object v9, v8, v5
 
     iget v9, v6, Lcom/android/server/PinnerService$PinnedFile;->bytesPinned:I
 
@@ -147,342 +250,202 @@
 
     move-result-object v9
 
-    aput-object v9, v7, v8
+    aput-object v9, v8, v4
 
-    invoke-virtual {v2, v10, v7}, Ljava/io/PrintWriter;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintWriter;
+    invoke-virtual {p2, v7, v8}, Ljava/io/PrintWriter;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintWriter;
 
-    iget v7, v6, Lcom/android/server/PinnerService$PinnedFile;->bytesPinned:I
+    iget v6, v6, Lcom/android/server/PinnerService$PinnedFile;->bytesPinned:I
 
-    int-to-long v7, v7
+    int-to-long v6, v6
 
-    add-long/2addr v4, v7
+    add-long/2addr v0, v6
 
-    goto :goto_0
-
-    :cond_1
-    invoke-virtual/range {p2 .. p2}, Ljava/io/PrintWriter;->println()V
-
-    iget-object v0, v1, Lcom/android/server/PinnerService$BinderService;->this$0:Lcom/android/server/PinnerService;
-
-    invoke-static {v0}, Lcom/android/server/PinnerService;->access$900(Lcom/android/server/PinnerService;)Landroid/util/ArrayMap;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/util/ArrayMap;->keySet()Ljava/util/Set;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
-
-    move-result-object v0
-
-    :goto_1
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v6
-
-    if-eqz v6, :cond_3
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v6
-
-    check-cast v6, Ljava/lang/Integer;
-
-    invoke-virtual {v6}, Ljava/lang/Integer;->intValue()I
-
-    move-result v6
-
-    iget-object v10, v1, Lcom/android/server/PinnerService$BinderService;->this$0:Lcom/android/server/PinnerService;
-
-    invoke-static {v10}, Lcom/android/server/PinnerService;->access$900(Lcom/android/server/PinnerService;)Landroid/util/ArrayMap;
-
-    move-result-object v10
-
-    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v11
-
-    invoke-virtual {v10, v11}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v10
-
-    check-cast v10, Lcom/android/server/PinnerService$PinnedApp;
-
-    iget-object v11, v1, Lcom/android/server/PinnerService$BinderService;->this$0:Lcom/android/server/PinnerService;
-
-    invoke-static {v11, v6}, Lcom/android/server/PinnerService;->access$1000(Lcom/android/server/PinnerService;I)Ljava/lang/String;
-
-    move-result-object v11
-
-    invoke-virtual {v2, v11}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    const-string v11, " uid="
-
-    invoke-virtual {v2, v11}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    iget v11, v10, Lcom/android/server/PinnerService$PinnedApp;->uid:I
-
-    invoke-virtual {v2, v11}, Ljava/io/PrintWriter;->print(I)V
-
-    const-string v11, " active="
-
-    invoke-virtual {v2, v11}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    iget-boolean v11, v10, Lcom/android/server/PinnerService$PinnedApp;->active:Z
-
-    invoke-virtual {v2, v11}, Ljava/io/PrintWriter;->print(Z)V
-
-    invoke-virtual/range {p2 .. p2}, Ljava/io/PrintWriter;->println()V
-
-    iget-object v11, v1, Lcom/android/server/PinnerService$BinderService;->this$0:Lcom/android/server/PinnerService;
-
-    invoke-static {v11}, Lcom/android/server/PinnerService;->access$900(Lcom/android/server/PinnerService;)Landroid/util/ArrayMap;
-
-    move-result-object v11
-
-    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v12
-
-    invoke-virtual {v11, v12}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v11
-
-    check-cast v11, Lcom/android/server/PinnerService$PinnedApp;
-
-    iget-object v11, v11, Lcom/android/server/PinnerService$PinnedApp;->mFiles:Ljava/util/ArrayList;
-
-    invoke-virtual {v11}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
-
-    move-result-object v11
-
-    :goto_2
-    invoke-interface {v11}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v12
-
-    if-eqz v12, :cond_2
-
-    invoke-interface {v11}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v12
-
-    check-cast v12, Lcom/android/server/PinnerService$PinnedFile;
-
-    const-string v13, "  "
-
-    invoke-virtual {v2, v13}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    const-string v13, "%s %s\n"
-
-    new-array v14, v7, [Ljava/lang/Object;
-
-    iget-object v15, v12, Lcom/android/server/PinnerService$PinnedFile;->fileName:Ljava/lang/String;
-
-    aput-object v15, v14, v9
-
-    iget v15, v12, Lcom/android/server/PinnerService$PinnedFile;->bytesPinned:I
-
-    invoke-static {v15}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v15
-
-    aput-object v15, v14, v8
-
-    invoke-virtual {v2, v13, v14}, Ljava/io/PrintWriter;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintWriter;
-
-    iget v13, v12, Lcom/android/server/PinnerService$PinnedFile;->bytesPinned:I
-
-    int-to-long v13, v13
-
-    add-long/2addr v4, v13
-
-    goto :goto_2
-
-    :cond_2
     goto :goto_1
 
     :cond_3
-    const-string v0, "Total size: %s\n"
+    const-string p3, "Total size: %s\n"
 
-    new-array v6, v8, [Ljava/lang/Object;
+    new-array v2, v4, [Ljava/lang/Object;
 
-    invoke-static {v4, v5}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
-
-    move-result-object v7
-
-    aput-object v7, v6, v9
-
-    invoke-virtual {v2, v0, v6}, Ljava/io/PrintWriter;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintWriter;
-
-    invoke-virtual/range {p2 .. p2}, Ljava/io/PrintWriter;->println()V
-
-    iget-object v0, v1, Lcom/android/server/PinnerService$BinderService;->this$0:Lcom/android/server/PinnerService;
-
-    invoke-static {v0}, Lcom/android/server/PinnerService;->access$1100(Lcom/android/server/PinnerService;)Landroid/util/ArrayMap;
+    invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/util/ArrayMap;->isEmpty()Z
+    aput-object v0, v2, v5
+
+    invoke-virtual {p2, p3, v2}, Ljava/io/PrintWriter;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintWriter;
+
+    invoke-virtual {p2}, Ljava/io/PrintWriter;->println()V
+
+    iget-object p3, p0, Lcom/android/server/PinnerService$BinderService;->this$0:Lcom/android/server/PinnerService;
+
+    invoke-static {p3}, Lcom/android/server/PinnerService;->-$$Nest$fgetmPendingRepin(Lcom/android/server/PinnerService;)Landroid/util/ArrayMap;
+
+    move-result-object p3
+
+    invoke-virtual {p3}, Landroid/util/ArrayMap;->isEmpty()Z
+
+    move-result p3
+
+    if-nez p3, :cond_5
+
+    const-string p3, "Pending repin: "
+
+    invoke-virtual {p2, p3}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget-object p3, p0, Lcom/android/server/PinnerService$BinderService;->this$0:Lcom/android/server/PinnerService;
+
+    invoke-static {p3}, Lcom/android/server/PinnerService;->-$$Nest$fgetmPendingRepin(Lcom/android/server/PinnerService;)Landroid/util/ArrayMap;
+
+    move-result-object p3
+
+    invoke-virtual {p3}, Landroid/util/ArrayMap;->values()Ljava/util/Collection;
+
+    move-result-object p3
+
+    invoke-interface {p3}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+
+    move-result-object p3
+
+    :goto_2
+    invoke-interface {p3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-nez v0, :cond_5
+    if-eqz v0, :cond_4
 
-    const-string v0, "Pending repin: "
-
-    invoke-virtual {v2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    iget-object v0, v1, Lcom/android/server/PinnerService$BinderService;->this$0:Lcom/android/server/PinnerService;
-
-    invoke-static {v0}, Lcom/android/server/PinnerService;->access$1100(Lcom/android/server/PinnerService;)Landroid/util/ArrayMap;
+    invoke-interface {p3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/util/ArrayMap;->values()Ljava/util/Collection;
+    check-cast v0, Ljava/lang/Integer;
+
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+
+    move-result v0
+
+    iget-object v1, p0, Lcom/android/server/PinnerService$BinderService;->this$0:Lcom/android/server/PinnerService;
+
+    invoke-static {v1, v0}, Lcom/android/server/PinnerService;->-$$Nest$mgetNameForKey(Lcom/android/server/PinnerService;I)Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    move-result-object v0
+    const/16 v0, 0x20
 
-    :goto_3
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(C)V
 
-    move-result v6
-
-    if-eqz v6, :cond_4
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v6
-
-    check-cast v6, Ljava/lang/Integer;
-
-    invoke-virtual {v6}, Ljava/lang/Integer;->intValue()I
-
-    move-result v6
-
-    iget-object v7, v1, Lcom/android/server/PinnerService$BinderService;->this$0:Lcom/android/server/PinnerService;
-
-    invoke-static {v7, v6}, Lcom/android/server/PinnerService;->access$1000(Lcom/android/server/PinnerService;I)Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v2, v7}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    const/16 v7, 0x20
-
-    invoke-virtual {v2, v7}, Ljava/io/PrintWriter;->print(C)V
-
-    goto :goto_3
+    goto :goto_2
 
     :cond_4
-    invoke-virtual/range {p2 .. p2}, Ljava/io/PrintWriter;->println()V
+    invoke-virtual {p2}, Ljava/io/PrintWriter;->println()V
 
     :cond_5
-    monitor-exit v3
+    monitor-exit p1
 
     return-void
 
     :catchall_0
-    move-exception v0
+    move-exception p0
 
-    monitor-exit v3
+    monitor-exit p1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw p0
 .end method
 
 .method public onShellCommand(Ljava/io/FileDescriptor;Ljava/io/FileDescriptor;Ljava/io/FileDescriptor;[Ljava/lang/String;Landroid/os/ShellCallback;Landroid/os/ResultReceiver;)V
-    .locals 6
+    .locals 2
 
-    array-length v0, p4
+    array-length p1, p4
 
-    const/4 v1, 0x1
+    const/4 p3, -0x1
 
-    const/4 v2, 0x0
+    const/4 p5, 0x1
 
-    const/4 v3, -0x1
+    const/4 v0, 0x0
 
-    if-ge v0, v1, :cond_0
+    if-ge p1, p5, :cond_0
 
-    const-string v0, "Command is not given."
+    const-string p1, "Command is not given."
 
-    invoke-direct {p0, p2, v0}, Lcom/android/server/PinnerService$BinderService;->printError(Ljava/io/FileDescriptor;Ljava/lang/String;)V
+    invoke-virtual {p0, p2, p1}, Lcom/android/server/PinnerService$BinderService;->printError(Ljava/io/FileDescriptor;Ljava/lang/String;)V
 
-    invoke-virtual {p6, v3, v2}, Landroid/os/ResultReceiver;->send(ILandroid/os/Bundle;)V
+    invoke-virtual {p6, p3, v0}, Landroid/os/ResultReceiver;->send(ILandroid/os/Bundle;)V
 
     return-void
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    aget-object v4, p4, v0
+    aget-object p4, p4, p1
 
-    invoke-virtual {v4}, Ljava/lang/String;->hashCode()I
+    invoke-virtual {p4}, Ljava/lang/String;->hashCode()I
 
-    move-result v5
+    const-string/jumbo v1, "repin"
 
-    packed-switch v5, :pswitch_data_0
+    invoke-virtual {p4, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    new-array p5, p5, [Ljava/lang/Object;
+
+    aput-object p4, p5, p1
+
+    const-string p1, "Unknown pinner command: %s. Supported commands: repin"
+
+    invoke-static {p1, p5}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {p0, p2, p1}, Lcom/android/server/PinnerService$BinderService;->printError(Ljava/io/FileDescriptor;Ljava/lang/String;)V
+
+    invoke-virtual {p6, p3, v0}, Landroid/os/ResultReceiver;->send(ILandroid/os/Bundle;)V
+
+    return-void
 
     :cond_1
-    goto :goto_0
+    invoke-virtual {p0}, Lcom/android/server/PinnerService$BinderService;->repin()V
 
-    :pswitch_0
-    const-string/jumbo v5, "repin"
-
-    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_1
-
-    move v5, v0
-
-    goto :goto_1
-
-    :goto_0
-    move v5, v3
-
-    :goto_1
-    packed-switch v5, :pswitch_data_1
-
-    new-array v1, v1, [Ljava/lang/Object;
-
-    aput-object v4, v1, v0
-
-    const-string v0, "Unknown pinner command: %s. Supported commands: repin"
-
-    invoke-static {v0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-direct {p0, p2, v0}, Lcom/android/server/PinnerService$BinderService;->printError(Ljava/io/FileDescriptor;Ljava/lang/String;)V
-
-    invoke-virtual {p6, v3, v2}, Landroid/os/ResultReceiver;->send(ILandroid/os/Bundle;)V
+    invoke-virtual {p6, p1, v0}, Landroid/os/ResultReceiver;->send(ILandroid/os/Bundle;)V
 
     return-void
+.end method
 
-    :pswitch_1
-    invoke-direct {p0}, Lcom/android/server/PinnerService$BinderService;->repin()V
+.method public final printError(Ljava/io/FileDescriptor;Ljava/lang/String;)V
+    .locals 1
 
-    nop
+    new-instance p0, Ljava/io/PrintWriter;
 
-    invoke-virtual {p6, v0, v2}, Landroid/os/ResultReceiver;->send(ILandroid/os/Bundle;)V
+    new-instance v0, Ljava/io/FileOutputStream;
+
+    invoke-direct {v0, p1}, Ljava/io/FileOutputStream;-><init>(Ljava/io/FileDescriptor;)V
+
+    invoke-direct {p0, v0}, Ljava/io/PrintWriter;-><init>(Ljava/io/OutputStream;)V
+
+    invoke-virtual {p0, p2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    invoke-virtual {p0}, Ljava/io/PrintWriter;->flush()V
 
     return-void
+.end method
 
-    :pswitch_data_0
-    .packed-switch 0x6761282
-        :pswitch_0
-    .end packed-switch
+.method public final repin()V
+    .locals 1
 
-    :pswitch_data_1
-    .packed-switch 0x0
-        :pswitch_1
-    .end packed-switch
+    iget-object v0, p0, Lcom/android/server/PinnerService$BinderService;->this$0:Lcom/android/server/PinnerService;
+
+    invoke-static {v0}, Lcom/android/server/PinnerService;->-$$Nest$msendUnpinAppsMessage(Lcom/android/server/PinnerService;)V
+
+    iget-object p0, p0, Lcom/android/server/PinnerService$BinderService;->this$0:Lcom/android/server/PinnerService;
+
+    const/4 v0, 0x0
+
+    invoke-static {p0, v0}, Lcom/android/server/PinnerService;->-$$Nest$msendPinAppsWithUpdatedKeysMessage(Lcom/android/server/PinnerService;I)V
+
+    return-void
 .end method

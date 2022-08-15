@@ -1,4 +1,4 @@
-.class Lcom/android/server/am/ProcessStatsService$1;
+.class public Lcom/android/server/am/ProcessStatsService$1;
 .super Ljava/lang/Object;
 .source "ProcessStatsService.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/server/am/ProcessStatsService;
+.field public final synthetic this$0:Lcom/android/server/am/ProcessStatsService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/am/ProcessStatsService;)V
+.method public constructor <init>(Lcom/android/server/am/ProcessStatsService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/am/ProcessStatsService$1;->this$0:Lcom/android/server/am/ProcessStatsService;
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .locals 4
 
     iget-object v0, p0, Lcom/android/server/am/ProcessStatsService$1;->this$0:Lcom/android/server/am/ProcessStatsService;
 
@@ -58,25 +58,23 @@
 
     iget-object v1, p0, Lcom/android/server/am/ProcessStatsService$1;->this$0:Lcom/android/server/am/ProcessStatsService;
 
-    iget-object v1, v1, Lcom/android/server/am/ProcessStatsService;->mProcessStats:Lcom/android/internal/app/procstats/ProcessStats;
+    iget-object v2, v1, Lcom/android/server/am/ProcessStatsService;->mProcessStats:Lcom/android/internal/app/procstats/ProcessStats;
 
-    iget v2, v1, Lcom/android/internal/app/procstats/ProcessStats;->mFlags:I
+    iget v3, v2, Lcom/android/internal/app/procstats/ProcessStats;->mFlags:I
 
-    or-int/lit8 v2, v2, 0x4
+    or-int/lit8 v3, v3, 0x4
 
-    iput v2, v1, Lcom/android/internal/app/procstats/ProcessStats;->mFlags:I
-
-    iget-object v1, p0, Lcom/android/server/am/ProcessStatsService$1;->this$0:Lcom/android/server/am/ProcessStatsService;
+    iput v3, v2, Lcom/android/internal/app/procstats/ProcessStats;->mFlags:I
 
     const/4 v2, 0x1
 
-    invoke-static {v1, v2, v2}, Lcom/android/server/am/ProcessStatsService;->access$000(Lcom/android/server/am/ProcessStatsService;ZZ)V
+    invoke-static {v1, v2, v2}, Lcom/android/server/am/ProcessStatsService;->-$$Nest$mwriteStateLocked(Lcom/android/server/am/ProcessStatsService;ZZ)V
 
-    iget-object v1, p0, Lcom/android/server/am/ProcessStatsService$1;->this$0:Lcom/android/server/am/ProcessStatsService;
+    iget-object p0, p0, Lcom/android/server/am/ProcessStatsService$1;->this$0:Lcom/android/server/am/ProcessStatsService;
 
-    iget-object v1, v1, Lcom/android/server/am/ProcessStatsService;->mProcessStats:Lcom/android/internal/app/procstats/ProcessStats;
+    iget-object p0, p0, Lcom/android/server/am/ProcessStatsService;->mProcessStats:Lcom/android/internal/app/procstats/ProcessStats;
 
-    invoke-virtual {v1, v2}, Lcom/android/internal/app/procstats/ProcessStats;->evaluateSystemProperties(Z)Z
+    invoke-virtual {p0, v2}, Lcom/android/internal/app/procstats/ProcessStats;->evaluateSystemProperties(Z)Z
 
     :cond_0
     monitor-exit v0
@@ -84,11 +82,11 @@
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method

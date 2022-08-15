@@ -1,4 +1,4 @@
-.class Lcom/android/server/powerstats/ProtoStreamUtils$ChannelUtils;
+.class public Lcom/android/server/powerstats/ProtoStreamUtils$ChannelUtils;
 .super Ljava/lang/Object;
 .source "ProtoStreamUtils.java"
 
@@ -9,20 +9,12 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "ChannelUtils"
 .end annotation
 
 
 # direct methods
-.method constructor <init>()V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
 .method public static dumpsys([Landroid/hardware/power/stats/Channel;Ljava/io/PrintWriter;)V
     .locals 3
 
@@ -87,7 +79,7 @@
 .end method
 
 .method public static getProtoBytes([Landroid/hardware/power/stats/Channel;)[B
-    .locals 2
+    .locals 1
 
     new-instance v0, Landroid/util/proto/ProtoOutputStream;
 
@@ -97,9 +89,9 @@
 
     invoke-virtual {v0}, Landroid/util/proto/ProtoOutputStream;->getBytes()[B
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method
 
 .method public static packProtoMessage([Landroid/hardware/power/stats/Channel;Landroid/util/proto/ProtoOutputStream;)V
@@ -148,73 +140,6 @@
     invoke-virtual {p1, v3, v4, v5}, Landroid/util/proto/ProtoOutputStream;->write(JLjava/lang/String;)V
 
     invoke-virtual {p1, v1, v2}, Landroid/util/proto/ProtoOutputStream;->end(J)V
-
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_0
-
-    :cond_1
-    return-void
-.end method
-
-.method public static print([Landroid/hardware/power/stats/Channel;)V
-    .locals 4
-
-    if-nez p0, :cond_0
-
-    return-void
-
-    :cond_0
-    const/4 v0, 0x0
-
-    :goto_0
-    array-length v1, p0
-
-    if-ge v0, v1, :cond_1
-
-    invoke-static {}, Lcom/android/server/powerstats/ProtoStreamUtils;->access$000()Ljava/lang/String;
-
-    move-result-object v1
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "ChannelId: "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    aget-object v3, p0, v0
-
-    iget v3, v3, Landroid/hardware/power/stats/Channel;->id:I
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v3, ", ChannelName: "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    aget-object v3, p0, v0
-
-    iget-object v3, v3, Landroid/hardware/power/stats/Channel;->name:Ljava/lang/String;
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v3, ", ChannelSubsystem: "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    aget-object v3, p0, v0
-
-    iget-object v3, v3, Landroid/hardware/power/stats/Channel;->subsystem:Ljava/lang/String;
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     add-int/lit8 v0, v0, 0x1
 

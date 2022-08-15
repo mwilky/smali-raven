@@ -1,4 +1,4 @@
-.class final Lcom/android/server/am/PendingIntentRecord$TempAllowListDuration;
+.class public final Lcom/android/server/am/PendingIntentRecord$TempAllowListDuration;
 .super Ljava/lang/Object;
 .source "PendingIntentRecord.java"
 
@@ -9,23 +9,23 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = "TempAllowListDuration"
 .end annotation
 
 
 # instance fields
-.field duration:J
+.field public duration:J
 
-.field reason:Ljava/lang/String;
+.field public reason:Ljava/lang/String;
 
-.field reasonCode:I
+.field public reasonCode:I
 
-.field type:I
+.field public type:I
 
 
 # direct methods
-.method constructor <init>(JIILjava/lang/String;)V
+.method public constructor <init>(JIILjava/lang/String;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

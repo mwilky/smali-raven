@@ -1,4 +1,4 @@
-.class Lcom/android/server/VcnManagementService$PolicyListenerBinderDeath;
+.class public Lcom/android/server/VcnManagementService$PolicyListenerBinderDeath;
 .super Ljava/lang/Object;
 .source "VcnManagementService.java"
 
@@ -12,19 +12,27 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "PolicyListenerBinderDeath"
 .end annotation
 
 
 # instance fields
-.field private final mListener:Landroid/net/vcn/IVcnUnderlyingNetworkPolicyListener;
+.field public final mListener:Landroid/net/vcn/IVcnUnderlyingNetworkPolicyListener;
 
-.field final synthetic this$0:Lcom/android/server/VcnManagementService;
+.field public final synthetic this$0:Lcom/android/server/VcnManagementService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/VcnManagementService;Landroid/net/vcn/IVcnUnderlyingNetworkPolicyListener;)V
+.method public static bridge synthetic -$$Nest$fgetmListener(Lcom/android/server/VcnManagementService$PolicyListenerBinderDeath;)Landroid/net/vcn/IVcnUnderlyingNetworkPolicyListener;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/server/VcnManagementService$PolicyListenerBinderDeath;->mListener:Landroid/net/vcn/IVcnUnderlyingNetworkPolicyListener;
+
+    return-object p0
+.end method
+
+.method public constructor <init>(Lcom/android/server/VcnManagementService;Landroid/net/vcn/IVcnUnderlyingNetworkPolicyListener;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/VcnManagementService$PolicyListenerBinderDeath;->this$0:Lcom/android/server/VcnManagementService;
@@ -36,20 +44,12 @@
     return-void
 .end method
 
-.method static synthetic access$2200(Lcom/android/server/VcnManagementService$PolicyListenerBinderDeath;)Landroid/net/vcn/IVcnUnderlyingNetworkPolicyListener;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/VcnManagementService$PolicyListenerBinderDeath;->mListener:Landroid/net/vcn/IVcnUnderlyingNetworkPolicyListener;
-
-    return-object v0
-.end method
-
 
 # virtual methods
 .method public binderDied()V
     .locals 2
 
-    invoke-static {}, Lcom/android/server/VcnManagementService;->access$300()Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/VcnManagementService;->-$$Nest$sfgetTAG()Ljava/lang/String;
 
     move-result-object v0
 
@@ -59,9 +59,9 @@
 
     iget-object v0, p0, Lcom/android/server/VcnManagementService$PolicyListenerBinderDeath;->this$0:Lcom/android/server/VcnManagementService;
 
-    iget-object v1, p0, Lcom/android/server/VcnManagementService$PolicyListenerBinderDeath;->mListener:Landroid/net/vcn/IVcnUnderlyingNetworkPolicyListener;
+    iget-object p0, p0, Lcom/android/server/VcnManagementService$PolicyListenerBinderDeath;->mListener:Landroid/net/vcn/IVcnUnderlyingNetworkPolicyListener;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/VcnManagementService;->removeVcnUnderlyingNetworkPolicyListener(Landroid/net/vcn/IVcnUnderlyingNetworkPolicyListener;)V
+    invoke-virtual {v0, p0}, Lcom/android/server/VcnManagementService;->removeVcnUnderlyingNetworkPolicyListener(Landroid/net/vcn/IVcnUnderlyingNetworkPolicyListener;)V
 
     return-void
 .end method

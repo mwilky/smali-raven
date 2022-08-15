@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/blob/BlobMetadata$$ExternalSyntheticLambda5;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Predicate;
@@ -27,17 +28,17 @@
 
 # virtual methods
 .method public final test(Ljava/lang/Object;)Z
-    .locals 2
+    .locals 1
 
     iget v0, p0, Lcom/android/server/blob/BlobMetadata$$ExternalSyntheticLambda5;->f$0:I
 
-    iget-object v1, p0, Lcom/android/server/blob/BlobMetadata$$ExternalSyntheticLambda5;->f$1:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/server/blob/BlobMetadata$$ExternalSyntheticLambda5;->f$1:Ljava/lang/String;
 
     check-cast p1, Lcom/android/server/blob/BlobMetadata$Leasee;
 
-    invoke-static {v0, v1, p1}, Lcom/android/server/blob/BlobMetadata;->lambda$removeLeasee$2(ILjava/lang/String;Lcom/android/server/blob/BlobMetadata$Leasee;)Z
+    invoke-static {v0, p0, p1}, Lcom/android/server/blob/BlobMetadata;->$r8$lambda$1kPlsEMCe_zPKmHIoBHpAwetktA(ILjava/lang/String;Lcom/android/server/blob/BlobMetadata$Leasee;)Z
 
-    move-result p1
+    move-result p0
 
-    return p1
+    return p0
 .end method

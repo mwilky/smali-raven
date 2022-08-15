@@ -1,4 +1,4 @@
-.class Lcom/android/server/usage/AppStandbyController$ContentProviderUsageRecord;
+.class public Lcom/android/server/usage/AppStandbyController$ContentProviderUsageRecord;
 .super Ljava/lang/Object;
 .source "AppStandbyController.java"
 
@@ -9,13 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "ContentProviderUsageRecord"
 .end annotation
 
 
 # static fields
-.field private static final sPool:Lcom/android/server/usage/AppStandbyController$Pool;
+.field public static final sPool:Lcom/android/server/usage/AppStandbyController$Pool;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/android/server/usage/AppStandbyController$Pool<",
@@ -35,7 +35,7 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 2
 
     new-instance v0, Lcom/android/server/usage/AppStandbyController$Pool;
@@ -51,7 +51,7 @@
     return-void
 .end method
 
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -60,7 +60,7 @@
 .end method
 
 .method public static obtain(Ljava/lang/String;Ljava/lang/String;I)Lcom/android/server/usage/AppStandbyController$ContentProviderUsageRecord;
-    .locals 2
+    .locals 1
 
     sget-object v0, Lcom/android/server/usage/AppStandbyController$ContentProviderUsageRecord;->sPool:Lcom/android/server/usage/AppStandbyController$Pool;
 
@@ -72,11 +72,9 @@
 
     if-nez v0, :cond_0
 
-    new-instance v1, Lcom/android/server/usage/AppStandbyController$ContentProviderUsageRecord;
+    new-instance v0, Lcom/android/server/usage/AppStandbyController$ContentProviderUsageRecord;
 
-    invoke-direct {v1}, Lcom/android/server/usage/AppStandbyController$ContentProviderUsageRecord;-><init>()V
-
-    move-object v0, v1
+    invoke-direct {v0}, Lcom/android/server/usage/AppStandbyController$ContentProviderUsageRecord;-><init>()V
 
     :cond_0
     iput-object p0, v0, Lcom/android/server/usage/AppStandbyController$ContentProviderUsageRecord;->name:Ljava/lang/String;

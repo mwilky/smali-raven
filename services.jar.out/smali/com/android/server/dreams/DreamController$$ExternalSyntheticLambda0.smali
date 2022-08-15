@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/dreams/DreamController$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -23,11 +24,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/dreams/DreamController$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/dreams/DreamController;
+    iget-object p0, p0, Lcom/android/server/dreams/DreamController$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/dreams/DreamController;
 
-    invoke-virtual {v0}, Lcom/android/server/dreams/DreamController;->lambda$new$0$DreamController()V
+    invoke-static {p0}, Lcom/android/server/dreams/DreamController;->$r8$lambda$s0-PjqcFvDQ2ef4CtAZmJfIInKU(Lcom/android/server/dreams/DreamController;)V
 
     return-void
 .end method

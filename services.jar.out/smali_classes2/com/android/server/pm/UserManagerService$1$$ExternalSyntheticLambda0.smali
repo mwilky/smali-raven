@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/server/pm/UserManagerService$1$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -31,15 +32,15 @@
 
 # virtual methods
 .method public final run()V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/pm/UserManagerService$1$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/pm/UserManagerService$1;
 
     iget v1, p0, Lcom/android/server/pm/UserManagerService$1$$ExternalSyntheticLambda0;->f$1:I
 
-    iget-object v2, p0, Lcom/android/server/pm/UserManagerService$1$$ExternalSyntheticLambda0;->f$2:Landroid/content/IntentSender;
+    iget-object p0, p0, Lcom/android/server/pm/UserManagerService$1$$ExternalSyntheticLambda0;->f$2:Landroid/content/IntentSender;
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/pm/UserManagerService$1;->lambda$onReceive$0$UserManagerService$1(ILandroid/content/IntentSender;)V
+    invoke-static {v0, v1, p0}, Lcom/android/server/pm/UserManagerService$1;->$r8$lambda$CP436xQlmBbqLZnSXGioN5U-DBc(Lcom/android/server/pm/UserManagerService$1;ILandroid/content/IntentSender;)V
 
     return-void
 .end method
